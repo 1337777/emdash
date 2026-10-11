@@ -222,3 +222,61 @@ identify the shifted and original bases, or force all FF strict. The exact
 source hashes and three receipt outcomes are retained in
 `duality_migration_verification.json`. Replay when these owners or the pinned
 Cartesian stage change; retire the builder after qualified promotion.
+
+## Displayed transpose, products and evaluation
+
+`displayed_op_migration.py` continues the pinned duality candidate with the
+Cartesian transformation action of fibrewise transpose. The finite
+`op_funcd_profile_model.py` control shows why the old same-profile operation
+cannot be applied to arbitrary lax FF even when its component functors and
+all family transports are strict. This model is an ordinary semantic
+counterexample, not a Lambdapi proof or a full omega dual-action construction.
+
+The candidate `Op_funcd` raw view accepts a classified strict transformation;
+its boxed result is a native projection of the whole family operator. This
+is an upstream component only. The general blended `homd_int(FF)` and
+`fdapp1_int_transfd(FF)` contract is not solved by restricting this input.
+No arbitrary FF is reclassified and no supplied equality/comparison is added.
+
+```bash
+python3 audits/strict-default-action-boundary/displayed_op_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_displayed_op/owner_prefix.lp
+```
+
+The prefix passes 50 positives and 11 negatives. `no_projection_join.lp`
+must fail at its cap-first object comparison; the selected construction
+joins both object and transformation formation orders at the existing
+postcomposition and composition-action owners. The latter clause retains
+two product endpoints required by the measured subject-reduction check.
+Warnings rise from 658 to 694 (36 normalized blocks added, none removed),
+so full integration and warning qualification remain required.
+`displayed_op_verification.json` records exact receipts and intermediate
+failed controls. Its full-file target proceeds to the old product action.
+
+`displayed_product_migration.py` adapts that first existing consumer and its
+adjacent section/transport evaluations. Product inputs remain arbitrary
+displayed transformations; the two product betas still return the original
+FF/GG. The evaluation definitions retain their composition bodies through
+the existing Cartesian inclusion, with no new Pi primitive.
+
+```bash
+python3 audits/strict-default-action-boundary/displayed_product_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_displayed_product/evaluation_prefix.lp
+```
+
+The product prefix passes 59 positives/12 negatives; the evaluation prefix
+passes 64/13, including nonidentity base-2-cell action. The full file fails
+at `Functor_catd`'s whole action: its Hom(Cat)-derived body now produces
+Cartesian mapping Homs while its old fibre and intermediate types remain
+ambient. The correct mixed-family profile needs review; neither identifying
+these categories nor making all FF strictly natural is an accepted fix.
+`displayed_product_verification.json` records this boundary and the preceding
+evaluation-inclusion failure. Existing legacy Sigma declarations in the
+prefix have not thereby been semantically qualified.
+
+Replay when the strict action, Cat Hom, duality, displayed component, product,
+Pi or transport-evaluation owners change. These are non-library checkpoints;
+generated sources/raw logs remain ignored, and a passing prefix never
+replaces the required full source, consumer and CI validation.

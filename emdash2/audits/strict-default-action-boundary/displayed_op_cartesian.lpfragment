@@ -1,0 +1,45 @@
+// Cartesian transformation action of the corrected whole family operator.
+// The boxed result is a native projection of Op_catd_func, so no strictness
+// certificate, equality path or independent comparison is an input.
+injective symbol Op_funcd_cart [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D))
+  : τ (@StrictTransfor (CoAt2_cat K) Cat_cat (@Op_catd K E) (@Op_catd K D));
+rule @fapp1_fapp0 _ _ (Op_catd_func $K) $E $D $U
+  ↪ @Op_funcd_cart $K $E $D $U;
+
+// Preserve the public displayed-functor view, with its actual admission type.
+symbol Op_funcd [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D))
+  : τ (Functord (@Op_catd K E) (@Op_catd K D))
+≔ @strict_transfor (CoAt2_cat K) Cat_cat (@Op_catd K E) (@Op_catd K D)
+    (@Op_funcd_cart K E D U);
+
+rule @Op_funcd_cart _ _ _ (@Op_funcd_cart $K $E $D $U) ↪ $U;
+rule @Op_funcd_cart $K $E $E (@id (Functor_cart_cat $K Cat_cat) $E)
+  ↪ @id (Functor_cart_cat (CoAt2_cat $K) Cat_cat) (@Op_catd $K $E);
+rule @Op_funcd_cart $K $E $G
+      (@comp_fapp0 (Functor_cart_cat $K Cat_cat) $E $D $G $V $U)
+  ↪ @comp_fapp0 (Functor_cart_cat (CoAt2_cat $K) Cat_cat)
+      (@Op_catd $K $E) (@Op_catd $K $D) (@Op_catd $K $G)
+      (@Op_funcd_cart $K $D $G $V) (@Op_funcd_cart $K $E $D $U);
+
+// Point component is the original fibre functor with dimension one reversed.
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _ (@Op_funcd_cart $K $E $D $U))
+  ↪ @Op_func (Fibre_cat $E $x) (Fibre_cat $D $x)
+      (@tapp0_fapp0 $K Cat_cat $E $D $x (@strict_transfor $K Cat_cat $E $D $U));
+
+// Whole off-diagonal action retains the corrected C2 base and all higher cells.
+rule @tapp1_func _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@Op_funcd_cart $K $E $D $U))
+  ↪ @comp_cat_fapp0
+      (Op_cat (Hom_cat $K $x $y))
+      (Op_cat (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $D $y)))
+      (Functor_cart_cat (Op_cat (Fibre_cat $E $x)) (Op_cat (Fibre_cat $D $y)))
+      (Op_func_func (Fibre_cat $E $x) (Fibre_cat $D $y))
+      (@Op_func _ _
+        (@tapp1_func $K Cat_cat $E $D $x $y (@strict_transfor $K Cat_cat $E $D $U)));
+rule @tapp1_fapp0 _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@Op_funcd_cart $K $E $D $U)) $p
+  ↪ @Op_func (Fibre_cat $E $x) (Fibre_cat $D $y)
+      (@tapp1_fapp0 $K Cat_cat $E $D $x $y (@strict_transfor $K Cat_cat $E $D $U) $p);

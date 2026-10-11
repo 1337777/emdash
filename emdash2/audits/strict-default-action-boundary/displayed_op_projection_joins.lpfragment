@@ -1,0 +1,17 @@
+// Canonical formation/projection join. Capping the existing Cartesian
+// postcomposition first otherwise erases the whole Op_catd_func fold.
+rule @hom_postcomp_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _ op
+      (@CoAt2_func $K Cat_cat $E)
+  ↪ @Op_catd $K $E;
+
+// The same join on the actual Cat composition-action owner. Its left input
+// is the canonical C2 mapping action and its right input is the identity on
+// op. The generic postcomposition projection already reaches this head.
+// lhs-audit: keep 5,6 -- subject reduction does not recover the two product endpoints from the canonical action cell.
+rule @comp_prod_fapp1_fapp0 Cat_cat _ _ Cat_cat
+      (Struct_sigma (@CoAt2_func $K Cat_cat $E) op)
+      (Struct_sigma (@CoAt2_func $K Cat_cat $D) op)
+      (Struct_sigma
+        (@fapp1_fapp0 _ _ (CoAt2_func_func $K Cat_cat) $E $D $U)
+        (@id _ op))
+  ↪ @Op_funcd_cart $K $E $D $U;

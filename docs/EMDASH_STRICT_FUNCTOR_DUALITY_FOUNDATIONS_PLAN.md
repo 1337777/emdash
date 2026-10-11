@@ -53,8 +53,9 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: continue from the checked opposite-family prototype into
-the legacy displayed-opposite (`Op_funcd`) consumer/profile boundary, using the necessary
+Current next slice: continue from the checked displayed transpose, products,
+and section/transport evaluation into `Functor_catd`'s actual mixed-family
+mapping profile and the coupled Q/Homd consumers, using the necessary
 [Cartesian/Gray evaluation and coefficient distinction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 at its upstream owners. A checked native construction shows that keeping
 unrestricted Cartesian Eval while restoring strict functor composition
@@ -93,6 +94,19 @@ to Gray closure. The candidate Cartesian Hom for the coefficient universe
 is not an identification of all mapping categories. Its full-file migration
 is still unqualified. This clarification preserves the accepted strict-
 functor/lax-transfor goal and adds no weak-category prerequisite.
+
+Clarification of the retained FF laxness: `FF : Functord(E,D)` is a
+Cat-valued transformation, compared with `Transf(K,Cat,E,D)` by the existing
+kernel interface. Its component `FF[x] : E[x] -> D[x]` is a strict functor
+under the new default. Its base naturality comparison
+`D[p] o FF[x] => FF[y] o E[p]` need not be identity; the native
+`functord_laxity_transf` extracts that comparison from internal action.
+Preserve that extraction and the blended Homd owners. Neither a strict
+component nor the checked Cartesian opposite-family parameter action
+authorizes making every FF strictly natural. The same-profile legacy
+`Op_funcd` is used inside `fdapp1_int_transfd`, so its general consumer repair
+belongs to the coupled Q/Homd slice. A separately checked Cartesian action
+is only an upstream component, not a substitute for the general FF contract.
 
 The first implementation pass restores STRICT FUNCTORS as the structural
 default and implements the selected corrected-duality/profunctor Homd design
@@ -765,6 +779,75 @@ attempts. The ignored scheduler now waits asynchronously up to 300 seconds
 for that child before running the still-default 90-second/2-GiB probe. It
 continues to resume the coordinator in `finally`; no checker resource
 profile or global limit was changed.
+
+## Cartesian displayed transpose and existing family consumers
+
+The preceding implementation checkpoint is `ba99fc0c`. This continuation
+rechecked its exact family prefix (3.945s), reviewed all 75 worktrees and
+confirmed that only this authorized worktree is dirty. The active LP files
+remain unchanged while their existing relocation health gate runs.
+
+The finite `op_funcd_profile_model.py` control isolates the general FF issue:
+over a walking-arrow base, constant terminal/walking-arrow fibres and a
+nonconstant lax FF give a comparison `0 -> 1`. Every component and transport
+functor is strict. Same-profile pointwise transpose would require the absent
+`0 -> 1` in the opposite fibre. This is an ordinary obstruction, not an
+omega-level construction of the correct opposite transfor profile.
+
+`displayed_op_migration.py` supplies the valid Cartesian part of the existing
+family operator. Its E-parameter target is strengthened to
+`Functor_cart_cat(CoAt2_cat K,Cat)`. Its whole body uses the existing Cat-Hom
+postcomposition derivation and `CoAt2_func_func`; no new supplied comparison
+or equality argument is introduced. The strict-transfor projection retains
+involution, composition, point components and whole off-diagonal action.
+The raw displayed view in this candidate accepts the classified strict
+transformation. This is not an adopted restriction of general `homd_int(FF)`:
+the latter and its intrinsic-action consumer still require their coupled
+Q/Homd repair before any production promotion.
+
+Two missing projection-order joins were measured independently. The first
+is the existing stable postcomposition object head on `CoAt2_func(E)`; the
+second is Cat's composition-action head on the canonical C2 action paired
+with identity on `op`. The second needs its two explicit product endpoints
+for subject reduction; the unguarded clause failed and is retained in the
+evidence. No generic commuting conversion or mapping-category equality was
+added. The selected owner prefix passes 50 positive and 11 negative controls
+in 4.057s. Its no-join variant fails at the intended object comparison.
+Normalized warnings have 36 added blocks and none removed versus the prior
+prefix (658 to 694); these are diagnostic overlap obligations, not a
+confluence certificate. `displayed_op_verification.json` pins all evidence.
+
+The next full-file failure identified the existing displayed-product
+projection actions. `displayed_product_migration.py` changes only their two
+whole-action mapping profiles to the Cartesian Hom and keeps their original
+derived precomposition owner. The product family expression, FF/GG inputs,
+component rules and universal-property betas remain intact. The product
+prefix passes 59 positives and 12 negatives in 3.723s, including arbitrary
+raw FF/GG and rejection of their automatic classification as strict transfors.
+
+The same continuation retains `piapp0_func` and `fib_cov_tapp0_func` as their
+existing evaluation composites, inserting `cart_functor_include` between
+Cat's Hom and ambient fixed evaluation. It changes no Pi classifier or
+evaluation primitive. The evaluation prefix passes 64 positives and 13
+negatives in 4.288s, including a nonidentity base-2-cell observation. Both
+prefixes pass the strict inferred-slot audit. All these probes use subject
+reduction, serial execution, 90s/2GiB/64MiB limits and scoped `o=20`.
+
+The full candidate now reaches `Functor_catd`'s whole base-action rule and
+fails there (5.336s). Its old body is derived from `Hom(Cat)`, which now has
+Cartesian mapping Homs, while its fibre projection and intermediate types
+still name ambient `Functor_cat`. Review that mixed-family contract and
+its actual higher parameter action before changing its types. Do not equate
+the mapping categories, infer strict higher naturality merely from a
+declared mapping constructor, or narrow every FF to pass the check.
+`displayed_product_verification.json` records this precise remaining boundary.
+The Sigma/Homd and Q obligations are still outstanding; a prefix containing
+legacy Sigma declarations does not qualify their semantics.
+
+This checkpoint retains replay fragments and evidence only. Generated LP
+copies and raw logs stay ignored. It does not promote the strict-default or
+duality prototype, resume the paused application goal, update source pins,
+or include the separate pending production carrier relocation.
 
 ## Deferred improvements under the migration boundary
 

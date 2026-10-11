@@ -1,0 +1,62 @@
+// NON-LIBRARY: retain the old family composite and unrestricted displayed
+// transformation inputs. The migration only changes its coefficient Hom.
+symbol sf_product_family [K : Cat] (B C : τ (Catd K)) : τ (Catd K)
+≔ @comp_cat_fapp0 K (Product_cat Cat_cat Cat_cat) Cat_cat
+    (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_cart_func)
+    (Struct_sigma B C);
+
+assert [K : Cat] [E B C : τ (Catd K)]
+  (FF : τ (Functord E B)) (GG : τ (Functord E C)) ⊢
+  @Product_pair_funcd K E B C FF GG : τ (Functord E (sf_product_family B C));
+
+assert [K : Cat] [E B C : τ (Catd K)]
+  (FF : τ (Functord E B)) (GG : τ (Functord E C)) (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cat E (sf_product_family B C) x
+    (@Product_pair_funcd K E B C FF GG)
+  ≡ @Product_pair
+      (Functor_cat (Fibre_cat E x) (Fibre_cat B x))
+      (Functor_cat (Fibre_cat E x) (Fibre_cat C x))
+      (@tapp0_fapp0 K Cat_cat E B x FF) (@tapp0_fapp0 K Cat_cat E C x GG);
+
+assert [K : Cat] [E B C : τ (Catd K)]
+  (FF : τ (Functord E B)) (GG : τ (Functord E C))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  fapp0 (@tapp1_func K Cat_cat E (sf_product_family B C) x y
+    (@Product_pair_funcd K E B C FF GG)) p
+  ≡ @Product_pair
+      (Functor_cat (Fibre_cat E x) (Fibre_cat B y))
+      (Functor_cat (Fibre_cat E x) (Fibre_cat C y))
+      (@tapp1_fapp0 K Cat_cat E B x y FF p) (@tapp1_fapp0 K Cat_cat E C x y GG p);
+
+assert [K : Cat] [B C : τ (Catd K)] [x y : τ (Obj K)] ⊢
+  @tapp1_func K Cat_cat (sf_product_family B C) B x y (@Product_projL_funcd K B C)
+  : τ (Functor (Hom_cat K x y)
+      (Functor_cart_cat
+        (Product_cat (Fibre_cat B x) (Fibre_cat C x)) (Fibre_cat B y)));
+assert [K : Cat] [B C : τ (Catd K)] [x y : τ (Obj K)] ⊢
+  @tapp1_func K Cat_cat (sf_product_family B C) C x y (@Product_projR_funcd K B C)
+  : τ (Functor (Hom_cat K x y)
+      (Functor_cart_cat
+        (Product_cat (Fibre_cat B x) (Fibre_cat C x)) (Fibre_cat C y)));
+
+// Whole versus capped projection of each structural projection.
+assert [K : Cat] [B C : τ (Catd K)] [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  fapp0 (@tapp1_func K Cat_cat _ B x y (@Product_projL_funcd K B C)) p
+  ≡ @tapp1_fapp0 K Cat_cat _ B x y (@Product_projL_funcd K B C) p;
+assert [K : Cat] [B C : τ (Catd K)] [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  fapp0 (@tapp1_func K Cat_cat _ C x y (@Product_projR_funcd K B C)) p
+  ≡ @tapp1_fapp0 K Cat_cat _ C x y (@Product_projR_funcd K B C) p;
+
+// Universal-property betas still retain the original, possibly lax FF/GG.
+assert [K : Cat] [E B C : τ (Catd K)]
+  (FF : τ (Functord E B)) (GG : τ (Functord E C)) ⊢
+  @comp_fapp0 (Catd_cat K) E (sf_product_family B C) B
+    (@Product_projL_funcd K B C) (@Product_pair_funcd K E B C FF GG) ≡ FF;
+assert [K : Cat] [E B C : τ (Catd K)]
+  (FF : τ (Functord E B)) (GG : τ (Functord E C)) ⊢
+  @comp_fapp0 (Catd_cat K) E (sf_product_family B C) C
+    (@Product_projR_funcd K B C) (@Product_pair_funcd K E B C FF GG) ≡ GG;
+
+assertnot [K : Cat] [E B C : τ (Catd K)]
+  (FF : τ (Functord E B)) (GG : τ (Functord E C)) ⊢
+  @Product_pair_funcd K E B C FF GG : τ (@StrictTransfor K Cat_cat E (sf_product_family B C));

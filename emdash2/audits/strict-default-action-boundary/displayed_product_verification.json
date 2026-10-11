@@ -1,0 +1,123 @@
+{
+  "status": "existing displayed product and section/transport evaluation prefixes checked; mixed-family and full-file integration remain incomplete",
+  "displayedOpInputSha256": "0bbbe234d645f82bd06d4a3d0abd2e1f5f6ba145dd111982bb9b9688a1083b16",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/displayed_product_migration.py": "1d75a4cfe439c916db16287400883c444141d4a9a61f1512fd665f93117a0d28",
+    "audits/strict-default-action-boundary/displayed_product_controls.lpfragment": "aaec48665ea10656f5b861d5fe0df90217be94c04c9a7edd149d0acfe35c29d0",
+    "audits/strict-default-action-boundary/displayed_evaluation_controls.lpfragment": "1644d3d46c0a0d56604248351b489d5452efaaa09618575390c59460932ab943"
+  },
+  "outputs": {
+    "emdash3_2.lp": "f1625efb685e6269aef9eed24e585ca0e2fde6cfc7cb4d13a4bdceb41652b0c6",
+    "owner_prefix.lp": "28a4781269a38e76c5ebeac6c10753cf1a2abfe839b4966b43223bd3c60b7506",
+    "evaluation_prefix.lp": "4f91bf6b48c3cc4a794146ef583bf7202f55e04b8cd14c09ae84ca1fb77d29ac",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "displayed_product_owner": {
+      "id": "20261011T202745Z-91d4d92f859d41699cca53977c563d72",
+      "target": "tmp/probes/strict_default_displayed_product/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 3.7231440869509242,
+      "childrenMaxRssKiB": 226724,
+      "inputSnapshot": "020b4f8d73c2dffd07f541e4831ae51a2f147540b65d6cdb336a7acfc6b1a719",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_product/owner_prefix.lp": "28a4781269a38e76c5ebeac6c10753cf1a2abfe839b4966b43223bd3c60b7506"
+      },
+      "log": "logs/check-runs/20261011T202745Z-91d4d92f859d41699cca53977c563d72.log",
+      "logSha256": "ac05e69e2dd712cc58656278a665c98d6bcc76339872c38a79771d6a5b5be991",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 704,
+      "controls": {
+        "positive": 59,
+        "negative": 12
+      }
+    },
+    "displayed_evaluation_owner": {
+      "id": "20261011T202939Z-2a238e8055ab440e9e250d4cb96ebae3",
+      "target": "tmp/probes/strict_default_displayed_product/evaluation_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 4.288127795967739,
+      "childrenMaxRssKiB": 235132,
+      "inputSnapshot": "de4b05f119d224b48b2413f586224930e7e9be97a458d45d6e1778ad9f473176",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_product/evaluation_prefix.lp": "4f91bf6b48c3cc4a794146ef583bf7202f55e04b8cd14c09ae84ca1fb77d29ac"
+      },
+      "log": "logs/check-runs/20261011T202939Z-2a238e8055ab440e9e250d4cb96ebae3.log",
+      "logSha256": "d82ef1fb7393e3d49fc745985b76fb7badd1db54f30935540033077c3794246c",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 714,
+      "controls": {
+        "positive": 64,
+        "negative": 13
+      }
+    },
+    "full_file": {
+      "id": "20261011T202944Z-616f09a2fcaa4bb5bf1e91bc46fd6a5d",
+      "target": "tmp/probes/strict_default_displayed_product/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.3363674390129745,
+      "childrenMaxRssKiB": 274556,
+      "inputSnapshot": "cbc16d8b2da67eb1fc592d3a9471e989f81271ba78049efd9eb5458fe5fc652f",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_product/emdash3_2.lp": "f1625efb685e6269aef9eed24e585ca0e2fde6cfc7cb4d13a4bdceb41652b0c6"
+      },
+      "log": "logs/check-runs/20261011T202944Z-616f09a2fcaa4bb5bf1e91bc46fd6a5d.log",
+      "logSha256": "462d67539c42e7d350558b212fa8bb7ec384c75b27f17fa2e063430bd3b80c8e",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 735
+    },
+    "before_evaluation_inclusion": {
+      "id": "20261011T202749Z-d38da013aa64422593c9e99a1e60eaec",
+      "target": "tmp/probes/strict_default_displayed_product/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 4.139817710965872,
+      "childrenMaxRssKiB": 234688,
+      "inputSnapshot": "c673d9fdb119b4a0580e0376512f39af778ccf4083c14672fedf619d32b1ce71",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_product/emdash3_2.lp": "78c201ef84985f6abf927fe0919f3ba45710f7dce3d57da00328eb451f830031"
+      },
+      "log": "logs/check-runs/20261011T202749Z-d38da013aa64422593c9e99a1e60eaec.log",
+      "logSha256": "e821d960f431d2dd8e4fd418171303e6ab11c435c0099e981d43252493811aef",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 714
+    }
+  },
+  "boundary": {
+    "changes": "two Product projection action rules use Cartesian coefficient Homs; existing piapp0_func and fib_cov_tapp0_func bodies compose through cart_functor_include",
+    "rawFF": "Product_pair_funcd still accepts arbitrary FF/GG and both universal-property betas retain them; no new strict naturality admission",
+    "full_file": "Functor_catd whole base action: the old Hom(Cat)-derived action produces Cartesian mapping Homs while its fibre projection and intermediate types still name ambient Functor_cat",
+    "nextReview": "review the actual mixed-family mapping profile before changing the contract; equating Cartesian and ambient categories or narrowing every FF is not an admissible fix"
+  }
+}

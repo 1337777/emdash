@@ -1,0 +1,78 @@
+// NON-LIBRARY: this Cartesian operation does not reclassify arbitrary FF.
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D)) ⊢
+  @Op_funcd K E D U : τ (Functord (@Op_catd K E) (@Op_catd K D));
+assertnot [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D)) ⊢
+  @Op_funcd K E D FF : τ (Functord (@Op_catd K E) (@Op_catd K D));
+
+// A nonconstant section is not a Cartesian transformation of constant families.
+// In particular, the identity section cannot be used to synthesize a reverse.
+assertnot (C : Cat) ⊢
+  @Op_funcd C (@Const_catd C Terminal_cat) (@Const_catd C C) (@id_func C)
+  : τ (Functor (CoAt2_cat C) (Op_cat C));
+
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D)) ⊢
+  @fapp1_fapp0 (CoAt2_cat (Functor_cart_cat K Cat_cat))
+    (Functor_cart_cat (CoAt2_cat K) Cat_cat) (Op_catd_func K) E D U
+  ≡ @Op_funcd_cart K E D U;
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D)) ⊢
+  @Op_funcd_cart _ _ _ (@Op_funcd_cart K E D U) ≡ U;
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @Op_funcd_cart K E E (@id (Functor_cart_cat K Cat_cat) E)
+  ≡ @id (Functor_cart_cat (CoAt2_cat K) Cat_cat) (@Op_catd K E);
+assert [K : Cat] [E D G : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (V : τ (@StrictTransfor K Cat_cat D G)) ⊢
+  @Op_funcd_cart K E G (@comp_fapp0 (Functor_cart_cat K Cat_cat) E D G V U)
+  ≡ @comp_fapp0 (Functor_cart_cat (CoAt2_cat K) Cat_cat)
+      (@Op_catd K E) (@Op_catd K D) (@Op_catd K G)
+      (@Op_funcd_cart K D G V) (@Op_funcd_cart K E D U);
+
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D))
+  (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 (CoAt2_cat K) Cat_cat _ _ x (@Op_funcd K E D U)
+  ≡ @Op_func _ _ (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U));
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @tapp1_fapp0 (CoAt2_cat K) Cat_cat _ _ x y (@Op_funcd K E D U) p
+  ≡ @Op_func _ _ (@tapp1_fapp0 K Cat_cat E D x y (@strict_transfor K Cat_cat E D U) p);
+
+// Observe the same off-diagonal action through its whole functor first.
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  fapp0 (@tapp1_func (CoAt2_cat K) Cat_cat _ _ x y (@Op_funcd K E D U)) p
+  ≡ @Op_func _ _ (@tapp1_fapp0 K Cat_cat E D x y (@strict_transfor K Cat_cat E D U) p);
+
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D))
+  (x : τ (Obj K)) ⊢
+  @tapp1_fapp0 (CoAt2_cat K) Cat_cat _ _ x x (@Op_funcd K E D U) (@id (CoAt2_cat K) x)
+  ≡ @Op_func _ _ (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U));
+
+// Formation after projection must agree with projection after formation.
+// These expose histories erased by the whole-family composition fold.
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  fapp0 (@comp_cat_cov_cart_func (CoAt2_cat K) (CoAt2_cat Cat_cat) Cat_cat op)
+    (@CoAt2_func K Cat_cat E)
+  ≡ @Op_catd K E;
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D)) ⊢
+  @fapp1_fapp0
+    (Functor_cart_cat (CoAt2_cat K) (CoAt2_cat Cat_cat))
+    (Functor_cart_cat (CoAt2_cat K) Cat_cat)
+    (@comp_cat_cov_cart_func (CoAt2_cat K) (CoAt2_cat Cat_cat) Cat_cat op)
+    (@CoAt2_func K Cat_cat E) (@CoAt2_func K Cat_cat D)
+    (@fapp1_fapp0 (CoAt2_cat (Functor_cart_cat K Cat_cat))
+      (Functor_cart_cat (CoAt2_cat K) (CoAt2_cat Cat_cat))
+      (CoAt2_func_func K Cat_cat) E D U)
+  ≡ @Op_funcd_cart K E D U;
+
+// The next parameter cell has the direction imposed by C2, without inversion.
+assert [K : Cat] [E D : τ (Catd K)]
+  [U V : τ (@StrictTransfor K Cat_cat E D)]
+  (theta : τ (Hom (Hom_cat (Functor_cart_cat K Cat_cat) E D) U V)) ⊢
+  @fapp1_fapp0
+    (Op_cat (Hom_cat (Functor_cart_cat K Cat_cat) E D))
+    (Hom_cat (Functor_cart_cat (CoAt2_cat K) Cat_cat) (@Op_catd K E) (@Op_catd K D))
+    (@fapp1_func (CoAt2_cat (Functor_cart_cat K Cat_cat))
+      (Functor_cart_cat (CoAt2_cat K) Cat_cat) (Op_catd_func K) E D)
+    V U theta
+  : τ (Hom
+      (Hom_cat (Functor_cart_cat (CoAt2_cat K) Cat_cat) (@Op_catd K E) (@Op_catd K D))
+      (@Op_funcd_cart K E D V) (@Op_funcd_cart K E D U));

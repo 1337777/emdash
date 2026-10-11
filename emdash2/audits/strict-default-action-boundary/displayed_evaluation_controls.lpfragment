@@ -1,0 +1,32 @@
+// NON-LIBRARY: existing transformation-backed Pi and transport evaluation,
+// using the whole Cartesian inclusion instead of identifying mapping Homs.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
+  @piapp0_func K E x : τ (Functor (Pi_cat E) (Fibre_cat E x));
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E))) (x : τ (Obj K)) ⊢
+  @piapp0 K E s x
+  ≡ @fapp0 Terminal_cat (Fibre_cat E x)
+      (@tapp0_fapp0 K Cat_cat (@Const_catd K Terminal_cat) E x s) Terminal_obj;
+
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @fib_cov_tapp0_func K E x y u : τ (Functor (Hom_cat K x y) (Fibre_cat E y));
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (u : τ (Obj (Fibre_cat E x))) (p : τ (Hom K x y)) ⊢
+  fapp0 (@fib_cov_tapp0_func K E x y u) p
+  ≡ fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u;
+
+// A nonidentity base 2-cell remains observable at the transported object.
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (u : τ (Obj (Fibre_cat E x))) [p q : τ (Hom K x y)]
+  (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  @fapp1_fapp0 (Hom_cat K x y) (Fibre_cat E y)
+    (@fib_cov_tapp0_func K E x y u) p q alpha
+  ≡ @tapp0_fapp0 (Fibre_cat E x) (Fibre_cat E y)
+      (@fapp1_fapp0 K Cat_cat E x y p) (@fapp1_fapp0 K Cat_cat E x y q) u
+      (@strict_transfor (Fibre_cat E x) (Fibre_cat E y) _ _
+        (@fapp1_fapp0 (Hom_cat K x y)
+          (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y))
+          (@fapp1_func K Cat_cat E x y) p q alpha));
+
+// No whole identification of the two mapping categories was introduced.
+assertnot [A B : Cat] ⊢ Functor_cart_cat A B ≡ Functor_cat A B;

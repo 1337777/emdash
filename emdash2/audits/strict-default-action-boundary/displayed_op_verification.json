@@ -1,0 +1,169 @@
+{
+  "status": "Cartesian displayed-transpose owner checked; generic FF/Homd and full-file integration remain incomplete",
+  "dualityInputSha256": "4c93c61f5eae00b68f6dd07cd2bdecc2ce706c395d61b44337f7d3ef94b689c7",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/displayed_op_migration.py": "4203b9c275a6ea2731eeae9f2bb85691f43450cc339742f289851e4f75bd2f7a",
+    "audits/strict-default-action-boundary/displayed_op_cartesian.lpfragment": "af8a86dc84555faa7d1aa8776e96d31f30b1914f4755fda4043d6c8264a39624",
+    "audits/strict-default-action-boundary/displayed_op_projection_joins.lpfragment": "c71ddf5fb1c27b9f202ea583507d32dc1f733ac8ec2be447095923357a3743b6",
+    "audits/strict-default-action-boundary/displayed_op_cartesian_controls.lpfragment": "289dd04cd7203ac27f64b606c21b46c28c2fda53f770588643521080ef77f5c0",
+    "audits/strict-default-action-boundary/op_funcd_profile_model.py": "ff2f78152a85b2c677b1ef10506220a2b4c11730c4b1ae4a52b8feae636ebd86"
+  },
+  "outputs": {
+    "emdash3_2.lp": "0bbbe234d645f82bd06d4a3d0abd2e1f5f6ba145dd111982bb9b9688a1083b16",
+    "owner_prefix.lp": "d6fe7bd11686cb64c0c6ffe9129efb1e2430482bb57897fb9f9e0d8b5236390b",
+    "no_projection_join.lp": "0b98337b5b33066e85cfc2915f8755680a7ac41b785be2575bed8c7046a1c635",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "resume_baseline": {
+      "id": "20261011T201607Z-3c47cbd96905473c8f408a586d07b4cd",
+      "target": "tmp/probes/strict_default_duality/family_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 3.944607849989552,
+      "childrenMaxRssKiB": 217108,
+      "inputSnapshot": "2bcfbff6e352d62bc39eabfbca43efe8e6e2bb0a0941d724324d98120f01324d",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_duality/family_prefix.lp": "422f4dd3091e144c38d1c50b020d70148b00fba80e11d8a38b9221b2c0213612"
+      },
+      "log": "logs/check-runs/20261011T201607Z-3c47cbd96905473c8f408a586d07b4cd.log",
+      "logSha256": "a604bc9a1ab22cfa648c86c97e241de98598aac7f363f24732ff0c94c3462ece",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 658
+    },
+    "cartesian_owner": {
+      "id": "20261011T202342Z-71c316cd7cf44e469a6fbe3a6f3630c4",
+      "target": "tmp/probes/strict_default_displayed_op/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 4.057253872975707,
+      "childrenMaxRssKiB": 221124,
+      "inputSnapshot": "7146a93ba6938e3dd358b6a4cb5e8acfab0a39252a4024f008f36b74964ef5d2",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_op/owner_prefix.lp": "d6fe7bd11686cb64c0c6ffe9129efb1e2430482bb57897fb9f9e0d8b5236390b"
+      },
+      "log": "logs/check-runs/20261011T202342Z-71c316cd7cf44e469a6fbe3a6f3630c4.log",
+      "logSha256": "3030ea52f97b19d0a1a01a5182c92aff474a41c773e8637094d3a8052a4d1d0e",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 694
+    },
+    "no_projection_join": {
+      "id": "20261011T202504Z-44c1b5d48604411cb032030866f8fd03",
+      "target": "tmp/probes/strict_default_displayed_op/no_projection_join.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 4.289584663987625,
+      "childrenMaxRssKiB": 219188,
+      "inputSnapshot": "17edd2848ccd24f260901471099fda19ec45b5e2903b0e0bf8746186da1e6bb1",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_op/no_projection_join.lp": "0b98337b5b33066e85cfc2915f8755680a7ac41b785be2575bed8c7046a1c635"
+      },
+      "log": "logs/check-runs/20261011T202504Z-44c1b5d48604411cb032030866f8fd03.log",
+      "logSha256": "def3f7f62017f015bb8494cb31bbbaa04504d627247351eff735c679226025cb",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 687
+    },
+    "full_file": {
+      "id": "20261011T202508Z-4aff74448da9497d8b7613b8cef35e79",
+      "target": "tmp/probes/strict_default_displayed_op/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.3499760000268,
+      "childrenMaxRssKiB": 221164,
+      "inputSnapshot": "7875c4bc840ae1a7f86a41415833af19b263e9d1bd27e20fdf35409c119fc521",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_op/emdash3_2.lp": "0bbbe234d645f82bd06d4a3d0abd2e1f5f6ba145dd111982bb9b9688a1083b16"
+      },
+      "log": "logs/check-runs/20261011T202508Z-4aff74448da9497d8b7613b8cef35e79.log",
+      "logSha256": "46acccffb398b438c634ec32180dbdebc702bc62d1d9c61200b5ac5a3beb6a15",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 704
+    },
+    "object_join_only": {
+      "id": "20261011T202039Z-fb24fac356274c04a5d9312657af1e9c",
+      "target": "tmp/probes/strict_default_displayed_op/owner_prefix.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 4.2984251150046475,
+      "childrenMaxRssKiB": 219784,
+      "inputSnapshot": "c0eb08d10181cd0774a787f35e5ad1c63b7f777a4073e28891c237417b5455ac",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_op/owner_prefix.lp": "6defedca3581837165d5015be8b0a148cc07ab044edfb912b67f8ef33e296f79"
+      },
+      "log": "logs/check-runs/20261011T202039Z-fb24fac356274c04a5d9312657af1e9c.log",
+      "logSha256": "cd9e83638f6cd34106d0eb0921748af9ca9ddbc756b04b998c555de1c865307b",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 687
+    },
+    "unguarded_action_join": {
+      "id": "20261011T202244Z-680b51544fd84c0da7c90a13560c92fc",
+      "target": "tmp/probes/strict_default_displayed_op/owner_prefix.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 4.730137283040676,
+      "childrenMaxRssKiB": 218824,
+      "inputSnapshot": "bfa9d9068a7c9f7ca6e7193eedb29ada9c0ce9c344f4c4ce9ff7262130ea5e4c",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_op/owner_prefix.lp": "d633a4ec5c7dba3f13f5ca1e9620288e566c5db71d9ab77d9d4e65cf4e37b3ab"
+      },
+      "log": "logs/check-runs/20261011T202244Z-680b51544fd84c0da7c90a13560c92fc.log",
+      "logSha256": "7cfd0fa52f2f3d66f5c7fe199670ee02a6a2a0b1803d72967f918e3bf963d268",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 687
+    }
+  },
+  "controls": {
+    "positive": 50,
+    "negative": 11
+  },
+  "boundary": {
+    "no_projection_join": "expected failure at cap-first object formation; not a semantic obstruction",
+    "object_join_only": "expected failure at cap-first transformation formation",
+    "unguarded_action_join": "checker cannot reconstruct product endpoints for subject reduction; selected rule keeps precisely those guards",
+    "full_file": "next existing consumer: Product_projL_funcd off-diagonal action still has the old ambient coefficient Hom",
+    "generalFF": "raw FF is a displayed transformation with strict component functors and possibly non-strict base naturality; not admitted to this Cartesian-only transpose",
+    "warningReview": "658 baseline-prefix reports versus 694 extended-prefix reports; normalized comparison has 36 added blocks and none removed. New blocks involve whole formation/projection, identity/composition/involution, component/off-diagonal observation and the canonical composition-action join. Typed controls cover the selected observations; full integration and global warning qualification remain open."
+  }
+}
