@@ -1,0 +1,160 @@
+{
+  "status": "actual ambient precomposition owner and mixed consumers checked; complete mapping-constructor/Homd repair remains open",
+  "mixedInputSha256": "74b8f6e00002f3c01da5189eb1f7264cc128d08651d16abaf0462c1e612614c9",
+  "relocatedPrerequisites": [
+    "136277231dd372aeb20fd565a766119aabe3cd7428e9b99fb007062462fc0336",
+    "d6c457cab9d2071a2552b12f9f462af7e5699ae23ed0f6aeb2afc9442d52491a",
+    "8e6a8263da64342e20ec4f0c03b3e29a4c10591086738ebcfefbecc595506838",
+    "cd1347847b397df48f82fbcb79cf6b141d550035ee73cc86f04e4d36e67c9bdd",
+    "cf9e3cb7b3b408f1de9fd94d5033a7a118f9bb04b2b4e79370a94ce3daf6cc78",
+    "1bef5942baa7974c114dc7ccfbd5857a1e4b852624fdf23fa63e7b1051c72751",
+    "7096b11f8edbdad95331dc1ec06776abd725201261dbbcbebc6cbc89a75d5b23",
+    "663cccfaedf6dc507261a1ab2d7dbe6a19be1c3f1cb8161bd04a4cee4f8b2398",
+    "a74fb9301cac11dfc1cb1b2daa4658edb99af843073cbebec2d689667379c80c",
+    "6a1b690806c8a5cd43130a786972b6f79e557bf3b1cba465f729aca6f0037721",
+    "0bbaba2b24f281eb6557c018d8b7584fc423c7a8c53f6a67db77932402b4f4c2"
+  ],
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/precomposition_migration.py": "5c27485366dc2be3c6eef21d1a7e511875d93dde1df3c23a3a29fa9a1387af7d",
+    "audits/strict-default-action-boundary/precomposition_rule.lpfragment": "7f062ec789f19d28e53b2c9e438e6cdf755ed5b184c027828c1c05249e319c60",
+    "audits/strict-default-action-boundary/precomposition_controls.lpfragment": "adbbd5dbc875f8463287d94c6a765dfb87a35c2fc06d209267afe67264c7bc29"
+  },
+  "outputs": {
+    "emdash3_2.lp": "ea49f5b5d37bc036ce2dd2544ef0df16fb7b9b02fd3728fb9993ff80b2eb61e0",
+    "owner_prefix.lp": "22740c3781265c54e6be56d4c1639bdefdd32de6e32e212fd4fb54cfe0124725",
+    "no_projection_join.lp": "57f72fbd1d5bdf18b9d224372f4383a90f13b97d81127b19936eb25d09bc13fe",
+    "mixed_prefix.lp": "2bb2ba54d40ff2bb2b30fd010c121659c98de9d46a935c14be89f779721da44d",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "baseline": {
+      "id": "20261011T210719Z-7a98382f929849678da70afed8497275",
+      "target": "tmp/probes/strict_default_mixed_family/parameter_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.839789617923088,
+      "childrenMaxRssKiB": 279656,
+      "inputSnapshot": "980641428a7c1d16e1ee9383670094f21865adf059afbe83bfa1d03ccc755147",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mixed_family/parameter_prefix.lp": "51987b2a38b8144d8d0dafb8a38ad66bad98c120f2fdf09f4f08bbeb193b4d22"
+      },
+      "log": "logs/check-runs/20261011T210719Z-7a98382f929849678da70afed8497275.log",
+      "logSha256": "9474dab7e7f725ec41af8d3adf647459f9e0cecf37ba79408f0540f33e710fac",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 736
+    },
+    "owner": {
+      "id": "20261011T212339Z-70d9b2271e9a4ad3afdcb4e8479c509e",
+      "target": "tmp/probes/strict_default_precomposition/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 4.451119443983771,
+      "childrenMaxRssKiB": 199424,
+      "inputSnapshot": "1d7ed9809f3718b05f33459b2d3589d8b012e2e78e93b08142dc676f5128456f",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_precomposition/owner_prefix.lp": "22740c3781265c54e6be56d4c1639bdefdd32de6e32e212fd4fb54cfe0124725"
+      },
+      "log": "logs/check-runs/20261011T212339Z-70d9b2271e9a4ad3afdcb4e8479c509e.log",
+      "logSha256": "334e65e65ec5d9e83ae11ab2497d3509777372deeb5cf2f1433254f34c9a3493",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 638,
+      "controls": {
+        "positive": 34,
+        "negative": 8
+      }
+    },
+    "mixed_consumers": {
+      "id": "20261011T212344Z-6b534c41c36743fb937b3b5ef4f49cee",
+      "target": "tmp/probes/strict_default_precomposition/mixed_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.494671161985025,
+      "childrenMaxRssKiB": 285348,
+      "inputSnapshot": "332ab5dcbd1baddc0e219fa7c42bd4221e9a299a9dfe0dc5a205959ac3bfc710",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_precomposition/mixed_prefix.lp": "2bb2ba54d40ff2bb2b30fd010c121659c98de9d46a935c14be89f779721da44d"
+      },
+      "log": "logs/check-runs/20261011T212344Z-6b534c41c36743fb937b3b5ef4f49cee.log",
+      "logSha256": "a08a42b34cd5a32b5d7ecad703c4e30de3e7b82a3cf80f27dc13e20afa26c64a",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 742,
+      "controls": {
+        "positive": 85,
+        "negative": 16
+      }
+    },
+    "full_file": {
+      "id": "20261011T212350Z-2c467d5cd5d44d1495ae275c5107869b",
+      "target": "tmp/probes/strict_default_precomposition/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.348069288069382,
+      "childrenMaxRssKiB": 285536,
+      "inputSnapshot": "b2df7c756be07570b85c722431cfb99e46c47bbe44cf7fadf53320df14a59bb8",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_precomposition/emdash3_2.lp": "ea49f5b5d37bc036ce2dd2544ef0df16fb7b9b02fd3728fb9993ff80b2eb61e0"
+      },
+      "log": "logs/check-runs/20261011T212350Z-2c467d5cd5d44d1495ae275c5107869b.log",
+      "logSha256": "8f275b4a5df4381290b5f69540ed8be592b0d79fbefdb20ea6191337fdaa8e61",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 742
+    },
+    "no_projection_join": {
+      "id": "20261011T213642Z-c2c71b629ade41cdada9d8ee1bd4f3d7",
+      "target": "tmp/probes/strict_default_precomposition/no_projection_join.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 2.274815297918394,
+      "childrenMaxRssKiB": 151308,
+      "inputSnapshot": "fcd72509c1f79be65b4e902cf865e7ebb02896d9cb5bf242ed51dbc086f00358",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_precomposition/no_projection_join.lp": "57f72fbd1d5bdf18b9d224372f4383a90f13b97d81127b19936eb25d09bc13fe"
+      },
+      "log": "logs/check-runs/20261011T213642Z-c2c71b629ade41cdada9d8ee1bd4f3d7.log",
+      "logSha256": "507ff75bdca04d30e3978c2e72d8caba6f3e769700643c7404f50f1aa9799d23",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 502
+    }
+  },
+  "boundary": {
+    "newPrimitive": false,
+    "proofPayload": false,
+    "fullFile": "same Hom_catd shifted-base projection failure",
+    "noProjectionControl": "expected assertion failure at the first ordinary object-action comparison; same prerequisite/body move without the canonical constant-section projection rule"
+  }
+}

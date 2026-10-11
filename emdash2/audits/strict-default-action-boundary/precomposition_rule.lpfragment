@@ -1,0 +1,6 @@
+// Pulling a constant-family section G back along F is ordinary G o F.
+// This is the canonical Hom projection, not a fold of arbitrary composition.
+// lhs-audit: keep 4,5 -- both constant families delimit the section specialization required by subject reduction.
+rule @fapp1_fapp0 _ _ (@Pullback_catd_func $A $B $F)
+      (@Const_catd $B Terminal_cat) (@Const_catd $B $C) $G
+  ↪ @comp_cat_fapp0 $A $B $C $G $F;

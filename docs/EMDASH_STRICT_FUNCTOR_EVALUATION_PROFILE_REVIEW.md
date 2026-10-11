@@ -244,3 +244,26 @@ internal Homs. Their duality results do not grant arbitrary dimension flips
 on Gray transformation profiles. See [paragraphs 18--21 and 35--38](https://arxiv.org/html/2503.08832v1).
 The finite counterexamples and migration conclusions above are our own
 specializations, not additional theorems attributed to that paper.
+
+## Checked recovery of the whole-constructor boundary
+
+The next prototype recovers fixed ambient precomposition through the Hom
+action of existing family pullback at constant families. Its actual owner,
+composition computation and non-strict-transfor inputs check without a new
+primitive. Whole variable-base diagram formation now derives from native
+`hom_int(id_Cat)` and fixed evaluation, giving Cartesian mapping fibres.
+The unsupported whole ambient `Functor_cat_func` is removed from this
+candidate; its valid fixed-source positive constructor remains.
+
+Variable-base Pi uses the Cartesian inclusion before the existing fixed-base
+Pi. Fixed-base Pi and family pullback retain general displayed maps. The
+checked mixed prefix has 95 positive/19 negative controls; the full file
+still fails at Hom_catd's negative-section projection. These are prototype
+results, not production or global consistency qualification.
+
+The third counterexample above leaves a specific candidate open: use total
+fibre opposite O(E), whose base is R(K), for the existing negative Pi input.
+On a constant fibre C, the section is R(K)->O(C), which total duality sends
+to T(K)->C. This fixes the constant-case dimension count. Its whole variable-
+family action and native computation remain to be checked as the next shared
+duality/Sigma prerequisite; the Q/Homd goal is unchanged.

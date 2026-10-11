@@ -53,11 +53,11 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: repair the implicated upstream whole raw mapping-category
-constructor, using the checked family-pullback candidate to recover ambient
-fixed precomposition without a new primitive. Then continue from the checked
-mixed-family Cartesian owner and its admitted parameter actions into the
-actual negative-section/Q/Homd contract. Use the necessary
+Current next slice: qualify total fibre opposite and its negative-section
+presentation through the existing Pi interface, then continue the required
+Q/Homd construction. The upstream ambient fixed precomposition and Cartesian
+whole diagram constructor now have checked native bodies in the prototype.
+Use the necessary
 [Cartesian/Gray evaluation and coefficient distinction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 at its upstream owners. A checked native construction shows that keeping
 unrestricted Cartesian Eval while restoring strict functor composition
@@ -931,6 +931,104 @@ own declarations, the `Catd_cat_func` definition and that constructor's
 pullback-action bridge. The earlier prototype additionally uses its source
 action in fixed precomposition. This bounds the immediate owner review;
 it is not evidence that the implicit downstream dependency closure is small.
+
+## Native precomposition recovery and whole diagram formation
+
+The previous goal turn was progress, checkpoint `b83cb0ef`. The exact mixed
+prefix was rechecked in 5.840s. The active production files stayed at their
+pending carrier-relocation hashes; this tranche changes only the replayable
+full-source candidate, controls and documentation.
+
+`precomposition_migration.py` moves the existing pullback/constant-family
+declarations and direct constant-section comparisons before fixed
+whiskering. `comp_cat_con_func(F)` remains a defined operation: it is the
+Hom action of `Pullback_catd_func(F)` at the constant terminal and constant
+target families. The new canonical constant-section projection computes to
+`G o F`; both family guards are the semantic discriminator. Its no-projection
+variant fails at the first object-action comparison. This is a missing
+computation control, not a mathematical impossibility claim.
+
+The actual owner prefix passes 34 positives/eight negatives in 4.451s, and
+the later mixed prefix passes 85/16 in 5.495s. These include composition,
+identity, both ordinary and displayed component observations, and a raw
+transfor input that remains unclassified as strict. The source preserves
+the old declarations/comparisons rather than postulating a new whiskering
+primitive. `precomposition_verification.json` records the exact inputs and
+outcomes; the full file still fails at the known Hom_catd base mismatch.
+
+`mapping_constructor_migration.py` then retires the unsupported whole
+`Functor_cat_func` declaration. Its valid fixed-source covariant constructor
+`Functor_cat_fapp0_func` remains. The whole `Catd_cat_func` instead derives
+from fixed evaluation of the existing `hom_int(id_Cat)`. Accordingly,
+
+```text
+Catd_cat_func[K] = Functor_cart_cat(K,Cat)
+Catd_cat_func[F] = Cartesian precomposition by F.
+```
+
+The family objects are still the public default Cat-valued functors.
+`Pullback_catd_func(F)` and fixed-base `Pi_func(K)` retain their ambient
+displayed-transformation inputs. The variable-base Pi components use the
+existing Cartesian inclusion before the old fixed-base Pi operation.
+No new mapping, Pi or whiskering primitive is introduced.
+
+The former whole comparison between Cartesian precomposition and raw
+family pullback was incorrectly profiled. Its replacement compares the
+actual AMBIENT constant-section Hom action with raw family pullback. A typed
+reflexivity consumer passes, runtime conversion remains negative, and the
+no-comparison variant fails at that exact consumer (4.094s).
+
+The final constructor prefix passes 75 positives/16 negatives in 4.166s;
+the mixed prefix passes 95/19 in 5.118s. A nonidentity source 2-cell is
+retained in the correct direction, and the reversed direction is rejected.
+The full-file check still fails at the unchanged `Hom_catd` negative-section
+projection (5.160s). Warnings change from 742 to 732 at the same mixed
+boundary: the normalized stream has no added blocks and ten removed blocks.
+This is not a confluence certificate. Both changed prefixes pass the strict
+inferred-slot audit. `mapping_constructor_verification.json` pins all evidence.
+
+All checks use subject reduction, 90s/2GiB/64MiB limits and scoped `o=20`.
+The existing health job remains live. Its staged homology batches can launch
+several guarded checks beneath the coordinator. One probe was rejected as
+busy before Lambdapi ran; two waits expired without launching another check.
+The ignored scheduler now also pauses the two inspected batch shells while
+allowing their current Python runner, guard and checker to finish normally.
+It resumes all paused schedulers in `finally`. Individual checker processes
+and their Python output readers continued normally; checker limits and
+active LP sources were unchanged.
+
+### Next candidate: total opposite in negative sections
+
+The bad input in the finite Hom_catd control used T on the fibre but C2 on
+the base. It does not refute the analogous use of TOTAL fibre opposite.
+Write R for dimensions 2 and above and O=R T for total reversal. The next
+candidate, not yet implemented or qualified, is
+
+```text
+TotalOp_catd(E) = total_op o R_func(E) : R(K) -> Cat
+total_op : R(Cat) -> Cat,       total_op(C) = O(C)
+
+Hom_catd(E, X, Y) : Catd(K)
+  X : Obj(Pi_cat(TotalOp_catd(E)))
+  Y : Obj(Pi_cat(E)).
+```
+
+For constant E at C, X is a whole functor R(K)->O(C). Applying O gives
+T(K)->C, since O R=T and O O=id. For constant E at Cat, the same calculation
+produces the exact negative input of the checked `Functor_catd`. Thus the
+constant-Cat specialization could retain its current outline, using total
+functor duality instead of dimension-one transpose. This is a concrete
+candidate to check, not a new primitive Pi or a claim that its full dependent
+action has been implemented.
+
+Prefer testing the previously discussed T/R primitive choice here: retain
+the existing `Op_cat` as T, introduce the needed native R owner, and make
+total O a named derived operation. Keep the already required C2 owner for
+dimension-one fibre transpose. Their commutation/involution and whole
+functor actions need native controls before promotion. Total fibre opposite
+is also needed for the corrected negative Sigma total, so this is a shared
+duality prerequisite, not a parallel Sigma theory. The selected Q/Homd
+implementation remains required; this candidate does not replace that goal.
 
 ## Deferred improvements under the migration boundary
 

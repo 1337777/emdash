@@ -1,0 +1,29 @@
+// NON-LIBRARY actual-owner controls for the recovered semantic body.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  fapp0 (@comp_cat_con_func A B C F) G ≡ @comp_cat_fapp0 A B C G F;
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) (x : τ (Obj A)) ⊢
+  fapp0 (fapp0 (@comp_cat_con_func A B C F) G) x ≡ fapp0 G (fapp0 F x);
+
+// Ordinary and constant-section component observations agree.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) (x : τ (Obj A)) ⊢
+  @tapp0_fapp0 A Cat_cat (@Const_catd A Terminal_cat) (@Const_catd A C) x
+    (@fapp1_fapp0 (Catd_cat B) (Catd_cat A) (@Pullback_catd_func A B F)
+      (@Const_catd B Terminal_cat) (@Const_catd B C) G)
+  ≡ @tapp0_fapp0 B Cat_cat (@Const_catd B Terminal_cat) (@Const_catd B C)
+      (fapp0 F x) G;
+
+assert [A B C : Cat] (F : τ (Functor A B)) [G H : τ (Functor B C)]
+  (epsilon : τ (Transf G H)) ⊢
+  @fapp1_fapp0 _ _ (@comp_cat_con_func A B C F) G H epsilon
+  : τ (Transf (@comp_cat_fapp0 A B C G F) (@comp_cat_fapp0 A B C H F));
+assertnot [A B C : Cat] (F : τ (Functor A B)) [G H : τ (Functor B C)]
+  (epsilon : τ (Transf G H)) ⊢
+  @fapp1_fapp0 _ _ (@comp_cat_con_func A B C F) G H epsilon
+  : τ (@StrictTransfor A C (@comp_cat_fapp0 A B C G F) (@comp_cat_fapp0 A B C H F));
+
+assert [A C : Cat] (G : τ (Functor A C)) ⊢
+  fapp0 (@comp_cat_con_func A A C (@id_func A)) G ≡ G;
+assert [A B C D : Cat] (F : τ (Functor A B)) (G : τ (Functor B C))
+  (H : τ (Functor C D)) ⊢
+  fapp0 (@comp_cat_con_func A C D (@comp_cat_fapp0 A B C G F)) H
+  ≡ fapp0 (@comp_cat_con_func A B D F) (fapp0 (@comp_cat_con_func B C D G) H);

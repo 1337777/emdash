@@ -333,3 +333,44 @@ counts, warning inventories and the full-file failure. The
 [profile review](../../../docs/EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md#mixed-family-continuation-and-necessary-profile-boundaries)
 states the models and their implications. Replay after changing mapping,
 mixed-family or negative-section owners; this remains a non-library audit.
+
+## Actual precomposition owner and corrected whole diagram constructor
+
+`precomposition_migration.py` relocates existing family-reindexing and
+constant-section prerequisites, then defines `comp_cat_con_func` by the
+Hom action of `Pullback_catd_func` at constant families. Its canonical object
+projection computes to ordinary composition. No new primitive replaces the
+old derived operation. The owner prefix passes 34 positives/eight negatives;
+the mixed prefix passes 85/16. `no_projection_join.lp` fails at the intended
+first object comparison. Exact receipts are in `precomposition_verification.json`.
+
+`mapping_constructor_migration.py` retires the unsupported whole ambient
+`Functor_cat_func`, retains its valid fixed-source covariant operation, and
+derives `Catd_cat_func` from the existing `hom_int(id_Cat)` and fixed
+evaluation. Variable-base diagram formation has Cartesian mapping fibres;
+ordinary family objects and ambient fixed-base pullback/Pi maps remain.
+The variable-base Pi components use the existing inclusion.
+
+```bash
+python3 audits/strict-default-action-boundary/mapping_constructor_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_mapping_constructor/mixed_prefix.lp
+```
+
+The constructor prefix passes 75 positives/16 negatives; the later mixed
+prefix passes 95/19, including the nonidentity source-2-cell direction and
+retained raw displayed maps for fixed-base Pi. The corrected ambient whole
+precomposition/pullback comparison is checked with typed reflexivity and a
+negative runtime-conversion control. `no_comparison.lp` must fail at that
+reflexivity consumer. No operational equality argument is added.
+
+`mapping_constructor_verification.json` retains hashes and receipts. The
+mixed warning stream drops from 742 to 732 reports (no added normalized
+blocks, ten removed). Full-file integration remains incomplete at the known
+Hom_catd negative-section mismatch. The next total-fibre-opposite candidate
+is recorded in the living plan; no positive prefix is a substitute for its
+implementation or for the required Q/Homd/Sigma qualification.
+
+Replay after changes to mapping classifiers, reindexing, constant-section
+comparisons, whole diagram formation or Pi. Generated copies and raw logs
+remain ignored; production promotion still requires the complete SOP gates.

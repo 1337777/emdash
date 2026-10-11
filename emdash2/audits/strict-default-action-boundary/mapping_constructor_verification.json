@@ -1,0 +1,132 @@
+{
+  "status": "whole Cartesian family formation and retained ambient fixed actions checked; full Hom_catd/Q/Homd integration incomplete",
+  "precompositionInputSha256": "ea49f5b5d37bc036ce2dd2544ef0df16fb7b9b02fd3728fb9993ff80b2eb61e0",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/mapping_constructor_migration.py": "6555342975a13905965884903444bf6a2c84c3239a7059d20881ee5c983f12af",
+    "audits/strict-default-action-boundary/mapping_constructor_controls.lpfragment": "2b09e0f55cd11fd5eabc35e572327ef83da0439c591c7d8571ac9934476d5f54"
+  },
+  "outputs": {
+    "emdash3_2.lp": "4e7bb2028326cd8d8b48f91a0981048dc53467c3264aba393ceb32a5ae933e28",
+    "owner_prefix.lp": "5ce4df49760f46d88639af31573317111fab85544baad695165d53c60c8eaeec",
+    "no_comparison.lp": "ce4802f84e33739d4343acd1a93bf6475f7c17bd51c0feb3482104c5b495c389",
+    "mixed_prefix.lp": "f3f9746826ba49667b39957b851f151c361a4f293c046bf20bfd3fbc28ba7eeb",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "owner": {
+      "id": "20261011T213928Z-6a63631b96494dee94c8b36a03dc1b83",
+      "target": "tmp/probes/strict_default_mapping_constructor/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 4.166044062003493,
+      "childrenMaxRssKiB": 233696,
+      "inputSnapshot": "15916e2b9c2745677f965576dcd4f830944f34c78876179ad65e7e6ff5ce98f4",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mapping_constructor/owner_prefix.lp": "5ce4df49760f46d88639af31573317111fab85544baad695165d53c60c8eaeec"
+      },
+      "log": "logs/check-runs/20261011T213928Z-6a63631b96494dee94c8b36a03dc1b83.log",
+      "logSha256": "cc2b8e5a11642bff9e63e65f6fb237de08ccf3f8b70b3b5c0810b6be9f6186e5",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 710,
+      "controls": {
+        "positive": 75,
+        "negative": 16
+      }
+    },
+    "mixed_consumers": {
+      "id": "20261011T213933Z-f011f9ec90634e059ec5fea724b74818",
+      "target": "tmp/probes/strict_default_mapping_constructor/mixed_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.118197430041619,
+      "childrenMaxRssKiB": 278520,
+      "inputSnapshot": "8cb8be67b5cfa149a3cbf76fa85437d3c328c0704d708a6590dd31d1d8fb12f9",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mapping_constructor/mixed_prefix.lp": "f3f9746826ba49667b39957b851f151c361a4f293c046bf20bfd3fbc28ba7eeb"
+      },
+      "log": "logs/check-runs/20261011T213933Z-f011f9ec90634e059ec5fea724b74818.log",
+      "logSha256": "576b4963e3d372a29d0d63da0c83b31220724d0e6977258682def9242dde8635",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 732,
+      "controls": {
+        "positive": 95,
+        "negative": 19
+      }
+    },
+    "full_file": {
+      "id": "20261011T213938Z-97bb3721c2e24c67aa09f9715387be48",
+      "target": "tmp/probes/strict_default_mapping_constructor/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.160141319967806,
+      "childrenMaxRssKiB": 278680,
+      "inputSnapshot": "34086c02d311c0cf153f4ef7f801bb8e1b3d7f33c0a5bbfafa5f8e5f1b5f2684",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mapping_constructor/emdash3_2.lp": "4e7bb2028326cd8d8b48f91a0981048dc53467c3264aba393ceb32a5ae933e28"
+      },
+      "log": "logs/check-runs/20261011T213938Z-97bb3721c2e24c67aa09f9715387be48.log",
+      "logSha256": "d8fbfd48f9c71a1880a3550817ecafc90fcc9c2c064f80b979f88243fb91c063",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 732
+    },
+    "no_comparison": {
+      "id": "20261011T214619Z-b2bd30e853b74ea8a66699141431ceaa",
+      "target": "tmp/probes/strict_default_mapping_constructor/no_comparison.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 4.094111943966709,
+      "childrenMaxRssKiB": 234224,
+      "inputSnapshot": "3c05dab68fb32af0e4ad1df6f06c2c1bd343ca24afaeacb2783c55da3171f73b",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mapping_constructor/no_comparison.lp": "ce4802f84e33739d4343acd1a93bf6475f7c17bd51c0feb3482104c5b495c389"
+      },
+      "log": "logs/check-runs/20261011T214619Z-b2bd30e853b74ea8a66699141431ceaa.log",
+      "logSha256": "bee3e9f0e2698ad9cce32f3b01453af56a924fbb6bcde12eea38a615391f12cf",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 710
+    }
+  },
+  "boundary": {
+    "retiredOwner": "invalid whole ambient Functor_cat_func; its valid fixed-source covariant constructor remains",
+    "nativeBody": "Catd_cat_func is fixed evaluation after hom_int(id_Cat), not a replacement primitive",
+    "familyProfile": "variable-base diagrams have Cartesian mapping fibres; family objects, fixed raw pullback and fixed-base Pi remain available",
+    "higherAction": "nonidentity source 2-cell accepted in the correct direction; opposite direction rejected",
+    "comparison": "ambient precomposition at Cat agrees proof-time with raw family pullback; conversion remains negative and omission rejects the typed reflexivity consumer",
+    "fullFile": "unchanged Hom_catd negative-section base mismatch; no signature-only workaround is installed"
+  },
+  "warningComparison": {
+    "baselineReports": 742,
+    "candidateReports": 732,
+    "addedBlocks": 0,
+    "removedBlocks": 10,
+    "qualification": "normalized stream comparison; no confluence certificate"
+  }
+}
