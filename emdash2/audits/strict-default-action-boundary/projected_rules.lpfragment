@@ -1,0 +1,12 @@
+// Strict functoriality after the canonical post/left observation has capped.
+// This is the component of the whole law, at its stable semantic owner.
+rule @hom_postcomp_fapp0 $B $A $F _ $Y $Z $g
+      (@fapp1_fapp0 $A $B $F $X $Y $f)
+  ↪ @fapp1_fapp0 $A $B $F $X $Z
+      (@hom_postcomp_fapp0 $A $A (@id_func $A) $X $Y $Z $g $f);
+
+// The pre/right projection uses the same selected strict action.
+rule @hom_precomp_along_fapp0 $A $B $F _ $W $X $h
+      (@fapp1_fapp0 $A $B $F $X $Y $f)
+  ↪ @fapp1_fapp0 $A $B $F $W $Y
+      (@hom_precomp_along_fapp0 $A $A (@id_func $A) $Y $W $X $h $f);

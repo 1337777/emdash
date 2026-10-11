@@ -1,6 +1,6 @@
 # EMDASH Reports Index
 
-Reviewed: 2026-09-27. Start with active source and [AGENTS](../AGENTS.md).
+Reviewed: 2026-10-11. Start with active source and [AGENTS](../AGENTS.md).
 This index routes to existing owners; it does not repeat implementation ledgers.
 The former narrative is preserved in
 [index history](history/REPORT_INDEX_THROUGH_2026-09-23.md); earlier mathematical
@@ -34,6 +34,7 @@ deferred. Exact status, evidence and resumption boundaries live in each owner.
 
 ## Active Plans
 
+- `../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md`: [Strict-functor default and corrected-duality foundations](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md). Active in its dedicated worktree; preserves lax transfors and blended Hom/Homd owners. The separate application goal remains paused.
 - `REPORT_EMDASH_V3_2_PRESHEAVES_SITES_SCHEMES_PRELIMINARY_PLAN_2026-08-01.md`: [Emdash v3.2 Presheaves, Sites, And Schemes Living Preliminary Plan](REPORT_EMDASH_V3_2_PRESHEAVES_SITES_SCHEMES_PRELIMINARY_PLAN_2026-08-01.md).
 - `../../docs/TYPESCRIPT_ELABORATOR_V3_2_SCALE_QUALIFICATION_PLAN.md`: [TypeScript Elaborator v3.2 — Systematic Transfer Scale Qualification](../../docs/TYPESCRIPT_ELABORATOR_V3_2_SCALE_QUALIFICATION_PLAN.md).
 - `REPORT_EMDASH_V3_2_PROFUNCTOR_REPRESENTABILITY_REDESIGN_PRELIM_PLAN_2026-06-19.md`: [EMDASH v3.2 Profunctor Representability Redesign Preliminary Plan](REPORT_EMDASH_V3_2_PROFUNCTOR_REPRESENTABILITY_REDESIGN_PRELIM_PLAN_2026-06-19.md).

@@ -1,0 +1,13 @@
+// SF-0 candidate at the intrinsic whole action owner. No new witness.
+rule @fdapp1_comma_projection_transf
+      $A _ _
+      (@fapp1_at_transf $A $B $F $X)
+      (@fdapp1_int_transfd $A _ _ (@fapp1_at_transf $A $B $F $X))
+      $Y $Z $g
+  ↪ @id
+      (Functor_cat (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $X) (@fapp0 $A $B $F $Z)))
+      (@functord_transport_lhs_func
+        $A (@hom_ $A $A (@id_func $A) $X)
+        (@hom_ $B $A $F (@fapp0 $A $B $F $X))
+        (@fapp1_at_transf $A $B $F $X) $Y $Z $g);

@@ -1,0 +1,8 @@
+// SF-0 candidate at the original capped composition owner.
+// Strict functoriality: F[g] o F[f] reduces to F[g o f].
+rule @comp_fapp0
+      $B _ _ _
+      (@fapp1_fapp0 $A $B $F $Y $Z $g)
+      (@fapp1_fapp0 $A $B $F $X $Y $f)
+  ↪ @fapp1_fapp0 $A $B $F $X $Z
+      (@comp_fapp0 $A $X $Y $Z $g $f);

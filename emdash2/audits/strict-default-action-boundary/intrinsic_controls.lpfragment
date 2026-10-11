@@ -1,0 +1,31 @@
+// Both the extracted cell and identity have the same Hom type after the
+// whole endpoint laws. This rules out a type-mismatch-only negative test.
+assert [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @fapp1_compositor A B F X Y Z g f
+  : τ (Hom (Hom_cat B (fapp0 F X) (fapp0 F Z))
+      (fapp0 (@sf0_compositor_lhs A B F X Y Z g) f)
+      (fapp0 (@sf0_compositor_lhs A B F X Y Z g) f));
+
+assert [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @id (Hom_cat B (fapp0 F X) (fapp0 F Z))
+    (fapp0 (@sf0_compositor_lhs A B F X Y Z g) f)
+  : τ (Hom (Hom_cat B (fapp0 F X) (fapp0 F Z))
+      (fapp0 (@sf0_compositor_lhs A B F X Y Z g) f)
+      (fapp0 (@sf0_compositor_lhs A B F X Y Z g) f));
+
+// Replay flips this to assert only after the actual intrinsic-cell rule.
+assertnot [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @fapp1_compositor A B F X Y Z g f
+  ≡ @id (Hom_cat B (fapp0 F X) (fapp0 F Z))
+      (fapp0 (@sf0_compositor_lhs A B F X Y Z g) f);
+
+// Whole extracted compositor, before evaluating its retained argument f.
+assertnot [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z)) ⊢
+  @tapp1_post_laxity_transf A B F F (@id (Functor_cat A B) F) X Y Z g
+  ≡ @id (Functor_cat (Hom_cat A X Y)
+      (Hom_cat B (fapp0 F X) (fapp0 F Z)))
+      (@sf0_compositor_lhs A B F X Y Z g);

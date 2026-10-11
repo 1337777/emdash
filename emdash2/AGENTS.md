@@ -41,6 +41,18 @@ is a proposal; external set-of-dimensions semantics is not an implementation
 API. No current homology maintenance task authorizes resuming that migration.
 Spectral/stabilization research is also deferred.
 
+Worktree-specific continuation, authorized 2026-10-11: the
+[strict-functor/duality foundations plan](../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
+is active on `goal/strict-functor-duality-v3.2`. It supersedes the ambient-lax
+functor default and the Op/Homd deferral for this goal. Reinterpret public
+Functor/fapp* as strict while retaining lax transfors, blended F/FF Hom
+owners and native intrinsic laxity extraction. Restore functor laws only
+through the owner-position and validation workflow below; do not restore
+strict naturality of arbitrary transfors. The future weak-category/lax-map
+interface remains shared design. The separate application goal stays paused.
+The production source remains the pre-migration baseline until individually
+qualified changes are promoted; the new plan is not evidence of completion.
+
 ## Authority And Document Roles
 
 The [current architecture report](reports/REPORT_EMDASH_V3_2_CURRENT_STATUS_AND_SOP_2026-05-26.md)
@@ -353,6 +365,9 @@ Git for retired implementations, rather than an ignored alternative library.
   every such instance to be wrapped as a `StrictFunctor`. This is not permission
   to restore a generic strictness leak, ignore subject reduction or leave an
   unrelated overlap unclassified.
+  The authorized strict-default migration above deliberately requalifies the
+  generic functor-composition owners. That change of contract does not
+  authorize strict-transfor naturality or weaken any of these checks.
 - `IsPseudoFunctor(F)` is the transparent dependent product of fixed-forward
   `OmegaEquivAlong` evidence for the existing readable compositor. Do not
   claim that no pseudofunctor property exists. Its direct endpoint paths expose

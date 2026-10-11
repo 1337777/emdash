@@ -1,0 +1,15 @@
+// SF-0 candidate: whole strict functoriality, not transfor naturality.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func $B $A $F _ $Y $Z $g)
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_func $A $B $F $X $Z)
+      (@hom_postcomp_func $A $A (@id_func $A) $X $Y $Z $g);
+
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func
+        $A $B $F (@fapp0 $A $B $F $Y) $W $X $h)
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_func $A $B $F $W $Y)
+      (@hom_precomp_along_func $A $A (@id_func $A) $Y $W $X $h);

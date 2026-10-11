@@ -1,0 +1,62 @@
+// Positive endpoint typing before the negative naturality observations.
+// No profile/equality argument is being passed to any operational symbol.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [X Y : τ (Obj A)]
+  (p : τ (Hom A X Y)) ⊢
+  @comp_fapp0 B (fapp0 F X) (fapp0 G X) (fapp0 G Y)
+    (fapp1_fapp0 G p) (@tapp0_fapp0 A B F G X epsilon)
+  : τ (Hom B (fapp0 F X) (fapp0 G Y));
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [X Y : τ (Obj A)]
+  (p : τ (Hom A X Y)) ⊢
+  @comp_fapp0 B (fapp0 F X) (fapp0 F Y) (fapp0 G Y)
+    (@tapp0_fapp0 A B F G Y epsilon) (fapp1_fapp0 F p)
+  : τ (Hom B (fapp0 F X) (fapp0 G Y));
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [X Y : τ (Obj A)]
+  (p : τ (Hom A X Y)) ⊢
+  @tapp1_fapp0 A B F G X Y epsilon p
+  : τ (Hom B (fapp0 F X) (fapp0 G Y));
+
+// Strict F and G do not make arbitrary epsilon strictly natural.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [X Y : τ (Obj A)]
+  (p : τ (Hom A X Y)) ⊢
+  @comp_fapp0 B (fapp0 F X) (fapp0 G X) (fapp0 G Y)
+    (fapp1_fapp0 G p) (@tapp0_fapp0 A B F G X epsilon)
+  ≡ @comp_fapp0 B (fapp0 F X) (fapp0 F Y) (fapp0 G Y)
+      (@tapp0_fapp0 A B F G Y epsilon) (fapp1_fapp0 F p);
+
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [X Y : τ (Obj A)]
+  (p : τ (Hom A X Y)) ⊢
+  @comp_fapp0 B (fapp0 F X) (fapp0 G X) (fapp0 G Y)
+    (fapp1_fapp0 G p) (@tapp0_fapp0 A B F G X epsilon)
+  ≡ @tapp1_fapp0 A B F G X Y epsilon p;
+
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [X Y : τ (Obj A)]
+  (p : τ (Hom A X Y)) ⊢
+  @comp_fapp0 B (fapp0 F X) (fapp0 F Y) (fapp0 G Y)
+    (@tapp0_fapp0 A B F G Y epsilon) (fapp1_fapp0 F p)
+  ≡ @tapp1_fapp0 A B F G X Y epsilon p;
+
+// The intrinsic action remains the owner of the existing compositor.
+assert [A B : Cat] (F : τ (Functor A B))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @fapp1_compositor A B F X Y Z g f
+  ≡ @tapp1_post_laxity_cell
+      A B F F (@id (Functor_cat A B) F) X Y Z g f;
+
+// The arbitrary-transfor cell remains extracted, too.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @tapp1_post_laxity_cell A B F G epsilon X Y Z g f
+  ≡ @fdapp1_int_cell A
+      (@hom_ A A (@id_func A) X)
+      (@hom_ B A G (@fapp0 A B F X))
+      (@tapp1_at_transf A B F G X epsilon) Y Z g f;

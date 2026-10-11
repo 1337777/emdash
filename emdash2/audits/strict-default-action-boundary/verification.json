@@ -1,0 +1,242 @@
+{
+  "status": "non-library pilot; no production promotion",
+  "baselineCommit": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "manifest": {
+    "owner": "emdash3_2.lp",
+    "ownerSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "profileSha256": "f670814a83a508bd8a77a4000c7ab04690bbfc25978d106bb1d761ce6723a69c",
+    "inputs": {
+      "audits/strict-default-action-boundary/composition_controls.lpfragment": "21552711a336fa91f013b0dda1de7476c412e087350309876811db16cf26f9bb",
+      "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+      "audits/strict-default-action-boundary/compositor_boundary.lpfragment": "0765885e855dd7b57341273bde8022fe2c5d42949552cb96b92d6ef1aae801e7",
+      "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+      "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+      "audits/strict-default-action-boundary/profile_consumer.lpfragment": "4038a47ad529c91a915d24f18fa07495e5dedc8ee6071f2618b50033bc001c28",
+      "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+      "audits/strict-default-action-boundary/projection_controls.lpfragment": "501dcf8325a5b907ab84e2c892e3e0578e8d68502df3c3397631d16cc2c27d71",
+      "audits/strict-default-action-boundary/replay.py": "7c11291e9ab5d083d2462b43412f6fef8944e08343c809dec75a24ff00aaaa13",
+      "audits/strict-default-action-boundary/retained_controls.lpfragment": "7779407802b4c7651a415d263e402f83089785c8741a355cec7a9892343a0560",
+      "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+      "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5"
+    },
+    "outputs": {
+      "tmp/probes/strict_default_action/baseline.lp": {
+        "sha256": "29806230dd08624ae73bfa1cc5f61ecf5df1ef1270b20dce1feefacd46e35155",
+        "positiveAssertions": 5,
+        "negativeAssertions": 8
+      },
+      "tmp/probes/strict_default_action/capped.lp": {
+        "sha256": "5cd46a6e22e6e9641eac81acd626a168f349c6622a5da2123222c428b6b77dd2",
+        "positiveAssertions": 8,
+        "negativeAssertions": 5
+      },
+      "tmp/probes/strict_default_action/whole.lp": {
+        "sha256": "123d880fa62e301178ed40682046d9b73aca751dcafc7a294b01f552cf98ee74",
+        "positiveAssertions": 12,
+        "negativeAssertions": 5
+      },
+      "tmp/probes/strict_default_action/intrinsic.lp": {
+        "sha256": "e5d258a617ab3ee7c19de3c873cda2b1d7bacea0ff4cf79ecf6c6de44bf464db",
+        "positiveAssertions": 14,
+        "negativeAssertions": 3
+      },
+      "tmp/probes/strict_default_action/raw_endpoint.lp": {
+        "sha256": "15eb8f755ed9f0a1114bd115486d9cc05747eb0f3660f2203ab33f2df7bbf130",
+        "positiveAssertions": 10,
+        "negativeAssertions": 6
+      },
+      "tmp/probes/strict_default_action/projection.lp": {
+        "sha256": "31698bede80123466cc24a77f9a547fdffbfd05a960b6f39e5e379a928e391ee",
+        "positiveAssertions": 19,
+        "negativeAssertions": 3
+      },
+      "package_joined": {
+        "emdash3_2.lp": "471baa47552d3dd9a7b08edddb99eaf21eba4ada79f09d74bba671c2eae1ba81",
+        "emdash3_2_gray_profiles.lp": "f670814a83a508bd8a77a4000c7ab04690bbfc25978d106bb1d761ce6723a69c",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "profile_consumer.lp": "4038a47ad529c91a915d24f18fa07495e5dedc8ee6071f2618b50033bc001c28"
+      },
+      "tmp/probes/strict_default_action/joined.lp": {
+        "sha256": "6db64f07f64dd2e97ab6e46b6bdfc9ba0a45ad75709f5fd9f5d38e703b931b39",
+        "positiveAssertions": 19,
+        "negativeAssertions": 3
+      }
+    }
+  },
+  "checks": {
+    "baseline": {
+      "id": "20261011T105314Z-5aac8ccb1840412c805956afa48aa09b",
+      "target": "tmp/probes/strict_default_action/baseline.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 7.003695264982525,
+      "childrenMaxRssKiB": 335308,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "inputSnapshot": "d1be368cf702002c0a1b676f4bbb6b6acbb12e9a234b7439ef81958059eaf460",
+      "logSha256": "96280c0aa13a7de48f016551a2b2f95a41af56349ec6ffd7903b48b593fd906c",
+      "targetSha256": "29806230dd08624ae73bfa1cc5f61ecf5df1ef1270b20dce1feefacd46e35155",
+      "expectedOutcome": "passed-fresh",
+      "subjectReduction": true,
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "unjoinableCriticalPairs": 648
+    },
+    "capped": {
+      "id": "20261011T105336Z-241e233fbc9649c491810908eacc3cd5",
+      "target": "tmp/probes/strict_default_action/capped.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 6.625621592975222,
+      "childrenMaxRssKiB": 338060,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "inputSnapshot": "006aa3a30c0b6633dfb37cbb9e364544af8b87deecca9692fec93d7b9a316305",
+      "logSha256": "a1e9a50fb2ae4f5e2fc1bf7983b7ad6bb22316805bfb34427fa900aeb043055f",
+      "targetSha256": "5cd46a6e22e6e9641eac81acd626a168f349c6622a5da2123222c428b6b77dd2",
+      "expectedOutcome": "passed-fresh",
+      "subjectReduction": true,
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "unjoinableCriticalPairs": 727
+    },
+    "whole": {
+      "id": "20261011T105343Z-acc5e7e7906d46ada59ce616e0920a44",
+      "target": "tmp/probes/strict_default_action/whole.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 6.055117279000115,
+      "childrenMaxRssKiB": 342724,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "inputSnapshot": "5d24530381274fd4e5a07f5c37165e8a81c6c88dc4a97e9b8af9101098713a71",
+      "logSha256": "53fb68b16b79a3f38c1b5d254948b70896df118dea6ff162221d79d6add87bf4",
+      "targetSha256": "123d880fa62e301178ed40682046d9b73aca751dcafc7a294b01f552cf98ee74",
+      "expectedOutcome": "passed-fresh",
+      "subjectReduction": true,
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "unjoinableCriticalPairs": 731
+    },
+    "intrinsic": {
+      "id": "20261011T105225Z-b7c0ef6476f44969b4f2c313e4d80a5e",
+      "target": "tmp/probes/strict_default_action/intrinsic.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 4.06620220298646,
+      "childrenMaxRssKiB": 342500,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "inputSnapshot": "3ad20e9f6fb15a474b8d7bfeea504c936dbf853010477cfb25afbd0c10718c81",
+      "logSha256": "c292aabb1f3dea4f06b1332d2d37e7ab3bda9dcb01d16d795fb2e7acc99feec8",
+      "targetSha256": "e5d258a617ab3ee7c19de3c873cda2b1d7bacea0ff4cf79ecf6c6de44bf464db",
+      "expectedOutcome": "passed-fresh",
+      "subjectReduction": true,
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "unjoinableCriticalPairs": 731
+    },
+    "raw_endpoint": {
+      "id": "20261011T110230Z-101475d46ed448aab1666b5aa219c3f6",
+      "target": "tmp/probes/strict_default_action/raw_endpoint.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.9676204430288635,
+      "childrenMaxRssKiB": 339012,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "inputSnapshot": "6a95bc110ccc91c28b1f94ab4f97121850356a88ebcb9365a8a4adf5f9994d1f",
+      "logSha256": "b094b5a3c98133cae06414edb7c445520eac761aa20436dec15398fd5e53bad9",
+      "targetSha256": "15eb8f755ed9f0a1114bd115486d9cc05747eb0f3660f2203ab33f2df7bbf130",
+      "expectedOutcome": "assertion-failure",
+      "subjectReduction": true,
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "unjoinableCriticalPairs": 727,
+      "assertionFailureLine": 22785
+    },
+    "projection": {
+      "id": "20261011T110237Z-807246dc916c4964b3608b1873b36d14",
+      "target": "tmp/probes/strict_default_action/projection.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.051413720007986,
+      "childrenMaxRssKiB": 342992,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "inputSnapshot": "19a3c7fd32384934f88da820c9740f534c41ba0235c81b81e5b4e5490b70b4a1",
+      "logSha256": "41c4ae01071658dfda1c728ded5ca4f20aebc7ceb42dad2b9ffda682a91fa13d",
+      "targetSha256": "31698bede80123466cc24a77f9a547fdffbfd05a960b6f39e5e379a928e391ee",
+      "expectedOutcome": "assertion-failure",
+      "subjectReduction": true,
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "unjoinableCriticalPairs": 731,
+      "assertionFailureLine": 22865
+    },
+    "joined": {
+      "id": "20261011T105618Z-f49b009f451d49deaed9702c79b873c8",
+      "target": "tmp/probes/strict_default_action/joined.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 6.8778299650293775,
+      "childrenMaxRssKiB": 344024,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "inputSnapshot": "bb958a5c2fff69397e55b27b7972835688fd07877c9695ba85c98f7b7f7589fc",
+      "logSha256": "1e6e3ecfab7487826ce842b633969150764aa5b74e5a1145fcc1485b35d17f64",
+      "targetSha256": "6db64f07f64dd2e97ab6e46b6bdfc9ba0a45ad75709f5fd9f5d38e703b931b39",
+      "expectedOutcome": "passed-fresh",
+      "subjectReduction": true,
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "unjoinableCriticalPairs": 796
+    },
+    "profile_consumer": {
+      "id": "20261011T105803Z-7cc4498deadb4e9f8d60d0af3c945da2",
+      "target": "profile_consumer.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 8.225111170031596,
+      "childrenMaxRssKiB": 456872,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "inputSnapshot": "ffabe78724abe6be3637b0f1c8b006028498e57c555d8b61b5ec9f3c6ac2572e",
+      "logSha256": "644428d24750937e52969761e8f07a306698856777ef3727993a01b7a58601e9",
+      "targetSha256": "4038a47ad529c91a915d24f18fa07495e5dedc8ee6071f2618b50033bc001c28",
+      "expectedOutcome": "passed-fresh",
+      "subjectReduction": true,
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "unjoinableCriticalPairs": 1102
+    }
+  },
+  "checker": {
+    "path": "/home/user1/.opam/default/bin/lambdapi",
+    "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+    "version": "3.0.0-90-gdb4f780"
+  },
+  "warningReview": {
+    "baselineCount": 648,
+    "joinedCount": 796,
+    "addedBlocks": 148,
+    "removedBlocks": 0,
+    "addedLastRuleHeads": {
+      "comp_fapp0": 20,
+      "fapp1_fapp0": 122,
+      "fapp1_func": 2,
+      "fapp0": 2,
+      "hom_postcomp_fapp0": 1,
+      "hom_precomp_along_fapp0": 1
+    },
+    "qualification": "pending owner/constructor classification; counts do not establish confluence"
+  },
+  "launchBaseline": {
+    "suite": "make check",
+    "selectedTargets": 634,
+    "status": "intentionally interrupted to use proportional owner checks",
+    "completedReceipts": 58,
+    "passedFresh": 58,
+    "fullSuitePassed": false
+  }
+}

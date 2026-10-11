@@ -1,0 +1,25 @@
+require open emdash.emdash3_2_gray_profiles;
+
+// A compatibility theorem for the existing late property. Its proof is an
+// output: F has no admission, certificate or equality parameter.
+symbol sf0_default_functor_is_strict [A B : Cat] (F : τ (Functor A B))
+  : τ (@IsStrictFunctor A B F)
+≔ λ X : τ (Obj A), λ Y : τ (Obj A), λ Z : τ (Obj A),
+  λ g : τ (Hom A Y Z),
+    Struct_sigma
+      (@eq_refl
+        (Functor (Hom_cat A X Y)
+          (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z)))
+        (@strict_functor_compositor_lhs_func A B F X Y Z g))
+      (@eq_refl
+        (Hom (Functor_cat (Hom_cat A X Y)
+          (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z)))
+          (@strict_functor_compositor_lhs_func A B F X Y Z g)
+          (@strict_functor_compositor_rhs_func A B F X Y Z g))
+        (@strict_functor_compositor_transf A B F X Y Z g));
+
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @sf0_default_functor_is_strict A B F : τ (@IsStrictFunctor A B F);
+
+// Their different higher-transfor profiles still matter.
+assertnot [A B : Cat] ⊢ GrayHom_lax A B ≡ StrictFunctor_cat A B;

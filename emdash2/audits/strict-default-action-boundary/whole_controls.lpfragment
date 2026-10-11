@@ -1,0 +1,33 @@
+// Readable abbreviations of the actual displayed-action endpoints.
+symbol sf0_compositor_lhs [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z))
+  : τ (Functor (Hom_cat A X Y) (Hom_cat B (fapp0 F X) (fapp0 F Z)))
+≔ @functord_transport_lhs_func A
+    (@hom_ A A (@id_func A) X) (@hom_ B A F (@fapp0 A B F X))
+    (@fapp1_at_transf A B F X) Y Z g;
+
+symbol sf0_compositor_rhs [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z))
+  : τ (Functor (Hom_cat A X Y) (Hom_cat B (fapp0 F X) (fapp0 F Z)))
+≔ @functord_transport_rhs_func A
+    (@hom_ A A (@id_func A) X) (@hom_ B A F (@fapp0 A B F X))
+    (@fapp1_at_transf A B F X) Y Z g;
+
+// Replay flips this to assertnot before the whole owner rules are present.
+assert [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z)) ⊢
+  @sf0_compositor_lhs A B F X Y Z g
+  ≡ @sf0_compositor_rhs A B F X Y Z g;
+
+// Both pre/right whole routes likewise agree only at the whole-law stage.
+assert [A B : Cat] (F : τ (Functor A B))
+  (W X Y : τ (Obj A)) (h : τ (Hom A W X)) ⊢
+  @comp_cat_fapp0 (Hom_cat A X Y)
+    (Hom_cat B (fapp0 F X) (fapp0 F Y))
+    (Hom_cat B (fapp0 F W) (fapp0 F Y))
+    (@hom_precomp_along_func A B F (fapp0 F Y) W X h)
+    (@fapp1_func A B F X Y)
+  ≡ @comp_cat_fapp0 (Hom_cat A X Y) (Hom_cat A W Y)
+      (Hom_cat B (fapp0 F W) (fapp0 F Y))
+      (@fapp1_func A B F W Y)
+      (@hom_precomp_along_func A A (@id_func A) Y W X h);

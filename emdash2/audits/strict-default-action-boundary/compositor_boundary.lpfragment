@@ -1,0 +1,25 @@
+// Capped endpoint equality alone must not be reported as identity of the
+// actual intrinsic compositor. Both terms are first checked in one Hom.
+assert [A B : Cat] (F : τ (Functor A B))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @fapp1_compositor A B F X Y Z g f
+  : τ (Hom (Hom_cat B (fapp0 F X) (fapp0 F Z))
+      (fapp1_fapp0 F (@comp_fapp0 A X Y Z g f))
+      (fapp1_fapp0 F (@comp_fapp0 A X Y Z g f)));
+
+assert [A B : Cat] (F : τ (Functor A B))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @id (Hom_cat B (fapp0 F X) (fapp0 F Z))
+    (fapp1_fapp0 F (@comp_fapp0 A X Y Z g f))
+  : τ (Hom (Hom_cat B (fapp0 F X) (fapp0 F Z))
+      (fapp1_fapp0 F (@comp_fapp0 A X Y Z g f))
+      (fapp1_fapp0 F (@comp_fapp0 A X Y Z g f)));
+
+assertnot [A B : Cat] (F : τ (Functor A B))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @fapp1_compositor A B F X Y Z g f
+  ≡ @id (Hom_cat B (fapp0 F X) (fapp0 F Z))
+      (fapp1_fapp0 F (@comp_fapp0 A X Y Z g f));

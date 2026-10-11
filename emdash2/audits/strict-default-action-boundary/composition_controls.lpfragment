@@ -1,0 +1,30 @@
+// The replay changes only these asserts to assertnot in the no-rule control.
+
+// Direct capped action.
+assert [A B : Cat] (F : τ (Functor A B))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @comp_fapp0 B (fapp0 F X) (fapp0 F Y) (fapp0 F Z)
+    (fapp1_fapp0 F g) (fapp1_fapp0 F f)
+  ≡ fapp1_fapp0 F (@comp_fapp0 A X Y Z g f);
+
+// Projection first: the same computation through the full action owner.
+assert [A B : Cat] (F : τ (Functor A B))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @comp_fapp0 B (fapp0 F X) (fapp0 F Y) (fapp0 F Z)
+    (fapp0 (@fapp1_func A B F Y Z) g)
+    (fapp0 (@fapp1_func A B F X Y) f)
+  ≡ fapp0 (@fapp1_func A B F X Z) (@comp_fapp0 A X Y Z g f);
+
+// The next Hom level uses that same default, with arbitrary directed 2-cells.
+assert [A B : Cat] (F : τ (Functor A B))
+  [X Y : τ (Obj A)] [f g h : τ (Hom A X Y)]
+  (beta : τ (Hom (Hom_cat A X Y) g h))
+  (alpha : τ (Hom (Hom_cat A X Y) f g)) ⊢
+  @comp_fapp0 (Hom_cat B (fapp0 F X) (fapp0 F Y))
+    (fapp1_fapp0 F f) (fapp1_fapp0 F g) (fapp1_fapp0 F h)
+    (fapp1_fapp0 (@fapp1_func A B F X Y) beta)
+    (fapp1_fapp0 (@fapp1_func A B F X Y) alpha)
+  ≡ fapp1_fapp0 (@fapp1_func A B F X Y)
+      (@comp_fapp0 (Hom_cat A X Y) f g h beta alpha);

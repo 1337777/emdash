@@ -1,0 +1,34 @@
+// Qualified endpoint equality must survive evaluation as well as comparison
+// before evaluation. These are intended positives, not assumed laws.
+assert [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  fapp0 (@sf0_compositor_lhs A B F X Y Z g) f
+  ≡ fapp0 (@sf0_compositor_rhs A B F X Y Z g) f;
+
+// Cap first, then compare the two stable endpoint histories.
+assert [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @hom_postcomp_fapp0 B A F (@fapp0 A B F X) Y Z g
+    (@fapp1_fapp0 A B F X Y f)
+  : τ (Hom B (@fapp0 A B F X) (@fapp0 A B F Z));
+
+assert [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @fapp1_fapp0 A B F X Z
+    (@hom_postcomp_fapp0 A A (@id_func A) X Y Z g f)
+  : τ (Hom B (@fapp0 A B F X) (@fapp0 A B F Z));
+
+assert [A B : Cat] (F : τ (Functor A B))
+  (X Y Z : τ (Obj A)) (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @hom_postcomp_fapp0 B A F (@fapp0 A B F X) Y Z g
+    (@fapp1_fapp0 A B F X Y f)
+  ≡ @fapp1_fapp0 A B F X Z
+      (@hom_postcomp_fapp0 A A (@id_func A) X Y Z g f);
+
+// Pre/right cap-first order, retaining its contravariant owner.
+assert [A B : Cat] (F : τ (Functor A B))
+  (W X Y : τ (Obj A)) (h : τ (Hom A W X)) (f : τ (Hom A X Y)) ⊢
+  @hom_precomp_along_fapp0 A B F (@fapp0 A B F Y) W X h
+    (@fapp1_fapp0 A B F X Y f)
+  ≡ @fapp1_fapp0 A B F W Y
+      (@hom_precomp_along_fapp0 A A (@id_func A) Y W X h f);
