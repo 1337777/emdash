@@ -121,3 +121,70 @@ Default limits are unchanged and the full diagnostic is not reported green.
 authoring hashes. Those emitted LP outputs remain byte-identical.
 `continuation_verification.json` records the additional controls, profile
 prototype and integration findings at their exact source hashes.
+
+## Coefficient countercheck before evaluation
+
+Restricting only joint Eval is insufficient. The whole construction in
+`coefficient_naturality_audit.lpfragment` is inserted before the evaluation
+and curry owners. It instantiates strict composition on the composite of
+`comp_prod_func Cat_cat` and fixed-object evaluation, using constant functors
+and `Const_transf(p)`. The two product factorizations give actual paths
+
+```text
+G[p] o epsilon[x] = epsilon[p] = epsilon[y] o F[p].
+```
+
+The fragment does not invoke joint Eval, curry, opposite or Homd. It adds
+no independent naturality comparison. Passing is adverse evidence for the
+unchanged coefficient Hom after strict default functor composition is
+restored; it is not a library theorem to adopt.
+
+```bash
+python3 audits/strict-default-action-boundary/coefficient_boundary_replay.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_coefficient/capped.lp
+```
+
+The full-file capped variant passes in 4.607s at the normal resource limits.
+`baseline.lp` rejects the generic strictness lemma. `no_cat_component.lp`
+retains that lemma but rejects the first specific naturality path when the
+Cat horizontal-composition component beta is omitted. These are checked
+typing failures, not parse/resource failures. Exact source hashes, logs and
+three receipts are in `coefficient_boundary_verification.json`.
+
+Replay this boundary when changing Cat's whole Hom/composition, Cartesian
+evaluation or the strict-default action laws. With strict Cat objects and
+the existing generic composition architecture retained, its lax mapping
+category cannot also be Cat's Cartesian Hom with the unchanged horizontal
+projection. A coefficient/profile correction is therefore a migration
+dependency. The audit does not by itself qualify the complete Cartesian
+replacement or its downstream typing/computation.
+
+`cartesian_migration.py` retains that unfinished full-file candidate. Its
+fixed-whiskering views use the existing mapping constructor; the generic
+Cat-derived parameter telescopes retain their original derivations with
+Cartesian input Homs. `cartesian_whiskering_controls.lpfragment` distinguishes
+the two, including rejection of the adverse raw Cat-composition input.
+These controls run at their owners; a later failure still makes the whole
+candidate unqualified. No new supplied whiskering theorem is introduced.
+
+The upstream prefix now also contains `cartesian_evaluation_controls.lpfragment`.
+It passes 15 positive/four negative controls across both fragments in 1.850s.
+The full file fails later at `fapp1_func(Op_catd(E),x,y)`, after 2.340s.
+Both exact inputs and outcomes are retained in
+`cartesian_migration_verification.json`. The old whole-op declaration is
+still in the prefix: this is a local migration check, not a variance or
+consistency qualification.
+
+```bash
+python3 audits/strict-default-action-boundary/cartesian_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --quiet \
+  --package-root tmp/probes/strict_default_profiles owner_prefix.lp
+```
+
+The generated `emdash3_2.lp` in the same package is the full-file target and
+is expected to fail at the recorded unresolved family owner. Do not register
+the prefix as a replacement core target. Replay on action, coefficient,
+whiskering, product, evaluation or duality owner changes; promotion still
+requires the complete source/consumer and warning gates.

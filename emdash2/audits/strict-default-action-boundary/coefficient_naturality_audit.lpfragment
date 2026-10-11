@@ -1,0 +1,73 @@
+// NON-LIBRARY adverse construction. This is inserted before Eval/curry,
+// using only Cartesian composition in Cat and constant transformations.
+// Equality is the audit output; no comparison is supplied as input.
+symbol sf_coefficient_strict_comp [A B : Cat] (F : τ (Functor A B))
+  [x y z : τ (Obj A)] (g : τ (Hom A y z)) (f : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B F y) (@fapp0 A B F z)
+        (@fapp1_fapp0 A B F y z g) (@fapp1_fapp0 A B F x y f))
+      (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f)))
+≔ @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
+    (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f));
+
+// Component observation of the preceding strict functor law. The codomain
+// is the old mapping category, whose arrows are arbitrary ambient transfors.
+symbol sf_coefficient_component_comp [A J B : Cat]
+  (H : τ (Functor A (Functor_cat J B)))
+  [x y z : τ (Obj A)] (g : τ (Hom A y z)) (f : τ (Hom A x y))
+  (j : τ (Obj J))
+  : τ (@=
+      (Hom B (fapp0 (fapp0 H x) j) (fapp0 (fapp0 H z) j))
+      (@comp_fapp0 B _ _ _
+        (tapp0_fapp0 j (fapp1_fapp0 H g))
+        (tapp0_fapp0 j (fapp1_fapp0 H f)))
+      (tapp0_fapp0 j (fapp1_fapp0 H (comp_fapp0 g f))))
+≔ @sf_coefficient_strict_comp A B
+    (@comp_cat_fapp0 A (Functor_cat J B) B (@fapp0_func J B j) H)
+    x y z g f;
+
+symbol sf_coefficient_post_path [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B G x) (@fapp0 A B G y)
+        (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon))
+      (@tapp1_fapp0 A B F G x y epsilon p))
+≔ @sf_coefficient_component_comp
+    (Product_cat (Functor_cat Terminal_cat A) (Functor_cat A B))
+    Terminal_cat B
+    (@comp_prod_func Cat_cat Terminal_cat A B)
+    (Struct_sigma (@Const_func Terminal_cat A x) F)
+    (Struct_sigma (@Const_func Terminal_cat A x) G)
+    (Struct_sigma (@Const_func Terminal_cat A y) G)
+    (Struct_sigma (@Const_transf Terminal_cat A x y p) (@id (Functor_cat A B) G))
+    (Struct_sigma (@id (Functor_cat Terminal_cat A) (@Const_func Terminal_cat A x)) epsilon)
+    Terminal_obj;
+
+symbol sf_coefficient_pre_path [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B F y) (@fapp0 A B G y)
+        (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y p))
+      (@tapp1_fapp0 A B F G x y epsilon p))
+≔ @sf_coefficient_component_comp
+    (Product_cat (Functor_cat Terminal_cat A) (Functor_cat A B))
+    Terminal_cat B
+    (@comp_prod_func Cat_cat Terminal_cat A B)
+    (Struct_sigma (@Const_func Terminal_cat A x) F)
+    (Struct_sigma (@Const_func Terminal_cat A y) F)
+    (Struct_sigma (@Const_func Terminal_cat A y) G)
+    (Struct_sigma (@id (Functor_cat Terminal_cat A) (@Const_func Terminal_cat A y)) epsilon)
+    (Struct_sigma (@Const_transf Terminal_cat A x y p) (@id (Functor_cat A B) F))
+    Terminal_obj;
+
+// Both orders of composition in the product now give a commuting square
+// for arbitrary epsilon. Passing is evidence of the unwanted collapse.
+symbol sf_coefficient_naturality_path [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B G x) (@fapp0 A B G y)
+        (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B F y) (@fapp0 A B G y)
+        (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y p)))
+≔ @eq_trans _ _ _ _ (@sf_coefficient_post_path A B F G epsilon x y p)
+    (@eq_sym _ _ _ (@sf_coefficient_pre_path A B F G epsilon x y p));

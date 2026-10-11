@@ -1,0 +1,89 @@
+{
+  "status": "non-library adverse construction",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "sourceSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "fragmentSha256": "0af768badccdee5c4bf0e2e51926eb544999bada794dfe66459a166e32c50246",
+  "strictRuleSha256": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+  "outputs": {
+    "baseline": {
+      "path": "tmp/probes/strict_default_coefficient/baseline.lp",
+      "sha256": "47f9cd02af9a4d7c7156559e719ceed929435f872481d3f61f2fff5913aa2feb"
+    },
+    "capped": {
+      "path": "tmp/probes/strict_default_coefficient/capped.lp",
+      "sha256": "a356605474a8e872ccc3498010bcbbe017acbaf4e38e561b4be1e58dd323b076"
+    },
+    "no_cat_component": {
+      "path": "tmp/probes/strict_default_coefficient/no_cat_component.lp",
+      "sha256": "f74a539bc147e3afb87e1b73f3a03f3b57d4a8676032c6c5b7afce96319a7399"
+    }
+  },
+  "conclusion": "The pre-Eval Cartesian coefficient construction derives equality between arbitrary naturality routes after only the capped strict-functor law. Restricting Eval alone is insufficient.",
+  "cases": {
+    "baseline": {
+      "receiptId": "20261011T184607Z-544dd1a59c2c4341a47487373030082f",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 1.044844199961517,
+      "childrenMaxRssKiB": 110704,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_coefficient/baseline.lp": "47f9cd02af9a4d7c7156559e719ceed929435f872481d3f61f2fff5913aa2feb"
+      },
+      "log": "logs/check-runs/20261011T184607Z-544dd1a59c2c4341a47487373030082f.log",
+      "logSha256": "763217acbbe2bdeef81e056d26f41e4c60fa0fcdd8338571cea36325ada13766",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      }
+    },
+    "capped": {
+      "receiptId": "20261011T184503Z-a35129e551804542980bf41ec3a6852c",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 4.6067608870216645,
+      "childrenMaxRssKiB": 338124,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_coefficient/capped.lp": "a356605474a8e872ccc3498010bcbbe017acbaf4e38e561b4be1e58dd323b076"
+      },
+      "log": "logs/check-runs/20261011T184503Z-a35129e551804542980bf41ec3a6852c.log",
+      "logSha256": "c4cbf1becfb28347e8280a84ada017722c8dedc3c7dd95e4962300af6f29fcd1",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      }
+    },
+    "no_cat_component": {
+      "receiptId": "20261011T184608Z-ee6c8b1121224ce7812ba2a8300ef575",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 1.1211265740566887,
+      "childrenMaxRssKiB": 114048,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_coefficient/no_cat_component.lp": "f74a539bc147e3afb87e1b73f3a03f3b57d4a8676032c6c5b7afce96319a7399"
+      },
+      "log": "logs/check-runs/20261011T184608Z-ee6c8b1121224ce7812ba2a8300ef575.log",
+      "logSha256": "5047c487153c7ebe37d0d6d9d7cde44d2b8859e63f1686b8cc37a1422432a994",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      }
+    }
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/coefficient_boundary_replay.py": "6e60b70a82048a53b78f213d9099d21c8fe03bf2947798ba9b64f656d11a605b",
+    "audits/strict-default-action-boundary/coefficient_naturality_audit.lpfragment": "0af768badccdee5c4bf0e2e51926eb544999bada794dfe66459a166e32c50246",
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b"
+  }
+}

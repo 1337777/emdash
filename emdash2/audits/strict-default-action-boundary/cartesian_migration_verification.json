@@ -1,0 +1,73 @@
+{
+  "status": "upstream owner prefix checked; full-file opposite-family action remains unqualified",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/cartesian_migration.py": "f06eb0aadab6cc78e87789456e8b8f312ad8fca6054be85e6c6de9705184bb48",
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/evaluation_rules.lpfragment": "97543e7590e660e5b0dc4756f53eaeaeb71a002836b6811513b84b258b64a7a9",
+    "audits/strict-default-action-boundary/cartesian_whiskering_controls.lpfragment": "4a161c5563661c6b8b162b9ebb381053a781f2d7a8db21acdf91d337e2bb2277",
+    "audits/strict-default-action-boundary/cartesian_evaluation_controls.lpfragment": "a4a06c852cccdb207423413ca65b3f8afce05b40ff20fc89b5f67a842e446b89"
+  },
+  "outputs": {
+    "emdash3_2.lp": "ca6d9df352d29690fac070ae10a0ea48a635bc33a1679ed5841f52a5c132691d",
+    "emdash3_2_gray_profiles.lp": "538e60cbfa56fe049b35446148bd97ba900f814c812dfc70c17e548ec97970b1",
+    "owner_prefix.lp": "d5390c281a1067e67eabd67b579d3c8bf37b7b5ff0696d37fe75e21d48023176",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "ownerPrefixBoundary": "// 7d. Adjunctions and opposite adjunctions",
+  "controls": {
+    "positive": 15,
+    "negative": 4
+  },
+  "checks": {
+    "owner_prefix": {
+      "id": "20261011T190308Z-ce61c05d48204617be2f326e96ae8cec",
+      "target": "owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 1.849591119971592,
+      "childrenMaxRssKiB": 167880,
+      "inputSnapshot": "cf001bacc3fa6a71dadd713af1cb3873a7c0b36fc009b3c48dd4c2b2a1ae0419",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "owner_prefix.lp": "d5390c281a1067e67eabd67b579d3c8bf37b7b5ff0696d37fe75e21d48023176"
+      },
+      "log": "logs/check-runs/20261011T190308Z-ce61c05d48204617be2f326e96ae8cec.log",
+      "logSha256": "adce7d34f1c088d139a28c9e40efe6cb162b7df4485724e399f1809d90786e78",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 557
+    },
+    "full_file": {
+      "id": "20261011T190419Z-bf1b791a7f2d4113abb47a59c6584489",
+      "target": "emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 2.34034003096167,
+      "childrenMaxRssKiB": 205688,
+      "inputSnapshot": "ffd13dc883e12e9b15f1ec2aa69c37f5edc5240270485921b19a7091a427de60",
+      "inputs": {
+        "emdash3_2.lp": "ca6d9df352d29690fac070ae10a0ea48a635bc33a1679ed5841f52a5c132691d",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261011T190419Z-bf1b791a7f2d4113abb47a59c6584489.log",
+      "logSha256": "61768824ebea1c0988c5c25220797b627876d21316daacad189ae4ca85f651e0",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 617
+    }
+  }
+}

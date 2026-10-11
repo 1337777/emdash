@@ -36,12 +36,63 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
-Current next slice: implement the
+Migration discipline, reaffirmed by the user on 2026-10-11: follow the
+existing codebase outline and make the minimum mathematically necessary
+changes for strict default functors and corrected duality. Preserve owners,
+public projection ladders, blended F/FF arguments and direct justified
+constructor rules. Do not combine this pass with an optional redesign,
+module split, new normalization strategy or replacement higher-category
+framework. Record such opportunities for later review instead. The selected
+response-0099 construction remains the agreed Homd repair, not authorization
+to redesign adjacent foundations.
+
+For a proposed change beyond a mechanical signature/rule adaptation, record
+the concrete failing requirement or consumer, why a smaller correction
+fails, and the smallest affected owner closure. Passing an isolated new
+interface does not establish that its broader migration is necessary.
+Preserving the outline does not justify retaining a demonstrated semantic
+collapse or replacing an existing derived theorem with a postulate.
+
+Current next slice: carry the checked upstream prototype into the coupled
+whole opposite-family action, using the necessary
 [Cartesian/Gray evaluation and coefficient distinction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 at its upstream owners. A checked native construction shows that keeping
 unrestricted Cartesian Eval while restoring strict functor composition
 derives unwanted naturality equalities. This takes precedence over earlier
 constructor-only promotion steps in the chronological ledger below.
+A second construction, checked before Eval/curry are declared, now shows that
+changing Eval alone is insufficient: Cat composition, constant transformations
+and fixed evaluation reproduce the collapse. With strict Cat and its generic
+composition retained, the coefficient Hom also needs correction. The
+candidate uses a Cartesian Hom for Cat and keeps the ordinary ambient mapping
+category distinct. Its upstream prefix passes; full-file integration and
+duality qualification are still required before promotion.
+
+Applied prerequisite: the `StrictTransfor` carrier and `strict_transfor`
+view now live with the core transformation classifier, before evaluation.
+Admission, extracted properties and guarded computation remain in the
+profile extension. This relocation changes no rules, bodies or public
+signatures; global strict-default computation is still pending.
+
+Clarification of "profiled whiskering and evaluation": default functor
+strictness, transfor naturality and the choice of mapping category are
+separate. Fixed pre/post-whiskering by a strict functor must remain available
+on lax transfors, retaining their laxity. A whole whiskering package must use
+the appropriate lax/oplax direction as its parameter varies; it must not
+silently turn the input or result transfor strict. Canonical represented
+precomposition already has direct head-specific computation in the nucleus
+(`fdapp1_int_cell` and `fdapp1_int_hom_fapp0` on
+`hom_int_precomp_func(id,...)`). Such justified constructor rules remain
+permitted without a `strict_transfor` wrapper. They do not supply strict
+naturality for arbitrary blended FF or arbitrary Homd transformations.
+
+The genuine new restriction concerns joint Cartesian evaluation/currying:
+the mapping category there needs strict transfors, whereas evaluation at a
+fixed object still accepts lax transfors and the lax joint evaluator belongs
+to Gray closure. The candidate Cartesian Hom for the coefficient universe
+is not an identification of all mapping categories. Its full-file migration
+is still unqualified. This clarification preserves the accepted strict-
+functor/lax-transfor goal and adds no weak-category prerequisite.
 
 The first implementation pass restores STRICT FUNCTORS as the structural
 default and implements the selected corrected-duality/profunctor Homd design
@@ -526,3 +577,131 @@ construction must become rejected for the intended input-profile reason.
 Then resume constructor/consumer qualification and the combined duality/
 Homd migration. Preserve the independent represented-comma regression for
 replay; do not replace its derived proof with an axiom.
+
+## Upstream carrier relocation and coefficient candidate
+
+The carrier/view relocation was checked in a copied full source and then
+applied to the active owners. The core, profile module and existing
+`examples/gray_profiles.lp` all pass on the changed sources. The warning
+comparison has 947 reports on both profile checks, with zero added or
+removed normalized critical-pair blocks. Repository searches found no
+qualified references to the former profile-module ownership and no selected
+TypeScript occurrence of these two names. Source pins are not automatically
+refreshed by this observation.
+
+The owner relocation is a prerequisite for forming the Cartesian classifier
+before the late `IsStrictTransfor` property. It does not make arbitrary
+transfors strict or move their evidence into operational arguments. The
+resumable health gate is running on this bounded source change; its current
+handle and receipts, not an old status sentence, decide whether it is live.
+
+The broader coefficient candidate makes `Hom_cat Cat_cat A B` the
+Cartesian mapping category while keeping `Functor_cat A B` as the ambient
+non-strict-transfor mapping category. Their functor objects are shared. This
+is a candidate declaration/rule migration, not a promoted identification.
+Under the user's migration-discipline clarification, the broad coefficient
+choice itself still requires justification before its downstream changes
+can be treated as mandatory work.
+Its initial early-carrier and whole Cartesian Hom changes reached the first
+affected whiskering owner; the current prefix checks further, as recorded
+below. Cat-level joint composition in the candidate has
+strict-transfor inputs; explicit `strict_transfor` views preserve the old
+ordinary projections where appropriate.
+
+The original whiskering frontier is passed in the upstream prototype. Fixed
+ambient post/pre-whiskering derives from the existing mapping constructor;
+the Cat-derived parameter telescopes retain their generic Hom derivations
+with Cartesian inputs/targets. Their ambient transfor observations remain
+explicit views. This does not qualify every lax/oplax parameter extension.
+Do not equate the two mapping categories to pass a constraint or replace a
+derived theorem by an axiom. The current full-file frontier is the whole
+`fapp1_func(Op_catd(E),x,y)` action. Correct its duality and coefficient
+signature together; merely retargeting its old ordinary `op : Cat -> Cat`
+composite would preserve the known variance defect.
+
+Recovery for this in-progress tranche: `owner_relocation.json` records the
+exact active hashes and six passing baseline/probe/owner/reviewer receipts.
+`cartesian_migration.py` retains the unfinished coefficient candidate from
+the pinned historical baseline; it does not promote rules or update evidence.
+The initial fixed-postcomposition edit and Path lift through the Cartesian
+inclusion exposed a failure at `comp_cat_cov_func_func`. Its former
+derivation through Hom(Cat) requires identifying the Cartesian and ambient
+mapping categories. That is not an allowed repair: the whole lax/oplax
+whiskering owner must be supplied by the appropriate mapping construction.
+That intermediate full-file failure (receipt
+`20261011T183551Z-9c6e1bb2a5054b0ab956368bcbe6b4be`, 1.580s) is superseded
+by the later prefix/full-file boundary below. The source TOC, catalog regeneration and document
+checks pass for the owner move. A fresh unchanged active-core check passed
+in 4.361s (`20261011T183338Z-d64184fd99e24d0d86b2946e3d93ac47`).
+
+The running health command is `OCAMLRUNPARAM=o=20 make health`, launched in
+the foundations worktree's `emdash2` directory. Its unified-exec handle was
+`45735`, process `511079` (`scripts/check_metrics.py --resume --update-log
+--write-report`). Verify that process or the exact receipts before resuming
+or restarting anything. Keep the active LP files stable while it runs and
+do not launch another checker concurrently. The owner move remains
+uncommitted until its required validation/report boundary is finished.
+The initial two bounded checks were interleaved by stopping only the verified health
+coordinator, allowing its current child to finish, then running one guarded
+checker and resuming the coordinator in a `finally` clause. No checkers ran
+concurrently and the active LP sources stayed unchanged. The coordinator
+was confirmed resumed after both checks; these scheduling pauses did not
+pause the persistent goal. Subsequent prototype checks used the same serial
+procedure; the coordinator was resumed after each bounded batch.
+
+## Coefficient necessity and upstream evaluation tranche
+
+The previous goal turn made progress by recording the user's migration
+boundary. This tranche provides checked evidence for the next implementation
+choice and extends the full-file prototype without changing active LP files.
+
+The new `coefficient_naturality_audit.lpfragment` constructs both naturality
+endpoint paths using `comp_prod_func Cat_cat`, constant transformations and
+fixed-object evaluation. It is inserted before joint Eval/curry. With only
+the capped strict-functor law it passes in 4.607s. The historical baseline
+rejects the strictness lemma; deleting the Cat composition-component beta
+rejects the specific naturality path while leaving that lemma intact. Exact
+receipts and source hashes are in `coefficient_boundary_verification.json`.
+This rejects the smaller Eval-only repair under the retained strict-Cat
+architecture; it does not justify unrelated profile redesign.
+
+The candidate now preserves the existing evaluation and curry/uncurry names,
+composition bodies and stable precomposition normal form. It changes their
+Cartesian mapping profiles and uses the existing whole inclusion where a
+lax observation is required. The canonical product constructor gains a
+Cartesian parameter view with a whole fold to its existing ambient view;
+the object/fixed-factor owners stay shared. No stronger curry normalization
+or new supplied equality theorem was added.
+
+The source through the evaluation/curry owner passes 15 positive and four
+negative controls in 1.850s at the default limits. These cover ambient fixed
+whiskering, Cartesian parameter views, actual raw-transfor rejection for Cat
+composition and Eval, unchanged fixed evaluation, and the existing curry/
+uncurry projection behavior. The prefix still contains the old whole-op
+declaration; it is not a corrected-duality or consistency certificate.
+The full file proceeds beyond this slice and fails at whole opposite-family
+action (2.340s). `cartesian_migration_verification.json` records both results.
+
+This is an audit/prototype checkpoint, not production promotion. The pending
+active carrier relocation remains a separate bounded change awaiting its
+already-running health gate. Main, the paused application worktree, source
+pins and production strict-default rules are unchanged by this tranche.
+
+## Deferred improvements under the migration boundary
+
+These are review opportunities, not prerequisites or selected changes:
+
+- Replacing the existing strict-transfor carrier/view with aliases derived
+  from a new mapping-category presentation solely to simplify ownership.
+- Reorganizing every mapping category into a new uniform profile hierarchy,
+  or changing the existing ambient transfor convention beyond what a
+  demonstrated migration dependency requires.
+- Turning derived whiskering conveniences into additional primitive
+  interfaces merely because their old coefficient specialization no longer
+  typechecks. First seek the corrected derivation at the existing owner.
+- Factoring or splitting the nucleus and redesigning the action calculus
+  while traversing it for this migration.
+
+The existing shared-design-only weak-category/LaxFunctor work stays at that
+boundary. None of these items replaces a required strict-default, duality,
+Q/Homd, Sigma or validation outcome.

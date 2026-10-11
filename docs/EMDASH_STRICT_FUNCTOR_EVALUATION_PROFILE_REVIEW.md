@@ -1,7 +1,7 @@
 # Strict defaults require an evaluation-profile migration
 
 Date: 2026-10-11
-Status: checked obstruction to blanket restoration; Cartesian profile interface pilot passes
+Status: coefficient obstruction checked; upstream Cartesian evaluation/curry prototype passes; full migration incomplete
 Owner: [strict-functor/duality plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Evidence: [native audit](../emdash2/audits/strict-default-action-boundary/README.md)
 
@@ -40,6 +40,17 @@ separates these constructions in paragraphs 18–21.
 [Primary source, arXiv:2503.08832v1](https://arxiv.org/html/2503.08832v1).
 
 ## Native interface pilot
+
+An additional native countercheck now rules out fixing only joint Eval.
+Inserted before Eval/curry are declared, it uses Cartesian composition in
+Cat, constant transformations and fixed-object evaluation to derive the same
+two endpoint equalities. The capped strict-default variant passes; removing
+the strictness clause or the Cat composition-component projection rejects
+the relevant proof. See the
+[coefficient replay and exact evidence](../emdash2/audits/strict-default-action-boundary/README.md#coefficient-countercheck-before-evaluation).
+Thus some correction to the coefficient/composition profile is necessary
+if strict Cat objects and the existing generic composition architecture are
+retained. This does not prove that every broader profile redesign is needed.
 
 Keep the default functor objects and ordinary `fapp*` operations. A distinct
 whole category records the stricter transformation profile:
@@ -86,6 +97,37 @@ transfor call. The Gray owner already exists with its recorded bounded
 qualification. Reusing it does not introduce a new weak-category theory,
 functor resolution, or application-nerve task.
 
+## Whiskering is not a blanket strict-transfor requirement
+
+For a lax transfor `alpha:F=>G`, fixed post-whiskering by a strict H and
+pre-whiskering by a strict J preserve lax transfors. Their comparison cells
+come from applying H to alpha's cells or reindexing those cells along J.
+Strict functoriality of these operations, as maps of the relevant mapping
+categories, does not say their transfor-valued outputs have strict
+naturality. Parameterized whiskering must also respect its actual lax/oplax
+orientation; it cannot be recovered by identifying Cartesian and lax Homs.
+
+The baseline nucleus already has named strict computations. In particular,
+`fdapp1_int_cell` and `fdapp1_int_hom_fapp0` specialize directly on
+`hom_int_precomp_func(id,...)`, with the selected identity arguments, to the
+identity at the composite arrow. These rules do not ask for a
+`StrictTransfor` wrapper. This is narrower than a theorem that every Homd
+transformation is strict. The later profile migration explicitly retired
+arbitrary-transfor post/left, pre/right and displayed component-naturality
+cuts; those are not restored by the strict-functor goal.
+
+The ongoing migration retains both mechanisms: justified computation on a
+known structural head, and a classifier for variables ranging over strict
+transformations when an operation needs that restriction. No operational
+equality proof is added to a Hom/Homd action. The classifier's declaration
+placement is an ownership choice, not an extra strictness premise on every
+default functor.
+
+Evaluation at a fixed object `ev_x:[A,B]_lax -> B` remains available on lax
+transfors. The profile correction is needed when both the functor and its
+argument vary in a Cartesian product. That is the checked collapse route
+above, not an objection to fixed evaluation or fixed whiskering.
+
 ## Required migration
 
 Keep the strict default, native F/FF Hom heads and response-0099 Q design.
@@ -110,3 +152,21 @@ comma owner passes with capped and whole endpoint rules but fails after the
 generic intrinsic-compositor identity clause is installed. Changing the
 identity's chosen endpoint does not repair it. Its replay is retained; do
 not replace the existing inverse-data proof with a declaration.
+
+## Checked upstream implementation slice
+
+The full-file authoring candidate now keeps fixed ambient whiskering on the
+existing mapping-constructor action and retypes the Cat-derived parameter
+telescopes to Cartesian Homs without replacing their derivations. Evaluation
+and ordinary curry/uncurry retain their names and semantic bodies with
+Cartesian mapping categories. The expected stable precomposition normal form
+of curry is preserved; this migration adds no stronger normalization law.
+
+The exact prefix through that owner passes 15 positive and four negative
+controls, including the actual evaluator input rejection, retained lax fixed
+whiskering/evaluation and uncurry arrow action. The full source then fails
+at the whole opposite-family action, which now needs its coordinated
+coefficient/duality repair. The audit's
+`cartesian_migration_verification.json` records the successful prefix and
+failed full file separately. No production rule from this candidate is
+promoted, and the prefix result does not qualify the legacy whole-op owner.
