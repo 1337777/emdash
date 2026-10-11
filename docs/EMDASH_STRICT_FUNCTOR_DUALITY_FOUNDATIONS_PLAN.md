@@ -53,9 +53,11 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: continue from the checked displayed transpose, products,
-and section/transport evaluation into `Functor_catd`'s actual mixed-family
-mapping profile and the coupled Q/Homd consumers, using the necessary
+Current next slice: repair the implicated upstream whole raw mapping-category
+constructor, using the checked family-pullback candidate to recover ambient
+fixed precomposition without a new primitive. Then continue from the checked
+mixed-family Cartesian owner and its admitted parameter actions into the
+actual negative-section/Q/Homd contract. Use the necessary
 [Cartesian/Gray evaluation and coefficient distinction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 at its upstream owners. A checked native construction shows that keeping
 unrestricted Cartesian Eval while restoring strict functor composition
@@ -848,6 +850,87 @@ This checkpoint retains replay fragments and evidence only. Generated LP
 copies and raw logs stay ignored. It does not promote the strict-default or
 duality prototype, resume the paused application goal, update source pins,
 or include the separate pending production carrier relocation.
+
+## Fixed mixed-family owner and parameter continuation
+
+The previous goal turn was progress, checkpoint `2d6a99a9`. This continuation
+reviewed the unchanged active-source diff and all 75 worktrees, verified the
+existing health coordinator live, and reran the exact evaluation prefix
+(4.571s). The production carrier relocation remains separate and uncommitted.
+
+The expanded [evaluation/profile review](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md#mixed-family-continuation-and-necessary-profile-boundaries)
+records three finite semantic controls. They distinguish the Cartesian
+mapping fibre from its ambient lax-transfor counterpart, the direction of a
+contravariant FAMILY map, and the incorrect higher action of the naive
+`Pi(Op_catd(E))` negative section after the C2 base shift. These are explicit
+finite strict 2-category models; they do not qualify a whole omega replacement.
+
+The actual fixed `Functor_catd` owner now uses `Hom(Cat)` consistently in the
+prototype: its fibre is Cartesian, its functor objects remain the default
+carrier, and its existing whole Hom telescope and capped projection are
+retained. The existing `Eval_funcd` component then checks with its Cartesian
+source. The owner prefix passes 70 positives and 14 negatives in 5.768s.
+No new evaluation, primitive Pi or operational equality evidence is introduced.
+
+The negative family parameter of `Functor_catd_func` uses
+`Op_cat(Functor_cart_cat(Op_cat K,Cat))`. Its classifier contains the same
+family objects but strict transformations between them; their ambient view
+supplies the existing component projection. The covariant B-parameter still
+uses `Catd_cat(K)` and accepts arbitrary displayed G. This restriction is
+justified by the walking-arrow countermodel, not by an attempt to make all
+FF strict. A general opposite-profile extension remains a distinct obligation
+when needed; the original same-profile negative map is not retained as valid.
+
+The existing mixed-product and constant-middle-composition rules receive
+the same Cartesian coefficient types. Their names, component bodies and
+whole action owners remain intact. The prefix through these owners and the
+parameter controls initially passed 76 positives and 15 negatives in 7.299s.
+The strict inferred-slot audit has zero unreviewed compound slots.
+Exact source hashes, counts, warnings and
+receipts are retained in `mixed_family_verification.json`. All checks use
+the default 90s/2GiB/64MiB serial profile with subject reduction and `o=20`.
+
+The full file now fails in `Hom_catd`'s point projection: it supplies K to
+`piapp0` on a family whose actual base is C2(K). Merely changing that
+annotation would miss the semantic obstruction demonstrated by the third
+finite control. Preserve the whole negative-section requirement and resolve
+it with the Q/Homd design, not with a cast, a primitive Pi, or a loss of
+noninvertible base cells.
+
+The first countermodel also exposes an upstream qualification obligation:
+the old `Functor_cat_func` whole HIGHER source action on ambient mapping
+categories cannot be accepted merely because its fixed pre/post-whiskering
+projections check. Its parameter type still needs correction under Cat's
+Cartesian Hom. Review reuse of the existing whole Hom(Cat) constructor for
+Cartesian formation and retain ambient fixed whiskering through valid owners;
+the old raw whole action is not itself a valid derivation. Keep the valid
+fixed actions and locate the smallest necessary owner correction; do not
+use the invalid whole parameter action to justify
+the next dependent construction. This does not reopen the future weak-
+category implementation or the paused application goal.
+
+A concrete recovery candidate now derives fixed ambient precomposition from
+the existing family-pullback functor's Hom action:
+
+```text
+pre_F : Functor_cat(B,C) -> Functor_cat(A,C)
+pre_F = fapp1_func(Pullback_catd_func(F), const_B(1), const_B(C)).
+```
+
+Existing constant-family/section comparisons give its type and preserve
+arbitrary transformations between G,H:B->C. This dependency-complete body
+checks with no new primitive or equality input. Its actual placement before
+the whiskering owner needs a bounded relocation of existing declarations
+and comparisons, followed by projection/normal-form controls; those are not
+yet done. The final prefix including these three typing controls passes
+79 positives and 15 negatives in 6.219s. The final full-file check retains
+the same `Hom_catd` failure (5.246s), with 736 warning reports.
+
+Lexical review found the old `Functor_cat_func` only in the nucleus: its
+own declarations, the `Catd_cat_func` definition and that constructor's
+pullback-action bridge. The earlier prototype additionally uses its source
+action in fixed precomposition. This bounds the immediate owner review;
+it is not evidence that the implicit downstream dependency closure is small.
 
 ## Deferred improvements under the migration boundary
 

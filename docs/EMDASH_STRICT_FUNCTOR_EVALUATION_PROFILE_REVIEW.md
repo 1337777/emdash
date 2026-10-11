@@ -170,3 +170,77 @@ coefficient/duality repair. The audit's
 `cartesian_migration_verification.json` records the successful prefix and
 failed full file separately. No production rule from this candidate is
 promoted, and the prefix result does not qualify the legacy whole-op owner.
+
+## Mixed-family continuation and necessary profile boundaries
+
+The next review concerns the actual `Functor_catd` body, derived from the
+Hom telescope of `Cat_cat`. Under the corrected coefficient Hom its natural
+fibre is `Functor_cart_cat(A[k],B[k])`. Its object classifier remains the
+public `Functor(A[k],B[k])`. This distinction also makes the existing
+`Eval_funcd` component have its actual Cartesian evaluator type. Retaining
+the ambient fibre would require a different evaluation and higher-action
+doctrine, rather than a mechanical change of type annotations.
+
+Three finite controls are implemented in
+`audits/strict-default-action-boundary/mixed_family_profile_models.py`.
+They construct finite locally posetal strict 2-categories and check identity,
+associativity, whiskering and interchange closure. They are external semantic
+countermodels, not Lambdapi proofs or complete omega constructions.
+
+First, take strict functors H,J from the walking arrow to a strict 2-category
+with a noncommuting lax square:
+
+```text
+J[p] ε₀  ⇒  ε₁ H[p],       J[p] ε₀ ≠ ε₁ H[p].
+```
+
+The strict transformation between the two point selectors induces the
+prescribed transformation `eval₀ => eval₁` on the ambient mapping category.
+It is not strictly natural at ε. Consequently an arbitrary ω-base 2-cell
+cannot give that action into Cartesian Hom while the fibre still contains
+all lax transformations. The Cartesian fibre excludes precisely this
+unsupported input. Fixed evaluation and fixed pre/post-whiskering on ambient
+transformations remain meaningful.
+
+This same example also implicates the HIGHER source action of the old whole
+`Functor_cat_func`, still present in the authoring candidate. Its fixed
+whiskering projections were checked computationally, but that does not
+qualify the whole constructor under the new coefficient doctrine. Before
+promotion, preserve the valid fixed actions through the correct owners and
+repair that parameter interface. Do not use its old declaration alone as
+evidence for an ambient mixed-family replacement. This is an additional
+upstream obligation, not evidence that fixed whiskering must become strict
+on arbitrary transformations.
+
+Second, contravariance in the FAMILY parameter reverses its naturality
+square. On a walking-arrow base K, let A'=const(1), A=const(I), and let
+`L:A'=>A` over T(K) select L[1]=0 and L[0]=1 with comparison 0->1. The
+proposed precomposition transformation over K would require eval₁=>eval₀;
+at H=id_I it would give the absent arrow 1->0. The candidate therefore uses
+`Functor_cart_cat(T(K),Cat)` for this negative parameter. Its covariant
+B-parameter remains ambient `Catd_cat(K)` and accepts general displayed G.
+An appropriately opposite naturality profile is a possible broader interface,
+but it is not supplied by the legacy same-profile signature.
+
+Third, `Pi_cat(Op_catd(E))` is not a corrected negative-section contract for
+the intended canonical Hom action merely because its object components
+remain readable. Let K contain p=>q, C contain r=>s:a->b, E=const(C), and
+Y=const(b). The strict functor X:C2(K)->T(C) with X[p]=s and X[q]=r is a
+valid section of the corrected constant opposite family. The intended Hom
+action sends id_b to s along p and to r along q, so it would need s=>r,
+which C does not contain. This refutes that prescribed action; it does not
+assert that no family with the displayed object fibres can exist.
+
+For constant E, the compatible ordinary input X:T(K)->C instead has the
+expected Hom variance. The dependent replacement must supply its genuine
+whole section profile. No simple reannotation of the base, identification of
+C2(K) with K, or unqualified appeal to an oplax-transfor label repairs the
+general interface. Keep this obligation coupled to the selected Q/Homd
+construction, rather than introducing a primitive Pi or supplied equality.
+
+The reference distinction is consistent with Ara--Guetta's Cartesian
+internal Hom of strict transformations and its separate Gray lax/oplax
+internal Homs. Their duality results do not grant arbitrary dimension flips
+on Gray transformation profiles. See [paragraphs 18--21 and 35--38](https://arxiv.org/html/2503.08832v1).
+The finite counterexamples and migration conclusions above are our own
+specializations, not additional theorems attributed to that paper.

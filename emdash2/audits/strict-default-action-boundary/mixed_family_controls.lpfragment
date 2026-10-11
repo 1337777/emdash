@@ -1,0 +1,40 @@
+// NON-LIBRARY: the existing Hom(Cat)-derived mixed family has Cartesian
+// mapping fibres. Functor objects remain the public default carrier.
+assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K)) (x : τ (Obj K)) ⊢
+  Fibre_cat (@Functor_catd K A B) x
+  ≡ Functor_cart_cat (Fibre_cat A x) (Fibre_cat B x);
+assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K)) (x : τ (Obj K)) ⊢
+  Obj (Fibre_cat (@Functor_catd K A B) x)
+  ≡ Functor (Fibre_cat A x) (Fibre_cat B x);
+assertnot [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K))
+  (x : τ (Obj K)) [F G : τ (Functor (Fibre_cat A x) (Fibre_cat B x))]
+  (epsilon : τ (Transf F G)) ⊢
+  epsilon : τ (Hom (Fibre_cat (@Functor_catd K A B) x) F G);
+
+assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  fapp0 (@fapp1_func K Cat_cat (@Functor_catd K A B) x y) p
+  ≡ @fapp1_fapp0 K Cat_cat (@Functor_catd K A B) x y p;
+
+// The next base cell is retained by the whole Hom telescope at Cart Homs.
+assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K))
+  [x y : τ (Obj K)] [p q : τ (Hom K x y)]
+  (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  @fapp1_fapp0 (Hom_cat K x y)
+    (Functor_cart_cat
+      (Fibre_cat (@Functor_catd K A B) x) (Fibre_cat (@Functor_catd K A B) y))
+    (@fapp1_func K Cat_cat (@Functor_catd K A B) x y) p q alpha
+  : τ (@StrictTransfor
+      (Fibre_cat (@Functor_catd K A B) x) (Fibre_cat (@Functor_catd K A B) y)
+      (@fapp1_fapp0 K Cat_cat (@Functor_catd K A B) x y p)
+      (@fapp1_fapp0 K Cat_cat (@Functor_catd K A B) x y q));
+
+// The existing displayed evaluation now has precisely its actual source;
+// no evaluation body, Pi classifier or arbitrary FF admission is replaced.
+assert [K A : Cat] (B : τ (Catd K)) (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cat _ _ x (@Eval_funcd K A B)
+  : τ (Functor
+      (Product_cat (Functor_cart_cat A (Fibre_cat B x)) A) (Fibre_cat B x));
+assert [K A : Cat] (B : τ (Catd K)) (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cat _ _ x (@Eval_funcd K A B)
+  ≡ @Eval_func A (Fibre_cat B x);

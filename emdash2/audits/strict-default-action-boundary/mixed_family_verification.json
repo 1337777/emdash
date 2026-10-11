@@ -1,0 +1,177 @@
+{
+  "status": "fixed mixed family, admitted parameter actions and structural consumers checked; general Hom_catd negative-section contract and full integration remain incomplete",
+  "familyInputSha256": "f1625efb685e6269aef9eed24e585ca0e2fde6cfc7cb4d13a4bdceb41652b0c6",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/mixed_family_migration.py": "84a678e08a7f030da63741eea3d6bc6c017e4744daf88f0cc7b3b8343046e287",
+    "audits/strict-default-action-boundary/mixed_family_controls.lpfragment": "2d0509b7853469f929d3c55b342d396ec4dccaea8493adad962c719d5cb5fd66",
+    "audits/strict-default-action-boundary/mixed_family_parameter_controls.lpfragment": "bb25703b284fc88d1fe64d44fced4ffa65a729d5a135f329654305a24f4a1ad0",
+    "audits/strict-default-action-boundary/mixed_family_profile_models.py": "d0cdf53c02254b78e76c0d8c6285abe4991623ce98a7548ab41a1321969ade4c"
+  },
+  "outputs": {
+    "emdash3_2.lp": "74b8f6e00002f3c01da5189eb1f7264cc128d08651d16abaf0462c1e612614c9",
+    "owner_prefix.lp": "4c399f9a6ce340449f58ae0b9bec8e7d696b810e73eff01c94e1529c79453f68",
+    "parameter_prefix.lp": "51987b2a38b8144d8d0dafb8a38ad66bad98c120f2fdf09f4f08bbeb193b4d22",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "resume_baseline": {
+      "id": "20261011T203801Z-152063a2023a47d3b723339b74a9ec5a",
+      "target": "tmp/probes/strict_default_displayed_product/evaluation_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 4.571161413972732,
+      "childrenMaxRssKiB": 235084,
+      "inputSnapshot": "de4b05f119d224b48b2413f586224930e7e9be97a458d45d6e1778ad9f473176",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_displayed_product/evaluation_prefix.lp": "4f91bf6b48c3cc4a794146ef583bf7202f55e04b8cd14c09ae84ca1fb77d29ac"
+      },
+      "log": "logs/check-runs/20261011T203801Z-152063a2023a47d3b723339b74a9ec5a.log",
+      "logSha256": "d82ef1fb7393e3d49fc745985b76fb7badd1db54f30935540033077c3794246c",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 714
+    },
+    "fixed_family": {
+      "id": "20261011T204155Z-b006aab297ea4e2e8b12787f6a4b3cd0",
+      "target": "tmp/probes/strict_default_mixed_family/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.767917494988069,
+      "childrenMaxRssKiB": 277140,
+      "inputSnapshot": "dfe95c55623578b5ffb37369e6f07848fdbd860cb689f35350a3489b29113a82",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mixed_family/owner_prefix.lp": "4c399f9a6ce340449f58ae0b9bec8e7d696b810e73eff01c94e1529c79453f68"
+      },
+      "log": "logs/check-runs/20261011T204155Z-b006aab297ea4e2e8b12787f6a4b3cd0.log",
+      "logSha256": "545000ac3f4c0fc297c981c57da31cea0fb470865c79e41a476b9e78e964c9b6",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 736,
+      "controls": {
+        "positive": 70,
+        "negative": 14
+      }
+    },
+    "parameter_and_structural_consumers": {
+      "id": "20261011T205938Z-9c43b2608fb84b2d985f9b73944fa7a0",
+      "target": "tmp/probes/strict_default_mixed_family/parameter_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 6.219499478000216,
+      "childrenMaxRssKiB": 280000,
+      "inputSnapshot": "980641428a7c1d16e1ee9383670094f21865adf059afbe83bfa1d03ccc755147",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mixed_family/parameter_prefix.lp": "51987b2a38b8144d8d0dafb8a38ad66bad98c120f2fdf09f4f08bbeb193b4d22"
+      },
+      "log": "logs/check-runs/20261011T205938Z-9c43b2608fb84b2d985f9b73944fa7a0.log",
+      "logSha256": "9474dab7e7f725ec41af8d3adf647459f9e0cecf37ba79408f0540f33e710fac",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 736,
+      "controls": {
+        "positive": 79,
+        "negative": 15
+      }
+    },
+    "full_file": {
+      "id": "20261011T205945Z-8fff67b12be040eca7e6f04d88697763",
+      "target": "tmp/probes/strict_default_mixed_family/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.24569640099071,
+      "childrenMaxRssKiB": 279856,
+      "inputSnapshot": "fd8905317b6a60327fc4e2c944d8a1e62ac35b6027699b2f143a7e8bf7d63bd6",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mixed_family/emdash3_2.lp": "74b8f6e00002f3c01da5189eb1f7264cc128d08651d16abaf0462c1e612614c9"
+      },
+      "log": "logs/check-runs/20261011T205945Z-8fff67b12be040eca7e6f04d88697763.log",
+      "logSha256": "53980f19436d3a8cb74c5b9d9ec8413efc08fae1249e6b590a5f063cff5e41c1",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 736
+    },
+    "before_product_reprofiling": {
+      "id": "20261011T204202Z-fb4930b5281842fb99023853a38acfd8",
+      "target": "tmp/probes/strict_default_mixed_family/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.517277459031902,
+      "childrenMaxRssKiB": 278572,
+      "inputSnapshot": "5625b0905b3aecdfcfb911809716020f7e5d486d987ae240ae855eb16c297043",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mixed_family/emdash3_2.lp": "f7169e564dc85bea409f40e9623bd700faaf614fe6039a1733bf7f4b33f2e9f6"
+      },
+      "log": "logs/check-runs/20261011T204202Z-fb4930b5281842fb99023853a38acfd8.log",
+      "logSha256": "0fb5e273160ac40d828bcd864d78b6b9c421a234688d8acb71967ba224d7f0f0",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 736
+    },
+    "parameter_before_recovery": {
+      "id": "20261011T204557Z-51950f83e69e408183f8acff5322c7e3",
+      "target": "tmp/probes/strict_default_mixed_family/parameter_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 7.299098544986919,
+      "childrenMaxRssKiB": 279680,
+      "inputSnapshot": "fea779ed013275b02fa755f66ff01caa073ffb26482597ed0b3d0363972bd440",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mixed_family/parameter_prefix.lp": "0382093306e6777c0c4837ddc324e0d6fc79188137800fc91ec2950bc44e8c58"
+      },
+      "log": "logs/check-runs/20261011T204557Z-51950f83e69e408183f8acff5322c7e3.log",
+      "logSha256": "9474dab7e7f725ec41af8d3adf647459f9e0cecf37ba79408f0540f33e710fac",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 736,
+      "controls": {
+        "positive": 76,
+        "negative": 15
+      }
+    }
+  },
+  "boundary": {
+    "fibre": "Hom(Cat)-derived Functor_catd uses Cartesian mapping fibres with unchanged functor objects",
+    "negative_parameter": "Cartesian family transformations only; an ordinary-base model rejects the old arbitrary-lax same-profile action",
+    "positive_parameter": "ambient displayed transformations retained",
+    "full_file": "Hom_catd point projection still passes original K to piapp0 on Op_catd(E), whose actual base is CoAt2(K)",
+    "semantic_guard": "merely changing that piapp0 annotation does not repair the canonical action; a finite strict 2-category constant-family model requires a nonexistent reversed cell",
+    "upstream_obligation": "the raw Functor_cat_func higher source action is implicated by the same precomposition-naturality model; prefix checks are not semantic qualification of that whole constructor",
+    "precompositionRecovery": "The existing Pullback_catd_func Hom action at const(1), const(C) types as ambient fixed precomposition and retains arbitrary transfor inputs. Actual owner relocation and computation qualification remain pending; no new primitive is needed for this typing candidate."
+  }
+}

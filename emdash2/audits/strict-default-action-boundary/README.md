@@ -280,3 +280,56 @@ Replay when the strict action, Cat Hom, duality, displayed component, product,
 Pi or transport-evaluation owners change. These are non-library checkpoints;
 generated sources/raw logs remain ignored, and a passing prefix never
 replaces the required full source, consumer and CI validation.
+
+## Mixed-family owner and parameter boundary
+
+`mixed_family_profile_models.py` supplies three finite semantic controls:
+
+- ambient lax mapping fibres do not admit the prescribed strictly natural
+  precomposition action of a general base 2-cell;
+- contravariance in a family parameter reverses its naturality square; and
+- a section of the shifted `Op_catd(E)` does not automatically have the
+  variance required by the intended canonical `Hom_catd` action.
+
+The models validate finite strict 2-category composition and whiskering.
+They neither prove an Empty inhabitant in the native kernel nor supply a
+complete omega replacement. The third control concerns the prescribed Hom
+action, not mere existence of a family with the same object fibres.
+
+```bash
+python3 audits/strict-default-action-boundary/mixed_family_profile_models.py
+python3 audits/strict-default-action-boundary/mixed_family_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_mixed_family/parameter_prefix.lp
+```
+
+The candidate corrects the existing Hom(Cat)-derived `Functor_catd` to
+Cartesian mapping fibres, preserving its functor objects and Hom-action
+owners. Its whole negative-family parameter uses the existing Cartesian
+transformation classifier; its positive-family parameter retains arbitrary
+displayed transformations. The adjacent product/composition components use
+the matching coefficient types. The fixed owner prefix passes 70 positives
+and 14 negatives; the parameter/structural prefix passes 79/15. Both retain
+subject reduction at the default resource limits. The strict inferred-slot
+audit reports zero unreviewed compounds.
+
+Three of the final positives typecheck an explicit recovery candidate:
+ambient fixed precomposition is the Hom action of `Pullback_catd_func(F)`
+between the constant terminal and constant C families. It preserves
+arbitrary transfor inputs and needs no new primitive. These controls are at
+a dependency-complete position; moving that body to the actual whiskering
+owner and checking its computation remain the next implementation step.
+
+The full file fails next at `Hom_catd`'s unchanged `piapp0` base annotation.
+The finite control shows why merely changing that annotation is not a
+semantic repair. The higher source action of the old whole raw
+`Functor_cat_func` is another affected upstream contract, despite the earlier
+successful fixed-whiskering controls. Keep those valid fixed actions and
+repair the whole parameter profile before promotion. Neither issue
+authorizes blanket strictness for FF or a primitive replacement Pi.
+
+`mixed_family_verification.json` records exact replay hashes, receipts,
+counts, warning inventories and the full-file failure. The
+[profile review](../../../docs/EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md#mixed-family-continuation-and-necessary-profile-boundaries)
+states the models and their implications. Replay after changing mapping,
+mixed-family or negative-section owners; this remains a non-library audit.
