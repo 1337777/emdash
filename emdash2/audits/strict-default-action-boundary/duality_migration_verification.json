@@ -1,0 +1,100 @@
+{
+  "status": "head and whole fixed-family prefixes checked; legacy displayed-opposite integration remains incomplete",
+  "cartesianInputSha256": "ca6d9df352d29690fac070ae10a0ea48a635bc33a1679ed5841f52a5c132691d",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/duality_migration.py": "5965b65714020efa611dd1b056f70c2b1e1624ae6c7e7483b98ac272d79228d2",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/duality_head_controls.lpfragment": "9cc95276f3eea3d6f3a7c0f7a5b3fdf5722796c038a59fb0bb677da1388b8aba",
+    "audits/strict-default-action-boundary/duality_family_controls.lpfragment": "e89977e2dcf59e6a955c3faebf3aa01be75f04912dd3d776abc0d8b7307c0a0b"
+  },
+  "outputs": {
+    "emdash3_2.lp": "4c93c61f5eae00b68f6dd07cd2bdecc2ce706c395d61b44337f7d3ef94b689c7",
+    "head_prefix.lp": "23032161c51061eb21470fa64a0d084f8604421df3f42aec1c74495e02854b50",
+    "family_prefix.lp": "422f4dd3091e144c38d1c50b020d70148b00fba80e11d8a38b9221b2c0213612",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "head": {
+      "id": "20261011T192518Z-ce690c71c71e460cbef82dad9eef49ae",
+      "target": "head_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 0.5953056429862045,
+      "childrenMaxRssKiB": 85688,
+      "inputSnapshot": "1e47ac7079894c2e8d5c8e14e57e133207a389a93b39c8952b3f42c48f7d4414",
+      "inputs": {
+        "head_prefix.lp": "23032161c51061eb21470fa64a0d084f8604421df3f42aec1c74495e02854b50",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261011T192518Z-ce690c71c71e460cbef82dad9eef49ae.log",
+      "logSha256": "17f102c3646e705a4f660a2c25be2089bf1c016b4afdcc7ac8bf7e41abd03e4d",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "controls": {
+        "positive": 13,
+        "negative": 3
+      },
+      "unjoinableCriticalPairs": 159
+    },
+    "family": {
+      "id": "20261011T193439Z-2a2955f0f6fa41189f4651f1612e4f1e",
+      "target": "family_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 3.962079681979958,
+      "childrenMaxRssKiB": 215472,
+      "inputSnapshot": "0330b0a16aacc4339c46e4ef3b8c67a3f097af2878b49d2582316cc38f8dcda2",
+      "inputs": {
+        "family_prefix.lp": "422f4dd3091e144c38d1c50b020d70148b00fba80e11d8a38b9221b2c0213612",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261011T193439Z-2a2955f0f6fa41189f4651f1612e4f1e.log",
+      "logSha256": "f66b7b3f0663d4db08f2cd5dc1203a8185ae20951bfd14872c5b25f4b575139e",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "controls": {
+        "positive": 38,
+        "negative": 9
+      },
+      "unjoinableCriticalPairs": 658
+    },
+    "full_file": {
+      "id": "20261011T193443Z-ddd3bb7435454353b2810233607195e2",
+      "target": "emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 4.186080712999683,
+      "childrenMaxRssKiB": 215812,
+      "inputSnapshot": "16a38e6c32411881e1dcf426ca855dcc4f98ed3c1f0e85f5eb7969dffaa40aba",
+      "inputs": {
+        "emdash3_2.lp": "4c93c61f5eae00b68f6dd07cd2bdecc2ce706c395d61b44337f7d3ef94b689c7",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261011T193443Z-ddd3bb7435454353b2810233607195e2.log",
+      "logSha256": "58fe5ee0139cd5407e1ba1b9527df36dcfeeddda28be7feb18e0bb4aca015f72",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "controls": {
+        "positive": 38,
+        "negative": 9
+      },
+      "unjoinableCriticalPairs": 662
+    }
+  }
+}

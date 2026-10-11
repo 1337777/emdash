@@ -188,3 +188,37 @@ is expected to fail at the recorded unresolved family owner. Do not register
 the prefix as a replacement core target. Replay on action, coefficient,
 whiskering, product, evaluation or duality owner changes; promotion still
 requires the complete source/consumer and warning gates.
+
+## Whole transpose and fixed-family continuation
+
+`duality_migration.py` starts from the exact checked Cartesian output and
+changes the existing whole opposite/family owners together. The retained
+main `Op_cat` means dimension-one transpose. Accordingly, `op` now has source
+`CoAt2_cat Cat_cat`, and `Op_catd(E)` has base `CoAt2_cat K`. The genuine
+whole family body is `op o CoAt2_func(E)`, with the existing stable head and
+projection ladder. This is not the retired strict-v1/Reverse12 construction.
+
+```bash
+python3 audits/strict-default-action-boundary/duality_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --quiet \
+  --package-root tmp/probes/strict_default_duality family_prefix.lp
+```
+
+The head prefix passes 13 positive/three negative controls in 0.595s. The
+family prefix passes 38 positive/nine negative controls in 3.962s, including
+the prior upstream controls. The tests retain nonidentity base/higher cells,
+check the E-parameterized formation as a whole composition, and reject the
+wrong unchanged base and wrong transfor input profile. These are native
+functor/whole-action constructions; no operational comparison proof is an
+input. A source-category annotation resolves an inference ambiguity without
+changing the theory. The whole formation fold uses the existing left-
+associated Cat-composition normal form.
+
+The full `emdash3_2.lp` target fails at the later `Op_funcd` identity rule;
+that operation's base and higher transfor profile are not yet migrated.
+Do not turn the positive prefixes into a full opposite/Homd qualification,
+identify the shifted and original bases, or force all FF strict. The exact
+source hashes and three receipt outcomes are retained in
+`duality_migration_verification.json`. Replay when these owners or the pinned
+Cartesian stage change; retire the builder after qualified promotion.

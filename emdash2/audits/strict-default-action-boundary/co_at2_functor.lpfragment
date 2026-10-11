@@ -1,0 +1,33 @@
+// The same strict functor, with dimension two reversed in both endpoints.
+injective symbol CoAt2_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (CoAt2_cat A) (CoAt2_cat B));
+rule @CoAt2_func _ _ (@CoAt2_func _ _ $F) ↪ $F;
+rule @fapp0 _ _ (@CoAt2_func $A $B $F) $x ↪ @fapp0 $A $B $F $x;
+rule @fapp1_func _ _ (@CoAt2_func $A $B $F) $x $y
+  ↪ @Op_func (Hom_cat $A $x $y)
+      (Hom_cat $B (fapp0 $F $x) (fapp0 $F $y))
+      (@fapp1_func $A $B $F $x $y);
+rule @fapp1_fapp0 _ _ (@CoAt2_func $A $B $F) $x $y $p
+  ↪ @fapp1_fapp0 $A $B $F $x $y $p;
+rule @CoAt2_func _ _ (@id Cat_cat $A)
+  ↪ @id Cat_cat (CoAt2_cat $A);
+rule @CoAt2_func _ _ (@comp_fapp0 Cat_cat $A $B $C $G $F)
+  ↪ @comp_cat_fapp0 (CoAt2_cat $A) (CoAt2_cat $B) (CoAt2_cat $C)
+      (@CoAt2_func $B $C $G) (@CoAt2_func $A $B $F);
+
+// Whole Cartesian mapping-category action of dimension-one transpose.
+// A transformation F=>G is sent to Op(G)=>Op(F); higher directions follow
+// the actual transpose of this mapping category, not its total reversal.
+injective symbol Op_func_func (A B : Cat)
+  : τ (Functor
+      (Op_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (Op_cat A) (Op_cat B)));
+rule @fapp0 _ _ (Op_func_func $A $B) $F ↪ @Op_func $A $B $F;
+
+// Dimension-two reversal on the Cartesian mapping category. This is the
+// whole structural action, not a supplied cell or equality certificate.
+injective symbol CoAt2_func_func (A B : Cat)
+  : τ (Functor
+      (CoAt2_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (CoAt2_cat A) (CoAt2_cat B)));
+rule @fapp0 _ _ (CoAt2_func_func $A $B) $F ↪ @CoAt2_func $A $B $F;

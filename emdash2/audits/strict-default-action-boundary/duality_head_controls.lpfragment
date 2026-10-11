@@ -1,0 +1,68 @@
+// NON-LIBRARY: test the dimension shift before the old family consumers.
+assert [A : Cat] (x y : τ (Obj A)) ⊢
+  Hom_cat (Op_cat A) x y ≡ Hom_cat A y x;
+assert [A : Cat] (x y : τ (Obj A)) ⊢
+  Hom_cat (CoAt2_cat A) x y ≡ Op_cat (Hom_cat A x y);
+assert [A : Cat] (x y : τ (Obj A)) [p q : τ (Hom A x y)] ⊢
+  Hom_cat (Hom_cat (CoAt2_cat A) x y) p q
+  ≡ Hom_cat (Hom_cat A x y) q p;
+assert [A : Cat] (x y : τ (Obj A)) [p q : τ (Hom A x y)]
+  (alpha beta : τ (Hom (Hom_cat A x y) p q)) ⊢
+  Hom_cat (Hom_cat (Hom_cat (CoAt2_cat A) x y) q p) alpha beta
+  ≡ Hom_cat (Hom_cat (Hom_cat A x y) p q) alpha beta;
+
+assert [A B : Cat] (F : τ (Functor A B)) [x y : τ (Obj A)] ⊢
+  @fapp1_func _ _ (@CoAt2_func A B F) x y
+  ≡ @Op_func _ _ (@fapp1_func A B F x y);
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @CoAt2_func _ _ (@CoAt2_func A B F) ≡ F;
+
+assert ⊢ op : τ (Functor (CoAt2_cat Cat_cat) Cat_cat);
+assertnot ⊢ op : τ (Functor Cat_cat Cat_cat);
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @fapp1_fapp0 (CoAt2_cat Cat_cat) Cat_cat op A B F ≡ @Op_func A B F;
+assert [A B : Cat] ⊢
+  @fapp1_func (CoAt2_cat Cat_cat) Cat_cat op A B ≡ Op_func_func A B;
+
+// The correct source accepts a classified transformation in the reverse
+// parameter direction. Repeating the former covariant call is rejected.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (alpha : τ (@StrictTransfor A B F G)) ⊢
+  @fapp1_fapp0 _ _ (Op_func_func A B) G F alpha
+  : τ (@StrictTransfor (Op_cat A) (Op_cat B) (@Op_func A B G) (@Op_func A B F));
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (alpha : τ (@StrictTransfor A B F G)) ⊢
+  @fapp1_fapp0 _ _ (Op_func_func A B) F G alpha
+  : τ (@StrictTransfor (Op_cat A) (Op_cat B) (@Op_func A B F) (@Op_func A B G));
+
+// A genuine higher cell keeps its third-dimensional direction.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  [alpha beta : τ (@StrictTransfor A B F G)]
+  (theta : τ (Hom (Hom_cat (Functor_cart_cat A B) F G) alpha beta)) ⊢
+  @fapp1_fapp0
+    (Hom_cat (Functor_cart_cat A B) F G)
+    (Hom_cat (Functor_cart_cat (Op_cat A) (Op_cat B)) (@Op_func A B G) (@Op_func A B F))
+    (@fapp1_func
+      (Op_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (Op_cat A) (Op_cat B))
+      (Op_func_func A B) G F) alpha beta theta
+  : τ (Hom
+      (Hom_cat (Functor_cart_cat (Op_cat A) (Op_cat B)) (@Op_func A B G) (@Op_func A B F))
+      (@fapp1_fapp0 _ _ (Op_func_func A B) G F alpha)
+      (@fapp1_fapp0 _ _ (Op_func_func A B) G F beta));
+
+// A whole fibrewise transpose has the corrected C2 base, for variable E.
+// This is a diagnostic definition of the intended Op_catd semantic body.
+symbol sf_transpose_family [K : Cat] (E : τ (Functor K Cat_cat))
+  : τ (Functor (CoAt2_cat K) Cat_cat)
+≔ @comp_cat_fapp0 (CoAt2_cat K) (CoAt2_cat Cat_cat) Cat_cat
+    op (@CoAt2_func K Cat_cat E);
+assert [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K)) ⊢
+  @fapp0 (CoAt2_cat K) Cat_cat (@sf_transpose_family K E) x
+  ≡ Op_cat (@fapp0 K Cat_cat E x);
+assert [K : Cat] (E : τ (Functor K Cat_cat))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 (CoAt2_cat K) Cat_cat (@sf_transpose_family K E) x y p
+  ≡ @Op_func _ _ (@fapp1_fapp0 K Cat_cat E x y p);
+assertnot [K : Cat] (E : τ (Functor K Cat_cat)) ⊢
+  @sf_transpose_family K E : τ (Functor K Cat_cat);

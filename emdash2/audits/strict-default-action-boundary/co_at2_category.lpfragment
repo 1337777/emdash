@@ -1,0 +1,9 @@
+// Reverse dimension two only. The existing Op_cat is the dimension-one
+// transpose, as witnessed by its unchanged Hom projection.
+injective symbol CoAt2_cat (A : Cat) : Cat;
+rule CoAt2_cat (CoAt2_cat $A) ↪ $A;
+rule Obj (CoAt2_cat $A) ↪ Obj $A;
+rule Hom_cat (CoAt2_cat $A) $X $Y ↪ Op_cat (Hom_cat $A $X $Y);
+rule @id (CoAt2_cat $A) $X ↪ @id $A $X;
+rule @comp_fapp0 (CoAt2_cat $A) $X $Y $Z $g $f
+  ↪ @comp_fapp0 $A $X $Y $Z $g $f;

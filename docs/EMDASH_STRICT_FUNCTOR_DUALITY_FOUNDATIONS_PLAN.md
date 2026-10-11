@@ -53,8 +53,8 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: carry the checked upstream prototype into the coupled
-whole opposite-family action, using the necessary
+Current next slice: continue from the checked opposite-family prototype into
+the legacy displayed-opposite (`Op_funcd`) consumer/profile boundary, using the necessary
 [Cartesian/Gray evaluation and coefficient distinction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 at its upstream owners. A checked native construction shows that keeping
 unrestricted Cartesian Eval while restoring strict functor composition
@@ -140,6 +140,26 @@ upwards, and O for total reversal. C2 reverses dimension two alone. These
 are the current design meanings, not authorization to equate distinct
 higher actions. Primitive/derived names can be settled with the final owner
 signatures before their consumers are migrated.
+
+Source-preserving naming decision for the current migration: the actual main
+baseline has `Hom_cat(Op_cat A,x,y) = Hom_cat(A,y,x)`. Its stable `Op_cat`
+head therefore implements T (dimension one), not O (total reversal). Keep
+that existing local behavior/name in this pass; do not silently reinterpret
+its many lower-level consumers as total reversal or rename them mechanically.
+Total reversal and R remain distinct operations when required. This corrects
+the historical notation ambiguity without resuming the retired strict-v1
+attempt.
+
+For the Cartesian coefficient universe, this gives the required head type
+`op : Functor (CoAt2_cat Cat_cat) Cat_cat`. Cartesian n-transformation
+components are n-cells of the target: transposing their target reverses the
+first transformation direction, hence Cat's dimension two. The native
+`CoAt2_cat` projection is `Hom(CoAt2_cat K,x,y)=Op_cat(Hom(K,x,y))`.
+The intended whole fibre transpose of variable `E:K->Cat` is the actual
+composite `op o CoAt2_func(E):CoAt2_cat(K)->Cat`, matching the T_fib/C2
+profile in the selected design below. This head/body candidate checks in the
+prefixes recorded below; its remaining family consumers are not migrated. It does not claim
+that pointwise transpose preserves an arbitrary lax transformation's profile.
 
 Keep Cat-valued strict families and the selected coefficient convention:
 
@@ -614,10 +634,10 @@ the Cat-derived parameter telescopes retain their generic Hom derivations
 with Cartesian inputs/targets. Their ambient transfor observations remain
 explicit views. This does not qualify every lax/oplax parameter extension.
 Do not equate the two mapping categories to pass a constraint or replace a
-derived theorem by an axiom. The current full-file frontier is the whole
-`fapp1_func(Op_catd(E),x,y)` action. Correct its duality and coefficient
-signature together; merely retargeting its old ordinary `op : Cat -> Cat`
-composite would preserve the known variance defect.
+derived theorem by an axiom. The earlier full-file frontier was the whole
+`fapp1_func(Op_catd(E),x,y)` action. That owner's coupled duality/coefficient
+correction now checks in the next prototype below. Its old ordinary
+`op : Cat -> Cat` composite was not merely retargeted to another mapping Hom.
 
 Recovery for this in-progress tranche: `owner_relocation.json` records the
 exact active hashes and six passing baseline/probe/owner/reviewer receipts.
@@ -686,6 +706,65 @@ This is an audit/prototype checkpoint, not production promotion. The pending
 active carrier relocation remains a separate bounded change awaiting its
 already-running health gate. Main, the paused application worktree, source
 pins and production strict-default rules are unchanged by this tranche.
+
+## Corrected whole transpose and fixed-family action
+
+The preceding goal turn produced checkpoint `ff9f02c4` and changed the next
+action through the coefficient countercheck. This continuation implements
+the required native dimension shift over that exact Cartesian prototype.
+
+`duality_migration.py` replays the checked Cartesian stage, verifies its
+source hash, and then adapts the existing opposite/family owners. It adds
+`CoAt2_cat` and its functor action, retaining the baseline dimension-one
+meaning of `Op_cat`. The corrected whole `op` has source
+`CoAt2_cat Cat_cat`. Its first Hom action is the whole Cartesian functor
+`Op_func_func(A,B):Op_cat(Functor_cart_cat(A,B))->
+Functor_cart_cat(Op_cat A,Op_cat B)`; it reverses the transformation direction
+and preserves the next higher direction. The head prefix passes 13 positive
+and three negative controls, including a nonidentity higher-cell input.
+
+The actual `Op_catd` owner now has type `Catd(CoAt2_cat K)` on variable
+`E:Catd K`. Its whole base action is the composite of `Op_func` on E's Hom
+action and `Op_func_func` on the coefficient Hom. The canonical formation
+is `op o CoAt2_func(E)`, folded to the existing stable head. Object, arrow,
+nonidentity base-2-cell, constant-family and involution controls pass.
+The E-parameterized formation is also internal, with type
+
+```text
+Op_catd_func(K)
+  : CoAt2_cat(Functor_cart_cat(K,Cat)) -> Catd_cat(CoAt2_cat K).
+```
+
+Its whole composition body uses the existing mapping-constructor action,
+Cartesian inclusion and `CoAt2_func_func`; no equality/path input is added.
+The formation fold follows the already-existing left-associated runtime
+normal form for composition. An initially right-associated pattern failed
+the whole comparison and was corrected at that owner; no associativity rule
+was changed. Typed controls spell out shifted source categories where the
+unchanged object/arrow carriers otherwise cause ambiguous inference.
+
+The complete source prefix through this family owner passes 38 positive and
+nine negative controls (including the 15/four upstream controls), in 3.962s.
+The full file fails later at the legacy `Op_funcd` identity rule, which still
+claims the old unshifted base (4.186s). Exact manifests and receipts are in
+`duality_migration_verification.json`; no prefix replaces a registered core.
+The independent Sigma-Hom/Homd and whole Q obligations remain outstanding.
+
+Next: settle `Op_funcd`'s actual transfor profile and migrate its consumers
+with the selected Q/Homd construction. The successful E-formation functor
+has a Cartesian parameter category: a negative control explicitly rejects
+feeding an arbitrary raw `FF` to it. This does not authorize making every
+blended FF strict. Nor may `CoAt2_cat K` be identified with K to repair the
+old identity rule. A two-dimensional lax/oplax calculation alone does not
+qualify a uniform omega-level dual action on arbitrary transfors.
+
+The production carrier relocation remains uncommitted while the existing
+health process runs. A longer current child twice outlasted the serial
+scheduler's former 55-second window, so no probe was launched in those two
+attempts. The ignored scheduler now waits asynchronously up to 300 seconds
+for that child before running the still-default 90-second/2-GiB probe. It
+continues to resume the coordinator in `finally`; no checker resource
+profile or global limit was changed.
 
 ## Deferred improvements under the migration boundary
 
