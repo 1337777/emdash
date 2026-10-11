@@ -5,6 +5,13 @@ Status: SF-0 owner audit with a non-library SF-1 implementation pilot
 Authority: [living plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md),
 active v3.2 source and [Lambdapi SOP](../emdash2/AGENTS.md).
 
+Continuation qualification: the
+[evaluation-profile audit](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
+constructs naturality equalities from the capped strictness rule and legacy
+Cartesian evaluation. The local conversion negatives below are insufficient
+to claim preservation of general lax transfors under blanket promotion.
+The required next owner change is the Cartesian/Gray coefficient distinction.
+
 ## Source and qualification boundary
 
 This work starts from main `f8af1fca472657ff1598c639eb29c0566e7b2ec0` in

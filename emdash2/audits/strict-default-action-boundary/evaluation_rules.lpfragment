@@ -1,0 +1,23 @@
+// Strict Grpd-valued action after function evaluation erases composition.
+rule @fapp1_fapp0 $K Grpd_cat $E $y $z $q
+      (@fapp1_fapp0 $K Grpd_cat $E $x $y $p $u)
+  ↪ @fapp1_fapp0 $K Grpd_cat $E $x $z
+      (@comp_fapp0 $K $x $y $z $q $p) $u;
+
+// Strict Cat-valued action after object evaluation erases composition.
+rule @fapp0 _ _ (@fapp1_fapp0 $K Cat_cat $E $y $z $q)
+      (@fapp0 _ _ (@fapp1_fapp0 $K Cat_cat $E $x $y $p) $u)
+  ↪ @fapp0 _ _
+      (@fapp1_fapp0 $K Cat_cat $E $x $z
+        (@comp_fapp0 $K $x $y $z $q $p)) $u;
+
+// Strict opposite-valued action after the codomain has reversed composition.
+// lhs-audit: keep 2,3,4 -- these reversed endpoints are required by subject reduction; the inferred variant fails to identify the two images of the shared source object.
+rule @comp_fapp0 $B
+      (@fapp0 $A (Op_cat $B) $F $Z)
+      (@fapp0 $A (Op_cat $B) $F $Y)
+      (@fapp0 $A (Op_cat $B) $F $X)
+      (@fapp1_fapp0 $A (Op_cat $B) $F $X $Y $f)
+      (@fapp1_fapp0 $A (Op_cat $B) $F $Y $Z $g)
+  ↪ @fapp1_fapp0 $A (Op_cat $B) $F $X $Z
+      (@comp_fapp0 $A $X $Y $Z $g $f);

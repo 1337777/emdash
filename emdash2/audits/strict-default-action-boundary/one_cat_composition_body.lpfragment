@@ -1,0 +1,3 @@
+≔ @eq_refl
+    (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
+    (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f));

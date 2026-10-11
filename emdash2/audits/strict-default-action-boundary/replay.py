@@ -27,6 +27,7 @@ def main() -> None:
         "capped": "/*\n  The former capped composition cut and detached all-components law are\n",
         "whole": "/*\n  The former whole post/left and pre/right strict-functoriality accumulation\n",
         "intrinsic": "// The public whole laxity candidate is now an object projection, not an\n",
+        "evaluation": "// Ordinary category identity cuts: g ∘ id ↪ g and id ∘ f ↪ f.",
     }
     for name, marker in markers.items():
         if source.count(marker) != 1:
@@ -35,48 +36,62 @@ def main() -> None:
     output.mkdir(parents=True, exist_ok=True)
     fragments = {p.name: p.read_text() for p in audit.glob("*.lpfragment")}
     manifests = {}
-    for variant in ("baseline", "capped", "whole", "intrinsic", "raw_endpoint", "projection", "joined"):
+    variants = {
+        "baseline": 0, "capped": 1, "whole": 2, "intrinsic": 3,
+        "raw_endpoint": 1, "projection": 3, "joined": 4,
+        "constructors": 4, "evaluated": 5,
+    }
+    for variant, level in variants.items():
         controls = fragments["composition_controls.lpfragment"]
         body = source
-        if variant == "baseline":
+        if level == 0:
             controls = re.sub(r"(?m)^assert\b", "assertnot", controls)
         else:
             marker = markers["capped"]
             body = body.replace(marker, fragments["composition_rule.lpfragment"] + "\n" + marker)
-        if variant in ("whole", "intrinsic", "projection", "joined"):
+        if level >= 2:
             marker = markers["whole"]
             insertion = fragments["whole_rules.lpfragment"]
-            if variant == "joined":
+            if level >= 4:
                 insertion += "\n" + fragments["projected_rules.lpfragment"]
             body = body.replace(marker, insertion + "\n" + marker)
-        if variant in ("intrinsic", "projection", "joined"):
+        if level >= 3:
             marker = markers["intrinsic"]
             body = body.replace(marker, fragments["intrinsic_rule.lpfragment"] + "\n" + marker)
-        if variant == "joined":
-            package = output / "package_joined"
+        if level >= 5:
+            marker = markers["evaluation"]
+            body = body.replace(marker, fragments["evaluation_rules.lpfragment"] + "\n" + marker)
+        # Source-only copy for real consumer packages, without local controls.
+        (output / ("source_" + variant + ".lp")).write_text(body)
+        if variant in ("joined", "evaluated"):
+            package = output / ("package_" + variant)
             package.mkdir(exist_ok=True)
+            if any(package.rglob("*.lpo")):
+                raise SystemExit("compiled objects present in source-only pilot: " + str(package))
             (package / "emdash3_2.lp").write_text(body)
             (package / profile.name).write_bytes(profile.read_bytes())
             (package / "lambdapi.pkg").write_bytes((root / "lambdapi.pkg").read_bytes())
             (package / "profile_consumer.lp").write_text(fragments["profile_consumer.lpfragment"])
-            manifests["package_joined"] = {
-                p.name: digest(p.read_bytes()) for p in sorted(package.iterdir())
-                if p.suffix in (".lp", ".pkg")
+            manifests[package.name] = {
+                name: digest((package / name).read_bytes())
+                for name in ("emdash3_2.lp", profile.name, "lambdapi.pkg", "profile_consumer.lp")
             }
         body += "\n" + controls + "\n" + fragments["retained_controls.lpfragment"]
         whole_controls = fragments["whole_controls.lpfragment"]
-        if variant not in ("whole", "intrinsic", "projection", "joined"):
+        if level < 2:
             whole_controls = re.sub(r"(?m)^assert\b", "assertnot", whole_controls)
         body += "\n" + whole_controls
         if variant == "raw_endpoint":
             body += "\n" + fragments["compositor_boundary.lpfragment"]
-        if variant in ("whole", "intrinsic", "projection", "joined"):
+        if level >= 2:
             intrinsic_controls = fragments["intrinsic_controls.lpfragment"]
-            if variant in ("intrinsic", "projection", "joined"):
+            if level >= 3:
                 intrinsic_controls = re.sub(r"(?m)^assertnot\b", "assert", intrinsic_controls)
             body += "\n" + intrinsic_controls
-        if variant in ("projection", "joined"):
+        if variant == "projection" or level >= 4:
             body += "\n" + fragments["projection_controls.lpfragment"]
+        if variant in ("constructors", "evaluated"):
+            body += "\n" + fragments["constructor_controls.lpfragment"]
         target = output / (variant + ".lp")
         target.write_text(body)
         manifests[str(target.relative_to(root))] = {

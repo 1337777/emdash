@@ -1,0 +1,110 @@
+require open emdash.emdash3_2_gray_profiles;
+
+// NON-LIBRARY interface pilot, checked over the strict-default candidate.
+// Objects share the default strict functor carrier. The entire category is
+// the Cartesian internal Hom, with strict transfors at every dimension.
+injective symbol sf_cart_functor_cat (A B : Cat) : Cat;
+rule Obj (sf_cart_functor_cat $A $B) ↪ Functor $A $B;
+
+// Only the object classifier of this Hom uses the existing strict-transfor
+// carrier. Its higher Hom is NOT identified with the ambient modification
+// category; it retains the Cartesian profile.
+rule Obj (Hom_cat (sf_cart_functor_cat $A $B) $F $G)
+  ↪ @StrictTransfor $A $B $F $G;
+
+// The corresponding strict coefficient universe shares category objects,
+// but its whole Hom uses the Cartesian transformation profile.
+constant symbol sf_cart_cat : Cat;
+rule Obj sf_cart_cat ↪ Obj Cat_cat;
+rule Hom_cat sf_cart_cat $A $B ↪ sf_cart_functor_cat $A $B;
+
+// One whole inclusion shares all ordinary action operations. There is no
+// duplicate strict-functor action API or supplied naturality witness.
+injective symbol sf_cart_functor_include (A B : Cat)
+  : τ (Functor (sf_cart_functor_cat A B) (Functor_cat A B));
+rule @fapp0 _ _ (sf_cart_functor_include _ _) $F ↪ $F;
+rule @fapp1_fapp0 _ _ (sf_cart_functor_include $A $B) $F $G $epsilon
+  ↪ @strict_transfor $A $B $F $G $epsilon;
+
+// Projection-order clauses for Cartesian identity and composition.
+rule @strict_transfor $A $B $F $F (@id (sf_cart_functor_cat $A $B) $F)
+  ↪ @id (Functor_cat $A $B) $F;
+rule @strict_transfor $A $B $F $H
+      (@comp_fapp0 (sf_cart_functor_cat $A $B) $F $G $H $eta $epsilon)
+  ↪ @comp_fapp0 (Functor_cat $A $B) $F $G $H
+      (@strict_transfor $A $B $G $H $eta)
+      (@strict_transfor $A $B $F $G $epsilon);
+
+// A Cartesian evaluator admits this stricter transformation profile.
+// Lax evaluation belongs to the existing Gray closure profile instead.
+injective symbol sf_cart_eval (A B : Cat)
+  : τ (Functor (Product_cat (sf_cart_functor_cat A B) A) B);
+rule @fapp0 _ _ (sf_cart_eval $A $B) (Struct_sigma $F $x)
+  ↪ @fapp0 $A $B $F $x;
+rule @fapp1_fapp0 _ _ (sf_cart_eval $A $B)
+      (Struct_sigma $F $x) (Struct_sigma $G $y)
+      (Struct_sigma $epsilon $p)
+  ↪ @tapp1_fapp0 $A $B $F $G $x $y
+      (@strict_transfor $A $B $F $G $epsilon) $p;
+
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  F : τ (Obj (sf_cart_functor_cat A B));
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@StrictTransfor A B F G)) ⊢
+  epsilon : τ (Hom (sf_cart_functor_cat A B) F G);
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) ⊢
+  epsilon : τ (Hom (sf_cart_functor_cat A B) F G);
+
+assert [A B : Cat] (F : τ (Functor A B)) (x : τ (Obj A)) ⊢
+  @fapp0 (Product_cat (sf_cart_functor_cat A B) A) B
+    (sf_cart_eval A B) (Struct_sigma F x)
+  ≡ @fapp0 A B F x;
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@StrictTransfor A B F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @fapp1_fapp0 (Product_cat (sf_cart_functor_cat A B) A) B
+    (sf_cart_eval A B) (Struct_sigma F x) (Struct_sigma G y)
+    (Struct_sigma epsilon p)
+  ≡ @tapp1_fapp0 A B F G x y (@strict_transfor A B F G epsilon) p;
+
+// A higher cell retains its actual Cartesian source profile and maps by
+// the whole inclusion's iterable Hom action, without an object-only cast.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  [epsilon eta : τ (Hom (sf_cart_functor_cat A B) F G)]
+  (alpha : τ (Hom (Hom_cat (sf_cart_functor_cat A B) F G) epsilon eta)) ⊢
+  @fapp1_fapp0 (Hom_cat (sf_cart_functor_cat A B) F G)
+    (Hom_cat (Functor_cat A B) F G)
+    (@fapp1_func (sf_cart_functor_cat A B) (Functor_cat A B)
+      (sf_cart_functor_include A B) F G)
+    epsilon eta alpha
+  : τ (Hom (Transf_cat F G)
+      (@strict_transfor A B F G epsilon) (@strict_transfor A B F G eta));
+
+assertnot [A B : Cat] [F G : τ (Functor A B)] ⊢
+  Hom_cat (sf_cart_functor_cat A B) F G ≡ Transf_cat F G;
+
+// The formerly collapsing evaluator call is rejected at its actual input.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @fapp1_fapp0 (Product_cat (sf_cart_functor_cat A B) A) B
+    (sf_cart_eval A B) (Struct_sigma F x) (Struct_sigma G y)
+    (Struct_sigma epsilon p)
+  : τ (Hom B (@fapp0 A B F x) (@fapp0 A B G y));
+
+// A variable family gets its transport-transfor profile from the coefficient
+// Hom itself. No property/path or separately declared comparison is input.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 K sf_cart_cat E x y p
+  : τ (Functor (@fapp0 K sf_cart_cat E x) (@fapp0 K sf_cart_cat E y));
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y : τ (Obj K)] [p q : τ (Hom K x y)]
+  (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  @fapp1_fapp0 (Hom_cat K x y)
+    (Hom_cat sf_cart_cat (@fapp0 K sf_cart_cat E x) (@fapp0 K sf_cart_cat E y))
+    (@fapp1_func K sf_cart_cat E x y) p q alpha
+  : τ (@StrictTransfor (@fapp0 K sf_cart_cat E x) (@fapp0 K sf_cart_cat E y)
+      (@fapp1_fapp0 K sf_cart_cat E x y p) (@fapp1_fapp0 K sf_cart_cat E x y q));

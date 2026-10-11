@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; SF-0 owner audit and first bounded strict-action qualification in progress
+Status: active; strict-action pilot checked; Cartesian/Gray evaluation and coefficient profiles must be integrated before promotion
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -35,6 +35,13 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Current next slice: implement the
+[Cartesian/Gray evaluation and coefficient distinction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
+at its upstream owners. A checked native construction shows that keeping
+unrestricted Cartesian Eval while restoring strict functor composition
+derives unwanted naturality equalities. This takes precedence over earlier
+constructor-only promotion steps in the chronological ledger below.
 
 The first implementation pass restores STRICT FUNCTORS as the structural
 default and implements the selected corrected-duality/profunctor Homd design
@@ -440,3 +447,82 @@ unwrapped default against profile consumers; then prepare the first
 production slice together with the final core duality signatures. Retain
 the generic-transfor negative controls throughout. Do not restart the
 rejected Homd architectures or begin the weak-category implementation.
+
+## SF-1 constructor continuation, 2026-10-11
+
+Previous turn classification: progress, checkpoint `1162eac2`. On resumption
+all 75 worktrees were clean; this branch remains descended from the main pin.
+The original pilot's emitted outputs remain byte-identical. The current
+slice qualifies concrete constructor/projection interactions and the first
+existing diagnostic dependency closure before production promotion.
+
+The hypothesis is that strict action remains valid after evaluation has
+erased the composition head. New typed controls cover identity/composite
+functors, explicit opposite action, transfor component composition,
+Grpd-valued evaluation, Cat-valued evaluation and arbitrary opposite-valued
+action. The original pilot fails first at Grpd-valued evaluation. Added
+native evaluation clauses make all seven controls pass; the total is now
+26 positives and three arbitrary-transfor negatives. The opposite-valued
+clause needs explicit reversed endpoints for subject reduction; the inferred
+variant was rejected, and the retained clause records that measured guard.
+The strict LHS audit remains clear.
+
+The first existing-consumer replay exposed a migration in
+`emdash3_2_one_cat_action_paths.lp`: its old derived composition proof
+threads a now-identity intrinsic compositor through a represented/raw
+comparison. Under the strict default its original type has a direct
+reflexivity body. The candidate changes that body in the isolated package;
+the adjacent transfor-naturality theorem retains its original lax-cell proof.
+
+The nucleus diagnostic imports 140 source/package files. Its isolated
+replay initially inherited the probe's 2 GiB profile and hit allocation
+failure after 22.37 seconds. This is below its existing registered target
+profile, `action-profile-6g-180s`. The subsequent replay used that registered
+6 GiB/180-second diagnostic profile with `o=20,v=1024`; no default limit or
+guard changes. The candidate remains distinct from an exact-source baseline
+receipt. Source, settings and measurements are retained in its audit.
+
+The registered-profile diagnostic finished in 56.13 seconds with a genuine
+type/normalization failure in `represented_comma_families`, not a resource
+failure. Fresh baseline, capped-only and whole-endpoint-only owner replays
+pass. Adding the generic intrinsic-compositor identity clause causes the
+failure. Its target-component expression stops computing; choosing the
+other strict endpoint for the identity does not repair it. This remains an
+integration obligation, with the actual inverse-data derivation preserved.
+
+## SF-0 evaluation/coefficient profile correction
+
+The [evaluation-profile review](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
+records a stronger finding. The capped strictness rule plus the existing
+unrestricted Cartesian `Eval_func` derives equality paths between the two
+boundary routes of an arbitrary transfor square. The proof is native and
+uses no Op, directed Sigma-Hom, supplied comparison or intrinsic-compositor
+identity clause. Therefore the original three conversion negatives are
+insufficient qualification of retained lax transfors. Blanket promotion of
+the strict-action patch is rejected under the unchanged evaluator contract.
+
+The selected strict default and response-0099 Homd direction stay in place.
+The required adjustment is at joint evaluation and the whole coefficient
+profile. A new native interface pilot shares default functor objects and
+`fapp*` operations, gives the Cartesian mapping category its strict-transfor
+Hom-object classifier, keeps its higher Hom distinct, and supplies a whole
+inclusion. Its Cartesian evaluator rejects raw arbitrary transfors. A
+variable family into the corresponding coefficient universe has strict
+transport/transfor types directly, with no operational equality evidence.
+Seven positives and three negatives check in the isolated strict-default
+package. This is a classifier/interface pilot, not its complete higher
+introduction theory or a repaired production evaluator.
+
+The existing Gray evaluation is the route for its admitted lax-transfor
+profile. Reuse that boundary; do not introduce weak category objects,
+Q_lax, an unbundled Hom API or application equivalence work as prerequisites.
+
+Next required slice: organize the Cartesian/Gray carrier and inclusion
+owners before their late property/evidence consumers; reprofile Cartesian
+evaluation and curry/uncurry; qualify the coefficient Hom used by the
+family and Q interfaces. Decide `Cat_cart` versus the public `Cat_cat` by
+whole Hom/action, never shared objects alone. The strong adverse evaluation
+construction must become rejected for the intended input-profile reason.
+Then resume constructor/consumer qualification and the combined duality/
+Homd migration. Preserve the independent represented-comma regression for
+replay; do not replace its derived proof with an axiom.

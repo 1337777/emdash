@@ -1,0 +1,74 @@
+// Typed consumers for the first changed warning families.
+
+// The identity constructor specializes the restored generic action.
+assert [A : Cat] [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @comp_fapp0 A X Y Z
+    (@fapp1_fapp0 A A (@id_func A) Y Z g)
+    (@fapp1_fapp0 A A (@id_func A) X Y f)
+  ≡ @fapp1_fapp0 A A (@id_func A) X Z (@comp_fapp0 A X Y Z g f);
+
+// A composite constructor can expose its two actions before composition.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C))
+  [X Y Z : τ (Obj A)] (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @comp_fapp0 C
+    (@fapp0 B C G (@fapp0 A B F X))
+    (@fapp0 B C G (@fapp0 A B F Y))
+    (@fapp0 B C G (@fapp0 A B F Z))
+    (@fapp1_fapp0 B C G (@fapp0 A B F Y) (@fapp0 A B F Z)
+      (@fapp1_fapp0 A B F Y Z g))
+    (@fapp1_fapp0 B C G (@fapp0 A B F X) (@fapp0 A B F Y)
+      (@fapp1_fapp0 A B F X Y f))
+  ≡ @fapp1_fapp0 A C (@comp_cat_fapp0 A B C G F) X Z
+      (@comp_fapp0 A X Y Z g f);
+
+// Legacy dimension-one opposite: explicit functor action and base reversal.
+// This control does not qualify internal op or higher duality semantics.
+assert [A B : Cat] (F : τ (Functor A B))
+  [X Y Z : τ (Obj A)] (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @comp_fapp0 (Op_cat B) (@fapp0 A B F Z) (@fapp0 A B F Y) (@fapp0 A B F X)
+    (@fapp1_fapp0 (Op_cat A) (Op_cat B) (@Op_func A B F) Y X f)
+    (@fapp1_fapp0 (Op_cat A) (Op_cat B) (@Op_func A B F) Z Y g)
+  ≡ @fapp1_fapp0 (Op_cat A) (Op_cat B) (@Op_func A B F) Z X
+      (@comp_fapp0 (Op_cat A) Z Y X f g);
+
+// Evaluating a composite transfor retains strict component composition.
+assert [A B : Cat] [F G H : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) (eta : τ (Transf G H)) (x : τ (Obj A)) ⊢
+  @comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B G x) (@fapp0 A B H x)
+    (@tapp0_fapp0 A B G H x eta) (@tapp0_fapp0 A B F G x epsilon)
+  ≡ @tapp0_fapp0 A B F H x
+      (@comp_fapp0 (Functor_cat A B) F G H eta epsilon);
+
+// Grpd-valued action: evaluation may erase the composition head first.
+assert [K : Cat] (E : τ (Functor K Grpd_cat))
+  [x y z : τ (Obj K)] (q : τ (Hom K y z)) (p : τ (Hom K x y))
+  (u : τ (@fapp0 K Grpd_cat E x)) ⊢
+  (@fapp1_fapp0 K Grpd_cat E y z q)
+    ((@fapp1_fapp0 K Grpd_cat E x y p) u)
+  ≡ (@fapp1_fapp0 K Grpd_cat E x z (@comp_fapp0 K x y z q p)) u;
+
+// Cat-valued action: functor evaluation may erase the composition head first.
+assert [K : Cat] (E : τ (Functor K Cat_cat))
+  [x y z : τ (Obj K)] (q : τ (Hom K y z)) (p : τ (Hom K x y))
+  (u : τ (Obj (@fapp0 K Cat_cat E x))) ⊢
+  @fapp0 (@fapp0 K Cat_cat E y) (@fapp0 K Cat_cat E z)
+    (@fapp1_fapp0 K Cat_cat E y z q)
+    (@fapp0 (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y)
+      (@fapp1_fapp0 K Cat_cat E x y p) u)
+  ≡ @fapp0 (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E z)
+      (@fapp1_fapp0 K Cat_cat E x z (@comp_fapp0 K x y z q p)) u;
+
+// Arbitrary opposite-valued input, after codomain composition has reversed.
+// Use the common opposite-Hom type explicitly. An unannotated comparison
+// attempts to invert the two reducible Hom aliases before their conversion.
+assert [A B : Cat] (F : τ (Functor A (Op_cat B)))
+  [X Y Z : τ (Obj A)] (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @eq_refl (Hom (Op_cat B) (@fapp0 A (Op_cat B) F X) (@fapp0 A (Op_cat B) F Z))
+    (@fapp1_fapp0 A (Op_cat B) F X Z (@comp_fapp0 A X Y Z g f))
+  : τ (@= (Hom (Op_cat B) (@fapp0 A (Op_cat B) F X) (@fapp0 A (Op_cat B) F Z))
+      (@comp_fapp0 B
+        (@fapp0 A (Op_cat B) F Z) (@fapp0 A (Op_cat B) F Y) (@fapp0 A (Op_cat B) F X)
+        (@fapp1_fapp0 A (Op_cat B) F X Y f)
+        (@fapp1_fapp0 A (Op_cat B) F Y Z g))
+      (@fapp1_fapp0 A (Op_cat B) F X Z (@comp_fapp0 A X Y Z g f)));

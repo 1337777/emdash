@@ -1,0 +1,44 @@
+// NON-LIBRARY: check whether Cartesian evaluation plus strict default maps
+// collapses the naturality routes that direct conversion negatives retain.
+// Equality is an audit output, never an argument to an action constructor.
+symbol sf_eval_strict_comp [A B : Cat] (F : τ (Functor A B))
+  [x y z : τ (Obj A)] (g : τ (Hom A y z)) (f : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B F y) (@fapp0 A B F z)
+        (@fapp1_fapp0 A B F y z g) (@fapp1_fapp0 A B F x y f))
+      (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f)))
+≔ @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
+    (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f));
+
+symbol sf_eval_post_path [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B G x) (@fapp0 A B G y)
+        (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon))
+      (@tapp1_fapp0 A B F G x y epsilon p))
+≔ @sf_eval_strict_comp (Product_cat (Functor_cat A B) A) B (@Eval_func A B)
+    (Struct_sigma F x) (Struct_sigma G x) (Struct_sigma G y)
+    (Struct_sigma (@id (Functor_cat A B) G) p)
+    (Struct_sigma epsilon (@id A x));
+
+symbol sf_eval_pre_path [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B F y) (@fapp0 A B G y)
+        (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y p))
+      (@tapp1_fapp0 A B F G x y epsilon p))
+≔ @sf_eval_strict_comp (Product_cat (Functor_cat A B) A) B (@Eval_func A B)
+    (Struct_sigma F x) (Struct_sigma F y) (Struct_sigma G y)
+    (Struct_sigma epsilon (@id A y))
+    (Struct_sigma (@id (Functor_cat A B) F) p);
+
+// If accepted, these two actual paths make the arbitrary square commute.
+symbol sf_eval_naturality_path [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B G x) (@fapp0 A B G y)
+        (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B F y) (@fapp0 A B G y)
+        (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y p)))
+≔ @eq_trans _ _ _ _ (@sf_eval_post_path A B F G epsilon x y p)
+    (@eq_sym _ _ _ (@sf_eval_pre_path A B F G epsilon x y p));
