@@ -1,0 +1,108 @@
+{
+  "status": "corrected Sigma-Hom, general 2-cell and recursive projection controls checked; complete Homd/Q and downstream integration remain incomplete",
+  "totalOpInputSha256": "7d604b9b250097a198e4fb1992c9491098c81c71c8fd899fb21ef5fdd568ba95",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/sigma_total_op_migration.py": "8312ef948d1a912f2df7a946b7945cfaacf8749fda1f0db32cb7067768f89a0b",
+    "audits/strict-default-action-boundary/sigma_total_op_controls.lpfragment": "2f817d10405f707cf3738ff68160f79bcd99e5a2739d0e226f9f012042408b72"
+  },
+  "outputs": {
+    "emdash3_2.lp": "444a5d0db06c2dfe0122e19dd378085b7c044498a8a7c184e66d1d6179c9307b",
+    "owner_prefix.lp": "3fbd8a9dc8c8a14ff3c20d3846794be3b65cec60eeb603bc674ccb28f815bbe3",
+    "hom_prefix.lp": "b0eb0ddcc315b5a3c97038547cbc838c1d132d6693346249933a2a2091735e40",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "owner": {
+      "id": "20261011T232251Z-506f7703c49a4181a4845cd61eef0b2e",
+      "target": "tmp/probes/strict_default_sigma_total_op/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 8.068654526025057,
+      "childrenMaxRssKiB": 264084,
+      "inputSnapshot": "2f5b70b1e846e320fb9ef3ae51ef0f0c1b1d62afaa88cdd38979e139ca941eaa",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_sigma_total_op/owner_prefix.lp": "3fbd8a9dc8c8a14ff3c20d3846794be3b65cec60eeb603bc674ccb28f815bbe3"
+      },
+      "log": "logs/check-runs/20261011T232251Z-506f7703c49a4181a4845cd61eef0b2e.log",
+      "logSha256": "77cdc77490964e9f1a3654a8fa52ec8079dddb532159bea57ee0d23e5306807d",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 788,
+      "controls": {
+        "positive": 109,
+        "negative": 24
+      }
+    },
+    "hom_family": {
+      "id": "20261011T232300Z-28c320c03ddf49e89939171ffc9ea7ec",
+      "target": "tmp/probes/strict_default_sigma_total_op/hom_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 7.807681665988639,
+      "childrenMaxRssKiB": 296040,
+      "inputSnapshot": "85aa4cce5bc926967ee7540cd83c0d5e35864275709b74e7b61ae07cedfb0a88",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_sigma_total_op/hom_prefix.lp": "b0eb0ddcc315b5a3c97038547cbc838c1d132d6693346249933a2a2091735e40"
+      },
+      "log": "logs/check-runs/20261011T232300Z-28c320c03ddf49e89939171ffc9ea7ec.log",
+      "logSha256": "c3de64bf4e1f1f41a91a8c25dec23402169993ac157ccce546ab687fc8a5f0b6",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 807,
+      "controls": {
+        "positive": 129,
+        "negative": 27
+      }
+    },
+    "full_file": {
+      "id": "20261011T232308Z-c7e109c0ca454938850a159f791170ae",
+      "target": "tmp/probes/strict_default_sigma_total_op/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.292452670983039,
+      "childrenMaxRssKiB": 296844,
+      "inputSnapshot": "eb58e41bbbf35b72dbc64588c3430628bcff7f065f61818d5d957e84fe0470ad",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_sigma_total_op/emdash3_2.lp": "444a5d0db06c2dfe0122e19dd378085b7c044498a8a7c184e66d1d6179c9307b"
+      },
+      "log": "logs/check-runs/20261011T232308Z-c7e109c0ca454938850a159f791170ae.log",
+      "logSha256": "d9059f7a481b110c25004dc116a928ddbf20d316e5066a1d5889fb5c1cf3d6c8",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 807
+    }
+  },
+  "boundary": {
+    "formula": "O(Sigma(O(I),TotalOp_catd(H))) for H:T(I)->Cat; no second Sigma constructor",
+    "constantCase": "explicit RHS reduces to Product(I,Hom_C(u,v)) with the original fibre direction",
+    "generalTwoCell": "kappa:p=>q and eta:a=>H[kappa](b) form the total 2-cell; both facade and whole-first projection return kappa",
+    "projectionOwner": "retain the original first Hom; refine its recursive action using total duality; the second pair indices are inferred from the actual input type",
+    "fullFile": "old Edge_catd_int still assumes Op_catd_func is an endofunctor of ambient Catd(Z)",
+    "remaining": "later Sigma transport/map and Hom_catd action consumers after the Homd block have not yet been migrated"
+  },
+  "warningComparison": {
+    "baselineReports": 808,
+    "candidateReports": 807,
+    "addedBlocks": 0,
+    "removedBlocks": 1,
+    "qualification": "diagnostic comparison at the same Hom-family boundary; not confluence qualification"
+  }
+}

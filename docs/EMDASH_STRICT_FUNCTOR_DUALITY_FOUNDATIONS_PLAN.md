@@ -53,10 +53,11 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: qualify total fibre opposite and its negative-section
-presentation through the existing Pi interface, then continue the required
-Q/Homd construction. The upstream ambient fixed precomposition and Cartesian
-whole diagram constructor now have checked native bodies in the prototype.
+Current next slice: recover the Cartesian representation package needed by
+the corrected whole Edge/presheaf operators, then continue the required
+Q/Homd construction. Total fibre opposite, the existing Pi/Hom_catd interface
+and the corrected Sigma-Hom formula now check in the prototype. Their later
+Homd-dependent action consumers and production integration remain open.
 Use the necessary
 [Cartesian/Gray evaluation and coefficient distinction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 at its upstream owners. A checked native construction shows that keeping
@@ -1029,6 +1030,113 @@ functor actions need native controls before promotion. Total fibre opposite
 is also needed for the corrected negative Sigma total, so this is a shared
 duality prerequisite, not a parallel Sigma theory. The selected Q/Homd
 implementation remains required; this candidate does not replace that goal.
+
+## Total duality, existing negative Pi and corrected Sigma-Hom
+
+The previous checkpoint was `334d6231`. Work since it is progress: the
+candidate described above has now been implemented and checked in copied
+full sources. An intervening continuation recovered the completed queued
+checks from immutable receipts after the old tool session handle disappeared;
+it did not restart a still-running checker.
+
+`CoAbove2_cat` is the new primitive R; `TotalOp_cat` is the derived R(T(-)).
+The existing `Op_cat` keeps dimension-one transpose T, and `CoAt2_cat` keeps
+dimension-two reversal. Category/functor involution and commutation,
+whole Cartesian mapping action, ordinary 1-arrow action and a nonidentity
+3-cell direction check are retained. The whole `total_op:R(Cat)->Cat`
+operator and `TotalOp_catd_func` use the appropriate Cartesian parameter
+categories; arbitrary raw FF is not silently admitted to them.
+
+`TotalOp_catd(E)` is the actual whole composite `total_op o R_func(E)` over
+R(K), with whole base action, stable projections and constant-family and
+involution computations. The existing `Hom_catd` now takes its negative
+section in `Pi_cat(TotalOp_catd(E))`; its positive section remains in
+`Pi_cat(E)`. The existing `Transf_catd` receives the corresponding negative
+input and Cartesian fibre Hom. No new Pi or section classifier is introduced.
+The whole constant-Cat specialization computes to the existing
+`Functor_catd(A,B)`, with the negative A obtained by total functor duality.
+
+The finite controls in `total_op_section_model.py` include a constant fibre
+and a varying family with nonidentity negative and positive section
+comparisons. The resulting Hom action has the required forward 2-cell;
+neither comparison is inverted. These controls clarify the directions and
+do not by themselves qualify a full omega construction.
+
+The total-duality head prefix passes 27 positives/six negatives (0.878s),
+the total-family prefix 57/13 (3.659s), and the Hom-family prefix 123/25
+(7.052s). `total_op_verification.json` pins these inputs and outcomes.
+A checker limitation was isolated: bare equality assertions fail to unify
+the two inferred opposite-Hom result types despite their identical computed
+normal forms. Expanding the primitive heads does not fix that query. An
+explicitly typed arrow consumer checks and computes with the original rules;
+the retained control uses that ordinary typed-consumer formulation. No new
+comparison rule or operational proof/cast was added to bypass the diagnostic.
+
+The same duality repairs the Sigma-Hom formula. Writing I=Hom_K(x,y) and
+H=homd_(id_E,x,u,y,v):T(I)->Cat, the candidate now computes
+
+```text
+Hom_(Sigma E)((x,u),(y,v)) = O(Sigma(O(I), TotalOp_catd(H))).
+```
+
+This reuses the existing Sigma constructor. Total duality of both the base
+and the fibre restores the original fibre direction. The explicit RHS,
+rather than only the independently simplified constant total, checks as
+`Product_cat(I,Hom_C(u,v))` for a constant C family. A noninvertible fibre
+2-cell remains forward; the reversed version is rejected.
+
+The existing first Sigma-Hom projection remains stable. Its recursive
+action uses total functor duality on the new inner Sigma projection. The
+second projection facade now obtains the pair indices from its actual input
+type instead of the old incorrectly oriented explicit family. A general
+total 2-cell consists of kappa:p=>q and eta:a=>H[kappa][b]. Its constructor,
+the facade projection and the whole-first recursive projection all check
+and return the original kappa. No independent laxity/equality data is added
+to any kernel operation.
+
+The final Sigma prefix passes 109 positives/24 negatives (8.069s), and the
+prefix through the corrected Hom family passes 129/27 (7.808s). The latter
+warning stream has 807 reports versus 808 before the Sigma change: no added
+normalized blocks, one removed. Both rule/LHS audits have zero unreviewed
+compound slots. These are not confluence or full-library certificates.
+`sigma_total_op_verification.json` retains exact sources and receipts.
+
+The full source now stops at `Edge_catd_func`: its old composition expects
+`Op_catd_func(Z)` to be an endofunctor of ambient `Catd_cat(Z)`. Its actual
+domain and codomain have the C2 shift and Cartesian mapping categories.
+The later Hom_catd action and Sigma transport/map consumers behind the Homd
+block have not yet been migrated. Full Q/Homd and production qualification
+remain required.
+
+Next, investigate the existing `Unit_prof` (the uncurried ordinary Hom) and
+Cartesian curry as a derived Cartesian representation package. This may
+require moving that existing owner earlier and changing its first-Hom target
+to the already established Cartesian telescope. Keep public `hom_int` and
+its ambient transfor uses; do not replace them with a blanket strict-transfor
+contract. Any comparison of the new representation view with existing Hom
+heads needs whole-action/projection-order checks. This is an ordinary Hom
+prerequisite, not a replacement of the dependent y/v/f ladder by currying a
+combined dependent context. The Q-based Homd construction remains selected.
+
+### Production relocation validation status
+
+The previous health process 511079 is no longer present. Its state retained
+1,168 successful checks and no final report. After verifying that no checker
+was still running, the same health command resumed those exact-source checks.
+Its new coordinator is 1814210, unified-exec handle 73652; output is in
+`emdash2/logs/strict-default-health-resume.log`. Verify that process/receipts
+on continuation rather than assuming its current status.
+
+The resumed gate reported allocation failures at the unchanged 2GiB bound,
+including `homology_connecting_source_boundary_zero`. A scoped warning-enabled
+`o=5,v=1024` control on that target hit its unchanged 90-second deadline during
+dependency checking. Neither result is a mathematical counterexample.
+`relocation_resource_continuation.json` records the exact input/runtime
+profiles. The two production declarations remain uncommitted: full validation
+and a fresh health report are not yet established. Further resource work must
+separate dependency/import cost and baseline behavior, and retain the normal
+guards and per-target limits. The prototype tranches above do not depend on
+reporting this aggregate green.
 
 ## Deferred improvements under the migration boundary
 

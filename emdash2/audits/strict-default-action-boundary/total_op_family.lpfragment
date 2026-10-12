@@ -1,0 +1,35 @@
+// Total fibre opposite: O(E) has base R(K), with O(C)=R(T(C)).
+injective symbol TotalOp_catd [K : Cat] (E : τ (Catd K))
+  : τ (Catd (CoAbove2_cat K));
+rule fapp0 (TotalOp_catd_func $K) $E ↪ @TotalOp_catd $K $E;
+
+// Actual whole E-formation, using the existing Cartesian postcomposition.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        (CoAbove2_cat $K) (CoAbove2_cat Cat_cat) Cat_cat total_op)
+      (CoAbove2_func_func $K Cat_cat)
+  ↪ TotalOp_catd_func $K;
+
+rule @comp_fapp0 Cat_cat _ _ _ total_op (@CoAbove2_func $K Cat_cat $E)
+  ↪ @TotalOp_catd $K $E;
+rule @hom_postcomp_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _ total_op
+      (@CoAbove2_func $K Cat_cat $E)
+  ↪ @TotalOp_catd $K $E;
+
+rule @fapp0 _ Cat_cat (@TotalOp_catd $K $E) $x
+  ↪ TotalOp_cat (Fibre_cat $E $x);
+rule @fapp1_func _ Cat_cat (@TotalOp_catd $K $E) $x $y
+  ↪ @comp_cat_fapp0
+      (TotalOp_cat (Hom_cat $K $x $y))
+      (TotalOp_cat (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $E $y)))
+      (Functor_cart_cat (TotalOp_cat (Fibre_cat $E $x)) (TotalOp_cat (Fibre_cat $E $y)))
+      (TotalOp_func_func (Fibre_cat $E $x) (Fibre_cat $E $y))
+      (@TotalOp_func (Hom_cat $K $x $y)
+        (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $E $y))
+        (@fapp1_func $K Cat_cat $E $x $y));
+rule @fapp1_fapp0 _ Cat_cat (@TotalOp_catd $K $E) $x $y $p
+  ↪ @TotalOp_func (Fibre_cat $E $x) (Fibre_cat $E $y)
+      (@fapp1_fapp0 $K Cat_cat $E $x $y $p);
+rule @TotalOp_catd _ (@TotalOp_catd $K $E) ↪ $E;
+rule @TotalOp_catd $K (@Const_catd $K $A)
+  ↪ @Const_catd (CoAbove2_cat $K) (TotalOp_cat $A);

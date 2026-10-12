@@ -374,3 +374,60 @@ implementation or for the required Q/Homd/Sigma qualification.
 Replay after changes to mapping classifiers, reindexing, constant-section
 comparisons, whole diagram formation or Pi. Generated copies and raw logs
 remain ignored; production promotion still requires the complete SOP gates.
+
+## Total fibre opposite and the existing Pi/Hom/Sigma structure
+
+`total_op_migration.py` introduces primitive `CoAbove2_cat` and derives total
+`TotalOp_cat = CoAbove2_cat o Op_cat`, retaining the existing dimension-one
+`Op_cat` and dimension-two `CoAt2_cat`. The whole functor and family actions
+use the corresponding Cartesian mapping profiles. The existing `Hom_catd`
+negative input is `Pi_cat(TotalOp_catd(E))` over R(K); no new Pi is introduced.
+Its whole constant-Cat specialization computes to `Functor_catd(A,B)`.
+
+```bash
+python3 audits/strict-default-action-boundary/total_op_section_model.py
+python3 audits/strict-default-action-boundary/total_op_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_total_op/hom_prefix.lp
+```
+
+The head/family/Hom prefixes pass 27/6, 57/13 and 123/25 positive/negative
+controls. The finite model includes varying transports and two nonidentity
+section comparisons; its forward Hom cell uses neither inverse. It remains
+a finite semantic control, not the native omega implementation.
+`total_op_verification.json` records the separate native checks.
+
+`bare_action_assertion.lp` retains a checker diagnostic: the untyped-result
+equality query rejects two opposite-Hom result types that have identical
+normal forms. Primitive expansion does not resolve it. The explicitly typed
+consumer in the head controls checks and computes using the same theory.
+No extra theory unifier or operational proof argument was added.
+
+`sigma_total_op_migration.py` corrects the Hom of Sigma using the same Sigma
+constructor and total duality of both base and fibre:
+
+```text
+H:T(I)->Cat  gives  O(Sigma(O(I), TotalOp_catd(H))).
+```
+
+Its explicit constant-family RHS reduces to `I × Hom_C(u,v)`, preserving
+noninvertible fibre arrows. A general total 2-cell has kappa:p=>q and a
+forward filler eta:a=>H[kappa][b]. Both the facade projection and the actual
+whole-first recursive projection compute to kappa.
+
+```bash
+python3 audits/strict-default-action-boundary/sigma_total_op_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_sigma_total_op/hom_prefix.lp
+```
+
+The final prefix passes 129 positives/27 negatives; the strict LHS audit is
+clear. The normalized warning stream has one removed block and none added
+at the same Hom-family boundary. The full source stops later at the old
+Edge/presheaf constructor profile. Later Homd-dependent action consumers
+remain unmigrated. Exact evidence is in `sigma_total_op_verification.json`;
+these remain non-library checkpoints rather than a completed Homd migration.
+
+The separate `relocation_resource_continuation.json` records a resource gap
+in the production carrier-move health gate. Its failed aggregate is not
+reported green and is not replaced by the successful prototype prefixes.

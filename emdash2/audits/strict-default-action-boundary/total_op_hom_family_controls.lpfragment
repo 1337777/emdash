@@ -1,0 +1,29 @@
+// NON-LIBRARY: preserve the original Hom_catd/Pi outline with total fibre
+// opposite in its negative section. No extra section primitive is used.
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (@TotalOp_catd K E)))) (Y : τ (Obj (Pi_cat E))) ⊢
+  @Hom_catd K E X Y : τ (Catd K);
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (@TotalOp_catd K E)))) (Y : τ (Obj (Pi_cat E)))
+  (x : τ (Obj K)) ⊢
+  Fibre_cat (@Hom_catd K E X Y) x
+  ≡ Hom_cat (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x) (@piapp0 K E Y x);
+
+// Constant sections retain a whole contravariant functor, including 2-cells.
+assert [K C : Cat] (X : τ (Functor (Op_cat K) C)) ⊢
+  @TotalOp_func (Op_cat K) C X : τ (Obj (Pi_cat (@TotalOp_catd K (@Const_catd K C))));
+assert [K C : Cat] (X : τ (Functor (Op_cat K) C)) (Y : τ (Functor K C))
+  (x : τ (Obj K)) ⊢
+  Fibre_cat (@Hom_catd K (@Const_catd K C) (@TotalOp_func (Op_cat K) C X) Y) x
+  ≡ Hom_cat C (fapp0 X x) (fapp0 Y x);
+
+// The full constant-Cat specialization is the existing mixed family.
+assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K)) ⊢
+  @Hom_catd K (@Const_catd K Cat_cat) (@TotalOp_func (Op_cat K) Cat_cat A) B
+  ≡ @Functor_catd K A B;
+
+// The former transpose-only negative section is not silently coerced.
+assertnot [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (@Op_catd K E)))) (Y : τ (Obj (Pi_cat E))) ⊢
+  @Hom_catd K E X Y : τ (Catd K);

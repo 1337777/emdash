@@ -1,0 +1,273 @@
+{
+  "status": "R/derived total opposite, whole total family and Hom_catd/Pi interface checked; late action and Homd/Q integration remain incomplete",
+  "mappingInputSha256": "4e7bb2028326cd8d8b48f91a0981048dc53467c3264aba393ceb32a5ae933e28",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/total_op_migration.py": "b7278e07333ee8bf90bc0316c09f9f1510cc85d71a3382fd62e6f17b7ee594bc",
+    "audits/strict-default-action-boundary/total_op_section_model.py": "32a0262ad14a830c9c16a616b7ef863bed0a5054e2aaec90732e6b55961ea1fd",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/total_op_head_controls.lpfragment": "4777772a2a1024886b25305f7bac61d8d7cff2b6f67d65e91624c9227220f150",
+    "audits/strict-default-action-boundary/total_op_family.lpfragment": "13f79efe229f5a560dc54d3ea9c4609fac91de5b095de206277330871fe2e7d0",
+    "audits/strict-default-action-boundary/total_op_family_controls.lpfragment": "bb3be16f7b27a888e0bfa44f8ae6f30a3f0068799970e2564470ed0386f57d1a",
+    "audits/strict-default-action-boundary/total_op_hom_family_controls.lpfragment": "5887b77b910dd9c843af6d5c3fe5a89deddc0b9655904fa69e514c3169b69e62"
+  },
+  "outputs": {
+    "emdash3_2.lp": "7d604b9b250097a198e4fb1992c9491098c81c71c8fd899fb21ef5fdd568ba95",
+    "head_prefix.lp": "8220e9d4824f6cd8fa4fe2772ed7550e4d671dd4f1634af438c380d1ce819527",
+    "bare_action_assertion.lp": "0990fef0f916c5d805dabc431fb085350c7458c8e5655ad0948337943f2d8d21",
+    "family_prefix.lp": "089b749ca9c684e685ef0af7473b32ecce43ebd7b158b40521d7062b1e378125",
+    "hom_prefix.lp": "2f1b9450cab2b0ea5a28218226eb9a9b76947a9ab9c0198172925b15c9e154cf",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "baseline": {
+      "id": "20261011T222640Z-12b982688345485cb91e64dfab056a9b",
+      "target": "tmp/probes/strict_default_mapping_constructor/mixed_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.093732081004418,
+      "childrenMaxRssKiB": 278512,
+      "inputSnapshot": "8cb8be67b5cfa149a3cbf76fa85437d3c328c0704d708a6590dd31d1d8fb12f9",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_mapping_constructor/mixed_prefix.lp": "f3f9746826ba49667b39957b851f151c361a4f293c046bf20bfd3fbc28ba7eeb"
+      },
+      "log": "logs/check-runs/20261011T222640Z-12b982688345485cb91e64dfab056a9b.log",
+      "logSha256": "576b4963e3d372a29d0d63da0c83b31220724d0e6977258682def9242dde8635",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 732
+    },
+    "head": {
+      "id": "20261011T230449Z-f909fa18ccb5487682238a21203e1e6d",
+      "target": "tmp/probes/strict_default_total_op/head_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 0.8777712419396266,
+      "childrenMaxRssKiB": 88888,
+      "inputSnapshot": "637f9572b1293c0cbadf57d020c933dd08eff92f6549d3abb9866429802ca6ec",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_total_op/head_prefix.lp": "8220e9d4824f6cd8fa4fe2772ed7550e4d671dd4f1634af438c380d1ce819527"
+      },
+      "log": "logs/check-runs/20261011T230449Z-f909fa18ccb5487682238a21203e1e6d.log",
+      "logSha256": "1ce58b5af6034b56077ccbe47a01c50f8933ddb5cf9dda66629d73531181220c",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 199,
+      "controls": {
+        "positive": 27,
+        "negative": 6
+      }
+    },
+    "family": {
+      "id": "20261011T230451Z-3eb8ca9151584db1855ed481323ebc7b",
+      "target": "tmp/probes/strict_default_total_op/family_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 3.6589248889358714,
+      "childrenMaxRssKiB": 216432,
+      "inputSnapshot": "838999bc5b4aaa41de6cfc8de94a663050c00fb9f532e72658480da527f1e559",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_total_op/family_prefix.lp": "089b749ca9c684e685ef0af7473b32ecce43ebd7b158b40521d7062b1e378125"
+      },
+      "log": "logs/check-runs/20261011T230451Z-3eb8ca9151584db1855ed481323ebc7b.log",
+      "logSha256": "36e833b77026baa3435ae3404fc7267a8385fa5da8e38084ba5ac902ccb4aa37",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 725,
+      "controls": {
+        "positive": 57,
+        "negative": 13
+      }
+    },
+    "hom_family": {
+      "id": "20261011T230455Z-79e1bfc4e2624fc38162170aac2c1400",
+      "target": "tmp/probes/strict_default_total_op/hom_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 7.052454438060522,
+      "childrenMaxRssKiB": 288692,
+      "inputSnapshot": "4bb8eece2e301fe3d3d3e366133892ba1a8044a9af8b07aacc10fd0472099e35",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_total_op/hom_prefix.lp": "2f1b9450cab2b0ea5a28218226eb9a9b76947a9ab9c0198172925b15c9e154cf"
+      },
+      "log": "logs/check-runs/20261011T230455Z-79e1bfc4e2624fc38162170aac2c1400.log",
+      "logSha256": "986d0bce6fdc637aad62edc8fb58720a668161154617d5498b1ecaca7c8fa2b8",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 808,
+      "controls": {
+        "positive": 123,
+        "negative": 25
+      }
+    },
+    "full_file": {
+      "id": "20261011T230503Z-9acad49d1bc4451eb8306fa594afa1b8",
+      "target": "tmp/probes/strict_default_total_op/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.423710225033574,
+      "childrenMaxRssKiB": 288404,
+      "inputSnapshot": "9c3f52b3b202337cfbbc3a03134abfafebbc3251225c7b26b1f108eb1829a996",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_total_op/emdash3_2.lp": "7d604b9b250097a198e4fb1992c9491098c81c71c8fd899fb21ef5fdd568ba95"
+      },
+      "log": "logs/check-runs/20261011T230503Z-9acad49d1bc4451eb8306fa594afa1b8.log",
+      "logSha256": "89f9a02687a3a0302c43bfced2c1658caf57e707f33a6be6a83ed3654ec32647",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 808
+    },
+    "bare_assertion": {
+      "id": "20261011T223947Z-bfbd0c9bc6ef416aa0587a2d2c0931bf",
+      "target": "tmp/probes/strict_default_total_op/head_prefix.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 0.7809611220145598,
+      "childrenMaxRssKiB": 89152,
+      "inputSnapshot": "96a12d7357db0bf84a1957809f73298e8c7e3dbc4c4b8e118cc37ab54316289e",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_total_op/head_prefix.lp": "c7a434f60b808a6b3f412e9cad301942b263b4704312a90ea10f4c10d6bf45d3"
+      },
+      "log": "logs/check-runs/20261011T223947Z-bfbd0c9bc6ef416aa0587a2d2c0931bf.log",
+      "logSha256": "7970d310fc1da3f35692697489cbde20ce464563c452ddcb656181868cb24352",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 199
+    },
+    "normal_forms_and_typed_application": {
+      "id": "20261011T224758Z-8ec71556d3174be4948e5b6d64276cf8",
+      "target": "tmp/probes/strict_default_total_op/debug_types.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 0.8452410231111571,
+      "childrenMaxRssKiB": 89132,
+      "inputSnapshot": "9fb236c15ab8364593a56d5d85538101a91ab20c7f9ed21e8207223e0d3b85ee",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_total_op/debug_types.lp": "6aac284501befc38a990a5df285bb98e4f47aca13cb05fdb7b76e29b7c64f897"
+      },
+      "log": "logs/check-runs/20261011T224758Z-8ec71556d3174be4948e5b6d64276cf8.log",
+      "logSha256": "59f1164d352609747420290bf4f1dacb6bb592bad580b6ca4fcf3d98e8fd9dbc",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 199
+    },
+    "typed_consumer": {
+      "id": "20261011T230102Z-8f3f5b0b41e74900a0cf1f8d9e2208df",
+      "target": "tmp/probes/strict_default_total_op/typed_action.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 1.442752485978417,
+      "childrenMaxRssKiB": 88524,
+      "inputSnapshot": "79cfe184ea9e3d6df27173675cd2638d545971ef4485c106fa33d8780b5bde86",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_total_op/typed_action.lp": "8a68b4d5e9ebf0fbbd22b53093454e0ab8ac88fe3156f8c4d7a053efef16bca3"
+      },
+      "log": "logs/check-runs/20261011T230102Z-8f3f5b0b41e74900a0cf1f8d9e2208df.log",
+      "logSha256": "8df3ebff579b5de42a53fbe40efd5cd9a4f8cac293a9f04c724e8ef00849bff6",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 199
+    },
+    "expanded_bare_assertion": {
+      "id": "20261011T230105Z-f020379d5dd440829c48ca1d7df1a2cc",
+      "target": "tmp/probes/strict_default_total_op/expanded_action.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 0.9540893950033933,
+      "childrenMaxRssKiB": 88816,
+      "inputSnapshot": "8610842cc17b1a4f4896cf5cc3c129deece393ecbfc0e2e04cf96d828687b0ff",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_total_op/expanded_action.lp": "1024aade414f5d28809b1b36233bc98befccbfebdc8e9668f7ba925cd6318cb9"
+      },
+      "log": "logs/check-runs/20261011T230105Z-f020379d5dd440829c48ca1d7df1a2cc.log",
+      "logSha256": "e13e07295b93578969c6183e9356a0a5fdaa0623a5d4ccefc8550663466fd63f",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 199
+    },
+    "bare_assertion_replay": {
+      "id": "20261012T011948Z-1f2801dfefe441958b297e9815f90176",
+      "target": "tmp/probes/strict_default_total_op/bare_action_assertion.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 0.8200565449660644,
+      "childrenMaxRssKiB": 89024,
+      "inputSnapshot": "473807691ccf23caa90825a2a4406520c7b0814aadbf2f61305d4dd16deaf6dc",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_total_op/bare_action_assertion.lp": "0990fef0f916c5d805dabc431fb085350c7458c8e5655ad0948337943f2d8d21"
+      },
+      "log": "logs/check-runs/20261012T011948Z-1f2801dfefe441958b297e9815f90176.log",
+      "logSha256": "20ca9e263ba0d2d5e69ac3845752c426c31a91a322d5fd71da0237163b7da4bc",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      }
+    }
+  },
+  "boundary": {
+    "noNewPi": true,
+    "constantSpecialization": "Hom_catd(const Cat, O_func(A), B) computes to the existing Functor_catd(A,B)",
+    "negativeSection": "existing Pi of total fibre opposite over R(K); dimension-one fibre transpose remains separate",
+    "assertionDiagnostic": "two inferred arrow-result Hom types fail bare equality assertion unification despite identical normal forms; an explicitly typed consumer checks and computes with no new theory rule",
+    "fullFile": "old Edge_catd_int composition still assumes unchanged base and ambient parameter categories",
+    "lateActions": "Hom_catd_fapp1_* consumers after the Homd block are not yet migrated or qualified"
+  }
+}

@@ -1,0 +1,12 @@
+// Reverse dimensions 2 and above. Dimension-one transpose remains Op_cat.
+injective symbol CoAbove2_cat (A : Cat) : Cat;
+// Total opposite is a named derived operation, not another primitive head.
+symbol TotalOp_cat (A : Cat) : Cat ≔ CoAbove2_cat (Op_cat A);
+
+rule CoAbove2_cat (CoAbove2_cat $A) ↪ $A;
+rule Op_cat (CoAbove2_cat $A) ↪ CoAbove2_cat (Op_cat $A);
+rule Obj (CoAbove2_cat $A) ↪ Obj $A;
+rule Hom_cat (CoAbove2_cat $A) $x $y ↪ TotalOp_cat (Hom_cat $A $x $y);
+rule @id (CoAbove2_cat $A) $x ↪ @id $A $x;
+rule @comp_fapp0 (CoAbove2_cat $A) $x $y $z $g $f
+  ↪ @comp_fapp0 $A $x $y $z $g $f;

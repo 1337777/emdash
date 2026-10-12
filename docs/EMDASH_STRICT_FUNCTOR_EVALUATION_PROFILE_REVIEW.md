@@ -261,9 +261,16 @@ checked mixed prefix has 95 positive/19 negative controls; the full file
 still fails at Hom_catd's negative-section projection. These are prototype
 results, not production or global consistency qualification.
 
-The third counterexample above leaves a specific candidate open: use total
-fibre opposite O(E), whose base is R(K), for the existing negative Pi input.
-On a constant fibre C, the section is R(K)->O(C), which total duality sends
-to T(K)->C. This fixes the constant-case dimension count. Its whole variable-
-family action and native computation remain to be checked as the next shared
-duality/Sigma prerequisite; the Q/Homd goal is unchanged.
+The total-fibre-opposite candidate has now been checked in the prototype.
+`TotalOp_catd(E)` has base R(K), with whole family formation and base action;
+the existing Hom_catd negative Pi input uses that family. On a constant fibre
+C, the section is R(K)->O(C), which total duality sends to T(K)->C. Its whole
+constant-Cat specialization computes to the existing Functor_catd. No new
+section classifier was needed for this interface correction.
+
+The corrected Sigma-Hom formula uses total duality on both the index and
+the fibre family, preserving the original fibre direction. General total
+2-cell and recursive projection controls check. The final copied-source
+prefix has 129 positive/27 negative controls; the full file stops at the old
+Edge constructor profile. Later action consumers and the complete Q/Homd
+implementation remain unqualified, and production has not been promoted.

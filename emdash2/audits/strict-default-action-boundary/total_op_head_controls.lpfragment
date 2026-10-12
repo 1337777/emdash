@@ -1,0 +1,54 @@
+// NON-LIBRARY: all three selected dualities keep their distinct dimensions.
+assert (C : Cat) ⊢ CoAbove2_cat (CoAbove2_cat C) ≡ C;
+assert (C : Cat) ⊢ TotalOp_cat (TotalOp_cat C) ≡ C;
+assert (C : Cat) ⊢ TotalOp_cat (CoAbove2_cat C) ≡ Op_cat C;
+assert (C : Cat) ⊢ CoAbove2_cat (Op_cat C) ≡ TotalOp_cat C;
+assert [C : Cat] (x y : τ (Obj C)) ⊢
+  Hom_cat (TotalOp_cat C) x y ≡ TotalOp_cat (Hom_cat C y x);
+assertnot (C : Cat) ⊢ CoAbove2_cat C ≡ CoAt2_cat C;
+assertnot (C : Cat) ⊢ TotalOp_cat C ≡ Op_cat C;
+
+// R also reverses dimension three; C2 alone would preserve this direction.
+assert [C : Cat] [x y : τ (Obj C)] [p q : τ (Hom C x y)]
+  [alpha beta : τ (Hom (Hom_cat C x y) p q)]
+  (gamma : τ (Hom (Hom_cat (Hom_cat C x y) p q) alpha beta)) ⊢
+  gamma : τ (Hom (Hom_cat (Hom_cat (CoAbove2_cat C) x y) q p) beta alpha);
+assertnot [C : Cat] [x y : τ (Obj C)] [p q : τ (Hom C x y)]
+  [alpha beta : τ (Hom (Hom_cat C x y) p q)]
+  (gamma : τ (Hom (Hom_cat (Hom_cat C x y) p q) alpha beta)) ⊢
+  gamma : τ (Hom (Hom_cat (Hom_cat (CoAbove2_cat C) x y) q p) alpha beta);
+
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @TotalOp_func _ _ (@TotalOp_func A B F) ≡ F;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @TotalOp_func _ _ (@CoAbove2_func A B F) ≡ @Op_func A B F;
+assert [A B : Cat] (F : τ (Functor A B)) (x : τ (Obj A)) ⊢
+  fapp0 (@TotalOp_func A B F) x ≡ fapp0 F x;
+// The two Hom classifiers normalize identically. Give the actual consumer
+// its original Hom type: bare assertion type-unification decomposes the
+// unreduced opposite Hom too early, even with the primitive heads expanded.
+symbol sf_total_capped [A B : Cat] (F : τ (Functor A B))
+  [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (Hom B (@fapp0 A B F x) (@fapp0 A B F y))
+≔ @fapp1_fapp0 (TotalOp_cat A) (TotalOp_cat B) (@TotalOp_func A B F) y x p;
+assert [A B : Cat] (F : τ (Functor A B)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @sf_total_capped A B F x y p ≡ @fapp1_fapp0 A B F x y p;
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  @TotalOp_func A C (@comp_cat_fapp0 A B C G F)
+  ≡ @comp_cat_fapp0 (TotalOp_cat A) (TotalOp_cat B) (TotalOp_cat C)
+      (@TotalOp_func B C G) (@TotalOp_func A B F);
+
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (TotalOp_func_func A B) F ≡ @TotalOp_func A B F;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (@fapp1_func (CoAbove2_cat Cat_cat) Cat_cat total_op A B) F
+  ≡ @fapp1_fapp0 (CoAbove2_cat Cat_cat) Cat_cat total_op A B F;
+
+// A nonidentity transformation is reversed, without asking for its inverse.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (alpha : τ (@StrictTransfor A B F G)) ⊢
+  @fapp1_fapp0 (TotalOp_cat (Functor_cart_cat A B))
+    (Functor_cart_cat (TotalOp_cat A) (TotalOp_cat B))
+    (TotalOp_func_func A B) G F alpha
+  : τ (@StrictTransfor (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B G) (@TotalOp_func A B F));

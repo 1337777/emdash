@@ -1,0 +1,53 @@
+// The same strict functor with dimensions 2 and above reversed.
+injective symbol CoAbove2_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (CoAbove2_cat A) (CoAbove2_cat B));
+symbol TotalOp_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (TotalOp_cat A) (TotalOp_cat B))
+≔ @CoAbove2_func (Op_cat A) (Op_cat B) (@Op_func A B F);
+
+rule @CoAbove2_func _ _ (@CoAbove2_func _ _ $F) ↪ $F;
+rule @Op_func _ _ (@CoAbove2_func $A $B $F)
+  ↪ @CoAbove2_func (Op_cat $A) (Op_cat $B) (@Op_func $A $B $F);
+rule @fapp0 _ _ (@CoAbove2_func $A $B $F) $x ↪ @fapp0 $A $B $F $x;
+rule @fapp1_func _ _ (@CoAbove2_func $A $B $F) $x $y
+  ↪ @TotalOp_func (Hom_cat $A $x $y)
+      (Hom_cat $B (fapp0 $F $x) (fapp0 $F $y))
+      (@fapp1_func $A $B $F $x $y);
+rule @fapp1_fapp0 _ _ (@CoAbove2_func $A $B $F) $x $y $p
+  ↪ @fapp1_fapp0 $A $B $F $x $y $p;
+rule @CoAbove2_func _ _ (@id Cat_cat $A)
+  ↪ @id Cat_cat (CoAbove2_cat $A);
+rule @CoAbove2_func _ _ (@comp_fapp0 Cat_cat $A $B $C $G $F)
+  ↪ @comp_cat_fapp0 (CoAbove2_cat $A) (CoAbove2_cat $B) (CoAbove2_cat $C)
+      (@CoAbove2_func $B $C $G) (@CoAbove2_func $A $B $F);
+
+// Whole action on Cartesian mapping categories. This reverses higher
+// transformation directions, not the functor objects or first direction.
+injective symbol CoAbove2_func_func (A B : Cat)
+  : τ (Functor (CoAbove2_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (CoAbove2_cat A) (CoAbove2_cat B)));
+rule fapp0 (CoAbove2_func_func $A $B) $F ↪ @CoAbove2_func $A $B $F;
+
+// Total mapping action is the actual composite of the two primitive actions.
+symbol TotalOp_func_func (A B : Cat)
+  : τ (Functor (TotalOp_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (TotalOp_cat A) (TotalOp_cat B)))
+≔ @comp_cat_fapp0
+    (CoAbove2_cat (Op_cat (Functor_cart_cat A B)))
+    (CoAbove2_cat (Functor_cart_cat (Op_cat A) (Op_cat B)))
+    (Functor_cart_cat (TotalOp_cat A) (TotalOp_cat B))
+    (CoAbove2_func_func (Op_cat A) (Op_cat B))
+    (@CoAbove2_func (Op_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (Op_cat A) (Op_cat B)) (Op_func_func A B));
+
+// Category-valued total opposite needs the shifted coefficient source R(Cat).
+constant symbol total_op : τ (Functor (CoAbove2_cat Cat_cat) Cat_cat);
+rule @fapp0 _ _ total_op $A ↪ TotalOp_cat $A;
+rule @fapp1_func _ _ total_op $A $B ↪ TotalOp_func_func $A $B;
+rule @fapp1_fapp0 _ _ total_op $A $B $F ↪ @TotalOp_func $A $B $F;
+
+// Whole formation for variable strict families, with its Cartesian parameter
+// profile. Its composition body and object projection are declared below.
+injective symbol TotalOp_catd_func (K : Cat)
+  : τ (Functor (CoAbove2_cat (Functor_cart_cat K Cat_cat))
+      (Functor_cart_cat (CoAbove2_cat K) Cat_cat));

@@ -1,0 +1,89 @@
+// NON-LIBRARY: name the actual RHS so constant-total reduction cannot hide
+// which path of the Sigma-Hom computation is being tested.
+symbol sf_sigma_hom_rhs [K : Cat] (E : τ (Catd K))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) : Cat
+≔ TotalOp_cat
+    (@Sigma_cat (TotalOp_cat (Hom_cat K x y))
+      (@TotalOp_catd (Op_cat (Hom_cat K x y))
+        (@homd_ K E E (@id_funcd K E) x u y v)));
+
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y))) ⊢
+  Hom_cat (@Sigma_cat K E) (Struct_sigma x u) (Struct_sigma y v)
+  ≡ @sf_sigma_hom_rhs K E x u y v;
+assert [K C : Cat] [x y : τ (Obj K)] (u v : τ (Obj C)) ⊢
+  @sf_sigma_hom_rhs K (@Const_catd K C) x u y v
+  ≡ Product_cat (Hom_cat K x y) (Hom_cat C u v);
+assertnot [K C : Cat] [x y : τ (Obj K)] (u v : τ (Obj C)) ⊢
+  @sf_sigma_hom_rhs K (@Const_catd K C) x u y v
+  ≡ Product_cat (Hom_cat K x y) (Op_cat (Hom_cat C u v));
+
+// A noninvertible fibre 2-cell remains forward in the explicit Hom RHS.
+assert [K C : Cat] [x y : τ (Obj K)] (p : τ (Hom K x y))
+  [u v : τ (Obj C)] [a b : τ (Hom C u v)]
+  (gamma : τ (Hom (Hom_cat C u v) a b)) ⊢
+  @Product_pair (Hom_cat (Hom_cat K x y) p p) (Hom_cat (Hom_cat C u v) a b)
+    (@id (Hom_cat K x y) p) gamma
+  : τ (Hom (@sf_sigma_hom_rhs K (@Const_catd K C) x u y v)
+      (Struct_sigma p a) (Struct_sigma p b));
+assertnot [K C : Cat] [x y : τ (Obj K)] (p : τ (Hom K x y))
+  [u v : τ (Obj C)] [a b : τ (Hom C u v)]
+  (gamma : τ (Hom (Hom_cat C u v) a b)) ⊢
+  @Product_pair (Hom_cat (Hom_cat K x y) p p) (Hom_cat (Hom_cat C u v) a b)
+    (@id (Hom_cat K x y) p) gamma
+  : τ (Hom (@sf_sigma_hom_rhs K (@Const_catd K C) x u y v)
+      (Struct_sigma p b) (Struct_sigma p a));
+
+// Existing arrow and projection interfaces retain the original data.
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y)))
+  (p : τ (Hom K x y))
+  (a : τ (Hom (Fibre_cat E y) (fapp0 (@catd_transport_func K E x y p) u) v)) ⊢
+  @sigma_proj1_hom_fapp0 K E x y u v (@sigma_arrow K E x y u v p a) ≡ p;
+
+// A general total 2-cell retains its forward filler a -> h[kappa](b).
+// This is actual arrow data, not an equality/proof input to a kernel operator.
+symbol sf_sigma_two_cell [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y)))
+  [p q : τ (Hom K x y)]
+  (a : τ (Obj (Fibre_cat (@homd_ K E E (@id_funcd K E) x u y v) p)))
+  (b : τ (Obj (Fibre_cat (@homd_ K E E (@id_funcd K E) x u y v) q)))
+  (kappa : τ (Hom (Hom_cat K x y) p q))
+  (eta : τ (Hom
+    (Fibre_cat (@homd_ K E E (@id_funcd K E) x u y v) p) a
+    (fapp0 (@fapp1_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+      (@homd_ K E E (@id_funcd K E) x u y v) q p kappa) b)))
+  : τ (Hom (Hom_cat (@Sigma_cat K E) (Struct_sigma x u) (Struct_sigma y v))
+      (Struct_sigma p a) (Struct_sigma q b))
+≔ Struct_sigma kappa eta;
+
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y)))
+  [p q : τ (Hom K x y)]
+  (a : τ (Obj (Fibre_cat (@homd_ K E E (@id_funcd K E) x u y v) p)))
+  (b : τ (Obj (Fibre_cat (@homd_ K E E (@id_funcd K E) x u y v) q)))
+  (kappa : τ (Hom (Hom_cat K x y) p q))
+  (eta : τ (Hom
+    (Fibre_cat (@homd_ K E E (@id_funcd K E) x u y v) p) a
+    (fapp0 (@fapp1_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+      (@homd_ K E E (@id_funcd K E) x u y v) q p kappa) b))) ⊢
+  @sigma_proj1_hom_fapp1_fapp0 K E x y u v p q a b
+    (@sf_sigma_two_cell K E x y u v p q a b kappa eta) ≡ kappa;
+
+// Evaluate the actual whole second action before capping it at that cell.
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y)))
+  [p q : τ (Hom K x y)]
+  (a : τ (Obj (Fibre_cat (@homd_ K E E (@id_funcd K E) x u y v) p)))
+  (b : τ (Obj (Fibre_cat (@homd_ K E E (@id_funcd K E) x u y v) q)))
+  (kappa : τ (Hom (Hom_cat K x y) p q))
+  (eta : τ (Hom
+    (Fibre_cat (@homd_ K E E (@id_funcd K E) x u y v) p) a
+    (fapp0 (@fapp1_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+      (@homd_ K E E (@id_funcd K E) x u y v) q p kappa) b))) ⊢
+  fapp0 (@fapp1_func _ _
+    (@fapp1_func (@Sigma_cat K E) K (@Sigma_proj1_func K E)
+      (Struct_sigma x u) (Struct_sigma y v))
+    (Struct_sigma p a) (Struct_sigma q b))
+    (@sf_sigma_two_cell K E x y u v p q a b kappa eta) ≡ kappa;
