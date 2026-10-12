@@ -1,0 +1,26 @@
+// NON-LIBRARY theorem consumers before the projected Q computation rules.
+// They specialize the declared inclusion's strict functor laws. They do not
+// prove an independent coefficient/tensor model and are never runtime inputs.
+symbol sf_q_generic_comp [A B : Cat] (F : τ (Functor A B))
+  [x y z : τ (Obj A)] (p : τ (Hom A x y)) (q : τ (Hom A y z))
+  : τ (@= (Hom B (fapp0 F x) (fapp0 F z))
+      (@comp_fapp0 B (fapp0 F x) (fapp0 F y) (fapp0 F z)
+        (@fapp1_fapp0 A B F y z q) (@fapp1_fapp0 A B F x y p))
+      (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p)))
+≔ @eq_refl (Hom B (fapp0 F x) (fapp0 F z))
+    (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p));
+
+symbol sf_q_unit_derived (A : Cat)
+  : τ (@= (Hom Prof_cov_universe A A)
+      (fapp0 (Prof_cov_conjoint_func A A) (@id_func A))
+      (@id Prof_cov_universe A))
+≔ @fapp1_id_path Cat_cat Prof_cov_universe Prof_cov_include A;
+
+symbol sf_q_composition_derived [A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (@= (Hom Prof_cov_universe A C)
+      (@comp_fapp0 Prof_cov_universe A B C
+        (fapp0 (Prof_cov_conjoint_func B C) G)
+        (fapp0 (Prof_cov_conjoint_func A B) F))
+      (fapp0 (Prof_cov_conjoint_func A C) (@comp_cat_fapp0 A B C G F)))
+≔ @sf_q_generic_comp Cat_cat Prof_cov_universe Prof_cov_include A B C F G;

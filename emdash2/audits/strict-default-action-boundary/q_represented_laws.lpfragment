@@ -1,0 +1,57 @@
+// NON-LIBRARY canonical units/composition for the structural Q inclusion.
+// The native functor laws already imply these equalities. These rules join
+// their projected represented forms; they do not derive Q from Prof_tensor.
+rule @id Prof_cov_universe $A ↪ Rep_con_cart_func $A;
+
+// The unit body loses its id_Q head when observed as a curried functor.
+// Preserve the coefficient's left and right unit computation after that cut.
+// The repeated unit endpoint is a measured SR guard: the fully inferred
+// version cannot recover the endomorphism endpoint through the curry body.
+rule @comp_fapp0 Prof_cov_universe _ $B $B
+      (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+        (@Product_pair_tele_func $B (Op_cat $B))
+        (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $B)))) $P
+  ↪ $P;
+rule @comp_fapp0 Prof_cov_universe $A $A _ $P
+      (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+        (@Product_pair_tele_func $A (Op_cat $A))
+        (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $A))))
+  ↪ $P;
+
+// Op(Terminal) normalizes before these Unit-curry patterns are observed.
+// This is the measured terminal specialization of the same unit owner.
+rule @fapp0 _ _
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+        (@Product_pair_tele_func Terminal_cat Terminal_cat)
+        (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof Terminal_cat))) _
+  ↪ @Const_func Terminal_cat Cat_cat Terminal_cat;
+rule @comp_fapp0 Prof_cov_universe _ Terminal_cat Terminal_cat
+      (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+        (@Product_pair_tele_func Terminal_cat Terminal_cat)
+        (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof Terminal_cat))) $P
+  ↪ $P;
+rule @comp_fapp0 Prof_cov_universe Terminal_cat Terminal_cat _ $P
+      (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+        (@Product_pair_tele_func Terminal_cat Terminal_cat)
+        (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof Terminal_cat)))
+  ↪ $P;
+
+// Composition after both inclusion actions have projected to conjoint bodies.
+// The two ordinary postcomposition codomains below are measured elaboration
+// guards. Without them, the elaborated RHS substituted Cart(T(C),Cat) for C.
+// The deeper curry endpoints can remain inferred; the reduced guard set checks.
+rule @comp_fapp0 Prof_cov_universe $A $B $C
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $B $C
+        (Functor_cart_cat (Op_cat $C) Cat_cat)
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $C (Op_cat $C))
+          (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $C)))) $G)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $B
+        (Functor_cart_cat (Op_cat $B) Cat_cat)
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $B (Op_cat $B))
+          (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $B)))) $F)
+  ↪ @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      $A $C (Functor_cart_cat (Op_cat $C) Cat_cat)
+      (Rep_con_cart_func $C)
+      (@comp_fapp0 Cat_cat $A $B $C $G $F);

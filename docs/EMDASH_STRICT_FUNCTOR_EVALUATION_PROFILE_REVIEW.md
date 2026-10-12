@@ -41,6 +41,25 @@ separates these constructions in paragraphs 18–21.
 
 ## Native interface pilot
 
+### Why the earlier kernel had only one mapping category
+
+Historical source inspection on 2026-10-12 confirms that the pre-migration
+kernel used `Hom_cat(Cat,A,B)=Functor_cat(A,B)` and Cartesian evaluation on
+`Functor_cat(A,B) × A`, while also installing global strict-naturality rules
+for arbitrary ordinary and Cat-valued transfors. Commit `55f91cc7` removed
+the ordinary post/left and corresponding Cat-valued component rules;
+`c1c9fbcf` removed the remaining pre/right rules. The absence of a separate
+Cartesian mapping category in that prototype therefore does not establish
+that its operations respected genuinely non-strict transfors.
+
+The selected combination now keeps strict functor objects but permits lax
+transfors in Functor_cat. Functor_cart_cat shares those same objects and
+restricts its higher cells to the Cartesian strict-transfor profile. The
+distinction is required by evaluation/composition before the Q/profunctor
+or duality construction uses it. It adds no duplicate fapp action or second
+default functor carrier. Fixed evaluation and fixed whiskering still admit
+lax transfors, and Functord itself is not globally made strictly natural.
+
 An additional native countercheck now rules out fixing only joint Eval.
 Inserted before Eval/curry are declared, it uses Cartesian composition in
 Cat, constant transformations and fixed-object evaluation to derive the same

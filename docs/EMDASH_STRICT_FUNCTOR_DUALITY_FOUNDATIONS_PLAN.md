@@ -53,9 +53,10 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: qualify the selected Q/profunctor coefficient's represented
-unit/composition and whole lift, then correct the general-FF intrinsic-action
-profile. A candidate whole Homd target and direct projection ladder now check
+Current next slice: qualify the selected Q/profunctor coefficient's whole lift
+and remaining higher identity observations, then correct the general-FF
+intrinsic-action profile. Represented coefficient unit/composition computation
+now checks. A candidate whole Homd target and direct projection ladder check
 under explicit structural Q/lift contracts; those contracts are not yet a
 qualified omega coefficient. The first failing full-file consumer is the old
 internal action's use of same-profile Op_funcd(FF). The Cartesian representation,
@@ -1305,8 +1306,9 @@ families are recorded in `q_homd_verification.json`; their full interaction
 qualification remains open. Source generation, receipts and failed
 intermediate controls are retained in the non-library audit.
 
-The positive coefficient unit and composition runtime tests currently FAIL
-after projecting the inclusion to its derived represented functions. The
+At the initial Q/Homd checkpoint, the positive coefficient unit and composition
+runtime tests FAILED after projecting the inclusion to its derived represented
+functions. The following continuation records their correction. The
 structural inclusion already assumes functor laws; passing its declaration
 does not prove their desired projected computation or derive the coefficient
 from the legacy tensor. These failures are computational qualification gaps,
@@ -1327,10 +1329,65 @@ raw FF into the same-profile transpose. Preserve the native extracted laxity
 and existing action heads while correcting that profile; do not bypass this
 by globally strictifying Functord.
 
-Next: settle represented coefficient units/composition and the whole lift's
-native action; then repair this intrinsic-action profile and its first laxity
-consumer. The successful target-side FF action is relevant input, not a
-claim that the source-image extraction problem has disappeared.
+The following continuation addresses represented coefficient units/composition.
+The whole lift's native action, intrinsic-action profile and first laxity
+consumer remain required. The successful target-side FF action is relevant
+input, not a claim that the source-image extraction problem has disappeared.
+
+## Represented-coefficient law continuation
+
+The no-rule native unit theorem checks by specializing fapp1_id_path to the
+structural Prof_cov_include. A generic strict-composition theorem similarly
+supplies the represented composition equality. Both proofs are placed before
+the new rules. Thus these failed conversions were projection-order normal-form
+gaps within the declared strict-inclusion contract, not missing standalone
+unit/compositor witnesses. The proofs do not independently construct Q or its
+tensor semantics and are not inputs to operational symbols.
+
+`q_represented_migration.py` now joins coefficient identity to the existing
+curried unit Hom and coefficient composition of represented arrows to the
+represented composite. Projected units also act correctly on arbitrary module
+objects. The original inclusion and derived represented-function views compute
+to the same results. Actual composite values retain the original A/B/C
+categories; a typed reflexivity consumer checks the inherited proof-time
+associativity comparison. The terminal unit has a necessary specialization
+after Op(Terminal) normalizes, with both module unit directions checked.
+
+The composition rule exposed a concrete inferred-slot hazard. With insufficient
+codomain information, rule elaboration substituted Cart(T(C),Cat) for C on the
+RHS, and the actual consumer failed despite the initial SR check. Keeping the
+two ordinary postcomposition Cartesian codomains resolves it. A further native
+experiment removed the deeper curry endpoint guards successfully; the selected
+rule retains only the measured guard set. `without_endpoint_guards.lp` reproduces
+the failed composition consumer, and `no_laws.lp` reproduces the failed unit
+conversion while still checking the pre-rule equality derivations.
+
+The final prefix passes 190 positives/32 negatives in 3.776s under the unchanged
+90s/2GiB limits. The strict LHS audit has zero unreviewed compound slots.
+Warnings increase from 853 to 879, with 26 added blocks and none removed;
+they concern coefficient-identity expansion against generic identity, Hom,
+transfor and composition observations. The bounded consumers above pass;
+remaining higher observation joins stay explicit promotion obligations.
+`q_represented_verification.json` records exact inputs, receipts, rejected and
+minimized guards, and the remaining full-file failure. The full source still
+stops at the old general-FF internal-action signature. Nothing from this
+prototype tranche is promoted to production by its checkpoint.
+
+The next profile review must use the actual existing transfor contract.
+`gray_profiles` currently defines IsOplaxTransfor as the post-strict property;
+its comment explicitly defers an OplaxTransfor carrier and mirror Gray Hom.
+Raw ambient transfors retain two skew legs. Merely introducing a conventional
+oplax wrapper would therefore not automatically cover every raw FF. First
+inspect the intrinsic-action target and existing shaped/profunctor cell
+owners for the required whole comparison, preserving both existing extracted
+legs. The finite normal-lax example remains a valid obstruction inside this
+broader carrier; it does not authorize narrowing all FF.
+
+The user-facing explanation of Functor_cart_cat and the historical strict-
+naturality rules is now recorded in the evaluation-profile review. This is a
+strict-versus-nonstrict transformation distinction required by Cartesian
+evaluation/composition, not a duplicated default functor API or an additional
+profunctor-specific family theory.
 
 ## Deferred improvements under the migration boundary
 

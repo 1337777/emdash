@@ -1,0 +1,61 @@
+// NON-LIBRARY actual consumers of represented coefficient laws.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (@fapp1_func Cat_cat Prof_cov_universe Prof_cov_include A B) F
+  ≡ @fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include A B F;
+assert (A : Cat) ⊢
+  @fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include A A (@id_func A)
+  ≡ @id Prof_cov_universe A;
+
+// Units also act on modules that are not presented as represented functors.
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  @comp_fapp0 Prof_cov_universe A B B (@id Prof_cov_universe B) P ≡ P;
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  @comp_fapp0 Prof_cov_universe A A B P (@id Prof_cov_universe A) ≡ P;
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  @comp_fapp0 Prof_cov_universe A B B (Rep_con_cart_func B) P ≡ P;
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  @comp_fapp0 Prof_cov_universe A A B P (Rep_con_cart_func A) ≡ P;
+
+assert [A : Cat] (a b : τ (Obj A)) ⊢
+  @fapp0 (Op_cat A) Cat_cat
+    (@fapp0 A (Functor_cart_cat (Op_cat A) Cat_cat) (@id Prof_cov_universe A) a) b
+  ≡ Hom_cat A b a;
+
+// Composition retains the original endpoint categories in its actual value.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C))
+  (a : τ (Obj A)) (c : τ (Obj C)) ⊢
+  @fapp0 (Op_cat C) Cat_cat
+    (@fapp0 A (Functor_cart_cat (Op_cat C) Cat_cat)
+      (@comp_fapp0 Prof_cov_universe A B C
+        (fapp0 (Prof_cov_conjoint_func B C) G)
+        (fapp0 (Prof_cov_conjoint_func A B) F)) a) c
+  ≡ Hom_cat C c (@fapp0 B C G (@fapp0 A B F a));
+
+// Associativity uses the inherited proof-time comparison. No operational
+// path is supplied to the composed represented arrow.
+assert [A B C D : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) (H : τ (Functor C D)) ⊢
+  @eq_refl (Hom Prof_cov_universe A D)
+    (@comp_fapp0 Prof_cov_universe A C D
+      (fapp0 (Prof_cov_conjoint_func C D) H)
+      (@comp_fapp0 Prof_cov_universe A B C
+        (fapp0 (Prof_cov_conjoint_func B C) G) (fapp0 (Prof_cov_conjoint_func A B) F)))
+  : τ (@= (Hom Prof_cov_universe A D)
+      (@comp_fapp0 Prof_cov_universe A C D
+        (fapp0 (Prof_cov_conjoint_func C D) H)
+        (@comp_fapp0 Prof_cov_universe A B C
+          (fapp0 (Prof_cov_conjoint_func B C) G) (fapp0 (Prof_cov_conjoint_func A B) F)))
+      (@comp_fapp0 Prof_cov_universe A B D
+        (@comp_fapp0 Prof_cov_universe B C D
+          (fapp0 (Prof_cov_conjoint_func C D) H) (fapp0 (Prof_cov_conjoint_func B C) G))
+        (fapp0 (Prof_cov_conjoint_func A B) F)));
+
+// Terminal specialization normalizes Op(Terminal) before the unit is used.
+assert ⊢ @fapp0 Terminal_cat Cat_cat
+  (@fapp0 Terminal_cat (Functor_cart_cat Terminal_cat Cat_cat)
+    (@id Prof_cov_universe Terminal_cat) Terminal_obj) Terminal_obj ≡ Terminal_cat;
+assert [A : Cat] (P : τ (Hom Prof_cov_universe A Terminal_cat)) ⊢
+  @comp_fapp0 Prof_cov_universe A Terminal_cat Terminal_cat
+    (Rep_con_cart_func Terminal_cat) P ≡ P;
+assert [B : Cat] (P : τ (Hom Prof_cov_universe Terminal_cat B)) ⊢
+  @comp_fapp0 Prof_cov_universe Terminal_cat Terminal_cat B
+    P (Rep_con_cart_func Terminal_cat) ≡ P;

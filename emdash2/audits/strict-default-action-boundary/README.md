@@ -520,3 +520,37 @@ retaining general FF; globally strictifying Functord is not the selected fix.
 These are non-library interface/action checkpoints. Coefficient units and
 composition, whole lift coherence, intrinsic extraction, later consumers and
 production qualification remain required.
+
+## Represented coefficient unit/composition computation
+
+`q_represented_migration.py` continues the checked Q/Homd copy. Native equality
+proofs specialize the structural inclusion's strict functor laws before any
+new conversion rule. The new runtime joins give the curried unit Hom as the
+coefficient identity and compose represented arrows by their original
+functors. They do not independently derive Q or a coend tensor model.
+
+```bash
+python3 audits/strict-default-action-boundary/q_represented_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_q_represented/owner_prefix.lp
+```
+
+The prefix passes 190 positive/32 negative controls, including arbitrary-module
+left/right units, represented composite values, proof-time associativity and
+the terminal unit after opposite normalization. The 26 new identity-observation
+warning reports are inventoried; higher interaction qualification remains open.
+The LHS audit has zero unreviewed compound slots.
+
+Two separate controls must fail: `no_laws.lp` at the projected unit comparison,
+and `without_endpoint_guards.lp` at represented composition. The latter retains
+an elaboration failure mode: insufficient type information changes the endpoint
+categories in the generated RHS despite its initial SR check. The selected
+two Cartesian codomain guards fix it; deeper curry endpoint guards were
+successfully removed. Exact sources and receipts are in
+`q_represented_verification.json`.
+
+The full emitted source still fails at the old general-FF internal-action
+profile. Replay after changing coefficient identities/composition, representation
+heads or their ordinary postcomposition owners. This remains a prototype
+checkpoint, with whole coefficient/lift coherence, intrinsic extraction and
+production qualification outstanding.
