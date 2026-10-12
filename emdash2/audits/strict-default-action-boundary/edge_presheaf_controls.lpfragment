@@ -1,0 +1,39 @@
+// NON-LIBRARY: dimension shifts are real, even though objects are shared.
+assert (C : Cat) ⊢ Op_cat (CoAt2_cat (Op_cat C)) ≡ CoAt2_cat C;
+assert (C : Cat) ⊢ @Edge_catd_func C
+  : τ (Functor (CoAt2_cat (Op_cat C)) (Functor_cart_cat (CoAt2_cat C) Cat_cat));
+assertnot (C : Cat) ⊢ @Edge_catd_func C : τ (Functor (Op_cat C) (Catd_cat C));
+
+assert [C : Cat] (x : τ (Obj C)) ⊢
+  fapp0 (@Edge_catd_func C) x ≡ @Op_catd C (@hom_ C C (@id_func C) x);
+assert [C : Cat] (x y : τ (Obj C)) ⊢
+  fapp0 (fapp0 (@Edge_catd_func C) x) y ≡ Op_cat (Hom_cat C x y);
+
+assert (C : Cat) ⊢ @HomPresheaf_catd_func C
+  : τ (Functor (CoAt2_cat C) (Catd_cat (Op_cat (CoAt2_cat C))));
+assert [C : Cat] (x y : τ (Obj C)) ⊢
+  fapp0 (fapp0 (@HomPresheaf_catd_func C) x) y
+  ≡ Functor_cart_cat (Op_cat (Hom_cat C x y)) Cat_cat;
+assertnot (C : Cat) ⊢ @HomPresheaf_catd_func C
+  : τ (Functor C (Catd_cat (Op_cat C)));
+
+// Whole ordinary presheaf formation retains the existing mixed-family owner.
+assert [K : Cat] (A : τ (Catd (Op_cat K))) ⊢
+  fapp0 (Presheaf_catd_func K) A ≡ @Functor_catd K A (@Const_catd K Cat_cat);
+
+// A nonidentity 2-cell in the represented-object parameter has the C2
+// direction. No inverse of that cell is an input.
+assert [C : Cat] [x y : τ (Obj C)] [p q : τ (Hom C x y)]
+  (alpha : τ (Hom (Hom_cat C x y) p q)) ⊢
+  @fapp1_fapp0 (Hom_cat (CoAt2_cat C) x y)
+    (Hom_cat (Catd_cat (Op_cat (CoAt2_cat C)))
+      (fapp0 (@HomPresheaf_catd_func C) x) (fapp0 (@HomPresheaf_catd_func C) y))
+    (@fapp1_func (CoAt2_cat C) (Catd_cat (Op_cat (CoAt2_cat C)))
+      (@HomPresheaf_catd_func C) x y) q p alpha
+  : τ (Hom
+      (Hom_cat (Catd_cat (Op_cat (CoAt2_cat C)))
+        (fapp0 (@HomPresheaf_catd_func C) x) (fapp0 (@HomPresheaf_catd_func C) y))
+      (@fapp1_fapp0 (CoAt2_cat C) (Catd_cat (Op_cat (CoAt2_cat C)))
+        (@HomPresheaf_catd_func C) x y q)
+      (@fapp1_fapp0 (CoAt2_cat C) (Catd_cat (Op_cat (CoAt2_cat C)))
+        (@HomPresheaf_catd_func C) x y p));

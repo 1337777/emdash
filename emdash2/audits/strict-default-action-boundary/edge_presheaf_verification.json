@@ -1,0 +1,216 @@
+{
+  "status": "non-library whole Edge/presheaf prefix checked; old Homd target fails; full qualification remains incomplete",
+  "representationInputSha256": "b795f4704e428abdeec9a46ef65f6f9005a41bd0f46b2aa624ed21c22b3a4d35",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/edge_presheaf_migration.py": "4133245e1553f83d41129bcd8725f3ee4898c7648da6e68e64a98bbad470fb5f",
+    "audits/strict-default-action-boundary/edge_presheaf_controls.lpfragment": "39ffd30c4015679f6c6b14d32d984aae35f76fc6d1f18eec9abe52a45c522747"
+  },
+  "outputs": {
+    "emdash3_2.lp": "6993762500bb5e4c5657170e8bd8849b012c97a8d7ab150742ade60111d392b8",
+    "owner_prefix.lp": "93d86becb403dbf0c411d473decbac319492c1c579594c3334c6a37e66f3a28a",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "owner": {
+      "id": "20261012T070709Z-b4af740d4df44295ac6d86c386924861",
+      "target": "tmp/probes/strict_default_edge_presheaf/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.871602655039169,
+      "childrenMaxRssKiB": 304800,
+      "inputSnapshot": "4c406eef2dda35fe3e0b8e178d271519153a9b6c6c443edd498507b81a26b801",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_edge_presheaf/owner_prefix.lp": "93d86becb403dbf0c411d473decbac319492c1c579594c3334c6a37e66f3a28a"
+      },
+      "log": "logs/check-runs/20261012T070709Z-b4af740d4df44295ac6d86c386924861.log",
+      "logSha256": "6b6221a3a99a1250019b984f100e7f513479227ce864aca852243ca80f21b5d8",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 827,
+      "controls": {
+        "positive": 149,
+        "negative": 29
+      }
+    },
+    "owner_replay": {
+      "id": "20261012T071301Z-8ef97fe16dff4364ba49f9d3a0033243",
+      "target": "tmp/probes/strict_default_edge_presheaf/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 6.649308166932315,
+      "childrenMaxRssKiB": 304472,
+      "inputSnapshot": "4c406eef2dda35fe3e0b8e178d271519153a9b6c6c443edd498507b81a26b801",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_edge_presheaf/owner_prefix.lp": "93d86becb403dbf0c411d473decbac319492c1c579594c3334c6a37e66f3a28a"
+      },
+      "log": "logs/check-runs/20261012T071301Z-8ef97fe16dff4364ba49f9d3a0033243.log",
+      "logSha256": "6b6221a3a99a1250019b984f100e7f513479227ce864aca852243ca80f21b5d8",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 827,
+      "controls": {
+        "positive": 149,
+        "negative": 29
+      }
+    },
+    "full_file": {
+      "id": "20261012T070716Z-c86247d41119467b9f466d39800cdbb6",
+      "target": "tmp/probes/strict_default_edge_presheaf/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.434847982949577,
+      "childrenMaxRssKiB": 305028,
+      "inputSnapshot": "ea1a6495308a11617c5a7e26b2c69d21e73b90f7a928cb6ecb784e7775226862",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_edge_presheaf/emdash3_2.lp": "6993762500bb5e4c5657170e8bd8849b012c97a8d7ab150742ade60111d392b8"
+      },
+      "log": "logs/check-runs/20261012T070716Z-c86247d41119467b9f466d39800cdbb6.log",
+      "logSha256": "de8fc4648c7b5c9e443f1263e0ad52ab2f3338719be72d4196a25c7fbccbec6a",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 827
+    }
+  },
+  "warningComparison": {
+    "beforeCount": 815,
+    "afterCount": 827,
+    "added": 14,
+    "removed": 2,
+    "addedHeads": [
+      {
+        "count": 1,
+        "sha256": "8c9895496530c59773fb961cb6af8ca2c7c1e302eda9e7113fea17c9e94db7d0",
+        "overlap": "t ≔ @fapp1_fapp0 (Op_cat (CoAt2_cat $A)) $D' $F' $X $X (id (CoAt2_cat $A) $X)"
+      },
+      {
+        "count": 1,
+        "sha256": "f252f90fb4d0ada83630291eb45a65c027bc909d1e1a6937c6f83fd1ef9fbb9b",
+        "overlap": "t ≔ @fapp1_fapp0 (Op_cat (CoAt2_cat $A)) $D' $F' $x' $x' (id (CoAt2_cat $A) $x')"
+      },
+      {
+        "count": 1,
+        "sha256": "d48362aa6b8918f57113b41fc5413d07880d5742c02ac5df4792d77225dac973",
+        "overlap": "t ≔ @comp_fapp0 (CoAt2_cat $A) (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Z') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X' $Y' $f') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y' $Z' $g')"
+      },
+      {
+        "count": 1,
+        "sha256": "4eaa73d7a4c363644fbd44b21b79b3c6a3db28db95d6b431ef27fecaf965f488",
+        "overlap": "t ≔ @comp_fapp0 (CoAt2_cat $A) (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Z') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X' $Y' $f') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y' $Z' $g')"
+      },
+      {
+        "count": 1,
+        "sha256": "9781294ff1aa31da1641999fd2e659925d4668234b0f13e87128ed6a7b34d904",
+        "overlap": "t ≔ @comp_fapp0 (CoAt2_cat $A) (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Z') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X' $Y' $f') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y' $Z' $g')"
+      },
+      {
+        "count": 1,
+        "sha256": "5551ce6a0b65bf1a59e5b5d7607e7413b54af5a0a0fc22a94f45984024e04865",
+        "overlap": "t ≔ @comp_fapp0 (CoAt2_cat $A) (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Z') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X' $Y' $f') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y' $Z' $g')"
+      },
+      {
+        "count": 1,
+        "sha256": "9641d595b03d32ed1880d75452da5f45a348cc7ad8ad54da34d54bc5cef8b1e4",
+        "overlap": "t ≔ @comp_fapp0 (CoAt2_cat $A) (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Z') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X' $Y' $f') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y' $Z' $g')"
+      },
+      {
+        "count": 1,
+        "sha256": "ae7f37628a5049983e885e8d2890977582a677d6106db5524f365595699a4452",
+        "overlap": "t ≔ @comp_fapp0 (CoAt2_cat $A) (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Z') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y') (@fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $X' $Y' $f') (@fapp1_fapp0 $A' (Op_cat (CoAt2_cat $A)) $F' $Y' $Z' $g')"
+      },
+      {
+        "count": 1,
+        "sha256": "1339aba5de71549c741542f57b71f94c50ed89599ceae2073fa9441445f41d66",
+        "overlap": "t ≔ @Op_adjunction (Op_cat $B') (Op_cat (CoAt2_cat $A)) $' $' (@Op_adjunction (CoAt2_cat $A) $B' $' $' $adj')"
+      },
+      {
+        "count": 1,
+        "sha256": "eb7a3edcda353a801051c7aa95e7bc1f377921bfa2947b1c6fc9e39c9387a20f",
+        "overlap": "t ≔ @Op_adjunction (Op_cat (CoAt2_cat $A)) (Op_cat $A') $' $' (@Op_adjunction $A' (CoAt2_cat $A) $' $' $adj')"
+      },
+      {
+        "count": 1,
+        "sha256": "eeffb8b67ff19d91c1b9e30274a63e9004d65c60a77eb53cb71c6765cbad0fca",
+        "overlap": "t ≔ @unit_adj_transf (Op_cat $B') (Op_cat (CoAt2_cat $A)) $' $' (@Op_adjunction (CoAt2_cat $A) $B' $F' $G' $adj')"
+      },
+      {
+        "count": 1,
+        "sha256": "efb389a8c3c86ba9f1090ee815013730c7ac51c5989ff56f18ab99aa8eb4bbab",
+        "overlap": "t ≔ @unit_adj_transf (Op_cat (CoAt2_cat $A)) (Op_cat $A') $' $' (@Op_adjunction $A' (CoAt2_cat $A) $F' $G' $adj')"
+      },
+      {
+        "count": 1,
+        "sha256": "9363b106615218d121e3e305d78e5dc5a7f060a49591cfac7a70e8b4ef99232b",
+        "overlap": "t ≔ @counit_adj_transf (Op_cat $B') (Op_cat (CoAt2_cat $A)) $' $' (@Op_adjunction (CoAt2_cat $A) $B' $F' $G' $adj')"
+      },
+      {
+        "count": 1,
+        "sha256": "e64dc10fa6dc587f43232d9b5a47dca993acb5950bbe5c6338b7ee9ae73d04f7",
+        "overlap": "t ≔ @counit_adj_transf (Op_cat (CoAt2_cat $A)) (Op_cat $A') $' $' (@Op_adjunction $A' (CoAt2_cat $A) $F' $G' $adj')"
+      }
+    ]
+  },
+  "ruleLhsAudit": {
+    "unreviewedCompoundSlots": 0,
+    "annotatedSlots": 41,
+    "intentionalClauses": 28
+  },
+  "warningReview": {
+    "identityAndComposition": "Eight added normalized reports concern the transpose/C2 commutation and existing generic identity/composition cuts; two older versions are removed. This inventory does not establish those overlaps join. Expanded projection-order consumers remain a promotion obligation.",
+    "adjunction": "Six added reports concern legacy Op_adjunction and unit/counit projections. These owners retain their known unmigrated profiles and must be repaired at their existing downstream owners.",
+    "scope": "Whole owner formation, fibre computation and a nonidentity 2-cell direction check pass. This is not full confluence, general Q, Homd or library qualification."
+  },
+  "boundary": {
+    "whole": "Derived existing Edge/presheaf constructors, with the real shifted bases and Cartesian negative family parameter.",
+    "negative": "The former unshifted whole signatures are rejected.",
+    "nextFailure": "Homd_target_section_catd requires CoAt2_cat Z = Z in its old ordinary mixed-family construction.",
+    "requiredNext": "Selected Q/profunctor Homd coefficient, whole direct projection ladder and intrinsic general-FF consumers; no identification of CoAt2_cat Z with Z."
+  }
+}

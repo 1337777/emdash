@@ -53,11 +53,13 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: recover the Cartesian representation package needed by
-the corrected whole Edge/presheaf operators, then continue the required
-Q/Homd construction. Total fibre opposite, the existing Pi/Hom_catd interface
-and the corrected Sigma-Hom formula now check in the prototype. Their later
-Homd-dependent action consumers and production integration remain open.
+Current next slice: implement the selected Q/profunctor coefficient and its
+whole Homd target and direct projection ladder. The Cartesian representation
+and corrected whole Edge/presheaf operators now check in the prototype,
+alongside total fibre opposite, the existing Pi/Hom_catd interface and the
+corrected Sigma-Hom formula. The old Homd target is the first failing full-file
+consumer. Later Homd-dependent action, overlap qualification and production
+integration remain open.
 Use the necessary
 [Cartesian/Gray evaluation and coefficient distinction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 at its upstream owners. A checked native construction shows that keeping
@@ -1121,11 +1123,12 @@ combined dependent context. The Q-based Homd construction remains selected.
 ### Production relocation validation status
 
 The previous health process 511079 is no longer present. Its state retained
-1,168 successful checks and no final report. After verifying that no checker
-was still running, the same health command resumed those exact-source checks.
-Its new coordinator is 1814210, unified-exec handle 73652; output is in
-`emdash2/logs/strict-default-health-resume.log`. Verify that process/receipts
-on continuation rather than assuming its current status.
+1,168 successful checks and no final report. The same health command resumed
+those exact-source checks under coordinator 1814210. That process has now
+finished; its failed result is recorded in `emdash2/logs/check-metrics.jsonl`,
+generated 2026-10-11T23:03:58-0400, and
+`emdash2/logs/strict-default-health-resume.log`. The health report was not
+refreshed. There is no still-running aggregate to await or resume blindly.
 
 The resumed gate reported allocation failures at the unchanged 2GiB bound,
 including `homology_connecting_source_boundary_zero`. A scoped warning-enabled
@@ -1137,6 +1140,71 @@ and a fresh health report are not yet established. Further resource work must
 separate dependency/import cost and baseline behavior, and retain the normal
 guards and per-target limits. The prototype tranches above do not depend on
 reporting this aggregate green.
+
+## Derived representation and whole Edge/presheaf checkpoint
+
+The next prototype tranche recovers ordinary Cartesian representation by
+currying the existing uncurried `Unit_prof`. Its owner and object projection
+prerequisite move earlier; its full Hom action uses the already qualified
+Cartesian Hom telescope. `Rep_cart_func` is a definition, not a second
+primitive Hom. Public ambient `hom_int` and represented transport heads keep
+their existing interfaces.
+
+Canonical computation rules connect the curried Unit body to those existing
+heads. The checked comparisons include the whole representation after its
+Cartesian inclusion, its whole Hom action, its capped arrow and that arrow's
+component. These are explicitly installed canonical computation/projection
+joins, not an extensionality theorem inferred from objectwise agreement.
+The representation prefix passes 141 positive and 27 negative controls in
+4.788s. `representation_verification.json` records the successful consumers,
+failed intermediate comparisons and exact sources. The typed whole-Hom
+consumer retains the reference owner's literal opposite-Hom source; replacing
+that annotation by an already equal normalized type caused an assertion
+unification failure. No extra theory equality was added for that diagnostic.
+
+The existing Edge and presheaf definitions then receive their actual whole
+types. Write T=`Op_cat`, C2=`CoAt2_cat` and Cart for the Cartesian mapping
+category:
+
+```text
+Rep_cart(K) : T(K) -> Cart(K,Cat)
+Edge(K) : C2(T(K)) -> Cart(C2(K),Cat)
+Presheaf(J) : T(Cart(T(J),Cat)) -> Catd(J)
+HomPresheaf(K) : C2(K) -> Catd(T(C2(K))).
+```
+
+The Edge fibre is T(Hom_K(x,y)); the HomPresheaf fibre is
+Cart(T(Hom_K(x,y)),Cat). The old unshifted whole signatures are negative
+controls. A nonidentity source 2-cell is accepted in its actual reversed C2
+direction, with no inverse supplied. The owner prefix passes 149 positives
+and 29 negatives (5.872s; unchanged-source continuation replay 6.649s).
+`edge_presheaf_verification.json` pins the receipts and full-file failure.
+
+This repairs the ordinary representation/presheaf prerequisites; it does not
+repair Homd by merely retyping its old ordinary mixed-family target. The full
+source now fails at `Homd_target_section_catd`, asking for C2(K)=K. The selected
+Q/profunctor target remains required to internalize the dependent y ladder.
+No dependent (y,v,f) combined context, new primitive Pi or forced strictness
+of arbitrary FF was introduced by this tranche.
+
+Both strict LHS audits have zero unreviewed compound slots. Warning review
+remains qualified: moving Unit_prof earlier adds eight existing-action
+overlap reports at the representation boundary (807 to 815). The T/C2
+commutation adds fourteen and removes two at the Edge boundary (815 to 827).
+The verification records identify the identity/composition and legacy
+Op-adjunction overlap families. They remain explicit promotion obligations;
+passing the owner controls is not a certificate that these overlaps join.
+No production rules from this prototype are promoted by this checkpoint.
+
+Feasibility assessment: ordinary strict action, the required dualities,
+mixed-family negative inputs, corrected Sigma-Hom and whole Edge/presheaf
+prerequisites have native implementations and computational consumers.
+The full omega-level Q coefficient, direct whole Homd ladder with general
+displayed FF, later consumers and repository qualification are not yet
+established. Thus substantial computational feasibility is demonstrated,
+while end-to-end feasibility of the selected complete migration remains an
+open implementation/qualification question. There is no useful completion
+percentage implied by the prefix-control count.
 
 ## Deferred improvements under the migration boundary
 

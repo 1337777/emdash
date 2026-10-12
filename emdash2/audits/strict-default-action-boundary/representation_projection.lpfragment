@@ -1,0 +1,37 @@
+// Canonical partial evaluation of the curried unit Hom. This is the measured
+// curry normal form, specialized to Unit_prof; general precomposition stays
+// at its existing stable head. The whole Cartesian representation stays derived.
+rule @fapp0 _ _
+      (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+        (@Product_pair_tele_func (Op_cat $C) $C)
+        (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof $C))) $x
+  ↪ @hom_ $C $C (@id_func $C) $x;
+
+// The existing composition/precomposition cut moves the inclusion inside
+// the stable point head. Fold that actual normal form to the same whole Hom.
+rule @hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+      (@Product_pair_tele_func (Op_cat $C) $C)
+      (@comp_fapp0 Cat_cat _ _ _ (cart_functor_include $C Cat_cat)
+        (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof $C)))
+  ↪ @hom_int $C $C (@id_func $C);
+
+// Capping the representation first erases that whole-composite pattern.
+// Join its native strict-transfor view to the same represented-arrow owner.
+rule @strict_transfor _ _ _ _
+      (@fapp1_fapp0 _ _
+        (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func (Op_cat $C) $C)
+          (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof $C)))
+        $y $x $p)
+  ↪ @hom_int_precomp_func $C $C (@id_func $C) $y $x $p;
+
+// Whole Hom-action observation, before selecting p or any higher cell.
+// This is the matching projection-order join for the derived representation.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_func _ _ (cart_functor_include $C Cat_cat) _ _)
+      (@fapp1_func _ _
+        (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func (Op_cat $C) $C)
+          (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof $C)))
+        $y $x)
+  ↪ @hom_int_precomp_tele_func $C $C (@id_func $C) $y $x;

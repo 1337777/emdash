@@ -431,3 +431,37 @@ these remain non-library checkpoints rather than a completed Homd migration.
 The separate `relocation_resource_continuation.json` records a resource gap
 in the production carrier-move health gate. Its failed aggregate is not
 reported green and is not replaced by the successful prototype prefixes.
+
+## Ordinary representation and corrected whole Edge/presheaf interfaces
+
+`representation_migration.py` moves the existing Unit_prof and its ordinary
+Hom actions before Cartesian curry and defines `Rep_cart_func` from that
+native curry. It retains public ambient `hom_int`. Canonical computation joins
+compare the whole representation, whole Hom action, capped arrow and component
+with existing represented Hom owners. This does not curry a combined dependent
+context or replace the requested Homd ladder.
+
+`edge_presheaf_migration.py` uses that representation in the existing Edge and
+presheaf definitions. Their whole sources retain the actual C2 base shifts;
+the negative family parameter is Cartesian. The obsolete unshifted signatures
+are rejected. A source 2-cell control checks the C2 direction without an
+inverse argument.
+
+```bash
+python3 audits/strict-default-action-boundary/edge_presheaf_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_edge_presheaf/owner_prefix.lp
+```
+
+The representation and Edge prefixes pass 141/27 and 149/29 positive/negative
+controls respectively. Their verification JSON files record exact sources,
+receipts, failed intermediate comparisons and the warning inventories.
+The full file must currently fail at the old `Homd_target_section_catd`:
+its ordinary mixed-family body requires C2(K)=K. The selected Q/profunctor
+construction, whole Homd and general FF consumers remain unimplemented.
+
+The LHS audits are clear, but generic identity/composition and legacy
+Op-adjunction overlaps remain promotion obligations. Replay this audit after
+changes to Unit_prof, Cartesian curry, represented Hom, opposite-family action,
+presheaf formation or the coupled Homd target. It is a non-library checkpoint,
+not a full-source, confluence or production qualification.

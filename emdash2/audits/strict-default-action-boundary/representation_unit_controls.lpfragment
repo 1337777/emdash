@@ -1,0 +1,12 @@
+// NON-LIBRARY: the existing uncurried Hom has its actual Cartesian action.
+assert (C : Cat) ⊢ @Unit_prof C : τ (Functor (Product_cat (Op_cat C) C) Cat_cat);
+assert [C : Cat] (x y : τ (Obj C)) ⊢
+  fapp0 (@Unit_prof C) (@Product_pair (Op_cat C) C x y) ≡ Hom_cat C x y;
+// Give the consumer its normalized Hom type before comparing values.
+symbol sf_unit_whole [C : Cat] (x x' y y' : τ (Obj C))
+  : τ (Functor (Product_cat (Hom_cat C x' x) (Hom_cat C y y'))
+      (Functor_cart_cat (Hom_cat C x y) (Hom_cat C x' y')))
+≔ @fapp1_func (Product_cat (Op_cat C) C) Cat_cat (@Unit_prof C)
+    (@Product_pair (Op_cat C) C x y) (@Product_pair (Op_cat C) C x' y');
+assert [C : Cat] (x x' y y' : τ (Obj C)) ⊢
+  @sf_unit_whole C x x' y y' ≡ @Hom_cart_tele_func C x x' y y';

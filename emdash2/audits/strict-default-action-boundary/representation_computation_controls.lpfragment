@@ -1,0 +1,37 @@
+// NON-LIBRARY required computations, not merely membership in a classifier.
+assert [C : Cat] (x y : τ (Obj C)) ⊢
+  fapp0 (fapp0 (@Rep_cart_func C) x) y ≡ Hom_cat C x y;
+assert [C : Cat] (x : τ (Obj C)) ⊢
+  fapp0 (@Rep_cart_func C) x ≡ @hom_ C C (@id_func C) x;
+
+symbol sf_rep_forget (C : Cat) : τ (Functor (Op_cat C) (Catd_cat C))
+≔ @comp_cat_fapp0 (Op_cat C) (Functor_cart_cat C Cat_cat) (Catd_cat C)
+    (cart_functor_include C Cat_cat) (@Rep_cart_func C);
+assert (C : Cat) ⊢ sf_rep_forget C ≡ @hom_int C C (@id_func C);
+
+symbol sf_rep_raw_arrow [C : Cat] [x y : τ (Obj C)] (p : τ (Hom C x y))
+  : τ (Functord (@hom_ C C (@id_func C) y) (@hom_ C C (@id_func C) x))
+≔ @strict_transfor C Cat_cat _ _
+    (@fapp1_fapp0 (Op_cat C) (Functor_cart_cat C Cat_cat) (@Rep_cart_func C) y x p);
+assert [C : Cat] [x y : τ (Obj C)] (p : τ (Hom C x y)) ⊢
+  @sf_rep_raw_arrow C x y p ≡ @hom_int_precomp_func C C (@id_func C) y x p;
+
+symbol sf_rep_hom_view [C : Cat] (x y : τ (Obj C))
+  : τ (Functor (Hom_cat (Op_cat C) y x)
+      (Functord_cat (@hom_ C C (@id_func C) y) (@hom_ C C (@id_func C) x)))
+≔ @comp_cat_fapp0 (Hom_cat (Op_cat C) y x)
+    (Hom_cat (Functor_cart_cat C Cat_cat) (@hom_ C C (@id_func C) y) (@hom_ C C (@id_func C) x))
+    (Functord_cat (@hom_ C C (@id_func C) y) (@hom_ C C (@id_func C) x))
+    (@fapp1_func (Functor_cart_cat C Cat_cat) (Functor_cat C Cat_cat)
+      (cart_functor_include C Cat_cat) (@hom_ C C (@id_func C) y) (@hom_ C C (@id_func C) x))
+    (@fapp1_func (Op_cat C) (Functor_cart_cat C Cat_cat) (@Rep_cart_func C) y x);
+symbol sf_rep_reference_hom [C : Cat] (x y : τ (Obj C))
+  : τ (Functor (Hom_cat (Op_cat C) y x)
+      (Functord_cat (@hom_ C C (@id_func C) y) (@hom_ C C (@id_func C) x)))
+≔ @hom_int_precomp_tele_func C C (@id_func C) y x;
+assert [C : Cat] (x y : τ (Obj C)) ⊢
+  @sf_rep_hom_view C x y ≡ @sf_rep_reference_hom C x y;
+
+assert [C : Cat] [x y : τ (Obj C)] (p : τ (Hom C x y)) (z : τ (Obj C)) ⊢
+  @tapp0_fapp0 C Cat_cat _ _ z (@sf_rep_raw_arrow C x y p)
+  ≡ @hom_precomp_along_func C C (@id_func C) z x y p;

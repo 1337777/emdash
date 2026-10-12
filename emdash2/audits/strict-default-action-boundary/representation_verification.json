@@ -1,0 +1,272 @@
+{
+  "status": "derived Cartesian representation and canonical whole/projection comparisons checked; Edge/presheaf and Homd integration incomplete",
+  "sigmaInputSha256": "444a5d0db06c2dfe0122e19dd378085b7c044498a8a7c184e66d1d6179c9307b",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/representation_migration.py": "652972e6efba7382637c6b21a7cf9d80ad520706395a513c2c5b9899996c2c9c",
+    "audits/strict-default-action-boundary/representation_unit_controls.lpfragment": "94acb183cede96b33ab9b463c1afc906ac6aa40325eadc28570dc24088c5d8d8",
+    "audits/strict-default-action-boundary/representation_projection.lpfragment": "0aeaa6b3d4b31a5553d1ef239699f0d8c645c655a7331c51cf498fd5c1c03343",
+    "audits/strict-default-action-boundary/representation_type_controls.lpfragment": "21422fd62c981ae77404df931cd3637157d369b8e30d3f2c5fb12cf93bede2e4",
+    "audits/strict-default-action-boundary/representation_computation_controls.lpfragment": "8b001287831d9e894324717ef988440b06170216cf5ac1e8c8fa11ab5d01493d"
+  },
+  "outputs": {
+    "emdash3_2.lp": "b795f4704e428abdeec9a46ef65f6f9005a41bd0f46b2aa624ed21c22b3a4d35",
+    "unit_prefix.lp": "e2be28fb66bb231f217b9492b91d73175e291eaaec536cc5ab69f14d83143c97",
+    "typing_prefix.lp": "03bb0154e0dfc0379817ae53c8095cbabef2a7b39c451e67e993201e99824f76",
+    "computation_prefix.lp": "22b5b5a95512b4e83d09c95b585886a759f83943e631cd35b1ba89ae0a687246",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "baseline": {
+      "id": "20261012T032627Z-55e93fa930ca4d01a6a865a9f4d092fd",
+      "target": "tmp/probes/strict_default_sigma_total_op/hom_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 4.539650002960116,
+      "childrenMaxRssKiB": 296432,
+      "inputSnapshot": "85aa4cce5bc926967ee7540cd83c0d5e35864275709b74e7b61ae07cedfb0a88",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_sigma_total_op/hom_prefix.lp": "b0eb0ddcc315b5a3c97038547cbc838c1d132d6693346249933a2a2091735e40"
+      },
+      "log": "logs/check-runs/20261012T032627Z-55e93fa930ca4d01a6a865a9f4d092fd.log",
+      "logSha256": "c3de64bf4e1f1f41a91a8c25dec23402169993ac157ccce546ab687fc8a5f0b6",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 807
+    },
+    "unit": {
+      "id": "20261012T033458Z-653c909e8769483198fb6a28d13596be",
+      "target": "tmp/probes/strict_default_representation/unit_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.017237694002688,
+      "childrenMaxRssKiB": 183628,
+      "inputSnapshot": "e0eae08018d854b1eefd060efc406075ce93488529a02ea3fcde5b4f054745f4",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_representation/unit_prefix.lp": "e2be28fb66bb231f217b9492b91d73175e291eaaec536cc5ab69f14d83143c97"
+      },
+      "log": "logs/check-runs/20261012T033458Z-653c909e8769483198fb6a28d13596be.log",
+      "logSha256": "6c9313730b01e46f739876e0a6f196ac67f0dc5e068366890fcd7627c5cfc331",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 683,
+      "controls": {
+        "positive": 43,
+        "negative": 9
+      }
+    },
+    "computation": {
+      "id": "20261012T070127Z-3d5e8ac35b274c37aac37c036b789a24",
+      "target": "tmp/probes/strict_default_representation/computation_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 4.788330674986355,
+      "childrenMaxRssKiB": 303200,
+      "inputSnapshot": "eaaae5a2ec09d7484ad3df3e59ad82dac3c53b0c7e32c4f640006b49869ab3d3",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_representation/computation_prefix.lp": "22b5b5a95512b4e83d09c95b585886a759f83943e631cd35b1ba89ae0a687246"
+      },
+      "log": "logs/check-runs/20261012T070127Z-3d5e8ac35b274c37aac37c036b789a24.log",
+      "logSha256": "572f23287b5d6d9c574275d5895acb556c9233e796679e658efe05b85f676810",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 815,
+      "controls": {
+        "positive": 141,
+        "negative": 27
+      }
+    },
+    "full_file": {
+      "id": "20261012T070132Z-9da4afa673a6440da5174471dac376fb",
+      "target": "tmp/probes/strict_default_representation/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 4.772628557053395,
+      "childrenMaxRssKiB": 304112,
+      "inputSnapshot": "268b4d6024add9f216cc530d882f34802225026e095b61d49028740b18691d85",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_representation/emdash3_2.lp": "b795f4704e428abdeec9a46ef65f6f9005a41bd0f46b2aa624ed21c22b3a4d35"
+      },
+      "log": "logs/check-runs/20261012T070132Z-9da4afa673a6440da5174471dac376fb.log",
+      "logSha256": "8eeb9307690efe5263d4843c3e2902701d1a6c6c69b49cc3617483507fed242c",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 815
+    },
+    "no_partial_projection": {
+      "id": "20261012T033510Z-416ac91793ac41c9ad1cd5a5f11f9977",
+      "target": "tmp/probes/strict_default_representation/computation_prefix.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.6147237489931285,
+      "childrenMaxRssKiB": 299000,
+      "inputSnapshot": "d2735222e8ac055c6320128ceb4689c7cb8b6d86ff7a5fcb71ec763532744093",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_representation/computation_prefix.lp": "d2bfd322b9902d353bc90a8c72b970108786df66e928f74473b4877443d38c33"
+      },
+      "log": "logs/check-runs/20261012T033510Z-416ac91793ac41c9ad1cd5a5f11f9977.log",
+      "logSha256": "a88da00e0669bd895ac5f5e6037112ab60deb3ff84cd38bf587842aa78504d82",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 815
+    },
+    "no_whole_observation": {
+      "id": "20261012T064813Z-621564b710e941a18bd3acfd2185e6a7",
+      "target": "tmp/probes/strict_default_representation/computation_prefix.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 7.037417988060042,
+      "childrenMaxRssKiB": 299248,
+      "inputSnapshot": "cef5792dea4dd6d7f0d819f0cf079fcce9b375b1fa775f3daaac210568262e28",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_representation/computation_prefix.lp": "e7b4a06a9efe30e521c21b15bc6f75aeb43e8cd9f43af4c5d8e7a2c1ac28f9d5"
+      },
+      "log": "logs/check-runs/20261012T064813Z-621564b710e941a18bd3acfd2185e6a7.log",
+      "logSha256": "1f89643dacfecc5cb7cd8ccdf4e3facdc22344d7bccea2da58a951a196956c31",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 815
+    },
+    "wrong_whole_pattern": {
+      "id": "20261012T064939Z-e10a5b4ff55d42b5936a4beadfb78641",
+      "target": "tmp/probes/strict_default_representation/computation_prefix.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 3.2504515380132943,
+      "childrenMaxRssKiB": 302456,
+      "inputSnapshot": "c9b1a057806da0ef804ffdaf5b527153a2f83f938deef3dda59041a5ece4de79",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_representation/computation_prefix.lp": "e1e7fb53548ff88aec6b582623ab73feac0c444575c73bb8988435452a059a11"
+      },
+      "log": "logs/check-runs/20261012T064939Z-e10a5b4ff55d42b5936a4beadfb78641.log",
+      "logSha256": "68c6ed099c5ef8492b7d3880cb254d602024288c40762bd81c5a268470ae2bac",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 815
+    },
+    "no_whole_Hom_join": {
+      "id": "20261012T070005Z-bbf2d843b98c446ba48eaad9cdf02c09",
+      "target": "tmp/probes/strict_default_representation/computation_prefix.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 4.4956600200384855,
+      "childrenMaxRssKiB": 300408,
+      "inputSnapshot": "fe3622f284ee72a2208db9b64c643a4ff6a6d5deacdcf87564d0d2ffad19c792",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_representation/computation_prefix.lp": "02fad5703bbd0db52562c9d46143d387e334e35fdbcb83e427321becd9d5e960"
+      },
+      "log": "logs/check-runs/20261012T070005Z-bbf2d843b98c446ba48eaad9cdf02c09.log",
+      "logSha256": "a7b6a9802848fdb127533cf08fadb7aa173198e5d7ea32139feb31439048fb2a",
+      "settings": {
+        "timeoutMs": 90000,
+        "memoryMiB": 2048,
+        "fileMiB": 64,
+        "ocamlrunparam": "o=20",
+        "flags": []
+      },
+      "unjoinableCriticalPairs": 815
+    }
+  },
+  "boundary": {
+    "body": "Cartesian curry of the existing Unit_prof; no new representation primitive",
+    "comparisons": "canonical semantic-owner folds and measured projection-order joins, not theorems inferred from pointwise equality",
+    "ambient": "hom_int and existing represented transport owners retain their public interfaces",
+    "fullFile": "old Edge_catd_func parameter/base mismatch"
+  },
+  "warningComparison": {
+    "beforeCount": 807,
+    "afterCount": 815,
+    "added": 8,
+    "removed": 0,
+    "addedHeads": [
+      {
+        "count": 1,
+        "sha256": "f80f18399d1c39fd8fd9010fb9f5b03b758b0937efb7cbb61f2bb50e9084104e",
+        "overlap": "t ≔ @fapp1_fapp0 $A Cat_cat (Unit_prof $X') $X $X (id $A $X)"
+      },
+      {
+        "count": 1,
+        "sha256": "892adaf62032e820ce6988e707754735120e83c01135192c0913322889aa1a75",
+        "overlap": "t ≔ @fapp1_fapp0 (Op_cat $K) Cat_cat (Unit_prof $X') $x $x (id $K $x)"
+      },
+      {
+        "count": 1,
+        "sha256": "aca155cfe3183bac18b1d42acefd7fa027d5e6d6176c82e71f65f33a597fa828",
+        "overlap": "t ≔ @fapp1_fapp0 (Catd_cat $K) Cat_cat (Unit_prof $X') $E $E (id (Catd_cat $K) $E)"
+      },
+      {
+        "count": 1,
+        "sha256": "337ce861728d132a8b08db5725dbfd321bb5b0fb44bf77207df014292cba174d",
+        "overlap": "t ≔ @hom_precomp_along_fapp0 $A Cat_cat (Unit_prof Cat_cat) $3 $W (Unit_prof Cat_cat) $h (@fapp1_fapp0 $A Cat_cat (Unit_prof Cat_cat) (Unit_prof Cat_cat) $xy' $pq)"
+      },
+      {
+        "count": 1,
+        "sha256": "5278f7b01831ecf56daa6be53b01ec9c14e84979929eaa9c90bca280ab13de2b",
+        "overlap": "t ≔ @hom_postcomp_fapp0 Cat_cat Cat_cat (Unit_prof Cat_cat) $3 $xy' $Z $g (@fapp1_fapp0 Cat_cat Cat_cat (Unit_prof Cat_cat) (Unit_prof Cat_cat) $xy' $xy')"
+      },
+      {
+        "count": 1,
+        "sha256": "5669c910c2eba7c00e9161564916ac2930815c0351556711892428995d333023",
+        "overlap": "t ≔ @comp_fapp0 Cat_cat $1 $2 $3 (@fapp1_fapp0 Cat_cat Cat_cat (Unit_prof $X) $xy $xy' Cat_cat) (@fapp1_fapp0 Cat_cat Cat_cat (Unit_prof $X) $X $xy $f)"
+      },
+      {
+        "count": 1,
+        "sha256": "f2799f51f482d2fef10dabb32909984dba7a430b004a5a2fb311a4ca84db5329",
+        "overlap": "t ≔ @comp_fapp0 Cat_cat $1 $2 $3 (@fapp1_fapp0 Cat_cat Cat_cat (Unit_prof $X) $xy' $Z $g) (@fapp1_fapp0 Cat_cat Cat_cat (Unit_prof $X) $xy $xy' Cat_cat)"
+      },
+      {
+        "count": 1,
+        "sha256": "0fc457c63c06b589b64c21ce2e51f3e8372baa307bd7dd06f02fe868a46a1d6e",
+        "overlap": "t ≔ @fapp1_fapp0 $A Cat_cat (Unit_prof Cat_cat) (Unit_prof Cat_cat) (Unit_prof Cat_cat) (id $A (Unit_prof Cat_cat))"
+      }
+    ]
+  },
+  "warningReview": "Eight reports enter this prefix because Unit_prof and its existing capped Hom action moved earlier: four identity overlaps, two pre/postcomposition overlaps and two strict-composition overlaps. The canonical representation projection joins introduce no other normalized warning blocks at this boundary. Full Unit/composition overlap qualification remains a promotion obligation.",
+  "ruleLhsAudit": {
+    "unreviewedCompoundSlots": 0,
+    "annotatedSlots": 41,
+    "intentionalClauses": 28
+  }
+}

@@ -1,0 +1,7 @@
+// NON-LIBRARY: this whole representation is a native curry definition.
+assert (C : Cat) ⊢ @Rep_cart_func C
+  : τ (Functor (Op_cat C) (Functor_cart_cat C Cat_cat));
+assert [C : Cat] (x : τ (Obj C)) ⊢ fapp0 (@Rep_cart_func C) x : τ (Catd C);
+assert [C : Cat] [x y : τ (Obj C)] (p : τ (Hom C x y)) ⊢
+  @fapp1_fapp0 (Op_cat C) (Functor_cart_cat C Cat_cat) (@Rep_cart_func C) y x p
+  : τ (@StrictTransfor C Cat_cat (fapp0 (@Rep_cart_func C) y) (fapp0 (@Rep_cart_func C) x));
