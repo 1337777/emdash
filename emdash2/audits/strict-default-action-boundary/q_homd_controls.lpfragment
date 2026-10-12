@@ -1,0 +1,169 @@
+// NON-LIBRARY: full telescope consumers of the structural Q/Homd candidate.
+assert (A B : Cat) ⊢ Hom_cat Prof_cov_universe A B
+  ≡ Functor_cart_cat A (Functor_cart_cat (Op_cat B) Cat_cat);
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  @fapp0 (Op_cat B) Cat_cat
+    (@fapp0 A (Functor_cart_cat (Op_cat B) Cat_cat)
+      (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include A B F) a) b
+  ≡ Hom_cat B b (fapp0 F a);
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  @fapp0 (Op_cat A) Cat_cat
+    (@fapp0 B (Functor_cart_cat (Op_cat A) Cat_cat) (@Prof_cov_companion A B F) b) a
+  ≡ Hom_cat B (fapp0 F a) b;
+
+// These cover the same represented rule after Op(id) or Op(composite) has
+// already normalized, so the literal Op_func(F) pattern is no longer present.
+assert [B : Cat] (b : τ (Obj B)) ⊢
+  @fapp0 B (Functor_cart_cat (Op_cat B) Cat_cat)
+    (@Prof_cov_companion B B (@id_func B)) b
+  ≡ @hom_con B b B (@id_func B);
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) (c : τ (Obj C)) ⊢
+  @fapp0 C (Functor_cart_cat (Op_cat A) Cat_cat)
+    (@Prof_cov_companion A C (@comp_cat_fapp0 A B C G F)) c
+  ≡ @hom_con C c A (@comp_cat_fapp0 A B C G F);
+
+// The companion reverses a nonidentity transformation parameter.
+assert [A B : Cat] [F G : τ (Functor A B)] (U : τ (@StrictTransfor A B F G)) ⊢
+  @fapp1_fapp0 (Op_cat (Functor_cart_cat A B))
+    (Functor_cart_cat B (Functor_cart_cat (Op_cat A) Cat_cat))
+    (Prof_cov_companion_func A B) G F U
+  : τ (@StrictTransfor B (Functor_cart_cat (Op_cat A) Cat_cat)
+      (@Prof_cov_companion A B G) (@Prof_cov_companion A B F));
+
+// The y-diagram retains a raw, possibly non-strict displayed transformation.
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) ⊢
+  @fapp1_fapp0 (Functor_cat K Cat_cat) (Functor_cat K Prof_cov_universe)
+    (@comp_cat_cov_func K Cat_cat Prof_cov_universe Prof_cov_include) D E FF
+  : τ (@Transf K Prof_cov_universe (@Prof_cov_diagram K D) (@Prof_cov_diagram K E));
+assertnot [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) ⊢
+  @Prof_cov_con_lift_transf K D E FF
+  : τ (@Transf K Prof_cov_universe (@Prof_cov_diagram K E) (@Prof_cov_diagram K D));
+
+assert (K : Cat) ⊢ ProfRep_cov_int K
+  : τ (Functor (CoAt2_cat K) (Functor_cat K Prof_cov_universe));
+assert [K : Cat] (x : τ (Obj K)) ⊢
+  fapp0 (ProfRep_cov_int K) x
+  ≡ @Prof_cov_diagram K (@hom_ K K (@id_func K) x);
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
+  Fibre_cat (@Homd_target_catd K E) x ≡ @Homd_section_cat K E x;
+
+// Whole x-action projects to the companion of represented precomposition.
+assert [K : Cat] [x x' : τ (Obj K)] (p : τ (Hom K x x')) (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Prof_cov_universe _ _ y
+    (@fapp1_fapp0 (CoAt2_cat K) (Functor_cat K Prof_cov_universe)
+      (ProfRep_cov_int K) x x' p)
+  ≡ @Prof_cov_companion (Hom_cat K x' y) (Hom_cat K x y)
+      (@hom_precomp_along_func K K (@id_func K) y x x' p);
+
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) ⊢
+  @homd_int K D E FF
+  : τ (@Functord (CoAt2_cat K) (@Op_catd K E) (@Homd_target_catd K D));
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 (CoAt2_cat K) Cat_cat _ _ x (@homd_int K D E FF)
+  ≡ @homd_src_func K D E FF x;
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  fapp0 (@homd_src_func K D E FF x) u ≡ @homd_src_sec K D E FF x u;
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @homd_src_sec K D E FF x u
+  : τ (@Transf K Prof_cov_universe (@Prof_cov_diagram K D)
+      (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)));
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Prof_cov_universe _ _ y (@homd_src_sec K D E FF x u)
+  ≡ @homd_tgt_func K D E FF x u y;
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K)) ⊢
+  @homd_tgt_func K D E FF x u y
+  : τ (Functor (Fibre_cat D y) (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat));
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat D y))) ⊢
+  fapp0 (@homd_tgt_func K D E FF x u y) v ≡ @homd_ K D E FF x u y v;
+
+// Whole-first application reaches the native Hom leaf, not a supplied family.
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat D y))) (f : τ (Hom K x y)) ⊢
+  fapp0
+    (fapp0
+      (@tapp0_fapp0 K Prof_cov_universe _ _ y
+        (fapp0 (@tapp0_fapp0 (CoAt2_cat K) Cat_cat _ _ x (@homd_int K D E FF)) u)) v) f
+  ≡ Hom_cat (Fibre_cat E y)
+      (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u)
+      (fapp0 (@tapp0_fapp0 K Cat_cat D E y FF) v);
+
+// A base 2-cell retains its noninvertible contravariant index direction.
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat D y)))
+  [p q : τ (Hom K x y)] (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  @fapp1_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+    (@homd_ K D E FF x u y v) q p alpha
+  : τ (Functor
+      (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y q) u)
+        (fapp0 (@tapp0_fapp0 K Cat_cat D E y FF) v))
+      (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u)
+        (fapp0 (@tapp0_fapp0 K Cat_cat D E y FF) v)));
+
+// Actual capped action is the existing precomposition functor, using transport
+// of alpha; both whole-first and capped-first views reach that owner.
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat D y)))
+  [p q : τ (Hom K x y)] (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  @fapp1_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+    (@homd_ K D E FF x u y v) q p alpha
+  ≡ @hom_precomp_along_func (Hom_cat K x y) (Fibre_cat E y)
+      (@fib_cov_tapp0_func K E x y u)
+      (fapp0 (@tapp0_fapp0 K Cat_cat D E y FF) v) p q alpha;
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat D y)))
+  [p q : τ (Hom K x y)] (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  fapp0 (@fapp1_func (Op_cat (Hom_cat K x y)) Cat_cat
+    (@homd_ K D E FF x u y v) q p) alpha
+  ≡ @fapp1_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+      (@homd_ K D E FF x u y v) q p alpha;
+assertnot [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat D y)))
+  [p q : τ (Hom K x y)] (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  @fapp1_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+    (@homd_ K D E FF x u y v) p q alpha
+  : τ (Functor
+      (fapp0 (@homd_ K D E FF x u y v) p)
+      (fapp0 (@homd_ K D E FF x u y v) q));
+
+assertnot (K : Cat) ⊢ CoAt2_cat K ≡ K;
+
+// The target-side relative construction accepts general FF. This forms a
+// whole candidate comparison route; agreement with homd_int still requires
+// the represented coefficient's composition law and is not asserted here.
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) ⊢
+  @Homd_target_map K D E FF
+  : τ (@Functord (CoAt2_cat K) (@Homd_target_catd K E) (@Homd_target_catd K D));
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) ⊢
+  @comp_catd_fapp0 (CoAt2_cat K) (@Op_catd K E)
+    (@Homd_target_catd K E) (@Homd_target_catd K D)
+    (@Homd_target_map K D E FF) (@homd_int K E E (@id_funcd K E))
+  : τ (@Functord (CoAt2_cat K) (@Op_catd K E) (@Homd_target_catd K D));
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 (CoAt2_cat K) Cat_cat _ _ x (@Homd_target_map K D E FF)
+  ≡ @hom_precomp_along_func
+      (Functor_cat K Prof_cov_universe) (Functor_cat K Prof_cov_universe)
+      (@id_func (Functor_cat K Prof_cov_universe))
+      (@Prof_cov_diagram K (@hom_ K K (@id_func K) x))
+      (@Prof_cov_diagram K D) (@Prof_cov_diagram K E)
+      (@Prof_cov_diagram_map K D E FF);
+
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @Homd_target_map K E E (@id_funcd K E)
+  ≡ @id_funcd (CoAt2_cat K) (@Homd_target_catd K E);
+assert [K : Cat] [C D E : τ (Catd K)]
+  (FF : τ (Functord C D)) (GG : τ (Functord D E)) ⊢
+  @comp_catd_fapp0 (CoAt2_cat K)
+    (@Homd_target_catd K E) (@Homd_target_catd K D) (@Homd_target_catd K C)
+    (@Homd_target_map K C D FF) (@Homd_target_map K D E GG)
+  ≡ @Homd_target_map K C E (@comp_catd_fapp0 K C D E GG FF);

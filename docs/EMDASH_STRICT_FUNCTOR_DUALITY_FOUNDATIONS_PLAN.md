@@ -53,13 +53,15 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: implement the selected Q/profunctor coefficient and its
-whole Homd target and direct projection ladder. The Cartesian representation
-and corrected whole Edge/presheaf operators now check in the prototype,
-alongside total fibre opposite, the existing Pi/Hom_catd interface and the
-corrected Sigma-Hom formula. The old Homd target is the first failing full-file
-consumer. Later Homd-dependent action, overlap qualification and production
-integration remain open.
+Current next slice: qualify the selected Q/profunctor coefficient's represented
+unit/composition and whole lift, then correct the general-FF intrinsic-action
+profile. A candidate whole Homd target and direct projection ladder now check
+under explicit structural Q/lift contracts; those contracts are not yet a
+qualified omega coefficient. The first failing full-file consumer is the old
+internal action's use of same-profile Op_funcd(FF). The Cartesian representation,
+Edge/presheaf, total fibre opposite, existing Pi/Hom_catd and corrected
+Sigma-Hom prerequisites also check in the prototype. Later consumers, overlap
+qualification and production integration remain open.
 Use the necessary
 [Cartesian/Gray evaluation and coefficient distinction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 at its upstream owners. A checked native construction shows that keeping
@@ -112,6 +114,19 @@ authorizes making every FF strictly natural. The same-profile legacy
 `Op_funcd` is used inside `fdapp1_int_transfd`, so its general consumer repair
 belongs to the coupled Q/Homd slice. A separately checked Cartesian action
 is only an upstream component, not a substitute for the general FF contract.
+
+User clarification considered on 2026-10-12: a Cat-valued codomain does not
+make all displayed transformations strictly natural. Over a walking arrow,
+take constant families at Terminal and B. A lax displayed map can choose
+b0 and b1 in B with a comparison b0->b1. Its two component functors are
+strict; strict base naturality would exclude the example when b0 and b1
+differ. This uses ordinary categories and no duality issue. A deliberately
+stricter displayed-map classifier is a possible separate design choice, but
+is not selected for this migration. The existing Functord object projection
+reduces to Transf(K,Cat,E,D), so restricting a rule's spelling to Functord
+would not create a sound independent strictness boundary. Keep canonical
+constructor-specific strict computation and the explicit strict-transfor
+classifier separate from generic displayed FF.
 
 The first implementation pass restores STRICT FUNCTORS as the structural
 default and implements the selected corrected-duality/profunctor Homd design
@@ -1205,6 +1220,117 @@ established. Thus substantial computational feasibility is demonstrated,
 while end-to-end feasibility of the selected complete migration remains an
 open implementation/qualification question. There is no useful completion
 percentage implied by the prefix-control count.
+
+## Q/Homd interface and direct-ladder experiment
+
+The next owner-position copy replaces the invalid ordinary Homd target by
+response-0099's transformation category in the covariant profunctor
+coefficient. The coefficient Hom uses Cartesian module transformations,
+while the K-diagram transformation category remains the ambient non-strict
+one. Its represented maps are to be defined from ordinary curried Unit Hom
+and existing Cartesian whiskering. A whole contravariant diagram lift then
+feeds the represented x-package; Homd keeps its existing blended FF input.
+
+The initial test is the full root/source/y/v/f type and direct component
+ladder, not merely a fixed-y body. Rejection conditions include a source-base
+identification C2(K)=K, strict naturality forced onto arbitrary FF, reversed
+noninvertible cells, or operational equality inputs. The coefficient and
+contravariant diagram lift are explicitly new structural contracts in this
+first experiment: their typing cannot be called a derivation from the old
+opaque Prof_tensor or a qualification of its units/interchange. Further
+native action and semantic qualification remain required before promotion.
+The old tensor has only one-way co-Yoneda maps; the ordinary bicategorical
+companion/conjoint source does not by itself prove the omega coefficient.
+
+The experiment now has checked declarations and direct projection consumers.
+In the emitted source, Q=`Prof_cov_universe`, D_K=`Functor_cat(K,Q)` and
+Cart=`Functor_cart_cat`. Its coefficient Hom is
+
+```text
+Hom_Q(A,B) = Cart(A,Cart(T(B),Cat)).
+S_D(x) = Transf(K,Q,iota(D),iota(Hom_K(x,-))).
+Homd_target(D) = hom_(Gamma_K,iota(D)) : Catd(C2(K)).
+
+homd_int(FF:D=>E) : Functord_C2(K)(Op_catd(E),Homd_target(D))
+homd_src_func(FF,x) : T(E[x]) -> S_D(x)
+homd_src_sec(FF,x,u) : Obj(S_D(x))
+homd_tgt_func(FF,x,u,y) : D[y] -> Cart(T(Hom_K(x,y)),Cat)
+homd_(FF,x,u,y,v) : T(Hom_K(x,y)) -> Cat.
+```
+
+The whole-first x/u/y/v/f application computes to the existing leaf
+Hom(E[y], E[f][u], FF[y][v]). The y-projection is ordinary component evaluation
+in Q, directly yielding the v/f functor. It does not use a combined dependent
+context, a curry step for Homd, a primitive Pi, or a terminal-component
+wrapper. A nonidentity base 2-cell has the correct contravariant index action;
+both whole-first and capped-first action reach the existing precomposition
+owner. Gamma's arrow component computes to the companion of represented
+precomposition, rather than the differently oriented conjoint.
+
+The represented fixed-endpoint functions are derived from the existing Unit
+Hom, Cartesian curry and Cartesian whiskering. Two measured partial-evaluation
+joins are necessary: opposite involution erases the original negative Unit
+pattern, and fixed precomposition retains a stable point head. Their canonical
+rules return the existing hom_con owner, including identity and composite
+input functors. They do not identify the two ordinary variance heads globally.
+
+General FF also has a derived target-side operation:
+
+```text
+Homd_target_map(FF:D=>E) : Homd_target(E) => Homd_target(D).
+```
+
+It is represented precomposition by iota(FF), pulled back along Gamma. Its
+whole type, x-component, identity and composition check. Consequently the
+whole composite Homd_target_map(FF) o homd_int(id_E) has the required relative
+root type without taking a fibrewise opposite of FF. Agreement of that
+composite with the blended homd_int(FF) is still a coefficient-composition
+obligation; no equality is postulated from the matching leaf values. The
+target family uses native blended hom_ with Gamma as its functor argument,
+avoiding the unstable reassociation of its raw composite spelling.
+
+Two ordinary represented-precomposition joins restore identity and composition
+after capping hom_int's action. Their actual consumer is Homd_target_map;
+the no-join control fails its identity comparison. These are strict functor
+action laws for the canonical Hom construction, not strict naturality rules
+for arbitrary FF. The displayed Catd source is retained explicitly when
+whiskering FF so its native identity/composition heads are visible.
+
+The current ladder prefix passes 176 positives and 32 negatives in 11.024s
+at the unchanged 90s/2GiB bounds, with subject reduction enabled. The LHS
+audit has zero unreviewed compound slots. Its warning stream has 853 reports
+versus 827 before the Q/Homd slice: 26 added, none removed. The represented
+action, coefficient inclusion/lift, and newly reached terminal-Homd overlap
+families are recorded in `q_homd_verification.json`; their full interaction
+qualification remains open. Source generation, receipts and failed
+intermediate controls are retained in the non-library audit.
+
+The positive coefficient unit and composition runtime tests currently FAIL
+after projecting the inclusion to its derived represented functions. The
+structural inclusion already assumes functor laws; passing its declaration
+does not prove their desired projected computation or derive the coefficient
+from the legacy tensor. These failures are computational qualification gaps,
+not by themselves semantic counterexamples. Do not label the full Q/Homd
+milestone complete from the passing ladder.
+
+The full source now reaches `tdapp1_int_func_transfd` and fails because its old
+target feeds general FF to the strict `Op_funcd` carrier. The finite control
+`ff_source_image_profile.py` identifies the actual profile issue. Over [1],
+take constant fibres A=discrete{u,v} and B=[1], with F0(u)=F0(v)=0 and
+F1(u)=1,F1(v)=0. These are strict component functors of a genuinely lax FF.
+Fibrewise transpose changes its naturality to oplax. Moreover the old source-
+image expression, evaluated at y=1 and v, has values terminal at x=0 and
+empty at x=1. The normal-lax root would require terminal->empty; the oplax
+direction empty->terminal exists. This finite example does not qualify the
+omega theory, but rules out repairing the old signature simply by admitting
+raw FF into the same-profile transpose. Preserve the native extracted laxity
+and existing action heads while correcting that profile; do not bypass this
+by globally strictifying Functord.
+
+Next: settle represented coefficient units/composition and the whole lift's
+native action; then repair this intrinsic-action profile and its first laxity
+consumer. The successful target-side FF action is relevant input, not a
+claim that the source-image extraction problem has disappeared.
 
 ## Deferred improvements under the migration boundary
 

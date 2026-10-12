@@ -465,3 +465,58 @@ Op-adjunction overlaps remain promotion obligations. Replay this audit after
 changes to Unit_prof, Cartesian curry, represented Hom, opposite-family action,
 presheaf formation or the coupled Homd target. It is a non-library checkpoint,
 not a full-source, confluence or production qualification.
+
+## Candidate whole Q/Homd ladder and retained general FF
+
+`q_homd_migration.py` replaces the invalid ordinary Homd target with the
+selected Q-valued transformation category and adapts the existing direct
+projection ladder. Q has Cartesian curried module Homs; its K-diagrams use
+the existing ambient transformation category. The coefficient inclusion and
+whole contravariant diagram lift are explicit structural candidates, not
+theorems derived from the existing opaque Prof_tensor.
+
+The source-fixed section now has the actual type
+`Transf(K,Q,iota(D),iota(Hom_K(x,-)))`. Its ordinary y-component is directly
+the v/f functor. The whole-first x/u/y/v/f application reaches
+Hom(E[y], E[f][u], FF[y][v]). The represented x-action uses the companion of
+precomposition, and a nonidentity base 2-cell has the correct index direction.
+Identity/composite represented inputs and both index-action observation
+orders are included. No operational proof/equality payload is an input.
+
+The derived Homd_target_map(FF) acts on section targets without transposing
+FF. Its whole type, x-component, identity and composition check for the
+original raw Functord input. Agreement of its composite with the blended
+homd_int(FF) remains an explicit coefficient-composition obligation.
+
+```bash
+python3 audits/strict-default-action-boundary/q_homd_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_q_homd/ladder_prefix.lp
+python3 audits/strict-default-action-boundary/ff_source_image_profile.py
+```
+
+The prefix passes 176 positives/32 negatives at the normal bounds. Its LHS
+audit is clear. The 26 added warning reports and exact source/receipt pins
+are recorded in `q_homd_verification.json`. Replay these separate boundaries
+serially when changing the relevant owners:
+
+- `no_action_joins.lp` must fail the target-map identity comparison when the
+  required ordinary represented-precomposition joins are removed.
+- `coefficient_unit.lp` and `coefficient_composition.lp` are positive runtime
+  obligations that currently fail after projecting the structural inclusion.
+  They expose incomplete coefficient computation; do not count them as
+  successful negative controls or infer the whole coefficient is qualified.
+- The full `emdash3_2.lp` copy currently fails at the old internal-action
+  target's use of same-profile Op_funcd on general FF.
+
+The finite FF model has a walking-arrow base and constant fibres, with strict
+transports and strict component functors but nonidentity naturality. The old
+source-image root would require a functor from a terminal category to an
+empty category. Its opposite, oplax direction exists. This is a finite
+profile counterexample, not a model or qualification of the whole omega
+construction. It justifies correcting the intrinsic-action profile while
+retaining general FF; globally strictifying Functord is not the selected fix.
+
+These are non-library interface/action checkpoints. Coefficient units and
+composition, whole lift coherence, intrinsic extraction, later consumers and
+production qualification remain required.

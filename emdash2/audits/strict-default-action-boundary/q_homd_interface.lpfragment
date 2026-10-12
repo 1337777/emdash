@@ -1,0 +1,151 @@
+// NON-LIBRARY structural coefficient candidate. Its strict composition and
+// whole represented lift are qualification obligations, not consequences of
+// the legacy opaque tensor. No supplied comparison/equality is an input.
+injective symbol Prof_cov_universe : Cat;
+rule Obj Prof_cov_universe ↪ Obj Cat_cat;
+rule Hom_cat Prof_cov_universe $A $B
+  ↪ Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat);
+
+// Opposite involution erases the negative Unit-curry pattern when its category
+// is Op(B). Join that measured positive representation form at the same
+// partial-evaluation owner, retaining the existing hom_con runtime head.
+rule @fapp0 _ _
+      (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+        (@Product_pair_tele_func $B (Op_cat $B))
+        (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $B)))) $x
+  ↪ @hom_con $B $x $B (@id_func $B);
+
+// Positive ordinary representation, derived from the existing Unit Hom.
+// Rep_con_cart(B)[b][a] = Hom_B(a,b).
+symbol Rep_con_cart_func (B : Cat)
+  : τ (Functor B (Functor_cart_cat (Op_cat B) Cat_cat))
+≔ @Rep_cart_func (Op_cat B);
+
+// Whole fixed-endpoint conjoint map; the functor parameter is Cartesian.
+symbol Prof_cov_conjoint_func (A B : Cat)
+  : τ (Functor (Functor_cart_cat A B)
+      (Functor_cart_cat A (Functor_cart_cat (Op_cat B) Cat_cat)))
+≔ @comp_cat_cov_cart_func A B (Functor_cart_cat (Op_cat B) Cat_cat)
+    (Rep_con_cart_func B);
+
+// Companion reverses the transformation parameter, retaining higher action.
+symbol Prof_cov_companion_func (A B : Cat)
+  : τ (Functor (Op_cat (Functor_cart_cat A B))
+      (Functor_cart_cat B (Functor_cart_cat (Op_cat A) Cat_cat)))
+≔ @comp_cat_fapp0
+    (Op_cat (Functor_cart_cat A B))
+    (Functor_cart_cat
+      (Functor_cart_cat (Op_cat B) Cat_cat)
+      (Functor_cart_cat (Op_cat A) Cat_cat))
+    (Functor_cart_cat B (Functor_cart_cat (Op_cat A) Cat_cat))
+    (@comp_cat_con_cart_func B
+      (Functor_cart_cat (Op_cat B) Cat_cat)
+      (Functor_cart_cat (Op_cat A) Cat_cat)
+      (Rep_con_cart_func B))
+    (@comp_cat_fapp0
+      (Op_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (Op_cat A) (Op_cat B))
+      (Functor_cart_cat
+        (Functor_cart_cat (Op_cat B) Cat_cat)
+        (Functor_cart_cat (Op_cat A) Cat_cat))
+      (@comp_cat_con_func_func (Op_cat A) (Op_cat B) Cat_cat)
+      (Op_func_func A B));
+
+symbol Prof_cov_companion [A B : Cat] (F : τ (Functor A B))
+  : τ (Hom Prof_cov_universe B A)
+≔ fapp0 (Prof_cov_companion_func A B) F;
+
+// Partial evaluation of the actual companion normal form. Precomposition
+// retains a stable point head, so the Unit-curry projection alone cannot fire.
+// G:A0->T(B) is kept arbitrary: this includes identities and composites after
+// their opposite constructor has normalized away.
+rule @fapp0 _ _
+      (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+        (@hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $B (Op_cat $B))
+          (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $B))))
+        (@hom_precomp_along_func _ _ (@id Cat_cat Cat_cat) _ $A0 (Op_cat $B) $G)) $b
+  ↪ @hom_con $B $b (Op_cat $A0) (@Op_func $A0 (Op_cat $B) $G);
+
+// Structural represented inclusion. The whole first-Hom action is the
+// preceding derived conjoint operation, not a separately supplied cell.
+injective symbol Prof_cov_include : τ (Functor Cat_cat Prof_cov_universe);
+rule fapp0 Prof_cov_include $A ↪ $A;
+rule @fapp1_func _ _ Prof_cov_include $A $B
+  ↪ Prof_cov_conjoint_func $A $B;
+rule @fapp1_fapp0 _ _ Prof_cov_include $A $B $F
+  ↪ fapp0 (Prof_cov_conjoint_func $A $B) $F;
+
+// Fixed postcomposition uses the existing ambient whiskering, so a general
+// displayed FF is still a non-strict diagram transformation after inclusion.
+symbol Prof_cov_diagram [K : Cat] (E : τ (Catd K))
+  : τ (Functor K Prof_cov_universe)
+≔ @comp_cat_fapp0 K Cat_cat Prof_cov_universe Prof_cov_include E;
+
+// Whole contravariant represented lift on strict diagram transformations.
+// C2(T(-)) reverses transformations and modifications. This is the specific
+// structural operator required by the selected represented-index design.
+injective symbol Prof_cov_con_lift (K : Cat)
+  : τ (Functor (CoAt2_cat (Op_cat (Functor_cart_cat K Cat_cat)))
+      (Functor_cat K Prof_cov_universe));
+rule fapp0 (Prof_cov_con_lift $K) $E ↪ @Prof_cov_diagram $K $E;
+
+symbol Prof_cov_con_lift_transf [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D))
+  : τ (@Transf K Prof_cov_universe
+      (@Prof_cov_diagram K D) (@Prof_cov_diagram K E));
+rule @fapp1_fapp0 _ _ (Prof_cov_con_lift $K) $D $E $U
+  ↪ @Prof_cov_con_lift_transf $K $E $D $U;
+rule @tapp0_fapp0 _ _ _ _ $y
+      (@Prof_cov_con_lift_transf $K $E $D $U)
+  ↪ @Prof_cov_companion (Fibre_cat $E $y) (Fibre_cat $D $y)
+      (@tapp0_fapp0 $K Cat_cat $E $D $y
+        (@strict_transfor $K Cat_cat $E $D $U));
+
+// Whole represented x-action, using the contravariant lift twice.
+symbol ProfRep_cov_int (K : Cat)
+  : τ (Functor (CoAt2_cat K) (Functor_cat K Prof_cov_universe))
+≔ @comp_cat_fapp0
+    (CoAt2_cat K)
+    (CoAt2_cat (Op_cat (Functor_cart_cat K Cat_cat)))
+    (Functor_cat K Prof_cov_universe)
+    (Prof_cov_con_lift K)
+    (@CoAt2_func K (Op_cat (Functor_cart_cat K Cat_cat))
+      (@Op_func (Op_cat K) (Functor_cart_cat K Cat_cat) (@Rep_cart_func K)));
+
+// The y-section is the existing transformation category in the coefficient.
+symbol Homd_section_cat [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) : Cat
+≔ @Transf_cat K Prof_cov_universe
+    (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x));
+
+// Defined whole target through the existing blended ordinary Hom owner.
+// Its F argument is Gamma; no primitive section/Pi classifier is introduced.
+symbol Homd_target_catd [K : Cat] (E : τ (Catd K))
+  : τ (Catd (CoAt2_cat K))
+≔ @hom_ (Functor_cat K Prof_cov_universe) (CoAt2_cat K)
+    (ProfRep_cov_int K) (@Prof_cov_diagram K E);
+
+// General displayed FF has a covariant Q-diagram image by fixed whiskering.
+// This uses its original non-strict transformation carrier.
+symbol Prof_cov_diagram_map [K : Cat] [D E : τ (Catd K)]
+  (FF : τ (Functord D E))
+  : τ (@Transf K Prof_cov_universe (@Prof_cov_diagram K D) (@Prof_cov_diagram K E))
+≔ @fapp1_fapp0 (Catd_cat K) (Functor_cat K Prof_cov_universe)
+    (@comp_cat_cov_func K Cat_cat Prof_cov_universe Prof_cov_include) D E FF;
+
+// FF acts on the section target by ordinary represented precomposition,
+// reindexed along the whole x-package. No fibrewise transpose of FF is used.
+symbol Homd_target_map [K : Cat] [D E : τ (Catd K)]
+  (FF : τ (Functord D E))
+  : τ (@Functord (CoAt2_cat K) (@Homd_target_catd K E) (@Homd_target_catd K D))
+≔ @fapp1_fapp0
+    (Catd_cat (Functor_cat K Prof_cov_universe)) (Catd_cat (CoAt2_cat K))
+    (@Pullback_catd_func (CoAt2_cat K) (Functor_cat K Prof_cov_universe) (ProfRep_cov_int K))
+    (@hom_ (Functor_cat K Prof_cov_universe) (Functor_cat K Prof_cov_universe)
+      (@id_func (Functor_cat K Prof_cov_universe)) (@Prof_cov_diagram K E))
+    (@hom_ (Functor_cat K Prof_cov_universe) (Functor_cat K Prof_cov_universe)
+      (@id_func (Functor_cat K Prof_cov_universe)) (@Prof_cov_diagram K D))
+    (@hom_int_precomp_func (Functor_cat K Prof_cov_universe) (Functor_cat K Prof_cov_universe)
+      (@id_func (Functor_cat K Prof_cov_universe))
+      (@Prof_cov_diagram K E) (@Prof_cov_diagram K D) (@Prof_cov_diagram_map K D E FF));

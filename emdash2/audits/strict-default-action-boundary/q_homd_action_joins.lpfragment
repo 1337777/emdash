@@ -1,0 +1,12 @@
+// Strict functor action after the represented-object projection. These
+// joins retain the existing hom_int_precomp_func owner; they do not impose
+// strict naturality on an arbitrary displayed transformation.
+rule @hom_int_precomp_func $A $B $F $Y $Y (@id $A $Y)
+  ↪ @id (Catd_cat $B) (@hom_ $A $B $F $Y);
+
+// lhs-audit: keep 1 -- the displayed-family composition owner selects this represented-action join.
+rule @comp_fapp0 (Catd_cat $B) _ _ _
+      (@hom_int_precomp_func $A $B $F $Y $X $p)
+      (@hom_int_precomp_func $A $B $F $Z $Y $q)
+  ↪ @hom_int_precomp_func $A $B $F $Z $X
+      (@comp_fapp0 $A $X $Y $Z $q $p);

@@ -1,0 +1,13 @@
+// NON-LIBRARY positive obligations for the declared coefficient. Kept apart
+// from the passing ladder: typing a structural inclusion does not establish
+// its represented identity/composition computations after projection.
+assert (A : Cat) ⊢
+  fapp0 (Prof_cov_conjoint_func A A) (@id_func A)
+  ≡ @id Prof_cov_universe A;
+
+// COMPOSITION BOUNDARY
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  @comp_fapp0 Prof_cov_universe A B C
+    (fapp0 (Prof_cov_conjoint_func B C) G)
+    (fapp0 (Prof_cov_conjoint_func A B) F)
+  ≡ fapp0 (Prof_cov_conjoint_func A C) (@comp_cat_fapp0 A B C G F);
