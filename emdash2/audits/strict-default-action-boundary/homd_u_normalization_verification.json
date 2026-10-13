@@ -1,0 +1,824 @@
+{
+  "status": "bounded combined native x/u reviewer passes; all eight removals/boundaries fail as classified; provisional Q and production remain open",
+  "contextRevision": "5ea2d118d1a24b03ce18fc602167c879105ae674",
+  "sourceInputs": {
+    "tmp/probes/homd_native_action/early_combined_controls.lp": "8e14037d7b4698d46c01c598ed9db4bd523e16413c1d614538b4c48d02c9eb49",
+    "audits/strict-default-action-boundary/homd_native_action_verification.json": "0fe51d966297651079712dd3fc6096916d4fbcf89a137bafae482d9b7ad34168",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "tmp/probes/homd_u_action/normalization_laws.lp": "ff1bafd5248f8f7f9ce4c31c390c9635cff77b4605260e8d266d5485b227a90d",
+    "logs/check-runs/20261013T180330Z-88fed9a5cdb04a009067f901ca2d5d6a.json": "cdf640357ebce35407660cd064e9aa8bfa81dcfdce9324f29a42399c00174c82",
+    "tmp/probes/homd_u_action/precomp_selected.lp": "fecdf8984e2243aec9c458c4b79174cfc2fd0ac927d9fe15841bc42cf17a073d",
+    "logs/check-runs/20261013T180722Z-53aff743905a4303bdc6a7fbbb99bc2b.json": "bf09d642cb63cbfdb397e2e4817000719d49a23630510a27fc24f1f8ae104fac",
+    "audits/strict-default-action-boundary/homd_u_action_owner.lpfragment": "6341dd0e1127825ed766a5506e374a1bbb0b48422abb7a0044b901853d550fd2",
+    "audits/strict-default-action-boundary/homd_u_action_observations.lpfragment": "12762e437e777e26f27db73ce9d06243ec978cdb931576d811718d8bf46b9320",
+    "audits/strict-default-action-boundary/homd_u_action_controls.lpfragment": "4eb0cd1008cb7899724a1c3460fe1c2a8b1e743423659e9d6f397baf72f43a23",
+    "audits/strict-default-action-boundary/homd_u_action_negative_controls.lpfragment": "6a4b2bd3f3a22b08afa007856b1330a9375d00bde9533340f86d5e649cd1df1b",
+    "audits/strict-default-action-boundary/homd_u_action_law_controls.lpfragment": "6ef18867a025e3b4158bfb16e7af3f23f61e04a383866079089744bec990dc7c",
+    "audits/strict-default-action-boundary/homd_u_action_composition_leaf.lpfragment": "5bc689593f49371030cf6ec54b8b60145db701c89ba1b465a607e64ec9ec2acd",
+    "audits/strict-default-action-boundary/homd_u_inversion_controls.lpfragment": "eda2065074e6270a612d91807d143ac968d4e682da9bc179d1942864689c0a2b",
+    "audits/strict-default-action-boundary/homd_u_precomp_controls.lpfragment": "b9c0aed9afbfe8bea185ee5524a04be2695a7209712a83908c1956a1adab63c8",
+    "audits/strict-default-action-boundary/homd_u_normalization_precomp_old.lpfragment": "42de9bfd009fd9a3735d8bbc77fd541d1ae2c07a203dd2a759401a635a45fba2",
+    "audits/strict-default-action-boundary/homd_u_normalization_precomp_new.lpfragment": "6b8a40a5027a104f81d1cb8aee9a19659a415a84599b5258d7def6649d6fdc86"
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/homd_u_normalization_migration.py": "98bbc3afbac202b49d90f207bec57f5d30b2d0c842bac1f00c5a17efb6ba962c",
+    "audits/strict-default-action-boundary/homd_u_normalization_inputs.json": "3c29214fc0c41594079fe811ded7769023ecbb857ba3b17713e0fc4e6cfa1480",
+    "audits/strict-default-action-boundary/homd_u_normalization_source_closure.md": "5bdd20d356343da02bd4457ac7903b4b6ad4e9ce68557485aee50047b5f97605"
+  },
+  "donor": "tmp/probes/homd_native_action/early_combined_controls.lp",
+  "donorReceipt": "logs/check-runs/20261013T172921Z-738517b8ac2740ea96ea002c68d55f1c.json",
+  "measuredLaws": "tmp/probes/homd_u_action/normalization_laws.lp",
+  "measuredLawsReceipt": "logs/check-runs/20261013T180330Z-88fed9a5cdb04a009067f901ca2d5d6a.json",
+  "measuredSelected": "tmp/probes/homd_u_action/precomp_selected.lp",
+  "measuredSelectedReceipt": "logs/check-runs/20261013T180722Z-53aff743905a4303bdc6a7fbbb99bc2b.json",
+  "measuredTailSha256": "acb8065f3adbddc9d258883e5dcce72831731f9a48b887603b887698c037adaa",
+  "normalizationPolicy": "Only Hom_cat loses eager injectivity; residual same-head inversion is delayed. Hom alias stays injective. New consumer fibre bases are explicit.",
+  "selectedCompositionScope": "Existing precomposition accumulation owners restored for arbitrary default-strict F. Selected controls include the actual two-factor nested leaf comparison.",
+  "genericAmbientComposition": "Category and endpoints explicit; no mixed-facade inference bridge is added.",
+  "defaultPrecomposition": {
+    "oldSha256": "42de9bfd009fd9a3735d8bbc77fd541d1ae2c07a203dd2a759401a635a45fba2",
+    "newSha256": "6b8a40a5027a104f81d1cb8aee9a19659a415a84599b5258d7def6649d6fdc86"
+  },
+  "ruleGroups": {
+    "source_projection": [
+      "0048c2683833a8a69cd3e8d05c0068112c2c7d707650cf29877d2c65c57bc812",
+      "f133d630432f61bdcadf2ce532809f1c7368041cbf23291d885b3dd48dcf8a11",
+      "bdbe6b3097976045491934a7866e45e731a59a9a754b04ee22c2b9bc9a0a26ad"
+    ],
+    "component_projection": [
+      "6c0dfa5d1a756aed39e746af58f16e7922c6a33f1436e4888606d06ce67b530e",
+      "6282f7c4dcf23cfa270d66f465854f102ec2d1d85c79e88912e5cbc4c8388038"
+    ],
+    "leaf_projection": [
+      "6a293be1b55c77a1a3cdc73c585d75e059115a7734aef7f1608477f5900c52d8"
+    ],
+    "law_joins": [
+      "bfc5969f1a9b1fcf1b37c168c94b204ae39e4e95fbdeb517eb04c6f0c81bfb28",
+      "2a9ae1cc3f5102bb4f473c5256ed81a65c6e7779dde1ae2ef8920011296fb598"
+    ]
+  },
+  "newAssertionCounts": {
+    "uLawsTail": {
+      "positive": 16,
+      "negative": 5
+    },
+    "twoFactorComposition": {
+      "positive": 1,
+      "negative": 0
+    },
+    "genericPrecomposition": {
+      "positive": 3,
+      "negative": 2
+    },
+    "generic": {
+      "positive": 6,
+      "negative": 4
+    }
+  },
+  "outputs": {
+    "combined_controls.lp": "39ffe519744260512fdcde40cdda0a9cff5f71fa6cbc98057b8c57df48225819",
+    "implicit_fibre_boundary.lp": "53224ebc60cd2c7833927ac7be0c083dea73e65b59e03e9e27e3da0f853456a8",
+    "restored_hom_cat_injectivity.lp": "513db5b569f459720534065ec07a409c30799624083518d2aa296e7e89b8c532",
+    "without_delayed_inversion.lp": "31a2c8bc5550481e2522e44dc043f87fffac2b47c17ef8991f76fe6cfdffdd9c",
+    "without_default_precomposition.lp": "467f8d9c0d0d48a85131e2eb4ce7baadff306f28e6036eec66901836b6b64c48",
+    "without_source_projection.lp": "ae8e935ee692698835f8e353a72a0ba965ad583e5c23150ff628a0b05cb6d96a",
+    "without_component_projection.lp": "a0769a2ff85f597e75ea4acee928d86ec4475e78357a8511b4b341a011cf7d57",
+    "without_leaf_projection.lp": "dd9f23850e29b634a093ac60ac7017a5d8454cd5d6fa18157855f39e576b58a4",
+    "without_law_joins.lp": "8f3f5bd17e32301b3ca61c29d83e3c1d805a438681e4995a9a03a66cd5fedd68",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checkerInvoked": false,
+  "selectedTarget": "tmp/probes/homd_u_normalization/combined_controls.lp",
+  "checks": {
+    "combined_controls.lp": {
+      "id": "20261013T181126Z-f9a052c56606485aa4b2e21250f88b3e",
+      "target": "tmp/probes/homd_u_normalization/combined_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_normalization/combined_controls.lp": "39ffe519744260512fdcde40cdda0a9cff5f71fa6cbc98057b8c57df48225819"
+      },
+      "inputSnapshot": "9f7e80599aae6282f585544a934e6f711bde8ff9f8eb95c5e824d9db7e5785b0",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 12.436398138990626,
+      "childrenMaxRssKiB": 689708,
+      "receipt": "logs/check-runs/20261013T181126Z-f9a052c56606485aa4b2e21250f88b3e.json",
+      "receiptSha256": "a3802aaf5d4713dae34f4c9a06a84908d8cc8969542c8499887bfdef87f16c84",
+      "sourceSha256": "39ffe519744260512fdcde40cdda0a9cff5f71fa6cbc98057b8c57df48225819",
+      "log": "logs/check-runs/20261013T181126Z-f9a052c56606485aa4b2e21250f88b3e.log",
+      "logSha256": "39b80670973cf7a0e4d01db5122f0bf686e0a1ae8a9b03fe1ae7a5daa65dad08",
+      "firstError": null,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 970,
+        "replaceablePatternVariables": 137
+      },
+      "output": "tmp/probes/homd_u_normalization/combined_controls.out",
+      "outputSha256": "41d6b36cf668c1a7b7f7e1253b99b43217b62161ce096c91d8192781e48652ea",
+      "failureClassification": "passed-bounded-reviewer",
+      "qualification": "All native x/u, whole h-family construction, leaf/law, generic inversion and precomposition controls pass."
+    },
+    "restored_hom_cat_injectivity.lp": {
+      "id": "20261013T181214Z-f340f61eba8c44599281fffd38b1879a",
+      "target": "tmp/probes/homd_u_normalization/restored_hom_cat_injectivity.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_normalization/restored_hom_cat_injectivity.lp": "513db5b569f459720534065ec07a409c30799624083518d2aa296e7e89b8c532"
+      },
+      "inputSnapshot": "ac17d7508730d82d504ae859f0c6c7cb227322afa003dfa974a4cfd7e320c915",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 12.61479901499115,
+      "childrenMaxRssKiB": 688064,
+      "receipt": "logs/check-runs/20261013T181214Z-f340f61eba8c44599281fffd38b1879a.json",
+      "receiptSha256": "5490c1946484ceb0bd31173497d070984cb9c1cd441c7f9239ac0db07ccbef05",
+      "sourceSha256": "513db5b569f459720534065ec07a409c30799624083518d2aa296e7e89b8c532",
+      "log": "logs/check-runs/20261013T181214Z-f340f61eba8c44599281fffd38b1879a.log",
+      "logSha256": "a99e60f9ceccc5910c783e8587f1b635df484134bacc3e4fc9b0cf55965747a6",
+      "firstError": "[tmp/probes/homd_u_normalization/restored_hom_cat_injectivity.lp:18962:0-18987:64] \nu0\nis not unifiable with\nu1.\nUnification goals are unsatisfiable.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 970,
+        "replaceablePatternVariables": 137
+      },
+      "output": "tmp/probes/homd_u_normalization/restored_hom_cat_injectivity.out",
+      "outputSha256": "7c41028229a626ce568ee0b7adb6b5d5318c883b2e91fde0817bb5359b68bef1",
+      "failureClassification": "whole-family-elaboration-failure",
+      "qualification": "Restored eager Hom_cat inversion fails while forming the actual whole h-family; u0/u1 clash."
+    },
+    "without_delayed_inversion.lp": {
+      "id": "20261013T181227Z-927569a7c44548509ac877256f8f6d7b",
+      "target": "tmp/probes/homd_u_normalization/without_delayed_inversion.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_normalization/without_delayed_inversion.lp": "31a2c8bc5550481e2522e44dc043f87fffac2b47c17ef8991f76fe6cfdffdd9c"
+      },
+      "inputSnapshot": "97984d4e36cb37331c06e42741b99fabc09c0fae1f3a18467e237be95ee3db6a",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 2.915314586018212,
+      "childrenMaxRssKiB": 161756,
+      "receipt": "logs/check-runs/20261013T181227Z-927569a7c44548509ac877256f8f6d7b.json",
+      "receiptSha256": "a9181d685889850af6fee93eb60ce8cb74c2c94175af20845e1ddc786965536c",
+      "sourceSha256": "31a2c8bc5550481e2522e44dc043f87fffac2b47c17ef8991f76fe6cfdffdd9c",
+      "log": "logs/check-runs/20261013T181227Z-927569a7c44548509ac877256f8f6d7b.log",
+      "logSha256": "5e8253531cbb17f2f1c4e7d78226cec131be67c5248aa01d78b482086b8e48b2",
+      "firstError": "[tmp/probes/homd_u_normalization/without_delayed_inversion.lp:11237:5-11306:18] \nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nτ (Hom K X Y).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nτ (Obj B').\n\nKIND\nis not unifiable with\nτ (Hom B X Y).\n\nKIND\nis not unifiable with\nτ (Obj B').\nCannot solve ⊢ Hom_cat (Hom_cat $13 $19 (@fapp0 $15 $13 $17 $23)) (@comp_fapp0 $13 $19 (@fapp0 $15 $13 $17 $21) (@fapp0 $15 $13 $17 $23) (@fapp1_fapp0 $15 $13 $17 $21 $23 $25) $9) (@comp_fapp0 $13 $19 (@fapp0 $15 $13 $17 $21) (@fapp0 $15 $13 $17 $23) (@fapp1_fapp0 $15 $13 $17 $21 $23 $27) $11) ≡ Hom_cat (Hom_cat $13 $19 (@fapp0 $15 $13 $17 $23)) (@hom_postcomp_fapp0 $13 $15 $17 $19 $21 $23 $25 $9) (@hom_postcomp_fapp0 $13 $15 $17 $19 $21 $23 $27 $11).\nUnable to prove type preservation.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 623,
+        "replaceablePatternVariables": 59
+      },
+      "output": "tmp/probes/homd_u_normalization/without_delayed_inversion.out",
+      "outputSha256": "71a9d830e9c086e1a70bfe2fa05641b1d07674e8ac2c964de8c2be7753e5be61",
+      "failureClassification": "existing-owner-subject-reduction-failure",
+      "qualification": "Existing generic postcomposition tapp1_func rule cannot prove type preservation without residual Hom_cat inversion; this is an infrastructure dependency, not a reached u-consumer or syntax failure."
+    },
+    "without_source_projection.lp": {
+      "id": "20261013T181230Z-0819ecf874424366ac3387540326f549",
+      "target": "tmp/probes/homd_u_normalization/without_source_projection.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_normalization/without_source_projection.lp": "ae8e935ee692698835f8e353a72a0ba965ad583e5c23150ff628a0b05cb6d96a"
+      },
+      "inputSnapshot": "cb88cebc2b1867b2b95e4e9b880453df42a5be10a0b82b9608b2c1d29972f869",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 12.309017825988121,
+      "childrenMaxRssKiB": 684396,
+      "receipt": "logs/check-runs/20261013T181230Z-0819ecf874424366ac3387540326f549.json",
+      "receiptSha256": "a1eace53fd0d45cd7d3d6bcd1d4cd9ba72edbd2fdf70c7011e9c7071198ad51e",
+      "sourceSha256": "ae8e935ee692698835f8e353a72a0ba965ad583e5c23150ff628a0b05cb6d96a",
+      "log": "logs/check-runs/20261013T181230Z-0819ecf874424366ac3387540326f549.log",
+      "logSha256": "c3d6f472c36cab57aafe675d6951d1406f25ce917f1973460a7ea029a23930a7",
+      "firstError": "[tmp/probes/homd_u_normalization/without_source_projection.lp:18988:0-18990:30] Assertion failed.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 965,
+        "replaceablePatternVariables": 137
+      },
+      "output": "tmp/probes/homd_u_normalization/without_source_projection.out",
+      "outputSha256": "36cc2c35d847d6d9af72bc99eb61354cad5645adb03530052e6d1d2f2c353c13",
+      "failureClassification": "source-projection-assertion-failure",
+      "qualification": "Whole source fapp1 comparison to the native u-action rung fails."
+    },
+    "without_component_projection.lp": {
+      "id": "20261013T181243Z-f49001a48cb140fe9cdc0581aaebd1fe",
+      "target": "tmp/probes/homd_u_normalization/without_component_projection.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_normalization/without_component_projection.lp": "a0769a2ff85f597e75ea4acee928d86ec4475e78357a8511b4b341a011cf7d57"
+      },
+      "inputSnapshot": "a8f46d765b45a814d0999c36785b8c35367a51fd85a3cc992a414de6a9906e69",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 12.466270052012987,
+      "childrenMaxRssKiB": 687624,
+      "receipt": "logs/check-runs/20261013T181243Z-f49001a48cb140fe9cdc0581aaebd1fe.json",
+      "receiptSha256": "61294d6c2028ed9fac4597896a96391b5aaefb9f7a02ef15779cf38203b13f93",
+      "sourceSha256": "a0769a2ff85f597e75ea4acee928d86ec4475e78357a8511b4b341a011cf7d57",
+      "log": "logs/check-runs/20261013T181243Z-f49001a48cb140fe9cdc0581aaebd1fe.log",
+      "logSha256": "f832b3bb6853518c93cdd24934ceb09eb0a3b152b6a77889c6e0a592786c39f8",
+      "firstError": "[tmp/probes/homd_u_normalization/without_component_projection.lp:18998:0-19000:31] Assertion failed.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 969,
+        "replaceablePatternVariables": 137
+      },
+      "output": "tmp/probes/homd_u_normalization/without_component_projection.out",
+      "outputSha256": "cf026e1c305fdced5ad02c5ebe151595357179670a6365a467c3d8318fc3612b",
+      "failureClassification": "component-projection-assertion-failure",
+      "qualification": "Actual generic y component comparison to homd_id_u_y fails."
+    },
+    "without_leaf_projection.lp": {
+      "id": "20261013T181256Z-ac5c51d978644830b137304046a98210",
+      "target": "tmp/probes/homd_u_normalization/without_leaf_projection.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_normalization/without_leaf_projection.lp": "dd9f23850e29b634a093ac60ac7017a5d8454cd5d6fa18157855f39e576b58a4"
+      },
+      "inputSnapshot": "e4c2410f3144d964a6b2633a2bb60f2d37e6a223eda8dbd7432741946fcef522",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 14.383803682983853,
+      "childrenMaxRssKiB": 687432,
+      "receipt": "logs/check-runs/20261013T181256Z-ac5c51d978644830b137304046a98210.json",
+      "receiptSha256": "a8a306f6d0962689f40c9f8cf66ff49de2e39ae187373e682854427057e154f9",
+      "sourceSha256": "dd9f23850e29b634a093ac60ac7017a5d8454cd5d6fa18157855f39e576b58a4",
+      "log": "logs/check-runs/20261013T181256Z-ac5c51d978644830b137304046a98210.log",
+      "logSha256": "eb34ec1f6e2d4e5201c4c58bafce80779d3a7cfeacd19a462eb5666ced6813cf",
+      "firstError": "[tmp/probes/homd_u_normalization/without_leaf_projection.lp:19009:0-19013:109] Assertion failed.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 970,
+        "replaceablePatternVariables": 137
+      },
+      "output": "tmp/probes/homd_u_normalization/without_leaf_projection.out",
+      "outputSha256": "22b2842f9d0216988b16049d12e19dd937c15cc8eb86db042266bc2397d12193",
+      "failureClassification": "ordinary-leaf-projection-assertion-failure",
+      "qualification": "Actual component at f fails comparison with ordinary precomposition."
+    },
+    "without_law_joins.lp": {
+      "id": "20261013T181311Z-4814c7304de74fa0be85327ba33bda7d",
+      "target": "tmp/probes/homd_u_normalization/without_law_joins.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_normalization/without_law_joins.lp": "8f3f5bd17e32301b3ca61c29d83e3c1d805a438681e4995a9a03a66cd5fedd68"
+      },
+      "inputSnapshot": "b6c09e284a8af12c2488b2f394af5133f844c78ba87fbaf491b5e42500c0b2ed",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 12.006481537013315,
+      "childrenMaxRssKiB": 667668,
+      "receipt": "logs/check-runs/20261013T181311Z-4814c7304de74fa0be85327ba33bda7d.json",
+      "receiptSha256": "1e998dda1bce83c77734d1119cefae7c1b887d0ea2f1e0ccbae1e27c00397926",
+      "sourceSha256": "8f3f5bd17e32301b3ca61c29d83e3c1d805a438681e4995a9a03a66cd5fedd68",
+      "log": "logs/check-runs/20261013T181311Z-4814c7304de74fa0be85327ba33bda7d.log",
+      "logSha256": "35627e8494516971cb6e12878dd5ab598d61ae1d27c40b2d29166d02220fa93e",
+      "firstError": "[tmp/probes/homd_u_normalization/without_law_joins.lp:19066:0-19068:59] Assertion failed.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 961,
+        "replaceablePatternVariables": 137
+      },
+      "output": "tmp/probes/homd_u_normalization/without_law_joins.out",
+      "outputSha256": "587d4e7e43229dd13ada3dcf7d365cb77e5390f590a95328d1ce85caf37daec0",
+      "failureClassification": "native-identity-assertion-failure",
+      "qualification": "Native source-map identity fails; the later composition assertion is not reached."
+    },
+    "without_default_precomposition.lp": {
+      "id": "20261013T181323Z-1c4399c8671349379580bc5889111478",
+      "target": "tmp/probes/homd_u_normalization/without_default_precomposition.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_normalization/without_default_precomposition.lp": "467f8d9c0d0d48a85131e2eb4ce7baadff306f28e6036eec66901836b6b64c48"
+      },
+      "inputSnapshot": "9acedc9f775b02f1918c908af80a8ffcda1d29370ae6b150ad44eb55858a71b5",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 12.022272579954006,
+      "childrenMaxRssKiB": 689228,
+      "receipt": "logs/check-runs/20261013T181323Z-1c4399c8671349379580bc5889111478.json",
+      "receiptSha256": "06e51eb3f904609e4f10c5eaea82997546f20d36ef31dc73c378f8cf33bf03f7",
+      "sourceSha256": "467f8d9c0d0d48a85131e2eb4ce7baadff306f28e6036eec66901836b6b64c48",
+      "log": "logs/check-runs/20261013T181323Z-1c4399c8671349379580bc5889111478.log",
+      "logSha256": "3c408c2801015283794a4b7943b4a34c4cc892ceb5a0207d1f3f88ec0c61576b",
+      "firstError": "[tmp/probes/homd_u_normalization/without_default_precomposition.lp:19105:0-19113:104] Assertion failed.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 968,
+        "replaceablePatternVariables": 137
+      },
+      "output": "tmp/probes/homd_u_normalization/without_default_precomposition.out",
+      "outputSha256": "514c85ae3947ab3126349a0bb57034af1ed5b3281f40380fbd8208b9cf762014",
+      "failureClassification": "two-factor-leaf-assertion-failure",
+      "qualification": "Two-factor nested precomposition leaf fails under the old identity-only ordinary rules."
+    },
+    "implicit_fibre_boundary.lp": {
+      "id": "20261013T181336Z-a5a9608068aa43c6a19e286f8f1a3fcf",
+      "target": "tmp/probes/homd_u_normalization/implicit_fibre_boundary.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_normalization/implicit_fibre_boundary.lp": "53224ebc60cd2c7833927ac7be0c083dea73e65b59e03e9e27e3da0f853456a8"
+      },
+      "inputSnapshot": "5a1f2c736110d5985925ae1d549d55d3fb2f4ce00383fac622e3359141bba627",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 12.293803547043353,
+      "childrenMaxRssKiB": 686804,
+      "receipt": "logs/check-runs/20261013T181336Z-a5a9608068aa43c6a19e286f8f1a3fcf.json",
+      "receiptSha256": "1635ba79d4b2df7c3d4cde1d4d0f285a57b5585319f370735abd2dbf986006a1",
+      "sourceSha256": "53224ebc60cd2c7833927ac7be0c083dea73e65b59e03e9e27e3da0f853456a8",
+      "log": "logs/check-runs/20261013T181336Z-a5a9608068aa43c6a19e286f8f1a3fcf.log",
+      "logSha256": "1d08c39d4238fabd672067861b9791f7d415e7b55d7c218c2d708b1f6610c97e",
+      "firstError": "[tmp/probes/homd_u_normalization/implicit_fibre_boundary.lp:18928:0-18938:39] \nu1\nis not unifiable with\nu0.\nUnification goals are unsatisfiable.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 970,
+        "replaceablePatternVariables": 137
+      },
+      "output": "tmp/probes/homd_u_normalization/implicit_fibre_boundary.out",
+      "outputSha256": "b5598a83539e57edab0f52a9b0290ca353b52b66a1cc6d10058b40256b61eb7a",
+      "failureClassification": "y-observation-elaboration-failure",
+      "qualification": "Implicit fibre bases cause direct source cap inside y observation to clash u1/u0."
+    }
+  },
+  "baseline": {
+    "id": "20261013T172921Z-738517b8ac2740ea96ea002c68d55f1c",
+    "target": "tmp/probes/homd_native_action/early_combined_controls.lp",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "tmp/probes/homd_native_action/early_combined_controls.lp": "8e14037d7b4698d46c01c598ed9db4bd523e16413c1d614538b4c48d02c9eb49"
+    },
+    "inputSnapshot": "75d6292f0c35f0358d43cd1d71f5a1b16e66f75a27574dedaf7079406157bfc7",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "wallSeconds": 20.738069199956954,
+    "childrenMaxRssKiB": 660124,
+    "receipt": "logs/check-runs/20261013T172921Z-738517b8ac2740ea96ea002c68d55f1c.json",
+    "receiptSha256": "3bd5704d25162fd33b6f13447e2e7118b83939fb1b12484823f62aae86264695",
+    "sourceSha256": "8e14037d7b4698d46c01c598ed9db4bd523e16413c1d614538b4c48d02c9eb49",
+    "log": "logs/check-runs/20261013T172921Z-738517b8ac2740ea96ea002c68d55f1c.log",
+    "logSha256": "fc92bb0c4059c9df45d7c8d7425723b5768b927f0a642052835f24a21a1c579e",
+    "firstError": null,
+    "warningCounts": {
+      "unjoinableCriticalPairs": 954,
+      "replaceablePatternVariables": 137
+    },
+    "output": "tmp/probes/homd_native_action/early_combined_controls.out",
+    "outputSha256": "51e4363255d7e76c01d48e072d5e1cf5b13f23fdd1fdf3ea58491803eb89dd5e"
+  },
+  "manifest": {
+    "path": "tmp/probes/homd_u_normalization/manifest.json",
+    "sha256": "94abf4e070a9491b1af9597d18f5ec620c392f2cfe94c1cebb549cb2d557076d"
+  },
+  "sourceAssertionCounts": {
+    "combined_controls.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "restored_hom_cat_injectivity.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "without_delayed_inversion.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "without_source_projection.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "without_component_projection.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "without_leaf_projection.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "without_law_joins.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "without_default_precomposition.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "implicit_fibre_boundary.lp": {
+      "positive": 309,
+      "negative": 65
+    }
+  },
+  "sourceAssertionCountQualification": "Selected pass completes all 309 positive and 65 negative assertions; failed-source inventories do not imply later assertions ran.",
+  "warningComparison": {
+    "normalization": "ANSI stripped; six-line critical-pair blocks compared as multisets with location headers excluded and no alpha renaming.",
+    "baselineLog": "logs/check-runs/20261013T172921Z-738517b8ac2740ea96ea002c68d55f1c.log",
+    "baselineLogSha256": "fc92bb0c4059c9df45d7c8d7425723b5768b927f0a642052835f24a21a1c579e",
+    "selectedLog": "logs/check-runs/20261013T181126Z-f9a052c56606485aa4b2e21250f88b3e.log",
+    "selectedLogSha256": "39b80670973cf7a0e4d01db5122f0bf686e0a1ae8a9b03fe1ae7a5daa65dad08",
+    "before": 954,
+    "after": 970,
+    "unchanged": 952,
+    "added": [
+      {
+        "id": "added-01",
+        "multiplicity": 1,
+        "sha256": "4d2f38a39032428971da1dcbdc50aa0cd347e8ae830fab01e94b2532b7f62919",
+        "family": "ordinary-precomposition-triple",
+        "coverage": "Whole/point two-factor accumulation passes; exact triple nesting/reassociation peak not separately exercised.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @hom_precomp_along_fapp0 $A $B $F $Z $W' $W $p' (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $p (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g))\nt ↪[] @hom_precomp_along_fapp0 $A $B $F $Z $W' $X (@comp_fapp0 $A $W' $W $X $p $p') (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g) ↪* @hom_precomp_along_fapp0 $A $B $F $Z $W' $Y (@comp_fapp0 $A $W' $X $Y $q (@comp_fapp0 $A $W' $W $X $p $p')) $g\n  with @hom_precomp_along_fapp0 $A' $B' $F' $Z' $W' $X' $p' (@hom_precomp_along_fapp0 $A' $B' $F' $Z' $X' $Y' $q' $g') ↪ @hom_precomp_along_fapp0 $A' $B' $F' $Z' $W' $Y' (@comp_fapp0 $A' $W' $X' $Y' $q' $p') $g'\nt ↪[1] @hom_precomp_along_fapp0 $A $B $F $Z $W' $W $p' (@hom_precomp_along_fapp0 $A $B $F $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g) ↪* @hom_precomp_along_fapp0 $A $B $F $Z $W' $Y (@comp_fapp0 $A $W' $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $p') $g\n  with @hom_precomp_along_fapp0 $A $B $F $Z $W $X $p (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g) ↪ @hom_precomp_along_fapp0 $A $B $F $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g"
+      },
+      {
+        "id": "added-02",
+        "multiplicity": 1,
+        "sha256": "7fb3b8c4cb5e416a3face0b3a7d03f5d1e19754e575be1375a7c56a36428f8c4",
+        "family": "ordinary-precomposition-identity-beta",
+        "coverage": "Source-identity overlap is tested; this identity-beta absorption peak is not directly tested.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @hom_precomp_along_fapp0 $A $B $F $W $W $W $p (@hom_precomp_along_fapp0 $A $B $F $W $W $W $h (id $B $W))\nt ↪[] @hom_precomp_along_fapp0 $A $B $F $W $W $W (@comp_fapp0 $A $W $W $W $h $p) (id $B $W) ↪* @fapp1_fapp0 $A $B $F $W $W (@comp_fapp0 $A $W $W $W $h $p)\n  with @hom_precomp_along_fapp0 $A $B $F $Z $W $X $p (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g) ↪ @hom_precomp_along_fapp0 $A $B $F $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g\nt ↪[1] @hom_precomp_along_fapp0 $A $B $F $W $W $W $p (@fapp1_fapp0 $A $B $F $W $W $h) ↪* @hom_precomp_along_fapp0 $A $B $F $W $W $W $p (@fapp1_fapp0 $A $B $F $W $W $h)\n  with @hom_precomp_along_fapp0 $A $B $F $3 $W $X $h (id $B $7) ↪ @fapp1_fapp0 $A $B $F $W $X $h"
+      },
+      {
+        "id": "added-03",
+        "multiplicity": 1,
+        "sha256": "b6d6adf8272878efaa989d6ce7467153729b4625e704bf9beafc9b3d90d1a4a6",
+        "family": "Cat-precomposition-identity-beta",
+        "coverage": "General Cat-valued identity-beta absorption overlap remains open.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat $W Cat_cat $p (@hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat Cat_cat $X Cat_cat (id Cat_cat $6))\nt ↪[] @hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat $W $X (@comp_fapp0 $A $W Cat_cat $X Cat_cat $p) (id Cat_cat $6) ↪* @fapp1_fapp0 $A Cat_cat Cat_cat $W $X (@comp_fapp0 $A $W Cat_cat $X Cat_cat $p)\n  with @hom_precomp_along_fapp0 $A $B $F $Z $W $X $p (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g) ↪ @hom_precomp_along_fapp0 $A $B $F $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g\nt ↪[1] @hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat $W Cat_cat $p (@fapp1_fapp0 $A Cat_cat Cat_cat Cat_cat $X Cat_cat) ↪* @hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat $W Cat_cat $p (@fapp1_fapp0 $A Cat_cat Cat_cat Cat_cat $X Cat_cat)\n  with @hom_precomp_along_fapp0 $A Cat_cat $F $2 $W $X $h (id Cat_cat $6) ↪ @fapp1_fapp0 $A Cat_cat $F $W $X $h"
+      },
+      {
+        "id": "added-04",
+        "multiplicity": 1,
+        "sha256": "479e7f9bf22299415b1297915c2a9da7d900f4b5eba035f43ff07b0195c08e56",
+        "family": "ordinary-precomposition-Eval-curry",
+        "coverage": "Overlap with Eval/curry identity owner is not directly exercised by this tranche.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat Cat_cat Cat_cat) $W (Functor_cart_cat Cat_cat Cat_cat) $p (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat Cat_cat Cat_cat) (Functor_cart_cat Cat_cat Cat_cat) (id Cat_cat Cat_cat) (@Product_pair_tele_func (Functor_cart_cat Cat_cat Cat_cat) Cat_cat) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Product_cat (Functor_cart_cat Cat_cat Cat_cat) Cat_cat) Cat_cat (@Eval_func Cat_cat Cat_cat)))\nt ↪[] @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat Cat_cat Cat_cat) $W (id Cat_cat Cat_cat) (@comp_fapp0 Cat_cat $W (Functor_cart_cat Cat_cat Cat_cat) (id Cat_cat Cat_cat) (@Product_pair_tele_func (Functor_cart_cat Cat_cat Cat_cat) Cat_cat) $p) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Product_cat (Functor_cart_cat Cat_cat Cat_cat) Cat_cat) Cat_cat (@Eval_func Cat_cat Cat_cat)) ↪* @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat Cat_cat Cat_cat) $W (id Cat_cat Cat_cat) (@comp_fapp0 Cat_cat $W (Functor_cart_cat Cat_cat Cat_cat) (id Cat_cat Cat_cat) (@Product_pair_tele_func (Functor_cart_cat Cat_cat Cat_cat) Cat_cat) $p) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Product_cat (Functor_cart_cat Cat_cat Cat_cat) Cat_cat) Cat_cat (@Eval_func Cat_cat Cat_cat))\n  with @hom_precomp_along_fapp0 $A $B $F $Z $W $X $p (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g) ↪ @hom_precomp_along_fapp0 $A $B $F $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g\nt ↪[1] @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat Cat_cat Cat_cat) $W (Functor_cart_cat Cat_cat Cat_cat) $p (@id_func (Functor_cart_cat Cat_cat Cat_cat)) ↪* $p\n  with @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat $B $C) (Functor_cart_cat $B $C) $2 (@Product_pair_tele_func (Functor_cart_cat $B $C) $B) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) $B (Product_cat (Functor_cart_cat $B $C) $B) $C (@Eval_func $B $C)) ↪ @id_func (Functor_cart_cat $B $C)"
+      },
+      {
+        "id": "added-05",
+        "multiplicity": 1,
+        "sha256": "b312ffaf342f9abbd26efcea73fcc706bf0598e71dfb43073ca4966ecb0dc90a",
+        "family": "u-capped-generic-identity",
+        "coverage": "Source-map identity and final leaf identity exercise the core typed identity case; not a general critical-pair join certificate.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @fapp1_fapp0 $A $B (@homd_id_src_func $K' $E' $x') $X $X (id $A $X)\nt ↪[] @homd_id_u_map $K' $E' $x' $X $X (id $A $X) ↪* @homd_id_u_map $K' $E' $x' $X $X (id $A $X)\n  with @fapp1_fapp0 $' $' (@homd_id_src_func $K' $E' $x') $u1' $u0' $h' ↪ @homd_id_u_map $K' $E' $x' $u0' $u1' $h'\nt ↪[] id $B (@fapp0 $A $B (@homd_id_src_func $K' $E' $x') $X) ↪* id $B (@homd_id_src_sec $K' $E' $x' $X)\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) ↪ id $B (@fapp0 $A $B $F $X)"
+      },
+      {
+        "id": "added-06",
+        "multiplicity": 1,
+        "sha256": "1e8c0d261fad9b7a03756859ac66b2cd40381b2b79a52acfb360cd269498dd6f",
+        "family": "u-capped-opposite-identity",
+        "coverage": "Opposite-source action and final identity leaf are exercised; schematic peak remains unjoinable in the checker.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @fapp1_fapp0 (Op_cat $K) $D (@homd_id_src_func $K' $E' $x') $x $x (id $K $x)\nt ↪[] @homd_id_u_map $K' $E' $x' $x $x (id $K $x) ↪* @homd_id_u_map $K' $E' $x' $x $x (id $K $x)\n  with @fapp1_fapp0 $' $' (@homd_id_src_func $K' $E' $x') $u1' $u0' $h' ↪ @homd_id_u_map $K' $E' $x' $u0' $u1' $h'\nt ↪[] id $D (@fapp0 (Op_cat $K) $D (@homd_id_src_func $K' $E' $x') $x) ↪* id $D (@homd_id_src_sec $K' $E' $x' $x)\n  with @fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x) ↪ id $D (@fapp0 (Op_cat $K) $D $F $x)"
+      },
+      {
+        "id": "added-07",
+        "multiplicity": 1,
+        "sha256": "2649d9d4d5485a588c4d8e2158fe88a8035844ebbe43bc0ad4d89697b67a56a9",
+        "family": "u-capped-Catd-identity",
+        "coverage": "Specialized Catd identity overlap is not separately instantiated.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @fapp1_fapp0 (Catd_cat $K) $B (@homd_id_src_func $K' $E' $x') $E $E (id (Catd_cat $K) $E)\nt ↪[] @homd_id_u_map $K' $E' $x' $E $E (id (Catd_cat $K) $E) ↪* @homd_id_u_map $K' $E' $x' $E $E (id (Catd_cat $K) $E)\n  with @fapp1_fapp0 $' $' (@homd_id_src_func $K' $E' $x') $u1' $u0' $h' ↪ @homd_id_u_map $K' $E' $x' $u0' $u1' $h'\nt ↪[] id $B (@fapp0 (Catd_cat $K) $B (@homd_id_src_func $K' $E' $x') $E) ↪* id $B (@homd_id_src_sec $K' $E' $x' $E)\n  with @fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E) ↪ id $B (@fapp0 (Catd_cat $K) $B $F $E)"
+      },
+      {
+        "id": "added-08",
+        "multiplicity": 1,
+        "sha256": "62eed59c5b5b0004b18e68895b72906e1d835c5e42c26b0ffea1aa586d11a0c8",
+        "family": "u-projection-generic-composition-left",
+        "coverage": "Source full/cap routing and native map composition are tested; no all-context confluence claim.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $1 $E $3 (@fapp1_fapp0 $1 $1 (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1)) (@fapp1_fapp0 $1 $1 (@homd_id_src_func $E $E $1) $X (@homd_id_src_func $E $E $1) $f)\nt ↪[] @fapp1_fapp0 $1 $1 (@homd_id_src_func $E $E $1) $X (@homd_id_src_func $E $E $1) (@comp_fapp0 $1 $X (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1) $f) ↪* @homd_id_u_map $E $E $1 (@homd_id_src_func $E $E $1) $X (@comp_fapp0 $1 $X (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1) $f)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f) ↪ @fapp1_fapp0 $A $B $F $X $Z (@comp_fapp0 $A $X $Y $Z $g $f)\nt ↪[0; 1] @comp_fapp0 $1 $1 $E $3 (@homd_id_u_map $E $E $1 (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1)) (@fapp1_fapp0 $1 $1 (@homd_id_src_func $E $E $1) $X (@homd_id_src_func $E $E $1) $f) ↪* @comp_fapp0 $1 $1 $E $3 (@homd_id_u_map $E $E $1 (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1) (@homd_id_src_func $E $E $1)) (@homd_id_u_map $E $E $1 (@homd_id_src_func $E $E $1) $X $f)\n  with @fapp1_fapp0 $0 $1 (@homd_id_src_func $K $E $x) $u1 $u0 $h ↪ @homd_id_u_map $K $E $x $u0 $u1 $h"
+      },
+      {
+        "id": "added-09",
+        "multiplicity": 1,
+        "sha256": "0d5d4e08d57a75ab54e53229dc2724a31b13ee97c928ba3590f7d9db5203c1bb",
+        "family": "u-projection-generic-composition-right",
+        "coverage": "Source full/cap routing and native map composition are tested; no all-context confluence claim.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 (@homd_id_src_func $K $E $1) $Y $Z $g) (@fapp1_fapp0 $1 $1 (@homd_id_src_func $K $E $1) (@homd_id_src_func $K $E $1) $Y $h)\nt ↪[] @fapp1_fapp0 $1 $1 (@homd_id_src_func $K $E $1) (@homd_id_src_func $K $E $1) $Z (@comp_fapp0 $1 (@homd_id_src_func $K $E $1) $Y $Z $g $h) ↪* @homd_id_u_map $K $E $1 $Z (@homd_id_src_func $K $E $1) (@comp_fapp0 $1 (@homd_id_src_func $K $E $1) $Y $Z $g $h)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f) ↪ @fapp1_fapp0 $A $B $F $X $Z (@comp_fapp0 $A $X $Y $Z $g $f)\nt ↪[1] @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 (@homd_id_src_func $K $E $1) $Y $Z $g) (@homd_id_u_map $K $E $1 $u0 (@homd_id_src_func $K $E $1) $h) ↪* @comp_fapp0 $1 $1 $2 $3 (@homd_id_u_map $K $E $1 $Z $Y $g) (@homd_id_u_map $K $E $1 $u0 (@homd_id_src_func $K $E $1) $h)\n  with @fapp1_fapp0 $0 $1 (@homd_id_src_func $K $E $x) $u1 $u0 $h ↪ @homd_id_u_map $K $E $x $u0 $u1 $h"
+      },
+      {
+        "id": "added-10",
+        "multiplicity": 1,
+        "sha256": "388b3bec23dc9d5cb90aff6b00854ed60ef2e07abe9d0326c815fdc239297b55",
+        "family": "u-identity-Path-erasure",
+        "coverage": "Path identity erasure before native map projection is not directly tested.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @homd_id_u_map $K' $E' $x' $x $x (id (Path_cat $A) $x)\nt ↪[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $x) ↪* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@homd_id_src_sec $K' $E' $x' $x)\n  with @homd_id_u_map $K' $E' $x' $u' $u' (id $' $u') ↪ id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $u')\nt ↪[1] @homd_id_u_map $K' $E' $x' $x $x (@eq_refl $A $x) ↪* @homd_id_u_map $K' $E' $x' $x $x (@eq_refl $A $x)\n  with id (Path_cat $A) $x ↪ @eq_refl $A $x"
+      },
+      {
+        "id": "added-11",
+        "multiplicity": 1,
+        "sha256": "9673107bc51c707fb25c52d38f7d86fe80a655c1fdd36cf126455171bef7bae0",
+        "family": "u-identity-Terminal-erasure",
+        "coverage": "Terminal identity erasure before native map projection is not directly tested.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @homd_id_u_map $K' $E' $x' $0 $0 (id Terminal_cat $0)\nt ↪[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $0) ↪* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@homd_id_src_sec $K' $E' $x' $0)\n  with @homd_id_u_map $K' $E' $x' $u' $u' (id $' $u') ↪ id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $u')\nt ↪[1] @homd_id_u_map $K' $E' $x' $0 $0 Terminal_obj ↪* @homd_id_u_map $K' $E' $x' $0 $0 Terminal_obj\n  with id Terminal_cat $0 ↪ Terminal_obj"
+      },
+      {
+        "id": "added-12",
+        "multiplicity": 1,
+        "sha256": "1acf1c32c19fd15c8ea3509def0f45fd46f5bc987dc1541d86c63ef68f0f7817",
+        "family": "u-identity-Product-erasure",
+        "coverage": "Product identity erasure before native map projection is not directly tested.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @homd_id_u_map $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u))\nt ↪[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' (@Struct_sigma $2 $3 $x $u)) ↪* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@homd_id_src_sec $K' $E' $x' (@Struct_sigma $2 $3 $x $u))\n  with @homd_id_u_map $K' $E' $x' $u' $u' (id $' $u') ↪ id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $u')\nt ↪[1] @homd_id_u_map $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)))) (id $A $x) (id $B $u)) ↪* @homd_id_u_map $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A $x $x)) (λ _:τ (Obj (Hom_cat $A $x $x)), Obj (Hom_cat $B $u $u)) (id $A $x) (id $B $u))\n  with id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u) ↪ @Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) $x $u)))) (id $A $x) (id $B $u)"
+      },
+      {
+        "id": "added-13",
+        "multiplicity": 1,
+        "sha256": "875669d22d2bb5ab6c7d0d96da8bfa0b58f227f473b04e987df8d685dc613a68",
+        "family": "u-identity-Q-erasure",
+        "coverage": "Q identity erasure before native map projection is not directly tested.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @homd_id_u_map $K' $E' $x' $A $A (id Prof_cov_universe $A)\nt ↪[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $A) ↪* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@homd_id_src_sec $K' $E' $x' $A)\n  with @homd_id_u_map $K' $E' $x' $u' $u' (id $' $u') ↪ id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $u')\nt ↪[1] @homd_id_u_map $K' $E' $x' $A $A (Rep_con_cart_func $A) ↪* @homd_id_u_map $K' $E' $x' $A $A (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat $A) Cat_cat) $A (Product_cat (Functor_cart_cat (Op_cat $A) $A) (Functor_cart_cat (Op_cat $A) (Op_cat $A))) (@Product_pair_tele_func $A (Op_cat $A)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat $A) (Product_cat $A (Op_cat $A)) Cat_cat (Unit_prof (Op_cat $A))))\n  with id Prof_cov_universe $A ↪ Rep_con_cart_func $A"
+      },
+      {
+        "id": "added-14",
+        "multiplicity": 1,
+        "sha256": "9eadb68045e94a1b75d71be46f902eb875e7ff6564e173a58264d07c72387ffc",
+        "family": "u-component-identity",
+        "coverage": "Final leaf identity passes; the two intermediate y/v identity routes are not explicitly compared.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (@homd_id_u_map $K $E $x $u $u (id $4 $u))\nt ↪[] @homd_id_u_y $0 $E $x $u $u (id $4 $u) $y ↪* @homd_id_u_y $0 $E $x $u $u (id $4 $u) $y\n  with @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (@homd_id_u_map $K $E $x $u0 $u1 $h) ↪ @homd_id_u_y $0 $E $x $u0 $u1 $h $y\nt ↪[1] @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)) ↪* @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (id (@Transf_cat $K Prof_cov_universe (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include $E) (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K $K (id Cat_cat $K) $x))) (@homd_id_src_sec $K $E $x $u))\n  with @homd_id_u_map $K $E $x $u $u (id $4 $u) ↪ id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)"
+      },
+      {
+        "id": "added-15",
+        "multiplicity": 1,
+        "sha256": "60e6c6bb26ff899978b36365154d965706b1f54c003b7c4f65d6079b10e9ec3d",
+        "family": "u-composition-Op-category",
+        "coverage": "Schematic Op composition overlap is not directly instantiated.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @comp_fapp0 (Op_cat $A) $X $Y $Z (@homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@homd_id_u_map $K' $E' $x' $u1' $u2' $k')\nt ↪[] @homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@Fibre_cat $K' $E' $x') $u0' $u1' $u2' $k' $h') ↪* @homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@fapp0 $K' Cat_cat $E' $x') $u0' $u1' $u2' $k' $h')\n  with @comp_fapp0 $' $' $' $' (@homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@homd_id_u_map $K' $E' $x' $u1' $u2' $k') ↪ @homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@Fibre_cat $K' $E' $x') $u0' $u1' $u2' $k' $h')\nt ↪[] @comp_fapp0 $A $Z $Y $X (@homd_id_u_map $K' $E' $x' $u1' $u2' $k') (@homd_id_u_map $K' $E' $x' $u0' $u1' $h') ↪* @comp_fapp0 $A $Z $Y $X (@homd_id_u_map $K' $E' $x' $u1' $u2' $k') (@homd_id_u_map $K' $E' $x' $u0' $u1' $h')\n  with @comp_fapp0 (Op_cat $A) $X $Y $Z $g $f ↪ @comp_fapp0 $A $Z $Y $X $f $g"
+      },
+      {
+        "id": "added-16",
+        "multiplicity": 1,
+        "sha256": "8da7ac7d178c220d94476f1cf58e36672d7c68cb22eff8c3588c2ca5aaf4edff",
+        "family": "u-composition-Terminal-category",
+        "coverage": "Schematic Terminal composition overlap is not directly instantiated.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@homd_id_u_map $K' $E' $x' $u1' $u2' $k')\nt ↪[] @homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@Fibre_cat $K' $E' $x') $u0' $u1' $u2' $k' $h') ↪* @homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@fapp0 $K' Cat_cat $E' $x') $u0' $u1' $u2' $k' $h')\n  with @comp_fapp0 $' $' $' $' (@homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@homd_id_u_map $K' $E' $x' $u1' $u2' $k') ↪ @homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@Fibre_cat $K' $E' $x') $u0' $u1' $u2' $k' $h')\nt ↪[] Terminal_obj ↪* Terminal_obj\n  with @comp_fapp0 Terminal_cat $0 $1 $2 $3 $4 ↪ Terminal_obj"
+      },
+      {
+        "id": "added-17",
+        "multiplicity": 1,
+        "sha256": "6a5dbe6d483eef6dce57b6af0ad583c4938a4f3b6ba0f0142fd5b65d7112961b",
+        "family": "u-composition-right-identity-factor",
+        "coverage": "Native identity/composition laws pass separately; exact mixed constructor peak is not directly exercised.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u0' $u $h') (@homd_id_u_map $K $E $x $u $u (id $4 $u))\nt ↪[] @homd_id_u_map $K $E $x $u0' $u (@comp_fapp0 (@Fibre_cat $K $E $x) $u0' $u $u (id $4 $u) $h') ↪* @homd_id_u_map $K $E $x $u0' $u (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0' $u $u (id $4 $u) $h')\n  with @comp_fapp0 $' $' $' $' (@homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@homd_id_u_map $K' $E' $x' $u1' $u2' $k') ↪ @homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@Fibre_cat $K' $E' $x') $u0' $u1' $u2' $k' $h')\nt ↪[1] @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u0' $u $h') (id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)) ↪* @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u0' $u $h') (id (@Transf_cat $K Prof_cov_universe (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include $E) (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K $K (id Cat_cat $K) $x))) (@homd_id_src_sec $K $E $x $u))\n  with @homd_id_u_map $K $E $x $u $u (id $4 $u) ↪ id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)"
+      },
+      {
+        "id": "added-18",
+        "multiplicity": 1,
+        "sha256": "9e143e2b817762da5441187ef5dd2eea03fa0556303fe066cd823b6cc74969c8",
+        "family": "u-composition-left-identity-factor",
+        "coverage": "Native identity/composition laws pass separately; exact mixed constructor peak is not directly exercised.",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u $u (id $4 $u)) (@homd_id_u_map $K $E $x $u $u2' $k')\nt ↪[] @homd_id_u_map $K $E $x $u $u2' (@comp_fapp0 (@Fibre_cat $K $E $x) $u $u $u2' $k' (id $4 $u)) ↪* @homd_id_u_map $K $E $x $u $u2' (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u $u $u2' $k' (id $4 $u))\n  with @comp_fapp0 $' $' $' $' (@homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@homd_id_u_map $K' $E' $x' $u1' $u2' $k') ↪ @homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@Fibre_cat $K' $E' $x') $u0' $u1' $u2' $k' $h')\nt ↪[0; 1] @comp_fapp0 $' $' $' $' (id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)) (@homd_id_u_map $K $E $x $u $u2' $k') ↪* @comp_fapp0 $' $' $' $' (id (@Transf_cat $K Prof_cov_universe (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include $E) (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K $K (id Cat_cat $K) $x))) (@homd_id_src_sec $K $E $x $u)) (@homd_id_u_map $K $E $x $u $u2' $k')\n  with @homd_id_u_map $K $E $x $u $u (id $4 $u) ↪ id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)"
+      }
+    ],
+    "removed": [
+      {
+        "id": "removed-01",
+        "multiplicity": 1,
+        "sha256": "22f4e3fb9cb4278246af02f2c6fbb6e526a825d735f8e4006c316ff6710632d0",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W' $W $p' (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $X $p (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $X $Y $q $g))\nt ↪[] @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W' $X (@comp_fapp0 $A $W' $W $X $p $p') (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $X $Y $q $g) ↪* @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W' $Y (@comp_fapp0 $A $W' $X $Y $q (@comp_fapp0 $A $W' $W $X $p $p')) $g\n  with @hom_precomp_along_fapp0 $A' $A' (id Cat_cat $A') $Z' $W' $X' $p' (@hom_precomp_along_fapp0 $A' $A' (id Cat_cat $A') $Z' $X' $Y' $q' $g') ↪ @hom_precomp_along_fapp0 $A' $A' (id Cat_cat $A') $Z' $W' $Y' (@comp_fapp0 $A' $W' $X' $Y' $q' $p') $g'\nt ↪[1] @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W' $W $p' (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g) ↪* @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W' $Y (@comp_fapp0 $A $W' $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $p') $g\n  with @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $X $p (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $X $Y $q $g) ↪ @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g",
+        "classification": "Former identity-only precomposition warning replaced by the generalized owner shape; removal does not establish that the corresponding overlap is solved."
+      },
+      {
+        "id": "removed-02",
+        "multiplicity": 1,
+        "sha256": "39f4af67c7bb3920e234167a8e5663fbad4c9ad881309684f69ab03319f700d9",
+        "normalizedBlock": "Unjoinable critical pair:\nt ≔ @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (id Cat_cat Cat_cat) (id Cat_cat Cat_cat) $X $p (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (id Cat_cat Cat_cat) $X $X $X (id Cat_cat $X))\nt ↪[] @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (id Cat_cat Cat_cat) (id Cat_cat Cat_cat) $X (@comp_fapp0 Cat_cat (id Cat_cat Cat_cat) $X $X $X $p) (id Cat_cat $X) ↪* @comp_fapp0 Cat_cat (id Cat_cat Cat_cat) $X $X $X $p\n  with @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $X $p (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $X $Y $q $g) ↪ @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g\nt ↪[1] @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (id Cat_cat Cat_cat) (id Cat_cat Cat_cat) $X $p (@fapp1_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W $X $X) ↪* @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (id Cat_cat Cat_cat) (id Cat_cat Cat_cat) $X $p $X\n  with @hom_precomp_along_fapp0 $A Cat_cat $F $2 $W $X $h (id Cat_cat $6) ↪ @fapp1_fapp0 $A Cat_cat $F $W $X $h",
+        "classification": "Former identity-only precomposition warning replaced by the generalized owner shape; removal does not establish that the corresponding overlap is solved."
+      }
+    ],
+    "classification": "All changed blocks classified; open computational peaks explicitly retained. No confluence certificate or blanket normalization claim."
+  },
+  "ruleLhsAudit": {
+    "path": "tmp/probes/homd_u_normalization/lhs-audit.txt",
+    "sha256": "34163b0d0c9828fc9e8f6876e1937b0d5498ebbd66fd2707b5f4a021f5e6864e",
+    "unreviewedReconstructibleSlots": 0,
+    "unreviewedClauses": 0,
+    "annotatedSlots": 46,
+    "intentionalClauses": 31,
+    "qualification": "Advisory strict LHS audit only; annotations inherited from donor; not confluence."
+  },
+  "sourceClosure": {
+    "path": "audits/strict-default-action-boundary/homd_u_normalization_source_closure.md",
+    "sha256": "5bdd20d356343da02bd4457ac7903b4b6ad4e9ce68557485aee50047b5f97605"
+  },
+  "qualification": [
+    "Native u full/capped action, y/v/f ladder, ordinary higher beta action, whole h-family construction/cap/higher-action formation, identity/composition and retained direction pass with earlier native x/source observations.",
+    "Whole h-family is a defined composite of actual existing operations; no whole equality to ordinary precomposition telescope is inferred from pointwise agreement.",
+    "Four u-projection rungs remain structural declarations of the identity Homd owner.",
+    "Public FF and Homd root remain ambient; the Q coefficient model, represented-lift coherence, extracted root laxity mate, full-source continuation and production are unqualified.",
+    "Historical u variants and progress snapshot are recovery evidence, not selected qualification; the normalization builder is the selected replay.",
+    "All exact current outputs were preserved while source-closure/authoring metadata hashes were refreshed; no checker was invoked by the subagent or metadata update."
+  ],
+  "authoringHygiene": {
+    "newNormalizationFiles": "No trailing whitespace and exactly one final newline.",
+    "sourcePreservation": "Original fragments and all historical generated targets unchanged."
+  },
+  "checkerInvokedByMetadataUpdate": false
+}

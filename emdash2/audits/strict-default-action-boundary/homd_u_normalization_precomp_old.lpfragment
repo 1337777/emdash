@@ -1,0 +1,20 @@
+// Ordinary precomposition along the named identity functor stays strict.
+// Generic F accumulation belongs to the explicit strict profile.
+// Functor-level contravariant accumulation of consecutive precomposition actions.
+rule @comp_fapp0
+      Cat_cat
+      _ _ _
+      (@hom_precomp_along_func $A $A (@id Cat_cat $A) $Z $W $X $p)
+      (@hom_precomp_along_func $A $A (@id Cat_cat $A) $Z $X $Y $q)
+  ↪ @hom_precomp_along_func
+      $A $A (@id Cat_cat $A) $Z $W $Y
+      (@comp_fapp0 $A $W $X $Y $q $p);
+
+// Point-level contravariant accumulation of consecutive precomposition actions.
+rule @hom_precomp_along_fapp0
+      $A $A (@id Cat_cat $A) $Z $W $X $p
+      (@hom_precomp_along_fapp0 $A $A (@id Cat_cat $A) $Z $X $Y $q $g)
+  ↪ @hom_precomp_along_fapp0
+      $A $A (@id Cat_cat $A) $Z $W $Y
+      (@comp_fapp0 $A $W $X $Y $q $p)
+      $g;

@@ -1,0 +1,58 @@
+// Generic delayed-inversion reviewer. Assertions only; no Homd dependency.
+// Opposite Hom reduction must precede endpoint decomposition in full action.
+assert [A B : Cat] (F : τ (Functor (Op_cat A) B)) [u0 u1 : τ (Obj A)] ⊢
+  @fapp1_func (Op_cat A) B F u1 u0
+  : τ (Functor (Hom_cat A u0 u1)
+      (Hom_cat B (@fapp0 (Op_cat A) B F u1) (@fapp0 (Op_cat A) B F u0)));
+
+// Direct capped action accepts the underlying, correctly oriented Hom input.
+assert [A B : Cat] (F : τ (Functor (Op_cat A) B))
+  [u0 u1 : τ (Obj A)] (h : τ (Hom A u0 u1)) ⊢
+  @fapp1_fapp0 (Op_cat A) B F u1 u0 h
+  : τ (Hom B (@fapp0 (Op_cat A) B F u1) (@fapp0 (Op_cat A) B F u0));
+
+// Both actual application orders retain the same variable arrow.
+assert [A B : Cat] (F : τ (Functor (Op_cat A) B))
+  [u0 u1 : τ (Obj A)] (h : τ (Hom A u0 u1)) ⊢
+  fapp0 (@fapp1_func (Op_cat A) B F u1 u0) h
+  ≡ @fapp1_fapp0 (Op_cat A) B F u1 u0 h;
+
+// A reducible fibre facade is a generic category argument, not a Homd case.
+// Its implicit base slots must be resolved before Hom endpoint inversion.
+assert [K B : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (F : τ (Functor (Op_cat (Fibre_cat E x)) B))
+  [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) ⊢
+  @fapp1_fapp0 (Op_cat (Fibre_cat E x)) B F u1 u0 h
+  : τ (Hom B
+      (@fapp0 (Op_cat (Fibre_cat E x)) B F u1)
+      (@fapp0 (Op_cat (Fibre_cat E x)) B F u0));
+
+// Reconstruct ambient composition from actual Transf inputs. All composition
+// classifier/endpoints are inferred here, exercising the mixed Hom facade.
+assert [A B : Cat] [F G H : τ (Functor A B)]
+  (eta : τ (@Transf A B G H)) (epsilon : τ (@Transf A B F G)) ⊢
+  @comp_fapp0 _ _ _ _ eta epsilon : τ (@Transf A B F H);
+
+// The lawful direction between profiles uses the actual Cartesian inclusion.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G)) ⊢
+  @strict_transfor A B F G U : τ (Hom (Functor_cat A B) F G);
+
+// Opposite action does not acquire the unreversed output endpoints.
+assertnot [A B : Cat] (F : τ (Functor (Op_cat A) B))
+  [u0 u1 : τ (Obj A)] (h : τ (Hom A u0 u1)) ⊢
+  @fapp1_fapp0 (Op_cat A) B F u1 u0 h
+  : τ (Hom B (@fapp0 (Op_cat A) B F u0) (@fapp0 (Op_cat A) B F u1));
+
+// Delayed same-head inversion still retains both independent endpoints.
+assertnot [A : Cat] [x y z : τ (Obj A)] ⊢
+  Hom_cat A x y ≡ Hom_cat A x z;
+
+// The mixed facade bridge reconstructs the ambient category, never Cart.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (alpha : τ (@Transf A B F G)) ⊢
+  alpha : τ (Hom (Functor_cart_cat A B) F G);
+
+// Preserve the whole mapping-Hom distinction, not just its object classifier.
+assertnot [A B : Cat] [F G : τ (Functor A B)] ⊢
+  Hom_cat (Functor_cat A B) F G ≡ Hom_cat (Functor_cart_cat A B) F G;

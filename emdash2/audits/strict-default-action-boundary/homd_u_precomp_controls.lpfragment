@@ -1,0 +1,34 @@
+// Default strict F: the existing precomposition owner accumulates at whole
+// functor level as well as after applying it to an arbitrary beta.
+assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
+  [W X Y : τ (Obj A)] (p : τ (Hom A W X)) (q : τ (Hom A X Y)) ⊢
+  comp_cat_fapp0 (@hom_precomp_along_func A B F Z W X p)
+    (@hom_precomp_along_func A B F Z X Y q)
+  ≡ @hom_precomp_along_func A B F Z W Y (@comp_fapp0 A W X Y q p);
+
+assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
+  [W X Y : τ (Obj A)] (p : τ (Hom A W X)) (q : τ (Hom A X Y))
+  (beta : τ (Hom B (@fapp0 A B F Y) Z)) ⊢
+  @hom_precomp_along_fapp0 A B F Z W X p
+    (@hom_precomp_along_fapp0 A B F Z X Y q beta)
+  ≡ @hom_precomp_along_fapp0 A B F Z W Y (@comp_fapp0 A W X Y q p) beta;
+
+// The source-identity overlap still returns the actual inner functor.
+assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
+  [X Y : τ (Obj A)] (q : τ (Hom A X Y)) ⊢
+  comp_cat_fapp0 (@hom_precomp_along_func A B F Z X X (@id A X))
+    (@hom_precomp_along_func A B F Z X Y q)
+  ≡ @hom_precomp_along_func A B F Z X Y q;
+
+assertnot [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
+  [W X Y : τ (Obj A)] (p p' : τ (Hom A W X)) (q : τ (Hom A X Y)) ⊢
+  comp_cat_fapp0 (@hom_precomp_along_func A B F Z W X p)
+    (@hom_precomp_along_func A B F Z X Y q)
+  ≡ @hom_precomp_along_func A B F Z W Y (@comp_fapp0 A W X Y q p');
+
+assertnot [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
+  [W X Y : τ (Obj A)] (p : τ (Hom A W X)) (q : τ (Hom A X Y))
+  (beta gamma : τ (Hom B (@fapp0 A B F Y) Z)) ⊢
+  @hom_precomp_along_fapp0 A B F Z W X p
+    (@hom_precomp_along_fapp0 A B F Z X Y q beta)
+  ≡ @hom_precomp_along_fapp0 A B F Z W Y (@comp_fapp0 A W X Y q p) gamma;

@@ -1,0 +1,25 @@
+// Isolate the actual nonidentity source action before its y observation.
+// The explicit source classifier exposes the known literal opposite, avoiding
+// premature Hom-endpoint inversion through the reducible fibre facade.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) ⊢
+  @fapp1_fapp0 (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x)
+    (@homd_id_src_func K E x) u1 u0 h
+  : τ (Hom (@Homd_section_cat K E x)
+      (@homd_id_src_sec K E x u1) (@homd_id_src_sec K E x u0));
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) ⊢
+  @fapp1_fapp0 (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x)
+    (@homd_id_src_func K E x) u1 u0 h
+  ≡ @homd_id_u_map K E x u0 u1 h;
+
+// Component projection on the native capped action is independently formed.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1))
+  (y : τ (Obj K)) ⊢
+  @tapp0_hom_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u1) (@homd_id_src_sec K E x u0) y
+    (@homd_id_u_map K E x u0 u1 h)
+  ≡ @homd_id_u_y K E x u0 u1 h y;

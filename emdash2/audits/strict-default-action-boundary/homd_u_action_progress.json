@@ -1,0 +1,780 @@
+{
+  "schema": "emdash-unfinished-audit-progress-v1",
+  "status": "historical unfinished snapshot before the selected homd_u_normalization continuation",
+  "contextRevision": "5ea2d118d1a24b03ce18fc602167c879105ae674",
+  "sourcePins": {
+    "audits/strict-default-action-boundary/homd_u_action_composition_leaf.lpfragment": "5bc689593f49371030cf6ec54b8b60145db701c89ba1b465a607e64ec9ec2acd",
+    "audits/strict-default-action-boundary/homd_u_action_compute.lpfragment": "5642f8e70899de85128b2c3d55833f5ca28df325a107b493b5891cab3c084619",
+    "audits/strict-default-action-boundary/homd_u_action_compute_migration.py": "9bd8c38b8edd073f8c16d7dcf9a1b6e2dc5fb6846cbb9cdd6ff66e4f1a5c151e",
+    "audits/strict-default-action-boundary/homd_u_action_controls.lpfragment": "4eb0cd1008cb7899724a1c3460fe1c2a8b1e743423659e9d6f397baf72f43a23",
+    "audits/strict-default-action-boundary/homd_u_action_explicit_family.lpfragment": "c54c602e56cd0194fd0ee3abdeb0d4cb05ee7603f49ed43064ad597ef17c559a",
+    "audits/strict-default-action-boundary/homd_u_action_explicit_migration.py": "872dd0a6092d895c08579ee81c1d14922b81b355ee59f90ba87790a902a0a894",
+    "audits/strict-default-action-boundary/homd_u_action_fullcap_migration.py": "bc311b556f0b34af97c0b9c6441d995fbaf0fecd3720a6d90cd24d97ac62eae6",
+    "audits/strict-default-action-boundary/homd_u_action_inputs.json": "0cdbb676d315dfb643fdf59f67448b8e0f2a6fe6eea5fcf6f5b9618c233b4487",
+    "audits/strict-default-action-boundary/homd_u_action_law_controls.lpfragment": "6ef18867a025e3b4158bfb16e7af3f23f61e04a383866079089744bec990dc7c",
+    "audits/strict-default-action-boundary/homd_u_action_literal_inputs.json": "9c9fc606cab18987f1decd99b021a03902848d2da8480adde15c0b008b93c8ce",
+    "audits/strict-default-action-boundary/homd_u_action_literal_migration.py": "e1b5693f216a67bd02b3316295a708ca7939f8e89c9a97050f38a06e9b0eb03e",
+    "audits/strict-default-action-boundary/homd_u_action_literal_source_controls.lpfragment": "d905e9427ac3a46e94a69c52791ef85f24f7a27b7ab979fa5701edc06d553028",
+    "audits/strict-default-action-boundary/homd_u_action_migration.py": "6869ebe1880438381fae8730165778ff3e0ffde9cb698e25303396e05f56b098",
+    "audits/strict-default-action-boundary/homd_u_action_negative_controls.lpfragment": "6a4b2bd3f3a22b08afa007856b1330a9375d00bde9533340f86d5e649cd1df1b",
+    "audits/strict-default-action-boundary/homd_u_action_normalized_migration.py": "dd93a550f4ec3d4489bd3426ffd7d390a109fc5c16c50e1e27465c1b4bd09132",
+    "audits/strict-default-action-boundary/homd_u_action_observations.lpfragment": "12762e437e777e26f27db73ce9d06243ec978cdb931576d811718d8bf46b9320",
+    "audits/strict-default-action-boundary/homd_u_action_owner.lpfragment": "6341dd0e1127825ed766a5506e374a1bbb0b48422abb7a0044b901853d550fd2",
+    "audits/strict-default-action-boundary/homd_u_action_progress.md": "b028c8614c8ab2f282f1ef93dc05459248fa80037d82bf492b66a9f698f6ca3b",
+    "audits/strict-default-action-boundary/homd_u_action_source_closure.md": "e8b0341938285b8f69085e9c62adbd5266a8dc7fd147c7253cffb3d16e192e50",
+    "audits/strict-default-action-boundary/homd_u_action_split_migration.py": "80661a1e58a349fcc8980ae9db68400e2ef4b9631af6093d75c3ae8ea8e0aa0d"
+  },
+  "generatedSourcePins": {
+    "composition_leaf.lp": "bcd582da55fc21a1231463dd5e0979f2f4ffa0a70f91ac5220b7f863442afc69",
+    "compute_source.lp": "62d348975420b0aa5f7df5fe9779020b49ef9ef48acddfe362a78028dce28b81",
+    "controls.lp": "31b24f124bea45135a1ee3073939d7d19de0dfe039707c82a26d3b3616e22fd8",
+    "explicit_composition_leaf.lp": "af2a0af43b5f5ccb0259349c167471df15f48afe33e3104d002baf40547e22ab",
+    "explicit_controls.lp": "db0e60704a3622f1b6eef2bd65da8b67851c59a9b752b8c193264a5382fffffa",
+    "explicit_law_controls.lp": "c3a73f3f0d7cf31476fd5c76ed7261eef0d6f7ba174ce0b31ba756a34f9c53ae",
+    "explicit_observations.lp": "4280c51f32a18ceddee679faf0aabe39840d5daa20c24b0c979df1388e1d985e",
+    "fullcap_composition_leaf.lp": "9840deb79a0d65573008a191a6254b7f15773a3fa53ab307827000661e39054a",
+    "fullcap_controls.lp": "c43b3a2bb5d177bc9296fb39e25f8432b6d1548e0b15e12283e131d76ddc2607",
+    "fullcap_law_controls.lp": "250e5ff3e5e9280bda844db91514880bd6babf325b7bb654b72c3b278ee3213d",
+    "fullcap_observations.lp": "3be1b74984f16171f483f03f179fa5fc4d6636ff161f3879a3bfedfa9d84fcdd",
+    "fullcap_source_controls.lp": "f4d4dabf9bfdc2b5fc31323d76cabe942219c692d25ac30817f7dd6379608e7e",
+    "fullcap_without_component_projection.lp": "c6491c964519d704d4341017f6606f054ec78eb3724b35985a1b2da8454fe88d",
+    "fullcap_without_law_joins.lp": "05d2c2a4bea541d24abeb828d47902a553a2db31d66fb983dddd38efad06e0ac",
+    "fullcap_without_leaf_projection.lp": "92f2c930ad24a7f7510c9f3c003012292ff2c636348a123392c78ff7a885b74a",
+    "fullcap_without_source_projection.lp": "d05e2e909831343f08549d7c833d90cb3d165239e46d8246426b80666e8e35e7",
+    "generic_op_cap_diagnostic.lp": "f8c5e51d6e86f30972e028bdb48b0f09913487097ab373a1d60cd1ee54ef8889",
+    "law_controls.lp": "10e07d5446fbb7d41370dbbf27d6a173efd52c552a9eccce829d3f93a7483a6c",
+    "leaf_composition_leaf.lp": "4463f71836f79446eb7601885a08d04f1341a8749a6fd64cec100e6fc348d834",
+    "leaf_controls.lp": "e6f7895e0c0d66e0828b2a0f73cdae74bc27948b92d7efbaa17e5d5e59b041b4",
+    "leaf_law_controls.lp": "ebad1f0531998f4ca146fb687efd9bb0ae35df0ea226b34b09ce5f1e9a5a352c",
+    "leaf_without_component_projection.lp": "605d424bbc960635a3edfb430d0247b469beb5e9f7a869bbbba33a4e0455561e",
+    "leaf_without_law_joins.lp": "dee9110fffb036d776714631665c5703d8ffae3308ae847c364673db20b8c338",
+    "leaf_without_leaf_projection.lp": "cc75316f89d9da3eeab947fd7fa80d3bae942eda381803502557dfa458827c1c",
+    "leaf_without_source_projection.lp": "dd31ac95bc31a972108e6aa087af61912cfa096d817ea809cc01f9bfb6603355",
+    "literal_composition_leaf.lp": "2a9e1206a1500fc7b21d7ced8f0da238365b069682b63b144f85a698412337dd",
+    "literal_controls.lp": "c94d7350005f5dd4b7e2629bc2a87beac5fe69b4335b69f18fd3853271fb3ecf",
+    "literal_law_controls.lp": "226ef3005779f8ca80b91d8f6f69e561f109f1c051a7bb90e4bc500f950694b4",
+    "literal_observations.lp": "1d52c2d37e5e98247a6ffa8d50544ec9ff15935fb263155704f90fa325e3dcc3",
+    "literal_source_controls.lp": "2e7250d6ad731d6f5a014312762606613c0c00d7dad7035a8dd85ba86655d25c",
+    "literal_without_component_projection.lp": "5d8655a4d886deb904715e0ac2461ff6d42488b81a129dc6236b54178402ce58",
+    "literal_without_law_joins.lp": "8bb1624dc613e36387e2b4f24e88bd4ff71ddfabe54d4f9c13aa4556666ead86",
+    "literal_without_leaf_projection.lp": "4e20f40da5b315111ed610bf604bfa32d07e583646cd03c643257c4b802b1302",
+    "literal_without_source_projection.lp": "625ecb45db05979514c53bdaf039b456ebe5d56a4867e8653f5cd9f292c4c5d3",
+    "normalized_leaf_law_controls.lp": "7411f6b64e1c6016552bb5fa284998dd24f316d19461fc500e69824f847bb7c9",
+    "observations.lp": "93779a85cd004cdb160c28f07c2dcdcb8a71471a2dfc383595b56a84e695ce7c",
+    "op_typed_cap_diagnostic.lp": "a95c1aa15a6d292386e135f576209f54bb004d0fb5c3581724573c412341be72",
+    "owner.lp": "cb086d6923233975c8e1c1e103ec94d34a53a4344d0fc620f615eaf5277bdeaa",
+    "without_component_projection.lp": "1a8947d3405e81408d446ee675352f84a9d8e38b2447860f1398860127ecad45",
+    "without_law_joins.lp": "aac1028e994097a897f40730bbc91a80a9a083012a9ec68292f0b65d4692a7a8",
+    "without_leaf_projection.lp": "8ab06aaaf53cc19c084b71d58e03051759a51b82a82c7d2e05bbc3f193b5e4e3",
+    "without_source_projection.lp": "125d7b716f9f3596d001c1493586b7a23bf697a91224d3a4c274d9f298d7b847"
+  },
+  "manifestPins": {
+    "tmp/probes/homd_u_action/compute_manifest.json": "724bb1722ac90f66d278012d901955d63ebe90e056473ffa4e388693ee1b3082",
+    "tmp/probes/homd_u_action/explicit_manifest.json": "1cdc5377292c02492879afced552555f436b939f0c26ad86e7309fb7d4f7c80e",
+    "tmp/probes/homd_u_action/fullcap_manifest.json": "be1f29c6463bc5685e0a9eccbbadc862236dbe91774ba814c0278ce046ce8fbc",
+    "tmp/probes/homd_u_action/leaf_manifest.json": "00de6a3fcbe441f99b32022e989763e27f120100e7ef7c38c27062e0467ca746",
+    "tmp/probes/homd_u_action/literal_manifest.json": "be807259e87738a33e4a2a1228ada91acf285ff8f32b1767cc3a703c5913fcd7",
+    "tmp/probes/homd_u_action/manifest.json": "030873a7e73bee08d1047a2a63e871dac59683290a686358ee76ce4915a3758c",
+    "tmp/probes/homd_u_action/normalized_manifest.json": "dc4811c6827113384dc0124187be6176ac9d7e8ef9666d19f3e4d22a810308c8"
+  },
+  "package": {
+    "path": "tmp/probes/homd_u_action/lambdapi.pkg",
+    "sha256": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "owner.lp": {
+      "id": "20261013T172401Z-a7ec7a93e0bf430cbdbff1ff323ee86e",
+      "target": "tmp/probes/homd_u_action/owner.lp",
+      "sourceSha256": "cb086d6923233975c8e1c1e103ec94d34a53a4344d0fc620f615eaf5277bdeaa",
+      "receipt": "logs/check-runs/20261013T172401Z-a7ec7a93e0bf430cbdbff1ff323ee86e.json",
+      "receiptSha256": "466d6cc56105f71325a17f7db05ec13d588002089175d5d2426e47695bd7a685",
+      "log": "logs/check-runs/20261013T172401Z-a7ec7a93e0bf430cbdbff1ff323ee86e.log",
+      "logSha256": "20da0dffd7875f30e5da1f9b95eeac8b942f6d04f6fa0291ae4954061f85596a",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 15.670795000973158,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "d48f134918d2e3b3dae5861e8eb281b997dbcb2d5ade3bace11ebc972da5c939",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/owner.lp": "cb086d6923233975c8e1c1e103ec94d34a53a4344d0fc620f615eaf5277bdeaa"
+      },
+      "childrenMaxRssKiB": 681640,
+      "boundary": "Native owner acceptance only; consumer and coherence qualification separate.",
+      "firstError": null,
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/owner.out",
+      "outputSha256": "59076066d42581969aa7007ef2511338fa95662f00ff36a4876a37beb4253681"
+    },
+    "controls.lp": {
+      "id": "20261013T172417Z-a3fc8c237ec542b6a0004b01be352bb2",
+      "target": "tmp/probes/homd_u_action/controls.lp",
+      "sourceSha256": "31b24f124bea45135a1ee3073939d7d19de0dfe039707c82a26d3b3616e22fd8",
+      "receipt": "logs/check-runs/20261013T172417Z-a3fc8c237ec542b6a0004b01be352bb2.json",
+      "receiptSha256": "5de5f2848bb08cc0b17b9d1fb9a0b30973a261b14a50e7c69c0b95d8c26f99db",
+      "log": "logs/check-runs/20261013T172417Z-a3fc8c237ec542b6a0004b01be352bb2.log",
+      "logSha256": "3451c82578d70e95d534e96d0bfcb77f9f25a5c12dfe9e98da6b5418ee98cdfe",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 15.008373228018172,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "b26943eb5ef86572f1154ba2ee4c290c71b4e34df07b4c74f0d6b96d6ae27a81",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/controls.lp": "31b24f124bea45135a1ee3073939d7d19de0dfe039707c82a26d3b3616e22fd8"
+      },
+      "childrenMaxRssKiB": 682444,
+      "boundary": "Fails in homd_u_action_y definition before consumer assertions.",
+      "firstError": "[tmp/probes/homd_u_action/controls.lp:18755:0-18765:39] \nu1\nis not unifiable with\nu0.\nUnification goals are unsatisfiable.",
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/controls.out",
+      "outputSha256": "786dc842da1183e99b289ed7d58cf5822883ad5b9448e83b6377bd72adda8aa8"
+    },
+    "law_controls.lp": {
+      "id": "20261013T172432Z-d67be1c4e68546288e1a3756c6d1535b",
+      "target": "tmp/probes/homd_u_action/law_controls.lp",
+      "sourceSha256": "10e07d5446fbb7d41370dbbf27d6a173efd52c552a9eccce829d3f93a7483a6c",
+      "receipt": "logs/check-runs/20261013T172432Z-d67be1c4e68546288e1a3756c6d1535b.json",
+      "receiptSha256": "fb9d954128c1b41020085432fd04766deaa9a0c7e78b56b694f32ff432f846a4",
+      "log": "logs/check-runs/20261013T172432Z-d67be1c4e68546288e1a3756c6d1535b.log",
+      "logSha256": "6f328197a3106ce2652e68f2722f151a4af35021c374dcbd65fa6bb705a83094",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 14.700894344015978,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "df8dc8fe662159b40ae34ecc7750ffd7b40327b533697ab064887f20b8083031",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/law_controls.lp": "10e07d5446fbb7d41370dbbf27d6a173efd52c552a9eccce829d3f93a7483a6c"
+      },
+      "childrenMaxRssKiB": 682416,
+      "boundary": "Same earlier y-definition failure; law controls not reached.",
+      "firstError": "[tmp/probes/homd_u_action/law_controls.lp:18755:0-18765:39] \nu1\nis not unifiable with\nu0.\nUnification goals are unsatisfiable.",
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/law_controls.out",
+      "outputSha256": "3a0249fa38346ebf2f3d4132c5b12930568c377254fc70b2a6264363ee95eca1"
+    },
+    "composition_leaf.lp": {
+      "id": "20261013T172448Z-43c726bc65b147f2839585ce3eca239d",
+      "target": "tmp/probes/homd_u_action/composition_leaf.lp",
+      "sourceSha256": "bcd582da55fc21a1231463dd5e0979f2f4ffa0a70f91ac5220b7f863442afc69",
+      "receipt": "logs/check-runs/20261013T172448Z-43c726bc65b147f2839585ce3eca239d.json",
+      "receiptSha256": "47c8cac97900115beb5c60fb7515ba50b277c37eff012780743eda84dfb78d89",
+      "log": "logs/check-runs/20261013T172448Z-43c726bc65b147f2839585ce3eca239d.log",
+      "logSha256": "c01b0e6f53dfd33cf06dcebe657826fdacc53951496b3f66094cc9525a30bfba",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 16.10290593910031,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "8463c0959b43af6cfb836204bd40fa41c8c85fbd41f7718524047a94f5bd70d0",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/composition_leaf.lp": "bcd582da55fc21a1231463dd5e0979f2f4ffa0a70f91ac5220b7f863442afc69"
+      },
+      "childrenMaxRssKiB": 681848,
+      "boundary": "Same earlier y-definition failure; composition leaf not reached.",
+      "firstError": "[tmp/probes/homd_u_action/composition_leaf.lp:18755:0-18765:39] \nu1\nis not unifiable with\nu0.\nUnification goals are unsatisfiable.",
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/composition_leaf.out",
+      "outputSha256": "6f2dcafb5cec43249e7b33ac299386ed1633b18b805b7ae24545a2f7ade4f3c0"
+    },
+    "literal_source_controls.lp": {
+      "id": "20261013T173107Z-2e9d342649bf44e4b8079e6feb2e2d55",
+      "target": "tmp/probes/homd_u_action/literal_source_controls.lp",
+      "sourceSha256": "2e7250d6ad731d6f5a014312762606613c0c00d7dad7035a8dd85ba86655d25c",
+      "receipt": "logs/check-runs/20261013T173107Z-2e9d342649bf44e4b8079e6feb2e2d55.json",
+      "receiptSha256": "2e4a2a9544313999662bfde02b47bc2a7538812d077e4ce645b92be794c6c8ff",
+      "log": "logs/check-runs/20261013T173107Z-2e9d342649bf44e4b8079e6feb2e2d55.log",
+      "logSha256": "e06f334d467fec2365bd93d4bbd5235070904b76921f1f1ff614d746e4e4cecb",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 12.203416954027489,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "497084e6240c2c5b4dfeec35b73f508b505c2b4e39f6e38f184af95e433ac375",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/literal_source_controls.lp": "2e7250d6ad731d6f5a014312762606613c0c00d7dad7035a8dd85ba86655d25c"
+      },
+      "childrenMaxRssKiB": 681584,
+      "boundary": "First source TYPE assertion fails; no preceding source-formation success.",
+      "firstError": "[tmp/probes/homd_u_action/literal_source_controls.lp:18757:0-18762:61] Assertion failed.",
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/literal_source_controls.out",
+      "outputSha256": "da4d9d29ce607ef54aed45766b75678665bf72a4934637199c315161c72123f9"
+    },
+    "literal_controls.lp": {
+      "id": "20261013T173120Z-02873aac54a44fd5beebcdc85028c666",
+      "target": "tmp/probes/homd_u_action/literal_controls.lp",
+      "sourceSha256": "c94d7350005f5dd4b7e2629bc2a87beac5fe69b4335b69f18fd3853271fb3ecf",
+      "receipt": "logs/check-runs/20261013T173120Z-02873aac54a44fd5beebcdc85028c666.json",
+      "receiptSha256": "bfc857e2cf1ebf5ac21cbf8fe9cdb60e9e2d91b2a010191060e230eda577bf32",
+      "log": "logs/check-runs/20261013T173120Z-02873aac54a44fd5beebcdc85028c666.log",
+      "logSha256": "2ec6ca378e2e6619dc9a1ea27e27b270af5c6e38508877231b4f69121d8bebe9",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 12.178364563034847,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "88a7a315b5c6470a60c33fd9d539213f87f06df8a861e59aafa814f7046e1244",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/literal_controls.lp": "c94d7350005f5dd4b7e2629bc2a87beac5fe69b4335b69f18fd3853271fb3ecf"
+      },
+      "childrenMaxRssKiB": 682072,
+      "boundary": "Same y-definition endpoint clash after literal source annotation.",
+      "firstError": "[tmp/probes/homd_u_action/literal_controls.lp:18755:0-18765:39] \nu1\nis not unifiable with\nu0.\nUnification goals are unsatisfiable.",
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/literal_controls.out",
+      "outputSha256": "d4375fb03c7bfd78114aac589204edb6fcd45ef8af003907af7497f01cb8ae8a"
+    },
+    "compute_source.lp": {
+      "id": "20261013T173855Z-64c1bd83204a49288ddfe13e5b3187ba",
+      "target": "tmp/probes/homd_u_action/compute_source.lp",
+      "sourceSha256": "62d348975420b0aa5f7df5fe9779020b49ef9ef48acddfe362a78028dce28b81",
+      "receipt": "logs/check-runs/20261013T173855Z-64c1bd83204a49288ddfe13e5b3187ba.json",
+      "receiptSha256": "6e17ca0d6ab7f4a2ddb46abc2032ce18744ba8c318b3ca43690b87f4ca71845d",
+      "log": "logs/check-runs/20261013T173855Z-64c1bd83204a49288ddfe13e5b3187ba.log",
+      "logSha256": "b7e78fe1618b158e5f4aa5ac2eb53a65fc2a92a2e3c140a5db0fd78a5a2820d7",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 16.26044257194735,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "ee4e5b87c8c9a46ff7ce89efa7de7f2f328aa314920451598d290338adfefec7",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/compute_source.lp": "62d348975420b0aa5f7df5fe9779020b49ef9ef48acddfe362a78028dce28b81"
+      },
+      "childrenMaxRssKiB": 681944,
+      "boundary": "Q1 full and Q2 full-then-cap print correct native forms; Q3 direct capped query fails; later queries not reached.",
+      "firstError": "[tmp/probes/homd_u_action/compute_source.lp:18771:8-18774:36] \nu1\nis not unifiable with\nu0.\n\u03bb K:Cat, \u03bb E:\u03c4 (Catd K), \u03bb x:\u03c4 (Obj K), \u03bb u0:\u03c4 (Obj (@Fibre_cat ?0.[K;E;x] E x)), \u03bb u2:\u03c4 (Obj (@Fibre_cat ?1.[K;E;x;u0] E x)), \u03bb h:\u03c4 (Hom (@Fibre_cat ?2.[K;E;x;u0;u2] E x) u0 u2), @fapp1_fapp0 (Op_cat (@Fibre_cat ?3.[K;E;x;u0;u2;h] E x)) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u2 u0 h is not typable.",
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      }
+    },
+    "fullcap_law_controls.lp": {
+      "id": "20261013T174222Z-9cf0ac44de134d87bc50a5a73ba24a32",
+      "target": "tmp/probes/homd_u_action/fullcap_law_controls.lp",
+      "sourceSha256": "250e5ff3e5e9280bda844db91514880bd6babf325b7bb654b72c3b278ee3213d",
+      "receipt": "logs/check-runs/20261013T174222Z-9cf0ac44de134d87bc50a5a73ba24a32.json",
+      "receiptSha256": "6c85849014b853d2577e24ebdb894f1bca388fdcdf6fa2f31362fb3b90900f5c",
+      "log": "logs/check-runs/20261013T174222Z-9cf0ac44de134d87bc50a5a73ba24a32.log",
+      "logSha256": "2d1e3f1af8e31de7c6dcfadf82c476d9c5ebf5c7fc4b9c957d94ba86f5bde67b",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 14.854113704990596,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "d0a047e751fc575dd6cae2716d4e29f0f4c8dc99afe9ce8416a7b4c4d5e63153",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/fullcap_law_controls.lp": "250e5ff3e5e9280bda844db91514880bd6babf325b7bb654b72c3b278ee3213d"
+      },
+      "childrenMaxRssKiB": 682008,
+      "boundary": "Earlier y/v/ordinary leaf definitions accepted; whole h-family definition fails before consumer controls.",
+      "firstError": "[tmp/probes/homd_u_action/fullcap_law_controls.lp:18788:0-18813:64] \nu0\nis not unifiable with\nu1.\nUnification goals are unsatisfiable.",
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/fullcap_law_controls.out",
+      "outputSha256": "75496cdde883ce5ad30628c54dc8c3260a7f9df914c7cfcc9300d5fcb52b5338"
+    },
+    "generic_op_cap_diagnostic.lp": {
+      "id": "20261013T174247Z-97697ddfbf0b4060be5b06a917df69f9",
+      "target": "tmp/probes/homd_u_action/generic_op_cap_diagnostic.lp",
+      "sourceSha256": "f8c5e51d6e86f30972e028bdb48b0f09913487097ab373a1d60cd1ee54ef8889",
+      "receipt": "logs/check-runs/20261013T174247Z-97697ddfbf0b4060be5b06a917df69f9.json",
+      "receiptSha256": "dca8fa25bda590d55e51b944d5754d944be54c91d9d750a31eb2105bc6ea973b",
+      "log": "logs/check-runs/20261013T174247Z-97697ddfbf0b4060be5b06a917df69f9.log",
+      "logSha256": "46036ebca354077cdbabf857d0f8afa8edf15911f522da3b5ce17fbd1a642dfc",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 15.597969242953695,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "446800eec904a5f74f80df6a242b3254af452d75e9fe949c49fbe28b8abcea5c",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/generic_op_cap_diagnostic.lp": "f8c5e51d6e86f30972e028bdb48b0f09913487097ab373a1d60cd1ee54ef8889"
+      },
+      "childrenMaxRssKiB": 681288,
+      "boundary": "Generic opposite-source capped action normalizes with underlying Hom-typed h.",
+      "firstError": null,
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/generic_op_cap_diagnostic.out",
+      "outputSha256": "a4ca0d9b789aab29cd3b0a362387a1236e582a1f0f41b66fe7512f5e28ca569b"
+    },
+    "op_typed_cap_diagnostic.lp": {
+      "id": "20261013T174339Z-f408ea9bdb3e431280f98fa01c85ad6d",
+      "target": "tmp/probes/homd_u_action/op_typed_cap_diagnostic.lp",
+      "sourceSha256": "a95c1aa15a6d292386e135f576209f54bb004d0fb5c3581724573c412341be72",
+      "receipt": "logs/check-runs/20261013T174339Z-f408ea9bdb3e431280f98fa01c85ad6d.json",
+      "receiptSha256": "ccb99967e96130e0d0713790ec48ac04e72605c7dc1b25db998a4781b03381ed",
+      "log": "logs/check-runs/20261013T174339Z-f408ea9bdb3e431280f98fa01c85ad6d.log",
+      "logSha256": "821734b44571a4bce14b8e836fefe2698aa2a013ceef76b84370c4809b97f044",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 17.23795701796189,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "ddc13e098e806f63de31e73f7f248f28f8596188817c4469980a9c91d63c0e86",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/op_typed_cap_diagnostic.lp": "a95c1aa15a6d292386e135f576209f54bb004d0fb5c3581724573c412341be72"
+      },
+      "childrenMaxRssKiB": 680844,
+      "boundary": "Concrete Homd direct capped action normalizes when h has literal opposite-Hom classifier.",
+      "firstError": null,
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/op_typed_cap_diagnostic.out",
+      "outputSha256": "e60927b86a9c75c4caf924672c5cac80c1ebd85302cf8f0c002b64ff1e306523"
+    },
+    "leaf_law_controls.lp": {
+      "id": "20261013T174505Z-9e1b191ec79144ffb96aa7a53adb9293",
+      "target": "tmp/probes/homd_u_action/leaf_law_controls.lp",
+      "sourceSha256": "ebad1f0531998f4ca146fb687efd9bb0ae35df0ea226b34b09ce5f1e9a5a352c",
+      "receipt": "logs/check-runs/20261013T174505Z-9e1b191ec79144ffb96aa7a53adb9293.json",
+      "receiptSha256": "ab9fb5fc703af8cc8c6f2315750f05241de0d7fe651e0121ca2029472377d41c",
+      "log": "logs/check-runs/20261013T174505Z-9e1b191ec79144ffb96aa7a53adb9293.log",
+      "logSha256": "f86c66070f379be94b5c05c09dc5fa1d83b07257ab891b39531ab0e4346155c4",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 9.053640134981833,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "3dbd1045b301c25aa05676564b8e509fcdfbd17e101867640ad55fe629639c0b",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/leaf_law_controls.lp": "ebad1f0531998f4ca146fb687efd9bb0ae35df0ea226b34b09ce5f1e9a5a352c"
+      },
+      "childrenMaxRssKiB": 682872,
+      "boundary": "First full-action comparison fails while comparing inferred function types.",
+      "firstError": "[tmp/probes/homd_u_action/leaf_law_controls.lp:18793:0-18795:30] \nu0\nis not unifiable with\nu1.\n[\u03bb K:Cat, \u03bb E:\u03c4 (Catd K), \u03bb x:\u03c4 (Obj K), \u03bb u0:\u03c4 (Obj (@Fibre_cat K E x)), \u03bb u2:\u03c4 (Obj (@Fibre_cat K E x)), @fapp1_func (@Fibre_cat (CoAt2_cat K) (@Op_catd K E) x) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u2 u0] has type [\u03a0 K:Cat, \u03a0 E:\u03c4 (Catd K), \u03a0 x:\u03c4 (Obj K), \u03a0 u0:\u03c4 (Obj (@Fibre_cat K E x)), \u03a0 u2:\u03c4 (Obj (@Fibre_cat K E x)), \u03c4 (Functor (Hom_cat (@Fibre_cat (CoAt2_cat K) (@Op_catd K E) x) u2 u0) (Hom_cat (@Homd_section_cat K E x) (@fapp0 (@Fibre_cat (CoAt2_cat K) (@Op_catd K E) x) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u2) (@fapp0 (@Fibre_cat (CoAt2_cat K) (@Op_catd K E) x) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u0)))],\n[\u03bb K:Cat, \u03bb E:\u03c4 (Catd K), \u03bb x:\u03c4 (Obj K), \u03bb u0:\u03c4 (Obj (@Fibre_cat K E x)), \u03bb u2:\u03c4 (Obj (@Fibre_cat K E x)), @homd_id_u_func K E x u0 u2] has type [\u03a0 K:Cat, \u03a0 E:\u03c4 (Catd K), \u03a0 x:\u03c4 (Obj K), \u03a0 u0:\u03c4 (Obj (@Fibre_cat K E x)), \u03a0 u2:\u03c4 (Obj (@Fibre_cat K E x)), \u03c4 (Functor (Hom_cat (@Fibre_cat K E x) u0 u2) (Hom_cat (@Homd_section_cat K E x) (@homd_id_src_sec K E x u2) (@homd_id_src_sec K E x u0)))].\nThose two types are not unifiable.",
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/leaf_law_controls.out",
+      "outputSha256": "4804522b9208fda26c2d15b40c7261b5209c937b2916f2f458dc94bc5d0a6967"
+    },
+    "fullcap_source_controls.lp": {
+      "id": "20261013T175122Z-43d93aedd68a4f41898de2abb4c13c9e",
+      "target": "tmp/probes/homd_u_action/fullcap_source_controls.lp",
+      "sourceSha256": "f4d4dabf9bfdc2b5fc31323d76cabe942219c692d25ac30817f7dd6379608e7e",
+      "receipt": "logs/check-runs/20261013T175122Z-43d93aedd68a4f41898de2abb4c13c9e.json",
+      "receiptSha256": "3fa958ef64051fc153350f4c8c036b125c9b9baf05acbbdefc5fdbaa6fb78d71",
+      "log": "logs/check-runs/20261013T175122Z-43d93aedd68a4f41898de2abb4c13c9e.log",
+      "logSha256": "ef11fe74f2e0e2d6e5c4e6974e14fa29a2a92862f038396d46525cef7e350adf",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 12.421027554082684,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "31745a4efe430c8550c8d713c29f96db21a0d9c3ec0570bbc7184e503fd4283d",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/fullcap_source_controls.lp": "f4d4dabf9bfdc2b5fc31323d76cabe942219c692d25ac30817f7dd6379608e7e"
+      },
+      "childrenMaxRssKiB": 681312,
+      "boundary": "Three new source controls pass: actual full/cap type, native map normalization, native y component.",
+      "firstError": null,
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/fullcap_source_controls.out",
+      "outputSha256": "92a67f7a386038706fe88d478f512a9cb0510024d6b5a4e846387c5d97e60ee1"
+    },
+    "normalized_leaf_law_controls.lp": {
+      "id": "20261013T174813Z-e28bb5ef6c4d48b0b40be51a8bdb9b93",
+      "target": "tmp/probes/homd_u_action/normalized_leaf_law_controls.lp",
+      "sourceSha256": "7411f6b64e1c6016552bb5fa284998dd24f316d19461fc500e69824f847bb7c9",
+      "receipt": "logs/check-runs/20261013T174813Z-e28bb5ef6c4d48b0b40be51a8bdb9b93.json",
+      "receiptSha256": "15c9220d98a6a2fb4c25ae773d461b4a5d5737a7e914718dc5e515676da5d0d8",
+      "log": "logs/check-runs/20261013T174813Z-e28bb5ef6c4d48b0b40be51a8bdb9b93.log",
+      "logSha256": "a3a3bb32a944cb0e647638d0013e7c91dcecc23663fe1e410c1b76382690b8e3",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 12.189076583017595,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "ea0e3e57e563e9621c89d00a8421255b111913333bf2fb01d87572db4d9489a4",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_action/normalized_leaf_law_controls.lp": "7411f6b64e1c6016552bb5fa284998dd24f316d19461fc500e69824f847bb7c9"
+      },
+      "childrenMaxRssKiB": 681448,
+      "boundary": "Same first full-action comparison fails despite explicit Op source and section codomain.",
+      "firstError": "[tmp/probes/homd_u_action/normalized_leaf_law_controls.lp:18793:0-18795:30] \nu0\nis not unifiable with\nu1.\n[\u03bb K:Cat, \u03bb E:\u03c4 (Catd K), \u03bb x:\u03c4 (Obj K), \u03bb u0:\u03c4 (Obj (@Fibre_cat K E x)), \u03bb u2:\u03c4 (Obj (@Fibre_cat K E x)), @fapp1_func (Op_cat (@Fibre_cat K E x)) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u2 u0] has type [\u03a0 K:Cat, \u03a0 E:\u03c4 (Catd K), \u03a0 x:\u03c4 (Obj K), \u03a0 u0:\u03c4 (Obj (@Fibre_cat K E x)), \u03a0 u2:\u03c4 (Obj (@Fibre_cat K E x)), \u03c4 (Functor (Hom_cat (Op_cat (@Fibre_cat K E x)) u2 u0) (Hom_cat (@Homd_section_cat K E x) (@fapp0 (Op_cat (@Fibre_cat K E x)) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u2) (@fapp0 (Op_cat (@Fibre_cat K E x)) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u0)))],\n[\u03bb K:Cat, \u03bb E:\u03c4 (Catd K), \u03bb x:\u03c4 (Obj K), \u03bb u0:\u03c4 (Obj (@Fibre_cat K E x)), \u03bb u2:\u03c4 (Obj (@Fibre_cat K E x)), @homd_id_u_func K E x u0 u2] has type [\u03a0 K:Cat, \u03a0 E:\u03c4 (Catd K), \u03a0 x:\u03c4 (Obj K), \u03a0 u0:\u03c4 (Obj (@Fibre_cat K E x)), \u03a0 u2:\u03c4 (Obj (@Fibre_cat K E x)), \u03c4 (Functor (Hom_cat (@Fibre_cat K E x) u0 u2) (Hom_cat (@Homd_section_cat K E x) (@homd_id_src_sec K E x u2) (@homd_id_src_sec K E x u0)))].\nThose two types are not unifiable.",
+      "warningInventory": {
+        "unjoinableCriticalPairs": 968,
+        "cannotSolve": 40,
+        "classificationStatus": "Counts only; no completed new warning/confluence qualification claimed."
+      },
+      "output": "tmp/probes/homd_u_action/normalized_leaf_law_controls.out",
+      "outputSha256": "6c40038810b0272f75c054d35d68d538dd42858d91853076b7b23ba2c4810a15"
+    }
+  },
+  "counts": {
+    "executions": 13,
+    "passed": 4,
+    "failed": 9,
+    "generatedSources": 42
+  },
+  "uncheckedTargets": [
+    "explicit_composition_leaf.lp",
+    "explicit_controls.lp",
+    "explicit_law_controls.lp",
+    "explicit_observations.lp",
+    "fullcap_composition_leaf.lp",
+    "fullcap_controls.lp",
+    "fullcap_observations.lp",
+    "fullcap_without_component_projection.lp",
+    "fullcap_without_law_joins.lp",
+    "fullcap_without_leaf_projection.lp",
+    "fullcap_without_source_projection.lp",
+    "leaf_composition_leaf.lp",
+    "leaf_controls.lp",
+    "leaf_without_component_projection.lp",
+    "leaf_without_law_joins.lp",
+    "leaf_without_leaf_projection.lp",
+    "leaf_without_source_projection.lp",
+    "literal_composition_leaf.lp",
+    "literal_law_controls.lp",
+    "literal_observations.lp",
+    "literal_without_component_projection.lp",
+    "literal_without_law_joins.lp",
+    "literal_without_leaf_projection.lp",
+    "literal_without_source_projection.lp",
+    "observations.lp",
+    "without_component_projection.lp",
+    "without_law_joins.lp",
+    "without_leaf_projection.lp",
+    "without_source_projection.lp"
+  ],
+  "selectedBoundedSourceControls": "fullcap_source_controls.lp",
+  "wholeFamilyStatus": {
+    "implicit": "Failed in fullcap_law_controls.lp before controls.",
+    "explicit": "All explicit_* sources are unchecked.",
+    "wholePrecompositionAgreement": "Not asserted or inferred from pointwise caps."
+  },
+  "removalsStatus": "All removal variants unchecked; none counted as semantic necessity evidence.",
+  "partialTrace": {
+    "receipt": "logs/check-runs/20261013T173855Z-64c1bd83204a49288ddfe13e5b3187ba.json",
+    "passedQueriesBeforeFailure": [
+      "Q1 actual full action -> homd_id_u_func with correct endpoint order.",
+      "Q2 full-then-cap -> homd_id_u_map with correct endpoint order."
+    ],
+    "failure": "Q3 direct capped action with underlying Hom annotation; remaining queries not reached."
+  },
+  "nextSmallestDiagnosis": "Only the first comparison in normalized_leaf_law_controls: inspect unification trace and normalize both inferred Functor classifiers, especially opposite Hom reduction versus endpoint inversion. Measure a shared normalized classifier before changing any owner rules or retrying broad suites.",
+  "qualification": [
+    "No semantic impossibility or incorrect variance inferred from these elaboration failures.",
+    "No new production change, primitive extension beyond the frozen candidate, checker run by subagent, or commit.",
+    "Native owner acceptance and diagnostic normalization do not establish full coherent u-action or confluence.",
+    "Earlier y/v/leaf definitions accepted as a prefix of a failed source are not full consumer/law qualification."
+  ]
+}

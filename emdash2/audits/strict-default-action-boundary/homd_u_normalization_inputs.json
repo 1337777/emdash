@@ -1,0 +1,27 @@
+{
+  "contextRevision": "5ea2d118d1a24b03ce18fc602167c879105ae674",
+  "donor": "tmp/probes/homd_native_action/early_combined_controls.lp",
+  "measuredLaws": "tmp/probes/homd_u_action/normalization_laws.lp",
+  "measuredLawsReceipt": "logs/check-runs/20261013T180330Z-88fed9a5cdb04a009067f901ca2d5d6a.json",
+  "measuredSelected": "tmp/probes/homd_u_action/precomp_selected.lp",
+  "measuredSelectedReceipt": "logs/check-runs/20261013T180722Z-53aff743905a4303bdc6a7fbbb99bc2b.json",
+  "sourceInputs": {
+    "tmp/probes/homd_native_action/early_combined_controls.lp": "8e14037d7b4698d46c01c598ed9db4bd523e16413c1d614538b4c48d02c9eb49",
+    "audits/strict-default-action-boundary/homd_native_action_verification.json": "0fe51d966297651079712dd3fc6096916d4fbcf89a137bafae482d9b7ad34168",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "tmp/probes/homd_u_action/normalization_laws.lp": "ff1bafd5248f8f7f9ce4c31c390c9635cff77b4605260e8d266d5485b227a90d",
+    "logs/check-runs/20261013T180330Z-88fed9a5cdb04a009067f901ca2d5d6a.json": "cdf640357ebce35407660cd064e9aa8bfa81dcfdce9324f29a42399c00174c82",
+    "tmp/probes/homd_u_action/precomp_selected.lp": "fecdf8984e2243aec9c458c4b79174cfc2fd0ac927d9fe15841bc42cf17a073d",
+    "logs/check-runs/20261013T180722Z-53aff743905a4303bdc6a7fbbb99bc2b.json": "bf09d642cb63cbfdb397e2e4817000719d49a23630510a27fc24f1f8ae104fac",
+    "audits/strict-default-action-boundary/homd_u_action_owner.lpfragment": "6341dd0e1127825ed766a5506e374a1bbb0b48422abb7a0044b901853d550fd2",
+    "audits/strict-default-action-boundary/homd_u_action_observations.lpfragment": "12762e437e777e26f27db73ce9d06243ec978cdb931576d811718d8bf46b9320",
+    "audits/strict-default-action-boundary/homd_u_action_controls.lpfragment": "4eb0cd1008cb7899724a1c3460fe1c2a8b1e743423659e9d6f397baf72f43a23",
+    "audits/strict-default-action-boundary/homd_u_action_negative_controls.lpfragment": "6a4b2bd3f3a22b08afa007856b1330a9375d00bde9533340f86d5e649cd1df1b",
+    "audits/strict-default-action-boundary/homd_u_action_law_controls.lpfragment": "6ef18867a025e3b4158bfb16e7af3f23f61e04a383866079089744bec990dc7c",
+    "audits/strict-default-action-boundary/homd_u_action_composition_leaf.lpfragment": "5bc689593f49371030cf6ec54b8b60145db701c89ba1b465a607e64ec9ec2acd",
+    "audits/strict-default-action-boundary/homd_u_inversion_controls.lpfragment": "eda2065074e6270a612d91807d143ac968d4e682da9bc179d1942864689c0a2b",
+    "audits/strict-default-action-boundary/homd_u_precomp_controls.lpfragment": "b9c0aed9afbfe8bea185ee5524a04be2695a7209712a83908c1956a1adab63c8",
+    "audits/strict-default-action-boundary/homd_u_normalization_precomp_old.lpfragment": "42de9bfd009fd9a3735d8bbc77fd541d1ae2c07a203dd2a759401a635a45fba2",
+    "audits/strict-default-action-boundary/homd_u_normalization_precomp_new.lpfragment": "6b8a40a5027a104f81d1cb8aee9a19659a415a84599b5258d7def6649d6fdc86"
+  }
+}

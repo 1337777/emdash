@@ -1,0 +1,41 @@
+// Normalization diagnostics only. These queries assert no equality or type.
+flag "print_implicits" on;
+flag "print_domains" on;
+
+// Q1: full source action.
+compute λ (K : Cat) (E : τ (Catd K)) (x : τ (Obj K))
+  (u0 u1 : τ (Obj (Fibre_cat E x))),
+  @fapp1_func (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x)
+    (@homd_id_src_func K E x) u1 u0;
+
+// Q2: cap after full source action.
+compute λ (K : Cat) (E : τ (Catd K)) (x : τ (Obj K))
+  (u0 u1 : τ (Obj (Fibre_cat E x))) (h : τ (Hom (Fibre_cat E x) u0 u1)),
+  fapp0 (@fapp1_func (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x)
+    (@homd_id_src_func K E x) u1 u0) h;
+
+// Q3: direct capped source action.
+compute λ (K : Cat) (E : τ (Catd K)) (x : τ (Obj K))
+  (u0 u1 : τ (Obj (Fibre_cat E x))) (h : τ (Hom (Fibre_cat E x) u0 u1)),
+  @fapp1_fapp0 (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x)
+    (@homd_id_src_func K E x) u1 u0 h;
+
+// Q4: independently written expected full rung.
+compute λ (K : Cat) (E : τ (Catd K)) (x : τ (Obj K))
+  (u0 u1 : τ (Obj (Fibre_cat E x))),
+  @homd_id_u_func K E x u0 u1;
+
+// Q5: independently written expected capped rung.
+compute λ (K : Cat) (E : τ (Catd K)) (x : τ (Obj K))
+  (u0 u1 : τ (Obj (Fibre_cat E x))) (h : τ (Hom (Fibre_cat E x) u0 u1)),
+  @homd_id_u_map K E x u0 u1 h;
+
+// Q6/Q7: inspect inferred types without an expected source-target annotation.
+type λ (K : Cat) (E : τ (Catd K)) (x : τ (Obj K))
+  (u0 u1 : τ (Obj (Fibre_cat E x))) (h : τ (Hom (Fibre_cat E x) u0 u1)),
+  @fapp1_fapp0 (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x)
+    (@homd_id_src_func K E x) u1 u0 h;
+
+type λ (K : Cat) (E : τ (Catd K)) (x : τ (Obj K))
+  (u0 u1 : τ (Obj (Fibre_cat E x))) (h : τ (Hom (Fibre_cat E x) u0 u1)),
+  @homd_id_u_map K E x u0 u1 h;

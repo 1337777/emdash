@@ -1,0 +1,56 @@
+// Full/capped native source action and generic component application orders.
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] ⊢
+  @fapp1_func _ _ (@homd_id_src_func K E x) u1 u0
+  ≡ @homd_id_u_func K E x u0 u1;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) ⊢
+  (@fapp1_fapp0 (Fibre_cat (@Op_catd K E) x) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u1 u0 h)
+  ≡ fapp0 (@fapp1_func _ _ (@homd_id_src_func K E x) u1 u0) h;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) ⊢
+  (@fapp1_fapp0 (Fibre_cat (@Op_catd K E) x) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u1 u0 h) : τ (Hom (@Homd_section_cat K E x) (@homd_id_src_sec K E x u1) (@homd_id_src_sec K E x u0));
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) (y : τ (Obj K)) ⊢
+  fapp0 (@fapp1_func _ _ (@tapp0_func K Prof_cov_universe (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y) (@homd_id_src_sec K E x u1) (@homd_id_src_sec K E x u0)) (@fapp1_fapp0 (Fibre_cat (@Op_catd K E) x) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u1 u0 h)
+  ≡ @homd_id_u_y K E x u0 u1 h y;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) ⊢
+  fapp0 (@tapp0_func (Fibre_cat E y) (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+    (@homd_id_tgt_func K E x u1 y) (@homd_id_tgt_func K E x u0 y) v)
+    (@strict_transfor _ _ _ _ (@homd_u_action_y K E x u0 u1 h y))
+  ≡ @homd_id_u_v K E x u0 u1 h y v;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (@tapp0_func (Op_cat (Hom_cat K x y)) Cat_cat
+    (@homd_id_ K E x u1 y v) (@homd_id_ K E x u0 y v) f)
+    (@strict_transfor _ _ _ _ (@homd_u_action_v K E x u0 u1 h y v))
+  ≡ (@hom_precomp_along_func (Fibre_cat E x) (Fibre_cat E y) (@fapp1_fapp0 K Cat_cat E x y f) v u0 u1 h);
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y)) ⊢
+  (@homd_u_action_leaf K E x u0 u1 h y v f) ≡ (@hom_precomp_along_func (Fibre_cat E x) (Fibre_cat E y) (@fapp1_fapp0 K Cat_cat E x y f) v u0 u1 h);
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (@homd_u_action_leaf_family K E x u0 u1 y v f) h ≡ (@homd_u_action_leaf K E x u0 u1 h y v f);
+
+// The final functor is ordinary precomposition, including its higher beta action.
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y))
+  [beta gamma : τ (Obj (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u1) v) )] ⊢
+  @fapp1_func _ _ (@homd_u_action_leaf K E x u0 u1 h y v f) beta gamma
+  ≡ @fapp1_func _ _ (@hom_precomp_along_func (Fibre_cat E x) (Fibre_cat E y) (@fapp1_fapp0 K Cat_cat E x y f) v u0 u1 h) beta gamma;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y))
+  [beta gamma : τ (Obj (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u1) v) )] (theta : τ (Hom (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u1) v) beta gamma)) ⊢
+  fapp0 (@fapp1_func _ _ (@homd_u_action_leaf K E x u0 u1 h y v f) beta gamma) theta
+  ≡ @fapp1_fapp0 _ _ (@hom_precomp_along_func (Fibre_cat E x) (Fibre_cat E y) (@fapp1_fapp0 K Cat_cat E x y f) v u0 u1 h) beta gamma theta;
+
+// Varying h retains actual higher action of the composite observation functor.
+// This formation assertion does not identify that whole functor by extensionality.
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] [h k : τ (Hom (Fibre_cat E x) u0 u1)]
+  (alpha : τ (Hom (Hom_cat (Fibre_cat E x) u0 u1) h k)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 _ _ (@homd_u_action_leaf_family K E x u0 u1 y v f) h k alpha
+  : τ (@StrictTransfor (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u1) v) (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u0) v)
+      (@homd_u_action_leaf K E x u0 u1 h y v f)
+      (@homd_u_action_leaf K E x u0 u1 k y v f));

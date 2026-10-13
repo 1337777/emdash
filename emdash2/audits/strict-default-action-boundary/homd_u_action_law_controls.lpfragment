@@ -1,0 +1,31 @@
+// Identity and contravariant composition inherited from the actual source functor.
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @homd_id_u_map K E x u u (@id (Fibre_cat E x) u)
+  ≡ @id (@Homd_section_cat K E x) (@homd_id_src_sec K E x u);
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y)) ⊢
+  @homd_u_action_leaf K E x u u (@id (Fibre_cat E x) u) y v f
+  ≡ @id_func (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u) v);
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 u2 : τ (Obj (Fibre_cat E x))]
+  (h : τ (Hom (Fibre_cat E x) u0 u1)) (k : τ (Hom (Fibre_cat E x) u1 u2)) ⊢
+  @comp_fapp0 (@Homd_section_cat K E x)
+    (@homd_id_src_sec K E x u2) (@homd_id_src_sec K E x u1) (@homd_id_src_sec K E x u0)
+    (@homd_id_u_map K E x u0 u1 h) (@homd_id_u_map K E x u1 u2 k)
+  ≡ @homd_id_u_map K E x u0 u2 (@comp_fapp0 (Fibre_cat E x) u0 u1 u2 k h);
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 u2 : τ (Obj (Fibre_cat E x))]
+  (h : τ (Hom (Fibre_cat E x) u0 u1)) (k : τ (Hom (Fibre_cat E x) u1 u2)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y)) ⊢
+  @homd_u_action_leaf K E x u0 u2 (@comp_fapp0 (Fibre_cat E x) u0 u1 u2 k h) y v f
+  ≡ @hom_precomp_along_func (Fibre_cat E x) (Fibre_cat E y) (@fapp1_fapp0 K Cat_cat E x y f) v u0 u2
+      (@comp_fapp0 (Fibre_cat E x) u0 u1 u2 k h);
+
+// Point-level ordinary reading is proof-time, preserving the precomposition head.
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y)) (beta : τ (Obj (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u1) v) )) ⊢
+  @eq_refl (Hom (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u0) v)
+    (@comp_fapp0 (Fibre_cat E y) _ _ v beta (@fapp1_fapp0 _ _ (@fapp1_fapp0 K Cat_cat E x y f) u0 u1 h))
+  : τ (@= (Hom (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u0) v)
+      (fapp0 (@homd_u_action_leaf K E x u0 u1 h y v f) beta)
+      (@comp_fapp0 (Fibre_cat E y) _ _ v beta (@fapp1_fapp0 _ _ (@fapp1_fapp0 K Cat_cat E x y f) u0 u1 h)));

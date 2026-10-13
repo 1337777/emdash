@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; identity Homd object ladder and native x-action comparisons check in the prototype; u-action qualification, coefficient integration and production gates remain open
+Status: active; identity Homd object ladder and native x/u consumers check together in the prototype; native laxity, coefficient integration and production gates remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -88,9 +88,11 @@ nested reindexed identity now has a typed comparison through generic owner
 laws; its runtime conversion still fails. The current raw coefficient
 integration reference is `represented_comp/integrated_controls.lp`, conditional
 on the stated co-Yoneda seed and fixed-parameter lambda/evaluation profiles; its detailed
-source closure and limits are recorded below. The immediate work is the
-identity Homd x/u action and its actual projections, followed by coefficient
-and intrinsic-action integration. The lift_middle selected variant checks both whole middle
+source closure and limits are recorded below. The native x/u consumer
+assembly now checks, including the whole h-parameter construction and
+two-factor ordinary leaf. The immediate work is the remaining intermediate
+projection overlaps, whole section action and native laxity, followed by coefficient and intrinsic-action
+integration. The lift_middle selected variant checks both whole middle
 comparisons, the actual mate composite and its first component. The raw
 represented counit below now has an actual construction
 without identifying implication with a conjoint; its Cartesian admission,
@@ -2542,6 +2544,79 @@ still uses the foundation-assembly Q presentation with provisional global
 Cartesian Prof; it is separate from the raw-preserving coefficient reference.
 That integration, the varying-u action and full-source intrinsic-action
 repair remain open. Production is unchanged by this bounded audit.
+
+## Native identity Homd u-action and normalization checkpoint
+
+The `homd_u_normalization` replay combines the committed native x-action
+reference with the four new native u-action rungs. For `h:u0→u1` in E[x],
+the actual source Hom action gives a map from s(u1) to s(u0); its y and v
+projections lead to the existing ordinary precomposition functor at f:
+
+```text
+Hom_E[y](E[f](u1),v) → Hom_E[y](E[f](u0),v)
+beta ↦ beta ∘ E[f](h).
+```
+
+The whole h-parameter observation is a defined composite of the actual
+source Hom action, component evaluation functors and the two Cartesian
+inclusions. Its construction, object projection and higher-action formation
+check. This is not an extensional proof identifying the entire composite
+with a separately written ordinary precomposition telescope. The primitive
+Homd root and arbitrary public FF remain ambient transformations.
+
+The principal blocker was a generic checker-order issue, independently
+reproduced for an arbitrary `F:T(A)→B`. The installed Lambdapi checker
+decomposes `injective` heads before user rewrite normalization. Applying
+that inference to `Hom_cat(T(A),v,u)` prematurely compares the unreversed
+endpoints with `Hom_cat(A,u,v)`. The selected correction removes the eager
+flag from `Hom_cat` and provides the same-head inference as a fallback
+unification clause after normalization. Omitting that fallback fails an
+existing ordinary postcomposition subject-reduction obligation. Exact
+checker-source evidence is in `homd_u_inversion_review.md`.
+
+The transparent `Hom` alias retains its existing flag. New conversion-
+sensitive consumers supply explicit fibre bases, as permitted by the SOP.
+The fully implicit variant remains a failed elaboration boundary. A broader
+attempt removing the alias flag and reconstructing the ambient mapping
+category regressed an existing Pi/constant-family comparison and is not
+selected. No generic strictness admission or alternate categorical semantics
+is introduced to bypass those failures.
+
+The two-factor leaf exposed a separate unfinished default-strict migration:
+the existing precomposition accumulation rules still required F=id. Their
+whole-functor and point rules now apply to arbitrary default-strict F in the
+prototype. Generic-F, identity-overlap and changed-data controls accompany
+the actual Homd leaf. This restores the computation at its ordinary owner,
+rather than adding a Homd-specific composition equation.
+
+The fresh combined x/u target passes with subject reduction enabled under
+the standard 90s/2GiB profile; the strict LHS audit has zero unreviewed
+clauses. Restoring eager Hom-category injectivity, omitting delayed inversion,
+removing each native projection/law group, restoring the old identity-only
+precomposition, and using the implicit-fibre variant all fail at their
+recorded obligations. Exact counts, warning changes, source pins, receipts
+and remaining overlap qualifications belong to
+`homd_u_normalization_verification.json` and its source closure. This is a
+non-library integration reference, still using the donor's provisional Q
+presentation; it does not complete production or raw-preserving coefficient
+integration. Warning inventory changes from 954 to 970 (18 added, two
+removed). Intermediate y/v identity comparisons, specialized identity
+erasures and the recorded composition/Eval overlaps still need targeted
+qualification; the passed final leaf does not silently close those cases.
+The next executable slice compares the intermediate y/v identity and
+composition routes before extending the whole-section construction.
+
+A focused continuation inventory found the existing whole
+`fib_cov_transf(E,x,u):I_x⇒E`, where `I_x=Hom_K(x,-)`, with exactly the
+required `fib_cov_tapp0_func` components. Its current carrier is ambient
+Functord. Determine and qualify the canonical strict view needed by
+`Prof_cov_con_lift`; do not admit arbitrary ambient transformations as
+strict. Applying the existing represented lift to such a qualified view
+has the desired whole section type and already specified y-action. Its
+agreement with the Homd section, native root laxity extraction, raw-preserving
+coefficient integration and the remaining full-source migration are still
+required. This is a concrete existing-owner continuation, not a return to
+deriving the entire legacy profunctor calculus.
 
 ## Deferred improvements under the migration boundary
 

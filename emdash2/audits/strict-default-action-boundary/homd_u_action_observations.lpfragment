@@ -1,0 +1,61 @@
+// Derived observations of the actual source action. No extra semantic owner.
+symbol homd_u_action_y [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1))
+  (y : τ (Obj K))
+  : τ (@StrictTransfor (Fibre_cat E y)
+      (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+      (@homd_id_tgt_func K E x u1 y) (@homd_id_tgt_func K E x u0 y))
+≔ @tapp0_hom_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u1) (@homd_id_src_sec K E x u0) y
+    (@fapp1_fapp0 (Fibre_cat (@Op_catd K E) x) (@Homd_section_cat K E x)
+      (@homd_id_src_func K E x) u1 u0 h);
+
+symbol homd_u_action_v [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y)))
+  : τ (@StrictTransfor (Op_cat (Hom_cat K x y)) Cat_cat
+      (@homd_id_ K E x u1 y v) (@homd_id_ K E x u0 y v))
+≔ @tapp0_fapp0 (Fibre_cat E y) (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+    (@homd_id_tgt_func K E x u1 y) (@homd_id_tgt_func K E x u0 y) v
+    (@strict_transfor _ _ _ _ (@homd_u_action_y K E x u0 u1 h y));
+
+symbol homd_u_action_leaf [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y))
+  : τ (Functor
+      (Hom_cat (Fibre_cat E y) (fapp0 (@fib_cov_tapp0_func K E x y u1) f) v)
+      (Hom_cat (Fibre_cat E y) (fapp0 (@fib_cov_tapp0_func K E x y u0) f) v))
+≔ @tapp0_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+    (@homd_id_ K E x u1 y v) (@homd_id_ K E x u0 y v) f
+    (@strict_transfor _ _ _ _ (@homd_u_action_v K E x u0 u1 h y v));
+
+// Whole h-parameter action is an actual composite of generic evaluation
+// functors and the native source Hom action. Its two Cartesian inclusions
+// are functors on whole Hom categories, not merely object-profile casts.
+symbol homd_u_action_leaf_family [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (Fibre_cat E x))]
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y))
+  : τ (Functor (Hom_cat (Fibre_cat E x) u0 u1)
+      (Functor_cart_cat
+        (Hom_cat (Fibre_cat E y) (fapp0 (@fib_cov_tapp0_func K E x y u1) f) v)
+        (Hom_cat (Fibre_cat E y) (fapp0 (@fib_cov_tapp0_func K E x y u0) f) v)))
+≔ comp_cat_fapp0
+    (@tapp0_func (Op_cat (Hom_cat K x y)) Cat_cat
+      (@homd_id_ K E x u1 y v) (@homd_id_ K E x u0 y v) f)
+    (comp_cat_fapp0
+      (@fapp1_func _ _ (cart_functor_include (Op_cat (Hom_cat K x y)) Cat_cat)
+        (@homd_id_ K E x u1 y v) (@homd_id_ K E x u0 y v))
+      (comp_cat_fapp0
+        (@tapp0_func (Fibre_cat E y) (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+          (@homd_id_tgt_func K E x u1 y) (@homd_id_tgt_func K E x u0 y) v)
+        (comp_cat_fapp0
+          (@fapp1_func _ _
+            (cart_functor_include (Fibre_cat E y) (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat))
+            (@homd_id_tgt_func K E x u1 y) (@homd_id_tgt_func K E x u0 y))
+          (comp_cat_fapp0
+            (@fapp1_func _ _
+              (@tapp0_func K Prof_cov_universe (@Prof_cov_diagram K E)
+                (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y)
+              (@homd_id_src_sec K E x u1) (@homd_id_src_sec K E x u0))
+            (@fapp1_func _ _ (@homd_id_src_func K E x) u1 u0)))));

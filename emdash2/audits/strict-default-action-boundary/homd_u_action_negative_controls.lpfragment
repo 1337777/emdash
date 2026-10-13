@@ -1,0 +1,22 @@
+// Variable arrows are retained, and source variance reverses only u endpoints.
+
+assertnot [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] [h k : τ (Hom (Fibre_cat E x) u0 u1)] ⊢
+  @homd_id_u_map K E x u0 u1 h ≡ @homd_id_u_map K E x u0 u1 k;
+
+assertnot [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] (h : τ (Hom (Fibre_cat E x) u0 u1)) ⊢
+  (@fapp1_fapp0 (Fibre_cat (@Op_catd K E) x) (@Homd_section_cat K E x) (@homd_id_src_func K E x) u1 u0 h)
+  : τ (Hom (@Homd_section_cat K E x) (@homd_id_src_sec K E x u0) (@homd_id_src_sec K E x u1));
+
+assertnot [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (Fibre_cat E x))] [h k : τ (Hom (Fibre_cat E x) u0 u1)]
+  (alpha : τ (Hom (Hom_cat (Fibre_cat E x) u0 u1) h k)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 _ _ (@homd_u_action_leaf_family K E x u0 u1 y v f) h k alpha
+  : τ (@StrictTransfor (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u1) v) (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u0) v)
+      (@homd_u_action_leaf K E x u0 u1 k y v f)
+      (@homd_u_action_leaf K E x u0 u1 h y v f));
+
+assertnot [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
+  @homd_id_int K E : τ (@StrictTransfor (CoAt2_cat K) Cat_cat
+    (@Op_catd K E) (@Homd_target_catd K E));
+
+assertnot [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) ⊢
+  FF : τ (@StrictTransfor K Cat_cat D E);

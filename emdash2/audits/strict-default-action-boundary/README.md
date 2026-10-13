@@ -956,3 +956,14 @@ profunctor calculus is optional comparison work. Its actual profiles, laws
 and Homd consumers still require qualification. These checks do not yet
 integrate the raw-preserving coefficient reference, implement native root
 laxity extraction, or complete production migration.
+
+The [native u-action assembly](homd_u_normalization_source_closure.md)
+now checks together with those x consumers. Its
+[normalization diagnosis](homd_u_inversion_review.md) isolates premature
+Hom-category injectivity in the checker. The selected source delays that
+inference, retains explicit fibre indices, and restores ordinary
+precomposition accumulation for default-strict functors. The u/y/v/f
+projections, whole h-family construction, source laws and two-factor leaf
+have concrete consumers. Exact removals, warning changes and the remaining
+coefficient/native-laxity boundary are recorded in the
+[verification](homd_u_normalization_verification.json).

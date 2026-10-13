@@ -1,0 +1,12 @@
+// Two-factor leaf composition is a proof-time observation of the source law.
+// No Homd-specific ordinary precomposition fold is installed for this test.
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 u2 : τ (Obj (Fibre_cat E x))]
+  (h : τ (Hom (Fibre_cat E x) u0 u1)) (k : τ (Hom (Fibre_cat E x) u1 u2)) (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y))) (f : τ (Hom K x y))
+  (beta : τ (Obj (Hom_cat (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u2) v) )) ⊢
+  @eq_refl (Hom (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u0) v)
+    (fapp0 (@homd_u_action_leaf K E x u0 u2 (@comp_fapp0 (Fibre_cat E x) u0 u1 u2 k h) y v f) beta)
+  : τ (@= (Hom (Fibre_cat E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u0) v)
+      (fapp0 (@homd_u_action_leaf K E x u0 u1 h y v f)
+        (fapp0 (@homd_u_action_leaf K E x u1 u2 k y v f) beta))
+      (fapp0 (@homd_u_action_leaf K E x u0 u2 (@comp_fapp0 (Fibre_cat E x) u0 u1 u2 k h) y v f) beta));
