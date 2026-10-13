@@ -1,0 +1,13 @@
+// First whole-fibre consumer of j_F retains the reindexed native component.
+assert [A B : Cat] (F : τ (Functor A B))
+  (ba : τ (Obj (Product_cat (Op_cat B) A))) ⊢
+  @tapp0_fapp0 (Product_cat (Op_cat B) A) Cat_cat
+    (@Conjoint_prof A B F)
+    (@Prof_imply_cov B A B (@Unit_prof B) (@Companion_prof A B F)) ba
+    (@raw_represented_counit_closed_map A B F)
+  ≡ @tapp0_fapp0 (Product_cat (Op_cat B) B) Cat_cat
+      (@Unit_prof B)
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))
+      (@fapp0 (Product_cat (Op_cat B) A) (Product_cat (Op_cat B) B)
+        (@Prof_reindex_base_func B B B A (@id_func B) F) ba)
+      (@raw_represented_counit_unit_transpose B);

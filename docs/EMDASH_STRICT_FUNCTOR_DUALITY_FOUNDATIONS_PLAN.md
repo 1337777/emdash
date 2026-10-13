@@ -61,17 +61,31 @@ previous attribution of a blanket-curried migration to that comment was
 incorrect. The direct-curried experiment below is retained comparison
 evidence, not the selected repository migration.
 
-Continue from the q_unit reference (checkpoint 8d440ffb): qualify the actual
-Cartesian presentation maps at their expanded transformation action, and
-finish the whole represented-lift middle agreement/general-FF integration.
-The canonical unit/counit and both whole lift steps have checked components.
-Keep one shared profunctor tensor/closed/shaped-cell theory; the curried Homd
-view does not need a parallel collection of primitive operations. Its Q
-composition and units still need the real shared operations and their
-coherence. Since the selected implementation uses the presentation maps,
-their required higher-action comparisons remain on its dependency path.
-The all-curried experiment did not eliminate composition-normalization gaps
-and would additionally change the endpoint convention of existing consumers.
+Status at the 2026-10-13 bounded checkpoint: the work is still in core
+qualification, before the repository-wide migration. Strict-default action,
+corrected duality and the direct Homd ladder have checked prototype slices;
+the ladder still assumes structural Q/lift contracts. The new Cartesian/Q
+action suite passes 284 positive and 48 negative controls, and the separate
+raw-counit comparison variant passes 175 positive and 36 negative controls
+(both counts include inherited controls). These are not completion measures.
+The whole represented lift, local Cartesian admission of canonical raw maps,
+general-FF intrinsic action, downstream migration and production gates remain
+open. There is concrete computational evidence for the selected route, but
+no end-to-end qualification of the complete foundation yet.
+
+Continue from the cart_action successor of q_unit (8d440ffb): both separately
+expanded Cartesian transformation inverses and the actual product-prof/Q
+presentation-map inverses now check. Identity/composite and non-collapse
+consumers are included. The next required work is local Cartesian admission
+of the canonical profunctor operations without narrowing raw public maps,
+the represented lift's whole middle agreement, and general-FF intrinsic
+integration. The raw represented counit below now has an actual construction
+without identifying implication with a conjoint; its Cartesian admission,
+generator action and triangles still require qualification.
+Keep one shared profunctor tensor/closed/shaped-cell theory. Q's nested Hom
+type remains a convenient curried view with the existing endpoint convention.
+Its category structure and required higher action still need qualification;
+the alias itself adds no obstruction or new independent calculus.
 A candidate whole Homd target and direct projection ladder check
 under explicit structural Q/lift contracts; those contracts are not yet a
 qualified omega coefficient. The first failing full-file consumer is the old
@@ -1944,6 +1958,120 @@ The experiment retains these separate failed/unqualified boundaries:
 4. Complete represented lift/coherence, intrinsic general-FF action and
    production/consumer qualification remain required. There is no new
    completed Homd milestone in this tranche.
+
+## Cartesian action and presentation-inverse continuation
+
+The previous goal turn made progress: the presentation review corrected scope
+and retained the all-curried comparison experiment. This continuation keeps
+the selected product Prof theory and builds cart_action from the pinned q_unit
+source. No public Prof endpoint convention is changed.
+
+Native traces located two missing action rungs: the ambient view of Cartesian
+tele-postcomposition action, and the fixed-right product functor's full/capped
+transformation action. The latter is the pair of pre-whiskering by pi_1 and
+the identity at pi_2. Its real component consumer also requires the existing
+Cartesian product decomposition to agree with the StrictTransfor carrier and
+ambient inclusion. Constructor beta for paired raw transfors preserves their
+full/capped off-diagonal action; raw input pairs are not admitted as strict.
+
+Both expanded Cartesian round trips now compute on variable classified
+transformations, followed by the actual Prof_cov_curry_func/
+Prof_cov_uncurry_func consumers. The new inverse clauses complete the
+measured critical pairs of the already selected whole Cartesian beta/eta
+laws after generic action has expanded. They are structural computation
+clauses for those actual bodies, not arbitrary transfor extensionality and
+not conclusions inferred solely from matching components. A clause using
+the transparent curry aliases in its pattern did not match; the retained
+clauses use the actual runtime composition/product owners.
+
+Raw-composition views fold to the existing curry/uncurry definitions. These
+also join identity specializations after composition action exposes raw
+endpoints. Literal mapping-category patterns on identity data failed after
+product distribution. Their inferred categories are now omitted while the
+actual functor endpoints remain matched; omitting those endpoints too fails
+subject reduction. The actual ambient tele projection gets its identity law;
+the prior law named a legacy projection. Identity and composite inputs,
+perturbed evaluator cells, unrelated transformations and raw-profile rejection
+are tested. The actual Prof product-swap involution also retains its projected
+arrow action. No global strict naturality for FF or raw transfors is added.
+
+cart_action_verification.json pins the authoring/output hashes, exact receipts,
+warning changes and removal controls. The complete copied source still fails
+at the raw-FF/strict-Op_funcd boundary. The represented-lift mate still fails
+its whole middle-functor comparison. Passing the prefix does not qualify Q's
+full omega structure, its global raw/Cartesian profile integration or the
+production migration.
+
+The final Q action target passed in 5.968s at 499,888 KiB RSS under the normal
+90s/2GiB profile with subject reduction and warnings enabled. Its normalized
+unjoinable-pair inventory changes from 916 to 952; the exact added/removed
+blocks and measured consumer/removal checks are retained in the verification
+file. This is diagnostic review, not a confluence certificate. The strict LHS
+audit reports zero unreviewed clauses.
+
+## Raw represented counit through the existing closed core
+
+The separate raw_represented_counit replay uses the strict-default prefix
+before Prof and 21 unchanged existing raw production owner blocks. Public
+ProfMap and shaped-cell inputs remain ambient Functord. This is explicitly
+a bounded owner/first-consumer replay, not a full-source continuation.
+
+```text
+j_B = lambda_cov(coyoneda_cov(Unit_B)).
+j_F = reindex_transf(j_B, id_B, F)
+    : Conjoint(F) -> imply_cov(Unit_B, Companion(F)).
+counit_F = eval_cov(j_F)
+    : tensor(Conjoint(F), Companion(F)) -> Unit_B.
+```
+
+The constructor, identity and lambda/evaluation observations check. No
+implication-to-Conjoint or Unit/Unit implication collapse is installed. The
+identity specialization computes to the existing co-Yoneda map. This avoids
+the overly strong Cartesian-Yoneda identification when working with raw
+public Prof maps and requires no supplied comparison or strictness witness.
+
+The first whole-fibre observation of j_F exposes an existing rewrite-order
+problem: implication reindexing expands before the generic map-component
+projection. The preserved original-rule boundary still fails. A separately
+labelled candidate keeps the runtime reindexing head and moves that whole law
+to proof-time comparison. It matches rigid outer heads and compares the
+potentially normalized reindexed inputs in side conditions. The earlier
+nested-pattern comparison with a Unit/Unit instance passed that specialization
+but failed the additional general-law consumer; the single revised comparison
+passes both.
+Its j_F annotation and component observation use the stable reindexed target;
+the canonical implication target remains a typed proof-time view. This variant
+passes the component consumer and the general typed comparison. A smaller
+proposed fibre-only unifier did not
+solve the original comparison; that failed alternative is retained explicitly.
+The whole-law policy is not promoted without downstream qualification.
+
+The canonical map's Cartesian admission, evaluation on represented tensor
+generators, balancing and unit/counit triangles remain required. No second
+closed-prof theory follows from this construction. The exact bounded source
+closure and evidence live in raw_represented_counit_source_closure.md and
+raw_represented_counit_verification.json.
+
+The final comparison variant passed in 4.578s at 383,216 KiB RSS under the
+same normal guard. Its normalized unjoinable-pair inventory is unchanged
+(853); strict LHS review has zero unreviewed clauses. Removing the whole
+comparison fails its positive target agreement. The replay now reads the raw
+production owners from the baseline Git object: all 21 owner blocks and all
+emitted LP bytes are unchanged from the checked working-input version, so
+this evidence does not depend on the uncommitted production carrier move.
+
+User clarifications retained on 2026-10-13: naming the nested Hom type Q(A,B)
+creates no additional difficulty, and no immediate global Prof convention
+migration is requested. Restricting Q to the covariant Cat image alone would
+omit necessary Homd components: for terminal base, C=(0->1), u=1, the component
+Hom_C(1,-) has Empty and Terminal values, whereas the unique C->Terminal
+functor gives constant-Terminal data under that inclusion. Both represented
+orientations and their needed mixed composites must remain available. We
+qualify the limited operations used by Homd, while recognizing that a Q:Cat
+with the stated Hom classifier promises composition on all its inhabitants.
+Cart concerns the coefficient's map profile; homd_int/Functord and public FF
+retain their intended non-strict transformation profile. Earlier kernel
+computations do not remove the recorded Cartesian/Gray evaluation boundary.
 
 ## Deferred improvements under the migration boundary
 

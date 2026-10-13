@@ -1,0 +1,13 @@
+// Cartesian Hom already distributes over a product target. Its strict
+// transformation carrier must expose the same pair, whichever Hom/Obj
+// projection was evaluated first. This is not a restriction on raw transfors.
+rule @StrictTransfor $X (Product_cat $A $B) $F $G
+  ↪ Product_grpd
+      (@StrictTransfor $X $A (sigma_Fst $F) (sigma_Fst $G))
+      (@StrictTransfor $X $B (sigma_Snd $F) (sigma_Snd $G));
+
+// The actual ambient inclusion preserves that product decomposition.
+rule @strict_transfor $X (Product_cat $A $B) $F $G (@Struct_sigma _ _ $r $s)
+  ↪ @Struct_sigma _ _
+      (@strict_transfor $X $A (sigma_Fst $F) (sigma_Fst $G) $r)
+      (@strict_transfor $X $B (sigma_Snd $F) (sigma_Snd $G) $s);

@@ -1,0 +1,43 @@
+/* NON-LIBRARY raw represented counit through the existing closed core.
+
+   ProfMap retains its public ambient displayed-map profile. The represented
+   map into implication is constructed; implication is not identified with a
+   conjoint. Cartesian admission and generator/triangle computation are
+   separate obligations, not inputs to any operation below.
+*/
+
+// j_B is the closed transpose of the existing right-unit co-Yoneda map.
+symbol raw_represented_counit_unit_transpose (B : Cat)
+  : τ (ProfMap
+      (@Unit_prof B)
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+≔ @Prof_lambda_cov_map B B B
+    (@Unit_prof B) (@Unit_prof B) (@Unit_prof B)
+    (@Prof_coyoneda_cov_map B B (@Unit_prof B));
+
+// j_F is j_B reindexed along (id_B,F). The existing implication-reindex
+// rule gives its target; no Yoneda object identification is used.
+symbol raw_represented_counit_closed_map [A B : Cat]
+  (F : τ (Functor A B))
+  : τ (ProfMap
+      (@Conjoint_prof A B F)
+      (@Prof_imply_cov B A B
+        (@Unit_prof B) (@Companion_prof A B F)))
+≔ @Prof_reindex_transf B B B A
+    (@Unit_prof B)
+    (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))
+    (@raw_represented_counit_unit_transpose B)
+    (@id_func B) F;
+
+// The canonical raw counit evaluates the constructed j_F.
+symbol raw_represented_counit [A B : Cat]
+  (F : τ (Functor A B))
+  : τ (ProfMap
+      (@Prof_tensor B A B
+        (@Conjoint_prof A B F) (@Companion_prof A B F))
+      (@Unit_prof B))
+≔ @Prof_eval_cov_map B A B
+    (@Conjoint_prof A B F)
+    (@Companion_prof A B F)
+    (@Unit_prof B)
+    (@raw_represented_counit_closed_map A B F);

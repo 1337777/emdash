@@ -1,0 +1,69 @@
+// NON-LIBRARY first consumers. Assertions are proposed until a separate
+// bounded checker receipt records their outcomes.
+
+// Public raw map and shaped-cell inputs keep their displayed profile.
+assert [A B : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q)) ⊢
+  r : τ (@Functord (Product_cat (Op_cat A) B) P Q);
+assert [A B : Cat] (F : τ (Functor A B))
+  (r : τ (@Functord (Product_cat (Op_cat A) A)
+    (@Unit_prof A) (@Prof_reindex B A B A (@Unit_prof B) F F))) ⊢
+  r : τ (@Prof_hom A B B F (@Unit_prof B) F);
+assertnot [A B : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q)) ⊢
+  r : τ (@StrictTransfor (Product_cat (Op_cat A) B) Cat_cat P Q);
+assertnot [A B : Cat] ⊢
+  Prof_cat A B ≡ Functor_cart_cat (Product_cat (Op_cat A) B) Cat_cat;
+
+// The target is computed by the actual implication-reindex owner.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @Prof_reindex B B B A
+    (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F
+  ≡ @Prof_imply_cov B A B (@Unit_prof B) (@Companion_prof A B F);
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @raw_represented_counit_closed_map A B F
+  : τ (ProfMap (@Conjoint_prof A B F)
+      (@Prof_imply_cov B A B (@Unit_prof B) (@Companion_prof A B F)));
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @raw_represented_counit A B F
+  : τ (ProfMap
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+      (@Unit_prof B));
+
+// First counit observation is a whole functor, not a supplied point map.
+assert [A B : Cat] (F : τ (Functor A B))
+  (bb : τ (Obj (Product_cat (Op_cat B) B))) ⊢
+  @tapp0_fapp0 (Product_cat (Op_cat B) B) Cat_cat
+    (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+    (@Unit_prof B) bb (@raw_represented_counit A B F)
+  : τ (Functor
+      (@fapp0 (Product_cat (Op_cat B) B) Cat_cat
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) bb)
+      (Hom_cat B (sigma_Fst bb) (sigma_Snd bb)));
+
+// Identity boundary uses neutral reindexing and the existing closed beta.
+assert (B : Cat) ⊢
+  @raw_represented_counit_closed_map B B (@id_func B)
+  ≡ @raw_represented_counit_unit_transpose B;
+assert (B : Cat) ⊢
+  @raw_represented_counit B B (@id_func B)
+  ≡ @Prof_coyoneda_cov_map B B (@Unit_prof B);
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @Prof_lambda_cov_map B A B
+    (@Conjoint_prof A B F) (@Companion_prof A B F) (@Unit_prof B)
+    (@raw_represented_counit A B F)
+  ≡ @raw_represented_counit_closed_map A B F;
+
+// No represented-implication or Unit/Unit collapse has been introduced.
+assertnot [A B : Cat] (F : τ (Functor A B)) ⊢
+  @Prof_imply_cov B A B (@Unit_prof B) (@Companion_prof A B F)
+  ≡ @Conjoint_prof A B F;
+assertnot (B : Cat) ⊢
+  @Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B) ≡ @Unit_prof B;
+assertnot [A B : Cat] [P Q : τ (Prof A B)] (r s : τ (ProfMap P Q)) ⊢ r ≡ s;
+
+// This negative checks absence of implicit admission, not mathematical
+// non-strictness of the canonical map. Its Cartesian qualification is open.
+assertnot [A B : Cat] (F : τ (Functor A B)) ⊢
+  @raw_represented_counit A B F
+  : τ (@StrictTransfor (Product_cat (Op_cat B) B) Cat_cat
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+      (@Unit_prof B));

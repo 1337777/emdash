@@ -1,0 +1,30 @@
+// Full Hom action of the existing fixed-right product package. Keep the
+// whole Product_cat_func body stable; project only its higher action.
+// alpha |-> (alpha whiskered by pi_1, id_pi_2).
+rule @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_func _ _ (@tapp0_func Cat_cat Cat_cat _ _ $B) _ _)
+      (@fapp1_func _ _ (@Product_cat_fapp1_func $A $A') $F $G)
+  ↪ @Struct_sigma _ _
+      (@fapp1_func
+        (Functor_cart_cat $A $A')
+        (Functor_cart_cat (Product_cat $A $B) $A')
+        (@comp_cat_con_cart_func (Product_cat $A $B) $A $A'
+          (@Product_projL_func $A $B)) $F $G)
+      (@Const_func
+        (Hom_cat (Functor_cart_cat $A $A') $F $G)
+        (Hom_cat (Functor_cart_cat (Product_cat $A $B) $B)
+          (@Product_projR_func $A $B) (@Product_projR_func $A $B))
+        (@id (Functor_cart_cat (Product_cat $A $B) $B)
+          (@Product_projR_func $A $B)));
+
+// Capped observation when the whole product action has projected first.
+rule @tapp0_hom_fapp0 Cat_cat Cat_cat _ _ _ _ $B
+      (@fapp1_fapp0 _ _ (@Product_cat_fapp1_func $A $A') $F $G $alpha)
+  ↪ @Struct_sigma _ _
+      (@fapp1_fapp0
+        (Functor_cart_cat $A $A')
+        (Functor_cart_cat (Product_cat $A $B) $A')
+        (@comp_cat_con_cart_func (Product_cat $A $B) $A $A'
+          (@Product_projL_func $A $B)) $F $G $alpha)
+      (@id (Functor_cart_cat (Product_cat $A $B) $B)
+        (@Product_projR_func $A $B));

@@ -1,0 +1,6 @@
+// The existing whole product-swap involution, after both functor actions
+// have been projected separately. This duality swaps the product variables;
+// it does not take fibre opposites or reverse a transformation's naturality.
+rule @fapp1_fapp0 _ _ (@Op_prof_func _ _) _ _
+      (@fapp1_fapp0 _ _ (@Op_prof_func $A $B) $P $Q $r)
+  ↪ $r;

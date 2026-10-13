@@ -1,0 +1,13 @@
+// Canonical raw-composition views of the two existing Cartesian bodies.
+// Composition action produces these endpoints before its stable Hom-action
+// point views. Fold to the existing aliases, preserving their semantic bodies.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@Eval_func $B $C)
+      (@Product_cat_fapp1_tapp0_func $A _ $B $G)
+  ↪ @uncurry_func $A $B $C $G;
+
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $B (Product_cat $A $B) $C $F)
+      (@Product_pair_tele_func $A $B)
+  ↪ @curry_func $A $B $C $F;

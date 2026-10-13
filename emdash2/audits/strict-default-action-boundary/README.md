@@ -771,3 +771,41 @@ that all generic ProfMap or Prof_hom inputs should become strict. Existing
 reindexing, shaped PathOut, join and DefIso consumers use their ambient views.
 Qualify the coefficient restriction and inclusion at shared owners before
 production promotion; do not duplicate a curried Prof theory.
+
+## Cartesian action and expanded presentation inverses
+
+`cart_action_migration.py` extends the selected q_unit copy at the actual
+projection owners. Both Cartesian transformation round trips and the actual
+product-prof/Q bridge round trips check, with raw-transfor rejection and
+non-collapse controls. The existing semantic curry/uncurry definitions remain.
+The new inverse clauses complete their whole-beta/eta versus expanded-action
+critical pairs; do not describe them as arbitrary transformation extensionality.
+The product action and inclusion projections have independent consumers.
+
+```bash
+python3 audits/strict-default-action-boundary/cart_action_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_cart_action/q_bridge_actions.lp
+```
+
+The verification file records exact final inputs, warnings, measurements,
+removal/minimization failures and the remaining mate/full-source boundaries.
+Replay after Cartesian action, product/inclusion, identity normalization,
+presentation-map or represented-lift changes. This is non-library evidence;
+production qualification and the public raw/Cartesian Prof boundary remain open.
+
+## Raw represented counit without an implication identification
+
+`raw_represented_counit_migration.py` emits the explicit bounded owner closure
+specified by raw_represented_counit_source_closure.md. The actual counit body
+uses lambda of co-Yoneda, reindexing, then evaluation. Original raw public map
+and shaped-cell profiles remain; no implication-to-Conjoint fold is used.
+The constructor, identity and closed-beta controls check. The original
+component_boundary remains a failed positive obligation. comparison_variant
+passes by retaining the reindex head and using a whole proof-time comparison
+whose side conditions handle normalized target inputs. Both its general-law
+and represented-component consumers pass; it remains a separate policy
+candidate. The earlier nested-pattern and fibre-only alternatives fail their
+respective consumers and are not selected. Cartesian
+admission, generator computation, balancing and triangle coherence are open.
+See raw_represented_counit_verification.json for exact source/receipt evidence.

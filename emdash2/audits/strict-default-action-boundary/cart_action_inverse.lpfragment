@@ -1,0 +1,34 @@
+// Completion of the measured higher-action critical pair for the existing
+// Cartesian curry/uncurry beta law. The whole composite already reduces to
+// identity. Projecting both arrows first instead exposes the product action,
+// three composition actions and identity cells shown here. The native
+// projection rungs preceding this clause are qualified independently.
+// This clause is restricted to those actual bodies; it is not a law for
+// arbitrary functors, ambient lax currying, or supplied inverse evidence.
+rule @comp_prod_fapp1_fapp0 Cat_cat _ _ _
+      (@Struct_sigma _ _
+        (@Product_cat_fapp1_tapp0_func $A _ $B
+          (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+            (@Product_pair_tele_func $A $B)
+            (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ $F)))
+        (@Eval_func $B $C))
+      (@Struct_sigma _ _
+        (@Product_cat_fapp1_tapp0_func $A _ $B
+          (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+            (@Product_pair_tele_func $A $B)
+            (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ $G)))
+        (@Eval_func $B $C))
+      (@Struct_sigma _ _
+        (@Struct_sigma _ _
+          (@comp_prod_fapp1_fapp0 Cat_cat _ _ _ _ _
+            (@Struct_sigma _ _
+              (@id _ (@Product_projL_func $A $B))
+              (@comp_prod_fapp1_fapp0 Cat_cat _ _ _ _ _
+                (@Struct_sigma _ _
+                  (@id _ (@Product_pair_tele_func $A $B))
+                  (@fapp1_fapp0 _ _
+                    (@hom_postcomp_tele_cart_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+                      $B (Product_cat $A $B) $C) $F $G $alpha)))))
+          (@id _ (@Product_projR_func $A $B)))
+        (@id _ (@Eval_func $B $C)))
+  ↪ $alpha;

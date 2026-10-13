@@ -1,0 +1,16 @@
+// Actual Q presentation-map consumers, with the Cartesian profile of this prototype.
+assert [A B : Cat] [P Q : τ (Prof B A)] (r : τ (Hom (Prof_cat B A) P Q)) ⊢
+  @fapp1_fapp0 _ _ (Prof_cov_uncurry_func A B)
+    (fapp0 (Prof_cov_curry_func A B) P) (fapp0 (Prof_cov_curry_func A B) Q)
+    (@fapp1_fapp0 _ _ (Prof_cov_curry_func A B) P Q r) ≡ r;
+assert [A B : Cat] [P Q : τ (Hom Prof_cov_universe A B)]
+  (r : τ (Hom (Hom_cat Prof_cov_universe A B) P Q)) ⊢
+  @fapp1_fapp0 _ _ (Prof_cov_curry_func A B)
+    (fapp0 (Prof_cov_uncurry_func A B) P) (fapp0 (Prof_cov_uncurry_func A B) Q)
+    (@fapp1_fapp0 _ _ (Prof_cov_uncurry_func A B) P Q r) ≡ r;
+
+// Opposite/swap action retains arbitrary original map data.
+assertnot [A B : Cat] [P Q : τ (Prof A B)] (r s : τ (Hom (Prof_cat A B) P Q)) ⊢
+  @fapp1_fapp0 _ _ (@Op_prof_func (Op_cat B) (Op_cat A))
+    (@Op_prof A B P) (@Op_prof A B Q)
+    (@fapp1_fapp0 _ _ (@Op_prof_func A B) P Q r) ≡ s;

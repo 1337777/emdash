@@ -1,0 +1,118 @@
+// The accepted whole Cartesian inverse, followed by its actual arrow action.
+// This is the independent parent path of the completed critical pair.
+assert [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (alpha : τ (Hom (Functor_cart_cat (Product_cat A B) C) F G)) ⊢
+  @fapp1_fapp0 _ _
+    (@comp_cat_fapp0 _ _ _ (@uncurry_func_func A B C) (@curry_func_func A B C))
+    F G alpha ≡ alpha;
+
+// The same inverse after each operation's action is projected separately.
+assert [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (alpha : τ (Hom (Functor_cart_cat (Product_cat A B) C) F G)) ⊢
+  @fapp1_fapp0 _ _ (@uncurry_func_func A B C)
+    (@curry_func A B C F) (@curry_func A B C G)
+    (@fapp1_fapp0 _ _ (@curry_func_func A B C) F G alpha)
+  ≡ alpha;
+
+// Its raw composition endpoint is the same object-level Cartesian beta.
+assert [A B C : Cat] (F : τ (Functor (Product_cat A B) C)) ⊢
+  @comp_cat_fapp0 (Product_cat A B) (Product_cat (Functor_cart_cat B C) B) C
+    (@Eval_func B C)
+    (@Product_cat_fapp1_tapp0_func A (Functor_cart_cat B C) B (@curry_func A B C F))
+  ≡ F;
+
+// The transformed arrow remains the original data; it is not made constant.
+assertnot [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (alpha beta : τ (Hom (Functor_cart_cat (Product_cat A B) C) F G)) ⊢
+  @fapp1_fapp0 _ _ (@uncurry_func_func A B C)
+    (@curry_func A B C F) (@curry_func A B C G)
+    (@fapp1_fapp0 _ _ (@curry_func_func A B C) F G alpha)
+  ≡ beta;
+
+// Test-side evaluator perturbation; its body is shared by both inverse tests.
+symbol cart_action_perturbed_uncurry [A B C : Cat]
+  (F G : τ (Functor A (Functor_cart_cat B C)))
+  (alpha : τ (Hom (Functor_cart_cat A (Functor_cart_cat B C)) F G))
+  (epsilon : τ (Hom (Functor_cart_cat (Product_cat (Functor_cart_cat B C) B) C)
+    (@Eval_func B C) (@Eval_func B C)))
+  : τ (Hom (Functor_cart_cat (Product_cat A B) C)
+      (@uncurry_func A B C F) (@uncurry_func A B C G))
+≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat A B)
+    (Product_cat (Functor_cart_cat B C) B) C
+    (@Product_pair
+      (Functor_cart_cat (Product_cat A B) (Product_cat (Functor_cart_cat B C) B))
+      (Functor_cart_cat (Product_cat (Functor_cart_cat B C) B) C)
+      (@Product_cat_fapp1_tapp0_func A (Functor_cart_cat B C) B F)
+      (@Eval_func B C))
+    (@Product_pair
+      (Functor_cart_cat (Product_cat A B) (Product_cat (Functor_cart_cat B C) B))
+      (Functor_cart_cat (Product_cat (Functor_cart_cat B C) B) C)
+      (@Product_cat_fapp1_tapp0_func A (Functor_cart_cat B C) B G)
+      (@Eval_func B C))
+    (@Struct_sigma _ _
+      (@fapp1_fapp0 _ _ (@Product_mapL_func_func A (Functor_cart_cat B C) B)
+        F G
+        alpha) epsilon);
+
+
+symbol cart_action_perturbed_inverse [A B C : Cat] (F G : τ (Functor (Product_cat A B) C))
+  (alpha : τ (Hom (Functor_cart_cat (Product_cat A B) C) F G))
+  (epsilon : τ (Hom (Functor_cart_cat (Product_cat (Functor_cart_cat B C) B) C)
+      (@Eval_func B C) (@Eval_func B C)))
+  : τ (Hom (Functor_cart_cat (Product_cat A B) C) F G)
+≔ @cart_action_perturbed_uncurry A B C
+    (@curry_func A B C F) (@curry_func A B C G)
+    (@fapp1_fapp0 _ _ (@curry_func_func A B C) F G alpha) epsilon;
+
+// The extra evaluator cell is well typed and genuinely retained.
+assert [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (alpha : τ (Hom (Functor_cart_cat (Product_cat A B) C) F G)) ⊢
+  @cart_action_perturbed_inverse A B C F G alpha
+    (@id (Functor_cart_cat (Product_cat (Functor_cart_cat B C) B) C) (@Eval_func B C))
+  ≡ alpha;
+assertnot [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (alpha : τ (Hom (Functor_cart_cat (Product_cat A B) C) F G))
+  (epsilon : τ (Hom (Functor_cart_cat (Product_cat (Functor_cart_cat B C) B) C)
+    (@Eval_func B C) (@Eval_func B C))) ⊢
+  @cart_action_perturbed_inverse A B C F G alpha epsilon ≡ alpha;
+
+// Both the whole-first and separately projected reverse paths recover alpha.
+assert [A B C : Cat] [F G : τ (Functor A (Functor_cart_cat B C))]
+  (alpha : τ (Hom (Functor_cart_cat A (Functor_cart_cat B C)) F G)) ⊢
+  @fapp1_fapp0 _ _
+    (@comp_cat_fapp0 _ _ _ (@curry_func_func A B C) (@uncurry_func_func A B C))
+    F G alpha ≡ alpha;
+assert [A B C : Cat] [F G : τ (Functor A (Functor_cart_cat B C))]
+  (alpha : τ (Hom (Functor_cart_cat A (Functor_cart_cat B C)) F G)) ⊢
+  @fapp1_fapp0 _ _ (@curry_func_func A B C)
+    (@uncurry_func A B C F) (@uncurry_func A B C G)
+    (@fapp1_fapp0 _ _ (@uncurry_func_func A B C) F G alpha) ≡ alpha;
+assertnot [A B C : Cat] [F G : τ (Functor A (Functor_cart_cat B C))]
+  (alpha : τ (Hom (Functor_cart_cat A (Functor_cart_cat B C)) F G))
+  (epsilon : τ (Hom (Functor_cart_cat (Product_cat (Functor_cart_cat B C) B) C)
+    (@Eval_func B C) (@Eval_func B C))) ⊢
+  @fapp1_fapp0 _ _ (@curry_func_func A B C)
+    (@uncurry_func A B C F) (@uncurry_func A B C G)
+    (@cart_action_perturbed_uncurry A B C F G alpha epsilon) ≡ alpha;
+
+// Identity and composite inputs can normalize before the new inverse cut.
+assert [A B C : Cat] (F : τ (Functor (Product_cat A B) C)) ⊢
+  @fapp1_fapp0 _ _ (@uncurry_func_func A B C)
+    (@curry_func A B C F) (@curry_func A B C F)
+    (@fapp1_fapp0 _ _ (@curry_func_func A B C) F F
+      (@id (Functor_cart_cat (Product_cat A B) C) F))
+  ≡ @id (Functor_cart_cat (Product_cat A B) C) F;
+assert [A B C : Cat] (F : τ (Functor A (Functor_cart_cat B C))) ⊢
+  @fapp1_fapp0 _ _ (@curry_func_func A B C)
+    (@uncurry_func A B C F) (@uncurry_func A B C F)
+    (@fapp1_fapp0 _ _ (@uncurry_func_func A B C) F F
+      (@id (Functor_cart_cat A (Functor_cart_cat B C)) F))
+  ≡ @id (Functor_cart_cat A (Functor_cart_cat B C)) F;
+assert [A B C : Cat] [F G H : τ (Functor (Product_cat A B) C)]
+  (r : τ (Hom (Functor_cart_cat (Product_cat A B) C) F G))
+  (s : τ (Hom (Functor_cart_cat (Product_cat A B) C) G H)) ⊢
+  @fapp1_fapp0 _ _ (@uncurry_func_func A B C)
+    (@curry_func A B C F) (@curry_func A B C H)
+    (@fapp1_fapp0 _ _ (@curry_func_func A B C) F H
+      (@comp_fapp0 (Functor_cart_cat (Product_cat A B) C) F G H s r))
+  ≡ @comp_fapp0 (Functor_cart_cat (Product_cat A B) C) F G H s r;

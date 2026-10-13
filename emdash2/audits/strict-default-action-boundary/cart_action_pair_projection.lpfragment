@@ -1,0 +1,18 @@
+// Constructor beta for a pair of ambient transformations. Product-valued
+// transformation categories already split; evaluate the actual pair without
+// requiring the user to project its result one coordinate at a time.
+rule @tapp0_fapp0 $X (Product_cat $A $B) $F $G $x (@Struct_sigma _ _ $r $s)
+  ↪ @Struct_sigma _ _
+      (@tapp0_fapp0 $X $A (sigma_Fst $F) (sigma_Fst $G) $x $r)
+      (@tapp0_fapp0 $X $B (sigma_Snd $F) (sigma_Snd $G) $x $s);
+
+// Retain the full off-diagonal Hom action and its separately capped value.
+rule @tapp1_func $X (Product_cat $A $B) $F $G $x $y (@Struct_sigma _ _ $r $s)
+  ↪ @Struct_sigma _ _
+      (@tapp1_func $X $A (sigma_Fst $F) (sigma_Fst $G) $x $y $r)
+      (@tapp1_func $X $B (sigma_Snd $F) (sigma_Snd $G) $x $y $s);
+
+rule @tapp1_fapp0 $X (Product_cat $A $B) $F $G $x $y (@Struct_sigma _ _ $r $s) $p
+  ↪ @Struct_sigma _ _
+      (@tapp1_fapp0 $X $A (sigma_Fst $F) (sigma_Fst $G) $x $y $r $p)
+      (@tapp1_fapp0 $X $B (sigma_Snd $F) (sigma_Snd $G) $x $y $s $p);

@@ -1,0 +1,13 @@
+// Normalized fibre view of the existing whole implication-reindex law.
+// The first input's identity reindex has disappeared. This comparison keeps
+// every runtime owner unchanged and is specific to the represented consumer.
+unif_rule
+  @fapp0 _ Cat_cat
+    (@Prof_imply_cov $B $A $B (@Unit_prof $B)
+      (@Prof_reindex $B $A $B $B (@Unit_prof $B) $F (@id Cat_cat $B))) $ba
+  ≡ @fapp0 _ Cat_cat
+      (@Prof_imply_cov $B $B $B (@Unit_prof $B) (@Unit_prof $B))
+      (@fapp0 _ _
+        (@Product_map_func (Op_cat $B) (Op_cat $B) $A $B
+          (@id Cat_cat (Op_cat $B)) $F) $ba)
+  ↪ [ tt ≡ tt ];

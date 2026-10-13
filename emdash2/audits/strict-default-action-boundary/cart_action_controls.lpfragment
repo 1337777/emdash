@@ -1,0 +1,112 @@
+// The Cartesian tele inclusion exposes the existing ambient action.
+assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
+  [X Y : τ (Obj B)] [f g : τ (Hom B X Y)]
+  (alpha : τ (Hom (Hom_cat B X Y) f g)) ⊢
+  @strict_transfor _ _ _ _
+    (@fapp1_fapp0 _ _ (@hom_postcomp_tele_cart_func A B F W X Y) f g alpha)
+  ≡ @hom_postcomp_tele_transf A B F W X Y f g alpha;
+
+// Give the native Hom codomain before asking Lambdapi to infer a pair.
+// This is a test-side expected whole functor, not a new production owner.
+symbol cart_action_product_expected [A A' B : Cat] (F G : τ (Functor A A'))
+  : τ (Functor (Hom_cat (Functor_cart_cat A A') F G)
+      (Hom_cat (Functor_cart_cat (Product_cat A B) (Product_cat A' B))
+        (@Product_cat_fapp1_tapp0_func A A' B F)
+        (@Product_cat_fapp1_tapp0_func A A' B G)))
+≔ @Struct_sigma _ _
+    (@fapp1_func _ _
+      (@comp_cat_con_cart_func (Product_cat A B) A A' (@Product_projL_func A B)) F G)
+    (@Const_func (Hom_cat (Functor_cart_cat A A') F G)
+      (Hom_cat (Functor_cart_cat (Product_cat A B) B)
+        (@Product_projR_func A B) (@Product_projR_func A B))
+      (@id (Functor_cart_cat (Product_cat A B) B) (@Product_projR_func A B)));
+
+// Both full and separately capped product-map action retain the same data.
+assert [A A' B : Cat] (F G : τ (Functor A A')) ⊢
+  @fapp1_func _ _ (@Product_mapL_func_func A A' B) F G
+  ≡ @cart_action_product_expected A A' B F G;
+assert [A A' B : Cat] [F G : τ (Functor A A')]
+  (alpha : τ (Hom (Functor_cart_cat A A') F G)) ⊢
+  @fapp1_fapp0 _ _ (@Product_mapL_func_func A A' B) F G alpha
+  ≡ fapp0 (@cart_action_product_expected A A' B F G) alpha;
+
+// Actual product transformation component, not just a classifier test.
+assert [A A' B : Cat] [F G : τ (Functor A A')]
+  (alpha : τ (Hom (Functor_cart_cat A A') F G))
+  (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  @tapp0_fapp0 (Product_cat A B) (Product_cat A' B)
+    (@Product_cat_fapp1_tapp0_func A A' B F) (@Product_cat_fapp1_tapp0_func A A' B G)
+    (@Product_pair A B a b)
+    (@strict_transfor (Product_cat A B) (Product_cat A' B)
+      (@Product_cat_fapp1_tapp0_func A A' B F) (@Product_cat_fapp1_tapp0_func A A' B G)
+      (@fapp1_fapp0 _ _ (@Product_mapL_func_func A A' B) F G alpha))
+  ≡ @Product_pair
+      (Hom_cat A' (fapp0 F a) (fapp0 G a)) (Hom_cat B b b)
+      (@tapp0_fapp0 A A' F G a (@strict_transfor A A' F G alpha)) (@id B b);
+
+// Arbitrary ambient transformations cannot enter the Cartesian product map.
+assertnot [A A' B : Cat] [F G : τ (Functor A A')]
+  (alpha : τ (Transf F G)) ⊢
+  @fapp1_fapp0 _ _ (@Product_mapL_func_func A A' B) F G alpha
+  : τ (Hom (Functor_cart_cat (Product_cat A B) (Product_cat A' B))
+      (@Product_cat_fapp1_tapp0_func A A' B F)
+      (@Product_cat_fapp1_tapp0_func A A' B G));
+
+// Test-side raw product construction. Its two components remain arbitrary
+// ambient transformations, independently of the Cartesian operation above.
+symbol cart_action_raw_pair [X A B : Cat] [F G : τ (Functor X (Product_cat A B))]
+  (r : τ (Transf (sigma_Fst F) (sigma_Fst G)))
+  (s : τ (Transf (sigma_Snd F) (sigma_Snd G))) : τ (Transf F G)
+≔ @Struct_sigma _ _ r s;
+
+symbol cart_action_raw_pair_expected [X A B : Cat]
+  [F G : τ (Functor X (Product_cat A B))]
+  (r : τ (Transf (sigma_Fst F) (sigma_Fst G)))
+  (s : τ (Transf (sigma_Snd F) (sigma_Snd G))) (x y : τ (Obj X))
+  : τ (Functor (Hom_cat X x y)
+      (Hom_cat (Product_cat A B) (fapp0 F x) (fapp0 G y)))
+≔ @Struct_sigma _ _
+    (@tapp1_func X A (sigma_Fst F) (sigma_Fst G) x y r)
+    (@tapp1_func X B (sigma_Snd F) (sigma_Snd G) x y s);
+
+assert [X A B : Cat] [F G : τ (Functor X (Product_cat A B))]
+  (r : τ (Transf (sigma_Fst F) (sigma_Fst G)))
+  (s : τ (Transf (sigma_Snd F) (sigma_Snd G))) (x y : τ (Obj X)) ⊢
+  @tapp1_func X (Product_cat A B) F G x y (@cart_action_raw_pair X A B F G r s)
+  ≡ @cart_action_raw_pair_expected X A B F G r s x y;
+assert [X A B : Cat] [F G : τ (Functor X (Product_cat A B))]
+  (r : τ (Transf (sigma_Fst F) (sigma_Fst G)))
+  (s : τ (Transf (sigma_Snd F) (sigma_Snd G)))
+  [x y : τ (Obj X)] (p : τ (Hom X x y)) ⊢
+  @tapp1_fapp0 X (Product_cat A B) F G x y (@cart_action_raw_pair X A B F G r s) p
+  ≡ fapp0 (@cart_action_raw_pair_expected X A B F G r s x y) p;
+assertnot [X A B : Cat] [F G : τ (Functor X (Product_cat A B))]
+  (r : τ (Transf (sigma_Fst F) (sigma_Fst G)))
+  (s : τ (Transf (sigma_Snd F) (sigma_Snd G))) ⊢
+  @cart_action_raw_pair X A B F G r s : τ (@StrictTransfor X (Product_cat A B) F G);
+
+
+assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
+ [X Y : τ (Obj B)] (f : τ (Hom B X Y)) ⊢
+ @hom_postcomp_tele_transf A B F W X Y f f (@id (Hom_cat B X Y) f)
+ ≡ @id (Functor_cat (Hom_cat A W (fapp0 F X)) (Hom_cat A W (fapp0 F Y)))
+   (@hom_postcomp_func A B F W X Y f);
+assert [A A' B : Cat] (F : τ (Functor A A')) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+ @tapp0_fapp0 (Product_cat A B) (Product_cat A' B)
+   (@Product_cat_fapp1_tapp0_func A A' B F) (@Product_cat_fapp1_tapp0_func A A' B F)
+   (@Product_pair A B a b)
+   (@strict_transfor (Product_cat A B) (Product_cat A' B)
+     (@Product_cat_fapp1_tapp0_func A A' B F) (@Product_cat_fapp1_tapp0_func A A' B F)
+     (@fapp1_fapp0 _ _ (@Product_mapL_func_func A A' B) F F (@id (Functor_cart_cat A A') F)))
+ ≡ @id (Product_cat A' B) (@Product_pair A' B (fapp0 F a) b);
+
+// The same identity normalization preserves the full raw transfor ladder.
+assert [X A B : Cat] (F : τ (Functor X (Product_cat A B))) (x y : τ (Obj X)) ⊢
+  @tapp1_func X (Product_cat A B) F F x y
+    (@id (Functor_cat X (Product_cat A B)) F)
+  ≡ @fapp1_func X (Product_cat A B) F x y;
+assert [X A B : Cat] (F : τ (Functor X (Product_cat A B)))
+  [x y : τ (Obj X)] (p : τ (Hom X x y)) ⊢
+  @tapp1_fapp0 X (Product_cat A B) F F x y
+    (@id (Functor_cat X (Product_cat A B)) F) p
+  ≡ @fapp1_fapp0 X (Product_cat A B) F x y p;

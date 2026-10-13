@@ -1,0 +1,25 @@
+// Projected counterpart of the already checked whole reverse inverse.
+rule @comp_prod_fapp1_fapp0 Cat_cat _ _ _
+      (@Struct_sigma _ _ (@Product_pair_tele_func $A $B)
+        (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+            (@Eval_func $B $C) (@Product_cat_fapp1_tapp0_func $A _ $B $F))))
+      (@Struct_sigma _ _ (@Product_pair_tele_func $A $B)
+        (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+            (@Eval_func $B $C) (@Product_cat_fapp1_tapp0_func $A _ $B $G))))
+      (@Struct_sigma _ _
+        (@id _ (@Product_pair_tele_func $A $B))
+        (@fapp1_fapp0 _ _
+          (@hom_postcomp_tele_cart_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+            $B (Product_cat $A $B) $C) _ _
+          (@comp_prod_fapp1_fapp0 Cat_cat _ _ _ _ _
+            (@Struct_sigma _ _
+              (@Struct_sigma _ _
+                (@comp_prod_fapp1_fapp0 Cat_cat _ _ _
+                  (@Struct_sigma _ _ (@Product_projL_func $A $B) $F)
+                  (@Struct_sigma _ _ (@Product_projL_func $A $B) $G)
+                  (@Struct_sigma _ _ (@id _ (@Product_projL_func $A $B)) $alpha))
+                (@id _ (@Product_projR_func $A $B)))
+              (@id _ (@Eval_func $B $C))))))
+  ↪ $alpha;

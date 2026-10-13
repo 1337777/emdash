@@ -1,0 +1,15 @@
+// Projection-order join for the existing Cartesian-to-ambient inclusion
+// of tele-postcomposition. The whole inclusion square already computes;
+// this clause retains its action after the Cartesian arrow is exposed first.
+rule @strict_transfor _ _ _ _
+      (@fapp1_fapp0 _ _
+        (@hom_postcomp_tele_cart_func $A $B $F $W $X $Y) $f $g $alpha)
+  ↪ @hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha;
+
+// Identity input of the actual ambient telescope projection. The older
+// identity clause named a different, legacy projection head.
+rule @hom_postcomp_tele_transf $A $B $F $W $X $Y $f $f (@id _ $f)
+  ↪ @id
+      (Functor_cat (Hom_cat $A $W (@fapp0 $B $A $F $X))
+        (Hom_cat $A $W (@fapp0 $B $A $F $Y)))
+      (@hom_postcomp_func $A $B $F $W $X $Y $f);

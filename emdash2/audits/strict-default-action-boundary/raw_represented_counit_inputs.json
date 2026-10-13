@@ -1,0 +1,10 @@
+{
+  "status": "source pins for authoring-only bounded raw represented counit replay",
+  "productionRevision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "sourceInputs": {
+    "emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "tmp/probes/strict_default_q_unit/emdash3_2.lp": "5fc012428fb35bad5e810524196e85df66bede88bb4188f1a2b248b156cdc60e",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/q_unit_verification.json": "89e97251fc766b9f3f1d75dc5a106755ced0759c745055c49e4e9b5012f3eec0"
+  }
+}
