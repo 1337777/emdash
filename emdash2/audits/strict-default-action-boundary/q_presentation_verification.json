@@ -1,0 +1,447 @@
+{
+  "status": "non-library: generic whole presentation inverses, tensor-derived Q composition and native counit type checked; separately expanded/represented inverse joins, Q/lift coherence and full migration incomplete",
+  "qClosedInputSha256": "e3f6ca50c7f8d01afc10ad4858d90982ec13d6b78369120fd409b9a09dc913da",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/q_presentation_migration.py": "664673ce6ced7070923c3cad403c881b7b996460cc1cb9c1d724d646d4a924b6",
+    "audits/strict-default-action-boundary/cartesian_inverse_rules.lpfragment": "2e12061b0569d4bcca145b07111639110f2ce1877308a8df6da6f3269eabd389",
+    "audits/strict-default-action-boundary/cartesian_inverse_controls.lpfragment": "e489fda78512846edc530a375a63948be9ac2351773ea700a5c888ba4ae60ccf",
+    "audits/strict-default-action-boundary/cartesian_inverse_action_boundary.lpfragment": "4eb485ccf4c7bdc97f91e95067652e7ee266121993bfd380f98bba5cbdef2a81",
+    "audits/strict-default-action-boundary/q_presentation_bridge.lpfragment": "3874131b6b43537261b20a52a6541f43cf03007ecbd9869b59a97f0ec7b2cb07",
+    "audits/strict-default-action-boundary/q_presentation_controls.lpfragment": "9f9f33d46aa7fa80b0d4e084d8f599a172d39740137716835267930b8c11ce63",
+    "audits/strict-default-action-boundary/q_presentation_composition.lpfragment": "b54795706c28be61c26560b070138a2829f050bd563d59848f7348d471501502",
+    "audits/strict-default-action-boundary/q_presentation_represented_boundaries.lpfragment": "9028ba5347986c6ccd9f49e4802bab946e82415ea22c2971d00ac8c43faa5d1f"
+  },
+  "outputs": {
+    "emdash3_2.lp": "b35d91b639c71d79ba7fa00a6c8bde246d4aadc553cdb9feef9b47171909c576",
+    "owner_prefix.lp": "f4442bfa6564e79c3570f3a96f930130459c76e159a7f697bb5fb5e7768a472c",
+    "cartesian_prefix.lp": "c2e949850555907a1f618c64a494268dc9fc9df6abee9a05c502c70c02870793",
+    "no_inverse.lp": "43c0cfd67bed37515c270a0210683e851a1b24b8338777f30ed49eac5a4dadfc",
+    "no_swap_inverse.lp": "db9c54aea629d8ed3b8ef3da6f8ae58020bcb3f9ab90fa8d6bdede8505e2bc92",
+    "no_composition.lp": "0cb75c2cb1df1ea0d00f10b57b62f2b332cd1082f6149c72b3c1fb13061dcae3",
+    "action_boundary.lp": "3e931aec6ea157c1b6cb85b5556fd9885103f23ff8d5038c4678b6b623ae495c",
+    "conjoint_boundary.lp": "a8f976aac11778581c42fad6b0d4e0b3492e8b2b44d2dd2037d22c1c2c039a6c",
+    "companion_boundary.lp": "6420e443a4a5afc3264d9710c603d5553eacb12dc355483cb1ce5e5381a5f154",
+    "without_endpoint_guards.lp": "f744754a99e0ed9184e065a1658134046ff897309d04ebdb3b6058094cd12ff7",
+    "roundtrip_boundary.lp": "63366bd3673d059dfa52fb1e2130f9552e52c309fecd2e1028472b6fc0e97f30",
+    "composition_boundary.lp": "f543f49c04043dcc2e71646976c29a8d853aad92b140a35dc7ff46f4c8bf2f0f",
+    "counit_boundary.lp": "d96ae87f1ec4b45553eafe0c65986f69c9efafaead62f16fe20be1609f8535bd",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "controls": {
+    "positive": 234,
+    "negative": 36
+  },
+  "checks": {
+    "baseline": {
+      "id": "20261013T001048Z-f4df8d15b39449b59913ddc2f2bb09da",
+      "target": "tmp/probes/strict_default_q_closed/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 3.9795848260400817,
+      "childrenMaxRssKiB": 344724,
+      "inputSnapshot": "11583f20be1b5321d4d582dc9210cf7a8f9458ea03227d186f2b82dee9aade67",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_closed/owner_prefix.lp": "3765dd09cd3682892b9fc1ce4baf141f7686a021edf380168f5aea64e72ea80d"
+      },
+      "log": "logs/check-runs/20261013T001048Z-f4df8d15b39449b59913ddc2f2bb09da.log",
+      "logSha256": "e060f06e06131fa74530e90973cb0214498d7ed3da62aa24d972adf7d4b9e4e3",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 895
+    },
+    "owner_prefix": {
+      "id": "20261013T003301Z-2b6131889f1c481384bf758786c5ce71",
+      "target": "tmp/probes/strict_default_q_presentation/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 6.455093374941498,
+      "childrenMaxRssKiB": 463728,
+      "inputSnapshot": "7fb7a422df7eaee10f228c0f8d0d350986cc8ea3786aac808dc3415141ff99ac",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/owner_prefix.lp": "f4442bfa6564e79c3570f3a96f930130459c76e159a7f697bb5fb5e7768a472c"
+      },
+      "log": "logs/check-runs/20261013T003301Z-2b6131889f1c481384bf758786c5ce71.log",
+      "logSha256": "d5ca06e17f08175ce3065b8163056d9d577e86d68d97857c770779fe6d426c83",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 898
+    },
+    "action_boundary": {
+      "id": "20261013T003329Z-8a24122ce058451495a58c4eba730dfc",
+      "target": "tmp/probes/strict_default_q_presentation/action_boundary.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.7956209109397605,
+      "childrenMaxRssKiB": 464256,
+      "inputSnapshot": "d139cbfcbac6d53125df6e72b52e9618fff3aa7c77fb7f679caee16533b2faaa",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/action_boundary.lp": "3e931aec6ea157c1b6cb85b5556fd9885103f23ff8d5038c4678b6b623ae495c"
+      },
+      "log": "logs/check-runs/20261013T003329Z-8a24122ce058451495a58c4eba730dfc.log",
+      "logSha256": "ad3c97a8b7ab5c1097fa1cbe323875205a5f16972e0f7b67b4de9f76398dfa0b",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 898
+    },
+    "conjoint_boundary": {
+      "id": "20261013T003336Z-fef96d99b8e04a79af03af27609a14b2",
+      "target": "tmp/probes/strict_default_q_presentation/conjoint_boundary.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.886063440004364,
+      "childrenMaxRssKiB": 463224,
+      "inputSnapshot": "6772fe2264c01c8a4d07c52d56f274179512864e5367dedf814f574e29bc8e3a",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/conjoint_boundary.lp": "a8f976aac11778581c42fad6b0d4e0b3492e8b2b44d2dd2037d22c1c2c039a6c"
+      },
+      "log": "logs/check-runs/20261013T003336Z-fef96d99b8e04a79af03af27609a14b2.log",
+      "logSha256": "9c56a5d16fbfc9db8d2eb7ad2ec34e5c94e9a6f32dc368ccba02adc77e0648d5",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 898
+    },
+    "companion_boundary": {
+      "id": "20261013T003343Z-d9e384399ce2419e9f25b7e6cb7bd7d1",
+      "target": "tmp/probes/strict_default_q_presentation/companion_boundary.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.781367538962513,
+      "childrenMaxRssKiB": 463396,
+      "inputSnapshot": "13c66986e10a0a75cb73a99a8006c58a25938804734857a85eae28c72a2f2346",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/companion_boundary.lp": "6420e443a4a5afc3264d9710c603d5553eacb12dc355483cb1ce5e5381a5f154"
+      },
+      "log": "logs/check-runs/20261013T003343Z-d9e384399ce2419e9f25b7e6cb7bd7d1.log",
+      "logSha256": "b182ed916f81cd4c300edb5658744e02cff2cca4bfebe279e9bbf3bd67d93d5b",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 898
+    },
+    "emdash3_2": {
+      "id": "20261013T003428Z-aa265eb3040241f08302b805b46b46c1",
+      "target": "tmp/probes/strict_default_q_presentation/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.145471522002481,
+      "childrenMaxRssKiB": 464500,
+      "inputSnapshot": "b1894c3b09fb5c00ef9a6055d97405b557cf59f70fee26f0e30e41b5eff7dadc",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/emdash3_2.lp": "b35d91b639c71d79ba7fa00a6c8bde246d4aadc553cdb9feef9b47171909c576"
+      },
+      "log": "logs/check-runs/20261013T003428Z-aa265eb3040241f08302b805b46b46c1.log",
+      "logSha256": "7eb568a1d623c5e1ea0f1331c59a63fba059fba99f1c16e1de41e44689e0da68",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 898
+    },
+    "no_inverse": {
+      "id": "20261013T003355Z-795a6918f43e44468376927547a03f59",
+      "target": "tmp/probes/strict_default_q_presentation/no_inverse.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 2.060046064085327,
+      "childrenMaxRssKiB": 185280,
+      "inputSnapshot": "c1b878d68f3810bf284aa541f81cf456878c2c5da15cc390aefda3d6f02913f7",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/no_inverse.lp": "43c0cfd67bed37515c270a0210683e851a1b24b8338777f30ed49eac5a4dadfc"
+      },
+      "log": "logs/check-runs/20261013T003355Z-795a6918f43e44468376927547a03f59.log",
+      "logSha256": "69743854030c7ad945b7896632350b435835a323c309810e95838c42f9c93ae7",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 699
+    },
+    "no_swap_inverse": {
+      "id": "20261013T003358Z-0aa7075176cb4baa9385e49e08df8e10",
+      "target": "tmp/probes/strict_default_q_presentation/no_swap_inverse.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 7.861551464069635,
+      "childrenMaxRssKiB": 439524,
+      "inputSnapshot": "2fce3e55215c93eff71042635782920ca288e1dd0f1f802e0637deeea31cb41b",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/no_swap_inverse.lp": "db9c54aea629d8ed3b8ef3da6f8ae58020bcb3f9ab90fa8d6bdede8505e2bc92"
+      },
+      "log": "logs/check-runs/20261013T003358Z-0aa7075176cb4baa9385e49e08df8e10.log",
+      "logSha256": "2d7ff64cc09e3cc6d8bb6a6ea7da47a9289675eaec6d756aef652602cce70248",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 898
+    },
+    "no_composition": {
+      "id": "20261013T003406Z-f674434f13cc4db9825f8fda75fa99fc",
+      "target": "tmp/probes/strict_default_q_presentation/no_composition.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.889676136081107,
+      "childrenMaxRssKiB": 463140,
+      "inputSnapshot": "6499c5794cf5921f95df8562825e34cacfa8163e711a7287d414237c16adf137",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/no_composition.lp": "0cb75c2cb1df1ea0d00f10b57b62f2b332cd1082f6149c72b3c1fb13061dcae3"
+      },
+      "log": "logs/check-runs/20261013T003406Z-f674434f13cc4db9825f8fda75fa99fc.log",
+      "logSha256": "eafa2f76938d324e23a413413841a8ff44da01f3ef5928391bdbf957d6e3d2b7",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 895
+    },
+    "without_endpoint_guards": {
+      "id": "20261013T003413Z-0905809caaa1494eb9aaca5249dc2a13",
+      "target": "tmp/probes/strict_default_q_presentation/without_endpoint_guards.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 2.34368056897074,
+      "childrenMaxRssKiB": 185816,
+      "inputSnapshot": "42e5000e111659dcd3a9f64c1168ce648f9ebdf98376c4f4a6ee58f4b6beba45",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/without_endpoint_guards.lp": "f744754a99e0ed9184e065a1658134046ff897309d04ebdb3b6058094cd12ff7"
+      },
+      "log": "logs/check-runs/20261013T003413Z-0905809caaa1494eb9aaca5249dc2a13.log",
+      "logSha256": "cad28cd20c4d1ba2972934e710e8938b290de7039f93cb2d99a9d7172e30cd8c",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 699
+    }
+  },
+  "warningComparison": {
+    "baselineCount": 895,
+    "candidateCount": 898,
+    "addedCount": 3,
+    "removedCount": 0,
+    "added": [
+      {
+        "count": 1,
+        "block": "t \u2254 @fapp1_fapp0 $0 $1 (@comp_prod_func Prof_cov_universe $A $B Prof_cov_universe) $pg $pg' $alpha\nt \u21aa[] @comp_prod_fapp1_fapp0 Prof_cov_universe $A $B Prof_cov_universe $pg $pg' $alpha \u21aa* @comp_prod_fapp1_fapp0 Prof_cov_universe $A $B Prof_cov_universe $pg $pg' $alpha\n  with @fapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $pg $pg' $alpha \u21aa @comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg' $alpha\nt \u21aa[0; 0; 0; 1] @fapp1_fapp0 $0 $1 (Prof_cov_composition_func $A $B Prof_cov_universe) $pg $pg' $alpha \u21aa* @fapp1_fapp0 $0 $1 (@comp_fapp0 Cat_cat (Product_cat (Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat)) (Functor_cart_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) (Product_cat (Prof_cat $B $A) (Prof_cat Prof_cov_universe $B)) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Product_cat (Prof_cat $B $A) (Prof_cat Prof_cov_universe $B)) (Product_cat (Prof_cat Prof_cov_universe $B) (Prof_cat $B $A)) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Product_cat (Prof_cat Prof_cov_universe $B) (Prof_cat $B $A)) (Prof_cat Prof_cov_universe $A) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Prof_cat Prof_cov_universe $A) (Functor_cart_cat (Product_cat $A (Op_cat Prof_cov_universe)) Cat_cat) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Functor_cart_cat (Product_cat $A (Op_cat Prof_cov_universe)) Cat_cat) (Functor_cart_cat (Product_cat (Functor_cart_cat (Op_cat Prof_cov_universe) $A) (Functor_cart_cat (Op_cat Prof_cov_universe) (Op_cat Prof_cov_universe))) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat) $A (Product_cat (Functor_cart_cat (Op_cat Prof_cov_universe) $A) (Functor_cart_cat (Op_cat Prof_cov_universe) (Op_cat Prof_cov_universe))) (@Product_pair_tele_func $A (Op_cat Prof_cov_universe))) (@hom_postcomp_tele_cart_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat Prof_cov_universe) (Product_cat $A (Op_cat Prof_cov_universe)) Cat_cat)) (@Op_prof_func Prof_cov_universe $A)) (@Prof_tensor_func Prof_cov_universe $B $A)) (@Product_swap_func (Prof_cat $B $A) (Prof_cat Prof_cov_universe $B))) (@Product_map_func (Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat)) (Prof_cat $B $A) (Functor_cart_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Prof_cat Prof_cov_universe $B) (@comp_fapp0 Cat_cat (Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat)) (@Functord_cat Cat_cat (Product_cat_fapp0_func $A) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat $B) Cat_cat))) (Prof_cat $B $A) (@comp_fapp0 Cat_cat (@Functord_cat Cat_cat (Product_cat_fapp0_func $A) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat $B) Cat_cat))) (Product_cat (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Functor_cart_cat (Op_cat $B) Cat_cat)) (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Op_cat $B))) (Prof_cat $B $A) (@comp_fapp0 Cat_cat (Product_cat (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Functor_cart_cat (Op_cat $B) Cat_cat)) (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Op_cat $B))) (Functor_cart_cat (Product_cat $A (Op_cat $B)) Cat_cat) (Prof_cat $B $A) (@Op_prof_func (Op_cat $A) (Op_cat $B)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A (Op_cat $B)) (Product_cat (Functor_cart_cat (Op_cat $B) Cat_cat) (Op_cat $B)) Cat_cat (@Eval_func (Op_cat $B) Cat_cat))) (@tapp0_func Cat_cat Cat_cat (Product_cat_fapp0_func $A) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat $B) Cat_cat)) (Op_cat $B))) (@Product_cat_fapp1_func $A (Functor_cart_cat (Op_cat $B) Cat_cat))) (@comp_fapp0 Cat_cat (Functor_cart_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@Functord_cat Cat_cat (Product_cat_fapp0_func $B) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) (Prof_cat Prof_cov_universe $B) (@comp_fapp0 Cat_cat (@Functord_cat Cat_cat (Product_cat_fapp0_func $B) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) (Product_cat (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Op_cat Prof_cov_universe))) (Prof_cat Prof_cov_universe $B) (@comp_fapp0 Cat_cat (Product_cat (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Op_cat Prof_cov_universe))) (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) Cat_cat) (Prof_cat Prof_cov_universe $B) (@Op_prof_func (Op_cat $B) (Op_cat Prof_cov_universe)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B (Op_cat Prof_cov_universe)) (Product_cat (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat) (Op_cat Prof_cov_universe)) Cat_cat (@Eval_func (Op_cat Prof_cov_universe) Cat_cat))) (@tapp0_func Cat_cat Cat_cat (Product_cat_fapp0_func $B) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Op_cat Prof_cov_universe))) (@Product_cat_fapp1_func $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))))) $pg $pg' $alpha\n  with @comp_prod_func Prof_cov_universe $A $B $C \u21aa Prof_cov_composition_func $A $B $C"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @fapp1_func $0 $1 (@comp_prod_func Prof_cov_universe $A $B Prof_cov_universe) $pg $pg'\nt \u21aa[] @comp_prod_fapp1_func Prof_cov_universe $A $B Prof_cov_universe $pg $pg' \u21aa* @comp_prod_fapp1_func Prof_cov_universe $A $B Prof_cov_universe $pg $pg'\n  with @fapp1_func $0 $1 (@comp_prod_func $A $W $X $Z) $pg $pg' \u21aa @comp_prod_fapp1_func $A $W $X $Z $pg $pg'\nt \u21aa[0; 0; 1] @fapp1_func $0 $1 (Prof_cov_composition_func $A $B Prof_cov_universe) $pg $pg' \u21aa* @fapp1_func $0 $1 (@comp_fapp0 Cat_cat (Product_cat (Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat)) (Functor_cart_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) (Product_cat (Prof_cat $B $A) (Prof_cat Prof_cov_universe $B)) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Product_cat (Prof_cat $B $A) (Prof_cat Prof_cov_universe $B)) (Product_cat (Prof_cat Prof_cov_universe $B) (Prof_cat $B $A)) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Product_cat (Prof_cat Prof_cov_universe $B) (Prof_cat $B $A)) (Prof_cat Prof_cov_universe $A) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Prof_cat Prof_cov_universe $A) (Functor_cart_cat (Product_cat $A (Op_cat Prof_cov_universe)) Cat_cat) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Functor_cart_cat (Product_cat $A (Op_cat Prof_cov_universe)) Cat_cat) (Functor_cart_cat (Product_cat (Functor_cart_cat (Op_cat Prof_cov_universe) $A) (Functor_cart_cat (Op_cat Prof_cov_universe) (Op_cat Prof_cov_universe))) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat) $A (Product_cat (Functor_cart_cat (Op_cat Prof_cov_universe) $A) (Functor_cart_cat (Op_cat Prof_cov_universe) (Op_cat Prof_cov_universe))) (@Product_pair_tele_func $A (Op_cat Prof_cov_universe))) (@hom_postcomp_tele_cart_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat Prof_cov_universe) (Product_cat $A (Op_cat Prof_cov_universe)) Cat_cat)) (@Op_prof_func Prof_cov_universe $A)) (@Prof_tensor_func Prof_cov_universe $B $A)) (@Product_swap_func (Prof_cat $B $A) (Prof_cat Prof_cov_universe $B))) (@Product_map_func (Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat)) (Prof_cat $B $A) (Functor_cart_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Prof_cat Prof_cov_universe $B) (@comp_fapp0 Cat_cat (Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat)) (@Functord_cat Cat_cat (Product_cat_fapp0_func $A) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat $B) Cat_cat))) (Prof_cat $B $A) (@comp_fapp0 Cat_cat (@Functord_cat Cat_cat (Product_cat_fapp0_func $A) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat $B) Cat_cat))) (Product_cat (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Functor_cart_cat (Op_cat $B) Cat_cat)) (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Op_cat $B))) (Prof_cat $B $A) (@comp_fapp0 Cat_cat (Product_cat (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Functor_cart_cat (Op_cat $B) Cat_cat)) (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Op_cat $B))) (Functor_cart_cat (Product_cat $A (Op_cat $B)) Cat_cat) (Prof_cat $B $A) (@Op_prof_func (Op_cat $A) (Op_cat $B)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A (Op_cat $B)) (Product_cat (Functor_cart_cat (Op_cat $B) Cat_cat) (Op_cat $B)) Cat_cat (@Eval_func (Op_cat $B) Cat_cat))) (@tapp0_func Cat_cat Cat_cat (Product_cat_fapp0_func $A) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat $B) Cat_cat)) (Op_cat $B))) (@Product_cat_fapp1_func $A (Functor_cart_cat (Op_cat $B) Cat_cat))) (@comp_fapp0 Cat_cat (Functor_cart_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@Functord_cat Cat_cat (Product_cat_fapp0_func $B) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) (Prof_cat Prof_cov_universe $B) (@comp_fapp0 Cat_cat (@Functord_cat Cat_cat (Product_cat_fapp0_func $B) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) (Product_cat (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Op_cat Prof_cov_universe))) (Prof_cat Prof_cov_universe $B) (@comp_fapp0 Cat_cat (Product_cat (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Op_cat Prof_cov_universe))) (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) Cat_cat) (Prof_cat Prof_cov_universe $B) (@Op_prof_func (Op_cat $B) (Op_cat Prof_cov_universe)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B (Op_cat Prof_cov_universe)) (Product_cat (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat) (Op_cat Prof_cov_universe)) Cat_cat (@Eval_func (Op_cat Prof_cov_universe) Cat_cat))) (@tapp0_func Cat_cat Cat_cat (Product_cat_fapp0_func $B) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Op_cat Prof_cov_universe))) (@Product_cat_fapp1_func $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))))) $pg $pg'\n  with @comp_prod_func Prof_cov_universe $A $B $C \u21aa Prof_cov_composition_func $A $B $C"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @fapp0 $0 $1 (@comp_prod_func Prof_cov_universe $A $B Prof_cov_universe) $pg\nt \u21aa[] @comp_fapp0 Prof_cov_universe $A $B Prof_cov_universe (@sigma_Snd (Obj (Hom_cat Prof_cov_universe $A $B)) (\u03bb _:\u03c4 (Obj (Hom_cat Prof_cov_universe $A $B)), Obj (Hom_cat Prof_cov_universe $B Prof_cov_universe)) $pg) (@sigma_Fst (Hom Prof_cov_universe $A $B) (\u03bb _:\u03c4 (Obj (Hom_cat Prof_cov_universe $A $B)), Obj (Hom_cat Prof_cov_universe $B Prof_cov_universe)) $pg) \u21aa* @comp_fapp0 Prof_cov_universe $A $B Prof_cov_universe (@sigma_Snd (Obj (Functor_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat))) (\u03bb _:\u03c4 (Obj (Functor_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat))), Obj (Functor_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) $pg) (@sigma_Fst (Obj (Functor_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat))) (\u03bb _:\u03c4 (Obj (Functor_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat))), Obj (Functor_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) $pg)\n  with @fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $pg \u21aa @comp_fapp0 $A $W $X $Z (@sigma_Snd (Obj (Hom_cat $A $W $X)) (\u03bb _:\u03c4 (Obj (Hom_cat $A $W $X)), Obj (Hom_cat $A $X $Z)) $pg) (@sigma_Fst (Hom $A $W $X) (\u03bb _:\u03c4 (Obj (Hom_cat $A $W $X)), Obj (Hom_cat $A $X $Z)) $pg)\nt \u21aa[0; 1] @fapp0 $0 $1 (Prof_cov_composition_func $A $B Prof_cov_universe) $pg \u21aa* @fapp0 $0 $1 (@comp_fapp0 Cat_cat (Product_cat (Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat)) (Functor_cart_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) (Product_cat (Prof_cat $B $A) (Prof_cat Prof_cov_universe $B)) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Product_cat (Prof_cat $B $A) (Prof_cat Prof_cov_universe $B)) (Product_cat (Prof_cat Prof_cov_universe $B) (Prof_cat $B $A)) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Product_cat (Prof_cat Prof_cov_universe $B) (Prof_cat $B $A)) (Prof_cat Prof_cov_universe $A) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Prof_cat Prof_cov_universe $A) (Functor_cart_cat (Product_cat $A (Op_cat Prof_cov_universe)) Cat_cat) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@comp_fapp0 Cat_cat (Functor_cart_cat (Product_cat $A (Op_cat Prof_cov_universe)) Cat_cat) (Functor_cart_cat (Product_cat (Functor_cart_cat (Op_cat Prof_cov_universe) $A) (Functor_cart_cat (Op_cat Prof_cov_universe) (Op_cat Prof_cov_universe))) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Functor_cart_cat $A (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat) $A (Product_cat (Functor_cart_cat (Op_cat Prof_cov_universe) $A) (Functor_cart_cat (Op_cat Prof_cov_universe) (Op_cat Prof_cov_universe))) (@Product_pair_tele_func $A (Op_cat Prof_cov_universe))) (@hom_postcomp_tele_cart_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat Prof_cov_universe) (Product_cat $A (Op_cat Prof_cov_universe)) Cat_cat)) (@Op_prof_func Prof_cov_universe $A)) (@Prof_tensor_func Prof_cov_universe $B $A)) (@Product_swap_func (Prof_cat $B $A) (Prof_cat Prof_cov_universe $B))) (@Product_map_func (Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat)) (Prof_cat $B $A) (Functor_cart_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Prof_cat Prof_cov_universe $B) (@comp_fapp0 Cat_cat (Functor_cart_cat $A (Functor_cart_cat (Op_cat $B) Cat_cat)) (@Functord_cat Cat_cat (Product_cat_fapp0_func $A) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat $B) Cat_cat))) (Prof_cat $B $A) (@comp_fapp0 Cat_cat (@Functord_cat Cat_cat (Product_cat_fapp0_func $A) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat $B) Cat_cat))) (Product_cat (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Functor_cart_cat (Op_cat $B) Cat_cat)) (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Op_cat $B))) (Prof_cat $B $A) (@comp_fapp0 Cat_cat (Product_cat (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Functor_cart_cat (Op_cat $B) Cat_cat)) (Functor_cart_cat (Product_cat $A (Op_cat $B)) (Op_cat $B))) (Functor_cart_cat (Product_cat $A (Op_cat $B)) Cat_cat) (Prof_cat $B $A) (@Op_prof_func (Op_cat $A) (Op_cat $B)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A (Op_cat $B)) (Product_cat (Functor_cart_cat (Op_cat $B) Cat_cat) (Op_cat $B)) Cat_cat (@Eval_func (Op_cat $B) Cat_cat))) (@tapp0_func Cat_cat Cat_cat (Product_cat_fapp0_func $A) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat $B) Cat_cat)) (Op_cat $B))) (@Product_cat_fapp1_func $A (Functor_cart_cat (Op_cat $B) Cat_cat))) (@comp_fapp0 Cat_cat (Functor_cart_cat $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (@Functord_cat Cat_cat (Product_cat_fapp0_func $B) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) (Prof_cat Prof_cov_universe $B) (@comp_fapp0 Cat_cat (@Functord_cat Cat_cat (Product_cat_fapp0_func $B) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))) (Product_cat (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Op_cat Prof_cov_universe))) (Prof_cat Prof_cov_universe $B) (@comp_fapp0 Cat_cat (Product_cat (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) (Op_cat Prof_cov_universe))) (Functor_cart_cat (Product_cat $B (Op_cat Prof_cov_universe)) Cat_cat) (Prof_cat Prof_cov_universe $B) (@Op_prof_func (Op_cat $B) (Op_cat Prof_cov_universe)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B (Op_cat Prof_cov_universe)) (Product_cat (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat) (Op_cat Prof_cov_universe)) Cat_cat (@Eval_func (Op_cat Prof_cov_universe) Cat_cat))) (@tapp0_func Cat_cat Cat_cat (Product_cat_fapp0_func $B) (Product_cat_fapp0_func (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat)) (Op_cat Prof_cov_universe))) (@Product_cat_fapp1_func $B (Functor_cart_cat (Op_cat Prof_cov_universe) Cat_cat))))) $pg\n  with @comp_prod_func Prof_cov_universe $A $B $C \u21aa Prof_cov_composition_func $A $B $C"
+      }
+    ],
+    "qualification": "Three Q-composition projection overlaps; whole/object/full/capped controls pass. No general confluence certificate."
+  },
+  "ruleLhsAudit": {
+    "unreviewedSlots": 0,
+    "unreviewedClauses": 0,
+    "annotatedSlots": 42,
+    "annotatedClauses": 29,
+    "reportSha256": "d85d70cd54d98886184bd74820de03ba290c984c057dbf40ddcd40f2333963d8"
+  },
+  "structuralChoices": [
+    "Cartesian beta/eta equations are structural computation on existing derived curry/uncurry bodies, not a derived general extensionality theorem.",
+    "Q composition has the actual product-prof tensor/curry body. This structural implementation choice does not derive an omega coefficient model from the opaque Prof_tensor.",
+    "The counit remains evaluation at the represented identity; no comparison arrow or equality proof is supplied as an argument."
+  ],
+  "remainingBoundaries": {
+    "action_boundary": "Positive obligation fails: separately expanded transformation action does not return its arbitrary input.",
+    "conjoint_boundary": "Positive obligation fails after represented conjoint has projected; do not infer this join from the generic variable round trip.",
+    "companion_boundary": "Positive obligation fails after represented companion has projected.",
+    "emdash3_2": "The old tdapp1_int_func_transfd still supplies raw Functord FF to strictly profiled Op_funcd.",
+    "coherence": "Whole represented lift, intrinsic action, full Q coherence and downstream/production migration remain unqualified."
+  },
+  "necessityControls": {
+    "no_inverse": "Removing the Cartesian inverse clauses fails the first whole inverse comparison.",
+    "no_swap_inverse": "Removing the whole swap involution fails its whole comparison.",
+    "no_composition": "Removing the Q composition clauses fails the tensor-body comparison.",
+    "without_endpoint_guards": "Removing the retained postcomposition endpoint guards fails subject reduction."
+  },
+  "historicalExperiments": {
+    "compact_alias_patterns": {
+      "receipt": "20261013T001236Z-14f7854c386c45269317d8918fa785fb",
+      "result": "rules on transparent aliases do not compute the first whole inverse"
+    },
+    "unguarded_whole": {
+      "receipt": "20261013T001336Z-3a1fc5b7453c40bb82a1f80beef3df1a",
+      "result": "subject reduction fails without product postcomposition endpoint guard"
+    },
+    "whole_before_projection": {
+      "receipt": "20261013T001406Z-d439bb829efe44ec8e603979f412136a",
+      "result": "whole inverses check; separately projected object inverse fails"
+    },
+    "reverse_before_context": {
+      "receipt": "20261013T002022Z-80e16151ad4144bd8bcc194518fe18e5",
+      "result": "reverse whole bridge fails even through typed eq_refl; left-associated context clause required"
+    },
+    "triangle_before_guards": {
+      "receipt": "20261013T002636Z-45290b48a1554823b85bf48b9ca279bf",
+      "result": "identity triangle subject reduction requires product endpoints"
+    },
+    "product_whole": {
+      "receipt": "20261013T003215Z-ac5c485da5d34bedbcf9c509cde538e4",
+      "result": "overly specific inferred Cartesian/opposite patterns fail after endpoint normalization; final minimized rules pass"
+    },
+    "terminal_bridge": {
+      "receipt": "20261013T003221Z-65ad4252b4d14cdaa35485164ceadd2a",
+      "result": "overly specific inferred Cartesian/opposite patterns fail after endpoint normalization; final minimized rules pass"
+    }
+  },
+  "reference": {
+    "url": "https://arxiv.org/html/2503.08832v1",
+    "section": "18",
+    "scope": "Cartesian closure of strict omega-categories with strict n-transformations; not a native confluence proof or a Q model."
+  }
+}

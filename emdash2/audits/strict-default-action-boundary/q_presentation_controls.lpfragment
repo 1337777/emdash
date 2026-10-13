@@ -1,0 +1,52 @@
+assert (A B : Cat) ⊢
+  @comp_cat_fapp0 _ _ _ (@Op_prof_func (Op_cat B) (Op_cat A)) (@Op_prof_func A B)
+  ≡ @id_func (Prof_cat A B);
+assert [A B X : Cat] (H : τ (Functor (Prof_cat A B) X)) ⊢
+  @comp_cat_fapp0 _ _ _
+    (@comp_cat_fapp0 _ _ _ H (@Op_prof_func (Op_cat B) (Op_cat A))) (@Op_prof_func A B)
+  ≡ H;
+assert [A B : Cat] (P : τ (Prof B A)) ⊢
+  fapp0 (Prof_cov_uncurry_func A B) (fapp0 (Prof_cov_curry_func A B) P) ≡ P;
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  fapp0 (Prof_cov_curry_func A B) (fapp0 (Prof_cov_uncurry_func A B) P) ≡ P;
+assert (A B : Cat) ⊢
+  @comp_cat_fapp0 _ _ _ (Prof_cov_curry_func A B) (Prof_cov_uncurry_func A B)
+  ≡ @id_func (Hom_cat Prof_cov_universe A B);
+assert (A B : Cat) ⊢
+  @comp_cat_fapp0 _ _ _ (Prof_cov_uncurry_func A B) (Prof_cov_curry_func A B)
+  ≡ @id_func (Prof_cat B A);
+assert ⊢
+  @comp_cat_fapp0 _ _ _ (Prof_cov_uncurry_func Terminal_cat Terminal_cat) (Prof_cov_curry_func Terminal_cat Terminal_cat)
+  ≡ @id_func (Prof_cat Terminal_cat Terminal_cat);
+
+// All three original q_closed obligations now have ordinary positive tests.
+assert (A B C : Cat) ⊢ Prof_cov_composition_func A B C
+  ≡ @comp_prod_func Prof_cov_universe A B C;
+assert [A B C : Cat] (P : τ (Hom Prof_cov_universe A B))
+  (Q : τ (Hom Prof_cov_universe B C)) ⊢
+  fapp0 (Prof_cov_composition_func A B C)
+    (@Product_pair (Hom_cat Prof_cov_universe A B) (Hom_cat Prof_cov_universe B C) P Q)
+  ≡ @comp_fapp0 Prof_cov_universe A B C Q P;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @Prof_cov_counit_view A B F
+  : τ (Hom (Hom_cat Prof_cov_universe B B)
+      (@comp_fapp0 Prof_cov_universe B A B
+        (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include A B F)
+        (@Prof_cov_companion A B F))
+      (@id Prof_cov_universe B));
+
+// Full native composition action and its actual tensor-derived counterpart.
+assert [A B C : Cat]
+  (PQ PQ' : τ (Obj (Product_cat (Hom_cat Prof_cov_universe A B) (Hom_cat Prof_cov_universe B C)))) ⊢
+  @comp_prod_fapp1_func Prof_cov_universe A B C PQ PQ'
+  ≡ @fapp1_func _ _ (Prof_cov_composition_func A B C) PQ PQ';
+assert [A B C : Cat]
+  [PQ PQ' : τ (Obj (Product_cat (Hom_cat Prof_cov_universe A B) (Hom_cat Prof_cov_universe B C)))]
+  (rs : τ (Hom (Product_cat (Hom_cat Prof_cov_universe A B) (Hom_cat Prof_cov_universe B C)) PQ PQ')) ⊢
+  @comp_prod_fapp1_fapp0 Prof_cov_universe A B C PQ PQ' rs
+  ≡ @fapp1_fapp0 _ _ (Prof_cov_composition_func A B C) PQ PQ' rs;
+assertnot [A B C : Cat]
+  [PQ : τ (Obj (Product_cat (Hom_cat Prof_cov_universe A B) (Hom_cat Prof_cov_universe B C)))]
+  (rs : τ (Hom (Product_cat (Hom_cat Prof_cov_universe A B) (Hom_cat Prof_cov_universe B C)) PQ PQ)) ⊢
+  @comp_prod_fapp1_fapp0 Prof_cov_universe A B C PQ PQ rs
+  ≡ @id (Hom_cat Prof_cov_universe A C)
+      (@comp_fapp0 Prof_cov_universe A B C (sigma_Snd PQ) (sigma_Fst PQ));

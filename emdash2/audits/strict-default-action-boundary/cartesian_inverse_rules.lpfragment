@@ -1,0 +1,105 @@
+// Cartesian closure beta/eta for the existing semantic composition bodies.
+// These are structural computation laws for the Cartesian mapping profile,
+// not extensionality or inverse laws for ambient lax currying.
+// Match the existing left-associated composition normal form. Transparent
+// curry/uncurry aliases themselves do not survive at this runtime owner.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@comp_fapp0 Cat_cat _ _ _
+            (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+              (@Eval_func $B $C))
+            (@tapp0_func Cat_cat Cat_cat
+              (Product_cat_fapp0_func $A)
+              (Product_cat_fapp0_func _) $B))
+          (@Product_cat_fapp1_func $A _))
+        (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $A $B)))
+      (@hom_postcomp_tele_cart_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $B (Product_cat $A $B) $C)
+  ↪ @id_func (Functor_cart_cat (Product_cat $A $B) $C);
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@comp_fapp0 Cat_cat _ _ _
+            (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+              (@Product_pair_tele_func $A $B))
+            (@hom_postcomp_tele_cart_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+              $B (Product_cat $A $B) $C))
+          (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+            (@Eval_func $B $C)))
+        (@tapp0_func Cat_cat Cat_cat
+          (Product_cat_fapp0_func $A)
+          (Product_cat_fapp0_func _) $B))
+      (@Product_cat_fapp1_func $A _)
+  ↪ @id_func (Functor_cart_cat $A (Functor_cart_cat $B $C));
+
+// The presentation inverse also occurs inside a postcomposition. Cat's
+// existing associativity normalization puts that context on the left.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@comp_fapp0 Cat_cat _ _ _
+            (@comp_fapp0 Cat_cat _ _ _ $H
+              (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+                (@Eval_func $B $C)))
+            (@tapp0_func Cat_cat Cat_cat
+              (Product_cat_fapp0_func $A)
+              (Product_cat_fapp0_func _) $B))
+          (@Product_cat_fapp1_func $A _))
+        (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $A $B)))
+      (@hom_postcomp_tele_cart_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $B (Product_cat $A $B) $C)
+  ↪ $H;
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@comp_fapp0 Cat_cat _ _ _
+            (@comp_fapp0 Cat_cat _ _ _ $H
+              (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+                (@Product_pair_tele_func $A $B)))
+            (@hom_postcomp_tele_cart_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+              $B (Product_cat $A $B) $C))
+          (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+            (@Eval_func $B $C)))
+        (@tapp0_func Cat_cat Cat_cat
+          (Product_cat_fapp0_func $A)
+          (Product_cat_fapp0_func _) $B))
+      (@Product_cat_fapp1_func $A _)
+  ↪ $H;
+
+// The two measured projected forms: fapp0 composition beta can run before
+// the whole inverse above, exposing these existing Hom-action owners.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+      (@Eval_func $B $C)
+      (@Product_cat_fapp1_tapp0_func $A _ $B
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $A $B)
+          (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+            $B (Product_cat $A $B) $C $F)))
+  ↪ $F;
+rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+      (@Product_pair_tele_func $A $B)
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $B (Product_cat $A $B) $C
+        (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Eval_func $B $C)
+          (@Product_cat_fapp1_tapp0_func $A _ $B $G)))
+  ↪ $G;
+
+// Identity specializations expose the two Cartesian triangle bodies before
+// the general inverse patterns above can match.
+// The product endpoints are measured SR guards after the Cartesian target
+// Hom distributes over Product_cat.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      (Product_cat $A $B) _ (Product_cat $A $B)
+      (@Eval_func $B (Product_cat $A $B))
+      (@Product_cat_fapp1_tapp0_func $A _ $B (@Product_pair_tele_func $A $B))
+  ↪ @id_func (Product_cat $A $B);
+rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      (Functor_cart_cat $B $C) (Functor_cart_cat $B $C) _
+      (@Product_pair_tele_func (Functor_cart_cat $B $C) $B)
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $B (Product_cat (Functor_cart_cat $B $C) $B) $C (@Eval_func $B $C))
+  ↪ @id_func (Functor_cart_cat $B $C);

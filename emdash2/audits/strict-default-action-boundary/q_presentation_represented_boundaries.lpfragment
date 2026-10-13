@@ -1,0 +1,9 @@
+// CONJOINT INVERSE: positive obligation after represented curry has projected.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (Prof_cov_uncurry_func A B) (fapp0 (Prof_cov_conjoint_func A B) F)
+  ≡ @Conjoint_prof A B F;
+
+// COMPANION INVERSE: the analogous second represented specialization.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (Prof_cov_uncurry_func B A) (@Prof_cov_companion A B F)
+  ≡ @Companion_prof A B F;

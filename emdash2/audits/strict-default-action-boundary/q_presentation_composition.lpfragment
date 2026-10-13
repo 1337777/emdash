@@ -1,0 +1,23 @@
+// Concrete whole composition body for the selected coefficient. This is an
+// implementation clause for its structural composition owner, not a theorem
+// deriving a strict omega coefficient from the opaque legacy tensor.
+rule @comp_prod_func Prof_cov_universe $A $B $C
+  ↪ Prof_cov_composition_func $A $B $C;
+
+// The corresponding object projection after curry and tensor have already
+// expanded. Keep native Q composition as the runtime object normal form.
+// This joins fapp0(comp_prod(Q)) with the actual tensor-body observation.
+rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+      (@Product_pair_tele_func _ _)
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+        (@Op_prof $C $A (@Prof_tensor $C $B $A $S $P)))
+  ↪ @comp_fapp0 Prof_cov_universe $A $B $C
+      (fapp0 (Prof_cov_curry_func $B $C) $S)
+      (fapp0 (Prof_cov_curry_func $A $B) $P);
+
+// Generic composition projections may fire before the coefficient body.
+// Their whole/capped actions are the actions of that same actual functor.
+rule @comp_prod_fapp1_func Prof_cov_universe $A $B $C $PQ $PQ'
+  ↪ @fapp1_func _ _ (Prof_cov_composition_func $A $B $C) $PQ $PQ';
+rule @comp_prod_fapp1_fapp0 Prof_cov_universe $A $B $C $PQ $PQ' $rs
+  ↪ @fapp1_fapp0 _ _ (Prof_cov_composition_func $A $B $C) $PQ $PQ' $rs;

@@ -599,3 +599,46 @@ projection experiment and the exact unfinished boundaries. Replay after
 changes to Cartesian module-map profiles, opposite/reindexing, the closed
 prof core or the Q composition/presentation interface. No production
 promotion or full milestone completion is claimed by this checkpoint.
+
+## Cartesian presentation inverses and native Q composition
+
+`q_presentation_migration.py` extends the pinned q_closed source. It adds
+structural Cartesian beta/eta computation on the existing derived bodies,
+the whole product-prof swap involution, and the concrete tensor-derived body
+of Q composition. No alternate curry/uncurry API or proof-carrying input is
+introduced. The primitive Q coherence contract is not derived from the
+legacy opaque tensor by these clauses.
+
+Both generic whole bridge composites and generic module round trips check,
+including identity, constant, product-target and terminal cases at the
+relevant owners. Recoverable Cartesian/opposite arguments stay inferred so
+that their earlier normalization does not block matching. Subject reduction
+requires the remaining recorded composition/triangle endpoint guards.
+
+The existing counit is still defined from closed evaluation at a represented
+identity. Its source now checks as native `iota(F) o kappa(F)` and its target
+as `id_Q(B)`. Whole composition and its full/capped transformation projections
+use the existing tensor through the actual presentation maps.
+
+```bash
+python3 audits/strict-default-action-boundary/q_presentation_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_q_presentation/owner_prefix.lp
+```
+
+The prefix passes 234 positives/36 negatives. The three former q_closed
+obligations are among its controls. The current positive obligations in
+action_boundary.lp, conjoint_boundary.lp and companion_boundary.lp still
+fail: separately expanded transformation action and the represented inverse
+specializations do not yet join. Full-source checking still stops at the
+raw-FF/strict-Op_funcd intrinsic-action mismatch. These failed obligations
+are explicitly distinct from the successful negative/noncollapse controls.
+
+The no_inverse, no_swap_inverse and no_composition variants show that the
+new computation is needed; without_endpoint_guards fails subject reduction.
+All are bounded and pinned in q_presentation_verification.json. The strict
+LHS audit is clear. Warning blocks change from 895 to 898, with three added
+Q-composition projection overlaps and none removed. This does not establish
+global confluence, a completed Q/lift model or production qualification.
+Replay after modifying ordinary curry/evaluation/product normalization,
+the product-prof/curried bridge, or native Q composition projections.

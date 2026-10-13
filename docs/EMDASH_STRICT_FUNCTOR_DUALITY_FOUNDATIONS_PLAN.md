@@ -53,11 +53,15 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: finish the native presentation inverse and connect the
-existing profunctor tensor body to Q composition, then use its canonical
-counit in the whole represented lift and correct the general-FF intrinsic
-action. The product-prof closed core now supplies a derived counit and whole
-represented curried views. Represented Q unit/composition computation checks.
+Current next slice: close the remaining inverse observation orders (separately
+expanded transformation action and the companion/conjoint specializations),
+then use the canonical counit in the whole represented lift and correct the
+general-FF intrinsic action. Generic whole presentation inverses now check;
+the existing product-prof tensor is connected to Q's composition owner and
+the derived counit has the required native composite source. These are
+structural computation clauses and checked consumers, not a derivation of a
+complete omega coefficient from the opaque tensor. Represented Q
+unit/composition computation also checks.
 A candidate whole Homd target and direct projection ladder check
 under explicit structural Q/lift contracts; those contracts are not yet a
 qualified omega coefficient. The first failing full-file consumer is the old
@@ -1481,6 +1485,82 @@ invertible. It is also the represented q-comparison of the strictly commuting
 square with E[q]=F, D[q]=id, U[0]=F and U[1]=id. Thus even strict U can have a
 genuinely lax represented lift. The script checks the finite composition and
 naturality; it does not supply or qualify the full omega construction.
+
+## Cartesian presentation and native tensor composition
+
+Current bounded experiment (2026-10-12, after c243ef1c): qualify the missing
+Cartesian curry/uncurry inverse at its existing semantic owners. The
+candidate is the Cartesian closed beta/eta law on the actual composition
+bodies, restricted to Functor_cart_cat; it is not functor extensionality or
+a law on the ambient lax mapping category. Check both whole-composite and
+separately projected application orders, variable transformation/higher
+action, and the product-prof presentation round trip. A failed projection
+order or admission of a raw lax inner mapping category rejects promotion.
+Use the q_closed source pin, owner-position copied sources, warning/LHS
+comparison and separate no-law controls. The semantic reference is
+[Ara--Guetta section 18](https://arxiv.org/html/2503.08832v1)'s Cartesian
+closure with strict n-transformations; the rule's native computation still
+requires the checks above.
+
+The q_presentation replay now checks the two whole Cartesian inverse
+composites, their generic object round trips, the required left-associated
+postcomposition contexts, and identity/constant/product-target instances.
+These beta/eta clauses are explicit structural computation for the existing
+semantic bodies. They are not a generic functor-extensionality theorem and
+do not admit an ambient lax inner mapping category to Cartesian uncurry.
+The maps remain the original defined curry/uncurry operations.
+
+The product-prof swap now computes as a whole involution. Its outer endpoints
+can be inferred from composability; matching literal opposite expressions
+there failed after double-opposite and terminal normalization. Similarly,
+recoverable Cartesian arguments in the curry patterns must stay inferred
+when Cartesian Hom distributes over a product. The final source retains only
+the measured endpoint guards needed by subject reduction. The whole bridge
+composites, both generic module round trips and the terminal bridge check.
+
+Q composition now uses the actual body already defined in q_closed:
+
+```text
+mu_Q(P,Q) = curry_Q(tensor(uncurry_Q(Q),uncurry_Q(P))).
+```
+
+The composition owner's whole, object, full-Hom and capped projections are
+connected to that body. The canonical object form remains native Q
+composition, so this does not introduce a cycle expanding an arbitrary
+composite back through its tensor presentation. The three formerly failing
+q_closed obligations are now included among the passing prefix controls:
+generic presentation round trip, whole composition-body comparison and the
+derived counit's native source. In particular,
+
+```text
+Prof_cov_counit_view(F) : iota(F) o kappa(F) => id_Q(B)
+```
+
+is still the image of Prof_eval_cov_map at the represented identity. There
+is no new supplied comparison arrow, operational proof payload or general
+adjunction prerequisite. The Q composition clause is a structural
+implementation choice; the opaque legacy tensor has not thereby supplied
+a proof of all associativity, units and higher coherence.
+
+Qualification remains bounded. Three positive obligations still fail:
+the separately expanded transformation round trip, and the inverse after
+the conjoint or companion has projected to its represented body. These are
+retained as action_boundary.lp, conjoint_boundary.lp and companion_boundary.lp;
+they are not counted as negative controls. Thus the generic whole inverse
+comparisons do not yet establish that every observation order joins.
+The full file still fails at tdapp1_int_func_transfd's use of raw FF through
+strictly profiled Op_funcd. No production promotion is authorized by these
+prefix results.
+
+The final prefix passes 234 positives/36 negatives in 6.455s under the
+unchanged 90s/2GiB bounds. Removing Cartesian inverse clauses, whole swap
+clauses or the Q composition connection reproduces the corresponding failed
+consumer; removing the retained endpoint guards fails subject reduction.
+The LHS audit has zero unreviewed slots. Warnings change from 895 to 898:
+three added Q-composition projection overlaps and none removed. The whole,
+object, full and capped consumers check; this is not a general confluence
+certificate. q_presentation_verification.json pins all current inputs,
+outputs, ten receipts, rejected pattern/guard variants and the open boundaries.
 
 ## Deferred improvements under the migration boundary
 

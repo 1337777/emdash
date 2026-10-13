@@ -1,0 +1,16 @@
+// Product swap is an involution on whole Cartesian module categories.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@Op_prof_func _ _) (@Op_prof_func $A $B)
+  ↪ @id_func (Prof_cat $A $B);
+
+// The canonical left-associated composition may already have a postcomposing
+// functor. This is the same involution in that measured composition context.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ $H
+        (@Op_prof_func _ _))
+      (@Op_prof_func $A $B)
+  ↪ $H;
+
+// The outer swap's endpoints are inferred from composability. Retaining
+// literal Op_cat patterns there fails after double transpose or terminal
+// reduction; no explicit endpoint guard is needed for subject reduction.

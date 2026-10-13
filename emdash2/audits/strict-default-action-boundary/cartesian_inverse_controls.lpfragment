@@ -1,0 +1,47 @@
+// Whole operations, followed by both separately projected application orders.
+assert (A B C : Cat) ⊢
+  @comp_cat_fapp0 _ _ _ (@uncurry_func_func A B C) (@curry_func_func A B C)
+  ≡ @id_func (Functor_cart_cat (Product_cat A B) C);
+assert (A B C : Cat) ⊢
+  @comp_cat_fapp0 _ _ _ (@curry_func_func A B C) (@uncurry_func_func A B C)
+  ≡ @id_func (Functor_cart_cat A (Functor_cart_cat B C));
+assert [A B C : Cat] (F : τ (Functor (Product_cat A B) C)) ⊢
+  @uncurry_func A B C (@curry_func A B C F) ≡ F;
+assert [A B C : Cat] (G : τ (Functor A (Functor_cart_cat B C))) ⊢
+  @curry_func A B C (@uncurry_func A B C G) ≡ G;
+
+assert [A B C X : Cat] (H : τ (Functor (Functor_cart_cat (Product_cat A B) C) X)) ⊢
+  @comp_cat_fapp0 _ _ _
+    (@comp_cat_fapp0 _ _ _ H (@uncurry_func_func A B C)) (@curry_func_func A B C)
+  ≡ H;
+
+// Identity and constant functors follow distinct earlier projection rules.
+assert [A B : Cat] ⊢
+  @uncurry_func A B (Product_cat A B)
+    (@curry_func A B (Product_cat A B) (@id_func (Product_cat A B)))
+  ≡ @id_func (Product_cat A B);
+assert [B C : Cat] ⊢
+  @curry_func (Functor_cart_cat B C) B C
+    (@uncurry_func (Functor_cart_cat B C) B C (@id_func (Functor_cart_cat B C)))
+  ≡ @id_func (Functor_cart_cat B C);
+assert [A B C : Cat] (c : τ (Obj C)) ⊢
+  @uncurry_func A B C (@curry_func A B C (@Const_func (Product_cat A B) C c))
+  ≡ @Const_func (Product_cat A B) C c;
+assert [A B C X : Cat] (H : τ (Functor (Functor_cart_cat A (Functor_cart_cat B C)) X)) ⊢
+  @comp_cat_fapp0 _ _ _
+    (@comp_cat_fapp0 _ _ _ H (@curry_func_func A B C)) (@uncurry_func_func A B C)
+  ≡ H;
+
+// The Cartesian restriction remains meaningful.
+assert [A B C D : Cat] (F : τ (Functor (Product_cat A B) (Product_cat C D))) ⊢
+  @uncurry_func A B (Product_cat C D) (@curry_func A B (Product_cat C D) F) ≡ F;
+assert [A B C D : Cat] (G : τ (Functor A (Functor_cart_cat B (Product_cat C D)))) ⊢
+  @curry_func A B (Product_cat C D) (@uncurry_func A B (Product_cat C D) G) ≡ G;
+assert (A B C D : Cat) ⊢
+  @comp_cat_fapp0 _ _ _ (@uncurry_func_func A B (Product_cat C D)) (@curry_func_func A B (Product_cat C D))
+  ≡ @id_func (Functor_cart_cat (Product_cat A B) (Product_cat C D));
+assert (A B C D : Cat) ⊢
+  @comp_cat_fapp0 _ _ _ (@curry_func_func A B (Product_cat C D)) (@uncurry_func_func A B (Product_cat C D))
+  ≡ @id_func (Functor_cart_cat A (Functor_cart_cat B (Product_cat C D)));
+assertnot [A B C : Cat] (G : τ (Functor A (Functor_cat B C))) ⊢
+  @uncurry_func A B C G : τ (Functor (Product_cat A B) C);

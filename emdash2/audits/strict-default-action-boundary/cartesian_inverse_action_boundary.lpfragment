@@ -1,0 +1,7 @@
+// Positive higher-action obligation, observing each operation separately.
+assert [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (alpha : τ (Hom (Functor_cart_cat (Product_cat A B) C) F G)) ⊢
+  @fapp1_fapp0 _ _ (@uncurry_func_func A B C)
+    (@curry_func A B C F) (@curry_func A B C G)
+    (@fapp1_fapp0 _ _ (@curry_func_func A B C) F G alpha)
+  ≡ alpha;
