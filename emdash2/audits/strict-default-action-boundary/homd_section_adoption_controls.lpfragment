@@ -1,0 +1,70 @@
+// Public section and y-component now have the actual checked derived bodies.
+// These compare definitions, not independent primitive sections.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) ⊢
+  @homd_id_src_sec K E x u ≡ @fibcov_cart_section K E x u;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K)) ⊢
+  @homd_id_tgt_func K E x u y
+  ≡ @Prof_cov_companion (Hom_cat K x y) (@Fibre_cat K E y)
+      (@fib_cov_tapp0_func K E x y u);
+
+// Both deleted projection clauses are now observations of the actual bodies.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y
+    (@homd_id_src_sec K E x u)
+  ≡ @homd_id_tgt_func K E x u y;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K))
+  (v : τ (Obj (@Fibre_cat K E y))) ⊢
+  fapp0 (@homd_id_tgt_func K E x u y) v ≡ @homd_id_ K E x u y v;
+
+// Actual nonidentity y-action of the adopted public section.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y z : τ (Obj K)) ⊢
+  @tapp1_func K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y z
+    (@homd_id_src_sec K E x u)
+  ≡ @Prof_cov_lift_right_func K (@hom_ K K (@id_func K) x) E
+      (@fibcov_cart_transf K E x u) y z;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  fapp0 (@tapp1_func K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y z
+    (@homd_id_src_sec K E x u)) q
+  ≡ @tapp1_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+      (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y z
+      (@homd_id_src_sec K E x u) q;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  @tapp1_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y z
+    (@homd_id_src_sec K E x u) q
+  ≡ @hom_postcomp_fapp0 Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+      (@Fibre_cat K E y) (@Fibre_cat K E z) (Hom_cat K x z)
+      (@homd_id_tgt_func K E x u z)
+      (@fapp1_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E) y z q);
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K)) ⊢
+  @tapp1_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y y
+    (@homd_id_src_sec K E x u) (@id K y)
+  ≡ @homd_id_tgt_func K E x u y;
+
+// Same-profile parameter perturbations: no definitional data collapse.
+assertnot [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u u' : τ (Obj (@Fibre_cat K E x))) ⊢
+  @homd_id_src_sec K E x u ≡ @homd_id_src_sec K E x u';
+
+assertnot [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K))
+  (v v' : τ (Obj (@Fibre_cat K E y))) ⊢
+  fapp0 (@homd_id_tgt_func K E x u y) v
+  ≡ fapp0 (@homd_id_tgt_func K E x u y) v';

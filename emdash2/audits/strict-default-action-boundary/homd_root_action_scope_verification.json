@@ -1,0 +1,548 @@
+{
+  "status": "selected scope passes; both sensitivity controls fail at intended assertions; full-source intrinsic action remains unqualified",
+  "hypothesis": "Canonical Homd x consumers need only their named source-action comparison; raw FF need not inherit it.",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/homd_root_action_scope_migration.py": "9d7c716363bd9581917858e73dad6a3dc8a6938923cd9522e46bb03402f7bc89",
+    "tmp/probes/homd_section_adoption/combined_controls.lp": "7d27980170780fc1db23acdb74b040c6be4a0035979db4380b5768a13b222b66",
+    "audits/strict-default-action-boundary/homd_root_action_scope.lpfragment": "56fd463f4e4954db510dacf28b9da1c63d27adfd95f7531a4f33c635f66a1fa5",
+    "audits/strict-default-action-boundary/homd_root_action_scope_controls.lpfragment": "77aaee2b588a4a3231d006ce48a63758157f0bf70bace7bf41bd7daa86f6a992",
+    "tmp/probes/homd_section_adoption/full_source.lp": "6856ea4aa0616ec921e8877bec44889cd9aabec3777b879771f5b9644f33020a",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/homd_root_action_scope_source_closure.md": "1330b3cae7c0befd808a4c80a8a434221d63b5b821e3ba849cab12988fd26901"
+  },
+  "removedGenericComparison": "// Existing native Cat-valued source-action convention, with projected\n// component and image functors compared after matching the two rigid heads.\n// This is D[p] o FF[x]; no equality with FF[y] o E[p] is asserted.\nunif_rule @tapp1_func $K Cat_cat $E $D $x $y $FF\n  \u2261 @comp_fapp0 Cat_cat $C0 $C1 $C2 $P $H\n  \u21aa [ $C0 \u2261 Hom_cat $K $x $y;\n      $C1 \u2261 Functor_cart_cat (@fapp0 $K Cat_cat $D $x) (@fapp0 $K Cat_cat $D $y);\n      $C2 \u2261 Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $D $y);\n      $P \u2261 @hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat)\n        (@fapp0 $K Cat_cat $D $y) (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $D $x)\n        (@tapp0_fapp0 $K Cat_cat $E $D $x $FF);\n      $H \u2261 @fapp1_func $K Cat_cat $D $x $y ];\n\n",
+  "outputs": {
+    "combined_controls.lp": "82b0d9881e730ccf3254b1f4927f31690a7e1ae45cb21db5e89aa7ef90b67148",
+    "without_scoped_comparison.lp": "4569418f0e9f2a845b1d4c94a3585d86153e3420b5369540b34bd9609d2b0b2b",
+    "with_generic_comparison.lp": "c9b5106222b75ce2c2a5e989e794253a5fc21dbb6aa5000fa0c1ae572c67ab76",
+    "full_source.lp": "260530f3f37f7f4d3f089930b5bba9de45d4d0457cf21319e9a04155f71b4d69"
+  },
+  "inheritedAssertions": {
+    "positive": 348,
+    "negative": 75
+  },
+  "newAssertions": {
+    "positive": 0,
+    "negative": 2
+  },
+  "scope": [
+    "Preserves every inherited assertion byte and order.",
+    "Replaces one generic proof-time comparison by its named identity-Homd instance at the owning position.",
+    "No rule equates the two naturality routes, strictifies arbitrary FF, or supplies a laxity cell.",
+    "No claimed general-FF intrinsic extraction, global coefficient coherence, or production qualification."
+  ],
+  "checks": {
+    "combined_controls.lp": {
+      "id": "20261013T202731Z-03edfd83bf2b4791a63a71173d644dd9",
+      "target": "tmp/probes/homd_root_action_scope/combined_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 18.145354879903607,
+      "childrenMaxRssKiB": 752296,
+      "inputSnapshot": "02380422a741131a9119699024929f4181baf27349ef07899a28202f4124d1cb",
+      "receipt": "logs/check-runs/20261013T202731Z-03edfd83bf2b4791a63a71173d644dd9.json",
+      "receiptSha256": "2444a3768c424f34ad2a6e20ee725b073f991330d7f1f891a970f2eca0df8e5c",
+      "log": "logs/check-runs/20261013T202731Z-03edfd83bf2b4791a63a71173d644dd9.log",
+      "logSha256": "458e6a363149fef9ff4e202b0a3dd9a95318cb75b14e5d973e01df1d0e812c9c",
+      "sourceSha256": "82b0d9881e730ccf3254b1f4927f31690a7e1ae45cb21db5e89aa7ef90b67148",
+      "terminalError": null,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 986,
+        "replaceablePatternVariables": 137
+      },
+      "assertions": {
+        "positive": 348,
+        "negative": 77
+      }
+    },
+    "without_scoped_comparison.lp": {
+      "id": "20261013T202838Z-bda048098f0c471a895b55571d2a03e5",
+      "target": "tmp/probes/homd_root_action_scope/without_scoped_comparison.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 17.312605260987766,
+      "childrenMaxRssKiB": 736444,
+      "inputSnapshot": "bf01e5fdd772a890ff92882435b4b618a0bf5095f1187b7a00167f024be85e77",
+      "receipt": "logs/check-runs/20261013T202838Z-bda048098f0c471a895b55571d2a03e5.json",
+      "receiptSha256": "c110c16a85e57ad7a3b7d5a78b5ac85683aff5c769f09d6bae1300ac04d6bebe",
+      "log": "logs/check-runs/20261013T202838Z-bda048098f0c471a895b55571d2a03e5.log",
+      "logSha256": "1938f6165fb15a460050512d86aced485d8fa627c92d28cc1982480d0eddd608",
+      "sourceSha256": "4569418f0e9f2a845b1d4c94a3585d86153e3420b5369540b34bd9609d2b0b2b",
+      "terminalError": "[tmp/probes/homd_root_action_scope/without_scoped_comparison.lp:18894:0-18903:69] Assertion failed.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 986,
+        "replaceablePatternVariables": 137
+      },
+      "classification": "Expected failure of the inherited positive canonical x-action assertion."
+    },
+    "with_generic_comparison.lp": {
+      "id": "20261013T202856Z-2eb6cc198135496ca3e73de35a26026a",
+      "target": "tmp/probes/homd_root_action_scope/with_generic_comparison.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 21.24806127010379,
+      "childrenMaxRssKiB": 753968,
+      "inputSnapshot": "feb7559d614299d9ddc2b5cfcc0ff504b8c6a0b2ca3383fe0e28035aba3291f1",
+      "receipt": "logs/check-runs/20261013T202856Z-2eb6cc198135496ca3e73de35a26026a.json",
+      "receiptSha256": "9bc38b2c9660db9518e85e1668780a58e04b1154250e8d6fe47b7e80651969c4",
+      "log": "logs/check-runs/20261013T202856Z-2eb6cc198135496ca3e73de35a26026a.log",
+      "logSha256": "254fab3861a41a9417d3daf7e01a9d02e92d96e3b46a494938d65a7c4128b210",
+      "sourceSha256": "c9b5106222b75ce2c2a5e989e794253a5fc21dbb6aa5000fa0c1ae572c67ab76",
+      "terminalError": "[tmp/probes/homd_root_action_scope/with_generic_comparison.lp:19701:0-19712:38] Assertion failed.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 986,
+        "replaceablePatternVariables": 137
+      },
+      "classification": "Expected failure of the new arbitrary-FF noncollapse assertion."
+    },
+    "full_source.lp": {
+      "id": "20261013T202918Z-010776c98d57425f96e5a0ab63ed7060",
+      "target": "tmp/probes/homd_root_action_scope/full_source.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 17.57474140706472,
+      "childrenMaxRssKiB": 752692,
+      "inputSnapshot": "2f77dccfa342c98fbb94c9f0f1e96072337d636ce9acfdbf5b1980b2f41fed40",
+      "receipt": "logs/check-runs/20261013T202918Z-010776c98d57425f96e5a0ab63ed7060.json",
+      "receiptSha256": "7f498fb22b2c69ec16714a02e55419f211d1e443042eaf27d66c24430793992a",
+      "log": "logs/check-runs/20261013T202918Z-010776c98d57425f96e5a0ab63ed7060.log",
+      "logSha256": "167464e28c7e620c5931758adff713855576247bd9668fe29bfe5ece9b7ab0c6",
+      "sourceSha256": "260530f3f37f7f4d3f089930b5bba9de45d4d0457cf21319e9a04155f71b4d69",
+      "terminalError": "[tmp/probes/homd_root_action_scope/full_source.lp:19779:25] The proof is not finished:",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 986,
+        "replaceablePatternVariables": 137
+      },
+      "classification": "Unqualified continuation; Op_funcd requests StrictTransfor for arbitrary raw FF."
+    }
+  },
+  "baselineReceipt": "logs/check-runs/20261013T202354Z-46f34a1a9cd641768ac44000e6dcfef3.json",
+  "baselineReceiptSha256": "656d70f62eeb2b45597493f06e236a9ab939ee6c1d9a674d5b9a197d2d2189f6",
+  "warningComparison": {
+    "criticalPairBodiesIdentical": true,
+    "blocks": 986,
+    "replaceablePatternVariablesBefore": 137,
+    "replaceablePatternVariablesAfter": 137,
+    "qualification": "Unchanged overlap inventory; no global confluence claim."
+  },
+  "lhsAudit": {
+    "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/homd_root_action_scope/combined_controls.lp",
+    "candidate_clauses": 0,
+    "candidate_slots": 0,
+    "candidates": [],
+    "annotated_clauses": 31,
+    "annotated_slots": 46,
+    "annotated": [
+      {
+        "line": 3457,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(Op_cat $K)",
+        "reason": "Op_cat is the measured source discriminator after the"
+      },
+      {
+        "line": 3527,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(Op_cat (Path_cat $A))",
+        "reason": "measured opposite/path category discriminators reduce"
+      },
+      {
+        "line": 3527,
+        "head": "fapp1_fapp0",
+        "slot": 2,
+        "argument": "(Path_cat $A)",
+        "reason": "measured opposite/path category discriminators reduce"
+      },
+      {
+        "line": 3539,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat $A)",
+        "reason": "the target Path_cat guard removes eleven otherwise"
+      },
+      {
+        "line": 3557,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(Op_cat (Path_cat (PathRecord_grpd $A)))",
+        "reason": "measured rigid PathSym categories are warning guards."
+      },
+      {
+        "line": 3557,
+        "head": "fapp1_fapp0",
+        "slot": 2,
+        "argument": "(Path_cat (PathRecord_grpd $A))",
+        "reason": "measured rigid PathSym categories are warning guards."
+      },
+      {
+        "line": 5623,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(@Catd_cat $K)",
+        "reason": "Catd_cat is the source discriminator for id_funcd."
+      },
+      {
+        "line": 5776,
+        "head": "comp_fapp0",
+        "slot": 2,
+        "argument": "(@fapp0 $A (Op_cat $B) $F $Z)",
+        "reason": "these reversed endpoints are required by subject reduction; the inferred variant fails to identify the two images of the shared source object."
+      },
+      {
+        "line": 5776,
+        "head": "comp_fapp0",
+        "slot": 3,
+        "argument": "(@fapp0 $A (Op_cat $B) $F $Y)",
+        "reason": "these reversed endpoints are required by subject reduction; the inferred variant fails to identify the two images of the shared source object."
+      },
+      {
+        "line": 5776,
+        "head": "comp_fapp0",
+        "slot": 4,
+        "argument": "(@fapp0 $A (Op_cat $B) $F $X)",
+        "reason": "these reversed endpoints are required by subject reduction; the inferred variant fails to identify the two images of the shared source object."
+      },
+      {
+        "line": 5802,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat $A)",
+        "reason": "Path_cat is the semantic discriminator for the projected right-unit bridge."
+      },
+      {
+        "line": 5807,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat $A)",
+        "reason": "Path_cat is the semantic discriminator for the projected left-unit bridge."
+      },
+      {
+        "line": 5813,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat (PathRecord_grpd $A))",
+        "reason": "the nested Path_cat/PathRecord heads select this former."
+      },
+      {
+        "line": 5819,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat (PathRecord_grpd $A))",
+        "reason": "the nested Path_cat/PathRecord heads select this former."
+      },
+      {
+        "line": 8803,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Catd_cat $B)",
+        "reason": "the displayed-family composition owner selects this represented-action join."
+      },
+      {
+        "line": 9129,
+        "head": "comp_fapp0",
+        "slot": 2,
+        "argument": "(Product_cat $A $B)",
+        "reason": "product source/middle/target categories guard the symmetry involution rule."
+      },
+      {
+        "line": 9129,
+        "head": "comp_fapp0",
+        "slot": 3,
+        "argument": "(Product_cat $B $A)",
+        "reason": "product source/middle/target categories guard the symmetry involution rule."
+      },
+      {
+        "line": 9129,
+        "head": "comp_fapp0",
+        "slot": 4,
+        "argument": "(Product_cat $A $B)",
+        "reason": "product source/middle/target categories guard the symmetry involution rule."
+      },
+      {
+        "line": 9141,
+        "head": "comp_fapp0",
+        "slot": 2,
+        "argument": "(Product_cat $A $B)",
+        "reason": "product source/middle categories guard the symmetry-involution pullback rule."
+      },
+      {
+        "line": 9141,
+        "head": "comp_fapp0",
+        "slot": 3,
+        "argument": "(Product_cat $B $A)",
+        "reason": "product source/middle categories guard the symmetry-involution pullback rule."
+      },
+      {
+        "line": 10350,
+        "head": "tapp1_func",
+        "slot": 3,
+        "argument": "(@hom_ $A $B $F $Y)",
+        "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+      },
+      {
+        "line": 10350,
+        "head": "tapp1_func",
+        "slot": 4,
+        "argument": "(@hom_ $A $B $F $X)",
+        "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+      },
+      {
+        "line": 10383,
+        "head": "tapp1_fapp0",
+        "slot": 3,
+        "argument": "(@hom_ $A $B $F $Y)",
+        "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+      },
+      {
+        "line": 10383,
+        "head": "tapp1_fapp0",
+        "slot": 4,
+        "argument": "(@hom_ $A $B $F $X)",
+        "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+      },
+      {
+        "line": 10717,
+        "head": "tapp0_fapp0",
+        "slot": 3,
+        "argument": "(@Const_catd $K Terminal_cat)",
+        "reason": "terminal-source family is the semantic discriminator"
+      },
+      {
+        "line": 10807,
+        "head": "fapp1_fapp0",
+        "slot": 4,
+        "argument": "(@Const_catd $B Terminal_cat)",
+        "reason": "both constant families delimit the section specialization required by subject reduction."
+      },
+      {
+        "line": 12040,
+        "head": "fapp1_func",
+        "slot": 4,
+        "argument": "(Struct_sigma $x $y)",
+        "reason": "pair endpoint is decomposed by the rule"
+      },
+      {
+        "line": 12065,
+        "head": "fapp1_fapp0",
+        "slot": 4,
+        "argument": "(Struct_sigma $x $y)",
+        "reason": "pair endpoint is decomposed by the rule"
+      },
+      {
+        "line": 12576,
+        "head": "fapp1_func",
+        "slot": 4,
+        "argument": "(Struct_sigma $x $y)",
+        "reason": "constructed pair endpoint is decomposed by the rule."
+      },
+      {
+        "line": 14577,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(@Catd_cat $K)",
+        "reason": "Catd_cat is the subject-reduction guard for the displayed left beta."
+      },
+      {
+        "line": 14587,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(@Catd_cat $K)",
+        "reason": "Catd_cat is the subject-reduction guard for the displayed right beta."
+      },
+      {
+        "line": 14742,
+        "head": "fapp0",
+        "slot": 1,
+        "argument": "(@Pi_cat $K $E)",
+        "reason": "both section categories are subject-reduction guards"
+      },
+      {
+        "line": 14742,
+        "head": "fapp0",
+        "slot": 2,
+        "argument": "(@Pi_cat $K $D)",
+        "reason": "both section categories are subject-reduction guards"
+      },
+      {
+        "line": 15216,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(@Sigma_cat $K $E)",
+        "reason": "`Sigma_cat(K,E)` is the semantic discriminator that"
+      },
+      {
+        "line": 15250,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Product_cat $K $A)",
+        "reason": "`Product_cat(K,A)` is the surviving semantic"
+      },
+      {
+        "line": 15284,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(@Sigma_cat $K $E)",
+        "reason": "the Sigma source and base target guard the"
+      },
+      {
+        "line": 15556,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(@Sigma_cat $K $R)",
+        "reason": "the Sigma source and Cat target guard the stable"
+      },
+      {
+        "line": 15635,
+        "head": "tapp0_fapp0",
+        "slot": 1,
+        "argument": "(@Sigma_cat $K $R)",
+        "reason": "the Sigma source, terminal source family, and"
+      },
+      {
+        "line": 15635,
+        "head": "tapp0_fapp0",
+        "slot": 3,
+        "argument": "(@Const_catd (@Sigma_cat $K $R) Terminal_cat)",
+        "reason": "the Sigma source, terminal source family, and"
+      },
+      {
+        "line": 15635,
+        "head": "tapp0_fapp0",
+        "slot": 4,
+        "argument": "(@Sigma_proj1_pullback_catd $K $R $D)",
+        "reason": "the Sigma source, terminal source family, and"
+      },
+      {
+        "line": 15735,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(@Functord_cat $K $E $D)",
+        "reason": "measured critical-pair guards for the iterated Sigma action"
+      },
+      {
+        "line": 15735,
+        "head": "fapp1_fapp0",
+        "slot": 2,
+        "argument": "(Functor_cat (@Sigma_cat $K $E) (@Sigma_cat $K $D))",
+        "reason": "measured critical-pair guards for the iterated Sigma action"
+      },
+      {
+        "line": 17318,
+        "head": "tapp0_fapp0",
+        "slot": 1,
+        "argument": "(Product_cat (Op_cat $A) $A)",
+        "reason": "the product/opposite base types sigma_Fst/Snd and"
+      },
+      {
+        "line": 17318,
+        "head": "tapp0_fapp0",
+        "slot": 3,
+        "argument": "(@Unit_prof $A)",
+        "reason": "the product/opposite base types sigma_Fst/Snd and"
+      },
+      {
+        "line": 17336,
+        "head": "tapp1_fapp0",
+        "slot": 1,
+        "argument": "(Product_cat (Op_cat $A) $A)",
+        "reason": "as above, retain the measured base/source guards,"
+      },
+      {
+        "line": 17336,
+        "head": "tapp1_fapp0",
+        "slot": 3,
+        "argument": "(@Unit_prof $A)",
+        "reason": "as above, retain the measured base/source guards,"
+      }
+    ]
+  }
+}

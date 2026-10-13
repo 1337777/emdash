@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; native x/u and intermediate y/v consumers check with a derived whole Homd section; adoption in the existing ladder, native laxity, coefficient integration and production gates remain open
+Status: active; derived section adopted and canonical root action scoped in the identity ladder; intrinsic-action profile repair, coefficient integration and production gates remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -92,9 +92,13 @@ source closure and limits are recorded below. The native x/u consumer
 assembly now checks, including the whole h-parameter construction and
 two-factor ordinary leaf. Intermediate y/v identity/composition comparisons
 and a derived whole section now check in the combined successor below.
-The immediate work is adoption of that section with whole x/u compatibility,
-remaining specialized overlaps and native laxity, followed by coefficient and intrinsic-action
-integration. The lift_middle selected variant checks both whole middle
+The section and target-component definitions are now adopted, with inherited
+whole x/u consumers preserved. The `homd_root_action_scope` successor removes
+the arbitrary-FF Cat source-action comparison and retains only its canonical
+identity-Homd instance; all 348 positive and 77 negative controls pass.
+The immediate work is the intrinsic-action
+profile repair described below, followed by remaining specialized overlaps,
+coefficient integration and full-source migration. The lift_middle selected variant checks both whole middle
 comparisons, the actual mate composite and its first component. The raw
 represented counit below now has an actual construction
 without identifying implication with a conjoint; its Cartesian admission,
@@ -152,13 +156,16 @@ is not an identification of all mapping categories. Its full-file migration
 is still unqualified. This clarification preserves the accepted strict-
 functor/lax-transfor goal and adds no weak-category prerequisite.
 
-Clarification of the retained FF laxness: `FF : Functord(E,D)` is a
+Clarification of the retained FF carrier: `FF : Functord(E,D)` is a
 Cat-valued transformation, compared with `Transf(K,Cat,E,D)` by the existing
 kernel interface. Its component `FF[x] : E[x] -> D[x]` is a strict functor
-under the new default. Its base naturality comparison
-`D[p] o FF[x] => FF[y] o E[p]` need not be identity; the native
-`functord_laxity_transf` extracts that comparison from internal action.
-Preserve that extraction and the blended Homd owners. Neither a strict
+under the new default. For the conventional normal-lax profile, its base
+naturality comparison `D[p] o FF[x] => FF[y] o E[p]` need not be identity.
+The raw ambient carrier exposes two skew legs instead; the later intrinsic
+profile review below shows why forward extraction cannot be justified from
+those legs alone. Its full internal-action/closure contract still requires
+review before changing the general-FF extraction domain. Preserve native
+intrinsic extraction and the general raw relative Homd interface. Neither a strict
 component nor the checked Cartesian opposite-family parameter action
 authorizes making every FF strictly natural. The same-profile legacy
 `Op_funcd` is used inside `fdapp1_int_transfd`, so its general consumer repair
@@ -170,7 +177,9 @@ make all displayed transformations strictly natural. Over a walking arrow,
 take constant families at Terminal and B. A lax displayed map can choose
 b0 and b1 in B with a comparison b0->b1. Its two component functors are
 strict; strict base naturality would exclude the example when b0 and b1
-differ. This uses ordinary categories and no duality issue. A deliberately
+differ. This is a conventional normal-lax example in ordinary categories;
+it is not proof that the raw prototype with its generic source-action
+normalization faithfully admits that example. A deliberately
 stricter displayed-map classifier is a possible separate design choice, but
 is not selected for this migration. The existing Functord object projection
 reduces to Transf(K,Cat,E,D), so restricting a rule's spelling to Functord
@@ -304,10 +313,12 @@ required" lists that demand that derivation are superseded by this boundary.
 Preserve existing derived owners and bodies where already applicable; this
 clarification does not authorize postulating any failed equation.
 
-For the ambient identity Homd root, source and target routes L and R are
-connected by native directed laxity L⇒R. Equality L=R, inverse laxity or a
-strict-transfor admission is not required merely because E and its transports
-are strict functors. The next concrete consumers are the existing native
+The earlier interpretation of the ambient Homd root as automatically
+carrying L⇒R is superseded by the intrinsic profile review below. Raw
+transfors retain L⇒M and R⇒M; a conventional direction needs its actual
+profile. Equality L=R, inverse laxity or a strict-transfor admission is not
+required merely because E and its transports are strict functors. The
+concrete consumers remain the existing native
 `tapp1_func(homd_id_int(E))` action and
 `fapp1_func(homd_id_src_func(E,x))` action, followed through their projection
 ladders. General-FF normalization remains a separate composition diagnostic.
@@ -2693,6 +2704,84 @@ derived body in the public identity ladder while qualifying whole x/u
 compatibility and preserving the general-FF composite. Native root laxity,
 specialized overlaps, raw-preserving coefficient integration and production
 migration remain required.
+
+## Adopted section and the intrinsic-action profile boundary
+
+The `homd_section_adoption` replay replaces the two independent declarations
+`homd_id_src_sec` and `homd_id_tgt_func` by the checked section and companion
+bodies. Their two redundant projection rules are removed. The primitive
+root/source functor, all native u-action rungs and the defined general-FF
+extension remain unchanged. All inherited x/u consumers and the new direct
+body/y-action controls pass. This is adoption by definition, not a theorem
+equating independent primitives from their object values. Equality with an
+alternative derived whole u-functor is not an automatic extra prerequisite
+for the retained primitive-and-projection implementation.
+
+The next full-source obligation needs a profile review before redeclaring
+the old intrinsic target with its promised action. The
+[intrinsic profile review](../emdash2/audits/strict-default-action-boundary/homd_intrinsic_profile_review.md)
+and its executable finite countermodels distinguish two issues:
+
+- Even a conventional normal-lax FF with strict component functors can make
+  the old ordinary-lax x-target require a functor 1→Empty. This remains true
+  at identity modification input. The desired forward laxity itself exists.
+  This refutes that forward profile, not the bare raw `Functord` type: its
+  local oplax legs `1→1←Empty` exist.
+- Independently specified skew legs L→M←R need not supply any L→R. This is
+  not a model of every repository raw-carrier operation and does not alone
+  justify narrowing every FF. The former generic Cat-valued M=L comparison
+  is not evidence for forward normal-lax extraction. Raw transpose swaps
+  the two legs; it is not automatically invalid, but it exchanges
+  conventional lax and oplax profiles.
+
+Keep the public raw relative Homd argument: target-side composition remains
+well formed more generally than a separately justified forward-laxity
+extraction. Do not make all FF strictly natural. An oplax whole target and
+normal-lax input admission are candidate diagnostics, not a selected
+replacement for the general-FF obligation. First settle the full ambient
+internal-action contract and whether the correction belongs to its target,
+its profiles, or both. Any candidate needs actual whole and higher
+qualification, not assumed inverses of the old root. In particular, the
+existing IsOplax property does not supply an admitted oplax carrier.
+
+Both the ordinary named laxity observations and the Gray graph/interchanger
+depend on the displayed intrinsic extractor. They cannot be reused as an
+independent seed of that same extractor. Preserve the internal-action →
+transported-identity projection architecture, with no standalone supplied
+laxity cell and no circular definition through Sigma-map action. Update
+both the section-15 owner and the late `fdapp1_projection_target` when the
+correct profiles are installed. The existing same-profile `Op_funcd(raw FF)`
+must not be reinstated to bypass the type failure.
+
+This corrects an unqualified expectation in the earlier plan; it does not
+shrink the goal to the already checked identity ladder or retire the required
+native extraction and downstream migration.
+
+## Canonical root action scope, 2026-10-13
+
+The section-adoption baseline rechecked unchanged at receipt
+`20261013T202354Z-46f34a1a9cd641768ac44000e6dcfef3` (348 positive/75 negative).
+Removing the generic Cat-valued M=L comparison preserves source typing
+through to the first identity-root x-action assertion, which fails. The
+selected successor installs only that constructor's source-route comparison
+at the identity Homd owner. It preserves every inherited assertion, all
+adopted section bodies and the raw general-FF relative composite.
+
+The [scope replay](../emdash2/audits/strict-default-action-boundary/homd_root_action_scope_source_closure.md)
+passes 348 positive/77 negative controls, receipt
+`20261013T202731Z-03edfd83bf2b4791a63a71173d644dd9`. Its two new negatives
+reject raw FF source-action equality and strict-transfor admission of the
+canonical root. Removing the selected comparison fails the existing root
+x-action assertion; restoring the generic comparison fails the new raw-FF
+negative. Warning bodies are identical to the adopted baseline (986 critical
+pairs, 137 replaceable patterns); the LHS audit has zero unreviewed slots.
+
+This selects a native action comparison for a named structural constructor;
+it does not derive either skew leg or declare either one an identity. It
+eliminates an unnecessary generic assumption from the identity milestone.
+Intrinsic extraction, coefficient coherence, remaining specialized overlaps
+and production/downstream integration are still required. No public raw-FF
+domain has been narrowed by this change.
 
 ## Deferred improvements under the migration boundary
 

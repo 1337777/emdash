@@ -1,0 +1,20 @@
+// An arbitrary displayed transfor retains its own internal action. It does
+// not inherit the selected source-route comparison of homd_id_int.
+assertnot [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) ⊢
+  @eq_refl (Functor (Hom_cat K x y) (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+    (@tapp1_func K Cat_cat E D x y FF)
+  : τ (@= (Functor (Hom_cat K x y) (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+      (@tapp1_func K Cat_cat E D x y FF)
+      (@comp_cat_fapp0 (Hom_cat K x y)
+        (Functor_cart_cat (Fibre_cat D x) (Fibre_cat D y))
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y))
+        (@comp_cat_con_cart_func (Fibre_cat E x) (Fibre_cat D x) (Fibre_cat D y)
+          (@tapp0_fapp0 K Cat_cat E D x FF))
+        (@fapp1_func K Cat_cat D x y)));
+
+// The canonical root's selected action is not full strict naturality.
+assertnot [K : Cat] (E : τ (Catd K)) ⊢
+  @homd_id_int K E
+  : τ (@StrictTransfor (CoAt2_cat K) Cat_cat
+      (@Op_catd K E) (@Homd_target_catd K E));

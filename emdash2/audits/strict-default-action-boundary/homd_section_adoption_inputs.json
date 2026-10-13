@@ -1,0 +1,12 @@
+{
+  "contextRevision": "aca8de2329e5b4bb85d576c85b182a13dbf713a3",
+  "donor": "tmp/probes/homd_native_section_assembly/combined_controls.lp",
+  "sourceInputs": {
+    "tmp/probes/homd_native_section_assembly/combined_controls.lp": "ccaa46ee37b47ad7fd2da196a28f9999b0bc6125317dd56ba4e505a872a93c1d",
+    "audits/strict-default-action-boundary/homd_native_section_assembly_verification.json": "f6614bcf04348b1eedf7005e996694fdc4ff68802ea6bd689705ba2c20ace9af",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "tmp/probes/foundation_assembly/full_source.lp": "cfa7257054abad633f05ce8d674a5c42e973416706ff87f761bb2c246107f725",
+    "audits/strict-default-action-boundary/foundation_assembly_verification.json": "1855acbfdb381d8367e4a0805eb4ce81d259b4087a77f5d41408b8aea4006a59"
+  },
+  "continuationDonor": "tmp/probes/foundation_assembly/full_source.lp"
+}

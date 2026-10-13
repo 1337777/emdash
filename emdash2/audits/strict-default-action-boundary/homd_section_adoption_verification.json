@@ -1,0 +1,718 @@
+{
+  "status": "bounded public section/target adoption passes; both definition removals fail retained-owner SR; unchanged full-source intrinsic continuation fails and remains unqualified",
+  "contextRevision": "aca8de2329e5b4bb85d576c85b182a13dbf713a3",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/homd_section_adoption_migration.py": "6f8cc6c456a513f7beeb9d30a346018939e5d40f28d893326e62e4c5734e39fc",
+    "audits/strict-default-action-boundary/homd_section_adoption_inputs.json": "78e169b2f1a9901a9c4b1fa64924cdd96171e864df58a29de64902491be03d5b",
+    "audits/strict-default-action-boundary/homd_native_section_assembly_verification.json": "f6614bcf04348b1eedf7005e996694fdc4ff68802ea6bd689705ba2c20ace9af",
+    "tmp/probes/homd_native_section_assembly/combined_controls.lp": "ccaa46ee37b47ad7fd2da196a28f9999b0bc6125317dd56ba4e505a872a93c1d",
+    "audits/strict-default-action-boundary/homd_section_adoption_controls.lpfragment": "05d7b6d80d9aa38b5b1330d42dfb2c5dd6908977dc591a5cc17f587d2983e22e",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/homd_section_adoption_source_closure.md": "e9d49ce2f555d899e0a1e74be303c5a0156c00bf07a952f2ac052150cae85ca5",
+    "tmp/probes/foundation_assembly/full_source.lp": "cfa7257054abad633f05ce8d674a5c42e973416706ff87f761bb2c246107f725",
+    "audits/strict-default-action-boundary/foundation_assembly_verification.json": "1855acbfdb381d8367e4a0805eb4ce81d259b4087a77f5d41408b8aea4006a59"
+  },
+  "donor": "tmp/probes/homd_native_section_assembly/combined_controls.lp",
+  "donorReceipt": "logs/check-runs/20261013T184800Z-3b807a2755c44fa4b100a20f09e0229c.json",
+  "exactReplacements": [
+    {
+      "label": "define-public-source-section",
+      "oldSha256": "e11801025d2a35b8bf1768fb493894dc71fe5e2c126c1d196cede0744110ed12",
+      "newSha256": "50fa570f5c4aa26da4ba5d3106e1f2827dfb32ae3a0c87d4220a98157a248f6f",
+      "old": "symbol homd_id_src_sec [K : Cat] (E : \u03c4 (Catd K))\n  (x : \u03c4 (Obj K)) (u : \u03c4 (Obj (Fibre_cat E x)))\n  : \u03c4 (Obj (@Homd_section_cat K E x));",
+      "new": "symbol homd_id_src_sec [K : Cat] (E : \u03c4 (Catd K))\n  (x : \u03c4 (Obj K)) (u : \u03c4 (Obj (Fibre_cat E x)))\n  : \u03c4 (Obj (@Homd_section_cat K E x))\n\u2254 @fibcov_cart_section K E x u;"
+    },
+    {
+      "label": "define-public-y-component",
+      "oldSha256": "c78a037029dee587f6e30ba97757e5ea8dc19b58dba7a6de3db9dcd4ede964e0",
+      "newSha256": "88a6d20a904f93e7cd0a41852bd1ede5d7a87a3bfc25c4def9cfd26c67e68712",
+      "old": "symbol homd_id_tgt_func [K : Cat] (E : \u03c4 (Catd K))\n  (x : \u03c4 (Obj K)) (u : \u03c4 (Obj (Fibre_cat E x))) (y : \u03c4 (Obj K))\n  : \u03c4 (Functor (Fibre_cat E y)\n      (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat));",
+      "new": "symbol homd_id_tgt_func [K : Cat] (E : \u03c4 (Catd K))\n  (x : \u03c4 (Obj K)) (u : \u03c4 (Obj (Fibre_cat E x))) (y : \u03c4 (Obj K))\n  : \u03c4 (Functor (Fibre_cat E y)\n      (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat))\n\u2254 @Prof_cov_companion (Hom_cat K x y) (@Fibre_cat K E y)\n    (@fib_cov_tapp0_func K E x y u);"
+    },
+    {
+      "label": "remove-redundant-source-component-rule",
+      "oldSha256": "82ab7a7bf8f60af3a7a093326f94e12a2567bb4b109f65dd9b2652023f8d7e26",
+      "newSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "old": "rule @tapp0_fapp0 _ _ _ _ $y (@homd_id_src_sec $K $E $x $u)\n  \u21aa @homd_id_tgt_func $K $E $x $u $y;",
+      "new": ""
+    },
+    {
+      "label": "remove-redundant-target-object-rule",
+      "oldSha256": "8d6fdbef375076d54b7640cad49eca8aba1c60ec40336ddebd78c7e152a9f11b",
+      "newSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "old": "rule fapp0 (@homd_id_tgt_func $K $E $x $u $y) $v\n  \u21aa @homd_id_ $K $E $x $u $y $v;",
+      "new": ""
+    }
+  ],
+  "definitionRemovals": {
+    "without_srcsec_definition.lp": {
+      "restoredDeclarationSha256": "e11801025d2a35b8bf1768fb493894dc71fe5e2c126c1d196cede0744110ed12",
+      "removedDefinitionSha256": "50fa570f5c4aa26da4ba5d3106e1f2827dfb32ae3a0c87d4220a98157a248f6f",
+      "redundantProjectionRulesRestored": false
+    },
+    "without_tgt_definition.lp": {
+      "restoredDeclarationSha256": "c78a037029dee587f6e30ba97757e5ea8dc19b58dba7a6de3db9dcd4ede964e0",
+      "removedDefinitionSha256": "88a6d20a904f93e7cd0a41852bd1ede5d7a87a3bfc25c4def9cfd26c67e68712",
+      "redundantProjectionRulesRestored": false
+    }
+  },
+  "outputs": {
+    "combined_controls.lp": "7d27980170780fc1db23acdb74b040c6be4a0035979db4380b5768a13b222b66",
+    "full_source.lp": "6856ea4aa0616ec921e8877bec44889cd9aabec3777b879771f5b9644f33020a",
+    "without_srcsec_definition.lp": "682fc50cf2c91e77b18f04d089d8c3afebb07a47ad7d9835536ceda42c9831a9",
+    "without_tgt_definition.lp": "9581761a571e8e332f6dc092f86dff4950cd337027b9a458a89f6b60d5b48a9b",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "inheritedAssertions": {
+    "positive": 340,
+    "negative": 73
+  },
+  "newAssertions": {
+    "positive": 8,
+    "negative": 2
+  },
+  "scope": [
+    "Only homd_id_src_sec and homd_id_tgt_func acquire actual definitions; two redundant projection rules are removed.",
+    "All inherited340 positive/73 negative assertions retained; selected completes348 positive/75 negative assertions.",
+    "homd_id_src_func, homd_id_int, native u-rungs/laws remain primitive structural owners; defined relative interface unchanged.",
+    "No equality between independent primitive sections; newbody comparisons are definitional observations.",
+    "Equality to an independently derived whole u-functor is neither asserted nor required by the primitive-owner/projection SOP.",
+    "No global Q/lift coherence, arbitrary F/FF strictification, full-source migration or production qualification.",
+    "Adoption retains donor generic Cat normalization under active profile review; no general-FF intrinsic lambda/extraction qualification is inferred."
+  ],
+  "checkerInvoked": false,
+  "selectedTarget": "tmp/probes/homd_section_adoption/combined_controls.lp",
+  "checks": {
+    "combined_controls.lp": {
+      "id": "20261013T190455Z-4f729e7ae40f4bac9453d7f3d0de5d5c",
+      "target": "tmp/probes/homd_section_adoption/combined_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 14.87054572708439,
+      "childrenMaxRssKiB": 741608,
+      "inputSnapshot": "d99e8a25c9d5cd90de46296eed8f3bcf6f01a8f84fb0741a64df5ba129534506",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_section_adoption/combined_controls.lp": "7d27980170780fc1db23acdb74b040c6be4a0035979db4380b5768a13b222b66"
+      },
+      "receipt": "logs/check-runs/20261013T190455Z-4f729e7ae40f4bac9453d7f3d0de5d5c.json",
+      "receiptSha256": "450ef7c4dc17b7b35415ccff7e02ed1fc65e95a7aac3962620a60c520ef3f028",
+      "sourceSha256": "7d27980170780fc1db23acdb74b040c6be4a0035979db4380b5768a13b222b66",
+      "log": "logs/check-runs/20261013T190455Z-4f729e7ae40f4bac9453d7f3d0de5d5c.log",
+      "logSha256": "6d9fcc8bb63c2857e2a93dbdeeb01131e4e495fe992e03a98cbec207e5a70ae1",
+      "firstError": null,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 986,
+        "replaceablePatternVariables": 137
+      },
+      "assertions": {
+        "positive": 348,
+        "negative": 75
+      },
+      "output": "tmp/probes/homd_section_adoption/combined_controls.out",
+      "outputSha256": "793f34c37f4a55f9976e10d42b63a177806945e667d7297db35b5a5ef2fc92d4"
+    },
+    "without_srcsec_definition.lp": {
+      "id": "20261013T191921Z-d986436d8e4f4e9e99e2d138a00ad139",
+      "target": "tmp/probes/homd_section_adoption/without_srcsec_definition.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 14.746609046007507,
+      "childrenMaxRssKiB": 631000,
+      "inputSnapshot": "14936f78a065c3a898a9492ef29aa22686ba35d24022aadb6c1411212a5035cb",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_section_adoption/without_srcsec_definition.lp": "682fc50cf2c91e77b18f04d089d8c3afebb07a47ad7d9835536ceda42c9831a9"
+      },
+      "receipt": "logs/check-runs/20261013T191921Z-d986436d8e4f4e9e99e2d138a00ad139.json",
+      "receiptSha256": "bcc070f4dfae7237988e138a0458d84d5c21cbf31ef42a4f42aa5b735354f14b",
+      "sourceSha256": "682fc50cf2c91e77b18f04d089d8c3afebb07a47ad7d9835536ceda42c9831a9",
+      "log": "logs/check-runs/20261013T191921Z-d986436d8e4f4e9e99e2d138a00ad139.log",
+      "logSha256": "183d3f3305b6cd10777316ff2026b06729c0db01062f97937dd903a2ab23dbf2",
+      "firstError": "[tmp/probes/homd_section_adoption/without_srcsec_definition.lp:18176:5-18178:38] \nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Prof A B).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Functor L R).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Functor L R).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Obj ').\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Hom Cat_cat  Cat_cat).\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Hom Cat_cat  Cat_cat).\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\n@\u03c4\u03a3_ (Obj (Hom_cat Prof_cov_universe A B)) (\u03bb _:\u03c4 (Obj (Hom_cat Prof_cov_universe A B)), Obj (Hom_cat Prof_cov_universe B Prof_cov_universe))\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Catd K').\n\nKIND\nis not unifiable with\n\u03c4 (Catd K).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Obj K).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nKIND\nis not unifiable with\n\u03c4 (Catd K).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Obj K).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nKIND\nis not unifiable with\n\u03c4 (Catd K).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Obj K).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Obj K).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\nCannot solve \u22a2 @tapp0_fapp0 $1 Prof_cov_universe (@comp_fapp0 Cat_cat $1 Cat_cat Prof_cov_universe Prof_cov_include $17) (@comp_fapp0 Cat_cat $1 Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $1 $1 (id Cat_cat $1) $19)) $13 (@homd_id_src_sec $1 $17 $19 $23) \u2261 @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $1 $19 $13)) Cat_cat) (@fapp0 $1 Cat_cat $17 $13) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) Cat_cat) (@fapp0 $1 Cat_cat $17 $13) (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@fapp0 $1 Cat_cat $17 $13)) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (Op_cat (@fapp0 $1 Cat_cat $17 $13)))) (@Product_pair_tele_func (@fapp0 $1 Cat_cat $17 $13) (Op_cat (@fapp0 $1 Cat_cat $17 $13))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (Product_cat (@fapp0 $1 Cat_cat $17 $13) (Op_cat (@fapp0 $1 Cat_cat $17 $13))) Cat_cat (Unit_prof (Op_cat (@fapp0 $1 Cat_cat $17 $13))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $1 $19 $13)) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $1 $19 $13)) (Op_cat (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@Op_func (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (@fapp0 $1 Cat_cat $17 $13) (@fapp0_func (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13) $23)) (@Op_func (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (cart_functor_include (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)))) (@Op_func (Hom_cat $1 $19 $13) (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (@fapp1_func $1 Cat_cat $17 $19 $13)))).\nCannot solve \u22a2 @tapp0_fapp0 $1 Prof_cov_universe (@comp_fapp0 Cat_cat $1 Cat_cat Prof_cov_universe Prof_cov_include $17) (@comp_fapp0 Cat_cat $1 Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $1 $1 (id Cat_cat $1) $19)) $13 (@homd_id_src_sec $1 $17 $19 $21) \u2261 @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $1 $19 $13)) Cat_cat) (@fapp0 $1 Cat_cat $17 $13) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) Cat_cat) (@fapp0 $1 Cat_cat $17 $13) (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@fapp0 $1 Cat_cat $17 $13)) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (Op_cat (@fapp0 $1 Cat_cat $17 $13)))) (@Product_pair_tele_func (@fapp0 $1 Cat_cat $17 $13) (Op_cat (@fapp0 $1 Cat_cat $17 $13))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (Product_cat (@fapp0 $1 Cat_cat $17 $13) (Op_cat (@fapp0 $1 Cat_cat $17 $13))) Cat_cat (Unit_prof (Op_cat (@fapp0 $1 Cat_cat $17 $13))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $1 $19 $13)) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $1 $19 $13)) (Op_cat (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@Op_func (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (@fapp0 $1 Cat_cat $17 $13) (@fapp0_func (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13) $21)) (@Op_func (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (cart_functor_include (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)))) (@Op_func (Hom_cat $1 $19 $13) (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (@fapp1_func $1 Cat_cat $17 $19 $13)))).\nUnable to prove type preservation.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 961,
+        "replaceablePatternVariables": 137
+      },
+      "assertions": {
+        "positive": 348,
+        "negative": 75
+      },
+      "output": "tmp/probes/homd_section_adoption/without_srcsec_definition.out",
+      "outputSha256": "545ce6bb3b4803910d3a1e5ffae9306e413d6221066b600945974787ebc0f16e",
+      "failureClassification": "retained-owner-subject-reduction-failure",
+      "qualification": "Removing only this definition blocks endpoint conversion at retained tapp0_hom(u_map)->u_y before the appended assertions. Redundant projection rules remain absent. Not syntax/resource failure or reached positive comparison failure."
+    },
+    "without_tgt_definition.lp": {
+      "id": "20261013T191936Z-dffee42852d24b53815e1d88c10163f7",
+      "target": "tmp/probes/homd_section_adoption/without_tgt_definition.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 14.765956726972945,
+      "childrenMaxRssKiB": 631212,
+      "inputSnapshot": "8f78dcc4a3dcecb1b67a11523be8a4d2261d0967b744b2613876766cb06bba18",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_section_adoption/without_tgt_definition.lp": "9581761a571e8e332f6dc092f86dff4950cd337027b9a458a89f6b60d5b48a9b"
+      },
+      "receipt": "logs/check-runs/20261013T191936Z-dffee42852d24b53815e1d88c10163f7.json",
+      "receiptSha256": "857cf0aa1ce6f1e9e20a39ad5334c5d25c4fa3fabb033bda578a180d2affad4e",
+      "sourceSha256": "9581761a571e8e332f6dc092f86dff4950cd337027b9a458a89f6b60d5b48a9b",
+      "log": "logs/check-runs/20261013T191936Z-dffee42852d24b53815e1d88c10163f7.log",
+      "logSha256": "2f2fd7c3cc6daf71830022029f31974ab8c4426dffdbab1aa685a59c8e9a0ad5",
+      "firstError": "[tmp/probes/homd_section_adoption/without_tgt_definition.lp:18175:5-18177:38] \nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Prof A B).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Functor L R).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Functor L R).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Obj ').\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Hom Cat_cat  Cat_cat).\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Hom Cat_cat  Cat_cat).\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\n@\u03c4\u03a3_ (Obj (Hom_cat Prof_cov_universe A B)) (\u03bb _:\u03c4 (Obj (Hom_cat Prof_cov_universe A B)), Obj (Hom_cat Prof_cov_universe B Prof_cov_universe))\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Catd K').\n\nKIND\nis not unifiable with\n\u03c4 (Catd K).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Obj K).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nKIND\nis not unifiable with\n\u03c4 (Catd K).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Obj K).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nKIND\nis not unifiable with\n\u03c4 (Catd K).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Obj K).\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\n\u03c4  \u2192 Grpd.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Obj (@Fibre_cat K E x)).\n\nKIND\nis not unifiable with\n\u03c4 (Functor R L).\n\nKIND\nis not unifiable with\n\u03c4 (Obj K).\n\nKIND\nis not unifiable with\nCat.\n\nKIND\nis not unifiable with\nCat.\n\nCat\nis not unifiable with\nKIND.\n\nCat\nis not unifiable with\nKIND.\nCannot solve \u22a2 @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $1 $19 $13)) Cat_cat) (@fapp0 $1 Cat_cat $17 $13) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) Cat_cat) (@fapp0 $1 Cat_cat $17 $13) (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@fapp0 $1 Cat_cat $17 $13)) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (Op_cat (@fapp0 $1 Cat_cat $17 $13)))) (@Product_pair_tele_func (@fapp0 $1 Cat_cat $17 $13) (Op_cat (@fapp0 $1 Cat_cat $17 $13))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (Product_cat (@fapp0 $1 Cat_cat $17 $13) (Op_cat (@fapp0 $1 Cat_cat $17 $13))) Cat_cat (Unit_prof (Op_cat (@fapp0 $1 Cat_cat $17 $13))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $1 $19 $13)) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $1 $19 $13)) (Op_cat (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@Op_func (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (@fapp0 $1 Cat_cat $17 $13) (@fapp0_func (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13) $23)) (@Op_func (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (cart_functor_include (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)))) (@Op_func (Hom_cat $1 $19 $13) (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (@fapp1_func $1 Cat_cat $17 $19 $13)))) \u2261 @homd_id_tgt_func $1 $17 $19 $23 $13.\nCannot solve \u22a2 @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $1 $19 $13)) Cat_cat) (@fapp0 $1 Cat_cat $17 $13) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) Cat_cat) (@fapp0 $1 Cat_cat $17 $13) (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@fapp0 $1 Cat_cat $17 $13)) (Functor_cart_cat (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (Op_cat (@fapp0 $1 Cat_cat $17 $13)))) (@Product_pair_tele_func (@fapp0 $1 Cat_cat $17 $13) (Op_cat (@fapp0 $1 Cat_cat $17 $13))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (Product_cat (@fapp0 $1 Cat_cat $17 $13) (Op_cat (@fapp0 $1 Cat_cat $17 $13))) Cat_cat (Unit_prof (Op_cat (@fapp0 $1 Cat_cat $17 $13))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $1 $19 $13)) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $1 $19 $13)) (Op_cat (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13))) (Op_cat (@fapp0 $1 Cat_cat $17 $13)) (@Op_func (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (@fapp0 $1 Cat_cat $17 $13) (@fapp0_func (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13) $21)) (@Op_func (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (Functor_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (cart_functor_include (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)))) (@Op_func (Hom_cat $1 $19 $13) (Functor_cart_cat (@fapp0 $1 Cat_cat $17 $19) (@fapp0 $1 Cat_cat $17 $13)) (@fapp1_func $1 Cat_cat $17 $19 $13)))) \u2261 @homd_id_tgt_func $1 $17 $19 $21 $13.\nUnable to prove type preservation.",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 961,
+        "replaceablePatternVariables": 137
+      },
+      "assertions": {
+        "positive": 348,
+        "negative": 75
+      },
+      "output": "tmp/probes/homd_section_adoption/without_tgt_definition.out",
+      "outputSha256": "384848cb3face5bf741e24e1d3cca66f8bc285a1d98c72f7fd421a1f535eff44",
+      "failureClassification": "retained-owner-subject-reduction-failure",
+      "qualification": "Removing only this definition blocks endpoint conversion at retained tapp0_hom(u_map)->u_y before the appended assertions. Redundant projection rules remain absent. Not syntax/resource failure or reached positive comparison failure."
+    },
+    "full_source.lp": {
+      "id": "20261013T195018Z-37205c436c0142339fc6954ad556c31c",
+      "target": "tmp/probes/homd_section_adoption/full_source.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 13.857280176947825,
+      "childrenMaxRssKiB": 741008,
+      "inputSnapshot": "1799b8bddf380c55037f081ac6eef2f44d5923067ee473f2068d8422b58438f3",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_section_adoption/full_source.lp": "6856ea4aa0616ec921e8877bec44889cd9aabec3777b879771f5b9644f33020a"
+      },
+      "receipt": "logs/check-runs/20261013T195018Z-37205c436c0142339fc6954ad556c31c.json",
+      "receiptSha256": "f62e16038298d90611a4f639a0e88c4c2fc5e747ae29f334c1151f1dc2f979de",
+      "sourceSha256": "6856ea4aa0616ec921e8877bec44889cd9aabec3777b879771f5b9644f33020a",
+      "log": "logs/check-runs/20261013T195018Z-37205c436c0142339fc6954ad556c31c.log",
+      "logSha256": "20b1133f6313dfdc8fc981807925ba5013a0d298f01ebb7e56977347e0d5dc98",
+      "firstError": "[tmp/probes/homd_section_adoption/full_source.lp:19756:25] The proof is not finished:\nK: Cat\nE: \u03c4 (Catd K)\nD: \u03c4 (Catd K)\nFF: \u03c4 (@Functord K E D)\nGG: \u03c4 (@Functord K E D)\n------------------------------------------------------------------------------\n0. Obj (@Transf_cat K Cat_cat E D) \u2261 @StrictTransfor K Cat_cat E D",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 986,
+        "replaceablePatternVariables": 137
+      },
+      "assertions": {
+        "positive": 348,
+        "negative": 75
+      },
+      "output": "tmp/probes/homd_section_adoption/full_source.out",
+      "outputSha256": "d7dcb35c4a9de703c624bd533e8b41293c8bdb6a73f5b7a9cab13f2d2a0df458",
+      "failureClassification": "historical-intrinsic-action-profile-boundary",
+      "qualification": "Unchanged section-14-onward continuation fails old intrinsic declaration requiring StrictTransfor of arbitrary raw FF. The linked profile review identifies a deeper whole-target variance/profile correction; this is not fixed by reclassifying arbitrary FF."
+    }
+  },
+  "baseline": {
+    "id": "20261013T184800Z-3b807a2755c44fa4b100a20f09e0229c",
+    "target": "tmp/probes/homd_native_section_assembly/combined_controls.lp",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "wallSeconds": 15.861654178937897,
+    "childrenMaxRssKiB": 740732,
+    "inputSnapshot": "524d34122f8e09bae3bae5255b6433af9908d4a5d1003fd5ae392b7691767655",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "tmp/probes/homd_native_section_assembly/combined_controls.lp": "ccaa46ee37b47ad7fd2da196a28f9999b0bc6125317dd56ba4e505a872a93c1d"
+    },
+    "receipt": "logs/check-runs/20261013T184800Z-3b807a2755c44fa4b100a20f09e0229c.json",
+    "receiptSha256": "fdbb2036692c7e845c78001ef63fd1a2799bc94d441234bf72b5eeb874015d2e",
+    "sourceSha256": "ccaa46ee37b47ad7fd2da196a28f9999b0bc6125317dd56ba4e505a872a93c1d",
+    "log": "logs/check-runs/20261013T184800Z-3b807a2755c44fa4b100a20f09e0229c.log",
+    "logSha256": "20fcafa3c7502bd537e7ba5a7f02b0d20ce9e49e3ac0d8c47c46301c53bed300",
+    "firstError": null,
+    "warningCounts": {
+      "unjoinableCriticalPairs": 986,
+      "replaceablePatternVariables": 137
+    },
+    "assertions": {
+      "positive": 340,
+      "negative": 73
+    },
+    "output": "tmp/probes/homd_native_section_assembly/combined_controls.out",
+    "outputSha256": "b01cffe46d1b2ad01d42b9f8f0e5809101c3c3e546d3071696ecf0ef5d872832"
+  },
+  "uncheckedTargets": [],
+  "manifest": {
+    "path": "tmp/probes/homd_section_adoption/manifest.json",
+    "sha256": "e27c4d2bc8da2e813e4ab830dea5e727594860e286850cdde384cebe2134945f"
+  },
+  "sourceClosure": {
+    "path": "audits/strict-default-action-boundary/homd_section_adoption_source_closure.md",
+    "sha256": "0e67311cab5acb91e00f7f8d5553678436f018c871ae2637bc4d3d763bf68818"
+  },
+  "warningComparison": {
+    "normalization": "ANSI stripped; six-line critical-pair blocks compared as multisets excluding locations, with no alpha renaming. Replaced blocks paired by exact critical term and both rewrite-clause lines.",
+    "before": 986,
+    "after": 986,
+    "unchangedExactBlocks": 969,
+    "removedExactBlocks": 17,
+    "addedExactBlocks": 17,
+    "sameOverlapFamilies": true,
+    "reductOnlyChanges": [
+      {
+        "id": "reduct-change-01",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "2d829784ae182c743016218590a99326d603a955d5bf8a5e06197775f90cdff1",
+        "oldBlockSha256": "b312ffaf342f9abbd26efcea73fcc706bf0598e71dfb43073ca4966ecb0dc90a",
+        "newBlockSha256": "f7c046ef6997fab1f04e693893916497f3316b3acecf23b806405b2e1e43e706",
+        "criticalTerm": "t \u2254 @fapp1_fapp0 $A $B (@homd_id_src_func $K' $E' $x') $X $X (id $A $X)",
+        "normalFormsBefore": [
+          "t \u21aa[] @homd_id_u_map $K' $E' $x' $X $X (id $A $X) \u21aa* @homd_id_u_map $K' $E' $x' $X $X (id $A $X)",
+          "t \u21aa[] id $B (@fapp0 $A $B (@homd_id_src_func $K' $E' $x') $X) \u21aa* id $B (@homd_id_src_sec $K' $E' $x' $X)"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] @homd_id_u_map $K' $E' $x' $X $X (id $A $X) \u21aa* @homd_id_u_map $K' $E' $x' $X $X (id $A $X)",
+          "t \u21aa[] id $B (@fapp0 $A $B (@homd_id_src_func $K' $E' $x') $X) \u21aa* id $B (@Prof_cov_con_lift_transf $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@fibcov_cart_transf $K' $E' $x' $X))"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-02",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "774013ddfe43e8c2c5dd58bdf3daaac2842d2794fca30a0d8928acaa50e64722",
+        "oldBlockSha256": "1e8c0d261fad9b7a03756859ac66b2cd40381b2b79a52acfb360cd269498dd6f",
+        "newBlockSha256": "b50783136135881ccbd3d6315054890a234f57386a4d9b4ca1ebbb5050ab038d",
+        "criticalTerm": "t \u2254 @fapp1_fapp0 (Op_cat $K) $D (@homd_id_src_func $K' $E' $x') $x $x (id $K $x)",
+        "normalFormsBefore": [
+          "t \u21aa[] @homd_id_u_map $K' $E' $x' $x $x (id $K $x) \u21aa* @homd_id_u_map $K' $E' $x' $x $x (id $K $x)",
+          "t \u21aa[] id $D (@fapp0 (Op_cat $K) $D (@homd_id_src_func $K' $E' $x') $x) \u21aa* id $D (@homd_id_src_sec $K' $E' $x' $x)"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] @homd_id_u_map $K' $E' $x' $x $x (id $K $x) \u21aa* @homd_id_u_map $K' $E' $x' $x $x (id $K $x)",
+          "t \u21aa[] id $D (@fapp0 (Op_cat $K) $D (@homd_id_src_func $K' $E' $x') $x) \u21aa* id $D (@Prof_cov_con_lift_transf $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@fibcov_cart_transf $K' $E' $x' $x))"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-03",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "e116426806ab27fdb409e3d2391c75f3421951946b4aea519d306dee8e0bdd0d",
+        "oldBlockSha256": "2649d9d4d5485a588c4d8e2158fe88a8035844ebbe43bc0ad4d89697b67a56a9",
+        "newBlockSha256": "ba895e6726d11590bf713b7eb1add0b8848a3330189e3a481cce4b6401213986",
+        "criticalTerm": "t \u2254 @fapp1_fapp0 (Catd_cat $K) $B (@homd_id_src_func $K' $E' $x') $E $E (id (Catd_cat $K) $E)",
+        "normalFormsBefore": [
+          "t \u21aa[] @homd_id_u_map $K' $E' $x' $E $E (id (Catd_cat $K) $E) \u21aa* @homd_id_u_map $K' $E' $x' $E $E (id (Catd_cat $K) $E)",
+          "t \u21aa[] id $B (@fapp0 (Catd_cat $K) $B (@homd_id_src_func $K' $E' $x') $E) \u21aa* id $B (@homd_id_src_sec $K' $E' $x' $E)"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] @homd_id_u_map $K' $E' $x' $E $E (id (Catd_cat $K) $E) \u21aa* @homd_id_u_map $K' $E' $x' $E $E (id (Catd_cat $K) $E)",
+          "t \u21aa[] id $B (@fapp0 (Catd_cat $K) $B (@homd_id_src_func $K' $E' $x') $E) \u21aa* id $B (@Prof_cov_con_lift_transf $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@fibcov_cart_transf $K' $E' $x' $E))"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-04",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "9bd77ffc037947e9703fea160b4e239f026ce0c1ea9f2fc66252aa52bf145dcd",
+        "oldBlockSha256": "388b3bec23dc9d5cb90aff6b00854ed60ef2e07abe9d0326c815fdc239297b55",
+        "newBlockSha256": "3b7b8fb53ca226b61b6972766ee5d18f19e140c8f828f52a4c536359ea1d07f4",
+        "criticalTerm": "t \u2254 @homd_id_u_map $K' $E' $x' $x $x (id (Path_cat $A) $x)",
+        "normalFormsBefore": [
+          "t \u21aa[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $x) \u21aa* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@homd_id_src_sec $K' $E' $x' $x)",
+          "t \u21aa[1] @homd_id_u_map $K' $E' $x' $x $x (@eq_refl $A $x) \u21aa* @homd_id_u_map $K' $E' $x' $x $x (@eq_refl $A $x)"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $x) \u21aa* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@Prof_cov_con_lift_transf $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@fibcov_cart_transf $K' $E' $x' $x))",
+          "t \u21aa[1] @homd_id_u_map $K' $E' $x' $x $x (@eq_refl $A $x) \u21aa* @homd_id_u_map $K' $E' $x' $x $x (@eq_refl $A $x)"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-05",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "3c94061f3657b2ef976591de4b89d0c33adbde0909b16cfa37b7887594f756a4",
+        "oldBlockSha256": "9673107bc51c707fb25c52d38f7d86fe80a655c1fdd36cf126455171bef7bae0",
+        "newBlockSha256": "eeac6546a5b21542d76cdfe8ab00fd6878b2ef7e634e3ac7fbc73e52cb90b6f4",
+        "criticalTerm": "t \u2254 @homd_id_u_map $K' $E' $x' $0 $0 (id Terminal_cat $0)",
+        "normalFormsBefore": [
+          "t \u21aa[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $0) \u21aa* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@homd_id_src_sec $K' $E' $x' $0)",
+          "t \u21aa[1] @homd_id_u_map $K' $E' $x' $0 $0 Terminal_obj \u21aa* @homd_id_u_map $K' $E' $x' $0 $0 Terminal_obj"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $0) \u21aa* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@Prof_cov_con_lift_transf $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@fibcov_cart_transf $K' $E' $x' $0))",
+          "t \u21aa[1] @homd_id_u_map $K' $E' $x' $0 $0 Terminal_obj \u21aa* @homd_id_u_map $K' $E' $x' $0 $0 Terminal_obj"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-06",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "ec6409392dd9207a77a1886dfb41a78ded1ef5d0329fd3b8b5419aae0e189cd3",
+        "oldBlockSha256": "1acf1c32c19fd15c8ea3509def0f45fd46f5bc987dc1541d86c63ef68f0f7817",
+        "newBlockSha256": "af0a73854dd63dc4e28db4900fbcf94f1b72df507b78a8ed31395fc504cc88e3",
+        "criticalTerm": "t \u2254 @homd_id_u_map $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u))",
+        "normalFormsBefore": [
+          "t \u21aa[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' (@Struct_sigma $2 $3 $x $u)) \u21aa* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@homd_id_src_sec $K' $E' $x' (@Struct_sigma $2 $3 $x $u))",
+          "t \u21aa[1] @homd_id_u_map $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (\u03bb _:\u03c4 (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (id $A $x) (id $B $u)) \u21aa* @homd_id_u_map $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A $x $x)) (\u03bb _:\u03c4 (Obj (Hom_cat $A $x $x)), Obj (Hom_cat $B $u $u)) (id $A $x) (id $B $u))"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' (@Struct_sigma $2 $3 $x $u)) \u21aa* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@Prof_cov_con_lift_transf $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@fibcov_cart_transf $K' $E' $x' (@Struct_sigma $2 $3 $x $u)))",
+          "t \u21aa[1] @homd_id_u_map $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (\u03bb _:\u03c4 (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (id $A $x) (id $B $u)) \u21aa* @homd_id_u_map $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A $x $x)) (\u03bb _:\u03c4 (Obj (Hom_cat $A $x $x)), Obj (Hom_cat $B $u $u)) (id $A $x) (id $B $u))"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-07",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "11f93e23ea4adf600dba17ed554ac4218eeb3516fe4c53f869ebf250ee8b2494",
+        "oldBlockSha256": "875669d22d2bb5ab6c7d0d96da8bfa0b58f227f473b04e987df8d685dc613a68",
+        "newBlockSha256": "3a5706545e54255171e75df8d054e004389eb45ed5b3035ad7230144db19cdfa",
+        "criticalTerm": "t \u2254 @homd_id_u_map $K' $E' $x' $A $A (id Prof_cov_universe $A)",
+        "normalFormsBefore": [
+          "t \u21aa[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $A) \u21aa* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@homd_id_src_sec $K' $E' $x' $A)",
+          "t \u21aa[1] @homd_id_u_map $K' $E' $x' $A $A (Rep_con_cart_func $A) \u21aa* @homd_id_u_map $K' $E' $x' $A $A (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat $A) Cat_cat) $A (Product_cat (Functor_cart_cat (Op_cat $A) $A) (Functor_cart_cat (Op_cat $A) (Op_cat $A))) (@Product_pair_tele_func $A (Op_cat $A)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat $A) (Product_cat $A (Op_cat $A)) Cat_cat (Unit_prof (Op_cat $A))))"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] id (@Homd_section_cat $K' $E' $x') (@homd_id_src_sec $K' $E' $x' $A) \u21aa* id (@Transf_cat $K' Prof_cov_universe (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@Prof_cov_con_lift_transf $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@fibcov_cart_transf $K' $E' $x' $A))",
+          "t \u21aa[1] @homd_id_u_map $K' $E' $x' $A $A (Rep_con_cart_func $A) \u21aa* @homd_id_u_map $K' $E' $x' $A $A (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat $A) Cat_cat) $A (Product_cat (Functor_cart_cat (Op_cat $A) $A) (Functor_cart_cat (Op_cat $A) (Op_cat $A))) (@Product_pair_tele_func $A (Op_cat $A)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat $A) (Product_cat $A (Op_cat $A)) Cat_cat (Unit_prof (Op_cat $A))))"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-08",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "a2145aa10db82d43667b9bba9daad52d400491e8601bdec55ca59bf2b4c5d81b",
+        "oldBlockSha256": "9eadb68045e94a1b75d71be46f902eb875e7ff6564e173a58264d07c72387ffc",
+        "newBlockSha256": "9398bb9b54f98c78137d4dbed6cf4c472d929c18b01900301c2d112d097b1477",
+        "criticalTerm": "t \u2254 @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (@homd_id_u_map $K $E $x $u $u (id $4 $u))",
+        "normalFormsBefore": [
+          "t \u21aa[] @homd_id_u_y $0 $E $x $u $u (id $4 $u) $y \u21aa* @homd_id_u_y $0 $E $x $u $u (id $4 $u) $y",
+          "t \u21aa[1] @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)) \u21aa* @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (id (@Transf_cat $K Prof_cov_universe (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include $E) (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K $K (id Cat_cat $K) $x))) (@homd_id_src_sec $K $E $x $u))"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] @homd_id_u_y $0 $E $x $u $u (id $4 $u) $y \u21aa* @homd_id_u_y $0 $E $x $u $u (id $4 $u) $y",
+          "t \u21aa[1] @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)) \u21aa* @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (id (@Transf_cat $K Prof_cov_universe (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include $E) (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K $K (id Cat_cat $K) $x))) (@Prof_cov_con_lift_transf $K (@hom_ $K $K (id Cat_cat $K) $x) $E (@fibcov_cart_transf $K $E $x $u)))"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-09",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "f76d36cc5433d54b21b10f0b23987fb84947dbda1dcb3b4e6c9932db0c215f6f",
+        "oldBlockSha256": "6a5dbe6d483eef6dce57b6af0ad583c4938a4f3b6ba0f0142fd5b65d7112961b",
+        "newBlockSha256": "7822160b8cd9ee653bf3752ce83f488cf9b387f0c8e3f04346c56957ec483ed3",
+        "criticalTerm": "t \u2254 @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u0' $u $h') (@homd_id_u_map $K $E $x $u $u (id $4 $u))",
+        "normalFormsBefore": [
+          "t \u21aa[] @homd_id_u_map $K $E $x $u0' $u (@comp_fapp0 (@Fibre_cat $K $E $x) $u0' $u $u (id $4 $u) $h') \u21aa* @homd_id_u_map $K $E $x $u0' $u (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0' $u $u (id $4 $u) $h')",
+          "t \u21aa[1] @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u0' $u $h') (id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)) \u21aa* @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u0' $u $h') (id (@Transf_cat $K Prof_cov_universe (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include $E) (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K $K (id Cat_cat $K) $x))) (@homd_id_src_sec $K $E $x $u))"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] @homd_id_u_map $K $E $x $u0' $u (@comp_fapp0 (@Fibre_cat $K $E $x) $u0' $u $u (id $4 $u) $h') \u21aa* @homd_id_u_map $K $E $x $u0' $u (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0' $u $u (id $4 $u) $h')",
+          "t \u21aa[1] @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u0' $u $h') (id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)) \u21aa* @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u0' $u $h') (id (@Transf_cat $K Prof_cov_universe (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include $E) (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K $K (id Cat_cat $K) $x))) (@Prof_cov_con_lift_transf $K (@hom_ $K $K (id Cat_cat $K) $x) $E (@fibcov_cart_transf $K $E $x $u)))"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-10",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "8c8fe828023a3a5d029f6125e5b1c167657ae78d49d69e5fa1e36cbfc98613dd",
+        "oldBlockSha256": "9e143e2b817762da5441187ef5dd2eea03fa0556303fe066cd823b6cc74969c8",
+        "newBlockSha256": "b0875e56f4d0414c0b92cc5b5e2acc2c6223be13d8f3915db236724b4b672325",
+        "criticalTerm": "t \u2254 @comp_fapp0 $' $' $' $' (@homd_id_u_map $K $E $x $u $u (id $4 $u)) (@homd_id_u_map $K $E $x $u $u2' $k')",
+        "normalFormsBefore": [
+          "t \u21aa[] @homd_id_u_map $K $E $x $u $u2' (@comp_fapp0 (@Fibre_cat $K $E $x) $u $u $u2' $k' (id $4 $u)) \u21aa* @homd_id_u_map $K $E $x $u $u2' (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u $u $u2' $k' (id $4 $u))",
+          "t \u21aa[0; 1] @comp_fapp0 $' $' $' $' (id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)) (@homd_id_u_map $K $E $x $u $u2' $k') \u21aa* @comp_fapp0 $' $' $' $' (id (@Transf_cat $K Prof_cov_universe (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include $E) (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K $K (id Cat_cat $K) $x))) (@homd_id_src_sec $K $E $x $u)) (@homd_id_u_map $K $E $x $u $u2' $k')"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] @homd_id_u_map $K $E $x $u $u2' (@comp_fapp0 (@Fibre_cat $K $E $x) $u $u $u2' $k' (id $4 $u)) \u21aa* @homd_id_u_map $K $E $x $u $u2' (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u $u $u2' $k' (id $4 $u))",
+          "t \u21aa[0; 1] @comp_fapp0 $' $' $' $' (id (@Homd_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u)) (@homd_id_u_map $K $E $x $u $u2' $k') \u21aa* @comp_fapp0 $' $' $' $' (id (@Transf_cat $K Prof_cov_universe (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include $E) (@comp_fapp0 Cat_cat $K Cat_cat Prof_cov_universe Prof_cov_include (@hom_ $K $K (id Cat_cat $K) $x))) (@Prof_cov_con_lift_transf $K (@hom_ $K $K (id Cat_cat $K) $x) $E (@fibcov_cart_transf $K $E $x $u))) (@homd_id_u_map $K $E $x $u $u2' $k')"
+        ],
+        "classification": "Source-section identity endpoint unfolds to the actual lifted FibCov section.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-11",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "9f7d8a37e848103514dc8bb1d0549c0467f70b888cdb69d17ea6567c91f8cb62",
+        "oldBlockSha256": "46721f356f4187445a86895deb338f0838a93de8289022bddb77f6f7eaf8c3a8",
+        "newBlockSha256": "0e22125b5b0de07aa241a707b522b92a03cf7586ade1114968f49692e89efd44",
+        "criticalTerm": "t \u2254 @homd_id_u_y $K' $E' $x' $x $x (id (Path_cat $A) $x) $y'",
+        "normalFormsBefore": [
+          "t \u21aa[] id (Functor_cart_cat (@Fibre_cat $K' $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' $x $y') \u21aa* id (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' $x $y')",
+          "t \u21aa[0; 1] @homd_id_u_y $K' $E' $x' $x $x (@eq_refl $A $x) $y' \u21aa* @homd_id_u_y $K' $E' $x' $x $x (@eq_refl $A $x) $y'"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] id (Functor_cart_cat (@Fibre_cat $K' $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' $x $y') \u21aa* id (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) Cat_cat) (@fapp0 $K' Cat_cat $E' $y') (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y')) (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (Op_cat (@fapp0 $K' Cat_cat $E' $y')))) (@Product_pair_tele_func (@fapp0 $K' Cat_cat $E' $y') (Op_cat (@fapp0 $K' Cat_cat $E' $y'))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (Product_cat (@fapp0 $K' Cat_cat $E' $y') (Op_cat (@fapp0 $K' Cat_cat $E' $y'))) Cat_cat (Unit_prof (Op_cat (@fapp0 $K' Cat_cat $E' $y'))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $K' $x' $y')) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $K' $x' $y')) (Op_cat (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@Op_func (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y') (@fapp0_func (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y') $x)) (@Op_func (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (cart_functor_include (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')))) (@Op_func (Hom_cat $K' $x' $y') (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp1_func $K' Cat_cat $E' $x' $y')))))",
+          "t \u21aa[0; 1] @homd_id_u_y $K' $E' $x' $x $x (@eq_refl $A $x) $y' \u21aa* @homd_id_u_y $K' $E' $x' $x $x (@eq_refl $A $x) $y'"
+        ],
+        "classification": "Target-component identity endpoint unfolds to the actual companion body.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-12",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "c8bb108fbb1a34942b3b96dc64d99cb0e22e2a289805a6c399835a4b6d10ddcf",
+        "oldBlockSha256": "efd15ebc28f21f21043651ce24700d1e7ff5628e9552107084aaf665c15a2600",
+        "newBlockSha256": "5625a150cbbd0ce2ae28f29a6be7268438fdcddbce011ba95397843c7f27e57a",
+        "criticalTerm": "t \u2254 @homd_id_u_y $K' $E' $x' $0 $0 (id Terminal_cat $0) $y'",
+        "normalFormsBefore": [
+          "t \u21aa[] id (Functor_cart_cat (@Fibre_cat $K' $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' $0 $y') \u21aa* id (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' $0 $y')",
+          "t \u21aa[0; 1] @homd_id_u_y $K' $E' $x' $0 $0 Terminal_obj $y' \u21aa* @homd_id_u_y $K' $E' $x' $0 $0 Terminal_obj $y'"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] id (Functor_cart_cat (@Fibre_cat $K' $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' $0 $y') \u21aa* id (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) Cat_cat) (@fapp0 $K' Cat_cat $E' $y') (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y')) (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (Op_cat (@fapp0 $K' Cat_cat $E' $y')))) (@Product_pair_tele_func (@fapp0 $K' Cat_cat $E' $y') (Op_cat (@fapp0 $K' Cat_cat $E' $y'))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (Product_cat (@fapp0 $K' Cat_cat $E' $y') (Op_cat (@fapp0 $K' Cat_cat $E' $y'))) Cat_cat (Unit_prof (Op_cat (@fapp0 $K' Cat_cat $E' $y'))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $K' $x' $y')) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $K' $x' $y')) (Op_cat (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@Op_func (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y') (@fapp0_func (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y') $0)) (@Op_func (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (cart_functor_include (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')))) (@Op_func (Hom_cat $K' $x' $y') (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp1_func $K' Cat_cat $E' $x' $y')))))",
+          "t \u21aa[0; 1] @homd_id_u_y $K' $E' $x' $0 $0 Terminal_obj $y' \u21aa* @homd_id_u_y $K' $E' $x' $0 $0 Terminal_obj $y'"
+        ],
+        "classification": "Target-component identity endpoint unfolds to the actual companion body.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-13",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "459524af65eb6c50316b6c316c4b1a51ca0623e94caec1263b21bb8060f8a70e",
+        "oldBlockSha256": "a4d87b26118e2a41021958770564c0633593d0e0386a534249b18ea3b1e4b3c5",
+        "newBlockSha256": "3de9f520ebb3aca185c8f904ffaee2f643822daaceee41d7983af26e3c98404a",
+        "criticalTerm": "t \u2254 @homd_id_u_y $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u)) $y'",
+        "normalFormsBefore": [
+          "t \u21aa[] id (Functor_cart_cat (@Fibre_cat $K' $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' (@Struct_sigma $2 $3 $x $u) $y') \u21aa* id (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' (@Struct_sigma $2 $3 $x $u) $y')",
+          "t \u21aa[0; 1] @homd_id_u_y $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (\u03bb _:\u03c4 (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (id $A $x) (id $B $u)) $y' \u21aa* @homd_id_u_y $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A $x $x)) (\u03bb _:\u03c4 (Obj (Hom_cat $A $x $x)), Obj (Hom_cat $B $u $u)) (id $A $x) (id $B $u)) $y'"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] id (Functor_cart_cat (@Fibre_cat $K' $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' (@Struct_sigma $2 $3 $x $u) $y') \u21aa* id (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) Cat_cat) (@fapp0 $K' Cat_cat $E' $y') (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y')) (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (Op_cat (@fapp0 $K' Cat_cat $E' $y')))) (@Product_pair_tele_func (@fapp0 $K' Cat_cat $E' $y') (Op_cat (@fapp0 $K' Cat_cat $E' $y'))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (Product_cat (@fapp0 $K' Cat_cat $E' $y') (Op_cat (@fapp0 $K' Cat_cat $E' $y'))) Cat_cat (Unit_prof (Op_cat (@fapp0 $K' Cat_cat $E' $y'))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $K' $x' $y')) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $K' $x' $y')) (Op_cat (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@Op_func (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y') (@fapp0_func (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y') (@Struct_sigma $2 $3 $x $u))) (@Op_func (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (cart_functor_include (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')))) (@Op_func (Hom_cat $K' $x' $y') (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp1_func $K' Cat_cat $E' $x' $y')))))",
+          "t \u21aa[0; 1] @homd_id_u_y $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (\u03bb _:\u03c4 (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (id $A $x) (id $B $u)) $y' \u21aa* @homd_id_u_y $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (@Struct_sigma (Obj (Hom_cat $A $x $x)) (\u03bb _:\u03c4 (Obj (Hom_cat $A $x $x)), Obj (Hom_cat $B $u $u)) (id $A $x) (id $B $u)) $y'"
+        ],
+        "classification": "Target-component identity endpoint unfolds to the actual companion body.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-14",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "82cd38d26bf917754217660719ef93f8fa9f0d94d81c8cea4c5d3de844ffb964",
+        "oldBlockSha256": "c06c90969ff45f0d472ed7e0bf7b4d2743d8c90ef3edef4fe0b1bc4965d3a424",
+        "newBlockSha256": "933d194bc92212760a0dd919e3ced7e0dadf21a7ea6926347192b7f8194a43db",
+        "criticalTerm": "t \u2254 @homd_id_u_y $K' $E' $x' $A $A (id Prof_cov_universe $A) $y'",
+        "normalFormsBefore": [
+          "t \u21aa[] id (Functor_cart_cat (@Fibre_cat $K' $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' $A $y') \u21aa* id (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' $A $y')",
+          "t \u21aa[0; 1] @homd_id_u_y $K' $E' $x' $A $A (Rep_con_cart_func $A) $y' \u21aa* @homd_id_u_y $K' $E' $x' $A $A (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat $A) Cat_cat) $A (Product_cat (Functor_cart_cat (Op_cat $A) $A) (Functor_cart_cat (Op_cat $A) (Op_cat $A))) (@Product_pair_tele_func $A (Op_cat $A)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat $A) (Product_cat $A (Op_cat $A)) Cat_cat (Unit_prof (Op_cat $A)))) $y'"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] id (Functor_cart_cat (@Fibre_cat $K' $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@homd_id_tgt_func $K' $E' $x' $A $y') \u21aa* id (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@fapp0 $K' Cat_cat $E' $y') (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) Cat_cat) (@fapp0 $K' Cat_cat $E' $y') (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y')) (Functor_cart_cat (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (Op_cat (@fapp0 $K' Cat_cat $E' $y')))) (@Product_pair_tele_func (@fapp0 $K' Cat_cat $E' $y') (Op_cat (@fapp0 $K' Cat_cat $E' $y'))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (Product_cat (@fapp0 $K' Cat_cat $E' $y') (Op_cat (@fapp0 $K' Cat_cat $E' $y'))) Cat_cat (Unit_prof (Op_cat (@fapp0 $K' Cat_cat $E' $y'))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $K' $x' $y')) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $K' $x' $y')) (Op_cat (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'))) (Op_cat (@fapp0 $K' Cat_cat $E' $y')) (@Op_func (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y') (@fapp0_func (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y') $A)) (@Op_func (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (cart_functor_include (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')))) (@Op_func (Hom_cat $K' $x' $y') (Functor_cart_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp1_func $K' Cat_cat $E' $x' $y')))))",
+          "t \u21aa[0; 1] @homd_id_u_y $K' $E' $x' $A $A (Rep_con_cart_func $A) $y' \u21aa* @homd_id_u_y $K' $E' $x' $A $A (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat $A) Cat_cat) $A (Product_cat (Functor_cart_cat (Op_cat $A) $A) (Functor_cart_cat (Op_cat $A) (Op_cat $A))) (@Product_pair_tele_func $A (Op_cat $A)) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat $A) (Product_cat $A (Op_cat $A)) Cat_cat (Unit_prof (Op_cat $A)))) $y'"
+        ],
+        "classification": "Target-component identity endpoint unfolds to the actual companion body.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-15",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "bdec397264ba7b918cbd1195ce809924e7892b8014b05f69ccec65e70a68eaf4",
+        "oldBlockSha256": "ec5e8cd15a4c40b76c34ef913712703155378439e286de5985ce6e8d4403abb2",
+        "newBlockSha256": "7243443eebf3e756e78607c157be3b3514c353b32dcefee52d9c00126de2808b",
+        "criticalTerm": "t \u2254 @tapp0_fapp0 $0 $4 $4 $4 $v (@strict_transfor $K $6 $7 $8 (@homd_id_u_y $K $4 $4 $4 $4 (id $4 $4) $K))",
+        "normalFormsBefore": [
+          "t \u21aa[] @homd_id_u_v $K $4 $4 $4 $4 (id $4 $4) $K $v \u21aa* @homd_id_u_v $K $4 $4 $4 $4 (id $4 $4) $K $v",
+          "t \u21aa[1; 1] @tapp0_fapp0 $0 $4 $4 $4 $v (@strict_transfor $K $6 $7 $8 (id (Functor_cart_cat (@Fibre_cat $K $4 $K) (Functor_cart_cat (Op_cat (Hom_cat $K $4 $K)) Cat_cat)) (@homd_id_tgt_func $K $4 $4 $4 $K))) \u21aa* @tapp0_fapp0 $0 $4 $4 $4 $v (@strict_transfor $K $6 $7 $8 (id (Functor_cart_cat (@fapp0 $K Cat_cat $4 $K) (Functor_cart_cat (Op_cat (Hom_cat $K $4 $K)) Cat_cat)) (@homd_id_tgt_func $K $4 $4 $4 $K)))"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] @homd_id_u_v $K $4 $4 $4 $4 (id $4 $4) $K $v \u21aa* @homd_id_u_v $K $4 $4 $4 $4 (id $4 $4) $K $v",
+          "t \u21aa[1; 1] @tapp0_fapp0 $0 $4 $4 $4 $v (@strict_transfor $K $6 $7 $8 (id (Functor_cart_cat (@Fibre_cat $K $4 $K) (Functor_cart_cat (Op_cat (Hom_cat $K $4 $K)) Cat_cat)) (@homd_id_tgt_func $K $4 $4 $4 $K))) \u21aa* @tapp0_fapp0 $0 $4 $4 $4 $v (@strict_transfor $K $6 $7 $8 (id (Functor_cart_cat (@fapp0 $K Cat_cat $4 $K) (Functor_cart_cat (Op_cat (Hom_cat $K $4 $K)) Cat_cat)) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $K $4 $K)) Cat_cat) (@fapp0 $K Cat_cat $4 $K) (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $4 $K)) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $4 $K)) Cat_cat) (@fapp0 $K Cat_cat $4 $K) (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $4 $K)) (@fapp0 $K Cat_cat $4 $K)) (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $4 $K)) (Op_cat (@fapp0 $K Cat_cat $4 $K)))) (@Product_pair_tele_func (@fapp0 $K Cat_cat $4 $K) (Op_cat (@fapp0 $K Cat_cat $4 $K))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $K Cat_cat $4 $K)) (Product_cat (@fapp0 $K Cat_cat $4 $K) (Op_cat (@fapp0 $K Cat_cat $4 $K))) Cat_cat (Unit_prof (Op_cat (@fapp0 $K Cat_cat $4 $K))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $K $4 $K)) (Op_cat (@fapp0 $K Cat_cat $4 $K)) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $K $4 $K)) (Op_cat (Functor_cart_cat (@fapp0 $K Cat_cat $4 $4) (@fapp0 $K Cat_cat $4 $K))) (Op_cat (@fapp0 $K Cat_cat $4 $K)) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $K Cat_cat $4 $4) (@fapp0 $K Cat_cat $4 $K))) (Op_cat (Functor_cat (@fapp0 $K Cat_cat $4 $4) (@fapp0 $K Cat_cat $4 $K))) (Op_cat (@fapp0 $K Cat_cat $4 $K)) (@Op_func (Functor_cat (@fapp0 $K Cat_cat $4 $4) (@fapp0 $K Cat_cat $4 $K)) (@fapp0 $K Cat_cat $4 $K) (@fapp0_func (@fapp0 $K Cat_cat $4 $4) (@fapp0 $K Cat_cat $4 $K) $4)) (@Op_func (Functor_cart_cat (@fapp0 $K Cat_cat $4 $4) (@fapp0 $K Cat_cat $4 $K)) (Functor_cat (@fapp0 $K Cat_cat $4 $4) (@fapp0 $K Cat_cat $4 $K)) (cart_functor_include (@fapp0 $K Cat_cat $4 $4) (@fapp0 $K Cat_cat $4 $K)))) (@Op_func (Hom_cat $K $4 $K) (Functor_cart_cat (@fapp0 $K Cat_cat $4 $4) (@fapp0 $K Cat_cat $4 $K)) (@fapp1_func $K Cat_cat $4 $4 $K)))))))"
+        ],
+        "classification": "Target-component identity endpoint unfolds to the actual companion body.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-16",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "7046e3e07d3106c045a8e434247e4dca8d3fc356088fafa7386bbc8213bebc78",
+        "oldBlockSha256": "87e36a8f19bcffcb5f3bd3f1902ee573ea734a3392e07ee18618843e44b62a10",
+        "newBlockSha256": "1c7194aaa59810d4550c0d8d569ac65b35c41c2427a8a5d64b0db9b9cbb6799b",
+        "criticalTerm": "t \u2254 @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (@homd_id_u_y $K $E $x $u0' $u $h' $y) (@homd_id_u_y $K $E $x $u $u (id $4 $u) $y)",
+        "normalFormsBefore": [
+          "t \u21aa[] @homd_id_u_y $K $E $x $u0' $u (@comp_fapp0 (@Fibre_cat $K $E $x) $u0' $u $u (id $4 $u) $h') $y \u21aa* @homd_id_u_y $K $E $x $u0' $u (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0' $u $u (id $4 $u) $h') $y",
+          "t \u21aa[1] @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (@homd_id_u_y $K $E $x $u0' $u $h' $y) (id (Functor_cart_cat (@Fibre_cat $K $E $y) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) (@homd_id_tgt_func $K $E $x $u $y)) \u21aa* @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (@homd_id_u_y $K $E $x $u0' $u $h' $y) (id (Functor_cart_cat (@fapp0 $K Cat_cat $E $y) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) (@homd_id_tgt_func $K $E $x $u $y))"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] @homd_id_u_y $K $E $x $u0' $u (@comp_fapp0 (@Fibre_cat $K $E $x) $u0' $u $u (id $4 $u) $h') $y \u21aa* @homd_id_u_y $K $E $x $u0' $u (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0' $u $u (id $4 $u) $h') $y",
+          "t \u21aa[1] @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (@homd_id_u_y $K $E $x $u0' $u $h' $y) (id (Functor_cart_cat (@Fibre_cat $K $E $y) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) (@homd_id_tgt_func $K $E $x $u $y)) \u21aa* @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (@homd_id_u_y $K $E $x $u0' $u $h' $y) (id (Functor_cart_cat (@fapp0 $K Cat_cat $E $y) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat) (@fapp0 $K Cat_cat $E $y) (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $E $y)) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $E $y)) Cat_cat) (@fapp0 $K Cat_cat $E $y) (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $E $y)) (@fapp0 $K Cat_cat $E $y)) (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $E $y)) (Op_cat (@fapp0 $K Cat_cat $E $y)))) (@Product_pair_tele_func (@fapp0 $K Cat_cat $E $y) (Op_cat (@fapp0 $K Cat_cat $E $y))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $K Cat_cat $E $y)) (Product_cat (@fapp0 $K Cat_cat $E $y) (Op_cat (@fapp0 $K Cat_cat $E $y))) Cat_cat (Unit_prof (Op_cat (@fapp0 $K Cat_cat $E $y))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $K $x $y)) (Op_cat (@fapp0 $K Cat_cat $E $y)) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $K $x $y)) (Op_cat (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y))) (Op_cat (@fapp0 $K Cat_cat $E $y)) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y))) (Op_cat (Functor_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y))) (Op_cat (@fapp0 $K Cat_cat $E $y)) (@Op_func (Functor_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)) (@fapp0 $K Cat_cat $E $y) (@fapp0_func (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y) $u)) (@Op_func (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)) (Functor_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)) (cart_functor_include (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)))) (@Op_func (Hom_cat $K $x $y) (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)) (@fapp1_func $K Cat_cat $E $x $y))))))"
+        ],
+        "classification": "Target-component identity endpoint unfolds to the actual companion body.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      },
+      {
+        "id": "reduct-change-17",
+        "multiplicity": 1,
+        "peakAndRulesSha256": "a2f80ece1adae7be4418d52c8c3dac547fd9b2691cf4ff5105d604b3cab3f8ab",
+        "oldBlockSha256": "e31dc6bdaf176348981b98b4587544ffdee9bbe06312c1e5618ba5f22e8f99cc",
+        "newBlockSha256": "65c2024468135f5d029ecdf0c9e2b7e20d0f8eeec02edfc9800b69adf01a25a8",
+        "criticalTerm": "t \u2254 @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (@homd_id_u_y $K $E $x $u $u (id $4 $u) $y) (@homd_id_u_y $K $E $x $u $u2' $k' $y)",
+        "normalFormsBefore": [
+          "t \u21aa[] @homd_id_u_y $K $E $x $u $u2' (@comp_fapp0 (@Fibre_cat $K $E $x) $u $u $u2' $k' (id $4 $u)) $y \u21aa* @homd_id_u_y $K $E $x $u $u2' (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u $u $u2' $k' (id $4 $u)) $y",
+          "t \u21aa[0; 1] @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (id (Functor_cart_cat (@Fibre_cat $K $E $y) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) (@homd_id_tgt_func $K $E $x $u $y)) (@homd_id_u_y $K $E $x $u $u2' $k' $y) \u21aa* @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (id (Functor_cart_cat (@fapp0 $K Cat_cat $E $y) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) (@homd_id_tgt_func $K $E $x $u $y)) (@homd_id_u_y $K $E $x $u $u2' $k' $y)"
+        ],
+        "normalFormsAfter": [
+          "t \u21aa[] @homd_id_u_y $K $E $x $u $u2' (@comp_fapp0 (@Fibre_cat $K $E $x) $u $u $u2' $k' (id $4 $u)) $y \u21aa* @homd_id_u_y $K $E $x $u $u2' (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u $u $u2' $k' (id $4 $u)) $y",
+          "t \u21aa[0; 1] @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (id (Functor_cart_cat (@Fibre_cat $K $E $y) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) (@homd_id_tgt_func $K $E $x $u $y)) (@homd_id_u_y $K $E $x $u $u2' $k' $y) \u21aa* @comp_fapp0 (Functor_cart_cat $' $') $' $' $' (id (Functor_cart_cat (@fapp0 $K Cat_cat $E $y) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat) (@fapp0 $K Cat_cat $E $y) (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $E $y)) Cat_cat) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $E $y)) Cat_cat) (@fapp0 $K Cat_cat $E $y) (Product_cat (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $E $y)) (@fapp0 $K Cat_cat $E $y)) (Functor_cart_cat (Op_cat (@fapp0 $K Cat_cat $E $y)) (Op_cat (@fapp0 $K Cat_cat $E $y)))) (@Product_pair_tele_func (@fapp0 $K Cat_cat $E $y) (Op_cat (@fapp0 $K Cat_cat $E $y))) (@hom_postcomp_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Op_cat (@fapp0 $K Cat_cat $E $y)) (Product_cat (@fapp0 $K Cat_cat $E $y) (Op_cat (@fapp0 $K Cat_cat $E $y))) Cat_cat (Unit_prof (Op_cat (@fapp0 $K Cat_cat $E $y))))) (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat (Op_cat (Hom_cat $K $x $y)) (Op_cat (@fapp0 $K Cat_cat $E $y)) (@comp_fapp0 Cat_cat (Op_cat (Hom_cat $K $x $y)) (Op_cat (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y))) (Op_cat (@fapp0 $K Cat_cat $E $y)) (@comp_fapp0 Cat_cat (Op_cat (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y))) (Op_cat (Functor_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y))) (Op_cat (@fapp0 $K Cat_cat $E $y)) (@Op_func (Functor_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)) (@fapp0 $K Cat_cat $E $y) (@fapp0_func (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y) $u)) (@Op_func (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)) (Functor_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)) (cart_functor_include (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)))) (@Op_func (Hom_cat $K $x $y) (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)) (@fapp1_func $K Cat_cat $E $x $y)))))) (@homd_id_u_y $K $E $x $u $u2' $k' $y)"
+        ],
+        "classification": "Target-component identity endpoint unfolds to the actual companion body.",
+        "qualification": "Same overlap term and rewrite clauses; no new overlap family or confluence resolution claimed."
+      }
+    ],
+    "replaceablePatternVariables": {
+      "before": 137,
+      "after": 137
+    },
+    "qualification": "All overlap sites/rule pairs persist; only reduct normal forms expand public definitions. Earlier specialized/open qualifications retained."
+  },
+  "ruleLhsAudit": {
+    "path": "tmp/probes/homd_section_adoption/lhs-audit.txt",
+    "sha256": "2ffb8532caf812a6a3066df4e80d067a59b0c29b59b453f11eeea91700bb82d6",
+    "unreviewedSlots": 0,
+    "unreviewedClauses": 0,
+    "annotatedSlots": 46,
+    "intentionalClauses": 31,
+    "qualification": "Advisory static audit, not confluence."
+  },
+  "checkerInvokedByMetadataUpdate": false,
+  "fullSourceContinuation": {
+    "donor": "tmp/probes/foundation_assembly/full_source.lp",
+    "marker": "// 14. Section action over dependent homs",
+    "tailSha256": "f588972c1aef62d72e07952165d3320aaf7b59b9e710dcf06edd9e9bb388860a",
+    "qualification": "Historical tail diagnostic only; generic intrinsic displayed-action profile remains under review."
+  },
+  "profileQualification": {
+    "review": "audits/strict-default-action-boundary/homd_intrinsic_profile_review.md",
+    "reviewSha256AtSnapshot": "3fc01a1c29be2b248400a3870ee5f173af4c993058f6e9a57291b9447e617b37",
+    "status": "Active review, not an implemented corrected profile.",
+    "retainedDonorConventions": [
+      "Provisional Q/lift contract.",
+      "Generic Cat-valued action normalization M=L, now under review for arbitrary ambient FF."
+    ],
+    "scope": "The passing adoption does not certify general-FF intrinsic lambda/extraction. Raw ambient data has L->M<-R, and the old whole ordinary-lax target has an independent conventional-normal-lax counterexample.",
+    "selectedSourceUnchanged": true
+  },
+  "authoringHygiene": {
+    "selectedAndHistoricalLP": "All four generated source hashes preserved; no production edits.",
+    "newAuthoringFiles": "Exactly one final newline and no trailing whitespace."
+  },
+  "resumptionBaseline": {
+    "receipt": "logs/check-runs/20261013T202354Z-46f34a1a9cd641768ac44000e6dcfef3.json",
+    "receiptSha256": "656d70f62eeb2b45597493f06e236a9ab939ee6c1d9a674d5b9a197d2d2189f6",
+    "sourceSha256": "7d27980170780fc1db23acdb74b040c6be4a0035979db4380b5768a13b222b66",
+    "outcome": "passed-fresh",
+    "wallSeconds": 27.27186675509438,
+    "childrenMaxRssKiB": 740736
+  }
+}

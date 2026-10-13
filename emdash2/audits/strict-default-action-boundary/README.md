@@ -981,3 +981,19 @@ map to the existing represented lift and exposes y/v/f plus native y-action.
 The [combined replay](homd_native_section_assembly_source_closure.md) checks
 these pieces together. Adoption in the existing Homd ladder, whole x/u
 compatibility, native laxity and production integration remain open.
+
+The [section adoption](homd_section_adoption_source_closure.md) now gives the
+public source-section and target-component names their checked defining
+bodies, while retaining the native root/u owners and the raw relative FF
+interface. The [intrinsic profile review](homd_intrinsic_profile_review.md)
+records why the next whole target needs a profile review: a finite
+normal-lax example rejects its old ordinary-lax x-action, and two skew
+legs alone do not supply a forward comparison. These examples do not refute
+the bare raw carrier or qualify a narrowing of the public FF domain.
+
+The [root-action scope replay](homd_root_action_scope_source_closure.md)
+preserves the adopted ladder while removing the generic Cat action
+comparison. Only the canonical identity root keeps its selected comparison.
+All inherited controls pass, and restoration of the generic comparison
+fails a new raw-FF negative. This is non-library owner evidence; full-source
+intrinsic action and production integration remain open.

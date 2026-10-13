@@ -1,0 +1,12 @@
+// Selected source/left off-diagonal action of the canonical identity Homd.
+// This is a proof-time comparison for this structural owner only. It neither
+// normalizes arbitrary Cat-valued FF nor identifies the target/right route.
+unif_rule @tapp1_func _ Cat_cat _ _ $x $y (@homd_id_int $K $E)
+  ≡ @comp_fapp0 Cat_cat $C0 $C1 $C2 $P $H
+  ↪ [ $C0 ≡ Hom_cat (CoAt2_cat $K) $x $y;
+      $C1 ≡ Functor_cart_cat (@Homd_section_cat $K $E $x) (@Homd_section_cat $K $E $y);
+      $C2 ≡ Functor_cart_cat (Op_cat (@Fibre_cat $K $E $x)) (@Homd_section_cat $K $E $y);
+      $P ≡ @hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat)
+        (@Homd_section_cat $K $E $y) (Op_cat (@Fibre_cat $K $E $x)) (@Homd_section_cat $K $E $x)
+        (@homd_id_src_func $K $E $x);
+      $H ≡ @fapp1_func (CoAt2_cat $K) Cat_cat (@Homd_target_catd $K $E) $x $y ];
