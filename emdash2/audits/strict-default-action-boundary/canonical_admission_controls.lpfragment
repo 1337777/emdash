@@ -1,0 +1,57 @@
+// The structural seed is a map in the local Cartesian product category.
+assert (B : Cat) ⊢ canonical_admission_coyoneda_unit B
+  : τ (Hom (local_cart_prof_cat B B)
+      (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B));
+assert (B : Cat) ⊢ canonical_admission_seed_raw B
+  : τ (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B));
+
+// Closed beta still computes at the actual raw lambda/evaluation owners.
+assert (B : Cat) ⊢ @canonical_admission_eval_raw B B (@id_func B)
+  ≡ canonical_admission_seed_raw B;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @Prof_lambda_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+    (@Unit_prof B) (@canonical_admission_eval_raw A B F)
+  ≡ @canonical_admission_reindexed_lambda_raw A B F;
+
+// The checked reindex theorem applies to this actual admitted seed.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @admission_next_reindex_map_agreement B B B A (@id_func B) F
+    (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B)
+    (canonical_admission_coyoneda_unit B)
+  : τ (@=
+      (ProfMap
+        (@Prof_reindex B B B A
+          (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F)
+        (@Conjoint_prof A B F))
+      (@fapp1_fapp0 _ _ (local_cart_prof_include B A)
+        (fapp0 (@local_cart_prof_reindex_func B B B A (@id_func B) F)
+          (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)))
+        (fapp0 (@local_cart_prof_reindex_func B B B A (@id_func B) F) (@Unit_prof B))
+        (@canonical_admission_seed_reindex A B F))
+      (@Prof_reindex_transf B B B A
+        (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B)
+        (canonical_admission_seed_raw B) (@id_func B) F));
+
+// Raw maps retain their public profile, including this seed's raw name.
+assertnot [A B : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q)) ⊢
+  r : τ (Hom (local_cart_prof_cat A B) P Q);
+assertnot (B : Cat) ⊢ @Prof_coyoneda_cov_map B B (@Unit_prof B)
+  : τ (Hom (local_cart_prof_cat B B)
+      (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B));
+
+// These negatives record absent implicit retyping, not mathematical claims
+// that no classified lambda/evaluation lifts can exist.
+assertnot (B : Cat) ⊢ canonical_admission_lambda_raw B
+  : τ (Hom (local_cart_prof_cat B B) (@Unit_prof B)
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)));
+assertnot [A B : Cat] (F : τ (Functor A B)) ⊢ @canonical_admission_eval_raw A B F
+  : τ (Hom (local_cart_prof_cat B B)
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B));
+
+// The seed contract cannot identify an unrelated raw map with co-Yoneda.
+assertnot (B : Cat)
+  (r : τ (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))) ⊢
+  @eq_refl (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+    (canonical_admission_seed_raw B)
+  : τ (@= (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+      (canonical_admission_seed_raw B) r);

@@ -1,0 +1,346 @@
+{
+  "status": "non-library raw-preserving coefficient assembly; seed profile is an explicit structural proposal",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/coefficient_assembly_migration.py": "9ede2db509fc9ec1b5c6cb4e7cde17e33b9f930b44407ec2455800004822a831",
+    "audits/strict-default-action-boundary/canonical_admission_verification.json": "ee8ec02bb075a97d2a783c87599aa3137dd85e113e51911187b3e32fc74504d3",
+    "tmp/probes/canonical_admission/seed_consumers.lp": "4b72061bc81c7929ce972b2632742a22c67ccaac114e6bc8b21cc72d80bbf174",
+    "audits/strict-default-action-boundary/local_inverse_swap_object.lpfragment": "8fafefc0964055b2132f477e234703755a033201462181e724b0bae96ea8c021",
+    "audits/strict-default-action-boundary/local_inverse_swap_guarded.lpfragment": "2c711cd73bdc5d60c6a54f6cf1010182f10f8cee765694103652432779d2667f",
+    "audits/strict-default-action-boundary/local_inverse_swap_identity_guarded.lpfragment": "878a019347756c2920135c65fc039c9cb910a593ce180d8f826e819c6a3878d6",
+    "audits/strict-default-action-boundary/lift_coyoneda_reindexed_eval_guarded.lpfragment": "5853000165ec358441ac080c530666f36c519205200f357ce597c42e33a668a2",
+    "audits/strict-default-action-boundary/local_inverse_swap_controls.lpfragment": "28442aab7e0de58f20f0be418201f405da003c63c5f48bf9715b30258654dc46",
+    "audits/strict-default-action-boundary/local_cart_prof_inverse_boundary.lpfragment": "3d8ff273752ad07df5ad84d14af7cdd1055f5b53ac87befa6a15f2db32bcf98b",
+    "audits/strict-default-action-boundary/local_inverse_controls.lpfragment": "41e3efd7381aeb75e6040e2aeb54161e65cca10b280780aad0d8741df7b9f28a",
+    "audits/strict-default-action-boundary/local_inverse_perturbed_controls.lpfragment": "804227f737cb4c5cd5dcab2de0a52bd94711bd9c5b2269eb335d4601aba07ead",
+    "audits/strict-default-action-boundary/local_inverse_interaction_controls.lpfragment": "80192e53b9201a83d84ab2be254452d7a3d88dbf642fc4257f524c1a676e1476",
+    "audits/strict-default-action-boundary/lift_coyoneda_general_controls.lpfragment": "de64818ed4d6758e15dd9ee1e538a2e94da7f4aa8b9649771d74d493bdea2273",
+    "audits/strict-default-action-boundary/lift_coyoneda_counit_controls.lpfragment": "dc9b203652bcacf64291494cc9614c0d0b20c1299a80f24fa133168cc55930b1",
+    "audits/strict-default-action-boundary/lift_coyoneda_identity_middle_control.lpfragment": "31d4c0316a85e0774395232a129fc5ddf6397a265bf33c531d0c6429a9c541db",
+    "audits/strict-default-action-boundary/lift_coyoneda_inputs.json": "60135df488555decbdc0ac1be0a88f1494b14cdffc2819d3f84e37019301ed26",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "insertions": [
+    {
+      "anchor": "// Opposite of product swap is swap between the opposite factors.",
+      "fragments": [
+        "local_inverse_swap_object.lpfragment"
+      ],
+      "sha256": "8fafefc0964055b2132f477e234703755a033201462181e724b0bae96ea8c021"
+    },
+    {
+      "anchor": "// Whole operations, followed by both separately projected application orders.",
+      "fragments": [
+        "local_inverse_swap_guarded.lpfragment",
+        "local_inverse_swap_identity_guarded.lpfragment"
+      ],
+      "sha256": "6bcd76ef276c2d206f609d6f6e40d3a0513203c7cde990e02e0c91f9339fe27a"
+    },
+    {
+      "anchor": "// Unchanged raw production owner: reindexed map whole-fibre component",
+      "fragments": [
+        "lift_coyoneda_reindexed_eval_guarded.lpfragment"
+      ],
+      "sha256": "5853000165ec358441ac080c530666f36c519205200f357ce597c42e33a668a2"
+    }
+  ],
+  "outputs": {
+    "combined_controls.lp": "dacbeb2daab4400bc7470095d20e83394d0f5952723d837434353c626e9a44f4",
+    "with_nested_reindex.lp": "22137af6b253146827ba243d87cc9b4cc92ca6d91c6b925dd009f01d1b4bfd2f",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "importedNestedReindex": {
+    "revision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+    "sourceSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "blockSha256": "2239bfc5fbbf22efec099026192451a986d93fbbf667d503a23e2481379f6773",
+    "status": "byte-identical existing production owner; missing from canonical seed donor"
+  },
+  "limits": [
+    "No Q category or lift coherence qualification.",
+    "No Cartesian lambda or general counit admission.",
+    "Nested reindexed identity inverse remains a separate failed interaction.",
+    "No production source changes."
+  ],
+  "checks": {
+    "combined_controls.lp": {
+      "receipt": "logs/check-runs/20261013T153758Z-2c9bc1b2b25142f084466d8e9340b8c8.json",
+      "receiptSha256": "497eb7685455a18906c01b2a27c298caf82d2f49c02e74c170f542a8f246fce8",
+      "target": "tmp/probes/coefficient_assembly/combined_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/coefficient_assembly/combined_controls.lp": "dacbeb2daab4400bc7470095d20e83394d0f5952723d837434353c626e9a44f4"
+      },
+      "log": "logs/check-runs/20261013T153758Z-2c9bc1b2b25142f084466d8e9340b8c8.log",
+      "logSha256": "61e12bacd788bf7b8214a7260eef6c5a6fa1d516209d522542c360a4c6512fbc",
+      "wallSeconds": 5.438049686024897,
+      "childrenMaxRssKiB": 420372,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      }
+    },
+    "with_nested_reindex.lp": {
+      "receipt": "logs/check-runs/20261013T153934Z-078339dad765459286363a81ee975121.json",
+      "receiptSha256": "6c3f40e4dfdd7a7023ab5fda8a14649e602967da1b1c345a18a5315c685d07b5",
+      "target": "tmp/probes/coefficient_assembly/with_nested_reindex.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/coefficient_assembly/with_nested_reindex.lp": "22137af6b253146827ba243d87cc9b4cc92ca6d91c6b925dd009f01d1b4bfd2f"
+      },
+      "log": "logs/check-runs/20261013T153934Z-078339dad765459286363a81ee975121.log",
+      "logSha256": "ccf7578bf4c6f597b9914aa6caf208adb78afd4af5bcaf3ab0125dfc00a45dc2",
+      "wallSeconds": 5.75993743003346,
+      "childrenMaxRssKiB": 428144,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      }
+    }
+  },
+  "baseline": {
+    "receipt": "logs/check-runs/20261013T152042Z-5d0c87ebcad44a82a4c38355258e9d9c.json",
+    "receiptSha256": "e7acd44b1d432405bba995599e9905a3ed235c9293f0cae3da8efb770add1402",
+    "target": "tmp/probes/canonical_admission/seed_consumers.lp",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "tmp/probes/canonical_admission/seed_consumers.lp": "4b72061bc81c7929ce972b2632742a22c67ccaac114e6bc8b21cc72d80bbf174"
+    },
+    "log": "logs/check-runs/20261013T152042Z-5d0c87ebcad44a82a4c38355258e9d9c.log",
+    "logSha256": "2a58c5ff7c22069d23b9959ebcfa5998ef8765d58367339aa00cdb9ac7f4fbcd",
+    "wallSeconds": 9.722230738028884,
+    "childrenMaxRssKiB": 417896,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "controlCounts": {
+    "combined_controls.lp": {
+      "positive": 240,
+      "negative": 65
+    },
+    "with_nested_reindex.lp": {
+      "positive": 240,
+      "negative": 65
+    }
+  },
+  "warningComparison": {
+    "before": 879,
+    "after": 911,
+    "added": [
+      {
+        "count": 1,
+        "sha256": "7f4f7924e6e3daa1314f2d46ef5c1a73d0902a83adca701cf7bd59955668f2f3",
+        "head": "t ≔ @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g)) (@Product_swap_func $A' $B')"
+      },
+      {
+        "count": 1,
+        "sha256": "a5e6f6141bf3b59c287a1ae236bb8e3efb7c2752f7fd90a42561c2106f3446b0",
+        "head": "t ≔ @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7)) (@Product_swap_func $A' $B')"
+      },
+      {
+        "count": 1,
+        "sha256": "821297b551d9f4c2815e65a9110528b5a941749086def24c635d61957de89662",
+        "head": "t ≔ @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6)) (@Product_swap_func $A' $B')"
+      },
+      {
+        "count": 1,
+        "sha256": "8dd16d78aa79f7782735c1d2d4b6b97e03a5c0066453667627aa6c01cd03c4dd",
+        "head": "t ≔ @tapp0_hom_fapp0 $A' $B' $F' $G' (Product_cat $A $B) $C $Y' (@comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F) (@Product_swap_func $A $B))"
+      },
+      {
+        "count": 1,
+        "sha256": "a176bd7cfecac71ec67b7d7e8ea59b88033d3b237c4597ffc88b627ec06218fd",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) $') (@Struct_sigma $' $' (@Product_swap_func $B $A) $') (@Struct_sigma $' $' (id $20 (@Product_swap_func $B $A)) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@Struct_sigma $3 $4 (@Product_swap_func $A $B) $5) (@Struct_sigma $6 $7 (@Product_swap_func $A $B) $8) (@Struct_sigma $9 $10 (id $11 (@Product_swap_func $A $B)) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $12 $13 (@Product_swap_func $B $A) $14) (@Struct_sigma $15 $16 (@Product_swap_func $B $A) $17) (@Struct_sigma $18 $19 (id $20 (@Product_swap_func $B $A)) $alpha)))))"
+      },
+      {
+        "count": 1,
+        "sha256": "308ba4ecd9557d7b30d0ff6c2807a0f060ae6fdc56a0efe7f33fb6af34f96208",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@Struct_sigma $3 $4 (@Product_swap_func $B' $A') $G) (@Struct_sigma $7 $8 (@Product_swap_func $B' $A') $G) (@Struct_sigma $9 $10 (id $11 (@Product_swap_func $B' $A')) (id (Obj (Hom_cat $12 $G $G)) $G))))"
+      },
+      {
+        "count": 1,
+        "sha256": "a474d6b180bad9762c06b0d4aacd0d61a2e3a9eb854140616b41a9cc218ded25",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id (Path_cat $') (@Product_swap_func $B' $A')) $alpha')))"
+      },
+      {
+        "count": 1,
+        "sha256": "28dce18713577558861a59e81fbda49d89b350e3c78dd357e3d2f64464fb7af3",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id Terminal_cat (@Product_swap_func $B' $A')) $alpha')))"
+      },
+      {
+        "count": 1,
+        "sha256": "2ad2faea11ee71322a2b4a3a05836fb473e3e7ba42fb8a22159e8701b1e3a724",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id (Path_cat $') (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha')))"
+      },
+      {
+        "count": 1,
+        "sha256": "be8ae880307e13f79bd8fc5d3e69d53c826296f23fcff896d368f5c8584044ac",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id Terminal_cat (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha')))"
+      },
+      {
+        "count": 1,
+        "sha256": "866596a736b483202306a2bfff830d8807eca00a08275081b0ea6219d20376bd",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id (@= $A (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))) (@Product_swap_func $A' $B')) (id (Path_cat $A) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "282db5877a4f6fe43e44120377b02db2e03cc6febc5be511904fec538ec8d260",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id Unit_grpd (@Product_swap_func $A' $B')) (id Terminal_cat (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "67152ca0222620b0ea66150d1b4dbb4df27e6f8cbe4e8a26ba2d4426122f5c25",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat (Product_cat $A' $B')))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat (Product_cat $A' $B')))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $3)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat (Product_cat $A' $B')) (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "eabbdab5a8392b708bf04f0c62cadb924021d0711f24cf528f46ee232380ce43",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@Const_func (Product_cat $A' $B') $C $c))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@Const_func (Product_cat $A' $B') $C $c))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C (@Const_func (Product_cat $A' $B') $C $c) (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "f94f250580ba4660bb24f8bf1dc1f982a54f1da4be7645477ac95165f8f42d9b",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $3)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g) (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "d13f4a25aa059260b7f377410a9762c5350440c8c2bcceccdb79e91b3365e1a3",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) (Product_cat $A $B) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A $B) (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@Product_swap_func $B $A))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A $B) (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@Product_swap_func $B $A))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' (@comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) (@Product_swap_func $A $B))))"
+      },
+      {
+        "count": 1,
+        "sha256": "8c5f33f86f895945561ad2b93db9997985cd321c2d215bf47af3f792be4f8bd3",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' (@comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)) (@Product_swap_func $A $B))))"
+      },
+      {
+        "count": 1,
+        "sha256": "0771c46afe76899d6921d3f7a5d728714443c12e4ad323e9b97f49c26cfb1798",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' (@comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F) (@Product_swap_func $A $B))))"
+      },
+      {
+        "count": 1,
+        "sha256": "852da927f397667dc5be7e874d4a9ee5585ec26c1f20b745b1aeb40ea4bd0989",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id (Path_cat $') (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "e8d9f62c64b081af8c5398a467cd797fc1be7f9a274499c111760ef5d54ca0cc",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id Terminal_cat (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "4c7356d7a9ac59c7cc849f047362cb45a62e616e00cd06143e4972c37229863e",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "8509c7f04ea98451df66d0e037113e061f68defa89f36ac4bf7a2f5440ce657e",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $7)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat $7) (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "a1a6f669d6951cf70861ae040b630e09d10d851cdc149f06e368d2923e5b229c",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $6)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $2 (id Cat_cat $6) (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "475a43c6eb839dbefdbbc42a73f04abc6f309cb77ec6b36d832c629ad9f181bb",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "b2cf1a7775a1bc32fcff352f2947ab99a476b5ac149ec21fb798f26ed5d921f2",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $7)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat $7) (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "6da1ea1993a6dd117a956012e6bc3c9ee5cca158f16e6547f68192c7a776007b",
+        "head": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $6)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $2 (id Cat_cat $6) (@Product_swap_func $B' $A'))))"
+      },
+      {
+        "count": 1,
+        "sha256": "e7e15df44dcfda6e40db7acf7dd30865ff161c75c0aa3379fef79b19a3266e21",
+        "head": "t ≔ @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B))) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $a' $b' $m' $r' $s')"
+      },
+      {
+        "count": 1,
+        "sha256": "360bf0df23070fc41be46be320e222216a568a370c7e851578b309c1b9be251c",
+        "head": "t ≔ @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X'))) $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $a' $b' $m' $r' $s')"
+      },
+      {
+        "count": 1,
+        "sha256": "62ffaa60e3f20ac3b765a1744a828cec1884a3c561aad6aed6e7cc24f2931a46",
+        "head": "t ≔ @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B))) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $a' $b' $m' $r' $s')"
+      },
+      {
+        "count": 1,
+        "sha256": "a22e33416ae9a2e56ee52c08922a3e5c32a495b370c26a3af6a461e637878a58",
+        "head": "t ≔ @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X'))) $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $a' $b' $m' $r' $s')"
+      },
+      {
+        "count": 1,
+        "sha256": "e67d1caae3cc21b34991ab18dd9b593e2faa74eaa69aaeee1cb543afedbc74ff",
+        "head": "t ≔ @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B))) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $a' $b' $m' $r' $s')"
+      },
+      {
+        "count": 1,
+        "sha256": "ef8aea5f2bd6bc9c9fb19828fdd04e32b7af77a8a18c8cbb2673f1c4c3722c87",
+        "head": "t ≔ @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X'))) $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $a' $b' $m' $r' $s')"
+      }
+    ],
+    "removedCount": 0,
+    "qualification": "The 32 added blocks comprise the 26 local-inverse projection-order overlaps and six guarded generator-cut identity-reindex overlaps. Tested identity/triple/terminal consumers pass; nested reindexed identity remains open. No confluence claim."
+  },
+  "ruleLhsAudit": {
+    "unreviewed": 0,
+    "annotatedSlots": 44,
+    "annotatedClauses": 30,
+    "sha256": "b788dc3d6532e5b56a9720ed698c08da9d298eccbd858011fd2f0ba13959ae6a"
+  },
+  "review": "Assembly needed the existing nested Prof_reindex law omitted from the seed donor. It is imported unchanged; the failed sparse closure remains an exact target. No new semantic law was invented for this integration."
+}

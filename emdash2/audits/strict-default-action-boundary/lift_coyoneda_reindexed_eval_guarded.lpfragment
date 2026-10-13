@@ -1,0 +1,33 @@
+// NON-LIBRARY UNCHECKED guarded generator beta at the closed evaluation owner.
+// The first candidate failed subject reduction with independent tensor-input
+// placeholders. Match the actual shared pullback profiles explicitly on
+// application, evaluation and tensor introduction; no checker bypass.
+// Reindex lambda(k) in the tensor's middle variable by H, then evaluate it
+// on the actual tensor introduction at m. The same cut is k applied to the
+// original tensor introduction at H o m. Both shaped inputs are retained.
+// This is a proposed computation connecting the existing primitive owners,
+// not a theorem from map-level beta/eta alone and not a triangle law.
+// All ProfMap/Prof_hom inputs retain the raw public Functord profile.
+rule @Prof_cell_apply
+      $I $A $X $A $X
+      (@Prof_tensor $A $B' $X
+        (@Prof_reindex $A $A $B $B' $P (@id Cat_cat $A) $H)
+        (@Prof_reindex $B $B' $X $X $Q $H (@id Cat_cat $X))) $O
+      (@id Cat_cat $A) (@id Cat_cat $X) $a $b
+      (@Prof_eval_cov_map $A $B' $X
+        (@Prof_reindex $A $A $B $B' $P (@id Cat_cat $A) $H)
+        (@Prof_reindex $B $B' $X $X $Q $H (@id Cat_cat $X)) $O
+        (@Prof_reindex_transf $A $A $B $B' $P
+          (@Prof_imply_cov $A $B $X $O $Q)
+          (@Prof_lambda_cov_map $A $B $X $P $Q $O $k)
+          (@id Cat_cat $A) $H))
+      (@Prof_tensor_hom_hom $I $A $B' $X
+        (@Prof_reindex $A $A $B $B' $P (@id Cat_cat $A) $H)
+        (@Prof_reindex $B $B' $X $X $Q $H (@id Cat_cat $X))
+        $a $b $m $r $s)
+  ↪ @Prof_cell_apply
+      $I $A $X $A $X
+      (@Prof_tensor $A $B $X $P $Q) $O
+      (@id_func $A) (@id_func $X) $a $b $k
+      (@Prof_tensor_hom_hom $I $A $B $X $P $Q $a $b
+        (@comp_cat_fapp0 $I $B' $B $H $m) $r $s);

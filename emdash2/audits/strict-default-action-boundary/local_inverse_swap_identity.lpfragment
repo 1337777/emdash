@@ -1,0 +1,15 @@
+// Identity-input overlap of the preceding expanded swap-action join.
+// The inner horizontal identity computes first to id on a raw composite,
+// while its displayed endpoints retain stable precomposition. Preserve both
+// owners and complete only this measured double-swap identity projection.
+// lhs-audit: keep 2,3 -- product symmetry endpoints guard this measured identity overlap.
+rule @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C
+      (@Struct_sigma _ _ (@Product_swap_func $A $B)
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+          _ _ _ (@Product_swap_func $B $A) $F))
+      (@Struct_sigma _ _ (@Product_swap_func $A $B)
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+          _ _ _ (@Product_swap_func $B $A) $F))
+      (@Struct_sigma _ _ (@id _ (@Product_swap_func $A $B))
+        (@id _ (@comp_fapp0 Cat_cat _ _ _ $F (@Product_swap_func $B $A))))
+  ↪ @id (Functor_cart_cat (Product_cat $A $B) $C) $F;

@@ -1,0 +1,31 @@
+// Same endpoint functors, but a variable cell replaces the identity of the
+// outer swap. The two underlying functors still compose to identity.
+symbol local_inverse_perturbed_swap [A B C : Cat]
+  [F G : τ (Functor (Product_cat A B) C)]
+  (alpha : τ (@StrictTransfor (Product_cat A B) C F G))
+  (theta : τ (@StrictTransfor (Product_cat A B) (Product_cat B A)
+    (@Product_swap_func A B) (@Product_swap_func A B)))
+  : τ (@StrictTransfor (Product_cat A B) C F G)
+≔ @comp_prod_fapp1_fapp0 Cat_cat
+    (Product_cat A B) (Product_cat B A) C
+    (Struct_sigma (@Product_swap_func A B)
+      (@comp_cat_fapp0 (Product_cat B A) (Product_cat A B) C F (@Product_swap_func B A)))
+    (Struct_sigma (@Product_swap_func A B)
+      (@comp_cat_fapp0 (Product_cat B A) (Product_cat A B) C G (@Product_swap_func B A)))
+    (Struct_sigma theta
+      (@fapp1_fapp0 _ _
+        (@comp_cat_con_cart_func (Product_cat B A) (Product_cat A B) C
+          (@Product_swap_func B A)) F G alpha));
+
+assert [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (alpha : τ (@StrictTransfor (Product_cat A B) C F G))
+  (theta : τ (@StrictTransfor (Product_cat A B) (Product_cat B A)
+    (@Product_swap_func A B) (@Product_swap_func A B))) ⊢
+  @local_inverse_perturbed_swap A B C F G alpha theta
+  : τ (@StrictTransfor (Product_cat A B) C F G);
+
+assertnot [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (alpha : τ (@StrictTransfor (Product_cat A B) C F G))
+  (theta : τ (@StrictTransfor (Product_cat A B) (Product_cat B A)
+    (@Product_swap_func A B) (@Product_swap_func A B))) ⊢
+  @local_inverse_perturbed_swap A B C F G alpha theta ≡ alpha;

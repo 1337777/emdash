@@ -1,0 +1,12 @@
+// The existing double-symmetry pullback inverse after the inner object
+// projection has retained its stable precomposition head. This joins the
+// raw outer composition with that same semantic inverse, without folding
+// arbitrary precomposition to raw composition.
+// lhs-audit: keep 2,3 -- product source/middle categories select symmetry involution.
+rule @comp_fapp0 Cat_cat
+      (Product_cat $A $B) (Product_cat $B $A) $C
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $C (Product_cat $B $A) (Product_cat $A $B)
+        (@Product_swap_func $B $A) $F)
+      (@Product_swap_func $A $B)
+  ↪ $F;

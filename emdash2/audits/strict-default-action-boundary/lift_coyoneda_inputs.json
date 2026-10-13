@@ -1,0 +1,11 @@
+{
+  "status": "source pins for unchecked raw counit/generator owner experiment",
+  "donor": "tmp/probes/raw_represented_counit/comparison_variant.lp",
+  "productionRevision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "productionSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "sourceInputs": {
+    "tmp/probes/raw_represented_counit/comparison_variant.lp": "611af0caa9f3338ed14e03ec6fcdfa7a2644ac8afd53fdb773b6980ff22bbe95",
+    "audits/strict-default-action-boundary/raw_represented_counit_verification.json": "38124d8a6609573e6be5e271d900d55e07b6bb54360ed70ef565f61da8ed4c4f",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  }
+}

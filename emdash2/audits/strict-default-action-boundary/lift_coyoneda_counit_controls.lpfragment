@@ -1,0 +1,32 @@
+// NON-LIBRARY actual raw canonical counit on a represented tensor generator.
+// The second factor is the existing shaped hom action of F o m. After the
+// proposed reindexed-lambda cut, the existing co-Yoneda beta should return p.
+// No implication=Conjoint identification or Cartesian admission is used.
+assert [I A B : Cat] (F : τ (Functor A B))
+  (a : τ (Functor I B)) (m : τ (Functor I A))
+  (p : τ (@Prof_hom I B B a (@Unit_prof B) (@comp_cat_fapp0 I A B F m))) ⊢
+  @Prof_cell_apply I B B B B
+    (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+    (@Unit_prof B) (@id_func B) (@id_func B)
+    a (@comp_cat_fapp0 I A B F m)
+    (@raw_represented_counit A B F)
+    (@Prof_tensor_hom_hom I B A B
+      (@Conjoint_prof A B F) (@Companion_prof A B F)
+      a (@comp_cat_fapp0 I A B F m) m p
+      (@Prof_func_hom I B (@comp_cat_fapp0 I A B F m)))
+  ≡ p;
+
+// Actual generator data remain visible after the canonical counit cut.
+assertnot [I A B : Cat] (F : τ (Functor A B))
+  (a : τ (Functor I B)) (m : τ (Functor I A))
+  (p p' : τ (@Prof_hom I B B a (@Unit_prof B) (@comp_cat_fapp0 I A B F m))) ⊢
+  @Prof_cell_apply I B B B B
+    (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+    (@Unit_prof B) (@id_func B) (@id_func B)
+    a (@comp_cat_fapp0 I A B F m)
+    (@raw_represented_counit A B F)
+    (@Prof_tensor_hom_hom I B A B
+      (@Conjoint_prof A B F) (@Companion_prof A B F)
+      a (@comp_cat_fapp0 I A B F m) m p
+      (@Prof_func_hom I B (@comp_cat_fapp0 I A B F m)))
+  ≡ p';

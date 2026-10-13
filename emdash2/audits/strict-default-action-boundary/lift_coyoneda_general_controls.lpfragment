@@ -1,0 +1,51 @@
+// NON-LIBRARY exact generic reindexed-lambda/evaluation generator obligation.
+// r,s use the unchanged raw shaped profile. Nested reindexing identifies
+// their types with the two pullback profunctors on the left.
+assert [I A B B' X : Cat]
+  (P : τ (Prof A B)) (Q : τ (Prof B X)) (O : τ (Prof A X))
+  (k : τ (ProfMap (@Prof_tensor A B X P Q) O))
+  (H : τ (Functor B' B)) (a : τ (Functor I A)) (b : τ (Functor I X))
+  (m : τ (Functor I B'))
+  (r : τ (@Prof_hom I A B a P (@comp_cat_fapp0 I B' B H m)))
+  (s : τ (@Prof_hom I B X (@comp_cat_fapp0 I B' B H m) Q b)) ⊢
+  @Prof_cell_apply I A X A X
+    (@Prof_tensor A B' X
+      (@Prof_reindex A A B B' P (@id_func A) H)
+      (@Prof_reindex B B' X X Q H (@id_func X))) O
+    (@id_func A) (@id_func X) a b
+    (@Prof_eval_cov_map A B' X
+      (@Prof_reindex A A B B' P (@id_func A) H)
+      (@Prof_reindex B B' X X Q H (@id_func X)) O
+      (@Prof_reindex_transf A A B B' P (@Prof_imply_cov A B X O Q)
+        (@Prof_lambda_cov_map A B X P Q O k) (@id_func A) H))
+    (@Prof_tensor_hom_hom I A B' X
+      (@Prof_reindex A A B B' P (@id_func A) H)
+      (@Prof_reindex B B' X X Q H (@id_func X)) a b m r s)
+  ≡ @Prof_cell_apply I A X A X (@Prof_tensor A B X P Q) O
+      (@id_func A) (@id_func X) a b k
+      (@Prof_tensor_hom_hom I A B X P Q a b (@comp_cat_fapp0 I B' B H m) r s);
+
+// Perturbing the first actual generator must remain observable.
+assertnot [I A B B' X : Cat]
+  (P : τ (Prof A B)) (Q : τ (Prof B X)) (O : τ (Prof A X))
+  (k : τ (ProfMap (@Prof_tensor A B X P Q) O))
+  (H : τ (Functor B' B)) (a : τ (Functor I A)) (b : τ (Functor I X))
+  (m : τ (Functor I B'))
+  (r r' : τ (@Prof_hom I A B a P (@comp_cat_fapp0 I B' B H m)))
+  (s : τ (@Prof_hom I B X (@comp_cat_fapp0 I B' B H m) Q b)) ⊢
+  @Prof_cell_apply I A X A X
+    (@Prof_tensor A B' X
+      (@Prof_reindex A A B B' P (@id_func A) H)
+      (@Prof_reindex B B' X X Q H (@id_func X))) O
+    (@id_func A) (@id_func X) a b
+    (@Prof_eval_cov_map A B' X
+      (@Prof_reindex A A B B' P (@id_func A) H)
+      (@Prof_reindex B B' X X Q H (@id_func X)) O
+      (@Prof_reindex_transf A A B B' P (@Prof_imply_cov A B X O Q)
+        (@Prof_lambda_cov_map A B X P Q O k) (@id_func A) H))
+    (@Prof_tensor_hom_hom I A B' X
+      (@Prof_reindex A A B B' P (@id_func A) H)
+      (@Prof_reindex B B' X X Q H (@id_func X)) a b m r s)
+  ≡ @Prof_cell_apply I A X A X (@Prof_tensor A B X P Q) O
+      (@id_func A) (@id_func X) a b k
+      (@Prof_tensor_hom_hom I A B X P Q a b (@comp_cat_fapp0 I B' B H m) r' s);

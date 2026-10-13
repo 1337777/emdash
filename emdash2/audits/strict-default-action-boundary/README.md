@@ -891,3 +891,29 @@ The [source closure](admission_next_source_closure.md) and
 [verification](admission_next_verification.json) preserve the exact scope and
 original failed attempts. Canonical co-Yoneda/lambda/evaluation admission,
 expanded local arrow inverses and triangle coherence are still unqualified.
+
+## Canonical coefficient and local inverse continuation
+
+The [canonical admission proposal](canonical_admission_source_closure.md)
+classifies only co-Yoneda(Unit), with an actual raw inclusion comparison.
+Its constructor, native action and reindex consumers check. This remains an
+explicit structural-profile proposal; lambda and general counit admission
+are not derived from it.
+
+The [generator replay](lift_coyoneda_source_closure.md) implements the
+reindexed lambda/evaluation cut on tensor introductions. The actual raw
+represented counit then reaches existing co-Yoneda beta; the identity-middle
+interaction and both required removals are recorded. No mate triangle is
+installed.
+
+The [local inverse replay](local_inverse_source_closure.md) checks expanded
+variable-map round trips, identity/composition and selected swap interactions.
+A nested reindexed identity still fails conversion and direct proof-time
+comparison. Recorded warning overlaps remain qualification boundaries.
+
+The [combined coefficient recipe](coefficient_assembly_migration.py) checks
+these consumers together after importing the previously omitted, unchanged
+nested reindex owner. Its [verification](coefficient_assembly_verification.json)
+records the passing raw-preserving assembly and the initial dependency failure.
+The selected seed remains a proposed profile contract; complete Q/lift/Homd
+coherence and production integration remain open.

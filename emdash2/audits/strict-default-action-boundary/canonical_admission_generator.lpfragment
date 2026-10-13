@@ -1,0 +1,24 @@
+// Actual shaped-element action of the included canonical seed. The only
+// computational beta used is the unchanged native co-Yoneda beta on this
+// exact tensor introduction. The proof is an observation, not an input.
+symbol canonical_admission_seed_generator [I B : Cat]
+  (F M : τ (Functor I B))
+  (p : τ (@Prof_hom I B B F (@Unit_prof B) M))
+  : τ (@= (@Prof_hom I B B F (@Unit_prof B) M)
+      (@Prof_cell_apply I B B B B
+        (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B)
+        (@id_func B) (@id_func B) F M (canonical_admission_seed_raw B)
+        (@Prof_tensor_hom_hom I B B B (@Unit_prof B) (@Unit_prof B) F M M
+          p (@Prof_func_hom I B M)))
+      p)
+≔ @eq_ap
+    (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+    (@Prof_hom I B B F (@Unit_prof B) M)
+    (λ e : τ (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B)),
+      @Prof_cell_apply I B B B B
+        (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B)
+        (@id_func B) (@id_func B) F M e
+        (@Prof_tensor_hom_hom I B B B (@Unit_prof B) (@Unit_prof B) F M M
+          p (@Prof_func_hom I B M)))
+    (canonical_admission_seed_raw B) (@Prof_coyoneda_cov_map B B (@Unit_prof B))
+    (canonical_admission_seed_agreement B);

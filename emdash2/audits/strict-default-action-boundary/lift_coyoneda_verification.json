@@ -1,0 +1,638 @@
+{
+  "status": "bounded raw canonical counit generator computation qualified with explicit pullback-profile guards; baseline, perturbed-data and identity-middle controls pass; exact removal and rejected-SR evidence preserved; whole balancing, triangle and Cartesian admission integration remain open",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/lift_coyoneda_migration.py": "44a3a637b664f5569a203a0f0d52cc710d8026ad5c4672c1c3a2ba1fcbe6cfe0",
+    "audits/strict-default-action-boundary/lift_coyoneda_inputs.json": "60135df488555decbdc0ac1be0a88f1494b14cdffc2819d3f84e37019301ed26",
+    "audits/strict-default-action-boundary/raw_represented_counit_verification.json": "38124d8a6609573e6be5e271d900d55e07b6bb54360ed70ef565f61da8ed4c4f",
+    "tmp/probes/raw_represented_counit/comparison_variant.lp": "611af0caa9f3338ed14e03ec6fcdfa7a2644ac8afd53fdb773b6980ff22bbe95",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/lift_coyoneda_reindexed_eval.lpfragment": "74b499e22c9cc7721e2d20c975183c0ebdd46cc2564ffd5193edbf496e698966",
+    "audits/strict-default-action-boundary/lift_coyoneda_reindexed_eval_guarded.lpfragment": "5853000165ec358441ac080c530666f36c519205200f357ce597c42e33a668a2",
+    "audits/strict-default-action-boundary/lift_coyoneda_existing_controls.lpfragment": "6761442fa4203160f71c6eae6890495beb610e37f91e048649fae9e4278a2ca8",
+    "audits/strict-default-action-boundary/lift_coyoneda_general_controls.lpfragment": "de64818ed4d6758e15dd9ee1e538a2e94da7f4aa8b9649771d74d493bdea2273",
+    "audits/strict-default-action-boundary/lift_coyoneda_counit_controls.lpfragment": "dc9b203652bcacf64291494cc9614c0d0b20c1299a80f24fa133168cc55930b1",
+    "audits/strict-default-action-boundary/lift_coyoneda_identity_middle_control.lpfragment": "31d4c0316a85e0774395232a129fc5ddf6397a265bf33c531d0c6429a9c541db"
+  },
+  "productionRevision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "productionSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "unchangedProductionBlocks": [
+    {
+      "label": "nested endpoint reindexing",
+      "source": "emdash3_2.lp",
+      "revision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+      "startLine": 18752,
+      "endLine": 18765,
+      "sha256": "2239bfc5fbbf22efec099026192451a986d93fbbf667d503a23e2481379f6773"
+    },
+    {
+      "label": "Prof_cell_apply",
+      "source": "emdash3_2.lp",
+      "revision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+      "startLine": 18836,
+      "endLine": 18850,
+      "sha256": "24c1970245a235c781a663a7a1ce0fb5f397315d93cef9f20744fc2f6fad6fe9"
+    },
+    {
+      "label": "Prof_tensor_hom_hom",
+      "source": "emdash3_2.lp",
+      "revision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+      "startLine": 19154,
+      "endLine": 19163,
+      "sha256": "d981e511c6c7c1e34cb5692f2fb1c73d10d2633ab42624abbef3c71c9b31b22f"
+    },
+    {
+      "label": "Prof_func_hom",
+      "source": "emdash3_2.lp",
+      "revision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+      "startLine": 19011,
+      "endLine": 19013,
+      "sha256": "30fe93d1e619e9e68dfc67395b2ef0a1b6b3eb080da23febbf477c9ab8419836"
+    },
+    {
+      "label": "fixed right-unit co-Yoneda generator beta",
+      "source": "emdash3_2.lp",
+      "revision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+      "startLine": 19252,
+      "endLine": 19273,
+      "sha256": "6070e9e0026c1aace9633bcbbf30eb08eead7a50d23ab939404188a2d8bc1d5b"
+    }
+  ],
+  "outputs": {
+    "owner_prefix.lp": "7464367e6b23673ba12af10f2b62a2351a11941384f3cf34f68964a95f09de4a",
+    "existing_beta.lp": "d44830b9b3cf0242693059e54f73faf51fcf2136e5b0f8864990dbf536614cb5",
+    "general_boundary.lp": "58f815f4e3af4c5bc9498671b441711de7eb914c52008e7cf83dc66bb56403e6",
+    "counit_boundary.lp": "c6b20e5e91504c80a0279c7b3ab251d614f3dfd5051e040d1c92ca7a358904e9",
+    "candidate_owner.lp": "12d204c6aeabac77901fed1fe7c9fbc404f68b02bad2625e56f54c2230a05f9a",
+    "candidate_generic.lp": "ae048ce4b07dd313b22ac144ac83c2d80822ee42709a7ebf3f84d6302b6d3616",
+    "candidate_counit_generator.lp": "89fdd1ddcae04c3fef8fc0f8fb0abaeb890b9fe8f8a07928580ae71d9cedecab",
+    "no_coyoneda_beta.lp": "915d04a3940ff32f2f94e6755f929b8894869f0ac5b80cbafbc3b73c625f0100",
+    "guarded_owner.lp": "ee2feb5f842663b3e863f8500202750f8f57777c3ea1b60a9e85d46faa3fafa8",
+    "guarded_generic.lp": "32cfefadf15c2803efd6447553b7d32ccb900a55cabc915971c4c793770a59fe",
+    "guarded_counit_generator.lp": "bf2648833c9323e5a1fb32a8a8186d69a1933dd28e3697e56875bf9690d28923",
+    "guarded_no_coyoneda_beta.lp": "a3dac4473c065f07790b97b1820c033ebf36e7c05482ca7b990d04cd5029952a",
+    "guarded_identity_middle.lp": "8435f6361a005d93b93d50a8c313e4f4d60182ef4182d14525f1c9620237e5dd",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "outputControlCounts": {
+    "owner_prefix.lp": {
+      "positive": 175,
+      "negative": 36
+    },
+    "existing_beta.lp": {
+      "positive": 178,
+      "negative": 37
+    },
+    "general_boundary.lp": {
+      "positive": 176,
+      "negative": 37
+    },
+    "counit_boundary.lp": {
+      "positive": 176,
+      "negative": 37
+    },
+    "candidate_owner.lp": {
+      "positive": 175,
+      "negative": 36
+    },
+    "candidate_generic.lp": {
+      "positive": 176,
+      "negative": 37
+    },
+    "candidate_counit_generator.lp": {
+      "positive": 176,
+      "negative": 37
+    },
+    "no_coyoneda_beta.lp": {
+      "positive": 176,
+      "negative": 37
+    },
+    "guarded_owner.lp": {
+      "positive": 175,
+      "negative": 36
+    },
+    "guarded_generic.lp": {
+      "positive": 176,
+      "negative": 37
+    },
+    "guarded_counit_generator.lp": {
+      "positive": 176,
+      "negative": 37
+    },
+    "guarded_no_coyoneda_beta.lp": {
+      "positive": 176,
+      "negative": 37
+    },
+    "guarded_identity_middle.lp": {
+      "positive": 176,
+      "negative": 36
+    }
+  },
+  "qualification": [
+    "Raw public ProfMap and shaped-cell profiles remain unchanged; no map is retyped as Cartesian.",
+    "Actual raw_represented_counit body is inherited unchanged: eval(reindex(lambda(co-Yoneda),id,F)).",
+    "No implication-to-Conjoint identification is present.",
+    "Existing beta controls use only unchanged production owners and map-level eval/lambda beta.",
+    "The new candidate is a reindexed lambda/evaluation cut at Prof_cell_apply on a tensor introduction; it is not derivable from opaque map beta/eta alone.",
+    "Unextended general/counit boundaries and the co-Yoneda-beta removal are positive obligations; failures are not passing negatives.",
+    "Generator success would not establish balancing beyond this cut, whole map extensionality, Cartesian admission, a mate triangle or companion composition."
+  ],
+  "checkerInvoked": false,
+  "checks": {
+    "existing_beta.lp": {
+      "qualification": "passed unchanged raw co-Yoneda generator beta, eval/lambda specialization, actual counit(id) generator, and perturbed-element negative",
+      "receipt": "logs/check-runs/20261013T151806Z-9fb9b94e46d14413a89d80bf4cc02598.json",
+      "receiptSha256": "33d682073ff5f2f43ac797dd449f3a63d0d2ab19a92ecc6f41f25c6d9b328f6d",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "d44830b9b3cf0242693059e54f73faf51fcf2136e5b0f8864990dbf536614cb5",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_coyoneda/existing_beta.lp": "d44830b9b3cf0242693059e54f73faf51fcf2136e5b0f8864990dbf536614cb5"
+      },
+      "inputSnapshot": "353a55afd192c9d02e59a6a1f991aef8115bcc51f0ebfc7ac2be3faa3790256b",
+      "log": "logs/check-runs/20261013T151806Z-9fb9b94e46d14413a89d80bf4cc02598.log",
+      "logSha256": "2fdec6653b8715fea8ddf7180887e13f187ca33f85061cbc127f675d3e679d44",
+      "output": "tmp/probes/lift_coyoneda/existing_beta.out",
+      "outputSha256": "022f515380f7bcccd5143a7fa1f5474a9f67be805e8f113bc2132d56a87b2ecb",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 4.72345736308489,
+      "childrenMaxRssKiB": 383068,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 853,
+        "replaceablePatternVariables": 129
+      }
+    },
+    "candidate_generic.lp": {
+      "qualification": "failed subject reduction before new consumers: unmatched tensor input placeholders leave unrelated reindexed profunctors; not a failed generator theorem or successful negative",
+      "receipt": "logs/check-runs/20261013T151811Z-2da03b607ca8405d80210c94857e5f01.json",
+      "receiptSha256": "1919065a652aee5fca767ea7dd23993dc75a1ab323112d2e10e2bfc829410d6d",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "ae048ce4b07dd313b22ac144ac83c2d80822ee42709a7ebf3f84d6302b6d3616",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_coyoneda/candidate_generic.lp": "ae048ce4b07dd313b22ac144ac83c2d80822ee42709a7ebf3f84d6302b6d3616"
+      },
+      "inputSnapshot": "ffbdfea7953f68ad9761b0ed9ec5a449871fc1435b00c15f1e8bf62d56290bde",
+      "log": "logs/check-runs/20261013T151811Z-2da03b607ca8405d80210c94857e5f01.log",
+      "logSha256": "755486e1a4c74c63df0c277eaa0f47e8c86b0703edd2af0e6ea8af116aa695b2",
+      "output": "tmp/probes/lift_coyoneda/candidate_generic.out",
+      "outputSha256": "1abeb01b9fad91d4f2810d141bfe25a93ebf6573b77ac637122411d435bea1f6",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 5.05379513092339,
+      "childrenMaxRssKiB": 382796,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 853,
+        "replaceablePatternVariables": 127
+      },
+      "failureDiagnostics": [
+        "Cannot solve \u22a2 @Prof_reindex $3 $1 $15 $1 $31 $11 $35 \u2261 @Prof_reindex $3 $1 $21 $1 $23 $11 (@comp_fapp0 Cat_cat $1 $15 $21 $29 $35).",
+        "Cannot solve \u22a2 @Prof_reindex $15 $1 $5 $1 $33 $35 $13 \u2261 @Prof_reindex $21 $1 $5 $1 $25 (@comp_fapp0 Cat_cat $1 $15 $21 $29 $35) $13.",
+        "Unable to prove type preservation."
+      ],
+      "failureStage": "subject reduction before new consumers",
+      "unsolvedProfileConstraints": 2
+    },
+    "candidate_counit_generator.lp": {
+      "qualification": "failed subject reduction before new consumers: unmatched tensor input placeholders leave unrelated reindexed profunctors; not a failed generator theorem or successful negative",
+      "receipt": "logs/check-runs/20261013T151817Z-106ddf147b374525a118fc564cfd4895.json",
+      "receiptSha256": "12f5e866c697e1df3edcda68ecc35fd436f217cb49d30f2a459b61ff23f047c7",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "89fdd1ddcae04c3fef8fc0f8fb0abaeb890b9fe8f8a07928580ae71d9cedecab",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_coyoneda/candidate_counit_generator.lp": "89fdd1ddcae04c3fef8fc0f8fb0abaeb890b9fe8f8a07928580ae71d9cedecab"
+      },
+      "inputSnapshot": "93ea56db0099d0744c1a05f24f4745377e8c53f42117ec387b4d94164ec0fe1c",
+      "log": "logs/check-runs/20261013T151817Z-106ddf147b374525a118fc564cfd4895.log",
+      "logSha256": "a89bf8d115436df92c83858318f8fc11dd69ab9094c176e980de14df3b0a1268",
+      "output": "tmp/probes/lift_coyoneda/candidate_counit_generator.out",
+      "outputSha256": "392a414d33775d4ce6a3cecd3bddbcfb909aadceba21937cd8190740f52b7f64",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 4.974527133046649,
+      "childrenMaxRssKiB": 382480,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 853,
+        "replaceablePatternVariables": 127
+      },
+      "failureDiagnostics": [
+        "Cannot solve \u22a2 @Prof_reindex $3 $1 $15 $1 $31 $11 $35 \u2261 @Prof_reindex $3 $1 $21 $1 $23 $11 (@comp_fapp0 Cat_cat $1 $15 $21 $29 $35).",
+        "Cannot solve \u22a2 @Prof_reindex $15 $1 $5 $1 $33 $35 $13 \u2261 @Prof_reindex $21 $1 $5 $1 $25 (@comp_fapp0 Cat_cat $1 $15 $21 $29 $35) $13.",
+        "Unable to prove type preservation."
+      ],
+      "failureStage": "subject reduction before new consumers",
+      "unsolvedProfileConstraints": 2
+    },
+    "guarded_generic.lp": {
+      "qualification": "passed generic raw reindexed-lambda/evaluation generator computation and perturbed-generator negative with explicit profile guards",
+      "receipt": "logs/check-runs/20261013T152231Z-21178a002a9f48d083a2e3b4203d714c.json",
+      "receiptSha256": "3a2ab21e2a917b2cd041d3144ed0e485f553f951026e9dcf96f97326fdc9642e",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "32cfefadf15c2803efd6447553b7d32ccb900a55cabc915971c4c793770a59fe",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_coyoneda/guarded_generic.lp": "32cfefadf15c2803efd6447553b7d32ccb900a55cabc915971c4c793770a59fe"
+      },
+      "inputSnapshot": "05541f5d6a168250c27c9a0ac7e5eff205fb59b928f568cb9ba188036ac3a5a6",
+      "log": "logs/check-runs/20261013T152231Z-21178a002a9f48d083a2e3b4203d714c.log",
+      "logSha256": "0c7253e54112d01a2959a3e55c7aff34b0e71378e4c938e074acf0665dc31b73",
+      "output": "tmp/probes/lift_coyoneda/guarded_generic.out",
+      "outputSha256": "4fea1ef849dd22933998e3c6892003061f39b09bdf10e6bc8da0725a5f419c2d",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 6.9941924680024385,
+      "childrenMaxRssKiB": 384220,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 859,
+        "replaceablePatternVariables": 129
+      }
+    },
+    "guarded_counit_generator.lp": {
+      "qualification": "passed actual canonical raw counit on the represented tensor generator plus perturbed-element negative; no whole triangle or Cartesian admission follows",
+      "receipt": "logs/check-runs/20261013T152238Z-30a8f048128044c1906c0f1ab144e6d2.json",
+      "receiptSha256": "0b31b194f3f6b3b2f67f21cd1b95bf39a9a384a340af2c36de10f4ce175cd485",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "bf2648833c9323e5a1fb32a8a8186d69a1933dd28e3697e56875bf9690d28923",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_coyoneda/guarded_counit_generator.lp": "bf2648833c9323e5a1fb32a8a8186d69a1933dd28e3697e56875bf9690d28923"
+      },
+      "inputSnapshot": "5ae669cb0a61d5dc7fa154ffee02a8f0c69a91f34043cdbe30d9f58e501b1889",
+      "log": "logs/check-runs/20261013T152238Z-30a8f048128044c1906c0f1ab144e6d2.log",
+      "logSha256": "2ca9fcab4c73be7a07c52657212b0aa017a88ef637501f70aaaca799f8deb129",
+      "output": "tmp/probes/lift_coyoneda/guarded_counit_generator.out",
+      "outputSha256": "ff708c8b4abc62d1c4ddda12e6d34be08cbc1563a999ab0c9aeed878eca6c2a6",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 4.6971559160156175,
+      "childrenMaxRssKiB": 384320,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 859,
+        "replaceablePatternVariables": 129
+      }
+    },
+    "counit_boundary.lp": {
+      "qualification": "failed no-cut positive actual raw-counit generator=p obligation; type formation and prior inherited controls complete",
+      "receipt": "logs/check-runs/20261013T152459Z-e2d13933f9df4067982134d3e6be30b0.json",
+      "receiptSha256": "a29c36cd795691d286c211bef1b1f3967b509d9c20776a05070c929b107d4d67",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "c6b20e5e91504c80a0279c7b3ab251d614f3dfd5051e040d1c92ca7a358904e9",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_coyoneda/counit_boundary.lp": "c6b20e5e91504c80a0279c7b3ab251d614f3dfd5051e040d1c92ca7a358904e9"
+      },
+      "inputSnapshot": "27c55c108ef1948b3aa312ffdd5a285c73dbf9a6ee80266c4860c7f61ecfb2a3",
+      "log": "logs/check-runs/20261013T152459Z-e2d13933f9df4067982134d3e6be30b0.log",
+      "logSha256": "9421a869c0927d9d33961c81e61e7ac082a06a6c8020f45373b34c4a4a05c852",
+      "output": "tmp/probes/lift_coyoneda/counit_boundary.out",
+      "outputSha256": "a8db31d72c98822f05a8ef7073fddbef830b28969f5ca76c33d6c097cd58369e",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 14.541186062968336,
+      "childrenMaxRssKiB": 382568,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 853,
+        "replaceablePatternVariables": 129
+      },
+      "failureStage": "actual first raw-counit generator assertion",
+      "failureSourceLines": "16633\u201316645",
+      "failureDiagnostics": [
+        "[tmp/probes/lift_coyoneda/counit_boundary.lp:16633:0-16645:4] Assertion failed."
+      ]
+    },
+    "guarded_no_coyoneda_beta.lp": {
+      "qualification": "failed exact removal of existing co-Yoneda beta at the same actual raw-counit generator=p obligation; not an earlier existing-beta control",
+      "receipt": "logs/check-runs/20261013T152514Z-65e7de4e62de45318d2efa668c056879.json",
+      "receiptSha256": "6de39590a27448af5527c825d16ee107d4150815669f3bfff4e12aa2f07e5c74",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "a3dac4473c065f07790b97b1820c033ebf36e7c05482ca7b990d04cd5029952a",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_coyoneda/guarded_no_coyoneda_beta.lp": "a3dac4473c065f07790b97b1820c033ebf36e7c05482ca7b990d04cd5029952a"
+      },
+      "inputSnapshot": "cbff1860f86cbd66eec21bd967d8a85b262f7aa6c2363faa98478141e019a279",
+      "log": "logs/check-runs/20261013T152514Z-65e7de4e62de45318d2efa668c056879.log",
+      "logSha256": "e57592f28198edf255283b89c872fc2517e895ef422a284a0e54b18bb028ad00",
+      "output": "tmp/probes/lift_coyoneda/guarded_no_coyoneda_beta.out",
+      "outputSha256": "05e68d700564a3be34a7c142310f4ff26f87d81ec23706dc29b262b707d0f71e",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 8.182574494974688,
+      "childrenMaxRssKiB": 384220,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 859,
+        "replaceablePatternVariables": 129
+      },
+      "failureStage": "actual first raw-counit generator assertion",
+      "failureSourceLines": "16645\u201316657",
+      "failureDiagnostics": [
+        "[tmp/probes/lift_coyoneda/guarded_no_coyoneda_beta.lp:16645:0-16657:4] Assertion failed."
+      ]
+    },
+    "guarded_identity_middle.lp": {
+      "qualification": "passed generic identity-middle H=id interaction under the guarded generator cut, with arbitrary k; agrees with neutral reindexing and existing eval(lambda(k)) beta",
+      "receipt": "logs/check-runs/20261013T153007Z-b3ce19f3df774543b408b59c8839d828.json",
+      "receiptSha256": "c70559ee86c0b419689ddb2a3245dcb0fe6429f93349bc271e89c280b524f3a4",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "8435f6361a005d93b93d50a8c313e4f4d60182ef4182d14525f1c9620237e5dd",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_coyoneda/guarded_identity_middle.lp": "8435f6361a005d93b93d50a8c313e4f4d60182ef4182d14525f1c9620237e5dd"
+      },
+      "inputSnapshot": "cfa4b69d092e45b06093e21401655160cb411e1614b20c290a0c8857a9e4c1f0",
+      "log": "logs/check-runs/20261013T153007Z-b3ce19f3df774543b408b59c8839d828.log",
+      "logSha256": "4490d6fc8a5831e1f2ec60584e6ccc1f55eaea9cef3b6207f1e4095a3541b937",
+      "output": "tmp/probes/lift_coyoneda/guarded_identity_middle.out",
+      "outputSha256": "b7d5e0be48320a95f56ace6810e6cf84e1af1ff45d829b103414583b537d2259",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 5.168820198974572,
+      "childrenMaxRssKiB": 384332,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 859,
+        "replaceablePatternVariables": 129
+      }
+    }
+  },
+  "uncheckedTargets": {
+    "owner_prefix.lp": "unchecked positive/removal/control target; root checker owns validation",
+    "general_boundary.lp": "unchecked positive/removal/control target; root checker owns validation",
+    "candidate_owner.lp": "unchecked positive/removal/control target; root checker owns validation",
+    "no_coyoneda_beta.lp": "unchecked positive/removal/control target; root checker owns validation",
+    "guarded_owner.lp": "unchecked separate subject-reduction-guarded candidate; same proposed generator cut, no semantic broadening"
+  },
+  "sourceClosure": "lift_coyoneda_source_closure.md",
+  "guardedCandidate": {
+    "source": "lift_coyoneda_reindexed_eval_guarded.lpfragment",
+    "status": "selected bounded raw generator computation: generic, actual canonical counit generator and identity-middle consumers pass; exact no-cut and co-Yoneda-beta removals fail at the intended actual consumer",
+    "guards": "Actual matching reindexed P and Q are explicit in Prof_cell_apply tensor source, Prof_eval_cov_map input profunctors, and Prof_tensor_hom_hom input profunctors. Actual endpoint categories and H are retained.",
+    "qualification": "This repairs missing matching constraints from the rejected sparse pattern; no subject-reduction bypass or new triangle/companion law. All first-candidate bytes preserved.",
+    "guardNecessityQualification": "Both sparse-pattern checks fail SR with exactly two unmatched reindexed-profile constraints each. This supports preserving the guarded profile relationship, not claiming that each of the three literal profile occurrences is independently minimal."
+  },
+  "warningComparison": {
+    "baseline": "existing_beta.lp",
+    "candidate": "guarded_counit_generator.lp",
+    "normalization": "Strip ANSI and location header; preserve six-line critical-pair blocks and multiset multiplicity; no alpha renaming.",
+    "baselineUnjoinableCriticalPairs": 853,
+    "candidateUnjoinableCriticalPairs": 859,
+    "added": [
+      {
+        "count": 1,
+        "sha256": "ef8aea5f2bd6bc9c9fb19828fdd04e32b7af77a8a18c8cbb2673f1c4c3722c87",
+        "text": "Unjoinable critical pair:\nt \u2254 @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X'))) $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $a' $b' $m' $r' $s')\nt \u21aa[] @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R $Q') $O' (@id_func $A) (@id_func $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A $B $X' $R $Q' $a' $b' (@comp_cat_fapp0 $I' $B $B (id Cat_cat $B) $m') $r' $s') \u21aa* @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R $Q') $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A $B $X' $R $Q' $a' $b' $m' $r' $s')\n  with @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X'))) $O' (id Cat_cat $A') (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $O' (@Prof_reindex_transf $A' $A' $B' $B'' $P' (@Prof_imply_cov $A' $B' $X' $O' $Q') (@Prof_lambda_cov_map $A' $B' $X' $P' $Q' $O' $k') (id Cat_cat $A') $H')) (@Prof_tensor_hom_hom $I' $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $a' $b' $m' $r' $s') \u21aa @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B' $X' $P' $Q') $O' (@id_func $A') (@id_func $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $B' $X' $P' $Q' $a' $b' (@comp_cat_fapp0 $I' $B'' $B' $H' $m') $r' $s')\nt \u21aa[0; 0; 0; 0; 0; 0; 0; 1; 0; 1] @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X'))) $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $a' $b' $m' $r' $s') \u21aa* @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R $Q') $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' $R $Q' $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' $R $Q' $a' $b' $m' $r' $s')\n  with @Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B) \u21aa $R",
+        "participantHeads": [
+          "Prof_cell_apply",
+          "Prof_reindex"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "a22e33416ae9a2e56ee52c08922a3e5c32a495b370c26a3af6a461e637878a58",
+        "text": "Unjoinable critical pair:\nt \u2254 @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X'))) $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $a' $b' $m' $r' $s')\nt \u21aa[] @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R $Q') $O' (@id_func $A) (@id_func $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A $B $X' $R $Q' $a' $b' (@comp_cat_fapp0 $I' $B $B (id Cat_cat $B) $m') $r' $s') \u21aa* @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R $Q') $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A $B $X' $R $Q' $a' $b' $m' $r' $s')\n  with @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X'))) $O' (id Cat_cat $A') (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $O' (@Prof_reindex_transf $A' $A' $B' $B'' $P' (@Prof_imply_cov $A' $B' $X' $O' $Q') (@Prof_lambda_cov_map $A' $B' $X' $P' $Q' $O' $k') (id Cat_cat $A') $H')) (@Prof_tensor_hom_hom $I' $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $a' $b' $m' $r' $s') \u21aa @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B' $X' $P' $Q') $O' (@id_func $A') (@id_func $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $B' $X' $P' $Q' $a' $b' (@comp_cat_fapp0 $I' $B'' $B' $H' $m') $r' $s')\nt \u21aa[0; 1; 0; 0; 0; 1] @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X'))) $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' $R (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $a' $b' $m' $r' $s') \u21aa* @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R $Q') $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' $R $Q' $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' $R $Q' $a' $b' $m' $r' $s')\n  with @Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B) \u21aa $R",
+        "participantHeads": [
+          "Prof_cell_apply",
+          "Prof_reindex"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "360bf0df23070fc41be46be320e222216a568a370c7e851578b309c1b9be251c",
+        "text": "Unjoinable critical pair:\nt \u2254 @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X'))) $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $a' $b' $m' $r' $s')\nt \u21aa[] @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R $Q') $O' (@id_func $A) (@id_func $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A $B $X' $R $Q' $a' $b' (@comp_cat_fapp0 $I' $B $B (id Cat_cat $B) $m') $r' $s') \u21aa* @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R $Q') $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A $B $X' $R $Q' $a' $b' $m' $r' $s')\n  with @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X'))) $O' (id Cat_cat $A') (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $O' (@Prof_reindex_transf $A' $A' $B' $B'' $P' (@Prof_imply_cov $A' $B' $X' $O' $Q') (@Prof_lambda_cov_map $A' $B' $X' $P' $Q' $O' $k') (id Cat_cat $A') $H')) (@Prof_tensor_hom_hom $I' $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $a' $b' $m' $r' $s') \u21aa @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B' $X' $P' $Q') $O' (@id_func $A') (@id_func $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $B' $X' $P' $Q' $a' $b' (@comp_cat_fapp0 $I' $B'' $B' $H' $m') $r' $s')\nt \u21aa[1; 0; 0; 0; 0; 0; 0; 1] @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X'))) $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' $R (@Prof_reindex $B $B $X' $X' $Q' (id Cat_cat $B) (id Cat_cat $X')) $a' $b' $m' $r' $s') \u21aa* @Prof_cell_apply $I' $A $X' $A $X' (@Prof_tensor $A $B $X' $R $Q') $O' (id Cat_cat $A) (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A $B $X' $R $Q' $O' (@Prof_reindex_transf $A $A $B $B $R (@Prof_imply_cov $A $B $X' $O' $Q') (@Prof_lambda_cov_map $A $B $X' $R $Q' $O' $k') (id Cat_cat $A) (id Cat_cat $B))) (@Prof_tensor_hom_hom $I' $A $B $X' $R $Q' $a' $b' $m' $r' $s')\n  with @Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B) \u21aa $R",
+        "participantHeads": [
+          "Prof_cell_apply",
+          "Prof_reindex"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "e67d1caae3cc21b34991ab18dd9b593e2faa74eaa69aaeee1cb543afedbc74ff",
+        "text": "Unjoinable critical pair:\nt \u2254 @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B))) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $a' $b' $m' $r' $s')\nt \u21aa[] @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B $P' $R) $O' (@id_func $A') (@id_func $B) $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $A $B $P' $R $a' $b' (@comp_cat_fapp0 $I' $A $A (id Cat_cat $A) $m') $r' $s') \u21aa* @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B $P' $R) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $A $B $P' $R $a' $b' $m' $r' $s')\n  with @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X'))) $O' (id Cat_cat $A') (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $O' (@Prof_reindex_transf $A' $A' $B' $B'' $P' (@Prof_imply_cov $A' $B' $X' $O' $Q') (@Prof_lambda_cov_map $A' $B' $X' $P' $Q' $O' $k') (id Cat_cat $A') $H')) (@Prof_tensor_hom_hom $I' $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $a' $b' $m' $r' $s') \u21aa @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B' $X' $P' $Q') $O' (@id_func $A') (@id_func $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $B' $X' $P' $Q' $a' $b' (@comp_cat_fapp0 $I' $B'' $B' $H' $m') $r' $s')\nt \u21aa[0; 0; 0; 0; 0; 0; 0; 1; 1] @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) $R) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $a' $b' $m' $r' $s') \u21aa* @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B $P' $R) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B $P' $R $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B $P' $R $a' $b' $m' $r' $s')\n  with @Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B) \u21aa $R",
+        "participantHeads": [
+          "Prof_cell_apply",
+          "Prof_reindex"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "62ffaa60e3f20ac3b765a1744a828cec1884a3c561aad6aed6e7cc24f2931a46",
+        "text": "Unjoinable critical pair:\nt \u2254 @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B))) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $a' $b' $m' $r' $s')\nt \u21aa[] @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B $P' $R) $O' (@id_func $A') (@id_func $B) $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $A $B $P' $R $a' $b' (@comp_cat_fapp0 $I' $A $A (id Cat_cat $A) $m') $r' $s') \u21aa* @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B $P' $R) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $A $B $P' $R $a' $b' $m' $r' $s')\n  with @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X'))) $O' (id Cat_cat $A') (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $O' (@Prof_reindex_transf $A' $A' $B' $B'' $P' (@Prof_imply_cov $A' $B' $X' $O' $Q') (@Prof_lambda_cov_map $A' $B' $X' $P' $Q' $O' $k') (id Cat_cat $A') $H')) (@Prof_tensor_hom_hom $I' $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $a' $b' $m' $r' $s') \u21aa @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B' $X' $P' $Q') $O' (@id_func $A') (@id_func $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $B' $X' $P' $Q' $a' $b' (@comp_cat_fapp0 $I' $B'' $B' $H' $m') $r' $s')\nt \u21aa[0; 1; 0; 0; 1] @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B))) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) $R $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $a' $b' $m' $r' $s') \u21aa* @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B $P' $R) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B $P' $R $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B $P' $R $a' $b' $m' $r' $s')\n  with @Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B) \u21aa $R",
+        "participantHeads": [
+          "Prof_cell_apply",
+          "Prof_reindex"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "e7e15df44dcfda6e40db7acf7dd30865ff161c75c0aa3379fef79b19a3266e21",
+        "text": "Unjoinable critical pair:\nt \u2254 @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B))) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $a' $b' $m' $r' $s')\nt \u21aa[] @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B $P' $R) $O' (@id_func $A') (@id_func $B) $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $A $B $P' $R $a' $b' (@comp_cat_fapp0 $I' $A $A (id Cat_cat $A) $m') $r' $s') \u21aa* @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B $P' $R) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $A $B $P' $R $a' $b' $m' $r' $s')\n  with @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X'))) $O' (id Cat_cat $A') (id Cat_cat $X') $a' $b' (@Prof_eval_cov_map $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $O' (@Prof_reindex_transf $A' $A' $B' $B'' $P' (@Prof_imply_cov $A' $B' $X' $O' $Q') (@Prof_lambda_cov_map $A' $B' $X' $P' $Q' $O' $k') (id Cat_cat $A') $H')) (@Prof_tensor_hom_hom $I' $A' $B'' $X' (@Prof_reindex $A' $A' $B' $B'' $P' (id Cat_cat $A') $H') (@Prof_reindex $B' $B'' $X' $X' $Q' $H' (id Cat_cat $X')) $a' $b' $m' $r' $s') \u21aa @Prof_cell_apply $I' $A' $X' $A' $X' (@Prof_tensor $A' $B' $X' $P' $Q') $O' (@id_func $A') (@id_func $X') $a' $b' $k' (@Prof_tensor_hom_hom $I' $A' $B' $X' $P' $Q' $a' $b' (@comp_cat_fapp0 $I' $B'' $B' $H' $m') $r' $s')\nt \u21aa[1; 0; 0; 0; 0; 0; 1] @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B))) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) (@Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B)) $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B (@Prof_reindex $A' $A' $A $A $P' (id Cat_cat $A') (id Cat_cat $A)) $R $a' $b' $m' $r' $s') \u21aa* @Prof_cell_apply $I' $A' $B $A' $B (@Prof_tensor $A' $A $B $P' $R) $O' (id Cat_cat $A') (id Cat_cat $B) $a' $b' (@Prof_eval_cov_map $A' $A $B $P' $R $O' (@Prof_reindex_transf $A' $A' $A $A $P' (@Prof_imply_cov $A' $A $B $O' $R) (@Prof_lambda_cov_map $A' $A $B $P' $R $O' $k') (id Cat_cat $A') (id Cat_cat $A))) (@Prof_tensor_hom_hom $I' $A' $A $B $P' $R $a' $b' $m' $r' $s')\n  with @Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B) \u21aa $R",
+        "participantHeads": [
+          "Prof_cell_apply",
+          "Prof_reindex"
+        ]
+      }
+    ],
+    "removed": [],
+    "qualification": "Exact diagnostic inventory, not a confluence certificate.",
+    "classification": "All six additions are guarded Prof_cell_apply cut versus neutral Prof_reindex overlaps: each of the two matching pullback inputs occurs in three guarded positions. The generic H=id consumer passes with the new cut present. This is focused interaction qualification, not global confluence.",
+    "interactionControl": "guarded_identity_middle.lp"
+  },
+  "ruleLhsAudit": {
+    "tool": "scripts/audit_rule_lhs.py",
+    "toolSha256": "1ac349accdadfe60de52c48791cda50afcb879301219f98c88cf641951fe88d4",
+    "target": "guarded_generic.lp",
+    "sourceSha256": "32cfefadf15c2803efd6447553b7d32ccb900a55cabc915971c4c793770a59fe",
+    "unreviewedSlots": 0,
+    "unreviewedClauses": 0,
+    "annotatedSlots": 42,
+    "annotatedClauses": 29
+  },
+  "removalEvidence": {
+    "counit_boundary.lp": "logs/check-runs/20261013T152459Z-e2d13933f9df4067982134d3e6be30b0.json",
+    "guarded_no_coyoneda_beta.lp": "logs/check-runs/20261013T152514Z-65e7de4e62de45318d2efa668c056879.json",
+    "qualification": "Both the new guarded cut and existing fixed co-Yoneda beta are required by the actual counit generator consumer. This is not evidence of a whole map triangle or global balancing."
+  },
+  "candidateVariants": {
+    "sparse": {
+      "source": "lift_coyoneda_reindexed_eval.lpfragment",
+      "sha256": "74b499e22c9cc7721e2d20c975183c0ebdd46cc2564ffd5193edbf496e698966",
+      "outcome": "rejected by subject reduction in both candidate_generic and candidate_counit_generator, with two unsolved reindexed-profile constraints in each"
+    },
+    "guarded": {
+      "source": "lift_coyoneda_reindexed_eval_guarded.lpfragment",
+      "sha256": "5853000165ec358441ac080c530666f36c519205200f357ce597c42e33a668a2",
+      "outcome": "generic, actual raw-counit generator, perturbation and identity-middle consumers pass"
+    },
+    "identicalRhsSha256": "cffae2896647e1a9f0e51887d3df829be79bdc358af3a84196c6f915a0948922",
+    "qualification": "Only matching profile guards differ; RHS computation is byte-identical. Necessity of each individual repeated guard occurrence is not established."
+  },
+  "finalBoundary": "The actual raw counit remains eval(reindex(lambda(co-Yoneda),id,F)); no implication=Conjoint shortcut or Cartesian map retyping. Generator beta does not establish whole balancing, a mate triangle, full Q/lift coherence or admission integration."
+}

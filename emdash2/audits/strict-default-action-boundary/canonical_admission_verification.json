@@ -1,0 +1,444 @@
+{
+  "status": "checked implementation of a proposed canonical co-Yoneda(Unit) structural profile and actual consumers; not strictness derived from the old raw theory; lambda/evaluation admission and production integration remain open",
+  "productionRevision": "d3b49f9a6430366eddff5de2585c51be7a680373",
+  "sourceInputs": {
+    "emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "tmp/probes/admission_next/staged_full_bridge.lp": "c1728ded9d6b795a18f02c5b0575ac59aeb62ff8074bb1720300b1a37d074732",
+    "audits/strict-default-action-boundary/admission_next_verification.json": "3c08b7511cf41368d37aba65d973e89293e3154b311e6da096fbb22c80abed25",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "donorReceipt": "20261013T145350Z-47903718adcb4dca8f4357176e1c10ea",
+  "fullSourceContinuation": false,
+  "unchangedProductionBlocks": [
+    {
+      "label": "Prof_cell_apply",
+      "source": "emdash3_2.lp",
+      "startLine": 18836,
+      "endLine": 18850,
+      "sha256": "24c1970245a235c781a663a7a1ce0fb5f397315d93cef9f20744fc2f6fad6fe9"
+    },
+    {
+      "label": "Prof_func_hom",
+      "source": "emdash3_2.lp",
+      "startLine": 19011,
+      "endLine": 19013,
+      "sha256": "30fe93d1e619e9e68dfc67395b2ef0a1b6b3eb080da23febbf477c9ab8419836"
+    },
+    {
+      "label": "Prof_tensor_hom_hom",
+      "source": "emdash3_2.lp",
+      "startLine": 19154,
+      "endLine": 19163,
+      "sha256": "d981e511c6c7c1e34cb5692f2fb1c73d10d2633ab42624abbef3c71c9b31b22f"
+    },
+    {
+      "label": "existing covariant co-Yoneda shaped beta",
+      "source": "emdash3_2.lp",
+      "startLine": 19252,
+      "endLine": 19273,
+      "sha256": "6070e9e0026c1aace9633bcbbf30eb08eead7a50d23ab939404188a2d8bc1d5b"
+    }
+  ],
+  "newProfileContract": "Only co-Yoneda(Unit_B) receives a proposed canonical Cartesian view; no arbitrary raw map or independent evidence argument.",
+  "derivedConsumers": "Actual inclusion, existing raw lambda/reindex/eval chain with proof-time agreement to its original raw body, classified seed reindex, native shaped-generator observation.",
+  "remainingQualification": {
+    "seedMathematics": "The profile is a structural refinement of the named canonical operation, not derived from current opaque tensor/beta declarations.",
+    "lambdaAdmission": "Both whole strictness cells or a justified canonical preservation body for lambda(co-Yoneda(Unit)) remain absent.",
+    "evaluationAdmission": "General F changes the tensor middle to A; composition on generators, A-balancing and both whole exposed-endpoint actions remain required.",
+    "rawProfiles": "Public ProfMap/Prof_hom and all raw constructor signatures remain unchanged.",
+    "noDesiredCounitPostulate": true
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/canonical_admission_migration.py": "104d15e11bc01089984dbcd8a4bc01e61461d65ff938b1b6e12b409928f5df6e",
+    "audits/strict-default-action-boundary/canonical_admission_inputs.json": "75aa89d50947c4bcda0937d8ce5679fd055d693df80bb6347ee61e92cbed4a14",
+    "audits/strict-default-action-boundary/canonical_admission_seed.lpfragment": "a61b4e943ecbd0187682e6879633613b72a2a1d8a27949b92e443933fb1a318d",
+    "audits/strict-default-action-boundary/canonical_admission_operations.lpfragment": "f58fc7ee04a02feab637f62aa572d5f4f80b129f228ce1b26b0fee9fbc512be8",
+    "audits/strict-default-action-boundary/canonical_admission_generator.lpfragment": "df2c2e5299ce96b1283983580405b3f3f4d8cc5224325dd77d4d3a86eb335875",
+    "audits/strict-default-action-boundary/canonical_admission_controls.lpfragment": "295d0b25cd48ab056eb7b79e63a53cd4a4d2aecb407174baf4f42485a31e9bbb",
+    "audits/strict-default-action-boundary/canonical_admission_native_controls.lpfragment": "af324f0309226c9f9323b4494e1bc5ec15ba1cf2f3486aa4b476199d2a3602bb",
+    "audits/strict-default-action-boundary/canonical_admission_source_closure.md": "a540d0435d9f171fa6ac3c63f7c8119714ef9a22daf1ba11508f5cbfed8957f3"
+  },
+  "outputs": {
+    "native_owners.lp": "1b4318867fd8316faee6b083479398cac8301189160294f29001da0595b99642",
+    "native_controls.lp": "5102c70c07db71c1f84ca336065051dc7069de4b6dcd09cd88578c47f77c0e19",
+    "seed_owner.lp": "dbbb6f471caae37e3f78126969e027b9e6f52d046139a3d512d6df5c0c3477cc",
+    "seed_operations.lp": "3c3af8cf43d4f487415b6e61f226ef08c1ac4138d5d10f567229fe826bb396d8",
+    "seed_consumers.lp": "4b72061bc81c7929ce972b2632742a22c67ccaac114e6bc8b21cc72d80bbf174",
+    "without_seed_view.lp": "a9cec4bf9f9ff8ffaad9c77c096309b316e669c9a280596fb45ad99edb8ac03b",
+    "without_native_coyoneda_beta.lp": "6393415a4c9c421914cb5f93743618d93e7040400ea45fa87a77a67ab5c9f4f7",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "newControls": {
+    "canonical_admission_seed.lpfragment": {
+      "positive": 0,
+      "negative": 0
+    },
+    "canonical_admission_operations.lpfragment": {
+      "positive": 0,
+      "negative": 0
+    },
+    "canonical_admission_generator.lpfragment": {
+      "positive": 0,
+      "negative": 0
+    },
+    "canonical_admission_controls.lpfragment": {
+      "positive": 5,
+      "negative": 5
+    },
+    "canonical_admission_native_controls.lpfragment": {
+      "positive": 1,
+      "negative": 0
+    }
+  },
+  "selectedTarget": "seed_consumers.lp",
+  "checks": {
+    "native_controls.lp": {
+      "id": "20261013T152020Z-dbec37147e5e4ab08acb2bf6cb897664",
+      "target": "tmp/probes/canonical_admission/native_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 10.146067525958642,
+      "childrenMaxRssKiB": 415176,
+      "inputSnapshot": "2aef11602b43f651e9ad83511fbd99761c26b52fd4a8ed9b9888544f7f45a5f3",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/canonical_admission/native_controls.lp": "5102c70c07db71c1f84ca336065051dc7069de4b6dcd09cd88578c47f77c0e19"
+      },
+      "log": "logs/check-runs/20261013T152020Z-dbec37147e5e4ab08acb2bf6cb897664.log",
+      "logSha256": "bd2e0afd8fb1b286a75dac6e9c1b8fdaae04fbbced88cd0527a442b5042fc50b",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/canonical_admission/native_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "seed_owner.lp": {
+      "id": "20261013T152031Z-0c8604844ab6406c9d0126e565060a1d",
+      "target": "tmp/probes/canonical_admission/seed_owner.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 10.322247951989993,
+      "childrenMaxRssKiB": 417252,
+      "inputSnapshot": "b52b97d68764ba5b16508b8384f5712de2fd85c0eef8c06b0b16d56063bf6a8a",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/canonical_admission/seed_owner.lp": "dbbb6f471caae37e3f78126969e027b9e6f52d046139a3d512d6df5c0c3477cc"
+      },
+      "log": "logs/check-runs/20261013T152031Z-0c8604844ab6406c9d0126e565060a1d.log",
+      "logSha256": "42632b3839fd1685309a5ed1a948d2ed5cb776200138fd1eb22657c90aec58a0",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/canonical_admission/seed_owner.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "seed_consumers.lp": {
+      "id": "20261013T152042Z-5d0c87ebcad44a82a4c38355258e9d9c",
+      "target": "tmp/probes/canonical_admission/seed_consumers.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 9.722230738028884,
+      "childrenMaxRssKiB": 417896,
+      "inputSnapshot": "8bc412d72c881437272693fb75ac9ba2bbf731114c77523889c3b2fe684da3d6",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/canonical_admission/seed_consumers.lp": "4b72061bc81c7929ce972b2632742a22c67ccaac114e6bc8b21cc72d80bbf174"
+      },
+      "log": "logs/check-runs/20261013T152042Z-5d0c87ebcad44a82a4c38355258e9d9c.log",
+      "logSha256": "2a58c5ff7c22069d23b9959ebcfa5998ef8765d58367339aa00cdb9ac7f4fbcd",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/canonical_admission/seed_consumers.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "without_seed_view.lp": {
+      "id": "20261013T152219Z-344df68bfaaa4ab39b9a68a4e7640897",
+      "target": "tmp/probes/canonical_admission/without_seed_view.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.572126285987906,
+      "childrenMaxRssKiB": 415852,
+      "inputSnapshot": "030b9f61fb0c8e8c1db3c711bd4ef2d555e6e78dde2e023d7bff63f586df9146",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/canonical_admission/without_seed_view.lp": "a9cec4bf9f9ff8ffaad9c77c096309b316e669c9a280596fb45ad99edb8ac03b"
+      },
+      "log": "logs/check-runs/20261013T152219Z-344df68bfaaa4ab39b9a68a4e7640897.log",
+      "logSha256": "f2ef49596d686d09e697d442fc0b5a424c41c3a0c572d7715842c0311593d266",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/canonical_admission/without_seed_view.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "without_native_coyoneda_beta.lp": {
+      "id": "20261013T152225Z-3f2a4c239ae04c5f9468c13d1d2b011a",
+      "target": "tmp/probes/canonical_admission/without_native_coyoneda_beta.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.616204804973677,
+      "childrenMaxRssKiB": 416676,
+      "inputSnapshot": "9e831f36ae0f75a970db0110929da5c56c7d9adb82d2c52fb70e51c4bbd4d419",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/canonical_admission/without_native_coyoneda_beta.lp": "6393415a4c9c421914cb5f93743618d93e7040400ea45fa87a77a67ab5c9f4f7"
+      },
+      "log": "logs/check-runs/20261013T152225Z-3f2a4c239ae04c5f9468c13d1d2b011a.log",
+      "logSha256": "6000c4806b287857f60c4e19711bc2ec359e43773c4bb50b8130516cfa74b9d4",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/canonical_admission/without_native_coyoneda_beta.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    }
+  },
+  "baselineCheck": {
+    "id": "20261013T145350Z-47903718adcb4dca8f4357176e1c10ea",
+    "target": "tmp/probes/admission_next/staged_full_bridge.lp",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "wallSeconds": 5.403655775939114,
+    "childrenMaxRssKiB": 414740,
+    "inputSnapshot": "9545a2a06c4c4c473c39c2426feff46d8938b456723fecc0da7e54933b3f1869",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "tmp/probes/admission_next/staged_full_bridge.lp": "c1728ded9d6b795a18f02c5b0575ac59aeb62ff8074bb1720300b1a37d074732"
+    },
+    "log": "logs/check-runs/20261013T145350Z-47903718adcb4dca8f4357176e1c10ea.log",
+    "logSha256": "ab5eb1aa6da2dde1e6016e6d64d81a6c21206b7f8f032e935b947462582c908f",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "command": [
+      "bash",
+      "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+      "/home/user1/.opam/default/bin/lambdapi",
+      "check",
+      "tmp/probes/admission_next/staged_full_bridge.lp"
+    ],
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    }
+  },
+  "controlCounts": {
+    "native_controls.lp": {
+      "positiveIncludingInherited": 222,
+      "negativeIncludingInherited": 55,
+      "qualification": "Source-obligation counts; a failed target may stop before later assertions."
+    },
+    "seed_owner.lp": {
+      "positiveIncludingInherited": 222,
+      "negativeIncludingInherited": 55,
+      "qualification": "Source-obligation counts; a failed target may stop before later assertions."
+    },
+    "seed_consumers.lp": {
+      "positiveIncludingInherited": 227,
+      "negativeIncludingInherited": 60,
+      "qualification": "Source-obligation counts; a failed target may stop before later assertions."
+    },
+    "without_seed_view.lp": {
+      "positiveIncludingInherited": 227,
+      "negativeIncludingInherited": 60,
+      "qualification": "Source-obligation counts; a failed target may stop before later assertions."
+    },
+    "without_native_coyoneda_beta.lp": {
+      "positiveIncludingInherited": 227,
+      "negativeIncludingInherited": 60,
+      "qualification": "Source-obligation counts; a failed target may stop before later assertions."
+    }
+  },
+  "warningComparison": {
+    "baselineTarget": "tmp/probes/admission_next/staged_full_bridge.lp",
+    "selectedTarget": "seed_consumers.lp",
+    "before": 879,
+    "after": 879,
+    "normalization": "Strip ANSI colors and locations; retain exact five term/reduct/participant lines per Unjoinable critical pair.",
+    "added": [],
+    "removed": [],
+    "qualification": "No changed normalized critical-pair blocks; existing overlap qualifications remain; not a confluence certificate."
+  },
+  "removalControls": {
+    "without_seed_view.lp": {
+      "status": "failed at intended semantic dependency",
+      "receiptId": "20261013T152219Z-344df68bfaaa4ab39b9a68a4e7640897",
+      "sourceSha256": "a9cec4bf9f9ff8ffaad9c77c096309b316e669c9a280596fb45ad99edb8ac03b",
+      "selectedSource": "seed_consumers.lp",
+      "removedFragmentSha256": "e5490e5f37f50969666aefa60782b9ed9605615f9668b4d30cfb3d16d276afd8",
+      "reachedBoundary": "The declared classified seed cannot be identified with the actual raw canonical map in the inclusion-agreement theorem.",
+      "failureLocation": "17730:0-17736:35",
+      "syntaxFailure": false
+    },
+    "without_native_coyoneda_beta.lp": {
+      "status": "failed at intended semantic dependency",
+      "receiptId": "20261013T152225Z-3f2a4c239ae04c5f9468c13d1d2b011a",
+      "sourceSha256": "6393415a4c9c421914cb5f93743618d93e7040400ea45fa87a77a67ab5c9f4f7",
+      "selectedSource": "seed_consumers.lp",
+      "removedFragmentSha256": "6070e9e0026c1aace9633bcbbf30eb08eead7a50d23ab939404188a2d8bc1d5b",
+      "reachedBoundary": "The unchanged native shaped-generator assertion fails before the seed-dependent consumers; no new computation was substituted for it.",
+      "failureLocation": "17696:0-17702:4",
+      "syntaxFailure": false
+    }
+  },
+  "ruleLhsAudit": {
+    "command": "python3 scripts/audit_rule_lhs.py --strict tmp/probes/canonical_admission/seed_consumers.lp",
+    "targetSha256": "4b72061bc81c7929ce972b2632742a22c67ccaac114e6bc8b21cc72d80bbf174",
+    "scriptSha256": "1ac349accdadfe60de52c48791cda50afcb879301219f98c88cf641951fe88d4",
+    "exitCode": 0,
+    "output": "tmp/probes/canonical_admission/seed_lhs_audit.out",
+    "outputSha256": "027fc41e3e189bd26652a84c16fb6da44fd17fe8a8e0a7402d52026a23e46902",
+    "unreviewedClauses": 0,
+    "unreviewedSlots": 0,
+    "annotatedClauses": 29,
+    "annotatedSlots": 42,
+    "qualification": "Static advisory audit; no confluence or independently derived strictness claim."
+  },
+  "qualificationBoundary": {
+    "structuralNotDerived": "canonical_admission_coyoneda_unit and its inclusion agreement refine the named primitive at Unit_B. Passing checks validate the implementation of this proposal, not derivation of strictness from old raw beta.",
+    "actualDerivedWork": "Seed reindexing, raw lambda/reindex/eval construction, agreement with original raw counit, identity beta and native shaped-generator observation have definition/proof bodies.",
+    "rawPublicProfile": "ProfMap/Prof_hom remain raw; no arbitrary-map strictifier or operational equality/evidence parameter.",
+    "lambdaReview": "No native full-action lambda owner exists. Implication functors vary O/Q on raw categories; their strict-functor profile is not StrictTransfor membership of j_B.",
+    "nextContractInventory": "Investigate only the existing lambda owner at the exact Unit/Unit/Unit instance with classified seed input and retained raw forgetting/higher action; no additional declarations were added.",
+    "remaining": "Specific lambda/evaluation Cartesian profile; general evaluation balancing/whole action; earlier inverse/triangle and production gates."
+  },
+  "unrunTargets": [
+    "native_owners.lp",
+    "seed_operations.lp"
+  ]
+}

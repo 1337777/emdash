@@ -1,0 +1,99 @@
+// The actual existing inclusion forgets the proposed classified seed.
+symbol canonical_admission_seed_raw (B : Cat)
+  : τ (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+≔ @fapp1_fapp0 _ _ (local_cart_prof_include B B)
+    (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B)
+    (canonical_admission_coyoneda_unit B);
+
+// Reviewer evidence is an output, never an operational input.
+symbol canonical_admission_seed_agreement (B : Cat)
+  : τ (@= (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+      (canonical_admission_seed_raw B)
+      (@Prof_coyoneda_cov_map B B (@Unit_prof B)))
+≔ @eq_refl
+    (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+    (canonical_admission_seed_raw B);
+
+// The actual lambda/reindex/eval chain still has its original RAW profile.
+// No Cartesian preservation of lambda or evaluation is assumed here.
+symbol canonical_admission_lambda_raw (B : Cat)
+  : τ (ProfMap (@Unit_prof B)
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+≔ @Prof_lambda_cov_map B B B (@Unit_prof B) (@Unit_prof B) (@Unit_prof B)
+    (canonical_admission_seed_raw B);
+
+symbol canonical_admission_reindexed_lambda_raw [A B : Cat]
+  (F : τ (Functor A B))
+  : τ (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+≔ @Prof_reindex_transf B B B A (@Unit_prof B)
+    (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))
+    (canonical_admission_lambda_raw B) (@id_func B) F;
+
+symbol canonical_admission_eval_raw [A B : Cat] (F : τ (Functor A B))
+  : τ (ProfMap
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+      (@Unit_prof B))
+≔ @Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+    (@Unit_prof B) (@canonical_admission_reindexed_lambda_raw A B F);
+
+// A genuinely derived classified consumer: reindex the admitted e_B itself.
+// Its tensor middle remains B. This is not the general counit over A.
+symbol canonical_admission_seed_reindex [A B : Cat] (F : τ (Functor A B))
+  : τ (Hom (local_cart_prof_cat B A)
+      (@Prof_reindex B B B A
+        (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F)
+      (@Conjoint_prof A B F))
+≔ @fapp1_fapp0 _ _ (@local_cart_prof_reindex_func B B B A (@id_func B) F)
+    (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B)
+    (canonical_admission_coyoneda_unit B);
+
+// Lambda's raw output agrees with the original j_B by ordinary congruence.
+symbol canonical_admission_lambda_agreement (B : Cat)
+  : τ (@=
+      (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+      (canonical_admission_lambda_raw B) (raw_represented_counit_unit_transpose B))
+≔ @eq_ap
+    (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+    (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+    (λ r : τ (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B)),
+      @Prof_lambda_cov_map B B B (@Unit_prof B) (@Unit_prof B) (@Unit_prof B) r)
+    (canonical_admission_seed_raw B) (@Prof_coyoneda_cov_map B B (@Unit_prof B))
+    (canonical_admission_seed_agreement B);
+
+symbol canonical_admission_reindexed_lambda_agreement [A B : Cat]
+  (F : τ (Functor A B))
+  : τ (@=
+      (ProfMap (@Conjoint_prof A B F)
+        (@Prof_reindex B B B A
+          (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+      (@canonical_admission_reindexed_lambda_raw A B F)
+      (@raw_represented_counit_closed_map A B F))
+≔ @eq_ap
+    (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+    (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+    (λ t : τ (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))),
+      @Prof_reindex_transf B B B A (@Unit_prof B)
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) t (@id_func B) F)
+    (canonical_admission_lambda_raw B) (raw_represented_counit_unit_transpose B)
+    (canonical_admission_lambda_agreement B);
+
+// This theorem preserves the existing raw counit body; it is not admission.
+symbol canonical_admission_eval_agreement [A B : Cat] (F : τ (Functor A B))
+  : τ (@=
+      (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+      (@canonical_admission_eval_raw A B F) (@raw_represented_counit A B F))
+≔ @eq_ap
+    (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+    (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (λ t : τ (ProfMap (@Conjoint_prof A B F)
+        (@Prof_reindex B B B A
+          (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F)),
+      @Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F) (@Unit_prof B) t)
+    (@canonical_admission_reindexed_lambda_raw A B F) (@raw_represented_counit_closed_map A B F)
+    (@canonical_admission_reindexed_lambda_agreement A B F);

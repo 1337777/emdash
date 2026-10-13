@@ -1,0 +1,1855 @@
+{
+  "status": "non-library bounded local Cartesian inverse corpus passes; nested stable-precomposition identity and typed comparison remain failed positive obligations; no complete inverse/confluence qualification",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/local_inverse_migration.py": "78af8ae46b627d06fe4b47da5b438786e329b3b86ffd7ea5195e67d31044e1d8",
+    "audits/strict-default-action-boundary/admission_next_verification.json": "3c08b7511cf41368d37aba65d973e89293e3154b311e6da096fbb22c80abed25",
+    "tmp/probes/admission_next/staged_full_bridge.lp": "c1728ded9d6b795a18f02c5b0575ac59aeb62ff8074bb1720300b1a37d074732",
+    "audits/strict-default-action-boundary/local_inverse_swap_controls.lpfragment": "28442aab7e0de58f20f0be418201f405da003c63c5f48bf9715b30258654dc46",
+    "audits/strict-default-action-boundary/local_cart_prof_inverse_boundary.lpfragment": "3d8ff273752ad07df5ad84d14af7cdd1055f5b53ac87befa6a15f2db32bcf98b",
+    "audits/strict-default-action-boundary/local_inverse_swap_join.lpfragment": "e1dba2fe14542490068dd5bf2c7d314b94ab87e101c0761b7a5642bb53495ed1",
+    "audits/strict-default-action-boundary/local_inverse_swap_guarded.lpfragment": "2c711cd73bdc5d60c6a54f6cf1010182f10f8cee765694103652432779d2667f",
+    "audits/strict-default-action-boundary/local_inverse_controls.lpfragment": "41e3efd7381aeb75e6040e2aeb54161e65cca10b280780aad0d8741df7b9f28a",
+    "audits/strict-default-action-boundary/local_inverse_swap_identity.lpfragment": "c11e08ba68ffafc7809e60b4662617b767222b44bd19458e97f001b72b38a27c",
+    "audits/strict-default-action-boundary/local_inverse_swap_identity_guarded.lpfragment": "878a019347756c2920135c65fc039c9cb910a593ce180d8f826e819c6a3878d6",
+    "audits/strict-default-action-boundary/local_inverse_perturbed_controls.lpfragment": "804227f737cb4c5cd5dcab2de0a52bd94711bd9c5b2269eb335d4601aba07ead",
+    "audits/strict-default-action-boundary/local_inverse_swap_object.lpfragment": "8fafefc0964055b2132f477e234703755a033201462181e724b0bae96ea8c021",
+    "audits/strict-default-action-boundary/local_inverse_horizontal_identity.lpfragment": "bdcdfb37a94628a5f18ecdc5cfe4d4f244cf7ca65e5674d1c9d65e447d691ef2",
+    "audits/strict-default-action-boundary/local_inverse_horizontal_identity_pairs.lpfragment": "9ca28da6f783f15a85aa982113495db281def0a0b8951057e0d1de5c57b9eae5",
+    "audits/strict-default-action-boundary/local_inverse_interaction_controls.lpfragment": "80192e53b9201a83d84ab2be254452d7a3d88dbf642fc4257f524c1a676e1476",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "outputs": {
+    "baseline.lp": "fa0791a9b282fceb8df85e75c98f04df96549297ee896051c3db973599f238d7",
+    "swap_boundary.lp": "4ccf4b214fa1effc4d524e25af97f1cb4dbfacfda71169742fa570bb18302fbe",
+    "swap_normal_form.lp": "b78efd01191958c1945ba6722e4d2e0287640365c59bde2bcaa154a4c7e49156",
+    "joined_swap.lp": "c63b2bb64fb2d39fb9d97531d0214d987a1071be02946293932747f71bcaf323",
+    "joined_inverse.lp": "0851589a2651825ec7ab253a1d559ad602071ebe4a47c68624e24abac7db1237",
+    "guarded_swap.lp": "8cd6222458e29997be07e874d41a14165bdb1b35271d0ef843c47be4c0528dc7",
+    "guarded_inverse.lp": "ab7fc12f397fe5dfb6e45920fd12b21e450edfd5e26986a1a72e571e16f07317",
+    "selected_controls.lp": "a1d3a921bff8f93d1637fb6d1843d4dae1d8b445ff87ac3fc649de7c500d2204",
+    "without_swap_join.lp": "22cf162035717a5224ff7d87b31b738373aa0304c19aee6666b0b7d1a56fc5bd",
+    "identity_normal_form.lp": "03678c9a03dbb0bb437bba66778fc4a680464243c4c4b3f69e97e25da200cd4c",
+    "identity_join_controls.lp": "7919189abbeeb1548c359dd0dac8fa5575372841d02d45b08283c0f44ab4d56e",
+    "final_controls.lp": "1419812e4cdf83fecc8a8d39fefb988f536cc5c9e1831e4d971a6371fedd4596",
+    "final_without_swap.lp": "199b293c268085b2900f44399c576d96649e4567eae09d1415d7a3bbb8b8929e",
+    "final_without_identity.lp": "ad33877f8848940a6fe7c28f74356c857163aed568bd1bb6870cebeae97d5c09",
+    "object_join_controls.lp": "30e59834f14d74dd3dbef33fce37dd3bb65c17a441d0ba2e200354fcc00591b1",
+    "qualified_controls.lp": "87eb53754946797a3c693f869d669057984ec8b6e47b65d20b24744e5061c34b",
+    "qualified_without_swap.lp": "27bf4659bb69bcf2e3b2f74b3c56aafff8e0c9b09f26b7839acd9e458dd47cde",
+    "qualified_without_identity.lp": "285a21091e0a01bd6c232d61e38faee4bee415e90b94bed666fb972bd5abd55f",
+    "qualified_without_object.lp": "f1403b382cf4fa3492527db6d6f9fc269b3a247eddb39c28731a355102b90b02",
+    "minimal_controls.lp": "77154311da6a9c5458fd6ee494d0d4f4eb3f36d655212fa40e706af885b8a133",
+    "minimal_without_identity_change.lp": "0bacf571d5604388045ccaf783de266dbefd18f6b1f81149c31e9619ea8a19bc",
+    "minimal_without_swap.lp": "645cc4bfeb371f13bac92ea74d607f9b0bafe5cbf45c8d1e557c70c690329a30",
+    "pair_identity_controls.lp": "52e4186f18a8c59f6f1d7ff93b7d41a2bae1182497a9220106023a8c6a3a8312",
+    "interaction_controls.lp": "a634c7620eed99b0e3fe413f1c13a82653ae0a407771ffe917542bbb15530df1",
+    "interaction_prefix.lp": "b4176cf8e8172bbef35dfe597e1ec118fb43a2da6c3a22de492df8d925cee9b5",
+    "interaction_comparison.lp": "fc2d1d43e019d969bca8fec94bbdfd7e77ca581fdca83f3cc037fa6c1e334eec",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "authoringManifest": {
+    "path": "tmp/probes/local_inverse/manifest.json",
+    "sha256": "06133b9ab9de3b7dd740c86df4ee53f34f6b501e60d98b3dc0eb226608d2fae1"
+  },
+  "selectedTarget": "interaction_prefix.lp",
+  "qualifiedBaseTarget": "qualified_controls.lp",
+  "checks": {
+    "baseline.lp": {
+      "id": "20261013T150602Z-67b21228275c46d7bbda3dd572ae7a96",
+      "target": "tmp/probes/local_inverse/baseline.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.261056178947911,
+      "childrenMaxRssKiB": 415284,
+      "inputSnapshot": "4f28b5249668fcc735365a45017e5f6583e6c54a51859e117c6553d973758d70",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/baseline.lp": "fa0791a9b282fceb8df85e75c98f04df96549297ee896051c3db973599f238d7"
+      },
+      "log": "logs/check-runs/20261013T150602Z-67b21228275c46d7bbda3dd572ae7a96.log",
+      "logSha256": "0f54b3c2407ad57e5ec5ea65323107a2e492f7070ad3f273eb40043e4b195bec",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/baseline.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "swap_boundary.lp": {
+      "id": "20261013T150608Z-5f998b687d3f43c2a5d2f4acfc48f091",
+      "target": "tmp/probes/local_inverse/swap_boundary.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.239941348088905,
+      "childrenMaxRssKiB": 415392,
+      "inputSnapshot": "eae03023cf1c90174123cf9347037cdc0c022f6f742fb8e80bc58c3097845b62",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/swap_boundary.lp": "4ccf4b214fa1effc4d524e25af97f1cb4dbfacfda71169742fa570bb18302fbe"
+      },
+      "log": "logs/check-runs/20261013T150608Z-5f998b687d3f43c2a5d2f4acfc48f091.log",
+      "logSha256": "ce36e10cc7521210ee11b2200a85f87a5ed796def61e8882aade0767fadb43a4",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/swap_boundary.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "swap_normal_form.lp": {
+      "id": "20261013T150614Z-a6209b3cf33240d388eb48749b9727e2",
+      "target": "tmp/probes/local_inverse/swap_normal_form.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.509889693930745,
+      "childrenMaxRssKiB": 415312,
+      "inputSnapshot": "dfe1d5832483ca04d84001542b499afc2c500783734f069700cdd25ed1ef6358",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/swap_normal_form.lp": "b78efd01191958c1945ba6722e4d2e0287640365c59bde2bcaa154a4c7e49156"
+      },
+      "log": "logs/check-runs/20261013T150614Z-a6209b3cf33240d388eb48749b9727e2.log",
+      "logSha256": "e85e192e5576406e56e877eaac5896e8babce16c11a6ae40eb5d474a7e2e4187",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/swap_normal_form.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "joined_swap.lp": {
+      "id": "20261013T150752Z-b86d2bedd15a49fa91db5640d77af928",
+      "target": "tmp/probes/local_inverse/joined_swap.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 3.9829067490063608,
+      "childrenMaxRssKiB": 211200,
+      "inputSnapshot": "d2eb6660b2e2eac5f78fc17c30a162785df324fa535817fc6db9ad187cb4c8a6",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/joined_swap.lp": "c63b2bb64fb2d39fb9d97531d0214d987a1071be02946293932747f71bcaf323"
+      },
+      "log": "logs/check-runs/20261013T150752Z-b86d2bedd15a49fa91db5640d77af928.log",
+      "logSha256": "9a47391d03ba85e8a8db89e7780fd5c4612659f51456e8ec8f0545e0aa60dd7a",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/joined_swap.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "joined_inverse.lp": {
+      "id": "20261013T150756Z-6b91832f25d241b2b75580c9a00d06ee",
+      "target": "tmp/probes/local_inverse/joined_inverse.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 4.781905070063658,
+      "childrenMaxRssKiB": 211316,
+      "inputSnapshot": "146f0a261d8b432482948a4d8b3afa40dd459baa1e90ff4722c3a364da9d9a48",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/joined_inverse.lp": "0851589a2651825ec7ab253a1d559ad602071ebe4a47c68624e24abac7db1237"
+      },
+      "log": "logs/check-runs/20261013T150756Z-6b91832f25d241b2b75580c9a00d06ee.log",
+      "logSha256": "cb3fbf773ff5afe0705b99e14be394117a4439e7d997c95ddd236c204202c6f9",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/joined_inverse.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "guarded_swap.lp": {
+      "id": "20261013T151024Z-9d8781bca7bb4107938881ea5ec79cd4",
+      "target": "tmp/probes/local_inverse/guarded_swap.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.4274312449852005,
+      "childrenMaxRssKiB": 416332,
+      "inputSnapshot": "48a3cc42915edf83bab2d9eda41496fc0756dec14e9d6541c1e1722ef73ad9c6",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/guarded_swap.lp": "8cd6222458e29997be07e874d41a14165bdb1b35271d0ef843c47be4c0528dc7"
+      },
+      "log": "logs/check-runs/20261013T151024Z-9d8781bca7bb4107938881ea5ec79cd4.log",
+      "logSha256": "2041681ba7a75d54e83414df6351fd46132640e3c0e64e952a63d790e123acdf",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/guarded_swap.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "guarded_inverse.lp": {
+      "id": "20261013T151030Z-d50fa90268e74cfa84b1f6cd0be995a3",
+      "target": "tmp/probes/local_inverse/guarded_inverse.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.509242037893273,
+      "childrenMaxRssKiB": 417084,
+      "inputSnapshot": "25c695f5226bd23f42557699ec0508a50d0b27c169d429fe1cca9b1d32850c71",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/guarded_inverse.lp": "ab7fc12f397fe5dfb6e45920fd12b21e450edfd5e26986a1a72e571e16f07317"
+      },
+      "log": "logs/check-runs/20261013T151030Z-d50fa90268e74cfa84b1f6cd0be995a3.log",
+      "logSha256": "db523f01a4f1904e77855d43abd4191745d75255ab41675be63b2c1109f78492",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/guarded_inverse.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "selected_controls.lp": {
+      "id": "20261013T151157Z-78ab369d18a94920abb8a7b42c1bc460",
+      "target": "tmp/probes/local_inverse/selected_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.789016162976623,
+      "childrenMaxRssKiB": 416684,
+      "inputSnapshot": "082c9bbc23df6c3190d4994e751ff07420afaa6792452beccc1ff31cbecb7286",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/selected_controls.lp": "a1d3a921bff8f93d1637fb6d1843d4dae1d8b445ff87ac3fc649de7c500d2204"
+      },
+      "log": "logs/check-runs/20261013T151157Z-78ab369d18a94920abb8a7b42c1bc460.log",
+      "logSha256": "2529e164e4179e2d6106723caca93dafb9d145cf58856b0127ecafa259ceb2cb",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/selected_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "without_swap_join.lp": {
+      "id": "20261013T151203Z-bf85cceec0eb4203a4869d7dcfdf9d6c",
+      "target": "tmp/probes/local_inverse/without_swap_join.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.638265148038045,
+      "childrenMaxRssKiB": 415564,
+      "inputSnapshot": "ba7bff01315517a31ec9031bb29a4e01b165d223af7822a4f2f812d08a89f870",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/without_swap_join.lp": "22cf162035717a5224ff7d87b31b738373aa0304c19aee6666b0b7d1a56fc5bd"
+      },
+      "log": "logs/check-runs/20261013T151203Z-bf85cceec0eb4203a4869d7dcfdf9d6c.log",
+      "logSha256": "35ada9a98f61f2bf2e7dbe4ea7c36688386021d1d69409d9dd742a45723f25a0",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/without_swap_join.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "identity_normal_form.lp": {
+      "id": "20261013T151313Z-5343309e3ef54499b08e5a43425729a3",
+      "target": "tmp/probes/local_inverse/identity_normal_form.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.334880618960597,
+      "childrenMaxRssKiB": 416636,
+      "inputSnapshot": "11636ea63a0810b9401a485824155ce4fa99d871c7be95ebf19d613f43f9f508",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/identity_normal_form.lp": "03678c9a03dbb0bb437bba66778fc4a680464243c4c4b3f69e97e25da200cd4c"
+      },
+      "log": "logs/check-runs/20261013T151313Z-5343309e3ef54499b08e5a43425729a3.log",
+      "logSha256": "5387c71c5583a2abc7415cf9d6acf3357161b0b939dd60cdba114d200d4a6596",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/identity_normal_form.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "identity_join_controls.lp": {
+      "id": "20261013T151438Z-1f73d0eb3f184ba7820e9875c6adbe9a",
+      "target": "tmp/probes/local_inverse/identity_join_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 2.44917723396793,
+      "childrenMaxRssKiB": 212180,
+      "inputSnapshot": "1d9875a0599da2dfac90091a503e5f11435ef81cdae2fef57e22a5eb49ed9d15",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/identity_join_controls.lp": "7919189abbeeb1548c359dd0dac8fa5575372841d02d45b08283c0f44ab4d56e"
+      },
+      "log": "logs/check-runs/20261013T151438Z-1f73d0eb3f184ba7820e9875c6adbe9a.log",
+      "logSha256": "8bb92ddf51901e545d72602c1dd2a66766dbec9cc61ed92ee04cb456f803db77",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/identity_join_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "final_controls.lp": {
+      "id": "20261013T151620Z-0461b849495a4824a2d3f1e3068a44d2",
+      "target": "tmp/probes/local_inverse/final_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 17.445518936030567,
+      "childrenMaxRssKiB": 211980,
+      "inputSnapshot": "4f96cc3bed0fb878e474e06fc99355b09174b400b8221443687b64d28d316e21",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/final_controls.lp": "1419812e4cdf83fecc8a8d39fefb988f536cc5c9e1831e4d971a6371fedd4596"
+      },
+      "log": "logs/check-runs/20261013T151620Z-0461b849495a4824a2d3f1e3068a44d2.log",
+      "logSha256": "3dc32a4f090d232e23d34c0a5e1d057bdfdde32403dc0070590eb0d1069029cd",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/final_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "object_join_controls.lp": {
+      "id": "20261013T151801Z-37b95bcc8a144d7ab48979497222cc70",
+      "target": "tmp/probes/local_inverse/object_join_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.456105794990435,
+      "childrenMaxRssKiB": 421948,
+      "inputSnapshot": "c5cab9b141420ae5766bd07974194af2115d1e358906f37c441851f039cad486",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/object_join_controls.lp": "30e59834f14d74dd3dbef33fce37dd3bb65c17a441d0ba2e200354fcc00591b1"
+      },
+      "log": "logs/check-runs/20261013T151801Z-37b95bcc8a144d7ab48979497222cc70.log",
+      "logSha256": "779de9e01944f6365b7742e280c9c0f42b7231a4309b4ed611a44edef01d72c4",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/object_join_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "qualified_controls.lp": {
+      "id": "20261013T152000Z-cf15fb12cae9496e8eeaffaeca5fae71",
+      "target": "tmp/probes/local_inverse/qualified_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 19.651424484909512,
+      "childrenMaxRssKiB": 423076,
+      "inputSnapshot": "ae59cf2ba4e9ba1958acd80b39a4e17e847fedb602715f6b7b78aa2ddfd2cc72",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/qualified_controls.lp": "87eb53754946797a3c693f869d669057984ec8b6e47b65d20b24744e5061c34b"
+      },
+      "log": "logs/check-runs/20261013T152000Z-cf15fb12cae9496e8eeaffaeca5fae71.log",
+      "logSha256": "eeeef020d9c0c01f4fce0a8d8ad4493028982cd5be31ea955381366e92ea5b46",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/qualified_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "qualified_without_swap.lp": {
+      "id": "20261013T152204Z-5c95a41308444112b6dd67c8017f1ab7",
+      "target": "tmp/probes/local_inverse/qualified_without_swap.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.5690948269329965,
+      "childrenMaxRssKiB": 422196,
+      "inputSnapshot": "095980c9eec18ea30e1618a068db0be0b5f58e8497e1370d5d23f2ac250e5c7f",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/qualified_without_swap.lp": "27bf4659bb69bcf2e3b2f74b3c56aafff8e0c9b09f26b7839acd9e458dd47cde"
+      },
+      "log": "logs/check-runs/20261013T152204Z-5c95a41308444112b6dd67c8017f1ab7.log",
+      "logSha256": "3771a7bdaebee6087e7fa42cf1addecf1953e1be3a0280f1130ee38dd91ed44e",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/qualified_without_swap.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "qualified_without_identity.lp": {
+      "id": "20261013T152210Z-65774526b719478a9212faaa29319dc7",
+      "target": "tmp/probes/local_inverse/qualified_without_identity.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.5131870759651065,
+      "childrenMaxRssKiB": 421740,
+      "inputSnapshot": "e98142e8370b39d1d119cb70fe39a755ee4a75cde9a23870ccd832139a85f425",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/qualified_without_identity.lp": "285a21091e0a01bd6c232d61e38faee4bee415e90b94bed666fb972bd5abd55f"
+      },
+      "log": "logs/check-runs/20261013T152210Z-65774526b719478a9212faaa29319dc7.log",
+      "logSha256": "2e7cf73e2f44c18d0bad1b59850df2df3cea5c114d60233523186249875b29eb",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/qualified_without_identity.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "qualified_without_object.lp": {
+      "id": "20261013T152216Z-11bb7aed0a274ad383344ef4542475eb",
+      "target": "tmp/probes/local_inverse/qualified_without_object.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 2.5521346780005842,
+      "childrenMaxRssKiB": 212868,
+      "inputSnapshot": "ddbc688605f3bad79cb3075c1ee96909016017c98bd32a4813cec05b77d2862e",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/qualified_without_object.lp": "f1403b382cf4fa3492527db6d6f9fc269b3a247eddb39c28731a355102b90b02"
+      },
+      "log": "logs/check-runs/20261013T152216Z-11bb7aed0a274ad383344ef4542475eb.log",
+      "logSha256": "a85f51b0a3767db14eff7a06b3c69e73c65f9bfa09ffbc39b01c9a13db972137",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/qualified_without_object.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "minimal_controls.lp": {
+      "id": "20261013T152455Z-cba18b99a1854717bf6b24b7d6f0cc1b",
+      "target": "tmp/probes/local_inverse/minimal_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 3.131357316975482,
+      "childrenMaxRssKiB": 152736,
+      "inputSnapshot": "5ea77b9b64099056bda72528cf55228e43b7e8caa6fcad60c8ba2da7bd3b18a5",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/minimal_controls.lp": "77154311da6a9c5458fd6ee494d0d4f4eb3f36d655212fa40e706af885b8a133"
+      },
+      "log": "logs/check-runs/20261013T152455Z-cba18b99a1854717bf6b24b7d6f0cc1b.log",
+      "logSha256": "2afbab5f36bdbedea1bc3a4ec8a4f49c9e4a2a0987429319768b3d7f6fc84670",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/minimal_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "pair_identity_controls.lp": {
+      "id": "20261013T152653Z-896c6ad33c984376a81a97475698d283",
+      "target": "tmp/probes/local_inverse/pair_identity_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 1.6755506340414286,
+      "childrenMaxRssKiB": 153228,
+      "inputSnapshot": "d98c35dd824dd256325a4d2dfa060c7591f7ac3e289f6da226fdcba96e59efa9",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/pair_identity_controls.lp": "52e4186f18a8c59f6f1d7ff93b7d41a2bae1182497a9220106023a8c6a3a8312"
+      },
+      "log": "logs/check-runs/20261013T152653Z-896c6ad33c984376a81a97475698d283.log",
+      "logSha256": "11d59c0af533edb82bd5d9f66c20ccff6b21e000b202b48763cde3498e6497cd",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/pair_identity_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "interaction_controls.lp": {
+      "id": "20261013T153001Z-ac95065ed30a4bf6a6ae878e58c2f55f",
+      "target": "tmp/probes/local_inverse/interaction_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.911529619013891,
+      "childrenMaxRssKiB": 423356,
+      "inputSnapshot": "8568748db1afc4245a3292c776192fdf44a97c82381df20e16c4e0779caa74b2",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/interaction_controls.lp": "a634c7620eed99b0e3fe413f1c13a82653ae0a407771ffe917542bbb15530df1"
+      },
+      "log": "logs/check-runs/20261013T153001Z-ac95065ed30a4bf6a6ae878e58c2f55f.log",
+      "logSha256": "7d7e4b46ee36d8ea80ea586347603c6ab894957160c2343f4bc0602ccdc78294",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/interaction_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "interaction_prefix.lp": {
+      "id": "20261013T153235Z-e3f3e5e0d4ce4efb8c73205dc919a17b",
+      "target": "tmp/probes/local_inverse/interaction_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 9.09912146802526,
+      "childrenMaxRssKiB": 423352,
+      "inputSnapshot": "5fe4a2703e6e13e5221e3507fd94c443f1a21068c752678333aae7b9bdbfbbb6",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/interaction_prefix.lp": "b4176cf8e8172bbef35dfe597e1ec118fb43a2da6c3a22de492df8d925cee9b5"
+      },
+      "log": "logs/check-runs/20261013T153235Z-e3f3e5e0d4ce4efb8c73205dc919a17b.log",
+      "logSha256": "1cc717f8edbc49efcafb8d2c7d93fd0c589fa092d32ec64c01e98f28e1b0f2fc",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/interaction_prefix.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "interaction_comparison.lp": {
+      "id": "20261013T153245Z-11fabd848f2840889cb96dbf7eec5823",
+      "target": "tmp/probes/local_inverse/interaction_comparison.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 8.728909632074647,
+      "childrenMaxRssKiB": 423584,
+      "inputSnapshot": "4be4690bc44eaa468965b9354ec6563fc0b25500e5f2adfaf4f8d5d45e0949d6",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/local_inverse/interaction_comparison.lp": "fc2d1d43e019d969bca8fec94bbdfd7e77ca581fdca83f3cc037fa6c1e334eec"
+      },
+      "log": "logs/check-runs/20261013T153245Z-11fabd848f2840889cb96dbf7eec5823.log",
+      "logSha256": "c4e07628bd3c6871b6112cbe88e210ac4f625e6e6946437b00cf5e6d4156a6da",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/local_inverse/interaction_comparison.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    }
+  },
+  "baselineCheck": {
+    "id": "20261013T145350Z-47903718adcb4dca8f4357176e1c10ea",
+    "target": "tmp/probes/admission_next/staged_full_bridge.lp",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "wallSeconds": 5.403655775939114,
+    "childrenMaxRssKiB": 414740,
+    "inputSnapshot": "9545a2a06c4c4c473c39c2426feff46d8938b456723fecc0da7e54933b3f1869",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "tmp/probes/admission_next/staged_full_bridge.lp": "c1728ded9d6b795a18f02c5b0575ac59aeb62ff8074bb1720300b1a37d074732"
+    },
+    "log": "logs/check-runs/20261013T145350Z-47903718adcb4dca8f4357176e1c10ea.log",
+    "logSha256": "ab5eb1aa6da2dde1e6016e6d64d81a6c21206b7f8f032e935b947462582c908f",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "command": [
+      "bash",
+      "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+      "/home/user1/.opam/default/bin/lambdapi",
+      "check",
+      "tmp/probes/admission_next/staged_full_bridge.lp"
+    ],
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    }
+  },
+  "reviewerCounts": {
+    "baseline.lp": {
+      "positiveIncludingInherited": 225,
+      "negativeIncludingInherited": 55,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "swap_boundary.lp": {
+      "positiveIncludingInherited": 222,
+      "negativeIncludingInherited": 55,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "swap_normal_form.lp": {
+      "positiveIncludingInherited": 221,
+      "negativeIncludingInherited": 55,
+      "computeCommands": 1,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "joined_swap.lp": {
+      "positiveIncludingInherited": 222,
+      "negativeIncludingInherited": 55,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "joined_inverse.lp": {
+      "positiveIncludingInherited": 226,
+      "negativeIncludingInherited": 55,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "guarded_swap.lp": {
+      "positiveIncludingInherited": 222,
+      "negativeIncludingInherited": 55,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "guarded_inverse.lp": {
+      "positiveIncludingInherited": 226,
+      "negativeIncludingInherited": 55,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "selected_controls.lp": {
+      "positiveIncludingInherited": 228,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "without_swap_join.lp": {
+      "positiveIncludingInherited": 228,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "identity_normal_form.lp": {
+      "positiveIncludingInherited": 221,
+      "negativeIncludingInherited": 55,
+      "computeCommands": 1,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "identity_join_controls.lp": {
+      "positiveIncludingInherited": 228,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "final_controls.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 59,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "final_without_swap.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 59,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "final_without_identity.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 59,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "object_join_controls.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 59,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "qualified_controls.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "qualified_without_swap.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "qualified_without_identity.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "qualified_without_object.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "minimal_controls.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "minimal_without_identity_change.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "minimal_without_swap.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "pair_identity_controls.lp": {
+      "positiveIncludingInherited": 229,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "interaction_controls.lp": {
+      "positiveIncludingInherited": 232,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "interaction_prefix.lp": {
+      "positiveIncludingInherited": 231,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    },
+    "interaction_comparison.lp": {
+      "positiveIncludingInherited": 232,
+      "negativeIncludingInherited": 58,
+      "computeCommands": 0,
+      "qualification": "Source obligation counts; failed targets may stop early and normalization diagnostics are not new inverse assertions."
+    }
+  },
+  "selectedRuleGroups": {
+    "swapguard": {
+      "source": "audits/strict-default-action-boundary/local_inverse_swap_guarded.lpfragment",
+      "sha256": "2c711cd73bdc5d60c6a54f6cf1010182f10f8cee765694103652432779d2667f",
+      "runtimeRules": 1,
+      "status": "used by selected passing bounded corpus; overlap qualifications retained"
+    },
+    "identityguard": {
+      "source": "audits/strict-default-action-boundary/local_inverse_swap_identity_guarded.lpfragment",
+      "sha256": "878a019347756c2920135c65fc039c9cb910a593ce180d8f826e819c6a3878d6",
+      "runtimeRules": 1,
+      "status": "used by selected passing bounded corpus; overlap qualifications retained"
+    },
+    "objectjoin": {
+      "source": "audits/strict-default-action-boundary/local_inverse_swap_object.lpfragment",
+      "sha256": "8fafefc0964055b2132f477e234703755a033201462181e724b0bae96ea8c021",
+      "runtimeRules": 1,
+      "status": "used by selected passing bounded corpus; overlap qualifications retained"
+    }
+  },
+  "removalControls": {
+    "qualified_without_swap.lp": {
+      "status": "failed at intended dependency",
+      "receiptId": "20261013T152204Z-5c95a41308444112b6dd67c8017f1ab7",
+      "selectedSource": "qualified_controls.lp",
+      "removedGroup": "swapguard",
+      "removedFragmentSha256": "2c711cd73bdc5d60c6a54f6cf1010182f10f8cee765694103652432779d2667f",
+      "sourceSha256": "27bf4659bb69bcf2e3b2f74b3c56aafff8e0c9b09f26b7839acd9e458dd47cde",
+      "reachedBoundary": "Independent symbolic-transformation double-swap assertion fails.",
+      "syntaxFailure": false
+    },
+    "qualified_without_identity.lp": {
+      "status": "failed at intended dependency",
+      "receiptId": "20261013T152210Z-65774526b719478a9212faaa29319dc7",
+      "selectedSource": "qualified_controls.lp",
+      "removedGroup": "identityguard",
+      "removedFragmentSha256": "878a019347756c2920135c65fc039c9cb910a593ce180d8f826e819c6a3878d6",
+      "sourceSha256": "285a21091e0a01bd6c232d61e38faee4bee415e90b94bed666fb972bd5abd55f",
+      "reachedBoundary": "Direct presentation identity-input assertion fails.",
+      "syntaxFailure": false
+    },
+    "qualified_without_object.lp": {
+      "status": "failed at intended dependency",
+      "receiptId": "20261013T152216Z-11bb7aed0a274ad383344ef4542475eb",
+      "selectedSource": "qualified_controls.lp",
+      "removedGroup": "objectjoin",
+      "removedFragmentSha256": "8fafefc0964055b2132f477e234703755a033201462181e724b0bae96ea8c021",
+      "sourceSha256": "f1403b382cf4fa3492527db6d6f9fc269b3a247eddb39c28731a355102b90b02",
+      "reachedBoundary": "Guarded identity-action clause fails subject reduction at its stable/raw double-swap endpoint.",
+      "syntaxFailure": false
+    }
+  },
+  "warningComparison": {
+    "baselineTarget": "tmp/probes/admission_next/staged_full_bridge.lp",
+    "selectedTarget": "interaction_prefix.lp",
+    "before": 879,
+    "after": 905,
+    "normalization": "Strip ANSI colors and locations; retain the exact five term/reduct/participant lines per Unjoinable critical pair.",
+    "added": [
+      {
+        "count": 1,
+        "sha256": "827e06f238088cc17ac7bc54bb3f63d1ea750b22de2cac1ef14aa3e63d4e0ea7",
+        "termHead": "@comp_fapp0",
+        "participantHeads": [
+          "@comp_fapp0",
+          "@hom_precomp_along_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "objectjoin",
+          null
+        ],
+        "primarySelectedGroup": "objectjoin",
+        "family": "stable_precomposition_accumulation",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g)) (@Product_swap_func $A' $B')\nt \u21aa[] @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g \u21aa* @hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g\n  with @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F') (@Product_swap_func $A' $B') \u21aa $F'\nt \u21aa[0; 1] @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') $Y (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Y $q (@Product_swap_func $B' $A')) $g) (@Product_swap_func $A' $B') \u21aa* @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') $Y (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Y $q (@Product_swap_func $B' $A')) $g) (@Product_swap_func $A' $B')\n  with @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $X $p (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $X $Y $q $g) \u21aa @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g"
+      },
+      {
+        "count": 1,
+        "sha256": "463409baa2b1c52e056bc251b06ce9912269a9a3bf68ac0eabb6a8a7493fa76e",
+        "termHead": "@comp_fapp0",
+        "participantHeads": [
+          "@comp_fapp0",
+          "@hom_precomp_along_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "objectjoin",
+          null
+        ],
+        "primarySelectedGroup": "objectjoin",
+        "family": "generic_precomposition_identity",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7)) (@Product_swap_func $A' $B')\nt \u21aa[] id Cat_cat $7 \u21aa* id Cat_cat $7\n  with @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F') (@Product_swap_func $A' $B') \u21aa $F'\nt \u21aa[0; 1] @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@fapp1_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A')) (@Product_swap_func $A' $B') \u21aa* @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Product_swap_func $B' $A') (@Product_swap_func $A' $B')\n  with @hom_precomp_along_fapp0 $A $B $F $3 $W $X $h (id $B $7) \u21aa @fapp1_fapp0 $A $B $F $W $X $h"
+      },
+      {
+        "count": 1,
+        "sha256": "fe8282c8ab8d742edda9c1b644e334c02d1c83ad4b76ebcab5e9971d03fa64d9",
+        "termHead": "@comp_fapp0",
+        "participantHeads": [
+          "@comp_fapp0",
+          "@hom_precomp_along_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "objectjoin",
+          null
+        ],
+        "primarySelectedGroup": "objectjoin",
+        "family": "cat_valued_precomposition_identity",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6)) (@Product_swap_func $A' $B')\nt \u21aa[] id Cat_cat $6 \u21aa* id Cat_cat $6\n  with @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F') (@Product_swap_func $A' $B') \u21aa $F'\nt \u21aa[0; 1] @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@fapp1_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A')) (@Product_swap_func $A' $B') \u21aa* @comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@Product_swap_func $B' $A') (@Product_swap_func $A' $B')\n  with @hom_precomp_along_fapp0 $A Cat_cat $F $2 $W $X $h (id Cat_cat $6) \u21aa @fapp1_fapp0 $A Cat_cat $F $W $X $h"
+      },
+      {
+        "count": 1,
+        "sha256": "9c327837978db64973c4ddbb9448999397fdb3d2b2ed859afb7f7a2ce2aaf74d",
+        "termHead": "@tapp0_hom_fapp0",
+        "participantHeads": [
+          "@tapp0_hom_fapp0",
+          "@comp_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          null,
+          "objectjoin"
+        ],
+        "primarySelectedGroup": "objectjoin",
+        "family": "transformation_component_composition",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @tapp0_hom_fapp0 $A' $B' $F' $G' (Product_cat $A $B) $C $Y' (@comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F) (@Product_swap_func $A $B))\nt \u21aa[] @comp_fapp0 (Hom_cat $B' (@fapp0 $A' $B' $F' $Y') (@fapp0 $A' $B' $G' $Y')) (@tapp0_fapp0 $A' $B' $F' $G' $Y' (Product_cat $A $B)) (@tapp0_fapp0 $A' $B' $F' $G' $Y' (Product_cat $B $A)) (@tapp0_fapp0 $A' $B' $F' $G' $Y' $C) (@tapp0_hom_fapp0 $A' $B' $F' $G' (Product_cat $B $A) $C $Y' (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F)) (@tapp0_hom_fapp0 $A' $B' $F' $G' (Product_cat $A $B) (Product_cat $B $A) $Y' (@Product_swap_func $A $B)) \u21aa* @comp_fapp0 (Hom_cat $B' (@fapp0 $A' $B' $F' $Y') (@fapp0 $A' $B' $G' $Y')) (@tapp0_fapp0 $A' $B' $F' $G' $Y' (Product_cat $A $B)) (@tapp0_fapp0 $A' $B' $F' $G' $Y' (Product_cat $B $A)) (@tapp0_fapp0 $A' $B' $F' $G' $Y' $C) (@tapp0_hom_fapp0 $A' $B' $F' $G' (Product_cat $B $A) $C $Y' (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F)) (@tapp0_hom_fapp0 $A' $B' $F' $G' (Product_cat $A $B) (Product_cat $B $A) $Y' (@Product_swap_func $A $B))\n  with @tapp0_hom_fapp0 $A' $B' $F' $G' $eta' $eta''' $Y' (@comp_fapp0 $' $eta' $eta'' $eta''' $Theta' $Phi') \u21aa @comp_fapp0 (Hom_cat $B' (@fapp0 $A' $B' $F' $Y') (@fapp0 $A' $B' $G' $Y')) (@tapp0_fapp0 $A' $B' $F' $G' $Y' $eta') (@tapp0_fapp0 $A' $B' $F' $G' $Y' $eta'') (@tapp0_fapp0 $A' $B' $F' $G' $Y' $eta''') (@tapp0_hom_fapp0 $A' $B' $F' $G' $eta'' $eta''' $Y' $Theta') (@tapp0_hom_fapp0 $A' $B' $F' $G' $eta' $eta'' $Y' $Phi')\nt \u21aa[1] @tapp0_hom_fapp0 $A' $B' $F' $G' (Product_cat $A $B) $C $Y' $F \u21aa* @tapp0_hom_fapp0 $A' $B' $F' $G' (Product_cat $A $B) $C $Y' $F\n  with @comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F) (@Product_swap_func $A $B) \u21aa $F"
+      },
+      {
+        "count": 1,
+        "sha256": "96ab0544622a37017a564bc4dfab78cdf90313c6637f65ec2b6617bde1394fe1",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@comp_prod_fapp1_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "swapguard",
+          "swapguard"
+        ],
+        "primarySelectedGroup": "swapguard",
+        "family": "nested_swap_self_overlap",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) $') (@Struct_sigma $' $' (@Product_swap_func $B $A) $') (@Struct_sigma $' $' (id $20 (@Product_swap_func $B $A)) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@Struct_sigma $3 $4 (@Product_swap_func $A $B) $5) (@Struct_sigma $6 $7 (@Product_swap_func $A $B) $8) (@Struct_sigma $9 $10 (id $11 (@Product_swap_func $A $B)) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $12 $13 (@Product_swap_func $B $A) $14) (@Struct_sigma $15 $16 (@Product_swap_func $B $A) $17) (@Struct_sigma $18 $19 (id $20 (@Product_swap_func $B $A)) $alpha)))))\nt \u21aa[] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $12 $13 (@Product_swap_func $B $A) $14) (@Struct_sigma $15 $16 (@Product_swap_func $B $A) $17) (@Struct_sigma $18 $19 (id $20 (@Product_swap_func $B $A)) $alpha) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $12 $13 (@Product_swap_func $B $A) $14) (@Struct_sigma $15 $16 (@Product_swap_func $B $A) $17) (@Struct_sigma $18 $19 (id $20 (@Product_swap_func $B $A)) $alpha)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha'))) \u21aa $alpha'\nt \u21aa[1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) $') (@Struct_sigma $' $' (@Product_swap_func $B $A) $') (@Struct_sigma $' $' (id $20 (@Product_swap_func $B $A)) $alpha) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) $') (@Struct_sigma $' $' (@Product_swap_func $B $A) $') (@Struct_sigma $' $' (id $20 (@Product_swap_func $B $A)) $alpha)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@Struct_sigma $3 $4 (@Product_swap_func $A $B) $5) (@Struct_sigma $6 $7 (@Product_swap_func $A $B) $8) (@Struct_sigma $9 $10 (id $11 (@Product_swap_func $A $B)) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $12 $13 (@Product_swap_func $B $A) $14) (@Struct_sigma $15 $16 (@Product_swap_func $B $A) $17) (@Struct_sigma $18 $19 (id $20 (@Product_swap_func $B $A)) $alpha))) \u21aa $alpha"
+      },
+      {
+        "count": 1,
+        "sha256": "f76016555c034ec39cb2399ea6690bffb6da6f210e554842ecfa1fe18886f55d",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@comp_prod_fapp1_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "swapguard",
+          null
+        ],
+        "primarySelectedGroup": "swapguard",
+        "family": "horizontal_identity_pair",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@Struct_sigma $3 $4 (@Product_swap_func $B' $A') $G) (@Struct_sigma $7 $8 (@Product_swap_func $B' $A') $G) (@Struct_sigma $9 $10 (id $11 (@Product_swap_func $B' $A')) (id (Obj (Hom_cat $12 $G $G)) $G))))\nt \u21aa[] id (Obj (Hom_cat $12 $G $G)) $G \u21aa* id (Obj (Hom_cat $12 $G $G)) $G\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha'))) \u21aa $alpha'\nt \u21aa[1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Functor_cart_cat (Product_cat $B' $A') $Z) (@comp_cat_fapp0 (Product_cat $B' $A') (Product_cat $A' $B') $Z $G (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Functor_cart_cat (Product_cat $B' $A') $Z) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z $G (@Product_swap_func $B' $A'))))\n  with @comp_prod_fapp1_fapp0 Cat_cat $X $Y $Z (@Struct_sigma $3 $4 $F $G) (@Struct_sigma $7 $8 $F $G) (@Struct_sigma $9 $10 (id $11 $F) (id $12 $G)) \u21aa id (Functor_cart_cat $X $Z) (@comp_cat_fapp0 $X $Y $Z $G $F)"
+      },
+      {
+        "count": 1,
+        "sha256": "067a76539b60add5a3284f2292b6fac5f67e92e223fb0c22253c0937900ddf82",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "id"
+        ],
+        "selectedParticipantGroups": [
+          "swapguard",
+          null
+        ],
+        "primarySelectedGroup": "swapguard",
+        "family": "path_identity_normalization",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id (Path_cat $') (@Product_swap_func $B' $A')) $alpha')))\nt \u21aa[] $alpha' \u21aa* $alpha'\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha'))) \u21aa $alpha'\nt \u21aa[1; 1; 1; 0; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@eq_refl $' (@Product_swap_func $B' $A')) $alpha'))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@eq_refl $' (@Product_swap_func $B' $A')) $alpha')))\n  with id (Path_cat $A) $x \u21aa @eq_refl $A $x"
+      },
+      {
+        "count": 1,
+        "sha256": "7e680377dd6d2852dc26843a3d739336222951c5ecfb64fa5b24cc003b2d4bfd",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "id"
+        ],
+        "selectedParticipantGroups": [
+          "swapguard",
+          null
+        ],
+        "primarySelectedGroup": "swapguard",
+        "family": "terminal_identity_normalization",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id Terminal_cat (@Product_swap_func $B' $A')) $alpha')))\nt \u21aa[] $alpha' \u21aa* $alpha'\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha'))) \u21aa $alpha'\nt \u21aa[1; 1; 1; 0; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' Terminal_obj $alpha'))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' Terminal_obj $alpha')))\n  with id Terminal_cat $0 \u21aa Terminal_obj"
+      },
+      {
+        "count": 1,
+        "sha256": "bd3509a8ffdfc4172d16aca3346ee7622af48ec354900703d4e9fd37a1a44a85",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "id"
+        ],
+        "selectedParticipantGroups": [
+          "swapguard",
+          null
+        ],
+        "primarySelectedGroup": "swapguard",
+        "family": "path_identity_normalization",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id (Path_cat $') (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha')))\nt \u21aa[] $alpha' \u21aa* $alpha'\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha'))) \u21aa $alpha'\nt \u21aa[1; 0; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@eq_refl $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha'))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@eq_refl $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha')))\n  with id (Path_cat $A) $x \u21aa @eq_refl $A $x"
+      },
+      {
+        "count": 1,
+        "sha256": "220a66199b4dcc02792a6ead79a479816d3a375a8465d6df63a4849aa574398e",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "id"
+        ],
+        "selectedParticipantGroups": [
+          "swapguard",
+          null
+        ],
+        "primarySelectedGroup": "swapguard",
+        "family": "terminal_identity_normalization",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id Terminal_cat (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha')))\nt \u21aa[] $alpha' \u21aa* $alpha'\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha'))) \u21aa $alpha'\nt \u21aa[1; 0; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' Terminal_obj (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha'))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' (@Product_swap_func $A' $B') $') (@Struct_sigma $' $' Terminal_obj (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (@Product_swap_func $B' $A') $') (@Struct_sigma $' $' (id $' (@Product_swap_func $B' $A')) $alpha')))\n  with id Terminal_cat $0 \u21aa Terminal_obj"
+      },
+      {
+        "count": 1,
+        "sha256": "5dafdf1910eab9194244dde2b1c1e03219d779f8b9aab96755337708af4fe6e2",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "id"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "path_identity_normalization",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id (@= $A (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))) (@Product_swap_func $A' $B')) (id (Path_cat $A) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $C') $F' \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id (@= $A (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))) (@Product_swap_func $A' $B')) (@eq_refl $A (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id (@= $A (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))) (@Product_swap_func $A' $B')) (@eq_refl $A (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))\n  with id (Path_cat $A) $x \u21aa @eq_refl $A $x"
+      },
+      {
+        "count": 1,
+        "sha256": "809dc905fc8e051015d49753e9ab595e694fa2adcbfd8413e378ce93795629b9",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "id"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "terminal_identity_normalization",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id Unit_grpd (@Product_swap_func $A' $B')) (id Terminal_cat (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $C') $F' \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id Unit_grpd (@Product_swap_func $A' $B')) Terminal_obj) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id Unit_grpd (@Product_swap_func $A' $B')) Terminal_obj)\n  with id Terminal_cat $0 \u21aa Terminal_obj"
+      },
+      {
+        "count": 1,
+        "sha256": "fd9bb6538075c41e59d77f01ccffdc519fd0fe2114afbec14c85499558a4f046",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@comp_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "raw_composition_identity",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat (Product_cat $A' $B')))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat (Product_cat $A' $B')))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $3)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat (Product_cat $A' $B')) (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $3) (id Cat_cat (Product_cat $A' $B')) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $3) (id Cat_cat (Product_cat $A' $B'))\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat (Product_cat $A' $B')))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat (Product_cat $A' $B')))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $3)) (@Product_swap_func $B' $A'))) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $3) (@comp_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Product_swap_func $B' $A') (@Product_swap_func $A' $B'))\n  with @comp_fapp0 $A $1 $Y $3 (id $A $Y) $f \u21aa $f"
+      },
+      {
+        "count": 1,
+        "sha256": "b8e67b64ef775711a129fe9b8dc92aa6d541d0b990885c11231b7e8a07c94158",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@comp_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "constant_functor_composition",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@Const_func (Product_cat $A' $B') $C $c))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@Const_func (Product_cat $A' $B') $C $c))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C (@Const_func (Product_cat $A' $B') $C $c) (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $C) (@Const_func (Product_cat $A' $B') $C $c) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $C) (@Const_func (Product_cat $A' $B') $C $c)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@Const_func (Product_cat $A' $B') $C $c))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@Const_func (Product_cat $A' $B') $C $c))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@Const_func (Product_cat $B' $A') $C $c))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@Const_func (Product_cat $A' $B') $C $c))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@Const_func (Product_cat $A' $B') $C $c))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@Const_func (Product_cat $B' $A') $C $c)))\n  with @comp_fapp0 Cat_cat $A $B $C (@Const_func $B $C $c) $G \u21aa @Const_func $A $C $c"
+      },
+      {
+        "count": 1,
+        "sha256": "c05a758b2b625c5a1f03942e140022f1369c3b3b334326c86138b4277e64c395",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@comp_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "postcomposition_accumulation",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $3)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g) (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $3) (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $3) (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $3)) (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $B' $A') $X $Y $f (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') (@fapp0 $B Cat_cat $F $X) $g (@Product_swap_func $B' $A'))))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $A' $B') $X $Y $f $g))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (Product_cat $B' $A') $3)) (@hom_postcomp_fapp0 Cat_cat $B $F (Product_cat $B' $A') $X $Y $f (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') (@fapp0 $B Cat_cat $F $X) $g (@Product_swap_func $B' $A')))))\n  with @comp_fapp0 $A $V $W $3 (@hom_postcomp_fapp0 $A $B $F $W $X $Y $f $g) $h \u21aa @hom_postcomp_fapp0 $A $B $F $V $X $Y $f (@comp_fapp0 $A $V $W (@fapp0 $B $A $F $X) $g $h)"
+      },
+      {
+        "count": 1,
+        "sha256": "e643888232c997993a66ee97b1cd4f22fc470aaadbc01263574428a355cf36d3",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@comp_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "raw_symmetry_involution",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) (Product_cat $A $B) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A $B) (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@Product_swap_func $B $A))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A $B) (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@Product_swap_func $B $A))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' (@comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) (@Product_swap_func $A $B))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $B $A) (Product_cat $A $B)) (@Product_swap_func $B $A) \u21aa* id (Product_cat (Functor_cart_cat (Product_cat $B $A) $A) (Functor_cart_cat (Product_cat $B $A) $B)) (@Product_swap_func $B $A)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) (Product_cat $A $B) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A $B) (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@Product_swap_func $B $A))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A $B) (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@Product_swap_func $B $A))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' (@id_func (Product_cat $A $B)))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) (Product_cat $A $B) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A $B) (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@Product_swap_func $B $A))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $A $B) (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@Product_swap_func $B $A))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' (id Cat_cat (Product_cat $A $B))))\n  with @comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) (@Product_swap_func $A $B) \u21aa @id_func (Product_cat $A $B)"
+      },
+      {
+        "count": 1,
+        "sha256": "a86c513aa57840f96ec87d6a02b03b4a57f2d46a2171132365026df94b8042c4",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@comp_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "raw_symmetry_pullback",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' (@comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)) (@Product_swap_func $A $B))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $B $A) $C) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)) \u21aa* id (Functor_cart_cat (Product_cat $B $A) $C) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A))\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' $H)) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' $H))\n  with @comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $H (@Product_swap_func $B $A)) (@Product_swap_func $A $B) \u21aa $H"
+      },
+      {
+        "count": 1,
+        "sha256": "83511e04a0393e60e0f312f5f98b4dc47cd4eeac76115849971cae61cf2d2d6e",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@comp_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          "objectjoin"
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "identity_action_vs_selected_object_join",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' (@comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F) (@Product_swap_func $A $B))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $B $A) $C) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F) \u21aa* id (Functor_cart_cat (Product_cat $B $A) $C) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F))) (@Struct_sigma $' $' (@Product_swap_func $B $A) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $A $B) (Product_cat $B $A) (@Product_swap_func $A $B) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F))) (@Struct_sigma $' $' (id $' (@Product_swap_func $B $A)) (id $' $F)) \u21aa* id (Functor_cart_cat (Product_cat $B $A) $C) (@comp_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C $F (@Product_swap_func $B $A))\n  with @comp_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C (Product_cat $B $A) (Product_cat $A $B) (@Product_swap_func $B $A) $F) (@Product_swap_func $A $B) \u21aa $F"
+      },
+      {
+        "count": 1,
+        "sha256": "57bbec4c12cae4707919dfcdb1f757b38a25e743559591fe0e0fe70753f42098",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "id"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "path_identity_normalization",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id (Path_cat $') (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $C') $F' \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 0; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@eq_refl $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@eq_refl $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))\n  with id (Path_cat $A) $x \u21aa @eq_refl $A $x"
+      },
+      {
+        "count": 1,
+        "sha256": "ff584ee27c41dcad4fd07a1fb8e15e449007875dc259d75d14cbce56e27e2717",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "id"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "terminal_identity_normalization",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id Terminal_cat (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $C') $F' \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[1; 0; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' Terminal_obj (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' Terminal_obj (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A'))))\n  with id Terminal_cat $0 \u21aa Terminal_obj"
+      },
+      {
+        "count": 1,
+        "sha256": "10c455719d80917180a40383524dc27989a3f7659e9cc0c29dbb9a14fbb17e8f",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@hom_precomp_along_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "stable_precomposition_accumulation",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $Z) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $Z) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[0; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') $Y (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Y $q (@Product_swap_func $B' $A')) $g)) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') $Y (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Y $q (@Product_swap_func $B' $A')) $g)) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') $Y (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Y $q (@Product_swap_func $B' $A')) $g)) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) (@Product_swap_func $B' $A'))))\n  with @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $X $p (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $X $Y $q $g) \u21aa @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g"
+      },
+      {
+        "count": 1,
+        "sha256": "628a3f9f2c03d44559d0725aef807ab6fc5c07703d4f5d1b899ed6ae925fdd01",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@hom_precomp_along_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "generic_precomposition_identity",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $7)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat $7) (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $3) (id Cat_cat $7) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $3) (id Cat_cat $7)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[0; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@fapp1_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A'))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $7)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat $7) (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@Product_swap_func $B' $A')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@Product_swap_func $B' $A')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (Product_cat $B' $A') $7)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat $7) (@Product_swap_func $B' $A'))))\n  with @hom_precomp_along_fapp0 $A $B $F $3 $W $X $h (id $B $7) \u21aa @fapp1_fapp0 $A $B $F $W $X $h"
+      },
+      {
+        "count": 1,
+        "sha256": "f0024660282d61b02075fda104db874f0003e02afb23a92f4f7ee9783dd7ccb1",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@hom_precomp_along_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "cat_valued_precomposition_identity",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $6)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $2 (id Cat_cat $6) (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $2) (id Cat_cat $6) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $2) (id Cat_cat $6)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[0; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@fapp1_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A'))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $6)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $2 (id Cat_cat $6) (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@Product_swap_func $B' $A')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@Product_swap_func $B' $A')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (Product_cat $B' $A') $6)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $2 (id Cat_cat $6) (@Product_swap_func $B' $A'))))\n  with @hom_precomp_along_fapp0 $A Cat_cat $F $2 $W $X $h (id Cat_cat $6) \u21aa @fapp1_fapp0 $A Cat_cat $F $W $X $h"
+      },
+      {
+        "count": 1,
+        "sha256": "7699b0e994702d2e821ebdba79691999314e7c66d8c5a133b4512ae8f18b201c",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@hom_precomp_along_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "stable_precomposition_accumulation",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $Z) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $Z) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[0; 0; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') $Y (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Y $q (@Product_swap_func $B' $A')) $g)) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $Z (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') $Y (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Y $q (@Product_swap_func $B' $A')) $g)) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $B' $A') $Y (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Y $q (@Product_swap_func $B' $A')) $g)) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $Z (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $Z (Product_cat $A' $B') $Y $q $g) (@Product_swap_func $B' $A'))))\n  with @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $X $p (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $X $Y $q $g) \u21aa @hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $Z $W $Y (@comp_fapp0 $A $W $X $Y $q $p) $g"
+      },
+      {
+        "count": 1,
+        "sha256": "0be92d023af95b339030f53d70d1cb7168e6d1b5008fec9db3194bef401a562e",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@hom_precomp_along_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "generic_precomposition_identity",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $7)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat $7) (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $3) (id Cat_cat $7) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $3) (id Cat_cat $7)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[0; 0; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@fapp1_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A'))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $7))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $7)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat $7) (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $3 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@Product_swap_func $B' $A')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@Product_swap_func $B' $A')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (Product_cat $B' $A') $7)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $3 (id Cat_cat $7) (@Product_swap_func $B' $A'))))\n  with @hom_precomp_along_fapp0 $A $B $F $3 $W $X $h (id $B $7) \u21aa @fapp1_fapp0 $A $B $F $W $X $h"
+      },
+      {
+        "count": 1,
+        "sha256": "7bcbd0e9e2206a9e98929889c617fc6935b2df8e103eac070cfb63d5f543103d",
+        "termHead": "@comp_prod_fapp1_fapp0",
+        "participantHeads": [
+          "@comp_prod_fapp1_fapp0",
+          "@hom_precomp_along_fapp0"
+        ],
+        "selectedParticipantGroups": [
+          "identityguard",
+          null
+        ],
+        "primarySelectedGroup": "identityguard",
+        "family": "cat_valued_precomposition_identity",
+        "qualification": "Observed unjoinable critical-pair diagnostic; source family classification is not a proof that this pair joins.",
+        "block": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $6)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $2 (id Cat_cat $6) (@Product_swap_func $B' $A'))))\nt \u21aa[] id (Functor_cart_cat (Product_cat $A' $B') $2) (id Cat_cat $6) \u21aa* id (Functor_cart_cat (Product_cat $A' $B') $2) (id Cat_cat $6)\n  with @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $C' (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') $F')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id $' (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $C' $F' (@Product_swap_func $B' $A')))) \u21aa id (Functor_cart_cat (Product_cat $A' $B') $C') $F'\nt \u21aa[0; 0; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@fapp1_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A'))) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $2 (Product_cat $B' $A') (Product_cat $A' $B') (@Product_swap_func $B' $A') (id Cat_cat $6))) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat $B' $A')) $6)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $2 (id Cat_cat $6) (@Product_swap_func $B' $A')))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A' $B') (Product_cat $B' $A') $2 (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@Product_swap_func $B' $A')) (@Struct_sigma $' $' (@Product_swap_func $A' $B') (@Product_swap_func $B' $A')) (@Struct_sigma $' $' (id $' (@Product_swap_func $A' $B')) (id (Obj (Functor_cat (Product_cat $B' $A') $6)) (@comp_fapp0 Cat_cat (Product_cat $B' $A') (Product_cat $A' $B') $2 (id Cat_cat $6) (@Product_swap_func $B' $A'))))\n  with @hom_precomp_along_fapp0 $A Cat_cat $F $2 $W $X $h (id Cat_cat $6) \u21aa @fapp1_fapp0 $A Cat_cat $F $W $X $h"
+      }
+    ],
+    "removed": [],
+    "primaryGroupCounts": {
+      "objectjoin": 4,
+      "swapguard": 6,
+      "identityguard": 16
+    },
+    "familyCounts": {
+      "stable_precomposition_accumulation": 3,
+      "generic_precomposition_identity": 3,
+      "cat_valued_precomposition_identity": 3,
+      "transformation_component_composition": 1,
+      "nested_swap_self_overlap": 1,
+      "horizontal_identity_pair": 1,
+      "path_identity_normalization": 4,
+      "terminal_identity_normalization": 4,
+      "raw_composition_identity": 1,
+      "constant_functor_composition": 1,
+      "postcomposition_accumulation": 1,
+      "raw_symmetry_involution": 1,
+      "raw_symmetry_pullback": 1,
+      "identity_action_vs_selected_object_join": 1
+    },
+    "qualification": "26 additional diagnostic pairs remain recorded; finite triple-swap/Terminal and direct identity/composition controls do not close all overlaps. Nested stable-precomposition identity is a retained failure."
+  },
+  "corpusQualification": {
+    "passed": [
+      "Both direct object round trips for local Cartesian curry/uncurry.",
+      "Both independently expanded direct transformation round trips.",
+      "Identity and composite transformation inputs.",
+      "Raw-map rejection and unrelated-transformation preservation.",
+      "Explicitly typed variable-theta same-endpoint perturbation rejects replacement by identity.",
+      "Triple product-swap interaction and Terminal product factor."
+    ],
+    "notEstablished": [
+      "Nested stable-precomposition identity normalization, including the typed reflexivity comparison.",
+      "All reducible presentations or substitution/interaction normal forms.",
+      "Confluence or a complete omega-level presentation equivalence.",
+      "Integration with the separate canonical-admission/lift assembly or production."
+    ],
+    "rawProfile": "Public ProfMap remains raw; no rule classifies arbitrary lax transformations."
+  },
+  "historicalExperiments": {
+    "baseline.lp": {
+      "kind": "failed positive obligation",
+      "boundary": "Object round trips precede failure of the expanded forward transformation round trip."
+    },
+    "swap_boundary.lp": {
+      "kind": "failed positive obligation",
+      "boundary": "Independent expanded double-symmetry map action fails."
+    },
+    "swap_normal_form.lp": {
+      "kind": "passed normalization diagnostic",
+      "boundary": "Computes the actual expanded action; does not itself assert inverse correctness."
+    },
+    "joined_swap.lp": {
+      "kind": "subject-reduction failure",
+      "boundary": "Unguarded swap completion does not recover actual product endpoints."
+    },
+    "joined_inverse.lp": {
+      "kind": "subject-reduction failure",
+      "boundary": "Same unguarded swap clause fails before inverse consumers."
+    },
+    "guarded_swap.lp": {
+      "kind": "passed focused consumer",
+      "boundary": "Literal product endpoint guards make the swap action clause and its consumer check."
+    },
+    "guarded_inverse.lp": {
+      "kind": "passed direct inverse corpus",
+      "boundary": "Both object and direct transformation round trips check before identity/composition extras."
+    },
+    "selected_controls.lp": {
+      "kind": "failed positive obligation",
+      "boundary": "Identity-input presentation round trip exposes a distinct projection-order interaction."
+    },
+    "without_swap_join.lp": {
+      "kind": "historical removal failure",
+      "boundary": "Expanded swap action fails without its selected guarded join."
+    },
+    "identity_normal_form.lp": {
+      "kind": "passed normalization diagnostic",
+      "boundary": "Displays the identity-input normal form; no new inverse assertion follows from compute alone."
+    },
+    "identity_join_controls.lp": {
+      "kind": "subject-reduction failure",
+      "boundary": "Initial identity clause has insufficient endpoint guards."
+    },
+    "final_controls.lp": {
+      "kind": "subject-reduction failure",
+      "boundary": "Guarded identity clause still needs the stable/raw double-symmetry object join."
+    },
+    "object_join_controls.lp": {
+      "kind": "ill-typed historical test",
+      "boundary": "Final arbitrary-H assertnot compares different dependent endpoint types. It is neither a semantic counterexample nor a successful negative control.",
+      "replacement": "Explicitly typed local_inverse_perturbed_swap(alpha,theta) and its same-endpoint positive/negative controls in qualified_controls.lp."
+    },
+    "minimal_controls.lp": {
+      "kind": "subject-reduction failure",
+      "boundary": "More generic horizontal identity with fully inferred endpoint pairs fails type preservation."
+    },
+    "pair_identity_controls.lp": {
+      "kind": "subject-reduction failure",
+      "boundary": "Generic horizontal identity with visible but independent source/target pairs also fails type preservation."
+    },
+    "interaction_controls.lp": {
+      "kind": "failed positive obligation",
+      "boundary": "Triple-swap and Terminal cases pass; nested identity on a stable-precomposition functor fails.",
+      "receiptId": "20261013T153001Z-ac95065ed30a4bf6a6ae878e58c2f55f"
+    },
+    "interaction_comparison.lp": {
+      "kind": "failed positive obligation",
+      "boundary": "The corresponding explicitly typed eq_refl comparison also fails; not repaired by treating it as a proof-time view.",
+      "receiptId": "20261013T153245Z-11fabd848f2840889cb96dbf7eec5823"
+    }
+  },
+  "unrunTargets": [
+    "final_without_swap.lp",
+    "final_without_identity.lp",
+    "minimal_without_identity_change.lp",
+    "minimal_without_swap.lp"
+  ],
+  "recordingScope": "Read-only inspection of supplied source/receipts/logs; this recorder ran no Lambdapi or static rule audit and edited only this JSON and its companion closure Markdown.",
+  "sourceClosure": {
+    "path": "audits/strict-default-action-boundary/local_inverse_source_closure.md",
+    "sha256": "56ad0f052835bb1ee1370313c770d5ab063de24567b4368a199edb837b5db417"
+  }
+}

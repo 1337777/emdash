@@ -80,8 +80,12 @@ cart_action: identity Homd owns the primitive ladder, while general FF is a
 defined relative extension. The local_cart_prof slice separately qualifies
 the raw-preserving Cartesian view and its first consumers. The earlier
 cart_action product-prof/Q presentation inverses check in its provisional
-Cartesian Prof profile; expanded arrow inverses for the local raw-preserving
-view remain separately unqualified. The next required work is local Cartesian admission
+Cartesian Prof profile. The local raw-preserving view now checks expanded
+variable-map inverses and selected identity/composition interactions, while
+the nested reindexed-identity case remains open. The current raw coefficient
+integration reference is `coefficient_assembly/with_nested_reindex.lp`, still
+conditional on the explicitly proposed co-Yoneda seed profile; its detailed
+source closure and limits are recorded below. The next required work is local Cartesian admission
 of the canonical profunctor operations without narrowing raw public maps,
 the represented lift's remaining action/coherence, and intrinsic-action
 integration. The lift_middle selected variant now checks both whole middle
@@ -2316,6 +2320,86 @@ unit/counit triangles remain separate obligations.
 The audit's `admission_next_source_closure.md` and
 `admission_next_verification.json` record the selected staged theorem, original
 failures, removal controls, source pins and resource/warning evidence.
+
+## Canonical raw coefficient continuation after d3b49f9a
+
+The `canonical_admission` replay adds only a proposed classified view of the
+existing co-Yoneda component at Unit_B. Its inclusion agrees with the retained
+raw operation. This is explicitly a new constructor-profile requirement,
+not strictness derived from the opaque raw tensor beta/eta rules. The native
+generator consumer, actual local reindex action, and the unchanged raw
+lambda/reindex/evaluation chain check. Both the seed-view and native-beta
+removals fail at their intended consumers. No arbitrary raw map is classified.
+Warnings remain 879; the strict LHS audit has no unreviewed clauses.
+
+Review finds no native full-action owner for `Prof_lambda_cov_map`; the
+existing implication functors act on its coefficients, not the lambda
+correspondence. Consequently the specific classified seed does not yet admit
+its lambda image or the general counit. The next profile question is the
+Cartesian restriction of the existing lambda owner at the Unit/Unit/Unit
+instance, preserving its raw forget square and higher action. Its necessity
+does not justify a general raw-map strictifier or a separately supplied
+strictness witness. General evaluation also changes the tensor's middle
+category; reindexing the seed alone cannot provide it.
+
+The `lift_coyoneda` replay implements a separate actual computation at the
+existing shaped-application owner:
+
+```text
+eval(reindex(lambda(k), id, H))[tensor_m(r,s)]
+  -> k[tensor_(H o m)(r,s)].
+```
+
+Both tensor inputs have their actual matching reindex profiles. Omitting
+those guards fails subject reduction; the guarded clause passes with subject
+reduction enabled. At the unchanged raw represented counit this reaches the
+existing co-Yoneda beta and returns the retained arbitrary generator p.
+The identity-H interaction with ordinary eval/lambda beta also passes. Removing
+either the new cut or the existing co-Yoneda beta fails the actual counit
+consumer. This is a new computation between existing primitive owners, not
+a claimed consequence of map-level beta/eta alone. It supplies neither a
+mate triangle nor balancing/whole-map extensionality or Cartesian admission.
+Six identity-reindex overlap warnings are recorded alongside the passed
+identity-H consumer.
+
+The `local_inverse` continuation now checks both product/curried object and
+expanded variable-transformation round trips in the raw-preserving local
+profile. Its three selected joins address the separately expanded double
+swap action, its identity-input overlap, and the corresponding mixed
+raw/stable object composition. Identity/composition, retained map data,
+raw-profile rejection, an explicitly typed nonidentity swap cell, triple
+swap and terminal-factor consumers pass. Three exact removals fail; the
+object-join removal fails subject reduction of the dependent identity join.
+Two attempts to replace the specific joins with a more general inferred
+horizontal-identity rule fail subject reduction and are not selected.
+
+This inverse qualification has an explicit remaining interaction: an identity
+at a nested reindexed endpoint fails both runtime conversion and the attempted
+direct proof-time comparison. Do not call the whole presentation theory
+complete. The selected warning inventory is 879 -> 905, with 26 projection,
+identity, precomposition and swap overlap blocks recorded. The passed corpus
+does not close all of them. A historical arbitrary-H negative comparison was
+ill-typed because its dependent endpoints differed; it is retained as a test
+design failure and replaced by the well-typed same-endpoint swap-cell control.
+
+`coefficient_assembly_migration.py` checks these results together while
+preserving raw public Prof maps and the explicitly proposed seed profile.
+The initial assembly exposed one omitted dependency: existing nested
+Prof_reindex accumulation. Importing that byte-identical production owner
+closes subject reduction of the generator cut. The combined source passes
+240 positives and 65 negatives, including inherited controls, under the
+normal guard. Warnings are 911 (the 26 inverse and six generator overlaps
+above); the LHS audit has zero unreviewed clauses. The combined source is a
+bounded coefficient replay, not production or complete Q/Homd qualification.
+It is a concrete raw-preserving integration reference for the next profile
+and coherence work.
+
+The audit's `canonical_admission_*`, `lift_coyoneda_*`, `local_inverse_*` and
+`coefficient_assembly_*` records retain exact source/receipt identities and
+all qualifications. Whole tensor/balancing/unit/counit coherence, canonical
+lambda/evaluation admission, the remaining inverse interaction, native
+intrinsic action and production migration remain required. General-FF leaf
+normalization remains separate from identity Homd acceptance.
 
 ## Deferred improvements under the migration boundary
 

@@ -1,0 +1,15 @@
+// Projection-order completion of double fixed precomposition by product
+// symmetry. The two actual swaps compose to identity at their existing owner.
+// Projecting both Cartesian map actions first leaves these two horizontal
+// composites. Only their identity swap cells and original map are cancelled;
+// no lax transformation is classified and no general inverse is supplied.
+// lhs-audit: keep 2,3 -- actual product endpoints are measured subject-reduction guards.
+rule @comp_prod_fapp1_fapp0 Cat_cat (Product_cat $A $B) (Product_cat $B $A) $C
+      (@Struct_sigma _ _ (@Product_swap_func $A $B) _)
+      (@Struct_sigma _ _ (@Product_swap_func $A $B) _)
+      (@Struct_sigma _ _ (@id _ (@Product_swap_func $A $B))
+        (@comp_prod_fapp1_fapp0 Cat_cat (Product_cat $B $A) (Product_cat $A $B) $C
+          (@Struct_sigma _ _ (@Product_swap_func $B $A) _)
+          (@Struct_sigma _ _ (@Product_swap_func $B $A) _)
+          (@Struct_sigma _ _ (@id _ (@Product_swap_func $B $A)) $alpha)))
+  ↪ $alpha;

@@ -1,0 +1,11 @@
+// Independently projected double precomposition by product symmetry.
+// This is an actual Cartesian map, before local Prof aliases are involved.
+assert [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (alpha : τ (@StrictTransfor (Product_cat A B) C F G)) ⊢
+  @fapp1_fapp0 _ _
+    (@comp_cat_con_cart_func (Product_cat A B) (Product_cat B A) C
+      (@Product_swap_func A B)) _ _
+    (@fapp1_fapp0 _ _
+      (@comp_cat_con_cart_func (Product_cat B A) (Product_cat A B) C
+        (@Product_swap_func B A)) F G alpha)
+  ≡ alpha;

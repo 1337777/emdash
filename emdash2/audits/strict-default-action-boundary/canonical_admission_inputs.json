@@ -1,0 +1,10 @@
+{
+  "status": "source pins for an explicitly structural canonical seed profile proposal",
+  "productionRevision": "d3b49f9a6430366eddff5de2585c51be7a680373",
+  "sourceInputs": {
+    "emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "tmp/probes/admission_next/staged_full_bridge.lp": "c1728ded9d6b795a18f02c5b0575ac59aeb62ff8074bb1720300b1a37d074732",
+    "audits/strict-default-action-boundary/admission_next_verification.json": "3c08b7511cf41368d37aba65d973e89293e3154b311e6da096fbb22c80abed25",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  }
+}

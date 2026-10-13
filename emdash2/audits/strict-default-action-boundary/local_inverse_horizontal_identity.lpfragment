@@ -1,0 +1,7 @@
+// Identity pair of Cartesian transfors collapses to the identity composite.
+// Source/target pairs are inferred from the two actual identity cells. They
+// may retain stable precomposition while an identity's object has projected
+// to raw composition; repeating the pairs on the LHS misses that order.
+rule @comp_prod_fapp1_fapp0 Cat_cat $X $Y $Z _ _
+      (Struct_sigma (@id _ $F) (@id _ $G))
+  ↪ @id (Functor_cart_cat $X $Z) (@comp_cat_fapp0 $X $Y $Z $G $F);

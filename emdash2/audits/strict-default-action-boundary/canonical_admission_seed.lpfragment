@@ -1,0 +1,20 @@
+/* NEW STRUCTURAL PROFILE PROPOSAL, NOT A DERIVED STRICTNESS THEOREM.
+
+   Refine only the existing right-unit co-Yoneda component at Unit_B.
+   Its intended operation is the canonical unit/coend evaluation, whose
+   existing shaped beta is retained below. The current opaque tensor and
+   raw beta rules do not themselves prove both whole strictness cells.
+   This declaration records that additional constructor-profile requirement.
+   It accepts only B: no arbitrary raw map or separately supplied witness.
+*/
+symbol canonical_admission_coyoneda_unit (B : Cat)
+  : τ (@StrictTransfor (Product_cat (Op_cat B) B) Cat_cat
+      (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B))
+      (@Unit_prof B));
+
+// Actual inclusion agrees with the retained raw canonical operation.
+// Preserve the stable classified view; do not rewrite arbitrary raw maps.
+unif_rule
+  @strict_transfor _ _ _ _ (canonical_admission_coyoneda_unit $B)
+  ≡ @Prof_coyoneda_cov_map $B0 $B0 (@Unit_prof $B0)
+  ↪ [ $B ≡ $B0 ];
