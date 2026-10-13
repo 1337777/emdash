@@ -53,10 +53,12 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: qualify the selected Q/profunctor coefficient's whole lift
-and remaining higher identity observations, then correct the general-FF
-intrinsic-action profile. Represented coefficient unit/composition computation
-now checks. A candidate whole Homd target and direct projection ladder check
+Current next slice: finish the native presentation inverse and connect the
+existing profunctor tensor body to Q composition, then use its canonical
+counit in the whole represented lift and correct the general-FF intrinsic
+action. The product-prof closed core now supplies a derived counit and whole
+represented curried views. Represented Q unit/composition computation checks.
+A candidate whole Homd target and direct projection ladder check
 under explicit structural Q/lift contracts; those contracts are not yet a
 qualified omega coefficient. The first failing full-file consumer is the old
 internal action's use of same-profile Op_funcd(FF). The Cartesian representation,
@@ -1388,6 +1390,97 @@ naturality rules is now recorded in the evaluation-profile review. This is a
 strict-versus-nonstrict transformation distinction required by Cartesian
 evaluation/composition, not a duplicated default functor API or an additional
 profunctor-specific family theory.
+
+## Represented-lift comparison and reuse of the closed profunctor core
+
+For strict U:E=>D, the lift's q-comparison is
+`iota(E[q]) o kappa(U[y]) => kappa(U[z]) o iota(D[q])`.
+The right-hand composite is a two-ended represented Hom. The left-hand
+composite needs a map out of tensor, so merely declaring its object values
+or off-diagonal action would not construct that comparison.
+
+Investigate reuse of the existing fixed-endpoint Prof evaluation/abstraction
+core. Enriched Yoneda specializes the right implication of Unit_B by
+Companion(F) to Conjoint(F); evaluation at its identity then gives the
+canonical companion/conjoint counit. Move only the needed existing owners
+before Homd in a copied source, retain their product presentation, use
+Cartesian module transformations for the coefficient role, and connect to
+Q through actual curry/uncurry functors. Do not equate product and curried
+carriers by a unifier, supply an independent laxity cell, or introduce a
+general adjunction prerequisite. The whole comparison and bridge, rather
+than a matching fixed object formula, are the required consumers.
+
+This slice now checks in `q_closed_migration.py`. It relocates the existing
+product-prof classifiers, fixed-endpoint opposite, represented reindexing,
+tensor/map and covariant implication/evaluation/abstraction owners before
+Homd. The product presentation is retained. Prof_cat's vertical Hom now uses
+the Cartesian module-map profile required by the coefficient; its functor
+objects are unchanged. Raw Functord maps are not silently admitted to that
+profile, and general displayed FF remains available in the Homd interface.
+Later product-prof map consumers still require this profile migration.
+
+The new represented specialization is
+
+```text
+Prof_imply_cov(Unit_B, Companion(F)) -> Conjoint(F).
+Prof_represented_counit(F) = Prof_eval_cov_map(id_(Conjoint(F))).
+```
+
+The first clause chooses the represented normal form for the existing opaque
+right implication. Its semantic basis is enriched Yoneda and its parameter
+naturality, [Kelly, section 2.4, equations (2.31)--(2.33)](https://tac.mta.ca/tac/reprints/articles/10/tr10.pdf).
+This is an explicit implementation choice, not a claim that the kernel has
+derived a general Yoneda theorem or an omega-level coend model. The counit
+itself is a definition through the existing evaluation operation. Abstraction
+of that counit computes back to the represented identity. No independent
+laxity witness or general Adjunction object is supplied.
+
+The bridge to Q uses the existing Op_prof_func to swap the product endpoints,
+followed by ordinary Cartesian curry; the reverse map uses uncurry and the
+opposite profunctor operation. Both are actual whole functors. Whole unit,
+conjoint and companion views now compute to their existing curried Q owners;
+variable module maps are retained in the Cartesian Hom. These are whole
+represented comparisons, not conclusions inferred from matching fibres.
+The curried counit has Q's unit as target and a curried legacy tensor as source.
+
+Prof_cov_tensor_view_func is a whole tensor operation read through that bridge.
+Prof_cov_composition_func is the actual proposed composition body on arbitrary
+curried modules: uncurry both, swap, tensor, and curry. The counit also checks
+against the whole tensor-view source. Its agreement with native Q composition
+is still open. Three positive boundary controls currently fail:
+
+- the general presentation round trip;
+- comparison of Prof_cov_composition_func with comp_prod_func(Q); and
+- typing the derived counit with native Q composition as its source.
+
+The separate ordinary curry/uncurry control also fails to reduce a whole
+arbitrary input functor on return. Existing old checks only observed the
+expanded expression, so they did not establish that inverse law. The next
+implementation must qualify the Cartesian closure's whole inverse computation
+and higher action, then connect the tensor body to the Q composition owner.
+Do not replace these obligations with an object-only decoder or a supplied
+comparison relabelled as a derived inverse.
+
+A broader ordinary-precomposition observation rule was explored and checked
+with additional Unit/Hom joins. It is not selected: reusing Op_prof_func gave
+the needed bridge without those new general rules. The removed candidate's
+exact checked sources remain in the retained receipts. The selected source
+keeps constructor-specific represented curry/opposite computations.
+
+The final prefix passes 209 positives/34 negatives in 5.375s at the unchanged
+90s/2GiB bounds. The LHS audit has zero unreviewed compound slots. Warnings
+increase from 879 to 895: sixteen added blocks and none removed, involving
+the moved opposite-prof and represented/closed specializations. Remaining
+higher interactions are not certified by this prefix. Exact sources and
+successful/failed receipts are in q_closed_verification.json. The full source
+still stops at the existing general-FF intrinsic-action profile mismatch.
+
+The finite counit control uses F:Terminal->[1] selecting 0. Its tensor fibre
+at (1,1) is empty and the unit fibre is terminal, so the counit cannot be
+invertible. It is also the represented q-comparison of the strictly commuting
+square with E[q]=F, D[q]=id, U[0]=F and U[1]=id. Thus even strict U can have a
+genuinely lax represented lift. The script checks the finite composition and
+naturality; it does not supply or qualify the full omega construction.
 
 ## Deferred improvements under the migration boundary
 

@@ -1,0 +1,46 @@
+// Whole opposite of the unit Hom, using dimension-one transpose.
+rule @Op_prof _ _ (@Unit_prof $X) ↪ @Unit_prof (Op_cat $X);
+
+// The represented specialization of product swap. The result no longer has
+// an Op_prof head, so it does not invert the old general reindex/Op_prof fold.
+rule @Op_prof _ _
+      (@Prof_reindex $X $A $X $B (@Unit_prof $X) $F $G)
+  ↪ @Prof_reindex (Op_cat $X) (Op_cat $B) (Op_cat $X) (Op_cat $A)
+      (@Unit_prof (Op_cat $X)) (@Op_func $B $X $G) (@Op_func $A $X $F);
+
+// Actual curried represented Hom, with both endpoint functors retained.
+symbol Hom_prof_cart_curried [L B X : Cat]
+  (F : τ (Functor (Op_cat L) X)) (G : τ (Functor B X))
+  : τ (Functor L (Functor_cart_cat B Cat_cat))
+≔ @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat)
+    (Functor_cart_cat B Cat_cat) L (Functor_cart_cat X Cat_cat)
+    (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat)
+      L (Op_cat X) (Functor_cart_cat X Cat_cat)
+      (@Rep_cart_func X) (@Op_func (Op_cat L) X F))
+    (@comp_cat_con_cart_func B X Cat_cat G);
+
+// Whole curry of the swapped represented profunctor. The Op(L) parameter is
+// retained in the stable reindex owner, even when double transpose reduces
+// its product-base slot to L.
+rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+      (@Product_pair_tele_func $L $B)
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+        (@Prof_reindex $X (Op_cat $L) $X $B (@Unit_prof $X) $F $G))
+  ↪ @Hom_prof_cart_curried $L $B $X $F $G;
+
+// Cartesian enriched Yoneda specialization of the existing right implication:
+// Nat(Hom_B(F(a),-),Hom_B(b,-)) = Hom_B(b,F(a)). This chooses its represented
+// normal form; it does not identify arbitrary lax module transformations.
+rule @Prof_imply_cov $B $A $B (@Unit_prof $B)
+      (@Prof_reindex $B $A $B $B (@Unit_prof $B) $F (@id Cat_cat $B))
+  ↪ @Conjoint_prof $A $B $F;
+
+// Canonical counit is evaluation of the represented identity through the
+// existing closed core, not an independently supplied comparison cell.
+symbol Prof_represented_counit [A B : Cat] (F : τ (Functor A B))
+  : τ (ProfMap
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+      (@Unit_prof B))
+≔ @Prof_eval_cov_map B A B
+    (@Conjoint_prof A B F) (@Companion_prof A B F) (@Unit_prof B)
+    (@id (Prof_cat B A) (@Conjoint_prof A B F));

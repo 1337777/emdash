@@ -1,0 +1,59 @@
+// Actual Cartesian maps between the legacy product-prof presentation and Q's
+// curried presentation. Their categories are not identified by a unifier.
+symbol Prof_cov_curry_func (A B : Cat)
+  : τ (Functor (Prof_cat B A) (Hom_cat Prof_cov_universe A B))
+≔ @comp_cat_fapp0
+    (Prof_cat B A) (Functor_cart_cat (Product_cat A (Op_cat B)) Cat_cat)
+    (Hom_cat Prof_cov_universe A B)
+    (@curry_func_func A (Op_cat B) Cat_cat)
+    (@Op_prof_func B A);
+
+symbol Prof_cov_uncurry_func (A B : Cat)
+  : τ (Functor (Hom_cat Prof_cov_universe A B) (Prof_cat B A))
+≔ @comp_cat_fapp0
+    (Hom_cat Prof_cov_universe A B) (Functor_cart_cat (Product_cat A (Op_cat B)) Cat_cat)
+    (Prof_cat B A)
+    (@Op_prof_func (Op_cat A) (Op_cat B))
+    (@uncurry_func_func A (Op_cat B) Cat_cat);
+
+// Whole legacy tensor, read in the curried coefficient convention. The swap
+// is necessary because Q(A,B) reads legacy Prof(B,A).
+symbol Prof_cov_tensor_view_func (A B C : Cat)
+  : τ (Functor (Product_cat (Prof_cat B A) (Prof_cat C B))
+      (Hom_cat Prof_cov_universe A C))
+≔ @comp_cat_fapp0
+    (Product_cat (Prof_cat B A) (Prof_cat C B)) (Prof_cat C A)
+    (Hom_cat Prof_cov_universe A C)
+    (Prof_cov_curry_func A C)
+    (@comp_cat_fapp0
+      (Product_cat (Prof_cat B A) (Prof_cat C B))
+      (Product_cat (Prof_cat C B) (Prof_cat B A)) (Prof_cat C A)
+      (@Prof_tensor_func C B A) (@Product_swap_func (Prof_cat B A) (Prof_cat C B)));
+
+// Proposed full composition body on arbitrary curried modules. Comparing
+// this whole functor with comp_prod_func(Q) is a separate required boundary.
+symbol Prof_cov_composition_func (A B C : Cat)
+  : τ (Functor
+      (Product_cat (Hom_cat Prof_cov_universe A B) (Hom_cat Prof_cov_universe B C))
+      (Hom_cat Prof_cov_universe A C))
+≔ @comp_cat_fapp0
+    (Product_cat (Hom_cat Prof_cov_universe A B) (Hom_cat Prof_cov_universe B C))
+    (Product_cat (Prof_cat B A) (Prof_cat C B)) (Hom_cat Prof_cov_universe A C)
+    (Prof_cov_tensor_view_func A B C)
+    (@Product_map_func
+      (Hom_cat Prof_cov_universe A B) (Prof_cat B A)
+      (Hom_cat Prof_cov_universe B C) (Prof_cat C B)
+      (Prof_cov_uncurry_func A B) (Prof_cov_uncurry_func B C));
+
+// A derived map in the curried coefficient. Identifying its source with
+// coefficient composition and its target with the unit still requires the
+// whole constructor comparisons; matching their fibres would not suffice.
+symbol Prof_cov_counit_view [A B : Cat] (F : τ (Functor A B))
+  : τ (Hom (Hom_cat Prof_cov_universe B B)
+      (fapp0 (Prof_cov_curry_func B B)
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)))
+      (fapp0 (Prof_cov_curry_func B B) (@Unit_prof B)))
+≔ @fapp1_fapp0 (Prof_cat B B) (Hom_cat Prof_cov_universe B B)
+    (Prof_cov_curry_func B B)
+    (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+    (@Unit_prof B) (@Prof_represented_counit A B F);

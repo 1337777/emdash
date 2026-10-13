@@ -554,3 +554,48 @@ profile. Replay after changing coefficient identities/composition, representatio
 heads or their ordinary postcomposition owners. This remains a prototype
 checkpoint, with whole coefficient/lift coherence, intrinsic extraction and
 production qualification outstanding.
+
+## Existing closed profunctor core and the lift counit
+
+`q_closed_migration.py` moves the needed existing product-prof classifiers,
+opposite, represented reindexing, tensor/map and covariant closed owners before
+Homd. Prof_cat retains product-functor objects and uses Cartesian vertical
+module transformations for the coefficient role. This does not restrict raw
+displayed FF; later prof-map consumers still need migration.
+
+The represented Yoneda specialization of Prof_imply_cov identifies its value
+on Unit_B and Companion(F) with Conjoint(F). The canonical counit is then
+defined as Prof_eval_cov_map applied to the represented identity. Its
+abstraction round trip checks. This uses the existing closed core, with no
+separately supplied laxity cell or general adjunction input.
+
+The actual curried bridge uses Op_prof_func and Cartesian curry/uncurry.
+Whole unit/conjoint/companion comparisons pass. A whole tensor-view operation,
+a proposed composition body on arbitrary curried modules and the curried
+counit are also constructed. The latter currently has the curried legacy
+tensor as source; it is not yet the required native Q-composite counit.
+
+```bash
+python3 audits/strict-default-action-boundary/q_closed_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_q_closed/owner_prefix.lp
+python3 audits/strict-default-action-boundary/q_closed_counit_model.py
+```
+
+The prefix passes 209 positives/34 negatives. The LHS audit is clear; the
+sixteen added warning reports remain inventoried interaction obligations.
+The three separate boundary files are positive obligations that currently
+fail: roundtrip_boundary.lp, composition_boundary.lp and counit_boundary.lp.
+They must not be counted as successful negative controls. The full copied
+source retains the general-FF intrinsic-action mismatch.
+
+The finite model checks the canonical Empty->Terminal counit fibre for
+Terminal->[1] selecting 0 and its naturality. The same example is a strict
+input square whose represented lift has a noninvertible comparison. It is
+a finite direction/noninvertibility control, not an omega model.
+
+q_closed_verification.json pins sources, receipts, the alternate unselected
+projection experiment and the exact unfinished boundaries. Replay after
+changes to Cartesian module-map profiles, opposite/reindexing, the closed
+prof core or the Q composition/presentation interface. No production
+promotion or full milestone completion is claimed by this checkpoint.

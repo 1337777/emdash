@@ -1,0 +1,85 @@
+// NON-LIBRARY native consumers of the reused closed product-prof owners.
+assert (A B : Cat) ⊢ Obj (Prof_cat A B)
+  ≡ Functor (Product_cat (Op_cat A) B) Cat_cat;
+assert [A B : Cat] [P Q : τ (Prof A B)] (U : τ (ProfMap P Q)) ⊢
+  U : τ (@StrictTransfor (Product_cat (Op_cat A) B) Cat_cat P Q);
+assertnot [A B : Cat] [P Q : τ (Prof A B)]
+  (U : τ (Functord P Q)) ⊢ U : τ (ProfMap P Q);
+
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  @fapp0 (Product_cat (Op_cat B) A) Cat_cat (@Conjoint_prof A B F)
+    (@Product_pair (Op_cat B) A b a)
+  ≡ Hom_cat B b (fapp0 F a);
+
+// Whole represented views, not only their object values.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (Prof_cov_curry_func A B) (@Conjoint_prof A B F)
+  ≡ fapp0 (Prof_cov_conjoint_func A B) F;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (Prof_cov_curry_func B A) (@Companion_prof A B F)
+  ≡ @Prof_cov_companion A B F;
+assert (B : Cat) ⊢
+  fapp0 (Prof_cov_curry_func B B) (@Unit_prof B) ≡ @id Prof_cov_universe B;
+
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @Prof_cov_counit_view A B F
+  : τ (Hom (Hom_cat Prof_cov_universe B B)
+      (fapp0 (Prof_cov_curry_func B B)
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)))
+      (@id Prof_cov_universe B));
+
+assert (A B C : Cat) ⊢ Prof_cov_composition_func A B C
+  : τ (Functor
+      (Product_cat (Hom_cat Prof_cov_universe A B) (Hom_cat Prof_cov_universe B C))
+      (Hom_cat Prof_cov_universe A C));
+assert [A B C : Cat] (R : τ (Prof B A)) (S : τ (Prof C B)) ⊢
+  fapp0 (Prof_cov_tensor_view_func A B C) (@Product_pair (Prof_cat B A) (Prof_cat C B) R S)
+  ≡ fapp0 (Prof_cov_curry_func A C) (@Prof_tensor C B A S R);
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @Prof_cov_counit_view A B F
+  : τ (Hom (Hom_cat Prof_cov_universe B B)
+      (fapp0 (Prof_cov_tensor_view_func B A B)
+        (@Product_pair (Prof_cat A B) (Prof_cat B A)
+          (@Companion_prof A B F) (@Conjoint_prof A B F)))
+      (@id Prof_cov_universe B));
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  @fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Companion_prof A B F)
+    (@Product_pair (Op_cat A) B a b)
+  ≡ Hom_cat B (fapp0 F a) b;
+
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @Prof_imply_cov B A B (@Unit_prof B) (@Companion_prof A B F)
+  ≡ @Conjoint_prof A B F;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @Prof_represented_counit A B F
+  : τ (ProfMap
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+      (@Unit_prof B));
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @Prof_lambda_cov_map B A B
+    (@Conjoint_prof A B F) (@Companion_prof A B F) (@Unit_prof B)
+    (@Prof_represented_counit A B F)
+  ≡ @id (Prof_cat B A) (@Conjoint_prof A B F);
+
+assert (A B : Cat) ⊢ Prof_cov_curry_func A B
+  : τ (Functor (Prof_cat B A) (Hom_cat Prof_cov_universe A B));
+assert (A B : Cat) ⊢ Prof_cov_uncurry_func A B
+  : τ (Functor (Hom_cat Prof_cov_universe A B) (Prof_cat B A));
+assert [A B : Cat] [P Q : τ (Prof B A)] (U : τ (ProfMap P Q)) ⊢
+  @fapp1_fapp0 (Prof_cat B A) (Hom_cat Prof_cov_universe A B)
+    (Prof_cov_curry_func A B) P Q U
+  : τ (@StrictTransfor A (Functor_cart_cat (Op_cat B) Cat_cat)
+      (fapp0 (Prof_cov_curry_func A B) P) (fapp0 (Prof_cov_curry_func A B) Q));
+assertnot [A B : Cat] [P : τ (Prof B A)] (U : τ (ProfMap P P)) ⊢
+  @fapp1_fapp0 (Prof_cat B A) (Hom_cat Prof_cov_universe A B)
+    (Prof_cov_curry_func A B) P P U
+  ≡ @id (Hom_cat Prof_cov_universe A B) (fapp0 (Prof_cov_curry_func A B) P);
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @Prof_cov_counit_view A B F
+  : τ (Hom (Hom_cat Prof_cov_universe B B)
+      (fapp0 (Prof_cov_curry_func B B)
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)))
+      (fapp0 (Prof_cov_curry_func B B) (@Unit_prof B)));
+
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  @fapp0 (Op_cat B) Cat_cat
+    (@fapp0 A (Functor_cart_cat (Op_cat B) Cat_cat)
+      (fapp0 (Prof_cov_curry_func A B) (@Conjoint_prof A B F)) a) b
+  ≡ Hom_cat B b (fapp0 F a);

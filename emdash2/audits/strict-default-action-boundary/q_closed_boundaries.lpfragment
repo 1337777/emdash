@@ -1,0 +1,19 @@
+// PRESENTATION ROUNDTRIP
+// Positive obligation: retain a whole arbitrary curried module on return.
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  fapp0 (Prof_cov_curry_func A B) (fapp0 (Prof_cov_uncurry_func A B) P) ≡ P;
+
+// COMPOSITION BODY
+// Positive obligation: the tensor-derived whole operation must implement Q.
+assert (A B C : Cat) ⊢ Prof_cov_composition_func A B C
+  ≡ @comp_prod_func Prof_cov_universe A B C;
+
+// COUNit SOURCE
+// Positive consumer needed by the represented lift: the counit has native
+// coefficient composition as its source, not merely a decoded tensor.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @Prof_cov_counit_view A B F
+  : τ (Hom (Hom_cat Prof_cov_universe B B)
+      (@comp_fapp0 Prof_cov_universe B A B
+        (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include A B F)
+        (@Prof_cov_companion A B F))
+      (@id Prof_cov_universe B));
