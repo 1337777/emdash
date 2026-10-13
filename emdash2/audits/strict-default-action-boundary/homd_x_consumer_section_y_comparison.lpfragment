@@ -1,0 +1,11 @@
+// Project the actual whole section comparison using generic equality action.
+// This is an observation, not an installed component rewrite or proof payload.
+assert [K : Cat] (E : τ (Catd K)) [x x' : τ (Obj K)] (p : τ (Hom K x x')) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K)) ⊢
+  (@eq_ap (Obj (@Homd_section_cat K E x')) (Hom Prof_cov_universe (Fibre_cat E y) (Hom_cat K x' y))
+    (λ r : τ (Obj (@Homd_section_cat K E x')), (@tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x')) y r))
+    (fapp0 (@fapp1_fapp0 (CoAt2_cat K) Cat_cat (@Homd_target_catd K E) x x' p) (@homd_id_src_sec K E x u)) (@comp_fapp0 (Functor_cat K Prof_cov_universe) (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x')) (@fapp1_fapp0 (CoAt2_cat K) (Functor_cat K Prof_cov_universe) (ProfRep_cov_int K) x x' p) (@homd_id_src_sec K E x u)) (@eq_refl (Obj (@Homd_section_cat K E x')) (fapp0 (@fapp1_fapp0 (CoAt2_cat K) Cat_cat (@Homd_target_catd K E) x x' p) (@homd_id_src_sec K E x u))))
+  : τ (@= (Hom Prof_cov_universe (Fibre_cat E y) (Hom_cat K x' y))
+    (@tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x')) y (fapp0 (@fapp1_fapp0 (CoAt2_cat K) Cat_cat (@Homd_target_catd K E) x x' p) (@homd_id_src_sec K E x u)))
+    (@comp_fapp0 Prof_cov_universe (Fibre_cat E y) (Hom_cat K x y) (Hom_cat K x' y)
+      (@Prof_cov_companion (Hom_cat K x' y) (Hom_cat K x y) (@hom_precomp_along_func K K (@id_func K) y x x' p))
+      (@homd_id_tgt_func K E x u y)));

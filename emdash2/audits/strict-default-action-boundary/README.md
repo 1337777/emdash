@@ -939,3 +939,20 @@ as a bounded policy candidate. Its [verification](represented_comp_verification.
 also records the integrated coefficient consumers; the inverse, Cartesian
 admission of that forward map and production normalization migration remain
 open.
+
+## Native identity Homd consumers
+
+The [initial x-action audit](homd_x_consumer_source_closure.md) tests the
+actual Homd root and transported section. The
+[native-action successor](homd_native_action_source_closure.md) closes its
+source/left-action and raw postcomposition comparisons through two generic
+proof-time owner clauses. The selected target and exact removals are pinned
+in its [verification](homd_native_action_verification.json); warnings are
+unchanged. No root strict-naturality equation is introduced.
+
+Whole structural primitives with appropriate projections remain an allowed
+implementation method. Deriving the represented lift from the legacy closed
+profunctor calculus is optional comparison work. Its actual profiles, laws
+and Homd consumers still require qualification. These checks do not yet
+integrate the raw-preserving coefficient reference, implement native root
+laxity extraction, or complete production migration.

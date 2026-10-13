@@ -1,0 +1,8 @@
+{
+  "donor": "tmp/probes/foundation_assembly/combined_controls.lp",
+  "sourceInputs": {
+    "tmp/probes/foundation_assembly/combined_controls.lp": "d7337feeb94a35be9edef287262092ed2c8cc840fe324784ed580ae7667a3cc7",
+    "audits/strict-default-action-boundary/foundation_assembly_verification.json": "1855acbfdb381d8367e4a0805eb4ce81d259b4087a77f5d41408b8aea4006a59",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  }
+}

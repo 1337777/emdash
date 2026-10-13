@@ -1,0 +1,29 @@
+// The projected-arrow comparison retains the actual postcomposed input.
+assert [A B : Cat] (F : τ (Functor B A)) [W : τ (Obj A)]
+  [X Y : τ (Obj B)] (h : τ (Hom B X Y))
+  (g : τ (Hom A W (fapp0 F X))) ⊢
+  @eq_refl (Hom A W (fapp0 F Y)) (@hom_postcomp_fapp0 A B F W X Y h g)
+  : τ (@= (Hom A W (fapp0 F Y))
+      (@hom_postcomp_fapp0 A B F W X Y h g)
+      (@comp_fapp0 A W (fapp0 F X) (fapp0 F Y) (@fapp1_fapp0 B A F X Y h) g));
+assertnot [A B : Cat] (F : τ (Functor B A)) [W : τ (Obj A)]
+  [X Y : τ (Obj B)] (h : τ (Hom B X Y))
+  (g g' : τ (Hom A W (fapp0 F X))) ⊢
+  @eq_refl (Hom A W (fapp0 F Y)) (@hom_postcomp_fapp0 A B F W X Y h g)
+  : τ (@= (Hom A W (fapp0 F Y))
+      (@hom_postcomp_fapp0 A B F W X Y h g)
+      (@comp_fapp0 A W (fapp0 F X) (fapp0 F Y) (@fapp1_fapp0 B A F X Y h) g'));
+
+// A raw displayed transfor does not acquire strict target-route naturality.
+assertnot [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) ⊢
+  @eq_refl (Functor (Hom_cat K x y) (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+    (@tapp1_func K Cat_cat E D x y FF)
+  : τ (@= (Functor (Hom_cat K x y) (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+      (@tapp1_func K Cat_cat E D x y FF)
+      (@comp_cat_fapp0 (Hom_cat K x y)
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y))
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y))
+        (@comp_cat_cov_cart_func (Fibre_cat E x) (Fibre_cat E y) (Fibre_cat D y)
+          (@tapp0_fapp0 K Cat_cat E D y FF))
+        (@fapp1_func K Cat_cat E x y)));

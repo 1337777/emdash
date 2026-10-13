@@ -1,0 +1,372 @@
+{
+  "status": "bounded actual identity-Homd source/left x-action and target/y consumers pass at proof time; each exact comparison removal fails; zero runtime changes",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/homd_native_action_migration.py": "7966ca23631bb5fb5dcd69ef8379f363a7bc7adaee21cfa92f936d3f7d19cec8",
+    "audits/strict-default-action-boundary/foundation_assembly_verification.json": "1855acbfdb381d8367e4a0805eb4ce81d259b4087a77f5d41408b8aea4006a59",
+    "tmp/probes/foundation_assembly/combined_controls.lp": "d7337feeb94a35be9edef287262092ed2c8cc840fe324784ed580ae7667a3cc7",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/homd_native_action_post_view.lpfragment": "5131a9c0840d8371db59dc9dbbb054ea18495c96ccf710ec8b8225516d83b150",
+    "audits/strict-default-action-boundary/homd_native_action_source_view.lpfragment": "28906d4319034cb4a962b50bba62c35de3fcbbd0b25c31998bb1702eab2bf127",
+    "audits/strict-default-action-boundary/homd_native_action_source_late_facade.lpfragment": "050068a5afe003c58c72762ced9a56ecbc16d02b03224213edbb49c6bfb00445",
+    "audits/strict-default-action-boundary/homd_native_action_controls.lpfragment": "88be8bbf902e6c0019efc7724114386d08f06429b22bc0f6c7d9a70cbec41e2c",
+    "audits/strict-default-action-boundary/homd_x_consumer_identity_action_boundary.lpfragment": "7c43376278c1914330466ad2eb987f1e6c2edfca05d40ac445e6a0d8e924a01b",
+    "audits/strict-default-action-boundary/homd_x_consumer_target_controls.lpfragment": "35b1f0ba880b825e0482ee13503cc990f510a6be523dec0d2f3f104ce1866057",
+    "audits/strict-default-action-boundary/homd_x_consumer_section_y_comparison.lpfragment": "830114cc16b263375bb05c23165cda9f0f4789d45c40cfca7aeb2b2bbbb84a4b",
+    "audits/strict-default-action-boundary/homd_x_consumer_right_route_leaf.lpfragment": "e6c01adb39db559a55c901fb840dbee55dc6b9757ded684858a7c4ee43cbbfa2"
+  },
+  "productionRevision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "nativeSourceActionSha256": "84a40deab7a2d14a9417962377c5023532a38993c71fb41fead0828547255fa3",
+  "outputs": {
+    "original_source_view.lp": "048633b571109c7d6fc83c4398d8743932067114acdf45524321fcacbc537695",
+    "source_view.lp": "644e28c121d5b1747fc1129ffe48564d6d2146d7a4978428d03357bad4f782f4",
+    "target_view.lp": "fad196995b14e746afb58f960b0cf2adc8f45b15e4e5fd0f77ba08f22b3fa894",
+    "y_view.lp": "2acf7aa07dda12c8903406648fcb20251b91cf88e75c92f38d3eb98088e3e920",
+    "combined_controls.lp": "b1ad41bbc1e808d53def172b0dbfd1c4f34f8576c27bf180624a7c4b6c0dba01",
+    "without_post_view.lp": "168ef46d9881defe98e2fd1c28b47179b56cc2f42f6672fec877a9e69a62db07",
+    "without_source_view.lp": "c33ce96239cd12f7398299b286a0eb626d18a5d9e7eeedd514902c332d48c6b0",
+    "early_combined_controls.lp": "8e14037d7b4698d46c01c598ed9db4bd523e16413c1d614538b4c48d02c9eb49",
+    "early_without_post.lp": "0501cfc74031df54afe5bda11eef4e78c110655c481979649ff7bf40acceb069",
+    "early_without_source.lp": "c33ce96239cd12f7398299b286a0eb626d18a5d9e7eeedd514902c332d48c6b0",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "original_source_view.lp": {
+      "qualification": "Historical failed positive: unchanged later production source-action clause still misses projected component/image heads.",
+      "receipt": "logs/check-runs/20261013T172644Z-11440275d2794302b6f1987eb6c71439.json",
+      "receiptSha256": "aacaf8fbbd528eef539750fabab53700f54ddd4344caa880ecbacfe529946f6e",
+      "target": "tmp/probes/homd_native_action/original_source_view.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_native_action/original_source_view.lp": "048633b571109c7d6fc83c4398d8743932067114acdf45524321fcacbc537695"
+      },
+      "inputSnapshot": "3b2acecb94f4b76e5437f94d91a61ea9559885e3b375b60b6e611cb66f061acb",
+      "sourceSha256": "048633b571109c7d6fc83c4398d8743932067114acdf45524321fcacbc537695",
+      "log": "logs/check-runs/20261013T172644Z-11440275d2794302b6f1987eb6c71439.log",
+      "logSha256": "5f307c45e47578077ffb8f015b015ae086c5889f3f224cdcb43a7be82b784428",
+      "output": "tmp/probes/homd_native_action/original_source_view.out",
+      "outputSha256": "fb5ea7e66c2d182308a7473b4e32a32414c6f5090f144ab2e7dbc09ebd4ccfb9",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 14.23328488401603,
+      "childrenMaxRssKiB": 658828,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 954,
+        "replaceablePatternVariables": 137
+      },
+      "failureDiagnostic": "[tmp/probes/homd_native_action/original_source_view.lp:18702:0-18711:69] Assertion failed."
+    },
+    "combined_controls.lp": {
+      "qualification": "Historical authoring/owner-order failure: Fibre_cat is unavailable at the early insertion position; no semantic failure claimed.",
+      "receipt": "logs/check-runs/20261013T172658Z-d7781b715c48496395561a5847ff9e9a.json",
+      "receiptSha256": "e5cab3ccfd4ed3f919f0a57c6d125f5a345860e8abf063f1d13faea1e8e61389",
+      "target": "tmp/probes/homd_native_action/combined_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_native_action/combined_controls.lp": "b1ad41bbc1e808d53def172b0dbfd1c4f34f8576c27bf180624a7c4b6c0dba01"
+      },
+      "inputSnapshot": "c444647e6231fc4c6d930f02ca6ccb40e419708c72af9c6fe4ee4b819497ebf9",
+      "sourceSha256": "b1ad41bbc1e808d53def172b0dbfd1c4f34f8576c27bf180624a7c4b6c0dba01",
+      "log": "logs/check-runs/20261013T172658Z-d7781b715c48496395561a5847ff9e9a.log",
+      "logSha256": "3f4befef0c2089a67b002a29a7bc7d6dcbf07d2af705df1d1b4d5c68d03608ab",
+      "output": "tmp/probes/homd_native_action/combined_controls.out",
+      "outputSha256": "c045c11e1b5a900c131a269aa81ebaf288cda1d02f6e8883cb5d90b913dbba65",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 3.3940279399976134,
+      "childrenMaxRssKiB": 152464,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 599,
+        "replaceablePatternVariables": 51
+      },
+      "failureDiagnostic": "Unknown symbol Fibre_cat."
+    },
+    "early_combined_controls.lp": {
+      "qualification": "Passed combined actual Homd native source/left action, whole/capped target action, section raw comparison, y projection, ordinary right-route leaf, perturbation and no-strict-right-route controls.",
+      "receipt": "logs/check-runs/20261013T172921Z-738517b8ac2740ea96ea002c68d55f1c.json",
+      "receiptSha256": "3bd5704d25162fd33b6f13447e2e7118b83939fb1b12484823f62aae86264695",
+      "target": "tmp/probes/homd_native_action/early_combined_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_native_action/early_combined_controls.lp": "8e14037d7b4698d46c01c598ed9db4bd523e16413c1d614538b4c48d02c9eb49"
+      },
+      "inputSnapshot": "75d6292f0c35f0358d43cd1d71f5a1b16e66f75a27574dedaf7079406157bfc7",
+      "sourceSha256": "8e14037d7b4698d46c01c598ed9db4bd523e16413c1d614538b4c48d02c9eb49",
+      "log": "logs/check-runs/20261013T172921Z-738517b8ac2740ea96ea002c68d55f1c.log",
+      "logSha256": "fc92bb0c4059c9df45d7c8d7425723b5768b927f0a642052835f24a21a1c579e",
+      "output": "tmp/probes/homd_native_action/early_combined_controls.out",
+      "outputSha256": "51e4363255d7e76c01d48e072d5e1cf5b13f23fdd1fdf3ea58491803eb89dd5e",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 20.738069199956954,
+      "childrenMaxRssKiB": 660124,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 954,
+        "replaceablePatternVariables": 137
+      }
+    },
+    "early_without_post.lp": {
+      "qualification": "Expected removal failure at actual typed section postcomposition comparison, lines 18788-18792; source-action comparison remains installed.",
+      "receipt": "logs/check-runs/20261013T173411Z-54f4319c7d5b4f79a546839bdb6b2ab4.json",
+      "receiptSha256": "2de56f646446304abe561b6872a7c98e3964f924abbc06f34bd4ba297592e53f",
+      "target": "tmp/probes/homd_native_action/early_without_post.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_native_action/early_without_post.lp": "0501cfc74031df54afe5bda11eef4e78c110655c481979649ff7bf40acceb069"
+      },
+      "inputSnapshot": "bd783068c75e7042cc0bd92abac434ed9d792a798bd168a7a63047da7e114b54",
+      "sourceSha256": "0501cfc74031df54afe5bda11eef4e78c110655c481979649ff7bf40acceb069",
+      "log": "logs/check-runs/20261013T173411Z-54f4319c7d5b4f79a546839bdb6b2ab4.log",
+      "logSha256": "6a6fc2c2175900fba6f92097670ea08ca18c3bdca188007a268a7115c8ace8f3",
+      "output": "tmp/probes/homd_native_action/early_without_post.out",
+      "outputSha256": "535a1fcaeaa51e64f331507983fe66bfa0b548bbf7df8ec1f8d6e369e20d8874",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 11.925299955066293,
+      "childrenMaxRssKiB": 661612,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 954,
+        "replaceablePatternVariables": 137
+      },
+      "failureDiagnostic": "[tmp/probes/homd_native_action/early_without_post.lp:18788:0-18792:291] Assertion failed."
+    },
+    "early_without_source.lp": {
+      "qualification": "Expected removal failure at actual homd_id_int whole source/left action comparison, lines 18733-18742; postcomposition comparison remains installed.",
+      "receipt": "logs/check-runs/20261013T173424Z-3d82a11cd35346c79112c171f1ad78b2.json",
+      "receiptSha256": "3902438394f051830151ad4de2cfcdfb875eda1b0567ca887eb107b29cc85268",
+      "target": "tmp/probes/homd_native_action/early_without_source.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_native_action/early_without_source.lp": "c33ce96239cd12f7398299b286a0eb626d18a5d9e7eeedd514902c332d48c6b0"
+      },
+      "inputSnapshot": "6580f9ec901d7d3a17753144ecacf635e6b245458aa05700d00b5e06a54f82b1",
+      "sourceSha256": "c33ce96239cd12f7398299b286a0eb626d18a5d9e7eeedd514902c332d48c6b0",
+      "log": "logs/check-runs/20261013T173424Z-3d82a11cd35346c79112c171f1ad78b2.log",
+      "logSha256": "8a14fb85aad492071bd9c4a5c726273554c04a3e48570c78b10e15c7d4b11160",
+      "output": "tmp/probes/homd_native_action/early_without_source.out",
+      "outputSha256": "98929de782b9893a9edfdc50eeb531c5b480d978d73ed98ed0c921df768cbb93",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 11.681930450024083,
+      "childrenMaxRssKiB": 657532,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 954,
+        "replaceablePatternVariables": 137
+      },
+      "failureDiagnostic": "[tmp/probes/homd_native_action/early_without_source.lp:18733:0-18742:69] Assertion failed."
+    }
+  },
+  "sourcePins": {
+    "path": "audits/strict-default-action-boundary/homd_native_action_inputs.json",
+    "sha256": "47fa0eda9cd2b30263023eed12308d7374e39be938bb03d9b70064d7f0fe21b7"
+  },
+  "manifest": {
+    "path": "tmp/probes/homd_native_action/manifest.json",
+    "sha256": "2ae400fa8deacc4ee6770aa559223448527a043cd9cc7f2c681796bdf30f95d9"
+  },
+  "donor": "tmp/probes/foundation_assembly/combined_controls.lp",
+  "donorReceipt": "logs/check-runs/20261013T143823Z-9fc3b8d55d79484fbb3c29119f8ef6a1.json",
+  "selectedTarget": "early_combined_controls.lp",
+  "uncheckedTargets": [
+    "source_view.lp",
+    "target_view.lp",
+    "y_view.lp",
+    "without_post_view.lp",
+    "without_source_view.lp"
+  ],
+  "uncheckedQualification": "No outcome is copied to an unchecked target, even when its bytes equal a checked removal.",
+  "sourceAssertionCounts": {
+    "original_source_view.lp": {
+      "positive": 272,
+      "negative": 50
+    },
+    "source_view.lp": {
+      "positive": 273,
+      "negative": 52
+    },
+    "target_view.lp": {
+      "positive": 278,
+      "negative": 51
+    },
+    "y_view.lp": {
+      "positive": 272,
+      "negative": 50
+    },
+    "combined_controls.lp": {
+      "positive": 283,
+      "negative": 54
+    },
+    "without_post_view.lp": {
+      "positive": 283,
+      "negative": 54
+    },
+    "without_source_view.lp": {
+      "positive": 283,
+      "negative": 54
+    },
+    "early_combined_controls.lp": {
+      "positive": 283,
+      "negative": 54
+    },
+    "early_without_post.lp": {
+      "positive": 283,
+      "negative": 54
+    },
+    "early_without_source.lp": {
+      "positive": 283,
+      "negative": 54
+    }
+  },
+  "warningComparison": {
+    "baselineReceipt": "logs/check-runs/20261013T143823Z-9fc3b8d55d79484fbb3c29119f8ef6a1.json",
+    "baselineSourceSha256": "d7337feeb94a35be9edef287262092ed2c8cc840fe324784ed580ae7667a3cc7",
+    "baselineLog": "logs/check-runs/20261013T143823Z-9fc3b8d55d79484fbb3c29119f8ef6a1.log",
+    "baselineLogSha256": "3411718185c6ed6aab59ff979f5302744eee57e671f15cb6823832b6ee941f11",
+    "before": 954,
+    "after": 954,
+    "added": [],
+    "removed": [],
+    "normalization": "Strip ANSI and compare six-line critical-pair diagnostic blocks as multisets; location headers are excluded, no alpha renaming.",
+    "classification": "Two proof-time unifiers introduce no runtime critical pairs; all 954 warning blocks are identical to the selected foundation donor. No confluence certificate is inferred."
+  },
+  "ruleLhsAudit": {
+    "path": "tmp/probes/homd_native_action/lhs-audit.txt",
+    "sha256": "b80517616cfa805ec302cf2545cee788a0992be0da5f27c80335d4185ef907b0",
+    "unreviewed": 0,
+    "annotatedSlots": 46,
+    "intentionalClauses": 31
+  },
+  "ownerChanges": {
+    "runtimeRulesAdded": 0,
+    "unificationRulesAdded": 2,
+    "declarationsAdded": 0
+  },
+  "scope": [
+    "Only the existing projected ordinary-postcomposition reading and native Cat-valued source/left action convention are completed at their existing owners. All endpoint and mapped-arrow conditions remain explicit.",
+    "Actual homd_id_int action compares to Homd_target[p] composed with homd_id_src_func(E,x); there is no equality with homd_id_src_func(E,x-prime) composed with Op(E[p]).",
+    "The ordinary Hom leaf is checked on the separate right route. The required native directed laxity between routes is not constructed or identified by these comparisons.",
+    "The whole represented lift and identity Homd are structural primitives with qualified projection observations; no derivation from legacy coends is required or claimed.",
+    "This donor retains provisional Q and globally Cartesian Prof mapping categories. The separate raw-preserving local coefficient profile has not been integrated here.",
+    "No new primitive, runtime computation, operational proof payload, general raw-FF strictness, lift triangle or composition coherence is supplied.",
+    "Initial homd_x positive failures remain preserved; the optional stronger route-equality diagnostic remains unrun and is not an obligation of ambient Homd."
+  ],
+  "checkerInvokedByMetadataUpdate": false,
+  "sourceClosure": {
+    "path": "audits/strict-default-action-boundary/homd_native_action_source_closure.md",
+    "sha256": "d6ba0cd2364b55f0d4ad0b8fbc8285e3c315353274d1da26e138e9caf55e3fcf"
+  },
+  "authoringHygiene": {
+    "change": "Removed extra EOF blank lines from imported x-consumer fragments; replay explicitly restores their legacy two-newline separators. Native closure EOF normalized.",
+    "emittedOutputHashesUnchanged": true,
+    "receiptInputsUnchanged": true
+  }
+}

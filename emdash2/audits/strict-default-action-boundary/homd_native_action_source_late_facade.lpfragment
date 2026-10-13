@@ -1,0 +1,12 @@
+// Existing native Cat-valued source-action convention, with projected
+// component and image functors compared after matching the two rigid heads.
+// This is D[p] o FF[x]; no equality with FF[y] o E[p] is asserted.
+unif_rule @tapp1_func $K Cat_cat $E $D $x $y $FF
+  ≡ @comp_fapp0 Cat_cat $C0 $C1 $C2 $P $H
+  ↪ [ $C0 ≡ Hom_cat $K $x $y;
+      $C1 ≡ Functor_cart_cat (@Fibre_cat $K $D $x) (@Fibre_cat $K $D $y);
+      $C2 ≡ Functor_cart_cat (@Fibre_cat $K $E $x) (@Fibre_cat $K $D $y);
+      $P ≡ @hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat)
+        (@Fibre_cat $K $D $y) (@Fibre_cat $K $E $x) (@Fibre_cat $K $D $x)
+        (@tapp0_fapp0 $K Cat_cat $E $D $x $FF);
+      $H ≡ @fapp1_func $K Cat_cat $D $x $y ];

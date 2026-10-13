@@ -1,0 +1,9 @@
+// Optional stronger equality diagnostic, not a required ambient Homd law.
+// The actual required datum is native laxity from the first route to the
+// second. Failure here does not establish a missing equality rule.
+assert [K : Cat] (E : τ (Catd K)) [x x' : τ (Obj K)] (p : τ (Hom K x x')) (u : τ (Obj (Fibre_cat E x))) ⊢
+  (@eq_refl (Obj (@Homd_section_cat K E x')) (fapp0 (@fapp1_fapp0 (CoAt2_cat K) Cat_cat (@Homd_target_catd K E) x x' p) (@homd_id_src_sec K E x u)))
+  : τ (@= (Obj (@Homd_section_cat K E x'))
+    (fapp0 (@fapp1_fapp0 (CoAt2_cat K) Cat_cat (@Homd_target_catd K E) x x' p) (@homd_id_src_sec K E x u))
+    (@homd_id_src_sec K E x'
+    (fapp0 (@fapp1_fapp0 K Cat_cat E x x' p) u)));

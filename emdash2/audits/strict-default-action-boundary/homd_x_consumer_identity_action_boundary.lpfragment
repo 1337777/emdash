@@ -1,0 +1,12 @@
+// Positive boundary: the prefix has no Homd-specific whole x-action rule.
+// This is the ambient source/left route used by the later native Cat owner.
+assert [K : Cat] (E : τ (Catd K)) (x x' : τ (Obj K)) ⊢
+  @eq_refl (Functor (Hom_cat (CoAt2_cat K) x x') (Functor_cart_cat (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x'))) (@tapp1_func (CoAt2_cat K) Cat_cat (@Op_catd K E) (@Homd_target_catd K E) x x' (@homd_id_int K E))
+  : τ (@= (Functor (Hom_cat (CoAt2_cat K) x x') (Functor_cart_cat (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x')))
+    (@tapp1_func (CoAt2_cat K) Cat_cat (@Op_catd K E) (@Homd_target_catd K E) x x' (@homd_id_int K E))
+    (@comp_cat_fapp0 (Hom_cat (CoAt2_cat K) x x')
+    (Functor_cart_cat (@Homd_section_cat K E x) (@Homd_section_cat K E x'))
+    (Functor_cart_cat (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x'))
+    (@comp_cat_con_cart_func (Op_cat (Fibre_cat E x)) (@Homd_section_cat K E x) (@Homd_section_cat K E x')
+      (@homd_id_src_func K E x))
+    (@fapp1_func (CoAt2_cat K) Cat_cat (@Homd_target_catd K E) x x')));

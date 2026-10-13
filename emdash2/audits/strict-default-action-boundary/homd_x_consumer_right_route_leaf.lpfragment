@@ -1,0 +1,31 @@
+// Right route of the existing identity component; no x-action is postulated.
+assert [K : Cat] (E : τ (Catd K)) [x x' : τ (Obj K)] (p : τ (Hom K x x')) (u : τ (Obj (Fibre_cat E x))) ⊢
+  fapp0 (@comp_cat_fapp0 (Op_cat (Fibre_cat E x)) (Op_cat (Fibre_cat E x')) (@Homd_section_cat K E x')
+      (@homd_id_src_func K E x')
+      (@fapp1_fapp0 (CoAt2_cat K) Cat_cat (@Op_catd K E) x x' p)) u ≡ (@homd_id_src_sec K E x'
+    (fapp0 (@fapp1_fapp0 K Cat_cat E x x' p) u));
+
+// Follow the actual source-section/y/v/q ladder to its ordinary Hom leaf.
+assert [K : Cat] (E : τ (Catd K)) [x x' : τ (Obj K)] (p : τ (Hom K x x')) (u : τ (Obj (Fibre_cat E x))) [y : τ (Obj K)]
+  (v : τ (Obj (Fibre_cat E y))) (q : τ (Hom K x' y)) ⊢
+  (fapp0 (fapp0
+    (@tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x')) y
+      (fapp0 (@comp_cat_fapp0 (Op_cat (Fibre_cat E x)) (Op_cat (Fibre_cat E x')) (@Homd_section_cat K E x')
+      (@homd_id_src_func K E x')
+      (@fapp1_fapp0 (CoAt2_cat K) Cat_cat (@Op_catd K E) x x' p)) u)) v) q)
+  ≡ (Hom_cat (Fibre_cat E y)
+    (fapp0 (@fapp1_fapp0 K Cat_cat E x y
+      (@comp_fapp0 K x x' y q p)) u) v);
+
+// A source object cannot be silently replaced by an arbitrary other object.
+assertnot [K : Cat] (E : τ (Catd K)) [x x' : τ (Obj K)] (p : τ (Hom K x x')) (u : τ (Obj (Fibre_cat E x))) (u' : τ (Obj (Fibre_cat E x)))
+  [y : τ (Obj K)] (v : τ (Obj (Fibre_cat E y)))
+  (q : τ (Hom K x' y)) ⊢
+  (fapp0 (fapp0
+    (@tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x')) y
+      (fapp0 (@comp_cat_fapp0 (Op_cat (Fibre_cat E x)) (Op_cat (Fibre_cat E x')) (@Homd_section_cat K E x')
+      (@homd_id_src_func K E x')
+      (@fapp1_fapp0 (CoAt2_cat K) Cat_cat (@Op_catd K E) x x' p)) u)) v) q)
+  ≡ Hom_cat (Fibre_cat E y)
+      (fapp0 (@fapp1_fapp0 K Cat_cat E x y
+        (@comp_fapp0 K x x' y q p)) u') v;

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; identity Homd and represented arrow action check together; coefficient coherence, intrinsic-action integration and production gates remain open
+Status: active; identity Homd object ladder and native x-action comparisons check in the prototype; u-action qualification, coefficient integration and production gates remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -70,10 +70,12 @@ the ladder still assumes structural Q/lift contracts. The new Cartesian/Q
 action suite passes 284 positive and 48 negative controls, and the separate
 raw-counit comparison variant passes 175 positive and 36 negative controls
 (both counts include inherited controls). These are not completion measures.
-The whole represented lift, local Cartesian admission of canonical raw maps,
-intrinsic-action integration, downstream migration and production gates remain
-open. There is concrete computational evidence for the selected route, but
-no end-to-end qualification of the complete foundation yet.
+The required represented action, coefficient integration, intrinsic-action
+integration, downstream migration and production gates remain open. The
+native x-action successor below now checks the actual Homd root's source
+action and target-section comparisons. There is concrete computational
+evidence for the selected route, but no end-to-end qualification of the
+complete foundation yet.
 
 The current ownership reference is the checked homd_identity successor of
 cart_action: identity Homd owns the primitive ladder, while general FF is a
@@ -86,14 +88,15 @@ nested reindexed identity now has a typed comparison through generic owner
 laws; its runtime conversion still fails. The current raw coefficient
 integration reference is `represented_comp/integrated_controls.lp`, conditional
 on the stated co-Yoneda seed and fixed-parameter lambda/evaluation profiles; its detailed
-source closure and limits are recorded below. The next required work is local Cartesian admission
-of the canonical profunctor operations without narrowing raw public maps,
-the represented lift's remaining action/coherence, and intrinsic-action
-integration. The lift_middle selected variant now checks both whole middle
+source closure and limits are recorded below. The immediate work is the
+identity Homd x/u action and its actual projections, followed by coefficient
+and intrinsic-action integration. The lift_middle selected variant checks both whole middle
 comparisons, the actual mate composite and its first component. The raw
 represented counit below now has an actual construction
 without identifying implication with a conjoint; its Cartesian admission,
-generator action and triangles still require qualification.
+generator action and triangles have only the qualifications recorded below.
+Derivation of the whole lift from this older closed calculus is not an extra
+prerequisite for a correctly declared structural lift.
 Keep one shared profunctor tensor/closed/shaped-cell theory. Q's nested Hom
 type remains a convenient curried view with the existing endpoint convention.
 Its category structure and required higher action still need qualification;
@@ -276,6 +279,34 @@ ProfFamily/SigmaProf searches. Response 0099 itself retained the whole omega
 coefficient, represented lift and native coherence qualifications. They are
 implementation obligations, not grounds to claim that this design has
 already been typechecked or fully proved.
+
+## Structural whole operations and the meaning of lift
+
+User clarification on 2026-10-13: a whole primitive with its correctly typed
+component and higher-action projections is an accepted native implementation
+method. Here "represented lift" names the operation taking a classified
+family transformation U:E⇒D to a Q-valued transformation ιD⇒ιE, with
+y-component κ(U[y]). The prototype already declares `Prof_cov_con_lift`
+for that operation. It is not an instruction to construct an external
+encoding or to replace the native projection ladder with coend calculations.
+
+Qualify its actual type/profile, projection-order interactions, inherited
+identity/composition laws and the Homd consumers that use it. A declared
+structural contract must remain labelled as such; passing its declarations
+alone does not qualify its consumers. Conversely, deriving the same whole
+operation from the legacy tensor/coend calculus is optional comparison work,
+not an automatic extra acceptance condition. Earlier chronological "next
+required" lists that demand that derivation are superseded by this boundary.
+Preserve existing derived owners and bodies where already applicable; this
+clarification does not authorize postulating any failed equation.
+
+For the ambient identity Homd root, source and target routes L and R are
+connected by native directed laxity L⇒R. Equality L=R, inverse laxity or a
+strict-transfor admission is not required merely because E and its transports
+are strict functors. The next concrete consumers are the existing native
+`tapp1_func(homd_id_int(E))` action and
+`fapp1_func(homd_id_src_func(E,x))` action, followed through their projection
+ladders. General-FF normalization remains a separate composition diagnostic.
 
 ## Public defaults and removal of redundant strict wrappers
 
@@ -2477,6 +2508,40 @@ intrinsic action and continue the production migration. The fixed-parameter
 contracts and derived consumers do not complete the whole represented lift
 or the foundational goal. General-FF leaf normalization remains separate
 from the required identity Homd ladder.
+
+## Native identity Homd x-action qualification
+
+The `homd_x_consumer` audit observes the actual declared Homd root and
+`Homd_target_catd`, at a variable nonidentity base arrow. Its initial failures
+locate two projection-order gaps. The kernel already has a Cat-valued
+source/left action comparison, but its literal component/image heads have
+projected away on these concrete Homd terms. The same issue affects the
+ordinary postcomposition comparison used by the transported section.
+
+The `homd_native_action` successor supplies two proof-time comparisons at
+their existing owners. They match the remaining rigid heads and compare
+the actual endpoint categories, component functor, image functor and arrow
+data in their constraints. No runtime rule or primitive, right-route
+strictness or separately supplied laxity is added. The early owner uses
+`fapp0` directly; the first attempt with the later `Fibre_cat` facade is
+retained as an authoring-scope failure.
+
+The combined target checks the actual root's whole source action, whole and
+capped target action, the transported section and its y-component, reversed
+base-2-cell typing, an independent right-route ordinary leaf, and rejection
+of a changed arrow and arbitrary FF strict naturality. Removing either new
+comparison fails its intended consumer. The warning inventory is unchanged
+at 954 and the strict LHS audit has zero unreviewed clauses. Exact pins,
+receipts and scope are in `homd_native_action_verification.json` and its
+source closure. These are typed comparisons, not new runtime reductions.
+
+This checks actual varying-x consumers that the earlier fixed-x/y Hom
+2-cell controls did not cover. It neither identifies the two root routes
+nor yet qualifies the native extracted cell between them. The successor
+still uses the foundation-assembly Q presentation with provisional global
+Cartesian Prof; it is separate from the raw-preserving coefficient reference.
+That integration, the varying-u action and full-source intrinsic-action
+repair remain open. Production is unchanged by this bounded audit.
 
 ## Deferred improvements under the migration boundary
 

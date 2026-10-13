@@ -1,0 +1,37 @@
+{
+  "donor": "tmp/probes/foundation_assembly/combined_controls.lp",
+  "donorReceipt": "logs/check-runs/20261013T143823Z-9fc3b8d55d79484fbb3c29119f8ef6a1.json",
+  "productionRevision": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "productionSourceSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "nativeSourceActionSha256": "84a40deab7a2d14a9417962377c5023532a38993c71fb41fead0828547255fa3",
+  "manifest": "tmp/probes/homd_native_action/manifest.json",
+  "manifestSha256": "2ae400fa8deacc4ee6770aa559223448527a043cd9cc7f2c681796bdf30f95d9",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/homd_native_action_migration.py": "7966ca23631bb5fb5dcd69ef8379f363a7bc7adaee21cfa92f936d3f7d19cec8",
+    "audits/strict-default-action-boundary/foundation_assembly_verification.json": "1855acbfdb381d8367e4a0805eb4ce81d259b4087a77f5d41408b8aea4006a59",
+    "tmp/probes/foundation_assembly/combined_controls.lp": "d7337feeb94a35be9edef287262092ed2c8cc840fe324784ed580ae7667a3cc7",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/homd_native_action_post_view.lpfragment": "5131a9c0840d8371db59dc9dbbb054ea18495c96ccf710ec8b8225516d83b150",
+    "audits/strict-default-action-boundary/homd_native_action_source_view.lpfragment": "28906d4319034cb4a962b50bba62c35de3fcbbd0b25c31998bb1702eab2bf127",
+    "audits/strict-default-action-boundary/homd_native_action_source_late_facade.lpfragment": "050068a5afe003c58c72762ced9a56ecbc16d02b03224213edbb49c6bfb00445",
+    "audits/strict-default-action-boundary/homd_native_action_controls.lpfragment": "88be8bbf902e6c0019efc7724114386d08f06429b22bc0f6c7d9a70cbec41e2c",
+    "audits/strict-default-action-boundary/homd_x_consumer_identity_action_boundary.lpfragment": "7c43376278c1914330466ad2eb987f1e6c2edfca05d40ac445e6a0d8e924a01b",
+    "audits/strict-default-action-boundary/homd_x_consumer_target_controls.lpfragment": "35b1f0ba880b825e0482ee13503cc990f510a6be523dec0d2f3f104ce1866057",
+    "audits/strict-default-action-boundary/homd_x_consumer_section_y_comparison.lpfragment": "830114cc16b263375bb05c23165cda9f0f4789d45c40cfca7aeb2b2bbbb84a4b",
+    "audits/strict-default-action-boundary/homd_x_consumer_right_route_leaf.lpfragment": "e6c01adb39db559a55c901fb840dbee55dc6b9757ded684858a7c4ee43cbbfa2"
+  },
+  "outputs": {
+    "original_source_view.lp": "048633b571109c7d6fc83c4398d8743932067114acdf45524321fcacbc537695",
+    "source_view.lp": "644e28c121d5b1747fc1129ffe48564d6d2146d7a4978428d03357bad4f782f4",
+    "target_view.lp": "fad196995b14e746afb58f960b0cf2adc8f45b15e4e5fd0f77ba08f22b3fa894",
+    "y_view.lp": "2acf7aa07dda12c8903406648fcb20251b91cf88e75c92f38d3eb98088e3e920",
+    "combined_controls.lp": "b1ad41bbc1e808d53def172b0dbfd1c4f34f8576c27bf180624a7c4b6c0dba01",
+    "without_post_view.lp": "168ef46d9881defe98e2fd1c28b47179b56cc2f42f6672fec877a9e69a62db07",
+    "without_source_view.lp": "c33ce96239cd12f7398299b286a0eb626d18a5d9e7eeedd514902c332d48c6b0",
+    "early_combined_controls.lp": "8e14037d7b4698d46c01c598ed9db4bd523e16413c1d614538b4c48d02c9eb49",
+    "early_without_post.lp": "0501cfc74031df54afe5bda11eef4e78c110655c481979649ff7bf40acceb069",
+    "early_without_source.lp": "c33ce96239cd12f7398299b286a0eb626d18a5d9e7eeedd514902c332d48c6b0",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "pinRole": "Recorded exact authoring/output pins; existing builder remains unchanged and consumes its own donor/source checks."
+}

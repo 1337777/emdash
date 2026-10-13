@@ -1,0 +1,10 @@
+// Same ordinary postcomposition reading after its mapped arrow has projected.
+// Keep actual endpoints, F,h,g and the mapped arrow in typed constraints.
+// No runtime normal form or extra strictness is imposed.
+unif_rule @hom_postcomp_fapp0 $A $B $F $W $X $Y $h $g
+  ≡ @comp_fapp0 $A0 $W0 $FX $FY $fh $g0
+  ↪ [ $A ≡ $A0; $W ≡ $W0;
+      $FX ≡ @fapp0 $B $A $F $X;
+      $FY ≡ @fapp0 $B $A $F $Y;
+      $fh ≡ @fapp1_fapp0 $B $A $F $X $Y $h;
+      $g ≡ $g0 ];
