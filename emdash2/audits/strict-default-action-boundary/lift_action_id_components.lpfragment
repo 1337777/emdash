@@ -1,0 +1,10 @@
+// NON-LIBRARY prerequisite observations for the separate whole lift-id law.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E) (@Prof_cov_diagram K E) x
+    (@Prof_cov_con_lift_transf K E E (@id (Functor_cart_cat K Cat_cat) E))
+  ≡ @id Prof_cov_universe (Fibre_cat E x);
+
+assert [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
+  @tapp1_func K Prof_cov_universe (@Prof_cov_diagram K E) (@Prof_cov_diagram K E) x y
+    (@Prof_cov_con_lift_transf K E E (@id (Functor_cart_cat K Cat_cat) E))
+  ≡ @fapp1_func K Prof_cov_universe (@Prof_cov_diagram K E) x y;

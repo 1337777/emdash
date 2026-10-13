@@ -1,0 +1,12 @@
+// NON-LIBRARY UNCHECKED measured mirror at q_unit_hom_units.
+// The left identity endpoint exposed the precomposition point owner after
+// id_Q(B) had become its actual Unit-curry representation. Complete only
+// that coefficient left-unit projection; no mate triangle is supplied.
+rule @hom_precomp_along_fapp0 Prof_cov_universe Prof_cov_universe
+      (@id Cat_cat Prof_cov_universe) $B $A $B $P
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        _ _ _
+        (@Product_pair_tele_func $B (Op_cat $B))
+        (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+          _ _ _ (@Unit_prof (Op_cat $B))))
+  ↪ $P;

@@ -1,0 +1,5 @@
+// NON-LIBRARY whole positive obligation. No identity law is installed.
+// Component/action observations live in their separate prerequisite target.
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @Prof_cov_con_lift_transf K E E (@id (Functor_cart_cat K Cat_cat) E)
+  ≡ @id (Functor_cat K Prof_cov_universe) (@Prof_cov_diagram K E);

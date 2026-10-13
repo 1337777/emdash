@@ -1,0 +1,16 @@
+// Whole map compatibility, tested separately from its projection formulas.
+assert [X Y Z : Cat] (H : τ (Functor X Y)) [P Q : τ (Functor Y Z)]
+  (U : τ (@StrictTransfor Y Z P Q)) ⊢
+  @eq_refl (Transf (@comp_cat_fapp0 X Y Z P H) (@comp_cat_fapp0 X Y Z Q H))
+    (@admission_next_precomp_included X Y Z H P Q U)
+  : τ (@= (Transf (@comp_cat_fapp0 X Y Z P H) (@comp_cat_fapp0 X Y Z Q H))
+      (@admission_next_precomp_included X Y Z H P Q U)
+      (@admission_next_precomp_raw X Y Z H P Q (@strict_transfor Y Z P Q U)));
+
+assertnot [X Y Z : Cat] (H : τ (Functor X Y)) [P Q : τ (Functor Y Z)]
+  (U : τ (@StrictTransfor Y Z P Q)) (r : τ (Transf P Q)) ⊢
+  @eq_refl (Transf (@comp_cat_fapp0 X Y Z P H) (@comp_cat_fapp0 X Y Z Q H))
+    (@admission_next_precomp_included X Y Z H P Q U)
+  : τ (@= (Transf (@comp_cat_fapp0 X Y Z P H) (@comp_cat_fapp0 X Y Z Q H))
+      (@admission_next_precomp_included X Y Z H P Q U)
+      (@admission_next_precomp_raw X Y Z H P Q r));

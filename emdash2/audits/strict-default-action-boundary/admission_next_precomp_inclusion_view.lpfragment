@@ -1,0 +1,19 @@
+// Separate generic compatibility of two existing fixed-prewhiskering views.
+// Inclusion of the Cartesian horizontal action (id_H,U) agrees with ambient
+// prewhiskering of the included U. Both source projection ladders retain
+// U[H x], U_1(Hx,Hy) o H_1(x,y), and U_1[H p]. This whole comparison must
+// be reviewed as a structural compatibility, not inferred by extensionality.
+// The classified U is retained; this never classifies arbitrary raw r.
+unif_rule
+  @strict_transfor $X $Z _ _
+    (@comp_prod_fapp1_fapp0 Cat_cat $X $Y $Z
+      (@Struct_sigma _ _ $H $P)
+      (@Struct_sigma _ _ $H $Q)
+      (@Struct_sigma _ _ (@id _ $H) $U))
+  ≡ @fapp1_fapp0 _ _
+      (@fapp1_func _ _ (@Pullback_catd_func $X0 $Y0 $H0)
+        (@Const_catd $Y0 Terminal_cat) (@Const_catd $Y0 $Z0))
+      $P0 $Q0 $r0
+  ↪ [ $X ≡ $X0; $Y ≡ $Y0; $Z ≡ $Z0;
+      $H ≡ $H0; $P ≡ $P0; $Q ≡ $Q0;
+      $r0 ≡ @strict_transfor $Y $Z $P $Q $U ];

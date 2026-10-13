@@ -1,0 +1,19 @@
+// Next real obligation for j_F: the included actual Cartesian reindex action
+// must agree with the existing raw Prof_reindex_transf on the included input.
+// No rule asserting this desired equality is included in this replay.
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q)) ⊢
+  @eq_refl
+    (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+    (@fapp1_fapp0 _ _ (local_cart_prof_include A' B')
+      (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+      (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) Q)
+      (@fapp1_fapp0 _ _ (@local_cart_prof_reindex_func A A' B B' F G) P Q r))
+  : τ (@=
+      (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+      (@fapp1_fapp0 _ _ (local_cart_prof_include A' B')
+        (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+        (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) Q)
+        (@fapp1_fapp0 _ _ (@local_cart_prof_reindex_func A A' B B' F G) P Q r))
+      (@Prof_reindex_transf A A' B B' P Q
+        (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r) F G));

@@ -1,0 +1,47 @@
+// NON-LIBRARY actual coefficient-unit and whole-action identity controls.
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  @hom_postcomp_fapp0 Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    A A B P (@id Prof_cov_universe A)
+  ≡ P;
+
+// The same owner after the identity has explicitly become its representation.
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  @hom_postcomp_fapp0 Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    A A B P (Rep_con_cart_func A)
+  ≡ P;
+
+// The actual whole R functor computes at identity, independently of tapp1.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x : τ (Obj K)) ⊢
+  @fapp0 (Hom_cat K x x)
+    (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E x))
+    (@Prof_cov_lift_right_func K E D U x x) (@id K x)
+  ≡ @Prof_cov_companion (Fibre_cat E x) (Fibre_cat D x)
+    (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U));
+
+// Whole-first action order at id_x.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x : τ (Obj K)) ⊢
+  @fapp0 (Hom_cat K x x)
+    (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E x))
+    (@tapp1_func K Prof_cov_universe
+      (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x x
+      (@Prof_cov_con_lift_transf K E D U)) (@id K x)
+  ≡ @Prof_cov_companion (Fibre_cat E x) (Fibre_cat D x)
+    (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U));
+
+// Capped-first action order at id_x.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x : τ (Obj K)) ⊢
+  @tapp1_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x x
+    (@Prof_cov_con_lift_transf K E D U) (@id K x)
+  ≡ @Prof_cov_companion (Fibre_cat E x) (Fibre_cat D x)
+    (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U));
+
+// An arbitrary endomorphism at A is not silently treated as the unit.
+assertnot [A B : Cat] (P : τ (Hom Prof_cov_universe A B))
+  (r : τ (Hom Prof_cov_universe A A)) ⊢
+  @hom_postcomp_fapp0 Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    A A B P r
+  ≡ P;

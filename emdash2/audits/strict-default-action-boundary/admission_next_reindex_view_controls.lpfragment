@@ -1,0 +1,32 @@
+// Typed whole-object view, preserving the two runtime owner heads.
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (P : τ (Prof A B)) ⊢
+  @eq_refl (Prof A' B')
+    (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+  : τ (@= (Prof A' B')
+      (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+      (@Prof_reindex A A' B B' P F G));
+
+// The existing actual Cartesian map action now has the intended raw object
+// endpoints through that comparison; no admission primitive is supplied.
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q)) ⊢
+  @fapp1_fapp0 _ _ (@local_cart_prof_reindex_func A A' B B' F G) P Q r
+  : τ (Hom (local_cart_prof_cat A' B')
+      (@Prof_reindex A A' B B' P F G)
+      (@Prof_reindex A A' B B' Q F G));
+
+assertnot [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (P Q : τ (Prof A B)) ⊢
+  @eq_refl (Prof A' B')
+    (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+  : τ (@= (Prof A' B')
+      (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+      (@Prof_reindex A A' B B' Q F G));
+assertnot [A A' B B' : Cat]
+  (F F' : τ (Functor A' A)) (G G' : τ (Functor B' B)) (P : τ (Prof A B)) ⊢
+  @eq_refl (Prof A' B')
+    (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+  : τ (@= (Prof A' B')
+      (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+      (@Prof_reindex A A' B B' P F' G'));

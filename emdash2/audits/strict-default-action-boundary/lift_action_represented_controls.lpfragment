@@ -1,0 +1,28 @@
+// NON-LIBRARY actual canonical represented x-action at nonidentity p.
+// The input is the existing Cartesian representation's strict precomposition
+// arrow, not a separately supplied diagram transformation or comparison.
+assert [K : Cat] [x x' : τ (Obj K)] (p : τ (Hom K x x'))
+  (y z : τ (Obj K)) ⊢
+  @tapp1_func K Prof_cov_universe
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x))
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x')) y z
+    (@fapp1_fapp0 (CoAt2_cat K) (Functor_cat K Prof_cov_universe)
+      (ProfRep_cov_int K) x x' p)
+  ≡ @Prof_cov_lift_right_func K
+    (@hom_ K K (@id_func K) x') (@hom_ K K (@id_func K) x)
+    (@fapp1_fapp0 (Op_cat K) (Functor_cart_cat K Cat_cat)
+      (@Rep_cart_func K) x' x p) y z;
+
+assert [K : Cat] [x x' : τ (Obj K)] (p : τ (Hom K x x'))
+  [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  @tapp1_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x))
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x')) y z
+    (@fapp1_fapp0 (CoAt2_cat K) (Functor_cat K Prof_cov_universe)
+      (ProfRep_cov_int K) x x' p) q
+  ≡ @fapp0 (Hom_cat K y z)
+    (Hom_cat Prof_cov_universe (Hom_cat K x y) (Hom_cat K x' z))
+    (@Prof_cov_lift_right_func K
+      (@hom_ K K (@id_func K) x') (@hom_ K K (@id_func K) x)
+      (@fapp1_fapp0 (Op_cat K) (Functor_cart_cat K Cat_cat)
+        (@Rep_cart_func K) x' x p) y z) q;

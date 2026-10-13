@@ -1,0 +1,16 @@
+// NON-LIBRARY diagnostic only: native normal forms of the actual mate at
+// id_x and the comparison identity, after both L/R endpoints have checked.
+// Printing is not a triangle proof and installs no semantic rule.
+compute λ (K : Cat) (E D : τ (Catd K))
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x : τ (Obj K)),
+  @tapp0_fapp0 (Hom_cat K x x)
+    (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E x))
+    (@Prof_cov_lift_left_func K E D U x x)
+    (@Prof_cov_lift_right_func K E D U x x) (@id K x)
+    (@Prof_cov_lift_comparison K E D U x x);
+
+compute λ (K : Cat) (E D : τ (Catd K))
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x : τ (Obj K)),
+  @id (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E x))
+    (@Prof_cov_companion (Fibre_cat E x) (Fibre_cat D x)
+      (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U)));

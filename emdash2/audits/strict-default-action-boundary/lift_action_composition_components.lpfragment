@@ -1,0 +1,17 @@
+// NON-LIBRARY prerequisite component of contravariant lift composition.
+// This observes actual companion composition, not only point values of its
+// represented functors. No whole lift-composition law is installed.
+assert [K : Cat] [E D C : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D))
+  (V : τ (@StrictTransfor K Cat_cat D C)) (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K C) (@Prof_cov_diagram K E) y
+    (@Prof_cov_con_lift_transf K E C
+      (@comp_fapp0 (Functor_cart_cat K Cat_cat) E D C V U))
+  ≡ @comp_fapp0 Prof_cov_universe (Fibre_cat C y) (Fibre_cat D y) (Fibre_cat E y)
+    (@tapp0_fapp0 K Prof_cov_universe
+      (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) y
+      (@Prof_cov_con_lift_transf K E D U))
+    (@tapp0_fapp0 K Prof_cov_universe
+      (@Prof_cov_diagram K C) (@Prof_cov_diagram K D) y
+      (@Prof_cov_con_lift_transf K D C V));

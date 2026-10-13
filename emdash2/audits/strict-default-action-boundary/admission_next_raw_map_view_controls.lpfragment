@@ -1,0 +1,22 @@
+// Required whole agreement with the existing raw owner. Both operands are
+// actual maps, and no witness parameter is added to either operation.
+assert [A A' B B' : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B)) ⊢
+  @eq_refl
+    (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+    (@Prof_reindex_transf A A' B B' P Q r F G)
+  : τ (@=
+      (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+      (@Prof_reindex_transf A A' B B' P Q r F G)
+      (@admission_next_raw_reindex A A' B B' P Q r F G));
+
+// The view may not substitute an unrelated actual raw input map.
+assertnot [A A' B B' : Cat] [P Q : τ (Prof A B)] (r s : τ (ProfMap P Q))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B)) ⊢
+  @eq_refl
+    (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+    (@Prof_reindex_transf A A' B B' P Q r F G)
+  : τ (@=
+      (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+      (@Prof_reindex_transf A A' B B' P Q r F G)
+      (@admission_next_raw_reindex A A' B B' P Q s F G));

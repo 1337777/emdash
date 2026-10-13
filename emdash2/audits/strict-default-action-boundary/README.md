@@ -855,3 +855,39 @@ python3 audits/strict-default-action-boundary/homd_identity_migration.py
 EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
   scripts/probe.sh tmp/probes/homd_identity/selected_prefix.lp
 ```
+
+## Represented arrow action and coordinated identity source
+
+The [lift-action replay](lift_action_migration.py) supplies whole/capped
+projections to the constructed right-hand action and qualifies the actual
+nonidentity represented x-action. Narrow coefficient unit joins make both
+identity endpoints compute; their separate removal controls fail. The
+[source closure](lift_action_source_closure.md) and
+[verification](lift_action_verification.json) distinguish this progress from
+the still-failed mate triangle and companion-composition obligations. The
+native extraction-to-mate connection is not yet implemented.
+
+The [coordinated replay](foundation_assembly_migration.py) combines these
+additions with identity Homd through seven insertion-only owner blocks.
+Its [closure](foundation_assembly_source_closure.md) and
+[verification](foundation_assembly_verification.json) record the passing
+combined identity/represented-action consumer, warning comparison and the
+unchanged full-source `Op_funcd(raw FF)` failure. It retains the provisional
+Q coefficient profile; raw-preserving admission and production integration
+remain open. Relative leaf computation remains separate from identity
+acceptance.
+
+## Raw-preserving whole reindex comparison
+
+The [admission prerequisite replay](admission_next_migration.py) keeps public
+Prof maps raw and qualifies their comparison with inclusion of the local
+Cartesian reindex action. The selected staged theorem composes two independently
+typed comparisons through the actual ambient prewhiskering map. It adds no
+proof argument to either operation and claims no new runtime conversion.
+The direct-reflexivity variant remains failed. Three removals fail at their
+respective endpoint, raw-map and inclusion comparison obligations.
+
+The [source closure](admission_next_source_closure.md) and
+[verification](admission_next_verification.json) preserve the exact scope and
+original failed attempts. Canonical co-Yoneda/lambda/evaluation admission,
+expanded local arrow inverses and triangle coherence are still unqualified.

@@ -1,0 +1,11 @@
+// NON-LIBRARY whole positive obligation. No composition law is installed.
+// lift(V o U) = lift(U) o lift(V), with contravariant order retained.
+assert [K : Cat] [E D C : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D))
+  (V : τ (@StrictTransfor K Cat_cat D C)) ⊢
+  @Prof_cov_con_lift_transf K E C
+    (@comp_fapp0 (Functor_cart_cat K Cat_cat) E D C V U)
+  ≡ @comp_fapp0 (Functor_cat K Prof_cov_universe)
+    (@Prof_cov_diagram K C) (@Prof_cov_diagram K D) (@Prof_cov_diagram K E)
+    (@Prof_cov_con_lift_transf K E D U)
+    (@Prof_cov_con_lift_transf K D C V);

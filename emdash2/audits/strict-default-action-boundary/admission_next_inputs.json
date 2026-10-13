@@ -1,0 +1,10 @@
+{
+  "status": "source pins for the next local Cartesian reindex/admission prerequisite",
+  "productionRevision": "2cb017f2d1e96c29550cdf6488b529339cd85eeb",
+  "sourceInputs": {
+    "emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "tmp/probes/local_cart_prof/composition_profile_consumer.lp": "136c4d8de617db3341014aa2dc32f92cba4d0d34c38b9145be0fd6aae8117944",
+    "audits/strict-default-action-boundary/local_cart_prof_verification.json": "a402b53719cf078ab1347c4c2619f31c7be3d411bde9bbe9fa9b4794b265e6bf",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  }
+}

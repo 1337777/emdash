@@ -1,0 +1,50 @@
+// An actual ambient operation, with the canonical raw composition endpoints.
+// Its definition uses the existing whole Hom action, not pointwise assembly.
+symbol admission_next_raw_reindex [A A' B B' : Cat]
+  [P Q : τ (Prof A B)] (r : τ (ProfMap P Q))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  : τ (Transf
+      (@comp_cat_fapp0 (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B)
+        Cat_cat P (@Prof_reindex_base_func A A' B B' F G))
+      (@comp_cat_fapp0 (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B)
+        Cat_cat Q (@Prof_reindex_base_func A A' B B' F G)))
+≔ fapp0 (@comp_cat_con_fapp1_func
+    (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B) Cat_cat
+    (@Prof_reindex_base_func A A' B B' F G) P Q) r;
+
+assert [A A' B B' : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (x : τ (Obj (Product_cat (Op_cat A') B'))) ⊢
+  @tapp0_fapp0 _ Cat_cat _ _ x (@admission_next_raw_reindex A A' B B' P Q r F G)
+  ≡ @tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat P Q
+      (fapp0 (@Prof_reindex_base_func A A' B B' F G) x) r;
+
+// Whole off-diagonal action retains both the original raw action and H_1.
+assert [A A' B B' : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (x y : τ (Obj (Product_cat (Op_cat A') B'))) ⊢
+  @tapp1_func _ Cat_cat _ _ x y (@admission_next_raw_reindex A A' B B' P Q r F G)
+  ≡ @comp_cat_fapp0 _ _ _
+      (@tapp1_func (Product_cat (Op_cat A) B) Cat_cat P Q
+        (fapp0 (@Prof_reindex_base_func A A' B B' F G) x)
+        (fapp0 (@Prof_reindex_base_func A A' B B' F G) y) r)
+      (@fapp1_func _ _ (@Prof_reindex_base_func A A' B B' F G) x y);
+assert [A A' B B' : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [x y : τ (Obj (Product_cat (Op_cat A') B'))]
+  (p : τ (Hom (Product_cat (Op_cat A') B') x y)) ⊢
+  @tapp1_fapp0 _ Cat_cat _ _ x y (@admission_next_raw_reindex A A' B B' P Q r F G) p
+  ≡ @tapp1_fapp0 (Product_cat (Op_cat A) B) Cat_cat P Q
+      (fapp0 (@Prof_reindex_base_func A A' B B' F G) x)
+      (fapp0 (@Prof_reindex_base_func A A' B B' F G) y) r
+      (@fapp1_fapp0 _ _ (@Prof_reindex_base_func A A' B B' F G) x y p);
+
+// Arbitrary raw input remains raw after this actual prewhiskering operation.
+assertnot [A A' B B' : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B)) ⊢
+  @admission_next_raw_reindex A A' B B' P Q r F G
+  : τ (@StrictTransfor (Product_cat (Op_cat A') B') Cat_cat
+      (@comp_cat_fapp0 (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B)
+        Cat_cat P (@Prof_reindex_base_func A A' B B' F G))
+      (@comp_cat_fapp0 (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B)
+        Cat_cat Q (@Prof_reindex_base_func A A' B B' F G)));

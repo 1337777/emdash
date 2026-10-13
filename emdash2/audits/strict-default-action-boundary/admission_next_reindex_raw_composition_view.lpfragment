@@ -1,0 +1,13 @@
+// Direct raw-composition presentation of the same existing reindex owner.
+// Ambient fixed prewhiskering exposes P o (Op(F) x G), while the earlier
+// object view compares the stable hom_precomp_along_fapp0 presentation.
+// Unification does not compose those two views transitively. Retain both
+// runtime owners and compare every actual object and endpoint-base map.
+// This is the same source-owned pullback semantics, not point extensionality.
+unif_rule
+  @Prof_reindex $A $A' $B $B' $P $F $G
+  ≡ @comp_fapp0 Cat_cat $D $C Cat_cat $P0 $H
+  ↪ [ $D ≡ Product_cat (Op_cat $A') $B';
+      $C ≡ Product_cat (Op_cat $A) $B;
+      $P ≡ $P0;
+      $H ≡ @Prof_reindex_base_func $A $A' $B $B' $F $G ];

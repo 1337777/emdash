@@ -1,0 +1,13 @@
+// Proposed whole semantic view of the existing stable Prof_reindex owner.
+// Production specifies pullback by Op(F) x G, retaining the stable head for
+// its constructor computations. This is an owner presentation agreement,
+// not a theorem inferred from fibre equations or arbitrary extensionality.
+// Every actual functor and profunctor is retained in the side conditions.
+unif_rule
+  @Prof_reindex $A $A' $B $B' $P $F $G
+  ≡ @hom_precomp_along_fapp0
+      Cat_cat Cat_cat (@id Cat_cat Cat_cat) Cat_cat $D $C $H $P0
+  ↪ [ $D ≡ Product_cat (Op_cat $A') $B';
+      $C ≡ Product_cat (Op_cat $A) $B;
+      $H ≡ @Prof_reindex_base_func $A $A' $B $B' $F $G;
+      $P ≡ $P0 ];

@@ -1,0 +1,15 @@
+// NON-LIBRARY UNCHECKED action of the structural represented lift.
+// The selected off-diagonal whole functor is R(q)=kappa(U[y]) iota(D[q]).
+// Its post/left laxity must use the separately constructed L=>R mate; this
+// action projection does not itself qualify native extraction or coherence.
+// Insert after the checked whole mate, retaining its actual right-functor body.
+rule @tapp1_func _ _ _ _ $x $y
+      (@Prof_cov_con_lift_transf $K $E $D $U)
+  ↪ @Prof_cov_lift_right_func $K $E $D $U $x $y;
+
+// Complete the other projection order of the same whole action.
+rule @tapp1_fapp0 _ _ _ _ $x $y
+      (@Prof_cov_con_lift_transf $K $E $D $U) $q
+  ↪ @fapp0 (Hom_cat $K $x $y)
+      (Hom_cat Prof_cov_universe (@Fibre_cat $K $D $x) (@Fibre_cat $K $E $y))
+      (@Prof_cov_lift_right_func $K $E $D $U $x $y) $q;

@@ -1,0 +1,15 @@
+// Proposed semantic view of the existing raw reindex-map owner.
+// The RHS is the actual ambient fixed-prewhiskering body: the constant-section
+// Hom action of Pullback_catd_func. It accepts arbitrary raw r and retains its
+// full off-diagonal action. No classified output or strictness input appears.
+// This is an owner presentation agreement, not map extensionality.
+unif_rule
+  @Prof_reindex_transf $A $A' $B $B' $P $Q $r $F $G
+  ≡ @fapp1_fapp0 _ _
+      (@fapp1_func _ _ (@Pullback_catd_func $D $C $H)
+        (@Const_catd $C Terminal_cat) (@Const_catd $C Cat_cat))
+      $P0 $Q0 $r0
+  ↪ [ $D ≡ Product_cat (Op_cat $A') $B';
+      $C ≡ Product_cat (Op_cat $A) $B;
+      $H ≡ @Prof_reindex_base_func $A $A' $B $B' $F $G;
+      $P ≡ $P0; $Q ≡ $Q0; $r ≡ $r0 ];

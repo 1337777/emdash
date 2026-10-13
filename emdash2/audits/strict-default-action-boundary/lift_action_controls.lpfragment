@@ -1,0 +1,74 @@
+// NON-LIBRARY independent whole/capped/right-action observations.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x y : τ (Obj K)) ⊢
+  @tapp1_func K Prof_cov_universe
+    (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x y
+    (@Prof_cov_con_lift_transf K E D U)
+  ≡ @Prof_cov_lift_right_func K E D U x y;
+
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) [x y : τ (Obj K)]
+  (q : τ (Hom K x y)) ⊢
+  @tapp1_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x y
+    (@Prof_cov_con_lift_transf K E D U) q
+  ≡ @fapp0 (Hom_cat K x y)
+    (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y))
+    (@Prof_cov_lift_right_func K E D U x y) q;
+
+// Whole-first and capped-first application share the actual action.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) [x y : τ (Obj K)]
+  (q : τ (Hom K x y)) ⊢
+  @fapp0 (Hom_cat K x y)
+    (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y))
+    (@tapp1_func K Prof_cov_universe
+      (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x y
+      (@Prof_cov_con_lift_transf K E D U)) q
+  ≡ @tapp1_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x y
+    (@Prof_cov_con_lift_transf K E D U) q;
+
+// Runtime keeps the stable postcomposition point owner, with actual
+// transport in D and the target companion. Raw composition is a separate
+// proof-time view tested in lift_action_raw_composition_view.lpfragment.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) [x y : τ (Obj K)]
+  (q : τ (Hom K x y)) ⊢
+  @tapp1_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x y
+    (@Prof_cov_con_lift_transf K E D U) q
+  ≡ @hom_postcomp_fapp0 Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    (Fibre_cat D x) (Fibre_cat D y) (Fibre_cat E y)
+    (@Prof_cov_companion (Fibre_cat E y) (Fibre_cat D y)
+      (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U)))
+    (@fapp1_fapp0 K Prof_cov_universe (@Prof_cov_diagram K D) x y q);
+
+// Identity base arrow returns the existing component (normality of action).
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x : τ (Obj K)) ⊢
+  @tapp1_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x x
+    (@Prof_cov_con_lift_transf K E D U) (@id K x)
+  ≡ @tapp0_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x
+    (@Prof_cov_con_lift_transf K E D U);
+
+// Actual fixed-source internal action projects to the same whole R.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cat _ _ y
+    (@tapp1_at_transf K Prof_cov_universe
+      (@Prof_cov_diagram K D) (@Prof_cov_diagram K E) x
+      (@Prof_cov_con_lift_transf K E D U))
+  ≡ @Prof_cov_lift_right_func K E D U x y;
+
+// The new selected action does not admit raw FF as the strict lift input.
+assertnot [K : Cat] [E D : τ (Catd K)] (FF : τ (@Functord K E D)) ⊢
+  @Prof_cov_con_lift_transf K E D FF
+  : τ (@Transf K Prof_cov_universe (@Prof_cov_diagram K D) (@Prof_cov_diagram K E));
+
+// The ordinary raw diagram map remains available in its original direction.
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (@Functord K E D)) ⊢
+  @Prof_cov_diagram_map K E D FF
+  : τ (@Transf K Prof_cov_universe (@Prof_cov_diagram K E) (@Prof_cov_diagram K D));

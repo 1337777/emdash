@@ -1,0 +1,17 @@
+// NON-LIBRARY coefficient left-unit controls, separate from mate coherence.
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  @hom_precomp_along_fapp0 Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    B A B P (@id Prof_cov_universe B)
+  ≡ P;
+
+assert [A B : Cat] (P : τ (Hom Prof_cov_universe A B)) ⊢
+  @hom_precomp_along_fapp0 Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    B A B P (Rep_con_cart_func B)
+  ≡ P;
+
+// An unrelated target endomorphism is not silently a left unit.
+assertnot [A B : Cat] (P : τ (Hom Prof_cov_universe A B))
+  (r : τ (Hom Prof_cov_universe B B)) ⊢
+  @hom_precomp_along_fapp0 Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    B A B P r
+  ≡ P;

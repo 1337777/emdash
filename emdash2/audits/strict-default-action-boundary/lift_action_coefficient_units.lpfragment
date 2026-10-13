@@ -1,0 +1,14 @@
+// NON-LIBRARY UNCHECKED right-unit projection join at q_unit_hom_units.
+// id_Q(A) may expose its actual Unit-curry body before the generic stable
+// postcomposition point rule sees the identity. Retain that same unit law
+// on this body; do not fold arbitrary postcomposition to raw composition.
+// The repeated A is the actual unit endpoint, matching the represented
+// right-unit owner. No mirrored precomposition clause is selected here.
+rule @hom_postcomp_fapp0 Prof_cov_universe Prof_cov_universe
+      (@id Cat_cat Prof_cov_universe) $A $A $B $P
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        _ _ _
+        (@Product_pair_tele_func $A (Op_cat $A))
+        (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+          _ _ _ (@Unit_prof (Op_cat $A))))
+  ↪ $P;

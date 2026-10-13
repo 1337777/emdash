@@ -1,0 +1,20 @@
+// Two actual operations in the same ambient mapping category.
+symbol admission_next_precomp_included [X Y Z : Cat]
+  (H : τ (Functor X Y)) [P Q : τ (Functor Y Z)]
+  (U : τ (@StrictTransfor Y Z P Q))
+  : τ (Transf (@comp_cat_fapp0 X Y Z P H) (@comp_cat_fapp0 X Y Z Q H))
+≔ @strict_transfor X Z _ _
+    (@fapp1_fapp0 _ _ (@comp_cat_con_cart_func X Y Z H) P Q U);
+symbol admission_next_precomp_raw [X Y Z : Cat]
+  (H : τ (Functor X Y)) [P Q : τ (Functor Y Z)]
+  (r : τ (Transf P Q))
+  : τ (Transf (@comp_cat_fapp0 X Y Z P H) (@comp_cat_fapp0 X Y Z Q H))
+≔ fapp0 (@comp_cat_con_fapp1_func X Y Z H P Q) r;
+
+// Independent entire off-diagonal functor comparison of the two existing
+// projection ladders. It does not supply the subsequent whole-map agreement.
+assert [X Y Z : Cat] (H : τ (Functor X Y)) [P Q : τ (Functor Y Z)]
+  (U : τ (@StrictTransfor Y Z P Q)) (x y : τ (Obj X)) ⊢
+  @tapp1_func X Z _ _ x y (@admission_next_precomp_included X Y Z H P Q U)
+  ≡ @tapp1_func X Z _ _ x y
+      (@admission_next_precomp_raw X Y Z H P Q (@strict_transfor Y Z P Q U));

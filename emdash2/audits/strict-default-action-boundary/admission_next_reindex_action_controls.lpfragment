@@ -1,0 +1,48 @@
+// The actual production whole base-arrow owner has the selected Cat-Hom
+// target. This reprofile concerns a functor's Hom action, not raw Prof maps.
+assert [A A' B B' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [ab ab' : τ (Obj (Product_cat (Op_cat A') B'))] ⊢
+  @Prof_reindex_fapp1_func A A' B B' P F G ab ab'
+  : τ (Functor
+      (Hom_cat (Product_cat (Op_cat A') B') ab ab')
+      (Functor_cart_cat
+        (fapp0 (@Prof_reindex A A' B B' P F G) ab)
+        (fapp0 (@Prof_reindex A A' B B' P F G) ab')));
+
+// Both actual application orders reach the existing base-map action.
+assert [A A' B B' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [ab ab' : τ (Obj (Product_cat (Op_cat A') B'))]
+  (pq : τ (Hom (Product_cat (Op_cat A') B') ab ab')) ⊢
+  fapp0 (@fapp1_func _ Cat_cat (@Prof_reindex A A' B B' P F G) ab ab') pq
+  ≡ @fapp1_fapp0 _ Cat_cat P
+      (fapp0 (@Prof_reindex_base_func A A' B B' F G) ab)
+      (fapp0 (@Prof_reindex_base_func A A' B B' F G) ab')
+      (@fapp1_fapp0 _ _ (@Prof_reindex_base_func A A' B B' F G) ab ab' pq);
+assert [A A' B B' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [ab ab' : τ (Obj (Product_cat (Op_cat A') B'))]
+  (pq : τ (Hom (Product_cat (Op_cat A') B') ab ab')) ⊢
+  @fapp1_fapp0 _ Cat_cat (@Prof_reindex A A' B B' P F G) ab ab' pq
+  ≡ fapp0 (@Prof_reindex_fapp1_func A A' B B' P F G ab ab') pq;
+
+// A variable next cell is still an input to the full reindex action.
+assert [A A' B B' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [ab ab' : τ (Obj (Product_cat (Op_cat A') B'))]
+  [p q : τ (Hom (Product_cat (Op_cat A') B') ab ab')]
+  (alpha : τ (Hom (Hom_cat (Product_cat (Op_cat A') B') ab ab') p q)) ⊢
+  @fapp1_fapp0 _ _ (@Prof_reindex_fapp1_func A A' B B' P F G ab ab') p q alpha
+  : τ (Hom
+      (Functor_cart_cat
+        (fapp0 (@Prof_reindex A A' B B' P F G) ab)
+        (fapp0 (@Prof_reindex A A' B B' P F G) ab'))
+      (fapp0 (@Prof_reindex_fapp1_func A A' B B' P F G ab ab') p)
+      (fapp0 (@Prof_reindex_fapp1_func A A' B B' P F G ab ab') q));
+
+// The public vertical input profile remains raw.
+assert [A B : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q)) ⊢
+  r : τ (@Functord (Product_cat (Op_cat A) B) P Q);
+assertnot [A B : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q)) ⊢
+  r : τ (Hom (local_cart_prof_cat A B) P Q);

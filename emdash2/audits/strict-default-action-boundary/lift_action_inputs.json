@@ -1,0 +1,9 @@
+{
+  "status": "authoring pins for unchecked non-library lift action; source changes require review",
+  "donor": "tmp/probes/lift_middle/named_middle_mate_components.lp",
+  "sourceInputs": {
+    "tmp/probes/lift_middle/named_middle_mate_components.lp": "f61b59b5eb205bf73cfe81efb3f110c7d76e0594d706fc908b54d4d2bd7ab3ce",
+    "audits/strict-default-action-boundary/lift_middle_verification.json": "b12381615cd8a35bce5cfd320281b0010350d494224c05b35c01bfb3c30f6678",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  }
+}

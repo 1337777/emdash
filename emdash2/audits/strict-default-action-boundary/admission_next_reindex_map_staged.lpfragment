@@ -1,0 +1,82 @@
+// Two actual operations with the same existing raw Prof endpoints.
+// The following aliases take no equality proof or admission witness.
+symbol admission_next_cart_reindex_included [A A' B B' : Cat]
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q))
+  : τ (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+≔ @fapp1_fapp0 _ _ (local_cart_prof_include A' B')
+    (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+    (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) Q)
+    (@fapp1_fapp0 _ _ (@local_cart_prof_reindex_func A A' B B' F G) P Q r);
+
+symbol admission_next_raw_reindex_included [A A' B B' : Cat]
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q))
+  : τ (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+≔ @admission_next_raw_reindex A A' B B' P Q
+    (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r) F G;
+
+// First separately typed proof-time step: generic prewhiskering inclusion.
+symbol admission_next_reindex_inclusion_agreement [A A' B B' : Cat]
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q))
+  : τ (@=
+      (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+      (@admission_next_cart_reindex_included A A' B B' F G P Q r)
+      (@admission_next_raw_reindex_included A A' B B' F G P Q r))
+≔ @eq_refl
+    (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+    (@admission_next_cart_reindex_included A A' B B' F G P Q r);
+
+// Second separately typed proof-time step: the original raw owner view.
+symbol admission_next_reindex_owner_agreement [A A' B B' : Cat]
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q))
+  : τ (@=
+      (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+      (@Prof_reindex_transf A A' B B' P Q
+        (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r) F G)
+      (@admission_next_raw_reindex_included A A' B B' F G P Q r))
+≔ @eq_refl
+    (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+    (@Prof_reindex_transf A A' B B' P Q
+      (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r) F G);
+
+// Proof-time theorem composed through the actual ambient operation.
+// No runtime conversion between the two ends is asserted, and this theorem
+// is not an argument of any operational reindexing or inclusion symbol.
+symbol admission_next_reindex_map_agreement [A A' B B' : Cat]
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q))
+  : τ (@=
+      (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+      (@admission_next_cart_reindex_included A A' B B' F G P Q r)
+      (@Prof_reindex_transf A A' B B' P Q
+        (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r) F G))
+≔ @eq_trans
+    (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+    (@admission_next_cart_reindex_included A A' B B' F G P Q r)
+    (@admission_next_raw_reindex_included A A' B B' F G P Q r)
+    (@Prof_reindex_transf A A' B B' P Q
+      (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r) F G)
+    (@admission_next_reindex_inclusion_agreement A A' B B' F G P Q r)
+    (@eq_sym
+      (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+      (@Prof_reindex_transf A A' B B' P Q
+        (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r) F G)
+      (@admission_next_raw_reindex_included A A' B B' F G P Q r)
+      (@admission_next_reindex_owner_agreement A A' B B' F G P Q r));
+
+// The theorem concludes the original whole-map agreement on the actual
+// inclusion/action expression, without changing either operation.
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q)) ⊢
+  @admission_next_reindex_map_agreement A A' B B' F G P Q r
+  : τ (@=
+      (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+      (@fapp1_fapp0 _ _ (local_cart_prof_include A' B')
+        (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+        (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) Q)
+        (@fapp1_fapp0 _ _ (@local_cart_prof_reindex_func A A' B B' F G) P Q r))
+      (@Prof_reindex_transf A A' B B' P Q
+        (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r) F G));

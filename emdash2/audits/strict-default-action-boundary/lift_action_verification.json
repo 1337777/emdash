@@ -1,0 +1,1152 @@
+{
+  "schema": "emdash-lift-action-evidence-v1",
+  "status": "non-library paired coefficient-unit and selected lift right-action controls pass, including represented x-action and lift-id components; actual companion composition and mate-identity computations remain failed positive obligations; no native extraction or full coherence qualification",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/lift_action_migration.py": "4c21cff2da26f8ca00ed4664b139600dfc8d723ac1c0015f95e6fe9dc24a733d",
+    "audits/strict-default-action-boundary/lift_action_inputs.json": "ed4bf95c0bb8f337dcad459647a8a2a02edea98d999a8d14f33ce9f1da4f8ff3",
+    "audits/strict-default-action-boundary/lift_middle_verification.json": "b12381615cd8a35bce5cfd320281b0010350d494224c05b35c01bfb3c30f6678",
+    "tmp/probes/lift_middle/named_middle_mate_components.lp": "f61b59b5eb205bf73cfe81efb3f110c7d76e0594d706fc908b54d4d2bd7ab3ce",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/lift_action.lpfragment": "3e5a32917cc3763d5a5131ed7529290839f6cb7395075c036246f23873d1a71f",
+    "audits/strict-default-action-boundary/lift_action_controls.lpfragment": "c851c7886b1a8a8daa7ba4d6df6ed7fe5e7c83d5f22326fd054e8a4ec5036d01",
+    "audits/strict-default-action-boundary/lift_action_represented_controls.lpfragment": "add56fa886c0c85fb3a30d4200a16123c9ecbeec4da478768ce55360befd5909",
+    "audits/strict-default-action-boundary/lift_action_raw_composition_view.lpfragment": "cccb9b6e71dfd6c29a9cd4e0aee28c2a3f59393114e387415ed8be04f64fa093",
+    "audits/strict-default-action-boundary/lift_action_mate_identity_boundary.lpfragment": "4083c23c4df196acb62f0e4e09fd69e9dcf4edeebf063482097916fc4dbe8597",
+    "audits/strict-default-action-boundary/lift_action_id_components.lpfragment": "b3fcfef483c778ca5a8f66f3159df4d027baedb0bc374b2a7ead1158ac478472",
+    "audits/strict-default-action-boundary/lift_action_id_boundary.lpfragment": "1428a54a02d0dfe69079917c3a197e08c5733d1894638fa789c21bb4efee91e4",
+    "audits/strict-default-action-boundary/lift_action_composition_components.lpfragment": "2c05e556cba168ff362e2604afab9dd1463130dfee0ddd589ca9ca099bb7ad39",
+    "audits/strict-default-action-boundary/lift_action_composition_boundary.lpfragment": "57e7c4aa026fbe3f2a8673d9a7b28b430b7cb59d476f1f4ef51acbdb3caefc92",
+    "audits/strict-default-action-boundary/lift_action_coefficient_units.lpfragment": "75f8419d7021b1c70315d9d8a88ff6f8390b09f57f31115c6b3bba5e3a0c9ad8",
+    "audits/strict-default-action-boundary/lift_action_coefficient_unit_controls.lpfragment": "eed6912b2ce825e7dad851b38c94133cc540bdf3e867e38575342a6b28fbb3a5",
+    "audits/strict-default-action-boundary/lift_action_left_identity_endpoint.lpfragment": "f584f168f82b2367b89cc0e2901544889922558945ec5bf182f8b8baaa80ea73",
+    "audits/strict-default-action-boundary/lift_action_coefficient_left_unit.lpfragment": "6fd141b8d7d61da95c46114002135b047867dab4805a40478a82b3217c073a29",
+    "audits/strict-default-action-boundary/lift_action_coefficient_left_unit_controls.lpfragment": "c629d4bcb84ae810a9195117b75770e5646a6c7913bc7ce6d471417b8359f775",
+    "audits/strict-default-action-boundary/lift_action_mate_identity_normal_forms.lpfragment": "b75eb83623b05c647b5f1f953d8ce9fc65e2ea08de6f0354f560109c17936536"
+  },
+  "outputs": {
+    "owner_prefix.lp": "d99e3031b53b579edec9f4ca8f25368f0fc59a8dc5a581894bec250066e63f7a",
+    "action_controls.lp": "1051bedf1e8ce9b1cda7fdf051447833bc50039045735469efc924f133452f76",
+    "represented_action.lp": "d17c62da61c764280eed28697d2cb67f2ef20436fc20212e0c377251fda642fa",
+    "raw_composition_view.lp": "b7742dffe1930d787ded4bd957ce46f49342a08e25c56721aff392e26d9ea9cb",
+    "mate_identity_boundary.lp": "eac201c28ab5d09c1f5d3ab1f20063c94268b099b92164eded93c4c103894115",
+    "lift_id_components.lp": "cf8334a950ee7a7ada49ab9c389735d9d6b90aca5c6a9fdd9ba8a1519147b62f",
+    "lift_id_boundary.lp": "03e38b36d39d255936e7dc580bc13a094421fe70f09d11f86ab741dd29baaec6",
+    "lift_composition_components.lp": "25f2a6e3a52bdd9e84f2ea1e1633c76bdb716fdf88a5659045eb4af6d0a132c7",
+    "lift_composition_boundary.lp": "2330e7db22e360397448b62ab07978c745d3e5a1b2274d4b289b932fbb4bb8a4",
+    "no_action_controls.lp": "57155ec9798da98a078c5f428152bb70780cf8f33a3e3cbcf30f1bfb5d3c7341",
+    "unit_projection_owner_prefix.lp": "2e6ad2474d04f507b779c97f513c8aae6decb3b5637219089da2a0f44a9db56c",
+    "unit_projection_action_controls.lp": "45c203ac91e6b4caf2e4d5d1aa56e108680730d5b7d7d3a4e04f404b888dc6fa",
+    "unit_projection_controls.lp": "ba860a02a6acf9ec0fa87762506e7b82f7dd8ec3dd030ea58737ddfb5be8dd29",
+    "left_identity_endpoint_boundary.lp": "3e30c23a7bc92405cb200fbc43fba2979be1fbec3854d40589f00601346aa882",
+    "unit_projection_mate_identity_boundary.lp": "12c19e457e1a8ec8d6584cadc87f2d23b1b6bbc72136f34a470688997dc31ec1",
+    "paired_unit_owner_prefix.lp": "7c504b3f444d9b72246ae04818f92a9d71dfdb2bf516466dff52a10090d693cc",
+    "paired_unit_controls.lp": "b6b91c02de9743bf00f53b69b785ea4d3d77ffb1505b4ff6fef2d90c789aee06",
+    "paired_unit_without_right_projection.lp": "ed5682aef9d9dc837d857db22f624c4bcb3f2e2ed5be3a2c8c9a7850346e0bbf",
+    "paired_unit_without_left_projection.lp": "2c54fea8fd836074119fe3175e32f7f75973c737eb497c3b0f7ad288cdec9092",
+    "paired_unit_action_controls.lp": "fc5c8a65b42315f0271fd8dcc39ed5af27069ae6c0577ee49c5b6a8c94575fae",
+    "paired_unit_mate_identity_boundary.lp": "65f84ee297573213b5c4a59c0b90a8063f010bcab6e850b065f6fa4dd03951e4",
+    "paired_unit_represented_action.lp": "d26e610a0e7f134a68bcd05a0d2df2af566299b413ba3b101419b4be22c483da",
+    "paired_unit_lift_id_components.lp": "8192856f9c6a841d95370e627c16b17e7b66e570069363b511774d53271558d9",
+    "paired_unit_lift_composition_components.lp": "f134acd32e96f6d7903958a52b972a6514f648af8282b8755dd16f5c28ea6aa3",
+    "paired_unit_mate_identity_normal_forms.lp": "e83ce63c2b5c61896e9de2c3711c7b100df2bacadfa6c87633eb9c829523454b",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "outputControlCounts": {
+    "owner_prefix.lp": {
+      "positive": 283,
+      "negative": 48
+    },
+    "action_controls.lp": {
+      "positive": 290,
+      "negative": 49
+    },
+    "represented_action.lp": {
+      "positive": 285,
+      "negative": 48
+    },
+    "raw_composition_view.lp": {
+      "positive": 284,
+      "negative": 48
+    },
+    "mate_identity_boundary.lp": {
+      "positive": 284,
+      "negative": 48
+    },
+    "lift_id_components.lp": {
+      "positive": 285,
+      "negative": 48
+    },
+    "lift_id_boundary.lp": {
+      "positive": 284,
+      "negative": 48
+    },
+    "lift_composition_components.lp": {
+      "positive": 284,
+      "negative": 48
+    },
+    "lift_composition_boundary.lp": {
+      "positive": 284,
+      "negative": 48
+    },
+    "no_action_controls.lp": {
+      "positive": 290,
+      "negative": 49
+    },
+    "unit_projection_owner_prefix.lp": {
+      "positive": 283,
+      "negative": 48
+    },
+    "unit_projection_action_controls.lp": {
+      "positive": 290,
+      "negative": 49
+    },
+    "unit_projection_controls.lp": {
+      "positive": 288,
+      "negative": 49
+    },
+    "left_identity_endpoint_boundary.lp": {
+      "positive": 284,
+      "negative": 48
+    },
+    "unit_projection_mate_identity_boundary.lp": {
+      "positive": 284,
+      "negative": 48
+    },
+    "paired_unit_owner_prefix.lp": {
+      "positive": 283,
+      "negative": 48
+    },
+    "paired_unit_controls.lp": {
+      "positive": 291,
+      "negative": 50
+    },
+    "paired_unit_without_right_projection.lp": {
+      "positive": 291,
+      "negative": 50
+    },
+    "paired_unit_without_left_projection.lp": {
+      "positive": 291,
+      "negative": 50
+    },
+    "paired_unit_action_controls.lp": {
+      "positive": 290,
+      "negative": 49
+    },
+    "paired_unit_mate_identity_boundary.lp": {
+      "positive": 284,
+      "negative": 48
+    },
+    "paired_unit_represented_action.lp": {
+      "positive": 285,
+      "negative": 48
+    },
+    "paired_unit_lift_id_components.lp": {
+      "positive": 285,
+      "negative": 48
+    },
+    "paired_unit_lift_composition_components.lp": {
+      "positive": 284,
+      "negative": 48
+    },
+    "paired_unit_mate_identity_normal_forms.lp": {
+      "positive": 283,
+      "negative": 48
+    }
+  },
+  "checks": {
+    "action_controls.lp": {
+      "qualification": "failed positive identity-base action assertion; preceding whole/capped/projection-order and stable-R value observations reached the next obligation. This is a real idq boundary, not a successful negative.",
+      "receipt": "logs/check-runs/20261013T092541Z-558a7b7a9b2c4fe7bab3124c7a321d49.json",
+      "receiptSha256": "c9fa370f282c48d5ad8ae889304a1231a763d579fc8a837dc10b0a51ddf41661",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "1051bedf1e8ce9b1cda7fdf051447833bc50039045735469efc924f133452f76",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/action_controls.lp": "1051bedf1e8ce9b1cda7fdf051447833bc50039045735469efc924f133452f76"
+      },
+      "inputSnapshot": "d8c4ff088925701284c4ec5baa5b501ef6a90916f55d6640d82ebbfe831e9c6c",
+      "log": "logs/check-runs/20261013T092541Z-558a7b7a9b2c4fe7bab3124c7a321d49.log",
+      "logSha256": "4cf1e978bc9f35b5ddf8e6e74b013bfd6292bc017826d13f0abf8f6675b24f60",
+      "output": "tmp/probes/lift_action/action_controls.out",
+      "outputSha256": "a210c022c8583dfff056f915b59a1e53a351f4a573ffc97e26906398af80c447",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 13.54059963603504,
+      "childrenMaxRssKiB": 656400,
+      "failureDiagnostics": [
+        "[tmp/probes/lift_action/action_controls.lp:18775:0-18782:38] Assertion failed."
+      ]
+    },
+    "unit_projection_controls.lp": {
+      "qualification": "passed narrow coefficient right-unit, direct R(id), and both idq projection-order controls",
+      "receipt": "logs/check-runs/20261013T141907Z-d12221f5554d4a929b86669c77c31824.json",
+      "receiptSha256": "3bd7ae2ffa9e6af63475af7fd2bbb54b28f9fa6d2f20a7f685b496085ebf6fca",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "ba860a02a6acf9ec0fa87762506e7b82f7dd8ec3dd030ea58737ddfb5be8dd29",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/unit_projection_controls.lp": "ba860a02a6acf9ec0fa87762506e7b82f7dd8ec3dd030ea58737ddfb5be8dd29"
+      },
+      "inputSnapshot": "55f053f092b8a05827ae65b70aa28397e02db2af0ac0b1b3f19fc2670d3a5e63",
+      "log": "logs/check-runs/20261013T141907Z-d12221f5554d4a929b86669c77c31824.log",
+      "logSha256": "bc5dc40eecbf8945e5cad2b82a580537222a211836eb82a12c15000bdf5e59ca",
+      "output": "tmp/probes/lift_action/unit_projection_controls.out",
+      "outputSha256": "12d63b4995e0d081fa29055c3bf82d86da4875ce9389df128a09bc4615124bff",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 8.32085645897314,
+      "childrenMaxRssKiB": 656688,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 136
+      }
+    },
+    "unit_projection_action_controls.lp": {
+      "qualification": "passed whole/capped/right-action corpus with the measured coefficient right-unit join; no extraction/coherence qualification follows",
+      "receipt": "logs/check-runs/20261013T141915Z-e8923ccc86124d7f8ce9ef99bc054349.json",
+      "receiptSha256": "87ddb4d4180cf225865dd2ddaf38fe3ec6bcf7c358b96ee853ee18bb3871286d",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "45c203ac91e6b4caf2e4d5d1aa56e108680730d5b7d7d3a4e04f404b888dc6fa",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/unit_projection_action_controls.lp": "45c203ac91e6b4caf2e4d5d1aa56e108680730d5b7d7d3a4e04f404b888dc6fa"
+      },
+      "inputSnapshot": "92fa96900832c294cff5b811fe0710925b3408ee534d2a2c0c3290b033fb1d0b",
+      "log": "logs/check-runs/20261013T141915Z-e8923ccc86124d7f8ce9ef99bc054349.log",
+      "logSha256": "32ca8219085ff3b87843a2685564dcec6d1c8d50edddd8b55623c0b8942fc6af",
+      "output": "tmp/probes/lift_action/unit_projection_action_controls.out",
+      "outputSha256": "362d9ee44ec1324baae67e54741a65158b5facad6a92f4f5ea2815e29f8eb890",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 8.133708005072549,
+      "childrenMaxRssKiB": 656416,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 136
+      }
+    },
+    "left_identity_endpoint_boundary.lp": {
+      "qualification": "failed positive L(id) endpoint normalization; mate identity failure cannot yet be classified as a unit/counit triangle obstruction",
+      "receipt": "logs/check-runs/20261013T141924Z-8b404ca9d5454b5f8185c0fcd7be3262.json",
+      "receiptSha256": "ded25ea96f9bbd6d7e6c6a7b1ba7030427e943039e1186141496f2f47c720a7b",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "3e30c23a7bc92405cb200fbc43fba2979be1fbec3854d40589f00601346aa882",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/left_identity_endpoint_boundary.lp": "3e30c23a7bc92405cb200fbc43fba2979be1fbec3854d40589f00601346aa882"
+      },
+      "inputSnapshot": "c3b547926f752409ea62f472b8b4a65817b3783e9c70d9ece86f543e6e1dfa49",
+      "log": "logs/check-runs/20261013T141924Z-8b404ca9d5454b5f8185c0fcd7be3262.log",
+      "logSha256": "28a068dfbabb1f627fcd8c1c4ab63af7f28b09e36971241c0f12a915e47229d0",
+      "output": "tmp/probes/lift_action/left_identity_endpoint_boundary.out",
+      "outputSha256": "151178ce624a1b1d5f7593c7b16201e8ab0bb55b6c6f2e5e1357e641113fe8c1",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 8.248037058045156,
+      "childrenMaxRssKiB": 656008,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 136
+      },
+      "failureDiagnostics": [
+        "[tmp/probes/lift_action/left_identity_endpoint_boundary.lp:18746:0-18752:68] Assertion failed."
+      ]
+    },
+    "paired_unit_controls.lp": {
+      "qualification": "passed both coefficient units, direct L/R identity endpoints, both idq projection orders and unrelated-endomorphism negatives",
+      "receipt": "logs/check-runs/20261013T142617Z-dd8afc56f715451fa391d2965e2abd79.json",
+      "receiptSha256": "cff3f3986df95d570b6879131892c7c8eb9547e64cb4caaa92a86c6a6c353eae",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "b6b91c02de9743bf00f53b69b785ea4d3d77ffb1505b4ff6fef2d90c789aee06",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/paired_unit_controls.lp": "b6b91c02de9743bf00f53b69b785ea4d3d77ffb1505b4ff6fef2d90c789aee06"
+      },
+      "inputSnapshot": "6726d987040826f7468792ef1fd93666318d00b04ee51c45abd821ea8c12eaaa",
+      "log": "logs/check-runs/20261013T142617Z-dd8afc56f715451fa391d2965e2abd79.log",
+      "logSha256": "0da9442f1a0bfdfc22721921355de232af9468e1cb10c4ee812dc993c4e5bfd3",
+      "output": "tmp/probes/lift_action/paired_unit_controls.out",
+      "outputSha256": "e596242d0599f1fdf290beb1e627d38edf4f4f6cbd9935921505ef7003869ac5",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 9.858173130080104,
+      "childrenMaxRssKiB": 657936,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 137
+      }
+    },
+    "paired_unit_action_controls.lp": {
+      "qualification": "passed selected whole/capped/stable-R/internal fixed-source projection and raw-profile controls",
+      "receipt": "logs/check-runs/20261013T142628Z-e3c1ea8cff624300ba697c52478cc03e.json",
+      "receiptSha256": "405f3bf97e8a7ce3b821264e3dd32494f430a575986443e2e8f63cae3113361d",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "fc5c8a65b42315f0271fd8dcc39ed5af27069ae6c0577ee49c5b6a8c94575fae",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/paired_unit_action_controls.lp": "fc5c8a65b42315f0271fd8dcc39ed5af27069ae6c0577ee49c5b6a8c94575fae"
+      },
+      "inputSnapshot": "ec0e12efcfbedaa78f18c99dadfdd5c3973361551d29ea576aa05108f754e9cc",
+      "log": "logs/check-runs/20261013T142628Z-e3c1ea8cff624300ba697c52478cc03e.log",
+      "logSha256": "295d8c23f9ae09248cc42cff79bd9b822c8a07129691a0a201039c6763b9456e",
+      "output": "tmp/probes/lift_action/paired_unit_action_controls.out",
+      "outputSha256": "74de66a6c92e0a4f39a29c379a0ea6f33b32d0337f99c32684ef4db5fdb32cf1",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 9.791309928055853,
+      "childrenMaxRssKiB": 657868,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 137
+      }
+    },
+    "paired_unit_represented_action.lp": {
+      "qualification": "passed actual nonidentity ProfRep_cov_int whole/capped x-action instance",
+      "receipt": "logs/check-runs/20261013T142638Z-7b2454620b104dae9329e122b6033738.json",
+      "receiptSha256": "eb39ebacd371ea9fdbc6545d4cf6f467d33aac41de237feb8561b6bdc2cf0407",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "d26e610a0e7f134a68bcd05a0d2df2af566299b413ba3b101419b4be22c483da",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/paired_unit_represented_action.lp": "d26e610a0e7f134a68bcd05a0d2df2af566299b413ba3b101419b4be22c483da"
+      },
+      "inputSnapshot": "ec912d143d56fa4e08e43ddb2ba8141a838466c486adaf90fba30d18e03dab90",
+      "log": "logs/check-runs/20261013T142638Z-7b2454620b104dae9329e122b6033738.log",
+      "logSha256": "4cd0501bb8015532a5a5c5ee73271e4d0b0998a44ef7301a259e03d5de0c8d4e",
+      "output": "tmp/probes/lift_action/paired_unit_represented_action.out",
+      "outputSha256": "24dfee5babf142a26ed62e92eb4690ae0327904c012fe7ef199a82d8de6a8eed",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 11.144372459035367,
+      "childrenMaxRssKiB": 656888,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 137
+      }
+    },
+    "paired_unit_lift_id_components.lp": {
+      "qualification": "passed lift(identity) component and whole hom-action observations; whole lift identity remains a separate obligation",
+      "receipt": "logs/check-runs/20261013T142649Z-2f626defc7f8447696b05a6c8235a38d.json",
+      "receiptSha256": "35ab31a475d269d1b18fafaea37ada3b4b124386640eca5df4868c4d3dd13c7d",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "8192856f9c6a841d95370e627c16b17e7b66e570069363b511774d53271558d9",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/paired_unit_lift_id_components.lp": "8192856f9c6a841d95370e627c16b17e7b66e570069363b511774d53271558d9"
+      },
+      "inputSnapshot": "8b61c06262b8a4678d15ed83779d14eca6ebc19202672d9f7767873d7dc22da7",
+      "log": "logs/check-runs/20261013T142649Z-2f626defc7f8447696b05a6c8235a38d.log",
+      "logSha256": "504aa662ea05644bcc39d65a99930243fd39be41201763ac9b511461caf2eb3b",
+      "output": "tmp/probes/lift_action/paired_unit_lift_id_components.out",
+      "outputSha256": "935593e3a3871b3a2231b690d5711bd2e45cdc6236f296fdd4a49d47b4793066",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 13.495022590039298,
+      "childrenMaxRssKiB": 656748,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 137
+      }
+    },
+    "paired_unit_lift_composition_components.lp": {
+      "qualification": "failed positive represented companion-composition agreement; this is not either identity endpoint failure or a successful negative",
+      "receipt": "logs/check-runs/20261013T142703Z-925328e4eef946faa234a48850cfc4cc.json",
+      "receiptSha256": "0dff2965396f57bee55dd982f8118c123b8c12e4b2e492ab358aa7504fb5885a",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "f134acd32e96f6d7903958a52b972a6514f648af8282b8755dd16f5c28ea6aa3",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/paired_unit_lift_composition_components.lp": "f134acd32e96f6d7903958a52b972a6514f648af8282b8755dd16f5c28ea6aa3"
+      },
+      "inputSnapshot": "450cb0595a205a779faad8c6df7b5435c847514cd1ae47a60cd248f3c4d1247e",
+      "log": "logs/check-runs/20261013T142703Z-925328e4eef946faa234a48850cfc4cc.log",
+      "logSha256": "69e8479e26f0ed98a28d3546667eaa8464466c80f2c1a0f733f04e28452127d3",
+      "output": "tmp/probes/lift_action/paired_unit_lift_composition_components.out",
+      "outputSha256": "da3bd893063198035ba6d7c0eb3d34c4fb07b169cd386ddc3b9901863f180a13",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 9.495217752060853,
+      "childrenMaxRssKiB": 656240,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 137
+      },
+      "failureDiagnostics": [
+        "[tmp/probes/lift_action/paired_unit_lift_composition_components.lp:18759:0-18772:41] Assertion failed."
+      ]
+    },
+    "paired_unit_mate_identity_boundary.lp": {
+      "qualification": "failed positive actual canonical unit/counit mate identity computation after both identity endpoints pass; not a mathematical counterexample or an installed triangle law",
+      "receipt": "logs/check-runs/20261013T142713Z-d96f9196b3ae4965a90c9a6ca22a2188.json",
+      "receiptSha256": "8188b5a80466a79056284147d8b91c5e7045bf8b690af054a22cd9a7e3366f6f",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "65f84ee297573213b5c4a59c0b90a8063f010bcab6e850b065f6fa4dd03951e4",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/paired_unit_mate_identity_boundary.lp": "65f84ee297573213b5c4a59c0b90a8063f010bcab6e850b065f6fa4dd03951e4"
+      },
+      "inputSnapshot": "ab1ab4d224faf9ea7451737c1387abec83f070a403b06b9edf5cb1dd3a4c2cea",
+      "log": "logs/check-runs/20261013T142713Z-d96f9196b3ae4965a90c9a6ca22a2188.log",
+      "logSha256": "2aac6b11186c991703b3628fc03bf20ddade5afd1adeb864b7919cd7103ac294",
+      "output": "tmp/probes/lift_action/paired_unit_mate_identity_boundary.out",
+      "outputSha256": "5c2e6ae422e0b8f6f3316102dc912aa739cbe101cac0c1e03717e15aab0f1be0",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 9.694140120991506,
+      "childrenMaxRssKiB": 657064,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 137
+      },
+      "failureDiagnostics": [
+        "[tmp/probes/lift_action/paired_unit_mate_identity_boundary.lp:18759:0-18768:71] Assertion failed."
+      ]
+    },
+    "unit_projection_mate_identity_boundary.lp": {
+      "qualification": "failed positive on right-only source: comparison types are not unifiable because the L(id) endpoint is still stuck; not triangle evidence",
+      "receipt": "logs/check-runs/20261013T141933Z-6c3df4867b284ea19507f26dd3d2b382.json",
+      "receiptSha256": "df22b445707e2e227bcdd4eb1a344b0f8b604abcfba31aae8884fdd07f5ef9dc",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "12c19e457e1a8ec8d6584cadc87f2d23b1b6bbc72136f34a470688997dc31ec1",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/unit_projection_mate_identity_boundary.lp": "12c19e457e1a8ec8d6584cadc87f2d23b1b6bbc72136f34a470688997dc31ec1"
+      },
+      "inputSnapshot": "f2a0c9325bf978e12a1c69e9fa5ac567d57f67506a60bc13f54421111d2057df",
+      "log": "logs/check-runs/20261013T141933Z-6c3df4867b284ea19507f26dd3d2b382.log",
+      "logSha256": "75172daad09bef3bcd83c76653923a51e8d2d6e7cef07182c1051849f296df2b",
+      "output": "tmp/probes/lift_action/unit_projection_mate_identity_boundary.out",
+      "outputSha256": "40ecc270de8e31ece857650e39e86be33a383bde03c97874267e1e3c0f7fe625",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 9.096917764050886,
+      "childrenMaxRssKiB": 656272,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 136
+      },
+      "failureDiagnostics": [
+        "Those two types are not unifiable."
+      ]
+    },
+    "paired_unit_without_right_projection.lp": {
+      "qualification": "failed exact single-removal control at the first direct coefficient postcomposition right-unit assertion (source18743–18746); measured right rule necessity for paired corpus",
+      "receipt": "logs/check-runs/20261013T144841Z-27e393c0c2a34d1693066a837cad4451.json",
+      "receiptSha256": "e9dc0d7d6e5fb812cca4f0f891887957e11027b7f3b74be468d3dbc64199bc32",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "ed5682aef9d9dc837d857db22f624c4bcb3f2e2ed5be3a2c8c9a7850346e0bbf",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/paired_unit_without_right_projection.lp": "ed5682aef9d9dc837d857db22f624c4bcb3f2e2ed5be3a2c8c9a7850346e0bbf"
+      },
+      "inputSnapshot": "7836e9b06774f730041d1e6dae8c8bef604a017d720f60ff29f92ae8a716a43b",
+      "log": "logs/check-runs/20261013T144841Z-27e393c0c2a34d1693066a837cad4451.log",
+      "logSha256": "c1ddcf629775ecd7d73362cd3ac2de58f0f56b573ae5a61b579056c4c0b99aec",
+      "output": "tmp/probes/lift_action/paired_unit_without_right_projection.out",
+      "outputSha256": "6f07b077dd05c46559fbe845fa8637206b122efbf1732e27bce0411b6e3a6f1d",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 10.72726214909926,
+      "childrenMaxRssKiB": 654272,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 136
+      },
+      "failureDiagnostics": [
+        "[tmp/probes/lift_action/paired_unit_without_right_projection.lp:18743:0-18746:4] Assertion failed."
+      ]
+    },
+    "paired_unit_without_left_projection.lp": {
+      "qualification": "failed exact single-removal control at the first direct coefficient precomposition left-unit assertion (source18793–18796); measured left rule necessity for paired corpus",
+      "receipt": "logs/check-runs/20261013T144852Z-55a52e13cd424206b79d58909fdb6719.json",
+      "receiptSha256": "85526bf101094d29dce994241c1eb4c911e3df3b55d7f411aea7f21c78db7874",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "2c54fea8fd836074119fe3175e32f7f75973c737eb497c3b0f7ad288cdec9092",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/paired_unit_without_left_projection.lp": "2c54fea8fd836074119fe3175e32f7f75973c737eb497c3b0f7ad288cdec9092"
+      },
+      "inputSnapshot": "02248f124d6c794a0922331d160e4edbfb6697d581e6b3e9fbd4bb77b5c95ed9",
+      "log": "logs/check-runs/20261013T144852Z-55a52e13cd424206b79d58909fdb6719.log",
+      "logSha256": "6eeebeccad9c48da04943ff4a28068a89e91c205f0005036011cccc16d41ee0f",
+      "output": "tmp/probes/lift_action/paired_unit_without_left_projection.out",
+      "outputSha256": "7f318009ffd542439a4daccc23e34d2fa30f0ab52c4c5fa31726969becbe8385",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 10.97786778502632,
+      "childrenMaxRssKiB": 655368,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 136
+      },
+      "failureDiagnostics": [
+        "[tmp/probes/lift_action/paired_unit_without_left_projection.lp:18793:0-18796:4] Assertion failed."
+      ]
+    },
+    "paired_unit_mate_identity_normal_forms.lp": {
+      "qualification": "successful native diagnostic printing only: actual mate and comparison identity normal forms printed; no equality or triangle proof follows",
+      "receipt": "logs/check-runs/20261013T144903Z-af405139c27746019065906cfce53de2.json",
+      "receiptSha256": "4bdaed064f205bdfe6a953b03b6ab57c012043290a79577c9627132d85f5166a",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "sourceSha256": "e83ce63c2b5c61896e9de2c3711c7b100df2bacadfa6c87633eb9c829523454b",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/paired_unit_mate_identity_normal_forms.lp": "e83ce63c2b5c61896e9de2c3711c7b100df2bacadfa6c87633eb9c829523454b"
+      },
+      "inputSnapshot": "51d7cd8f40b461c939d7ace76cbcf1fe15bc98c9ff78b952aae827655b62ae31",
+      "log": "logs/check-runs/20261013T144903Z-af405139c27746019065906cfce53de2.log",
+      "logSha256": "b07c9cc0a17bc0165e29b7bc1873aff5ff5d1154c015597d350108c8e1fcfaaf",
+      "output": "tmp/probes/lift_action/paired_unit_mate_identity_normal_forms.out",
+      "outputSha256": "b107bc08748cab85f7a3338a5fff6c73dff1e57c946bc402553e8b1f814fcc60",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 10.153864473919384,
+      "childrenMaxRssKiB": 659204,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 137
+      }
+    },
+    "no_action_controls.lp": {
+      "qualification": "expected action-projection removal failure at the first tapp1_func(lift(U)) versus actual R whole-functor equality; positive obligation fails when the two action projection rules are absent",
+      "receipt": "logs/check-runs/20261013T145809Z-98ec26c298d244a88c409cc3911af8d4.json",
+      "receiptSha256": "d2dc47cc0282928a0377095ddfb0874cb989f30af35c9a1e96fa887f6d2e02cf",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "sourceSha256": "57155ec9798da98a078c5f428152bb70780cf8f33a3e3cbcf30f1bfb5d3c7341",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/no_action_controls.lp": "57155ec9798da98a078c5f428152bb70780cf8f33a3e3cbcf30f1bfb5d3c7341"
+      },
+      "inputSnapshot": "ee240c721792bd251b44bc11240e4602e7aba8be0b046800bbd5cae68d4a1927",
+      "log": "logs/check-runs/20261013T145809Z-98ec26c298d244a88c409cc3911af8d4.log",
+      "logSha256": "345c41923b006e6cae4a14a42a54d3649bc6aadb9e7992c3cfd742b32aead5ac",
+      "output": "tmp/probes/lift_action/no_action_controls.out",
+      "outputSha256": "2bdd54990b715a8306f249f7450690071016bbe26cf97d6f7460ecc7bc655af2",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 8.689177826046944,
+      "childrenMaxRssKiB": 655640,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 956,
+        "replaceablePatternVariables": 135
+      },
+      "failureDiagnostics": [
+        "[tmp/probes/lift_action/no_action_controls.lp:18713:0-18718:40] Assertion failed."
+      ]
+    }
+  },
+  "historicalChecks": {
+    "20261013T092103Z-0219bd95a29143ee939a0099d383085b": {
+      "qualification": "failed positive runtime-conversion assertion expected raw Q composition, while policy preserves stable hom_postcomp_fapp0; no runtime fold is installed to satisfy this test",
+      "sourceSha256": "188374a1cc425f7fb0a180028aa0d48f94aa4c2415ff4d78f9a3b30a7fa4ae9a",
+      "sourceArchive": "logs/check-inputs/188374a1cc425f7fb0a180028aa0d48f94aa4c2415ff4d78f9a3b30a7fa4ae9a",
+      "receipt": "logs/check-runs/20261013T092103Z-0219bd95a29143ee939a0099d383085b.json",
+      "receiptSha256": "0c57325dfbe7b4f0367193b56ba2fd2a9864d41dff57c8219ffad2a49118677e",
+      "log": "logs/check-runs/20261013T092103Z-0219bd95a29143ee939a0099d383085b.log",
+      "logSha256": "da4238b0604698e89b1d417548413073587d6952c2c2f6087af7c1e628b0e1c2",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/lift_action/action_controls.lp": "188374a1cc425f7fb0a180028aa0d48f94aa4c2415ff4d78f9a3b30a7fa4ae9a"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 8.725886335014366,
+      "childrenMaxRssKiB": 656168,
+      "failureDiagnostics": [
+        "[tmp/probes/lift_action/action_controls.lp:18760:0-18769:67] Assertion failed."
+      ]
+    }
+  },
+  "qualification": [
+    "The two new rules project the existing structural lift to its actual right-action body.",
+    "Mate identity and whole lift identity/composition are positive obligations, not installed laws or successful negative tests.",
+    "Check lift-id/composition component prerequisites before considering any whole law.",
+    "Represented controls use the actual ProfRep_cov_int map and Cartesian representation action at arbitrary p.",
+    "No standalone laxity owner is declared; later native extraction and full higher coherence remain outside this prefix.",
+    "Raw FF retains its separate covariant diagram map and is not admitted as a strict lift input.",
+    "Corrected action_controls expects the existing stable postcomposition point. raw_composition_view uses typed eq_refl against the predecessor identity-family proof-time comparison. Both are unverified until root checks."
+  ],
+  "coefficientRightUnitExperiment": {
+    "status": "coefficient right-unit/direct R(id)/both idq orders and full action corpus pass; separate L(id) endpoint fails",
+    "owner": "q_unit_hom_units, before the derived represented-unit view",
+    "source": "lift_action_coefficient_units.lpfragment",
+    "law": "hom_postcomp_fapp0 Q Q id_Q A A B P (actual Unit-curry representation of id_Q(A)) -> P",
+    "scope": "One narrow coefficient right-unit projection; no generic postcomp-to-raw fold, no capped-tapp1 special case, no mirrored precomposition join, no triangle law.",
+    "controls": "Coefficient identity and expanded representation, direct R_func(id), both lift-idq projection orders, and arbitrary-endomorphism noncollapse.",
+    "leftEndpoint": "left_identity_endpoint_boundary.lp separately tests L_func(id)=kappa(Ux); do not classify a mate-identity failure as a triangle failure until both endpoints are qualified."
+  },
+  "uncheckedTargets": {
+    "unit_projection_owner_prefix.lp": {
+      "sourceSha256": "2e6ad2474d04f507b779c97f513c8aae6decb3b5637219089da2a0f44a9db56c",
+      "status": "unverified separate coefficient-right-unit variant; root checker owns validation"
+    },
+    "paired_unit_owner_prefix.lp": {
+      "sourceSha256": "7c504b3f444d9b72246ae04818f92a9d71dfdb2bf516466dff52a10090d693cc",
+      "status": "unchecked separately labelled paired coefficient-unit variant; no triangle law"
+    }
+  },
+  "pairedCoefficientUnitExperiment": {
+    "status": "paired unit/action/represented and lift-id-component consumers pass; each exact single-rule removal fails at its intended coefficient unit; companion composition and mate identity remain failed positives",
+    "source": "lift_action_coefficient_left_unit.lpfragment",
+    "motivation": "Measured L(id) endpoint failure with only the right-unit join",
+    "law": "hom_precomp_along_fapp0 Q Q id_Q B A B P (actual Unit-curry representation of id_Q(B)) -> P",
+    "controls": "Both coefficient units, expanded representations, direct R(id), direct L(id), both whole/capped idq orders and arbitrary-endomorphism negatives; separate actual mate identity and represented/id/composition component boundaries",
+    "scope": "Exactly one mirrored coefficient-unit projection, preserving right-only outputs. No mate triangle, lift identity or lift composition law is installed."
+  },
+  "sourceClosure": "lift_action_source_closure.md",
+  "remainingFailureReview": {
+    "paired_unit_mate_identity_boundary.lp": {
+      "established": "Both L_func(id_x) and R_func(id_x) compute to kappa(U[x]) in the passing paired-unit corpus.",
+      "remaining": "Actual composite of the canonical unit/counit step components does not convert to id(kappa(U[x])). This is now the triangle computation obligation, not a failure of those two endpoint normal forms.",
+      "limit": "No triangle law is supplied. The printed forms locate an unresolved action/evaluation-to-shaped-application bridge; absent co-Yoneda beta rules are not directly applicable until that bridge is justified.",
+      "nativeTrace": "Now printed: actual outer composite source and target are byte-identical to the identity object. Counit factor retains Prof_eval_cov_map and Prof_tensor_map; unit factor retains Prof_tensor_hom_hom, two Prof_func_hom and Prof_tensor_map. Neither exposes Prof_cell_apply or co-Yoneda heads."
+    },
+    "paired_unit_lift_composition_components.lp": {
+      "comparison": "kappa(V[y] o U[y]) versus comp_Q(kappa(U[y]),kappa(V[y]))",
+      "sourceReview": "The selected donor has projected Q identity and conjoint/inclusion-composition clauses. The companion is a derived Cat precomposition body, and no companion-companion Q-composition clause is present.",
+      "remaining": "Whole represented companion-composition agreement remains unqualified; pointwise represented values do not settle it. No law is installed for this failed obligation."
+    }
+  },
+  "warningComparison": {
+    "baselineSource": "tmp/probes/lift_middle/named_middle_mate_components.lp",
+    "baselineReceipt": "logs/check-runs/20261013T085507Z-e1c8da74540349b6ba88f6b631bcec15.json",
+    "baselineLog": "logs/check-runs/20261013T085507Z-e1c8da74540349b6ba88f6b631bcec15.log",
+    "baselineLogSha256": "a8ee746e8c1af3c8206d64ffbbdcb733a2ba84c3ce939d2b0524e9ea8b173976",
+    "candidate": "paired_unit_controls.lp",
+    "normalization": "Strip ANSI and omit location header; compare each six-line critical-pair block as a multiset without renaming variables or heads.",
+    "baselineUnjoinableCriticalPairs": 956,
+    "candidateUnjoinableCriticalPairs": 956,
+    "added": [],
+    "removed": [],
+    "qualification": "Diagnostic inventory, not a confluence certificate or full lift qualification."
+  },
+  "ruleLhsAudit": {
+    "tool": "scripts/audit_rule_lhs.py",
+    "toolSha256": "1ac349accdadfe60de52c48791cda50afcb879301219f98c88cf641951fe88d4",
+    "target": "paired_unit_controls.lp",
+    "sourceSha256": "b6b91c02de9743bf00f53b69b785ea4d3d77ffb1505b4ff6fef2d90c789aee06",
+    "unreviewedSlots": 0,
+    "unreviewedClauses": 0,
+    "annotatedSlots": 46,
+    "annotatedClauses": 31
+  },
+  "coYonedaDependencyReview": {
+    "status": "read-only source inventory; omitted existing owners are identified but no rules imported",
+    "productionSource": "emdash3_2.lp",
+    "productionSourceSha256AtReview": "c5df901221f647ca6965022e72f5682d3dacaa46f85d3cad8cf78264a8ac823a",
+    "pairedPrefixSha256": "7c504b3f444d9b72246ae04818f92a9d71dfdb2bf516466dff52a10090d693cc",
+    "declarations": {
+      "Prof_cell_apply": {
+        "production": [
+          {
+            "line": 18850
+          }
+        ],
+        "pairedPrefix": []
+      },
+      "Prof_tensor_hom_hom": {
+        "production": [
+          {
+            "line": 19168
+          }
+        ],
+        "pairedPrefix": [
+          {
+            "line": 17350
+          }
+        ]
+      },
+      "Prof_tensor_right_unit_pair_func": {
+        "production": [
+          {
+            "line": 19187
+          }
+        ],
+        "pairedPrefix": []
+      },
+      "Prof_tensor_right_unit_func": {
+        "production": [
+          {
+            "line": 19196
+          }
+        ],
+        "pairedPrefix": []
+      },
+      "Prof_tensor_left_unit_pair_func": {
+        "production": [
+          {
+            "line": 19206
+          }
+        ],
+        "pairedPrefix": []
+      },
+      "Prof_tensor_left_unit_func": {
+        "production": [
+          {
+            "line": 19215
+          }
+        ],
+        "pairedPrefix": []
+      },
+      "Prof_coyoneda_cov_transf": {
+        "production": [
+          {
+            "line": 19225
+          }
+        ],
+        "pairedPrefix": []
+      },
+      "Prof_coyoneda_con_transf": {
+        "production": [
+          {
+            "line": 19231
+          }
+        ],
+        "pairedPrefix": []
+      },
+      "Prof_coyoneda_cov_map": {
+        "production": [
+          {
+            "line": 19237
+          }
+        ],
+        "pairedPrefix": []
+      },
+      "Prof_coyoneda_con_map": {
+        "production": [
+          {
+            "line": 19244
+          }
+        ],
+        "pairedPrefix": []
+      },
+      "Prof_eval_cov_map": {
+        "production": [
+          {
+            "line": 19537
+          }
+        ],
+        "pairedPrefix": [
+          {
+            "line": 17117
+          }
+        ]
+      },
+      "Prof_lambda_cov_map": {
+        "production": [
+          {
+            "line": 19546
+          }
+        ],
+        "pairedPrefix": [
+          {
+            "line": 17125
+          }
+        ]
+      }
+    },
+    "missingRuleFamilies": [
+      "fixed right-unit Prof_cell_apply(coyoneda_cov_map,tensor_hom_hom) beta",
+      "right-unit co-Yoneda naturality fusion under shaped application",
+      "fixed left-unit Prof_cell_apply(coyoneda_con_map,tensor_hom_hom) beta",
+      "left-unit co-Yoneda naturality fusion under shaped application"
+    ],
+    "reachabilityBoundary": "The current represented counit is Prof_eval_cov_map(id_Conjoint), while the existing co-Yoneda beta rules require Prof_cell_apply with an explicit co-Yoneda map. No general Prof_cell_apply/eval_cov_map-on-tensor-introduction beta is present in the reviewed production source. Mere movement of the omitted rules does not establish that the actual mate reaches their heads.",
+    "profileBoundary": "The prototype has Cartesian ProfMap/shaped-cell classifiers; production co-Yoneda/apply declarations use the raw public profile. Do not silently move opaque raw maps into Cartesian carriers or treat a profile-adapted replay as raw-map admission.",
+    "nextDiagnostic": "Native diagnostic completed; see normalFormTrace. Existing missing beta clauses have no Prof_cell_apply/co-Yoneda redex in the printed mate yet."
+  },
+  "normalFormTrace": {
+    "target": "paired_unit_mate_identity_normal_forms.lp",
+    "receipt": "logs/check-runs/20261013T144903Z-af405139c27746019065906cfce53de2.json",
+    "log": "logs/check-runs/20261013T144903Z-af405139c27746019065906cfce53de2.log",
+    "logSha256": "b07c9cc0a17bc0165e29b7bc1873aff5ff5d1154c015597d350108c8e1fcfaaf",
+    "termOrder": [
+      "actual mate_U(id_x)",
+      "identity on kappa(U[x])"
+    ],
+    "terms": [
+      {
+        "line": 7060,
+        "characters": 149504,
+        "sha256": "6e57c2f91b866cf11c98649575cddcb09393e6c4cde5144a66586514f9b94210"
+      },
+      {
+        "line": 7061,
+        "characters": 1312,
+        "sha256": "4a0996c6af2dcf3c25a979cff78aeb1edd82b6631663b53192291bdddcfe7365"
+      }
+    ],
+    "outerHead": "comp_fapp0 in Cart(D_x,Cart(T(E_x),Cat))",
+    "sourceEqualsTargetTextually": true,
+    "endpointsEqualIdentityObjectTextually": true,
+    "endpointSha256": "5299b9bba3ced835931f9d8b818accb3795fb6d0efa1ca781c738008fc07c39e",
+    "intermediateHead": "Hom_fapp0 Prof_cov_universe",
+    "counitFactor": {
+      "head": "comp_prod_fapp1_fapp0",
+      "characters": 71962,
+      "sha256": "abe20d2d5420d05224367068bbc5235db18895172896a153af184b9f703af593",
+      "selectedHeadOccurrences": {
+        "Prof_cell_apply": 0,
+        "Prof_coyoneda_cov_map": 0,
+        "Prof_coyoneda_con_map": 0,
+        "Prof_eval_cov_map": 1,
+        "Prof_tensor_hom_hom": 0,
+        "Prof_tensor_map": 1,
+        "Prof_func_hom": 0
+      }
+    },
+    "unitFactor": {
+      "head": "comp_prod_fapp1_fapp0",
+      "characters": 72041,
+      "sha256": "0abe1a04b01e8e9f44809234fa25d409e10286e27776a123e4d94aec3fed9960",
+      "selectedHeadOccurrences": {
+        "Prof_cell_apply": 0,
+        "Prof_coyoneda_cov_map": 0,
+        "Prof_coyoneda_con_map": 0,
+        "Prof_eval_cov_map": 0,
+        "Prof_tensor_hom_hom": 1,
+        "Prof_tensor_map": 1,
+        "Prof_func_hom": 2
+      }
+    },
+    "qualification": "Native normal forms establish identical printed outer endpoints, while actual unit/counit factors remain distinct from identity. Neither factor contains Prof_cell_apply or co-Yoneda heads; moving absent beta rules alone would not create a matching redex. This remains an unresolved computation/bridge, not a mathematical counterexample."
+  },
+  "unitRemovalEvidence": {
+    "paired_unit_without_right_projection.lp": "logs/check-runs/20261013T144841Z-27e393c0c2a34d1693066a837cad4451.json",
+    "paired_unit_without_left_projection.lp": "logs/check-runs/20261013T144852Z-55a52e13cd424206b79d58909fdb6719.json",
+    "qualification": "Each single unit projection is required by the direct paired-unit corpus; this says nothing about unresolved triangle/coherence obligations."
+  },
+  "evidencePolicy": "--check-authoring --check-evidence verifies exact authoring/output pins and all current/historical receipt, source and log identities. It does not run Lambdapi or upgrade any qualification."
+}

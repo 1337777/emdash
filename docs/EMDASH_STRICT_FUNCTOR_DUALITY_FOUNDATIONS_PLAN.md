@@ -2,14 +2,16 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; core migration prototype and represented comparisons checked; whole lift/general-FF integration and production gates remain open
+Status: active; identity Homd and represented arrow action check together; coefficient coherence, intrinsic-action integration and production gates remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
 recovery inventory.
 
 Supersedes: the default-lax-functor migration direction and Op/Homd deferral
-for this authorized worktree only; earlier F/FF-unbundling and Q_lax proposals.
+for this authorized worktree only; earlier mandatory F/FF-unbundling and Q_lax proposals.
+The later accepted identity-core/defined-relative Homd split is recorded below;
+ordinary Hom retains its primitive default-strict F argument.
 The completed integration evidence remains valid for its original snapshot.
 
 Side-Task-Ledger: SF-0 through SF-CLOSE and the launch/tranche ledger below;
@@ -69,7 +71,7 @@ action suite passes 284 positive and 48 negative controls, and the separate
 raw-counit comparison variant passes 175 positive and 36 negative controls
 (both counts include inherited controls). These are not completion measures.
 The whole represented lift, local Cartesian admission of canonical raw maps,
-general-FF intrinsic action, downstream migration and production gates remain
+intrinsic-action integration, downstream migration and production gates remain
 open. There is concrete computational evidence for the selected route, but
 no end-to-end qualification of the complete foundation yet.
 
@@ -2217,6 +2219,103 @@ Replay recipes, exact source/log hashes and settings are in
 and `homd_identity_verification.json` in that directory. The predecessor
 cart_action evidence remains the pinned donor. All checks retain the normal
 90s/2GiB serial guard, subject reduction and warnings.
+
+## Coordinated identity and represented-arrow checkpoint
+
+The `lift_action` continuation selects the right-hand whole functor
+
+```text
+R_U(x,y)(q) = kappa(U[y]) o iota(D[q]),
+U : StrictTransfor(E,D).
+```
+
+This is the arrow action of the represented lift, whose components are
+kappa(U[x]). Its post-laxity must use the already constructed mate L => R;
+choosing L instead would require reversing that mate. Whole and capped
+projections now share the actual R body. The actual represented x-action,
+obtained from `ProfRep_cov_int` at a nonidentity arrow, checks through this
+same owner. These are action projections, not a declaration of new laxity
+evidence. Native extraction and coherent composition remain required.
+
+The runtime value stays at the existing stable `hom_postcomp_fapp0` head;
+raw Q composition is a separate typed proof-time view. Two narrow coefficient
+unit projections account for the early curried representation of id_Q.
+Both L(id) and R(id) now reduce to the existing companion component. Removing
+either respective unit projection fails its independent endpoint consumer.
+Lift identity components pass. The actual mate-at-identity triangle and
+companion-of-composite comparison still fail their positive obligations;
+they are not passing noncollapse tests or evidence of mathematical impossibility.
+
+Review of the early source closure finds that it imports the tensor
+introduction but omits the existing shaped-cell/co-Yoneda beta owners.
+Importing those owners alone is not yet a triangle derivation: the current
+prototype counit uses eval(id_Conjoint), whereas the omitted beta rules act
+on a co-Yoneda application to a tensor generator. Their connecting action
+and local Cartesian admission remain unqualified. Preserve the actual
+counit body and do not install a triangle merely to close the assertion.
+
+`foundation_assembly_migration.py` combines this checked lift successor with
+the identity Homd successor through seven pinned insertion-only owner blocks.
+It preserves the identity-only primitive, the defined relative interface,
+all raw-FF/strict-transfor rejection controls and the original full-source
+tail. The combined identity/represented-action consumer passes in 10.796s
+at 657312 KiB maximum child RSS, with the normal 90s/2GiB guard. Its warning
+inventory is 954: four existing mapped-product projection overlaps beyond
+the identity donor's 950, and no added blocks relative to the lift donor's
+956 (the identity ownership change removes two old ladder overlaps).
+Strict LHS review reports zero unreviewed clauses.
+
+The assembled full source still fails at `tdapp1_int_func_transfd`, where
+the old `Op_funcd(FF)` input requires a strict transfor but FF is ambient.
+This remains an intrinsic-action migration obligation; it does not restore
+a requirement for a second primitive or fully reducing general-FF ladder.
+The combined source also retains provisional structural Q contracts and
+its earlier Cartesian Prof profile. The separate raw-preserving coefficient
+work must be integrated before any production qualification is claimed.
+
+Exact recipes, source closures and evidence are recorded in the audit's
+`lift_action_*` and `foundation_assembly_*` files. These are non-library
+replays; no active production rule or check-catalog membership changes in
+this tranche. The pre-existing production StrictTransfor relocation remains
+outside this checkpoint.
+
+## Raw-preserving reindex map agreement
+
+The `admission_next` slice closes the local coefficient reindex-map comparison
+without changing public raw Prof maps. It imports the existing full base-arrow
+reindex owner, adjusting only its coefficient mapping-category target to the
+selected Hom_Cat profile. Independent whole/capped action and next-cell typing
+controls precede the proposed whole comparisons.
+
+The existing stable Prof reindex owner has proof-time views as fixed
+precomposition and as its raw composite. Its raw map action has a separate
+view through the actual ambient prewhiskering operation. A generic comparison
+identifies inclusion of Cartesian prewhiskering with ambient prewhiskering
+of the included map. These are explicitly stated owner presentation and
+compatibility clauses, not deductions from point extensionality. All actual
+functors, profunctors, maps and endpoint categories remain constrained.
+
+The final direct-reflexivity comparison still fails because it asks the
+checker to chain two custom unifiers. The selected reviewer instead derives
+the whole-map agreement with `eq_trans` through the actual ambient map, using
+two separately checked steps. This passes in 5.404s. Equality terms occur only
+in that observational theorem; no operational symbol accepts a path, comparison
+or admission witness. The three removal variants fail respectively at raw
+composite endpoint formation, raw-map agreement and generic inclusion agreement.
+The failed direct-reflexivity variant remains evidence of a computational
+boundary, rather than being relabelled as a passed check.
+
+Canonical map admission is still open. The next coefficient step is to review
+the existing co-Yoneda(Unit) owner and its actual lambda/reindex/evaluation
+chain for the needed local Cartesian profile. Raw beta/eta rules alone do not
+give that admission. Preserve their current bodies and raw public interfaces;
+do not introduce an arbitrary-map strictifier or a separately supplied witness.
+The expanded local presentation inverse, generator action, balancing and
+unit/counit triangles remain separate obligations.
+
+The audit's `admission_next_source_closure.md` and
+`admission_next_verification.json` record the selected staged theorem, original
+failures, removal controls, source pins and resource/warning evidence.
 
 ## Deferred improvements under the migration boundary
 
