@@ -1,0 +1,30 @@
+// UNIT PROJECTION: prewhiskering the whole unit step evaluates at the actual
+// left functor value. This is a computation obligation, not just formation.
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D))
+  [x y : τ (Obj K)] (q : τ (Hom K x y)) ⊢
+  @tapp0_fapp0 (Hom_cat K x y)
+    (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y)) _ _ q
+    (@Prof_cov_lift_unit_step K E D U x y)
+  ≡ @tapp0_fapp0
+      (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y))
+      (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y)) _ _
+      (fapp0 (@Prof_cov_lift_left_func K E D U x y) q)
+      (@hom_postcomp_tele_transf Prof_cov_universe Prof_cov_universe
+        (@id_func Prof_cov_universe) (Fibre_cat D x) (Fibre_cat E y) (Fibre_cat E y) _ _
+        (@Prof_cov_unit_view (Fibre_cat E y) (Fibre_cat D y)
+          (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U))));
+
+// COUNit PROJECTION: the corresponding whole counit step at the right value.
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D))
+  [x y : τ (Obj K)] (q : τ (Hom K x y)) ⊢
+  @tapp0_fapp0 (Hom_cat K x y)
+    (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y)) _ _ q
+    (@Prof_cov_lift_counit_step K E D U x y)
+  ≡ @tapp0_fapp0
+      (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y))
+      (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y)) _ _
+      (fapp0 (@Prof_cov_lift_right_func K E D U x y) q)
+      (@hom_precomp_along_tele_transf Prof_cov_universe Prof_cov_universe
+        (@id_func Prof_cov_universe) (Fibre_cat E y) (Fibre_cat D x) (Fibre_cat D x) _ _
+        (@Prof_cov_counit_view (Fibre_cat E x) (Fibre_cat D x)
+          (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U))));

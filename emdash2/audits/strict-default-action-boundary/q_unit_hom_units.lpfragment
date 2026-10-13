@@ -1,0 +1,21 @@
+// Q's identity has projected to its curried Unit body. Retain the ordinary
+// whole post/precomposition unit laws after that earlier projection.
+// Recover the identity object as Op(T) from the actual Unit_prof(T) datum.
+// Using the inferred B on the RHS elaborated to Cart(T,Cat) in a rejected
+// candidate; the direct whole-unit consumers detect that wrong endpoint.
+rule @hom_postcomp_func Prof_cov_universe Prof_cov_universe
+      (@id Cat_cat Prof_cov_universe) $W $B $B
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        _ _ _
+        (@Product_pair_tele_func $B $T)
+        (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+          _ _ _ (@Unit_prof $T)))
+  ↪ @id_func (Hom_cat Prof_cov_universe $W (Op_cat $T));
+rule @hom_precomp_along_func Prof_cov_universe Prof_cov_universe
+      (@id Cat_cat Prof_cov_universe) $Z $B $B
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        _ _ _
+        (@Product_pair_tele_func $B $T)
+        (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+          _ _ _ (@Unit_prof $T)))
+  ↪ @id_func (Hom_cat Prof_cov_universe (Op_cat $T) $Z);

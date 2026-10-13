@@ -674,3 +674,59 @@ Full-source checking still stops at the general-FF opposite-profile mismatch.
 These results do not qualify the complete coefficient/lift or production
 migration. Replay after changes to represented Hom, the two presentation maps,
 ordinary Hom-action computation or identity reindexing/closed evaluation.
+
+## Canonical unit and whole lift steps
+
+`q_unit_migration.py` derives the represented unit using the existing
+Prof_tensor_hom_hom applied to the existing Prof_func_hom twice. Its curried
+view has native type id_Q(A) => kappa(F) o iota(F). No supplied unit,
+comparison, equality argument or operational presentation cast is used.
+The moved shaped-cell classifiers now use Hom(Prof_cat), consistently with
+its selected Cartesian vertical-map profile. Raw displayed FF is retained.
+
+The whole unit/counit mate steps in q_lift_mate.lpfragment check, including
+their component observations. The final composition remains a failed positive
+obligation because the middle whole functors do not yet compare. This is
+explicitly different from declaring the desired whole comparison as input.
+
+The same consumer qualifies fixed ambient pre/post-whiskering projections
+at their actual current bodies, including full off-diagonal action and
+negative strict-naturality controls for raw transfors. Constant-section Hom
+needs explicit category and Obj views, checked by typed reflexivity. Q's
+whole identity-whiskering rules recover their object from Unit_prof(T);
+the rejected inferred-endpoint variant is retained as a failing control.
+
+```bash
+python3 audits/strict-default-action-boundary/q_unit_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_q_unit/owner_prefix.lp
+python3 audits/strict-default-action-boundary/q_unit_model.py
+```
+
+The prefix passes 263 positives/42 negatives. The mate_unit_projection and
+mate_counit_projection targets each add a passing whole-step component check.
+The LHS audit is clear. Warning blocks change from 903 to 916 (thirteen
+added, none removed); exact blocks, sources and thirteen receipts are in
+q_unit_verification.json. The no_strict_squares, no_hom_units,
+inferred_identity_object, no_ambient_views, no_ambient_obj_view and
+no_ambient_whiskering files are necessity/rejection controls.
+
+The mate_boundary and action_boundary files remain failed positive obligations,
+and the full source retains the general-FF/Op_funcd mismatch. The finite
+unit control shows a noninvertible Empty->Terminal fibre for [1]->Terminal;
+it does not qualify native tensor evaluation or full omega coherence.
+Replay after changing shaped-prof profiles, tensor introduction, unit/counit
+operations, identity whiskering, constant-section Hom or ambient whiskering.
+No production promotion or completed Homd milestone is claimed.
+
+### Presentation boundary after the canonical-unit checkpoint
+
+This Q implementation is hybrid: curried coefficient Homs reuse the legacy
+product Prof theory through explicit swap/curry/uncurry functors. The active
+plan now selects direct curried Prof owners throughout, as clarified by the
+user. Retain these receipts as reference evidence; the unresolved expanded
+conversion inverse is not a Homd prerequisite if the conversion is removed
+from its implementation. Whole lift coherence and general-FF action still
+need qualification. The public FF is a non-strict displayed transformation
+with strict functor components; it is distinct from the strict U input of
+the represented-lift experiment.

@@ -1,0 +1,79 @@
+// Unit and counit retain their opposite endpoint roles.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @Prof_cov_unit_view A B F
+  : τ (Hom (Hom_cat Prof_cov_universe A A)
+      (@id Prof_cov_universe A)
+      (@comp_fapp0 Prof_cov_universe A B A
+        (@Prof_cov_companion A B F)
+        (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include A B F)));
+assertnot [A B : Cat] (F : τ (Functor A B)) ⊢ @Prof_cov_unit_view A B F
+  : τ (Hom (Hom_cat Prof_cov_universe A A)
+      (@comp_fapp0 Prof_cov_universe A B A
+        (@Prof_cov_companion A B F)
+        (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include A B F))
+      (@id Prof_cov_universe A));
+
+// The functor-induced shaped cell projects to the actual whole Hom action.
+assert [A B : Cat] (F : τ (Functor A B)) (x y : τ (Obj A)) ⊢
+  @tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat _ _
+    (@Product_pair (Op_cat A) A x y)
+    (@strict_transfor _ _ _ _ (@Prof_func_hom A B F))
+  ≡ @fapp1_func A B F x y;
+assert [A B : Cat] (F : τ (Functor A B))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  fapp0
+    (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat _ _
+      (@Product_pair (Op_cat A) A x y)
+      (@strict_transfor _ _ _ _ (@Prof_func_hom A B F))) p
+  ≡ @fapp1_fapp0 A B F x y p;
+assert [A : Cat] (x y : τ (Obj A)) ⊢
+  @tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat _ _
+    (@Product_pair (Op_cat A) A x y)
+    (@strict_transfor _ _ _ _ (@Prof_func_hom A A (@id_func A)))
+  ≡ @id_func (Hom_cat A x y);
+
+// A raw displayed map is not implicitly a Cartesian coefficient cell.
+assertnot [A B : Cat] (F : τ (Functor A B))
+  (U : τ (Functord (@Unit_prof A)
+    (@Prof_reindex B A B A (@Unit_prof B) F F))) ⊢
+  U : τ (@Prof_hom A B B F (@Unit_prof B) F);
+
+// Whole identity whiskering after the Q identity body has been exposed.
+assert (A B : Cat) ⊢
+  @hom_postcomp_func Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    A B B (@id Prof_cov_universe B)
+  ≡ @id_func (Hom_cat Prof_cov_universe A B);
+assert (A B : Cat) ⊢
+  @hom_precomp_along_func Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    B A A (@id Prof_cov_universe A)
+  ≡ @id_func (Hom_cat Prof_cov_universe A B);
+assert ⊢
+  @hom_postcomp_func Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+    Terminal_cat Terminal_cat Terminal_cat (@id Prof_cov_universe Terminal_cat)
+  ≡ @id_func (Hom_cat Prof_cov_universe Terminal_cat Terminal_cat);
+
+// Strict naturality is internal in the whole Hom_K(x,y), and its profile
+// cannot be dropped for a general displayed map.
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D))
+  (x y : τ (Obj K)) ⊢
+  @comp_cat_fapp0 _ _ _
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat)
+      (Fibre_cat E x) (Fibre_cat E y) (Fibre_cat D y)
+      (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U)))
+    (@fapp1_func K Cat_cat E x y)
+  ≡ @tapp1_func K Cat_cat E D x y (@strict_transfor K Cat_cat E D U);
+assert [K : Cat] [E D : τ (Catd K)] (U : τ (@StrictTransfor K Cat_cat E D))
+  (x y : τ (Obj K)) ⊢
+  @comp_cat_fapp0 _ _ _
+    (@hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat)
+      (Fibre_cat D y) (Fibre_cat E x) (Fibre_cat D x)
+      (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U)))
+    (@fapp1_func K Cat_cat D x y)
+  ≡ @tapp1_func K Cat_cat E D x y (@strict_transfor K Cat_cat E D U);
+assertnot [K : Cat] [E D : τ (Catd K)] (U : τ (Functord E D))
+  (x y : τ (Obj K)) ⊢
+  @comp_cat_fapp0 _ _ _
+    (@hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat)
+      (Fibre_cat D y) (Fibre_cat E x) (Fibre_cat D x)
+      (@tapp0_fapp0 K Cat_cat E D x U))
+    (@fapp1_func K Cat_cat D x y)
+  ≡ @tapp1_func K Cat_cat E D x y U;

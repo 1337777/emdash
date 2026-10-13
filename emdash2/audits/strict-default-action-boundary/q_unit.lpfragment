@@ -1,0 +1,9 @@
+// Canonical unit from the existing shaped tensor introduction. Both shaped
+// factors are the actual Hom action of F; no unit or comparison is an input.
+symbol Prof_represented_unit [A B : Cat] (F : τ (Functor A B))
+  : τ (ProfMap (@Unit_prof A)
+      (@Prof_tensor A B A (@Companion_prof A B F) (@Conjoint_prof A B F)))
+≔ @Prof_tensor_hom_hom A A B A
+    (@Companion_prof A B F) (@Conjoint_prof A B F)
+    (@id_func A) (@id_func A) F
+    (@Prof_func_hom A B F) (@Prof_func_hom A B F);

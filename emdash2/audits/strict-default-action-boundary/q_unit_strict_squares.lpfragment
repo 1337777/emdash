@@ -1,0 +1,12 @@
+// Whole readings of a Cat-valued strict transformation's naturality square.
+// These specialize the strict-transfor profile, not arbitrary displayed FF.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+        (@tapp0_fapp0 $K Cat_cat $E $D $y (@strict_transfor $K Cat_cat $E $D $U)))
+      (@fapp1_func $K Cat_cat $E $x $y)
+  ↪ @tapp1_func $K Cat_cat $E $D $x $y (@strict_transfor $K Cat_cat $E $D $U);
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+        (@tapp0_fapp0 $K Cat_cat $E $D $x (@strict_transfor $K Cat_cat $E $D $U)))
+      (@fapp1_func $K Cat_cat $D $x $y)
+  ↪ @tapp1_func $K Cat_cat $E $D $x $y (@strict_transfor $K Cat_cat $E $D $U);

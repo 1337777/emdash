@@ -1,0 +1,29 @@
+// The constant-section mapping category already agrees with Functor_cat.
+// Its Hom may be read through Transf_cat before the Transfd_cat comparison
+// can match. Record this normalized view explicitly; custom unification does
+// not infer the transitive comparison through those two family classifiers.
+unif_rule
+  Hom_cat
+    (@Transf_cat $K Cat_cat (@Const_catd $K Terminal_cat) (@Const_catd $K $A)) $F $G
+  ≡ @Transf_cat $K' $A' $F' $G'
+  ↪ [ $K ≡ $K'; $A ≡ $A'; $F ≡ $F'; $G ≡ $G' ];
+
+// Obj is not an injective category decoder, so retain the corresponding
+// object-classifier view rather than relying on propagation through Obj.
+unif_rule
+  Obj (Hom_cat
+    (@Transf_cat $K Cat_cat (@Const_catd $K Terminal_cat) (@Const_catd $K $A)) $F $G)
+  ≡ Obj (@Transf_cat $K' $A' $F' $G')
+  ↪ [ $K ≡ $K'; $A ≡ $A'; $F ≡ $F'; $G ≡ $G' ];
+
+// Typed reflexivity exercises these proof-time comparisons.
+assert [K A : Cat] (F G : τ (Functor K A)) ⊢
+  @eq_refl (Obj Cat_cat) (@Transf_cat K A F G)
+  : τ (@= (Obj Cat_cat)
+      (Hom_cat (@Transf_cat K Cat_cat (@Const_catd K Terminal_cat) (@Const_catd K A)) F G)
+      (@Transf_cat K A F G));
+assert [K A : Cat] (F G : τ (Functor K A)) ⊢
+  @eq_refl (Obj Grpd_cat) (Obj (@Transf_cat K A F G))
+  : τ (@= (Obj Grpd_cat)
+      (Obj (Hom_cat (@Transf_cat K Cat_cat (@Const_catd K Terminal_cat) (@Const_catd K A)) F G))
+      (Obj (@Transf_cat K A F G)));

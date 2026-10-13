@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; strict-action pilot checked; Cartesian/Gray evaluation and coefficient profiles must be integrated before promotion
+Status: active; core migration prototype and represented comparisons checked; whole lift/general-FF integration and production gates remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -53,18 +53,18 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: finish the separately expanded Cartesian transformation
-inverse, then use the canonical represented comparisons in the whole lift
-and correct the general-FF intrinsic action. The companion/conjoint inverse
-specializations now check, including identities and composites. Moving the
-existing generic full-Hom action rules earlier did not resolve the separate
-transformation inverse; inspect its actual Cartesian action owners before
-adding more computation. Generic whole presentation inverses also check;
-the existing product-prof tensor is connected to Q's composition owner and
-the derived counit has the required native composite source. These are
-structural computation clauses and checked consumers, not a derivation of a
-complete omega coefficient from the opaque tensor. Represented Q
-unit/composition computation also checks.
+Current next slice, clarified by the user on 2026-10-13: migrate the
+profunctor owners themselves to the selected curried convention, starting
+with Prof_cat, reindexing and represented modules. The prototype to date is
+hybrid: Q has curried Homs but its tensor/unit/counit reuse legacy product
+Prof through swap/curry/uncurry. This was implementation scaffolding, not the
+requested final presentation. The expanded presentation-inverse obligation
+belongs to that scaffolding; removing the conversion from the core dependency
+path removes that prerequisite, without claiming the open generic Cartesian
+inverse computation is solved. Preserve its evidence. Whole represented-lift
+coherence and general-FF intrinsic integration remain required regardless of
+presentation. The two whole lift steps and their component computations check;
+their final middle-functor agreement remains open in the hybrid reference.
 A candidate whole Homd target and direct projection ladder check
 under explicit structural Q/lift contracts; those contracts are not yet a
 qualified omega coefficient. The first failing full-file consumer is the old
@@ -1614,6 +1614,147 @@ owner as the possible source of the canonical unit complementing the derived
 counit; its current raw shaped-cell profile must be reviewed before using
 it in the Cartesian coefficient. This is a next-consumer investigation, not
 a supplied adjunction or an assumed admission result.
+
+## Canonical represented unit and whole lift steps
+
+Next concrete lift dependency (after fee20907): construct the canonical unit
+using existing Prof_func_hom and Prof_tensor_hom_hom, rather than supplying
+a unit/comparison or identifying a represented tensor through an operational
+cast. The shaped-cell classifier must agree with the Cartesian vertical Hom
+already selected for Prof_cat. Keep raw displayed FF and ordinary ambient
+transfors separate from that coefficient profile. This independent lift
+consumer can progress while the expanded Cartesian inverse remains open;
+both are still required before production qualification.
+
+The q_unit replay now constructs
+
+```text
+Prof_represented_unit(F)
+  = Prof_tensor_hom_hom(F, Prof_func_hom(F), Prof_func_hom(F)).
+
+Prof_cov_unit_view(F) : id_Q(A) => kappa(F) o iota(F).
+```
+
+The first expression abbreviates the checked fully indexed body. It uses
+the existing shaped tensor introduction and the existing whole Hom action
+of F twice. It supplies neither an independent comparison nor an equality
+argument, and uses no tensor/represented operational cast. The curried view
+is the actual arrow action of Prof_cov_curry_func. The previously derived
+counit retains type iota(F) o kappa(F) => id_Q(B).
+
+The needed existing shaped-cell owners move before Q/Homd. Prof_transf_cat
+now uses Hom_cat(Prof_cat) instead of a separate raw Functord_cat, matching
+the Cartesian vertical-map profile already selected for the coefficient.
+Prof_hom_cat and Prof_hom remain aliases. Prof_func_hom retains its name and
+its object/off-diagonal projections through the strict-transfor view; its
+ordinary Hom action is tested. This is an explicit coefficient profile
+migration, not a rule making every displayed FF strictly natural. Later
+shaped-prof consumers still require integration with that selected profile.
+
+For strict U:E=>D, the attempted lift comparison has whole source/target
+functors on I=Hom_K(x,y):
+
+```text
+L(q) = iota(E[q]) o kappa(U[x]).
+R(q) = kappa(U[y]) o iota(D[q]).
+```
+
+Prof_cov_lift_unit_step and Prof_cov_lift_counit_step are actual whole
+transformations obtained by fixed whiskering of the canonical unit/counit.
+Their declarations and component computations check. Their final composite
+still fails: the middle whole functors do not yet compare. The failed final
+definition in q_lift_mate.lpfragment is retained as a positive obligation,
+not replaced with a supplied transformation or an equality-proof parameter.
+For that next agreement, inspect the existing Hom_func comparisons between
+the two whiskering orders and the strict image/naturality laws. Pointwise
+agreement alone is insufficient. The already checked relative target-action
+route for general FF is retained; do not attempt to unguard Op_funcd(FF).
+
+This consumer exposed two earlier migration gaps, now repaired in the copy:
+
+- Q identity expansion erased the literal identity argument of whole Hom
+  whiskering. Its unit computation must recover the object as Op(T) from
+  Unit_prof(T). Using an inferred endpoint on the RHS elaborated to the
+  wrong Cartesian functor category despite initial subject reduction; the
+  actual whole-unit consumer and printed rule exposed the error. Extra
+  Cartesian endpoint guards were then removed successfully.
+- Ambient fixed precomposition uses the actual pullback Hom-action body;
+  an earlier Functor_cat_func-based intermediate had been retired. The
+  normalized Hom of constant sections needs both category and Obj proof-time
+  views because unification does not propagate the existing comparisons
+  transitively through Obj. Typed reflexivity checks both views. Fixed
+  pre/post-whiskering now computes components and full/capped off-diagonal
+  action, preserving an arbitrary ambient transfor's action. Identity cases
+  check and negative controls reject strict naturality for raw eta.
+
+The ordinary whole strict-square readings added for U use only its explicit
+StrictTransfor view. U is the strict diagram-map parameter of the represented
+lift; it is not the public general FF argument of Homd. The latter remains
+non-strict. Removing those readings fails their whole-Hom consumers.
+
+The final core prefix passes 263 positives/42 negatives. Each whole mate-step
+component file adds one passing comparison. The strict LHS audit has zero
+unreviewed slots (46 intentional slots in 31 clauses). Warning blocks change
+from 903 to 916: thirteen added and none removed, inventoried in
+q_unit_verification.json. All checks retain 90s/2GiB, serial execution,
+warnings and subject reduction. Removal variants reproduce the missing
+strict-square, identity-whiskering, classifier-view and ambient-projection
+failures. The inferred-identity-object variant preserves the rejected endpoint
+behavior. Exact authoring/output hashes and thirteen receipts are pinned.
+
+A finite control takes F:[1]->Terminal. At legacy endpoints (1,0), the unit
+is Empty->Terminal, so it is not invertible. The script checks the functor's
+Hom action and five nonempty naturality cases; it is not an omega model or
+a native tensor-evaluation certificate. The full copied source still stops
+at the general-FF/Op_funcd mismatch, and the expanded Cartesian transformation
+inverse still fails. Unit/counit triangle coherence, complete represented-lift
+action and production qualification remain unproved by this tranche.
+
+## Canonical curried Prof clarification and next owner closure
+
+The user's 2026-10-13 clarification selects a consistently curried Prof
+implementation, including adapted reindexing and the existing tensor/theory
+owners. The current Q/Homd telescope is already direct and curried; the
+product conversion sits inside its coefficient implementation, not in a
+combined dependent (y,v,f) context. Nevertheless, preserving the entire old
+product Prof theory underneath Q is not the final migration target.
+
+With Cart denoting the already selected Cartesian mapping category:
+
+```text
+Prof_cat(A,B) = Cart(A,Cart(T(B),Cat)).
+P[F,G] = precompose(T(G)) o P o F.
+P[F,G][a'][b'] = P[F[a']][G[b']].
+Unit_prof(A)[a][b] = Hom_A(b,a).
+```
+
+The new Prof(A,B) corresponds to the old Prof(B,A), with swapped argument
+order. This is not just currying the old Prof(A,B). Preserve the named
+Companion/Conjoint directions and tensor incidence under that change; inventory
+consumers instead of performing a blind endpoint substitution.
+
+First bounded closure: canonical Prof_cat/Prof/ProfMap, direct curried
+reindexing with full action, identity/composition and non-collapse consumers,
+then Unit and represented aliases. Keep ordinary product Hom/curry as generic
+constructions if needed by their existing consumers, but do not require a
+legacy Prof conversion for ordinary Prof action. The source-position copy
+must retain the downstream suffix so every still-unmigrated consumer is
+visible. The criterion is native whole computation, not only a leaf formula.
+
+The represented lift means sending a strict diagram transformation U:E=>D
+to a generally non-strict transformation iota(D)=>iota(E), with component
+kappa(U[y]). Its comparison uses the canonical represented unit/counit and
+strict naturality of this U. Public FF:D=>E is a different parameter: it
+retains non-strict naturality, with strict functor components by default.
+No rule makes all Functord or Cat-valued transformations strict. The current
+full source still misuses raw FF at the strictly profiled Op_funcd owner;
+its replacement must use the retained general-FF target-action route.
+
+The q_unit checkpoint is validated hybrid recovery evidence, not completed
+curried migration. Its unchanged prefix replay passes in 5.619s, receipt
+`20261013T031013Z-7d758e68feed4308ac18a1a9d77f0c87`. No production source
+computation is promoted by that checkpoint. The separately pending carrier
+relocation remains excluded until its production gates qualify.
 
 ## Deferred improvements under the migration boundary
 

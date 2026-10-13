@@ -1,0 +1,79 @@
+// NON-LIBRARY: the first four definitions and their components check.
+// The final whole comparison is an unresolved positive obligation.
+// Actual whole functors in q:Hom_K(x,y), for a strict diagram map U:E=>D.
+// Their values are iota(E[q]) kappa(U[x]) and kappa(U[y]) iota(D[q]).
+symbol Prof_cov_lift_left_func [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x y : τ (Obj K))
+  : τ (Functor (Hom_cat K x y)
+      (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y)))
+≔ @comp_cat_fapp0 _ _ _
+    (@hom_precomp_along_func Prof_cov_universe Prof_cov_universe
+      (@id_func Prof_cov_universe) (Fibre_cat E y) (Fibre_cat D x) (Fibre_cat E x)
+      (@Prof_cov_companion (Fibre_cat E x) (Fibre_cat D x)
+        (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U))))
+    (@fapp1_func K Prof_cov_universe (@Prof_cov_diagram K E) x y);
+
+symbol Prof_cov_lift_right_func [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x y : τ (Obj K))
+  : τ (Functor (Hom_cat K x y)
+      (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y)))
+≔ @comp_cat_fapp0 _ _ _
+    (@hom_postcomp_func Prof_cov_universe Prof_cov_universe
+      (@id_func Prof_cov_universe) (Fibre_cat D x) (Fibre_cat D y) (Fibre_cat E y)
+      (@Prof_cov_companion (Fibre_cat E y) (Fibre_cat D y)
+        (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U))))
+    (@fapp1_func K Prof_cov_universe (@Prof_cov_diagram K D) x y);
+
+// First whole step: whisker the canonical unit at U[y] by the left functor.
+symbol Prof_cov_lift_unit_step [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x y : τ (Obj K))
+  : τ (Transf (@Prof_cov_lift_left_func K E D U x y)
+      (@comp_cat_fapp0 _ _ _
+        (@hom_postcomp_func Prof_cov_universe Prof_cov_universe
+          (@id_func Prof_cov_universe) (Fibre_cat D x) (Fibre_cat E y) (Fibre_cat E y)
+          (@comp_fapp0 Prof_cov_universe (Fibre_cat E y) (Fibre_cat D y) (Fibre_cat E y)
+            (@Prof_cov_companion (Fibre_cat E y) (Fibre_cat D y)
+              (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U)))
+            (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include (Fibre_cat E y) (Fibre_cat D y)
+              (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U)))))
+        (@Prof_cov_lift_left_func K E D U x y)))
+≔ @fapp0 _ _
+    (@comp_cat_con_fapp1_func _ _ _ (@Prof_cov_lift_left_func K E D U x y) _ _)
+    (@hom_postcomp_tele_transf Prof_cov_universe Prof_cov_universe
+      (@id_func Prof_cov_universe) (Fibre_cat D x) (Fibre_cat E y) (Fibre_cat E y) _ _
+      (@Prof_cov_unit_view (Fibre_cat E y) (Fibre_cat D y)
+        (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U))));
+
+// Second whole step: whisker the canonical counit at U[x] by the right functor.
+symbol Prof_cov_lift_counit_step [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x y : τ (Obj K))
+  : τ (Transf
+      (@comp_cat_fapp0 _ _ _
+        (@hom_precomp_along_func Prof_cov_universe Prof_cov_universe
+          (@id_func Prof_cov_universe) (Fibre_cat E y) (Fibre_cat D x) (Fibre_cat D x)
+          (@comp_fapp0 Prof_cov_universe (Fibre_cat D x) (Fibre_cat E x) (Fibre_cat D x)
+            (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include (Fibre_cat E x) (Fibre_cat D x)
+              (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U)))
+            (@Prof_cov_companion (Fibre_cat E x) (Fibre_cat D x)
+              (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U)))))
+        (@Prof_cov_lift_right_func K E D U x y))
+      (@Prof_cov_lift_right_func K E D U x y))
+≔ @fapp0 _ _
+    (@comp_cat_con_fapp1_func _ _ _ (@Prof_cov_lift_right_func K E D U x y) _ _)
+    (@hom_precomp_along_tele_transf Prof_cov_universe Prof_cov_universe
+      (@id_func Prof_cov_universe) (Fibre_cat E y) (Fibre_cat D x) (Fibre_cat D x) _ _
+      (@Prof_cov_counit_view (Fibre_cat E x) (Fibre_cat D x)
+        (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U))));
+
+// WHOLE MATE: composing these actual steps requires the middle functors to
+// agree by strict naturality of U and composition/whiskering computation.
+// No equality proof or independently supplied comparison is an argument.
+symbol Prof_cov_lift_comparison [K : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x y : τ (Obj K))
+  : τ (Transf (@Prof_cov_lift_left_func K E D U x y)
+      (@Prof_cov_lift_right_func K E D U x y))
+≔ @comp_fapp0
+    (Functor_cat (Hom_cat K x y)
+      (Hom_cat Prof_cov_universe (Fibre_cat D x) (Fibre_cat E y))) _ _ _
+    (@Prof_cov_lift_counit_step K E D U x y)
+    (@Prof_cov_lift_unit_step K E D U x y);

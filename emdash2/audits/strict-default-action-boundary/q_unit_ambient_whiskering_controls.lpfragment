@@ -1,0 +1,54 @@
+// Both existing fixed-whiskering operations accept ambient transfors.
+assert [X Y Z : Cat] (F : τ (Functor X Y)) [G H : τ (Functor Y Z)]
+  (eta : τ (Transf G H)) (x : τ (Obj X)) ⊢
+  @tapp0_fapp0 X Z _ _ x (fapp0 (@comp_cat_con_fapp1_func X Y Z F G H) eta)
+  ≡ @tapp0_fapp0 Y Z G H (fapp0 F x) eta;
+assert [X Y Z : Cat] (G : τ (Functor Y Z)) [F H : τ (Functor X Y)]
+  (eta : τ (Transf F H)) (x : τ (Obj X)) ⊢
+  @tapp0_fapp0 X Z _ _ x (fapp0 (@comp_cat_cov_fapp1_func X Y Z G F H) eta)
+  ≡ @fapp1_fapp0 Y Z G (fapp0 F x) (fapp0 H x) (@tapp0_fapp0 X Y F H x eta);
+
+// Whole off-diagonal action and its independently capped form.
+assert [X Y Z : Cat] (F : τ (Functor X Y)) [G H : τ (Functor Y Z)]
+  (eta : τ (Transf G H)) (x y : τ (Obj X)) ⊢
+  @tapp1_func X Z _ _ x y (fapp0 (@comp_cat_con_fapp1_func X Y Z F G H) eta)
+  ≡ @comp_cat_fapp0 _ _ _
+      (@tapp1_func Y Z G H (fapp0 F x) (fapp0 F y) eta)
+      (@fapp1_func X Y F x y);
+assert [X Y Z : Cat] (G : τ (Functor Y Z)) [F H : τ (Functor X Y)]
+  (eta : τ (Transf F H)) (x y : τ (Obj X)) ⊢
+  @tapp1_func X Z _ _ x y (fapp0 (@comp_cat_cov_fapp1_func X Y Z G F H) eta)
+  ≡ @comp_cat_fapp0 _ _ _
+      (@fapp1_func Y Z G (fapp0 F x) (fapp0 H y)) (@tapp1_func X Y F H x y eta);
+assert [X Y Z : Cat] (F : τ (Functor X Y)) [G H : τ (Functor Y Z)]
+  (eta : τ (Transf G H)) [x y : τ (Obj X)] (p : τ (Hom X x y)) ⊢
+  @tapp1_fapp0 X Z _ _ x y (fapp0 (@comp_cat_con_fapp1_func X Y Z F G H) eta) p
+  ≡ @tapp1_fapp0 Y Z G H (fapp0 F x) (fapp0 F y) eta (@fapp1_fapp0 X Y F x y p);
+assert [X Y Z : Cat] (G : τ (Functor Y Z)) [F H : τ (Functor X Y)]
+  (eta : τ (Transf F H)) [x y : τ (Obj X)] (p : τ (Hom X x y)) ⊢
+  @tapp1_fapp0 X Z _ _ x y (fapp0 (@comp_cat_cov_fapp1_func X Y Z G F H) eta) p
+  ≡ @fapp1_fapp0 Y Z G (fapp0 F x) (fapp0 H y) (@tapp1_fapp0 X Y F H x y eta p);
+
+// Identity-transfor observation is preserved by both maps.
+assert [X Y Z : Cat] (F : τ (Functor X Y)) (G : τ (Functor Y Z)) (x : τ (Obj X)) ⊢
+  @tapp0_fapp0 X Z _ _ x
+    (fapp0 (@comp_cat_con_fapp1_func X Y Z F G G) (@id (Functor_cat Y Z) G))
+  ≡ @id Z (fapp0 G (fapp0 F x));
+assert [X Y Z : Cat] (F : τ (Functor X Y)) (G : τ (Functor Y Z)) (x : τ (Obj X)) ⊢
+  @tapp0_fapp0 X Z _ _ x
+    (fapp0 (@comp_cat_cov_fapp1_func X Y Z G F F) (@id (Functor_cat X Y) F))
+  ≡ @id Z (fapp0 G (fapp0 F x));
+
+// General eta does not become strictly natural after fixed whiskering.
+assertnot [X Y Z : Cat] (F : τ (Functor X Y)) [G H : τ (Functor Y Z)]
+  (eta : τ (Transf G H)) [x y : τ (Obj X)] (p : τ (Hom X x y)) ⊢
+  @tapp1_fapp0 X Z _ _ x y (fapp0 (@comp_cat_con_fapp1_func X Y Z F G H) eta) p
+  ≡ @comp_fapp0 Z _ _ _
+      (@fapp1_fapp0 Y Z H (fapp0 F x) (fapp0 F y) (@fapp1_fapp0 X Y F x y p))
+      (@tapp0_fapp0 Y Z G H (fapp0 F x) eta);
+assertnot [X Y Z : Cat] (G : τ (Functor Y Z)) [F H : τ (Functor X Y)]
+  (eta : τ (Transf F H)) [x y : τ (Obj X)] (p : τ (Hom X x y)) ⊢
+  @tapp1_fapp0 X Z _ _ x y (fapp0 (@comp_cat_cov_fapp1_func X Y Z G F H) eta) p
+  ≡ @comp_fapp0 Z _ _ _
+      (@fapp1_fapp0 Y Z G (fapp0 H x) (fapp0 H y) (@fapp1_fapp0 X Y H x y p))
+      (@fapp1_fapp0 Y Z G (fapp0 F x) (fapp0 H x) (@tapp0_fapp0 X Y F H x eta));

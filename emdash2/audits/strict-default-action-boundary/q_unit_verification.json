@@ -1,0 +1,611 @@
+{
+  "status": "non-library: derived represented unit, Cartesian shaped-cell integration, whole mate steps and their components, and ambient fixed-whiskering projections check; final mate agreement, expanded inverse and full migration remain open",
+  "qInverseViewsInputSha256": "9248dcc848887074f443deb32ae3760794fc58711be379765cd91c60a81ebe93",
+  "movedSymbols": [
+    "Prof_transf_cat",
+    "Prof_hom_cat",
+    "Prof_hom",
+    "Prof_id_hom",
+    "Prof_func_hom",
+    "Prof_tensor_hom_hom"
+  ],
+  "profileChange": "Prof_transf_cat uses Hom(Prof_cat), matching its Cartesian vertical-map profile; raw displayed FF is unchanged.",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/q_unit_migration.py": "d8b36573f7c7004f0c15d21b48e5fcc1d050e0208cf15cc820ad910d170aeddb",
+    "audits/strict-default-action-boundary/q_unit.lpfragment": "1660d4de28c9203e80dc180339c32a7d82094fb17bac8555f867f7c2db818284",
+    "audits/strict-default-action-boundary/q_unit_bridge.lpfragment": "0be810ec5f357d5764d3936098734e84c705202bf1ff7033c38a61425b197dd3",
+    "audits/strict-default-action-boundary/q_unit_controls.lpfragment": "156e92424e7ab0d26c8ee064e3b8adee6b05543be555ae8d9297afd69ca7e2c9",
+    "audits/strict-default-action-boundary/q_lift_mate.lpfragment": "9002c0ae74b99939f7a95282920c12c84af4fa4e22952029cc3ad5939227c2c3",
+    "audits/strict-default-action-boundary/q_unit_hom_units.lpfragment": "2cca76f02ed62d90060810e9e944b31c55dd566758b077e52c5de1d91331d115",
+    "audits/strict-default-action-boundary/q_unit_strict_squares.lpfragment": "699c60ec229b08943cd7c7085297cd8490f22f07477e6bd87f945c46297f4fea",
+    "audits/strict-default-action-boundary/q_unit_model.py": "bc3c4e009cbe15a6f88a1419ba5bf9980755a57ab1efc6fe72759543f22c5e1b",
+    "audits/strict-default-action-boundary/q_lift_mate_projections.lpfragment": "2307660ae8a2f6b3aa49c4cce1b686f676131f2d83df9440f4bc6eb6b2567bec",
+    "audits/strict-default-action-boundary/q_unit_ambient_whiskering.lpfragment": "8f9229ffc45495dad7dcc81a4a83b6fe1939ee6d00985a545d3062f879061862",
+    "audits/strict-default-action-boundary/q_unit_ambient_whiskering_controls.lpfragment": "ddff1674b65fba872b7430c13cdd6a1ef48abdccce4d01d293e5f1c6a881c982",
+    "audits/strict-default-action-boundary/q_unit_ambient_views.lpfragment": "3f247b8245a005c3d3d673845739df7ea80a31bafa93b687dac27497d303fe64"
+  },
+  "outputs": {
+    "emdash3_2.lp": "5fc012428fb35bad5e810524196e85df66bede88bb4188f1a2b248b156cdc60e",
+    "owner_prefix.lp": "25006d7310bb935dd4c6865a208d51ae463f107628756e2e8ce1c6aa91cda702",
+    "action_boundary.lp": "2c8a1d080c195a12e56acfcbfe8ee5880cebb17907a7a08e5dc1b269eb741d3b",
+    "mate_source.lp": "efa3d7abeb3eb77fff7d520b6be5215585a08879ca68642f68a8ff60a58fde92",
+    "mate_boundary.lp": "1a89569d9e5e242f10ebc84c76be665a0eebb498688d909fb14949dfdb1a5e1f",
+    "mate_steps.lp": "b73a94fb984592fab54cea94beb0ee52ca508d44f379e9cf4e20a9389d20ae79",
+    "mate_unit_projection.lp": "63f26e8c85192e7d5e14c90727f1553aaaa94b771843a3f3b8c6b97f805d9442",
+    "mate_counit_projection.lp": "f32f1f7d106b60c71549767cb1a0f835785b5c54fb69648e9c9852eb279ef44d",
+    "no_strict_squares.lp": "55945e60a2b285c92702480cf68fb612e5aec03462e614ff7888e3ef730b5b4d",
+    "no_hom_units.lp": "f620d8cb47cd9825e192ed61b6ee424fabefe7e75030532db76364b61c4f0a53",
+    "inferred_identity_object.lp": "a0c42af815ac94714929e2ae25d8b0f01d44fd12f64d32e9b8eae829183fbff0",
+    "no_ambient_views.lp": "cc6b4eece0444485115866ec2b5ae9b3df8aff9d52ade13e6da2f27db0ab5575",
+    "no_ambient_obj_view.lp": "3f1d0ab54736966ad33179595ecf8b3aabf2d2021050d6ddff8a7d77ea13151a",
+    "no_ambient_whiskering.lp": "9a8a5efcbc149ee1ad66a9c1f647f941a9eea376976391163d91efa6edc00aad",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "checks": {
+    "baseline": {
+      "id": "20261013T010312Z-eae2c8b7961149bfacaade53be99acbc",
+      "target": "tmp/probes/strict_default_q_inverse_views/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 6.14485916798003,
+      "childrenMaxRssKiB": 464260,
+      "inputSnapshot": "850168975b250788a80eafd807c99827224d15086d70efc737053d48568cc3c6",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_inverse_views/owner_prefix.lp": "a59660442b9523bfe273e306a503a546680b18155f67d09b174bd74754bfb85b"
+      },
+      "log": "logs/check-runs/20261013T010312Z-eae2c8b7961149bfacaade53be99acbc.log",
+      "logSha256": "e8c6f8fd77f9e7e7da6d98ecc75511b1a1b1789fe613be652486adf76d68e68d",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 903
+    },
+    "owner_prefix": {
+      "id": "20261013T022358Z-d5b5147ff0f146f1b4dde11369698584",
+      "target": "tmp/probes/strict_default_q_unit/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 9.433302299003117,
+      "childrenMaxRssKiB": 478316,
+      "inputSnapshot": "900758a79d7e68c4eceda1719381afe8028bbc41b4ef082794467af14222df61",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/owner_prefix.lp": "25006d7310bb935dd4c6865a208d51ae463f107628756e2e8ce1c6aa91cda702"
+      },
+      "log": "logs/check-runs/20261013T022358Z-d5b5147ff0f146f1b4dde11369698584.log",
+      "logSha256": "80664a99b542c3f2f0e661613d046d4b52d7d05072fe39f1ef1412d3171b9837",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 916
+    },
+    "mate_unit_projection": {
+      "id": "20261013T022519Z-657dcfca502241ebab83fd15ab73bc27",
+      "target": "tmp/probes/strict_default_q_unit/mate_unit_projection.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 8.134961165022105,
+      "childrenMaxRssKiB": 479632,
+      "inputSnapshot": "1a1b568e120126059316e7ecafdd94540c4e2426b535800179f630c18ca20058",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/mate_unit_projection.lp": "63f26e8c85192e7d5e14c90727f1553aaaa94b771843a3f3b8c6b97f805d9442"
+      },
+      "log": "logs/check-runs/20261013T022519Z-657dcfca502241ebab83fd15ab73bc27.log",
+      "logSha256": "dd95f6171959c20bfc9d7809d080c5c5f8975088b179fad10d83c8b51dffcc94",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 916
+    },
+    "mate_counit_projection": {
+      "id": "20261013T022527Z-b28704378a9f4add8d6905f9ef38c1c9",
+      "target": "tmp/probes/strict_default_q_unit/mate_counit_projection.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 8.374214341049083,
+      "childrenMaxRssKiB": 479220,
+      "inputSnapshot": "ebdac0df2b8b99e6eef991905bc2f4a13c82fac852ef33985aab968b4d9f3915",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/mate_counit_projection.lp": "f32f1f7d106b60c71549767cb1a0f835785b5c54fb69648e9c9852eb279ef44d"
+      },
+      "log": "logs/check-runs/20261013T022527Z-b28704378a9f4add8d6905f9ef38c1c9.log",
+      "logSha256": "27a2306ed8505eef2ddd057e73fa21065789fd98c20d5f21d3f0958917b5bbdb",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 916
+    },
+    "mate_boundary": {
+      "id": "20261013T022536Z-9982f038dbd34b358dcb298359db6f96",
+      "target": "tmp/probes/strict_default_q_unit/mate_boundary.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 7.987669780966826,
+      "childrenMaxRssKiB": 473912,
+      "inputSnapshot": "037a6b12f3f58c2cb87525b9d47ae982e64703fcd0a5b12189a0ee74022870f3",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/mate_boundary.lp": "1a89569d9e5e242f10ebc84c76be665a0eebb498688d909fb14949dfdb1a5e1f"
+      },
+      "log": "logs/check-runs/20261013T022536Z-9982f038dbd34b358dcb298359db6f96.log",
+      "logSha256": "b56d825663037bf664c29146f599536cadd66e3eab067f6c389c686d9f42223c",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 914
+    },
+    "action_boundary": {
+      "id": "20261013T024339Z-2fa3a38a1aec467e8c42434b5e64e756",
+      "target": "tmp/probes/strict_default_q_unit/action_boundary.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.856665318948217,
+      "childrenMaxRssKiB": 478056,
+      "inputSnapshot": "4fba9a750613fafd27f5769ec48e0076b9497eea276a8fa00724538667be13c6",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/action_boundary.lp": "2c8a1d080c195a12e56acfcbfe8ee5880cebb17907a7a08e5dc1b269eb741d3b"
+      },
+      "log": "logs/check-runs/20261013T024339Z-2fa3a38a1aec467e8c42434b5e64e756.log",
+      "logSha256": "dd6e3c7adac0a66931d625554901a789f8646f8c25cfcc8d8742333af2715d54",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 916
+    },
+    "no_strict_squares": {
+      "id": "20261013T023824Z-a357110bea49447ba2461c9491d7a64d",
+      "target": "tmp/probes/strict_default_q_unit/no_strict_squares.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.828952535055578,
+      "childrenMaxRssKiB": 468428,
+      "inputSnapshot": "dc5e142716346fed43b3c8beae97932bacb1939a277262e4dcd980272aa0db37",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/no_strict_squares.lp": "55945e60a2b285c92702480cf68fb612e5aec03462e614ff7888e3ef730b5b4d"
+      },
+      "log": "logs/check-runs/20261013T023824Z-a357110bea49447ba2461c9491d7a64d.log",
+      "logSha256": "7ba68aaaac5f30ff4c144dd9816d54ce7ca78771bec53387193ebd7c3646b558",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 915
+    },
+    "no_hom_units": {
+      "id": "20261013T023831Z-36eb8bdc302049edb2154991b1b3aebb",
+      "target": "tmp/probes/strict_default_q_unit/no_hom_units.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 7.910502331913449,
+      "childrenMaxRssKiB": 477076,
+      "inputSnapshot": "a8a2eb645a7fc87dfe92fb778244332c71fcb448d766b37daa48df5b85ed34d7",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/no_hom_units.lp": "f620d8cb47cd9825e192ed61b6ee424fabefe7e75030532db76364b61c4f0a53"
+      },
+      "log": "logs/check-runs/20261013T023831Z-36eb8bdc302049edb2154991b1b3aebb.log",
+      "logSha256": "3f5bbc996026a974142d2e3a162ffe6cbc0a3dac33145235a6fafbdc5c95582b",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 916
+    },
+    "inferred_identity_object": {
+      "id": "20261013T023839Z-e2e13ae2b3ef4b10938b71f2891108cd",
+      "target": "tmp/probes/strict_default_q_unit/inferred_identity_object.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 7.442623000941239,
+      "childrenMaxRssKiB": 476540,
+      "inputSnapshot": "20ac80189d12a45348ef77de460fd7fae1a160c2e9c608258a07ef64c0927084",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/inferred_identity_object.lp": "a0c42af815ac94714929e2ae25d8b0f01d44fd12f64d32e9b8eae829183fbff0"
+      },
+      "log": "logs/check-runs/20261013T023839Z-e2e13ae2b3ef4b10938b71f2891108cd.log",
+      "logSha256": "a7da2da54e4224d08966c24ec90c0ea8302eeaf193058b6c0eb118427edfbe8c",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 916
+    },
+    "no_ambient_views": {
+      "id": "20261013T024248Z-0ecf881c070849aaad09e3c433fb2ed5",
+      "target": "tmp/probes/strict_default_q_unit/no_ambient_views.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 1.4732427690178156,
+      "childrenMaxRssKiB": 155180,
+      "inputSnapshot": "155fa8e8741d1608f346b4769120f340a4ce3b4a84f4f0a2e077855bd9eb0706",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/no_ambient_views.lp": "cc6b4eece0444485115866ec2b5ae9b3df8aff9d52ade13e6da2f27db0ab5575"
+      },
+      "log": "logs/check-runs/20261013T024248Z-0ecf881c070849aaad09e3c433fb2ed5.log",
+      "logSha256": "2e8a9c35613ea23bcbbee87bad8e62a346440a8bc4e32c3412285f5b38341844",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 582
+    },
+    "no_ambient_obj_view": {
+      "id": "20261013T024250Z-8f0e39b7e2b74235b53fb53b3b248a43",
+      "target": "tmp/probes/strict_default_q_unit/no_ambient_obj_view.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 1.4949302889872342,
+      "childrenMaxRssKiB": 155172,
+      "inputSnapshot": "e6266fbe17ef594bb9f5816dbac77743d1a9575085dfefbfa26cabf33035b787",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/no_ambient_obj_view.lp": "3f1d0ab54736966ad33179595ecf8b3aabf2d2021050d6ddff8a7d77ea13151a"
+      },
+      "log": "logs/check-runs/20261013T024250Z-8f0e39b7e2b74235b53fb53b3b248a43.log",
+      "logSha256": "52cd701ec804d57a168950620e783dd47a480c304ffb6aa74d4f9068b378f278",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 582
+    },
+    "no_ambient_whiskering": {
+      "id": "20261013T024252Z-065f7c0bf46a4580b751d7d3a3ff9e1d",
+      "target": "tmp/probes/strict_default_q_unit/no_ambient_whiskering.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.633770805085078,
+      "childrenMaxRssKiB": 474800,
+      "inputSnapshot": "9a0af8e39a3975c4cebb762804b30893fbab785a483197d04fae623043ffa90e",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/no_ambient_whiskering.lp": "9a8a5efcbc149ee1ad66a9c1f647f941a9eea376976391163d91efa6edc00aad"
+      },
+      "log": "logs/check-runs/20261013T024252Z-065f7c0bf46a4580b751d7d3a3ff9e1d.log",
+      "logSha256": "ec817d6d6ad9e9b4d4901caf9fbb80b75394061b0e43ba3811c7e4976911780f",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 904
+    },
+    "full_source": {
+      "id": "20261013T024258Z-e5b6ff8dd1a244ab97c7ee98875ecfed",
+      "target": "tmp/probes/strict_default_q_unit/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.251933999010362,
+      "childrenMaxRssKiB": 478636,
+      "inputSnapshot": "4ec1d0f9be8ebe2a2393a08f2af02dcdd922504f7ffb4ca63d01e710cd97de20",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_unit/emdash3_2.lp": "5fc012428fb35bad5e810524196e85df66bede88bb4188f1a2b248b156cdc60e"
+      },
+      "log": "logs/check-runs/20261013T024258Z-e5b6ff8dd1a244ab97c7ee98875ecfed.log",
+      "logSha256": "47a95b3c2ae154dd135f6c15dff32c4b607241749d8e6e7bc2807fd20733965e",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 916
+    }
+  },
+  "warningComparison": {
+    "baselineCount": 903,
+    "candidateCount": 916,
+    "addedCount": 13,
+    "removedCount": 0,
+    "added": [
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp0_fapp0 $K Cat_cat (Const_catd $K Terminal_cat) (Const_catd $K $A) $k (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta')\nt \u21aa[] @tapp0_fapp0 $Y' Cat_cat $G' $H' (@fapp0 $K $Y' $F' $k) $eta' \u21aa* @tapp0_fapp0 $Y' Cat_cat $G' $H' (@fapp0 $K $Y' $F' $k) $eta'\n  with @tapp0_fapp0 $' $' $' $' $x' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') \u21aa @tapp0_fapp0 $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') $eta'\nt \u21aa[] @Obj_func $A (@fapp0 $K $A (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') $k) \u21aa* @Const_func Terminal_cat $A (@fapp0 $K $A (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') $k)\n  with @tapp0_fapp0 $K Cat_cat (Const_catd $K Terminal_cat) (Const_catd $K $A) $k $F \u21aa @Obj_func $A (@fapp0 $K $A $F $k)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp0_fapp0 $' $' $' $' $x' (@fapp1_fapp0 $A $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $X $X (id $A $X))\nt \u21aa[] @tapp0_fapp0 $Y' $1' $X $X (@fapp0 $0' $Y' $F' $x') (id $A $X) \u21aa* @tapp0_fapp0 $Y' $1' $X $X (@fapp0 $0' $Y' $F' $x') (id $A $X)\n  with @tapp0_fapp0 $' $' $' $' $x' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') \u21aa @tapp0_fapp0 $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') $eta'\nt \u21aa[1] @tapp0_fapp0 $' $' $' $' $x' (id $B (@fapp0 $A $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $X)) \u21aa* @tapp0_fapp0 $' $' $' $' $x' (id $B (@comp_fapp0 Cat_cat $X' $Y' $Z' $X $F'))\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) \u21aa id $B (@fapp0 $A $B $F $X)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp0_fapp0 $' $' $' $' $x' (@fapp1_fapp0 (Op_cat $K) $D (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $x $x (id $K $x))\nt \u21aa[] @tapp0_fapp0 $Y' $1' $x $x (@fapp0 $0' $Y' $F' $x') (id $K $x) \u21aa* @tapp0_fapp0 $Y' $1' $x $x (@fapp0 $0' $Y' $F' $x') (id $K $x)\n  with @tapp0_fapp0 $' $' $' $' $x' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') \u21aa @tapp0_fapp0 $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') $eta'\nt \u21aa[1] @tapp0_fapp0 $' $' $' $' $x' (id $D (@fapp0 (Op_cat $K) $D (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $x)) \u21aa* @tapp0_fapp0 $' $' $' $' $x' (id $D (@comp_fapp0 Cat_cat $X' $Y' $Z' $x $F'))\n  with @fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x) \u21aa id $D (@fapp0 (Op_cat $K) $D $F $x)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp0_fapp0 $' $' $' $' $x' (@fapp1_fapp0 (Catd_cat $K) $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $E $E (id (Catd_cat $K) $E))\nt \u21aa[] @tapp0_fapp0 $Y' $1' $E $E (@fapp0 $0' $Y' $F' $x') (id (Catd_cat $K) $E) \u21aa* @tapp0_fapp0 $Y' $1' $E $E (@fapp0 $0' $Y' $F' $x') (id (Catd_cat $K) $E)\n  with @tapp0_fapp0 $' $' $' $' $x' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') \u21aa @tapp0_fapp0 $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') $eta'\nt \u21aa[1] @tapp0_fapp0 $' $' $' $' $x' (id $B (@fapp0 (Catd_cat $K) $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $E)) \u21aa* @tapp0_fapp0 $' $' $' $' $x' (id $B (@comp_fapp0 Cat_cat $X' $Y' $Z' $E $F'))\n  with @fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E) \u21aa id $B (@fapp0 (Catd_cat $K) $B $F $E)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp1_func $' $' $' $' $x' $y' (@fapp1_fapp0 $A $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $X $X (id $A $X))\nt \u21aa[] @comp_cat_fapp0 (Hom_cat $0' $x' $y') (Hom_cat $Y' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y')) (Hom_cat $1' (@fapp0 $Y' $1' $X (@fapp0 $0' $Y' $F' $x')) (@fapp0 $Y' $1' $X (@fapp0 $0' $Y' $F' $y'))) (@tapp1_func $Y' $1' $X $X (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id $A $X)) (@fapp1_func $0' $Y' $F' $x' $y') \u21aa* @comp_fapp0 Cat_cat (Hom_cat $0' $x' $y') (Hom_cat $Y' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y')) (Hom_cat $1' (@fapp0 $Y' $1' $X (@fapp0 $0' $Y' $F' $x')) (@fapp0 $Y' $1' $X (@fapp0 $0' $Y' $F' $y'))) (@tapp1_func $Y' $1' $X $X (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id $A $X)) (@fapp1_func $0' $Y' $F' $x' $y')\n  with @tapp1_func $' $' $' $' $x' $y' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') \u21aa @comp_cat_fapp0 (Hom_cat $0' $x' $y') (Hom_cat $Y' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y')) (Hom_cat $1' (@fapp0 $Y' $1' $G' (@fapp0 $0' $Y' $F' $x')) (@fapp0 $Y' $1' $H' (@fapp0 $0' $Y' $F' $y'))) (@tapp1_func $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') $eta') (@fapp1_func $0' $Y' $F' $x' $y')\nt \u21aa[1] @tapp1_func $' $' $' $' $x' $y' (id $B (@fapp0 $A $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $X)) \u21aa* @tapp1_func $' $' $' $' $x' $y' (id $B (@comp_fapp0 Cat_cat $X' $Y' $Z' $X $F'))\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) \u21aa id $B (@fapp0 $A $B $F $X)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp1_func $' $' $' $' $x' $y' (@fapp1_fapp0 (Op_cat $K) $D (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $x $x (id $K $x))\nt \u21aa[] @comp_cat_fapp0 (Hom_cat $0' $x' $y') (Hom_cat $Y' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y')) (Hom_cat $1' (@fapp0 $Y' $1' $x (@fapp0 $0' $Y' $F' $x')) (@fapp0 $Y' $1' $x (@fapp0 $0' $Y' $F' $y'))) (@tapp1_func $Y' $1' $x $x (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id $K $x)) (@fapp1_func $0' $Y' $F' $x' $y') \u21aa* @comp_fapp0 Cat_cat (Hom_cat $0' $x' $y') (Hom_cat $Y' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y')) (Hom_cat $1' (@fapp0 $Y' $1' $x (@fapp0 $0' $Y' $F' $x')) (@fapp0 $Y' $1' $x (@fapp0 $0' $Y' $F' $y'))) (@tapp1_func $Y' $1' $x $x (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id $K $x)) (@fapp1_func $0' $Y' $F' $x' $y')\n  with @tapp1_func $' $' $' $' $x' $y' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') \u21aa @comp_cat_fapp0 (Hom_cat $0' $x' $y') (Hom_cat $Y' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y')) (Hom_cat $1' (@fapp0 $Y' $1' $G' (@fapp0 $0' $Y' $F' $x')) (@fapp0 $Y' $1' $H' (@fapp0 $0' $Y' $F' $y'))) (@tapp1_func $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') $eta') (@fapp1_func $0' $Y' $F' $x' $y')\nt \u21aa[1] @tapp1_func $' $' $' $' $x' $y' (id $D (@fapp0 (Op_cat $K) $D (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $x)) \u21aa* @tapp1_func $' $' $' $' $x' $y' (id $D (@comp_fapp0 Cat_cat $X' $Y' $Z' $x $F'))\n  with @fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x) \u21aa id $D (@fapp0 (Op_cat $K) $D $F $x)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp1_func $' $' $' $' $x' $y' (@fapp1_fapp0 (Catd_cat $K) $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $E $E (id (Catd_cat $K) $E))\nt \u21aa[] @comp_cat_fapp0 (Hom_cat $0' $x' $y') (Hom_cat $Y' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y')) (Hom_cat $1' (@fapp0 $Y' $1' $E (@fapp0 $0' $Y' $F' $x')) (@fapp0 $Y' $1' $E (@fapp0 $0' $Y' $F' $y'))) (@tapp1_func $Y' $1' $E $E (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id (Catd_cat $K) $E)) (@fapp1_func $0' $Y' $F' $x' $y') \u21aa* @comp_fapp0 Cat_cat (Hom_cat $0' $x' $y') (Hom_cat $Y' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y')) (Hom_cat $1' (@fapp0 $Y' $1' $E (@fapp0 $0' $Y' $F' $x')) (@fapp0 $Y' $1' $E (@fapp0 $0' $Y' $F' $y'))) (@tapp1_func $Y' $1' $E $E (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id (Catd_cat $K) $E)) (@fapp1_func $0' $Y' $F' $x' $y')\n  with @tapp1_func $' $' $' $' $x' $y' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') \u21aa @comp_cat_fapp0 (Hom_cat $0' $x' $y') (Hom_cat $Y' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y')) (Hom_cat $1' (@fapp0 $Y' $1' $G' (@fapp0 $0' $Y' $F' $x')) (@fapp0 $Y' $1' $H' (@fapp0 $0' $Y' $F' $y'))) (@tapp1_func $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') $eta') (@fapp1_func $0' $Y' $F' $x' $y')\nt \u21aa[1] @tapp1_func $' $' $' $' $x' $y' (id $B (@fapp0 (Catd_cat $K) $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $E)) \u21aa* @tapp1_func $' $' $' $' $x' $y' (id $B (@comp_fapp0 Cat_cat $X' $Y' $Z' $E $F'))\n  with @fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E) \u21aa id $B (@fapp0 (Catd_cat $K) $B $F $E)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp1_fapp0 $' $' $' $' $x' $y' (@fapp1_fapp0 $A $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $X $X (id $A $X)) $p'\nt \u21aa[] @tapp1_fapp0 $Y' $1' $X $X (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id $A $X) (@fapp1_fapp0 $0' $Y' $F' $x' $y' $p') \u21aa* @tapp1_fapp0 $Y' $1' $X $X (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id $A $X) (@fapp1_fapp0 $0' $Y' $F' $x' $y' $p')\n  with @tapp1_fapp0 $' $' $' $' $x' $y' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') $p' \u21aa @tapp1_fapp0 $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') $eta' (@fapp1_fapp0 $0' $Y' $F' $x' $y' $p')\nt \u21aa[0; 1] @tapp1_fapp0 $' $' $' $' $x' $y' (id $B (@fapp0 $A $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $X)) $p' \u21aa* @tapp1_fapp0 $' $' $' $' $x' $y' (id $B (@comp_fapp0 Cat_cat $X' $Y' $Z' $X $F')) $p'\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) \u21aa id $B (@fapp0 $A $B $F $X)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp1_fapp0 $' $' $' $' $x' $y' (@fapp1_fapp0 (Op_cat $K) $D (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $x $x (id $K $x)) $p'\nt \u21aa[] @tapp1_fapp0 $Y' $1' $x $x (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id $K $x) (@fapp1_fapp0 $0' $Y' $F' $x' $y' $p') \u21aa* @tapp1_fapp0 $Y' $1' $x $x (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id $K $x) (@fapp1_fapp0 $0' $Y' $F' $x' $y' $p')\n  with @tapp1_fapp0 $' $' $' $' $x' $y' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') $p' \u21aa @tapp1_fapp0 $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') $eta' (@fapp1_fapp0 $0' $Y' $F' $x' $y' $p')\nt \u21aa[0; 1] @tapp1_fapp0 $' $' $' $' $x' $y' (id $D (@fapp0 (Op_cat $K) $D (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $x)) $p' \u21aa* @tapp1_fapp0 $' $' $' $' $x' $y' (id $D (@comp_fapp0 Cat_cat $X' $Y' $Z' $x $F')) $p'\n  with @fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x) \u21aa id $D (@fapp0 (Op_cat $K) $D $F $x)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp1_fapp0 $' $' $' $' $x' $y' (@fapp1_fapp0 (Catd_cat $K) $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $E $E (id (Catd_cat $K) $E)) $p'\nt \u21aa[] @tapp1_fapp0 $Y' $1' $E $E (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id (Catd_cat $K) $E) (@fapp1_fapp0 $0' $Y' $F' $x' $y' $p') \u21aa* @tapp1_fapp0 $Y' $1' $E $E (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') (id (Catd_cat $K) $E) (@fapp1_fapp0 $0' $Y' $F' $x' $y' $p')\n  with @tapp1_fapp0 $' $' $' $' $x' $y' (@fapp1_fapp0 $' $' (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $G' $H' $eta') $p' \u21aa @tapp1_fapp0 $Y' $1' $G' $H' (@fapp0 $0' $Y' $F' $x') (@fapp0 $0' $Y' $F' $y') $eta' (@fapp1_fapp0 $0' $Y' $F' $x' $y' $p')\nt \u21aa[0; 1] @tapp1_fapp0 $' $' $' $' $x' $y' (id $B (@fapp0 (Catd_cat $K) $B (@fapp1_func $' $' (@Pullback_catd_func $X' $Y' $F') (Const_catd $Y' Terminal_cat) (Const_catd $Y' $Z')) $E)) $p' \u21aa* @tapp1_fapp0 $' $' $' $' $x' $y' (id $B (@comp_fapp0 Cat_cat $X' $Y' $Z' $E $F')) $p'\n  with @fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E) \u21aa id $B (@fapp0 (Catd_cat $K) $B $F $E)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @sigma_Fst $' $' (@tapp1_fapp0 $0 (Product_cat $A' $B') $2 $3 $x $y (@fapp1_fapp0 $6 $7 (@fapp1_func $8 $9 (@Pullback_catd_func $X $Y $F) (Const_catd $Y Terminal_cat) (Const_catd $Y $Z)) $G $H $eta) $p)\nt \u21aa[] @tapp1_fapp0 $0 $A' (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3) $x $y (@sigma_Fst (Obj (@Transf_cat $0 $A' (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))) (\u03bb _:\u03c4 (Obj (@Transf_cat $0 $A' (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))), Obj (@Transf_cat $0 $B' (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))) (@fapp1_fapp0 $6 $7 (@fapp1_func $8 $9 (@Pullback_catd_func $X $Y $F) (Const_catd $Y Terminal_cat) (Const_catd $Y $Z)) $G $H $eta)) $p \u21aa* @tapp1_fapp0 $0 $A' (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3) $x $y (@sigma_Fst (Obj (@Transf_cat $0 $A' (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))) (\u03bb _:\u03c4 (Obj (@Transf_cat $0 $A' (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))), Obj (@Transf_cat $0 $B' (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))) (@fapp1_fapp0 $6 $7 (@fapp1_func $8 $9 (@Pullback_catd_func $X $Y $F) (Const_catd $Y Terminal_cat) (Const_catd $Y $Z)) $G $H $eta)) $p\n  with @sigma_Fst $' $' (@tapp1_fapp0 $X' (Product_cat $A' $B') $F' $G' $i' $j' $eta' $p') \u21aa @tapp1_fapp0 $X' $A' (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $F') (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $G') $i' $j' (@sigma_Fst (Obj (@Transf_cat $X' $A' (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $F') (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $G'))) (\u03bb _:\u03c4 (Obj (@Transf_cat $X' $A' (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $F') (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $G'))), Obj (@Transf_cat $X' $B' (@sigma_Snd (Obj (Functor_cat $X' $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $F') (@sigma_Snd (Obj (Functor_cat $X' $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $G'))) $eta') $p'\nt \u21aa[1] @sigma_Fst $' $' (@tapp1_fapp0 $Y (Product_cat $A' $B') $G $H (@fapp0 $0 $Y $F $x) (@fapp0 $0 $Y $F $y) $eta (@fapp1_fapp0 $0 $Y $F $x $y $p)) \u21aa* @tapp1_fapp0 $Y $A' (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $G) (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $H) (@fapp0 $0 $Y $F $x) (@fapp0 $0 $Y $F $y) (@sigma_Fst (Obj (@Transf_cat $Y $A' (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $G) (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $H))) (\u03bb _:\u03c4 (Obj (@Transf_cat $Y $A' (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $G) (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $H))), Obj (@Transf_cat $Y $B' (@sigma_Snd (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $G) (@sigma_Snd (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $H))) $eta) (@fapp1_fapp0 $0 $Y $F $x $y $p)\n  with @tapp1_fapp0 $0 $1 $2 $3 $x $y (@fapp1_fapp0 $6 $7 (@fapp1_func $8 $9 (@Pullback_catd_func $X $Y $F) (Const_catd $Y Terminal_cat) (Const_catd $Y $Z)) $G $H $eta) $p \u21aa @tapp1_fapp0 $Y $1 $G $H (@fapp0 $0 $Y $F $x) (@fapp0 $0 $Y $F $y) $eta (@fapp1_fapp0 $0 $Y $F $x $y $p)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @sigma_Snd $' $' (@tapp1_fapp0 $0 (Product_cat $A' $B') $2 $3 $x $y (@fapp1_fapp0 $6 $7 (@fapp1_func $8 $9 (@Pullback_catd_func $X $Y $F) (Const_catd $Y Terminal_cat) (Const_catd $Y $Z)) $G $H $eta) $p)\nt \u21aa[] @tapp1_fapp0 $0 $B' (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3) $x $y (@sigma_Snd (Obj (@Transf_cat $0 $A' (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))) (\u03bb _:\u03c4 (Obj (@Transf_cat $0 $A' (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Functor $0 $A') (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))), Obj (@Transf_cat $0 $B' (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))) (@fapp1_fapp0 $6 $7 (@fapp1_func $8 $9 (@Pullback_catd_func $X $Y $F) (Const_catd $Y Terminal_cat) (Const_catd $Y $Z)) $G $H $eta)) $p \u21aa* @tapp1_fapp0 $0 $B' (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3) $x $y (@sigma_Snd (Obj (@Transf_cat $0 $A' (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))) (\u03bb _:\u03c4 (Obj (@Transf_cat $0 $A' (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Fst (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))), Obj (@Transf_cat $0 $B' (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $2) (@sigma_Snd (Obj (Functor_cat $0 $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $0 $A')), Obj (Functor_cat $0 $B')) $3))) (@fapp1_fapp0 $6 $7 (@fapp1_func $8 $9 (@Pullback_catd_func $X $Y $F) (Const_catd $Y Terminal_cat) (Const_catd $Y $Z)) $G $H $eta)) $p\n  with @sigma_Snd $' $' (@tapp1_fapp0 $X' (Product_cat $A' $B') $F' $G' $i' $j' $eta' $p') \u21aa @tapp1_fapp0 $X' $B' (@sigma_Snd (Obj (Functor_cat $X' $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $F') (@sigma_Snd (Obj (Functor_cat $X' $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $G') $i' $j' (@sigma_Snd (Obj (@Transf_cat $X' $A' (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $F') (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $G'))) (\u03bb _:\u03c4 (Obj (@Transf_cat $X' $A' (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $F') (@sigma_Fst (Functor $X' $A') (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $G'))), Obj (@Transf_cat $X' $B' (@sigma_Snd (Obj (Functor_cat $X' $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $F') (@sigma_Snd (Obj (Functor_cat $X' $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $X' $A')), Obj (Functor_cat $X' $B')) $G'))) $eta') $p'\nt \u21aa[1] @sigma_Snd $' $' (@tapp1_fapp0 $Y (Product_cat $A' $B') $G $H (@fapp0 $0 $Y $F $x) (@fapp0 $0 $Y $F $y) $eta (@fapp1_fapp0 $0 $Y $F $x $y $p)) \u21aa* @tapp1_fapp0 $Y $B' (@sigma_Snd (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $G) (@sigma_Snd (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $H) (@fapp0 $0 $Y $F $x) (@fapp0 $0 $Y $F $y) (@sigma_Snd (Obj (@Transf_cat $Y $A' (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $G) (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $H))) (\u03bb _:\u03c4 (Obj (@Transf_cat $Y $A' (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $G) (@sigma_Fst (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $H))), Obj (@Transf_cat $Y $B' (@sigma_Snd (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $G) (@sigma_Snd (Obj (Functor_cat $Y $A')) (\u03bb _:\u03c4 (Obj (Functor_cat $Y $A')), Obj (Functor_cat $Y $B')) $H))) $eta) (@fapp1_fapp0 $0 $Y $F $x $y $p)\n  with @tapp1_fapp0 $0 $1 $2 $3 $x $y (@fapp1_fapp0 $6 $7 (@fapp1_func $8 $9 (@Pullback_catd_func $X $Y $F) (Const_catd $Y Terminal_cat) (Const_catd $Y $Z)) $G $H $eta) $p \u21aa @tapp1_fapp0 $Y $1 $G $H (@fapp0 $0 $Y $F $x) (@fapp0 $0 $Y $F $y) $eta (@fapp1_fapp0 $0 $Y $F $x $y $p)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @comp_fapp0 Cat_cat $0 (Product_cat (Op_cat $A) $A) $2 (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) (@tapp0_fapp0 (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) (Product_cat (Op_cat $A) $A) $ab (@strict_transfor (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) (Product_cat (Op_cat $A) $A) (@Prof_func_hom $A (Unit_prof $A) (Product_cat (Op_cat $A) $A))))) (@fapp1_func (Product_cat (Op_cat $A) $A) Cat_cat (Product_cat (Op_cat $A) $A) $ab $y)\nt \u21aa[] @tapp1_func (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) (Product_cat (Op_cat $A) $A) $ab $y (@strict_transfor (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) (Product_cat (Op_cat $A) $A) (@Prof_func_hom $A (Unit_prof $A) (Product_cat (Op_cat $A) $A))) \u21aa* @tapp1_func (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) (Product_cat (Op_cat $A) $A) $ab $y (@strict_transfor (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) (Product_cat (Op_cat $A) $A) (@Prof_func_hom $A (Unit_prof $A) (Product_cat (Op_cat $A) $A)))\n  with @comp_fapp0 Cat_cat $0 $1 $2 (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) $3 $4 $5 (@tapp0_fapp0 $K Cat_cat $E $D $x (@strict_transfor $K Cat_cat $E $D $U))) (@fapp1_func $K Cat_cat $D $x $y) \u21aa @tapp1_func $K Cat_cat $E $D $x $y (@strict_transfor $K Cat_cat $E $D $U)\nt \u21aa[0; 1; 1] @comp_fapp0 Cat_cat $0 (Product_cat (Op_cat $A) $A) $2 (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) (@fapp1_func $A (Unit_prof $A) (Product_cat (Op_cat $A) $A) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $A) $ab) (@sigma_Snd (Obj (Op_cat $A)) (\u03bb _:\u03c4 (Obj (Op_cat $A)), Obj $A) $ab))) (@fapp1_func (Product_cat (Op_cat $A) $A) Cat_cat (Product_cat (Op_cat $A) $A) $ab $y) \u21aa* @comp_fapp0 Cat_cat $0 (Product_cat (Op_cat $A) $A) $2 (@hom_precomp_along_func Cat_cat Cat_cat (id Cat_cat Cat_cat) (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) (@fapp1_func $A (Unit_prof $A) (Product_cat (Op_cat $A) $A) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $A) $ab) (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $A) $ab))) (@fapp1_func (Product_cat (Op_cat $A) $A) Cat_cat (Product_cat (Op_cat $A) $A) $ab $y)\n  with @tapp0_fapp0 (Product_cat (Op_cat $A) $A) Cat_cat (Unit_prof $A) $1 $ab (@strict_transfor $3 $4 $5 $6 (@Prof_func_hom $A $B $F)) \u21aa @fapp1_func $A $B $F (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $A) $ab) (@sigma_Snd (Obj (Op_cat $A)) (\u03bb _:\u03c4 (Obj (Op_cat $A)), Obj $A) $ab)"
+      }
+    ],
+    "qualification": "Recorded identity/composition, represented-unit, strict-square and ambient-whiskering projection overlaps; selected consumers check, not a full confluence certificate."
+  },
+  "controls": {
+    "positive": 263,
+    "negative": 42
+  },
+  "ruleLhsAudit": {
+    "unreviewedSlots": 0,
+    "unreviewedClauses": 0,
+    "annotatedSlots": 46,
+    "annotatedClauses": 31,
+    "reportSha256": "4b2455a5786db98c32fcb059be03082f526163c36306b79b10db414d2b9e9e87"
+  },
+  "finiteModel": {
+    "status": "finite unit control passed",
+    "functor": "walking arrow -> Terminal",
+    "unit": "id_Q(A) -> kappa(F) o iota(F)",
+    "legacyFibre": "Hom_A(a,b) -> Hom_B(F(a),F(b))",
+    "fibres": [
+      {
+        "negativeEndpoint": 0,
+        "positiveEndpoint": 0,
+        "unitHomSize": 1,
+        "representedTensorSize": 1,
+        "surjective": true
+      },
+      {
+        "negativeEndpoint": 0,
+        "positiveEndpoint": 1,
+        "unitHomSize": 1,
+        "representedTensorSize": 1,
+        "surjective": true
+      },
+      {
+        "negativeEndpoint": 1,
+        "positiveEndpoint": 0,
+        "unitHomSize": 0,
+        "representedTensorSize": 1,
+        "surjective": false
+      },
+      {
+        "negativeEndpoint": 1,
+        "positiveEndpoint": 1,
+        "unitHomSize": 1,
+        "representedTensorSize": 1,
+        "surjective": true
+      }
+    ],
+    "naturalityChecks": 5,
+    "inverseExistsAt10": false,
+    "scope": "finite semantic direction/noncollapse; not omega coherence or native tensor evaluation"
+  },
+  "qualification": [
+    "Prof_represented_unit is a definition through the pre-existing Prof_tensor_hom_hom applied to Prof_func_hom twice; no supplied unit, comparison, equality argument or tensor/represented operational cast.",
+    "Prof_transf_cat now uses Hom(Prof_cat), consistent with the Cartesian vertical coefficient profile already selected; ordinary raw displayed FF is retained.",
+    "Prof_cov_unit_view has native source id_Q(A) and target kappa(F) o iota(F).",
+    "The two mate steps are whole transformations over Hom_K(x,y) with checked component observations. Their final composition is a failed positive obligation: middle whole functors still need agreement.",
+    "Fixed precomposition uses the actual pullback Hom-action body, not the retired intermediate Functor_cat_func proposal; fixed postcomposition uses Functor_cat_fapp0_func.",
+    "Category and Obj normalized views of constant-section Hom are tested with typed eq_refl. Ambient non-strict transfor action is retained at component/full/capped levels and in negative strict-naturality controls.",
+    "The expanded Cartesian transformation inverse and the full-source general-FF/Op_funcd profile mismatch remain failed positive obligations.",
+    "Unit/counit triangle coherence, whole represented-lift action and production qualification are not supplied by passing type formation or finite controls."
+  ],
+  "historicalExperiments": {
+    "first_unit": "20261013T010506Z-4320a81e390a4daab9cfcf287f5d869a",
+    "missing_whole_identity_whiskering": "20261013T011443Z-94666a7e70ac4d59a0b4a780a4a8204f",
+    "wrong_inferred_identity_object": "20261013T011707Z-592a863d94a94ff5b9cac045584ea55d",
+    "overguarded_product_normal_form": "20261013T011839Z-a2db20f84fc648f1a7afdca4d2f7ee3b",
+    "printed_inferred_rhs_diagnostic": "20261013T012212Z-e81dab1cbe0b42f1a471a6e22d278892",
+    "first_middle_agreement_boundary": "20261013T012510Z-c2ee17b9f26749a3937346b0ca85b526",
+    "minimal_hom_unit_guards": "20261013T013645Z-4fa46abc7b3a4129ab0cf86bde26b0b2",
+    "missing_mate_component_computation": "20261013T014443Z-95aae8b64e04442c9a4d5268deb17b80",
+    "rejected_stale_whisker_owner": "20261013T014926Z-7ef10728fc3f41b3a3bc54ca872e634c",
+    "current_precomp_normal_form": "20261013T015409Z-64b23ee8a11f4899a44f27a1f179fb41",
+    "missing_constant_section_hom_view": "20261013T015747Z-42f3fb1579234d639702b1b2cd8f592a",
+    "category_only_view_insufficient": "20261013T020316Z-aca11a3a72a347bcbfd72174c9ac7a4e",
+    "inferred_whisker_domains_pass": "20261013T021519Z-8a27b9bb87894a9699579ea5f2575155"
+  }
+}

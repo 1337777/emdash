@@ -1,0 +1,12 @@
+// Read the derived unit through the actual product-prof/curried functor.
+symbol Prof_cov_unit_view [A B : Cat] (F : τ (Functor A B))
+  : τ (Hom (Hom_cat Prof_cov_universe A A)
+      (@id Prof_cov_universe A)
+      (@comp_fapp0 Prof_cov_universe A B A
+        (@Prof_cov_companion A B F)
+        (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include A B F)))
+≔ @fapp1_fapp0 (Prof_cat A A) (Hom_cat Prof_cov_universe A A)
+    (Prof_cov_curry_func A A)
+    (@Unit_prof A)
+    (@Prof_tensor A B A (@Companion_prof A B F) (@Conjoint_prof A B F))
+    (@Prof_represented_unit A B F);

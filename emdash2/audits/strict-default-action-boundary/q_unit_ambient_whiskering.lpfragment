@@ -1,0 +1,50 @@
+// Projections of the existing ambient fixed-whiskering bodies: pullback
+// Hom action for precomposition and Functor_cat_fapp0_func for postcomposition. The functors are strict by default; eta is
+// an arbitrary ambient transfor, whose off-diagonal action is retained.
+// The normalized constant-section category and Obj views recover these
+// endpoints, so the root source/target arguments remain inferred.
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (@Pullback_catd_func $X $Y $F)
+          (@Const_catd $Y Terminal_cat) (@Const_catd $Y $Z)) $G $H $eta)
+  ↪ @tapp0_fapp0 $Y $Z $G $H (@fapp0 $X $Y $F $x) $eta;
+
+rule @tapp1_func _ _ _ _ $x $y
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (@Pullback_catd_func $X $Y $F)
+          (@Const_catd $Y Terminal_cat) (@Const_catd $Y $Z)) $G $H $eta)
+  ↪ @comp_cat_fapp0
+      (Hom_cat $X $x $y)
+      (Hom_cat $Y (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $F $y))
+      (Hom_cat $Z (@fapp0 $Y $Z $G (@fapp0 $X $Y $F $x)) (@fapp0 $Y $Z $H (@fapp0 $X $Y $F $y)))
+      (@tapp1_func $Y $Z $G $H (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $F $y) $eta)
+      (@fapp1_func $X $Y $F $x $y);
+
+rule @tapp1_fapp0 _ _ _ _ $x $y
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (@Pullback_catd_func $X $Y $F)
+          (@Const_catd $Y Terminal_cat) (@Const_catd $Y $Z)) $G $H $eta) $p
+  ↪ @tapp1_fapp0 $Y $Z $G $H (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $F $y) $eta
+      (@fapp1_fapp0 $X $Y $F $x $y $p);
+
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@fapp1_fapp0 _ _
+        (@fapp1_fapp0 Cat_cat Cat_cat (Functor_cat_fapp0_func $X) $Y $Z $G) $F $H $eta)
+  ↪ @fapp1_fapp0 $Y $Z $G (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $H $x)
+      (@tapp0_fapp0 $X $Y $F $H $x $eta);
+
+rule @tapp1_func _ _ _ _ $x $y
+      (@fapp1_fapp0 _ _
+        (@fapp1_fapp0 Cat_cat Cat_cat (Functor_cat_fapp0_func $X) $Y $Z $G) $F $H $eta)
+  ↪ @comp_cat_fapp0
+      (Hom_cat $X $x $y)
+      (Hom_cat $Y (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $H $y))
+      (Hom_cat $Z (@fapp0 $Y $Z $G (@fapp0 $X $Y $F $x)) (@fapp0 $Y $Z $G (@fapp0 $X $Y $H $y)))
+      (@fapp1_func $Y $Z $G (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $H $y))
+      (@tapp1_func $X $Y $F $H $x $y $eta);
+
+rule @tapp1_fapp0 _ _ _ _ $x $y
+      (@fapp1_fapp0 _ _
+        (@fapp1_fapp0 Cat_cat Cat_cat (Functor_cat_fapp0_func $X) $Y $Z $G) $F $H $eta) $p
+  ↪ @fapp1_fapp0 $Y $Z $G (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $H $y)
+      (@tapp1_fapp0 $X $Y $F $H $x $y $eta $p);
