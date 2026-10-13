@@ -1,0 +1,26 @@
+// Native projection-order joins: evaluate the source identity/composition
+// either before or after its named y/v component projections.
+rule @homd_id_u_y $K $E $x $u $u (@id _ $u) $y
+  ↪ @id (Functor_cart_cat (@Fibre_cat $K $E $y)
+      (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat))
+      (@homd_id_tgt_func $K $E $x $u $y);
+
+rule @homd_id_u_v $K $E $x $u $u (@id _ $u) $y $v
+  ↪ @id (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)
+      (@homd_id_ $K $E $x $u $y $v);
+
+// lhs-audit: keep 1 -- measured SR cannot reconstruct the Cartesian category from StrictTransfor alone.
+rule @comp_fapp0
+      (Functor_cart_cat (@Fibre_cat $K $E $y)
+        (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) _ _ _
+      (@homd_id_u_y $K $E $x $u0 $u1 $h $y)
+      (@homd_id_u_y $K $E $x $u1 $u2 $k $y)
+  ↪ @homd_id_u_y $K $E $x $u0 $u2
+      (@comp_fapp0 (@Fibre_cat $K $E $x) $u0 $u1 $u2 $k $h) $y;
+
+// lhs-audit: keep 1 -- the inner StrictTransfor carrier also needs its actual Cartesian category in SR.
+rule @comp_fapp0 (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat) _ _ _
+      (@homd_id_u_v $K $E $x $u0 $u1 $h $y $v)
+      (@homd_id_u_v $K $E $x $u1 $u2 $k $y $v)
+  ↪ @homd_id_u_v $K $E $x $u0 $u2
+      (@comp_fapp0 (@Fibre_cat $K $E $x) $u0 $u1 $u2 $k $h) $y $v;

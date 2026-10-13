@@ -1,0 +1,19 @@
+// Intermediate v identity, through generic source/y component projection.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K)) (v : τ (Obj (@Fibre_cat K E y))) ⊢
+  (@tapp0_fapp0 (@Fibre_cat K E y) (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat) (@homd_id_tgt_func K E x u y) (@homd_id_tgt_func K E x u y) v
+    (@strict_transfor (@Fibre_cat K E y) (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat) (@homd_id_tgt_func K E x u y) (@homd_id_tgt_func K E x u y)
+      (@tapp0_hom_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u) (@homd_id_src_sec K E x u) y
+    (@homd_id_u_map K E x u u (@id (@Fibre_cat K E x) u)))))
+  ≡ @id (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat) (@homd_id_ K E x u y v);
+
+// The native v rung must agree before evaluating a further f component.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K)) (v : τ (Obj (@Fibre_cat K E y))) ⊢
+  (@homd_id_u_v K E x u u (@id (@Fibre_cat K E x) u) y v)
+  ≡ (@tapp0_fapp0 (@Fibre_cat K E y) (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat) (@homd_id_tgt_func K E x u y) (@homd_id_tgt_func K E x u y) v
+    (@strict_transfor (@Fibre_cat K E y) (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat) (@homd_id_tgt_func K E x u y) (@homd_id_tgt_func K E x u y)
+      (@tapp0_hom_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K E) (@Prof_cov_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u) (@homd_id_src_sec K E x u) y
+    (@homd_id_u_map K E x u u (@id (@Fibre_cat K E x) u)))));

@@ -1,0 +1,45 @@
+// The two triple accumulation routes agree by the existing categorical associativity.
+assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
+  [W X Y V : τ (Obj A)] (p : τ (Hom A W X)) (q : τ (Hom A X Y))
+  (r : τ (Hom A Y V)) (beta : τ (Hom B (@fapp0 A B F V) Z)) ⊢
+  @eq_ap (Hom A W V) (Hom B (@fapp0 A B F W) Z)
+    (λ t : τ (Hom A W V), @hom_precomp_along_fapp0 A B F Z W V t beta)
+    (@comp_fapp0 A W Y V r (@comp_fapp0 A W X Y q p))
+    (@comp_fapp0 A W X V (@comp_fapp0 A X Y V r q) p)
+    (@eq_sym (Hom A W V)
+      (@comp_fapp0 A W X V (@comp_fapp0 A X Y V r q) p)
+      (@comp_fapp0 A W Y V r (@comp_fapp0 A W X Y q p))
+      (@comp_assoc A W X Y V r q p))
+  : τ (@= (Hom B (@fapp0 A B F W) Z)
+    (@hom_precomp_along_fapp0 A B F Z W V
+      (@comp_fapp0 A W Y V r (@comp_fapp0 A W X Y q p)) beta)
+    (@hom_precomp_along_fapp0 A B F Z W V
+      (@comp_fapp0 A W X V (@comp_fapp0 A X Y V r q) p) beta));
+
+// Identity-beta absorption is the image under F of the existing ordinary
+// identity-family precomposition/raw-composition comparison. The path is
+// observational evidence, never an argument to the operational precomposition.
+assert [A B : Cat] (F : τ (Functor A B))
+  [W X Y : τ (Obj A)] (p : τ (Hom A W X)) (q : τ (Hom A X Y)) ⊢
+  @eq_ap (Hom A W Y) (Hom B (@fapp0 A B F W) (@fapp0 A B F Y))
+    (λ t : τ (Hom A W Y), @fapp1_fapp0 A B F W Y t)
+    (@hom_precomp_along_fapp0 A A (@id_func A) Y W X p q)
+    (@comp_fapp0 A W X Y q p)
+    (@eq_refl (Hom A W Y) (@comp_fapp0 A W X Y q p))
+  : τ (@= (Hom B (@fapp0 A B F W) (@fapp0 A B F Y))
+    (@hom_precomp_along_fapp0 A B F (@fapp0 A B F Y) W X p
+      (@fapp1_fapp0 A B F X Y q))
+    (@fapp1_fapp0 A B F W Y (@comp_fapp0 A W X Y q p)));
+
+// Same actual construction at Cat-valued F, retaining the Functor result.
+assert [A : Cat] (F : τ (Functor A Cat_cat))
+  [W X Y : τ (Obj A)] (p : τ (Hom A W X)) (q : τ (Hom A X Y)) ⊢
+  @eq_ap (Hom A W Y) (Functor (@fapp0 A Cat_cat F W) (@fapp0 A Cat_cat F Y))
+    (λ t : τ (Hom A W Y), @fapp1_fapp0 A Cat_cat F W Y t)
+    (@hom_precomp_along_fapp0 A A (@id_func A) Y W X p q)
+    (@comp_fapp0 A W X Y q p)
+    (@eq_refl (Hom A W Y) (@comp_fapp0 A W X Y q p))
+  : τ (@= (Functor (@fapp0 A Cat_cat F W) (@fapp0 A Cat_cat F Y))
+    (@hom_precomp_along_fapp0 A Cat_cat F (@fapp0 A Cat_cat F Y) W X p
+      (@fapp1_fapp0 A Cat_cat F X Y q))
+    (@fapp1_fapp0 A Cat_cat F W Y (@comp_fapp0 A W X Y q p)));

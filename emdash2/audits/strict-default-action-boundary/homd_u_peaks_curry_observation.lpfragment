@@ -1,0 +1,17 @@
+// Observe curry(Eval)=id inside actual stable precomposition by P.
+// The equality is transported through that context, with no new runtime rule.
+assert [W B C : Cat] (P : τ (Functor W (Functor_cart_cat B C))) ⊢
+  @eq_ap (Functor (Functor_cart_cat B C) (Functor_cart_cat B C))
+    (Functor W (Functor_cart_cat B C))
+    (λ H : τ (Functor (Functor_cart_cat B C) (Functor_cart_cat B C)),
+      @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat)
+        (Functor_cart_cat B C) W (Functor_cart_cat B C) P H)
+    (@curry_func (Functor_cart_cat B C) B C (@Eval_func B C))
+    (@id_func (Functor_cart_cat B C))
+    (@eq_refl (Functor (Functor_cart_cat B C) (Functor_cart_cat B C))
+      (@id_func (Functor_cart_cat B C)))
+  : τ (@= (Functor W (Functor_cart_cat B C))
+    (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat)
+      (Functor_cart_cat B C) W (Functor_cart_cat B C) P
+      (@curry_func (Functor_cart_cat B C) B C (@Eval_func B C)))
+    P);

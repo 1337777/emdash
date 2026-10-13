@@ -967,3 +967,17 @@ projections, whole h-family construction, source laws and two-factor leaf
 have concrete consumers. Exact removals, warning changes and the remaining
 coefficient/native-laxity boundary are recorded in the
 [verification](homd_u_normalization_verification.json).
+
+The [intermediate joins](homd_u_intermediate_join_source_closure.md) check
+the y/v identity and composition routes independently. Four native joins
+have individual removal controls, and their minimal Cartesian guards retain
+the actual source data. The [peak observations](homd_u_peaks_source_closure.md)
+use existing proof-time comparisons without new runtime rules.
+
+The [canonical strict FibCov core](fibcov_cart_source_closure.md) retains
+whole u-action and derives its actual ambient inclusion. The
+[derived section](fibcov_cart_section_source_closure.md) feeds that canonical
+map to the existing represented lift and exposes y/v/f plus native y-action.
+The [combined replay](homd_native_section_assembly_source_closure.md) checks
+these pieces together. Adoption in the existing Homd ladder, whole x/u
+compatibility, native laxity and production integration remain open.

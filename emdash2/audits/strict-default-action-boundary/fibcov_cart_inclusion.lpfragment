@@ -1,0 +1,30 @@
+// Actual whole ambient target inclusion, derived from the existing
+// contravariant internal Hom action and generic family pullback.
+symbol fibcov_cart_target_include [K : Cat] (E : τ (Catd K))
+  : τ (@Functord K (@fibcov_cart_target K E) (@FibCov_target_catd K E))
+≔ @fapp1_fapp0
+    (@Catd_cat (Op_cat (Functor_cart_cat K Cat_cat))) (@Catd_cat K)
+    (@Pullback_catd_func K (Op_cat (Functor_cart_cat K Cat_cat))
+      (@Op_func (Op_cat K) (Functor_cart_cat K Cat_cat) (@Rep_cart_func K)))
+    (@hom_con (Functor_cart_cat K Cat_cat) E
+      (Functor_cart_cat K Cat_cat) (@id_func (Functor_cart_cat K Cat_cat)))
+    (@hom_con (Functor_cat K Cat_cat) E
+      (Functor_cart_cat K Cat_cat) (cart_functor_include K Cat_cat))
+    (@fapp1_con_at_transf (Functor_cart_cat K Cat_cat) (Functor_cat K Cat_cat)
+      (cart_functor_include K Cat_cat) E);
+
+// Fresh ambient views, leaving the old public donor declarations unchanged.
+// No equation identifies the two whole FibCov constructors from their values.
+symbol fibcov_cart_ambient_int [K : Cat] (E : τ (Catd K))
+  : τ (@Functord K E (@FibCov_target_catd K E))
+≔ @comp_catd_fapp0 K E (@fibcov_cart_target K E) (@FibCov_target_catd K E)
+    (@fibcov_cart_target_include K E) (@fibcov_cart_int K E);
+
+symbol fibcov_cart_ambient_src_func [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  : τ (Functor (@Fibre_cat K E x) (@Fibre_cat K (@FibCov_target_catd K E) x))
+≔ @tapp0_fapp0 K Cat_cat E (@FibCov_target_catd K E) x (@fibcov_cart_ambient_int K E);
+
+symbol fibcov_cart_ambient_transf [K : Cat] (E : τ (Catd K))
+  (x : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E x)))
+  : τ (@Transf K Cat_cat (@hom_ K K (@id_func K) x) E)
+≔ fapp0 (@fibcov_cart_ambient_src_func K E x) u;

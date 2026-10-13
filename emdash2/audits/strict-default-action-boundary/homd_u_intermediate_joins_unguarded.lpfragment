@@ -1,0 +1,22 @@
+// Native projection-order joins: evaluate the source identity/composition
+// either before or after its named y/v component projections.
+rule @homd_id_u_y $K $E $x $u $u (@id _ $u) $y
+  ↪ @id (Functor_cart_cat (@Fibre_cat $K $E $y)
+      (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat))
+      (@homd_id_tgt_func $K $E $x $u $y);
+
+rule @homd_id_u_v $K $E $x $u $u (@id _ $u) $y $v
+  ↪ @id (Functor_cart_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)
+      (@homd_id_ $K $E $x $u $y $v);
+
+rule @comp_fapp0 _ _ _ _
+      (@homd_id_u_y $K $E $x $u0 $u1 $h $y)
+      (@homd_id_u_y $K $E $x $u1 $u2 $k $y)
+  ↪ @homd_id_u_y $K $E $x $u0 $u2
+      (@comp_fapp0 (@Fibre_cat $K $E $x) $u0 $u1 $u2 $k $h) $y;
+
+rule @comp_fapp0 _ _ _ _
+      (@homd_id_u_v $K $E $x $u0 $u1 $h $y $v)
+      (@homd_id_u_v $K $E $x $u1 $u2 $k $y $v)
+  ↪ @homd_id_u_v $K $E $x $u0 $u2
+      (@comp_fapp0 (@Fibre_cat $K $E $x) $u0 $u1 $u2 $k $h) $y $v;

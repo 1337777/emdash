@@ -1,0 +1,29 @@
+{
+  "contextRevision": "3b2ac8f015654958ae4b9b7525d5900f1d690352",
+  "donor": "tmp/probes/homd_u_normalization/combined_controls.lp",
+  "selectedReceipt": "logs/check-runs/20261013T183333Z-10e0343038b346e7aa46867416ff3978.json",
+  "historicalOutputs": {
+    "joined_controls.lp": "3148c49d360998f1277a518190383143efd9b8ec4cae7b7ebbaff6078fbe5d06",
+    "guarded_controls.lp": "e8cf02b22e959189b85e9500c5d7db37d04b96f5566e6b01c40b19a58ade00ba",
+    "minimal_guard_controls.lp": "a2926ea3d8228cc58961ed143870a10255e9f55a8ee7d9d6cfff244de68eba18",
+    "composition_compute.lp": "e3df3fbdb3ad0659dfb3f9b1ce38c7066bc91edcf11c9c0f9a9fe98cc5d741df",
+    "y_identity.lp": "e97cf412ec041b6c25126ff6f3cd82eea331506e6f651ace8b816211cf0f8bb5",
+    "v_identity.lp": "2d2c689f130fd8e64266edf6658fce81f61c58953bc0b2431a02f7f993c467c4",
+    "y_composition.lp": "219d70bc96147b818bcfe64663251750b0a12de6a424b194be9fb9ddca173664",
+    "v_composition.lp": "025bdce50abd7ce0802aaaf7a63a87a3197aa3366d64702148bff63e8349115a"
+  },
+  "sourceInputs": {
+    "tmp/probes/homd_u_normalization/combined_controls.lp": "39ffe519744260512fdcde40cdda0a9cff5f71fa6cbc98057b8c57df48225819",
+    "audits/strict-default-action-boundary/homd_u_normalization_verification.json": "08cd4043e28562a4b0a8ff110b8fb410f2d599425006411129b221ba20098c88",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/homd_u_intermediate_controls.lpfragment": "98ec95652001a565a8ced69184fc5bc71577d02c0b17bf72320c88262b006d70",
+    "audits/strict-default-action-boundary/homd_u_intermediate_y_identity.lpfragment": "5c5460b4098185a302da30d21c2eb734d59a5af0aef8ea22d339cc08b13c97b0",
+    "audits/strict-default-action-boundary/homd_u_intermediate_v_identity.lpfragment": "8592871c171717f860f9c6d8f794cdba0027ea3e49fd2f9a6e3c116b447fac88",
+    "audits/strict-default-action-boundary/homd_u_intermediate_y_composition.lpfragment": "151e542dcf3f11ef604d5f934dd07e5142875554b4d8fb456bc34ef427574bc0",
+    "audits/strict-default-action-boundary/homd_u_intermediate_v_composition.lpfragment": "125046cf92e30fa221d80287e02e32b2f940426fd70e3ec2c974992d4a721ef3",
+    "audits/strict-default-action-boundary/homd_u_intermediate_joins.lpfragment": "8daa1c7e0b09e6a0a58ac72a4bef72196bc531d5731861453ed352b812eafa75",
+    "audits/strict-default-action-boundary/homd_u_intermediate_joins_unguarded.lpfragment": "7c90fc31cda8e076a1d69a9dd4e3fb1b095b1db394a0a5c8d967765e0e1debe6",
+    "audits/strict-default-action-boundary/homd_u_intermediate_joins_explicit_guard.lpfragment": "6857d3e03d020e91a33f627813fe909f54c5a4cc76301fe0d521b649437ce7de",
+    "logs/check-runs/20261013T183333Z-10e0343038b346e7aa46867416ff3978.json": "169658b6afe1645445688fa7322f84a80845cd741a4d910eb1804345eb8ec3d4"
+  }
+}

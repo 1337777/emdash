@@ -1,0 +1,144 @@
+{
+  "status": "derived section combined native type/y/v/f and whole/capped R-action controls pass; old Homd root unchanged",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/fibcov_cart_section_migration.py": "61e9f8176aca2199aa83d9ed16a82508fe41a062dfc56ae2e6bc8fcd4279bc39",
+    "audits/strict-default-action-boundary/fibcov_cart_section_inputs.json": "d31ffb98a4aa1302bcfb01a04fa9e7414884a831556f87506486ac58681aaef5",
+    "tmp/probes/fibcov_cart/inclusion_controls.lp": "ad80cdac932516476b3f2b895dc4c43acde5637b245c00f596cfe8fd3d7026fa",
+    "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.json": "c86802340315762229989c8f8269e6b49f95a6e2ede248f3bac95d4c44c7cbad",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/fibcov_cart_section_owner.lpfragment": "c22d2b365d367734aeb376c74bd7252d51e9e4d2417c43c49577727bea07942c",
+    "audits/strict-default-action-boundary/fibcov_cart_section_controls.lpfragment": "f6b0ddc6f523eeb7be20d86f9edcb82fb7a945c80d1264caf1f037c737a7d875",
+    "audits/strict-default-action-boundary/fibcov_cart_section_action_controls.lpfragment": "6433e10ec39cc56b1ee15a8b1c45ff01b4fdd1ee2624a1fa93b5c4ddc04606c9"
+  },
+  "donor": "tmp/probes/fibcov_cart/inclusion_controls.lp",
+  "donorReceipt": "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.json",
+  "outputs": {
+    "section_controls.lp": "83d1075fc1b31218ebfd398e00df3f867fffb186da772a7f85972461bb279622",
+    "action_controls.lp": "84869b6873b456ffee87a32f2275f51da7b6f2f7d022232aa24a93453bedbdf0",
+    "combined_controls.lp": "c930883275497eaf78f94f2e741cc2d572b294668bb2d0a78baa837bd995ea2f",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "newAssertionCounts": {
+    "controls": {
+      "positive": 4,
+      "negative": 1
+    },
+    "action_controls": {
+      "positive": 4,
+      "negative": 0
+    }
+  },
+  "scope": [
+    "One section definition with actual Homd_section_cat type; no new primitive, runtime rule, unifier or equality payload.",
+    "The actual lift consumes the canonical structural strict-Y FibCov value; whole x strictness is not asserted.",
+    "Consumers follow native y/v/f projections and whole/capped native y-action to the already selected lift R.",
+    "No equality with the legacy homd_id_src_sec or independent FibCov root is required or supplied.",
+    "This proposal does not yet migrate existing Homd names or qualify whole x/u compatibility, extracted laxity, lift triangle/composition, or raw-preserving Q integration."
+  ],
+  "checkerInvoked": false,
+  "checks": {
+    "combined_controls.lp": {
+      "id": "20261013T184248Z-85bd0860ab6b4e80b8b9b0c9513f624e",
+      "target": "tmp/probes/fibcov_cart_section/combined_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/fibcov_cart_section/combined_controls.lp": "c930883275497eaf78f94f2e741cc2d572b294668bb2d0a78baa837bd995ea2f"
+      },
+      "inputSnapshot": "59ecc1e717d9fd85d301b470db92bb68db8dd745bef974d0819725bf7c5ed3d5",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 13.756950334995054,
+      "childrenMaxRssKiB": 691492,
+      "log": "logs/check-runs/20261013T184248Z-85bd0860ab6b4e80b8b9b0c9513f624e.log",
+      "logSha256": "9c93cf2a2df3d340894601bc8bbd2d0b62b6e8db64f7c3ac0ff2f45688cdeb9f",
+      "receipt": "logs/check-runs/20261013T184248Z-85bd0860ab6b4e80b8b9b0c9513f624e.json",
+      "receiptSha256": "c6ecb897d70e057567b2747314a039f3ed82c60196dfb9e4e61e9e6fb5790f03",
+      "sourceSha256": "c930883275497eaf78f94f2e741cc2d572b294668bb2d0a78baa837bd995ea2f",
+      "output": "tmp/probes/fibcov_cart_section/combined_controls.out",
+      "outputSha256": "dc5565bccfff40e800d306239f51efeff0a318b6a8854b249168cb9f553befe1",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 970,
+        "replaceablePatternVariables": 137
+      },
+      "qualification": "Passed actual derived section type/direction, y companion, whole v ordinary Hom leaf, f evaluation, native whole/capped lift R and identity normality; no legacy-root equality or full x/u adoption implied."
+    }
+  },
+  "uncheckedTargets": [
+    "section_controls.lp",
+    "action_controls.lp"
+  ],
+  "sourceClosure": {
+    "path": "audits/strict-default-action-boundary/fibcov_cart_section_source_closure.md",
+    "sha256": "be2a0fe4b309e8788336f682d9ffc0731c07345252376f8f6184d79abc7f9c9a"
+  },
+  "warningComparison": {
+    "baselineReceipt": "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.json",
+    "baselineReceiptSha256": "c86802340315762229989c8f8269e6b49f95a6e2ede248f3bac95d4c44c7cbad",
+    "baselineSourceSha256": "ad80cdac932516476b3f2b895dc4c43acde5637b245c00f596cfe8fd3d7026fa",
+    "baselineLog": "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.log",
+    "baselineLogSha256": "17a5c528b010f2f531cf3c9718dced4f2c26b0efff858e4daa03287b6791b7d6",
+    "before": 970,
+    "after": 970,
+    "beforeCounts": {
+      "unjoinableCriticalPairs": 970,
+      "replaceablePatternVariables": 137
+    },
+    "afterCounts": {
+      "unjoinableCriticalPairs": 970,
+      "replaceablePatternVariables": 137
+    },
+    "added": [],
+    "removed": [],
+    "normalization": "Strip ANSI and compare six-line critical-pair diagnostic blocks as multisets; locations excluded; no alpha renaming.",
+    "classification": "All selected critical-pair blocks are identical to the checked donor; no new confluence claim."
+  },
+  "ruleLhsAudit": {
+    "path": "tmp/probes/fibcov_cart_section/lhs-audit.txt",
+    "sha256": "07ac77e1e575ead8bfd5e55ca3d0704f2d2ff049d647d0dd1960daf3e07c62f2",
+    "target": "combined_controls.lp",
+    "unreviewed": 0,
+    "annotatedSlots": 46,
+    "intentionalClauses": 31
+  },
+  "selectedTarget": "combined_controls.lp",
+  "outputAssertionCounts": {
+    "section_controls.lp": {
+      "positive": 324,
+      "negative": 69
+    },
+    "action_controls.lp": {
+      "positive": 324,
+      "negative": 68
+    },
+    "combined_controls.lp": {
+      "positive": 328,
+      "negative": 69
+    }
+  },
+  "manifest": {
+    "path": "tmp/probes/fibcov_cart_section/manifest.json",
+    "sha256": "8c1fcd678af08075ef32f7af75bb69ee8f8849fca2ea0703e08268e48b36f1ff"
+  }
+}

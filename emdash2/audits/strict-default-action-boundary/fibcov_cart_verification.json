@@ -1,0 +1,209 @@
+{
+  "status": "canonical structural strict-Y core and actual whole ambient target inclusion controls pass; whole x remains ambient; legacy whole equality is optional and not a migration prerequisite",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/fibcov_cart_migration.py": "e27a8422e5ebf0f29cf44afa47670d08ea5254d8cd115271875f28c47fa4c086",
+    "audits/strict-default-action-boundary/fibcov_cart_inputs.json": "0787a5072e9bc7e6de43164f21dd0810c13d4d166120bf01b81f4766d4381076",
+    "audits/strict-default-action-boundary/homd_u_normalization_verification.json": "08cd4043e28562a4b0a8ff110b8fb410f2d599425006411129b221ba20098c88",
+    "tmp/probes/homd_u_normalization/combined_controls.lp": "39ffe519744260512fdcde40cdda0a9cff5f71fa6cbc98057b8c57df48225819",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/fibcov_cart_core.lpfragment": "44585d7f3506239f933df97359163e682f4cba20c8a607be5f25185e56d37087",
+    "audits/strict-default-action-boundary/fibcov_cart_inclusion.lpfragment": "ca541f037b4ea23957b0da572199c1d2dbd7795047c5be4fdf75d0a3376c99c4",
+    "audits/strict-default-action-boundary/fibcov_cart_core_controls.lpfragment": "66a48c44687876201eaff73ce3dde837b7f2b814c1e898b63ad85a2a358b8568",
+    "audits/strict-default-action-boundary/fibcov_cart_inclusion_controls.lpfragment": "9f5d9a4af0c75f1f613262cda03b96c588f5699ae884a52a86bcd5db0984ada2",
+    "audits/strict-default-action-boundary/fibcov_cart_legacy_whole_boundary.lpfragment": "bcc5f098dce226424d09cd0e7d09d8d21a72fd83d5874649e2c2bd33c143093e"
+  },
+  "donor": "tmp/probes/homd_u_normalization/combined_controls.lp",
+  "donorReceipt": "logs/check-runs/20261013T181126Z-f9a052c56606485aa4b2e21250f88b3e.json",
+  "ownerAnchor": "// NON-LIBRARY direct identity ladder; all primitive Homd projection rules",
+  "outputs": {
+    "core_controls.lp": "00f2281e3576b538d54179a0e7efff2510bc12d50a4efccf295c97eb43427c98",
+    "inclusion_owner.lp": "ca1a5cd1216728eacede38a9e512ca5e1f707a0194ce98f059ea49f7f7f013a5",
+    "inclusion_controls.lp": "ad80cdac932516476b3f2b895dc4c43acde5637b245c00f596cfe8fd3d7026fa",
+    "legacy_whole_boundary.lp": "b70cac6989fa57878b90a47dd1e2ff09db50f34bcfb24d4bd1d8f3fb6964cdef",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "assertionCounts": {
+    "core_controls.lp": {
+      "positive": 315,
+      "negative": 67
+    },
+    "inclusion_owner.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "inclusion_controls.lp": {
+      "positive": 320,
+      "negative": 68
+    },
+    "legacy_whole_boundary.lp": {
+      "positive": 310,
+      "negative": 65
+    }
+  },
+  "scope": [
+    "Canonical structural contract: strict I_x-to-E values for default-strict E, carried by one ambient-in-x whole FibCov map.",
+    "Strict target and ambient target inclusion are actual definitions from existing hom_con, Rep_cart_func, Cartesian inclusion and generic pullback Hom action.",
+    "Three projection rules only; no unification rule, generic FF admission, x-strictness, proof payload, coend derivation or Homd-section extension.",
+    "Old donor FibCov declarations remain byte-identical; fresh ambient views have tested-intended y agreement but whole legacy equality is a separate positive boundary.",
+    "Whole u-parameter action is retained by the source component functor; formation controls do not supply its further computation.",
+    "Provisional Q/global Cartesian Prof donor profile remains; raw-preserving coefficient integration is not claimed."
+  ],
+  "checkerInvoked": false,
+  "checks": {
+    "core_controls.lp": {
+      "id": "20261013T183602Z-c953eec9b684441d9cf4114808cbb474",
+      "target": "tmp/probes/fibcov_cart/core_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/fibcov_cart/core_controls.lp": "00f2281e3576b538d54179a0e7efff2510bc12d50a4efccf295c97eb43427c98"
+      },
+      "inputSnapshot": "748d6bb5da34fa7642b1bd359eaa0c2553d403c3a5f9ad68e63a4eb6a79200bd",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 13.596805326989852,
+      "childrenMaxRssKiB": 690172,
+      "log": "logs/check-runs/20261013T183602Z-c953eec9b684441d9cf4114808cbb474.log",
+      "logSha256": "e85fbf669122fcbb9ac7aba8d945d360d8cdce87a09b1dd8a46fb1e98c490657",
+      "receipt": "logs/check-runs/20261013T183602Z-c953eec9b684441d9cf4114808cbb474.json",
+      "receiptSha256": "c99facb6ffa5e5d1832ee004c1339e2366926c4d8e86838a002128ba4abc6451",
+      "sourceSha256": "00f2281e3576b538d54179a0e7efff2510bc12d50a4efccf295c97eb43427c98",
+      "output": "tmp/probes/fibcov_cart/core_controls.out",
+      "outputSha256": "4bddd8c6818d091a8c3a51476fb3c28d581a45f7b9ae4f62ce3fd5cc81528ad6",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 970,
+        "replaceablePatternVariables": 137
+      },
+      "qualification": "Passed canonical structural strict-Y value target, ambient whole x core, native x/u/y projections and whole u-action formation; raw FF and x-strictness negatives preserved. No legacy-root equality or Homd-section agreement is inferred."
+    },
+    "inclusion_controls.lp": {
+      "id": "20261013T183711Z-956a447a115f46d79de5b524be7b69e4",
+      "target": "tmp/probes/fibcov_cart/inclusion_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/fibcov_cart/inclusion_controls.lp": "ad80cdac932516476b3f2b895dc4c43acde5637b245c00f596cfe8fd3d7026fa"
+      },
+      "inputSnapshot": "82712394a955433927cb0fd549c00522391e5bb19d626e919cbeb375e395d7ee",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 13.18936251301784,
+      "childrenMaxRssKiB": 690588,
+      "log": "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.log",
+      "logSha256": "17a5c528b010f2f531cf3c9718dced4f2c26b0efff858e4daa03287b6791b7d6",
+      "receipt": "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.json",
+      "receiptSha256": "c86802340315762229989c8f8269e6b49f95a6e2ede248f3bac95d4c44c7cbad",
+      "sourceSha256": "ad80cdac932516476b3f2b895dc4c43acde5637b245c00f596cfe8fd3d7026fa",
+      "output": "tmp/probes/fibcov_cart/inclusion_controls.out",
+      "outputSha256": "e9a60dcf40060f35b8fb110af02789b7b61a78a00194ef141f63526987c979a4",
+      "warningCounts": {
+        "unjoinableCriticalPairs": 970,
+        "replaceablePatternVariables": 137
+      },
+      "qualification": "Passed actual whole target inclusion, x-component Hom action, canonical u-value ambient projection, old/new y-component agreement, and no x-strictness; no whole legacy equality is implied."
+    }
+  },
+  "uncheckedTargets": [
+    "inclusion_owner.lp",
+    "legacy_whole_boundary.lp"
+  ],
+  "sourceClosure": {
+    "path": "audits/strict-default-action-boundary/fibcov_cart_source_closure.md",
+    "sha256": "51d44b55a41260a5c5ace33b98f50a98bb88a79ff740314988325ee382f32b07"
+  },
+  "warningComparison": {
+    "baselineReceipt": "logs/check-runs/20261013T181126Z-f9a052c56606485aa4b2e21250f88b3e.json",
+    "baselineReceiptSha256": "a3802aaf5d4713dae34f4c9a06a84908d8cc8969542c8499887bfdef87f16c84",
+    "baselineSourceSha256": "39ffe519744260512fdcde40cdda0a9cff5f71fa6cbc98057b8c57df48225819",
+    "baselineLog": "logs/check-runs/20261013T181126Z-f9a052c56606485aa4b2e21250f88b3e.log",
+    "baselineLogSha256": "39b80670973cf7a0e4d01db5122f0bf686e0a1ae8a9b03fe1ae7a5daa65dad08",
+    "before": 970,
+    "after": 970,
+    "beforeCounts": {
+      "unjoinableCriticalPairs": 970,
+      "replaceablePatternVariables": 137
+    },
+    "afterCounts": {
+      "unjoinableCriticalPairs": 970,
+      "replaceablePatternVariables": 137
+    },
+    "added": [],
+    "removed": [],
+    "normalization": "Strip ANSI and compare six-line critical-pair diagnostic blocks as multisets; locations excluded; no alpha renaming.",
+    "classification": "All selected critical-pair blocks are identical to the checked donor; no new confluence claim."
+  },
+  "legacyWholeBoundaryRole": "Unrun optional equality diagnostic between independent primitive roots; not required when old public names are migrated to actual ambient definitions.",
+  "ruleLhsAudit": {
+    "path": "tmp/probes/fibcov_cart/lhs-audit.txt",
+    "sha256": "29c9afdc6e5e9ff8b0fa64b0ed9f9526fba0ac63dc96f4b9c0f2ec4a62230009",
+    "target": "inclusion_controls.lp",
+    "unreviewed": 0,
+    "annotatedSlots": 46,
+    "intentionalClauses": 31
+  },
+  "selectedTarget": "inclusion_controls.lp",
+  "outputAssertionCounts": {
+    "core_controls.lp": {
+      "positive": 315,
+      "negative": 67
+    },
+    "inclusion_owner.lp": {
+      "positive": 309,
+      "negative": 65
+    },
+    "inclusion_controls.lp": {
+      "positive": 320,
+      "negative": 68
+    },
+    "legacy_whole_boundary.lp": {
+      "positive": 310,
+      "negative": 65
+    }
+  },
+  "manifest": {
+    "path": "tmp/probes/fibcov_cart/manifest.json",
+    "sha256": "9cb462a66f2aa69972790bdec86acf2413c9b9608424b156c5d2d8b046b42835"
+  }
+}

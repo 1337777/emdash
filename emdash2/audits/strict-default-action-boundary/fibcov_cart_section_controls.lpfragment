@@ -1,0 +1,40 @@
+// The defined value has the actual native Homd section type.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) ⊢
+  @fibcov_cart_section K E x u
+  : τ (@Transf K Prof_cov_universe (@Prof_cov_diagram K E)
+      (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)));
+
+// Actual y-component of that whole section is the represented companion.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y
+    (@fibcov_cart_section K E x u)
+  ≡ @Prof_cov_companion (Hom_cat K x y) (@Fibre_cat K E y)
+      (@fib_cov_tapp0_func K E x y u);
+
+// The whole v-value is the existing ordinary contravariant Hom leaf.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K))
+  (v : τ (Obj (@Fibre_cat K E y))) ⊢
+  fapp0 (@tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y
+    (@fibcov_cart_section K E x u)) v
+  ≡ @homd_id_ K E x u y v;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) [y : τ (Obj K)]
+  (v : τ (Obj (@Fibre_cat K E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (fapp0 (@tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y
+    (@fibcov_cart_section K E x u)) v) f
+  ≡ Hom_cat (@Fibre_cat K E y)
+      (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u) v;
+
+// The section points from iota(E) to iota(I_x), not the reverse.
+assertnot [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) ⊢
+  @fibcov_cart_section K E x u
+  : τ (@Transf K Prof_cov_universe
+      (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) (@Prof_cov_diagram K E));

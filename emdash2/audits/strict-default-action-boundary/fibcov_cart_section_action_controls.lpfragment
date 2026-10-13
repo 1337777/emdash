@@ -1,0 +1,38 @@
+// The actual native whole y-arrow action is inherited from the chosen lift.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y z : τ (Obj K)) ⊢
+  @tapp1_func K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y z
+    (@fibcov_cart_section K E x u)
+  ≡ @Prof_cov_lift_right_func K (@hom_ K K (@id_func K) x) E
+      (@fibcov_cart_transf K E x u) y z;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  fapp0 (@tapp1_func K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y z
+    (@fibcov_cart_section K E x u)) q
+  ≡ @tapp1_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+      (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y z
+      (@fibcov_cart_section K E x u) q;
+
+// Stable postcomposition is the selected runtime reading of R(q).
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  @tapp1_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y z
+    (@fibcov_cart_section K E x u) q
+  ≡ @hom_postcomp_fapp0 Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe)
+      (@Fibre_cat K E y) (@Fibre_cat K E z) (Hom_cat K x z)
+      (@Prof_cov_companion (Hom_cat K x z) (@Fibre_cat K E z)
+        (@fib_cov_tapp0_func K E x z u))
+      (@fapp1_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E) y z q);
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K)) ⊢
+  @tapp1_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y y
+    (@fibcov_cart_section K E x u) (@id K y)
+  ≡ @tapp0_fapp0 K Prof_cov_universe (@Prof_cov_diagram K E)
+      (@Prof_cov_diagram K (@hom_ K K (@id_func K) x)) y
+      (@fibcov_cart_section K E x u);

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; identity Homd object ladder and native x/u consumers check together in the prototype; native laxity, coefficient integration and production gates remain open
+Status: active; native x/u and intermediate y/v consumers check with a derived whole Homd section; adoption in the existing ladder, native laxity, coefficient integration and production gates remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -90,8 +90,10 @@ integration reference is `represented_comp/integrated_controls.lp`, conditional
 on the stated co-Yoneda seed and fixed-parameter lambda/evaluation profiles; its detailed
 source closure and limits are recorded below. The native x/u consumer
 assembly now checks, including the whole h-parameter construction and
-two-factor ordinary leaf. The immediate work is the remaining intermediate
-projection overlaps, whole section action and native laxity, followed by coefficient and intrinsic-action
+two-factor ordinary leaf. Intermediate y/v identity/composition comparisons
+and a derived whole section now check in the combined successor below.
+The immediate work is adoption of that section with whole x/u compatibility,
+remaining specialized overlaps and native laxity, followed by coefficient and intrinsic-action
 integration. The lift_middle selected variant checks both whole middle
 comparisons, the actual mate composite and its first component. The raw
 represented counit below now has an actual construction
@@ -2617,6 +2619,80 @@ agreement with the Homd section, native root laxity extraction, raw-preserving
 coefficient integration and the remaining full-source migration are still
 required. This is a concrete existing-owner continuation, not a return to
 deriving the entire legacy profunctor calculus.
+
+## Intermediate projections and canonical strict FibCov continuation
+
+The `homd_u_intermediate` baselines independently fail the y/v identity and
+composition route comparisons. Four local projection-order joins close those
+comparisons at the existing native u-action rungs. They preserve the actual
+source h and its reversed u endpoints; they do not make the Homd root or an
+arbitrary FF strictly natural. Each of the four exact removals fails its
+consumer.
+
+The two composition clauses require a `Functor_cart_cat _ _` category guard:
+omitting it fails subject reduction because the opaque StrictTransfor result
+does not reconstruct the ambient composition category. Repeating the full
+fibre expression in that guard instead prevents runtime matching after fibre
+normalization. The selected minimal guard passes both checks; the failed
+variants and native normal forms are preserved. Warning inventory changes
+from 970 to 986, with the specialized identity-erasure and mixed-factor
+overlaps still recorded. Intermediate y/v identity and composition are now
+tested before the final f projection, rather than inferred from the leaf.
+
+The separate `homd_u_peaks` observations compare the triple-precomposition,
+ordinary/Cat-valued identity-beta and contextual curry(Eval) routes using
+existing associativity and identity comparisons under `eq_ap`. These are
+derived proof-time observations and carry no path into an operational symbol.
+They add no runtime rule and do not establish runtime confluence.
+
+The `fibcov_cart` successor supplies the specific canonical strict-y profile
+needed by the represented lift while retaining whole u-action and an ambient
+whole x-transformation:
+
+```text
+S = Functor_cart_cat(K,Cat)
+R_K = Rep_cart_func(K)
+FibCov_cart_target(E) = hom_con(S,E,T(K),R_K)
+fibcov_cart_int(E) : E ⇒ FibCov_cart_target(E)
+fibcov_cart_int(E)[x][u] : StrictTransfor(I_x,E).
+```
+
+The target is an actual ordinary-Hom definition. Its ambient target inclusion
+is derived from the existing contravariant Hom action of
+`cart_functor_include(K,Cat)`, pulled back along `T(R_K)`. The resulting
+ambient views compute to the existing transport components. Three native
+projection rules specify the canonical strict-y FibCov constructor; the
+strict profile is an explicit structural contract, not inferred from equal
+component objects. Neither a raw FF admission nor whole x-strictness is
+installed. The old FibCov declarations remain unchanged in this replay;
+equality with their independent whole primitive is not a prerequisite for
+later migration to the actual ambient-view definitions.
+
+Applying the already declared represented lift now gives an actual defined
+whole section:
+
+```text
+fibcov_cart_section(E,x,u)
+  = Prof_cov_con_lift_transf(I_x,E,fibcov_cart_transf(E,x,u))
+  : Obj(Homd_section_cat(E,x)).
+```
+
+Its y-component is the companion of the existing transport functor
+`f ↦ E[f](u)`; its whole v-value is `homd_id_(E,x,u,y,v)`, and its f-value
+is `Hom_E[y](E[f](u),v)`. Whole/capped native y-action and its identity
+normality check through the lift's selected R action. No new section
+primitive, combined y/v/f base, coend derivation or equality payload is used.
+
+`homd_native_section_assembly` checks all the selected bodies and controls
+together at their owner positions. Exact receipts, warnings, projection
+removals, source pins and strict LHS audits live in the corresponding audit
+records. The assembly still inherits the provisional Q presentation. The
+existing `homd_id_src_sec` is not yet defined by this new section, and no
+whole equality is inferred from their matching components. Next, adopt the
+derived body in the public identity ladder while qualifying whole x/u
+compatibility and preserving the general-FF composite. Native root laxity,
+specialized overlaps, raw-preserving coefficient integration and production
+migration remain required.
 
 ## Deferred improvements under the migration boundary
 

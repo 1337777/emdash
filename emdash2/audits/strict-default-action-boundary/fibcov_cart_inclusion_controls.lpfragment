@@ -1,0 +1,36 @@
+// Whole inclusion has an ambient displayed-transfor type.
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @fibcov_cart_target_include K E
+  : τ (@Functord K (@fibcov_cart_target K E) (@FibCov_target_catd K E));
+
+// Its component is the actual whole Hom action of Cartesian inclusion.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cat (@fibcov_cart_target K E) (@FibCov_target_catd K E) x
+    (@fibcov_cart_target_include K E)
+  ≡ @fapp1_func (Functor_cart_cat K Cat_cat) (Functor_cat K Cat_cat)
+      (cart_functor_include K Cat_cat) (@hom_ K K (@id_func K) x) E;
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) ⊢
+  @fibcov_cart_ambient_transf K E x u
+  ≡ @strict_transfor K Cat_cat (@hom_ K K (@id_func K) x) E
+      (@fibcov_cart_transf K E x u);
+
+// The old and new ambient components agree at y by their actual projections;
+// this is not an equality of their whole transfor or whole x-package.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cat (@hom_ K K (@id_func K) x) E y
+    (@fibcov_cart_ambient_transf K E x u)
+  ≡ @tapp0_fapp0 K Cat_cat (@hom_ K K (@id_func K) x) E y
+      (@fib_cov_transf K E x u);
+
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) [y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  fapp0 (@tapp0_fapp0 K Cat_cat (@hom_ K K (@id_func K) x) E y
+    (@fibcov_cart_ambient_transf K E x u)) p
+  ≡ fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u;
+
+assertnot [K : Cat] (E : τ (Catd K)) ⊢
+  @fibcov_cart_ambient_int K E
+  : τ (@StrictTransfor K Cat_cat E (@FibCov_target_catd K E));

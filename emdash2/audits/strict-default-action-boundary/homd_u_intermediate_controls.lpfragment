@@ -1,0 +1,16 @@
+// Same-endpoint data perturbations precede each positive boundary target.
+assertnot [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (@Fibre_cat K E x))]
+  (h h' : τ (Hom (@Fibre_cat K E x) u0 u1)) (y : τ (Obj K)) ⊢
+  (@homd_id_u_y K E x u0 u1 h y) ≡ (@homd_id_u_y K E x u0 u1 h' y);
+
+assertnot [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) [u0 u1 : τ (Obj (@Fibre_cat K E x))]
+  (h h' : τ (Hom (@Fibre_cat K E x) u0 u1)) (y : τ (Obj K)) (v : τ (Obj (@Fibre_cat K E y))) ⊢
+  (@homd_id_u_v K E x u0 u1 h y v) ≡ (@homd_id_u_v K E x u0 u1 h' y v);
+
+// Cartesian component identities/composition do not classify the Homd root.
+assertnot [K : Cat] (E : τ (Catd K)) ⊢
+  @homd_id_int K E : τ (@StrictTransfor (CoAt2_cat K) Cat_cat
+    (@Op_catd K E) (@Homd_target_catd K E));
+
+assertnot [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) ⊢
+  FF : τ (@StrictTransfor K Cat_cat D E);

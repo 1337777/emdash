@@ -1,0 +1,32 @@
+{
+  "donor": "tmp/probes/homd_u_intermediate/minimal_guard_controls.lp",
+  "checkedSources": {
+    "tmp/probes/homd_u_intermediate/minimal_guard_controls.lp": "logs/check-runs/20261013T183333Z-10e0343038b346e7aa46867416ff3978.json",
+    "tmp/probes/fibcov_cart/inclusion_controls.lp": "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.json",
+    "tmp/probes/fibcov_cart_section/combined_controls.lp": "logs/check-runs/20261013T184248Z-85bd0860ab6b4e80b8b9b0c9513f624e.json",
+    "tmp/probes/homd_u_peaks/precomp_observations.lp": "logs/check-runs/20261013T183449Z-03f21619ba0d441396defe6a05aad31d.json",
+    "tmp/probes/homd_u_peaks/curry_observation.lp": "logs/check-runs/20261013T183506Z-3a18963498b24493b0cf728b67c7e10b.json"
+  },
+  "sourceInputs": {
+    "tmp/probes/homd_u_intermediate/minimal_guard_controls.lp": "a2926ea3d8228cc58961ed143870a10255e9f55a8ee7d9d6cfff244de68eba18",
+    "tmp/probes/fibcov_cart/inclusion_controls.lp": "ad80cdac932516476b3f2b895dc4c43acde5637b245c00f596cfe8fd3d7026fa",
+    "tmp/probes/fibcov_cart_section/combined_controls.lp": "c930883275497eaf78f94f2e741cc2d572b294668bb2d0a78baa837bd995ea2f",
+    "tmp/probes/homd_u_peaks/precomp_observations.lp": "3dd9d1e23f4c2537ea0bcafff9c9c49ac4c037f701a8c2b252c4b695663329b9",
+    "tmp/probes/homd_u_peaks/curry_observation.lp": "1db36c5ca6415db7489851a913257b8ceb2f15f179a916b2175d2def2038fbf0",
+    "logs/check-runs/20261013T183333Z-10e0343038b346e7aa46867416ff3978.json": "169658b6afe1645445688fa7322f84a80845cd741a4d910eb1804345eb8ec3d4",
+    "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.json": "c86802340315762229989c8f8269e6b49f95a6e2ede248f3bac95d4c44c7cbad",
+    "logs/check-runs/20261013T184248Z-85bd0860ab6b4e80b8b9b0c9513f624e.json": "c6ecb897d70e057567b2747314a039f3ed82c60196dfb9e4e61e9e6fb5790f03",
+    "logs/check-runs/20261013T183449Z-03f21619ba0d441396defe6a05aad31d.json": "9110f45ae733e9a95d9b9f8462374f6c6c411980da661e6f70b3eccd4ef7fc10",
+    "logs/check-runs/20261013T183506Z-3a18963498b24493b0cf728b67c7e10b.json": "5f949afe5d8538cd23d48aa34c04b7e13995fa0c5aeeda2f5308add6183f5842",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/fibcov_cart_core.lpfragment": "44585d7f3506239f933df97359163e682f4cba20c8a607be5f25185e56d37087",
+    "audits/strict-default-action-boundary/fibcov_cart_inclusion.lpfragment": "ca541f037b4ea23957b0da572199c1d2dbd7795047c5be4fdf75d0a3376c99c4",
+    "audits/strict-default-action-boundary/fibcov_cart_section_owner.lpfragment": "c22d2b365d367734aeb376c74bd7252d51e9e4d2417c43c49577727bea07942c",
+    "audits/strict-default-action-boundary/fibcov_cart_core_controls.lpfragment": "66a48c44687876201eaff73ce3dde837b7f2b814c1e898b63ad85a2a358b8568",
+    "audits/strict-default-action-boundary/fibcov_cart_inclusion_controls.lpfragment": "9f5d9a4af0c75f1f613262cda03b96c588f5699ae884a52a86bcd5db0984ada2",
+    "audits/strict-default-action-boundary/fibcov_cart_section_controls.lpfragment": "f6b0ddc6f523eeb7be20d86f9edcb82fb7a945c80d1264caf1f037c737a7d875",
+    "audits/strict-default-action-boundary/fibcov_cart_section_action_controls.lpfragment": "6433e10ec39cc56b1ee15a8b1c45ff01b4fdd1ee2624a1fa93b5c4ddc04606c9",
+    "audits/strict-default-action-boundary/homd_u_peaks_precomp_observations.lpfragment": "0f0079075ddd2dea042ef2fd8eecba157661a231f256339d4668949b00c5797f",
+    "audits/strict-default-action-boundary/homd_u_peaks_curry_observation.lpfragment": "0ed9805fb8bdeca77831b82695ae941f35f4bc0e206a8c0a7fea0c5395d16f70"
+  }
+}

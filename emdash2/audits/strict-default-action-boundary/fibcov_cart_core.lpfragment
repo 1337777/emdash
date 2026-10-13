@@ -1,0 +1,24 @@
+// NON-LIBRARY canonical structural FibCov contract for default-strict E.
+// The target is derived ordinary Hom in the Cartesian mapping category.
+// The whole FibCov map remains ambient in x; strictness is only in its
+// canonical I_x => E values and is not inferred from component objects.
+symbol fibcov_cart_target [K : Cat] (E : τ (Catd K)) : τ (Catd K)
+≔ @hom_con (Functor_cart_cat K Cat_cat) E (Op_cat K) (@Rep_cart_func K);
+
+constant symbol fibcov_cart_int [K : Cat] (E : τ (Catd K))
+  : τ (@Functord K E (@fibcov_cart_target K E));
+
+symbol fibcov_cart_src_func [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  : τ (Functor (@Fibre_cat K E x) (@Fibre_cat K (@fibcov_cart_target K E) x));
+
+symbol fibcov_cart_transf [K : Cat] (E : τ (Catd K))
+  (x : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E x)))
+  : τ (@StrictTransfor K Cat_cat (@hom_ K K (@id_func K) x) E);
+
+rule @tapp0_fapp0 _ Cat_cat _ _ $x (@fibcov_cart_int $K $E)
+  ↪ @fibcov_cart_src_func $K $E $x;
+rule fapp0 (@fibcov_cart_src_func $K $E $x) $u
+  ↪ @fibcov_cart_transf $K $E $x $u;
+rule @tapp0_fapp0 _ Cat_cat _ _ $y
+      (@strict_transfor _ _ _ _ (@fibcov_cart_transf $K $E $x $u))
+  ↪ @fib_cov_tapp0_func $K $E $x $y $u;

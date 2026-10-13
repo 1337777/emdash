@@ -1,0 +1,9 @@
+{
+  "donor": "tmp/probes/fibcov_cart/inclusion_controls.lp",
+  "donorReceipt": "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.json",
+  "sourceInputs": {
+    "tmp/probes/fibcov_cart/inclusion_controls.lp": "ad80cdac932516476b3f2b895dc4c43acde5637b245c00f596cfe8fd3d7026fa",
+    "logs/check-runs/20261013T183711Z-956a447a115f46d79de5b524be7b69e4.json": "c86802340315762229989c8f8269e6b49f95a6e2ede248f3bac95d4c44c7cbad",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  }
+}

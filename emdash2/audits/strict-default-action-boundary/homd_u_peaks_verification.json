@@ -1,0 +1,186 @@
+{
+  "status": "two assertion-only proof-time successors pass; original reflexivity failure retained",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/homd_u_peaks_migration.py": "2ae1412161ed5cd79f6592a475049d43838e71535a76a204175847ed9695af39",
+    "audits/strict-default-action-boundary/homd_u_normalization_verification.json": "08cd4043e28562a4b0a8ff110b8fb410f2d599425006411129b221ba20098c88",
+    "tmp/probes/homd_u_normalization/combined_controls.lp": "39ffe519744260512fdcde40cdda0a9cff5f71fa6cbc98057b8c57df48225819",
+    "logs/check-runs/20261013T182459Z-36201fe106644757be405bd611a56254.json": "374a244e7c89c0cd66954d371fd10e3237f62a1a10f221357d41e294b55b35d6",
+    "tmp/probes/homd_u_peaks/precomp_controls.lp": "3a6d256ed6da66f127b778c485afb360bf6ec7b28e3afd66573df43938c13fc1",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/homd_u_peaks_precomp_observations.lpfragment": "0f0079075ddd2dea042ef2fd8eecba157661a231f256339d4668949b00c5797f",
+    "audits/strict-default-action-boundary/homd_u_peaks_curry_observation.lpfragment": "0ed9805fb8bdeca77831b82695ae941f35f4bc0e206a8c0a7fea0c5395d16f70"
+  },
+  "outputs": {
+    "precomp_observations.lp": "3dd9d1e23f4c2537ea0bcafff9c9c49ac4c037f701a8c2b252c4b695663329b9",
+    "curry_observation.lp": "1db36c5ca6415db7489851a913257b8ceb2f15f179a916b2175d2def2038fbf0"
+  },
+  "checks": {
+    "precomp_controls.lp": {
+      "id": "20261013T182459Z-36201fe106644757be405bd611a56254",
+      "target": "tmp/probes/homd_u_peaks/precomp_controls.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 14.390016682096757,
+      "childrenMaxRssKiB": 689940,
+      "inputSnapshot": "8e3f3976280763d9fb347239062883f0609d73f3a328349745c9647ad0a29fc0",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_peaks/precomp_controls.lp": "3a6d256ed6da66f127b778c485afb360bf6ec7b28e3afd66573df43938c13fc1"
+      },
+      "receipt": "logs/check-runs/20261013T182459Z-36201fe106644757be405bd611a56254.json",
+      "receiptSha256": "374a244e7c89c0cd66954d371fd10e3237f62a1a10f221357d41e294b55b35d6",
+      "sourceSha256": "3a6d256ed6da66f127b778c485afb360bf6ec7b28e3afd66573df43938c13fc1",
+      "log": "logs/check-runs/20261013T182459Z-36201fe106644757be405bd611a56254.log",
+      "logSha256": "9940f12cd5ded76476a04d99099130947b6dea0e58316a377d043ae16a83f774",
+      "firstError": "[tmp/probes/homd_u_peaks/precomp_controls.lp:19226:0-19233:54] Assertion failed.",
+      "assertions": {
+        "positive": 312,
+        "negative": 65
+      },
+      "output": "tmp/probes/homd_u_peaks/precomp_controls.out",
+      "outputSha256": "34d84c8821b2e2f03854b2d0f31c10647110835298f88ccf3a113734fcbc7eb8"
+    },
+    "precomp_observations.lp": {
+      "id": "20261013T183449Z-03f21619ba0d441396defe6a05aad31d",
+      "target": "tmp/probes/homd_u_peaks/precomp_observations.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 16.542533237021416,
+      "childrenMaxRssKiB": 689376,
+      "inputSnapshot": "75b8d5167a38eafd7d25a4570a88904d8182a7deada149479c5c5c5b2f0dd07b",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_peaks/precomp_observations.lp": "3dd9d1e23f4c2537ea0bcafff9c9c49ac4c037f701a8c2b252c4b695663329b9"
+      },
+      "receipt": "logs/check-runs/20261013T183449Z-03f21619ba0d441396defe6a05aad31d.json",
+      "receiptSha256": "9110f45ae733e9a95d9b9f8462374f6c6c411980da661e6f70b3eccd4ef7fc10",
+      "sourceSha256": "3dd9d1e23f4c2537ea0bcafff9c9c49ac4c037f701a8c2b252c4b695663329b9",
+      "log": "logs/check-runs/20261013T183449Z-03f21619ba0d441396defe6a05aad31d.log",
+      "logSha256": "8ee14bfe9ab895d1c1292be0209be4b5d94c056b5e2f6a6f82f7c2454f504ffa",
+      "firstError": null,
+      "assertions": {
+        "positive": 312,
+        "negative": 65
+      },
+      "output": "tmp/probes/homd_u_peaks/precomp_observations.out",
+      "outputSha256": "3e786d7e488f4f76ea5fd3cc05cfb77defcd2e27c1c694f1697014b02e905416"
+    },
+    "curry_observation.lp": {
+      "id": "20261013T183506Z-3a18963498b24493b0cf728b67c7e10b",
+      "target": "tmp/probes/homd_u_peaks/curry_observation.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 12.596656717942096,
+      "childrenMaxRssKiB": 689684,
+      "inputSnapshot": "696ed6e1a50566d4219bbe38fe140f2a0e4da8e9f3550bf13cb2f6f8e05a979d",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_u_peaks/curry_observation.lp": "1db36c5ca6415db7489851a913257b8ceb2f15f179a916b2175d2def2038fbf0"
+      },
+      "receipt": "logs/check-runs/20261013T183506Z-3a18963498b24493b0cf728b67c7e10b.json",
+      "receiptSha256": "5f949afe5d8538cd23d48aa34c04b7e13995fa0c5aeeda2f5308add6183f5842",
+      "sourceSha256": "1db36c5ca6415db7489851a913257b8ceb2f15f179a916b2175d2def2038fbf0",
+      "log": "logs/check-runs/20261013T183506Z-3a18963498b24493b0cf728b67c7e10b.log",
+      "logSha256": "d0728caf9f869193439baf22e9ad0499fa8f2e8c2bdf79e30d04f9a8d18bf7e4",
+      "firstError": null,
+      "assertions": {
+        "positive": 310,
+        "negative": 65
+      },
+      "output": "tmp/probes/homd_u_peaks/curry_observation.out",
+      "outputSha256": "b40877513822cfa3867affbea35a9e3e70d33817dbebee67e90d89b0133abb47"
+    }
+  },
+  "manifest": {
+    "path": "tmp/probes/homd_u_peaks/observations_manifest.json",
+    "sha256": "8e5a8906fb979b31033cc87a5c98a7a6c592853e178b1ab9098cd39893c546de"
+  },
+  "sourceClosure": {
+    "path": "audits/strict-default-action-boundary/homd_u_peaks_source_closure.md",
+    "sha256": "5ce92a7be57faf35adcbdfdc9ad8c89639b9f0b6742fa094422f6ab63d826d5d"
+  },
+  "warningComparison": {
+    "baselineReceipt": "logs/check-runs/20261013T181126Z-f9a052c56606485aa4b2e21250f88b3e.json",
+    "baselineReceiptSha256": "a3802aaf5d4713dae34f4c9a06a84908d8cc8969542c8499887bfdef87f16c84",
+    "baselineLog": "logs/check-runs/20261013T181126Z-f9a052c56606485aa4b2e21250f88b3e.log",
+    "baselineLogSha256": "39b80670973cf7a0e4d01db5122f0bf686e0a1ae8a9b03fe1ae7a5daa65dad08",
+    "before": 970,
+    "afterEachPassingTarget": 970,
+    "added": [],
+    "removed": [],
+    "normalization": "ANSI stripped, six-line critical-pair blocks compared as multisets without location headers or alpha renaming."
+  },
+  "qualification": [
+    "Triple associativity, generic/Cat identity-beta absorption, and one contextual curry(Eval) identity are derived proof-time observations.",
+    "No new semantic owner, runtime rewrite, unification rule, operational proof input or confluence claim.",
+    "Initial failed target stops at its second assertion; only the preceding triple observation was reached successfully.",
+    "Passing source counts include donor assertions; added positives are three in precomp_observations and one in curry_observation."
+  ],
+  "checkerInvokedByMetadataUpdate": false
+}

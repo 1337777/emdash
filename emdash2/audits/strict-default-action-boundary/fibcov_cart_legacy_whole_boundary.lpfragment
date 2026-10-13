@@ -1,0 +1,6 @@
+// Separate positive compatibility boundary. No equality rule is installed.
+// Agreement of y-components alone does not prove this whole identification.
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @eq_refl (@Functord K E (@FibCov_target_catd K E)) (@fibcov_cart_ambient_int K E)
+  : τ (@= (@Functord K E (@FibCov_target_catd K E))
+      (@fibcov_cart_ambient_int K E) (@fib_cov_int K E));

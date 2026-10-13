@@ -1,0 +1,8 @@
+// NON-LIBRARY derived provisional Homd section.
+// The canonical strict FibCov value is the actual input of the existing
+// whole represented lift. No section primitive or equality payload is added.
+symbol fibcov_cart_section [K : Cat] (E : τ (Catd K))
+  (x : τ (Obj K)) (u : τ (Obj (@Fibre_cat K E x)))
+  : τ (Obj (@Homd_section_cat K E x))
+≔ @Prof_cov_con_lift_transf K (@hom_ K K (@id_func K) x) E
+    (@fibcov_cart_transf K E x u);
