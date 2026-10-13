@@ -1,0 +1,37 @@
+// Identity and composed-functor consumers of the represented inverse views.
+assert (A : Cat) ⊢
+  fapp0 (Prof_cov_uncurry_func A A) (fapp0 (Prof_cov_conjoint_func A A) (@id_func A))
+  ≡ @Conjoint_prof A A (@id_func A);
+assert (A : Cat) ⊢
+  fapp0 (Prof_cov_uncurry_func A A) (@Prof_cov_companion A A (@id_func A))
+  ≡ @Companion_prof A A (@id_func A);
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  fapp0 (Prof_cov_uncurry_func A C)
+    (fapp0 (Prof_cov_conjoint_func A C) (@comp_cat_fapp0 A B C G F))
+  ≡ @Conjoint_prof A C (@comp_cat_fapp0 A B C G F);
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  fapp0 (Prof_cov_uncurry_func C A)
+    (@Prof_cov_companion A C (@comp_cat_fapp0 A B C G F))
+  ≡ @Companion_prof A C (@comp_cat_fapp0 A B C G F);
+
+// Fibre orientation is retained by both whole inverse computations.
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  fapp0 (fapp0 (Prof_cov_uncurry_func A B) (fapp0 (Prof_cov_conjoint_func A B) F))
+    (@Product_pair (Op_cat B) A b a)
+  ≡ Hom_cat B b (fapp0 F a);
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  fapp0 (fapp0 (Prof_cov_uncurry_func B A) (@Prof_cov_companion A B F))
+    (@Product_pair (Op_cat A) B a b)
+  ≡ Hom_cat B (fapp0 F a) b;
+
+// Direct closed-evaluation formation at the identity, after neutral reindexing.
+assert (B : Cat) ⊢
+  @Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B) ≡ @Unit_prof B;
+assert (B : Cat) ⊢
+  @Prof_eval_cov_map B B B (@Unit_prof B) (@Unit_prof B) (@Unit_prof B)
+    (@id (Prof_cat B B) (@Unit_prof B))
+  : τ (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B));
+assertnot [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  fapp0 (fapp0 (Prof_cov_uncurry_func A B) (fapp0 (Prof_cov_conjoint_func A B) F))
+    (@Product_pair (Op_cat B) A b a)
+  ≡ Hom_cat B (fapp0 F a) b;

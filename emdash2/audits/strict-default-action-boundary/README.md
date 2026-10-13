@@ -642,3 +642,35 @@ Q-composition projection overlaps and none removed. This does not establish
 global confluence, a completed Q/lift model or production qualification.
 Replay after modifying ordinary curry/evaluation/product normalization,
 the product-prof/curried bridge, or native Q composition projections.
+
+## Represented inverse observations
+
+`q_inverse_views_migration.py` continues the pinned q_presentation source.
+Two inverse normal-form clauses return ordinary represented pre/postcomposition
+through the existing Prof_reindex owner. The actual presentation maps stay
+unchanged. Their extra Cartesian inferred arguments were removed after a
+successful native minimization check.
+
+The existing generic full-Hom identity/composition rules and neutral endpoint
+reindexing rule move to their earlier consumers without changes to their
+bodies. A Unit/Unit represented-implication clause joins the identity case
+after reindexing normalizes. Direct closed-evaluation formation checks that
+case; the corresponding no-rule variant fails.
+
+```bash
+python3 audits/strict-default-action-boundary/q_inverse_views_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_q_inverse_views/owner_prefix.lp
+```
+
+The prefix passes 244 positives/37 negatives, including both represented
+inverses, identity/composite cases, their distinct fibre orientations and a
+direction noncollapse control. The LHS audit is clear. Warning blocks change
+from 898 to 903 (seven added, two removed); exact differences, moved-owner
+hashes and six checked receipts are pinned in q_inverse_views_verification.json.
+
+The expanded transformation inverse remains a failed positive obligation.
+Full-source checking still stops at the general-FF opposite-profile mismatch.
+These results do not qualify the complete coefficient/lift or production
+migration. Replay after changes to represented Hom, the two presentation maps,
+ordinary Hom-action computation or identity reindexing/closed evaluation.

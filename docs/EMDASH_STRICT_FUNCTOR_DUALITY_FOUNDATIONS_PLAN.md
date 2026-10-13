@@ -53,10 +53,13 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice: close the remaining inverse observation orders (separately
-expanded transformation action and the companion/conjoint specializations),
-then use the canonical counit in the whole represented lift and correct the
-general-FF intrinsic action. Generic whole presentation inverses now check;
+Current next slice: finish the separately expanded Cartesian transformation
+inverse, then use the canonical represented comparisons in the whole lift
+and correct the general-FF intrinsic action. The companion/conjoint inverse
+specializations now check, including identities and composites. Moving the
+existing generic full-Hom action rules earlier did not resolve the separate
+transformation inverse; inspect its actual Cartesian action owners before
+adding more computation. Generic whole presentation inverses also check;
 the existing product-prof tensor is connected to Q's composition owner and
 the derived counit has the required native composite source. These are
 structural computation clauses and checked consumers, not a derivation of a
@@ -1561,6 +1564,56 @@ three added Q-composition projection overlaps and none removed. The whole,
 object, full and capped consumers check; this is not a general confluence
 certificate. q_presentation_verification.json pins all current inputs,
 outputs, ten receipts, rejected pattern/guard variants and the open boundaries.
+
+## Represented inverse observations
+
+Next bounded experiment (after 1b9abf10): the two represented inverse
+boundaries lose the generic curry pattern when represented Hom projects to
+ordinary pre/postcomposition. Add only the inverse normal forms for those
+two represented cases at the existing Hom/uncurry owners, then check their
+native companion/conjoint consumers, identities and preserved endpoint
+values. Do not change either bridge map or supply inverse evidence. The
+separately expanded transformation inverse remains its own obligation.
+
+This slice now checks in q_inverse_views_migration.py. Two clauses restore
+the represented inverse normal forms after ordinary post/precomposition has
+replaced the generic curry body. They return the existing Prof_reindex
+representation; neither presentation map nor represented constructor is
+replaced. An explicit successful experiment removed all extra Cartesian
+category guards in these two clauses. The endpoints remain recoverable
+from the actual Eval, represented Unit and ordinary Hom-action data.
+
+The identity consumer required the existing Prof_reindex identity clause
+earlier than its former tensor section. The existing generic full-Hom
+identity/composition rules also move earlier, before curry. Both moved
+blocks are byte-identical and hashed in the replay manifest; these are
+owner relocations, not newly assumed functor laws. Identity reindexing then
+exposes the Unit/Unit case of represented implication. Its normal-form clause
+is checked by direct Prof_eval_cov_map formation at the identity, with a
+separate failing no-unit-rule control.
+
+The two previously failing represented inverse tests now pass for variable
+functors, identities and composites. Whole inverse results preserve the
+two different local values Hom_B(b,F(a)) and Hom_B(F(a),b); a negative control
+rejects their accidental identification. The final prefix passes 244 positive
+and 37 negative controls in 5.859s under the unchanged resource bounds.
+Removing the new clauses fails the represented consumer. The strict LHS
+audit has zero unreviewed slots. Warning blocks change from 898 to 903:
+seven added and two removed, recorded with exact blocks in
+q_inverse_views_verification.json. The changed set includes existing
+full-Hom/identity/composition interactions exposed by owner relocation and
+the represented implication identity overlap; the direct identity consumer
+checks the latter after the complete clause set is loaded.
+
+The separate expanded transformation inverse still fails. The full source
+still stops at raw FF entering the strictly profiled Op_funcd in
+tdapp1_int_func_transfd. Neither failure is counted as a passing negative
+control. All Q/lift coherence, intrinsic-action and production gates remain
+required. For the upcoming whole lift, inspect the existing Prof_func_hom
+owner as the possible source of the canonical unit complementing the derived
+counit; its current raw shaped-cell profile must be reviewed before using
+it in the Cartesian coefficient. This is a next-consumer investigation, not
+a supplied adjunction or an assumed admission result.
 
 ## Deferred improvements under the migration boundary
 

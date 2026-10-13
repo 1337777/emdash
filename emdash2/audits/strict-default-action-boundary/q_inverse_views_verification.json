@@ -1,0 +1,302 @@
+{
+  "status": "non-library: represented companion/conjoint inverses, identities/composites and endpoint orientation check; expanded transformation inverse, whole lift/coherence and full migration remain open",
+  "qPresentationInputSha256": "b35d91b639c71d79ba7fa00a6c8bde246d4aadc553cdb9feef9b47171909c576",
+  "movedOwners": [
+    {
+      "owner": "// 17d. Generic ordinary functor hom-action",
+      "sha256": "5cf5a925d20f328664a957fa217ce9445c010dbc810d22d550a058bcf0a898be"
+    },
+    {
+      "owner": "// Reindexing along identity endpoint functors is neutral.",
+      "sha256": "50a4187813a60d960953778bd9b1a14913debc87d94f27a0b42180a01ef44c04"
+    }
+  ],
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/q_inverse_views_migration.py": "0ce5d12ba9b72307cd20a1c06a007458e1e7576bb65c2a8cea6c57e5c58f54e0",
+    "audits/strict-default-action-boundary/q_inverse_views.lpfragment": "484f1d98c53caa4f64ee1b83285a46594386002edd2d29a2c207b4ed6c513157",
+    "audits/strict-default-action-boundary/q_inverse_views_controls.lpfragment": "67284d9df04f15704b67e42e44da8bfc1f36ceb63e3cb6519fd0dea0f469386e",
+    "audits/strict-default-action-boundary/q_presentation_represented_boundaries.lpfragment": "9028ba5347986c6ccd9f49e4802bab946e82415ea22c2971d00ac8c43faa5d1f",
+    "audits/strict-default-action-boundary/cartesian_inverse_action_boundary.lpfragment": "4eb485ccf4c7bdc97f91e95067652e7ee266121993bfd380f98bba5cbdef2a81"
+  },
+  "outputs": {
+    "emdash3_2.lp": "9248dcc848887074f443deb32ae3760794fc58711be379765cd91c60a81ebe93",
+    "owner_prefix.lp": "a59660442b9523bfe273e306a503a546680b18155f67d09b174bd74754bfb85b",
+    "no_rules.lp": "5b9ec55b95215dc7113713917236e78d2e8bced8783bd87cf8bfffe659eb9f81",
+    "action_boundary.lp": "ef8f61c6291daf9160e198be93f961c7830c14aa32af2951101636d8b99299ca",
+    "no_unit_rule.lp": "eec39e7c5f719a6e907d01a7486407f66b195d62cfb7fc42b410e86d069e5d5b",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "qualification": [
+    "Two inverse normal-form clauses at existing represented Hom/uncurry owners; original maps and represented bodies remain definitions.",
+    "Moves existing full-Hom identity/composition and Prof_reindex identity computation earlier, without changing those clauses.",
+    "All inferred Cartesian category arguments in the two new clauses were removed after a native successful control.",
+    "Complete the Unit/Unit represented implication normal form after reindexing identity reduces, with a direct evaluation-formation consumer and no-rule failure.",
+    "The separately expanded transformation round trip remains a failed positive obligation.",
+    "The full source still fails where tdapp1_int_func_transfd feeds a raw Functord FF to strictly profiled Op_funcd.",
+    "No production source promotion or complete coefficient/Homd qualification."
+  ],
+  "historicalExperiments": {
+    "first_represented_views": "20261013T004100Z-a41dbc7f908f4503bc8c26b3bda91e9c",
+    "identity_without_earlier_reindex_owner": "20261013T004242Z-c9a3940c548f4ef1bbc7f9b3ed91f981",
+    "retained_category_arguments": "20261013T004412Z-2b44a799dc7448d1b281107564c99abc",
+    "successful_argument_minimization": "20261013T004948Z-a038757667aa45a08527be301b6c1c59"
+  },
+  "ruleLhsAudit": {
+    "unreviewedSlots": 0,
+    "unreviewedClauses": 0,
+    "annotatedSlots": 42,
+    "annotatedClauses": 29,
+    "reportSha256": "096d2a2d90f59337ae8ab31fe3588c834b386d4ef55503688b0e890786ce39d5"
+  },
+  "checks": {
+    "baseline": {
+      "id": "20261013T004013Z-909f5cb055f54fc8875a160360023d4f",
+      "target": "tmp/probes/strict_default_q_presentation/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.861792279989459,
+      "childrenMaxRssKiB": 463992,
+      "inputSnapshot": "7fb7a422df7eaee10f228c0f8d0d350986cc8ea3786aac808dc3415141ff99ac",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_presentation/owner_prefix.lp": "f4442bfa6564e79c3570f3a96f930130459c76e159a7f697bb5fb5e7768a472c"
+      },
+      "log": "logs/check-runs/20261013T004013Z-909f5cb055f54fc8875a160360023d4f.log",
+      "logSha256": "d5ca06e17f08175ce3065b8163056d9d577e86d68d97857c770779fe6d426c83",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 898
+    },
+    "owner_prefix": {
+      "id": "20261013T005426Z-aa77b512da1b4d5a8e3bcfd42c2aaea4",
+      "target": "tmp/probes/strict_default_q_inverse_views/owner_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.858565207920037,
+      "childrenMaxRssKiB": 464408,
+      "inputSnapshot": "850168975b250788a80eafd807c99827224d15086d70efc737053d48568cc3c6",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_inverse_views/owner_prefix.lp": "a59660442b9523bfe273e306a503a546680b18155f67d09b174bd74754bfb85b"
+      },
+      "log": "logs/check-runs/20261013T005426Z-aa77b512da1b4d5a8e3bcfd42c2aaea4.log",
+      "logSha256": "e8c6f8fd77f9e7e7da6d98ecc75511b1a1b1789fe613be652486adf76d68e68d",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 903
+    },
+    "action_boundary": {
+      "id": "20261013T005616Z-25ddb164639942f0b5407dbe4a0a639f",
+      "target": "tmp/probes/strict_default_q_inverse_views/action_boundary.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.278282045037486,
+      "childrenMaxRssKiB": 464128,
+      "inputSnapshot": "43028b239aa55fcdebfc6e850fac28390c5e17e2dca1191cadab3ce5eae377b2",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_inverse_views/action_boundary.lp": "ef8f61c6291daf9160e198be93f961c7830c14aa32af2951101636d8b99299ca"
+      },
+      "log": "logs/check-runs/20261013T005616Z-25ddb164639942f0b5407dbe4a0a639f.log",
+      "logSha256": "aaf2771ab6ef33a63d73ccf9b5629af0340fe98410bfe2a304a30efc274471b0",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 903
+    },
+    "no_rules": {
+      "id": "20261013T005530Z-88f09f902c7c4757bc0e40c047d92402",
+      "target": "tmp/probes/strict_default_q_inverse_views/no_rules.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.917041290085763,
+      "childrenMaxRssKiB": 463128,
+      "inputSnapshot": "fbb2fcc6819fbd035a96e7158a009234c7df584c5a87a86d10f2188c6a2928f2",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_inverse_views/no_rules.lp": "5b9ec55b95215dc7113713917236e78d2e8bced8783bd87cf8bfffe659eb9f81"
+      },
+      "log": "logs/check-runs/20261013T005530Z-88f09f902c7c4757bc0e40c047d92402.log",
+      "logSha256": "e362664f7bc37efa7fc3bbb9748c585107fb37e7325dfecfd6e423e2e4d10fd3",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 903
+    },
+    "no_unit_rule": {
+      "id": "20261013T005523Z-08014b3392964d2c9b56d888adfde638",
+      "target": "tmp/probes/strict_default_q_inverse_views/no_unit_rule.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.395034927991219,
+      "childrenMaxRssKiB": 463812,
+      "inputSnapshot": "ca6ea59e5a4f624c7f48b74b58a054a59717ee6a187c263e9b237b19e2552306",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_inverse_views/no_unit_rule.lp": "eec39e7c5f719a6e907d01a7486407f66b195d62cfb7fc42b410e86d069e5d5b"
+      },
+      "log": "logs/check-runs/20261013T005523Z-08014b3392964d2c9b56d888adfde638.log",
+      "logSha256": "9f82a91ac154c5bad8fcf079935fa7a5ab224a426b9598bbe6016a767d696333",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 903
+    },
+    "full_source": {
+      "id": "20261013T005623Z-00f7d5c822ea4c6fa5a3c35e724e910f",
+      "target": "tmp/probes/strict_default_q_inverse_views/emdash3_2.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.923810712993145,
+      "childrenMaxRssKiB": 464488,
+      "inputSnapshot": "cf7a04c7bfa338436f7c27e97d99e4075a4ea577c33542caef812cca214c8a4c",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/strict_default_q_inverse_views/emdash3_2.lp": "9248dcc848887074f443deb32ae3760794fc58711be379765cd91c60a81ebe93"
+      },
+      "log": "logs/check-runs/20261013T005623Z-00f7d5c822ea4c6fa5a3c35e724e910f.log",
+      "logSha256": "58a0463aaae99dbda68d3c55d081577475f2f91a6ca4aff1c5bcf3b3fb7152ba",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "unjoinableCriticalPairs": 903
+    }
+  },
+  "warningComparison": {
+    "baselineCount": 898,
+    "candidateCount": 903,
+    "addedCount": 7,
+    "removedCount": 2,
+    "added": [
+      {
+        "count": 1,
+        "block": "t \u2254 @fapp0 $0 $1 (@fapp1_func $A $A (id Cat_cat $A) $x $A) $f\nt \u21aa[] @fapp1_fapp0 $A $A (id Cat_cat $A) $x $A $f \u21aa* $f\n  with @fapp0 $0 $1 (@fapp1_func $2 $3 $F_AB $5 $6) $f \u21aa @fapp1_fapp0 $2 $3 $F_AB $5 $6 $f\nt \u21aa[0; 1] @fapp0 $0 $1 (id Cat_cat (Hom_cat $A $x $A)) $f \u21aa* @fapp0 $0 $1 (id Cat_cat (Hom_cat $A $x $A)) $f\n  with @fapp1_func $A $A (id Cat_cat $A) $x $y \u21aa id Cat_cat (Hom_cat $A $x $y)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @fapp1_func $1 $3 (@comp_fapp0 Cat_cat $1 $2 $3 (@fapp1_fapp0 $A Cat_cat $F $Y $Z $g) (@fapp1_fapp0 $A Cat_cat $F $X $Y $f)) $x' $y'\nt \u21aa[] @comp_fapp0 Cat_cat (Hom_cat $1 $x' $y') (Hom_cat $2 (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $x') (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $y')) (Hom_cat $3 (@fapp0 $2 $3 (@fapp1_fapp0 $A Cat_cat $F $Y $Z $g) (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $x')) (@fapp0 $2 $3 (@fapp1_fapp0 $A Cat_cat $F $Y $Z $g) (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $y'))) (@fapp1_func $2 $3 (@fapp1_fapp0 $A Cat_cat $F $Y $Z $g) (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $x') (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $y')) (@fapp1_func $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $x' $y') \u21aa* @comp_fapp0 Cat_cat (Hom_cat $1 $x' $y') (Hom_cat $2 (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $x') (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $y')) (Hom_cat $3 (@fapp0 $2 $3 (@fapp1_fapp0 $A Cat_cat $F $Y $Z $g) (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $x')) (@fapp0 $2 $3 (@fapp1_fapp0 $A Cat_cat $F $Y $Z $g) (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $y'))) (@fapp1_func $2 $3 (@fapp1_fapp0 $A Cat_cat $F $Y $Z $g) (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $x') (@fapp0 $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $y')) (@fapp1_func $1 $2 (@fapp1_fapp0 $A Cat_cat $F $X $Y $f) $x' $y')\n  with @fapp1_func $A' $C' (@comp_fapp0 Cat_cat $A' $B' $C' $F' $G') $x' $y' \u21aa @comp_fapp0 Cat_cat (Hom_cat $A' $x' $y') (Hom_cat $B' (@fapp0 $A' $B' $G' $x') (@fapp0 $A' $B' $G' $y')) (Hom_cat $C' (@fapp0 $B' $C' $F' (@fapp0 $A' $B' $G' $x')) (@fapp0 $B' $C' $F' (@fapp0 $A' $B' $G' $y'))) (@fapp1_func $B' $C' $F' (@fapp0 $A' $B' $G' $x') (@fapp0 $A' $B' $G' $y')) (@fapp1_func $A' $B' $G' $x' $y')\nt \u21aa[0; 0; 1] @fapp1_func $1 $3 (@fapp1_fapp0 $A Cat_cat $F $X $Z (@comp_fapp0 $A $X $Y $Z $g $f)) $x' $y' \u21aa* @fapp1_func $1 $3 (@fapp1_fapp0 $A Cat_cat $F $X $Z (@comp_fapp0 $A $X $Y $Z $g $f)) $x' $y'\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f) \u21aa @fapp1_fapp0 $A $B $F $X $Z (@comp_fapp0 $A $X $Y $Z $g $f)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @fapp1_func $1 $3 (@comp_fapp0 Cat_cat $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func Cat_cat) $10 $10 $g) (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f)) $x' $y'\nt \u21aa[] @comp_fapp0 Cat_cat (Hom_cat $1 $x' $y') (Hom_cat $2 (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $x') (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $y')) (Hom_cat $3 (@fapp0 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func Cat_cat) $10 $10 $g) (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $x')) (@fapp0 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func Cat_cat) $10 $10 $g) (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $y'))) (@fapp1_func $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func Cat_cat) $10 $10 $g) (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $x') (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $y')) (@fapp1_func $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $x' $y') \u21aa* @comp_fapp0 Cat_cat (Hom_cat $1 $x' $y') (Hom_cat $2 (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $x') (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $y')) (Hom_cat $3 (@fapp0 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func Cat_cat) $10 $10 $g) (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $x')) (@fapp0 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func Cat_cat) $10 $10 $g) (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $y'))) (@fapp1_func $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func Cat_cat) $10 $10 $g) (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $x') (@fapp0 $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $y')) (@fapp1_func $1 $2 (@fapp1_fapp0 $9 $10 (Core_incl_func Cat_cat) $10 $10 $f) $x' $y')\n  with @fapp1_func $A' $C' (@comp_fapp0 Cat_cat $A' $B' $C' $F' $G') $x' $y' \u21aa @comp_fapp0 Cat_cat (Hom_cat $A' $x' $y') (Hom_cat $B' (@fapp0 $A' $B' $G' $x') (@fapp0 $A' $B' $G' $y')) (Hom_cat $C' (@fapp0 $B' $C' $F' (@fapp0 $A' $B' $G' $x')) (@fapp0 $B' $C' $F' (@fapp0 $A' $B' $G' $y'))) (@fapp1_func $B' $C' $F' (@fapp0 $A' $B' $G' $x') (@fapp0 $A' $B' $G' $y')) (@fapp1_func $A' $B' $G' $x' $y')\nt \u21aa[0; 0; 1] @fapp1_func $1 $3 (@fapp1_fapp0 (Core_cat Cat_cat) Cat_cat (Core_incl_func Cat_cat) $10 $10 (@comp_fapp0 (Core_cat Cat_cat) $10 $10 $10 $g $f)) $x' $y' \u21aa* @fapp1_func $1 $3 (@fapp1_fapp0 (Path_cat (Obj Cat_cat)) Cat_cat (Core_incl_func Cat_cat) $10 $10 (@comp_fapp0 (Path_cat (Obj Cat_cat)) $10 $10 $10 $g $f)) $x' $y'\n  with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f) \u21aa @fapp1_fapp0 (Core_cat $C) $C (Core_incl_func $C) $X $Z (@comp_fapp0 (Core_cat $C) $X $Y $Z $g $f)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @fapp1_func $0 $2 (@comp_fapp0 Cat_cat $0 $1 $2 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $B $C $g) (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f)) $x' $y'\nt \u21aa[] @comp_fapp0 Cat_cat (Hom_cat $0 $x' $y') (Hom_cat $1 (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x') (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y')) (Hom_cat $2 (@fapp0 $1 $2 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $B $C $g) (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x')) (@fapp0 $1 $2 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $B $C $g) (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y'))) (@fapp1_func $1 $2 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $B $C $g) (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x') (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y')) (@fapp1_func $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x' $y') \u21aa* @comp_fapp0 Cat_cat (Hom_cat $0 $x' $y') (Hom_cat $1 (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x') (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y')) (Hom_cat $2 (@fapp0 $1 $2 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $B $C $g) (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x')) (@fapp0 $1 $2 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $B $C $g) (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y'))) (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func (@= $B (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x') (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y')) (@= $C ($g (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x')) ($g (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y'))) (\u03bb p:\u03c4 (@= $B (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x') (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y')), @ind_eqr $B (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y') (\u03bb t:\u03c4 $B, \u03bb _:\u03c4 (@= $B t (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y')), @= $C ($g t) ($g (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y'))) (@eq_refl $C ($g (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $y'))) (@fapp0 $0 $1 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) $x') p)) (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func (@= $A $x' $y') (@= $B ($f $x') ($f $y')) (\u03bb p:\u03c4 (@= $A $x' $y'), @ind_eqr $A $y' (\u03bb t:\u03c4 $A, \u03bb _:\u03c4 (@= $A t $y'), @= $B ($f t) ($f $y')) (@eq_refl $B ($f $y')) $x' p))\n  with @fapp1_func $A' $C' (@comp_fapp0 Cat_cat $A' $B' $C' $F' $G') $x' $y' \u21aa @comp_fapp0 Cat_cat (Hom_cat $A' $x' $y') (Hom_cat $B' (@fapp0 $A' $B' $G' $x') (@fapp0 $A' $B' $G' $y')) (Hom_cat $C' (@fapp0 $B' $C' $F' (@fapp0 $A' $B' $G' $x')) (@fapp0 $B' $C' $F' (@fapp0 $A' $B' $G' $y'))) (@fapp1_func $B' $C' $F' (@fapp0 $A' $B' $G' $x') (@fapp0 $A' $B' $G' $y')) (@fapp1_func $A' $B' $G' $x' $y')\nt \u21aa[0; 0; 1] @fapp1_func $0 $2 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $C (@comp_fapp0 Grpd_cat $A $B $C $g $f)) $x' $y' \u21aa* @fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func (@= $A $x' $y') (@= $C ($g ($f $x')) ($g ($f $y'))) (\u03bb p:\u03c4 (@= $A $x' $y'), @ind_eqr $A $y' (\u03bb t:\u03c4 $A, \u03bb _:\u03c4 (@= $A t $y'), @= $C ($g ($f t)) ($g ($f $y'))) (@eq_refl $C ($g ($f $y'))) $x' p)\n  with @comp_fapp0 Cat_cat $0 $1 $2 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $B $C $g) (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $B $f) \u21aa @fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func $A $C (@comp_fapp0 Grpd_cat $A $B $C $g $f)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp0_fapp0 $A' $B' $1 $3 $Y' (@comp_fapp0 (Functor_cat $A' $B') $1 $2 $3 (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg))\nt \u21aa[] @comp_fapp0 $B' (@fapp0 $A' $B' $1 $Y') (@fapp0 $A' $B' $2 $Y') (@fapp0 $A' $B' $3 $Y') (@tapp0_fapp0 $A' $B' $2 $3 $Y' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh)) (@tapp0_fapp0 $A' $B' $1 $2 $Y' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg)) \u21aa* @comp_fapp0 $B' (@fapp0 $A' $B' $1 $Y') (@fapp0 $A' $B' $2 $Y') (@fapp0 $A' $B' $3 $Y') (@hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $Y' $g $h $e_gh) (@hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $Y' $f $g $e_fg)\n  with @tapp0_fapp0 $A' $B' $F' $H' $Y' (@comp_fapp0 (Functor_cat $A' $B') $F' $G' $H' $\u03b7' $\u03f5') \u21aa @comp_fapp0 $B' (@fapp0 $A' $B' $F' $Y') (@fapp0 $A' $B' $G' $Y') (@fapp0 $A' $B' $H' $Y') (@tapp0_fapp0 $A' $B' $G' $H' $Y' $\u03b7') (@tapp0_fapp0 $A' $B' $F' $G' $Y' $\u03f5')\nt \u21aa[1] @tapp0_fapp0 $A' $B' $1 $3 $Y' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)) \u21aa* @hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $Y' $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)\n  with @comp_fapp0 $0 $1 $2 $3 (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg) \u21aa @hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp0_fapp0 $K' Cat_cat $1 $3 $x' (@comp_fapp0 (Catd_cat $K') $1 $2 $3 (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg))\nt \u21aa[] @comp_fapp0 Cat_cat (@Fibre_cat $K' $1 $x') (@Fibre_cat $K' $2 $x') (@Fibre_cat $K' $3 $x') (@tapp0_fapp0 $K' Cat_cat $2 $3 $x' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh)) (@tapp0_fapp0 $K' Cat_cat $1 $2 $x' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg)) \u21aa* @comp_fapp0 Cat_cat (@fapp0 $K' Cat_cat $1 $x') (@fapp0 $K' Cat_cat $2 $x') (@fapp0 $K' Cat_cat $3 $x') (@hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $x' $g $h $e_gh) (@hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $x' $f $g $e_fg)\n  with @tapp0_fapp0 $K' Cat_cat $E' $C' $x' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $FF' $GG') \u21aa @comp_fapp0 Cat_cat (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $D' $x') (@Fibre_cat $K' $C' $x') (@tapp0_fapp0 $K' Cat_cat $D' $C' $x' $FF') (@tapp0_fapp0 $K' Cat_cat $E' $D' $x' $GG')\nt \u21aa[1] @tapp0_fapp0 $K' Cat_cat $1 $3 $x' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)) \u21aa* @hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $x' $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)\n  with @comp_fapp0 $0 $1 $2 $3 (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg) \u21aa @hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @Prof_imply_cov $B $B $B (Unit_prof $B) (@Prof_reindex $B $B $B $B (Unit_prof $B) (id Cat_cat $B) (id Cat_cat $B))\nt \u21aa[] @Conjoint_prof $B $B (id Cat_cat $B) \u21aa* Unit_prof $B\n  with @Prof_imply_cov $B' $A' $B' (Unit_prof $B') (@Prof_reindex $B' $A' $B' $B' (Unit_prof $B') $F' (id Cat_cat $B')) \u21aa @Conjoint_prof $A' $B' $F'\nt \u21aa[1] @Prof_imply_cov $B $B $B (Unit_prof $B) (Unit_prof $B) \u21aa* @Prof_imply_cov $B $B $B (Unit_prof $B) (Unit_prof $B)\n  with @Prof_reindex $A $A $B $B $R (id Cat_cat $A) (id Cat_cat $B) \u21aa $R"
+      }
+    ],
+    "removed": [
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp0_fapp0 $A' $B' $1 $3 $Y' (@comp_fapp0 (Functor_cat $A' $B') $1 $2 $3 (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg))\nt \u21aa[] @comp_fapp0 $B' (@fapp0 $A' $B' $1 $Y') (@fapp0 $A' $B' $2 $Y') (@fapp0 $A' $B' $3 $Y') (@tapp0_fapp0 $A' $B' $2 $3 $Y' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh)) (@tapp0_fapp0 $A' $B' $1 $2 $Y' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg)) \u21aa* @comp_fapp0 $B' (@fapp0 $A' $B' $1 $Y') (@fapp0 $A' $B' $2 $Y') (@fapp0 $A' $B' $3 $Y') (@hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $Y' $g $h (@fapp1_fapp0 (Hom_cat $A $X $Y) (Hom_cat $A $X $Y) (@fapp1_func $A $A (id Cat_cat $A) $X $Y) $g $h $e_gh)) (@hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $Y' $f $g (@fapp1_fapp0 (Hom_cat $A $X $Y) (Hom_cat $A $X $Y) (@fapp1_func $A $A (id Cat_cat $A) $X $Y) $f $g $e_fg))\n  with @tapp0_fapp0 $A' $B' $F' $H' $Y' (@comp_fapp0 (Functor_cat $A' $B') $F' $G' $H' $\u03b7' $\u03f5') \u21aa @comp_fapp0 $B' (@fapp0 $A' $B' $F' $Y') (@fapp0 $A' $B' $G' $Y') (@fapp0 $A' $B' $H' $Y') (@tapp0_fapp0 $A' $B' $G' $H' $Y' $\u03b7') (@tapp0_fapp0 $A' $B' $F' $G' $Y' $\u03f5')\nt \u21aa[1] @tapp0_fapp0 $A' $B' $1 $3 $Y' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)) \u21aa* @hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $Y' $f $h (@fapp1_fapp0 (Hom_cat $A $X $Y) (Hom_cat $A $X $Y) (@fapp1_func $A $A (id Cat_cat $A) $X $Y) $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg))\n  with @comp_fapp0 $0 $1 $2 $3 (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg) \u21aa @hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)"
+      },
+      {
+        "count": 1,
+        "block": "t \u2254 @tapp0_fapp0 $K' Cat_cat $1 $3 $x' (@comp_fapp0 (Catd_cat $K') $1 $2 $3 (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg))\nt \u21aa[] @comp_fapp0 Cat_cat (@Fibre_cat $K' $1 $x') (@Fibre_cat $K' $2 $x') (@Fibre_cat $K' $3 $x') (@tapp0_fapp0 $K' Cat_cat $2 $3 $x' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh)) (@tapp0_fapp0 $K' Cat_cat $1 $2 $x' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg)) \u21aa* @comp_fapp0 Cat_cat (@fapp0 $K' Cat_cat $1 $x') (@fapp0 $K' Cat_cat $2 $x') (@fapp0 $K' Cat_cat $3 $x') (@hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $x' $g $h (@fapp1_fapp0 (Hom_cat $A $X $Y) (Hom_cat $A $X $Y) (@fapp1_func $A $A (id Cat_cat $A) $X $Y) $g $h $e_gh)) (@hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $x' $f $g (@fapp1_fapp0 (Hom_cat $A $X $Y) (Hom_cat $A $X $Y) (@fapp1_func $A $A (id Cat_cat $A) $X $Y) $f $g $e_fg))\n  with @tapp0_fapp0 $K' Cat_cat $E' $C' $x' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $FF' $GG') \u21aa @comp_fapp0 Cat_cat (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $D' $x') (@Fibre_cat $K' $C' $x') (@tapp0_fapp0 $K' Cat_cat $D' $C' $x' $FF') (@tapp0_fapp0 $K' Cat_cat $E' $D' $x' $GG')\nt \u21aa[1] @tapp0_fapp0 $K' Cat_cat $1 $3 $x' (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)) \u21aa* @hom_precomp_along_fapp1_fapp0 $A $A (id Cat_cat $A) $Y $W $X $x' $f $h (@fapp1_fapp0 (Hom_cat $A $X $Y) (Hom_cat $A $X $Y) (@fapp1_func $A $A (id Cat_cat $A) $X $Y) $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg))\n  with @comp_fapp0 $0 $1 $2 $3 (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $g $e_fg) \u21aa @hom_postcomp_tele_fapp1_fapp0 $A $A (id Cat_cat $A) $W $X $Y $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg)"
+      }
+    ],
+    "scope": "Owner relocation exposes existing identity/composition interactions; retained controls do not give a confluence certificate."
+  },
+  "controls": {
+    "positive": 244,
+    "negative": 37
+  }
+}

@@ -1,0 +1,31 @@
+// Inverse after positive represented Hom has projected to postcomposition.
+// H:A->T(X) represents (a,x) |-> Hom_X(T(H)[a],x).
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+      (@Eval_func $X Cat_cat)
+      (@Product_cat_fapp1_tapp0_func $A _ $X
+        (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+          _ _ _
+          (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+            (@Product_pair_tele_func _ $X)
+            (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof $X)))
+          $H))
+  ↪ @Prof_reindex $X (Op_cat $A) $X $X (@Unit_prof $X)
+      (@Op_func $A (Op_cat $X) $H) (@id_func $X);
+
+// Inverse after negative represented Hom has projected to precomposition.
+// G:B->X represents (x,b) |-> Hom_X(x,G[b]).
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+      (@Eval_func $B Cat_cat)
+      (@Product_cat_fapp1_tapp0_func _ _ $B
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+          _ _ _
+          (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+            (@Product_pair_tele_func _ $X)
+            (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof $X)))
+          (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) Cat_cat $B $X $G)))
+  ↪ @Prof_reindex $X $X $X $B (@Unit_prof $X) (@id_func $X) $G;
+
+// Reindexing by identities may reduce before the represented implication
+// clause. This is its Unit/Unit specialization, required by counit(id).
+rule @Prof_imply_cov _ _ _ (@Unit_prof $B) (@Unit_prof $B)
+  ↪ @Unit_prof $B;
