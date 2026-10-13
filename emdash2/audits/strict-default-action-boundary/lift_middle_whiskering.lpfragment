@@ -1,0 +1,58 @@
+// NON-LIBRARY candidate: whole whiskering comparisons for the lift middle.
+// Expected: the independent typed-reflexivity controls pass; perturbing an
+// actual arrow remains negative. Replay at the whole Hom comparison owner
+// whenever these clauses or the pre/post/Hom action owners change.
+// These are proof-time factorizations, not runtime folds or transfor laws.
+
+// Dual of the existing fixed-arrow precomposition comparison. Retain the
+// mapped objects and arrow as constraints: their actual heads may already
+// have projected, so no literal fapp1_fapp0 pattern is required on that side.
+unif_rule @hom_postcomp_func $A $B $F $W $X $Y $h
+  ≡ @hom_postcomp_func
+      $A $A (@id Cat_cat $A) $W $FX $FY $mapped
+  ↪ [
+      $FX ≡ @fapp0 $B $A $F $X;
+      $FY ≡ @fapp0 $B $A $F $Y;
+      $mapped ≡ @fapp1_fapp0 $B $A $F $X $Y $h
+    ];
+
+// post(b o v) o pre(a) = Hom(a,b) o post(v).
+// This combines the existing Hom factorization and identity-family post
+// accumulation. Keep the composite bv in a side constraint, so identity or
+// constructor computation cannot erase a nested composition pattern.
+// lhs-audit: keep 1 -- compares whole functor composition.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func $C $C (@id Cat_cat $C) $x' $y $y' $bv)
+      (@hom_precomp_along_func $C $C (@id Cat_cat $C) $y $x' $x $a)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@Hom_func $C0 $x0 $x'0 $z0 $y'0 $a0 $b0)
+      (@hom_postcomp_func $C0 $C0 (@id Cat_cat $C0) $x0 $y0 $z0 $v0)
+  ↪ [
+      $C ≡ $C0;
+      $x ≡ $x0;
+      $x' ≡ $x'0;
+      $y ≡ $y0;
+      $y' ≡ $y'0;
+      $a ≡ $a0;
+      $bv ≡ @comp_fapp0 $C $y $z0 $y' $b0 $v0
+    ];
+
+// pre(u o a) o post(b) = Hom(a,b) o pre(u).
+// The source endpoint reverses order under precomposition. This is the
+// corresponding whole Hom factorization and identity-family pre accumulation.
+// lhs-audit: keep 1 -- compares whole functor composition.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func $C $C (@id Cat_cat $C) $y' $x' $x $ua)
+      (@hom_postcomp_func $C $C (@id Cat_cat $C) $x $y $y' $b)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@Hom_func $C0 $z0 $x'0 $y0 $y'0 $a0 $b0)
+      (@hom_precomp_along_func $C0 $C0 (@id Cat_cat $C0) $y0 $z0 $x0 $u0)
+  ↪ [
+      $C ≡ $C0;
+      $x ≡ $x0;
+      $x' ≡ $x'0;
+      $y ≡ $y0;
+      $y' ≡ $y'0;
+      $b ≡ $b0;
+      $ua ≡ @comp_fapp0 $C $x' $z0 $x $u0 $a0
+    ];

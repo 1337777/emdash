@@ -1,0 +1,35 @@
+// NON-LIBRARY actual outer-context and retained-laxity consumers.
+
+assert [A B Z : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
+ (g : τ (Hom A y z)) (H : τ (Functor (Hom_cat B (fapp0 F x) (fapp0 F z)) Z)) ⊢
+ @eq_refl (Functor (Hom_cat A x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B A F (fapp0 F x) y z g) (@fapp1_func A B F x y)))
+ : τ (@= (Functor (Hom_cat A x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B A F (fapp0 F x) y z g) (@fapp1_func A B F x y))) (@comp_cat_fapp0 _ _ _ (@comp_cat_fapp0 _ _ _ H (@fapp1_func A B F x z)) (@hom_postcomp_func A A (@id_func A) x y z g)));
+
+assert [A B Z : Cat] (F : τ (Functor A B)) [w x y : τ (Obj A)]
+ (h : τ (Hom A w x)) (H : τ (Functor (Hom_cat B (fapp0 F w) (fapp0 F y)) Z)) ⊢
+ @eq_refl (Functor (Hom_cat A x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_precomp_along_func A B F (fapp0 F y) w x h) (@fapp1_func A B F x y)))
+ : τ (@= (Functor (Hom_cat A x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_precomp_along_func A B F (fapp0 F y) w x h) (@fapp1_func A B F x y))) (@comp_cat_fapp0 _ _ _ (@comp_cat_fapp0 _ _ _ H (@fapp1_func A B F w y)) (@hom_precomp_along_func A A (@id_func A) y w x h)));
+
+assert [K Z : Cat] [E D : τ (Catd K)]
+ (U : τ (@StrictTransfor K Cat_cat E D))
+ (x y : τ (Obj K)) (H : τ (Functor (Hom_cat Cat_cat (Fibre_cat E x) (Fibre_cat D y)) Z)) ⊢
+ @eq_refl (Functor (Hom_cat K x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) (Fibre_cat E x) (Fibre_cat E y) (Fibre_cat D y) (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U))) (@fapp1_func K Cat_cat E x y)))
+ : τ (@= (Functor (Hom_cat K x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) (Fibre_cat E x) (Fibre_cat E y) (Fibre_cat D y) (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U))) (@fapp1_func K Cat_cat E x y))) (@comp_cat_fapp0 _ _ _ H (@tapp1_func K Cat_cat E D x y (@strict_transfor K Cat_cat E D U))));
+
+assert [K Z : Cat] [E D : τ (Catd K)]
+ (U : τ (@StrictTransfor K Cat_cat E D))
+ (x y : τ (Obj K)) (H : τ (Functor (Hom_cat Cat_cat (Fibre_cat E x) (Fibre_cat D y)) Z)) ⊢
+ @eq_refl (Functor (Hom_cat K x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat) (Fibre_cat D y) (Fibre_cat E x) (Fibre_cat D x) (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U))) (@fapp1_func K Cat_cat D x y)))
+ : τ (@= (Functor (Hom_cat K x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat) (Fibre_cat D y) (Fibre_cat E x) (Fibre_cat D x) (@tapp0_fapp0 K Cat_cat E D x (@strict_transfor K Cat_cat E D U))) (@fapp1_func K Cat_cat D x y))) (@comp_cat_fapp0 _ _ _ H (@tapp1_func K Cat_cat E D x y (@strict_transfor K Cat_cat E D U))));
+
+assertnot [K Z : Cat] [E D : τ (Catd K)]
+ (eta : τ (@Functord K E D))
+ (x y : τ (Obj K)) (H : τ (Functor (Hom_cat Cat_cat (Fibre_cat E x) (Fibre_cat D y)) Z)) ⊢
+ @eq_refl (Functor (Hom_cat K x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) (Fibre_cat E x) (Fibre_cat E y) (Fibre_cat D y) (@tapp0_fapp0 K Cat_cat E D y eta)) (@fapp1_func K Cat_cat E x y)))
+ : τ (@= (Functor (Hom_cat K x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) (Fibre_cat E x) (Fibre_cat E y) (Fibre_cat D y) (@tapp0_fapp0 K Cat_cat E D y eta)) (@fapp1_func K Cat_cat E x y))) (@comp_cat_fapp0 _ _ _ H (@tapp1_func K Cat_cat E D x y eta)));
+
+assertnot [K Z : Cat] [E D : τ (Catd K)]
+ (eta : τ (@Functord K E D))
+ (x y : τ (Obj K)) (H : τ (Functor (Hom_cat Cat_cat (Fibre_cat E x) (Fibre_cat D y)) Z)) ⊢
+ @eq_refl (Functor (Hom_cat K x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat) (Fibre_cat D y) (Fibre_cat E x) (Fibre_cat D x) (@tapp0_fapp0 K Cat_cat E D x eta)) (@fapp1_func K Cat_cat D x y)))
+ : τ (@= (Functor (Hom_cat K x y) Z) (@comp_cat_fapp0 _ _ _ H (@comp_cat_fapp0 _ _ _ (@hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat) (Fibre_cat D y) (Fibre_cat E x) (Fibre_cat D x) (@tapp0_fapp0 K Cat_cat E D x eta)) (@fapp1_func K Cat_cat D x y))) (@comp_cat_fapp0 _ _ _ H (@tapp1_func K Cat_cat E D x y eta)));

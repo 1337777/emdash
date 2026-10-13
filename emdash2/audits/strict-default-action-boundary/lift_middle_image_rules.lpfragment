@@ -1,0 +1,50 @@
+// NON-LIBRARY runtime candidates. Insert immediately after whole_rules at
+// its ordinary strict-functoriality owner, before its first real consumer.
+// Expected: the generic mapped-post/pre whole-image controls pass. Replay
+// these and the actual lift consumer after changes to full/capped action,
+// whole strict-image laws, or left-associated functor composition.
+
+// The same strict image law after the whiskered arrow is exposed first.
+// Both actual F actions stay in the pattern; this is not a transfor law.
+// lhs-audit: keep 1 -- the cut composes whole functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func $B $B (@id Cat_cat $B) _ _ _
+        (@fapp1_fapp0 $A $B $F $Y $Z $g))
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_func $A $B $F $X $Z)
+      (@hom_postcomp_func $A $A (@id Cat_cat $A) $X $Y $Z $g);
+
+// The corresponding mapped-arrow precomposition cut.
+// lhs-audit: keep 1 -- the cut composes whole functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func $B $B (@id Cat_cat $B) _ _ _
+        (@fapp1_fapp0 $A $B $F $W $X $h))
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_func $A $B $F $W $Y)
+      (@hom_precomp_along_func $A $A (@id Cat_cat $A) $Y $W $X $h);
+
+// Left association can hide the existing post/left strict-image redex
+// beneath an actual outer functor H. Complete that same normalization pair.
+// lhs-audit: keep 1 -- both compositions are whole functor composition.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ $H
+        (@hom_postcomp_func $B $A $F _ $Y $Z $g))
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ $H
+        (@fapp1_func $A $B $F $X $Z))
+      (@hom_postcomp_func $A $A (@id Cat_cat $A) $X $Y $Z $g);
+
+// Preserve the endpoint guard of the existing pre/right strict-image owner.
+// lhs-audit: keep 1 -- both compositions are whole functor composition.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ $H
+        (@hom_precomp_along_func
+          $A $B $F (@fapp0 $A $B $F $Y) $W $X $h))
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ $H
+        (@fapp1_func $A $B $F $W $Y))
+      (@hom_precomp_along_func $A $A (@id Cat_cat $A) $Y $W $X $h);

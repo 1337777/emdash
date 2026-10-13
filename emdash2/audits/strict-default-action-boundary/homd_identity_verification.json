@@ -1,0 +1,197 @@
+{
+  "status": "non-library identity-core ownership candidate; relative computation and whole Q/lift unqualified",
+  "inputSha256": "af2c6000783b88d37593b0bf2277470eb2df3d22d96bbf6ee7823571fbbde5ea",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/homd_identity_migration.py": "0cb9d3dc45480f16546c76e7b1731bd9234576fc3d31b0804a379c7f343d08f0",
+    "audits/strict-default-action-boundary/homd_identity_leaf.lpfragment": "640e8ddf25aff9d16e133ed8ae4411f518c21720faf130cd003b6d8b549dbe53",
+    "audits/strict-default-action-boundary/homd_identity_core.lpfragment": "0dadbbee8eec9c1c52359b81dbe1a08f9f4967e8a3baf13fc544aee776ed89e2",
+    "audits/strict-default-action-boundary/homd_identity_ladder.lpfragment": "8833ba62c0c1ddabf32c300bb34240bda708c078d83b4a8ccf188a0e31e304b2",
+    "audits/strict-default-action-boundary/homd_identity_controls.lpfragment": "fa8bfee7a489555edd6acded0d8a905c99128396e3db9e3a409e05ca2f35e756",
+    "audits/strict-default-action-boundary/homd_identity_relative_boundary.lpfragment": "11de012a0549f96029bd509dc92ad16fb9d822b9903592fbe4ecc88a60b4e508"
+  },
+  "outputs": {
+    "full_source.lp": "c4d716c3bbc14ebfcff292d1ec6ae601abab0ed444b348c174adfc44fe4bf4e1",
+    "interface.lp": "bf8f995910c61b1565e192647a23393f7bd1e00a6402bff06eadada817629b22",
+    "identity_controls.lp": "11a2acd2020cacd2afef0d55512c48f5ad64f9d18a40279ce167fa47e01bab69",
+    "relative_boundary.lp": "be5032b6bfe450c56135d3553d53b5b222813fd09c2215d034af29f91fc83fd4",
+    "legacy_ladder_boundary.lp": "08aa493a3c5792b461adc1b29fb51713473c08f5dcd3945b6497c17bde380d9b",
+    "selected_prefix.lp": "4914ccbd37d3271554bdd4c8dd137615a814d10f93dfb5d589c434c9a37f2fc5",
+    "without_identity_projection.lp": "921aef7c76df9cd2a58e9d5612aa849c2c33f6052d4cd78e0e810f2a1fd1d2a5",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "ownership": "primitive identity root/ladder with an early defined identity leaf; relative root/upper ladder are definitions, and relative fixed-endpoint homd_ substitutes FF[y] into the identity leaf",
+  "checks": {
+    "selected_prefix.lp": {
+      "id": "20261013T084213Z-ecfb1dbcb54d4d53abaf5e8ac0be1023",
+      "target": "tmp/probes/homd_identity/selected_prefix.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 5.855066976044327,
+      "childrenMaxRssKiB": 498996,
+      "inputSnapshot": "d6428ae3a7c40561f255f620995ce658221956085958ea738f3ea982ba7832ce",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_identity/selected_prefix.lp": "4914ccbd37d3271554bdd4c8dd137615a814d10f93dfb5d589c434c9a37f2fc5"
+      },
+      "log": "logs/check-runs/20261013T084213Z-ecfb1dbcb54d4d53abaf5e8ac0be1023.log",
+      "logSha256": "7c84342494dbbb829f74137e483c73a53a92fd678b2efd02a53cb568a9366f8b",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      }
+    },
+    "without_identity_projection.lp": {
+      "id": "20261013T084352Z-36cd503acad544cda7b0292696b8c7f4",
+      "target": "tmp/probes/homd_identity/without_identity_projection.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 11.13266260898672,
+      "childrenMaxRssKiB": 496848,
+      "inputSnapshot": "4db9c1b334e1a2fa2dc7419a224879471db461934465763e6473f91431dd03ed",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_identity/without_identity_projection.lp": "921aef7c76df9cd2a58e9d5612aa849c2c33f6052d4cd78e0e810f2a1fd1d2a5"
+      },
+      "log": "logs/check-runs/20261013T084352Z-36cd503acad544cda7b0292696b8c7f4.log",
+      "logSha256": "6f86c2fb38834b0d65724543417643d69d1506c42790a6ad5501957214223501",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      }
+    },
+    "full_source.lp": {
+      "id": "20261013T084404Z-5ac70d42b0714594b46fb7531046edea",
+      "target": "tmp/probes/homd_identity/full_source.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 5.87171988398768,
+      "childrenMaxRssKiB": 498428,
+      "inputSnapshot": "fa2c5c6e379333f8c0d6eb85334cce2573c3da8ccc01e06f5c0c10fb2ad47b5b",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/homd_identity/full_source.lp": "c4d716c3bbc14ebfcff292d1ec6ae601abab0ed444b348c174adfc44fe4bf4e1"
+      },
+      "log": "logs/check-runs/20261013T084404Z-5ac70d42b0714594b46fb7531046edea.log",
+      "logSha256": "c90b83e595dbe1877c56e54b54fa54bfb2222fd30fd75056e78bde100d4ffedc",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      }
+    }
+  },
+  "baseline": {
+    "id": "20261013T064116Z-43b2201e9ea34027977685a335c7c931",
+    "target": "tmp/probes/strict_default_cart_action/q_bridge_actions.lp",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "wallSeconds": 5.967637191992253,
+    "childrenMaxRssKiB": 499888,
+    "inputSnapshot": "dbec3c6e79c38be4c73327bed2ab947d201d66dcb59112188e27c748e2e56935",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "tmp/probes/strict_default_cart_action/q_bridge_actions.lp": "3289a8affc459a506b76342195e1531134d476a2805ddede5f9964273276f732"
+    },
+    "log": "logs/check-runs/20261013T064116Z-43b2201e9ea34027977685a335c7c931.log",
+    "logSha256": "738df8b8eb168c74c64a893e36674e78bcfee1f6cbf754adedbafa6a52e32f25",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "controlCounts": {
+    "selected_prefix.lp": {
+      "positive": 261,
+      "negative": 48
+    },
+    "without_identity_projection.lp": {
+      "positive": 189,
+      "negative": 39
+    },
+    "full_source.lp": {
+      "positive": 261,
+      "negative": 48
+    }
+  },
+  "warningComparison": {
+    "before": 952,
+    "after": 950,
+    "added": [],
+    "removed": [
+      {
+        "count": 1,
+        "sha256": "504595553bb0f7a5b1df4c67ec7056ad4e3fc5c058883fcfc86e9f9784067ae0",
+        "block": "Unjoinable critical pair:\nt \u2254 @fapp0 $' $' (@homd_tgt_func $Z (Const_catd $Z Terminal_cat) $E $s $x $u $y) $v'\nt \u21aa[] @homd_ $Z (Const_catd $Z Terminal_cat) $E $s $x $u $y $v' \u21aa* @hom_con (@fapp0 $Z Cat_cat $E $y) (@fapp0 Terminal_cat (@fapp0 $Z Cat_cat $E $y) (@tapp0_fapp0 $Z Cat_cat (Const_catd $Z Terminal_cat) $E $y $s) $v') (Hom_cat $Z $x $y) (@comp_fapp0 Cat_cat (Hom_cat $Z $x $y) (Functor_cart_cat (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y)) (@fapp0 $Z Cat_cat $E $y) (@comp_fapp0 Cat_cat (Functor_cart_cat (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y)) (Functor_cat (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y)) (@fapp0 $Z Cat_cat $E $y) (@fapp0_func (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y) $u) (cart_functor_include (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y))) (@fapp1_func $Z Cat_cat $E $x $y))\n  with @fapp0 $' $' (@homd_tgt_func $Z' $D' $E' $FF' $x' $u' $y') $v' \u21aa @homd_ $Z' $D' $E' $FF' $x' $u' $y' $v'\nt \u21aa[0; 1] @fapp0 $' $' (@Obj_func (Functor_cart_cat (Op_cat (Hom_cat $Z $x $y)) Cat_cat) (@homd_ $Z $E $E (@id_funcd $Z $E) $x $u $y (@piapp0 $Z $E $s $y))) $v' \u21aa* @fapp0 $' $' (@Const_func Terminal_cat (Functor_cart_cat (Op_cat (Hom_cat $Z $x $y)) Cat_cat) (@hom_con (@fapp0 $Z Cat_cat $E $y) (@fapp0 Terminal_cat (@fapp0 $Z Cat_cat $E $y) (@tapp0_fapp0 $Z Cat_cat (Const_catd $Z Terminal_cat) $E $y $s) Terminal_obj) (Hom_cat $Z $x $y) (@comp_fapp0 Cat_cat (Hom_cat $Z $x $y) (Functor_cart_cat (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y)) (@fapp0 $Z Cat_cat $E $y) (@comp_fapp0 Cat_cat (Functor_cart_cat (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y)) (Functor_cat (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y)) (@fapp0 $Z Cat_cat $E $y) (@fapp0_func (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y) $u) (cart_functor_include (@fapp0 $Z Cat_cat $E $x) (@fapp0 $Z Cat_cat $E $y))) (@fapp1_func $Z Cat_cat $E $x $y)))) $v'\n  with @homd_tgt_func $Z (Const_catd $Z Terminal_cat) $E $s $x $u $y \u21aa @Obj_func (Functor_cart_cat (Op_cat (Hom_cat $Z $x $y)) Cat_cat) (@homd_ $Z $E $E (@id_funcd $Z $E) $x $u $y (@piapp0 $Z $E $s $y))"
+      },
+      {
+        "count": 1,
+        "sha256": "af8505ce0924a76381642e81506d6686d22bf72d084788bc7b0f139e77a20e03",
+        "block": "Unjoinable critical pair:\nt \u2254 @fapp0 Terminal_cat $1 (@homd_src_func Terminal_cat $D (Const_catd Terminal_cat Terminal_cat) Terminal_cat $D) $u\nt \u21aa[] @homd_src_sec Terminal_cat $D (Const_catd Terminal_cat Terminal_cat) Terminal_cat $D $u \u21aa* @homd_src_sec Terminal_cat $D (Const_catd Terminal_cat Terminal_cat) Terminal_cat $D $u\n  with @fapp0 $0 $1 (@homd_src_func $Z $D $E $FF $x) $u \u21aa @homd_src_sec $Z $D $E $FF $x $u\nt \u21aa[0; 1] @fapp0 Terminal_cat $1 (@Obj_func (@Homd_section_cat Terminal_cat $D $D) (@homd_src_sec Terminal_cat $D (Const_catd Terminal_cat Terminal_cat) Terminal_cat $D Terminal_obj)) $u \u21aa* @fapp0 Terminal_cat $1 (@Const_func Terminal_cat (@Transf_cat Terminal_cat Prof_cov_universe (@comp_fapp0 Cat_cat Terminal_cat Cat_cat Prof_cov_universe Prof_cov_include $D) (@comp_fapp0 Cat_cat Terminal_cat Cat_cat Prof_cov_universe Prof_cov_include (@hom_ Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $D))) (@homd_src_sec Terminal_cat $D (Const_catd Terminal_cat Terminal_cat) Terminal_cat $D Terminal_obj)) $u\n  with @homd_src_func $Z $D (Const_catd $Z Terminal_cat) $FF $x \u21aa @Obj_func (@Homd_section_cat $Z $D $x) (@homd_src_sec $Z $D (Const_catd $Z Terminal_cat) $FF $x Terminal_obj)"
+      }
+    ]
+  },
+  "ruleLhsAudit": {
+    "unreviewed": 0,
+    "sha256": "0e010fffe4d76946a9af98e2813a5e52dcd7bcbcc483aab9f6454f2e0683cf94"
+  },
+  "qualification": [
+    "Identity core and direct root/x/u/y/v/f projections check with explicit nonidentity index action.",
+    "Relative public root/upper ladder are actual definitions; relative fixed-endpoint homd_ substitutes the strict FF[y] component into the identity leaf, without an independent generic-FF rewrite theory.",
+    "Arbitrary FF and the identity Homd root are not implicitly classified as strict transfors.",
+    "Former generic-FF reduction suite and optional relative leaf comparison remain separate unchecked diagnostics, outside the identity milestone acceptance.",
+    "Q structure and contravariant represented lift are inherited structural assumptions still requiring qualification.",
+    "Full source fails at the old Op_funcd(raw FF) intrinsic-action type, not at identity ladder formation.",
+    "No production computation is promoted."
+  ]
+}

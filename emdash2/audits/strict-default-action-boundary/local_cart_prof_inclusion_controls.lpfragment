@@ -1,0 +1,19 @@
+// Whole raw facade comparison preserves native identity and composition.
+assert [A B : Cat] (P : τ (Prof A B)) ⊢
+  @fapp1_fapp0 _ _ (local_cart_prof_include A B) P P
+    (@id (local_cart_prof_cat A B) P)
+  ≡ @id (Prof_cat A B) P;
+assert [A B : Cat] [P Q R : τ (Prof A B)]
+  (r : τ (Hom (local_cart_prof_cat A B) P Q))
+  (s : τ (Hom (local_cart_prof_cat A B) Q R)) ⊢
+  @fapp1_fapp0 _ _ (local_cart_prof_include A B) P R
+    (@comp_fapp0 (local_cart_prof_cat A B) P Q R s r)
+  ≡ @comp_fapp0 (Prof_cat A B) P Q R
+      (@fapp1_fapp0 _ _ (local_cart_prof_include A B) Q R s)
+      (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r);
+
+// Endpoint constraints remain meaningful under the direct facade comparison.
+assertnot [A B C D : Cat] ⊢
+  Prof_cat A B ≡ Functor_cat (Product_cat (Op_cat C) D) Cat_cat;
+assertnot [A B : Cat] ⊢
+  Prof_cat A B ≡ Functor_cart_cat (Product_cat (Op_cat A) B) Cat_cat;

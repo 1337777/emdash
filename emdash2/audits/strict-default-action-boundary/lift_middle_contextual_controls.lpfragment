@@ -1,0 +1,125 @@
+// NON-LIBRARY UNCHECKED independent whole-functor controls.
+// The helpers below are transparent test expressions over arbitrary C and
+// F:Cat->C. They contain no Q, represented inclusion, companion or lift owner.
+// Strict U supplies the existing lawful square; raw eta retains laxity.
+
+symbol Lift_middle_contextual_post_test [K C : Cat] [E D : τ (Catd K)]
+  (eta : τ (@Functord K E D)) (F : τ (Functor Cat_cat C))
+  (x y : τ (Obj K)) (s t : τ (Obj C))
+  (a : τ (Hom C s (fapp0 F (Fibre_cat E x))))
+  (b : τ (Hom C (fapp0 F (Fibre_cat D y)) t))
+  : τ (Functor (Hom_cat K x y) (Hom_cat C s t))
+≔ @comp_cat_fapp0 _ _ _
+    (@comp_cat_fapp0 _ _ _
+      (@comp_cat_fapp0 _ _ _
+        (@hom_postcomp_func C C (@id_func C) s (fapp0 F (Fibre_cat E y)) t
+          (@comp_fapp0 C (fapp0 F (Fibre_cat E y)) (fapp0 F (Fibre_cat D y)) t
+            b (@fapp1_fapp0 Cat_cat C F (Fibre_cat E y) (Fibre_cat D y)
+              (@tapp0_fapp0 K Cat_cat E D y eta))))
+        (@hom_precomp_along_func C C (@id_func C)
+          (fapp0 F (Fibre_cat E y)) s (fapp0 F (Fibre_cat E x)) a))
+      (@fapp1_func Cat_cat C F (Fibre_cat E x) (Fibre_cat E y)))
+    (@fapp1_func K Cat_cat E x y);
+
+symbol Lift_middle_contextual_pre_test [K C : Cat] [E D : τ (Catd K)]
+  (eta : τ (@Functord K E D)) (F : τ (Functor Cat_cat C))
+  (x y : τ (Obj K)) (s t : τ (Obj C))
+  (a : τ (Hom C s (fapp0 F (Fibre_cat E x))))
+  (b : τ (Hom C (fapp0 F (Fibre_cat D y)) t))
+  : τ (Functor (Hom_cat K x y) (Hom_cat C s t))
+≔ @comp_cat_fapp0 _ _ _
+    (@comp_cat_fapp0 _ _ _
+      (@comp_cat_fapp0 _ _ _
+        (@hom_precomp_along_func C C (@id_func C)
+          t s (fapp0 F (Fibre_cat D x))
+          (@comp_fapp0 C s (fapp0 F (Fibre_cat E x)) (fapp0 F (Fibre_cat D x))
+            (@fapp1_fapp0 Cat_cat C F (Fibre_cat E x) (Fibre_cat D x)
+              (@tapp0_fapp0 K Cat_cat E D x eta)) a))
+        (@hom_postcomp_func C C (@id_func C)
+          (fapp0 F (Fibre_cat D x)) (fapp0 F (Fibre_cat D y)) t b))
+      (@fapp1_func Cat_cat C F (Fibre_cat D x) (Fibre_cat D y)))
+    (@fapp1_func K Cat_cat D x y);
+
+symbol Lift_middle_contextual_middle_test [K C : Cat] [E D : τ (Catd K)]
+  (eta : τ (@Functord K E D)) (F : τ (Functor Cat_cat C))
+  (x y : τ (Obj K)) (s t : τ (Obj C))
+  (a : τ (Hom C s (fapp0 F (Fibre_cat E x))))
+  (b : τ (Hom C (fapp0 F (Fibre_cat D y)) t))
+  : τ (Functor (Hom_cat K x y) (Hom_cat C s t))
+≔ @comp_cat_fapp0 _ _ _
+    (@comp_cat_fapp0 _ _ _
+      (@Hom_func C (fapp0 F (Fibre_cat E x)) s (fapp0 F (Fibre_cat D y)) t a b)
+      (@fapp1_func Cat_cat C F (Fibre_cat E x) (Fibre_cat D y)))
+    (@tapp1_func K Cat_cat E D x y eta);
+
+// The actual post-image/strict-square context checks at whole-functor level.
+assert [K C : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (F : τ (Functor Cat_cat C))
+  (x y : τ (Obj K)) (s t : τ (Obj C))
+  (a : τ (Hom C s (fapp0 F (Fibre_cat E x))))
+  (b : τ (Hom C (fapp0 F (Fibre_cat D y)) t)) ⊢
+  @eq_refl (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_post_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b)
+  : τ (@= (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_post_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b)
+    (@Lift_middle_contextual_middle_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b));
+
+// The corresponding pre-image/strict-square context checks independently.
+assert [K C : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (F : τ (Functor Cat_cat C))
+  (x y : τ (Obj K)) (s t : τ (Obj C))
+  (a : τ (Hom C s (fapp0 F (Fibre_cat E x))))
+  (b : τ (Hom C (fapp0 F (Fibre_cat D y)) t)) ⊢
+  @eq_refl (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_pre_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b)
+  : τ (@= (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_pre_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b)
+    (@Lift_middle_contextual_middle_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b));
+
+// Perturb the actual final postcomposing arrow.
+assertnot [K C : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (F : τ (Functor Cat_cat C))
+  (x y : τ (Obj K)) (s t : τ (Obj C))
+  (a : τ (Hom C s (fapp0 F (Fibre_cat E x))))
+  (b c : τ (Hom C (fapp0 F (Fibre_cat D y)) t)) ⊢
+  @eq_refl (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_post_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b)
+  : τ (@= (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_post_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b)
+    (@Lift_middle_contextual_middle_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a c));
+
+// Perturb the actual first precomposing arrow.
+assertnot [K C : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (F : τ (Functor Cat_cat C))
+  (x y : τ (Obj K)) (s t : τ (Obj C))
+  (a c : τ (Hom C s (fapp0 F (Fibre_cat E x))))
+  (b : τ (Hom C (fapp0 F (Fibre_cat D y)) t)) ⊢
+  @eq_refl (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_pre_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b)
+  : τ (@= (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_pre_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t a b)
+    (@Lift_middle_contextual_middle_test K C E D (@strict_transfor K Cat_cat E D U) F x y s t c b));
+
+// Arbitrary raw diagram transformations do not acquire a strict post square.
+assertnot [K C : Cat] [E D : τ (Catd K)]
+  (eta : τ (@Functord K E D)) (F : τ (Functor Cat_cat C))
+  (x y : τ (Obj K)) (s t : τ (Obj C))
+  (a : τ (Hom C s (fapp0 F (Fibre_cat E x))))
+  (b : τ (Hom C (fapp0 F (Fibre_cat D y)) t)) ⊢
+  @eq_refl (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_post_test K C E D eta F x y s t a b)
+  : τ (@= (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_post_test K C E D eta F x y s t a b)
+    (@Lift_middle_contextual_middle_test K C E D eta F x y s t a b));
+
+// The independent raw pre-square boundary also remains negative.
+assertnot [K C : Cat] [E D : τ (Catd K)]
+  (eta : τ (@Functord K E D)) (F : τ (Functor Cat_cat C))
+  (x y : τ (Obj K)) (s t : τ (Obj C))
+  (a : τ (Hom C s (fapp0 F (Fibre_cat E x))))
+  (b : τ (Hom C (fapp0 F (Fibre_cat D y)) t)) ⊢
+  @eq_refl (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_pre_test K C E D eta F x y s t a b)
+  : τ (@= (Functor (Hom_cat K x y) (Hom_cat C s t))
+    (@Lift_middle_contextual_pre_test K C E D eta F x y s t a b)
+    (@Lift_middle_contextual_middle_test K C E D eta F x y s t a b));

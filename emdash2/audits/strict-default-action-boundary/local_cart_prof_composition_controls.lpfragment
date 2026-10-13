@@ -1,0 +1,9 @@
+// The raw-facade congruence may compare presentations of the same data;
+// it must not identify unrelated variable composites.
+assertnot [A B : Cat] [P Q R : τ (Prof A B)]
+  (r r' : τ (ProfMap P Q)) (s s' : τ (ProfMap Q R)) ⊢
+  @eq_refl (ProfMap P R) (@comp_fapp0 (Prof_cat A B) P Q R s r)
+  : τ (@= (ProfMap P R)
+      (@comp_fapp0 (Prof_cat A B) P Q R s r)
+      (@comp_fapp0 (Functor_cat (Product_cat (Op_cat A) B) Cat_cat)
+        P Q R s' r'));

@@ -1,0 +1,55 @@
+// NON-LIBRARY UNCHECKED independent generic fused-square controls.
+// One runtime positive and two runtime noncollapse negatives.
+assert [K Z : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x y : τ (Obj K))
+  (H : τ (Functor (Fibre_cat D y) Z)) ⊢
+  @comp_fapp0 Cat_cat (Hom_cat K x y)
+    (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y))
+    (Functor_cart_cat (Fibre_cat E x) Z)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat)
+      (Fibre_cat E x) (Fibre_cat E y) Z
+      (@comp_fapp0 Cat_cat (Fibre_cat E y) (Fibre_cat D y) Z H
+        (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U))))
+    (@fapp1_func K Cat_cat E x y)
+  ≡ @comp_fapp0 Cat_cat (Hom_cat K x y)
+    (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y))
+    (Functor_cart_cat (Fibre_cat E x) Z)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat)
+      (Fibre_cat E x) (Fibre_cat D y) Z H)
+    (@tapp1_func K Cat_cat E D x y (@strict_transfor K Cat_cat E D U));
+
+assertnot [K Z : Cat] [E D : τ (Catd K)]
+  (eta : τ (@Functord K E D)) (x y : τ (Obj K))
+  (H : τ (Functor (Fibre_cat D y) Z)) ⊢
+  @comp_fapp0 Cat_cat (Hom_cat K x y)
+    (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y))
+    (Functor_cart_cat (Fibre_cat E x) Z)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat)
+      (Fibre_cat E x) (Fibre_cat E y) Z
+      (@comp_fapp0 Cat_cat (Fibre_cat E y) (Fibre_cat D y) Z H
+        (@tapp0_fapp0 K Cat_cat E D y eta)))
+    (@fapp1_func K Cat_cat E x y)
+  ≡ @comp_fapp0 Cat_cat (Hom_cat K x y)
+    (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y))
+    (Functor_cart_cat (Fibre_cat E x) Z)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat)
+      (Fibre_cat E x) (Fibre_cat D y) Z H)
+    (@tapp1_func K Cat_cat E D x y eta);
+
+assertnot [K Z : Cat] [E D : τ (Catd K)]
+  (U : τ (@StrictTransfor K Cat_cat E D)) (x y : τ (Obj K))
+  (H H' : τ (Functor (Fibre_cat D y) Z)) ⊢
+  @comp_fapp0 Cat_cat (Hom_cat K x y)
+    (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y))
+    (Functor_cart_cat (Fibre_cat E x) Z)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat)
+      (Fibre_cat E x) (Fibre_cat E y) Z
+      (@comp_fapp0 Cat_cat (Fibre_cat E y) (Fibre_cat D y) Z H
+        (@tapp0_fapp0 K Cat_cat E D y (@strict_transfor K Cat_cat E D U))))
+    (@fapp1_func K Cat_cat E x y)
+  ≡ @comp_fapp0 Cat_cat (Hom_cat K x y)
+    (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y))
+    (Functor_cart_cat (Fibre_cat E x) Z)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat)
+      (Fibre_cat E x) (Fibre_cat D y) Z H')
+    (@tapp1_func K Cat_cat E D x y (@strict_transfor K Cat_cat E D U));

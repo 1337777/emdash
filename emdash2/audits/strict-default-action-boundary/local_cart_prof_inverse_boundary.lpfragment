@@ -1,0 +1,20 @@
+// Separate required computation: definitionally expanded presentation inverses.
+// These are obligations to measure, never asserted by adding an inverse axiom.
+assert [A B : Cat] (P : τ (Prof B A)) ⊢
+  fapp0 (local_cart_prof_uncurry_func A B)
+    (fapp0 (local_cart_prof_curry_func A B) P) ≡ P;
+assert [A B : Cat] (H : τ (Obj (local_cart_prof_qhom A B))) ⊢
+  fapp0 (local_cart_prof_curry_func A B)
+    (fapp0 (local_cart_prof_uncurry_func A B) H) ≡ H;
+assert [A B : Cat] [P Q : τ (Prof B A)]
+  (r : τ (Hom (local_cart_prof_cat B A) P Q)) ⊢
+  @fapp1_fapp0 _ _ (local_cart_prof_uncurry_func A B)
+    (fapp0 (local_cart_prof_curry_func A B) P)
+    (fapp0 (local_cart_prof_curry_func A B) Q)
+    (@fapp1_fapp0 _ _ (local_cart_prof_curry_func A B) P Q r) ≡ r;
+assert [A B : Cat] [P Q : τ (Obj (local_cart_prof_qhom A B))]
+  (r : τ (Hom (local_cart_prof_qhom A B) P Q)) ⊢
+  @fapp1_fapp0 _ _ (local_cart_prof_curry_func A B)
+    (fapp0 (local_cart_prof_uncurry_func A B) P)
+    (fapp0 (local_cart_prof_uncurry_func A B) Q)
+    (@fapp1_fapp0 _ _ (local_cart_prof_uncurry_func A B) P Q r) ≡ r;

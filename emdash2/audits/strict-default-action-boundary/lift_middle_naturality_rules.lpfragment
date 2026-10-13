@@ -1,0 +1,29 @@
+// NON-LIBRARY runtime candidates. Insert after q_unit_strict_squares at
+// its guarded whole-naturality owner. These only complete its overlap with
+// left-associated whole functor composition; the guard remains explicit.
+// Expected: contextual whole-square consumers pass, raw transfor controls
+// stay negative. Replay when the square, profile or association owners change.
+
+// An outer functor H preserves the existing strict post/left square.
+// lhs-audit: keep 1 -- both compositions are whole functor composition.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ $H
+        (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@tapp0_fapp0 $K Cat_cat $E $D $y
+            (@strict_transfor $K Cat_cat $E $D $U))))
+      (@fapp1_func $K Cat_cat $E $x $y)
+  ↪ @comp_fapp0 Cat_cat _ _ _ $H
+      (@tapp1_func $K Cat_cat $E $D $x $y
+        (@strict_transfor $K Cat_cat $E $D $U));
+
+// Its pre/right partner reaches the same strict off-diagonal whole action.
+// lhs-audit: keep 1 -- both compositions are whole functor composition.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ $H
+        (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@tapp0_fapp0 $K Cat_cat $E $D $x
+            (@strict_transfor $K Cat_cat $E $D $U))))
+      (@fapp1_func $K Cat_cat $D $x $y)
+  ↪ @comp_fapp0 Cat_cat _ _ _ $H
+      (@tapp1_func $K Cat_cat $E $D $x $y
+        (@strict_transfor $K Cat_cat $E $D $U));

@@ -1,0 +1,18 @@
+// Ordinary point evaluation of Cat-valued stable precomposition:
+// (G o F[h])[w] = G[F[h][w]]. This is the counterpart of the existing
+// Cat-valued hom_postcomp_fapp0 projection, at the precomposition owner.
+// It neither changes naturality nor folds the whole stable composition.
+rule @fapp0
+      _ _
+      (@hom_precomp_along_fapp0
+        $A Cat_cat $F $Z $W $X $h $G)
+      $w
+  ↪ @fapp0
+      (@fapp0 $A Cat_cat $F $X)
+      $Z
+      $G
+      (@fapp0
+        (@fapp0 $A Cat_cat $F $W)
+        (@fapp0 $A Cat_cat $F $X)
+        (@fapp1_fapp0 $A Cat_cat $F $W $X $h)
+        $w);

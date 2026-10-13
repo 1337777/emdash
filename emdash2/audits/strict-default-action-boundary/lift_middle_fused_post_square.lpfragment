@@ -1,0 +1,23 @@
+// NON-LIBRARY UNCHECKED projection-order completion of the guarded strict
+// U square against identity-family post/post accumulation. The actual H and
+// strict U remain data. This is generic Cat-valued diagram computation,
+// with no represented inclusion, Q, companion or mate-specific head.
+// Insert with the guarded contextual naturality pair; replay its own controls
+// and actual whole-lift consumers. No raw transfor obtains strict naturality.
+
+// post(H o U[y]) o E_1 = post(H) o U_1.
+// lhs-audit: keep 1 -- both sides compose whole functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+        (@comp_fapp0 Cat_cat _ _ $Z $H
+          (@tapp0_fapp0 $K Cat_cat $E $D $y
+            (@strict_transfor $K Cat_cat $E $D $U))))
+      (@fapp1_func $K Cat_cat $E $x $y)
+  ↪ @comp_fapp0 Cat_cat
+      (Hom_cat $K $x $y)
+      (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $D $y))
+      (Functor_cart_cat (@fapp0 $K Cat_cat $E $x) $Z)
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $D $y) $Z $H)
+      (@tapp1_func $K Cat_cat $E $D $x $y
+        (@strict_transfor $K Cat_cat $E $D $U));

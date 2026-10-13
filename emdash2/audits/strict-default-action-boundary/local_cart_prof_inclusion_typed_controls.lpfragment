@@ -1,0 +1,33 @@
+// The raw Prof/ordinary functor category agreement is proof-time. These
+// typed reflexivity observations use that exact facade comparison; no path
+// is an input to the actual inclusion or any operational construction.
+assert [A B : Cat] (P : τ (Prof A B)) ⊢
+  @eq_refl (ProfMap P P)
+    (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P P
+      (@id (local_cart_prof_cat A B) P))
+  : τ (@= (ProfMap P P)
+      (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P P
+        (@id (local_cart_prof_cat A B) P))
+      (@id (Prof_cat A B) P));
+assert [A B : Cat] [P Q R : τ (Prof A B)]
+  (r : τ (Hom (local_cart_prof_cat A B) P Q))
+  (s : τ (Hom (local_cart_prof_cat A B) Q R)) ⊢
+  @eq_refl (ProfMap P R)
+    (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P R
+      (@comp_fapp0 (local_cart_prof_cat A B) P Q R s r))
+  : τ (@= (ProfMap P R)
+      (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P R
+        (@comp_fapp0 (local_cart_prof_cat A B) P Q R s r))
+      (@comp_fapp0 (Prof_cat A B) P Q R
+        (@fapp1_fapp0 _ _ (local_cart_prof_include A B) Q R s)
+        (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r)));
+
+// Endpoint constraints and the local profile boundary remain meaningful.
+assertnot [A B C D : Cat] ⊢
+  @eq_refl (Obj Cat_cat) (Prof_cat A B)
+  : τ (@= (Obj Cat_cat) (Prof_cat A B)
+      (Functor_cat (Product_cat (Op_cat C) D) Cat_cat));
+assertnot [A B : Cat] ⊢
+  @eq_refl (Obj Cat_cat) (Prof_cat A B)
+  : τ (@= (Obj Cat_cat) (Prof_cat A B)
+      (Functor_cart_cat (Product_cat (Op_cat A) B) Cat_cat));

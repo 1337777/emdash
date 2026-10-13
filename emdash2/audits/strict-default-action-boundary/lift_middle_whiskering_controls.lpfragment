@@ -1,0 +1,96 @@
+// NON-LIBRARY independent whole-functor consumers. These typed eq_refl
+// assertions exercise proof-time comparisons; they do not infer whole
+// agreement from components. Expected: three positives and three negatives.
+
+// Mapped postcomposition agrees with postcomposition by the actual image.
+assert [A B : Cat] (F : τ (Functor B A))
+  [W : τ (Obj A)] [X Y : τ (Obj B)] (h : τ (Hom B X Y)) ⊢
+  @eq_refl
+    (Functor (Hom_cat A W (fapp0 F X)) (Hom_cat A W (fapp0 F Y)))
+    (@hom_postcomp_func A B F W X Y h)
+  : τ (@=
+      (Functor (Hom_cat A W (fapp0 F X)) (Hom_cat A W (fapp0 F Y)))
+      (@hom_postcomp_func A B F W X Y h)
+      (@hom_postcomp_func A A (@id_func A) W (fapp0 F X) (fapp0 F Y)
+        (@fapp1_fapp0 B A F X Y h)));
+
+// First mixed factorization, at arbitrary endpoints and actual arrows.
+assert [C : Cat] [x x' y z y' : τ (Obj C)]
+  (a : τ (Hom C x' x)) (v : τ (Hom C y z)) (b : τ (Hom C z y')) ⊢
+  @eq_refl (Functor (Hom_cat C x y) (Hom_cat C x' y'))
+    (@comp_cat_fapp0 _ _ _
+      (@hom_postcomp_func C C (@id_func C) x' y y'
+        (@comp_fapp0 C y z y' b v))
+      (@hom_precomp_along_func C C (@id_func C) y x' x a))
+  : τ (@= (Functor (Hom_cat C x y) (Hom_cat C x' y'))
+      (@comp_cat_fapp0 _ _ _
+        (@hom_postcomp_func C C (@id_func C) x' y y'
+          (@comp_fapp0 C y z y' b v))
+        (@hom_precomp_along_func C C (@id_func C) y x' x a))
+      (@comp_cat_fapp0 _ _ _
+        (@Hom_func C x x' z y' a b)
+        (@hom_postcomp_func C C (@id_func C) x y z v)));
+
+// Second mixed factorization, retaining the reversed precomposition order.
+assert [C : Cat] [x x' z y y' : τ (Obj C)]
+  (a : τ (Hom C x' z)) (u : τ (Hom C z x)) (b : τ (Hom C y y')) ⊢
+  @eq_refl (Functor (Hom_cat C x y) (Hom_cat C x' y'))
+    (@comp_cat_fapp0 _ _ _
+      (@hom_precomp_along_func C C (@id_func C) y' x' x
+        (@comp_fapp0 C x' z x u a))
+      (@hom_postcomp_func C C (@id_func C) x y y' b))
+  : τ (@= (Functor (Hom_cat C x y) (Hom_cat C x' y'))
+      (@comp_cat_fapp0 _ _ _
+        (@hom_precomp_along_func C C (@id_func C) y' x' x
+          (@comp_fapp0 C x' z x u a))
+        (@hom_postcomp_func C C (@id_func C) x y y' b))
+      (@comp_cat_fapp0 _ _ _
+        (@Hom_func C z x' y y' a b)
+        (@hom_precomp_along_func C C (@id_func C) y z x u)));
+
+// An unrelated arrow at the same image endpoints is not the mapped arrow.
+assertnot [A B : Cat] (F : τ (Functor B A))
+  [W : τ (Obj A)] [X Y : τ (Obj B)] (h : τ (Hom B X Y))
+  (k : τ (Hom A (fapp0 F X) (fapp0 F Y))) ⊢
+  @eq_refl
+    (Functor (Hom_cat A W (fapp0 F X)) (Hom_cat A W (fapp0 F Y)))
+    (@hom_postcomp_func A B F W X Y h)
+  : τ (@=
+      (Functor (Hom_cat A W (fapp0 F X)) (Hom_cat A W (fapp0 F Y)))
+      (@hom_postcomp_func A B F W X Y h)
+      (@hom_postcomp_func A A (@id_func A) W (fapp0 F X) (fapp0 F Y) k));
+
+// The first factorization retains the actual final postcomposing arrow.
+assertnot [C : Cat] [x x' y z y' : τ (Obj C)]
+  (a : τ (Hom C x' x)) (v : τ (Hom C y z))
+  (b c : τ (Hom C z y')) ⊢
+  @eq_refl (Functor (Hom_cat C x y) (Hom_cat C x' y'))
+    (@comp_cat_fapp0 _ _ _
+      (@hom_postcomp_func C C (@id_func C) x' y y'
+        (@comp_fapp0 C y z y' b v))
+      (@hom_precomp_along_func C C (@id_func C) y x' x a))
+  : τ (@= (Functor (Hom_cat C x y) (Hom_cat C x' y'))
+      (@comp_cat_fapp0 _ _ _
+        (@hom_postcomp_func C C (@id_func C) x' y y'
+          (@comp_fapp0 C y z y' b v))
+        (@hom_precomp_along_func C C (@id_func C) y x' x a))
+      (@comp_cat_fapp0 _ _ _
+        (@Hom_func C x x' z y' a c)
+        (@hom_postcomp_func C C (@id_func C) x y z v)));
+
+// The second factorization retains the actual first precomposing arrow.
+assertnot [C : Cat] [x x' z y y' : τ (Obj C)]
+  (a c : τ (Hom C x' z)) (u : τ (Hom C z x)) (b : τ (Hom C y y')) ⊢
+  @eq_refl (Functor (Hom_cat C x y) (Hom_cat C x' y'))
+    (@comp_cat_fapp0 _ _ _
+      (@hom_precomp_along_func C C (@id_func C) y' x' x
+        (@comp_fapp0 C x' z x u a))
+      (@hom_postcomp_func C C (@id_func C) x y y' b))
+  : τ (@= (Functor (Hom_cat C x y) (Hom_cat C x' y'))
+      (@comp_cat_fapp0 _ _ _
+        (@hom_precomp_along_func C C (@id_func C) y' x' x
+          (@comp_fapp0 C x' z x u a))
+        (@hom_postcomp_func C C (@id_func C) x y y' b))
+      (@comp_cat_fapp0 _ _ _
+        (@Hom_func C z x' y y' c b)
+        (@hom_precomp_along_func C C (@id_func C) y z x u)));

@@ -1,0 +1,12 @@
+// NON-LIBRARY identity-only dependent-Hom owner.
+// Its transfor profile is ambient; FF=id does not assert strict naturality.
+injective symbol homd_id_int [K : Cat] (E : τ (Catd K))
+  : τ (@Functord (CoAt2_cat K) (@Op_catd K E) (@Homd_target_catd K E));
+
+// Relative Homd is actual target-side composition with an arbitrary raw FF.
+// It has no independent action/strictness axioms and takes no proof payload.
+symbol homd_int [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  : τ (@Functord (CoAt2_cat K) (@Op_catd K E) (@Homd_target_catd K D))
+≔ @comp_catd_fapp0 (CoAt2_cat K) (@Op_catd K E)
+    (@Homd_target_catd K E) (@Homd_target_catd K D)
+    (@Homd_target_map K D E FF) (@homd_id_int K E);

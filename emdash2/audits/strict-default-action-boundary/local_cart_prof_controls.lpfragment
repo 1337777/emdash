@@ -1,0 +1,80 @@
+// Proposed controls: a checker receipt, not this file, establishes passage.
+
+// Exactly the same profunctor objects; the vertical map profile is local.
+assert [A B : Cat] (P : τ (Prof A B)) ⊢
+  P : τ (Obj (local_cart_prof_cat A B));
+assert [A B : Cat] [P Q : τ (Prof A B)]
+  (r : τ (Hom (local_cart_prof_cat A B) P Q)) ⊢
+  @fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r
+  : τ (ProfMap P Q);
+assert [A B : Cat] [P Q : τ (Prof A B)]
+  (r : τ (Hom (local_cart_prof_cat A B) P Q)) ⊢
+  @fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r
+  ≡ @strict_transfor (Product_cat (Op_cat A) B) Cat_cat P Q r;
+assert [A B : Cat] [P Q : τ (Prof A B)]
+  (r : τ (ProfMap P Q)) ⊢
+  r : τ (@Functord (Product_cat (Op_cat A) B) P Q);
+assertnot [A B : Cat] [P Q : τ (Prof A B)]
+  (r : τ (ProfMap P Q)) ⊢
+  r : τ (Hom (local_cart_prof_cat A B) P Q);
+assertnot [A B : Cat] ⊢ Prof_cat A B ≡ local_cart_prof_cat A B;
+
+// Inclusion has whole Hom action and retains the next variable cell.
+assert [A B : Cat] [P Q : τ (Prof A B)] ⊢
+  @fapp1_func _ _ (local_cart_prof_include A B) P Q
+  : τ (Functor (Hom_cat (local_cart_prof_cat A B) P Q)
+      (@Functord_cat (Product_cat (Op_cat A) B) P Q));
+assert [A B : Cat] [P Q : τ (Prof A B)]
+  [r s : τ (Hom (local_cart_prof_cat A B) P Q)]
+  (gamma : τ (Hom (Hom_cat (local_cart_prof_cat A B) P Q) r s)) ⊢
+  @fapp1_fapp0 _ _ (@fapp1_func _ _ (local_cart_prof_include A B) P Q) r s gamma
+  : τ (Hom (@Functord_cat (Product_cat (Op_cat A) B) P Q)
+      (@strict_transfor (Product_cat (Op_cat A) B) Cat_cat P Q r)
+      (@strict_transfor (Product_cat (Op_cat A) B) Cat_cat P Q s));
+
+// The map reaches the selected Q Hom with the existing endpoint convention.
+assert [A B : Cat] [P Q : τ (Prof B A)]
+  (r : τ (Hom (local_cart_prof_cat B A) P Q)) ⊢
+  @fapp1_fapp0 _ _ (local_cart_prof_curry_func A B) P Q r
+  : τ (Hom (local_cart_prof_qhom A B)
+      (fapp0 (local_cart_prof_curry_func A B) P)
+      (fapp0 (local_cart_prof_curry_func A B) Q));
+assert [A B : Cat] (P : τ (Prof B A))
+  (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  fapp0 (fapp0 (fapp0 (local_cart_prof_curry_func A B) P) a) b
+  ≡ fapp0 P (@Product_pair (Op_cat B) A b a);
+assert [A B : Cat] (H : τ (Obj (local_cart_prof_qhom A B)))
+  (b : τ (Obj B)) (a : τ (Obj A)) ⊢
+  fapp0 (fapp0 (local_cart_prof_uncurry_func A B) H)
+    (@Product_pair (Op_cat B) A b a)
+  ≡ fapp0 (fapp0 H a) b;
+
+// A raw map cannot cross the Cartesian presentation boundary implicitly.
+assertnot [A B : Cat] [P Q : τ (Prof B A)]
+  (r : τ (ProfMap P Q)) ⊢
+  @fapp1_fapp0 _ _ (local_cart_prof_curry_func A B) P Q r
+  : τ (Hom (local_cart_prof_qhom A B)
+      (fapp0 (local_cart_prof_curry_func A B) P)
+      (fapp0 (local_cart_prof_curry_func A B) Q));
+assertnot [A B : Cat] [P Q : τ (Prof A B)]
+  (r s : τ (ProfMap P Q)) ⊢ r ≡ s;
+
+// The common reindexing object operation is unchanged at every base point.
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (P : τ (Prof A B)) (ab : τ (Obj (Product_cat (Op_cat A') B'))) ⊢
+  fapp0 (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P) ab
+  ≡ fapp0 (@Prof_reindex A A' B B' P F G) ab;
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q)) ⊢
+  @fapp1_fapp0 _ _ (@local_cart_prof_reindex_func A A' B B' F G) P Q r
+  : τ (Hom (local_cart_prof_cat A' B')
+      (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+      (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) Q));
+
+// Canonical raw counit remains constructed through raw closed operations;
+// admission is a next owner obligation, not an assumption smuggled into Q.
+assertnot [A B : Cat] (F : τ (Functor A B)) ⊢
+  @raw_represented_counit A B F
+  : τ (Hom (local_cart_prof_cat B B)
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+      (@Unit_prof B));

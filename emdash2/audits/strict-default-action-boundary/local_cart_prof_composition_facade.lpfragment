@@ -1,0 +1,9 @@
+// Sufficient proof-time congruence for the same raw composite in the two
+// existing raw category facades. comp_fapp0 is not injective: compare every
+// endpoint and both actual arrows as conditions, rather than inferring data
+// from composite equality. No runtime identity/composition fold is added.
+unif_rule
+  @comp_fapp0 (Prof_cat $A $B) $P $Q $R $s $r
+  ≡ @comp_fapp0 (Functor_cat $K Cat_cat) $P0 $Q0 $R0 $s0 $r0
+  ↪ [ $K ≡ Product_cat (Op_cat $A) $B;
+      $P ≡ $P0; $Q ≡ $Q0; $R ≡ $R0; $s ≡ $s0; $r ≡ $r0 ];

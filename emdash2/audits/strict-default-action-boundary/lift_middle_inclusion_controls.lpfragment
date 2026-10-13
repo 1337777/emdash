@@ -1,0 +1,17 @@
+// Independent whole-image consumers at the actual inclusion head.
+assert [A B C : Cat] (G : τ (Functor B C)) ⊢
+ @comp_cat_fapp0 _ _ _
+   (@hom_postcomp_func Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe) A B C
+     (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include B C G))
+   (@fapp1_func Cat_cat Prof_cov_universe Prof_cov_include A B)
+ ≡ @comp_cat_fapp0 _ _ _
+   (@fapp1_func Cat_cat Prof_cov_universe Prof_cov_include A C)
+   (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) A B C G);
+assert [A B C : Cat] (F : τ (Functor A B)) ⊢
+ @comp_cat_fapp0 _ _ _
+   (@hom_precomp_along_func Prof_cov_universe Prof_cov_universe (@id_func Prof_cov_universe) C A B
+     (@fapp1_fapp0 Cat_cat Prof_cov_universe Prof_cov_include A B F))
+   (@fapp1_func Cat_cat Prof_cov_universe Prof_cov_include B C)
+ ≡ @comp_cat_fapp0 _ _ _
+   (@fapp1_func Cat_cat Prof_cov_universe Prof_cov_include A C)
+   (@hom_precomp_along_func Cat_cat Cat_cat (@id_func Cat_cat) C A B F);

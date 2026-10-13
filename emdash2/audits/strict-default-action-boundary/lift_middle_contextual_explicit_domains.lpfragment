@@ -1,0 +1,76 @@
+// NON-LIBRARY UNCHECKED explicit-domain variant at the whole Hom owner.
+// Capture actual composite domains as variables, not reducible Hom patterns.
+// Residual whole comparisons retain all domain/intermediate categories to
+// avoid inferring a competing Hom decomposition from a projected Q body.
+// These are sufficient proof-time Hom factorizations under two actual right
+// factors. They leave their remaining whole-functor comparison as a typed
+// side condition; they do not postulate a represented-lift comparison.
+// Existing strict image/naturality laws may normalize that side condition.
+// Replay independent controls and the actual unit/counit/mate consumers.
+
+// ((post(b o v) o pre(a)) o S) o T
+//   = (Hom(a,b) o R) o W
+// whenever (post(v) o S) o T = R o W.
+// Recover v from the actual composite: R o W may have already normalized,
+// so the projected right side need no longer display post(v).
+// lhs-audit: keep 1 -- comparison of whole functor composition.
+unif_rule @comp_fapp0 Cat_cat $I $J _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@hom_postcomp_func $C $C (@id Cat_cat $C) $x' $y $y'
+            (@comp_fapp0 $C $y $z $y' $b $v))
+          (@hom_precomp_along_func $C $C (@id Cat_cat $C) $y $x' $x $a))
+        $S)
+      $T
+  ≡ @comp_fapp0 Cat_cat $I0 $J0 _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@Hom_func $C0 $x0 $x'0 $z0 $y'0 $a0 $b0)
+        $R)
+      $W
+  ↪ [
+      $I ≡ $I0;
+      $C ≡ $C0;
+      $x ≡ $x0;
+      $x' ≡ $x'0;
+      $z ≡ $z0;
+      $y' ≡ $y'0;
+      $a ≡ $a0;
+      $b ≡ $b0;
+      @comp_fapp0 Cat_cat $I $J (Hom_cat $C $x $z)
+        (@comp_fapp0 Cat_cat $J (Hom_cat $C $x $y) (Hom_cat $C $x $z)
+          (@hom_postcomp_func $C $C (@id Cat_cat $C) $x $y $z $v) $S) $T
+      ≡ @comp_fapp0 Cat_cat $I0 $J0 (Hom_cat $C $x $z) $R $W
+    ];
+
+// ((pre(u o a) o post(b)) o S) o T
+//   = (Hom(a,b) o R) o W
+// whenever (pre(u) o S) o T = R o W.
+// Precomposition reverses endpoint order. The actual u and a are retained.
+// lhs-audit: keep 1 -- comparison of whole functor composition.
+unif_rule @comp_fapp0 Cat_cat $I $J _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@hom_precomp_along_func $C $C (@id Cat_cat $C) $y' $x' $x
+            (@comp_fapp0 $C $x' $z $x $u $a))
+          (@hom_postcomp_func $C $C (@id Cat_cat $C) $x $y $y' $b))
+        $S)
+      $T
+  ≡ @comp_fapp0 Cat_cat $I0 $J0 _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@Hom_func $C0 $z0 $x'0 $y0 $y'0 $a0 $b0)
+        $R)
+      $W
+  ↪ [
+      $I ≡ $I0;
+      $C ≡ $C0;
+      $z ≡ $z0;
+      $x' ≡ $x'0;
+      $y ≡ $y0;
+      $y' ≡ $y'0;
+      $a ≡ $a0;
+      $b ≡ $b0;
+      @comp_fapp0 Cat_cat $I $J (Hom_cat $C $z $y)
+        (@comp_fapp0 Cat_cat $J (Hom_cat $C $x $y) (Hom_cat $C $z $y)
+          (@hom_precomp_along_func $C $C (@id Cat_cat $C) $y $z $x $u) $S) $T
+      ≡ @comp_fapp0 Cat_cat $I0 $J0 (Hom_cat $C $z $y) $R $W
+    ];

@@ -809,3 +809,49 @@ candidate. The earlier nested-pattern and fibre-only alternatives fail their
 respective consumers and are not selected. Cartesian
 admission, generator computation, balancing and triangle coherence are open.
 See raw_represented_counit_verification.json for exact source/receipt evidence.
+
+## Local Cartesian view with raw public Prof maps
+
+The [local replay](local_cart_prof_migration.py) uses the existing product
+Prof convention and defines a local Cartesian mapping-category view, its
+actual ambient inclusion, and swap/curry presentation maps. The
+[source closure](local_cart_prof_source_closure.md) records measured facade
+and evaluation gaps, retained failed alternatives, and the selected
+`composition_profile_consumer.lp` and separate projection controls. The
+[verification](local_cart_prof_verification.json) pins all 15 receipts and
+the four single-removal failures. Public raw maps are not strictly retyped.
+Expanded arrow inverses, whole reindexing, and canonical counit admission
+remain open; object inverses alone do not qualify those operations.
+
+## Whole represented-lift middle
+
+The [lift replay](lift_middle_migration.py) and its
+[source closure](lift_middle_source_closure.md) record the selected whole mate
+construction, both middle comparisons and its actual first component. Step
+bodies are unchanged; their types share the same defined whole middle. The
+[verification](lift_middle_verification.json) retains native normal forms,
+negative controls, earlier failures, removal results and warning differences.
+The guarded contextual naturality pair is needed by this whole consumer even
+though it was redundant for the earlier smaller corpus. No supplied
+comparison or operational equality-proof parameter is added. Full lift
+action/coherence and raw-preserving coefficient integration remain open.
+
+## Identity Homd core and derived relative interface
+
+The [identity replay](homd_identity_migration.py) owns primitive Homd
+computation only at homd_id_int and its direct projection ladder. The early
+homd_id_ leaf is defined through ordinary Hom and native fibre transport;
+general homd_ substitutes FF[y] into it. Public homd_int and upper relative
+projection names are definitions through the existing whole target action.
+The [verification](homd_identity_verification.json) records the passing
+selected prefix and identity-projection removal failure. It also preserves
+the failed full-source intrinsic-action boundary without pretending raw FF
+has a strict opposite. Relative leaf normalization is a separate optional
+diagnostic, not part of the identity ladder acceptance. Q/lift qualification
+and production migration remain open.
+
+```bash
+python3 audits/strict-default-action-boundary/homd_identity_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/homd_identity/selected_prefix.lp
+```

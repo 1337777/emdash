@@ -1,0 +1,7 @@
+// Proof-time closure of the existing two raw facade comparisons:
+// Prof_cat(A,B) ~ Catd_cat(T(A) x B) ~ Functor_cat(T(A) x B,Cat).
+// The direct comparison is needed for the actual inclusion's target because
+// Lambdapi does not compose those two unification clauses transitively.
+// This compares only ambient raw categories; Cart stays a distinct source.
+unif_rule Prof_cat $A $B ≡ Functor_cat (Product_cat $A0 $B0) Cat_cat
+  ↪ [ $A ≡ Op_cat $A0; $B ≡ $B0 ];

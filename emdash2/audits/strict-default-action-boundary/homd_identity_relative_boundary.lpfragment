@@ -1,0 +1,10 @@
+// Required relative computation, not supplied by the alias definition alone.
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  (v : τ (Obj (Fibre_cat D y))) (f : τ (Hom K x y)) ⊢
+  fapp0
+    (fapp0 (@tapp0_fapp0 K Prof_cov_universe _ _ y
+      (fapp0 (@tapp0_fapp0 (CoAt2_cat K) Cat_cat _ _ x (@homd_int K D E FF)) u)) v) f
+  ≡ Hom_cat (Fibre_cat E y)
+      (fapp0 (@fib_cov_tapp0_func K E x y u) f)
+      (fapp0 (@tapp0_fapp0 K Cat_cat D E y FF) v);

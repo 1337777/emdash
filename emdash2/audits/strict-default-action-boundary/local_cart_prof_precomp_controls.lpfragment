@@ -1,0 +1,25 @@
+// Actual Cartesian precomposition consumer with variable functors.
+assert [X Y Z : Cat] (F : τ (Functor X Y)) (G : τ (Functor Y Z))
+  (x : τ (Obj X)) ⊢
+  fapp0 (fapp0 (@comp_cat_con_cart_func X Y Z F) G) x
+  ≡ fapp0 G (fapp0 F x);
+
+// Both existing identity cuts agree with evaluating the composite first.
+assert [X Z : Cat] (G : τ (Functor X Z)) (x : τ (Obj X)) ⊢
+  fapp0 (fapp0 (@comp_cat_con_cart_func X X Z (@id_func X)) G) x
+  ≡ fapp0 G x;
+assert [X Y : Cat] (F : τ (Functor X Y)) (x : τ (Obj X)) ⊢
+  fapp0 (fapp0 (@comp_cat_con_cart_func X Y Y F) (@id_func Y)) x
+  ≡ fapp0 F x;
+
+// The existing contravariant accumulation agrees with successive points.
+assert [W X Y Z : Cat] (F : τ (Functor W X))
+  (G : τ (Functor X Y)) (H : τ (Functor Y Z)) (w : τ (Obj W)) ⊢
+  fapp0 (fapp0 (@comp_cat_con_cart_func W X Z F)
+    (fapp0 (@comp_cat_con_cart_func X Y Z G) H)) w
+  ≡ fapp0 H (fapp0 G (fapp0 F w));
+
+assertnot [X Y Z : Cat] (F : τ (Functor X Y))
+  (G H : τ (Functor Y Z)) (x : τ (Obj X)) ⊢
+  fapp0 (fapp0 (@comp_cat_con_cart_func X Y Z F) G) x
+  ≡ fapp0 H (fapp0 F x);

@@ -1,0 +1,9 @@
+// Competing partial-evaluation route for the existing Cartesian Rep body.
+// The generic precomposition point projection first yields
+// Unit_C o (Const_x,id_C). This actual product-section constructor is the
+// same represented Hom already selected by representation_projection.
+// Preserve hom_ as the whole functor; do not expand its Hom action.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+      (@Unit_prof $C)
+      (@Struct_sigma _ _ (@Const_func _ _ $x) (@id Cat_cat $C))
+  ↪ @hom_ $C $C (@id_func $C) $x;

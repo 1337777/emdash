@@ -1,0 +1,10 @@
+{
+  "status": "source pins for the bounded local Cartesian product-Prof replay",
+  "sourceInputs": {
+    "tmp/probes/strict_default_cart_action/emdash3_2.lp": "af2c6000783b88d37593b0bf2277470eb2df3d22d96bbf6ee7823571fbbde5ea",
+    "audits/strict-default-action-boundary/cart_action_verification.json": "9e7d2d80e52cad7f162fde035465408953a051ee092a476a33e7022b2b721f66",
+    "audits/strict-default-action-boundary/raw_represented_counit_migration.py": "62b03e472f68ed6d1058aa82d89d7445da8f1c0b28dd9e90e6ee8c7a49300eb3",
+    "audits/strict-default-action-boundary/raw_represented_counit_inputs.json": "aec203a4eb8fd0d75560cd29a8e3f58e8e1aa075ab7f96fbb17370e4032c4846",
+    "audits/strict-default-action-boundary/raw_represented_counit_verification.json": "38124d8a6609573e6be5e271d900d55e07b6bb54360ed70ef565f61da8ed4c4f"
+  }
+}

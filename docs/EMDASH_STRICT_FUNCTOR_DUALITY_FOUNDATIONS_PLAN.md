@@ -73,13 +73,18 @@ general-FF intrinsic action, downstream migration and production gates remain
 open. There is concrete computational evidence for the selected route, but
 no end-to-end qualification of the complete foundation yet.
 
-Continue from the cart_action successor of q_unit (8d440ffb): both separately
-expanded Cartesian transformation inverses and the actual product-prof/Q
-presentation-map inverses now check. Identity/composite and non-collapse
-consumers are included. The next required work is local Cartesian admission
+The current ownership reference is the checked homd_identity successor of
+cart_action: identity Homd owns the primitive ladder, while general FF is a
+defined relative extension. The local_cart_prof slice separately qualifies
+the raw-preserving Cartesian view and its first consumers. The earlier
+cart_action product-prof/Q presentation inverses check in its provisional
+Cartesian Prof profile; expanded arrow inverses for the local raw-preserving
+view remain separately unqualified. The next required work is local Cartesian admission
 of the canonical profunctor operations without narrowing raw public maps,
-the represented lift's whole middle agreement, and general-FF intrinsic
-integration. The raw represented counit below now has an actual construction
+the represented lift's remaining action/coherence, and intrinsic-action
+integration. The lift_middle selected variant now checks both whole middle
+comparisons, the actual mate composite and its first component. The raw
+represented counit below now has an actual construction
 without identifying implication with a conjoint; its Cartesian admission,
 generator action and triangles still require qualification.
 Keep one shared profunctor tensor/closed/shaped-cell theory. Q's nested Hom
@@ -298,12 +303,51 @@ to a difference in higher transformations.
 
 ## Preserve blended F and FF interfaces
 
-Keep the native stable heads and the projection ladder, including
+Keep the public blended interfaces and projection ladder, including
 hom_int(F), hom_con_int(F), homd_int(FF), homd_(FF,...) and the paired
-covariant/contravariant action heads. An identity specialization can be a
-reference case without becoming the only primitive public interface.
-Generic precomposition factorizations remain useful comparisons, not a
-mandatory rewrite of every blended owner into a transparent alias.
+covariant/contravariant action heads. The ordinary F is a default-strict
+functor. Displayed FF is a transformation between family functors: its
+components are strict functors, but its naturality need not be strict.
+
+Reassessment prompted by the user on 2026-10-13: the previous plan and
+cart_action prototype retained homd_int(FF) as an independent primitive. The selected
+implementation direction is an identity-only Homd core and a defined relative
+extension, while preserving the public blended spelling:
+
+```text
+homd_id_int(E)                 // primitive identity-only core
+homd_int(FF : D => E)
+  := Homd_target_map(FF) o homd_id_int(E).
+```
+
+This ownership is now implemented in the isolated homd_identity owner copy,
+with its identity ladder checked; production integration remains open.
+The identity core is not defined circularly through the general primitive.
+The target action and this composite's type already check in the prototype.
+User clarification on 2026-10-13: the complete foundational projection ladder
+and its full required computation are acceptance criteria for homd_id_int(E).
+Do not make a parallel complete general-FF reduction theory a prerequisite
+for that identity milestone. The relative interface inherits the computation
+of its actual composition; residual general-FF terms are allowed. Retain
+existing public projection names as derived observations, without transferring
+unconditional strict-naturality laws from the identity or strict-FF case.
+
+Distinguish this implementation boundary from the mathematics: at fixed
+x,u,y,v,f, the symbolic value `Hom(E[f](u),FF[y](v))` still depends only on a
+strict component functor FF[y]. Laxness does not invalidate that formula;
+it prevents erasing FF's base naturality cells. A probe for symbolic leaf
+normalization is a separate composition diagnostic, not an instruction to
+force general FF to compute like a strict transformation. Whole Q/lift and
+generic intrinsic-action integration remain required by the overall goal;
+the relative alias alone does not establish them.
+
+This local factorization does not require unbundling ordinary hom_int(F),
+making every Functord strict, or changing every public caller. It also does
+not itself prove homd_id_int(E) is a strict transformation. The represented
+lift, Q coefficient structure and identity-core whole x-action remain
+prerequisites even without FF. The existing same-profile Op_funcd(FF) route
+in generic intrinsic-action declarations must still be replaced or correctly
+profiled; defining a relative alias alone does not qualify those declarations.
 
 For the selected strict family profile the blended target is schematically
 
@@ -2072,6 +2116,107 @@ with the stated Hom classifier promises composition on all its inhabitants.
 Cart concerns the coefficient's map profile; homd_int/Functord and public FF
 retain their intended non-strict transformation profile. Earlier kernel
 computations do not remove the recorded Cartesian/Gray evaluation boundary.
+
+## Whole middle agreement and local product-map continuation
+
+Continuation after 8843fe95: the preceding turn made progress by qualifying
+expanded presentation inverses and the raw counit. Rechecking the full mate
+still fails at its middle whole-functor agreement. The next bounded slice
+compares each step with the common whole functor
+
+```text
+M = Hom_Q(kappa(U[x]),kappa(U[y])) o iota_1 o U_1.
+```
+
+Here U is an explicitly strict diagram transformation; public FF stays lax.
+M itself typechecks. Its two comparisons initially failed. Independent
+generic tests isolate absent whole mapped-arrow image and mixed-whiskering
+comparisons, whereas the existing blended-F whole postcomposition law passes.
+Use existing whole Hom factorization, strict functoriality and guarded
+strict-transfor naturality at their owners. Do not infer the whole agreement
+from object components or supply a new mate-comparison argument.
+
+In parallel, the local coefficient view uses Cart(T(A) x B,Cat) and its actual
+Cartesian inclusion, preserving raw ProfMap and the existing endpoint
+convention. The first inclusion declaration exposes a missing direct
+proof-time comparison between the existing raw Prof_cat and ambient
+Functor_cat presentations. The existing whole comparisons via Catd_cat are
+the proposed source of that view; no equality with the Cartesian category
+is proposed. Qualify the actual inclusion and presentation-map action before
+canonical unit/counit admission. These remain non-library experiments, with
+the known full-source and production boundaries unchanged.
+
+The local_cart_prof first-consumer suite now passes 207 positives and 49
+negatives, including inherited controls. Its maps are actual definitions
+through Cartesian inclusion, product swap, precomposition and curry. A
+direct raw-category facade comparison closes the existing two-step Catd
+comparison; a sufficient composition congruence compares all actual endpoints
+and arrows. These are proof-time agreements, not new runtime identification
+of raw and Cartesian maps. Cat-valued precomposition evaluation and its
+competing Unit/constant-section projection have independent passing controls.
+All four single-removal variants fail at their intended obligations. Warnings
+change from 877 to 879, with two product-projection overlaps recorded for
+later integration. Object presentation inverses pass; expanded arrow inverse
+and whole reindexing comparisons remain failed positive obligations.
+
+The lift_middle replay records checked generic whole Hom/image comparisons
+and the actual inclusion's projected whole-image laws. Initial removal checks
+showed both contextual runtime pairs unnecessary for the smaller independent
+corpus. The whole mate subsequently exposed a real use for the guarded
+contextual naturality pair; contextual image clauses remain omitted.
+
+The selected shared-arrow/fused-post variant now checks both middle
+comparisons and the whole mate. It uses sufficient whole Hom factorizations
+with the remaining image/naturality agreement as a unification side condition.
+Shared actual-arrow pattern variables avoid the premature Hom-type inversion
+found by the native trace. One guarded post-square join resolves the competing
+post/post accumulation path. No new mate comparison is supplied, and no
+operational equality-proof parameter is introduced. The unit/counit step
+bodies and final composite remain byte-identical; their types use the same
+defined whole middle M.
+
+The actual mate component computes by generic vertical composition. A negative
+control rejects implicit isomorphism packaging; this is not a claim every
+specialization is noninvertible. Removing any of the three selected groups
+(shared contextual comparisons, fused post-square, contextual naturality)
+fails the required actual mate. The selected warning inventory is 956 versus
+952 in the donor; exact warnings, rejected alternatives, native traces and
+receipts remain in the verification record. Full represented-lift higher
+action/coherence, canonical local Cartesian map admission and integration
+with the raw-preserving Prof view remain required.
+
+## Identity-core ownership checkpoint
+
+The homd_identity replay replaces the general-FF primitive and its primitive
+projection ladder in the copied core. It introduces homd_id_int and the
+direct identity x/u/y/v projections. An early defined homd_id_ leaf shares
+the existing ordinary Hom and fibre-transport owners before Sigma. The
+public homd_ fixed-endpoint helper substitutes only FF[y] into that leaf.
+Public homd_int, homd_src_func, homd_src_sec and homd_tgt_func have actual
+composition/projection bodies, with no independent generic-FF reduction rule.
+
+The selected prefix passes 261 positives and 48 negatives, including the
+whole identity-root-to-leaf computation, retained nonidentity contravariant
+index action, rejection of the opposite index direction, and rejection of
+implicit strict-transfor admission for both raw FF and homd_id_int itself.
+Removing the identity-root projection fails the leaf consumer. The warning
+inventory changes from 952 to 950, with no added normalized critical-pair
+blocks; strict LHS review has zero unreviewed clauses.
+
+The former general-FF reduction suite and optional relative leaf check are
+preserved as separate unqualified diagnostics. They are not prerequisites
+for the identity milestone. The full copied source still fails at the old
+intrinsic-action declaration's Op_funcd(raw FF) input; the identity split does
+not turn that map into a strict transformation. The prototype also still
+inherits the structural Q and represented-lift obligations. This checkpoint
+therefore changes semantic ownership and qualifies the identity ladder,
+not the entire categorical foundation or production integration.
+
+Replay recipes, exact source/log hashes and settings are in
+`emdash2/audits/strict-default-action-boundary/homd_identity_migration.py`
+and `homd_identity_verification.json` in that directory. The predecessor
+cart_action evidence remains the pinned donor. All checks retain the normal
+90s/2GiB serial guard, subject reduction and warnings.
 
 ## Deferred improvements under the migration boundary
 

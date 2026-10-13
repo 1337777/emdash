@@ -1,0 +1,37 @@
+// NON-LIBRARY projected strict-image laws of the existing represented inclusion.
+// The generic image cut cannot match once iota_1 and iota(g) have expanded.
+// Match the same actual representation bodies as q_represented_laws; retain
+// the mapped functor parameter. No arbitrary profunctor map is made strict.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func Prof_cov_universe Prof_cov_universe
+        (@id Cat_cat Prof_cov_universe) $A $B $C
+        (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $B $C
+          (Functor_cart_cat (Op_cat $C) Cat_cat)
+          (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $C (Op_cat $C))
+          (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $C)))) $G))
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $B
+        (Functor_cart_cat (Op_cat $B) Cat_cat)
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $B (Op_cat $B))
+          (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $B)))))
+  ↪ @comp_cat_fapp0 _ _ _
+      (@Prof_cov_conjoint_func $A $C)
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $B $C $G);
+
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func Prof_cov_universe Prof_cov_universe
+        (@id Cat_cat Prof_cov_universe) $C $A $B
+        (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $B
+          (Functor_cart_cat (Op_cat $B) Cat_cat)
+          (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $B (Op_cat $B))
+          (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $B)))) $F))
+      (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $B $C
+        (Functor_cart_cat (Op_cat $C) Cat_cat)
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+          (@Product_pair_tele_func $C (Op_cat $C))
+          (@hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ (@Unit_prof (Op_cat $C)))))
+  ↪ @comp_cat_fapp0 _ _ _
+      (@Prof_cov_conjoint_func $A $C)
+      (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $C $A $B $F);

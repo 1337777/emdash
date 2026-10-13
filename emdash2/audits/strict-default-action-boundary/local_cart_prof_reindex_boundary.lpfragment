@@ -1,0 +1,18 @@
+// Separate actual integration obligation: local Cartesian precomposition
+// must agree with the unchanged raw Prof_reindex owner as a whole object.
+// Matching fibres alone does not establish this comparison.
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (P : τ (Prof A B)) ⊢
+  fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P
+  ≡ @Prof_reindex A A' B B' P F G;
+
+// And its actual included map must be the raw reindexed original map.
+// This is required before the local Cartesian construction can serve j_F.
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  [P Q : τ (Prof A B)] (r : τ (Hom (local_cart_prof_cat A B) P Q)) ⊢
+  @fapp1_fapp0 _ _ (local_cart_prof_include A' B')
+    (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) P)
+    (fapp0 (@local_cart_prof_reindex_func A A' B B' F G) Q)
+    (@fapp1_fapp0 _ _ (@local_cart_prof_reindex_func A A' B B' F G) P Q r)
+  ≡ @Prof_reindex_transf A A' B B' P Q
+      (@fapp1_fapp0 _ _ (local_cart_prof_include A B) P Q r) F G;

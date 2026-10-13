@@ -1,0 +1,53 @@
+/* NON-LIBRARY local Cartesian view of the existing raw product Prof.
+
+   S(A,B) = Cart(T(A) x B,Cat), with precisely the existing functor objects.
+   QHom(A,B) = Cart(A,Cart(T(B),Cat)) views S(B,A). Neither alias changes
+   Prof_cat, ProfMap or Prof_hom. All operational maps below are definitions
+   through existing inclusion, fixed Cartesian precomposition and curry.
+*/
+
+// Local mapping-profile alias; this is not a new profunctor classifier.
+symbol local_cart_prof_cat (A B : Cat) : Cat
+≔ Functor_cart_cat (Product_cat (Op_cat A) B) Cat_cat;
+
+// Actual inclusion into the unchanged public raw mapping category.
+symbol local_cart_prof_include (A B : Cat)
+  : τ (Functor (local_cart_prof_cat A B) (Prof_cat A B))
+≔ cart_functor_include (Product_cat (Op_cat A) B) Cat_cat;
+
+// Q's selected nested Hom, without postulating a coefficient universe.
+symbol local_cart_prof_qhom (A B : Cat) : Cat
+≔ Functor_cart_cat A (Functor_cart_cat (Op_cat B) Cat_cat);
+
+// The existing positive-argument-first Cartesian presentation of S(B,A).
+symbol local_cart_prof_curry_func (A B : Cat)
+  : τ (Functor (local_cart_prof_cat B A) (local_cart_prof_qhom A B))
+≔ @comp_cat_fapp0
+    (local_cart_prof_cat B A)
+    (Functor_cart_cat (Product_cat A (Op_cat B)) Cat_cat)
+    (local_cart_prof_qhom A B)
+    (@curry_func_func A (Op_cat B) Cat_cat)
+    (@comp_cat_con_cart_func
+      (Product_cat A (Op_cat B)) (Product_cat (Op_cat B) A) Cat_cat
+      (@Product_swap_func A (Op_cat B)));
+
+// Reverse presentation by ordinary Cartesian uncurry and the inverse swap.
+symbol local_cart_prof_uncurry_func (A B : Cat)
+  : τ (Functor (local_cart_prof_qhom A B) (local_cart_prof_cat B A))
+≔ @comp_cat_fapp0
+    (local_cart_prof_qhom A B)
+    (Functor_cart_cat (Product_cat A (Op_cat B)) Cat_cat)
+    (local_cart_prof_cat B A)
+    (@comp_cat_con_cart_func
+      (Product_cat (Op_cat B) A) (Product_cat A (Op_cat B)) Cat_cat
+      (@Product_swap_func (Op_cat B) A))
+    (@uncurry_func_func A (Op_cat B) Cat_cat);
+
+// Shared raw object reindexing has a local Cartesian mapping-category view.
+// This retains classified input maps and uses the existing endpoint-base map.
+symbol local_cart_prof_reindex_func [A A' B B' : Cat]
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  : τ (Functor (local_cart_prof_cat A B) (local_cart_prof_cat A' B'))
+≔ @comp_cat_con_cart_func
+    (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B) Cat_cat
+    (@Prof_reindex_base_func A A' B B' F G);

@@ -1,0 +1,45 @@
+// NON-LIBRARY direct identity ladder; all primitive Homd projection rules
+// belong to this owner. The relative aliases below are actual projections.
+symbol homd_id_src_func [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  : τ (Functor (Fibre_cat (@Op_catd K E) x) (@Homd_section_cat K E x));
+
+symbol homd_id_src_sec [K : Cat] (E : τ (Catd K))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (@Homd_section_cat K E x));
+
+symbol homd_id_tgt_func [K : Cat] (E : τ (Catd K))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (Functor (Fibre_cat E y)
+      (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat));
+
+rule @tapp0_fapp0 _ Cat_cat _ _ $x (@homd_id_int $K $E)
+  ↪ @homd_id_src_func $K $E $x;
+rule fapp0 (@homd_id_src_func $K $E $x) $u
+  ↪ @homd_id_src_sec $K $E $x $u;
+rule @tapp0_fapp0 _ _ _ _ $y (@homd_id_src_sec $K $E $x $u)
+  ↪ @homd_id_tgt_func $K $E $x $u $y;
+rule fapp0 (@homd_id_tgt_func $K $E $x $u $y) $v
+  ↪ @homd_id_ $K $E $x $u $y $v;
+
+// Existing public names remain available as defined projections of the
+// relative composite. No constructor matching the arbitrary FF is installed.
+symbol homd_src_func [K : Cat] [D E : τ (Catd K)]
+  (FF : τ (Functord D E)) (x : τ (Obj K))
+  : τ (Functor (Fibre_cat (@Op_catd K E) x) (@Homd_section_cat K D x))
+≔ @tapp0_fapp0 (CoAt2_cat K) Cat_cat
+    (@Op_catd K E) (@Homd_target_catd K D) x (@homd_int K D E FF);
+
+symbol homd_src_sec [K : Cat] [D E : τ (Catd K)]
+  (FF : τ (Functord D E)) (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (@Homd_section_cat K D x))
+≔ fapp0 (@homd_src_func K D E FF x) u;
+
+symbol homd_tgt_func [K : Cat] [D E : τ (Catd K)]
+  (FF : τ (Functord D E)) (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (Functor (Fibre_cat D y)
+      (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cat))
+≔ @tapp0_fapp0 K Prof_cov_universe
+    (@Prof_cov_diagram K D)
+    (@Prof_cov_diagram K (@hom_ K K (@id_func K) x))
+    y (@homd_src_sec K D E FF x u);
