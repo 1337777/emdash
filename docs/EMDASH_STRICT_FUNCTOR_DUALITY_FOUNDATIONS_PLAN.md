@@ -53,18 +53,25 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current next slice, clarified by the user on 2026-10-13: migrate the
-profunctor owners themselves to the selected curried convention, starting
-with Prof_cat, reindexing and represented modules. The prototype to date is
-hybrid: Q has curried Homs but its tensor/unit/counit reuse legacy product
-Prof through swap/curry/uncurry. This was implementation scaffolding, not the
-requested final presentation. The expanded presentation-inverse obligation
-belongs to that scaffolding; removing the conversion from the core dependency
-path removes that prerequisite, without claiming the open generic Cartesian
-inverse computation is solved. Preserve its evidence. Whole represented-lift
-coherence and general-FF intrinsic integration remain required regardless of
-presentation. The two whole lift steps and their component computations check;
-their final middle-functor agreement remains open in the hybrid reference.
+Current selected presentation: retain the existing product-based Prof theory
+and use the nested Cartesian mapping-category type directly for Q's curried
+Hom. The user clarified on 2026-10-13 that their earlier comment was a
+question, not an instruction to migrate all Prof owners. The assistant's
+previous attribution of a blanket-curried migration to that comment was
+incorrect. The direct-curried experiment below is retained comparison
+evidence, not the selected repository migration.
+
+Continue from the q_unit reference (checkpoint 8d440ffb): qualify the actual
+Cartesian presentation maps at their expanded transformation action, and
+finish the whole represented-lift middle agreement/general-FF integration.
+The canonical unit/counit and both whole lift steps have checked components.
+Keep one shared profunctor tensor/closed/shaped-cell theory; the curried Homd
+view does not need a parallel collection of primitive operations. Its Q
+composition and units still need the real shared operations and their
+coherence. Since the selected implementation uses the presentation maps,
+their required higher-action comparisons remain on its dependency path.
+The all-curried experiment did not eliminate composition-normalization gaps
+and would additionally change the endpoint convention of existing consumers.
 A candidate whole Homd target and direct projection ladder check
 under explicit structural Q/lift contracts; those contracts are not yet a
 qualified omega coefficient. The first failing full-file consumer is the old
@@ -1710,51 +1717,233 @@ at the general-FF/Op_funcd mismatch, and the expanded Cartesian transformation
 inverse still fails. Unit/counit triangle coherence, complete represented-lift
 action and production qualification remain unproved by this tranche.
 
-## Canonical curried Prof clarification and next owner closure
+## Presentation review: shared product theory and curried coefficient view
 
-The user's 2026-10-13 clarification selects a consistently curried Prof
-implementation, including adapted reindexing and the existing tensor/theory
-owners. The current Q/Homd telescope is already direct and curried; the
-product conversion sits inside its coefficient implementation, not in a
-combined dependent (y,v,f) context. Nevertheless, preserving the entire old
-product Prof theory underneath Q is not the final migration target.
+User clarification on 2026-10-13: the earlier remark about using curried
+profunctors throughout was a question/expectation to discuss, not a migration
+instruction. The follow-up suggests that the curried type in the Homd core
+can be a convenient nested-functor alias, without its own dedicated theory.
+This agrees with the recommended minimal-change design. Correct the earlier
+assistant attribution; do not treat the direct-curried experiment as an
+accepted repo-wide replacement.
 
-With Cart denoting the already selected Cartesian mapping category:
+With Cart denoting the selected Cartesian mapping category, distinguish
+presentation from endpoint convention:
 
 ```text
-Prof_cat(A,B) = Cart(A,Cart(T(B),Cat)).
-P[F,G] = precompose(T(G)) o P o F.
-P[F,G][a'][b'] = P[F[a']][G[b']].
-Unit_prof(A)[a][b] = Hom_A(b,a).
+Existing Prof(A,B) objects are functors T(A) x B -> Cat.
+Cartesian product-map profile: Cart(T(A) x B,Cat).
+Its positive-argument-first curried category: Cart(B,Cart(T(A),Cat)).
+
+Hom_Q(A,B) = Cart(A,Cart(T(B),Cat))
+          = the curried Cartesian-map profile of existing Prof_cat(B,A).
 ```
 
-The new Prof(A,B) corresponds to the old Prof(B,A), with swapped argument
-order. This is not just currying the old Prof(A,B). Preserve the named
-Companion/Conjoint directions and tensor incidence under that change; inventory
-consumers instead of performing a blind endpoint substitution.
+The last line explains the endpoint swap in the existing
+Prof_cov_curry_func(A,B) and Prof_cov_uncurry_func(A,B). No new primitive
+curried-Prof classifier is needed: Q's existing Hom rule already returns
+that nested mapping category. Its v/f evaluation uses ordinary application,
+and the dependent y-component uses the existing transformation projection.
+This is independent of a combined dependent (y,v,f) context or currying that
+context; neither is introduced.
 
-First bounded closure: canonical Prof_cat/Prof/ProfMap, direct curried
-reindexing with full action, identity/composition and non-collapse consumers,
-then Unit and represented aliases. Keep ordinary product Hom/curry as generic
-constructions if needed by their existing consumers, but do not require a
-legacy Prof conversion for ordinary Prof action. The source-position copy
-must retain the downstream suffix so every still-unmigrated consumer is
-visible. The criterion is native whole computation, not only a leaf formula.
+Keep the established product Prof owners for reindexing, tensor, implication,
+shaped cells and their existing consumers. Obtain the curried coefficient
+composition and units through the actual presentation functors, as in the
+q_unit reference. Curried conveniences may have definition bodies through
+ordinary application/whiskering or those maps when a consumer needs them;
+do not introduce a second independently axiomatized profunctor calculus.
+For the existing endpoint convention, reindexing reads
 
-The represented lift means sending a strict diagram transformation U:E=>D
-to a generally non-strict transformation iota(D)=>iota(E), with component
-kappa(U[y]). Its comparison uses the canonical represented unit/counit and
-strict naturality of this U. Public FF:D=>E is a different parameter: it
-retains non-strict naturality, with strict functor components by default.
-No rule makes all Functord or Cat-valued transformations strict. The current
-full source still misuses raw FF at the strictly profiled Op_funcd owner;
-its replacement must use the retained general-FF target-action route.
+```text
+Product: P[F,G](a',b') = P(F[a'],G[b']).
+Curried: P_c[F,G][b'][a'] = P_c[G[b']][F[a']].
+Q-Hom convention: H[F,G][a'][b'] = H[F[a']][G[b']].
+```
 
-The q_unit checkpoint is validated hybrid recovery evidence, not completed
-curried migration. Its unchanged prefix replay passes in 5.619s, receipt
-`20261013T031013Z-7d758e68feed4308ac18a1a9d77f0c87`. No production source
-computation is promoted by that checkpoint. The separately pending carrier
-relocation remains excluded until its production gates qualify.
+The last formula changes the profunctor endpoint convention as well as the
+order of arguments. Making the same public Prof(A,B) name use that convention
+would force additional companion/conjoint, tensor-incidence and consumer
+changes. Those changes are unnecessary for the selected Homd ladder.
+
+Semantic qualification: Cartesian internal Hom of strict omega-categories
+supports this product/curry comparison with strict higher transformations;
+the ambient lax/oplax mapping categories have the distinct Gray closure.
+[Ara--Guetta, paragraphs 18--21](https://arxiv.org/html/2503.08832v1)
+records that distinction. The comparison is not an unrestricted claim about
+currying ambient lax transfors over products. Public FF remains a general
+non-strict displayed transformation with default-strict functor components;
+it is not silently restricted to the Cartesian coefficient's vertical maps.
+
+Final consumer review confirms that representation and map profile must be
+kept separate. The existing
+[Hom-prof curry reviewer](../emdash2/examples/prof_curry_hom_views.lp)
+already relates product Hom_prof/Unit_prof to curried hom_int using typed
+proof-time comparisons. This is direct precedent for keeping both views,
+not a requirement for a replacement profunctor theory. Meanwhile, the
+[reindexing reviewer](../emdash2/examples/prof_reindex_components.lp) and
+[shaped PathOut owner](../emdash2/emdash3_2_shaped_pathout.lp) use Prof maps or
+shaped cells directly as ambient displayed transformations. Join mapping and
+DefIso evaluation also rely on those existing projections. These are concrete
+API dependencies; they do not by themselves prove that every such consumer
+semantically requires non-strict naturality.
+
+Therefore the q_unit prototype's Cartesian vertical Prof-map and shaped-cell
+restriction is a coefficient experiment, not blanket permission to narrow all
+public ProfMap/Prof_hom inputs. For the Q bridge, first use the already
+available Cartesian product mapping category and its actual ambient
+inclusion, sharing object carriers and operations. Qualify the required tensor,
+unit/counit and shaped-action restrictions at their existing owners. Preserve
+raw generic consumers unless a separately demonstrated mathematical
+requirement necessitates changing their profile. Do not duplicate the entire
+Prof theory or infer strictness merely from Cat-valued codomain. This profile
+boundary remains an explicit promotion requirement of the selected design.
+
+The final recommendation is thus: existing product Prof/public endpoint
+conventions as the common theory; Q's nested Cartesian Hom type as a convenient
+curried view; actual qualified presentation maps only where operations cross
+that boundary; derived conveniences only when a concrete consumer needs them.
+No new primitive curried-Prof classifier or mandatory migration of all
+profunctor consumers follows from the Homd ladder.
+
+Computational qualifications and anticipated costs:
+
+- Matching object values is insufficient. The actual curry/uncurry functors,
+  full Hom action and required inverse computations must work internally.
+  The selected reference has whole/represented round trips, but separately
+  expanded transformation inverse computation remains open. No equality/path
+  payload may replace that requirement in operational symbols.
+- Use stable existing owners and controlled projection/comparison rules at
+  presentation boundaries. Unrestricted unfolding of swap/curry/uncurry can
+  multiply normal forms and checking cost. Conversely, the direct-curried
+  experiment shows that removing these conversions does not automatically
+  solve nested whiskering/composition normalization.
+- Qualify compatibility once for the operations actually used by Q/Homd;
+  do not duplicate the tensor/unit/counit or closed-operation axioms in both
+  presentations. Generic Cartesian prerequisites may be shared by ordinary
+  curried/uncurried Hom consumers too.
+- Q remains a category with actual composition, units and higher structure.
+  A convenient Hom-type alias does not derive its omega coherence. That
+  coefficient/lift qualification is unchanged by choosing either presentation.
+- A future change to lax module transformations would require rechecking the
+  closure profile. It is separate from retaining general FF and from the
+  design-only weak-category/LaxFunctor work.
+
+The represented lift sends a strict diagram transformation U:E=>D to a
+potentially non-strict transformation iota(D)=>iota(E), with component
+kappa(U[y]). This U is distinct from public FF. The failed whole middle
+agreement composes two already-constructed unit/counit steps using strict
+naturality of U. It is not a request to supply a comparison/proof argument or
+to make all Functord strict.
+
+The direct-curried source experiment below is useful evidence and may yield
+small reusable fixes after separate interaction qualification. Its whole
+reindexing-composition and remaining product-consumer failures are boundaries
+of that alternative, not newly mandatory goal outcomes. Preserve the original
+selected Q/lift, intrinsic-action and production acceptance criteria.
+
+## Alternative direct-curried experiment (retained, not selected)
+
+After checkpoint 8d440ffb, curried_prof_migration.py explored an all-curried
+owner copy from the pinned two-presentation reference. Following the user
+clarification and review above, it is comparison evidence, not a selected
+replacement for the existing Prof theory. The experiment replaces the Prof
+declaration/reindexing/represented block rather than adding a second public
+profunctor theory.
+The legacy opposite/tensor/downstream suffix remains present as the next
+migration boundary. The qualified prefix contains these actual definitions:
+
+```text
+Prof_cat(A,B) := Cart(A,Cart(T(B),Cat)).
+Prof_reindex_func(F,G) := post(pre(T(G))) o pre(F).
+Prof_reindex(P,F,G) := Prof_reindex_func(F,G)[P].
+Prof_reindex_transf(r,F,G) := Prof_reindex_func(F,G)[r].
+Unit_prof(A) := Rep_cart_func(T(A)).
+Companion_prof(F:A->B) : Prof(B,A), value Hom_B(F[a],b).
+Conjoint_prof(F:A->B) : Prof(A,B), value Hom_B(b,F[a]).
+```
+
+The existing generic product Hom is renamed Hom_prod_func in the upstream
+copy. Its computations and the derived ordinary representation are preserved;
+it is not a second Prof carrier. Reindexing has no product swap, curry,
+uncurry or operational equality parameter. Unit uses the existing ordinary
+representation, whose generic curry construction is still part of the
+ordinary Hom foundation. The new Homd telescope is not obtained by currying
+a combined dependent base.
+
+The transparent Prof_cat alias is a measured implementation choice: a
+candidate with only Obj/Hom projections left identity reindexing stuck at
+fapp0(Prof_cat,Prof_cat,id_Cart,P). The alias shares native identity/composition
+with its actual Cartesian category. This does not identify Cart with the
+ambient mapping category or make all displayed FF strict.
+
+Measured projection changes in the prefix:
+
+- Applying the stable Cat identity-precomposition point head computes its
+  object action. Its Cat-valued full/capped action supports the inner
+  contravariant functor. A broader full-action rule disrupted the existing
+  represented-action observation; the selected clause is restricted to the
+  required Cat-valued case.
+- That application projection exposes an existing ordinary product-Hom
+  partial evaluation. Its normalized view rejoins the old hom_ owner. An
+  extra positive-representation variant did not fix the hybrid consumer and
+  was removed; do not accumulate unused normalization clauses.
+- Identity-pair composition no longer repeats its inferable identity objects
+  as literal patterns. Repeating them blocked a stable-precomposition versus
+  raw-composition comparison. The source/target pair and identity constructors
+  remain required, and subject reduction checks.
+- A proof-time comparison records the two stable whiskering forms of ordinary
+  identity-family associativity. The underlying associativity was already
+  expressed by hom_precomp_along_postcomp_assoc. Runtime variance heads remain
+  separate; typed reflexivity checks the new comparison.
+- The ordinary transfor unit law now also matches after a transpose identity
+  normalizes. The transpose-base guard is necessary: removing it fails subject
+  reduction. Ordinary and transpose units check; nonidentity naturality of an
+  arbitrary ambient transfor still does not collapse.
+
+The final real-consumer prefix checks 181 positives/36 negatives, including
+whole inner Hom action, capped nonidentity action, direct endpoint substitution,
+reindexing identity, the represented Hom orientations, and the two-level
+component of an arbitrary classified module map. Its computation is:
+
+```text
+(r[F,G])[a'][b'] = r[F[a']][G[b']].
+```
+
+The six removal/minimization controls fail at their intended consumers.
+The rule audit has zero unreviewed slots and 43 intentional slots in 30
+clauses. The exact hashes, warning comparison, receipts, historical failed
+candidates and consumer inventory are retained in curried_prof_verification.json.
+The final consumer takes 4.650s and 397136 KiB maximum child RSS. Warning
+blocks change from 853 to 866 (fifteen added, two replaced/removed), after
+normalizing only the product-Hom rename for comparison. The new reports
+concern precomposition/product projections, identity-pair patterns and
+transfor identity/duality interactions; they are not a confluence certificate.
+The inventory identifies 37 current production/reviewer source files using
+the profunctor interfaces. All checks remain serial, warning/SR-enabled and
+within 90s/2GiB. This is non-library owner evidence; no production computation
+is promoted.
+
+The experiment retains these separate failed/unqualified boundaries:
+
+1. Whole repeated reindexing still does not compare, although the direct
+   nested values do. The old accumulation rewrite cannot simply be added to
+   a symbol defined with a body: Lambdapi rejects that combination. Review
+   the existing stable reindexing owner versus the actual whiskering bodies
+   before adding more general normalization. Preserve the chosen public
+   names and avoid a parallel API if this alternative is revisited. This
+   alternative-specific operation is not added to the selected goal scope.
+2. The full curried copy reaches the old product-specific Op_prof action and
+   fails subject reduction there. Opposite, tensor, shaped cells and later
+   consumers would need the same curried migration if that alternative were
+   selected. It is not selected after the presentation review.
+3. The hybrid interaction copy fails an old companion projection after the
+   changed generic application order. Its corresponding new curried
+   represented Hom value checks. This is not a claim that the old interaction
+   corpus remains green, nor a semantic counterexample to the new convention.
+4. Complete represented lift/coherence, intrinsic general-FF action and
+   production/consumer qualification remain required. There is no new
+   completed Homd milestone in this tranche.
 
 ## Deferred improvements under the migration boundary
 

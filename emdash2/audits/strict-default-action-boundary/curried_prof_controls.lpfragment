@@ -1,0 +1,85 @@
+// Canonical classifier and native nested application.
+assert [A B : Cat] (P : τ (Prof A B)) ⊢ P
+  : τ (Functor A (Functor_cart_cat (Op_cat B) Cat_cat));
+assertnot [A B : Cat] (P : τ (Prof A B)) ⊢ P
+  : τ (Functor (Product_cat (Op_cat A) B) Cat_cat);
+assertnot [A B : Cat] (P : τ (Prof A B)) ⊢ P
+  : τ (Functor A (Functor_cart_cat B Cat_cat));
+
+// Direct reindexing's whole inner functor, followed by its Cat value.
+assert [A A' B B' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B)) (a : τ (Obj A')) ⊢
+  @eq_refl (Functor (Op_cat B') Cat_cat)
+      (fapp0 (@Prof_reindex A A' B B' P F G) a)
+  : τ (@= (Functor (Op_cat B') Cat_cat)
+      (fapp0 (@Prof_reindex A A' B B' P F G) a)
+      (@comp_cat_fapp0 (Op_cat B') (Op_cat B) Cat_cat
+        (fapp0 P (fapp0 F a)) (@Op_func B' B G)));
+assert [A A' B B' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (a : τ (Obj A')) (b : τ (Obj B')) ⊢
+  fapp0 (fapp0 (@Prof_reindex A A' B B' P F G) a) b
+  ≡ fapp0 (fapp0 P (fapp0 F a)) (fapp0 G b);
+
+assert [A B : Cat] (P : τ (Prof A B)) ⊢
+  @Prof_reindex A A B B P (@id_func A) (@id_func B) ≡ P;
+assert (A B : Cat) ⊢
+  @Prof_reindex_func A A B B (@id_func A) (@id_func B) ≡ @id_func (Prof_cat A B);
+
+// The contravariant inner Hom action stays whole, and the capped order joins.
+assert [A A' B B' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (a : τ (Obj A')) (b c : τ (Obj B')) ⊢
+  @fapp1_func (Op_cat B') Cat_cat (fapp0 (@Prof_reindex A A' B B' P F G) a) b c
+  ≡ @comp_cat_fapp0 _ _ _
+    (@fapp1_func (Op_cat B) Cat_cat (fapp0 P (fapp0 F a)) (fapp0 G b) (fapp0 G c))
+    (@fapp1_func (Op_cat B') (Op_cat B) (@Op_func B' B G) b c);
+assert [A A' B B' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (a : τ (Obj A')) [b c : τ (Obj B')] (p : τ (Hom (Op_cat B') b c)) ⊢
+  @fapp1_fapp0 (Op_cat B') Cat_cat (fapp0 (@Prof_reindex A A' B B' P F G) a) b c p
+  ≡ @fapp1_fapp0 (Op_cat B) Cat_cat (fapp0 P (fapp0 F a))
+      (fapp0 G b) (fapp0 G c) (@fapp1_fapp0 (Op_cat B') (Op_cat B) (@Op_func B' B G) b c p);
+assertnot [A A' B B' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (a : τ (Obj A')) [b c : τ (Obj B')] (p : τ (Hom (Op_cat B') b c)) ⊢
+  @fapp1_fapp0 (Op_cat B') Cat_cat (fapp0 (@Prof_reindex A A' B B' P F G) a) b c p
+  : τ (Functor (fapp0 (fapp0 P (fapp0 F a)) (fapp0 G c))
+      (fapp0 (fapp0 P (fapp0 F a)) (fapp0 G b)));
+
+// Two endpoint substitutions give the same direct nested evaluation.
+assert [A A' A'' B B' B'' : Cat] (P : τ (Prof A B))
+  (F : τ (Functor A' A)) (F' : τ (Functor A'' A'))
+  (G : τ (Functor B' B)) (G' : τ (Functor B'' B'))
+  (a : τ (Obj A'')) (b : τ (Obj B'')) ⊢
+  fapp0 (fapp0 (@Prof_reindex A' A'' B' B'' (@Prof_reindex A A' B B' P F G) F' G') a) b
+  ≡ fapp0 (fapp0 (@Prof_reindex A A'' B B'' P
+      (@comp_cat_fapp0 A'' A' A F F') (@comp_cat_fapp0 B'' B' B G G')) a) b;
+
+// Reindexing retains its whole Hom action, rather than only fibre values.
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (P Q : τ (Prof A B)) ⊢
+  @fapp1_func (Prof_cat A B) (Prof_cat A' B') (@Prof_reindex_func A A' B B' F G) P Q
+  : τ (Functor (Hom_cat (Prof_cat A B) P Q)
+      (Hom_cat (Prof_cat A' B') (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G)));
+assert [A A' B B' : Cat] (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (P : τ (Prof A B)) ⊢
+  @eq_refl (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' P F G))
+    (@Prof_reindex_transf A A' B B' P P (@id (Prof_cat A B) P) F G)
+  : τ (@= (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' P F G))
+    (@Prof_reindex_transf A A' B B' P P (@id (Prof_cat A B) P) F G)
+    (@id (Prof_cat A' B') (@Prof_reindex A A' B B' P F G)));
+
+// Unit and represented orientations specialize to the actual Hom category.
+assert [A : Cat] (a b : τ (Obj A)) ⊢
+  fapp0 (fapp0 (@Unit_prof A) a) b ≡ Hom_cat A b a;
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  fapp0 (fapp0 (@Companion_prof A B F) b) a ≡ Hom_cat B (fapp0 F a) b;
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  fapp0 (fapp0 (@Conjoint_prof A B F) a) b ≡ Hom_cat B b (fapp0 F a);
+assertnot [A : Cat] (a b : τ (Obj A)) ⊢
+  fapp0 (fapp0 (@Unit_prof A) a) b ≡ Hom_cat A a b;
+
+// Arbitrary ambient transformations do not become Cartesian module maps.
+assertnot [A B : Cat] [P Q : τ (Prof A B)] (r : τ (Transf P Q)) ⊢
+  r : τ (ProfMap P Q);

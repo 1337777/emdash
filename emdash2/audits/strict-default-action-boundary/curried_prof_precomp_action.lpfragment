@@ -1,0 +1,25 @@
+// Projection of the Cat-valued identity-precomposition point owner.
+// Its head remains stable; applying the resulting functor exposes G(F(-)).
+// Direct curried Prof reindexing is the measured consumer. This adds no
+// equation for the naturality of an arbitrary transformation.
+rule @fapp0 _ _
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $Z $X $Y $F $G) $x
+  ↪ @fapp0 $Y $Z $G (@fapp0 $X $Y $F $x);
+
+rule @fapp1_func _ _
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        Cat_cat $X $Y $F $G) $x $y
+  ↪ @comp_cat_fapp0
+      (Hom_cat $X $x $y)
+      (Hom_cat $Y (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $F $y))
+      (Hom_cat Cat_cat (@fapp0 $Y Cat_cat $G (@fapp0 $X $Y $F $x))
+        (@fapp0 $Y Cat_cat $G (@fapp0 $X $Y $F $y)))
+      (@fapp1_func $Y Cat_cat $G (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $F $y))
+      (@fapp1_func $X $Y $F $x $y);
+
+rule @fapp1_fapp0 _ _
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        Cat_cat $X $Y $F $G) $x $y $p
+  ↪ @fapp1_fapp0 $Y Cat_cat $G (@fapp0 $X $Y $F $x) (@fapp0 $X $Y $F $y)
+      (@fapp1_fapp0 $X $Y $F $x $y $p);

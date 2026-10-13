@@ -1,0 +1,19 @@
+// Opposite identity has normalized before the ordinary transfor unit rule.
+// The same component law applies; this does not assert strict naturality.
+// lhs-audit: keep 1 -- removing the transpose base fails subject reduction at this normalized-identity owner.
+rule @tapp1_fapp0 (Op_cat $A) $B $F $G $x $x $eta (@id $A $x)
+  ↪ @tapp0_fapp0 (Op_cat $A) $B $F $G $x $eta;
+
+assert [A B : Cat] [F G : τ (Functor (Op_cat A) B)]
+  (eta : τ (Transf F G)) (x : τ (Obj A)) ⊢
+  @tapp1_fapp0 (Op_cat A) B F G x x eta (@id A x)
+  ≡ @tapp0_fapp0 (Op_cat A) B F G x eta;
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (Transf F G)) (x : τ (Obj A)) ⊢
+  @tapp1_fapp0 A B F G x x eta (@id A x)
+  ≡ @tapp0_fapp0 A B F G x eta;
+assertnot [A B : Cat] [F G : τ (Functor (Op_cat A) B)]
+  (eta : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A y x)) ⊢
+  @tapp1_fapp0 (Op_cat A) B F G x y eta p
+  ≡ @comp_fapp0 B _ _ _
+    (@fapp1_fapp0 (Op_cat A) B G x y p) (@tapp0_fapp0 (Op_cat A) B F G x eta);

@@ -1,0 +1,7 @@
+// Generic precomposition application can expose the product-Hom partial
+// evaluation before the old outer-curry pattern. Both orders must give the
+// existing represented Hom owner, retaining its full next action.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+      (@Hom_prod_func $C)
+      (@Struct_sigma _ _ (@Const_func _ _ $x) (@id Cat_cat _))
+  ↪ @hom_ $C $C (@id_func $C) $x;

@@ -1,0 +1,21 @@
+// Proof-time reading of the measured post/precomposition normal forms.
+// This is the identity-family associativity already expressed by
+// hom_precomp_along_postcomp_assoc, with both stable owners visible.
+// Runtime keeps the separate variance heads; no transfor naturality is used.
+unif_rule
+  @hom_postcomp_fapp0 $C $C (@id Cat_cat $C) $W $Y $Z $k
+    (@hom_precomp_along_fapp0 $C $C (@id Cat_cat $C) $Y $W $X $h $g)
+  ≡ @hom_precomp_along_fapp0 $C $C (@id Cat_cat $C) $Z $W $X $h
+      (@comp_fapp0 $C $X $Y $Z $k $g)
+  ↪ [ tt ≡ tt ];
+
+// Typed reflexivity tests the comparison without operational equality data.
+assert [C : Cat] [w x y z : τ (Obj C)]
+  (h : τ (Hom C w x)) (g : τ (Hom C x y)) (k : τ (Hom C y z)) ⊢
+  @eq_refl (Hom C w z)
+    (@hom_postcomp_fapp0 C C (@id_func C) w y z k
+      (@hom_precomp_along_fapp0 C C (@id_func C) y w x h g))
+  : τ (@= (Hom C w z)
+    (@hom_postcomp_fapp0 C C (@id_func C) w y z k
+      (@hom_precomp_along_fapp0 C C (@id_func C) y w x h g))
+    (@hom_precomp_along_fapp0 C C (@id_func C) z w x h (@comp_fapp0 C x y z k g)));

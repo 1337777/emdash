@@ -1,0 +1,8 @@
+// Required positive whole-composition comparison; still fails in this slice.
+assert [A A0 A1 B B0 B1 : Cat] (P : τ (Prof A B))
+ (F : τ (Functor A0 A)) (F0 : τ (Functor A1 A0))
+ (G : τ (Functor B0 B)) (G0 : τ (Functor B1 B0)) ⊢
+ @eq_refl (Prof A1 B1) (@Prof_reindex A0 A1 B0 B1 (@Prof_reindex A A0 B B0 P F G) F0 G0)
+ : τ (@= (Prof A1 B1)
+   (@Prof_reindex A0 A1 B0 B1 (@Prof_reindex A A0 B B0 P F G) F0 G0)
+   (@Prof_reindex A A1 B B1 P (@comp_cat_fapp0 A1 A0 A F F0) (@comp_cat_fapp0 B1 B0 B G G0)));

@@ -722,11 +722,52 @@ No production promotion or completed Homd milestone is claimed.
 ### Presentation boundary after the canonical-unit checkpoint
 
 This Q implementation is hybrid: curried coefficient Homs reuse the legacy
-product Prof theory through explicit swap/curry/uncurry functors. The active
-plan now selects direct curried Prof owners throughout, as clarified by the
-user. Retain these receipts as reference evidence; the unresolved expanded
-conversion inverse is not a Homd prerequisite if the conversion is removed
-from its implementation. Whole lift coherence and general-FF action still
-need qualification. The public FF is a non-strict displayed transformation
+product Prof theory through explicit swap/curry/uncurry functors. The user
+clarified that their earlier comment asked for review rather than a blanket
+migration. The active plan now retains both presentations over
+shared product-based operations; the curried Homd type needs no separate
+profunctor calculus. The expanded conversion inverse remains a prerequisite
+where the selected implementation actually uses that conversion. Whole lift
+coherence and general-FF action still need qualification. The public FF is a non-strict displayed transformation
 with strict functor components; it is distinct from the strict U input of
 the represented-lift experiment.
+
+## Alternative direct-curried Prof experiment
+
+`curried_prof_migration.py` explores replacing the earlier Prof carrier,
+reindexing and represented block by the covariant curried convention. Prof_cat is the
+transparent Cart(A,Cart(T(B),Cat)) alias. Reindexing and its vertical action
+are actual compositions of the existing Cartesian whiskering operations.
+The ordinary product Hom remains upstream as Hom_prod_func; it is not a
+legacy Prof carrier or a conversion in reindexing.
+
+```bash
+python3 audits/strict-default-action-boundary/curried_prof_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  scripts/probe.sh tmp/probes/strict_default_curried_prof/map_boundary.lp
+```
+
+The real map-component consumer now passes: 181 positives/36 negatives,
+including direct nested values, whole inner Hom action, identities, variance
+controls and the actual two-level reindexed map component. The strict LHS
+audit is clear; six removal/minimization controls reproduce the necessary
+projection, comparison and transpose-guard boundaries. Exact evidence and
+the downstream consumer inventory are in curried_prof_verification.json.
+
+whole_composition.lp remains a failed positive whole-reindexing obligation;
+its fibre comparison passes. This is an alternative-specific obligation,
+not a newly required outcome of the selected two-presentation goal. The
+complete copied source fails at the old product-specific Op_prof action. legacy_interaction.lp retains a failing old
+companion projection after the new generic application rule. Neither failure
+is counted as a passing negative. The blanket curried replacement is not
+selected. Continue from the q_unit reference with shared product Prof operations and the convenient curried
+Q-Hom view. Whole Q/lift coherence, general FF and production integration
+remain unfinished. Do not infer any completion percentage from the prefix
+assertion count.
+
+The final consumer review also keeps presentation distinct from transformation
+profile. The q_unit Cartesian coefficient-map experiment does not establish
+that all generic ProfMap or Prof_hom inputs should become strict. Existing
+reindexing, shaped PathOut, join and DefIso consumers use their ambient views.
+Qualify the coefficient restriction and inclusion at shared owners before
+production promotion; do not duplicate a curried Prof theory.

@@ -1,0 +1,14 @@
+// Required positive consumer: a whole reindexed module map evaluates to
+// the original two-level component at the reindexed endpoints.
+assert [A A' B B' : Cat] [P Q : τ (Prof A B)] (r : τ (ProfMap P Q))
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (a : τ (Obj A')) (b : τ (Obj B')) ⊢
+  @tapp0_fapp0 (Op_cat B') Cat_cat _ _ b
+    (@strict_transfor (Op_cat B') Cat_cat _ _
+      (@tapp0_fapp0 A' (Functor_cart_cat (Op_cat B') Cat_cat) _ _ a
+        (@strict_transfor A' (Functor_cart_cat (Op_cat B') Cat_cat) _ _
+          (@Prof_reindex_transf A A' B B' P Q r F G))))
+  ≡ @tapp0_fapp0 (Op_cat B) Cat_cat _ _ (fapp0 G b)
+      (@strict_transfor (Op_cat B) Cat_cat _ _
+        (@tapp0_fapp0 A (Functor_cart_cat (Op_cat B) Cat_cat) P Q (fapp0 F a)
+          (@strict_transfor A (Functor_cart_cat (Op_cat B) Cat_cat) P Q r)));

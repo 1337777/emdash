@@ -1,0 +1,61 @@
+// NON-LIBRARY migration: Prof(A,B) has the covariant curried convention.
+// P[a][b] : Cat, with a:A and b:T(B). All module maps use the previously
+// selected Cartesian mapping categories; ambient transfors remain distinct.
+// Transparent classifier alias: native identities and Hom action then use
+// the same category as the derived reindexing body, without a second set
+// of Prof-specific identity/composition projections.
+symbol Prof_cat (A B : Cat) : Cat
+≔ Functor_cart_cat A (Functor_cart_cat (Op_cat B) Cat_cat);
+
+symbol Prof (A B : Cat) : Grpd ≔ Obj (Prof_cat A B);
+symbol ProfMap [A B : Cat] (P Q : τ (Prof A B)) : Grpd
+≔ Obj (Hom_cat (Prof_cat A B) P Q);
+
+// Reindexing is whole precomposition in a, then whole postcomposition by
+// precomposition with T(G) in b. There is no product-Prof conversion.
+symbol Prof_reindex_func [A A' B B' : Cat]
+  (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  : τ (Functor (Prof_cat A B) (Prof_cat A' B'))
+≔ @comp_cat_fapp0
+    (Prof_cat A B)
+    (Functor_cart_cat A' (Functor_cart_cat (Op_cat B) Cat_cat))
+    (Prof_cat A' B')
+    (@comp_cat_cov_cart_func A'
+      (Functor_cart_cat (Op_cat B) Cat_cat)
+      (Functor_cart_cat (Op_cat B') Cat_cat)
+      (@comp_cat_con_cart_func (Op_cat B') (Op_cat B) Cat_cat (@Op_func B' B G)))
+    (@comp_cat_con_cart_func A' A (Functor_cart_cat (Op_cat B) Cat_cat) F);
+
+// Object and vertical-map views of that same whole reindexing functor.
+symbol Prof_reindex [A A' B B' : Cat]
+  (P : τ (Prof A B)) (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  : τ (Prof A' B')
+≔ fapp0 (@Prof_reindex_func A A' B B' F G) P;
+
+symbol Prof_reindex_transf [A A' B B' : Cat] [P Q : τ (Prof A B)]
+  (r : τ (ProfMap P Q)) (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  : τ (ProfMap (@Prof_reindex A A' B B' P F G) (@Prof_reindex A A' B B' Q F G))
+≔ @fapp1_fapp0 (Prof_cat A B) (Prof_cat A' B')
+    (@Prof_reindex_func A A' B B' F G) P Q r;
+
+// Unit is the positive ordinary representation already derived upstream.
+// Ordinary Hom_prod_func is not a legacy Prof carrier or conversion layer.
+symbol Unit_prof (A : Cat) : τ (Prof A A)
+≔ @Rep_cart_func (Op_cat A);
+
+// Represented modules retain their Hom values, with the new endpoint order.
+// Hom_prof_along(F,G)[a][b] = Hom_X(G[b],F[a]).
+symbol Hom_prof_along [A B X : Cat]
+  (F : τ (Functor A X)) (G : τ (Functor B X)) : τ (Prof A B)
+≔ @Prof_reindex X A X B (@Unit_prof X) F G;
+
+symbol Hom_prof [A X : Cat] (F : τ (Functor A X)) : τ (Prof A X)
+≔ @Hom_prof_along A X X F (@id_func X);
+
+// The named companion retains Hom_B(F[a],b), hence now lives in Prof(B,A).
+symbol Companion_prof [A B : Cat] (F : τ (Functor A B)) : τ (Prof B A)
+≔ @Hom_prof_along B A B (@id_func B) F;
+
+// The named conjoint retains Hom_B(b,F[a]), hence now lives in Prof(A,B).
+symbol Conjoint_prof [A B : Cat] (F : τ (Functor A B)) : τ (Prof A B)
+≔ @Hom_prof_along A B B F (@id_func B);
