@@ -1,0 +1,9 @@
+{
+  "status": "source pins for exact companion-weight structural evaluation restriction",
+  "contextRevision": "d49762c8e2d187d349165915bb55aaa4ed821f40",
+  "sourceInputs": {
+    "tmp/probes/canonical_lambda/consumers.lp": "3346f7cb0ea5dc67cf163e9ca7081adc8f1cdc5a5af0272131733788d62432d9",
+    "audits/strict-default-action-boundary/canonical_lambda_verification.json": "84c570e656422a688b16a6e2edd77058243e843ecac2105646fadcc5d20b3691",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  }
+}

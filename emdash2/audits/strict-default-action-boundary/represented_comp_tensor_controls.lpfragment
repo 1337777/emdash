@@ -1,0 +1,20 @@
+// Independent general tensor-reindex comparison, not only a represented case.
+assert [A A' B X X' : Cat] (R : τ (Prof A B)) (S : τ (Prof B X))
+  (F : τ (Functor A' A)) (G : τ (Functor X' X)) ⊢
+  @eq_refl (Prof A' X')
+    (@Prof_reindex A A' X X' (@Prof_tensor A B X R S) F G)
+  : τ (@= (Prof A' X')
+      (@Prof_reindex A A' X X' (@Prof_tensor A B X R S) F G)
+      (@Prof_tensor A' B X'
+        (@Prof_reindex A A' B B R F (@id_func B))
+        (@Prof_reindex B B X X' S (@id_func B) G)));
+
+assertnot [A A' B X X' : Cat] (R R' : τ (Prof A B)) (S : τ (Prof B X))
+  (F : τ (Functor A' A)) (G : τ (Functor X' X)) ⊢
+  @eq_refl (Prof A' X')
+    (@Prof_reindex A A' X X' (@Prof_tensor A B X R S) F G)
+  : τ (@= (Prof A' X')
+      (@Prof_reindex A A' X X' (@Prof_tensor A B X R S) F G)
+      (@Prof_tensor A' B X'
+        (@Prof_reindex A A' B B R' F (@id_func B))
+        (@Prof_reindex B B X X' S (@id_func B) G)));

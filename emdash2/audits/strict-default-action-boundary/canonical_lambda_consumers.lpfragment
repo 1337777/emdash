@@ -1,0 +1,48 @@
+// Whole/higher action remains available after the actual raw inclusion.
+assert (B : Cat) [r s : τ (Obj (canonical_lambda_source_cat B))] ⊢
+  @fapp1_func _ _ (canonical_lambda_forget_func B) r s
+  : τ (Functor (Hom_cat (canonical_lambda_source_cat B) r s)
+      (Hom_cat
+        (Hom_cat (Prof_cat B B) (@Unit_prof B)
+          (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+        (fapp0 (canonical_lambda_forget_func B) r)
+        (fapp0 (canonical_lambda_forget_func B) s)));
+
+// j_B and j_F are actual constructed Cartesian maps.
+assert (B : Cat) ⊢ canonical_lambda_j B
+  : τ (Hom (local_cart_prof_cat B B) (@Unit_prof B)
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)));
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @canonical_lambda_reindex A B F
+  : τ (Hom (local_cart_prof_cat B A) (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F));
+assert (B : Cat) ⊢ canonical_lambda_j_raw B
+  ≡ @fapp1_fapp0 _ _ (local_cart_prof_include B B)
+      (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))
+      (canonical_lambda_j B);
+
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @canonical_lambda_eval_agreement A B F
+  : τ (@=
+      (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+      (@canonical_lambda_eval_raw A B F) (@raw_represented_counit A B F));
+
+// Classifying the lambda image does not implicitly classify raw evaluation
+// or change the original public raw lambda name's type.
+assertnot [A B : Cat] (F : τ (Functor A B)) ⊢ @canonical_lambda_eval_raw A B F
+  : τ (Hom (local_cart_prof_cat B B)
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B));
+assertnot (B : Cat) ⊢ raw_represented_counit_unit_transpose B
+  : τ (Hom (local_cart_prof_cat B B) (@Unit_prof B)
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)));
+
+// The restricted lambda view still retains the actual classified input.
+assertnot (B : Cat) (r s : τ (Obj (canonical_lambda_source_cat B))) ⊢
+  @eq_refl
+    (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+    (fapp0 (canonical_lambda_forget_func B) r)
+  : τ (@=
+      (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+      (fapp0 (canonical_lambda_forget_func B) r)
+      (@Prof_lambda_cov_map B B B (@Unit_prof B) (@Unit_prof B) (@Unit_prof B)
+        (@canonical_lambda_input_raw B s)));

@@ -1,0 +1,40 @@
+// Retained whole Hom action of the exact restricted mapping owner.
+assert (B : Cat) [r s : τ (Obj (canonical_lambda_source_cat B))] ⊢
+  @fapp1_func _ _ (canonical_lambda_unit_func B) r s
+  : τ (Functor (Hom_cat (canonical_lambda_source_cat B) r s)
+      (Hom_cat (canonical_lambda_target_cat B)
+        (fapp0 (canonical_lambda_unit_func B) r)
+        (fapp0 (canonical_lambda_unit_func B) s)));
+assert (B : Cat) [r s : τ (Obj (canonical_lambda_source_cat B))]
+  (alpha : τ (Hom (canonical_lambda_source_cat B) r s)) ⊢
+  @fapp1_fapp0 _ _ (canonical_lambda_unit_func B) r s alpha
+  : τ (Hom (canonical_lambda_target_cat B)
+      (fapp0 (canonical_lambda_unit_func B) r)
+      (fapp0 (canonical_lambda_unit_func B) s));
+
+// Identity/composition come from the existing strict functor calculus.
+assert (B : Cat) (r : τ (Obj (canonical_lambda_source_cat B))) ⊢
+  @fapp1_fapp0 _ _ (canonical_lambda_unit_func B) r r
+    (@id (canonical_lambda_source_cat B) r)
+  ≡ @id (canonical_lambda_target_cat B) (fapp0 (canonical_lambda_unit_func B) r);
+assert (B : Cat) [r s t : τ (Obj (canonical_lambda_source_cat B))]
+  (alpha : τ (Hom (canonical_lambda_source_cat B) r s))
+  (beta : τ (Hom (canonical_lambda_source_cat B) s t)) ⊢
+  @fapp1_fapp0 _ _ (canonical_lambda_unit_func B) r t
+    (@comp_fapp0 (canonical_lambda_source_cat B) r s t beta alpha)
+  ≡ @comp_fapp0 (canonical_lambda_target_cat B)
+      (fapp0 (canonical_lambda_unit_func B) r)
+      (fapp0 (canonical_lambda_unit_func B) s)
+      (fapp0 (canonical_lambda_unit_func B) t)
+      (@fapp1_fapp0 _ _ (canonical_lambda_unit_func B) s t beta)
+      (@fapp1_fapp0 _ _ (canonical_lambda_unit_func B) r s alpha);
+
+// These are bounded noncollapse controls, not faithfulness claims.
+assertnot (B : Cat) [r s : τ (Obj (canonical_lambda_source_cat B))]
+  (alpha beta : τ (Hom (canonical_lambda_source_cat B) r s)) ⊢
+  @fapp1_fapp0 _ _ (canonical_lambda_unit_func B) r s alpha
+  ≡ @fapp1_fapp0 _ _ (canonical_lambda_unit_func B) r s beta;
+assertnot (B : Cat)
+  (r : τ (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))) ⊢
+  fapp0 (canonical_lambda_unit_func B) r
+  : τ (Obj (canonical_lambda_target_cat B));

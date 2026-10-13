@@ -1,0 +1,9 @@
+{
+  "status": "source pins for exact Unit-instance structural lambda restriction",
+  "contextRevision": "d49762c8e2d187d349165915bb55aaa4ed821f40",
+  "sourceInputs": {
+    "tmp/probes/coefficient_assembly/with_nested_reindex.lp": "22137af6b253146827ba243d87cc9b4cc92ca6d91c6b925dd009f01d1b4bfd2f",
+    "audits/strict-default-action-boundary/coefficient_assembly_verification.json": "3480361df6fa2807e081c6491b2b24e672b1a561f32e3f5127f4a6807c8e8a71",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  }
+}

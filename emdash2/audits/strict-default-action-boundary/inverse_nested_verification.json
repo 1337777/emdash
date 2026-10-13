@@ -1,0 +1,419 @@
+{
+  "status": "bounded actual nested identity inverse qualified at proof time with same-endpoint perturbation preserved; both exact comparison removals fail; original runtime conversion still fails; runtime rules unchanged",
+  "sourceInputs": {
+    "audits/strict-default-action-boundary/inverse_nested_migration.py": "024e67ef8b7fa8aa14532f44f54c0a1930c6a7544132485483aaf5ddae42b581",
+    "audits/strict-default-action-boundary/inverse_nested_inputs.json": "df8b5ea3d9c96bc5e08bddd188879a3e913b6054c0d88fb2a69b3db12541b4af",
+    "audits/strict-default-action-boundary/coefficient_assembly_verification.json": "3480361df6fa2807e081c6491b2b24e672b1a561f32e3f5127f4a6807c8e8a71",
+    "tmp/probes/coefficient_assembly/with_nested_reindex.lp": "22137af6b253146827ba243d87cc9b4cc92ca6d91c6b925dd009f01d1b4bfd2f",
+    "audits/strict-default-action-boundary/local_inverse_interaction_controls.lpfragment": "80192e53b9201a83d84ab2be254452d7a3d88dbf642fc4257f524c1a676e1476",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+    "audits/strict-default-action-boundary/inverse_nested_precomp_comparison.lpfragment": "21f148ef77fc506c08f86865a14514ec57ebb34f4b49d96d99644f3bb9fef57e",
+    "audits/strict-default-action-boundary/inverse_nested_horizontal_comparison.lpfragment": "6f59ca5f2ee8e9ddb1265f0f0f2dcfa7e29498137166a780394b70a72b1440f2",
+    "audits/strict-default-action-boundary/inverse_nested_precomp_controls.lpfragment": "115614ca4b7b53e3389307347b3014655518d26841283bb15cb173332699f0d5",
+    "audits/strict-default-action-boundary/inverse_nested_horizontal_controls.lpfragment": "eff2cfa11477c976a36f6f7f3d0203a55e3e67c9d224be0c4f7c57a00bab7054",
+    "audits/strict-default-action-boundary/inverse_nested_controls.lpfragment": "5eb98a54d1d06be062a89952feb58bb49405a5b7b3147a89255862a02e64afa2"
+  },
+  "donor": "tmp/probes/coefficient_assembly/with_nested_reindex.lp",
+  "donorReceipt": "logs/check-runs/20261013T153934Z-078339dad765459286363a81ee975121.json",
+  "outputs": {
+    "owner_prefix.lp": "b213fb28f0031b800bcde09bfcfd3a031df7a23bc1cd861324bda8319f4ef71c",
+    "precomp_baseline.lp": "c4cbbebf63830f5b9cda3a257ac86049d232c938a59d3c48c96966b0e5e61e58",
+    "precomp_candidate.lp": "8d9df9fe4c81beb091036a62842910f26c5aa355061ab0bbbbdd90981beab99e",
+    "horizontal_baseline.lp": "46400594e83152b82713f5cf645d1d5255098353685f0b22a3572e6cf302a42f",
+    "horizontal_candidate.lp": "ff73b1a2780f64e64e568dbb3750d6e6a2aeca710a191364fb50abea06a18969",
+    "nested_baseline.lp": "69b85ebedb5e60009f5f09e7cd30de0135c207b13fc58397cafbd229458ecf93",
+    "nested_comparison.lp": "9f88e6fed44f17b18d3a7f4977040c280aeb4888c4cb46e4ed1ea5cbab9dd818",
+    "without_precomp_comparison.lp": "e376961c7e2b6e1d413a183c05783f7a6fe09477c2071eb388bc4212e5d23334",
+    "without_horizontal_comparison.lp": "9c8745455142bfc0cdd19285d614f4aa5364d900b7b79f6ec0572f6c3ea8e6bf",
+    "runtime_boundary.lp": "c3e867cfe1f27cdf98070378af2de2006ede516c0c31adad86541191c51227c3",
+    "normal_forms.lp": "e1538de1f0dd89a56e71f4fc1b8a16d7e8587fbf91caa57b194e87e9fcf8e90b",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "outputControlCounts": {
+    "owner_prefix.lp": {
+      "positive": 240,
+      "negative": 65
+    },
+    "precomp_baseline.lp": {
+      "positive": 241,
+      "negative": 66
+    },
+    "precomp_candidate.lp": {
+      "positive": 241,
+      "negative": 66
+    },
+    "horizontal_baseline.lp": {
+      "positive": 241,
+      "negative": 66
+    },
+    "horizontal_candidate.lp": {
+      "positive": 241,
+      "negative": 66
+    },
+    "nested_baseline.lp": {
+      "positive": 242,
+      "negative": 66
+    },
+    "nested_comparison.lp": {
+      "positive": 242,
+      "negative": 66
+    },
+    "without_precomp_comparison.lp": {
+      "positive": 242,
+      "negative": 66
+    },
+    "without_horizontal_comparison.lp": {
+      "positive": 242,
+      "negative": 66
+    },
+    "runtime_boundary.lp": {
+      "positive": 241,
+      "negative": 65
+    },
+    "normal_forms.lp": {
+      "positive": 240,
+      "negative": 65
+    }
+  },
+  "qualification": [
+    "Only two generic proof-time comparisons are added at existing precomposition/horizontal-identity owners.",
+    "No runtime identity-pair rule is loosened; the two earlier subject-reduction failures stay in predecessor evidence.",
+    "Both actual source and target endpoint pairs are constrained against the two identity-cell objects; a variable cell is not an identity.",
+    "Actual nested inverse and perturbation use existing local_inverse_swap_action and local_inverse_perturbed_swap bodies.",
+    "Runtime inverse is an independent positive boundary, not inferred from typed eq_refl success.",
+    "Raw public Prof versus local Cartesian mapping-category profiles remain distinct; no new inverse witness or whole inverse postulate is supplied.",
+    "Both generic comparison groups are necessary for the tested actual nested typed inverse: each exact single removal fails. Independent baseline targets are retained without new receipts; their outcomes are not inferred."
+  ],
+  "checkerInvoked": false,
+  "checks": {
+    "precomp_candidate.lp": {
+      "qualification": "passed independent generic typed right-precomposition associativity and perturbed-arrow negative",
+      "receipt": "logs/check-runs/20261013T160547Z-8d5a25129c9d4ddb9056277358ec73a4.json",
+      "receiptSha256": "20c825e5079e0f19a19cb51f43790a56dfb6686e57160dfa1cc4ad8b683e7e2d",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/inverse_nested/precomp_candidate.lp": "8d9df9fe4c81beb091036a62842910f26c5aa355061ab0bbbbdd90981beab99e"
+      },
+      "inputSnapshot": "0f26be0de91f9561d493fcb7ef928dbea24da380933215a1d77555c2922a5255",
+      "sourceSha256": "8d9df9fe4c81beb091036a62842910f26c5aa355061ab0bbbbdd90981beab99e",
+      "log": "logs/check-runs/20261013T160547Z-8d5a25129c9d4ddb9056277358ec73a4.log",
+      "logSha256": "eb9ffafe07b81c52da6fc1a5e4e3656e3eb7ac7dd883fabbeb006da854a3ee17",
+      "output": "tmp/probes/inverse_nested/precomp_candidate.out",
+      "outputSha256": "0e714c5cf6a443c4d094f647fa988d7af5e0134bca72568276eb94df523a7bbe",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 7.628036226029508,
+      "childrenMaxRssKiB": 438692,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 911,
+        "replaceablePatternVariables": 129
+      }
+    },
+    "horizontal_candidate.lp": {
+      "qualification": "passed generic typed horizontal identity-pair comparison with stable/raw endpoint plus variable-cell negative; no swap-specific inverse rule",
+      "receipt": "logs/check-runs/20261013T160555Z-611655d56712405eaa4667b0a49fca72.json",
+      "receiptSha256": "b71600fd1e36372236ceed1f462d53cc2b7a954ab42ad9179da13f2b3c712a4b",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/inverse_nested/horizontal_candidate.lp": "ff73b1a2780f64e64e568dbb3750d6e6a2aeca710a191364fb50abea06a18969"
+      },
+      "inputSnapshot": "6d04e28b9a14560e865e07881a7068ca4572adece2f42973c9ff8912607f70fd",
+      "sourceSha256": "ff73b1a2780f64e64e568dbb3750d6e6a2aeca710a191364fb50abea06a18969",
+      "log": "logs/check-runs/20261013T160555Z-611655d56712405eaa4667b0a49fca72.log",
+      "logSha256": "26fcb8fdf5ccfc084864345c17fdf300e69e7f70a656f2c37298e5d6b856146a",
+      "output": "tmp/probes/inverse_nested/horizontal_candidate.out",
+      "outputSha256": "46ebe2aa403725d791e36a65c896b2908117fdd157e6d4821b1a519c3fc1a6f5",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 8.770022162003443,
+      "childrenMaxRssKiB": 429124,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 911,
+        "replaceablePatternVariables": 129
+      }
+    },
+    "nested_comparison.lp": {
+      "qualification": "passed actual nested identity inverse by typed eq_refl, explicit same-endpoint perturbed-swap formation, and typed perturbation negative; runtime computation remains separate",
+      "receipt": "logs/check-runs/20261013T160605Z-14acf36b11594beb93a1ab574cc77f41.json",
+      "receiptSha256": "78fd783d64f4be5c87a5aad80fd541d1f8daf79377090d57d0e41d1d10f4cb4a",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/inverse_nested/nested_comparison.lp": "9f88e6fed44f17b18d3a7f4977040c280aeb4888c4cb46e4ed1ea5cbab9dd818"
+      },
+      "inputSnapshot": "164e27b1716886372f0d89b8be7262974c6845766ac0b1d791d6789650aaa883",
+      "sourceSha256": "9f88e6fed44f17b18d3a7f4977040c280aeb4888c4cb46e4ed1ea5cbab9dd818",
+      "log": "logs/check-runs/20261013T160605Z-14acf36b11594beb93a1ab574cc77f41.log",
+      "logSha256": "fd3e5252e70e332fe3674cd57cf7ed4f8ca33c1c478d91774789cca888e88b46",
+      "output": "tmp/probes/inverse_nested/nested_comparison.out",
+      "outputSha256": "abc9345e4bf32b1fc796b89512e1e570f8ba1ec7433ae15fcfb2caf32d27c4b5",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 7.819218758028001,
+      "childrenMaxRssKiB": 440880,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 911,
+        "replaceablePatternVariables": 129
+      }
+    },
+    "without_precomp_comparison.lp": {
+      "qualification": "failed exact single-comparison removal at the first actual nested typed inverse equality; required comparison group for this consumer, not a passing negative",
+      "receipt": "logs/check-runs/20261013T160850Z-a5fe4c3b9c8147c5970b2dfe7232de9f.json",
+      "receiptSha256": "47105d8e27168458cf324c6f9c9a0ff1572370d6d11d521fd31fa8dcaa6d6296",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/inverse_nested/without_precomp_comparison.lp": "e376961c7e2b6e1d413a183c05783f7a6fe09477c2071eb388bc4212e5d23334"
+      },
+      "inputSnapshot": "ec0969a0accede7dcadb0c59e5079d4950615bc3ac3b2203607e4ae2f5d02174",
+      "sourceSha256": "e376961c7e2b6e1d413a183c05783f7a6fe09477c2071eb388bc4212e5d23334",
+      "log": "logs/check-runs/20261013T160850Z-a5fe4c3b9c8147c5970b2dfe7232de9f.log",
+      "logSha256": "ef58ffa82ed0c8ea44444a9b10198395ffb4e53801f6cf9f3c943fe197a97cdb",
+      "output": "tmp/probes/inverse_nested/without_precomp_comparison.out",
+      "outputSha256": "17c68bd0af5d72a33dceb4a521fb0ecf1bc7fdd163debb127599a3ec88a1d049",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 7.63284194492735,
+      "childrenMaxRssKiB": 429856,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 911,
+        "replaceablePatternVariables": 129
+      },
+      "failureDiagnostics": [
+        "[tmp/probes/inverse_nested/without_precomp_comparison.lp:18259:0-18276:66] Assertion failed."
+      ]
+    },
+    "without_horizontal_comparison.lp": {
+      "qualification": "failed exact single-comparison removal at the first actual nested typed inverse equality; required comparison group for this consumer, not a passing negative",
+      "receipt": "logs/check-runs/20261013T160858Z-993b9d19582a451f8a47337bec9b9522.json",
+      "receiptSha256": "df00935094dac43a785fa5c1528a8312ebde216823a179512fcd9dc60d3a6d36",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/inverse_nested/without_horizontal_comparison.lp": "9c8745455142bfc0cdd19285d614f4aa5364d900b7b79f6ec0572f6c3ea8e6bf"
+      },
+      "inputSnapshot": "53996cfdd3057d852810412cad8894feb810fcf41d6c1333c2c77ddb3b0ac1da",
+      "sourceSha256": "9c8745455142bfc0cdd19285d614f4aa5364d900b7b79f6ec0572f6c3ea8e6bf",
+      "log": "logs/check-runs/20261013T160858Z-993b9d19582a451f8a47337bec9b9522.log",
+      "logSha256": "1cb6c5b8e3664b1039dd89294c016413be8ecb4f22c0c0b1d2c86ab75df2bc6b",
+      "output": "tmp/probes/inverse_nested/without_horizontal_comparison.out",
+      "outputSha256": "0564f7088ca3718b99c6c90808047cc698de5979b31041f9e9b84647b1863dc4",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 9.036428468069062,
+      "childrenMaxRssKiB": 438444,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 911,
+        "replaceablePatternVariables": 129
+      },
+      "failureDiagnostics": [
+        "[tmp/probes/inverse_nested/without_horizontal_comparison.lp:18248:0-18265:66] Assertion failed."
+      ]
+    },
+    "runtime_boundary.lp": {
+      "qualification": "failed original runtime-conversion obligation despite passing typed comparison; no runtime normalization is claimed",
+      "receipt": "logs/check-runs/20261013T160908Z-c3b5e55b8c1b41d891a6e0a760ea3c5d.json",
+      "receiptSha256": "bad67a6c198a16833310672275f178ed4845e819fe4b54872e2344ff871c24eb",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/inverse_nested/runtime_boundary.lp": "c3e867cfe1f27cdf98070378af2de2006ede516c0c31adad86541191c51227c3"
+      },
+      "inputSnapshot": "8823198c126f69d524a2d6db44cee770615f357194871f69b2d5f19d3ab6c0ed",
+      "sourceSha256": "c3e867cfe1f27cdf98070378af2de2006ede516c0c31adad86541191c51227c3",
+      "log": "logs/check-runs/20261013T160908Z-c3b5e55b8c1b41d891a6e0a760ea3c5d.log",
+      "logSha256": "31b01a03bd3b99fbb23ddcb4b0ad9dee7c59dbe13f0f37790a08260f9ad80bce",
+      "output": "tmp/probes/inverse_nested/runtime_boundary.out",
+      "outputSha256": "32524878cd33c57af70f94febdef64797b5613b94362fcdd77fc0c8803ce9cb9",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "wallSeconds": 8.093820010079071,
+      "childrenMaxRssKiB": 440088,
+      "warningCounts": {
+        "unjoinableCriticalPairs": 911,
+        "replaceablePatternVariables": 129
+      },
+      "failureDiagnostics": [
+        "[tmp/probes/inverse_nested/runtime_boundary.lp:18270:0-18277:64] Assertion failed."
+      ]
+    }
+  },
+  "uncheckedTargets": {
+    "owner_prefix.lp": "unchecked",
+    "precomp_baseline.lp": "unchecked",
+    "horizontal_baseline.lp": "unchecked",
+    "nested_baseline.lp": "unchecked",
+    "normal_forms.lp": "unchecked"
+  },
+  "sourceClosure": "inverse_nested_source_closure.md",
+  "warningComparison": {
+    "baseline": "coefficient_assembly/with_nested_reindex.lp",
+    "baselineReceipt": "logs/check-runs/20261013T153934Z-078339dad765459286363a81ee975121.json",
+    "baselineLog": "logs/check-runs/20261013T153934Z-078339dad765459286363a81ee975121.log",
+    "baselineLogSha256": "ccf7578bf4c6f597b9914aa6caf208adb78afd4af5bcaf3ab0125dfc00a45dc2",
+    "candidate": "nested_comparison.lp",
+    "normalization": "Strip ANSI and location headers; compare six-line diagnostic blocks as multisets without alpha renaming.",
+    "baselineUnjoinableCriticalPairs": 911,
+    "candidateUnjoinableCriticalPairs": 911,
+    "added": [],
+    "removed": [],
+    "qualification": "Diagnostic inventory, not global confluence or runtime equality evidence."
+  },
+  "runtimePolicy": {
+    "newRuntimeRules": 0,
+    "removedRuntimeRules": 0,
+    "newDefinitions": 0,
+    "newUnificationRules": 2,
+    "ownerCopyMinusExactComparisonInsertionsEqualsDonor": true,
+    "qualification": "Only proof-time comparisons are inserted. The original positive runtime-conversion assertion remains an independent target; typed eq_refl does not qualify runtime reduction.",
+    "observedBoundary": "runtime_boundary.lp fails the original positive conversion assertion; typed equality is not reported as runtime computation"
+  },
+  "ruleLhsAudit": {
+    "tool": "scripts/audit_rule_lhs.py",
+    "toolSha256": "1ac349accdadfe60de52c48791cda50afcb879301219f98c88cf641951fe88d4",
+    "target": "nested_comparison.lp",
+    "sourceSha256": "9f88e6fed44f17b18d3a7f4977040c280aeb4888c4cb46e4ed1ea5cbab9dd818",
+    "unreviewedSlots": 0,
+    "unreviewedClauses": 0,
+    "annotatedSlots": 44,
+    "annotatedClauses": 30
+  },
+  "removalEvidence": {
+    "without_precomp_comparison.lp": "logs/check-runs/20261013T160850Z-a5fe4c3b9c8147c5970b2dfe7232de9f.json",
+    "without_horizontal_comparison.lp": "logs/check-runs/20261013T160858Z-993b9d19582a451f8a47337bec9b9522.json"
+  },
+  "negativePerturbation": {
+    "target": "nested_comparison.lp",
+    "formation": "local_inverse_perturbed_swap instantiated at F0=pre_H(F) is explicitly checked as StrictTransfor(F0,F0) before its negative equality",
+    "negative": "typed eq_refl does not identify this term with id(F0) when the outer swap cell theta is an arbitrary variable at the same endpoints",
+    "limit": "Retains variable cell data; does not claim every theta is nonidentity or noninvertible"
+  }
+}

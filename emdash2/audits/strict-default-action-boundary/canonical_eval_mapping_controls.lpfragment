@@ -1,0 +1,47 @@
+// Whole Hom action and a variable higher cell remain part of the restriction.
+assert [A B : Cat] (F : τ (Functor A B))
+  [r s : τ (Obj (@canonical_eval_source_cat A B F))] ⊢
+  @fapp1_func _ _ (@canonical_eval_companion_func A B F) r s
+  : τ (Functor (Hom_cat (@canonical_eval_source_cat A B F) r s)
+      (Hom_cat (@canonical_eval_target_cat A B F)
+        (fapp0 (@canonical_eval_companion_func A B F) r)
+        (fapp0 (@canonical_eval_companion_func A B F) s)));
+assert [A B : Cat] (F : τ (Functor A B))
+  [r s : τ (Obj (@canonical_eval_source_cat A B F))]
+  (alpha : τ (Hom (@canonical_eval_source_cat A B F) r s)) ⊢
+  @fapp1_fapp0 _ _ (@canonical_eval_companion_func A B F) r s alpha
+  : τ (Hom (@canonical_eval_target_cat A B F)
+      (fapp0 (@canonical_eval_companion_func A B F) r)
+      (fapp0 (@canonical_eval_companion_func A B F) s));
+
+// These are the whole functor's ordinary laws, not lambda/eval inverse laws.
+assert [A B : Cat] (F : τ (Functor A B))
+  (r : τ (Obj (@canonical_eval_source_cat A B F))) ⊢
+  @fapp1_fapp0 _ _ (@canonical_eval_companion_func A B F) r r
+    (@id (@canonical_eval_source_cat A B F) r)
+  ≡ @id (@canonical_eval_target_cat A B F)
+      (fapp0 (@canonical_eval_companion_func A B F) r);
+assert [A B : Cat] (F : τ (Functor A B))
+  [r s t : τ (Obj (@canonical_eval_source_cat A B F))]
+  (alpha : τ (Hom (@canonical_eval_source_cat A B F) r s))
+  (beta : τ (Hom (@canonical_eval_source_cat A B F) s t)) ⊢
+  @fapp1_fapp0 _ _ (@canonical_eval_companion_func A B F) r t
+    (@comp_fapp0 (@canonical_eval_source_cat A B F) r s t beta alpha)
+  ≡ @comp_fapp0 (@canonical_eval_target_cat A B F)
+      (fapp0 (@canonical_eval_companion_func A B F) r)
+      (fapp0 (@canonical_eval_companion_func A B F) s)
+      (fapp0 (@canonical_eval_companion_func A B F) t)
+      (@fapp1_fapp0 _ _ (@canonical_eval_companion_func A B F) s t beta)
+      (@fapp1_fapp0 _ _ (@canonical_eval_companion_func A B F) r s alpha);
+
+assertnot [A B : Cat] (F : τ (Functor A B))
+  (r : τ (ProfMap (@Conjoint_prof A B F)
+    (@Prof_reindex B B B A
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))) ⊢
+  fapp0 (@canonical_eval_companion_func A B F) r
+  : τ (Obj (@canonical_eval_target_cat A B F));
+assertnot [A B : Cat] (F : τ (Functor A B))
+  [r s : τ (Obj (@canonical_eval_source_cat A B F))]
+  (alpha beta : τ (Hom (@canonical_eval_source_cat A B F) r s)) ⊢
+  @fapp1_fapp0 _ _ (@canonical_eval_companion_func A B F) r s alpha
+  ≡ @fapp1_fapp0 _ _ (@canonical_eval_companion_func A B F) r s beta;

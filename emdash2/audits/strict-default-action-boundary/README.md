@@ -917,3 +917,25 @@ nested reindex owner. Its [verification](coefficient_assembly_verification.json)
 records the passing raw-preserving assembly and the initial dependency failure.
 The selected seed remains a proposed profile contract; complete Q/lift/Homd
 coherence and production integration remain open.
+
+## Nested inverse and fixed-parameter canonical chain
+
+The [nested inverse replay](inverse_nested_source_closure.md) closes the
+actual typed comparison through two generic owner comparisons. No runtime
+rule changes; the separate runtime boundary remains failed. Both removal
+controls fail and the same-endpoint perturbation remains visible.
+
+The [lambda restriction](canonical_lambda_source_closure.md) and
+[evaluation restriction](canonical_eval_source_closure.md) provide explicit
+structural whole-map contracts for the selected instances. The classified
+j_B, j_F, counit and its actual curried image have definitions. Their passing
+consumers do not derive those profiles from the old raw beta/eta rules or
+qualify variation in F/A/B, classified triangles or whole Q coherence.
+
+The [raw companion-composition replay](represented_comp_source_closure.md)
+constructs the forward map from existing raw operations and tests its whole
+fibre component. A stable tensor-reindex comparison is separately qualified
+as a bounded policy candidate. Its [verification](represented_comp_verification.json)
+also records the integrated coefficient consumers; the inverse, Cartesian
+admission of that forward map and production normalization migration remain
+open.

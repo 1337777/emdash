@@ -1,0 +1,26 @@
+// Generator observation through the retained original raw counit operation.
+// This is the donor's canonical-unit-second-leg generator, not a new law
+// for arbitrary balancing, classified beta/eta or a mate triangle.
+symbol canonical_eval_counit_generator [I A B : Cat]
+  (F : τ (Functor A B)) (a : τ (Functor I B)) (m : τ (Functor I A))
+  (p : τ (@Prof_hom I B B a (@Unit_prof B) (@comp_cat_fapp0 I A B F m)))
+  : τ (@= (@Prof_hom I B B a (@Unit_prof B) (@comp_cat_fapp0 I A B F m))
+      (@Prof_cell_apply I B B B B
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+        (@Unit_prof B) (@id_func B) (@id_func B) a (@comp_cat_fapp0 I A B F m)
+        (@canonical_eval_counit_raw A B F)
+        (@Prof_tensor_hom_hom I B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+          a (@comp_cat_fapp0 I A B F m) m p (@Prof_func_hom I B (@comp_cat_fapp0 I A B F m))))
+      p)
+≔ @eq_ap
+    (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (@Prof_hom I B B a (@Unit_prof B) (@comp_cat_fapp0 I A B F m))
+    (λ c : τ (ProfMap
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B)),
+      @Prof_cell_apply I B B B B
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+        (@Unit_prof B) (@id_func B) (@id_func B) a (@comp_cat_fapp0 I A B F m) c
+        (@Prof_tensor_hom_hom I B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+          a (@comp_cat_fapp0 I A B F m) m p (@Prof_func_hom I B (@comp_cat_fapp0 I A B F m))))
+    (@canonical_eval_counit_raw A B F) (@raw_represented_counit A B F)
+    (@canonical_eval_counit_agreement A B F);

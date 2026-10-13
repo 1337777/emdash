@@ -1,0 +1,41 @@
+// Actual raw evaluation of included j_F has the existing canonical generator
+// observation. Congruence uses the derived raw-map agreement; the donor's
+// guarded reindexed-lambda/co-Yoneda computation supplies the final beta.
+symbol canonical_lambda_eval_generator [I A B : Cat]
+  (F : τ (Functor A B)) (a : τ (Functor I B)) (m : τ (Functor I A))
+  (p : τ (@Prof_hom I B B a (@Unit_prof B) (@comp_cat_fapp0 I A B F m)))
+  : τ (@= (@Prof_hom I B B a (@Unit_prof B) (@comp_cat_fapp0 I A B F m))
+      (@Prof_cell_apply I B B B B
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+        (@Unit_prof B) (@id_func B) (@id_func B) a (@comp_cat_fapp0 I A B F m)
+        (@canonical_lambda_eval_raw A B F)
+        (@Prof_tensor_hom_hom I B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+          a (@comp_cat_fapp0 I A B F m) m p (@Prof_func_hom I B (@comp_cat_fapp0 I A B F m))))
+      p)
+≔ @eq_ap
+    (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (@Prof_hom I B B a (@Unit_prof B) (@comp_cat_fapp0 I A B F m))
+    (λ c : τ (ProfMap
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B)),
+      @Prof_cell_apply I B B B B
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F))
+        (@Unit_prof B) (@id_func B) (@id_func B) a (@comp_cat_fapp0 I A B F m) c
+        (@Prof_tensor_hom_hom I B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+          a (@comp_cat_fapp0 I A B F m) m p (@Prof_func_hom I B (@comp_cat_fapp0 I A B F m))))
+    (@canonical_lambda_eval_raw A B F) (@raw_represented_counit A B F)
+    (@canonical_lambda_eval_agreement A B F);
+
+// Identity evaluation is an observational consequence of raw closed beta,
+// not a new runtime cut on the classified lambda output.
+symbol canonical_lambda_eval_identity (B : Cat)
+  : τ (@= (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+      (@canonical_lambda_eval_raw B B (@id_func B)) (canonical_admission_seed_raw B))
+≔ @eq_trans
+    (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+    (@canonical_lambda_eval_raw B B (@id_func B))
+    (@Prof_coyoneda_cov_map B B (@Unit_prof B)) (canonical_admission_seed_raw B)
+    (@canonical_lambda_eval_agreement B B (@id_func B))
+    (@eq_sym
+      (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+      (canonical_admission_seed_raw B) (@Prof_coyoneda_cov_map B B (@Unit_prof B))
+      (canonical_admission_seed_agreement B));

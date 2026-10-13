@@ -1,0 +1,339 @@
+{
+  "status": "checked bounded fixed-F structural companion-weight evaluation restriction and defined classified counit/raw/curried consumers; not a derivation of the restriction or varying-parameter coherence; no classified beta/eta or triangle laws",
+  "sourceInputs": {
+    "tmp/probes/canonical_lambda/consumers.lp": "3346f7cb0ea5dc67cf163e9ca7081adc8f1cdc5a5af0272131733788d62432d9",
+    "audits/strict-default-action-boundary/canonical_lambda_verification.json": "84c570e656422a688b16a6e2edd77058243e843ecac2105646fadcc5d20b3691",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "contextRevision": "d49762c8e2d187d349165915bb55aaa4ed821f40",
+  "donorReceipt": "20261013T160539Z-e391553ce99a4886b7bdc1db57627437",
+  "fullSourceContinuation": false,
+  "ownerPosition": "Immediately after the unchanged Prof_eval_cov_map declaration and before raw lambda.",
+  "newStructuralContract": {
+    "owner": "canonical_eval_companion_func",
+    "scope": "Fixed F:A->B; classified Conjoint(F)->reindex(imply(U_B,U_B),id,F) maps to classified tensor(Conjoint(F),Companion(F))->U_B.",
+    "higherAction": "Supplied as part of the restricted whole functor, retained by its composed raw inclusion; not compared to a nonexistent full raw-eval mapping owner.",
+    "parameterScope": "Whole action is only on the classified input-map category at fixed F and fixed A/B. A whole varying-F or varying-A/B family and its coherent action remain a separate represented-lift assembly obligation.",
+    "rawObjectView": "Guarded by all original eval categories, P/Q/O and the actual included classified input."
+  },
+  "derivedBodies": [
+    "whole raw-image functor",
+    "counit as fapp0 at actual j_F",
+    "actual raw inclusion",
+    "raw original counit agreement",
+    "native canonical generator observation",
+    "actual image under existing Cartesian curry with full/capped action"
+  ],
+  "preservedBoundaries": [
+    "Public raw ProfMap/Prof_hom and original closed-operation signatures are unchanged.",
+    "No arbitrary raw-map admission or separately supplied proof/witness input.",
+    "No classified beta/eta, triangle, faithfulness inference or new runtime reduction.",
+    "No Q-composition/unit endpoint identification or new Q primitive.",
+    "No whole directed family/coherence as F or A/B vary; this parameter assembly is required for complete represented-lift coherence.",
+    "No arbitrary two-leg balancing or production qualification."
+  ],
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/canonical_eval_migration.py": "76b69f173abeb44bf529c31f4e9a8fb8899634dfcc3cc614cc322fa682543780",
+    "audits/strict-default-action-boundary/canonical_eval_inputs.json": "75d1f2253064c88189aeb8457c6f9796bc2f843e86466cc0fc89ffaa9471733a",
+    "audits/strict-default-action-boundary/canonical_eval_profile.lpfragment": "8956839ef1ea95d660eec69db455c1f5fa697a9685b1bef460088207e7659560",
+    "audits/strict-default-action-boundary/canonical_eval_mapping_controls.lpfragment": "94238942cce7fda62eb73add1e9ab5aec49c60d99215302d35d81244e795f1ff",
+    "audits/strict-default-action-boundary/canonical_eval_operations.lpfragment": "e815a807e8f9b776f5954a0d7c2aa19e2680bfa4fc842fe643cd52051485e197",
+    "audits/strict-default-action-boundary/canonical_eval_generator.lpfragment": "e2b7a1b4abfe00b0dc1b5af2af0641cf04884bf3cf5a9698636b30c87800a75b",
+    "audits/strict-default-action-boundary/canonical_eval_consumers.lpfragment": "7d60ae09d477afbb69922c4a4c191c87bebaf54b73ad3f28f47b5d557e9f4a01",
+    "audits/strict-default-action-boundary/canonical_eval_curried.lpfragment": "5f1e43cba37b9724a4aad14d736f9a890aae117b2f57192f712a6db0f65671c3",
+    "audits/strict-default-action-boundary/canonical_eval_source_closure.md": "6c5ae3d7dbbb83910bfff67717ad05f68dbf67358bd977ceedf179b9ee94345e"
+  },
+  "outputs": {
+    "owner.lp": "8c8b0b2cd5bbfee90f52d4388c31eb30e7eec246099ac88d4cdc04c35a5b6def",
+    "restriction_controls.lp": "2af6afba2833d7a3afad411ca838b8b20d87b1a03ae410faed0564c5b3cc513b",
+    "operations.lp": "b684f68f546ea44d612e97cf1a343d2de80e200504ed7283acf526d475c9895d",
+    "raw_consumers.lp": "31c8df2666f7ed14cf990c2b358e68fdde79ad5c2d5b955ac8d128acd141f5aa",
+    "consumers.lp": "65b042f00d35313dbf7bce088e385bddcf0493a7430a4f2d6944981f3b2357a4",
+    "without_raw_view.lp": "724a79f561c1b41f1f5cb02e96cb8b2ee4aa3438de6f7ae66776ea0465b46fc0",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "newControls": {
+    "canonical_eval_profile.lpfragment": {
+      "positive": 0,
+      "negative": 0
+    },
+    "canonical_eval_mapping_controls.lpfragment": {
+      "positive": 4,
+      "negative": 2
+    },
+    "canonical_eval_operations.lpfragment": {
+      "positive": 0,
+      "negative": 0
+    },
+    "canonical_eval_generator.lpfragment": {
+      "positive": 0,
+      "negative": 0
+    },
+    "canonical_eval_consumers.lpfragment": {
+      "positive": 5,
+      "negative": 2
+    },
+    "canonical_eval_curried.lpfragment": {
+      "positive": 2,
+      "negative": 0
+    }
+  },
+  "selectedTarget": "consumers.lp",
+  "checks": {
+    "restriction_controls.lp": {
+      "id": "20261013T162524Z-2d7375366c154c7b8b05bb1c35f7d7b5",
+      "target": "tmp/probes/canonical_eval/restriction_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 6.457719111000188,
+      "childrenMaxRssKiB": 433916,
+      "inputSnapshot": "348a14bc4687a568f3f55c63e1c16c46b0c5f84f8e820fca0b20a1969f685d30",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/canonical_eval/restriction_controls.lp": "2af6afba2833d7a3afad411ca838b8b20d87b1a03ae410faed0564c5b3cc513b"
+      },
+      "log": "logs/check-runs/20261013T162524Z-2d7375366c154c7b8b05bb1c35f7d7b5.log",
+      "logSha256": "48410ab56a35ec72ec42f59aa9918050f89284b8e25b99b504af8f5a1f7fc42c",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/canonical_eval/restriction_controls.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "consumers.lp": {
+      "id": "20261013T162531Z-0dac98fb26264181a3854dcd544a498f",
+      "target": "tmp/probes/canonical_eval/consumers.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 6.522260817000642,
+      "childrenMaxRssKiB": 435876,
+      "inputSnapshot": "8973555850af0fad6bb00bdca34d6380f1d3c431178b2a21f2567a5759fea7cb",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/canonical_eval/consumers.lp": "65b042f00d35313dbf7bce088e385bddcf0493a7430a4f2d6944981f3b2357a4"
+      },
+      "log": "logs/check-runs/20261013T162531Z-0dac98fb26264181a3854dcd544a498f.log",
+      "logSha256": "13c36439021bcc3738256f015ce5b00adecf122dba3f02eac136fb424d895f20",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/canonical_eval/consumers.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "without_raw_view.lp": {
+      "id": "20261013T162538Z-ede317ba246440d8a8a54d65ab93ee0a",
+      "target": "tmp/probes/canonical_eval/without_raw_view.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 6.802666774019599,
+      "childrenMaxRssKiB": 432080,
+      "inputSnapshot": "1819686452dbee12236d531ef783a0f8315a3acb60cf8d68f9dc6f8da9dc1ba4",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "tmp/probes/canonical_eval/without_raw_view.lp": "724a79f561c1b41f1f5cb02e96cb8b2ee4aa3438de6f7ae66776ea0465b46fc0"
+      },
+      "log": "logs/check-runs/20261013T162538Z-ede317ba246440d8a8a54d65ab93ee0a.log",
+      "logSha256": "ec994fdb274b8a8270b9f64b08035bcc92dd92a74b3431d8510ddaccc2fae08c",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "tmp/probes/canonical_eval/without_raw_view.lp"
+      ],
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    }
+  },
+  "baselineCheck": {
+    "id": "20261013T160539Z-e391553ce99a4886b7bdc1db57627437",
+    "target": "tmp/probes/canonical_lambda/consumers.lp",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "wallSeconds": 7.6191287440015,
+    "childrenMaxRssKiB": 430736,
+    "inputSnapshot": "afeff5a17392d72a630553076dbe1aed275ce569319ad032d9539004eea4eb05",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "tmp/probes/canonical_lambda/consumers.lp": "3346f7cb0ea5dc67cf163e9ca7081adc8f1cdc5a5af0272131733788d62432d9"
+    },
+    "log": "logs/check-runs/20261013T160539Z-e391553ce99a4886b7bdc1db57627437.log",
+    "logSha256": "10b98e7bb94c4e4def2318a4b786b491cadf1f1730ea9f062039aabcc2a1fff3",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "command": [
+      "bash",
+      "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+      "/home/user1/.opam/default/bin/lambdapi",
+      "check",
+      "tmp/probes/canonical_lambda/consumers.lp"
+    ],
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    }
+  },
+  "controlCounts": {
+    "restriction_controls.lp": {
+      "positiveIncludingInherited": 253,
+      "negativeIncludingInherited": 72,
+      "qualification": "Source-obligation counts; failed targets may stop before later consumers."
+    },
+    "consumers.lp": {
+      "positiveIncludingInherited": 260,
+      "negativeIncludingInherited": 74,
+      "qualification": "Source-obligation counts; failed targets may stop before later consumers."
+    },
+    "without_raw_view.lp": {
+      "positiveIncludingInherited": 260,
+      "negativeIncludingInherited": 74,
+      "qualification": "Source-obligation counts; failed targets may stop before later consumers."
+    }
+  },
+  "warningComparison": {
+    "baselineTarget": "tmp/probes/canonical_lambda/consumers.lp",
+    "selectedTarget": "consumers.lp",
+    "before": 911,
+    "after": 911,
+    "normalization": "Strip ANSI colors and source locations; retain exact five term/reduct/participant lines per Unjoinable critical pair.",
+    "added": [],
+    "removed": [],
+    "qualification": "Existing overlap qualifications remain; no confluence or derived structural-profile claim."
+  },
+  "removalControls": {
+    "without_raw_view.lp": {
+      "status": "failed at intended whole-map comparison",
+      "receiptId": "20261013T162538Z-ede317ba246440d8a8a54d65ab93ee0a",
+      "sourceSha256": "724a79f561c1b41f1f5cb02e96cb8b2ee4aa3438de6f7ae66776ea0465b46fc0",
+      "selectedSource": "consumers.lp",
+      "removedFragment": "canonical_eval_profile.lpfragment unif_rule tail",
+      "removedFragmentSha256": "171d3088107d2c9e180594611dbe73e6144a06642c9bbc97b01fc16ce5263d8d",
+      "reachedBoundary": "canonical_eval_raw_agreement cannot compare the included restricted whole-evaluator value with original raw eval on the actual included input. Whole owner/profile and earlier mapping-action controls remain.",
+      "failureLocation": "18624:0-18633:48",
+      "syntaxFailure": false
+    }
+  },
+  "ruleLhsAudit": {
+    "command": "python3 scripts/audit_rule_lhs.py --strict tmp/probes/canonical_eval/consumers.lp",
+    "targetSha256": "65b042f00d35313dbf7bce088e385bddcf0493a7430a4f2d6944981f3b2357a4",
+    "scriptSha256": "1ac349accdadfe60de52c48791cda50afcb879301219f98c88cf641951fe88d4",
+    "exitCode": 0,
+    "output": "tmp/probes/canonical_eval/lhs_audit.out",
+    "outputSha256": "2114c5f7dc9e5337d174cc2280d3a5193165d07b4b7b0f308a7c79a4dffed8c0",
+    "unreviewedClauses": 0,
+    "unreviewedSlots": 0,
+    "annotatedClauses": 30,
+    "annotatedSlots": 44,
+    "qualification": "Static advisory audit only; not confluence or derived strictness."
+  },
+  "qualificationBoundary": {
+    "structuralContract": "One whole evaluator on the classified input-map category at fixed F and fixed A/B; its higher action is supplied by this exact companion-weight restriction, not derived from the raw signatures/generator beta.",
+    "counitBody": "canonical_eval_counit is fapp0 of this owner at the actual canonical_lambda_reindex(F); no separate primitive counit or proof/witness input.",
+    "derivedConsumers": "Whole raw-image functor, raw counit agreement and native canonical-unit-second-leg generator observation have bodies. Actual Cartesian curry image and whole/capped projection orders pass.",
+    "rawHigherComparison": "No full raw-eval mapping owner exists against which a higher action compatibility theorem has been derived.",
+    "parameterAssembly": "A whole varying-F or varying-A/B family and coherent directed action remain required for complete represented-lift coherence; parameterized declarations at fixed F do not supply them.",
+    "notInferred": "No classified lambda/eval beta/eta, triangle, identity comparison, inverse or faithfulness is inferred from equality after forgetting.",
+    "remaining": "Whole parameter assembly, general balancing/arbitrary two-leg generators, represented-lift/coefficient coherence and production integration."
+  },
+  "curriedConsumer": {
+    "definition": "canonical_eval_counit_curried",
+    "source": "curry_BB(tensor(Conjoint(F),Companion(F)))",
+    "target": "curry_BB(Unit_B)",
+    "category": "local_cart_prof_qhom B B",
+    "construction": "Actual fapp1_fapp0 of local_cart_prof_curry_func B B on the constructed classified counit.",
+    "checked": [
+      "Whole Hom action typing before selecting the counit.",
+      "Full-then-object and direct capped projection orders agree."
+    ],
+    "notClaimed": "No Q primitive, Q-composition or Q-unit endpoint identification."
+  },
+  "unrunTargets": [
+    "owner.lp",
+    "operations.lp",
+    "raw_consumers.lp"
+  ]
+}

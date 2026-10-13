@@ -1,0 +1,23 @@
+// NON-LIBRARY independent scalar associativity consumer.
+assert [C : Cat] [w x y z : τ (Obj C)]
+  (j : τ (Hom C w x)) (h : τ (Hom C x y)) (f : τ (Hom C y z)) ⊢
+  @eq_refl (Hom C w z)
+    (@comp_fapp0 C w x z
+      (@hom_precomp_along_fapp0 C C (@id_func C) z x y h f) j)
+  : τ (@= (Hom C w z)
+    (@comp_fapp0 C w x z
+      (@hom_precomp_along_fapp0 C C (@id_func C) z x y h f) j)
+    (@hom_precomp_along_fapp0 C C (@id_func C) z w y
+      (@comp_fapp0 C w x y h j) f));
+
+// The actual innermost precomposing arrow is not discarded.
+assertnot [C : Cat] [w x y z : τ (Obj C)]
+  (j j' : τ (Hom C w x)) (h : τ (Hom C x y)) (f : τ (Hom C y z)) ⊢
+  @eq_refl (Hom C w z)
+    (@comp_fapp0 C w x z
+      (@hom_precomp_along_fapp0 C C (@id_func C) z x y h f) j)
+  : τ (@= (Hom C w z)
+    (@comp_fapp0 C w x z
+      (@hom_precomp_along_fapp0 C C (@id_func C) z x y h f) j)
+    (@hom_precomp_along_fapp0 C C (@id_func C) z w y
+      (@comp_fapp0 C w x y h j') f));

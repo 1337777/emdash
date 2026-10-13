@@ -1,0 +1,10 @@
+// Proposed stable-head presentation of the existing tensor-reindex law.
+// Its eager expansion obscures the reindex owner used by the actual local
+// Cartesian action. Retain that owner at runtime and compare the complete
+// expanded tensor, with both actual profunctors and endpoint maps constrained.
+unif_rule
+  @Prof_reindex $A $A' $X $X' (@Prof_tensor $A $B $X $R $S) $F $G
+  ≡ @Prof_tensor $A0 $B0 $X0 $R0 $S0
+  ↪ [ $A' ≡ $A0; $B ≡ $B0; $X' ≡ $X0;
+      $R0 ≡ @Prof_reindex $A $A' $B $B $R $F (@id_func $B);
+      $S0 ≡ @Prof_reindex $B $B $X $X' $S (@id_func $B) $G ];

@@ -1,0 +1,21 @@
+// NON-LIBRARY UNCHECKED proof-time reading of the existing horizontal
+// identity-pair law. Do not loosen its runtime rule: the two earlier
+// wildcard endpoint attempts failed subject reduction.
+// Both actual displayed endpoint pairs must agree with the objects of the
+// two identity cells, and the result must be their actual composite.
+// This compares generic horizontal identity action, not an inverse term.
+// lhs-audit: keep 1 -- Cat_cat selects whole functor composition.
+unif_rule @comp_prod_fapp1_fapp0 Cat_cat $X $Y $Z
+      (@Struct_sigma _ _ $F $G)
+      (@Struct_sigma _ _ $F' $G')
+      (@Struct_sigma _ _ (@id _ $Fi) (@id _ $Gi))
+  ≡ @id (Functor_cart_cat $X0 $Z0) $GF
+  ↪ [
+      $X ≡ $X0;
+      $Z ≡ $Z0;
+      $F ≡ $Fi;
+      $F' ≡ $Fi;
+      $G ≡ $Gi;
+      $G' ≡ $Gi;
+      $GF ≡ @comp_fapp0 Cat_cat $X $Y $Z $Gi $Fi
+    ];

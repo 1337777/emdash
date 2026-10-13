@@ -1,0 +1,31 @@
+// Actual image of the constructed Cartesian counit under the existing
+// presentation functor. Endpoints remain the actual curried product values;
+// no Q-composition, Q-unit comparison or new Q primitive is asserted.
+symbol canonical_eval_counit_curried [A B : Cat] (F : τ (Functor A B))
+  : τ (Hom (local_cart_prof_qhom B B)
+      (fapp0 (local_cart_prof_curry_func B B)
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)))
+      (fapp0 (local_cart_prof_curry_func B B) (@Unit_prof B)))
+≔ @fapp1_fapp0 (local_cart_prof_cat B B) (local_cart_prof_qhom B B)
+    (local_cart_prof_curry_func B B)
+    (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B)
+    (@canonical_eval_counit A B F);
+
+// The whole Hom action exists before selecting the counit map.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @fapp1_func (local_cart_prof_cat B B) (local_cart_prof_qhom B B)
+    (local_cart_prof_curry_func B B)
+    (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B)
+  : τ (Functor (@canonical_eval_target_cat A B F)
+      (Hom_cat (local_cart_prof_qhom B B)
+        (fapp0 (local_cart_prof_curry_func B B)
+          (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)))
+        (fapp0 (local_cart_prof_curry_func B B) (@Unit_prof B))));
+
+// Full-then-object projection and the direct capped image are the same map.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  fapp0 (@fapp1_func (local_cart_prof_cat B B) (local_cart_prof_qhom B B)
+    (local_cart_prof_curry_func B B)
+    (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (@canonical_eval_counit A B F)
+  ≡ @canonical_eval_counit_curried A B F;

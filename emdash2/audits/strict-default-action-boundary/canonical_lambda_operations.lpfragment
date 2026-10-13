@@ -1,0 +1,129 @@
+// The raw image is itself a derived whole functor, retaining next-Hom action.
+symbol canonical_lambda_forget_func (B : Cat)
+  : τ (Functor (canonical_lambda_source_cat B)
+      (Hom_cat (Prof_cat B B) (@Unit_prof B)
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))))
+≔ @comp_cat_fapp0 (canonical_lambda_source_cat B) (canonical_lambda_target_cat B)
+    (Hom_cat (Prof_cat B B) (@Unit_prof B)
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+    (@fapp1_func (local_cart_prof_cat B B) (Prof_cat B B) (local_cart_prof_include B B)
+      (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+    (canonical_lambda_unit_func B);
+
+symbol canonical_lambda_input_raw [B : Cat]
+  (t : τ (Obj (canonical_lambda_source_cat B)))
+  : τ (ProfMap (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B))
+≔ @fapp1_fapp0 _ _ (local_cart_prof_include B B)
+    (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B) t;
+
+// This is an observational equality output, never an operational input.
+symbol canonical_lambda_raw_agreement [B : Cat]
+  (t : τ (Obj (canonical_lambda_source_cat B)))
+  : τ (@=
+      (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+      (fapp0 (canonical_lambda_forget_func B) t)
+      (@Prof_lambda_cov_map B B B (@Unit_prof B) (@Unit_prof B) (@Unit_prof B)
+        (@canonical_lambda_input_raw B t)))
+≔ @eq_refl
+    (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+    (fapp0 (canonical_lambda_forget_func B) t);
+
+// Actual classified j_B, obtained by applying the restricted whole lambda.
+symbol canonical_lambda_j (B : Cat)
+  : τ (Obj (canonical_lambda_target_cat B))
+≔ fapp0 (canonical_lambda_unit_func B) (canonical_admission_coyoneda_unit B);
+symbol canonical_lambda_j_raw (B : Cat)
+  : τ (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+≔ fapp0 (canonical_lambda_forget_func B) (canonical_admission_coyoneda_unit B);
+
+symbol canonical_lambda_j_agreement (B : Cat)
+  : τ (@=
+      (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+      (canonical_lambda_j_raw B) (raw_represented_counit_unit_transpose B))
+≔ @eq_trans
+    (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+    (canonical_lambda_j_raw B) (canonical_admission_lambda_raw B)
+    (raw_represented_counit_unit_transpose B)
+    (@canonical_lambda_raw_agreement B (canonical_admission_coyoneda_unit B))
+    (canonical_admission_lambda_agreement B);
+
+// Actual classified j_F: the existing local reindex functor supplies it.
+symbol canonical_lambda_reindex [A B : Cat] (F : τ (Functor A B))
+  : τ (Hom (local_cart_prof_cat B A) (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+≔ @fapp1_fapp0 _ _ (@local_cart_prof_reindex_func B B B A (@id_func B) F)
+    (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))
+    (canonical_lambda_j B);
+
+symbol canonical_lambda_reindex_raw [A B : Cat] (F : τ (Functor A B))
+  : τ (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+≔ @admission_next_cart_reindex_included B B B A (@id_func B) F
+    (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))
+    (canonical_lambda_j B);
+
+symbol canonical_lambda_reindex_input_agreement [A B : Cat]
+  (F : τ (Functor A B))
+  : τ (@=
+      (ProfMap (@Conjoint_prof A B F)
+        (@Prof_reindex B B B A
+          (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+      (@Prof_reindex_transf B B B A (@Unit_prof B)
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))
+        (canonical_lambda_j_raw B) (@id_func B) F)
+      (@raw_represented_counit_closed_map A B F))
+≔ @eq_ap
+    (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)))
+    (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+    (λ t : τ (ProfMap (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))),
+      @Prof_reindex_transf B B B A (@Unit_prof B)
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) t (@id_func B) F)
+    (canonical_lambda_j_raw B) (raw_represented_counit_unit_transpose B)
+    (canonical_lambda_j_agreement B);
+
+symbol canonical_lambda_reindex_agreement [A B : Cat] (F : τ (Functor A B))
+  : τ (@=
+      (ProfMap (@Conjoint_prof A B F)
+        (@Prof_reindex B B B A
+          (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+      (@canonical_lambda_reindex_raw A B F) (@raw_represented_counit_closed_map A B F))
+≔ @eq_trans
+    (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+    (@canonical_lambda_reindex_raw A B F)
+    (@Prof_reindex_transf B B B A (@Unit_prof B)
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))
+      (canonical_lambda_j_raw B) (@id_func B) F)
+    (@raw_represented_counit_closed_map A B F)
+    (@admission_next_reindex_map_agreement B B B A (@id_func B) F
+      (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B))
+      (canonical_lambda_j B))
+    (@canonical_lambda_reindex_input_agreement A B F);
+
+// Evaluation consumes the actual included j_F and keeps its RAW output.
+symbol canonical_lambda_eval_raw [A B : Cat] (F : τ (Functor A B))
+  : τ (ProfMap
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+≔ @Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+    (@Unit_prof B) (@canonical_lambda_reindex_raw A B F);
+
+symbol canonical_lambda_eval_agreement [A B : Cat] (F : τ (Functor A B))
+  : τ (@=
+      (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+      (@canonical_lambda_eval_raw A B F) (@raw_represented_counit A B F))
+≔ @eq_ap
+    (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+    (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (λ t : τ (ProfMap (@Conjoint_prof A B F)
+        (@Prof_reindex B B B A
+          (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F)),
+      @Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F) (@Unit_prof B) t)
+    (@canonical_lambda_reindex_raw A B F) (@raw_represented_counit_closed_map A B F)
+    (@canonical_lambda_reindex_agreement A B F);

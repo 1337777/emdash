@@ -1,0 +1,44 @@
+// The restriction is applicable to the actual constructed j_F.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @canonical_lambda_reindex A B F
+  : τ (Obj (@canonical_eval_source_cat A B F));
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @canonical_eval_counit A B F
+  : τ (Hom (local_cart_prof_cat B B)
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B));
+
+// The raw observation is the actual inclusion of that constructed map.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @canonical_eval_counit_raw A B F
+  ≡ @fapp1_fapp0 _ _ (local_cart_prof_include B B)
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B)
+      (@canonical_eval_counit A B F);
+assert [A B : Cat] (F : τ (Functor A B)) ⊢ @canonical_eval_counit_agreement A B F
+  : τ (@=
+      (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+      (@canonical_eval_counit_raw A B F) (@raw_represented_counit A B F));
+
+// Retain whole higher action after forgetting the restricted evaluator.
+assert [A B : Cat] (F : τ (Functor A B))
+  [r s : τ (Obj (@canonical_eval_source_cat A B F))] ⊢
+  @fapp1_func _ _ (@canonical_eval_forget_func A B F) r s
+  : τ (Functor (Hom_cat (@canonical_eval_source_cat A B F) r s)
+      (Hom_cat
+        (Hom_cat (Prof_cat B B)
+          (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+        (fapp0 (@canonical_eval_forget_func A B F) r)
+        (fapp0 (@canonical_eval_forget_func A B F) s)));
+
+// The explicit classified lift does not retype the retained public raw name.
+assertnot [A B : Cat] (F : τ (Functor A B)) ⊢ @raw_represented_counit A B F
+  : τ (Hom (local_cart_prof_cat B B)
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B));
+
+// Raw forgetting still retains the actual classified input, not another one.
+assertnot [A B : Cat] (F : τ (Functor A B))
+  (r s : τ (Obj (@canonical_eval_source_cat A B F))) ⊢
+  @eq_refl
+    (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (fapp0 (@canonical_eval_forget_func A B F) r)
+  : τ (@=
+      (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+      (fapp0 (@canonical_eval_forget_func A B F) r)
+      (@Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+        (@Unit_prof B) (@canonical_eval_input_raw A B F s)));

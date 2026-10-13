@@ -1,0 +1,10 @@
+{
+  "status": "source pins for unchecked proof-time nested identity inverse experiment",
+  "donor": "tmp/probes/coefficient_assembly/with_nested_reindex.lp",
+  "sourceInputs": {
+    "tmp/probes/coefficient_assembly/with_nested_reindex.lp": "22137af6b253146827ba243d87cc9b4cc92ca6d91c6b925dd009f01d1b4bfd2f",
+    "audits/strict-default-action-boundary/coefficient_assembly_verification.json": "3480361df6fa2807e081c6491b2b24e672b1a561f32e3f5127f4a6807c8e8a71",
+    "audits/strict-default-action-boundary/local_inverse_interaction_controls.lpfragment": "80192e53b9201a83d84ab2be254452d7a3d88dbf642fc4257f524c1a676e1476",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  }
+}

@@ -1,0 +1,93 @@
+// Derived whole raw image through the existing inclusion's Hom action.
+symbol canonical_eval_forget_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (@canonical_eval_source_cat A B F)
+      (Hom_cat (Prof_cat B B)
+        (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B)))
+≔ @comp_cat_fapp0 (@canonical_eval_source_cat A B F) (@canonical_eval_target_cat A B F)
+    (Hom_cat (Prof_cat B B)
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (@fapp1_func (local_cart_prof_cat B B) (Prof_cat B B) (local_cart_prof_include B B)
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (@canonical_eval_companion_func A B F);
+
+symbol canonical_eval_input_raw [A B : Cat] (F : τ (Functor A B))
+  (t : τ (Obj (@canonical_eval_source_cat A B F)))
+  : τ (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+≔ @fapp1_fapp0 _ _ (local_cart_prof_include B A) (@Conjoint_prof A B F)
+    (@Prof_reindex B B B A
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F) t;
+
+// The sole new structural forgetting agreement is observed at whole maps.
+symbol canonical_eval_raw_agreement [A B : Cat] (F : τ (Functor A B))
+  (t : τ (Obj (@canonical_eval_source_cat A B F)))
+  : τ (@=
+      (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+      (fapp0 (@canonical_eval_forget_func A B F) t)
+      (@Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+        (@Unit_prof B) (@canonical_eval_input_raw A B F t)))
+≔ @eq_refl
+    (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (fapp0 (@canonical_eval_forget_func A B F) t);
+
+// The classified counit is a defined value at the already constructed j_F.
+// It is not a second primitive map and takes no proof/admission argument.
+symbol canonical_eval_counit [A B : Cat] (F : τ (Functor A B))
+  : τ (Obj (@canonical_eval_target_cat A B F))
+≔ fapp0 (@canonical_eval_companion_func A B F) (@canonical_lambda_reindex A B F);
+symbol canonical_eval_counit_raw [A B : Cat] (F : τ (Functor A B))
+  : τ (ProfMap
+      (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+≔ fapp0 (@canonical_eval_forget_func A B F) (@canonical_lambda_reindex A B F);
+
+// The two input observations include the same actual classified j_F.
+symbol canonical_eval_j_input_agreement [A B : Cat] (F : τ (Functor A B))
+  : τ (@=
+      (ProfMap (@Conjoint_prof A B F)
+        (@Prof_reindex B B B A
+          (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+      (@canonical_eval_input_raw A B F (@canonical_lambda_reindex A B F))
+      (@canonical_lambda_reindex_raw A B F))
+≔ @eq_refl
+    (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+    (@canonical_eval_input_raw A B F (@canonical_lambda_reindex A B F));
+
+symbol canonical_eval_input_eval_agreement [A B : Cat] (F : τ (Functor A B))
+  : τ (@=
+      (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+      (@Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+        (@Unit_prof B) (@canonical_eval_input_raw A B F (@canonical_lambda_reindex A B F)))
+      (@canonical_lambda_eval_raw A B F))
+≔ @eq_ap
+    (ProfMap (@Conjoint_prof A B F)
+      (@Prof_reindex B B B A
+        (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F))
+    (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (λ t : τ (ProfMap (@Conjoint_prof A B F)
+        (@Prof_reindex B B B A
+          (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F)),
+      @Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F) (@Unit_prof B) t)
+    (@canonical_eval_input_raw A B F (@canonical_lambda_reindex A B F))
+    (@canonical_lambda_reindex_raw A B F) (@canonical_eval_j_input_agreement A B F);
+
+// Observational theorem only: two actual raw comparisons are composed.
+symbol canonical_eval_counit_agreement [A B : Cat] (F : τ (Functor A B))
+  : τ (@=
+      (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+      (@canonical_eval_counit_raw A B F) (@raw_represented_counit A B F))
+≔ @eq_trans
+    (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+    (@canonical_eval_counit_raw A B F)
+    (@Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+      (@Unit_prof B) (@canonical_eval_input_raw A B F (@canonical_lambda_reindex A B F)))
+    (@raw_represented_counit A B F)
+    (@canonical_eval_raw_agreement A B F (@canonical_lambda_reindex A B F))
+    (@eq_trans
+      (ProfMap (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B))
+      (@Prof_eval_cov_map B A B (@Conjoint_prof A B F) (@Companion_prof A B F)
+        (@Unit_prof B) (@canonical_eval_input_raw A B F (@canonical_lambda_reindex A B F)))
+      (@canonical_lambda_eval_raw A B F) (@raw_represented_counit A B F)
+      (@canonical_eval_input_eval_agreement A B F) (@canonical_lambda_eval_agreement A B F));

@@ -81,10 +81,11 @@ defined relative extension. The local_cart_prof slice separately qualifies
 the raw-preserving Cartesian view and its first consumers. The earlier
 cart_action product-prof/Q presentation inverses check in its provisional
 Cartesian Prof profile. The local raw-preserving view now checks expanded
-variable-map inverses and selected identity/composition interactions, while
-the nested reindexed-identity case remains open. The current raw coefficient
-integration reference is `coefficient_assembly/with_nested_reindex.lp`, still
-conditional on the explicitly proposed co-Yoneda seed profile; its detailed
+variable-map inverses and selected identity/composition interactions. The
+nested reindexed identity now has a typed comparison through generic owner
+laws; its runtime conversion still fails. The current raw coefficient
+integration reference is `represented_comp/integrated_controls.lp`, conditional
+on the stated co-Yoneda seed and fixed-parameter lambda/evaluation profiles; its detailed
 source closure and limits are recorded below. The next required work is local Cartesian admission
 of the canonical profunctor operations without narrowing raw public maps,
 the represented lift's remaining action/coherence, and intrinsic-action
@@ -2400,6 +2401,82 @@ all qualifications. Whole tensor/balancing/unit/counit coherence, canonical
 lambda/evaluation admission, the remaining inverse interaction, native
 intrinsic action and production migration remain required. General-FF leaf
 normalization remains separate from identity Homd acceptance.
+
+## Fixed-parameter canonical counit and composition continuation
+
+After d49762c8, the `inverse_nested` replay closes the actual nested-identity
+typed comparison using two generic proof-time owner laws. One compares raw
+composition outside stable precomposition with its accumulated form. The
+other reads horizontal action on an identity pair, constraining both actual
+endpoint pairs against those identity objects. All arrow data remain in
+the constraints. Both exact removals fail the actual consumer, and a
+same-endpoint variable swap cell remains distinguishable from identity.
+No runtime rule, definition or special inverse equation is added. Runtime
+conversion still fails as recorded separately. Warnings remain 911.
+
+The `canonical_lambda` and `canonical_eval` replays complete a conditional
+fixed-parameter canonical-map chain. Each introduces one whole restricted
+mapping functor with an explicit raw forgetting agreement. The lambda
+restriction is exactly at Unit/Unit/Unit; the evaluator uses the actual
+companion weight of F and the stable reindexed implication endpoint.
+
+```text
+e_B : classified co-Yoneda(Unit_B)
+j_B = Lambda_cart[B](e_B)
+j_F = existing Cartesian reindex(id_B,F)(j_B)
+counit_F = Eval_cart[F](j_F)
+curried_counit_F = existing curry action(counit_F).
+```
+
+Only the restricted whole mapping operators are new structural contracts;
+j_B, j_F, the counit, its whole raw image and its curried image have actual
+bodies. Their raw-operation agreements, generator observations, whole/capped
+application and strict functor identity/composition consumers check. The
+raw-view removals fail at the intended comparisons. Operational maps take
+no equality proof, independent strictness witness or arbitrary raw admission
+input. The evaluator's whole action is at fixed F and A/B. No varying-F or
+varying-category family, faithful-forgetting argument, classified beta/eta
+or triangle follows from these declarations. These are conditional profile
+implementations, not strictness derived from the old opaque closed calculus.
+
+The `represented_comp` replay separately constructs an actual raw forward map
+
+```text
+Comp(F) tensor Comp(G) -> Comp(G o F).
+```
+
+It uses G's existing Hom action, endpoint reindexing, tensor-map action and
+the actual raw counit of G. Its entire fibre component is the existing
+ordinary transfor composition. Independent review confirms the orientation
+and absence of a hidden Cartesian cast, inverse or proof payload. The
+reverse map, inverse equations and Cartesian profile admission are
+not supplied by this forward construction.
+
+Importing the original eager tensor-reindex rule breaks the inherited seed
+reindex type before the new map. A separate stable-head policy candidate
+keeps Prof_reindex at runtime and expresses the same exposed-endpoint law
+by proof-time comparison, preserving the middle category and all data.
+The actual forward map, whole fibre component and a general-weight law check;
+the perturbed-weight negative and exact removal are recorded. This is not
+a promoted repository-wide normalization change: existing expansion consumers
+still require qualification.
+
+`represented_comp/integrated_controls.lp` checks all these changes together
+in the raw-preserving coefficient reference. The structural profile boundary
+remains explicit. Its verification and all source/receipt identities are in
+the four audit families `inverse_nested_*`, `canonical_lambda_*`,
+`canonical_eval_*` and `represented_comp_*`. Warning inventories and the
+strict LHS audit are retained with those records; no production owner is
+changed in this checkpoint.
+
+Next required work: assemble coherent variation of the admitted canonical
+maps in their actual parameters; relate their curried endpoints to the
+selected Q composition/unit definitions; construct and qualify the missing
+composition inverse and triangle/balancing laws; then integrate the corrected
+intrinsic action and continue the production migration. The fixed-parameter
+contracts and derived consumers do not complete the whole represented lift
+or the foundational goal. General-FF leaf normalization remains separate
+from the required identity Homd ladder.
 
 ## Deferred improvements under the migration boundary
 

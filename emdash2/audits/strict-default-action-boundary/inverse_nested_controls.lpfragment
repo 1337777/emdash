@@ -1,0 +1,56 @@
+// NON-LIBRARY actual nested identity inverse: proof-time, not runtime.
+assert [A B C D : Cat] (H : τ (Functor (Product_cat A B) C))
+  (F : τ (Functor C D)) ⊢
+  @eq_refl (@StrictTransfor (Product_cat A B) D
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F))
+    (@local_inverse_swap_action B A D _ _
+      (@local_inverse_swap_action A B D _ _
+        (@id (Functor_cart_cat (Product_cat A B) D)
+          (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F))))
+  : τ (@= (@StrictTransfor (Product_cat A B) D
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F))
+    (@local_inverse_swap_action B A D _ _
+      (@local_inverse_swap_action A B D _ _
+        (@id (Functor_cart_cat (Product_cat A B) D)
+          (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F))))
+    (@id (Functor_cart_cat (Product_cat A B) D)
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)));
+
+// Check formation at the same endpoints before the perturbation negative.
+assert [A B C D : Cat] (H : τ (Functor (Product_cat A B) C))
+  (F : τ (Functor C D))
+  (theta : τ (@StrictTransfor (Product_cat A B) (Product_cat B A)
+    (@Product_swap_func A B) (@Product_swap_func A B))) ⊢
+  @local_inverse_perturbed_swap A B D
+    (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+    (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+    (@id (Functor_cart_cat (Product_cat A B) D)
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)) theta
+  : τ (@StrictTransfor (Product_cat A B) D
+    (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+    (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F));
+
+assertnot [A B C D : Cat] (H : τ (Functor (Product_cat A B) C))
+  (F : τ (Functor C D))
+  (theta : τ (@StrictTransfor (Product_cat A B) (Product_cat B A)
+    (@Product_swap_func A B) (@Product_swap_func A B))) ⊢
+  @eq_refl (@StrictTransfor (Product_cat A B) D
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F))
+    (@local_inverse_perturbed_swap A B D
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+      (@id (Functor_cart_cat (Product_cat A B) D)
+        (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)) theta)
+  : τ (@= (@StrictTransfor (Product_cat A B) D
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F))
+    (@local_inverse_perturbed_swap A B D
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)
+      (@id (Functor_cart_cat (Product_cat A B) D)
+        (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)) theta)
+    (@id (Functor_cart_cat (Product_cat A B) D)
+      (fapp0 (@comp_cat_con_cart_func (Product_cat A B) C D H) F)));

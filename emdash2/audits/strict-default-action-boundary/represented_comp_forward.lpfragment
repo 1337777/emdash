@@ -1,0 +1,45 @@
+/* A constructed forward comparison for companion composition.
+
+   F:A->B, G:B->C; Comp(F) tensor Comp(G) -> Comp(G o F).
+   First map the left hom through G, then use the existing raw counit of G
+   reindexed along (G o F,id_C). All maps retain the raw public profile.
+   This is one actual comparison map, not an inverse or a composition fold.
+*/
+symbol represented_comp_middle [A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C)) : τ (Prof A B)
+≔ @Prof_reindex C A C B (@Unit_prof C) (@comp_cat_fapp0 A B C G F) G;
+
+symbol represented_comp_transport [A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (ProfMap (@Companion_prof A B F) (@represented_comp_middle A B C F G))
+≔ @Prof_reindex_transf B A B B (@Unit_prof B)
+    (@Prof_reindex C B C B (@Unit_prof C) G G)
+    (@Prof_func_hom B C G) F (@id_func B);
+
+symbol represented_comp_counit [A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (ProfMap
+      (@Prof_tensor A B C (@represented_comp_middle A B C F G) (@Companion_prof B C G))
+      (@Companion_prof A C (@comp_cat_fapp0 A B C G F)))
+≔ @Prof_reindex_transf C A C C
+    (@Prof_tensor C B C (@Conjoint_prof B C G) (@Companion_prof B C G))
+    (@Unit_prof C) (@raw_represented_counit B C G)
+    (@comp_cat_fapp0 A B C G F) (@id_func C);
+
+// Use the ordinary ambient transfor composition owner so its components
+// remain governed by the existing generic tapp0/tapp1 projection ladder.
+symbol represented_comp_forward [A B C : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  : τ (ProfMap
+      (@Prof_tensor A B C (@Companion_prof A B F) (@Companion_prof B C G))
+      (@Companion_prof A C (@comp_cat_fapp0 A B C G F)))
+≔ @comp_fapp0 (Functor_cat (Product_cat (Op_cat A) C) Cat_cat)
+    (@Prof_tensor A B C (@Companion_prof A B F) (@Companion_prof B C G))
+    (@Prof_tensor A B C (@represented_comp_middle A B C F G) (@Companion_prof B C G))
+    (@Companion_prof A C (@comp_cat_fapp0 A B C G F))
+    (@represented_comp_counit A B C F G)
+    (@Prof_tensor_map A B C (@Companion_prof A B F)
+      (@represented_comp_middle A B C F G)
+      (@Companion_prof B C G) (@Companion_prof B C G)
+      (@represented_comp_transport A B C F G)
+      (@id (Prof_cat B C) (@Companion_prof B C G)));

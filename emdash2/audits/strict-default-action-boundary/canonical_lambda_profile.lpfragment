@@ -1,0 +1,30 @@
+/* NEW STRUCTURAL RESTRICTION OF THE EXISTING LAMBDA OWNER.
+
+   This is exactly the Unit/Unit/Unit closed instance. The input category
+   already classifies Cartesian maps; no arbitrary raw map is admitted.
+   The raw primitive has no native directed Hom-action body. Consequently
+   this whole functor, including its higher action, is an explicit structural
+   mapping-profile contract, not strictness derived from the old beta/eta.
+*/
+symbol canonical_lambda_source_cat (B : Cat) : Cat
+≔ Hom_cat (Functor_cart_cat (Product_cat (Op_cat B) B) Cat_cat)
+    (@Prof_tensor B B B (@Unit_prof B) (@Unit_prof B)) (@Unit_prof B);
+symbol canonical_lambda_target_cat (B : Cat) : Cat
+≔ Hom_cat (Functor_cart_cat (Product_cat (Op_cat B) B) Cat_cat)
+    (@Unit_prof B) (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B));
+
+// The single new whole mapping owner. j_B will be its actual value at e_B.
+symbol canonical_lambda_unit_func (B : Cat)
+  : τ (Functor (canonical_lambda_source_cat B) (canonical_lambda_target_cat B));
+
+// Guarded raw-object agreement with the original lambda operation.
+// Keep the classified input and every Unit endpoint; no runtime cast or
+// equality/evidence argument is introduced into the operation.
+unif_rule
+  @strict_transfor _ _ _ _
+    (@fapp0 _ _ (canonical_lambda_unit_func $B) $t)
+  ≡ @Prof_lambda_cov_map $B0 $B0 $B0
+      (@Unit_prof $B0) (@Unit_prof $B0) (@Unit_prof $B0) $r
+  ↪ [ $B ≡ $B0;
+      $r ≡ @strict_transfor (Product_cat (Op_cat $B) $B) Cat_cat
+        (@Prof_tensor $B $B $B (@Unit_prof $B) (@Unit_prof $B)) (@Unit_prof $B) $t ];

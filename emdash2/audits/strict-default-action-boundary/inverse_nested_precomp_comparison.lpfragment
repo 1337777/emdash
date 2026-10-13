@@ -1,0 +1,10 @@
+// NON-LIBRARY UNCHECKED proof-time right-precomposition associativity.
+// Existing runtime precomposition accumulates pre_j(pre_h(f)) to
+// pre_(h o j)(f). An identity cell can instead retain raw pre_h(f) o j.
+// Compare those two readings without changing either runtime owner.
+// All actual f,h,j remain data; the composite argument is a typed constraint.
+unif_rule
+  @comp_fapp0 $C $W $X $Z
+    (@hom_precomp_along_fapp0 $C $C (@id Cat_cat $C) $Z $X $Y $h $f) $j
+  ≡ @hom_precomp_along_fapp0 $C $C (@id Cat_cat $C) $Z $W $Y $hj $f
+  ↪ [ $hj ≡ @comp_fapp0 $C $W $X $Y $h $j ];

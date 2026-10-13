@@ -1,0 +1,27 @@
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  @represented_comp_forward A B C F G
+  : τ (ProfMap
+      (@Prof_tensor A B C (@Companion_prof A B F) (@Companion_prof B C G))
+      (@Companion_prof A C (@comp_cat_fapp0 A B C G F)));
+
+// This construction does not silently classify a raw transfor.
+assertnot [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  @represented_comp_forward A B C F G
+  : τ (Hom (local_cart_prof_cat A C)
+      (@Prof_tensor A B C (@Companion_prof A B F) (@Companion_prof B C G))
+      (@Companion_prof A C (@comp_cat_fapp0 A B C G F)));
+
+// Its entire fixed-endpoint fibre functor is the existing vertical composite.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C))
+  (ac : τ (Obj (Product_cat (Op_cat A) C))) ⊢
+  @tapp0_fapp0 (Product_cat (Op_cat A) C) Cat_cat _ _ ac
+    (@represented_comp_forward A B C F G)
+  ≡ @comp_cat_fapp0 _ _ _
+      (@tapp0_fapp0 (Product_cat (Op_cat A) C) Cat_cat _ _ ac
+        (@represented_comp_counit A B C F G))
+      (@tapp0_fapp0 (Product_cat (Op_cat A) C) Cat_cat _ _ ac
+        (@Prof_tensor_map A B C (@Companion_prof A B F)
+          (@represented_comp_middle A B C F G)
+          (@Companion_prof B C G) (@Companion_prof B C G)
+          (@represented_comp_transport A B C F G)
+          (@id (Prof_cat B C) (@Companion_prof B C G))));

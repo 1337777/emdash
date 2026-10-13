@@ -1,0 +1,36 @@
+/* NEW STRUCTURAL COMPANION-WEIGHT RESTRICTION OF EXISTING EVALUATION.
+
+   The input is an already classified map Conjoint(F) -> J_F. J_F keeps the
+   checked stable reindex presentation of imply(Unit_B,Companion(F)).
+   The one whole functor and its higher action are an explicit restricted
+   mapping-profile contract: raw eval/generator beta does not derive it.
+   No raw-map admission, independent witness, triangle or classified beta/eta
+   follows merely from this declaration or the forgetting comparison.
+*/
+symbol canonical_eval_source_cat [A B : Cat] (F : τ (Functor A B)) : Cat
+≔ Hom_cat (Functor_cart_cat (Product_cat (Op_cat B) A) Cat_cat)
+    (@Conjoint_prof A B F)
+    (@Prof_reindex B B B A
+      (@Prof_imply_cov B B B (@Unit_prof B) (@Unit_prof B)) (@id_func B) F);
+symbol canonical_eval_target_cat [A B : Cat] (F : τ (Functor A B)) : Cat
+≔ Hom_cat (Functor_cart_cat (Product_cat (Op_cat B) B) Cat_cat)
+    (@Prof_tensor B A B (@Conjoint_prof A B F) (@Companion_prof A B F)) (@Unit_prof B);
+
+// The counit will be the actual value of this owner at the constructed j_F.
+symbol canonical_eval_companion_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (@canonical_eval_source_cat A B F) (@canonical_eval_target_cat A B F));
+
+// Guard every original eval parameter and retain the actual classified input.
+// RHS inputs may already have normalized, so compare them in side conditions.
+unif_rule
+  @strict_transfor _ _ _ _
+    (@fapp0 _ _ (@canonical_eval_companion_func $A $B $F) $t)
+  ≡ @Prof_eval_cov_map $L $M $R $P $Q $O $r
+  ↪ [ $L ≡ $B; $M ≡ $A; $R ≡ $B;
+      $P ≡ @Conjoint_prof $A $B $F;
+      $Q ≡ @Companion_prof $A $B $F;
+      $O ≡ @Unit_prof $B;
+      $r ≡ @strict_transfor (Product_cat (Op_cat $B) $A) Cat_cat
+        (@Conjoint_prof $A $B $F)
+        (@Prof_reindex $B $B $B $A
+          (@Prof_imply_cov $B $B $B (@Unit_prof $B) (@Unit_prof $B)) (@id_func $B) $F) $t ];

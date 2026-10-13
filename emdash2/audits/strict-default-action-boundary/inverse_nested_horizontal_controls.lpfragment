@@ -1,0 +1,43 @@
+// NON-LIBRARY horizontal identity action with stable versus raw endpoint.
+// No product swap appears in this independent owner consumer. The first
+// functor is identity so its output endpoint uses only the existing direct
+// stable-precomposition/raw-composition comparison.
+assert [Y Z W : Cat] (H : τ (Functor Y Z)) (G : τ (Functor Z W)) ⊢
+  @eq_refl (@StrictTransfor Y W
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G)
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+    (@comp_prod_fapp1_fapp0 Cat_cat Y Y W
+      (Struct_sigma (@id_func Y) (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+      (Struct_sigma (@id_func Y) (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+      (Struct_sigma (@id (Functor_cart_cat Y Y) (@id_func Y))
+        (@id (Functor_cart_cat Y W) (@comp_cat_fapp0 Y Z W G H))))
+  : τ (@= (@StrictTransfor Y W
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G)
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+    (@comp_prod_fapp1_fapp0 Cat_cat Y Y W
+      (Struct_sigma (@id_func Y) (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+      (Struct_sigma (@id_func Y) (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+      (Struct_sigma (@id (Functor_cart_cat Y Y) (@id_func Y))
+        (@id (Functor_cart_cat Y W) (@comp_cat_fapp0 Y Z W G H))))
+    (@id (Functor_cart_cat Y W) (fapp0 (@comp_cat_con_cart_func Y Z W H) G)));
+
+// A variable second cell is not an identity pair.
+assertnot [Y Z W : Cat] (H : τ (Functor Y Z)) (G : τ (Functor Z W))
+  (theta : τ (@StrictTransfor Y W
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G)
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G))) ⊢
+  @eq_refl (@StrictTransfor Y W
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G)
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+    (@comp_prod_fapp1_fapp0 Cat_cat Y Y W
+      (Struct_sigma (@id_func Y) (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+      (Struct_sigma (@id_func Y) (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+      (Struct_sigma (@id (Functor_cart_cat Y Y) (@id_func Y)) theta))
+  : τ (@= (@StrictTransfor Y W
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G)
+    (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+    (@comp_prod_fapp1_fapp0 Cat_cat Y Y W
+      (Struct_sigma (@id_func Y) (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+      (Struct_sigma (@id_func Y) (fapp0 (@comp_cat_con_cart_func Y Z W H) G))
+      (Struct_sigma (@id (Functor_cart_cat Y Y) (@id_func Y)) theta))
+    (@id (Functor_cart_cat Y W) (fapp0 (@comp_cat_con_cart_func Y Z W H) G)));
