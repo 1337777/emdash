@@ -25,6 +25,176 @@ unchanged into lax Q. The
 [current consumer review](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#lax-q-gray-uncurry-and-strict-sigma-maps-consumer-review-2026-10-14)
 also assesses strict-only Sigma maps without restricting public Functord.
 
+Latest review request, 2026-10-14: reconsider the earlier corrected-duality
+lax-functor/lax-transfor design, with appropriate internal strictness guards
+and corrections to Sigma. The user explicitly does not require preserving
+production's current Sigma composition. The following reassessment compares
+corrected alternatives; it does not assume that the old lax kernel is
+already qualified, or select a default change automatically.
+
+## Reassessment of the ambient default
+
+The strict-default experiments establish local computational feasibility,
+but have not established that global strict defaults simplify the whole
+type theory. They simplify transport/composition for E and E[p], while
+moving obligations into joint evaluation, transformation internalization,
+total-map formation and section classifiers. A strict map from a Cartesian
+source must respect its commuting mixed factorizations; a suitable lax map
+can instead retain the directed comparison as its compositor. This explains
+why naturally lax derived maps recur under the strict-default migration.
+It is not an argument that either chosen category theory is inherently
+unsuitable as a type theory.
+
+The intended type theory need not reconstruct every semantic model or
+derive its core primitives through a full profunctor/coend development.
+Whole structural operators with justified native projection/comparison laws
+remain legitimate. The qualification requirement is that their admission
+and computation contracts agree. A rule contracting a noninvertible
+comparison to an equality still changes that contract, whether the operator
+is primitive or derived. If an approximation is deliberately tolerated, it
+must not be reported as qualification of the corrected categorical law.
+
+The updated architectural preference for assessment is a broad native lax
+Functor/Transf interface, with stricter admitted carriers or stable heads
+where construction/computation requires them. This preserves the existing
+generic action and extracted-compositor machinery and can let some joint
+operations remain lax on simpler source contexts. It does not imply that
+all-lax mapping categories have unrestricted Cartesian curry/uncurry in
+every omega dimension. Those interfaces still need their actual coherence
+and variance, rather than inheriting the old signatures unquestioned.
+
+This comparison does not silently retain the defective Sigma formula.
+The earlier corrected lax-family direction already had an oplax outer E,
+strict transports and strictly natural extracted comparisons, retaining
+the direct telescope and the intended local Hom. Broader genuinely lax
+transports required a changed total/Hom contract; the optional factorization
+completion had bounded evidence but was not a completed omega solution.
+Neither branch of that investigation was a completed whole Homd milestone.
+The prior response-0099 Q interface remains useful as a conditional design,
+not a proof that its omega coefficient and root action already exist.
+
+The most recent conventional-lax rules must also be reconsidered if the
+functor default changes. Their pre-accumulation law specializes as follows:
+
+```text
+epsilon[f] o F[h] = epsilon[fh]
+epsilon = id_F
+therefore F[f] o F[h] = F[fh].
+```
+
+Thus the recent unconditional pre-accumulation and extracted-pre-identity
+package cannot simply be transplanted to arbitrary lax functors. Choosing
+the middle epsilon[p]=epsilon[y] o F[p] is distinct from making every
+accumulation comparison strict. The former can describe a conventional
+lower-dimensional convention while the latter also sees F's compositor.
+Retain the native extraction and determine the correct guards/profiles;
+do not reintroduce universal functor strictness through the transfor rules.
+
+Other required corrections under lax defaults include production's
+unguarded object-transport rule `E[q](E[p](u))->E[qp](u)`, the Sigma composition
+that relies on it, the corrected duality/section types, and strict
+computations of hom(F) that may require F to be strict. The existing opaque
+StrictFunctor/stable view demonstrates a computational mechanism for
+guarded action without a second fapp calculus. A complete admitted family
+profile must additionally control transports and relevant higher action;
+outer StrictFunctor(K,Cat) alone does not do that when Cat has lax maps.
+
+The user has clarified that Sigma contracts may change, so the earlier
+"one universe + every family + unchanged strict-total formula" implication
+must not be used as a veto on this reconsideration. It remains a conditional
+constraint if that complete conjunction is later requested again. Corrected
+duality, direct internal Homd assembly, intrinsic laxity extraction and the
+no-operational-proof-payload SOP remain acceptance requirements in either
+design. Category objects do not become weak merely by selecting lax maps;
+the separate weak-object proposal is not implemented by this reassessment.
+
+Recommendation: compare a corrected lax-default slice before further broad
+strict-default migration. Use the same whole identity-Homd/section target,
+an explicit sufficient family profile, genuine lax FF action, and the known
+noncommuting evaluation square as acceptance consumers. Keep general lax
+transport completion separate from the claim that the ambient map language
+can be lax. This is a recommendation under review, not a new success boundary
+or a claim that the full lax-default omega Homd interface has been qualified.
+
+Current evidence: the public total-duality candidate is checkpointed; the
+[Gray evaluator comparison](../emdash2/audits/strict-default-action-boundary/conventional_gray_eval_review.md)
+has passing coordinate, modification and typed mixed-path checks. The full
+public-lax-Q Homd ladder is still missing. The older 348+/77- Cartesian
+prototype is conditional comparison evidence, not completion of that target.
+Production has not received the strict-default/duality migration.
+
+## Strict Functord as a third alternative, and the migration timeline
+
+The user's follow-up reopens a strict displayed-map classifier with an
+inclusion into general Cat-valued Transf. This is a coherent alternative to
+both global strictness of Cat-valued transfors and a wholly unrestricted
+Functord facade. At the schematic interface level:
+
+```text
+Obj(Catd_cat(K)) = Functor(K,Cat)
+Hom_Catd(D,E) = Functord_cat(D,E)
+Obj(Functord_cat(D,E)) = strict transformations D=>E
+
+functord_include(D,E) : Functord_cat(D,E) → Transf_cat(K,Cat,D,E)
+Catd_include(K)      : Catd_cat(K) → Functor_cat(K,Cat).
+```
+
+These are proposals, not installed declarations. Operational strictness
+would be intrinsic to the map carrier and its stable projections. An FF
+variable would have that carrier type, rather than an unrestricted
+transformation plus a separately threaded proof. The current StrictFunctord
+and stable strict_functord view provide relevant mechanism, not a completed
+implementation of this revised whole family category. Restricting map
+objects does not automatically require every higher modification to be
+strict; the chosen higher Hom and composition must be specified separately.
+
+The inclusion has no generic inverse. Remove the whole Catd/Functor-category
+identification and the Functord/Transf object/category identifications that
+would otherwise admit every lax transfor back into the strict carrier.
+Retain family objects; this is a restriction on maps between families.
+
+Full strict FF eliminates its nonidentity base comparison and simplifies
+the corresponding total-map and relative-Homd obligations. It does not
+prove the identity Homd root strictly natural, restrict a family's image
+E[alpha], correct whole duality by itself, or repair Cartesian joint
+evaluation on ordinary lax transformations. The latter counterexample
+does not need an external displayed FF at all.
+
+Keeping Pi as the current all-section operation requires it to use the
+appropriate unrestricted Transf-based section classifier, not the newly
+strict Functord. For example strict transformations const(1)=>const(B)
+over the walking arrow do not represent a general nonconstant functor into
+B. Therefore the old Pi/Functord and related Sigma-section comparisons
+must change together. The intrinsic extractor likewise accepts Cat-valued
+internalizations of ordinary lax transformations; those cannot be admitted
+as strict merely to reuse its previous Functord spelling. Share the native
+action/projection machinery through the ambient inclusion while giving
+that extractor and any genuinely lax Homd root their correct domains.
+
+This makes strict-only displayed maps a credible way to simplify the
+external FF part, but not a complete repair of strict-functor/lax-transfor
+foundations. If selected, it is preferable to the previously rejected
+blanket Cat-valued-transfor strictness rule. The generic Gray closure and
+the remaining whole Homd/duality obligations survive it.
+
+Timeline correction: the unconditional conventional pre-accumulation rule
+discussed above belongs to conventional_lax_rules.lpfragment in this new
+strict-default experiment. It is not installed in production. Production
+section 6d explicitly retires the broad pre/right naturality and functor
+accumulation cuts in favour of profiles. Its separate unguarded Cat-valued
+object-transport/Sigma rules are still present and require correction.
+Thus the earlier lax migration remains incomplete at those latter owners,
+but the newly added strict-experiment rule is not evidence that it failed
+to remove itself from production. Returning to strict defaults would not
+avoid the independently demonstrated evaluation/section/profile migration.
+
+No third-alternative classifier or default switch is installed by this
+assessment. The trade-off is now explicit: strict displayed maps reduce
+FF-specific coherence while splitting some existing facade comparisons;
+lax defaults preserve broader ambient maps while requiring correct guards,
+family admission and revised totals. Neither has yet delivered the fully
+qualified intended Homd ladder.
+
 ## The stronger check
 
 The first pilot's three conversion negatives do not establish preservation

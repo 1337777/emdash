@@ -1,0 +1,16 @@
+// Proof-time readings after evaluating the coordinate factors has erased
+// the literal generic strict-functor composition pattern. The source arrow
+// must still be the corresponding actual Gray path. No equality of the two
+// Gray paths or of the two lax boundaries is introduced.
+unif_rule
+  @Eval_fapp1_fapp0 $A $B $F $G $x $y $h
+  ≡ @comp_fapp0 $B _ _ _
+      (@fapp1_fapp0 $A $B $G $x $y $p)
+      (@tapp0_fapp0 $A $B $F $G $x $eta)
+  ↪ [ $h ≡ @gray_tensor_left_then_right (Functor_cat $A $B) $A $F $G $x $y $eta $p ];
+
+// The other path evaluates to epsilon[y] o F[p], the selected middle.
+unif_rule
+  @Eval_fapp1_fapp0 $A $B $F $G $x $y $h
+  ≡ @tapp1_fapp0 $A $B $F $G $x $y $eta $p
+  ↪ [ $h ≡ @gray_tensor_right_then_left (Functor_cat $A $B) $A $F $G $x $y $eta $p ];

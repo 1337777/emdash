@@ -1,0 +1,94 @@
+// The public evaluator changes its source, not the public mapping category.
+assert [A B : Cat] ⊢ @Eval_func A B
+  : τ (Functor (GrayTensor_R (Functor_cat A B) A) B);
+assertnot [A B : Cat] ⊢ @Eval_func A B
+  : τ (Functor (Product_cat (Functor_cat A B) A) B);
+assertnot [A B : Cat] ⊢ GrayTensor_R A B ≡ Product_cat A B;
+
+assert [A B : Cat] (F : τ (Functor A B)) (x : τ (Obj A)) ⊢
+  @fapp0 (GrayTensor_R (Functor_cat A B) A) B (@Eval_func A B)
+    (@Product_pair (Functor_cat A B) A F x)
+  ≡ @fapp0 A B F x;
+
+// Retain the existing whole fixed-object evaluator and fixed-functor action.
+assert [A B : Cat] (x : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (Functor_cat A B) (GrayTensor_R (Functor_cat A B) A) B
+    (@Eval_func A B) (@Eval_at_func A B x)
+  ≡ @fapp0_func A B x;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @comp_cat_fapp0 A (GrayTensor_R (Functor_cat A B) A) B
+    (@Eval_func A B) (@gray_tensor_right_func (Functor_cat A B) A F)
+  ≡ F;
+
+// Both ordinary capped coordinate observations compute.
+assert [A B : Cat] [F G : τ (Functor A B)] (eta : τ (Transf F G)) (x : τ (Obj A)) ⊢
+  @fapp1_fapp0 (GrayTensor_R (Functor_cat A B) A) B (@Eval_func A B)
+    (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A G x)
+    (@fapp1_fapp0 (Functor_cat A B) (GrayTensor_R (Functor_cat A B) A)
+      (@gray_tensor_left_func (Functor_cat A B) A x) F G eta)
+  ≡ @tapp0_fapp0 A B F G x eta;
+assert [A B : Cat] (F : τ (Functor A B)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @fapp1_fapp0 (GrayTensor_R (Functor_cat A B) A) B (@Eval_func A B)
+    (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A F y)
+    (@fapp1_fapp0 A (GrayTensor_R (Functor_cat A B) A)
+      (@gray_tensor_right_func (Functor_cat A B) A F) x y p)
+  ≡ @fapp1_fapp0 A B F x y p;
+
+// General Gray arrows stay at the common whole/capped evaluator owner.
+assert [A B : Cat] [F G : τ (Functor A B)] [x y : τ (Obj A)]
+  (h : τ (Hom (GrayTensor_R (Functor_cat A B) A)
+      (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A G y))) ⊢
+  @fapp0 _ _
+    (@fapp1_func (GrayTensor_R (Functor_cat A B) A) B (@Eval_func A B)
+      (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A G y)) h
+  ≡ @fapp1_fapp0 (GrayTensor_R (Functor_cat A B) A) B (@Eval_func A B)
+      (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A G y) h;
+
+// A Cartesian pair of arrows is not an arbitrary Gray arrow.
+assertnot [A B : Cat] [F G : τ (Functor A B)] (eta : τ (Transf F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @Product_pair (@Transf_cat A B F G) (Hom_cat A x y) eta p
+  : τ (Hom (GrayTensor_R (Functor_cat A B) A)
+      (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A G y));
+
+// A next-cell consumer: observe a composite coordinate functor before/after
+// its whole evaluation fold, rather than stopping at object evaluation.
+assert [A B : Cat] [F G : τ (Functor A B)] (x : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (@Transf_cat A B F G)
+    (Hom_cat (GrayTensor_R (Functor_cat A B) A)
+      (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A G x))
+    (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G x))
+    (@Eval_fapp1_func A B F G x x)
+    (@fapp1_func (Functor_cat A B) (GrayTensor_R (Functor_cat A B) A)
+      (@gray_tensor_left_func (Functor_cat A B) A x) F G)
+  ≡ @tapp0_func A B F G x;
+
+assert [A B : Cat] (F : τ (Functor A B)) [x y : τ (Obj A)] ⊢
+  @comp_cat_fapp0 (Hom_cat A x y)
+    (Hom_cat (GrayTensor_R (Functor_cat A B) A)
+      (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A F y))
+    (Hom_cat B (@fapp0 A B F x) (@fapp0 A B F y))
+    (@Eval_fapp1_func A B F F x y)
+    (@fapp1_func A (GrayTensor_R (Functor_cat A B) A)
+      (@gray_tensor_right_func (Functor_cat A B) A F) x y)
+  ≡ @fapp1_func A B F x y;
+
+// The whole left-coordinate comparison continues to a variable modification.
+assert [A B : Cat] [F G : τ (Functor A B)] [eta theta : τ (Transf F G)]
+  (M : τ (Hom (@Transf_cat A B F G) eta theta)) (x : τ (Obj A)) ⊢
+  @fapp1_fapp0 (@Transf_cat A B F G)
+    (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G x))
+    (@comp_cat_fapp0 (@Transf_cat A B F G)
+      (Hom_cat (GrayTensor_R (Functor_cat A B) A)
+        (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A G x))
+      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G x))
+      (@Eval_fapp1_func A B F G x x)
+      (@fapp1_func (Functor_cat A B) (GrayTensor_R (Functor_cat A B) A)
+        (@gray_tensor_left_func (Functor_cat A B) A x) F G)) eta theta M
+  ≡ @tapp0_hom_fapp0 A B F G eta theta x M;
+
+// Identity after the evaluator Hom has projected first.
+assert [A B : Cat] (F : τ (Functor A B)) (x : τ (Obj A)) ⊢
+  @fapp0 _ _ (@Eval_fapp1_func A B F F x x)
+    (@id (GrayTensor_R (Functor_cat A B) A) (@Product_pair (Functor_cat A B) A F x))
+  ≡ @id B (@fapp0 A B F x);

@@ -1,0 +1,46 @@
+// The two Gray routes are distinct before evaluation.
+assertnot [A B : Cat] [F G : τ (Functor A B)] (eta : τ (Transf F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @gray_tensor_left_then_right (Functor_cat A B) A F G x y eta p
+  ≡ @gray_tensor_right_then_left (Functor_cat A B) A F G x y eta p;
+
+assertnot [A B : Cat] [F G : τ (Functor A B)] (eta : τ (Transf F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @eq_refl (Hom (GrayTensor_R (Functor_cat A B) A)
+    (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A G y))
+    (@gray_tensor_left_then_right (Functor_cat A B) A F G x y eta p)
+  : τ (@= (Hom (GrayTensor_R (Functor_cat A B) A)
+      (@Product_pair (Functor_cat A B) A F x) (@Product_pair (Functor_cat A B) A G y))
+      (@gray_tensor_left_then_right (Functor_cat A B) A F G x y eta p)
+      (@gray_tensor_right_then_left (Functor_cat A B) A F G x y eta p));
+
+// The evaluated left route must not be silently replaced by the middle.
+assertnot [A B : Cat] [F G : τ (Functor A B)] (eta : τ (Transf F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+    (@tapp1_fapp0 A B F G x y eta p)
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@Eval_fapp1_fapp0 A B F G x y
+        (@gray_tensor_left_then_right (Functor_cat A B) A F G x y eta p))
+      (@tapp1_fapp0 A B F G x y eta p));
+
+// These are proof-time observations of the two genuinely different paths.
+symbol cgray_left_path_agrees [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@Eval_fapp1_fapp0 A B F G x y
+        (@gray_tensor_left_then_right (Functor_cat A B) A F G x y eta p))
+      (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B G x) (@fapp0 A B G y)
+        (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x eta)))
+≔ @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+    (@comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B G x) (@fapp0 A B G y)
+      (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x eta));
+
+symbol cgray_right_path_agrees [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@Eval_fapp1_fapp0 A B F G x y
+        (@gray_tensor_right_then_left (Functor_cat A B) A F G x y eta p))
+      (@tapp1_fapp0 A B F G x y eta p))
+≔ @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+    (@tapp1_fapp0 A B F G x y eta p);

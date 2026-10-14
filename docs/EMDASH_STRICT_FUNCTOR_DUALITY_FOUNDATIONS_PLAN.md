@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict functors and conventional lax Transf/Functord selected; public Hom(Cat)=Functor_cat retained; default pre/right intrinsic identity has a checked native candidate; corrected closure, duality and whole Homd integration remain open
+Status: strict-default migration under user-requested comparison with corrected lax defaults; public Hom(Cat)=Functor_cat retained; local action/duality candidates checked; whole Homd and production migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,35 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Latest reassessment request, 2026-10-14: the user asks to reconsider the
+previous corrected-duality lax-functor/lax-transfor design, explicitly
+allowing correction of Sigma composition and related contracts. Do not
+interpret this as a request to preserve the defective production Sigma
+formula. The
+[updated assessment](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md#reassessment-of-the-ambient-default)
+now favours comparing a broad lax default with native stricter admission/
+computation profiles before further global strict migration. A new default
+has not yet been selected. Preserve both the existing production machinery
+and the checked strict-default comparisons; do not silently flip semantics
+or discard goal requirements. This assessment is active work, not a paused
+or completed goal.
+
+In particular, the most recent globally strict pre-accumulation rules are
+conditional on the strict-functor direction: specializing epsilon=id_F
+forces F's composition to be strict. A corrected lax-default continuation
+must guard or reformulate them along with Sigma; merely relabelling Functor
+would not restore general laxity. The native action/extraction mechanism,
+direct Homd telescope and absence of operational proof payloads remain.
+
+Further follow-up on the same date reopens strict Functord with an inclusion
+into general Transf(K,Cat), as a third comparison. The
+[assessment and timeline correction](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md#strict-functord-as-a-third-alternative-and-the-migration-timeline)
+record its benefits and required Pi/Catd/intrinsic-action changes. No
+classifier restriction is installed. The recent unconditional pre rule is
+in this strict-default experiment, not a surviving production rule; the
+actual production object-transport/Sigma mismatch is a separate known issue.
+Do not infer that returning to strict functors avoids all unfinished work.
 
 Latest user decision, 2026-10-14: default Transf means **conventional lax
 transformations**. The user selected this explicitly in the clarification
@@ -3595,6 +3624,52 @@ and actual extracted laxity. The all-family Sigma requirement and the
 strict-total-map input question remain at the explicitly qualified boundary
 above; do not fill either gap by restoring Cartesian Q or making arbitrary
 FF strictly natural.
+
+## Joint evaluation continuation: checked comparison slice
+
+Hypothesis, 2026-10-14: the existing primitive Eval_func can use
+GrayTensor_R(Functor_cat(A,B),A), retain ordinary fixed-object/fixed-functor
+evaluation, and distinguish the two mixed coordinate paths. Its Hom action
+must use the actual tensor Hom, not the Cartesian product of two Homs.
+Canonical tensor-coordinate maps are whole structural functors; no separate
+interchanger/laxity witness is supplied. Test the coordinate projections,
+the whole/capped observation orders, retained higher action and rejection
+of the old Cartesian evaluator signature. The source baseline is the
+checked conventional_total_op candidate. This is a staged owner experiment,
+not promotion or qualification of a complete Gray closure.
+
+Curry and uncurry are currently derived, unlike primitive Eval_func. Keep
+that distinction during migration: adapt their bodies using the appropriate
+Gray coevaluation/fixed-factor action rather than replacing them with new
+postulates. The donor's generic Cartesian joint composition remains a
+separate known collapse route and is not repaired merely by this evaluator
+change. Whole composition and both parameter orientations must subsequently
+be corrected at their own owners before an integrated claim.
+
+The [Gray evaluator comparison](../emdash2/audits/strict-default-action-boundary/conventional_gray_eval_review.md)
+now checks 42 positive/16 negative assertions, including inherited controls,
+and two new typed mixed-path comparisons. Eight omission/wrong-path variants
+fail at their intended consumers. The whole first-Hom coordinate maps and
+a modification observation check. The source rejects the old Cartesian
+evaluator signature and product-pair arrow input. Fifteen added warning
+bodies are classified; complete joins and the connection to native Gray
+interchanger extraction/closure remain open. This is a comparison candidate,
+not a complete tensor construction or a repaired full foundation.
+
+The user's default-design reassessment arrived after those checks. Retain
+this bounded slice as evidence for the strict-default alternative. Do not
+promote it or continue a broad strict-only sweep merely because the local
+checks pass. The reassessment compares complete corrected designs, including
+necessary Sigma changes, and does not count conditional old Homd prototypes
+as a completed ladder. Detailed inputs and receipts are in the
+[verification](../emdash2/audits/strict-default-action-boundary/conventional_gray_eval_verification.json).
+
+Production-source clarification requested in the same discussion: main
+still composes (q,beta)o(p,alpha) as (qp,beta o E[q][alpha]), with no rho
+factor. Its unguarded object-transport rule equates `E[q](E[p](u))` with
+`E[qp](u)` for every Catd input. The arbitrary-endpoint and constant-family
+variants implement the same convention. This is an inherited contract to
+repair, not evidence that arbitrary lax Sigma formation is already correct.
 
 ## Deferred improvements under the migration boundary
 

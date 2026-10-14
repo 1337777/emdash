@@ -1,0 +1,15 @@
+// NON-LIBRARY upstream use of the existing right-oriented Gray tensor head.
+// Object pairs agree with products; no product-Hom equation is installed.
+injective symbol GrayTensor_R (A B : Cat) : Cat;
+rule Obj (GrayTensor_R $A $B) ↪ Obj (Product_cat $A $B);
+
+// Canonical coordinate functors into the tensor. They retain whole Hom action.
+injective symbol gray_tensor_left_func [A B : Cat] (b : τ (Obj B))
+  : τ (Functor A (GrayTensor_R A B));
+injective symbol gray_tensor_right_func [A B : Cat] (a : τ (Obj A))
+  : τ (Functor B (GrayTensor_R A B));
+
+rule @fapp0 _ _ (@gray_tensor_left_func $A $B $b) $a
+  ↪ @Product_pair $A $B $a $b;
+rule @fapp0 _ _ (@gray_tensor_right_func $A $B $a) $b
+  ↪ @Product_pair $A $B $a $b;

@@ -1,0 +1,16 @@
+// Whole-coordinate evaluation after its first Hom has already projected.
+// These are the two generic-action readings of Eval o insert, retaining
+// the whole map so that higher modifications remain iterable.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@Eval_fapp1_func $A $B $F $G $x $x)
+      (@fapp1_func _ _ (@gray_tensor_left_func _ _ $x) $F $G)
+  ↪ @tapp0_func $A $B $F $G $x;
+rule @comp_fapp0 Cat_cat _ _ _
+      (@Eval_fapp1_func $A $B $F $F $x $y)
+      (@fapp1_func _ _ (@gray_tensor_right_func _ _ $F) $x $y)
+  ↪ @fapp1_func $A $B $F $x $y;
+
+// IDENTITY-PROJECTION: the outer Eval head has already been projected away.
+rule @Eval_fapp1_fapp0 $A $B $F $F $x $x
+      (@id (GrayTensor_R (Functor_cat $A $B) $A) (Struct_sigma $F $x))
+  ↪ @id $B (@fapp0 $A $B $F $x);

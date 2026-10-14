@@ -41,6 +41,12 @@ the corresponding missing or wrong clauses. Its 31 positive/10 negative
 controls include inherited checks. This is non-library evidence with an
 explicit warning ledger, not the completed lax Q/Homd construction.
 
+The [Gray evaluation comparison](conventional_gray_eval_review.md) retains
+ordinary fixed evaluation while changing the joint source to Gray and
+preserving distinct mixed paths. Its checked slice is retained while the
+user-requested comparison with corrected lax defaults is assessed. Neither
+this nor the total-duality candidate has been promoted to production.
+
 Continuation qualification: the stronger
 [evaluation-profile review](../../../docs/EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 shows that the unchanged Cartesian evaluator plus even the capped strictness

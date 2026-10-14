@@ -1,0 +1,19 @@
+// The two mixed routes are actual composites of the coordinate functors.
+// They are definitions, not an identification or supplied interchanger.
+symbol gray_tensor_left_then_right [A B : Cat]
+  [a a1 : τ (Obj A)] [b b1 : τ (Obj B)]
+  (p : τ (Hom A a a1)) (q : τ (Hom B b b1))
+  : τ (Hom (GrayTensor_R A B) (@Product_pair A B a b) (@Product_pair A B a1 b1))
+≔ @comp_fapp0 (GrayTensor_R A B)
+    (@Product_pair A B a b) (@Product_pair A B a1 b) (@Product_pair A B a1 b1)
+    (@fapp1_fapp0 B (GrayTensor_R A B) (@gray_tensor_right_func A B a1) b b1 q)
+    (@fapp1_fapp0 A (GrayTensor_R A B) (@gray_tensor_left_func A B b) a a1 p);
+
+symbol gray_tensor_right_then_left [A B : Cat]
+  [a a1 : τ (Obj A)] [b b1 : τ (Obj B)]
+  (p : τ (Hom A a a1)) (q : τ (Hom B b b1))
+  : τ (Hom (GrayTensor_R A B) (@Product_pair A B a b) (@Product_pair A B a1 b1))
+≔ @comp_fapp0 (GrayTensor_R A B)
+    (@Product_pair A B a b) (@Product_pair A B a b1) (@Product_pair A B a1 b1)
+    (@fapp1_fapp0 A (GrayTensor_R A B) (@gray_tensor_left_func A B b1) a a1 p)
+    (@fapp1_fapp0 B (GrayTensor_R A B) (@gray_tensor_right_func A B a) b b1 q);

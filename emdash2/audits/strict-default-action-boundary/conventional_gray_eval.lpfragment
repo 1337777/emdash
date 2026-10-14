@@ -1,0 +1,52 @@
+// NON-LIBRARY replacement signature of the existing primitive evaluator.
+// The source is Gray: its two mixed coordinate paths need not be equal.
+symbol Eval_func [A B : Cat]
+  : τ (Functor (GrayTensor_R (Functor_cat A B) A) B);
+
+rule @fapp0 _ _ (@Eval_func $A $B) (Struct_sigma $F $x)
+  ↪ @fapp0 $A $B $F $x;
+
+// The full evaluator action uses the actual Hom of the Gray tensor.
+symbol Eval_fapp1_func [A B : Cat] [F G : τ (Functor A B)]
+  [x y : τ (Obj A)]
+  : τ (Functor
+      (Hom_cat (GrayTensor_R (Functor_cat A B) A)
+        (@Product_pair (Functor_cat A B) A F x)
+        (@Product_pair (Functor_cat A B) A G y))
+      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)));
+
+// Stable object projection of that whole action, not a product-pair accessor.
+symbol Eval_fapp1_fapp0 [A B : Cat] [F G : τ (Functor A B)]
+  [x y : τ (Obj A)]
+  (h : τ (Hom (GrayTensor_R (Functor_cat A B) A)
+      (@Product_pair (Functor_cat A B) A F x)
+      (@Product_pair (Functor_cat A B) A G y)))
+  : τ (Hom B (@fapp0 A B F x) (@fapp0 A B G y));
+
+rule @fapp1_func _ _ (@Eval_func $A $B) (Struct_sigma $F $x) (Struct_sigma $G $y)
+  ↪ @Eval_fapp1_func $A $B $F $G $x $y;
+rule @fapp0 _ _ (@Eval_fapp1_func $A $B $F $G $x $y) $h
+  ↪ @Eval_fapp1_fapp0 $A $B $F $G $x $y $h;
+rule @fapp1_fapp0 _ _ (@Eval_func $A $B)
+      (Struct_sigma $F $x) (Struct_sigma $G $y) $h
+  ↪ @Eval_fapp1_fapp0 $A $B $F $G $x $y $h;
+
+// Evaluation along one coordinate retains the original generic action.
+rule @Eval_fapp1_fapp0 $A $B $F $G $x $x
+      (@fapp1_fapp0 _ _ (@gray_tensor_left_func _ _ $x) $F $G $eta)
+  ↪ @tapp0_fapp0 $A $B $F $G $x $eta;
+rule @Eval_fapp1_fapp0 $A $B $F $F $x $y
+      (@fapp1_fapp0 _ _ (@gray_tensor_right_func _ _ $F) $x $y $p)
+  ↪ @fapp1_fapp0 $A $B $F $x $y $p;
+
+// Existing fixed-object evaluation section, now through the Gray coordinate.
+symbol Eval_at_func [A B : Cat] (x : τ (Obj A))
+  : τ (Functor (Functor_cat A B) (GrayTensor_R (Functor_cat A B) A))
+≔ @gray_tensor_left_func (Functor_cat A B) A x;
+
+rule @comp_fapp0 Cat_cat _ _ _ (@Eval_func $A $B)
+      (@gray_tensor_left_func _ _ $x)
+  ↪ @fapp0_func $A $B $x;
+rule @comp_fapp0 Cat_cat _ _ _ (@Eval_func $A $B)
+      (@gray_tensor_right_func _ _ $F)
+  ↪ $F;
