@@ -2783,6 +2783,30 @@ Intrinsic extraction, coefficient coherence, remaining specialized overlaps
 and production/downstream integration are still required. No public raw-FF
 domain has been narrowed by this change.
 
+## Op_funcd and Q profile clarification, 2026-10-14
+
+The user's questions distinguish two separate choices. The prototype's
+`Op_funcd` currently implements the strict-transfor action of Cartesian
+family transpose; the legacy production declaration remains general. It is
+not a decision that public FF must become strict. The first naturality
+square reverses under fibrewise T. Moreover, T is not a standard Gray
+monoidal/anti-monoidal duality, so an unqualified "replace lax by oplax"
+omega-level operation is not yet justified. The
+[intrinsic review](../emdash2/audits/strict-default-action-boundary/homd_intrinsic_profile_review.md#why-the-checked-op_funcd-takes-a-strict-transfor)
+records the exact interface and reference boundary. This qualification
+constrains the next target repair; it does not add a new wrapper by fiat.
+
+The two Cart levels in Q support the selected Cartesian product/curry
+doctrine. The inner level constrains interchange within each module; the
+outer level constrains maps between those modules. They do not make the
+outer Homd y-section or public FF strict. The
+[evaluation review](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md#the-two-cartesian-levels-of-the-selected-q)
+now records why a nested ambient-lax replacement is a different doctrine,
+not a drop-in alias, and why the current choice is not a uniqueness theorem
+for all possible Q designs. Keep this sufficient reference while qualifying
+the actual required consumers; do not broaden its evidence to a claim of
+completed coefficient coherence or use it to erase non-strict input action.
+
 ## Deferred improvements under the migration boundary
 
 These are review opportunities, not prerequisites or selected changes:

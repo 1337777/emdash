@@ -22,17 +22,56 @@ M=R. The conventional oplax profile is
 M=L. These are different from full strict naturality. See the profile
 owners in [emdash3_2_gray_profiles.lp](../../emdash3_2_gray_profiles.lp).
 
-The current generic Cat-valued action comparison identifies M with L for
-an arbitrary ambient FF, while the displayed extraction interface promises
+The pre-scope prototype's generic Cat-valued action comparison identified M
+with L for an arbitrary ambient FF, while the displayed extraction interface promises
 `L_p ⇒ R_p`. Under that comparison the ordinary post observation has
 endpoints L→L and the mirror pre observation has endpoints R→L. They do
 not provide the promised forward comparison. Object equality M=L also
 does not make its post leg the identity.
 
-Raw `Op_transf` must not be described as automatically invalid: transpose
-swaps the two ambient skew legs. What it does not do is preserve the
-conventional lax subprofile; that profile becomes oplax. The qualified
-Cartesian reversal owners do not turn arbitrary FF into strict transfors.
+The two-skew observation about raw `Op_transf` is that transpose swaps its
+two legs. At the level of a conventional two-dimensional naturality square,
+this exchanges the lax and oplax readings. Neither observation certifies
+the same statement for standard Gray transformations in all dimensions;
+the distinction below matters. The qualified Cartesian reversal owners do
+not turn arbitrary FF into strict transfors.
+
+## Why the checked Op_funcd takes a strict transfor
+
+The production source still has the legacy general-FF declaration. The
+selected [Cartesian opposite fragment](displayed_op_cartesian.lpfragment)
+instead implements the action of `Op_catd_func` on strict transformations:
+
+```text
+Op_funcd : StrictTransfor_K,Cat(E,D)
+       → Functord_C2(K)(T_fib(E),T_fib(D)).
+```
+
+This is the qualified profile of that operator, not a restriction of public
+`Functord` or `homd_int(FF)`. Under the conventional normal-lax reading,
+fibrewise dimension-one transpose changes
+
+```text
+D[p] ∘ FF[x] ⇒ FF[y] ∘ E[p]
+```
+
+into the oppositely oriented comparison
+
+```text
+T(FF[y]) ∘ T(E[p]) ⇒ T(D[p]) ∘ T(FF[x]).
+```
+
+Strict naturality avoids this orientation problem. It is a sufficient
+checked input profile, not a proof that no broader replacement exists.
+At omega level, calling the replacement "oplax" is not itself enough:
+dimension-one transpose is neither monoidal nor anti-monoidal for the
+standard Gray tensor. The usual odd, even and total dualities have different
+compatibilities; see [Ara--Guetta v1, paragraphs 35–38](https://arxiv.org/html/2503.08832v1).
+In particular, the two-dimensional reversed square does not justify a
+general omega-level T-operation on Gray lax/oplax transfors. The current
+raw two-skew interface is also not thereby identified with a standard Gray
+internal Hom. A replacement intrinsic target must qualify its entire
+profile and higher action, rather than borrowing either identification.
 
 ## The old whole target fails even for conventional lax FF
 

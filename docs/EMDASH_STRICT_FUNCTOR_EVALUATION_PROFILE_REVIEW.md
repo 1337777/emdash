@@ -147,6 +147,46 @@ transfors. The profile correction is needed when both the functor and its
 argument vary in a Cartesian product. That is the checked collapse route
 above, not an objection to fixed evaluation or fixed whiskering.
 
+## The two Cartesian levels of the selected Q
+
+Clarification requested by the user on 2026-10-14. The prototype uses
+
+```text
+Hom_Q(A,B) = Cart(A,Cart(T(B),Cat)).
+```
+
+This is the Cartesian curried view of a product profunctor with the existing
+endpoints swapped. It is a selected coefficient doctrine, not a theorem
+that every possible dependent-Hom construction must use these two Cart
+classifiers. Strict default functors alone do not make all transfors strict.
+The restrictions support the retained Cartesian evaluation, parameterized
+composition and product/curry comparison.
+
+The two occurrences have distinct effects. For an object
+`P:A→Cart(T(B),Cat)`, the inner Cart makes the action on an arrow of A a
+strict transformation in the B variable. Replacing that inner Cart by the
+ambient lax mapping category can change the objects: it admits mixed
+actions whose interchange square has only a directed comparison. Such an
+object cannot in general be uncurried by the old strict Cartesian-product
+operation. The outer Cart then restricts the transformations between the
+selected P's and their higher cells to the Cartesian profile. For a fixed
+codomain, Cart and the ambient mapping category share functor objects;
+that fact does not identify nested expressions when the inner codomain
+itself changes.
+
+A Gray-based alternative can retain non-strict mixed interchange, but would
+need its appropriate closure, composition and duality interfaces. It is not
+obtained by replacing the two names while keeping all current operations.
+The Cartesian/Gray distinction is supported by Ara--Guetta v1 paragraphs
+18 and 21; it does not prove that the prototype's full Q structure has been
+qualified. The existing Q coherence and admission obligations remain.
+
+These restrictions do not change `S_E(x)=Transf_{K,Q}(ιE,ιI_x)` into a
+Cartesian transformation category, do not classify `homd_id_int(E)` as a
+strict transfor, and do not make the public `FF:Functord(D,E)` strict. The
+native x-action, general-FF relative composite, and negative profile controls
+must continue to respect those distinct levels.
+
 ## Required migration
 
 Keep the strict default, native F/FF Hom heads and response-0099 Q design.
