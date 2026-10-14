@@ -2,7 +2,8 @@
 
 Date: 2026-10-14
 Status: selected next candidate under the user's latest constraints;
-whole strict-root/direct-ladder candidate checked; y-coherence and Sigma-Hom open
+strict-root/relative ladders and intrinsic identity projection checked;
+nonidentity y-coherence and Sigma-Hom open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
 
@@ -219,3 +220,27 @@ fibre-square obstruction without assuming FF is strict across K. Actual
 Sigma-map coherence and relative Homd action still require their consumers.
 The accepted identity-core/defined-relative interface remains available;
 there is no reason to introduce a second primitive Homd theory for FF.
+
+The [relative/intrinsic continuation](../emdash2/audits/strict-default-action-boundary/cart_homd_relative_review.md)
+now implements the relative root as an actual composite for general default
+lax FF:D=>E:
+
+```text
+target_con_func(D,E)
+  : T(Transf_{K,Cat_cart}(D,E)) -> Hom_Cart(K,Cat_cart)(H_E,H_D)
+
+homd_rel_int(FF) = target_con_func(D,E)[FF] o homd_id_int(E).
+```
+
+Its stronger outer type comes from ordinary represented Hom on the diagram
+category; it does not imply strictness of FF across the original y-base.
+The literal x/u/y/v/f projection computes `Hom_E[y](E[f](u),FF[y](v))`.
+The identity FF returns the identity core, and modification variance is
+retained at the whole target-action functor.
+
+The corrected intrinsic-action projection now defines forward laxity from
+the whole action and an identity filler, without an independent witness.
+Its identity-map normalization checks. The whole action remains a structural
+owner; nonidentity mate-comparison computation and full coherence remain
+required. The public family-classifier aliases above are still migration
+proposals subject to downstream closure checks.

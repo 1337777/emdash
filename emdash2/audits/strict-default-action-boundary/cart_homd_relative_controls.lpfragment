@@ -1,0 +1,93 @@
+// Whole target-index projection agrees with the existing defined family.
+assert [K A B : Cat] (H : τ (Functor A B)) (F G : τ (Functor K A)) (x : τ (Obj K)) ⊢
+  @comp_cat_fapp0 (@Transf_cat K A F G)
+    (Hom_cat (Functor_cat K B)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K A B H F)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K A B H G))
+    (Hom_cat B (fapp0 H (fapp0 F x)) (fapp0 H (fapp0 G x)))
+    (@tapp0_func K B
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K A B H F)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K A B H G) x)
+    (@hom_postcomp_fapp1_func Cat_cat Cat_cat (@id_func Cat_cat) K A B H F G)
+  ≡ @comp_cat_fapp0 (@Transf_cat K A F G) (Hom_cat A (fapp0 F x) (fapp0 G x))
+      (Hom_cat B (fapp0 H (fapp0 F x)) (fapp0 H (fapp0 G x)))
+      (@fapp1_func A B H (fapp0 F x) (fapp0 G x)) (@tapp0_func K A F G x);
+
+assert [A B C : Cat] (H : τ (Functor A B)) (F G : τ (Functor B C)) (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (Hom_cat (sf_cart_functor_cat B C) F G)
+    (Hom_cat (sf_cart_functor_cat A C) (@comp_cat_fapp0 A B C F H) (@comp_cat_fapp0 A B C G H))
+    (Hom_cat C (fapp0 F (fapp0 H a)) (fapp0 G (fapp0 H a)))
+    (@sf_cart_component_func A C (@comp_cat_fapp0 A B C F H) (@comp_cat_fapp0 A B C G H) a)
+    (@hom_precomp_along_fapp1_func sf_cart_cat sf_cart_cat (@id_func sf_cart_cat) C A B H F G)
+  ≡ @sf_cart_component_func B C F G (fapp0 H a);
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) ⊢
+  fapp0 (sf_cq_homd_target_index K) (@sf_cq_diagram K E) ≡ @sf_cq_homd_target K E;
+
+assert [K : Cat] [D E : τ (Functor K sf_cart_cat)] (FF : τ (@Transf K sf_cart_cat D E))
+  (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K sf_cq_cat (@sf_cq_diagram K D) (@sf_cq_diagram K E) y
+    (@sf_cq_diagram_transf K D E FF)
+  ≡ @sf_cq_rep (@fapp0 K sf_cart_cat D y) (@fapp0 K sf_cart_cat E y)
+      (@tapp0_fapp0 K sf_cart_cat D E y FF);
+
+// General lax FF is accepted by the defined target map and relative root.
+assert [K : Cat] [D E : τ (Functor K sf_cart_cat)] (FF : τ (@Transf K sf_cart_cat D E)) ⊢
+  @sf_cq_homd_rel_int K D E FF
+  : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E (@sf_cq_homd_target K D));
+
+// The component is whole precomposition on the actual section category.
+assert [K : Cat] [D E : τ (Functor K sf_cart_cat)] (FF : τ (@Transf K sf_cart_cat D E))
+  (x : τ (Obj K)) ⊢
+  fapp0 (@sf_cart_component_func K sf_cart_cat (@sf_cq_homd_target K E) (@sf_cq_homd_target K D) x)
+    (@sf_cq_homd_target_transf K D E FF)
+  ≡ @Op_func (@sf_cq_homd_section_cat K E x) (@sf_cq_homd_section_cat K D x)
+      (@hom_precomp_along_func (Functor_cat K sf_cq_cat) (Functor_cat K sf_cq_cat)
+        (@id_func (Functor_cat K sf_cq_cat)) (@sf_cq_diagram K (@sf_cart_hom K x))
+        (@sf_cq_diagram K D) (@sf_cq_diagram K E) (@sf_cq_diagram_transf K D E FF));
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) ⊢
+  @sf_cq_homd_target_transf K E E (@id (Functor_cat K sf_cart_cat) E)
+  ≡ @id (sf_cart_functor_cat K sf_cart_cat) (@sf_cq_homd_target K E);
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) ⊢
+  @sf_cq_homd_rel_int K E E (@id (Functor_cat K sf_cart_cat) E) ≡ @sf_cq_homd_id_int K E;
+
+// Whole FF-action retains the corrected direction on modifications.
+assert [K : Cat] [D E : τ (Functor K sf_cart_cat)]
+  [FF GG : τ (@Transf K sf_cart_cat D E)] (eta : τ (Hom (@Transf_cat K sf_cart_cat D E) FF GG)) ⊢
+  @fapp1_fapp0 (Op_cat (@Transf_cat K sf_cart_cat D E))
+    (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cq_homd_target K E) (@sf_cq_homd_target K D))
+    (@sf_cq_homd_target_con_func K D E) GG FF eta
+  : τ (Hom (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cq_homd_target K E) (@sf_cq_homd_target K D))
+      (@sf_cq_homd_target_transf K D E GG) (@sf_cq_homd_target_transf K D E FF));
+
+assertnot [K : Cat] [D E : τ (Functor K sf_cart_cat)]
+  [FF GG : τ (@Transf K sf_cart_cat D E)] (eta : τ (Hom (@Transf_cat K sf_cart_cat D E) FF GG)) ⊢
+  @fapp1_fapp0 (Op_cat (@Transf_cat K sf_cart_cat D E))
+    (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cq_homd_target K E) (@sf_cq_homd_target K D))
+    (@sf_cq_homd_target_con_func K D E) FF GG eta
+  : τ (Hom (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cq_homd_target K E) (@sf_cq_homd_target K D))
+      (@sf_cq_homd_target_transf K D E FF) (@sf_cq_homd_target_transf K D E GG));
+
+// The literal relative root and direct section composition now join at
+// the whole y-section, before selecting its y/v/f observations.
+assert [K : Cat] [D E : τ (Functor K sf_cart_cat)] (FF : τ (@Transf K sf_cart_cat D E))
+  (x : τ (Obj K)) (u : τ (Obj (@fapp0 K sf_cart_cat E x))) ⊢
+  @sf_cq_homd_rel_section K D E FF x u
+  ≡ @comp_fapp0 (Functor_cat K sf_cq_cat) (@sf_cq_diagram K D) (@sf_cq_diagram K E)
+      (@sf_cq_diagram K (@sf_cart_hom K x))
+      (@sf_cq_homd_src_sec K E x u) (@sf_cq_diagram_transf K D E FF);
+
+// Literal observation of the defined relative root through x/u/y/v/f.
+assert [K : Cat] [D E : τ (Functor K sf_cart_cat)] (FF : τ (@Transf K sf_cart_cat D E))
+  (x y : τ (Obj K)) (u : τ (Obj (@fapp0 K sf_cart_cat E x)))
+  (v : τ (Obj (@fapp0 K sf_cart_cat D y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (fapp0 (@tapp0_fapp0 K sf_cq_cat (@sf_cq_diagram K D)
+      (@sf_cq_diagram K (@sf_cart_hom K x)) y (@sf_cq_homd_rel_section K D E FF x u)) v) f
+  ≡ Hom_cat (@fapp0 K sf_cart_cat E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u)
+      (fapp0 (@tapp0_fapp0 K sf_cart_cat D E y FF) v);
+
+// No implicit promotion of the original FF to a Cartesian diagram map.
+assertnot [K : Cat] [D E : τ (Functor K sf_cart_cat)] (FF : τ (@Transf K sf_cart_cat D E)) ⊢
+  FF : τ (Hom (sf_cart_functor_cat K sf_cart_cat) D E);

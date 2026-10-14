@@ -1,0 +1,119 @@
+{
+  "status": "non-library general-FF relative Homd and intrinsic-action projection",
+  "donorEvidence": "audits/strict-default-action-boundary/cart_homd_root_verification.json",
+  "donorEvidenceSha256": "ec14167612dccab4e06242b898aefec618183ed29d60fc9349a41dbd098072c4",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/cart_homd_relative_replay.py": "bba5980803245d6e862561c97dd9f2587acd23495306ccc35476b125d7fedaf6",
+    "audits/strict-default-action-boundary/cart_homd_relative.lpfragment": "e718530271791f3e427328dfe3070b88c97ba30702c351c2e074ce65bc9e6dc2",
+    "audits/strict-default-action-boundary/cart_homd_relative_controls.lpfragment": "9e7bb338e75048bfc0d04515ddc9a1c261e1141e7a2de4e84b873989e4058c68",
+    "audits/strict-default-action-boundary/cart_homd_intrinsic.lpfragment": "9977e2ab60593fa5079426a4ba1dfe490e0fb84ff321482cab00b900d53faa8a",
+    "audits/strict-default-action-boundary/cart_homd_intrinsic_controls.lpfragment": "61aa37d2bc7d0835733a9748fb794286e1c98f099f1ea5e5aa5eaeff3b2bb58f"
+  },
+  "outputSha256": "f0f3963cc8b053390d109daef2acdfba999bab49260ca57fbc71077a45447477",
+  "baseline": {
+    "path": "logs/check-runs/20261014T191523Z-b4990424a3ad4e23a574e2ba0c65cdfa.json",
+    "sha256": "c403e3d5fb639ca53693e8d4bc57b427bc2369ac3d0ef97ca299bd3afa1a9dd4",
+    "logSha256": "7477001f9b138f0f4912760132d9e208c21b6c8ab77231a5b780a16b3ff366ca",
+    "outcome": "passed-fresh",
+    "wallSeconds": 2.343455628026277,
+    "childrenMaxRssKiB": 203440,
+    "inputSnapshot": "1483b5c075258e422d7504f2782fc92d520276bb9f2e55aa962d98b4d4c60a96",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "candidate": {
+    "path": "logs/check-runs/20261014T194126Z-9bb25f56b5d14c5d9c752e00bd1247c4.json",
+    "sha256": "a98db7817c86a704a1719e527adb17717f555ff8df45c7547189ac9540686a2b",
+    "logSha256": "7c468feb54051da7d7d622da184ff9a9c6d9947ad79bb5d40ab42236b77f434d",
+    "outcome": "passed-fresh",
+    "wallSeconds": 2.421977113932371,
+    "childrenMaxRssKiB": 213464,
+    "inputSnapshot": "c9f79edbae02a8dc6f774f550e2069ff43eb9bcb6d802b608e862029c0976d9c",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "warnings": {
+    "criticalPairsBefore": 1158,
+    "criticalPairsAfter": 1170,
+    "replaceablePatternBefore": 66,
+    "replaceablePatternAfter": 66,
+    "addedDiagnostics": 17,
+    "removedDiagnostics": 0,
+    "addedBodyHashesByGroup": {
+      "cartesian_prewhiskering": [
+        "b8f3f62702e7b9bc480fdc326b022d7d4d70c82fa4ce6a05d9755324697b6b90",
+        "ed9d3ce9aac27317035098cedbe5e2745a2f4848ed3ee4ace914a7b6372458af"
+      ],
+      "dual_precomposition": [
+        "f4e3ec93d4fea66b0dbb18073890a3b00b85da247d11a09954d2da03ecf968ef",
+        "2b220ecfb5a2e378d1249dba423fc16a71c23457770fe27e2ff2324e7fbac89a",
+        "540635a1be9cad0a325d93635c7248afecf9fef198abdac8458a630bc8fdd710"
+      ],
+      "diagram_inclusion": [
+        "2fb47de16dec81f0449e9999a84a368af61881270c97cce76c9b3af427f781d7",
+        "d979d745621b2d4c4acbecb1dad23df1606cbfa9f173f5ea87b676470a313a24",
+        "7cc1e402026ba983b71ca5b93d1a5bbc55d83c1a0ac36a3b9f1c5268ba4dea28",
+        "3309103a15002005b76e1975770b8debe5df7ab1aced676034d94f459fa7d3fe"
+      ],
+      "intrinsic_identity_normality": [
+        "8356aa43fe61643cba8ee8c03ccbaed16f10c0865f32e6fc11a12a38bd6d4bbd",
+        "d4b620afc3ecd361827f53c8b0c38de2ec764dcd047101bbc5ff511328a0422a",
+        "50aa33526228328c4455f1014bf3f273fbde1f7b385f51ed2d40404c710a1ac1"
+      ],
+      "expected_negative_controls": [
+        "d1bb57fc6964791b945848a1f2507f5cb0b32540c08b32a36d43bc8c37ff5dba",
+        "d581757c0d75dc70dde5d3460052023a792926945654e237f7f8d0fef0914f21",
+        "1df2631f8c33ddeb3f48922c4fa4e8925a1cc1023dc3cd2ef1531ac947a617f1",
+        "fd69c567181559a8d89445f8f3da6af62c0441a8576a1d14b4aac0eab57f9ee5",
+        "dca033864f6eb0e31ec9d71ac33bd4269cae915d38e04c4ec58302dd9d54bb99"
+      ]
+    },
+    "qualification": "Whole/capped whiskering, literal relative ladder, identity specializations and profile/variance controls pass; global confluence is not established."
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 24,
+    "intentionalClauses": 17
+  },
+  "development": {
+    "literalRelativeLeafBeforeMatePrecompositionFold": "20261014T192359Z-23daeeffb428450c81fd45569b7f0cce"
+  },
+  "qualification": [
+    "General FF is a default lax transformation between Cartesian-valued families, without a strict-FF guard.",
+    "The relative root and whole target-map parameter action are definitions; the literal root computes the whole section and symbolic leaf.",
+    "The intrinsic whole action is a structural owner; its corrected type and projection ladder are checked, not an independent complete coherence model.",
+    "Forward laxity is defined by identity specialization and identity-filler evaluation, not supplied as an argument.",
+    "The identity displayed map computes to identity intrinsic action; arbitrary lax FF boundaries remain distinct in the controls.",
+    "Nonidentity mate-comparison beta laws, full higher coherence, Sigma-Hom and public migration remain open."
+  ]
+}

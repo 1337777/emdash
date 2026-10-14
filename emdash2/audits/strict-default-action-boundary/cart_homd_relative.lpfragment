@@ -1,0 +1,108 @@
+// NON-LIBRARY: fixed strict postwhiskering preserves ordinary lax
+// transformations. This is the generic component projection used by iota FF.
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@hom_postcomp_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $K $A $B $H $F $G $epsilon)
+  ↪ @fapp1_fapp0 $A $B $H (@fapp0 $K $A $F $x) (@fapp0 $K $A $G $x)
+      (@tapp0_fapp0 $K $A $F $G $x $epsilon);
+// lhs-audit: keep 1 -- whole component of fixed strict postwhiskering.
+rule @comp_fapp0 Cat_cat _ _ _ (@tapp0_func $K $B _ _ $x)
+      (@hom_postcomp_fapp1_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $K $A $B $H $F $G)
+  ↪ @comp_cat_fapp0 (@Transf_cat $K $A $F $G)
+      (Hom_cat $A (@fapp0 $K $A $F $x) (@fapp0 $K $A $G $x))
+      (Hom_cat $B (@fapp0 $A $B $H (@fapp0 $K $A $F $x)) (@fapp0 $A $B $H (@fapp0 $K $A $G $x)))
+      (@fapp1_func $A $B $H (@fapp0 $K $A $F $x) (@fapp0 $K $A $G $x))
+      (@tapp0_func $K $A $F $G $x);
+
+// Cartesian prewhiskering, dual to the existing postwhiskering component
+// owner: the component at a is the original component at H[a].
+rule @tapp0_fapp0 _ _ _ _ $a
+      (@strict_transfor _ _ _ _
+        (@hom_precomp_along_fapp1_fapp0 sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+          $C $A $B $H $F $G $U))
+  ↪ fapp0 (@sf_cart_component_func $B $C $F $G (@fapp0 $A $B $H $a)) $U;
+// lhs-audit: keep 1 -- whole component of Cartesian prewhiskering.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ (@tapp0_func $A $C _ _ $a)
+        (@fapp1_func _ _ (sf_cart_functor_include $A $C) _ _))
+      (@hom_precomp_along_fapp1_func sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+        $C $A $B $H $F $G)
+  ↪ @sf_cart_component_func $B $C $F $G (@fapp0 $A $B $H $a);
+
+// Only ordinary strict-functor duality is used here. An arbitrary FF is
+// never passed to a fibrewise transpose of transformations.
+// lhs-audit: keep 1,2,3 -- identity-family dimension-two-dual Hom action.
+rule @hom_precomp_along_func (CoAt2_cat $C) (CoAt2_cat $C)
+      (@id Cat_cat (CoAt2_cat $C)) $Z $X $Y $p
+  ↪ @Op_func (Hom_cat $C $Y $Z) (Hom_cat $C $X $Z)
+      (@hom_precomp_along_func $C $C (@id_func $C) $Z $X $Y $p);
+
+// Relative composition at the stable Hom owner when its value is a
+// canonical mate. Generic pre/postcomposition owners remain distinct.
+// lhs-audit: keep 1,2,3 -- identity-family diagram precomposition of a mate.
+rule @hom_precomp_along_fapp0 (Functor_cat $K sf_cq_cat) (Functor_cat $K sf_cq_cat)
+      (@id Cat_cat (Functor_cat $K sf_cq_cat)) _ $X _ $FF (@sf_cq_mate $K $E $D $U)
+  ↪ @comp_fapp0 (Functor_cat $K sf_cq_cat) $X (@sf_cq_diagram $K $D) (@sf_cq_diagram $K $E)
+      (@sf_cq_mate $K $E $D $U) $FF;
+
+// Stable diagram image normal form after fixed postcomposition projected.
+// lhs-audit: keep 1,2,3 -- named Q inclusion, not arbitrary Cat composition.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      $K sf_cart_cat sf_cq_cat sf_cq_include $E
+  ↪ @sf_cq_diagram $K $E;
+
+symbol sf_cq_diagram_transf [K : Cat] [D E : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat D E))
+  : τ (@Transf K sf_cq_cat (@sf_cq_diagram K D) (@sf_cq_diagram K E))
+≔ @fapp1_fapp0 (Functor_cat K sf_cart_cat) (Functor_cat K sf_cq_cat)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) K sf_cart_cat sf_cq_cat sf_cq_include)
+    D E FF;
+
+// Whole family of targets, with its parameter left internal. Fixed
+// reindexing of Cartesian represented Hom supplies the stronger output.
+symbol sf_cq_homd_target_index (K : Cat)
+  : τ (Functor (Op_cat (CoAt2_cat (Functor_cat K sf_cq_cat))) (sf_cart_functor_cat K sf_cart_cat))
+≔ @comp_cat_fapp0 (Op_cat (CoAt2_cat (Functor_cat K sf_cq_cat)))
+    (sf_cart_functor_cat (CoAt2_cat (Functor_cat K sf_cq_cat)) sf_cart_cat)
+    (sf_cart_functor_cat K sf_cart_cat)
+    (@hom_precomp_along_func sf_cart_cat sf_cart_cat (@id_func sf_cart_cat)
+      sf_cart_cat K (CoAt2_cat (Functor_cat K sf_cq_cat))
+      (@CoAt2_func (CoAt2_cat K) (Functor_cat K sf_cq_cat) (sf_cq_rep_int K)))
+    (sf_cart_hom_int (CoAt2_cat (Functor_cat K sf_cq_cat)));
+
+// The FF parameter is internalized as an ordinary strict functor between
+// transformation categories. A modification FF=>GG acts GG-map=>FF-map.
+// This transposes a strict Hom-action functor, never a raw FF itself.
+symbol sf_cq_homd_target_con_func [K : Cat] (D E : τ (Functor K sf_cart_cat))
+  : τ (Functor (Op_cat (@Transf_cat K sf_cart_cat D E))
+      (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cq_homd_target K E) (@sf_cq_homd_target K D)))
+≔ @comp_cat_fapp0 (Op_cat (@Transf_cat K sf_cart_cat D E))
+    (Op_cat (@Transf_cat K sf_cq_cat (@sf_cq_diagram K D) (@sf_cq_diagram K E)))
+    (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cq_homd_target K E) (@sf_cq_homd_target K D))
+    (@fapp1_func (Op_cat (CoAt2_cat (Functor_cat K sf_cq_cat))) (sf_cart_functor_cat K sf_cart_cat)
+      (sf_cq_homd_target_index K) (@sf_cq_diagram K E) (@sf_cq_diagram K D))
+    (@Op_func (@Transf_cat K sf_cart_cat D E)
+      (@Transf_cat K sf_cq_cat (@sf_cq_diagram K D) (@sf_cq_diagram K E))
+      (@fapp1_func (Functor_cat K sf_cart_cat) (Functor_cat K sf_cq_cat)
+        (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) K sf_cart_cat sf_cq_cat sf_cq_include) D E));
+
+symbol sf_cq_homd_target_transf [K : Cat] [D E : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat D E))
+  : τ (Hom (sf_cart_functor_cat K sf_cart_cat) (@sf_cq_homd_target K E) (@sf_cq_homd_target K D))
+≔ fapp0 (@sf_cq_homd_target_con_func K D E) FF;
+
+// The blended relative root is an actual composite. FF remains a default
+// lax transformation across K, with Cartesian fibre comparisons.
+symbol sf_cq_homd_rel_int [K : Cat] [D E : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat D E))
+  : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E (@sf_cq_homd_target K D))
+≔ @comp_fapp0 (sf_cart_functor_cat K sf_cart_cat) E (@sf_cq_homd_target K E) (@sf_cq_homd_target K D)
+    (@sf_cq_homd_target_transf K D E FF) (@sf_cq_homd_id_int K E);
+
+symbol sf_cq_homd_rel_section [K : Cat] [D E : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat D E)) (x : τ (Obj K))
+  (u : τ (Obj (@fapp0 K sf_cart_cat E x)))
+  : τ (Obj (@sf_cq_homd_section_cat K D x))
+≔ fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E (@sf_cq_homd_target K D) x)
+    (@sf_cq_homd_rel_int K D E FF)) u;

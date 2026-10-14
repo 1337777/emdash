@@ -1,0 +1,27 @@
+// The whole action has the direction forced by the transposed root.
+assertnot [K : Cat] [E D : τ (Functor K sf_cart_cat)] (FF : τ (@Transf K sf_cart_cat E D)) ⊢
+  @sf_cq_fdapp1_int K E D FF
+  : τ (Hom (@Transf_cat K sf_cart_cat E (@sf_cq_homd_target K E))
+      (@sf_cq_homd_id_view K E) (@sf_cq_action_boundary K E D FF FF));
+
+// The deep identity action projects to the WHOLE identity Hom functor.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) [x y : τ (Obj K)]
+  (p : τ (Hom K x y)) (u : τ (Obj (@fapp0 K sf_cart_cat E x)))
+  (v : τ (Obj (@fapp0 K sf_cart_cat E y))) ⊢
+  @sf_cq_tdapp1_hom K E E (@id (Functor_cat K sf_cart_cat) E) (@id (Functor_cat K sf_cart_cat) E)
+    (@sf_cq_fdapp1_int K E E (@id (Functor_cat K sf_cart_cat) E)) x u y v p
+  ≡ @id_func (Hom_cat (@fapp0 K sf_cart_cat E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v);
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) [x y : τ (Obj K)]
+  (p : τ (Hom K x y)) (u : τ (Obj (@fapp0 K sf_cart_cat E x))) ⊢
+  @sf_cq_fdapp1_laxity K E E (@id (Functor_cat K sf_cart_cat) E) x y p u
+  ≡ @id (@fapp0 K sf_cart_cat E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u);
+
+// A genuine lax FF still has two potentially different boundary objects.
+assertnot [K : Cat] [E D : τ (Functor K sf_cart_cat)] (FF : τ (@Transf K sf_cart_cat E D))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) (u : τ (Obj (@fapp0 K sf_cart_cat E x))) ⊢
+  @eq_refl (Obj (@fapp0 K sf_cart_cat D y))
+    (fapp0 (@fapp1_fapp0 K sf_cart_cat D x y p) (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+  : τ (@= (Obj (@fapp0 K sf_cart_cat D y))
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat D x y p) (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+      (fapp0 (@tapp0_fapp0 K sf_cart_cat E D y FF) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u)));

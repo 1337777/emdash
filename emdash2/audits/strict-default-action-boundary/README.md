@@ -98,6 +98,14 @@ the actual base-two-cell component all pass. Q/mate compatibility remains a
 structural contract; extracted y-comparison coherence, Sigma-Hom and public
 promotion are still required.
 
+The [general-FF relative/intrinsic continuation](cart_homd_relative_review.md)
+defines the whole target action and relative root for default lax FF between
+Cartesian families. The literal section/leaf and identity specialization
+compute. Its corrected whole internal-action type projects to a filler map
+and forward laxity; identity-map normality is checked without collapsing
+general lax FF boundaries. Nonidentity comparison coherence and Sigma-Hom
+remain open.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's

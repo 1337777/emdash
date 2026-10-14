@@ -1,9 +1,13 @@
 # Intrinsic displayed action: profile boundary after section adoption
 
-Status: active semantic review. The adopted identity-section ladder passes
-its existing consumers under the stronger Cartesian coefficient prototype.
-That is conditional comparison evidence, not qualification of the requested
-public universe. This note also records the Cat-valued strictness review.
+Status: historical semantic boundary review, retained for its countermodels.
+The latest [Cartesian-family relative/intrinsic implementation](cart_homd_relative_review.md)
+keeps the default lax Transf and admits E,D into a shared Cartesian family
+coefficient. It checks a defined general-FF relative root and the corrected
+intrinsic projection/identity computation. This supersedes the older
+one-universe admission and nested-lax-Q selections recorded below; full
+comparison coherence and public migration remain unfinished. The older
+countermodels still apply to their stated contracts.
 
 The user subsequently selected conventional lax Transf as the default,
 with one existing extracted leg globally identity. See the

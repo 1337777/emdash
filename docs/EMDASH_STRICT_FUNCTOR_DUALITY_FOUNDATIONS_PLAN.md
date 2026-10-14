@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default with shared Cartesian family coefficient; complete direct ladder has a checked strict-root candidate; extracted y-coherence, Sigma-Hom and production migration remain open
+Status: strict-functor/lax-transfor default with shared Cartesian families; strict-root and general-FF relative ladders compute, intrinsic projection/identity checks pass; nonidentity y-coherence, Sigma-Hom and production migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,35 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Latest relative/intrinsic continuation, 2026-10-14: the
+[general-FF relative root](../emdash2/audits/strict-default-action-boundary/cart_homd_relative_review.md)
+is now an actual defined composite for default lax FF between Cartesian
+families. Its target action is internalized by a functor on T(Transf(D,E));
+a modification FF=>GG acts from target_map(GG) to target_map(FF). The literal
+root computes both its whole y-section and the symbolic relative leaf,
+without a strict-FF guard. The identity FF returns the identity core.
+
+The native tdapp1/fdapp1 pattern is also typed against the corrected root.
+Its projection ladder defines a filler functor and forward laxity by
+identity-modification/identity-filler evaluation. No independent comparison
+cell, proof payload or sigma_map_func is an input. A deep normality rule for
+the identity DISPLAYED MAP computes the whole identity Hom functor and its
+identity laxity cell; it does not collapse the identity-modification action
+of a general lax FF. The two generic naturality boundary objects remain
+distinct in the controls. The whole intrinsic action is still structural;
+nonidentity mate-comparison beta laws and higher coherence are not derived
+from this typing/unit evidence.
+
+Receipt `20261014T194126Z-9bb25f56b5d14c5d9c752e00bd1247c4` passes with SR
+in 2.422s/213,464KiB. Critical-pair diagnostics 1158->1170 are inventoried,
+and the LHS audit has zero unreviewed slots. Next connect the ordinary
+canonical internalizations to the Cartesian family inputs: the strict
+F-action can use covariance of Hom_B(F[x],F[-]) at id_F[x], and the positive
+lax internalization can use fixed postwhiskering of epsilon followed by
+that canonical map. This keeps the extraction native and avoids supplying
+a new laxity witness. Qualify the nonidentity y-comparison and Sigma-Hom;
+production classifier changes still require their downstream closure audit.
 
 Latest native root continuation, 2026-10-14: the
 [Cartesian-family whole root](../emdash2/audits/strict-default-action-boundary/cart_homd_root_review.md)
