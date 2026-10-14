@@ -1,0 +1,159 @@
+// NON-LIBRARY root continuation. Cartesian map composition is transported
+// contravariantly to the canonical lax mates, without strictifying all
+// transformations of diagrams.
+rule @sf_cq_mate $K $E $E (@id (sf_cart_functor_cat $K sf_cart_cat) $E)
+  ↪ @id (Functor_cat $K sf_cq_cat) (@sf_cq_diagram $K $E);
+// lhs-audit: keep 1 -- the actual lax diagram category, on canonical mates.
+rule @comp_fapp0 (Functor_cat $K sf_cq_cat) _ _ _
+      (@sf_cq_mate $K $E $D $U) (@sf_cq_mate $K $D $C $V)
+  ↪ @sf_cq_mate $K $E $C
+      (@comp_fapp0 (sf_cart_functor_cat $K sf_cart_cat) $E $D $C $V $U);
+// lhs-audit: keep 1,2,3 -- identity-family action on the same canonical mates.
+rule @hom_postcomp_fapp0 (Functor_cat $K sf_cq_cat) (Functor_cat $K sf_cq_cat)
+      (@id Cat_cat (Functor_cat $K sf_cq_cat)) _ _ _
+      (@sf_cq_mate $K $E $D $U) (@sf_cq_mate $K $D $C $V)
+  ↪ @sf_cq_mate $K $E $C
+      (@comp_fapp0 (sf_cart_functor_cat $K sf_cart_cat) $E $D $C $V $U);
+
+// Represented opposite-direction composition at the actual defined bodies.
+// The transposed functors are variables here, so prior Op_func projection
+// (for example on a constant functor) does not erase the discriminator.
+// lhs-audit: keep 1 -- Q composition of two represented opposite-direction maps.
+rule @comp_fapp0 sf_cq_cat $C $B $A
+      (@comp_fapp0 Cat_cat $B _ _
+        (@hom_precomp_along_func sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+          sf_cart_cat (Op_cat $A) (Op_cat $B) $F)
+        (sf_cart_hom_int (Op_cat $B)))
+      (@comp_fapp0 Cat_cat $C _ _
+        (@hom_precomp_along_func sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+          sf_cart_cat (Op_cat $B) (Op_cat $C) $G)
+        (sf_cart_hom_int (Op_cat $C)))
+  ↪ @sf_cart_hom_con_int $A $C
+      (@comp_cat_fapp0 $A $B $C
+        (@Op_func (Op_cat $B) (Op_cat $C) $G)
+        (@Op_func (Op_cat $A) (Op_cat $B) $F));
+
+// Canonical covariance under represented source reindexing. This is a
+// proof-time whole-section law, not an operational equality argument.
+unif_rule @comp_fapp0 (sf_cart_functor_cat $K sf_cart_cat) _ _ _
+      (@sf_cart_cov $K $E $x $u)
+      (@sf_cart_cov $K (@sf_cart_hom $K $x) $x' $p)
+  ≡ @sf_cart_cov $K $E $x' $u'
+  ↪ [ $u' ≡ @fapp0 (@fapp0 $K sf_cart_cat $E $x) (@fapp0 $K sf_cart_cat $E $x')
+        (@fapp1_fapp0 $K sf_cart_cat $E $x $x' $p) $u ];
+
+// The mate is an opaque structural head, not declared globally injective.
+// Repeat the canonical comparison at its consumed whole-section head;
+// unification is not assumed to descend/transit through arbitrary symbols.
+unif_rule @sf_cq_mate $K _ _
+      (@comp_fapp0 (sf_cart_functor_cat $K sf_cart_cat) _ _ _
+        (@sf_cart_cov $K $E $x $u)
+        (@sf_cart_cov $K (@sf_cart_hom $K $x) $x' $p))
+  ≡ @sf_cq_mate $K _ _ (@sf_cart_cov $K $E $x' $u')
+  ↪ [ $u' ≡ @fapp0 (@fapp0 $K sf_cart_cat $E $x) (@fapp0 $K sf_cart_cat $E $x')
+        (@fapp1_fapp0 $K sf_cart_cat $E $x $x' $p) $u ];
+
+// Whole-u counterpart of canonical covariance naturality. This compares
+// actual functors, so the later strict root is not justified only pointwise.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func (sf_cart_functor_cat $K sf_cart_cat)
+        (sf_cart_functor_cat $K sf_cart_cat) (@id Cat_cat (sf_cart_functor_cat $K sf_cart_cat))
+        $E _ _ (@sf_cart_cov $K (@sf_cart_hom $K $x) $x' $p))
+      (@sf_cart_cov_func $K $E $x)
+  ≡ @comp_fapp0 Cat_cat _ _ _ (@sf_cart_cov_func $K $E $x')
+      (@fapp1_fapp0 $K sf_cart_cat $E $x $x' $p)
+  ↪ [ tt ≡ tt ];
+
+// Whole represented composition after transpose. This is the mate's
+// naturality in a fixed Cartesian map V:X=>E, before selecting a u value.
+// lhs-audit: keep 1 -- composition of ordinary strict parameter functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@Op_func _ _
+        (@hom_postcomp_func (Functor_cat $K sf_cq_cat) (Functor_cat $K sf_cq_cat)
+          (@id Cat_cat (Functor_cat $K sf_cq_cat)) _ _ _ (@sf_cq_mate $K $X $E $V)))
+      (@Op_func _ _ (@sf_cq_mate_func $K $E $D))
+  ↪ @comp_cat_fapp0 (Hom_cat (sf_cart_functor_cat $K sf_cart_cat) $E $D)
+      (Hom_cat (sf_cart_functor_cat $K sf_cart_cat) $X $D)
+      (Op_cat (@Transf_cat $K sf_cq_cat (@sf_cq_diagram $K $D) (@sf_cq_diagram $K $X)))
+      (@Op_func (Op_cat (Hom_cat (sf_cart_functor_cat $K sf_cart_cat) $X $D))
+        (@Transf_cat $K sf_cq_cat (@sf_cq_diagram $K $D) (@sf_cq_diagram $K $X))
+        (@sf_cq_mate_func $K $X $D))
+      (@hom_precomp_along_func (sf_cart_functor_cat $K sf_cart_cat)
+        (sf_cart_functor_cat $K sf_cart_cat) (@id_func (sf_cart_functor_cat $K sf_cart_cat))
+        $D $X $E $V);
+
+// Represented x-package. Its first Hom is the checked source-u map of I_x.
+// The dimension-two reversal records the contravariance of that Hom.
+injective symbol sf_cq_rep_int (K : Cat)
+  : τ (Functor (CoAt2_cat K) (Functor_cat K sf_cq_cat));
+rule fapp0 (sf_cq_rep_int $K) $x ↪ @sf_cq_diagram $K (@sf_cart_hom $K $x);
+rule @fapp1_func _ _ (sf_cq_rep_int $K) $x $x'
+  ↪ @sf_cq_homd_src_func $K (@sf_cart_hom $K $x) $x';
+rule @fapp1_fapp0 _ _ (sf_cq_rep_int $K) $x $x' $p
+  ↪ @sf_cq_homd_src_sec $K (@sf_cart_hom $K $x) $x' $p;
+
+// H_E is a defined Cartesian family: ordinary Cartesian represented Hom
+// after dimension-two duality of the whole strict represented x-package.
+symbol sf_cq_homd_target [K : Cat] (E : τ (Functor K sf_cart_cat))
+  : τ (Functor K sf_cart_cat)
+≔ @comp_cat_fapp0 K (CoAt2_cat (Functor_cat K sf_cq_cat)) sf_cart_cat
+    (@sf_cart_hom (CoAt2_cat (Functor_cat K sf_cq_cat)) (@sf_cq_diagram K E))
+    (@CoAt2_func (CoAt2_cat K) (Functor_cat K sf_cq_cat) (sf_cq_rep_int K));
+
+// Identity-family Hom action through CoAt2 is transpose on the Hom map.
+// lhs-audit: keep 1,2,3 -- category duality shifts exactly once to the Hom.
+rule @hom_postcomp_func (CoAt2_cat $C) (CoAt2_cat $C)
+      (@id Cat_cat (CoAt2_cat $C)) $A $B $D $g
+  ↪ @Op_func (Hom_cat $C $A $B) (Hom_cat $C $A $D)
+      (@hom_postcomp_func $C $C (@id_func $C) $A $B $D $g);
+
+// Cartesian postwhiskering: component observation commutes with its whole
+// first Hom. This is needed by the root's actual base-two-cell action.
+// lhs-audit: keep 1 -- composition of the component and Hom-action functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ (@tapp0_func $A $C _ _ $a)
+        (@fapp1_func _ _ (sf_cart_functor_include $A $C) _ _))
+      (@hom_postcomp_fapp1_func sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+        $A $B $C $H $F $G)
+  ↪ @comp_cat_fapp0 (Hom_cat (sf_cart_functor_cat $A $B) $F $G)
+      (Hom_cat $B (@fapp0 $A $B $F $a) (@fapp0 $A $B $G $a))
+      (Hom_cat $C (@fapp0 $B $C $H (@fapp0 $A $B $F $a))
+        (@fapp0 $B $C $H (@fapp0 $A $B $G $a)))
+      (@fapp1_func $B $C $H (@fapp0 $A $B $F $a) (@fapp0 $A $B $G $a))
+      (@sf_cart_component_func $A $B $F $G $a);
+
+// Capped-first observation of the same Cartesian postwhiskering law.
+rule @tapp0_fapp0 _ _ _ _ $a
+      (@strict_transfor _ _ _ _
+        (@hom_postcomp_fapp1_fapp0 sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+          $A $B $C $H $F $G $U))
+  ↪ @fapp1_fapp0 $B $C $H (@fapp0 $A $B $F $a) (@fapp0 $A $B $G $a)
+      (fapp0 (@sf_cart_component_func $A $B $F $G $a) $U);
+
+// Candidate canonical strict root, with no strictness proof input. Its
+// independent x-naturality consumers compare the actual component routes.
+symbol sf_cq_homd_id_int [K : Cat] (E : τ (Functor K sf_cart_cat))
+  : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E (@sf_cq_homd_target K E));
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _ (@sf_cq_homd_id_int $K $E))
+  ↪ @Op_func (Op_cat (@fapp0 $K sf_cart_cat $E $x)) (@sf_cq_homd_section_cat $K $E $x)
+      (@sf_cq_homd_src_func $K $E $x);
+
+symbol sf_cq_homd_root_action [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x x' : τ (Obj K))
+  : τ (Functor (Hom_cat K x x')
+      (sf_cart_functor_cat (@fapp0 K sf_cart_cat E x) (Op_cat (@sf_cq_homd_section_cat K E x'))))
+≔ @comp_cat_fapp0 (Hom_cat K x x')
+    (sf_cart_functor_cat (@fapp0 K sf_cart_cat E x) (@fapp0 K sf_cart_cat E x'))
+    (sf_cart_functor_cat (@fapp0 K sf_cart_cat E x) (Op_cat (@sf_cq_homd_section_cat K E x')))
+    (@hom_postcomp_func sf_cart_cat sf_cart_cat (@id_func sf_cart_cat)
+      (@fapp0 K sf_cart_cat E x) (@fapp0 K sf_cart_cat E x') (Op_cat (@sf_cq_homd_section_cat K E x'))
+      (@Op_func (Op_cat (@fapp0 K sf_cart_cat E x')) (@sf_cq_homd_section_cat K E x')
+        (@sf_cq_homd_src_func K E x')))
+    (@fapp1_func K sf_cart_cat E x x');
+rule @tapp1_func _ _ _ _ $x $x'
+      (@strict_transfor _ _ _ _ (@sf_cq_homd_id_int $K $E))
+  ↪ @sf_cq_homd_root_action $K $E $x $x';
+rule @tapp1_fapp0 _ _ _ _ $x $x'
+      (@strict_transfor _ _ _ _ (@sf_cq_homd_id_int $K $E)) $p
+  ↪ fapp0 (@sf_cq_homd_root_action $K $E $x $x') $p;

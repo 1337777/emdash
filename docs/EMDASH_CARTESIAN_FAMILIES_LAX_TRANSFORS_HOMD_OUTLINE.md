@@ -2,7 +2,7 @@
 
 Date: 2026-10-14
 Status: selected next candidate under the user's latest constraints;
-fixed-x native comparison checked, outer root and Sigma-Hom open
+whole strict-root/direct-ladder candidate checked; y-coherence and Sigma-Hom open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
 
@@ -165,9 +165,10 @@ For h:u0->u1, the y/v/f observation of source-u action is the whole functor
 precomposing by E[f][h]. This is an explicit computational requirement,
 not merely a declaration that the source-u map exists.
 
-## Preferred stronger outer root
+## Stronger outer root and current native evidence
 
-The user's observation about the outer x is adopted as a target to qualify:
+The user's observation about the outer x is now implemented in the
+[experimental root](../emdash2/audits/strict-default-action-boundary/cart_homd_root_review.md):
 
 ```text
 H_E : Functor(K,Cat_cart)
@@ -190,9 +191,17 @@ H_E[p] o homd_id_int(E)[x]
   = homd_id_int(E)[x'] o E[p].
 ```
 
-This whole equation, its higher cells, and the correct variance of H_E's
-action are the acceptance boundary for the stronger root. The displayed
-types are targets, not declarations already installed to assert the result.
+The whole-functor equation is checked independently of the root's strict
+wrapper. Its diagnostic uses the covariance/mate constructor laws and
+ordinary equality congruence; operational symbols carry no proof argument.
+The root's base-two-cell component is also computed, with noncollapse
+retained. The target H_E is a definition through represented Hom on the
+diagram category. An internal dimension-two shift accounts for the T in
+the section fibre and returns the family base to K.
+
+This is a checked native constructor/projection candidate under the stated
+Q/mate laws. It is not a derivation of complete Q coherence, the extracted
+lax y-comparison or Sigma-Hom, and is not yet a public kernel migration.
 
 ## Sigma and relative maps
 

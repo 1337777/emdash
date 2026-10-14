@@ -91,6 +91,13 @@ compute under structural Q/mate contracts. Default Transf remains lax;
 the shared E/I_x coefficient is Cartesian. The outer root, extracted
 comparison coherence and Sigma-Hom remain open.
 
+The [Cartesian-family whole root](cart_homd_root_review.md) adds the defined
+Cartesian target H_E and canonical strict root. The complete direct
+x/u/y/v/f ladder, an independent whole-functor naturality comparison and
+the actual base-two-cell component all pass. Q/mate compatibility remains a
+structural contract; extracted y-comparison coherence, Sigma-Hom and public
+promotion are still required.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's

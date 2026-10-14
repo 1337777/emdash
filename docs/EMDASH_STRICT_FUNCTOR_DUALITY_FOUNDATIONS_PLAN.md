@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default with a shared Cartesian family coefficient selected for Homd; fixed-x whole y-section/source-u comparison checked; outer root, Sigma-Hom and production migration remain open
+Status: strict-functor/lax-transfor default with shared Cartesian family coefficient; complete direct ladder has a checked strict-root candidate; extracted y-coherence, Sigma-Hom and production migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,28 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Latest native root continuation, 2026-10-14: the
+[Cartesian-family whole root](../emdash2/audits/strict-default-action-boundary/cart_homd_root_review.md)
+now defines H_E:K->Cat_cart through represented Hom on the diagram category,
+and checks the canonical strict root with the full x/u/y/v/f projection.
+The actual component routes have an independent whole-functor naturality
+comparison, using covariance/mate constructor laws and diagnostic eq_ap;
+no operational symbol takes an equality proof. The base-two-cell consumer
+computes through E[alpha]'s actual component and the source-u map, with a
+noncollapse control. Represented opposite-direction composition and the
+x-package units/composition also check.
+
+The internal CoAt2 shift follows from the first-Hom source T(Hom_K(x,x'));
+it is reversed again when constructing H_E, so the admitted family base
+remains K. No whole duality on arbitrary lax mapping categories is imported.
+Receipt `20261014T190644Z-b940aa88ca5c4de28073581a69883d0b` passes with SR
+in 2.356s/204,056KiB. Critical-pair diagnostics 1083->1158 are inventoried;
+the LHS audit has zero unreviewed slots. The compatibility clauses are
+structural laws, not derivations from earlier point betas or a complete Q
+model. Next qualify extracted lax y-comparison computation/coherence and
+the Sigma-Hom construction, then relative consumers and production migration.
+The goal and complete foundational qualification remain unfinished.
 
 Latest selected family/Q candidate, 2026-10-14: the user agrees to E and
 I_x=Hom_K(x,-) sharing Functor(K,Cat_cart), with strict higher fibre
