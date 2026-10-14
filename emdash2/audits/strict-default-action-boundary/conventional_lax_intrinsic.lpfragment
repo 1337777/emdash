@@ -1,0 +1,19 @@
+// NON-LIBRARY candidate at the existing intrinsic owner. The default lax
+// convention makes the extracted pre/right whole cell an identity; there is
+// no independently declared comparison and no operational profile argument.
+rule @fdapp1_comma_projection_transf
+      $K _ _
+      (@tapp1_con_at_transf $A $B $F $G $epsilon $Y)
+      (@fdapp1_int_transfd $K _ _
+        (@tapp1_con_at_transf $A $B $F $G $epsilon $Y))
+      $X $W $h
+  ↪ @id
+      (Functor_cat
+        (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $G $Y)))
+      (@functord_transport_lhs_func
+        (Op_cat $A)
+        (@hom_con $A $Y $A (@id_func $A))
+        (@hom_con $B (@fapp0 $A $B $G $Y) $A $F)
+        (@tapp1_con_at_transf $A $B $F $G $epsilon $Y)
+        $X $W $h);

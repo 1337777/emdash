@@ -90,6 +90,31 @@ def main():
     source_then_index = square.compose(square.compose(id_v, k), e0)
     assert index_then_source == right and source_then_index == left
     assert index_then_source != source_then_index
+
+    # The same conventional lax square is the comparison of a displayed
+    # map between constant families over [1], with strict components H,J.
+    # Sigma(const C)=[1] x C. Its two mixed factorizations are the SAME
+    # source arrow, but any map with the prescribed four object values has
+    # the distinct left/right images: each relevant target edge is unique.
+    points = tuple(product((0, 1), repeat=2))
+    grid_arrows = {(a, b) for a, b in product(points, repeat=2)
+                   if all(x <= y for x, y in zip(a, b))}
+
+    def grid_compose(after, before):
+        assert before in grid_arrows and after in grid_arrows
+        assert before[1] == after[0]
+        result = before[0], after[1]
+        assert result in grid_arrows
+        return result
+
+    base_then_fibre = grid_compose(((1, 0), (1, 1)), ((0, 0), (1, 0)))
+    fibre_then_base = grid_compose(((0, 1), (1, 1)), ((0, 0), (0, 1)))
+    assert base_then_fibre == fibre_then_base
+    for edge in (h, k, e0, e1):
+        alternatives = {p for p in square.paths
+                        if p[0] == edge[0] and square.target(p) == square.target(edge)}
+        assert alternatives == {edge}
+    assert square.compose(k, e0) != square.compose(e1, h)
     # Precomposition by the strict transformation 0=>1 between point
     # selectors would be eval0=>eval1. Strict naturality on this lax square
     # would require equality of the two distinct paths above.
@@ -127,6 +152,14 @@ def main():
             'source_then_index': source_then_index,
             'strict_index_naturality': False,
             'scope': 'prescribed u/v/f projections with a strict inner Cat-valued transfor'},
+        'strict_sigma_map_of_lax_displayed_map': {
+            'constant_families_and_strict_components': True,
+            'source_product_arrows': len(grid_arrows),
+            'mixed_source_composites_equal': base_then_fibre == fibre_then_base,
+            'four_target_edges_unique': True,
+            'mixed_target_composites_equal': left == right,
+            'comparison_is_conventional_lax': (left, right) in square.cells,
+            'scope': 'Sigma(const C)=K x C and the prescribed Sigma-map object values cannot yield a strict functor for every conventional lax displayed map'},
         'negative_family_parameter': {'lax_input_exists': True,
                                       'same_lax_output_exists': False},
         'shifted_op_section': {'strict_negative_input_exists': True,

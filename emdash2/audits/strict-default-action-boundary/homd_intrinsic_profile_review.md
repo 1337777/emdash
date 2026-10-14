@@ -5,6 +5,13 @@ its existing consumers under the stronger Cartesian coefficient prototype.
 That is conditional comparison evidence, not qualification of the requested
 public universe. This note also records the Cat-valued strictness review.
 
+The user subsequently selected conventional lax Transf as the default,
+with one existing extracted leg globally identity. See the
+[selected convention and native owner checks](conventional_lax_review.md).
+The two-leg discussion below describes the pre-migration carrier and the
+earlier comparison boundary; it no longer requires preserving that broader
+carrier as the default. The remaining post/left cell must stay genuinely lax.
+
 ## Two meanings of laxity must remain distinct
 
 Write

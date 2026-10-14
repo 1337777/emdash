@@ -1,0 +1,698 @@
+{
+  "status": "native ordinary and deep pre-cell candidates pass; not promoted; projection-order, closure and duality integration remain open",
+  "decision": "User selected conventional lax Transf by default, with pre/right intrinsic cell identity and retained post/left cell.",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "sourceSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/conventional_lax_replay.py": "7129aaf57b2cb7e29ca7e5c8e2810b22001a1e160150c875a91f6a194f5fe113",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad"
+  },
+  "outputs": {
+    "baseline.lp": "31f75da3ac0a2607806e3a93da216414779fb5ad3d91b4a0fdcd178f818c94cd",
+    "ordinary.lp": "1a359eff1618f6add51f03967e3bd77b1d115bec0e91c7cacb326e2fbcdd9b7c",
+    "no_pre.lp": "3d702057a2c825b6e9cf62ad86f2841b6a4b1f16f6499252d6cc2442575de412",
+    "legacy_op_adverse.lp": "995d5d0fd20b48a2fbdb17ac8301c6071c24cfd7b81f7d23599711ff3eea2955",
+    "full_intrinsic.lp": "bc571b3eeffde583fdeaa0f063a62806bdd8fba7e336a390d3150bde35ff5ec8",
+    "full_without_cell.lp": "e81abe91c5e3f916e24292c012c88d8813998bb0488dd3a3754a5a3ef27d7717"
+  },
+  "checks": {
+    "baseline.lp": {
+      "id": "20261014T085225Z-be6a861d121c4b0bb9deb2463eb8e6fd",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 3.331218865001574,
+      "childrenMaxRssKiB": 112384,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "inputSnapshot": "82a751cf7f9fea81dfabd3e18a8356007f41a21e33bf26f2d5de289b9e1ab693",
+      "receipt": "logs/check-runs/20261014T085225Z-be6a861d121c4b0bb9deb2463eb8e6fd.json",
+      "receiptSha256": "a3878ea6209f3a9d9741423d2809253e2544782e5029318a67d9638fb656f81b",
+      "log": "logs/check-runs/20261014T085225Z-be6a861d121c4b0bb9deb2463eb8e6fd.log",
+      "logSha256": "bf6735e4608f5f88725bc159a947addc84c6c5240a3c814a7b950269d53f4530",
+      "sourceSha256": "31f75da3ac0a2607806e3a93da216414779fb5ad3d91b4a0fdcd178f818c94cd",
+      "positiveAssertions": 3,
+      "negativeAssertions": 6,
+      "warningCriticalPairs": 433,
+      "replaceablePatterns": 51,
+      "terminalExcerpt": null
+    },
+    "ordinary.lp": {
+      "id": "20261014T085351Z-0137d8cfbe2c4aed82d88d7e0f934b0e",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 3.7372887880774215,
+      "childrenMaxRssKiB": 117876,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "inputSnapshot": "854972205835c8a64420bf40716b62c17dcfd02373d402144658f36ce223b39e",
+      "receipt": "logs/check-runs/20261014T085351Z-0137d8cfbe2c4aed82d88d7e0f934b0e.json",
+      "receiptSha256": "757ba6d69efc64b2793e5a9f5e6ad15b4c3d8228ec154cafd1af453792090636",
+      "log": "logs/check-runs/20261014T085351Z-0137d8cfbe2c4aed82d88d7e0f934b0e.log",
+      "logSha256": "cd9fe3a1e91797bc0d1d108beb866f04a177cf899b6322f9dca50ded4fb1028f",
+      "sourceSha256": "1a359eff1618f6add51f03967e3bd77b1d115bec0e91c7cacb326e2fbcdd9b7c",
+      "positiveAssertions": 7,
+      "negativeAssertions": 2,
+      "warningCriticalPairs": 495,
+      "replaceablePatterns": 51,
+      "terminalExcerpt": null
+    },
+    "no_pre.lp": {
+      "id": "20261014T084538Z-1b59ccdcabc24e15bbeb0cd7840ea8d2",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 3.0222068679286167,
+      "childrenMaxRssKiB": 112328,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "inputSnapshot": "b80851e243c2d832e8ba34b8b82a8b004e653eb6918b2ccd259fd02c4f16d708",
+      "receipt": "logs/check-runs/20261014T084538Z-1b59ccdcabc24e15bbeb0cd7840ea8d2.json",
+      "receiptSha256": "5c8eec6ea301838a2263441899c81c074f80e34d3e0afdd621bf81981e673a20",
+      "log": "logs/check-runs/20261014T084538Z-1b59ccdcabc24e15bbeb0cd7840ea8d2.log",
+      "logSha256": "20b156f9b33cc304b93c46d37a94df4468809b9dd241409e0346defee9c13aad",
+      "sourceSha256": "3d702057a2c825b6e9cf62ad86f2841b6a4b1f16f6499252d6cc2442575de412",
+      "positiveAssertions": 7,
+      "negativeAssertions": 2,
+      "warningCriticalPairs": 0,
+      "replaceablePatterns": 0,
+      "terminalExcerpt": "Cat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\nGrpd.\n\nCat\nis not unifiable with\nKIND.\nAssertion failed."
+    },
+    "full_intrinsic.lp": {
+      "id": "20261014T085734Z-f0677c14647141d7a5b78e785f8679c5",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 13.831628066953272,
+      "childrenMaxRssKiB": 360188,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "inputSnapshot": "84a037ffbb1f41b1d72962821b4b66007f9acc6019ff405f61cc60cb5901b24f",
+      "receipt": "logs/check-runs/20261014T085734Z-f0677c14647141d7a5b78e785f8679c5.json",
+      "receiptSha256": "0dd60751bd7523a1724dc4099d9d4e7e2d3e36bc873f44307250596345c0f208",
+      "log": "logs/check-runs/20261014T085734Z-f0677c14647141d7a5b78e785f8679c5.log",
+      "logSha256": "c04e4e45c2bc3c969c0582b0e8d73e640aa9aeebe989aee6cc50f305c8124bcf",
+      "sourceSha256": "bc571b3eeffde583fdeaa0f063a62806bdd8fba7e336a390d3150bde35ff5ec8",
+      "positiveAssertions": 9,
+      "negativeAssertions": 3,
+      "warningCriticalPairs": 913,
+      "replaceablePatterns": 150,
+      "terminalExcerpt": null
+    },
+    "full_without_cell.lp": {
+      "id": "20261014T085409Z-1a5483b4da0b4e5493255c7c178444f0",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 13.741212670924142,
+      "childrenMaxRssKiB": 358740,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "inputSnapshot": "52892dd9c829bda05be1ebc5b0cc31b09d523caf34a80217769a9d66f9e212da",
+      "receipt": "logs/check-runs/20261014T085409Z-1a5483b4da0b4e5493255c7c178444f0.json",
+      "receiptSha256": "b20174830e221935df8054b0e4609fec490f5082011783ede9f4eb2839d5f501",
+      "log": "logs/check-runs/20261014T085409Z-1a5483b4da0b4e5493255c7c178444f0.log",
+      "logSha256": "c914d3424595037dba4650305e1fbc46a9d015d71ce91f8cb819f2d4b2bc4e4e",
+      "sourceSha256": "e81abe91c5e3f916e24292c012c88d8813998bb0488dd3a3754a5a3ef27d7717",
+      "positiveAssertions": 9,
+      "negativeAssertions": 3,
+      "warningCriticalPairs": 913,
+      "replaceablePatterns": 150,
+      "terminalExcerpt": "t ↪[1] @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 Core1_func $D $Z $g) (@fapp0 (Path_cat (Functor $C $D)) (Functor_cat (Core_cat $C) (Core_cat $D)) (@core1_hom_func $C $D) $1) ↪* @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func (Obj $D) (Obj $Z) (λ x:τ (Obj $D), @fapp0 $D $Z $g x)) (@fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func (Obj $C) (Obj $D) (λ x:τ (Obj $C), @fapp0 $C $D $1 x))\n  with @fapp1_fapp0 $0 $1 Core1_func $C $D $F ↪ @fapp0 (Path_cat (Functor $C $D)) (Functor_cat (Core_cat $C) (Core_cat $D)) (@core1_hom_func $C $D) $F\n[tmp/probes/conventional_lax_default/full_without_cell.lp:22194:0-22200:7]\nUnjoinable critical pair:\nt ≔ @fapp1_fapp0 $A $B Core1_func Core1_func Core1_func (id $A Core1_func)\nt ↪[] id $B (@fapp0 $A $B Core1_func Core1_func) ↪* id $B (Path_cat (Obj Core1_func))\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) ↪ id $B (@fapp0 $A $B $F $X)\nt ↪[] @fapp0 (Path_cat (Functor Core1_func Core1_func)) (Functor_cat (Core_cat Core1_func) (Core_cat Core1_func)) (@core1_hom_func Core1_func Core1_func) (id $A Core1_func) ↪* @fapp1_fapp0 Grpd_cat Cat_cat Path_cat_func (Obj Core1_func) (Obj Core1_func) (λ x:τ (Obj Core1_func), @fapp0 Core1_func Core1_func (id $A Core1_func) x)\n  with @fapp1_fapp0 $0 $1 Core1_func $C $D $F ↪ @fapp0 (Path_cat (Functor $C $D)) (Functor_cat (Core_cat $C) (Core_cat $D)) (@core1_hom_func $C $D) $F\n[tmp/probes/conventional_lax_default/full_without_cell.lp:22766:0-22774:42]\nCannot solve A: Cat, B: Cat, F: τ (Functor A B), G: τ (Functor A B), epsilon: τ (@Transf A B F G), x: τ (Obj A), y: τ (Obj A), p: τ (Hom A x y) ⊢ @tapp1_fapp0 A B F G x y epsilon p ≡ @comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B G x) (@fapp0 A B G y) (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon).\n[tmp/probes/conventional_lax_default/full_without_cell.lp:22789:0-22798:54] Assertion failed."
+    },
+    "legacy_op_adverse.lp": {
+      "id": "20261014T084904Z-aa18b73a04874c72a575f7f462ab6ea6",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 3.3049310579663143,
+      "childrenMaxRssKiB": 117596,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "inputSnapshot": "e4a9a4ec106cd4e7269fb39fc73108f040bd9ccb711b87de5bec4b788522db6a",
+      "receipt": "logs/check-runs/20261014T084904Z-aa18b73a04874c72a575f7f462ab6ea6.json",
+      "receiptSha256": "b21ce8f3109e141635b4b2069abbdf84624624bfb8c3bd10afabd2ec870c5454",
+      "log": "logs/check-runs/20261014T084904Z-aa18b73a04874c72a575f7f462ab6ea6.log",
+      "logSha256": "c80493ee4a2a963c3f30a670c66877e6bf72a52ea86cec6e9850e69d60ef1f16",
+      "sourceSha256": "995d5d0fd20b48a2fbdb17ac8301c6071c24cfd7b81f7d23599711ff3eea2955",
+      "positiveAssertions": 0,
+      "negativeAssertions": 0,
+      "warningCriticalPairs": 0,
+      "replaceablePatterns": 0,
+      "terminalExcerpt": "x: τ (Obj A)\ny: τ (Obj A)\np: τ (Hom A x y)\n------------------------------------------------------------------------------\n0. Op_cat B ≡ B\n1. @fapp0 A B F x ≡ @fapp0 A B G y\n2. @fapp0 A B G y ≡ @fapp0 A B F x\n3. @comp_fapp0 B (@fapp0 (Op_cat A) (Op_cat B) (@Op_func A B F) x) (@fapp0 (Op_cat A) (Op_cat B) (@Op_func A B G) x) (@fapp0 (Op_cat A) (Op_cat B) (@Op_func A B G) y) (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon) ≡ @comp_fapp0 B (@fapp0 A B G y) (@fapp0 A B G x) (@fapp0 A B F x) (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon)\n4. @fapp0 A B F x ≡ @fapp0 A B G y\n5. @fapp0 A B G y ≡ @fapp0 A B F x\n6. @fapp0 A B F x ≡ @fapp0 A B G y\n7. @fapp0 A B G y ≡ @fapp0 A B F x"
+    }
+  },
+  "expectedSensitivityFailures": {
+    "no_pre.lp": "first PRE-POSITIVE assertion",
+    "full_without_cell.lp": "extracted pre-cell identity assertion"
+  },
+  "unqualifiedAttempt": {
+    "legacy_op_adverse.lp": "Legacy same-profile transpose equality attempt leaves endpoint/category unification obligations; not a checked adverse theorem."
+  },
+  "lhsAudit": {
+    "ordinary.lp": {
+      "unreviewedSlots": 0,
+      "annotatedSlots": 20,
+      "annotatedClauses": 13
+    },
+    "full_intrinsic.lp": {
+      "unreviewedSlots": 0,
+      "annotatedSlots": 64,
+      "annotatedClauses": 41
+    }
+  },
+  "ordinaryWarnings": {
+    "baseline": 433,
+    "candidate": 495,
+    "added": 62,
+    "removed": 0,
+    "normalization": "Strip ANSI; retain the five term/reduct/participant lines after each critical-pair header.",
+    "classes": {
+      "whole_endpoint_projection": {
+        "indices": [
+          0
+        ],
+        "status": "typed projection-order qualification required before promotion"
+      },
+      "opposite_composition": {
+        "indices": [
+          1,
+          31
+        ],
+        "status": "typed projection-order qualification required before promotion"
+      },
+      "terminal_composition": {
+        "indices": [
+          2,
+          32
+        ],
+        "status": "typed projection-order qualification required before promotion"
+      },
+      "source_action_projection": {
+        "indices": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58
+        ],
+        "status": "typed projection-order qualification required before promotion"
+      },
+      "structural_off_diagonal_projection": {
+        "indices": [
+          29
+        ],
+        "status": "typed projection-order qualification required before promotion"
+      },
+      "off_diagonal_identity": {
+        "indices": [
+          30
+        ],
+        "status": "typed projection-order qualification required before promotion"
+      },
+      "transfor_identity_component": {
+        "indices": [
+          59,
+          60
+        ],
+        "status": "typed projection-order qualification required before promotion"
+      },
+      "vertical_component_composition": {
+        "indices": [
+          61
+        ],
+        "status": "typed projection-order qualification required before promotion"
+      }
+    },
+    "addedBlocks": [
+      {
+        "index": 0,
+        "sha256": "16fa13aa2683e9715bfb95aa0c3bbc708d4bab781addf3370fc3033cb653fc77",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Cat_cat $' $' $' (@hom_precomp_along_func $X (Product_cat $A $B) $F' (@fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $i) $W' $X' $h') (@tapp1_func $X (Product_cat $A $B) $F' (@Struct_sigma $3 $4 $F $G) $X' $i $epsilon')\nt ↪[] @comp_fapp0 Cat_cat (Hom_cat $X $X' $i) (Hom_cat $X (@fapp0 $X $X (@id_func $X) $W') $i) (Hom_cat (Product_cat $A $B) (@fapp0 $X (Product_cat $A $B) $F' $W') (@fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $i)) (@tapp1_func $X (Product_cat $A $B) $F' (@Struct_sigma $3 $4 $F $G) $W' $i $epsilon') (@hom_precomp_along_func $X $X (@id_func $X) $i $W' $X' $h') ↪* @comp_fapp0 Cat_cat (Hom_cat $X $X' $i) (Hom_cat $X $W' $i) (Product_cat (Hom_cat $A (@fapp0 $X $A (@sigma_Fst (Obj (Functor_cat $X $A)) (λ _:τ (Obj (Functor_cat $X $A)), Obj (Functor_cat $X $B)) $F') $W') (@fapp0 $X $A $F $i)) (Hom_cat $B (@fapp0 $X $B (@sigma_Snd (Obj (Functor_cat $X $A)) (λ _:τ (Obj (Functor_cat $X $A)), Obj (Functor_cat $X $B)) $F') $W') (@fapp0 $X $B $G $i))) (@tapp1_func $X (Product_cat $A $B) $F' (@Struct_sigma $3 $4 $F $G) $W' $i $epsilon') (@hom_precomp_along_func $X $X (id Cat_cat $X) $i $W' $X' $h')\n  with @comp_fapp0 Cat_cat $' $' $' (@hom_precomp_along_func $A' $B' $F' (@fapp0 $A' $B' $G' $Y') $W' $X' $h') (@tapp1_func $A' $B' $F' $G' $X' $Y' $epsilon') ↪ @comp_fapp0 Cat_cat (Hom_cat $A' $X' $Y') (Hom_cat $A' (@fapp0 $A' $A' (@id_func $A') $W') $Y') (Hom_cat $B' (@fapp0 $A' $B' $F' $W') (@fapp0 $A' $B' $G' $Y')) (@tapp1_func $A' $B' $F' $G' $W' $Y' $epsilon') (@hom_precomp_along_func $A' $A' (@id_func $A') $Y' $W' $X' $h')\nt ↪[0; 1; 0; 0; 0; 1] @comp_fapp0 Cat_cat $' $' $' (@hom_precomp_along_func $X (Product_cat $A $B) $F' (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i)) $W' $X' $h') (@tapp1_func $X (Product_cat $A $B) $F' (@Struct_sigma $3 $4 $F $G) $X' $i $epsilon') ↪* @comp_fapp0 Cat_cat $' $' $' (@hom_precomp_along_func $X (Product_cat $A $B) $F' (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i)) $W' $X' $h') (@tapp1_func $X (Product_cat $A $B) $F' (@Struct_sigma $3 $4 $F $G) $X' $i $epsilon')\n  with @fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $i ↪ @Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i)\n"
+      },
+      {
+        "index": 1,
+        "sha256": "32fa08c25ee29b1f858cba8889ea594e4e05832872bac248d2cde8f141e60fc0",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 (Op_cat $A) $X $Y $Z (@tapp1_fapp0 $A' (Op_cat $A) $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' (Op_cat $A) $F' $W' $X' $h')\nt ↪[] @tapp1_fapp0 $A' (Op_cat $A) $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h') ↪* @tapp1_fapp0 $A' (Op_cat $A) $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[] @comp_fapp0 $A $Z $Y $X (@fapp1_fapp0 $A' (Op_cat $A) $F' $W' $X' $h') (@tapp1_fapp0 $A' (Op_cat $A) $F' $G' $X' $Y' $epsilon' $f') ↪* @comp_fapp0 $A $Z $Y $X (@fapp1_fapp0 $A' (Op_cat $A) $F' $W' $X' $h') (@tapp1_fapp0 $A' (Op_cat $A) $F' $G' $X' $Y' $epsilon' $f')\n  with @comp_fapp0 (Op_cat $A) $X $Y $Z $g $f ↪ @comp_fapp0 $A $Z $Y $X $f $g\n"
+      },
+      {
+        "index": 2,
+        "sha256": "6ce4f3fd639eb342fcdad65064b549e116cd58fbb9b0eab438f6969f382901ef",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@tapp1_fapp0 $A' Terminal_cat $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' Terminal_cat $F' $W' $X' $h')\nt ↪[] @tapp1_fapp0 $A' Terminal_cat $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h') ↪* @tapp1_fapp0 $A' Terminal_cat $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[] Terminal_obj ↪* Terminal_obj\n  with @comp_fapp0 Terminal_cat $0 $1 $2 $3 $4 ↪ Terminal_obj\n"
+      },
+      {
+        "index": 3,
+        "sha256": "b50e40647bf8b66418019c2cd1c434cb244489ba9f92d0f7139e051ea139fd12",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $A $B $F $G' $X $Y' $epsilon' $f') (@fapp1_fapp0 $A $B $F $X $X (id $A $X))\nt ↪[] @tapp1_fapp0 $A $B $F $G' $X $Y' $epsilon' (@comp_fapp0 $A $X $X $Y' $f' (id $A $X)) ↪* @tapp1_fapp0 $A $B $F $G' $X $Y' $epsilon' $f'\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $A $B $F $G' $X $Y' $epsilon' $f') (id $B (@fapp0 $A $B $F $X)) ↪* @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $A $B $F $G' $X $Y' $epsilon' $f') (id $B (@fapp0 $A $B $F $X))\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) ↪ id $B (@fapp0 $A $B $F $X)\n"
+      },
+      {
+        "index": 4,
+        "sha256": "b21beb49cbcd0521fec9a828c1dbb60da91ae6c5f3132bf0f0ee192ba21caaf3",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $D $' $' $' (@tapp1_fapp0 (Op_cat $K) $D $F $G' $x $Y' $epsilon' $f') (@fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x))\nt ↪[] @tapp1_fapp0 (Op_cat $K) $D $F $G' $x $Y' $epsilon' (@comp_fapp0 (Op_cat $K) $x $x $Y' $f' (id $K $x)) ↪* @tapp1_fapp0 (Op_cat $K) $D $F $G' $x $Y' $epsilon' $f'\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $D $' $' $' (@tapp1_fapp0 (Op_cat $K) $D $F $G' $x $Y' $epsilon' $f') (id $D (@fapp0 (Op_cat $K) $D $F $x)) ↪* @comp_fapp0 $D $' $' $' (@tapp1_fapp0 (Op_cat $K) $D $F $G' $x $Y' $epsilon' $f') (id $D (@fapp0 (Op_cat $K) $D $F $x))\n  with @fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x) ↪ id $D (@fapp0 (Op_cat $K) $D $F $x)\n"
+      },
+      {
+        "index": 5,
+        "sha256": "36249036378c32978e5f9a2f1346de05e5dba2857022450fb66c31691b67bcaa",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 (Path_cat $A) $' $' $' (@tapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $Y' $epsilon' $f') (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' (@eq_refl $A $'))\nt ↪[] @tapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $Y' $epsilon' (@comp_fapp0 (Op_cat (Path_cat $A)) $' $' $Y' $f' (@eq_refl $A $')) ↪* @tapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $Y' $epsilon' $f'\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 (Path_cat $A) $' $' $' (@tapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $Y' $epsilon' $f') (@eq_refl $A $') ↪* @comp_fapp0 (Path_cat $A) $' $' $' (@tapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $Y' $epsilon' $f') (@eq_refl $A $')\n  with @fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $x $x (@eq_refl $A $x) ↪ @eq_refl $A $x\n"
+      },
+      {
+        "index": 6,
+        "sha256": "ea481eb60e2f55b6af91c88a67d2e0ef2cc9696d32e571684ea713f4e95315cd",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@tapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $Y' $epsilon' $f') (@fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' (@PathRecordPathRefl $A $'))\nt ↪[] @tapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $Y' $epsilon' (@comp_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) $' $' $Y' $f' (@PathRecordPathRefl $A $')) ↪* @tapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $Y' $epsilon' $f'\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@tapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $Y' $epsilon' $f') (@PathRecordPathRefl $A $') ↪* @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@tapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $Y' $epsilon' $f') (@PathRecordPathRefl $A $')\n  with @fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $r $r (@PathRecordPathRefl $A $r) ↪ @PathRecordPathRefl $A $r\n"
+      },
+      {
+        "index": 7,
+        "sha256": "bece6004ff1be6c17e376bbb6dc1ed76338af75b27959cb98e78da53bfc2f056",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (Core_incl_func $4) $' $' (@eq_refl $4 $'))\nt ↪[] @tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' (@comp_fapp0 $0 $' $' $Y' $f' (@eq_refl $4 $')) ↪* @tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' (@comp_fapp0 $0 $' $' $Y' $f' (@eq_refl $4 $'))\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' $f') (id $1 $') ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' $f') (id $1 $')\n  with @fapp1_fapp0 $0 $1 (Core_incl_func $C) $x $x (@eq_refl $4 $x) ↪ id $1 $x\n"
+      },
+      {
+        "index": 8,
+        "sha256": "1ead2edec8f602de43c0f5e84d61cc69c7f9b05c7c777824d247d8d0b4204adb",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (Core_incl_func $4) $' $' (@PathRecordPathRefl $4 $'))\nt ↪[] @tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' (@comp_fapp0 $0 $' $' $Y' $f' (@PathRecordPathRefl $4 $')) ↪* @tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' (@comp_fapp0 $0 $' $' $Y' $f' (@PathRecordPathRefl $4 $'))\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' $f') (id $1 $') ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $Y' $epsilon' $f') (id $1 $')\n  with @fapp1_fapp0 $0 $1 (Core_incl_func $C) $r $r (@PathRecordPathRefl $4 $r) ↪ id $1 $r\n"
+      },
+      {
+        "index": 9,
+        "sha256": "5ec0d5221dc3375b9e5c544e72caf29059b47e18a0bdf43dbbc41bdb3e01f30f",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp1_fapp0 (Catd_cat $K) $B $F $G' $E $Y' $epsilon' $f') (@fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E))\nt ↪[] @tapp1_fapp0 (Catd_cat $K) $B $F $G' $E $Y' $epsilon' (@comp_fapp0 (Catd_cat $K) $E $E $Y' $f' (id (Catd_cat $K) $E)) ↪* @tapp1_fapp0 (Catd_cat $K) $B $F $G' $E $Y' $epsilon' $f'\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $B $' $' $' (@tapp1_fapp0 (Catd_cat $K) $B $F $G' $E $Y' $epsilon' $f') (id $B (@fapp0 (Catd_cat $K) $B $F $E)) ↪* @comp_fapp0 $B $' $' $' (@tapp1_fapp0 (Catd_cat $K) $B $F $G' $E $Y' $epsilon' $f') (id $B (@fapp0 (Catd_cat $K) $B $F $E))\n  with @fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E) ↪ id $B (@fapp0 (Catd_cat $K) $B $F $E)\n"
+      },
+      {
+        "index": 10,
+        "sha256": "ab0568aeb68e2717f563bbf0901d57ad0f137632e7841a1a9d66fa3b1646c3e9",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $A $' $' $' (@tapp1_fapp0 $A $A (id Cat_cat $A) $G' $' $Y' $epsilon' $f') (@fapp1_fapp0 $A $A (id Cat_cat $A) $' $' $p)\nt ↪[] @tapp1_fapp0 $A $A (id Cat_cat $A) $G' $' $Y' $epsilon' (@comp_fapp0 $A $' $' $Y' $f' $p) ↪* @tapp1_fapp0 $A $A (id Cat_cat $A) $G' $' $Y' $epsilon' (@comp_fapp0 $A $' $' $Y' $f' $p)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $A $' $' $' (@tapp1_fapp0 $A $A (id Cat_cat $A) $G' $' $Y' $epsilon' $f') $p ↪* @comp_fapp0 $A $' $' $' (@tapp1_fapp0 $A $A (id Cat_cat $A) $G' $' $Y' $epsilon' $f') $p\n  with @fapp1_fapp0 $A $A (id Cat_cat $A) $x $y $p ↪ $p\n"
+      },
+      {
+        "index": 11,
+        "sha256": "285731fe03db9ddb3244e024a8f1444b35063b7ca918d703b7aa98be0556ab49",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $C $' $' $' (@tapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $y $Y' $epsilon' $f') (@fapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y $f)\nt ↪[] @tapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $x $Y' $epsilon' (@comp_fapp0 $A $x $y $Y' $f' $f) ↪* @tapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $x $Y' $epsilon' (@comp_fapp0 $A $x $y $Y' $f' $f)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $C $' $' $' (@tapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $y $Y' $epsilon' $f') (@fapp1_fapp0 $B $C $F (@fapp0 $A $B $G $x) (@fapp0 $A $B $G $y) (@fapp1_fapp0 $A $B $G $x $y $f)) ↪* @comp_fapp0 $C $' $' $' (@tapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $y $Y' $epsilon' $f') (@fapp1_fapp0 $B $C $F (@fapp0 $A $B $G $x) (@fapp0 $A $B $G $y) (@fapp1_fapp0 $A $B $G $x $y $f))\n  with @fapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y $f ↪ @fapp1_fapp0 $B $C $F (@fapp0 $A $B $G $x) (@fapp0 $A $B $G $y) (@fapp1_fapp0 $A $B $G $x $y $f)\n"
+      },
+      {
+        "index": 12,
+        "sha256": "4841f683ecda18f210633336667b7cb6fcb40745c4018f3e6c1bf4c88b043a7d",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Op_func $A $B $F) $G' $Y $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@Op_func $A $B $F) $X $Y $f)\nt ↪[] @tapp1_fapp0 $0 $1 (@Op_func $A $B $F) $G' $X $Y' $epsilon' (@comp_fapp0 $0 $X $Y $Y' $f' $f) ↪* @tapp1_fapp0 $0 $1 (@Op_func $A $B $F) $G' $X $Y' $epsilon' (@comp_fapp0 $0 $X $Y $Y' $f' $f)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Op_func $A $B $F) $G' $Y $Y' $epsilon' $f') (@fapp1_fapp0 $A $B $F $Y $X $f) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Op_func $A $B $F) $G' $Y $Y' $epsilon' $f') (@fapp1_fapp0 $A $B $F $Y $X $f)\n  with @fapp1_fapp0 $0 $1 (@Op_func $A $B $F) $X $Y $f ↪ @fapp1_fapp0 $A $B $F $Y $X $f\n"
+      },
+      {
+        "index": 13,
+        "sha256": "9a19e00e05b4b75ecadf9c4a6578bd959a1fc82d0054d6cf9e5a79fd853e65a6",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $A $B (@Const_func $A $B $') $G' $y $Y' $epsilon' $f') (@fapp1_fapp0 $A $B (@Const_func $A $B $') $x $y $5)\nt ↪[] @tapp1_fapp0 $A $B (@Const_func $A $B $') $G' $x $Y' $epsilon' (@comp_fapp0 $A $x $y $Y' $f' $5) ↪* @tapp1_fapp0 $A $B (@Const_func $A $B $') $G' $x $Y' $epsilon' (@comp_fapp0 $A $x $y $Y' $f' $5)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $A $B (@Const_func $A $B $') $G' $y $Y' $epsilon' $f') (id $B $') ↪* @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $A $B (@Const_func $A $B $') $G' $y $Y' $epsilon' $f') (id $B $')\n  with @fapp1_fapp0 $A $B (@Const_func $A $B $b) $x $y $5 ↪ id $B $b\n"
+      },
+      {
+        "index": 14,
+        "sha256": "7045bce1ba08895703a8c6a40d6842fe025c68a525f9df1777fa58d36cae6542",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Cat_cat $' $' $' (@tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $Y $Y' $epsilon' $f') (@fapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $X $Y $f)\nt ↪[] @tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $X $Y' $epsilon' (@comp_fapp0 $B $X $Y $Y' $f' $f) ↪* @tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $X $Y' $epsilon' (@comp_fapp0 $B $X $Y $Y' $f' $f)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 Cat_cat $' $' $' (@tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $Y $Y' $epsilon' $f') (@hom_postcomp_func $A $B $F $W $X $Y $f) ↪* @comp_fapp0 Cat_cat $' $' $' (@tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $Y $Y' $epsilon' $f') (@hom_postcomp_func $A $B $F $W $X $Y $f)\n  with @fapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $X $Y $f ↪ @hom_postcomp_func $A $B $F $W $X $Y $f\n"
+      },
+      {
+        "index": 15,
+        "sha256": "67f4f17dbab8025e5feb5a561ff5cd688002bb737a27a903021f77a706cb66f0",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $g $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $f $g $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $f $Y' $epsilon' (@comp_fapp0 $0 $f $g $Y' $f' $alpha) ↪* @tapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $f $Y' $epsilon' (@comp_fapp0 $0 $f $g $Y' $f' $alpha)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $g $Y' $epsilon' $f') (@hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $g $Y' $epsilon' $f') (@hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha)\n  with @fapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $f $g $alpha ↪ @hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha\n"
+      },
+      {
+        "index": 16,
+        "sha256": "1996e556121d2f4f98eab3fe03c8a98a37ace972cf52d9fe3e51b92026da1b36",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $h $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $g $h $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $g $Y' $epsilon' (@comp_fapp0 $0 $g $h $Y' $f' $alpha) ↪* @tapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $g $Y' $epsilon' (@comp_fapp0 $0 $g $h $Y' $f' $alpha)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $h $Y' $epsilon' $f') (@hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $h $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $h $Y' $epsilon' $f') (@hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $h $alpha)\n  with @fapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $g $h $alpha ↪ @hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $h $alpha\n"
+      },
+      {
+        "index": 17,
+        "sha256": "81b8471567dbee028ffe6c92eeefa3954dc8e83ffe90833556ad9ccdacf44ab1",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Cat_cat $' $' $' (@tapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $Y $Y' $epsilon' $f') (@fapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $X $Y $p)\nt ↪[] @tapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $X $Y' $epsilon' (@comp_fapp0 $0 $X $Y $Y' $f' $p) ↪* @tapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $X $Y' $epsilon' (@comp_fapp0 $0 $X $Y $Y' $f' $p)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 Cat_cat $' $' $' (@tapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $Y $Y' $epsilon' $f') (@hom_precomp_along_func $B $A $F $W $Y $X $p) ↪* @comp_fapp0 Cat_cat $' $' $' (@tapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $Y $Y' $epsilon' $f') (@hom_precomp_along_func $B $A $F $W $Y $X $p)\n  with @fapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $X $Y $p ↪ @hom_precomp_along_func $B $A $F $W $Y $X $p\n"
+      },
+      {
+        "index": 18,
+        "sha256": "88c742be2e422799ade4c4e3b3adf4fc58ccf151d03f597766fe6f2edf9c9d86",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $k $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $h $k $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $h $Y' $epsilon' (@comp_fapp0 $0 $h $k $Y' $f' $alpha) ↪* @tapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $h $Y' $epsilon' (@comp_fapp0 $0 $h $k $Y' $f' $alpha)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $k $Y' $epsilon' $f') (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $h $k $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $k $Y' $epsilon' $f') (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $h $k $alpha)\n  with @fapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $h $k $alpha ↪ @hom_precomp_along_tele_transf $A $B $F $Z $W $X $h $k $alpha\n"
+      },
+      {
+        "index": 19,
+        "sha256": "8f2eb341600c5230fa7e13b50e9bdbd7bab02145b06875fc9e752df044242e41",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $k $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $g $k $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $g $Y' $epsilon' (@comp_fapp0 $0 $g $k $Y' $f' $alpha) ↪* @tapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $g $Y' $epsilon' (@comp_fapp0 $0 $g $k $Y' $f' $alpha)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $k $Y' $epsilon' $f') (@hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $g $k $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $k $Y' $epsilon' $f') (@hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $g $k $alpha)\n  with @fapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $g $k $alpha ↪ @hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $g $k $alpha\n"
+      },
+      {
+        "index": 20,
+        "sha256": "576b9ed1c639294187a982c83249c8802398627bcf9db4340dfc715c8009ad23",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_int $A $B $F) $G' $X $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@hom_int $A $B $F) $Y $X $p)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_int $A $B $F) $G' $Y $Y' $epsilon' (@comp_fapp0 $0 $Y $X $Y' $f' $p) ↪* @tapp1_fapp0 $0 $1 (@hom_int $A $B $F) $G' $Y $Y' $epsilon' (@comp_fapp0 $0 $Y $X $Y' $f' $p)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_int $A $B $F) $G' $X $Y' $epsilon' $f') (@hom_int_precomp_func $A $B $F $Y $X $p) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_int $A $B $F) $G' $X $Y' $epsilon' $f') (@hom_int_precomp_func $A $B $F $Y $X $p)\n  with @fapp1_fapp0 $0 $1 (@hom_int $A $B $F) $Y $X $p ↪ @hom_int_precomp_func $A $B $F $Y $X $p\n"
+      },
+      {
+        "index": 21,
+        "sha256": "43747ab65fc33f7b324b968e9184aad2b6fb8d943d348c752776bf3cd8a7a50b",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $X $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@hom_con_int $1 $B $F) $W $X $f)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $W $Y' $epsilon' (@comp_fapp0 $0 $W $X $Y' $f' $f) ↪* @tapp1_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $W $Y' $epsilon' (@comp_fapp0 $0 $W $X $Y' $f' $f)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $X $Y' $epsilon' $f') (@hom_con_int_postcomp_func $0 $B $F $W $X $f) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $X $Y' $epsilon' $f') (@hom_con_int_postcomp_func $0 $B $F $W $X $f)\n  with @fapp1_fapp0 $0 $1 (@hom_con_int $A $B $F) $W $X $f ↪ @hom_con_int_postcomp_func $0 $B $F $W $X $f\n"
+      },
+      {
+        "index": 22,
+        "sha256": "70e1fab3707308b56d2224bb13ae6dae35a4178cdb6f3808486e465bf13b57f1",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 (Product_cat $A $B) $' $' $' (@tapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $j $Y' $epsilon' $f') (@fapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $i $j $p)\nt ↪[] @tapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $i $Y' $epsilon' (@comp_fapp0 $X $i $j $Y' $f' $p) ↪* @tapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $i $Y' $epsilon' (@comp_fapp0 $X $i $j $Y' $f' $p)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 (Product_cat $A $B) $' $' $' (@tapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $j $Y' $epsilon' $f') (@Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))) (@fapp1_fapp0 $X $A $F $i $j $p) (@fapp1_fapp0 $X $B $G $i $j $p)) ↪* @comp_fapp0 (Product_cat $A $B) $' $' $' (@tapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $j $Y' $epsilon' $f') (@Struct_sigma (Obj (Hom_cat $A (@fapp0 $X $A $F $i) (@fapp0 $X $A $F $j))) (λ _:τ (Obj (Hom_cat $A (@fapp0 $X $A $F $i) (@fapp0 $X $A $F $j))), Obj (Hom_cat $B (@fapp0 $X $B $G $i) (@fapp0 $X $B $G $j))) (@fapp1_fapp0 $X $A $F $i $j $p) (@fapp1_fapp0 $X $B $G $i $j $p))\n  with @fapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $i $j $p ↪ @Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))) (@fapp1_fapp0 $X $A $F $i $j $p) (@fapp1_fapp0 $X $B $G $i $j $p)\n"
+      },
+      {
+        "index": 23,
+        "sha256": "15f1aa67f0acbf13baebc15edb815b886f6d523f83abd4b1a545ec26507209b3",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $q $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@Product_projL_func $1 $B) $p $q $h)\nt ↪[] @tapp1_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $p $Y' $epsilon' (@comp_fapp0 $0 $p $q $Y' $f' $h) ↪* @tapp1_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $p $Y' $epsilon' (@comp_fapp0 $0 $p $q $Y' $f' $h)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $q $Y' $epsilon' $f') (@sigma_Fst (Hom $1 (@fapp0 (Product_cat $1 $B) $1 (@Product_projL_func $1 $B) $p) (@fapp0 (Product_cat $1 $B) $1 (@Product_projL_func $1 $B) $q)) (λ _:τ (Obj (Hom_cat $1 (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))) $h) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $q $Y' $epsilon' $f') (@sigma_Fst (Obj (Hom_cat $1 (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $1 (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))) $h)\n  with @fapp1_fapp0 $0 $1 (@Product_projL_func $A $B) $p $q $h ↪ @sigma_Fst (Hom $1 (@fapp0 (Product_cat $1 $B) $1 (@Product_projL_func $1 $B) $p) (@fapp0 (Product_cat $1 $B) $1 (@Product_projL_func $1 $B) $q)) (λ _:τ (Obj (Hom_cat $1 (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))) $h\n"
+      },
+      {
+        "index": 24,
+        "sha256": "2232d788339cea123c681a297b964aa2b023d6e41bc3349d202827f1ab3754cb",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $q $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@Product_projR_func $A $1) $p $q $h)\nt ↪[] @tapp1_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $p $Y' $epsilon' (@comp_fapp0 $0 $p $q $Y' $f' $h) ↪* @tapp1_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $p $Y' $epsilon' (@comp_fapp0 $0 $p $q $Y' $f' $h)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $q $Y' $epsilon' $f') (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))), Obj (Hom_cat $1 (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) $h) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $q $Y' $epsilon' $f') (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))), Obj (Hom_cat $1 (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) $h)\n  with @fapp1_fapp0 $0 $1 (@Product_projR_func $A $B) $p $q $h ↪ @sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))), Obj (Hom_cat $1 (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) $h\n"
+      },
+      {
+        "index": 25,
+        "sha256": "60cc8c57b1476ca50f0e3de13bb5e39a926aea2f3683b6908a66f09bcf4f3131",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $q $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $p $q $h)\nt ↪[] @tapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $p $Y' $epsilon' (@comp_fapp0 $0 $p $q $Y' $f' $h) ↪* @tapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $p $Y' $epsilon' (@comp_fapp0 $0 $p $q $Y' $f' $h)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $q $Y' $epsilon' $f') (@Struct_sigma (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h) (@sigma_Fst (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h)) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $q $Y' $epsilon' $f') (@Struct_sigma (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h) (@sigma_Fst (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h))\n  with @fapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $p $q $h ↪ @Struct_sigma (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h) (@sigma_Fst (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h)\n"
+      },
+      {
+        "index": 26,
+        "sha256": "8a069d5c3fc135932e4b0b28f97f1cb1da0249ef1cb8e6b07e68190d65d29ecd",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg' $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $pg $pg' $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg $Y' $epsilon' (@comp_fapp0 $0 $pg $pg' $Y' $f' $alpha) ↪* @tapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg $Y' $epsilon' (@comp_fapp0 $0 $pg $pg' $Y' $f' $alpha)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg' $Y' $epsilon' $f') (@comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg' $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg' $Y' $epsilon' $f') (@comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg' $alpha)\n  with @fapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $pg $pg' $alpha ↪ @comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg' $alpha\n"
+      },
+      {
+        "index": 27,
+        "sha256": "905aae40bd7ff3b3437495764954d5e31b259e6df5677c23046ad44925faa838",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta' $Y' $epsilon' $f') (@fapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $eta $eta' $Theta)\nt ↪[] @tapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta $Y' $epsilon' (@comp_fapp0 $0 $eta $eta' $Y' $f' $Theta) ↪* @tapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta $Y' $epsilon' (@comp_fapp0 $0 $eta $eta' $Y' $f' $Theta)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta' $Y' $epsilon' $f') (@tapp0_hom_fapp0 $A $B $F $G $eta $eta' $Y $Theta) ↪* @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta' $Y' $epsilon' $f') (@tapp0_hom_fapp0 $A $B $F $G $eta $eta' $Y $Theta)\n  with @fapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $eta $eta' $Theta ↪ @tapp0_hom_fapp0 $A $B $F $G $eta $eta' $Y $Theta\n"
+      },
+      {
+        "index": 28,
+        "sha256": "de04ca9acecb3613787db219cb1030ddec35356247d999d2eeb4acea4b97844a",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $G $Y' $epsilon' $f') (@fapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $F $G $η)\nt ↪[] @tapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $F $Y' $epsilon' (@comp_fapp0 $0 $F $G $Y' $f' $η) ↪* @tapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $F $Y' $epsilon' (@comp_fapp0 $0 $F $G $Y' $f' $η)\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[1] @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $G $Y' $epsilon' $f') (@tapp0_fapp0 $A $B $F $G $x $η) ↪* @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $G $Y' $epsilon' $f') (@tapp0_fapp0 $A $B $F $G $x $η)\n  with @fapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $F $G $η ↪ @tapp0_fapp0 $A $B $F $G $x $η\n"
+      },
+      {
+        "index": 29,
+        "sha256": "f4c4191e19528d37c7bf214c6dbb32d61969db5be53326fe9d5375fbbe0ccf53",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Cat_cat $' $' $' (@tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $Y) (@hom_ $A $B $F $X) $b $c (@hom_int_precomp_func $A $B $F $Y $X $p) $q) (@fapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $Y) $W' $b $h')\nt ↪[] @tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $Y) (@hom_ $A $B $F $X) $W' $c (@hom_int_precomp_func $A $B $F $Y $X $p) (@comp_fapp0 $B $W' $b $c $q $h') ↪* @Hom_func $A $Y $X (@fapp0 $B $A $F $W') (@fapp0 $B $A $F $c) $p (@fapp1_fapp0 $B $A $F $W' $c (@comp_fapp0 $B $W' $b $c $q $h'))\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[0; 1] @comp_fapp0 Cat_cat $' $' $' (@Hom_func $A $Y $X (@fapp0 $B $A $F $b) (@fapp0 $B $A $F $c) $p (@fapp1_fapp0 $B $A $F $b $c $q)) (@fapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $Y) $W' $b $h') ↪* @comp_fapp0 Cat_cat $' $' $' (@Hom_func $A $Y $X (@fapp0 $B $A $F $b) (@fapp0 $B $A $F $c) $p (@fapp1_fapp0 $B $A $F $b $c $q)) (@hom_postcomp_func $A $B $F $Y $W' $b $h')\n  with @tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $Y) (@hom_ $A $B $F $X) $b $c (@hom_int_precomp_func $A $B $F $Y $X $p) $q ↪ @Hom_func $A $Y $X (@fapp0 $B $A $F $b) (@fapp0 $B $A $F $c) $p (@fapp1_fapp0 $B $A $F $b $c $q)\n"
+      },
+      {
+        "index": 30,
+        "sha256": "1c0f584510d7376d303e34c24468d950dc2e9e74a0b6aab21965f05587cb2cbf",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $A $B $F $G $X $X $ϵ (id $A $X)) (@fapp1_fapp0 $A $B $F $W' $X $h')\nt ↪[] @tapp1_fapp0 $A $B $F $G $W' $X $ϵ (@comp_fapp0 $A $W' $X $X (id $A $X) $h') ↪* @tapp1_fapp0 $A $B $F $G $W' $X $ϵ $h'\n  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $f') (@fapp1_fapp0 $A' $B' $F' $W' $X' $h') ↪ @tapp1_fapp0 $A' $B' $F' $G' $W' $Y' $epsilon' (@comp_fapp0 $A' $W' $X' $Y' $f' $h')\nt ↪[0; 1] @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B $F $G $X $ϵ) (@fapp1_fapp0 $A $B $F $W' $X $h') ↪* @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B $F $G $X $ϵ) (@fapp1_fapp0 $A $B $F $W' $X $h')\n  with @tapp1_fapp0 $A $B $F $G $X $X $ϵ (id $A $X) ↪ @tapp0_fapp0 $A $B $F $G $X $ϵ\n"
+      },
+      {
+        "index": 31,
+        "sha256": "727b124d7580b8d3f900b1f981dae40244e4782def833275ae2a92e14be578f9",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 (Op_cat $A) $X $Y $Z (@tapp0_fapp0 $A' (Op_cat $A) $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' (Op_cat $A) $F' $X' $Y' $p')\nt ↪[] @tapp1_fapp0 $A' (Op_cat $A) $F' $G' $X' $Y' $epsilon' $p' ↪* @tapp1_fapp0 $A' (Op_cat $A) $F' $G' $X' $Y' $epsilon' $p'\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[] @comp_fapp0 $A $Z $Y $X (@fapp1_fapp0 $A' (Op_cat $A) $F' $X' $Y' $p') (@tapp0_fapp0 $A' (Op_cat $A) $F' $G' $Y' $epsilon') ↪* @comp_fapp0 $A $Z $Y $X (@fapp1_fapp0 $A' (Op_cat $A) $F' $X' $Y' $p') (@tapp0_fapp0 $A' (Op_cat $A) $F' $G' $Y' $epsilon')\n  with @comp_fapp0 (Op_cat $A) $X $Y $Z $g $f ↪ @comp_fapp0 $A $Z $Y $X $f $g\n"
+      },
+      {
+        "index": 32,
+        "sha256": "a562e517666f65f7bb43aac87cd1f382e33a438e29dd4779562098f8ec46311f",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@tapp0_fapp0 $A' Terminal_cat $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' Terminal_cat $F' $X' $Y' $p')\nt ↪[] @tapp1_fapp0 $A' Terminal_cat $F' $G' $X' $Y' $epsilon' $p' ↪* @tapp1_fapp0 $A' Terminal_cat $F' $G' $X' $Y' $epsilon' $p'\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[] Terminal_obj ↪* Terminal_obj\n  with @comp_fapp0 Terminal_cat $0 $1 $2 $3 $4 ↪ Terminal_obj\n"
+      },
+      {
+        "index": 33,
+        "sha256": "b204297461bd162cf21ac2d5862a2b6b7bc4acb30a54311862b9e9b2c098d36d",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B $F $G' $X $epsilon') (@fapp1_fapp0 $A $B $F $X $X (id $A $X))\nt ↪[] @tapp1_fapp0 $A $B $F $G' $X $X $epsilon' (id $A $X) ↪* @tapp0_fapp0 $A $B $F $G' $X $epsilon'\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B $F $G' $X $epsilon') (id $B (@fapp0 $A $B $F $X)) ↪* @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B $F $G' $X $epsilon') (id $B (@fapp0 $A $B $F $X))\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) ↪ id $B (@fapp0 $A $B $F $X)\n"
+      },
+      {
+        "index": 34,
+        "sha256": "18d5a3348cfcb9ce1748650095273254dc6fe90339ae64ddd3356b80a23bc74a",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $D $' $' $' (@tapp0_fapp0 (Op_cat $K) $D $F $G' $x $epsilon') (@fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x))\nt ↪[] @tapp1_fapp0 (Op_cat $K) $D $F $G' $x $x $epsilon' (id $K $x) ↪* @tapp1_fapp0 (Op_cat $K) $D $F $G' $x $x $epsilon' (id $K $x)\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $D $' $' $' (@tapp0_fapp0 (Op_cat $K) $D $F $G' $x $epsilon') (id $D (@fapp0 (Op_cat $K) $D $F $x)) ↪* @comp_fapp0 $D $' $' $' (@tapp0_fapp0 (Op_cat $K) $D $F $G' $x $epsilon') (id $D (@fapp0 (Op_cat $K) $D $F $x))\n  with @fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x) ↪ id $D (@fapp0 (Op_cat $K) $D $F $x)\n"
+      },
+      {
+        "index": 35,
+        "sha256": "06298c312a7efc7b0a8c9d40d9332d60aff3d748d5f4ba18d03dc98b16d8a809",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 (Path_cat $A) $' $' $' (@tapp0_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $epsilon') (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' (@eq_refl $A $'))\nt ↪[] @tapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $' $epsilon' (@eq_refl $A $') ↪* @tapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $' $epsilon' (@eq_refl $A $')\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 (Path_cat $A) $' $' $' (@tapp0_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $epsilon') (@eq_refl $A $') ↪* @comp_fapp0 (Path_cat $A) $' $' $' (@tapp0_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $G' $' $epsilon') (@eq_refl $A $')\n  with @fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $x $x (@eq_refl $A $x) ↪ @eq_refl $A $x\n"
+      },
+      {
+        "index": 36,
+        "sha256": "5160cbba58e72d5fc1a0be89b7207457874ff56a358641ace5649a9450bc6ba9",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@tapp0_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $epsilon') (@fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' (@PathRecordPathRefl $A $'))\nt ↪[] @tapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $' $epsilon' (@PathRecordPathRefl $A $') ↪* @tapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $' $epsilon' (@PathRecordPathRefl $A $')\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@tapp0_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $epsilon') (@PathRecordPathRefl $A $') ↪* @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@tapp0_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $G' $' $epsilon') (@PathRecordPathRefl $A $')\n  with @fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $r $r (@PathRecordPathRefl $A $r) ↪ @PathRecordPathRefl $A $r\n"
+      },
+      {
+        "index": 37,
+        "sha256": "e758c95a780136e55cea51180d5a80325693d61704ed6e98ef31a8a456410833",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (Core_incl_func $4) $G' $' $epsilon') (@fapp1_fapp0 $0 $1 (Core_incl_func $4) $' $' (@eq_refl $4 $'))\nt ↪[] @tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $' $epsilon' (@eq_refl $4 $') ↪* @tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $' $epsilon' (@eq_refl $4 $')\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (Core_incl_func $4) $G' $' $epsilon') (id $1 $') ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (Core_incl_func $4) $G' $' $epsilon') (id $1 $')\n  with @fapp1_fapp0 $0 $1 (Core_incl_func $C) $x $x (@eq_refl $4 $x) ↪ id $1 $x\n"
+      },
+      {
+        "index": 38,
+        "sha256": "07673281b71edb7f9e5b3d7c93438eb6ae4938d59a0da945e5bb49c7690e5a0c",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (Core_incl_func $4) $G' $' $epsilon') (@fapp1_fapp0 $0 $1 (Core_incl_func $4) $' $' (@PathRecordPathRefl $4 $'))\nt ↪[] @tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $' $epsilon' (@PathRecordPathRefl $4 $') ↪* @tapp1_fapp0 $0 $1 (Core_incl_func $4) $G' $' $' $epsilon' (@PathRecordPathRefl $4 $')\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (Core_incl_func $4) $G' $' $epsilon') (id $1 $') ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (Core_incl_func $4) $G' $' $epsilon') (id $1 $')\n  with @fapp1_fapp0 $0 $1 (Core_incl_func $C) $r $r (@PathRecordPathRefl $4 $r) ↪ id $1 $r\n"
+      },
+      {
+        "index": 39,
+        "sha256": "68bae917d164b96e5801f3b9797831ef340a6ed391127eb3dc006bfb9a12eb05",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp0_fapp0 (Catd_cat $K) $B $F $G' $E $epsilon') (@fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E))\nt ↪[] @tapp1_fapp0 (Catd_cat $K) $B $F $G' $E $E $epsilon' (id (Catd_cat $K) $E) ↪* @tapp0_fapp0 (Catd_cat $K) $B $F $G' $E $epsilon'\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $B $' $' $' (@tapp0_fapp0 (Catd_cat $K) $B $F $G' $E $epsilon') (id $B (@fapp0 (Catd_cat $K) $B $F $E)) ↪* @comp_fapp0 $B $' $' $' (@tapp0_fapp0 (Catd_cat $K) $B $F $G' $E $epsilon') (id $B (@fapp0 (Catd_cat $K) $B $F $E))\n  with @fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E) ↪ id $B (@fapp0 (Catd_cat $K) $B $F $E)\n"
+      },
+      {
+        "index": 40,
+        "sha256": "d5d6894e267c751e09f5e3f0a8fc8941a28d825dcceee0b629f0fa7dd65fca63",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $A $' $' $' (@tapp0_fapp0 $A $A (id Cat_cat $A) $G' $' $epsilon') (@fapp1_fapp0 $A $A (id Cat_cat $A) $' $' $p)\nt ↪[] @tapp1_fapp0 $A $A (id Cat_cat $A) $G' $' $' $epsilon' $p ↪* @tapp1_fapp0 $A $A (id Cat_cat $A) $G' $' $' $epsilon' $p\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $A $' $' $' (@tapp0_fapp0 $A $A (id Cat_cat $A) $G' $' $epsilon') $p ↪* @comp_fapp0 $A $' $' $' (@tapp0_fapp0 $A $A (id Cat_cat $A) $G' $' $epsilon') $p\n  with @fapp1_fapp0 $A $A (id Cat_cat $A) $x $y $p ↪ $p\n"
+      },
+      {
+        "index": 41,
+        "sha256": "cb7aa24b6516b78b1d85e5379b8766762fe77a3b5e7aca869ed1cf3fe02d6a85",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $C $' $' $' (@tapp0_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $y $epsilon') (@fapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y $f)\nt ↪[] @tapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $x $y $epsilon' $f ↪* @tapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $x $y $epsilon' $f\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $C $' $' $' (@tapp0_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $y $epsilon') (@fapp1_fapp0 $B $C $F (@fapp0 $A $B $G $x) (@fapp0 $A $B $G $y) (@fapp1_fapp0 $A $B $G $x $y $f)) ↪* @comp_fapp0 $C $' $' $' (@tapp0_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $G' $y $epsilon') (@fapp1_fapp0 $B $C $F (@fapp0 $A $B $G $x) (@fapp0 $A $B $G $y) (@fapp1_fapp0 $A $B $G $x $y $f))\n  with @fapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y $f ↪ @fapp1_fapp0 $B $C $F (@fapp0 $A $B $G $x) (@fapp0 $A $B $G $y) (@fapp1_fapp0 $A $B $G $x $y $f)\n"
+      },
+      {
+        "index": 42,
+        "sha256": "2269cb66a886fe0dca3128329f253963dc3712a10cae53671550678b9642ca0d",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Op_func $A $B $F) $G' $Y $epsilon') (@fapp1_fapp0 $0 $1 (@Op_func $A $B $F) $X $Y $f)\nt ↪[] @tapp1_fapp0 $0 $1 (@Op_func $A $B $F) $G' $X $Y $epsilon' $f ↪* @tapp1_fapp0 $0 $1 (@Op_func $A $B $F) $G' $X $Y $epsilon' $f\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Op_func $A $B $F) $G' $Y $epsilon') (@fapp1_fapp0 $A $B $F $Y $X $f) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Op_func $A $B $F) $G' $Y $epsilon') (@fapp1_fapp0 $A $B $F $Y $X $f)\n  with @fapp1_fapp0 $0 $1 (@Op_func $A $B $F) $X $Y $f ↪ @fapp1_fapp0 $A $B $F $Y $X $f\n"
+      },
+      {
+        "index": 43,
+        "sha256": "fe48f1a73cf256fa5d6a99b4d831a4844468b3fe8996346b44c224d8a9f5416f",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B (@Const_func $A $B $') $G' $y $epsilon') (@fapp1_fapp0 $A $B (@Const_func $A $B $') $x $y $5)\nt ↪[] @tapp1_fapp0 $A $B (@Const_func $A $B $') $G' $x $y $epsilon' $5 ↪* @tapp1_fapp0 $A $B (@Const_func $A $B $') $G' $x $y $epsilon' $5\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B (@Const_func $A $B $') $G' $y $epsilon') (id $B $') ↪* @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B (@Const_func $A $B $') $G' $y $epsilon') (id $B $')\n  with @fapp1_fapp0 $A $B (@Const_func $A $B $b) $x $y $5 ↪ id $B $b\n"
+      },
+      {
+        "index": 44,
+        "sha256": "b5ed90d13925b267021153d6a10c1effec114262e94b7a889b6750f586efb991",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Cat_cat $' $' $' (@tapp0_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $Y $epsilon') (@fapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $X $Y $f)\nt ↪[] @tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $X $Y $epsilon' $f ↪* @tapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $X $Y $epsilon' $f\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 Cat_cat $' $' $' (@tapp0_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $Y $epsilon') (@hom_postcomp_func $A $B $F $W $X $Y $f) ↪* @comp_fapp0 Cat_cat $' $' $' (@tapp0_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $G' $Y $epsilon') (@hom_postcomp_func $A $B $F $W $X $Y $f)\n  with @fapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $X $Y $f ↪ @hom_postcomp_func $A $B $F $W $X $Y $f\n"
+      },
+      {
+        "index": 45,
+        "sha256": "a8f3c37050a27774f819811ca6fbbcfa10e7637689d761a643569573fb172cdd",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $g $epsilon') (@fapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $f $g $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $f $g $epsilon' $alpha ↪* @tapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $f $g $epsilon' $alpha\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $g $epsilon') (@hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $G' $g $epsilon') (@hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha)\n  with @fapp1_fapp0 $0 $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $f $g $alpha ↪ @hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha\n"
+      },
+      {
+        "index": 46,
+        "sha256": "bf990807c8c73b0f405444757ac4cbc59cc3a890b7676bbcf8085bf2a32f6f6a",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $h $epsilon') (@fapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $g $h $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $g $h $epsilon' $alpha ↪* @tapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $g $h $epsilon' $alpha\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $h $epsilon') (@hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $h $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $G' $h $epsilon') (@hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $h $alpha)\n  with @fapp1_fapp0 $0 $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $g $h $alpha ↪ @hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $h $alpha\n"
+      },
+      {
+        "index": 47,
+        "sha256": "281036a5610651ccb5073c731c1f379314d98b2c3b4fa05f747a485f53a5842f",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Cat_cat $' $' $' (@tapp0_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $Y $epsilon') (@fapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $X $Y $p)\nt ↪[] @tapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $X $Y $epsilon' $p ↪* @tapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $X $Y $epsilon' $p\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 Cat_cat $' $' $' (@tapp0_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $Y $epsilon') (@hom_precomp_along_func $B $A $F $W $Y $X $p) ↪* @comp_fapp0 Cat_cat $' $' $' (@tapp0_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $G' $Y $epsilon') (@hom_precomp_along_func $B $A $F $W $Y $X $p)\n  with @fapp1_fapp0 $0 Cat_cat (@hom_con $A $W $B $F) $X $Y $p ↪ @hom_precomp_along_func $B $A $F $W $Y $X $p\n"
+      },
+      {
+        "index": 48,
+        "sha256": "17fdb45cff1ae4117b339f74139dcca636d9f18469ea1f328eeec7fb4ea4ed55",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $k $epsilon') (@fapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $h $k $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $h $k $epsilon' $alpha ↪* @tapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $h $k $epsilon' $alpha\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $k $epsilon') (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $h $k $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $G' $k $epsilon') (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $h $k $alpha)\n  with @fapp1_fapp0 $0 $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $h $k $alpha ↪ @hom_precomp_along_tele_transf $A $B $F $Z $W $X $h $k $alpha\n"
+      },
+      {
+        "index": 49,
+        "sha256": "06b43707d7fb377239c85761251a1832932bebe4ba0575cdd04eee0ffaf25eb7",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $k $epsilon') (@fapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $g $k $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $g $k $epsilon' $alpha ↪* @tapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $g $k $epsilon' $alpha\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $k $epsilon') (@hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $g $k $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $G' $k $epsilon') (@hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $g $k $alpha)\n  with @fapp1_fapp0 $0 $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $g $k $alpha ↪ @hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $g $k $alpha\n"
+      },
+      {
+        "index": 50,
+        "sha256": "c9fcfb5f8f2887c0fc0e612de829da70845fc960649c213d424f406768178302",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_int $A $B $F) $G' $X $epsilon') (@fapp1_fapp0 $0 $1 (@hom_int $A $B $F) $Y $X $p)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_int $A $B $F) $G' $Y $X $epsilon' $p ↪* @tapp1_fapp0 $0 $1 (@hom_int $A $B $F) $G' $Y $X $epsilon' $p\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_int $A $B $F) $G' $X $epsilon') (@hom_int_precomp_func $A $B $F $Y $X $p) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_int $A $B $F) $G' $X $epsilon') (@hom_int_precomp_func $A $B $F $Y $X $p)\n  with @fapp1_fapp0 $0 $1 (@hom_int $A $B $F) $Y $X $p ↪ @hom_int_precomp_func $A $B $F $Y $X $p\n"
+      },
+      {
+        "index": 51,
+        "sha256": "0abbb41d03d2d0ae8c8455f8cb6a4a9caed4135c284904ed71119c4f9331ff66",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $X $epsilon') (@fapp1_fapp0 $0 $1 (@hom_con_int $1 $B $F) $W $X $f)\nt ↪[] @tapp1_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $W $X $epsilon' $f ↪* @tapp1_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $W $X $epsilon' $f\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $X $epsilon') (@hom_con_int_postcomp_func $0 $B $F $W $X $f) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@hom_con_int $1 $B $F) $G' $X $epsilon') (@hom_con_int_postcomp_func $0 $B $F $W $X $f)\n  with @fapp1_fapp0 $0 $1 (@hom_con_int $A $B $F) $W $X $f ↪ @hom_con_int_postcomp_func $0 $B $F $W $X $f\n"
+      },
+      {
+        "index": 52,
+        "sha256": "705db3f14553eee2d9bcf62457e41e040d0ed0f0b7400b4a9cbbba1eb4116523",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 (Product_cat $A $B) $' $' $' (@tapp0_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $j $epsilon') (@fapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $i $j $p)\nt ↪[] @tapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $i $j $epsilon' $p ↪* @tapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $i $j $epsilon' $p\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 (Product_cat $A $B) $' $' $' (@tapp0_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $j $epsilon') (@Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))) (@fapp1_fapp0 $X $A $F $i $j $p) (@fapp1_fapp0 $X $B $G $i $j $p)) ↪* @comp_fapp0 (Product_cat $A $B) $' $' $' (@tapp0_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $G' $j $epsilon') (@Struct_sigma (Obj (Hom_cat $A (@fapp0 $X $A $F $i) (@fapp0 $X $A $F $j))) (λ _:τ (Obj (Hom_cat $A (@fapp0 $X $A $F $i) (@fapp0 $X $A $F $j))), Obj (Hom_cat $B (@fapp0 $X $B $G $i) (@fapp0 $X $B $G $j))) (@fapp1_fapp0 $X $A $F $i $j $p) (@fapp1_fapp0 $X $B $G $i $j $p))\n  with @fapp1_fapp0 $X (Product_cat $A $B) (@Struct_sigma $3 $4 $F $G) $i $j $p ↪ @Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $i) (@fapp0 $X $B $G $i))) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (λ _:τ (Obj $A), Obj $B) (@fapp0 $X $A $F $j) (@fapp0 $X $B $G $j))))) (@fapp1_fapp0 $X $A $F $i $j $p) (@fapp1_fapp0 $X $B $G $i $j $p)\n"
+      },
+      {
+        "index": 53,
+        "sha256": "c05c7eb9cb8b0b82dc109be7e69b09f70a085d485fb115d2ba3831fb08e4c766",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $q $epsilon') (@fapp1_fapp0 $0 $1 (@Product_projL_func $1 $B) $p $q $h)\nt ↪[] @tapp1_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $p $q $epsilon' $h ↪* @tapp1_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $p $q $epsilon' $h\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $q $epsilon') (@sigma_Fst (Hom $1 (@fapp0 (Product_cat $1 $B) $1 (@Product_projL_func $1 $B) $p) (@fapp0 (Product_cat $1 $B) $1 (@Product_projL_func $1 $B) $q)) (λ _:τ (Obj (Hom_cat $1 (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))) $h) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Product_projL_func $1 $B) $G' $q $epsilon') (@sigma_Fst (Obj (Hom_cat $1 (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $1 (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))) $h)\n  with @fapp1_fapp0 $0 $1 (@Product_projL_func $A $B) $p $q $h ↪ @sigma_Fst (Hom $1 (@fapp0 (Product_cat $1 $B) $1 (@Product_projL_func $1 $B) $p) (@fapp0 (Product_cat $1 $B) $1 (@Product_projL_func $1 $B) $q)) (λ _:τ (Obj (Hom_cat $1 (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Fst (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $p) (@sigma_Snd (Obj $1) (λ _:τ (Obj $1), Obj $B) $q))) $h\n"
+      },
+      {
+        "index": 54,
+        "sha256": "80fb12bfb5b6a0b70b649cef5f99c787c6632b7b44f65cbffc41a72e37187e8a",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $q $epsilon') (@fapp1_fapp0 $0 $1 (@Product_projR_func $A $1) $p $q $h)\nt ↪[] @tapp1_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $p $q $epsilon' $h ↪* @tapp1_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $p $q $epsilon' $h\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $q $epsilon') (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))), Obj (Hom_cat $1 (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) $h) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Product_projR_func $A $1) $G' $q $epsilon') (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))), Obj (Hom_cat $1 (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) $h)\n  with @fapp1_fapp0 $0 $1 (@Product_projR_func $A $B) $p $q $h ↪ @sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))), Obj (Hom_cat $1 (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $1) $q))) $h\n"
+      },
+      {
+        "index": 55,
+        "sha256": "013dc77dd1108e22b91f4cef975f175775154d3661d62abc4b4587dca268ba70",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $q $epsilon') (@fapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $p $q $h)\nt ↪[] @tapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $p $q $epsilon' $h ↪* @tapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $p $q $epsilon' $h\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $q $epsilon') (@Struct_sigma (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h) (@sigma_Fst (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h)) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@Product_swap_func $A $B) $G' $q $epsilon') (@Struct_sigma (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h) (@sigma_Fst (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h))\n  with @fapp1_fapp0 $0 $1 (@Product_swap_func $A $B) $p $q $h ↪ @Struct_sigma (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (@sigma_Snd (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h) (@sigma_Fst (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) (λ _:τ (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Fst (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $p) (@sigma_Snd (Obj $A) (λ _:τ (Obj $A), Obj $B) $q))) $h)\n"
+      },
+      {
+        "index": 56,
+        "sha256": "5f9bbc6df58eb4e906e652b4c24436f1d3493465aeaff400150a6982f15116e8",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg' $epsilon') (@fapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $pg $pg' $alpha)\nt ↪[] @tapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg $pg' $epsilon' $alpha ↪* @tapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg $pg' $epsilon' $alpha\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg' $epsilon') (@comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg' $alpha) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $G' $pg' $epsilon') (@comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg' $alpha)\n  with @fapp1_fapp0 $0 $1 (@comp_prod_func $A $W $X $Z) $pg $pg' $alpha ↪ @comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg' $alpha\n"
+      },
+      {
+        "index": 57,
+        "sha256": "756e9e4bf67c88f3d220ad4b2ababca941e9748f216e9882a864ed16be743ac3",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta' $epsilon') (@fapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $eta $eta' $Theta)\nt ↪[] @tapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta $eta' $epsilon' $Theta ↪* @tapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta $eta' $epsilon' $Theta\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta' $epsilon') (@tapp0_hom_fapp0 $A $B $F $G $eta $eta' $Y $Theta) ↪* @comp_fapp0 $1 $' $' $' (@tapp0_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $G' $eta' $epsilon') (@tapp0_hom_fapp0 $A $B $F $G $eta $eta' $Y $Theta)\n  with @fapp1_fapp0 $0 $1 (@tapp0_func $A $B $F $G $Y) $eta $eta' $Theta ↪ @tapp0_hom_fapp0 $A $B $F $G $eta $eta' $Y $Theta\n"
+      },
+      {
+        "index": 58,
+        "sha256": "fe54cd848abbdbd13c55ca33ec38f640c8ddd2b546dbb6ff1de311d45fcb9ab9",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $G $epsilon') (@fapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $F $G $η)\nt ↪[] @tapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $F $G $epsilon' $η ↪* @tapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $F $G $epsilon' $η\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[1] @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $G $epsilon') (@tapp0_fapp0 $A $B $F $G $x $η) ↪* @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $0 $B (@fapp0_func $A $B $x) $G' $G $epsilon') (@tapp0_fapp0 $A $B $F $G $x $η)\n  with @fapp1_fapp0 $0 $B (@fapp0_func $A $B $x) $F $G $η ↪ @tapp0_fapp0 $A $B $F $G $x $η\n"
+      },
+      {
+        "index": 59,
+        "sha256": "dce8ce2ec4d27e0fae834a0a1a523d81a23009aa7350c0ee8e602bdf8322fefb",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B $2 $3 $Y (id (Functor_cat $A $B) $2)) (@fapp1_fapp0 $A $B $2 $X' $Y $p')\nt ↪[] @tapp1_fapp0 $A $B $2 $3 $X' $Y (id (Functor_cat $A $B) $2) $p' ↪* @fapp1_fapp0 $A $B $2 $X' $Y $p'\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[0; 1] @comp_fapp0 $B $' $' $' (id $B (@fapp0 $A $B $2 $Y)) (@fapp1_fapp0 $A $B $2 $X' $Y $p') ↪* @comp_fapp0 $B $' $' $' (id $B (@fapp0 $A $B $2 $Y)) (@fapp1_fapp0 $A $B $2 $X' $Y $p')\n  with @tapp0_fapp0 $A $B $2 $3 $Y (id (Functor_cat $A $B) $F) ↪ id $B (@fapp0 $A $B $2 $Y)\n"
+      },
+      {
+        "index": 60,
+        "sha256": "625a423e55559433236414bdffbf3cb7c48efc388b89b4e59cf27b70481ba9c4",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 Cat_cat $' $' $' (@tapp0_fapp0 $K Cat_cat $1 $2 $Y (id (Catd_cat $K) $1)) (@fapp1_fapp0 $K Cat_cat $1 $X' $Y $p')\nt ↪[] @tapp1_fapp0 $K Cat_cat $1 $2 $X' $Y (id (Catd_cat $K) $1) $p' ↪* @tapp1_fapp0 $K Cat_cat $1 $2 $X' $Y (id (Catd_cat $K) $1) $p'\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[0; 1] @comp_fapp0 Cat_cat $' $' $' (id Cat_cat (@fapp0 $K Cat_cat $1 $Y)) (@fapp1_fapp0 $K Cat_cat $1 $X' $Y $p') ↪* @comp_fapp0 Cat_cat $' $' $' (id Cat_cat (@fapp0 $K Cat_cat $1 $Y)) (@fapp1_fapp0 $K Cat_cat $1 $X' $Y $p')\n  with @tapp0_fapp0 $K Cat_cat $1 $2 $Y (id (Catd_cat $K) $E) ↪ id Cat_cat (@fapp0 $K Cat_cat $1 $Y)\n"
+      },
+      {
+        "index": 61,
+        "sha256": "097513307e595a961fe7ff68a39f05dd129752d523c34b1e1b87d98c560acea3",
+        "block": "Unjoinable critical pair:\nt ≔ @comp_fapp0 $B $' $' $' (@tapp0_fapp0 $A $B $F $H $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ)) (@fapp1_fapp0 $A $B $F $X' $Y $p')\nt ↪[] @tapp1_fapp0 $A $B $F $H $X' $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ) $p' ↪* @tapp1_fapp0 $A $B $F $H $X' $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ) $p'\n  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p') ↪ @tapp1_fapp0 $A' $B' $F' $G' $X' $Y' $epsilon' $p'\nt ↪[0; 1] @comp_fapp0 $B $' $' $' (@comp_fapp0 $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y) (@fapp0 $A $B $H $Y) (@tapp0_fapp0 $A $B $G $H $Y $η) (@tapp0_fapp0 $A $B $F $G $Y $ϵ)) (@fapp1_fapp0 $A $B $F $X' $Y $p') ↪* @comp_fapp0 $B $' $' $' (@comp_fapp0 $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y) (@fapp0 $A $B $H $Y) (@tapp0_fapp0 $A $B $G $H $Y $η) (@tapp0_fapp0 $A $B $F $G $Y $ϵ)) (@fapp1_fapp0 $A $B $F $X' $Y $p')\n  with @tapp0_fapp0 $A $B $F $H $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ) ↪ @comp_fapp0 $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y) (@fapp0 $A $B $H $Y) (@tapp0_fapp0 $A $B $G $H $Y $η) (@tapp0_fapp0 $A $B $F $G $Y $ϵ)\n"
+      }
+    ]
+  },
+  "intrinsicWarnings": {
+    "withoutCell": 913,
+    "withCell": 913,
+    "added": 0,
+    "removed": 0
+  },
+  "qualification": [
+    "The prefix omits the invalid same-profile transpose; it is not a new implementation of its replacement.",
+    "The full-source variants retain known legacy Op and Cartesian assumptions and qualify only the selected intrinsic-cell owner.",
+    "No Cartesian public-universe substitution, profile input, or independent laxity witness is introduced.",
+    "No whole corrected-duality Homd milestone or native standard-Gray identification is certified.",
+    "The full-source check tests the existing extracted cell owner in a snapshot retaining unrelated known legacy defects.",
+    "The semantic conventional-lax example retains a noninvertible post comparison; the native controls test the stated noncollapse observations."
+  ],
+  "finiteModel": {
+    "path": "audits/strict-default-action-boundary/mixed_family_profile_models.py",
+    "sha256": "d17074b1a64347d75a30a5e231154d4667b13849855126bf276b9cd58d39601d",
+    "outcome": "passed",
+    "scope": "finite conventional-lax and strict Sigma-map boundary; no full omega model"
+  }
+}

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor migration reaffirmed; preserve uniform lax Transf/Functord and the public universe; selective strictness alternatives remain review evidence, not installed contracts; whole higher-action qualification remains open
+Status: strict functors and conventional lax Transf/Functord selected; public Hom(Cat)=Functor_cat retained; default pre/right intrinsic identity has a checked native candidate; corrected closure, duality and whole Homd integration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,7 +38,33 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
-Latest review instruction, 2026-10-14: compare corrected-duality strict
+Latest user decision, 2026-10-14: default Transf means **conventional lax
+transformations**. The user selected this explicitly in the clarification
+and confirmed that one extracted comparison leg should be globally strict.
+Select the existing pre/right convention: M=R and its extracted pre/right
+cell is identity; the post/left comparison L=>R remains possibly
+noninvertible. This is not full strict naturality, a Cat-valued exception,
+or a StrictTransfor requirement. It supersedes earlier requirements to retain
+the broader raw two-leg carrier as the public default. Preserve public names
+and the uniform Transf/Functord comparison under the selected meaning.
+
+Use the existing intrinsic-action -> extracted-cell architecture. The
+default identity rule belongs on the actual deep pre/right cell owner, with
+the necessary whole and capped endpoint computation. No lax_transfor wrapper,
+supplied comparison cell, equality proof or standalone compositor is an
+operational input. The former LaxTransfor/IsPreStrictTransfor implementation
+is a source for these owners; it is not a new default-profile requirement.
+The ordinary native candidate and intrinsic-cell check are recorded below.
+
+The public equation Hom_cat(Cat_cat,A,B)=Functor_cat(A,B) is required.
+Functor objects are strict; their transformations have the conventional lax
+default above, including Cat-valued transformations. Do not revive the
+Cartesian public-universe substitution. Correct joint evaluation/composition
+and whole duality at their actual owners before transferring the old Homd
+prototype. All E:K->Cat remain family inputs: E and E[p] are strict without
+extra family profiles, while E[alpha] and FF may be non-strict transfors.
+
+Historical review instruction, 2026-10-14: compare corrected-duality strict
 functors/lax transfors with a Cat-valued-transfor strictness exception
 against lax defaults with both Cat-valued functors and Cat-valued transfors
 strict. The user further asks whether a strict-transport coefficient would
@@ -56,7 +82,7 @@ LaxHom/LaxFunctord proposal below is conditional on preserving Pi as all
 sections; a deliberately strict Pi is also meaningful, with different
 consumers and constant-family semantics.
 
-Latest narrower question: reassess strictness of `Functord` alone while
+Earlier narrower question: reassess strictness of `Functord` alone while
 ordinary `Transf(K,Cat,E,D)` stays lax. This is a genuinely different
 candidate if the current object and whole-category identifications are
 removed and replaced by an inclusion. Keep all E:K->Cat as family objects;
@@ -88,7 +114,7 @@ operations. Do not retain that restriction as the solution to the general
 FF obligation, or reintroduce it under another name. The accepted
 identity-core/defined-relative ownership split remains unchanged.
 
-The classifier correction to investigate under that exception is:
+An unselected classifier correction considered under that exception was:
 
 ```text
 Functord_cat(E,D) ≐ Transf_cat(K,Cat,E,D)             // strict by the exception
@@ -112,8 +138,9 @@ must be qualified. No operational evidence argument is proposed.
 The walking-arrow counterexample below rejects adding the exception while
 keeping all three old default-classifier comparisons unchanged; it does
 not reject revising the section classifiers together. No global strictness
-rule has yet been installed. Resolve these interfaces before continuing the
-superseded raw-universe/total-op probe or the Cartesian-universe experiments.
+rule for both transformation legs has been installed. The later conventional
+lax decision resumes work on the actual public universe; it does not select
+those alternative section classifiers or the Cartesian-universe experiments.
 
 This correction supersedes every earlier description below that calls the
 Cartesian-universe substitution the selected public design. Preserve its
@@ -3199,6 +3226,81 @@ replacement was installed during this review.
 This tranche is a source/dependency review. No new Lambdapi probe was run:
 the changed conclusions follow from the declarations and actual extractor
 bodies, rather than from a newly checked replacement classifier.
+
+## Conventional-lax default: owner checks and Homd reassessment, 2026-10-14
+
+The latest user decisions retain public Hom(Cat)=Functor_cat and select
+conventional lax Transf uniformly, with its existing pre/right extracted
+cell globally identity. This is a change from the old raw two-leg default,
+not a requirement that general transfors or Cat-valued transfors be strict.
+It removes the need to classify every ordinary transfor through an explicit
+LaxTransfor view before attempting the conventional Gray closure.
+
+The [native candidate review](../emdash2/audits/strict-default-action-boundary/conventional_lax_review.md)
+records new checked code and exact evidence. The ordinary prefix passes
+7 positive/2 negative controls. The extracted-cell owner in the full
+snapshot passes 9 positive/3 negative controls: the pre cell computes to
+identity, the post cell remains extracted, and a general post identity is
+rejected. Removing each selected rule group fails its intended positive
+consumer. Both LHS audits have zero unreviewed slots. The deep cell adds no
+critical-pair bodies against its full-snapshot baseline; the four ordinary
+action clauses add 62 reports requiring projection-order qualification.
+No rule has been promoted to production. In particular, a full-snapshot
+typecheck retaining known legacy operations does not qualify those operations.
+
+Implementation status at this boundary:
+
+- Strict default functor laws and the conventional-lax intrinsic identity
+  have native owner candidates. Production still has the pre-migration
+  computation, apart from the separately pending classifier owner relocation.
+- Earlier corrected dualities and direct Homd ladder tests remain comparison
+  evidence under a stronger Cartesian public universe. The 348+/77- result
+  is not qualification for the retained public Functor_cat universe.
+- Family E and transports E[p] will be strict by default, removing the old
+  arbitrary-lax-transport and reversed outer compositor difficulties for
+  the selected strict-family story. E[alpha] and FF remain conventional lax
+  transfors; their higher actions must not be erased.
+- The whole public-universe coefficient, native x/u/y assembly, correct
+  dual action, intrinsic extraction and repository-wide migration are open.
+
+The next coupled stages are:
+
+1. Qualify the default pre/right action at its owners, including constructor
+   projection orders. Keep the existing extracted post/left comparison.
+2. Correct the joint composition/evaluation contracts with the public Hom
+   intact. The actual generic owners callable at Cat must change where
+   Cartesian functoriality would force lax naturality to commute. An opaque
+   old joint operator or a renamed local helper does not repair that.
+3. Requalify duality for conventional lax transfors. Do not copy the old
+   same-profile T-transfor operation or its off-diagonal action. Total O's
+   standard Gray compatibility is relevant, but not an implementation of
+   every mixed/fibrewise T operation.
+4. Rebuild the selected coefficient/represented Homd construction with its
+   actual lax/oplax mapping profiles and canonical maps. Preserve the direct
+   whole y-section and x/u/y/v/f ladder. Do not impose Cartesian higher
+   profiles merely to reuse the earlier prototype's types.
+5. Recover the identity leaf Hom_E[y](E[f](u),v), the correctly oriented
+   Sigma-Hom presentation and the defined relative FF composite. Ordinary
+   Hom retains its blended strict F. No independent laxity witnesses or
+   operational proof parameters are introduced.
+
+One concrete coupled consumer needs explicit correction: the current
+sigma_map_func takes arbitrary Functord and returns Functor between totals.
+With Sigma(const C)=K x C, a conventional lax FF between constant families
+can yield distinct images of the two factorizations of a mixed product
+arrow. The finite checker verifies this with strict component functors and
+a noninvertible lax square. Thus this map is not generally a strict functor
+with the prescribed object values. This is the same Cartesian/Gray boundary
+at a core consumer. The default-leg convention does not remove it, and the
+intrinsic extractor must not presuppose the invalid strict total-map contract.
+This is not a new requirement that every family or FF carry a strictness proof.
+
+The reassessment is therefore positive for the chosen strict-functor and
+conventional-lax action semantics and for native one-leg computation, but
+conditional for the complete whole Homd milestone. The remaining work is a
+real coupled interface migration; keeping every old joint-operation signature
+unchanged is not a feasible route. No completed milestone or full mathematical
+model is claimed from the new owner checks.
 
 ## Deferred improvements under the migration boundary
 

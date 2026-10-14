@@ -1,0 +1,68 @@
+// Native one-leg controls. The builder changes only marked assertions to
+// negative assertions in the no-default-leg baseline.
+
+// PRE-POSITIVE
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)]
+  (p : τ (Hom A x y)) ⊢
+  @comp_fapp0 B _ _ _
+    (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y p)
+  ≡ @tapp1_fapp0 A B F G x y epsilon p;
+
+// PRE-POSITIVE
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [w x y : τ (Obj A)]
+  (f : τ (Hom A x y)) (h : τ (Hom A w x)) ⊢
+  @comp_fapp0 B _ _ _
+    (@tapp1_fapp0 A B F G x y epsilon f) (@fapp1_fapp0 A B F w x h)
+  ≡ @tapp1_fapp0 A B F G w y epsilon (@comp_fapp0 A w x y f h);
+
+// PRE-POSITIVE
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [w x y : τ (Obj A)]
+  (h : τ (Hom A w x)) ⊢
+  @comp_cat_fapp0 _ _ _
+    (@hom_precomp_along_func A B F (@fapp0 A B G y) w x h)
+    (@tapp1_func A B F G x y epsilon)
+  ≡ @comp_cat_fapp0 _ _ _
+      (@tapp1_func A B F G w y epsilon)
+      (@hom_precomp_along_func A A (@id_func A) y w x h);
+
+// PRE-POSITIVE
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  [x y : τ (Obj K)] (p : τ (Hom K x y))
+  (u : τ (Obj (@fapp0 K Cat_cat E x))) ⊢
+  @fapp0 _ _ (@tapp0_fapp0 K Cat_cat E D y FF)
+    (@fapp0 _ _ (@fapp1_fapp0 K Cat_cat E x y p) u)
+  ≡ @fapp0 _ _ (@tapp1_fapp0 K Cat_cat E D x y FF p) u;
+
+// Source/target conversion does not make the post leg strict.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)]
+  (p : τ (Hom A x y)) ⊢
+  @comp_fapp0 B _ _ _
+    (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon)
+  ≡ @tapp1_fapp0 A B F G x y epsilon p;
+
+// A typed-reflexivity negative tests proof-time equality, not just conversion.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)]
+  (p : τ (Hom A x y)) ⊢
+  @eq_refl (Hom B (fapp0 F x) (fapp0 G y))
+    (@tapp1_fapp0 A B F G x y epsilon p)
+  : τ (@= (Hom B (fapp0 F x) (fapp0 G y))
+      (@comp_fapp0 B _ _ _
+        (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon))
+      (@tapp1_fapp0 A B F G x y epsilon p));
+
+// Strict functor composition is retained independently of lax naturality.
+assert [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
+  (q : τ (Hom A y z)) (p : τ (Hom A x y)) ⊢
+  @comp_fapp0 B _ _ _
+    (@fapp1_fapp0 A B F y z q) (@fapp1_fapp0 A B F x y p)
+  ≡ @fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p);
+
+// Keep the public coefficient Hom and the ordinary/displayed carrier agreement.
+assert [A B : Cat] ⊢ Hom_cat Cat_cat A B ≡ Functor_cat A B;
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D)) ⊢
+  FF : τ (@Transf K Cat_cat E D);

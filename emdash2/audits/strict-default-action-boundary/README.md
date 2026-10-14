@@ -17,6 +17,15 @@ owns this superseding boundary. Preserve the evaluator/composition
 counterchecks while correcting the operations under the agreed public
 contract; do not reinterpret those failures as permission to narrow FF.
 
+Later decision on the same date: the user explicitly selected conventional
+lax transformations as the default, with the existing extracted pre/right
+leg globally identity and the post/left comparison retained. The
+[conventional-lax owner candidate](conventional_lax_review.md) now checks
+ordinary action and that deep cell without a profile wrapper. This replaces
+the broader raw two-leg default as the migration target, while preserving
+the public Hom and Transf/Functord interfaces. Its focused checks do not
+qualify the legacy Cartesian operations or the whole Homd construction.
+
 Continuation qualification: the stronger
 [evaluation-profile review](../../../docs/EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 shows that the unchanged Cartesian evaluator plus even the capped strictness

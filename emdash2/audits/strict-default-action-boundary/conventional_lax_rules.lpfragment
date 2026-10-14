@@ -1,0 +1,34 @@
+// NON-LIBRARY candidate: conventional lax is the default Transf profile.
+// Only the pre/right leg is strict. The post/left cell remains directed.
+
+// Whole pre/right accumulation; the off-diagonal owner stays iterable.
+rule @comp_fapp0
+      Cat_cat _ _ _
+      (@hom_precomp_along_func
+        $A $B $F (@fapp0 $A $B $G $Y) $W $X $h)
+      (@tapp1_func $A $B $F $G $X $Y $epsilon)
+  ↪ @comp_fapp0
+      Cat_cat _ _ _
+      (@tapp1_func $A $B $F $G $W $Y $epsilon)
+      (@hom_precomp_along_func $A $A (@id_func $A) $Y $W $X $h);
+
+// Capped pre/right accumulation.
+rule @comp_fapp0
+      $B _ _ _
+      (@tapp1_fapp0 $A $B $F $G $X $Y $epsilon $f)
+      (@fapp1_fapp0 $A $B $F $W $X $h)
+  ↪ @tapp1_fapp0 $A $B $F $G $W $Y $epsilon
+      (@comp_fapp0 $A $W $X $Y $f $h);
+
+// Identity specialization after epsilon[id] has projected to epsilon[Y].
+rule @comp_fapp0
+      $B _ _ _
+      (@tapp0_fapp0 $A $B $F $G $Y $epsilon)
+      (@fapp1_fapp0 $A $B $F $X $Y $p)
+  ↪ @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p;
+
+// The same pre/right observation when the codomain is Cat.
+rule @fapp0 _ _
+      (@tapp0_fapp0 $K Cat_cat $E $D $y $epsilon)
+      (@fapp0 _ _ (@fapp1_fapp0 $K Cat_cat $E $x $y $p) $u)
+  ↪ @fapp0 _ _ (@tapp1_fapp0 $K Cat_cat $E $D $x $y $epsilon $p) $u;
