@@ -1,0 +1,11 @@
+// Unit whiskering after composition's first Hom has already projected.
+// The first coordinate is the identity of the identity arrow; an arbitrary
+// higher endomorphism of that arrow is deliberately not matched. The
+// repeated endpoint is the unit condition. The adjacent proof-time
+// precomposition reading retains its Product_pair classifiers explicitly
+// now that this previously rigid owner also has a runtime rule here.
+rule @comp_prod_fapp1_fapp0 $A $x $x $z
+      (Struct_sigma (@id $A $x) $p)
+      (Struct_sigma (@id $A $x) $q)
+      (Struct_sigma (@id _ (@id $A $x)) $alpha)
+  ↪ $alpha;

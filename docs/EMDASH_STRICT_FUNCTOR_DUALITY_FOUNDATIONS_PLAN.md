@@ -38,6 +38,16 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Current native comparison, 2026-10-14: the separate
+[Cartesian coefficient consumer](../emdash2/audits/strict-default-action-boundary/cart_family_review.md)
+now checks a whole coefficient inclusion, represented Hom family and
+canonical strict map Hom_K(x,-)=>E at fixed x,u, with E:K->Cat_cart.
+Its transport and base-action definitions reuse the ordinary native owners;
+an actual base 2-cell is recovered at the identity argument. Public
+Hom(Cat)=Functor_cat, general Transf and family admission remain distinct.
+Next assemble the whole source-u map and Q/Homd under this coefficient;
+the independent universe-composition obligation remains required.
+
 Current review deliverable, 2026-10-14: the user requests an overall
 [design matrix](EMDASH_FOUNDATION_PROFILE_DESIGN_MATRIX.md), including
 strict/lax defaults, Cat_cart family coefficients, Q mapping profiles,
@@ -4047,6 +4057,17 @@ obstruction, but is outside the retained all-family requirement and would
 still need its own whole-action qualification. The stronger old public-Cart
 universe prototype cannot be imported as qualification of Cart Q under
 public Hom(Cat)=Functor_cat.
+
+## Cartesian coefficient family consumer, 2026-10-14
+
+The latest Cart-family implementation is an experimental comparison,
+following the user-requested matrix, not a declaration that the overall
+goal's public defaults or family classifier have migrated. Its exact source,
+warning inventory and development failures are retained in the linked
+review. The early composition unit rule required explicit classifiers in
+the existing precomposition comparison's RHS; its owner-position consumer
+passes after that inference repair. Full higher coefficient/Q coherence,
+public source migration and downstream gates remain outstanding.
 
 ## Deferred improvements under the migration boundary
 

@@ -1,0 +1,110 @@
+// Public lax Hom and its strict Cartesian counterpart remain distinct.
+assert [A B : Cat] ⊢ Hom_cat Cat_cat A B ≡ Functor_cat A B;
+assertnot [A B : Cat] ⊢ sf_cart_functor_cat A B ≡ Functor_cat A B;
+assertnot [K : Cat] (E : τ (Functor K Cat_cat)) ⊢ E : τ (Functor K sf_cart_cat);
+
+// The canonical whole family forgets to the established Hom, before or
+// after observing its first Hom. No automatic admission of arbitrary E.
+assert [K : Cat] (x : τ (Obj K)) ⊢
+  @sf_cart_family_view K (@sf_cart_hom K x) ≡ @hom_ K K (@id_func K) x;
+assert [K : Cat] (x y z : τ (Obj K)) ⊢
+  @comp_cat_fapp0 (Hom_cat K y z)
+    (sf_cart_functor_cat (Hom_cat K x y) (Hom_cat K x z))
+    (Functor_cat (Hom_cat K x y) (Hom_cat K x z))
+    (sf_cart_functor_include (Hom_cat K x y) (Hom_cat K x z))
+    (@fapp1_func K sf_cart_cat (@sf_cart_hom K x) y z)
+  ≡ @fapp1_func K Cat_cat (@sf_cart_family_view K (@sf_cart_hom K x)) y z;
+
+// Both observation orders on a genuine base 2-cell agree in the ordinary
+// Hom-action owner. The Cartesian cell is never equated with its raw view.
+assert [K : Cat] (x y z : τ (Obj K)) [p q : τ (Hom K y z)]
+  (alpha : τ (Hom (Hom_cat K y z) p q)) ⊢
+  @fapp1_fapp0 (sf_cart_functor_cat (Hom_cat K x y) (Hom_cat K x z))
+    (Functor_cat (Hom_cat K x y) (Hom_cat K x z))
+    (sf_cart_functor_include (Hom_cat K x y) (Hom_cat K x z))
+    (@hom_postcomp_func K K (@id_func K) x y z p)
+    (@hom_postcomp_func K K (@id_func K) x y z q)
+    (@fapp1_fapp0 (Hom_cat K y z)
+      (sf_cart_functor_cat (Hom_cat K x y) (Hom_cat K x z))
+      (@sf_cart_hom_action K x y z) p q alpha)
+  ≡ @fapp1_fapp0 (Hom_cat K y z)
+      (Functor_cat (Hom_cat K x y) (Hom_cat K x z))
+      (@fapp1_func K Cat_cat (@sf_cart_family_view K (@sf_cart_hom K x)) y z)
+      p q alpha;
+
+// A variable admitted family's transport is a whole Hom-indexed functor.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (p : τ (Hom K x y)) ⊢
+  fapp0 (@sf_cart_transport K E x y u) p
+  ≡ fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u;
+
+// Strictness is in E's coefficient: its image of alpha is a classified
+// strict transformation, and its evaluated naturality square commutes.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  [p q : τ (Hom K x y)] (alpha : τ (Hom (Hom_cat K x y) p q))
+  [u v : τ (Obj (fapp0 E x))] (h : τ (Hom (fapp0 E x) u v)) ⊢
+  @comp_fapp0 (fapp0 E y) _ _ _
+    (@fapp1_fapp0 (fapp0 E x) (fapp0 E y) (@fapp1_fapp0 K sf_cart_cat E x y q) u v h)
+    (@tapp0_fapp0 (fapp0 E x) (fapp0 E y)
+      (@fapp1_fapp0 K sf_cart_cat E x y p) (@fapp1_fapp0 K sf_cart_cat E x y q) u
+      (@fapp1_fapp0 (sf_cart_functor_cat (fapp0 E x) (fapp0 E y))
+        (Functor_cat (fapp0 E x) (fapp0 E y))
+        (sf_cart_functor_include (fapp0 E x) (fapp0 E y))
+        (@fapp1_fapp0 K sf_cart_cat E x y p) (@fapp1_fapp0 K sf_cart_cat E x y q)
+        (@fapp1_fapp0 (Hom_cat K x y) (sf_cart_functor_cat (fapp0 E x) (fapp0 E y))
+          (@fapp1_func K sf_cart_cat E x y) p q alpha)))
+  ≡ @comp_fapp0 (fapp0 E y) _ _ _
+    (@tapp0_fapp0 (fapp0 E x) (fapp0 E y)
+      (@fapp1_fapp0 K sf_cart_cat E x y p) (@fapp1_fapp0 K sf_cart_cat E x y q) v
+      (@fapp1_fapp0 (sf_cart_functor_cat (fapp0 E x) (fapp0 E y))
+        (Functor_cat (fapp0 E x) (fapp0 E y))
+        (sf_cart_functor_include (fapp0 E x) (fapp0 E y))
+        (@fapp1_fapp0 K sf_cart_cat E x y p) (@fapp1_fapp0 K sf_cart_cat E x y q)
+        (@fapp1_fapp0 (Hom_cat K x y) (sf_cart_functor_cat (fapp0 E x) (fapp0 E y))
+          (@fapp1_func K sf_cart_cat E x y) p q alpha)))
+    (@fapp1_fapp0 (fapp0 E x) (fapp0 E y) (@fapp1_fapp0 K sf_cart_cat E x y p) u v h);
+
+// The canonical fixed-u family map has an actual whole y-section type.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (p : τ (Hom K x y)) ⊢
+  fapp0 (@tapp0_fapp0 K sf_cart_cat (@sf_cart_hom K x) E y
+    (@strict_transfor K sf_cart_cat (@sf_cart_hom K x) E (@sf_cart_cov K E x u))) p
+  ≡ fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u;
+
+// Its base action remains Hom-indexed; evaluating at q then p follows
+// the established stable Hom-composition index, rather than a new total.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y z : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (p : τ (Hom K x y)) (q : τ (Hom K y z)) ⊢
+  fapp0 (@tapp1_fapp0 K sf_cart_cat (@sf_cart_hom K x) E y z
+    (@strict_transfor K sf_cart_cat (@sf_cart_hom K x) E (@sf_cart_cov K E x u)) q) p
+  ≡ fapp0 (@fapp1_fapp0 K sf_cart_cat E x z
+      (@hom_postcomp_fapp0 K K (@id_func K) x y z q p)) u;
+
+// Restricting E's coefficient does not make an arbitrary base transformation
+// strict. There is no blanket strictness exception at codomain sf_cart_cat.
+assertnot [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat E D)) ⊢ FF : τ (@StrictTransfor K sf_cart_cat E D);
+
+// Representable admission preserves a genuine higher cell: its component
+// at the identity source arrow recovers alpha, rather than merely its type.
+assert [K : Cat] (y z : τ (Obj K)) [p q : τ (Hom K y z)]
+  (alpha : τ (Hom (Hom_cat K y z) p q)) ⊢
+  @tapp0_fapp0 (Hom_cat K y y) (Hom_cat K y z)
+    (@hom_postcomp_func K K (@id_func K) y y z p)
+    (@hom_postcomp_func K K (@id_func K) y y z q) (@id K y)
+    (@strict_transfor (Hom_cat K y y) (Hom_cat K y z)
+      (@hom_postcomp_func K K (@id_func K) y y z p)
+      (@hom_postcomp_func K K (@id_func K) y y z q)
+      (@fapp1_fapp0 (Hom_cat K y z) (sf_cart_functor_cat (Hom_cat K y y) (Hom_cat K y z))
+        (@sf_cart_hom_action K y y z) p q alpha))
+  ≡ alpha;
+
+// The projected unit law must not erase a nonidentity higher arrow in the
+// first coordinate merely because its endpoints are identity 1-cells.
+assertnot [K : Cat] (y z : τ (Obj K)) [p q : τ (Hom K y z)]
+  (alpha : τ (Hom (Hom_cat K y z) p q))
+  (theta : τ (Hom (Hom_cat K y y) (@id K y) (@id K y))) ⊢
+  @comp_prod_fapp1_fapp0 K y y z
+    (Struct_sigma (@id K y) p) (Struct_sigma (@id K y) q)
+    (Struct_sigma theta alpha)
+  ≡ alpha;

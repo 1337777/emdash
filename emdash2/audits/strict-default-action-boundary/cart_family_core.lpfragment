@@ -1,0 +1,103 @@
+// NON-LIBRARY: a separate Cartesian coefficient, retaining public lax Hom.
+// Its whole inclusion restricts higher maps, while sharing category/functor
+// objects and the ordinary action operations.
+injective symbol sf_cart_include : τ (Functor sf_cart_cat Cat_cat);
+rule fapp0 sf_cart_include $A ↪ $A;
+rule @fapp1_func _ _ sf_cart_include $A $B
+  ↪ sf_cart_functor_include $A $B;
+rule @fapp1_fapp0 _ _ sf_cart_include _ _ $F ↪ $F;
+
+// Objects of Cartesian Homs are the same strict functors. Their units and
+// composite objects use the existing ordinary functor owners.
+rule @id sf_cart_cat $A ↪ @id_func $A;
+// lhs-audit: keep 1 -- only the Cartesian coefficient composition is projected.
+rule @comp_fapp0 sf_cart_cat $A $B $C $G $F
+  ↪ @comp_cat_fapp0 $A $B $C $G $F;
+// lhs-audit: keep 1,2,3 -- identity-family Cartesian coefficient Hom action.
+rule @hom_postcomp_fapp0 sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+      $A $B $C $G $F
+  ↪ @comp_cat_fapp0 $A $B $C $G $F;
+
+symbol sf_cart_family_view [K : Cat] (E : τ (Functor K sf_cart_cat))
+  : τ (Functor K Cat_cat)
+≔ @comp_cat_fapp0 K sf_cart_cat Cat_cat sf_cart_include E;
+
+// Fixed evaluation is a definition through the existing ordinary evaluator.
+symbol sf_cart_eval_at [A B : Cat] (a : τ (Obj A))
+  : τ (Functor (sf_cart_functor_cat A B) B)
+≔ @comp_cat_fapp0 (sf_cart_functor_cat A B) (Functor_cat A B) B
+    (@fapp0_func A B a) (sf_cart_functor_include A B);
+
+// Cartesian first-Hom presentation of canonical postcomposition in K.
+// Strict interchange in K makes this stronger profile lawful. Its weaker
+// view and all ordinary point computations reuse the existing Hom owner.
+injective symbol sf_cart_hom_action [K : Cat] (x y z : τ (Obj K))
+  : τ (Functor (Hom_cat K y z)
+      (sf_cart_functor_cat (Hom_cat K x y) (Hom_cat K x z)));
+rule fapp0 (@sf_cart_hom_action $K $x $y $z) $p
+  ↪ @hom_postcomp_func $K $K (@id_func $K) $x $y $z $p;
+// lhs-audit: keep 1 -- SR needs the ordinary functor-composition classifier.
+rule @comp_fapp0 Cat_cat _ _ _ (sf_cart_functor_include _ _)
+      (@sf_cart_hom_action $K $x $y $z)
+  ↪ @hom_postcomp_tele_func $K $K (@id_func $K) $x $y $z;
+
+// The inclusion square after first-Hom action projects before composition.
+rule @strict_transfor _ _ _ _
+      (@fapp1_fapp0 _ _ (@sf_cart_hom_action $K $x $y $z) $p $q $alpha)
+  ↪ @hom_postcomp_tele_transf $K $K (@id_func $K) $x $y $z $p $q $alpha;
+
+injective symbol sf_cart_hom [K : Cat] (x : τ (Obj K))
+  : τ (Functor K sf_cart_cat);
+rule fapp0 (@sf_cart_hom $K $x) $y ↪ Hom_cat $K $x $y;
+rule @fapp1_func _ _ (@sf_cart_hom $K $x) $y $z
+  ↪ @sf_cart_hom_action $K $x $y $z;
+rule @fapp1_fapp0 _ _ (@sf_cart_hom $K $x) $y $z $p
+  ↪ @hom_postcomp_func $K $K (@id_func $K) $x $y $z $p;
+// lhs-audit: keep 1 -- SR needs the ordinary functor-composition classifier.
+rule @comp_fapp0 Cat_cat _ _ _ sf_cart_include (@sf_cart_hom $K $x)
+  ↪ @hom_ $K $K (@id_func $K) $x;
+
+// The whole transport-at-u functor for a variable admitted family.
+symbol sf_cart_transport [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x y : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  : τ (Functor (Hom_cat K x y) (fapp0 E y))
+≔ @comp_cat_fapp0 (Hom_cat K x y)
+    (sf_cart_functor_cat (fapp0 E x) (fapp0 E y)) (fapp0 E y)
+    (@sf_cart_eval_at (fapp0 E x) (fapp0 E y) u)
+    (@fapp1_func K sf_cart_cat E x y);
+
+// Canonical whole map c_E(x,u):Hom_K(x,-)=>E. Its strict profile follows
+// from strict E and the Cartesian higher action of the coefficient.
+// This constructor admits this canonical map, not every raw transformation.
+symbol sf_cart_cov [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  : τ (@StrictTransfor K sf_cart_cat (@sf_cart_hom K x) E);
+rule @tapp0_fapp0 _ _ _ _ $y
+      (@strict_transfor _ _ _ _ (@sf_cart_cov $K $E $x $u))
+  ↪ @sf_cart_transport $K $E $x $y $u;
+
+// Whole base action: c(z) after postcomposition by q. The outer Hom has
+// Cartesian coefficients, while its point values remain ordinary functors.
+symbol sf_cart_cov_action [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x))) (y z : τ (Obj K))
+  : τ (Functor (Hom_cat K y z) (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E z)))
+≔ @comp_cat_fapp0 (Hom_cat K y z)
+    (sf_cart_functor_cat (Hom_cat K x y) (Hom_cat K x z))
+    (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E z))
+    (@hom_postcomp_func sf_cart_cat sf_cart_cat (@id_func sf_cart_cat)
+      (Hom_cat K x y) (Hom_cat K x z) (fapp0 E z) (@sf_cart_transport K E x z u))
+    (@sf_cart_hom_action K x y z);
+rule @tapp1_func _ _ _ _ $y $z
+      (@strict_transfor _ _ _ _ (@sf_cart_cov $K $E $x $u))
+  ↪ @sf_cart_cov_action $K $E $x $u $y $z;
+rule @tapp1_fapp0 _ _ _ _ $y $z
+      (@strict_transfor _ _ _ _ (@sf_cart_cov $K $E $x $u)) $q
+  ↪ fapp0 (@sf_cart_cov_action $K $E $x $u $y $z) $q;
+
+// Identity-specialized post/left strict naturality at its native view.
+// This extends the donor's Cat-specialized clause to its actual generic
+// StrictTransfor capability; arbitrary ambient transformations are excluded.
+rule @comp_fapp0 $B _ _ _
+      (@fapp1_fapp0 $A $B $G $x $y $p)
+      (@tapp0_fapp0 $A $B $F $G $x (@strict_transfor $A $B $F $G $U))
+  ↪ @tapp1_fapp0 $A $B $F $G $x $y (@strict_transfor $A $B $F $G $U) $p;

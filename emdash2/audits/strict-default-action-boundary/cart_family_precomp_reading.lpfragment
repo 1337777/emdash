@@ -1,0 +1,24 @@
+// Existing proof-time precomposition/horizontal-composition comparison,
+// with explicit RHS pair classifiers. The early unit rule makes the
+// composition-action owner reducible; the formerly inferred classifiers
+// then remained unsolved in the existing typed comparison consumer.
+unif_rule
+  @hom_precomp_along_fapp1_fapp0
+    $A $B $F $Z $W $X $h $g $k $alpha
+  ≡ @comp_prod_fapp1_fapp0 $B _ _ $Z $pg $pg' $theta
+  ↪ [
+      $pg ≡ @Product_pair
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $X))
+        (Hom_cat $B (@fapp0 $A $B $F $X) $Z)
+        (@fapp1_fapp0 $A $B $F $W $X $h) $g;
+      $pg' ≡ @Product_pair
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $X))
+        (Hom_cat $B (@fapp0 $A $B $F $X) $Z)
+        (@fapp1_fapp0 $A $B $F $W $X $h) $k;
+      $theta ≡ @Product_pair
+        (Hom_cat (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $X))
+          (@fapp1_fapp0 $A $B $F $W $X $h) (@fapp1_fapp0 $A $B $F $W $X $h))
+        (Hom_cat (Hom_cat $B (@fapp0 $A $B $F $X) $Z) $g $k)
+        (@id (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $X))
+          (@fapp1_fapp0 $A $B $F $W $X $h)) $alpha
+    ];

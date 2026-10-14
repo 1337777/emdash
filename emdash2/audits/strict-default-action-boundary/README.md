@@ -60,9 +60,17 @@ and [evidence](homd_intrinsic_projection_verification.json) preserve that bounda
 The subsequent [mixed three-cell review](homd_mixed_three_cell_review.md)
 finds a semantic obstruction to the unchanged double-Gray-lax Q/source-u
 package, even for identity FF. Its finite model and transported inner-Hom
-proposal now govern the next step. The native receipts above are conditional
+proposal delimit that broader candidate. The native receipts above are conditional
 typing evidence; do not promote the unchanged Q or replace it with nested
 Cart without addressing the already recorded family-admission obstruction.
+
+Following the user's separate-coefficient proposal, the
+[Cart-family comparison](cart_family_review.md) now checks a whole coefficient
+inclusion, canonical Hom family and the fixed-u whole map Hom_K(x,-)=>E.
+Variable admitted families have strict fibre naturality, and a represented
+base two-cell is recovered by actual computation. The public lax Hom and
+general FF remain distinct. Full coefficient/Q coherence and the Homd
+ladder under this new input type are not yet qualified.
 
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
