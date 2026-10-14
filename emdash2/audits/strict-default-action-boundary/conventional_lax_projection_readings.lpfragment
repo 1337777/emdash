@@ -1,0 +1,26 @@
+// Same reading in a dimension-one-opposite codomain, where comp has reduced.
+// This is not a same-profile transpose operation on transformations.
+unif_rule
+  @tapp1_fapp0 $A (Op_cat $B) $F $G $X $Y $epsilon $p
+  ≡ @comp_fapp0 $B $x $y $z $f $g
+  ↪ [
+      $x ≡ @fapp0 $A (Op_cat $B) $G $Y;
+      $y ≡ @fapp0 $A (Op_cat $B) $F $Y;
+      $z ≡ @fapp0 $A (Op_cat $B) $F $X;
+      $f ≡ @fapp1_fapp0 $A (Op_cat $B) $F $X $Y $p;
+      $g ≡ @tapp0_fapp0 $A (Op_cat $B) $F $G $Y $epsilon
+    ];
+
+// Proof-time pre/right readings after ordinary action has already projected.
+// Both sides keep rigid owners. Category equality in the repeated B slot is
+// a discriminator: the ordinary clause does not match reversed composition.
+unif_rule
+  @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p
+  ≡ @comp_fapp0 $B $x $y $z $g $f
+  ↪ [
+      $x ≡ @fapp0 $A $B $F $X;
+      $y ≡ @fapp0 $A $B $F $Y;
+      $z ≡ @fapp0 $A $B $G $Y;
+      $g ≡ @tapp0_fapp0 $A $B $F $G $Y $epsilon;
+      $f ≡ @fapp1_fapp0 $A $B $F $X $Y $p
+    ];

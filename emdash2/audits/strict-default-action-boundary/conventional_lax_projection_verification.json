@@ -1,0 +1,307 @@
+{
+  "status": "four typed pre/right projection comparisons pass; ordinary and opposite readings independently required; no production promotion",
+  "donorEvidence": "audits/strict-default-action-boundary/conventional_lax_verification.json",
+  "donorEvidenceSha256": "043eb32238d09300a1450b391c64f9369c6dee79c94d1dcff33314b64ef3adeb",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/conventional_lax_projection_replay.py": "fd01c38bfafba2ef1878ddd5ed6d50ac35fa941ab4baae11a3aa661feddd8b3a",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e"
+  },
+  "outputs": {
+    "no_reading.lp": "4c0f9ca3c694f0223caba1283487cc7c17420b12c1c531bb05dc26881c231161",
+    "only_ordinary.lp": "5749c46bbc9e1e655248f09943a268f1d1d066c25552bbd04a5946e66b47107f",
+    "only_opposite.lp": "515c3c85802bfd0898d8bdc1bc83a47121a939f54715a6cdd17eb8777aa32639",
+    "ordinary.lp": "709092b6a24454460edb4809c8788bb0c7fda36fc3168716d638220a188ac74b",
+    "full_intrinsic.lp": "df84eafc238eee842bcb26170ea46d8bcbecb617d4e6295c571d7c428996be82",
+    "legacy_op_adverse.lp": "1d8c063c4e200d9e5c1f3a9d7139ee99d3e55dc783d16b67a2fb6b26942e0cfd"
+  },
+  "checks": {
+    "ordinary.lp": {
+      "id": "20261014T092638Z-7eab8a1da9674bfbb5ca5178651104ac",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 3.728428295929916,
+      "childrenMaxRssKiB": 120180,
+      "inputSnapshot": "15d302345e40049a45b4ea76a2479d00115d7224e256db1cd6d24cd634ea1c19",
+      "sourceSha256": "709092b6a24454460edb4809c8788bb0c7fda36fc3168716d638220a188ac74b",
+      "receipt": "logs/check-runs/20261014T092638Z-7eab8a1da9674bfbb5ca5178651104ac.json",
+      "receiptSha256": "edc81d40fdead733e4b0e0b1aef5ead90cfebe34399804925597785e6b4074a1",
+      "log": "logs/check-runs/20261014T092638Z-7eab8a1da9674bfbb5ca5178651104ac.log",
+      "logSha256": "364bc435b3e94894aebf53125acc612aac118737289c5070d2e4c259b111af55",
+      "positiveAssertions": 7,
+      "negativeAssertions": 3,
+      "newTypedDefinitions": [
+        "conventional_lax_identity_source_join",
+        "conventional_lax_composite_source_join",
+        "conventional_lax_vertical_component_join",
+        "conventional_lax_opposite_codomain_join"
+      ],
+      "criticalPairs": 495,
+      "replaceablePatterns": 51,
+      "terminalExcerpt": null
+    },
+    "full_intrinsic.lp": {
+      "id": "20261014T092643Z-f3827bc0611d4abeb8dd9676ceb332ec",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 13.616404455970041,
+      "childrenMaxRssKiB": 362780,
+      "inputSnapshot": "05cb6a2c4dc02d753a57b9d7f0fda2b0375b56c5f087ead4d07255db1393c010",
+      "sourceSha256": "df84eafc238eee842bcb26170ea46d8bcbecb617d4e6295c571d7c428996be82",
+      "receipt": "logs/check-runs/20261014T092643Z-f3827bc0611d4abeb8dd9676ceb332ec.json",
+      "receiptSha256": "863b64cb9d715626119e3147c7baa4f5a4a954dd519a544bafc466d1059dc3f5",
+      "log": "logs/check-runs/20261014T092643Z-f3827bc0611d4abeb8dd9676ceb332ec.log",
+      "logSha256": "0a6bcf71e8e37b8cd96ba6dcff2a367bff973e2eb8d39da5a1d5e34991f74bfc",
+      "positiveAssertions": 9,
+      "negativeAssertions": 4,
+      "newTypedDefinitions": [
+        "conventional_lax_identity_source_join",
+        "conventional_lax_composite_source_join",
+        "conventional_lax_vertical_component_join",
+        "conventional_lax_opposite_codomain_join"
+      ],
+      "criticalPairs": 913,
+      "replaceablePatterns": 150,
+      "terminalExcerpt": null
+    },
+    "no_reading.lp": {
+      "id": "20261014T092823Z-08d958faccec4c91bb3febfd90567d8a",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 3.5405470720725134,
+      "childrenMaxRssKiB": 117756,
+      "inputSnapshot": "38703ca52788ba1d10f2cecc19d44422df507545d029994475111b1e39d61850",
+      "sourceSha256": "4c0f9ca3c694f0223caba1283487cc7c17420b12c1c531bb05dc26881c231161",
+      "receipt": "logs/check-runs/20261014T092823Z-08d958faccec4c91bb3febfd90567d8a.json",
+      "receiptSha256": "c33824430e07280b0423e1f305f34d653768e407423782bd91e98b4db32fa763",
+      "log": "logs/check-runs/20261014T092823Z-08d958faccec4c91bb3febfd90567d8a.log",
+      "logSha256": "93ec1e9b325504d5102855ee2c99390d88f375f462a485f3f2cf42132f46d1f4",
+      "positiveAssertions": 7,
+      "negativeAssertions": 3,
+      "newTypedDefinitions": [
+        "conventional_lax_identity_source_join",
+        "conventional_lax_composite_source_join",
+        "conventional_lax_vertical_component_join",
+        "conventional_lax_opposite_codomain_join"
+      ],
+      "criticalPairs": 495,
+      "replaceablePatterns": 51,
+      "terminalExcerpt": "  with @tapp0_fapp0 $A $B $F $H $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ) ↪ @comp_fapp0 $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y) (@fapp0 $A $B $H $Y) (@tapp0_fapp0 $A $B $G $H $Y $η) (@tapp0_fapp0 $A $B $F $G $Y $ϵ)\n[tmp/probes/conventional_lax_projection/no_reading.lp:10082:0-10090:42]\nCannot solve A: Cat, B: Cat, F: τ (Functor A B), G: τ (Functor A B), epsilon: τ (@Transf A B F G), x: τ (Obj A), y: τ (Obj A), p: τ (Hom A x y) ⊢ @tapp1_fapp0 A B F G x y epsilon p ≡ @comp_fapp0 B (@fapp0 A B F x) (@fapp0 A B G x) (@fapp0 A B G y) (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon).\n[tmp/probes/conventional_lax_projection/no_reading.lp:10108:0-10115:50]\nSome metavariables could not be solved: a proof must be given\n[tmp/probes/conventional_lax_projection/no_reading.lp:10115:50] The proof is not finished:\nA: Cat\nG: τ (Functor A A)\nepsilon: τ (@Transf A A (@id_func A) G)\nx: τ (Obj A)\ny: τ (Obj A)\np: τ (Hom A x y)\n------------------------------------------------------------------------------\n0. @tapp1_fapp0 A A (@id_func A) G x y epsilon p ≡ @comp_fapp0 A x y (@fapp0 A A G y) (@tapp0_fapp0 A A (@id_func A) G y epsilon) p"
+    },
+    "only_ordinary.lp": {
+      "id": "20261014T092323Z-ea3e41fb070844809d41b5fb0746be9c",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 3.5066538200480863,
+      "childrenMaxRssKiB": 120280,
+      "inputSnapshot": "6fccfbeccd88b20d84c47f496602fc8c75769eefdb9e69b202593e1cbe6e39dc",
+      "sourceSha256": "5749c46bbc9e1e655248f09943a268f1d1d066c25552bbd04a5946e66b47107f",
+      "receipt": "logs/check-runs/20261014T092323Z-ea3e41fb070844809d41b5fb0746be9c.json",
+      "receiptSha256": "e2dc7dff23294e6255d025525c31049fc14d8b11f985c8e3e1662c69cc2afe74",
+      "log": "logs/check-runs/20261014T092323Z-ea3e41fb070844809d41b5fb0746be9c.log",
+      "logSha256": "b3b581ef63fd4bad26cfe186d89fc4d0d2fa14ffbdd2beeca793da9982686113",
+      "positiveAssertions": 7,
+      "negativeAssertions": 3,
+      "newTypedDefinitions": [
+        "conventional_lax_identity_source_join",
+        "conventional_lax_composite_source_join",
+        "conventional_lax_vertical_component_join",
+        "conventional_lax_opposite_codomain_join"
+      ],
+      "criticalPairs": 0,
+      "replaceablePatterns": 0,
+      "terminalExcerpt": "flag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/conventional_lax_projection/only_ordinary.lp:10173:48] The proof is not finished:\nA: Cat\nB: Cat\nF: τ (Functor A (Op_cat B))\nG: τ (Functor A (Op_cat B))\nepsilon: τ (@Transf A (Op_cat B) F G)\nx: τ (Obj A)\ny: τ (Obj A)\np: τ (Hom A x y)\n------------------------------------------------------------------------------\n0. @tapp1_fapp0 A (Op_cat B) F G x y epsilon p ≡ @comp_fapp0 B (@fapp0 A (Op_cat B) G y) (@fapp0 A (Op_cat B) F y) (@fapp0 A (Op_cat B) F x) (@fapp1_fapp0 A (Op_cat B) F x y p) (@tapp0_fapp0 A (Op_cat B) F G y epsilon)"
+    },
+    "only_opposite.lp": {
+      "id": "20261014T092328Z-a863a64a4d204dd09c543e841106d5c4",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 3.512652819044888,
+      "childrenMaxRssKiB": 119504,
+      "inputSnapshot": "efe86e4dbe56628dff5945ae08ebb74f81d327d85dc382cc99c01ca8760c74dd",
+      "sourceSha256": "515c3c85802bfd0898d8bdc1bc83a47121a939f54715a6cdd17eb8777aa32639",
+      "receipt": "logs/check-runs/20261014T092328Z-a863a64a4d204dd09c543e841106d5c4.json",
+      "receiptSha256": "f3af3d1a0c706950401dffd538b079b13e2a2425f27eec1e54baaf20e3516dd8",
+      "log": "logs/check-runs/20261014T092328Z-a863a64a4d204dd09c543e841106d5c4.log",
+      "logSha256": "698b3fb95731cf2a1ce1816f51a5fb2e66ed9febe6a1d640fd126b51bf99c9f6",
+      "positiveAssertions": 7,
+      "negativeAssertions": 3,
+      "newTypedDefinitions": [
+        "conventional_lax_identity_source_join",
+        "conventional_lax_composite_source_join",
+        "conventional_lax_vertical_component_join",
+        "conventional_lax_opposite_codomain_join"
+      ],
+      "criticalPairs": 0,
+      "replaceablePatterns": 0,
+      "terminalExcerpt": "flag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/conventional_lax_projection/only_opposite.lp:10129:50] The proof is not finished:\nA: Cat\nG: τ (Functor A A)\nepsilon: τ (@Transf A A (@id_func A) G)\nx: τ (Obj A)\ny: τ (Obj A)\np: τ (Hom A x y)\n------------------------------------------------------------------------------\n0. @tapp1_fapp0 A A (@id_func A) G x y epsilon p ≡ @comp_fapp0 A x y (@fapp0 A A G y) (@tapp0_fapp0 A A (@id_func A) G y epsilon) p"
+    },
+    "legacy_op_adverse.lp": {
+      "id": "20261014T092332Z-cb58b83457ab47f39013431c1615a1cd",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 3.686375116929412,
+      "childrenMaxRssKiB": 119916,
+      "inputSnapshot": "59ac444ab7fbbfd5caa97e03e1a23c1b111d1fd73ce3b4b4f57ec2a3fcab14f0",
+      "sourceSha256": "1d8c063c4e200d9e5c1f3a9d7139ee99d3e55dc783d16b67a2fb6b26942e0cfd",
+      "receipt": "logs/check-runs/20261014T092332Z-cb58b83457ab47f39013431c1615a1cd.json",
+      "receiptSha256": "39ade357d7f3cbc0a3436814ba429ac7d2cd4fd26733c13ecce57d8441315972",
+      "log": "logs/check-runs/20261014T092332Z-cb58b83457ab47f39013431c1615a1cd.log",
+      "logSha256": "f0eae2d7420988c396b584713655f4ffded3a02587a19405a567580e7b0ca694",
+      "positiveAssertions": 0,
+      "negativeAssertions": 1,
+      "newTypedDefinitions": [
+        "conventional_lax_identity_source_join",
+        "conventional_lax_composite_source_join",
+        "conventional_lax_vertical_component_join",
+        "conventional_lax_opposite_codomain_join"
+      ],
+      "criticalPairs": 0,
+      "replaceablePatterns": 0,
+      "terminalExcerpt": "G: τ (Functor A B)\nepsilon: τ (@Transf A B F G)\nx: τ (Obj A)\ny: τ (Obj A)\np: τ (Hom A x y)\n------------------------------------------------------------------------------\n0. Op_cat B ≡ B\n1. @fapp0 A B F x ≡ @fapp0 A B G y\n2. @fapp0 A B G y ≡ @fapp0 A B F x\n3. @comp_fapp0 B (@fapp0 (Op_cat A) (Op_cat B) (@Op_func A B F) x) (@fapp0 (Op_cat A) (Op_cat B) (@Op_func A B G) x) (@fapp0 (Op_cat A) (Op_cat B) (@Op_func A B G) y) (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon) ≡ @comp_fapp0 B (@fapp0 A B G y) (@fapp0 A B G x) (@fapp0 A B F x) (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon)\n4. @fapp0 A B F x ≡ @fapp0 A B G y\n5. @fapp0 A B G y ≡ @fapp0 A B F x\n6. @fapp0 A B F x ≡ @fapp0 A B G y\n7. @fapp0 A B G y ≡ @fapp0 A B F x"
+    }
+  },
+  "warningComparison": {
+    "ordinary.lp": {
+      "beforeReceipt": "20261014T085351Z-0137d8cfbe2c4aed82d88d7e0f934b0e",
+      "criticalPairs": 495,
+      "added": 0,
+      "removed": 0,
+      "bodiesIdentical": true
+    },
+    "full_intrinsic.lp": {
+      "beforeReceipt": "20261014T085734Z-f0677c14647141d7a5b78e785f8679c5",
+      "criticalPairs": 913,
+      "added": 0,
+      "removed": 0,
+      "bodiesIdentical": true
+    }
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 64,
+    "annotatedClauses": 41
+  },
+  "sensitivity": {
+    "no_reading.lp": "fails identity-source comparison",
+    "only_opposite.lp": "fails identity-source comparison",
+    "only_ordinary.lp": "fails opposite-codomain comparison"
+  },
+  "qualification": [
+    "The four positive consumers are typed eq_refl definitions, not runtime-conversion assertions.",
+    "The two unification rules relate existing rigid heads; they do not add operational proof arguments or new runtime reductions.",
+    "Explicit source/codomain arguments in opposite-valued object observations are necessary because Obj(Op(B))=Obj(B) loses that distinction.",
+    "The ordinary and full-snapshot post-boundary negatives remain; no full kernel consistency claim is made.",
+    "The retained legacy opposite equality attempt still fails with endpoint/category obligations and remains unqualified.",
+    "Other constructor/whole projection cases, corrected duality, joint closure, Sigma mapping and Homd integration remain open."
+  ],
+  "emissionNormalization": "Reading fragment trailing whitespace normalized to two newlines; emitted LP outputs remain byte-identical to the checked receipts."
+}

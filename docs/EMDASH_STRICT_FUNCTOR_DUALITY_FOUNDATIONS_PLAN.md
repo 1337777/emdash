@@ -3302,6 +3302,41 @@ real coupled interface migration; keeping every old joint-operation signature
 unchanged is not a feasible route. No completed milestone or full mathematical
 model is claimed from the new owner checks.
 
+## Conventional-lax projection-order continuation, 2026-10-14
+
+The previous goal turn made progress by adding checked native pre/right
+and intrinsic identity candidates and recording the actual remaining
+joint-action boundary. This continuation addresses measured projection
+failures, rather than treating the earlier positive checks as completion.
+
+The identity-source consumer failed when F[p] had already reduced to p.
+The [projection replay](../emdash2/audits/strict-default-action-boundary/conventional_lax_projection_replay.py)
+adds proof-time readings between the existing off-diagonal and composition
+heads. The ordinary and opposite-codomain readings are separately necessary:
+removing either fails its corresponding typed-reflexivity consumer. Identity
+source, composite source, vertical-composite component and opposite-codomain
+comparisons now check. The final opposite observation retains explicit
+source/codomain arguments because object classifiers erase the duality tag.
+No equation identifies the underlying category with its opposite.
+
+The ordinary slice passes four new typed comparison definitions plus its
+7 positive/3 negative assertions; the full snapshot passes those definitions
+plus 9 positive/4 negative assertions. Both ordinary and opposite-codomain
+post-boundary negatives remain. Runtime rule bodies are unchanged; so are
+the 495 ordinary and 913 full-snapshot critical-pair bodies. The full LHS
+audit has zero unreviewed slots. The
+[exact verification](../emdash2/audits/strict-default-action-boundary/conventional_lax_projection_verification.json)
+preserves source/authoring pins, receipts and removal controls.
+
+This closes the specified typed observation gaps, not all 62 earlier
+projection warnings or the full migration. The old same-profile transpose
+equality attempt remains unqualified. Continue with the actual dual action
+on conventional lax transformations and the coupled joint-operation owners;
+do not derive total dual action by composing unsupported whole T/R actions
+on arbitrary transfors. Public Hom(Cat)=Functor_cat, native intrinsic
+extraction, direct whole Homd and the all-family input contract remain
+required. No production rule has yet been promoted.
+
 ## Deferred improvements under the migration boundary
 
 These are review opportunities, not prerequisites or selected changes:

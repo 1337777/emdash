@@ -82,6 +82,42 @@ EMDASH_LAMBDAPI_WARNINGS=1 EMDASH_TYPECHECK_TIMEOUT=90s OCAMLRUNPARAM=o=20 \
   scripts/probe.sh tmp/probes/conventional_lax_default/full_intrinsic.lp
 ```
 
+## Typed projection-order comparisons
+
+The [projection replay](conventional_lax_projection_replay.py) retains the
+exact preceding candidates and adds two proof-time readings of tapp1_fapp0
+against ordinary composition. The ordinary reading keeps the common
+codomain as a discriminator. Its opposite-codomain counterpart accounts
+for composition having already reversed the factor order. Neither changes
+runtime normal forms or supplies an operational proof argument.
+
+Four typed eq_refl definitions now check after earlier projections:
+
+- F is the identity, so F[p] has reduced to p;
+- F is a composite, so its action is a nested pair of actions;
+- the transformation is a vertical composite, whose component has reduced;
+- the codomain is Op_cat(B), whose composition has already reversed.
+
+The last declaration needed explicit source/codomain arguments on its
+object observations. Obj(Op_cat B)=Obj(B) does not preserve enough information
+for every omitted argument to be inferred correctly. This was an observation
+typing correction, not a new equation between B and Op_cat B or its endpoints.
+
+The ordinary slice passes the four definitions and its 7 positive/3 negative
+assertions; the full snapshot passes the same definitions and 9 positive/4
+negative assertions. The additional negative rejects post strictness in an
+opposite codomain. Removing the ordinary reading fails the identity-source
+consumer; removing the opposite reading fails the opposite-codomain consumer.
+Both readers are therefore required for these consumers. Exact evidence is
+in [the projection verification](conventional_lax_projection_verification.json).
+
+Critical-pair bodies are unchanged: 495 in the ordinary slice and 913 in the
+full snapshot. The full LHS audit still has zero unreviewed slots. These
+typed comparisons do not close every earlier constructor or whole-action
+projection case, and they do not qualify the legacy opposite operator or
+joint Cartesian contracts. The inherited legacy-op equality attempt remains
+an unqualified endpoint/category inference failure. No rule is promoted.
+
 ## The joint-action boundary also reaches Sigma maps
 
 The [finite strict 2-category checker](mixed_family_profile_models.py) now
