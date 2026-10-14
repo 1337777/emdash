@@ -38,6 +38,21 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Latest semantic qualification, 2026-10-14: the
+[mixed three-cell model and review](../emdash2/audits/strict-default-action-boundary/homd_mixed_three_cell_review.md)
+find an obstruction to interpreting the current double-lax Q/source-u
+candidate with standard Gray-lax higher transformations. With strict E,
+strict transports and external FF=id, a fibre 2-cell paired with a base
+2-cell requires the reverse of an unavailable 3-cell. The native receipts
+below remain conditional typing/computation evidence; do not promote their
+unchanged Q contract as a qualified omega-level solution. Nested Cart also
+retains its earlier dimension-two obstruction for these admitted families.
+The next local correction to implement/assess is the transported inner
+mapping profile M(A,B)=T(Hom_oplax(T(A),T(B))). Its all-dimensional closure
+gives the required local T(E[x])->M(T(Hom_K(x,y)),Cat) action without
+changing the leaf. Whole Q, y-sections and the coupled root must still be
+qualified. Public Transf and all-family admission are not silently changed.
+
 Latest execution steering, 2026-10-14: continue toward Homd using the checked
 strict displayed-map classifier, and keep both Cart/strict-transfor Q and
 lax-transfor Q open. The canonical whole transport map, represented whole-y
@@ -4002,6 +4017,17 @@ unreviewed slots. [Exact evidence](../emdash2/audits/strict-default-action-bound
 records the authoring/source hashes, receipt, resource measurement and warning
 comparison. Next qualify the whole-u comparison and the mixed higher action
 required by this concrete consumer, rather than adding type-only root variants.
+
+The subsequent mixed-three-cell review linked at the top of this plan now
+identifies a failure of the unchanged standard-Gray higher profile. That
+evidence supersedes proceeding directly to a whole-u extractor in this
+same target. The user asked whether Cart would provide a quicker route:
+nested Cart requires the noncommuting square of E[alpha] to commute even
+when FF=id. A correspondingly stricter family input could remove that
+obstruction, but is outside the retained all-family requirement and would
+still need its own whole-action qualification. The stronger old public-Cart
+universe prototype cannot be imported as qualification of Cart Q under
+public Hom(Cat)=Functor_cat.
 
 ## Deferred improvements under the migration boundary
 

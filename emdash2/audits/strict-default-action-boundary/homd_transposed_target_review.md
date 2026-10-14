@@ -7,6 +7,13 @@ Evidence: [exact verification](homd_transposed_target_verification.json)
 Replay: [authoring replay](homd_transposed_target_replay.py)
 Root: [declarations and projection owners](homd_transposed_target_root.lpfragment)
 
+Subsequent semantic qualification, 2026-10-14: the
+[mixed three-cell counterexample](homd_mixed_three_cell_review.md) rejects
+the unchanged double-Gray-lax interpretation of the source-u package.
+The evidence below remains valid as conditional native typing/computation;
+it does not qualify this Q contract for promotion. A transported inner
+mapping profile is now the next candidate for the same direct telescope.
+
 ## Construction and corrected variance
 
 E:K→Cat and its transports have the selected strict-functor default.

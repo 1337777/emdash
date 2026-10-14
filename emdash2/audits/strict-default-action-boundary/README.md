@@ -57,6 +57,13 @@ that root. The whole action remains structural, with higher coherence and
 whole-u laxity assembly open. Its [single-candidate replay](homd_intrinsic_projection_replay.py)
 and [evidence](homd_intrinsic_projection_verification.json) preserve that boundary.
 
+The subsequent [mixed three-cell review](homd_mixed_three_cell_review.md)
+finds a semantic obstruction to the unchanged double-Gray-lax Q/source-u
+package, even for identity FF. Its finite model and transported inner-Hom
+proposal now govern the next step. The native receipts above are conditional
+typing evidence; do not promote the unchanged Q or replace it with nested
+Cart without addressing the already recorded family-admission obstruction.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's
