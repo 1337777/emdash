@@ -1,0 +1,45 @@
+// NON-LIBRARY canonical strict displayed map used by identity Homd.
+// For fixed x,u, evaluation of E's action is a whole map Hom_K(x,-)=>E.
+// This admits the canonical map; it does not declare arbitrary Cat-valued
+// transformations strict or declare an ordinary functor in the parameter u.
+symbol sf_fibcov [K : Cat] (E : τ (Functor K Cat_cat))
+  (x : τ (Obj K)) (u : τ (Obj (@fapp0 K Cat_cat E x)))
+  : τ (Obj (@sf_family_map_cat K (@hom_ K K (@id_func K) x) E));
+
+// The component is the existing defined transport functor, retaining its
+// entire Hom_K(x,y) action rather than only the value E[f](u).
+rule @tapp0_fapp0 _ _ _ _ $y
+      (@strict_transfor _ _ _ _ (@sf_fibcov $K $E $x $u))
+  ↪ @fib_cov_tapp0_func $K $E $x $y $u;
+
+// Whole base-arrow action: q is sent to cov(z) after postcomposition by q.
+// This is the selected pre/right action, expressed through existing whole
+// Hom and fixed-postcomposition owners. It retains the higher q action.
+symbol sf_fibcov_action [K : Cat] (E : τ (Functor K Cat_cat))
+  (x : τ (Obj K)) (u : τ (Obj (@fapp0 K Cat_cat E x)))
+  (y z : τ (Obj K))
+  : τ (Functor (Hom_cat K y z)
+      (Functor_cat (Hom_cat K x y) (@fapp0 K Cat_cat E z)))
+≔ @comp_cat_fapp0 (Hom_cat K y z)
+    (Functor_cat (Hom_cat K x y) (Hom_cat K x z))
+    (Functor_cat (Hom_cat K x y) (@fapp0 K Cat_cat E z))
+    (@comp_cat_cov_func (Hom_cat K x y) (Hom_cat K x z) (@fapp0 K Cat_cat E z)
+      (@fib_cov_tapp0_func K E x z u))
+    (@hom_postcomp_tele_func K K (@id_func K) x y z);
+
+rule @tapp1_func _ _ _ _ $y $z
+      (@strict_transfor _ _ _ _ (@sf_fibcov $K $E $x $u))
+  ↪ @sf_fibcov_action $K $E $x $u $y $z;
+rule @tapp1_fapp0 _ _ _ _ $y $z
+      (@strict_transfor _ _ _ _ (@sf_fibcov $K $E $x $u)) $q
+  ↪ fapp0 (@sf_fibcov_action $K $E $x $u $y $z) $q;
+
+// A strict displayed map commutes with the whole canonical transport map.
+// Strictness belongs to FF's category, not to an equality/proof input.
+// lhs-audit: keep 1 -- strict displayed-map composition is the discriminator.
+rule @comp_fapp0 (sf_family_cat $K) _ $D $E $FF
+      (@sf_fibcov $K $D $x $u)
+  ↪ @sf_fibcov $K $E $x
+      (@fapp0 (@fapp0 $K Cat_cat $D $x) (@fapp0 $K Cat_cat $E $x)
+        (@tapp0_fapp0 $K Cat_cat $D $E $x
+          (@strict_transfor $K Cat_cat $D $E $FF)) $u);

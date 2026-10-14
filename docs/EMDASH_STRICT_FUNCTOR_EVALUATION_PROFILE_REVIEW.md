@@ -1,7 +1,7 @@
 # Strict defaults require an evaluation-profile migration
 
 Date: 2026-10-11
-Status: operation obstruction checked; public Hom(Cat)=Functor_cat and lax Q selected; earlier Cartesian-universe/Q prototypes retained as comparison evidence
+Status: operation obstruction checked; public Hom(Cat)=Functor_cat retained; both Cartesian and lax Q designs open for Homd comparison
 Owner: [strict-functor/duality plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Evidence: [native audit](../emdash2/audits/strict-default-action-boundary/README.md)
 
@@ -15,7 +15,14 @@ problem by restricting the public universe or adding strict-transfor profile
 arguments to foundational operations. Read all earlier "selected" language
 below under this later boundary and the living plan's current contract.
 
-Further clarification on the same date: Q itself must retain conventional
+Latest follow-up on the same date: the user explicitly keeps both
+Cart/strict-transfor Q and lax-transfor Q open, to determine which can reach
+the direct Homd milestone. Compare their actual consumers and family
+admission requirements. This does not reopen replacing the public universe
+Hom(Cat)=Functor_cat by a Cartesian one. The earlier exclusive Q selection
+in the next paragraph is superseded by this request.
+
+Earlier clarification on the same date: Q itself must retain conventional
 lax transformations at both mapping levels. The selected curried target is
 `Hom_Q(A,B)=Functor_cat(A,Functor_cat(T(B),Cat))`. Use Gray closure when an
 uncurried consumer is needed; the direct Homd telescope can remain curried.

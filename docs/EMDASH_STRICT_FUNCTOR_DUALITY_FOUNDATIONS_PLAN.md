@@ -38,7 +38,14 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
-Latest reassessment request, 2026-10-14: the user asks to reconsider the
+Latest execution steering, 2026-10-14: continue toward Homd using the checked
+strict displayed-map classifier, and keep both Cart/strict-transfor Q and
+lax-transfor Q open. The canonical whole transport-map slice is now checked;
+the next consumer is its represented Homd section. The broader
+default reassessment below remains comparison context; no silent default
+switch or change of the all-family admission requirement is authorized.
+
+Earlier reassessment request, 2026-10-14: the user asks to reconsider the
 previous corrected-duality lax-functor/lax-transfor design, explicitly
 allowing correction of Sigma composition and related contracts. Do not
 interpret this as a request to preserve the defective production Sigma
@@ -93,7 +100,15 @@ and whole duality at their actual owners before transferring the old Homd
 prototype. All E:K->Cat remain family inputs: E and E[p] are strict without
 extra family profiles, while E[alpha] and FF may be non-strict transfors.
 
-Latest Q clarification, 2026-10-14: the user did not intend either level of
+Latest Q follow-up, 2026-10-14: the user now explicitly keeps **both** the
+Cart/strict-transfor and lax-transfor coefficient designs open. Compare them
+on the same direct Homd consumers and record any extra family admission
+required by each. Do not silently strengthen E's higher cells because the
+external FF has a strict displayed-map type. This supersedes the exclusive
+Q selection in the earlier clarification quoted below. Public Hom(Cat)=Functor_cat
+is unchanged; a Cartesian Q option is not a Cartesian public universe.
+
+Earlier Q clarification, 2026-10-14: the user did not intend either level of
 Q's curried Hom to use Cart/strict transformations. The selected target is
 `Hom_Q(A,B) = Functor_cat(A,Functor_cat(T(B),Cat))`, with the conventional
 lax higher action at both levels. The older nested-Cart implementation is
@@ -102,9 +117,10 @@ curried telescope; use the appropriately oriented Gray closure only where
 an actual consumer needs uncurry or joint evaluation. Do not identify this
 Hom with strict Cartesian-product Prof or migrate the existing Prof library
 by renaming its operations. Q composition, units, represented maps and
-their higher action still require qualification under this contract.
+their higher action still require qualification under this contract. Both
+Q choices now remain candidates under the latest follow-up above.
 
-The user's strict-FF Sigma-map suggestion is being assessed as a restriction
+The user's earlier strict-FF Sigma-map suggestion was assessed as a restriction
 of that operation, not a change making every Functord strict. The consumer
 review below identifies the whole Sigma_func domain and higher map owners
 that must change with it. Native intrinsic extraction remains upstream of
@@ -3716,6 +3732,62 @@ identity ladder, coefficient coherence and Sigma remain required. It gives
 positive computational evidence for the user's third alternative without
 claiming that the alternative solves the independent ordinary Gray or
 higher-family issues.
+
+## Canonical strict transport-map consumer, 2026-10-14
+
+The user asked to try reaching Homd with the strict-Functord classifier and
+then explicitly reopened both Q coefficient profiles. The
+[new native consumer and comparison](../emdash2/audits/strict-default-action-boundary/strict_fibcov_review.md)
+continues on the current public-universe donor rather than copying the
+earlier Cartesian-universe Homd counts.
+
+The canonical structural admission is
+`sf_fibcov(E,x,u):sf_family_map_cat(Hom_K(x,-),E)`. Its y-component is the
+unchanged native defined functor `eval_u o E_1(x,y)`, retaining E[alpha][u].
+The whole y-arrow action is defined through ordinary Hom postcomposition
+and fixed whiskering; full/capped tapp1 observations agree. Strict external
+FF composes with this canonical map at the whole-family level, giving the
+canonical map at FF[x](u). Identity and composed FF controls pass.
+
+Three measured observation failures required narrow proof-time readings:
+inclusion before/after whole composition, component before/after whole
+composition, and the stable Hom-composition index under family evaluation.
+They do not add operational proof inputs, independent laxity cells or a
+strictness rule for raw FF. The finite model also forbids treating the u
+parameter of raw transport as a default-lax functor without checking its
+orientation.
+
+Final evidence: 65 positive/27 negative assertions including the donor's
+54/22, plus three new typed comparison definitions. Seven removal variants
+fail at their intended assertions/definitions. Subject reduction remains
+enabled; the final run uses 1.519s and 147,220KiB maximum child RSS under
+90s/2GiB. Warnings change 740->742. The two added symbolic overlap bodies
+and their owner families are recorded, without a claim that all symbolic
+joins are closed. The LHS audit has zero unreviewed slots. Exact evidence
+is in the [verification](../emdash2/audits/strict-default-action-boundary/strict_fibcov_verification.json).
+
+The paired Q comparison keeps FF=id and E indexed by a walking two-cell.
+The prescribed Homd u/index action requires the same forward noninvertible
+cell as E[alpha]'s lax naturality. Lax Q passes that necessary local test;
+inner Cart requires its boundaries to be equal. An ordinary commuting
+diamond with nonidentity transformation components is the positive stricter
+control. Thus Cart Q remains a possible stronger-admission comparison, not
+a way to admit all current E while ignoring their higher naturality. This
+test does not establish sufficient omega-level admission for either Q.
+
+The old root's same-default fibrewise T(E) fails a separate direction test,
+even with strict external FF. Total O passes the local direction test, but
+a coordinated O source/section target has not been built. Do not transfer
+the old `Op_catd(E)` root signature or the old Cart higher lift unchanged.
+
+Next vertical consumer: obtain the represented Homd y-section from the
+admitted canonical map, retaining the direct y/v/f telescope, and qualify
+the u/index action for each candidate Q profile. Keep the outer x/root
+profile explicit. This tranche does not implement that section/root,
+qualify Q coherence or Sigma, migrate public Catd/Functord, or qualify the
+deep extracted strictness-cell identity. The donor still contains legacy
+joint Cartesian contracts. Production promotion and the full goal remain
+open; local negative controls are not a global consistency certificate.
 
 ## Deferred improvements under the migration boundary
 

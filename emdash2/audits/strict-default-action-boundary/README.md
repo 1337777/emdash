@@ -26,7 +26,15 @@ the broader raw two-leg default as the migration target, while preserving
 the public Hom and Transf/Functord interfaces. Its focused checks do not
 qualify the legacy Cartesian operations or the whole Homd construction.
 
-Latest Q clarification: both curried mapping levels use the conventional
+Latest Q follow-up: the user now keeps both nested-Cart and lax Q open for
+comparison against the direct Homd milestone, without changing the public
+Hom(Cat)=Functor_cat contract. The
+[canonical transport-map consumer](strict_fibcov_review.md) checks the first
+whole-family use of the strict displayed-map classifier and records a
+finite comparison of their different higher-action requirements. Its
+65 positive/27 negative controls do not complete the Homd root.
+
+Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's
 [Q/Sigma consumer review](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#lax-q-gray-uncurry-and-strict-sigma-maps-consumer-review-2026-10-14)

@@ -1,0 +1,40 @@
+// Proof-time join after the family-map constructor rule erased the
+// composition which the inclusion projection would otherwise observe.
+unif_rule
+  @strict_transfor $K Cat_cat $I $E (@sf_fibcov $K $E $x $w)
+  ≡ @comp_fapp0 (Functor_cat $K Cat_cat) $I $D $E
+      (@strict_transfor $K Cat_cat $D $E $FF)
+      (@strict_transfor $K Cat_cat $I $D (@sf_fibcov $K $D $x $u))
+  ↪ [ $w ≡ @fapp0 (@fapp0 $K Cat_cat $D $x) (@fapp0 $K Cat_cat $E $x)
+      (@tapp0_fapp0 $K Cat_cat $D $E $x
+        (@strict_transfor $K Cat_cat $D $E $FF)) $u ];
+
+// Component-first reading of the SAME strict family-map law. fib_cov is a
+// definition: after unfolding and the existing associativity normalization,
+// these are its actual rigid evaluation/action heads. No rule for a raw
+// ambient FF is added and neither side is a runtime normal form of the other.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@fapp0_func _ _ (@fapp0 _ _
+      (@tapp0_fapp0 $K Cat_cat $D $E $x
+        (@strict_transfor $K Cat_cat $D $E $FF)) $u))
+    (@fapp1_func $K Cat_cat $E $x $y)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@tapp0_fapp0 $K Cat_cat $D $E $y
+          (@strict_transfor $K Cat_cat $D $E $FF))
+        (@fapp0_func _ _ $u))
+      (@fapp1_func $K Cat_cat $D $x $y)
+  ↪ [ tt ≡ tt ];
+
+// Evaluated index-composition reading. The ordinary Hom owner already
+// compares its stable postcomposition point with q o p. Unification does
+// not descend through the noninjective fapp0/fapp1 heads in this measured
+// consumer, so record that same comparison at the family-action observation.
+// This is not an equality witness carried by the transport construction.
+unif_rule
+  @fapp0 _ _ (@fapp1_fapp0 $K Cat_cat $E $x $z
+    (@hom_postcomp_fapp0 $K $K (@id Cat_cat $K) $x $y $z $q $p)) $u
+  ≡ @fapp0 _ _ (@fapp1_fapp0 $K Cat_cat $E $x $z
+      (@comp_fapp0 $K $x $y $z $q $p)) $u
+  ↪ [ tt ≡ tt ];

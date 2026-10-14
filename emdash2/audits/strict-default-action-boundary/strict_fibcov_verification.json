@@ -1,0 +1,436 @@
+{
+  "status": "non-library canonical strict transport-map consumer; whole Homd not qualified",
+  "donorEvidence": "audits/strict-default-action-boundary/strict_displayed_maps_verification.json",
+  "donorEvidenceSha256": "9c0aaab5f67e2e9b394970a7192a05030f4024d7c5ad04ea87902a12ab9c46f8",
+  "nativeSourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "nativeExcerptSha256": "19df9139a4f6697c2ae767af6a13828d6afc81a4e9763c1abe5064bfd7e2556d",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/strict_fibcov_replay.py": "1b25019a173665fe1227628e5b7f8bb192fa081085adbbc562f1fb584f84f3a6",
+    "audits/strict-default-action-boundary/strict_fibcov.lpfragment": "47934f92a84a0170e2edd48aeac70389268951e887ef099dad59fb3739302987",
+    "audits/strict-default-action-boundary/strict_fibcov_controls.lpfragment": "81941f322aa90afe3540177226732680266a47744a6933e572178653645e730c",
+    "audits/strict-default-action-boundary/strict_fibcov_readings.lpfragment": "69266a32f1dfea528333e6819d0febb981b83a5e8e8e5521976a6c5bd385979d"
+  },
+  "outputs": {
+    "candidate.lp": "259b33999b1b066a0a3598ac23a80e45b4ebe2c34d7f9cc23b5da6fdc15e2f7d",
+    "no_component.lp": "4efe098916cae42940c48d0bab4cd44b59a41211ada043790a8db034c8048c5f",
+    "no_composition.lp": "92e404f307f2e25b9f5dbc8e3aa71994bf1f7747021e48613bdd5de1e0cf92b7",
+    "no_action.lp": "4ef0d997c0675844b62f5ba5cc892e1ed21c2efbe3aba587054f955cabcda316",
+    "no_readings.lp": "54bea117bb226bc76dd90e99c4cdaa66f391d59c73e0d2826f9e683a30f9ec62",
+    "no_whole_reading.lp": "8453327eba272eb92b656bd5d7a8bc832232f05656bfffe11faf715acd93dfeb",
+    "no_leaf_reading.lp": "9fd7adf943754f4aafa85368fdf458628cddbcac44688b8aacd34cce61a972a2",
+    "no_component_reading.lp": "11f67a0bf78e9e4bbb2d8e362307498e43c43c942958b15df17167c7c719847a"
+  },
+  "checks": {
+    "candidate.lp": {
+      "id": "20261014T123702Z-ad943571c86945ac9c1057cc1a1d9c92",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.5186471489723772,
+      "childrenMaxRssKiB": 147220,
+      "inputSnapshot": "169b1f73c8ca82029cc57e21ced91b7710677b9eaafae967d54f0e68d0eba807",
+      "receipt": "logs/check-runs/20261014T123702Z-ad943571c86945ac9c1057cc1a1d9c92.json",
+      "receiptSha256": "85c014d7b788990e4a4b5215103b09845cfb033fa2ec1c935bcf11eeecc3f8cf",
+      "log": "logs/check-runs/20261014T123702Z-ad943571c86945ac9c1057cc1a1d9c92.log",
+      "logSha256": "0c487109cb6d9fd89d303c99b86d0e3de9d14b62ab1b685cf691b81e47c07013",
+      "sourceSha256": "259b33999b1b066a0a3598ac23a80e45b4ebe2c34d7f9cc23b5da6fdc15e2f7d",
+      "positiveAssertions": 65,
+      "negativeAssertions": 27
+    },
+    "no_component.lp": {
+      "id": "20261014T123759Z-9f2fe830870c4f379951f123316f49e9",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.5283861679490656,
+      "childrenMaxRssKiB": 146084,
+      "inputSnapshot": "fa717daa2b47f37227cda4e53b4c45616f30265b3bfae9f819dc8a8398018195",
+      "receipt": "logs/check-runs/20261014T123759Z-9f2fe830870c4f379951f123316f49e9.json",
+      "receiptSha256": "0e738195c4f2867e7e8f0f7776e8fb173dc1d5595a817ec22b83f38fd44f339e",
+      "log": "logs/check-runs/20261014T123759Z-9f2fe830870c4f379951f123316f49e9.log",
+      "logSha256": "cf25f1ae67c944dbedb86544221114c2cbf837ff6fd46384ea8e91611571c07e",
+      "sourceSha256": "4efe098916cae42940c48d0bab4cd44b59a41211ada043790a8db034c8048c5f",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_fibcov/no_component.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_fibcov/no_component.lp:11261:0-11265:32] Assertion failed."
+    },
+    "no_composition.lp": {
+      "id": "20261014T123801Z-bea3e06874ff40f9b79ac701bb4a3582",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.35332551097963,
+      "childrenMaxRssKiB": 145552,
+      "inputSnapshot": "bc83c00b842a3804dea338606253683e47d292cbcfd6ff496c8e56f9480099b5",
+      "receipt": "logs/check-runs/20261014T123801Z-bea3e06874ff40f9b79ac701bb4a3582.json",
+      "receiptSha256": "eb2cadc65e7947ecfd656fe7e1cf3db1ed4db9a9de142ff46b990cf25e88b88f",
+      "log": "logs/check-runs/20261014T123801Z-bea3e06874ff40f9b79ac701bb4a3582.log",
+      "logSha256": "acae067767c3eef0e68b84fdaae5111404340c9e25f5f0a6277ee181c77c0c93",
+      "sourceSha256": "92e404f307f2e25b9f5dbc8e3aa71994bf1f7747021e48613bdd5de1e0cf92b7",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_fibcov/no_composition.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_fibcov/no_composition.lp:11323:0-11329:76] Assertion failed."
+    },
+    "no_action.lp": {
+      "id": "20261014T123803Z-a9d13faae4294e8a942642c590219613",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.9958529629511759,
+      "childrenMaxRssKiB": 145564,
+      "inputSnapshot": "ed0146418a96b0654f4000c2dc46b493771004166cb51476c8f678b3c8057a8d",
+      "receipt": "logs/check-runs/20261014T123803Z-a9d13faae4294e8a942642c590219613.json",
+      "receiptSha256": "c13a7997b0273ebfbcfc43a581116df1bb396ec3a343153dfd8d69b5d922f3c2",
+      "log": "logs/check-runs/20261014T123803Z-a9d13faae4294e8a942642c590219613.log",
+      "logSha256": "a0b7be912f49a046ea738315e29438b44fa9805f381d7be3f52d7a3bcafcd423",
+      "sourceSha256": "4ef0d997c0675844b62f5ba5cc892e1ed21c2efbe3aba587054f955cabcda316",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_fibcov/no_action.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_fibcov/no_action.lp:11282:0-11286:32] Assertion failed."
+    },
+    "no_readings.lp": {
+      "id": "20261014T123805Z-def813b89b544c0da48e8d8c585ec5f1",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.8176329350098968,
+      "childrenMaxRssKiB": 143544,
+      "inputSnapshot": "3688c9e62e499876afbab7daed37fe106aa6d6ce93befa2384a1b2bc73c8509a",
+      "receipt": "logs/check-runs/20261014T123805Z-def813b89b544c0da48e8d8c585ec5f1.json",
+      "receiptSha256": "eb66775512fc1bdcb0e66f3e7056730e18342053bbec7f5e0a01b937bb8a3ca4",
+      "log": "logs/check-runs/20261014T123805Z-def813b89b544c0da48e8d8c585ec5f1.log",
+      "logSha256": "586238738188bc78472998c967c948a087b2a461928cc8db5740ff500b3daec6",
+      "sourceSha256": "54bea117bb226bc76dd90e99c4cdaa66f391d59c73e0d2826f9e683a30f9ec62",
+      "failurePhase": "typed comparison definition",
+      "terminalExcerpt": "flag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_fibcov/no_readings.lp:11270:69] The proof is not finished:\nK: Cat\nE: \u03c4 (Functor K Cat_cat)\nx: \u03c4 (Obj K)\nu: \u03c4 (Obj (@fapp0 K Cat_cat E x))\ny: \u03c4 (Obj K)\nz: \u03c4 (Obj K)\nq: \u03c4 (Hom K y z)\np: \u03c4 (Hom K x y)\n------------------------------------------------------------------------------\n0. @fapp0 (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E z) (@fapp1_fapp0 K Cat_cat E x z (@comp_fapp0 K x y z q p)) u \u2261 @fapp0 (@Fibre_cat K E x) (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (@fapp0 K Cat_cat E z)) (@fapp1_fapp0 K Cat_cat E x z (@hom_postcomp_fapp0 K K (@id_func K) x y z q p)) u"
+    },
+    "no_whole_reading.lp": {
+      "id": "20261014T123846Z-59ef789d618947f1839c1d4f3fa9e5a5",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.3331273489166051,
+      "childrenMaxRssKiB": 147028,
+      "inputSnapshot": "316d16f7856c4481337f332b37f0b3db2856e7ec1ca5ac10eb8a707e9daf6e64",
+      "receipt": "logs/check-runs/20261014T123846Z-59ef789d618947f1839c1d4f3fa9e5a5.json",
+      "receiptSha256": "92f2a3e3b014488d4ab5f5f676e99c32cfcfdd356ba7d55bfe9208bcd0894e32",
+      "log": "logs/check-runs/20261014T123846Z-59ef789d618947f1839c1d4f3fa9e5a5.log",
+      "logSha256": "21ffa9833abef5acb1725995dc29d7aa4cf2913d12fbe7a87121e06eed311522",
+      "sourceSha256": "8453327eba272eb92b656bd5d7a8bc832232f05656bfffe11faf715acd93dfeb",
+      "failurePhase": "typed comparison definition",
+      "terminalExcerpt": "flag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_fibcov/no_whole_reading.lp:11358:29] The proof is not finished:\nK: Cat\nD: \u03c4 (Functor K Cat_cat)\nE: \u03c4 (Functor K Cat_cat)\nFF: \u03c4 (Obj (@sf_family_map_cat K D E))\nx: \u03c4 (Obj K)\nu: \u03c4 (Obj (@fapp0 K Cat_cat D x))\n------------------------------------------------------------------------------\n0. @strict_transfor K Cat_cat (@hom_ K K (@id_func K) x) E (@sf_fibcov K E x (@fapp0 (@fapp0 K Cat_cat D x) (@fapp0 K Cat_cat E x) (@tapp0_fapp0 K Cat_cat D E x (@strict_transfor K Cat_cat D E FF)) u)) \u2261 @comp_fapp0 (Functor_cat K Cat_cat) (@hom_ K K (@id_func K) x) D E (@sf_family_map_view K D E FF) (@sf_family_map_view K (@hom_ K K (@id_func K) x) D (@sf_fibcov K D x u))"
+    },
+    "no_component_reading.lp": {
+      "id": "20261014T123807Z-946beaaa5c344d22bf0a84e25be5cd62",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.822082273894921,
+      "childrenMaxRssKiB": 145872,
+      "inputSnapshot": "15d62b739ac5ecfd51842253c4ddfdf495e5bf09ac4806732476511c96e0687e",
+      "receipt": "logs/check-runs/20261014T123807Z-946beaaa5c344d22bf0a84e25be5cd62.json",
+      "receiptSha256": "a284d400d0a8c78f096ed1afcdd6db58b64b15d8390ae161d342b1618af0c5e8",
+      "log": "logs/check-runs/20261014T123807Z-946beaaa5c344d22bf0a84e25be5cd62.log",
+      "logSha256": "7a62ff6e08642d0eddca47639b99319c58ac94f346e7e166c88812cc1b6925ae",
+      "sourceSha256": "11f67a0bf78e9e4bbb2d8e362307498e43c43c942958b15df17167c7c719847a",
+      "failurePhase": "typed comparison definition",
+      "terminalExcerpt": "flag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_fibcov/no_component_reading.lp:11365:77] The proof is not finished:\nK: Cat\nD: \u03c4 (Functor K Cat_cat)\nE: \u03c4 (Functor K Cat_cat)\nFF: \u03c4 (Obj (@sf_family_map_cat K D E))\nx: \u03c4 (Obj K)\nu: \u03c4 (Obj (@fapp0 K Cat_cat D x))\ny: \u03c4 (Obj K)\n------------------------------------------------------------------------------\n0. @comp_fapp0 Cat_cat (Hom_cat K x y) (Hom_cat Cat_cat (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y)) (@Fibre_cat K E y) (@fapp0_func (@Fibre_cat K E x) (@Fibre_cat K E y) (@fapp0 (@fapp0 K Cat_cat D x) (@fapp0 K Cat_cat E x) (@tapp0_fapp0 K Cat_cat D E x (@sf_family_map_view K D E FF)) u)) (@fapp1_func K Cat_cat E x y) \u2261 @comp_fapp0 Cat_cat (Hom_cat K x y) (Hom_cat Cat_cat (@fapp0 K Cat_cat D x) (@fapp0 K Cat_cat D y)) (@fapp0 K Cat_cat E y) (@comp_fapp0 Cat_cat (Hom_cat Cat_cat (@fapp0 K Cat_cat D x) (@fapp0 K Cat_cat D y)) (@fapp0 K Cat_cat D y) (@fapp0 K Cat_cat E y) (@tapp0_fapp0 K Cat_cat D E y (@strict_transfor K Cat_cat D E FF)) (@fapp0_func (@Fibre_cat K D x) (@Fibre_cat K D y) u)) (@fapp1_func K Cat_cat D x y)"
+    },
+    "no_leaf_reading.lp": {
+      "id": "20261014T123810Z-92204432bee647d88a88688abc84b3e1",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.7034668960841373,
+      "childrenMaxRssKiB": 146396,
+      "inputSnapshot": "20e4e946f9262b67045591a30ea164cda13315b340a0f29acc8a23ae7675a1f1",
+      "receipt": "logs/check-runs/20261014T123810Z-92204432bee647d88a88688abc84b3e1.json",
+      "receiptSha256": "9f681340e86f0cb3f6c6c795e3f62ba6d6e9c7567aa84d9c0447bbeda6cd6bcb",
+      "log": "logs/check-runs/20261014T123810Z-92204432bee647d88a88688abc84b3e1.log",
+      "logSha256": "e4992d141644b31c01c004d1cc98b96e3d6a5f049b94e0116b8170e45f4bec25",
+      "sourceSha256": "9fd7adf943754f4aafa85368fdf458628cddbcac44688b8aacd34cce61a972a2",
+      "failurePhase": "typed comparison definition",
+      "terminalExcerpt": "flag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_fibcov/no_leaf_reading.lp:11299:69] The proof is not finished:\nK: Cat\nE: \u03c4 (Functor K Cat_cat)\nx: \u03c4 (Obj K)\nu: \u03c4 (Obj (@fapp0 K Cat_cat E x))\ny: \u03c4 (Obj K)\nz: \u03c4 (Obj K)\nq: \u03c4 (Hom K y z)\np: \u03c4 (Hom K x y)\n------------------------------------------------------------------------------\n0. @fapp0 (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E z) (@fapp1_fapp0 K Cat_cat E x z (@comp_fapp0 K x y z q p)) u \u2261 @fapp0 (@Fibre_cat K E x) (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) (@fapp0 K Cat_cat E z)) (@fapp1_fapp0 K Cat_cat E x z (@hom_postcomp_fapp0 K K (@id_func K) x y z q p)) u"
+    }
+  },
+  "warnings": {
+    "baseline": {
+      "id": "20261014T122005Z-0cdc0281bd9f464dbfb18b345a35147d",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.500722819007933,
+      "childrenMaxRssKiB": 141472,
+      "inputSnapshot": "8ec632eaaf0d7789d4b1c000c69d2f420e276749d494b45151ab77d93266e800",
+      "receipt": "logs/check-runs/20261014T122005Z-0cdc0281bd9f464dbfb18b345a35147d.json",
+      "receiptSha256": "20324d4b3ed0c185de7bcad8ad5238fadaa0f2fae511bf63244b8c5a46cb80cd",
+      "log": "logs/check-runs/20261014T122005Z-0cdc0281bd9f464dbfb18b345a35147d.log",
+      "logSha256": "a137f0e908b241542b35be52e0659513c019e4ec28817f2a779decb7a290f93c"
+    },
+    "baselineCount": 740,
+    "candidateCount": 742,
+    "addedCount": 2,
+    "removedCount": 0,
+    "added": [
+      {
+        "sha256": "a62a3dfab932321b31fd721191aab1f5ca49c1d34d322b3afb81dab03c055623",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0"
+        ],
+        "owner": "canonical family composition / stable represented composition",
+        "status": "symbolic overlap inventoried; complete join not qualified",
+        "body": "t \u2254 @comp_fapp0 (sf_family_cat $K') $V $W $3 (@hom_postcomp_fapp0 (sf_family_cat $K') $B $F $W $X $Y $f $g) (@sf_fibcov $K' $W $x' $u')\nt \u21aa[] @sf_fibcov $K' $3 $x' (@fapp0 (@fapp0 $K' Cat_cat $W $x') (@fapp0 $K' Cat_cat $3 $x') (@tapp0_fapp0 $K' Cat_cat $W $3 $x' (@strict_transfor $K' Cat_cat $W $3 (@hom_postcomp_fapp0 (sf_family_cat $K') $B $F $W $X $Y $f $g))) $u') \u21aa* @sf_fibcov $K' $3 $x' (@fapp0 (@fapp0 $K' Cat_cat $W $x') (@fapp0 $K' Cat_cat $3 $x') (@tapp0_fapp0 $K' Cat_cat $W $3 $x' (@strict_transfor $K' Cat_cat $W $3 (@hom_postcomp_fapp0 (sf_family_cat $K') $B $F $W $X $Y $f $g))) $u')\n  with @comp_fapp0 (sf_family_cat $K') $' $D' $E' $FF' (@sf_fibcov $K' $D' $x' $u') \u21aa @sf_fibcov $K' $E' $x' (@fapp0 (@fapp0 $K' Cat_cat $D' $x') (@fapp0 $K' Cat_cat $E' $x') (@tapp0_fapp0 $K' Cat_cat $D' $E' $x' (@strict_transfor $K' Cat_cat $D' $E' $FF')) $u')\nt \u21aa[] @hom_postcomp_fapp0 (sf_family_cat $K') $B $F $V $X $Y $f (@comp_fapp0 (sf_family_cat $K') $V $W (@fapp0 $B (sf_family_cat $K') $F $X) $g (@sf_fibcov $K' $W $x' $u')) \u21aa* @hom_postcomp_fapp0 (sf_family_cat $K') $B $F $V $X $Y $f (@sf_fibcov $K' (@fapp0 $B (sf_family_cat $K') $F $X) $x' (@fapp0 (@fapp0 $K' Cat_cat $W $x') (@fapp0 $K' Cat_cat (@fapp0 $B (sf_family_cat $K') $F $X) $x') (@tapp0_fapp0 $K' Cat_cat $W (@fapp0 $B (sf_family_cat $K') $F $X) $x' (@strict_transfor $K' Cat_cat $W (@fapp0 $B (sf_family_cat $K') $F $X) $g)) $u'))\n  with @comp_fapp0 $A $V $W $3 (@hom_postcomp_fapp0 $A $B $F $W $X $Y $f $g) $h \u21aa @hom_postcomp_fapp0 $A $B $F $V $X $Y $f (@comp_fapp0 $A $V $W (@fapp0 $B $A $F $X) $g $h)"
+      },
+      {
+        "sha256": "f1924d9df026f139e69b42b4ef4cc83805d822f7bd487837041b377c8cb59b77",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "tapp0_hom_fapp0"
+        ],
+        "owner": "canonical family composition / generic higher component projection",
+        "status": "symbolic overlap inventoried; complete join not qualified",
+        "body": "t \u2254 @tapp0_hom_fapp0 $A $B $F $G $1 $E $Y (@comp_fapp0 (sf_family_cat $K) $1 $D $E $1 (@sf_fibcov $K $D $E $u))\nt \u21aa[] @comp_fapp0 (Hom_cat $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y)) (@tapp0_fapp0 $A $B $F $G $Y $1) (@tapp0_fapp0 $A $B $F $G $Y $D) (@tapp0_fapp0 $A $B $F $G $Y $E) (@tapp0_hom_fapp0 $A $B $F $G $D $E $Y $1) (@tapp0_hom_fapp0 $A $B $F $G $1 $D $Y (@sf_fibcov $K $D $E $u)) \u21aa* @comp_fapp0 (Hom_cat $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y)) (@tapp0_fapp0 $A $B $F $G $Y $1) (@tapp0_fapp0 $A $B $F $G $Y $D) (@tapp0_fapp0 $A $B $F $G $Y $E) (@tapp0_hom_fapp0 $A $B $F $G $D $E $Y $1) (@tapp0_hom_fapp0 $A $B $F $G $1 $D $Y (@sf_fibcov $K $D $E $u))\n  with @tapp0_hom_fapp0 $A $B $F $G $eta $eta'' $Y (@comp_fapp0 $7 $eta $eta' $eta'' $Theta $Phi) \u21aa @comp_fapp0 (Hom_cat $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y)) (@tapp0_fapp0 $A $B $F $G $Y $eta) (@tapp0_fapp0 $A $B $F $G $Y $eta') (@tapp0_fapp0 $A $B $F $G $Y $eta'') (@tapp0_hom_fapp0 $A $B $F $G $eta' $eta'' $Y $Theta) (@tapp0_hom_fapp0 $A $B $F $G $eta $eta' $Y $Phi)\nt \u21aa[1] @tapp0_hom_fapp0 $A $B $F $G $1 $E $Y (@sf_fibcov $K $E $E (@fapp0 (@fapp0 $K Cat_cat $D $E) (@fapp0 $K Cat_cat $E $E) (@tapp0_fapp0 $K Cat_cat $D $E $E (@strict_transfor $K Cat_cat $D $E $1)) $u)) \u21aa* @tapp0_hom_fapp0 $A $B $F $G $1 $E $Y (@sf_fibcov $K $E $E (@fapp0 (@fapp0 $K Cat_cat $D $E) (@fapp0 $K Cat_cat $E $E) (@tapp0_fapp0 $K Cat_cat $D $E $E (@strict_transfor $K Cat_cat $D $E $1)) $u))\n  with @comp_fapp0 (sf_family_cat $K) $1 $D $E $FF (@sf_fibcov $K $D $x $u) \u21aa @sf_fibcov $K $E $x (@fapp0 (@fapp0 $K Cat_cat $D $x) (@fapp0 $K Cat_cat $E $x) (@tapp0_fapp0 $K Cat_cat $D $E $x (@strict_transfor $K Cat_cat $D $E $FF)) $u)"
+      }
+    ]
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 24,
+    "intentionalClauses": 17,
+    "output": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_fibcov/candidate.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 24 annotated slot(s) across 17 intentional clause(s)\n\nAdvisory only: probe each proposed replacement with `_`. Mark a measured intentional case immediately above its rule with `// lhs-audit: keep SLOT[,SLOT] -- reason`.\nSeparately review outer-eliminator/inner-rewrite-cut LHSs and validate both reduction orders in a warning-enabled owning-position probe.\n"
+  },
+  "semanticModel": {
+    "authoringInputs": {
+      "audits/strict-default-action-boundary/strict_fibcov_profile_model.py": "9bd7a869db11524cdd80caee0796c112abaeea0db85b9e6747fd946a6bc20e6a",
+      "audits/strict-default-action-boundary/mixed_family_profile_models.py": "d17074b1a64347d75a30a5e231154d4667b13849855126bf276b9cd58d39601d"
+    },
+    "result": {
+      "external_FF": "identity, hence strict",
+      "outer_E_and_transports": "strict on the walking-2-cell base",
+      "E_alpha": {
+        "default_lax": true,
+        "strict_naturality": false
+      },
+      "transport_u_parameter": {
+        "default_lax": false,
+        "opposite_naturality": true
+      },
+      "Homd_u_index_naturality": {
+        "left": [
+          "H0",
+          [
+            "e0",
+            "k"
+          ]
+        ],
+        "right": [
+          "H0",
+          [
+            "h",
+            "e1"
+          ]
+        ],
+        "lax_Q_required_cell_exists": true,
+        "cart_Q_required_equality_holds": false,
+        "reverse_cell_exists": false,
+        "nonidentity_strict_transfor_control_accepts_both": true
+      },
+      "old_root_fibre_transpose": {
+        "T_same_default_lax_exists": false,
+        "O_same_default_lax_exists": true,
+        "whole_coordinated_O_root_constructed": false
+      },
+      "scope": "finite dimension-two necessary tests; not omega sufficiency or a native no-go theorem"
+    },
+    "resultSha256": "9f9ad8c149ebc0cab4f72d7144fe4022f0a824629b66ed0f7cf156bdfe3c4ddf",
+    "scope": "finite strict 2-category necessary controls, not omega sufficiency"
+  },
+  "newTypedComparisonDefinitions": [
+    "sf_fibcov_action_leaf",
+    "sf_fibcov_include_composition",
+    "sf_fibcov_component_composition"
+  ],
+  "developmentObservations": [
+    {
+      "receipt": "logs/check-runs/20261014T122938Z-38f622aaf774482584fabdcd2b554742.json",
+      "finding": "inclusion-first whole composition reading absent"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T123049Z-bb93da1496794ec2a0eb0b8c4d1ac463.json",
+      "finding": "component-first whole index-functor reading absent"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T123331Z-143259c02abe462bb6bc098fcf448a49.json",
+      "finding": "raw qp is not the runtime Hom-composition normal form"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T123434Z-d654aea9b2e34e97bfb9aec27b322c84.json",
+      "finding": "typed raw qp comparison under family evaluation also needs a projection reading"
+    }
+  ],
+  "limitations": [
+    "No public Catd/Functord migration or promotion.",
+    "Canonical whole map is a declared structural admission, not derived from point components.",
+    "No all-u ordinary functor into the strict-map category is declared.",
+    "Native extracted-cell identity is not newly checked in this prefix.",
+    "Both Cart and lax Q remain comparison candidates; no full Q coefficient or outer Homd root qualified.",
+    "Inherited legacy joint Cartesian owners remain; local negatives are not a global consistency certificate."
+  ]
+}
