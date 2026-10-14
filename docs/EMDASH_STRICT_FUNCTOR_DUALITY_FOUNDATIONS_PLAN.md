@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor migration reaffirmed under the single-universe and all-family requirements; Cat-valued-transfor strictness remains under review and is not installed; prior prototypes remain conditional comparison evidence
+Status: strict-functor migration reaffirmed; preserve uniform lax Transf/Functord and the public universe; selective strictness alternatives remain review evidence, not installed contracts; whole higher-action qualification remains open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -55,6 +55,22 @@ and Pi remain under review. No new exception is installed. The
 LaxHom/LaxFunctord proposal below is conditional on preserving Pi as all
 sections; a deliberately strict Pi is also meaningful, with different
 consumers and constant-family semantics.
+
+Latest narrower question: reassess strictness of `Functord` alone while
+ordinary `Transf(K,Cat,E,D)` stays lax. This is a genuinely different
+candidate if the current object and whole-category identifications are
+removed and replaced by an inclusion. Keep all E:K->Cat as family objects;
+only the arrows in Catd_cat would change. The source-verified dependency
+review in "Strict displayed maps without a Cat-valued exception" below
+records the required Pi, root Homd and intrinsic-extraction changes. No
+selective strict-Functord rule or classifier change has been installed.
+The user's subsequent concern about that inclusion reinforces the existing
+minimal-migration boundary. Retain the original uniform lax Transf/Functord
+identification as the implementation target; neither the blanket exception
+nor the selective strict-Functord alternative is selected. Both remain
+recorded comparisons. The identity Homd root and its derived relative
+extension must preserve the actual allowed lax action. Strict family and
+transport computation do not authorize strict transformation naturality.
 
 User correction, 2026-10-14: preserve the agreed public universe
 
@@ -3085,6 +3101,104 @@ Lambdapi admission or a consistency certificate. The
 records their scopes. No new LP probe or production rule was added for this
 review. Preserve the uniform strict-functor migration, while separately
 resolving the higher mapping-category/internalization and section contracts.
+
+## Strict displayed maps without a Cat-valued exception, 2026-10-14
+
+The user's narrower proposal is not equivalent to the blanket exception
+provided the displayed and ordinary classifiers cease being identified.
+Current source has all of the following connections:
+
+```text
+Catd_cat(K)                         ~ Functor_cat(K,Cat)
+Hom_Catd(E,D)                       -> Functord_cat(E,D)
+Functord_cat(E,D)                   ~ Transf_cat(K,Cat,E,D)
+Obj(Functord_cat(E,D))              -> Obj(Transf_cat(K,Cat,E,D)).
+```
+
+Thus merely adding strict computations to the existing Functord spelling
+would still affect every Cat-valued transfor. Removing only its direct
+comparison with Transf is insufficient: the whole Catd/Functor-category
+comparison and the object projection also expose the same identification.
+
+The selective alternative keeps exactly the current family objects and
+public Hom(Cat)=Functor equation, but changes the family-category arrows:
+
+```text
+Obj(Catd_cat(K)) = Functor(K,Cat)
+Hom_Catd(E,D) = Functord_cat(E,D), with strict transfor objects
+
+Catd_include(K) : Catd_cat(K) -> Functor_cat(K,Cat)
+Catd_include(K)[E] = E
+Catd_include(K)_1(E,D)
+  : Functord_cat(E,D) -> Transf_cat(K,Cat,E,D).
+```
+
+These are schematic proposed types, not newly implemented declarations.
+The inclusion has no generic inverse. Its hom action supplies the ambient
+view of FF; no equality proof or separately supplied naturality witness is
+an operational Homd input. This changes a category of families, not the
+coefficient universe of their fibres, and does not reject any E:K->Cat.
+The existing StrictFunctord classifier is historical admission machinery,
+not proof that it already provides this whole category/inclusion.
+Strict objects also do not determine whether every higher modification is
+Cartesian; do not silently identify this proposal with a fully Cartesian
+mapping category.
+
+There are four concrete owner consequences:
+
+1. The ordinary `tapp1_at_transf` and `tapp1_con_at_transf` remain in the
+   ambient Cat-valued Transf. They do not gain strictness unless an invalid
+   generic reverse inclusion is retained. Consequently the previous blanket
+   strictness internalization counterexample does not reject this separated
+   design.
+2. To retain Pi's all-section meaning, its ordinary Transf comparison can
+   remain, while its Functord comparison, object projection and Transfd
+   projection must change. Pi(Const B)=Functor_cat(K,B) is then no longer
+   contradicted by the strict-Functord choice itself. Alternatively Pi may
+   use strict Functord and classify strict sections, with the different
+   constant-family semantics recorded above. The full omega higher profile
+   still needs qualification either way.
+3. The prototype `homd_id_int` itself is typed as Functord. It must not become
+   strictly natural merely because that name is reinterpreted. Either prove
+   the selected root has that profile, or give the root an ambient Transf
+   type while reserving strict Functord for the external displayed-map
+   parameter. The old negative strict-admission assertion is a qualification
+   boundary, not a mathematical impossibility proof for every corrected root.
+4. The current `tapp1_post_laxity_transf` and mirror feed the ordinary
+   internalizations into `functord_laxity_transf`, whose argument is
+   Functord. Its native extractor in turn uses `fdapp1_int_transfd` and the
+   Homd-dependent target. After the split that input cannot be silently
+   admitted as strict. The actual whole extractor and required endpoints
+   must accept ambient Cat-valued Transf. Changing just the terminal
+   `tapp1_*_laxity` spelling or supplying a new standalone laxity witness
+   would not preserve the requested native construction.
+
+This candidate therefore simplifies an external strict FF without forcing
+every ordinary lax transfor or every inner presheaf transformation strict.
+It does not automatically settle the generic intrinsic-action obligation,
+the identity root profile, or the independent joint Cartesian composition
+obstruction. It is a localized classifier alternative worth assessing,
+not an implemented solution or an instruction to narrow public FF already.
+After the user noted that the necessary inclusion may make this an
+undesirable design, the recommendation is to keep it outside the current
+migration. Its mathematical plausibility does not make it a smaller repair:
+the ordinary intrinsic extractor still requires the lax side, and the
+existing family-category and section comparisons would all need adjustment.
+Preserve those uniform comparisons while correcting their actual duality
+and higher-action contracts.
+
+The independent closure inspection found that the existing
+`emdash3_2_gray_right_closure.lp` uses the admitted GrayHom_lax profile,
+StrictFunctor views and supplied whole inverse comparisons. Its tensor
+has no general parameter action/monoidal coherence in that slice. It
+therefore cannot simply replace the nucleus's Cartesian comp_prod_func
+as an already-qualified raw-transfor operation. Keep this source boundary
+explicit during further implementation; no Gray or Cartesian universe
+replacement was installed during this review.
+
+This tranche is a source/dependency review. No new Lambdapi probe was run:
+the changed conclusions follow from the declarations and actual extractor
+bodies, rather than from a newly checked replacement classifier.
 
 ## Deferred improvements under the migration boundary
 
