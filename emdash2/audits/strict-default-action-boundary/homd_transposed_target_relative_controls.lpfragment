@@ -1,0 +1,65 @@
+assert [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K D E))) ⊢
+  @sf_homd_int K D E FF : τ (@Transf K Cat_cat E (@sf_homd_target_catd K D));
+
+// Fixed-x target action is the transpose of actual precomposition of sections.
+assert [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K D E))) (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cat (@sf_homd_target_catd K E) (@sf_homd_target_catd K D) x
+    (@sf_homd_target_map K D E FF)
+  ≡ @Op_func (@sf_homd_section_cat K E x) (@sf_homd_section_cat K D x)
+      (@hom_precomp_along_func (Functor_cat K sf_q_cat) (Functor_cat K sf_q_cat)
+        (@id_func (Functor_cat K sf_q_cat))
+        (@sf_q_diagram K (@hom_ K K (@id_func K) x))
+        (@sf_q_diagram K D) (@sf_q_diagram K E) (@sf_q_diagram_map K D E FF));
+
+// Whole section comparison uses the existing precomposition/raw-composition
+// reading. It is proof-time, rather than an extra Homd operational witness.
+assert [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K D E))) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @eq_refl (Obj (@sf_homd_section_cat K D x))
+    (@sf_homd_root_rel_section K D E FF x u)
+  : τ (@= (Obj (@sf_homd_section_cat K D x))
+      (@sf_homd_root_rel_section K D E FF x u)
+      (@sf_homd_rel_src_sec K D E FF x u));
+
+assert [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @sf_homd_root_rel_section K E E (@id (sf_family_cat K) E) x u
+  ≡ @sf_homd_id_src_sec K E x u;
+
+assertnot [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E)) ⊢
+  @sf_homd_int K D E FF : τ (@Transf K Cat_cat E (@sf_homd_target_catd K D));
+
+// The common whole construction admits a genuinely ambient FF. The strict
+// wrapper above still has its stated stricter input type.
+assert [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E)) ⊢
+  @sf_homd_transf_int K D E FF : τ (@Transf K Cat_cat E (@sf_homd_target_catd K D));
+
+assert [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @eq_refl (Obj (@sf_homd_section_cat K D x))
+    (@sf_homd_root_transf_section K D E FF x u)
+  : τ (@= (Obj (@sf_homd_section_cat K D x))
+      (@sf_homd_root_transf_section K D E FF x u)
+      (@sf_homd_rel_transf_section K D E FF x u));
+
+// The compositional section view exposes the symbolic leaf without any
+// strict-naturality equation for FF.
+assert [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (y : τ (Obj K)) (v : τ (Obj (fapp0 D y)))
+  (f : τ (Obj (Hom_cat K x y))) ⊢
+  fapp0 (fapp0 (@tapp0_fapp0 K sf_q_cat (@sf_q_diagram K D)
+    (@sf_q_diagram K (@hom_ K K (@id_func K) x)) y
+    (@sf_homd_rel_transf_section K D E FF x u)) v) f
+  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u)
+      (fapp0 (@tapp0_fapp0 K Cat_cat D E y FF) v);
+
+// Admitting raw FF to this root does not admit it to StrictTransfor.
+assertnot [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E)) ⊢ FF : τ (@StrictTransfor K Cat_cat D E);

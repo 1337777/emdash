@@ -1,0 +1,73 @@
+// Identity-family precomposition under CoAt2, with T on the actual Homs.
+// The arrow p is an arrow of C, also an arrow of CoAt2(C); no fibrewise
+// transpose of its transformation components is used.
+// lhs-audit: keep 1,2,3 -- identity-family dimension-two-dual Hom owner.
+rule @hom_precomp_along_func (CoAt2_cat $C) (CoAt2_cat $C)
+      (@id Cat_cat (CoAt2_cat $C)) $Z $X $Y $p
+  ↪ @Op_func (Hom_cat $C $Y $Z) (Hom_cat $C $X $Z)
+      (@hom_precomp_along_func $C $C (@id_func $C) $Z $X $Y $p);
+
+// Covariant diagram action uses raw ambient FF and its actual lax data.
+// The prior strict-map convenience has the same body after its inclusion.
+symbol sf_q_diagram_transf [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E))
+  : τ (@Transf K sf_q_cat (@sf_q_diagram K D) (@sf_q_diagram K E))
+≔ @fapp1_fapp0 (Functor_cat K Cat_cat) (Functor_cat K sf_q_cat)
+    (@comp_cat_cov_func K Cat_cat sf_q_cat sf_q_include) D E FF;
+
+// Whole target-family action, through the existing ordinary Hom owner.
+// Its input is an arrow of the diagram category C, not a fibrewise opposite
+// transformation. This definition does not require strict naturality of FF.
+symbol sf_homd_target_transf [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E))
+  : τ (@Transf K Cat_cat (@sf_homd_target_catd K E) (@sf_homd_target_catd K D))
+≔ @fapp1_fapp0 (Op_cat (CoAt2_cat (Functor_cat K sf_q_cat))) (Catd_cat K)
+    (@hom_int (CoAt2_cat (Functor_cat K sf_q_cat)) K
+      (@CoAt2_func (CoAt2_cat K) (Functor_cat K sf_q_cat) (sf_homd_rep_int K)))
+    (@sf_q_diagram K E) (@sf_q_diagram K D) (@sf_q_diagram_transf K D E FF);
+
+// The whole raw-FF relative root is a definition by vertical composition.
+symbol sf_homd_transf_int [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E))
+  : τ (@Transf K Cat_cat E (@sf_homd_target_catd K D))
+≔ @comp_fapp0 (Functor_cat K Cat_cat) E
+    (@sf_homd_target_catd K E) (@sf_homd_target_catd K D)
+    (@sf_homd_target_transf K D E FF) (@sf_homd_id_int K E);
+
+// Strict-FF conveniences are wrappers around that same construction.
+symbol sf_homd_target_map [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K D E)))
+  : τ (@Transf K Cat_cat (@sf_homd_target_catd K E) (@sf_homd_target_catd K D))
+≔ @sf_homd_target_transf K D E (@sf_family_map_view K D E FF);
+
+symbol sf_homd_int [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K D E)))
+  : τ (@Transf K Cat_cat E (@sf_homd_target_catd K D))
+≔ @sf_homd_transf_int K D E (@sf_family_map_view K D E FF);
+
+// Independent compositional section view for a raw FF. This is the same
+// vertical composition used by the prior strict relative section.
+symbol sf_homd_rel_transf_section [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E)) (x : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cat E x)))
+  : τ (Obj (@sf_homd_section_cat K D x))
+≔ @comp_fapp0 (Functor_cat K sf_q_cat) (@sf_q_diagram K D) (@sf_q_diagram K E)
+    (@sf_q_diagram K (@hom_ K K (@id_func K) x))
+    (@sf_homd_id_src_sec K E x u) (@sf_q_diagram_transf K D E FF);
+
+symbol sf_homd_root_transf_section [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E)) (x : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cat E x)))
+  : τ (Obj (@sf_homd_section_cat K D x))
+≔ @fapp0 (@fapp0 K Cat_cat E x) (Op_cat (@sf_homd_section_cat K D x))
+    (@tapp0_fapp0 K Cat_cat E (@sf_homd_target_catd K D) x
+      (@sf_homd_transf_int K D E FF)) u;
+
+// Direct x/u observation of the defined whole root. Objects of T(S_D(x))
+// are objects of S_D(x), without identifying their arrow categories.
+symbol sf_homd_root_rel_section [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K D E))) (x : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cat E x)))
+  : τ (Obj (@sf_homd_section_cat K D x))
+≔ @fapp0 (@fapp0 K Cat_cat E x) (Op_cat (@sf_homd_section_cat K D x))
+    (@tapp0_fapp0 K Cat_cat E (@sf_homd_target_catd K D) x (@sf_homd_int K D E FF)) u;

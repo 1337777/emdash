@@ -1,0 +1,39 @@
+// A canonical representable transport at the identity has identity mate.
+// This does not add a blanket Yoneda reconstruction rule for arbitrary FF.
+rule @sf_q_mate $K _ _
+      (@sf_fibcov $K (@hom_ $K $K (@id Cat_cat $K) $x) $x (@id $K $x))
+  ↪ @id (Functor_cat $K sf_q_cat)
+      (@sf_q_diagram $K (@hom_ $K $K (@id_func $K) $x));
+
+// Represented mates reverse composition of admitted strict displayed maps.
+// This is a structural computation law, not a theorem about an independently
+// constructed general Q tensor. Both raw and stable Hom observations join.
+// lhs-audit: keep 1 -- actual category of Q-valued diagrams.
+rule @comp_fapp0 (Functor_cat $K sf_q_cat) _ _ _
+      (@sf_q_mate $K $E $D $U) (@sf_q_mate $K $D $C $V)
+  ↪ @sf_q_mate $K $E $C (@comp_fapp0 (sf_family_cat $K) $E $D $C $V $U);
+
+// lhs-audit: keep 1,2,3 -- represented mate composition at the identity-family owner.
+rule @hom_postcomp_fapp0 (Functor_cat $K sf_q_cat) (Functor_cat $K sf_q_cat)
+      (@id Cat_cat (Functor_cat $K sf_q_cat)) _ _ _
+      (@sf_q_mate $K $E $D $U) (@sf_q_mate $K $D $C $V)
+  ↪ @sf_q_mate $K $E $C (@comp_fapp0 (sf_family_cat $K) $E $D $C $V $U);
+
+// Whole Hom action under dimension-two duality, shifting to T on each Hom.
+// This only uses CoAt2 on a strict functor F; it is not a mapping-category
+// action on arbitrary lax transformations.
+rule @hom_postcomp_func _ _ (@CoAt2_func $B $A $F) $W $X $Y $p
+  ↪ @Op_func
+      (Hom_cat $A $W (@fapp0 $B $A $F $X))
+      (Hom_cat $A $W (@fapp0 $B $A $F $Y))
+      (@hom_postcomp_func $A $B $F $W $X $Y $p);
+
+// Reindexing along the named represented x-package exposes its actual
+// image arrow at the whole Hom-functor owner. Generic F heads stay stable.
+rule @hom_postcomp_func _ _ (sf_homd_rep_int $K) $W $x $x' $p
+  ↪ @hom_postcomp_func (Functor_cat $K sf_q_cat) (Functor_cat $K sf_q_cat)
+      (@id_func (Functor_cat $K sf_q_cat)) $W
+      (@fapp0 (CoAt2_cat $K) (Functor_cat $K sf_q_cat) (sf_homd_rep_int $K) $x)
+      (@fapp0 (CoAt2_cat $K) (Functor_cat $K sf_q_cat) (sf_homd_rep_int $K) $x')
+      (@fapp1_fapp0 (CoAt2_cat $K) (Functor_cat $K sf_q_cat)
+        (sf_homd_rep_int $K) $x $x' $p);

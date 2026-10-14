@@ -42,6 +42,15 @@ coherence and the outer root are not certified. The direct Cart substitution
 has a recorded formation failure and is not confused with an adapted Cart
 implementation. Both Q designs remain open under the current plan.
 
+The [coordinated transposed-target root](homd_transposed_target_review.md)
+now checks the whole identity root and its full x/u/y/v/f observation,
+using the actual represented x-package and a whole target family over K.
+The same defined target action accepts raw lax FF; strict-FF conveniences
+wrap it. Its 122 positive/42 negative controls do not certify Q coherence,
+intrinsic extraction, Sigma-Hom or production migration. The relative root
+has a proof-time whole-section comparison with a directly computable
+compositional view; the identity-root leaf itself computes directly.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's

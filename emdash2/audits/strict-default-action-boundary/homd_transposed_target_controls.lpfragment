@@ -1,0 +1,101 @@
+// CoAt2 shifts exactly one dimension in Hom; it does not reverse arrows.
+assert [A : Cat] [x y : τ (Obj A)] ⊢
+  Hom_cat (CoAt2_cat A) x y ≡ Op_cat (Hom_cat A x y);
+assert [A : Cat] ⊢ CoAt2_cat (CoAt2_cat A) ≡ A;
+assertnot [A : Cat] ⊢ CoAt2_cat A ≡ CoAbove2_cat A;
+assertnot [A : Cat] ⊢ CoAt2_cat A ≡ Op_cat A;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @CoAt2_func (CoAt2_cat A) (CoAt2_cat B) (@CoAt2_func A B F) ≡ F;
+assert [A : Cat] ⊢ @CoAt2_func A A (@id_func A) ≡ @id_func (CoAt2_cat A);
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  @CoAt2_func A C (@comp_cat_fapp0 A B C G F)
+  ≡ @comp_cat_fapp0 (CoAt2_cat A) (CoAt2_cat B) (CoAt2_cat C)
+      (@CoAt2_func B C G) (@CoAt2_func A B F);
+assert [A B : Cat] (F : τ (Functor A B)) [x y : τ (Obj A)] ⊢
+  @fapp1_func (CoAt2_cat A) (CoAt2_cat B) (@CoAt2_func A B F) x y
+  ≡ @Op_func (Hom_cat A x y) (Hom_cat B (fapp0 F x) (fapp0 F y))
+      (@fapp1_func A B F x y);
+
+// Gamma's entire first-Hom action is the existing Homd functor for I_x.
+assert [K : Cat] [x x' : τ (Obj K)] ⊢
+  @fapp1_func (CoAt2_cat K) (Functor_cat K sf_q_cat) (sf_homd_rep_int K) x x'
+  ≡ @sf_homd_id_src_func K (@hom_ K K (@id_func K) x) x';
+
+assert [K : Cat] [x x' : τ (Obj K)] (p : τ (Obj (Hom_cat K x x'))) ⊢
+  fapp0 (@fapp1_func (CoAt2_cat K) (Functor_cat K sf_q_cat) (sf_homd_rep_int K) x x') p
+  ≡ @fapp1_fapp0 (CoAt2_cat K) (Functor_cat K sf_q_cat) (sf_homd_rep_int K) x x' p;
+
+// The base two-cell has the reversed direction in Gamma's source Hom.
+assert [K : Cat] [x x' : τ (Obj K)] [p q : τ (Obj (Hom_cat K x x'))]
+  (alpha : τ (Obj (Hom_cat (Hom_cat K x x') p q))) ⊢
+  @fapp1_fapp0 (Op_cat (Hom_cat K x x'))
+    (@Transf_cat K sf_q_cat
+      (@sf_q_diagram K (@hom_ K K (@id_func K) x))
+      (@sf_q_diagram K (@hom_ K K (@id_func K) x')))
+    (@fapp1_func (CoAt2_cat K) (Functor_cat K sf_q_cat) (sf_homd_rep_int K) x x') q p alpha
+  ≡ @sf_homd_id_u_map K (@hom_ K K (@id_func K) x) x' p q alpha;
+
+assertnot [K : Cat] [x x' : τ (Obj K)] [p q : τ (Obj (Hom_cat K x x'))]
+  (alpha : τ (Obj (Hom_cat (Hom_cat K x x') p q))) ⊢
+  @fapp1_fapp0 (Op_cat (Hom_cat K x x'))
+    (@Transf_cat K sf_q_cat
+      (@sf_q_diagram K (@hom_ K K (@id_func K) x))
+      (@sf_q_diagram K (@hom_ K K (@id_func K) x')))
+    (@fapp1_func (CoAt2_cat K) (Functor_cat K sf_q_cat) (sf_homd_rep_int K) x x') p q alpha
+  : τ (Hom (@Transf_cat K sf_q_cat
+      (@sf_q_diagram K (@hom_ K K (@id_func K) x))
+      (@sf_q_diagram K (@hom_ K K (@id_func K) x')))
+    (@sf_homd_id_src_sec K (@hom_ K K (@id_func K) x) x' p)
+    (@sf_homd_id_src_sec K (@hom_ K K (@id_func K) x) x' q));
+
+// Dimension three is not reversed by CoAt2. The next Hom of Gamma's
+// actual first-Hom owner accepts alpha=>beta in its original direction.
+assert [K : Cat] [x x' : τ (Obj K)] [p q : τ (Obj (Hom_cat K x x'))]
+  [alpha beta : τ (Obj (Hom_cat (Hom_cat K x x') p q))]
+  (theta : τ (Obj (Hom_cat (Hom_cat (Hom_cat K x x') p q) alpha beta))) ⊢
+  @fapp1_fapp0 (Hom_cat (Hom_cat K x x') p q)
+    (Hom_cat (@sf_homd_section_cat K (@hom_ K K (@id_func K) x) x')
+      (@sf_homd_id_src_sec K (@hom_ K K (@id_func K) x) x' q)
+      (@sf_homd_id_src_sec K (@hom_ K K (@id_func K) x) x' p))
+    (@fapp1_func (Op_cat (Hom_cat K x x'))
+      (@sf_homd_section_cat K (@hom_ K K (@id_func K) x) x')
+      (@fapp1_func (CoAt2_cat K) (Functor_cat K sf_q_cat) (sf_homd_rep_int K) x x') q p)
+    alpha beta theta
+  : τ (Hom
+      (Hom_cat (@sf_homd_section_cat K (@hom_ K K (@id_func K) x) x')
+        (@sf_homd_id_src_sec K (@hom_ K K (@id_func K) x) x' q)
+        (@sf_homd_id_src_sec K (@hom_ K K (@id_func K) x) x' p))
+      (@sf_homd_id_u_map K (@hom_ K K (@id_func K) x) x' p q alpha)
+      (@sf_homd_id_u_map K (@hom_ K K (@id_func K) x) x' p q beta));
+
+// Whole target, not a family assembled just at its object fibres.
+assert [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K)) ⊢
+  fapp0 (@sf_homd_target_catd K E) x ≡ Op_cat (@sf_homd_section_cat K E x);
+assert [K : Cat] (E : τ (Functor K Cat_cat)) ⊢
+  @sf_homd_id_int K E : τ (@Transf K Cat_cat E (@sf_homd_target_catd K E));
+assertnot [K : Cat] (E : τ (Functor K Cat_cat)) ⊢
+  @sf_homd_id_int K E : τ (Obj (@sf_family_map_cat K E (@sf_homd_target_catd K E)));
+
+// Recover the original fixed-x presentation by transposing this component.
+assert [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K)) ⊢
+  @Op_func (fapp0 E x) (Op_cat (@sf_homd_section_cat K E x))
+    (@tapp0_fapp0 K Cat_cat E (@sf_homd_target_catd K E) x (@sf_homd_id_int K E))
+  ≡ @sf_homd_id_src_func K E x;
+
+// Entire root -> x -> u -> y -> v -> f observation.
+assert [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (y : τ (Obj K)) (v : τ (Obj (fapp0 E y)))
+  (f : τ (Obj (Hom_cat K x y))) ⊢
+  fapp0 (fapp0
+    (@tapp0_fapp0 K sf_q_cat (@sf_q_diagram K E)
+      (@sf_q_diagram K (@hom_ K K (@id_func K) x)) y
+      (@fapp0 (fapp0 E x) (Op_cat (@sf_homd_section_cat K E x))
+        (@tapp0_fapp0 K Cat_cat E (@sf_homd_target_catd K E) x
+          (@sf_homd_id_int K E)) u)) v) f
+  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u) v;
+
+assert [K : Cat] (E : τ (Functor K Cat_cat)) [x x' : τ (Obj K)]
+  (p : τ (Obj (Hom_cat K x x'))) (u : τ (Obj (fapp0 E x))) ⊢
+  fapp0 (@tapp1_fapp0 K Cat_cat E (@sf_homd_target_catd K E) x x'
+    (@sf_homd_id_int K E) p) u
+  ≡ @sf_homd_id_src_sec K E x' (fapp0 (@fapp1_fapp0 K Cat_cat E x x' p) u);

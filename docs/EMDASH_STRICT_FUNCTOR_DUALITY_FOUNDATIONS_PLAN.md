@@ -42,9 +42,24 @@ Latest execution steering, 2026-10-14: continue toward Homd using the checked
 strict displayed-map classifier, and keep both Cart/strict-transfor Q and
 lax-transfor Q open. The canonical whole transport map, represented whole-y
 section and fixed-x u/y/v/f slice now check under the explicit candidate
-Q/mate contracts. The next consumer is the coordinated whole x/root. The broader
+Q/mate contracts. The coordinated whole root and a defined raw-FF extension
+now also check in the experimental prefix. Next qualify its intrinsic
+comparison action and the remaining coefficient/Sigma obligations. The broader
 default reassessment below remains comparison context; no silent default
 switch or change of the all-family admission requirement is authorized.
+
+Workflow correction, 2026-10-14: the user asks to prioritize useful theory
+over expanding probe matrices. Use one current integrated candidate and
+choose its next actual consumer before adding tests. Carry forward green
+evidence for unchanged inputs; add removal variants only when they resolve
+a concrete ownership or dependency question, not once per clause. Keep
+mandatory subject reduction, owner-position checks, a meaningful positive
+consumer, relevant noncollapse/variance controls, warning review and promotion
+gates. Stop verification when that slice's acceptance boundary is met.
+Report implemented operations and unresolved mathematical assumptions first;
+inherited assertion totals are audit metadata, not the progress metric.
+The next substantive slice is intrinsic comparison-cell extraction through
+the new root, with the coefficient higher action it actually requires.
 
 Earlier reassessment request, 2026-10-14: the user asks to reconsider the
 previous corrected-duality lax-functor/lax-transfor design, explicitly
@@ -3861,6 +3876,90 @@ extracted action, Sigma-Hom integration and production migration remain
 required. The donor's known joint Cartesian contracts also remain outside
 this slice's qualification. This is concrete progress toward the same goal,
 not a narrowing of completion to a fixed-x or supplied-coefficient result.
+
+## Coordinated whole Homd root and raw FF, 2026-10-14
+
+The [implemented candidate](../emdash2/audits/strict-default-action-boundary/homd_transposed_target_review.md)
+closes the previously missing signed whole-root interface under the explicit
+Q/mate contracts. It does not form the invalid same-default fibrewise T(E).
+For I_x=Hom_K(x,-) and C=Functor_cat(K,Q), Gamma:CoAt2(K)->C has object
+iota(I_x) and first Hom exactly the checked fixed-x source functor
+`homd_id_src_func(I_x,x') : T(Hom_K(x,x'))->S_{I_x}(x')`.
+Its two-cell direction is reversed and its next Hom retains the dimension-
+three direction. No generic contravariant mate functor on raw modifications
+is introduced.
+
+The target is the actual whole definition
+`S'_E=Hom_{CoAt2(C)}(iota E,CoAt2(Gamma)(-)):K->Cat`, with fibre T(S_E(x)).
+The structural root has ambient type `Transf_{K,Cat}(E,S'_E)`. Its x-
+component is E[x]->T(S_E(x)); transposing this individual strict functor
+recovers the checked T(E[x])->S_E(x) view. The full identity-root
+x/u/y/v/f projection computes to Hom_E[y](E[f](u),v). Objects of the
+transposed section category are used without identifying its arrows with
+those of the original section category. No primitive Pi, larger context,
+curry substitute, operational path or supplied laxity cell appears.
+
+The whole root pre/right action at p:x->x' sends u to the section at
+(x',E[p](u)). The actual target-family action has the same object value on
+the canonical section. This does not assert equality of its whole lax
+boundaries. A nonidentity base two-cell alpha acts at u by the existing
+source-u map for E[alpha][u], and a variable endomorphism is not collapsed.
+Gamma's unit/composition checks use explicit structural mate laws and one
+scoped proof-time Hom-index reading. A canonical Hom_cat diagnostic fixes
+the bare-Hom alias inversion without changing operational action.
+
+Only category-level CoAt2 and its ordinary strict-functor action are reused
+from the earlier files. The Cartesian mapping-category duality declarations
+are excluded. Whole Hom action under CoAt2 shifts to T on the Homs, and
+the named Gamma reindexing exposes its actual image at the whole Hom owner.
+
+The relative construction now accepts **raw ambient FF:D=>E**. Covariant
+inclusion gives iota(FF), and ordinary precomposition in CoAt2(C) yields
+a whole `S'_E=>S'_D` target action. Its composite with the identity root is
+the raw-FF relative root. The experimental strict-FF names are wrappers
+using the native strict-map inclusion; there is no second primitive theory.
+After x/u, the raw root agrees proof-time with the actual section
+composition `h_E(x,u) o iota(FF)`. That section view computes the leaf
+Hom_E[y](E[f](u),FF[y](v)). The literal lower projection of the raw relative
+root is not separately claimed to runtime-normalize to this leaf. Identity
+strict FF does recover the identity section after root x/u projection.
+
+Consequently, external FF strictness is no longer a prerequisite for this
+root's *formation/compositional section construction*. This does not
+settle its full intrinsic action or strict Sigma-map admission, and does
+not select a new public Functord default. If public Catd/Functord is
+narrowed, the current Hom_int-based target action needs its proper ambient
+inclusion rather than the donor's automatic facade comparison. Preserve
+the general ordinary lax internalizations needed by intrinsic extraction.
+
+Final evidence: 122 positive/42 negative assertions including the 96/33
+donor; thirteen adverse variants (ten assertion failures, two dependent
+SR/variance failures, one formation failure). The untwisted target
+reintroduces CoAt2(K)=K; Gamma over R(K) supplies O(Hom_K) where T(Hom_K)
+is required. Subject reduction remains enabled; the final run uses 3.255s
+and 180,992KiB maximum child RSS under 90s/2GiB. Warnings change 815->898,
+all 83 added bodies inventoried; full symbolic joins remain open. The LHS
+audit has zero unreviewed slots. Exact evidence is in the
+[verification](../emdash2/audits/strict-default-action-boundary/homd_transposed_target_verification.json).
+
+Next: qualify the actual intrinsic comparison-cell extraction through
+this root, including noninvertible action, and the Q/mate coherence needed
+by that consumer. Retain both Q design comparisons, but do not undo the
+new whole-family variance correction to resurrect the old T(E) source.
+The root/type milestone now has a native candidate; this is not completion
+of all coefficient semantics, Sigma-Hom, whole duality, public migration
+or required downstream validation. The source donor retains known legacy
+joint Cartesian contracts, and local negative controls do not certify
+global consistency.
+
+For the subsequent Sigma-Hom variance review, a dimensionally coordinated
+candidate worth testing is a negative total for H:T(I)->Cat:
+`Sigma_con(H)=TotalOp(Sigma(TotalOp_catd(H)))`.
+The inner family's base is R(T(I))=O(I), and total O restores base I and
+the original fibre objects. This is not an implemented Sigma-Hom theorem
+or an admission result for arbitrary higher families; Sigma formation and
+composition profiles remain a separate obligation. It uses the existing
+total-duality construction rather than a duplicated Sigma theory.
 
 ## Deferred improvements under the migration boundary
 

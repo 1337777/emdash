@@ -1,0 +1,12 @@
+// Proof-time index reading after represented-mate composition has projected
+// to a canonical representable transport. The ordinary Hom owner already
+// identifies its stable postcomposition point with q o p; this observation
+// does not make either index a runtime normal form of the other.
+unif_rule
+  @sf_q_mate $K _ _
+    (@sf_fibcov $K (@hom_ $K $K (@id Cat_cat $K) $x) $z
+      (@hom_postcomp_fapp0 $K $K (@id Cat_cat $K) $x $y $z $q $p))
+  ≡ @sf_q_mate $K _ _
+      (@sf_fibcov $K (@hom_ $K $K (@id Cat_cat $K) $x) $z
+        (@comp_fapp0 $K $x $y $z $q $p))
+  ↪ [ tt ≡ tt ];

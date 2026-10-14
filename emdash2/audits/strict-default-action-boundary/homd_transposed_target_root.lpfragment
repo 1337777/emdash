@@ -1,0 +1,48 @@
+// NON-LIBRARY whole x-package. Its first Hom is the already checked fixed-x
+// Homd source functor specialized to the representable family I_x.
+// No generic contravariant mate action on arbitrary modifications is assumed.
+injective symbol sf_homd_rep_int (K : Cat)
+  : τ (Functor (CoAt2_cat K) (Functor_cat K sf_q_cat));
+rule fapp0 (sf_homd_rep_int $K) $x
+  ↪ @sf_q_diagram $K (@hom_ $K $K (@id_func $K) $x);
+rule @fapp1_func _ _ (sf_homd_rep_int $K) $x $x'
+  ↪ @sf_homd_id_src_func $K (@hom_ $K $K (@id_func $K) $x) $x';
+rule @fapp1_fapp0 _ _ (sf_homd_rep_int $K) $x $x' $p
+  ↪ @sf_homd_id_src_sec $K (@hom_ $K $K (@id_func $K) $x) $x' $p;
+
+// Whole target family over K. Hom of CoAt2(C) is T(Hom_C), so its
+// x-fibre is T(S_E(x)). CoAt2 acts on an ordinary strict functor here;
+// no whole duality on a lax transformation mapping category is imported.
+symbol sf_homd_target_catd [K : Cat] (E : τ (Functor K Cat_cat))
+  : τ (Functor K Cat_cat)
+≔ @hom_ (CoAt2_cat (Functor_cat K sf_q_cat)) K
+    (@CoAt2_func (CoAt2_cat K) (Functor_cat K sf_q_cat) (sf_homd_rep_int K))
+    (@sf_q_diagram K E);
+
+// The ambient root remains a potentially lax transformation. Only external
+// displayed-map inputs use the experimental strict-map classifier.
+injective symbol sf_homd_id_int [K : Cat] (E : τ (Functor K Cat_cat))
+  : τ (@Transf K Cat_cat E (@sf_homd_target_catd K E));
+rule @tapp0_fapp0 _ _ _ _ $x (@sf_homd_id_int $K $E)
+  ↪ @Op_func (Op_cat (@fapp0 $K Cat_cat $E $x)) (@sf_homd_section_cat $K $E $x)
+      (@sf_homd_id_src_func $K $E $x);
+
+// Whole pre/right root action H[x'] after E_1(x,x'). This keeps its Hom
+// argument internal and inherits all ordinary fixed-whiskering action.
+symbol sf_homd_id_root_action [K : Cat] (E : τ (Functor K Cat_cat))
+  (x x' : τ (Obj K))
+  : τ (Functor (Hom_cat K x x')
+      (Functor_cat (@fapp0 K Cat_cat E x) (Op_cat (@sf_homd_section_cat K E x'))))
+≔ @comp_cat_fapp0 (Hom_cat K x x')
+    (Functor_cat (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E x'))
+    (Functor_cat (@fapp0 K Cat_cat E x) (Op_cat (@sf_homd_section_cat K E x')))
+    (@comp_cat_cov_func (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E x')
+      (Op_cat (@sf_homd_section_cat K E x'))
+      (@Op_func (Op_cat (@fapp0 K Cat_cat E x')) (@sf_homd_section_cat K E x')
+        (@sf_homd_id_src_func K E x')))
+    (@fapp1_func K Cat_cat E x x');
+
+rule @tapp1_func _ _ _ _ $x $x' (@sf_homd_id_int $K $E)
+  ↪ @sf_homd_id_root_action $K $E $x $x';
+rule @tapp1_fapp0 _ _ _ _ $x $x' (@sf_homd_id_int $K $E) $p
+  ↪ fapp0 (@sf_homd_id_root_action $K $E $x $x') $p;
