@@ -1,9 +1,18 @@
 # Foundation design matrix: families, mapping profiles and strictness
 
 Date: 2026-10-14
-Status: user-requested reassessment; Pi=default-Transf restores the proposed
-strict-functor/lax-transfor default, with no public default yet migrated
+Status: strict-functor/lax-transfor default with shared Cartesian family
+coefficient selected for the next Homd milestone; no public migration yet
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
+
+Latest accepted candidate: E and I_x both land in Cat_cart, while default
+Transf and Pi remain lax across K. The
+[consolidated outline](EMDASH_CARTESIAN_FAMILIES_LAX_TRANSFORS_HOMD_OUTLINE.md)
+prioritizes Cartesian Q, documents its limited represented-operation scope,
+and targets a strict canonical outer root without claiming it already
+qualified. The earlier broad-input counterexamples explain the usefulness
+of this explicitly accepted family restriction. Keep the lax Q alternative
+as comparison evidence.
 
 Latest Pi invariant: the user retains Pi(E)=default Transf(const(1),E).
 Together with the intended section objects, this supersedes the strict-

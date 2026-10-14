@@ -1,10 +1,18 @@
 # Strict Cartesian core with explicit lax interfaces
 
 Date: 2026-10-14
-Status: Cartesian default reviewed but superseded by the user's Pi invariant;
-strict-functor/lax-transfor default is again preferred; no public migration
+Status: strict-functor/lax-transfor default retained; shared Cartesian family
+coefficient now selected for Homd; earlier alternatives retained below
 Plan: [foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Previous comparison: [design matrix](EMDASH_FOUNDATION_PROFILE_DESIGN_MATRIX.md)
+
+Latest accepted candidate: the
+[Cartesian-family/lax-section outline](EMDASH_CARTESIAN_FAMILIES_LAX_TRANSFORS_HOMD_OUTLINE.md)
+keeps the lax default and Pi alias, while both E and represented Hom land
+in Cat_cart. It prioritizes Cartesian Q and a strict canonical outer root
+to qualify, with only the represented Q operations needed by Homd. This is
+distinct from making the public Transf strict. The user explicitly accepted
+this common family restriction after the broader-input review below.
 
 Recovery evidence supplied by the user: response 0046,
 `infinity-codex:01a12a87-a47e-73f1-9351-1159597be30d:01a13b16-fb5a-74a3-93cb-2002064837a5`,

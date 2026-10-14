@@ -84,6 +84,13 @@ target-first represented Hom is then a defined composite; its local Homd
 v/f projections and actual index action compute with Cat_s coefficients.
 Whole y-section and x-root assembly remain separate required work.
 
+The [Cartesian-family whole Homd section](cart_homd_section_review.md) now
+uses an actual iterated-Hom section category and a defined source-u functor.
+Its direct y/v/f projections, source-u arrow action and pre/right y-action
+compute under structural Q/mate contracts. Default Transf remains lax;
+the shared E/I_x coefficient is Cartesian. The outer root, extracted
+comparison coherence and Sigma-Hom remain open.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's

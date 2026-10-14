@@ -1,0 +1,159 @@
+// The two starting families have the same Cartesian coefficient type.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K)) ⊢
+  @sf_cart_hom K x : τ (Functor K sf_cart_cat);
+
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  fapp0 (fapp0 (@sf_cq_rep A B F) a) b ≡ Hom_cat B b (fapp0 F a);
+
+assert [A : Cat] ⊢ @sf_cq_rep A A (@id_func A) ≡ @id sf_cq_cat A;
+
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  @comp_fapp0 sf_cq_cat A B C (@sf_cq_rep B C G) (@sf_cq_rep A B F)
+  ≡ @sf_cq_rep A C (@comp_cat_fapp0 A B C G F);
+
+assert [A B C : Cat] (F : τ (Functor A B)) (P : τ (Hom sf_cq_cat B C)) ⊢
+  @comp_fapp0 sf_cq_cat A B C P (@sf_cq_rep A B F)
+  ≡ @comp_cat_fapp0 A B (sf_cart_functor_cat (Op_cat C) sf_cart_cat) P F;
+
+// Constant transports are a real family consumer. Also observe the
+// represented object after ordinary composition has already capped it.
+assert [A B C : Cat] (b : τ (Obj B)) (P : τ (Hom sf_cq_cat B C)) ⊢
+  @comp_fapp0 sf_cq_cat A B C P (@sf_cq_rep A B (@Const_func A B b))
+  ≡ @Const_func A (sf_cart_functor_cat (Op_cat C) sf_cart_cat) (fapp0 P b);
+
+assert [A B C : Cat] (b : τ (Obj B)) (P : τ (Hom sf_cq_cat B C)) ⊢
+  @comp_fapp0 sf_cq_cat A B C P
+    (@Const_func A (sf_cart_functor_cat (Op_cat B) sf_cart_cat) (@sf_cart_hom (Op_cat B) b))
+  ≡ @Const_func A (sf_cart_functor_cat (Op_cat C) sf_cart_cat) (fapp0 P b);
+
+assert [A B C : Cat] (b : τ (Obj B)) (P : τ (Hom sf_cq_cat B C)) ⊢
+  @hom_postcomp_fapp0 sf_cq_cat sf_cq_cat (@id_func sf_cq_cat) A B C P
+    (@Const_func A (sf_cart_functor_cat (Op_cat B) sf_cart_cat) (@sf_cart_hom (Op_cat B) b))
+  ≡ @comp_fapp0 sf_cq_cat A B C P (@sf_cq_rep A B (@Const_func A B b));
+
+// The whole y-section is the actual default transformation type.
+assert [K : Cat] [E D : τ (Functor K sf_cart_cat)] (y : τ (Obj K)) ⊢
+  @comp_cat_fapp0 (Op_cat (Hom_cat (sf_cart_functor_cat K sf_cart_cat) E D))
+    (@Transf_cat K sf_cq_cat (@sf_cq_diagram K D) (@sf_cq_diagram K E))
+    (Hom_cat sf_cq_cat (@fapp0 K sf_cart_cat D y) (@fapp0 K sf_cart_cat E y))
+    (@tapp0_func K sf_cq_cat (@sf_cq_diagram K D) (@sf_cq_diagram K E) y)
+    (@sf_cq_mate_func K E D)
+  ≡ @comp_cat_fapp0 (Op_cat (Hom_cat (sf_cart_functor_cat K sf_cart_cat) E D))
+    (Op_cat (sf_cart_functor_cat (@fapp0 K sf_cart_cat E y) (@fapp0 K sf_cart_cat D y)))
+    (Hom_cat sf_cq_cat (@fapp0 K sf_cart_cat D y) (@fapp0 K sf_cart_cat E y))
+    (sf_cq_conjoint_func (@fapp0 K sf_cart_cat E y) (@fapp0 K sf_cart_cat D y))
+    (@Op_func (Hom_cat (sf_cart_functor_cat K sf_cart_cat) E D)
+      (sf_cart_functor_cat (@fapp0 K sf_cart_cat E y) (@fapp0 K sf_cart_cat D y))
+      (@sf_cart_component_func K sf_cart_cat E D y));
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @sf_cq_homd_src_sec K E x u
+  : τ (@Transf K sf_cq_cat (@sf_cq_diagram K E) (@sf_cq_diagram K (@sf_cart_hom K x)));
+
+// The whole y-section has not been promoted to a strict transformation.
+assertnot [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (@fapp0 K sf_cart_cat E x))) ⊢
+  @sf_cq_homd_src_sec K E x u
+  : τ (@StrictTransfor K sf_cq_cat (@sf_cq_diagram K E) (@sf_cq_diagram K (@sf_cart_hom K x)));
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  fapp0 (@sf_cq_homd_src_func K E x) u ≡ @sf_cq_homd_src_sec K E x u;
+
+// Full u/y/v/f object ladder, starting from the actual source-u composite.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (fapp0 (@tapp0_fapp0 K sf_cq_cat (@sf_cq_diagram K E)
+    (@sf_cq_diagram K (@sf_cart_hom K x)) y (fapp0 (@sf_cq_homd_src_func K E x) u)) v) f
+  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u) v;
+
+// Name the actual projected u-arrow with its full endpoints, avoiding
+// inference through nested reducible family expressions in the consumer.
+symbol cq_check_u_y [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K sf_cart_cat E x))]
+  (h : τ (Hom (@fapp0 K sf_cart_cat E x) u0 u1))
+  : τ (Hom (Hom_cat sf_cq_cat (@fapp0 K sf_cart_cat E y) (Hom_cat K x y))
+      (@sf_cart_homd_tgt K E x u1 y) (@sf_cart_homd_tgt K E x u0 y))
+≔ @tapp0_hom_fapp0 K sf_cq_cat (@sf_cq_diagram K E)
+    (@sf_cq_diagram K (@sf_cart_hom K x))
+    (@sf_cq_homd_src_sec K E x u1) (@sf_cq_homd_src_sec K E x u0) y
+    (@fapp1_fapp0 (Op_cat (@fapp0 K sf_cart_cat E x)) (@sf_cq_homd_section_cat K E x)
+      (@sf_cq_homd_src_func K E x) u1 u0 h);
+
+symbol cq_check_u_yv [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K sf_cart_cat E x))]
+  (h : τ (Hom (@fapp0 K sf_cart_cat E x) u0 u1))
+  (v : τ (Obj (@fapp0 K sf_cart_cat E y)))
+  : τ (Hom (sf_cart_functor_cat (Op_cat (Hom_cat K x y)) sf_cart_cat)
+      (@sf_cart_homd_ K E x u1 y v) (@sf_cart_homd_ K E x u0 y v))
+≔ @fapp0
+    (Hom_cat (sf_cart_functor_cat (@fapp0 K sf_cart_cat E y)
+      (sf_cart_functor_cat (Op_cat (Hom_cat K x y)) sf_cart_cat))
+      (@sf_cart_homd_tgt K E x u1 y) (@sf_cart_homd_tgt K E x u0 y))
+    (Hom_cat (sf_cart_functor_cat (Op_cat (Hom_cat K x y)) sf_cart_cat)
+      (@sf_cart_homd_ K E x u1 y v) (@sf_cart_homd_ K E x u0 y v))
+    (@sf_cart_component_func (@fapp0 K sf_cart_cat E y)
+      (sf_cart_functor_cat (Op_cat (Hom_cat K x y)) sf_cart_cat)
+      (@sf_cart_homd_tgt K E x u1 y) (@sf_cart_homd_tgt K E x u0 y) v)
+    (@cq_check_u_y K E x y u0 u1 h);
+
+// The already capped u-action retains the projected identity after y/v.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (@fapp0 K sf_cart_cat E x))) (v : τ (Obj (@fapp0 K sf_cart_cat E y))) ⊢
+  @cq_check_u_yv K E x y u u (@id (@fapp0 K sf_cart_cat E x) u) v
+  ≡ @id (sf_cart_functor_cat (Op_cat (Hom_cat K x y)) sf_cart_cat) (@sf_cart_homd_ K E x u y v);
+
+assertnot [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (@fapp0 K sf_cart_cat E x))) (h : τ (Hom (@fapp0 K sf_cart_cat E x) u u))
+  (v : τ (Obj (@fapp0 K sf_cart_cat E y))) ⊢
+  @cq_check_u_yv K E x y u u h v
+  ≡ @id (sf_cart_functor_cat (Op_cat (Hom_cat K x y)) sf_cart_cat) (@sf_cart_homd_ K E x u y v);
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K sf_cart_cat E x))]
+  (h : τ (Hom (@fapp0 K sf_cart_cat E x) u0 u1))
+  (v : τ (Obj (@fapp0 K sf_cart_cat E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (@sf_cart_component_func (Op_cat (Hom_cat K x y)) sf_cart_cat
+      (@sf_cart_homd_ K E x u1 y v) (@sf_cart_homd_ K E x u0 y v) f)
+    (@cq_check_u_yv K E x y u0 u1 h v)
+  ≡ @hom_precomp_along_func (@fapp0 K sf_cart_cat E y) (@fapp0 K sf_cart_cat E y)
+      (@id_func (@fapp0 K sf_cart_cat E y)) v
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u0)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u1)
+      (@fapp1_fapp0 (@fapp0 K sf_cart_cat E x) (@fapp0 K sf_cart_cat E y)
+        (@fapp1_fapp0 K sf_cart_cat E x y f) u0 u1 h);
+
+// Its y-component agrees as a whole functor with the previously checked
+// local represented-Hom consumer, not merely at chosen v and f.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @sf_cq_homd_tgt K E x u y ≡ @sf_cart_homd_tgt K E x u y;
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (@sf_cq_homd_ K E x u y v) f
+  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u) v;
+
+// First base action is retained whole and then computes its v/f body.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y z : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (q : τ (Hom K y z)) ⊢
+  fapp0 (@tapp1_func K sf_cq_cat (@sf_cq_diagram K E)
+      (@sf_cq_diagram K (@sf_cart_hom K x)) y z (@sf_cq_homd_src_sec K E x u)) q
+  ≡ @tapp1_fapp0 K sf_cq_cat (@sf_cq_diagram K E)
+      (@sf_cq_diagram K (@sf_cart_hom K x)) y z (@sf_cq_homd_src_sec K E x u) q;
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y z : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (q : τ (Hom K y z))
+  (v : τ (Obj (fapp0 E y))) (f : τ (Hom K x z)) ⊢
+  fapp0 (fapp0 (@tapp1_fapp0 K sf_cq_cat (@sf_cq_diagram K E)
+    (@sf_cq_diagram K (@sf_cart_hom K x)) y z (@sf_cq_homd_src_sec K E x u) q) v) f
+  ≡ Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x z f) u)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v);
+
+// General ambient families are not silently admitted to this comparison.
+assertnot [K : Cat] (E : τ (Functor K Cat_cat)) ⊢ E : τ (Functor K sf_cart_cat);
+
+// A raw family transformation is not an input to the Cartesian mate owner.
+assertnot [K : Cat] [E D : τ (Functor K sf_cart_cat)] (U : τ (@Transf K sf_cart_cat E D)) ⊢
+  U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D);

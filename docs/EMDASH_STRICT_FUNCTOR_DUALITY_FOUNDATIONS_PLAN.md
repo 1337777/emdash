@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default reassessed under retained Pi=default-Transf contract; public Hom(Cat)=Functor_cat retained; Cartesian subcase checked; general Homd and production migration remain open
+Status: strict-functor/lax-transfor default with a shared Cartesian family coefficient selected for Homd; fixed-x whole y-section/source-u comparison checked; outer root, Sigma-Hom and production migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,44 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Latest selected family/Q candidate, 2026-10-14: the user agrees to E and
+I_x=Hom_K(x,-) sharing Functor(K,Cat_cart), with strict higher fibre
+naturality, while the public default Transf and Pi=Transf(const(1),E)
+remain lax across K. The
+[consolidated outline](EMDASH_CARTESIAN_FAMILIES_LAX_TRANSFORS_HOMD_OUTLINE.md)
+owns the new types, direct ladder, Q construction strategy and root target.
+This removes the recorded local noncommuting-square/mixed-three-cell inputs
+without reverting the default Transf to strict. The Cartesian Q option is
+the leading implementation; the lax Q remains comparison evidence.
+
+Standing user constraint: implement and qualify the represented Q operations
+Homd consumes, rather than making a complete general profunctor library or
+new universe hierarchy a prerequisite. Right represented composition is
+ordinary reindexing. Preserve the existing Prof convention and reuse its
+Cartesian presentations where needed. Consumed composition/coherence still
+needs actual internal operations; the scope constraint does not qualify an
+opaque Q contract by itself.
+
+The user also asks to assess a strict outer x-root. Prefer
+H_E:K->Cat_cart with homd_id_int(E) in Hom_Cart(K,Cat_cart)(E,H_E), exposing
+its ordinary Functord view by inclusion. This is a canonical-owner target,
+not strictness for every FF or for the lax y-section. Qualify the whole
+x-naturality and higher action before installing that stronger root.
+
+Current native evidence: the
+[Cartesian-family whole section](../emdash2/audits/strict-default-action-boundary/cart_homd_section_review.md)
+now checks S_E(x) as an actual iterated Hom, the defined source-u composite,
+direct y/v/f projections, a source-u arrow computing to precomposition by
+E[f][h], the whole pre/right y-action and represented units/composition.
+Constant represented transports also compute after their ordinary composite
+has projected. Receipt `20261014T183958Z-4816c06646264c0a85a48ece78485987`
+passes with SR in 2.328s/188,268KiB. Critical-pair diagnostics 945->1083 and
+four additional replaceable-variable warnings are inventoried; LHS audit
+has zero unreviewed slots. Q and the mate operation remain structural
+constructors, with the extracted left-to-right y-comparison, consumed higher
+coherence, outer root and Sigma-Hom still open. No production promotion or
+general ambient-family admission occurred.
 
 Latest Pi/default constraint, 2026-10-14: the user requires Pi(E) to remain
 the default Transf(const(1),E), rather than choosing a separate section
