@@ -3432,6 +3432,57 @@ The analogous higher compatibility and coherent base action still need
 qualification. The selected ambient conventional-lax classifier does not
 automatically supply this stricter fibre-naturality contract.
 
+Semantic scope clarification, 2026-10-14: the claim that strict component
+functors FF[x] are insufficient remains correct. They preserve fibre
+composition, whereas strict naturality of lambda_p controls a different
+mixed square. Neither implies the other by definition. Full strictness of
+FF would additionally make lambda_p identity, which is stronger than the
+condition detected here. For strict D,E over an ordinary base, a sufficient
+map profile consists of strict component omega-functors, strictly natural
+lambda_p at every fibre dimension, and the normal unit/composition laws
+
+```text
+lambda_id = id
+lambda_qp[u] = lambda_q[D[p](u)] o E[q][lambda_p[u]].
+```
+
+These are semantic laws enforced by the intended internal interface, not
+new supplied comparison/equality inputs. With them the displayed formula
+for Sigma(FF) preserves composition. For a higher base, compatibility with
+base higher cells must also be provided by the whole transformation profile;
+the single displayed square is not an all-dimensional sufficiency theorem.
+
+Formation of Sigma(E) is a separate question. For the forward arrow
+`(p,a:E[p](u)->v)`, a normal oplax family can supply
+
+```text
+rho(q,p) : E[qp] => E[q] o E[p]
+(q,b) o (p,a) = (qp, b o E[q][a] o rho(q,p)[u]).
+```
+
+Over an ordinary base, strict omega-category fibres, strict transport
+functors, strictly natural rho at every fibre dimension, and the normal
+oplax unit/associativity equations give a sufficient strict-total profile.
+In particular outer E need not be strict or pseudo. A concrete ordinary
+example has base [2], constant fibres (0->1), E[p]=E[q]=id, E[qp]=const(0),
+and the nonidentity natural comparison const(0)=>id. Its total is an
+ordinary category. Strict E is the special case rho=id. A normal-lax
+compositor in the reverse direction cannot be inserted into this same
+forward-filler composition formula without additional structure or a
+changed contract. Arbitrary lax transports are a further independent
+obstruction; reversing the outer compositor does not make them strict.
+
+For a general omega-base, do not infer full strict-Sigma qualification from
+strict E and strict E[p] alone while E[alpha] may still be lax. The known
+all-dimensional Grothendieck reference uses strict diagrams valued in the
+Cartesian coefficient; its extension to lax Gray coefficients has a Gray
+total (Ara--Guetta v1, paragraphs 78 and 90). This is a comparison boundary,
+not a selection of Cart for public Cat or Q. The goal's all-family admission
+under the public lax-transfor universe remains a requirement to qualify,
+not a theorem already established by strict default functor computation.
+The distinction between outer-family strictness, strict transports and
+higher fibre naturality must remain explicit in status claims.
+
 Baking a sufficient condition into a native map classifier is compatible
 with the no-operational-proofs SOP. It is different from accepting arbitrary
 Functord and silently installing an extra equation on it. Making the latter
