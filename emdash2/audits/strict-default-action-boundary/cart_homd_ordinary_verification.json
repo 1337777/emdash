@@ -1,0 +1,102 @@
+{
+  "status": "non-library ordinary-action consumer of Cartesian-family Homd",
+  "donorEvidence": "audits/strict-default-action-boundary/cart_homd_relative_verification.json",
+  "donorEvidenceSha256": "3c3ad9103aaf885812b8f92fbf1663843ee9c1e00df1407379cbb64329e08333",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/cart_homd_ordinary_replay.py": "a36b3d1170bb51573dc002b84764b73ea76b2279f0fa314665f8d953b1e18d34",
+    "audits/strict-default-action-boundary/cart_homd_ordinary.lpfragment": "3521bf024c362777960b21c757fb3859194adf35fc6386c4945a855498169ecd",
+    "audits/strict-default-action-boundary/cart_homd_ordinary_controls.lpfragment": "88d1de11675b2c1c8093ffc2734ad006d9d5e7a2e0fb36bbbb174562356b0c27"
+  },
+  "outputSha256": "1489883854d699071bd621973564cfc04b9e291991e58ef7b96ceccb4f17e963",
+  "baseline": {
+    "path": "logs/check-runs/20261014T195835Z-a592b8706b7f48f8907e175991f4d4cf.json",
+    "sha256": "4a335c84542a1d643af6a7a31006f0c04250be46d14fd36017bb04bec8b4278b",
+    "logSha256": "7c468feb54051da7d7d622da184ff9a9c6d9947ad79bb5d40ab42236b77f434d",
+    "outcome": "passed-fresh",
+    "wallSeconds": 2.440650186035782,
+    "childrenMaxRssKiB": 213624,
+    "inputSnapshot": "c9f79edbae02a8dc6f774f550e2069ff43eb9bcb6d802b608e862029c0976d9c",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "candidate": {
+    "path": "logs/check-runs/20261014T200728Z-f87d4b0830084e1b9d72f3e72863ab84.json",
+    "sha256": "21e9b76843523c44f8c81c7d5fbd336a2c1d1fd81118a7175fbafacdb70ed06f",
+    "logSha256": "a157cc0d022bba17e31bcc5c47f4f49f5113834a389a265b4a3d72e6aafc19d7",
+    "outcome": "passed-fresh",
+    "wallSeconds": 2.483018920989707,
+    "childrenMaxRssKiB": 219920,
+    "inputSnapshot": "2eb1b4dbd30aefd87227de01fc31b2a2901a3ce270f9a95654a504e3c58842f9",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "warnings": {
+    "criticalPairsBefore": 1170,
+    "criticalPairsAfter": 1174,
+    "replaceablePatternBefore": 66,
+    "replaceablePatternAfter": 66,
+    "addedDiagnostics": 7,
+    "removedDiagnostics": 0,
+    "addedBodyHashesByGroup": {
+      "represented_family_reindexing": [
+        "99eb607caec1d58a1e7cbb5b89cd12da49dd3c370e4e76ba2a2ebf29c635db70",
+        "856063a0ddeb2f35c1a7af7b29635c15ccd8dec6e653c2a3d5253d2c7e29c14b",
+        "f9445ec87e56745b7242721e94ba64b084291ffb4529943638d905c4b2ca54a9",
+        "5230908f479390fd91169d3cbcd3c2e768b1ebd8db0ddc0e917ba6813a42e8e5"
+      ],
+      "expected_negative_controls": [
+        "4bf9773f13c8aa78401e5c8ec756ff9d0f343349db25d988c2ea625de7b98933",
+        "18165723e43193ae06e17e2dabcbb4ee9033214151742a76a04dcfb92e34ffe5",
+        "71e5ce960a3392b74aa15511215d9b596a9735cf10d311af99dbd787891d9152"
+      ]
+    },
+    "qualification": "Whole component and first higher action, identity input, typed represented-family composition, pre/right proof-time comparison and directed noncollapse consumers pass. No global confluence claim."
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 24,
+    "intentionalClauses": 17
+  },
+  "development": {
+    "preRightRuntimeObservation": "20261014T195940Z-39342f4d87ad4b8792dd451fc158d0b3",
+    "preRightProofTimeBridge": "20261014T200122Z-11f9c521726a494ebd2d4578932a3891",
+    "identityBeforeRepresentedReindexNormalization": "20261014T200210Z-0d0da39de0b04b3cab78b338c2237a58"
+  },
+  "qualification": [
+    "Ordinary fixed-source F action is defined by canonical Cartesian covariance at the identity, and projects to the entire first Hom of F.",
+    "Positive internalization of default lax epsilon is defined by fixed postwhiskering and that canonical F action; whole component and first higher action compute.",
+    "Ordinary laxity and the Homd y-comparison are definitions through the existing intrinsic action, with no additional cell/proof input.",
+    "The Homd y-comparison retains its lax direction and directly projects to the v/k functor with the expected target Hom.",
+    "The nonidentity beta on the represented composite source, complete Q/intrinsic coherence, Sigma-Hom and public migration remain open."
+  ]
+}

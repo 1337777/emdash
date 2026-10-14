@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default with shared Cartesian families; strict-root and general-FF relative ladders compute, intrinsic projection/identity checks pass; nonidentity y-coherence, Sigma-Hom and production migration remain open
+Status: strict-functor/lax-transfor default with shared Cartesian families; direct root/relative ladders compute and whole y-comparison is extracted; represented-source beta, higher coherence, Sigma-Hom and production migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,33 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Latest ordinary-action continuation, 2026-10-14: the
+[ordinary internalization and y-comparison](../emdash2/audits/strict-default-action-boundary/cart_homd_ordinary_review.md)
+are now definitions through the Cartesian-family owners. Strict F-action is
+covariance of `Hom_B(F[x],F[-])` at `id_F[x]`, and its whole component computes
+to F_1. Default lax epsilon is internalized by fixed postwhiskering followed
+by that map, with the whole component, first higher action and identity
+specialization checked. One proof-time bridge reads its stable pre/right
+Hom action as the existing tapp1 middle; one named represented-family rule
+joins the identity-whiskering endpoint. Neither collapses the opposite
+naturality boundary or promotes general epsilon to strict.
+
+The ordinary directed comparison and the actual Homd y-comparison are
+extracted through the existing intrinsic action. The latter has direct v/k
+projections with target `Hom_E[z](E[k](u),E[q](v))`; the reverse direction is
+rejected. No new supplied comparison or operational proof argument occurs.
+Receipt `20261014T200728Z-f87d4b0830084e1b9d72f3e72863ab84` passes with SR in
+2.483s/219,920KiB. Warnings 1170->1174 concern the represented reindexing rule;
+the whole typed reindexing comparison passes and LHS has no unreviewed slots.
+
+Next qualify the represented composite on the comparison's source, including
+the actual beta `(beta:k=>qf,a) |-> E[q][a] o E[beta][u]`, and connect it to
+this extracted map. The older unit/counit work is donor evidence subject to
+the current coefficient types, not automatic admission. Complete consumed
+Q/intrinsic coherence and Sigma-Hom, then public migration. A general
+profunctor library remains outside the prerequisite scope. The production
+sources and the paused application goal were not changed by this slice.
 
 Latest relative/intrinsic continuation, 2026-10-14: the
 [general-FF relative root](../emdash2/audits/strict-default-action-boundary/cart_homd_relative_review.md)

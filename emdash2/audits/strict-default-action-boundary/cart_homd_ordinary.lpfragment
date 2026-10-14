@@ -1,0 +1,120 @@
+// NON-LIBRARY: ordinary internal action uses the same Cartesian family
+// coefficient as Homd. Fixed reindexing is a definition, not a new family.
+
+// Proof-time pre/right reading after raw composition has normalized to
+// tapp1. The inherited raw-composition bridge does not chain through this
+// normal form; runtime retains represented postcomposition as its owner.
+unif_rule @hom_postcomp_fapp0 $B $B (@id Cat_cat $B)
+      (@fapp0 $A $B $F $x) (@fapp0 $A $B $F $y) (@fapp0 $A $B $G $y)
+      (@tapp0_fapp0 $A $B $F $G $y $epsilon) (@fapp1_fapp0 $A $B $F $x $y $f)
+  ≡ @tapp1_fapp0 $A $B $F $G $x $y $epsilon $f
+  ↪ [ tt ≡ tt ];
+
+symbol sf_cart_hom_along [A B : Cat] (F : τ (Functor A B))
+  (b : τ (Obj B)) : τ (Functor A sf_cart_cat)
+≔ @comp_cat_fapp0 A B sf_cart_cat (@sf_cart_hom B b) F;
+
+// Canonical represented reindexing uses its actual composite at the stable
+// postcomposition owner. This joins identity-whiskering's endpoint after
+// its Hom action has projected; it is not a generic raw-composition fold.
+// lhs-audit: keep 1,2,3 -- named Cartesian represented family under reindexing.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      $A $B sf_cart_cat (@sf_cart_hom $B $b) $F
+  ↪ @sf_cart_hom_along $A $B $F $b;
+
+// F_1 at a fixed source is canonical covariance at the identity of F[x].
+// Strictness belongs to this constructed map, not arbitrary transfors.
+symbol sf_cart_fapp1_at [A B : Cat] (F : τ (Functor A B))
+  (x : τ (Obj A))
+  : τ (Hom (sf_cart_functor_cat A sf_cart_cat) (@sf_cart_hom A x)
+      (@sf_cart_hom_along A B F (@fapp0 A B F x)))
+≔ @sf_cart_cov A (@sf_cart_hom_along A B F (@fapp0 A B F x)) x
+    (@id B (@fapp0 A B F x));
+
+// epsilon's positive internalization is actual fixed postwhiskering after
+// F_1. Its whole y-action retains the default lax comparison of epsilon.
+symbol sf_cart_tapp1_at [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) (x : τ (Obj A))
+  : τ (@Transf A sf_cart_cat (@sf_cart_hom A x)
+      (@sf_cart_hom_along A B G (@fapp0 A B F x)))
+≔ @comp_fapp0 (Functor_cat A sf_cart_cat) (@sf_cart_hom A x)
+    (@sf_cart_hom_along A B F (@fapp0 A B F x))
+    (@sf_cart_hom_along A B G (@fapp0 A B F x))
+    (@fapp1_fapp0 (Functor_cat A B) (Functor_cat A sf_cart_cat)
+      (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) A B sf_cart_cat
+        (@sf_cart_hom B (@fapp0 A B F x))) F G epsilon)
+    (@strict_transfor A sf_cart_cat (@sf_cart_hom A x)
+      (@sf_cart_hom_along A B F (@fapp0 A B F x)) (@sf_cart_fapp1_at A B F x));
+
+// Ordinary forward naturality is extracted from the whole positive
+// internalization by Homd at the identity source arrow. No comparison cell
+// is a parameter. The endpoint reading keeps the two stable Hom actions.
+symbol sf_cart_tapp1_laxity [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (Hom (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@hom_postcomp_fapp0 B B (@id_func B) (@fapp0 A B F x)
+        (@fapp0 A B G x) (@fapp0 A B G y)
+        (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon))
+      (@hom_postcomp_fapp0 B B (@id_func B) (@fapp0 A B F x)
+        (@fapp0 A B F y) (@fapp0 A B G y)
+        (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y p)))
+≔ @sf_cq_fdapp1_laxity A (@sf_cart_hom A x)
+    (@sf_cart_hom_along A B G (@fapp0 A B F x))
+    (@sf_cart_tapp1_at A B F G epsilon x) x y p (@id A x);
+
+// The actual whole Homd y-square. These are ordinary Q compositions with
+// the diagram transports; their fixed v/k projections remain internal.
+symbol sf_cq_homd_y_lhs [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  : τ (Hom sf_cq_cat (fapp0 E y) (Hom_cat K x z))
+≔ @hom_postcomp_fapp0 sf_cq_cat sf_cq_cat (@id_func sf_cq_cat)
+    (fapp0 E y) (Hom_cat K x y) (Hom_cat K x z)
+    (@sf_cq_rep (Hom_cat K x y) (Hom_cat K x z)
+      (@hom_postcomp_func K K (@id_func K) x y z q))
+    (@sf_cq_homd_tgt K E x u y);
+
+symbol sf_cq_homd_y_rhs [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  : τ (Hom sf_cq_cat (fapp0 E y) (Hom_cat K x z))
+≔ @hom_postcomp_fapp0 sf_cq_cat sf_cq_cat (@id_func sf_cq_cat)
+    (fapp0 E y) (fapp0 E z) (Hom_cat K x z)
+    (@sf_cq_homd_tgt K E x u z)
+    (@sf_cq_rep (fapp0 E y) (fapp0 E z) (@fapp1_fapp0 K sf_cart_cat E y z q));
+
+// This comparison is extracted from the section's ordinary internal action.
+// It is a strict transformation in v/k because Q's local Homs are Cart;
+// its direction across y remains the selected lax direction.
+symbol sf_cq_homd_y_comparison [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  : τ (Hom (Hom_cat sf_cq_cat (fapp0 E y) (Hom_cat K x z))
+      (@sf_cq_homd_y_lhs K E x u y z q) (@sf_cq_homd_y_rhs K E x u y z q))
+≔ @sf_cart_tapp1_laxity K sf_cq_cat (@sf_cq_diagram K E)
+    (@sf_cq_diagram K (@sf_cart_hom K x)) (@sf_cq_homd_src_sec K E x u) y z q;
+
+// Direct whole comparison -> v -> k projections. The source is the actual
+// represented composite, not a new context or a supplied factorization.
+symbol sf_cq_homd_y_comparison_v [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  [y z : τ (Obj K)] (q : τ (Hom K y z)) (v : τ (Obj (fapp0 E y)))
+  : τ (Hom (sf_cart_functor_cat (Op_cat (Hom_cat K x z)) sf_cart_cat)
+      (fapp0 (@sf_cq_homd_y_lhs K E x u y z q) v)
+      (@sf_cq_homd_ K E x u z (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v)))
+≔ fapp0 (@sf_cart_component_func (fapp0 E y)
+      (sf_cart_functor_cat (Op_cat (Hom_cat K x z)) sf_cart_cat)
+      (@sf_cq_homd_y_lhs K E x u y z q) (@sf_cq_homd_y_rhs K E x u y z q) v)
+    (@sf_cq_homd_y_comparison K E x u y z q);
+
+symbol sf_cq_homd_y_comparison_vk [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  [y z : τ (Obj K)] (q : τ (Hom K y z)) (v : τ (Obj (fapp0 E y)))
+  (k : τ (Hom K x z))
+  : τ (Functor (fapp0 (fapp0 (@sf_cq_homd_y_lhs K E x u y z q) v) k)
+      (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x z k) u)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v)))
+≔ fapp0 (@sf_cart_component_func (Op_cat (Hom_cat K x z)) sf_cart_cat
+      (fapp0 (@sf_cq_homd_y_lhs K E x u y z q) v)
+      (@sf_cq_homd_ K E x u z (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v)) k)
+    (@sf_cq_homd_y_comparison_v K E x u y z q v);

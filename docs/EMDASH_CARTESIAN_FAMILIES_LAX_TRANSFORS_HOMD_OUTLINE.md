@@ -2,8 +2,8 @@
 
 Date: 2026-10-14
 Status: selected next candidate under the user's latest constraints;
-strict-root/relative ladders and intrinsic identity projection checked;
-nonidentity y-coherence and Sigma-Hom open
+strict-root/relative ladders and intrinsic y-comparison extraction checked;
+represented-source beta, full coherence and Sigma-Hom open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
 
@@ -244,3 +244,14 @@ Its identity-map normalization checks. The whole action remains a structural
 owner; nonidentity mate-comparison computation and full coherence remain
 required. The public family-classifier aliases above are still migration
 proposals subject to downstream closure checks.
+
+The [ordinary-action continuation](../emdash2/audits/strict-default-action-boundary/cart_homd_ordinary_review.md)
+now connects that extractor to ordinary transformations. The strict F-action
+is the canonical covariance of Hom_B(F[x],F[-]) at id_F[x]; default lax
+epsilon is internalized by fixed postwhiskering followed by that map. Its
+whole component and first higher action compute. Applying the extractor to
+the actual Homd section defines the y-comparison displayed above, with direct
+v/k projections to the expected target Hom. No additional comparison cell
+is supplied. The generating beta on its left represented composite and the
+consumed coherence remain open; the typed extraction alone does not supply
+them.

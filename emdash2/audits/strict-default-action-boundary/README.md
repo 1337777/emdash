@@ -106,6 +106,13 @@ and forward laxity; identity-map normality is checked without collapsing
 general lax FF boundaries. Nonidentity comparison coherence and Sigma-Hom
 remain open.
 
+The [ordinary internalization continuation](cart_homd_ordinary_review.md)
+defines the canonical F-action and the positive lax-transformation action
+using covariance and fixed postwhiskering. The actual Homd y-comparison is
+then extracted through the native intrinsic action, with direct v/k
+projections and the expected target Hom. Its represented-source beta and
+full coherence remain open; no new comparison witness is supplied.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's

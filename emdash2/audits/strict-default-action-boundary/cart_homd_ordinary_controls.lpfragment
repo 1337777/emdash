@@ -1,0 +1,104 @@
+// The constructed strict F-action projects to F's whole first Hom.
+assert [A B : Cat] (F : τ (Functor A B)) (x y : τ (Obj A)) ⊢
+  fapp0 (@sf_cart_component_func A sf_cart_cat (@sf_cart_hom A x)
+    (@sf_cart_hom_along A B F (fapp0 F x)) y) (@sf_cart_fapp1_at A B F x)
+  ≡ @fapp1_func A B F x y;
+
+// A genuine lax epsilon is accepted, and its fixed-arrow action is the
+// selected pre/right middle epsilon[y] after F[f].
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (@Transf A B F G))
+  [x y : τ (Obj A)] (f : τ (Hom A x y)) ⊢
+  fapp0 (@tapp0_fapp0 A sf_cart_cat (@sf_cart_hom A x)
+    (@sf_cart_hom_along A B G (fapp0 F x)) y (@sf_cart_tapp1_at A B F G epsilon x)) f
+  ≡ @hom_postcomp_fapp0 B B (@id_func B) (fapp0 F x) (fapp0 F y) (fapp0 G y)
+      (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y f);
+
+// The native pre/right middle is a proof-time reading of that stable Hom
+// action; runtime need not erase the represented postcomposition owner.
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (@Transf A B F G))
+  [x y : τ (Obj A)] (f : τ (Hom A x y)) ⊢
+  @eq_refl (Hom B (fapp0 F x) (fapp0 G y))
+    (fapp0 (@tapp0_fapp0 A sf_cart_cat (@sf_cart_hom A x)
+      (@sf_cart_hom_along A B G (fapp0 F x)) y (@sf_cart_tapp1_at A B F G epsilon x)) f)
+  : τ (@= (Hom B (fapp0 F x) (fapp0 G y))
+      (fapp0 (@tapp0_fapp0 A sf_cart_cat (@sf_cart_hom A x)
+        (@sf_cart_hom_along A B G (fapp0 F x)) y (@sf_cart_tapp1_at A B F G epsilon x)) f)
+      (@tapp1_fapp0 A B F G x y epsilon f));
+
+assertnot [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (@Transf A B F G))
+  [x y : τ (Obj A)] (f : τ (Hom A x y)) ⊢
+  @hom_postcomp_fapp0 B B (@id_func B) (fapp0 F x) (fapp0 F y) (fapp0 G y)
+    (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y f)
+  ≡ @tapp1_fapp0 A B F G x y epsilon f;
+
+assert [A B : Cat] (F : τ (Functor A B)) (x : τ (Obj A)) ⊢
+  @sf_cart_tapp1_at A B F F (@id (Functor_cat A B) F) x
+  ≡ @strict_transfor A sf_cart_cat (@sf_cart_hom A x)
+      (@sf_cart_hom_along A B F (fapp0 F x)) (@sf_cart_fapp1_at A B F x);
+
+// The positive internalization has a whole functor component, not only an
+// object formula. Its next Hom retains epsilon's fixed component and F's
+// actual higher action.
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (@Transf A B F G))
+  (x y : τ (Obj A)) ⊢
+  @tapp0_fapp0 A sf_cart_cat (@sf_cart_hom A x)
+    (@sf_cart_hom_along A B G (fapp0 F x)) y (@sf_cart_tapp1_at A B F G epsilon x)
+  ≡ @comp_cat_fapp0 (Hom_cat A x y) (Hom_cat B (fapp0 F x) (fapp0 F y))
+      (Hom_cat B (fapp0 F x) (fapp0 G y))
+      (@hom_postcomp_func B B (@id_func B) (fapp0 F x) (fapp0 F y) (fapp0 G y)
+        (@tapp0_fapp0 A B F G y epsilon)) (@fapp1_func A B F x y);
+
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (@Transf A B F G))
+  [x y : τ (Obj A)] [f g : τ (Hom A x y)] (alpha : τ (Hom (Hom_cat A x y) f g)) ⊢
+  @fapp1_fapp0 (Hom_cat A x y) (Hom_cat B (fapp0 F x) (fapp0 G y))
+    (@tapp0_fapp0 A sf_cart_cat (@sf_cart_hom A x)
+      (@sf_cart_hom_along A B G (fapp0 F x)) y (@sf_cart_tapp1_at A B F G epsilon x)) f g alpha
+  ≡ @hom_postcomp_fapp1_fapp0 B B (@id_func B) (fapp0 F x) (fapp0 F y) (fapp0 G y)
+      (@tapp0_fapp0 A B F G y epsilon)
+      (@fapp1_fapp0 A B F x y f) (@fapp1_fapp0 A B F x y g)
+      (@fapp1_fapp0 (Hom_cat A x y) (Hom_cat B (fapp0 F x) (fapp0 F y))
+        (@fapp1_func A B F x y) f g alpha);
+
+// The comparison is directed. The default does not identify its endpoints
+// or admit arbitrary epsilon as a strict transfor.
+assertnot [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (@Transf A B F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @eq_refl (Hom B (fapp0 F x) (fapp0 G y))
+    (@hom_postcomp_fapp0 B B (@id_func B) (fapp0 F x) (fapp0 G x) (fapp0 G y)
+      (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon))
+  : τ (@= (Hom B (fapp0 F x) (fapp0 G y))
+      (@hom_postcomp_fapp0 B B (@id_func B) (fapp0 F x) (fapp0 G x) (fapp0 G y)
+        (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon))
+      (@tapp1_fapp0 A B F G x y epsilon p));
+
+// The actual extracted Homd comparison lands in the existing mate's
+// pre/right action. Its v/k target is the desired Hom in E[z].
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  @sf_cq_homd_y_rhs K E x u y z q
+  ≡ @tapp1_fapp0 K sf_cq_cat (@sf_cq_diagram K E)
+      (@sf_cq_diagram K (@sf_cart_hom K x)) y z (@sf_cq_homd_src_sec K E x u) q;
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (v : τ (Obj (fapp0 E y))) (k : τ (Hom K x z)) ⊢
+  fapp0 (fapp0 (@sf_cq_homd_y_rhs K E x u y z q) v) k
+  ≡ Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x z k) u)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v);
+
+assertnot [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  @sf_cq_homd_y_comparison K E x u y z q
+  : τ (Hom (Hom_cat sf_cq_cat (fapp0 E y) (Hom_cat K x z))
+      (@sf_cq_homd_y_rhs K E x u y z q) (@sf_cq_homd_y_lhs K E x u y z q));
+
+// The represented-family normalization's composition overlap is compared
+// at whole-functor type. Runtime observations use the existing first-Hom
+// and object projections, rather than demanding new association rules.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) (c : τ (Obj C)) ⊢
+  @eq_refl (Functor A sf_cart_cat)
+    (@sf_cart_hom_along A C (@comp_cat_fapp0 A B C G F) c)
+  : τ (@= (Functor A sf_cart_cat)
+      (@sf_cart_hom_along A C (@comp_cat_fapp0 A B C G F) c)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) A B sf_cart_cat
+        (@sf_cart_hom_along B C G c) F));
