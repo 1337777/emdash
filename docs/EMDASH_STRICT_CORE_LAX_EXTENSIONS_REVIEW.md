@@ -102,27 +102,44 @@ their object fibres is not enough to meet this requirement.
 ## Explicit Cat_lax and proposed Homd interface outline
 
 Latest user direction, 2026-10-14: organize the weaker transformations under
-an explicit universe with Gray composition, rather than leaving a collection
-of unrelated local profiles. The following names are specification notation,
-not newly checked Lambdapi declarations:
+an explicit Cat_lax, and keep Gray-specific names out of the foundational
+interface. The user also proposes using the existing Cat carrier with its
+accepted controlled inconsistency instead of adding a GrayUniverse sort.
+The recommended computational presentation to assess is now:
 
 ```text
-Cat_lax : GrayUniverse
-Obj_G(Cat_lax) = Cat
-Hom_G(Cat_lax,A,B) = GrayHom_lax(A,B) : Cat
-Obj(GrayHom_lax(A,B)) = Functor(A,B).
+Cat_lax : Cat
+Obj(Cat_lax) = Cat
+Hom_Cat_lax(A,B) = the strict-functor / lax-transfor mapping category
+Obj(Hom_Cat_lax(A,B)) = Functor(A,B).
 ```
 
-The structural GrayUniverse classifier must distinguish its joint
-composition from strict Cartesian composition. The Cartesian universe has
-a whole inclusion into this universe, with the source regarded as a Gray
-category through the tensor-to-product comparison. This needs a native
-structural interface, but does not require weak category objects or genuinely
-lax functors as its 1-cells. LaxTransfor is then a derived Hom interface of
-Cat_lax; it is not an independent competing default. Tensor order and
-lax/oplax convention must match the existing native Gray closure.
+These are proposed interface meanings, not new installed public declarations.
+The existing experimental sf_cart_cat and ambient Cat_cat already provide
+the respective Cartesian and lax carrier roles. A distinct public universe
+sort is not a prerequisite for continuing their computation. Use iterated
+Homs of Cat_lax instead of public GrayDiagram/GrayLaxTransf constructors.
+LaxTransfor can be a derived readable alias, not an independent default.
 
-For fixed strict B, write L_K(B)=Hom_G(Cat_lax,K,B). A section convention
+There are two different qualifications. Cat:Cat suppresses the size hierarchy.
+Treating Cat_lax as an ordinary Cat also exposes it to generic Cartesian
+composition, whose existing adverse consumer derives equality of the two
+boundaries of an arbitrary lax naturality square. That is an additional
+structural compromise, not a consequence resolved merely by size impredicativity.
+It does not establish that the retained comparison cell reduces to identity
+or that evaluation diverges. Under the user's tolerance for controlled
+inconsistency, continue with the native carrier while using the intended
+tensor-based composition/evaluation owners and recording this known route.
+Do not cite this presentation as a qualified strict Cartesian model of the
+lax universe. A separate semantic classifier remains an option if required
+by an actual consumer, rather than an immediate universe-hierarchy project.
+
+The whole inclusion j from the strict core into Cat_lax remains required.
+Tensor order and lax/oplax convention stay in the implementation/semantic
+notes. This first Cat_lax still has strict functor objects. A possible later
+Cat_lax_lax with genuinely lax 1-cells is a separate design, not an alias.
+
+For fixed B, write L_K(B)=Hom_Cat_lax(K,B). A section convention
 can be specified without a primitive Pi:
 
 ```text
@@ -175,12 +192,16 @@ Conditional on that coefficient/diagram construction, let
 S_E(x) = LaxNatCat^Q_K(iota E, iota I_x).
 ```
 
-LaxNatCat here denotes the Hom of the appropriate whole Q-diagram
-construction. If Q is qualified as an ordinary strict category it is
-Hom_{L_K(Q)}; if Q has only a Gray structure, that expression is invalid
-and the corresponding Gray-diagram construction is required. This is an
-explicit implementation obligation, not a fresh opaque primitive Pi or
-an assumption that Cat_lax can accept a Gray universe as an ordinary object.
+In the chosen native carrier presentation this means the iterated Hom
+
+```text
+S_E(x) = Hom_{Hom_Cat_lax(K,Q)}(iota E,iota I_x).
+```
+
+This makes the proposed type explicit without a new section primitive.
+Its coefficient/diagram interpretation is still to be qualified: declaring
+Q:Cat under the controlled carrier convention supplies a syntactic carrier,
+not a derivation of its intended higher composition or mate coherence.
 
 The proposed direct projection ladder is
 
@@ -209,18 +230,19 @@ family example below explains why.
 For the whole x/u root, the candidate target has fibres H_E[x]=T(S_E(x)).
 Its p:x->x' action is induced by composing with the represented arrow
 obtained from precomposition I_x'=>I_x. Its higher action must be supplied
-by that same whole operation, not by a list of object declarations. A
-Gray-level specification to qualify is
+by that same whole operation, not by a list of object declarations. The
+native-carrier specification to qualify is
 
 ```text
-H_E : GrayDiagram(K,Cat_lax)
-homd_id_int(E) : GrayLaxTransf_K(j E,H_E)
+H_E : Functor(K,Cat_lax)
+homd_id_int(E) : Obj(Hom_{Hom_Cat_lax(K,Cat_lax)}(j E,H_E))
 homd_id_int(E)[x] = T(homd_id_src_func(E,x)).
 ```
 
-Here j is the whole Cartesian-to-lax-universe view. GrayDiagram and
-GrayLaxTransf are requirements on the structural universe interface, not
-existing source names or already established all-dimensional closure.
+Here j is the whole Cartesian-to-lax-universe view. Both the diagram and
+transformation types use the same Cat_lax Hom interface; there is no extra
+public GrayDiagram/GrayLaxTransf classifier. All-dimensional closure and
+the actual canonical higher action remain implementation obligations.
 If the canonical H_E and this root admit Cartesian lifts, their stronger
 types should be used; that must be derived, not inferred from strict E.
 The displayed formula is therefore a root specification to qualify, not
@@ -242,8 +264,8 @@ can then act by actual composition, with relative leaf
 extension; it must not re-enter through an untyped coercion.
 
 This outline separates established strict transport from the remaining
-coefficient, section and root realization. It does not count a proposed
-GrayUniverse or whole diagram classifier as a completed Homd construction.
+coefficient, section and root realization. It does not count a native
+carrier declaration as a completed Homd construction or a consistency proof.
 
 ## Integration without cloning the whole theory
 

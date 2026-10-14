@@ -18,6 +18,13 @@ explicit lax structure, and why the local Q alias does not establish whole
 coefficient/diagram coherence. Earlier references below to the default-lax-
 transfor requirement describe the previous boundary.
 
+Subsequent carrier/naming clarification: the user requests a Cat_lax-based
+native interface and proposes retaining Cat_lax:Cat under the accepted
+controlled-inconsistency policy. The review recommends assessing that
+computational presentation without a new public GrayUniverse sort. The
+generic Cartesian-composition boundary remains a separate documented
+structural compromise, not something solved by the Cat:Cat size convention.
+
 ## Scope and notation
 
 The user proposes `E : K -> Cat_sfunc_stransf`, asks for a comparison with

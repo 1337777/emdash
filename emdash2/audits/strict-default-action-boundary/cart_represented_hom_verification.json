@@ -1,0 +1,223 @@
+{
+  "status": "non-library Cartesian represented Hom consumer",
+  "donorEvidence": "audits/strict-default-action-boundary/cart_family_u_verification.json",
+  "donorEvidenceSha256": "9833163f636bfd0be18990a24e68cd3f55b681069f1efe6338331bae875e5fc3",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/cart_represented_hom_replay.py": "bc81427b986b47b2cfddc20e4395c30ed1ab3220cda9270d53e8bd2f3e848823",
+    "audits/strict-default-action-boundary/cart_represented_hom.lpfragment": "1af254c6e0f7e1cd6f2ecab35ebaffb973f58e3a9405b399d3ca0402703f9210",
+    "audits/strict-default-action-boundary/cart_represented_hom_controls.lpfragment": "dd849e1ca9fba6e08fbbf478a0ed332f23823e586d636aa8a47260aac155df9a"
+  },
+  "outputSha256": "4a2e1b251e71bed4f1ee4cf3534ac26c521069f810c490e558948ea161f74219",
+  "baseline": {
+    "path": "logs/check-runs/20261014T175204Z-1cb435902b4e4b1cbcab98f53b3ddd76.json",
+    "sha256": "6ac28bc7775b7c9926d0663d484fe2608ec70947e8a086b011ef031324d1e98c",
+    "logSha256": "1f80ae551b649388cd5a47556f9702842035b8a1559aba789bee146de9235c2b",
+    "outcome": "passed-fresh",
+    "wallSeconds": 1.7595120220212266,
+    "childrenMaxRssKiB": 163676,
+    "inputSnapshot": "3e04d1e03d101652ab3390d379024accff8f17bf4421000aaf54cb0fea99d092",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "candidate": {
+    "path": "logs/check-runs/20261014T175917Z-2726f1d9292149fb9fa82512ac73fae1.json",
+    "sha256": "7d281558637512e31ce3ff2808677ee79268168cf68c0c875dd29630a14b4497",
+    "logSha256": "723d2ed63a943cbb4d8da51092d6b7d4cdaba14eea1ae6ae4b3b8bdaad1f9053",
+    "outcome": "passed-fresh",
+    "wallSeconds": 1.7752438220195472,
+    "childrenMaxRssKiB": 167696,
+    "inputSnapshot": "bbe43ebe52f83042b8f8bfcb154b6550deffb6c3ac1ab22280704dfebca07d44",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "warnings": {
+    "criticalPairsBefore": 918,
+    "criticalPairsAfter": 945,
+    "replaceablePatternWarningsBefore": 62,
+    "replaceablePatternWarningsAfter": 62,
+    "added": 27,
+    "removed": 0,
+    "addedBodies": [
+      {
+        "sha256": "47870ee996d48ca0cdf59d2c64615603db2491630716f79781ab750c1ef45cd7",
+        "multiplicity": 1,
+        "group": "yoneda_hom_projection_and_identities"
+      },
+      {
+        "sha256": "cd2f78e512803a344cea6fe8d419e262603b810edd5ecfd3c70c517c6277b700",
+        "multiplicity": 1,
+        "group": "yoneda_hom_projection_and_identities"
+      },
+      {
+        "sha256": "22286d78a511d4dcc4c2de9ca4d34fb95c2034603bf2d6a1ee3322cb6f094099",
+        "multiplicity": 1,
+        "group": "yoneda_hom_projection_and_identities"
+      },
+      {
+        "sha256": "ea2d3c4de89bb44176714f64474e46f384fe680528e85cbc345faa43eb249a97",
+        "multiplicity": 1,
+        "group": "yoneda_hom_projection_and_identities"
+      },
+      {
+        "sha256": "ec6a2d7235ae8f63ba03143b77d2deee036aa3c4472d21b92a6af3f4d660149a",
+        "multiplicity": 1,
+        "group": "yoneda_hom_projection_and_identities"
+      },
+      {
+        "sha256": "4ff78c18b20d4f83b256b45688c565727145b5ca10bd9b952e7e72e22c0f5f7a",
+        "multiplicity": 1,
+        "group": "yoneda_hom_projection_and_identities"
+      },
+      {
+        "sha256": "bf4634e8ef6c7d9854b0548b8321f0c3402d831a6a81d4d47191b91033b991b8",
+        "multiplicity": 1,
+        "group": "generic_action_naturality_or_composition"
+      },
+      {
+        "sha256": "f8f0dea906fee07134e805faecffd55edca541d7afd9eb0ea7cdf45422055385",
+        "multiplicity": 1,
+        "group": "generic_action_naturality_or_composition"
+      },
+      {
+        "sha256": "f4c74eafae13784d1e81ce3d69385daa8f0f4c32a28daebde4adb7feaab5ca7c",
+        "multiplicity": 1,
+        "group": "generic_action_naturality_or_composition"
+      },
+      {
+        "sha256": "168c23fdf8ea0d80153f4373c6c2b54dbf31587c2b9529e722c052428a55ba5e",
+        "multiplicity": 1,
+        "group": "generic_action_naturality_or_composition"
+      },
+      {
+        "sha256": "8a87b9630c9b60018048b4b803bb17f056da81ed46d6fba4cbfa8c8a4b62ca86",
+        "multiplicity": 1,
+        "group": "generic_action_naturality_or_composition"
+      },
+      {
+        "sha256": "78eeb7edc9a6ad7d2cfbc6e976229048965c1c29155e05030ecec6576c24074b",
+        "multiplicity": 1,
+        "group": "generic_action_naturality_or_composition"
+      },
+      {
+        "sha256": "38e446bbea353da63fc857af42095cc6d5dba76faa2578147d3059077c261898",
+        "multiplicity": 1,
+        "group": "canonical_covariance_identity_projections"
+      },
+      {
+        "sha256": "ab3df0bdd8c1f913259267d0321b78f8dc95c7e86bde892e0fbe8e2e8f4a4106",
+        "multiplicity": 1,
+        "group": "canonical_covariance_identity_projections"
+      },
+      {
+        "sha256": "3d2f188203159fb1234fd8add16e1438a016850bb3656363dde2723b0cb37d54",
+        "multiplicity": 1,
+        "group": "canonical_covariance_identity_projections"
+      },
+      {
+        "sha256": "21be17c2f6dd9669a0fcd0efccd9f2b39249febfd340dba3cf623a3dbb7ece76",
+        "multiplicity": 1,
+        "group": "canonical_covariance_identity_projections"
+      },
+      {
+        "sha256": "0e8014df11a53563c7b4f215c2b956528d6ec35eafeb74b338e7f36937b8e587",
+        "multiplicity": 1,
+        "group": "canonical_covariance_identity_projections"
+      },
+      {
+        "sha256": "d27b5759b5776ad2bdc6e2735c738dc78e33aeec046d2e04cd40b36f89bb0d34",
+        "multiplicity": 1,
+        "group": "canonical_covariance_identity_projections"
+      },
+      {
+        "sha256": "db047df355cb1acc7566c6d0a6770aae114d097205b3e277aee830b29ecb6688",
+        "multiplicity": 1,
+        "group": "covariance_units_composition_and_next_component"
+      },
+      {
+        "sha256": "9df17d8fc0a0a13347d669ead57f346f56313f3d40653da6341e914080dd84d4",
+        "multiplicity": 1,
+        "group": "covariance_units_composition_and_next_component"
+      },
+      {
+        "sha256": "d31afb88a8f70413d8b71389ddef23b619dadd140265183e0d5c00f5675bc56b",
+        "multiplicity": 1,
+        "group": "covariance_units_composition_and_next_component"
+      },
+      {
+        "sha256": "52f615eb225db6e19c3d323f4d58d11a3ded5834b9e9db0988ede98dd41a0574",
+        "multiplicity": 1,
+        "group": "normalized_coefficient_units_under_hom_projections"
+      },
+      {
+        "sha256": "84580ec4daf81d4ad4ecb2e65fc4efd2a4e8480985f2873b276eff0bbb82e95e",
+        "multiplicity": 1,
+        "group": "normalized_coefficient_units_under_hom_projections"
+      },
+      {
+        "sha256": "c73b254b7e83e0bf83bfde60051b4c2aa901bf3af502c9e72ab38478df63544c",
+        "multiplicity": 1,
+        "group": "normalized_coefficient_units_under_hom_projections"
+      },
+      {
+        "sha256": "87ed91e802dcfdc96431e1d9424c133cc2bb077bc35519033a44d9cff0f9425b",
+        "multiplicity": 1,
+        "group": "normalized_coefficient_units_under_hom_projections"
+      },
+      {
+        "sha256": "1000b29c7fdfed8bdc22308352a72840f954a26f9ee7274706219e419c82c09c",
+        "multiplicity": 1,
+        "group": "normalized_coefficient_units_under_hom_projections"
+      },
+      {
+        "sha256": "5b02d87a4afaac4e403876ee8cca475ea372236fa0c6690745c83c9e99bed776",
+        "multiplicity": 1,
+        "group": "normalized_coefficient_units_under_hom_projections"
+      }
+    ],
+    "qualification": "Concrete whole/capped component, base-two-cell and whole identity/composition consumers pass; no global confluence claim."
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 23,
+    "intentionalClauses": 16
+  },
+  "development": {
+    "missingProjectedCoefficientUnit": "20261014T175821Z-9108c0db2cde405cb91125c245d6f767"
+  },
+  "qualification": [
+    "Separate Cartesian coefficient and pinned candidate; not a public default migration.",
+    "Whole Cartesian Yoneda owner and defined target-first represented Hom with direct local Homd projections.",
+    "No whole y-section, Q-composition coherence, whole Homd x-root or Sigma-Hom comparison is established by this slice.",
+    "Existing ambient universe-composition inconsistency remains documented."
+  ]
+}

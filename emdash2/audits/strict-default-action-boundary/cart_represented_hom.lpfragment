@@ -1,0 +1,81 @@
+// NON-LIBRARY: Cartesian represented Hom. In this pinned candidate Op_cat
+// is dimension-one transpose T; TotalOp_cat is total reversal O.
+// The whole x-Hom is the already implemented covariance of I_x. This keeps
+// E and I_x in precisely the same Cartesian family classifier.
+injective symbol sf_cart_hom_int (K : Cat)
+  : τ (Functor (Op_cat K) (sf_cart_functor_cat K sf_cart_cat));
+rule fapp0 (sf_cart_hom_int $K) $x ↪ @sf_cart_hom $K $x;
+rule @fapp1_func _ _ (sf_cart_hom_int $K) $x' $x
+  ↪ @sf_cart_cov_func $K (@sf_cart_hom $K $x) $x';
+rule @fapp1_fapp0 _ _ (sf_cart_hom_int $K) $x' $x $p
+  ↪ @sf_cart_cov $K (@sf_cart_hom $K $x) $x' $p;
+
+// Representable transport is ordinary precomposition, at the expanded
+// component-evaluation composite rather than on a reducible alias head.
+// lhs-audit: keep 1 -- composition of the actual strict evaluation functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ (@fapp0_func _ _ $p)
+        (sf_cart_functor_include _ _))
+      (@sf_cart_hom_action $K $x $x' $y)
+  ↪ @hom_precomp_along_func $K $K (@id_func $K) $y $x $x' $p;
+
+// Yoneda units and composition live on their canonical covariance images.
+// They do not admit arbitrary transformations to the Cartesian classifier.
+rule @sf_cart_cov $K (@sf_cart_hom $K $x) $x (@id _ $x)
+  ↪ @id (sf_cart_functor_cat $K sf_cart_cat) (@sf_cart_hom $K $x);
+// lhs-audit: keep 1 -- composition in the Cartesian diagram category.
+rule @comp_fapp0 (sf_cart_functor_cat _ sf_cart_cat) _ _ _
+      (@sf_cart_cov $K (@sf_cart_hom $K $x) $x' $p)
+      (@sf_cart_cov $K (@sf_cart_hom $K $x') $x'' $q)
+  ↪ @sf_cart_cov $K (@sf_cart_hom $K $x) $x''
+      (@comp_fapp0 $K $x $x' $x'' $q $p);
+
+// Identity-family precomposition in the Cartesian coefficient uses the
+// same ordinary strict composite object. This is the object projection
+// needed by the represented Hom definition below.
+// lhs-audit: keep 1,2,3 -- only identity-family Cartesian coefficient action.
+rule @hom_precomp_along_fapp0 sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+      $Z $A $B $F $G
+  ↪ @comp_cat_fapp0 $A $B $Z $G $F;
+
+// Cartesian coefficient identities project to ordinary id_func before
+// reaching these stable Hom owners. Retain their whole identity action.
+// lhs-audit: keep 1,2,3 -- identity-family Cartesian coefficient action.
+rule @hom_postcomp_func sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+      $A $B $B (@id Cat_cat $B)
+  ↪ @id_func (sf_cart_functor_cat $A $B);
+// lhs-audit: keep 1,2,3 -- identity-family Cartesian coefficient action.
+rule @hom_precomp_along_func sf_cart_cat sf_cart_cat (@id Cat_cat sf_cart_cat)
+      $B $A $A (@id Cat_cat $A)
+  ↪ @id_func (sf_cart_functor_cat $A $B);
+
+// The target-first curried represented Hom is an actual composite:
+// B --Y_(T B)--> Cart(T B,Cat_s) --precomp(T F)--> Cart(T A,Cat_s).
+// There is no Q universe or higher-section coherence assumed here.
+symbol sf_cart_hom_con_int [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor B (sf_cart_functor_cat (Op_cat A) sf_cart_cat))
+≔ @comp_cat_fapp0 B (sf_cart_functor_cat (Op_cat B) sf_cart_cat)
+    (sf_cart_functor_cat (Op_cat A) sf_cart_cat)
+    (@hom_precomp_along_func sf_cart_cat sf_cart_cat (@id_func sf_cart_cat)
+      sf_cart_cat (Op_cat A) (Op_cat B) (@Op_func A B F))
+    (sf_cart_hom_int (Op_cat B));
+
+// Fixed target is a projection of the whole represented owner.
+symbol sf_cart_hom_con [A B : Cat] (F : τ (Functor A B))
+  (b : τ (Obj B)) : τ (Functor (Op_cat A) sf_cart_cat)
+≔ fapp0 (@sf_cart_hom_con_int A B F) b;
+
+// Local Homd is a consumer of the same represented Hom, after the actual
+// transport functor. This is a direct y/v/f ladder, not yet a whole y-section.
+symbol sf_cart_homd_tgt [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x))) (y : τ (Obj K))
+  : τ (Functor (fapp0 E y)
+      (sf_cart_functor_cat (Op_cat (Hom_cat K x y)) sf_cart_cat))
+≔ @sf_cart_hom_con_int (Hom_cat K x y) (fapp0 E y)
+    (@sf_cart_transport K E x y u);
+
+symbol sf_cart_homd_ [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x))) (y : τ (Obj K))
+  (v : τ (Obj (fapp0 E y)))
+  : τ (Functor (Op_cat (Hom_cat K x y)) sf_cart_cat)
+≔ fapp0 (@sf_cart_homd_tgt K E x u y) v;

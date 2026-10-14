@@ -38,6 +38,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Latest carrier/naming clarification, 2026-10-14: the user proposes avoiding
+a new GrayUniverse sort under the project's tolerance for controlled
+inconsistency, and asks for Cat_lax-based foundational names. The
+[updated outline](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md#explicit-cat_lax-and-proposed-homd-interface-outline)
+now recommends a computational Cat_lax:Cat presentation, expressing sections
+and the proposed root through iterated Hom_Cat_lax. Do not introduce public
+GrayDiagram/GrayLaxTransf names or treat a separate universe hierarchy as a
+prerequisite. Keep the intended tensor/composition structure in semantic and
+implementation notes. The known generic-Cartesian-composition equality of
+lax-square boundaries remains an explicitly documented structural compromise,
+distinct from Cat:Cat's size convention; no cell-identity reduction or
+nontermination follows from that audit. E and I_x remain in the same strict
+Cartesian family classifier. A future Cat_lax_lax is separate.
+
+Native continuation, 2026-10-14: the
+[Cartesian represented-Hom slice](../emdash2/audits/strict-default-action-boundary/cart_represented_hom_review.md)
+uses the checked covariance as the whole first Hom of Y_K:T(K)->Cart(K,Cat_s).
+The target-first represented Hom is a defined precomposition composite;
+its direct local Homd v/f leaf and actual base-two-cell index action compute.
+Canonical units/composition and component-first observations pass. A missing
+normalized coefficient-unit projection was repaired at its scoped owner.
+Receipt `20261014T175917Z-2726f1d9292149fb9fa82512ac73fae1` passes with SR
+in 1.775s/167,696KiB; critical-pair diagnostics 918->945 are inventoried,
+and the LHS audit has zero unreviewed slots. No resource increase or
+production promotion occurred. The next owner is the whole Q-valued
+mate/y-section using these actual Cartesian components; the local consumer
+is not relabelled as an internalized-y result.
+
 Latest interface direction, 2026-10-14: the user agrees to organize lax
 transformations under an explicit Cat_lax with Gray composition, and requires
 E and the prototypical represented Hom family to share the same whole family

@@ -1,0 +1,116 @@
+// Whole Yoneda first-Hom is existing covariance, including its u-action.
+assert [K : Cat] (x x' : τ (Obj K)) ⊢
+  @fapp1_func (Op_cat K) (sf_cart_functor_cat K sf_cart_cat)
+    (sf_cart_hom_int K) x' x
+  ≡ @sf_cart_cov_func K (@sf_cart_hom K x) x';
+
+// The actual y-component is whole precomposition, before choosing f.
+assert [K : Cat] (x x' y : τ (Obj K)) (p : τ (Hom K x x')) ⊢
+  @sf_cart_transport K (@sf_cart_hom K x) x' y p
+  ≡ @hom_precomp_along_func K K (@id_func K) y x x' p;
+
+assert [K : Cat] (x : τ (Obj K)) ⊢
+  @sf_cart_cov K (@sf_cart_hom K x) x (@id K x)
+  ≡ @id (sf_cart_functor_cat K sf_cart_cat) (@sf_cart_hom K x);
+
+assert [K : Cat] (x x' x'' : τ (Obj K))
+  (p : τ (Hom K x x')) (q : τ (Hom K x' x'')) ⊢
+  @comp_fapp0 (sf_cart_functor_cat K sf_cart_cat)
+    (@sf_cart_hom K x'') (@sf_cart_hom K x') (@sf_cart_hom K x)
+    (@sf_cart_cov K (@sf_cart_hom K x) x' p)
+    (@sf_cart_cov K (@sf_cart_hom K x') x'' q)
+  ≡ @sf_cart_cov K (@sf_cart_hom K x) x'' (@comp_fapp0 K x x' x'' q p);
+
+// Component-first and whole-first composition agree as whole functors.
+assert [K : Cat] (x x' x'' y : τ (Obj K))
+  (p : τ (Hom K x x')) (q : τ (Hom K x' x'')) ⊢
+  fapp0 (@sf_cart_component_func K sf_cart_cat (@sf_cart_hom K x'') (@sf_cart_hom K x) y)
+    (@comp_fapp0 (sf_cart_functor_cat K sf_cart_cat)
+      (@sf_cart_hom K x'') (@sf_cart_hom K x') (@sf_cart_hom K x)
+      (@sf_cart_cov K (@sf_cart_hom K x) x' p)
+      (@sf_cart_cov K (@sf_cart_hom K x') x'' q))
+  ≡ @comp_cat_fapp0 (Hom_cat K x'' y) (Hom_cat K x' y) (Hom_cat K x y)
+      (@sf_cart_transport K (@sf_cart_hom K x) x' y p)
+      (@sf_cart_transport K (@sf_cart_hom K x') x'' y q);
+
+assert [K : Cat] (x y : τ (Obj K)) ⊢
+  fapp0 (@sf_cart_component_func K sf_cart_cat (@sf_cart_hom K x) (@sf_cart_hom K x) y)
+    (@sf_cart_cov K (@sf_cart_hom K x) x (@id K x))
+  ≡ @sf_cart_transport K (@sf_cart_hom K x) x y (@id K x);
+
+// Identity may project through the base-action owner before the canonical
+// section folds. Its whole q-action must still be I_x's first Hom.
+assert [K : Cat] (x y z : τ (Obj K)) ⊢
+  @sf_cart_cov_action K (@sf_cart_hom K x) x (@id K x) y z
+  ≡ @sf_cart_hom_action K x y z;
+
+// A base two-cell survives the whole Yoneda Hom and component projections.
+assert [K : Cat] (x x' y : τ (Obj K)) [p q : τ (Hom K x x')]
+  (alpha : τ (Hom (Hom_cat K x x') p q)) (r : τ (Hom K x' y)) ⊢
+  fapp0 (@sf_cart_component_func (Hom_cat K x' y) (Hom_cat K x y)
+    (@sf_cart_transport K (@sf_cart_hom K x) x' y p)
+    (@sf_cart_transport K (@sf_cart_hom K x) x' y q) r)
+    (@fapp1_fapp0
+      (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cart_hom K x') (@sf_cart_hom K x))
+      (sf_cart_functor_cat (Hom_cat K x' y) (Hom_cat K x y))
+      (@sf_cart_component_func K sf_cart_cat (@sf_cart_hom K x') (@sf_cart_hom K x) y)
+      (@sf_cart_cov K (@sf_cart_hom K x) x' p) (@sf_cart_cov K (@sf_cart_hom K x) x' q)
+      (@fapp1_fapp0 (Hom_cat K x x')
+        (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cart_hom K x') (@sf_cart_hom K x))
+        (@fapp1_func (Op_cat K) (sf_cart_functor_cat K sf_cart_cat) (sf_cart_hom_int K) x' x)
+        p q alpha))
+  ≡ @fapp1_fapp0 (Hom_cat K x x') (Hom_cat K x y)
+      (@hom_postcomp_func K K (@id_func K) x x' y r) p q alpha;
+
+// The represented contravariant body is a real composite, with Cat_s output.
+assert [B : Cat] ⊢
+  @sf_cart_hom_con_int B B (@id_func B)
+  ≡ sf_cart_hom_int (Op_cat B);
+
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  fapp0 (fapp0 (@sf_cart_hom_con_int A B F) b) a
+  ≡ Hom_cat B (fapp0 F a) b;
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (@sf_cart_homd_ K E x u y v) f
+  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u) v;
+
+// A genuine base two-cell acts on the index in the T direction. Its whole
+// Homd action must remain an ordinary strict functor between the Hom fibres.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) [f g : τ (Hom K x y)]
+  (alpha : τ (Hom (Hom_cat K x y) f g)) ⊢
+  @fapp1_fapp0 (Op_cat (Hom_cat K x y)) sf_cart_cat
+    (@sf_cart_homd_ K E x u y v) g f alpha
+  : τ (Functor
+      (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y g) u) v)
+      (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u) v));
+
+// Its actual computation is precomposition in E[y], expressed by the
+// covariant Hom owner in T(E[y]). The compared cell is extracted from
+// E's actual first Hom and component evaluation, not a supplied witness.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) [f g : τ (Hom K x y)]
+  (alpha : τ (Hom (Hom_cat K x y) f g)) ⊢
+  @fapp1_fapp0 (Op_cat (Hom_cat K x y)) sf_cart_cat
+    (@sf_cart_homd_ K E x u y v) g f alpha
+  ≡ @hom_postcomp_func (Op_cat (fapp0 E y)) (Op_cat (fapp0 E y))
+      (@id_func (Op_cat (fapp0 E y))) v
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y g) u)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u)
+      (fapp0 (@sf_cart_component_func (fapp0 E x) (fapp0 E y)
+        (@fapp1_fapp0 K sf_cart_cat E x y f) (@fapp1_fapp0 K sf_cart_cat E x y g) u)
+        (@fapp1_fapp0 (Hom_cat K x y)
+          (sf_cart_functor_cat (fapp0 E x) (fapp0 E y))
+          (@fapp1_func K sf_cart_cat E x y) f g alpha));
+
+// Retain a variable higher endomorphism rather than identifying it with
+// the identity action just because f=g.
+assertnot [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (f : τ (Hom K x y))
+  (alpha : τ (Hom (Hom_cat K x y) f f)) ⊢
+  @fapp1_fapp0 (Op_cat (Hom_cat K x y)) sf_cart_cat
+    (@sf_cart_homd_ K E x u y v) f f alpha
+  ≡ @id_func (Hom_cat (fapp0 E y)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u) v);

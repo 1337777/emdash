@@ -78,6 +78,12 @@ projections compute on objects, arrows and a fibre two-cell, with both
 whole-first and capped-first observations. This is a reusable input to
 the Homd mate construction, not the full Homd or public migration.
 
+The [Cartesian represented-Hom continuation](cart_represented_hom_review.md)
+uses that covariance as the actual first Hom of Cartesian Yoneda. The
+target-first represented Hom is then a defined composite; its local Homd
+v/f projections and actual index action compute with Cat_s coefficients.
+Whole y-section and x-root assembly remain separate required work.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's
