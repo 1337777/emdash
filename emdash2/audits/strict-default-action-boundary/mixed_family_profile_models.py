@@ -65,6 +65,31 @@ def main():
                      'e0': ('H0', 'J0'), 'e1': ('H1', 'J1')}, [(left, right)])
     assert left != right and (left, right) in square.cells
     assert (right, left) not in square.cells
+
+    # The existing ordinary internalization tapp1_at_transf(epsilon,0)
+    # is Cat-valued. In the normal-lax square above it has components
+    # selecting e0 at 0 and right=epsilon[p] at 1. Postcomposition by k
+    # sends e0 to left. Strict naturality of this *internalization* would
+    # require left=right and exclude this ordinary lax transformation.
+    e0, e1 = ('H0', ('e0',)), ('H1', ('e1',))
+    h, k = ('H0', ('h',)), ('J0', ('k',))
+    assert square.compose(k, e0) == left
+    assert square.compose(e1, h) == right
+    internalization_is_strict = square.compose(k, e0) == right
+    assert not internalization_is_strict
+
+    # Reuse the square as a base-2-cell image E[alpha]:E[p]=>E[q].
+    # For the source-u map in the proposed Homd ladder, evaluate its
+    # f-naturality square at v=J1 and id_v. The two presheaf maps select
+    # the distinct left/right objects of Hom_B(H0,J1). Thus an inner
+    # default Cat-valued *strict* transfor cannot have these projections.
+    # This is conditional on that curried target; it is not a no-go for
+    # every mixed or dual coefficient, or a native family-admission proof.
+    id_v = ('J1', ())
+    index_then_source = square.compose(square.compose(id_v, e1), h)
+    source_then_index = square.compose(square.compose(id_v, k), e0)
+    assert index_then_source == right and source_then_index == left
+    assert index_then_source != source_then_index
     # Precomposition by the strict transformation 0=>1 between point
     # selectors would be eval0=>eval1. Strict naturality on this lax square
     # would require equality of the two distinct paths above.
@@ -91,6 +116,17 @@ def main():
     print(json.dumps({
         'raw_mapping_fibre': {'lax_square_exists': True,
                               'strict_precomposition_naturality': False},
+        'cat_valued_strictness_internalization': {
+            'strict_F_and_G': True,
+            'normal_lax_epsilon_exists': True,
+            'prescribed_tapp1_at_is_strict': internalization_is_strict,
+            'uses_Pi_Sigma_Q_or_opposite': False},
+        'homd_inner_strictness': {
+            'base_2_cell_image_lax': True,
+            'index_then_source': index_then_source,
+            'source_then_index': source_then_index,
+            'strict_index_naturality': False,
+            'scope': 'prescribed u/v/f projections with a strict inner Cat-valued transfor'},
         'negative_family_parameter': {'lax_input_exists': True,
                                       'same_lax_output_exists': False},
         'shifted_op_section': {'strict_negative_input_exists': True,

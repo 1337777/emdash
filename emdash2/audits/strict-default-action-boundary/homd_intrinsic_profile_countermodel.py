@@ -29,6 +29,63 @@ def natural_transformation(source, target, first, second):
             and all((first[x], second[x]) in target for x, _ in source))
 
 
+def constant_sections():
+    # Native Pi(const B) compares with Functor(K,B). Equivalently these are
+    # Cat-valued transformations const(1)=>const(B). Their component at x
+    # selects F[x], and their comparison at p:x->y is the ordinary F[p].
+    # All functors here are strict: the categories are thin and ordinary.
+    base = thin_category((0, 1), {(0, 1)})
+    value = thin_category(('a', 'b'), {('a', 'b')})
+    candidates = [dict(zip((0, 1), xs)) for xs in product(('a', 'b'), repeat=2)]
+    functors = [f for f in candidates if is_functor(base, value, f)]
+    strict_sections = [f for f in functors
+                       if all(f[x] == f[y] for x, y in base)]
+    directed = {0: 'a', 1: 'b'}
+    assert directed in functors and directed not in strict_sections
+    assert (len(functors), len(strict_sections)) == (3, 2)
+    return {
+        'ordinaryFunctorObjects': len(functors),
+        'strictConstantFamilySections': len(strict_sections),
+        'excludedFunctor': directed,
+        'retainedArrow': 'a -> b',
+        'qualification': 'Global strictness of Cat-valued transformations conflicts with the existing constant-section/functor identification; no duality is used.',
+    }
+
+
+def cat_valued_hom_detection():
+    # F:[2]->Y is normal lax, where Y has one object and Hom_Y(*,*) is
+    # the strict monoidal poset 0<1, with tensor=max and identity=0.
+    # F(01)=F(12)=0 but F(02)=1. Its nonidentity compositor is 0->1.
+    # H=Hom_Y(*,F(-)) is Cat-valued, with H(p)(a)=max(F(p),a).
+    def action(i, j):
+        assert i <= j
+        return int((i, j) == (0, 2))
+
+    for a, b, c in product(range(2), repeat=3):
+        assert max(max(a, b), c) == max(a, max(b, c))
+        assert max(0, a) == a == max(a, 0)
+    for i, j, k, l in product(range(3), repeat=4):
+        if i <= j <= k <= l:
+            start = max(action(i, j), action(j, k), action(k, l))
+            assert start <= max(action(i, k), action(k, l)) <= action(i, l)
+            assert start <= max(action(i, j), action(j, l)) <= action(i, l)
+            # Coherence follows from uniqueness of parallel 2-cells.
+    for i in range(3):
+        assert action(i, i) == 0
+    composed = [max(action(1, 2), max(action(0, 1), a)) for a in range(2)]
+    direct = [max(action(0, 2), a) for a in range(2)]
+    assert composed == [0, 1] and direct == [1, 1]
+    assert all(a <= b for a, b in zip(composed, direct))
+    return {
+        'normalLaxFunctorExists': True,
+        'HqAfterHp': composed,
+        'Hqp': direct,
+        'evaluationAtIdentity': [composed[0], direct[0]],
+        'CatValuedHomIsStrict': False,
+        'qualification': 'The retained blended Hom action detects F composition. Declaring every Cat-valued functor strict would exclude this F or require changing that Hom constructor/interface.',
+    }
+
+
 def check():
     base = thin_category((0, 1), {(0, 1)})
     fibre = thin_category(('u', 'v'), set())
@@ -104,6 +161,8 @@ def check():
             'post': 'a -> c', 'pre': 'b -> c',
             'forwardComparison': 'a -> b absent',
         },
+        'allCatValuedTransforsStrict': constant_sections(),
+        'allCatValuedFunctorsStrict': cat_valued_hom_detection(),
         'qualification': [
             'Refutes the stated ordinary-lax x packaging, not Homd or intrinsic laxity in a corrected profile.',
             'Does not refute the bare raw two-skew Functord type; its local oplax legs exist.',

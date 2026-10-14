@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; requested lax-transfor Cat contract reaffirmed; Cartesian-universe prototypes are comparison evidence, not qualification of that contract; core interface correction and migration remain open
+Status: strict-functor migration reaffirmed under the single-universe and all-family requirements; Cat-valued-transfor strictness remains under review and is not installed; prior prototypes remain conditional comparison evidence
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,19 +38,66 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Latest review instruction, 2026-10-14: compare corrected-duality strict
+functors/lax transfors with a Cat-valued-transfor strictness exception
+against lax defaults with both Cat-valued functors and Cat-valued transfors
+strict. The user further asks whether a strict-transport coefficient would
+make global strict functors inevitable. The latest explicit constraint is
+one universe, `Hom_Cat(A,B)=Functor_cat(A,B)`, and admission of every
+`E:K->Cat` to the foundational Homd. Under the retained strict-transport
+requirement this reaffirms the original global strict-functor migration:
+every F:A->B can occur as the transport of a walking-arrow family. A separate
+restricted family universe is therefore outside the selected solution.
+The findings in "Cat-valued strictness and family admission" below supersede
+selection language in the chronological entries. This does not select global
+Cat-valued-transfor strictness, whose independent effects on internal action
+and Pi remain under review. No new exception is installed. The
+LaxHom/LaxFunctord proposal below is conditional on preserving Pi as all
+sections; a deliberately strict Pi is also meaningful, with different
+consumers and constant-family semantics.
+
 User correction, 2026-10-14: preserve the agreed public universe
 
 ```lambdapi
 rule Hom_cat Cat_cat $A $B ↪ Functor_cat $A $B;
 ```
 
-Its functor objects have the new strict default, while its transformations
-remain non-strict. The assistant's replacement of this public Hom by
-`Functor_cart_cat` changed that agreed contract. The user also rejects
+The original migration target makes its functor objects strict. The current
+review additionally considers the user's Cat-valued `Transf(K,Cat,E,D)`
+strictness exception and the alternative ambient-lax design above. It does
+not replace every Hom of Cat by `Functor_cart_cat`: that earlier substitution
+restricted transformations into every codomain. The user also rejects
 explicit `U:StrictTransfor(...)` requirements in the foundational Op/Homd
 operations. Do not retain that restriction as the solution to the general
 FF obligation, or reintroduce it under another name. The accepted
 identity-core/defined-relative ownership split remains unchanged.
+
+The classifier correction to investigate under that exception is:
+
+```text
+Functord_cat(E,D) ≐ Transf_cat(K,Cat,E,D)             // strict by the exception
+LaxFunctord_cat(E,D) := LaxTransf_cat(K,Cat,E,D)       // genuinely lax sections
+Pi_cat(E) ≐ LaxFunctord_cat(const(1),E)
+Pi_cat(const(B)) ≐ LaxHom_cat(K,B).
+```
+
+These are proposed classifier names/interfaces, not implemented operators.
+`LaxHom_cat(K,B)` here has the same strict functor objects as the default
+mapping category, but explicitly lax higher transfors even when B=Cat.
+It does not classify lax functor objects. Hence the object-level constant
+section comparison still has `Functor(K,B)` on its right, while the whole
+category comparison cannot automatically use default `Functor_cat(K,B)`
+at B=Cat, whose transformations become strict under the exception. The
+existing `LaxTransfor` subprofile of the old ambient Transf cannot simply
+be assumed to implement this genuinely lax classifier after that ambient
+Cat-valued Transf is strictified. Higher profiles and native projections
+must be qualified. No operational evidence argument is proposed.
+
+The walking-arrow counterexample below rejects adding the exception while
+keeping all three old default-classifier comparisons unchanged; it does
+not reject revising the section classifiers together. No global strictness
+rule has yet been installed. Resolve these interfaces before continuing the
+superseded raw-universe/total-op probe or the Cartesian-universe experiments.
 
 This correction supersedes every earlier description below that calls the
 Cartesian-universe substitution the selected public design. Preserve its
@@ -104,9 +151,10 @@ interface does not establish that its broader migration is necessary.
 Preserving the outline does not justify retaining a demonstrated semantic
 collapse or replacing an existing derived theorem with a postulate.
 
-Current selected presentation: retain the existing product-based Prof theory
-and use the nested Cartesian mapping-category type directly for Q's curried
-Hom. The user clarified on 2026-10-13 that their earlier comment was a
+Retain the existing product-based Prof theory. The nested Cartesian type
+used for Q's curried Hom belongs to the stronger comparison prototype; its
+admission and replacement under the requested public universe remain under
+review. The user clarified on 2026-10-13 that their earlier comment was a
 question, not an instruction to migrate all Prof owners. The assistant's
 previous attribution of a blanket-curried migration to that comment was
 incorrect. The direct-curried experiment below is retained comparison
@@ -2855,6 +2903,188 @@ not a drop-in alias, and why the current choice is not a uniqueness theorem
 for all possible Q designs. Keep this sufficient reference while qualifying
 the actual required consumers; do not broaden its evidence to a claim of
 completed coefficient coherence or use it to erase non-strict input action.
+
+## Codomain-only transfor strictness reassessment, 2026-10-14
+
+Reassessment prompted by the user's codomain-only strictness proposal on
+2026-10-14: making every `Transf(K,Cat,E,D)` strict conflicts with the existing
+constant-family section interface. For `E=const(1)` and `D=const(B)`, those
+transfors represent ordinary functors K→B, and their intrinsic comparison
+at p is the ordinary arrow F[p]. Global strictness would force equal endpoint
+selectors and identity action along p. The walking-arrow identity functor
+already refutes that combination. The
+[intrinsic review](../emdash2/audits/strict-default-action-boundary/homd_intrinsic_profile_review.md#reassessment-of-global-strictness-at-codomain-cat)
+records the native owner links and the finite check (three ordinary functors,
+two strict constant-family sections). No such global rule is selected or
+installed. This is stronger than merely excluding an exotic higher example:
+it changes the existing Pi/constant-family meaning. Named structural-head
+computation remains available when its strictness is justified, without
+making all Cat-valued transfors strict or requiring operational profiles.
+
+## Section semantics and default reassessment, 2026-10-14
+
+The reason previously given for using lax Cat-valued transformations in Pi
+was preservation of the existing all-section meaning. It is not a theorem
+that a foundational symbol named Pi must have that meaning.
+
+For an ordinary base K and a strict category-valued E, the two contracts are:
+
+```text
+All sections:    s[x] in E[x], with arrows E[p](s[x]) -> s[y]
+                satisfying the section unit/composition laws.
+Strict sections: s[x] in E[x], with E[p](s[x]) = s[y]
+                and identity comparison arrows.
+```
+
+With the corresponding strictly natural morphisms, strict sections form the
+ordinary strict limit of E. All sections are functorial sections of its
+Grothendieck total; they need not preserve the chosen opcartesian lifts.
+These are distinct legitimate constructions. For ordinary K,B, all sections
+of const(B) form Functor(K,B), whereas strict sections form the product of
+one copy of B per connected component of K. In particular, for the walking
+arrow, all sections form Arrow(B) and strict sections form B. The finite
+check gives three versus two objects when B is also the walking arrow.
+The complete higher-cell profile in the omega case still needs specification.
+
+Thus a deliberately strict Pi can retain the first two old default-classifier
+comparisons under the Cat-valued strictness exception and retire the general
+Pi(const B)=Functor_cat(K,B) comparison. It need not introduce LaxFunctord
+merely to preserve that old equation. A lax-Pi alternative preserves the
+old all-section meaning and needs a genuine lax classifier if the default
+Cat-valued Transf is strict. These are semantic choices, not notation changes.
+
+Concrete consumers of the all-section meaning include constant-target
+section postcomposition and ordinary functors viewed as sections. They must
+be migrated or given a separate all-section interface if Pi becomes strict.
+The selected Q-based Homd y-section has codomain Q, not Cat, so Cat-only
+strictness does not by itself make that y-section strict. Its Cat-valued
+outer root, and any conversion through ordinary Pi, are separate consumers
+that must be checked. Neither the constant-section counterexample nor a
+new Pi name alone settles the Homd construction.
+
+Returning to lax ambient functors would retain more of the current evaluator,
+composition and internal-action architecture: the evaluator's comparison
+cells need not be equalities. It is an engineering alternative worth pursuing
+as a comparison baseline, not a certification of the old duality, Sigma or
+cartesian-closure claims. Strict functors with lax transfors remain a valid
+mathematical doctrine but require the appropriate Cartesian/Gray closure
+interfaces; the global-default migration exposed those additional owners.
+No broad semantic switch is installed by this review.
+
+For Homd distinguish family E:K->Cat, transport E[p], and displayed map
+FF:D=>E. The forward leaf remains Hom_E[y](E[f](u),v) for the admitted
+family doctrine. Composing its forward total arrows needs
+rho(q,p):E[qp]=>E[q]E[p]. This can be a coherent nonidentity oplax comparison;
+strict base composition is sufficient but not the only contemplated case.
+A usual normal-lax comparison in the other direction instead supports the
+reversed-filler formula Hom_E[y](v,E[f](u)) at the ordinary local level.
+Its full corrected omega telescope is a separate qualification, not an
+automatic reinterpretation of the original one.
+
+The older native-nerve branch's `lax_fibre_transport_associativity.py` and
+`lax_compositor_associativity.py` were rerun read-only on 2026-10-14. The
+first still finds one failed associativity triple among fourteen total
+arrows with strict outer family composition and a non-strict transport.
+The second finds one among eighteen with identity transports and a merely
+lax-natural compositor. These are finite semantic checks of specified
+composition formulas, not kernel consistency results or minimality theorems.
+They show why changing ambient defaults alone does not admit every lax E.
+
+Rewrite qualification must follow formation qualification. Local projection
+beta need not be restricted wholesale to strict E/FF. Replacing E[q]E[p] by
+E[qp] needs strict family composition; erasing a transport compositor needs
+that transport's strict computation; erasing FF naturality needs strict FF
+or a justified constructor instance. General comparisons remain extracted
+native cells. Merely guarding the rewrite rules does not make an invalid
+unrestricted whole Homd/Sigma declaration sound. If a family doctrine is
+restricted, prefer one native family classifier or canonical construction
+with its actual action, not operational equality-proof parameters.
+
+## Cat-valued strictness and family admission, 2026-10-14
+
+The two strictness requirements for E must be kept distinct:
+
+```text
+Strict outer E: E[qp] = E[q] o E[p].
+Strict transport E[p]: E[p][ba] = E[p][b] o E[p][a].
+```
+
+If the ambient Functor objects remain lax, making only Cat-valued functors
+strict gives the first equation, not the second. Likewise, making a
+Cat-valued FF strict constrains its base naturality; it does not make each
+component FF[x] a strict functor under lax defaults.
+
+A restricted coefficient could separate these choices. Schematically it
+would have strict functors and lax transfors as its Hom categories, and an
+admitted family would be a strict map into that coefficient. This is not
+mathematically the same as changing every ambient functor. The existing
+`StrictFunctor_cat` is a full subcategory on strict functor objects with
+ambient transformation homs, so there is a native starting classifier.
+Neither that classifier nor a proposed `Cat_s` signature supplies the entire
+coefficient universe's higher composition or the corrected Homd theorem.
+Its Gray-style closure would need qualification, with no operational proof
+payload in Homd.
+
+The user explicitly excludes that alternative as the selected solution:
+retain one universe, the public Hom/Functor identification, and admission of
+every E:K->Cat. For an arbitrary F:A->B, the walking-arrow family with values
+A,B and transport F already has strict outer composition (there is no pair
+of nonidentity base arrows). Requiring every such transport to be strict
+requires every F to be strict. Thus the global strict-functor choice is
+forced by these combined architectural and Homd requirements, not by the
+mere existence of a dependent Hom construction in mathematics. This
+reaffirms the current goal direction without claiming its implementation
+is complete or selecting strict transformations.
+
+There is a second obstruction to treating Cat-valued strictness as an
+isolated exception while retaining ambient lax F. For arbitrary F:A->B
+and x:A, the existing blended represented family is
+
+```text
+H = hom_(F,F[x]) : A -> Cat
+H[p](a) = F[p] o a.
+```
+
+If H is strict, evaluate H[qp]=H[q]oH[p] at id_F[x]. It gives
+F[qp]=F[q]oF[p]. Unbundling the constructor does not avoid this: the composite
+Hom_B(F[x],-) o F has the same action. Retaining genuinely lax F would require
+a different admissible Hom/classifier contract. This argument forces the
+composition equation; it does not by itself prove that every independently
+retained compositor cell is an identity.
+
+The finite Hom-detection check uses a normal-lax F:[2]->Y, where Y has one
+object and hom poset 0<1 with composition max. F(01)=F(12)=0, F(02)=1,
+with compositor 0->1. The two Cat-valued Hom actions are [0,1] and [1,1].
+They differ at the identity 0. This requires no Op, Pi, Sigma or Q.
+
+Cat-valued **transformation** strictness has a separate propagation issue.
+The existing `tapp1_at_transf(epsilon,x)` internalizes an ordinary lax
+epsilon as a Cat-valued transformation. Strictness there forces
+G[g] o epsilon[f] = epsilon[gf]; the fixed-target mirror forces the
+corresponding equality on the other side. These interfaces would erase
+the ordinary lax naturality boundary. The finite mixed-family checker now
+exhibits strict F,G and a normal-lax epsilon with two distinct sides of its
+naturality square. Its prescribed Cat-valued internalization is not strict.
+This example does not use Pi, so changing Pi's meaning alone cannot repair
+the exception. A genuinely lax/mixed internal classifier could be a repair;
+it is a further core interface change, not an installed solution.
+
+The same square gives a conditional Homd check: a strict E may send a base
+2-cell alpha:p=>q to a lax transformation E[alpha]. In a curried target
+whose inner Cat-valued transformations have all been made strict, the
+prescribed u-action needs a strict f-naturality square that this E[alpha]
+does not supply. This rejects those combined projections and classifier,
+not every corrected-duality/mixed Homd design. The old Cartesian-Q prototype
+cannot therefore be treated as an automatically compatible donor for the
+new Cat-valued exception.
+
+Review evidence: both finite scripts pass with the new observations on
+2026-10-14. These are semantic checks of specified contracts, not native
+Lambdapi admission or a consistency certificate. The
+[intrinsic review](../emdash2/audits/strict-default-action-boundary/homd_intrinsic_profile_review.md)
+records their scopes. No new LP probe or production rule was added for this
+review. Preserve the uniform strict-functor migration, while separately
+resolving the higher mapping-category/internalization and section contracts.
 
 ## Deferred improvements under the migration boundary
 
