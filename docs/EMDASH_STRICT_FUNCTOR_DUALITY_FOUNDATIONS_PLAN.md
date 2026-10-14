@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-default migration under user-requested comparison with corrected lax defaults; public Hom(Cat)=Functor_cat retained; local action/duality candidates checked; whole Homd and production migration remain open
+Status: strict Cartesian core with explicit Gray-universe interface selected for the next specification; public Hom(Cat)=Functor_cat retained; local action/duality candidates checked; whole Homd and production migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,6 +38,23 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Latest interface direction, 2026-10-14: the user agrees to organize lax
+transformations under an explicit Cat_lax with Gray composition, and requires
+E and the prototypical represented Hom family to share the same whole family
+classifier. In the strict-core candidate both E and I_x=Hom_K(x,-) have type
+Functor(K,Cat_s), with Cartesian strict functors/transfors. Their weaker views
+use the same whole inclusion. The
+[updated interface outline](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md#explicit-cat_lax-and-proposed-homd-interface-outline)
+specifies the explicit Gray-universe boundary, transformation-defined Pi,
+conditional Q-valued y-section, direct u/y/v/f ladder and proposed whole root.
+It distinguishes local Q Homs from a qualified coefficient universe and does
+not assume that a Gray universe is an ordinary object of Cat_lax. The whole
+coefficient/diagram construction, x-root and Sigma-Hom remain open.
+This direction supersedes earlier requirements below that default Transf
+remain lax; those dated entries retain the research history. No public
+default has yet changed. The immediate work is the requested interface
+assessment, not a new broad migration or further probe matrix.
+
 Latest priority clarification, 2026-10-14: the user explicitly prioritizes
 corrected duality/Op and releases attachment to any strict/lax default.
 Strict ordinary Hom actions are allowed in every comparison. The
@@ -50,9 +67,10 @@ weaker action/extraction machinery through correctly typed interfaces;
 do not keep a lax-to-Transf coercion after Transf becomes strict.
 Pi and the selected Q-mate section cannot simply be made strict: the
 review records the constant-section obstruction and an Empty->Terminal
-profunctor comparison even for a terminal strict family. The minimal
-explicit section profile belongs in the foundational implementation;
-full Gray universes, lax functors and weak objects need not precede it.
+profunctor comparison even for a terminal strict family. Under the latest
+direction their minimal explicit section interfaces belong to a coherent
+Gray-universe interface. General lax functors and weak category objects
+remain outside the prerequisites of the immediate milestone.
 
 Current native comparison, 2026-10-14: the separate
 [Cartesian coefficient consumer](../emdash2/audits/strict-default-action-boundary/cart_family_review.md)
@@ -61,8 +79,9 @@ canonical strict map Hom_K(x,-)=>E at fixed x,u, with E:K->Cat_cart.
 Its transport and base-action definitions reuse the ordinary native owners;
 an actual base 2-cell is recovered at the identity argument. Public
 Hom(Cat)=Functor_cat, general Transf and family admission remain distinct.
-Next assemble the whole source-u map and Q/Homd under this coefficient;
-the independent universe-composition obligation remains required.
+The whole source-u map is now checked below; next qualify the coefficient
+and mate/section operation needed for Q/Homd. The independent universe-
+composition obligation remains required.
 The [whole-u covariance continuation](../emdash2/audits/strict-default-action-boundary/cart_family_u_review.md)
 now checks E[x]->Hom_Cart(K,Cat_cart)(I_x,E), its whole y-component,
 fibre-arrow action and actual fibre-two-cell action after f-projection.
@@ -73,6 +92,9 @@ in 1.730s/163,640KiB. Warnings 897->918 are inventoried; LHS audit has zero
 unreviewed slots. An earlier reducible category pattern timed out at 90s;
 the stable profile/explicit-RHS form fixes that without resource increases.
 This is covariance preparation, not the Q mate or completed Homd ladder.
+The coherent non-library slice is checkpointed as `06287e04`; its exact
+checked source/receipt and staged authoring bytes were revalidated before
+commit. Pre-existing production-owner relocation edits remain excluded.
 
 Current review deliverable, 2026-10-14: the user requests an overall
 [design matrix](EMDASH_FOUNDATION_PROFILE_DESIGN_MATRIX.md), including

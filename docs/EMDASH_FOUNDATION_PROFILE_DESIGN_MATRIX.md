@@ -1,16 +1,22 @@
 # Foundation design matrix: families, mapping profiles and strictness
 
 Date: 2026-10-14
-Status: user-requested reassessment; no new public default selected
+Status: user-requested reassessment; strict-core/explicit-Gray direction for
+the next specification, with no public default yet migrated
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 
 Latest steering, 2026-10-14: corrected duality/Op is the priority; the user
 is not bound to strict/lax defaults. Strict ordinary Hom actions are allowed
 under every candidate. The [strict core / explicit lax extensions review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
-now recommends assessing a Cartesian default core with local lax interfaces,
-including LaxFunctor as a separate layer. It records why Pi and the current
-profunctor Homd section still need explicit lax structure. Earlier references
-below to the default-lax-transfor requirement describe the previous boundary.
+now recommends a Cartesian default core with an explicit Cat_lax universe
+using Gray composition, including LaxFunctor as a separately staged layer.
+The user accepts this direction for the next interface outline and requires
+E and I_x=Hom_K(x,-) to share the same whole family classifier. For the strict
+core this is Functor(K,Cat_s); weaker views must apply to both consistently.
+The review records why Pi and the current profunctor Homd section still need
+explicit lax structure, and why the local Q alias does not establish whole
+coefficient/diagram coherence. Earlier references below to the default-lax-
+transfor requirement describe the previous boundary.
 
 ## Scope and notation
 

@@ -1,10 +1,18 @@
 # Strict Cartesian core with explicit lax interfaces
 
 Date: 2026-10-14
-Status: recommended architecture to assess under the user's reopened defaults;
-not a completed public migration
+Status: strict core / explicit Gray-universe direction accepted for the next
+interface specification; no completed public migration
 Plan: [foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Previous comparison: [design matrix](EMDASH_FOUNDATION_PROFILE_DESIGN_MATRIX.md)
+
+Recovery evidence supplied by the user: response 0046,
+`infinity-codex:01a12a87-a47e-73f1-9351-1159597be30d:01a13b16-fb5a-74a3-93cb-2002064837a5`,
+and response 0048,
+`infinity-codex:01a12a87-a47e-73f1-9351-1159597be30d:01a13b4a-ff3a-7580-9712-5a40b0ac48fb`.
+The interface outline below incorporates the subsequent same-family-type
+and explicit-Gray-universe directions, rather than treating those responses
+as a final implementation specification.
 
 ## Updated priority and the Hom clarification
 
@@ -68,6 +76,174 @@ This arrangement supports strict functors with lax transformations without
 making ordinary functors lax. The standard Gray internal Homs have strict
 functor objects, and the Cartesian Hom includes into each of them. See
 [Ara--Guetta v1, paragraphs 21 and 33](https://arxiv.org/html/2503.08832v1#S2).
+
+## Latest requirement: the same classifier for E and represented Hom
+
+The user now requires the prototypical family I_x=Hom_K(x,-) and an admitted
+variable E to have the same whole family type. For the proposed strict core,
+
+```text
+E, I_x : Functor(K,Cat_s)
+Cat_s = the proposed Cartesian public Cat_cat
+Hom_Cat_s(A,B) = Cart(A,B) = the proposed public Functor_cat(A,B).
+```
+
+There is no separate annotation or supplied strictness proof on E. Its
+transports and higher family maps have the same Cartesian profile as I_x.
+The separate Cat_cart spelling remains an experimental implementation name.
+The checked covariance consumer already respects this shared typing.
+
+A weaker view must also be applied to both families through the same whole
+inclusion. A canonical Hom can have stronger computational laws than a
+variable of the shared type; common typing does not require arbitrary maps
+to acquire those constructor-specific laws. Conversely, merely identifying
+their object fibres is not enough to meet this requirement.
+
+## Explicit Cat_lax and proposed Homd interface outline
+
+Latest user direction, 2026-10-14: organize the weaker transformations under
+an explicit universe with Gray composition, rather than leaving a collection
+of unrelated local profiles. The following names are specification notation,
+not newly checked Lambdapi declarations:
+
+```text
+Cat_lax : GrayUniverse
+Obj_G(Cat_lax) = Cat
+Hom_G(Cat_lax,A,B) = GrayHom_lax(A,B) : Cat
+Obj(GrayHom_lax(A,B)) = Functor(A,B).
+```
+
+The structural GrayUniverse classifier must distinguish its joint
+composition from strict Cartesian composition. The Cartesian universe has
+a whole inclusion into this universe, with the source regarded as a Gray
+category through the tensor-to-product comparison. This needs a native
+structural interface, but does not require weak category objects or genuinely
+lax functors as its 1-cells. LaxTransfor is then a derived Hom interface of
+Cat_lax; it is not an independent competing default. Tensor order and
+lax/oplax convention must match the existing native Gray closure.
+
+For fixed strict B, write L_K(B)=Hom_G(Cat_lax,K,B). A section convention
+can be specified without a primitive Pi:
+
+```text
+Pi_lax(E) = Hom_{L_K(Cat_s)}(const(1),E).
+```
+
+This uses the ordinary Hom of the strict omega-category L_K(Cat_s). It
+classifies whole lax sections of the Cartesian-valued E. It is distinct
+from strict Functord(E,D)=Hom_{Cart(K,Cat_s)}(E,D). Consequently the previous
+Pi=Functord(const(1),E) identification cannot remain unconditional. The
+constant-family whole comparison must be derived with its actual higher
+profile; do not silently equate it with the new Cartesian Cart(K,B).
+
+The direct Homd construction starts with the already checked whole
+covariance, writing D=Cart(K,Cat_s):
+
+```text
+c_E(x,u) : Hom_D(I_x,E)
+C_E,x    : E[x] -> Hom_D(I_x,E)
+c_E(x,u)[y][f] = E[f](u).
+```
+
+Its intended curried coefficient Hom is
+
+```text
+Q(A,B) = Cart(A,Cart(T(B),Cat_s)).
+```
+
+For a strict F:A->B, the covariant represented arrow has value
+iota(F)[a][b]=Hom_B(b,F[a]). The opposite-direction represented arrow
+F^*:B -/-> A has value F^*[b][a]=Hom_B(F[a],b). Applying this second
+construction to c_E(x,u)[y] gives the required local body directly.
+The existing product-based Prof endpoint convention need not be renamed.
+Calling this a represented mate does not make the later general adjunction
+library a prerequisite: its canonical observations use Hom action, identities
+and composition. Their whole coherence still requires construction.
+
+Here an important qualification remains: this formula defines a local
+mapping category, not a complete coefficient universe Q. Joint composition,
+unit/coend normalization and higher coherence must be constructed at their
+actual strict or Gray structural type. In particular neither Q:Cat nor
+Q:GrayUniverse follows from the local alias. A coherent representation
+may need more than literal coend composition, whose ordinary associativity
+is initially an isomorphism. The outline does not silently import the old
+unqualified Q universe.
+
+Conditional on that coefficient/diagram construction, let
+
+```text
+S_E(x) = LaxNatCat^Q_K(iota E, iota I_x).
+```
+
+LaxNatCat here denotes the Hom of the appropriate whole Q-diagram
+construction. If Q is qualified as an ordinary strict category it is
+Hom_{L_K(Q)}; if Q has only a Gray structure, that expression is invalid
+and the corresponding Gray-diagram construction is required. This is an
+explicit implementation obligation, not a fresh opaque primitive Pi or
+an assumption that Cat_lax can accept a Gray universe as an ordinary object.
+
+The proposed direct projection ladder is
+
+```text
+homd_id_src_func(E,x)       : T(E[x]) -> S_E(x)
+homd_id_src_sec(E,x,u)      : Obj(S_E(x))
+homd_id_tgt_func(E,x,u,y)   : E[y] -> Cart(T(Hom_K(x,y)),Cat_s)
+homd_id_(E,x,u,y,v)         : T(Hom_K(x,y)) -> Cat_s
+homd_id_(E,x,u,y,v)[f]      = Hom_{E[y]}(E[f](u),v).
+```
+
+The y projection is the component of the whole transformation in S_E(x),
+and v/f are the ordinary curried projections of Q(E[y],I_x[y]). No
+combined (y,v,f) base, final uncurry/curry reconstruction, standalone
+comparison input or operational equality-proof payload is proposed.
+For q:y->z the section retains the directed comparison
+
+```text
+iota(I_x[q]) o h_y  =>  h_z o iota(E[q]).
+```
+
+This is extracted action of the whole transformation. It is not identity
+in general, even though both original families are Cartesian. The terminal
+family example below explains why.
+
+For the whole x/u root, the candidate target has fibres H_E[x]=T(S_E(x)).
+Its p:x->x' action is induced by composing with the represented arrow
+obtained from precomposition I_x'=>I_x. Its higher action must be supplied
+by that same whole operation, not by a list of object declarations. A
+Gray-level specification to qualify is
+
+```text
+H_E : GrayDiagram(K,Cat_lax)
+homd_id_int(E) : GrayLaxTransf_K(j E,H_E)
+homd_id_int(E)[x] = T(homd_id_src_func(E,x)).
+```
+
+Here j is the whole Cartesian-to-lax-universe view. GrayDiagram and
+GrayLaxTransf are requirements on the structural universe interface, not
+existing source names or already established all-dimensional closure.
+If the canonical H_E and this root admit Cartesian lifts, their stronger
+types should be used; that must be derived, not inferred from strict E.
+The displayed formula is therefore a root specification to qualify, not
+a claim that renaming Cat to Cat_lax finishes x-assembly.
+
+The desired Sigma-Hom comparison retains the objects (f,a) with
+`a:E[f](u)->v`. For I=Hom_K(x,y) and H=homd_id_(E,x,u,y,v):T(I)->Cat_s,
+the right side is the appropriate contravariant total of H over I. Its
+first arrow has alpha:f->g and a fibre arrow `a->H[alpha](b)`. This states
+the variance obligation explicitly; it is not permission to pass H to
+the current covariant Sigma_cat at an incompatible base. Qualifying the
+whole iterated-Hom comparison remains part of the milestone.
+
+The first-cell composition of Sigma for strict E is still
+(q,b) o (p,a)=(qp,b o E[q][a]). Full omega-level action, the contravariant
+Hom total and their computation must agree. Default strict family maps FF
+can then act by actual composition, with relative leaf
+`Hom_{E[y]}(E[f](u),FF[y](v))` for FF:D=>E. Explicit weaker FF is a later
+extension; it must not re-enter through an untyped coercion.
+
+This outline separates established strict transport from the remaining
+coefficient, section and root realization. It does not count a proposed
+GrayUniverse or whole diagram classifier as a completed Homd construction.
 
 ## Integration without cloning the whole theory
 
@@ -207,11 +383,11 @@ category: its joint composition has directed interchange. Declaring that
 collection to be an ordinary Cat and letting generic strict Cartesian
 composition apply would revive the existing collapse route.
 
-Therefore a future Cat_lax must expose its appropriate composition profile
-or have a distinct structural classifier. It need not be implemented as a
-complete second universe merely to use GrayHom_lax, lax transformations,
-and Gray tensor operations locally. This avoids making a general weak-
-category implementation a prerequisite. The distinction is explicit in
+Therefore Cat_lax must expose its appropriate composition profile or have
+a distinct structural classifier. The latest user direction selects that
+whole interface as the organizing owner, even when only its local mapping
+operations are initially implemented. A complete theory of weak category
+objects is still not a prerequisite. The distinction is explicit in
 [Ara--Guetta v1, paragraphs 27--29](https://arxiv.org/html/2503.08832v1#S2).
 
 ## Recommended sequence and qualifications
@@ -219,10 +395,11 @@ category implementation a prerequisite. The distinction is explicit in
 1. Reassess the public core as Cartesian: strict Functor and strict Transf,
    retaining their current names and Hom_Cat=Functor_cat. Use the checked
    Cat_cart work as the implementation basis rather than a blanket revert.
-2. Specify the minimal explicit lax section/transform interface required
-   by Pi and the selected profunctor Homd construction. Keep intrinsic
-   action/extraction available there; do not route lax values through the
-   newly strict Functord by an accidental coercion.
+2. Specify the explicit Gray-universe interface and its derived section/
+   transform operations needed by Pi and the selected profunctor Homd
+   construction. Keep E and I_x in the same family classifier. Preserve
+   intrinsic action/extraction; do not route lax values through the newly
+   strict Functord by an accidental coercion.
 3. Finish the corrected T/R/O duality and direct whole Homd ladder under
    this organized boundary. Strictness does not itself repair variance or
    turn higher component arrows into identities.
