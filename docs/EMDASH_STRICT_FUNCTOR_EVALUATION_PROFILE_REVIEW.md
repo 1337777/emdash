@@ -1,7 +1,7 @@
 # Strict defaults require an evaluation-profile migration
 
 Date: 2026-10-11
-Status: operation obstruction checked; Cartesian-universe prototype retained as comparison evidence; public Hom(Cat)=Functor_cat reaffirmed by user on 2026-10-14
+Status: operation obstruction checked; public Hom(Cat)=Functor_cat and lax Q selected; earlier Cartesian-universe/Q prototypes retained as comparison evidence
 Owner: [strict-functor/duality plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Evidence: [native audit](../emdash2/audits/strict-default-action-boundary/README.md)
 
@@ -14,6 +14,16 @@ evaluation/composition needs correction; they do not authorize solving that
 problem by restricting the public universe or adding strict-transfor profile
 arguments to foundational operations. Read all earlier "selected" language
 below under this later boundary and the living plan's current contract.
+
+Further clarification on the same date: Q itself must retain conventional
+lax transformations at both mapping levels. The selected curried target is
+`Hom_Q(A,B)=Functor_cat(A,Functor_cat(T(B),Cat))`. Use Gray closure when an
+uncurried consumer is needed; the direct Homd telescope can remain curried.
+The earlier nested-Cart Q below is a comparison implementation, not the
+selected target. Its product-based composition/curry code cannot be copied
+unchanged into lax Q. The
+[current consumer review](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#lax-q-gray-uncurry-and-strict-sigma-maps-consumer-review-2026-10-14)
+also assesses strict-only Sigma maps without restricting public Functord.
 
 ## The stronger check
 
@@ -157,7 +167,7 @@ transfors. The profile correction is needed when both the functor and its
 argument vary in a Cartesian product. That is the checked collapse route
 above, not an objection to fixed evaluation or fixed whiskering.
 
-## The two Cartesian levels of the selected Q
+## The two Cartesian levels of the earlier Q prototype
 
 Clarification requested by the user on 2026-10-14. The prototype uses
 
@@ -166,9 +176,9 @@ Hom_Q(A,B) = Cart(A,Cart(T(B),Cat)).
 ```
 
 This is the Cartesian curried view of a product profunctor with the existing
-endpoints swapped. It is a selected coefficient doctrine, not a theorem
-that every possible dependent-Hom construction must use these two Cart
-classifiers. Strict default functors alone do not make all transfors strict.
+endpoints swapped. It was an additional coefficient restriction, not part
+of the user's intended Q design. Strict default functors alone do not make
+all transfors strict.
 The restrictions support the retained Cartesian evaluation, parameterized
 composition and product/curry comparison.
 
@@ -184,9 +194,9 @@ codomain, Cart and the ambient mapping category share functor objects;
 that fact does not identify nested expressions when the inner codomain
 itself changes.
 
-A Gray-based alternative can retain non-strict mixed interchange, but would
-need its appropriate closure, composition and duality interfaces. It is not
-obtained by replacing the two names while keeping all current operations.
+The selected Gray-based replacement retains non-strict mixed interchange
+and needs the appropriate closure, composition and duality interfaces. It
+is not obtained by replacing the two names while keeping all old operations.
 The Cartesian/Gray distinction is supported by Ara--Guetta v1 paragraphs
 18 and 21; it does not prove that the prototype's full Q structure has been
 qualified. The existing Q coherence and admission obligations remain.

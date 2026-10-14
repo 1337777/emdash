@@ -64,6 +64,23 @@ and whole duality at their actual owners before transferring the old Homd
 prototype. All E:K->Cat remain family inputs: E and E[p] are strict without
 extra family profiles, while E[alpha] and FF may be non-strict transfors.
 
+Latest Q clarification, 2026-10-14: the user did not intend either level of
+Q's curried Hom to use Cart/strict transformations. The selected target is
+`Hom_Q(A,B) = Functor_cat(A,Functor_cat(T(B),Cat))`, with the conventional
+lax higher action at both levels. The older nested-Cart implementation is
+comparison evidence, not the Q implementation to retain. Keep the direct
+curried telescope; use the appropriately oriented Gray closure only where
+an actual consumer needs uncurry or joint evaluation. Do not identify this
+Hom with strict Cartesian-product Prof or migrate the existing Prof library
+by renaming its operations. Q composition, units, represented maps and
+their higher action still require qualification under this contract.
+
+The user's strict-FF Sigma-map suggestion is being assessed as a restriction
+of that operation, not a change making every Functord strict. The consumer
+review below identifies the whole Sigma_func domain and higher map owners
+that must change with it. Native intrinsic extraction remains upstream of
+Sigma-map action; a general strict total map is not its intended source.
+
 Historical review instruction, 2026-10-14: compare corrected-duality strict
 functors/lax transfors with a Cat-valued-transfor strictness exception
 against lax defaults with both Cat-valued functors and Cat-valued transfors
@@ -3015,12 +3032,12 @@ interfaces; the global-default migration exposed those additional owners.
 No broad semantic switch is installed by this review.
 
 For Homd distinguish family E:K->Cat, transport E[p], and displayed map
-FF:D=>E. The forward leaf remains Hom_E[y](E[f](u),v) for the admitted
+FF:D=>E. The forward leaf remains `Hom_E[y](E[f](u),v)` for the admitted
 family doctrine. Composing its forward total arrows needs
 rho(q,p):E[qp]=>E[q]E[p]. This can be a coherent nonidentity oplax comparison;
 strict base composition is sufficient but not the only contemplated case.
 A usual normal-lax comparison in the other direction instead supports the
-reversed-filler formula Hom_E[y](v,E[f](u)) at the ordinary local level.
+reversed-filler formula `Hom_E[y](v,E[f](u))` at the ordinary local level.
 Its full corrected omega telescope is a separate qualification, not an
 automatic reinterpretation of the original one.
 
@@ -3279,7 +3296,7 @@ The next coupled stages are:
    actual lax/oplax mapping profiles and canonical maps. Preserve the direct
    whole y-section and x/u/y/v/f ladder. Do not impose Cartesian higher
    profiles merely to reuse the earlier prototype's types.
-5. Recover the identity leaf Hom_E[y](E[f](u),v), the correctly oriented
+5. Recover the identity leaf `Hom_E[y](E[f](u),v)`, the correctly oriented
    Sigma-Hom presentation and the defined relative FF composite. Ordinary
    Hom retains its blended strict F. No independent laxity witnesses or
    operational proof parameters are introduced.
@@ -3294,6 +3311,9 @@ with the prescribed object values. This is the same Cartesian/Gray boundary
 at a core consumer. The default-leg convention does not remove it, and the
 intrinsic extractor must not presuppose the invalid strict total-map contract.
 This is not a new requirement that every family or FF carry a strictness proof.
+Source review below clarifies the dependency: internal action produces the
+laxity which Sigma maps consume. The extractor's current Homd/Op target
+still needs repair, but it need not be defined through a general Sigma map.
 
 The reassessment is therefore positive for the chosen strict-functor and
 conventional-lax action semantics and for native one-leg computation, but
@@ -3336,6 +3356,145 @@ do not derive total dual action by composing unsupported whole T/R actions
 on arbitrary transfors. Public Hom(Cat)=Functor_cat, native intrinsic
 extraction, direct whole Homd and the all-family input contract remain
 required. No production rule has yet been promoted.
+
+## Lax Q, Gray uncurry and strict Sigma maps: consumer review, 2026-10-14
+
+The latest user clarification selects both lax levels of
+
+```text
+Q(A,B) := Functor_cat(A,Functor_cat(T(B),Cat)).
+```
+
+Here Q(A,B) is the proposed Hom of the coefficient Q, not a new alias for
+the existing product Prof with its current operations. The desired direct
+v/f telescope does not need to uncurry merely to form this type or expose
+its fixed-parameter projections. If uncurrying is needed, its target under
+the repository's right-oriented convention is
+
+```text
+Functor_cat(GrayTensor_R(A,T(B)),Cat).
+```
+
+The Gray interchanger retains the directed comparison between mixed
+factorizations. Cartesian uncurry would require those factorizations to
+have equal images. Thus the closure objection is a reason to use Gray
+uncurry, not a reason to make Q's transformations strict. Tensor order is
+part of the contract. The repository already has gray_curry_R_func and
+gray_uncurry_R_func in emdash3_2_gray_right_closure.lp, but their checked
+source is the older classified GrayHom_lax slice with supplied whole inverse
+data. Identifying its profiles with the new defaults and qualifying the
+actual Q consumer remain work; no whole native equivalence is newly claimed.
+The semantic closure distinction is supported by
+[Ara--Guetta v1, paragraph 21](https://arxiv.org/html/2503.08832v1#S2).
+
+For FF:D=>E with strict transformation naturality, the proposed restricted
+total map has the familiar formula
+
+```text
+Sigma(FF)[(x,u)] = (x,FF[x](u))
+Sigma(FF)[(p,a)] = (p,FF[y][a])
+
+E[p] o FF[x] = FF[y] o D[p].
+```
+
+The final equality expresses the strict input contract; it is not an
+operational equality-proof parameter. It identifies the fibre-arrow source,
+and naturality plus strict component functoriality identifies the two
+composition formulas. This removes the exhibited lax-square obstruction.
+Qualification of the chosen omega-level totals and all higher map action
+is still required; the finite countermodel alone does not establish it.
+An opaque strict-transfor carrier or justified named strict constructors
+can express this local restriction without changing default Functord or Q.
+No production signature has been changed by this review.
+
+Further user question: should suitable FF strictness instead be baked into
+the default input classifier? Distinguish full strictness of FF from the
+smaller condition detected by the example. For conventional lax FF:D=>E,
+write its already-extracted comparison as
+
+```text
+lambda_p : E[p] o FF[x] => FF[y] o D[p].
+```
+
+The prospective total-arrow formula is
+`(p,a) |-> (p,FF[y][a] o lambda_p[u])`. Compatibility with vertical
+composition requires lambda_p to be strictly natural in the fibre variable:
+
+```text
+FF[y][D[p][h]] o lambda_p[u]
+  = lambda_p[u'] o E[p][FF[x][h]],       h:u->u'.
+```
+
+This allows nonidentity lambda_p and therefore does not require FF itself
+to be strictly natural in the base. Full strict FF is a sufficient stronger
+restriction, not the minimal conclusion of the finite counterexample.
+The analogous higher compatibility and coherent base action still need
+qualification. The selected ambient conventional-lax classifier does not
+automatically supply this stricter fibre-naturality contract.
+
+Baking a sufficient condition into a native map classifier is compatible
+with the no-operational-proofs SOP. It is different from accepting arbitrary
+Functord and silently installing an extra equation on it. Making the latter
+restriction the meaning of default Functord would require reassessing its
+identification with Transf(K,Cat,E,D), the whole Catd mapping category, and
+section/internalization consumers. It need not mean that Q or all ordinary
+transfors become strict. This question is under assessment, not a decision
+to restore the rejected blanket Cat-valued strictness exception. Review the
+smaller comparison-cell condition before choosing a full-strict FF API.
+
+Source inspection finds these affected owner groups:
+
+| Owner/consumer | Consequence of restricting the total map |
+| --- | --- |
+| Sigma_cat and Sigma_proj1_func | Formation/projection do not acquire an FF input. Their own corrected higher semantics remain separate. |
+| sigma_map_func and its object/arrow/hom projections | Admit strict FF; keep the familiar component formula. Identities and composites of admitted strict maps are initial controls. |
+| Sigma_func:Catd_cat(K)->Cat | Cannot retain this domain: its arrow action would still create a strict total map for arbitrary lax FF. Reprofile the whole operator's source maps, not public Catd or Functord. |
+| sigma_map_transf and family-natural sigma_pullback_total_transf | Review endpoints and higher action together with the new Sigma_func domain. A restriction of one leaf is insufficient. |
+| sigma_pullback_total_func(F,D) | Its direct input is a strict default functor F, not arbitrary FF. Its individual base-change construction can be retained subject to corrected-total qualification; whole family naturality is the preceding row. |
+| hom_con_int_postcomp_func-based slice maps in emdash3_2_pullbacks.lp | Named represented maps are candidates for direct strict admission; qualify their whole action rather than requiring all transfors to be strict. |
+| Arbitrary FF base-change/observation maps in emdash3_2_represented_comma_families.lp | Genuine contract change: restrict those strict-total outputs or replace them with an appropriately lax/Gray construction. Their current generality cannot follow from the restricted map. |
+| section_total_mapped_func and section/total comparisons | Reassess the map/section contracts. An arbitrary lax section or FF cannot be presumed to yield the same strict total functor. |
+| Native Homd intrinsic extraction | Preserve its general lax domain independently of totalization; correct its Homd/duality target. Do not restrict the extractor merely because sigma_map_func is restricted. |
+| Presheaf/ring and homology projection consumers | Inventory the actual named map and ordinary/discrete guards. They are migration candidates, not evidence that every current use is strict. |
+
+The extraction dependency is explicit in emdash3_2.lp section 15 and in
+section 18zz's defined fdapp1_project_* ladder:
+
+```text
+internal Homd action -> extracted laxity -> Sigma action.
+```
+
+In particular fdapp1_int_transfd is not defined by sigma_map_func, and the
+fdapp1_project_* bodies project internal action through homd/sections.
+The source warns against reversing this dependency because it would be
+circular. Earlier prose suggesting that general strict Sigma maps were an
+unavoidable prerequisite of extraction was too broad. Coupled Op/Homd and
+section corrections are still needed, but strict-only total maps do not by
+themselves require strict-only Homd or standalone supplied laxity cells.
+
+Recommendation: retain lax Q with Gray operations as needed; investigate
+the sufficient intrinsic input type for strict total maps together with
+their whole Sigma_func interface. Check the smaller comparison-cell
+condition before selecting full strictness of FF. Keep general-FF intrinsic
+action and the defined relative Homd independent.
+This is a focused restriction of an invalid strict output contract, not a
+new Cat-valued strictness exception or an authorization to weaken downstream
+requirements silently. The inventory is a source review, not a migrated
+consumer qualification. No new Lambdapi probe was run for this assessment.
+The existing mixed_family_profile_models.py finite checks were replayed
+successfully; they retain the original noncommuting-square counterexample.
+
+In-progress implementation retained separately: conventional_total_op_*
+fragments/replay under audits/strict-default-action-boundary build total
+opposite on the public lax mapping category without Cart. The initial
+candidate passed whole mapping, modification and family two-cell controls
+(receipt 20261014T101210Z-97786f0a3deb448ca97426c4506a2d35). Adding the
+projection-before-involution typed consumer exposed an unresolved join
+(receipt 20261014T102535Z-d97f0d91b4c84bfa80c8c125350eb120). These authoring
+files remain uncommitted; the current candidate is not green. Resume that
+specific owner comparison after the contract clarification, preserving the
+remaining noninvertible leg and the wrong-middle negative control. No full
+duality, Q or Homd completion follows from the earlier prefix success.
 
 ## Deferred improvements under the migration boundary
 

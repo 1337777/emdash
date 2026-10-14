@@ -12,6 +12,18 @@ The two-leg discussion below describes the pre-migration carrier and the
 earlier comparison boundary; it no longer requires preserving that broader
 carrier as the default. The remaining post/left cell must stay genuinely lax.
 
+The subsequent Q clarification selects ambient conventional-lax mapping
+categories at both curried levels, not Cart. The user's strict-only
+sigma_map_func proposal is a separate local restriction under review. Source
+inspection confirms the intended dependency in emdash3_2.lp section 15:
+internal Homd action produces extracted laxity, which Sigma action consumes.
+The defined fdapp1_project_* ladder in section 18zz projects the internal
+action; it does not obtain that action from sigma_map_func. Thus the invalid
+general strict-total-map contract is not an unavoidable input to intrinsic
+extraction. The Homd/duality and section targets still need correction; do
+not turn this separation into a claim that extraction is already migrated.
+See the [consumer review](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#lax-q-gray-uncurry-and-strict-sigma-maps-consumer-review-2026-10-14).
+
 ## Two meanings of laxity must remain distinct
 
 Write

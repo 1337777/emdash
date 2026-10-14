@@ -26,6 +26,13 @@ the broader raw two-leg default as the migration target, while preserving
 the public Hom and Transf/Functord interfaces. Its focused checks do not
 qualify the legacy Cartesian operations or the whole Homd construction.
 
+Latest Q clarification: both curried mapping levels use the conventional
+lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
+selected implementation. The plan's
+[Q/Sigma consumer review](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#lax-q-gray-uncurry-and-strict-sigma-maps-consumer-review-2026-10-14)
+assesses strict-only Sigma maps and records why this need not restrict the
+upstream intrinsic Homd extractor. No production restriction is installed.
+
 Continuation qualification: the stronger
 [evaluation-profile review](../../../docs/EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 shows that the unchanged Cartesian evaluator plus even the capped strictness
