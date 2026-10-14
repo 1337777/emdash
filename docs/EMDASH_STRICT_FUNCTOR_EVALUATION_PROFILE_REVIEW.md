@@ -5,6 +5,14 @@ Status: operation obstruction checked; public Hom(Cat)=Functor_cat retained; bot
 Owner: [strict-functor/duality plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Evidence: [native audit](../emdash2/audits/strict-default-action-boundary/README.md)
 
+Subsequent priority clarification, 2026-10-14: the user has reopened both
+functor and transformation defaults in service of the duality repair.
+The [strict-core / explicit-lax assessment](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
+supersedes treating default lax Transf as an immutable constraint. Retain
+the counterchecks below as evidence about their actual contracts. A strict
+default core still needs explicitly profiled sections and a safe weaker
+action interface; this is not authorization for a blanket historical revert.
+
 User correction, 2026-10-14: the public `Cat_cat` must retain strict default
 functors with non-strict transfors, hence `Hom_cat Cat_cat A B` remains
 `Functor_cat A B`. The Cartesian-universe replacement below was a stronger

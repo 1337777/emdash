@@ -38,6 +38,22 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Latest priority clarification, 2026-10-14: the user explicitly prioritizes
+corrected duality/Op and releases attachment to any strict/lax default.
+Strict ordinary Hom actions are allowed in every comparison. The
+[strict-core / explicit-lax review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
+recommends assessing Cartesian strict Functor/Transf defaults with explicit
+lax transformation/section interfaces and a separately staged LaxFunctor.
+The old requirement that public Transf itself remain lax is no longer an
+immutable constraint. No public default has yet been changed. Preserve the
+weaker action/extraction machinery through correctly typed interfaces;
+do not keep a lax-to-Transf coercion after Transf becomes strict.
+Pi and the selected Q-mate section cannot simply be made strict: the
+review records the constant-section obstruction and an Empty->Terminal
+profunctor comparison even for a terminal strict family. The minimal
+explicit section profile belongs in the foundational implementation;
+full Gray universes, lax functors and weak objects need not precede it.
+
 Current native comparison, 2026-10-14: the separate
 [Cartesian coefficient consumer](../emdash2/audits/strict-default-action-boundary/cart_family_review.md)
 now checks a whole coefficient inclusion, represented Hom family and
@@ -47,6 +63,12 @@ an actual base 2-cell is recovered at the identity argument. Public
 Hom(Cat)=Functor_cat, general Transf and family admission remain distinct.
 Next assemble the whole source-u map and Q/Homd under this coefficient;
 the independent universe-composition obligation remains required.
+The in-progress `cart_family_u.lpfragment` and its controls remain an
+uncommitted development slice. Their whole-u/y and Hom-level f observations
+pass in receipt `20261014T170148Z-bb3c9d2bb9df4e3c9740fb7dc0f0c483`, after
+removing an ill-formed duplicate negative target; warning/projection-order
+qualification and a durable replay remain unfinished. Do not count these
+drafts as a completed source-u or Homd milestone.
 
 Current review deliverable, 2026-10-14: the user requests an overall
 [design matrix](EMDASH_FOUNDATION_PROFILE_DESIGN_MATRIX.md), including

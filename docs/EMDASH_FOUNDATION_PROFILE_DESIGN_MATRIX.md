@@ -4,6 +4,14 @@ Date: 2026-10-14
 Status: user-requested reassessment; no new public default selected
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 
+Latest steering, 2026-10-14: corrected duality/Op is the priority; the user
+is not bound to strict/lax defaults. Strict ordinary Hom actions are allowed
+under every candidate. The [strict core / explicit lax extensions review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
+now recommends assessing a Cartesian default core with local lax interfaces,
+including LaxFunctor as a separate layer. It records why Pi and the current
+profunctor Homd section still need explicit lax structure. Earlier references
+below to the default-lax-transfor requirement describe the previous boundary.
+
 ## Scope and notation
 
 The user proposes `E : K -> Cat_sfunc_stransf`, asks for a comparison with
@@ -29,8 +37,9 @@ Use these provisional names:
 - `T`: dimension-one transpose. `M(A,B)=T(Hom_oplax(T(A),T(B)))` is the
   transported mapping-profile proposal from the latest review.
 
-The public `Cat_cat` is currently intended to play the U_lax role.
-`Functor` is intended to be strict by default, but production is still
+The preceding migration target used public `Cat_cat` for the U_lax role.
+The newly reopened strict-core option gives it the U_cart role instead,
+with separately named lax mapping interfaces. Production is still
 pre-migration. An existing non-library Cart classifier pilot is available.
 No row below is a claim of a globally qualified kernel/model, and the
 usual universe-size convention remains separate from local variance checks.
@@ -86,7 +95,7 @@ not every row of the Cartesian product of all choices above.
 
 | Design | Evidence / mathematical assessment | Native implementation and anticipated difficulty |
 | --- | --- | --- |
-| Strict functors and strict transformations everywhere; U_cart and Cart Q | **Useful Cartesian reference**, with a simpler closure theory. | Does not retain the requested default lax transformations. Pi's general-section meaning and intrinsic laxity require separate lax classifiers; it cannot silently replace the goal. |
+| Strict functor/transfor defaults; U_cart and Cart Q; explicit lax interfaces | **Now the preferred architectural candidate to assess for the duality repair.** | Pi and the current profunctor Homd mate need explicit lax section profiles. Preserve weaker interfaces through correct inclusions, rather than forcing their cells to be identities. |
 | Strict default; strict E into U_lax; nested Cart Q; FF even identity | **Known failure:** E[alpha]'s noncommuting fibre square would have to commute. | Changing only Q or FF cannot repair this; source admission must change. |
 | Strict default; strict E into U_lax; nested L Q; FF even identity | **Known failure under standard Gray higher semantics:** the mixed three-cell example demands a reverse cell. | The direct root/leaf prototype typechecks, but its structural contracts do not establish the intended semantics. |
 | Strict default; strict E into U_lax; mixed M inner mapping profile | **Local construction derived:** the transported closure supplies the required local u-action. Whole Q is open. | More mapping-profile views, coefficient composition and whole y/x assembly must be qualified. Avoid treating the local closure as the whole solution. |
@@ -194,6 +203,14 @@ whole action factors through U_cart. No reference to a constant or ordinary
 base is a substitute for the required general omega-base qualification.
 
 ## Recommendation and bounded next decisions
+
+The later strict-core review linked above supersedes treating the public
+lax-transformation Hom equation as immutable. With Functor_cat itself
+Cartesian, Hom_Cat=Functor_cat may retain its spelling. The new question
+is how to integrate the necessary explicit lax sections, Gray mapping
+categories and eventual LaxFunctor without unsafe coercions or cloned
+theories. The counterexamples in this matrix remain relevant to their
+specific input/operation contracts.
 
 The strongest simpler **Homd candidate** is currently strict families valued
 in U_cart, with the Cartesian Q comparison and the direct whole ladder.
