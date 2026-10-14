@@ -1,0 +1,1498 @@
+{
+  "status": "non-library strict displayed-map classifier comparison; no public Functord selection or migration",
+  "donorEvidence": "audits/strict-default-action-boundary/conventional_gray_eval_verification.json",
+  "donorEvidenceSha256": "3d0b04b9ecc4670d352b75578f0ff1b7ed4d4fdd2bfa3ed4ff34c6a09622745a",
+  "nativeDeclarationSourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "nativeCarrierExcerptSha256": "43c5e81916cd3371c8a444bcd45955aae5fdcb69d28c8c9542fb21e430043809",
+  "nativeConstantSectionExcerptSha256": "79a717ec76f9fd86bb9fe3d6b48267c6da4b3e5772168216dc552b9e68239e12",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/strict_displayed_maps_replay.py": "84a6b2e35f644f9af7091944e9787283dbc5eb68d1c917f3e9a2b0d4e8525291",
+    "audits/strict-default-action-boundary/strict_displayed_maps.lpfragment": "afc9fce18c6ea26d14adcd302ef655e830381162a16b2a4e742ffad44889870a",
+    "audits/strict-default-action-boundary/strict_displayed_sections.lpfragment": "a5a16716fbecf8bd60b6033822b0adfdeb70d6d9dd095a3a43d82fc0f4b9c533",
+    "audits/strict-default-action-boundary/strict_displayed_maps_controls.lpfragment": "6db52a75001b829c0aa3f3b9a7fcd82330f8716b968af97fb600fdf4db37fc9b"
+  },
+  "outputs": {
+    "candidate.lp": "1cf191cadc14c7c74dd8d782bbb9e12a4136eb1a408a9296a5bdcef34dccbc94",
+    "no_strict_naturality.lp": "23e79051683a737375fe0b25202ce42004fdd7aea9a7952e338516871f7c82db",
+    "no_map_object_projection.lp": "1c6df58aeb9adc27c7cfa9f357cbaebd25f4684962b24801673f1e8bd7bce0ad",
+    "no_map_action.lp": "50214c7e652a8af035595b6a9e4f1e1175b13fd6b26ffb72bf55f5724c20e951",
+    "no_higher_projection.lp": "ed8095aa040c2ede926c84d606aafcae0644a70c3dbda95f81772241a12a1ee2",
+    "no_identity_view.lp": "fecc378f58c0c7fbf53cea95e1f9667ee616786fee5d49219aff7fa72fe69cdb",
+    "no_constant_view.lp": "27259c84e2391509b95b0a778df273c9c40ac7659f3f8774d4d4bd8f627f90f1",
+    "wrong_reverse_admission.lp": "8a5b47702bdc1754ee7f18d07eee5df57c25779e1592ab692118ff7bc0d47fac",
+    "strict_sections.lp": "c627cc53612514617186e1901a310cb014485ace6d17c76b7076c901c64ad63c"
+  },
+  "checks": {
+    "candidate.lp": {
+      "id": "20261014T115530Z-fbc1a87d505d478dbdb2e76cc26901ef",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.517226562020369,
+      "childrenMaxRssKiB": 141996,
+      "inputSnapshot": "8ec632eaaf0d7789d4b1c000c69d2f420e276749d494b45151ab77d93266e800",
+      "sourceSha256": "1cf191cadc14c7c74dd8d782bbb9e12a4136eb1a408a9296a5bdcef34dccbc94",
+      "receipt": "logs/check-runs/20261014T115530Z-fbc1a87d505d478dbdb2e76cc26901ef.json",
+      "receiptSha256": "5f97653718b3aa9f9ec856918caee70614f432aed3dc30f273a9a3268de92db3",
+      "log": "logs/check-runs/20261014T115530Z-fbc1a87d505d478dbdb2e76cc26901ef.log",
+      "logSha256": "a137f0e908b241542b35be52e0659513c019e4ec28817f2a779decb7a290f93c",
+      "criticalPairs": 740,
+      "positiveAssertions": 54,
+      "negativeAssertions": 22
+    },
+    "no_strict_naturality.lp": {
+      "id": "20261014T115626Z-b639cfe23c7647d8a8348ba837414508",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.204454738995992,
+      "childrenMaxRssKiB": 137676,
+      "inputSnapshot": "4e3e1c38248e8354d0bee327fea1f5fc71c462b18c7a3e827a34f91736932d37",
+      "sourceSha256": "23e79051683a737375fe0b25202ce42004fdd7aea9a7952e338516871f7c82db",
+      "receipt": "logs/check-runs/20261014T115626Z-b639cfe23c7647d8a8348ba837414508.json",
+      "receiptSha256": "296d54f2a14c6f315acfe72d6a1c1474de93228bf17774a7bc633fc89a066b01",
+      "log": "logs/check-runs/20261014T115626Z-b639cfe23c7647d8a8348ba837414508.log",
+      "logSha256": "43ad4d2b83b7aa02ee4a0885f59a3cb43df54f471d15c59f3efb242d2fbe3366",
+      "criticalPairs": 0,
+      "expected": "whole fibre-functor naturality assertion fails",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_displayed_maps/no_strict_naturality.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_displayed_maps/no_strict_naturality.lp:11073:0-11080:37] Assertion failed."
+    },
+    "no_map_object_projection.lp": {
+      "id": "20261014T115631Z-d3ee803e88cb4630a18962712e381b66",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 3.9961138389771804,
+      "childrenMaxRssKiB": 135336,
+      "inputSnapshot": "19d95b6147fa453b1fd950db7b61cc9bf8331b12e8a667c0c39d57ff71100712",
+      "sourceSha256": "1c6df58aeb9adc27c7cfa9f357cbaebd25f4684962b24801673f1e8bd7bce0ad",
+      "receipt": "logs/check-runs/20261014T115631Z-d3ee803e88cb4630a18962712e381b66.json",
+      "receiptSha256": "a69c116dfd6a8ee32749f7a641aaea831b534d3533c91b84e36e64293390be38",
+      "log": "logs/check-runs/20261014T115631Z-d3ee803e88cb4630a18962712e381b66.log",
+      "logSha256": "058418c89b1aa9ffb0471421eef5e204ff3eb51b34854ded40f230a55e313bbf",
+      "criticalPairs": 0,
+      "expected": "subject reduction fails for higher inclusion action; object projection is a typing dependency",
+      "failurePhase": "subject-reduction",
+      "terminalExcerpt": "Cat\nis not unifiable with\nKIND.\nCannot solve ⊢ @sf_family_map_cat $5 $7 $9 ≡ @Transf_cat $5 Cat_cat $7 $9.\nCannot solve ⊢ $11 ≡ @strict_transfor $5 Cat_cat $7 $9 $11.\nCannot solve ⊢ $13 ≡ @strict_transfor $5 Cat_cat $7 $9 $13.\nCannot solve ⊢ @fapp0 (@sf_family_map_cat $5 $7 $9) (@Transf_cat $5 Cat_cat $7 $9) (@sf_family_map_include $5 $7 $9) $11 ≡ @strict_transfor $5 Cat_cat $7 $9 $11.\nCannot solve ⊢ @fapp0 (@sf_family_map_cat $5 $7 $9) (@Transf_cat $5 Cat_cat $7 $9) (@sf_family_map_include $5 $7 $9) $13 ≡ @strict_transfor $5 Cat_cat $7 $9 $13.\nUnable to prove type preservation."
+    },
+    "no_map_action.lp": {
+      "id": "20261014T115636Z-59343701a83e4545baae2e9fa9e4e162",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.124378827982582,
+      "childrenMaxRssKiB": 139644,
+      "inputSnapshot": "8cf7444c25a8293e00a4fc4ced4abf3c40e7a38571d0a960f68775d717941dee",
+      "sourceSha256": "50214c7e652a8af035595b6a9e4f1e1175b13fd6b26ffb72bf55f5724c20e951",
+      "receipt": "logs/check-runs/20261014T115636Z-59343701a83e4545baae2e9fa9e4e162.json",
+      "receiptSha256": "cfdcf8e4dcbd8c9bde1e4a54e3357ec4a09e1268d42bbd776a07e2399b89cf5a",
+      "log": "logs/check-runs/20261014T115636Z-59343701a83e4545baae2e9fa9e4e162.log",
+      "logSha256": "e4c3a666a4b80184f6620b81c598e42ce7b8d59fab7f05e4283860adbb81a017",
+      "criticalPairs": 0,
+      "expected": "whole/capped inclusion-view comparison fails after removing the dependent projection group",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_displayed_maps/no_map_action.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_displayed_maps/no_map_action.lp:11068:0-11070:31] Assertion failed."
+    },
+    "no_higher_projection.lp": {
+      "id": "20261014T115641Z-bf413664a56b4ed68ee029a514712e55",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.150970718939789,
+      "childrenMaxRssKiB": 140172,
+      "inputSnapshot": "31d26d49280f333dc07ac9ee80bbc34f1097f03ef627479e7de7110abec9697a",
+      "sourceSha256": "ed8095aa040c2ede926c84d606aafcae0644a70c3dbda95f81772241a12a1ee2",
+      "receipt": "logs/check-runs/20261014T115641Z-bf413664a56b4ed68ee029a514712e55.json",
+      "receiptSha256": "02868cc71e6d31b0b9b29ab3eeb570987a75492dfa3c6b92ffe3ac575503df96",
+      "log": "logs/check-runs/20261014T115641Z-bf413664a56b4ed68ee029a514712e55.log",
+      "logSha256": "0641c2ea3df2ef3014788a5dcd27578e9682d41a034a26b330c6b3a39ce5be21",
+      "criticalPairs": 0,
+      "expected": "variable modification projection assertion fails",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_displayed_maps/no_higher_projection.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_displayed_maps/no_higher_projection.lp:11109:0-11114:49] Assertion failed."
+    },
+    "no_identity_view.lp": {
+      "id": "20261014T115653Z-d154c2693eaa4e41aec63f5131aa2852",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.327981039998122,
+      "childrenMaxRssKiB": 140496,
+      "inputSnapshot": "fed74b687df00cc80b71e9e7138cd5f8572dcfacdc739f4f0d9ddf22034af748",
+      "sourceSha256": "fecc378f58c0c7fbf53cea95e1f9667ee616786fee5d49219aff7fa72fe69cdb",
+      "receipt": "logs/check-runs/20261014T115653Z-d154c2693eaa4e41aec63f5131aa2852.json",
+      "receiptSha256": "34b539f653149efc9d6801fb0c5208b019a7f2e6e0ab7102d9805e552912357d",
+      "log": "logs/check-runs/20261014T115653Z-d154c2693eaa4e41aec63f5131aa2852.log",
+      "logSha256": "57fe51938d0828cd89a643c09c3ade4e80452d9ce78fc8a8a11ca9761982c0ad",
+      "criticalPairs": 0,
+      "expected": "canonical identity view assertion fails",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_displayed_maps/no_identity_view.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_displayed_maps/no_identity_view.lp:11096:0-11098:32] Assertion failed."
+    },
+    "no_constant_view.lp": {
+      "id": "20261014T115658Z-8e9c83711c8e42e3b6b9aac80f70ed18",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.705282722017728,
+      "childrenMaxRssKiB": 140416,
+      "inputSnapshot": "10860df7e4228f84dcce2d47cef9ac8d1bc8b56cb612b90485ca2d7caac21a8c",
+      "sourceSha256": "27259c84e2391509b95b0a778df273c9c40ac7659f3f8774d4d4bd8f627f90f1",
+      "receipt": "logs/check-runs/20261014T115658Z-8e9c83711c8e42e3b6b9aac80f70ed18.json",
+      "receiptSha256": "19fa33f338b0e88a41642cd74fb39ba0b955f0430eaf7286ead943b6a3a06810",
+      "log": "logs/check-runs/20261014T115658Z-8e9c83711c8e42e3b6b9aac80f70ed18.log",
+      "logSha256": "ad900a05e5c9cf4be1c4f9d7ae37cf8ed81f63f80cccd75261a86dcb25068afd",
+      "criticalPairs": 0,
+      "expected": "canonical constant-section view assertion fails",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_displayed_maps/no_constant_view.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_displayed_maps/no_constant_view.lp:11138:0-11141:20] Assertion failed."
+    },
+    "wrong_reverse_admission.lp": {
+      "id": "20261014T115704Z-3dad7780007b4d4e99caf53223656ed5",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.360791806015186,
+      "childrenMaxRssKiB": 142592,
+      "inputSnapshot": "84de9806c1762138ab1c4fbbbb76e8047999bdaeb77302a5c1b1fe8ce20e35e7",
+      "sourceSha256": "8a5b47702bdc1754ee7f18d07eee5df57c25779e1592ab692118ff7bc0d47fac",
+      "receipt": "logs/check-runs/20261014T115704Z-3dad7780007b4d4e99caf53223656ed5.json",
+      "receiptSha256": "0c751852dd282482e0b3b480020087abbe07870a6e3fd289c6caeedd6e46b8dd",
+      "log": "logs/check-runs/20261014T115704Z-3dad7780007b4d4e99caf53223656ed5.log",
+      "logSha256": "3c2f83cdd0e4334ef12d5c7971e614f38dfc0a40d2eda9e45703dbde772b3f48",
+      "criticalPairs": 0,
+      "expected": "negative rejecting arbitrary raw FF admission fails",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_displayed_maps/wrong_reverse_admission.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_displayed_maps/wrong_reverse_admission.lp:11070:0-11071:40] Assertion failed."
+    },
+    "strict_sections.lp": {
+      "id": "20261014T115709Z-cbd51c5ce2234fee9d9ffd7cbb3d57a3",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.239757430972531,
+      "childrenMaxRssKiB": 140912,
+      "inputSnapshot": "449cec17ba66da789f6def669bd8607ccfa3ea91c1bd06c86ee8cd85d4c4698d",
+      "sourceSha256": "c627cc53612514617186e1901a310cb014485ace6d17c76b7076c901c64ad63c",
+      "receipt": "logs/check-runs/20261014T115709Z-cbd51c5ce2234fee9d9ffd7cbb3d57a3.json",
+      "receiptSha256": "f8347d49167453f51d481217845418b50322dfaf3e6f28e633026503fb11222c",
+      "log": "logs/check-runs/20261014T115709Z-cbd51c5ce2234fee9d9ffd7cbb3d57a3.log",
+      "logSha256": "327b34b0aae8ce909ff1a76379a56ce2dae095fb2d13c49a28ce15f249f57086",
+      "criticalPairs": 0,
+      "expected": "positive arbitrary-functor section admission fails",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_displayed_maps/strict_sections.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_displayed_maps/strict_sections.lp:11118:0-11119:50] Assertion failed."
+    }
+  },
+  "lhsAudit": {
+    "file": "tmp/probes/strict_displayed_maps/candidate.lp",
+    "candidate_clauses": 0,
+    "candidate_slots": 0,
+    "candidates": [],
+    "annotated_clauses": 16,
+    "annotated_slots": 23,
+    "annotated": [
+      {
+        "line": 3407,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(Op_cat $K)",
+        "reason": "Op_cat is the measured source discriminator after the"
+      },
+      {
+        "line": 3414,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(CoAbove2_cat $K)",
+        "reason": "the R source selects the erased-identity presentation."
+      },
+      {
+        "line": 3418,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(CoAbove2_cat (Op_cat $K))",
+        "reason": "the total source has lost both R and T identity tags."
+      },
+      {
+        "line": 3487,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(Op_cat (Path_cat $A))",
+        "reason": "measured opposite/path category discriminators reduce"
+      },
+      {
+        "line": 3487,
+        "head": "fapp1_fapp0",
+        "slot": 2,
+        "argument": "(Path_cat $A)",
+        "reason": "measured opposite/path category discriminators reduce"
+      },
+      {
+        "line": 3499,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat $A)",
+        "reason": "the target Path_cat guard removes eleven otherwise"
+      },
+      {
+        "line": 3517,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(Op_cat (Path_cat (PathRecord_grpd $A)))",
+        "reason": "measured rigid PathSym categories are warning guards."
+      },
+      {
+        "line": 3517,
+        "head": "fapp1_fapp0",
+        "slot": 2,
+        "argument": "(Path_cat (PathRecord_grpd $A))",
+        "reason": "measured rigid PathSym categories are warning guards."
+      },
+      {
+        "line": 5583,
+        "head": "fapp1_fapp0",
+        "slot": 1,
+        "argument": "(@Catd_cat $K)",
+        "reason": "Catd_cat is the source discriminator for id_funcd."
+      },
+      {
+        "line": 5735,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat $A)",
+        "reason": "Path_cat is the semantic discriminator for the projected right-unit bridge."
+      },
+      {
+        "line": 5740,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat $A)",
+        "reason": "Path_cat is the semantic discriminator for the projected left-unit bridge."
+      },
+      {
+        "line": 5746,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat (PathRecord_grpd $A))",
+        "reason": "the nested Path_cat/PathRecord heads select this former."
+      },
+      {
+        "line": 5752,
+        "head": "comp_fapp0",
+        "slot": 1,
+        "argument": "(Path_cat (PathRecord_grpd $A))",
+        "reason": "the nested Path_cat/PathRecord heads select this former."
+      },
+      {
+        "line": 8824,
+        "head": "comp_fapp0",
+        "slot": 2,
+        "argument": "(Product_cat $A $B)",
+        "reason": "product source/middle/target categories guard the symmetry involution rule."
+      },
+      {
+        "line": 8824,
+        "head": "comp_fapp0",
+        "slot": 3,
+        "argument": "(Product_cat $B $A)",
+        "reason": "product source/middle/target categories guard the symmetry involution rule."
+      },
+      {
+        "line": 8824,
+        "head": "comp_fapp0",
+        "slot": 4,
+        "argument": "(Product_cat $A $B)",
+        "reason": "product source/middle/target categories guard the symmetry involution rule."
+      },
+      {
+        "line": 8836,
+        "head": "comp_fapp0",
+        "slot": 2,
+        "argument": "(Product_cat $A $B)",
+        "reason": "product source/middle categories guard the symmetry-involution pullback rule."
+      },
+      {
+        "line": 8836,
+        "head": "comp_fapp0",
+        "slot": 3,
+        "argument": "(Product_cat $B $A)",
+        "reason": "product source/middle categories guard the symmetry-involution pullback rule."
+      },
+      {
+        "line": 10108,
+        "head": "tapp1_func",
+        "slot": 3,
+        "argument": "(@hom_ $A $B $F $Y)",
+        "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+      },
+      {
+        "line": 10108,
+        "head": "tapp1_func",
+        "slot": 4,
+        "argument": "(@hom_ $A $B $F $X)",
+        "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+      },
+      {
+        "line": 10141,
+        "head": "tapp1_fapp0",
+        "slot": 3,
+        "argument": "(@hom_ $A $B $F $Y)",
+        "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+      },
+      {
+        "line": 10141,
+        "head": "tapp1_fapp0",
+        "slot": 4,
+        "argument": "(@hom_ $A $B $F $X)",
+        "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+      },
+      {
+        "line": 10422,
+        "head": "tapp0_fapp0",
+        "slot": 3,
+        "argument": "(@Const_catd $K Terminal_cat)",
+        "reason": "terminal-source family is the semantic discriminator"
+      }
+    ]
+  },
+  "diagnostics": {
+    "initialHigherHomAliasInversion": {
+      "id": "20261014T114619Z-82a8ea1b98944f398739ec7c5c8a0391",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.423925162991509,
+      "childrenMaxRssKiB": 141916,
+      "inputSnapshot": "a19c8e759a07fae1440e6cd0e99e90559d09b66d3d5f3284a340810e9e3afc1a",
+      "sourceSha256": "8fdcbf72bc4489e64b16dd9a485fa21982a094c649e58a4a1a76878fe5a9bff2",
+      "receipt": "logs/check-runs/20261014T114619Z-82a8ea1b98944f398739ec7c5c8a0391.json",
+      "receiptSha256": "daaaca4244927e96499433f9ba0d3592b88cbeeb4f58e1b6b7b9d9f2550e8aa1",
+      "log": "logs/check-runs/20261014T114619Z-82a8ea1b98944f398739ec7c5c8a0391.log",
+      "logSha256": "8fbd500b4c57a0e1c7eb23bd34f082202772d4f3ebf11c47a896cd48c7399807",
+      "criticalPairs": 744
+    },
+    "broaderNaturalityGuard": {
+      "id": "20261014T114937Z-eb0b4fcc999e4ebb9896b62d2b331131",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.288376986980438,
+      "childrenMaxRssKiB": 142068,
+      "inputSnapshot": "a0f51330a3e0b8bf74974cef64134001a9793677e31aa738b4340acb970594ae",
+      "sourceSha256": "bdbc50c5de530cf33114fa0f39db9055284f48c26883ce0ce4e75184910697a2",
+      "receipt": "logs/check-runs/20261014T114937Z-eb0b4fcc999e4ebb9896b62d2b331131.json",
+      "receiptSha256": "5b4fe08343f66d15b8ecf20fc08254c49863e9bf602ac4ef426c30e99a045d8b",
+      "log": "logs/check-runs/20261014T114937Z-eb0b4fcc999e4ebb9896b62d2b331131.log",
+      "logSha256": "86f6b1e5b906d59d873f5c3582bd9f9cc7470458503a18e8024365c34c5caf5e",
+      "criticalPairs": 745
+    }
+  },
+  "warnings": {
+    "baseline": {
+      "id": "20261014T111832Z-9e3f5ea35bf54958947ec4c1d21a9ab3",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 4.140833013923839,
+      "childrenMaxRssKiB": 136380,
+      "inputSnapshot": "bdce68c540e13bdd09d635873650c481cbc7ba5ab370dc38310e823d2f35bb18",
+      "sourceSha256": "cdedfe7028389e556bc9a4eb304a0fe5442a2b6b912efd9d235d08a66904a132",
+      "receipt": "logs/check-runs/20261014T111832Z-9e3f5ea35bf54958947ec4c1d21a9ab3.json",
+      "receiptSha256": "0fe7cfbb23d19abe8191b6693aa425a099c68338eb02e4c5ba62874c394a7704",
+      "log": "logs/check-runs/20261014T111832Z-9e3f5ea35bf54958947ec4c1d21a9ab3.log",
+      "logSha256": "5541c9d22fce29dfda5a4eeae94754f78d49b82e658a8c4c4bba73dae894b9d5",
+      "criticalPairs": 667
+    },
+    "candidate": "20261014T115530Z-fbc1a87d505d478dbdb2e76cc26901ef",
+    "baselineCount": 667,
+    "candidateCount": 740,
+    "addedCount": 73,
+    "removedCount": 0,
+    "addedFamilies": [
+      {
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "count": 42
+      },
+      {
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "count": 14
+      },
+      {
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "count": 10
+      },
+      {
+        "participantHeads": [
+          "fapp0",
+          "fapp1_func"
+        ],
+        "count": 2
+      },
+      {
+        "participantHeads": [
+          "comp_fapp0",
+          "tapp0_fapp0"
+        ],
+        "count": 2
+      },
+      {
+        "participantHeads": [
+          "fapp1_fapp0",
+          "hom_postcomp_fapp0"
+        ],
+        "count": 1
+      },
+      {
+        "participantHeads": [
+          "tapp0_fapp0",
+          "tapp0_fapp0"
+        ],
+        "count": 1
+      },
+      {
+        "participantHeads": [
+          "comp_fapp0",
+          "tapp0_hom_fapp0"
+        ],
+        "count": 1
+      }
+    ],
+    "addedLedger": [
+      {
+        "index": 0,
+        "multiplicity": 1,
+        "sha256": "32c2c48ff85121d6021d9321216e90b2592b2fa0041bcc827343f7e9be32e414",
+        "participantHeads": [
+          "fapp0",
+          "fapp1_func"
+        ],
+        "ownerGroup": "relocated constant-family/section observations",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 1,
+        "multiplicity": 1,
+        "sha256": "61db022e4daf4eafaa7ddf8ac98f3f4f84baa9a5eb403bace2840c257bc200cb",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "relocated constant-family/section observations",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 2,
+        "multiplicity": 1,
+        "sha256": "d0ed3dcc11b6135cf60fb51e0dd9d9ce49f3df1d2384a2da5e027c752f6863e7",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "relocated constant-family/section observations",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 3,
+        "multiplicity": 1,
+        "sha256": "542b68c215ef5e736cdd99e848a57349b97f93a651d6f1207fb113ca75c39605",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "hom_postcomp_fapp0"
+        ],
+        "ownerGroup": "relocated constant-family/section observations",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 4,
+        "multiplicity": 1,
+        "sha256": "d4111fea8b2fb66441a2851e16cd3ecb4f6ca05369565705be16f113e9a083e3",
+        "participantHeads": [
+          "tapp0_fapp0",
+          "tapp0_fapp0"
+        ],
+        "ownerGroup": "relocated constant-family/section observations",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 5,
+        "multiplicity": 1,
+        "sha256": "a370f0243010d51ea5dbd4a44cb79e2922cd1b3e33a0a3d3126a1675a7ff2140",
+        "participantHeads": [
+          "comp_fapp0",
+          "tapp0_fapp0"
+        ],
+        "ownerGroup": "relocated constant-family/section observations",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 6,
+        "multiplicity": 1,
+        "sha256": "f946e49914becdadf0d7469dc2f5711ae345a77ba94c47a4318ca1604367c143",
+        "participantHeads": [
+          "fapp0",
+          "fapp1_func"
+        ],
+        "ownerGroup": "family inclusion and higher identity/composition projection",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 7,
+        "multiplicity": 1,
+        "sha256": "38882c4445e05303d39bc82c8bebcfc1d306609d7adbe01eeb9bbb3574f4230e",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 8,
+        "multiplicity": 1,
+        "sha256": "d2d04793ebc48826d4c4f22057247cfaad1297ec0d97a7a9fdc8ba844ee97a7c",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 9,
+        "multiplicity": 1,
+        "sha256": "fd1b8d94c15678f8dd15a18c3e781a52d0bd82542ddc555cbc61a2122373f4cb",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 10,
+        "multiplicity": 1,
+        "sha256": "6e011ca6f63cd74fd2fe01c8d4eb0880810416559f7be5fa9aee491a9167a099",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 11,
+        "multiplicity": 1,
+        "sha256": "3a4b75bf5f9b2ec21425cbb1d2d5ac524424ef7185f371f8c772ee2684907d36",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 12,
+        "multiplicity": 1,
+        "sha256": "1ffa15fd2aa2ceeccd9d47d4567945fe6c9424c352e0c4247de839b026fc2640",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 13,
+        "multiplicity": 1,
+        "sha256": "0f07976df5caee077840e1ec620747f572e0f6f9a4289418beb1361b95d66396",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 14,
+        "multiplicity": 1,
+        "sha256": "2f297d3793b473d5853d8a5abd38b65f2acac11d8c4aba57da9015a530130e17",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 15,
+        "multiplicity": 1,
+        "sha256": "3520675d714b38c1bf4f9d8e5b39be0525bcd531603134128b3ece6bf69ad208",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 16,
+        "multiplicity": 1,
+        "sha256": "b4bf9f1c253a6256c3fc41ae4fb37da3ebab5e1730c564bd12d6a7f064e8d8ad",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 17,
+        "multiplicity": 1,
+        "sha256": "9b23d125e71bb69720ead317a9813057265130aa00b34a549214f35e9c1945c9",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 18,
+        "multiplicity": 1,
+        "sha256": "404fd5a208891119c0099ca526da056ed1ce4518ad70f651c7f2562341378e2c",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 19,
+        "multiplicity": 1,
+        "sha256": "95de730741ec1104e63e39e64fd86662b78ce3cc5f68e4bf3990f6a61cab6d15",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 20,
+        "multiplicity": 1,
+        "sha256": "dfe172a3b6d907f30f13bfe910c8393c79ceccec00abe61d153bc1c7dabfe752",
+        "participantHeads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 21,
+        "multiplicity": 1,
+        "sha256": "3e2b3b32842cae66427562fa3f0bab9698bdf74ae28aa91ad57944f754045b3d",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "family inclusion and higher identity/composition projection",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 22,
+        "multiplicity": 1,
+        "sha256": "e96de613e27a9d6d2fee85fdd3ff2ad8af3c398047fc3cff00bf6125d057f830",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "family inclusion and higher identity/composition projection",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 23,
+        "multiplicity": 1,
+        "sha256": "1bad889d249036c2a927ddba5b8a2e317034ba66c22bc2cfdfde5cb3b6d8f43e",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "family inclusion and higher identity/composition projection",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 24,
+        "multiplicity": 1,
+        "sha256": "6cf9abc539782ee4b9df3ff0c8a064ad05cb8a754a36df95507fe867529ce927",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "family inclusion and higher identity/composition projection",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 25,
+        "multiplicity": 1,
+        "sha256": "9d28ffc667891999fc266b644a67ef5df5661f048e089920c12205e5222fc0ee",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 26,
+        "multiplicity": 1,
+        "sha256": "0a1cfe702e3c3088d5df69c14e6288cf9c506995b058398aa366f332b104259f",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 27,
+        "multiplicity": 1,
+        "sha256": "85db5b6935a768435e6011627c2685b6c265d75e9c137f3766b27c4ef39d1c13",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 28,
+        "multiplicity": 1,
+        "sha256": "038e1a0076e888c5114f4b1de50e24576ed959b3fc0ea0d88d74dac30b09aa3f",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 29,
+        "multiplicity": 1,
+        "sha256": "85a0e5954b4484b216b52304a5076a3e762ba7a09003433ea91f50c356e8bb62",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 30,
+        "multiplicity": 1,
+        "sha256": "e5693c932878edc9e8d11a81f0fed43386810f6230e35600e515d5d298fd8df5",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 31,
+        "multiplicity": 1,
+        "sha256": "decf01350c77cd0da5feddeaa6070e59a4e523060f594c156b631631eb5290f9",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 32,
+        "multiplicity": 1,
+        "sha256": "839c09ff5fe35dd80aeee044499012fef66b8b4a4fc88526816b0c355c499062",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 33,
+        "multiplicity": 1,
+        "sha256": "33a59c87f540b262ae2958d1ad9fb794902cabb940a1bc3210c0ccba7d1585fe",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 34,
+        "multiplicity": 1,
+        "sha256": "73549424d4839e4730652b0f3ae1c081be4843c6ff7028ad4b000aff9a8c70d8",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 35,
+        "multiplicity": 1,
+        "sha256": "3d219ba48da5719b83331aabdec9858924aa89b5ce8803fd539fba8e68738fdb",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 36,
+        "multiplicity": 1,
+        "sha256": "ce11d97c60d5d84f7fb36d4e66aba33e88815f82b7844f49ad482ef210fd3025",
+        "participantHeads": [
+          "comp_fapp0",
+          "tapp0_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 37,
+        "multiplicity": 1,
+        "sha256": "c83773565518f1a68475f9fca75384593ce773a6efb18eff74f0f9ea263ebc62",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 38,
+        "multiplicity": 1,
+        "sha256": "6dbcb933ac8c6b9f0507d9fa3862ec41b6ede230f339be5d62f5ed17b1bad814",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 39,
+        "multiplicity": 1,
+        "sha256": "9e5eda7e945b39fef548de00b5667e9690a98dbc1301e1685a4698cf04eb31d9",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 40,
+        "multiplicity": 1,
+        "sha256": "16317b0408352b40e6a1fc62cf15c2a169cb599a4e8da200103812cac0e7442c",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 41,
+        "multiplicity": 1,
+        "sha256": "a5f06b6370bc9db38ac09b5beede26e409d7a2815fd93f012bd3a29b59ce13d1",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 42,
+        "multiplicity": 1,
+        "sha256": "355009836c429e8c8f01f5638bba558a29f16aa312b08bf29ce51add4d6d011d",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 43,
+        "multiplicity": 1,
+        "sha256": "ce5fffcceb44d7eb3648ad77ce6ed573cf5655e0ed4feb28f9a452c392915e23",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 44,
+        "multiplicity": 1,
+        "sha256": "d2e34544e2da79a116fe5f1e553f3479acaafb0436f6237da65b89c200fe923d",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 45,
+        "multiplicity": 1,
+        "sha256": "e2d325b9d7f974dee66f734efbd49df329fc974fe71812bce083196fe91b993b",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 46,
+        "multiplicity": 1,
+        "sha256": "7798b38780f53bc1cf86356ba8c4bd3219285f504bd9936509635a503202846b",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 47,
+        "multiplicity": 1,
+        "sha256": "e54e0f49941ed3945573f0de3881073b67be947bcb5898d77a22c4f3a1c0cacd",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 48,
+        "multiplicity": 1,
+        "sha256": "bb551673f57c28547b32ec626da2dde5bcd02689d3762357027dd1b4356f2397",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 49,
+        "multiplicity": 1,
+        "sha256": "af3e6e56860d35182d48e943cc4822df279955b1c840ecff01c36ed2abaff9cb",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 50,
+        "multiplicity": 1,
+        "sha256": "c717e54546d932869c9d1f8782eebce84d6e3dec88e60dc8d0868aea94db425e",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 51,
+        "multiplicity": 1,
+        "sha256": "663ddc80a9f4c65e6bc135e887d6e3895934f0f4c19e6b502c609e9cfd031a5c",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 52,
+        "multiplicity": 1,
+        "sha256": "d7221bf6da4dd12d21ad15d0165e3e7d600dec9afa19bd84156fbd9d8482f4c4",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 53,
+        "multiplicity": 1,
+        "sha256": "09eea31a54f73960a4b95fcd51265cf75a48cafceb4d73c3cc54185f7c222173",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 54,
+        "multiplicity": 1,
+        "sha256": "14ff6e35e5b42b1efcb1c36939953166955539a08427030cd3ee5b9932798241",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 55,
+        "multiplicity": 1,
+        "sha256": "fae7d44210448701cdab40ce6111e481c5d6fd9ef300494d341632f65ccbde5a",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 56,
+        "multiplicity": 1,
+        "sha256": "176e188c63c23c448ed18ac7d64b132a4141d30339af4b87e0cd8ff5056b1374",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 57,
+        "multiplicity": 1,
+        "sha256": "bf30cc322264a7b0f5fb3e1ca12cdc32d9263f5b6fe5ab0efbe6fc1e48aa38bb",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 58,
+        "multiplicity": 1,
+        "sha256": "2e2d013e5f7ee1865d082ef901d72684706129b0c5f06681779eee83629ea6b0",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 59,
+        "multiplicity": 1,
+        "sha256": "014b5e9072a85620ffac6ffc9617bdee67e495a4c05857bc79940bccfd8b6343",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 60,
+        "multiplicity": 1,
+        "sha256": "58b118c0f45b48fe72d2f5132f97498090511d51b69151a73edfb92326ea0d17",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 61,
+        "multiplicity": 1,
+        "sha256": "18a286b9b731ea522c94c88ca1c73c5a6217701536815e35281b88a01b39ee84",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 62,
+        "multiplicity": 1,
+        "sha256": "07bde87719e51e5182146e666f5a2f88fc3527053b8666204f4479f40281e842",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 63,
+        "multiplicity": 1,
+        "sha256": "c921fc211310ecac39c651d9533700f49b807ec9d5580f08e1faa2487ab26f9a",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 64,
+        "multiplicity": 1,
+        "sha256": "a36ed6e70066ee1ef771e4f1515ee2248695d07bb5d1cfe10e3f3f8d6d974d6c",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 65,
+        "multiplicity": 1,
+        "sha256": "0c9af8831f595b822cdb3942d4ac0aeb201bfa01402735f4dd0c438dc72a87da",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 66,
+        "multiplicity": 1,
+        "sha256": "8740d9bcc664ba8fe471067d73c98b92e4cef6340fa2850625dad05bc72565cc",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 67,
+        "multiplicity": 1,
+        "sha256": "8c08e693f7c8757af78cf1d5736901cba8e15e11970b00242666282088becbf8",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 68,
+        "multiplicity": 1,
+        "sha256": "803ab27bb1e72be658cbc51a8d9a649f70fbe67d04f0c0637dd0ac313d1a089d",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 69,
+        "multiplicity": 1,
+        "sha256": "8d1a275f4d1a6013e2f9d245f83b02cf612c93637976c99edb606f72f03065c9",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 70,
+        "multiplicity": 1,
+        "sha256": "5e8ebe3308f9c55baea9c83820946ebf08b1e8ea228e1aa6e07caf6f2ef93e2e",
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 71,
+        "multiplicity": 1,
+        "sha256": "3b1f8db66ea09308f86e88f272b3b69710bd8f4561c213d16f2a0a21785c8ba4",
+        "participantHeads": [
+          "comp_fapp0",
+          "tapp0_hom_fapp0"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      },
+      {
+        "index": 72,
+        "multiplicity": 1,
+        "sha256": "626809e207dcc840fc97b5222cdf7ae4d8a65e5faa48f1dbc655d01ca85881c2",
+        "participantHeads": [
+          "comp_fapp0",
+          "strict_transfor"
+        ],
+        "ownerGroup": "strict-view naturality and identity/composition/constant admission",
+        "qualification": "selected consumers checked; complete symbolic joins not certified"
+      }
+    ],
+    "broaderGuardCount": 745,
+    "catValuedGuardCount": 740,
+    "qualification": "Five overlap reports avoided by limiting the new strict endpoint rule to Cat-valued transformations. Remaining joins are not a confluence certificate."
+  },
+  "qualification": [
+    "Probe-only names retain the existing family object carrier while restricting displayed map objects through native StrictTransfor.",
+    "Whole inclusion, identity/composition views, canonical constant sections and ambient higher modification projection have checked consumers.",
+    "Whole fibre-functor endpoint naturality computes for admitted FF; no operational equality/proof argument is introduced.",
+    "The native extracted strict-cell identity is not newly qualified by this prefix; its full Homd/intrinsic integration remains open.",
+    "Transf-based sections retain arbitrary ordinary functors, including the identity diagram of categories; those are not automatically strict displayed maps.",
+    "One variant fails subject reduction, seven fail intended assertions; these are not eight interchangeable semantic counterexamples.",
+    "Public Catd/Functord comparisons and their downstream consumers have not been migrated; no new default is selected.",
+    "Neither whole corrected Homd, general Sigma nor the independent Cartesian composition issue is settled.",
+    "The donor retains known legacy contracts; local noncollapse controls do not certify consistency of the full snapshot."
+  ]
+}

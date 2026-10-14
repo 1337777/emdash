@@ -47,6 +47,13 @@ preserving distinct mixed paths. Its checked slice is retained while the
 user-requested comparison with corrected lax defaults is assessed. Neither
 this nor the total-duality candidate has been promoted to production.
 
+The [strict displayed-map comparison](strict_displayed_maps_review.md)
+checks the proposed strict-map/ambient-section separation using native
+carrier and action owners. Its 54 positive/22 negative assertions include
+the preceding donors. The public Functord contract remains unchanged;
+the review records the coupled migration still required if this alternative
+is selected.
+
 Continuation qualification: the stronger
 [evaluation-profile review](../../../docs/EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 shows that the unchanged Cartesian evaluator plus even the capped strictness

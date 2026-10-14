@@ -195,6 +195,14 @@ lax defaults preserve broader ambient maps while requiring correct guards,
 family admission and revised totals. Neither has yet delivered the fully
 qualified intended Homd ladder.
 
+Native follow-up on 2026-10-14: the
+[strict displayed-map comparison](../emdash2/audits/strict-default-action-boundary/strict_displayed_maps_review.md)
+now checks this classifier/inclusion mechanism, strict endpoint computation,
+ambient modifications and preservation of ordinary nonconstant sections.
+Automatic reverse admission and strictifying the section classifier fail
+their intended controls. This is an isolated native comparison with explicit
+probe names, not a selected public Functord migration or completed Homd.
+
 ## The stronger check
 
 The first pilot's three conversion negatives do not establish preservation

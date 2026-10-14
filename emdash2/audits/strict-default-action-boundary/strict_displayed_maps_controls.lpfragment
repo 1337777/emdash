@@ -1,0 +1,84 @@
+// Every original family object is retained, while arbitrary lax maps are not.
+assert [K : Cat] (E : τ (Catd K)) ⊢ E : τ (Obj (sf_family_cat K));
+assertnot [K : Cat] ⊢ sf_family_cat K ≡ Functor_cat K Cat_cat;
+assertnot [K : Cat] [E D : τ (Functor K Cat_cat)] (FF : τ (@Transf K Cat_cat E D)) ⊢
+  FF : τ (Obj (@sf_family_map_cat K E D));
+
+assert [K : Cat] [E D : τ (Functor K Cat_cat)] (FF : τ (Obj (@sf_family_map_cat K E D))) ⊢
+  @sf_family_map_view K E D FF : τ (@Transf K Cat_cat E D);
+assert [K : Cat] [E D : τ (Functor K Cat_cat)] (FF : τ (Obj (@sf_family_map_cat K E D))) ⊢
+  @fapp1_fapp0 (sf_family_cat K) (Functor_cat K Cat_cat) (sf_family_include K) E D FF
+  ≡ @sf_family_map_view K E D FF;
+
+// The two naturality composites agree as whole fibre functors, not only at u.
+assert [K : Cat] [E D : τ (Functor K Cat_cat)] (FF : τ (Obj (@sf_family_map_cat K E D)))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @comp_cat_fapp0 (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat D x) (@fapp0 K Cat_cat D y)
+    (@fapp1_fapp0 K Cat_cat D x y p)
+    (@tapp0_fapp0 K Cat_cat E D x (@sf_family_map_view K E D FF))
+  ≡ @comp_cat_fapp0 (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y) (@fapp0 K Cat_cat D y)
+      (@tapp0_fapp0 K Cat_cat E D y (@sf_family_map_view K E D FF))
+      (@fapp1_fapp0 K Cat_cat E x y p);
+
+// The same strictness does not become a rule for an arbitrary ambient FF.
+assertnot [K : Cat] [E D : τ (Functor K Cat_cat)] (FF : τ (@Transf K Cat_cat E D))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @eq_refl (Functor (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat D y))
+    (@tapp1_fapp0 K Cat_cat E D x y FF p)
+  : τ (@= (Functor (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat D y))
+      (@comp_cat_fapp0 (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat D x) (@fapp0 K Cat_cat D y)
+        (@fapp1_fapp0 K Cat_cat D x y p) (@tapp0_fapp0 K Cat_cat E D x FF))
+      (@tapp1_fapp0 K Cat_cat E D x y FF p));
+
+// Canonical identity/composition admission is intrinsic to the family category.
+assert [K : Cat] (E : τ (Functor K Cat_cat)) ⊢
+  @sf_family_map_view K E E (@id (sf_family_cat K) E)
+  ≡ @id (Functor_cat K Cat_cat) E;
+assert [K : Cat] [E M D : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K E M))) (GG : τ (Obj (@sf_family_map_cat K M D))) ⊢
+  @sf_family_map_view K E D (@comp_fapp0 (sf_family_cat K) E M D GG FF)
+  ≡ @comp_fapp0 (Functor_cat K Cat_cat) E M D
+      (@sf_family_map_view K M D GG) (@sf_family_map_view K E M FF);
+
+// The inclusion retains a variable higher modification unchanged.
+// Use the common canonical Hom classifier to avoid premature inversion of
+// the two different category heads in a bare comparison of Hom aliases.
+assert [K : Cat] [E D : τ (Functor K Cat_cat)]
+  [FF GG : τ (Obj (@sf_family_map_cat K E D))]
+  (eta : τ (Obj (Hom_cat (@Transf_cat K Cat_cat E D)
+      (@strict_transfor K Cat_cat E D FF) (@strict_transfor K Cat_cat E D GG)))) ⊢
+  @fapp1_fapp0 (@sf_family_map_cat K E D) (@Transf_cat K Cat_cat E D)
+    (@sf_family_map_include K E D) FF GG eta ≡ eta;
+
+// Nonconstant ordinary sections remain available on the ambient side.
+assert [K A : Cat] (F : τ (Functor K A)) ⊢
+  F : τ (Obj (@sf_section_cat K (@Const_catd K A)));
+assert [K A : Cat] (F : τ (Functor K A)) (x : τ (Obj K)) ⊢
+  @sf_section_at K (@Const_catd K A) F x ≡ @fapp0 K A F x;
+assertnot [K A : Cat] (F : τ (Functor K A)) ⊢
+  F : τ (Obj (@sf_family_map_cat K (@Const_catd K Terminal_cat) (@Const_catd K A)));
+
+// Constant-section evaluation must not identify distinct values of F.
+assertnot [K A : Cat] (F : τ (Functor K A)) [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @eq_refl (Obj A) (@fapp0 K A F x)
+  : τ (@= (Obj A)
+      (@sf_section_at K (@Const_catd K A) F x)
+      (@sf_section_at K (@Const_catd K A) F y));
+
+// A concrete nonconstant section: the identity diagram of categories.
+assert (A : Cat) ⊢
+  @sf_section_at Cat_cat (@Const_catd Cat_cat Cat_cat) (@id_func Cat_cat) A ≡ A;
+assertnot ⊢ @id_func Cat_cat
+  : τ (Obj (@sf_family_map_cat Cat_cat
+      (@Const_catd Cat_cat Terminal_cat) (@Const_catd Cat_cat Cat_cat)));
+
+// Canonical constant sections do have the stricter map type.
+assert [K A : Cat] (a : τ (Obj A)) ⊢
+  @sf_family_map_view K (@Const_catd K Terminal_cat) (@Const_catd K A)
+    (@sf_constant_section K A a)
+  ≡ @Const_func K A a;
+assert [K A : Cat] (a : τ (Obj A)) (x : τ (Obj K)) ⊢
+  @sf_section_at K (@Const_catd K A)
+    (@sf_family_map_view K (@Const_catd K Terminal_cat) (@Const_catd K A)
+      (@sf_constant_section K A a)) x
+  ≡ a;

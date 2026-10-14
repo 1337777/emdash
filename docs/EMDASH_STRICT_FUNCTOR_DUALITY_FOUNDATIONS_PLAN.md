@@ -3671,6 +3671,52 @@ factor. Its unguarded object-transport rule equates `E[q](E[p](u))` with
 variants implement the same convention. This is an inherited contract to
 repair, not evidence that arbitrary lax Sigma formation is already correct.
 
+## Strict displayed-map classifier comparison, 2026-10-14
+
+Bounded hypothesis: test a category of the same family
+objects with strict displayed-map objects and a one-way inclusion into the
+ambient Cat-valued transformation category. Use probe-only classifier names
+to avoid selecting a new public default during reassessment. Reuse the
+native StrictTransfor carrier/view and generic fapp/tapp action; retain
+ambient modifications between admitted maps. Check variable-FF strict
+endpoint computation, inclusion identity/composition and higher action,
+rejection of an arbitrary lax FF, and nonconstant Transf-based sections.
+This does not qualify the identity Homd root or a complete Sigma map.
+
+The [native comparison](../emdash2/audits/strict-default-action-boundary/strict_displayed_maps_review.md)
+now passes 54 positive/22 negative assertions including inherited controls;
+12 positive/six negative controls are new. It retains the same family
+objects, gives admitted FF the native strict-transfor carrier, and uses one
+whole inclusion with ambient higher modifications. Whole fibre-functor
+naturality, inclusion identity/composition, canonical constant sections and
+a variable modification compute without operational proof inputs.
+
+The section category remains a definition through ambient Transf. Arbitrary
+ordinary functors and the identity diagram of categories remain sections,
+while automatic strict admission is rejected. Canonical constant sections
+are admitted directly. Changing that section classifier to the strict-map
+one fails the required arbitrary-section consumer. Adding a reverse
+inclusion fails the raw-map rejection control. These give native evidence
+for the necessary classifier separation, rather than just a proposed type.
+
+Seven omission/adverse variants fail at intended assertions. Removing only
+the object projection additionally fails subject reduction of higher action;
+removing its dependent projection group reaches the intended assertion.
+The final Cat-valued strict clause avoids five overlaps from the initial
+broader clause. The warning count is 740 versus the donor's 667, with 73
+added bodies and zero removed; full symbolic joins remain open. The LHS
+audit has zero unreviewed slots. Exact inputs, receipts and scopes are in
+the [verification](../emdash2/audits/strict-default-action-boundary/strict_displayed_maps_verification.json).
+
+This remains a comparison using distinct probe-only classifier names. It
+does not silently select strict public Functord, preserve the invalid old
+public identifications, or qualify the extracted strict-cell identity and
+general intrinsic Homd target. Public owner/consumer migration, the whole
+identity ladder, coefficient coherence and Sigma remain required. It gives
+positive computational evidence for the user's third alternative without
+claiming that the alternative solves the independent ordinary Gray or
+higher-family issues.
+
 ## Deferred improvements under the migration boundary
 
 These are review opportunities, not prerequisites or selected changes:

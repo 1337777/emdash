@@ -1,0 +1,10 @@
+// The proposed all-section category uses ambient Transf directly. It is a
+// definition, not a primitive Pi or the strict displayed-map classifier.
+symbol sf_section_cat [K : Cat] (E : τ (Functor K Cat_cat)) : Cat
+≔ @Transf_cat K Cat_cat (@Const_catd K Terminal_cat) E;
+
+symbol sf_section_at [K : Cat] [E : τ (Functor K Cat_cat)]
+  (s : τ (Obj (@sf_section_cat K E))) (x : τ (Obj K))
+  : τ (Obj (@fapp0 K Cat_cat E x))
+≔ @fapp0 Terminal_cat (@fapp0 K Cat_cat E x)
+    (@tapp0_fapp0 K Cat_cat (@Const_catd K Terminal_cat) E x s) Terminal_obj;

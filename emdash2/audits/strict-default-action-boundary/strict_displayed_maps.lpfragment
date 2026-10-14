@@ -1,0 +1,68 @@
+// NON-LIBRARY comparison: the same family objects, stricter displayed maps.
+// Probe-only names avoid changing public Catd/Functord before selection.
+injective symbol sf_family_cat (K : Cat) : Cat;
+rule Obj (sf_family_cat $K) ↪ Functor $K Cat_cat;
+
+injective symbol sf_family_map_cat [K : Cat]
+  (E D : τ (Functor K Cat_cat)) : Cat;
+rule Hom_cat (sf_family_cat $K) $E $D ↪ @sf_family_map_cat $K $E $D;
+rule Obj (@sf_family_map_cat $K $E $D) ↪ @StrictTransfor $K Cat_cat $E $D;
+
+// Higher cells between admitted maps remain their ambient modifications.
+rule Hom_cat (@sf_family_map_cat $K $E $D) $FF $GG
+  ↪ Hom_cat (@Transf_cat $K Cat_cat $E $D)
+      (@strict_transfor $K Cat_cat $E $D $FF)
+      (@strict_transfor $K Cat_cat $E $D $GG);
+
+// One whole inclusion, with a whole first-Hom projection.
+injective symbol sf_family_include (K : Cat)
+  : τ (Functor (sf_family_cat K) (Functor_cat K Cat_cat));
+injective symbol sf_family_map_include [K : Cat]
+  (E D : τ (Functor K Cat_cat))
+  : τ (Functor (@sf_family_map_cat K E D) (@Transf_cat K Cat_cat E D));
+
+rule @fapp0 _ _ (sf_family_include _) $E ↪ $E;
+rule @fapp1_func _ _ (sf_family_include $K) $E $D
+  ↪ @sf_family_map_include $K $E $D;
+rule @fapp1_fapp0 _ _ (sf_family_include $K) $E $D $FF
+  ↪ @strict_transfor $K Cat_cat $E $D $FF;
+rule @fapp0 _ _ (@sf_family_map_include $K $E $D) $FF
+  ↪ @strict_transfor $K Cat_cat $E $D $FF;
+rule @fapp1_func _ _ (@sf_family_map_include $K $E $D) $FF $GG
+  ↪ @id_func (Hom_cat (@Transf_cat $K Cat_cat $E $D)
+      (@strict_transfor $K Cat_cat $E $D $FF)
+      (@strict_transfor $K Cat_cat $E $D $GG));
+rule @fapp1_fapp0 _ _ (@sf_family_map_include _ _ _) _ _ $eta ↪ $eta;
+
+// The native strict view preserves the identity/composition of family maps.
+rule @strict_transfor $K Cat_cat $E $E (@id (sf_family_cat $K) $E)
+  ↪ @id (Functor_cat $K Cat_cat) $E;
+rule @strict_transfor $K Cat_cat $E $D
+      (@comp_fapp0 (sf_family_cat $K) $E $M $D $GG $FF)
+  ↪ @comp_fapp0 (Functor_cat $K Cat_cat) $E $M $D
+      (@strict_transfor $K Cat_cat $M $D $GG)
+      (@strict_transfor $K Cat_cat $E $M $FF);
+
+// Read a classified FF through the inclusion; no additional proof argument.
+symbol sf_family_map_view [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K E D)))
+  : τ (@Transf K Cat_cat E D)
+≔ @fapp0 (@sf_family_map_cat K E D) (@Transf_cat K Cat_cat E D)
+    (@sf_family_map_include K E D) FF;
+
+// Cat-valued strict naturality at the whole functor-valued component. The other side
+// already has the selected conventional pre/right computation. This direct
+// identity-specialized projection keeps the strict view as discriminator.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_fapp0 $K Cat_cat $D $x $y $p)
+      (@tapp0_fapp0 $K Cat_cat $E $D $x (@strict_transfor $K Cat_cat $E $D $U))
+  ↪ @tapp1_fapp0 $K Cat_cat $E $D $x $y
+      (@strict_transfor $K Cat_cat $E $D $U) $p;
+
+// A canonical strict section is admitted by its constructor, not by a
+// separately supplied equality certificate. Its ambient view is the
+// existing constant ordinary functor/constant-section carrier.
+symbol sf_constant_section (K A : Cat) (a : τ (Obj A))
+  : τ (Obj (@sf_family_map_cat K (@Const_catd K Terminal_cat) (@Const_catd K A)));
+rule @strict_transfor _ _ _ _ (@sf_constant_section $K $A $a)
+  ↪ @Const_func $K $A $a;
