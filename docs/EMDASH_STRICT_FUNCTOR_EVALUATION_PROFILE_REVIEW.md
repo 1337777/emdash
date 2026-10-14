@@ -39,6 +39,83 @@ production's current Sigma composition. The following reassessment compares
 corrected alternatives; it does not assume that the old lax kernel is
 already qualified, or select a default change automatically.
 
+## A Cartesian coefficient universe as a uniform family doctrine
+
+The subsequent [overall design matrix](EMDASH_FOUNDATION_PROFILE_DESIGN_MATRIX.md)
+compares this proposal with lax defaults, the Q alternatives, stricter
+Functord, sections and the independent universe-composition boundary.
+
+User proposal, 2026-10-14: reconsider a universe of strict functors and
+strict transfors as the family coefficient, and prefer general type-theoretic
+principles over a growing list of Homd-specific higher-profile repairs.
+This reopens the separate-coefficient alternative; it is not an instruction
+to replace the public lax-transformation universe.
+
+The general principle is to distinguish mapping categories by their closure
+structure. Cartesian internal Hom has strict higher transformations; Gray
+internal Homs retain the selected directed transformations. A coefficient
+universe packages that distinction once, so a family's type determines its
+higher-action profile. This is a reusable construction, rather than a rule
+which makes selected occurrences of E[alpha] strict after admission.
+
+Provisionally prefer `Cat_cart` to a name enumerating only functors and
+2-transformations. The intended interface is
+
+```text
+Obj(Cat_cart) = Obj(Cat_cat)
+Hom_Cat_cart(A,B) = Functor_cart_cat(A,B)
+Obj(Functor_cart_cat(A,B)) = Functor(A,B).
+
+E : Functor(K,Cat_cart)
+FF : Transf_{K,Cat_cart}(E,D).
+```
+
+The Cartesian Hom must have the appropriate strict higher transformations
+at every dimension. Merely restricting its first arrows and retaining all
+ambient higher modifications is insufficient. The existing
+[classifier pilot](../emdash2/audits/strict-default-action-boundary/cartesian_profile.lpfragment)
+already keeps those higher Homs distinct and checks E[p] and E[alpha]'s
+types. It is not a completed coefficient universe or Homd implementation.
+
+E is strict in base composition by the selected public Functor default.
+Its transports are ordinary strict functors, and E[alpha] has strict
+naturality in fibre variables because it lands in the Cartesian Hom.
+Components of E[alpha] may still be nonidentity and noninvertible arrows.
+The model's problematic noncommuting squares are excluded by this input
+classifier, without operational proof arguments or a special wrapper on E.
+
+FF remains lax across K. Its extracted comparison at p is a 2-cell of
+Cat_cart, hence a strict transformation between fibre functors; that is
+different from making FF itself strictly natural across K. This supplies
+the stricter fibre comparison profile discussed in the Sigma-map review.
+Its whole Homd/Sigma action still needs qualification. Likewise, a section
+can use the default lax Transf into Cat_cart; the proposed universe is not
+the former blanket rule making all Cat-valued transformations strict.
+Recheck Pi/constant-family comparisons at their actual classifiers.
+
+Reuse category objects, ordinary functor objects and fapp* operations. A
+whole inclusion of Cartesian mapping categories into their lax counterparts
+supplies the weaker views; do not install a reverse coercion. The entire
+coefficient inclusion and its higher composition still require native
+qualification. Preserve Hom_Cat_cat=Functor_cat while assessing the separate
+coefficient and avoid duplicate ordinary action APIs.
+
+This is a substantial, principled alternative to insisting on the unchanged
+Homd for every E:K->Cat_cat. Adoption would mean uniform admission of every
+E:K->Cat_cart to the strict foundation, with more general Cat_cat-valued
+families requiring a different contract. It removes the input profiles of
+the recorded Cart/double-lax counterexamples; it does not prove Q coherence,
+repair every legacy evaluator or finish the direct duality-corrected ladder.
+The mathematical strict-total construction has this Cartesian coefficient
+boundary; see [Ara--Guetta v1, paragraphs 78--82](https://arxiv.org/html/2503.08832v1#S7).
+
+Recommendation: assess this coefficient-based foundation before extending
+the transported inner-Hom candidate M. Keep M as comparison evidence for the
+broader family problem. Use the existing classifier pilot and direct Homd
+consumers; do not revive the old public-Cart substitution or count its
+passing checks as qualification of a two-coefficient design. The user's
+question reopens the admission decision; no public classifier has changed.
+
 ## Reassessment of the ambient default
 
 The strict-default experiments establish local computational feasibility,

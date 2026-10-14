@@ -38,6 +38,25 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Current review deliverable, 2026-10-14: the user requests an overall
+[design matrix](EMDASH_FOUNDATION_PROFILE_DESIGN_MATRIX.md), including
+strict/lax defaults, Cat_cart family coefficients, Q mapping profiles,
+and stricter Functord independently of general Transf. The matrix records
+known failures, conditional alternatives, native evidence and anticipated
+consumer changes. Its recommendation prioritizes a Cart-coefficient Homd
+comparison and explicitly retains the separate public-universe composition
+obligation. This is a design reassessment, not a silent public migration.
+
+Latest design review, 2026-10-14: the user now proposes a separate universe
+of strict functors and strict transfors, seeking a uniform coefficient-based
+solution. The [Cartesian coefficient reassessment](EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md#a-cartesian-coefficient-universe-as-a-uniform-family-doctrine)
+reopens Cat_cart-valued family admission as an alternative to the earlier
+one-universe requirement. Assess it before extending M: E:K->Cat_cart
+would impose the needed higher naturality internally, while default
+Transf_{K,Cat_cart}(E,D) can remain lax across K. No public default or family
+classifier has yet changed. Preserve the current counterexamples as evidence
+of the distinction, and reuse the existing classifier pilot/direct ladder.
+
 Latest semantic qualification, 2026-10-14: the
 [mixed three-cell model and review](../emdash2/audits/strict-default-action-boundary/homd_mixed_three_cell_review.md)
 find an obstruction to interpreting the current double-lax Q/source-u
@@ -47,7 +66,7 @@ strict transports and external FF=id, a fibre 2-cell paired with a base
 below remain conditional typing/computation evidence; do not promote their
 unchanged Q contract as a qualified omega-level solution. Nested Cart also
 retains its earlier dimension-two obstruction for these admitted families.
-The next local correction to implement/assess is the transported inner
+The local correction proposed at that point was the transported inner
 mapping profile M(A,B)=T(Hom_oplax(T(A),T(B))). Its all-dimensional closure
 gives the required local T(E[x])->M(T(Hom_K(x,y)),Cat) action without
 changing the leaf. Whole Q, y-sections and the coupled root must still be
