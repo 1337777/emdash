@@ -3535,17 +3535,66 @@ consumer qualification. No new Lambdapi probe was run for this assessment.
 The existing mixed_family_profile_models.py finite checks were replayed
 successfully; they retain the original noncommuting-square counterexample.
 
-In-progress implementation retained separately: conventional_total_op_*
+Initial implementation boundary, now superseded by the continuation below: conventional_total_op_*
 fragments/replay under audits/strict-default-action-boundary build total
 opposite on the public lax mapping category without Cart. The initial
 candidate passed whole mapping, modification and family two-cell controls
 (receipt 20261014T101210Z-97786f0a3deb448ca97426c4506a2d35). Adding the
 projection-before-involution typed consumer exposed an unresolved join
 (receipt 20261014T102535Z-d97f0d91b4c84bfa80c8c125350eb120). These authoring
-files remain uncommitted; the current candidate is not green. Resume that
-specific owner comparison after the contract clarification, preserving the
+files were uncommitted and that candidate was not green. The continuation
+addresses this specific owner comparison, preserving the
 remaining noninvertible leg and the wrong-middle negative control. No full
 duality, Q or Homd completion follows from the earlier prefix success.
+
+## Public-universe total-duality owner continuation, 2026-10-14
+
+The preceding goal turn made progress by separating Sigma formation,
+component strictness and comparison-cell naturality, without silently
+changing public Functord. This implementation continuation resumes the
+actual unfinished total-opposite projection comparison.
+
+The [new review](../emdash2/audits/strict-default-action-boundary/conventional_total_op_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/conventional_total_op_verification.json)
+record a public-universe candidate with no Cart. Its structural whole map
+has type O(Functor_cat(A,B))->Functor_cat(O(A),O(B)); its coefficient owner
+has type R(Cat)->Cat. TotalOp_catd(E) is actual composition total_op o R(E),
+with checked object, arrow and base-two-cell action. The remaining
+non-strict transformation action is retained, with the correct reversed
+direction. No whole R/T action on arbitrary transformations is assumed.
+
+The projected-before-involution failure is closed by a narrow proof-time
+reading of the precomposition head in O(B). Both typed comparison orders
+pass, while the original left/right distinction survives a typed negative.
+Identity and vertical-composite transformation observations also pass.
+A subsequent family-composition control exposed distribution versus
+strict-action contraction: a second proof-time image-composition reading
+settles the typed whole-functor comparison. Runtime conversion remains
+negative and is not described as a new computation rule.
+
+The candidate passes 31 positive/10 negative assertions, including inherited
+controls, plus three new typed comparison definitions. Seven removal or
+wrong-orientation variants fail at their intended assertions/definitions.
+The LHS audit has zero unreviewed slots. Warnings change from 495 to 652
+against the ordinary donor, with 158 added bodies and one removed. Every
+added body has an owner-family record; remaining symbolic joins are not
+certified. The proof-time readings themselves change no runtime critical
+pairs. All checks were serial, subject-reduction enabled and within the
+default resource profile. No production rule or registry member changed.
+
+This is actual checked action on the public lax mapping category, not a
+new claim that the complete duality/Homd foundation is qualified. The
+whole inverse/coherence, general family-map action, coupled joint-operation
+corrections and lax Q/Homd construction remain required. The source donor
+still retains known joint Cartesian contracts; a passing local candidate
+does not qualify those contracts or give a consistency certificate.
+
+Next work must connect this valid whole duality profile to the corrected
+joint-operation and coefficient owners, retaining the direct Homd telescope
+and actual extracted laxity. The all-family Sigma requirement and the
+strict-total-map input question remain at the explicitly qualified boundary
+above; do not fill either gap by restoring Cartesian Q or making arbitrary
+FF strictly natural.
 
 ## Deferred improvements under the migration boundary
 

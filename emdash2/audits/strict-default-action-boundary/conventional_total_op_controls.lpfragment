@@ -1,0 +1,183 @@
+// Public Hom is unchanged; the whole duality has the shifted coefficient base.
+assert [A B : Cat] ⊢ Hom_cat Cat_cat A B ≡ Functor_cat A B;
+assert ⊢ total_op : τ (Functor (CoAbove2_cat Cat_cat) Cat_cat);
+assertnot ⊢ total_op : τ (Functor Cat_cat Cat_cat);
+assert [A : Cat] ⊢ TotalOp_cat (TotalOp_cat A) ≡ A;
+assert [A : Cat] ⊢ @fapp0 _ _ total_op A ≡ TotalOp_cat A;
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @TotalOp_func (TotalOp_cat A) (TotalOp_cat B) (@TotalOp_func A B F) ≡ F;
+
+// The whole generic action of a variable functor over R also preserves units.
+assert [K D : Cat] (H : τ (Functor (CoAbove2_cat K) D)) (x : τ (Obj K)) ⊢
+  @fapp0 (Hom_cat (CoAbove2_cat K) x x)
+    (Hom_cat D (@fapp0 (CoAbove2_cat K) D H x) (@fapp0 (CoAbove2_cat K) D H x))
+    (@fapp1_func (CoAbove2_cat K) D H x x) (@id K x)
+  ≡ @id D (@fapp0 (CoAbove2_cat K) D H x);
+
+// Whole mapping action and its actual next-Hom projection.
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G)) ⊢
+  @fapp1_fapp0 (TotalOp_cat (Functor_cat A B))
+    (Functor_cat (TotalOp_cat A) (TotalOp_cat B))
+    (TotalOp_func_func A B) G F epsilon
+  ≡ @TotalOp_transf A B F G epsilon;
+
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G)) ⊢
+  @fapp0 _ _ (@TotalOp_transf_func A B F G) epsilon
+  ≡ @TotalOp_transf A B F G epsilon;
+
+// Diagnostic annotations use the common underlying Hom classifier. A bare
+// assertion otherwise decomposes the unreduced opposite Hom too early.
+// These aliases have their actual computational bodies; no cast/proof input.
+symbol ctop_component_observation [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) (x : τ (Obj A))
+  : τ (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G x)))
+≔ @tapp0_fapp0 (TotalOp_cat A) (TotalOp_cat B)
+    (@TotalOp_func A B G) (@TotalOp_func A B F) x
+    (@TotalOp_transf A B F G epsilon);
+
+symbol ctop_arrow_observation [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+≔ @tapp1_fapp0 (TotalOp_cat A) (TotalOp_cat B)
+    (@TotalOp_func A B G) (@TotalOp_func A B F) y x
+    (@TotalOp_transf A B F G epsilon) p;
+
+symbol ctop_whole_arrow_observation [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+≔ @fapp0 (Hom_cat (TotalOp_cat A) y x)
+    (Hom_cat (TotalOp_cat B) (@fapp0 A B G y) (@fapp0 A B F x))
+    (@tapp1_func (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B G) (@TotalOp_func A B F) y x
+      (@TotalOp_transf A B F G epsilon)) p;
+
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  (x : τ (Obj A)) ⊢
+  @ctop_component_observation A B F G epsilon x
+  ≡ @tapp0_fapp0 A B F G x epsilon;
+
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G)) ⊢
+  @TotalOp_transf (TotalOp_cat A) (TotalOp_cat B)
+    (@TotalOp_func A B G) (@TotalOp_func A B F)
+    (@TotalOp_transf A B F G epsilon)
+  ≡ epsilon;
+
+// Copying the old off-diagonal middle would erase the distinction of legs.
+// This negative deliberately precedes the positive off-diagonal observations.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @ctop_arrow_observation A B F G epsilon x y p
+  ≡ @tapp1_fapp0 A B F G x y epsilon p;
+
+// The same separation must survive proof-time comparison, not only conversion.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @eq_refl (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+    (@tapp1_fapp0 A B F G x y epsilon p)
+  : τ (@= (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+      (@ctop_arrow_observation A B F G epsilon x y p)
+      (@tapp1_fapp0 A B F G x y epsilon p));
+
+// Whole and capped paths meet at the existing original post-boundary owner.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @ctop_whole_arrow_observation A B F G epsilon x y p
+  ≡ @hom_precomp_along_fapp0 B B (@id_func B)
+      (@fapp0 A B G y) (@fapp0 A B F x) (@fapp0 A B G x)
+      (@tapp0_fapp0 A B F G x epsilon) (@fapp1_fapp0 A B G x y p);
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @ctop_arrow_observation A B F G epsilon x y p
+  ≡ @fapp0 _ _ (@tapp1_post_endpoint_func A B F G epsilon x y) p;
+
+// Observe the OUTER dual's off-diagonal action before cancelling its nested
+// TotalOp_transf argument. This must agree with the original middle.
+symbol ctop_projected_twice_observation [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+≔ @fapp0 (Hom_cat (TotalOp_cat A) y x)
+    (Hom_cat (TotalOp_cat B) (@fapp0 A B G y) (@fapp0 A B F x))
+    (@tapp1_post_endpoint_func (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B G) (@TotalOp_func A B F)
+      (@TotalOp_transf A B F G epsilon) y x) p;
+
+symbol ctop_projected_twice_agrees [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+      (@ctop_projected_twice_observation A B F G epsilon x y p)
+      (@tapp1_fapp0 A B F G x y epsilon p))
+≔ @eq_refl (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+    (@tapp1_fapp0 A B F G x y epsilon p);
+
+symbol ctop_projected_twice_reverse_agrees [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+      (@tapp1_fapp0 A B F G x y epsilon p)
+      (@ctop_projected_twice_observation A B F G epsilon x y p))
+≔ @eq_refl (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+    (@ctop_projected_twice_observation A B F G epsilon x y p);
+
+// A modification is retained by the next whole Hom action, with its direction
+// reversed. The observable component is the original higher cell.
+symbol ctop_modification_observation [A B : Cat] [F G : τ (Functor A B)]
+  [epsilon eta : τ (@Transf A B F G)]
+  (Theta : τ (Hom (@Transf_cat A B F G) epsilon eta)) (x : τ (Obj A))
+  : τ (Obj (Hom_cat (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G x))
+      (@tapp0_fapp0 A B F G x epsilon) (@tapp0_fapp0 A B F G x eta)))
+≔ @tapp0_hom_fapp0 (TotalOp_cat A) (TotalOp_cat B)
+    (@TotalOp_func A B G) (@TotalOp_func A B F)
+    (@TotalOp_transf A B F G eta) (@TotalOp_transf A B F G epsilon) x
+    (@fapp1_fapp0
+      (TotalOp_cat (@Transf_cat A B F G))
+      (@Transf_cat (TotalOp_cat A) (TotalOp_cat B)
+        (@TotalOp_func A B G) (@TotalOp_func A B F))
+      (@TotalOp_transf_func A B F G) eta epsilon Theta);
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  [epsilon eta : τ (@Transf A B F G)]
+  (Theta : τ (Hom (@Transf_cat A B F G) epsilon eta)) (x : τ (Obj A)) ⊢
+  @ctop_modification_observation A B F G epsilon eta Theta x
+  ≡ @tapp0_hom_fapp0 A B F G epsilon eta x Theta;
+
+// Whole next-Hom identity must survive the source duality's identity projection.
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G)) ⊢
+  @fapp1_fapp0
+    (TotalOp_cat (@Transf_cat A B F G))
+    (@Transf_cat (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B G) (@TotalOp_func A B F))
+    (@TotalOp_transf_func A B F G) epsilon epsilon
+    (@id (@Transf_cat A B F G) epsilon)
+  ≡ @id
+      (@Transf_cat (TotalOp_cat A) (TotalOp_cat B)
+        (@TotalOp_func A B G) (@TotalOp_func A B F))
+      (@TotalOp_transf A B F G epsilon);
+
+// The family is an actual composite, whole in its base, with no admission data.
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @TotalOp_catd K E : τ (Catd (CoAbove2_cat K));
+assertnot [K : Cat] (E : τ (Catd K)) ⊢
+  @TotalOp_catd K E : τ (Catd K);
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
+  @fapp0 (CoAbove2_cat K) Cat_cat (@TotalOp_catd K E) x
+  ≡ TotalOp_cat (@fapp0 K Cat_cat E x);
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 (CoAbove2_cat K) Cat_cat (@TotalOp_catd K E) x y p
+  ≡ @TotalOp_func (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y)
+      (@fapp1_fapp0 K Cat_cat E x y p);
+
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  [p q : τ (Hom K x y)] (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  @fapp1_fapp0
+    (Hom_cat (CoAbove2_cat K) x y)
+    (Functor_cat (TotalOp_cat (@fapp0 K Cat_cat E x))
+      (TotalOp_cat (@fapp0 K Cat_cat E y)))
+    (@fapp1_func (CoAbove2_cat K) Cat_cat (@TotalOp_catd K E) x y)
+    q p alpha
+  ≡ @TotalOp_transf (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y)
+      (@fapp1_fapp0 K Cat_cat E x y p) (@fapp1_fapp0 K Cat_cat E x y q)
+      (@fapp1_fapp0 (Hom_cat K x y)
+        (Functor_cat (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y))
+        (@fapp1_func K Cat_cat E x y) p q alpha);
+
+assert ⊢ @TotalOp_catd Cat_cat (@id_func Cat_cat) ≡ total_op;

@@ -1,0 +1,18 @@
+// Proof-time pre/right reading after the outer total-dual action has projected
+// before TotalOp_transf(TotalOp_transf(epsilon)) can cancel. Precomposition
+// in O(B) is the original right boundary epsilon[y] o F[p]. This is not the
+// original post boundary G[p] o epsilon[x], and no category equals its dual.
+// Both sides retain rigid owners; the repeated D and identity are checked
+// against the actual total-opposite category before reading the endpoints.
+unif_rule
+  @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p
+  ≡ @hom_precomp_along_fapp0 $D $D $IdD $w $x $y $h $g
+  ↪ [
+      $D ≡ TotalOp_cat $B;
+      $IdD ≡ @id_func $D;
+      $w ≡ @fapp0 $A $B $F $X;
+      $x ≡ @fapp0 $A $B $G $Y;
+      $y ≡ @fapp0 $A $B $F $Y;
+      $h ≡ @tapp0_fapp0 $A $B $F $G $Y $epsilon;
+      $g ≡ @fapp1_fapp0 $A $B $F $X $Y $p
+    ];

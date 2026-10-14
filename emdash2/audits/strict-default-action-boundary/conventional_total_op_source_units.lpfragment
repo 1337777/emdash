@@ -1,0 +1,9 @@
+// Source identity projections for the two new duality normal forms.
+// These are strict-functor identity joins after the inner id has lost its tag.
+// lhs-audit: keep 1 -- the R source selects the erased-identity presentation.
+rule @fapp1_fapp0 (CoAbove2_cat $K) $D $F $x $x (@id $K $x)
+  ↪ @id $D (@fapp0 (CoAbove2_cat $K) $D $F $x);
+
+// lhs-audit: keep 1 -- the total source has lost both R and T identity tags.
+rule @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D $F $x $x (@id $K $x)
+  ↪ @id $D (@fapp0 (CoAbove2_cat (Op_cat $K)) $D $F $x);

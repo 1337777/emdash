@@ -1,0 +1,14 @@
+// Total duality exchanges the two boundary expressions. The default target
+// pre/right expression is the total dual of the ORIGINAL LEFT boundary.
+rule @tapp1_func _ _ _ _ $y $x
+      (@TotalOp_transf $A $B $F $G $epsilon)
+  ↪ @TotalOp_func (Hom_cat $A $x $y)
+      (Hom_cat $B (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $y))
+      (@tapp1_post_endpoint_func $A $B $F $G $epsilon $x $y);
+
+// Capped observation joins evaluation of the whole functor above.
+rule @tapp1_fapp0 _ _ _ _ $y $x
+      (@TotalOp_transf $A $B $F $G $epsilon) $p
+  ↪ @fapp0 (Hom_cat $A $x $y)
+      (Hom_cat $B (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $y))
+      (@tapp1_post_endpoint_func $A $B $F $G $epsilon $x $y) $p;

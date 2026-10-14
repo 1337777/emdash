@@ -33,6 +33,14 @@ selected implementation. The plan's
 assesses strict-only Sigma maps and records why this need not restrict the
 upstream intrinsic Homd extractor. No production restriction is installed.
 
+The [public-universe total-duality candidate](conventional_total_op_review.md)
+now checks whole mapping/transformation projections and the derived family's
+object, arrow and base-two-cell action. Projection-before-involution and
+family-composition typed comparisons pass; seven adverse variants reject
+the corresponding missing or wrong clauses. Its 31 positive/10 negative
+controls include inherited checks. This is non-library evidence with an
+explicit warning ledger, not the completed lax Q/Homd construction.
+
 Continuation qualification: the stronger
 [evaluation-profile review](../../../docs/EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 shows that the unchanged Cartesian evaluator plus even the capped strictness

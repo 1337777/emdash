@@ -1,0 +1,23 @@
+// NON-LIBRARY owner relocation: these two unchanged rules come from section
+// 17d of the pinned nucleus. Whole composition is required by the derived
+// family action, before any displayed-specific computation is introduced.
+rule @fapp1_func $A $A (@id Cat_cat $A) $x $y ↪ @id Cat_cat (Hom_cat $A $x $y);
+
+// Hom-action of a composite: (F ∘ G)_1 ↪ F_1 ∘ G_1.
+rule @fapp1_func $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y
+  ↪ @comp_fapp0
+      Cat_cat
+      (Hom_cat $A $x $y)
+      (Hom_cat $B
+        (@fapp0 $A $B $G $x)
+        (@fapp0 $A $B $G $y))
+      (Hom_cat $C
+        (@fapp0 $B $C $F (@fapp0 $A $B $G $x))
+        (@fapp0 $B $C $F (@fapp0 $A $B $G $y)))
+      (@fapp1_func
+        $B
+        $C
+        $F
+        (@fapp0 $A $B $G $x)
+        (@fapp0 $A $B $G $y))
+      (@fapp1_func $A $B $G $x $y);

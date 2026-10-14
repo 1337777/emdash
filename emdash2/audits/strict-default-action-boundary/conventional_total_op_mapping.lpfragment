@@ -1,0 +1,23 @@
+// NON-LIBRARY structural total-duality map for conventional lax transfors.
+// This whole map is primitive; it is not composed from unsupported whole
+// dimension-one and above-two actions on arbitrary lax transformations.
+injective symbol TotalOp_func_func (A B : Cat)
+  : τ (Functor
+      (TotalOp_cat (Functor_cat A B))
+      (Functor_cat (TotalOp_cat A) (TotalOp_cat B)));
+
+rule @fapp0 _ _ (TotalOp_func_func $A $B) $F
+  ↪ @TotalOp_func $A $B $F;
+
+// The coefficient-level source reverses all dimensions from two upward.
+constant symbol total_op : τ (Functor (CoAbove2_cat Cat_cat) Cat_cat);
+rule @fapp0 _ _ total_op $A ↪ TotalOp_cat $A;
+rule @fapp1_func _ _ total_op $A $B ↪ TotalOp_func_func $A $B;
+rule @fapp1_fapp0 _ _ total_op $A $B $F ↪ @TotalOp_func $A $B $F;
+
+// Whole formation for any strict family, by actual functor composition.
+// This does not assert a same-profile map on arbitrary family transformations.
+symbol TotalOp_catd [K : Cat] (E : τ (Catd K))
+  : τ (Catd (CoAbove2_cat K))
+≔ @comp_cat_fapp0 (CoAbove2_cat K) (CoAbove2_cat Cat_cat) Cat_cat
+    total_op (@CoAbove2_func K Cat_cat E);

@@ -1,0 +1,60 @@
+// NON-LIBRARY projections of the whole total-duality mapping operator.
+injective symbol TotalOp_transf
+  [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  : τ (@Transf (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B G) (@TotalOp_func A B F));
+
+// Reversed source endpoints expose the retained whole mapping action.
+rule @fapp1_fapp0 _ _ (TotalOp_func_func $A $B) $G $F $epsilon
+  ↪ @TotalOp_transf $A $B $F $G $epsilon;
+
+// The entire higher-hom map is an alias of the generic action, not new data.
+symbol TotalOp_transf_func [A B : Cat] (F G : τ (Functor A B))
+  : τ (Functor
+      (TotalOp_cat (@Transf_cat A B F G))
+      (@Transf_cat (TotalOp_cat A) (TotalOp_cat B)
+        (@TotalOp_func A B G) (@TotalOp_func A B F)))
+≔ @fapp1_func
+    (TotalOp_cat (Functor_cat A B))
+    (Functor_cat (TotalOp_cat A) (TotalOp_cat B))
+    (TotalOp_func_func A B) G F;
+
+rule @TotalOp_transf _ _ _ _ (@TotalOp_transf $A $B $F $G $epsilon)
+  ↪ $epsilon;
+
+rule @TotalOp_transf $A $B $F $F (@id (Functor_cat $A $B) $F)
+  ↪ @id (Functor_cat (TotalOp_cat $A) (TotalOp_cat $B))
+      (@TotalOp_func $A $B $F);
+
+rule @TotalOp_transf $A $B $F $H
+      (@comp_fapp0 (Functor_cat $A $B) $F $G $H $eta $epsilon)
+  ↪ @comp_fapp0 (Functor_cat (TotalOp_cat $A) (TotalOp_cat $B))
+      (@TotalOp_func $A $B $H) (@TotalOp_func $A $B $G) (@TotalOp_func $A $B $F)
+      (@TotalOp_transf $A $B $F $G $epsilon)
+      (@TotalOp_transf $A $B $G $H $eta);
+
+// Object components reuse the original arrow in its total-opposite Hom.
+rule @tapp0_fapp0 _ _ _ _ $x (@TotalOp_transf $A $B $F $G $epsilon)
+  ↪ @tapp0_fapp0 $A $B $F $G $x $epsilon;
+
+// Components of the whole next-hom action, with modification direction reversed.
+rule @tapp0_hom_fapp0 _ _ _ _ _ _ $x
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (TotalOp_func_func $A $B) $G $F)
+        $eta $epsilon $Theta)
+  ↪ @tapp0_hom_fapp0 $A $B $F $G $epsilon $eta $x $Theta;
+
+// Existing left/post boundary, internal in the base arrow. No laxity cell is
+// supplied: this is actual precomposition of the hom action of G by epsilon[x].
+symbol tapp1_post_endpoint_func
+  [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  (x y : τ (Obj A))
+  : τ (Functor (Hom_cat A x y)
+      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+≔ @comp_cat_fapp0 (Hom_cat A x y)
+    (Hom_cat B (@fapp0 A B G x) (@fapp0 A B G y))
+    (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))
+    (@hom_precomp_along_func B B (@id_func B)
+      (@fapp0 A B G y) (@fapp0 A B F x) (@fapp0 A B G x)
+      (@tapp0_fapp0 A B F G x epsilon))
+    (@fapp1_func A B G x y);

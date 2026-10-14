@@ -1,0 +1,14 @@
+// Proof-time composition reading in the image of total duality. Expanding
+// O(G o F) and first contracting a shared functor's composition can leave
+// different rigid heads. Reflect the comparison to the original functors;
+// do not introduce a runtime fold inverse to O's existing distribution rule.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func $B $C $G))
+    (@CoAbove2_func _ _ (@Op_func $A $B $F))
+  ≡ @CoAbove2_func _ _ (@Op_func $A1 $C1 $H)
+  ↪ [
+      $A ≡ $A1;
+      $C ≡ $C1;
+      @comp_cat_fapp0 $A $B $C $G $F ≡ $H
+    ];
