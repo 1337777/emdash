@@ -1,9 +1,19 @@
 # Strict defaults require an evaluation-profile migration
 
 Date: 2026-10-11
-Status: coefficient obstruction checked; upstream Cartesian evaluation/curry prototype passes; full migration incomplete
+Status: operation obstruction checked; Cartesian-universe prototype retained as comparison evidence; public Hom(Cat)=Functor_cat reaffirmed by user on 2026-10-14
 Owner: [strict-functor/duality plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Evidence: [native audit](../emdash2/audits/strict-default-action-boundary/README.md)
+
+User correction, 2026-10-14: the public `Cat_cat` must retain strict default
+functors with non-strict transfors, hence `Hom_cat Cat_cat A B` remains
+`Functor_cat A B`. The Cartesian-universe replacement below was a stronger
+contract, not the agreed migration target. Its measurements and mathematical
+counterchecks are retained. They show that unchanged strict Cartesian
+evaluation/composition needs correction; they do not authorize solving that
+problem by restricting the public universe or adding strict-transfor profile
+arguments to foundational operations. Read all earlier "selected" language
+below under this later boundary and the living plan's current contract.
 
 ## The stronger check
 

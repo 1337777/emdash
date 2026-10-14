@@ -5,6 +5,18 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Public-contract qualification, 2026-10-14
+
+The user reaffirmed `Hom_cat Cat_cat A B = Functor_cat A B`: strict default
+functors and non-strict transfors. The Cartesian-universe variants catalogued
+below are comparison evidence, not the selected public contract. Their
+passing Homd counts are conditional on that stronger universe. Explicit
+strict-transfor input packages are not accepted as the foundational Op/Homd
+repair. The [living plan](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#current-execution-contract)
+owns this superseding boundary. Preserve the evaluator/composition
+counterchecks while correcting the operations under the agreed public
+contract; do not reinterpret those failures as permission to narrow FF.
+
 Continuation qualification: the stronger
 [evaluation-profile review](../../../docs/EMDASH_STRICT_FUNCTOR_EVALUATION_PROFILE_REVIEW.md)
 shows that the unchanged Cartesian evaluator plus even the capped strictness

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; derived section adopted and canonical root action scoped in the identity ladder; intrinsic-action profile repair, coefficient integration and production gates remain open
+Status: active; requested lax-transfor Cat contract reaffirmed; Cartesian-universe prototypes are comparison evidence, not qualification of that contract; core interface correction and migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,55 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+User correction, 2026-10-14: preserve the agreed public universe
+
+```lambdapi
+rule Hom_cat Cat_cat $A $B ↪ Functor_cat $A $B;
+```
+
+Its functor objects have the new strict default, while its transformations
+remain non-strict. The assistant's replacement of this public Hom by
+`Functor_cart_cat` changed that agreed contract. The user also rejects
+explicit `U:StrictTransfor(...)` requirements in the foundational Op/Homd
+operations. Do not retain that restriction as the solution to the general
+FF obligation, or reintroduce it under another name. The accepted
+identity-core/defined-relative ownership split remains unchanged.
+
+This correction supersedes every earlier description below that calls the
+Cartesian-universe substitution the selected public design. Preserve its
+checked experiments and mathematical counterchecks as comparison evidence.
+In particular, the 348+/77- identity-ladder check is conditional on that
+stronger universe; it is not qualification of the user's intended public
+Cat contract. Production still has the required public Hom equation.
+
+The strict-evaluation/composition counterchecks remain valid evidence about
+the unchanged Cartesian operation signatures. Address their operation and
+closure contracts while preserving the agreed public input domain; do not
+erase their evidence or silently make all transfors strict. No new public
+profile arguments, standalone laxity witnesses or operational proof
+payloads are authorized. A change to the ambient categorical doctrine
+must be explicitly identified and assessed, not hidden in a rewrite.
+
+For dimension bookkeeping, dimension-one transpose has coefficient source
+`CoAt2_cat Cat_cat`, while total opposite has source
+`CoAbove2_cat Cat_cat`. The latter already appears as `total_op` in the
+comparison prototype. Its compatibility with standard Gray duality is a
+reason to investigate it for whole non-strict action; it does not by itself
+qualify a same-profile `Op_funcd` on arbitrary families. Preserve the
+distinction between that coefficient signature and the required family/
+transfor operator.
+
+The interrupted `homd_intrinsic_parameter` experiment added only defined
+fixed-x parameter functors through the existing Cartesian prototype. Its
+typed comparison passed with inherited controls (350 positive/78 negative),
+receipt `20261014T064742Z-5410531e472a47b1b0e4deca6beab250`; the initial
+runtime comparison failed. The three `homd_intrinsic_parameter*` authoring
+files remain unfinished and uncommitted in the audit directory, with emitted
+sources under `tmp/probes/homd_intrinsic_parameter/`. They still depend on
+the stronger public coefficient and are not a new accepted implementation
+of the requested general-FF theory. Do not promote or use that candidate as
+the next donor without correcting its coefficient contract.
 
 Migration discipline, reaffirmed by the user on 2026-10-11: follow the
 existing codebase outline and make the minimum mathematically necessary
