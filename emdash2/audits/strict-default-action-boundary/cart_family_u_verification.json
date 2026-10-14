@@ -1,0 +1,175 @@
+{
+  "status": "non-library whole-u Cartesian covariance comparison",
+  "donorEvidence": "audits/strict-default-action-boundary/cart_family_verification.json",
+  "donorEvidenceSha256": "9806f490d1ee706c03d7456ecc2d26c750c8e7fca31213b5d870dff5462b8471",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/cart_family_u_replay.py": "07b9ed1acb683674aa69aef700c26422c7a77d37e38aac1991fab2ee7f21d932",
+    "audits/strict-default-action-boundary/cart_family_u.lpfragment": "0613da9da51bf8b9eccda863c3b7c3bde385ba71d3ce797f8dd64d5804d33af3",
+    "audits/strict-default-action-boundary/cart_family_u_controls.lpfragment": "37633fd1943ac02c0d744d327dcef69ca50c9bec6e16ec73a3a96be918f3881c"
+  },
+  "outputSha256": "68d6ddd0cda455ed20530b5b401a752402f5b98069a0b3918e17a72f096c3b63",
+  "baseline": {
+    "path": "logs/check-runs/20261014T163632Z-59351217818b4c25a6c8cc2a0814bd0e.json",
+    "sha256": "e37d368282ca2044539215e1260fb4324e03d061b698625fba3f632e9f83a20e",
+    "logSha256": "d70ecbc13539c0a705661b4c26aa96884e6ecb5072e19a4bc8021400f331d4be",
+    "outcome": "passed-fresh",
+    "wallSeconds": 1.5863664130447432,
+    "childrenMaxRssKiB": 155196,
+    "inputSnapshot": "caa8cacfd148f5a54e1fd5df49afc40fe6635ec62faf73de8c69bddcfb9e9324",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "candidate": {
+    "path": "logs/check-runs/20261014T171837Z-f7f93b8e7373435986dfc252849e2ce2.json",
+    "sha256": "f3169533b59d2c05b77892b35340a49bc4dd8dad7e842edd29c59d04a4fd68ed",
+    "logSha256": "1f80ae551b649388cd5a47556f9702842035b8a1559aba789bee146de9235c2b",
+    "outcome": "passed-fresh",
+    "wallSeconds": 1.7301981119671836,
+    "childrenMaxRssKiB": 163640,
+    "inputSnapshot": "3e04d1e03d101652ab3390d379024accff8f17bf4421000aaf54cb0fea99d092",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "warnings": {
+    "before": 897,
+    "after": 918,
+    "added": 21,
+    "removed": 0,
+    "ownerGroups": {
+      "projected_transport_identity_composition_and_components": [
+        {
+          "sha256": "73a1357740ad6cebde5fe38168ba135e08dc51aa2e3bdcfba3cff58387974a42",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "086129ce3f45231c989aea66fbde28e080e92c5da66569890b3c2cd6e76a8771",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "46c2509a41eeafece613696beb19d213aef92adfeda4f9c45c41612cab3e1eaf",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "44fca9610c5a458a3c9d8624f95b850e16871dcd89cd1f91ab3b46b06b998c0a",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "626f56495326664f62d054901ad6f9df328b619a7b68207e285e8eba633f3439",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "2f50d93accb707b9f20095395d1c5b6408b8123fcd4ac96e8fd9fa9fa93f0ff5",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "2336402cbbde00d4169602732e6f8e533cfed8c356de6801d0dd3f2a91160b71",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "79d32728fe43d5aa0815803be526f104f41f68788363b6b9d75ebf33b9f24444",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "c9a8300e58f092dbbfffabffaa1b38f434281f0f2ce69b811213434845095d2e",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "81828dc6ca4996c89f0804a122a0e9cd01bb50c47f0291f0efc55bf03aa70fab",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "ccc9a695e947520ec1b92f6cc415c148a2b4e06f38c9b8fed8329824c9329ed9",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "b6babd0d1eef9bdd7521eebf87cdb1584e7da4f30c9cf23210085dbc2c215b9a",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "087eddd7f2251e9a983c8c0ad98ce23004a11aae75caa82d886ef85da271af14",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "6d446ac9999088304a12a399d519f85620200e25ce134bba3b80eced5975ef38",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "1b4d48c819367ff47e168d012e9f43d81725e6190ed53c92f72b585d6e1622e8",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "bd0d00a399a08841bda07a660ea72e09d404435d6ca84a873e301dac67cc70eb",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "9dc3aee342c97cf4ca4b71ccf7b87032f2de3855c578304d647fa8f7bfc6b981",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "6160177df613b3d0490cdbeb17a3148c6cfb0f6f0618484206fedf60ff5cc466",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "f1e84163ebd86d601026b5825f880e30a57338d6a9a7c31a5b1ca8820fed334c",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "0c897703a0e9fc8ebfab25ace8ac538836a51dc170543ae3cbd9b1e4180ea593",
+          "multiplicity": 1
+        },
+        {
+          "sha256": "7a4aa377524a8bdfd34e363e57fb4f6141ae28a5aa83144b89145b031a71649b",
+          "multiplicity": 1
+        }
+      ]
+    },
+    "qualification": "Targeted whole/capped projection and unit/composition joins, not global symbolic confluence."
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 23,
+    "intentionalClauses": 16
+  },
+  "development": {
+    "malformedDuplicateNegativeTarget": "20261014T164958Z-4d6623c34d9b4c5a82f458d26f93662e",
+    "missingCappedYProjection": "20261014T171113Z-a1677ac366184e43a5654cecd6a694f4",
+    "reducibleProfileTimeout": "20261014T171328Z-8afe5c3a13644b9aab90cf9f41803c2e",
+    "stableProfileMissingCappedHomProjection": "20261014T171628Z-a69f367444fe4b9d848b48a2bba90110"
+  },
+  "qualification": [
+    "Covariant transport preparation only; not the full dependent Homd ladder.",
+    "Whole covariance and transport_u are structural owners with qualified projection computations.",
+    "No Q mate, explicit lax-section core or production migration is implemented by this slice.",
+    "The earlier public-universe composition countercheck remains an independent obligation."
+  ]
+}

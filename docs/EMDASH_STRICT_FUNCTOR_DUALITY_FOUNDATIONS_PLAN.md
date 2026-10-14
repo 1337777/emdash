@@ -63,12 +63,16 @@ an actual base 2-cell is recovered at the identity argument. Public
 Hom(Cat)=Functor_cat, general Transf and family admission remain distinct.
 Next assemble the whole source-u map and Q/Homd under this coefficient;
 the independent universe-composition obligation remains required.
-The in-progress `cart_family_u.lpfragment` and its controls remain an
-uncommitted development slice. Their whole-u/y and Hom-level f observations
-pass in receipt `20261014T170148Z-bb3c9d2bb9df4e3c9740fb7dc0f0c483`, after
-removing an ill-formed duplicate negative target; warning/projection-order
-qualification and a durable replay remain unfinished. Do not count these
-drafts as a completed source-u or Homd milestone.
+The [whole-u covariance continuation](../emdash2/audits/strict-default-action-boundary/cart_family_u_review.md)
+now checks E[x]->Hom_Cart(K,Cat_cart)(I_x,E), its whole y-component,
+fibre-arrow action and actual fibre-two-cell action after f-projection.
+Whole-first and capped-first observations join, and projected identities/
+composition retain nonidentity higher data. Receipt
+`20261014T171837Z-f7f93b8e7373435986dfc252849e2ce2` passes with SR enabled
+in 1.730s/163,640KiB. Warnings 897->918 are inventoried; LHS audit has zero
+unreviewed slots. An earlier reducible category pattern timed out at 90s;
+the stable profile/explicit-RHS form fixes that without resource increases.
+This is covariance preparation, not the Q mate or completed Homd ladder.
 
 Current review deliverable, 2026-10-14: the user requests an overall
 [design matrix](EMDASH_FOUNDATION_PROFILE_DESIGN_MATRIX.md), including

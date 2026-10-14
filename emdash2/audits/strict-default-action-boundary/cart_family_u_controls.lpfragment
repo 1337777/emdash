@@ -1,0 +1,122 @@
+// Whole u -> whole y, preserving the same canonical section objects.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K)) ⊢
+  @comp_cat_fapp0 (fapp0 E x)
+    (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cart_hom K x) E)
+    (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y))
+    (@sf_cart_component_func K sf_cart_cat (@sf_cart_hom K x) E y)
+    (@sf_cart_cov_func K E x)
+  ≡ @sf_cart_transport_u K E x y;
+
+// Direct x/u/y/f leaf through the actual Cartesian component evaluator.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (f : τ (Hom K x y)) ⊢
+  fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat (@sf_cart_hom K x) E y)
+    (fapp0 (@sf_cart_cov_func K E x) u)) f
+  ≡ fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u;
+
+// First-Hom action at a fibre arrow retains its canonical E[f] action.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  [u v : τ (Obj (fapp0 E x))] (h : τ (Hom (fapp0 E x) u v))
+  (f : τ (Hom K x y)) ⊢
+  fapp0 (@sf_cart_component_func (Hom_cat K x y) (fapp0 E y)
+    (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v) f)
+    (@fapp1_fapp0 (fapp0 E x) (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y))
+      (@sf_cart_transport_u K E x y) u v h)
+  ≡ @fapp1_fapp0 (fapp0 E x) (fapp0 E y) (@fapp1_fapp0 K sf_cart_cat E x y f) u v h;
+
+// The same comparison is whole in h, before selecting a higher fibre cell.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u v : τ (Obj (fapp0 E x))) (f : τ (Hom K x y)) ⊢
+  @comp_cat_fapp0 (Hom_cat (fapp0 E x) u v)
+    (Hom_cat (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y))
+      (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v))
+    (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) v))
+    (@sf_cart_component_func (Hom_cat K x y) (fapp0 E y)
+      (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v) f)
+    (@fapp1_func (fapp0 E x) (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y))
+      (@sf_cart_transport_u K E x y) u v)
+  ≡ @fapp1_func (fapp0 E x) (fapp0 E y) (@fapp1_fapp0 K sf_cart_cat E x y f) u v;
+
+// Rejection of arbitrary public E is inherited from cart_family_controls.
+// Do not form an ill-typed expected target by putting such E into the
+// Cartesian diagram Hom merely to repeat that admission control.
+
+// Cap u-action before projecting y. This must agree with first projecting
+// the whole covariance functor, not only with its object components.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  [u v : τ (Obj (fapp0 E x))] (h : τ (Hom (fapp0 E x) u v)) ⊢
+  @fapp1_fapp0
+    (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cart_hom K x) E)
+    (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y))
+    (@sf_cart_component_func K sf_cart_cat (@sf_cart_hom K x) E y)
+    (@sf_cart_cov K E x u) (@sf_cart_cov K E x v)
+    (@fapp1_fapp0 (fapp0 E x)
+      (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cart_hom K x) E)
+      (@sf_cart_cov_func K E x) u v h)
+  ≡ @sf_cart_transport_u_map K E x y u v h;
+
+// A variable fibre two-cell follows the actual E[f] Hom action after the
+// whole Hom-level projection. Its direction is retained.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  [u v : τ (Obj (fapp0 E x))] [h k : τ (Hom (fapp0 E x) u v)]
+  (theta : τ (Hom (Hom_cat (fapp0 E x) u v) h k)) (f : τ (Hom K x y)) ⊢
+  @fapp1_fapp0
+    (Hom_cat (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y))
+      (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v))
+    (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) v))
+    (@sf_cart_component_func (Hom_cat K x y) (fapp0 E y)
+      (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v) f)
+    (@sf_cart_transport_u_map K E x y u v h) (@sf_cart_transport_u_map K E x y u v k)
+    (@fapp1_fapp0 (Hom_cat (fapp0 E x) u v)
+      (Hom_cat (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y))
+        (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v))
+      (@fapp1_func (fapp0 E x) (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y))
+        (@sf_cart_transport_u K E x y) u v) h k theta)
+  ≡ @fapp1_fapp0 (Hom_cat (fapp0 E x) u v)
+      (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) v))
+      (@fapp1_func (fapp0 E x) (fapp0 E y) (@fapp1_fapp0 K sf_cart_cat E x y f) u v)
+      h k theta;
+
+// Projected identities and composites use the same Cartesian action.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @sf_cart_transport_u_map K E x y u u (@id (fapp0 E x) u)
+  ≡ @id (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y)) (@sf_cart_transport K E x y u);
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  [u v w : τ (Obj (fapp0 E x))] (h : τ (Hom (fapp0 E x) u v))
+  (k : τ (Hom (fapp0 E x) v w)) (f : τ (Hom K x y)) ⊢
+  @tapp0_fapp0 (Hom_cat K x y) (fapp0 E y)
+    (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y w) f
+    (@comp_fapp0 (Functor_cat (Hom_cat K x y) (fapp0 E y))
+      (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v)
+      (@sf_cart_transport K E x y w)
+      (@strict_transfor (Hom_cat K x y) (fapp0 E y)
+        (@sf_cart_transport K E x y v) (@sf_cart_transport K E x y w)
+        (@sf_cart_transport_u_map K E x y v w k))
+      (@strict_transfor (Hom_cat K x y) (fapp0 E y)
+        (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v)
+        (@sf_cart_transport_u_map K E x y u v h)))
+  ≡ fapp0 (@sf_cart_component_func (Hom_cat K x y) (fapp0 E y)
+      (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y w) f)
+      (@comp_fapp0 (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y))
+        (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v)
+        (@sf_cart_transport K E x y w)
+        (@sf_cart_transport_u_map K E x y v w k) (@sf_cart_transport_u_map K E x y u v h));
+
+// The next-Hom projection does not identify a variable higher cell with
+// identity just because its endpoints coincide.
+assertnot [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K))
+  [u v : τ (Obj (fapp0 E x))] (h : τ (Hom (fapp0 E x) u v))
+  (theta : τ (Hom (Hom_cat (fapp0 E x) u v) h h)) (f : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 (Hom_cat (fapp0 E x) u v)
+    (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) v))
+    (@fapp1_func (fapp0 E x) (fapp0 E y) (@fapp1_fapp0 K sf_cart_cat E x y f) u v)
+    h h theta
+  ≡ @id (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) v))
+      (@fapp1_fapp0 (fapp0 E x) (fapp0 E y) (@fapp1_fapp0 K sf_cart_cat E x y f) u v h);

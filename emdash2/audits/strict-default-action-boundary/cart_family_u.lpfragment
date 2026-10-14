@@ -1,0 +1,100 @@
+// NON-LIBRARY: whole Cartesian component evaluation. This is a definition
+// through the actual mapping inclusion and the existing ordinary tapp0.
+symbol sf_cart_component_func [A B : Cat] (F G : τ (Functor A B))
+  (a : τ (Obj A))
+  : τ (Functor (Hom_cat (sf_cart_functor_cat A B) F G)
+      (Hom_cat B (fapp0 F a) (fapp0 G a)))
+≔ @comp_cat_fapp0 (Hom_cat (sf_cart_functor_cat A B) F G)
+    (@Transf_cat A B F G) (Hom_cat B (fapp0 F a) (fapp0 G a))
+    (@tapp0_func A B F G a)
+    (@fapp1_func (sf_cart_functor_cat A B) (Functor_cat A B)
+      (sf_cart_functor_include A B) F G);
+
+// Internal u-parameter of the established canonical map. The target is
+// the actual Cartesian Hom of diagrams, not a primitive section category.
+injective symbol sf_cart_cov_func [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K))
+  : τ (Functor (fapp0 E x)
+      (Hom_cat (sf_cart_functor_cat K sf_cart_cat) (@sf_cart_hom K x) E));
+rule fapp0 (@sf_cart_cov_func $K $E $x) $u ↪ @sf_cart_cov $K $E $x $u;
+
+// Whole u-parameter of transport at a fixed y. Cartesian E_1 admits this
+// transpose of evaluation, including strict transformations in the index.
+injective symbol sf_cart_transport_u [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x y : τ (Obj K))
+  : τ (Functor (fapp0 E x) (sf_cart_functor_cat (Hom_cat K x y) (fapp0 E y)));
+rule fapp0 (@sf_cart_transport_u $K $E $x $y) $u
+  ↪ @sf_cart_transport $K $E $x $y $u;
+
+// Whole y-projection of covariance, at the actual expanded component-view
+// body. This is a canonical projection ladder under composition.
+// lhs-audit: keep 1 -- composition of ordinary strict functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@tapp0_func $K sf_cart_cat _ $E $y)
+        (@fapp1_func _ _ (sf_cart_functor_include $K sf_cart_cat) _ $E))
+      (@sf_cart_cov_func $K $E $x)
+  ↪ @sf_cart_transport_u $K $E $x $y;
+
+// Actual first-Hom point action in u, with its Cartesian transfor type.
+injective symbol sf_cart_transport_u_map [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x y : τ (Obj K)) [u v : τ (Obj (fapp0 E x))]
+  (h : τ (Hom (fapp0 E x) u v))
+  : τ (@StrictTransfor (Hom_cat K x y) (fapp0 E y)
+      (@sf_cart_transport K E x y u) (@sf_cart_transport K E x y v));
+rule @fapp1_fapp0 _ _ (@sf_cart_transport_u $K $E $x $y) $u $v $h
+  ↪ @sf_cart_transport_u_map $K $E $x $y $u $v $h;
+rule @tapp0_fapp0 _ _ _ _ $f
+      (@strict_transfor _ _ _ _ (@sf_cart_transport_u_map $K $E $x $y $u $v $h))
+  ↪ @fapp1_fapp0 (@fapp0 $K sf_cart_cat $E $x) (@fapp0 $K sf_cart_cat $E $y)
+      (@fapp1_fapp0 $K sf_cart_cat $E $x $y $f) $u $v $h;
+
+// The same y-projection after u-action has been capped. This is the
+// measured normal form of the defined Cartesian component evaluator;
+// the whole covariance constructor is the discriminator.
+rule @tapp0_hom_fapp0 $K sf_cart_cat _ $E _ _ $y
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (sf_cart_functor_include $K sf_cart_cat) _ $E)
+        _ _ (@fapp1_fapp0 _ _ (@sf_cart_cov_func $K $E $x) $u $v $h))
+  ↪ @sf_cart_transport_u_map $K $E $x $y $u $v $h;
+
+// Whole Hom-level f-projection, so a fibre 2-cell follows E[f]'s next Hom.
+// lhs-audit: keep 1 -- composition of actual component/Hom-action functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@tapp0_func _ _ _ _ $f)
+        (@fapp1_func _ _ (sf_cart_functor_include _ _) _ _))
+      (@fapp1_func _ _ (@sf_cart_transport_u $K $E $x $y) $u $v)
+  ↪ @fapp1_func (@fapp0 $K sf_cart_cat $E $x) (@fapp0 $K sf_cart_cat $E $y)
+      (@fapp1_fapp0 $K sf_cart_cat $E $x $y $f) $u $v;
+
+// Capped-first counterpart of the whole Hom-level f-projection. The source
+// is the actual next Hom of transport_u, so higher fibre data is not
+// replaced by a separately supplied comparison.
+rule @tapp0_hom_fapp0 _ _ _ _ _ _ $f
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (sf_cart_functor_include _ _) _ _)
+        _ _ (@fapp1_fapp0 _ _
+          (@fapp1_func _ _ (@sf_cart_transport_u $K $E $x $y) $u $v) $h $k $theta))
+  ↪ @fapp1_fapp0 (Hom_cat (@fapp0 $K sf_cart_cat $E $x) $u $v)
+      (Hom_cat (@fapp0 $K sf_cart_cat $E $y)
+        (@fapp0 (@fapp0 $K sf_cart_cat $E $x) (@fapp0 $K sf_cart_cat $E $y)
+          (@fapp1_fapp0 $K sf_cart_cat $E $x $y $f) $u)
+        (@fapp0 (@fapp0 $K sf_cart_cat $E $x) (@fapp0 $K sf_cart_cat $E $y)
+          (@fapp1_fapp0 $K sf_cart_cat $E $x $y $f) $v))
+      (@fapp1_func (@fapp0 $K sf_cart_cat $E $x) (@fapp0 $K sf_cart_cat $E $y)
+        (@fapp1_fapp0 $K sf_cart_cat $E $x $y $f) $u $v) $h $k $theta;
+
+// Projected identity, retaining the Cartesian carrier rather than confusing
+// its maps with arbitrary ambient transformations.
+rule @sf_cart_transport_u_map $K $E $x $y $u $u (@id _ $u)
+  ↪ @id (sf_cart_functor_cat (Hom_cat $K $x $y) (@fapp0 $K sf_cart_cat $E $y))
+      (@sf_cart_transport $K $E $x $y $u);
+
+// Composition after the u-Hom projection retains the same first-Hom action.
+// lhs-audit: keep 1 -- composition in the Cartesian mapping profile.
+rule @comp_fapp0 (sf_cart_functor_cat _ _) _ _ _
+      (@sf_cart_transport_u_map $K $E $x $y $v $w $k)
+      (@sf_cart_transport_u_map $K $E $x $y $u $v $h)
+  ↪ @sf_cart_transport_u_map $K $E $x $y $u $w
+      (@comp_fapp0 (@fapp0 $K sf_cart_cat $E $x) $u $v $w $k $h);

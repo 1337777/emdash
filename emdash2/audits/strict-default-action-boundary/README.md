@@ -72,6 +72,12 @@ base two-cell is recovered by actual computation. The public lax Hom and
 general FF remain distinct. Full coefficient/Q coherence and the Homd
 ladder under this new input type are not yet qualified.
 
+The [whole-u covariance continuation](cart_family_u_review.md) adds the
+actual E[x]-parameter functor into Cartesian diagram maps. Its y/f
+projections compute on objects, arrows and a fibre two-cell, with both
+whole-first and capped-first observations. This is a reusable input to
+the Homd mate construction, not the full Homd or public migration.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's
