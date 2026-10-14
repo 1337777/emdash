@@ -51,6 +51,12 @@ intrinsic extraction, Sigma-Hom or production migration. The relative root
 has a proof-time whole-section comparison with a directly computable
 compositional view; the identity-root leaf itself computes directly.
 
+The [intrinsic-action projection continuation](homd_intrinsic_projection.lpfragment)
+now reaches filler transport and the extracted forward laxity cell through
+that root. The whole action remains structural, with higher coherence and
+whole-u laxity assembly open. Its [single-candidate replay](homd_intrinsic_projection_replay.py)
+and [evidence](homd_intrinsic_projection_verification.json) preserve that boundary.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's

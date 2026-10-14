@@ -1,0 +1,56 @@
+{
+  "status": "non-library intrinsic-action projection candidate",
+  "donorEvidence": "audits/strict-default-action-boundary/homd_transposed_target_verification.json",
+  "donorEvidenceSha256": "ca8380d4a45837c6fcecb4d1285d34f551134dc8f2e8c64a089099c0125af128",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/homd_intrinsic_projection_replay.py": "f053300bbcda090c7e9ae796fab11a4655cab98c7263000e7d90e1dd61336a8f",
+    "audits/strict-default-action-boundary/homd_intrinsic_projection.lpfragment": "b3ebfbcc85d617a1a2a6433f8fa429d467c18ba32d254a80b6b848cbdac294dd",
+    "audits/strict-default-action-boundary/homd_intrinsic_projection_controls.lpfragment": "5ca1f82598873baed8104ab307349c4b2bf4affdac1b811b9ea525361a43a28b"
+  },
+  "outputSha256": "ceb45f0cbafbae5838a710acef2082ad5da5bc3f391d2725f63bee76b5c57ad4",
+  "baseline": {
+    "receipt": "logs/check-runs/20261014T153609Z-f053962ef35345f080da9853b6c038d7.json",
+    "sha256": "c0be9936d113b87fba712419054e2ce6943a2e9d1cbbda7aea7283973fb0e374",
+    "logSha256": "433c5ef3b93f5041a6e780bbf4ed2b5e289ec5a3fe330bf7f7cebe445fbc4302",
+    "outcome": "passed-fresh",
+    "wallSeconds": 2.9351175309857354,
+    "childrenMaxRssKiB": 181324,
+    "inputSnapshot": "61440b35208c6101ad8dc7ff6c535dfbfd9601fa09f15a0d521ba9cfb8c39ad4"
+  },
+  "candidate": {
+    "receipt": "logs/check-runs/20261014T154201Z-936ea87f7cbe41ebb438020bb0c2e014.json",
+    "sha256": "43838cad03acfa9654bf0c3364453b4be826336c75de4c7330274397bcadec9d",
+    "logSha256": "232f4eb657680ccecdd4e4847a2ec988c670bd50a1654f36d7a237e3fee07aba",
+    "outcome": "passed-fresh",
+    "wallSeconds": 1.9154520569136366,
+    "childrenMaxRssKiB": 184412,
+    "inputSnapshot": "3e5a42dae3f30c29f852150eed0a744cc7d31bfc62d0b91035b4d6cd2445aec7"
+  },
+  "profile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileMiB": 64,
+    "serial": true,
+    "subjectReduction": true,
+    "ocamlrunparam": "o=20"
+  },
+  "warningComparison": {
+    "criticalPairsBefore": 898,
+    "criticalPairsAfter": 898,
+    "changedCriticalPairs": 0,
+    "addedDiagnostics": 3,
+    "reason": "Two diagnostics from the reversed-action negative; one from the noncommuting-boundary negative.",
+    "addedDiagnosticSha256": {
+      "c8a65bf6bc99b2ffa47bcc71a6aa84e48152ce3e2b17c63921dccec25e3a4e12": 1,
+      "659a4e0a32498eddb7b2c21c3f7e0e50da09a20a6558fbbe692e8af72b6e4930": 1,
+      "d24117e7f921a236b87538e1aea60138bac9fe9a276b2308233ad945c223e60c": 1
+    }
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 27,
+    "annotatedClauses": 20,
+    "newRewriteRules": 0
+  },
+  "qualification": "Whole intrinsic action is declared structural; projection definitions and filler consumer checked. Higher coherence, whole-u extracted transformation, default normalization, Sigma and production promotion remain open."
+}

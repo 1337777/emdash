@@ -43,8 +43,11 @@ strict displayed-map classifier, and keep both Cart/strict-transfor Q and
 lax-transfor Q open. The canonical whole transport map, represented whole-y
 section and fixed-x u/y/v/f slice now check under the explicit candidate
 Q/mate contracts. The coordinated whole root and a defined raw-FF extension
-now also check in the experimental prefix. Next qualify its intrinsic
-comparison action and the remaining coefficient/Sigma obligations. The broader
+now also check in the experimental prefix. Intrinsic-action projections now
+typecheck through this root to a filler map and its identity-specialized
+laxity cell. The whole action remains a structural declaration; its higher
+coherence and whole-u laxity assembly remain open with the coefficient/Sigma
+obligations. The broader
 default reassessment below remains comparison context; no silent default
 switch or change of the all-family admission requirement is authorized.
 
@@ -3960,6 +3963,45 @@ the original fibre objects. This is not an implemented Sigma-Hom theorem
 or an admission result for arbitrary higher families; Sigma formation and
 composition profiles remain a separate obligation. It uses the existing
 total-duality construction rather than a duplicated Sigma theory.
+
+## Intrinsic-action consumer of the new root, 2026-10-14
+
+Checkpoint `56509f7b` retains the whole-root candidate. The next
+[native intrinsic-action owner and projection definitions](../emdash2/audits/strict-default-action-boundary/homd_intrinsic_projection.lpfragment)
+adapt the existing internal-action architecture to its transposed target.
+For FF,GG:E=>D, write B(FF,GG)=target_map(GG) o h_D o FF. The whole
+internal action now has type
+`Hom(FF,GG) -> Hom(B(FF,GG),h_E)`, reversing the old root-level direction.
+After x/u projection, T(S_E(x)) reverses this arrow back to the intended
+`h_E(x,u) -> h_D(x,FF[x]u) o iota(GG)` in S_E(x).
+
+The y/v/p projections are definitions through native component evaluation.
+Specializing the internal action to id_FF produces an actual Hom functor
+`Hom_E[y](E[p]u,v) -> Hom_D[y](D[p](FF[x]u),FF[y]v)`.
+Its object action transports a filler; its next Hom acts on a higher filler.
+Applying it to id_(E[p]u) defines the forward laxity cell
+`D[p](FF[x]u) -> FF[y](E[p]u)` without a supplied comparison or equality
+payload. The relative section comparison needed for typing reuses the
+preceding native proof-time composition reading.
+
+This introduces one structural whole internal-action declaration, following
+the old core owner, and no rewrite/unification rules. It is not a derivation
+of that whole action's coherence from Q. The whole-u extracted transformation,
+default identity/pre-leg normalization and compatibility with Q's mixed
+higher action still require implementation/qualification. In particular,
+the higher-filler typecheck does not establish all omega-level coherence.
+No strict Sigma map of a lax FF, or production migration, is claimed.
+
+The [focused replay](../emdash2/audits/strict-default-action-boundary/homd_intrinsic_projection_replay.py)
+checks this one candidate with a higher-filler consumer and two relevant
+negatives (wrong root direction and noncommuting FF boundaries). No removal
+matrix was added. The final run passes with SR enabled under 90s/2GiB;
+the 898 critical-pair bodies are unchanged. Three additional diagnostics
+come from those expected negative assertions. The LHS audit remains zero
+unreviewed slots. [Exact evidence](../emdash2/audits/strict-default-action-boundary/homd_intrinsic_projection_verification.json)
+records the authoring/source hashes, receipt, resource measurement and warning
+comparison. Next qualify the whole-u comparison and the mixed higher action
+required by this concrete consumer, rather than adding type-only root variants.
 
 ## Deferred improvements under the migration boundary
 

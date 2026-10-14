@@ -1,0 +1,46 @@
+// The original internal-action direction is no longer the correct type:
+// the new root has a transposed section target.
+assertnot [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat E D)) ⊢
+  @sf_fdapp1_int K E D FF
+  : τ (Obj (Hom_cat (@Transf_cat K Cat_cat E (@sf_homd_target_catd K E))
+      (@sf_homd_id_int K E) (@sf_homd_action_boundary K E D FF FF)));
+
+// A higher filler is transported by the next Hom of the actual projected
+// Hom functor. No second primitive map on fillers is needed.
+assert [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat E D)) [x y : τ (Obj K)]
+  (p : τ (Hom K x y)) (u : τ (Obj (fapp0 E x)))
+  (v : τ (Obj (fapp0 E y)))
+  [a b : τ (Hom (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u) v)]
+  (theta : τ (Hom (Hom_cat (fapp0 E y)
+    (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u) v) a b)) ⊢
+  @fapp1_fapp0
+    (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u) v)
+    (Hom_cat (fapp0 D y)
+      (fapp0 (@fapp1_fapp0 K Cat_cat D x y p)
+        (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))
+      (fapp0 (@tapp0_fapp0 K Cat_cat E D y FF) v))
+    (@sf_tdapp1_project_hom K E D FF FF (@sf_fdapp1_int K E D FF) x u y v p)
+    a b theta
+  : τ (Hom
+      (Hom_cat (fapp0 D y)
+        (fapp0 (@fapp1_fapp0 K Cat_cat D x y p)
+          (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))
+        (fapp0 (@tapp0_fapp0 K Cat_cat E D y FF) v))
+      (@sf_fdapp1_map_filler K E D FF x y p u v a)
+      (@sf_fdapp1_map_filler K E D FF x y p u v b));
+
+// The extracted cell keeps both noncommuting naturality boundaries.
+// Strict component functors do not identify these two object values.
+assertnot [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat E D)) [x y : τ (Obj K)]
+  (p : τ (Hom K x y)) (u : τ (Obj (fapp0 E x))) ⊢
+  @eq_refl (Obj (fapp0 D y))
+    (fapp0 (@fapp1_fapp0 K Cat_cat D x y p)
+      (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))
+  : τ (@= (Obj (fapp0 D y))
+      (fapp0 (@fapp1_fapp0 K Cat_cat D x y p)
+        (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))
+      (fapp0 (@tapp0_fapp0 K Cat_cat E D y FF)
+        (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u)));

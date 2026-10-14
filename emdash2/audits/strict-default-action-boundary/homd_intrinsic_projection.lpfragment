@@ -1,0 +1,126 @@
+// NON-LIBRARY intrinsic-action continuation of the transposed-target root.
+// Relative boundary: target_map(GG) o h_D o FF : E => S'_E.
+// This uses ambient FF/GG; it does not transpose either displayed map.
+symbol sf_homd_action_boundary [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (FF GG : τ (@Transf K Cat_cat E D))
+  : τ (@Transf K Cat_cat E (@sf_homd_target_catd K E))
+≔ @comp_fapp0 (Functor_cat K Cat_cat) E D (@sf_homd_target_catd K E)
+    (@sf_homd_transf_int K E D GG) FF;
+
+// Native whole internal action, with the direction changed by T(S_E).
+// Its identity specialization is the action of FF, not a supplied laxity
+// witness. This structural owner still needs higher coherence qualification.
+symbol sf_tdapp1_int_func [K : Cat] [E D : τ (Functor K Cat_cat)]
+  [FF GG : τ (@Transf K Cat_cat E D)]
+  : τ (Functor (Hom_cat (@Transf_cat K Cat_cat E D) FF GG)
+      (Hom_cat (@Transf_cat K Cat_cat E (@sf_homd_target_catd K E))
+        (@sf_homd_action_boundary K E D FF GG) (@sf_homd_id_int K E)));
+
+symbol sf_fdapp1_int [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat E D))
+  : τ (Obj (Hom_cat (@Transf_cat K Cat_cat E (@sf_homd_target_catd K E))
+      (@sf_homd_action_boundary K E D FF FF) (@sf_homd_id_int K E)))
+≔ fapp0 (@sf_tdapp1_int_func K E D FF FF) (@id (@Transf_cat K Cat_cat E D) FF);
+
+// Project an arbitrary internal action through x and u. The arrow in T(S_E)
+// becomes h_E(x,u) -> h_D(x,FF[x]u) o iota(GG) in S_E.
+symbol sf_tdapp1_project_section [K : Cat] [E D : τ (Functor K Cat_cat)]
+  [FF GG : τ (@Transf K Cat_cat E D)]
+  (eta : τ (Obj (Hom_cat (@Transf_cat K Cat_cat E (@sf_homd_target_catd K E))
+    (@sf_homd_action_boundary K E D FF GG) (@sf_homd_id_int K E))))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  : τ (Obj (Hom_cat (@sf_homd_section_cat K E x)
+      (@sf_homd_id_src_sec K E x u)
+      (@sf_homd_rel_transf_section K E D GG x
+        (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))))
+≔ @tapp0_fapp0 (fapp0 E x) (Op_cat (@sf_homd_section_cat K E x))
+    (@tapp0_fapp0 K Cat_cat E (@sf_homd_target_catd K E) x
+      (@sf_homd_action_boundary K E D FF GG))
+    (@tapp0_fapp0 K Cat_cat E (@sf_homd_target_catd K E) x (@sf_homd_id_int K E)) u
+    (@tapp0_hom_fapp0 K Cat_cat E (@sf_homd_target_catd K E)
+      (@sf_homd_action_boundary K E D FF GG) (@sf_homd_id_int K E) x eta);
+
+// The next projection is the actual y-component of the section arrow.
+symbol sf_tdapp1_project_y [K : Cat] [E D : τ (Functor K Cat_cat)]
+  [FF GG : τ (@Transf K Cat_cat E D)]
+  (eta : τ (Obj (Hom_cat (@Transf_cat K Cat_cat E (@sf_homd_target_catd K E))
+    (@sf_homd_action_boundary K E D FF GG) (@sf_homd_id_int K E))))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x))) (y : τ (Obj K))
+  : τ (@Transf (fapp0 E y) (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+      (@sf_homd_id_tgt_func K E x u y)
+      (@tapp0_fapp0 K sf_q_cat (@sf_q_diagram K E)
+        (@sf_q_diagram K (@hom_ K K (@id_func K) x)) y
+        (@sf_homd_rel_transf_section K E D GG x
+          (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))))
+≔ @tapp0_hom_fapp0 K sf_q_cat (@sf_q_diagram K E)
+    (@sf_q_diagram K (@hom_ K K (@id_func K) x))
+    (@sf_homd_id_src_sec K E x u)
+    (@sf_homd_rel_transf_section K E D GG x
+      (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u)) y
+    (@sf_tdapp1_project_section K E D FF GG eta x u);
+
+// At v the complete f-index remains a native transformation.
+symbol sf_tdapp1_project_v [K : Cat] [E D : τ (Functor K Cat_cat)]
+  [FF GG : τ (@Transf K Cat_cat E D)]
+  (eta : τ (Obj (Hom_cat (@Transf_cat K Cat_cat E (@sf_homd_target_catd K E))
+    (@sf_homd_action_boundary K E D FF GG) (@sf_homd_id_int K E))))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  (y : τ (Obj K)) (v : τ (Obj (fapp0 E y)))
+  : τ (@Transf (Op_cat (Hom_cat K x y)) Cat_cat
+      (@sf_homd_id_ K E x u y v)
+      (@sf_homd_id_ K D x (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u)
+        y (fapp0 (@tapp0_fapp0 K Cat_cat E D y GG) v)))
+≔ @tapp0_fapp0 (fapp0 E y) (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+    (@sf_homd_id_tgt_func K E x u y)
+    (@tapp0_fapp0 K sf_q_cat (@sf_q_diagram K E)
+      (@sf_q_diagram K (@hom_ K K (@id_func K) x)) y
+      (@sf_homd_rel_transf_section K E D GG x
+        (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))) v
+    (@sf_tdapp1_project_y K E D FF GG eta x u y);
+
+// Fixed-endpoint Hom functor, still derived by ordinary component evaluation.
+symbol sf_tdapp1_project_hom [K : Cat] [E D : τ (Functor K Cat_cat)]
+  [FF GG : τ (@Transf K Cat_cat E D)]
+  (eta : τ (Obj (Hom_cat (@Transf_cat K Cat_cat E (@sf_homd_target_catd K E))
+    (@sf_homd_action_boundary K E D FF GG) (@sf_homd_id_int K E))))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  (y : τ (Obj K)) (v : τ (Obj (fapp0 E y))) (p : τ (Hom K x y))
+  : τ (Functor
+      (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u) v)
+      (Hom_cat (fapp0 D y)
+        (fapp0 (@fapp1_fapp0 K Cat_cat D x y p)
+          (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))
+        (fapp0 (@tapp0_fapp0 K Cat_cat E D y GG) v)))
+≔ @tapp0_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+    (@sf_homd_id_ K E x u y v)
+    (@sf_homd_id_ K D x (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u)
+      y (fapp0 (@tapp0_fapp0 K Cat_cat E D y GG) v)) p
+    (@sf_tdapp1_project_v K E D FF GG eta x u y v);
+
+// Actual filler action supplied by the native whole internal action.
+// This is usable before, and does not assert, a strict map of Sigma totals.
+symbol sf_fdapp1_map_filler [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat E D)) [x y : τ (Obj K)]
+  (p : τ (Hom K x y)) (u : τ (Obj (fapp0 E x)))
+  (v : τ (Obj (fapp0 E y)))
+  (a : τ (Hom (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u) v))
+  : τ (Hom (fapp0 D y)
+      (fapp0 (@fapp1_fapp0 K Cat_cat D x y p)
+        (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))
+      (fapp0 (@tapp0_fapp0 K Cat_cat E D y FF) v))
+≔ fapp0 (@sf_tdapp1_project_hom K E D FF FF (@sf_fdapp1_int K E D FF)
+    x u y v p) a;
+
+// The transported identity extracts the ordinary forward laxity cell.
+// No extra cell, equality proof or inverse is supplied by the caller.
+symbol sf_fdapp1_laxity_cell [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat E D)) [x y : τ (Obj K)]
+  (p : τ (Hom K x y)) (u : τ (Obj (fapp0 E x)))
+  : τ (Hom (fapp0 D y)
+      (fapp0 (@fapp1_fapp0 K Cat_cat D x y p)
+        (fapp0 (@tapp0_fapp0 K Cat_cat E D x FF) u))
+      (fapp0 (@tapp0_fapp0 K Cat_cat E D y FF)
+        (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u)))
+≔ @sf_fdapp1_map_filler K E D FF x y p u
+    (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u)
+    (@id (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u));
