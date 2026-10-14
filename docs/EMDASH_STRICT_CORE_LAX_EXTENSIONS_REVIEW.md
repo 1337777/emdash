@@ -1,8 +1,8 @@
 # Strict Cartesian core with explicit lax interfaces
 
 Date: 2026-10-14
-Status: strict core / explicit Gray-universe direction accepted for the next
-interface specification; no completed public migration
+Status: Cartesian default reviewed but superseded by the user's Pi invariant;
+strict-functor/lax-transfor default is again preferred; no public migration
 Plan: [foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Previous comparison: [design matrix](EMDASH_FOUNDATION_PROFILE_DESIGN_MATRIX.md)
 
@@ -13,6 +13,117 @@ and response 0048,
 The interface outline below incorporates the subsequent same-family-type
 and explicit-Gray-universe directions, rather than treating those responses
 as a final implementation specification.
+
+## Latest reassessment: Pi must retain the default Transf
+
+The user's subsequent clarification requires Pi(E) to remain the default
+Transf(const(1),E), rather than selecting a separate lax section operation
+while the default Transf becomes strict. Together with the intended ordinary
+sections of constant families, this rules out the proposed strict-Transf
+default. The alias alone is not inconsistent with strict Transf: it would
+instead classify strict sections and change the intended constant-family
+meaning. For example, a nonconstant functor (0->1)->B needs a directed
+component arrow and is not a strict transformation const(1)=>const(B).
+
+The recommended default is therefore again strict functors with lax
+transfors, with the existing selected one-leg convention and with
+
+```text
+Hom_Cat(A,B) = Functor_cat(A,B)
+Pi_cat(E)   = Transf_cat(const(1),E)
+E, I_x      : Functor(K,Cat)
+I_x[y]      = Hom_K(x,y).
+```
+
+The whole higher constant-family comparison must still be qualified; the
+object argument does not prove every current Pi/Functord comparison rule.
+In this arrangement Cat_lax is a descriptive name for the public default,
+not a required second universe with the same profile. Cat_cart remains a
+useful stricter coefficient. The checked Cartesian covariance/represented
+Hom owners apply to that restricted coefficient and are retained. They
+do not automatically admit every E of the restored default family type.
+
+Common typing of E and I_x does not force every nested Q mapping category
+to use the identical higher transformation convention. Named ordinary Hom
+constructors may still have their justified stronger computation. The
+necessary issue is the action of a variable E on higher base cells.
+
+Write L(A,B)=Functor_cat(A,B) with the selected conventional lax higher
+interpretation. The unmodified candidate
+
+```text
+Q(A,B) = L(A,L(T(B),Cat))
+```
+
+has a local obstruction before composition in Q is involved. The existing
+[mixed three-cell review](../emdash2/audits/strict-default-action-boundary/homd_mixed_three_cell_review.md)
+uses strict E, strict transports and external FF=id. E maps a base two-cell
+to a lax transformation. Combining its coherence with a fibre two-cell
+provides kappa:t=>s, whereas the prescribed source-u action into the inner
+standard lax mapping category requires s=>t. The reverse is absent in the
+finite model. Re-running its unchanged executable on this continuation
+confirmed that result and the invertible-input control. This is a scoped
+semantic obstruction, not a native Empty derivation or a proof that every
+possible lax transformation convention fails.
+
+Latest follow-up: the user explicitly keeps both strict-transfor and
+lax-transfor Q alternatives open and asks that feasibility decide between
+them. Keep the existing Cartesian native work as the concrete comparison,
+without silently changing the common general family input to Cat_cart.
+The strict-inner-Q finite model also re-runs successfully: E[alpha] has a
+lawful directed noncommuting square, while the proposed strict inner
+naturality would identify its distinct boundaries. This is a dimension-two
+obstruction for that unchanged action, independently of the dimension-three
+obstruction for nested standard lax Homs. Neither is a no-go for every
+corrected interface using the respective mapping category.
+
+Consequently compare the two Q options on the required whole source-u
+action before further work on general Q composition. The current evidence is:
+
+| Q option | Simpler/working part | Unresolved general-family requirement |
+| --- | --- | --- |
+| Nested strict-transfor Homs | Cartesian covariance and represented Hom compute for E into Cat_cart. | For general E into the public lax universe, the unchanged u-action asks a noncommuting square to commute. |
+| Nested conventional lax-transfor Homs | Retains the directed square and has prior conditional native whole-ladder computations. | Its unchanged higher u-action requires a reverse three-cell in the recorded standard interpretation. |
+
+A transported inner convention is a third correction to assess, not an
+exclusive replacement already selected. The linked review uses existing
+operations to define
+
+```text
+M(A,B) = T(Hom_Cat_oplax(T(A),T(B)))
+Q(A,B) = L(A,M(T(B),Cat)).
+```
+
+M is a transported oplax mapping category, not a supplied comparison or
+equality-proof parameter. Its strict-functor objects have the usual A->B
+view through actual transpose/involution operations. At fixed y,v the
+closure argument supplies the required T(E[x])->M(T(I),Cat) action, with
+I=Hom_K(x,y), without reversing kappa. Its first comparison has the familiar
+lax orientation; the higher profile differs. Compatibility with the public
+lax coefficient, whole v/y assembly, Q representation/composition and the
+x-root are still open. Do not relabel this local argument as a completed
+whole Homd or silently replace the default higher profile by M.
+
+The direct ladder remains the objective. Under this candidate its y-component
+would be E[y]->M(T(I),Cat); its fixed-v observation uses the canonical
+transpose view to expose the same functor T(I)->Cat and the same leaf
+`Hom_E[y](E[f](u),v)`. This is an actual duality operation to qualify, not a
+path cast or an uncurry over a larger (y,v,f) context.
+
+Q composition is a second issue. A local Hom alias gives no composite of
+two profunctors. Ordinary composition integrates over their intermediate
+category; right composition with a represented map reduces to reindexing.
+The earlier native Q candidate supplied only selected represented/unit
+computations, with general coherence explicitly unqualified. Homd can focus
+on the represented operations it consumes, but its left comparison and
+whole diagram action still need actual operations. Neither this obligation
+nor the local mixed-cell obstruction is resolved just by choosing lax
+transfors in both nested Homs. The accepted controlled universe carrier
+remains a computational option, distinct from either missing construction.
+
+The remainder of this document retains the Cartesian alternative and its
+qualified consumers as comparison history. Its strict-default recommendation
+and separately selected Pi_lax no longer govern the general milestone.
 
 ## Updated priority and the Hom clarification
 

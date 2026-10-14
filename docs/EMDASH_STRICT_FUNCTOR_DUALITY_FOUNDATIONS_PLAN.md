@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict Cartesian core with explicit Gray-universe interface selected for the next specification; public Hom(Cat)=Functor_cat retained; local action/duality candidates checked; whole Homd and production migration remain open
+Status: strict-functor/lax-transfor default reassessed under retained Pi=default-Transf contract; public Hom(Cat)=Functor_cat retained; Cartesian subcase checked; general Homd and production migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,35 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Latest Pi/default constraint, 2026-10-14: the user requires Pi(E) to remain
+the default Transf(const(1),E), rather than choosing a separate section
+profile while changing public Transf to strict. With the intended sections
+this restores strict-functor/lax-transfor defaults as the recommendation.
+E and I_x=Hom_K(x,-) share Functor(K,Cat_cat). The
+[latest reassessment](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md#latest-reassessment-pi-must-retain-the-default-transf)
+supersedes the Cartesian-default direction below. Retain the Cart work as
+a checked restricted coefficient; do not promote it as the general family
+interface. No new owner was added after this steering arrived.
+
+The primary general-Homd issue is local higher variance, not Q composition
+alone. The existing mixed-three-cell model was re-run unchanged and still
+refutes the prescribed source-u action into unmodified nested standard lax
+Homs, for strict E/transports and FF=id. The user's immediate follow-up keeps
+both strict-transfor and lax-transfor Q open. Compare their whole source-u
+actions under the same general E/I_x input, retaining the Cartesian work as
+a restricted comparison rather than narrowing admission silently. The
+strict-inner-Q dimension-two finite model was also re-run unchanged and
+retains its noncommuting-square obstruction. The transported inner mapping
+convention M(A,B)=T(Hom_Cat_oplax(T(A),T(B))) remains a possible correction,
+not an exclusive selected Q. Settle the local action before extending
+general Q composition.
+This uses universe/ordinary Hom terminology, not new public Gray-specific
+classifiers. Preserve the direct telescope, same leaf, extracted coherence
+and absence of operational equality-proof arguments. Whole Q/y/x assembly
+and Sigma-Hom remain required and uncompleted. The old raw Q receipt is
+computational evidence under its supplied contract, not semantic resolution
+of the mixed-cell obstruction.
 
 Latest carrier/naming clarification, 2026-10-14: the user proposes avoiding
 a new GrayUniverse sort under the project's tolerance for controlled

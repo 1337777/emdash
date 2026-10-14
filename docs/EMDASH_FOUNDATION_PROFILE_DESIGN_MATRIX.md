@@ -1,9 +1,22 @@
 # Foundation design matrix: families, mapping profiles and strictness
 
 Date: 2026-10-14
-Status: user-requested reassessment; strict-core/explicit-Gray direction for
-the next specification, with no public default yet migrated
+Status: user-requested reassessment; Pi=default-Transf restores the proposed
+strict-functor/lax-transfor default, with no public default yet migrated
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
+
+Latest Pi invariant: the user retains Pi(E)=default Transf(const(1),E).
+Together with the intended section objects, this supersedes the strict-
+Transf-default recommendation below. The
+[latest reassessment](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md#latest-reassessment-pi-must-retain-the-default-transf)
+retains the Cartesian implementation as a restricted subcase, restores
+common E/I_x typing into the default strict-functor/lax-transfor universe,
+and prioritizes the known local mixed-cell obstruction over general Q
+composition. The user explicitly keeps strict-transfor Q and lax-transfor
+Q open for the same-input comparison. The transported inner profile M
+remains a candidate rather than a selected or qualified whole solution.
+Earlier dated recommendations remain
+comparison history, not simultaneous requirements.
 
 Latest steering, 2026-10-14: corrected duality/Op is the priority; the user
 is not bound to strict/lax defaults. Strict ordinary Hom actions are allowed
