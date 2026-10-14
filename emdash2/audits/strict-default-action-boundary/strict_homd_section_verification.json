@@ -1,0 +1,1357 @@
+{
+  "status": "non-library raw-Q whole-y section, fixed-x u ladder and defined relative section; full root/Q qualification open",
+  "donorEvidence": "audits/strict-default-action-boundary/strict_fibcov_verification.json",
+  "donorEvidenceSha256": "b2bc2f211a40187b20dce697603104470c54a88de0e496fccb9effc1f7eab0cd",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/strict_homd_section_replay.py": "3f7650dc97d73fa16a5cac85807c9605f83d71ef58bdbdd0d2383723850523ed",
+    "audits/strict-default-action-boundary/strict_homd_section_q.lpfragment": "1105017cffad53128df399160733470b0e6faf943fb0e8d749be4a4b7891023b",
+    "audits/strict-default-action-boundary/strict_homd_section_owner.lpfragment": "ab6b05af204a180093468ced4579f1185e4fbc0c45e1a14073576ac775538e5b",
+    "audits/strict-default-action-boundary/strict_homd_section_controls.lpfragment": "bf489adc4cdf0eb5d74f19201821f9f620b3f2b477d8254fd29484874703c05c",
+    "audits/strict-default-action-boundary/strict_homd_section_relative.lpfragment": "b68541b1d832294c46972118f115981e901739c7ce3824bd1c2ace6e5ef76ded",
+    "audits/strict-default-action-boundary/strict_homd_section_relative_controls.lpfragment": "1c0d8bc08e28f4f782cdb1a1f993a074f92f4dfa74910fe6f00ff2d0496b8978",
+    "audits/strict-default-action-boundary/strict_homd_section_whiskering.lpfragment": "948b25f06cbc52fe4c9fd7443e80e9d4c629013aa909ddfd8c68d281b10a1951",
+    "audits/strict-default-action-boundary/strict_homd_section_u.lpfragment": "5b7c675c607fcf78af44a3110cedfa96aed88e25af5dcb58054c392f45cf10a8",
+    "audits/strict-default-action-boundary/strict_homd_section_u_controls.lpfragment": "76b949d3b1b0e9bafda7a2a1202861fd165fadeab58b03e8fa9f0dcc6d65d7e2",
+    "audits/strict-default-action-boundary/strict_homd_section_lax_controls.lpfragment": "6fc061d8157d21c24245924154a5051c9cc06cc24e547980df32ba45ab0ced02",
+    "audits/strict-default-action-boundary/strict_homd_section_cart_boundary.lpfragment": "397c43990c1eb539017ac8050a76fda87151fd4b280b5f91d4be92e2378eaa8b"
+  },
+  "outputs": {
+    "candidate.lp": "59f02b16923f7323a55ab7afcfcbfefae1a91e7adefea7c0835a40a205842c9a",
+    "no_mate_component.lp": "a1683e14206aa4b78bd2da4ffa7e7ff3ae1405967152b8c12d76ff0125e684b5",
+    "no_mate_component_group.lp": "d0bd308cd1f76b121c067df78cc8b425bb6bcaf933227a5cccd61851a08f2db7",
+    "no_mate_action.lp": "b9e552e3f6dda53140b3f1bd680eb5445a25424b1d196f26a941167e1ef8feb2",
+    "no_right_rep_composition.lp": "30af7bca5497af1304dda169e67e1ae67e2bf040f98b536afc63099ffa21bc26",
+    "no_stable_rep_cut.lp": "79df1a1bc16abf1ef820742fdadf5349e4c75a930f119e832ad4bfb2a9ecf705",
+    "no_diagram_fold.lp": "18d5a0c8b58687a854792604a7d587e7ccbcb8d94403b62467c49562f6fe09a7",
+    "no_fixed_whiskering.lp": "6389702cc1d624d0ebf43c81be784d6e6418b799824267a49e8b18eecd4f4bf9",
+    "no_u_leaf.lp": "8393051f9ae505b0ad7ff223090c854ae071a35964f09d0ca4bb5a89baa5e8ca",
+    "no_u_joins.lp": "c41719c485bebb7b7e2e52902b7be1c63d12816e5b3d68ae86423ed16fe0707d",
+    "no_source_beta.lp": "6391afe269ba4fbc274fe2c8235cf9b7b516258a5513328eca7eb055d8cc1e11",
+    "cart_direct_substitution.lp": "8b6aaf2bf006a45e328a168983397523da905a1b91361317116eeae31949e197",
+    "wrong_index_duality.lp": "d6948234ee64823cbfbbf75a6c61d1922acb6bdd12ac3877003a817dc880397c"
+  },
+  "checks": {
+    "candidate.lp": {
+      "id": "20261014T132031Z-8c766b0785e345e5bd188b11f679a1f9",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.7549160750349984,
+      "childrenMaxRssKiB": 171336,
+      "inputSnapshot": "fa8ba0c89f0dd7ae48cc6fd42bc771143c19866b6525ea9484145b3a887b575b",
+      "receipt": "logs/check-runs/20261014T132031Z-8c766b0785e345e5bd188b11f679a1f9.json",
+      "receiptSha256": "06980c48f9f7fcb0d7e030538ca065b906b96a3171ee4df966bbf29b757f2fe4",
+      "log": "logs/check-runs/20261014T132031Z-8c766b0785e345e5bd188b11f679a1f9.log",
+      "logSha256": "2072102b69c49a9a745115cdc0e36aa93f7a223169498fdd34bc31697d240787",
+      "sourceSha256": "59f02b16923f7323a55ab7afcfcbfefae1a91e7adefea7c0835a40a205842c9a",
+      "positiveAssertions": 96,
+      "negativeAssertions": 33
+    },
+    "no_mate_component.lp": {
+      "id": "20261014T132102Z-0e90785070e2465a8dc1d533b9983044",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.4812351620057598,
+      "childrenMaxRssKiB": 155308,
+      "inputSnapshot": "849afbc62b7e3fb5423790fb14a9b5baaceff3e64f801091eb078ffc518d901d",
+      "receipt": "logs/check-runs/20261014T132102Z-0e90785070e2465a8dc1d533b9983044.json",
+      "receiptSha256": "f86b75cd52400f4168117530d32800c27e857db483cb5b9c7d09f13064711fa7",
+      "log": "logs/check-runs/20261014T132102Z-0e90785070e2465a8dc1d533b9983044.log",
+      "logSha256": "317a514774402eadbccf3e26efe20d950380bf3cd55dca9ca565cce17c16f877",
+      "sourceSha256": "a1683e14206aa4b78bd2da4ffa7e7ff3ae1405967152b8c12d76ff0125e684b5",
+      "failurePhase": "subject-reduction dependency",
+      "terminalExcerpt": "KIND.\n\nCat\nis not unifiable with\nKIND.\n\nKIND\nis not unifiable with\n\u03c4 (Obj K').\nCannot solve \u22a2 @fapp0 (Op_cat (Hom_cat $11 $15 $23)) Cat_cat (@fapp0 (@fapp0 $11 Cat_cat $13 $23) (Functor_cat (Op_cat (Hom_cat $11 $15 $23)) Cat_cat) (@tapp0_fapp0 $11 sf_q_cat (@comp_fapp0 Cat_cat $11 Cat_cat sf_q_cat sf_q_include $13) (@comp_fapp0 Cat_cat $11 Cat_cat sf_q_cat sf_q_include (@hom_ $11 $11 (id Cat_cat $11) $15)) $23 (@sf_q_mate $11 (@hom_ $11 $11 (id Cat_cat $11) $15) $13 (@sf_fibcov $11 $13 $15 $19))) $25) $9 \u2261 Hom_cat (@fapp0 $11 Cat_cat $13 $23) (@fapp0 (@fapp0 $11 Cat_cat $13 $15) (@fapp0 $11 Cat_cat $13 $23) (@fapp1_fapp0 $11 Cat_cat $13 $15 $23 $9) $19) $25.\nCannot solve \u22a2 @fapp0 (Op_cat (Hom_cat $11 $15 $23)) Cat_cat (@fapp0 (@fapp0 $11 Cat_cat $13 $23) (Functor_cat (Op_cat (Hom_cat $11 $15 $23)) Cat_cat) (@tapp0_fapp0 $11 sf_q_cat (@comp_fapp0 Cat_cat $11 Cat_cat sf_q_cat sf_q_include $13) (@comp_fapp0 Cat_cat $11 Cat_cat sf_q_cat sf_q_include (@hom_ $11 $11 (id Cat_cat $11) $15)) $23 (@sf_q_mate $11 (@hom_ $11 $11 (id Cat_cat $11) $15) $13 (@sf_fibcov $11 $13 $15 $17))) $25) $9 \u2261 Hom_cat (@fapp0 $11 Cat_cat $13 $23) (@fapp0 (@fapp0 $11 Cat_cat $13 $15) (@fapp0 $11 Cat_cat $13 $23) (@fapp1_fapp0 $11 Cat_cat $13 $15 $23 $9) $17) $25.\nUnable to prove type preservation."
+    },
+    "no_mate_component_group.lp": {
+      "id": "20261014T132104Z-a2b6a617f7664b16bc45356bd06dd6cd",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.8814187010284513,
+      "childrenMaxRssKiB": 158320,
+      "inputSnapshot": "b50f3f7243d80317b0d241bfd7c53ee3a3668350ffdb622fa6e8b1313444bd90",
+      "receipt": "logs/check-runs/20261014T132104Z-a2b6a617f7664b16bc45356bd06dd6cd.json",
+      "receiptSha256": "81251e74d1a5d5ee648b77f18af99f776d8f1d2a86fb8f454ef8ae0bc834e57e",
+      "log": "logs/check-runs/20261014T132104Z-a2b6a617f7664b16bc45356bd06dd6cd.log",
+      "logSha256": "fbed3f2bf156e696f823a8e8f188acea2cd0248fea019ee481f76fa73466f71d",
+      "sourceSha256": "d0bd308cd1f76b121c067df78cc8b425bb6bcaf933227a5cccd61851a08f2db7",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_homd_section/no_mate_component_group.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_homd_section/no_mate_component_group.lp:11646:0-11651:65] Assertion failed."
+    },
+    "no_mate_action.lp": {
+      "id": "20261014T132106Z-cece468095cd4ea39e6d1ad9f851d60e",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 2.1683857979951426,
+      "childrenMaxRssKiB": 168880,
+      "inputSnapshot": "cba61fa847c2fcff46d873364d847fdba5fad132c8163596cd55337f5cd53dec",
+      "receipt": "logs/check-runs/20261014T132106Z-cece468095cd4ea39e6d1ad9f851d60e.json",
+      "receiptSha256": "67f43593161a934c8fc8b76a3b666ccbebb7147f9d48d76c552e3df18211342b",
+      "log": "logs/check-runs/20261014T132106Z-cece468095cd4ea39e6d1ad9f851d60e.log",
+      "logSha256": "42951ed07a0c5591bd7e58e2fab99981179e5203c566cb6fa60a65bdacbf41c1",
+      "sourceSha256": "b9e552e3f6dda53140b3f1bd680eb5445a25424b1d196f26a941167e1ef8feb2",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_homd_section/no_mate_action.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_homd_section/no_mate_action.lp:11789:0-11798:47] Assertion failed."
+    },
+    "no_right_rep_composition.lp": {
+      "id": "20261014T132109Z-6ae9035388f34e69929021f1677dcf06",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 2.06023803493008,
+      "childrenMaxRssKiB": 165876,
+      "inputSnapshot": "bebb54a26f1a1e560d340491a93e86e1082746159d6d5399af2a93f739b15a99",
+      "receipt": "logs/check-runs/20261014T132109Z-6ae9035388f34e69929021f1677dcf06.json",
+      "receiptSha256": "6182f5b7d258c218d9d185ea48f7aa262e5a15c6e5cfc82dce4c92757919e89f",
+      "log": "logs/check-runs/20261014T132109Z-6ae9035388f34e69929021f1677dcf06.log",
+      "logSha256": "ae1ea4595b9f49c9264ccd8167ed5b221dd1ea2ec944c96047e7250c1a9c37da",
+      "sourceSha256": "30af7bca5497af1304dda169e67e1ae67e2bf040f98b536afc63099ffa21bc26",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_homd_section/no_right_rep_composition.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_homd_section/no_right_rep_composition.lp:11705:0-11707:44] Assertion failed."
+    },
+    "no_stable_rep_cut.lp": {
+      "id": "20261014T132112Z-cf1c237cb9094104b7259cd0d00981f8",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 2.3030816559912637,
+      "childrenMaxRssKiB": 164480,
+      "inputSnapshot": "1defa851e5ff0dd40574984669e9a93831e2495d422af9eebb29225832fc4131",
+      "receipt": "logs/check-runs/20261014T132112Z-cf1c237cb9094104b7259cd0d00981f8.json",
+      "receiptSha256": "1f64e5a9d158547cb1119b3f218e4d407d6475d872232a9ebbcbed1241c1562d",
+      "log": "logs/check-runs/20261014T132112Z-cf1c237cb9094104b7259cd0d00981f8.log",
+      "logSha256": "d62a7647a060f414ce82a80ba1deb93bd273caf0cf1e844d4499b94d6a01ee88",
+      "sourceSha256": "79df1a1bc16abf1ef820742fdadf5349e4c75a930f119e832ad4bfb2a9ecf705",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_homd_section/no_stable_rep_cut.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_homd_section/no_stable_rep_cut.lp:11787:0-11796:47] Assertion failed."
+    },
+    "no_diagram_fold.lp": {
+      "id": "20261014T132114Z-6ac78595c1eb45a08a8e4ad42eece27d",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 2.109972250997089,
+      "childrenMaxRssKiB": 168896,
+      "inputSnapshot": "537821603721462d7f542df8eb77fc2e33aa53a3e89292daa398cd817099a951",
+      "receipt": "logs/check-runs/20261014T132114Z-6ac78595c1eb45a08a8e4ad42eece27d.json",
+      "receiptSha256": "9dfe687432f71db742173eb2c9914968231b40efa9715a633b361492d69dcf76",
+      "log": "logs/check-runs/20261014T132114Z-6ac78595c1eb45a08a8e4ad42eece27d.log",
+      "logSha256": "cfb2647e00143a0ddbee73f7f61f39df8a7ba422814df22a8d493782bc251b82",
+      "sourceSha256": "18d5a0c8b58687a854792604a7d587e7ccbcb8d94403b62467c49562f6fe09a7",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_homd_section/no_diagram_fold.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_homd_section/no_diagram_fold.lp:11844:0-11847:30] Assertion failed."
+    },
+    "no_fixed_whiskering.lp": {
+      "id": "20261014T132117Z-6a8cd87432a64277a31ec7c65c2e8cf6",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 2.1133078549755737,
+      "childrenMaxRssKiB": 168480,
+      "inputSnapshot": "649b686a3c4dec5b319d55e3d4aecb1a149a31b55c46ca77a1ae761c1f1e53ca",
+      "receipt": "logs/check-runs/20261014T132117Z-6a8cd87432a64277a31ec7c65c2e8cf6.json",
+      "receiptSha256": "30e278c9085be0bea08571b380eb4ab77f75606498b455e270787a727e538d1c",
+      "log": "logs/check-runs/20261014T132117Z-6a8cd87432a64277a31ec7c65c2e8cf6.log",
+      "logSha256": "932787b492dee6ebedf39fe62ecd8c65ee293e8fb0d2f9498b77a2a1681e3914",
+      "sourceSha256": "6389702cc1d624d0ebf43c81be784d6e6418b799824267a49e8b18eecd4f4bf9",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_homd_section/no_fixed_whiskering.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_homd_section/no_fixed_whiskering.lp:11709:0-11719:33] Assertion failed."
+    },
+    "no_u_leaf.lp": {
+      "id": "20261014T132119Z-ad09b99223c84cf3b0d761a9c258aacd",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 2.1294268739875406,
+      "childrenMaxRssKiB": 169792,
+      "inputSnapshot": "a0832e1aa444498e86cce9b5cdba0fd5a93b6282a62780a2d1569661775af9c5",
+      "receipt": "logs/check-runs/20261014T132119Z-ad09b99223c84cf3b0d761a9c258aacd.json",
+      "receiptSha256": "b564186124d74082b99c670a81c0b42edef1673ba12d593cb84c27e0bbd3e02c",
+      "log": "logs/check-runs/20261014T132119Z-ad09b99223c84cf3b0d761a9c258aacd.log",
+      "logSha256": "504dd4c1c2f88ca51977f4da9521f6e3f54c7c0c9a4578e1e688a88b8ba5667a",
+      "sourceSha256": "8393051f9ae505b0ad7ff223090c854ae071a35964f09d0ca4bb5a89baa5e8ca",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_homd_section/no_u_leaf.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_homd_section/no_u_leaf.lp:11878:0-11887:47] Assertion failed."
+    },
+    "no_u_joins.lp": {
+      "id": "20261014T132122Z-be3f375fe3294c5b9d5d16fba5ea3f74",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 2.197834234102629,
+      "childrenMaxRssKiB": 163028,
+      "inputSnapshot": "179bb26bca910657d78b5c436728193658b4f4637b2b79784e53a67d82931a27",
+      "receipt": "logs/check-runs/20261014T132122Z-be3f375fe3294c5b9d5d16fba5ea3f74.json",
+      "receiptSha256": "72b4fb54edbeb1cca39b416176dcdd3f4e9c71b97864467f3c3c9e5542185b0f",
+      "log": "logs/check-runs/20261014T132122Z-be3f375fe3294c5b9d5d16fba5ea3f74.log",
+      "logSha256": "f4cb5a7a0a7a2cedb134ee46280d54c8c2bb7d743c60891a1ecdd2191993a1ef",
+      "sourceSha256": "c41719c485bebb7b7e2e52902b7be1c63d12816e5b3d68ae86423ed16fe0707d",
+      "failurePhase": "assertion",
+      "terminalExcerpt": "resource guard: backend=systemd memory=2048MiB file=64MiB time=90s serial=yes\nStart checking \"/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_homd_section/no_u_joins.lp\"\nflag \"eta_equality\" on\nflag \"print_implicits\" on\nflag \"print_contexts\" on\nflag \"print_domains\" on\nflag \"print_meta_args\" on\n[tmp/probes/strict_homd_section/no_u_joins.lp:11899:0-11906:71] Assertion failed."
+    },
+    "no_source_beta.lp": {
+      "id": "20261014T132124Z-da1b13456a0b40d3bf67dfc0261d00e3",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.823485964909196,
+      "childrenMaxRssKiB": 154192,
+      "inputSnapshot": "27368e2286d497d73e6dfc5f06457db742e10b294550400b7b8c8550c65fb27e",
+      "receipt": "logs/check-runs/20261014T132124Z-da1b13456a0b40d3bf67dfc0261d00e3.json",
+      "receiptSha256": "b339fb08a1e0badc202458f33b165375fcfee24daf1ecb9c2462f5e5d183b406",
+      "log": "logs/check-runs/20261014T132124Z-da1b13456a0b40d3bf67dfc0261d00e3.log",
+      "logSha256": "7fe0a9ef9e70a3c7ea1c07b2962b6739a02e6272ca91284fe6d248e48e6991ab",
+      "sourceSha256": "6391afe269ba4fbc274fe2c8235cf9b7b516258a5513328eca7eb055d8cc1e11",
+      "failurePhase": "subject-reduction dependency",
+      "terminalExcerpt": "is not unifiable with\n\u03c4 (Functor K Cat_cat).\n\nKIND\nis not unifiable with\n\u03c4 (Functor K Cat_cat).\nCannot solve \u22a2 Op_cat (@fapp0 $5 Cat_cat $7 $9) \u2261 @fapp0 $5 Cat_cat $7 $9.\nCannot solve \u22a2 $11 \u2261 $13.\nCannot solve \u22a2 $13 \u2261 $11.\nCannot solve \u22a2 @fapp0 (Op_cat (@fapp0 $5 Cat_cat $7 $9)) (@Transf_cat $5 sf_q_cat (@comp_fapp0 Cat_cat $5 Cat_cat sf_q_cat sf_q_include $7) (@comp_fapp0 Cat_cat $5 Cat_cat sf_q_cat sf_q_include (@hom_ $5 $5 (id Cat_cat $5) $9))) (@sf_homd_id_src_func $5 $7 $9) $11 \u2261 @sf_q_mate $5 (@hom_ $5 $5 (id Cat_cat $5) $9) $7 (@sf_fibcov $5 $7 $9 $11).\nCannot solve \u22a2 @fapp0 (Op_cat (@fapp0 $5 Cat_cat $7 $9)) (@Transf_cat $5 sf_q_cat (@comp_fapp0 Cat_cat $5 Cat_cat sf_q_cat sf_q_include $7) (@comp_fapp0 Cat_cat $5 Cat_cat sf_q_cat sf_q_include (@hom_ $5 $5 (id Cat_cat $5) $9))) (@sf_homd_id_src_func $5 $7 $9) $13 \u2261 @sf_q_mate $5 (@hom_ $5 $5 (id Cat_cat $5) $9) $7 (@sf_fibcov $5 $7 $9 $13).\nUnable to prove type preservation."
+    },
+    "cart_direct_substitution.lp": {
+      "id": "20261014T132127Z-1b506e13e9c04d6ab7e3187a4b9fcf60",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.747346775024198,
+      "childrenMaxRssKiB": 142600,
+      "inputSnapshot": "9b22db3f60bb6cbee4a6d3d89d9f8c85ed4d78a2ee4ebc0a61d0ab9af616682a",
+      "receipt": "logs/check-runs/20261014T132127Z-1b506e13e9c04d6ab7e3187a4b9fcf60.json",
+      "receiptSha256": "d2377e363c49a29997acf2ad8de175b67e56df6e2579cf34e74e5745010525ba",
+      "log": "logs/check-runs/20261014T132127Z-1b506e13e9c04d6ab7e3187a4b9fcf60.log",
+      "logSha256": "7c064202497107430cf5eb78a19acd96cbbd3ad473bae5fc9f742f2f2c405ea0",
+      "sourceSha256": "8b6aaf2bf006a45e328a168983397523da905a1b91361317116eeae31949e197",
+      "failurePhase": "definition formation",
+      "terminalExcerpt": "is not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Hom Cat_cat W (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) X)).\nThe proof is not finished:\nA: Cat\nB: Cat\nF: \u03c4 (Functor A B)\n------------------------------------------------------------------------------\n0. sf_q_cart_map_cat (Op_cat B) Cat_cat \u2261 Functor_cat (Op_cat B) Cat_cat"
+    },
+    "wrong_index_duality.lp": {
+      "id": "20261014T132129Z-7b7ae3e24be34ab38d8af133fc2cc412",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.7199097709963098,
+      "childrenMaxRssKiB": 141956,
+      "inputSnapshot": "d7f918e9cf35c5e7ba67a850355b39cbaf005a033a60d27d1caef4ee4e66a51f",
+      "receipt": "logs/check-runs/20261014T132129Z-7b7ae3e24be34ab38d8af133fc2cc412.json",
+      "receiptSha256": "4cc2ad22a826f0e7993f08716e256c81a4f03165ad55d0912886835e3612c02e",
+      "log": "logs/check-runs/20261014T132129Z-7b7ae3e24be34ab38d8af133fc2cc412.log",
+      "logSha256": "dc809a541d7b9b06a815d7ba17c38069b94e2acbdf21ccb1f7bbc4b72f0ca6ca",
+      "sourceSha256": "d6948234ee64823cbfbbf75a6c61d1922acb6bdd12ac3877003a817dc880397c",
+      "failurePhase": "definition formation",
+      "terminalExcerpt": "is not unifiable with\nCat.\n\nKIND\nis not unifiable with\n\u03c4 (Hom Cat_cat W (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) X)).\nThe proof is not finished:\nA: Cat\nB: Cat\nF: \u03c4 (Functor A B)\n------------------------------------------------------------------------------\n0. Op_cat B \u2261 B"
+    }
+  },
+  "warnings": {
+    "baseline": {
+      "id": "20261014T124840Z-6e4082c6777b4c509cf026de58bc0e18",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "wallSeconds": 1.4908672430319712,
+      "childrenMaxRssKiB": 147284,
+      "inputSnapshot": "169b1f73c8ca82029cc57e21ced91b7710677b9eaafae967d54f0e68d0eba807",
+      "receipt": "logs/check-runs/20261014T124840Z-6e4082c6777b4c509cf026de58bc0e18.json",
+      "receiptSha256": "6bf8b833a7f8efd72302e6af6f56c86271a6159beefd5392c32a0208c0617a28",
+      "log": "logs/check-runs/20261014T124840Z-6e4082c6777b4c509cf026de58bc0e18.log",
+      "logSha256": "0c487109cb6d9fd89d303c99b86d0e3de9d14b62ab1b685cf691b81e47c07013"
+    },
+    "baselineCount": 742,
+    "candidateCount": 815,
+    "addedCount": 73,
+    "removedCount": 0,
+    "ownerGroups": {
+      "coefficient inclusion/diagram normal form": 18,
+      "projected Q unit versus generic identity/action owners": 24,
+      "represented Q composition and its stable Hom-action cut": 5,
+      "fixed-x Homd source action and projected identities/compositions": 26
+    },
+    "added": [
+      {
+        "sha256": "051ad326f69c76e96436ad73e39439ed03fc00a007ea2b495295d8e7b0cc1e71",
+        "count": 1,
+        "participantHeads": [
+          "fapp0",
+          "fapp1_func"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp0 $0 $1 (@fapp1_func $0 $1 sf_q_include $0 $1) $f\nt \u21aa[] @fapp1_fapp0 $0 $1 sf_q_include $0 $1 $f \u21aa* @fapp1_fapp0 $0 $1 sf_q_include $0 $1 $f\n  with @fapp0 $0 $1 (@fapp1_func $2 $3 $F_AB $5 $6) $f \u21aa @fapp1_fapp0 $2 $3 $F_AB $5 $6 $f\nt \u21aa[0; 1] @fapp0 $0 $1 (sf_q_rep_func $0 $1) $f \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $0 $1 (Functor_cat (Op_cat $1) Cat_cat) (@hom_con_int $1 $1 (id Cat_cat $1)) $f\n  with @fapp1_func $0 $1 sf_q_include $A $B \u21aa sf_q_rep_func $A $B"
+      },
+      {
+        "sha256": "b350ed5786c979d8fec9c4da019bee35c6191e59749e40b93053486e6a6e81d5",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 $A $B sf_q_include $X $X (id $A $X)\nt \u21aa[] @sf_q_rep $X $X (id $A $X) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $X $X (Functor_cat (Op_cat $X) Cat_cat) (@hom_con_int $X $X (id Cat_cat $X)) (id $A $X)\n  with @fapp1_fapp0 $' $' sf_q_include $A' $B' $F' \u21aa @sf_q_rep $A' $B' $F'\nt \u21aa[] id $B (@fapp0 $A $B sf_q_include $X) \u21aa* id $B $X\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) \u21aa id $B (@fapp0 $A $B $F $X)"
+      },
+      {
+        "sha256": "51673d27c9cfda51d9058590589ac77b20e9d1e9b4a35f926fd46bf0b142c5cd",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (Op_cat $K) $D sf_q_include $x $x (id $K $x)\nt \u21aa[] @sf_q_rep $x $x (id $K $x) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $x $x (Functor_cat (Op_cat $x) Cat_cat) (@hom_con_int $x $x (id Cat_cat $x)) (id $K $x)\n  with @fapp1_fapp0 $' $' sf_q_include $A' $B' $F' \u21aa @sf_q_rep $A' $B' $F'\nt \u21aa[] id $D (@fapp0 (Op_cat $K) $D sf_q_include $x) \u21aa* id $D $x\n  with @fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x) \u21aa id $D (@fapp0 (Op_cat $K) $D $F $x)"
+      },
+      {
+        "sha256": "2a784b26560b2eddbc52855fc983ba62f0dc6d0964f4ba0585ab6e59b9a3ce15",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (CoAbove2_cat $K) $D sf_q_include $x $x (id $K $x)\nt \u21aa[] @sf_q_rep $x $x (id $K $x) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $x $x (Functor_cat (Op_cat $x) Cat_cat) (@hom_con_int $x $x (id Cat_cat $x)) (id $K $x)\n  with @fapp1_fapp0 $' $' sf_q_include $A' $B' $F' \u21aa @sf_q_rep $A' $B' $F'\nt \u21aa[] id $D (@fapp0 (CoAbove2_cat $K) $D sf_q_include $x) \u21aa* id $D $x\n  with @fapp1_fapp0 (CoAbove2_cat $K) $D $F $x $x (id $K $x) \u21aa id $D (@fapp0 (CoAbove2_cat $K) $D $F $x)"
+      },
+      {
+        "sha256": "97f3463ab25a0111cbf9e5c3b10c7ffaef7a5270ac07fcd2fe5cf13d21d1f4ec",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D sf_q_include $x $x (id $K $x)\nt \u21aa[] @sf_q_rep $x $x (id $K $x) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $x $x (Functor_cat (Op_cat $x) Cat_cat) (@hom_con_int $x $x (id Cat_cat $x)) (id $K $x)\n  with @fapp1_fapp0 $' $' sf_q_include $A' $B' $F' \u21aa @sf_q_rep $A' $B' $F'\nt \u21aa[] id $D (@fapp0 (CoAbove2_cat (Op_cat $K)) $D sf_q_include $x) \u21aa* id $D $x\n  with @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D $F $x $x (id $K $x) \u21aa id $D (@fapp0 (C"
+      },
+      {
+        "sha256": "4a1877a542fb84e5b5f5fe5c6acf1314792f29cfee00738e96f6cc2357114667",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (Catd_cat $K) $B sf_q_include $E $E (id (Catd_cat $K) $E)\nt \u21aa[] @sf_q_rep $E $E (id (Catd_cat $K) $E) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $E $E (Functor_cat (Op_cat $E) Cat_cat) (@hom_con_int $E $E (id Cat_cat $E)) (id (Catd_cat $K) $E)\n  with @fapp1_fapp0 $' $' sf_q_include $A' $B' $F' \u21aa @sf_q_rep $A' $B' $F'\nt \u21aa[] id $B (@fapp0 (Catd_cat $K) $B sf_q_include $E) \u21aa* id $B $E\n  with @fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E) \u21aa id $B (@fap"
+      },
+      {
+        "sha256": "8cb3e9e08056c9e23cd92dcf5d05a636107d9ffcce340e406c8b20151c276dd5",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 Cat_cat $0 Cat_cat $0 (@fapp1_fapp0 $0 Cat_cat sf_q_include $0 $0 sf_q_include) (@tapp0_fapp0 $0 Cat_cat $E sf_q_include $0 (@strict_transfor $0 Cat_cat $E sf_q_include $U))\nt \u21aa[] @tapp1_fapp0 $0 Cat_cat $E sf_q_include $0 $0 (@strict_transfor $0 Cat_cat $E sf_q_include $U) sf_q_include \u21aa* @tapp1_fapp0 $0 Cat_cat $E sf_q_include $0 $0 (@strict_transfor $0 Cat_cat $E sf_q_include $U) sf_q_include\n  with @comp_fapp0 Cat_cat $0 $1 $2 (@fapp1_fapp0 $K Cat_cat $D $x $y $p) (@tapp0_fap"
+      },
+      {
+        "sha256": "3686fe958d1f30a904238e0a3883b8d4ef7220b8d02c06d31fcc0c37f762cbc3",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $1 $1 $1 $A (@tapp0_fapp0 $1 $1 sf_q_include $G $A $epsilon) (@fapp1_fapp0 $1 $1 sf_q_include $1 $A $1)\nt \u21aa[] @tapp1_fapp0 $1 $1 sf_q_include $G $1 $A $epsilon $1 \u21aa* @tapp1_fapp0 $1 $1 sf_q_include $G $1 $A $epsilon $1\n  with @comp_fapp0 $B $1 $2 $3 (@tapp0_fapp0 $A $B $F $G $Y $epsilon) (@fapp1_fapp0 $A $B $F $X $Y $p) \u21aa @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p\nt \u21aa[1] @comp_fapp0 $1 $1 $1 $A (@tapp0_fapp0 $1 $1 sf_q_include $G $A $epsilon) (@sf_q_rep $1 $A $1) \u21aa* @comp_fapp0 $"
+      },
+      {
+        "sha256": "9bb0c6f3327a889777557bd48a78c1019758bb35db91cd633a943b02a2252e9d",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $1 $1 $1 $A (@tapp1_fapp0 $1 $1 sf_q_include $G $A $Y $epsilon $f) (@fapp1_fapp0 $1 $1 sf_q_include $1 $A $1)\nt \u21aa[] @tapp1_fapp0 $1 $1 sf_q_include $G $1 $Y $epsilon (@comp_fapp0 $1 $1 $A $Y $f $1) \u21aa* @tapp1_fapp0 $1 $1 sf_q_include $G $1 $Y $epsilon (@comp_fapp0 $1 $1 $A $Y $f $1)\n  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B $F $G $X $Y $epsilon $f) (@fapp1_fapp0 $A $B $F $W $X $h) \u21aa @tapp1_fapp0 $A $B $F $G $W $Y $epsilon (@comp_fapp0 $A $W $X $Y $f $h)\nt \u21aa[1] @comp_fapp0"
+      },
+      {
+        "sha256": "e058b8a891cc38ba28d1c7ca9ac89d89400d7db70a3c017ca36bcd2047d6bad0",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0",
+          "hom_precomp_along_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_precomp_along_fapp0 $A $B sf_q_include $3 $W sf_q_include $h (@fapp1_fapp0 $A $B sf_q_include sf_q_include $B $F)\nt \u21aa[] @fapp1_fapp0 $A $B sf_q_include $W $B (@hom_precomp_along_fapp0 $A $A (@id_func $A) $B $W sf_q_include $h $F) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W $B (Functor_cat (Op_cat $B) Cat_cat) (@hom_con_int $B $B (id Cat_cat $B)) (@hom_precomp_along_fapp0 $A $A (id Cat_cat $A) $B $W sf_q_include $h $F)\n  with @hom_precomp_along_fapp0 $A $B $F $3 $W $X "
+      },
+      {
+        "sha256": "4570121ec791214d1367456248e47484cafc4501cfa5a1639a58f948f66281ba",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0",
+          "hom_postcomp_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 $B $0 sf_q_include $3 $B $Z $g (@fapp1_fapp0 $0 $B sf_q_include sf_q_include $B $B)\nt \u21aa[] @fapp1_fapp0 $0 $B sf_q_include sf_q_include $Z (@hom_postcomp_fapp0 $0 $0 (@id_func $0) sf_q_include $B $Z $g $B) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) sf_q_include $Z (Functor_cat (Op_cat $Z) Cat_cat) (@hom_con_int $Z $Z (id Cat_cat $Z)) (@hom_postcomp_fapp0 $0 $0 (id Cat_cat $0) sf_q_include $B $Z $g $B)\n  with @hom_postcomp_fapp0 $B $A $F $3 $Y $Z $g (@fapp1"
+      },
+      {
+        "sha256": "8ffd2f643f283f8b4e10d2b494e4af0dd0fae61a66dc32f3e11fcedc62412bc8",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 sf_q_include $A $B $1) (@fapp1_fapp0 $1 $1 sf_q_include $1 $A $f)\nt \u21aa[] @fapp1_fapp0 $1 $1 sf_q_include $1 $B (@comp_fapp0 $1 $1 $A $B $1 $f) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $1 $B (Functor_cat (Op_cat $B) Cat_cat) (@hom_con_int $B $B (id Cat_cat $B)) (@comp_fapp0 $1 $1 $A $B $1 $f)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f) \u21aa @fapp1_fapp0 $A $B $F $X $Z (@comp_fapp0 $"
+      },
+      {
+        "sha256": "ef00f6b16be766bdcd09024d5c98e620b58b340f730a7a106aacde4d64bae59e",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $1 $1 $1 $A (@fapp1_fapp0 $1 $1 sf_q_include $A $B $g) (@fapp1_fapp0 $1 $1 sf_q_include $1 $A $1)\nt \u21aa[] @fapp1_fapp0 $1 $1 sf_q_include $1 $B (@comp_fapp0 $1 $1 $A $B $g $1) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $1 $B (Functor_cat (Op_cat $B) Cat_cat) (@hom_con_int $B $B (id Cat_cat $B)) (@comp_fapp0 $1 $1 $A $B $g $1)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f) \u21aa @fapp1_fapp0 $A $B $F $X $Z (@comp_fapp0 $"
+      },
+      {
+        "sha256": "cfd04e647cac654e7d6dcc77f2cbfe61f29d7c91c1d7f5ccef7a853d1bd8e0a1",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 $A $B sf_q_include sf_q_include sf_q_include (id $A sf_q_include)\nt \u21aa[] id $B (@fapp0 $A $B sf_q_include sf_q_include) \u21aa* id $B sf_q_include\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) \u21aa id $B (@fapp0 $A $B $F $X)\nt \u21aa[] @sf_q_rep sf_q_include sf_q_include (id $A sf_q_include) \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) sf_q_include sf_q_include (Functor_cat (Op_cat sf_q_include) Cat_cat) (@hom_con_int sf_q_include sf_q_include (id Cat_cat sf_q_include)) (id $A "
+      },
+      {
+        "sha256": "1e992daf8c1dd31a73dbd4c2a1dbb6541b872b439dc1b91fb0fa5f312a4a6d7e",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W Cat_cat sf_q_cat sf_q_include (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W $X Cat_cat $p $g)\nt \u21aa[] @comp_cat_fapp0 $W Cat_cat sf_q_cat sf_q_include (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W $X Cat_cat $p $g) \u21aa* @comp_fapp0 Cat_cat $W Cat_cat sf_q_cat sf_q_include (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W $X Cat_cat $p $g)\n  with @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat"
+      },
+      {
+        "sha256": "470e60b231ca07dea7714babb09ac032dcf6b1aa63cecbd3cf2a5e49f0d5b3cc",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "hom_postcomp_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 Cat_cat $V Cat_cat $3 (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat Cat_cat sf_q_cat sf_q_include $E) $h\nt \u21aa[] @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $V Cat_cat sf_q_cat sf_q_include (@comp_fapp0 Cat_cat $V Cat_cat (@fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat) $E $h) \u21aa* @comp_fapp0 Cat_cat $V Cat_cat sf_q_cat (@comp_fapp0 Cat_cat Cat_cat Cat_cat sf_q_cat sf_q_include $E) $h\n  with @comp_fapp0 $A $V $W $3 (@hom_postcomp_fapp0 $A $B $F "
+      },
+      {
+        "sha256": "e1002816c79c5f6b1e6860cdad54231da0190d301dad1828351ea17b503d850d",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W Cat_cat sf_q_cat (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat Cat_cat sf_q_cat sf_q_include $E) $g\nt \u21aa[] @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W Cat_cat sf_q_cat sf_q_include (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W Cat_cat Cat_cat $E $g) \u21aa* @comp_fapp0 Cat_cat $W Cat_cat sf_q_cat sf_q_include (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $W Cat_cat Cat_cat $E "
+      },
+      {
+        "sha256": "e6d48053bc6936015175d9207949f64f216de589640ed9f48d2b19bfe39ffdbf",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_fapp0"
+        ],
+        "owner": "coefficient inclusion/diagram normal form",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat sf_q_cat $Z $q (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat Cat_cat sf_q_cat sf_q_include Cat_cat)\nt \u21aa[] @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat Cat_cat $Z (@comp_fapp0 Cat_cat Cat_cat sf_q_cat $Z $q sf_q_include) Cat_cat \u21aa* @hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) Cat_cat Cat_cat $Z (@comp_fapp0 Cat_cat Cat_cat sf_q_cat $Z $q sf_q_include) Cat_cat\n  with @hom_postco"
+      },
+      {
+        "sha256": "0f1a7779da0e955045b17a2c8ffc2f06c31f11c0b03d5d5ba70879e9c28ac729",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "tapp1_fapp0"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @tapp1_fapp0 sf_q_cat $B $F $G sf_q_cat sf_q_cat $\u03f5 (id sf_q_cat sf_q_cat)\nt \u21aa[] @tapp0_fapp0 sf_q_cat $B $F $G sf_q_cat $\u03f5 \u21aa* @tapp0_fapp0 sf_q_cat $B $F $G sf_q_cat $\u03f5\n  with @tapp1_fapp0 $A $B $F $G $X $X $\u03f5 (id $A $X) \u21aa @tapp0_fapp0 $A $B $F $G $X $\u03f5\nt \u21aa[1] @tapp1_fapp0 sf_q_cat $B $F $G sf_q_cat sf_q_cat $\u03f5 (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) \u21aa* @tapp1_fapp0 sf_q_cat $B $F $G sf_q_cat sf_q_cat $\u03f5 (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat))\n  with id sf_q_cat "
+      },
+      {
+        "sha256": "896ddd0c24d6fa072d6ebc916b4b2f18aca60a85569fb736b5f8c9228932041e",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "tapp0_hom_fapp0"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @tapp0_hom_fapp0 $A $B $F $G $A $A $Y (id sf_q_cat $A)\nt \u21aa[] id (Hom_cat $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y)) (@tapp0_fapp0 $A $B $F $G $Y $A) \u21aa* id (Hom_cat $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y)) (@tapp0_fapp0 $A $B $F $G $Y $A)\n  with @tapp0_hom_fapp0 $A $B $F $G $eta $eta $Y (id $6 $eta) \u21aa id (Hom_cat $B (@fapp0 $A $B $F $Y) (@fapp0 $A $B $G $Y)) (@tapp0_fapp0 $A $B $F $G $Y $eta)\nt \u21aa[1] @tapp0_hom_fapp0 $A $B $F $G $A $A $Y (@hom_con_int $A $A (@id_func $A)) \u21aa* @tapp0_hom"
+      },
+      {
+        "sha256": "4c82267e7e64e359d9ddb12be3a6863b7913139df8f0891e90571fb7e668fdd8",
+        "count": 1,
+        "participantHeads": [
+          "Hom_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @Hom_fapp0 sf_q_cat sf_q_cat sf_q_cat $y $y (id sf_q_cat sf_q_cat) (id sf_q_cat $y) $h\nt \u21aa[] $h \u21aa* $h\n  with @Hom_fapp0 $A $x $x $y $y (id $A $x) (id $A $y) $h \u21aa $h\nt \u21aa[0; 0; 1] @Hom_fapp0 sf_q_cat sf_q_cat sf_q_cat $y $y (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) (id sf_q_cat $y) $h \u21aa* @Hom_fapp0 sf_q_cat sf_q_cat sf_q_cat $y $y (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)) (@hom_con_int $y $y (id Cat_cat $y)) $h\n  with id sf_q_cat $A \u21aa @hom_con_int $A $A (@id_func $A)"
+      },
+      {
+        "sha256": "6af165c725c52bc481343fabc3b61c40c304ce118bed3f24c4cbf85c2541ef8c",
+        "count": 1,
+        "participantHeads": [
+          "Hom_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @Hom_fapp0 sf_q_cat $x $x sf_q_cat sf_q_cat (id sf_q_cat $x) (id sf_q_cat sf_q_cat) $h\nt \u21aa[] $h \u21aa* $h\n  with @Hom_fapp0 $A $x $x $y $y (id $A $x) (id $A $y) $h \u21aa $h\nt \u21aa[0; 1] @Hom_fapp0 sf_q_cat $x $x sf_q_cat sf_q_cat (id sf_q_cat $x) (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) $h \u21aa* @Hom_fapp0 sf_q_cat $x $x sf_q_cat sf_q_cat (@hom_con_int $x $x (id Cat_cat $x)) (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)) $h\n  with id sf_q_cat $A \u21aa @hom_con_int $A $A (@id_func $A)"
+      },
+      {
+        "sha256": "a7ca75b82b958a4c842695ad207d8f04fc5d28b16304cb468d387fc2e6385a4d",
+        "count": 1,
+        "participantHeads": [
+          "Hom_func",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @Hom_func sf_q_cat sf_q_cat sf_q_cat $y $y (id sf_q_cat sf_q_cat) (id sf_q_cat $y)\nt \u21aa[] @id_func (Hom_cat sf_q_cat sf_q_cat $y) \u21aa* id Cat_cat (Functor_cat sf_q_cat (Functor_cat (Op_cat $y) Cat_cat))\n  with @Hom_func $A $x $x $y $y (id $A $x) (id $A $y) \u21aa @id_func (Hom_cat $A $x $y)\nt \u21aa[0; 1] @Hom_func sf_q_cat sf_q_cat sf_q_cat $y $y (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) (id sf_q_cat $y) \u21aa* @Hom_func sf_q_cat sf_q_cat sf_q_cat $y $y (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat"
+      },
+      {
+        "sha256": "79fe197d1717e1479507bed2a50ecd5c48ef204996b3f276d6fe02a67cfc370b",
+        "count": 1,
+        "participantHeads": [
+          "Hom_func",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @Hom_func sf_q_cat $x $x sf_q_cat sf_q_cat (id sf_q_cat $x) (id sf_q_cat sf_q_cat)\nt \u21aa[] @id_func (Hom_cat sf_q_cat $x sf_q_cat) \u21aa* id Cat_cat (Functor_cat $x (Functor_cat (Op_cat sf_q_cat) Cat_cat))\n  with @Hom_func $A $x $x $y $y (id $A $x) (id $A $y) \u21aa @id_func (Hom_cat $A $x $y)\nt \u21aa[1] @Hom_func sf_q_cat $x $x sf_q_cat sf_q_cat (id sf_q_cat $x) (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) \u21aa* @Hom_func sf_q_cat $x $x sf_q_cat sf_q_cat (@hom_con_int $x $x (id Cat_cat $x)) (@hom_con"
+      },
+      {
+        "sha256": "bb801edd83cc7a68f8737e0c6ca83e56f6d5f3c46cf36f5ba216088bfd311b25",
+        "count": 1,
+        "participantHeads": [
+          "hom_precomp_along_fapp1_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $A $A (id sf_q_cat $A)\nt \u21aa[] id (Hom_cat $B (@fapp0 $A $B $F $W) $Z) (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $h $A) \u21aa* id (Hom_cat $B (@fapp0 $A $B $F $W) $Z) (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $h $A)\n  with @hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $g $g (id $8 $g) \u21aa id (Hom_cat $B (@fapp0 $A $B $F $W) $Z) (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $h $g)\nt \u21aa[1] @hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $A"
+      },
+      {
+        "sha256": "9ab7070a1201c268249f62adb453cbe02978b29bd3c1ca11e8de4bd17d6758a4",
+        "count": 1,
+        "participantHeads": [
+          "hom_precomp_along_fapp1_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_precomp_along_fapp1_fapp0 sf_q_cat $B $F $Z sf_q_cat sf_q_cat (id sf_q_cat sf_q_cat) $g $k $alpha\nt \u21aa[] $alpha \u21aa* $alpha\n  with @hom_precomp_along_fapp1_fapp0 $A $B $F $Z $X $X (id $A $X) $g $k $alpha \u21aa $alpha\nt \u21aa[0; 0; 0; 1] @hom_precomp_along_fapp1_fapp0 sf_q_cat $B $F $Z sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) $g $k $alpha \u21aa* @hom_precomp_along_fapp1_fapp0 sf_q_cat $B $F $Z sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)) $g $k $"
+      },
+      {
+        "sha256": "337a9dd3d71ff59558365b0629f2e7c1f225740b368c5ce60aa2c47e7b6c9b51",
+        "count": 1,
+        "participantHeads": [
+          "hom_precomp_along_tele_fapp1_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_precomp_along_tele_fapp1_fapp0 $A $B $F $Z $W $X $A $A (id sf_q_cat $A)\nt \u21aa[] id (Functor_cat (Hom_cat $B (@fapp0 $A $B $F $X) $Z) (Hom_cat $B (@fapp0 $A $B $F $W) $Z)) (@hom_precomp_along_func $A $B $F $Z $W $X $A) \u21aa* id (Functor_cat (Hom_cat $B (@fapp0 $A $B $F $X) $Z) (Hom_cat $B (@fapp0 $A $B $F $W) $Z)) (@hom_precomp_along_func $A $B $F $Z $W $X $A)\n  with @hom_precomp_along_tele_fapp1_fapp0 $A $B $F $Z $W $X $h $h (id $7 $h) \u21aa id (Functor_cat (Hom_cat $B (@fapp0 $A $B $F $X) $Z) ("
+      },
+      {
+        "sha256": "6adec0ce7be66048db2b0fd5a2aa36a37921a9a71a00c6d38bec0ac9c3393a8d",
+        "count": 1,
+        "participantHeads": [
+          "hom_precomp_along_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_precomp_along_fapp0 $3 sf_q_cat $F $3 $W $X $h (id sf_q_cat $3)\nt \u21aa[] @fapp1_fapp0 $3 sf_q_cat $F $W $X $h \u21aa* @fapp1_fapp0 $3 sf_q_cat $F $W $X $h\n  with @hom_precomp_along_fapp0 $A $B $F $3 $W $X $h (id $B $7) \u21aa @fapp1_fapp0 $A $B $F $W $X $h\nt \u21aa[1] @hom_precomp_along_fapp0 $3 sf_q_cat $F $3 $W $X $h (@hom_con_int $3 $3 (@id_func $3)) \u21aa* @hom_precomp_along_fapp0 $3 sf_q_cat $F $3 $W $X $h (@hom_con_int $3 $3 (id Cat_cat $3))\n  with id sf_q_cat $A \u21aa @hom_con_int $A $A (@id_func $A)"
+      },
+      {
+        "sha256": "8e4f0e0437e5116c6d1dfe6049e41b2d1ec120db30dcca214c6601ff46c88160",
+        "count": 1,
+        "participantHeads": [
+          "hom_precomp_along_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_precomp_along_fapp0 sf_q_cat $B $F $Z sf_q_cat sf_q_cat (id sf_q_cat sf_q_cat) $g\nt \u21aa[] $g \u21aa* $g\n  with @hom_precomp_along_fapp0 $A $B $F $Z $X $X (id $A $X) $g \u21aa $g\nt \u21aa[0; 1] @hom_precomp_along_fapp0 sf_q_cat $B $F $Z sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) $g \u21aa* @hom_precomp_along_fapp0 sf_q_cat $B $F $Z sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)) $g\n  with id sf_q_cat $A \u21aa @hom_con_int $A $A (@id_func $A)"
+      },
+      {
+        "sha256": "c1116097bf13ee0ca69a8bc83a0a28ef5acff6529665847d50a34d82cca90817",
+        "count": 1,
+        "participantHeads": [
+          "hom_precomp_along_func",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_precomp_along_func sf_q_cat $B $F $Z sf_q_cat sf_q_cat (id sf_q_cat sf_q_cat)\nt \u21aa[] @id_func (Hom_cat $B (@fapp0 sf_q_cat $B $F sf_q_cat) $Z) \u21aa* id Cat_cat (Hom_cat $B (@fapp0 sf_q_cat $B $F sf_q_cat) $Z)\n  with @hom_precomp_along_func $A $B $F $Z $X $X (id $A $X) \u21aa @id_func (Hom_cat $B (@fapp0 $A $B $F $X) $Z)\nt \u21aa[1] @hom_precomp_along_func sf_q_cat $B $F $Z sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) \u21aa* @hom_precomp_along_func sf_q_cat $B $F $Z sf_q_cat sf_q"
+      },
+      {
+        "sha256": "4561c9fb2b669d99e94e011090a119fa1043db3ca6933554ba687518680161e8",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_fapp1_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $A $A (id sf_q_cat $A)\nt \u21aa[] id (Hom_cat $A $W (@fapp0 $B $A $F $Y)) (@hom_postcomp_fapp0 $A $B $F $W $X $Y $f $A) \u21aa* id (Hom_cat $A $W (@fapp0 $B $A $F $Y)) (@hom_postcomp_fapp0 $A $B $F $W $X $Y $f $A)\n  with @hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $g (id $8 $g) \u21aa id (Hom_cat $A $W (@fapp0 $B $A $F $Y)) (@hom_postcomp_fapp0 $A $B $F $W $X $Y $f $g)\nt \u21aa[1] @hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $A $A (@hom_con_int $A $A (@id_f"
+      },
+      {
+        "sha256": "7e0451b8f3860a61da7179a2af3517f691cdf966a7e1cf3962d45f1eb5aeddb3",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_tele_fapp1_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_tele_fapp1_fapp0 $A $B $F $W $X $Y $A $A (id sf_q_cat $A)\nt \u21aa[] id (Functor_cat (Hom_cat $A $W (@fapp0 $B $A $F $X)) (Hom_cat $A $W (@fapp0 $B $A $F $Y))) (@hom_postcomp_func $A $B $F $W $X $Y $A) \u21aa* id (Functor_cat (Hom_cat $A $W (@fapp0 $B $A $F $X)) (Hom_cat $A $W (@fapp0 $B $A $F $Y))) (@hom_postcomp_func $A $B $F $W $X $Y $A)\n  with @hom_postcomp_tele_fapp1_fapp0 $A $B $F $W $X $Y $f $f (id $7 $f) \u21aa id (Functor_cat (Hom_cat $A $W (@fapp0 $B $A $F $X)) (Hom_cat $A $W (@fapp"
+      },
+      {
+        "sha256": "5f18d83bdeb676d4a70491df5c5363b467baddb9dec849b3cdf489992eca1a0e",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat sf_q_cat $Y $f (id sf_q_cat sf_q_cat)\nt \u21aa[] $f \u21aa* $f\n  with @hom_postcomp_fapp0 $A $A (id Cat_cat $A) $X $X $Y $f (id $A $X) \u21aa $f\nt \u21aa[1] @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat sf_q_cat $Y $f (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) \u21aa* @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat sf_q_cat $Y $f (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat))\n  with id s"
+      },
+      {
+        "sha256": "d194286608d61e3545e9738bf4c2745c75084175a5982f526d02b7ef53727cdb",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) $W sf_q_cat sf_q_cat (id sf_q_cat sf_q_cat) $f\nt \u21aa[] $f \u21aa* $f\n  with @hom_postcomp_fapp0 $A $A (id Cat_cat $A) $W $X $X (id $A $X) $f \u21aa $f\nt \u21aa[0; 1] @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) $W sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) $f \u21aa* @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) $W sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)) $f\n  with i"
+      },
+      {
+        "sha256": "4fc105ff996303032e20a991dae2b39473755f95b5165ded808ed821dd97fdce",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 $A sf_q_cat $F $W $A $A (id sf_q_cat $A) $g\nt \u21aa[] $g \u21aa* $g\n  with @hom_postcomp_fapp0 $A $B $F $W $X $X (id $B $X) $g \u21aa $g\nt \u21aa[0; 1] @hom_postcomp_fapp0 $A sf_q_cat $F $W $A $A (@hom_con_int $A $A (@id_func $A)) $g \u21aa* @hom_postcomp_fapp0 $A sf_q_cat $F $W $A $A (@hom_con_int $A $A (id Cat_cat $A)) $g\n  with id sf_q_cat $A \u21aa @hom_con_int $A $A (@id_func $A)"
+      },
+      {
+        "sha256": "87444a1e6018908b491a9690b91b6713c512f774f7392ab95571e2ffbceb2213",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_func",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_func $A sf_q_cat $F $W $A $A (id sf_q_cat $A)\nt \u21aa[] @id_func (Hom_cat $A $W (@fapp0 sf_q_cat $A $F $A)) \u21aa* id Cat_cat (Hom_cat $A $W (@fapp0 sf_q_cat $A $F $A))\n  with @hom_postcomp_func $A $B $F $W $X $X (id $B $X) \u21aa @id_func (Hom_cat $A $W (@fapp0 $B $A $F $X))\nt \u21aa[1] @hom_postcomp_func $A sf_q_cat $F $W $A $A (@hom_con_int $A $A (@id_func $A)) \u21aa* @hom_postcomp_func $A sf_q_cat $F $W $A $A (@hom_con_int $A $A (id Cat_cat $A))\n  with id sf_q_cat $A \u21aa @hom_con_int $A $A (@id_fu"
+      },
+      {
+        "sha256": "30594504c54524d0ce0e0cba91442db9cb2c9a683322e75a55f59fd31af996b2",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 sf_q_cat $1 sf_q_cat $3 (id sf_q_cat sf_q_cat) $f\nt \u21aa[] $f \u21aa* $f\n  with @comp_fapp0 $A $1 $Y $3 (id $A $Y) $f \u21aa $f\nt \u21aa[0; 1] @comp_fapp0 sf_q_cat $1 sf_q_cat $3 (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) $f \u21aa* @comp_fapp0 sf_q_cat $1 sf_q_cat $3 (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)) $f\n  with id sf_q_cat $A \u21aa @hom_con_int $A $A (@id_func $A)"
+      },
+      {
+        "sha256": "ce193f82693bd6e2879eabff6d171fce67365be8793384e6d7549eaa21863111",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 sf_q_cat $1 sf_q_cat $3 $g (id sf_q_cat sf_q_cat)\nt \u21aa[] $g \u21aa* $g\n  with @comp_fapp0 $A $1 $Y $3 $g (id $A $Y) \u21aa $g\nt \u21aa[1] @comp_fapp0 sf_q_cat $1 sf_q_cat $3 $g (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) \u21aa* @comp_fapp0 sf_q_cat $1 sf_q_cat $3 $g (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat))\n  with id sf_q_cat $A \u21aa @hom_con_int $A $A (@id_func $A)"
+      },
+      {
+        "sha256": "bf3612af16424b1a014d2d0df253916026a45bf7c20b7da7a5d53d2c7b38119f",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (CoAbove2_cat (Op_cat sf_q_cat)) $D $F sf_q_cat sf_q_cat (id sf_q_cat sf_q_cat)\nt \u21aa[] id $D (@fapp0 (CoAbove2_cat (Op_cat sf_q_cat)) $D $F sf_q_cat) \u21aa* id $D (@fapp0 (CoAbove2_cat (Op_cat sf_q_cat)) $D $F sf_q_cat)\n  with @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D $F $x $x (id $K $x) \u21aa id $D (@fapp0 (CoAbove2_cat (Op_cat $K)) $D $F $x)\nt \u21aa[1] @fapp1_fapp0 (CoAbove2_cat (Op_cat sf_q_cat)) $D $F sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) \u21aa* @fapp1_fapp0"
+      },
+      {
+        "sha256": "397eddff687cb2189d2d04a0d2fdeffc205c4977c1dfcef8044a722a3a4eff6e",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (CoAbove2_cat sf_q_cat) $D $F sf_q_cat sf_q_cat (id sf_q_cat sf_q_cat)\nt \u21aa[] id $D (@fapp0 (CoAbove2_cat sf_q_cat) $D $F sf_q_cat) \u21aa* id $D (@fapp0 (CoAbove2_cat sf_q_cat) $D $F sf_q_cat)\n  with @fapp1_fapp0 (CoAbove2_cat $K) $D $F $x $x (id $K $x) \u21aa id $D (@fapp0 (CoAbove2_cat $K) $D $F $x)\nt \u21aa[1] @fapp1_fapp0 (CoAbove2_cat sf_q_cat) $D $F sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) \u21aa* @fapp1_fapp0 (CoAbove2_cat sf_q_cat) $D $F sf_q_cat sf_q_cat (@hom"
+      },
+      {
+        "sha256": "a8b622580f18459b260527c5d46a28a7b783ff74bd4a33a63a1934b3ee3cc1ab",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (Op_cat sf_q_cat) $D $F sf_q_cat sf_q_cat (id sf_q_cat sf_q_cat)\nt \u21aa[] id $D (@fapp0 (Op_cat sf_q_cat) $D $F sf_q_cat) \u21aa* id $D (@fapp0 (Op_cat sf_q_cat) $D $F sf_q_cat)\n  with @fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x) \u21aa id $D (@fapp0 (Op_cat $K) $D $F $x)\nt \u21aa[1] @fapp1_fapp0 (Op_cat sf_q_cat) $D $F sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) \u21aa* @fapp1_fapp0 (Op_cat sf_q_cat) $D $F sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_"
+      },
+      {
+        "sha256": "f83e9103d3a3bda84a7da11902be96d26ec3098faadf9c2749542ac59ebf7b8b",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0",
+          "id"
+        ],
+        "owner": "projected Q unit versus generic identity/action owners",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 sf_q_cat $B $F sf_q_cat sf_q_cat (id sf_q_cat sf_q_cat)\nt \u21aa[] id $B (@fapp0 sf_q_cat $B $F sf_q_cat) \u21aa* id $B (@fapp0 sf_q_cat $B $F sf_q_cat)\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) \u21aa id $B (@fapp0 $A $B $F $X)\nt \u21aa[1] @fapp1_fapp0 sf_q_cat $B $F sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (@id_func sf_q_cat)) \u21aa* @fapp1_fapp0 sf_q_cat $B $F sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat))\n  with id sf_q_cat $A \u21aa @hom_con_int $A $A (@id_func $A"
+      },
+      {
+        "sha256": "eea4efb6b926e025e297671f2240a17b1f46daa811d3040b689c99d762851dd6",
+        "count": 1,
+        "participantHeads": [
+          "Op_cat",
+          "comp_fapp0"
+        ],
+        "owner": "represented Q composition and its stable Hom-action cut",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 sf_q_cat $A' Terminal_cat $C' $P' (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $A' Terminal_cat (Functor_cat (Op_cat Terminal_cat) Cat_cat) (@hom_con_int Terminal_cat Terminal_cat (id Cat_cat Terminal_cat)) $F')\nt \u21aa[] @comp_cat_fapp0 $A' Terminal_cat (Functor_cat (Op_cat $C') Cat_cat) $P' $F' \u21aa* @comp_fapp0 Cat_cat $A' Terminal_cat (Functor_cat (Op_cat $C') Cat_cat) $P' $F'\n  with @comp_fapp0 sf_q_cat $A' $B' $C' $P' (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat C"
+      },
+      {
+        "sha256": "bd88b2d97e3bea30d14a44c759af2b7ac1d5ed9a698f8052413e21ab1a1a2a0d",
+        "count": 1,
+        "participantHeads": [
+          "Op_cat",
+          "hom_postcomp_fapp0"
+        ],
+        "owner": "represented Q composition and its stable Hom-action cut",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) $A' Terminal_cat $C' $P' (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $A' Terminal_cat (Functor_cat (Op_cat Terminal_cat) Cat_cat) (@hom_con_int Terminal_cat Terminal_cat (id Cat_cat Terminal_cat)) $F')\nt \u21aa[] @comp_cat_fapp0 $A' Terminal_cat (Functor_cat (Op_cat $C') Cat_cat) $P' $F' \u21aa* @comp_fapp0 Cat_cat $A' Terminal_cat (Functor_cat (Op_cat $C') Cat_cat) $P' $F'\n  with @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_ca"
+      },
+      {
+        "sha256": "b3119f5518cb4300cd96e11c2a5d09fd3e07099fce39af21ea903913a0323ffd",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_fapp0"
+        ],
+        "owner": "represented Q composition and its stable Hom-action cut",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat Cat_cat Cat_cat $q (@hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat sf_q_cat Cat_cat Cat_cat (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) sf_q_cat sf_q_cat (Functor_cat (Op_cat sf_q_cat) Cat_cat) (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)) $F))\nt \u21aa[] @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat sf_q_cat Cat_cat (@comp_fapp0 sf_q_cat sf_q_cat Cat_cat Cat_ca"
+      },
+      {
+        "sha256": "c6602b30238b50407667f1f0a6066d1e800280ede670418bd2a0bcbaba3651e7",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "hom_postcomp_fapp0"
+        ],
+        "owner": "represented Q composition and its stable Hom-action cut",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 sf_q_cat $3 sf_q_cat $3 (@hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat sf_q_cat $3 sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat))) $h\nt \u21aa[] @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) $3 sf_q_cat $3 sf_q_cat (@comp_fapp0 sf_q_cat $3 sf_q_cat (@fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat) (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)) $h) \u21aa* @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) $3 sf_"
+      },
+      {
+        "sha256": "785625cdc20f504f6456c8edc4cfcaba1e87757ac632ef60254342072f036136",
+        "count": 1,
+        "participantHeads": [
+          "hom_postcomp_fapp0"
+        ],
+        "owner": "represented Q composition and its stable Hom-action cut",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat sf_q_cat $Z $q (@hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat sf_q_cat sf_q_cat sf_q_cat (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)))\nt \u21aa[] @hom_postcomp_fapp0 sf_q_cat sf_q_cat (id Cat_cat sf_q_cat) sf_q_cat sf_q_cat $Z (@comp_fapp0 sf_q_cat sf_q_cat sf_q_cat $Z $q sf_q_cat) (@hom_con_int sf_q_cat sf_q_cat (id Cat_cat sf_q_cat)) \u21aa* @comp_fapp0 sf_q_cat sf_q_cat sf_q_cat $Z $q sf_q_cat\n  wi"
+      },
+      {
+        "sha256": "f1fa3e1413fd8ae0f08ffe73dd34c276cb2e0f1207e86533ddc12c7c785e63d3",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 $A $B (@sf_homd_id_src_func $K' $E' $x') $X $X (id $A $X)\nt \u21aa[] @sf_homd_id_u_map $K' $E' $x' $X $X (id $A $X) \u21aa* @sf_homd_id_u_map $K' $E' $x' $X $X (id $A $X)\n  with @fapp1_fapp0 $' $' (@sf_homd_id_src_func $K' $E' $x') $u1' $u0' $h' \u21aa @sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h'\nt \u21aa[] id $B (@fapp0 $A $B (@sf_homd_id_src_func $K' $E' $x') $X) \u21aa* id $B (@sf_q_mate $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@sf_fibcov $K' $E' $x' $X))\n  with @fapp1_fapp0 $A $B $F $X $X (id $A"
+      },
+      {
+        "sha256": "985fdf49c250ddd55c1253dd2cd84a2bd0c4a47aff2321d00951438aa4a3c5df",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (Op_cat $K) $D (@sf_homd_id_src_func $K' $E' $x') $x $x (id $K $x)\nt \u21aa[] @sf_homd_id_u_map $K' $E' $x' $x $x (id $K $x) \u21aa* @sf_homd_id_u_map $K' $E' $x' $x $x (id $K $x)\n  with @fapp1_fapp0 $' $' (@sf_homd_id_src_func $K' $E' $x') $u1' $u0' $h' \u21aa @sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h'\nt \u21aa[] id $D (@fapp0 (Op_cat $K) $D (@sf_homd_id_src_func $K' $E' $x') $x) \u21aa* id $D (@sf_q_mate $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@sf_fibcov $K' $E' $x' $x))\n  with @fapp1_fapp0 (Op"
+      },
+      {
+        "sha256": "ae51257d587ab3bf396e2a3586c9cac49b5ccb0046d88c5af6ca4e263b00ac39",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (CoAbove2_cat $K) $D (@sf_homd_id_src_func $K' $E' $x') $x $x (id $K $x)\nt \u21aa[] @sf_homd_id_u_map $K' $E' $x' $x $x (id $K $x) \u21aa* @sf_homd_id_u_map $K' $E' $x' $x $x (id $K $x)\n  with @fapp1_fapp0 $' $' (@sf_homd_id_src_func $K' $E' $x') $u1' $u0' $h' \u21aa @sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h'\nt \u21aa[] id $D (@fapp0 (CoAbove2_cat $K) $D (@sf_homd_id_src_func $K' $E' $x') $x) \u21aa* id $D (@sf_q_mate $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@sf_fibcov $K' $E' $x' $x))\n  with @fap"
+      },
+      {
+        "sha256": "f43d091f88e99691e7a12ddd5dcf6c4f4a3ca6dee84acea85edb0183765e891a",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D (@sf_homd_id_src_func $K' $E' $x') $x $x (id $K $x)\nt \u21aa[] @sf_homd_id_u_map $K' $E' $x' $x $x (id $K $x) \u21aa* @sf_homd_id_u_map $K' $E' $x' $x $x (id $K $x)\n  with @fapp1_fapp0 $' $' (@sf_homd_id_src_func $K' $E' $x') $u1' $u0' $h' \u21aa @sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h'\nt \u21aa[] id $D (@fapp0 (CoAbove2_cat (Op_cat $K)) $D (@sf_homd_id_src_func $K' $E' $x') $x) \u21aa* id $D (@sf_q_mate $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@sf_fibcov $K' $E' $x"
+      },
+      {
+        "sha256": "d309b99151c607d549e3927ca7173a98427f5a63a6505c485816033c6064a916",
+        "count": 1,
+        "participantHeads": [
+          "fapp1_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @fapp1_fapp0 (Catd_cat $K) $B (@sf_homd_id_src_func $K' $E' $x') $E $E (id (Catd_cat $K) $E)\nt \u21aa[] @sf_homd_id_u_map $K' $E' $x' $E $E (id (Catd_cat $K) $E) \u21aa* @sf_homd_id_u_map $K' $E' $x' $E $E (id (Catd_cat $K) $E)\n  with @fapp1_fapp0 $' $' (@sf_homd_id_src_func $K' $E' $x') $u1' $u0' $h' \u21aa @sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h'\nt \u21aa[] id $B (@fapp0 (Catd_cat $K) $B (@sf_homd_id_src_func $K' $E' $x') $E) \u21aa* id $B (@sf_q_mate $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@sf_fibcov $K'"
+      },
+      {
+        "sha256": "2bf4a88333928ab6e04e285e649ad6e2f950412f1da78040dbf4aad74a400d3f",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $1 $1 $2 $3 (@tapp0_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) $G $u0 $epsilon) (@fapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) (@sf_homd_id_src_func $K $E $1) $u0 $u0)\nt \u21aa[] @tapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) $G (@sf_homd_id_src_func $K $E $1) $u0 $epsilon $u0 \u21aa* @tapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) $G (@sf_homd_id_src_func $K $E $1) $u0 $epsilon $u0\n  with @comp_fapp0 $B $1 $2 $3 (@tapp0_fapp0 $A $B $F $G $Y $epsilon) (@fapp1_fapp0 $A $B $F $X"
+      },
+      {
+        "sha256": "1d6538103b20f171650568e8fed4e7a719c335e4ff9636663690aed42d762890",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $1 $1 $2 $3 (@tapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) $G $u0 $Y $epsilon $f) (@fapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) (@sf_homd_id_src_func $K $E $1) $u0 $u0)\nt \u21aa[] @tapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) $G (@sf_homd_id_src_func $K $E $1) $Y $epsilon (@comp_fapp0 $1 (@sf_homd_id_src_func $K $E $1) $u0 $Y $f $u0) \u21aa* @tapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) $G (@sf_homd_id_src_func $K $E $1) $Y $epsilon (@comp_fapp0 $1 (@sf_homd_id_src_fun"
+      },
+      {
+        "sha256": "8a1547579e046fbbe947aa3f6912bc2b0195520cd62cd9d68ef9e180665e2d7b",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $1 $1 $E $3 (@fapp1_fapp0 $1 $1 (@sf_homd_id_src_func $E $E $1) (@sf_homd_id_src_func $E $E $1) (@sf_homd_id_src_func $E $E $1) (@sf_homd_id_src_func $E $E $1)) (@fapp1_fapp0 $1 $1 (@sf_homd_id_src_func $E $E $1) $X (@sf_homd_id_src_func $E $E $1) $f)\nt \u21aa[] @fapp1_fapp0 $1 $1 (@sf_homd_id_src_func $E $E $1) $X (@sf_homd_id_src_func $E $E $1) (@comp_fapp0 $1 $X (@sf_homd_id_src_func $E $E $1) (@sf_homd_id_src_func $E $E $1) (@sf_homd_id_src_func $E $E $1) $f) \u21aa* @sf_homd_id_u_map "
+      },
+      {
+        "sha256": "3e80c0e3bec1409594136a1e91d3866853de44692488f87f35a78c0cf9405b16",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) $Y $Z $g) (@fapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) (@sf_homd_id_src_func $K $E $1) $Y $h)\nt \u21aa[] @fapp1_fapp0 $1 $1 (@sf_homd_id_src_func $K $E $1) (@sf_homd_id_src_func $K $E $1) $Z (@comp_fapp0 $1 (@sf_homd_id_src_func $K $E $1) $Y $Z $g $h) \u21aa* @sf_homd_id_u_map $K $E $1 $Z (@sf_homd_id_src_func $K $E $1) (@comp_fapp0 $1 (@sf_homd_id_src_func $K $E $1) $Y $Z $g $h)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_f"
+      },
+      {
+        "sha256": "97b88a5aad7769cda978988a5ac8202b27e4887c495dab1ba260816283d11b5c",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_map"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_map $K' $E' $x' $x $x (id (Path_cat $A) $x)\nt \u21aa[] id (@sf_homd_section_cat $K' $E' $x') (@sf_homd_id_src_sec $K' $E' $x' $x) \u21aa* id (@Transf_cat $K' sf_q_cat (@comp_fapp0 Cat_cat $K' Cat_cat sf_q_cat sf_q_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat sf_q_cat sf_q_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@sf_q_mate $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@sf_fibcov $K' $E' $x' $x))\n  with @sf_homd_id_u_map $K' $E' $x' $u' $u' (id $' $u') \u21aa id (@sf_homd_section_cat $"
+      },
+      {
+        "sha256": "dbe7d4fbf5d5e1378c9bd44f950be11e43e34511226f4cf32f6155fde7c32a33",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_map"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_map $K' $E' $x' $0 $0 (id Terminal_cat $0)\nt \u21aa[] id (@sf_homd_section_cat $K' $E' $x') (@sf_homd_id_src_sec $K' $E' $x' $0) \u21aa* id (@Transf_cat $K' sf_q_cat (@comp_fapp0 Cat_cat $K' Cat_cat sf_q_cat sf_q_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat sf_q_cat sf_q_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@sf_q_mate $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@sf_fibcov $K' $E' $x' $0))\n  with @sf_homd_id_u_map $K' $E' $x' $u' $u' (id $' $u') \u21aa id (@sf_homd_section_cat $K"
+      },
+      {
+        "sha256": "463174ed4698d74542d3349bc04ee0cbe0871175d849557faf0c13295752a538",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_map"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_map $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u))\nt \u21aa[] id (@sf_homd_section_cat $K' $E' $x') (@sf_homd_id_src_sec $K' $E' $x' (@Struct_sigma $2 $3 $x $u)) \u21aa* id (@Transf_cat $K' sf_q_cat (@comp_fapp0 Cat_cat $K' Cat_cat sf_q_cat sf_q_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat sf_q_cat sf_q_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@sf_q_mate $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@sf_fib"
+      },
+      {
+        "sha256": "9b926089a14cf4fcb5314cdbc5f6bc2c201072c17312e6fa1b6b9dd80ec73ef9",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_map"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_map $K' $E' $x' $A $A (id sf_q_cat $A)\nt \u21aa[] id (@sf_homd_section_cat $K' $E' $x') (@sf_homd_id_src_sec $K' $E' $x' $A) \u21aa* id (@Transf_cat $K' sf_q_cat (@comp_fapp0 Cat_cat $K' Cat_cat sf_q_cat sf_q_include $E') (@comp_fapp0 Cat_cat $K' Cat_cat sf_q_cat sf_q_include (@hom_ $K' $K' (id Cat_cat $K') $x'))) (@sf_q_mate $K' (@hom_ $K' $K' (id Cat_cat $K') $x') $E' (@sf_fibcov $K' $E' $x' $A))\n  with @sf_homd_id_u_map $K' $E' $x' $u' $u' (id $' $u') \u21aa id (@sf_homd_section_cat $K' $E"
+      },
+      {
+        "sha256": "c098e3e04ad72f74d09bb3a08cd2802e776b081156683b3324d294c22a92483d",
+        "count": 1,
+        "participantHeads": [
+          "sf_homd_id_u_map",
+          "tapp0_hom_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (@sf_homd_id_u_map $K $E $x $u $u (id $4 $u))\nt \u21aa[] @sf_homd_id_u_y $0 $E $x $u $u (id $4 $u) $y \u21aa* @sf_homd_id_u_y $0 $E $x $u $u (id $4 $u) $y\n  with @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (@sf_homd_id_u_map $K $E $x $u0 $u1 $h) \u21aa @sf_homd_id_u_y $0 $E $x $u0 $u1 $h $y\nt \u21aa[1] @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (id (@sf_homd_section_cat $K $E $x) (@sf_homd_id_src_sec $K $E $x $u)) \u21aa* @tapp0_hom_fapp0 $0 $1 $2 $3 $4 $5 $y (id (@Transf_cat $K sf_q_cat ("
+      },
+      {
+        "sha256": "371a6d2efc10b06fd602fd04f314183164eb6b955eddadba1a873b6f5d3b0a85",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 (Op_cat $A) $X $Y $Z (@sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@sf_homd_id_u_map $K' $E' $x' $u1' $u2' $k')\nt \u21aa[] @sf_homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@fapp0 $K' Cat_cat $E' $x') $u0' $u1' $u2' $k' $h') \u21aa* @sf_homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@fapp0 $K' Cat_cat $E' $x') $u0' $u1' $u2' $k' $h')\n  with @comp_fapp0 $' $' $' $' (@sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@sf_homd_id_u_map $K' $E' $x' $u1' $u2' $k') \u21aa @sf_homd_id_u_map $K' $E'"
+      },
+      {
+        "sha256": "9bc9efb077dacc630e69fa51714d9970f35c48298300c50bafebb16af6c75f29",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 Terminal_cat $0 $1 $2 (@sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@sf_homd_id_u_map $K' $E' $x' $u1' $u2' $k')\nt \u21aa[] @sf_homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@fapp0 $K' Cat_cat $E' $x') $u0' $u1' $u2' $k' $h') \u21aa* @sf_homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fapp0 (@fapp0 $K' Cat_cat $E' $x') $u0' $u1' $u2' $k' $h')\n  with @comp_fapp0 $' $' $' $' (@sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@sf_homd_id_u_map $K' $E' $x' $u1' $u2' $k') \u21aa @sf_homd_id_u_map $K' $E"
+      },
+      {
+        "sha256": "efb1155a7a075c1a17e34a4ddcb627e8590d5907af1b5ed0f9b7a1e70c9c7295",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "sf_homd_id_u_map"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $' $' $' $' (@sf_homd_id_u_map $K $E $x $u0' $u $h') (@sf_homd_id_u_map $K $E $x $u $u (id $4 $u))\nt \u21aa[] @sf_homd_id_u_map $K $E $x $u0' $u (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0' $u $u (id $4 $u) $h') \u21aa* @sf_homd_id_u_map $K $E $x $u0' $u (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0' $u $u (id $4 $u) $h')\n  with @comp_fapp0 $' $' $' $' (@sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@sf_homd_id_u_map $K' $E' $x' $u1' $u2' $k') \u21aa @sf_homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fa"
+      },
+      {
+        "sha256": "a264bb9b0fc298df6e699607787091f0c7d225b8a46ff7f8da7b1576b02aa95c",
+        "count": 1,
+        "participantHeads": [
+          "comp_fapp0",
+          "sf_homd_id_u_map"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @comp_fapp0 $' $' $' $' (@sf_homd_id_u_map $K $E $x $u $u (id $4 $u)) (@sf_homd_id_u_map $K $E $x $u $u2' $k')\nt \u21aa[] @sf_homd_id_u_map $K $E $x $u $u2' (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u $u $u2' $k' (id $4 $u)) \u21aa* @sf_homd_id_u_map $K $E $x $u $u2' (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u $u $u2' $k' (id $4 $u))\n  with @comp_fapp0 $' $' $' $' (@sf_homd_id_u_map $K' $E' $x' $u0' $u1' $h') (@sf_homd_id_u_map $K' $E' $x' $u1' $u2' $k') \u21aa @sf_homd_id_u_map $K' $E' $x' $u0' $u2' (@comp_fa"
+      },
+      {
+        "sha256": "b205e00040b13265678d364343f843a200408564cc0ef1da53d25db4c1d6228c",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_y"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_y $K' $E' $x' $x $x (id (Path_cat $A) $x) $y'\nt \u21aa[] id (Functor_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@sf_homd_id_tgt_func $K' $E' $x' $x $y') \u21aa* id (Functor_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@hom_con_int (@fapp0 $K' Cat_cat $E' $y') (Hom_cat $K' $x' $y') (@comp_fapp0 Cat_cat (Hom_cat $K' $x' $y') (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0"
+      },
+      {
+        "sha256": "b5a53b1e7acf8c6ea397592e779bf13a2f4d099cae19b2b813190d9cc42d6c0a",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_y"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_y $K' $E' $x' $0 $0 (id Terminal_cat $0) $y'\nt \u21aa[] id (Functor_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@sf_homd_id_tgt_func $K' $E' $x' $0 $y') \u21aa* id (Functor_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@hom_con_int (@fapp0 $K' Cat_cat $E' $y') (Hom_cat $K' $x' $y') (@comp_fapp0 Cat_cat (Hom_cat $K' $x' $y') (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 "
+      },
+      {
+        "sha256": "7286fb33ce056abd53a49ade6e7e83820e2f158358e1e6eab3399a0d6cb27568",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_y"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_y $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u)) $y'\nt \u21aa[] id (Functor_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@sf_homd_id_tgt_func $K' $E' $x' (@Struct_sigma $2 $3 $x $u) $y') \u21aa* id (Functor_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@hom_con_int (@fapp0 $K' Cat_cat $E' $y') (Hom_cat $K' $x' $y') (@comp_fapp0 Cat"
+      },
+      {
+        "sha256": "d18f6283dca07825449a8f85d21ea1cb1155e2a6c8675e98160a952c2eb6c492",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_y"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_y $K' $E' $x' $A $A (id sf_q_cat $A) $y'\nt \u21aa[] id (Functor_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@sf_homd_id_tgt_func $K' $E' $x' $A $y') \u21aa* id (Functor_cat (@fapp0 $K' Cat_cat $E' $y') (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat)) (@hom_con_int (@fapp0 $K' Cat_cat $E' $y') (Hom_cat $K' $x' $y') (@comp_fapp0 Cat_cat (Hom_cat $K' $x' $y') (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' "
+      },
+      {
+        "sha256": "660bac727696d41432235beebe292017d28df07cb32c084173e664e9ec3d85b0",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_v"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_v $K' $E' $x' $x $x (id (Path_cat $A) $x) $y' $v'\nt \u21aa[] id (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@sf_homd_id_ $K' $E' $x' $x $y' $v') \u21aa* id (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@hom_con (@fapp0 $K' Cat_cat $E' $y') $v' (Hom_cat $K' $x' $y') (@comp_fapp0 Cat_cat (Hom_cat $K' $x' $y') (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y') (@fapp0_func (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E"
+      },
+      {
+        "sha256": "b21d644f44548376548d1bf4c2dace920d634cc2a40b9c27988c5f88930e4865",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_v"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_v $K' $E' $x' $0 $0 (id Terminal_cat $0) $y' $v'\nt \u21aa[] id (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@sf_homd_id_ $K' $E' $x' $0 $y' $v') \u21aa* id (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@hom_con (@fapp0 $K' Cat_cat $E' $y') $v' (Hom_cat $K' $x' $y') (@comp_fapp0 Cat_cat (Hom_cat $K' $x' $y') (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y') (@fapp0_func (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E'"
+      },
+      {
+        "sha256": "d2d82723a952ceef57330bb682d9c9731446344111b65d3ba07779c2e162b976",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_v"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_v $K' $E' $x' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u)) $y' $v'\nt \u21aa[] id (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@sf_homd_id_ $K' $E' $x' (@Struct_sigma $2 $3 $x $u) $y' $v') \u21aa* id (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@hom_con (@fapp0 $K' Cat_cat $E' $y') $v' (Hom_cat $K' $x' $y') (@comp_fapp0 Cat_cat (Hom_cat $K' $x' $y') (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_c"
+      },
+      {
+        "sha256": "a2d27974db673822dc1a61b1b37775009afccc2ab103440a371f34c60ef98635",
+        "count": 1,
+        "participantHeads": [
+          "id",
+          "sf_homd_id_u_v"
+        ],
+        "owner": "fixed-x Homd source action and projected identities/compositions",
+        "status": "recorded symbolic overlap; complete join not certified",
+        "excerpt": "t \u2254 @sf_homd_id_u_v $K' $E' $x' $A $A (id sf_q_cat $A) $y' $v'\nt \u21aa[] id (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@sf_homd_id_ $K' $E' $x' $A $y' $v') \u21aa* id (Functor_cat (Op_cat (Hom_cat $K' $x' $y')) Cat_cat) (@hom_con (@fapp0 $K' Cat_cat $E' $y') $v' (Hom_cat $K' $x' $y') (@comp_fapp0 Cat_cat (Hom_cat $K' $x' $y') (Functor_cat (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y')) (@fapp0 $K' Cat_cat $E' $y') (@fapp0_func (@fapp0 $K' Cat_cat $E' $x') (@fapp0 $K' Cat_cat $E' $y'"
+      }
+    ]
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 26,
+    "intentionalClauses": 19,
+    "output": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/strict_homd_section/candidate.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 26 annotated slot(s) across 19 intentional clause(s)\n\nAdvisory only: probe each proposed replacement with `_`. Mark a measured intentional case immediately above its rule with `// lhs-audit: keep SLOT[,SLOT] -- reason`.\nSeparately review outer-eliminator/inner-rewrite-cut LHSs and validate both reduction orders in a warning-enabled owning-position probe.\n"
+  },
+  "semanticProfileReference": {
+    "path": "audits/strict-default-action-boundary/strict_fibcov_verification.json",
+    "sha256": "b2bc2f211a40187b20dce697603104470c54a88de0e496fccb9effc1f7eab0cd",
+    "scope": "the previously checked finite walking-2-cell comparison is retained; no new omega-level model is claimed"
+  },
+  "developmentObservations": [
+    {
+      "receipt": "logs/check-runs/20261014T125123Z-824510d03e854dcf885d27586c71a0f0.json",
+      "finding": "represented Q composition with inferred codomain elaborates the wrong middle category"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T125216Z-4e7f11cd216f412cb48c2fe060ff4de8.json",
+      "finding": "normal forms expose the wrong middle; explicit represented codomain guard repairs it"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T125509Z-6e5f5b22e4f74c7f812a86b58882ad86.json",
+      "finding": "whole y-action needs the stable represented Q postcomposition cut"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T125816Z-9c879d26f4fd4c72ab570d772def51bd.json",
+      "finding": "fixed postcomposition component needed for the defined relative section"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T125928Z-129b658b4a58453aa115f9294092662b.json",
+      "finding": "relative identity exposes the named Q diagram normal-form join"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T130759Z-64bc62f286f446a2953c5611d0baa9bd.json",
+      "finding": "Hom abbreviation in diagnostic h binder makes the transposed source comparison ill-typed"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T130848Z-a8d55bd5c0c64424a99340087bf1076e.json",
+      "finding": "canonical Obj(Hom_cat(...)) diagnostic binder repairs it without operational change"
+    },
+    {
+      "receipt": "logs/check-runs/20261014T131312Z-1aeac5fcf13046fa876f5822a8fa14d0.json",
+      "finding": "intermediate composition rules require explicit mapping-category SR guards"
+    }
+  ],
+  "qualifications": [
+    "Q and the strict-map represented mate are declared structural contracts, not derived coefficient-model theorems.",
+    "The whole y-section, its telescope and the strict-FF relative section are definitions through those contracts and existing native action.",
+    "The fixed-x u functor/action are structural owners with checked direct projections and source laws.",
+    "No primitive Pi, combined y/v/f context, curry workaround, operational equality input or supplied laxity cell.",
+    "The native inner u/index boundary equality remains negative; this is not a global consistency theorem.",
+    "Cart direct substitution fails at the existing representation definition; it does not test a correctly adapted Cart inclusion/admission.",
+    "No whole x/root, complete Q composition/coherence, intrinsic extracted-cell replay, Sigma or production migration is qualified."
+  ]
+}

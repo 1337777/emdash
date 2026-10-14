@@ -40,8 +40,9 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 Latest execution steering, 2026-10-14: continue toward Homd using the checked
 strict displayed-map classifier, and keep both Cart/strict-transfor Q and
-lax-transfor Q open. The canonical whole transport-map slice is now checked;
-the next consumer is its represented Homd section. The broader
+lax-transfor Q open. The canonical whole transport map, represented whole-y
+section and fixed-x u/y/v/f slice now check under the explicit candidate
+Q/mate contracts. The next consumer is the coordinated whole x/root. The broader
 default reassessment below remains comparison context; no silent default
 switch or change of the all-family admission requirement is authorized.
 
@@ -3788,6 +3789,78 @@ qualify Q coherence or Sigma, migrate public Catd/Functord, or qualify the
 deep extracted strictness-cell identity. The donor still contains legacy
 joint Cartesian contracts. Production promotion and the full goal remain
 open; local negative controls are not a global consistency certificate.
+
+## Represented whole-y section and fixed-x Homd, 2026-10-14
+
+The [new candidate](../emdash2/audits/strict-default-action-boundary/strict_homd_section_review.md)
+uses raw Q Hom(A,B)=Functor_cat(A,Functor_cat(T(B),Cat)) without changing
+public Hom(Cat). The covariant inclusion's first Hom is defined through
+ordinary Hom and fixed postcomposition; variable lax transformation
+components compute. Right-represented Q composition computes to ordinary
+source reindexing. Its raw and stable Hom-action owners, units and
+represented composition are checked; general Q composition/coherence is
+still a structural qualification obligation.
+
+The strict-map mate is a declared whole constructor with native component
+and whole pre/right action projections. Applying it to the checked
+canonical transport map defines the actual section
+`S_E(x)=Transf_{K,Q}(iota E,iota Hom_K(x,-))`. The direct y/v/f ladder is
+obtained by ordinary projections, with leaf Hom_E[y](E[f](u),v). No
+combined context, curry substitute, primitive Pi, operational path or
+supplied comparison cell appears. Its whole y-arrow action computes at
+q:y->z, v:E[y], f:x->z to Hom_E[z](E[f](u),E[q](v)).
+
+A structural fixed-x source functor T(E[x])->S_E(x) now projects to that
+derived section and exposes its first-Hom action through ordinary lax y/v
+transformations to precomposition by E[f](h). Source identity/composition
+are checked before and after intermediate projections. The inner u/index
+boundary equality stays negative; no strict naturality was imposed on
+E[alpha]. The strict-FF relative section is actual composition with the
+Q diagram map and computes to Hom_E[y](E[f](u),FF[y](v)). Identity FF
+recovers the identity section. These results do not migrate public Functord.
+
+Measured repairs were an explicit represented codomain guard, the stable
+represented Q composition cut, a direct fixed-whiskering component and a
+named diagram-value fold for the actual identity cut. The u diagnostic
+needed canonical Hom_cat binders; that was not an operational change.
+Intermediate transformation-composition rules needed annotated mapping
+category guards for subject reduction.
+
+Final evidence: 96 positive/33 negative assertions including the donor's
+65/27; twelve adverse variants (eight assertion failures, two dependent SR
+failures and two definition-formation failures). The final run uses 1.755s
+and 171,336KiB maximum child RSS under 90s/2GiB, with SR enabled. Warnings
+change 742->815, all 73 added bodies inventoried; complete symbolic joins
+remain open. The LHS audit has zero unreviewed slots. Exact receipts,
+source hashes and formation/dependency distinctions are in the
+[verification](../emdash2/audits/strict-default-action-boundary/strict_homd_section_verification.json).
+
+Both Q designs remain candidates. The literal Cart substitution fails at
+the raw representation's inner target category, before testing a correctly
+adapted Cart inclusion. The earlier finite noncommuting-square test still
+records the stronger naturality required by Cart for the prescribed u
+action. Neither this formation failure nor raw Q's passing typechecks is
+a theorem about complete omega-level coefficient feasibility.
+
+Next root candidate, not yet implemented: put the transpose on the
+represented section target. With C=Functor_cat(K,Q) and a qualified
+represented x-package Gamma:CoAt2(K)->C, define
+`S'_E=Hom_{CoAt2(C)}(iota E,CoAt2(Gamma)(-)):K->Cat`.
+Its fibre is T(S_E(x)), by the dimension shift in Hom. A candidate whole
+root then has ambient type Transf_{K,Cat}(E,S'_E), with x-component
+E[x]->T(S_E(x)). Transposing that individual strict functor recovers the
+checked T(E[x])->S_E(x) presentation without requiring a same-profile
+fibrewise T(E). CoAt2 here is justified by shifting dimension 2 of C to
+dimension 1 of Hom_C; it is not a return to an unexplained Reverse12 base.
+Test Gamma, the root's naturality and their projections before adopting
+this presentation. Do not treat matching object fibres as a whole-root
+construction or make the root strict merely because external FF is strict.
+
+The outer homd_id_int/homd_int, full Q/mate coherence and intrinsic
+extracted action, Sigma-Hom integration and production migration remain
+required. The donor's known joint Cartesian contracts also remain outside
+this slice's qualification. This is concrete progress toward the same goal,
+not a narrowing of completion to a fixed-x or supplied-coefficient result.
 
 ## Deferred improvements under the migration boundary
 

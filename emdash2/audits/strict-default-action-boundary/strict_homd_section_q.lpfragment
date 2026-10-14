@@ -1,0 +1,74 @@
+// NON-LIBRARY raw-lax coefficient candidate. This is a structural Q
+// contract; its complete composition/coherence is not derived here.
+// The Hom is curried, with the public lax transformations at both levels.
+injective symbol sf_q_cat : Cat;
+rule Obj sf_q_cat ↪ Obj Cat_cat;
+rule Hom_cat sf_q_cat $A $B
+  ↪ Functor_cat $A (Functor_cat (Op_cat $B) Cat_cat);
+
+// Covariant representation: iota(F)[a][b] = Hom_B(b,F[a]).
+// Both the whole first-Hom and its object action use existing ordinary Hom
+// and fixed postcomposition. There is no extra transformation classifier.
+symbol sf_q_rep_func (A B : Cat)
+  : τ (Functor (Functor_cat A B)
+      (Functor_cat A (Functor_cat (Op_cat B) Cat_cat)))
+≔ @comp_cat_cov_func A B (Functor_cat (Op_cat B) Cat_cat)
+    (@hom_con_int B B (@id_func B));
+
+symbol sf_q_rep [A B : Cat] (F : τ (Functor A B))
+  : τ (Hom sf_q_cat A B)
+≔ fapp0 (sf_q_rep_func A B) F;
+
+injective symbol sf_q_include : τ (Functor Cat_cat sf_q_cat);
+rule fapp0 sf_q_include $A ↪ $A;
+rule @fapp1_func _ _ sf_q_include $A $B ↪ sf_q_rep_func $A $B;
+rule @fapp1_fapp0 _ _ sf_q_include $A $B $F ↪ @sf_q_rep $A $B $F;
+
+symbol sf_q_diagram [K : Cat] (E : τ (Functor K Cat_cat))
+  : τ (Functor K sf_q_cat)
+≔ @comp_cat_fapp0 K Cat_cat sf_q_cat sf_q_include E;
+
+// The named coefficient inclusion has this selected diagram normal form.
+// Generic identity action otherwise leaves id at the stable postcomposition
+// value, preventing the relative section's actual identity cut from firing.
+// This is a constructor-specific fold, not a generic Hom/composition fold.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      $K Cat_cat sf_q_cat sf_q_include $E
+  ↪ @comp_cat_fapp0 $K Cat_cat sf_q_cat sf_q_include $E;
+
+// Chosen unit and right-represented composition in the structural Q.
+// P o iota(F) is ordinary source reindexing of the curried P. The pattern
+// is the actual projected representation body, not an invented wrapper.
+rule @id sf_q_cat $A ↪ @hom_con_int $A $A (@id_func $A);
+// The represented codomain is a measured SR/elaboration guard: leaving it
+// inferred substituted Functor_cat(T(B),Cat) for B in the emitted RHS.
+// lhs-audit: keep 1 -- Q composition, not ordinary functor composition.
+rule @comp_fapp0 sf_q_cat $A $B $C $P
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $B
+        (Functor_cat (Op_cat $B) Cat_cat)
+        (@hom_con_int $B $B (@id Cat_cat $B)) $F)
+  ↪ @comp_cat_fapp0 $A $B (Functor_cat (Op_cat $C) Cat_cat) $P $F;
+
+// Projection of id_Q erases the literal generic category unit. Join its
+// curried form at the same Q composition owner.
+// lhs-audit: keep 1 -- Q unit after its object representation projected.
+rule @comp_fapp0 sf_q_cat $A $A $B $P (@hom_con_int $A $A (@id Cat_cat $A)) ↪ $P;
+// lhs-audit: keep 1 -- Q unit after its object representation projected.
+rule @comp_fapp0 sf_q_cat $A $B $B (@hom_con_int $B $B (@id Cat_cat $B)) $P ↪ $P;
+
+// The whole mate's action uses the canonical stable postcomposition owner.
+// Its represented-input cut must join raw Q composition before v/f are
+// selected; no outer-evaluation commuting conversion is introduced.
+// lhs-audit: keep 1,2,3 -- identity-family Q represented-composition owner.
+rule @hom_postcomp_fapp0 sf_q_cat sf_q_cat (@id Cat_cat sf_q_cat) $A $B $C $P
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $B
+        (Functor_cat (Op_cat $B) Cat_cat)
+        (@hom_con_int $B $B (@id Cat_cat $B)) $F)
+  ↪ @comp_cat_fapp0 $A $B (Functor_cat (Op_cat $C) Cat_cat) $P $F;
+
+// lhs-audit: keep 1,2,3 -- projected Q right unit at stable postcomposition.
+rule @hom_postcomp_fapp0 sf_q_cat sf_q_cat (@id Cat_cat sf_q_cat) $A $A $B $P
+      (@hom_con_int $A $A (@id Cat_cat $A)) ↪ $P;
+// lhs-audit: keep 1,2,3 -- projected Q left unit at stable postcomposition.
+rule @hom_postcomp_fapp0 sf_q_cat sf_q_cat (@id Cat_cat sf_q_cat) $A $B $B
+      (@hom_con_int $B $B (@id Cat_cat $B)) $P ↪ $P;

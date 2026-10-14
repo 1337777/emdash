@@ -1,0 +1,34 @@
+assert [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K D E))) (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K sf_q_cat (@sf_q_diagram K D) (@sf_q_diagram K E) y
+    (@sf_q_diagram_map K D E FF)
+  ≡ @sf_q_rep (fapp0 D y) (fapp0 E y)
+      (@tapp0_fapp0 K Cat_cat D E y (@sf_family_map_view K D E FF));
+
+assert [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K D E))) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (y : τ (Obj K)) ⊢
+  @sf_homd_rel_tgt_func K D E FF x u y
+  ≡ @comp_cat_fapp0 (fapp0 D y) (fapp0 E y)
+      (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+      (@sf_homd_id_tgt_func K E x u y)
+      (@tapp0_fapp0 K Cat_cat D E y (@sf_family_map_view K D E FF));
+
+assert [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (Obj (@sf_family_map_cat K D E))) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (y : τ (Obj K))
+  (v : τ (Obj (fapp0 D y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (@sf_homd_rel_ K D E FF x u y v) f
+  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cat E x y f) u)
+      (fapp0 (@tapp0_fapp0 K Cat_cat D E y (@sf_family_map_view K D E FF)) v);
+
+assert [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @sf_homd_rel_src_sec K E E (@id (sf_family_cat K) E) x u
+  ≡ @sf_homd_id_src_sec K E x u;
+
+assertnot [K : Cat] [D E : τ (Functor K Cat_cat)]
+  (FF : τ (@Transf K Cat_cat D E)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @sf_homd_rel_src_sec K D E FF x u
+  : τ (Obj (@sf_homd_section_cat K D x));

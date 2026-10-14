@@ -1,0 +1,9 @@
+// NON-LIBRARY diagnostic only: same functor objects, strict transformation
+// objects. Substituting this at Q's Hom does not change the public Cat.
+// The unchanged covariant inclusion/mate are intentionally tested against
+// this stronger target; failure is not a no-go for a correctly restricted
+// Cart coefficient and family-admission interface.
+injective symbol sf_q_cart_map_cat (A B : Cat) : Cat;
+rule Obj (sf_q_cart_map_cat $A $B) ↪ Functor $A $B;
+rule Obj (Hom_cat (sf_q_cart_map_cat $A $B) $F $G)
+  ↪ @StrictTransfor $A $B $F $G;

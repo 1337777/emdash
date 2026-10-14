@@ -1,0 +1,61 @@
+// A strict whole map U:E=>D has a represented opposite-direction mate.
+// This is a structural constructor. No independently supplied comparison,
+// equality proof or generic transpose of a lax transformation is an input.
+symbol sf_q_mate [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (U : τ (Obj (@sf_family_map_cat K E D)))
+  : τ (@Transf K sf_q_cat (@sf_q_diagram K D) (@sf_q_diagram K E));
+
+// The component is exactly the existing blended ordinary Hom owner.
+rule @tapp0_fapp0 _ _ _ _ $y (@sf_q_mate $K $E $D $U)
+  ↪ @hom_con_int (@fapp0 $K Cat_cat $D $y) (@fapp0 $K Cat_cat $E $y)
+      (@tapp0_fapp0 $K Cat_cat $E $D $y (@sf_family_map_view $K $E $D $U));
+
+// Whole pre/right action of the mate, retaining the q Hom-category.
+symbol sf_q_mate_action [K : Cat] [E D : τ (Functor K Cat_cat)]
+  (U : τ (Obj (@sf_family_map_cat K E D))) (y z : τ (Obj K))
+  : τ (Functor (Hom_cat K y z)
+      (Hom_cat sf_q_cat (@fapp0 K Cat_cat D y) (@fapp0 K Cat_cat E z)))
+≔ @comp_cat_fapp0 (Hom_cat K y z)
+    (Hom_cat sf_q_cat (@fapp0 K Cat_cat D y) (@fapp0 K Cat_cat D z))
+    (Hom_cat sf_q_cat (@fapp0 K Cat_cat D y) (@fapp0 K Cat_cat E z))
+    (@hom_postcomp_func sf_q_cat sf_q_cat (@id_func sf_q_cat)
+      (@fapp0 K Cat_cat D y) (@fapp0 K Cat_cat D z) (@fapp0 K Cat_cat E z)
+      (@hom_con_int (@fapp0 K Cat_cat D z) (@fapp0 K Cat_cat E z)
+        (@tapp0_fapp0 K Cat_cat E D z (@sf_family_map_view K E D U))))
+    (@fapp1_func K sf_q_cat (@sf_q_diagram K D) y z);
+
+rule @tapp1_func _ _ _ _ $y $z (@sf_q_mate $K $E $D $U)
+  ↪ @sf_q_mate_action $K $E $D $U $y $z;
+rule @tapp1_fapp0 _ _ _ _ $y $z (@sf_q_mate $K $E $D $U) $q
+  ↪ fapp0 (@sf_q_mate_action $K $E $D $U $y $z) $q;
+
+// Identity is the actual category identity, not a supplied isomorphism.
+rule @sf_q_mate $K $E $E (@id (sf_family_cat $K) $E)
+  ↪ @id (Functor_cat $K sf_q_cat) (@sf_q_diagram $K $E);
+
+// Existing transformation-backed section category; no primitive Pi.
+symbol sf_homd_section_cat [K : Cat] (E : τ (Functor K Cat_cat))
+  (x : τ (Obj K)) : Cat
+≔ @Transf_cat K sf_q_cat (@sf_q_diagram K E)
+    (@sf_q_diagram K (@hom_ K K (@id_func K) x));
+
+// Whole y-section, derived from the checked canonical strict map.
+symbol sf_homd_id_src_sec [K : Cat] (E : τ (Functor K Cat_cat))
+  (x : τ (Obj K)) (u : τ (Obj (@fapp0 K Cat_cat E x)))
+  : τ (Obj (@sf_homd_section_cat K E x))
+≔ @sf_q_mate K (@hom_ K K (@id_func K) x) E (@sf_fibcov K E x u);
+
+// Direct y, then v, then f projections; no combined context or curry step.
+symbol sf_homd_id_tgt_func [K : Cat] (E : τ (Functor K Cat_cat))
+  (x : τ (Obj K)) (u : τ (Obj (@fapp0 K Cat_cat E x))) (y : τ (Obj K))
+  : τ (Functor (@fapp0 K Cat_cat E y)
+      (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat))
+≔ @tapp0_fapp0 K sf_q_cat (@sf_q_diagram K E)
+    (@sf_q_diagram K (@hom_ K K (@id_func K) x)) y
+    (@sf_homd_id_src_sec K E x u);
+
+symbol sf_homd_id_ [K : Cat] (E : τ (Functor K Cat_cat))
+  (x : τ (Obj K)) (u : τ (Obj (@fapp0 K Cat_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (@fapp0 K Cat_cat E y)))
+  : τ (Functor (Op_cat (Hom_cat K x y)) Cat_cat)
+≔ fapp0 (@sf_homd_id_tgt_func K E x u y) v;

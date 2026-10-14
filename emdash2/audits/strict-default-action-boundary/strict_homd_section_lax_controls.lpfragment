@@ -1,0 +1,48 @@
+// Diagnostic boundary functors of the inner u/index naturality square.
+// They are observations of actual ladder projections, not supplied cells.
+symbol sf_homd_u_index_left [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cat E x))]
+  (h : τ (Obj (Hom_cat (@fapp0 K Cat_cat E x) u0 u1)))
+  (y : τ (Obj K)) (v : τ (Obj (@fapp0 K Cat_cat E y)))
+  [f g : τ (Hom K x y)] (alpha : τ (Obj (Hom_cat (Hom_cat K x y) f g)))
+  : τ (Functor (fapp0 (@sf_homd_id_ K E x u1 y v) g)
+      (fapp0 (@sf_homd_id_ K E x u0 y v) f))
+≔ @comp_cat_fapp0
+    (fapp0 (@sf_homd_id_ K E x u1 y v) g)
+    (fapp0 (@sf_homd_id_ K E x u0 y v) g)
+    (fapp0 (@sf_homd_id_ K E x u0 y v) f)
+    (@fapp1_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+      (@sf_homd_id_ K E x u0 y v) g f alpha)
+    (@tapp0_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+      (@sf_homd_id_ K E x u1 y v) (@sf_homd_id_ K E x u0 y v) g
+      (@sf_homd_id_u_v K E x u0 u1 h y v));
+
+symbol sf_homd_u_index_right [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cat E x))]
+  (h : τ (Obj (Hom_cat (@fapp0 K Cat_cat E x) u0 u1)))
+  (y : τ (Obj K)) (v : τ (Obj (@fapp0 K Cat_cat E y)))
+  [f g : τ (Hom K x y)] (alpha : τ (Obj (Hom_cat (Hom_cat K x y) f g)))
+  : τ (Functor (fapp0 (@sf_homd_id_ K E x u1 y v) g)
+      (fapp0 (@sf_homd_id_ K E x u0 y v) f))
+≔ @comp_cat_fapp0
+    (fapp0 (@sf_homd_id_ K E x u1 y v) g)
+    (fapp0 (@sf_homd_id_ K E x u1 y v) f)
+    (fapp0 (@sf_homd_id_ K E x u0 y v) f)
+    (@tapp0_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+      (@sf_homd_id_ K E x u1 y v) (@sf_homd_id_ K E x u0 y v) f
+      (@sf_homd_id_u_v K E x u0 u1 h y v))
+    (@fapp1_fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+      (@sf_homd_id_ K E x u1 y v) g f alpha);
+
+assertnot [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cat E x))]
+  (h : τ (Obj (Hom_cat (@fapp0 K Cat_cat E x) u0 u1)))
+  (y : τ (Obj K)) (v : τ (Obj (@fapp0 K Cat_cat E y)))
+  [f g : τ (Hom K x y)] (alpha : τ (Obj (Hom_cat (Hom_cat K x y) f g))) ⊢
+  @eq_refl (Functor (fapp0 (@sf_homd_id_ K E x u1 y v) g)
+      (fapp0 (@sf_homd_id_ K E x u0 y v) f))
+    (@sf_homd_u_index_left K E x u0 u1 h y v f g alpha)
+  : τ (@= (Functor (fapp0 (@sf_homd_id_ K E x u1 y v) g)
+        (fapp0 (@sf_homd_id_ K E x u0 y v) f))
+      (@sf_homd_u_index_left K E x u0 u1 h y v f g alpha)
+      (@sf_homd_u_index_right K E x u0 u1 h y v f g alpha));

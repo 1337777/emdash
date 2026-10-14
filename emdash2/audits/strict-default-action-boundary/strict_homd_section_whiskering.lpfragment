@@ -1,0 +1,9 @@
+// Fixed postcomposition of a transformation has component G[eta[a]].
+// This is the existing generic Hom-action owner specialized to Cat. It
+// directly exposes the fixed-whiskering component needed by the Q inclusion,
+// without routing through a joint Cartesian composition/evaluation contract.
+rule @tapp0_fapp0 _ _ _ _ $a
+      (@hom_postcomp_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $A $B $C $G $F $H $eta)
+  ↪ @fapp1_fapp0 $B $C $G (@fapp0 $A $B $F $a) (@fapp0 $A $B $H $a)
+      (@tapp0_fapp0 $A $B $F $H $a $eta);

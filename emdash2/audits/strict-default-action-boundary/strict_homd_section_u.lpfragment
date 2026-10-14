@@ -1,0 +1,82 @@
+// Whole fixed-x source-object action. This declaration concerns T(E[x]),
+// not a fibrewise T(E) family over K. The latter remains a separate issue.
+// Its object projection is the already derived whole y-section.
+symbol sf_homd_id_src_func [K : Cat] (E : τ (Functor K Cat_cat))
+  (x : τ (Obj K))
+  : τ (Functor (Op_cat (@fapp0 K Cat_cat E x)) (@sf_homd_section_cat K E x));
+rule fapp0 (@sf_homd_id_src_func $K $E $x) $u
+  ↪ @sf_homd_id_src_sec $K $E $x $u;
+
+// Actual first Hom action, with its y/v/f projections. Both transformation
+// levels here are the ordinary lax classifiers supplied by Q's Hom.
+symbol sf_homd_id_u_func [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cat E x))]
+  : τ (Functor (Hom_cat (@fapp0 K Cat_cat E x) u0 u1)
+      (Hom_cat (@sf_homd_section_cat K E x)
+        (@sf_homd_id_src_sec K E x u1) (@sf_homd_id_src_sec K E x u0)));
+
+symbol sf_homd_id_u_map [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cat E x))]
+  (h : τ (Hom (@fapp0 K Cat_cat E x) u0 u1))
+  : τ (Hom (@sf_homd_section_cat K E x)
+      (@sf_homd_id_src_sec K E x u1) (@sf_homd_id_src_sec K E x u0));
+
+symbol sf_homd_id_u_y [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cat E x))]
+  (h : τ (Hom (@fapp0 K Cat_cat E x) u0 u1)) (y : τ (Obj K))
+  : τ (@Transf (@fapp0 K Cat_cat E y) (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+      (@sf_homd_id_tgt_func K E x u1 y) (@sf_homd_id_tgt_func K E x u0 y));
+
+symbol sf_homd_id_u_v [K : Cat] (E : τ (Functor K Cat_cat)) (x : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cat E x))]
+  (h : τ (Hom (@fapp0 K Cat_cat E x) u0 u1)) (y : τ (Obj K))
+  (v : τ (Obj (@fapp0 K Cat_cat E y)))
+  : τ (@Transf (Op_cat (Hom_cat K x y)) Cat_cat
+      (@sf_homd_id_ K E x u1 y v) (@sf_homd_id_ K E x u0 y v));
+
+rule @fapp1_func _ _ (@sf_homd_id_src_func $K $E $x) $u1 $u0
+  ↪ @sf_homd_id_u_func $K $E $x $u0 $u1;
+rule fapp0 (@sf_homd_id_u_func $K $E $x $u0 $u1) $h
+  ↪ @sf_homd_id_u_map $K $E $x $u0 $u1 $h;
+rule @fapp1_fapp0 _ _ (@sf_homd_id_src_func $K $E $x) $u1 $u0 $h
+  ↪ @sf_homd_id_u_map $K $E $x $u0 $u1 $h;
+
+rule @tapp0_hom_fapp0 _ _ _ _ _ _ $y
+      (@sf_homd_id_u_map $K $E $x $u0 $u1 $h)
+  ↪ @sf_homd_id_u_y $K $E $x $u0 $u1 $h $y;
+rule @tapp0_fapp0 _ _ _ _ $v (@sf_homd_id_u_y $K $E $x $u0 $u1 $h $y)
+  ↪ @sf_homd_id_u_v $K $E $x $u0 $u1 $h $y $v;
+rule @tapp0_fapp0 _ _ _ _ $f (@sf_homd_id_u_v $K $E $x $u0 $u1 $h $y $v)
+  ↪ @hom_precomp_along_func (@fapp0 $K Cat_cat $E $x) (@fapp0 $K Cat_cat $E $y)
+      (@fapp1_fapp0 $K Cat_cat $E $x $y $f) $v $u0 $u1 $h;
+
+// Source-functor identity/composition after first-Hom projection.
+rule @sf_homd_id_u_map $K $E $x $u $u (@id _ $u)
+  ↪ @id (@sf_homd_section_cat $K $E $x) (@sf_homd_id_src_sec $K $E $x $u);
+rule @comp_fapp0 _ _ _ _
+      (@sf_homd_id_u_map $K $E $x $u0 $u1 $h)
+      (@sf_homd_id_u_map $K $E $x $u1 $u2 $k)
+  ↪ @sf_homd_id_u_map $K $E $x $u0 $u2
+      (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0 $u1 $u2 $k $h);
+
+// The same source laws after component evaluation erased the whole map.
+rule @sf_homd_id_u_y $K $E $x $u $u (@id _ $u) $y
+  ↪ @id (Functor_cat (@fapp0 $K Cat_cat $E $y)
+      (Functor_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat))
+      (@sf_homd_id_tgt_func $K $E $x $u $y);
+rule @sf_homd_id_u_v $K $E $x $u $u (@id _ $u) $y $v
+  ↪ @id (Functor_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)
+      (@sf_homd_id_ $K $E $x $u $y $v);
+// lhs-audit: keep 1 -- SR cannot recover this mapping category from Transf aliases.
+rule @comp_fapp0 (Functor_cat (@fapp0 $K Cat_cat $E $y)
+      (Functor_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat)) _ _ _
+      (@sf_homd_id_u_y $K $E $x $u0 $u1 $h $y)
+      (@sf_homd_id_u_y $K $E $x $u1 $u2 $k $y)
+  ↪ @sf_homd_id_u_y $K $E $x $u0 $u2
+      (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0 $u1 $u2 $k $h) $y;
+// lhs-audit: keep 1 -- SR guard for the inner transformation-composition carrier.
+rule @comp_fapp0 (Functor_cat (Op_cat (Hom_cat $K $x $y)) Cat_cat) _ _ _
+      (@sf_homd_id_u_v $K $E $x $u0 $u1 $h $y $v)
+      (@sf_homd_id_u_v $K $E $x $u1 $u2 $k $y $v)
+  ↪ @sf_homd_id_u_v $K $E $x $u0 $u2
+      (@comp_fapp0 (@fapp0 $K Cat_cat $E $x) $u0 $u1 $u2 $k $h) $y $v;

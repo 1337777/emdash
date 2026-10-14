@@ -34,6 +34,14 @@ whole-family use of the strict displayed-map classifier and records a
 finite comparison of their different higher-action requirements. Its
 65 positive/27 negative controls do not complete the Homd root.
 
+The subsequent [represented section candidate](strict_homd_section_review.md)
+checks the direct whole-y section, fixed-x u action and a defined strict-FF
+relative section on raw Q. Its 96 positive/33 negative controls are
+conditional on explicitly declared Q/mate structure; general coefficient
+coherence and the outer root are not certified. The direct Cart substitution
+has a recorded formation failure and is not confused with an adapted Cart
+implementation. Both Q designs remain open under the current plan.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's
