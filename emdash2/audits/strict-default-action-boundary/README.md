@@ -5,6 +5,46 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Pi, Sigma and mixed-family source continuation, 2026-10-15
+
+The current [recipe](production_owner_migration.py) checks through section
+10 of the migrated original source. The
+[verification](production_sections_verification.json) records the current
+`mixed_prefix.lp` target and full-source failure separately. The previously
+failing varying-base Pi declaration now consumes the actual
+[Cartesian family-parameter constructor](production_family_classifier.lpfragment).
+Its component includes these parameters into the existing lax diagram
+category before applying Pi. The [section controls](production_sections_controls.lpfragment)
+retain lax FF and the existing whole constant-section comparison.
+
+Corrected total-fibre duality now feeds the original Sigma-Hom and recursive
+projection owners. The mixed `Functor_catd` uses Cartesian coefficient Homs;
+its positive parameter remains lax, while contravariant parameter maps are
+Cartesian. `Hom_catd` retains the original Pi architecture with its shifted
+negative section. No auxiliary Sigma composition theory or new section
+primitive is introduced.
+
+Replay the currently passing boundary from `emdash2`:
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package mixed_prefix.lp
+```
+
+The complete emitted kernel now fails at the legacy `Edge_catd_func`, whose
+same-base transpose assumption must be replaced together with the Q/Homd
+target and ladder. General-FF intrinsic action and downstream qualification
+remain open. All later sections are retained. Two named declarations move
+after their Hom dependency; the source manifest records those exceptions
+instead of claiming unchanged declaration order.
+
+The direct carrier coercion between constant-section arrows and ordinary
+transfors also fails in the original pre-goal source. This checkpoint keeps
+the passing whole-category comparison and records that normalization limit
+without adding an unrelated rule. Earlier records below are historical.
+
 ## Coupled family/Hom source prefix, 2026-10-15
 
 The current [production recipe](production_owner_migration.py) changes the

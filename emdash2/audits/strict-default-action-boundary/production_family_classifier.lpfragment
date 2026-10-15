@@ -1,0 +1,13 @@
+// Varying-base family parameters are the Cartesian Hom of the coefficient.
+// Their objects are the admitted families, but their arrows are strict
+// diagram maps. Fixed-base Catd_cat and Functord still retain lax maps.
+// This is a semantic definition, not an assumed lift of the raw classifier.
+symbol Catd_cat_func : τ (Functor (Op_cat Cat_cart) Cat_cart)
+≔ @hom_con Cat_cart Cat_cart Cat_cart (@id_func Cat_cart);
+
+// The original contravariant classifier family, now with its justified
+// coefficient. Its fibre is Cart(K[l],Cat_cart), not all lax diagram maps.
+symbol Catd_catd_con [L : Cat] (K : τ (Catd L))
+  : τ (Catd (Op_cat L))
+≔ @comp_cat_fapp0 (Op_cat L) (Op_cat Cat_cart) Cat_cart
+    Catd_cat_func (@Op_func L Cat_cart K);

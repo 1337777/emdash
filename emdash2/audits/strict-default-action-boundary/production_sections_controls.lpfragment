@@ -1,0 +1,61 @@
+// The varying-base classifier is actual Hom(Cat_cart), with shared objects.
+assert (K : Cat) ⊢ fapp0 Catd_cat_func K ≡ Functor_cart_cat K Cat_cart;
+assert [K : Cat] (E : τ (Catd K)) ⊢ E : τ (Obj (fapp0 Catd_cat_func K));
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @fapp1_fapp0 (Op_cat Cat_cart) Cat_cart Catd_cat_func B A F
+  ≡ @comp_cat_con_cart_func A B Cat_cart F;
+
+// A directed base two-cell has the correct whole higher action, without
+// making every lax transformation into a Cartesian parameter.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (alpha : τ (Hom (Functor_cart_cat A B) F G)) ⊢
+  @fapp1_fapp0 (Hom_cat (Op_cat Cat_cart) B A)
+    (Functor_cart_cat (Functor_cart_cat B Cat_cart) (Functor_cart_cat A Cat_cart))
+    (@fapp1_func (Op_cat Cat_cart) Cat_cart Catd_cat_func B A) F G alpha
+  : τ (Hom (Functor_cart_cat (Functor_cart_cat B Cat_cart) (Functor_cart_cat A Cat_cart))
+      (@comp_cat_con_cart_func A B Cat_cart F) (@comp_cat_con_cart_func A B Cat_cart G));
+assertnot [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G)) ⊢
+  @fapp1_fapp0 (Hom_cat (Op_cat Cat_cart) B A)
+    (Functor_cart_cat (Functor_cart_cat B Cat_cart) (Functor_cart_cat A Cat_cart))
+    (@fapp1_func (Op_cat Cat_cart) Cat_cart Catd_cat_func B A) F G epsilon
+  : τ (Hom (Functor_cart_cat (Functor_cart_cat B Cat_cart) (Functor_cart_cat A Cat_cart))
+      (@comp_cat_con_cart_func A B Cat_cart F) (@comp_cat_con_cart_func A B Cat_cart G));
+
+// The original contravariant classifier now really is an admitted family.
+assert [L : Cat] (K : τ (Catd L)) (x : τ (Obj L)) ⊢
+  fapp0 (@Catd_catd_con L K) x ≡ Functor_cart_cat (Fibre_cat K x) Cat_cart;
+
+// Existing fixed-base family maps and section postcomposition retain lax FF.
+assert [A B : Cat] (F : τ (Functor A B)) [E D : τ (Catd B)]
+  (FF : τ (Functord E D)) ⊢
+  @fapp1_fapp0 (Catd_cat B) (Catd_cat A) (@Pullback_catd_func A B F) E D FF
+  : τ (Functord (@Pullback_catd A B E F) (@Pullback_catd A B D F));
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (s : τ (Obj (Pi_cat E))) ⊢
+  fapp0 (@fapp1_fapp0 (Catd_cat K) Cat_cat (@Pi_func K) E D FF) s
+  ≡ @section_postcomp_sec K E D FF s;
+
+// Whole varying-base Pi observes the existing Pi through the actual inclusion.
+assert (K : Cat) ⊢
+  @tapp0_fapp0 (Op_cat Cat_cart) Cat_cart _ _ K Pi_int_funcd
+  ≡ @comp_cat_fapp0 (Functor_cart_cat K Cat_cart) (Catd_cat K) Cat_cat
+      (@Pi_func K) (Functor_cart_include K Cat_cart);
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  fapp0 (@tapp0_fapp0 (Op_cat Cat_cart) Cat_cart _ _ K Pi_int_funcd) E
+  ≡ @Pi_cat K E;
+assert [L : Cat] (G : τ (Functor L (Op_cat Cat_cart))) (x : τ (Obj L))
+  (E : τ (Catd (fapp0 G x))) ⊢
+  fapp0 (@tapp0_fapp0 L Cat_cart _ _ x (@Pi_pullback_funcd L G)) E
+  ≡ @Pi_cat (fapp0 G x) E;
+
+// Ordinary lax sections and their constant-family comparison are retained.
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E))) (x : τ (Obj K)) ⊢
+  @piapp0 K E s x ≡ fapp0 (@tapp0_fapp0 K Cat_cart (@Const_catd K Terminal_cat) E x s) Terminal_obj;
+assert [K B : Cat] (F : τ (Functor K B)) ⊢ F : τ (Obj (@Pi_cat K (@Const_catd K B)));
+// The original second-Hom comparison is at the whole-category facade.
+// Direct carrier coercion after Obj unfolds already fails in the pre-goal
+// source; that unrelated normalization extension is not installed here.
+assert [K B : Cat] [F G : τ (Functor K B)] ⊢
+  @eq_refl (Obj Cat_cat) (@Transfd_cat K (@Const_catd K Terminal_cat) (@Const_catd K B) F G)
+  : τ (@= (Obj Cat_cat) (@Transfd_cat K (@Const_catd K Terminal_cat) (@Const_catd K B) F G)
+      (@Transf_cat K B F G));

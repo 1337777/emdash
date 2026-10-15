@@ -1,0 +1,344 @@
+{
+  "status": "Passing staged original-source prefix through section 10; full kernel fails at the legacy Edge_catd_func; public Homd integration unfinished",
+  "extendsCheckpoint": "3b5f7a907ffdf052f9dbe83d5a8d1c3458ecaa31",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "originalCoreSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "candidateCoreLines": 23133,
+  "declarationPreservation": {
+    "originalNamedDeclarationsRetained": true,
+    "originalNamedDeclarationSequenceVerified": false,
+    "unrelocatedNamedDeclarationSequenceVerified": true,
+    "namedDeclarationSequenceExceptions": [
+      "Catd_cat_func",
+      "Catd_catd_con"
+    ],
+    "originalDownstreamSectionsRetained": true
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e",
+    "audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment": "f754d60461ff080b77844f38313953244e425ad28fc49e6e394ed114317a77d0",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/conventional_total_op_mapping.lpfragment": "af021c0bb56a5c6730ab5a2e56a387f4cd30fbb8102e36c70bd7f0bc35a6032f",
+    "audits/strict-default-action-boundary/cartesian_profile.lpfragment": "9baf7c78bdc42695ed2e715dd07185f17a957472f2cc7c0434cabd6314039976",
+    "audits/strict-default-action-boundary/production_family_classifier.lpfragment": "0978dd95a597059e20ecb3e38d8bba249499f522caaea1ae9f65a11753c1e81e",
+    "audits/strict-default-action-boundary/conventional_total_op_transfors.lpfragment": "33842eafce8cfb5f84ac5c401ebaf52e8e128cb1d585311862f812925dd119d9",
+    "audits/strict-default-action-boundary/conventional_total_op_offdiagonal.lpfragment": "9431b15bfbedf363c3863a12d86f94b3afbadd04a265abe3fffce0444321eba9",
+    "audits/strict-default-action-boundary/production_cartesian_closure.lpfragment": "31f8d97603e9c9c8ac2922778e15e8c5efed3a268c8d1872820041940c2be8c9",
+    "audits/strict-default-action-boundary/production_cartesian_family_duality.lpfragment": "99b568615669de3d1925bda3057e9bfaeed203939f8c3d7db42005bc5770b4e2",
+    "audits/strict-default-action-boundary/conventional_total_op_whole_action.lpfragment": "202dc17fe192b57c7a7ce8a054d6bc5746027ffa41c5f9698455ae78ee006f0a",
+    "audits/strict-default-action-boundary/conventional_total_op_source_units.lpfragment": "79dbd611f959bade6d50676325ba69d9dd8ceb866f98f84bdf851a2915d3d9a9",
+    "audits/strict-default-action-boundary/production_cartesian_product.lpfragment": "b9fd844fe022921f356c2cb2a628806ef2f9364e44a2b89546073da14d11dfb5",
+    "audits/strict-default-action-boundary/total_op_family.lpfragment": "13f79efe229f5a560dc54d3ea9c4609fac91de5b095de206277330871fe2e7d0",
+    "audits/strict-default-action-boundary/production_owner_controls.lpfragment": "42ba40bf4884d0b9a18cd094ec7735de70b3f8d0c0e6ec9b3699ad164989aa2c",
+    "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+    "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/production_foundations_controls.lpfragment": "d3c768a592094fb5280d4395010d1b24fcb67f394f1f3765f931c54d68a67d0b",
+    "audits/strict-default-action-boundary/production_sections_controls.lpfragment": "57f4d94f69f178e698e652f82f610fea9b8987c36ab1ce92c90cde4825961b95",
+    "audits/strict-default-action-boundary/sigma_total_op_controls.lpfragment": "2f817d10405f707cf3738ff68160f79bcd99e5a2739d0e226f9f012042408b72",
+    "audits/strict-default-action-boundary/mixed_family_controls.lpfragment": "2d0509b7853469f929d3c55b342d396ec4dccaea8493adad962c719d5cb5fd66",
+    "audits/strict-default-action-boundary/mixed_family_parameter_controls.lpfragment": "bb25703b284fc88d1fe64d44fced4ffa65a729d5a135f329654305a24f4a1ad0",
+    "audits/strict-default-action-boundary/total_op_hom_family_controls.lpfragment": "5887b77b910dd9c843af6d5c3fe5a89deddc0b9655904fa69e514c3169b69e62",
+    "audits/strict-default-action-boundary/production_comma_equivalence.lpfragment": "7e70d4dfd77958a06f712dd0e668280efd4a16eb7e3db328030fa693309622ef",
+    "audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment": "956d22e530d20bf54ba5e58bdecfe37354c6743154280ffa0f6ce7be02067b9b",
+    "audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment": "5ebdccd39cd50e224bddb1bb559bd82f14596053102484c62d8e428e5b778344",
+    "audits/strict-default-action-boundary/production_owner_migration.py": "f4ab40d377c785ef8fe7ac5c3836a228d99bcd90d27e4e86b81cedb3f2aa9d98"
+  },
+  "checkedOutputs": {
+    "mixed_prefix.lp": "ab2e693f86c3819b4a69707ed68ce1c198445f71ce5c76b4532c5ff22eef7ede",
+    "emdash3_2.lp": "bc775c48bbdf9e331b3f9538bb0135999306ee94a4d5e0e0cd207f748c0601ff"
+  },
+  "newOrReplacedOwners": [
+    "Catd_cat_func / Catd_catd_con relocation",
+    "// 5. Ordinary binary products of categories",
+    "Catd_cat_func legacy raw action fold",
+    "Pi and varying-base section interface",
+    "fibre transport and defined Homd leaf",
+    "total duality terminal category",
+    "total duality product",
+    "// Fibrewise dimension-one transpose changes the base by CoAt2.",
+    "Sigma Hom",
+    "Sigma recursive first projection",
+    "Sigma second-cell projection facade",
+    "Sigma family observations and base change",
+    "families over Sigma totals",
+    "Cartesian pair composition",
+    "mixed Functor_catd and its parameter action",
+    "Hom_catd and Transf_catd negative sections",
+    "constant-section evaluation relocation",
+    "// 8d. Fibre covariance and dependent-hom endpoint notation",
+    "Rep_catd_func",
+    "Rep_transport_func"
+  ],
+  "baselinePrefix": {
+    "id": "20261015T145424Z-bae5378ea8274cbaa1799b5a9c40c694",
+    "outcome": "passed-fresh",
+    "wallSeconds": 3.446734670898877,
+    "childrenMaxRssKiB": 205208,
+    "inputSnapshot": "53e8c6cbf44fb06887fd9e6a30b69698fc9018c3e5b1ed205f8eae3ec0880b08",
+    "inputs": {
+      "foundations_prefix.lp": "03a4aae2a175b7b27c415aa34332449f8e4d382f4cc72a96c7c5aec67e4a2b42",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T145424Z-bae5378ea8274cbaa1799b5a9c40c694.log",
+    "logSha256": "811d44922747096b2d05cadb8dac64c9d91053dc2289c405cd6b8eb4c3744b85",
+    "receipt": "logs/check-runs/20261015T145424Z-bae5378ea8274cbaa1799b5a9c40c694.json",
+    "receiptSha256": "cb3ce4f40f8ca308554d1253a94fecf9094a7111861da70cb517ba0bb10f5cf7"
+  },
+  "candidatePrefix": {
+    "id": "20261015T151712Z-b8dc7b058e3641059ad0e3cf875d6a0d",
+    "outcome": "passed-fresh",
+    "wallSeconds": 2.858253177953884,
+    "childrenMaxRssKiB": 258980,
+    "inputSnapshot": "657dd3f0aaa22fd158a8e37a93fdb524b47ea77562512900ab91a57544fa9fbb",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "mixed_prefix.lp": "ab2e693f86c3819b4a69707ed68ce1c198445f71ce5c76b4532c5ff22eef7ede"
+    },
+    "log": "logs/check-runs/20261015T151712Z-b8dc7b058e3641059ad0e3cf875d6a0d.log",
+    "logSha256": "1d9a4b054fdbb7d4246ee2743bceae452d0917e26b05cfb370357ce632f961d3",
+    "receipt": "logs/check-runs/20261015T151712Z-b8dc7b058e3641059ad0e3cf875d6a0d.json",
+    "receiptSha256": "2b39132a669374328326b861e86e511a71d725d5b67e021f2e4113d1c20df10d"
+  },
+  "fullSourceFailure": {
+    "id": "20261015T151726Z-3947709205764c4fa8df44374d6bb590",
+    "outcome": "failed",
+    "wallSeconds": 2.750425525009632,
+    "childrenMaxRssKiB": 251364,
+    "inputSnapshot": "1e63ab1845d857abe5c3d3d93eeb8b1a8ee37825c39059ad0c069834995aebd9",
+    "inputs": {
+      "emdash3_2.lp": "bc775c48bbdf9e331b3f9538bb0135999306ee94a4d5e0e0cd207f748c0601ff",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T151726Z-3947709205764c4fa8df44374d6bb590.log",
+    "logSha256": "a0e01c429e94f15cedfbbd91b57596d2e704fb4a55691e3443e16a97611969e0",
+    "receipt": "logs/check-runs/20261015T151726Z-3947709205764c4fa8df44374d6bb590.json",
+    "receiptSha256": "0f8d5088e5db3083d5299c360878fb4d59348762118e7d6fe1f8a2736d294ac5",
+    "owner": "Edge_catd_func",
+    "location": "emdash3_2.lp:14950:0-14954:34",
+    "diagnosis": "Legacy composition treats Op_catd_func as a same-base operation. Its actual source is CoAt2(Cart(Z,Cat_cart)) and target is Cart(CoAt2(Z),Cat_cart). Replace the coupled presheaf/Q/Homd owners next; do not identify these categories."
+  },
+  "interfaces": {
+    "Catd_cat_func": "Hom_Cat_cart(-,Cat_cart):T(Cat_cart)->Cat_cart, with fibre Cart(K,Cat_cart)",
+    "Pi_int_funcdComponent": "Pi_func(K) composed with Functor_cart_include(K,Cat_cart); fixed-base Pi still accepts lax FF",
+    "SigmaHom": "O(Sigma(O(I),TotalOp_catd(T(I),homd_(id_E,x,u,y,v)))), I=Hom_K(x,y)",
+    "Functor_catd": "Hom(Cat_cart) fibres; Cartesian negative-parameter diagram maps and lax positive-parameter maps",
+    "Hom_catd": "Negative section over R(K) in total fibre opposite; ordinary positive Pi section over K"
+  },
+  "relocations": [
+    {
+      "symbols": [
+        "Catd_cat_func",
+        "Catd_catd_con"
+      ],
+      "originalBlockSha256": "7d661d5c8302e0721d22caf50dadba4489bf5f767c710948ac6f5025266d8775",
+      "reason": "Dependency-forced semantic definition after canonical Hom"
+    },
+    {
+      "owner": "constant-section component",
+      "bodySha256": "b242e2efad679a4f3011291f233f195bf7d663093ea3ac75f481d306b2b4069c"
+    }
+  ],
+  "observedConsumers": [
+    "Whole family-parameter action and directed nonidentity base two-cell",
+    "Original fixed Pi postcomposition with general lax FF, varying-base Pi components and base reindexing",
+    "Original explicit Sigma-Hom RHS, forward noninvertible fibre two-cell and recursive whole base projection",
+    "Mixed-family whole base action, retained lax positive maps, rejected raw negative maps, product/evaluation/composition components",
+    "Original Hom_catd negative section and constant-coefficient Functor_catd comparison"
+  ],
+  "constantSectionCarrierBoundary": {
+    "preGoalFailure": {
+      "id": "20261015T150325Z-ecd479e1d7b84b549c1a5adba7b3c044",
+      "outcome": "failed",
+      "wallSeconds": 2.346982340910472,
+      "childrenMaxRssKiB": 154456,
+      "inputSnapshot": "642a5725fa786ae3f70a3c028442bcd057b440e14185e63aa3b5db8ebdcb328c",
+      "inputs": {
+        "baseline_constant_sections.lp": "c42c7e024677806080c7fa827f01bc060339a6c1dd49b31234acb6619aae81b8",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261015T150325Z-ecd479e1d7b84b549c1a5adba7b3c044.log",
+      "logSha256": "e0ca93d8b1bd3aaf98a89fb51aad4538c052cecc8cc27c73ae9f50f526618c5c",
+      "receipt": "logs/check-runs/20261015T150325Z-ecd479e1d7b84b549c1a5adba7b3c044.json",
+      "receiptSha256": "a8106d5c60366cc296115276be1adea9a566f31406aa4c68f429070dfee70f46"
+    },
+    "candidateFailure": {
+      "id": "20261015T150215Z-a1fb7a252ed44c3a990d4cce994d96e4",
+      "outcome": "failed",
+      "wallSeconds": 3.8159782320726663,
+      "childrenMaxRssKiB": 210964,
+      "inputSnapshot": "000e90b09b8e5291724d4848ff33ebb5e0b6717779ba8019cd7d5ef411180087",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "sections_prefix.lp": "559d20e6c984ce58eed045ab9258c4d6b1e41358c4db647a63c156e98a404616"
+      },
+      "log": "logs/check-runs/20261015T150215Z-a1fb7a252ed44c3a990d4cce994d96e4.log",
+      "logSha256": "b828db7c28092f684a0a08d13bf8fae03a492bd6b29acc800dddad8b1bb87626",
+      "receipt": "logs/check-runs/20261015T150215Z-a1fb7a252ed44c3a990d4cce994d96e4.json",
+      "receiptSha256": "6e7d64e6a94845e98962c12f529db4554c8b75d57d3071e0daecb61faab13285"
+    },
+    "meaning": "Direct carrier coercion after Obj unfolding fails in both snapshots; the existing whole-category Transfd/Transf comparison checks by typed reflexivity. No new normalization rule installed."
+  },
+  "runtimeProfile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileLimitMiB": 64,
+    "subjectReduction": true,
+    "OCAMLRUNPARAM": "o=20",
+    "serialGuard": true,
+    "warnings": true,
+    "compiledObjects": false
+  },
+  "warnings": {
+    "comparisonBoundary": "Before // 8c. Section categories and Pi action; identical semantic owner range, not the full longer target",
+    "candidateCutLine": 13283,
+    "criticalPairsBefore": 1152,
+    "criticalPairsAfterAtSameBoundary": 1143,
+    "criticalPairsWholeCandidate": 1199,
+    "addedAtSameBoundary": 7,
+    "removedAtSameBoundary": 16,
+    "newlyCoveredSections": 56,
+    "patternsBefore": 126,
+    "patternsAfterAtSameBoundary": 128,
+    "patternsWholeCandidate": 131,
+    "parserIssues": 0,
+    "addedGroups": {
+      "CoAbove2_cat × Hom_cat": {
+        "count": 1,
+        "bodiesSha256": "4f922bb84ae6be7ee9a823c3937f4cc14e34f037db453138bec68b9b433a725e"
+      },
+      "CoAbove2_func × comp_fapp0": {
+        "count": 2,
+        "bodiesSha256": "23370e19c6de4ebd218cae73e4e19390fdf1236dd0904835587f2a9ab645a2f5"
+      },
+      "Functor_cat × TotalOp_transf": {
+        "count": 2,
+        "bodiesSha256": "befe35ab0cedac62be3e03bb237deacae3a1732cf8c5a514bb38bb4f9adefbc8"
+      },
+      "TotalOp_catd × TotalOp_catd": {
+        "count": 2,
+        "bodiesSha256": "a175c4387cd01e9244e6c03a6c95ea2c76325838fef43c9adca254b4f7a2bfd5"
+      }
+    },
+    "removedGroups": {
+      "CoAbove2_func × comp_fapp0": {
+        "count": 2,
+        "bodiesSha256": "a6f751cbdf4858b17063cbb28d264e5e5fecec12cb63e9f8de69a1981e8172a2"
+      },
+      "Functor_cat × TotalOp_transf": {
+        "count": 2,
+        "bodiesSha256": "d38d95d2ae93ec357108a82303c4a4c39c27eee7a988b50f1a6902091f513691"
+      },
+      "comp_fapp0 × fapp1_fapp0": {
+        "count": 6,
+        "bodiesSha256": "2cb0143b7cceb8629de2310a2b1089169605242a310900d1f34c6ddfe2c54381"
+      },
+      "fapp1_fapp0 × fapp1_fapp0": {
+        "count": 4,
+        "bodiesSha256": "ae8fba795d54b750d991252948ed82382f8402f2879acc471b6dc2b83e961bc8"
+      },
+      "fapp1_fapp0 × hom_postcomp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "95c8e0fe5aade15eb115c350b00082c91f7ac6e3c477db71381726f02235f179"
+      },
+      "fapp1_fapp0 × hom_precomp_along_fapp0": {
+        "count": 1,
+        "bodiesSha256": "77a6947465a742693f9a3b738974726e2d29b741fcceebf27b0ce1272fc35c1d"
+      }
+    },
+    "newCoverageGroups": {
+      "Obj × Sigma_cat": {
+        "count": 2,
+        "bodiesSha256": "407a0dbfe0bf38e92c3c53620f4f9e9fc8ab1db3fc34cc612ff6ad5e2a177132"
+      },
+      "Sigma_cat × Transfd_cat": {
+        "count": 2,
+        "bodiesSha256": "3890110c56a43699f701d51e30f82f42ee3f41287ecd438875cab64296c1b48d"
+      },
+      "Sigma_cat × comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "53fab01b9bb243e05442953e85a48bd8247aee93f16d23e470f374270ef6d583"
+      },
+      "Sigma_cat × fapp1_fapp0": {
+        "count": 4,
+        "bodiesSha256": "5d9498638674dca0380d23bbd8cdb2793e82b7a5e9849888bdb73235b4a9ed1e"
+      },
+      "Sigma_cat × tapp0_fapp0": {
+        "count": 2,
+        "bodiesSha256": "8c87ee8a208c402809bfeac0c3c6f81ced524b93a18b51b4d307ec26416bd2d6"
+      },
+      "comp_fapp0 × fapp1_fapp0": {
+        "count": 18,
+        "bodiesSha256": "a0e6fd39cc36a5f152d89da0ac83b4dd550c759149f6655ccd5ec92e718aeb3e"
+      },
+      "comp_fapp0 × tapp0_fapp0": {
+        "count": 4,
+        "bodiesSha256": "abfd004c3339c6e62bbe79efaa71b94ffae8efa5f8cf52cb02dfde5bbad67f49"
+      },
+      "fapp0 × fapp1_fapp0": {
+        "count": 3,
+        "bodiesSha256": "02339385a06b8908b3fa1513d1ab794dfa9704f1674f88690cf5fb1912deff9f"
+      },
+      "fapp0 × fapp1_func": {
+        "count": 1,
+        "bodiesSha256": "af09ccdbdb8af8617a00093cae882092306391cee2259687ca02777c7eef07f0"
+      },
+      "fapp1_fapp0 × fapp1_fapp0": {
+        "count": 14,
+        "bodiesSha256": "03c4235586a64d002bda415e448cb0db9484d7f0830bfee2a8eedbebcea2c8f6"
+      },
+      "fapp1_fapp0 × hom_postcomp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "717f24785eeab0388f059ccc743fda2e200cc239e9bdcad5f2bf6b6c5a8524c0"
+      },
+      "fapp1_fapp0 × hom_precomp_along_fapp0": {
+        "count": 1,
+        "bodiesSha256": "c44a6cfa5d3836e97cd54fcc0cee47453dde95e4d6e1919c79dfe8764cbb7aaf"
+      },
+      "fapp1_fapp0 × id_funcd": {
+        "count": 1,
+        "bodiesSha256": "050ace2d5bead1ff739c28053371261fe4ee465ea1c19d665bf30f4ebd316d42"
+      },
+      "tapp0_fapp0 × tapp0_fapp0": {
+        "count": 2,
+        "bodiesSha256": "35ed556a577488ecb4a6b577c0a039ea72fa3dff37f53448ee840cbdd21f79e0"
+      }
+    },
+    "review": [
+      "Total fibre-duality constant/involution overlap and R-terminal Hom projection are new owner interactions; explicit Sigma constant/forward-Hom controls pass.",
+      "R-product normalization changes two product-composition and two total-transfor/product overlap bodies; these are not claimed to be a global confluence repair.",
+      "Removing the old raw Catd_cat_func action fold removes its action/strict-composition overlaps, rather than coercing Cart parameter categories to lax ones.",
+      "The added coverage contains the original Pi/Sigma/mixed family owners with their selected coefficient; whole versus capped Sigma projection, directed fibre cells and parameter-profile controls check."
+    ],
+    "qualification": "Exact warning-body inventory with bounded typed consumers; complete coherence and confluence are not proved."
+  },
+  "lhsAudit": {
+    "candidatePrefix": {
+      "unreviewedSlots": 0,
+      "annotatedSlots": 42,
+      "intentionalClauses": 29
+    },
+    "fullSource": {
+      "unreviewedSlots": 0,
+      "annotatedSlots": 70,
+      "intentionalClauses": 45
+    }
+  },
+  "requiredNext": [
+    "Coupled section-11/12/13 presheaf, selected Cartesian-Q Homd root and direct projection ladder",
+    "Defined general-FF extension and intrinsic action, including late Sigma-map and Pi naturality consumers",
+    "Moving path-motive interfaces with the correct actual coefficient profile",
+    "Remaining duality/adjunction, closure and downstream qualification, wrapper retirement and public validation"
+  ],
+  "promotionBoundary": "No public kernel source replaced. Prefix success does not establish the complete source, Q coherence, Homd root, intrinsic action or downstream compatibility. The full tail is retained and its first failure is pinned."
+}

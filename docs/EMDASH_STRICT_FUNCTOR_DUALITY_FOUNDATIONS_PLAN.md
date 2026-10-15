@@ -38,6 +38,80 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Pi/Sigma/mixed-family source continuation after `3b5f7a90`, 2026-10-15:
+the staged original source now checks through section 10, including the
+corrected Sigma-Hom and the existing `Hom_catd`/`Functor_catd` owners. The
+[new verification](../emdash2/audits/strict-default-action-boundary/production_sections_verification.json)
+records this boundary, its inherited controls, source hashes and remaining
+full-source failure. This is still an authoring checkpoint, not promotion of
+the full kernel or completion of Homd.
+
+The former varying-base Pi formation failure is resolved by an actual
+semantic definition:
+
+```text
+Catd_cat_func = Hom_Cat_cart(-,Cat_cart)
+             : T(Cat_cart) -> Cat_cart
+Catd_cat_func[K] = Cart(K,Cat_cart).
+
+Pi_int_funcd[K] = Pi_func(K) o Functor_cart_include(K,Cat_cart).
+```
+
+This category has the same family objects as `Catd_cat(K)`, with Cartesian
+diagram maps. The existing fixed-base Pi and its section postcomposition
+continue to admit lax FF. The two original formation declarations move
+after canonical Hom so their bodies are definitions, with no supplied lift.
+`Catd_catd_con` is again an admitted family with this actual fibre profile.
+Pi's whole varying-base signature, component inclusion, pullback components,
+and the directed higher action of the parameter family check. Later intrinsic
+Pi action and moving path-motive consumers remain to be migrated; these
+checks do not assert their completion.
+
+The Sigma-Hom rule and recursive projection now use the established total-
+dual negative total, preserving the original `Sigma_cat`, arrow and projection
+owners. Its explicit constant-family RHS computes to the forward product
+Hom; a noninvertible fibre two-cell stays forward, and an arbitrary base
+two-cell projects through the actual whole second action. General lax FF is
+still admitted by the Sigma-map interface. Its late intrinsic action and
+expanded composition consumers are not qualified by this early prefix.
+
+`Functor_catd` now uses `Hom(Cat_cart)` fibres and their whole base action.
+Its positive family parameter still accepts lax maps; its contravariant
+parameter requires Cartesian diagram maps, as in the retained profile
+analysis. `Hom_catd` uses a negative section of total fibre opposite over
+R(K), with the original positive Pi section over K. The constant-coefficient
+fold returns this `Functor_catd`; no new diagonal/section primitive is added.
+The original constant-section component rule moves to its Pi owner because
+these earlier consumers need it.
+
+An extra direct carrier-coercion diagnostic for arrows between constant
+sections fails in both the pre-goal source and the migration. The existing
+whole-category comparison passes. No new normalization rule was added to
+repair that pre-existing issue; the two failing receipts are retained in the
+verification record. This is distinct from the moved, existing component rule.
+
+Receipt `20261015T151712Z-b8dc7b058e3641059ad0e3cf875d6a0d` passes with
+subject reduction in 2.858s, maximum child RSS 258,980KiB, default limits.
+The same through-8b warning range changes 1152->1143 diagnostics (seven
+added, sixteen removed); the newly covered sections add 56, for 1199 total.
+This is a range-qualified comparison, not a claim that a longer source has
+fewer warnings overall. Both inferred-slot audits have zero unreviewed slots.
+
+Full-source receipt `20261015T151726Z-3947709205764c4fa8df44374d6bb590`
+now stops at `Edge_catd_func`: the legacy definition assumes the shifted
+family transpose is a same-base endofunctor. The next source work is the
+coupled section-11/12/13 presheaf, Q, identity Homd root and direct ladder,
+followed by the defined general-FF extension and intrinsic consumers. Reuse
+the selected Cartesian-Q prototype and the original projection outline;
+do not try to recover the defective old positive-Pi Homd target. Keep
+`Pi_func`'s present output profile under review at the actual moving-motive
+consumer rather than silently asserting a stronger output universe.
+
+The complete emitted source retains all original declarations and every
+later section. Only the two named formation declarations have moved; the
+manifest explicitly records those order exceptions. The earlier records
+below remain evidence for their own snapshots.
+
 Coupled family/Hom source checkpoint, 2026-10-15, after `90d10b39`: the
 [source recipe](../emdash2/audits/strict-default-action-boundary/production_owner_migration.py)
 now has a passing prefix through section 8b, before section categories and

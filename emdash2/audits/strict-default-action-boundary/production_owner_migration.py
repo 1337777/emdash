@@ -185,38 +185,16 @@ symbol hom_con_int_view [A B : Cat] (F : τ (Functor B A))
                  "unif_rule Functor_cat $K Cat_cart ≡ @Catd_cat $K'",
                  'Catd_cat whole classifier comparison',
                  'Match the selected coefficient at the existing displayed facade')
-    replace_once('''symbol Catd_cat_func : τ (Functor (Op_cat Cat_cat) Cat_cat)
-≔ @comp_cat_fapp0
-     (Op_cat Cat_cat)
-     (Functor_cat Cat_cat Cat_cat)
-     Cat_cat
-     (@fapp0_func Cat_cat Cat_cat Cat_cat)
-     Functor_cat_func;''', '''symbol Catd_cat_func : τ (Functor (Op_cat Cat_cat) Cat_cat)
-≔ @comp_cat_fapp0
-     (Op_cat Cat_cat)
-     (Functor_cat Cat_cat Cat_cat)
-     Cat_cat
-     (@fapp0_func Cat_cat Cat_cat Cat_cart)
-     Functor_cat_func;''',
-                 'Catd_cat_func',
-                 'The original internal constructor now evaluates its coefficient slot at Cat_cart')
-    replace_once('''symbol Catd_catd_con [L : Cat] (K : τ (Catd L)) : τ (Catd (Op_cat L))
-≔ @comp_cat_fapp0
-     (Op_cat L)
-     (Op_cat Cat_cat)
-     Cat_cat
-     Catd_cat_func
-     (@Op_func L Cat_cat K);''', '''symbol Catd_catd_con [L : Cat] (K : τ (Catd L))
-  : τ (Functor (Op_cat L) Cat_cat)
-≔ @comp_cat_fapp0
-     (Op_cat L)
-     (Op_cat Cat_cat)
-     Cat_cat
-     Catd_cat_func
-     (@Op_func L Cat_cat
-       (@comp_cat_fapp0 L Cat_cart Cat_cat Cat_cart_include K));''',
-                 'Catd_catd_con',
-                 'The existing constructor lands in the public universe; expose that raw result instead of assuming a Cartesian lift of its whole higher action')
+    a = body.index('// Internalized-x prerequisite: directed-family category formation as a')
+    b = body.index('// Internalized pointwise opposite on directed families.', a)
+    old_classifier = body[a:b]
+    replace_once(old_classifier,
+                 '// Varying-base family formation is defined after its canonical Hom owner.\n\n',
+                 'Catd_cat_func / Catd_catd_con relocation',
+                 'The whole Cartesian parameter family is derived from Hom(Cat_cart), not a lift of lax diagram categories')
+    relocated.append({'symbols': ['Catd_cat_func', 'Catd_catd_con'],
+                      'originalBlockSha256': sha(old_classifier),
+                      'reason': 'Dependency-forced semantic definition after canonical Hom'})
 
     # Canonical Hom actions of strict categories have the Cartesian profile.
     # Keep every original covariant/contravariant owner and change its mapping
@@ -249,6 +227,8 @@ symbol hom_con_int_view [A B : Cat] (F : τ (Functor B A))
         new_hom = new_hom.replace(old, new)
     replace_once(old_hom, new_hom, 'ordinary Hom owner block',
                  'Selected whole Cartesian Hom profile with the original public names and blended strict F argument')
+    insert(section_end, fragment('production_family_classifier.lpfragment'),
+           'Define the original varying-base family names by the actual Cartesian Hom owner')
     a = body.index('symbol Hom_tele_func ')
     b = body.index(';', a) + 1
     old_two_endpoint = body[a:b]
@@ -576,6 +556,13 @@ rule @comp_fapp0 Cat_cat _ _ _
       (@hom_int $C $D $H)''')
     replace_once(old_fibres, new_fibres, 'family fibres, transport and pullback',
                  'Apply the selected coefficient to actual family observations; retain ordinary raw-Cat action and the canonical whole Cartesian Hom reindexing')
+    a = body.index('// Arrow action of the internalized Catd constructor. `Catd_cat_func` is a')
+    b = body.index('// Pointwise projection for the hom-action of family pullback.', a)
+    replace_once(body[a:b],
+                 '// The Cartesian varying-base constructor computes through hom_con;\n'
+                 '// fixed lax-family pullback retains its separate existing owner.\n\n',
+                 'Catd_cat_func legacy raw action fold',
+                 'Do not equate Cartesian parameter reindexing with the larger lax diagram-map functor')
 
     a = body.index('// 8b. Constant, terminal, opposite, and displayed composition')
     b = body.index('// Fixed-base layer: pointwise opposite of a directed family.', a)
@@ -624,6 +611,252 @@ rule @fapp1_fapp0 (CoAt2_cat $K) $D $F $x $x (@id $K $x)
                  'fibrewise products',
                  'Retain the original uncurry/product/pair construction and displayed owners with the admitted coefficient and its actual Cartesian fibre Homs')
 
+    a = body.index('// 8c. Section categories and Pi action')
+    b = body.index('// 8d. Fibre covariance and dependent-hom endpoint notation', a)
+    old_sections = body[a:b]
+    new_sections = old_sections.replace("@Transf_cat $K' Cat_cat", "@Transf_cat $K' Cat_cart")
+    new_sections = new_sections.replace('(Op_cat Cat_cat)', '(Op_cat Cat_cart)')
+    new_sections = new_sections.replace('//   Pi_int_funcd[K] = Pi_func(K)',
+        '//   Pi_int_funcd[K] = Pi_func(K) after the Cartesian-diagram inclusion')
+    new_sections = new_sections.replace('// The base is Op(Cat) because section categories pull back contravariantly\n// along functors.',
+        '// The base is T(Cat_cart). The parameter fibres use Cartesian diagram\n'
+        '// maps; their inclusion retains the existing lax section operation.')
+    new_sections = new_sections.replace('// Base component of internal Pi: Pi_int_funcd[K] ↪ Pi_func(K).',
+        '// Base component: restrict the existing Pi along its actual diagram inclusion.')
+    new_sections = new_sections.replace('//   for G : K ⊢ Cat^op,',
+        '//   for G : K ⊢ T(Cat_cart),')
+    new_sections = new_sections.replace('//   Pi_pullback_funcd(G)[x] = Pi_func(G[x])',
+        '//   Pi_pullback_funcd(G)[x] = Pi_func(G[x]) after Cartesian-diagram inclusion')
+    new_sections = new_sections.replace('// Pointwise projection: Pi_pullback_funcd(G)[x] ↪ Pi_func(G[x]).',
+        '// Component after base pullback, retaining the same inclusion before Pi.')
+    new_sections = new_sections.replace('''      (Op_cat Cat_cart)
+      Cat_cat
+      _
+      _
+      $K
+      Pi_int_funcd
+  ↪ @Pi_func $K;''', '''      (Op_cat Cat_cart)
+      Cat_cart
+      _
+      _
+      $K
+      Pi_int_funcd
+  ↪ @comp_cat_fapp0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat
+      (@Pi_func $K) (Functor_cart_include $K Cat_cart);''')
+    new_sections = new_sections.replace('''      $K
+      Cat_cat
+      _
+      _
+      $x
+      (@Pi_pullback_funcd $K $G)
+  ↪ @Pi_func (@fapp0 $K (Op_cat Cat_cart) $G $x);''', '''      $K
+      Cat_cart
+      _
+      _
+      $x
+      (@Pi_pullback_funcd $K $G)
+  ↪ @comp_cat_fapp0
+      (Functor_cart_cat (@fapp0 $K (Op_cat Cat_cart) $G $x) Cat_cart)
+      (Catd_cat (@fapp0 $K (Op_cat Cat_cart) $G $x)) Cat_cat
+      (@Pi_func (@fapp0 $K (Op_cat Cat_cart) $G $x))
+      (Functor_cart_include (@fapp0 $K (Op_cat Cat_cart) $G $x) Cat_cart);''')
+    new_sections = new_sections.replace('''≔ comp_cat_fapp0
+     (@fapp0_func Terminal_cat (Fibre_cat E k) Terminal_obj)
+     (@tapp0_func K Cat_cat (@Const_catd K Terminal_cat) E k);''', '''≔ @comp_cat_fapp0 (Pi_cat E)
+    (Functor_cart_cat Terminal_cat (Fibre_cat E k)) (Fibre_cat E k)
+    (@comp_cat_fapp0
+      (Functor_cart_cat Terminal_cat (Fibre_cat E k))
+      (Functor_cat Terminal_cat (Fibre_cat E k)) (Fibre_cat E k)
+      (@fapp0_func Terminal_cat (Fibre_cat E k) Terminal_obj)
+      (Functor_cart_include Terminal_cat (Fibre_cat E k)))
+    (@tapp0_func K Cat_cart (@Const_catd K Terminal_cat) E k);''')
+    replace_once(old_sections, new_sections, 'Pi and varying-base section interface',
+                 'Retain lax sections and fixed Pi; its varying-base component restricts the Cartesian family parameter by the existing inclusion')
+
+    a = body.index('// 8d. Fibre covariance and dependent-hom endpoint notation')
+    b = body.index('// 9. Directed Sigma categories and maps between totals', a)
+    old_transport_leaf = body[a:b]
+    new_transport_leaf = old_transport_leaf.replace('''≔ comp_cat_fapp0
+     (@fapp0_func (Fibre_cat E x) (Fibre_cat E y) u)
+     (@fapp1_func K Cat_cat E x y);''', '''≔ @comp_cat_fapp0 (Hom_cat K x y)
+    (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y)) (Fibre_cat E y)
+    (@comp_cat_fapp0
+      (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y))
+      (Functor_cat (Fibre_cat E x) (Fibre_cat E y)) (Fibre_cat E y)
+      (@fapp0_func (Fibre_cat E x) (Fibre_cat E y) u)
+      (Functor_cart_include (Fibre_cat E x) (Fibre_cat E y)))
+    (@fapp1_func K Cat_cart E x y);''')
+    new_transport_leaf = new_transport_leaf.replace(
+        ': τ (Functor (Op_cat (Hom_cat Z x y)) Cat_cat)',
+        ': τ (Functor (Op_cat (Hom_cat Z x y)) Cat_cart)')
+    new_transport_leaf = new_transport_leaf.replace('@tapp0_fapp0 Z Cat_cat D E y FF',
+                                                    '@tapp0_fapp0 Z Cat_cart D E y FF')
+    replace_once(old_transport_leaf, new_transport_leaf, 'fibre transport and defined Homd leaf',
+                 'Keep the existing evaluation/composition bodies through Cartesian coefficient inclusion; the defined relative leaf retains arbitrary lax FF')
+
+    replace_once('rule Op_cat Terminal_cat ↪ Terminal_cat;',
+                 'rule Op_cat Terminal_cat ↪ Terminal_cat;\nrule CoAbove2_cat Terminal_cat ↪ Terminal_cat;',
+                 'total duality terminal category', 'The corrected negative Sigma also uses total reversal')
+    replace_once('''rule Op_cat (Product_cat $A $B)
+  ↪ Product_cat (Op_cat $A) (Op_cat $B);''', '''rule Op_cat (Product_cat $A $B)
+  ↪ Product_cat (Op_cat $A) (Op_cat $B);
+rule CoAbove2_cat (Product_cat $A $B)
+  ↪ Product_cat (CoAbove2_cat $A) (CoAbove2_cat $B);''',
+                 'total duality product', 'Retain product normal forms in the explicit constant-family Sigma-Hom')
+    total_family = (fragment('total_op_family.lpfragment')
+                    .replace('TotalOp_func_func', 'TotalOp_cart_func_func')
+                    .replace('total_op', 'total_op_cart').replace('Cat_cat', 'Cat_cart'))
+    total_family = (total_family.replace('@comp_fapp0 Cat_cart', '@comp_fapp0 Cat_cat')
+                    .replace('@id Cat_cart Cat_cart', '@id Cat_cat Cat_cart'))
+    insert('// Fibrewise dimension-one transpose changes the base by CoAt2.',
+           total_family, 'Adapt the qualified total-fibre duality to the selected Cartesian coefficient')
+
+    replace_once('''//     ↪ Op_cat(Σ (p : Hom_K(x,y)^op), homd_(id_E,x,u,y,v)[p]).
+rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
+  ↪ Op_cat
+      (@Sigma_cat
+        (Op_cat (Hom_cat $K $x $y))
+        (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v));''', '''//     ↪ O(Σ (p : O(Hom_K(x,y))), O_fib(homd_(id_E,x,u,y,v))[p]).
+// Total fibre duality followed by the outer total dual restores fibre directions.
+rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
+  ↪ TotalOp_cat
+      (@Sigma_cat
+        (TotalOp_cat (Hom_cat $K $x $y))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))
+          (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v)));''',
+                 'Sigma Hom', 'Use the qualified total-dual negative Sigma while retaining the original total and Homd leaf owners')
+    a = body.index('// Keep the first Hom owner; refine its recursive next action.')
+    b = body.index('// Capped next projection joins the whole route on a visible Sigma cell.', a)
+    old_projection = body[a:b]
+    old_body = '''      (@Op_func
+      (@Sigma_cat (Op_cat (Hom_cat $K $x $y))
+        (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v))
+      (Op_cat (Hom_cat $K $x $y))
+      (@Sigma_proj1_func (Op_cat (Hom_cat $K $x $y))
+        (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v)))'''
+    assert old_projection.count(old_body) == 1
+    new_body = '''      (@TotalOp_func
+      (@Sigma_cat (TotalOp_cat (Hom_cat $K $x $y))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))
+          (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v)))
+      (TotalOp_cat (Hom_cat $K $x $y))
+      (@Sigma_proj1_func (TotalOp_cat (Hom_cat $K $x $y))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))
+          (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v))))'''
+    replace_once(old_projection, old_projection.replace(old_body, new_body),
+                 'Sigma recursive first projection', 'Retain the first-Hom owner and refine its next action through the corrected negative total')
+    start = body.index('symbol sigma_proj1_hom_fapp1_fapp0\n')
+    end = body.index(';', start) + 1
+    old_projection = body[start:end]
+    replace_once(old_projection, old_projection.split('≔', 1)[0] + '≔ sigma_Fst theta;',
+                 'Sigma second-cell projection facade', 'Infer the actual corrected nested Sigma carrier instead of spelling the former reversed fibre')
+
+    a = body.index('// Stable head for the computationally important projection pullback.')
+    b = body.index('// 9c. Families over Sigma totals and displayed-transfor uncurrying', a)
+    old_sigma_families = body[a:b]
+    new_sigma_families = re.sub(r'(\$?K\s+)Cat_cat', r'\1Cat_cart', old_sigma_families)
+    new_sigma_families = new_sigma_families.replace(
+        'Cat_cat\n      (@Sigma_proj1_pullback_catd',
+        'Cat_cart\n      (@Sigma_proj1_pullback_catd')
+    new_sigma_families = new_sigma_families.replace(
+        '(@Sigma_cat $K $R)\n      Cat_cat',
+        '(@Sigma_cat $K $R)\n      Cat_cart')
+    new_sigma_families = new_sigma_families.replace(
+        '(@Sigma_cat $K $R)\n        Cat_cat',
+        '(@Sigma_cat $K $R)\n        Cat_cart')
+    # The original total constructor consumes the ordinary diagram category;
+    # the canonical Cartesian Hom enters it through its existing whole view.
+    start = new_sigma_families.index('// Whole represented-Sigma base change accumulates')
+    new_sigma_families = (new_sigma_families[:start]
+        + re.sub(r'@hom_int\b', '@hom_int_view', new_sigma_families[start:]))
+    replace_once(old_sigma_families, new_sigma_families, 'Sigma family observations and base change',
+                 'Change only the admitted family coefficient and the existing whole Hom inclusion at the original total-map consumers')
+
+    a = body.index('// 9c. Families over Sigma totals and displayed-transfor uncurrying')
+    b = body.index('// 10. Mixed-variance family functor', a)
+    old_sigma_uncurry = body[a:b]
+    replace_once(old_sigma_uncurry, old_sigma_uncurry.replace('Cat_cat', 'Cat_cart'),
+                 'families over Sigma totals',
+                 'An admitted family over a total has the selected Cartesian coefficient in both its displayed input and its output')
+
+    start = body.index('symbol Functor_comp_pair_func ')
+    end = body.index(';', start) + 1
+    old_pair_composition = body[start:end]
+    replace_once(old_pair_composition,
+                 old_pair_composition.replace('Functor_cat', 'Functor_cart_cat')
+                     .replace('@comp_prod_func Cat_cat', '@comp_prod_func Cat_cart'),
+                 'Cartesian pair composition',
+                 'The original joint composition consumer now uses genuine Cartesian mapping inputs, while fixed ordinary whiskering remains lax')
+
+    a = body.index('// 10. Mixed-variance family functor')
+    b = body.index('// Mixed-variance hom family for two sections of a displayed family.', a)
+    old_mixed = body[a:b]
+    new_mixed = old_mixed.replace('Cat_cat', 'Cat_cart')
+    new_mixed = new_mixed.replace('// Internalized constructor package for mixed-variance functor families.',
+        '// Internalized mixed-family constructor. The negative parameter uses\n'
+        '// Cartesian diagram maps; the positive parameter still admits lax FF.')
+    new_mixed = (new_mixed.replace('@id Cat_cart Cat_cart', '@id Cat_cat Cat_cart')
+                 .replace('Product_cat_cart_func', 'Product_cat_coeff_func'))
+    fixed_end = new_mixed.index('// Coherent evaluation for a constant-domain displayed functor family.')
+    new_mixed = (new_mixed[:fixed_end].replace('Functor_cat (', 'Functor_cart_cat (')
+                  .replace('(Functor_cat\n', '(Functor_cart_cat\n') + new_mixed[fixed_end:])
+    for variable in ('K', '$K'):
+        old = f'(Op_cat (Catd_cat (Op_cat {variable})))'
+        new = f'(Op_cat (Functor_cart_cat (Op_cat {variable}) Cat_cart))'
+        assert new_mixed.count(old) == 1, variable
+        new_mixed = new_mixed.replace(old, new)
+    new_mixed = new_mixed.replace(
+        "(@tapp0_fapp0 (Op_cat $K) Cat_cart $A' $A $k $L);",
+        "(@tapp0_fapp0 (Op_cat $K) Cat_cart $A' $A $k\n"
+        "        (@strict_transfor (Op_cat $K) Cat_cart $A' $A $L));")
+    products_start = new_mixed.index('// Pointwise distribution of a pair of mixed functors into a product target.')
+    new_mixed = (new_mixed[:products_start]
+        + new_mixed[products_start:].replace('Functor_cat (', 'Functor_cart_cat (')
+            .replace('(Functor_cat\n', '(Functor_cart_cat\n')
+            .replace('@comp_cat_con_func', '@comp_cat_con_cart_func'))
+    replace_once(old_mixed, new_mixed, 'mixed Functor_catd and its parameter action',
+                 'Use Hom(Cat_cart) fibres; retain lax positive parameter maps and require the actual Cartesian negative parameter profile')
+
+    a = body.index('// Mixed-variance hom family for two sections of a displayed family.')
+    b = body.index('// 11. Representables and presheaf-family classifiers', a)
+    old_mixed_hom = body[a:b]
+    new_mixed_hom = old_mixed_hom.replace('Cat_cat', 'Cat_cart').replace('Op_catd', 'TotalOp_catd')
+    new_mixed_hom = new_mixed_hom.replace('// Mixed-variance hom family for two sections of a displayed family.',
+        '// Mixed-variance hom family. The negative section is over R(K), in\n'
+        '// the total fibre dual O(E); the positive section is over K in E.')
+    new_mixed_hom = new_mixed_hom.replace('@piapp0 $K (@TotalOp_catd',
+                                         '@piapp0 (CoAbove2_cat $K) (@TotalOp_catd')
+    new_mixed_hom = new_mixed_hom.replace('(@Op_func $K (Op_cat Cat_cart) $X)',
+        '(@TotalOp_func (CoAbove2_cat $K) (TotalOp_cat Cat_cart) $X)')
+    assert new_mixed_hom.count('  ↪ Transf_cat\n') == 1
+    new_mixed_hom = new_mixed_hom.replace('  ↪ Transf_cat\n',
+        '  ↪ Hom_cat\n      (Functor_cart_cat (Fibre_cat $A $k) (Fibre_cat $B $k))\n')
+    replace_once(old_mixed_hom, new_mixed_hom, 'Hom_catd and Transf_catd negative sections',
+                 'Retain the existing mixed section architecture with total fibre duality and the correct shifted negative-section base')
+
+    a = body.index('// Constant-family section evaluation follows ordinary functor application.')
+    b = body.index(';', a) + 1
+    constant_section = body[a:b]
+    replace_once(constant_section,
+                 '// Constant-section evaluation is owned earlier with Pi and section evaluation.',
+                 'constant-section evaluation relocation',
+                 'The original computation is needed by constant negative sections before the Homd ladder')
+    constant_section = constant_section.replace('      Cat_cat\n', '      Cat_cart\n')
+    insert('// 8d. Fibre covariance and dependent-hom endpoint notation',
+           constant_section, 'Keep the existing constant-section computation with its section owner')
+    relocated.append({'owner': 'constant-section component', 'bodySha256': sha(constant_section)})
+
+    replace_once('''symbol Rep_catd_func [Z : Cat]
+  : τ (Functor (Op_cat Z) (Catd_cat Z))
+≔ @hom_int Z Z (@id Cat_cat Z);''', '''symbol Rep_catd_func [Z : Cat]
+  : τ (Functor (Op_cat Z) (Catd_cat Z))
+≔ @hom_int_view Z Z (@id Cat_cat Z);''',
+                 'Rep_catd_func', 'Retain the existing lax diagram view of the canonical Cartesian representable root')
+    replace_once('''≔ @hom_int_precomp_func Z Z (@id Cat_cat Z) y x p;''',
+                 '''≔ @strict_transfor Z Cat_cart (@Rep_catd Z y) (@Rep_catd Z x)
+    (@hom_int_precomp_func Z Z (@id Cat_cat Z) y x p);''',
+                 'Rep_transport_func', 'Use the existing inclusion to observe canonical strict precomposition as a lax displayed map')
+
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -652,6 +885,32 @@ rule @fapp1_fapp0 (CoAt2_cat $K) $D $F $x $x (@id $K $x)
     assert body.count(foundation_boundary) == 1
     (package / 'foundations_prefix.lp').write_text(body[:body.index(foundation_boundary)]
         + '\n' + fragment('production_foundations_controls.lpfragment'))
+    section_boundary = '// 8d. Fibre covariance and dependent-hom endpoint notation'
+    assert body.count(section_boundary) == 1
+    (package / 'sections_prefix.lp').write_text(body[:body.index(section_boundary)]
+        + '\n' + fragment('production_foundations_controls.lpfragment')
+        + '\n' + fragment('production_sections_controls.lpfragment'))
+    sigma_boundary = '// 10. Mixed-variance family functor'
+    assert body.count(sigma_boundary) == 1
+    sigma_controls = fragment('sigma_total_op_controls.lpfragment').replace(
+        '(Op_cat (Hom_cat K x y)) Cat_cat', '(Op_cat (Hom_cat K x y)) Cat_cart')
+    (package / 'sigma_prefix.lp').write_text(body[:body.index(sigma_boundary)]
+        + '\n' + fragment('production_foundations_controls.lpfragment')
+        + '\n' + fragment('production_sections_controls.lpfragment')
+        + '\n' + sigma_controls)
+    mixed_boundary = '// 11. Representables and presheaf-family classifiers'
+    assert body.count(mixed_boundary) == 1
+    mixed_controls = fragment('mixed_family_controls.lpfragment').replace('Cat_cat', 'Cat_cart')
+    mixed_parameters = fragment('mixed_family_parameter_controls.lpfragment')
+    mixed_parameters = mixed_parameters.split('// Dependency-complete recovery candidate for ambient fixed precomposition.', 1)[0]
+    mixed_parameters = (mixed_parameters.replace('Cat_cat', 'Cat_cart')
+                        .replace('@id Cat_cart Cat_cart', '@id Cat_cat Cat_cart'))
+    negative_sections = fragment('total_op_hom_family_controls.lpfragment').replace('Cat_cat', 'Cat_cart')
+    (package / 'mixed_prefix.lp').write_text(body[:body.index(mixed_boundary)]
+        + '\n' + fragment('production_foundations_controls.lpfragment')
+        + '\n' + fragment('production_sections_controls.lpfragment')
+        + '\n' + sigma_controls + '\n' + mixed_controls
+        + '\n' + mixed_parameters + '\n' + negative_sections)
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -812,6 +1071,10 @@ rule @fapp1_fapp0 (CoAt2_cat $K) $D $F $x $x (@id $K $x)
     original_lines_retained = all(kind in ('equal', 'insert') for kind, *_ in delta)
     declaration = r'(?m)^(?:(?:constant|injective|protected|private)\s+)?symbol\s+([A-Za-z0-9_]+)\b'
     original_names = re.findall(declaration, original)
+    relocated_names = {'Catd_cat_func', 'Catd_catd_con'}
+    for name in relocated_names:
+        assert re.findall(declaration, body).count(name) == 1, name
+    original_names = [name for name in original_names if name not in relocated_names]
     candidate_names = iter(re.findall(declaration, body))
     assert all(any(candidate == name for candidate in candidate_names)
                for name in original_names), 'An original declaration was dropped or reordered'
@@ -822,7 +1085,10 @@ rule @fapp1_fapp0 (CoAt2_cat $K) $D $F $x $x (@id $K $x)
         'originalCoreLines': len(original.splitlines()), 'candidateCoreLines': len(body.splitlines()),
         'originalDownstreamSectionsRetained': True,
         'originalCoreLineOrderVerified': original_lines_retained,
-        'originalNamedDeclarationSequenceVerified': True,
+        'originalNamedDeclarationsRetained': True,
+        'originalNamedDeclarationSequenceVerified': not relocated_names,
+        'unrelocatedNamedDeclarationSequenceVerified': True,
+        'namedDeclarationSequenceExceptions': sorted(relocated_names),
         'originalDependencyInputs': dependencies,
         'changes': changes, 'relocatedDeclarations': relocated,
         'authoringInputs': inputs,
@@ -830,10 +1096,14 @@ rule @fapp1_fapp0 (CoAt2_cat $K) $D $F $x $x (@id $K $x)
                     for p in [out / 'baseline.lp', package / 'emdash3_2.lp',
                               package / 'emdash3_2_gray_profiles.lp', package / 'owner_controls.lp',
                               package / 'foundations_prefix.lp',
+                              package / 'sections_prefix.lp',
+                              package / 'sigma_prefix.lp',
+                              package / 'mixed_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
-        'stillRequired': ['Whole varying-base Pi and admitted meta-family interfaces',
-                          'Selected Q/Homd/Sigma integration with general lax FF',
+        'stillRequired': ['Coupled presheaf and selected Q/Homd root and direct ladder',
+                          'General lax FF intrinsic action, including late Sigma/Pi consumers',
+                          'Moving path-motive interfaces with their actual coefficient profiles',
                           'Whole duality/adjunction and closure-consumer qualification',
                           'Downstream qualification and retirement of redundant strict wrappers'],
         'excluded': ['Auxiliary Sigma fibre-composition audit owner',
