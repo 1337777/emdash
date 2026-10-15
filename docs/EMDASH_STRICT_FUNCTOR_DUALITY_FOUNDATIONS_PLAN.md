@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default with shared Cartesian families; direct Homd ladders and corrected Sigma-Hom formation/projections check; total-map action and public/downstream migration remain open
+Status: strict-functor/lax-transfor default with shared Cartesian families; direct Homd ladders, corrected Sigma-Hom and total-map projection candidates check; expanded composition and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,32 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Latest total-map continuation, 2026-10-15: the
+[Cartesian-family total-map candidate](../emdash2/audits/strict-default-action-boundary/cart_sigma_map_review.md)
+retains default lax FF and defines the whole first Hom as the negative
+Sigma map of FF's existing intrinsic Homd presheaf transformation. Whole
+diagram duality supplies its fibre-dual map; there is still one Sigma
+constructor and no new Q operation. Literal/arbitrary object observations,
+both arrow projection orders, mapped canonical transport and preservation
+of a general total two-cell's base cell check. Parameter modifications have
+the actual vertical total-arrow component, with units and composition.
+
+Identity family maps and identity total arrows check after Hom projection.
+Composite intrinsic Hom action has a typed-reflexivity proof-time join;
+eager runtime decomposition disrupted ordinary/mate extraction and is not
+selected. The final unifier matches canonical comp_fapp0, preserving the
+earlier runtime owners. A negative transport-endpoint consumer still rejects
+strictifying the base naturality of arbitrary FF.
+
+Receipt `20261015T083840Z-d4916b4ea4aa43b498238da115b47b98` passes with SR
+in 5.589s/323,196KiB under the unchanged default limits. Critical-pair
+diagnostics 1541->1636 are inventoried in six owner groups; pattern warnings
+remain 66 and LHS has zero unreviewed slots. The whole totalization and
+diagram-duality owners are structural, not derived general coherence.
+Next compare expanded general total-arrow composition, then qualify the
+remaining higher-naturality/public integration consumers. The full goal is
+still active; this prototype is not production migration.
 
 Latest production-action trace, 2026-10-15: the
 [outline's Pi/Q dictionary](EMDASH_CARTESIAN_FAMILIES_LAX_TRANSFORS_HOMD_OUTLINE.md#trace-to-the-production-pi-based-ladder)
@@ -77,10 +103,11 @@ remain 66 and LHS has zero unreviewed slots. This is not global confluence
 or production qualification. The earlier Sigma audit supplies architectural
 donor evidence, not its retired public-universe coefficient contract.
 
-Next qualify the whole total-map action and concrete Sigma transport/map
-consumers, then proceed through the full-source/public migration and its
-downstream gates. This stage uses no additional Q operation and does not
-resume the optional balance investigation.
+The total-map continuation above supplies the next whole interface and
+concrete Sigma transport/map consumers. Expanded composition and the
+full-source/public migration still need their downstream gates. This stage
+uses no additional Q operation and does not resume the optional balance
+investigation.
 
 Latest scope clarification, 2026-10-15: the user requires synthetic
 profunctor-like composition, following the production Prof interface.

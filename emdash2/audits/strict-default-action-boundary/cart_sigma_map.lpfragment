@@ -1,0 +1,153 @@
+// NON-LIBRARY: totalization of the admitted Cartesian-coefficient families.
+// The family map FF is an ambient lax transformation across K. Its fibre
+// components and fibre naturality live in the existing Cartesian coefficient.
+
+// Normality over an identity base arrow: a vertical fibre arrow is mapped
+// by the existing component functor. This does not normalize a nonidentity p.
+rule @sf_cq_tdapp1_hom_proj $K $E $D $FF $FF (@id _ $FF)
+      $x $u $x $v (@id $K $x)
+  ↪ @fapp1_func (fapp0 $E $x) (fapp0 $D $x)
+      (@tapp0_fapp0 $K sf_cart_cat $E $D $x $FF) $u $v;
+
+// Intrinsic action of a composite displayed map composes its two actions.
+// The discriminator is the identity modification of the composite map;
+// neither displayed map is required to have strict base naturality.
+// Proof-time comparison at the whole Hom owner. Runtime decomposition
+// conflicts with the existing ordinary/mate extraction normal forms.
+unif_rule @sf_cq_tdapp1_hom_proj $K $E $D _ _
+      (@id _ (@comp_fapp0 (Functor_cat $K sf_cart_cat) $E $M $D $GG $FF))
+      $x $u $y $v $p
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@sf_cq_tdapp1_hom_proj $K $M $D $GG $GG (@id (@Transf_cat $K sf_cart_cat $M $D) $GG)
+        $x (fapp0 (@tapp0_fapp0 $K sf_cart_cat $E $M $x $FF) $u)
+        $y (fapp0 (@tapp0_fapp0 $K sf_cart_cat $E $M $y $FF) $v) $p)
+      (@sf_cq_tdapp1_hom_proj $K $E $M $FF $FF (@id (@Transf_cat $K sf_cart_cat $E $M) $FF)
+        $x $u $y $v $p)
+  ↪ [ tt ≡ tt ];
+
+symbol sf_cart_sigma_func (K : Cat)
+  : τ (Functor (Functor_cat K sf_cart_cat) Cat_cat);
+rule fapp0 (sf_cart_sigma_func $K) $E ↪ @sf_cart_sigma $K $E;
+
+symbol sf_cart_sigma_map [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat E D))
+  : τ (Functor (@sf_cart_sigma K E) (@sf_cart_sigma K D));
+rule @fapp1_fapp0 _ _ (sf_cart_sigma_func $K) $E $D $FF
+  ↪ @sf_cart_sigma_map $K $E $D $FF;
+
+// Normal forms inherited from the strict whole totalization functor.
+rule @sf_cart_sigma_map $K $E $E (@id (Functor_cat $K sf_cart_cat) $E)
+  ↪ @id_func (@sf_cart_sigma $K $E);
+rule @sf_cart_sigma_map $K $E $D
+      (@comp_fapp0 (Functor_cat $K sf_cart_cat) $E $M $D $GG $FF)
+  ↪ @comp_cat_fapp0 (@sf_cart_sigma $K $E) (@sf_cart_sigma $K $M) (@sf_cart_sigma $K $D)
+      (@sf_cart_sigma_map $K $M $D $GG) (@sf_cart_sigma_map $K $E $M $FF);
+
+symbol sf_cart_sigma_map_obj [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat E D)) (s : τ (Obj (@sf_cart_sigma K E)))
+  : τ (Obj (@sf_cart_sigma K D));
+rule fapp0 (@sf_cart_sigma_map $K $E $D $FF) $s
+  ↪ @sf_cart_sigma_map_obj $K $E $D $FF $s;
+rule @sf_cart_sigma_map_obj $K $E $D $FF (Struct_sigma $x $u)
+  ↪ Struct_sigma $x (fapp0 (@tapp0_fapp0 $K sf_cart_cat $E $D $x $FF) $u);
+rule sigma_Fst (@sf_cart_sigma_map_obj $K $E _ _ $s)
+  ↪ @sf_cart_sigma_obj_base $K $E $s;
+rule sigma_Snd (@sf_cart_sigma_map_obj $K $E $D $FF $s)
+  ↪ fapp0 (@tapp0_fapp0 $K sf_cart_cat $E $D (@sf_cart_sigma_obj_base $K $E $s) $FF)
+      (@sf_cart_sigma_obj_fibre $K $E $s);
+rule @sf_cart_sigma_map_obj $K $E $E (@id (Functor_cat $K sf_cart_cat) $E) $s ↪ $s;
+rule @sf_cart_sigma_map_obj $K $E $D
+      (@comp_fapp0 (Functor_cat $K sf_cart_cat) $E $M $D $GG $FF) $s
+  ↪ @sf_cart_sigma_map_obj $K $M $D $GG (@sf_cart_sigma_map_obj $K $E $M $FF $s);
+
+// Totalization stays over the same base, as in the production Sigma owner.
+// lhs-audit: keep 1 -- ordinary composition of the two named totalization owners.
+rule @comp_fapp0 Cat_cat _ _ _ (@sf_cart_sigma_proj $K $D) (@sf_cart_sigma_map $K $E $D _)
+  ↪ @sf_cart_sigma_proj $K $E;
+
+// Whole fibre total-duality on Cartesian diagrams. The higher diagram
+// dimensions are reversed; the component functors keep their direction.
+symbol sf_cart_total_op_diagrams (K : Cat)
+  : τ (Functor (CoAbove2_cat (sf_cart_functor_cat K sf_cart_cat))
+      (sf_cart_functor_cat (CoAbove2_cat K) sf_cart_cat));
+rule fapp0 (sf_cart_total_op_diagrams $K) $E ↪ @sf_cart_total_op_family $K $E;
+
+symbol sf_cart_total_op_family_map [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  : τ (Hom (sf_cart_functor_cat (CoAbove2_cat K) sf_cart_cat)
+      (@sf_cart_total_op_family K E) (@sf_cart_total_op_family K D));
+rule @fapp1_fapp0 _ _ (sf_cart_total_op_diagrams $K) $E $D $U
+  ↪ @sf_cart_total_op_family_map $K $E $D $U;
+rule @sf_cart_total_op_family_map $K $E $E (@id (sf_cart_functor_cat $K sf_cart_cat) $E)
+  ↪ @id (sf_cart_functor_cat (CoAbove2_cat $K) sf_cart_cat) (@sf_cart_total_op_family $K $E);
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _ (@sf_cart_total_op_family_map $K $E $D $U))
+  ↪ @TotalOp_func (fapp0 $E $x) (fapp0 $D $x)
+      (fapp0 (@sf_cart_component_func $K sf_cart_cat $E $D $x) $U);
+
+// Negative total maps are derived from the one covariant Sigma operation.
+// U is the actual Cartesian map between the two Homd presheaves.
+symbol sf_cart_sigma_con_map [I : Cat] [H H' : τ (Functor (Op_cat I) sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat (Op_cat I) sf_cart_cat) H H'))
+  : τ (Functor (@sf_cart_sigma_con I H) (@sf_cart_sigma_con I H'))
+≔ @TotalOp_func
+    (@sf_cart_sigma (TotalOp_cat I) (@sf_cart_total_op_family (Op_cat I) H))
+    (@sf_cart_sigma (TotalOp_cat I) (@sf_cart_total_op_family (Op_cat I) H'))
+    (@sf_cart_sigma_map (TotalOp_cat I)
+      (@sf_cart_total_op_family (Op_cat I) H) (@sf_cart_total_op_family (Op_cat I) H')
+      (@strict_transfor (TotalOp_cat I) sf_cart_cat
+        (@sf_cart_total_op_family (Op_cat I) H) (@sf_cart_total_op_family (Op_cat I) H')
+        (@sf_cart_total_op_family_map (Op_cat I) H H' U)));
+
+// Entire first Hom is the negative total of FF's existing intrinsic action.
+// This retains higher cells recursively, instead of supplying a scalar map.
+symbol sf_cart_sigma_map_hom [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat E D))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  (y : τ (Obj K)) (v : τ (Obj (fapp0 E y)))
+  : τ (Functor
+      (Hom_cat (@sf_cart_sigma K E) (Struct_sigma x u) (Struct_sigma y v))
+      (Hom_cat (@sf_cart_sigma K D)
+        (Struct_sigma x (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+        (Struct_sigma y (fapp0 (@tapp0_fapp0 K sf_cart_cat E D y FF) v))))
+≔ @sf_cart_sigma_con_map (Hom_cat K x y)
+    (@sf_cq_homd_ K E x u y v)
+    (@sf_cq_homd_ K D x (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u)
+      y (fapp0 (@tapp0_fapp0 K sf_cart_cat E D y FF) v))
+    (@sf_cq_tdapp1_v K E D FF FF (@sf_cq_fdapp1_int K E D FF) x u y v);
+rule @fapp1_func _ _ (@sf_cart_sigma_map $K $E $D $FF)
+      (Struct_sigma $x $u) (Struct_sigma $y $v)
+  ↪ @sf_cart_sigma_map_hom $K $E $D $FF $x $u $y $v;
+rule @fapp1_fapp0 _ _ (@sf_cart_sigma_map $K $E $D $FF)
+      (Struct_sigma $x $u) (Struct_sigma $y $v) $a
+  ↪ fapp0 (@sf_cart_sigma_map_hom $K $E $D $FF $x $u $y $v) $a;
+
+// Whole second Hom of totalization; its component is a vertical total arrow.
+symbol sf_cart_sigma_map_transf [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  [FF GG : τ (@Transf K sf_cart_cat E D)]
+  (theta : τ (Hom (@Transf_cat K sf_cart_cat E D) FF GG))
+  : τ (@Transf (@sf_cart_sigma K E) (@sf_cart_sigma K D)
+      (@sf_cart_sigma_map K E D FF) (@sf_cart_sigma_map K E D GG));
+rule @fapp1_fapp0 _ _ (@fapp1_func _ _ (sf_cart_sigma_func $K) $E $D) $FF $GG $theta
+  ↪ @sf_cart_sigma_map_transf $K $E $D $FF $GG $theta;
+rule @sf_cart_sigma_map_transf $K $E $D $FF $FF (@id (@Transf_cat $K sf_cart_cat $E $D) $FF)
+  ↪ @id (Functor_cat (@sf_cart_sigma $K $E) (@sf_cart_sigma $K $D)) (@sf_cart_sigma_map $K $E $D $FF);
+rule @sf_cart_sigma_map_transf $K $E $D $FF $HH
+      (@comp_fapp0 (@Transf_cat $K sf_cart_cat $E $D) $FF $GG $HH $eta $theta)
+  ↪ @comp_fapp0 (Functor_cat (@sf_cart_sigma $K $E) (@sf_cart_sigma $K $D)) _ _ _
+      (@sf_cart_sigma_map_transf $K $E $D $GG $HH $eta)
+      (@sf_cart_sigma_map_transf $K $E $D $FF $GG $theta);
+rule @tapp0_fapp0 _ _ _ _ (Struct_sigma $x $u)
+      (@sf_cart_sigma_map_transf $K $E $D $FF $GG $theta)
+  ↪ Struct_sigma (@id $K $x)
+      (fapp0 (@sf_cart_component_func (fapp0 $E $x) (fapp0 $D $x)
+        (@tapp0_fapp0 $K sf_cart_cat $E $D $x $FF)
+        (@tapp0_fapp0 $K sf_cart_cat $E $D $x $GG) $u)
+        (@tapp0_hom_fapp0 $K sf_cart_cat $E $D $FF $GG $x $theta));
+
+// The canonical transport arrow is the former production definition.
+symbol sf_cart_sigma_transport [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) (u : τ (Obj (fapp0 E x)))
+  : τ (Hom (@sf_cart_sigma K E) (Struct_sigma x u)
+      (Struct_sigma y (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u)))
+≔ Struct_sigma p (@id (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u));

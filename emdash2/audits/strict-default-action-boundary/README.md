@@ -125,11 +125,16 @@ consumes the direct Homd leaf through a derived total-dual negative Sigma.
 The explicit constant-family Hom, forward higher fibre cells, arbitrary
 arrow interface and recursive base projection check. This uses the current
 separate Cartesian coefficient and introduces no additional Q composition
-operation. Whole total-map action and public/downstream migration remain.
+operation. The [total-map continuation](cart_sigma_map_review.md) derives its
+whole first Hom from the negative total of the existing intrinsic Homd map.
+General lax FF, mapped transport/laxity, modification components, identity
+action and recursive preservation of the base two-cell check. Expanded
+general total-arrow composition and public/downstream migration remain.
 
-Earlier Q clarification: both curried mapping levels use the conventional
-lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
-selected implementation. The plan's
+Earlier Q clarification, superseded by the current shared-Cartesian-family
+candidate above: both curried mapping levels then used the conventional
+lax default, with Gray uncurry when needed. Nested-Cart Q was not selected
+at that stage. The plan's historical
 [Q/Sigma consumer review](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#lax-q-gray-uncurry-and-strict-sigma-maps-consumer-review-2026-10-14)
 assesses strict-only Sigma maps and records why this need not restrict the
 upstream intrinsic Homd extractor. No production restriction is installed.

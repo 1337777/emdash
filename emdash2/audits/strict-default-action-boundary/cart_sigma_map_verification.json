@@ -1,0 +1,146 @@
+{
+  "status": "non-library Cartesian-family Sigma-map consumer",
+  "donorEvidence": "audits/strict-default-action-boundary/cart_sigma_verification.json",
+  "donorEvidenceSha256": "331f4dced298777dc1a7bcadef554dec898c4172aab61452d5e2bff2cb02dc57",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/cart_sigma_map_replay.py": "2a325bc13ddca0ea82d5762527f4371026d322b5994130933bdf1c91949b099f",
+    "audits/strict-default-action-boundary/cart_sigma_map.lpfragment": "6db425f660177286a09718aac9161b213750994a5fb9d36412ca201cd01e3405",
+    "audits/strict-default-action-boundary/cart_sigma_map_controls.lpfragment": "f7bcd4978f935dd23aad34b3f9518289a14f2ddc9c6fa75770d2f5ca3be39e83"
+  },
+  "outputSha256": "e8bbff25cce7385a8e53e57e7d8d8abceb7c63c8d90dc4c1d4d4a71b1f4289d3",
+  "baseline": {
+    "path": "logs/check-runs/20261015T082135Z-f79bc2a3f9fc4e46b63dd91136d0a447.json",
+    "sha256": "c60660c4bcbc887166061d17985cc57b8edc4ea4974a1b13839bad8358d54f9e",
+    "logSha256": "fc71cfbc474d89ec803120f48c918cfee42553d6ec2069c25c85f2bb0330a03a",
+    "outcome": "passed-fresh",
+    "wallSeconds": 3.919441372039728,
+    "childrenMaxRssKiB": 305880,
+    "inputSnapshot": "c2109d5d0a3521cb6b4de85685e2454a348cb78ac6aeed365cd90d2d71ea90b4",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "candidate": {
+    "path": "logs/check-runs/20261015T083840Z-d4916b4ea4aa43b498238da115b47b98.json",
+    "sha256": "f2c8cbca22f672647952a06e40acaccb7f606929dcb7dcc469fcf2d126212f07",
+    "logSha256": "128ce271810daeca732615c5e7fd5b0d752788f7a4c72b97531e15bdeba2a0a2",
+    "outcome": "passed-fresh",
+    "wallSeconds": 5.58857081993483,
+    "childrenMaxRssKiB": 323196,
+    "inputSnapshot": "c159f4138d0f3f28fd38b8736cbb9b8ad00f0412a295253247e7b8015b96ef8c",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "warnings": {
+    "criticalPairsBefore": 1541,
+    "criticalPairsAfter": 1636,
+    "replaceablePatternBefore": 66,
+    "replaceablePatternAfter": 66,
+    "addedDiagnostics": 95,
+    "removedDiagnostics": 0,
+    "addedGroups": {
+      "intrinsic_identity_base": {
+        "bodyCount": 14,
+        "sortedBodiesSha256": "81a19139297809e07863b6dd5a6b5dab2bb60091865b95751dd84e77b9934d7f",
+        "ruleFamilies": {
+          "sf_cq_tdapp1_hom_proj \u00d7 id": 14
+        }
+      },
+      "sigma_map_root": {
+        "bodyCount": 26,
+        "sortedBodiesSha256": "858d4656d7179eec857a3cd45209e2e8a632b6290b7bc60412da2a8005de90ff",
+        "ruleFamilies": {
+          "fapp1_fapp0 \u00d7 fapp1_fapp0": 6,
+          "comp_fapp0 \u00d7 fapp1_fapp0": 6,
+          "sf_cart_sigma_map \u00d7 comp_fapp0": 12,
+          "fapp0 \u00d7 sf_cart_sigma_map": 2
+        }
+      },
+      "sigma_object_projection": {
+        "bodyCount": 14,
+        "sortedBodiesSha256": "7dd9fc975857636afa05734fd26dd9b00576c9edb0beca3b06994ba96b5b6b4a",
+        "ruleFamilies": {
+          "sf_cart_sigma_map_obj \u00d7 sf_cart_sigma_map_obj": 2,
+          "sf_cart_sigma_map_obj \u00d7 comp_fapp0": 12
+        }
+      },
+      "cartesian_diagram_duality": {
+        "bodyCount": 13,
+        "sortedBodiesSha256": "5f885bcc0031fa4e04a05e21a7ff23bbc1b90f869fc430575cd3bd88f268fb85",
+        "ruleFamilies": {
+          "fapp1_fapp0 \u00d7 fapp1_fapp0": 6,
+          "comp_fapp0 \u00d7 fapp1_fapp0": 6,
+          "tapp0_fapp0 \u00d7 sf_cart_total_op_family_map": 1
+        }
+      },
+      "sigma_hom_projection": {
+        "bodyCount": 10,
+        "sortedBodiesSha256": "7f5c74822d8a9f7de818441d8b8b67aa027521d0bd917ad8424af21e94a90a83",
+        "ruleFamilies": {
+          "fapp1_func \u00d7 sf_cart_sigma_map": 2,
+          "fapp1_fapp0 \u00d7 fapp1_fapp0": 6,
+          "fapp1_fapp0 \u00d7 sf_cart_sigma_map": 2
+        }
+      },
+      "sigma_parameter_modifications": {
+        "bodyCount": 18,
+        "sortedBodiesSha256": "0404b3b4be0c493b0fd742daf3cee4c940409622f38c6d68bb7125866bdac6b9",
+        "ruleFamilies": {
+          "fapp1_fapp0 \u00d7 fapp1_fapp0": 6,
+          "sf_cart_sigma_map_transf \u00d7 comp_fapp0": 12
+        }
+      }
+    },
+    "qualification": "Exact grouped-body digests and pinned logs retain all changed overlap families. Identity, actual Hom projections, parameter composition/reflexivity, modification units/composition and recursive base projection are checked. Expanded general total-arrow composition remains open; this is not global confluence."
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 29,
+    "intentionalClauses": 20
+  },
+  "development": {
+    "barePairAssertionInference": "20261015T082536Z-034eb7ba3dd045d6b289d19fa45c1c61",
+    "compositeFillerBeforeOwnerComparison": "20261015T082754Z-10a0f43180b2407c989e5bf846105921",
+    "eagerPresheafCompositeDisruptsOrdinaryExtraction": "20261015T082904Z-b8e1b98707434e279d81c4bdd524cf6f",
+    "eagerHomCompositeDisruptsMateExtraction": "20261015T083044Z-e8b3c3f7694246a8b9f39569675afe75",
+    "unifierNeedsCanonicalCompositionHead": "20261015T083221Z-b780e5b997294315990950a4e202961e"
+  },
+  "qualification": [
+    "General default-lax FF is admitted between the selected Cartesian-coefficient families; its naturality is not collapsed.",
+    "The whole first Hom is the derived negative Sigma map of the existing strict presheaf transformation obtained from intrinsic Homd action.",
+    "Objects, both arrow projection orders, mapped canonical transports, modification components and recursive preservation of a general base two-cell check.",
+    "Identity total arrows and identity displayed maps check after expanding the Hom body first.",
+    "Composite intrinsic Hom action has a typed reflexivity comparison at the semantic owner; it is not a runtime decomposition or an equality payload in operational symbols.",
+    "The whole diagram duality and totalization are structural owners. This slice neither derives a complete model nor promotes production code.",
+    "Expanded general total-arrow composition, remaining higher naturality consumers and public/downstream integration still require qualification. No additional Q composition operation is introduced."
+  ]
+}
