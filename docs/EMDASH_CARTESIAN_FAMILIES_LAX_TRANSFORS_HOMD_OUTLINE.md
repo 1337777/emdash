@@ -2,8 +2,8 @@
 
 Date: 2026-10-14
 Status: selected next candidate under the user's latest constraints;
-strict-root/relative ladders and intrinsic y-comparison extraction checked;
-represented-source beta, full coherence and Sigma-Hom open
+strict-root/relative ladders and extracted y-comparison generator beta checked;
+balancing, full coherence and Sigma-Hom open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
 
@@ -255,3 +255,12 @@ v/k projections to the expected target Hom. No additional comparison cell
 is supplied. The generating beta on its left represented composite and the
 consumed coherence remain open; the typed extraction alone does not supply
 them.
+
+The [represented-composition continuation](../emdash2/audits/strict-default-action-boundary/cart_homd_composition_review.md)
+now implements that generator beta on the actual extracted comparison.
+The literal Homd observation sends `(beta:k=>qf,a)` to
+`E[q][a] o E[beta][u]`, through a whole functor whose first Hom also checks
+in both observation orders. Stable intrinsic/comparison projection rungs
+keep this connected to the original root. The introduction and beta are
+structural laws for the selected represented Q composition; balancing,
+unit/composition/parameter coherence and Sigma-Hom remain unqualified.

@@ -113,6 +113,13 @@ then extracted through the native intrinsic action, with direct v/k
 projections and the expected target Hom. Its represented-source beta and
 full coherence remain open; no new comparison witness is supplied.
 
+The [represented-composition beta](cart_homd_composition_review.md) connects
+the extracted Homd y-comparison to its concrete generator computation and
+first higher action. Stable native projection rungs replace the unsuccessful
+expanded-endpoint matching approach. The represented introduction/beta are
+structural computation laws; balancing, full coherence, Sigma-Hom and public
+migration remain open.
+
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the
 selected implementation. The plan's

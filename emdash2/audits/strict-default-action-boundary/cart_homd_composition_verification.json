@@ -1,0 +1,263 @@
+{
+  "status": "non-library represented-composition beta for Homd",
+  "donorEvidence": "audits/strict-default-action-boundary/cart_homd_ordinary_verification.json",
+  "donorEvidenceSha256": "397ad6f84df8b5b6351923b5b05564811b7eceaae3427dff61f52f706f7de396",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/cart_homd_composition_replay.py": "a1992a50e30646becb5217f6dfce3bdd31a002489ec9c52e898587c9fcdd05f2",
+    "audits/strict-default-action-boundary/cart_homd_composition.lpfragment": "1fbab11bd612138716ffd1db819e76385fdbb6b21fb7a433e40e39a0ff0be089",
+    "audits/strict-default-action-boundary/cart_homd_composition_controls.lpfragment": "4e9c72ef32a23f3e42334b165f1a72f788a070ce08080b95f3ea94a490205b9c",
+    "audits/strict-default-action-boundary/cart_homd_composition_functor.lpfragment": "965832a9479f4b8b4dedec4ad03f7fbc2aa2710cc472af1ec125195c3b7d4705"
+  },
+  "outputSha256": "9cb3ca9e58c0b57cb5b4e5bda21b7739af0d1f4510aa4cef720f91d9ea28bc6d",
+  "baseline": {
+    "path": "logs/check-runs/20261014T201054Z-377d3d95c1da47d791f48fe45783d16c.json",
+    "sha256": "19e7107d1e8834776394260330be8bf59728f847e6f7f93c471c935819c6e1db",
+    "logSha256": "a157cc0d022bba17e31bcc5c47f4f49f5113834a389a265b4a3d72e6aafc19d7",
+    "outcome": "passed-fresh",
+    "wallSeconds": 2.545303207007237,
+    "childrenMaxRssKiB": 220372,
+    "inputSnapshot": "2eb1b4dbd30aefd87227de01fc31b2a2901a3ce270f9a95654a504e3c58842f9",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "candidate": {
+    "path": "logs/check-runs/20261015T070112Z-cbb9afe835b14daea2919add2947636c.json",
+    "sha256": "dc9cb7bda29e0d4b753befd3b552fb8c89560f1e81d49741bc003bffc5b6726a",
+    "logSha256": "a7eb68a552697879af9e7020bf903abb8ead0aa97d3a5ee1d03fbd6a873c58c0",
+    "outcome": "passed-fresh",
+    "wallSeconds": 9.199799481080845,
+    "childrenMaxRssKiB": 250776,
+    "inputSnapshot": "cb841d0e511b1a330f11f8ea7714f7744ac995cf340d5b387d634c706e2dec9e",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "warnings": {
+    "criticalPairsBefore": 1174,
+    "criticalPairsAfter": 1269,
+    "replaceablePatternBefore": 66,
+    "replaceablePatternAfter": 66,
+    "addedDiagnostics": 105,
+    "removedDiagnostics": 10,
+    "addedBodyHashesByGroup": {
+      "strict_functor_preservation": [
+        "6f15962303de8393bbd7b82b7899113f502d883747bd8e05a55bb226bfffcf5c",
+        "9def7c17d9c91e723249b390f08a379550373f83c56ce34d11a82ca93c6d7134",
+        "00bb569499f1d4a65628a70f055847a453eb52f6b66ecc45619fd1f600662de0",
+        "72fd372cd446b12dcb6e6447e892a66996c112013aeccb55f1cba9f1c82f249e",
+        "76acb86172b0249dbc10d06836ddc6db1f3df483a1cbda7e4e3327d33c42c1d5",
+        "91803f6d8da7804b0cea250cd404c13f278012c2dfc53f21ba5a2aef23442431",
+        "77edb24789613d6ebe888e800f5ffab2774b337638ca703749f66571dba3cb58",
+        "fb567bd37e134da9965da0bf55c9ee337194ad35f4e7a05b1f441d338c95630e",
+        "f2af6da2c68864e790227333727f9e696c48ebc6c9ef6c1aeba1755da2a321c2",
+        "2c33ad0bbd80010b96d8be9215b5e85d2311e9f6e662ee99d2d3eaf51b0ae429",
+        "280d8269d9feca6eed1a5eaa0ef64e1eb9b3e3d2c72d66751c169928ced71ac5",
+        "b4959264a266e4d7bafb6c4d71ea9e3f7727e06ebcc44c8bdf6850672da6a28a",
+        "55f8c851d6fc1c33b1b7de8683d8ad5ce5ff8f28d8afc87d3a02c58f447b2bf9",
+        "66d4a7d72e3712fe9ce999cd3dbd6065b88c652e1a04cb1aac634005ac918858",
+        "feff9ba307f7efff50b74248c8c4613ff9aa0b9b06c736a997a7a840d6e35158",
+        "d91250a85dbc076a35b025b53cdb66acea625380200a182d95538010fe434b1d",
+        "69c5600d9ca6d4c722e8e795cfec7089538a3a3004bc5abe98ddc6a123d703c9",
+        "3fa3743316ae106e43e9030c02c11558ad2d707b96152d667cabc8c70b817c33",
+        "73ed1d650317ed80da084a3b3196eef10f75758ecda3f313823b8a5c8061175f",
+        "05ccb07502936fede6910dadbafd7903e8039ba9d93d6939a161dc530185ac14",
+        "38ab29e217be0aa9d2266ac4f8dfc3d9c477c751bb189f20b63762f899420fbf",
+        "33463b60b0a695c8e0641944b58b89af25daa6fdc1e6cc9e7fc66b3100bfbac2",
+        "9f84df84e7aee7faa8683fe5fccadd44aa2c1926fdd24709f56013dc5a4a8445",
+        "710f64faa87f5193ee75c48803fbaf1364ba7f2ba68380e0db50a1a2762b2a63",
+        "80b007f47fdbed411581e8d8fc139a2dde69c4765e1acaf555431c0f843dd320",
+        "f5281841d15d8521ab6c83cb58b657ffd079923a47b3fbd5345ef0e59a61179a",
+        "362c0bf6b42a396bda3dc57707ab876a4d86b6a4bb6f6d78df9473574fe680aa",
+        "aac5752d60fb78b1f4b7fe6af02b61e2ea19fe115512581b5cdd4ee01fcca268",
+        "cee9802085de256bca3213a2a586133f1de603b3712cd3dbc95b2b71539f5df9",
+        "fb1800349fc87cc92289734c33584c1416d1f66059d87a64d1987470eb87a836",
+        "bf606fb98d274e8c3c4c7414e1b3e8e359c978763a94a33bc762d9c86c4a593c",
+        "418406c061857afaa7d593cc663c9e754a867a4f78670775b4b8ca49f5b6bef7",
+        "5490041219a94d4b64215c101e4d128b7b44252af71997218ea231a49de3c2fb",
+        "81698df372532ffcf657ef258b918d59607ec5bb213b0719f8d28153cf6bf00a",
+        "b39547a88d9afceaeae9fec1d955e21dd0f9dfa5cb5bfd38816ee68d879be1c5",
+        "bc1ec792581f50be3204920f2fe0fe6276d6dcd053c37015e5decff10c1b62d8",
+        "5d5a986ad1ca41b3137e911cffb93ff88965726f9021c7d6b5bfb72f20ace458",
+        "66c05f37c0f78dc691e3a78e56c2b9bb56a64bf7aa41fd0446c1ee177c8b3807",
+        "1bde43c0e44aaa2f529abdfebe64e7e1efcd8a5119a758a270f7d79a148b141d",
+        "9fc09cc6f580a1055e9d5e63b9cc48accac8a39a67dc33eb6b76cae363cc46bc",
+        "1a776c0c22825f2d65a0efd50a68adfa38902559ee761c88f3d87d39331a4da9",
+        "f3f13a7ca5b433d7d6426f268cf4aaf0519418c6e30073cb0e67dcb1f403f991",
+        "fff148a51bcd982f9d687bde48bcf2d27e84d2ed6356d529519c445c0a710812",
+        "14f8c6683f9d5b9f7ae67bdea56ef88ba05e1c7d3645a83ce77f7f257b4fe990",
+        "e7aeddae5dfa3cb6987881c1d80571af88edf359e1bcc2471d2162fcdbce2ecd",
+        "d4e95b2c7ea7883b448834bc1467e0ee69c23c1d49d006862b56aae579ae9671",
+        "958877afb98d93ffe842670ae3a934a1f5c26e16e3ac98bf85713287c34879d2",
+        "c81d0ab7497889117086e069d389fc4731ae4699da8ff855b7088ceeafae7584",
+        "89cd02fd16c37acbd64ad403865a97568914da33cc42e0d885f9dd79c37db98d",
+        "b48d3242aa8cb268cecde50049afb9bce3f7d5902ed7242e69b51666a1a96bcf",
+        "b2f6d8ba1e85e5eacc92a278f82537efabff7a2de7a07628951a03ca1b2ea319",
+        "600138a3400e748105170d0819df2270ca1613f7fa37014c9987d965db2f4612",
+        "12abd064e0819e008d632ba2a436a5f49a824e4cd9b35f33663572aa049aed02",
+        "9f9eede7b71736b58701c0c5b3b478901ea3144e08ce52fcec00798a14418ea9",
+        "fe3214aacf08b5667d7ace3cc7baa3a6bca443761b4b0b79c15bc6ead94379cd",
+        "c2fcdba64ae5325c59cb230ff7494acb776109c384b6b098db3081516e43adf3",
+        "7e3a88f3c5da808c2356c32903b85ca7e003975d7ca7c4779bdba04cfa2e6765",
+        "1e882366f5a651e2307571fa14bbb8d5a6be007514b8a03690b27df2de40b265",
+        "eadcd07c3269d41c01f853848537f1b7a0a8c8ddd60b855e7cf91512be4887ad",
+        "f3a08bb9ce25777bf0b0859cc07d7bbc71c1167db9ee149b9cf6f767065242b2",
+        "70aa78c33900b9fdac8b2d01f92793cc34595ede5cb44ea02985d949fd043a3d",
+        "0f5422cee4e551fc3459ed9f7b558e7c107d7a575edeb8f3505841a27f219b29",
+        "052dcb117e1e2e0ecc976e7a4ba49bd6f6814a5d6978f2f45abcdf9076e62d47",
+        "67de9ac141eb5e45d31ec9c55785614457ad7582f62d43d773609c85f4c26745",
+        "55240b4fe42b8ec7ba98b4022525787419b1940d380ed5e12803d56cb51ad601",
+        "19ddd6b4995a58b9d8fb0136c8a601362f4de855f9519e128bc59beaf757b814",
+        "e05e34f59968f27fd4dfb5c64e30e39ab2b745ea316cbec2c11e02ea4ec5d01e",
+        "f115d42411ded7cd9298b9c2f80cba90cedc5122ca04cf7332913ded1bb7cd3e"
+      ],
+      "projected_Q_units": [
+        "9d3494db302cf000121a4b03130721d16763a373fa5eed8582a7b14e57166638",
+        "866daa115b23c1a71a1d0efedd2f959478007ffb8756c27490b1d73e5e8e8cf5",
+        "883b7a9158f3ade901b7e7edbe6f160adf99ea96c488bfd70187851e20f03536",
+        "ba26ad01e99d554e2856a7267c000dca5cac90a38619897c34b6a392e7778337",
+        "2325a481497a54690e0414234914852aa4561c1f43b1cdd7189b4e0175e6fef3",
+        "8c0f34e1c43c609a9949aa5dd06b8820f822f3ce9933477263352bf132c85db1",
+        "2745d58266eeea5557d32e501a3a2f2d6f8da3b6acd16530d61890df30e48f85",
+        "b5120f8d882d7a528d0fb5daf43bb5182ca376e2e38fff6506cfe4e1342a0243",
+        "e023d34235ccd9025d719d5eec980c5c698f1fa9978303c70e71d787278456a0",
+        "4a75ca8b7dbc9c1354911a446d687baeeadb312ff2f468f0b33561d80b153787",
+        "5d3ebe4f606afd3593521b72baa63ab0427c37d792cda291edef2e2bcfc582be"
+      ],
+      "intrinsic_projection_units": [
+        "803c1bcc5c4e0d47929e731510e88cea7c141c9039eb69d7d6b06841a86976ea",
+        "7eca5743153449801391b6889d30ab8b83779f57a6e1f4707610028d769dcc98",
+        "1fd333a3970b131a25ebbadf80d38244929c4565d4eefe433b12348431494464",
+        "1e6e186d6ec097ef13ee48dc57e6523a525c20934cc670fe9ab9d158431b9057",
+        "af1ac81c1b4c9bdcce4632d10f072ac656814ca906aee7654def80d3d63c332c",
+        "2ad37f2341d96ec6fa5a05d3cd457376ca8375db31e65dd16aa201e18d986ee7",
+        "72254bd652322a36fda706af130d4b6b76dbe9178dc54e287a70254abd42aca5",
+        "99781726c1f491e20ce3cce26834c4c6c3946c15594f218ee7aa7d9cbf8403bc",
+        "c4e2530cf8b65a4eacc933c14153d3575cc0105b92f32d6cdd6f18a2c87289e3",
+        "846a7da694e954d1475ec13a3a05d13f4a863f4348d7dafa434d4cc0d6919f29",
+        "76bc9c9006113811cf72b2ebe0f388516b9723b9f775c7ff1d133e941a420ae4",
+        "feea9431bd375b6784fae9fb85e676f4d140969fc6b59148b7ceac8919a5a507",
+        "b6511fc3be6a0ab1d2116cd82a8d9e200de50058ad73315516322e1bb26ef7d9",
+        "bb58d35d05b8e9a14c942a027cdd6aee9023f50a14ae4b84b437472b581e3feb",
+        "bba35e9b6d84b9c4a42202f412757d4489a73cb33f2c252ca461ddc3597a1f9d",
+        "7ae1b5ca45b6dc1cadaa9e974a3d93508be8de918ac2424edb581e2100a1a31e",
+        "c01ea95bdbcfe67c357da2a025b584c062e46039190b285c628adc57c2634f64",
+        "23c01f3283822b4dfafea15f0346dc1841788075caea4527a480c6e0b106febe",
+        "50ec710b1ffdd29369c57f3de90c7cb9df8497f338dc758aa2422d7df7c06e9d",
+        "ffc50a6f2c4f289a0c306f373d462fc5e32d78d5a7d30ca14288167dc4b3d6c8"
+      ],
+      "higher_generator_beta": [
+        "0621bcd9cf981fe7a0b795f7cbbb37f3d726ed46a34942e3eb1a65176471ce93",
+        "d889f1123ea53892fe317c1fe861d2f707806fc62a815a5051023a28398cdc82",
+        "4a9979b6a87e4b2081deee0d520e3e0ffa8e194e987e728f18c423302bed80fd",
+        "1c5a2d926170243a9d7bed4d7702b7d8cce117ef1e8a4e01a498f6cad068297a",
+        "8d462db49c74d211cd7d67e4799f8b56783664e60ca4724a2ad039856bb6c8c5",
+        "9029940207c4bb2c5ebe09bb505960e0ac4af06f3f1e996bdf8132ebb6d9a652"
+      ]
+    },
+    "replacedDiagnosticBodies": [
+      {
+        "before": "889ffafe6b9899d8ea22ecb9f428fe5c60a927a634700708fd51d252625a35a1",
+        "after": "bf606fb98d274e8c3c4c7414e1b3e8e359c978763a94a33bc762d9c86c4a593c",
+        "count": 1
+      },
+      {
+        "before": "b92074ac4bdb1215f71e6827b21eca3904d4dcf8fc33eed631369424e0cb8bca",
+        "after": "418406c061857afaa7d593cc663c9e754a867a4f78670775b4b8ca49f5b6bef7",
+        "count": 1
+      },
+      {
+        "before": "c6de41c3c97cb13462b85de6655b7aeb0b0dc1a31634fab5fa54384bae921846",
+        "after": "5490041219a94d4b64215c101e4d128b7b44252af71997218ea231a49de3c2fb",
+        "count": 1
+      },
+      {
+        "before": "00de06ebaa8c7b46098e920127681203456dc07c7927c97a492bd5227814e2d4",
+        "after": "81698df372532ffcf657ef258b918d59607ec5bb213b0719f8d28153cf6bf00a",
+        "count": 1
+      },
+      {
+        "before": "cab65eb2aee6b62c4ccefabf0d7bc51c79dc53d6cc5cf163327cbdfab942e0ea",
+        "after": "b39547a88d9afceaeae9fec1d955e21dd0f9dfa5cb5bfd38816ee68d879be1c5",
+        "count": 1
+      },
+      {
+        "before": "ceee86ad40b3fa05d97066ec221f4d5d37dff2dacfad61264814cd6482edfdad",
+        "after": "bc1ec792581f50be3204920f2fe0fe6276d6dcd053c37015e5decff10c1b62d8",
+        "count": 1
+      },
+      {
+        "before": "f88cdfb6dd2b3ee2efe31ecacbda6817757d5f824033c55b4c94673b002da7d0",
+        "after": "5d5a986ad1ca41b3137e911cffb93ff88965726f9021c7d6b5bfb72f20ace458",
+        "count": 1
+      },
+      {
+        "before": "03aa0828577160955c32cc63489b8f1b321f9fa168281b239e1c12be3d634024",
+        "after": "66c05f37c0f78dc691e3a78e56c2b9bb56a64bf7aa41fd0446c1ee177c8b3807",
+        "count": 1
+      },
+      {
+        "before": "dc44b46690cee097eb3d6ef3fe0facbeb164a8fa9f1c2b4ad85f761b0ab391a2",
+        "after": "9fc09cc6f580a1055e9d5e63b9cc48accac8a39a67dc33eb6b76cae363cc46bc",
+        "count": 1
+      },
+      {
+        "before": "72bb9ef86ace2176eb93bf8b585d57e037325272fa642212d823296e3e47e5f0",
+        "after": "1a776c0c22825f2d65a0efd50a68adfa38902559ee761c88f3d87d39331a4da9",
+        "count": 1
+      }
+    ],
+    "qualification": "All changed overlap families are inventoried. Typed whole/capped beta, first-Hom action in both observation orders, identity specialization, strict proof-time naturality, and strict-functor identity/constant/composite consumers pass. The ten removed bodies are changed diagnostics at identical overlap terms, not ten resolved critical pairs. Global confluence is not established."
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 24,
+    "intentionalClauses": 17
+  },
+  "development": {
+    "endpointSpecificIngressFailsHomdSpecialization": "20261014T202132Z-96e17aaf03674a8f939cd9dc992be326",
+    "combinedProjectionNotYetTyped": "20261014T202806Z-093d15074e2a46b9953c66887e2d1478",
+    "stableProjectionLadderFirstPassed": "20261014T203004Z-32bae92306b74b7eb8bc93037da7fa45",
+    "homdBetaNeedsStrictRepresentedComposition": "20261014T203444Z-9db1680b79354252848471c5a2d1232d",
+    "cappedHigherBetaBeforeBridge": "20261015T065554Z-b6ac415ee68745d196b37740e38b608a",
+    "prePauseGreen": "20261014T203708Z-b56107391b254365bc3f034c81ac8497",
+    "resumeBaseline": "20261015T065438Z-4521340b867c43b69235d4cb8407d4fa"
+  },
+  "qualification": [
+    "The existing intrinsic action projects through stable native whole/x/u/y/v/f owners; no combined-base or supplied comparison replaces it.",
+    "The canonical mate comparison and its d/e-prime components are stable projections of the actual ordinary extraction.",
+    "Represented-cospan introduction and its beta are new structural computation laws for the selected Q/mate construction, not derived coend universality.",
+    "The literal Homd comparison on a generator computes E[q][a] composed with E[beta][u].",
+    "Whole and capped first-Hom beta retain the actual higher generator input; the new data/projection symbols are not declared injective.",
+    "The strict-functor preservation rule lives at the stable ordinary Hom-postcomposition owner; default lax transformation boundaries remain distinct.",
+    "Balancing, unit/composition and full parameter coherence, Sigma-Hom, and public/downstream migration remain required."
+  ]
+}

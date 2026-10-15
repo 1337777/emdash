@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default with shared Cartesian families; direct root/relative ladders compute and whole y-comparison is extracted; represented-source beta, higher coherence, Sigma-Hom and production migration remain open
+Status: strict-functor/lax-transfor default with shared Cartesian families; direct root/relative ladders and extracted y-comparison generator beta check through first higher action; balancing, full coherence, Sigma-Hom and production migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,37 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Latest represented-composition continuation, 2026-10-15: the
+[generator beta](../emdash2/audits/strict-default-action-boundary/cart_homd_composition_review.md)
+now connects the actual extracted Homd comparison to the whole map
+`(beta:k=>qf,a) |-> E[q][a] o E[beta][u]`. The represented-cospan introduction
+and beta are structural laws for this Q/mate construction, not a derivation
+of general coend universality. Whole/capped beta and first-Hom action in
+both observation orders check. New data/projection symbols are not
+declared injective.
+
+The computational issue was resolved by stable native projection rungs at
+x/u/y/v/f, each reached from its typed parent. A combined scalar projection
+with result-endpoint guards failed under canonical specialization and was
+retired. The comparison still comes from tdapp1/fdapp1; no supplied cell,
+proof payload or combined section base is introduced. Strict-functor
+preservation of the stable postcomposition head is installed at its owning
+position; identity/constant/composite consumers check. The strict U endpoint
+comparison uses typed reflexivity; default-lax FF boundaries remain distinct.
+
+Receipt `20261015T070112Z-cbb9afe835b14daea2919add2947636c` passes with SR in
+9.200s/250,776KiB under unchanged default limits. Critical-pair diagnostics
+1174->1269 are inventoried: 105 added bodies include ten changed replacements
+of prior diagnostics. Replaceable-variable warnings remain 66; the LHS audit
+has zero unreviewed slots. This does not establish global confluence.
+
+Next qualify represented-middle balancing and consumed unit/composition/
+parameter coherence, then Sigma-Hom and public/downstream migration. The
+generation beta does not establish exhaustiveness of an opaque composite or
+complete Q coherence. General profunctor/coend development remains outside
+the prerequisite scope. Production sources and the paused application goal
+were not changed by this slice.
 
 Latest ordinary-action continuation, 2026-10-14: the
 [ordinary internalization and y-comparison](../emdash2/audits/strict-default-action-boundary/cart_homd_ordinary_review.md)

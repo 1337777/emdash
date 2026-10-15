@@ -1,0 +1,133 @@
+// The ordinary comparison is still obtained by the complete intrinsic
+// extraction. Its stable owner is a projection, not another cell argument.
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (@Transf A B F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @sf_cart_tapp1_laxity A B F G epsilon x y p
+  ≡ @sf_cart_tapp1_laxity_proj A B F G epsilon x y p;
+
+// The same extraction joins for the actual nonidentity mate constructor.
+assert [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  @sf_cart_tapp1_laxity K sf_cq_cat (@sf_cq_diagram K D) (@sf_cq_diagram K E)
+    (@sf_cq_mate K E D U) y z q
+  ≡ @sf_cart_tapp1_laxity_proj K sf_cq_cat (@sf_cq_diagram K D) (@sf_cq_diagram K E)
+      (@sf_cq_mate K E D U) y z q;
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  @sf_cq_homd_y_comparison K E x u y z q
+  ≡ @sf_cart_tapp1_laxity_proj K sf_cq_cat (@sf_cq_diagram K E)
+      (@sf_cq_diagram K (@sf_cart_hom K x)) (@sf_cq_homd_src_sec K E x u) y z q;
+
+assert [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  @sf_cart_tapp1_laxity K sf_cq_cat (@sf_cq_diagram K D) (@sf_cq_diagram K E)
+    (@sf_cq_mate K E D U) y z q
+  ≡ @sf_cq_mate_comparison_proj K E D U y z q;
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) [y z : τ (Obj K)] (q : τ (Hom K y z)) ⊢
+  @sf_cq_homd_y_comparison K E x u y z q
+  ≡ @sf_cq_mate_comparison_proj K (@sf_cart_hom K x) E (@sf_cart_cov K E x u) y z q;
+
+// The actual whole map, before any generator is evaluated.
+assert [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (d : τ (Obj (fapp0 D y))) (e : τ (Obj (fapp0 E y))) (e' : τ (Obj (fapp0 E z))) ⊢
+  @comp_cat_fapp0 _ _ _ (@sf_cq_mate_comparison_at K E D U y z q d e')
+    (@sf_cq_mate_span_intro K E D U y z q d e e')
+  ≡ @sf_cq_mate_generator_map K E D U y z q d e e';
+
+// This applies the Homd comparison itself to the represented generator.
+// The expected image is ordinary composition of the two actual functor actions.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (v : τ (Obj (fapp0 E y))) (f : τ (Hom K x y)) (k : τ (Hom K x z))
+  (beta : τ (Hom (Hom_cat K x z) k (@hom_postcomp_fapp0 K K (@id_func K) x y z q f)))
+  (a : τ (Hom (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u) v)) ⊢
+  fapp0 (@sf_cq_homd_y_comparison_vk K E x u y z q v k)
+    (fapp0 (@sf_cq_mate_span_intro K (@sf_cart_hom K x) E (@sf_cart_cov K E x u)
+      y z q v f k) (Struct_sigma beta a))
+  ≡ @comp_fapp0 (fapp0 E z)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E x z k) u)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u))
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v)
+      (@fapp1_fapp0 (fapp0 E y) (fapp0 E z) (@fapp1_fapp0 K sf_cart_cat E y z q)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y f) u) v a)
+      (@fapp1_fapp0 (Hom_cat K x z) (fapp0 E z) (@sf_cart_transport K E x z u)
+        k (@hom_postcomp_fapp0 K K (@id_func K) x y z q f) beta);
+
+// The whole beta remains available when first Hom is requested before
+// selecting a generator object. This retains arbitrary directed higher data.
+assert [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (d : τ (Obj (fapp0 D y))) (e : τ (Obj (fapp0 E y))) (e' : τ (Obj (fapp0 E z)))
+  (s t : τ (Obj (Product_cat
+    (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+    (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d)))) ⊢
+  @fapp1_func _ _
+    (@comp_cat_fapp0 _ _ _ (@sf_cq_mate_comparison_at K E D U y z q d e')
+      (@sf_cq_mate_span_intro K E D U y z q d e e')) s t
+  ≡ @fapp1_func _ _ (@sf_cq_mate_generator_map K E D U y z q d e e') s t;
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (y : τ (Obj K)) (v : τ (Obj (fapp0 E y))) ⊢
+  @sf_cq_tdapp1_v_proj K E E (@id (Functor_cat K sf_cart_cat) E)
+    (@id (Functor_cat K sf_cart_cat) E) (@id (@Transf_cat K sf_cart_cat E E)
+      (@id (Functor_cat K sf_cart_cat) E)) x u y v
+  ≡ @id (sf_cart_functor_cat (Op_cat (Hom_cat K x y)) sf_cart_cat) (@sf_cq_homd_ K E x u y v);
+
+// Higher action with the generator mapped first, rather than reducing the
+// whole composite first. The input higher cell remains an actual parameter.
+assert [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (d : τ (Obj (fapp0 D y))) (e : τ (Obj (fapp0 E y))) (e' : τ (Obj (fapp0 E z)))
+  [s t : τ (Obj (Product_cat
+    (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+    (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d)))]
+  (alpha : τ (Hom (Product_cat
+    (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+    (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d)) s t)) ⊢
+  @fapp1_fapp0 _ _ (@sf_cq_mate_comparison_at K E D U y z q d e')
+    (fapp0 (@sf_cq_mate_span_intro K E D U y z q d e e') s)
+    (fapp0 (@sf_cq_mate_span_intro K E D U y z q d e e') t)
+    (@fapp1_fapp0 _ _ (@sf_cq_mate_span_intro K E D U y z q d e e') s t alpha)
+  ≡ @fapp1_fapp0 _ _ (@sf_cq_mate_generator_map K E D U y z q d e e') s t alpha;
+
+// Typed proof-time strict naturality used by the generator's composite.
+// The original default-lax FF noncollapse control remains in the donor.
+assert [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z)) (e : τ (Obj (fapp0 E y))) ⊢
+  @eq_refl (Obj (fapp0 D z))
+    (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+  : τ (@= (Obj (fapp0 D z))
+      (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q)
+        (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e)));
+
+// Constructor interactions of strict preservation at the represented head.
+assert [A : Cat] [x y z : τ (Obj A)] (p : τ (Hom A x y)) (q : τ (Hom A y z)) ⊢
+  @fapp1_fapp0 A A (@id_func A) x z (@hom_postcomp_fapp0 A A (@id_func A) x y z q p)
+  ≡ @hom_postcomp_fapp0 A A (@id_func A) x y z q p;
+
+assert [A B : Cat] (b : τ (Obj B)) [x y z : τ (Obj A)]
+  (p : τ (Hom A x y)) (q : τ (Hom A y z)) ⊢
+  @fapp1_fapp0 A B (@Const_func A B b) x z (@hom_postcomp_fapp0 A A (@id_func A) x y z q p)
+  ≡ @id B b;
+
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C))
+  [x y z : τ (Obj A)] (p : τ (Hom A x y)) (q : τ (Hom A y z)) ⊢
+  @fapp1_fapp0 A C (@comp_cat_fapp0 A B C G F) x z
+    (@hom_postcomp_fapp0 A A (@id_func A) x y z q p)
+  ≡ @hom_postcomp_fapp0 C C (@id_func C) (fapp0 G (fapp0 F x))
+      (fapp0 G (fapp0 F y)) (fapp0 G (fapp0 F z))
+      (@fapp1_fapp0 B C G (fapp0 F y) (fapp0 F z) (@fapp1_fapp0 A B F y z q))
+      (@fapp1_fapp0 B C G (fapp0 F x) (fapp0 F y) (@fapp1_fapp0 A B F x y p));

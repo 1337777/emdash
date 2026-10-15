@@ -1,0 +1,8 @@
+// NON-LIBRARY strict-default law at the stable identity-Hom composition
+// owner. F preserves that composition without erasing the represented
+// postcomposition head. This requires the selected strict Functor default.
+rule @fapp1_fapp0 $A $B $F $x $z
+      (@hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $x $y $z $q $p)
+  ↪ @hom_postcomp_fapp0 $B $B (@id_func $B)
+      (@fapp0 $A $B $F $x) (@fapp0 $A $B $F $y) (@fapp0 $A $B $F $z)
+      (@fapp1_fapp0 $A $B $F $y $z $q) (@fapp1_fapp0 $A $B $F $x $y $p);

@@ -1,0 +1,310 @@
+// NON-LIBRARY: stable whole projection of the intrinsic Hom-action.
+// The argument theta belongs to Hom(FF,GG); it is not a supplied laxity
+// cell. The projection ingress below is the actual action of tdapp1.
+// Q's unit has already projected to the Cartesian Hom representation.
+// lhs-audit: keep 1,2,3 -- identity-family Q precomposition at the projected unit.
+rule @hom_precomp_along_func sf_cq_cat sf_cq_cat (@id Cat_cat sf_cq_cat)
+      $Z $X $X (sf_cart_hom_int (Op_cat $X))
+  ↪ @id_func (Hom_cat sf_cq_cat $X $Z);
+// lhs-audit: keep 1,2,3 -- capped-first counterpart of the same unit cut.
+rule @hom_precomp_along_fapp0 sf_cq_cat sf_cq_cat (@id Cat_cat sf_cq_cat)
+      _ $X $X (sf_cart_hom_int (Op_cat $X)) $g ↪ $g;
+
+symbol sf_cq_tdapp1_hom_proj [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  [FF GG : τ (@Transf K sf_cart_cat E D)]
+  (theta : τ (Hom (@Transf_cat K sf_cart_cat E D) FF GG))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  (y : τ (Obj K)) (v : τ (Obj (fapp0 E y))) (p : τ (Hom K x y))
+  : τ (Functor
+      (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+      (Hom_cat (fapp0 D y)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D x y p) (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+        (fapp0 (@tapp0_fapp0 K sf_cart_cat E D y GG) v)));
+
+// Each projection has its own stable native owner. The first retains the
+// actual root boundary; later rungs read that typed parent, without matching
+// expanded result endpoints or a combined context.
+symbol sf_cq_tdapp1_at_proj [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  [FF GG : τ (@Transf K sf_cart_cat E D)]
+  (theta : τ (Hom (@Transf_cat K sf_cart_cat E D) FF GG)) (x : τ (Obj K))
+  : τ (Hom (Hom_cat sf_cart_cat (fapp0 E x) (fapp0 (@sf_cq_homd_target K E) x))
+      (@tapp0_fapp0 K sf_cart_cat E (@sf_cq_homd_target K E) x (@sf_cq_action_boundary K E D FF GG))
+      (@tapp0_fapp0 K sf_cart_cat E (@sf_cq_homd_target K E) x (@sf_cq_homd_id_view K E)));
+rule @tapp0_hom_fapp0 $K sf_cart_cat _ _ _ _ $x
+      (fapp0 (@sf_cq_tdapp1_int_func $K $E $D $FF $GG) $theta)
+  ↪ @sf_cq_tdapp1_at_proj $K $E $D $FF $GG $theta $x;
+
+symbol sf_cq_tdapp1_section_proj [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  [FF GG : τ (@Transf K sf_cart_cat E D)]
+  (theta : τ (Hom (@Transf_cat K sf_cart_cat E D) FF GG))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  : τ (Hom (@sf_cq_homd_section_cat K E x) (@sf_cq_homd_src_sec K E x u)
+      (@sf_cq_homd_rel_section K E D GG x (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u)));
+rule @tapp0_fapp0 _ _ _ _ $u
+      (@strict_transfor _ _ _ _ (@sf_cq_tdapp1_at_proj $K $E $D $FF $GG $theta $x))
+  ↪ @sf_cq_tdapp1_section_proj $K $E $D $FF $GG $theta $x $u;
+
+symbol sf_cq_tdapp1_y_proj [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  [FF GG : τ (@Transf K sf_cart_cat E D)]
+  (theta : τ (Hom (@Transf_cat K sf_cart_cat E D) FF GG))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x))) (y : τ (Obj K))
+  : τ (Hom (Hom_cat sf_cq_cat (fapp0 E y) (Hom_cat K x y))
+      (@sf_cq_homd_tgt K E x u y)
+      (@tapp0_fapp0 K sf_cq_cat (@sf_cq_diagram K E) (@sf_cq_diagram K (@sf_cart_hom K x)) y
+        (@sf_cq_homd_rel_section K E D GG x (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))));
+rule @tapp0_hom_fapp0 $K sf_cq_cat _ _ _ _ $y
+      (@sf_cq_tdapp1_section_proj $K $E $D $FF $GG $theta $x $u)
+  ↪ @sf_cq_tdapp1_y_proj $K $E $D $FF $GG $theta $x $u $y;
+
+symbol sf_cq_tdapp1_v_proj [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  [FF GG : τ (@Transf K sf_cart_cat E D)]
+  (theta : τ (Hom (@Transf_cat K sf_cart_cat E D) FF GG))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  (y : τ (Obj K)) (v : τ (Obj (fapp0 E y)))
+  : τ (Hom (sf_cart_functor_cat (Op_cat (Hom_cat K x y)) sf_cart_cat)
+      (@sf_cq_homd_ K E x u y v)
+      (@sf_cq_homd_ K D x (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u)
+        y (fapp0 (@tapp0_fapp0 K sf_cart_cat E D y GG) v)));
+rule @tapp0_fapp0 _ _ _ _ $v
+      (@strict_transfor _ _ _ _ (@sf_cq_tdapp1_y_proj $K $E $D $FF $GG $theta $x $u $y))
+  ↪ @sf_cq_tdapp1_v_proj $K $E $D $FF $GG $theta $x $u $y $v;
+rule @tapp0_fapp0 _ _ _ _ $p
+      (@strict_transfor _ _ _ _ (@sf_cq_tdapp1_v_proj $K $E $D $FF $GG $theta $x $u $y $v))
+  ↪ @sf_cq_tdapp1_hom_proj $K $E $D $FF $GG $theta $x $u $y $v $p;
+
+// Normality on the identity displayed map, including the projection-first
+// path. The identity modification of general FF retains its laxity.
+rule @sf_cq_tdapp1_hom_proj $K $E $E
+      (@id (Functor_cat $K sf_cart_cat) $E) (@id (Functor_cat $K sf_cart_cat) $E)
+      (@id _ (@id (Functor_cat $K sf_cart_cat) $E)) $x $u $y $v $p
+  ↪ @id_func (Hom_cat (@fapp0 $K sf_cart_cat $E $y)
+      (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $x $y $p) $u) $v);
+
+rule @sf_cq_tdapp1_at_proj $K $E $E
+      (@id (Functor_cat $K sf_cart_cat) $E) (@id (Functor_cat $K sf_cart_cat) $E)
+      (@id _ (@id (Functor_cat $K sf_cart_cat) $E)) $x
+  ↪ @id (Hom_cat sf_cart_cat (@fapp0 $K sf_cart_cat $E $x)
+        (@fapp0 $K sf_cart_cat (@sf_cq_homd_target $K $E) $x))
+      (@tapp0_fapp0 $K sf_cart_cat $E (@sf_cq_homd_target $K $E) $x (@sf_cq_homd_id_view $K $E));
+rule @sf_cq_tdapp1_section_proj $K $E $E
+      (@id (Functor_cat $K sf_cart_cat) $E) (@id (Functor_cat $K sf_cart_cat) $E)
+      (@id _ (@id (Functor_cat $K sf_cart_cat) $E)) $x $u
+  ↪ @id (@sf_cq_homd_section_cat $K $E $x) (@sf_cq_homd_src_sec $K $E $x $u);
+rule @sf_cq_tdapp1_y_proj $K $E $E
+      (@id (Functor_cat $K sf_cart_cat) $E) (@id (Functor_cat $K sf_cart_cat) $E)
+      (@id _ (@id (Functor_cat $K sf_cart_cat) $E)) $x $u $y
+  ↪ @id (Hom_cat sf_cq_cat (@fapp0 $K sf_cart_cat $E $y) (Hom_cat $K $x $y))
+      (@sf_cq_homd_tgt $K $E $x $u $y);
+rule @sf_cq_tdapp1_v_proj $K $E $E
+      (@id (Functor_cat $K sf_cart_cat) $E) (@id (Functor_cat $K sf_cart_cat) $E)
+      (@id _ (@id (Functor_cat $K sf_cart_cat) $E)) $x $u $y $v
+  ↪ @id (sf_cart_functor_cat (Op_cat (Hom_cat $K $x $y)) sf_cart_cat)
+      (@sf_cq_homd_ $K $E $x $u $y $v);
+
+// Readable ordinary specialization remains a definition through the actual
+// whole Hom-action projection. No independently declared comparison exists.
+symbol sf_cart_tapp1_laxity_proj [A B : Cat]
+  [F G : τ (Functor A B)] (epsilon : τ (@Transf A B F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (Hom (Hom_cat B (fapp0 F x) (fapp0 G y))
+      (@hom_postcomp_fapp0 B B (@id_func B) (fapp0 F x) (fapp0 G x) (fapp0 G y)
+        (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon))
+      (@hom_postcomp_fapp0 B B (@id_func B) (fapp0 F x) (fapp0 F y) (fapp0 G y)
+        (@tapp0_fapp0 A B F G y epsilon) (@fapp1_fapp0 A B F x y p)))
+≔ fapp0 (@sf_cq_tdapp1_hom_proj A (@sf_cart_hom A x)
+    (@sf_cart_hom_along A B G (fapp0 F x))
+    (@sf_cart_tapp1_at A B F G epsilon x) (@sf_cart_tapp1_at A B F G epsilon x)
+    (@id (@Transf_cat A sf_cart_cat (@sf_cart_hom A x)
+      (@sf_cart_hom_along A B G (fapp0 F x))) (@sf_cart_tapp1_at A B F G epsilon x))
+    x (@id A x) y p p) (@id (Hom_cat A x y) p);
+
+// Stable projection of the canonical mate's extracted comparison. All
+// parameters belong to the strict diagram map U and the base arrow q.
+symbol sf_cq_mate_lhs [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  : τ (Hom sf_cq_cat (fapp0 D y) (fapp0 E z))
+≔ @hom_postcomp_fapp0 sf_cq_cat sf_cq_cat (@id_func sf_cq_cat)
+    (fapp0 D y) (fapp0 E y) (fapp0 E z)
+    (@sf_cq_rep (fapp0 E y) (fapp0 E z) (@fapp1_fapp0 K sf_cart_cat E y z q))
+    (@sf_cart_hom_con_int (fapp0 E y) (fapp0 D y)
+      (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U));
+
+symbol sf_cq_mate_rhs [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  : τ (Hom sf_cq_cat (fapp0 D y) (fapp0 E z))
+≔ fapp0 (@sf_cq_mate_action K E D U y z) q;
+
+symbol sf_cq_mate_comparison_proj [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  : τ (Hom (Hom_cat sf_cq_cat (fapp0 D y) (fapp0 E z))
+      (@sf_cq_mate_lhs K E D U y z q) (@sf_cq_mate_rhs K E D U y z q));
+
+// The incoming whole Hom-action retains the actual positive internalization
+// of the mate. The coefficient object b is inferred from that typed input.
+rule @fapp0 _ _
+      (@sf_cq_tdapp1_hom_proj $K (@sf_cart_hom $K $y) _ _ _
+        (@id _ (@comp_fapp0 (Functor_cat $K sf_cart_cat) _ _ _
+          (@hom_postcomp_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+            $K sf_cq_cat sf_cart_cat (@sf_cart_hom sf_cq_cat $b) _ _ (@sf_cq_mate $K $E $D $U))
+          (@strict_transfor _ _ _ _ (@sf_cart_cov $K _ $y (sf_cart_hom_int (Op_cat $b))))))
+        $y (@id $K $y) $z $q $q)
+      (@id (Hom_cat $K $y $z) $q)
+  ↪ @sf_cq_mate_comparison_proj $K $E $D $U $y $z $q;
+
+// Only the represented cospan introduction needed by this diagram mate.
+// Its whole parameter U keeps the square and its generator coherent, rather
+// than supplying an unrelated comparison or changing the section's base.
+symbol sf_cq_mate_span_intro [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (d : τ (Obj (fapp0 D y))) (e : τ (Obj (fapp0 E y))) (e' : τ (Obj (fapp0 E z)))
+  : τ (Functor
+      (Product_cat
+        (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+        (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d))
+      (fapp0 (fapp0 (@sf_cq_mate_lhs K E D U y z q) d) e'));
+
+symbol sf_cq_mate_span_gen [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (d : τ (Obj (fapp0 D y))) (e : τ (Obj (fapp0 E y))) (e' : τ (Obj (fapp0 E z)))
+  (s : τ (Obj (Product_cat
+      (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+      (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d))))
+  : τ (Obj (fapp0 (fapp0 (@sf_cq_mate_lhs K E D U y z q) d) e'));
+rule fapp0 (@sf_cq_mate_span_intro $K $E $D $U $y $z $q $d $e $e') $s
+  ↪ @sf_cq_mate_span_gen $K $E $D $U $y $z $q $d $e $e' $s;
+
+// Proof-time strict naturality after the Cartesian coefficient's functor
+// objects projected to the ordinary action. This keeps the actual strict
+// map as discriminator and introduces no equation on arbitrary FF.
+unif_rule @fapp0 _ _
+      (@tapp0_fapp0 $K sf_cart_cat $E $D $z (@strict_transfor $K sf_cart_cat $E $D $U))
+      (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $y $z $q) $e)
+  ≡ @fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $D $y $z $q)
+      (@fapp0 _ _ (@tapp0_fapp0 $K sf_cart_cat $E $D $y
+        (@strict_transfor $K sf_cart_cat $E $D $U)) $e)
+  ↪ [ tt ≡ tt ];
+
+// The generator's image is an actual composite functor. For a strict
+// diagram square U:E=>D, it maps (beta,r) to D[q][r] o U[z][beta].
+symbol sf_cq_mate_generator_map [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (d : τ (Obj (fapp0 D y))) (e : τ (Obj (fapp0 E y))) (e' : τ (Obj (fapp0 E z)))
+  : τ (Functor
+      (Product_cat
+        (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+        (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d))
+      (Hom_cat (fapp0 D z)
+        (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U) e')
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q) d)))
+≔ @comp_cat_fapp0
+    (Product_cat
+      (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+      (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d))
+    (Product_cat
+      (Hom_cat (fapp0 D z)
+        (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U) e')
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q)
+          (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e)))
+      (Hom_cat (fapp0 D z)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q)
+          (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e))
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q) d)))
+    (Hom_cat (fapp0 D z)
+      (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U) e')
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q) d))
+    (@comp_prod_func (fapp0 D z)
+      (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U) e')
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q)
+        (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e))
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q) d))
+    (Struct_sigma
+      (@comp_cat_fapp0 _ _ _
+        (@fapp1_func (fapp0 E z) (fapp0 D z)
+          (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U)
+          e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+        (@Product_projL_func
+          (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+          (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d)))
+      (@comp_cat_fapp0 _ _ _
+        (@fapp1_func (fapp0 D y) (fapp0 D z) (@fapp1_fapp0 K sf_cart_cat D y z q)
+          (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d)
+        (@Product_projR_func
+          (Hom_cat (fapp0 E z) e' (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) e))
+          (Hom_cat (fapp0 D y) (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D y) U) e) d))));
+
+// Direct d/e' component of the extracted whole mate comparison.
+symbol sf_cq_mate_comparison_at [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (d : τ (Obj (fapp0 D y))) (e' : τ (Obj (fapp0 E z)))
+  : τ (Functor (fapp0 (fapp0 (@sf_cq_mate_lhs K E D U y z q) d) e')
+      (Hom_cat (fapp0 D z)
+        (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U) e')
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q) d)))
+≔ fapp0 (@sf_cart_component_func (Op_cat (fapp0 E z)) sf_cart_cat
+      (fapp0 (@sf_cq_mate_lhs K E D U y z q) d)
+      (fapp0 (@sf_cq_mate_rhs K E D U y z q) d) e')
+    (fapp0 (@sf_cart_component_func (fapp0 D y)
+      (sf_cart_functor_cat (Op_cat (fapp0 E z)) sf_cart_cat)
+      (@sf_cq_mate_lhs K E D U y z q) (@sf_cq_mate_rhs K E D U y z q) d)
+      (@sf_cq_mate_comparison_proj K E D U y z q));
+
+// Stable d/e' projection rungs, retaining the Cartesian classifiers before
+// each component is observed. Their ingress comes from the same extracted
+// whole comparison, rather than declaring an unrelated local map.
+symbol sf_cq_mate_comparison_d_proj [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z)) (d : τ (Obj (fapp0 D y)))
+  : τ (Hom (sf_cart_functor_cat (Op_cat (fapp0 E z)) sf_cart_cat)
+      (fapp0 (@sf_cq_mate_lhs K E D U y z q) d)
+      (fapp0 (@sf_cq_mate_rhs K E D U y z q) d));
+rule @tapp0_fapp0 _ _ _ _ $d
+      (@strict_transfor _ _ _ _ (@sf_cq_mate_comparison_proj $K $E $D $U $y $z $q))
+  ↪ @sf_cq_mate_comparison_d_proj $K $E $D $U $y $z $q $d;
+
+symbol sf_cq_mate_comparison_at_proj [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (U : τ (Hom (sf_cart_functor_cat K sf_cart_cat) E D))
+  [y z : τ (Obj K)] (q : τ (Hom K y z))
+  (d : τ (Obj (fapp0 D y))) (e' : τ (Obj (fapp0 E z)))
+  : τ (Functor (fapp0 (fapp0 (@sf_cq_mate_lhs K E D U y z q) d) e')
+      (Hom_cat (fapp0 D z)
+        (fapp0 (fapp0 (@sf_cart_component_func K sf_cart_cat E D z) U) e')
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D y z q) d)));
+rule @tapp0_fapp0 _ _ _ _ $e'
+      (@strict_transfor _ _ _ _ (@sf_cq_mate_comparison_d_proj $K $E $D $U $y $z $q $d))
+  ↪ @sf_cq_mate_comparison_at_proj $K $E $D $U $y $z $q $d $e';
+
+// Whole introduction beta specifies this canonical represented-mate
+// constructor. It is not a theorem about an arbitrary Q with the same Homs.
+// lhs-audit: keep 1 -- composition of the actual generator functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@sf_cq_mate_comparison_at_proj $K $E $D $U $y $z $q $d $e')
+      (@sf_cq_mate_span_intro $K $E $D $U $y $z $q $d $e $e')
+  ↪ @sf_cq_mate_generator_map $K $E $D $U $y $z $q $d $e $e';
+
+// Capped-first introduction beta, at the same canonical constructor.
+rule @fapp0 _ _
+      (@sf_cq_mate_comparison_at_proj $K $E $D $U $y $z $q $d $e')
+      (@sf_cq_mate_span_gen $K $E $D $U $y $z $q $d $e $e' $s)
+  ↪ fapp0 (@sf_cq_mate_generator_map $K $E $D $U $y $z $q $d $e $e') $s;
+
+// The same whole beta after first-Hom projection. This preserves the
+// higher generator action when generic composition projected first.
+// lhs-audit: keep 1 -- whole first-Hom beta for these actual generator functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_func _ _ (@sf_cq_mate_comparison_at_proj $K $E $D $U $y $z $q $d $e')
+        (@sf_cq_mate_span_gen $K $E $D $U $y $z $q $d $e $e' $s)
+        (@sf_cq_mate_span_gen $K $E $D $U $y $z $q $d $e $e' $t))
+      (@fapp1_func _ _ (@sf_cq_mate_span_intro $K $E $D $U $y $z $q $d $e $e') $s $t)
+  ↪ @fapp1_func _ _ (@sf_cq_mate_generator_map $K $E $D $U $y $z $q $d $e $e') $s $t;
+
+rule @fapp1_fapp0 _ _
+      (@sf_cq_mate_comparison_at_proj $K $E $D $U $y $z $q $d $e') _ _
+      (@fapp1_fapp0 _ _ (@sf_cq_mate_span_intro $K $E $D $U $y $z $q $d $e $e') $s $t $alpha)
+  ↪ @fapp1_fapp0 _ _ (@sf_cq_mate_generator_map $K $E $D $U $y $z $q $d $e $e') $s $t $alpha;
