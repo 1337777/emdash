@@ -40,3 +40,41 @@ symbol Homd_index_sigma_func (I : Cat)
       (@comp_cat_fapp0 (CoAbove2_cat (Homd_index_cat I))
         (Catd_cat (TotalOp_cat I)) Cat_cat
         (@Sigma_func (TotalOp_cat I)) (Homd_index_total_family_func I)));
+
+// Derived return map, consumed by the constant-index constructor below.
+// Its type alone does not assert a general inverse/coherence theorem.
+symbol Homd_index_from_total_family_func (I : Cat)
+  : τ (Functor (Catd_cat (TotalOp_cat I)) (CoAbove2_cat (Homd_index_cat I)))
+≔ @comp_cat_fapp0 (Catd_cat (TotalOp_cat I))
+    (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart))
+    (CoAbove2_cat (Homd_index_cat I))
+    (@TotalOp_func
+      (TotalOp_cat (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
+      (Functor_cat I (Op_cat Cat_cart))
+      (TotalOp_func_func (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
+    (@comp_cat_cov_func (TotalOp_cat I) Cat_cart (CoAbove2_cat Cat_cart)
+      (@CoAbove2_func (CoAbove2_cat Cat_cart) Cat_cart total_op_cart));
+
+
+// Whole constant-index constructor. It packages an actual ordinary functor
+// as an arrow between constant P-objects, using the derived return map.
+symbol Homd_index_const_func (I H : Cat)
+  : τ (Functor (Functor_cat I H)
+      (Hom_cat (Homd_index_cat I)
+        (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) Terminal_cat))
+        (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) H))))
+≔ @TotalOp_func
+    (TotalOp_cat (Functor_cat I H))
+    (TotalOp_cat (Hom_cat (Homd_index_cat I)
+      (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) Terminal_cat))
+      (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) H))))
+    (@comp_cat_fapp0 (TotalOp_cat (Functor_cat I H))
+      (Functor_cat (TotalOp_cat I) (TotalOp_cat H))
+      (TotalOp_cat (Hom_cat (Homd_index_cat I)
+        (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) Terminal_cat))
+        (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) H))))
+      (@fapp1_func (Catd_cat (TotalOp_cat I)) (CoAbove2_cat (Homd_index_cat I))
+        (Homd_index_from_total_family_func I)
+        (@Const_catd (TotalOp_cat I) Terminal_cat)
+        (@Const_catd (TotalOp_cat I) (TotalOp_cat H)))
+      (TotalOp_func_func I H));

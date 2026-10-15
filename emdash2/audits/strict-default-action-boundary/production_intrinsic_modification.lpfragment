@@ -1,0 +1,251 @@
+// 16d. Arbitrary displayed-transfor hom-action projections
+/*
+  Generic displayed internal-hom action projections.
+
+  These are the arbitrary displayed-transfor counterparts of the
+  identity-specialized `fdapp1_int_*` extraction path.
+
+  Mathematical notation:
+    epsilon : FF => GG
+    homd_tdapp1_src_sec(FF,GG,x,u)
+      = homd_int(GG)[x](FF[x](u))
+
+    tdapp1_int_section_arrow(epsilon,x,u)
+      : homd_int(id_E)[x](u)
+          ->^(S_E(x)) homd_int(GG)[x](FF[x](u))
+
+    tdapp1_int_cell(epsilon,p,u)
+      : D[p](FF[x](u)) ->^(D[y]) GG[y](E[p](u)).
+
+  Canonical comment syntax:
+    epsilon[p][u] : D[p](FF[x](u)) ->^(D[y]) GG[y](E[p](u))
+
+  The rules below project this cell through the same stages as
+  `fdapp1_int_*`: section at x,u; target y; fibre object v; base arrow p; then
+  the identity fibre arrow. When epsilon is the displayed identity, these heads
+  fold back to the corresponding `fdapp1_int_*` normal forms.
+*/
+// Source dependent-hom section for an arbitrary displayed transfor.
+//
+// Surface/formula:
+//   homd_tdapp1_src_sec(FF,GG,x,u)
+//     = homd_int(GG)[x](FF[x](u)).
+symbol homd_tdapp1_src_sec [K : Cat] [E D : τ (Catd K)]
+  [FF GG : τ (Functord E D)]
+  (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (@Homd_target_section_cat K E x))
+≔ @homd_src_sec
+    K
+    E
+    D
+    GG
+    x
+    (fapp0 (@Fibre_func K E D FF x) u);
+
+// y-component of the arbitrary displayed-transfor dependent-hom target.
+//
+// Surface/formula:
+//   homd_tdapp1_tgt_func(FF,GG,x,u,y)
+//     = homd_tdapp1_src_sec(FF,GG,x,u)[y].
+symbol homd_tdapp1_tgt_func [K : Cat] [E D : τ (Catd K)]
+  [FF GG : τ (Functord E D)] (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (Functor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y)))
+≔ @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+    (@homd_tdapp1_src_sec K E D FF GG x u);
+
+// First projection of arbitrary displayed hom-action.
+//
+// Surface/formula:
+//   tdapp1_int_section_arrow(epsilon,x,u)
+//     : homd_int(id_E)[x](u) ->^(S_E(x)) homd_int(GG)[x](FF[x](u)).
+symbol tdapp1_int_section_arrow [K : Cat] [E D : τ (Catd K)]
+  [FF GG : τ (Functord E D)]
+  (ϵ : τ (Transfd FF GG))
+  (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (Hom_cat
+      (@Homd_target_section_cat K E x)
+      (homd_id_src_sec E x u)
+      (@homd_tdapp1_src_sec K E D FF GG x u)));
+
+// First projection fold for arbitrary displayed hom-action.
+//
+// Surface/formula:
+//   tdapp1_int_fapp0_transfd(epsilon)[x][u]
+//     = tdapp1_int_section_arrow(epsilon,x,u).
+rule @tapp0_fapp0 _ _ _ _ $u
+      (@strict_transfor _ _ _ _
+        (@tdapp0_fapp0 $K _ _ _ _ $x
+          (@tdapp1_int_fapp0_transfd $K $E $D $FF $GG $ϵ)))
+  ↪ @tdapp1_int_section_arrow $K $E $D $FF $GG $ϵ $x $u;
+
+// Displayed identity folds arbitrary section-arrow action to fdapp1.
+rule @tdapp1_int_section_arrow
+      $K $E $D $FF $FF (@id (@Functord_cat $K $E $D) $FF) $x $u
+  ↪ @fdapp1_int_section_arrow $K $E $D $FF $x $u
+with @tdapp1_int_section_arrow
+      $K $E $D $FF $FF (@id (@Transf_cat $K Cat_cart $E $D) $FF) $x $u
+  ↪ @fdapp1_int_section_arrow $K $E $D $FF $x $u;
+
+// Second projection of arbitrary displayed hom-action at y.
+//
+// Surface/formula:
+//   tdapp1_int_tgt_arrow(epsilon,x,u,y)
+//     : homd_int(id_E)[x](u)[y] => homd_int(GG)[x](FF[x](u))[y].
+symbol tdapp1_int_tgt_arrow [K : Cat] [E D : τ (Catd K)]
+  [FF GG : τ (Functord E D)] (ϵ : τ (Transfd FF GG))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (@StrictTransfor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (@homd_id_tgt_func K E x u y) (@homd_tdapp1_tgt_func K E D FF GG x u y));
+
+// Second projection fold for arbitrary displayed hom-action.
+//
+// Surface/formula:
+//   tdapp1_int_section_arrow(epsilon,x,u)[y]
+//     = tdapp1_int_tgt_arrow(epsilon,x,u,y).
+rule @tapp0_hom_fapp0 _ Homd_coeff_cat _ _ _ _ $y
+      (@tdapp1_int_section_arrow $K $E $D $FF $GG $ϵ $x $u)
+  ↪ @tdapp1_int_tgt_arrow $K $E $D $FF $GG $ϵ $x $u $y;
+
+// Displayed identity folds arbitrary target-arrow action to fdapp1.
+rule @tdapp1_int_tgt_arrow
+      $K $E $D $FF $FF (@id (@Functord_cat $K $E $D) $FF) $x $u $y
+  ↪ @fdapp1_int_tgt_arrow $K $E $D $FF $x $u $y
+with @tdapp1_int_tgt_arrow
+      $K $E $D $FF $FF (@id (@Transf_cat $K Cat_cart $E $D) $FF) $x $u $y
+  ↪ @fdapp1_int_tgt_arrow $K $E $D $FF $x $u $y;
+
+// Third projection of arbitrary displayed hom-action at fibre object v.
+//
+// Surface/formula:
+//   tdapp1_int_presheaf_arrow(epsilon,x,u,y,v)
+//     : Hom_E(E[—](u),v) => Hom_D(D[—](FF[x](u)),GG[y](v)).
+symbol tdapp1_int_presheaf_arrow [K : Cat] [E D : τ (Catd K)]
+  [FF GG : τ (Functord E D)]
+  (ϵ : τ (Transfd FF GG))
+  (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K))
+  (v : τ (Obj (Fibre_cat E y)))
+  : τ (Obj (Hom_cat
+      (Homd_index_cat (Hom_cat K x y))
+      (fapp0 (homd_id_tgt_func E x u y) v)
+      (fapp0 (@homd_tdapp1_tgt_func K E D FF GG x u y) v)));
+
+// Third projection fold for arbitrary displayed hom-action.
+//
+// Surface/formula:
+//   tdapp1_int_tgt_arrow(epsilon,x,u,y)[v]
+//     = tdapp1_int_presheaf_arrow(epsilon,x,u,y,v).
+rule @tapp0_fapp0 _ _ _ _ $v
+      (@strict_transfor _ _ _ _ (@tdapp1_int_tgt_arrow $K $E $D $FF $GG $ϵ $x $u $y))
+  ↪ @tdapp1_int_presheaf_arrow $K $E $D $FF $GG $ϵ $x $u $y $v;
+
+// Displayed identity folds arbitrary presheaf-arrow action to fdapp1.
+rule @tdapp1_int_presheaf_arrow
+      $K $E $D $FF $FF
+      (@id (@Functord_cat $K $E $D) $FF)
+      $x $u $y $v
+  ↪ @fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v
+with @tdapp1_int_presheaf_arrow
+      $K $E $D $FF $FF
+      (@id (@Transf_cat $K Cat_cart $E $D) $FF)
+      $x $u $y $v
+  ↪ @fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v;
+
+// Fourth projection of arbitrary displayed hom-action at base arrow p.
+//
+// Surface/formula:
+//   tdapp1_int_hom_func(epsilon,p,u,v)
+//     : homd_(id_E,x,u,y,v)[p] ⊢ homd_(GG,x,FF[x](u),y,v)[p].
+symbol tdapp1_int_hom_func [K : Cat] [E D : τ (Catd K)]
+  [FF GG : τ (Functord E D)]
+  (ϵ : τ (Transfd FF GG))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x)))
+  (v : τ (Obj (Fibre_cat E y)))
+  : τ (Functor
+      (fapp0
+        (homd_
+          (@id_funcd K E)
+          x
+          u
+          y
+          v)
+        p)
+      (fapp0
+        (homd_
+          GG
+          x
+          (fapp0 (Fibre_func FF x) u)
+          y
+          v)
+        p));
+
+// Fourth projection fold by evaluating the arbitrary presheaf arrow at p.
+rule @fapp1_fapp0
+      _
+      (Op_cat Cat_cart)
+      (@fapp0_func _ _ $p)
+      _
+      _
+      (@tdapp1_int_presheaf_arrow $K $E $D $FF $GG $ϵ $x $u $y $v)
+  ↪ @tdapp1_int_hom_func $K $E $D $FF $GG $ϵ $x $y $p $u $v;
+
+// Equivalent transfor-component projection at p for arbitrary epsilon.
+rule @tapp0_fapp0
+      _
+      (Op_cat Cat_cart)
+      _
+      _
+      $p
+      (@tdapp1_int_presheaf_arrow $K $E $D $FF $GG $ϵ $x $u $y $v)
+  ↪ @tdapp1_int_hom_func $K $E $D $FF $GG $ϵ $x $y $p $u $v;
+
+// Displayed identity folds arbitrary hom-action at p to fdapp1.
+rule @tdapp1_int_hom_func
+      $K $E $D $FF $FF
+      (@id (@Functord_cat $K $E $D) $FF)
+      $x $y $p $u $v
+  ↪ @fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v
+with @tdapp1_int_hom_func
+      $K $E $D $FF $FF
+      (@id (@Transf_cat $K Cat_cart $E $D) $FF)
+      $x $y $p $u $v
+  ↪ @fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v;
+
+// Canonical transported-identity cell for an arbitrary displayed transfor.
+//
+// Surface/formula:
+//   tdapp1_int_cell(epsilon,p,u)
+//     : D[p](FF[x](u)) ->^(D[y]) GG[y](E[p](u)).
+symbol tdapp1_int_cell [K : Cat] [E D : τ (Catd K)]
+  [FF GG : τ (Functord E D)]
+  (ϵ : τ (Transfd FF GG))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x)))
+  : τ (Hom
+      (Fibre_cat D y)
+      (fapp0 (functord_transport_lhs_func FF p) u)
+      (fapp0 (functord_transport_rhs_func GG p) u));
+
+// Final capped projection for arbitrary displayed hom-action.
+//
+// Surface/formula:
+//   tdapp1_int_hom_func(epsilon,p,u,E[p]u)(id)
+//     = tdapp1_int_cell(epsilon,p,u).
+rule fapp0 (@tdapp1_int_hom_func $K $E $D $FF $GG $ϵ $x $y $p $u _) (@id _ _)
+  ↪ @tdapp1_int_cell $K $E $D $FF $GG $ϵ $x $y $p $u;
+
+// Displayed identity folds arbitrary component cell to fdapp1.
+rule @tdapp1_int_cell
+      $K $E $D $FF $FF (@id (@Functord_cat $K $E $D) $FF) $x $y $p $u
+  ↪ @fdapp1_int_cell $K $E $D $FF $x $y $p $u
+with @tdapp1_int_cell
+      $K $E $D $FF $FF (@id (@Transf_cat $K Cat_cart $E $D) $FF) $x $y $p $u
+  ↪ @fdapp1_int_cell $K $E $D $FF $x $y $p $u;

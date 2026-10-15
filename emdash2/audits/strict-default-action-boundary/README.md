@@ -5,6 +5,31 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Corrected section action and constant-functor higher cells, 2026-10-15
+
+The [review](production_section_action_review.md) records the original-source
+migration through section 16e. The existing Pi binds the total-dual Hom index,
+and the [general modification ladder](production_intrinsic_modification.lpfragment)
+uses the same direct Q/Cart/P projections. The
+[whole constant-family specialization](production_constant_section_index.lpfragment)
+is constructed from the ordinary F_1 functor, not a supplied comparison cell.
+Its decoded section action and actual Sigma-total second-cell fibre compute
+F[alpha], with noncollapse controls. The [verification](production_section_action_verification.json)
+retains the full-source failure at section 17a separately from this boundary.
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package section_action_prefix.lp
+```
+
+This includes the inherited controls and the
+[new section/modification consumers](production_section_action_controls.lpfragment).
+Late evaluation profiles, consumed Q mixed-parameter coherence, remaining
+source migration and final public gates remain open. Do not infer strict
+Cartesian joint evaluation from the local index computations.
+
 ## Directed-index Q and native intrinsic projections, 2026-10-15
 
 The inner P index is integrated into [Q/Homd](production_homd_core.lpfragment).

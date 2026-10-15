@@ -1,10 +1,21 @@
 # Cartesian families, lax sections and corrected dependent Hom
 
 Date: 2026-10-14
-Status: directed inner index integrated with native identity/relative and
-identity-specialized intrinsic ladders; section action and full migration open
+Status: direct identity/relative and general intrinsic ladders check; corrected
+section action computes constant-functor higher cells; full qualification open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
+
+Continuation after `95d73ac6`: piapp1_func now uses the ordinary Pi over the
+total-dual Hom index and total-dual Homd fibres. A derived whole constructor
+C_I,H:Functor_cat(I,H)->Hom_P(I)(c_1,c_H) supplies the constant-family case
+from F's actual Hom functor. The decoded section action reduces to F_1;
+both its alpha-action and the Sigma-total second-cell fibre compute F[alpha].
+The general tdapp1 modification projections also check and retain arbitrary
+epsilon. The [review](../emdash2/audits/strict-default-action-boundary/production_section_action_review.md)
+records the new whole structural specialization, its actual bodies and the
+remaining evaluation/Q coherence gates. This is not an unrestricted model
+or full-goal completion claim.
 
 Current native interface, after `36fceea2`, 2026-10-15:
 
@@ -34,9 +45,10 @@ now checks for arbitrary lax FF through its actual whole section and
 direct y/v/f projections. Its final capped result is the retained
 `fdapp1_int_hom_fapp0` owner. The expanded negative-Sigma route computes to
 the same arrow. The [verification](../emdash2/audits/strict-default-action-boundary/production_intrinsic_verification.json)
-does not establish the next constant-section F[alpha] computation, general
-modification projections or all Q coherence. The old `piapp1_func` type is
-the current full-source failure.
+records the preceding boundary. Constant-section F[alpha] computation and
+general modification projections are now checked by the continuation above;
+all consumed Q coherence remains to be qualified. The full source currently
+stops in the late evaluation/weakening section.
 
 M_I:Cart(T(I),Cat_cart)->P(I) is a derived implementation map. It reuses
 canonical strict Hom constructions; no caller supplies M_I or any equality

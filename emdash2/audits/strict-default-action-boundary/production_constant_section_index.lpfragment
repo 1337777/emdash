@@ -1,0 +1,25 @@
+// Constant-family compatibility is specified at the whole index level.
+// The input section is the existing ordinary strict functor F. Its index
+// arrow is constructed from F's actual Hom functor, with no supplied cell.
+rule @fdapp1_int_presheaf_arrow $K
+      (@Const_catd $K Terminal_cat) (@Const_catd $K $B)
+      $F $x _ $y _
+  ↪ fapp0 (Homd_index_const_func (Hom_cat $K $x $y)
+      (Hom_cat $B (@fapp0 $K $B $F $x) (@fapp0 $K $B $F $y)))
+      (@fapp1_func $K $B $F $x $y);
+
+// The existing lower owners keep the same constant specialization when
+// capping precedes the whole-index fold. These are projections of that case.
+rule @fdapp1_int_hom_func $K
+      (@Const_catd $K Terminal_cat) (@Const_catd $K $B)
+      $F $x $y $p _ _
+  ↪ @Obj_func (Hom_cat $B (@fapp0 $K $B $F $x) (@fapp0 $K $B $F $y))
+      (@fapp1_fapp0 $K $B $F $x $y $p);
+rule @fdapp1_int_hom_fapp0 $K
+      (@Const_catd $K Terminal_cat) (@Const_catd $K $B)
+      $F $x $y $p _ _ _
+  ↪ @fapp1_fapp0 $K $B $F $x $y $p;
+rule @fdapp1_int_cell $K
+      (@Const_catd $K Terminal_cat) (@Const_catd $K $B)
+      $F $x $y $p _
+  ↪ @fapp1_fapp0 $K $B $F $x $y $p;

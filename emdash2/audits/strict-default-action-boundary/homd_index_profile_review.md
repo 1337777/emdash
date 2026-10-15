@@ -1,10 +1,20 @@
 # Homd index action: the Cartesian restriction is too strong
 
 Date: 2026-10-15
-Status: directed index integrated through the native identity-specialized
-intrinsic ladder; constant-section index action and full qualification open
+Status: directed index and general intrinsic projections check; the actual
+constant-section F[alpha] computation passes; full coefficient qualification open
 Owner: [foundations plan](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Predecessor: `e594bcea5e37c825dc92cd90df53f3b4a277ad5c`
+
+Current continuation after `95d73ac6`: the corrected ordinary Pi index,
+general tdapp1 ladder and whole constant-family specialization now check.
+The derived C_I,H constructor uses B_I on an actual ordinary functor;
+applying A_I computes its whole total-opposite functor. Feeding it F_1 in
+the native constant-family case makes the decoded piapp1 action reduce to
+F_1, and both that action and the Sigma total retain F[alpha]. The
+[section-action review](production_section_action_review.md) distinguishes
+this new whole structural compatibility from the old point-only law and
+records the remaining evaluation/Q coherence gates.
 
 Continuation after `36fceea2`: Hom_Q(A,B)=Cart(A,P(B)) is now installed in
 the staged native owner. The identity/relative direct ladders and the
@@ -12,8 +22,9 @@ identity-specialized intrinsic root-to-filler projections check. The expanded
 negative-Sigma action independently recovers the same structured arrow as
 the capped Sigma-map rule. See the
 [current verification](production_intrinsic_verification.json). The full
-source advances to the old `piapp1_func` section type; F[alpha] computation,
-nonidentity modifications and consumed Q coherence are still unqualified.
+source then advanced to the old `piapp1_func` section type. The current
+continuation above supersedes that constant-action and projection boundary;
+consumed Q coherence still needs qualification.
 
 The coefficient view of ordinary curried Hom now has a stable owner with
 projections to its explicit M_I-composition body. Unfolding that body inside
@@ -139,8 +150,9 @@ with total_op_cart. B_I is the corresponding explicit return composite;
 no whole inverse or coherence theorem for A_I,B_I is claimed. N_I uses one
 existing Sigma and whole duality, rather than declaring another total.
 Its formation remains conditional on those existing structural contracts.
-In the integrated source, B_I remains diagnostic support in the controls:
-the core consumes A_I and N_I and does not require an inverse of A_I.
+At `95d73ac6`, B_I remained diagnostic support. The current C_I,H constructor
+now gives it a concrete core consumer. The constant computation is checked;
+a general inverse/coherence theorem for A_I,B_I is not claimed.
 
 The direction is also forced by negative-total arrows. For κ:p→q and
 an arrow `a→H[κ](b)`, a map U needs
@@ -165,13 +177,13 @@ A raw P(I) arrow is rejected as an arrow in the old Cartesian presheaf Hom.
 
 Still required:
 
-1. Recover the concrete index-arrow action F[α], with its direction and
-   noncollapse, from the existing internal action/extraction owners.
+1. Qualify the remaining whole coefficient and parameter coherence beyond
+   the now-checked fixed-F index action and its noncollapse.
 2. Qualify the remaining consumed Q coherence beyond the checked native
    represented operations and identity/relative x/u/y/v/f computations.
-3. Extend the now-checked fdapp1_int projection ladder to nonidentity
-   tdapp1_int modifications and the whole extracted laxity. Do not add an
-   independent laxity cell. Retain the negative-total direction in Sigma/Pi.
+3. Continue the whole extracted-laxity and late consumers from the now-checked
+   nonidentity tdapp1_int projections. Do not add an independent laxity cell.
+   Retain the negative-total direction in Sigma/Pi.
 4. Migrate the consumers of the retired unconditional left-transport=middle
    equation. The native owner now uses the selected right/pre equality,
    retaining the left/post comparison and general lax FF.

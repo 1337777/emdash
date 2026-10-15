@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: directed inner Q index integrated; direct Homd and identity-specialized intrinsic ladders plus expanded negative-Sigma action check in staged source; section action, higher coherence and public/downstream migration remain open
+Status: staged source through section 16e checks, including general modification projections and actual constant-section F[alpha] computation; late evaluation profiles, consumed Q coherence and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,6 +38,39 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Section-action continuation after `95d73ac6`, 2026-10-15: the original Pi
+action now uses O(Hom_K(x,y)) with total-dual Homd fibres, and section
+totalization follows that same negative index. This Pi binds the Hom index;
+the direct Homd y-binding remains Transf(K,Q). The nonidentity tdapp1
+projection ladder now follows the same Q/Cart/P rungs as fdapp1.
+
+The [review](../emdash2/audits/strict-default-action-boundary/production_section_action_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_section_action_verification.json)
+record a new whole constant-index constructor built from the actual duality
+and return maps. The constant-family fdapp1 specialization feeds it F's
+ordinary Hom functor. The decoded piapp1_func reduces to that whole functor;
+its noninvertible alpha-action and the actual Sigma-total second-cell fibre
+both reduce to F[alpha]. This whole compatibility is newly specified at the
+native constructor; it is not inferred from the former point-only unifier.
+The old named point theorems remain, now backed by the whole computation.
+
+The required constant-family and fixed-postwhiskering normalizations are
+qualified with the inherited controls. Only identity other legs are removed
+by the whiskering laws. General FF and arbitrary modifications remain lax;
+no operational equality payload or standalone laxity witness is introduced.
+The return map B_I now has a concrete core consumer, C_I,H, but no general
+inverse/coherence theorem for A_I,B_I is claimed.
+
+The full emitted kernel now stops at sigma_intro_transf's old coefficient
+tag in section 17a. Before broadly retagging late owners, review Pi evaluation
+and Q's represented/conjoint mixed-parameter coherence: lax section/index
+maps must not acquire strict Cartesian joint evaluation. These are concrete
+profile gates, not grounds to declare the full foundation qualified from
+the passing prefix. Then continue the original late extracted-laxity owners
+and downstream migration. All required outcomes and final gates remain.
+
+The following entries retain preceding checkpoint details.
+
 Native index/intrinsic continuation after `36fceea2`, 2026-10-15: the inner
 profile is now integrated as `Hom_Q(A,B)=Cart(A,P(B))`, with
 `P(I)=T(Functor_cat(I,T(Cat_cart)))`. The existing identity and defined
@@ -59,7 +92,7 @@ The [verification](../emdash2/audits/strict-default-action-boundary/production_i
 records exact inputs, the source boundary and warning comparison. This does
 not yet qualify the constant-section F[alpha] action, nonidentity displayed
 modifications, all consumed Q coherence or public/downstream migration.
-The full source now stops at the old `piapp1_func` type, not section 15.
+At that checkpoint the full source stopped at the old `piapp1_func` type.
 
 M_I is an internal, derived inclusion from Cart(T(I),Cat_cart) to P(I),
 never an extra caller argument or proof payload. A stable coefficient view

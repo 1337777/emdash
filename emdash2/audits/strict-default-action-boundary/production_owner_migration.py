@@ -1061,6 +1061,72 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                  'intrinsic identity projection ladder',
                  'Retain the existing projection names through the actual Q section, Cartesian fibre Hom and directed index; total Hom uses the derived negative Sigma')
 
+    a = body.index('symbol piapp1_func [K : Cat]')
+    b = body.index(';', a) + 1
+    replace_once(body[a:b], 'symbol piapp1_func [K : Cat] (E : τ (Catd K))\n  (s : τ (Obj (Pi_cat E))) (x y : τ (Obj K))\n  : τ (Obj (@Pi_cat (TotalOp_cat (Hom_cat K x y))\n      (@TotalOp_catd (Op_cat (Hom_cat K x y))\n        (@homd_ K E E (@id_funcd K E)\n          x (@piapp0 K E s x) y (@piapp0 K E s y)))))\n≔ @fapp1_fapp0 (CoAbove2_cat (Homd_index_cat (Hom_cat K x y)))\n    (Catd_cat (TotalOp_cat (Hom_cat K x y)))\n    (Homd_index_total_family_func (Hom_cat K x y))\n    (fapp0 (@homd_id_tgt_func K (@Const_catd K Terminal_cat) x Terminal_obj y) Terminal_obj)\n    (fapp0 (@homd_ff_tgt_func K (@Const_catd K Terminal_cat) E s x Terminal_obj y) Terminal_obj)\n    (@fdapp1_int_presheaf_arrow K (@Const_catd K Terminal_cat) E s\n      x Terminal_obj y Terminal_obj);',
+                 'negative-index section action',
+                 'Use the existing positive Pi over the actual total-dual index family; derive the section from the existing intrinsic P-arrow')
+
+    a = body.index('// Totalizing the native Hom section retains the entire next action.')
+    b = body.index('// Raw canonical-triangle cell extracted from the internal displayed hom-action.', a)
+    replace_once(body[a:b], '// Totalizing the native Hom section retains its negative index presentation.\nrule @fapp1_func _ _ (@section_total_func $K $E $s) $x $y\n  ↪ @TotalOp_func\n      (TotalOp_cat (Hom_cat $K $x $y))\n      (@Sigma_cat (TotalOp_cat (Hom_cat $K $x $y))\n        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))\n          (@homd_ $K $E $E (@id_funcd $K $E)\n            $x (@piapp0 $K $E $s $x) $y (@piapp0 $K $E $s $y))))\n      (@section_total_func (TotalOp_cat (Hom_cat $K $x $y))\n        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))\n          (@homd_ $K $E $E (@id_funcd $K $E)\n            $x (@piapp0 $K $E $s $x) $y (@piapp0 $K $E $s $y)))\n        (@piapp1_func $K $E $s $x $y));\n\n', 'negative section totalization',
+                 'The existing recursive totalization uses total reversal, matching the corrected Sigma Hom and Pi index')
+
+    a = body.index('// 16c. Section action and displayed laxity cells')
+    b = body.index('// 16d. Arbitrary displayed-transfor hom-action projections', a)
+    old_section_action = body[a:b]
+    new_section_action = old_section_action.replace('@fapp0 $K.[] Cat_cat $E.[]', '@fapp0 $K.[] Cat_cart $E.[]')
+    new_section_action = new_section_action.replace('@tapp0_fapp0 _ Cat_cat _ _ $k', '@tapp0_fapp0 _ Cat_cart _ _ $k')
+    new_section_action = new_section_action.replace('$K Cat_cat\n      (@Const_catd $K Terminal_cat)',
+                                                    '$K Cat_cart\n      (@Const_catd $K Terminal_cat)')
+    replace_once(old_section_action, new_section_action, 'section and Sigma family coefficient observations',
+                 'Change only the admitted-family coefficient tags in existing section/base-change projections')
+
+    a = body.index('// 16d. Arbitrary displayed-transfor hom-action projections')
+    b = body.index('// 16e. Strict/cartesian and terminal-source specializations', a)
+    replace_once(body[a:b], fragment('production_intrinsic_modification.lpfragment') + '\n\n',
+                 'general displayed-transfor intrinsic projections',
+                 'Use the same Q section, Cartesian fibre Hom and directed inner index as the identity specialization; retain epsilon and all original projection names')
+
+    a = body.index('// 16e. Strict/cartesian and terminal-source specializations')
+    b = body.index('// 17. Generic Sigma/Pi weakening, ordinary structural logic, and delayed projection helpers', a)
+    old_specializations = body[a:b]
+    represented = '(@hom_int_precomp_func $Z $Z (@id Cat_cat $Z) $y $x $p)'
+    assert old_specializations.count(represented) == 2
+    replace_once(old_specializations, old_specializations.replace(represented,
+        '(@strict_transfor _ _ _ _ ' + represented + ')'),
+        'canonical represented displayed specialization',
+        'Use the ordinary displayed view of the existing Cartesian Hom source action; do not pass the classified strict transfor as a raw FF')
+
+    constant_coherence = fragment('production_index_constant_coherence.lpfragment')
+    marker2 = '// Part 2: constant coefficient formation, at Const_catd.'
+    marker3 = '// Part 3: coefficient duality inverse, after TotalOp_catd.'
+    postwhiskering, constant_tail = constant_coherence.split(marker2)
+    constant_views, coefficient_inverse = constant_tail.split(marker3)
+    insert('// 6c. Constant/opposite transfors and Cat-valued composition projections',
+           postwhiskering, 'Fixed postwhiskering composition and unit, with both other legs identity; no unrestricted lax-square interchange')
+    insert('// A represented family along a constant diagram is pointwise Hom(w,u).',
+           constant_views, 'Whole constant-family/strict-functor duality views needed by the actual constant-index constructor')
+    insert('// Fibrewise dimension-one transpose changes the base by CoAt2.',
+           coefficient_inverse, 'Cartesian coefficient double duality, including its already-formed family head')
+
+    insert('// Consumed object action of canonical total base change, preserving the whole tapp1 heads.',
+           fragment('production_constant_section_index.lpfragment'),
+           'Whole constant-family intrinsic action uses the ordinary strict functor Hom action through the actual constant-index constructor')
+    a = body.index('// Proof-time comparison only: terminal-source displayed laxity agrees with')
+    b = body.index('// Transparent theorem exposing the terminal-source proof-time comparison.', a)
+    replace_once(body[a:b], '''// Constant-family section action now computes through the whole index
+// constructor above. The former point-only proof-time rule is redundant.
+
+''', 'constant section point comparison',
+                 'The retained theorem follows the whole constant-index computation instead of an independent point agreement')
+
+    body = body.replace(
+        '// Transparent theorem exposing the terminal-source proof-time comparison.\n// Its reflexive body exercises the unification rule; this is not runtime beta.',
+        '// Retained theorem for the terminal-source comparison. Its reflexive\n// body now follows the whole constant-index computation.')
+    body = body.replace(
+        '// Constant-section arrow action agrees propositionally with ordinary functor\n// action. The section projection computes to `fdapp1_int_cell`; the preceding\n// proof-time comparison supplies the final ordinary view.',
+        '// The existing theorem records the constant section arrow computation.\n// The whole index specialization and its lower projections now retain the\n// ordinary functor action directly.')
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -1134,6 +1200,12 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'intrinsic_identity_prefix.lp').write_text(body[:body.index(intrinsic_boundary)]
         + '\n' + homd_controls + '\n' + index_controls
         + '\n' + fragment('production_intrinsic_controls.lpfragment'))
+    section_boundary = '// 17. Generic Sigma/Pi weakening, ordinary structural logic, and delayed projection helpers'
+    assert body.count(section_boundary) == 1
+    (package / 'section_action_prefix.lp').write_text(body[:body.index(section_boundary)]
+        + '\n' + homd_controls + '\n' + index_controls
+        + '\n' + fragment('production_intrinsic_controls.lpfragment')
+        + '\n' + fragment('production_section_action_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1336,10 +1408,11 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'homd_prefix.lp',
                               package / 'index_profile.lp',
                               package / 'intrinsic_identity_prefix.lp',
+                              package / 'section_action_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
-        'stillRequired': ['Negative-index section action and concrete constant-section F[alpha] computation',
-                          'Nonidentity displayed-transfor intrinsic projections and higher coherence',
+        'stillRequired': ['Whole coefficient/mixed-parameter coherence beyond the checked direct and constant-section actions',
+                          'Later evaluation/weakening and whole extracted-laxity consumers with their actual profiles',
                           'Consumed Q y-comparison/coherence and late Sigma/Pi/comma consumers',
                           'Moving path-motive interfaces with their actual coefficient profiles',
                           'Whole duality/adjunction and closure-consumer qualification',

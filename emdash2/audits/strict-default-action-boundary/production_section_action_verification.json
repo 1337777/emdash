@@ -1,0 +1,368 @@
+{
+  "status": "Staged native source through section 16e checks, including general intrinsic modifications and actual constant-section F[alpha] computation; full core and coefficient coherence remain incomplete",
+  "extendsCheckpoint": "95d73ac64928c10d3c055bc6e1bfd78d8337fceb",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "originalCoreSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "sourcePreservation": {
+    "originalCoreLines": 22644,
+    "candidateCoreLines": 23638,
+    "originalDownstreamSectionsRetained": true,
+    "unretiredNamedDeclarationsRetained": true,
+    "retiredNamesWithReplacements": {
+      "Homd_target_section_catd": "Homd_target_section_cat",
+      "functord_transport_lhs_tele_agrees": "functord_transport_rhs_tele_agrees",
+      "functord_transport_lhs_agrees": "functord_transport_rhs_agrees"
+    },
+    "unrelocatedNamedDeclarationSequenceVerified": true,
+    "namedDeclarationSequenceExceptions": [
+      "Catd_cat_func",
+      "Catd_catd_con",
+      "FibCov_source_catd",
+      "FibCov_target_catd",
+      "fib_cov_int",
+      "fib_cov_src_func",
+      "fib_cov_transf",
+      "homd_id_src_sec",
+      "homd_id_tgt_func",
+      "homd_src_func",
+      "homd_src_sec",
+      "homd_tgt_func"
+    ]
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e",
+    "audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment": "f754d60461ff080b77844f38313953244e425ad28fc49e6e394ed114317a77d0",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/conventional_total_op_mapping.lpfragment": "af021c0bb56a5c6730ab5a2e56a387f4cd30fbb8102e36c70bd7f0bc35a6032f",
+    "audits/strict-default-action-boundary/cartesian_profile.lpfragment": "9baf7c78bdc42695ed2e715dd07185f17a957472f2cc7c0434cabd6314039976",
+    "audits/strict-default-action-boundary/production_family_classifier.lpfragment": "0978dd95a597059e20ecb3e38d8bba249499f522caaea1ae9f65a11753c1e81e",
+    "audits/strict-default-action-boundary/conventional_total_op_transfors.lpfragment": "33842eafce8cfb5f84ac5c401ebaf52e8e128cb1d585311862f812925dd119d9",
+    "audits/strict-default-action-boundary/conventional_total_op_offdiagonal.lpfragment": "9431b15bfbedf363c3863a12d86f94b3afbadd04a265abe3fffce0444321eba9",
+    "audits/strict-default-action-boundary/production_cartesian_closure.lpfragment": "31f8d97603e9c9c8ac2922778e15e8c5efed3a268c8d1872820041940c2be8c9",
+    "audits/strict-default-action-boundary/production_cartesian_family_duality.lpfragment": "99b568615669de3d1925bda3057e9bfaeed203939f8c3d7db42005bc5770b4e2",
+    "audits/strict-default-action-boundary/conventional_total_op_whole_action.lpfragment": "202dc17fe192b57c7a7ce8a054d6bc5746027ffa41c5f9698455ae78ee006f0a",
+    "audits/strict-default-action-boundary/conventional_total_op_source_units.lpfragment": "79dbd611f959bade6d50676325ba69d9dd8ceb866f98f84bdf851a2915d3d9a9",
+    "audits/strict-default-action-boundary/production_cartesian_product.lpfragment": "b9fd844fe022921f356c2cb2a628806ef2f9364e44a2b89546073da14d11dfb5",
+    "audits/strict-default-action-boundary/total_op_family.lpfragment": "13f79efe229f5a560dc54d3ea9c4609fac91de5b095de206277330871fe2e7d0",
+    "audits/strict-default-action-boundary/production_homd_index.lpfragment": "364d59d7bd81582d78021513e66ca5c2b1577ebb57fce4caa430e0c375b38978",
+    "audits/strict-default-action-boundary/production_homd_core.lpfragment": "f02f092ad1f7b9c12bddca24ca10a7350de7496640274e6e921b318722f7cd56",
+    "audits/strict-default-action-boundary/production_intrinsic_projection.lpfragment": "6a99cc8c5da93ab05ac37a3590aa344a57daeca00f667f3fc99c5058bbc1c2d3",
+    "audits/strict-default-action-boundary/production_intrinsic_modification.lpfragment": "d82df7e48ecc52ca6844a20a67fa0cf8bdf1c9c0b2a8e4370e03186d4af8921c",
+    "audits/strict-default-action-boundary/production_index_constant_coherence.lpfragment": "692c58b4f216e0fb19898cfa50986ef4775d87725b38e6967ae55881f16a9f63",
+    "audits/strict-default-action-boundary/production_constant_section_index.lpfragment": "8b54b6cd0ca9b60335abc4f1556b8aef15179eb06492b4dcc79499ec1cfc4c32",
+    "audits/strict-default-action-boundary/production_owner_controls.lpfragment": "42ba40bf4884d0b9a18cd094ec7735de70b3f8d0c0e6ec9b3699ad164989aa2c",
+    "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+    "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/production_foundations_controls.lpfragment": "d3c768a592094fb5280d4395010d1b24fcb67f394f1f3765f931c54d68a67d0b",
+    "audits/strict-default-action-boundary/production_sections_controls.lpfragment": "57f4d94f69f178e698e652f82f610fea9b8987c36ab1ce92c90cde4825961b95",
+    "audits/strict-default-action-boundary/sigma_total_op_controls.lpfragment": "2f817d10405f707cf3738ff68160f79bcd99e5a2739d0e226f9f012042408b72",
+    "audits/strict-default-action-boundary/mixed_family_controls.lpfragment": "2d0509b7853469f929d3c55b342d396ec4dccaea8493adad962c719d5cb5fd66",
+    "audits/strict-default-action-boundary/mixed_family_parameter_controls.lpfragment": "bb25703b284fc88d1fe64d44fced4ffa65a729d5a135f329654305a24f4a1ad0",
+    "audits/strict-default-action-boundary/total_op_hom_family_controls.lpfragment": "5887b77b910dd9c843af6d5c3fe5a89deddc0b9655904fa69e514c3169b69e62",
+    "audits/strict-default-action-boundary/production_homd_controls.lpfragment": "8490072106fb361ed95a7eb40bc00c5913f6d43edaa18f5ba181a1f1341b1025",
+    "audits/strict-default-action-boundary/production_homd_index_controls.lpfragment": "202bed78e341861596de96ff80f6462b25c40734ef8589cde9c51871ed0c04eb",
+    "audits/strict-default-action-boundary/production_intrinsic_controls.lpfragment": "3b4a4a7fdb867b164e3a33fc6025e96f1c041b3c213a30c5c8004a51a51d1ed3",
+    "audits/strict-default-action-boundary/production_section_action_controls.lpfragment": "6b084092deeed77d1441fdd2bb622175d41512b5980f6c58c7d81c24a6336d6e",
+    "audits/strict-default-action-boundary/production_comma_equivalence.lpfragment": "7e70d4dfd77958a06f712dd0e668280efd4a16eb7e3db328030fa693309622ef",
+    "audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment": "956d22e530d20bf54ba5e58bdecfe37354c6743154280ffa0f6ce7be02067b9b",
+    "audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment": "5ebdccd39cd50e224bddb1bb559bd82f14596053102484c62d8e428e5b778344",
+    "audits/strict-default-action-boundary/production_owner_migration.py": "727db3c3c17684eea9b474c3eae8fbde1dc92c6fecd88027801a3afbfcb586fc"
+  },
+  "baselinePrefix": {
+    "id": "20261015T181439Z-6e2e375f7fb3469aad5d9703bb44add6",
+    "target": "intrinsic_identity_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 4.14486916793976,
+    "childrenMaxRssKiB": 348900,
+    "inputSnapshot": "d34f7bc7698cc785a27ee5762341b3340ecc88d1d8304b3dd702c34d24ac11b6",
+    "inputs": {
+      "intrinsic_identity_prefix.lp": "cccfd4a6fee2c2fed9bcdafd1ce5d0dbbd230b862973b615cf92e9cb5791bfe8",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T181439Z-6e2e375f7fb3469aad5d9703bb44add6.log",
+    "logSha256": "a16519e95faebb8c8e99ed043f1ff77a675fc51b7de07d11932a3882c2269d4c",
+    "receipt": "logs/check-runs/20261015T181439Z-6e2e375f7fb3469aad5d9703bb44add6.json",
+    "receiptSha256": "7be83e4126b96956ef1782f99aa77323f2667838e01dbd710a85e9afebe182ac"
+  },
+  "candidatePrefix": {
+    "id": "20261015T194251Z-4976174c8e4d4f7e914f85932456daa0",
+    "target": "section_action_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 4.985065903048962,
+    "childrenMaxRssKiB": 387816,
+    "inputSnapshot": "3a618cf4ad26d4b22d09f77c06c45191bc707af46eab1b9dbce4967da4c1e779",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "section_action_prefix.lp": "7a2f2565cbae9d37ff7c57d0a1bdc5dfe6778d60e1d2b28571df5116d9217346"
+    },
+    "log": "logs/check-runs/20261015T194251Z-4976174c8e4d4f7e914f85932456daa0.log",
+    "logSha256": "9f0f6d941331c3d1f72cfb19b0c49c6feb7ece0dfd4aa0bc1e2fe28e1b794468",
+    "receipt": "logs/check-runs/20261015T194251Z-4976174c8e4d4f7e914f85932456daa0.json",
+    "receiptSha256": "4ac17103804e669068d4c00826c822c80a9f73f0bfada941d025dcb968d6cf04"
+  },
+  "fullSourceFailure": {
+    "id": "20261015T194314Z-c91a436a920e4d7d80a39e3219a6324c",
+    "target": "emdash3_2.lp",
+    "outcome": "failed",
+    "wallSeconds": 4.568132487940602,
+    "childrenMaxRssKiB": 365528,
+    "inputSnapshot": "3b1d21284f4eb18e9cb17b89a8e1f35d7166e664557d726596142faf20dac08c",
+    "inputs": {
+      "emdash3_2.lp": "9f52520c561fdd25fde4b03fae9c29cee5d9ef6a653bee8f6154bc1c4c7fcc39",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T194314Z-c91a436a920e4d7d80a39e3219a6324c.log",
+    "logSha256": "a9e4e2fbc55ae378b12e0366ccf0c6b0415157fc2db722bb3222c63a0bf2a22f",
+    "receipt": "logs/check-runs/20261015T194314Z-c91a436a920e4d7d80a39e3219a6324c.json",
+    "receiptSha256": "cb48d263f3f90fe7dc7faeb89f281f892ba30331e9ce54a85dd771468b204dd3",
+    "owner": "sigma_intro_transf component in section 17a",
+    "location": "emdash3_2.lp:17614:5-17616:35",
+    "diagnosis": "The first late introduction rule still uses the old Cat_cat family coefficient. Review later evaluation profiles before mechanically retagging them."
+  },
+  "interfaces": {
+    "sectionAction": "piapp1_func(E,s,x,y):Obj(Pi_cat(O(Hom_K(x,y)),TotalOp_catd(homd_(id_E,x,s[x],y,s[y]))))",
+    "sectionActionBody": "A_I,1 applied to the actual terminal-source fdapp1_int_presheaf_arrow",
+    "totalSectionFirstHom": "O_func(section_total_func(O(I),O_fib(H),piapp1_func(...)))",
+    "constantConstructor": "C_I,H:Functor_cat(I,H)->Hom_P(I)(c_1,c_H), using the first Hom of B_I and whole total-duality mapping",
+    "constantReturnComputation": "A_I,1(C_I,H[F]) -> O_func(F)",
+    "constantNativeIntrinsic": "fdapp1_int_presheaf_arrow for const(1)->const(B) feeds F_1(x,y) to C_(Hom_K(x,y)),(Hom_B(F[x],F[y]))",
+    "constantDecodedAction": "O_func(piapp1_func(Const(B),F,x,y)) -> fapp1_func(F,x,y)",
+    "higherCell": "Decoded action[alpha] and the actual Sigma-total second-cell fibre both reduce to F[alpha]",
+    "generalModification": "Original tdapp1 projection names now use S_E(x), Cart(E[y],P(I)), P(I), and the existing tdapp1_int_cell"
+  },
+  "structuralBoundary": "The whole constant-family intrinsic specialization is newly specified using the actual F_1 data and derived C constructor; it is not a theorem inferred from the former point-only agreement. Its lower owner instances join the projection orders. General Q coherence and a general A/B inverse theorem remain unqualified.",
+  "observedConsumers": [
+    "All inherited foundation, Pi, Sigma, mixed-family, identity/relative Homd, index and intrinsic controls",
+    "Corrected negative-index Pi forms and computes the existing extracted section cell; old positive Pi(T(I),H) type rejected",
+    "Expanded first-Hom section totalization independently computes the structured arrow (p,s[p])",
+    "Derived whole constant-index constructor has canonical endpoints and its A-image computes O_func(F)",
+    "Actual decoded native constant-section Hom action reduces to the ordinary whole fapp1_func(F)",
+    "Actual noninvertible alpha-action reduces to F[alpha]",
+    "Independent Sigma-total second-cell projection reduces to F[alpha]",
+    "F=id control retains an arbitrary loop alpha rather than forcing identity",
+    "Generic tdapp1_int_func_transfd projection through x/u,y,v,f reaches tdapp1_int_cell(epsilon,p,u)",
+    "A nonidentity loop modification is not collapsed to fdapp1",
+    "Fixed postwhiskering does not erase a nonidentity second transformation leg",
+    "Canonical constant-family normalization preserves the existing whole covariant and contravariant Hom views and the R view",
+    "Both formed and compositional coefficient double-duality views retain the whole inverse normal form"
+  ],
+  "normalizationFindings": [
+    {
+      "receipt": "20261015T182812Z-52b831a48a6c410ab28b8eb8015ad674",
+      "finding": "The old whole constant-total projection comparison does not automatically propagate after the first Hom action expands; the point comparison is not higher-action evidence."
+    },
+    {
+      "receipt": "20261015T184135Z-3813742787934cf3a1e6915fded928e1",
+      "finding": "The existing return map has only pointwise constant endpoints until whole constant/duality views are joined."
+    },
+    {
+      "receipt": "20261015T184519Z-70bb8360849c4b0a9fc034d62c796900",
+      "finding": "Canonical constant endpoints typecheck, but their whole return action remains a pair of fixed postwhiskerings."
+    },
+    {
+      "receipt": "20261015T185833Z-368e1586bcac4339b12efbec058b4c32",
+      "finding": "After fixed-whiskering composition, double coefficient duality has already folded to its TotalOp_catd owner; the whole unit must join there too."
+    },
+    {
+      "receipt": "20261015T190049Z-8dbfa2c65b8140f68b24ec6b67b67ae8",
+      "finding": "The constant-index return now recovers the whole input functor. This is the constructor basis, not independent supplied laxity."
+    },
+    {
+      "receipt": "20261015T190853Z-b6f5f4637cbf4119b09bb3225b2dd9aa",
+      "finding": "The actual native section and Sigma-total alpha consumers pass after the whole constant-family specialization."
+    }
+  ],
+  "stillRequired": [
+    "Late introduction/evaluation/weakening source migration and actual evaluation profiles",
+    "Whole extracted-laxity consumers, remaining unit/composition and parameter coherence",
+    "Consumed Q represented/conjoint mixed-parameter coherence on directed-index maps; do not assume strict Cartesian joint evaluation",
+    "Remaining whole duality/inverse qualification beyond the consumed constant case",
+    "Downstream retirement of false left-transport agreement consumers",
+    "Remaining public source, reviewer, catalog, health and CI gates"
+  ],
+  "runtimeProfile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileLimitMiB": 64,
+    "subjectReduction": true,
+    "OCAMLRUNPARAM": "o=20",
+    "serialGuard": true,
+    "warnings": true,
+    "compiledObjects": false
+  },
+  "warnings": {
+    "comparisonBoundary": "Before section 16c, with new section 16c/16d/16e coverage recorded separately",
+    "candidateCutLine": 16762,
+    "baseline": {
+      "replaceable pattern variable": 135,
+      "unjoinable critical pair": 1370
+    },
+    "candidate": {
+      "replaceable pattern variable": 139,
+      "unjoinable critical pair": 1439
+    },
+    "baselineCriticalPairs": 1370,
+    "candidateAtSameBoundary": 1401,
+    "addedAtSameBoundary": 31,
+    "removedAtSameBoundary": 0,
+    "newCoverage": 38,
+    "addedGroups": {
+      "CoAbove2_func x Const_func": {
+        "count": 1,
+        "bodiesSha256": "addd4c800457ada5f7a5ac6aadaf112223eb91354cb5557b1473f298f33c8f1f"
+      },
+      "Const_func x Op_func": {
+        "count": 1,
+        "bodiesSha256": "7658d4399f394606fe251caaf1ea793f84b6893de4f4ae50c85ef1b4c9d27392"
+      },
+      "Const_func x Pullback_catd": {
+        "count": 1,
+        "bodiesSha256": "eab59dbfc83e988303bb3ba1a9b8bcac39917bc483f0b68c83321d7b745a9e23"
+      },
+      "Const_func x comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "308b21d5b558a4257e924d3beac085eb0881b2693fe5d7ce16aae01ffee1c529"
+      },
+      "Const_func x fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "04f81499329a5c2785108b3489a62df02d87a886cac0063dff02fb3b31421265"
+      },
+      "Const_func x fapp1_func": {
+        "count": 1,
+        "bodiesSha256": "f2e049338c565e9b874525bb2871b563ca45e8a81bc81d09cc9d90cf84220010"
+      },
+      "Const_func x hom_postcomp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "8e629d240c775112551fc6e2cd7e81e42a1cb5d605ea0e5a6dc492c6ee76db66"
+      },
+      "TotalOp_catd x TotalOp_catd": {
+        "count": 2,
+        "bodiesSha256": "250dd4320f532c3eb8855b23ab7b350e76e925fd92bdb5cadffbeb46334a4081"
+      },
+      "comp_prod_fapp1_fapp0 x comp_prod_fapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "6fd3761f873e0e06cddceccaf9e74a01888559df34c96d59021fb4435e2baf7f"
+      },
+      "comp_prod_fapp1_fapp0 x id": {
+        "count": 11,
+        "bodiesSha256": "3e9c9acac78be8847c2412ec44109f193abac698c22a1e3dff4b18f8d11cb84a"
+      },
+      "fapp0 x hom_con": {
+        "count": 1,
+        "bodiesSha256": "4bb3c20bbc9cbf9006f1c95deee1e37a1de5944664eb80f2b2eeb855a83de822"
+      },
+      "fapp0 x hom_postcomp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "f59eb1a1dde1fecf27185ef44a8d257a90c0265db78c57a6c13903c458e4d348"
+      },
+      "fapp1_fapp0 x hom_": {
+        "count": 1,
+        "bodiesSha256": "3d2da54d0c656ef224c2308c0c69a383ddec139e6c10f1da5c61a08ecd415489"
+      },
+      "fapp1_fapp0 x hom_con": {
+        "count": 1,
+        "bodiesSha256": "ab079c69f3d666f322fb7e4e70aa4023616c1c634eaa226a36f302801a28a150"
+      },
+      "fapp1_fapp0 x hom_postcomp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "fe3e008400cd58e0b774aa49e5727fff8040fa8d3358dbded1927e936c97c6cd"
+      },
+      "fapp1_func x hom_": {
+        "count": 1,
+        "bodiesSha256": "04719339715cfab41bdcd97b364b8948593eac35f22caef3961a7a4bb527487f"
+      },
+      "fapp1_func x hom_con": {
+        "count": 1,
+        "bodiesSha256": "a179de6b9ee2665d5f210820f6299ab156c107c82feec90a64c9802b7d55ab50"
+      },
+      "hom_postcomp_fapp0 x hom_postcomp_fapp0": {
+        "count": 2,
+        "bodiesSha256": "c61ab2abe33af227ec21be7fae4ab65d6f9965522640f7d9114e898833e80161"
+      }
+    },
+    "removedGroups": {},
+    "newCoverageGroups": {
+      "Sigma_cat x fdapp1_int_cell": {
+        "count": 2,
+        "bodiesSha256": "02c16fbd49a07b647fd9e2a4817f7b90adfe4526fd30e3514be79c785f124d3f"
+      },
+      "comp_fapp0 x fapp1_fapp0": {
+        "count": 6,
+        "bodiesSha256": "bdbceafa65d0a9cdf9c2229bd4a2c002c187e1ec61b1587b7a2635fc612e51ed"
+      },
+      "comp_fapp0 x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "af36db998dc8c33cce7809a131a5edeb6bb78b5d9c362927f83388bb238d269f"
+      },
+      "fapp0 x fdapp1_int_hom_func": {
+        "count": 1,
+        "bodiesSha256": "f0f5686781eed2a6a1821d29f82b064994b9dc82063e2bb07285f2138850e02b"
+      },
+      "fapp0 x id": {
+        "count": 4,
+        "bodiesSha256": "8d9931fb2788c9c0e49bfdfc5a4dbed0b59ffabef8f06482f5f00bcaedf1e915"
+      },
+      "fapp0 x tdapp1_int_hom_func": {
+        "count": 2,
+        "bodiesSha256": "00f9464a0a6f88466059fb7fd3c359ebecd0c81576455aa5fc6d73222124c13f"
+      },
+      "fapp1_fapp0 x fapp1_fapp0": {
+        "count": 7,
+        "bodiesSha256": "23a15c20efe0e04da1ae706490f5a97365aa6f5c418505a52f68c470a5dd0a86"
+      },
+      "fapp1_fapp0 x tdapp1_int_presheaf_arrow": {
+        "count": 2,
+        "bodiesSha256": "e719fdbe038c2c10fe99b2c421979bf4da572d8718543815ddf2991f56ed439d"
+      },
+      "fdapp1_int_cell x fdapp1_int_cell": {
+        "count": 2,
+        "bodiesSha256": "d803f2c9de39f0566e9dd4d365c3c15ec2865b9b1c67300bf7ae3a0431f482d1"
+      },
+      "fdapp1_int_cell x section_postcomp_sec": {
+        "count": 1,
+        "bodiesSha256": "e0989cfeaeb2bada4f21e489d87be53fad322c4ee47f11fd746af22af251cdf3"
+      },
+      "fdapp1_int_hom_fapp0 x id": {
+        "count": 4,
+        "bodiesSha256": "c1d6af54bce4b7c2f73eb301ae39290270a851071a733d375897a180aaea6d38"
+      },
+      "section_postcomp_sec x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "80e9d1f2617bfc0ccdc86f01bd554a4ca4e59453d239420e6a17cf2ccc9c1b42"
+      },
+      "tapp0_fapp0 x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "1b94f5b76d940dbdfa441adc7fff7b6145318aaa5b4e16b2b72cb765b15166c2"
+      },
+      "tapp0_fapp0 x tdapp1_int_fapp0_transfd": {
+        "count": 2,
+        "bodiesSha256": "8b1656bb2a6fade464af9ade42e5be143c3b444753a26e4cd47da4aedcda08f5"
+      },
+      "tapp0_fapp0 x tdapp1_int_tgt_arrow": {
+        "count": 2,
+        "bodiesSha256": "d613f7cbe1a837dc238cb261897b56e8e3c4467ad35824fe78b2254958caa38b"
+      }
+    },
+    "parserIssues": 0,
+    "assessment": "New early groups are the fixed-postwhiskering identity/composition and constant-family/duality view interactions. New coverage is the original late section and modification owners, plus the whole constant-family compatibility. Typed source-u/root, constant Hom/R, fixed-whiskering noncollapse, both section/Sigma alpha routes and modification controls pass. Residual critical pairs and unqualified Q coherence remain; this is not a confluence certificate."
+  },
+  "lhsAudit": {
+    "unreviewedClauses": 0,
+    "unreviewedSlots": 0,
+    "annotatedSlots": 49,
+    "intentionalClauses": 32
+  },
+  "payloadBoundary": "No operational equality/path/cast payload, independent laxity cell, new Pi constructor, or general coend/balancing theory. The returned constant-index arrow is constructed from F_1.",
+  "scope": "Non-library staged-source checkpoint only; public kernel and pre-existing unrelated dirt are not promoted. This is not full-goal completion or an unrestricted strict Cartesian model of Q."
+}

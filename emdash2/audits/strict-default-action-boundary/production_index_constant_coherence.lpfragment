@@ -1,0 +1,55 @@
+// Part 1: fixed postwhiskering, after the ordinary horizontal owner.
+// Fixed postwhiskering composition; both outer transformation legs are identities.
+rule @comp_prod_fapp1_fapp0 Cat_cat $I $B $C
+      (Struct_sigma _ $H) (Struct_sigma _ $H)
+      (Struct_sigma
+        (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B
+          (Struct_sigma $F $G) (Struct_sigma $F' $G)
+          (Struct_sigma $epsilon (@id _ $G)))
+        (@id _ $H))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $I $A $C
+      (Struct_sigma $F (@comp_cat_fapp0 $A $B $C $H $G))
+      (Struct_sigma $F' (@comp_cat_fapp0 $A $B $C $H $G))
+      (Struct_sigma $epsilon
+        (@id (Functor_cat $A $C) (@comp_cat_fapp0 $A $B $C $H $G)));
+rule @comp_prod_fapp1_fapp0 Cat_cat $I $A $A
+      (Struct_sigma $F (@id Cat_cat $A)) (Struct_sigma $G (@id Cat_cat $A))
+      (Struct_sigma $epsilon (@id _ (@id Cat_cat $A)))
+  ↪ $epsilon;
+
+// Part 2: constant coefficient formation, at Const_catd.
+// Canonical coefficient-family view of an ordinary constant functor.
+rule @Const_func $K Cat_cart $C ↪ @Const_catd $K $C;
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $K $A $B $F
+      (@Const_func $K $A $a)
+  ↪ @Const_func $K $B (@fapp0 $A $B $F $a);
+
+// Whole dual and postcomposition views of a constant coefficient family.
+rule @Op_func _ _ (@Const_catd $K $C)
+  ↪ @Const_func (Op_cat $K) (Op_cat Cat_cart) $C;
+rule @CoAbove2_func _ _ (@Const_func $A $B $b)
+  ↪ @Const_func (CoAbove2_cat $A) (CoAbove2_cat $B) $b;
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ Cat_cart $B $F
+      (@Const_catd $K $C)
+  ↪ @Const_func $K $B (@fapp0 Cat_cart $B $F $C);
+
+// The selected constant-family head retains the existing Hom and R views.
+rule @CoAbove2_func _ _ (@Const_catd $K $C)
+  ↪ @Const_func (CoAbove2_cat $K) (CoAbove2_cat Cat_cart) $C;
+rule @hom_ Cat_cart $K (@Const_catd $K $A) $W
+  ↪ @Const_catd $K (Hom_cat Cat_cart $W $A);
+rule @hom_con Cat_cart $W $K (@Const_catd $K $A)
+  ↪ @Const_catd (Op_cat $K) (Hom_cat Cat_cart $A $W);
+
+// Part 3: coefficient duality inverse, after TotalOp_catd.
+// Actual Cartesian coefficient duality inverse.
+rule @comp_fapp0 Cat_cat _ _ _ total_op_cart
+      (@CoAbove2_func _ _ total_op_cart)
+  ↪ @id_func Cat_cart;
+
+// Involution after the same composition has formed its family owner.
+rule @TotalOp_catd (CoAbove2_cat Cat_cart) total_op_cart
+  ↪ @id_func Cat_cart;
+// The dual of the identity coefficient family is the whole duality map.
+rule @TotalOp_catd Cat_cart (@id Cat_cat Cat_cart)
+  ↪ total_op_cart;
