@@ -54,6 +54,13 @@ rule @Op_funcd $K $E $G
       (@Op_catd $K $E) (@Op_catd $K $D) (@Op_catd $K $G)
       (@Op_funcd $K $D $G $V) (@Op_funcd $K $E $D $U);
 
+// A constant Cartesian diagram map dualizes as the same constant map of
+// dual fibres, over the required dimension-two-shifted base. This is the
+// correctly classified replacement for the former raw constant-section case.
+rule @Op_funcd $K _ _ (@Const_transf $K Cat_cart $A $B $F)
+  ↪ @Const_transf (CoAt2_cat $K) Cat_cart (Op_cat $A) (Op_cat $B)
+      (@Op_func $A $B $F);
+
 // Ordinary observations use the same whole inclusion as other Cart maps.
 rule @tapp0_fapp0 _ _ _ _ $x
       (@strict_transfor _ _ _ _ (@Op_funcd $K $E $D $U))

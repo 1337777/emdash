@@ -5,6 +5,29 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Internal Pi and classified intrinsic action, 2026-10-15
+
+The [review](production_section_pullback_review.md) and
+[verification](production_section_pullback_verification.json) record the
+original-source pass through section 17e. Cartesian intrinsic action uses
+the fibre component's actual Hom functor; general FF stays lax. The same
+Eval_funcd constructor has its canonical Cartesian profile, and leading
+evaluation retains a general FF's extracted comparison. Internal Pi and
+section pullback compute through the existing owners.
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package section_pullback_prefix.lp
+```
+
+Thirteen raw/same-base Op mirror commands are retained as inactive comparison
+text, not positive evidence. The later fdapp1_projection_target raw-Op
+consumer, arbitrary-composite Q/mate coherence and full integration remain
+required. The complete source currently stops at section 18b's Op_prof
+component coefficient.
+
 ## Structural owners and recursive Sigma base change, 2026-10-15
 
 The [review](production_structural_pullback_review.md) and

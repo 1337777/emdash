@@ -1,0 +1,14 @@
+// The admitted Cartesian coefficient has the same strict functor objects.
+// Its rigid two-endpoint Hom action therefore has the same consumed-object
+// projection as the public universe. Keep the whole Hom_fapp0 head stable.
+rule @fapp0 _ _
+      (@Hom_fapp0 Cat_cart $X $X' $Y $Y' $g $f $h) $x'
+  ↪ @fapp0 $Y $Y' $f
+      (@fapp0 $X $Y $h (@fapp0 $X' $X $g $x'));
+
+// Source-identity degeneration after Cat_cart's identity has projected to
+// the shared ordinary id_func. This is the existing Hom/composition reading
+// at that actual normal form, not a runtime expansion of the rigid owner.
+unif_rule @Hom_fapp0 Cat_cart $X $X $Y $Z (@id Cat_cat $X) $F $G
+  ≡ @comp_fapp0 Cat_cat $X0 $Y0 $Z0 $F0 $G0
+  ↪ [ $X ≡ $X0; $Y ≡ $Y0; $Z ≡ $Z0; $F ≡ $F0; $G ≡ $G0 ];

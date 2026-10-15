@@ -2,10 +2,19 @@
 
 Date: 2026-10-14
 Status: direct Homd/intrinsic ladders, section-first Pi evaluation and whole
-right-represented reindexing check; recursive total base change preserves
-directed two-cells; full qualification remains open
+right-represented reindexing check; recursive total base change and leading
+evaluation preserve directed cells; full qualification remains open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
+
+Continuation after `2334f755`: the original section 17e internal Pi and
+section-pullback consumers check. Cartesian displayed-map intrinsic action
+computes the actual fibre Hom functor, including shifted Op. Eval_funcd is
+the same canonical evaluator with its Cartesian map type and ordinary view.
+Evaluation after a general lax FF retains FF's extracted cell as input to
+its Hom action. The [review](../emdash2/audits/strict-default-action-boundary/production_section_pullback_review.md)
+distinguishes these results from thirteen retired raw Op mirror clauses and
+the still-required arbitrary-composite/late-projection coherence.
 
 Continuation after `e268b242`: the original Cartesian exchange/diagonal
 ladders and displayed weakening now check with their actual mapping

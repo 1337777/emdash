@@ -1,0 +1,26 @@
+// Cartesian displayed maps have strictly natural base comparison. Their
+// intrinsic Hom action is the actual first Hom of the fibre component.
+// This includes the ordinary view of any valid shifted Op_funcd(U).
+// It does not admit raw lax FF to the Cartesian classifier.
+rule @fdapp1_int_hom_func _ _ _ (@strict_transfor $K Cat_cart $E $D $U)
+      $x $y $p $u $v
+  ↪ @fapp1_func (Fibre_cat $E $y) (Fibre_cat $D $y)
+      (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $U) $y)
+      (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
+        (@catd_transport_func $K $E $x $y $p) $u) $v;
+
+rule @fdapp1_int_hom_fapp0 _ _ _ (@strict_transfor $K Cat_cart $E $D $U)
+      $x $y $p $u $v $alpha
+  ↪ @fapp1_fapp0 (Fibre_cat $E $y) (Fibre_cat $D $y)
+      (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $U) $y)
+      (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
+        (@catd_transport_func $K $E $x $y $p) $u) $v $alpha;
+
+// The same actual action at the transported identity has identity laxity.
+rule @fdapp1_int_cell _ _ _ (@strict_transfor $K Cat_cart $E $D $U)
+      $x $y $p $u
+  ↪ @id (Fibre_cat $D $y)
+      (@fapp0 (Fibre_cat $E $y) (Fibre_cat $D $y)
+        (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $U) $y)
+        (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
+          (@catd_transport_func $K $E $x $y $p) $u));

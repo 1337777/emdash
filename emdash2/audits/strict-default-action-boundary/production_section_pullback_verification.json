@@ -1,0 +1,423 @@
+{
+  "status": "Staged original-source pass through section 17e checks, including actual internal Pi, Cartesian intrinsic action, shifted Op and general-FF laxity through leading evaluation; full arbitrary-composite and downstream qualification remain open",
+  "extendsCheckpoint": "2334f755",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "originalCoreSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "sourcePreservation": {
+    "originalCoreLines": 22644,
+    "candidateCoreLines": 23776,
+    "originalDownstreamSectionsRetained": true,
+    "unretiredNamedDeclarationsRetained": true,
+    "retiredNamesWithReplacements": {
+      "Homd_target_section_catd": "Homd_target_section_cat",
+      "functord_transport_lhs_tele_agrees": "functord_transport_rhs_tele_agrees",
+      "functord_transport_lhs_agrees": "functord_transport_rhs_agrees"
+    },
+    "unrelocatedNamedDeclarationSequenceVerified": true,
+    "namedDeclarationSequenceExceptions": [
+      "Catd_cat_func",
+      "Catd_catd_con",
+      "Const_func_func",
+      "FibCov_source_catd",
+      "FibCov_target_catd",
+      "fib_cov_int",
+      "fib_cov_src_func",
+      "fib_cov_transf",
+      "homd_id_src_sec",
+      "homd_id_tgt_func",
+      "homd_src_func",
+      "homd_src_sec",
+      "homd_tgt_func"
+    ]
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e",
+    "audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment": "f754d60461ff080b77844f38313953244e425ad28fc49e6e394ed114317a77d0",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/conventional_total_op_mapping.lpfragment": "af021c0bb56a5c6730ab5a2e56a387f4cd30fbb8102e36c70bd7f0bc35a6032f",
+    "audits/strict-default-action-boundary/cartesian_profile.lpfragment": "9baf7c78bdc42695ed2e715dd07185f17a957472f2cc7c0434cabd6314039976",
+    "audits/strict-default-action-boundary/production_family_classifier.lpfragment": "0978dd95a597059e20ecb3e38d8bba249499f522caaea1ae9f65a11753c1e81e",
+    "audits/strict-default-action-boundary/conventional_total_op_transfors.lpfragment": "33842eafce8cfb5f84ac5c401ebaf52e8e128cb1d585311862f812925dd119d9",
+    "audits/strict-default-action-boundary/conventional_total_op_offdiagonal.lpfragment": "9431b15bfbedf363c3863a12d86f94b3afbadd04a265abe3fffce0444321eba9",
+    "audits/strict-default-action-boundary/production_cartesian_closure.lpfragment": "31f8d97603e9c9c8ac2922778e15e8c5efed3a268c8d1872820041940c2be8c9",
+    "audits/strict-default-action-boundary/production_cartesian_family_duality.lpfragment": "96370700b262c367cb14934643bb9b81b8b5bd1290f108d0117a9df61c9c5feb",
+    "audits/strict-default-action-boundary/conventional_total_op_whole_action.lpfragment": "202dc17fe192b57c7a7ce8a054d6bc5746027ffa41c5f9698455ae78ee006f0a",
+    "audits/strict-default-action-boundary/conventional_total_op_source_units.lpfragment": "79dbd611f959bade6d50676325ba69d9dd8ceb866f98f84bdf851a2915d3d9a9",
+    "audits/strict-default-action-boundary/production_cartesian_product.lpfragment": "b9fd844fe022921f356c2cb2a628806ef2f9364e44a2b89546073da14d11dfb5",
+    "audits/strict-default-action-boundary/total_op_family.lpfragment": "13f79efe229f5a560dc54d3ea9c4609fac91de5b095de206277330871fe2e7d0",
+    "audits/strict-default-action-boundary/production_homd_index.lpfragment": "364d59d7bd81582d78021513e66ca5c2b1577ebb57fce4caa430e0c375b38978",
+    "audits/strict-default-action-boundary/production_homd_core.lpfragment": "f02f092ad1f7b9c12bddca24ca10a7350de7496640274e6e921b318722f7cd56",
+    "audits/strict-default-action-boundary/production_intrinsic_projection.lpfragment": "6a99cc8c5da93ab05ac37a3590aa344a57daeca00f667f3fc99c5058bbc1c2d3",
+    "audits/strict-default-action-boundary/production_intrinsic_modification.lpfragment": "d82df7e48ecc52ca6844a20a67fa0cf8bdf1c9c0b2a8e4370e03186d4af8921c",
+    "audits/strict-default-action-boundary/production_index_constant_coherence.lpfragment": "692c58b4f216e0fb19898cfa50986ef4775d87725b38e6967ae55881f16a9f63",
+    "audits/strict-default-action-boundary/production_constant_section_index.lpfragment": "8b54b6cd0ca9b60335abc4f1556b8aef15179eb06492b4dcc79499ec1cfc4c32",
+    "audits/strict-default-action-boundary/production_evaluation.lpfragment": "987c74b00c90e0d95ef7d702a98040effe52ecbb7c0fcab7e8a36bd17e563f28",
+    "audits/strict-default-action-boundary/production_q_reindex.lpfragment": "3393d73a36618e9db898e0dd4cf7a08a6decba1e7d847ea83449cb5c0328b4a2",
+    "audits/strict-default-action-boundary/production_ordinary_structural.lpfragment": "c6a89a6b9b391a3d31625395d755b9025c0618a798e6b2a6383cbd9af1387cc5",
+    "audits/strict-default-action-boundary/production_pullback_structural.lpfragment": "58eb1be31606f544940ddd8d3e2f5b4db092d4266f57107ea5942d86720196f8",
+    "audits/strict-default-action-boundary/production_total_op_pullback.lpfragment": "15bef22764f4dea59a5a6ba195099ac4e429ed7296cdda9b070fb4bffa5cd72d",
+    "audits/strict-default-action-boundary/production_section_pullback.lpfragment": "c8724d96788455a8a2777090d74a9c9205d5109828cb77d18da270f759641d85",
+    "audits/strict-default-action-boundary/production_cartesian_intrinsic.lpfragment": "2c3e4e73b6696a534efe22f53ad5e827bc66f7b37d751d0f608c555b6f496f84",
+    "audits/strict-default-action-boundary/production_cartesian_hom_action.lpfragment": "313fe43d68615eecd7094c116ced474dd756f1f18a7714401a5ab38ff51a1ab1",
+    "audits/strict-default-action-boundary/production_cartesian_reindex_view.lpfragment": "1596f796b143cac2d8f943262363a23733e4617b2c66edfe57d1bfb30958ff25",
+    "audits/strict-default-action-boundary/production_cartesian_naturality.lpfragment": "acfdc0040460323d121993951f414a24852fd71f0169ba86bec6178f7994c537",
+    "audits/strict-default-action-boundary/production_owner_controls.lpfragment": "42ba40bf4884d0b9a18cd094ec7735de70b3f8d0c0e6ec9b3699ad164989aa2c",
+    "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+    "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/production_foundations_controls.lpfragment": "d3c768a592094fb5280d4395010d1b24fcb67f394f1f3765f931c54d68a67d0b",
+    "audits/strict-default-action-boundary/production_sections_controls.lpfragment": "57f4d94f69f178e698e652f82f610fea9b8987c36ab1ce92c90cde4825961b95",
+    "audits/strict-default-action-boundary/sigma_total_op_controls.lpfragment": "2f817d10405f707cf3738ff68160f79bcd99e5a2739d0e226f9f012042408b72",
+    "audits/strict-default-action-boundary/mixed_family_controls.lpfragment": "2d0509b7853469f929d3c55b342d396ec4dccaea8493adad962c719d5cb5fd66",
+    "audits/strict-default-action-boundary/mixed_family_parameter_controls.lpfragment": "bb25703b284fc88d1fe64d44fced4ffa65a729d5a135f329654305a24f4a1ad0",
+    "audits/strict-default-action-boundary/total_op_hom_family_controls.lpfragment": "5887b77b910dd9c843af6d5c3fe5a89deddc0b9655904fa69e514c3169b69e62",
+    "audits/strict-default-action-boundary/production_homd_controls.lpfragment": "8490072106fb361ed95a7eb40bc00c5913f6d43edaa18f5ba181a1f1341b1025",
+    "audits/strict-default-action-boundary/production_q_reindex_controls.lpfragment": "37d263a6cc17c4ab0117253e436304c5818e20968c4c583a7182e30a6277c302",
+    "audits/strict-default-action-boundary/production_homd_index_controls.lpfragment": "202bed78e341861596de96ff80f6462b25c40734ef8589cde9c51871ed0c04eb",
+    "audits/strict-default-action-boundary/production_intrinsic_controls.lpfragment": "3b4a4a7fdb867b164e3a33fc6025e96f1c041b3c213a30c5c8004a51a51d1ed3",
+    "audits/strict-default-action-boundary/production_section_action_controls.lpfragment": "6b084092deeed77d1441fdd2bb622175d41512b5980f6c58c7d81c24a6336d6e",
+    "audits/strict-default-action-boundary/production_evaluation_controls.lpfragment": "02d0e4ec79a7d1b5c23b740116d1fc1279fe4fa402cbdc8dc730ff390465797a",
+    "audits/strict-default-action-boundary/production_constant_map_controls.lpfragment": "fe1f4da080a251fd0f28aec197dca4ca58652d8700b015036d8d5854f46f6a8e",
+    "audits/strict-default-action-boundary/production_ordinary_structural_controls.lpfragment": "63d9209054b5750ddbb1e62c78bf63b3ae0d4bbd868eeb7b2bd6f2fd7e3d06cf",
+    "audits/strict-default-action-boundary/production_pullback_structural_controls.lpfragment": "edd230527e3ff391a065a89339586f57f0973200be0047abfe4dc6a896d6fb27",
+    "audits/strict-default-action-boundary/production_section_pullback_controls.lpfragment": "d4d5ceee0a9b31a045cc8a1fed29939cea5901545527aa2191fef964285de0bf",
+    "audits/strict-default-action-boundary/production_comma_equivalence.lpfragment": "7e70d4dfd77958a06f712dd0e668280efd4a16eb7e3db328030fa693309622ef",
+    "audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment": "956d22e530d20bf54ba5e58bdecfe37354c6743154280ffa0f6ce7be02067b9b",
+    "audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment": "5ebdccd39cd50e224bddb1bb559bd82f14596053102484c62d8e428e5b778344",
+    "audits/strict-default-action-boundary/production_owner_migration.py": "ee54cf9c0719778b5c39972724d0a9ea351ff492169663ed14dc35073f2901ec"
+  },
+  "baselinePrefix": {
+    "id": "20261015T204615Z-d8380586db284437ab91bd2fdd3c74a9",
+    "target": "pullback_structural_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 5.44855791493319,
+    "childrenMaxRssKiB": 435168,
+    "inputSnapshot": "2660568288cc2be4ae0f14331eddaaea9e499713083fe7c6fa734773fb87fd48",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "pullback_structural_prefix.lp": "81c9b49d992482f264850b61bedbaf4078d1af0d429f6d6b5f6cfc0a83fba2c4"
+    },
+    "log": "logs/check-runs/20261015T204615Z-d8380586db284437ab91bd2fdd3c74a9.log",
+    "logSha256": "7e11ba5b07076c099fb61687b57bb0178e3b0dec558dcaebe308ccb785230f30",
+    "receipt": "logs/check-runs/20261015T204615Z-d8380586db284437ab91bd2fdd3c74a9.json",
+    "receiptSha256": "e65a6a76a8a0d9f0496b356d09bda84fd189e40c939e7ae26fbab1c9388426b4"
+  },
+  "candidatePrefix": {
+    "id": "20261015T212449Z-8e82346a38454841b1c2c9ba955c9cbb",
+    "target": "section_pullback_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 5.941900957026519,
+    "childrenMaxRssKiB": 466752,
+    "inputSnapshot": "c98d50275c60d87e41b31b44bf86b4e2e7a5b786090a6261c63538d5f9048a3a",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "section_pullback_prefix.lp": "f5442ff7f34b09b9714f4439940b6db783699d7aebf79ac493039a6d737cdb3a"
+    },
+    "log": "logs/check-runs/20261015T212449Z-8e82346a38454841b1c2c9ba955c9cbb.log",
+    "logSha256": "101dad8e150db173ba46ee7eb1dbbe04aad8269aea1dc6bac29220ecdb8125d1",
+    "receipt": "logs/check-runs/20261015T212449Z-8e82346a38454841b1c2c9ba955c9cbb.json",
+    "receiptSha256": "534fa533a2bc56bf4a38c545e3e4b77aedc5f9848d98b18cb2d2debe186712ce"
+  },
+  "fullSourceFailure": {
+    "id": "20261015T212621Z-3d0ff555c1f74e67929c8a34021b2706",
+    "target": "emdash3_2.lp",
+    "outcome": "failed",
+    "wallSeconds": 5.624997573089786,
+    "childrenMaxRssKiB": 445984,
+    "inputSnapshot": "8a252a7a58c0c32273abfb3584110a38c084c2a7b7e349aab25be7365d5535e6",
+    "inputs": {
+      "emdash3_2.lp": "cb8ffdaee5d6910df120ca97d431ab4e7a70e350cfa1f7a2c52ecb757e7666de",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T212621Z-3d0ff555c1f74e67929c8a34021b2706.log",
+    "logSha256": "f066974fa2e58488574fe1460ba42fc5d6211cba517148f41ae0fdad5bd88046",
+    "receipt": "logs/check-runs/20261015T212621Z-3d0ff555c1f74e67929c8a34021b2706.json",
+    "receiptSha256": "4b13ba385ca7104daf95110dec68c3c7f8af0dad4683923ab19904fc50beb91e",
+    "owner": "Op_prof component, section 18b",
+    "location": "emdash3_2.lp:19070:5-19079:11",
+    "diagnosis": "The legacy profunctor component still names Cat_cat rather than the admitted family coefficient. The rest of the original source remains present."
+  },
+  "interfaces": {
+    "sectionPullback": "Original section_pullback_func and internal Pi cells compute through Cat_cart family observations and the actual T(G) reindexing view",
+    "CartesianIntrinsic": "fdapp1_int_hom_func(strict_transfor U,p,u,v) is the actual first Hom of U[y]; its transported-identity cell is identity",
+    "shiftedOp": "Valid Op_funcd(U) remains a Cartesian map over CoAt2(K), with the same generic intrinsic computation",
+    "canonicalEvaluation": "The existing Eval_funcd has a Cartesian diagram-map type; its ordinary strict_transfor view and actual shifted Op are checked",
+    "constantCartesianOp": "Op_funcd(Const_transf(K,Cat_cart,A,B,F)) computes to Const_transf(CoAt2(K),Cat_cart,T(A),T(B),T(F))",
+    "generalFFLeadingEvaluation": "Extracted cell of Eval o FF computes to Eval_y,1 applied to the actual extracted FF cell; FF remains general lax",
+    "neutralEvaluation": "Eval_func[z] computes to sigma_Fst(z)[sigma_Snd(z)], locally at Eval; no general product eta rule is installed"
+  },
+  "observedConsumers": [
+    "All inherited direct Homd, general intrinsic modification, noninvertible constant F[alpha], Sigma-total and recursive base-change controls",
+    "Section pullback point computation and actual internal Pi root/pointwise base-action cells",
+    "Whole Cartesian filler functor and the actual intrinsic root -> x/u -> y -> v -> p -> filler computation",
+    "Cartesian transported-identity cell and actual shifted-Op whole filler functor",
+    "Raw lax FF rejected as an input to the Cartesian Op_funcd classifier",
+    "Canonical Cartesian Eval_funcd, its ordinary component and actual shifted Op component",
+    "Whole constant Cartesian diagram-map duality over the shifted base",
+    "An unrelated mapped base functor is rejected by the whole reindexing comparison",
+    "Actual arbitrary-FF leading-evaluation composite preserves the extracted FF cell as input to the evaluator Hom action",
+    "General FF post/left and pre/right endpoint values stay distinct; an ordinary constant-section loop is not made identity",
+    "Unrestricted product/Sigma pair eta remains rejected"
+  ],
+  "retiredRules": {
+    "count": 13,
+    "heads": {
+      "@Op_funcd": 1,
+      "@fdapp1_int_cell": 4,
+      "@fdapp1_int_hom_func": 4,
+      "@fdapp1_int_hom_fapp0": 4
+    },
+    "verbatimCommandsVerifiedAgainstSourcePin": true,
+    "location": "Inactive comparison block in production_section_pullback.lpfragment",
+    "reason": "The old commands admit raw lax Op_funcd inputs and an unchanged base, contradicting the selected Cartesian shifted-base contract.",
+    "replacementBoundary": "Valid Cartesian intrinsic computation is generic; canonical evaluation and constant Cartesian maps have positive consumers. No Cartesian lift is claimed for every old raw expression.",
+    "remainingNamedConsumer": "fdapp1_projection_target still requires migration from raw Op_funcd(FF) to the corrected whole intrinsic source/target owners"
+  },
+  "normalizationFindings": [
+    {
+      "receipt": {
+        "id": "20261015T205306Z-c62bb48450c5413daefd6a910a2767d0",
+        "target": "section_pullback_prefix.lp",
+        "outcome": "failed",
+        "wallSeconds": 5.36891097901389,
+        "childrenMaxRssKiB": 416264,
+        "inputSnapshot": "4ef5a7f2f13607802490019cec721f89f1dce8adb625e14edc1ef6852fdc2516",
+        "inputs": {
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+          "section_pullback_prefix.lp": "07f6f4d3b4619fbd66955f1b5793b810d3f6e3a6fe408fcc3c57d5c090448ff0"
+        },
+        "log": "logs/check-runs/20261015T205306Z-c62bb48450c5413daefd6a910a2767d0.log",
+        "logSha256": "ac270a66e99157a9d47b65adb13ab9d433a8a40a14e8e694593fdef1190fe37d",
+        "receipt": "logs/check-runs/20261015T205306Z-c62bb48450c5413daefd6a910a2767d0.json",
+        "receiptSha256": "522df96dff73de4005b92f234b1447541e1fa3971effa01a7761485b7094e453"
+      },
+      "finding": "Canonical evaluation needs the consumed-object Hom_fapp0 view at Cat_cart."
+    },
+    {
+      "receipt": {
+        "id": "20261015T205440Z-72625b26ffa844f7bc95cb9728bd3d08",
+        "target": "section_pullback_prefix.lp",
+        "outcome": "failed",
+        "wallSeconds": 5.231651651090942,
+        "childrenMaxRssKiB": 419040,
+        "inputSnapshot": "6886d5941b0b253ecbe4ae82b734c3486486945c32c8db24dfeade028653ff1a",
+        "inputs": {
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+          "section_pullback_prefix.lp": "ef09fa5d3041a0e55532d57ccdb10106b86d73ee03a1322e548890e4f386e307"
+        },
+        "log": "logs/check-runs/20261015T205440Z-72625b26ffa844f7bc95cb9728bd3d08.log",
+        "logSha256": "deab900d65bfa677a633456a0643f82c0dee01d327589a05eb17e6ac58353870",
+        "receipt": "logs/check-runs/20261015T205440Z-72625b26ffa844f7bc95cb9728bd3d08.json",
+        "receiptSha256": "8cf601a53d2bfa40f40556e6a4a72da5ecaeac4d3481a077949dcad54e7333ea"
+      },
+      "finding": "Its whole Hom endpoint needs the identity-degenerate rigid Hom/composition comparison after the Cartesian identity has projected."
+    },
+    {
+      "receipt": {
+        "id": "20261015T205553Z-3ab02449b9824554a8fd70b985f11aaf",
+        "target": "section_pullback_prefix.lp",
+        "outcome": "failed",
+        "wallSeconds": 5.354416841990314,
+        "childrenMaxRssKiB": 428012,
+        "inputSnapshot": "98029b7fb3cd6ce671384191c0e879eb3d8457698dd268fda48e3885bff78c7d",
+        "inputs": {
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+          "section_pullback_prefix.lp": "c510a8dafb474485de39a2b866f04127be821ca2e8c13ec69f31f1a589cb6181"
+        },
+        "log": "logs/check-runs/20261015T205553Z-3ab02449b9824554a8fd70b985f11aaf.log",
+        "logSha256": "ca1f5b54f80e1c9441ebbf55fcb6b4b3263166d19593cb1034d7642010ffae9a",
+        "receipt": "logs/check-runs/20261015T205553Z-3ab02449b9824554a8fd70b985f11aaf.json",
+        "receiptSha256": "632cfd39c6f375cd83134a1fe90ebb3e94dd1638ed2341b41d280dc5f7e786fc"
+      },
+      "finding": "Internal Pi exposes represented precomposition versus the same admitted pullback family."
+    },
+    {
+      "receipt": {
+        "id": "20261015T205934Z-4fb3a36ab6234a5f8f0f314cb67157e8",
+        "target": "section_pullback_prefix.lp",
+        "outcome": "failed",
+        "wallSeconds": 5.4953399889636785,
+        "childrenMaxRssKiB": 429592,
+        "inputSnapshot": "2eac7791e1e4cc5acf4360d6a65bb86da9a45937c6eb42a22d2adf23b85dab3b",
+        "inputs": {
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+          "section_pullback_prefix.lp": "1b69fcca4803d582c8a0b6cf48611b07a40359d582db78a32d8afec47d05fadf"
+        },
+        "log": "logs/check-runs/20261015T205934Z-4fb3a36ab6234a5f8f0f314cb67157e8.log",
+        "logSha256": "6c65f5226ff41de5cb8f01dcf35f8a8d20c912e98b84662f1bb8132ec2091f79",
+        "receipt": "logs/check-runs/20261015T205934Z-4fb3a36ab6234a5f8f0f314cb67157e8.json",
+        "receiptSha256": "51c54eddc6bbadabf63d225950af24f6981efdd19e48ea8cd33a1542649a0d8b"
+      },
+      "finding": "A generic F_1 reindexing constraint decomposes endpoint tags before recognizing the transpose; it is replaced by the actual T(G)-head comparison."
+    },
+    {
+      "receipt": {
+        "id": "20261015T210224Z-a6af4aa632ba4ab1b168ec03042868dc",
+        "target": "section_pullback_prefix.lp",
+        "outcome": "failed",
+        "wallSeconds": 5.358581727021374,
+        "childrenMaxRssKiB": 429400,
+        "inputSnapshot": "963cf19844dd5e7b81d68507625f59ca10d096592edd2e74703e5ea8d53e3978",
+        "inputs": {
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+          "section_pullback_prefix.lp": "4db5fde98baf864a02098bfe78f27c3681d0ce0379dda4f0ecc3d65549af9dd7"
+        },
+        "log": "logs/check-runs/20261015T210224Z-a6af4aa632ba4ab1b168ec03042868dc.log",
+        "logSha256": "2984809706318fc1eed4c77129134110f55bba5683cae0d3a4bbbb635db8ac7f",
+        "receipt": "logs/check-runs/20261015T210224Z-a6af4aa632ba4ab1b168ec03042868dc.json",
+        "receiptSha256": "94a372597f1495d6b9eeedee9f5eebac0d6d2690e989acb59d6dadb064d69163"
+      },
+      "finding": "Cartesian intrinsic action requires the existing point-naturality readings at the admitted coefficient, with the post/left strict-view guard retained."
+    },
+    {
+      "receipt": {
+        "id": "20261015T211335Z-3c8ae6c11a464d50b40d741601115485",
+        "target": "section_pullback_prefix.lp",
+        "outcome": "failed",
+        "wallSeconds": 5.956048998981714,
+        "childrenMaxRssKiB": 466608,
+        "inputSnapshot": "fb1e9b77ef91a3575564642a41aa242e35e4409fa34ab6bb586034c253eb694c",
+        "inputs": {
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+          "section_pullback_prefix.lp": "e5847242d9a2113fca1fdac5de0733786490a60ff00f47349c9f421ff906e0ce"
+        },
+        "log": "logs/check-runs/20261015T211335Z-3c8ae6c11a464d50b40d741601115485.log",
+        "logSha256": "3beffd33b85805cec4baede0f741dedc16b2bc2aa026e52ee673964e27f0a4df",
+        "receipt": "logs/check-runs/20261015T211335Z-3c8ae6c11a464d50b40d741601115485.json",
+        "receiptSha256": "df834546a1486129df43987c3b0a31139de0cdc241635ed748ea1e378dd74a24"
+      },
+      "finding": "The arbitrary-FF leading-evaluation consumer fails at neutral-pair source endpoints until Eval observes the actual pair projections."
+    }
+  ],
+  "runtimeProfile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileLimitMiB": 64,
+    "subjectReduction": true,
+    "OCAMLRUNPARAM": "o=20",
+    "serialGuard": true,
+    "warnings": true,
+    "compiledObjects": false
+  },
+  "warnings": {
+    "comparisonBoundary": "Before original section 17e; active migrated 17e and Cartesian-intrinsic coverage separate",
+    "candidateCutLine": 18442,
+    "baseline": {
+      "replaceable pattern variable": 142,
+      "unjoinable critical pair": 1584
+    },
+    "candidate": {
+      "replaceable pattern variable": 140,
+      "unjoinable critical pair": 1629
+    },
+    "baselineCriticalPairs": 1584,
+    "candidateAtSameBoundary": 1588,
+    "addedAtSameBoundary": 4,
+    "removedAtSameBoundary": 0,
+    "newCoverage": 41,
+    "addedGroups": {
+      "Op_funcd x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "05a3af71d44f0b804a36364cb2cb1ec7a993489600b5d709a9690bee4c64783e"
+      },
+      "Op_funcd x tapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "ba49735880c91d1a0f4223b94b8c23a34c7f9b374b8264f188b61ca53f285064"
+      },
+      "Op_funcd x tapp1_func": {
+        "count": 1,
+        "bodiesSha256": "01d957438ed0229a7c2655642218ffa769e0c18d7e4560f2df86b99f63784869"
+      },
+      "fapp0 x fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "5c548fa0163bc1e426c5cbb9d78252c1e9153c3b27dadc1b0ce508da28c64eb8"
+      }
+    },
+    "removedGroups": {},
+    "newCoverageGroups": {
+      "Const_func x fdapp1_int_hom_fapp0": {
+        "count": 1,
+        "bodiesSha256": "6fec85204902581d7373e96f82a3684d66c6f6bda863f5ddeeee358ce9b9458b"
+      },
+      "Const_func x fdapp1_int_hom_func": {
+        "count": 1,
+        "bodiesSha256": "6431802740a63cd31df305d038c7855b5023b5cb627a935ec7797e7edb76a95a"
+      },
+      "Const_func x section_weaken_funcd": {
+        "count": 1,
+        "bodiesSha256": "a24cd0f7f7c2907a1eff4c36dea45971ac70f7e9ae27acdeee224a6cb94d6e89"
+      },
+      "comp_fapp0 x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "9fff78c7f03e3f46ac5b6630367da056762a1d8058f7128f21a76cb688a0b3bf"
+      },
+      "fapp0 x fdapp1_int_hom_func": {
+        "count": 2,
+        "bodiesSha256": "bf1ee89d8ec5f1f9293552ab8abfa8896b232b72c30877b7cf76acd4db929a82"
+      },
+      "fdapp1_int_cell x fdapp1_int_cell": {
+        "count": 7,
+        "bodiesSha256": "d76c0085a948992abefbcd790274126016ef4f5367344a620533a0a7075b3ae5"
+      },
+      "fdapp1_int_cell x strict_transfor": {
+        "count": 4,
+        "bodiesSha256": "6d921555e5b546c566ffd308b042ecb50aae0eb34d9e84d49366f97eeea42c12"
+      },
+      "fdapp1_int_hom_fapp0 x fdapp1_int_hom_fapp0": {
+        "count": 9,
+        "bodiesSha256": "31da444425ea0670bd817cd744c7bbd6273feb72ba3de1b8bc79036822a5183e"
+      },
+      "fdapp1_int_hom_fapp0 x section_weaken_funcd": {
+        "count": 1,
+        "bodiesSha256": "ca27f415157ef67fed3b0b322f5a344ff95f98662fa06aa54af270cf8434f985"
+      },
+      "fdapp1_int_hom_fapp0 x strict_transfor": {
+        "count": 4,
+        "bodiesSha256": "7282dc5e1551f97eebf1c3cefe680fd3277256f3188905be194107609be0788a"
+      },
+      "fdapp1_int_hom_func x fdapp1_int_hom_func": {
+        "count": 4,
+        "bodiesSha256": "c32a61318a9c1949d0524c31d0b81f0e0aa27ebab0c733244b49636e8cc324e8"
+      },
+      "fdapp1_int_hom_func x section_weaken_funcd": {
+        "count": 1,
+        "bodiesSha256": "d7e9be7612da09354629bd12550ea53ba48ae347d8b0118c2b69a4fabcd11d9b"
+      },
+      "fdapp1_int_hom_func x strict_transfor": {
+        "count": 4,
+        "bodiesSha256": "2bab3af72be2c09892fdea9143388e0fd09ccfca4eba9c2f227584fc3e616641"
+      },
+      "tapp0_fapp0 x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "8b352a8167f928f0d98cc1de0b20111c12a917912e5def8c1055926110cae87e"
+      }
+    },
+    "parserIssues": 0,
+    "assessment": "Early changes are the Cartesian Hom object projection, coefficient-specific naturality views, classified Eval observation, neutral Eval object computation and constant Cartesian Op. New coverage includes only active migrated clauses; the thirteen raw mirror commands are comments. Whole Cartesian/intrinsic, canonical shifted, internal-Pi and general-FF leading-composite consumers pass with noncollapse controls. Residual critical pairs and arbitrary-composite Q/mate coherence remain unqualified."
+  },
+  "lhsAudit": {
+    "unreviewedClauses": 0,
+    "unreviewedSlots": 0,
+    "annotatedSlots": 59,
+    "intentionalClauses": 39
+  },
+  "stillRequired": [
+    "Whole intrinsic filler and higher-index composition for two general lax displayed maps, preserving both extracted cells",
+    "Remaining Q/mate coherence and whole duality/inverse presentation qualification",
+    "Later fdapp1_projection_target and related consumers of the old raw Op interface",
+    "Remaining Eval_funcd consumer inclusion views and the profunctor/later original source pass",
+    "Full public diagnostics, downstream reviewers, catalog, health and CI"
+  ],
+  "payloadBoundary": "No operational equality/path payload, standalone laxity witness, global strict-Functord exception, new Pi constructor, global pair eta or general profunctor-composition prerequisite",
+  "scope": "Non-library source-authoring checkpoint; no public kernel promotion and no unrestricted Q-model or global confluence claim"
+}

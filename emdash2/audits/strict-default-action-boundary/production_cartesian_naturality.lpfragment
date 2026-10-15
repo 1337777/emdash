@@ -1,0 +1,17 @@
+// Existing consumed-object naturality readings at the admitted coefficient.
+// The pre/right leg is the selected default convention for every FF.
+rule @fapp0 _ _
+      (@tapp0_fapp0 $K Cat_cart $E $D $y $epsilon)
+      (@fapp0 _ _ (@fapp1_fapp0 $K Cat_cart $E $x $y $p) $u)
+  ↪ @fapp0 _ _ (@tapp1_fapp0 $K Cat_cart $E $D $x $y $epsilon $p) $u;
+
+// The post/left leg joins only for an actual Cartesian transformation.
+// This is the Cat_cart instance of the pre-existing strict-view projection.
+rule @fapp0 _ _
+      (@fapp1_fapp0 $K Cat_cart $D $x $y $p)
+      (@fapp0 _ _
+        (@tapp0_fapp0 $K Cat_cart $E $D $x
+          (@strict_transfor $K Cat_cart $E $D $U)) $u)
+  ↪ @fapp0 _ _
+      (@tapp1_fapp0 $K Cat_cart $E $D $x $y
+        (@strict_transfor $K Cat_cart $E $D $U) $p) $u;

@@ -508,6 +508,13 @@ rule @comp_fapp0 Cat_cat _ _ _
     b = body.index('// 7c. Ordinary curry and uncurry', a)
     old_eval = body[a:b]
     new_eval = old_eval.replace('Functor_cat', 'Functor_cart_cat')
+    old_eval_point = 'rule fapp0 (@Eval_func $A $B) (Struct_sigma $F $x)\n  ↪ fapp0 $F $x;'
+    assert new_eval.count(old_eval_point) == 1
+    new_eval = new_eval.replace(old_eval_point,
+        '// Evaluate the actual pair projections even when the argument is neutral.\n'
+        '// This is local to Eval, not a global product/Sigma eta rule.\n'
+        'rule fapp0 (@Eval_func $A $B) $z\n'
+        '  ↪ @fapp0 $A $B (sigma_Fst $z) (sigma_Snd $z);')
     new_eval = new_eval.replace('(Transf_cat F G)', '(Hom_cat (Functor_cart_cat A B) F G)')
     new_eval = new_eval.replace('(@Transf_cat $A $B $F $G)',
                                 '(Hom_cat (Functor_cart_cat $A $B) $F $G)')
@@ -1176,6 +1183,33 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     insert('// The same total-fibre object formation through ordinary fixed',
            fragment('production_total_op_pullback.lpfragment'),
            'Commute total fibre duality with reindexing along the actual R-dual base functor, for recursive Sigma base change')
+    a = body.index('// 17e. Section pullback and internal Pi action')
+    b = body.index('// 18. Cat-valued profunctors', a)
+    replace_once(body[a:b], fragment('production_section_pullback.lpfragment') + '\n\n'
+                 + fragment('production_cartesian_intrinsic.lpfragment') + '\n\n',
+                 'Section pullback and classified intrinsic action',
+                 'Retain general lax section/evaluation computations; replace invalid raw same-base Op mirrors by actual Cartesian intrinsic observations on the corrected profile')
+    insert('// The primitive Unit_prof projection keeps the Hom action rigid at runtime.',
+           fragment('production_cartesian_hom_action.lpfragment'),
+           'The actual Cartesian displayed evaluator consumes the rigid Hom action at an object, with the same shared strict-functor interpretation')
+    insert('/*\n  Contravariant represented-family reindexing is runtime accumulation:',
+           fragment('production_cartesian_reindex_view.lpfragment'),
+           'Internal Pi consumes the existing represented precomposition and admitted pullback as the same whole family')
+    insert('// Identity specialization after the strict component has already projected.',
+           fragment('production_cartesian_naturality.lpfragment'),
+           'Reuse the existing default pre/right and actual strict-view post/left consumed-object computations at Cat_cart')
+    a = body.index('injective symbol Eval_funcd [K A : Cat]')
+    b = body.index(';', a) + 1
+    old_eval_map = body[a:b]
+    replace_once(old_eval_map,
+                 old_eval_map.replace(': τ (Functord\n', ': τ (Hom (Functor_cart_cat K Cat_cart)\n'),
+                 'Canonical displayed evaluation profile',
+                 'The existing Cartesian evaluator is strictly natural for admitted families; retain one constructor and its ordinary inclusion view')
+    replace_once('rule @tapp0_fapp0 _ Cat_cart _ _ $k (@Eval_funcd _ $A $B)',
+                 'rule @tapp0_fapp0 _ Cat_cart _ _ $k\n'
+                 '      (@strict_transfor _ _ _ _ (@Eval_funcd _ $A $B))',
+                 'Ordinary component of classified displayed evaluation',
+                 'The same fibre Eval_func is observed through the actual Cartesian mapping inclusion')
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -1220,6 +1254,8 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     mixed_boundary = '// 11. Representables and presheaf-family classifiers'
     assert body.count(mixed_boundary) == 1
     mixed_controls = fragment('mixed_family_controls.lpfragment').replace('Cat_cat', 'Cat_cart')
+    mixed_controls = mixed_controls.replace('(@Eval_funcd K A B)',
+        '(@strict_transfor _ _ _ _ (@Eval_funcd K A B))')
     mixed_parameters = fragment('mixed_family_parameter_controls.lpfragment')
     mixed_parameters = mixed_parameters.split('// Dependency-complete recovery candidate for ambient fixed precomposition.', 1)[0]
     mixed_parameters = (mixed_parameters.replace('Cat_cat', 'Cat_cart')
@@ -1290,6 +1326,17 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
         + '\n' + fragment('production_constant_map_controls.lpfragment')
         + '\n' + fragment('production_ordinary_structural_controls.lpfragment')
         + '\n' + fragment('production_pullback_structural_controls.lpfragment'))
+    section_pullback_boundary = '// 18. Cat-valued profunctors'
+    assert body.count(section_pullback_boundary) == 1
+    (package / 'section_pullback_prefix.lp').write_text(body[:body.index(section_pullback_boundary)]
+        + '\n' + homd_controls + '\n' + index_controls
+        + '\n' + fragment('production_intrinsic_controls.lpfragment')
+        + '\n' + fragment('production_section_action_controls.lpfragment')
+        + '\n' + fragment('production_evaluation_controls.lpfragment')
+        + '\n' + fragment('production_constant_map_controls.lpfragment')
+        + '\n' + fragment('production_ordinary_structural_controls.lpfragment')
+        + '\n' + fragment('production_pullback_structural_controls.lpfragment')
+        + '\n' + fragment('production_section_pullback_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1497,6 +1544,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'structural_prefix.lp',
                               package / 'ordinary_structural_prefix.lp',
                               package / 'pullback_structural_prefix.lp',
+                              package / 'section_pullback_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Whole coefficient/mixed-parameter coherence beyond the checked direct and constant-section actions',

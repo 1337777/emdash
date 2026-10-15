@@ -1,0 +1,13 @@
+// A Cat_cart-valued represented precomposition is the same admitted family
+// pullback. This direct whole comparison joins the existing two stable
+// presentations at internal Pi; it does not turn arbitrary composition into
+// a new runtime family head or carry equality data into the consumer.
+// Keep the actual transpose head: the generic F_1 reading decomposed its
+// endpoint tags before recognizing the dual functor in the Pi consumer.
+unif_rule @hom_precomp_along_fapp0 _ Cat_cart
+      (@Op_func $K (Op_cat Cat_cart) $G) Cat_cart $y $x $p $E
+  ≡ @Pullback_catd $D $B $E0 $H
+  ↪ [ $D ≡ @fapp0 $K (Op_cat Cat_cart) $G $y;
+      $B ≡ @fapp0 $K (Op_cat Cat_cart) $G $x;
+      $E ≡ $E0;
+      $H ≡ @fapp1_fapp0 $K (Op_cat Cat_cart) $G $x $y $p ];

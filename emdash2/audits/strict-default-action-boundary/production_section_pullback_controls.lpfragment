@@ -1,0 +1,125 @@
+// Original section pullback and the actual internal Pi action agree.
+assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B))
+  (s : τ (Obj (Pi_cat E))) (a : τ (Obj A)) ⊢
+  @piapp0 A (@Pullback_catd A B E F)
+    (fapp0 (@section_pullback_func A B F E) s) a
+  ≡ @piapp0 B E s (fapp0 F a);
+assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B)) ⊢
+  fdapp1_int_cell Pi_int_funcd F E ≡ @section_pullback_func A B F E;
+assert [K : Cat] (G : τ (Functor K (Op_cat Cat_cart)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (E : τ (Catd (fapp0 G x))) ⊢
+  fdapp1_int_cell (@Pi_pullback_funcd K G) p E
+  ≡ @section_pullback_func (fapp0 G y) (fapp0 G x)
+      (@fapp1_fapp0 K (Op_cat Cat_cart) G x y p) E;
+
+// The strict case computes a whole filler functor, not only its identity.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y))) ⊢
+  @fdapp1_int_hom_func K E D (@strict_transfor K Cat_cart E D U) x y p u v
+  ≡ @fapp1_func (Fibre_cat E y) (Fibre_cat D y)
+      (@Fibre_func K E D (@strict_transfor K Cat_cart E D U) y)
+      (fapp0 (@catd_transport_func K E x y p) u) v;
+
+// Run the actual intrinsic root -> x/u -> y -> v -> p -> filler ladder.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y)))
+  (alpha : τ (Hom (Fibre_cat E y) (fapp0 (@catd_transport_func K E x y p) u) v)) ⊢
+  fapp0 (@tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)
+    (fapp0 (@homd_ff_tgt_func K E D (@strict_transfor K Cat_cart E D U) x u y) v)
+    (fapp0 (@homd_id_tgt_func K E x u y) v) p
+    (@intrinsic_check_index K E D (@strict_transfor K Cat_cart E D U) x u y v)) alpha
+  ≡ @fapp1_fapp0 (Fibre_cat E y) (Fibre_cat D y)
+      (@Fibre_func K E D (@strict_transfor K Cat_cart E D U) y)
+      (fapp0 (@catd_transport_func K E x y p) u) v alpha;
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @fdapp1_int_cell K E D (@strict_transfor K Cat_cart E D U) x y p u
+  ≡ @id (Fibre_cat D y)
+      (fapp0 (@Fibre_func K E D (@strict_transfor K Cat_cart E D U) y)
+        (fapp0 (@catd_transport_func K E x y p) u));
+
+// The same whole filler action applies to the actual shifted Cartesian Op.
+assert [K : Cat] [E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  (x y : τ (Obj (CoAt2_cat K))) (p : τ (Hom (CoAt2_cat K) x y))
+  (u : τ (Obj (Fibre_cat (@Op_catd K E) x)))
+  (v : τ (Obj (Fibre_cat (@Op_catd K E) y))) ⊢
+  @fdapp1_int_hom_func (CoAt2_cat K) (@Op_catd K E) (@Op_catd K D)
+    (strict_transfor (@Op_funcd K E D U)) x y p u v
+  ≡ @fapp1_func (Fibre_cat (@Op_catd K E) y) (Fibre_cat (@Op_catd K D) y)
+      (@Fibre_func (CoAt2_cat K) (@Op_catd K E) (@Op_catd K D)
+        (strict_transfor (@Op_funcd K E D U)) y)
+      (fapp0 (@catd_transport_func (CoAt2_cat K) (@Op_catd K E) x y p) u) v;
+assertnot [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D)) ⊢
+  @Op_funcd K E D FF
+  : τ (Hom (Functor_cart_cat (CoAt2_cat K) Cat_cart) (@Op_catd K E) (@Op_catd K D));
+
+// Canonical evaluation is classified, so its actual shifted Op is available.
+symbol section_check_eval_source [K : Cat] (I : Cat) (E : τ (Catd K)) : τ (Catd K)
+≔ @comp_cat_fapp0 K (Product_cat Cat_cart Cat_cart) Cat_cart
+    (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
+    (Struct_sigma (@Functor_catd K (@Const_catd (Op_cat K) I) E) (@Const_catd K I));
+assert [K : Cat] (I : Cat) (E : τ (Catd K)) ⊢
+  @Eval_funcd K I E
+  : τ (Hom (Functor_cart_cat K Cat_cart) (@section_check_eval_source K I E) E);
+assert [K : Cat] (I : Cat) (E : τ (Catd K)) (y : τ (Obj (CoAt2_cat K))) ⊢
+  @tapp0_fapp0 (CoAt2_cat K) Cat_cart _ _ y
+    (strict_transfor (@Op_funcd K (@section_check_eval_source K I E) E (@Eval_funcd K I E)))
+  ≡ @Op_func (Product_cat (Functor_cart_cat I (Fibre_cat E y)) I) (Fibre_cat E y)
+      (@Eval_func I (Fibre_cat E y));
+
+// Whole constant Cartesian maps have the actual shifted-base transpose.
+assert [K A B : Cat] (F : τ (Functor A B)) ⊢
+  @Op_funcd K (@Const_catd K A) (@Const_catd K B)
+    (@Const_transf K Cat_cart A B F)
+  ≡ @Const_transf (CoAt2_cat K) Cat_cart (Op_cat A) (Op_cat B) (@Op_func A B F);
+
+// The reindexing comparison keeps the actual base action, not an unrelated H.
+assertnot [K : Cat] (G : τ (Functor K (Op_cat Cat_cart)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) (E : τ (Catd (fapp0 G x)))
+  (H : τ (Functor (fapp0 G y) (fapp0 G x))) ⊢
+  @eq_refl (Catd (fapp0 G y))
+    (@hom_precomp_along_fapp0 (Op_cat K) Cat_cart (@Op_func K (Op_cat Cat_cart) G)
+      Cat_cart y x p E)
+  : τ (@= (Catd (fapp0 G y))
+      (@hom_precomp_along_fapp0 (Op_cat K) Cat_cart (@Op_func K (Op_cat Cat_cart) G)
+        Cat_cart y x p E)
+      (@Pullback_catd (fapp0 G y) (fapp0 G x) E H));
+
+// Leading evaluation retains a general FF's actual extracted comparison.
+assert [K : Cat] (I : Cat) (R E : τ (Catd K))
+  (FF : τ (Functord R (@section_check_eval_source K I E)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat R x))) ⊢
+  @fdapp1_int_cell K R E
+    (@comp_fapp0 (Catd_cat K) R (@section_check_eval_source K I E) E
+      (strict_transfor (@Eval_funcd K I E)) FF) x y p u
+  ≡ @fapp1_fapp0 (Fibre_cat (@section_check_eval_source K I E) y) (Fibre_cat E y)
+      (@Eval_func I (Fibre_cat E y))
+      (fapp0 (@catd_transport_func K (@section_check_eval_source K I E) x y p)
+        (fapp0 (@Fibre_func K R (@section_check_eval_source K I E) FF x) u))
+      (fapp0 (@Fibre_func K R (@section_check_eval_source K I E) FF y)
+        (fapp0 (@catd_transport_func K R x y p) u))
+      (@fdapp1_int_cell K R (@section_check_eval_source K I E) FF x y p u);
+
+// A general ordinary functor remains a lax section; its loop arrow is not
+// collapsed by the Cartesian input rule.
+assertnot [K B : Cat] (F : τ (Functor K B))
+  (x : τ (Obj K)) (p : τ (Hom K x x)) ⊢
+  @fdapp1_int_cell K (@Const_catd K Terminal_cat) (@Const_catd K B)
+    F x x p Terminal_obj ≡ @id B (fapp0 F x);
+
+// The new Cat_cart point readings keep a general FF's post/left route distinct.
+assertnot [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  fapp0 (@catd_transport_func K D x y p) (fapp0 (@Fibre_func K E D FF x) u)
+  ≡ fapp0 (@Fibre_func K E D FF y) (fapp0 (@catd_transport_func K E x y p) u);
+
+// Evaluation on a neutral argument does not add an unrestricted pair eta law.
+assertnot [A B : Cat] (z : τ (Obj (Product_cat A B))) ⊢
+  z ≡ @Product_pair A B (sigma_Fst z) (sigma_Snd z);

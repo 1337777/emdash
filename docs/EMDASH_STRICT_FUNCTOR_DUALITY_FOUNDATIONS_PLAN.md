@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: staged source through section 17d checks, including Cartesian structural ladders and recursive Sigma base-change two-cell computation; remaining Q coherence and public/downstream migration remain open
+Status: staged source through section 17e checks, including internal Pi, classified intrinsic action and preservation of general-FF laxity through evaluation; arbitrary-composite Q coherence and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,37 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Section/Cartesian intrinsic continuation after `2334f755`, 2026-10-15:
+the [review](../emdash2/audits/strict-default-action-boundary/production_section_pullback_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_section_pullback_verification.json)
+record the original-source pass through section 17e. Section pullback and
+the actual internal Pi cells check. The Cartesian intrinsic filler functor
+computes to the fibre component's first Hom, including the shifted Op case;
+general FF remains lax. The existing Eval_funcd has its canonical Cartesian
+map type and its ordinary view, so its actual shifted Op is available.
+
+Leading evaluation after an arbitrary lax FF now computes the evaluator's
+Hom action on FF's actual extracted cell. The necessary neutral-pair
+evaluation is local to Eval, not a global product/Sigma eta law. Existing
+rigid Hom and point-naturality views have their Cat_cart instances; the
+internal Pi reindexing comparison retains the actual transposed base head
+and all endpoint/map constraints. Raw FF post/left naturality and nonidentity
+loop data remain distinct in negative controls.
+
+Thirteen invalid raw/same-base Op mirror clauses remain as inactive
+comparison text, not qualified code. Their ordinary computations are
+retained; valid Cartesian intrinsic observations are handled generically.
+This does not supply Cartesian lifts for all old expressions. In particular,
+the later fdapp1_projection_target consumer still needs migration from its
+old raw Op_funcd(FF) expression to the corrected whole intrinsic owners.
+
+The full source reaches Op_prof's old coefficient in section 18b. Before
+broadening that library pass, qualify the whole intrinsic filler action of
+GG o FF for two general lax displayed maps. Its cell projection should be
+GG[y][lambda_FF(p,u)] o lambda_GG(p,FF[x](u)), retaining both cells; a scalar
+observation alone is insufficient. General Q/mate coherence, later source
+and inverse/duality consumers, public/downstream and final gates remain.
 
 Structural/pullback continuation after `e268b242`, 2026-10-15: the
 [review](../emdash2/audits/strict-default-action-boundary/production_structural_pullback_review.md)
