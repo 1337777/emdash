@@ -7,6 +7,22 @@ corrected Sigma-Hom, total-map projections and expanded composition checked; hig
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
 
+Native source continuation, 2026-10-15: the selected identity and defined
+relative ladders now check inside the staged migration of the original
+kernel, using its existing Hom and fibre-covariance owners. The
+[owner fragment](../emdash2/audits/strict-default-action-boundary/production_homd_core.lpfragment)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_homd_verification.json)
+record whole root, source-u, x-naturality and general-FF leaf computations.
+Public `homd_int(FF)` is the ordinary Functord view of the Cartesian relative
+composite, so callers do not supply a strict wrapper. `Homd_target_section_cat`
+names the actual Q-valued transformation category; the former invalid
+ordinary-family alias is retired. The full source still stops at the old
+intrinsic-action declaration using `Op_funcd(FF)`. Thus the native ladder
+has computational evidence, while the intrinsic/y-comparison, Q coherence,
+late Sigma/Pi consumers and complete migration remain unqualified. The
+prototype history below remains useful, but its names are not a second
+public Hom implementation.
+
 ## Constraints retained together
 
 The default remains strict functors with conventional lax transfors. Pi is

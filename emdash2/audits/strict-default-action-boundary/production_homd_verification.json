@@ -1,0 +1,457 @@
+{
+  "status": "Native identity and defined general-FF Homd root/ladder compute in staged original source; full intrinsic/downstream migration incomplete",
+  "extendsCheckpoint": "735de6e67092426389c2c8f0f21b66bbc5cca1c3",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "originalCoreSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "originalCoreLines": 22644,
+  "candidateCoreLines": 23580,
+  "declarationPreservation": {
+    "originalNamedDeclarationsRetained": false,
+    "unretiredNamedDeclarationsRetained": true,
+    "retiredNamesWithReplacements": {
+      "Homd_target_section_catd": "Homd_target_section_cat"
+    },
+    "unrelocatedNamedDeclarationSequenceVerified": true,
+    "namedDeclarationSequenceExceptions": [
+      "Catd_cat_func",
+      "Catd_catd_con",
+      "FibCov_source_catd",
+      "FibCov_target_catd",
+      "fib_cov_int",
+      "fib_cov_src_func",
+      "fib_cov_transf",
+      "homd_id_src_sec",
+      "homd_id_tgt_func",
+      "homd_src_func",
+      "homd_src_sec",
+      "homd_tgt_func"
+    ],
+    "originalDownstreamSectionsRetained": true
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e",
+    "audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment": "f754d60461ff080b77844f38313953244e425ad28fc49e6e394ed114317a77d0",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/conventional_total_op_mapping.lpfragment": "af021c0bb56a5c6730ab5a2e56a387f4cd30fbb8102e36c70bd7f0bc35a6032f",
+    "audits/strict-default-action-boundary/cartesian_profile.lpfragment": "9baf7c78bdc42695ed2e715dd07185f17a957472f2cc7c0434cabd6314039976",
+    "audits/strict-default-action-boundary/production_family_classifier.lpfragment": "0978dd95a597059e20ecb3e38d8bba249499f522caaea1ae9f65a11753c1e81e",
+    "audits/strict-default-action-boundary/conventional_total_op_transfors.lpfragment": "33842eafce8cfb5f84ac5c401ebaf52e8e128cb1d585311862f812925dd119d9",
+    "audits/strict-default-action-boundary/conventional_total_op_offdiagonal.lpfragment": "9431b15bfbedf363c3863a12d86f94b3afbadd04a265abe3fffce0444321eba9",
+    "audits/strict-default-action-boundary/production_cartesian_closure.lpfragment": "31f8d97603e9c9c8ac2922778e15e8c5efed3a268c8d1872820041940c2be8c9",
+    "audits/strict-default-action-boundary/production_cartesian_family_duality.lpfragment": "99b568615669de3d1925bda3057e9bfaeed203939f8c3d7db42005bc5770b4e2",
+    "audits/strict-default-action-boundary/conventional_total_op_whole_action.lpfragment": "202dc17fe192b57c7a7ce8a054d6bc5746027ffa41c5f9698455ae78ee006f0a",
+    "audits/strict-default-action-boundary/conventional_total_op_source_units.lpfragment": "79dbd611f959bade6d50676325ba69d9dd8ceb866f98f84bdf851a2915d3d9a9",
+    "audits/strict-default-action-boundary/production_cartesian_product.lpfragment": "b9fd844fe022921f356c2cb2a628806ef2f9364e44a2b89546073da14d11dfb5",
+    "audits/strict-default-action-boundary/total_op_family.lpfragment": "13f79efe229f5a560dc54d3ea9c4609fac91de5b095de206277330871fe2e7d0",
+    "audits/strict-default-action-boundary/production_homd_core.lpfragment": "58ba0e1c27fdd1d8a4a45b65cb729d5f51ef13217d801a192a7b4874b18cfd72",
+    "audits/strict-default-action-boundary/production_owner_controls.lpfragment": "42ba40bf4884d0b9a18cd094ec7735de70b3f8d0c0e6ec9b3699ad164989aa2c",
+    "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+    "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/production_foundations_controls.lpfragment": "d3c768a592094fb5280d4395010d1b24fcb67f394f1f3765f931c54d68a67d0b",
+    "audits/strict-default-action-boundary/production_sections_controls.lpfragment": "57f4d94f69f178e698e652f82f610fea9b8987c36ab1ce92c90cde4825961b95",
+    "audits/strict-default-action-boundary/sigma_total_op_controls.lpfragment": "2f817d10405f707cf3738ff68160f79bcd99e5a2739d0e226f9f012042408b72",
+    "audits/strict-default-action-boundary/mixed_family_controls.lpfragment": "2d0509b7853469f929d3c55b342d396ec4dccaea8493adad962c719d5cb5fd66",
+    "audits/strict-default-action-boundary/mixed_family_parameter_controls.lpfragment": "bb25703b284fc88d1fe64d44fced4ffa65a729d5a135f329654305a24f4a1ad0",
+    "audits/strict-default-action-boundary/total_op_hom_family_controls.lpfragment": "5887b77b910dd9c843af6d5c3fe5a89deddc0b9655904fa69e514c3169b69e62",
+    "audits/strict-default-action-boundary/production_homd_controls.lpfragment": "5f81d3eb3bc46c5bfac946c7f4abf912ca6b24cc1e7d7add640aa2988159d709",
+    "audits/strict-default-action-boundary/production_comma_equivalence.lpfragment": "7e70d4dfd77958a06f712dd0e668280efd4a16eb7e3db328030fa693309622ef",
+    "audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment": "956d22e530d20bf54ba5e58bdecfe37354c6743154280ffa0f6ce7be02067b9b",
+    "audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment": "5ebdccd39cd50e224bddb1bb559bd82f14596053102484c62d8e428e5b778344",
+    "audits/strict-default-action-boundary/production_owner_migration.py": "cb97ff69c7c7e4ff78cf0793096f2f13b3fb0d785050749c9c6aa5fbcd8da09a"
+  },
+  "designDonors": {
+    "cart_family_core.lpfragment": "b3b50e5d07db30426f13080644726b62a58cc730f41fffeee1829bde81e5aaf7",
+    "cart_family_u.lpfragment": "0613da9da51bf8b9eccda863c3b7c3bde385ba71d3ce797f8dd64d5804d33af3",
+    "cart_represented_hom.lpfragment": "1af254c6e0f7e1cd6f2ecab35ebaffb973f58e3a9405b399d3ca0402703f9210",
+    "cart_homd_section.lpfragment": "08c2f57de2841ca9d3a901529a2f72c26192491c8df3f874d58aba7d36660225",
+    "cart_homd_root.lpfragment": "872a11371c8073564ab2d4cf3b1793fe3602af008c68773b26be775baf25e4c6",
+    "cart_homd_relative.lpfragment": "e718530271791f3e427328dfe3070b88c97ba30702c351c2e074ce65bc9e6dc2"
+  },
+  "nativeOwner": "audits/strict-default-action-boundary/production_homd_core.lpfragment",
+  "nativeAdaptation": [
+    "Reuse ordinary hom_/hom_con/hom_int/hom_con_int, not parallel prototype Hom primitives",
+    "Existing fibre-covariance owners now expose their canonical Cartesian diagram maps",
+    "Represented/conjoint computations match the native curried Hom heads and their canonical id arguments",
+    "Relative Homd uses actual composition and ordinary inclusion; no supplied comparison/equality payload"
+  ],
+  "baselinePrefix": {
+    "id": "20261015T152517Z-7b65a99364c24c599c066619a561d177",
+    "outcome": "passed-fresh",
+    "wallSeconds": 3.345931540010497,
+    "childrenMaxRssKiB": 258848,
+    "inputSnapshot": "657dd3f0aaa22fd158a8e37a93fdb524b47ea77562512900ab91a57544fa9fbb",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "mixed_prefix.lp": "ab2e693f86c3819b4a69707ed68ce1c198445f71ce5c76b4532c5ff22eef7ede"
+    },
+    "log": "logs/check-runs/20261015T152517Z-7b65a99364c24c599c066619a561d177.log",
+    "logSha256": "1d9a4b054fdbb7d4246ee2743bceae452d0917e26b05cfb370357ce632f961d3",
+    "receipt": "logs/check-runs/20261015T152517Z-7b65a99364c24c599c066619a561d177.json",
+    "receiptSha256": "eb7af5368d6bddb019cf23a696c476c7a6e6930bc167b0b502dc14edfdf752a9"
+  },
+  "candidatePrefix": {
+    "id": "20261015T160653Z-9af4dc79cd804fe08be8d7fc926ca4b1",
+    "outcome": "passed-fresh",
+    "wallSeconds": 5.264469470945187,
+    "childrenMaxRssKiB": 331336,
+    "inputSnapshot": "eb64421ecc182ca69d38f11d91e98c680286f5ba432d93eb767b7dc9ddc2dc4e",
+    "inputs": {
+      "homd_prefix.lp": "28fd055eaaf173e678b794b2b6044dd10050d0fb0efb3620ea4943b8de521bee",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T160653Z-9af4dc79cd804fe08be8d7fc926ca4b1.log",
+    "logSha256": "9cc5f7d05d11f34594a18fe61f377db840609062f4a6803c026fb5def80b55e5",
+    "receipt": "logs/check-runs/20261015T160653Z-9af4dc79cd804fe08be8d7fc926ca4b1.json",
+    "receiptSha256": "ec49255869b88552c3321968eedf2a5733e2beb826ed2d5c533532bec6ed8f8d"
+  },
+  "fullSourceFailure": {
+    "id": "20261015T160808Z-5e967825fb004d76a6eb147949a19557",
+    "outcome": "failed",
+    "wallSeconds": 4.8553612779360265,
+    "childrenMaxRssKiB": 319812,
+    "inputSnapshot": "ec188c03721b350f40f2994b91132baa427d4ebbd39943cfa9d8e6424bba8043",
+    "inputs": {
+      "emdash3_2.lp": "355e03435f805b1d180ca4577c48f983de1b4962f387e500f1b5fb9262afc52f",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T160808Z-5e967825fb004d76a6eb147949a19557.log",
+    "logSha256": "634ef0e5cd2941fedbcc6f00d3cb0a466709c65565aa96656446dbbf72b102bb",
+    "receipt": "logs/check-runs/20261015T160808Z-5e967825fb004d76a6eb147949a19557.json",
+    "receiptSha256": "4f3d8912cadd94d47579cf7717f3384e7cede9783534035c102a475d173b5b5e",
+    "owner": "tdapp1_int_func_transfd",
+    "location": "emdash3_2.lp:15768:0-15776:25",
+    "diagnosis": "Legacy intrinsic action still passes arbitrary lax FF to Op_funcd; migrate to B(FF,GG)->identity Homd in the transposed target and derive its forward projections."
+  },
+  "interfaces": {
+    "section": "Homd_target_section_cat(E,x)=Transf_cat(K,Q,iota E,iota Hom_K(x,-))",
+    "target": "Homd_target_catd(E)[x]=Op_cat(Homd_target_section_cat(E,x))",
+    "identityRoot": "homd_id_int(E):Hom(Functor_cart_cat(K,Cat_cart),E,Homd_target_catd(E))",
+    "publicRelativeRoot": "homd_int(FF:D=>E):Functord(E,fapp0(Homd_target_index_func(K),iota D)); proof-time-compatible with Functord(E,Homd_target_catd(D))",
+    "relativeBody": "strict_transfor(Homd_target_map(FF) composed with homd_id_int(E))",
+    "leaf": "Hom_E[y](E[f](u),FF[y](v))"
+  },
+  "observedConsumers": [
+    "All preceding foundation/Pi/Sigma/mixed-family controls",
+    "Direct identity source-u/y/v/f ladder and actual root first component",
+    "Nonidentity source-u precomposition and retained source-fibre higher action",
+    "Whole-functor x-naturality checked independently of the strict-root wrapper",
+    "Noninvertible base two/three-cell directions and noncollapse",
+    "Whole mate component, represented units/composition and represented restriction",
+    "General-FF target-map component and contravariant modification action",
+    "Relative identity and whole y-section composition before fixed y/v/f observations",
+    "Public blended root projection with inferred endpoints, named accessor agreement and the actual relative leaf",
+    "Raw ambient families/FF rejected by the selected Cartesian admission boundaries"
+  ],
+  "structuralBoundary": "Q carrier, mate and selected represented laws remain structural contracts. These computations are not a proof of a full general profunctor model, consumed higher coherence, canonical y-comparison beta or completed intrinsic action.",
+  "operationalPayloadAudit": "No equality/path proof term in the new operational owner fragment. Proof-time unification laws and diagnostic equality proofs remain distinguished from operational data.",
+  "normalizationFindings": [
+    {
+      "receipt": "logs/check-runs/20261015T153922Z-a3ebda3bbdbb47b6ab1556c7f3f92dae.json",
+      "resolution": "Direct proof-time represented-family reindexing joins the existing comp/Pullback and bundled-Hom presentations."
+    },
+    {
+      "receipt": "logs/check-runs/20261015T154723Z-fa9c1d8a138c481d9405251ccf15a7b1.json",
+      "resolution": "Use canonical id Cat_cat in native Hom rewrite patterns; represented composition is checked with the existing proof-time associativity."
+    },
+    {
+      "receipt": "logs/check-runs/20261015T155145Z-8fdbd18fe90044f1b103dea169dc5a04.json",
+      "resolution": "A native stable Hom-source identity cut must not require the category tag that duality has erased; the inferred-slot form passes subject reduction."
+    },
+    {
+      "receipt": "logs/check-runs/20261015T155450Z-fed8f503c78740aebf75d87ffa7e188b.json",
+      "resolution": "Normal forms expose the explicit endpoint mismatch under strict_transfor; use actual target-index endpoints in relative composition and component views."
+    },
+    {
+      "receipt": "logs/check-runs/20261015T160526Z-8760833def89490bb0e9c12636c89409.json",
+      "resolution": "The public result annotation must use the same computed target, so generic projection with inferred endpoints computes too."
+    }
+  ],
+  "runtimeProfile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileLimitMiB": 64,
+    "subjectReduction": true,
+    "OCAMLRUNPARAM": "o=20",
+    "serialGuard": true,
+    "warnings": true,
+    "compiledObjects": false
+  },
+  "warnings": {
+    "comparisonBoundary": "Before section 11; compare the same original source range, then record new Q/Homd coverage separately",
+    "candidateCutLine": 14916,
+    "criticalPairsBefore": 1199,
+    "criticalPairsAfterAtSameBoundary": 1203,
+    "criticalPairsWholeCandidate": 1383,
+    "addedAtSameBoundary": 7,
+    "removedAtSameBoundary": 3,
+    "newCoverage": 180,
+    "patternsBefore": 131,
+    "patternsAfterAtSameBoundary": 131,
+    "patternsWholeCandidate": 135,
+    "parserIssues": 0,
+    "addedGroups": {
+      "Op_cat × fapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "b664d71482c75131001f250bc6e8b878e3a00f3c839d71f235b45a90170ea646"
+      },
+      "fapp1_fapp0 × fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "8a37a76102551184d24ae2a4fe1da599c234e2cd19938beec315a9f950f8b58d"
+      },
+      "fapp1_fapp0 × id": {
+        "count": 2,
+        "bodiesSha256": "ab221e545e5546cb565f4a720246aa563695372912e362c9a091150650a4d503"
+      },
+      "hom_int_precomp_func × id": {
+        "count": 2,
+        "bodiesSha256": "75cf6cc054bd95db65e689f78233f57659ec2ac6ad21aec25dda7e5eb2d85e7c"
+      }
+    },
+    "removedGroups": {
+      "fapp1_fapp0 × fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "d7fad65faeda2e91bc1ac4891bf99e2d0ae5a0a8808a3ff05f36fefcca5afb84"
+      },
+      "fapp1_fapp0 × id": {
+        "count": 2,
+        "bodiesSha256": "6654e67381ee369a16baa97e388f47ab0feeab357a2a1cc433e6c25ae87e0eb7"
+      }
+    },
+    "newCoverageGroups": {
+      "Functor_cart_cat × comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "7dbe961a08e93fca6d4186f47d068ec040510d495c8f36e765779a8c6b9f5cdf"
+      },
+      "Hom_fapp0 × id": {
+        "count": 2,
+        "bodiesSha256": "bf434d93d35e388149e638a969ef9c8a7f579ef548cd6b13e75bc8f7d4a2c45b"
+      },
+      "Hom_func × id": {
+        "count": 2,
+        "bodiesSha256": "b2ba7ae01064c6c5ca01640bfd3f702c0238a26d26873f1db659bdddb016d106"
+      },
+      "Homd_coeff_conjoint_map × id": {
+        "count": 4,
+        "bodiesSha256": "6001671b39e932afa775736d30eae22052a3c61a11e9f11e366bc172559efc8d"
+      },
+      "Homd_coeff_conjoint_map × tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "cac060733b42fbfd100d01660a06f9d6caf13df33dd4a28c37aa49b207193b94"
+      },
+      "Homd_coeff_conjoint_map_at × id": {
+        "count": 4,
+        "bodiesSha256": "8db78ac4776f81407c4d80e27dd4c8bbe400365ce48b6103d179f03cf619e4b5"
+      },
+      "Homd_coeff_conjoint_map_at × tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "793103709daeee7281df45f564e84a0683a6fbe897664080332bcbb8b1ebdaab"
+      },
+      "Op_cat × comp_fapp0": {
+        "count": 10,
+        "bodiesSha256": "1c9230e0ae8347d2ed666fb49eaec7f7fc9c30febe9b21ff38042d3244266f0c"
+      },
+      "Op_cat × hom_postcomp_fapp0": {
+        "count": 10,
+        "bodiesSha256": "a0e504e7a34cd368bbea22d094c8e6563970ac72b946f06a4be9c4a8b1d18802"
+      },
+      "comp_fapp0 × comp_fapp0": {
+        "count": 8,
+        "bodiesSha256": "0edd8b0876baa78584149fcbcf0f76e553931f97d4d55e402e5354204e5f5862"
+      },
+      "comp_fapp0 × fapp1_fapp0": {
+        "count": 18,
+        "bodiesSha256": "f1234372cc95bbab207c986c7c6caf681fc8adf1859f80f48ee7c7b2751d7e16"
+      },
+      "comp_fapp0 × fib_cov_tapp0_u_map": {
+        "count": 2,
+        "bodiesSha256": "b5758ff1f688795a87fa360be43b55c072693c0fa2e5c04eeec8d53c14e760f1"
+      },
+      "comp_fapp0 × hom_con": {
+        "count": 1,
+        "bodiesSha256": "996d6b855b36faf53fda571f2bc6027ff358cb9cd3d425f2acef7f365d6b4b4d"
+      },
+      "comp_fapp0 × hom_postcomp_fapp0": {
+        "count": 8,
+        "bodiesSha256": "1ec31953c70b0477e1b3d48be13161c7ce75afbb8ee94e07906f174aca3de3c6"
+      },
+      "comp_fapp0 × id": {
+        "count": 2,
+        "bodiesSha256": "8af143becff29f44f08718fc9c21d6505545ec4db0963a35e59b217016e9cfcb"
+      },
+      "comp_fapp0 × tapp0_hom_fapp0": {
+        "count": 2,
+        "bodiesSha256": "87835aab1e95a92893e4eb339410862e34e42d84ed295d4c20227f153b487867"
+      },
+      "fapp0 × fapp1_func": {
+        "count": 2,
+        "bodiesSha256": "5d3d6e9787180be686943c6a8b44b29f213bc431f6d79669eb92df71409a3301"
+      },
+      "fapp0 × hom_postcomp_func": {
+        "count": 2,
+        "bodiesSha256": "39c1526aa9ee8c35143e6b920d4b48699c644ec46698cecd9c34d60f01587a78"
+      },
+      "fapp0 × hom_precomp_along_func": {
+        "count": 2,
+        "bodiesSha256": "b3b586db265b31e9d14371cd9ca0ef061701eb4f65e820d09c1c7e84d725c77f"
+      },
+      "fapp1_fapp0 × fapp1_fapp0": {
+        "count": 25,
+        "bodiesSha256": "8faa0b906f838159656b8c82a333989f8a18dfa75045866a0b4ea14addc90fbd"
+      },
+      "fapp1_fapp0 × hom_postcomp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "36ebfb53a4de082da94542d86e1513ba390bb240fb8357941d1d9c3269e276b9"
+      },
+      "fapp1_fapp0 × hom_postcomp_func": {
+        "count": 2,
+        "bodiesSha256": "d703f6ad34b3d7b968b532749c515dba5037170ad08e3edcae779b753e52cc2b"
+      },
+      "fapp1_fapp0 × hom_precomp_along_fapp0": {
+        "count": 1,
+        "bodiesSha256": "1030c3d960b0824b8509c45562cadd85e3d5ed8fa481bb8d1d743e8aed787991"
+      },
+      "fapp1_fapp0 × hom_precomp_along_func": {
+        "count": 2,
+        "bodiesSha256": "832d7aada6f8d073bddf9bcde588d9c743294d01ea08965461e05ab932ee8cad"
+      },
+      "fapp1_fapp0 × id": {
+        "count": 5,
+        "bodiesSha256": "a2bed9a531ec45437ac36231ea7243cd739fe894f56cb97f201edc251ca19a6c"
+      },
+      "fapp1_fapp0 × tapp0_hom_fapp0": {
+        "count": 18,
+        "bodiesSha256": "165040759171e7bd16ecaad4bb110dc9561409d542182ea9a63059cd399c542f"
+      },
+      "fapp1_func × hom_postcomp_func": {
+        "count": 2,
+        "bodiesSha256": "9692529235023bac03b2f26e215f09c495363cf40eb3b0647d205e955139b2b2"
+      },
+      "fapp1_func × hom_precomp_along_func": {
+        "count": 2,
+        "bodiesSha256": "0e1a796e47e3ddbbef37be5a9338a4c0779a0f5fc212af6604041f56905642da"
+      },
+      "fib_cov_tapp0_u_map × id": {
+        "count": 4,
+        "bodiesSha256": "ccc60c2385951eefd7b8399e7737513ecf8295773d93f4fe876fb234ad67f527"
+      },
+      "fib_cov_tapp0_u_map × tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "5ed6fa6116ba26ef96db53ee94c96212980fada4f982a727e8de9237d5847062"
+      },
+      "fib_cov_transf × id": {
+        "count": 4,
+        "bodiesSha256": "357a0110ce9c99233c45612b879f742695c916b7f674345ee44ddd487130b0a8"
+      },
+      "hom_con × hom_postcomp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "cc646238d8574c4243cc3c8c0c36b853515bd7f51d0a74803a17e79b6c7482d4"
+      },
+      "hom_int_precomp_func × id": {
+        "count": 1,
+        "bodiesSha256": "b51d2508dbab3331a97dc2b67687b34c4e7450ed1c28116f678e3bc586c95e57"
+      },
+      "hom_postcomp_fapp0 × hom_postcomp_fapp0": {
+        "count": 8,
+        "bodiesSha256": "9a1d0e438e01266352e876d90ee79c69a22962cdfcdd5c51ff915da9d9241601"
+      },
+      "hom_postcomp_fapp0 × id": {
+        "count": 3,
+        "bodiesSha256": "73629d40a2bc9372471599737eb6f6f65e168d658ccd7febf3d38d2e41ea42a5"
+      },
+      "hom_postcomp_fapp1_fapp0 × id": {
+        "count": 1,
+        "bodiesSha256": "acb210fbe6302112de053985c46e956afdd81a0d91be3e390dba359259ca046f"
+      },
+      "hom_postcomp_fapp1_fapp0 × tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "0fc793ad5958eade504bc6d2af49e98fe25d6c779ea19171a59395fd2216e717"
+      },
+      "hom_postcomp_func × id": {
+        "count": 1,
+        "bodiesSha256": "c5b4de625f86649649f829d8e269fd23de2bf5bee0563324d912b2ef8e3104f4"
+      },
+      "hom_postcomp_tele_fapp1_fapp0 × id": {
+        "count": 1,
+        "bodiesSha256": "8c17d2dc4bd169ae63f854354ceb8725fe365b01be529fc4b2aa62db16bc785e"
+      },
+      "hom_precomp_along_fapp0 × id": {
+        "count": 2,
+        "bodiesSha256": "b0692e786f2ee49faba8bc0e83f547e9e5d21e56aa12bf3e9c4fe539cfb3786e"
+      },
+      "hom_precomp_along_fapp1_fapp0 × id": {
+        "count": 2,
+        "bodiesSha256": "2ea309bc370bceb15947e52d3ad190b4e0d5ac70d787a130d6f23a863e4de54f"
+      },
+      "hom_precomp_along_fapp1_fapp0 × tapp0_fapp0": {
+        "count": 2,
+        "bodiesSha256": "ac69f6e1a26f94fb314bd1f36a6311164b7a8e4dd51794d4a764af24c6bd8552"
+      },
+      "hom_precomp_along_func × id": {
+        "count": 1,
+        "bodiesSha256": "045987df911c2c4ce5524629f4e9ad60fd46f8e61b408e38d47d56c6adacd2f8"
+      },
+      "hom_precomp_along_tele_fapp1_fapp0 × id": {
+        "count": 1,
+        "bodiesSha256": "80df56a668a912aebfeae722d0e619108f3db91b1c7a99db65058c63be9d32fc"
+      },
+      "id × tapp0_hom_fapp0": {
+        "count": 1,
+        "bodiesSha256": "2283dbd14ef4fada44b40911b87cb03126d539007f3ac71f1c77e1da36ac6b32"
+      },
+      "id × tapp1_con_at_transf": {
+        "count": 1,
+        "bodiesSha256": "b392cef4a96fb49e5391e58369179f48f33154179c6e8758b2a4742901b44d12"
+      },
+      "id × tapp1_con_int_fapp0_transf": {
+        "count": 1,
+        "bodiesSha256": "757dc17714c241ad54126a458579dcea46eb4e9a16f61a7b4bf4b9e3d4fde0e4"
+      },
+      "id × tapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "a625a083ea9db5603ebf9ed85333de6e488790dd612bb55a29c1e70cf31502e8"
+      },
+      "tapp1_fapp0 × tapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "ac6b0932e40e4b82315272aa7723559ee0840733ac734aa2e244f1fd8cbde981"
+      }
+    },
+    "review": [
+      "CoAt2/transpose commutation and the stable Hom source-identity clause change seven existing-range diagnostics and remove three; their typed unit and higher-direction consumers check.",
+      "The added Q range includes represented/conjoint units, composition/restriction and covariance component overlaps. The controls cover actual whole and capped observation routes without claiming all overlaps are joined.",
+      "Native Hom identities in patterns, proof-time association/reindexing and explicit canonical endpoint annotations retain existing runtime owners instead of adding blanket normalization.",
+      "Conventional laxness and the raw-family/FF rejection controls remain in the combined final target."
+    ],
+    "qualification": "Exact diagnostics and bounded typed consumers, not global confluence or semantic-model completeness."
+  },
+  "lhsAudit": {
+    "candidatePrefix": {
+      "unreviewedSlots": 0,
+      "annotatedSlots": 43,
+      "intentionalClauses": 30
+    },
+    "fullSource": {
+      "unreviewedSlots": 0,
+      "annotatedSlots": 71,
+      "intentionalClauses": 46
+    }
+  },
+  "requiredNext": [
+    "General lax FF intrinsic action with the corrected Homd root",
+    "Consumed Q y-comparison/coherence and late Sigma/Pi/comma consumers",
+    "Moving path-motive interfaces with their actual coefficient profiles",
+    "Whole duality/adjunction and closure-consumer qualification",
+    "Downstream qualification and retirement of redundant strict wrappers"
+  ],
+  "promotionBoundary": "Staged source only. Full source, intrinsic extraction, canonical y-comparison, late Sigma/Pi/comma/path-motive consumers and downstream qualification remain incomplete. The invalid old helper is replaced, not silently coerced or retained as an ordinary Pi target."
+}

@@ -1,0 +1,474 @@
+// Native-source adaptation of the selected whole Homd consumers.
+// The two starting families have the same Cartesian coefficient type.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x : τ (Obj K)) ⊢
+  (@hom_ K K (@id_func K) x) : τ (Functor K Cat_cart);
+
+assert [A B : Cat] (F : τ (Functor A B)) (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  fapp0 (fapp0 (@Homd_coeff_rep A B F) a) b ≡ Hom_cat B b (fapp0 F a);
+
+assert [A : Cat] ⊢ @Homd_coeff_rep A A (@id_func A) ≡ @id Homd_coeff_cat A;
+
+// Native ordinary composition retains its proof-time associativity owner.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  @eq_refl (Hom Homd_coeff_cat A C)
+    (@comp_fapp0 Homd_coeff_cat A B C (@Homd_coeff_rep B C G) (@Homd_coeff_rep A B F))
+  : τ (@= (Hom Homd_coeff_cat A C)
+      (@comp_fapp0 Homd_coeff_cat A B C (@Homd_coeff_rep B C G) (@Homd_coeff_rep A B F))
+      (@Homd_coeff_rep A C (@comp_cat_fapp0 A B C G F)));
+
+assert [A B C : Cat] (F : τ (Functor A B)) (P : τ (Hom Homd_coeff_cat B C)) ⊢
+  @comp_fapp0 Homd_coeff_cat A B C P (@Homd_coeff_rep A B F)
+  ≡ @comp_cat_fapp0 A B (Functor_cart_cat (Op_cat C) Cat_cart) P F;
+
+// Constant transports are a real family consumer. Also observe the
+// represented object after ordinary composition has already capped it.
+assert [A B C : Cat] (b : τ (Obj B)) (P : τ (Hom Homd_coeff_cat B C)) ⊢
+  @comp_fapp0 Homd_coeff_cat A B C P (@Homd_coeff_rep A B (@Const_func A B b))
+  ≡ @Const_func A (Functor_cart_cat (Op_cat C) Cat_cart) (fapp0 P b);
+
+assert [A B C : Cat] (b : τ (Obj B)) (P : τ (Hom Homd_coeff_cat B C)) ⊢
+  @comp_fapp0 Homd_coeff_cat A B C P
+    (@Const_func A (Functor_cart_cat (Op_cat B) Cat_cart) ((@hom_con B b B (@id_func B))))
+  ≡ @Const_func A (Functor_cart_cat (Op_cat C) Cat_cart) (fapp0 P b);
+
+assert [A B C : Cat] (b : τ (Obj B)) (P : τ (Hom Homd_coeff_cat B C)) ⊢
+  @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat) A B C P
+    (@Const_func A (Functor_cart_cat (Op_cat B) Cat_cart) ((@hom_con B b B (@id_func B))))
+  ≡ @comp_fapp0 Homd_coeff_cat A B C P (@Homd_coeff_rep A B (@Const_func A B b));
+
+// The whole y-section is the actual default transformation type.
+assert [K : Cat] [E D : τ (Functor K Cat_cart)] (y : τ (Obj K)) ⊢
+  @comp_cat_fapp0 (Op_cat (Hom_cat (Functor_cart_cat K Cat_cart) E D))
+    (@Transf_cat K Homd_coeff_cat (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E))
+    (Hom_cat Homd_coeff_cat (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart E y))
+    (@tapp0_func K Homd_coeff_cat (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E) y)
+    (@Homd_coeff_mate_func K E D)
+  ≡ @comp_cat_fapp0 (Op_cat (Hom_cat (Functor_cart_cat K Cat_cart) E D))
+    (Op_cat (Functor_cart_cat (@fapp0 K Cat_cart E y) (@fapp0 K Cat_cart D y)))
+    (Hom_cat Homd_coeff_cat (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart E y))
+    (Homd_coeff_conjoint_func (@fapp0 K Cat_cart E y) (@fapp0 K Cat_cart D y))
+    (@Op_func (Hom_cat (Functor_cart_cat K Cat_cart) E D)
+      (Functor_cart_cat (@fapp0 K Cat_cart E y) (@fapp0 K Cat_cart D y))
+      (@Functor_cart_component_func K Cat_cart E D y));
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @homd_id_src_sec K E x u
+  : τ (@Transf K Homd_coeff_cat (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))));
+
+// The whole y-section has not been promoted to a strict transformation.
+assertnot [K : Cat] (E : τ (Functor K Cat_cart)) (x : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cart E x))) ⊢
+  @homd_id_src_sec K E x u
+  : τ (@StrictTransfor K Homd_coeff_cat (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))));
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  fapp0 (@homd_id_src_func K E x) u ≡ @homd_id_src_sec K E x u;
+
+// Full u/y/v/f object ladder, starting from the actual source-u composite.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (fapp0 (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) y (fapp0 (@homd_id_src_func K E x) u)) v) f
+  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cart E x y f) u) v;
+
+// Name the actual projected u-arrow with its full endpoints, avoiding
+// inference through nested reducible family expressions in the consumer.
+symbol cq_check_u_y [K : Cat] (E : τ (Functor K Cat_cart)) (x y : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cart E x))]
+  (h : τ (Hom (@fapp0 K Cat_cart E x) u0 u1))
+  : τ (Hom (Hom_cat Homd_coeff_cat (@fapp0 K Cat_cart E y) (Hom_cat K x y))
+      ((@hom_con_int (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u1))) ((@hom_con_int (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u0))))
+≔ @tapp0_hom_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x)))
+    (@homd_id_src_sec K E x u1) (@homd_id_src_sec K E x u0) y
+    (@fapp1_fapp0 (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x)
+      (@homd_id_src_func K E x) u1 u0 h);
+
+symbol cq_check_u_yv [K : Cat] (E : τ (Functor K Cat_cart)) (x y : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cart E x))]
+  (h : τ (Hom (@fapp0 K Cat_cart E x) u0 u1))
+  (v : τ (Obj (@fapp0 K Cat_cart E y)))
+  : τ (Hom (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cart)
+      ((@homd_ K E E (@id_funcd K E) x u1 y v)) ((@homd_ K E E (@id_funcd K E) x u0 y v)))
+≔ @fapp0
+    (Hom_cat (Functor_cart_cat (@fapp0 K Cat_cart E y)
+      (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cart))
+      ((@hom_con_int (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u1))) ((@hom_con_int (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u0))))
+    (Hom_cat (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cart)
+      ((@homd_ K E E (@id_funcd K E) x u1 y v)) ((@homd_ K E E (@id_funcd K E) x u0 y v)))
+    (@Functor_cart_component_func (@fapp0 K Cat_cart E y)
+      (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cart)
+      ((@hom_con_int (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u1))) ((@hom_con_int (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u0))) v)
+    (@cq_check_u_y K E x y u0 u1 h);
+
+// The already capped u-action retains the projected identity after y/v.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x y : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cart E x))) (v : τ (Obj (@fapp0 K Cat_cart E y))) ⊢
+  @cq_check_u_yv K E x y u u (@id (@fapp0 K Cat_cart E x) u) v
+  ≡ @id (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cart) ((@homd_ K E E (@id_funcd K E) x u y v));
+
+assertnot [K : Cat] (E : τ (Functor K Cat_cart)) (x y : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cart E x))) (h : τ (Hom (@fapp0 K Cat_cart E x) u u))
+  (v : τ (Obj (@fapp0 K Cat_cart E y))) ⊢
+  @cq_check_u_yv K E x y u u h v
+  ≡ @id (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cart) ((@homd_ K E E (@id_funcd K E) x u y v));
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x y : τ (Obj K))
+  [u0 u1 : τ (Obj (@fapp0 K Cat_cart E x))]
+  (h : τ (Hom (@fapp0 K Cat_cart E x) u0 u1))
+  (v : τ (Obj (@fapp0 K Cat_cart E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (@Functor_cart_component_func (Op_cat (Hom_cat K x y)) Cat_cart
+      ((@homd_ K E E (@id_funcd K E) x u1 y v)) ((@homd_ K E E (@id_funcd K E) x u0 y v)) f)
+    (@cq_check_u_yv K E x y u0 u1 h v)
+  ≡ @hom_precomp_along_func (@fapp0 K Cat_cart E y) (@fapp0 K Cat_cart E y)
+      (@id_func (@fapp0 K Cat_cart E y)) v
+      (fapp0 (@fapp1_fapp0 K Cat_cart E x y f) u0)
+      (fapp0 (@fapp1_fapp0 K Cat_cart E x y f) u1)
+      (@fapp1_fapp0 (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E y)
+        (@fapp1_fapp0 K Cat_cart E x y f) u0 u1 h);
+
+// Its y-component agrees as a whole functor with the previously checked
+// local represented-Hom consumer, not merely at chosen v and f.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) ⊢
+  @homd_id_tgt_func K E x u y ≡ (@hom_con_int (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u));
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x y : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (@homd_id_ K E x u y v) f
+  ≡ Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K Cat_cart E x y f) u) v;
+
+// First base action is retained whole and then computes its v/f body.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x y z : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (q : τ (Hom K y z)) ⊢
+  fapp0 (@tapp1_func K Homd_coeff_cat (@Homd_coeff_diagram K E)
+      (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) y z (@homd_id_src_sec K E x u)) q
+  ≡ @tapp1_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+      (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) y z (@homd_id_src_sec K E x u) q;
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x y z : τ (Obj K))
+  (u : τ (Obj (fapp0 E x))) (q : τ (Hom K y z))
+  (v : τ (Obj (fapp0 E y))) (f : τ (Hom K x z)) ⊢
+  fapp0 (fapp0 (@tapp1_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) y z (@homd_id_src_sec K E x u) q) v) f
+  ≡ Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K Cat_cart E x z f) u)
+      (fapp0 (@fapp1_fapp0 K Cat_cart E y z q) v);
+
+// General ambient families are not silently admitted to this comparison.
+assertnot [K : Cat] (E : τ (Functor K Cat_cat)) ⊢ E : τ (Functor K Cat_cart);
+
+// A raw family transformation is not an input to the Cartesian mate owner.
+assertnot [K : Cat] [E D : τ (Functor K Cat_cart)] (U : τ (@Transf K Cat_cart E D)) ⊢
+  U : τ (Hom (Functor_cart_cat K Cat_cart) E D);
+
+// Direct components of the whole Cartesian target and root.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x : τ (Obj K)) ⊢
+  fapp0 (@Homd_target_catd K E) x ≡ Op_cat (@Homd_target_section_cat K E x);
+
+assert [K : Cat] (x : τ (Obj K)) ⊢
+  @fapp1_fapp0 (CoAt2_cat K) (Functor_cat K Homd_coeff_cat) (Homd_representable_func K) x x (@id K x)
+  ≡ @id (Functor_cat K Homd_coeff_cat) (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x)));
+
+assert [K : Cat] (x x' x'' : τ (Obj K)) (p : τ (Hom K x x')) (q : τ (Hom K x' x'')) ⊢
+  @comp_fapp0 (Functor_cat K Homd_coeff_cat)
+    (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x')))
+    (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x'')))
+    (@fapp1_fapp0 (CoAt2_cat K) (Functor_cat K Homd_coeff_cat) (Homd_representable_func K) x' x'' q)
+    (@fapp1_fapp0 (CoAt2_cat K) (Functor_cat K Homd_coeff_cat) (Homd_representable_func K) x x' p)
+  ≡ @fapp1_fapp0 (CoAt2_cat K) (Functor_cat K Homd_coeff_cat) (Homd_representable_func K) x x''
+      (@comp_fapp0 K x x' x'' q p);
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x y : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cart E x))) (v : τ (Obj (@fapp0 K Cat_cart E y)))
+  (f : τ (Hom K x y)) ⊢
+  fapp0 (fapp0 (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+      (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) y
+      (fapp0 (fapp0 (@Functor_cart_component_func K Cat_cart E (@Homd_target_catd K E) x)
+        (@homd_id_int K E)) u)) v) f
+  ≡ Hom_cat (@fapp0 K Cat_cart E y) (fapp0 (@fapp1_fapp0 K Cat_cart E x y f) u) v;
+
+// The root's actual first base action retains the whole y-section.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  (p : τ (Hom K x x')) (u : τ (Obj (@fapp0 K Cat_cart E x))) ⊢
+  fapp0 (fapp0 (@homd_id_base_func K E x x') p) u
+  ≡ @homd_id_src_sec K E x' (fapp0 (@fapp1_fapp0 K Cat_cart E x x' p) u);
+
+// A base two-cell is mapped through E's actual strict component and the
+// source-u functor, not replaced by an identity of the assembled root.
+assert [A B C : Cat] (H : τ (Functor B C)) (F G : τ (Functor A B)) (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (Hom_cat (Functor_cart_cat A B) F G)
+    (Hom_cat (Functor_cart_cat A C) (@comp_cat_fapp0 A B C H F) (@comp_cat_fapp0 A B C H G))
+    (Hom_cat C (fapp0 H (fapp0 F a)) (fapp0 H (fapp0 G a)))
+    (@Functor_cart_component_func A C (@comp_cat_fapp0 A B C H F) (@comp_cat_fapp0 A B C H G) a)
+    (@hom_postcomp_fapp1_func Cat_cart Cat_cart (@id_func Cat_cart) A B C H F G)
+  ≡ @comp_cat_fapp0 (Hom_cat (Functor_cart_cat A B) F G)
+      (Hom_cat B (fapp0 F a) (fapp0 G a)) (Hom_cat C (fapp0 H (fapp0 F a)) (fapp0 H (fapp0 G a)))
+      (@fapp1_func B C H (fapp0 F a) (fapp0 G a)) (@Functor_cart_component_func A B F G a);
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  [p q : τ (Hom K x x')] (alpha : τ (Hom (Hom_cat K x x') p q))
+  (u : τ (Obj (@fapp0 K Cat_cart E x))) ⊢
+  fapp0 (@Functor_cart_component_func (@fapp0 K Cat_cart E x)
+      (Op_cat (@Homd_target_section_cat K E x'))
+      (fapp0 (@homd_id_base_func K E x x') p)
+      (fapp0 (@homd_id_base_func K E x x') q) u)
+    (@fapp1_fapp0 (Hom_cat K x x')
+      (Functor_cart_cat (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
+      (@homd_id_base_func K E x x') p q alpha)
+  ≡ @fapp1_fapp0 (@fapp0 K Cat_cart E x') (Op_cat (@Homd_target_section_cat K E x'))
+      (@Op_func (Op_cat (@fapp0 K Cat_cart E x')) (@Homd_target_section_cat K E x')
+        (@homd_id_src_func K E x'))
+      (fapp0 (@fapp1_fapp0 K Cat_cart E x x' p) u)
+      (fapp0 (@fapp1_fapp0 K Cat_cart E x x' q) u)
+      (fapp0 (@Functor_cart_component_func (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E x')
+        (@fapp1_fapp0 K Cat_cart E x x' p) (@fapp1_fapp0 K Cat_cart E x x' q) u)
+        (@fapp1_fapp0 (Hom_cat K x x')
+          (Functor_cart_cat (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E x'))
+          (@fapp1_func K Cat_cart E x x') p q alpha));
+
+assertnot [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  (p : τ (Hom K x x')) (alpha : τ (Hom (Hom_cat K x x') p p)) ⊢
+  @fapp1_fapp0 (Hom_cat K x x')
+    (Functor_cart_cat (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
+    (@homd_id_base_func K E x x') p p alpha
+  ≡ @id (Functor_cart_cat (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
+      (fapp0 (@homd_id_base_func K E x x') p);
+
+// CoAt2 reverses the next Hom's arrows, while retaining the following cell.
+assert [K : Cat] (x y : τ (Obj K)) [p q : τ (Hom K x y)]
+  [alpha beta : τ (Hom (Hom_cat K x y) p q)]
+  (theta : τ (Hom (Hom_cat (Hom_cat K x y) p q) alpha beta)) ⊢
+  theta : τ (Hom (Hom_cat (Hom_cat (CoAt2_cat K) x y) q p) alpha beta);
+assertnot [K : Cat] ⊢ CoAt2_cat K ≡ CoAbove2_cat K;
+
+// The represented composition law is checked before hiding it inside a root.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+  @comp_fapp0 Homd_coeff_cat C B A ((@hom_con_int B A F)) ((@hom_con_int C B G))
+  ≡ (@hom_con_int C A (@comp_cat_fapp0 A B C G F));
+
+assert [K : Cat] [E D C : τ (Functor K Cat_cart)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  (V : τ (Hom (Functor_cart_cat K Cat_cart) D C)) (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K C) (@Homd_coeff_diagram K E) y
+    (@comp_fapp0 (Functor_cat K Homd_coeff_cat)
+      (@Homd_coeff_diagram K C) (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E)
+      (@Homd_coeff_mate K E D U) (@Homd_coeff_mate K D C V))
+  ≡ @comp_fapp0 Homd_coeff_cat (@fapp0 K Cat_cart C y) (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart E y)
+      ((@hom_con_int (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart E y) (fapp0 (@Functor_cart_component_func K Cat_cart E D y) U)))
+      ((@hom_con_int (@fapp0 K Cat_cart C y) (@fapp0 K Cat_cart D y) (fapp0 (@Functor_cart_component_func K Cat_cart D C y) V)));
+
+// Whole-section x-naturality, independently of the strict root constructor.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  (p : τ (Hom K x x')) (u : τ (Obj (@fapp0 K Cat_cart E x))) ⊢
+  @eq_refl (Hom (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)
+    (@comp_fapp0 (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) ((@hom_ K K (@id_func K) x)) E
+      (@fib_cov_transf K E x u) (@fib_cov_transf K ((@hom_ K K (@id_func K) x)) x' p))
+  : τ (@= (Hom (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)
+      (@comp_fapp0 (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) ((@hom_ K K (@id_func K) x)) E
+        (@fib_cov_transf K E x u) (@fib_cov_transf K ((@hom_ K K (@id_func K) x)) x' p))
+      (@fib_cov_transf K E x' (fapp0 (@fapp1_fapp0 K Cat_cart E x x' p) u)));
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  (p : τ (Hom K x x')) (u : τ (Obj (@fapp0 K Cat_cart E x))) ⊢
+  @eq_refl (Obj (@Homd_target_section_cat K E x'))
+    (fapp0 (@fapp1_fapp0 K Cat_cart (@Homd_target_catd K E) x x' p)
+      (@homd_id_src_sec K E x u))
+  : τ (@= (Obj (@Homd_target_section_cat K E x'))
+      (fapp0 (@fapp1_fapp0 K Cat_cart (@Homd_target_catd K E) x x' p)
+        (@homd_id_src_sec K E x u))
+      (@homd_id_src_sec K E x' (fapp0 (@fapp1_fapp0 K Cat_cart E x x' p) u)));
+
+// The canonical comparison does not identify an arbitrary target object
+// with the actual transported source object.
+assertnot [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  (p : τ (Hom K x x')) (u : τ (Obj (@fapp0 K Cat_cart E x)))
+  (v : τ (Obj (@fapp0 K Cat_cart E x'))) ⊢
+  @eq_refl (Obj (@Homd_target_section_cat K E x'))
+    (fapp0 (@fapp1_fapp0 K Cat_cart (@Homd_target_catd K E) x x' p)
+      (@homd_id_src_sec K E x u))
+  : τ (@= (Obj (@Homd_target_section_cat K E x'))
+      (fapp0 (@fapp1_fapp0 K Cat_cart (@Homd_target_catd K E) x x' p)
+        (@homd_id_src_sec K E x u)) (@homd_id_src_sec K E x' v));
+
+// Diagnostic definitions only: compare whole covariance functors first,
+// then apply ordinary equality congruence to the common mate map. These
+// proofs are not parameters of any Homd constructor or projection.
+symbol cq_cov_left [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  (p : τ (Hom K x x'))
+  : τ (Functor (@fapp0 K Cat_cart E x)
+      (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E))
+≔ @comp_cat_fapp0 (@fapp0 K Cat_cart E x)
+    (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x)) E)
+    (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)
+    (@hom_precomp_along_func (Functor_cart_cat K Cat_cart) (Functor_cart_cat K Cat_cart)
+      (@id_func (Functor_cart_cat K Cat_cart)) E ((@hom_ K K (@id_func K) x')) ((@hom_ K K (@id_func K) x))
+      (@fib_cov_transf K ((@hom_ K K (@id_func K) x)) x' p)) (@fib_cov_src_func K E x);
+
+symbol cq_cov_right [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  (p : τ (Hom K x x'))
+  : τ (Functor (@fapp0 K Cat_cart E x)
+      (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E))
+≔ @comp_cat_fapp0 (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E x')
+    (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)
+    (@fib_cov_src_func K E x') (@fapp1_fapp0 K Cat_cart E x x' p);
+
+symbol cq_mate_after [K : Cat] (E : τ (Functor K Cat_cart)) (x' : τ (Obj K))
+  : τ (Functor (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)
+      (Op_cat (@Homd_target_section_cat K E x')))
+≔ @Op_func (Op_cat (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E))
+    (@Homd_target_section_cat K E x') (@Homd_coeff_mate_func K ((@hom_ K K (@id_func K) x')) E);
+
+symbol cq_check_whole_cov_ap [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  (p : τ (Hom K x x'))
+  : τ (@= (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
+      (@comp_cat_fapp0 (@fapp0 K Cat_cart E x)
+        (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)
+        (Op_cat (@Homd_target_section_cat K E x')) (@cq_mate_after K E x') (@cq_cov_left K E x x' p))
+      (@comp_cat_fapp0 (@fapp0 K Cat_cart E x)
+        (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)
+        (Op_cat (@Homd_target_section_cat K E x')) (@cq_mate_after K E x') (@cq_cov_right K E x x' p)))
+≔ @eq_ap
+    (Functor (@fapp0 K Cat_cart E x) (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E))
+    (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
+    (λ H:τ (Functor (@fapp0 K Cat_cart E x) (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)),
+      @comp_cat_fapp0 (@fapp0 K Cat_cart E x)
+        (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)
+        (Op_cat (@Homd_target_section_cat K E x')) (@cq_mate_after K E x') H)
+    (@cq_cov_left K E x x' p) (@cq_cov_right K E x x' p)
+    (@eq_refl (Functor (@fapp0 K Cat_cart E x)
+      (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x')) E)) (@cq_cov_left K E x x' p));
+
+// Whole-functor x-naturality, still without using the strict root wrapper.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K))
+  (p : τ (Hom K x x')) ⊢
+  @cq_check_whole_cov_ap K E x x' p
+  : τ (@= (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
+    (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x))
+      (Op_cat (@Homd_target_section_cat K E x'))
+      (@fapp1_fapp0 K Cat_cart (@Homd_target_catd K E) x x' p)
+      (@Op_func (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x)
+        (@homd_id_src_func K E x)))
+    (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E x')
+      (Op_cat (@Homd_target_section_cat K E x'))
+      (@Op_func (Op_cat (@fapp0 K Cat_cart E x')) (@Homd_target_section_cat K E x')
+        (@homd_id_src_func K E x')) (@fapp1_fapp0 K Cat_cart E x x' p)));
+
+// Whole target-index projection agrees with the existing defined family.
+assert [K A B : Cat] (H : τ (Functor A B)) (F G : τ (Functor K A)) (x : τ (Obj K)) ⊢
+  @comp_cat_fapp0 (@Transf_cat K A F G)
+    (Hom_cat (Functor_cat K B)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K A B H F)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K A B H G))
+    (Hom_cat B (fapp0 H (fapp0 F x)) (fapp0 H (fapp0 G x)))
+    (@tapp0_func K B
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K A B H F)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K A B H G) x)
+    (@hom_postcomp_fapp1_func Cat_cat Cat_cat (@id_func Cat_cat) K A B H F G)
+  ≡ @comp_cat_fapp0 (@Transf_cat K A F G) (Hom_cat A (fapp0 F x) (fapp0 G x))
+      (Hom_cat B (fapp0 H (fapp0 F x)) (fapp0 H (fapp0 G x)))
+      (@fapp1_func A B H (fapp0 F x) (fapp0 G x)) (@tapp0_func K A F G x);
+
+assert [A B C : Cat] (H : τ (Functor A B)) (F G : τ (Functor B C)) (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 (Hom_cat (Functor_cart_cat B C) F G)
+    (Hom_cat (Functor_cart_cat A C) (@comp_cat_fapp0 A B C F H) (@comp_cat_fapp0 A B C G H))
+    (Hom_cat C (fapp0 F (fapp0 H a)) (fapp0 G (fapp0 H a)))
+    (@Functor_cart_component_func A C (@comp_cat_fapp0 A B C F H) (@comp_cat_fapp0 A B C G H) a)
+    (@hom_precomp_along_fapp1_func Cat_cart Cat_cart (@id_func Cat_cart) C A B H F G)
+  ≡ @Functor_cart_component_func B C F G (fapp0 H a);
+
+// Native represented reindexing retains its two whole runtime forms.
+// Check the direct proof-time comparison, without an operational cast.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) ⊢
+  @eq_refl (Functor K Cat_cart)
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+  : τ (@= (Functor K Cat_cart)
+      (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+      (@Homd_target_catd K E));
+
+assert [K : Cat] [D E : τ (Functor K Cat_cart)] (FF : τ (@Transf K Cat_cart D E))
+  (y : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E) y
+    (@Homd_coeff_diagram_transf K D E FF)
+  ≡ @Homd_coeff_rep (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart E y)
+      (@tapp0_fapp0 K Cat_cart D E y FF);
+
+// General lax FF is accepted by the defined target map and relative root.
+assert [K : Cat] [D E : τ (Functor K Cat_cart)] (FF : τ (@Transf K Cat_cart D E)) ⊢
+  @homd_rel_cart_int K D E FF
+  : τ (Hom (Functor_cart_cat K Cat_cart) E (@Homd_target_catd K D));
+
+// The component is whole precomposition on the actual section category.
+assert [K : Cat] [D E : τ (Functor K Cat_cart)] (FF : τ (@Transf K Cat_cart D E))
+  (x : τ (Obj K)) ⊢
+  fapp0 (@Functor_cart_component_func K Cat_cart (@Homd_target_catd K E) (@Homd_target_catd K D) x)
+    (@Homd_target_map K D E FF)
+  ≡ @Op_func (@Homd_target_section_cat K E x) (@Homd_target_section_cat K D x)
+      (@hom_precomp_along_func (Functor_cat K Homd_coeff_cat) (Functor_cat K Homd_coeff_cat)
+        (@id_func (Functor_cat K Homd_coeff_cat)) (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x)))
+        (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E) (@Homd_coeff_diagram_transf K D E FF));
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) ⊢
+  @Homd_target_map K E E (@id (Functor_cat K Cat_cart) E)
+  ≡ @id (Functor_cart_cat K Cat_cart)
+      (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E));
+
+assert [K : Cat] (E : τ (Functor K Cat_cart)) ⊢
+  @homd_rel_cart_int K E E (@id (Functor_cat K Cat_cart) E) ≡ @homd_id_int K E;
+
+// Whole FF-action retains the corrected direction on modifications.
+assert [K : Cat] [D E : τ (Functor K Cat_cart)]
+  [FF GG : τ (@Transf K Cat_cart D E)] (eta : τ (Hom (@Transf_cat K Cat_cart D E) FF GG)) ⊢
+  @fapp1_fapp0 (Op_cat (@Transf_cat K Cat_cart D E))
+    (Hom_cat (Functor_cart_cat K Cat_cart) (@Homd_target_catd K E) (@Homd_target_catd K D))
+    (@Homd_target_con_func K D E) GG FF eta
+  : τ (Hom (Hom_cat (Functor_cart_cat K Cat_cart) (@Homd_target_catd K E) (@Homd_target_catd K D))
+      (@Homd_target_map K D E GG) (@Homd_target_map K D E FF));
+
+assertnot [K : Cat] [D E : τ (Functor K Cat_cart)]
+  [FF GG : τ (@Transf K Cat_cart D E)] (eta : τ (Hom (@Transf_cat K Cat_cart D E) FF GG)) ⊢
+  @fapp1_fapp0 (Op_cat (@Transf_cat K Cat_cart D E))
+    (Hom_cat (Functor_cart_cat K Cat_cart) (@Homd_target_catd K E) (@Homd_target_catd K D))
+    (@Homd_target_con_func K D E) FF GG eta
+  : τ (Hom (Hom_cat (Functor_cart_cat K Cat_cart) (@Homd_target_catd K E) (@Homd_target_catd K D))
+      (@Homd_target_map K D E FF) (@Homd_target_map K D E GG));
+
+// The literal relative root and direct section composition now join at
+// the whole y-section, before selecting its y/v/f observations.
+assert [K : Cat] [D E : τ (Functor K Cat_cart)] (FF : τ (@Transf K Cat_cart D E))
+  (x : τ (Obj K)) (u : τ (Obj (@fapp0 K Cat_cart E x))) ⊢
+  @homd_src_sec K D E FF x u
+  ≡ @comp_fapp0 (Functor_cat K Homd_coeff_cat) (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E)
+      (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x)))
+      (@homd_id_src_sec K E x u) (@Homd_coeff_diagram_transf K D E FF);
+
+// Literal observation of the defined relative root through x/u/y/v/f.
+assert [K : Cat] [D E : τ (Functor K Cat_cart)] (FF : τ (@Transf K Cat_cart D E))
+  (x y : τ (Obj K)) (u : τ (Obj (@fapp0 K Cat_cart E x)))
+  (v : τ (Obj (@fapp0 K Cat_cart D y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (fapp0 (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K D)
+      (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) y (@homd_src_sec K D E FF x u)) v) f
+  ≡ Hom_cat (@fapp0 K Cat_cart E y) (fapp0 (@fapp1_fapp0 K Cat_cart E x y f) u)
+      (fapp0 (@tapp0_fapp0 K Cat_cart D E y FF) v);
+
+// No implicit promotion of the original FF to a Cartesian diagram map.
+assertnot [K : Cat] [D E : τ (Functor K Cat_cart)] (FF : τ (@Transf K Cat_cart D E)) ⊢
+  FF : τ (Hom (Functor_cart_cat K Cat_cart) D E);
+
+// Public blended interface: the actual ordinary view of the composite.
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E)) ⊢
+  @homd_int K D E FF : τ (Functord E (@Homd_target_catd K D));
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  fapp0 (@homd_src_func K D E FF x) u ≡ @homd_src_sec K D E FF x u;
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  fapp0 (@tapp0_fapp0 K Cat_cart _ _ x (@homd_int K D E FF)) u
+  ≡ @homd_src_sec K D E FF x u;
+assert [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (v : τ (Obj (Fibre_cat D y))) (f : τ (Hom K x y)) ⊢
+  fapp0 (fapp0 (@homd_tgt_func K D E FF x u y) v) f
+  ≡ Hom_cat (Fibre_cat E y) (fapp0 (@catd_transport_func K E x y f) u)
+      (fapp0 (@tapp0_fapp0 K Cat_cart D E y FF) v);

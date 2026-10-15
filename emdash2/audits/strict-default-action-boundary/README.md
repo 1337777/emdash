@@ -5,6 +5,38 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Native Q/Homd source ladder, 2026-10-15
+
+The [native Homd owner](production_homd_core.lpfragment) now replaces the
+invalid ordinary-Pi target in the original-source migration. It uses the
+existing Hom and fibre-covariance owners, with no parallel `sf_cart_hom*`
+primitives. The identity core is independent; public `homd_int(FF)` is the
+ordinary displayed view of a defined relative composite, retaining lax FF.
+The [whole consumers](production_homd_controls.lpfragment) check root-to-leaf,
+source-u and higher action, whole x-naturality, and the general-FF relative
+section/leaf. The [verification](production_homd_verification.json) records
+the final exact source, normalization fixes and remaining full-source failure.
+
+Current passing replay from `emdash2`:
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package homd_prefix.lp
+```
+
+This target also carries the preceding foundation/Pi/Sigma/mixed-family
+controls. The full emitted source stops at `tdapp1_int_func_transfd`'s old
+use of `Op_funcd(FF)`. The next step is its corrected intrinsic direction
+and the actual extracted comparison projections, followed by late consumers.
+Q's represented laws remain structural contracts, not a derived complete
+composition/coherence theory. The full goal and public promotion remain open.
+
+One invalid helper name, `Homd_target_section_catd`, is replaced by the actual
+`Homd_target_section_cat`. All other original declarations remain, with
+explicit dependency relocations. No later source section is truncated.
+
 ## Pi, Sigma and mixed-family source continuation, 2026-10-15
 
 The current [recipe](production_owner_migration.py) checks through section

@@ -38,6 +38,87 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native Homd core continuation after `735de6e6`, 2026-10-15: the staged
+original source now checks through the direct Q/Homd root and relative
+ladder. The [native owner](../emdash2/audits/strict-default-action-boundary/production_homd_core.lpfragment)
+reuses `hom_`, `hom_con`, `hom_int`, `hom_con_int` and the existing canonical
+fibre-covariance names; it does not install the prototype's parallel
+`sf_cart_hom*` primitives. The [verification record](../emdash2/audits/strict-default-action-boundary/production_homd_verification.json)
+pins the actual original-source integration and its remaining full-file
+failure. No public kernel replacement or complete-goal claim is made.
+
+The active staged interface is:
+
+```text
+S_E(x) = Transf_cat(K,Q,iota E,iota Hom_K(x,-))
+H_E[x] = T(S_E(x))
+homd_id_int(E) : Hom_Cart(K,Cat_cart)(E,H_E)
+homd_int(FF:D=>E) : Functord(E,H_D).
+```
+
+`homd_int(FF)` is a definition: the ordinary displayed view of the
+Cartesian composite `Homd_target_map(FF) o homd_id_int(E)`. FF remains lax
+across K. The original public `homd_src_func`, `homd_src_sec`,
+`homd_tgt_func` and `homd_` names remain. Identity and relative observations
+reach the whole y-transformation and its v/f leaves directly. The invalid
+`Homd_target_section_catd` family is retired in favour of the actual category
+`Homd_target_section_cat`; it is not relabelled as a Pi over another base.
+The manifest records that replacement and the dependency-forced relocation
+of covariance and identity projection declarations. Later consumers of the
+old section alias remain migration work, not deleted requirements.
+
+The standalone Edge/presheaf constructors retain their compositional bodies
+at their corrected CoAt2-shifted bases. They are not forced into the former
+Homd target. Q supplies the selected represented inclusion, conjoint, mate
+and represented composition contracts. These structural contracts are not
+reported as a derived full profunctor model or complete Q coherence theorem.
+No factorization-Hom, combined `(y,v,f)` base, new section primitive, or
+operational equality-proof argument has been introduced.
+
+Native integration exposed two concrete projection issues. Rewrite patterns
+must use the canonical `id Cat_cat` inside the existing Hom heads, rather
+than the reducible `id_func` spelling. A stable Hom source-identity clause
+joins its projected action even after duality erases the identity's category
+tag. Separately, the existing comp/Pullback and represented reindexing
+comparisons do not chain automatically: a direct proof-time reading now
+connects their two existing whole forms. The relative composite and its
+component views use the actual target-index normal forms in their explicit
+endpoint annotations. That allows generic component and identity cuts to
+compute; it adds no new Homd equation. Represented composition retains the
+native proof-time associativity comparison rather than imposing a new runtime
+association normal form.
+
+The public `homd_int` declaration also uses the computed target-index family
+in its literal result type. It checks against `Functord(E,H_D)` by the same
+whole comparison. This matters when ordinary `tapp0_fapp0` infers endpoints:
+the generic root projection now computes directly, as does the named
+`homd_src_func` accessor. Keeping the merely comparable alias in that result
+annotation prevented the existing component cut from matching.
+
+Receipt `20261015T160653Z-9af4dc79cd804fe08be8d7fc926ca4b1` passes with
+subject reduction in 5.264s and 331,336KiB maximum child RSS, default limits.
+It includes the earlier foundation/section/Sigma/mixed controls and the
+literal identity root-to-leaf, source-u, whole x-naturality, noninvertible
+higher-cell, relative identity, whole FF-parameter and relative y/v/f
+computations. The public relative leaf is
+`Hom_E[y](E[f](u),FF[y](v))`; a raw FF is still rejected as a Cartesian
+diagram map. Through the common section-10 boundary, warnings change
+1199->1203 (seven added, three removed); Q/Homd adds 180 diagnostics, for
+1383 overall. Parser and inferred-slot audits are clear. These observations
+qualify the recorded computational contract, not global confluence.
+
+Full-source receipt `20261015T160808Z-5e967825fb004d76a6eb147949a19557`
+stops at `tdapp1_int_func_transfd`, where the old declaration still passes
+arbitrary FF to `Op_funcd`. Next adapt that existing intrinsic-action owner
+to the selected direction `homd_int(GG) o FF -> homd_int(id_E)` in the
+transposed target. Its projections must recover the forward Homd action and
+the existing extracted laxity, without a supplied comparison cell. Then
+migrate the late Sigma-map/Pi/comma consumers and the canonical y-comparison
+computation. Consumed Q coherence, generic intrinsic action, public promotion,
+remaining raw-universe/adjunction interactions and downstream qualification
+are still open. This is a substantial native ladder milestone, not the
+completion of the foundations goal.
+
 Pi/Sigma/mixed-family source continuation after `3b5f7a90`, 2026-10-15:
 the staged original source now checks through section 10, including the
 corrected Sigma-Hom and the existing `Hom_catd`/`Functor_catd` owners. The

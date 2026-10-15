@@ -227,6 +227,12 @@ symbol hom_con_int_view [A B : Cat] (F : τ (Functor B A))
         new_hom = new_hom.replace(old, new)
     replace_once(old_hom, new_hom, 'ordinary Hom owner block',
                  'Selected whole Cartesian Hom profile with the original public names and blended strict F argument')
+    insert('// Applying the telescope at p yields the capped represented-object action.',
+           '''// Unit after the canonical Hom source action has projected to its
+// stable head. This is the identity law of the same strict Hom functor.
+rule @hom_int_precomp_func $A $B $F $X $X (@id _ $X)
+  ↪ @id (Functor_cart_cat $B Cat_cart) (@hom_ $A $B $F $X);
+''', 'The actual Homd target-map identity consumes the stable native Hom projection')
     insert(section_end, fragment('production_family_classifier.lpfragment'),
            'Define the original varying-base family names by the actual Cartesian Hom owner')
     a = body.index('symbol Hom_tele_func ')
@@ -563,6 +569,15 @@ rule @comp_fapp0 Cat_cat _ _ _
                  '// fixed lax-family pullback retains its separate existing owner.\n\n',
                  'Catd_cat_func legacy raw action fold',
                  'Do not equate Cartesian parameter reindexing with the larger lax diagram-map functor')
+    insert('// The Cartesian varying-base constructor computes through hom_con;',
+           '''// Direct proof-time reading of represented-family reindexing.
+// The semantic comp/Pullback comparison and Pullback(hom_) accumulation
+// already express this law; the checker does not chain those comparisons.
+unif_rule @comp_fapp0 Cat_cat $K $C Cat_cart
+      (@hom_ $C $C (@id Cat_cat $C) $w) $F
+  ≡ @hom_ $C0 $K0 $F0 $w0
+  ↪ [ $C ≡ $C0; $K ≡ $K0; $F ≡ $F0; $w ≡ $w0 ];
+''', 'The actual Homd target index consumes both existing represented-family reindexing presentations')
 
     a = body.index('// 8b. Constant, terminal, opposite, and displayed composition')
     b = body.index('// Fixed-base layer: pointwise opposite of a directed family.', a)
@@ -857,6 +872,70 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
     (@hom_int_precomp_func Z Z (@id Cat_cat Z) y x p);''',
                  'Rep_transport_func', 'Use the existing inclusion to observe canonical strict precomposition as a lax displayed map')
 
+    replace_once('rule CoAt2_cat (CoAt2_cat $A) ↪ $A;',
+                 'rule CoAt2_cat (CoAt2_cat $A) ↪ $A;\n'
+                 'rule Op_cat (CoAt2_cat $A) ↪ CoAt2_cat (Op_cat $A);',
+                 'transpose / dimension-two commutation',
+                 'The existing shifted Edge/presheaf construction consumes this category-level duality comparison')
+    a = body.index('symbol Edge_catd_func [Z : Cat]')
+    b = body.index(';', a) + 1
+    replace_once(body[a:b], '''symbol Edge_catd_func [Z : Cat]
+  : τ (Functor (CoAt2_cat (Op_cat Z))
+      (Functor_cart_cat (CoAt2_cat Z) Cat_cart))
+≔ @comp_cat_fapp0 (CoAt2_cat (Op_cat Z))
+    (CoAt2_cat (Functor_cart_cat Z Cat_cart))
+    (Functor_cart_cat (CoAt2_cat Z) Cat_cart)
+    (@Op_catd_func Z)
+    (@CoAt2_func (Op_cat Z) (Functor_cart_cat Z Cat_cart)
+      (@hom_int Z Z (@id_func Z)));''',
+                 'Edge_catd_func', 'The actual fibre transpose shifts the base and the whole represented parameter; no same-base coercion')
+    a = body.index('symbol Presheaf_catd_func (K : Cat)')
+    b = body.index(';', a) + 1
+    replace_once(body[a:b], '''symbol Presheaf_catd_func (K : Cat)
+  : τ (Functor (Op_cat (Functor_cart_cat (Op_cat K) Cat_cart)) (Catd_cat K))
+≔ comp_cat_fapp0
+    (@fapp0_func (Catd_cat K) (Catd_cat K) (@Const_catd K Cat_cart))
+    (@Functor_catd_func K);''',
+                 'Presheaf_catd_func', 'Use the actual Cartesian negative parameter of the existing mixed-family constructor')
+    a = body.index('symbol HomPresheaf_catd_func [Z : Cat]')
+    b = body.index(';', a) + 1
+    replace_once(body[a:b], '''symbol HomPresheaf_catd_func [Z : Cat]
+  : τ (Functor (CoAt2_cat Z) (Catd_cat (Op_cat (CoAt2_cat Z))))
+≔ comp_cat_fapp0
+    (@Presheaf_catd_func (Op_cat (CoAt2_cat Z)))
+    (@Op_func (CoAt2_cat (Op_cat Z)) (Functor_cart_cat (CoAt2_cat Z) Cat_cart)
+      (@Edge_catd_func Z));''',
+                 'HomPresheaf_catd_func', 'Preserve the compositional presheaf construction at its actual shifted variance; Homd will use its Q-valued whole section')
+
+    a = body.index('// 12. Directed homd target and internal homd functor')
+    b = body.index('// 14. Section action over dependent homs', a)
+    old_homd_core = body[a:b]
+    replacement = ('// 12. Directed homd target and internal homd functor\n\n'
+        + fragment('production_homd_core.lpfragment')
+        + '\n\n// 13. Dependent-hom projections and covariant fibre transport\n'
+          '// The original names above now project the identity core and the\n'
+          '// defined general-FF composition; no second primitive Homd theory.\n\n')
+    replace_once(old_homd_core, replacement, 'native Q Homd and direct projection ladder',
+                 'Replace the invalid ordinary-Pi target by the selected Q-valued transformation; reuse native Hom and original fibre-covariance owners')
+    relocated.append({'symbols': ['FibCov_target_catd', 'FibCov_source_catd', 'fib_cov_int',
+                                  'fib_cov_src_func', 'fib_cov_transf', 'homd_src_func',
+                                  'homd_src_sec', 'homd_tgt_func'],
+                      'originalBlockSha256': sha(old_homd_core),
+                      'reason': 'Canonical covariance is required before the Q section and its root'})
+    for name in ('homd_id_src_sec', 'homd_id_tgt_func'):
+        matches = list(re.finditer(r'(?m)^symbol ' + name + r'\b[\s\S]*?;', body))
+        assert len(matches) == 2, (name, len(matches))
+        original_declaration = matches[-1][0]
+        replace_once(original_declaration, '// ' + name + ' is now owned by the native identity Homd core.',
+                     name + ' relocation', 'Reuse the original identity projection name in the corrected core')
+        relocated.append({'symbol': name, 'originalDeclarationSha256': sha(original_declaration)})
+    old_section = '(Pi_cat (Homd_target_section_catd E x))'
+    occurrences = body.count(old_section)
+    assert occurrences == 2, occurrences
+    body = body.replace(old_section, '(@Homd_target_section_cat K E x)')
+    changes.append({'owner': 'relative intrinsic section classifier views', 'count': occurrences,
+                    'reason': 'The actual Q-valued section category replaces the defective former Pi target'})
+
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -911,6 +990,14 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
         + '\n' + fragment('production_sections_controls.lpfragment')
         + '\n' + sigma_controls + '\n' + mixed_controls
         + '\n' + mixed_parameters + '\n' + negative_sections)
+    homd_boundary = '// 14. Section action over dependent homs'
+    assert body.count(homd_boundary) == 1
+    (package / 'homd_prefix.lp').write_text(body[:body.index(homd_boundary)]
+        + '\n' + fragment('production_foundations_controls.lpfragment')
+        + '\n' + fragment('production_sections_controls.lpfragment')
+        + '\n' + sigma_controls + '\n' + mixed_controls
+        + '\n' + mixed_parameters + '\n' + negative_sections
+        + '\n' + fragment('production_homd_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1071,10 +1158,17 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
     original_lines_retained = all(kind in ('equal', 'insert') for kind, *_ in delta)
     declaration = r'(?m)^(?:(?:constant|injective|protected|private)\s+)?symbol\s+([A-Za-z0-9_]+)\b'
     original_names = re.findall(declaration, original)
-    relocated_names = {'Catd_cat_func', 'Catd_catd_con'}
+    relocated_names = {'Catd_cat_func', 'Catd_catd_con', 'FibCov_target_catd',
+                       'FibCov_source_catd', 'fib_cov_int', 'fib_cov_src_func',
+                       'fib_cov_transf', 'homd_src_func', 'homd_src_sec', 'homd_tgt_func',
+                       'homd_id_src_sec', 'homd_id_tgt_func'}
+    retired_names = {'Homd_target_section_catd': 'Homd_target_section_cat'}
     for name in relocated_names:
         assert re.findall(declaration, body).count(name) == 1, name
-    original_names = [name for name in original_names if name not in relocated_names]
+    for name, replacement in retired_names.items():
+        assert not re.findall(r'(?m)^(?:injective |constant )?symbol ' + name + r'\b', body)
+        assert re.findall(declaration, body).count(replacement) == 1
+    original_names = [name for name in original_names if name not in relocated_names and name not in retired_names]
     candidate_names = iter(re.findall(declaration, body))
     assert all(any(candidate == name for candidate in candidate_names)
                for name in original_names), 'An original declaration was dropped or reordered'
@@ -1085,7 +1179,9 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
         'originalCoreLines': len(original.splitlines()), 'candidateCoreLines': len(body.splitlines()),
         'originalDownstreamSectionsRetained': True,
         'originalCoreLineOrderVerified': original_lines_retained,
-        'originalNamedDeclarationsRetained': True,
+        'originalNamedDeclarationsRetained': not retired_names,
+        'unretiredNamedDeclarationsRetained': True,
+        'retiredNamesWithReplacements': retired_names,
         'originalNamedDeclarationSequenceVerified': not relocated_names,
         'unrelocatedNamedDeclarationSequenceVerified': True,
         'namedDeclarationSequenceExceptions': sorted(relocated_names),
@@ -1099,10 +1195,11 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
                               package / 'sections_prefix.lp',
                               package / 'sigma_prefix.lp',
                               package / 'mixed_prefix.lp',
+                              package / 'homd_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
-        'stillRequired': ['Coupled presheaf and selected Q/Homd root and direct ladder',
-                          'General lax FF intrinsic action, including late Sigma/Pi consumers',
+        'stillRequired': ['General lax FF intrinsic action with the corrected Homd root',
+                          'Consumed Q y-comparison/coherence and late Sigma/Pi/comma consumers',
                           'Moving path-motive interfaces with their actual coefficient profiles',
                           'Whole duality/adjunction and closure-consumer qualification',
                           'Downstream qualification and retirement of redundant strict wrappers'],
