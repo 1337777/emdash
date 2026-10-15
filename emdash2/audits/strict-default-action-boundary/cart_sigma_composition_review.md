@@ -8,6 +8,21 @@ Consumers: [native comparisons](cart_sigma_composition_controls.lpfragment)
 Replay: [integrated prefix](cart_sigma_composition_replay.py)
 Evidence: [verification](cart_sigma_composition_verification.json)
 
+## Public migration boundary
+
+Reviewed after the user's 2026-10-15 clarification: the new stable
+`sf_cart_sigma_comp_fibre` owner has no literal production counterpart.
+Production computes composition directly at `comp_fapp0(Sigma_cat(E),...)`
+on `sigma_arrow` / `sigma_arrow_intro`. Only this audit and its comparison
+theorems reference the new helper; the Homd, Sigma and Sigma-map runtime
+fragments do not depend on it.
+
+The checks below remain evidence for the declared structural law and its
+derived consequence. They do not establish that promoting this helper is
+necessary for the migration. Retain it as audit scaffolding. Adapt the
+production owners first; any proposed extra public owner needs a concrete
+migration consumer and evidence that a smaller adaptation is insufficient.
+
 ## Construction
 
 FF:E=>D remains an ordinary conventional-lax transformation across K, where
@@ -84,9 +99,8 @@ remain 66. Exact bodies and source/resource hashes are pinned in the
 verification file. LHS audit has zero unreviewed slots. This is not global
 confluence or production qualification.
 
-Next qualify the whole off-diagonal action of a mapped modification
-theta:FF=>GG: it should be the negative Sigma map of the existing general
-theta Homd presheaf action, with the already checked vertical component.
-Then continue public owner/classifier integration and downstream validation.
-Lax FF remains the selected path; no obstruction established here requires
-switching its classifier to strict transformations.
+The next-work order is superseded by the public migration boundary above.
+Mapped-modification off-diagonal action remains a possible concrete consumer
+of the existing general theta Homd action, not an automatic prerequisite
+for further production adaptation. Lax FF remains the selected path; no
+obstruction established here requires a strict-transformation classifier.

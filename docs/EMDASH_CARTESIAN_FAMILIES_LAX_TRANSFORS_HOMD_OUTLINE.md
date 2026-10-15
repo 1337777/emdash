@@ -350,6 +350,21 @@ kernel migration.
 
 ## Sigma and relative maps
 
+Public migration boundary, reviewed 2026-10-15:
+
+| Production owner | Migration treatment |
+| --- | --- |
+| `comp_fapp0(Sigma_cat(E),...)` with `sigma_arrow` / `sigma_arrow_intro` | Preserve the existing direct composition formula; adapt its coefficient and corrected Hom presentation |
+| `sigma_map_func` and `fdapp1_int_hom_fapp0` | Preserve the total-map / intrinsic-action projection architecture |
+| `sigma_map_transf` | Preserve its existing whole type and vertical component; add projections when an actual migration consumer requires them |
+| New `sf_cart_sigma_comp_fibre` audit owner | No literal production counterpart; retain as audit scaffolding, without presuming public promotion |
+
+The composition audit supplies a new structural compatibility law with a
+checked consequence. It does not demonstrate that production needs that
+new stable helper. The Homd/Sigma/map runtime candidates do not reference
+it. Required duality/profile corrections may change signatures and owners,
+but optional normalization improvements remain separate from this migration.
+
 The [Sigma-Hom candidate](../emdash2/audits/strict-default-action-boundary/cart_sigma_review.md)
 retains objects (f,a), with f:x->y and `a:E[f](u)->v`. For the whole
 fixed-v presheaf H:T(I)->Cat_cart, it defines

@@ -38,6 +38,33 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Migration-scope correction, 2026-10-15: the user reaffirmed that this is a
+focused migration of the production outline. Production Sigma composition
+is owned by `comp_fapp0(Sigma_cat(E),...)`, `sigma_arrow` and
+`sigma_arrow_intro`; Sigma maps consume `fdapp1_int_hom_fapp0`. It has no
+separate `sf_cart_sigma_comp_fibre` owner. That new stable owner and its
+whole compatibility law were introduced only by the non-library composition
+audit. A source-reference search finds no dependency on them from the
+qualified Homd, Sigma formation or Sigma-map implementation fragments.
+
+Keep that audit as conditional computation/reference evidence, not as a
+mandatory public-kernel addition or a reason to extend adjacent theory.
+Its exact checks remain valid for its declared structural law, but they do
+not show the extra owner is necessary for migration. The assistant's phrase
+"usual internalization pattern" described a general technique, not the
+literal production implementation; that distinction is now explicit.
+
+Next prioritize a source-owner correspondence and adaptation of the actual
+production declarations/rules, using the qualified Cartesian-family Homd/
+Sigma-map implementation as donor evidence. Preserve the direct composition
+formula and intrinsic-action owners. Do not first expand mapped-modification
+or normalization coverage merely to finish an auxiliary audit: develop a
+new projection only when a concrete required migration consumer needs it.
+Any necessary new owner must record why a smaller adaptation fails, and
+remain separate from deferred optional redesign. This changes the next work
+order, not the selected strict-functor/conventional-lax-FF semantics or the
+full goal's public/downstream qualification requirements.
+
 Current FF/profile clarification, 2026-10-15: retain conventional-lax
 transformations, general lax FF across K, and the identity-Homd core with a
 defined relative composite. The earlier strict-Functord sub-classifier is
@@ -68,12 +95,12 @@ operation is introduced. Receipt
 4.352s/339,948KiB. The six new critical-pair diagnostics (1636->1642) are
 inventoried; pattern warnings remain 66 and LHS has zero unreviewed slots.
 
-Next implement the whole off-diagonal action of the mapped modification
-theta:FF=>GG using the negative total of its existing general Homd action.
-Its vertical component is already checked. Then proceed through public
-owner/classifier integration and downstream gates. Keep strict Functord as
-an alternative, but this consumer supplies no reason to change the selected
-lax FF admission. The full goal remains active.
+Mapped-modification off-diagonal action is a possible follow-up consumer;
+its vertical component is already checked. The migration-scope review above
+now prioritizes actual public owner/classifier integration and downstream
+requirements over extending this audit. Keep strict Functord as an
+alternative; no result here requires changing the selected lax FF admission.
+The full goal remains active.
 
 Latest total-map continuation, 2026-10-15: the
 [Cartesian-family total-map candidate](../emdash2/audits/strict-default-action-boundary/cart_sigma_map_review.md)

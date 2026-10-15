@@ -132,8 +132,10 @@ action and recursive preservation of the base two-cell check. The
 [whole composition continuation](cart_sigma_composition_review.md) qualifies
 the structural whole intrinsic-composition law and its derived expanded
 total-arrow comparison, including identity/constant-family controls.
-Mapped-modification off-diagonal action and public/downstream migration
-remain; general lax FF is still admitted.
+Its additional stable composition helper has no production counterpart and
+is audit scaffolding, not an automatically selected public-kernel addition.
+The next step follows actual production owners and required consumers;
+public/downstream migration remains and general lax FF is still admitted.
 
 Earlier Q clarification, superseded by the current shared-Cartesian-family
 candidate above: both curried mapping levels then used the conventional
