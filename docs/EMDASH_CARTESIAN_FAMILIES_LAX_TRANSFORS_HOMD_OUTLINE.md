@@ -156,6 +156,12 @@ Fixing v yields the one-slot presheaf below. This representation does not
 restrict Q's general inhabitants; projections, restrictions and actual
 Homd action determine the needed interface.
 
+At the foundational layer this Hom_Q identification is computational: the
+local operations come from the nested mapping categories. Recovering the
+former Homd tail and projections in the ordinary 1-categorical
+specialization, at matching strictness profiles, is a compatibility
+requirement. No separate local Q action calculus is intended.
+
 ## Direct section and projection ladder
 
 Using default lax transformations into Q:

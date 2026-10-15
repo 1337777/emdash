@@ -57,6 +57,14 @@ all Q inhabitants to represented maps, nor a reason to develop unrelated
 represented-profunctor theory. Drive additional operations by this
 component's actual projections, restrictions and whole action.
 
+Foundational compatibility requirement: Hom_Q(A,B) must compute to the
+selected nested mapping categories, rather than acquire a separate local
+application/restriction calculus. In the ordinary 1-categorical
+specialization, recover the former Homd tail and projection behavior at
+matching strictness profiles. Check whole classifiers as well as leaves;
+restricting the base to a 1-category alone does not erase higher coefficient
+structure or silently equate Cartesian and lax transformation classifiers.
+
 The pending balancing attempt compared two whole image functors; it did not
 implement quotient classes or a source quotient relation. Its definitions
 typecheck, but the direct whole-reflexivity assertion fails in receipt
