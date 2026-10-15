@@ -1,0 +1,196 @@
+// NON-LIBRARY: Cartesian-coefficient total duality needed by Sigma-Hom.
+// T=Op_cat, R=CoAbove2_cat, O=TotalOp_cat=R(T(-)). The surrounding public
+// universe continues to use default lax transformations.
+rule CoAbove2_cat Terminal_cat ↪ Terminal_cat;
+rule CoAbove2_cat (Product_cat $A $B)
+  ↪ Product_cat (CoAbove2_cat $A) (CoAbove2_cat $B);
+rule @CoAbove2_func $A $B (@Const_func $A $B $b)
+  ↪ @Const_func (CoAbove2_cat $A) (CoAbove2_cat $B) $b;
+
+symbol sf_cart_total_op_mapping (A B : Cat)
+  : τ (Functor (TotalOp_cat (sf_cart_functor_cat A B))
+      (sf_cart_functor_cat (TotalOp_cat A) (TotalOp_cat B)));
+rule fapp0 (sf_cart_total_op_mapping $A $B) $F ↪ @TotalOp_func $A $B $F;
+
+symbol sf_cart_total_op : τ (Functor (CoAbove2_cat sf_cart_cat) sf_cart_cat);
+rule fapp0 sf_cart_total_op $A ↪ TotalOp_cat $A;
+rule @fapp1_func _ _ sf_cart_total_op $A $B ↪ sf_cart_total_op_mapping $A $B;
+rule @fapp1_fapp0 _ _ sf_cart_total_op $A $B $F ↪ @TotalOp_func $A $B $F;
+
+// Canonical strict-transfor image under total duality, using the existing
+// ambient whole duality for its ordinary view. No strictness proof is input.
+symbol sf_cart_total_op_transf [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (Hom (sf_cart_functor_cat A B) F G))
+  : τ (Hom (sf_cart_functor_cat (TotalOp_cat A) (TotalOp_cat B))
+      (@TotalOp_func A B G) (@TotalOp_func A B F));
+rule @fapp1_fapp0 _ _ (sf_cart_total_op_mapping $A $B) $G $F $U
+  ↪ @sf_cart_total_op_transf $A $B $F $G $U;
+rule @strict_transfor _ _ _ _ (@sf_cart_total_op_transf $A $B $F $G $U)
+  ↪ @TotalOp_transf $A $B $F $G (@strict_transfor $A $B $F $G $U);
+
+// Whole fibre duality changes the family base from K to R(K).
+symbol sf_cart_total_op_family [K : Cat] (E : τ (Functor K sf_cart_cat))
+  : τ (Functor (CoAbove2_cat K) sf_cart_cat)
+≔ @comp_cat_fapp0 (CoAbove2_cat K) (CoAbove2_cat sf_cart_cat) sf_cart_cat
+    sf_cart_total_op (@CoAbove2_func K sf_cart_cat E);
+
+// Strict family composition after Cartesian coefficient composition has
+// projected to ordinary functor composition. The capped clause joins the
+// object-first route used by the Sigma composition endpoints.
+// lhs-audit: keep 1,2,3,4 -- measured SR guards for projected Cartesian-family transports.
+rule @comp_fapp0 Cat_cat (@fapp0 $K sf_cart_cat $E $x)
+      (@fapp0 $K sf_cart_cat $E $y) (@fapp0 $K sf_cart_cat $E $z)
+      (@fapp1_fapp0 $K sf_cart_cat $E $y $z $q)
+      (@fapp1_fapp0 $K sf_cart_cat $E $x $y $p)
+  ↪ @fapp1_fapp0 $K sf_cart_cat $E $x $z (@comp_fapp0 $K $x $y $z $q $p);
+rule @fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $y $z $q)
+      (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $x $y $p) $u)
+  ↪ @fapp0 (@fapp0 $K sf_cart_cat $E $x) (@fapp0 $K sf_cart_cat $E $z)
+      (@fapp1_fapp0 $K sf_cart_cat $E $x $z (@comp_fapp0 $K $x $y $z $q $p)) $u;
+
+// One covariant total constructor; the contravariant total below is derived.
+symbol sf_cart_sigma [K : Cat] (E : τ (Functor K sf_cart_cat)) : Cat;
+rule τ (Obj (@sf_cart_sigma $K $E))
+  ↪ `τΣ_ x : τ (Obj $K), Obj (@fapp0 $K sf_cart_cat $E x);
+rule @sf_cart_sigma $K (@Const_func $K sf_cart_cat $A) ↪ Product_cat $K $A;
+
+symbol sf_cart_sigma_con [I : Cat] (H : τ (Functor (Op_cat I) sf_cart_cat)) : Cat
+≔ TotalOp_cat (@sf_cart_sigma (TotalOp_cat I) (@sf_cart_total_op_family (Op_cat I) H));
+
+// The whole Hom uses the existing direct Homd y/v/f projection. Fibre
+// total-duality is essential: the outer O then restores fibre directions.
+rule Hom_cat (@sf_cart_sigma $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
+  ↪ @sf_cart_sigma_con (Hom_cat $K $x $y) (@sf_cq_homd_ $K $E $x $u $y $v);
+
+symbol sf_cart_sigma_arrow [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y : τ (Obj K)] (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y)))
+  (p : τ (Hom K x y))
+  (a : τ (Hom (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v))
+  : τ (Hom (@sf_cart_sigma K E) (Struct_sigma x u) (Struct_sigma y v))
+≔ Struct_sigma p a;
+
+// Preserve the production arbitrary-endpoint arrow interface. Object
+// projections are definitions through the existing dependent-pair carrier.
+symbol sf_cart_sigma_obj_base [K : Cat] [E : τ (Functor K sf_cart_cat)]
+  (s : τ (Obj (@sf_cart_sigma K E))) : τ (Obj K)
+≔ @sigma_Fst (Obj K) (λ x : τ (Obj K), Obj (fapp0 E x)) s;
+symbol sf_cart_sigma_obj_fibre [K : Cat] [E : τ (Functor K sf_cart_cat)]
+  (s : τ (Obj (@sf_cart_sigma K E))) : τ (Obj (fapp0 E (@sf_cart_sigma_obj_base K E s)))
+≔ @sigma_Snd (Obj K) (λ x : τ (Obj K), Obj (fapp0 E x)) s;
+
+symbol sf_cart_sigma_arrow_intro [K : Cat] [E : τ (Functor K sf_cart_cat)]
+  [s t : τ (Obj (@sf_cart_sigma K E))]
+  (p : τ (Hom K (@sf_cart_sigma_obj_base K E s) (@sf_cart_sigma_obj_base K E t)))
+  (a : τ (Hom (fapp0 E (@sf_cart_sigma_obj_base K E t))
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E (@sf_cart_sigma_obj_base K E s)
+        (@sf_cart_sigma_obj_base K E t) p) (@sf_cart_sigma_obj_fibre K E s))
+      (@sf_cart_sigma_obj_fibre K E t)))
+  : τ (Hom (@sf_cart_sigma K E) s t);
+
+// In a constant total this constructor is an ordinary product arrow. Its
+// component betas survive the prior Sigma/projection-to-Product reductions.
+rule sigma_Fst (@sf_cart_sigma_arrow_intro $K (@Const_func $K sf_cart_cat _) _ _ $p _) ↪ $p;
+rule sigma_Snd (@sf_cart_sigma_arrow_intro $K (@Const_func $K sf_cart_cat _) _ _ _ $a) ↪ $a;
+
+// lhs-audit: keep 1 -- actual Sigma composition of the stable arrow constructors.
+rule @comp_fapp0 (@sf_cart_sigma $K $E) _ _ _
+      (@sf_cart_sigma_arrow_intro $K $E $t $v $q $b)
+      (@sf_cart_sigma_arrow_intro $K $E $s $t $p $a)
+  ↪ @sf_cart_sigma_arrow_intro $K $E $s $v
+      (@comp_fapp0 $K (@sf_cart_sigma_obj_base $K $E $s)
+        (@sf_cart_sigma_obj_base $K $E $t) (@sf_cart_sigma_obj_base $K $E $v) $q $p)
+      (@comp_fapp0 (@fapp0 $K sf_cart_cat $E (@sf_cart_sigma_obj_base $K $E $v)) _ _ _ $b
+        (@fapp1_fapp0
+          (@fapp0 $K sf_cart_cat $E (@sf_cart_sigma_obj_base $K $E $t))
+          (@fapp0 $K sf_cart_cat $E (@sf_cart_sigma_obj_base $K $E $v))
+          (@fapp1_fapp0 $K sf_cart_cat $E (@sf_cart_sigma_obj_base $K $E $t)
+            (@sf_cart_sigma_obj_base $K $E $v) $q) _ _ $a));
+
+// Surviving instance when a constant total has already become a product.
+// lhs-audit: keep 1 -- the surviving Product category discriminates this projection order.
+rule @comp_fapp0 (Product_cat $K $A) _ _ _
+      (@sf_cart_sigma_arrow_intro $K (@Const_func $K sf_cart_cat $A) $t $v $q $b)
+      (@sf_cart_sigma_arrow_intro $K (@Const_func $K sf_cart_cat $A) $s $t $p $a)
+  ↪ @sf_cart_sigma_arrow_intro $K (@Const_func $K sf_cart_cat $A) $s $v
+      (@comp_fapp0 $K (@sigma_Fst _ _ $s) (@sigma_Fst _ _ $t) (@sigma_Fst _ _ $v) $q $p)
+      (@comp_fapp0 $A (@sigma_Snd _ _ $s) (@sigma_Snd _ _ $t) (@sigma_Snd _ _ $v) $b $a);
+
+// Ordinary forward composition with the selected strict family transport.
+// lhs-audit: keep 1 -- the total category is the composition discriminator.
+rule @comp_fapp0 (@sf_cart_sigma $K $E)
+      (Struct_sigma $x $u) (Struct_sigma $y _) (Struct_sigma $z $w)
+      (Struct_sigma $q $b) (Struct_sigma $p $a)
+  ↪ @sf_cart_sigma_arrow $K $E $x $z $u $w
+      (@comp_fapp0 $K $x $y $z $q $p)
+      (@comp_fapp0 (@fapp0 $K sf_cart_cat $E $z) _ _ _ $b
+        (@fapp1_fapp0 (@fapp0 $K sf_cart_cat $E $y) (@fapp0 $K sf_cart_cat $E $z)
+          (@fapp1_fapp0 $K sf_cart_cat $E $y $z $q) _ _ $a));
+
+rule @id (@sf_cart_sigma $K $E) (Struct_sigma $x $u)
+  ↪ Struct_sigma (@id $K $x) (@id (@fapp0 $K sf_cart_cat $E $x) $u);
+
+// The existing first-projection architecture, with its first Hom retained
+// as a stable generic owner. Recursive action uses the actual total dual of
+// the inner Sigma projection, not an independently supplied base map.
+symbol sf_cart_sigma_proj [K : Cat] (E : τ (Functor K sf_cart_cat))
+  : τ (Functor (@sf_cart_sigma K E) K);
+rule @sf_cart_sigma_proj $K (@Const_func $K sf_cart_cat $A)
+  ↪ @Product_projL_func $K $A;
+rule fapp0 (@sf_cart_sigma_proj $K $E) $r
+  ↪ @sigma_Fst (Obj $K) (λ x : τ (Obj $K), Obj (@fapp0 $K sf_cart_cat $E x)) $r;
+rule @fapp1_fapp0 _ _ (@sf_cart_sigma_proj _ _)
+      (Struct_sigma _ _) (Struct_sigma _ _) (Struct_sigma $p _) ↪ $p;
+// SR retains the shared family on the two semantic owners.
+rule @fapp1_fapp0 _ _ (@sf_cart_sigma_proj $K $E) _ _
+      (@sf_cart_sigma_arrow_intro $K $E _ _ $p _) ↪ $p;
+
+symbol sf_cart_sigma_arrow_fibre [K : Cat] [E : τ (Functor K sf_cart_cat)]
+  [s t : τ (Obj (@sf_cart_sigma K E))] (h : τ (Hom (@sf_cart_sigma K E) s t))
+  : τ (Hom (fapp0 E (@sf_cart_sigma_obj_base K E t))
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E (@sf_cart_sigma_obj_base K E s)
+        (@sf_cart_sigma_obj_base K E t)
+        (@fapp1_fapp0 (@sf_cart_sigma K E) K (@sf_cart_sigma_proj K E) s t h))
+        (@sf_cart_sigma_obj_fibre K E s)) (@sf_cart_sigma_obj_fibre K E t));
+rule @sf_cart_sigma_arrow_fibre $K $E _ _ (@sf_cart_sigma_arrow_intro $K $E _ _ _ $a) ↪ $a;
+rule @sf_cart_sigma_arrow_fibre _ _ (Struct_sigma _ _) (Struct_sigma _ _) (Struct_sigma _ $a) ↪ $a;
+
+rule @fapp1_func _ _
+      (@fapp1_func _ _ (@sf_cart_sigma_proj $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v))
+      (Struct_sigma $p $a) (Struct_sigma $q $b)
+  ↪ @fapp1_func (@sf_cart_sigma_con (Hom_cat $K $x $y) (@sf_cq_homd_ $K $E $x $u $y $v))
+      (Hom_cat $K $x $y)
+      (@TotalOp_func
+        (@sf_cart_sigma (TotalOp_cat (Hom_cat $K $x $y))
+          (@sf_cart_total_op_family (Op_cat (Hom_cat $K $x $y)) (@sf_cq_homd_ $K $E $x $u $y $v)))
+        (TotalOp_cat (Hom_cat $K $x $y))
+        (@sf_cart_sigma_proj (TotalOp_cat (Hom_cat $K $x $y))
+          (@sf_cart_total_op_family (Op_cat (Hom_cat $K $x $y)) (@sf_cq_homd_ $K $E $x $u $y $v))))
+      (Struct_sigma $p $a) (Struct_sigma $q $b);
+
+rule @fapp1_fapp0 _ _
+      (@fapp1_func _ _ (@sf_cart_sigma_proj $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v))
+      (Struct_sigma $p $a) (Struct_sigma $q $b) $theta
+  ↪ @fapp1_fapp0 (@sf_cart_sigma_con (Hom_cat $K $x $y) (@sf_cq_homd_ $K $E $x $u $y $v))
+      (Hom_cat $K $x $y)
+      (@TotalOp_func
+        (@sf_cart_sigma (TotalOp_cat (Hom_cat $K $x $y))
+          (@sf_cart_total_op_family (Op_cat (Hom_cat $K $x $y)) (@sf_cq_homd_ $K $E $x $u $y $v)))
+        (TotalOp_cat (Hom_cat $K $x $y))
+        (@sf_cart_sigma_proj (TotalOp_cat (Hom_cat $K $x $y))
+          (@sf_cart_total_op_family (Op_cat (Hom_cat $K $x $y)) (@sf_cq_homd_ $K $E $x $u $y $v))))
+      (Struct_sigma $p $a) (Struct_sigma $q $b) $theta;
+
+// General total two-cell. Its filler a->H[kappa](b) is actual directed
+// fibre data, not equality evidence or a reversed fibre transformation.
+symbol sf_cart_sigma_two_cell [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y : τ (Obj K)] (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y)))
+  [p q : τ (Hom K x y)]
+  (a : τ (Obj (fapp0 (@sf_cq_homd_ K E x u y v) p)))
+  (b : τ (Obj (fapp0 (@sf_cq_homd_ K E x u y v) q)))
+  (kappa : τ (Hom (Hom_cat K x y) p q))
+  (eta : τ (Hom (fapp0 (@sf_cq_homd_ K E x u y v) p) a
+      (fapp0 (@fapp1_fapp0 (Op_cat (Hom_cat K x y)) sf_cart_cat
+        (@sf_cq_homd_ K E x u y v) q p kappa) b)))
+  : τ (Hom (Hom_cat (@sf_cart_sigma K E) (Struct_sigma x u) (Struct_sigma y v))
+      (Struct_sigma p a) (Struct_sigma q b))
+≔ Struct_sigma kappa eta;

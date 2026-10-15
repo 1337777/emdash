@@ -1,0 +1,150 @@
+{
+  "status": "non-library Cartesian-family Sigma-Hom",
+  "donorEvidence": "audits/strict-default-action-boundary/cart_homd_composition_verification.json",
+  "donorEvidenceSha256": "58c27421cf196d5a5cf66c486484372c801b1a685cf7f69e290b63a8a11ca9d3",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/cart_sigma_replay.py": "8c5670b7725924ce7822d24268f37cfa630e15d2b2a55c36fc0976017218b15a",
+    "audits/strict-default-action-boundary/cart_sigma.lpfragment": "5f7e0b87c0c9f70d3c9b4c3c77c3550ae0898def13d5394ae8ba9c5f29792783",
+    "audits/strict-default-action-boundary/cart_sigma_controls.lpfragment": "e286fc0d4c8d1d1e86762035e1561b98a90ff7636e8342219506a691756c6832"
+  },
+  "outputSha256": "844099e9ad1c0f31cd996d38a82694dfbb8f0af652352dfc4d563c46388b54fd",
+  "baseline": {
+    "path": "logs/check-runs/20261015T070925Z-a8980c223bff4a9e842a6b268fd65d0a.json",
+    "sha256": "ca49879afa799157ec07d09936e2d505579b0a3fe7efc98a9d031483de1193eb",
+    "logSha256": "a7eb68a552697879af9e7020bf903abb8ead0aa97d3a5ee1d03fbd6a873c58c0",
+    "outcome": "passed-fresh",
+    "wallSeconds": 9.36165263899602,
+    "childrenMaxRssKiB": 251212,
+    "inputSnapshot": "cb841d0e511b1a330f11f8ea7714f7744ac995cf340d5b387d634c706e2dec9e",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "candidate": {
+    "path": "logs/check-runs/20261015T080124Z-9bf6de46e18846379438be514dca41fd.json",
+    "sha256": "fecd6bcfe1d783f273e78c7e1b790a03ff2a3e6e94e342ab4812814d6d38cd21",
+    "logSha256": "fc71cfbc474d89ec803120f48c918cfee42553d6ec2069c25c85f2bb0330a03a",
+    "outcome": "passed-fresh",
+    "wallSeconds": 5.1626035399967805,
+    "childrenMaxRssKiB": 304632,
+    "inputSnapshot": "c2109d5d0a3521cb6b4de85685e2454a348cb78ac6aeed365cd90d2d71ea90b4",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "warnings": {
+    "criticalPairsBefore": 1269,
+    "criticalPairsAfter": 1541,
+    "replaceablePatternBefore": 66,
+    "replaceablePatternAfter": 66,
+    "addedDiagnostics": 272,
+    "removedDiagnostics": 0,
+    "addedGroups": {
+      "basic_duality": {
+        "bodyCount": 6,
+        "sortedBodiesSha256": "8ae5cd5777f7ca4b877b66b91b618e4eb1ef2fa2bd7278cc727e712a2a73f0a7",
+        "ruleFamilies": {
+          "fapp1_fapp0 \u00d7 CoAbove2_cat": 1,
+          "fapp1_fapp0 \u00d7 CoAbove2_func": 1,
+          "fapp1_func \u00d7 CoAbove2_func": 1,
+          "fapp0 \u00d7 CoAbove2_func": 1,
+          "Op_func \u00d7 CoAbove2_func": 1,
+          "CoAbove2_func \u00d7 CoAbove2_func": 1
+        }
+      },
+      "cartesian_total_duality": {
+        "bodyCount": 29,
+        "sortedBodiesSha256": "ba61ec47b1d65f442188b865766e4aa9b3c0a2e8d6e91968e3dae11b79d24abf",
+        "ruleFamilies": {
+          "fapp0 \u00d7 fapp1_func": 1,
+          "fapp1_fapp0 \u00d7 fapp1_fapp0": 13,
+          "comp_fapp0 \u00d7 fapp1_fapp0": 11,
+          "hom_precomp_along_fapp0 \u00d7 fapp1_fapp0": 1,
+          "hom_postcomp_fapp0 \u00d7 fapp1_fapp0": 1,
+          "comp_fapp0 \u00d7 strict_transfor": 2
+        }
+      },
+      "strict_family_transport": {
+        "bodyCount": 221,
+        "sortedBodiesSha256": "2dc8ae320d79d280a569c218e8b653214dcdc482ebedf7632a0ef4cbc7ad69c4",
+        "ruleFamilies": {
+          "comp_fapp0 \u00d7 fapp1_fapp0": 64,
+          "comp_fapp0 \u00d7 fapp0": 156,
+          "tapp0_hom_fapp0 \u00d7 comp_fapp0": 1
+        }
+      },
+      "sigma_arrows": {
+        "bodyCount": 5,
+        "sortedBodiesSha256": "8af8414ea2b1f6e2e428ada6c90e9cd77d618a03019c530659966f80aef0fdb8",
+        "ruleFamilies": {
+          "comp_fapp0 \u00d7 sf_cart_sigma": 1,
+          "hom_precomp_along_fapp1_fapp0 \u00d7 id": 1,
+          "hom_precomp_along_tele_fapp1_fapp0 \u00d7 id": 1,
+          "hom_postcomp_fapp1_fapp0 \u00d7 id": 1,
+          "hom_postcomp_tele_fapp1_fapp0 \u00d7 id": 1
+        }
+      },
+      "sigma_projection": {
+        "bodyCount": 11,
+        "sortedBodiesSha256": "55278cc2a6372183c03288ab714fe9729907d406db9ca4863b63e3c34bbe671a",
+        "ruleFamilies": {
+          "comp_fapp0 \u00d7 fapp1_fapp0": 3,
+          "fapp1_func \u00d7 sf_cart_sigma_proj": 1,
+          "fapp1_fapp0 \u00d7 fapp1_fapp0": 6,
+          "fapp1_fapp0 \u00d7 sf_cart_sigma_proj": 1
+        }
+      }
+    },
+    "qualification": "Changed overlap families are inventoried by exact grouped-body digests and pinned raw logs. Actual whole/capped family transport, constant-total, constructor projection, two-cell and recursive projection consumers pass. This is not a global confluence claim."
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 29,
+    "intentionalClauses": 20
+  },
+  "development": {
+    "sigmaCompositionBeforeCartesianTransportJoins": "20261015T073744Z-c1a9ec16f62d464286197f8b7cd6aff4",
+    "wholeTransportNeedsEndpointSRGuards": "20261015T073858Z-e7ee8fc5293348b2969876e7fcf50500",
+    "arbitraryProjectionNeedsSharedFamily": "20261015T074715Z-c2753e858d0b453786a388bab154a298",
+    "bareOppositeHomComparison": "20261015T075007Z-4f55fee870404357afe41831ed18983a",
+    "typedViewNeedsCanonicalObjHomCarrier": "20261015T075052Z-2f487b1efd804a83834c5a3e88c2a025",
+    "constantConstructorBaseProjectionBeforeBeta": "20261015T075453Z-89c7740adf5443f6b55e460fcc72c502"
+  },
+  "qualification": [
+    "Sigma accepts exactly the current Cartesian-coefficient family input; its Hom consumes the checked direct Homd leaf.",
+    "The negative total is defined using one Sigma constructor and total fibre/base duality; there is no parallel primitive Sigma theory.",
+    "The explicit Hom RHS computes the constant-family product and preserves the tested noninvertible fibre two/three-cell directions.",
+    "General total two-cells and both recursive first-projection observation orders retain their original base cell.",
+    "Arbitrary-endpoint arrows, fibre/base projections and forward composition follow the existing production architecture, including the constant-total projection order.",
+    "The Cartesian total-duality map and Sigma are structural owners; these checks do not derive a full model or perform production migration.",
+    "Whole Sigma parameter-map and downstream/source integration qualification remain required; no new Q operation or general balancing theory is introduced."
+  ]
+}

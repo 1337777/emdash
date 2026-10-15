@@ -1,0 +1,172 @@
+// The explicit Hom RHS is checked independently of the constant-total rule.
+symbol sf_cart_sigma_hom_rhs [K : Cat] (E : τ (Functor K sf_cart_cat))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  (y : τ (Obj K)) (v : τ (Obj (fapp0 E y))) : Cat
+≔ @sf_cart_sigma_con (Hom_cat K x y) (@sf_cq_homd_ K E x u y v);
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) [x y : τ (Obj K)]
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) ⊢
+  Hom_cat (@sf_cart_sigma K E) (Struct_sigma x u) (Struct_sigma y v)
+  ≡ @sf_cart_sigma_hom_rhs K E x u y v;
+
+assert [K C : Cat] [x y : τ (Obj K)] (u v : τ (Obj C)) ⊢
+  @sf_cart_sigma_hom_rhs K (@Const_func K sf_cart_cat C) x u y v
+  ≡ Product_cat (Hom_cat K x y) (Hom_cat C u v);
+
+assertnot [K C : Cat] [x y : τ (Obj K)] (u v : τ (Obj C)) ⊢
+  @sf_cart_sigma_hom_rhs K (@Const_func K sf_cart_cat C) x u y v
+  ≡ Product_cat (Hom_cat K x y) (Op_cat (Hom_cat C u v));
+
+// Both observation orders of strict Cartesian-family transport composition.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) [x y z : τ (Obj K)]
+  (p : τ (Hom K x y)) (q : τ (Hom K y z)) ⊢
+  @comp_cat_fapp0 (fapp0 E x) (fapp0 E y) (fapp0 E z)
+    (@fapp1_fapp0 K sf_cart_cat E y z q) (@fapp1_fapp0 K sf_cart_cat E x y p)
+  ≡ @fapp1_fapp0 K sf_cart_cat E x z (@comp_fapp0 K x y z q p);
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) [x y z : τ (Obj K)]
+  (p : τ (Hom K x y)) (q : τ (Hom K y z)) (u : τ (Obj (fapp0 E x))) ⊢
+  fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u)
+  ≡ fapp0 (@fapp1_fapp0 K sf_cart_cat E x z (@comp_fapp0 K x y z q p)) u;
+
+// The represented family is admitted in precisely the same coefficient.
+assert [K : Cat] (w : τ (Obj K)) [x y z : τ (Obj K)]
+  (p : τ (Hom K x y)) (q : τ (Hom K y z)) ⊢
+  @comp_cat_fapp0 (Hom_cat K w x) (Hom_cat K w y) (Hom_cat K w z)
+    (@fapp1_fapp0 K sf_cart_cat (@sf_cart_hom K w) y z q)
+    (@fapp1_fapp0 K sf_cart_cat (@sf_cart_hom K w) x y p)
+  ≡ @hom_postcomp_func K K (@id_func K) w x z (@comp_fapp0 K x y z q p);
+
+// A noninvertible fibre two-cell keeps its direction in the explicit RHS.
+assert [K C : Cat] [x y : τ (Obj K)] (p : τ (Hom K x y))
+  [u v : τ (Obj C)] [a b : τ (Hom C u v)] (gamma : τ (Hom (Hom_cat C u v) a b)) ⊢
+  @Product_pair (Hom_cat (Hom_cat K x y) p p) (Hom_cat (Hom_cat C u v) a b)
+    (@id (Hom_cat K x y) p) gamma
+  : τ (Hom (@sf_cart_sigma_hom_rhs K (@Const_func K sf_cart_cat C) x u y v)
+      (Struct_sigma p a) (Struct_sigma p b));
+
+assertnot [K C : Cat] [x y : τ (Obj K)] (p : τ (Hom K x y))
+  [u v : τ (Obj C)] [a b : τ (Hom C u v)] (gamma : τ (Hom (Hom_cat C u v) a b)) ⊢
+  @Product_pair (Hom_cat (Hom_cat K x y) p p) (Hom_cat (Hom_cat C u v) a b)
+    (@id (Hom_cat K x y) p) gamma
+  : τ (Hom (@sf_cart_sigma_hom_rhs K (@Const_func K sf_cart_cat C) x u y v)
+      (Struct_sigma p b) (Struct_sigma p a));
+
+// Actual recursive projection, both whole-first and capped-first.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y : τ (Obj K)] (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y)))
+  [p q : τ (Hom K x y)]
+  (a : τ (Obj (fapp0 (@sf_cq_homd_ K E x u y v) p)))
+  (b : τ (Obj (fapp0 (@sf_cq_homd_ K E x u y v) q)))
+  (kappa : τ (Hom (Hom_cat K x y) p q))
+  (eta : τ (Hom (fapp0 (@sf_cq_homd_ K E x u y v) p) a
+      (fapp0 (@fapp1_fapp0 (Op_cat (Hom_cat K x y)) sf_cart_cat
+        (@sf_cq_homd_ K E x u y v) q p kappa) b))) ⊢
+  fapp0 (@fapp1_func _ _
+      (@fapp1_func _ _ (@sf_cart_sigma_proj K E) (Struct_sigma x u) (Struct_sigma y v))
+      (Struct_sigma p a) (Struct_sigma q b))
+    (@sf_cart_sigma_two_cell K E x y u v p q a b kappa eta)
+  ≡ kappa;
+
+// Whole fibre-duality action and its ordinary strict-transfor component.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat)) (x y : τ (Obj K)) ⊢
+  @fapp1_func (CoAbove2_cat K) sf_cart_cat (@sf_cart_total_op_family K E) x y
+  ≡ @comp_cat_fapp0 (TotalOp_cat (Hom_cat K x y))
+      (TotalOp_cat (sf_cart_functor_cat (fapp0 E x) (fapp0 E y)))
+      (sf_cart_functor_cat (TotalOp_cat (fapp0 E x)) (TotalOp_cat (fapp0 E y)))
+      (sf_cart_total_op_mapping (fapp0 E x) (fapp0 E y))
+      (@TotalOp_func (Hom_cat K x y) (sf_cart_functor_cat (fapp0 E x) (fapp0 E y))
+        (@fapp1_func K sf_cart_cat E x y));
+
+// Give the component its canonical object carrier before comparing values;
+// a bare assertion hits the known opposite-Hom type-inference limitation.
+symbol sf_cart_sigma_check_dual_component [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (Hom (sf_cart_functor_cat A B) F G)) (x : τ (Obj A))
+  : τ (Obj (Hom_cat B (fapp0 F x) (fapp0 G x)))
+≔ @tapp0_fapp0 (TotalOp_cat A) (TotalOp_cat B) (@TotalOp_func A B G) (@TotalOp_func A B F) x
+    (@strict_transfor _ _ _ _
+      (@fapp1_fapp0 (TotalOp_cat (sf_cart_functor_cat A B))
+        (sf_cart_functor_cat (TotalOp_cat A) (TotalOp_cat B)) (sf_cart_total_op_mapping A B) G F U));
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (Hom (sf_cart_functor_cat A B) F G)) (x : τ (Obj A)) ⊢
+  @sf_cart_sigma_check_dual_component A B F G U x
+  ≡ @tapp0_fapp0 A B F G x (@strict_transfor A B F G U);
+
+// Arbitrary-endpoint data are retained by the two existing-style projections.
+assert [K : Cat] [E : τ (Functor K sf_cart_cat)] [s t : τ (Obj (@sf_cart_sigma K E))]
+  (p : τ (Hom K (@sf_cart_sigma_obj_base K E s) (@sf_cart_sigma_obj_base K E t)))
+  (a : τ (Hom (fapp0 E (@sf_cart_sigma_obj_base K E t))
+    (fapp0 (@fapp1_fapp0 K sf_cart_cat E (@sf_cart_sigma_obj_base K E s)
+      (@sf_cart_sigma_obj_base K E t) p) (@sf_cart_sigma_obj_fibre K E s))
+    (@sf_cart_sigma_obj_fibre K E t))) ⊢
+  @fapp1_fapp0 (@sf_cart_sigma K E) K (@sf_cart_sigma_proj K E) s t
+    (@sf_cart_sigma_arrow_intro K E s t p a) ≡ p;
+
+assert [K : Cat] [E : τ (Functor K sf_cart_cat)] [s t : τ (Obj (@sf_cart_sigma K E))]
+  (p : τ (Hom K (@sf_cart_sigma_obj_base K E s) (@sf_cart_sigma_obj_base K E t)))
+  (a : τ (Hom (fapp0 E (@sf_cart_sigma_obj_base K E t))
+    (fapp0 (@fapp1_fapp0 K sf_cart_cat E (@sf_cart_sigma_obj_base K E s)
+      (@sf_cart_sigma_obj_base K E t) p) (@sf_cart_sigma_obj_fibre K E s))
+    (@sf_cart_sigma_obj_fibre K E t))) ⊢
+  @sf_cart_sigma_arrow_fibre K E s t (@sf_cart_sigma_arrow_intro K E s t p a) ≡ a;
+
+// The fibre of a computed composition is b o E[q][a].
+assert [K : Cat] [E : τ (Functor K sf_cart_cat)] [s t r : τ (Obj (@sf_cart_sigma K E))]
+  (p : τ (Hom K (@sf_cart_sigma_obj_base K E s) (@sf_cart_sigma_obj_base K E t)))
+  (q : τ (Hom K (@sf_cart_sigma_obj_base K E t) (@sf_cart_sigma_obj_base K E r)))
+  (a : τ (Hom (fapp0 E (@sf_cart_sigma_obj_base K E t))
+    (fapp0 (@fapp1_fapp0 K sf_cart_cat E (@sf_cart_sigma_obj_base K E s)
+      (@sf_cart_sigma_obj_base K E t) p) (@sf_cart_sigma_obj_fibre K E s))
+    (@sf_cart_sigma_obj_fibre K E t)))
+  (b : τ (Hom (fapp0 E (@sf_cart_sigma_obj_base K E r))
+    (fapp0 (@fapp1_fapp0 K sf_cart_cat E (@sf_cart_sigma_obj_base K E t)
+      (@sf_cart_sigma_obj_base K E r) q) (@sf_cart_sigma_obj_fibre K E t))
+    (@sf_cart_sigma_obj_fibre K E r))) ⊢
+  @sf_cart_sigma_arrow_fibre K E s r
+    (@comp_fapp0 (@sf_cart_sigma K E) s t r
+      (@sf_cart_sigma_arrow_intro K E t r q b) (@sf_cart_sigma_arrow_intro K E s t p a))
+  ≡ @comp_fapp0 (fapp0 E (@sf_cart_sigma_obj_base K E r)) _ _ _ b
+      (@fapp1_fapp0 (fapp0 E (@sf_cart_sigma_obj_base K E t)) (fapp0 E (@sf_cart_sigma_obj_base K E r))
+        (@fapp1_fapp0 K sf_cart_cat E (@sf_cart_sigma_obj_base K E t) (@sf_cart_sigma_obj_base K E r) q) _ _ a);
+
+// The constant-total branch is observed after its category became Product.
+assert [K C : Cat] [s t : τ (Obj (Product_cat K C))]
+  (p : τ (Hom K (sigma_Fst s) (sigma_Fst t)))
+  (a : τ (Hom C (sigma_Snd s) (sigma_Snd t))) ⊢
+  @fapp1_fapp0 (Product_cat K C) K (@Product_projL_func K C) s t
+    (@sf_cart_sigma_arrow_intro K (@Const_func K sf_cart_cat C) s t p a)
+  ≡ p;
+
+assert [K C : Cat] [s t r : τ (Obj (Product_cat K C))]
+  (p : τ (Hom K (sigma_Fst s) (sigma_Fst t))) (q : τ (Hom K (sigma_Fst t) (sigma_Fst r)))
+  (a : τ (Hom C (sigma_Snd s) (sigma_Snd t))) (b : τ (Hom C (sigma_Snd t) (sigma_Snd r))) ⊢
+  @sf_cart_sigma_arrow_fibre K (@Const_func K sf_cart_cat C) s r
+    (@comp_fapp0 (Product_cat K C) s t r
+      (@sf_cart_sigma_arrow_intro K (@Const_func K sf_cart_cat C) t r q b)
+      (@sf_cart_sigma_arrow_intro K (@Const_func K sf_cart_cat C) s t p a))
+  ≡ @comp_fapp0 C (sigma_Snd s) (sigma_Snd t) (sigma_Snd r) b a;
+
+// The explicit RHS also preserves a forward noninvertible fibre three-cell.
+assert [K C : Cat] [x y : τ (Obj K)] (p : τ (Hom K x y))
+  [u v : τ (Obj C)] [a b : τ (Hom C u v)]
+  [gamma delta : τ (Hom (Hom_cat C u v) a b)]
+  (omega : τ (Hom (Hom_cat (Hom_cat C u v) a b) gamma delta)) ⊢
+  Struct_sigma (@id (Hom_cat (Hom_cat K x y) p p) (@id (Hom_cat K x y) p)) omega
+  : τ (Hom (Hom_cat (@sf_cart_sigma_hom_rhs K (@Const_func K sf_cart_cat C) x u y v)
+      (Struct_sigma p a) (Struct_sigma p b))
+      (Struct_sigma (@id (Hom_cat K x y) p) gamma)
+      (Struct_sigma (@id (Hom_cat K x y) p) delta));
+
+assert [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y : τ (Obj K)] (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y)))
+  [p q : τ (Hom K x y)]
+  (a : τ (Obj (fapp0 (@sf_cq_homd_ K E x u y v) p)))
+  (b : τ (Obj (fapp0 (@sf_cq_homd_ K E x u y v) q)))
+  (kappa : τ (Hom (Hom_cat K x y) p q))
+  (eta : τ (Hom (fapp0 (@sf_cq_homd_ K E x u y v) p) a
+      (fapp0 (@fapp1_fapp0 (Op_cat (Hom_cat K x y)) sf_cart_cat
+        (@sf_cq_homd_ K E x u y v) q p kappa) b))) ⊢
+  @fapp1_fapp0 _ _
+    (@fapp1_func _ _ (@sf_cart_sigma_proj K E) (Struct_sigma x u) (Struct_sigma y v))
+    (Struct_sigma p a) (Struct_sigma q b)
+    (@sf_cart_sigma_two_cell K E x y u v p q a b kappa eta)
+  ≡ kappa;

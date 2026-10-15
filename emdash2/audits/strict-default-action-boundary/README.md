@@ -117,8 +117,15 @@ The [represented-composition beta](cart_homd_composition_review.md) connects
 the extracted Homd y-comparison to its concrete generator computation and
 first higher action. Stable native projection rungs replace the unsuccessful
 expanded-endpoint matching approach. The represented introduction/beta are
-structural computation laws; balancing, full coherence, Sigma-Hom and public
-migration remain open.
+structural computation laws, without establishing a general Q model.
+Continuation follows actual Homd/Sigma consumers; public migration remains.
+
+The [current Cartesian-family Sigma-Hom candidate](cart_sigma_review.md)
+consumes the direct Homd leaf through a derived total-dual negative Sigma.
+The explicit constant-family Hom, forward higher fibre cells, arbitrary
+arrow interface and recursive base projection check. This uses the current
+separate Cartesian coefficient and introduces no additional Q composition
+operation. Whole total-map action and public/downstream migration remain.
 
 Earlier Q clarification: both curried mapping levels use the conventional
 lax default, with Gray uncurry when needed. The old nested-Cart Q is not the

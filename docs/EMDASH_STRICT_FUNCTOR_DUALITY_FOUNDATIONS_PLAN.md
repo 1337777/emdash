@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default with shared Cartesian families; direct root/relative ladders and extracted y-comparison generator beta check through first higher action; consumed whole-action checks, Sigma-Hom and production migration remain open
+Status: strict-functor/lax-transfor default with shared Cartesian families; direct Homd ladders and corrected Sigma-Hom formation/projections check; total-map action and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,35 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Latest Sigma-Hom continuation, 2026-10-15: the
+[Cartesian-family Sigma candidate](../emdash2/audits/strict-default-action-boundary/cart_sigma_review.md)
+uses the checked direct Homd leaf H:T(I)->Cat_cart and the derived negative
+total `O(Sigma_{O(I)}(O_fib(H)))`. O_fib is the whole composite
+`total_op_cart o R(H)`, retaining one Sigma constructor. Its explicit Hom
+RHS computes the constant-family product and preserves the tested forward
+fibre two/three-cell directions. General total two-cells and both recursive
+first-projection observation orders retain the actual base cell.
+
+The production arbitrary-endpoint arrow architecture is adapted to the same
+family coefficient: base/fibre projections and forward composition check,
+including the constant-total-to-product order. Projected strict-family
+composition has whole/capped joins, checked also on Hom_K(w,-). The whole
+Cartesian total-duality action and an actual transfor component check;
+the latter uses a canonical Obj(Hom_cat) diagnostic carrier to avoid the
+known bare opposite-Hom inference issue, with no new operational cast.
+
+Receipt `20261015T080124Z-9bf6de46e18846379438be514dca41fd` passes with SR in
+5.163s/304,632KiB under unchanged default limits. Critical-pair diagnostics
+1269->1541 are classified by the five affected owner groups; pattern warnings
+remain 66 and LHS has zero unreviewed slots. This is not global confluence
+or production qualification. The earlier Sigma audit supplies architectural
+donor evidence, not its retired public-universe coefficient contract.
+
+Next qualify the whole total-map action and concrete Sigma transport/map
+consumers, then proceed through the full-source/public migration and its
+downstream gates. This stage uses no additional Q operation and does not
+resume the optional balance investigation.
 
 Latest scope clarification, 2026-10-15: the user requires synthetic
 profunctor-like composition, following the production Prof interface.

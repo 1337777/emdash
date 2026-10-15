@@ -3,7 +3,7 @@
 Date: 2026-10-14
 Status: selected next candidate under the user's latest constraints;
 strict-root/relative ladders and extracted y-comparison generator beta checked;
-consumed whole-action checks and Sigma-Hom open
+corrected Sigma-Hom formation/projections checked; total-map action and migration open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
 
@@ -221,17 +221,29 @@ diagram category. An internal dimension-two shift accounts for the T in
 the section fibre and returns the family base to K.
 
 This is a checked native constructor/projection candidate under the stated
-Q/mate laws. It is not a derivation of complete Q coherence, the extracted
-lax y-comparison or Sigma-Hom, and is not yet a public kernel migration.
+Q/mate laws. The root check is separate from the later y-comparison and
+Sigma-Hom checks below. It does not establish a complete Q model or a public
+kernel migration.
 
 ## Sigma and relative maps
 
-The desired Hom of Sigma retains objects (f,a), with f:x->y and
-`a:E[f](u)->v`. Its whole category must be the correctly oriented total
-of the fixed-v presheaf in the ladder; a source/target reversal is not
-licensed merely by equality of object carriers. Strict E gives the
-first-arrow composition `(q,b) o (p,a)=(qp,b o E[q][a])`; the iterated-Hom
-comparison and its higher action remain to be implemented.
+The [Sigma-Hom candidate](../emdash2/audits/strict-default-action-boundary/cart_sigma_review.md)
+retains objects (f,a), with f:x->y and `a:E[f](u)->v`. For the whole
+fixed-v presheaf H:T(I)->Cat_cart, it defines
+
+```text
+O_fib(H) = total_op_cart o R(H) : O(I) -> Cat_cart
+Sigma_con_I(H) = O(Sigma_(O(I))(O_fib(H)))
+Hom_(Sigma E)((x,u),(y,v)) = Sigma_con_I(homd_(E,x,u,y,v)).
+```
+
+One Sigma constructor is used. Both base and fibre duality are necessary:
+the explicit constant-family RHS computes to
+`Hom_K(x,y) x Hom_C(u,v)`, with forward fibre two/three-cell controls.
+Strict E gives `(q,b) o (p,a)=(qp,b o E[q][a])`. The arbitrary-endpoint arrow
+interface and recursive first projection check, including the constant
+total's product reduction. Whole total-map action and public migration
+remain to be qualified.
 
 A general FF:Functord(D,E) can remain lax across K. Its component functors
 are strict and its base-comparison transformations are strict in the fibre
