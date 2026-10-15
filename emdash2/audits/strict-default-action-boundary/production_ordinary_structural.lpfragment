@@ -1,0 +1,446 @@
+// 17c. Ordinary functor structural logic
+
+/*
+  Cartesian structural operations with the original projection ladders.
+  Their interchange/double-exchange laws require Cartesian mapping
+  parameters; arbitrary default lax transformations are not strictified.
+
+  Surface/formula:
+    Const_func_func(A,B) : B ⊢ (A ⊢ B)
+    sym_func_func(A,B,C) : (A ⊢ (B ⊢ C)) ⊢ (B ⊢ (A ⊢ C))
+    diag_func_func(A,C)  : (A ⊢ (A ⊢ C)) ⊢ (A ⊢ C)
+
+  Ordinary weakening is a stable owner separate from the displayed
+  `const_section_func` facade. Exchange and contraction are also stable heads
+  because later displayed analogues should recognize these structural
+  operations directly, rather than through product/curry encodings.
+*/
+
+// The canonical Const_func_func owner is declared in 17b,
+// before its product-pair telescope consumer.
+
+// Direct displayed weakening for a mixed functor source slot.
+//
+// Surface/formula:
+//   Functor_catd_const_funcd(A,B) : B ⊢_K Functor_catd(A,B)
+//   Functor_catd_const_funcd(A,B)[k] = Const_func_func(A[k],B[k]).
+//
+// This is the primary structural owner. Product/curry presentations are
+// comparison forms rather than prerequisites of the direct binder.
+injective symbol Functor_catd_const_funcd [K : Cat]
+  [A : τ (Catd (Op_cat K))]
+  [B : τ (Catd K)]
+  : τ (Functord B (@Functor_catd K A B));
+
+// Point component is ordinary functorial weakening in the fibre.
+rule @tapp0_fapp0
+      $K Cat_cart _ _ $k
+      (@Functor_catd_const_funcd $K $A $B)
+  ↪ @Const_func_func
+      (Fibre_cat $A $k)
+      (Fibre_cat $B $k);
+
+// Full base action maps B[p] to postcomposition by the fibrewise constant-
+// functor embedding at the target endpoint. The result remains a whole
+// functor over Hom_K(x,y), so higher base cells remain iterable.
+rule @tapp1_func
+      $K Cat_cart _ _ $x $y
+      (@Functor_catd_const_funcd $K $A $B)
+  ↪ @comp_cat_fapp0
+      (Hom_cat $K $x $y)
+      (Functor_cart_cat (Fibre_cat $B $x) (Fibre_cat $B $y))
+      (Functor_cart_cat
+        (Fibre_cat $B $x)
+        (Functor_cart_cat (Fibre_cat $A $y) (Fibre_cat $B $y)))
+      (@comp_cat_cov_cart_func
+        (Fibre_cat $B $x)
+        (Fibre_cat $B $y)
+        (Functor_cart_cat (Fibre_cat $A $y) (Fibre_cat $B $y))
+        (@Const_func_func
+          (Fibre_cat $A $y)
+          (Fibre_cat $B $y)))
+      (@fapp1_func $K Cat_cart $B $x $y);
+
+// Capped base action is the corresponding composite at p.
+rule @tapp1_fapp0
+      $K Cat_cart _ _ $x $y
+      (@Functor_catd_const_funcd $K $A $B)
+      $p
+  ↪ @comp_cat_fapp0
+      (Fibre_cat $B $x)
+      (Fibre_cat $B $y)
+      (Functor_cart_cat (Fibre_cat $A $y) (Fibre_cat $B $y))
+      (@Const_func_func
+        (Fibre_cat $A $y)
+        (Fibre_cat $B $y))
+      (@fapp1_fapp0 $K Cat_cart $B $x $y $p);
+
+// Exchange of two ordinary functor arguments.
+//
+// Surface/formula:
+//   sym_func_func(A,B,C)[H][b][a] = H[a][b].
+symbol sym_func_func [A B C : Cat]
+  : τ (Functor
+      (Functor_cart_cat A (Functor_cart_cat B C))
+      (Functor_cart_cat B (Functor_cart_cat A C)));
+
+// Object action of exchange.
+//
+// Surface/formula:
+//   sym_func(H) : B ⊢ (A ⊢ C).
+symbol sym_func [A B C : Cat]
+  (H : τ (Functor A (Functor_cart_cat B C)))
+  : τ (Functor B (Functor_cart_cat A C));
+
+// Exchange evaluated at the B-object b.
+//
+// Surface/formula:
+//   sym_fapp0_func(H,b)[a] = H[a][b].
+symbol sym_fapp0_func [A B C : Cat]
+  (H : τ (Functor A (Functor_cart_cat B C)))
+  (b : τ (Obj B))
+  : τ (Functor A C);
+
+// A-arrow action after exchange at fixed b.
+//
+// Surface/formula:
+//   sym_fapp0_func(H,b)[p] = H[p][b].
+symbol sym_fapp0_fapp1_func [A B C : Cat]
+  (H : τ (Functor A (Functor_cart_cat B C)))
+  (b : τ (Obj B))
+  [a a' : τ (Obj A)]
+  : τ (Functor
+      (Hom_cat A a a')
+      (Hom_cat C
+        (@fapp0 B C (@fapp0 A (Functor_cart_cat B C) H a) b)
+        (@fapp0 B C (@fapp0 A (Functor_cart_cat B C) H a') b)));
+
+// B-arrow action of the exchanged functor.
+//
+// Surface/formula:
+//   sym_func(H)[q] : sym(H)[b] => sym(H)[b'].
+symbol sym_fapp1_func [A B C : Cat]
+  (H : τ (Functor A (Functor_cart_cat B C)))
+  [b b' : τ (Obj B)]
+  : τ (Functor
+      (Hom_cat B b b')
+      (Hom_cat (Functor_cart_cat A C) (@sym_fapp0_func A B C H b) (@sym_fapp0_func A B C H b')));
+
+// Capped B-arrow action of exchange.
+//
+// Surface/formula:
+//   sym_tapp1_fapp0_transf(H,q)[a] = H[a][q].
+symbol sym_tapp1_fapp0_transf [A B C : Cat]
+  (H : τ (Functor A (Functor_cart_cat B C)))
+  [b b' : τ (Obj B)]
+  (q : τ (Hom B b b'))
+  : τ (Hom (Functor_cart_cat A C) (@sym_fapp0_func A B C H b) (@sym_fapp0_func A B C H b'));
+
+// Hom-action of exchange on ordinary transfors.
+//
+// Surface/formula:
+//   sym_func_func[eta] : sym(H) => sym(K).
+symbol sym_func_func_fapp1_func [A B C : Cat]
+  [H K : τ (Functor A (Functor_cart_cat B C))]
+  : τ (Functor
+      (Hom_cat (Functor_cart_cat A (Functor_cart_cat B C)) H K)
+      (Hom_cat (Functor_cart_cat B (Functor_cart_cat A C)) (@sym_func A B C H) (@sym_func A B C K)));
+
+// Capped hom-action of exchange on an ordinary transfor.
+//
+// Surface/formula:
+//   sym_func_func_transf(eta)[b][a] = eta[a][b].
+symbol sym_func_func_transf [A B C : Cat]
+  [H K : τ (Functor A (Functor_cart_cat B C))]
+  (eta : τ (Hom (Functor_cart_cat A (Functor_cart_cat B C)) H K))
+  : τ (Hom (Functor_cart_cat B (Functor_cart_cat A C)) (@sym_func A B C H) (@sym_func A B C K));
+
+// Component of exchanged transfor at b.
+//
+// Surface/formula:
+//   sym_transf_tapp0_transf(eta,b)[a] = eta[a][b].
+symbol sym_transf_tapp0_transf [A B C : Cat]
+  [H K : τ (Functor A (Functor_cart_cat B C))]
+  (eta : τ (Hom (Functor_cart_cat A (Functor_cart_cat B C)) H K))
+  (b : τ (Obj B))
+  : τ (Hom (Functor_cart_cat A C) (@sym_fapp0_func A B C H b) (@sym_fapp0_func A B C K b));
+
+// Projection ladder for exchange: object action and hom-action.
+rule @fapp0 _ _ (@sym_func_func $A $B $C) $H
+  ↪ @sym_func $A $B $C $H;
+
+// Hom-functor projection: exchange sends eta : H => K to sym(eta).
+rule @fapp1_func _ _ (@sym_func_func $A $B $C) $H $K
+  ↪ @sym_func_func_fapp1_func $A $B $C $H $K;
+
+// Object projection of exchanged hom-action: eta ↦ sym_func_func_transf(eta).
+rule fapp0 (@sym_func_func_fapp1_func $A $B $C $H $K) $eta
+  ↪ @sym_func_func_transf $A $B $C $H $K $eta;
+
+// Direct capped projection of the same exchanged transfor.
+rule @fapp1_fapp0 _ _ (@sym_func_func $A $B $C) $H $K $eta
+  ↪ @sym_func_func_transf $A $B $C $H $K $eta;
+
+// Object and A-arrow action after exchange at fixed b.
+rule @fapp0 _ _ (@sym_func $A $B $C $H) $b
+  ↪ @sym_fapp0_func $A $B $C $H $b;
+
+// Exchanged object action: sym(H)[b][a] ↪ H[a][b].
+rule @fapp0 $A $C (@sym_fapp0_func $A $B $C $H $b) $a
+  ↪ @fapp0 $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) $b;
+
+// A-arrow hom-action of sym(H)[b].
+rule @fapp1_func $A $C (@sym_fapp0_func $A $B $C $H $b) $a $a'
+  ↪ @sym_fapp0_fapp1_func $A $B $C $H $b $a $a';
+
+// Capped A-arrow action: sym(H)[b][p] ↪ H[p][b].
+rule fapp0 (@sym_fapp0_fapp1_func $A $B $C $H $b $a $a') $p
+  ↪ @tapp0_fapp0
+      $B
+      $C
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a')
+      $b
+      (@strict_transfor $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) (@fapp0 $A (Functor_cart_cat $B $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $B $C) $H $a $a' $p));
+
+// Direct capped projection of the same A-arrow action.
+rule @fapp1_fapp0 $A $C (@sym_fapp0_func $A $B $C $H $b) $a $a' $p
+  ↪ @tapp0_fapp0
+      $B
+      $C
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a')
+      $b
+      (@strict_transfor $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) (@fapp0 $A (Functor_cart_cat $B $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $B $C) $H $a $a' $p));
+
+// B-arrow action after exchange and its mixed off-diagonal component.
+rule @fapp1_func _ _ (@sym_func $A $B $C $H) $b $b'
+  ↪ @sym_fapp1_func $A $B $C $H $b $b';
+
+// Capped B-arrow action: sym(H)[q] ↪ (a ↦ H[a][q]).
+rule fapp0 (@sym_fapp1_func $A $B $C $H $b $b') $q
+  ↪ @sym_tapp1_fapp0_transf $A $B $C $H $b $b' $q;
+
+// Direct capped projection of the same B-arrow action.
+rule @fapp1_fapp0 _ _ (@sym_func $A $B $C $H) $b $b' $q
+  ↪ @sym_tapp1_fapp0_transf $A $B $C $H $b $b' $q;
+
+// Generic identity/composition can be projected before the ordinary
+// fapp1 head is matched; join at the stable exchanged-action projection.
+rule @sym_tapp1_fapp0_transf $A $B $C $H $b $b (@id $B $b)
+  ↪ @id (Functor_cart_cat $A $C) (@sym_fapp0_func $A $B $C $H $b);
+
+// An opposite identity may normalize to id(B,b) before this projection.
+// lhs-audit: keep 2 -- Op_cat(B) is the actual opposite-identity discriminator;
+// retaining the shared B excludes identities of an unrelated category.
+rule @sym_tapp1_fapp0_transf $A (Op_cat $B) $C $H $b $b (@id $B $b)
+  ↪ @id (Functor_cart_cat $A $C) (@sym_fapp0_func $A (Op_cat $B) $C $H $b);
+
+// lhs-audit: keep 1 -- subject reduction cannot reconstruct an arbitrary
+// ambient category from its Hom objects; this pins the transfor category.
+rule @comp_fapp0 (Functor_cart_cat $A $C) _ _ _
+      (@sym_tapp1_fapp0_transf $A $B $C $H $b' $b'' $q)
+      (@sym_tapp1_fapp0_transf _ _ _ $H $b $b' $p)
+  ↪ @sym_tapp1_fapp0_transf $A $B $C $H $b $b''
+      (@comp_fapp0 $B $b $b' $b'' $q $p);
+
+// Component at a: sym(H)[q][a] ↪ H[a][q].
+rule @tapp0_fapp0
+      $A
+      $C
+      _
+      _
+      $a
+      (@strict_transfor $A $C _ _ (@sym_tapp1_fapp0_transf $A $B $C $H $b $b' $q))
+  ↪ @fapp1_fapp0
+      $B
+      $C
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
+      $b
+      $b'
+      $q;
+
+// Mixed component: the (p,q)-cell of sym(H) is H[p][q].
+rule @tapp1_fapp0
+      $A
+      $C
+      _
+      _
+      $a
+      $a'
+      (@strict_transfor $A $C _ _ (@sym_tapp1_fapp0_transf $A $B $C $H $b $b' $q))
+      $p
+  ↪ @tapp1_fapp0
+      $B
+      $C
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a')
+      $b
+      $b'
+      (@strict_transfor $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) (@fapp0 $A (Functor_cart_cat $B $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $B $C) $H $a $a' $p))
+      $q;
+
+// Component projection for exchanged transfors.
+// First component: sym(eta)[b] ↪ (a ↦ eta[a][b]).
+rule @tapp0_fapp0
+      _
+      _
+      _
+      _
+      $b
+      (@strict_transfor _ _ _ _ (@sym_func_func_transf $A $B $C $H $K $eta))
+  ↪ @sym_transf_tapp0_transf $A $B $C $H $K $eta $b;
+
+// Second component: sym(eta)[b][a] ↪ eta[a][b].
+rule @tapp0_fapp0
+      $A
+      $C
+      _
+      _
+      $a
+      (@strict_transfor $A $C _ _ (@sym_transf_tapp0_transf $A $B $C $H $K $eta $b))
+  ↪ @tapp0_fapp0
+      $B
+      $C
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $K $a)
+      $b
+      (@strict_transfor $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) (@fapp0 $A (Functor_cart_cat $B $C) $K $a) (@tapp0_fapp0 $A (Functor_cart_cat $B $C) $H $K $a (@strict_transfor $A (Functor_cart_cat $B $C) $H $K $eta)));
+
+// Double exchange and its preprojected whole-action rungs.
+rule @sym_func _ _ _ (@sym_func _ _ _ $H) ↪ $H;
+
+rule @sym_fapp0_func _ _ _ (@sym_func $A $B $C $H) $a
+  ↪ @fapp0 $A (Functor_cart_cat $B $C) $H $a;
+
+rule @sym_fapp0_fapp1_func _ _ _ (@sym_func $A $B $C $H) $a $b $b'
+  ↪ @fapp1_func $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) $b $b';
+
+rule @sym_fapp1_func _ _ _ (@sym_func $A $B $C $H) $a $a'
+  ↪ @fapp1_func $A (Functor_cart_cat $B $C) $H $a $a';
+
+rule @sym_tapp1_fapp0_transf _ _ _ (@sym_func $A $B $C $H) $a $a' $p
+  ↪ @fapp1_fapp0 $A (Functor_cart_cat $B $C) $H $a $a' $p;
+
+// Two exchanges restore the whole transformation, including its action.
+rule @sym_func_func_transf _ _ _ _ _
+      (@sym_func_func_transf _ _ _ _ _ $eta)
+  ↪ $eta;
+
+// The same cancellation after the outer component has already projected.
+rule @sym_transf_tapp0_transf _ _ _ _ _
+      (@sym_func_func_transf $A $B $C $H $K $eta) $a
+  ↪ @tapp0_fapp0 $A (Functor_cart_cat $B $C) $H $K $a (@strict_transfor $A (Functor_cart_cat $B $C) $H $K $eta);
+
+// Contraction/diagonal for ordinary functor categories.
+//
+// Surface/formula:
+//   diag_func_func(A,C)[H][a] = H[a][a].
+symbol diag_func_func [A C : Cat]
+  : τ (Functor
+      (Functor_cart_cat A (Functor_cart_cat A C))
+      (Functor_cart_cat A C));
+
+// Object action of contraction.
+//
+// Surface/formula:
+//   diag_func(H) : A ⊢ C.
+symbol diag_func [A C : Cat]
+  (H : τ (Functor A (Functor_cart_cat A C)))
+  : τ (Functor A C);
+
+// Arrow action of contraction.
+//
+// Surface/formula:
+//   diag_func(H)[p] = H[p][p].
+symbol diag_fapp1_func [A C : Cat]
+  (H : τ (Functor A (Functor_cart_cat A C)))
+  [a a' : τ (Obj A)]
+  : τ (Functor
+      (Hom_cat A a a')
+      (Hom_cat C
+        (@fapp0 A C (@fapp0 A (Functor_cart_cat A C) H a) a)
+        (@fapp0 A C (@fapp0 A (Functor_cart_cat A C) H a') a')));
+
+// Hom-action of contraction on ordinary transfors.
+//
+// Surface/formula:
+//   diag_func_func[eta] : diag(H) => diag(K).
+symbol diag_func_func_fapp1_func [A C : Cat]
+  [H K : τ (Functor A (Functor_cart_cat A C))]
+  : τ (Functor
+      (Hom_cat (Functor_cart_cat A (Functor_cart_cat A C)) H K)
+      (Hom_cat (Functor_cart_cat A C) (@diag_func A C H) (@diag_func A C K)));
+
+// Capped hom-action of contraction on an ordinary transfor.
+//
+// Surface/formula:
+//   diag_func_func_transf(eta)[a] = eta[a][a].
+symbol diag_func_func_transf [A C : Cat]
+  [H K : τ (Functor A (Functor_cart_cat A C))]
+  (eta : τ (Hom (Functor_cart_cat A (Functor_cart_cat A C)) H K))
+  : τ (Hom (Functor_cart_cat A C) (@diag_func A C H) (@diag_func A C K));
+
+// Projection ladder for contraction: object action and hom-action.
+rule @fapp0 _ _ (@diag_func_func $A $C) $H
+  ↪ @diag_func $A $C $H;
+
+// Hom-functor projection: diagonal sends eta : H => K to diag(eta).
+rule @fapp1_func _ _ (@diag_func_func $A $C) $H $K
+  ↪ @diag_func_func_fapp1_func $A $C $H $K;
+
+// Object projection of diagonal hom-action: eta ↦ diag_func_func_transf(eta).
+rule fapp0 (@diag_func_func_fapp1_func $A $C $H $K) $eta
+  ↪ @diag_func_func_transf $A $C $H $K $eta;
+
+// Direct capped projection of the same diagonal transfor.
+rule @fapp1_fapp0 _ _ (@diag_func_func $A $C) $H $K $eta
+  ↪ @diag_func_func_transf $A $C $H $K $eta;
+
+// Object and arrow action of the diagonal functor.
+rule @fapp0 $A $C (@diag_func $A $C $H) $a
+  ↪ @fapp0 $A $C (@fapp0 $A (Functor_cart_cat $A $C) $H $a) $a;
+
+// Hom-functor projection for contraction at endpoints a,a'.
+rule @fapp1_func $A $C (@diag_func $A $C $H) $a $a'
+  ↪ @diag_fapp1_func $A $C $H $a $a';
+
+// Capped diagonal action: diag(H)[p] ↪ H[p][p].
+rule fapp0 (@diag_fapp1_func $A $C $H $a $a') $p
+  ↪ @tapp1_fapp0
+      $A
+      $C
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a')
+      $a
+      $a'
+      (@strict_transfor $A $C (@fapp0 $A (Functor_cart_cat $A $C) $H $a) (@fapp0 $A (Functor_cart_cat $A $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $A $C) $H $a $a' $p))
+      $p;
+
+// Direct capped projection of the same diagonal arrow action.
+rule @fapp1_fapp0 $A $C (@diag_func $A $C $H) $a $a' $p
+  ↪ @tapp1_fapp0
+      $A
+      $C
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a')
+      $a
+      $a'
+      (@strict_transfor $A $C (@fapp0 $A (Functor_cart_cat $A $C) $H $a) (@fapp0 $A (Functor_cart_cat $A $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $A $C) $H $a $a' $p))
+      $p;
+
+// Component projection for contracted transfors.
+rule @tapp0_fapp0
+      $A
+      $C
+      _
+      _
+      $a
+      (@strict_transfor $A $C _ _ (@diag_func_func_transf $A $C $H $K $eta))
+  ↪ @tapp0_fapp0
+      $A
+      $C
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $A $C) $K $a)
+      $a
+      (@strict_transfor $A $C (@fapp0 $A (Functor_cart_cat $A $C) $H $a) (@fapp0 $A (Functor_cart_cat $A $C) $K $a) (@tapp0_fapp0 $A (Functor_cart_cat $A $C) $H $K $a (@strict_transfor $A (Functor_cart_cat $A $C) $H $K $eta)));

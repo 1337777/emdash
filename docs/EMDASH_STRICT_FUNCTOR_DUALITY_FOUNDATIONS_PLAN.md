@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: staged source through section 17b checks, including section-first general Pi evaluation, whole right-represented reindexing, Homd/intrinsic and F[alpha] computations; remaining Q coherence and public/downstream migration remain open
+Status: staged source through section 17d checks, including Cartesian structural ladders and recursive Sigma base-change two-cell computation; remaining Q coherence and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,34 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Structural/pullback continuation after `e268b242`, 2026-10-15: the
+[review](../emdash2/audits/strict-default-action-boundary/production_structural_pullback_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_structural_pullback_verification.json)
+record the original-source migration through section 17d. Displayed
+weakening uses the admitted Cat_cart coefficient and existing constant map.
+Exchange and diagonal retain their original names and projection ladders,
+with the Cartesian mapping inputs required by their interchange laws.
+Whole/action, transformation-component, double-exchange and higher-data
+consumers check; unrestricted raw lax inputs are rejected. Default Transf
+and Functord remain lax, with inherited general-FF controls still passing.
+
+The next Hom of total base change now uses the same total-dual index and
+fibres as the corrected Sigma-Hom formula. A whole pullback/total-fibre
+duality rule supplies its actual R-dual base map. The general whole Homd
+family comparison checks before selecting an index or filler. For a
+constant family, the actual next action sends (theta,beta) to
+(F_1[theta],beta), retaining arbitrary directed cells. The original first-Hom
+owner stays stable; no auxiliary fibre-composition owner or equality payload
+is introduced.
+
+The complete source now stops at section_pullback_sec's old coefficient
+tag in section 17e. Continue its original internal Pi/action owners and
+the later source; qualify general Q/mate and composed lax-FF intrinsic
+coherence at their actual consumers. All public/downstream and final gates
+remain required.
+
+The following checkpoint entries are historical recovery boundaries.
 
 Evaluation/reindexing continuation after `7dcc1919`, 2026-10-15: the
 [review](../emdash2/audits/strict-default-action-boundary/production_evaluation_reindex_review.md)

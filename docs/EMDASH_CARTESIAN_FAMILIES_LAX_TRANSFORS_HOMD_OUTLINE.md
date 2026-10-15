@@ -2,9 +2,18 @@
 
 Date: 2026-10-14
 Status: direct Homd/intrinsic ladders, section-first Pi evaluation and whole
-right-represented reindexing check; full qualification remains open
+right-represented reindexing check; recursive total base change preserves
+directed two-cells; full qualification remains open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
+
+Continuation after `e268b242`: the original Cartesian exchange/diagonal
+ladders and displayed weakening now check with their actual mapping
+profiles. Recursive Sigma base change uses total-dual Hom indices and
+fibres. The whole reindexed Homd family comparison checks, and the actual
+next action sends (theta,beta) to (F_1[theta],beta) in constant totals.
+The [review](../emdash2/audits/strict-default-action-boundary/production_structural_pullback_review.md)
+records the source-preserving changes and remaining boundary at section 17e.
 
 Continuation after `7dcc1919`: general Pi evaluation now uses the actual
 section-first Pi-to-Functord identity view. The old k-first evaluator has

@@ -1,0 +1,82 @@
+// Reindexing of total fibre duality retains the actual R-dual base map.
+assert [A B : Cat] (E : τ (Catd B)) (F : τ (Functor A (CoAbove2_cat B))) ⊢
+  @Pullback_catd A (CoAbove2_cat B) (@TotalOp_catd B E) F
+  ≡ @TotalOp_catd (CoAbove2_cat A)
+      (@Pullback_catd (CoAbove2_cat A) B E (@CoAbove2_func A (CoAbove2_cat B) F));
+assert [A B C : Cat] (F : τ (Functor A (CoAbove2_cat B))) ⊢
+  @Pullback_catd A (CoAbove2_cat B) (@TotalOp_catd B (@Const_catd B C)) F
+  ≡ @Const_catd A (TotalOp_cat C);
+
+// The actual negative Hom family of the pulled-back total agrees whole,
+// before selecting an index object or a filler.
+assert [A K : Cat] (F : τ (Functor A K)) (E : τ (Catd K))
+  (x y : τ (Obj A))
+  (u : τ (Obj (Fibre_cat E (fapp0 F x))))
+  (v : τ (Obj (Fibre_cat E (fapp0 F y)))) ⊢
+  @TotalOp_catd (Op_cat (Hom_cat A x y))
+    (@homd_ A (@Pullback_catd A K E F) (@Pullback_catd A K E F)
+      (@id_funcd A (@Pullback_catd A K E F)) x u y v)
+  ≡ @Pullback_catd (TotalOp_cat (Hom_cat A x y))
+      (TotalOp_cat (Hom_cat K (fapp0 F x) (fapp0 F y)))
+      (@TotalOp_catd (Op_cat (Hom_cat K (fapp0 F x) (fapp0 F y)))
+        (@homd_ K E E (@id_funcd K E) (fapp0 F x) u (fapp0 F y) v))
+      (@TotalOp_func (Hom_cat A x y) (Hom_cat K (fapp0 F x) (fapp0 F y))
+        (@fapp1_func A K F x y));
+
+// The constant-family case isolates the actual next Hom of total base
+// change: (theta,beta) must become (F_1[theta],beta), with both directed.
+symbol pullback_check_hom [A K C : Cat] (F : τ (Functor A K))
+  (x y : τ (Obj A)) (u v : τ (Obj C))
+  : τ (Functor (Product_cat (Hom_cat A x y) (Hom_cat C u v))
+      (Product_cat (Hom_cat K (fapp0 F x) (fapp0 F y)) (Hom_cat C u v)))
+≔ @fapp1_func (Product_cat A C) (Product_cat K C)
+    (@sigma_pullback_total_func A K F (@Const_catd K C))
+    (@Product_pair A C x u) (@Product_pair A C y v);
+
+assert [A K C : Cat] (F : τ (Functor A K))
+  (x y : τ (Obj A)) (u v : τ (Obj C))
+  (p : τ (Hom A x y)) (a : τ (Hom C u v)) ⊢
+  fapp0 (@pullback_check_hom A K C F x y u v)
+    (@Product_pair (Hom_cat A x y) (Hom_cat C u v) p a)
+  ≡ @Product_pair (Hom_cat K (fapp0 F x) (fapp0 F y)) (Hom_cat C u v)
+      (@fapp1_fapp0 A K F x y p) a;
+
+symbol pullback_check_two_cell [A K C : Cat] (F : τ (Functor A K))
+  (x y : τ (Obj A)) (u v : τ (Obj C))
+  (p q : τ (Hom A x y)) (a b : τ (Hom C u v))
+  (theta : τ (Hom (Hom_cat A x y) p q))
+  (beta : τ (Hom (Hom_cat C u v) a b))
+  : τ (Hom
+      (Product_cat (Hom_cat K (fapp0 F x) (fapp0 F y)) (Hom_cat C u v))
+      (@Product_pair (Hom_cat K (fapp0 F x) (fapp0 F y)) (Hom_cat C u v)
+        (@fapp1_fapp0 A K F x y p) a)
+      (@Product_pair (Hom_cat K (fapp0 F x) (fapp0 F y)) (Hom_cat C u v)
+        (@fapp1_fapp0 A K F x y q) b))
+≔ fapp0 (@fapp1_func
+    (Product_cat (Hom_cat A x y) (Hom_cat C u v))
+    (Product_cat (Hom_cat K (fapp0 F x) (fapp0 F y)) (Hom_cat C u v))
+    (@pullback_check_hom A K C F x y u v)
+    (@Product_pair (Hom_cat A x y) (Hom_cat C u v) p a)
+    (@Product_pair (Hom_cat A x y) (Hom_cat C u v) q b))
+    (@Product_pair (Hom_cat (Hom_cat A x y) p q) (Hom_cat (Hom_cat C u v) a b) theta beta);
+
+assert [A K C : Cat] (F : τ (Functor A K))
+  (x y : τ (Obj A)) (u v : τ (Obj C))
+  (p q : τ (Hom A x y)) (a b : τ (Hom C u v))
+  (theta : τ (Hom (Hom_cat A x y) p q))
+  (beta : τ (Hom (Hom_cat C u v) a b)) ⊢
+  sigma_Fst (@pullback_check_two_cell A K C F x y u v p q a b theta beta)
+  ≡ @fapp1_fapp0 (Hom_cat A x y) (Hom_cat K (fapp0 F x) (fapp0 F y))
+      (@fapp1_func A K F x y) p q theta;
+assert [A K C : Cat] (F : τ (Functor A K))
+  (x y : τ (Obj A)) (u v : τ (Obj C))
+  (p q : τ (Hom A x y)) (a b : τ (Hom C u v))
+  (theta : τ (Hom (Hom_cat A x y) p q))
+  (beta : τ (Hom (Hom_cat C u v) a b)) ⊢
+  sigma_Snd (@pullback_check_two_cell A K C F x y u v p q a b theta beta) ≡ beta;
+assertnot [A C : Cat] (x y : τ (Obj A)) (u v : τ (Obj C))
+  (p : τ (Hom A x y)) (a : τ (Hom C u v))
+  (theta : τ (Hom (Hom_cat A x y) p p))
+  (beta : τ (Hom (Hom_cat C u v) a a)) ⊢
+  sigma_Fst (@pullback_check_two_cell A A C (@id_func A) x y u v p p a a theta beta)
+  ≡ @id (Hom_cat A x y) p;

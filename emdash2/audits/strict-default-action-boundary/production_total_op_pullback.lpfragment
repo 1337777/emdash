@@ -1,0 +1,7 @@
+// Total fibre duality commutes with actual base reindexing, with R on the
+// base functor: F:A->R(B) becomes R(F):R(A)->B. The concrete consumer is
+// the recursive Hom of sigma_pullback_total_func. No equality is input.
+rule @Pullback_catd $A _ (@TotalOp_catd $B $E) $F
+  ↪ @TotalOp_catd (CoAbove2_cat $A)
+      (@Pullback_catd (CoAbove2_cat $A) $B $E
+        (@CoAbove2_func $A (CoAbove2_cat $B) $F));

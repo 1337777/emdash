@@ -1,0 +1,141 @@
+// 17d. Generic ordinary functor hom-action
+//
+// Generic full hom-action for identity and composition of ordinary functors.
+// These rules let semantic aliases such as curry expose functor-level action
+// instead of falling back to capped `fapp1_fapp0` computation only.
+// Generic whole identity/composition action moved to the earlier composition owner.
+
+
+// Stable pullback cut elimination and arrow projections. These are placed
+// after the generic identity/composition action so competing paths can use
+// those global rules while Lambdapi checks local confluence.
+rule @Pullback_catd $A $A $E (@id Cat_cat $A) ↪ $E;
+// Pullback of the universe identity along F is the family F itself.
+rule @Pullback_catd $A Cat_cart (@id Cat_cat Cat_cart) $F ↪ $F;
+
+// Pullback accumulation: H^*(F^*E) ↪ (F ∘ H)^*E.
+rule @Pullback_catd
+      $A $B
+      (@Pullback_catd $B $C $E $F)
+      $H
+  ↪ @Pullback_catd
+      $A $C
+      $E
+      (@comp_cat_fapp0 $A $B $C $F $H);
+
+// Hom-action of F^*E is E_1 after the hom-action of F.
+rule @fapp1_func _ Cat_cart (@Pullback_catd $A $B $E $F) $a $a'
+  ↪ @comp_cat_fapp0
+      (Hom_cat $A $a $a')
+      (Hom_cat $B
+        (@fapp0 $A $B $F $a)
+        (@fapp0 $A $B $F $a'))
+      (Functor_cart_cat
+        (@fapp0 $B Cat_cart $E (@fapp0 $A $B $F $a))
+        (@fapp0 $B Cat_cart $E (@fapp0 $A $B $F $a')))
+      (@fapp1_func
+        $B
+        Cat_cart
+        $E
+        (@fapp0 $A $B $F $a)
+        (@fapp0 $A $B $F $a'))
+      (@fapp1_func $A $B $F $a $a');
+
+// Capped base-arrow transport: (F^*E)[p] ↪ E[F[p]].
+rule @fapp1_fapp0 _ Cat_cart (@Pullback_catd $A $B $E $F) $a $a' $p
+  ↪ @fapp1_fapp0
+      $B
+      Cat_cart
+      $E
+      (@fapp0 $A $B $F $a)
+      (@fapp0 $A $B $F $a')
+      (@fapp1_fapp0 $A $B $F $a $a' $p);
+
+// Structured-arrow projection of pullback totalization:
+//   (p,alpha) ↦ (F[p],alpha).
+//
+// This rule follows the capped Pullback_catd transport owner so the source
+// endpoint of alpha is already visible to subject reduction. Restricting the
+// argument to the canonical Sigma-arrow pair leaves arbitrary ordinary arrows
+// under the generic functor action.
+rule @fapp1_fapp0
+      _
+      _
+      (@sigma_pullback_total_func $A $K $F $D)
+      (Struct_sigma $a $u)
+      (Struct_sigma $b $v)
+      (Struct_sigma $p $alpha)
+  ↪ @sigma_arrow
+      $K
+      $D
+      (@fapp0 $A $K $F $a)
+      (@fapp0 $A $K $F $b)
+      $u
+      $v
+      (@fapp1_fapp0 $A $K $F $a $b $p)
+      $alpha;
+
+// Retain base change at its first Hom owner; refine recursive next action.
+// Its negative Hom total is O(Sigma(O(I),O_fib(H))). Base change uses
+// O(F_1) on that positive total, then the outer O. No first-Hom facade
+// is eagerly erased and no separate transported equality is supplied.
+rule @fapp1_func _ _ (@fapp1_func _ _ (@sigma_pullback_total_func $A $K $F $E) (Struct_sigma $x $u) (Struct_sigma $y $v))
+      (Struct_sigma $p $a) (Struct_sigma $q $b)
+  ↪ @fapp1_func (Hom_cat (@Sigma_cat $A (@Pullback_catd $A $K $E $F)) (Struct_sigma $x $u) (Struct_sigma $y $v)) (Hom_cat (@Sigma_cat $K $E) (Struct_sigma (@fapp0 $A $K $F $x) $u) (Struct_sigma (@fapp0 $A $K $F $y) $v))
+      (@TotalOp_func
+        (@Sigma_cat (TotalOp_cat (Hom_cat $A $x $y)) (@Pullback_catd (TotalOp_cat (Hom_cat $A $x $y)) (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)) (@TotalOp_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))))
+        (@Sigma_cat (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)))
+        (@sigma_pullback_total_func (TotalOp_cat (Hom_cat $A $x $y))
+          (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))
+          (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)))) (Struct_sigma $p $a) (Struct_sigma $q $b);
+
+rule @fapp1_fapp0 _ _ (@fapp1_func _ _ (@sigma_pullback_total_func $A $K $F $E) (Struct_sigma $x $u) (Struct_sigma $y $v))
+      (Struct_sigma $p $a) (Struct_sigma $q $b) (Struct_sigma $theta $beta)
+  ↪ @fapp1_fapp0 (Hom_cat (@Sigma_cat $A (@Pullback_catd $A $K $E $F)) (Struct_sigma $x $u) (Struct_sigma $y $v)) (Hom_cat (@Sigma_cat $K $E) (Struct_sigma (@fapp0 $A $K $F $x) $u) (Struct_sigma (@fapp0 $A $K $F $y) $v))
+      (@TotalOp_func
+        (@Sigma_cat (TotalOp_cat (Hom_cat $A $x $y)) (@Pullback_catd (TotalOp_cat (Hom_cat $A $x $y)) (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)) (@TotalOp_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))))
+        (@Sigma_cat (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)))
+        (@sigma_pullback_total_func (TotalOp_cat (Hom_cat $A $x $y))
+          (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))
+          (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)))) (Struct_sigma $p $a) (Struct_sigma $q $b) (Struct_sigma $theta $beta);
+
+// Semantic curry sanity checks. These live after `Product_pair_tele_func`
+// computation rules, because the primary curry package is a definition through
+// that telescope rather than a primitive object-action rewrite rule.
+
+// Whole evaluation after exchange. This joins domain/codomain of an
+// introduced diagram family before forming kernel/cokernel unit endpoints.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@sym_fapp0_func _ $A $C (@id Cat_cat _) $a)
+      (@sym_func $A $B $C $H)
+  ↪ @fapp0 $A (Functor_cart_cat $B $C) $H $a;
+
+// Došen rectangles after exchange has exposed its stable arrow projection.
+// These are instances of the generic adjunction cuts, not new adjunction laws.
+// lhs-audit: keep 1 -- ambient transfor category is the measured SR guard.
+// The nested counit source is the genuine left-adjoint image discriminator.
+rule @comp_fapp0 (Functor_cart_cat $A $C) _ _ _
+      (@tapp1_fapp0 _ _ _ _
+        (@sym_fapp0_func $A $B $C $H $X') $Y
+        (@counit_adj_transf _ _ (@sym_func $A $B $C $H) $G $J) $f)
+      (@sym_tapp1_fapp0_transf _ _ _ $H $X _
+        (@tapp1_fapp0 _ _ _ _ $X $X'
+          (@unit_adj_transf _ _ (@sym_func $A $B $C $H) $G $J) $g))
+  ↪ @comp_fapp0 (Functor_cart_cat $A $C)
+      (@sym_fapp0_func $A $B $C $H $X)
+      (@sym_fapp0_func $A $B $C $H $X') $Y
+      $f (@sym_tapp1_fapp0_transf $A $B $C $H $X $X' $g);
+
+// lhs-audit: keep 1 -- same ambient transfor-category guard.
+// The nested unit target is the genuine right-adjoint image discriminator.
+rule @comp_fapp0 (Functor_cart_cat $A $C) _ _ _
+      (@sym_tapp1_fapp0_transf _ _ _ $H _ $Y
+        (@tapp1_fapp0 _ _ _ _ $Y' $Y
+          (@counit_adj_transf _ _ $F (@sym_func $A $B $C $H) $J) $g))
+      (@tapp1_fapp0 _ _ _ _ $X
+        (@sym_fapp0_func $A $B $C $H $Y')
+        (@unit_adj_transf _ _ $F (@sym_func $A $B $C $H) $J) $f)
+  ↪ @comp_fapp0 (Functor_cart_cat $A $C) $X
+      (@sym_fapp0_func $A $B $C $H $Y')
+      (@sym_fapp0_func $A $B $C $H $Y)
+      (@sym_tapp1_fapp0_transf $A $B $C $H $Y' $Y $g) $f;

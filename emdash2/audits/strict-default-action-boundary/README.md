@@ -5,6 +5,26 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Structural owners and recursive Sigma base change, 2026-10-15
+
+The [review](production_structural_pullback_review.md) and
+[verification](production_structural_pullback_verification.json) record
+the original-source migration through section 17d. Existing exchange and
+diagonal owners use their Cartesian mapping profiles; default Transf and
+Functord remain lax. Total base change retains the original first-Hom owner
+and recursively uses the corrected negative total. The whole family and
+actual (theta,beta)->(F_1[theta],beta) computations check.
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package pullback_structural_prefix.lp
+```
+
+The complete source stops in section 17e. General Q/mate coherence and
+the public/downstream migration remain open.
+
 ## Section-first evaluation and represented reindexing, 2026-10-15
 
 The [review](production_evaluation_reindex_review.md) and

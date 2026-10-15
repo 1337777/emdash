@@ -1,0 +1,318 @@
+{
+  "status": "Staged original-source migration through section 17d checks, with Cartesian structural projection ladders and actual Sigma base-change two-cell computation; full Q coherence and public/downstream qualification remain open",
+  "extendsCheckpoint": "e268b24230c05d2e0fafbc4305ea830acb8d6232",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "originalCoreSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "sourcePreservation": {
+    "originalCoreLines": 22644,
+    "candidateCoreLines": 23638,
+    "originalDownstreamSectionsRetained": true,
+    "unretiredNamedDeclarationsRetained": true,
+    "retiredNamesWithReplacements": {
+      "Homd_target_section_catd": "Homd_target_section_cat",
+      "functord_transport_lhs_tele_agrees": "functord_transport_rhs_tele_agrees",
+      "functord_transport_lhs_agrees": "functord_transport_rhs_agrees"
+    },
+    "unrelocatedNamedDeclarationSequenceVerified": true,
+    "namedDeclarationSequenceExceptions": [
+      "Catd_cat_func",
+      "Catd_catd_con",
+      "Const_func_func",
+      "FibCov_source_catd",
+      "FibCov_target_catd",
+      "fib_cov_int",
+      "fib_cov_src_func",
+      "fib_cov_transf",
+      "homd_id_src_sec",
+      "homd_id_tgt_func",
+      "homd_src_func",
+      "homd_src_sec",
+      "homd_tgt_func"
+    ]
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e",
+    "audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment": "f754d60461ff080b77844f38313953244e425ad28fc49e6e394ed114317a77d0",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/conventional_total_op_mapping.lpfragment": "af021c0bb56a5c6730ab5a2e56a387f4cd30fbb8102e36c70bd7f0bc35a6032f",
+    "audits/strict-default-action-boundary/cartesian_profile.lpfragment": "9baf7c78bdc42695ed2e715dd07185f17a957472f2cc7c0434cabd6314039976",
+    "audits/strict-default-action-boundary/production_family_classifier.lpfragment": "0978dd95a597059e20ecb3e38d8bba249499f522caaea1ae9f65a11753c1e81e",
+    "audits/strict-default-action-boundary/conventional_total_op_transfors.lpfragment": "33842eafce8cfb5f84ac5c401ebaf52e8e128cb1d585311862f812925dd119d9",
+    "audits/strict-default-action-boundary/conventional_total_op_offdiagonal.lpfragment": "9431b15bfbedf363c3863a12d86f94b3afbadd04a265abe3fffce0444321eba9",
+    "audits/strict-default-action-boundary/production_cartesian_closure.lpfragment": "31f8d97603e9c9c8ac2922778e15e8c5efed3a268c8d1872820041940c2be8c9",
+    "audits/strict-default-action-boundary/production_cartesian_family_duality.lpfragment": "99b568615669de3d1925bda3057e9bfaeed203939f8c3d7db42005bc5770b4e2",
+    "audits/strict-default-action-boundary/conventional_total_op_whole_action.lpfragment": "202dc17fe192b57c7a7ce8a054d6bc5746027ffa41c5f9698455ae78ee006f0a",
+    "audits/strict-default-action-boundary/conventional_total_op_source_units.lpfragment": "79dbd611f959bade6d50676325ba69d9dd8ceb866f98f84bdf851a2915d3d9a9",
+    "audits/strict-default-action-boundary/production_cartesian_product.lpfragment": "b9fd844fe022921f356c2cb2a628806ef2f9364e44a2b89546073da14d11dfb5",
+    "audits/strict-default-action-boundary/total_op_family.lpfragment": "13f79efe229f5a560dc54d3ea9c4609fac91de5b095de206277330871fe2e7d0",
+    "audits/strict-default-action-boundary/production_homd_index.lpfragment": "364d59d7bd81582d78021513e66ca5c2b1577ebb57fce4caa430e0c375b38978",
+    "audits/strict-default-action-boundary/production_homd_core.lpfragment": "f02f092ad1f7b9c12bddca24ca10a7350de7496640274e6e921b318722f7cd56",
+    "audits/strict-default-action-boundary/production_intrinsic_projection.lpfragment": "6a99cc8c5da93ab05ac37a3590aa344a57daeca00f667f3fc99c5058bbc1c2d3",
+    "audits/strict-default-action-boundary/production_intrinsic_modification.lpfragment": "d82df7e48ecc52ca6844a20a67fa0cf8bdf1c9c0b2a8e4370e03186d4af8921c",
+    "audits/strict-default-action-boundary/production_index_constant_coherence.lpfragment": "692c58b4f216e0fb19898cfa50986ef4775d87725b38e6967ae55881f16a9f63",
+    "audits/strict-default-action-boundary/production_constant_section_index.lpfragment": "8b54b6cd0ca9b60335abc4f1556b8aef15179eb06492b4dcc79499ec1cfc4c32",
+    "audits/strict-default-action-boundary/production_evaluation.lpfragment": "987c74b00c90e0d95ef7d702a98040effe52ecbb7c0fcab7e8a36bd17e563f28",
+    "audits/strict-default-action-boundary/production_q_reindex.lpfragment": "3393d73a36618e9db898e0dd4cf7a08a6decba1e7d847ea83449cb5c0328b4a2",
+    "audits/strict-default-action-boundary/production_ordinary_structural.lpfragment": "c6a89a6b9b391a3d31625395d755b9025c0618a798e6b2a6383cbd9af1387cc5",
+    "audits/strict-default-action-boundary/production_pullback_structural.lpfragment": "58eb1be31606f544940ddd8d3e2f5b4db092d4266f57107ea5942d86720196f8",
+    "audits/strict-default-action-boundary/production_total_op_pullback.lpfragment": "15bef22764f4dea59a5a6ba195099ac4e429ed7296cdda9b070fb4bffa5cd72d",
+    "audits/strict-default-action-boundary/production_owner_controls.lpfragment": "42ba40bf4884d0b9a18cd094ec7735de70b3f8d0c0e6ec9b3699ad164989aa2c",
+    "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+    "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/production_foundations_controls.lpfragment": "d3c768a592094fb5280d4395010d1b24fcb67f394f1f3765f931c54d68a67d0b",
+    "audits/strict-default-action-boundary/production_sections_controls.lpfragment": "57f4d94f69f178e698e652f82f610fea9b8987c36ab1ce92c90cde4825961b95",
+    "audits/strict-default-action-boundary/sigma_total_op_controls.lpfragment": "2f817d10405f707cf3738ff68160f79bcd99e5a2739d0e226f9f012042408b72",
+    "audits/strict-default-action-boundary/mixed_family_controls.lpfragment": "2d0509b7853469f929d3c55b342d396ec4dccaea8493adad962c719d5cb5fd66",
+    "audits/strict-default-action-boundary/mixed_family_parameter_controls.lpfragment": "bb25703b284fc88d1fe64d44fced4ffa65a729d5a135f329654305a24f4a1ad0",
+    "audits/strict-default-action-boundary/total_op_hom_family_controls.lpfragment": "5887b77b910dd9c843af6d5c3fe5a89deddc0b9655904fa69e514c3169b69e62",
+    "audits/strict-default-action-boundary/production_homd_controls.lpfragment": "8490072106fb361ed95a7eb40bc00c5913f6d43edaa18f5ba181a1f1341b1025",
+    "audits/strict-default-action-boundary/production_q_reindex_controls.lpfragment": "37d263a6cc17c4ab0117253e436304c5818e20968c4c583a7182e30a6277c302",
+    "audits/strict-default-action-boundary/production_homd_index_controls.lpfragment": "202bed78e341861596de96ff80f6462b25c40734ef8589cde9c51871ed0c04eb",
+    "audits/strict-default-action-boundary/production_intrinsic_controls.lpfragment": "3b4a4a7fdb867b164e3a33fc6025e96f1c041b3c213a30c5c8004a51a51d1ed3",
+    "audits/strict-default-action-boundary/production_section_action_controls.lpfragment": "6b084092deeed77d1441fdd2bb622175d41512b5980f6c58c7d81c24a6336d6e",
+    "audits/strict-default-action-boundary/production_evaluation_controls.lpfragment": "02d0e4ec79a7d1b5c23b740116d1fc1279fe4fa402cbdc8dc730ff390465797a",
+    "audits/strict-default-action-boundary/production_constant_map_controls.lpfragment": "fe1f4da080a251fd0f28aec197dca4ca58652d8700b015036d8d5854f46f6a8e",
+    "audits/strict-default-action-boundary/production_ordinary_structural_controls.lpfragment": "63d9209054b5750ddbb1e62c78bf63b3ae0d4bbd868eeb7b2bd6f2fd7e3d06cf",
+    "audits/strict-default-action-boundary/production_pullback_structural_controls.lpfragment": "edd230527e3ff391a065a89339586f57f0973200be0047abfe4dc6a896d6fb27",
+    "audits/strict-default-action-boundary/production_comma_equivalence.lpfragment": "7e70d4dfd77958a06f712dd0e668280efd4a16eb7e3db328030fa693309622ef",
+    "audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment": "956d22e530d20bf54ba5e58bdecfe37354c6743154280ffa0f6ce7be02067b9b",
+    "audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment": "5ebdccd39cd50e224bddb1bb559bd82f14596053102484c62d8e428e5b778344",
+    "audits/strict-default-action-boundary/production_owner_migration.py": "d7c9d07a1c5672a0652709e285481c115f7be936be0d2a72fc527a7455d5deee"
+  },
+  "baselinePrefix": {
+    "id": "20261015T202631Z-deacad56872a45c4b72c8a2bb2fd1c33",
+    "target": "structural_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 4.780077827977948,
+    "childrenMaxRssKiB": 394900,
+    "inputSnapshot": "dae996c500e973b8ce6a7e7efe3e56128cf13d0cdbfc6b09511e198a31828718",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "structural_prefix.lp": "19a65ad9f45c9aa6c09361e7da4b46a3b7b6f56e89f48aa7408f3b06c570705b"
+    },
+    "log": "logs/check-runs/20261015T202631Z-deacad56872a45c4b72c8a2bb2fd1c33.log",
+    "logSha256": "cf970d8694cea1f18b1bbb3b1325816bd5b67e6cc295b47f02eb86fc9f9080ca",
+    "receipt": "logs/check-runs/20261015T202631Z-deacad56872a45c4b72c8a2bb2fd1c33.json",
+    "receiptSha256": "d0cc77686177998f8b6b6cf493b9def115759418f7539db2068b7cbd1c6d92ba"
+  },
+  "candidatePrefix": {
+    "id": "20261015T203816Z-c2717e33c1f94292a1f70d0420ff8436",
+    "target": "pullback_structural_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 7.569546316983178,
+    "childrenMaxRssKiB": 435212,
+    "inputSnapshot": "2660568288cc2be4ae0f14331eddaaea9e499713083fe7c6fa734773fb87fd48",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "pullback_structural_prefix.lp": "81c9b49d992482f264850b61bedbaf4078d1af0d429f6d6b5f6cfc0a83fba2c4"
+    },
+    "log": "logs/check-runs/20261015T203816Z-c2717e33c1f94292a1f70d0420ff8436.log",
+    "logSha256": "7e11ba5b07076c099fb61687b57bb0178e3b0dec558dcaebe308ccb785230f30",
+    "receipt": "logs/check-runs/20261015T203816Z-c2717e33c1f94292a1f70d0420ff8436.json",
+    "receiptSha256": "2a5838d08ab5e7728c418afc1907398d0e7fb95097afd727d80585a047580b07"
+  },
+  "fullSourceFailure": {
+    "id": "20261015T203647Z-46e4ccc3e7dc4dd1a0d3a18d90bcec32",
+    "target": "emdash3_2.lp",
+    "outcome": "failed",
+    "wallSeconds": 5.1327284190338105,
+    "childrenMaxRssKiB": 412036,
+    "inputSnapshot": "107b56364ab95f244df220620cf0b0a72e0ea698529c7c857a4c86d0e626e68e",
+    "inputs": {
+      "emdash3_2.lp": "76cabf5ff33e3e9e2eb1e0a2e4ea6196f26bfbafd74a3eed30520bfb39b656d3",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T203647Z-46e4ccc3e7dc4dd1a0d3a18d90bcec32.log",
+    "logSha256": "e4775f51a7d3ac46bed06d6b3feb5455724a3d2a3bacbcc4168afb2c5f291346",
+    "receipt": "logs/check-runs/20261015T203647Z-46e4ccc3e7dc4dd1a0d3a18d90bcec32.json",
+    "receiptSha256": "5ce8ab0f89ac405d935f8ff0317d4640f219b729aac8ddf757d82e9f14cdf32d",
+    "owner": "section_pullback_sec component, section 17e",
+    "location": "emdash3_2.lp:18412:5-18417:44",
+    "diagnosis": "The section component still has the original Cat_cat tag rather than the admitted Cat_cart coefficient; its whole internal Pi/action consumers and later source remain to migrate."
+  },
+  "interfaces": {
+    "displayedWeakening": "Original Functor_catd_const_funcd remains a lax Functord, with Cat_cart coefficients and existing Cartesian Const_func_func components",
+    "exchange": "sym_func_func:Cart(A,Cart(B,C))->Cart(B,Cart(A,C)); same original projection heads and involution laws",
+    "diagonal": "diag_func_func:Cart(A,Cart(A,C))->Cart(A,C); strict diagonal action retains H[p][p]",
+    "transformationParameters": "Actual Homs of Cartesian mapping categories, observed through existing strict_transfor inclusion; no proof payload",
+    "totalFibrePullback": "F*(O_fib(E)) computes to O_fib((R(F))*E) for F:A->R(B)",
+    "baseChangeNextHom": "The original first-Hom owner is stable; its next action uses O of total base change along O(F_1), with O_fib(Homd) coefficients",
+    "actualTwoCell": "For constant families, next total base-change action maps (theta,beta) to (F_1[theta],beta)"
+  },
+  "observedConsumers": [
+    "All inherited foundation, direct identity/relative Homd, section, general-FF intrinsic modification, constant F[alpha] and Sigma-total controls",
+    "Displayed weakening component and full base-arrow value keep the original constant-map interpretation",
+    "Whole exchange object/arrow action, double exchange, and actual transformation action through both parameter projections",
+    "Arbitrary higher input retained through the whole double-exchange action",
+    "Whole diagonal object/arrow and transformation-component computations",
+    "Old unrestricted lax inner inputs and raw lax parameter transformations rejected at the actual Cartesian classifier",
+    "Generic whole pullback/total-fibre-duality computation and its constant-family overlap",
+    "Actual general whole Homd-family comparison under base change, before choosing an index or filler",
+    "Actual first and next Hom of total base change sends (p,a) to (F[p],a) and (theta,beta) to (F_1[theta],beta)",
+    "F=id loop control retains arbitrary theta rather than collapsing it to identity"
+  ],
+  "requiredWholeComparisonFailure": {
+    "id": "20261015T203206Z-d2bc4ffdffc64978b7cf0cc7267324f9",
+    "target": "pullback_structural_prefix.lp",
+    "outcome": "failed",
+    "wallSeconds": 5.061351996962912,
+    "childrenMaxRssKiB": 396904,
+    "inputSnapshot": "ef69c324e1e193f6b1f82e34bc04b6aa80bb7844ff561a49a167f9351e4c9866",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "pullback_structural_prefix.lp": "b03b4e600f3f5ba478d5cf189df393e72826c3b15f6e25519d2d36d2fc9d7dc3"
+    },
+    "log": "logs/check-runs/20261015T203206Z-d2bc4ffdffc64978b7cf0cc7267324f9.log",
+    "logSha256": "490230ee438975c6c67eaaa900c6434b12e51ba44ecfd4e36a8c3c828965461b",
+    "receipt": "logs/check-runs/20261015T203206Z-d2bc4ffdffc64978b7cf0cc7267324f9.json",
+    "receiptSha256": "cd4381f9817dd4b8c360cfe1a4f7aeab43d52a4672ca9ef0b950b6d6c061c19d",
+    "diagnosis": "Before total-fibre-duality/pullback compatibility, subject reduction fails at the actual source-family comparison of the recursive total Hom. No unrelated equality or laxity witness was added to repair it."
+  },
+  "runtimeProfile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileLimitMiB": 64,
+    "subjectReduction": true,
+    "OCAMLRUNPARAM": "o=20",
+    "serialGuard": true,
+    "warnings": true,
+    "compiledObjects": false
+  },
+  "warnings": {
+    "comparisonBoundary": "Before original section 17c; new 17c/17d coverage separate",
+    "candidateCutLine": 17792,
+    "baseline": {
+      "replaceable pattern variable": 141,
+      "unjoinable critical pair": 1488
+    },
+    "candidate": {
+      "replaceable pattern variable": 142,
+      "unjoinable critical pair": 1584
+    },
+    "baselineCriticalPairs": 1488,
+    "candidateAtSameBoundary": 1492,
+    "addedAtSameBoundary": 4,
+    "removedAtSameBoundary": 0,
+    "newCoverage": 92,
+    "addedGroups": {
+      "Pullback_catd x TotalOp_catd": {
+        "count": 4,
+        "bodiesSha256": "0981330de649bf34134d69cb63cf1bb469c5c32d605f51533e4549b55e4071d2"
+      }
+    },
+    "removedGroups": {},
+    "newCoverageGroups": {
+      "Functor_cart_cat x comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "66ebba3d2172aa519d1b478575fc87285f5ce8dee443175ede42b977adb85639"
+      },
+      "Op_cat x sym_tapp1_fapp0_transf": {
+        "count": 4,
+        "bodiesSha256": "2c6b0b393866f18d67c5f6bccf657e8e561146ada3e96b14563adb7133e39eb0"
+      },
+      "Pullback_catd x Pullback_catd": {
+        "count": 4,
+        "bodiesSha256": "bd1ac4041828d1fbd552c48b8d7bf7179e08f1da9419b5a7c1c2904ff2e9e103"
+      },
+      "Pullback_catd x fapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "15ef083d79d7ef9005b4072d56cd4630efaa4918e9e8efab7b85cf2a9a381d15"
+      },
+      "Pullback_catd x fapp1_func": {
+        "count": 3,
+        "bodiesSha256": "f97bf350f141cf1b12c30246d5eb7f14bb7d5c09503bc593b8fae0b36de55170"
+      },
+      "comp_fapp0 x fapp1_fapp0": {
+        "count": 24,
+        "bodiesSha256": "b82c4072039299ece2593592cca6dc6b70f656be5a05d4ab616cc764ed2141c4"
+      },
+      "comp_fapp0 x sym_tapp1_fapp0_transf": {
+        "count": 4,
+        "bodiesSha256": "8720484f084b270a598a56f6563c0335a2cd1bffc951de82311206e42ca66591"
+      },
+      "comp_fapp0 x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "e2db636d733a434526c7e588239ef8d76f28d88399e648681f7b762aee0c1d82"
+      },
+      "fapp0 x fapp1_func": {
+        "count": 2,
+        "bodiesSha256": "a6187c642595e99f3002bbd10ec9c7077be5f43cf2aca620c97059add91f9053"
+      },
+      "fapp1_fapp0 x fapp1_fapp0": {
+        "count": 18,
+        "bodiesSha256": "f8e7862840235fb35f76079536e851d3ba9f7c4371ca1d08bf6d67ac518858b4"
+      },
+      "id x sym_tapp1_fapp0_transf": {
+        "count": 15,
+        "bodiesSha256": "f47bbbea125938a1c9ac28a08e4c87555004f82580bb58031faa9094dfe896de"
+      },
+      "sym_fapp0_fapp1_func x sym_func": {
+        "count": 1,
+        "bodiesSha256": "94191b2e9dfbc39b3789751e496278984e463a34c92c0ebdebb5968e93592d31"
+      },
+      "sym_fapp0_func x sym_func": {
+        "count": 1,
+        "bodiesSha256": "e512bd168b986d18388ebb6eff7a4d476a094c05e5ae3cbd6d1c31a7cd9b7ed9"
+      },
+      "sym_fapp1_func x sym_func": {
+        "count": 1,
+        "bodiesSha256": "3c24a90e884a640bf34ea8ce13838b22e370bfda3a9161254bedc78da35ea33b"
+      },
+      "sym_func x sym_func": {
+        "count": 1,
+        "bodiesSha256": "25710bdd62e79c162a4954bd644112ff466491349afab80002c4972d009dc226"
+      },
+      "sym_func x sym_tapp1_fapp0_transf": {
+        "count": 1,
+        "bodiesSha256": "70f91db0a3a84917ce95a58da130b98b4eec6e18049b4af0d05b75677633f31c"
+      },
+      "sym_func_func_transf x sym_func_func_transf": {
+        "count": 1,
+        "bodiesSha256": "348db2a13ff9d8666650f52ad6cbbd38a6eabed667e8fc2bb8690727194d08f6"
+      },
+      "sym_func_func_transf x sym_transf_tapp0_transf": {
+        "count": 1,
+        "bodiesSha256": "be65411f36f4992a6f448a260dcce60926735c625693fe252c32ce393172a67a"
+      },
+      "sym_func_func_transf x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "6d5d97c7dce357d4d28838ce36a3e5fd0ab46c8183c9418375a06af47ef3f128"
+      },
+      "sym_tapp1_fapp0_transf x tapp0_fapp0": {
+        "count": 3,
+        "bodiesSha256": "df6d99b44705461101c85a1adfaadac47c8d0516ea83ba95beb2c1398a23c9df"
+      },
+      "sym_tapp1_fapp0_transf x tapp1_fapp0": {
+        "count": 3,
+        "bodiesSha256": "46bf2a11e390d8794ff0600f8816068e748da1d4f9a20ec45f8fa93fb07081cb"
+      }
+    },
+    "parserIssues": 0,
+    "assessment": "The early addition is total-fibre duality/pullback compatibility; new coverage is the original Cartesian structural and recursive totalization owners. Whole family, constant overlap, root/parameter structural projections and actual next-cell consumers pass. Residual critical pairs and full Q/mate coherence remain; this is not a global confluence certificate."
+  },
+  "lhsAudit": {
+    "unreviewedClauses": 0,
+    "unreviewedSlots": 0,
+    "annotatedSlots": 59,
+    "intentionalClauses": 39
+  },
+  "stillRequired": [
+    "Original section 17e section pullback and internal Pi action, then later profunctor/extracted-laxity and application owners",
+    "Consumed Q/mate coherence, especially composed general lax-FF intrinsic actions",
+    "Remaining whole duality/inverse and presentation comparisons",
+    "Full public source and diagnostic migration, downstream reviewers, catalog, health and CI"
+  ],
+  "payloadBoundary": "No operational equality/path payload, standalone laxity witness, new Pi constructor, general FF strictification, or auxiliary Sigma fibre-composition owner",
+  "scope": "Non-library source-authoring checkpoint only; complete original tail retained and no public kernel promotion"
+}

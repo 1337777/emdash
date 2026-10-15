@@ -1162,6 +1162,20 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                                     '(Hom_cat (Functor_cart_cat $B $B) (@id_func $B) (@id_func $B))')
     replace_once(old_pairing, new_pairing, 'Cartesian product-pair telescope projections',
                  'Use the actual Cartesian constant-functor and constant-transfor owners instead of the larger lax Pi classifier')
+
+    a = body.index('// 17c. Ordinary functor structural logic')
+    b = body.index('// 17d. Generic ordinary functor hom-action', a)
+    replace_once(body[a:b], fragment('production_ordinary_structural.lpfragment') + '\n\n\n',
+                 'Cartesian ordinary structural logic and displayed weakening',
+                 'Preserve the original exchange/diagonal ladders with the mapping profiles required by their interchange laws; default Transf and Functord remain lax')
+    a = body.index('// 17d. Generic ordinary functor hom-action')
+    b = body.index('// 17e. Section pullback and internal Pi action', a)
+    replace_once(body[a:b], fragment('production_pullback_structural.lpfragment') + '\n\n\n',
+                 'Pullback action and recursive negative-total base change',
+                 'Keep the original first-Hom owner and next-Hom rules, with total-dual index/fibres and actual Cartesian structural consumers')
+    insert('// The same total-fibre object formation through ordinary fixed',
+           fragment('production_total_op_pullback.lpfragment'),
+           'Commute total fibre duality with reindexing along the actual R-dual base functor, for recursive Sigma base change')
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -1257,6 +1271,25 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
         + '\n' + fragment('production_section_action_controls.lpfragment')
         + '\n' + fragment('production_evaluation_controls.lpfragment')
         + '\n' + fragment('production_constant_map_controls.lpfragment'))
+    ordinary_boundary = '// 17d. Generic ordinary functor hom-action'
+    assert body.count(ordinary_boundary) == 1
+    (package / 'ordinary_structural_prefix.lp').write_text(body[:body.index(ordinary_boundary)]
+        + '\n' + homd_controls + '\n' + index_controls
+        + '\n' + fragment('production_intrinsic_controls.lpfragment')
+        + '\n' + fragment('production_section_action_controls.lpfragment')
+        + '\n' + fragment('production_evaluation_controls.lpfragment')
+        + '\n' + fragment('production_constant_map_controls.lpfragment')
+        + '\n' + fragment('production_ordinary_structural_controls.lpfragment'))
+    pullback_boundary = '// 17e. Section pullback and internal Pi action'
+    assert body.count(pullback_boundary) == 1
+    (package / 'pullback_structural_prefix.lp').write_text(body[:body.index(pullback_boundary)]
+        + '\n' + homd_controls + '\n' + index_controls
+        + '\n' + fragment('production_intrinsic_controls.lpfragment')
+        + '\n' + fragment('production_section_action_controls.lpfragment')
+        + '\n' + fragment('production_evaluation_controls.lpfragment')
+        + '\n' + fragment('production_constant_map_controls.lpfragment')
+        + '\n' + fragment('production_ordinary_structural_controls.lpfragment')
+        + '\n' + fragment('production_pullback_structural_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1462,6 +1495,8 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'section_action_prefix.lp',
                               package / 'evaluation_prefix.lp',
                               package / 'structural_prefix.lp',
+                              package / 'ordinary_structural_prefix.lp',
+                              package / 'pullback_structural_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Whole coefficient/mixed-parameter coherence beyond the checked direct and constant-section actions',
