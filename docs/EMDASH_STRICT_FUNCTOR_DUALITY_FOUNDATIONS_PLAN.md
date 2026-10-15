@@ -38,6 +38,64 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Original-source migration checkpoint, 2026-10-15: the
+[source recipe](../emdash2/audits/strict-default-action-boundary/production_owner_migration.py)
+stages the entire original nucleus, profile module and 44 original
+reviewer/dependency inputs under
+`tmp/probes/production_owner_migration/`. All 22,644 original nucleus lines
+remain in order; the upstream candidate has 22,807 lines. Its additions are
+the selected strict-functor action/compositor rules, category/functor
+dualities and Cartesian coefficient declarations, with public owner names.
+The auxiliary Sigma fibre-composition audit is not a dependency.
+
+The staged reviewer now passes, including the original represented-comma
+module. Two strict-default proof adaptations were necessary:
+
+- `one_cat_composition_path` retains its signature and uses strict reflexivity.
+- `comma_basechange_gamma_target_link_equiv` retains its statement and the
+  original forward comparison. Its proof now maps and composes the actual
+  inverse evidence through the existing fixed whiskering functors, then
+  evaluates components. The
+  [proof helpers](../emdash2/audits/strict-default-action-boundary/production_comma_equivalence.lpfragment)
+  and [target proof](../emdash2/audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment)
+  are definitions only. They introduce no Sigma owner, rewrite, unifier,
+  operational equality argument, or stricter FF admission.
+
+The isolated diagnosis established that both target objects already compute
+to D[x]; it was the expanded whiskered comparison that failed to reduce to
+the old reflexivity proof. Changing the compositor's chosen identity endpoint,
+adding Sigma-map composition/identity reductions, and replacing the first
+comparison by an identity did not resolve the consumer. None of those
+experimental changes remains. The retained proof follows the original
+construction and supplies its inverse laws before projection. One reviewer
+negative assertion now becomes positive because the ambient unprofiled
+functor preserves composition; all unrelated negative controls remain.
+
+Package-local receipts are authoritative for this staged tranche:
+candidate reviewer `20261015T104613Z-edbcd5a89fa943adb2ae85eb3b8c5b6d`
+passes in 13.063s with 736,524KiB maximum child RSS; the exact original
+reviewer passes in `20261015T104651Z-e1f4722adeca4d90a1395c2e06ace95c`.
+Use the existing runner's `--package-root` option for replay. The earlier
+outer `probe.sh` invocations did check the staged sources, as their logs
+show, but inventoried imports against the outer package. Their import
+snapshots must not be reused as exact staged-dependency receipts.
+
+The [verification record](../emdash2/audits/strict-default-action-boundary/production_owner_verification.json)
+pins the inputs, focused controls and rejected alternatives. All 47 candidate
+receipt inputs match the staged package. Warning comparison is 1009->1329
+critical-pair diagnostics (323 added, three removed), with replaceable-pattern
+warnings unchanged at 152. The removed diagnostics are the three legacy
+strict-wrapper precomposition/identity normalizations affected by the new
+default. The nucleus LHS audit has zero unreviewed slots. These are bounded
+interaction observations, not global confluence or a completed duality repair.
+
+Next adapt the conventional-lax action, coupled original family classifiers,
+Op/Homd/Pi/Sigma owners and required evaluation profiles using the qualified donor contracts. The
+staged file still retains their old declarations; neither public migration
+nor the full Homd milestone is complete. Do not broaden the new proof-helper
+collection or repair unrelated normal forms. Active production files and
+their catalog/health/aggregate qualification remain a later promotion gate.
+
 Migration-scope correction, 2026-10-15: the user reaffirmed that this is a
 focused migration of the production outline. Production Sigma composition
 is owned by `comp_fapp0(Sigma_cat(E),...)`, `sigma_arrow` and

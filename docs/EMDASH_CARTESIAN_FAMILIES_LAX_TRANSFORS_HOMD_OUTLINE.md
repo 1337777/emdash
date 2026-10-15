@@ -408,6 +408,17 @@ Sigma-map coherence and relative Homd action still require their consumers.
 The accepted identity-core/defined-relative interface remains available;
 there is no reason to introduce a second primitive Homd theory for FF.
 
+Admission clarification, 2026-10-15: "general lax FF" here means a
+conventional-lax transformation between strict K->Cat_cart families. It
+does not mean the old unrestricted K->Cat family profile. Requiring FF
+itself to be strict was a stronger sufficient option: it would make its
+base comparison cells identities. The selected coefficient instead makes
+those extracted comparison cells strictly natural in fibre variables while
+allowing them to be nonidentity and noninvertible. The native Sigma-map
+candidate has checked projections; its auxiliary whole composition audit
+uses an explicit structural law. Neither is a completed general
+functoriality theorem derived from the unchanged production kernel.
+
 The [relative/intrinsic continuation](../emdash2/audits/strict-default-action-boundary/cart_homd_relative_review.md)
 now implements the relative root as an actual composite for general default
 lax FF:D=>E:

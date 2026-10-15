@@ -1,0 +1,57 @@
+// Original public action names, with strict default functor computation.
+assert [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
+  (p : τ (Hom A x y)) (q : τ (Hom A y z)) ⊢
+  @comp_fapp0 B (fapp0 F x) (fapp0 F y) (fapp0 F z)
+    (@fapp1_fapp0 A B F y z q) (@fapp1_fapp0 A B F x y p)
+  ≡ @fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p);
+
+// Corrected dualities keep their distinct higher Hom directions.
+assert (A : Cat) (x y : τ (Obj A)) ⊢
+  Hom_cat (CoAbove2_cat A) x y ≡ TotalOp_cat (Hom_cat A x y);
+assert (A : Cat) (x y : τ (Obj A)) ⊢
+  Hom_cat (CoAt2_cat A) x y ≡ Op_cat (Hom_cat A x y);
+assertnot (A : Cat) ⊢ CoAbove2_cat A ≡ CoAt2_cat A;
+
+assert [A B : Cat] (F : τ (Functor A B)) (x y : τ (Obj A)) ⊢
+  @fapp1_func (CoAbove2_cat A) (CoAbove2_cat B) (@CoAbove2_func A B F) x y
+  ≡ @TotalOp_func (Hom_cat A x y) (Hom_cat B (fapp0 F x) (fapp0 F y))
+      (@fapp1_func A B F x y);
+
+// Diagnostic canonical carrier: the bare Hom alias otherwise triggers
+// endpoint inversion before the reversed Hom's Obj projection. No cast or
+// additional operation is supplied to the implementation.
+symbol production_R_two_cell [A B : Cat] (F : τ (Functor A B)) [x y : τ (Obj A)]
+  [p q : τ (Hom A x y)] (alpha : τ (Hom (Hom_cat A x y) p q))
+  : τ (Obj (Hom_cat (Hom_cat B (fapp0 F x) (fapp0 F y))
+      (@fapp1_fapp0 A B F x y p) (@fapp1_fapp0 A B F x y q)))
+≔ @fapp1_fapp0 (Hom_cat (CoAbove2_cat A) x y)
+    (Hom_cat (CoAbove2_cat B) (fapp0 F x) (fapp0 F y))
+    (@fapp1_func (CoAbove2_cat A) (CoAbove2_cat B) (@CoAbove2_func A B F) x y)
+    q p alpha;
+
+// R reverses the direction of a genuine base two-cell and retains its image.
+assert [A B : Cat] (F : τ (Functor A B)) [x y : τ (Obj A)]
+  [p q : τ (Hom A x y)] (alpha : τ (Hom (Hom_cat A x y) p q)) ⊢
+  @production_R_two_cell A B F x y p q alpha
+  ≡ @fapp1_fapp0 (Hom_cat A x y) (Hom_cat B (fapp0 F x) (fapp0 F y))
+      (@fapp1_func A B F x y) p q alpha;
+
+// Shared objects do not identify the two transformation profiles.
+assert (A B : Cat) ⊢ Hom_cat Cat_cat A B ≡ Functor_cat A B;
+assert (A B : Cat) ⊢ Hom_cat Cat_cart A B ≡ Functor_cart_cat A B;
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (theta : τ (@StrictTransfor A B F G)) ⊢
+  theta : τ (Hom (Functor_cart_cat A B) F G);
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (theta : τ (@Transf A B F G)) ⊢
+  theta : τ (Hom (Functor_cart_cat A B) F G);
+assertnot [A B : Cat] [F G : τ (Functor A B)] ⊢
+  Hom_cat (Functor_cart_cat A B) F G ≡ @Transf_cat A B F G;
+
+// A variable admitted family receives the required fibre profile internally.
+assert [K : Cat] (E : τ (Functor K Cat_cart)) [x y : τ (Obj K)]
+  [p q : τ (Hom K x y)] (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  @fapp1_fapp0 (Hom_cat K x y) (Hom_cat Cat_cart (fapp0 E x) (fapp0 E y))
+    (@fapp1_func K Cat_cart E x y) p q alpha
+  : τ (@StrictTransfor (fapp0 E x) (fapp0 E y)
+      (@fapp1_fapp0 K Cat_cart E x y p) (@fapp1_fapp0 K Cat_cart E x y q));

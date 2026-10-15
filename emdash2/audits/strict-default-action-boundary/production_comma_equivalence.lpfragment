@@ -1,0 +1,70 @@
+// Strict-default proof adaptation for the original comma target comparison.
+// These are derived inverse-evidence helpers, not new operational owners.
+protected symbol comma_strict_compositor_omega [A B : Cat]
+  (F : τ (Functor A B)) [x y z : τ (Obj A)]
+  (g : τ (Hom A y z)) (f : τ (Hom A x y))
+  : τ (@OmegaEquivAlong (Hom_cat B (fapp0 F x) (fapp0 F z))
+    (fapp0 (@functord_transport_lhs_func A
+      (@hom_ A A (@id_func A) x) (@hom_ B A F (fapp0 F x))
+      (@fapp1_at_transf A B F x) y z g) f)
+    (fapp0 (@functord_transport_rhs_func A
+      (@hom_ A A (@id_func A) x) (@hom_ B A F (fapp0 F x))
+      (@fapp1_at_transf A B F x) y z g) f)
+    (@fapp1_compositor A B F x y z g f))
+≔ @omega_equiv_along_refl (Hom_cat B (fapp0 F x) (fapp0 F z))
+    (fapp0 (@functord_transport_lhs_func A
+      (@hom_ A A (@id_func A) x) (@hom_ B A F (fapp0 F x))
+      (@fapp1_at_transf A B F x) y z g) f);
+
+// Default strict functor action maps the existing two inverse laws.
+// Equality is only theorem evidence here, never an operational map argument.
+protected symbol comma_strict_omega_map [A B : Cat] (F : τ (Functor A B))
+  [x y : τ (Obj A)] [f : τ (Hom A x y)]
+  (e : τ (@OmegaEquivAlong A x y f))
+  : τ (@OmegaEquivAlong B (fapp0 F x) (fapp0 F y)
+    (@fapp1_fapp0 A B F x y f))
+≔ @omega_equiv_along_intro B (fapp0 F x) (fapp0 F y)
+    (@fapp1_fapp0 A B F x y f)
+    (@fapp1_fapp0 A B F y x (@omega_equiv_along_left_inv A x y f e))
+    (@fapp1_fapp0 A B F y x (@omega_equiv_along_right_inv A x y f e))
+    (@eq_ap (Hom A x x) (Hom B (fapp0 F x) (fapp0 F x))
+      (λ p : τ (Hom A x x), @fapp1_fapp0 A B F x x p)
+      (@comp_fapp0 A x y x (@omega_equiv_along_left_inv A x y f e) f)
+      (@id A x) (@omega_equiv_along_left_law A x y f e))
+    (@eq_ap (Hom A y y) (Hom B (fapp0 F y) (fapp0 F y))
+      (λ p : τ (Hom A y y), @fapp1_fapp0 A B F y y p)
+      (@comp_fapp0 A y x y f (@omega_equiv_along_right_inv A x y f e))
+      (@id A y) (@omega_equiv_along_right_law A x y f e));
+
+// Map evidence successively through the two original fixed whiskerings.
+protected symbol comma_whiskered_omega [K A B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (H : τ (Functor K A)) (P : τ (Functor B C))
+  [F G : τ (Functor A B)] (eta : τ (@Transf A B F G))
+  (e : τ (@OmegaEquivAlong (Functor_cat A B) F G eta))
+  : τ (@OmegaEquivAlong (Functor_cat K C)
+    (@comp_cat_fapp0 K B C P (@comp_cat_fapp0 K A B F H))
+    (@comp_cat_fapp0 K B C P (@comp_cat_fapp0 K A B G H))
+    (@transf_postwhisker K B C P
+      (@comp_cat_fapp0 K A B F H) (@comp_cat_fapp0 K A B G H)
+      (@transf_prewhisker K A B H F G eta)))
+≔ let pre : τ (@OmegaEquivAlong (Functor_cat K B)
+      (@comp_cat_fapp0 K A B F H) (@comp_cat_fapp0 K A B G H)
+      (@transf_prewhisker K A B H F G eta))
+    ≔ @comma_strict_omega_map (Functor_cat A B) (Functor_cat K B)
+      (@comp_cat_con_func K A B H) F G eta e in
+  @comma_strict_omega_map (Functor_cat K B) (Functor_cat K C)
+    (@comp_cat_cov_func K B C P)
+    (@comp_cat_fapp0 K A B F H) (@comp_cat_fapp0 K A B G H)
+    (@transf_prewhisker K A B H F G eta) pre;
+
+// Reversing an ordinary comparison exchanges its two retained inverse laws.
+protected symbol comma_op_omega_along [C : Cat] [x y : τ (Obj C)]
+  (f : τ (Hom (Op_cat C) x y))
+  (e : τ (@OmegaEquivAlong (Op_cat C) x y f))
+  : τ (@OmegaEquivAlong C y x f)
+≔ @omega_equiv_along_intro C y x f
+    (@omega_equiv_along_right_inv (Op_cat C) x y f e)
+    (@omega_equiv_along_left_inv (Op_cat C) x y f e)
+    (@omega_equiv_along_right_law (Op_cat C) x y f e)
+    (@omega_equiv_along_left_law (Op_cat C) x y f e);

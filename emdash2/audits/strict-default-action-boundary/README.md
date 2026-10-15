@@ -5,6 +5,43 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Original-source migration checkpoint, 2026-10-15
+
+The [production source recipe](production_owner_migration.py) now stages
+the full pre-goal nucleus and the original profile reviewer/import closure.
+It preserves every original nucleus line and uses the existing public owner
+names. The strict-default upstream additions and required proof adaptations
+pass the staged reviewer and [focused controls](production_owner_controls.lpfragment).
+The [verification record](production_owner_verification.json) pins the exact
+package inputs, warning comparison and rejected alternatives. No production
+file is replaced; the coupled family/Op/Homd/Pi/Sigma and closure migration
+remains open in the [living plan](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#current-execution-contract).
+
+The original comma comparison keeps its forward construction. Its
+[inverse-evidence helpers](production_comma_equivalence.lpfragment) and
+[adapted target proof](production_comma_target_equivalence.lpfragment) are
+definitions through existing operations, with no new rewrite/unification
+rules or stricter FF admission. Alternative Sigma-map normalization rules
+were rejected and are absent. Optional improvements remain deferred.
+
+Use the package-local runner so receipts inventory the staged imports:
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package examples/gray_profiles.lp
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package owner_controls.lp
+```
+
+Replay when this recipe, its pinned authoring inputs or an affected original
+consumer changes. The prior outer `probe.sh` runs checked staged sources but
+inventoried imports against the outer package; their dependency snapshots
+are not exact staged-package evidence. Generated LP, logs and diagnostics
+stay ignored. The separate auxiliary Sigma-composition owner is not used.
+
 ## Public-contract qualification, 2026-10-14
 
 The user reaffirmed `Hom_cat Cat_cat A B = Functor_cat A B`: strict default
