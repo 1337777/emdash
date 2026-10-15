@@ -1,0 +1,142 @@
+// Two actual whole functors. No new comparison cell is supplied.
+symbol sf_cart_sigma_comp_map_lhs [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat E D))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q : τ (Hom K y z))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (w : τ (Obj (fapp0 E z)))
+  : τ (Functor
+      (Product_cat
+        (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+        (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w))
+      (Hom_cat (fapp0 D z)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D x z (@comp_fapp0 K x y z q p))
+          (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+        (fapp0 (@tapp0_fapp0 K sf_cart_cat E D z FF) w)))
+≔ @comp_cat_fapp0 _ _ _
+    (@sf_cq_tdapp1_hom K E D FF FF (@sf_cq_fdapp1_int K E D FF)
+      x u z w (@comp_fapp0 K x y z q p))
+    (@sf_cart_sigma_comp_fibre K E x y z p q u v w);
+
+symbol sf_cart_sigma_comp_map_rhs [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat E D))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q : τ (Hom K y z))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (w : τ (Obj (fapp0 E z)))
+  : τ (Functor
+      (Product_cat
+        (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+        (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w))
+      (Hom_cat (fapp0 D z)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D x z (@comp_fapp0 K x y z q p))
+          (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+        (fapp0 (@tapp0_fapp0 K sf_cart_cat E D z FF) w)))
+≔ @comp_cat_fapp0 _ _ _
+    (@sf_cart_sigma_comp_fibre K D x y z p q
+      (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u)
+      (fapp0 (@tapp0_fapp0 K sf_cart_cat E D y FF) v)
+      (fapp0 (@tapp0_fapp0 K sf_cart_cat E D z FF) w))
+    (Struct_sigma
+      (@comp_cat_fapp0 _ _ _
+        (@sf_cq_tdapp1_hom K E D FF FF (@sf_cq_fdapp1_int K E D FF) x u y v p)
+        (@Product_projL_func
+          (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+          (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w)))
+      (@comp_cat_fapp0 _ _ _
+        (@sf_cq_tdapp1_hom K E D FF FF (@sf_cq_fdapp1_int K E D FF) y v z w q)
+        (@Product_projR_func
+          (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+          (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w))));
+
+// Diagnostic theorem: typed reflexivity consumes the whole owner comparison.
+symbol sf_cart_sigma_comp_agrees [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat E D))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q : τ (Hom K y z))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (w : τ (Obj (fapp0 E z)))
+  : τ (@= (Functor _ _) (@sf_cart_sigma_comp_map_lhs K E D FF x y z p q u v w)
+      (@sf_cart_sigma_comp_map_rhs K E D FF x y z p q u v w))
+≔ @eq_refl (Functor _ _) (@sf_cart_sigma_comp_map_lhs K E D FF x y z p q u v w);
+
+// Actual total-arrow comparison, derived by observing that whole equality.
+// Paths occur only in this diagnostic theorem, never in operational symbols.
+symbol sf_cart_sigma_composite_image_eq [K : Cat] [E D : τ (Functor K sf_cart_cat)]
+  (FF : τ (@Transf K sf_cart_cat E D))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q : τ (Hom K y z))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (w : τ (Obj (fapp0 E z)))
+  (a : τ (Hom (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v))
+  (b : τ (Hom (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w))
+  : τ (@= (Hom (@sf_cart_sigma K D)
+      (Struct_sigma x (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+      (Struct_sigma z (fapp0 (@tapp0_fapp0 K sf_cart_cat E D z FF) w)))
+    (fapp0 (@sf_cart_sigma_map_hom K E D FF x u z w)
+      (@comp_fapp0 (@sf_cart_sigma K E) (Struct_sigma x u) (Struct_sigma y v) (Struct_sigma z w)
+        (@sf_cart_sigma_arrow K E y z v w q b) (@sf_cart_sigma_arrow K E x y u v p a)))
+    (@comp_fapp0 (@sf_cart_sigma K D)
+      (Struct_sigma x (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+      (Struct_sigma y (fapp0 (@tapp0_fapp0 K sf_cart_cat E D y FF) v))
+      (Struct_sigma z (fapp0 (@tapp0_fapp0 K sf_cart_cat E D z FF) w))
+      (fapp0 (@sf_cart_sigma_map_hom K E D FF y v z w) (@sf_cart_sigma_arrow K E y z v w q b))
+      (fapp0 (@sf_cart_sigma_map_hom K E D FF x u y v) (@sf_cart_sigma_arrow K E x y u v p a))))
+≔ @eq_ap (Functor _ _)
+    (Hom (@sf_cart_sigma K D)
+      (Struct_sigma x (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+      (Struct_sigma z (fapp0 (@tapp0_fapp0 K sf_cart_cat E D z FF) w)))
+    (λ H : τ (Functor
+      (Product_cat
+        (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+        (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w))
+      (Hom_cat (fapp0 D z)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat D x z (@comp_fapp0 K x y z q p))
+          (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u))
+        (fapp0 (@tapp0_fapp0 K sf_cart_cat E D z FF) w))),
+      @sf_cart_sigma_arrow K D x z
+        (fapp0 (@tapp0_fapp0 K sf_cart_cat E D x FF) u)
+        (fapp0 (@tapp0_fapp0 K sf_cart_cat E D z FF) w) (@comp_fapp0 K x y z q p)
+        (fapp0 H (@Product_pair
+          (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+          (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w) a b)))
+    _ _ (@sf_cart_sigma_comp_agrees K E D FF x y z p q u v w);
+
+// Whole first-Hom projection of the stable composition retains both inputs.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q : τ (Hom K y z))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (w : τ (Obj (fapp0 E z)))
+  (ab ab' : τ (Obj (Product_cat
+    (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+    (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w)))) ⊢
+  @fapp1_func _ _ (@sf_cart_sigma_comp_fibre K E x y z p q u v w) ab ab'
+  ≡ @fapp1_func _ _ (@sf_cart_sigma_comp_fibre_body K E x y z p q u v w) ab ab';
+
+// Even constant fibres do not identify two different base paths for raw FF.
+assertnot [K C : Cat]
+  (FF : τ (@Transf K sf_cart_cat (@Const_func K sf_cart_cat C) (@Const_func K sf_cart_cat C)))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q q' : τ (Hom K y z))
+  (u v w : τ (Obj C)) ⊢
+  @eq_refl (Functor _ _)
+    (@sf_cart_sigma_comp_map_lhs K (@Const_func K sf_cart_cat C) (@Const_func K sf_cart_cat C)
+      FF x y z p q u v w)
+  : τ (@= (Functor _ _)
+      (@sf_cart_sigma_comp_map_lhs K (@Const_func K sf_cart_cat C) (@Const_func K sf_cart_cat C)
+        FF x y z p q u v w)
+      (@sf_cart_sigma_comp_map_rhs K (@Const_func K sf_cart_cat C) (@Const_func K sf_cart_cat C)
+        FF x y z p q' u v w));
+
+// Unit specialization after identity intrinsic action has already projected.
+assert [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q : τ (Hom K y z))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (w : τ (Obj (fapp0 E z))) ⊢
+  @eq_refl (Functor _ _)
+    (@sf_cart_sigma_comp_map_lhs K E E (@id (Functor_cat K sf_cart_cat) E) x y z p q u v w)
+  : τ (@= (Functor _ _)
+      (@sf_cart_sigma_comp_map_lhs K E E (@id (Functor_cat K sf_cart_cat) E) x y z p q u v w)
+      (@sf_cart_sigma_comp_map_rhs K E E (@id (Functor_cat K sf_cart_cat) E) x y z p q u v w));
+
+// Positive counterpart in the same constant-fibre profile as the control.
+assert [K C : Cat]
+  (FF : τ (@Transf K sf_cart_cat (@Const_func K sf_cart_cat C) (@Const_func K sf_cart_cat C)))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q : τ (Hom K y z)) (u v w : τ (Obj C)) ⊢
+  @eq_refl (Functor _ _)
+    (@sf_cart_sigma_comp_map_lhs K (@Const_func K sf_cart_cat C) (@Const_func K sf_cart_cat C)
+      FF x y z p q u v w)
+  : τ (@= (Functor _ _)
+      (@sf_cart_sigma_comp_map_lhs K (@Const_func K sf_cart_cat C) (@Const_func K sf_cart_cat C)
+        FF x y z p q u v w)
+      (@sf_cart_sigma_comp_map_rhs K (@Const_func K sf_cart_cat C) (@Const_func K sf_cart_cat C)
+        FF x y z p q u v w));

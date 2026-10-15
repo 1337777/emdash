@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default with shared Cartesian families; direct Homd ladders, corrected Sigma-Hom and total-map projection candidates check; expanded composition and public/downstream migration remain open
+Status: strict-functor/lax-transfor default with shared Cartesian families; direct Homd ladders, corrected Sigma-Hom, total-map projections and expanded composition candidates check; higher naturality and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -48,18 +48,32 @@ records this distinction and retains strict FF as a possible alternative.
 If FF were made strict, that particular lax-coherence motivation for
 unbundling would largely disappear. No admission change is made here.
 
-In-progress composition consumer: `cart_sigma_composition.lpfragment`,
-`cart_sigma_composition_controls.lpfragment` and
-`cart_sigma_composition_replay.py` in the same audit directory are uncommitted
-authoring work. The defined fibre-composition functor and both actual whole
-mapped-composition routes typecheck, but their typed-reflexivity comparison
-is not yet discharged in receipt
-`20261015T085115Z-74b654cc81eb43d3a1245bd17da5b885`. No new composition law
-has been installed. The initial attempt used Product_map_func, which is not
-in the experimental prefix; the current bodies use its existing pair of
-projection/composition operations instead. Continue at the intrinsic
-Hom-action composition owner, preserving the runtime extractor and the
-direct Homd ladder. The latest qualified native checkpoint remains 42c23284.
+Latest composition continuation, 2026-10-15: the
+[whole Sigma composition comparison](../emdash2/audits/strict-default-action-boundary/cart_sigma_composition_review.md)
+keeps lax FF and introduces a stable whole owner for the existing fibre
+composition C_E(a,b)=b o E[q][a]. It projects to one defined implementation
+using existing transport, product projections and composition. The selected
+whole unifier states Phi(qp) o C_E = C_D o (Phi(p) x Phi(q)) as a structural
+computation law of the strict Sigma-map contract, not as a derivation from
+earlier object betas. The equality between the two actual expanded total-
+arrow computations is derived by observing that whole comparison.
+
+Expanded matching failed before retaining the stable owner. Identity FF
+then required a scoped projection-pair unit comparison, without general
+product eta. Whole first-Hom, identity and constant-family consumers pass;
+a distinct-base-path control and removal of the compatibility law fail at
+their intended comparisons. No operational equality payload or new Q
+operation is introduced. Receipt
+`20261015T090931Z-30ef794345e046ba8d6b4553a6b0a460` passes with SR in
+4.352s/339,948KiB. The six new critical-pair diagnostics (1636->1642) are
+inventoried; pattern warnings remain 66 and LHS has zero unreviewed slots.
+
+Next implement the whole off-diagonal action of the mapped modification
+theta:FF=>GG using the negative total of its existing general Homd action.
+Its vertical component is already checked. Then proceed through public
+owner/classifier integration and downstream gates. Keep strict Functord as
+an alternative, but this consumer supplies no reason to change the selected
+lax FF admission. The full goal remains active.
 
 Latest total-map continuation, 2026-10-15: the
 [Cartesian-family total-map candidate](../emdash2/audits/strict-default-action-boundary/cart_sigma_map_review.md)
@@ -83,9 +97,9 @@ in 5.589s/323,196KiB under the unchanged default limits. Critical-pair
 diagnostics 1541->1636 are inventoried in six owner groups; pattern warnings
 remain 66 and LHS has zero unreviewed slots. The whole totalization and
 diagram-duality owners are structural, not derived general coherence.
-Next compare expanded general total-arrow composition, then qualify the
-remaining higher-naturality/public integration consumers. The full goal is
-still active; this prototype is not production migration.
+The composition continuation above now qualifies the expanded total-arrow
+comparison. Remaining higher-naturality/public integration consumers are
+still required; this prototype is not production migration.
 
 Latest production-action trace, 2026-10-15: the
 [outline's Pi/Q dictionary](EMDASH_CARTESIAN_FAMILIES_LAX_TRANSFORS_HOMD_OUTLINE.md#trace-to-the-production-pi-based-ladder)

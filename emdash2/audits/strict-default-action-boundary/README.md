@@ -128,8 +128,12 @@ separate Cartesian coefficient and introduces no additional Q composition
 operation. The [total-map continuation](cart_sigma_map_review.md) derives its
 whole first Hom from the negative total of the existing intrinsic Homd map.
 General lax FF, mapped transport/laxity, modification components, identity
-action and recursive preservation of the base two-cell check. Expanded
-general total-arrow composition and public/downstream migration remain.
+action and recursive preservation of the base two-cell check. The
+[whole composition continuation](cart_sigma_composition_review.md) qualifies
+the structural whole intrinsic-composition law and its derived expanded
+total-arrow comparison, including identity/constant-family controls.
+Mapped-modification off-diagonal action and public/downstream migration
+remain; general lax FF is still admitted.
 
 Earlier Q clarification, superseded by the current shared-Cartesian-family
 candidate above: both curried mapping levels then used the conventional

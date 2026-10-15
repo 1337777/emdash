@@ -1,0 +1,94 @@
+// NON-LIBRARY: whole fibre part of the existing Sigma composition.
+// It is defined using strict family transport and ordinary Hom composition.
+// The product holds two composable fibre arrows, not a new Homd section base.
+symbol sf_cart_sigma_comp_fibre_body [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q : τ (Hom K y z))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (w : τ (Obj (fapp0 E z)))
+  : τ (Functor
+      (Product_cat
+        (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+        (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w))
+      (Hom_cat (fapp0 E z)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat E x z (@comp_fapp0 K x y z q p)) u) w))
+≔ @comp_cat_fapp0 _ _ _
+    (@comp_prod_func (fapp0 E z)
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u))
+      (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w)
+    (Struct_sigma
+      (@comp_cat_fapp0 _ _ _
+        (@fapp1_func (fapp0 E y) (fapp0 E z) (@fapp1_fapp0 K sf_cart_cat E y z q)
+          (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+        (@Product_projL_func
+          (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+          (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w)))
+      (@Product_projR_func
+        (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+        (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w)));
+
+
+// Stable whole owner of the same native fibre composition. The body above
+// is its unique implementation; projections retain the whole higher action.
+symbol sf_cart_sigma_comp_fibre [K : Cat] (E : τ (Functor K sf_cart_cat))
+  [x y z : τ (Obj K)] (p : τ (Hom K x y)) (q : τ (Hom K y z))
+  (u : τ (Obj (fapp0 E x))) (v : τ (Obj (fapp0 E y))) (w : τ (Obj (fapp0 E z)))
+  : τ (Functor
+      (Product_cat
+        (Hom_cat (fapp0 E y) (fapp0 (@fapp1_fapp0 K sf_cart_cat E x y p) u) v)
+        (Hom_cat (fapp0 E z) (fapp0 (@fapp1_fapp0 K sf_cart_cat E y z q) v) w))
+      (Hom_cat (fapp0 E z)
+        (fapp0 (@fapp1_fapp0 K sf_cart_cat E x z (@comp_fapp0 K x y z q p)) u) w));
+
+rule fapp0 (@sf_cart_sigma_comp_fibre $K $E $x $y $z $p $q $u $v $w) $ab
+  ↪ fapp0 (@sf_cart_sigma_comp_fibre_body $K $E $x $y $z $p $q $u $v $w) $ab;
+rule @fapp1_func _ _ (@sf_cart_sigma_comp_fibre $K $E $x $y $z $p $q $u $v $w) $ab $ab'
+  ↪ @fapp1_func _ _ (@sf_cart_sigma_comp_fibre_body $K $E $x $y $z $p $q $u $v $w) $ab $ab';
+rule @fapp1_fapp0 _ _ (@sf_cart_sigma_comp_fibre $K $E $x $y $z $p $q $u $v $w) $ab $ab' $theta
+  ↪ @fapp1_fapp0 _ _ (@sf_cart_sigma_comp_fibre_body $K $E $x $y $z $p $q $u $v $w) $ab $ab' $theta;
+
+// The identity-FF specialization leaves the existing product projection
+// pair. This scoped unit comparison does not install a general product eta.
+unif_rule @sf_cart_sigma_comp_fibre $K $E $x $y $z $p $q $u $v $w
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@sf_cart_sigma_comp_fibre $K $E $x $y $z $p $q $u' $v' $w')
+      (@Struct_sigma _ _ $L $R)
+  ↪ [ $u ≡ $u'; $v ≡ $v'; $w ≡ $w';
+      $L ≡ @Product_projL_func
+        (Hom_cat (@fapp0 $K sf_cart_cat $E $y)
+          (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $x $y $p) $u) $v)
+        (Hom_cat (@fapp0 $K sf_cart_cat $E $z)
+          (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $y $z $q) $v) $w);
+      $R ≡ @Product_projR_func
+        (Hom_cat (@fapp0 $K sf_cart_cat $E $y)
+          (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $x $y $p) $u) $v)
+        (Hom_cat (@fapp0 $K sf_cart_cat $E $z)
+          (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $y $z $q) $v) $w) ];
+
+// Whole intrinsic compatibility: Phi(qp) o C_E = C_D o (Phi(p) x Phi(q)).
+// This is the structural strict-functor law of Sigma_map projected to its
+// intrinsic Homd owner. FF's nonidentity naturality endpoints remain distinct.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@sf_cq_tdapp1_hom_proj $K $E $D $FF $FF (@id _ $FF)
+      $x $u $z $w (@comp_fapp0 $K $x $y $z $q $p))
+    (@sf_cart_sigma_comp_fibre $K $E $x $y $z $p $q $u $v $w)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@sf_cart_sigma_comp_fibre $K $D $x $y $z $p $q
+      (@fapp0 _ _ (@tapp0_fapp0 $K sf_cart_cat $E $D $x $FF) $u)
+      (@fapp0 _ _ (@tapp0_fapp0 $K sf_cart_cat $E $D $y $FF) $v)
+      (@fapp0 _ _ (@tapp0_fapp0 $K sf_cart_cat $E $D $z $FF) $w))
+    (@Struct_sigma _ _ $L $R)
+  ↪ [ $L ≡ @comp_fapp0 Cat_cat _ _ _
+          (@sf_cq_tdapp1_hom_proj $K $E $D $FF $FF (@id _ $FF) $x $u $y $v $p)
+          (@Product_projL_func
+            (Hom_cat (@fapp0 $K sf_cart_cat $E $y)
+              (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $x $y $p) $u) $v)
+            (Hom_cat (@fapp0 $K sf_cart_cat $E $z)
+              (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $y $z $q) $v) $w));
+      $R ≡ @comp_fapp0 Cat_cat _ _ _
+          (@sf_cq_tdapp1_hom_proj $K $E $D $FF $FF (@id _ $FF) $y $v $z $w $q)
+          (@Product_projR_func
+            (Hom_cat (@fapp0 $K sf_cart_cat $E $y)
+              (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $x $y $p) $u) $v)
+            (Hom_cat (@fapp0 $K sf_cart_cat $E $z)
+              (@fapp0 _ _ (@fapp1_fapp0 $K sf_cart_cat $E $y $z $q) $v) $w)) ];

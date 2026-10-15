@@ -1,0 +1,125 @@
+{
+  "status": "non-library expanded Cartesian-family Sigma composition",
+  "donorEvidence": "audits/strict-default-action-boundary/cart_sigma_map_verification.json",
+  "donorEvidenceSha256": "78c3161a453253c881b68ccdc7fe989812b3f6c3392c1cfeb74728fff99ac201",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/cart_sigma_composition_replay.py": "56179e5f03c699d2a231b28ac9fb10e9b41b26ac2d16f382e051962255a8215e",
+    "audits/strict-default-action-boundary/cart_sigma_composition.lpfragment": "95e62ff209f41d4047db859b6d4f380ac92e88bc51fbd1e0c6533af256940fd4",
+    "audits/strict-default-action-boundary/cart_sigma_composition_controls.lpfragment": "21285061f418c3bfe9eb786efd7f22b08eb948c4adb08f7e996ecfbd479c5d8f"
+  },
+  "outputSha256": "6b3510a9067bf473187a326dc75018c432f796f423d8e05825053fda2450d817",
+  "baseline": {
+    "path": "logs/check-runs/20261015T084449Z-98541adf26804c0ebfc91d36ca37a1eb.json",
+    "sha256": "d42e4fd473a112d540f25170c6c9dbcf929e71557322c271b8b0d8b9a9a840a8",
+    "outcome": "passed-fresh",
+    "logSha256": "128ce271810daeca732615c5e7fd5b0d752788f7a4c72b97531e15bdeba2a0a2",
+    "wallSeconds": 6.952672641957179,
+    "childrenMaxRssKiB": 323048,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "inputSnapshot": "c159f4138d0f3f28fd38b8736cbb9b8ad00f0412a295253247e7b8015b96ef8c"
+  },
+  "candidate": {
+    "path": "logs/check-runs/20261015T090931Z-30ef794345e046ba8d6b4553a6b0a460.json",
+    "sha256": "276c3e300118e9ae69feeb7f0c36c8fa98a9f3c475f4724c7b86e78dbd80f99c",
+    "outcome": "passed-fresh",
+    "logSha256": "fd71957ed71fa47e184575c81c8567bf20e5db6c675bebfc28513118d8c50293",
+    "wallSeconds": 4.352205445058644,
+    "childrenMaxRssKiB": 339948,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "inputSnapshot": "2b52f2b417e135463d0d27e34cf005d597f4f030f8714d97285847c494c757ba"
+  },
+  "negativeRemoval": {
+    "path": "logs/check-runs/20261015T091012Z-19a09b92cbe644e587d5ba16f6a32a81.json",
+    "sha256": "16fc913dd640e278cd211e7eb474cac544b385893618d24ca4450409188f731c",
+    "outcome": "failed",
+    "logSha256": "c4a2c9201a47ff058c89be72541b8dcbe2426e19cb4043765d0eec78eb44111d",
+    "wallSeconds": 4.03699276491534,
+    "childrenMaxRssKiB": 332780,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "-w"
+      ],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "inputSnapshot": "e8249cb3e908431df84d37f7b0096bc7fad305f219f5ac3bc6c2db98a8770ad2"
+  },
+  "warnings": {
+    "criticalPairsBefore": 1636,
+    "criticalPairsAfter": 1642,
+    "replaceablePatternBefore": 66,
+    "replaceablePatternAfter": 66,
+    "addedDiagnostics": 6,
+    "removedDiagnostics": 0,
+    "addedSortedBodiesSha256": "9d08bb8400af15774b5be438f4814fe3d1142927932ad0ebea795e8d9fb02f29",
+    "ruleFamilies": {
+      "fapp1_fapp0 \u00d7 fapp1_fapp0": 6
+    },
+    "qualification": "Six overlap diagnostics are the new stable composition capped action against inherited generic identity/postcomposition action. The whole first-Hom projection reaches the existing body. This does not establish global confluence."
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "annotatedSlots": 29,
+    "intentionalClauses": 20
+  },
+  "development": {
+    "initialPrefixMissingProductMap": "20261015T084927Z-5584f52d37284bd09bf0235b491f67dc",
+    "definedWholeRoutesBeforeCoherence": "20261015T085115Z-74b654cc81eb43d3a1245bd17da5b885",
+    "expandedPattern": "20261015T085637Z-90cdd490f6314097bd49b92182136247",
+    "expandedPatternDebug": "20261015T085741Z-158834e7acf9411ab0a76f9f492edc37",
+    "expandedPatternAliasVariant": "20261015T085918Z-5bb3c39527824f9abf27ecf6dea15c4b",
+    "identityProjectionPairBeforeUnitComparison": "20261015T090813Z-ea633ab4ed4f46cfab8cc9d8758a1d81"
+  },
+  "qualification": [
+    "FF remains a general conventional-lax transformation between Cartesian-coefficient families.",
+    "The stable whole fibre-composition owner projects to one defined body using existing transport, product projections and ordinary composition; its first higher action is retained.",
+    "The whole compatibility unifier is a structural computation law for the declared strict Sigma-map contract, not a derivation from its earlier object beta rules.",
+    "A derived diagnostic equality compares the two actual expanded total-arrow routes, with no operational proof input.",
+    "Identity FF, constant families, a distinct-base-path negative and a focused missing-law negative qualify the recorded equation and its scope.",
+    "Public integration and remaining higher-naturality consumers are still required; no general Q composition library or strict-Functord restriction is introduced."
+  ]
+}

@@ -3,7 +3,7 @@
 Date: 2026-10-14
 Status: selected next candidate under the user's latest constraints;
 strict-root/relative ladders and extracted y-comparison generator beta checked;
-corrected Sigma-Hom and total-map projections checked; expanded composition and migration open
+corrected Sigma-Hom, total-map projections and expanded composition checked; higher naturality and migration open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
 
@@ -373,8 +373,11 @@ Hom at FF is the derived negative Sigma map of the existing intrinsic Homd
 transformation. Object, arrow, canonical transport, modification and
 recursive base-two-cell projections check. Identity computations check;
 composite intrinsic Hom action has a proof-time comparison which preserves
-the ordinary/mate runtime extractor. Expanded composition of general total
-arrows and public migration remain to qualify.
+the ordinary/mate runtime extractor. The
+[whole composition continuation](../emdash2/audits/strict-default-action-boundary/cart_sigma_composition_review.md)
+now supplies the structural whole compatibility law and derives the equality
+of the two expanded total-arrow routes. Lax FF is retained. The whole
+off-diagonal action of mapped modifications and public migration remain.
 
 A general FF:Functord(D,E) can remain lax across K. Its component functors
 are strict and its base-comparison transformations are strict in the fibre
