@@ -1,0 +1,114 @@
+// Admitted families and ordinary Hom share the selected coefficient.
+assert [K : Cat] (E : τ (Catd K)) ⊢ E : τ (Functor K Cat_cart);
+assertnot [K : Cat] (E : τ (Functor K Cat_cat)) ⊢ E : τ (Catd K);
+assert [A B : Cat] (F : τ (Functor B A)) (x : τ (Obj A)) (y : τ (Obj B)) ⊢
+  fapp0 (fapp0 (@hom_int A B F) x) y ≡ Hom_cat A x (fapp0 F y);
+assert [A B : Cat] (F : τ (Functor B A)) (x : τ (Obj A)) (y : τ (Obj B)) ⊢
+  fapp0 (fapp0 (@hom_con_int A B F) x) y ≡ Hom_cat A (fapp0 F y) x;
+
+// General lax epsilon still projects through the whole ordinary action.
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  fapp0 (@tapp0_fapp0 A Cat_cart _ _ y
+    (@tapp0_fapp0 _ _ _ _ x (@tapp1_int_fapp0_transf A B F G epsilon))) p
+  ≡ @tapp1_fapp0 A B F G x y epsilon p;
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  fapp0 (@tapp0_fapp0 (Op_cat A) Cat_cart _ _ x
+    (@tapp0_fapp0 _ _ _ _ y (@tapp1_con_int_fapp0_transf A B F G epsilon))) p
+  ≡ @tapp1_fapp0 A B F G x y epsilon p;
+
+// A raw lax transfor does not acquire the Cartesian transpose profile.
+assertnot [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G)) ⊢
+  @Op_transf A B F G epsilon
+  : τ (Hom (Functor_cart_cat (Op_cat A) (Op_cat B))
+      (@Op_func A B G) (@Op_func A B F));
+// Canonical Obj(Hom_cat) diagnostics let the duality reduce before Hom's
+// injectivity heuristic compares the category tags. There is no cast.
+symbol production_transpose_component [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (Hom (Functor_cart_cat A B) F G)) (x : τ (Obj A))
+  : τ (Obj (Hom_cat B (fapp0 F x) (fapp0 G x)))
+≔ @tapp0_fapp0 (Op_cat A) (Op_cat B) _ _ x
+    (@strict_transfor _ _ _ _ (@Op_transf A B F G U));
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (Hom (Functor_cart_cat A B) F G)) (x : τ (Obj A)) ⊢
+  @production_transpose_component A B F G U x
+  ≡ @tapp0_fapp0 A B F G x (@strict_transfor A B F G U);
+
+// Total reversal retains the general lax profile and uses the post boundary.
+symbol production_total_middle [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (Obj (Hom_cat B (fapp0 F x) (fapp0 G y)))
+≔ @tapp1_fapp0 (TotalOp_cat A) (TotalOp_cat B) _ _ y x
+    (@TotalOp_transf A B F G epsilon) p;
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @production_total_middle A B F G epsilon x y p
+  ≡ fapp0 (@tapp1_post_endpoint_func A B F G epsilon x y) p;
+assertnot [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @production_total_middle A B F G epsilon x y p
+  ≡ @tapp1_fapp0 A B F G x y epsilon p;
+
+// A genuinely directed base two-cell survives the actual shifted family map.
+assert [K : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  [p q : τ (Hom K x y)] (alpha : τ (Hom (Hom_cat K x y) p q)) ⊢
+  @fapp1_fapp0 (Hom_cat (CoAt2_cat K) x y)
+    (Functor_cart_cat (Op_cat (Fibre_cat E x)) (Op_cat (Fibre_cat E y)))
+    (@fapp1_func (CoAt2_cat K) Cat_cart (@Op_catd K E) x y) q p alpha
+  ≡ @Op_transf (Fibre_cat E x) (Fibre_cat E y)
+      (@catd_transport_func K E x y p) (@catd_transport_func K E x y q)
+      (@fapp1_fapp0 (Hom_cat K x y)
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y))
+        (@fapp1_func K Cat_cart E x y) p q alpha);
+assertnot [K : Cat] (E : τ (Catd K)) ⊢ @Op_catd K E : τ (Catd K);
+assertnot [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D)) ⊢
+  @Op_funcd K E D FF
+  : τ (Hom (Functor_cart_cat (CoAt2_cat K) Cat_cart) (@Op_catd K E) (@Op_catd K D));
+
+// Cartesian evaluation's actual input excludes a noncommuting lax square.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (Hom (Functor_cart_cat A B) F G)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @fapp1_fapp0 _ _ (@Eval_func A B) (Struct_sigma F x) (Struct_sigma G y) (Struct_sigma U p)
+  ≡ @tapp1_fapp0 A B F G x y (@strict_transfor A B F G U) p;
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @fapp1_fapp0 _ _ (@Eval_func A B) (Struct_sigma F x) (Struct_sigma G y) (Struct_sigma epsilon p)
+  : τ (Hom B (fapp0 F x) (fapp0 G y));
+
+// Fixed ordinary whiskering retains arbitrary lax transformations. Observe
+// the whole functor before its stable point projections; no new eta is used.
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G)) ⊢
+  @fapp1_fapp0 (Functor_cat A B) (Functor_cat A B)
+    (@comp_cat_cov_func A B B (@id_func B)) F G epsilon ≡ epsilon;
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G)) ⊢
+  @fapp1_fapp0 (Functor_cat A B) (Functor_cat A B)
+    (@comp_cat_con_func A A B (@id_func A)) F G epsilon ≡ epsilon;
+
+// The full Cartesian parameter package has its different, explicit profile.
+assertnot [X Y Z : Cat] [G H : τ (Functor Y Z)] (epsilon : τ (Transf G H)) ⊢
+  @comp_cat_cov_func_func_transf X Y Z G H epsilon
+  : τ (Transf (@comp_cat_cov_cart_func X Y Z G) (@comp_cat_cov_cart_func X Y Z H));
+
+// The original fibrewise-product body computes through the new coefficient.
+symbol production_product_family [K : Cat] (E D : τ (Catd K)) : τ (Catd K)
+≔ @comp_cat_fapp0 K (Product_cat Cat_cart Cat_cart) Cat_cart
+    (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func) (Struct_sigma E D);
+assert [K : Cat] (E D : τ (Catd K)) (x : τ (Obj K)) ⊢
+  Fibre_cat (@production_product_family K E D) x
+  ≡ Product_cat (Fibre_cat E x) (Fibre_cat D x);
+assert [K : Cat] (E D : τ (Catd K)) [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @catd_transport_func K (@production_product_family K E D) x y p
+  ≡ @Product_map_func (Fibre_cat E x) (Fibre_cat E y) (Fibre_cat D x) (Fibre_cat D y)
+      (@catd_transport_func K E x y p) (@catd_transport_func K D x y p);
+
+// The Cartesian fibre profile must also provide its actual strict computation.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (Hom (Functor_cart_cat A B) F G)) [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @comp_fapp0 B _ _ _ (@fapp1_fapp0 A B G x y p)
+    (@tapp0_fapp0 A B F G x (@strict_transfor A B F G U))
+  ≡ @tapp1_fapp0 A B F G x y (@strict_transfor A B F G U) p;
+assertnot [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  [x y : τ (Obj A)] (p : τ (Hom A x y)) ⊢
+  @comp_fapp0 B _ _ _ (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x epsilon)
+  ≡ @tapp1_fapp0 A B F G x y epsilon p;

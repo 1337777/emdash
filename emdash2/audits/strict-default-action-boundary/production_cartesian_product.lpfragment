@@ -1,0 +1,21 @@
+// Product formation in the admitted coefficient. This is the same curried
+// construction as the public product, with Cartesian parameter categories.
+constant symbol Product_cat_coeff_func
+  : τ (Functor Cat_cart (Functor_cart_cat Cat_cart Cat_cart));
+injective symbol Product_cat_coeff_fapp0_func (A : Cat)
+  : τ (Functor Cat_cart Cat_cart);
+rule fapp0 Product_cat_coeff_func $A ↪ Product_cat_coeff_fapp0_func $A;
+rule fapp0 (Product_cat_coeff_fapp0_func $A) $B ↪ Product_cat $A $B;
+
+// Coordinate actions reuse the original product functors, with no new
+// object/arrow representation. Whole higher action is retained by the root.
+rule @fapp1_fapp0 _ _ (Product_cat_coeff_fapp0_func $A) $B $B' $G
+  ↪ @Product_map_func $A $A $B $B' (@id_func $A) $G;
+rule @tapp0_fapp0 Cat_cart Cat_cart _ _ $B
+      (@strict_transfor _ _ _ _
+        (@fapp1_fapp0 _ _ Product_cat_coeff_func $A $A' $F))
+  ↪ @Product_cat_fapp1_tapp0_func $A $A' $B $F;
+rule @tapp1_fapp0 Cat_cart Cat_cart _ _ $B $B'
+      (@strict_transfor _ _ _ _
+        (@fapp1_fapp0 _ _ Product_cat_coeff_func $A $A' $F)) $G
+  ↪ @Product_map_func $A $A' $B $B' $F $G;

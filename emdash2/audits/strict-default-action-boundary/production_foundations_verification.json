@@ -1,0 +1,699 @@
+{
+  "status": "Passing staged source prefix through section 8b; complete staged kernel still fails; not public promotion or completed Homd",
+  "extendsCheckpoint": "90d10b39ee906d6502fcb14c4731eda0c2a1aa4e",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "originalCoreSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "originalCoreLines": 22644,
+  "candidateCoreLines": 23127,
+  "originalNamedDeclarationSequenceVerified": true,
+  "originalCoreLineOrderVerified": false,
+  "originalDownstreamSectionsRetained": true,
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e",
+    "audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment": "f754d60461ff080b77844f38313953244e425ad28fc49e6e394ed114317a77d0",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/conventional_total_op_mapping.lpfragment": "af021c0bb56a5c6730ab5a2e56a387f4cd30fbb8102e36c70bd7f0bc35a6032f",
+    "audits/strict-default-action-boundary/cartesian_profile.lpfragment": "9baf7c78bdc42695ed2e715dd07185f17a957472f2cc7c0434cabd6314039976",
+    "audits/strict-default-action-boundary/conventional_total_op_transfors.lpfragment": "33842eafce8cfb5f84ac5c401ebaf52e8e128cb1d585311862f812925dd119d9",
+    "audits/strict-default-action-boundary/conventional_total_op_offdiagonal.lpfragment": "9431b15bfbedf363c3863a12d86f94b3afbadd04a265abe3fffce0444321eba9",
+    "audits/strict-default-action-boundary/production_cartesian_closure.lpfragment": "31f8d97603e9c9c8ac2922778e15e8c5efed3a268c8d1872820041940c2be8c9",
+    "audits/strict-default-action-boundary/production_cartesian_family_duality.lpfragment": "99b568615669de3d1925bda3057e9bfaeed203939f8c3d7db42005bc5770b4e2",
+    "audits/strict-default-action-boundary/conventional_total_op_whole_action.lpfragment": "202dc17fe192b57c7a7ce8a054d6bc5746027ffa41c5f9698455ae78ee006f0a",
+    "audits/strict-default-action-boundary/conventional_total_op_source_units.lpfragment": "79dbd611f959bade6d50676325ba69d9dd8ceb866f98f84bdf851a2915d3d9a9",
+    "audits/strict-default-action-boundary/production_cartesian_product.lpfragment": "b9fd844fe022921f356c2cb2a628806ef2f9364e44a2b89546073da14d11dfb5",
+    "audits/strict-default-action-boundary/production_owner_controls.lpfragment": "42ba40bf4884d0b9a18cd094ec7735de70b3f8d0c0e6ec9b3699ad164989aa2c",
+    "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+    "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/production_foundations_controls.lpfragment": "d3c768a592094fb5280d4395010d1b24fcb67f394f1f3765f931c54d68a67d0b",
+    "audits/strict-default-action-boundary/production_comma_equivalence.lpfragment": "7e70d4dfd77958a06f712dd0e668280efd4a16eb7e3db328030fa693309622ef",
+    "audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment": "956d22e530d20bf54ba5e58bdecfe37354c6743154280ffa0f6ce7be02067b9b",
+    "audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment": "5ebdccd39cd50e224bddb1bb559bd82f14596053102484c62d8e428e5b778344",
+    "audits/strict-default-action-boundary/production_owner_migration.py": "8b0a910261c44621916e3ffed00bbb1f35b1523962e63dde46c6dd0e5ac55528"
+  },
+  "currentOutputs": {
+    "tmp/probes/production_owner_migration/package/emdash3_2.lp": "d342bb26858229c8f741ad09098da1a4cfbbe698acc08756bd060e5837f908e2",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_profiles.lp": "0cfc35ef81eb2da61890ce96c4b64823ce7d94978b7e2f5699f1542a6b38e389",
+    "tmp/probes/production_owner_migration/package/foundations_prefix.lp": "03a4aae2a175b7b27c415aa34332449f8e4d382f4cc72a96c7c5aec67e4a2b42",
+    "tmp/probes/production_owner_migration/baseline_package/emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "tmp/probes/production_owner_migration/baseline_package/emdash3_2_gray_profiles.lp": "f670814a83a508bd8a77a4000c7ab04690bbfc25978d106bb1d761ce6723a69c"
+  },
+  "changedOwners": [
+    "/*\n  The former capped composition cut and detached all-components law are\n",
+    "/*\n  The former whole post/left and pre/right strict-functoriality accumulation\n",
+    "// The public whole laxity candidate is now an object projection, not an\n",
+    "// Whole post/left ordinary laxity.",
+    "// Path categories internalize HoTT equality as a groupoidal category.",
+    "// Terminal category and points-as-functors are needed to derive unary homs from",
+    "/*\n  Internal path-category action.",
+    "/*\n  The former whole post/left and pre/right strict-functoriality accumulation\n",
+    "// Controlled Obj-inversion for transformation categories.",
+    "rule Hom_cat (Functor_cat _ _) $F $G ↪ Transf_cat $F $G;",
+    "Catd_cat object classifier",
+    "Catd_cat whole classifier comparison",
+    "Catd_cat_func",
+    "Catd_catd_con",
+    "ordinary Hom owner block",
+    "Hom_tele_func",
+    "Functord and Transfd facade projections",
+    "hom_postcomp_tele_fapp1_fapp0 Cat specialization",
+    "hom_precomp_along_tele_fapp1_fapp0 Cat specialization",
+    "ordinary observations of canonical Hom transfors",
+    "displayed identity component",
+    "ordinary component observations of whole Hom",
+    "comp_cat_cov_func_func Cartesian profile",
+    "comp_cat_cov_func_func_fapp1_func Cartesian profile",
+    "comp_cat_cov_func_func_transf ordinary view",
+    "comp_cat_con_func_func Cartesian profile",
+    "comp_cat_con_func_func_fapp1_func Cartesian profile",
+    "comp_cat_con_func_func_transf ordinary view",
+    "op",
+    "op object action",
+    "op whole first Hom",
+    "Op_catd_func",
+    "Op_catd_func formation",
+    "Op_transf Cartesian mapping action",
+    "Op_transf whole ordinary observation",
+    "Op_transf capped ordinary observation",
+    "// Point component of Path_cat_func's second action.",
+    "Product_cat_fapp1_func",
+    "Product_cat_fapp1_fapp0_functord",
+    "Product_mapL_func_func",
+    "Op_adjunction",
+    "ordinary internal-action ladders",
+    "// Product homs compute componentwise.",
+    "Product_pair_tele_func",
+    "// Object projection ladder for the internalized product constructor.",
+    "// 7b. Evaluation and fixed-object evaluation",
+    "Cartesian evaluation ladder",
+    "curry_func_func",
+    "curry_func",
+    "uncurry_func_func",
+    "uncurry_func",
+    "existing uncurried product-formation consumers",
+    "family fibres, transport and pullback",
+    "constant and terminal admitted families",
+    "Op_catd and Op_funcd",
+    "displayed composition components",
+    "// Ordinary category identity cuts: g ∘ id ↪ g and id ∘ f ↪ f.",
+    "/*\n   Typed equality view of the generic strict identity cut.",
+    "fibrewise products",
+    "unprofiled compositor endpoint comparison",
+    "protected symbol comma_basechange_sigma_map_composition ",
+    "comma_basechange_observation_pre_points",
+    "comma_basechange_observation_basechange_equiv",
+    "comma_basechange_gamma_target_link_equiv",
+    "one_cat_composition_path"
+  ],
+  "baselinePrefixOrigin": {
+    "sourceReceipt": "logs/check-runs/20261015T110509Z-da4feae6bd4848d4b4dc5ffbfdf72185.json",
+    "coreSha256": "08b8d59aa3e4b489031c97bcc9bbb1c3a06357808a45f30f01ed852dd1cab411",
+    "cutBefore": "// 8c. Section categories and Pi action",
+    "assertionsAdded": false
+  },
+  "baselinePrefix": {
+    "path": "logs/check-runs/20261015T144107Z-a46fb8510cc941ce9b0892c2a1bbd1a3.json",
+    "sha256": "eb1381614ec204e2af9edaaa84cbbfa6db456d646884b7faa5b5e5b34c406eff",
+    "outcome": "passed-fresh",
+    "wallSeconds": 2.021415758994408,
+    "childrenMaxRssKiB": 170840,
+    "log": "logs/check-runs/20261015T144107Z-a46fb8510cc941ce9b0892c2a1bbd1a3.log",
+    "logSha256": "5434f542fef98bd9bbd14cae62dafe142fe5bbb235900c644e648b1a51821080",
+    "inputSnapshot": "30482d8dd3599c1d373f706d02f0a4a905bf85cfd622a7d92ae549bcb6ce9159",
+    "inputs": {
+      "baseline_foundations_prefix.lp": "09d85a29803b259c5a3b627dc1dd4aa4cb58b65a4d66734b0bc1976206d79fb6",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    }
+  },
+  "candidatePrefix": {
+    "path": "logs/check-runs/20261015T142838Z-9201288a2f2e470d901e7bff4a1af48b.json",
+    "sha256": "b35ad5ce5f05ac4845f657f9cf3fa57adf8867183bf503bd28281d4a1190b075",
+    "outcome": "passed-fresh",
+    "wallSeconds": 2.6821248109918088,
+    "childrenMaxRssKiB": 205504,
+    "log": "logs/check-runs/20261015T142838Z-9201288a2f2e470d901e7bff4a1af48b.log",
+    "logSha256": "811d44922747096b2d05cadb8dac64c9d91053dc2289c405cd6b8eb4c3744b85",
+    "inputSnapshot": "53e8c6cbf44fb06887fd9e6a30b69698fc9018c3e5b1ed205f8eae3ec0880b08",
+    "inputs": {
+      "foundations_prefix.lp": "03a4aae2a175b7b27c415aa34332449f8e4d382f4cc72a96c7c5aec67e4a2b42",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    }
+  },
+  "fullSourceFailure": {
+    "path": "logs/check-runs/20261015T144649Z-05dc3148819942359a70cfe7c2af2924.json",
+    "sha256": "4f56e867a41d718e0d6010e2ca5cc189b5d8cddef4e61e3126099fc00466e462",
+    "outcome": "failed",
+    "wallSeconds": 2.323637455003336,
+    "childrenMaxRssKiB": 210408,
+    "log": "logs/check-runs/20261015T144649Z-05dc3148819942359a70cfe7c2af2924.log",
+    "logSha256": "7aafbf7267be8b7720340b0e2a9f1b6c497d646fc2998c488599ee745fa666c7",
+    "inputSnapshot": "5c5756eb7012fcc8a8c6c40bd127a6fec15a8ca4bd24cb6a4b99ffa84ecfcdc2",
+    "inputs": {
+      "emdash3_2.lp": "d342bb26858229c8f741ad09098da1a4cfbbe698acc08756bd060e5837f908e2",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "owner": "Pi_int_funcd",
+    "location": "emdash3_2.lp:13413:9-13416:44",
+    "diagnosis": "Catd_cat_func is public-Cat-valued; the old Functord signature now expects an admitted Cart-valued meta-family. The full original tail is still present."
+  },
+  "controls": {
+    "positive": 14,
+    "negative": 8,
+    "scope": [
+      "Admitted family coefficient versus raw public-Cat family",
+      "Covariant and contravariant ordinary Hom leaves",
+      "General lax internal action in both direct ordinary ladders",
+      "Cartesian transpose versus general conventional-lax total opposite",
+      "Actual shifted family action on a noninvertible base two-cell",
+      "Cartesian evaluation admission and computation",
+      "Fixed ordinary whiskering versus full Cartesian parameter action",
+      "Original fibre-product body and its transport",
+      "Strict coefficient naturality without collapsing raw lax post action"
+    ]
+  },
+  "runtimeProfile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileLimitMiB": 64,
+    "subjectReduction": true,
+    "serialGuard": true,
+    "OCAMLRUNPARAM": "o=20",
+    "warnings": true,
+    "compiledObjects": false
+  },
+  "warnings": {
+    "criticalPairsBefore": 773,
+    "criticalPairsAfter": 1152,
+    "patternsBefore": 126,
+    "patternsAfter": 126,
+    "parserIssuesBefore": 0,
+    "parserIssuesAfter": 0,
+    "added": 555,
+    "removed": 176,
+    "addedBodiesSha256": "dafdebe9e7b0d9bd22f73b807692f9ee1cb00846ebc2701b2b5da12ea58bb8b2",
+    "removedBodiesSha256": "6fe56a8047b5e0ab21fa55d9e5754de969e337031bb73cca87237e8df13405c9",
+    "addedGroups": {
+      "CoAbove2_func × comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "41d9b50dc6de70853d653274fdee4e6171eeceec4e62ff5282bd54a6f11b5ef9"
+      },
+      "CoAt2_func × Pullback_catd": {
+        "count": 1,
+        "bodiesSha256": "b02f22e38e1aca7c0f8946a9d5e99bdde1a5af05e95af799c6bde00da187e168"
+      },
+      "CoAt2_func × comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "dc76b2fb9c2f3556d4fb68205815bf8266c119549da98f83275586578388bf7c"
+      },
+      "Functor_cart_cat × Obj": {
+        "count": 1,
+        "bodiesSha256": "ab2f30750de996f32ae8cf1d839371f48fc95c36f2326796f3a232d3dc6f8a93"
+      },
+      "Functor_cart_cat × Op_transf": {
+        "count": 2,
+        "bodiesSha256": "dcf0cc23deea2fc9d2f4009781030eae7fd82013873f9a8a021bbd4b0cc53734"
+      },
+      "Functor_cart_cat × comp_fapp0": {
+        "count": 2,
+        "bodiesSha256": "676da570d9c6bef697fef4530152420a9c1756a5ff7c3f47c95c3d5ff0acf912"
+      },
+      "Functor_cart_cat × strict_transfor": {
+        "count": 2,
+        "bodiesSha256": "e75b1902877df4786c3f777b5bedb0613d3de121ba513be3d3cb202f5e2b82d1"
+      },
+      "Functor_cat × TotalOp_transf": {
+        "count": 2,
+        "bodiesSha256": "d38d95d2ae93ec357108a82303c4a4c39c27eee7a988b50f1a6902091f513691"
+      },
+      "Functor_cat × comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "57e67848937fcfa6982d39c06aa48bc9d331ff354c4101ece99e2f07901a8b90"
+      },
+      "Hom_fapp0 × id": {
+        "count": 2,
+        "bodiesSha256": "77d7806f97fb87c9b6ecaef1b2e8e0f7ccc081f25dfafd801f66fc81c4e27c4a"
+      },
+      "Hom_func × id": {
+        "count": 2,
+        "bodiesSha256": "5a79f883b497f5a6d90214fd24b690fff6e6a649f9a5453b5839bcac97377fe0"
+      },
+      "Op_adjunction × Op_adjunction": {
+        "count": 1,
+        "bodiesSha256": "9bba6fc95bf9cfbbe35e15e1aaf0be293279e30d8e16703c712f7fc5da1dd1be"
+      },
+      "Op_adjunction × TotalOp_cat": {
+        "count": 2,
+        "bodiesSha256": "5a92e2f4bc54dac446a9862e1ab8014b559202e3985bf3b0532a1409667bb5c1"
+      },
+      "Op_adjunction × counit_adj_transf": {
+        "count": 1,
+        "bodiesSha256": "c1a4b520e59154e4d898b437fc3686fd0b18cd0a9b2fe130d4585a23228e96e7"
+      },
+      "Op_adjunction × unit_adj_transf": {
+        "count": 1,
+        "bodiesSha256": "ecfa7427613bfa309622ae6018901bd1e57fdcf39600481e785446c5002968d0"
+      },
+      "Op_catd × Op_catd": {
+        "count": 2,
+        "bodiesSha256": "4f64c3a9a7f1d580ccad71e512114a30f4bf0a2d7705384578b396716a728648"
+      },
+      "Op_func × comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "0350846e2eb12db11a47642121c96f51f239c0468b33f3b03e678d69a1befedd"
+      },
+      "Op_funcd × Op_funcd": {
+        "count": 3,
+        "bodiesSha256": "37483b036cd9bd6178f0c47c6b671bc1265d63736108384e884aaa5c09071fc0"
+      },
+      "Op_funcd × comp_fapp0": {
+        "count": 13,
+        "bodiesSha256": "d001be6286717b26b0788cc3912353504f34733169f63f47c67efbf921c65e84"
+      },
+      "Op_funcd × tapp0_fapp0": {
+        "count": 3,
+        "bodiesSha256": "0c152df56fc21256c4da392188b139ceb4a5d778d69d86a1b55b82ed0b43b83d"
+      },
+      "Op_funcd × tapp1_fapp0": {
+        "count": 3,
+        "bodiesSha256": "e25f2265a5c992ae5be82678259685dd0e24e6861e5042217a05994d50652ead"
+      },
+      "Op_funcd × tapp1_func": {
+        "count": 3,
+        "bodiesSha256": "98dd877de259e0b1dd5abb97ee24abdce4ab8dd9a98bef6ad54b2a11266f7c56"
+      },
+      "Op_transf × Op_transf": {
+        "count": 2,
+        "bodiesSha256": "db93b67987b418e9ca05f20ba8d46b768ecd5ef78e5006d5683d3d78d9093bd8"
+      },
+      "Op_transf × comp_fapp0": {
+        "count": 9,
+        "bodiesSha256": "24e018122e6e12da302bf3c101730a0e37d9b72da7a111203bb44832ca1f9077"
+      },
+      "Op_transf × tapp0_fapp0": {
+        "count": 3,
+        "bodiesSha256": "5b074f8e0a3b16a59b9a9c9ef9c8ce600ab0cefa06573571ae58ab16587057a0"
+      },
+      "Op_transf × tapp1_fapp0": {
+        "count": 3,
+        "bodiesSha256": "5b123d11f4d4437a259f482b33e23f6a43a5172698a9e6522a38d832ae47c80f"
+      },
+      "Op_transf × tapp1_func": {
+        "count": 3,
+        "bodiesSha256": "6ed613646978899eb07c154ca9517851d2c76aa7a1fb397035f35a764c9a723a"
+      },
+      "Pullback_catd × Pullback_catd": {
+        "count": 1,
+        "bodiesSha256": "253500875caa6eac2a29e62322447c354b13bac3b35971f05fd27830dcddead0"
+      },
+      "Pullback_catd × fapp0": {
+        "count": 1,
+        "bodiesSha256": "85e6e56d38c64785828e0fe063955d6a65f63825ba73986d85e4ddb7d69316f5"
+      },
+      "TotalOp_cat × counit_adj_transf": {
+        "count": 2,
+        "bodiesSha256": "6ef3d5d40b70c49469b76711e1327540eb30deab65307ad2d8d4d6f3d528014d"
+      },
+      "TotalOp_cat × unit_adj_transf": {
+        "count": 2,
+        "bodiesSha256": "af46542965b45d2cf39579d988f36762b06ac81c81aa63a26d4bc5c46248f7ce"
+      },
+      "TotalOp_transf × TotalOp_transf": {
+        "count": 3,
+        "bodiesSha256": "5cd0646efb959dffe4ab5f1d827a3f505a76cdffe35cab2b91d4a9818ca73ce2"
+      },
+      "TotalOp_transf × comp_fapp0": {
+        "count": 9,
+        "bodiesSha256": "c154dc7e9918b042ef7e59e3a37790d779d8569e196f4e6c6b2bae863f2ac276"
+      },
+      "comp_fapp0 × comp_fapp0": {
+        "count": 21,
+        "bodiesSha256": "466ab13e8d614d664111d2d1a20131ca743a3593f7d8d58a52dfd3d9dabe653f"
+      },
+      "comp_fapp0 × fapp1_fapp0": {
+        "count": 158,
+        "bodiesSha256": "4f2304df20b97ab8626e7fd082e5415a27718c962f566aa8d8e437ecd9431e71"
+      },
+      "comp_fapp0 × fapp1_func": {
+        "count": 3,
+        "bodiesSha256": "cc1ca5ff8ddd15f78e3e40d8deb06892afa54165ba4d28c8097c1c8bcd1b3a4e"
+      },
+      "comp_fapp0 × hom_postcomp_tele_fapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "528fb028f442f77152dafb6ad2eeb870a86fd2606a0033782174e9abb7d4ecd6"
+      },
+      "comp_fapp0 × hom_precomp_along_tele_fapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "9e04cd82ee4e86eeab3f3caf767cb4e135258ed2b34d1737d03b579b7a138d5a"
+      },
+      "comp_fapp0 × strict_transfor": {
+        "count": 7,
+        "bodiesSha256": "9d6394dbb8f57301f3ce4fba88c43d9382823f1d081e05129790cfcd962c1dd5"
+      },
+      "comp_fapp0 × tapp0_fapp0": {
+        "count": 21,
+        "bodiesSha256": "c61f4bc254e57d46739427359de287b8f5b778d08aee07fb067d31fa802db989"
+      },
+      "comp_fapp0 × tapp0_hom_fapp0": {
+        "count": 2,
+        "bodiesSha256": "7355a7edb8cccf38ef28f6ca8d14a82e4d9742ac4d55b1a2e8b35a81946a0dde"
+      },
+      "comp_fapp0 × tapp1_fapp0": {
+        "count": 5,
+        "bodiesSha256": "e81f9dd0dde9e6f10ff09faaf69fa2b125efffd4d6969302dcdc0ce6892867bf"
+      },
+      "fapp0 × fapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "d09e3af61bbe63c00bebed3a0cc08131ec9eee9fb104f0db314f13c8c3fc2c01"
+      },
+      "fapp0 × fapp1_func": {
+        "count": 6,
+        "bodiesSha256": "3317a5b53f5b021e4c344a5b2371432a5e7a22e419fbb5de3d673b71aaee9d4a"
+      },
+      "fapp0 × hom_con": {
+        "count": 2,
+        "bodiesSha256": "87d3122df0df64d78353529bf5ea128d3de06bf43aac7e41cd2846583fb5f233"
+      },
+      "fapp0 × sigma_Fst": {
+        "count": 10,
+        "bodiesSha256": "4c38786b66294ac552f1f453d7ef9ccc5d238934dd49699bf8ddbe5d1f637ba1"
+      },
+      "fapp0 × sigma_Snd": {
+        "count": 10,
+        "bodiesSha256": "1075a0790fa39b0f41c58a142cafa36c2a7c4dbe984e1a6f35d57f622d9b1cf3"
+      },
+      "fapp1_fapp0 × fapp1_fapp0": {
+        "count": 128,
+        "bodiesSha256": "5141412d2683fb6337a20fcdd41a2a14fc1697531fdca7068d8dfdb26bd44492"
+      },
+      "fapp1_fapp0 × hom_con": {
+        "count": 2,
+        "bodiesSha256": "905d085db78be1969dcfa10de5619bd2a2ad1baf532c2ecd66bf2af8288ef2cf"
+      },
+      "fapp1_fapp0 × hom_postcomp_fapp0": {
+        "count": 15,
+        "bodiesSha256": "b32578fc2f94b1a3c7724f1d2f0117c6b852afe8bc3c91ed9bd271b1402edd1a"
+      },
+      "fapp1_fapp0 × hom_precomp_along_fapp0": {
+        "count": 15,
+        "bodiesSha256": "8b7ae2628e945d730a60384abf6824e942b07b7a52cc84eaa306c7cf92622d09"
+      },
+      "fapp1_fapp0 × id": {
+        "count": 13,
+        "bodiesSha256": "1a3d70b51826dc8de3536a78908da6332e5e5329e9a8c54aecb2183b58cc1c58"
+      },
+      "fapp1_fapp0 × tapp0_hom_fapp0": {
+        "count": 6,
+        "bodiesSha256": "ed24b7acd09bbe42a2e66545e465cad98aa43487479cbef17d82704145fca24a"
+      },
+      "fapp1_func × hom_con": {
+        "count": 2,
+        "bodiesSha256": "7814e2fc46c755eb8c0af40dce8f973743ad62cc5017ad3052b9f49bfa08068e"
+      },
+      "hom_postcomp_fapp0 × hom_postcomp_fapp0": {
+        "count": 6,
+        "bodiesSha256": "2923b57e51d03e369601587803bc95311c41aa99ec997db2b60ab8a2e1f93fb7"
+      },
+      "hom_postcomp_fapp0 × id": {
+        "count": 3,
+        "bodiesSha256": "61c720c19c440114a5355f65e850297e0366c41e1d6d21ef4e69e3f9b29a6164"
+      },
+      "hom_postcomp_func × id": {
+        "count": 1,
+        "bodiesSha256": "07b9ecb516415ca662cf26221030b81a1b3efc020f359fdc8f48541cab850533"
+      },
+      "hom_postcomp_tele_fapp1_fapp0 × id": {
+        "count": 3,
+        "bodiesSha256": "b8ec19fcda8cd2b0e53bfe2ad2ff7778ef82987e4d7c8b6a2cfefc28269b78f5"
+      },
+      "hom_postcomp_tele_fapp1_fapp0 × strict_transfor": {
+        "count": 1,
+        "bodiesSha256": "a2d84e1024220fea9515c1a9677cef5dbfbffc059cfc51e6412205d8139792d6"
+      },
+      "hom_precomp_along_fapp0 × id": {
+        "count": 2,
+        "bodiesSha256": "7e96646c2ba8b7b3d525c817eca31191c85da5ab592a7db35cea1d7bc09e8d2d"
+      },
+      "hom_precomp_along_fapp1_fapp0 × id": {
+        "count": 1,
+        "bodiesSha256": "d2bffaf3d1844ff338652b0b42071ab3344e0a3382624e5708552ea72541a8fe"
+      },
+      "hom_precomp_along_func × id": {
+        "count": 1,
+        "bodiesSha256": "1542c3c114e2e5f7fca0de10c67f5dd0addf0578c8afd18807c3470b464b0466"
+      },
+      "hom_precomp_along_tele_fapp1_fapp0 × id": {
+        "count": 3,
+        "bodiesSha256": "af86b40ff0134a474892b5195346abd0ecdf9d327ff86fd03f42f3fb231cfb2c"
+      },
+      "hom_precomp_along_tele_fapp1_fapp0 × strict_transfor": {
+        "count": 1,
+        "bodiesSha256": "a306ab74d9cef7c1e2ad7254c8eab7d903e51f5d891ca634c0409995b3fd7b42"
+      },
+      "id × tapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "3d1b676fb046bb4724a4396cc42deea7ff257ecea1012416138cb8abc903af88"
+      },
+      "sigma_Fst × tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "9b51743399e29064d82df9bd4974ee386f5a431a0bce6f1eb76de0fa33ddf713"
+      },
+      "sigma_Fst × tapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "b25d398c58c1b7423b7a54f7545317726346914f24625697d8d854ffa5e96688"
+      },
+      "sigma_Fst × tapp1_func": {
+        "count": 1,
+        "bodiesSha256": "d6e0875f36b4428eee55fc725cbdcf93009c8b9c1edccbf5be5be87f7b7b88fe"
+      },
+      "sigma_Snd × tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "5c493791c97c280199c97cafa02a4af91d40fc9cc4b959f9ba3364ba801faf55"
+      },
+      "sigma_Snd × tapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "382f5a1bab0bd218b66ceb3eb9dd9bc36e09c9c56c4a18c34c66f91334f7c918"
+      },
+      "sigma_Snd × tapp1_func": {
+        "count": 1,
+        "bodiesSha256": "f56c200a817c659509abde0f48de555c10a81d87d8a6ab5864f6933aa630820f"
+      },
+      "tapp1_fapp0 × tapp1_fapp0": {
+        "count": 4,
+        "bodiesSha256": "5379ad738a7b77cd770bb521759348d91a1be77617d37e9c019a6c9fd0d64f9d"
+      }
+    },
+    "removedGroups": {
+      "Functor_cat × Op_transf": {
+        "count": 2,
+        "bodiesSha256": "0c0cd9b9d53b08a43737963a82d7e1d498b5f5ded8ce078f5be585c96cd78926"
+      },
+      "Op_adjunction × Op_adjunction": {
+        "count": 1,
+        "bodiesSha256": "cc50b062214dc5cae868356d3b5b049dcb94529ee8064061020b6ed6868e6202"
+      },
+      "Op_adjunction × Op_cat": {
+        "count": 8,
+        "bodiesSha256": "b176216a0e5f1649ee09cc0a0d6a03b209b03da09b1208518fbaf3cff4ea0cba"
+      },
+      "Op_adjunction × counit_adj_transf": {
+        "count": 1,
+        "bodiesSha256": "679c1528d6665d476716cde21dcdcff2da9d8eac60afe2de6727bbcd262dd988"
+      },
+      "Op_adjunction × unit_adj_transf": {
+        "count": 1,
+        "bodiesSha256": "cec77d5e324eb1fe4f8b26ae862df8b623a786371a3531c7eeac4d6ac035d4fb"
+      },
+      "Op_cat × counit_adj_transf": {
+        "count": 8,
+        "bodiesSha256": "fde1d6162f48f85fd0293f83a029f5d122024abd1c23e0d563486a5ef989bd21"
+      },
+      "Op_cat × unit_adj_transf": {
+        "count": 8,
+        "bodiesSha256": "dc615b4fa993811426688340e8f24769af674ae66641995d1db420b568f31b59"
+      },
+      "Op_catd × Op_funcd": {
+        "count": 4,
+        "bodiesSha256": "610fdd8b8c91e269b22ba4ced690c04f1d39f485e64953a460f57b41cb1bf5df"
+      },
+      "Op_transf × Op_transf": {
+        "count": 2,
+        "bodiesSha256": "e04117f7494189d685cf633faeabee62e8faa55b47fd00a888bf84c28d73a504"
+      },
+      "Op_transf × comp_fapp0": {
+        "count": 9,
+        "bodiesSha256": "70ce8697483cd1257e4910f56de55024fe29be4fb16c03e512f6298a7d74cf56"
+      },
+      "Pullback_catd × Pullback_catd": {
+        "count": 2,
+        "bodiesSha256": "ec8ea0c94b41f3e7fb5caf6ec117a0791a87e840399ea8d03ec846645278cb90"
+      },
+      "Pullback_catd × fapp0": {
+        "count": 1,
+        "bodiesSha256": "740e0ade7bd220b9a38668b25c1924e1712b09a5f8ba2f55e28d317e91a4ff30"
+      },
+      "comp_fapp0 × comp_fapp0": {
+        "count": 8,
+        "bodiesSha256": "c2bc211443d77d584ff5c039a0164192df1a8c229f42ef5b19ce519dd4ea220c"
+      },
+      "comp_fapp0 × fapp0": {
+        "count": 1,
+        "bodiesSha256": "351baba4f1092645cd699d0a104b204bde484fe0665cb3a443fa3a6548166c2a"
+      },
+      "comp_fapp0 × fapp1_fapp0": {
+        "count": 29,
+        "bodiesSha256": "c2f3e9619c3dc76e989626516d966daa8f700a6376690ca72d6db3d7bfb58cbe"
+      },
+      "comp_fapp0 × hom_postcomp_tele_fapp1_fapp0": {
+        "count": 4,
+        "bodiesSha256": "31820ee0f25c186f5d069f88e8e2ac53767ac17186a630c9e0f15967fc06c001"
+      },
+      "comp_fapp0 × hom_precomp_along_tele_fapp1_fapp0": {
+        "count": 4,
+        "bodiesSha256": "5692e45fc89184996996adffd87355368fb6fbaca50b48cebf0b6538d0872905"
+      },
+      "comp_fapp0 × tapp0_fapp0": {
+        "count": 14,
+        "bodiesSha256": "fcc59d7f5f7d8109b8a4644e47d374bc4724750cf5898683662aed7973111f7f"
+      },
+      "comp_fapp0 × tapp0_hom_fapp0": {
+        "count": 2,
+        "bodiesSha256": "260a76045501fc43216c1930803dfefa646d1ef053432502071476da92614e28"
+      },
+      "comp_fapp0 × tapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "ac30a5cff78f13bebba1ba2ac7c2bb45ed15fca276cbd2134f5ef3ef28ce6bc1"
+      },
+      "fapp0 × fapp1_func": {
+        "count": 3,
+        "bodiesSha256": "b864fae27756a6d6da8e208086d8fbe5fbe66f6bf478484beb8a40c579ea8b13"
+      },
+      "fapp0 × hom_con": {
+        "count": 2,
+        "bodiesSha256": "178d970753296015cc3cf873f555cb9bdfdcf861286f2a97c0d682cb8928153d"
+      },
+      "fapp0 × hom_postcomp_func": {
+        "count": 1,
+        "bodiesSha256": "24176fff985242ba29ff38a59264b160594c74cda3ba4d6b5576a42b20fc0f49"
+      },
+      "fapp0 × sigma_Fst": {
+        "count": 3,
+        "bodiesSha256": "3363512f8312544eaf104fc7138ce43781b501c72ace1d068a245f49ff000f58"
+      },
+      "fapp0 × sigma_Snd": {
+        "count": 3,
+        "bodiesSha256": "3fd64b7ea308464b7dc34e7b0b8a9d7c8c0802fc0a65c9f38b42cfe71cfd98cf"
+      },
+      "fapp0 × tapp1_func": {
+        "count": 1,
+        "bodiesSha256": "71bb08366c45817f877df9a917e0e65fa7eb4e1709ec565a543d4ff11d1586db"
+      },
+      "fapp1_fapp0 × fapp1_fapp0": {
+        "count": 19,
+        "bodiesSha256": "c74fcf97dca8919ec15acc129d82c5f57f983f99a6e6fb08512be96683f4962c"
+      },
+      "fapp1_fapp0 × hom_con": {
+        "count": 2,
+        "bodiesSha256": "519af6d7199d0ad93e006cf21a2144fde395465df970751eaba6d02582b9e527"
+      },
+      "fapp1_fapp0 × hom_postcomp_fapp0": {
+        "count": 8,
+        "bodiesSha256": "56859b8d27456dce1ab37948433733265aa1bb3122df804b1c2e19d37901e1c4"
+      },
+      "fapp1_fapp0 × hom_postcomp_func": {
+        "count": 1,
+        "bodiesSha256": "8f649c35e609e746dacd688e4ab8f183c8e461b888065d514588547b09036f8e"
+      },
+      "fapp1_fapp0 × hom_precomp_along_fapp0": {
+        "count": 7,
+        "bodiesSha256": "136f2f44699f6312737726cae683c40bc5434895941b8ae1705eb0f818164fde"
+      },
+      "fapp1_func × hom_con": {
+        "count": 2,
+        "bodiesSha256": "c7b90d9fb21fff367d73d9179170b32743b7d61e48af26144180d47a9cd70254"
+      },
+      "fapp1_func × hom_postcomp_func": {
+        "count": 1,
+        "bodiesSha256": "89eff9f7644e85658cb76f4639a0e6b5dff93f1c0de34c2a19c4cab6c8acc3b1"
+      },
+      "hom_postcomp_tele_fapp1_fapp0 × hom_postcomp_tele_fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "c3a612ae57c05210a00784f40decb380df2db5c79f4cbc29ca922f42536f1a59"
+      },
+      "hom_postcomp_tele_fapp1_fapp0 × id": {
+        "count": 3,
+        "bodiesSha256": "9ec5a690b9dd50967fdb1e5c5e6fc517ed7c6f528e70974ce4ec311601b24223"
+      },
+      "hom_precomp_along_tele_fapp1_fapp0 × hom_precomp_along_tele_fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "3fe6f2feb95ec695081d08b2838589097a5c2eee9686b712daaabdc38e5c72f5"
+      },
+      "hom_precomp_along_tele_fapp1_fapp0 × id": {
+        "count": 3,
+        "bodiesSha256": "c9a45b8589d5f2c05edda51182fbe7c4b0a2e0d270f9fa0fdebdbb3aa158eaac"
+      },
+      "sigma_Fst × tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "6cd2bb1bb6b49d1cc8618af390eb455e4ee7732589913c05468b017d67939df7"
+      },
+      "sigma_Fst × tapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "b21b3a7cb6ca6f4162e394e7ca001dc19600da5998981467d8d845930d996c11"
+      },
+      "sigma_Snd × tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "5e995bdcc9808cffbfa4f3c3b0c205ba600822d9b6b0305fe1a10233f9cf4358"
+      },
+      "sigma_Snd × tapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "a47b14db74a38246e75104e3c6fc916da327ce51cfd96f8560534ece235645e3"
+      },
+      "tapp1_fapp0 × tapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "c848db9b07e5325b4515c8a9a41fe7abe1b1549da05bb024f4c3f79e4cd0a2e0"
+      }
+    },
+    "review": [
+      "Ordinary Hom and inclusion overlaps change with the selected Cartesian mapping profile; ordinary observations retain their existing heads.",
+      "Cartesian transpose and shifted-family rules replace the former raw/same-base clauses. Total reversal has separate conventional-lax action and uses the post boundary.",
+      "Moving the original whole functor and strict-transfor post rules earlier exposes their identity, composition, inclusion and component overlaps at the required consumers.",
+      "Product/evaluation overlaps use actual Cartesian inputs; raw lax input rejection and preserved fixed-whiskering controls pass.",
+      "The total-opposite adjunction overlaps are recorded, not qualified as a complete triangle/profile result. Generic joint-action and remaining whole higher interactions require later consumer qualification."
+    ],
+    "qualification": "Diagnostic body multiset comparison and bounded controls, not a confluence certificate. No general repair of all 1152 diagnostics is claimed."
+  },
+  "lhsAudit": {
+    "prefix": {
+      "unreviewedSlots": 0,
+      "annotatedSlots": 30,
+      "intentionalClauses": 21
+    },
+    "fullSource": {
+      "unreviewedSlots": 0,
+      "annotatedSlots": 70,
+      "intentionalClauses": 45
+    }
+  },
+  "rejectedChanges": [
+    {
+      "receipt": "logs/check-runs/20261015T142404Z-c654b8d530f34fc6abce6d3eb3e20701.json",
+      "observation": "An already-capped fixed-whiskering identity did not normalize. The retained control observes the original whole functor before its stable point projections; no extra normalization or eta rule was added."
+    }
+  ],
+  "requiredNext": [
+    "Resolve varying-base Pi and admitted meta-family typing using the existing owners",
+    "Integrate the selected Q identity-Homd root, direct telescope, corrected Sigma-Hom and relative general-FF action",
+    "Qualify remaining whole duality/adjunction and Cartesian closure consumer interactions",
+    "Migrate downstream consumers, retire redundant wrappers and complete public catalog/health/CI gates"
+  ],
+  "promotionBoundary": "Non-library authoring checkpoint only. The passing prefix does not import the unchanged tail. The full source, original reviewers and public Homd milestone are not green for this snapshot. No public source was overwritten."
+}

@@ -38,6 +38,70 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Coupled family/Hom source checkpoint, 2026-10-15, after `90d10b39`: the
+[source recipe](../emdash2/audits/strict-default-action-boundary/production_owner_migration.py)
+now has a passing prefix through section 8b, before section categories and
+Pi. The [verification record](../emdash2/audits/strict-default-action-boundary/production_foundations_verification.json)
+pins that boundary and the current full-file failure separately. No public
+source is replaced by this checkpoint; the full migration remains incomplete.
+
+The checked source uses `Catd_cat(K) = Functor_cat(K,Cat_cart)` at the existing
+object/facade owners, with Functord and Transfd retaining default lax
+transformations across K. Canonical ordinary Hom and its existing covariant
+and contravariant action owners use Cartesian higher mapping categories.
+Their ordinary observations use the whole inclusion; the general lax
+internal-action ladders use defined ordinary views of the same Hom roots.
+No new parallel functor-action API or global strictness of FF is introduced.
+
+The prefix also includes the corrected shifted family transpose, the
+separate total-opposite action on general conventional-lax transfors,
+Cartesian evaluation/currying, and the original fibrewise-product body with
+the new coefficient. Fixed ordinary pre/postwhiskering retains lax inputs;
+the whole Cartesian parameter packages explicitly require Cartesian mapping
+categories. Existing downstream consumers of those stronger packages still
+need migration. The original strict-transfor ordinary post rules have moved
+to their core consumer; late intrinsic admission/property machinery remains
+in the profile module. The `Op_adjunction` legacy name currently uses total
+reversal to retain its declared lax unit/counit inputs. Its triangle and
+whole-profile compatibility remain unqualified, despite passing prefix typing.
+
+Focused prefix receipt `20261015T142838Z-9201288a2f2e470d901e7bff4a1af48b`
+passes in 2.682s with 205,504KiB maximum child RSS, subject reduction and the
+default 90s/2GiB limits. Controls include the ordinary Hom leaves, general
+lax internal action, a noninvertible base two-cell through the actual shifted
+family action, Cartesian evaluation admission, fixed lax whiskering and
+fibre-product transport. An initially failing already-capped whiskering
+identity diagnostic was corrected to observe the whole functor before its
+stable projections; no optional normalization rule was added.
+
+The exact predecessor prefix from `90d10b39` passes in receipt
+`20261015T144107Z-a46fb8510cc941ce9b0892c2a1bbd1a3`. Prefix warnings change
+773->1152 critical-pair diagnostics (555 added, 176 removed); replaceable
+patterns remain 126 and both logs parse without warning-parser issues.
+The record groups the changed overlap bodies by owner. The inferred-slot
+audit reports zero unreviewed slots in both prefix and full emitted source.
+These are bounded interaction observations, not confluence or full semantic
+qualification; whole duality/adjunction and remaining generic joint-action
+interactions still need their actual downstream consumers.
+
+Full-source receipt `20261015T144649Z-05dc3148819942359a70cfe7c2af2924`
+fails at `Pi_int_funcd`, in the original varying-base Pi interface. In
+particular `Catd_cat_func` still returns a public-Cat-valued family of
+categories with lax diagram maps; it cannot silently be used as an admitted
+Cart-valued meta-family. `Catd_catd_con` provisionally exposes that actual raw
+result instead of asserting the missing lift. Next resolve those whole
+meta-family/section signatures, then integrate the selected Q/Homd/Sigma
+owners and general lax FF. Do not delete the consumers, silently make FF
+strict, or introduce a new unrelated section theory to bypass the mismatch.
+
+All original named nucleus declarations remain in order in the 23,127-line
+emitted source, with no original tail omitted. The manifest records 65 owner
+changes; type/body replacement is now necessary, so preservation of every
+original line is no longer claimed. Earlier full-reviewer receipts below
+belong to their original checkpoints, not this newer incomplete full file.
+Prototype Homd computation remains useful evidence, not a completed public
+Homd milestone or a guarantee of end-to-end feasibility.
+
 Conventional-lax full-source continuation, 2026-10-15: the production recipe
 now installs the selected pre/right whole and capped action, its existing
 intrinsically extracted identity cell, and the checked proof-time readings.

@@ -1,0 +1,74 @@
+// Fibrewise dimension-one transpose changes the base by CoAt2.
+injective symbol Op_catd [K : Cat] (E : τ (Catd K))
+  : τ (Catd (CoAt2_cat K));
+rule @fapp0 _ _ (@Op_catd_func $K) $E ↪ @Op_catd $K $E;
+// Form the same shifted family by actual coefficient postcomposition.
+rule @comp_fapp0 Cat_cat _ _ _ op (@CoAt2_func $K Cat_cart $E)
+  ↪ @Op_catd $K $E;
+rule @Pullback_catd _ (CoAt2_cat Cat_cart) op (@CoAt2_func $K Cat_cart $E)
+  ↪ @Op_catd $K $E;
+
+// Reindexing comparisons retain their two original runtime presentations.
+unif_rule @Op_catd $A (@comp_fapp0 Cat_cat _ _ Cat_cart $E $F)
+  ≡ @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $B) $Eop (@CoAt2_func $A $B $F)
+  ↪ [ $Eop ≡ @Op_catd $B $E ];
+unif_rule @Op_catd $A
+    (@comp_fapp0 Cat_cat $A $B Cat_cart
+      (@comp_fapp0 Cat_cat $B $C Cat_cart $E $F) $G)
+  ≡ @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $C) $Eop
+      (@CoAt2_func $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G))
+  ↪ [ $Eop ≡ @Op_catd $C $E ];
+
+rule @fapp0 _ Cat_cart (@Op_catd $K $E) $x
+  ↪ Op_cat (@fapp0 $K Cat_cart $E $x);
+rule @fapp1_func _ Cat_cart (@Op_catd $K $E) $x $y
+  ↪ @comp_cat_fapp0
+      (Op_cat (Hom_cat $K $x $y))
+      (Op_cat (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $E $y)))
+      (Functor_cart_cat (Op_cat (Fibre_cat $E $x)) (Op_cat (Fibre_cat $E $y)))
+      (Op_func_func (Fibre_cat $E $x) (Fibre_cat $E $y))
+      (@Op_func (Hom_cat $K $x $y)
+        (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $E $y))
+        (@fapp1_func $K Cat_cart $E $x $y));
+rule @fapp1_fapp0 _ Cat_cart (@Op_catd $K $E) $x $y $p
+  ↪ @Op_func (Fibre_cat $E $x) (Fibre_cat $E $y)
+      (@fapp1_fapp0 $K Cat_cart $E $x $y $p);
+rule @Op_catd _ (@Op_catd $K $E) ↪ $E;
+rule @Op_catd $K (@Const_catd $K $A)
+  ↪ @Const_catd (CoAt2_cat $K) (Op_cat $A);
+
+// Parameter action is on Cartesian diagram maps. This is not an admission
+// of a general lax FF to the same-profile fibrewise transpose.
+injective symbol Op_funcd [K : Cat] [E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  : τ (Hom (Functor_cart_cat (CoAt2_cat K) Cat_cart)
+      (@Op_catd K E) (@Op_catd K D));
+rule @fapp1_fapp0 _ _ (@Op_catd_func $K) $E $D $U
+  ↪ @Op_funcd $K $E $D $U;
+rule @Op_funcd _ _ _ (@Op_funcd $K $E $D $U) ↪ $U;
+rule @Op_funcd $K $E $E (@id (Functor_cart_cat $K Cat_cart) $E)
+  ↪ @id (Functor_cart_cat (CoAt2_cat $K) Cat_cart) (@Op_catd $K $E);
+rule @Op_funcd $K $E $G
+      (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $G $V $U)
+  ↪ @comp_fapp0 (Functor_cart_cat (CoAt2_cat $K) Cat_cart)
+      (@Op_catd $K $E) (@Op_catd $K $D) (@Op_catd $K $G)
+      (@Op_funcd $K $D $G $V) (@Op_funcd $K $E $D $U);
+
+// Ordinary observations use the same whole inclusion as other Cart maps.
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _ (@Op_funcd $K $E $D $U))
+  ↪ @Op_func (Fibre_cat $E $x) (Fibre_cat $D $x)
+      (@tapp0_fapp0 $K Cat_cart $E $D $x (@strict_transfor $K Cat_cart $E $D $U));
+rule @tapp1_func _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@Op_funcd $K $E $D $U))
+  ↪ @comp_cat_fapp0
+      (Op_cat (Hom_cat $K $x $y))
+      (Op_cat (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $D $y)))
+      (Functor_cart_cat (Op_cat (Fibre_cat $E $x)) (Op_cat (Fibre_cat $D $y)))
+      (Op_func_func (Fibre_cat $E $x) (Fibre_cat $D $y))
+      (@Op_func _ _ (@tapp1_func $K Cat_cart $E $D $x $y
+        (@strict_transfor $K Cat_cart $E $D $U)));
+rule @tapp1_fapp0 _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@Op_funcd $K $E $D $U)) $p
+  ↪ @Op_func (Fibre_cat $E $x) (Fibre_cat $D $y)
+      (@tapp1_fapp0 $K Cat_cart $E $D $x $y (@strict_transfor $K Cat_cart $E $D $U) $p);

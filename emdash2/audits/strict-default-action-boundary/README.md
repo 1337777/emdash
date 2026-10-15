@@ -5,6 +5,43 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Coupled family/Hom source prefix, 2026-10-15
+
+The current [production recipe](production_owner_migration.py) changes the
+original family/Hom, duality and Cartesian closure owners together. Its
+prefix through section 8b passes the [focused controls](production_foundations_controls.lpfragment).
+The [verification record](production_foundations_verification.json) pins
+the exact prefix, predecessor warning comparison and full-source failure.
+The full emitted kernel currently fails at the varying-base `Pi_int_funcd`;
+the earlier passing reviewer receipts below are historical, not current.
+Public sources and the completed Homd milestone are not claimed by this
+non-library checkpoint.
+
+Replay this boundary from `emdash2`:
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package foundations_prefix.lp
+```
+
+The recipe also emits the complete original-source migration. Checking its
+`emdash3_2.lp` currently fails as recorded; no tail has been removed. Every
+original named declaration remains in order, while necessary type/body
+replacements are recorded by owner rather than described as insert-only.
+The baseline warning prefix was cut before section 8c from the exact
+`90d10b39` source input blob named in the verification record. Generated LP,
+logs and source blobs remain ignored.
+
+The prefix retains ordinary lax transformations, with Cartesian profiles
+only at the selected coefficient and joint Cartesian operations. It checks
+shifted-family higher action and excludes raw lax input from same-profile
+transpose/evaluation. Higher coefficient and adjunction coherence, varying-
+base Pi, Q/Homd/Sigma integration, general-FF intrinsic action and downstream
+qualification remain open. Continue with the existing varying-base section
+owners; optional alternative foundational designs stay deferred.
+
 ## Conventional-lax production-source continuation, 2026-10-15
 
 The same [production recipe](production_owner_migration.py) now includes
@@ -17,7 +54,7 @@ repairs the actual original pathout consumer. The comma proof retains its
 forward maps and now carries the actual inverse evidence through its
 [base-change composition](production_comma_basechange_equivalence.lpfragment).
 
-Replay uses the package-local commands below. This extends `f691a846`; its
+At checkpoint `90d10b39`, replay used the package-local commands below. This extends `f691a846`; its
 earlier record remains pinned historical evidence. The old whole-opposite,
 family/Homd/Sigma and joint Cartesian signatures still require their coupled
 migration. Passing these source checks does not qualify those old contracts.
@@ -41,7 +78,9 @@ definitions through existing operations, with no new rewrite/unification
 rules or stricter FF admission. Alternative Sigma-map normalization rules
 were rejected and are absent. Optional improvements remain deferred.
 
-Use the package-local runner so receipts inventory the staged imports:
+The earlier full-source checkpoints used these package-local checks. On the
+current recipe they encounter the recorded incomplete source migration;
+use the prefix command above for its currently passing boundary:
 
 ```bash
 python3 audits/strict-default-action-boundary/production_owner_migration.py
