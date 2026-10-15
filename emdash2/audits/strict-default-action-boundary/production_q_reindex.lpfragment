@@ -1,0 +1,33 @@
+// Whole right-represented Q composition is ordinary source reindexing.
+// P(C) retains its directed index maps; only the outer fibre variable is
+// Cartesian. This does not specify left-conjoint evaluation of arbitrary P.
+// lhs-audit: keep 1,2,3 -- identity-family Q precomposition at a represented right input.
+rule @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $C $A $B
+      (@comp_fapp0 Cat_cat _ _ _
+        (@Homd_coeff_conjoint $B $B (@id Cat_cat $B)) $F)
+  ↪ @comp_cat_con_cart_func $A $B (Homd_index_cat $C) $F;
+
+// The existing represented unit/constant objects may already have projected.
+// lhs-audit: keep 1,2,3 -- Q represented unit after its canonical object fold.
+rule @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $C $A $A (@Homd_coeff_conjoint $A $A (@id Cat_cat $A))
+  ↪ @id_func (Functor_cart_cat $A (Homd_index_cat $C));
+// lhs-audit: keep 1,2,3 -- Q represented constant after its canonical object fold.
+rule @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $C $A $B
+      (@Const_func _ _ (@Op_func _ _ (@hom_con $B $b $B (@id Cat_cat $B))))
+  ↪ @comp_cat_con_cart_func $A $B (Homd_index_cat $C) (@Const_func $A $B $b);
+
+// Proof-time whole comparison with F varying in Cart(A,B). Keep the
+// existing Q action as runtime owner: eagerly replacing this composite
+// before its inferred intermediate types normalize breaks its capped
+// Homd projection. The comparison checks the actual P and every endpoint;
+// it is not an operational equality argument or an arbitrary inclusion.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+        $A $B $C $P)
+      (@hom_postcomp_func Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+        $A $B _ (@Homd_coeff_conjoint $B $B (@id Cat_cat $B)))
+  ≡ @hom_postcomp_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) $A0 $B0 $C0 $P0
+  ↪ [ $A ≡ $A0; $B ≡ $B0; Homd_index_cat $C ≡ $C0; $P ≡ $P0 ];

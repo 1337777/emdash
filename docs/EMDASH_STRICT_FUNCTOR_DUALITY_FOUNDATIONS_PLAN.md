@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: staged source through section 16e checks, including general modification projections and actual constant-section F[alpha] computation; late evaluation profiles, consumed Q coherence and public/downstream migration remain open
+Status: staged source through section 17b checks, including section-first general Pi evaluation, whole right-represented reindexing, Homd/intrinsic and F[alpha] computations; remaining Q coherence and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,40 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Evaluation/reindexing continuation after `7dcc1919`, 2026-10-15: the
+[review](../emdash2/audits/strict-default-action-boundary/production_evaluation_reindex_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_evaluation_reindex_verification.json)
+record the migration through section 17b. General Pi evaluation now keeps
+every lax section in section-first order, as the actual Pi-to-Functord
+identity view. The old k-first
+`Functord(const(Pi(E)),E)` would demand strict naturality in the section
+variable. Merely forgetting to ordinary Cat does not repair it: default
+lax naturality of evaluation at p has the opposite direction to the
+retained naturality of a section morphism. The finite strict 2-category
+model checks this distinction. The replacement is a defined identity on
+Pi(E), with no new constructor: its next-Hom action, original point value
+and constant-section F_1 action check. The old stronger type is rejected.
+This changes the evaluation argument order; it does not construct that
+old transformation or impose strictness on section maps.
+
+For Q, fixed right-represented composition is now the whole Cartesian
+source-reindexing functor, retaining arbitrary directed inner-index maps.
+The varying-representation comparison checks at proof time with the actual
+coefficient and endpoints. An eager runtime fold broke the inherited Homd
+leaf by retaining the wrong intermediate tag, so the original Q action
+remains its runtime owner. No general left-conjoint evaluation or arbitrary
+Cartesian profunctor model follows from this bounded qualification.
+
+The existing Const_func_func has its canonical Cartesian parameter type
+and is relocated before the product-pair telescope; const_section_func
+keeps its larger lax section target. Sigma introduction and terminal
+weakening retain their original owners with corrected coefficient tags.
+The full source now stops at the displayed-weakening component's old
+coefficient in section 17c. Continue those structural owners and qualify
+the actual mixed coherence of composed general-FF intrinsic actions before
+claiming the full Q/Homd foundation complete. Public/downstream and final
+validation gates remain required.
 
 Section-action continuation after `95d73ac6`, 2026-10-15: the original Pi
 action now uses O(Hom_K(x,y)) with total-dual Homd fibres, and section

@@ -1,0 +1,22 @@
+// Ordinary constant maps have strict parameter naturality. This does not
+// restrict the objects or higher maps of the larger lax section category.
+assert [A B : Cat] ⊢
+  @Const_func_func A B : τ (Functor B (Functor_cart_cat A B));
+assert [A B : Cat] (b : τ (Obj B)) ⊢
+  fapp0 (@Const_func_func A B) b ≡ @Const_func A B b;
+assert [A B : Cat] (b c : τ (Obj B)) ⊢
+  @fapp1_func B (Functor_cart_cat A B) (@Const_func_func A B) b c
+  ≡ @Const_transf_func A B b c;
+assert [A B : Cat] (b c : τ (Obj B)) (h : τ (Hom B b c)) ⊢
+  @fapp1_fapp0 B (Functor_cart_cat A B) (@Const_func_func A B) b c h
+  ≡ @Const_transf A B b c h;
+
+// The product telescope uses this exact owner, not the lax section classifier.
+assert [A B : Cat] ⊢
+  sigma_Fst (@Product_pair_tele_func A B) ≡ @Const_func_func B A;
+assert [A B : Cat] (a a' : τ (Obj A)) (h : τ (Hom A a a')) ⊢
+  sigma_Fst (@fapp1_fapp0 A (Functor_cart_cat B (Product_cat A B))
+    (@Product_pair_tele_func A B) a a' h)
+  ≡ @Const_transf B A a a' h;
+assert [K A : Cat] (a : τ (Obj A)) ⊢
+  fapp0 (@const_section_func K A) a ≡ fapp0 (@Const_func_func K A) a;

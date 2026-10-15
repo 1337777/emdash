@@ -1,0 +1,42 @@
+// The original total introduction and terminal weakening keep their values.
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E k))) ⊢
+  fapp0 (@tapp0_fapp0 K Cat_cart E (@Const_catd K (Sigma_cat E))
+    k (@sigma_intro_transf K E)) u
+  ≡ @Struct_sigma (Obj K) (λ kk : τ (Obj K), Obj (Fibre_cat E kk)) k u;
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cart E (@Const_catd K Terminal_cat)
+    k (@Terminal_funcd K E) ≡ Terminal_func (Fibre_cat E k);
+
+// Evaluation is the whole Pi-to-section view, not pointwise supplied data.
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @pi_eval_transf K E
+  : τ (Functor (Pi_cat E) (@Functord_cat K (@Const_catd K Terminal_cat) E));
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E))) ⊢
+  fapp0 (@pi_eval_transf K E) s ≡ s;
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (k : τ (Obj K)) ⊢
+  fapp0 (@tapp0_fapp0 K Cat_cart (@Const_catd K Terminal_cat) E k
+    (fapp0 (@pi_eval_transf K E) s)) Terminal_obj
+  ≡ @piapp0 K E s k;
+
+// The functor identity view preserves the entire next Hom and its cells.
+assert [K : Cat] (E : τ (Catd K)) (s t : τ (Obj (Pi_cat E))) ⊢
+  @fapp1_func (Pi_cat E) (Pi_cat E)
+    (@pi_eval_transf K E) s t
+  ≡ @id_func (@Transfd_cat K (@Const_catd K Terminal_cat) E s t);
+assert [K : Cat] (E : τ (Catd K)) (s t : τ (Obj (Pi_cat E)))
+  (eta : τ (Hom (Pi_cat E) s t)) ⊢
+  @fapp1_fapp0 (Pi_cat E) (Pi_cat E)
+    (@pi_eval_transf K E) s t eta ≡ eta;
+
+// This is not the former stronger k-first displayed transformation.
+assertnot [K : Cat] (E : τ (Catd K)) ⊢
+  @pi_eval_transf K E : τ (Functord (@Const_catd K (Pi_cat E)) E);
+
+// A constant family admits every ordinary strict F, not only constant or
+// strictly natural sections. Its existing noninvertible index action survives.
+assert [K B : Cat] (F : τ (Functor K B)) (x y : τ (Obj K)) ⊢
+  @section_check_const_hom K B
+    (fapp0 (@pi_eval_transf K (@Const_catd K B)) F) x y
+  ≡ @fapp1_func K B F x y;

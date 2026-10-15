@@ -1,10 +1,21 @@
 # Cartesian families, lax sections and corrected dependent Hom
 
 Date: 2026-10-14
-Status: direct identity/relative and general intrinsic ladders check; corrected
-section action computes constant-functor higher cells; full qualification open
+Status: direct Homd/intrinsic ladders, section-first Pi evaluation and whole
+right-represented reindexing check; full qualification remains open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
+
+Continuation after `7dcc1919`: general Pi evaluation now uses the actual
+section-first Pi-to-Functord identity view. The old k-first evaluator has
+the wrong naturality profile even for a constant family with a genuinely
+lax section morphism. The full next-Hom identity and point evaluation check
+without restricting those morphisms. Q's fixed right-represented operation
+is the whole Cartesian source-reindexing functor; its varying-parameter
+comparison is proof-time, retaining the original runtime projections.
+The [review](../emdash2/audits/strict-default-action-boundary/production_evaluation_reindex_review.md)
+records these interface changes and their limits. Original-source migration
+now checks through section 17b; mixed Q/general-FF coherence remains open.
 
 Continuation after `95d73ac6`: piapp1_func now uses the ordinary Pi over the
 total-dual Hom index and total-dual Homd fibres. A derived whole constructor

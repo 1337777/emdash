@@ -1,0 +1,36 @@
+// 17a. Generic Sigma/Pi introduction and evaluation
+
+// The total inclusion is lax across K and strictly natural in its fibre.
+// Its component at k takes u to (k,u).
+injective symbol sigma_intro_transf [K : Cat] (E : τ (Catd K))
+  : τ (Functord E (@Const_catd K (@Sigma_cat K E)));
+
+symbol sigma_intro_tapp0_func [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
+  : τ (Functor (Fibre_cat E k) (Sigma_cat E));
+
+rule @tapp0_fapp0
+      $K Cat_cart $E _ $k (@sigma_intro_transf $K $E)
+  ↪ @sigma_intro_tapp0_func $K $E $k;
+rule fapp0 (@sigma_intro_tapp0_func $K $E $k) $u
+  ↪ Struct_sigma $k $u;
+
+// Whole evaluation in section-first order. Pi is already the category of
+// terminal-source displayed maps, including their lax higher action.
+// This is its actual identity view, not a new evaluation constructor.
+//
+// pi_eval_transf(E)[s] : const(1) => E
+// pi_eval_transf(E)[s][k](*) = s[k].
+//
+// The former k-first Functord(const(Pi(E)),E) is not retained: its
+// Cartesian fibre comparison would make arbitrary lax section squares
+// commute. Nor does merely changing its coefficient to ordinary Cat
+// supply the opposite comparison direction needed by that order.
+symbol pi_eval_transf [K : Cat] (E : τ (Catd K))
+  : τ (Functor (Pi_cat E) (Pi_cat E))
+≔ @id_func (Pi_cat E);
+
+// Existing terminal weakening retains the admitted coefficient universe.
+injective symbol Terminal_funcd [K : Cat] (E : τ (Catd K))
+  : τ (Functord E (@Const_catd K Terminal_cat));
+rule @tapp0_fapp0 _ Cat_cart _ _ $k (@Terminal_funcd _ $E)
+  ↪ Terminal_func (Fibre_cat $E $k);

@@ -1127,6 +1127,41 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     body = body.replace(
         '// Constant-section arrow action agrees propositionally with ordinary functor\n// action. The section projection computes to `fdapp1_int_cell`; the preceding\n// proof-time comparison supplies the final ordinary view.',
         '// The existing theorem records the constant section arrow computation.\n// The whole index specialization and its lower projections now retain the\n// ordinary functor action directly.')
+
+    a = body.index('// 17a. Generic Sigma/Pi introduction and evaluation')
+    b = body.index('// 17b. Constant sections and delayed product-pair telescope rules', a)
+    replace_once(body[a:b], fragment('production_evaluation.lpfragment') + '\n\n',
+                 'Sigma introduction and section-first Pi evaluation',
+                 'Retain all lax sections through the actual Pi-to-Functord identity view; do not impose the invalid k-first Cartesian evaluation comparison')
+    body = body.replace('    pi_eval_transf(E)                 : const(ΠE) ⊢ E\n'
+                        '    pi_eval_transf(E)[k]              = piapp0_func(E,k) : ΠE ⊢ E[k]',
+                        '    pi_eval_transf(E)                 : ΠE ⊢ (const(1) ⊢ E)\n'
+                        '    pi_eval_transf(E)[s][k](*)        = s[k]')
+
+    insert('// A canonical represented mate of a Cartesian whole map has a lax y-square.',
+           fragment('production_q_reindex.lpfragment'),
+           'Qualify whole right-represented composition by actual Cartesian source reindexing; retain the weaker inner index maps')
+
+    a = body.index('// Stable weakening owner for ordinary functor categories.')
+    b = body.index('// Direct displayed weakening for a mixed functor source slot.', a)
+    old_weakening = body[a:b]
+    new_weakening = old_weakening.replace('Functor_cat', 'Functor_cart_cat')
+    replace_once(old_weakening,
+                 '// The canonical Const_func_func owner is declared in 17b,\n'
+                 '// before its product-pair telescope consumer.\n\n',
+                 'constant functor owner relocation',
+                 'The existing constant transformation is Cartesian; retain one owner and make it available at the first actual product consumer')
+    insert('// Pairing telescope for products.\n//\n', new_weakening,
+           'Canonical constant functors have Cartesian parameter action; ordinary lax sections remain separate')
+    a = body.index('// Pairing telescope for products.\n//\n')
+    b = body.index('// 17c. Ordinary functor structural logic', a)
+    old_pairing = body[a:b]
+    new_pairing = old_pairing.replace('@const_section_func $B $A', '@Const_func_func $B $A')
+    new_pairing = new_pairing.replace('Functor_cat', 'Functor_cart_cat')
+    new_pairing = new_pairing.replace('(@Transf_cat $B $B (@id_func $B) (@id_func $B))',
+                                    '(Hom_cat (Functor_cart_cat $B $B) (@id_func $B) (@id_func $B))')
+    replace_once(old_pairing, new_pairing, 'Cartesian product-pair telescope projections',
+                 'Use the actual Cartesian constant-functor and constant-transfor owners instead of the larger lax Pi classifier')
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -1187,7 +1222,8 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
         + '\n' + fragment('production_sections_controls.lpfragment')
         + '\n' + sigma_controls + '\n' + mixed_controls
         + '\n' + mixed_parameters + '\n' + negative_sections
-        + '\n' + fragment('production_homd_controls.lpfragment'))
+        + '\n' + fragment('production_homd_controls.lpfragment')
+        + '\n' + fragment('production_q_reindex_controls.lpfragment'))
     (package / 'homd_prefix.lp').write_text(body[:body.index(homd_boundary)]
         + '\n' + homd_controls)
     index_boundary = '// 15. Internal displayed hom-action heads'
@@ -1206,6 +1242,21 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
         + '\n' + homd_controls + '\n' + index_controls
         + '\n' + fragment('production_intrinsic_controls.lpfragment')
         + '\n' + fragment('production_section_action_controls.lpfragment'))
+    evaluation_boundary = '// 17b. Constant sections and delayed product-pair telescope rules'
+    assert body.count(evaluation_boundary) == 1
+    (package / 'evaluation_prefix.lp').write_text(body[:body.index(evaluation_boundary)]
+        + '\n' + homd_controls + '\n' + index_controls
+        + '\n' + fragment('production_intrinsic_controls.lpfragment')
+        + '\n' + fragment('production_section_action_controls.lpfragment')
+        + '\n' + fragment('production_evaluation_controls.lpfragment'))
+    structural_boundary = '// 17c. Ordinary functor structural logic'
+    assert body.count(structural_boundary) == 1
+    (package / 'structural_prefix.lp').write_text(body[:body.index(structural_boundary)]
+        + '\n' + homd_controls + '\n' + index_controls
+        + '\n' + fragment('production_intrinsic_controls.lpfragment')
+        + '\n' + fragment('production_section_action_controls.lpfragment')
+        + '\n' + fragment('production_evaluation_controls.lpfragment')
+        + '\n' + fragment('production_constant_map_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1369,7 +1420,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     relocated_names = {'Catd_cat_func', 'Catd_catd_con', 'FibCov_target_catd',
                        'FibCov_source_catd', 'fib_cov_int', 'fib_cov_src_func',
                        'fib_cov_transf', 'homd_src_func', 'homd_src_sec', 'homd_tgt_func',
-                       'homd_id_src_sec', 'homd_id_tgt_func'}
+                       'homd_id_src_sec', 'homd_id_tgt_func', 'Const_func_func'}
     retired_names = {'Homd_target_section_catd': 'Homd_target_section_cat',
                      'functord_transport_lhs_tele_agrees': 'functord_transport_rhs_tele_agrees',
                      'functord_transport_lhs_agrees': 'functord_transport_rhs_agrees'}
@@ -1409,6 +1460,8 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'index_profile.lp',
                               package / 'intrinsic_identity_prefix.lp',
                               package / 'section_action_prefix.lp',
+                              package / 'evaluation_prefix.lp',
+                              package / 'structural_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Whole coefficient/mixed-parameter coherence beyond the checked direct and constant-section actions',

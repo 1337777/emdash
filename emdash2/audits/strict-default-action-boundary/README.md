@@ -5,6 +5,29 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Section-first evaluation and represented reindexing, 2026-10-15
+
+The [review](production_evaluation_reindex_review.md) and
+[verification](production_evaluation_reindex_verification.json) record the
+original-source migration through section 17b. The old k-first Pi evaluator
+has a concrete naturality-direction obstruction; its replacement is the
+whole section-first Pi-to-Functord identity view, retaining all lax sections.
+The [finite model](pi_evaluation_profile_model.py) checks the distinction.
+
+Q's fixed right-represented operation is the existing Cartesian source
+reindexing functor. The varying-parameter comparison remains proof-time;
+an eager runtime fold was rejected by the inherited Homd consumer. The
+canonical Const_func_func now supplies the Cartesian product-pair telescope.
+General Q/mate coherence and the public/downstream migration remain open.
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package structural_prefix.lp
+python3 audits/strict-default-action-boundary/pi_evaluation_profile_model.py
+```
+
 ## Corrected section action and constant-functor higher cells, 2026-10-15
 
 The [review](production_section_action_review.md) records the original-source

@@ -1,0 +1,73 @@
+// Fixed right-represented Q composition is the actual Cartesian source
+// reindexing functor. The inner P(C) maps are not restricted to Cartesian.
+assert [A B C : Cat] (F : τ (Functor A B)) ⊢
+  @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat)
+    C A B (@Homd_coeff_rep A B F)
+  ≡ @comp_cat_con_cart_func A B (Homd_index_cat C) F;
+assert [A B C : Cat] (F : τ (Functor A B))
+  (P R : τ (Hom Homd_coeff_cat B C)) ⊢
+  @fapp1_func (Hom_cat Homd_coeff_cat B C) (Hom_cat Homd_coeff_cat A C)
+    (@hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat)
+      C A B (@Homd_coeff_rep A B F)) P R
+  ≡ @fapp1_func (Functor_cart_cat B (Homd_index_cat C))
+      (Functor_cart_cat A (Homd_index_cat C))
+      (@comp_cat_con_cart_func A B (Homd_index_cat C) F) P R;
+assert [A B C : Cat] (F : τ (Functor A B))
+  (P R : τ (Hom Homd_coeff_cat B C))
+  (eta : τ (Hom (Hom_cat Homd_coeff_cat B C) P R)) ⊢
+  @fapp1_fapp0 (Hom_cat Homd_coeff_cat B C) (Hom_cat Homd_coeff_cat A C)
+    (@hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat)
+      C A B (@Homd_coeff_rep A B F)) P R eta
+  ≡ @fapp1_fapp0 (Functor_cart_cat B (Homd_index_cat C))
+      (Functor_cart_cat A (Homd_index_cat C))
+      (@comp_cat_con_cart_func A B (Homd_index_cat C) F) P R eta;
+
+// An unrelated Q-arrow is not silently recognized as the representation of F.
+assertnot [A B C : Cat] (M : τ (Hom Homd_coeff_cat A B)) (F : τ (Functor A B)) ⊢
+  @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat)
+    C A B M ≡ @comp_cat_con_cart_func A B (Homd_index_cat C) F;
+
+// The whole represented parameter action consumed by the mate y-action.
+// This comparison is proof-time; the existing Q action remains the runtime owner.
+assert [A B C : Cat] (P : τ (Hom Homd_coeff_cat B C)) ⊢
+  @eq_refl (Functor (Functor_cart_cat A B) (Functor_cart_cat A (Homd_index_cat C)))
+    (@comp_cat_fapp0 (Functor_cart_cat A B) (Hom_cat Homd_coeff_cat A B)
+      (Hom_cat Homd_coeff_cat A C)
+      (@hom_postcomp_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat) A B C P)
+      (Homd_coeff_rep_func A B))
+  : τ (@= (Functor (Functor_cart_cat A B) (Functor_cart_cat A (Homd_index_cat C)))
+      (@comp_cat_fapp0 (Functor_cart_cat A B) (Hom_cat Homd_coeff_cat A B)
+        (Hom_cat Homd_coeff_cat A C)
+        (@hom_postcomp_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat) A B C P)
+        (Homd_coeff_rep_func A B))
+      (@comp_cat_cov_cart_func A B (Homd_index_cat C) P));
+
+// Do not make this agreement independent of the actual left coefficient.
+assertnot [A B C : Cat] (P R : τ (Hom Homd_coeff_cat B C)) ⊢
+  @eq_refl (Functor (Functor_cart_cat A B) (Functor_cart_cat A (Homd_index_cat C)))
+    (@comp_cat_fapp0 (Functor_cart_cat A B) (Hom_cat Homd_coeff_cat A B)
+      (Hom_cat Homd_coeff_cat A C)
+      (@hom_postcomp_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat) A B C P)
+      (Homd_coeff_rep_func A B))
+  : τ (@= (Functor (Functor_cart_cat A B) (Functor_cart_cat A (Homd_index_cat C)))
+      (@comp_cat_fapp0 (Functor_cart_cat A B) (Hom_cat Homd_coeff_cat A B)
+        (Hom_cat Homd_coeff_cat A C)
+        (@hom_postcomp_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat) A B C P)
+        (Homd_coeff_rep_func A B))
+      (@comp_cat_cov_cart_func A B (Homd_index_cat C) R));
+
+assert [A C : Cat] ⊢
+  @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat)
+    C A A (@Homd_coeff_rep A A (@id_func A))
+  ≡ @id_func (Functor_cart_cat A (Homd_index_cat C));
+assert [A B C : Cat] (b : τ (Obj B)) ⊢
+  @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat)
+    C A B (@Homd_coeff_rep A B (@Const_func A B b))
+  ≡ @comp_cat_con_cart_func A B (Homd_index_cat C) (@Const_func A B b);
+
+// In particular, arbitrary directed P(C) components survive the unit case.
+assert [A C : Cat] (P R : τ (Hom Homd_coeff_cat A C))
+  (eta : τ (Hom (Hom_cat Homd_coeff_cat A C) P R)) ⊢
+  @fapp1_fapp0 (Hom_cat Homd_coeff_cat A C) (Hom_cat Homd_coeff_cat A C)
+    (@hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat)
+      C A A (@Homd_coeff_rep A A (@id_func A))) P R eta ≡ eta;

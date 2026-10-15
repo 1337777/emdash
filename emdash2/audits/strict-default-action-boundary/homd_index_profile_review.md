@@ -6,6 +6,15 @@ constant-section F[alpha] computation passes; full coefficient qualification ope
 Owner: [foundations plan](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Predecessor: `e594bcea5e37c825dc92cd90df53f3b4a277ad5c`
 
+Continuation after `7dcc1919`: fixed right-represented Q composition now
+uses the actual whole Cartesian source-reindexing functor, preserving the
+weaker P maps. The varying-representation comparison remains proof-time.
+General Pi evaluation uses the section-first Pi-to-Functord identity view;
+the old k-first profile fails a directed-square model. See the
+[evaluation/reindexing review](production_evaluation_reindex_review.md).
+These results do not qualify general Q mixed composition or joint index
+evaluation; those boundaries remain distinct from the checked local index.
+
 Current continuation after `95d73ac6`: the corrected ordinary Pi index,
 general tdapp1 ladder and whole constant-family specialization now check.
 The derived C_I,H constructor uses B_I on an actual ordinary functor;
