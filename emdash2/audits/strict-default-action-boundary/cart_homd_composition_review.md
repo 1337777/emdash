@@ -2,7 +2,7 @@
 
 Date: 2026-10-15
 Status: non-library whole/capped generator beta and first higher action checked;
-balancing, full coherence, Sigma-Hom and production migration remain open
+consumed whole-action checks, Sigma-Hom and production migration remain open
 Plan: [foundations](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Outline: [Cartesian families and lax sections](../../../docs/EMDASH_CARTESIAN_FAMILIES_LAX_TRANSFORS_HOMD_OUTLINE.md)
 Owners: [projection and generator computation](cart_homd_composition.lpfragment), [strict functor law](cart_homd_composition_functor.lpfragment)
@@ -118,12 +118,13 @@ overlap terms; they are not ten resolved pairs. Exact hashes and replacement
 pairs are recorded. These focused typed consumers do not establish global
 confluence or a complete model of Q.
 
-Next qualify balancing in the represented middle and the consumed
-unit/composition/parameter coherence, while retaining these whole operators.
 The generator beta alone does not establish that every element of the
-opaque composite is generated or prove the full comparison's coherence.
-Sigma-Hom and the public/downstream migration remain required. A full general
-profunctor/coend theory is still not a prerequisite.
+opaque composite is generated or prove a complete model of Q. The user's
+subsequent scope clarification keeps such general balancing/coend work out
+of the prerequisite path: composition remains synthetic, as in production
+Prof_tensor. Check the unit/composition interactions demanded by actual
+Homd/Sigma consumers. Sigma-Hom and public/downstream migration remain
+required; the optional balancing-image experiment is not a blocker.
 
 ```bash
 python3 audits/strict-default-action-boundary/cart_homd_composition_replay.py

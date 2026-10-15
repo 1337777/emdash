@@ -3,7 +3,7 @@
 Date: 2026-10-14
 Status: selected next candidate under the user's latest constraints;
 strict-root/relative ladders and extracted y-comparison generator beta checked;
-balancing, full coherence and Sigma-Hom open
+consumed whole-action checks and Sigma-Hom open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
 
@@ -24,6 +24,13 @@ Standing scope constraint from the user: only the represented Q operations
 consumed by Homd are prerequisites. Do not make a complete general profunctor
 library, arbitrary coend theory or a new universe hierarchy a prerequisite.
 The existing uncurried Prof convention need not be globally renamed.
+
+Clarified 2026-10-15: treat composition synthetically, as production
+Prof_tensor does. Local operations on Hom_Q inherit the curried unfolding.
+Cross-Hom composition and units are required by the actual whole
+Q-valued transformation, but their coend/quotient model need not be
+implemented. The supplementary balancing-image check is not a required
+milestone; further Q operations require a concrete Homd/Sigma consumer.
 
 ## Universes, families and sections
 
@@ -141,6 +148,13 @@ this generating formula is its beta specification, not a replacement for
 the internal operation. No inverse to beta or general adjunction library
 is needed to state its direction. The native mate remains a structural
 constructor until this whole comparison and coherence are qualified.
+
+The prototype for using Q is the Homd y-component itself:
+`h_y : Obj(Hom_Q(E[y],Hom_K(x,y)))`. It is a genuine profunctor, with the
+conjoint representation by `f |-> E[f](u)` in the strict identity case.
+Fixing v yields the one-slot presheaf below. This representation does not
+restrict Q's general inhabitants; projections, restrictions and actual
+Homd action determine the needed interface.
 
 ## Direct section and projection ladder
 
@@ -264,3 +278,6 @@ in both observation orders. Stable intrinsic/comparison projection rungs
 keep this connected to the original root. The introduction and beta are
 structural laws for the selected represented Q composition; balancing,
 unit/composition/parameter coherence and Sigma-Hom remain unqualified.
+The scope clarification above keeps general balancing/model qualification
+outside the implementation prerequisite path; checks of the synthetic
+operations actually consumed by Homd/Sigma remain required.

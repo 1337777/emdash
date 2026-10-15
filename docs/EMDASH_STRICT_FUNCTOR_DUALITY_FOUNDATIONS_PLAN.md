@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default with shared Cartesian families; direct root/relative ladders and extracted y-comparison generator beta check through first higher action; balancing, full coherence, Sigma-Hom and production migration remain open
+Status: strict-functor/lax-transfor default with shared Cartesian families; direct root/relative ladders and extracted y-comparison generator beta check through first higher action; consumed whole-action checks, Sigma-Hom and production migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,6 +38,39 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Latest scope clarification, 2026-10-15: the user requires synthetic
+profunctor-like composition, following the production Prof interface.
+Hom_Q(A,B) is the curried Cartesian mapping-category presentation; inherit
+local application, higher action and reindexing from that unfolding. Add Q
+operations only for an actual Homd/Sigma consumer. The whole y-section uses
+Q's cross-Hom composition and units, so those may remain synthetic
+structural owners, as production Prof_tensor does. No quotient
+representatives, equivalence-class machinery, generator-exhaustiveness proof
+or general balancing/coend theory is a milestone prerequisite.
+
+Use the actual Homd component as the prototypical consumer: before fixing v,
+`h_E(x,u)[y] : Obj(Hom_Q(E[y],Hom_K(x,y)))`, with value
+`Hom_E[y](E[f](u),v)`. Fixing v leaves a presheaf, not the whole two-slot
+Q arrow. The strict identity component is the conjoint of the transport
+functor `f |-> E[f](u)`; this useful representation is not a restriction of
+all Q inhabitants to represented maps, nor a reason to develop unrelated
+represented-profunctor theory. Drive additional operations by this
+component's actual projections, restrictions and whole action.
+
+The pending balancing attempt compared two whole image functors; it did not
+implement quotient classes or a source quotient relation. Its definitions
+typecheck, but the direct whole-reflexivity assertion fails in receipt
+`20261015T071301Z-43e96b1c3cc347a881d323f92514a17a`. Treat this as an optional
+semantic/normalization audit, not a blocker or evidence of a mathematical
+obstruction. The uncommitted cart_homd_balance authoring files are not
+selected implementation and must not be promoted as such. Resume them only
+for a concrete consumer that requires that agreement.
+
+Next return to the corrected Sigma-Hom and the precise native operations it
+consumes. Preserve the checked direct Homd ladder and internal extraction.
+Check unit/composition interactions at those actual consumers without
+turning construction of a general Q model into a prerequisite.
+
 Latest represented-composition continuation, 2026-10-15: the
 [generator beta](../emdash2/audits/strict-default-action-boundary/cart_homd_composition_review.md)
 now connects the actual extracted Homd comparison to the whole map
@@ -62,12 +95,11 @@ Receipt `20261015T070112Z-cbb9afe835b14daea2919add2947636c` passes with SR in
 of prior diagnostics. Replaceable-variable warnings remain 66; the LHS audit
 has zero unreviewed slots. This does not establish global confluence.
 
-Next qualify represented-middle balancing and consumed unit/composition/
-parameter coherence, then Sigma-Hom and public/downstream migration. The
-generation beta does not establish exhaustiveness of an opaque composite or
-complete Q coherence. General profunctor/coend development remains outside
-the prerequisite scope. Production sources and the paused application goal
-were not changed by this slice.
+The generation beta does not establish exhaustiveness of an opaque composite
+or a complete Q model. The latest scope clarification above keeps those out
+of the prerequisite path; consumed unit/composition interactions, Sigma-Hom
+and public/downstream migration still require qualification. Production
+sources and the paused application goal were not changed by this slice.
 
 Latest ordinary-action continuation, 2026-10-14: the
 [ordinary internalization and y-comparison](../emdash2/audits/strict-default-action-boundary/cart_homd_ordinary_review.md)
