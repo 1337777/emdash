@@ -723,6 +723,14 @@ rule CoAbove2_cat (Product_cat $A $B)
                     .replace('total_op', 'total_op_cart').replace('Cat_cat', 'Cat_cart'))
     total_family = (total_family.replace('@comp_fapp0 Cat_cart', '@comp_fapp0 Cat_cat')
                     .replace('@id Cat_cart Cat_cart', '@id Cat_cat Cat_cart'))
+    total_family += '''
+// The same total-fibre object formation through ordinary fixed
+// postcomposition. Its parameter profile remains distinct from Cart.
+// lhs-audit: keep 1,2,3 -- named coefficient duality at its ordinary Hom owner.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ total_op_cart
+      (@CoAbove2_func $K Cat_cart $E)
+  ↪ @TotalOp_catd $K $E;
+'''
     insert('// Fibrewise dimension-one transpose changes the base by CoAt2.',
            total_family, 'Adapt the qualified total-fibre duality to the selected Cartesian coefficient')
 
@@ -911,7 +919,8 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
     b = body.index('// 14. Section action over dependent homs', a)
     old_homd_core = body[a:b]
     replacement = ('// 12. Directed homd target and internal homd functor\n\n'
-        + fragment('production_homd_core.lpfragment')
+        + fragment('production_homd_index.lpfragment')
+        + '\n' + fragment('production_homd_core.lpfragment')
         + '\n\n// 13. Dependent-hom projections and covariant fibre transport\n'
           '// The original names above now project the identity core and the\n'
           '// defined general-FF composition; no second primitive Homd theory.\n\n')
@@ -935,6 +944,122 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
     body = body.replace(old_section, '(@Homd_target_section_cat K E x)')
     changes.append({'owner': 'relative intrinsic section classifier views', 'count': occurrences,
                     'reason': 'The actual Q-valued section category replaces the defective former Pi target'})
+
+    a = body.index('// 15. Internal displayed hom-action heads')
+    b = body.index('// 16. Displayed components, displayed hom-action, and laxity extraction', a)
+    old_intrinsic = body[a:b]
+    new_intrinsic, count = re.subn(
+        r'\((Transfd(?:_cat)?)\s+\(homd_int \(@id_funcd K E\)\)\s+'
+        r'\(comp_catd_fapp0\s+\(homd_int (GG|FF)\)\s+\(Op_funcd FF\)\)\)',
+        lambda m: '(' + m[1] + '\n        (comp_catd_fapp0 (homd_int ' + m[2] + ') FF)'
+            + '\n        (homd_int (@id_funcd K E)))', old_intrinsic)
+    assert count == 4, count
+    new_intrinsic = new_intrinsic.replace('(homd_int (@id_funcd K E))',
+        '(@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E))')
+    new_intrinsic = new_intrinsic.replace('(@Transf_cat $K Cat_cat $E $D)',
+                                          '(@Transf_cat $K Cat_cart $E $D)')
+    comment_a = new_intrinsic.index('/*')
+    comment_b = new_intrinsic.index('*/', comment_a) + 2
+    new_intrinsic = new_intrinsic[:comment_a] + '/*\n  The corrected root target is transposed. Accordingly the intrinsic arrow\n  runs from homd_int(GG) o FF to homd_int(id_E), without transposing raw FF.\n  Its source-u component reverses again in T(S_E(x)), exposing the forward\n  dependent-Hom action. The weaker inner P index retains its directed cells.\n\n  Original ownership is preserved:\n    internal hom-action -> extracted laxity -> Sigma action consumes laxity.\n  No separate comparison argument is introduced, and Sigma is not used to\n  define the intrinsic action which its maps later consume.\n*/' + new_intrinsic[comment_b:]
+    replace_once(old_intrinsic, new_intrinsic, 'corrected intrinsic Homd direction',
+                 'Retarget the existing internal-action owners; retain lax FF and derive their projections through the directed Q index')
+
+    # Constant transformations are canonically Cartesian. Strengthen these
+    # existing owners, rather than introduce a parallel constant-map calculus.
+    a = body.index('symbol Const_transf_func [K A : Cat]')
+    b = body.index('/*\n  Pure Cat/Catd convenience helpers.', a)
+    old_constants = body[a:b]
+    new_constants = old_constants.replace(
+        '(@Transf_cat K A (@Const_func K A x) (@Const_func K A y))',
+        '(Hom_cat (Functor_cart_cat K A) (@Const_func K A x) (@Const_func K A y))')
+    new_constants = new_constants.replace(
+        ': τ (Transf (@Const_func K A x) (@Const_func K A y));',
+        ': τ (@StrictTransfor K A (@Const_func K A x) (@Const_func K A y));')
+    new_constants = new_constants.replace(
+        '$k (@Const_transf $K $A $x $y $p)',
+        '$k (@strict_transfor _ _ _ _ (@Const_transf $K $A $x $y $p))')
+    new_constants = new_constants.replace(
+        "$k $k' (@Const_transf $K $A $x $y $p)",
+        "$k $k' (@strict_transfor _ _ _ _ (@Const_transf $K $A $x $y $p))")
+    replace_once(old_constants, new_constants, 'canonical constant transformation profile',
+                 'The original constant-map owners have Cartesian naturality; ordinary observations use the existing inclusion')
+
+    a = body.index('// 16a. Fibre-level displayed components')
+    b = body.index('// 16b. Identity-specialized displayed hom action and Sigma-map action', a)
+    old_components = body[a:b]
+    new_components = old_components.replace('Cat_cat', 'Cat_cart').replace('Functor_cat', 'Functor_cart_cat')
+    # Generic composition of functors still belongs to the public Cat owner.
+    new_components = new_components.replace('@comp_fapp0 Cat_cart', '@comp_fapp0 Cat_cat')
+    new_components = new_components.replace('@comp_cat_con_func', '@comp_cat_con_cart_func')
+    new_components = new_components.replace('@comp_cat_cov_func', '@comp_cat_cov_cart_func')
+    new_components = new_components.replace(
+        '(Transf_cat (Fibre_func FF z) (Fibre_func GG z))',
+        '(Hom_cat (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (Fibre_func FF z) (Fibre_func GG z))')
+    begin = new_components.index('symbol tdapp0_fapp0')
+    end = new_components.index(';', begin) + 1
+    old_component_type = new_components[begin:end]
+    new_components = new_components[:begin] + old_component_type.replace(
+        ': τ (Transf (Fibre_func FF z) (Fibre_func GG z));',
+        ': τ (@StrictTransfor (Fibre_cat E z) (Fibre_cat D z) (Fibre_func FF z) (Fibre_func GG z));') + new_components[end:]
+    # The two horizontal component Homs have the actual Cartesian profile.
+    new_components = re.sub(
+        r'\(@Transf_cat\s+(\(Fibre_cat \$[A-Z] \$k\))\s+(\(Fibre_cat \$[A-Z] \$k\))',
+        r'(Hom_cat (Functor_cart_cat \1 \2)', new_components)
+    # Evaluation accepts the ordinary view of these classified components.
+    new_components = re.sub(
+        r'(\$r|\$u)\s+\(@tdapp0_fapp0 ([^;]*?)\)\)',
+        r'\1\n        (@strict_transfor _ _ _ _ (@tdapp0_fapp0 \2)))',new_components)
+    c = new_components.index('// Object-component projection for generic Sigma-total uncurrying.')
+    d = new_components.index('// Point component of the totalized displayed transfor', c)
+    observed = new_components[c:d]
+    assert observed.count('(@tdapp0_fapp0') == 1
+    observed = observed.replace('(@tdapp0_fapp0', '(@strict_transfor _ _ _ _ (@tdapp0_fapp0').replace('$eta);', '$eta));')
+    new_components = new_components[:c] + observed + new_components[d:]
+    new_components = new_components.replace(
+        '≔ @tdapp0_fapp0 K E D FF GG z ϵ;',
+        '≔ @strict_transfor _ _ _ _ (@tdapp0_fapp0 K E D FF GG z ϵ);')
+    new_components = new_components.replace(
+        '≔ tapp0_fapp0 Terminal_obj (tdapp0_fapp0 k eta);',
+        '≔ tapp0_fapp0 Terminal_obj (strict_transfor (tdapp0_fapp0 k eta));')
+    # Retire the false unconditional left/middle equation. The conventional
+    # pre/right leg, not the post/left comparison, is strict.
+    c = new_components.index('/*\n  Ambient lax source-action reading:')
+    d = new_components.index('// First-class whole path', c)
+    new_components = new_components[:c] + '// Conventional pre/right action: the selected middle is FF[y] o E[p].\n// The left/post route retains its directed comparison.\nunif_rule @tapp1_func $K Cat_cart $E $D $x $y $FF\n  ≡ @comp_fapp0 Cat_cat _ _ _\n      (@hom_postcomp_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) _ _ _\n        (@tapp0_fapp0 $K Cat_cart $E $D $y $FF))\n      (@fapp1_func $K Cat_cart $E $x $y)\n  ↪ [ tt ≡ tt ];\n\n' + new_components[d:]
+    new_components = new_components.replace('functord_transport_lhs_tele_agrees', 'functord_transport_rhs_tele_agrees')
+    new_components = new_components.replace('functord_transport_lhs_agrees', 'functord_transport_rhs_agrees')
+    for name in ('functord_transport_rhs_tele_agrees', 'functord_transport_rhs_agrees'):
+        c = new_components.index('symbol ' + name)
+        d = new_components.index(';', c) + 1
+        new_components = new_components[:c] + new_components[c:d].replace(
+            'functord_transport_lhs_', 'functord_transport_rhs_') + new_components[d:]
+    new_components = new_components.replace('Full left strict-naturality route', 'Full left/post transport route')
+    new_components = new_components.replace('Full right strict-naturality route', 'Full selected pre/right transport route')
+    new_components = new_components.replace(
+        '// The former generic target/right equality and derived strict-naturality path\n// are retired. Ambient code consumes `functord_laxity_transf`; strict code uses\n// the evidence-bearing paths in `emdash3_2_gray_profiles.lp`.',
+        '// Only the pre/right route is the strict middle action. The post/left\n// route retains the comparison extracted by functord_laxity_transf; no\n// equality between the two routes is imposed for arbitrary FF.')
+    new_components = new_components.replace('First-class whole path for the ambient left/source presentation.',
+                                            'First-class whole path for the selected pre/right presentation.')
+    new_components = new_components.replace('Evaluate the whole ambient left/source path at p.',
+                                            'Evaluate the selected pre/right path at p.')
+    new_components += '''
+// The displayed specialization erases tapp0_hom_fapp0 before the existing
+// canonical covariance cut can fire. Keep the same projection normal form.
+rule @tdapp0_fapp0 $K _ $E _ _ $y
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (Functor_cart_include $K Cat_cart) _ $E)
+        _ _ (@fapp1_fapp0 _ _ (@fib_cov_src_func $K $E $x) $u $v $h))
+  ↪ @fib_cov_tapp0_u_map $K $E $x $y $u $v $h;
+
+'''
+    replace_once(old_components, new_components, 'displayed component and transport profiles',
+                 'Use actual Cartesian fibre Homs, retaining lax base action; replace the false left/middle comparison by the selected right/middle comparison')
+
+    a = body.index('// 16b. Identity-specialized displayed hom action and Sigma-map action')
+    b = body.index('// 16c. Section action and displayed laxity cells', a)
+    replace_once(body[a:b], fragment('production_intrinsic_projection.lpfragment') + '\n',
+                 'intrinsic identity projection ladder',
+                 'Retain the existing projection names through the actual Q section, Cartesian fibre Hom and directed index; total Hom uses the derived negative Sigma')
 
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
@@ -992,17 +1117,23 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
         + '\n' + mixed_parameters + '\n' + negative_sections)
     homd_boundary = '// 14. Section action over dependent homs'
     assert body.count(homd_boundary) == 1
-    (package / 'homd_prefix.lp').write_text(body[:body.index(homd_boundary)]
-        + '\n' + fragment('production_foundations_controls.lpfragment')
+    homd_controls = (fragment('production_foundations_controls.lpfragment')
         + '\n' + fragment('production_sections_controls.lpfragment')
         + '\n' + sigma_controls + '\n' + mixed_controls
         + '\n' + mixed_parameters + '\n' + negative_sections
         + '\n' + fragment('production_homd_controls.lpfragment'))
+    (package / 'homd_prefix.lp').write_text(body[:body.index(homd_boundary)]
+        + '\n' + homd_controls)
     index_boundary = '// 15. Internal displayed hom-action heads'
     assert body.count(index_boundary) == 1
+    index_controls = fragment('production_homd_index_controls.lpfragment')
     (package / 'index_profile.lp').write_text(body[:body.index(index_boundary)]
-        + '\n' + fragment('production_homd_index.lpfragment')
-        + '\n' + fragment('production_homd_index_controls.lpfragment'))
+        + '\n' + index_controls)
+    intrinsic_boundary = '// 16c. Section action and displayed laxity cells'
+    assert body.count(intrinsic_boundary) == 1
+    (package / 'intrinsic_identity_prefix.lp').write_text(body[:body.index(intrinsic_boundary)]
+        + '\n' + homd_controls + '\n' + index_controls
+        + '\n' + fragment('production_intrinsic_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1167,7 +1298,9 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
                        'FibCov_source_catd', 'fib_cov_int', 'fib_cov_src_func',
                        'fib_cov_transf', 'homd_src_func', 'homd_src_sec', 'homd_tgt_func',
                        'homd_id_src_sec', 'homd_id_tgt_func'}
-    retired_names = {'Homd_target_section_catd': 'Homd_target_section_cat'}
+    retired_names = {'Homd_target_section_catd': 'Homd_target_section_cat',
+                     'functord_transport_lhs_tele_agrees': 'functord_transport_rhs_tele_agrees',
+                     'functord_transport_lhs_agrees': 'functord_transport_rhs_agrees'}
     for name in relocated_names:
         assert re.findall(declaration, body).count(name) == 1, name
     for name, replacement in retired_names.items():
@@ -1202,10 +1335,11 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
                               package / 'mixed_prefix.lp',
                               package / 'homd_prefix.lp',
                               package / 'index_profile.lp',
+                              package / 'intrinsic_identity_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
-        'stillRequired': ['Qualify and integrate the negative-index profile: all-Cart Q cannot support the required general intrinsic action',
-                          'General lax FF intrinsic action with the corrected Homd root',
+        'stillRequired': ['Negative-index section action and concrete constant-section F[alpha] computation',
+                          'Nonidentity displayed-transfor intrinsic projections and higher coherence',
                           'Consumed Q y-comparison/coherence and late Sigma/Pi/comma consumers',
                           'Moving path-motive interfaces with their actual coefficient profiles',
                           'Whole duality/adjunction and closure-consumer qualification',

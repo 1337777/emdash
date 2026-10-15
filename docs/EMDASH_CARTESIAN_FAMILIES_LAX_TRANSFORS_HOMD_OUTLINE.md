@@ -1,12 +1,53 @@
 # Cartesian families, lax sections and corrected dependent Hom
 
 Date: 2026-10-14
-Status: native identity/relative ladders checked; all-Cart inner Q is too strict
-for general intrinsic action; derived negative-index candidate and whole migration open
+Status: directed inner index integrated with native identity/relative and
+identity-specialized intrinsic ladders; section action and full migration open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
 
-Current qualification, 2026-10-15: the terminal-source section of an ordinary
+Current native interface, after `36fceea2`, 2026-10-15:
+
+```text
+P(I) = T(Functor_cat(I,T(Cat_cart)))
+Hom_Q(A,B) = Cart(A,P(B))
+I_x[y] = Hom_K(x,y)
+S_E(x) = Transf(K,Q,iota E,iota I_x)
+H_E[x] = T(S_E(x))
+
+homd_id_int(E) : Hom_Cart(K,Cat_cart)(E,H_E)
+homd_id_src_func(E,x) : T(E[x]) -> S_E(x)
+homd_id_src_sec(E,x,u) : Obj(S_E(x))
+homd_id_tgt_func(E,x,u,y) : E[y] -> P(Hom_K(x,y))
+homd_id_(E,x,u,y,v) : T(Hom_K(x,y)) -> Cat_cart
+homd_id_(E,x,u,y,v)[f] = Hom_E[y](E[f](u),v).
+```
+
+The fixed-v rung transposes the P-object to its ordinary presheaf view.
+The defined relative construction keeps public `homd_int(FF:D=>E)` and
+the analogous rungs, with target variable v:D[y] and leaf
+`Hom_E[y](E[f](u),FF[y](v))`. Q(A,B), when used as shorthand, means this
+Hom_Q(A,B); it is not the former nested Cart expression.
+
+The [native intrinsic projection ladder](../emdash2/audits/strict-default-action-boundary/production_intrinsic_projection.lpfragment)
+now checks for arbitrary lax FF through its actual whole section and
+direct y/v/f projections. Its final capped result is the retained
+`fdapp1_int_hom_fapp0` owner. The expanded negative-Sigma route computes to
+the same arrow. The [verification](../emdash2/audits/strict-default-action-boundary/production_intrinsic_verification.json)
+does not establish the next constant-section F[alpha] computation, general
+modification projections or all Q coherence. The old `piapp1_func` type is
+the current full-source failure.
+
+M_I:Cart(T(I),Cat_cart)->P(I) is a derived implementation map. It reuses
+canonical strict Hom constructions; no caller supplies M_I or any equality
+evidence. Its object round trips do not identify the two higher mapping
+profiles. A stable coefficient Hom view is needed to keep its represented
+composition cuts visible; its whole-body comparison and projected action
+are checked. A global switch of the conventional strict leg is not selected:
+it would also reverse positive constant-section action, conflicting with
+the retained Pi(Const B) comparison.
+
+Earlier diagnosis, 2026-10-15: the terminal-source section of an ordinary
 strict F must retain F[alpha] for a noninvertible base two-cell. The inner
 `Cart(T(I),Cat_cart)` profile below cannot express that intrinsic action;
 strict naturality between constant index diagrams would equate its distinct
@@ -14,8 +55,8 @@ components. The [index-profile review](../emdash2/audits/strict-default-action-b
 records the counterexample and the derived candidate
 `P(I)=T(Functor_cat(I,T(Cat_cart)))`. The next Q has proposed Hom
 `Cart(A,P(B))`; its outer Cart and the admitted family universe are retained.
-Candidate inclusion/components/negative-total formation check, but the whole
-Q replacement and index-arrow computation are not yet qualified. The all-Cart
+The native integration described above supersedes the earlier formation-only
+boundary. The concrete index-arrow computation remains open. The all-Cart
 formulas below describe the preceding computational reference, not a solution
 to the general intrinsic-action requirement.
 

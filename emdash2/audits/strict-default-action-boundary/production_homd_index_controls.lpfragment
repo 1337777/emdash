@@ -1,3 +1,18 @@
+// Diagnostic return map for the constant-section reference consumer.
+// Core Homd/Sigma does not consume an inverse of A_I.
+// Derived return map. No inverse/coherence theorem is claimed by its type.
+symbol Homd_index_from_total_family_func (I : Cat)
+  : τ (Functor (Catd_cat (TotalOp_cat I)) (CoAbove2_cat (Homd_index_cat I)))
+≔ @comp_cat_fapp0 (Catd_cat (TotalOp_cat I))
+    (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart))
+    (CoAbove2_cat (Homd_index_cat I))
+    (@TotalOp_func
+      (TotalOp_cat (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
+      (Functor_cat I (Op_cat Cat_cart))
+      (TotalOp_func_func (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
+    (@comp_cat_cov_func (TotalOp_cat I) Cat_cart (CoAbove2_cat Cat_cart)
+      (@CoAbove2_func (CoAbove2_cat Cat_cart) Cat_cart total_op_cart));
+
 // The stronger presheaf view is a genuine whole functor, with no proof input.
 assert [I : Cat] (H : τ (Functor (Op_cat I) Cat_cart)) ⊢
   fapp0 (Homd_index_include_func I) H ≡ @Op_func (Op_cat I) Cat_cart H;

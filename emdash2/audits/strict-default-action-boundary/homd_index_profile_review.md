@@ -1,10 +1,35 @@
 # Homd index action: the Cartesian restriction is too strong
 
 Date: 2026-10-15
-Status: necessary profile correction identified; derived candidate checked;
-whole Q/Homd integration remains open
+Status: directed index integrated through the native identity-specialized
+intrinsic ladder; constant-section index action and full qualification open
 Owner: [foundations plan](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Predecessor: `e594bcea5e37c825dc92cd90df53f3b4a277ad5c`
+
+Continuation after `36fceea2`: Hom_Q(A,B)=Cart(A,P(B)) is now installed in
+the staged native owner. The identity/relative direct ladders and the
+identity-specialized intrinsic root-to-filler projections check. The expanded
+negative-Sigma action independently recovers the same structured arrow as
+the capped Sigma-map rule. See the
+[current verification](production_intrinsic_verification.json). The full
+source advances to the old `piapp1_func` section type; F[alpha] computation,
+nonidentity modifications and consumed Q coherence are still unqualified.
+
+The coefficient view of ordinary curried Hom now has a stable owner with
+projections to its explicit M_I-composition body. Unfolding that body inside
+represented Q patterns did not compute reliably. Its proof-time whole
+comparison checks the actual inclusion; an arbitrary M is rejected. This is
+a source-normalization repair, not an operational equality argument. The
+displayed component migration also exposes the actual Cartesian fibre Hom,
+while retaining lax FF across K and P's directed index transformations.
+
+The convention question does not require changing the default. Reversing
+which leg is strict would reverse the first comparison, but also turn the
+positive constant-section arrow s[x]->s[y] into s[y]->s[x] along x->y.
+It would therefore move the opposite-profile requirement to the retained
+Pi(Const B) interface. Keep the negative-index presentation local. In this
+presentation homd_tgt_func lands in P; fixed-v homd_ is its T(I)->Cat_cart
+view. M_I is internal to canonical constructions and is not a user parameter.
 
 ## The concrete consumer
 
@@ -78,10 +103,11 @@ The proposed replacement is limited to the inner index classifier:
 Hom_Q(A,B) = Cart(A,P(B)).
 ```
 
-This is not yet installed in the staged Q. The Cartesian fibre-variable
-profile, default strict functors, default conventional lax transformations,
-and E:K→Cat_cart are retained. The existing direct ladder and represented
-operations must be transported to this weaker index view and requalified.
+This is installed by the continuation described above. The Cartesian
+fibre-variable profile, default strict functors, default conventional lax
+transformations, and E:K→Cat_cart are retained. The direct ladder and
+represented operations now use this view; their remaining higher coherence
+and section consumers still need qualification.
 No general profunctor-composition theory is added as a prerequisite.
 
 There is a derived whole inclusion
@@ -113,6 +139,8 @@ with total_op_cart. B_I is the corresponding explicit return composite;
 no whole inverse or coherence theorem for A_I,B_I is claimed. N_I uses one
 existing Sigma and whole duality, rather than declaring another total.
 Its formation remains conditional on those existing structural contracts.
+In the integrated source, B_I remains diagnostic support in the controls:
+the core consumes A_I and N_I and does not require an inverse of A_I.
 
 The direction is also forced by negative-total arrows. For κ:p→q and
 an arrow `a→H[κ](b)`, a map U needs
@@ -139,19 +167,21 @@ Still required:
 
 1. Recover the concrete index-arrow action F[α], with its direction and
    noncollapse, from the existing internal action/extraction owners.
-2. Integrate P into Q, its represented inclusion/conjoint/mate operations,
-   and the complete direct identity/relative x/u/y/v/f ladder.
-3. Adapt the existing tdapp1_int/fdapp1_int projection owners. Do not add an
+2. Qualify the remaining consumed Q coherence beyond the checked native
+   represented operations and identity/relative x/u/y/v/f computations.
+3. Extend the now-checked fdapp1_int projection ladder to nonidentity
+   tdapp1_int modifications and the whole extracted laxity. Do not add an
    independent laxity cell. Retain the negative-total direction in Sigma/Pi.
-4. Correct the old unconditional left-transport=middle equation: the
-   selected default makes the right/pre route strict, retaining the left/post
-   comparison. Update its actual consumers, without strictifying arbitrary FF.
+4. Migrate the consumers of the retired unconditional left-transport=middle
+   equation. The native owner now uses the selected right/pre equality,
+   retaining the left/post comparison and general lax FF.
 5. Qualify the consumed whole coherence and downstream migration before
    public promotion. The original later source remains present.
 
-The [verification record](production_homd_index_verification.json) pins the
-passing source and finite model. The candidate adds no warning bodies or
-rules. The full staged kernel is unchanged from the predecessor and still
-stops at its old intrinsic declaration. Earlier ladder checks remain evidence
+The [initial verification record](production_homd_index_verification.json)
+pins the passing source and finite model at `36fceea2`. That index-only
+checkpoint added no warning bodies or rules and left the full staged kernel
+at its old intrinsic declaration. The continuation and its changed warning
+scope are recorded above. Earlier ladder checks remain evidence
 for that stated computational contract, not for the now-refuted general
 intrinsic extension of all-Cart Q.

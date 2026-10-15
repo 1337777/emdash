@@ -1,0 +1,327 @@
+// 16b. Identity-specialized displayed hom action and Sigma-map action
+/*
+  Whole-transfor displayed laxity interface.
+
+  Active surface:
+
+    functord_laxity_transf(FF,p)
+      : D[p] ∘ FF[x] => FF[y] ∘ E[p].
+
+  This section owns the component-level cell `fdapp1_int_cell(FF,p,u)`.
+  Section 18zz, after the required cross-section normalization bridges,
+  projects `fdapp1_int_transfd(FF)` through a self-comma identity section and
+  defines the whole transformation transparently. Its retained source-fibre
+  arrow action stays at the generic `tapp1` owner.
+*/
+
+// Capped object action of the extracted displayed internal-hom functor.
+//
+// Mathematical notation:
+//   fdapp1_int(FF)[x,u][y,v][p][alpha]
+//     : D[p](FF[x]u) ->^(D[y]) FF[y]v.
+//
+// Canonical comment syntax:
+//   the Sigma-map fibre component induced by the internal displayed hom-action.
+//
+// This is deliberately the owner of the Sigma-map fibre component. The surface
+// reading may be `FF[y][alpha] ∘ laxity(FF,p)[u]`, but the kernel normal form is
+// this direct projection from the internal-hom action, not a reconstructed
+// composite through an artificial `FF[y][alpha]` head.
+symbol fdapp1_int_hom_fapp0 [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x)))
+  [v : τ (Obj (Fibre_cat E y))]
+  (alpha : τ (Hom
+      (Fibre_cat E y)
+      (@fapp0
+        (Fibre_cat E x)
+        (Fibre_cat E y)
+        (@catd_transport_func K E x y p)
+        u)
+      v))
+  : τ (Hom
+      (Fibre_cat D y)
+      (@fapp0
+        (Fibre_cat E x)
+        (Fibre_cat D y)
+        (@functord_transport_lhs_func K E D FF x y p)
+        u)
+      (@fapp0
+        (Fibre_cat E y)
+        (Fibre_cat D y)
+        (@Fibre_func K E D FF y)
+        v));
+
+// Arrow action of a Sigma map on the canonical Sigma-hom constructor.
+//
+// Surface/formula:
+//   Sigma(FF)[(p,alpha)]
+//     = (p, fdapp1_int(FF)[x,u][y,v][p][alpha]).
+//
+// This is the capped action `fapp1_fapp0` of `sigma_map_func`. The corresponding
+// fixed-endpoint hom-action package is folded later, after
+// `fdapp1_int_presheaf_arrow` is available.
+rule @fapp1_fapp0
+      _
+      _
+      (@sigma_map_func $K $E $D $η)
+      (Struct_sigma $x $u)
+      (Struct_sigma $y $v)
+      (Struct_sigma $p $alpha)
+  ↪ @sigma_arrow
+      $K
+      $D
+      $x
+      $y
+      (@fapp0
+        (Fibre_cat $E $x)
+        (Fibre_cat $D $x)
+        (@tapp0_fapp0 $K Cat_cart $E $D $x $η)
+        $u)
+      (@fapp0
+        (Fibre_cat $E $y)
+        (Fibre_cat $D $y)
+        (@tapp0_fapp0 $K Cat_cart $E $D $y $η)
+        $v)
+      $p
+      (@fdapp1_int_hom_fapp0
+        $K
+        $E
+        $D
+        $η
+        $x
+        $y
+        $p
+        $u
+        $v
+        $alpha);
+
+// Source dependent-hom section used by the internal-hom extraction.
+//
+// Mathematical notation:
+//   homd_id_src_sec(E,x,u)
+//     = homd_int(id_E)[x](u)
+//     : Obj(S_E(x)), a whole Q-valued transformation.
+//
+// Canonical comment syntax:
+//   Homd_E(x,u,—,—).
+// homd_id_src_sec is now owned by the native identity Homd core.
+
+// Target dependent-hom section obtained by applying FF to the source object.
+//
+// Mathematical notation:
+//   homd_ff_src_sec(FF,x,u)
+//     = homd_int(FF)[x](FF[x](u))
+//     : Obj(S_E(x)), a whole Q-valued transformation.
+//
+// Canonical comment syntax:
+//   Homd_D(x,FF[x](u),—,FF[—](—)).
+symbol homd_ff_src_sec [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (@Homd_target_section_cat K E x))
+≔ homd_src_sec FF x (fapp0 (Fibre_func FF x) u);
+
+// First concrete stage of the non-circular laxity extraction path. This is the
+// component of the internal displayed hom-action at the represented source x
+// and source fibre object u. Its source is the identity dependent-hom section;
+// its target is the section obtained by first applying FF at x and then using
+// `homd_int(FF)`.
+//
+// Mathematical notation:
+//   fdapp1_section(FF,x,u) :
+//     homd_int(id_E)[x](u) ->^(S_E(x)) homd_int(FF)[x](FF[x](u)).
+//
+// Canonical comment syntax:
+//   fdapp1_int(FF)[x,u] :
+//     Homd_E(x,u,—,—) ->^(S_E(x)) Homd_D(x,FF[x](u),—,FF[—](—)).
+//
+// Further projections at y, at the transported object E[p](u), and at the base
+// arrow p produce the component-level displayed laxity cell.
+symbol fdapp1_int_section_arrow [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (Hom_cat
+      (@Homd_target_section_cat K E x)
+      (homd_id_src_sec E x u)
+      (homd_ff_src_sec FF x u)));
+
+// First projection fold for identity-specialized displayed hom-action.
+//
+// Surface/formula:
+//   fdapp1_int_transfd(FF)[x][u] = fdapp1_int_section_arrow(FF,x,u).
+rule @tapp0_fapp0 _ _ _ _ $u
+      (@strict_transfor _ _ _ _
+        (@tdapp0_fapp0 $K _ _ _ _ $x (@fdapp1_int_transfd $K $E $D $FF)))
+  ↪ @fdapp1_int_section_arrow $K $E $D $FF $x $u;
+
+// Source y-component of the identity dependent-hom section.
+//
+// Mathematical notation:
+//   homd_id_tgt_func(E,x,u,y)
+//     = homd_int(id_E)[x](u)[y].
+//
+// Canonical comment syntax:
+//   Homd_E(x,u,y,—).
+// homd_id_tgt_func is now owned by the native identity Homd core.
+
+// Target y-component after applying FF to the source object.
+//
+// Mathematical notation:
+//   homd_ff_tgt_func(FF,x,u,y)
+//     = homd_int(FF)[x](FF[x](u))[y].
+//
+// Canonical comment syntax:
+//   Homd_D(x,FF[x](u),y,FF[y](—)).
+symbol homd_ff_tgt_func [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D)) (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (Functor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y)))
+≔ @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+    (@homd_ff_src_sec K E D FF x u);
+
+// Second projection stage of the same internal-hom extraction path.
+//
+// Mathematical notation:
+//   fdapp1_section(FF,x,u)[y] :
+//     homd_int(id_E)[x](u)[y]
+//       => homd_int(FF)[x](FF[x](u))[y].
+//
+// Canonical comment syntax:
+//   fdapp1_int(FF)[x,u][y] :
+//     Homd_E(x,u,y,—) => Homd_D(x,FF[x](u),y,FF[y](—)).
+//
+// This is the actual Cartesian fibre-variable Hom. Its next component is
+// an arrow in P(I), whose index comparison need not be strict.
+symbol fdapp1_int_tgt_arrow [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D)) (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (@StrictTransfor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (homd_id_tgt_func E x u y) (homd_ff_tgt_func FF x u y));
+
+// Second projection fold for identity-specialized displayed hom-action.
+//
+// Surface/formula:
+//   fdapp1_int_section_arrow(FF,x,u)[y] = fdapp1_int_tgt_arrow(FF,x,u,y).
+rule @tapp0_hom_fapp0 _ Homd_coeff_cat _ _ _ _ $y
+      (@fdapp1_int_section_arrow $K $E $D $FF $x $u)
+  ↪ @fdapp1_int_tgt_arrow $K $E $D $FF $x $u $y;
+
+// Third projection stage: evaluate the y-component at a fibre object v.
+//
+// Mathematical notation:
+//   fdapp1_section(FF,x,u)[y][v] :
+//     homd_int(id_E)[x](u)[y](v)
+//       ->^(HomPsh_Z(x)[y]) homd_int(FF)[x](FF[x](u))[y](v).
+//
+// Canonical comment syntax:
+//   fdapp1_int(FF)[x,u][y,v] :
+//     Hom_E(E[—](u),v) => Hom_D(D[—](FF[x](u)),FF[y](v)).
+//
+// The index arrow uses P(I), while each fixed object still has its ordinary
+// T(I)->Cat_cart presheaf view. No strict index naturality is imposed here.
+symbol fdapp1_int_presheaf_arrow [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K))
+  (v : τ (Obj (Fibre_cat E y)))
+  : τ (Obj (Hom_cat
+      (Homd_index_cat (Hom_cat K x y))
+      (fapp0 (homd_id_tgt_func E x u y) v)
+      (fapp0 (homd_ff_tgt_func FF x u y) v)));
+
+// Third projection fold for identity-specialized displayed hom-action.
+//
+// Surface/formula:
+//   fdapp1_int_tgt_arrow(FF,x,u,y)[v]
+//     = fdapp1_int_presheaf_arrow(FF,x,u,y,v).
+rule @tapp0_fapp0 _ _ _ _ $v
+      (@strict_transfor _ _ _ _ (@fdapp1_int_tgt_arrow $K $E $D $FF $x $u $y))
+  ↪ @fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v;
+
+// Full Sigma Hom action uses the existing Sigma through the derived
+// negative index total. Its source and target are the actual P-objects.
+rule @fapp1_func _ _ (@sigma_map_func $K $E $D $FF)
+      (Struct_sigma $x $u) (Struct_sigma $y $v)
+  ↪ @fapp1_fapp0 (Homd_index_cat (Hom_cat $K $x $y)) Cat_cat
+      (Homd_index_sigma_func (Hom_cat $K $x $y))
+      (fapp0 (@homd_id_tgt_func $K $E $x $u $y) $v)
+      (fapp0 (@homd_ff_tgt_func $K $E $D $FF $x $u $y) $v)
+      (@fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v);
+
+// Fourth projection stage, with endpoints written directly through `homd_`.
+//
+// Mathematical notation:
+//   fdapp1_int(FF)[x,u][y,v][p] :
+//     homd_(id_E,x,u,y,v)[p]
+//       ⊢ homd_(FF,x,FF[x](u),y,v)[p].
+//
+// Canonical comment syntax:
+//   fdapp1_int(FF)[x,u][y,v][p].
+//
+// This deliberately keeps the endpoints at the stable `homd_` layer. A later
+// fold/assertion can expose the simplified fibre-hom category
+// `Hom_{D[y]}(D[p](FF[x](u)),FF[y](v))` when a theorem needs that shape.
+symbol fdapp1_int_hom_func [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x)))
+  (v : τ (Obj (Fibre_cat E y)))
+  : τ (Functor
+      (fapp0
+        (homd_
+          (@id_funcd K E)
+          x
+          u
+          y
+          v)
+        p)
+      (fapp0
+        (homd_
+          FF
+          x
+          (fapp0 (Fibre_func FF x) u)
+          y
+          v)
+        p));
+
+// Fourth projection fold by evaluating the presheaf arrow at p.
+//
+// Surface/formula:
+//   fdapp1_int_presheaf_arrow(FF,x,u,y,v)[p]
+//     = fdapp1_int_hom_func(FF,p,u,v).
+rule @fapp1_fapp0
+      _
+      (Op_cat Cat_cart)
+      (@fapp0_func _ _ $p)
+      _
+      _
+      (@fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v)
+  ↪ @fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v;
+
+// Equivalent transfor-component projection at p of the same presheaf arrow.
+rule @tapp0_fapp0
+      _
+      (Op_cat Cat_cart)
+      _
+      _
+      $p
+      (@fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v)
+  ↪ @fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v;
+
+// Final capped projection of identity-specialized displayed hom-action.
+//
+// Surface/formula:
+//   fdapp1_int_hom_func(FF,p,u,v)[alpha]
+//     = fdapp1_int_hom_fapp0(FF,p,u,alpha).
+rule fapp0
+      (@fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v)
+      $alpha
+  ↪ @fdapp1_int_hom_fapp0 $K $E $D $FF $x $y $p $u $v $alpha;

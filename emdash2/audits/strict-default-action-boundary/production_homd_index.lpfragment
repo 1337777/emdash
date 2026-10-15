@@ -31,19 +31,6 @@ symbol Homd_index_total_family_func (I : Cat)
     (@comp_cat_cov_func (TotalOp_cat I) (CoAbove2_cat Cat_cart) Cat_cart total_op_cart)
     (TotalOp_func_func I (Op_cat Cat_cart));
 
-// Derived return map. No inverse/coherence theorem is claimed by its type.
-symbol Homd_index_from_total_family_func (I : Cat)
-  : τ (Functor (Catd_cat (TotalOp_cat I)) (CoAbove2_cat (Homd_index_cat I)))
-≔ @comp_cat_fapp0 (Catd_cat (TotalOp_cat I))
-    (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart))
-    (CoAbove2_cat (Homd_index_cat I))
-    (@TotalOp_func
-      (TotalOp_cat (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
-      (Functor_cat I (Op_cat Cat_cart))
-      (TotalOp_func_func (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
-    (@comp_cat_cov_func (TotalOp_cat I) Cat_cart (CoAbove2_cat Cat_cart)
-      (@CoAbove2_func (CoAbove2_cat Cat_cart) Cat_cart total_op_cart));
-
 // The whole negative total is an actual composition, not a second Sigma.
 // R acts on a strict functor here, never directly on an arbitrary lax map.
 symbol Homd_index_sigma_func (I : Cat)

@@ -1,0 +1,129 @@
+// The stable coefficient view agrees with its actual composition body.
+assert [A B : Cat] (F : τ (Functor B A)) ⊢
+  @eq_refl (Functor A (Homd_index_cat B)) (@Homd_coeff_conjoint A B F)
+  : τ (@= (Functor A (Homd_index_cat B))
+      (@Homd_coeff_conjoint A B F) (@Homd_coeff_conjoint_body A B F));
+assert [A B : Cat] (F : τ (Functor B A)) (a b : τ (Obj A)) ⊢
+  @fapp1_func A (Homd_index_cat B) (@Homd_coeff_conjoint A B F) a b
+  ≡ @fapp1_func A (Homd_index_cat B) (@Homd_coeff_conjoint_body A B F) a b;
+
+// The whole comparison requires the actual inclusion, not an arbitrary map.
+assertnot [A B : Cat] (F : τ (Functor B A))
+  (M : τ (Functor (Functor_cart_cat (Op_cat B) Cat_cart) (Homd_index_cat B))) ⊢
+  @eq_refl (Functor A (Homd_index_cat B)) (@Homd_coeff_conjoint A B F)
+  : τ (@= (Functor A (Homd_index_cat B)) (@Homd_coeff_conjoint A B F)
+      (@comp_cat_fapp0 A (Functor_cart_cat (Op_cat B) Cat_cart) (Homd_index_cat B)
+        M (@hom_con_int A B F)));
+
+// Ordinary and Cartesian formation expose the same whole total-dual family.
+assert [I : Cat] (H : τ (Functor (Op_cat I) Cat_cart)) ⊢
+  fapp0 (Homd_index_total_family_func I) (fapp0 (Homd_index_include_func I) H)
+  ≡ @TotalOp_catd (Op_cat I) H;
+
+// Canonical constant transformations are Cartesian; their ordinary view
+// retains the existing component computation.
+assert [K A : Cat] [x y : τ (Obj A)] (p : τ (Hom A x y)) (k : τ (Obj K)) ⊢
+  tapp0_fapp0 k (strict_transfor (@Const_transf K A x y p)) ≡ p;
+
+// Selected middle action is the right/pre route. A general FF does not
+// acquire the missing equality with its left/post route.
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D)) (x y : τ (Obj K)) ⊢
+  @functord_transport_rhs_tele_agrees K E D FF x y
+  : τ (@= (Functor (Hom_cat K x y) (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+      (@functord_transport_rhs_tele_func K E D FF x y)
+      (@tapp1_func K Cat_cart E D x y FF));
+assertnot [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
+  @functord_transport_lhs_func K E D FF x y p
+  ≡ @functord_transport_rhs_func K E D FF x y p;
+
+// Actual generic root component, with endpoints inferred by the public
+// displayed projection, then the ordinary view of its Cartesian fibre Hom.
+symbol intrinsic_check_section [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D)) (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (Hom_cat (@Homd_target_section_cat K E x)
+      (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E D FF x u)))
+≔ @tapp0_fapp0 (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K E x)) _ _ u
+    (@strict_transfor (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K E x)) _ _
+      (tdapp0_fapp0 x (@fdapp1_int_transfd K E D FF)));
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @intrinsic_check_section K E D FF x u ≡ @fdapp1_int_section_arrow K E D FF x u;
+
+symbol intrinsic_check_target [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D)) (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (@StrictTransfor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (@homd_id_tgt_func K E x u y) (@homd_ff_tgt_func K E D FF x u y))
+≔ @tapp0_hom_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E D FF x u) y
+    (@intrinsic_check_section K E D FF x u);
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @intrinsic_check_target K E D FF x u y ≡ @fdapp1_int_tgt_arrow K E D FF x u y;
+
+symbol intrinsic_check_index [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D)) (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y)))
+  : τ (Obj (Hom_cat (Homd_index_cat (Hom_cat K x y))
+      (fapp0 (@homd_id_tgt_func K E x u y) v)
+      (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)))
+≔ tapp0_fapp0 v (strict_transfor (@intrinsic_check_target K E D FF x u y));
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y))) ⊢
+  @intrinsic_check_index K E D FF x u y v ≡ @fdapp1_int_presheaf_arrow K E D FF x u y v;
+
+// Direct root -> x/u -> y -> v -> f -> filler, through the actual types.
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat E x)))
+  (v : τ (Obj (Fibre_cat E y)))
+  (a : τ (Hom (Fibre_cat E y) (fapp0 (@catd_transport_func K E x y p) u) v)) ⊢
+  fapp0 (@tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)
+    (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)
+    (fapp0 (@homd_id_tgt_func K E x u y) v) p
+    (@intrinsic_check_index K E D FF x u y v)) a
+  ≡ @fdapp1_int_hom_fapp0 K E D FF x y p u v a;
+
+assertnot [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y))) ⊢
+  @intrinsic_check_index K E D FF x u y v
+  : τ (Hom (Functor_cart_cat (Op_cat (Hom_cat K x y)) Cat_cart)
+      (@homd_ K E E (@id_funcd K E) x u y v)
+      (@homd_ K E D FF x (fapp0 (@Fibre_func K E D FF x) u) y v));
+
+// The actual Sigma first-Hom action uses this same index arrow and one
+// derived negative total. Its fibre component retains the native owner.
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y))) ⊢
+  @fapp1_func (Sigma_cat E) (Sigma_cat D) (@sigma_map_func K E D FF)
+    (Struct_sigma x u) (Struct_sigma y v)
+  ≡ @fapp1_fapp0 (Homd_index_cat (Hom_cat K x y)) Cat_cat
+      (Homd_index_sigma_func (Hom_cat K x y))
+      (fapp0 (@homd_id_tgt_func K E x u y) v)
+      (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)
+      (@intrinsic_check_index K E D FF x u y v);
+
+// Evaluation-first and component-first projections retain the same f-owner.
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y))) ⊢
+  @fapp1_fapp0 (Functor_cat (Hom_cat K x y) (Op_cat Cat_cart)) (Op_cat Cat_cart)
+    (@fapp0_func (Hom_cat K x y) (Op_cat Cat_cart) p)
+    (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)
+    (fapp0 (@homd_id_tgt_func K E x u y) v)
+    (@intrinsic_check_index K E D FF x u y v)
+  ≡ @fdapp1_int_hom_func K E D FF x y p u v;
+
+// Expand the negative-total route independently of sigma_map's capped cut.
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat E x)))
+  (v : τ (Obj (Fibre_cat E y)))
+  (a : τ (Hom (Fibre_cat E y) (fapp0 (@catd_transport_func K E x y p) u) v)) ⊢
+  fapp0 (@fapp1_fapp0 (Homd_index_cat (Hom_cat K x y)) Cat_cat
+      (Homd_index_sigma_func (Hom_cat K x y))
+      (fapp0 (@homd_id_tgt_func K E x u y) v)
+      (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)
+      (@intrinsic_check_index K E D FF x u y v)) (Struct_sigma p a)
+  ≡ @sigma_arrow K D x y (fapp0 (@Fibre_func K E D FF x) u)
+      (fapp0 (@Fibre_func K E D FF y) v) p
+      (@fdapp1_int_hom_fapp0 K E D FF x y p u v a);

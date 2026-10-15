@@ -5,6 +5,30 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Directed-index Q and native intrinsic projections, 2026-10-15
+
+The inner P index is integrated into [Q/Homd](production_homd_core.lpfragment).
+The original [intrinsic projection names](production_intrinsic_projection.lpfragment)
+now run through the actual Q section, outer Cartesian fibre Hom and directed
+inner index. The [consumers](production_intrinsic_controls.lpfragment) check
+the generic root-to-filler path for lax FF, the stable coefficient view's
+whole body, and expanded negative-Sigma action independently of its capped
+rule. The [verification](production_intrinsic_verification.json) records the
+exact staged boundary and remaining failure at `piapp1_func`.
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package intrinsic_identity_prefix.lp
+```
+
+This carries the earlier foundation/section/Sigma/mixed/Homd/index controls.
+The concrete constant-section F[alpha] computation, nonidentity modification
+projections, consumed Q coherence and downstream/public migration remain open.
+The false left-route equality has been replaced by the right-route agreement;
+general FF is not made strict. All original later source sections remain.
+
 ## General intrinsic action needs a weaker index profile, 2026-10-15
 
 The [review](homd_index_profile_review.md) records a semantic obstruction to

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: native direct Homd ladders check; general intrinsic action exposes an overly strict inner Q index Hom; derived negative-index candidate checks, with whole integration and public/downstream migration open
+Status: directed inner Q index integrated; direct Homd and identity-specialized intrinsic ladders plus expanded negative-Sigma action check in staged source; section action, higher coherence and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,51 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Native index/intrinsic continuation after `36fceea2`, 2026-10-15: the inner
+profile is now integrated as `Hom_Q(A,B)=Cart(A,P(B))`, with
+`P(I)=T(Functor_cat(I,T(Cat_cart)))`. The existing identity and defined
+relative x/u/y/v/f ladders check with this type. The fixed-v `homd_` remains
+`T(I)->Cat_cart`; it is the presheaf view of a P-object, not a functor from
+all of P into the former Cartesian presheaf category.
+
+The original `tdapp1_int_*` declarations now have the corrected direction
+from `homd_int(GG) o FF` to the ordinary view of the identity core. The
+[identity-specialized projection owners](../emdash2/audits/strict-default-action-boundary/production_intrinsic_projection.lpfragment)
+and [consumers](../emdash2/audits/strict-default-action-boundary/production_intrinsic_controls.lpfragment)
+check root -> x/u -> y -> v -> f -> filler for general lax FF. The section
+arrow is in S_E(x), its y-component is Cartesian in the fibre variable,
+and its v-component is an arrow of P(I). Sigma's first Hom uses the actual
+derived negative-total map. Expanding that map independently computes the
+same structured arrow as the original capped Sigma-map owner.
+
+The [verification](../emdash2/audits/strict-default-action-boundary/production_intrinsic_verification.json)
+records exact inputs, the source boundary and warning comparison. This does
+not yet qualify the constant-section F[alpha] action, nonidentity displayed
+modifications, all consumed Q coherence or public/downstream migration.
+The full source now stops at the old `piapp1_func` type, not section 15.
+
+M_I is an internal, derived inclusion from Cart(T(I),Cat_cart) to P(I),
+never an extra caller argument or proof payload. A stable coefficient view
+of native curried Hom keeps represented composition matchable; its whole
+comparison requires the actual M_I, and its hom action projects to the
+explicit composition body. An arbitrary replacement for M_I is rejected.
+The stronger canonical Const_transf profile and actual Cartesian displayed
+components reuse the original owners and ordinary inclusion. The old false
+`functord_transport_lhs[_tele]_agrees` declarations are replaced by the
+right-route versions; their four downstream consumer modules remain listed
+for migration. FF itself remains lax across K.
+
+Next adapt the existing section action through A_I:R(P(I))->Catd(O(I))
+and ordinary Pi. This Pi binds the Hom index I; the Homd y-binding remains
+the actual Transf(K,Q). Qualify its terminal-source endpoint and recover the
+concrete F[alpha] action before claiming the index requirement solved.
+Then adapt nonidentity tdapp1 projections, extracted whole laxity and late
+consumers. Retain the current conventional-lax default: swapping its strict
+leg would reverse positive section action and move the profile problem to
+Pi(Const B), rather than eliminate the need for both directions.
+
+The following entries retain the preceding diagnosis and comparison history.
 
 Index-profile correction after `e594bcea`, 2026-10-15: the required general
 intrinsic action refutes the all-Cartesian inner Q Hom. A strict ordinary
