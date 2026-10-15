@@ -352,6 +352,12 @@ kernel migration.
 
 Public migration boundary, reviewed 2026-10-15:
 
+The reference is the original pre-goal kernel at
+`f8af1fca472657ff1598c639eb29c0566e7b2ec0`. Even feasible improvements are
+deferred until after migration. Start from its actual owner/rule shapes;
+justify departures by a selected Homd/duality/default contract change and
+an actual consumer, rather than by the convenience of a new audit.
+
 | Production owner | Migration treatment |
 | --- | --- |
 | `comp_fapp0(Sigma_cat(E),...)` with `sigma_arrow` / `sigma_arrow_intro` | Preserve the existing direct composition formula; adapt its coefficient and corrected Hom presentation |

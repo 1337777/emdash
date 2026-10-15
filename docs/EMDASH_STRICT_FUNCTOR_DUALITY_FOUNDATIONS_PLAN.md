@@ -65,6 +65,24 @@ remain separate from deferred optional redesign. This changes the next work
 order, not the selected strict-functor/conventional-lax-FF semantics or the
 full goal's public/downstream qualification requirements.
 
+Pre-goal reference clarification, 2026-10-15: "existing production kernel"
+means the original kernel at launch commit
+`f8af1fca472657ff1598c639eb29c0566e7b2ec0`, not a later experimental
+checkpoint. Its nucleus SHA-256 is
+`6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a`.
+Read original owner declarations/rules from this pin when adapting them;
+current source differences must be reviewed explicitly. The present nucleus/
+profile diff against it is only the previously recorded carrier relocation.
+
+Even feasible or demonstrably useful improvements are documentation-only
+follow-ups until this migration is complete. Preserve the original outline
+mechanically wherever the selected Homd/duality/default changes permit it.
+Scope a failure to the exact changed contract and original consumer before
+adding infrastructure. In particular, checker failure of a new audit
+presentation is not evidence that the original production owner needs
+replacement. This is a constraint on implementation, not a promise that
+an invalid original signature can be retained after its variance changes.
+
 Current FF/profile clarification, 2026-10-15: retain conventional-lax
 transformations, general lax FF across K, and the identity-Homd core with a
 defined relative composite. The earlier strict-Functord sub-classifier is
