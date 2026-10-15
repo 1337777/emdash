@@ -38,6 +38,29 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Current FF/profile clarification, 2026-10-15: retain conventional-lax
+transformations, general lax FF across K, and the identity-Homd core with a
+defined relative composite. The earlier strict-Functord sub-classifier is
+not the selected admission. Cat_cart supplies strict fibre functors and
+strict fibre naturality of comparison cells; it does not collapse FF's
+base naturality. The [outline's choice snapshot](EMDASH_CARTESIAN_FAMILIES_LAX_TRANSFORS_HOMD_OUTLINE.md#universes-families-and-sections)
+records this distinction and retains strict FF as a possible alternative.
+If FF were made strict, that particular lax-coherence motivation for
+unbundling would largely disappear. No admission change is made here.
+
+In-progress composition consumer: `cart_sigma_composition.lpfragment`,
+`cart_sigma_composition_controls.lpfragment` and
+`cart_sigma_composition_replay.py` in the same audit directory are uncommitted
+authoring work. The defined fibre-composition functor and both actual whole
+mapped-composition routes typecheck, but their typed-reflexivity comparison
+is not yet discharged in receipt
+`20261015T085115Z-74b654cc81eb43d3a1245bd17da5b885`. No new composition law
+has been installed. The initial attempt used Product_map_func, which is not
+in the experimental prefix; the current bodies use its existing pair of
+projection/composition operations instead. Continue at the intrinsic
+Hom-action composition owner, preserving the runtime extractor and the
+direct Homd ladder. The latest qualified native checkpoint remains 42c23284.
+
 Latest total-map continuation, 2026-10-15: the
 [Cartesian-family total-map candidate](../emdash2/audits/strict-default-action-boundary/cart_sigma_map_review.md)
 retains default lax FF and defines the whole first Hom as the negative

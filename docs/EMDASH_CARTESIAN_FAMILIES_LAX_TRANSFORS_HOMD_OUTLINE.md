@@ -34,6 +34,36 @@ milestone; further Q operations require a concrete Homd/Sigma consumer.
 
 ## Universes, families and sections
 
+Current choice snapshot, reaffirmed by the user discussion on 2026-10-15:
+
+| Choice | Selected candidate |
+| --- | --- |
+| Default functors | Strict, with the ordinary public action names |
+| Default transformations | Conventional lax: strict pre/right leg, directed post/left comparison |
+| Family coefficient | Cat_cart, so fibre functors and transformations inside the coefficient are Cartesian |
+| FF across the base | General default lax `Transf(K,Cat_cart,D,E)`, not the earlier strict-Functord sub-classifier |
+| Dependent Hom ownership | Independent identity core, followed by a defined relative composition for FF |
+| Ordinary blended F | Retained; F is a default strict functor |
+
+The current experiment spells the FF input with `Transf`; migrating the
+public Functord facade is still a source-integration task. Cat_cart does not
+make FF strict across K. It makes FF's component functors strict and its
+base-comparison transformations strictly natural in fibre variables. The
+comparison across a nonidentity base arrow may remain noninvertible.
+
+For an ordinary epsilon:F=>G, the selected conventional direction is
+`G[p] o epsilon[x] => epsilon[y] o F[p]`; the pre/right expression is the
+strict selected middle action. Reversing this comparison is the oplax
+orientation, not a second unconstrained comparison leg.
+
+The strict-Functord alternative remains available for reassessment. If it
+were selected, the lax-FF motivation for separating the identity core would
+largely disappear, and a blended primitive with strict computations would
+be a legitimate candidate. Typing still needs the corresponding native
+rules and interaction qualification. The defined relative composite remains
+useful in either profile; separation is not a mathematical necessity imposed
+on strict FF. No such admission change is selected by this clarification.
+
 Proposed meanings, with names still subject to the focused migration:
 
 ```text
