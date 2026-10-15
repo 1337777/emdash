@@ -55,11 +55,17 @@ def main():
     insert('/*\n  The former capped composition cut and detached all-components law are\n',
            fragment('composition_rule.lpfragment'), 'Strict default: existing capped functor action owner')
     insert('/*\n  The former whole post/left and pre/right strict-functoriality accumulation\n',
-           fragment('whole_rules.lpfragment') + '\n' + fragment('projected_rules.lpfragment'),
-           'Strict default: existing whole action and its stable projections')
+           fragment('whole_rules.lpfragment') + '\n' + fragment('projected_rules.lpfragment')
+           + '\n' + fragment('conventional_lax_projection_readings.lpfragment')
+           + '\n' + fragment('production_conventional_pre_reading.lpfragment')
+           + '\n' + fragment('conventional_lax_rules.lpfragment'),
+           'Strict functor action and conventional-lax pre/right action at the existing whole/projection owners')
     insert('// The public whole laxity candidate is now an object projection, not an\n',
            fragment('intrinsic_rule.lpfragment'),
            'Strict default: normalize the existing extracted functor compositor, without a new witness')
+    insert('// Whole post/left ordinary laxity.',
+           fragment('conventional_lax_intrinsic.lpfragment'),
+           'Conventional lax default: the existing extracted pre/right cell is identity, without a wrapper or supplied comparison')
 
     insert('// Path categories internalize HoTT equality as a groupoidal category.',
            fragment('co_above2_category.lpfragment') + '\n' + fragment('co_at2_category.lpfragment'),
@@ -129,7 +135,9 @@ def main():
     (package / 'lambdapi.pkg').write_bytes((root / 'lambdapi.pkg').read_bytes())
     controls = (fragment('production_owner_controls.lpfragment') + '\n'
                 + fragment('whole_controls.lpfragment') + '\n'
-                + fragment('intrinsic_controls.lpfragment').replace('assertnot ', 'assert '))
+                + fragment('intrinsic_controls.lpfragment').replace('assertnot ', 'assert ')
+                + '\n' + fragment('conventional_lax_controls.lpfragment')
+                + '\n' + fragment('conventional_lax_projection_controls.lpfragment'))
     (package / 'owner_controls.lp').write_text('require open emdash.emdash3_2;\n\n' + controls)
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
@@ -173,6 +181,61 @@ def main():
                 changes.append({'source': path, 'before': marker,
                                 'reason': 'Map the actual identity-compositor inverse evidence through original whiskering instead of imposing additional runtime projection laws',
                                 'insertedSha256': sha(addition)})
+                marker = 'protected symbol comma_basechange_observation_pre_points '
+                assert text.count(marker) == 1
+                start = text.index(marker)
+                begin = text.index('≔', start)
+                end = text.index(';', begin) + 1
+                old = text[begin:end]
+                post_points = text[start:end].replace('comma_basechange_observation_pre',
+                                                      'comma_basechange_observation_post')
+                post_points = post_points.replace('comma_basechange_observation_inner',
+                                                  'comma_basechange_observation_outer')
+                replacement = '''≔ λ z : τ (Obj (@Sigma_cat A (@Pullback_catd A K E F))),
+  let pre : τ (@OmegaEquivAlong
+      (Functor_cat (@Sigma_cat A (@Pullback_catd A K E F)) C)
+      (@comma_basechange_observation_inner A K C F E P)
+      (@comma_basechange_observation_middle A K C F E P)
+      (@comma_basechange_observation_pre A K C F E P))
+    ≔ @comma_strict_omega_map
+      (Functor_cat (@Sigma_cat A (@Pullback_catd A K E F)) (Product_cat K C))
+      (Functor_cat (@Sigma_cat A (@Pullback_catd A K E F)) C)
+      (@comp_cat_cov_func (@Sigma_cat A (@Pullback_catd A K E F))
+        (Product_cat K C) C (@Product_projR_func K C))
+      (@comma_basechange_sigma_basechange_right A K F E (@Const_catd K C) P)
+      (@comma_basechange_sigma_basechange_middle A K F E (@Const_catd K C) P)
+      (@comma_basechange_sigma_basechange_pre A K F E (@Const_catd K C) P)
+      (@comma_pre_cell_omega (@Catd_cat K) Cat_cat
+        (@comma_basechange_sigma_basechange_source A K F) (@Sigma_func K)
+        (@sigma_pullback_total_transf A K F)
+        E (@Const_catd K C) (@Const_catd K C) P (@id (@Catd_cat K) (@Const_catd K C))) in
+  @comma_strict_omega_map
+    (Functor_cat (@Sigma_cat A (@Pullback_catd A K E F)) C) C
+    (@fapp0_func (@Sigma_cat A (@Pullback_catd A K E F)) C z)
+    (@comma_basechange_observation_inner A K C F E P)
+    (@comma_basechange_observation_middle A K C F E P)
+    (@comma_basechange_observation_pre A K C F E P) pre;'''
+                text = text[:begin] + replacement + '\n\n' + post_points + text[end:]
+                changes.append({'source': path, 'owner': 'comma_basechange_observation_pre_points',
+                                'reason': 'Map inverse evidence of the extracted default pre cell through the original projection, then evaluate at an arbitrary total object',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(replacement),
+                                'postPointsSha256': sha(post_points)})
+                marker = 'protected symbol comma_basechange_observation_pre_equiv '
+                assert text.count(marker) == 1
+                start = text.index(marker)
+                end = text.index(';', text.index('≔', start)) + 1
+                post_equiv = text[start:end].replace('comma_basechange_observation_pre',
+                                                     'comma_basechange_observation_post')
+                post_equiv = post_equiv.replace('comma_basechange_observation_inner',
+                                                'comma_basechange_observation_outer')
+                text = text[:end] + '\n\n' + post_equiv + text[end:]
+                marker = 'protected symbol comma_basechange_observation_basechange_component '
+                assert text.count(marker) == 1
+                addition = fragment('production_comma_basechange_equivalence.lpfragment')
+                text = text.replace(marker, addition + '\n' + marker, 1)
+                changes.append({'source': path, 'owner': 'comma_basechange_observation_basechange_equiv',
+                                'reason': 'The old second-step reflexivity no longer follows the newly mapped pre inverse; retain both comparison maps and compose their inverse evidence',
+                                'postEquivSha256': sha(post_equiv), 'insertedSha256': sha(addition)})
                 marker = 'protected symbol comma_basechange_gamma_target_link_equiv '
                 assert text.count(marker) == 1
                 start = text.index(marker)
@@ -249,7 +312,7 @@ def main():
                               package / 'emdash3_2_gray_profiles.lp', package / 'owner_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
-        'stillRequired': ['Coupled original op/Op_transf and conventional-lax migration',
+        'stillRequired': ['Coupled original op/Op_transf correction for the conventional-lax default',
                           'Original family classifiers and Q/Homd/Sigma/Pi adaptation',
                           'Existing evaluation/closure consumers under their required profiles',
                           'Downstream qualification and retirement of redundant strict wrappers'],

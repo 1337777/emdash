@@ -5,6 +5,23 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## Conventional-lax production-source continuation, 2026-10-15
+
+The same [production recipe](production_owner_migration.py) now includes
+the selected default pre/right action and its intrinsic identity cell.
+The [current verification](production_conventional_lax_verification.json)
+pins its passing original reviewer and whole/capped/extracted-cell controls,
+while retaining post/left non-strictness observations. The
+[precomposition comparison](production_conventional_pre_reading.lpfragment)
+repairs the actual original pathout consumer. The comma proof retains its
+forward maps and now carries the actual inverse evidence through its
+[base-change composition](production_comma_basechange_equivalence.lpfragment).
+
+Replay uses the package-local commands below. This extends `f691a846`; its
+earlier record remains pinned historical evidence. The old whole-opposite,
+family/Homd/Sigma and joint Cartesian signatures still require their coupled
+migration. Passing these source checks does not qualify those old contracts.
+
 ## Original-source migration checkpoint, 2026-10-15
 
 The [production source recipe](production_owner_migration.py) now stages

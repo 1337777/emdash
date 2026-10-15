@@ -1,0 +1,8 @@
+// The selected pre/right action after ordinary precomposition has capped.
+// The original pathout_general_pre_raw_path consumer reaches this stable
+// head before raw composition folds to tapp1. Preserve both runtime heads.
+unif_rule
+  @hom_precomp_along_fapp0 $A $B $F _ $X $Y $p
+    (@tapp0_fapp0 $A $B $F $G $Y $epsilon)
+  ≡ @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p
+  ↪ [ tt ≡ tt ];

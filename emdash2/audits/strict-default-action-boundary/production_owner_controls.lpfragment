@@ -55,3 +55,12 @@ assert [K : Cat] (E : τ (Functor K Cat_cart)) [x y : τ (Obj K)]
     (@fapp1_func K Cat_cart E x y) p q alpha
   : τ (@StrictTransfor (fapp0 E x) (fapp0 E y)
       (@fapp1_fapp0 K Cat_cart E x y p) (@fapp1_fapp0 K Cat_cart E x y q));
+
+// The conventional pre leg is normalized at its existing intrinsic owner.
+assert [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  (y : τ (Obj A)) [w x : τ (Obj A)] (h : τ (Hom A w x)) ⊢
+  @tapp1_pre_laxity_transf A B F G epsilon y w x h
+  ≡ @id (Functor_cat (Hom_cat A x y) (Hom_cat B (fapp0 F w) (fapp0 G y)))
+      (@functord_transport_lhs_func (Op_cat A)
+        (@hom_con A y A (@id_func A)) (@hom_con B (fapp0 G y) A F)
+        (@tapp1_con_at_transf A B F G epsilon y) x w h);

@@ -51,7 +51,7 @@ protected symbol comma_basechange_gamma_target_step1_equiv [K X Y : Cat]
       (@represented_comma_family_reframe X Y J)
       (@homdc_total_target_funcd X Y (@represented_comma_prof X Y J)));
 
-// The second original comparison still has identity components.
+// Restrict the whole base-change comparison with its actual inverse data.
 protected symbol comma_basechange_gamma_target_step2_equiv [K X Y : Cat]
   (J : τ (Functor X Y)) (A : τ (Functor K X)) (D : τ (Functor K Y))
   (h : τ (@Transf (Op_cat K) (@Catd_cat K)
@@ -63,11 +63,23 @@ protected symbol comma_basechange_gamma_target_step2_equiv [K X Y : Cat]
     (@comma_basechange_gamma_target_raw1 K X Y J A D h)
     (@comma_basechange_gamma_target_raw2 K X Y J A D h)
     (@comma_basechange_gamma_target_step2 K X Y J A D h Y1))
-≔ @one_cat_transf_pointwise_omega_along (Op_cat K) (Op_cat Y) (@one_cat_op Y Y1)
-    (@comma_basechange_gamma_target_raw1 K X Y J A D h)
-    (@comma_basechange_gamma_target_raw2 K X Y J A D h)
-    (@comma_basechange_gamma_target_step2 K X Y J A D h Y1)
-    (λ x : τ (Obj K), @omega_equiv_along_refl (Op_cat Y) (@fapp0 K Y D x));
+≔ @comma_strict_omega_map
+    (Functor_cat (@Sigma_cat (Op_cat K) (@represented_comma_family_target K X Y J A)) (Op_cat Y))
+    (Functor_cat (Op_cat K) (Op_cat Y))
+    (@comp_cat_con_func (Op_cat K)
+      (@Sigma_cat (Op_cat K) (@represented_comma_family_target K X Y J A)) (Op_cat Y)
+      (@section_total_func (Op_cat K) (@represented_comma_family_target K X Y J A)
+        (@represented_comma_family_section K X Y J A D h)))
+    (@comma_basechange_observation_outer (Op_cat K) (Op_cat X) (Op_cat Y)
+      (@Op_func K X A) (@represented_comma_family_catd X Y J) (@comma_section_gamma_target_family_map X Y J))
+    (@comma_basechange_observation_inner (Op_cat K) (Op_cat X) (Op_cat Y)
+      (@Op_func K X A) (@represented_comma_family_catd X Y J) (@comma_section_gamma_target_family_map X Y J))
+    (@comma_basechange_observation_basechange (Op_cat K) (Op_cat X) (Op_cat Y)
+      (@one_cat_op Y Y1) (@Op_func K X A) (@represented_comma_family_catd X Y J)
+      (@comma_section_gamma_target_family_map X Y J))
+    (@comma_basechange_observation_basechange_equiv (Op_cat K) (Op_cat X) (Op_cat Y)
+      (@one_cat_op Y Y1) (@Op_func K X A) (@represented_comma_family_catd X Y J)
+      (@comma_section_gamma_target_family_map X Y J));
 
 // Compose the two actual whole comparisons with their retained inverses.
 protected symbol comma_basechange_gamma_target_raw_link_equiv [K X Y : Cat]

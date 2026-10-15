@@ -16,6 +16,23 @@ protected symbol comma_strict_compositor_omega [A B : Cat]
       (@hom_ A A (@id_func A) x) (@hom_ B A F (fapp0 F x))
       (@fapp1_at_transf A B F x) y z g) f);
 
+// The now-default pre/right cell has the same identity inverse evidence.
+protected symbol comma_pre_cell_omega [A B : Cat]
+  [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  [w x y : τ (Obj A)] (h : τ (Hom A w x)) (q : τ (Hom A x y))
+  : τ (@OmegaEquivAlong (Hom_cat B (fapp0 F w) (fapp0 G y))
+    (fapp0 (@functord_transport_lhs_func (Op_cat A)
+      (@hom_con A y A (@id_func A)) (@hom_con B (fapp0 G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y) x w h) q)
+    (fapp0 (@functord_transport_rhs_func (Op_cat A)
+      (@hom_con A y A (@id_func A)) (@hom_con B (fapp0 G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y) x w h) q)
+    (@tapp1_pre_laxity_cell A B F G epsilon w x y h q))
+≔ @omega_equiv_along_refl (Hom_cat B (fapp0 F w) (fapp0 G y))
+    (fapp0 (@functord_transport_lhs_func (Op_cat A)
+      (@hom_con A y A (@id_func A)) (@hom_con B (fapp0 G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y) x w h) q);
+
 // Default strict functor action maps the existing two inverse laws.
 // Equality is only theorem evidence here, never an operational map argument.
 protected symbol comma_strict_omega_map [A B : Cat] (F : τ (Functor A B))
@@ -68,3 +85,11 @@ protected symbol comma_op_omega_along [C : Cat] [x y : τ (Obj C)]
     (@omega_equiv_along_left_inv (Op_cat C) x y f e)
     (@omega_equiv_along_right_law (Op_cat C) x y f e)
     (@omega_equiv_along_left_law (Op_cat C) x y f e);
+
+// Evidence for the actual selected inverse, without replacing that map.
+protected symbol comma_left_inverse_omega [C : Cat] [x y : τ (Obj C)]
+  (f : τ (Hom C x y)) (e : τ (@OmegaEquivAlong C x y f))
+  : τ (@OmegaEquivAlong C y x (@omega_equiv_along_left_inv C x y f e))
+≔ @omega_equiv_along_intro C y x (@omega_equiv_along_left_inv C x y f e)
+    f f (@omega_equiv_left_as_right_law C x y f e)
+    (@omega_equiv_along_left_law C x y f e);

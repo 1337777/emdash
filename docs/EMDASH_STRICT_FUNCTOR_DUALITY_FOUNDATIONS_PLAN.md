@@ -38,6 +38,46 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Conventional-lax full-source continuation, 2026-10-15: the production recipe
+now installs the selected pre/right whole and capped action, its existing
+intrinsically extracted identity cell, and the checked proof-time readings.
+The [current verification](../emdash2/audits/strict-default-action-boundary/production_conventional_lax_verification.json)
+extends checkpoint `f691a846`; the earlier verification below remains evidence
+for that earlier checkout. Public Hom(Cat)=Functor_cat and FF admission are
+unchanged. Default post/left comparison remains non-strict in the focused
+conversion, typed-equality and opposite-codomain observations.
+
+The original `pathout_general_pre_raw_path` needed a
+[direct precomposition/tapp1 comparison](../emdash2/audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment)
+after raw composition selected its new pre/right normal form. This is a
+proof-time join of existing heads; no runtime variance owner is erased.
+The original comma pre-comparison proof now maps the actual extracted
+identity-cell inverse evidence through projection and evaluates it at an
+arbitrary Sigma object. The original second comparison remains exactly
+`inverse(pre) o post`; its [whole evidence](../emdash2/audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment)
+is derived from the actual two factors before restriction. The corresponding
+post-component theorem reuses the original induction outline and checks.
+No new operational map, independent laxity witness, equality payload or
+stricter FF condition was introduced.
+
+Candidate reviewer receipt
+`20261015T110509Z-da4feae6bd4848d4b4dc5ffbfdf72185` passes in 13.450s with
+766,448KiB maximum child RSS. Focused owner receipt
+`20261015T110620Z-c3f24e57406147caa05c4da304d9b7ce` passes in 6.794s.
+Both use exact package-local inputs, default 90s/2GiB limits and subject
+reduction. Warning comparison against `f691a846` is 1329->1459 (136 added,
+six removed); replaceable-pattern warnings remain 152. The nucleus inferred-
+slot audit remains clear. The record classifies the affected action owners.
+
+This establishes the selected action convention in the staged source, not
+the semantics of the still-legacy whole opposite, family or joint-evaluation
+contracts. Next work must change those coupled declarations, including
+`Catd_cat`/`Catd_cat_func`, ordinary Hom, `op`/`Op_transf`/`Op_funcd`, and the
+Q-based Homd target. Do not treat the passing original reviewer as permission
+to retain their known invalid higher signatures or extend adjacent proof
+helpers beyond actual migration consumers. Wrapper retirement and public
+promotion remain outstanding.
+
 Original-source migration checkpoint, 2026-10-15: the
 [source recipe](../emdash2/audits/strict-default-action-boundary/production_owner_migration.py)
 stages the entire original nucleus, profile module and 44 original
