@@ -1,0 +1,195 @@
+{
+  "status": "All-Cart inner Q refuted for required general intrinsic action; derived negative-index category and selected computations check; whole Q/Homd replacement incomplete",
+  "extendsCheckpoint": "e594bcea5e37c825dc92cd90df53f3b4a277ad5c",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/production_owner_migration.py": "b3db917ed66e39a2ac382fecc29c18758be70e88d42927d520d0e87203ac96fb",
+    "audits/strict-default-action-boundary/production_homd_index.lpfragment": "f5fc742d6c6c97639eb11dffe8409406c2732cd2b096a6e84c34408a7ccd7931",
+    "audits/strict-default-action-boundary/production_homd_index_controls.lpfragment": "202bed78e341861596de96ff80f6462b25c40734ef8589cde9c51871ed0c04eb",
+    "audits/strict-default-action-boundary/homd_index_profile_model.py": "94fa4aedef75c2d4d5848d2c7086fbbaa9857165559e6087e82328c9f16593bd"
+  },
+  "baselineHomdPrefix": {
+    "id": "20261015T161528Z-b564d79c6b6c42619881648377aa0237",
+    "target": "homd_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 4.280934867914766,
+    "childrenMaxRssKiB": 331032,
+    "inputSnapshot": "eb64421ecc182ca69d38f11d91e98c680286f5ba432d93eb767b7dc9ddc2dc4e",
+    "inputs": {
+      "homd_prefix.lp": "28fd055eaaf173e678b794b2b6044dd10050d0fb0efb3620ea4943b8de521bee",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T161528Z-b564d79c6b6c42619881648377aa0237.log",
+    "logSha256": "9cc5f7d05d11f34594a18fe61f377db840609062f4a6803c026fb5def80b55e5",
+    "receipt": "logs/check-runs/20261015T161528Z-b564d79c6b6c42619881648377aa0237.json",
+    "receiptSha256": "66643b37cfa742cc5af821088ea87a726c044aa31d4ab95056e1b8e12bb538d3"
+  },
+  "candidateIndexPrefix": {
+    "id": "20261015T171733Z-0d16d5d3ed2e48ceafedfd1c9e3b1b7d",
+    "target": "index_profile.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 5.29558065906167,
+    "childrenMaxRssKiB": 319824,
+    "inputSnapshot": "ad9321d64c4ae7819d45a106ac078cc8cb48631e6068620a1d54eaf49d9fdf33",
+    "inputs": {
+      "index_profile.lp": "78461344fffa9ddb07644a0b126a0011374973c279607fba1de94e284667dfa0",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261015T171733Z-0d16d5d3ed2e48ceafedfd1c9e3b1b7d.log",
+    "logSha256": "86a17e81f709f3d20d5e1c4eb1d7f4fc4ad36e97998e9d264ef2dc3cc2b5204d",
+    "receipt": "logs/check-runs/20261015T171733Z-0d16d5d3ed2e48ceafedfd1c9e3b1b7d.json",
+    "receiptSha256": "d0c8bc93bf95c5c354e36488b7b2f5afc0d824b5f4e6b8ca0ea66ced4a61dec2"
+  },
+  "fullSourceUnchanged": {
+    "sha256": "355e03435f805b1d180ca4577c48f983de1b4962f387e500f1b5fb9262afc52f",
+    "priorFailure": {
+      "id": "20261015T160808Z-5e967825fb004d76a6eb147949a19557",
+      "target": "emdash3_2.lp",
+      "outcome": "failed",
+      "wallSeconds": 4.8553612779360265,
+      "childrenMaxRssKiB": 319812,
+      "inputSnapshot": "ec188c03721b350f40f2994b91132baa427d4ebbd39943cfa9d8e6424bba8043",
+      "inputs": {
+        "emdash3_2.lp": "355e03435f805b1d180ca4577c48f983de1b4962f387e500f1b5fb9262afc52f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261015T160808Z-5e967825fb004d76a6eb147949a19557.log",
+      "logSha256": "634ef0e5cd2941fedbcc6f00d3cb0a466709c65565aa96656446dbbf72b102bb",
+      "receipt": "logs/check-runs/20261015T160808Z-5e967825fb004d76a6eb147949a19557.json",
+      "receiptSha256": "4f3d8912cadd94d47579cf7717f3384e7cede9783534035c102a475d173b5b5e"
+    },
+    "firstUnmigratedOwner": "tdapp1_int_func_transfd"
+  },
+  "interfaces": {
+    "index": "P(I)=Op_cat(Functor_cat(I,Op_cat(Cat_cart)))",
+    "candidateCoefficientHom": "Cart(A,P(B)); proposed, not integrated",
+    "include": "Cart(T(I),Cat_cart)->P(I)",
+    "positiveFamily": "R(P(I))->Catd_cat(O(I))",
+    "return": "Catd_cat(O(I))->R(P(I)); no inverse/coherence theorem claimed",
+    "negativeTotal": "P(I)->Cat; total_op composed with R_func(Sigma_func(O(I)) composed with positiveFamily)"
+  },
+  "checked": [
+    "Whole types of the derived index, inclusion, positive-family map, return map and negative total",
+    "Both object round trips of the Cartesian inclusion and fixed-object presheaf view",
+    "Actual point functors of included Cartesian arrows",
+    "Positive-family fibre O(H[p]) and whole negative-total object expression",
+    "Constant-family return-map fibre",
+    "An actual index arrow built from O_func(F) via the retained constant-section interface and return map; terminal-evaluated component recovers F[p]",
+    "Rejection of arbitrary index arrows as Cartesian presheaf arrows"
+  ],
+  "notYetQualified": [
+    "Concrete F[alpha] index-arrow computation",
+    "Canonical whole constant-endpoint identifications",
+    "Whole inverse/coherence for the positive-family and return maps",
+    "Replacing Q and requalifying its represented operations and direct x/u/y/v/f ladder",
+    "General tdapp1_int/fdapp1_int and extracted comparison action",
+    "Consumed higher Q coherence, Sigma/Pi projections, public promotion and downstream qualification"
+  ],
+  "finiteModel": {
+    "outputSha256": "7fe4c12a11c4006eec1f96c7c09a464231d17d2c5407a259888f7959613b4dbc",
+    "result": {
+      "base": "strict walking 2-cell, Hom_K(x,y)=I=(p -> q)",
+      "section": "F=id_K, between constant strict families",
+      "required_index_action": "id_I, with noninvertible p -> q",
+      "cartesian_components": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "default_lax_over_transpose_components": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "derived_negative_components": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "strict_functors_I_to_I": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "negative_total_required_direction": [
+        "U_p H[kappa]",
+        "H'[kappa] U_q"
+      ],
+      "default_lax_direction": [
+        "H'[kappa] U_q",
+        "U_p H[kappa]"
+      ],
+      "conclusion": "The all-Cartesian index Hom cannot admit general intrinsic FF action; default lax over T(I) alone has the wrong direction.",
+      "scope": "finite necessary-profile result; the derived omega classifier and whole Q integration need separate qualification"
+    }
+  },
+  "normalizationFinding": {
+    "failedReceipt": "logs/check-runs/20261015T170304Z-d962af3ef3dc453f92e7b65f2355b43c.json",
+    "diagnosis": "Bare injective Hom result annotation made a diagnostic equate erased category tags; use canonical Obj(Hom_cat) result. No semantic computation rule added."
+  },
+  "runtimeProfile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileLimitMiB": 64,
+    "subjectReduction": true,
+    "OCAMLRUNPARAM": "o=20",
+    "serialGuard": true,
+    "warnings": true,
+    "compiledObjects": false
+  },
+  "warnings": {
+    "baseline": {
+      "replaceable pattern variable": 135,
+      "unjoinable critical pair": 1383
+    },
+    "candidate": {
+      "replaceable pattern variable": 135,
+      "unjoinable critical pair": 1383
+    },
+    "criticalPairBodiesAdded": 0,
+    "criticalPairBodiesRemoved": 0,
+    "comparison": "multiset of full printed bodies through second participant; same source rule coverage",
+    "parserIssues": 0
+  },
+  "lhsAudit": {
+    "command": "python3 scripts/audit_rule_lhs.py --strict tmp/probes/production_owner_migration/package/index_profile.lp",
+    "unreviewedClauses": 0,
+    "unreviewedSlots": 0,
+    "annotatedSlots": 43,
+    "intentionalClauses": 30
+  },
+  "sourceBoundary": "Candidate index contains definitions only: no new primitive, rewrite, unifier, or operational equality-proof payload. Main staged core and public source are unchanged in this tranche.",
+  "qualification": "The full omega interpretation, required intrinsic action and consumed Q coherence are not established by these formation/object/component checks. The finite model establishes only the stated necessary first-comparison orientation."
+}

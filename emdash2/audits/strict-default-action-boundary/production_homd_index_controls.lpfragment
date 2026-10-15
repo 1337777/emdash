@@ -1,0 +1,60 @@
+// The stronger presheaf view is a genuine whole functor, with no proof input.
+assert [I : Cat] (H : τ (Functor (Op_cat I) Cat_cart)) ⊢
+  fapp0 (Homd_index_include_func I) H ≡ @Op_func (Op_cat I) Cat_cart H;
+assert [I : Cat] (H : τ (Functor (Op_cat I) Cat_cart)) ⊢
+  @homd_index_presheaf I (fapp0 (Homd_index_include_func I) H) ≡ H;
+assert [I : Cat] (H : τ (Obj (Homd_index_cat I))) ⊢
+  fapp0 (Homd_index_include_func I) (@homd_index_presheaf I H) ≡ H;
+
+// Its Cartesian input map keeps its actual point functors after inclusion.
+symbol index_include_component [I : Cat] [H G : τ (Functor (Op_cat I) Cat_cart)]
+  (U : τ (Hom (Functor_cart_cat (Op_cat I) Cat_cart) H G)) (p : τ (Obj I))
+  : τ (Obj (Hom_cat Cat_cart (fapp0 H p) (fapp0 G p)))
+≔ @tapp0_fapp0 I (Op_cat Cat_cart)
+    (@Op_func (Op_cat I) Cat_cart G) (@Op_func (Op_cat I) Cat_cart H) p
+    (@fapp1_fapp0 (Functor_cart_cat (Op_cat I) Cat_cart) (Homd_index_cat I)
+      (Homd_index_include_func I) H G U);
+assert [I : Cat] [H G : τ (Functor (Op_cat I) Cat_cart)]
+  (U : τ (Hom (Functor_cart_cat (Op_cat I) Cat_cart) H G)) (p : τ (Obj I)) ⊢
+  @index_include_component I H G U p
+  ≡ @tapp0_fapp0 (Op_cat I) Cat_cart H G p (@strict_transfor (Op_cat I) Cat_cart H G U);
+
+// Actual positive family used by the negative total: the fibre is O(H[p]).
+assert [I : Cat] (H : τ (Obj (Homd_index_cat I))) (p : τ (Obj I)) ⊢
+  Fibre_cat (fapp0 (Homd_index_total_family_func I) H) p
+  ≡ TotalOp_cat (@fapp0 I (Op_cat Cat_cart) H p);
+assert [I : Cat] (H : τ (Obj (Homd_index_cat I))) ⊢
+  fapp0 (Homd_index_sigma_func I) H
+  ≡ TotalOp_cat (@Sigma_cat (TotalOp_cat I) (fapp0 (Homd_index_total_family_func I) H));
+
+// The return map exposes the original constant coefficient at every index.
+assert [I H : Cat] (p : τ (Obj I)) ⊢
+  fapp0 (fapp0 (Homd_index_from_total_family_func I)
+    (@Const_catd (TotalOp_cat I) (TotalOp_cat H))) p ≡ H;
+
+// Transport a genuine functor through the existing constant-section and
+// total-duality operations. The output is an index arrow, not an equality
+// certificate or an independently declared naturality cell.
+symbol index_constant_arrow [I H : Cat] (F : τ (Functor I H))
+  : τ (Obj (Hom_cat (Homd_index_cat I)
+      (fapp0 (Homd_index_from_total_family_func I) (@Const_catd (TotalOp_cat I) Terminal_cat))
+      (fapp0 (Homd_index_from_total_family_func I) (@Const_catd (TotalOp_cat I) (TotalOp_cat H)))))
+≔ @fapp1_fapp0 (Catd_cat (TotalOp_cat I)) (CoAbove2_cat (Homd_index_cat I))
+    (Homd_index_from_total_family_func I)
+    (@Const_catd (TotalOp_cat I) Terminal_cat)
+    (@Const_catd (TotalOp_cat I) (TotalOp_cat H))
+    (@TotalOp_func I H F);
+
+// This whole component, evaluated at the terminal object, recovers F[p].
+assert [I H : Cat] (F : τ (Functor I H)) (p : τ (Obj I)) ⊢
+  fapp0 (@tapp0_fapp0 I (Op_cat Cat_cart)
+    (fapp0 (Homd_index_from_total_family_func I) (@Const_catd (TotalOp_cat I) (TotalOp_cat H)))
+    (fapp0 (Homd_index_from_total_family_func I) (@Const_catd (TotalOp_cat I) Terminal_cat))
+    p (@index_constant_arrow I H F)) Terminal_obj
+  ≡ fapp0 F p;
+
+// No reverse cell or Cartesian promotion is supplied by the index classifier.
+assertnot [I : Cat] [H G : τ (Obj (Homd_index_cat I))]
+  (U : τ (Obj (Hom_cat (Homd_index_cat I) H G))) ⊢
+  U : τ (Hom (Functor_cart_cat (Op_cat I) Cat_cart)
+      (@homd_index_presheaf I H) (@homd_index_presheaf I G));

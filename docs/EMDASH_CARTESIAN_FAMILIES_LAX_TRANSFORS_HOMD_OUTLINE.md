@@ -1,11 +1,23 @@
 # Cartesian families, lax sections and corrected dependent Hom
 
 Date: 2026-10-14
-Status: selected next candidate under the user's latest constraints;
-strict-root/relative ladders and extracted y-comparison generator beta checked;
-corrected Sigma-Hom, total-map projections and expanded composition checked; higher naturality and migration open
+Status: native identity/relative ladders checked; all-Cart inner Q is too strict
+for general intrinsic action; derived negative-index candidate and whole migration open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Comparison history: [default/profile review](EMDASH_STRICT_CORE_LAX_EXTENSIONS_REVIEW.md)
+
+Current qualification, 2026-10-15: the terminal-source section of an ordinary
+strict F must retain F[alpha] for a noninvertible base two-cell. The inner
+`Cart(T(I),Cat_cart)` profile below cannot express that intrinsic action;
+strict naturality between constant index diagrams would equate its distinct
+components. The [index-profile review](../emdash2/audits/strict-default-action-boundary/homd_index_profile_review.md)
+records the counterexample and the derived candidate
+`P(I)=T(Functor_cat(I,T(Cat_cart)))`. The next Q has proposed Hom
+`Cart(A,P(B))`; its outer Cart and the admitted family universe are retained.
+Candidate inclusion/components/negative-total formation check, but the whole
+Q replacement and index-arrow computation are not yet qualified. The all-Cart
+formulas below describe the preceding computational reference, not a solution
+to the general intrinsic-action requirement.
 
 Native source continuation, 2026-10-15: the selected identity and defined
 relative ladders now check inside the staged migration of the original
@@ -28,8 +40,9 @@ public Hom implementation.
 The default remains strict functors with conventional lax transfors. Pi is
 the default terminal-source transformation category. Both an admitted family
 E and its prototypical represented family I_x=Hom_K(x,-) land in the same
-Cartesian coefficient universe Cat_cart. Q uses Cartesian mapping categories
-in this leading comparison. The lax-Q alternative remains comparison evidence.
+Cartesian coefficient universe Cat_cart. Q's outer mapping category remains
+Cartesian; the inner index profile needs the correction recorded above.
+Earlier all-Cart and fully lax-Q alternatives remain comparison evidence.
 
 There is no global strict-Transf default, Cat-valued strictness exception,
 separate Pi_lax replacing Pi, operational proof argument, or standalone
@@ -61,8 +74,8 @@ Current choice snapshot, reaffirmed by the user discussion on 2026-10-15:
 | Dependent Hom ownership | Independent identity core, followed by a defined relative composition for FF |
 | Ordinary blended F | Retained; F is a default strict functor |
 
-The current experiment spells the FF input with `Transf`; migrating the
-public Functord facade is still a source-integration task. Cat_cart does not
+The original prototype spells the FF input with `Transf`; the staged native
+ladder now also exposes the public Functord facade. Cat_cart does not
 make FF strict across K. It makes FF's component functors strict and its
 base-comparison transformations strictly natural in fibre variables. The
 comparison across a nonidentity base arrow may remain noninvertible.

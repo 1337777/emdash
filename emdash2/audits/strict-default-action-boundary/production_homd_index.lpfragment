@@ -1,0 +1,55 @@
+// Candidate negative index classifier, derived from the existing operations.
+// T(Functor(I,T(Cart))) is used literally; no general equivalence with an
+// omega-category of usual oplax transformations is asserted.
+symbol Homd_index_cat (I : Cat) : Cat
+≔ Op_cat (Functor_cat I (Op_cat Cat_cart));
+
+// A Cartesian presheaf admits a whole view in this weaker index classifier.
+// The body uses Cartesian transpose, then the existing mapping inclusion.
+symbol Homd_index_include_func (I : Cat)
+  : τ (Functor (Functor_cart_cat (Op_cat I) Cat_cart) (Homd_index_cat I))
+≔ @comp_cat_fapp0 (Functor_cart_cat (Op_cat I) Cat_cart)
+    (Op_cat (Functor_cart_cat I (Op_cat Cat_cart))) (Homd_index_cat I)
+    (@Op_func (Functor_cart_cat I (Op_cat Cat_cart))
+      (Functor_cat I (Op_cat Cat_cart)) (Functor_cart_include I (Op_cat Cat_cart)))
+    (@Op_func (Op_cat (Functor_cart_cat (Op_cat I) Cat_cart))
+      (Functor_cart_cat I (Op_cat Cat_cart)) (Op_func_func (Op_cat I) Cat_cart));
+
+// Fixed-object presheaf view. The varying object retains Homd_index_cat as
+// its classifier; this does not posit a functor into the old Cartesian Hom.
+symbol homd_index_presheaf [I : Cat] (H : τ (Obj (Homd_index_cat I)))
+  : τ (Functor (Op_cat I) Cat_cart)
+≔ @Op_func I (Op_cat Cat_cart) H;
+
+// Whole formation of the admitted positive family used by negative Sigma.
+// R(P_I)=O(Functor(I,T(Cart))); total duality has a qualified lax profile.
+symbol Homd_index_total_family_func (I : Cat)
+  : τ (Functor (CoAbove2_cat (Homd_index_cat I)) (Catd_cat (TotalOp_cat I)))
+≔ @comp_cat_fapp0 (CoAbove2_cat (Homd_index_cat I))
+    (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart))
+    (Catd_cat (TotalOp_cat I))
+    (@comp_cat_cov_func (TotalOp_cat I) (CoAbove2_cat Cat_cart) Cat_cart total_op_cart)
+    (TotalOp_func_func I (Op_cat Cat_cart));
+
+// Derived return map. No inverse/coherence theorem is claimed by its type.
+symbol Homd_index_from_total_family_func (I : Cat)
+  : τ (Functor (Catd_cat (TotalOp_cat I)) (CoAbove2_cat (Homd_index_cat I)))
+≔ @comp_cat_fapp0 (Catd_cat (TotalOp_cat I))
+    (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart))
+    (CoAbove2_cat (Homd_index_cat I))
+    (@TotalOp_func
+      (TotalOp_cat (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
+      (Functor_cat I (Op_cat Cat_cart))
+      (TotalOp_func_func (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
+    (@comp_cat_cov_func (TotalOp_cat I) Cat_cart (CoAbove2_cat Cat_cart)
+      (@CoAbove2_func (CoAbove2_cat Cat_cart) Cat_cart total_op_cart));
+
+// The whole negative total is an actual composition, not a second Sigma.
+// R acts on a strict functor here, never directly on an arbitrary lax map.
+symbol Homd_index_sigma_func (I : Cat)
+  : τ (Functor (Homd_index_cat I) Cat_cat)
+≔ @comp_cat_fapp0 (Homd_index_cat I) (CoAbove2_cat Cat_cat) Cat_cat total_op
+    (@CoAbove2_func (CoAbove2_cat (Homd_index_cat I)) Cat_cat
+      (@comp_cat_fapp0 (CoAbove2_cat (Homd_index_cat I))
+        (Catd_cat (TotalOp_cat I)) Cat_cat
+        (@Sigma_func (TotalOp_cat I)) (Homd_index_total_family_func I)));

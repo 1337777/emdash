@@ -5,6 +5,35 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
+## General intrinsic action needs a weaker index profile, 2026-10-15
+
+The [review](homd_index_profile_review.md) records a semantic obstruction to
+the preceding all-Cart inner Q Hom. An ordinary strict functor, viewed as a
+terminal-source section, must retain noninvertible base-cell action; strict
+index naturality between constant diagrams would collapse its components.
+Default lax naturality over the transposed index has the reverse direction.
+
+The [derived candidate](production_homd_index.lpfragment) defines
+`P(I)=T(Functor_cat(I,T(Cat_cart)))`, its whole Cartesian inclusion and a
+negative total using existing operations. There are no new primitives or
+rules. The [controls](production_homd_index_controls.lpfragment),
+[finite direction check](homd_index_profile_model.py) and
+[verification](production_homd_index_verification.json) delimit the evidence.
+The next proposed Q has `Hom_Q(A,B)=Cart(A,P(B))`; it is not yet integrated.
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
+  python3 scripts/run_lambdapi.py --no-colors --quiet \
+  --package-root tmp/probes/production_owner_migration/package index_profile.lp
+```
+
+The full emitted core is unchanged from `e594bcea`. Its old direct ladder
+checks remain valid for the stated computational contract, while the general
+intrinsic extension of that all-Cart profile is rejected. Next qualify the
+index-arrow action and integrate the weaker index into the existing Q/Homd
+and intrinsic projection owners. Do not add supplied laxity or another Sigma.
+
 ## Native Q/Homd source ladder, 2026-10-15
 
 The [native Homd owner](production_homd_core.lpfragment) now replaces the
@@ -28,8 +57,8 @@ EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20 \
 
 This target also carries the preceding foundation/Pi/Sigma/mixed-family
 controls. The full emitted source stops at `tdapp1_int_func_transfd`'s old
-use of `Op_funcd(FF)`. The next step is its corrected intrinsic direction
-and the actual extracted comparison projections, followed by late consumers.
+use of `Op_funcd(FF)`. The index-profile correction above must precede its
+corrected intrinsic direction and extracted projections, then late consumers.
 Q's represented laws remain structural contracts, not a derived complete
 composition/coherence theory. The full goal and public promotion remain open.
 

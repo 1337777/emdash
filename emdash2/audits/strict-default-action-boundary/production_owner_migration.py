@@ -998,6 +998,11 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
         + '\n' + sigma_controls + '\n' + mixed_controls
         + '\n' + mixed_parameters + '\n' + negative_sections
         + '\n' + fragment('production_homd_controls.lpfragment'))
+    index_boundary = '// 15. Internal displayed hom-action heads'
+    assert body.count(index_boundary) == 1
+    (package / 'index_profile.lp').write_text(body[:body.index(index_boundary)]
+        + '\n' + fragment('production_homd_index.lpfragment')
+        + '\n' + fragment('production_homd_index_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1196,9 +1201,11 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
                               package / 'sigma_prefix.lp',
                               package / 'mixed_prefix.lp',
                               package / 'homd_prefix.lp',
+                              package / 'index_profile.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
-        'stillRequired': ['General lax FF intrinsic action with the corrected Homd root',
+        'stillRequired': ['Qualify and integrate the negative-index profile: all-Cart Q cannot support the required general intrinsic action',
+                          'General lax FF intrinsic action with the corrected Homd root',
                           'Consumed Q y-comparison/coherence and late Sigma/Pi/comma consumers',
                           'Moving path-motive interfaces with their actual coefficient profiles',
                           'Whole duality/adjunction and closure-consumer qualification',

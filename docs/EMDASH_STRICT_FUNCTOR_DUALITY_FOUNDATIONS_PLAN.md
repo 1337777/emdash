@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: strict-functor/lax-transfor default with shared Cartesian families; direct Homd ladders, corrected Sigma-Hom, total-map projections and expanded composition candidates check; higher naturality and public/downstream migration remain open
+Status: native direct Homd ladders check; general intrinsic action exposes an overly strict inner Q index Hom; derived negative-index candidate checks, with whole integration and public/downstream migration open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,6 +38,39 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Index-profile correction after `e594bcea`, 2026-10-15: the required general
+intrinsic action refutes the all-Cartesian inner Q Hom. A strict ordinary
+F, viewed as a terminal-source section of constant families, must retain
+F[alpha] for a noninvertible base two-cell. A Cartesian transformation
+between the corresponding constant index diagrams would force its distinct
+components to agree. Default lax transformations over the transposed index
+give the wrong direction instead. The
+[review](../emdash2/audits/strict-default-action-boundary/homd_index_profile_review.md)
+records the precise obstruction and bounded evidence. This is a semantic
+restriction of the chosen Q profile, not a reason to weaken strict functors
+or to make all FF strict.
+
+The next candidate is `Hom_Q(A,B)=Cart(A,P(B))`, where
+`P(I)=T(Functor_cat(I,T(Cat_cart)))` is a derived category. Its
+[definitions](../emdash2/audits/strict-default-action-boundary/production_homd_index.lpfragment)
+use existing mapping/duality/Sigma operations, without a new primitive or
+rule. The whole inclusion from the former Cartesian presheaf category,
+object round trips, selected components and derived negative total typecheck.
+The [verification](../emdash2/audits/strict-default-action-boundary/production_homd_index_verification.json)
+pins their exact scope. Whole index-arrow action, replacement of Q and
+requalification of the full ladder remain open. No equivalence with the
+usual full omega oplax mapping category is asserted. Retain the family
+coefficient and the outer Cartesian fibre-variable profile.
+
+Next: recover the concrete F[alpha] action, integrate this inner profile,
+then adapt the existing `tdapp1_int_*`/`fdapp1_int_*` owners to the intrinsic
+arrow from `homd_int(GG) o FF` to the identity root in the transposed target.
+Do not add independently supplied laxity. Also correct the old unconditional
+left-transport/middle-action equation: the selected default makes the
+right/pre route strict and retains the left/post comparison. Record every
+retired false comparison and its consumers. Preserve the original Sigma-map
+and extracted-cell owners and all later source.
+
 Native Homd core continuation after `735de6e6`, 2026-10-15: the staged
 original source now checks through the direct Q/Homd root and relative
 ladder. The [native owner](../emdash2/audits/strict-default-action-boundary/production_homd_core.lpfragment)
@@ -47,7 +80,7 @@ fibre-covariance names; it does not install the prototype's parallel
 pins the actual original-source integration and its remaining full-file
 failure. No public kernel replacement or complete-goal claim is made.
 
-The active staged interface is:
+The preceding staged interface (still using all-Cart Q) is:
 
 ```text
 S_E(x) = Transf_cat(K,Q,iota E,iota Hom_K(x,-))
@@ -109,7 +142,8 @@ qualify the recorded computational contract, not global confluence.
 
 Full-source receipt `20261015T160808Z-5e967825fb004d76a6eb147949a19557`
 stops at `tdapp1_int_func_transfd`, where the old declaration still passes
-arbitrary FF to `Op_funcd`. Next adapt that existing intrinsic-action owner
+arbitrary FF to `Op_funcd`. After the index-profile correction above, adapt
+that existing intrinsic-action owner
 to the selected direction `homd_int(GG) o FF -> homd_int(id_E)` in the
 transposed target. Its projections must recover the forward Homd action and
 the existing extracted laxity, without a supplied comparison cell. Then
