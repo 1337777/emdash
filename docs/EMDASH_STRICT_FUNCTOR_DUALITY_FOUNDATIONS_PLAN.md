@@ -38,6 +38,21 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Latest production-action trace, 2026-10-15: the
+[outline's Pi/Q dictionary](EMDASH_CARTESIAN_FAMILIES_LAX_TRANSFORS_HOMD_OUTLINE.md#trace-to-the-production-pi-based-ladder)
+identifies the consumed Q comparison with existing fibre and index
+restriction. For q:y->z, F=E[q], J=Hom_K(x,q), production Functor_catd
+transport reads `M[q^op](H)=precomp(T(J)) o H o F`. The correct Homd cell
+`h_y=>M[q^op](h_z)` corresponds to
+`iota(J) o_Q h_y => h_z o_Q iota(F)`. Its identity introduction is
+`a|->E[q][a]`; a general index beta additionally uses the existing
+contravariant index action. The literal production Pi section requests
+the reverse direction, as the retained walking-arrow polarity diagnostic
+already records. Do not claim equivalence to that defective declaration.
+This is a source/semantic trace, with no new native equivalence or rule;
+keep the limited synthetic Q scope and the next Sigma/public-migration
+consumer work unchanged.
+
 Latest Sigma-Hom continuation, 2026-10-15: the
 [Cartesian-family Sigma candidate](../emdash2/audits/strict-default-action-boundary/cart_sigma_review.md)
 uses the checked direct Homd leaf H:T(I)->Cat_cart and the derived negative

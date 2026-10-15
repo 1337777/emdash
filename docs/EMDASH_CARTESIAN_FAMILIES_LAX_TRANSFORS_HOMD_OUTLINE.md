@@ -162,6 +162,99 @@ former Homd tail and projections in the ordinary 1-categorical
 specialization, at matching strictness profiles, is a compatibility
 requirement. No separate local Q action calculus is intended.
 
+## Trace to the production Pi-based ladder
+
+Source review, 2026-10-15; this is a mathematical/interface correspondence,
+not a newly checked whole-classifier equivalence. First work with an ordinary
+base and matching coefficient/transformation profiles. Write
+
+```text
+I_y = Hom_K(x,y)             J = I_x[q] : I_y -> I_z
+F = E[q] : E[y] -> E[z]      q : y -> z
+P_y = [T(I_y),Cat]
+M_y = [E[y],P_y]
+h_y(v)(f) = Hom_E[y](E[f](u),v).
+```
+
+The brackets suppress the selected coefficient/strictness annotations;
+they do not identify Cartesian and default mapping categories.
+
+In production `emdash3_2.lp`, `Homd_target_section_catd(E,x)` is defined
+using `Functor_catd(E,HomPresheaf(x))`. The whole `Functor_catd` base action
+uses `Hom_tele_func`; its capped action uses `Hom_func`. Unfolding their
+pre/postcomposition reading gives
+
+```text
+M[q^op](H) = precomp(T(J)) o H o F.
+M[q^op](h_z)(v)(f) = h_z(F[v])(J[f]).
+```
+
+Thus the old target already contains both restrictions needed by the new
+comparison: source-fibre restriction by F and presheaf-index restriction
+by T(J). The correct canonical Homd action has direction
+
+```text
+chi_q : h_y => M[q^op](h_z)
+chi_q[v][f](a) = E[q][a].
+```
+
+In Q the corresponding cell is
+
+```text
+lambda_q : iota(J) o_Q h_y => h_z o_Q iota(F).
+```
+
+The right composite is ordinary restriction: it computes to `h_z o F`.
+For the left composite, maps from `iota(J) o_Q h_y` into a target R
+correspond, in the ordinary profunctor interpretation, to maps from h_y
+into `precomp(T(J)) o R`. This is the represented-composition/restriction
+correspondence; it is not an equality between that left composite and a
+restriction. The ordinary precedent is the base-change/mate calculus in
+[Shulman, Sections 4-5](https://arxiv.org/pdf/0706.1286v2#page=17).
+No general adjunction or coend implementation is a prerequisite for using
+this correspondence as the semantic specification of the consumed operation.
+
+Concretely, restricting lambda_q to its represented identity introduction
+at `k=J[f]` recovers chi_q. Its consumed introduction with
+`beta:k=>J[f]` and `a:E[f](u)->v` computes by existing target-index action:
+
+```text
+(beta,a) |-> h_z(F[v])[beta](chi_q[v][f](a))
+         = E[q][a] o E[beta][u].
+```
+
+For an ordinary base I_z is discrete, so the beta input carries only the
+identity case. At higher bases the second line explains the extra index
+action already checked by the current Homd comparison. It does not establish
+a general omega-level equivalence of section classifiers. No quotient
+representatives or new factorization-based local Hom are required here.
+
+There is a necessary correction to the production comparison. Its
+`Pi_cat(M)` uses the positive section action
+`M[q^op](h_z) -> h_y`, whereas the required chi_q points the other way.
+This is the previously recorded
+[Homd target polarity defect](TYPESCRIPT_EMDASH_HOMD_TARGET_POLARITY_DIAGNOSTIC.md),
+which already has a walking-arrow control. Consequently the literal old
+Pi target is not a qualified semantic reference even after restricting K
+to an ordinary category. Reuse its local projections and restriction
+owners; preserve the corrected direction in the Q-valued transformation.
+Compatibility means a direction-correct section interpretation with matching
+profiles, not a new equality to the defective old Pi declaration.
+
+This direction already matters for the identity Homd of a strict family
+over `0->1`. Let E[0] be the discrete two-object category {u,v}, E[1] be
+terminal, and E[q] the unique functor. With x=y=0, z=1 and f=id_0, the two
+values are `h_0(v,id_0)=Empty` and `h_1(E[q]v,q)=Unit`. The correct chi_q
+is Empty->Unit; the old positive Pi requests Unit->Empty. This ordinary
+semantic example uses neither a general FF nor nonidentity higher cells.
+
+Implementation consequence: the existing `cart_homd_section` right-represented
+composition rules, `cart_homd_ordinary` extracted comparison and
+`cart_homd_composition` introduction beta cover precisely this dictionary.
+Unit and composite-base consumers should use their inherited action and
+normal forms. Additional Q laws require a concrete consumer. This source
+review adds no native rule, general composition theory or new check suite.
+
 ## Direct section and projection ladder
 
 Using default lax transformations into Q:
