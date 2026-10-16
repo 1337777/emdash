@@ -1,0 +1,124 @@
+{
+  "status": "Staged interchanger endpoint derivation and original reviewers pass; broader migration incomplete",
+  "extendsCheckpoint": "25f1b48b",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "coreUnchangedSha256": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+  "manifestSha256": "5f2a6d547c679441b9788198439cf486b01d90878f0d37eb690c43632761011d",
+  "authoringInputs": {
+    "production_owner_migration.py": "73f5341eb4ce895988d2866da5b581084afd13ddcd01bd4fcb23ab66a86ee2a6",
+    "production_interchanger_source_reading.lpfragment": "849035c6cacaf46377bc01a6fbb23622c5520f5fa345b9be2c19b1b7e11559d2"
+  },
+  "sourcePreservation": {
+    "allOriginalNamedDeclarationsInOrder": true,
+    "count": 27,
+    "publicEndpointAndCellStatementsUnchanged": true
+  },
+  "qualifiedCombinedCheck": {
+    "id": "20261016T150243Z-037f0ad81c1d4899a9c23af3fa0c6883",
+    "target": "interchanger_controls.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 41.290162698947825,
+    "childrenMaxRssKiB": 1487376,
+    "inputSnapshot": "8e8e4ebe86337b9430cf3b58b2e54b0bc72a3d2075877b62b52d82e6b7341fbf",
+    "inputs": {
+      "emdash3_2.lp": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+      "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+      "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+      "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+      "emdash3_2_cubical_square_total.lp": "50c064e3094b2d1ef4d754b9dbcc24590077513f45c2b47d2e9894b9d429cb4b",
+      "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+      "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+      "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+      "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+      "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+      "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+      "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+      "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+      "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+      "examples/gray_interchanger.lp": "c185a305d5389f2d19755909aa6601880e9569f84dd0fdfcc8217097c05e4596",
+      "examples/gray_interchanger_orientation.lp": "91559ee93924d375c1a50b145593094001d2162968e23869093486fb112ed954",
+      "interchanger_controls.lp": "b5bf563eaecf2b65fc2c42accc36f6eb4f277a97ec7862ba7091975ef32e3ffb",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "logSha256": "135f340949cdc6388476c4847911ca25b082b5cfaf802bd02f6e6fa80bb2d675",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--no-colors"
+      ],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "reviewers": {
+    "gray_interchanger": {
+      "originalFileUnchanged": true,
+      "positive": 7,
+      "negative": 1
+    },
+    "gray_interchanger_orientation": {
+      "originalFileUnchanged": true,
+      "positive": 4,
+      "negative": 1
+    }
+  },
+  "subjectReduction": true,
+  "serialExecution": true,
+  "compiledObjects": false,
+  "exactFinalInputsMatch": true,
+  "newRuntimeRules": 0,
+  "newUnificationRules": 0,
+  "newSuppliedComparisonCells": 0,
+  "warningComparison": {
+    "baselineReceipt": "20261016T145843Z-381fa06248ad47febcae861d03e7c77f",
+    "candidateReceipt": "20261016T150243Z-037f0ad81c1d4899a9c23af3fa0c6883",
+    "baselineBodies": 2301,
+    "candidateBodies": 2301,
+    "added": 0,
+    "removed": 0,
+    "qualification": "Exact critical-pair bodies match; this is not confluence or semantic-model certification"
+  },
+  "lhsAudit": {
+    "exitCode": 0,
+    "summary": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_gray_interchanger_orientation.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 0 annotated slot(s) across 0 intentional clause(s)"
+  },
+  "baselineFailure": {
+    "id": "20261016T145843Z-381fa06248ad47febcae861d03e7c77f",
+    "owner": "gray_interchanger_source_common_path",
+    "reason": "Reference to retired general functord_transport_lhs_agrees"
+  },
+  "ownerPositionPrototype": {
+    "id": "20261016T150000Z-7fe865dd09ce4a73a85bdc25c80cd677",
+    "outcome": "passed-fresh",
+    "qualification": "Before final explanatory comment cleanup; final combined receipt covers selected source"
+  },
+  "nextIntegrationFailure": {
+    "id": "20261016T150407Z-90eb6dc498664fe197762eb16acf1db6",
+    "target": "examples/gray_profiles.lp",
+    "outcome": "failed",
+    "wallSeconds": 29.169333903933875,
+    "inputSnapshot": "b6d3515afa1c7063008ee3f16fffedbea33f6d086387a5d5b3c30c381584155f",
+    "logSha256": "5f4a754d1c13f19e23072fa36f102294a5b8f04dd29469b6f126b80c82c23744",
+    "file": "emdash3_2_strict_functor_actions.lp",
+    "owner": "left_adjoint_preserves_weighted_colimit_con",
+    "line": 857,
+    "reason": "WeightedColimit_con uses Op_cat/Op_func (dimension-one transpose), whereas Op_adjunction produces TotalOp_cat/TotalOp_func endpoints",
+    "exactFinalInputsMatch": true
+  },
+  "remaining": [
+    "Reconcile left_adjoint_preserves_weighted_colimit_con with the different T-weight and O-adjunction duality profiles",
+    "Remaining original import/diagnostic/library migration and represented graph/base-change observations",
+    "Redundant strict-functor wrapper retirement, consumed compatibility and public promotion/final gates"
+  ]
+}

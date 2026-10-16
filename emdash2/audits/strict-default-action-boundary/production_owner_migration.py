@@ -1637,6 +1637,39 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 changes.append({'source': path, 'owner': 'two-sided Homd/Sigma total and endpoint projections',
                                 'reason': 'Admit the nested Cartesian family, shift the total-dual family base to O(K1), and derive the existing total and projections with O rather than the invalid same-base fibre opposite',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_gray_interchanger_orientation.lp':
+                old = text
+                readings = fragment('production_interchanger_source_reading.lpfragment')
+                for name in ('gray_interchanger_common_func',
+                             'gray_interchanger_source_common_path',
+                             'gray_interchanger_lhs_tele_common_func_path',
+                             'gray_interchanger_lhs_tele_post_composite_path'):
+                    marker = 'protected symbol ' + name + '\n'
+                    assert text.count(marker) == readings.count(marker) == 1
+                    start = text.index(marker)
+                    end = text.index(';', text.index('≔', start)) + 1
+                    begin = readings.index(marker)
+                    finish = readings.index(';', readings.index('≔', begin)) + 1
+                    text = text[:start] + readings[begin:finish] + text[end:]
+                start = text.index('protected symbol gray_interchanger_lhs_tele_func\n')
+                end = text.index('protected symbol gray_interchanger_lhs_tele_value\n', start)
+                telescope = text[start:end]
+                assert telescope.count('Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat') == 2
+                text = text[:start] + telescope.replace(
+                    'Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat',
+                    'Functor_cart_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat') + text[end:]
+                text = text.replace('// Common fixed-generator internal action selected by both whole strict paths.',
+                    '// Shared left-hand presentation of the source endpoint and its telescope.\n'
+                    '// It is not the pre/right middle action or a common value of both endpoints.')
+                text = text.replace('// The two formal endpoints meet at the common internal action by the existing\n// whole displayed strict-naturality paths.',
+                    '// The source endpoint and this left-hand presentation are the same value.\n'
+                    '// The target retains its separate pre/right reading below.')
+                text = text.replace('  The `lax_transfor` head makes the selected pre/right target judgmental; no\n  evidence-derived endpoint adapter, inverse, or independent interchanger is\n  added.',
+                    '  The default conventional-lax action fixes the pre/right leg. No supplied\n'
+                    '  comparison, inverse, or independent interchanger is added.')
+                changes.append({'source': path, 'owner': 'interchanger source endpoint reading',
+                                'reason': 'Use the actual post/left source and Cartesian telescope instead of the retired general left-leg equality; retain every public endpoint, cell and coordinate-swapped square',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/cubical_square_total.lp':
                 text += '\n' + fragment('production_cubical_sigma_projection_controls.lpfragment')
             if path == 'examples/cubical_internalization.lp':
@@ -1815,10 +1848,15 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/cubical_square_total.lp')
     stage('examples/cubical_internalization.lp')
     stage('examples/cubical_internalization_composition.lp')
+    stage('examples/gray_interchanger.lp')
+    stage('examples/gray_interchanger_orientation.lp')
     (package / 'cubical_migration_controls.lp').write_text(''.join(
         'require open emdash.examples.' + name + ';\n' for name in (
             'cubical_dependent_hom', 'cubical_square_total',
             'cubical_internalization', 'cubical_internalization_composition')))
+    (package / 'interchanger_controls.lp').write_text(
+        'require open emdash.examples.gray_interchanger;\n'
+        'require open emdash.examples.gray_interchanger_orientation;\n')
     # Same original reviewer assertions, isolated at their actual profile
     # owner. The original broader import closure remains staged and required.
     profile_controls = (package / 'examples/gray_profiles.lp').read_text()
@@ -1886,6 +1924,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'pathout_controls.lp',
                               package / 'profile_controls.lp',
                               package / 'cubical_migration_controls.lp',
+                              package / 'interchanger_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

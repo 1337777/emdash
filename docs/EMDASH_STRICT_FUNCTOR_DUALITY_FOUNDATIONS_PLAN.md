@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: complete staged core, profile extension and corrected two-sided total consumers check; later graph/import, downstream and public-promotion qualification remain open
+Status: complete staged core, profile, corrected two-sided total and interchanger consumers check; weighted-duality/import, downstream and public-promotion qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,27 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Interchanger continuation after `25f1b48b`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_interchanger_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_interchanger_verification.json)
+record the repaired original endpoint derivation. Its protected common
+presentation is now the actual post/left source, not the pre/right middle
+action. Cartesian telescope computation supplies the source comparisons;
+the independent target reading and extracted directed cell are unchanged.
+Both original reviewers pass without edits, retaining unequal endpoints,
+the next Hom action and the rejected unswapped square. No runtime or
+unification rule, strictness exception or supplied cell is added.
+
+The broader original import now reaches
+left_adjoint_preserves_weighted_colimit_con in strict_functor_actions.
+WeightedColimit_con uses T/Op_prof, whereas Op_adjunction now supplies an
+O-adjunction. Reconcile the original preservation construction with those
+whole profiles; do not identify T and O or simply substitute one spelling
+to suppress the error. The core and preceding totalization source remain
+unchanged. Remaining graph/base-change observations, diagnostic/library
+migration, wrapper retirement, consumed compatibility, public promotion
+and final gates are still required.
 
 Canonical Sigma/two-sided-total continuation after `f0071b11`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_cubical_total_review.md)

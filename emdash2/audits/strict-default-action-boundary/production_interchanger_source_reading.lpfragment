@@ -1,0 +1,32 @@
+// Existing protected source readings, adapted to the actual post/left
+// telescope. No assertion identifies the two sides of the lax comparison.
+
+
+protected symbol gray_interchanger_common_func
+  : τ (Functor GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)
+≔ gray_interchanger_lhs_func;
+
+protected symbol gray_interchanger_source_common_path
+  : τ (@=
+      (Obj GrayInterchangerCodomain_cat)
+      gray_interchanger_source
+      gray_interchanger_common_value)
+≔ @eq_refl (Obj GrayInterchangerCodomain_cat) gray_interchanger_source;
+
+protected symbol gray_interchanger_lhs_tele_common_func_path
+  : τ (@=
+      (Obj (Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat))
+      gray_interchanger_lhs_tele_at_generator
+      gray_interchanger_common_func)
+≔ @eq_refl
+    (Functor GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)
+    gray_interchanger_lhs_tele_at_generator;
+
+protected symbol gray_interchanger_lhs_tele_post_composite_path
+  : τ (@=
+      (Obj GrayInterchangerCodomain_cat)
+      gray_interchanger_lhs_tele_value
+      gray_interchanger_post_composite_value)
+≔ @eq_refl
+    (Obj GrayInterchangerCodomain_cat)
+    gray_interchanger_lhs_tele_value;
