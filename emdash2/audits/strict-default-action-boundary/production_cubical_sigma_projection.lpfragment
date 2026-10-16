@@ -1,0 +1,23 @@
+// Whole first projection of a Cartesian-parameterized Sigma total.
+// Total maps preserve the inner base strictly. The result is the canonical
+// Cartesian map; ordinary displayed consumers use its existing inclusion.
+// No naturality certificate or comparison cell is supplied as input.
+injective symbol sigma_proj1_family_funcd
+  [K A : Cat]
+  (G : τ (Functor K (Functor_cart_cat A Cat_cart)))
+  : τ (Hom (Functor_cart_cat K Cat_cart)
+      (@comp_cat_fapp0
+        K (Functor_cart_cat A Cat_cart) Cat_cart
+        (@Sigma_coeff_func A) G)
+      (@Const_catd K A));
+
+// The component at k is the ordinary first projection of Sigma(G[k]).
+rule @tapp0_fapp0
+      _ _ _ _ $k
+      (@strict_transfor _ _ _ _ (@sigma_proj1_family_funcd $K $A $G))
+  ↪ @Sigma_proj1_func
+      $A
+      (@fapp0 $K (Functor_cart_cat $A Cat_cart) $G $k);
+
+// Higher displayed action is inherited from the Cartesian map profile,
+// then from the existing Sigma_proj1_func Hom action.

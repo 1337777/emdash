@@ -1,0 +1,102 @@
+// The canonical whole projection retains an arbitrary nonidentity inner base arrow.
+assert [K A : Cat]
+  (G : τ (Functor K (Functor_cart_cat A Cat_cart)))
+  [x y : τ (Obj K)] (p : τ (Hom K x y))
+  [a b : τ (Obj A)]
+  (u : τ (Obj (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G x) a)))
+  (v : τ (Obj (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) b)))
+  (q : τ (Hom A a b))
+  (beta : τ (Hom
+    (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) b)
+    (@fapp0
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a)
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) b)
+      (@catd_transport_func A (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a b q)
+      (@fapp0
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G x) a)
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a)
+      (@Fibre_func A
+        (@fapp0 K (Functor_cart_cat A Cat_cart) G x)
+        (@fapp0 K (Functor_cart_cat A Cat_cart) G y)
+        (@strict_transfor A Cat_cart
+          (@fapp0 K (Functor_cart_cat A Cat_cart) G x)
+          (@fapp0 K (Functor_cart_cat A Cat_cart) G y)
+          (@fapp1_fapp0 K (Functor_cart_cat A Cat_cart) G x y p))
+        a)
+      u))
+    v)) ⊢
+  @fdapp1_int_hom_fapp0 K
+    (@comp_cat_fapp0 K (Functor_cart_cat A Cat_cart) Cat_cart (@Sigma_coeff_func A) G)
+    (@Const_catd K A)
+    (@strict_transfor K Cat_cart
+      (@comp_cat_fapp0 K (Functor_cart_cat A Cat_cart) Cat_cart (@Sigma_coeff_func A) G)
+      (@Const_catd K A)
+      (@sigma_proj1_family_funcd K A G))
+    x y p (Struct_sigma a u) (Struct_sigma b v)
+    (@sigma_arrow A (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a b
+      (@fapp0
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G x) a)
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a)
+      (@Fibre_func A
+        (@fapp0 K (Functor_cart_cat A Cat_cart) G x)
+        (@fapp0 K (Functor_cart_cat A Cat_cart) G y)
+        (@strict_transfor A Cat_cart
+          (@fapp0 K (Functor_cart_cat A Cat_cart) G x)
+          (@fapp0 K (Functor_cart_cat A Cat_cart) G y)
+          (@fapp1_fapp0 K (Functor_cart_cat A Cat_cart) G x y p))
+        a)
+      u)
+      v q beta)
+  ≡ q;
+
+// Changing the projected inner base arrow is not a valid computation.
+assertnot [K A : Cat]
+  (G : τ (Functor K (Functor_cart_cat A Cat_cart)))
+  [x y : τ (Obj K)] (p : τ (Hom K x y))
+  [a b : τ (Obj A)]
+  (u : τ (Obj (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G x) a)))
+  (v : τ (Obj (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) b)))
+  (q : τ (Hom A a b))
+  (beta : τ (Hom
+    (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) b)
+    (@fapp0
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a)
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) b)
+      (@catd_transport_func A (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a b q)
+      (@fapp0
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G x) a)
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a)
+      (@Fibre_func A
+        (@fapp0 K (Functor_cart_cat A Cat_cart) G x)
+        (@fapp0 K (Functor_cart_cat A Cat_cart) G y)
+        (@strict_transfor A Cat_cart
+          (@fapp0 K (Functor_cart_cat A Cat_cart) G x)
+          (@fapp0 K (Functor_cart_cat A Cat_cart) G y)
+          (@fapp1_fapp0 K (Functor_cart_cat A Cat_cart) G x y p))
+        a)
+      u))
+    v))
+  (q_other : τ (Hom A a b)) ⊢
+  @fdapp1_int_hom_fapp0 K
+    (@comp_cat_fapp0 K (Functor_cart_cat A Cat_cart) Cat_cart (@Sigma_coeff_func A) G)
+    (@Const_catd K A)
+    (@strict_transfor K Cat_cart
+      (@comp_cat_fapp0 K (Functor_cart_cat A Cat_cart) Cat_cart (@Sigma_coeff_func A) G)
+      (@Const_catd K A)
+      (@sigma_proj1_family_funcd K A G))
+    x y p (Struct_sigma a u) (Struct_sigma b v)
+    (@sigma_arrow A (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a b
+      (@fapp0
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G x) a)
+      (Fibre_cat (@fapp0 K (Functor_cart_cat A Cat_cart) G y) a)
+      (@Fibre_func A
+        (@fapp0 K (Functor_cart_cat A Cat_cart) G x)
+        (@fapp0 K (Functor_cart_cat A Cat_cart) G y)
+        (@strict_transfor A Cat_cart
+          (@fapp0 K (Functor_cart_cat A Cat_cart) G x)
+          (@fapp0 K (Functor_cart_cat A Cat_cart) G y)
+          (@fapp1_fapp0 K (Functor_cart_cat A Cat_cart) G x y p))
+        a)
+      u)
+      v q beta)
+  ≡ q_other;

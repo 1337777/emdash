@@ -1,0 +1,181 @@
+{
+  "status": "Staged canonical Sigma projection and corrected two-sided total pass with actual consumers; broader original import closure and public migration incomplete",
+  "extendsCheckpoint": "f0071b11",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "coreUnchangedSha256": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+  "manifestSha256": "4cb42a490a6e96b5f4e4d50432f4fded00dc7af963ba59126a27cfdc22f823f7",
+  "changedAuthoringInputs": {
+    "production_owner_migration.py": "6c23daead137505e475dae08a41fd0e5f657819d6d592ad7ad34f598ad97ddb5",
+    "production_cubical_sigma_projection.lpfragment": "4802b1ded3bd785658af359356ed28243b40f112e3b6766762083348674202f5",
+    "production_cubical_sigma_projection_controls.lpfragment": "0970dc30c5edd5f2965c2fd1691a7f99e20f7388dc6f058fa0d6d1b4999cf433",
+    "production_cubical_total_duality.lpfragment": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+    "production_cubical_total_controls.lpfragment": "3c0d0eb0ae04960390483adf394d046d263004567707ca05ac6cfecbfe184672"
+  },
+  "sourcePreservation": {
+    "emdash3_2_cubical_dependent_hom.lp": {
+      "originalNamedDeclarations": 6,
+      "allRetainedInOrder": true
+    },
+    "emdash3_2_cubical_square_total.lp": {
+      "originalNamedDeclarations": 13,
+      "allRetainedInOrder": true
+    },
+    "emdash3_2_cubical_internalization.lp": {
+      "originalNamedDeclarations": 13,
+      "allRetainedInOrder": true
+    }
+  },
+  "qualifiedCombinedCheck": {
+    "id": "20261016T145617Z-4097a8ea129e48678160a4f0e943e75d",
+    "target": "cubical_migration_controls.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 27.049596611992456,
+    "childrenMaxRssKiB": 1155376,
+    "inputSnapshot": "8adb8f1368998a6feeffae75696c82fcf44aafb781dd115d733f6fbe739df9ce",
+    "inputs": {
+      "cubical_migration_controls.lp": "ccfbae06f5857b88ae34deb609fcb843e335895db99b7d1759e8f540491cde4f",
+      "emdash3_2.lp": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+      "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+      "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+      "emdash3_2_cubical_square_total.lp": "50c064e3094b2d1ef4d754b9dbcc24590077513f45c2b47d2e9894b9d429cb4b",
+      "examples/cubical_dependent_hom.lp": "ee6364884ff072b4d456558d4d5cf34e2671316b26edbb8ee6c655dfe3856be3",
+      "examples/cubical_internalization.lp": "23e5cdece8cca8d12dc50fdef2adc861a1da40585fee437f7d26f16c2a371372",
+      "examples/cubical_internalization_composition.lp": "30c3ef953f36bf762b2c97a9b04541d8cf56b85368418838ce59ab766431d2ae",
+      "examples/cubical_square_total.lp": "f8f8575478ae5ecc824196ac228ec928aa5ec707320bfe11048981f4f5f91f41",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "logSha256": "1e73badc3b75948879045881ce51eff3cb31374706f3f1244570892f28322313",
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--no-colors"
+      ],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    }
+  },
+  "originalReviewerAssertions": {
+    "cubical_dependent_hom": {
+      "positive": 7,
+      "negative": 1
+    },
+    "cubical_square_total": {
+      "positive": 7,
+      "negative": 1
+    },
+    "cubical_internalization": {
+      "positive": 7,
+      "negative": 2
+    },
+    "cubical_internalization_composition": {
+      "positive": 4,
+      "negative": 0
+    }
+  },
+  "exactFinalInputsMatch": true,
+  "subjectReduction": true,
+  "serialExecution": true,
+  "compiledObjects": false,
+  "profileChanges": [
+    "homdc_ retains E:T(K1)->Catd(K2) but exposes its actual Cart(T(Hom_K2),Cat_cart) result",
+    "sigma_proj1_family_funcd accepts G:K->Cart(A,Cat_cart), with the canonical Cartesian map result; raw displayed consumers use strict_transfor",
+    "homdc_edge_catd and homdc_total_cat admit E:T(K1)->Cart(K2,Cat_cart); the canonical hom_int has this profile",
+    "Total fibre duality sends the edge family over T(K1) to O(K1); the outer total uses O",
+    "homdc_at is compared with the actual inner-total Hom, replacing the old opposite-of-ordinary-inner-total comparison",
+    "Public Functor/Transf/Functord defaults and the single-family Homd core are unchanged"
+  ],
+  "runtimeChanges": {
+    "changedOriginalComponentRule": 1,
+    "redundantDirectIntrinsicRuleRemoved": 1,
+    "newGeneralRuntimeRules": 0,
+    "newUnificationRules": 0
+  },
+  "legacyOppositeBoundary": {
+    "pendingLegacyOppositeRules": 3,
+    "pendingLegacyOppositeUnifiers": 4,
+    "pendingLegacyBlockSha256": "5adeac678a70299d8caf5f8d5db712df6e6b278eb25b541abb2ad7be738340ee"
+  },
+  "warningComparison": {
+    "baselineCoreReceipt": "20261016T131156Z-a5b93c62dd1449deb1d0243e0194c79f",
+    "candidateReceipt": "20261016T145617Z-4097a8ea129e48678160a4f0e943e75d",
+    "baselineBodies": 1938,
+    "candidateBodies": 1938,
+    "added": 0,
+    "removed": 0,
+    "qualification": "Exact inherited core critical-pair bodies match. The legacy square module baseline fails before its opposite rules; inactive clauses are not qualified by this comparison."
+  },
+  "lhsAudits": {
+    "emdash3_2_cubical_dependent_hom.lp": {
+      "exitCode": 0,
+      "summary": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_cubical_dependent_hom.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 0 annotated slot(s) across 0 intentional clause(s)"
+    },
+    "emdash3_2_cubical_square_total.lp": {
+      "exitCode": 0,
+      "summary": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_cubical_square_total.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 0 annotated slot(s) across 0 intentional clause(s)"
+    },
+    "emdash3_2_cubical_internalization.lp": {
+      "exitCode": 0,
+      "summary": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_cubical_internalization.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 0 annotated slot(s) across 0 intentional clause(s)"
+    }
+  },
+  "baselineFailure": {
+    "id": "20261016T142246Z-a1ba74113f0843f89ea53adb5e62c937",
+    "owner": "sigma_proj1_family_funcd",
+    "result": "Cat_cat composite used as Cat_cart-valued family"
+  },
+  "developmentEvidence": [
+    {
+      "id": "20261016T142921Z-dba6a9644a374f07bc574e931ac54bb9",
+      "result": "Fixed square reviewer and arbitrary inner base-arrow projection pass without the old direct intrinsic cut"
+    },
+    {
+      "id": "20261016T143608Z-efce188d7a2e4d59a42f80a595ad0639",
+      "result": "One remaining Product_projR source annotation used T(K1) instead of O(K1); corrected"
+    },
+    {
+      "id": "20261016T143649Z-1e3ecab6e5624031920c7eaec17130bd",
+      "result": "Whole two-sided total module passes before final comment cleanup"
+    },
+    {
+      "id": "20261016T143926Z-6cc49e1980b34a89a93fa3d528eec1ca",
+      "result": "Original endpoint identity/composition consumers pass"
+    },
+    {
+      "id": "20261016T144055Z-880f91b306c5472ea80846dbb2088200",
+      "result": "Actual inner Hom comparison, all endpoint observations and reversed/distinct filler negatives pass"
+    }
+  ],
+  "nextIntegrationFailure": {
+    "id": "20261016T145017Z-55a499a1814f4ed79c013835a347719d",
+    "target": "examples/gray_profiles.lp",
+    "outcome": "failed",
+    "wallSeconds": 38.33735542802606,
+    "inputSnapshot": "ab1bbcaed08e08a5b858632bf3fefcecee5c20005dc3defa247caae02bffb064",
+    "logSha256": "7b72be9df450544c9355fd4e3ee33caf09fb99e867ae37fbe40f0ac1bb622bbb",
+    "location": "emdash3_2_gray_interchanger_orientation.lp:137:5-35",
+    "reason": "Unknown functord_transport_lhs_agrees: obsolete general left-leg equality in the source endpoint proof",
+    "exactFinalInputsMatch": false,
+    "changedDependencySinceReceipt": [
+      "emdash3_2_cubical_square_total.lp"
+    ],
+    "failingConsumerSourceUnchanged": true,
+    "replayBoundary": "The canonical projection rule subsequently wildcarded its reconstructible coefficient slot. Final combined consumers qualify that change; the unchanged interchanger still refers to the same undefined retired left-leg name. The broader failing closure was not repeated solely for that minimization."
+  },
+  "remaining": [
+    "Correct the original interchanger endpoint proof without restoring general post/left strictness",
+    "Reassess the inactive same-base opposite rules at actual total/graph consumers: generic parameter maps, base change, reindexing, sections and identity graph",
+    "Remaining original diagnostic/import/library migration and redundant strict-functor wrapper retirement",
+    "Consumed coefficient compatibility, public promotion, catalog/health/CI and final goal qualification"
+  ]
+}

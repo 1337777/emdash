@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: complete staged core, profile extension and first original PathOut/cubical-Hom consumers check; broader import closure, downstream and public-promotion qualification remain open
+Status: complete staged core, profile extension and corrected two-sided total consumers check; later graph/import, downstream and public-promotion qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,37 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Canonical Sigma/two-sided-total continuation after `f0071b11`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_cubical_total_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_cubical_total_verification.json)
+record the precise Cartesian result of the existing fixed-endpoint homdc_,
+canonical varying Sigma projection, and corrected total-dual internalization.
+Fixed-endpoint E remains T(K1)->Catd_cat(K2). The whole two-sided total
+admits the stronger nested E:T(K1)->Cart(K2,Cat_cart), matching canonical
+hom_int. This is the selected construction's explicit admission, not a claim
+that all possible weaker total doctrines are impossible.
+
+The inner edge family A_E=Sigma_coeff o E has base T(K1), its total fibre
+dual D_E has base O(K1), and the total is O(Sigma_(O(K1)) D_E). The root is
+the existing homd_int(id_D_E). Its lower comparison is now the actual inner
+Sigma Hom, replacing the old opposite-of-ordinary-inner-total comparison.
+Square construction, both endpoint projections, their identity/composition
+boundaries, and wrong-orientation/distinct-filler controls check together.
+The redundant direct intrinsic projection cut is removed; generic strict-map
+and Sigma-projection action already compute the arbitrary inner base arrow.
+No public Functord strictness change or new two-sided category is introduced.
+
+Seven legacy same-base opposite clauses remain explicitly inactive in the
+staged square-total source. The review inventories their still-required
+parameter/base-change/reindexing/section/identity-graph observations. Continue
+those at actual consumers, rather than reinstating their invalid signatures.
+The broader original import now stops at gray_interchanger_source_common_path
+in gray_interchanger_orientation: the old general left-leg equality was
+retired. Prove the source endpoint from its actual left telescope; do not
+identify it with the pre/right middle action. Remaining graph/import/library
+migration, wrapper retirement, consumed compatibility, public promotion and
+final gates remain required. The core source is unchanged by this tranche.
 
 Profile/extension continuation after `c9962d6e`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_profile_consumers_review.md)

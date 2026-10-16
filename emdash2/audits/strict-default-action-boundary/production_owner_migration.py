@@ -1561,10 +1561,17 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 text = text[:start] + fragment('production_cubical_hom_evaluation.lpfragment').rstrip() + text[end:]
                 assert text.count('(@hom_con_int\n') == 1
                 assert text.count('(@hom_int C C') == 2
-                text = text.replace('(@hom_con_int\n', '(@hom_con_int_view\n', 1)
+                # Keep the actual Cartesian result of hom_con_int: its next
+                # totalization consumes that whole profile, not just objects.
+                text = text.replace('(Catd_cat (Op_cat (Hom_cat K2 x2 y2)))',
+                    '(Functor_cart_cat (Op_cat (Hom_cat K2 x2 y2)) Cat_cart)')
+                text = text.replace('(Catd_cat (Op_cat (Hom_cat C x2 y2)))',
+                    '(Functor_cart_cat (Op_cat (Hom_cat C x2 y2)) Cat_cart)')
                 text = text.replace('(@hom_int C C', '(@hom_int_view C C')
+                text = text.replace(': Hom_K1(x1,y1) -> Catd(Hom_K2(x2,y2)^op).',
+                    ': Hom_K1(x1,y1) -> Cart(T(Hom_K2(x2,y2)),Cat_cart).')
                 changes.append({'source': path, 'owner': 'fixed-endpoint cubical Hom evaluation',
-                                'reason': 'Use existing whole Cartesian component evaluation and ordinary Hom views; preserve the original E input and all public ladder/result types',
+                                'reason': 'Use existing whole Cartesian component evaluation, preserve the original broad E input, and expose the actual Cartesian Hom result needed by totalization',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/cubical_dependent_hom.lp':
                 old = text
@@ -1573,8 +1580,84 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 observations = text[start:end]
                 assert observations.count('Cat_cat') == 2
                 text = text[:start] + observations.replace('Cat_cat', 'Cat_cart') + text[end:]
+                text = text.replace('(Catd_cat (Op_cat (Hom_cat K2 x2 y2)))',
+                    '(Functor_cart_cat (Op_cat (Hom_cat K2 x2 y2)) Cat_cart)')
+                text = text.replace('(Catd_cat (Op_cat (Hom_cat C x2 y2)))',
+                    '(Functor_cart_cat (Op_cat (Hom_cat C x2 y2)) Cat_cart)')
                 changes.append({'source': path, 'owner': 'inner cubical Hom action',
                                 'reason': 'Observe the actual admitted family coefficient; retain original leaf, both higher actions and twisted-boundary negative control',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_cubical_square_total.lp':
+                old = text
+                start = text.index('// Whole family of first projections')
+                opposite = text.index('// Pointwise opposite retains', start)
+                end = text.index('// At a, totalize the b-indexed filler family.', opposite)
+                legacy = text[opposite:end]
+                assert len(re.findall(r'(?m)^rule ', legacy)) == 3
+                assert len(re.findall(r'(?m)^unif_rule ', legacy)) == 4
+                inactive = '''/*
+  Migration boundary: the following legacy same-base Op clauses are inactive.
+  Op_catd now changes the base, and Op_funcd accepts Cartesian maps. Their
+  required two-sided total/graph observations must be rederived at the
+  corrected TotalOp consumers; none is silently asserted with the old types.
+
+''' + legacy + '\n*/\n\n'
+                text = text[:start] + fragment('production_cubical_sigma_projection.lpfragment') + inactive + text[end:]
+                text = text.replace('(Functor (Hom_cat K1 x1 y1) Cat_cat)',
+                                    '(Functor (Hom_cat K1 x1 y1) Cat_cart)')
+                source = '''    (Catd_cat (Op_cat (Hom_cat K2 x2 y2)))
+    Cat_cat
+    (@Sigma_func (Op_cat (Hom_cat K2 x2 y2)))'''
+                assert text.count(source) == 1
+                text = text.replace(source, '''    (Functor_cart_cat (Op_cat (Hom_cat K2 x2 y2)) Cat_cart)
+    Cat_cart
+    (@Sigma_coeff_func (Op_cat (Hom_cat K2 x2 y2)))''', 1)
+                projection = '''    (@sigma_proj1_family_funcd
+      (Hom_cat K1 x1 y1)
+      (Op_cat (Hom_cat K2 x2 y2))
+      (@homdc_ K1 K2 E x1 y1 x2 y2 u v));'''
+                assert text.count(projection) == 1
+                text = text.replace(projection, '''    (@strict_transfor _ _ _ _
+      (@sigma_proj1_family_funcd
+        (Hom_cat K1 x1 y1)
+        (Op_cat (Hom_cat K2 x2 y2))
+        (@homdc_ K1 K2 E x1 y1 x2 y2 u v)));''', 1)
+                text = text.replace('by applying the existing `homd_int` to the pointwise\n  opposite inner edge total;',
+                    'by applying the existing `homd_int` to the total-dual\n  inner edge family over its shifted outer base;')
+                changes.append({'source': path, 'owner': 'varying Sigma projection and fixed-boundary total',
+                                'reason': 'Use canonical Cartesian projection/formation and inherited strict-map action; preserve the broader fixed-endpoint E input',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text),
+                                'redundantDirectIntrinsicRuleRemoved': 1,
+                                'pendingLegacyOppositeRules': 3,
+                                'pendingLegacyOppositeUnifiers': 4,
+                                'pendingLegacyBlockSha256': sha(legacy)})
+            if path == 'emdash3_2_cubical_internalization.lp':
+                old = text
+                text = fragment('production_cubical_total_duality.lpfragment')
+                changes.append({'source': path, 'owner': 'two-sided Homd/Sigma total and endpoint projections',
+                                'reason': 'Admit the nested Cartesian family, shift the total-dual family base to O(K1), and derive the existing total and projections with O rather than the invalid same-base fibre opposite',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/cubical_square_total.lp':
+                text += '\n' + fragment('production_cubical_sigma_projection_controls.lpfragment')
+            if path == 'examples/cubical_internalization.lp':
+                old = text
+                text = text.replace('are derived from ordinary Sigma, pointwise opposite, and homd_int.',
+                    'are derived from ordinary Sigma, shifted total fibre duality, and homd_int.')
+                text = text.replace('// The internal owner is literally the existing homd_int of the pointwise\n// opposite inner edge family.',
+                    '// The internal owner is the existing homd_int of the total-dual inner\n// edge family over O(K1).')
+                text = text.replace('(Catd_cat K2)', '(Functor_cart_cat K2 Cat_cart)')
+                start = text.index('assert [K1 K2')
+                end = text.index('// At a fixed', start)
+                text = text[:start] + text[start:end].replace(
+                    '      (Op_cat K1)', '      (TotalOp_cat K1)') + text[end:]
+                controls = fragment('production_cubical_total_controls.lpfragment')
+                split = controls.index('// The corrected total rejects')
+                start = text.index('// At a fixed first side arrow')
+                end = text.index('// The selected ordinary', start)
+                text = text[:start] + controls[:split] + text[end:]
+                text += '\n' + controls[split:]
+                changes.append({'source': path, 'owner': 'corrected total-dual Hom reading and retained endpoints',
+                                'reason': 'Replace the invalid ordinary-opposite-total comparison by the actual inner Hom; retain square/endpoint observations and reject reversed or erased fillers',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_action_paths.lp':
                 marker = 'symbol one_cat_composition_path '
@@ -1729,6 +1812,13 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
 
     stage('examples/gray_profiles.lp')
     stage('examples/cubical_dependent_hom.lp')
+    stage('examples/cubical_square_total.lp')
+    stage('examples/cubical_internalization.lp')
+    stage('examples/cubical_internalization_composition.lp')
+    (package / 'cubical_migration_controls.lp').write_text(''.join(
+        'require open emdash.examples.' + name + ';\n' for name in (
+            'cubical_dependent_hom', 'cubical_square_total',
+            'cubical_internalization', 'cubical_internalization_composition')))
     # Same original reviewer assertions, isolated at their actual profile
     # owner. The original broader import closure remains staged and required.
     profile_controls = (package / 'examples/gray_profiles.lp').read_text()
@@ -1795,6 +1885,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'comma_prefix.lp',
                               package / 'pathout_controls.lp',
                               package / 'profile_controls.lp',
+                              package / 'cubical_migration_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',
