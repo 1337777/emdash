@@ -1,0 +1,57 @@
+// NON-LIBRARY owner-position regression controls. Append to the full emitted
+// core (or require open that core). These do not add computational contracts.
+// Inferred slots must not match the reducible TotalOp_cat alias.
+assert [A B : Cat] [F : τ (Functor A B)] [G : τ (Functor B A)]
+  (adj : τ (@Adjunction A B F G)) ⊢
+  @Op_adjunction (TotalOp_cat B) (TotalOp_cat A)
+    (@TotalOp_func B A G) (@TotalOp_func A B F)
+    (@Op_adjunction A B F G adj) ≡ adj;
+
+assert [A B : Cat] [F : τ (Functor A B)] [G : τ (Functor B A)]
+  (adj : τ (@Adjunction A B F G)) ⊢
+  @unit_adj_transf (TotalOp_cat B) (TotalOp_cat A)
+    (@TotalOp_func B A G) (@TotalOp_func A B F)
+    (@Op_adjunction A B F G adj)
+  ≡ @TotalOp_transf B B (@comp_cat_fapp0 B A B F G) (@id_func B)
+      (@counit_adj_transf A B F G adj);
+
+assert [A B : Cat] [F : τ (Functor A B)] [G : τ (Functor B A)]
+  (adj : τ (@Adjunction A B F G)) ⊢
+  @counit_adj_transf (TotalOp_cat B) (TotalOp_cat A)
+    (@TotalOp_func B A G) (@TotalOp_func A B F)
+    (@Op_adjunction A B F G adj)
+  ≡ @TotalOp_transf A A (@id_func A) (@comp_cat_fapp0 A B A G F)
+      (@unit_adj_transf A B F G adj);
+
+// Typed observations of the three reported nested-adjunction overlaps.
+// Both package-first and expanded projection-first paths return the original
+// package/unit/counit. Arbitrary lax unit/counit transformations are retained.
+assert [A B : Cat] [F : τ (Functor A B)] [G : τ (Functor B A)]
+  (adj : τ (@Adjunction A B F G)) ⊢
+  @Op_adjunction A B F G
+    (@Op_adjunction (TotalOp_cat B) (TotalOp_cat A)
+      (@TotalOp_func B A G) (@TotalOp_func A B F)
+      (@Op_adjunction A B F G adj))
+  ≡ @Op_adjunction A B F G adj;
+
+assert [A B : Cat] [F : τ (Functor A B)] [G : τ (Functor B A)]
+  (adj : τ (@Adjunction A B F G)) ⊢
+  @TotalOp_transf (TotalOp_cat A) (TotalOp_cat A)
+    (@comp_cat_fapp0 (TotalOp_cat A) (TotalOp_cat B) (TotalOp_cat A)
+      (@TotalOp_func B A G) (@TotalOp_func A B F))
+    (@id_func (TotalOp_cat A))
+    (@counit_adj_transf (TotalOp_cat B) (TotalOp_cat A)
+      (@TotalOp_func B A G) (@TotalOp_func A B F)
+      (@Op_adjunction A B F G adj))
+  ≡ @unit_adj_transf A B F G adj;
+
+assert [A B : Cat] [F : τ (Functor A B)] [G : τ (Functor B A)]
+  (adj : τ (@Adjunction A B F G)) ⊢
+  @TotalOp_transf (TotalOp_cat B) (TotalOp_cat B)
+    (@id_func (TotalOp_cat B))
+    (@comp_cat_fapp0 (TotalOp_cat B) (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B F) (@TotalOp_func B A G))
+    (@unit_adj_transf (TotalOp_cat B) (TotalOp_cat A)
+      (@TotalOp_func B A G) (@TotalOp_func A B F)
+      (@Op_adjunction A B F G adj))
+  ≡ @counit_adj_transf A B F G adj;

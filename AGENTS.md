@@ -225,13 +225,16 @@ Print and book workspace, from the root:
 ```
 
 The repository-wide gate is `./scripts/pnpmw run check:all`. Keep every
-Lambdapi invocation bounded as required by the nested SOP: 90 seconds by
-default. For the native-universality goal, the user now authorizes reviewed
-per-target extensions; the current guard permits an explicit limit up to
-600 seconds with the reason and measurement recorded in its living plan.
-The memory default remains 2 GiB; reviewed native-snake pair checks use an
-explicit 6 GiB/180s profile under the user's memory-extension authorization.
-File limits and serial execution remain in force. The separate proportional-
+Lambdapi invocation bounded as required by the nested SOP: 90 seconds and
+2 GiB by default. Measured, target-specific resource adjustments do not need
+separate user approval (user direction, 2026-10-16). The guard supports explicit
+limits up to 600 seconds and 8 GiB; select only what the measured target needs,
+record the reason and outcome, and keep defaults unchanged. Memory increases
+require available host headroom for the editor, Codex and other workloads;
+a time extension alone keeps the memory cap unchanged. Preserve serial
+execution, file limits, subject reduction and no-swap containment. Trace slow
+core checks as potential implementation problems, rather than treating a
+larger deadline as an adequate performance result. The separate proportional-
 validation policy still forbids unnecessary aggregates.
 
 For the action-profile integration goal, the user explicitly authorized any

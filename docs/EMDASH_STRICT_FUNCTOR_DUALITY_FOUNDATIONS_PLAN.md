@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: complete staged core, profile, corrected two-sided total and interchanger consumers check; weighted-duality/import, downstream and public-promotion qualification remain open
+Status: active implementation; resource approval resolved, adjunction rule hygiene qualified, weighted inverse computation and broader migration remain incomplete
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,40 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Runtime/rule review and qualified adjunction repair, 2026-10-16:
+[review](../emdash2/audits/strict-default-action-boundary/production_runtime_review.md)
+and [evidence](../emdash2/audits/strict-default-action-boundary/production_runtime_verification.json)
+separate transient unchanged-source timeouts from measured migration cost and
+actual computational failures. The user approved 300 seconds and requested
+that measured bounded adjustments no longer require separate approval; root
+and nested SOP and DevOps now say so. Defaults and the current 2GiB cap remain.
+The persistent goal was explicitly reactivated by the user.
+
+The matched original/migrated core profile is 6.27s/326.9MiB versus
+21.38s/1118.1MiB peak child RSS, chiefly normalization cost. An isolated removal
+of three duplicate strict-functor cuts reduces 48 pair reports with only a
+modest measured cost reduction; it is not promoted. Earlier 90s timeouts stop
+at varying core positions, and the same inputs now reach the final consumer
+in 24.49s. The reason for that timing variation is not established.
+
+A concrete migration bug is fixed at the original Op_adjunction owner:
+TotalOp_cat became a reducible alias, but three copied rules still matched it
+in inferred slots. Use `_` there, retaining the inner constructor and every
+RHS. Whole involution and unit/counit projections now compute. The complete
+emitted core with inherited controls and six focused overlap observations
+passes 255 positive/60 negative assertions in 13.740s at 90s/2GiB, with SR and
+warnings; the exact generated inputs match the receipt. Nine pair bodies are
+replaced by three typed nested-adjunction overlap groups (1938 to 1932). No
+new rule, mathematical assumption or operational evidence parameter is added.
+
+The pending weighted-colimit candidate remains uncommitted. Its final
+public-result inverse assertion fails after imports complete. A minimal
+DefIso-composite reproducer also fails in the pinned original kernel: selected
+inverse projections and accumulation expose a bracketing that adjacent cuts
+do not cancel. Trace the shared inverse owner and retire unnecessary strict
+wrappers, rather than add a theorem-specific inverse axiom, hide the body, or
+restart Homd. Full migration and weighted inverse qualification remain open.
 
 Interchanger continuation after `25f1b48b`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_interchanger_review.md)

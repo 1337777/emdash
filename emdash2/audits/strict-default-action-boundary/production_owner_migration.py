@@ -450,6 +450,12 @@ rule @fapp1_fapp0 _ _ (Op_func_func $A $B) $G $F $eta
                       .replace('Op_transf', 'TotalOp_transf'))
     new_adjunction = new_adjunction.replace('  Opposite adjunction.',
         '  Total-opposite adjunction (legacy public spelling Op_adjunction).')
+    # TotalOp_cat is now a reducible alias. The inner Op_adjunction already
+    # determines these inferred category/functor arguments; matching the alias
+    # here breaks the canonical involution and unit/counit projections.
+    old_adjunction_slots = '      (TotalOp_cat $B) (TotalOp_cat $A)\n      _\n      _\n'
+    assert new_adjunction.count(old_adjunction_slots) == 3
+    new_adjunction = new_adjunction.replace(old_adjunction_slots, '      _ _ _ _\n')
     replace_once(old_adjunction, new_adjunction, 'Op_adjunction',
                  'Preserve general lax unit/counit transformations by using the qualified total-duality profile; do not silently require strict units')
 
@@ -1491,6 +1497,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     pathout_inherited = (package / 'comma_prefix.lp').read_text()[len(body[:body.index(comma_boundary)]):]
     (package / 'pathout_controls.lp').write_text(body + '\n' + pathout_inherited
         + '\n' + fragment('production_pathout_controls.lpfragment'))
+    (package / 'rule_hygiene_full_controls.lp').write_text(
+        (package / 'pathout_controls.lp').read_text() + '\n'
+        + fragment('production_adjunction_guard_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1922,6 +1931,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'profunctor_prefix.lp',
                               package / 'comma_prefix.lp',
                               package / 'pathout_controls.lp',
+                              package / 'rule_hygiene_full_controls.lp',
                               package / 'profile_controls.lp',
                               package / 'cubical_migration_controls.lp',
                               package / 'interchanger_controls.lp',

@@ -225,9 +225,32 @@ Keep it scoped and log the effective `OCAMLRUNPARAM`/`CAMLRUNPARAM`, including
 wrapper defaults; do not reuse performance evidence across different runtime
 settings. GC tuning cannot guarantee success for excessive live data,
 nontermination or invalid types. After a success, check the actual required
-consumer. A larger-limit experiment needs authorization, a measured bounded
-target and the same serialization/file/deadline/no-swap restrictions; preserve
-and restore the normal guard. No unbounded fallback is permitted.
+consumer. Measured, target-specific limit adjustments do not require separate
+user authorization (user direction, 2026-10-16). Keep the normal defaults and
+the serialization/file/deadline/no-swap restrictions; no unbounded fallback is
+permitted. Select the smallest useful adjustment within the guard's supported
+bounds and record its reason, exact source/dependency hashes, flags, runtime
+settings, limits and outcome in the active plan and execution receipt.
+
+Memory containment protects the editor, Codex and other host processes; a
+longer deadline is diagnostic headroom, not a performance qualification.
+Retain the current memory cap for a time-only experiment. Before increasing
+memory, inspect available host memory and competing workloads, leaving ample
+headroom for those processes. If that headroom is unavailable, do not launch
+the larger-memory experiment. A configured ceiling is not a recommended
+allocation. Do not disable the guard, swap restriction or subject reduction,
+change host power settings, or terminate unrelated processes to obtain a pass.
+
+Treat unexpectedly slow foundational checks as implementation diagnostics:
+first separate unchanged import cost, the changed owner and its real consumer;
+compare with the pinned pre-change source under the same runtime settings.
+Use command timing (for example `--too-long=0.5`), scoped checker profiling,
+GC statistics and process measurements to locate the cost. Distinguish wall
+time, CPU time, allocation traffic, live heap and RSS; do not infer a rewrite
+loop or a host fault from a timeout alone. Review reducible LHS patterns,
+redundant strictness rules and expensive normalization before broad redesign.
+Do not keep repeating an unchanged timed-out check without a new hypothesis
+or measurement. A raised deadline does not make a slow core acceptably usable.
 
 The 2026-09-15 native snake and earlier combined pair/certificate constructor
 replays demonstrate this technique at 2GiB without changing their source.
@@ -246,17 +269,16 @@ whole multi-target gate; resource exhaustion is not a mathematical
 counterexample. The active homology plan records the motivating global OOM
 events and requires serial, memory-bounded compiler experiments too.
 
-User direction for the native-universality goal (2026-09-14) permits reviewed
-time-limit increases. The guard now accepts an explicit `EMDASH_LP_TIMEOUT`
+The guard accepts an explicit `EMDASH_LP_TIMEOUT`
 up to 600 seconds, while retaining the 90-second default and the existing
 file/serial restrictions. Use an increased limit only for a measured
 target, recording the reason, exact limit and result in its living plan.
-The first selected experiment is the complete bounded model adoption with
+The original native-universality use was complete bounded model adoption with
 its second connecting/reuse pass. A time increase does not resolve a memory
 failure or qualify an incomplete computation. Longer probes use the existing
 `EMDASH_PROBE_TIMEOUT` override; do not bypass the guard or subject reduction.
 
-The same user authorization permits reviewed memory increases.
+Measured target-specific memory increases follow the headroom procedure above.
 `scripts/check_native_snake_pairs.sh` retains the measured
 6 GiB/180s base profile for its registered pair/certificate owners and
 reviewer. Exact `targetProfileOverrides` in `checks.json` can select a separately
@@ -267,10 +289,9 @@ scope; record resource measurements and do not turn this into a global
 default increase. Guard/profile tests exercise the bounds without allocating
 large heaps.
 
-User direction for the action-profile integration goal (2026-09-26) provides
-standing authorization for any needed measured memory/timeout increases,
-without further approval questions. This authorization already satisfies the
-larger-limit permission requirement above. Keep the 2 GiB/90-second normal
+The action-profile integration goal first received standing authorization for
+measured memory/timeout increases on 2026-09-26. The repository-wide procedure
+above now applies without further approval questions. Keep the 2 GiB/90-second normal
 defaults and use explicit target-specific profiles, recording reasons,
 measurements and remaining limitations in the integration plan. Preserve
 subject reduction, the serial lock, file/core limits and no-swap scopes.
@@ -341,6 +362,11 @@ Git for retired implementations, rather than an ignored alternative library.
 - Keep inferred source/target/category/family arguments as `_` on rule LHSs
   unless they are real discriminators or measured subject-reduction/performance
   guards.
+- Apply that review to owner-specific heads too: `audit_rule_lhs.py` covers
+  only its listed generic heads. Zero reported candidates does not qualify
+  inferred arguments elsewhere. When a primitive becomes a defined alias,
+  inspect its old occurrences in patterns and test the actual projections;
+  do not retain a reducible alias as an inferred-slot discriminator by habit.
 - Annotate intentional compound inferred slots immediately above the rule:
   `// lhs-audit: keep SLOT[,SLOT] -- reason`.
 - Never apply inferred-slot cleanup mechanically. Run the focused probe,

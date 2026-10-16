@@ -104,6 +104,11 @@ Source checks and probes share the default 2 GiB/90-second guard. Registered
 native profiles retain their reviewed GC/deadline/memory settings; an unrelated
 temporary file with the same basename does not acquire those exceptions.
 Existing explicitly bounded environment overrides remain visible in receipts.
+Measured target-specific overrides within the guard's supported bounds do not
+require another user approval. Preserve the default profile and follow the
+[resource procedure](../emdash2/AGENTS.md#avoid-hung-typechecks), including host
+memory headroom and investigation of unexpected import/normalization cost.
+The deadline is a hang safeguard; memory containment protects other processes.
 Subject reduction cannot be disabled through the guarded entry points.
 The OS-guard integration tests target Linux; the published/browser-safe checker
 keeps its existing runtime boundary and does not acquire Python or Lambdapi.

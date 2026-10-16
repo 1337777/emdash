@@ -1,0 +1,20 @@
+require open emdash.emdash3_2;
+constant symbol audit_C : Cat;
+constant symbol audit_w : τ (Obj audit_C);
+constant symbol audit_x : τ (Obj audit_C);
+constant symbol audit_y : τ (Obj audit_C);
+constant symbol audit_z : τ (Obj audit_C);
+constant symbol audit_r : τ (Hom audit_C audit_w audit_x);
+constant symbol audit_i : τ (@DefIso audit_C audit_x audit_y);
+constant symbol audit_j : τ (@DefIso audit_C audit_y audit_z);
+symbol audit_composite ≔ @defiso_comp audit_C audit_x audit_y audit_z audit_j audit_i;
+compute @hom_postcomp_fapp0 audit_C audit_C (@id_func audit_C) audit_w audit_z audit_x
+  (@defiso_from audit_C audit_x audit_z audit_composite)
+  (@hom_postcomp_fapp0 audit_C audit_C (@id_func audit_C) audit_w audit_x audit_z
+    (@defiso_to audit_C audit_x audit_z audit_composite) audit_r);
+assert ⊢ @eq_refl (Hom audit_C audit_w audit_x) audit_r
+  : τ (@= (Hom audit_C audit_w audit_x)
+    (@hom_postcomp_fapp0 audit_C audit_C (@id_func audit_C) audit_w audit_z audit_x
+      (@defiso_from audit_C audit_x audit_z audit_composite)
+      (@hom_postcomp_fapp0 audit_C audit_C (@id_func audit_C) audit_w audit_x audit_z
+        (@defiso_to audit_C audit_x audit_z audit_composite) audit_r)) audit_r);
