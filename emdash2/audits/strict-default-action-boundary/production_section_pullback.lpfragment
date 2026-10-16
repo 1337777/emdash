@@ -344,12 +344,12 @@ injective symbol section_pullback_transf [A B : Cat]
       (@comp_cat_fapp0
         (@Catd_cat B)
         (@Catd_cat A)
-        Cat_cat
+        Cat_cart
         (@Pi_func A)
         (@Pullback_catd_func A B F)));
 
 // Family component: section_pullback_transf(F)[E] ↪ section_pullback_func(F,E).
-rule @tapp0_fapp0 _ Cat_cat _ _ $E (@section_pullback_transf $A $B $F)
+rule @tapp0_fapp0 _ Cat_cart _ _ $E (@section_pullback_transf $A $B $F)
   ↪ @section_pullback_func $A $B $F $E;
 
 // Internal Pi action at F and E folds to ordinary section pullback.

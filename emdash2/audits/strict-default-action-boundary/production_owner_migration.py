@@ -2,8 +2,8 @@
 """Stage required upstream owners in a full copy of the pre-goal kernel.
 
 This is an in-progress production migration, not another foundation model.
-No original downstream section is truncated. Legacy family/Op consumers
-are intentionally retained for their subsequent coupled adaptation.
+No original downstream section is truncated. Owner checks and consumer
+migration determine qualification; successful emission does not.
 
 Check imports with scripts/run_lambdapi.py --package-root pointing to the
 emitted package. The outer probe wrapper checks the source but inventories
@@ -685,8 +685,16 @@ rule @fapp1_fapp0 (CoAt2_cat $K) $D $F $x $x (@id $K $x)
       (@fapp0_func Terminal_cat (Fibre_cat E k) Terminal_obj)
       (Functor_cart_include Terminal_cat (Fibre_cat E k)))
     (@tapp0_func K Cat_cart (@Const_catd K Terminal_cat) E k);''')
+    # Pi is the terminal-source Hom of Catd(K), so its canonical formation
+    # has the same Cartesian target as represented Hom. Its input maps and
+    # section objects remain the ordinary lax displayed ones.
+    new_sections = new_sections.replace('Cat_cat', 'Cat_cart')
+    new_sections = new_sections.replace('injective symbol Pi_func (K : Cat)',
+        '// The terminal-source Hom profile changes the formation target,\n'
+        '// not the existing lax section or displayed-map classifiers.\n'
+        'injective symbol Pi_func (K : Cat)')
     replace_once(old_sections, new_sections, 'Pi and varying-base section interface',
-                 'Retain lax sections and fixed Pi; its varying-base component restricts the Cartesian family parameter by the existing inclusion')
+                 'Retain lax sections and fixed-base maps; use the canonical represented-Hom formation target and the existing Cartesian parameter inclusion')
 
     a = body.index('// 8d. Fibre covariance and dependent-hom endpoint notation')
     b = body.index('// 9. Directed Sigma categories and maps between totals', a)
@@ -1315,9 +1323,20 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     replace_once(old, old.replace('$K Cat_cart $E $C $x', '_ _ _ _ $x', 1),
                  'Displayed composite component inference slots',
                  'The displayed constructor supplies the same endpoints; preserve component composition across equivalent target presentations')
-    # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
-    # separately emitted prefix qualifies the preceding source only; passing
-    # that target must not be reported as a passing complete kernel.
+    insert('injective symbol Catd_cat (K : Cat) : Cat;',
+           fragment('production_cartesian_path_identity.lpfragment') + '\n',
+           'The original J/structured-transport comparison needs the existing literal path-reflexivity identity view at Cat_cart')
+    insert('// 5d. Rigid two-endpoint Hom action',
+           fragment('production_identity_whiskering.lpfragment'),
+           'The original EH unit consumers require identity whiskering after the composition Hom action has projected; guard both identity dimensions by their actual category')
+    a = body.index('// 19. Applications:')
+    b = body.index('// 19g. Eckmann-Hilton first computation slice', a)
+    replace_once(body[a:b], fragment('production_pathout.lpfragment') + '\n',
+                 'Original moving PathOut, path-induction and nested telescope interfaces',
+                 'Use Cartesian PathOut formation, the actual motive pullback, restricted moving components of the retained lax fixed-source theorem, and total-dual negative sections')
+    # Preserve the complete original tail. A separately emitted prefix
+    # qualifies only its preceding source; full-core qualification requires
+    # the complete target and its actual consumers.
     out = root / 'tmp/probes/production_owner_migration'
     package = out / 'package'
     package.mkdir(parents=True, exist_ok=True)
@@ -1459,6 +1478,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     comma_inherited = (package / 'profunctor_prefix.lp').read_text()[len(body[:body.index(profunctor_boundary)]):]
     (package / 'comma_prefix.lp').write_text(body[:body.index(comma_boundary)]
         + comma_inherited + '\n' + fragment('production_comma_controls.lpfragment'))
+    pathout_inherited = (package / 'comma_prefix.lp').read_text()[len(body[:body.index(comma_boundary)]):]
+    (package / 'pathout_controls.lp').write_text(body + '\n' + pathout_inherited
+        + '\n' + fragment('production_pathout_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1637,7 +1659,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                for name in original_names), 'An original declaration was dropped or reordered'
     inputs[str(Path(__file__).resolve().relative_to(root))] = sha(Path(__file__).read_text())
     manifest = {
-        'status': 'in-progress full-source upstream migration; not final foundation qualification',
+        'status': 'staged full-source migration; generation does not establish qualification',
         'sourcePin': PIN, 'originalCoreSha256': CORE_SHA,
         'originalCoreLines': len(original.splitlines()), 'candidateCoreLines': len(body.splitlines()),
         'originalDownstreamSectionsRetained': True,
@@ -1671,14 +1693,14 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'intrinsic_unit_prefix.lp',
                               package / 'profunctor_prefix.lp',
                               package / 'comma_prefix.lp',
+                              package / 'pathout_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',
-                          'Later evaluation/weakening and whole extracted-laxity consumers with their actual profiles',
-                          'Consumed Q y-comparison/coherence and late Sigma/Pi/comma consumers',
-                          'Moving path-motive interfaces with their actual coefficient profiles',
+                          'Profile-extension and original diagnostic/import-closure migration',
                           'Whole duality/adjunction and closure-consumer qualification',
-                          'Downstream qualification and retirement of redundant strict wrappers'],
+                          'Downstream qualification and retirement of redundant strict-functor wrappers',
+                          'Public promotion with catalog, health, CI and source-pin review'],
         'excluded': ['Auxiliary Sigma fibre-composition audit owner',
                      'Unrestricted Cartesian evaluation on lax transformations',
                      'Optional normalization redesign'],

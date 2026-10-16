@@ -1,0 +1,4 @@
+// The existing path-reflexivity identity view at the admitted coefficient.
+unif_rule @fapp1_fapp0 (Path_cat $A) Cat_cart $D $x $x (@eq_refl $A $x)
+  ≡ @id Cat_cat (@fapp0 (Path_cat $A) Cat_cart $D $x)
+  ↪ [ tt ≡ tt ];

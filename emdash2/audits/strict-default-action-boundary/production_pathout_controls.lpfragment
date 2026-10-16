@@ -1,0 +1,129 @@
+// The moving family has Cartesian parameter maps, with the original totals.
+assert [Z : Cat] (x : τ (Obj Z)) ⊢
+  fapp0 (@PathOut_cat_func Z) x ≡ @PathOut_cat Z x;
+assert [Z : Cat] (x : τ (Obj Z)) ⊢
+  Fibre_cat (@PathOutMotives_catd Z) x
+  ≡ Functor_cart_cat (@PathOut_cat Z x) Cat_cart;
+assert [Z : Cat] (x y z : τ (Obj Z))
+  (p : τ (Hom Z x y)) (q : τ (Hom Z y z)) ⊢
+  fapp0 (@PathOut_transport_func Z x y p) (@pathout_obj Z y z q)
+  ≡ @pathout_obj Z x z (@hom_precomp_along_fapp0 Z Z (@id_func Z) z x y p q);
+
+// The actual internal motive action and its whole pullback presentation agree.
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
+  (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  eq_refl (@pathout_motive_transport_obj Z x y p E)
+  : τ (@pathout_motive_transport_obj Z x y p E
+    = fapp0 (@fapp1_fapp0 Z Cat_cart (@PathOutMotives_catd Z) x y p) E);
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
+  (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  Fibre_cat (@pathout_motive_transport_obj Z x y p E) (@pathout_refl_obj Z y)
+  ≡ Fibre_cat E (@pathout_obj Z x y p);
+
+// Moving Pi keeps the original section category and its base-change map.
+assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  fapp0 (@tapp0_fapp0 Z Cat_cart _ _ x (@PathOutPi_funcd Z)) E
+  ≡ @Pi_cat (@PathOut_cat Z x) E;
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
+  (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  fdapp1_int_cell (@PathOutPi_funcd Z) p E
+  ≡ @section_pullback_func (@PathOut_cat Z y) (@PathOut_cat Z x)
+      (@PathOut_transport_func Z x y p) E;
+
+// Project the existing moving theorem, then E; no second eliminator is used.
+symbol pathout_check_moving_component [Z : Cat] (x : τ (Obj Z))
+  (E : τ (Catd (@PathOut_cat Z x)))
+  : τ (Functor (Fibre_cat E (@pathout_refl_obj Z x)) (Pi_cat E))
+≔ @tapp0_fapp0 (Functor_cart_cat (@PathOut_cat Z x) Cat_cart) Cat_cart _ _ E
+    (@strict_transfor _ _ _ _
+      (@tdapp0_fapp0 Z (@PathOutMotives_catd Z) (@Const_catd Z Cat_cart)
+        (@PathOutReflEval_funcd Z) (@PathOutPi_funcd Z) x (@PathInd_transfd Z)));
+assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  @pathout_check_moving_component Z x E ≡ @path_ind_func_fapp0 Z x E;
+assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x)))
+  (u : τ (Obj (Fibre_cat E (@pathout_refl_obj Z x)))) ⊢
+  fapp0 (@pathout_check_moving_component Z x E) u ≡ @path_ind_sec Z x E u;
+
+// The original total presentation has the same component at (x,E).
+assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  @tapp0_fapp0 (@Sigma_cat Z (@PathOutMotives_catd Z)) Cat_cart
+    (@PathIndSrc_catd Z) (@PathIndTgt_catd Z) (Struct_sigma x E) (@PathInd_funcd Z)
+  ≡ @path_ind_func_fapp0 Z x E;
+// The fixed-source theorem has not become strict on arbitrary lax motive maps.
+assertnot [Z : Cat] (x : τ (Obj Z)) ⊢
+  @PathInd_func Z x
+  : τ (@StrictTransfor (@Catd_cat (@PathOut_cat Z x)) Cat_cart
+      (@PathInd_src_catd Z x) (@PathInd_tgt_catd Z x));
+
+// Unit whiskering retains a genuinely nonidentity higher cell in either slot.
+assertnot [B : Cat] (x : τ (Obj B))
+  (alpha beta : τ (Obj (@EH_2End B x))) ⊢
+  @comp_prod_fapp1_fapp0 B x x x
+    (Struct_sigma (@id B x) (@id B x)) (Struct_sigma (@id B x) (@id B x))
+    (Struct_sigma alpha beta) ≡ alpha;
+assertnot [B : Cat] (x : τ (Obj B))
+  (alpha beta : τ (Obj (@EH_2End B x))) ⊢
+  @comp_prod_fapp1_fapp0 B x x x
+    (Struct_sigma (@id B x) (@id B x)) (Struct_sigma (@id B x) (@id B x))
+    (Struct_sigma alpha beta) ≡ beta;
+
+/*
+  Reviewer milestone: path induction as transitivity/composition.
+
+  This shows the application layer: the fixed-source path-induction theorem
+  computes to the composition section, and evaluating that section at a base
+  arrow gives the expected stable precomposition normal form. The ordinary
+  categorical-composition surface remains available proof-time through the
+  `hom_precomp_along_fapp0`/`comp_fapp0` unification bridge.
+*/
+
+
+
+assert [Z : Cat] (x : τ (Obj Z)) ⊢
+  @path_ind_sec
+    Z
+    x
+    (@CompMotive_catd Z x)
+    (@id_funcd Z (@Rep_catd Z x))
+    ≡ @path_comp_sec Z x;
+
+assert [Z : Cat] (x y : τ (Obj Z))
+  (p : τ (Hom Z x y)) ⊢
+  @fapp0
+    (@Functord_cat Z (@Rep_catd Z x) (@Rep_catd Z x))
+    (@Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x))
+    (@CompTarget_fapp1_func Z x x y p)
+    (@id_funcd Z (@Rep_catd Z x))
+    ≡ @path_comp_func Z x y p;
+
+assert [Z : Cat] (x y z : τ (Obj Z))
+  (p : τ (Hom Z x y)) (q : τ (Hom Z y z)) ⊢
+  @fapp0
+    (Fibre_cat (@Rep_catd Z y) z)
+    (Fibre_cat (@Rep_catd Z x) z)
+    (@tapp0_fapp0 Z Cat_cart
+      (@Rep_catd Z y)
+      (@Rep_catd Z x)
+      z
+      (@path_comp_func Z x y p))
+    q
+    ≡ @hom_precomp_along_fapp0 Z Z (@id_func Z) z x y p q;
+
+symbol path_induction_transitivity_comp_view
+  [Z : Cat]
+  [x y z : τ (Obj Z)]
+  (p : τ (Hom Z x y))
+  (q : τ (Hom Z y z))
+  : τ (
+      @fapp0
+        (Fibre_cat (@Rep_catd Z y) z)
+        (Fibre_cat (@Rep_catd Z x) z)
+        (@tapp0_fapp0 Z Cat_cart
+          (@Rep_catd Z y)
+          (@Rep_catd Z x)
+          z
+          (@path_comp_func Z x y p))
+        q
+      =
+      @comp_fapp0 Z x y z q p)
+≔ eq_refl (@hom_precomp_along_fapp0 Z Z (@id_func Z) z x y p q);

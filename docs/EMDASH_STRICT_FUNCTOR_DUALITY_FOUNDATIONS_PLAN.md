@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: staged original-source migration through comma/intrinsic extraction section 18zz checks; moving PathOut motives, later source and public/downstream qualification remain open
+Status: complete staged core and focused inherited/PathOut consumers check; profile-extension, downstream and public-promotion qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,34 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Full staged-core continuation after `6788b36c`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_pathout_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_pathout_verification.json)
+record passing checks of the complete emitted emdash3_2.lp and its focused
+inherited/PathOut consumers. The moving PathOut family uses the existing
+Cartesian totalization restriction. Pi_func has the canonical terminal-source
+Hom formation target Cat_cart while retaining all default lax sections and
+displayed maps. No duplicate Pi constructor or strict Functord default is
+introduced.
+
+The moving path-induction component is the original lax fixed-source theorem
+restricted through the Cartesian motive inclusion. Its telescope and total
+observations recover the same original eliminator. Motive transport uses
+its actual pullback body and a constructor-scoped whole comparison; the
+generic comparison that disturbed the earlier Pi consumer is unselected.
+Nested negative sections use total fibre duality. The original EH unit
+proofs now compute through literal identity whiskering at the existing
+composition Hom-action owner; unrelated higher cells remain distinct.
+
+The next observed integration failure is in emdash3_2_gray_profiles.lp,
+strict_functord_transport_rhs_tele_path, reached by staged
+examples/gray_profiles.lp. Its Cat_cat/Functor_cat annotations still use the
+old family coefficient. Continue the actual profile consumers and the
+extension/diagnostic closure, then retire redundant strict-functor wrappers.
+Preserve the genuine strict-transfor classifiers and the selected lax default.
+The passing staged core is not production promotion or full-goal completion;
+consumed compatibility, public/downstream validation and final gates remain.
 
 Original comma/extraction continuation after `294d5be1`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_comma_review.md)

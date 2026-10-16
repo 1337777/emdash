@@ -1,0 +1,12 @@
+// Unit whiskering at the existing composition Hom-action owner. The
+// identity 1-cell and its identity 2-cell share the actual category B.
+rule @comp_prod_fapp1_fapp0 $B $W $X $X
+      (Struct_sigma $g (@id $B $X))
+      (Struct_sigma $g' (@id $B $X))
+      (Struct_sigma $alpha (@id (Hom_cat $B $X $X) (@id $B $X)))
+  ↪ $alpha;
+rule @comp_prod_fapp1_fapp0 $B $X $X $Z
+      (Struct_sigma (@id $B $X) $f)
+      (Struct_sigma (@id $B $X) $f')
+      (Struct_sigma (@id (Hom_cat $B $X $X) (@id $B $X)) $alpha)
+  ↪ $alpha;
