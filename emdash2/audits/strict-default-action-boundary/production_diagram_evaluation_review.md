@@ -1,13 +1,115 @@
 # Varying-shape evaluation: the next profile boundary
 
 Date: 2026-10-16
-Status: source/semantic review; replacement interface not yet implemented or qualified
+Status: staged evaluation owner/reviewer implemented; exact intrinsic-comparison beta and downstream profile migration remain open
 Plan: [strict-functor/duality foundations](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Inventory: [explicit declaration-level consumers](production_diagram_evaluation_consumers.json)
 
-## Observed failure and valid general operations
+## Implemented continuation after 11dcd003
 
-The current broader import stops at `diagram_evaluation_func` in
+The [profile fragment](production_diagram_evaluation_profile.lpfragment) now
+replaces the original module's evaluation declarations in the full generated
+package. It retains all nine original names. The original Cartesian-exchange
+rule block is retained with its actual Cartesian types, and the three
+[observation helpers](production_diagram_evaluation_helpers.lpfragment) now
+use actual fixed evaluation or opposite-profile prewhiskering. The
+[original reviewer](production_diagram_evaluation_reviewer.lpfragment) retains
+all ten positive and three negative observations with those corrected types.
+The [focused controls](production_diagram_evaluation_controls.lpfragment)
+also check the duality distinction, root laws and retained directed boundary.
+[Verification](production_diagram_evaluation_verification.json) records exact
+inputs, receipts, warning changes, rejected variants and remaining limitations.
+
+The implemented interface is:
+
+```text
+ev_i                         : Functor_cat(I,C) → C
+family_eval_i                : [K,[I,C]] → [K,C]
+family_at_i(D)                = ev_i ∘ D
+
+Functor_oplax_cat(A,B)        = Odd(Functor_cat(Odd(A),Odd(B)))
+Transf_oplax_cat(F,G)         = Hom_Functor_oplax(Odd(F),Odd(G))
+Ev                           : I → Functor_oplax_cat(Functor_cat(I,C),C)
+Ev[i]                        = Odd(ev_i)
+diagram_evaluation_transf(u)  : Transf_oplax(ev_i,ev_j)
+family_shape(D)               = oplax_precomp(D) ∘ Ev
+diagram_family_transf(D,u)    : Transf_oplax(ev_i ∘ D,ev_j ∘ D).
+```
+
+`ev_i` is the existing `fapp0_func`; family evaluation is existing ordinary
+postcomposition. Its object agrees proof-time with the direct composition
+used by `family_at_i`. Using the direct whole composite avoids placing the
+two distinct represented pre/postcomposition normal forms underneath Odd.
+The general fixed-evaluation input has not been narrowed to Cart or OneCat.
+
+OddDual_cat and EvenDual_cat reverse alternating dimensions. Their recursive
+Hom actions, involutions and strict-functor actions are native declarations
+and rules. They do not change existing T/R/O names. Functor_oplax_cat is a
+defined dual presentation, not an identification of its object classifier
+with Functor(A,B). The whole Ev is a **declared structural owner** replacing
+the invalid symmetry body; it has not been described as derived from the
+previous Cartesian symmetry.
+
+The mixed functor in eta is derived by two component evaluations of
+`tapp1_int_func_transf`, followed by Cartesian exchange of that particular
+Cart-valued family. Its object is the original `tapp1_fapp0(eta,u)`, and the
+next Hom remains available. The encoded evaluation transformation's mixed
+functor is Even applied to this actual derived functor. A whole component
+projection of the root Hom action computes to F's full Hom functor. This
+avoids an unqualified identification of Even(Transf) with Transf merely to
+feed a capped modification into the ordinary component projector.
+
+The existing intrinsic extractor applied to the encoded evaluation
+transformation has the correctly directed boundary
+
+```text
+G[u] ∘ eta[i] ⇒ eta[j] ∘ F[u].
+```
+
+The two sides remain computationally distinct for variable eta. No comparison
+cell or inverse is supplied by the caller. **This boundary check does not yet
+establish that the extracted cell reduces to eta's original extracted
+naturality cell.** That native comparison beta and any required higher
+projection joins remain the next qualification step; global confluence and
+a complete standard omega-oplax interpretation of every old internal-action
+owner are not claimed.
+
+One core rule has a measured inferred-slot repair: the identity-input cut for
+represented postcomposition now uses `id _ X`, because duality can erase the
+identity's category annotation first. The represented owner still determines
+that category. A narrow proof-time Odd-postcomposition reading exposes the
+same raw source boundary; it does not equate the two sides of the lax square.
+The previous shape-reindex comparison is adapted to the actual nested
+prewhiskering projections, comparing every factor, endpoint and shape arrow.
+
+This remains a generated, non-library migration. Public sources, source pins,
+catalog and health snapshots have not been replaced. General downstream
+callers must consume the opposite transformation profile, or recover their
+already-supplied default transformation directly. Ordinary-target callers
+need a justified conversion using their existing hypothesis, rather than a
+global identification of lax and oplax Homs.
+
+The broader original import now passes this owner and stops at
+`transf_arrow_diagram_func` in `emdash3_2_arrow_diagram_families.lp`. Its old
+body applies Cartesian exchange to a general lax transformation's walking
+diagram. It needs the corresponding profile correction, not Cart=Functor.
+The direction of its resulting family and the original OneCat consumers
+must be reviewed before changing callers. The eight general declarations
+in the inventory are not automatically ordinary-target declarations.
+
+Replay from emdash2:
+
+```bash
+python3 audits/strict-default-action-boundary/production_owner_migration.py
+EMDASH_LAMBDAPI_WARNINGS=1 OCAMLRUNPARAM=o=20,v=1024 \
+  python3 scripts/run_lambdapi.py \
+  --package-root tmp/probes/production_owner_migration/package \
+  --no-colors --quiet diagram_evaluation_profile_controls.lp
+```
+
+## Original failure and valid general operations
+
+The pre-continuation broader import stopped at `diagram_evaluation_func` in
 `emdash3_2_diagram_evaluation.lp`. Its old body exchanges the identity of
 Functor_cat(I,C), but the migrated `sym_func` requires Cartesian mapping
 categories. It must not be repaired by equating Functor_cat and Functor_cart_cat.
@@ -83,19 +185,18 @@ Existing T/R/O names must not be reinterpreted. Any new odd/even owners need
 native category/functor projection and interaction qualification first; use
 clear names such as OddDual/EvenDual, not the paper's overloaded `op`.
 
-A candidate whole evaluation then has shape
+The selected whole evaluation has shape
 
 ```text
 Ev : I → Oplax(Functor_cat(I,C), C)
 Ev[i] represents ev_i.
 ```
 
-This remains a proposed interface. Qualify its whole mixed Hom action and
-actual extracted noninvertible naturality, including the next higher action;
-object beta and a declared type do not complete it. A primitive whole owner
-with honest structural status and qualified projections is permitted. No
-standalone laxity witness, resolution encoding or general tensor-coherence
-library is a prerequisite merely to state this interface.
+The implementation and remaining qualification are distinguished above.
+Object beta and a declared type do not complete the intrinsic comparison.
+A primitive whole owner with honest structural status and qualified
+projections is permitted. No standalone laxity witness, resolution encoding
+or general tensor-coherence library is a prerequisite merely to state it.
 
 ## Consumer migration and scope
 

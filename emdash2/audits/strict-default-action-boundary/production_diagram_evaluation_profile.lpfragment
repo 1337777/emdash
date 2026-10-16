@@ -1,0 +1,201 @@
+/*
+  NON-LIBRARY varying-shape evaluation, at the original extension boundary.
+  Fixed evaluation is ordinary postcomposition. Shape variation uses the
+  opposite transformation profile; it is not Cartesian exchange on lax maps.
+  Odd/Even refer to dimensions 1,3,... / 2,4,..., not the existing Op_cat.
+*/
+require open emdash.emdash3_2;
+
+// Alternating dualities: the Hom recursion exchanges odd and even dimensions.
+injective symbol OddDual_cat (A : Cat) : Cat;
+injective symbol EvenDual_cat (A : Cat) : Cat;
+rule OddDual_cat (OddDual_cat $A) ↪ $A;
+rule EvenDual_cat (EvenDual_cat $A) ↪ $A;
+rule Obj (OddDual_cat $A) ↪ Obj $A;
+rule Obj (EvenDual_cat $A) ↪ Obj $A;
+rule Hom_cat (OddDual_cat $A) $x $y ↪ EvenDual_cat (Hom_cat $A $y $x);
+rule Hom_cat (EvenDual_cat $A) $x $y ↪ OddDual_cat (Hom_cat $A $x $y);
+rule @id (OddDual_cat $A) $x ↪ @id $A $x;
+rule @id (EvenDual_cat $A) $x ↪ @id $A $x;
+rule @comp_fapp0 (OddDual_cat $A) $x $y $z $g $f
+  ↪ @comp_fapp0 $A $z $y $x $f $g;
+rule @comp_fapp0 (EvenDual_cat $A) $x $y $z $g $f
+  ↪ @comp_fapp0 $A $x $y $z $g $f;
+
+// The same strict functor on the alternating duals, with whole Hom action.
+injective symbol OddDual_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (OddDual_cat A) (OddDual_cat B));
+injective symbol EvenDual_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (EvenDual_cat A) (EvenDual_cat B));
+rule @OddDual_func _ _ (@OddDual_func _ _ $F) ↪ $F;
+rule @EvenDual_func _ _ (@EvenDual_func _ _ $F) ↪ $F;
+rule @fapp0 _ _ (@OddDual_func $A $B $F) $x ↪ @fapp0 $A $B $F $x;
+rule @fapp0 _ _ (@EvenDual_func $A $B $F) $x ↪ @fapp0 $A $B $F $x;
+rule @fapp1_func _ _ (@OddDual_func $A $B $F) $x $y
+  ↪ @EvenDual_func (Hom_cat $A $y $x)
+      (Hom_cat $B (fapp0 $F $y) (fapp0 $F $x))
+      (@fapp1_func $A $B $F $y $x);
+rule @fapp1_func _ _ (@EvenDual_func $A $B $F) $x $y
+  ↪ @OddDual_func (Hom_cat $A $x $y)
+      (Hom_cat $B (fapp0 $F $x) (fapp0 $F $y))
+      (@fapp1_func $A $B $F $x $y);
+rule @fapp1_fapp0 _ _ (@OddDual_func $A $B $F) $x $y $u
+  ↪ @fapp1_fapp0 $A $B $F $y $x $u;
+rule @fapp1_fapp0 _ _ (@EvenDual_func $A $B $F) $x $y $u
+  ↪ @fapp1_fapp0 $A $B $F $x $y $u;
+rule @OddDual_func _ _ (@id Cat_cat $A) ↪ @id_func (OddDual_cat $A);
+rule @EvenDual_func _ _ (@id Cat_cat $A) ↪ @id_func (EvenDual_cat $A);
+rule @OddDual_func _ _ (@comp_fapp0 Cat_cat $A $B $C $G $F)
+  ↪ @comp_cat_fapp0 (OddDual_cat $A) (OddDual_cat $B) (OddDual_cat $C)
+      (@OddDual_func $B $C $G) (@OddDual_func $A $B $F);
+rule @EvenDual_func _ _ (@comp_fapp0 Cat_cat $A $B $C $G $F)
+  ↪ @comp_cat_fapp0 (EvenDual_cat $A) (EvenDual_cat $B) (EvenDual_cat $C)
+      (@EvenDual_func $B $C $G) (@EvenDual_func $A $B $F);
+
+// Read represented postcomposition in Odd(A) after ordinary composition
+// has reversed its arguments. Preserve both runtime owners and all data.
+unif_rule
+  @hom_postcomp_fapp0 _ _ (@OddDual_func $B $A $F) $W $X $Y $p $g
+  ≡ @comp_fapp0 $A1 $a $b $c $g1 $p1
+  ↪ [ $A1 ≡ $A; $a ≡ @fapp0 $B $A $F $Y;
+      $b ≡ @fapp0 $B $A $F $X; $c ≡ $W; $g1 ≡ $g;
+      $p1 ≡ @fapp1_fapp0 $B $A $F $Y $X $p ];
+
+// Opposite transformation profile, using the conventional omega-lax Hom.
+// Objects encode F by OddDual_func(F); no object-classifier identification.
+symbol Functor_oplax_cat (A B : Cat) : Cat
+≔ OddDual_cat (Functor_cat (OddDual_cat A) (OddDual_cat B));
+symbol Transf_oplax_cat [A B : Cat] (F G : τ (Functor A B)) : Cat
+≔ Hom_cat (Functor_oplax_cat A B) (@OddDual_func A B F) (@OddDual_func A B G);
+symbol Transf_oplax [A B : Cat] (F G : τ (Functor A B)) : Grpd
+≔ Obj (@Transf_oplax_cat A B F G);
+
+// General fixed evaluation and family evaluation need no exchange operation.
+symbol diagram_evaluation_at_func [I C : Cat] (i : τ (Obj I))
+  : τ (Functor (Functor_cat I C) C)
+≔ @fapp0_func I C i;
+symbol diagram_family_evaluation_func [K I C : Cat] (i : τ (Obj I))
+  : τ (Functor (Functor_cat K (Functor_cat I C)) (Functor_cat K C))
+≔ @comp_cat_cov_func K (Functor_cat I C) C (@diagram_evaluation_at_func I C i);
+symbol diagram_family_at_func [K I C : Cat]
+  (D : τ (Functor K (Functor_cat I C))) (i : τ (Obj I))
+  : τ (Functor K C)
+≔ @comp_cat_fapp0 K (Functor_cat I C) C (@diagram_evaluation_at_func I C i) D;
+
+// Whole mixed action in eta, obtained from the existing internal action by
+// two component evaluations. Only this Cartesian-valued family is exchanged.
+symbol diagram_evaluation_mixed_family [I C : Cat]
+  (F G : τ (Functor I C)) (i j : τ (Obj I))
+  : τ (Functor (@Transf_cat I C F G)
+      (Functor_cart_cat (Hom_cat I i j)
+        (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j))))
+≔ @comp_cat_fapp0 _ _ _
+    (@tapp0_func I Cat_cart
+      (@hom_ I I (@id_func I) i)
+      (@hom_ C I G (@fapp0 I C F i)) j)
+    (@comp_cat_fapp0 _ _ _
+      (@tapp0_func (Op_cat I) (Catd_cat I)
+        (@hom_int_view I I (@id_func I))
+        (@comp_cat_fapp0 _ _ _ (@hom_int_view C I G) (@Op_func I C F)) i)
+      (@tapp1_int_func_transf I C F G));
+symbol diagram_evaluation_mixed_func [I C : Cat]
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) (F G : τ (Functor I C))
+  : τ (Functor (@Transf_cat I C F G)
+      (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j)))
+≔ @sym_fapp0_func (@Transf_cat I C F G) (Hom_cat I i j)
+    (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j))
+    (@diagram_evaluation_mixed_family I C F G i j) u;
+
+// Structural whole evaluation owner. Its oplax direction is essential.
+// Qualification requires the extracted comparison as well as these projections.
+injective symbol diagram_evaluation_func [I C : Cat]
+  : τ (Functor I (Functor_oplax_cat (Functor_cat I C) C));
+injective symbol diagram_evaluation_hom_func [I C : Cat] (i j : τ (Obj I))
+  : τ (Functor (Hom_cat I i j)
+      (@Transf_oplax_cat (Functor_cat I C) C
+        (@diagram_evaluation_at_func I C i) (@diagram_evaluation_at_func I C j)));
+injective symbol diagram_evaluation_transf [I C : Cat]
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@Transf_oplax (Functor_cat I C) C
+      (@diagram_evaluation_at_func I C i) (@diagram_evaluation_at_func I C j));
+rule @fapp0 _ _ (@diagram_evaluation_func $I $C) $i
+  ↪ @OddDual_func (Functor_cat $I $C) $C (@diagram_evaluation_at_func $I $C $i);
+rule @fapp1_func _ _ (@diagram_evaluation_func $I $C) $i $j
+  ↪ @diagram_evaluation_hom_func $I $C $i $j;
+rule fapp0 (@diagram_evaluation_hom_func $I $C $i $j) $u
+  ↪ @diagram_evaluation_transf $I $C $i $j $u;
+rule @fapp1_fapp0 _ _ (@diagram_evaluation_func $I $C) $i $j $u
+  ↪ @diagram_evaluation_transf $I $C $i $j $u;
+// The root functor's identity/composition laws after its action has projected.
+rule @diagram_evaluation_transf $I $C $i $i (@id _ $i)
+  ↪ @id (Functor_cat (OddDual_cat (Functor_cat $I $C)) (OddDual_cat $C))
+      (@OddDual_func (Functor_cat $I $C) $C (@diagram_evaluation_at_func $I $C $i));
+// lhs-audit: keep 1 -- the encoded mapping category is the measured SR guard.
+rule @comp_fapp0 (Functor_cat (OddDual_cat (Functor_cat $I $C)) (OddDual_cat $C)) _ _ _
+      (@diagram_evaluation_transf $I $C $i $j $u)
+      (@diagram_evaluation_transf $I $C $j $k $v)
+  ↪ @diagram_evaluation_transf $I $C $i $k (@comp_fapp0 $I $i $j $k $v $u);
+rule @tapp0_fapp0 _ _ _ _ $F (@diagram_evaluation_transf $I $C $i $j $u)
+  ↪ @fapp1_fapp0 $I $C $F $i $j $u;
+// In the encoded lax transformation the two diagram endpoints are reversed.
+rule @tapp1_func _ _ _ _ $G $F (@diagram_evaluation_transf $I $C $i $j $u)
+  ↪ @EvenDual_func (@Transf_cat $I $C $F $G)
+      (Hom_cat $C (@fapp0 $I $C $F $i) (@fapp0 $I $C $G $j))
+      (@diagram_evaluation_mixed_func $I $C $i $j $u $F $G);
+// Capped companion joins projection-first and whole-functor-first evaluation.
+rule @tapp1_fapp0 _ _ _ _ $G $F (@diagram_evaluation_transf $I $C $i $j $u) $eta
+  ↪ @tapp1_fapp0 $I $C $F $G $i $j $eta $u;
+// Whole shape-Hom component: decode the Even-dual component functor,
+// then evaluate the root Hom action. This preserves every further Hom action.
+// The typed whole mapping categories determine the encoded component slots.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@EvenDual_func _ _
+        (@tapp0_func _ _ _ _ $F))
+      (@diagram_evaluation_hom_func $I $C $i $j)
+  ↪ @fapp1_func $I $C $F $i $j;
+
+// Reindexing in the opposite transformation profile is ordinary
+// precomposition on the encoded lax mapping category, then its odd dual.
+symbol oplax_precomp_func [A B C : Cat] (D : τ (Functor A B))
+  : τ (Functor (Functor_oplax_cat B C) (Functor_oplax_cat A C))
+≔ @OddDual_func
+    (Functor_cat (OddDual_cat B) (OddDual_cat C))
+    (Functor_cat (OddDual_cat A) (OddDual_cat C))
+    (@comp_cat_con_func (OddDual_cat A) (OddDual_cat B) (OddDual_cat C)
+      (@OddDual_func A B D));
+
+// Whole shape evaluation of a parameterized family; no pointwise assembly.
+symbol diagram_family_shape_func [K I C : Cat]
+  (D : τ (Functor K (Functor_cat I C)))
+  : τ (Functor I (Functor_oplax_cat K C))
+≔ @comp_cat_fapp0 I (Functor_oplax_cat (Functor_cat I C) C)
+    (Functor_oplax_cat K C)
+    (@oplax_precomp_func K (Functor_cat I C) C D)
+    (@diagram_evaluation_func I C);
+symbol diagram_family_transf [K I C : Cat]
+  (D : τ (Functor K (Functor_cat I C)))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@Transf_oplax K C
+      (@diagram_family_at_func K I C D i) (@diagram_family_at_func K I C D j))
+≔ @fapp1_fapp0 I (Functor_oplax_cat K C) (@diagram_family_shape_func K I C D) i j u;
+
+// Original shape-reindex comparison at its new actual projection owner.
+// Only prewhiskering is involved: both accompanying components are identities.
+// Every factor, endpoint and the original shape arrow is compared explicitly.
+unif_rule
+  @comp_prod_fapp1_fapp0 Cat_cat $A $B $C
+    (@Struct_sigma _ _ $U0 $s0) (@Struct_sigma _ _ $U1 $t0)
+    (@Struct_sigma _ _ (@id _ $U2) (@diagram_evaluation_transf $I $D $i $j $u))
+  ≡ @comp_prod_fapp1_fapp0 Cat_cat $A1 $M $C1
+    (@Struct_sigma _ _ $F0 $s1) (@Struct_sigma _ _ $F1 $t1)
+    (@Struct_sigma _ _ (@id _ $F2)
+      (@comp_prod_fapp1_fapp0 Cat_cat $M1 $B1 $C2
+        (@Struct_sigma _ _ $V0 $s2) (@Struct_sigma _ _ $V1 $t2)
+        (@Struct_sigma _ _ (@id _ $V2) (@diagram_evaluation_transf $I1 $D1 $i1 $j1 $u1))))
+  ↪ [ $A1 ≡ $A; $M1 ≡ $M; $B1 ≡ $B; $C1 ≡ $C; $C2 ≡ $C;
+      $U0 ≡ @comp_cat_fapp0 $A $M $B $V0 $F0; $U1 ≡ $U0; $U2 ≡ $U0;
+      $F1 ≡ $F0; $F2 ≡ $F0; $V1 ≡ $V0; $V2 ≡ $V0;
+      $s2 ≡ $s0; $t2 ≡ $t0;
+      $s1 ≡ @comp_cat_fapp0 $M $B $C $s0 $V0;
+      $t1 ≡ @comp_cat_fapp0 $M $B $C $t0 $V0;
+      $I1 ≡ $I; $D1 ≡ $D; $i1 ≡ $i; $j1 ≡ $j; $u1 ≡ $u ];

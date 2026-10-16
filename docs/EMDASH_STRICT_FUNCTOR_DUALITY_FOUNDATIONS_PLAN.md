@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; groupoidal transport/J consumers qualified after weighted actions; whole diagram-evaluation profile and remaining migration/promotion open
+Status: active implementation; corrected opposite-profile diagram evaluation and original reviewer staged; intrinsic-comparison beta, downstream migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,6 +38,42 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Evaluation continuation after `11dcd003`, 2026-10-16:
+the [updated review](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_verification.json)
+record the replacement at the original module boundary. General fixed
+evaluation is ordinary postcomposition; whole shape evaluation is a declared
+structural owner in the alternating-dual opposite transformation profile.
+Its mixed action is derived from the existing internal-action package and
+retains the next Hom. Reindexing is actual opposite-profile prewhiskering.
+All nine original names and all original reviewer observations are retained
+with explicit profile corrections, rather than treating Cart and the default
+lax mapping category as equal. The root is structural, not a theorem from
+the old unrestricted symmetry body.
+
+The extracted comparison has the retained, noncommuting boundary
+G[u] composed with eta[i] → eta[j] composed with F[u]. The exact reduction
+to eta's original extracted naturality cell is **still unqualified**, as are
+any further projection joins it requires. Settle that native comparison
+before treating the new general evaluation owner as fully qualified. The
+broader original import now stops at transf_arrow_diagram_func and needs its
+arrow-diagram introduction profile reviewed; ordinary-target callers can use
+their existing OneCat assumptions,
+while general supplied transformations must retain their actual direction.
+Do not silently restrict every diagram to Cart or identify the two profiles.
+
+The represented identity-input rule has one inferred-category wildcard fix,
+with inherited core controls rerun. Resource caps remain 90s/2GiB; the new
+evaluation/reviewer check takes about 27 seconds. No timeout or memory
+increase is needed for this slice. Previous receipts qualify their original
+input snapshots; current exact evidence is in the verification file.
+
+The previous goal turn was progress, and this continuation changes a concrete
+original owner and its reviewer. The full goal remains active: intrinsic
+comparison, remaining library migration, wrapper retirement, public promotion,
+catalog/health/CI and source-pin review remain required. The separate nerve
+goal remains paused.
+
 Qualified groupoidal transport/J continuation after `d5802c78`, 2026-10-16:
 [review](../emdash2/audits/strict-default-action-boundary/production_groupoidal_transport_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_groupoidal_transport_verification.json)
@@ -50,7 +86,7 @@ carrier. All 19 positive/2 negative original assertions pass in 25.059s at
 90s/2GiB with SR/warnings. No symbol or rule is added. The matched broader
 import has the same 2337 critical-pair bodies before and after the edit.
 
-The next concrete owner is diagram_evaluation_func. The
+At that checkpoint the next concrete owner was diagram_evaluation_func. The
 [profile review](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_review.md)
 and [bounded consumer inventory](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_consumers.json)
 separate general fixed evaluation/postcomposition from whole shape variation.

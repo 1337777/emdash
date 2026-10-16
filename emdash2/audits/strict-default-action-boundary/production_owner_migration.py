@@ -77,6 +77,11 @@ def main():
 ''', fragment('production_postcomposition_inverse.lpfragment'),
                  'identity-family postcomposition on a composite',
                  'Keep consecutive represented cuts visible so the existing computational-inverse rules survive composition; reverse only this capped equation, retaining its whole functor owner')
+    replace_once('''with @hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $X $X $Y $f (@id $A $X) ↪ $f;''',
+                 '''// The identity's inferred category may reduce through a duality first.
+with @hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $X $X $Y $f (@id _ $X) ↪ $f;''',
+                 'identity input of represented postcomposition',
+                 'Let the typed represented owner determine the identity category after duality normalization; do not discriminate on the erased category annotation')
     insert('// Path categories internalize HoTT equality as a groupoidal category.',
            fragment('co_above2_category.lpfragment') + '\n' + fragment('co_at2_category.lpfragment'),
            'Corrected duality: required category-level R, O and dimension-two action')
@@ -1534,6 +1539,35 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
             baseline_target = baseline_package / path
             baseline_target.parent.mkdir(parents=True, exist_ok=True)
             baseline_target.write_text(text)
+            if path == 'emdash3_2_diagram_evaluation.lp':
+                old = text
+                first = '// Whole evaluation after precomposition:'
+                last = '// Existing generic composition evidence at the ordinary family target.'
+                assert text.count(first) == text.count(last) == 1
+                start = text.index(first)
+                end = text.index(last)
+                text = (fragment('production_diagram_evaluation_profile.lpfragment') + '\n'
+                        + 'require open emdash.emdash3_2_one_cat_action_paths;\n'
+                        + 'require open emdash.emdash3_2_one_cat_functor_closure;\n\n'
+                        + text[start:end]
+                        + fragment('production_diagram_evaluation_helpers.lpfragment'))
+                declaration = r'(?m)^(?:(?:constant|injective|protected|private)\s+)?symbol\s+([A-Za-z0-9_]+)\b'
+                old_names, new_names = re.findall(declaration, old), re.findall(declaration, text)
+                assert len(old_names) == 9
+                assert all(new_names.count(name) == 1 for name in old_names)
+                changes.append({'source': path, 'owner': 'diagram evaluation',
+                                'reason': 'Preserve general fixed evaluation by postcomposition; correct whole shape evaluation to its alternating-dual oplax profile and reindex that actual profile',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/diagram_evaluation.lp':
+                old = text
+                text = fragment('production_diagram_evaluation_reviewer.lpfragment')
+                assert [len(re.findall(r'(?m)^' + kind + r'\b', old))
+                        for kind in ('assert', 'assertnot')] == [10, 3]
+                assert [len(re.findall(r'(?m)^' + kind + r'\b', text))
+                        for kind in ('assert', 'assertnot')] == [10, 3]
+                changes.append({'source': path, 'owner': 'diagram evaluation reviewer',
+                                'reason': 'Retain every original observation with the corrected opposite transformation profile and existing postcomposition action',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_eq1_hom_action.lp', 'examples/groupoidal_structured_j_eq1.lp'):
                 old = text
                 facade = 'Fibre_cat (@strict_functor C Cat_cat D)'
@@ -1919,6 +1953,11 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/gray_interchanger_orientation.lp')
     stage('examples/profunctor_weighted_limits.lp')
     stage('examples/groupoidal_structured_j_eq1.lp')
+    stage('examples/diagram_evaluation.lp')
+    (package / 'diagram_evaluation_profile_controls.lp').write_text(
+        'require open emdash.emdash3_2_diagram_evaluation;\n'
+        'require emdash.examples.diagram_evaluation;\n'
+        + fragment('production_diagram_evaluation_controls.lpfragment'))
     (package / 'cubical_migration_controls.lp').write_text(''.join(
         'require open emdash.examples.' + name + ';\n' for name in (
             'cubical_dependent_hom', 'cubical_square_total',
@@ -2006,6 +2045,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'cubical_migration_controls.lp',
                               package / 'interchanger_controls.lp',
                               package / 'weighted_migration_controls.lp',
+                              package / 'diagram_evaluation_profile_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',
