@@ -67,6 +67,16 @@ def main():
            + '\n' + fragment('production_conventional_pre_reading.lpfragment')
            + '\n' + fragment('conventional_lax_rules.lpfragment'),
            'Strict functor action and conventional-lax pre/right action at the existing whole/projection owners')
+    replace_once('''rule @hom_postcomp_fapp0
+      $A $A (@id Cat_cat $A) $W $Y $Z $q
+      (@hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $W $X $Y $p $g)
+  ↪ @hom_postcomp_fapp0
+      $A $A (@id Cat_cat $A) $W $X $Z
+      (@comp_fapp0 $A $X $Y $Z $q $p)
+      $g;
+''', fragment('production_postcomposition_inverse.lpfragment'),
+                 'identity-family postcomposition on a composite',
+                 'Keep consecutive represented cuts visible so the existing computational-inverse rules survive composition; reverse only this capped equation, retaining its whole functor owner')
     insert('// Path categories internalize HoTT equality as a groupoidal category.',
            fragment('co_above2_category.lpfragment') + '\n' + fragment('co_at2_category.lpfragment'),
            'Corrected duality: required category-level R, O and dimension-two action')
@@ -1500,6 +1510,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'rule_hygiene_full_controls.lp').write_text(
         (package / 'pathout_controls.lp').read_text() + '\n'
         + fragment('production_adjunction_guard_controls.lpfragment'))
+    (package / 'inverse_core_controls.lp').write_text(
+        (package / 'rule_hygiene_full_controls.lp').read_text() + '\n'
+        + fragment('production_inverse_cut_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1678,6 +1691,22 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                     '  comparison, inverse, or independent interchanger is added.')
                 changes.append({'source': path, 'owner': 'interchanger source endpoint reading',
                                 'reason': 'Use the actual post/left source and Cartesian telescope instead of the retired general left-leg equality; retain every public endpoint, cell and coordinate-swapped square',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_strict_functor_actions.lp':
+                old = text
+                begin = text.index('// Classified strict functors preserve ordinary isomorphism evidence.')
+                end = text.index('/*\n  Selected named strict packages', begin)
+                text = text[:begin] + fragment('production_default_inverse_action.lpfragment') + text[end:]
+                marker = '/*\n  Left adjoints preserve weighted colimits.'
+                assert text.count(marker) == 1
+                text = text[:text.index(marker)] + fragment('production_weighted_colimit.lpfragment')
+                text = text.replace(
+                    '  selected inverses remain computational, and the ambient lax carrier gains\n  no equality.',
+                    '  selected inverses remain computational. This legacy classified API now\n'
+                    '  coexists with strict default functors; its wrappers await consumer migration\n'
+                    '  and retirement. No strictness of arbitrary transformations is added.')
+                changes.append({'source': path, 'owner': 'left-adjoint weighted-colimit preservation',
+                                'reason': 'Default inverse action takes the ordinary strict functor directly, with legacy names as defined views; transpose the existing Hom comparison and retain the original three-step T-weighted proof without a second adjunction or supplied strictness evidence',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/cubical_square_total.lp':
                 text += '\n' + fragment('production_cubical_sigma_projection_controls.lpfragment')
@@ -1859,6 +1888,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/cubical_internalization_composition.lp')
     stage('examples/gray_interchanger.lp')
     stage('examples/gray_interchanger_orientation.lp')
+    stage('examples/profunctor_weighted_limits.lp')
     (package / 'cubical_migration_controls.lp').write_text(''.join(
         'require open emdash.examples.' + name + ';\n' for name in (
             'cubical_dependent_hom', 'cubical_square_total',
@@ -1866,6 +1896,15 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'interchanger_controls.lp').write_text(
         'require open emdash.examples.gray_interchanger;\n'
         'require open emdash.examples.gray_interchanger_orientation;\n')
+    # Use the actual byte-identical reviewer module. The former flattened
+    # driver did not explain the runtime variability and is no longer needed.
+    (package / 'weighted_migration_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        'require open emdash.emdash3_2_strict_functor_actions;\n'
+        'require emdash.examples.profunctor_weighted_limits;\n\n'
+        + fragment('production_weighted_colimit_controls.lpfragment') + '\n'
+        + fragment('production_default_inverse_legacy_controls.lpfragment') + '\n'
+        + fragment('production_default_inverse_controls.lpfragment'))
     # Same original reviewer assertions, isolated at their actual profile
     # owner. The original broader import closure remains staged and required.
     profile_controls = (package / 'examples/gray_profiles.lp').read_text()
@@ -1932,9 +1971,11 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'comma_prefix.lp',
                               package / 'pathout_controls.lp',
                               package / 'rule_hygiene_full_controls.lp',
+                              package / 'inverse_core_controls.lp',
                               package / 'profile_controls.lp',
                               package / 'cubical_migration_controls.lp',
                               package / 'interchanger_controls.lp',
+                              package / 'weighted_migration_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

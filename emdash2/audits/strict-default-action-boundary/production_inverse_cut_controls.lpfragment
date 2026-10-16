@@ -1,0 +1,41 @@
+// Whole functor composition and capped action compute by the same cuts.
+assert [C : Cat] [w x y z : τ (Obj C)]
+  (p : τ (Hom C x y)) (q : τ (Hom C y z)) (r : τ (Hom C w x)) ⊢
+  fapp0
+    (@comp_cat_fapp0 (Hom_cat C w x) (Hom_cat C w y) (Hom_cat C w z)
+      (@hom_postcomp_func C C (@id_func C) w y z q)
+      (@hom_postcomp_func C C (@id_func C) w x y p)) r
+  ≡ @hom_postcomp_fapp0 C C (@id_func C) w y z q
+      (@hom_postcomp_fapp0 C C (@id_func C) w x y p r);
+
+// Composite inverses retain arbitrary incoming arrows, in both directions.
+assert [C : Cat] [w x y z : τ (Obj C)]
+  (i : τ (@DefIso C x y)) (j : τ (@DefIso C y z))
+  (r : τ (Hom C w x)) ⊢
+  @hom_postcomp_fapp0 C C (@id_func C) w z x
+    (@defiso_from C x z (@defiso_comp C x y z j i))
+    (@hom_postcomp_fapp0 C C (@id_func C) w x z
+      (@defiso_to C x z (@defiso_comp C x y z j i)) r)
+  ≡ r;
+
+assert [C : Cat] [w x y z : τ (Obj C)]
+  (i : τ (@DefIso C x y)) (j : τ (@DefIso C y z))
+  (r : τ (Hom C w z)) ⊢
+  @hom_postcomp_fapp0 C C (@id_func C) w x z
+    (@defiso_to C x z (@defiso_comp C x y z j i))
+    (@hom_postcomp_fapp0 C C (@id_func C) w z x
+      (@defiso_from C x z (@defiso_comp C x y z j i)) r)
+  ≡ r;
+
+// Distinct chosen inverse packages do not cancel.
+assertnot [C : Cat] [w x y : τ (Obj C)]
+  (i j : τ (@DefIso C x y)) (r : τ (Hom C w x)) ⊢
+  @hom_postcomp_fapp0 C C (@id_func C) w y x (@defiso_from C x y i)
+    (@hom_postcomp_fapp0 C C (@id_func C) w x y (@defiso_to C x y j) r)
+  ≡ r;
+
+// This change does not install global runtime associativity of raw arrows.
+assertnot [C : Cat] [w x y z : τ (Obj C)]
+  (f : τ (Hom C w x)) (g : τ (Hom C x y)) (h : τ (Hom C y z)) ⊢
+  @comp_fapp0 C w y z h (@comp_fapp0 C w x y g f)
+  ≡ @comp_fapp0 C w x z (@comp_fapp0 C x y z h g) f;

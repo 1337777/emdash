@@ -1,0 +1,85 @@
+assert [A J J' B : Cat]
+  [Ladj : τ (Functor A B)]
+  [Radj : τ (Functor B A)]
+  [F : τ (Functor J A)]
+  [W : τ (Prof J J')]
+  [L : τ (Functor J' A)]
+  (isc : τ (@WeightedColimit_con A J J' F W L))
+  (adj : τ (@Adjunction A B Ladj Radj)) ⊢
+  @left_adjoint_preserves_weighted_colimit_con
+    A J J' B Ladj Radj F W L isc adj
+  : τ (@WeightedColimit_con
+      B J J'
+      (@comp_cat_fapp0 J A B Ladj F)
+      W
+      (@comp_cat_fapp0 J' A B Ladj L));
+
+// Whole represented transpose, preserving both actual endpoint functors.
+assert [A B X : Cat] (F : τ (Functor A X)) (G : τ (Functor B X)) ⊢
+  @eq_refl (Prof (Op_cat B) (Op_cat A))
+    (@Op_prof A B (@Hom_prof_along A B X F G))
+  : τ (@= (Prof (Op_cat B) (Op_cat A))
+      (@Op_prof A B (@Hom_prof_along A B X F G))
+      (@Hom_prof_along (Op_cat B) (Op_cat A) (Op_cat X)
+        (@Op_func B X G) (@Op_func A X F)));
+
+assert [X : Cat] ⊢
+  @eq_refl (Prof (Op_cat X) (Op_cat X)) (@Op_prof X X (@Unit_prof X))
+  : τ (@= (Prof (Op_cat X) (Op_cat X))
+      (@Op_prof X X (@Unit_prof X)) (@Unit_prof (Op_cat X)));
+
+// Whole base-arrow action keeps the native Hom functor, including its next Hom.
+assert [A B X : Cat] (F : τ (Functor A X)) (G : τ (Functor B X))
+  [a a' : τ (Obj A)] [b b' : τ (Obj B)]
+  (p : τ (Hom A a' a)) (q : τ (Hom B b b')) ⊢
+  @fapp1_fapp0 (Product_cat B (Op_cat A)) Cat_cart
+    (@Op_prof A B (@Hom_prof_along A B X F G))
+    (Struct_sigma b a) (Struct_sigma b' a') (Struct_sigma q p)
+  ≡ @Hom_func X
+      (@fapp0 A X F a) (@fapp0 A X F a')
+      (@fapp0 B X G b) (@fapp0 B X G b')
+      (@fapp1_fapp0 A X F a' a p) (@fapp1_fapp0 B X G b b' q);
+
+// The represented comparison cannot erase a changed source functor.
+assertnot [A B X : Cat]
+  (F F_other : τ (Functor A X)) (G : τ (Functor B X)) ⊢
+  @eq_refl (Prof (Op_cat B) (Op_cat A))
+    (@Op_prof A B (@Hom_prof_along A B X F G))
+  : τ (@= (Prof (Op_cat B) (Op_cat A))
+      (@Op_prof A B (@Hom_prof_along A B X F G))
+      (@Hom_prof_along (Op_cat B) (Op_cat A) (Op_cat X)
+        (@Op_func B X G) (@Op_func A X F_other)));
+
+// Product-swap duality does not acquire total-dual endpoints.
+assertnot [X : Cat] ⊢
+  @Op_prof X X (@Unit_prof X)
+  : τ (Prof (TotalOp_cat X) (TotalOp_cat X));
+
+// The public preservation result retains both inverse operations on
+// arbitrary incoming maps; its protected implementation helpers stay internal.
+assert [A J J' B : Cat]
+  [Ladj : τ (Functor A B)] [Radj : τ (Functor B A)]
+  [F : τ (Functor J A)] [W : τ (Prof J J')] [L : τ (Functor J' A)]
+  (isc : τ (@WeightedColimit_con A J J' F W L))
+  (adj : τ (@Adjunction A B Ladj Radj))
+  [V : τ (Prof (Op_cat B) (Op_cat J'))]
+  (r : τ (ProfMap V (@WeightedCone_prof (Op_cat B) (Op_cat J) (Op_cat J')
+      (@Op_func J B (@comp_cat_fapp0 J A B Ladj F)) (@Op_prof J J' W)))) ⊢
+  @prof_comparison_pull (Op_cat B) (Op_cat J') _ _
+    (@left_adjoint_preserves_weighted_colimit_con A J J' B Ladj Radj F W L isc adj) V
+    (@prof_comparison_push (Op_cat B) (Op_cat J') _ _
+      (@left_adjoint_preserves_weighted_colimit_con A J J' B Ladj Radj F W L isc adj) V r)
+  ≡ r;
+assert [A J J' B : Cat]
+  [Ladj : τ (Functor A B)] [Radj : τ (Functor B A)]
+  [F : τ (Functor J A)] [W : τ (Prof J J')] [L : τ (Functor J' A)]
+  (isc : τ (@WeightedColimit_con A J J' F W L))
+  (adj : τ (@Adjunction A B Ladj Radj))
+  [V : τ (Prof (Op_cat B) (Op_cat J'))]
+  (r : τ (ProfMap V (@Hom_prof (Op_cat J') (Op_cat B)
+      (@Op_func J' B (@comp_cat_fapp0 J' A B Ladj L))))) ⊢
+  @prof_comparison_push (Op_cat B) (Op_cat J') _ _
+    (@left_adjoint_preserves_weighted_colimit_con A J J' B Ladj Radj F W L isc adj) V
+    (@prof_comparison_pull (Op_cat B) (Op_cat J') _ _
+      (@left_adjoint_preserves_weighted_colimit_con A J J' B Ladj Radj F W L isc adj) V r)
+  ≡ r;

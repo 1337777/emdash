@@ -1,0 +1,58 @@
+// A default functor is the only map input to the native inverse action.
+assert [C D : Cat] (F : τ (Functor C D)) [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y)) [w : τ (Obj D)]
+  (r : τ (Hom D w (@fapp0 C D F x))) ⊢
+  @hom_postcomp_fapp0 D D (@id_func D) w (@fapp0 C D F y) (@fapp0 C D F x)
+    (@defiso_from D _ _ (@defiso_fmap C D F x y i))
+    (@hom_postcomp_fapp0 D D (@id_func D) w (@fapp0 C D F x) (@fapp0 C D F y)
+      (@defiso_to D _ _ (@defiso_fmap C D F x y i)) r)
+  ≡ r;
+
+assert [C D : Cat] (F : τ (Functor C D)) [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y)) ⊢
+  @defiso_iso_evidence D _ _ (@defiso_fmap C D F x y i)
+  ≡ @iso_evidence_fmap C D F x y (@defiso_iso_evidence C x y i);
+
+// The stable inverse image still has a proof-time, not runtime, raw reading.
+assertnot [C D : Cat] (F : τ (Functor C D)) [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y)) ⊢
+  @defiso_to D _ _ (@defiso_fmap C D F x y i)
+  ≡ @fapp1_fapp0 C D F x y (@defiso_to C x y i);
+
+// Unit projection versus composite-action expansion.
+assert [C : Cat] [x y z : τ (Obj C)]
+  (p : τ (Hom C x y)) (q : τ (Hom C y z)) ⊢
+  @eq_refl (Hom C x z) (@comp_fapp0 C x y z q p)
+  : τ (@= (Hom C x z) (@comp_fapp0 C x y z q p)
+      (@hom_postcomp_fapp0 C C (@id_func C) x y z q p));
+// The overlap with strict functoriality of the composite parameter.
+assert [A B : Cat] (F : τ (Functor A B))
+  [x y z : τ (Obj A)] [w : τ (Obj B)]
+  (p : τ (Hom A x y)) (q : τ (Hom A y z))
+  (r : τ (Hom B w (@fapp0 A B F x))) ⊢
+  @eq_refl (Hom B w (@fapp0 A B F z))
+    (@hom_postcomp_fapp0 B B (@id_func B) w (@fapp0 A B F x) (@fapp0 A B F z)
+      (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p)) r)
+  : τ (@= (Hom B w (@fapp0 A B F z))
+      (@hom_postcomp_fapp0 B B (@id_func B) w (@fapp0 A B F x) (@fapp0 A B F z)
+        (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p)) r)
+      (@hom_postcomp_fapp0 B B (@id_func B) w (@fapp0 A B F y) (@fapp0 A B F z)
+        (@fapp1_fapp0 A B F y z q)
+        (@hom_postcomp_fapp0 B B (@id_func B) w (@fapp0 A B F x) (@fapp0 A B F y)
+          (@fapp1_fapp0 A B F x y p) r)));
+
+// A different incoming arrow is not identified by the comparison.
+assertnot [A B : Cat] (F : τ (Functor A B))
+  [x y z : τ (Obj A)] [w : τ (Obj B)]
+  (p : τ (Hom A x y)) (q : τ (Hom A y z))
+  (r r2 : τ (Hom B w (@fapp0 A B F x))) ⊢
+  @eq_refl (Hom B w (@fapp0 A B F z))
+    (@hom_postcomp_fapp0 B B (@id_func B) w (@fapp0 A B F x) (@fapp0 A B F z)
+      (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p)) r)
+  : τ (@= (Hom B w (@fapp0 A B F z))
+      (@hom_postcomp_fapp0 B B (@id_func B) w (@fapp0 A B F x) (@fapp0 A B F z)
+        (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z q p)) r)
+      (@hom_postcomp_fapp0 B B (@id_func B) w (@fapp0 A B F y) (@fapp0 A B F z)
+        (@fapp1_fapp0 A B F y z q)
+        (@hom_postcomp_fapp0 B B (@id_func B) w (@fapp0 A B F x) (@fapp0 A B F y)
+          (@fapp1_fapp0 A B F x y p) r2)));

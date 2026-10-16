@@ -1,10 +1,15 @@
 # Runtime and rule review after the time-limit approval
 
 Date: 2026-10-16
-Status: qualified adjunction inferred-slot repair and measured diagnosis; weighted inverse computation remains open
+Status: qualified adjunction inferred-slot repair and measured diagnosis; the subsequent weighted/inverse repair is recorded separately
 Plan: [strict-functor/duality migration](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Predecessor: `8700b64c`
 Evidence: [source pins, receipts and warning comparison](production_runtime_verification.json)
+
+The subsequent [weighted/inverse continuation](production_weighted_colimit_review.md)
+repairs the recorded inverse failure and removes the temporary strictness
+evidence adapter. Measurements and failed snapshots below retain their original
+scope.
 
 ## Scope and resource policy
 

@@ -1,0 +1,162 @@
+// Unchanged original central diagnostics for the migrated inverse actions.
+assert [A : Grpd]
+  (x y : τ A)
+  (i : τ (@DefIso (Op_cat (Path_cat A)) x y)) ⊢
+  @hom_postcomp_fapp0
+    (Path_cat A) (Path_cat A) (@id Cat_cat (Path_cat A))
+    (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) x)
+    (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) y)
+    (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) x)
+    (@strict_defiso_fmap_from
+      (Op_cat (Path_cat A)) (Path_cat A)
+      (@strict_path_sym_func A) x y i)
+    (@strict_defiso_fmap_to
+      (Op_cat (Path_cat A)) (Path_cat A)
+      (@strict_path_sym_func A) x y i)
+  ≡ eq_refl x;
+
+assert [A : Grpd]
+  (x y : τ A)
+  (i : τ (@DefIso (Op_cat (Path_cat A)) x y)) ⊢
+  @hom_postcomp_fapp0
+    (Path_cat A) (Path_cat A) (@id Cat_cat (Path_cat A))
+    x y x
+    (@strict_defiso_fmap_from
+      (Op_cat (Path_cat A)) (Path_cat A)
+      (@strict_path_sym_func A) x y i)
+    (@strict_defiso_fmap_to
+      (Op_cat (Path_cat A)) (Path_cat A)
+      (@strict_path_sym_func A) x y i)
+  ≡ eq_refl x;
+
+assert [A : Grpd]
+  (x y : τ A)
+  (i : τ (@DefIso (Op_cat (Path_cat A)) x y)) ⊢
+  @hom_postcomp_fapp0
+    (Path_cat A) (Path_cat A) (@id Cat_cat (Path_cat A))
+    (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) y)
+    (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) x)
+    (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) y)
+    (@strict_defiso_fmap_to
+      (Op_cat (Path_cat A)) (Path_cat A)
+      (@strict_path_sym_func A) x y i)
+    (@strict_defiso_fmap_from
+      (Op_cat (Path_cat A)) (Path_cat A)
+      (@strict_path_sym_func A) x y i)
+  ≡ eq_refl y;
+
+assert [A : Grpd]
+  (x y : τ A)
+  (i : τ (@DefIso (Op_cat (Path_cat A)) x y)) ⊢
+  @hom_postcomp_fapp0
+    (Path_cat A) (Path_cat A) (@id Cat_cat (Path_cat A))
+    y x y
+    (@strict_defiso_fmap_to
+      (Op_cat (Path_cat A)) (Path_cat A)
+      (@strict_path_sym_func A) x y i)
+    (@strict_defiso_fmap_from
+      (Op_cat (Path_cat A)) (Path_cat A)
+      (@strict_path_sym_func A) x y i)
+  ≡ eq_refl y;
+
+assert [C D : Cat] (F : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (IsoEvidence C x y)) ⊢
+  @iso_evidence_to
+    D
+    (@fapp0 C D (@strict_functor C D F) x)
+    (@fapp0 C D (@strict_functor C D F) y)
+    (@strict_iso_evidence_fmap C D F x y i)
+  ≡ @fapp1_fapp0 C D (@strict_functor C D F) x y
+      (@iso_evidence_to C x y i);
+
+assert [C D : Cat] (F : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (IsoEvidence C x y)) ⊢
+  @iso_evidence_from
+    D
+    (@fapp0 C D (@strict_functor C D F) x)
+    (@fapp0 C D (@strict_functor C D F) y)
+    (@strict_iso_evidence_fmap C D F x y i)
+  ≡ @fapp1_fapp0 C D (@strict_functor C D F) y x
+      (@iso_evidence_from C x y i);
+
+assert [C D : Cat] (F : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y)) ⊢
+  @strict_defiso_fmap_to_path C D F x y i
+  : τ (@=
+      (Hom D
+        (@fapp0 C D (@strict_functor C D F) x)
+        (@fapp0 C D (@strict_functor C D F) y))
+      (@strict_defiso_fmap_to C D F x y i)
+      (@fapp1_fapp0 C D (@strict_functor C D F)
+        x y (@defiso_to C x y i)));
+
+assertnot [C D : Cat] (F : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y)) ⊢
+  @defiso_to
+    D
+    (@fapp0 C D (@strict_functor C D F) x)
+    (@fapp0 C D (@strict_functor C D F) y)
+    (@strict_defiso_fmap C D F x y i)
+  ≡ @fapp1_fapp0 C D (@strict_functor C D F)
+      x y (@defiso_to C x y i);
+
+assert [C D : Cat] (F : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y)) ⊢
+  @strict_defiso_fmap_from_path C D F x y i
+  : τ (@=
+      (Hom D
+        (@fapp0 C D (@strict_functor C D F) y)
+        (@fapp0 C D (@strict_functor C D F) x))
+      (@strict_defiso_fmap_from C D F x y i)
+      (@fapp1_fapp0 C D (@strict_functor C D F)
+        y x (@defiso_from C x y i)));
+
+assertnot [C D : Cat] (F : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y)) ⊢
+  @defiso_from
+    D
+    (@fapp0 C D (@strict_functor C D F) x)
+    (@fapp0 C D (@strict_functor C D F) y)
+    (@strict_defiso_fmap C D F x y i)
+  ≡ @fapp1_fapp0 C D (@strict_functor C D F)
+      y x (@defiso_from C x y i);
+
+assert [C D : Cat] (F : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y)) ⊢
+  @hom_postcomp_fapp0
+    D D (@id_func D)
+    (@fapp0 C D (@strict_functor C D F) x)
+    (@fapp0 C D (@strict_functor C D F) y)
+    (@fapp0 C D (@strict_functor C D F) x)
+    (@defiso_from
+      D
+      (@fapp0 C D (@strict_functor C D F) x)
+      (@fapp0 C D (@strict_functor C D F) y)
+      (@strict_defiso_fmap C D F x y i))
+    (@defiso_to
+      D
+      (@fapp0 C D (@strict_functor C D F) x)
+      (@fapp0 C D (@strict_functor C D F) y)
+      (@strict_defiso_fmap C D F x y i))
+  ≡ @id D (@fapp0 C D (@strict_functor C D F) x);
+
+assert [B J J' : Cat]
+  (W : τ (Prof J' J))
+  [O O' : τ (Prof B J)]
+  (i : τ (@IsoEvidence (@Prof_cat B J) O O')) ⊢
+  @strict_iso_evidence_fmap
+    (@Prof_cat B J)
+    (@Prof_cat B J')
+    (@strict_prof_imply_cov_func B J' J W)
+    O O' i
+  : τ (@IsoEvidence
+      (@Prof_cat B J')
+      (@Prof_imply_cov B J' J O W)
+      (@Prof_imply_cov B J' J O' W));

@@ -1,0 +1,8 @@
+// Composition acts by consecutive represented cuts. Keeping these cuts
+// visible allows computational inverses to cancel before projection erases them.
+rule @hom_postcomp_fapp0
+      $A $A (@id Cat_cat $A) $W $X $Z
+      (@comp_fapp0 $A $X $Y $Z $q $p) $g
+  ↪ @hom_postcomp_fapp0
+      $A $A (@id Cat_cat $A) $W $Y $Z $q
+      (@hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $W $X $Y $p $g);

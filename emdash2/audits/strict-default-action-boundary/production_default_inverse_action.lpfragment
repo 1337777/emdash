@@ -1,0 +1,346 @@
+// Ordinary evidence follows the default strict functor's existing action.
+symbol iso_evidence_fmap [C D : Cat] (F : τ (Functor C D))
+  [x y : τ (Obj C)] (i : τ (@IsoEvidence C x y))
+  : τ (@IsoEvidence D (@fapp0 C D F x) (@fapp0 C D F y))
+≔ Struct_sigma
+    (@fapp1_fapp0 C D F x y (@iso_evidence_to C x y i))
+    (Struct_sigma
+      (@fapp1_fapp0 C D F y x (@iso_evidence_from C x y i))
+      (Struct_sigma
+        (@eq_ap (Hom C x x) (Hom D (@fapp0 C D F x) (@fapp0 C D F x))
+          (λ h : τ (Hom C x x), @fapp1_fapp0 C D F x x h)
+          (@comp_fapp0 C x y x (@iso_evidence_from C x y i) (@iso_evidence_to C x y i))
+          (@id C x) (@iso_evidence_left C x y i))
+        (@eq_ap (Hom C y y) (Hom D (@fapp0 C D F y) (@fapp0 C D F y))
+          (λ h : τ (Hom C y y), @fapp1_fapp0 C D F y y h)
+          (@comp_fapp0 C y x y (@iso_evidence_to C x y i) (@iso_evidence_from C x y i))
+          (@id C y) (@iso_evidence_right C x y i))));
+
+symbol strict_iso_evidence_fmap
+  [C D : Cat]
+  (S : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@IsoEvidence C x y))
+  : τ (@IsoEvidence
+      D
+      (@fapp0 C D (@strict_functor C D S) x)
+      (@fapp0 C D (@strict_functor C D S) y))
+≔ @iso_evidence_fmap C D (@strict_functor C D S) x y i;
+
+/* Mapped computational inverse owners for default strict functors. */
+
+injective symbol defiso_fmap_to
+  [C D : Cat]
+  (F : τ (Functor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (Hom D
+      (@fapp0 C D F x)
+      (@fapp0 C D F y));
+
+injective symbol defiso_fmap_from
+  [C D : Cat]
+  (F : τ (Functor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (Hom D
+      (@fapp0 C D F y)
+      (@fapp0 C D F x));
+
+unif_rule
+  @defiso_fmap_to $C $D $F $x $y $i
+  ≡ @fapp1_fapp0 $C $D $F
+      $x $y (@defiso_to $C $x $y $i)
+  ↪ [ tt ≡ tt ];
+
+unif_rule
+  @defiso_fmap_from $C $D $F $x $y $i
+  ≡ @fapp1_fapp0 $C $D $F
+      $y $x (@defiso_from $C $x $y $i)
+  ↪ [ tt ≡ tt ];
+
+symbol defiso_fmap_to_path
+  [C D : Cat]
+  (F : τ (Functor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@=
+      (Hom D
+        (@fapp0 C D F x)
+        (@fapp0 C D F y))
+      (@defiso_fmap_to C D F x y i)
+      (@fapp1_fapp0 C D F
+        x y (@defiso_to C x y i)))
+≔ @eq_refl
+    (Hom D
+      (@fapp0 C D F x)
+      (@fapp0 C D F y))
+    (@defiso_fmap_to C D F x y i);
+
+symbol defiso_fmap_from_path
+  [C D : Cat]
+  (F : τ (Functor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@=
+      (Hom D
+        (@fapp0 C D F y)
+        (@fapp0 C D F x))
+      (@defiso_fmap_from C D F x y i)
+      (@fapp1_fapp0 C D F
+        y x (@defiso_from C x y i)))
+≔ @eq_refl
+    (Hom D
+      (@fapp0 C D F y)
+      (@fapp0 C D F x))
+    (@defiso_fmap_from C D F x y i);
+
+injective symbol defiso_fmap
+  [C D : Cat]
+  (F : τ (Functor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@DefIso
+      D
+      (@fapp0 C D F x)
+      (@fapp0 C D F y));
+
+rule @defiso_to
+      $D _ _
+      (@defiso_fmap $C $D $F $x $y $i)
+  ↪ @defiso_fmap_to $C $D $F $x $y $i
+with @defiso_from
+      $D _ _
+      (@defiso_fmap $C $D $F $x $y $i)
+  ↪ @defiso_fmap_from $C $D $F $x $y $i;
+
+rule @comp_fapp0
+      _ _ _ _
+      (@defiso_fmap_from $C $D $F $x $y $i)
+      (@defiso_fmap_to $C $D $F $x $y $i)
+  ↪ @id $D (@fapp0 $C $D $F $x)
+with @comp_fapp0
+      _ _ _ _
+      (@defiso_fmap_to $C $D $F $x $y $i)
+      (@defiso_fmap_from $C $D $F $x $y $i)
+  ↪ @id $D (@fapp0 $C $D $F $y);
+
+rule @hom_postcomp_fapp0
+      $D $D (@id Cat_cat $D)
+      _ _ _
+      (@defiso_fmap_from $C $D $F $x $y $i)
+      (@defiso_fmap_to $C $D $F $x $y $i)
+  ↪ @id $D (@fapp0 $C $D $F $x)
+with @hom_postcomp_fapp0
+      $D $D (@id Cat_cat $D)
+      _ _ _
+      (@defiso_fmap_to $C $D $F $x $y $i)
+      (@defiso_fmap_from $C $D $F $x $y $i)
+  ↪ @id $D (@fapp0 $C $D $F $y);
+
+rule @hom_postcomp_fapp0
+      $D $D (@id Cat_cat $D)
+      $W _ _
+      (@defiso_fmap_from $C $D $F $x $y $i)
+      (@hom_postcomp_fapp0
+        $D $D (@id Cat_cat $D)
+        $W _ _
+        (@defiso_fmap_to $C $D $F $x $y $i)
+        $f)
+  ↪ $f
+with @hom_postcomp_fapp0
+      $D $D (@id Cat_cat $D)
+      $W _ _
+      (@defiso_fmap_to $C $D $F $x $y $i)
+      (@hom_postcomp_fapp0
+        $D $D (@id Cat_cat $D)
+        $W _ _
+        (@defiso_fmap_from $C $D $F $x $y $i)
+        $g)
+  ↪ $g;
+
+rule @defiso_iso_evidence
+      $D _ _
+      (@defiso_fmap $C $D $F $x $y $i)
+  ↪ @iso_evidence_fmap
+      $C $D $F $x $y
+      (@defiso_iso_evidence $C $x $y $i);
+
+symbol defiso_fmap_to_beta
+  [C D : Cat]
+  (F : τ (Functor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@=
+      (Hom D
+        (@fapp0 C D F x)
+        (@fapp0 C D F y))
+      (@defiso_to
+        D
+        (@fapp0 C D F x)
+        (@fapp0 C D F y)
+        (@defiso_fmap C D F x y i))
+      (@defiso_fmap_to C D F x y i))
+≔ @eq_refl
+    (Hom D
+      (@fapp0 C D F x)
+      (@fapp0 C D F y))
+    (@defiso_fmap_to C D F x y i);
+
+symbol defiso_fmap_cancel
+  [C D : Cat]
+  (F : τ (Functor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@=
+      (Hom D
+        (@fapp0 C D F x)
+        (@fapp0 C D F x))
+      (@comp_fapp0
+        D
+        (@fapp0 C D F x)
+        (@fapp0 C D F y)
+        (@fapp0 C D F x)
+        (@defiso_fmap_from C D F x y i)
+        (@defiso_fmap_to C D F x y i))
+      (@id D (@fapp0 C D F x)))
+≔ @eq_refl
+    (Hom D
+      (@fapp0 C D F x)
+      (@fapp0 C D F x))
+    (@id D (@fapp0 C D F x));
+
+// Legacy names are defined views of the single default action owner.
+symbol strict_defiso_fmap_to
+  [C D : Cat]
+  (S : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (Hom D
+      (@fapp0 C D (@strict_functor C D S) x)
+      (@fapp0 C D (@strict_functor C D S) y))
+≔ @defiso_fmap_to C D (@strict_functor C D S) x y i;
+
+symbol strict_defiso_fmap_from
+  [C D : Cat]
+  (S : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (Hom D
+      (@fapp0 C D (@strict_functor C D S) y)
+      (@fapp0 C D (@strict_functor C D S) x))
+≔ @defiso_fmap_from C D (@strict_functor C D S) x y i;
+
+symbol strict_defiso_fmap_to_path
+  [C D : Cat]
+  (S : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@=
+      (Hom D
+        (@fapp0 C D (@strict_functor C D S) x)
+        (@fapp0 C D (@strict_functor C D S) y))
+      (@strict_defiso_fmap_to C D S x y i)
+      (@fapp1_fapp0 C D (@strict_functor C D S)
+        x y (@defiso_to C x y i)))
+≔ @defiso_fmap_to_path C D (@strict_functor C D S) x y i;
+
+symbol strict_defiso_fmap_from_path
+  [C D : Cat]
+  (S : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@=
+      (Hom D
+        (@fapp0 C D (@strict_functor C D S) y)
+        (@fapp0 C D (@strict_functor C D S) x))
+      (@strict_defiso_fmap_from C D S x y i)
+      (@fapp1_fapp0 C D (@strict_functor C D S)
+        y x (@defiso_from C x y i)))
+≔ @defiso_fmap_from_path C D (@strict_functor C D S) x y i;
+
+symbol strict_defiso_fmap
+  [C D : Cat]
+  (S : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@DefIso
+      D
+      (@fapp0 C D (@strict_functor C D S) x)
+      (@fapp0 C D (@strict_functor C D S) y))
+≔ @defiso_fmap C D (@strict_functor C D S) x y i;
+
+symbol strict_defiso_fmap_to_beta
+  [C D : Cat]
+  (S : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@=
+      (Hom D
+        (@fapp0 C D (@strict_functor C D S) x)
+        (@fapp0 C D (@strict_functor C D S) y))
+      (@defiso_to
+        D
+        (@fapp0 C D (@strict_functor C D S) x)
+        (@fapp0 C D (@strict_functor C D S) y)
+        (@strict_defiso_fmap C D S x y i))
+      (@strict_defiso_fmap_to C D S x y i))
+≔ @defiso_fmap_to_beta C D (@strict_functor C D S) x y i;
+
+symbol strict_defiso_fmap_cancel
+  [C D : Cat]
+  (S : τ (@StrictFunctor C D))
+  [x y : τ (Obj C)]
+  (i : τ (@DefIso C x y))
+  : τ (@=
+      (Hom D
+        (@fapp0 C D (@strict_functor C D S) x)
+        (@fapp0 C D (@strict_functor C D S) x))
+      (@comp_fapp0
+        D
+        (@fapp0 C D (@strict_functor C D S) x)
+        (@fapp0 C D (@strict_functor C D S) y)
+        (@fapp0 C D (@strict_functor C D S) x)
+        (@strict_defiso_fmap_from C D S x y i)
+        (@strict_defiso_fmap_to C D S x y i))
+      (@id D (@fapp0 C D (@strict_functor C D S) x)))
+≔ @defiso_fmap_cancel C D (@strict_functor C D S) x y i;
+
+// Default functorial action on the existing whole comparison package.
+symbol prof_comparison_fmap [A B A' B' : Cat]
+  (F : τ (Functor (Prof_cat A B) (Prof_cat A' B')))
+  [P Q : τ (Prof A B)] (i : τ (ProfComparison P Q))
+  : τ (ProfComparison (@fapp0 _ _ F P) (@fapp0 _ _ F Q))
+≔ @defiso_fmap (Prof_cat A B) (Prof_cat A' B') F P Q i;
+
+// Functorial image of a profunctor comparison under one classified carrier.
+symbol strict_prof_comparison_fmap
+  [A B A' B' : Cat]
+  (S : τ (@StrictFunctor
+    (@Prof_cat A B) (@Prof_cat A' B')))
+  [P Q : τ (Prof A B)]
+  (i : τ (ProfComparison P Q))
+  : τ (ProfComparison
+      (@fapp0
+        (@Prof_cat A B) (@Prof_cat A' B')
+        (@strict_functor (@Prof_cat A B) (@Prof_cat A' B') S) P)
+      (@fapp0
+        (@Prof_cat A B) (@Prof_cat A' B')
+        (@strict_functor (@Prof_cat A B) (@Prof_cat A' B') S) Q))
+≔ @prof_comparison_fmap A B A' B'
+    (@strict_functor (Prof_cat A B) (Prof_cat A' B') S) P Q i;
+
+
+// Proof-time join when strict functoriality folds F[q] o F[p] before the
+// represented action sees the composite. Both operations have stable runtime
+// owners; compare all actual data rather than ask unification to invent the
+// intermediate general-F postcomposition presentation.
+unif_rule @hom_postcomp_fapp0 $B $B (@id Cat_cat $B) $w _ _
+      (@fapp1_fapp0 $A $B $F $x $z (@comp_fapp0 $A $x $y $z $q $p)) $r
+  ≡ @hom_postcomp_fapp0 $B0 $B0 (@id Cat_cat $B0) $w0 _ _
+      (@fapp1_fapp0 $A0 $B0 $F0 $y0 $z0 $q0)
+      (@hom_postcomp_fapp0 $B0 $B0 (@id Cat_cat $B0) $w0 _ _
+        (@fapp1_fapp0 $A0 $B0 $F0 $x0 $y0 $p0) $r0)
+  ↪ [ $A ≡ $A0; $B ≡ $B0; $F ≡ $F0; $w ≡ $w0;
+      $x ≡ $x0; $y ≡ $y0; $z ≡ $z0;
+      $p ≡ $p0; $q ≡ $q0; $r ≡ $r0 ];

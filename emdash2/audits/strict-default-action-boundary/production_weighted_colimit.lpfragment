@@ -1,0 +1,82 @@
+// Preserve the original T-weighted colimit interface using its whole Hom
+// comparison. Product-swap profunctor duality needs no total-opposite
+// adjunction and introduces no new unit/counit transformation profile.
+// The three preservation steps remain implication, reindexing, and mate.
+
+// Product-swap duality maps the actual comparison with the default action.
+protected symbol prof_comparison_op
+  [A B : Cat] [P Q : τ (Prof A B)]
+  (i : τ (@ProfComparison A B P Q))
+  : τ (@ProfComparison (Op_cat B) (Op_cat A)
+      (@Op_prof A B P) (@Op_prof A B Q))
+≔ @prof_comparison_fmap A B (Op_cat B) (Op_cat A)
+    (@Op_prof_func A B) P Q i;
+
+// Whole represented-Hom transpose: the product endpoints swap; the Hom
+// fibre is unchanged because Op_cat reverses dimension one only.
+unif_rule @Op_prof $A $B
+    (@Prof_reindex $X $A $X $B (@Unit_prof $X) $F $G)
+  ≡ @Prof_reindex $X0 $B0 $X1 $A0 (@Unit_prof $X2) $G0 $F0
+  ↪ [ $X0 ≡ Op_cat $X; $X1 ≡ Op_cat $X; $X2 ≡ Op_cat $X;
+      $B0 ≡ Op_cat $B; $A0 ≡ Op_cat $A;
+      $G0 ≡ @Op_func $B $X $G; $F0 ≡ @Op_func $A $X $F ];
+unif_rule @Op_prof $X $X (@Unit_prof $X) ≡ @Unit_prof $Y
+  ↪ [ $Y ≡ Op_cat $X ];
+
+// Only the whole Hom comparison is transposed here. This is not an
+// opposite adjunction package with new unit/counit transformation profiles.
+protected symbol adjunction_transpose_hom_comparison
+  [A B : Cat] [L : τ (Functor A B)] [R : τ (Functor B A)]
+  (adj : τ (@Adjunction A B L R))
+  : τ (@ProfComparison (Op_cat B) (Op_cat A)
+      (@Hom_prof_along (Op_cat B) (Op_cat A) (Op_cat A)
+        (@Op_func B A R) (@id_func (Op_cat A)))
+      (@Hom_prof_along (Op_cat B) (Op_cat A) (Op_cat B)
+        (@id_func (Op_cat B)) (@Op_func A B L)))
+≔ @prof_comparison_op A B _ _
+    (@prof_comparison_sym A B _ _
+      (@Adjunction_hom_prof_comparison A B L R adj));
+
+protected symbol adjunction_transpose_hom_comparison_along
+  [A B : Cat] [L : τ (Functor A B)] [R : τ (Functor B A)]
+  (adj : τ (@Adjunction A B L R))
+  [I K : Cat] (M : τ (Functor I (Op_cat B)))
+  (F : τ (Functor K (Op_cat A)))
+  : τ (@ProfComparison I K
+      (@Hom_prof_along I K (Op_cat A)
+        (@comp_cat_fapp0 I (Op_cat B) (Op_cat A) (@Op_func B A R) M) F)
+      (@Hom_prof_along I K (Op_cat B) M
+        (@comp_cat_fapp0 K (Op_cat A) (Op_cat B) (@Op_func A B L) F)))
+≔ @prof_comparison_fmap (Op_cat B) (Op_cat A) I K
+    (@Prof_reindex_func (Op_cat B) I (Op_cat A) K M F)
+    _ _ (@adjunction_transpose_hom_comparison A B L R adj);
+
+symbol left_adjoint_preserves_weighted_colimit_con
+  [A J J' B : Cat]
+  [Ladj : τ (Functor A B)]
+  [Radj : τ (Functor B A)]
+  [F : τ (Functor J A)]
+  [W : τ (Prof J J')]
+  [L : τ (Functor J' A)]
+  (isc : τ (@WeightedColimit_con A J J' F W L))
+  (adj : τ (@Adjunction A B Ladj Radj))
+  : τ (@WeightedColimit_con
+      B J J'
+      (@comp_cat_fapp0 J A B Ladj F)
+      W
+      (@comp_cat_fapp0 J' A B Ladj L))
+≔ @prof_comparison_comp (Op_cat B) (Op_cat J') _ _ _
+    (@adjunction_transpose_hom_comparison_along A B Ladj Radj adj
+      (Op_cat B) (Op_cat J') (@id_func (Op_cat B)) (@Op_func J' A L))
+    (@prof_comparison_comp (Op_cat B) (Op_cat J') _ _ _
+      (@prof_comparison_fmap (Op_cat A) (Op_cat J') (Op_cat B) (Op_cat J')
+        (@Prof_reindex_func (Op_cat A) (Op_cat B) (Op_cat J') (Op_cat J')
+          (@Op_func B A Radj) (@id_func (Op_cat J')))
+        _ _ isc)
+      (@prof_comparison_fmap (Op_cat B) (Op_cat J) (Op_cat B) (Op_cat J')
+        (@Prof_imply_cov_func (Op_cat B) (Op_cat J') (Op_cat J)
+          (@Op_prof J J' W))
+        _ _
+        (@prof_comparison_sym (Op_cat B) (Op_cat J) _ _
+          (@adjunction_transpose_hom_comparison_along A B Ladj Radj adj
+            (Op_cat B) (Op_cat J) (@id_func (Op_cat B)) (@Op_func J A F)))));

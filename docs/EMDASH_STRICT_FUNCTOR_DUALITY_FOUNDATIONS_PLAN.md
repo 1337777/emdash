@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; resource approval resolved, adjunction rule hygiene qualified, weighted inverse computation and broader migration remain incomplete
+Status: active implementation; staged core, default inverse action and weighted-colimit consumers qualified; remaining library/variance migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,39 +38,58 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
-Runtime/rule review and qualified adjunction repair, 2026-10-16:
-[review](../emdash2/audits/strict-default-action-boundary/production_runtime_review.md)
-and [evidence](../emdash2/audits/strict-default-action-boundary/production_runtime_verification.json)
-separate transient unchanged-source timeouts from measured migration cost and
-actual computational failures. The user approved 300 seconds and requested
-that measured bounded adjustments no longer require separate approval; root
-and nested SOP and DevOps now say so. Defaults and the current 2GiB cap remain.
-The persistent goal was explicitly reactivated by the user.
+Qualified inverse/weighted-colimit continuation after `133e8dc0`, 2026-10-16:
+[review](../emdash2/audits/strict-default-action-boundary/production_weighted_colimit_review.md)
+and [evidence](../emdash2/audits/strict-default-action-boundary/production_weighted_colimit_verification.json)
+record the actual whole comparison, inverse maps, consumer checks and rejected
+experiments. The original left-adjoint preservation signature and T-weighted
+colimit doctrine are unchanged. The proof transposes the original whole Hom
+comparison and follows the same implication/reindexing/mate outline; no
+T-adjunction package, new unit/counit profile or T=O identification is used.
 
-The matched original/migrated core profile is 6.27s/326.9MiB versus
-21.38s/1118.1MiB peak child RSS, chiefly normalization cost. An isolated removal
-of three duplicate strict-functor cuts reduces 48 pair reports with only a
-modest measured cost reduction; it is not promoted. Earlier 90s timeouts stop
-at varying core positions, and the same inputs now reach the final consumer
-in 24.49s. The reason for that timing variation is not established.
+The shared inverse computation reverses one existing identity-family capped
+postcomposition equation: post(qp,r) computes by consecutive represented cuts.
+The whole functor owner remains, and both observation orders check. Existing
+DefIso cancellation now handles both public-result inverse round trips; the
+extra contextual inverse cuts from the first experiment were rejected. Raw
+composition does not acquire global runtime associativity.
 
-A concrete migration bug is fixed at the original Op_adjunction owner:
-TotalOp_cat became a reducible alias, but three copied rules still matched it
-in inferred slots. Use `_` there, retaining the inner constructor and every
-RHS. Whole involution and unit/counit projections now compute. The complete
-emitted core with inherited controls and six focused overlap observations
-passes 255 positive/60 negative assertions in 13.740s at 90s/2GiB, with SR and
-warnings; the exact generated inputs match the receipt. Nine pair bodies are
-replaced by three typed nested-adjunction overlap groups (1938 to 1932). No
-new rule, mathematical assumption or operational evidence parameter is added.
+The native inverse action takes the default Functor directly. Its old classified
+names are defined compatibility views of one rule family. The temporary
+IsStrictFunctor evidence adapter is removed from the weighted proof. All 33
+original named action-module declarations remain in order; twelve original
+central diagnostic commands and the unchanged original weighted reviewer are
+retained. Remaining strict packages and aliases still require retirement.
 
-The pending weighted-colimit candidate remains uncommitted. Its final
-public-result inverse assertion fails after imports complete. A minimal
-DefIso-composite reproducer also fails in the pinned original kernel: selected
-inverse projections and accumulation expose a bracketing that adjacent cuts
-do not cancel. Trace the shared inverse owner and retire unnecessary strict
-wrappers, rather than add a theorem-specific inverse axiom, hide the body, or
-restart Homd. Full migration and weighted inverse qualification remain open.
+The exact emitted core and inherited/focused controls pass 258 positive and
+62 negative assertions in 17.970s. The actual imported weighted reviewer and
+final driver pass 27 positive and 7 negative assertions in 23.980s. Both keep
+90s/2GiB, warnings, subject reduction and serial/no-swap/file safeguards. The
+proof-time image-composition comparison belongs to the late action extension:
+installing it early caused a measured 2GiB allocation failure during profile
+checking; its late placement passes without raising memory. Typed unit/strict
+functor overlap observations and a wrong-input negative are retained. Global
+confluence is not claimed.
+
+The next original import is now at groupoidal_fibre_transport_equiv in
+emdash3_2_eq1_hom_action.lp. Its general Cat-valued diagram is being fed through
+Fibre_cat, now an admitted-Cat_cart-family facade. This transport-equivalence
+theorem only needs ordinary functor application. Prefer explicit fapp0 to
+preserve its broad diagram scope; do not silently narrow it to Cat_cart.
+Remaining library/variance consumers, strict-wrapper retirement, public source
+promotion, catalog/health/CI and source-pin review remain required.
+
+The previous [runtime/rule review](../emdash2/audits/strict-default-action-boundary/production_runtime_review.md)
+qualified the Op_adjunction inferred-slot repair and compared original versus
+migrated normalization cost. Measured bounded resource adjustments no longer
+need separate permission; the default remains 90s/2GiB and host-memory headroom
+is required before any memory increase. The former resource blocker is resolved
+and the user reactivated the full goal. The previous goal turn was progress:
+it changed qualified source and policy and isolated the next computational gap.
+
+Dated entries below retain their original snapshots. The execution state above
+supersedes their old next-step descriptions; the full goal and paused application
+boundary are unchanged.
 
 Interchanger continuation after `25f1b48b`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_interchanger_review.md)
