@@ -1,0 +1,20 @@
+
+// Defined body of intrinsic composition, built from the two existing maps.
+// This alias is shared by the root and its projection-order computations.
+symbol fdapp1_int_comp_transfd [K : Cat] [E D C : τ (Catd K)]
+  (FF : τ (Functord E D)) (GG : τ (Functord D C))
+  : τ (@Transfd K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@comp_catd_fapp0 K E C (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E C (@comp_catd_fapp0 K E D C GG FF)) (@comp_catd_fapp0 K E D C GG FF)) (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E)))
+≔ let W : τ (Functor (@Functord_cat K D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D))) (@Functord_cat K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))))
+    ≔ @Hom_func (Catd_cat K) D E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) FF (@strict_transfor K Cat_cart (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@Homd_target_map K E D FF)) in
+  @comp_fapp0 (@Functord_cat K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)))
+    (@comp_catd_fapp0 K E C (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E C (@comp_catd_fapp0 K E D C GG FF)) (@comp_catd_fapp0 K E D C GG FF))
+    (@comp_catd_fapp0 K E D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E D FF) FF)
+    (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E))
+    (@fdapp1_int_transfd K E D FF)
+    (@fapp1_fapp0 (@Functord_cat K D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D))) (@Functord_cat K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)))
+      W (@comp_catd_fapp0 K D C (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) (@homd_int K D C GG) GG) (@strict_transfor K Cat_cart D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) (@homd_id_int K D)) (@fdapp1_int_transfd K D C GG));
+
+// The native constructor keeps one composition body at every observation.
+rule @fdapp1_int_transfd _ _ _
+      (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF)
+  ↪ @fdapp1_int_comp_transfd $K $E $D $C $FF $GG;

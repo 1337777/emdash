@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: staged source through section 17e checks, including internal Pi, classified intrinsic action and preservation of general-FF laxity through evaluation; arbitrary-composite Q coherence and public/downstream migration remain open
+Status: staged native composition of two general lax displayed maps checks through the whole Homd/intrinsic ladder and higher filler action; whole unit/associativity, expanded cell factorization, general Q coherence and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,41 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Intrinsic-composition continuation after `1ac8e002`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_intrinsic_composite_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_intrinsic_composite_verification.json)
+record the actual whole modification for two general lax displayed maps.
+Homd_target_map is contravariant on their composition. The native
+fdapp1_int_transfd computation shares the defined body
+eta_FF o Hom(FF, Homd_target_map(FF))[eta_GG]. Its actual section, y, v,
+p and filler projections agree with the independently constructed body.
+The whole filler functor is Phi_GG o Phi_FF, including arbitrary higher
+filler data. Neither displayed map has been made strict.
+
+At the transported identity the checked result is Phi_GG[lambda_FF], with
+all transported endpoints retained. Expanding it further to
+GG[y][lambda_FF] o lambda_GG is still required; do not report that expanded
+formula as checked. Whole intrinsic unit/associativity, mapped-composite
+and Q/mate coherence also remain obligations before promotion.
+
+The represented image now keeps its existing head and projects to the
+actual postcomposition body. Explicit normalized P(C) endpoints prevent
+the erroneous inferred C=P(C) substitution observed in the first rule.
+The rigid Hom next action and fixed-whiskering component observations use
+existing owners. Two typed intermediate definitions preserve the section's
+T(S) orientation and share the same composition body. They introduce no
+new primitive classifier or operational proof argument. The unnecessary
+generic Catd/diagram composition unifier is not selected: its omission
+preserves the complete focused check.
+
+The generated original-source pass still stops at Op_prof's coefficient in
+section 18b. Next qualify the whole unit/associativity and expanded-cell
+comparisons, then continue the original later source and inverse/duality
+consumers, including fdapp1_projection_target. Full public/downstream,
+catalog, health and CI gates remain. This is a non-library source-authoring
+checkpoint; production is not promoted and no unrestricted Q model or
+global confluence result is asserted.
 
 Section/Cartesian intrinsic continuation after `2334f755`, 2026-10-15:
 the [review](../emdash2/audits/strict-default-action-boundary/production_section_pullback_review.md)

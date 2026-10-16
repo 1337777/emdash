@@ -1,0 +1,45 @@
+// The explicit types retain the T(S) orientation during elaboration. These
+// are definitions through the actual whole composite, not extra primitives.
+symbol fdapp1_int_comp_section [K : Cat] [E D C : τ (Catd K)]
+  (FF : τ (Functord E D)) (GG : τ (Functord D C))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (Hom_cat (@Homd_target_section_cat K E x) (@homd_id_src_sec K E x u)
+      (@homd_ff_src_sec K E C (@comp_catd_fapp0 K E D C GG FF) x u)))
+≔ @tapp0_fapp0 (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K E x)) _ _ u
+    (@strict_transfor (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K E x)) _ _
+      (tdapp0_fapp0 x (@fdapp1_int_comp_transfd K E D C FF GG)));
+
+
+symbol fdapp1_int_comp_index [K : Cat] [E D C : τ (Catd K)]
+  (FF : τ (Functord E D)) (GG : τ (Functord D C))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y)))
+  : τ (Obj (Hom_cat (Homd_index_cat (Hom_cat K x y))
+      (fapp0 (@homd_id_tgt_func K E x u y) v)
+      (fapp0 (@homd_ff_tgt_func K E C (@comp_catd_fapp0 K E D C GG FF) x u y) v)))
+≔ tapp0_fapp0 v (strict_transfor
+    (@tapp0_hom_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+      (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E C (@comp_catd_fapp0 K E D C GG FF) x u) y
+      (@fdapp1_int_comp_section K E D C FF GG x u)));
+
+// Join the existing component-first heads to those same projections.
+rule @fdapp1_int_section_arrow $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $u
+  ↪ @fdapp1_int_comp_section $K $E $D $C $FF $GG $x $u;
+rule @fdapp1_int_tgt_arrow $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $u $y
+  ↪ @tapp0_hom_fapp0 $K Homd_coeff_cat (@Homd_coeff_diagram $K $E)
+      (@Homd_coeff_diagram $K (@hom_ $K $K (@id_func $K) $x))
+      (@homd_id_src_sec $K $E $x $u) (@homd_ff_src_sec $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $u) $y
+      (@fdapp1_int_comp_section $K $E $D $C $FF $GG $x $u);
+rule @fdapp1_int_presheaf_arrow $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $u $y $v
+  ↪ @fdapp1_int_comp_index $K $E $D $C $FF $GG $x $u $y $v;
+
+// The whole filler-functor equation was checked from that composed body.
+rule @fdapp1_int_hom_func $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $y $p $u $v
+  ↪ comp_cat_fapp0 (@fdapp1_int_hom_func $K $D $C $GG $x $y $p (fapp0 (@Fibre_func $K $E $D $FF $x) $u) (fapp0 (@Fibre_func $K $E $D $FF $y) $v)) (@fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v);
+rule @fdapp1_int_hom_fapp0 $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $y $p $u $v $alpha
+  ↪ fapp0 (@fdapp1_int_hom_func $K $D $C $GG $x $y $p (fapp0 (@Fibre_func $K $E $D $FF $x) $u) (fapp0 (@Fibre_func $K $E $D $FF $y) $v)) (fapp0 (@fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v) $alpha);
+
+rule @fdapp1_int_cell $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $y $p $u
+  ↪ @fdapp1_int_hom_fapp0 $K $D $C $GG $x $y $p (fapp0 (@Fibre_func $K $E $D $FF $x) $u) (fapp0 (@Fibre_func $K $E $D $FF $y) (fapp0 (@catd_transport_func $K $E $x $y $p) $u))
+      (@fdapp1_int_cell $K $E $D $FF $x $y $p $u);

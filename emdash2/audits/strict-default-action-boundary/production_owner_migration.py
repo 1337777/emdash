@@ -1210,6 +1210,24 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                  '      (@strict_transfor _ _ _ _ (@Eval_funcd _ $A $B))',
                  'Ordinary component of classified displayed evaluation',
                  'The same fibre Eval_func is observed through the actual Cartesian mapping inclusion')
+    insert('// Target-internalized mirror of hom_int.',
+           fragment('production_hom_source_composition.lpfragment'),
+           'The target-map composition consumer needs strict Hom source action after its generic first-Hom projection has become a named transformation')
+    insert('// 6c. Constant/opposite transfors and Cat-valued composition projections',
+           fragment('production_fixed_postcomposition.lpfragment'),
+           'Fixed postcomposition preserves vertical composition with both other legs identity; this joins the actual diagram image in Homd target-map composition')
+    insert('// 6c. Constant/opposite transfors and Cat-valued composition projections',
+           fragment('production_hom_next_action.lpfragment'),
+           'The actual intrinsic-composite consumer requires the next Hom of two-sided whiskering and its existing component observations')
+    insert('// 14. Section action over dependent homs',
+           fragment('production_intrinsic_composite_views.lpfragment'),
+           'Actual Homd target contravariance and associativity supply the whole whiskering endpoints without operational equality arguments')
+    insert('// 16. Displayed components, displayed hom-action, and laxity extraction',
+           fragment('production_intrinsic_composite.lpfragment'),
+           'Compute the existing intrinsic action of a displayed composite by the checked whole modification, preserving both lax inputs')
+    insert('// 18. Cat-valued profunctors',
+           fragment('production_intrinsic_composite_projection.lpfragment'),
+           'Join root-first and component-first observations of the same intrinsic composite; retain the actual first extracted cell inside the second intrinsic action')
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -1337,6 +1355,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
         + '\n' + fragment('production_ordinary_structural_controls.lpfragment')
         + '\n' + fragment('production_pullback_structural_controls.lpfragment')
         + '\n' + fragment('production_section_pullback_controls.lpfragment'))
+    (package / 'intrinsic_composite_prefix.lp').write_text(
+        (package / 'section_pullback_prefix.lp').read_text()
+        + '\n' + fragment('production_intrinsic_composite_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1545,6 +1566,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'ordinary_structural_prefix.lp',
                               package / 'pullback_structural_prefix.lp',
                               package / 'section_pullback_prefix.lp',
+                              package / 'intrinsic_composite_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Whole coefficient/mixed-parameter coherence beyond the checked direct and constant-section actions',

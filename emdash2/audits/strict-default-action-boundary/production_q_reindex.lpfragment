@@ -1,6 +1,11 @@
 // Whole right-represented Q composition is ordinary source reindexing.
 // P(C) retains its directed index maps; only the outer fibre variable is
 // Cartesian. This does not specify left-conjoint evaluation of arbitrary P.
+// lhs-audit: keep 1,2,3 -- identity-family Q precomposition at the stable represented input.
+rule @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $C $A $B (@Homd_coeff_rep $A $B $F)
+  ↪ @comp_cat_con_cart_func $A $B (Homd_index_cat $C) $F;
+
 // lhs-audit: keep 1,2,3 -- identity-family Q precomposition at a represented right input.
 rule @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
       $C $A $B

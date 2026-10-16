@@ -1,0 +1,27 @@
+// Fixed postcomposition is an ordinary strict functor on lax transformation
+// categories. Both other legs are literal identities; this is not the
+// unrestricted interchange law for two varying lax transformations.
+// lhs-audit: keep 1 -- the ordinary mapping category owns the vertical composite.
+rule @comp_fapp0 (Functor_cat $I $C) _ _ _
+      (@comp_prod_fapp1_fapp0 Cat_cat $I $B $C
+        (Struct_sigma $G $H) (Struct_sigma $J $H)
+        (Struct_sigma $eta (@id _ $H)))
+      (@comp_prod_fapp1_fapp0 Cat_cat $I $B $C
+        (Struct_sigma $F $H) (Struct_sigma $G $H)
+        (Struct_sigma $epsilon (@id _ $H)))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $I $B $C
+      (Struct_sigma $F $H) (Struct_sigma $J $H)
+      (Struct_sigma
+        (@comp_fapp0 (Functor_cat $I $B) $F $G $J $eta $epsilon)
+        (@id (Functor_cat $B $C) $H));
+
+// After the generic action has capped, a public Catd composite can still
+// carry its facade tag. Normalize that input only inside this fixed
+// postcomposition owner; the public displayed-composition head is preserved.
+rule @comp_prod_fapp1_fapp0 Cat_cat $K Cat_cart $C
+      (Struct_sigma $E $H) (Struct_sigma $D $H)
+      (Struct_sigma (@comp_fapp0 (Catd_cat $K) $E $M $D $GG $FF) (@id _ $H))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $K Cat_cart $C
+      (Struct_sigma $E $H) (Struct_sigma $D $H)
+      (Struct_sigma (@comp_fapp0 (Functor_cat $K Cat_cart) $E $M $D $GG $FF)
+        (@id (Functor_cat Cat_cart $C) $H));

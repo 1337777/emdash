@@ -258,9 +258,47 @@ symbol Homd_coeff_rep_func (A B : Cat)
     A B (Homd_index_cat B)
     ((@Homd_coeff_conjoint B B (@id_func B)));
 
-symbol Homd_coeff_rep [A B : Cat] (F : τ (Functor A B))
-  : τ (Hom Homd_coeff_cat A B)
-≔ fapp0 (Homd_coeff_rep_func A B) F;
+// Stable represented image of the same postcomposition functor. Keeping F
+// as an argument prevents an iterated composite from losing its represented
+// head when ordinary functor composition left-associates.
+injective symbol Homd_coeff_rep [A B : Cat] (F : τ (Functor A B))
+  : τ (Hom Homd_coeff_cat A B);
+
+// Actual ordinary-functor body used by every higher source action.
+symbol Homd_coeff_rep_body [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor A (Homd_index_cat B))
+≔ @comp_cat_fapp0 A B (Homd_index_cat B)
+    (@Homd_coeff_conjoint B B (@id_func B)) F;
+
+// Object image of the existing whole represented-inclusion functor.
+// lhs-audit: keep 1,2,3,6 -- retain the index target; inferring it replaces B by P(B) in the emitted rule.
+rule @hom_postcomp_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+      $A $B (Op_cat (Functor_cat $B (Op_cat Cat_cart)))
+      (@Homd_coeff_conjoint $B $B (@id Cat_cat $B)) $F
+  ↪ @Homd_coeff_rep $A $B $F;
+rule fapp0 (@Homd_coeff_rep $A $B $F) $a
+  ↪ fapp0 (@Homd_coeff_conjoint $B $B (@id_func $B)) (@fapp0 $A $B $F $a);
+rule @fapp1_func _ _ (@Homd_coeff_rep $A $B $F) $a $a'
+  ↪ @fapp1_func $A (Homd_index_cat $B) (@Homd_coeff_rep_body $A $B $F) $a $a';
+rule @fapp1_fapp0 _ _ (@Homd_coeff_rep $A $B $F) $a $a' $p
+  ↪ @fapp1_fapp0 $A (Homd_index_cat $B) (@Homd_coeff_rep_body $A $B $F) $a $a' $p;
+rule @Homd_coeff_rep $A $A (@id Cat_cat $A)
+  ↪ @Homd_coeff_conjoint $A $A (@id_func $A);
+rule @Homd_coeff_rep $A $B (@Const_func $A $B $b)
+  ↪ @Const_func $A (Homd_index_cat $B)
+      (fapp0 (@Homd_coeff_conjoint $B $B (@id_func $B)) $b);
+
+// Ordinary source reindexing of a represented image is still represented.
+// lhs-audit: keep 1,4 -- retain P(C); otherwise the emitted rule recovers C as P(C).
+rule @comp_fapp0 Cat_cat $A $B (Op_cat (Functor_cat $C (Op_cat Cat_cart)))
+      (@Homd_coeff_rep $B $C $G) $F
+  ↪ @Homd_coeff_rep $A $C (@comp_cat_fapp0 $A $B $C $G $F);
+
+// Whole agreement with the actual body, without unfolding the stable image.
+unif_rule @Homd_coeff_rep $A $B $F
+  ≡ @comp_fapp0 Cat_cat $A0 $B0 $P
+      (@Homd_coeff_conjoint $B0 $B0 (@id Cat_cat $B0)) $F0
+  ↪ [ $A ≡ $A0; $B ≡ $B0; Homd_index_cat $B ≡ $P; $F ≡ $F0 ];
 
 injective symbol Homd_coeff_include : τ (Functor Cat_cart Homd_coeff_cat);
 rule fapp0 Homd_coeff_include $A ↪ $A;
@@ -274,6 +312,9 @@ symbol Homd_coeff_diagram [K : Cat] (E : τ (Functor K Cat_cart))
 // Chosen represented/unit normal forms. Right represented composition is
 // source reindexing of the curried object; no general coend is replaced.
 rule @id Homd_coeff_cat $A ↪ (@Homd_coeff_conjoint $A $A (@id_func $A));
+// lhs-audit: keep 1 -- Q composition at the stable represented right input.
+rule @comp_fapp0 Homd_coeff_cat $A $B $C $P (@Homd_coeff_rep $A $B $F)
+  ↪ @comp_cat_fapp0 $A $B (Homd_index_cat $C) $P $F;
 // lhs-audit: keep 1 -- Q composition; the represented middle category is retained.
 rule @comp_fapp0 Homd_coeff_cat $A $B $C $P
       (@comp_fapp0 Cat_cat _ _ _
@@ -292,6 +333,10 @@ rule @comp_fapp0 Homd_coeff_cat $A $A $B $P ((@Homd_coeff_conjoint $A $A (@id Ca
 rule @comp_fapp0 Homd_coeff_cat $A $B $B ((@Homd_coeff_conjoint $B $B (@id Cat_cat $B))) $P ↪ $P;
 
 // The same cut at the stable postcomposition owner used by section action.
+// lhs-audit: keep 1,2,3 -- identity-family Q postcomposition at the represented image.
+rule @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $A $B $C $P (@Homd_coeff_rep $A $B $F)
+  ↪ @comp_cat_fapp0 $A $B (Homd_index_cat $C) $P $F;
 // lhs-audit: keep 1,2,3 -- identity-family Q action on a represented input.
 rule @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat) $A $B $C $P
       (@comp_fapp0 Cat_cat _ _ _

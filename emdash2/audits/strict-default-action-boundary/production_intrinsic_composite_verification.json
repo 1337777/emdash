@@ -1,0 +1,589 @@
+{
+  "status": "Native two-map intrinsic composition checks from the whole modification through section, y, index, filler functor, higher filler and transported-identity observations; general Q coherence and full migration remain open",
+  "extendsCheckpoint": "1ac8e002",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "originalCoreSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "sourcePreservation": {
+    "originalCoreLines": 22644,
+    "candidateCoreLines": 24026,
+    "originalDownstreamSectionsRetained": true,
+    "unretiredNamedDeclarationsRetained": true,
+    "retiredNamesWithReplacements": {
+      "Homd_target_section_catd": "Homd_target_section_cat",
+      "functord_transport_lhs_tele_agrees": "functord_transport_rhs_tele_agrees",
+      "functord_transport_lhs_agrees": "functord_transport_rhs_agrees"
+    },
+    "unrelocatedNamedDeclarationSequenceVerified": true,
+    "namedDeclarationSequenceExceptions": [
+      "Catd_cat_func",
+      "Catd_catd_con",
+      "Const_func_func",
+      "FibCov_source_catd",
+      "FibCov_target_catd",
+      "fib_cov_int",
+      "fib_cov_src_func",
+      "fib_cov_transf",
+      "homd_id_src_sec",
+      "homd_id_tgt_func",
+      "homd_src_func",
+      "homd_src_sec",
+      "homd_tgt_func"
+    ]
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e",
+    "audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment": "f754d60461ff080b77844f38313953244e425ad28fc49e6e394ed114317a77d0",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/conventional_total_op_mapping.lpfragment": "af021c0bb56a5c6730ab5a2e56a387f4cd30fbb8102e36c70bd7f0bc35a6032f",
+    "audits/strict-default-action-boundary/cartesian_profile.lpfragment": "9baf7c78bdc42695ed2e715dd07185f17a957472f2cc7c0434cabd6314039976",
+    "audits/strict-default-action-boundary/production_family_classifier.lpfragment": "0978dd95a597059e20ecb3e38d8bba249499f522caaea1ae9f65a11753c1e81e",
+    "audits/strict-default-action-boundary/conventional_total_op_transfors.lpfragment": "33842eafce8cfb5f84ac5c401ebaf52e8e128cb1d585311862f812925dd119d9",
+    "audits/strict-default-action-boundary/conventional_total_op_offdiagonal.lpfragment": "9431b15bfbedf363c3863a12d86f94b3afbadd04a265abe3fffce0444321eba9",
+    "audits/strict-default-action-boundary/production_cartesian_closure.lpfragment": "31f8d97603e9c9c8ac2922778e15e8c5efed3a268c8d1872820041940c2be8c9",
+    "audits/strict-default-action-boundary/production_cartesian_family_duality.lpfragment": "96370700b262c367cb14934643bb9b81b8b5bd1290f108d0117a9df61c9c5feb",
+    "audits/strict-default-action-boundary/conventional_total_op_whole_action.lpfragment": "202dc17fe192b57c7a7ce8a054d6bc5746027ffa41c5f9698455ae78ee006f0a",
+    "audits/strict-default-action-boundary/conventional_total_op_source_units.lpfragment": "79dbd611f959bade6d50676325ba69d9dd8ceb866f98f84bdf851a2915d3d9a9",
+    "audits/strict-default-action-boundary/production_cartesian_product.lpfragment": "b9fd844fe022921f356c2cb2a628806ef2f9364e44a2b89546073da14d11dfb5",
+    "audits/strict-default-action-boundary/total_op_family.lpfragment": "13f79efe229f5a560dc54d3ea9c4609fac91de5b095de206277330871fe2e7d0",
+    "audits/strict-default-action-boundary/production_homd_index.lpfragment": "364d59d7bd81582d78021513e66ca5c2b1577ebb57fce4caa430e0c375b38978",
+    "audits/strict-default-action-boundary/production_homd_core.lpfragment": "6b91e32447ff87af9a6d32be6ff237fcf9896e93044b76fcfbce76e7a705dd62",
+    "audits/strict-default-action-boundary/production_intrinsic_projection.lpfragment": "6a99cc8c5da93ab05ac37a3590aa344a57daeca00f667f3fc99c5058bbc1c2d3",
+    "audits/strict-default-action-boundary/production_intrinsic_modification.lpfragment": "d82df7e48ecc52ca6844a20a67fa0cf8bdf1c9c0b2a8e4370e03186d4af8921c",
+    "audits/strict-default-action-boundary/production_index_constant_coherence.lpfragment": "692c58b4f216e0fb19898cfa50986ef4775d87725b38e6967ae55881f16a9f63",
+    "audits/strict-default-action-boundary/production_constant_section_index.lpfragment": "8b54b6cd0ca9b60335abc4f1556b8aef15179eb06492b4dcc79499ec1cfc4c32",
+    "audits/strict-default-action-boundary/production_evaluation.lpfragment": "987c74b00c90e0d95ef7d702a98040effe52ecbb7c0fcab7e8a36bd17e563f28",
+    "audits/strict-default-action-boundary/production_q_reindex.lpfragment": "e14f58912b910f994d9eac6628d6a6a53774313587f1c5738f2c215f88634273",
+    "audits/strict-default-action-boundary/production_ordinary_structural.lpfragment": "c6a89a6b9b391a3d31625395d755b9025c0618a798e6b2a6383cbd9af1387cc5",
+    "audits/strict-default-action-boundary/production_pullback_structural.lpfragment": "58eb1be31606f544940ddd8d3e2f5b4db092d4266f57107ea5942d86720196f8",
+    "audits/strict-default-action-boundary/production_total_op_pullback.lpfragment": "15bef22764f4dea59a5a6ba195099ac4e429ed7296cdda9b070fb4bffa5cd72d",
+    "audits/strict-default-action-boundary/production_section_pullback.lpfragment": "c8724d96788455a8a2777090d74a9c9205d5109828cb77d18da270f759641d85",
+    "audits/strict-default-action-boundary/production_cartesian_intrinsic.lpfragment": "2c3e4e73b6696a534efe22f53ad5e827bc66f7b37d751d0f608c555b6f496f84",
+    "audits/strict-default-action-boundary/production_cartesian_hom_action.lpfragment": "313fe43d68615eecd7094c116ced474dd756f1f18a7714401a5ab38ff51a1ab1",
+    "audits/strict-default-action-boundary/production_cartesian_reindex_view.lpfragment": "1596f796b143cac2d8f943262363a23733e4617b2c66edfe57d1bfb30958ff25",
+    "audits/strict-default-action-boundary/production_cartesian_naturality.lpfragment": "acfdc0040460323d121993951f414a24852fd71f0169ba86bec6178f7994c537",
+    "audits/strict-default-action-boundary/production_hom_source_composition.lpfragment": "f7ba3af6f9349018b8264d2a9847d88c05380151afe81b633533c5022adf73ab",
+    "audits/strict-default-action-boundary/production_fixed_postcomposition.lpfragment": "7af8f04e88cb4f32508b91e0d0245adef15464f6297586d7585bd454adb5ea12",
+    "audits/strict-default-action-boundary/production_hom_next_action.lpfragment": "e568c9b0c45e27af384081ecc9593909f8249e79995462f9a4d0992fade66698",
+    "audits/strict-default-action-boundary/production_intrinsic_composite_views.lpfragment": "9c45248ef0ff4f963fce2886d0083755df266ba3256fd71484fdd0b3b283c543",
+    "audits/strict-default-action-boundary/production_intrinsic_composite.lpfragment": "a4c8baa84cd4163c2bc7685466de62933eaeec6f9632664babdca056a733343a",
+    "audits/strict-default-action-boundary/production_intrinsic_composite_projection.lpfragment": "1456466238f2011efa85ac69dccdccfb594e5a0c2b90ae266d212e267ef360bd",
+    "audits/strict-default-action-boundary/production_owner_controls.lpfragment": "42ba40bf4884d0b9a18cd094ec7735de70b3f8d0c0e6ec9b3699ad164989aa2c",
+    "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+    "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/production_foundations_controls.lpfragment": "d3c768a592094fb5280d4395010d1b24fcb67f394f1f3765f931c54d68a67d0b",
+    "audits/strict-default-action-boundary/production_sections_controls.lpfragment": "57f4d94f69f178e698e652f82f610fea9b8987c36ab1ce92c90cde4825961b95",
+    "audits/strict-default-action-boundary/sigma_total_op_controls.lpfragment": "2f817d10405f707cf3738ff68160f79bcd99e5a2739d0e226f9f012042408b72",
+    "audits/strict-default-action-boundary/mixed_family_controls.lpfragment": "2d0509b7853469f929d3c55b342d396ec4dccaea8493adad962c719d5cb5fd66",
+    "audits/strict-default-action-boundary/mixed_family_parameter_controls.lpfragment": "bb25703b284fc88d1fe64d44fced4ffa65a729d5a135f329654305a24f4a1ad0",
+    "audits/strict-default-action-boundary/total_op_hom_family_controls.lpfragment": "5887b77b910dd9c843af6d5c3fe5a89deddc0b9655904fa69e514c3169b69e62",
+    "audits/strict-default-action-boundary/production_homd_controls.lpfragment": "8490072106fb361ed95a7eb40bc00c5913f6d43edaa18f5ba181a1f1341b1025",
+    "audits/strict-default-action-boundary/production_q_reindex_controls.lpfragment": "37d263a6cc17c4ab0117253e436304c5818e20968c4c583a7182e30a6277c302",
+    "audits/strict-default-action-boundary/production_homd_index_controls.lpfragment": "202bed78e341861596de96ff80f6462b25c40734ef8589cde9c51871ed0c04eb",
+    "audits/strict-default-action-boundary/production_intrinsic_controls.lpfragment": "3b4a4a7fdb867b164e3a33fc6025e96f1c041b3c213a30c5c8004a51a51d1ed3",
+    "audits/strict-default-action-boundary/production_section_action_controls.lpfragment": "6b084092deeed77d1441fdd2bb622175d41512b5980f6c58c7d81c24a6336d6e",
+    "audits/strict-default-action-boundary/production_evaluation_controls.lpfragment": "02d0e4ec79a7d1b5c23b740116d1fc1279fe4fa402cbdc8dc730ff390465797a",
+    "audits/strict-default-action-boundary/production_constant_map_controls.lpfragment": "fe1f4da080a251fd0f28aec197dca4ca58652d8700b015036d8d5854f46f6a8e",
+    "audits/strict-default-action-boundary/production_ordinary_structural_controls.lpfragment": "63d9209054b5750ddbb1e62c78bf63b3ae0d4bbd868eeb7b2bd6f2fd7e3d06cf",
+    "audits/strict-default-action-boundary/production_pullback_structural_controls.lpfragment": "edd230527e3ff391a065a89339586f57f0973200be0047abfe4dc6a896d6fb27",
+    "audits/strict-default-action-boundary/production_section_pullback_controls.lpfragment": "d4d5ceee0a9b31a045cc8a1fed29939cea5901545527aa2191fef964285de0bf",
+    "audits/strict-default-action-boundary/production_intrinsic_composite_controls.lpfragment": "ec5a995c847fab5e3b46c941c43a1fcb742ea78047f98d7dec3fb8dd8186ec8b",
+    "audits/strict-default-action-boundary/production_comma_equivalence.lpfragment": "7e70d4dfd77958a06f712dd0e668280efd4a16eb7e3db328030fa693309622ef",
+    "audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment": "956d22e530d20bf54ba5e58bdecfe37354c6743154280ffa0f6ce7be02067b9b",
+    "audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment": "5ebdccd39cd50e224bddb1bb559bd82f14596053102484c62d8e428e5b778344",
+    "audits/strict-default-action-boundary/production_owner_migration.py": "5397e49a05e9c54dc6ecd2339288069f86e5c1664901f853e1d57a6757ec779e"
+  },
+  "emittedOutputs": {
+    "tmp/probes/production_owner_migration/baseline.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "tmp/probes/production_owner_migration/package/emdash3_2.lp": "597ee62d27bb73a5073e048656006de77c2ba2086407cede5df10a9a43c2710e",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_profiles.lp": "0cfc35ef81eb2da61890ce96c4b64823ce7d94978b7e2f5699f1542a6b38e389",
+    "tmp/probes/production_owner_migration/package/owner_controls.lp": "f6a2ac4209894cb11d07726ce0641c73f0861f91b664504a3bcd35ffb263db8f",
+    "tmp/probes/production_owner_migration/package/foundations_prefix.lp": "db0df40dfa99bf6eb8d7f60c3fa14f95aaabaf4f90a331f13bd64dfa59dae56e",
+    "tmp/probes/production_owner_migration/package/sections_prefix.lp": "c1e1058155af3d927a2642b081b61d45cb580ee80492d1ebf501709e61096ffe",
+    "tmp/probes/production_owner_migration/package/sigma_prefix.lp": "3431ef480fca0693df6adaa4c4a7f060c7bc3bd642b526739dcba54198b66545",
+    "tmp/probes/production_owner_migration/package/mixed_prefix.lp": "9d05d9c20fe7bc72b5bb825731d3c69a5da368a7c633ae94042b5a630acd0293",
+    "tmp/probes/production_owner_migration/package/homd_prefix.lp": "2cd65c9824813d3cbd7eb655e3db0ae3e66392eae22334d8cecd734dc8ea67ff",
+    "tmp/probes/production_owner_migration/package/index_profile.lp": "d9610a287a73b2d6d53586a2917919488b6eefe5cbc41772e203bf0a0d131003",
+    "tmp/probes/production_owner_migration/package/intrinsic_identity_prefix.lp": "e6c996f7c59ee12740f662e4e4f988d4afe7888d5616387cda672786928317d0",
+    "tmp/probes/production_owner_migration/package/section_action_prefix.lp": "fee0583f104536bedef8a20a7875c040975f65e03144a666abc696f77324143e",
+    "tmp/probes/production_owner_migration/package/evaluation_prefix.lp": "ab0b11104a96ebe28bf56936d81f83b972c5e3728182d3cb1bb5871f07ec0325",
+    "tmp/probes/production_owner_migration/package/structural_prefix.lp": "bcfaf21074e022e782838e436dbeb3d1891fb803ca73122bef4eee5f237cf2fa",
+    "tmp/probes/production_owner_migration/package/ordinary_structural_prefix.lp": "f71193b9c9149752f2f3c4b4661af02da03b5a8f9f25cd5927e6a4847904766e",
+    "tmp/probes/production_owner_migration/package/pullback_structural_prefix.lp": "217ed592e71979e10ce854bb65ead9f0136d1b3ee0130940dc3773eded092f3a",
+    "tmp/probes/production_owner_migration/package/section_pullback_prefix.lp": "2603550bb741f96ce60aca2b69c59edd9fa4cbf314758a7deefb86e0a320611c",
+    "tmp/probes/production_owner_migration/package/intrinsic_composite_prefix.lp": "8bf359e294c248ba32ed96c08ee8ecae37332a0d21e5de822bb43e823794bcfb",
+    "tmp/probes/production_owner_migration/baseline_package/emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "tmp/probes/production_owner_migration/baseline_package/emdash3_2_gray_profiles.lp": "f670814a83a508bd8a77a4000c7ab04690bbfc25978d106bb1d761ce6723a69c",
+    "tmp/probes/production_owner_migration/package/examples/gray_profiles.lp": "bd3dedcebf6cbb453ec98aec036c39a3f28f10f9f4df8a9fed2513653fee8944",
+    "tmp/probes/production_owner_migration/package/emdash3_2_represented_comma_families.lp": "aa71722950fe657b175b4bfa66941b570cbb22ad9fde2feca8149ffbe0f2a774",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_interchanger_orientation.lp": "545a3bbc908956856b3aee79c94b2731fe3ffef5ecc7fcf3a118eebe6737d609",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+    "tmp/probes/production_owner_migration/package/emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "tmp/probes/production_owner_migration/package/emdash3_2_pathout_transformation_reframing.lp": "72ecfd62db7eb98c5605511463492a06636afdf500fd3717b9d1f3f73e56ec19",
+    "tmp/probes/production_owner_migration/package/emdash3_2_shaped_pathout.lp": "e9ea36fda8d093db8c2ef5bafb5d7228cb7657ed13e4d082b01427f99ebf318e",
+    "tmp/probes/production_owner_migration/package/emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+    "tmp/probes/production_owner_migration/package/emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+    "tmp/probes/production_owner_migration/package/emdash3_2_cubical_internalization.lp": "b370e6c426ee336fad67141d95010eed702820f94e3e2d0358fb593dd29ec038",
+    "tmp/probes/production_owner_migration/package/emdash3_2_cubical_square_total.lp": "449333a73f64ee023b3bfc7599eefa6525813ec038d0a1886f8931df2059d254",
+    "tmp/probes/production_owner_migration/package/emdash3_2_cubical_dependent_hom.lp": "6c6fff3c14bc2c68b624b0fc06d8ea9d9d45267b44cda6015aac934e4bca4e0b",
+    "tmp/probes/production_owner_migration/package/emdash3_2_zero_arrow_cones.lp": "47fa107dad029adc6f5943898c980d468b7eb6fdea538637c57573bda0e1f5e7",
+    "tmp/probes/production_owner_migration/package/emdash3_2_zero_arrow_diagrams.lp": "4560d6f737bcce871672682f4557e263b5f9598c869b1f8f04f89c7c4e1c1718",
+    "tmp/probes/production_owner_migration/package/emdash3_2_arrow_diagram_families.lp": "13c8cc92119bf8b1093d71619dbea3f73fd990e2ffdc1871155abdf41aa586d1",
+    "tmp/probes/production_owner_migration/package/emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+    "tmp/probes/production_owner_migration/package/emdash3_2_diagram_evaluation.lp": "e1d879b79073bff7030604ed15340e54f3c94add40c9db97831e0af2f95d13d4",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "tmp/probes/production_owner_migration/package/emdash3_2_eq1_hom_action.lp": "c707cf7c09a32a8557e0b1178e2db4a0c1279ed78c970b4f2d50b0c8348c7a5b",
+    "tmp/probes/production_owner_migration/package/emdash3_2_strict_functor_actions.lp": "eb4d9b4dac0a277e310427ea1325346330e6881f452bb83ba35a51211fca9818",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "tmp/probes/production_owner_migration/package/emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+    "tmp/probes/production_owner_migration/package/emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_adjunction_family_views.lp": "83648e8d217a565b4663e792ca5a39c14e200dfa0e93017e734ee48196607b82",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_adjunction_families.lp": "ebfa6419249100f35d3d2d60e6b22170ef000424f4f05c990a2a8148d2cdfaf9",
+    "tmp/probes/production_owner_migration/package/emdash3_2_adjunction_mates.lp": "237a3f46a8ca98f40f160f5bcb0630068c336f8e6c57c081b4256240d34f0047",
+    "tmp/probes/production_owner_migration/package/emdash3_2_defiso_evaluation_points.lp": "eae44700c8e0b2e797c2effc8cfe9ff42573bc3bbf2e3a9b04e6f386d4171c50",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+    "tmp/probes/production_owner_migration/package/emdash3_2_strict_pointwise_equivalences.lp": "58c23c4a39a2b0a5ff872f0c9c7106830a5226d18d828e819cf15185ccdf04de",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_transfor_profiles.lp": "debb1b42841ac8b8cb7a0603abe0642af289ac9d2f5c6ff2784dffb45ac0efce",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+    "tmp/probes/production_owner_migration/package/emdash3_2_discrete_functor_paths.lp": "9cdb384f984c8bc81e0c1f158cd09b4c1c588ce1fc6e41e82584597ac441b4ea",
+    "tmp/probes/production_owner_migration/package/emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "tmp/probes/production_owner_migration/package/emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "tmp/probes/production_owner_migration/package/emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_op.lp": "85b6430a39562f3ac49f2fe263dd8996626413c12273e530a00c3db16bef3ee5",
+    "tmp/probes/production_owner_migration/package/emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+    "tmp/probes/production_owner_migration/package/emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+    "tmp/probes/production_owner_migration/package/emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525"
+  },
+  "baselinePrefix": {
+    "id": "20261015T212449Z-8e82346a38454841b1c2c9ba955c9cbb",
+    "target": "section_pullback_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 5.941900957026519,
+    "childrenMaxRssKiB": 466752,
+    "inputSnapshot": "c98d50275c60d87e41b31b44bf86b4e2e7a5b786090a6261c63538d5f9048a3a",
+    "inputs": {
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "section_pullback_prefix.lp": "f5442ff7f34b09b9714f4439940b6db783699d7aebf79ac493039a6d737cdb3a"
+    },
+    "log": "logs/check-runs/20261015T212449Z-8e82346a38454841b1c2c9ba955c9cbb.log",
+    "logSha256": "101dad8e150db173ba46ee7eb1dbbe04aad8269aea1dc6bac29220ecdb8125d1",
+    "receipt": "logs/check-runs/20261015T212449Z-8e82346a38454841b1c2c9ba955c9cbb.json",
+    "receiptSha256": "534fa533a2bc56bf4a38c545e3e4b77aedc5f9848d98b18cb2d2debe186712ce"
+  },
+  "candidatePrefix": {
+    "id": "20261016T093350Z-6fafc44ab873431dbb133543556ab10e",
+    "target": "intrinsic_composite_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 7.829340604948811,
+    "childrenMaxRssKiB": 583952,
+    "inputSnapshot": "e401c92d1e9e7ee6a947fed8d3de75c5dac3ddf82a0faf1ae681f6b902951173",
+    "inputs": {
+      "intrinsic_composite_prefix.lp": "8bf359e294c248ba32ed96c08ee8ecae37332a0d21e5de822bb43e823794bcfb",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261016T093350Z-6fafc44ab873431dbb133543556ab10e.log",
+    "logSha256": "4c2305d795f8985f8b5631a0fdcf43e30cde4b723ee1649b91739425c015d6fc",
+    "receipt": "logs/check-runs/20261016T093350Z-6fafc44ab873431dbb133543556ab10e.json",
+    "receiptSha256": "dd7c9ae62eb63e896751455af0d3da78a26f731458c97bfa65bc4d1da26ed3c9"
+  },
+  "fullSourceFailure": {
+    "id": "20261016T093415Z-21c9d8b3d0344b88bdeb3c3617dfc8ba",
+    "target": "emdash3_2.lp",
+    "outcome": "failed",
+    "wallSeconds": 8.499181182007305,
+    "childrenMaxRssKiB": 549468,
+    "inputSnapshot": "08211b6b890895e54605b6aa5295e2a8821bc3701cd416370d313042d98f447d",
+    "inputs": {
+      "emdash3_2.lp": "597ee62d27bb73a5073e048656006de77c2ba2086407cede5df10a9a43c2710e",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261016T093415Z-21c9d8b3d0344b88bdeb3c3617dfc8ba.log",
+    "logSha256": "076559f17d22cfc80aac633cae2c9a0e8b25285ce6651880b501b53014809a4d",
+    "receipt": "logs/check-runs/20261016T093415Z-21c9d8b3d0344b88bdeb3c3617dfc8ba.json",
+    "receiptSha256": "7bbf1e128fa7885f9fb7f7e466db4d57e66ee3eeb33590d4b4d367d659e5cce2",
+    "owner": "Op_prof component, original section 18b",
+    "diagnosis": "The existing component still uses Cat_cat instead of the admitted Cat_cart family coefficient; the entire original tail remains emitted."
+  },
+  "interfaces": {
+    "whole": "eta_(GG o FF) = eta_FF o Hom(FF,Homd_target_map(FF))_1(eta_GG)",
+    "targetMap": "Homd_target_map(GG o FF) = Homd_target_map(FF) o Homd_target_map(GG)",
+    "filler": "Phi_(GG o FF)(p,u,v) = Phi_GG(p,FF[x]u,FF[y]v) o Phi_FF(p,u,v)",
+    "cell": "lambda_(GG o FF)(p,u) = Phi_GG(p,FF[x]u,FF[y](E[p]u))[lambda_FF(p,u)]",
+    "cellQualification": "The displayed nested intrinsic computation is checked. Its further factorization as GG[y][lambda_FF] o lambda_GG remains an explicit obligation, not a claimed result of this checkpoint.",
+    "definitions": "fdapp1_int_comp_transfd, fdapp1_int_comp_section and fdapp1_int_comp_index are definitions through actual existing operations; the native projection heads retain their interfaces.",
+    "represented": "Homd_coeff_rep is a stable image of the same defined postcomposition functor, with object/higher projections and a guarded whole agreement with the actual body."
+  },
+  "checks": {
+    "newPositiveAssertions": 12,
+    "newNegativeAssertions": 2,
+    "allPositiveAssertions": 192,
+    "allNegativeAssertions": 45,
+    "meaning": "Counts describe the emitted reviewer, not semantic completeness. Includes inherited strictness/variance/noncollapse boundaries, actual whole composition, native projection-order joins, the next filler Hom, a nonidentity loop and the transported identity."
+  },
+  "normalizationFindings": [
+    {
+      "receipt": {
+        "id": "20261016T074232Z-06bf90b08bae4f23b9bf2cf6c1eca019",
+        "target": "intrinsic_comp_whole.lp",
+        "outcome": "passed-fresh",
+        "wallSeconds": 9.882250812021084,
+        "childrenMaxRssKiB": 508984,
+        "inputSnapshot": "6cb101921b6d151f8d9dfc1c14b0f4ee4889eddbd3b26134fd79d9eafb491ba1",
+        "inputs": {
+          "intrinsic_comp_whole.lp": "a449716d48b2c6a87f92a8203430c840b844127ddceee2e157748eced9b9af0b",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T074232Z-06bf90b08bae4f23b9bf2cf6c1eca019.log",
+        "logSha256": "1395f19565769cb2e8eec4ed11a1f20bf9f09dbb55c4b2cb9d15be5a96ea9f3a",
+        "receipt": "logs/check-runs/20261016T074232Z-06bf90b08bae4f23b9bf2cf6c1eca019.json",
+        "receiptSha256": "286a27e8cb4c03952967d7b6ca85654148bff2c363129d590a882e72edf9e58a"
+      },
+      "finding": "The whole modification can be constructed from the existing two intrinsic maps, actual target-map contravariance, and fixed whiskering."
+    },
+    {
+      "receipt": {
+        "id": "20261016T085858Z-56c623435f69438bad1760c40704ee97",
+        "target": "intrinsic_rep_normalform.lp",
+        "outcome": "passed-fresh",
+        "wallSeconds": 11.95342933991924,
+        "childrenMaxRssKiB": 502728,
+        "inputSnapshot": "eaf27c2614a0e387ff8bb00a3766d1d5185f6dd19cebddd53a1976cdf33f1900",
+        "inputs": {
+          "intrinsic_rep_normalform.lp": "7c88d71e89c4305825a1a264c30758bb9370106ccf0959599a4939569302d7e6",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T085858Z-56c623435f69438bad1760c40704ee97.log",
+        "logSha256": "91050fba2808f01e63ef9b33c333fdd29d1b0349b05b0961da60898471de96a9",
+        "receipt": "logs/check-runs/20261016T085858Z-56c623435f69438bad1760c40704ee97.json",
+        "receiptSha256": "b545edbbbd92e11e81d51cd369fb6392e01766a14ac77650baae552344fcc2fe"
+      },
+      "finding": "The first stable-representation rule inferred C as P(C); normal forms exposed the wrong classifier. The selected rules retain the explicit normalized P endpoint."
+    },
+    {
+      "receipt": {
+        "id": "20261016T091150Z-ec4a0b1e372c4f09bd12180cba0d5a83",
+        "target": "intrinsic_comp_next_action.lp",
+        "outcome": "passed-fresh",
+        "wallSeconds": 12.732001336989924,
+        "childrenMaxRssKiB": 533332,
+        "inputSnapshot": "9a9e8c318600a2b759a46f7713eb4c06c032af28f32dca449f2ca81c4f46dbb6",
+        "inputs": {
+          "intrinsic_comp_next_action.lp": "67d913ac7747228db3020a7fec9ecbbc7ae931bcc2c557a6c695a1ee26ea899e",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T091150Z-ec4a0b1e372c4f09bd12180cba0d5a83.log",
+        "logSha256": "ccc79fbf7349e8ab03f4dce8f502ff307457168152d4e192eb59833b49e5a137",
+        "receipt": "logs/check-runs/20261016T091150Z-ec4a0b1e372c4f09bd12180cba0d5a83.json",
+        "receiptSha256": "2b73d07cc5e44355fed403601e33f5ae4e26dbb3096767ea703aff0e92086553"
+      },
+      "finding": "Before adding any native composite rule, the independent whole composition projects to the composite of the two actual filler functors."
+    },
+    {
+      "receipt": {
+        "id": "20261016T092244Z-3d3d505acb4a41dfadcd909bade2838f",
+        "target": "intrinsic_comp_projection.lp",
+        "outcome": "failed",
+        "wallSeconds": 7.551176866982132,
+        "childrenMaxRssKiB": 524464,
+        "inputSnapshot": "f3113961656cd253a82e1bfae437f931a13be8400ccfa3028a795c63d1e77f1f",
+        "inputs": {
+          "intrinsic_comp_projection.lp": "04bdd76ff2f40b5676d6e4e91684a321dfcc31d9323fc0c2d52bbf3e9794be2d",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T092244Z-3d3d505acb4a41dfadcd909bade2838f.log",
+        "logSha256": "d444755a8f141773a92772b3c2a4bb33078eca61bef7b199ff237ab078464b0a",
+        "receipt": "logs/check-runs/20261016T092244Z-3d3d505acb4a41dfadcd909bade2838f.json",
+        "receiptSha256": "6c1c7364b42ee8eb6f0bd11db9c196601d6c3f748db229d0b3d9cf62e06335d6"
+      },
+      "finding": "Inlining the section projection fails subject reduction at the T(S) orientation. Explicitly typed defined intermediate projections solve this; no extra primitive is introduced."
+    },
+    {
+      "receipt": {
+        "id": "20261016T093239Z-355c1f34237740aca1ebd5338683ee35",
+        "target": "intrinsic_composite_no_diagram_view.lp",
+        "outcome": "passed-fresh",
+        "wallSeconds": 7.012512056040578,
+        "childrenMaxRssKiB": 584368,
+        "inputSnapshot": "4e99fe7f558a7c4b748647583730d2cb22387244562a049552c587a7aa3aee89",
+        "inputs": {
+          "intrinsic_composite_no_diagram_view.lp": "1772f6a3a09d63840909b742c3588599c57478a795699ba34e00d39d3679e966",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T093239Z-355c1f34237740aca1ebd5338683ee35.log",
+        "logSha256": "a811604537ee39b927f046bf435f9c8c46ec429fb8476182497149f36c25e5a3",
+        "receipt": "logs/check-runs/20261016T093239Z-355c1f34237740aca1ebd5338683ee35.json",
+        "receiptSha256": "f617cd0a96e91568f8d6cd2947a1ad16e89af2c2c05a3eec09a10a4c51aa196d"
+      },
+      "finding": "Omitting the experimental generic Catd/diagram composition unifier preserves the complete focused check; the unifier is not selected."
+    }
+  ],
+  "warnings": {
+    "comparisonBoundary": "Complete checked source through original section 17e; candidate adds intrinsic composition at the same source boundary.",
+    "baseline": {
+      "replaceable pattern variable": 140,
+      "unjoinable critical pair": 1629
+    },
+    "candidate": {
+      "replaceable pattern variable": 140,
+      "unjoinable critical pair": 1829
+    },
+    "baselineCriticalPairs": 1629,
+    "candidateCriticalPairs": 1829,
+    "added": 215,
+    "removed": 15,
+    "addedGroups": {
+      "Const_func x Homd_coeff_rep": {
+        "count": 1,
+        "bodiesSha256": "4527e1b1618a8aac2a239b0488b39b1d7224da2e802b7d8fb984f1d19be39a7d"
+      },
+      "Functor_cat x comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "cd1ee44fce9ad7c79dca065695d658e901eee774bb8fade7ad8de539bc8b0ad6"
+      },
+      "Functor_cat x tapp0_fapp0": {
+        "count": 3,
+        "bodiesSha256": "891a1bd148fda61503a658a65a2e17d49d4deae1e57c284ea58b16a450b1ccc1"
+      },
+      "Functor_cat x tapp0_hom_fapp0": {
+        "count": 3,
+        "bodiesSha256": "9c0683f776306184abbe4125ba52804b508a56bb20c54ff1e7b35b24cd3c9ea7"
+      },
+      "Hom_func x fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "f5fddd278a60a64235040150b0e002fd80664f8d51aeaf5ee8ba9811299a050d"
+      },
+      "Hom_func x fapp1_func": {
+        "count": 1,
+        "bodiesSha256": "8284ec22a25a7f4b3e863594713b08b6b89a271243c763d38b61454dd60ebc1a"
+      },
+      "Homd_coeff_rep x comp_fapp0": {
+        "count": 3,
+        "bodiesSha256": "58e965359a11dd1e9108974fc27f3a084a3912ef8cec13266fa406554d8dfa17"
+      },
+      "Homd_coeff_rep x hom_postcomp_fapp0": {
+        "count": 2,
+        "bodiesSha256": "69ebf25bc0024e2154d473c6dbcebc8530abf830e772e835983c1d8843fb0994"
+      },
+      "Homd_coeff_rep x hom_precomp_along_func": {
+        "count": 2,
+        "bodiesSha256": "b308f21b0a1c3dde440bb992fd9439ae4c4bf48441b271144f72ff78b84b606d"
+      },
+      "Op_funcd x comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "988f4d600d24009791e111f917087abc5d960ea60e9c7c1e637e2a67fbb3f702"
+      },
+      "Op_transf x comp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "e3bdc2654bf283e43e830877ba141279614614151be954d2ab010ac88a3d2691"
+      },
+      "comp_fapp0 x comp_fapp0": {
+        "count": 5,
+        "bodiesSha256": "17f24e8d47ad99e3640709c40802977fb1dbd17724717a1ab4088df9c7489db7"
+      },
+      "comp_fapp0 x comp_prod_fapp1_fapp0": {
+        "count": 16,
+        "bodiesSha256": "b1a8a1f40ffa331c18b23d938597851dfb8d8574ca96b980201c82e07a79b59a"
+      },
+      "comp_fapp0 x fapp1_fapp0": {
+        "count": 10,
+        "bodiesSha256": "b2395abde2c8570d914c6d2d64831cf67cc53abcb7c6706193eec21f1cd5fd08"
+      },
+      "comp_fapp0 x fdapp1_int_cell": {
+        "count": 13,
+        "bodiesSha256": "c6de756b17e8aed901f3e11be9dd9b2e4af195f9b8c0080cc0591f7005743cd4"
+      },
+      "comp_fapp0 x fdapp1_int_hom_fapp0": {
+        "count": 13,
+        "bodiesSha256": "51382e77307316a5ade8a08dbe980f194b7addfd441347421616ef3ed1b99a75"
+      },
+      "comp_fapp0 x fdapp1_int_hom_func": {
+        "count": 13,
+        "bodiesSha256": "0609a340afe63ebabe82c66e992d19dc1451b7c7c3e10b25d4d9dee806d26d78"
+      },
+      "comp_fapp0 x fdapp1_int_presheaf_arrow": {
+        "count": 14,
+        "bodiesSha256": "ffecf8c2fd4e3a8356d93e03d79821d56a7a340da868aada226202e9a747a9c3"
+      },
+      "comp_fapp0 x fdapp1_int_section_arrow": {
+        "count": 14,
+        "bodiesSha256": "8faa9f1d7c4034acf904028fcd02e57920e421adf6c32a3900ae4b2605c70b06"
+      },
+      "comp_fapp0 x fdapp1_int_tgt_arrow": {
+        "count": 14,
+        "bodiesSha256": "e9466b699bf83a1ee130817e10502384e6e6509cbce636dc7cf29f2a30d30343"
+      },
+      "comp_fapp0 x fdapp1_int_transfd": {
+        "count": 14,
+        "bodiesSha256": "7effd458012871d513b7644d91954950077f133f86325e7fa8c0d14273c2e906"
+      },
+      "comp_fapp0 x hom_int_precomp_func": {
+        "count": 2,
+        "bodiesSha256": "24b1b9340c64434fbaa93839c8c67b766a1af102a607dbbae6f9191fa8bdfffe"
+      },
+      "comp_fapp0 x hom_postcomp_fapp0": {
+        "count": 2,
+        "bodiesSha256": "563d2b11c89ff4ff1c49fdde69040044329457cc98349d3f790d2b20fc067765"
+      },
+      "comp_fapp0 x id": {
+        "count": 8,
+        "bodiesSha256": "d8ca81384b24babe633462ca9929579d05937e2471bcd69723eb5c5f4f23894f"
+      },
+      "comp_fapp0 x strict_transfor": {
+        "count": 3,
+        "bodiesSha256": "1d4d9f7d284a7159d6a9332349ff1c98148eb7b58b8c5f02903bc5ca0b75ee76"
+      },
+      "comp_fapp0 x tapp0_hom_fapp0": {
+        "count": 2,
+        "bodiesSha256": "d5e4548025ae344d4e944c868db9bd40ca7087c3ec91081f721c44fccf899657"
+      },
+      "comp_prod_fapp1_fapp0 x comp_prod_fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "e28a33342223007e71dd2efc6c5ac8799f3fa4459cbcaef733d1ad431e825872"
+      },
+      "comp_prod_fapp1_fapp0 x id": {
+        "count": 4,
+        "bodiesSha256": "3f1bc7e668484367e194c45fad6e2c86e3a2307cce587fa8e7913f2a4251e0c7"
+      },
+      "fapp0 x hom_precomp_along_func": {
+        "count": 1,
+        "bodiesSha256": "28c5e202f655bcd73b1d9d9025ddb97cd8b8385bc64a4d3d393ffeeb7c4f4674"
+      },
+      "fapp1_fapp0 x fapp1_fapp0": {
+        "count": 13,
+        "bodiesSha256": "f0be9c4b341abc8b46a28f95925095d8a06c217b4034523d3f1f3fbcf89356f9"
+      },
+      "fapp1_fapp0 x fdapp1_int_presheaf_arrow": {
+        "count": 1,
+        "bodiesSha256": "9fa89c9d0492c4e18ffcfd406381810ab2b0aa2fc4b687cdcefe7b5a3352ee7b"
+      },
+      "fapp1_fapp0 x hom_postcomp_fapp0": {
+        "count": 2,
+        "bodiesSha256": "f8f4bc08ca49d759981ec3e35108365a4290b413095553c3ceb4cb5024b0a439"
+      },
+      "fapp1_fapp0 x hom_precomp_along_fapp0": {
+        "count": 2,
+        "bodiesSha256": "c5b4315c0db8064f17a4641898f67ac4404e62f9f9338fe0f2ee4c6dd53299db"
+      },
+      "fapp1_fapp0 x hom_precomp_along_func": {
+        "count": 1,
+        "bodiesSha256": "b49a5c40ea84ff98b276fbb46c1e779bafc2d955802c6d8a1920bb902acb6622"
+      },
+      "fapp1_func x hom_precomp_along_func": {
+        "count": 1,
+        "bodiesSha256": "b99177bb44cd7cc25f3b7d19286f0d2ec7742782c37da49f25a52894221bf10f"
+      },
+      "fdapp1_int_cell x fdapp1_int_cell": {
+        "count": 1,
+        "bodiesSha256": "81d41b19b832d8480769c613f5fa2a13f35a586c3736caa141e54193bfc2c996"
+      },
+      "fdapp1_int_cell x strict_transfor": {
+        "count": 1,
+        "bodiesSha256": "4eec890e413ef3d49926b99107c62161939716af676c41986c4a14cb7a923997"
+      },
+      "fdapp1_int_hom_fapp0 x fdapp1_int_hom_fapp0": {
+        "count": 3,
+        "bodiesSha256": "3bb6f5629d83f6e26c20c7ce41b2de091b2f29a978ebc9ec497267492c1074d6"
+      },
+      "fdapp1_int_hom_fapp0 x strict_transfor": {
+        "count": 1,
+        "bodiesSha256": "98dab84e4d76090668be565f6e1546cd6c46fda29a2b142ce7dbd2f6a429b5ef"
+      },
+      "fdapp1_int_hom_func x fdapp1_int_hom_func": {
+        "count": 1,
+        "bodiesSha256": "f18c1b70fe3b6b52cd89c78802cf81b6a2698c4963e08e9a34165ea60bfd2c88"
+      },
+      "fdapp1_int_hom_func x strict_transfor": {
+        "count": 1,
+        "bodiesSha256": "f50c6a501ba27170e855a96968a811d3fb2d86f1cccfc7ce28f5316e2c801f00"
+      },
+      "fdapp1_int_presheaf_arrow x fdapp1_int_presheaf_arrow": {
+        "count": 1,
+        "bodiesSha256": "88e0afdff3242fab9b7ebc7eabd99b3cbee52a3abffdc0616e8754f66e54677a"
+      },
+      "fdapp1_int_transfd x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "eb7070452f5168f2a383dbda03d24f0e0922c8ff06bfc9c6a527d157d845ba87"
+      },
+      "hom_postcomp_fapp0 x hom_postcomp_fapp0": {
+        "count": 11,
+        "bodiesSha256": "870c7c99d782ca562b012a8e6394f1637c8cd8b0ffbaff7ad968746d63ef8dce"
+      },
+      "hom_postcomp_fapp1_fapp0 x hom_postcomp_fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "180478ae11340c32ac82b833b1b489afcc24fd256aca4e0293c40a090b4763d3"
+      },
+      "hom_precomp_along_fapp1_fapp0 x hom_precomp_along_fapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "5b267b37949f8e4dd3b2a558fa34f89c83c7086cd9647e857f8fec24dd30095c"
+      },
+      "hom_precomp_along_fapp1_fapp0 x tapp0_hom_fapp0": {
+        "count": 2,
+        "bodiesSha256": "47e8f3561bddb59462bb2e180a2b298abe87e6d684fa72f654080530f89237b2"
+      },
+      "tapp0_hom_fapp0 x tapp0_hom_fapp0": {
+        "count": 1,
+        "bodiesSha256": "3a80ef30360ad6e03c38e3da050fa8ed5ebc79c628abe4507c203eea480c3778"
+      }
+    },
+    "removedGroups": {
+      "comp_fapp0 x fapp1_fapp0": {
+        "count": 6,
+        "bodiesSha256": "f72040ddefdb87e50521c37f38b6c7a8878549757bea841704226d1c222c00cf"
+      },
+      "fapp1_fapp0 x fapp1_fapp0": {
+        "count": 7,
+        "bodiesSha256": "c42fff303ef5d84a4c9f00a5c40009a8cd7a8d97e55737b98abd846f7c95c02d"
+      },
+      "fapp1_fapp0 x hom_postcomp_fapp0": {
+        "count": 1,
+        "bodiesSha256": "78166f789b3e0f5dc01bbf09bfa2c57529338536786d5901fe99159ec16b7a6b"
+      },
+      "fapp1_fapp0 x hom_precomp_along_fapp0": {
+        "count": 1,
+        "bodiesSha256": "0ee749e108d67979bce29da69ea10f13ba35d71bfb6e47f569d9cd4bf8db5008"
+      }
+    },
+    "parserIssues": 0,
+    "assessment": "Review covers new represented-image and reindexing overlaps, rigid Hom next action, fixed displayed whiskering, Cartesian inclusion and ordinary component observations, native composite root/projection overlaps and transported identities. Passing consumers do not establish global confluence, whole unit/associativity/mate coherence or an unrestricted Q model."
+  },
+  "lhsAudit": {
+    "unreviewedClauses": 0,
+    "unreviewedSlots": 0,
+    "annotatedSlots": 62,
+    "intentionalClauses": 42
+  },
+  "runtimeProfile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileLimitMiB": 64,
+    "subjectReduction": true,
+    "OCAMLRUNPARAM": "o=20",
+    "serialGuard": true,
+    "warnings": true,
+    "compiledObjects": false
+  },
+  "stillRequired": [
+    "Expanded cell factorization retaining both named laxity cells",
+    "Whole intrinsic unit/associativity and required Q/mate/index coherence",
+    "Later Op_prof and other original-source consumers, including fdapp1_projection_target",
+    "Whole duality/inverse and downstream qualification",
+    "Public diagnostics, catalog, health and CI"
+  ],
+  "payloadBoundary": "No operational equality/path argument, separately supplied comparison, strict-Functord exception, auxiliary Sigma fibre-composition owner or general coend theory",
+  "scope": "Non-library authoring checkpoint; production source remains unpromoted and the full source check is expected to fail at the recorded later owner."
+}

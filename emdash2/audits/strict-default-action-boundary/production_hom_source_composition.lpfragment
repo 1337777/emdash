@@ -1,0 +1,9 @@
+// The same strict represented-source action after fapp1 has projected to
+// its native Cartesian transformation head. Precomposition reverses order:
+// pre(p) o pre(q) = pre(q o p). No arbitrary transfor is made strict.
+// lhs-audit: keep 1 -- the Cartesian diagram category owns this projected Hom action.
+rule @comp_fapp0 (Functor_cart_cat $B Cat_cart) _ _ _
+      (@hom_int_precomp_func $A $B $F $Y $X $p)
+      (@hom_int_precomp_func $A $B $F $Z $Y $q)
+  ↪ @hom_int_precomp_func $A $B $F $Z $X
+      (@comp_fapp0 $A $X $Y $Z $q $p);

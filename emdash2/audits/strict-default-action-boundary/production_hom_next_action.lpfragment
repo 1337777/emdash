@@ -1,0 +1,68 @@
+// The rigid two-sided Hom retains its object head. Its next Hom is the
+// actual sequential pre/post-whiskering action on higher cells.
+rule @fapp1_func _ _ (@Hom_func $A $x $x' $y $y' $g $f) $h $k
+  ↪ @comp_cat_fapp0
+      (Hom_cat (Hom_cat $A $x $y) $h $k)
+      (Hom_cat (Hom_cat $A $x' $y)
+        (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $h)
+        (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $k))
+      (Hom_cat (Hom_cat $A $x' $y')
+        (@Hom_fapp0 $A $x $x' $y $y' $g $f $h)
+        (@Hom_fapp0 $A $x $x' $y $y' $g $f $k))
+      (@hom_postcomp_fapp1_func $A $A (@id_func $A) $x' $y $y' $f
+        (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $h)
+        (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $k))
+      (@hom_precomp_along_fapp1_func $A $A (@id_func $A) $y $x' $x $g $h $k);
+rule @fapp1_fapp0 _ _ (@Hom_func $A $x $x' $y $y' $g $f) $h $k $theta
+  ↪ @hom_postcomp_fapp1_fapp0 $A $A (@id_func $A) $x' $y $y' $f
+      (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $h)
+      (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $k)
+      (@hom_precomp_along_fapp1_fapp0 $A $A (@id_func $A) $y $x' $x $g $h $k $theta);
+
+// Fixed whiskering: only one argument of composition varies. No equality
+// between two nonidentity interchange routes is imposed.
+// lhs-audit: keep 1,2,3 -- identity-family displayed postcomposition action.
+rule @hom_postcomp_fapp1_fapp0 (Catd_cat $K) (Catd_cat $K) (@id Cat_cat (Catd_cat $K)) $W $X $Y $f $g $h $alpha
+  ↪ @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Y
+      (Struct_sigma $g $f) (Struct_sigma $h $f)
+      (Struct_sigma $alpha (@id (Hom_cat (Catd_cat $K) $X $Y) $f));
+// lhs-audit: keep 1,2,3 -- identity-family displayed precomposition action.
+rule @hom_precomp_along_fapp1_fapp0 (Catd_cat $K) (Catd_cat $K) (@id Cat_cat (Catd_cat $K)) $Z $W $X $g $h $k $alpha
+  ↪ @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Z
+      (Struct_sigma $g $h) (Struct_sigma $g $k)
+      (Struct_sigma (@id (Hom_cat (Catd_cat $K) $W $X) $g) $alpha);
+
+// The existing Cartesian mapping inclusion observes horizontal composition
+// through the ordinary composition owner, retaining both actual inputs.
+rule @strict_transfor _ _ _ _
+      (@comp_prod_fapp1_fapp0 Cat_cart $A $B $C
+        (Struct_sigma $F $G) (Struct_sigma $F' $G') (Struct_sigma $U $V))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $A $B $C
+      (Struct_sigma $F $G) (Struct_sigma $F' $G')
+      (Struct_sigma (@strict_transfor $A $B $F $F' $U)
+        (@strict_transfor $B $C $G $G' $V));
+
+// Object component of the same fixed prewhiskering, before the next Hom.
+rule @tapp0_fapp0 _ _ _ _ $y
+      (@hom_precomp_along_fapp0
+        (Functor_cat $K $B) (Functor_cat $K $B) (@id Cat_cat (Functor_cat $K $B))
+        $H $E $D $FF $eta)
+  ↪ @hom_precomp_along_fapp0 $B $B (@id_func $B)
+      (@fapp0 $K $B $H $y) (@fapp0 $K $B $E $y) (@fapp0 $K $B $D $y)
+      (@tapp0_fapp0 $K $B $E $D $y $FF) (@tapp0_fapp0 $K $B $D $H $y $eta);
+
+// Component of fixed prewhiskering of a modification. This is the generic
+// counterpart of the existing displayed horizontal-component projection.
+rule @tapp0_hom_fapp0 _ _ _ _ _ _ $y
+      (@hom_precomp_along_fapp1_fapp0
+        (Functor_cat $K $B) (Functor_cat $K $B) (@id Cat_cat (Functor_cat $K $B))
+        $H $E $D $FF $eta $theta $Phi)
+  ↪ @fapp1_fapp0
+      (Hom_cat $B (@fapp0 $K $B $D $y) (@fapp0 $K $B $H $y))
+      (Hom_cat $B (@fapp0 $K $B $E $y) (@fapp0 $K $B $H $y))
+      (@hom_precomp_along_func $B $B (@id_func $B)
+        (@fapp0 $K $B $H $y) (@fapp0 $K $B $E $y) (@fapp0 $K $B $D $y)
+        (@tapp0_fapp0 $K $B $E $D $y $FF))
+      (@tapp0_fapp0 $K $B $D $H $y $eta)
+      (@tapp0_fapp0 $K $B $D $H $y $theta)
+      (@tapp0_hom_fapp0 $K $B $D $H $eta $theta $y $Phi);

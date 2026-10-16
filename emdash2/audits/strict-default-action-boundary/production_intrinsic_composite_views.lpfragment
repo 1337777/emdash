@@ -1,0 +1,25 @@
+// Whole endpoint views for the actual two-sided whiskering Hom functor.
+// The data are the actual target map, identity Homd and relative Homd.
+// These compare their canonical composition presentations at proof time;
+// no equality or separately supplied comparison enters the intrinsic map.
+unif_rule @Hom_fapp0 (Catd_cat $K) $D $E $HD $HE $FF $M
+      (@strict_transfor _ _ _ _ (@homd_id_int $K $D))
+  ≡ @comp_fapp0 (Catd_cat $K0) $E0 $D0 $HE0 $HF $FF
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0;
+      $HD ≡ @Homd_target_catd $K $D;
+      $HE ≡ @Homd_target_catd $K $E; $HE ≡ $HE0;
+      $M ≡ @strict_transfor $K Cat_cart $HD $HE (@Homd_target_map $K $E $D $FF);
+      $HF ≡ @homd_int $K $E $D $FF ];
+
+// The source uses contravariance of Homd_target_map and ordinary
+// associativity. Both original displayed maps are retained as operands.
+unif_rule @Hom_fapp0 (Catd_cat $K) $D $E $HD $HE $FF $M
+      (@comp_fapp0 (Catd_cat $K) $D $C $HD0 $HG $GG)
+  ≡ @comp_fapp0 (Catd_cat $K0) $E0 $C0 $HE0 $HGF
+      (@comp_fapp0 (Catd_cat $K0) $E0 $D0 $C0 $GG $FF)
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0; $C ≡ $C0;
+      $HD ≡ @Homd_target_catd $K $D; $HD ≡ $HD0;
+      $HE ≡ @Homd_target_catd $K $E; $HE ≡ $HE0;
+      $M ≡ @strict_transfor $K Cat_cart $HD $HE (@Homd_target_map $K $E $D $FF);
+      $HG ≡ @homd_int $K $D $C $GG;
+      $HGF ≡ @homd_int $K $E $C (@comp_catd_fapp0 $K $E $D $C $GG $FF) ];
