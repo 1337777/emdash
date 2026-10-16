@@ -1547,6 +1547,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 start = text.index(first)
                 end = text.index(last)
                 text = (fragment('production_diagram_evaluation_profile.lpfragment') + '\n'
+                        + fragment('production_diagram_evaluation_naturality.lpfragment') + '\n'
                         + 'require open emdash.emdash3_2_one_cat_action_paths;\n'
                         + 'require open emdash.emdash3_2_one_cat_functor_closure;\n\n'
                         + text[start:end]
@@ -1958,6 +1959,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
         + fragment('production_diagram_evaluation_controls.lpfragment'))
+    (package / 'diagram_evaluation_naturality_controls.lp').write_text(
+        (package / 'emdash3_2_diagram_evaluation.lp').read_text() + '\n'
+        + fragment('production_diagram_evaluation_naturality_controls.lpfragment'))
     (package / 'cubical_migration_controls.lp').write_text(''.join(
         'require open emdash.examples.' + name + ';\n' for name in (
             'cubical_dependent_hom', 'cubical_square_total',
@@ -2046,6 +2050,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'interchanger_controls.lp',
                               package / 'weighted_migration_controls.lp',
                               package / 'diagram_evaluation_profile_controls.lp',
+                              package / 'diagram_evaluation_naturality_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; corrected opposite-profile diagram evaluation and original reviewer staged; intrinsic-comparison beta, downstream migration and public promotion open
+Status: active implementation; evaluation's exact intrinsic-comparison beta qualified; arrow-diagram profile, downstream migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,6 +38,40 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Intrinsic evaluation continuation after `ba5fd3ed`, 2026-10-16:
+the [updated review](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_review.md)
+and [native-comparison verification](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_naturality_verification.json)
+record the actual whole beta at fdapp1_comma_projection_transf. Its canonical
+evaluation input computes to whiskering of eta's existing extracted cell.
+The identity residual component is that original cell, and the next whole
+Hom action is retained. Eta remains default lax; only canonical Hom action
+uses its existing strict transformation profile. There are no supplied cells
+or operational equality/profile-proof inputs.
+
+The derived mixed body remains unchanged behind a stable projection exposing
+its original object and complete Hom actions. A measured whole endpoint
+consumer required this head because the existing exchange-of-composite rules
+distributed the alias too early. Two constructor-specific proof-time endpoint
+comparisons and the native whole beta now check with meaningful negatives.
+The original reviewer and previous focused controls also pass; the core is
+unchanged. Keep the distinction between the declared evaluation constructor,
+its derived canonical cell body, and its installed computation contract.
+
+The next original owner is transf_arrow_diagram_func, whose Cartesian
+exchange still has the wrong profile for general lax eta. First use the
+existing family-shape operation on eta's walking diagram; its expected
+codomain is Functor_oplax_cat(WalkingArrow_cat,C). Obtain the corresponding
+ordinary-lax evaluation of oplax diagrams through the alternating dual of
+the existing evaluation root, then qualify the original whole source/target
+and differential projections. Review each caller's actual profile before
+adapting it; no blanket OneCat restriction or lax/oplax identification.
+
+This tranche is progress: it implements the previously missing exact native
+comparison and changes the next action to the original arrow-diagram owner.
+The full objective stays active. Remaining library migration, strict-wrapper
+retirement, public promotion, catalog/health/CI and source-pin review are
+still required; the separate application goal stays paused.
+
 Evaluation continuation after `11dcd003`, 2026-10-16:
 the [updated review](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_verification.json)
@@ -53,9 +87,9 @@ the old unrestricted symmetry body.
 
 The extracted comparison has the retained, noncommuting boundary
 G[u] composed with eta[i] → eta[j] composed with F[u]. The exact reduction
-to eta's original extracted naturality cell is **still unqualified**, as are
-any further projection joins it requires. Settle that native comparison
-before treating the new general evaluation owner as fully qualified. The
+to eta's original extracted naturality cell was **still unqualified** at
+that checkpoint. The subsequent native beta above settles this comparison
+and the next whole action. The
 broader original import now stops at transf_arrow_diagram_func and needs its
 arrow-diagram introduction profile reviewed; ordinary-target callers can use
 their existing OneCat assumptions,

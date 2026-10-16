@@ -1,0 +1,146 @@
+/* Native comparison for the opposite-profile evaluation owner.
+   The candidate body uses eta's existing extracted cell and canonical
+   precomposition. It supplies no comparison or strictness input. */
+
+// Even duality on Cartesian mapping categories, needed by this strict Hom
+// action. This does not give a same-profile action on arbitrary lax transfors.
+injective symbol EvenDual_cart_func_func (A B : Cat)
+  : τ (Functor (EvenDual_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (EvenDual_cat A) (EvenDual_cat B)));
+rule fapp0 (EvenDual_cart_func_func $A $B) $F ↪ @EvenDual_func $A $B $F;
+injective symbol EvenDual_transf [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G))
+  : τ (@StrictTransfor (EvenDual_cat A) (EvenDual_cat B)
+      (@EvenDual_func A B F) (@EvenDual_func A B G));
+rule @fapp1_fapp0 _ _ (EvenDual_cart_func_func $A $B) $F $G $U
+  ↪ @EvenDual_transf $A $B $F $G $U;
+// Projected identity/composition joins of that same whole mapping functor.
+rule @EvenDual_transf $A $B $F $F (@id _ $F)
+  ↪ @id (Functor_cart_cat (EvenDual_cat $A) (EvenDual_cat $B)) (@EvenDual_func $A $B $F);
+// lhs-audit: keep 1 -- measured SR guard for the Cartesian image category.
+rule @comp_fapp0 (Functor_cart_cat (EvenDual_cat $A) (EvenDual_cat $B)) _ _ _
+      (@EvenDual_transf $A $B $G $H $V) (@EvenDual_transf $A $B $F $G $U)
+  ↪ @EvenDual_transf $A $B $F $H
+      (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $V $U);
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _ (@EvenDual_transf $A $B $F $G $U))
+  ↪ @tapp0_fapp0 $A $B $F $G $x (@strict_transfor $A $B $F $G $U);
+rule @tapp1_func _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@EvenDual_transf $A $B $F $G $U))
+  ↪ @OddDual_func (Hom_cat $A $x $y)
+      (Hom_cat $B (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $y))
+      (@tapp1_func $A $B $F $G $x $y (@strict_transfor $A $B $F $G $U));
+rule @tapp1_fapp0 _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@EvenDual_transf $A $B $F $G $U)) $p
+  ↪ @tapp1_fapp0 $A $B $F $G $x $y (@strict_transfor $A $B $F $G $U) $p;
+
+// Readable source of eta's existing naturality cell at u.
+protected symbol diagram_evaluation_square_src [I C : Cat]
+  [F G : τ (Functor I C)] (eta : τ (@Transf I C F G))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (Hom C (@fapp0 I C F i) (@fapp0 I C G j))
+≔ @comp_fapp0 C (@fapp0 I C F i) (@fapp0 I C G i) (@fapp0 I C G j)
+    (@fapp1_fapp0 I C G i j u) (@tapp0_fapp0 I C F G i eta);
+
+// Actual internal-action extraction; this is not a separately declared cell.
+protected symbol diagram_evaluation_square_cell [I C : Cat]
+  [F G : τ (Functor I C)] (eta : τ (@Transf I C F G))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (Hom (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j))
+      (@diagram_evaluation_square_src I C F G eta i j u)
+      (@tapp1_fapp0 I C F G i j eta u))
+≔ @tapp1_post_laxity_cell I C F G eta i i j u (@id I i);
+
+// For theta:G⇒H, the two functors send theta to theta[j] composed with
+// the source/target of eta's square. They are whole in theta.
+protected symbol diagram_evaluation_naturality_src [I C : Cat]
+  [F G H : τ (Functor I C)] (eta : τ (@Transf I C F G))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (Functor (@Transf_cat I C G H)
+      (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j)))
+≔ @comp_cat_fapp0 _ _ _
+    (@hom_precomp_along_func C C (@id_func C) (@fapp0 I C H j)
+      (@fapp0 I C F i) (@fapp0 I C G j)
+      (@diagram_evaluation_square_src I C F G eta i j u))
+    (@tapp0_func I C G H j);
+protected symbol diagram_evaluation_naturality_tgt [I C : Cat]
+  [F G H : τ (Functor I C)] (eta : τ (@Transf I C F G))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (Functor (@Transf_cat I C G H)
+      (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j)))
+≔ @comp_cat_fapp0 _ _ _
+    (@hom_precomp_along_func C C (@id_func C) (@fapp0 I C H j)
+      (@fapp0 I C F i) (@fapp0 I C G j) (@tapp1_fapp0 I C F G i j eta u))
+    (@tapp0_func I C G H j);
+
+// Canonical Hom action is strict in theta, even though eta is arbitrary lax.
+// Prewhisker that action by the existing component functor theta↦theta[j].
+protected symbol diagram_evaluation_naturality_cart [I C : Cat]
+  [F G H : τ (Functor I C)] (eta : τ (@Transf I C F G))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@StrictTransfor (@Transf_cat I C G H)
+      (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j))
+      (@diagram_evaluation_naturality_src I C F G H eta i j u)
+      (@diagram_evaluation_naturality_tgt I C F G H eta i j u))
+≔ @fapp1_fapp0 _ _
+    (@comp_cat_con_cart_func (@Transf_cat I C G H)
+      (Hom_cat C (@fapp0 I C G j) (@fapp0 I C H j))
+      (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j)) (@tapp0_func I C G H j))
+    (@hom_precomp_along_func C C (@id_func C) (@fapp0 I C H j)
+      (@fapp0 I C F i) (@fapp0 I C G j)
+      (@diagram_evaluation_square_src I C F G eta i j u))
+    (@hom_precomp_along_func C C (@id_func C) (@fapp0 I C H j)
+      (@fapp0 I C F i) (@fapp0 I C G j) (@tapp1_fapp0 I C F G i j eta u))
+    (@hom_precomp_along_tele_fapp1_fapp0 C C (@id_func C) (@fapp0 I C H j)
+      (@fapp0 I C F i) (@fapp0 I C G j)
+      (@diagram_evaluation_square_src I C F G eta i j u)
+      (@tapp1_fapp0 I C F G i j eta u)
+      (@diagram_evaluation_square_cell I C F G eta i j u));
+
+// The same retained whole cell in evaluation's Even-dual Hom presentation.
+symbol diagram_evaluation_naturality_transf [I C : Cat]
+  [F G H : τ (Functor I C)] (eta : τ (@Transf I C F G))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@Transf (EvenDual_cat (@Transf_cat I C G H))
+      (EvenDual_cat (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j)))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_src I C F G H eta i j u))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_tgt I C F G H eta i j u)))
+≔ @strict_transfor _ _ _ _
+    (@EvenDual_transf _ _ _ _ (@diagram_evaluation_naturality_cart I C F G H eta i j u));
+
+// Whole source reading: theta[j] composed with G[u] composed with eta[i].
+// Compare the actual two endpoint presentations without runtime reassociation.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@hom_postcomp_func _ _ (@OddDual_func _ _ (@fapp0_func $I $C $i)) $z $G $F $eta)
+    (@EvenDual_func _ _ (@diagram_evaluation_mixed_func $I $C $i $j $u $G $H))
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@EvenDual_func _ _ (@hom_precomp_along_func _ _ (@id Cat_cat $C0) $z0 $a $b $h))
+    (@EvenDual_func _ _ (@tapp0_func $I0 $C1 $G0 $H0 $j0))
+  ↪ [ $I0 ≡ $I; $C0 ≡ $C; $C1 ≡ $C; $G0 ≡ $G; $H0 ≡ $H; $j0 ≡ $j;
+      $z ≡ @fapp0 $I $C $H $j; $z0 ≡ $z;
+      $a ≡ @fapp0 $I $C $F $i; $b ≡ @fapp0 $I $C $G $j;
+      $h ≡ @diagram_evaluation_square_src $I $C $F $G $eta $i $j $u ];
+
+// Whole target reading: (theta composed with eta)[u] is theta[j] composed
+// with eta[u], by the selected pre/right convention and strict evaluation.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@EvenDual_func _ _ (@diagram_evaluation_mixed_func $I $C $i $j $u $F $H))
+    (@hom_postcomp_func _ _ (@id Cat_cat (OddDual_cat (Functor_cat $I $C))) $H $G $F $eta)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@EvenDual_func _ _ (@hom_precomp_along_func _ _ (@id Cat_cat $C0) $z $a $b $h))
+    (@EvenDual_func _ _ (@tapp0_func $I0 $C1 $G0 $H0 $j0))
+  ↪ [ $I0 ≡ $I; $C0 ≡ $C; $C1 ≡ $C; $G0 ≡ $G; $H0 ≡ $H; $j0 ≡ $j;
+      $z ≡ @fapp0 $I $C $H $j;
+      $a ≡ @fapp0 $I $C $F $i; $b ≡ @fapp0 $I $C $G $j;
+      $h ≡ @tapp1_fapp0 $I $C $F $G $i $j $eta $u ];
+
+// Constructor beta at the existing whole intrinsic projection owner. The
+// internal action must be the canonical one of this very evaluation transfor.
+rule @fdapp1_comma_projection_transf _ _ _
+      (@tapp1_at_transf _ _ _ _ $H (@diagram_evaluation_transf $I $C $i $j $u))
+      (@fdapp1_int_transfd _ _ _
+        (@tapp1_at_transf _ _ _ _ $H (@diagram_evaluation_transf $I $C $i $j $u)))
+      $G $F $eta
+  ↪ @diagram_evaluation_naturality_transf $I $C $F $G $H $eta $i $j $u;

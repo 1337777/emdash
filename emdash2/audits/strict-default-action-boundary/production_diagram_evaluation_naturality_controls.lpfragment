@@ -1,0 +1,100 @@
+// Owning-position controls: protected implementation views stay in this module.
+assert (A B : Cat) (F : τ (Functor A B))
+  ⊢ @EvenDual_transf A B F F (@id (Functor_cart_cat A B) F)
+    ≡ @id (Functor_cart_cat (EvenDual_cat A) (EvenDual_cat B)) (@EvenDual_func A B F);
+assert (A B : Cat) (F G H : τ (Functor A B))
+  (U : τ (@StrictTransfor A B F G)) (V : τ (@StrictTransfor A B G H))
+  ⊢ @comp_fapp0 (Functor_cart_cat (EvenDual_cat A) (EvenDual_cat B))
+      (@EvenDual_func A B F) (@EvenDual_func A B G) (@EvenDual_func A B H)
+      (@EvenDual_transf A B G H V) (@EvenDual_transf A B F G U)
+    ≡ @fapp1_fapp0 (EvenDual_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (EvenDual_cat A) (EvenDual_cat B)) (EvenDual_cart_func_func A B) F H
+      (@comp_fapp0 (Functor_cart_cat A B) F G H V U);
+assertnot (A B : Cat) (F : τ (Functor A B))
+  (U V : τ (@StrictTransfor A B F F))
+  ⊢ @comp_fapp0 (Functor_cart_cat (EvenDual_cat A) (EvenDual_cat B))
+      (@EvenDual_func A B F) (@EvenDual_func A B F) (@EvenDual_func A B F)
+      (@EvenDual_transf A B F F V) (@EvenDual_transf A B F F U)
+    ≡ @EvenDual_transf A B F F (@comp_fapp0 (Functor_cart_cat A B) F F F U V);
+
+protected symbol evaluation_native_naturality [I C : Cat]
+  (F G H : τ (Functor I C)) (eta : τ (@Transf I C F G))
+  (i j : τ (Obj I)) (u : τ (Hom I i j))
+  : τ (@Transf (EvenDual_cat (@Transf_cat I C G H))
+      (EvenDual_cat (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j)))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_src I C F G H eta i j u))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_tgt I C F G H eta i j u)))
+≔ @tapp1_post_laxity_transf
+    (OddDual_cat (Functor_cat I C)) (OddDual_cat C)
+    (@OddDual_func _ _ (@diagram_evaluation_at_func I C j))
+    (@OddDual_func _ _ (@diagram_evaluation_at_func I C i))
+    (@diagram_evaluation_transf I C i j u) H G F eta;
+
+// Typed reflexivity exercises both whole endpoint comparisons and the beta,
+// retaining arbitrary eta and the residual H/Theta variable.
+assert (I C : Cat) (F G H : τ (Functor I C)) (eta : τ (@Transf I C F G))
+  (i j : τ (Obj I)) (u : τ (Hom I i j))
+  ⊢ eq_refl (@diagram_evaluation_naturality_transf I C F G H eta i j u)
+    : τ (@= (@Transf (EvenDual_cat (@Transf_cat I C G H))
+      (EvenDual_cat (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j)))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_src I C F G H eta i j u))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_tgt I C F G H eta i j u)))
+      (@tapp1_post_laxity_transf
+        (OddDual_cat (Functor_cat I C)) (OddDual_cat C)
+        (@OddDual_func _ _ (@diagram_evaluation_at_func I C j))
+        (@OddDual_func _ _ (@diagram_evaluation_at_func I C i))
+        (@diagram_evaluation_transf I C i j u) H G F eta)
+      (@diagram_evaluation_naturality_transf I C F G H eta i j u));
+
+// At the identity residual transformation, the actual extractor recovers
+// eta's original extracted cell, not merely a parallel new comparison.
+assert (I C : Cat) (F G : τ (Functor I C)) (eta : τ (@Transf I C F G))
+  (i j : τ (Obj I)) (u : τ (Hom I i j))
+  ⊢ eq_refl (@diagram_evaluation_square_cell I C F G eta i j u)
+    : τ (@= (Obj (Hom_cat (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j))
+      (@diagram_evaluation_square_src I C F G eta i j u) (@tapp1_fapp0 I C F G i j eta u)))
+      (@tapp1_post_laxity_cell
+        (OddDual_cat (Functor_cat I C)) (OddDual_cat C)
+        (@OddDual_func _ _ (@diagram_evaluation_at_func I C j))
+        (@OddDual_func _ _ (@diagram_evaluation_at_func I C i))
+        (@diagram_evaluation_transf I C i j u) G G F eta (@id (Functor_cat I C) G))
+      (@diagram_evaluation_square_cell I C F G eta i j u));
+
+// The next whole Hom action is the alternating dual of canonical whiskering.
+assert (I C : Cat) (F G H : τ (Functor I C)) (eta : τ (@Transf I C F G))
+  (i j : τ (Obj I)) (u : τ (Hom I i j)) (theta theta' : τ (@Transf I C G H))
+  ⊢ @tapp1_func (EvenDual_cat (@Transf_cat I C G H))
+      (EvenDual_cat (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j)))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_src I C F G H eta i j u))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_tgt I C F G H eta i j u))
+      theta theta' (@evaluation_native_naturality I C F G H eta i j u)
+    ≡ @OddDual_func _ _
+      (@tapp1_func (@Transf_cat I C G H)
+        (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j))
+        (@diagram_evaluation_naturality_src I C F G H eta i j u)
+        (@diagram_evaluation_naturality_tgt I C F G H eta i j u) theta theta'
+        (@strict_transfor _ _ _ _ (@diagram_evaluation_naturality_cart I C F G H eta i j u)));
+
+// This also checks that the stable mixed projection retained the entire
+// formerly derived Hom action, rather than only its object formula.
+assert (I C : Cat) (F G : τ (Functor I C)) (eta theta : τ (@Transf I C F G))
+  (i j : τ (Obj I)) (u : τ (Hom I i j))
+  ⊢ @fapp1_func _ _ (@diagram_evaluation_mixed_func I C i j u F G) eta theta
+    ≡ @fapp1_func _ _ (@diagram_evaluation_mixed_body I C i j u F G) eta theta;
+
+// Both new endpoint comparisons must retain the selected shape arrow.
+assertnot (I C : Cat) (F G H : τ (Functor I C)) (eta : τ (@Transf I C F G))
+  (i j : τ (Obj I)) (u v : τ (Hom I i j))
+  ⊢ @evaluation_native_naturality I C F G H eta i j u
+    : τ (@Transf (EvenDual_cat (@Transf_cat I C G H))
+      (EvenDual_cat (Hom_cat C (@fapp0 I C F i) (@fapp0 I C H j)))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_src I C F G H eta i j v))
+      (@EvenDual_func _ _ (@diagram_evaluation_naturality_tgt I C F G H eta i j v)));
+
+// No variable default-lax naturality cell has become an identity comparison.
+assertnot (I C : Cat) (F G : τ (Functor I C)) (eta : τ (@Transf I C F G))
+  (i j : τ (Obj I)) (u : τ (Hom I i j))
+  ⊢ eq_refl (@diagram_evaluation_square_src I C F G eta i j u)
+    : τ (@= (Hom C (@fapp0 I C F i) (@fapp0 I C G j))
+      (@diagram_evaluation_square_src I C F G eta i j u)
+      (@tapp1_fapp0 I C F G i j eta u));

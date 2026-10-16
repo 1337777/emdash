@@ -98,13 +98,31 @@ symbol diagram_evaluation_mixed_family [I C : Cat]
         (@hom_int_view I I (@id_func I))
         (@comp_cat_fapp0 _ _ _ (@hom_int_view C I G) (@Op_func I C F)) i)
       (@tapp1_int_func_transf I C F G));
-symbol diagram_evaluation_mixed_func [I C : Cat]
+protected symbol diagram_evaluation_mixed_body [I C : Cat]
   [i j : τ (Obj I)] (u : τ (Hom I i j)) (F G : τ (Functor I C))
   : τ (Functor (@Transf_cat I C F G)
       (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j)))
 ≔ @sym_fapp0_func (@Transf_cat I C F G) (Hom_cat I i j)
     (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j))
     (@diagram_evaluation_mixed_family I C F G i j) u;
+
+// Stable projection of the derived mixed action. The old exchange-of-composite
+// rule distributes the body before whole endpoint comparison can recognize it.
+// Its object and complete Hom action still use the original internal action.
+injective symbol diagram_evaluation_mixed_func [I C : Cat]
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) (F G : τ (Functor I C))
+  : τ (Functor (@Transf_cat I C F G)
+      (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j)));
+rule fapp0 (@diagram_evaluation_mixed_func $I $C $i $j $u $F $G) $eta
+  ↪ @tapp1_fapp0 $I $C $F $G $i $j $eta $u;
+rule @fapp1_func _ _ (@diagram_evaluation_mixed_func $I $C $i $j $u $F $G) $eta $theta
+  ↪ @fapp1_func (@Transf_cat $I $C $F $G)
+      (Hom_cat $C (@fapp0 $I $C $F $i) (@fapp0 $I $C $G $j))
+      (@diagram_evaluation_mixed_body $I $C $i $j $u $F $G) $eta $theta;
+rule @fapp1_fapp0 _ _ (@diagram_evaluation_mixed_func $I $C $i $j $u $F $G) $eta $theta $m
+  ↪ @fapp1_fapp0 (@Transf_cat $I $C $F $G)
+      (Hom_cat $C (@fapp0 $I $C $F $i) (@fapp0 $I $C $G $j))
+      (@diagram_evaluation_mixed_body $I $C $i $j $u $F $G) $eta $theta $m;
 
 // Structural whole evaluation owner. Its oplax direction is essential.
 // Qualification requires the extracted comparison as well as these projections.

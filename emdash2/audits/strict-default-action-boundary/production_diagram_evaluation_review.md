@@ -1,9 +1,83 @@
 # Varying-shape evaluation: the next profile boundary
 
 Date: 2026-10-16
-Status: staged evaluation owner/reviewer implemented; exact intrinsic-comparison beta and downstream profile migration remain open
+Status: staged evaluation owner, original reviewer and exact intrinsic-comparison beta qualified; downstream profile migration remains open
 Plan: [strict-functor/duality foundations](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Inventory: [explicit declaration-level consumers](production_diagram_evaluation_consumers.json)
+
+## Intrinsic comparison continuation after ba5fd3ed
+
+The [native comparison implementation](production_diagram_evaluation_naturality.lpfragment)
+now specifies evaluation's canonical intrinsic action at the existing
+`fdapp1_comma_projection_transf` owner. Its argument must be the canonical
+`fdapp1_int_transfd` of the same evaluation transformation; the clause does
+not rewrite an arbitrary supplied internal action. The right-hand side is
+derived from eta's original `tapp1_post_laxity_cell`, canonical Hom action
+and prewhiskering by the component functor theta ↦ theta[j].
+
+For eta:F⇒G, theta:G⇒H and u:i→j, the whole comparison is
+
+```text
+theta[j] ∘ G[u] ∘ eta[i] ⇒ theta[j] ∘ eta[j] ∘ F[u].
+```
+
+The original eta cell is retained. Canonical Hom action is strict in theta;
+eta itself still has the ordinary, unrestricted default-lax Transf type.
+EvenDual's action on **Cartesian** mapping categories moves this whole
+canonical transformation into evaluation's required Even-dual presentation.
+This is a structural duality operator on strict transformations, not a
+same-profile duality for arbitrary lax transformations. No profile property,
+comparison cell, inverse or equality proof is added to the caller's inputs.
+The projected identity and composition clauses of this same duality functor
+are checked against its whole action; a reversed-composition negative is
+retained. The composition clause keeps its measured Cartesian-category
+subject-reduction guard, without restricting eta.
+
+The actual native beta, its identity-theta component and its next whole Hom
+action pass the [owning-position controls](production_diagram_evaluation_naturality_controls.lpfragment).
+In particular, extracting the cell from the evaluation transformation now
+computes to eta's **original extracted cell**. The wrong-shape-arrow and
+strict-naturality-collapse controls fail as intended. This closes the precise
+comparison-beta gap left by ba5fd3ed; it does not assert global confluence or
+complete all downstream migration.
+
+The mixed action's old semantic body is retained as
+`diagram_evaluation_mixed_body`. Its public projection now has a stable head:
+objects compute to the same tapp1 value, while the complete Hom action
+computes through that original body. This change has a concrete consumer:
+the existing exchange-of-composite rules otherwise distribute the whole body
+into several composites before the intrinsic endpoints can be compared.
+The failed full endpoint consumer and the successful stable projection are
+recorded in the [new verification](production_diagram_evaluation_naturality_verification.json).
+There is no auxiliary Sigma-composition owner or new equality payload.
+
+Two narrowly scoped proof-time comparisons relate the actual source/target
+transport composites to their canonical whiskering presentations. They keep
+the diagram functors, eta, u, both shape endpoints and H; they do not compare
+the source of eta's lax square with its target. The native beta is a
+**constructor computation** for the declared evaluation owner. It is not
+presented as a theorem derivable from object beta alone.
+
+The original evaluator reviewer and focused controls pass on this source as
+well. The core is byte-identical to the previous qualified core; its evidence
+is carried forward rather than rerun. Both current evaluator checks retain
+subject reduction, warnings, serial execution and the 90s/2GiB guard.
+
+The next original owner is still `transf_arrow_diagram_func`. Its direct
+replacement candidate can use the already implemented whole family-shape
+operation on the walking diagram of eta:
+
+```text
+Arr(eta) = family_shape(walking_arrow_func(F,G,eta))
+         : K → Functor_oplax_cat(WalkingArrow_cat,C).
+```
+
+Evaluation of oplax diagrams can in turn be obtained from the existing root
+by applying OddDual to its version at OddDual(I), OddDual(C). Review that
+whole type and its actual source/target/differential projections before
+changing the original caller contracts. Ordinary and general callers retain
+the scope distinctions in the inventory; do not globally identify the two
+mapping profiles to keep old source text unchanged.
 
 ## Implemented continuation after 11dcd003
 
@@ -67,12 +141,11 @@ G[u] ∘ eta[i] ⇒ eta[j] ∘ F[u].
 ```
 
 The two sides remain computationally distinct for variable eta. No comparison
-cell or inverse is supplied by the caller. **This boundary check does not yet
-establish that the extracted cell reduces to eta's original extracted
-naturality cell.** That native comparison beta and any required higher
-projection joins remain the next qualification step; global confluence and
-a complete standard omega-oplax interpretation of every old internal-action
-owner are not claimed.
+cell or inverse is supplied by the caller. At that checkpoint the boundary
+check did not yet establish reduction to eta's original extracted cell.
+The subsequent native beta above now qualifies that reduction and the next
+whole action. Global confluence and a complete standard omega-oplax
+interpretation of every old internal-action owner are not claimed.
 
 One core rule has a measured inferred-slot repair: the identity-input cut for
 represented postcomposition now uses `id _ X`, because duality can erase the
