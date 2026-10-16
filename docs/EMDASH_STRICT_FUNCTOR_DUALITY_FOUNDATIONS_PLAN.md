@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; staged core, default inverse action and weighted-colimit consumers qualified; remaining library/variance migration and public promotion open
+Status: active implementation; groupoidal transport/J consumers qualified after weighted actions; whole diagram-evaluation profile and remaining migration/promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,6 +38,45 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified groupoidal transport/J continuation after `d5802c78`, 2026-10-16:
+[review](../emdash2/audits/strict-default-action-boundary/production_groupoidal_transport_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_groupoidal_transport_verification.json)
+record direct evaluation of the existing raw Cat-valued diagram. Its input,
+selected transport/inverse and complete proof body are retained; Cat_cart
+admission is not imposed on this theorem. The original reviewer uses the
+existing strict-transfor inclusion for canonical covariance, the actual
+Cat_cart target of admitted-family action, and the shared Functor object
+carrier. All 19 positive/2 negative original assertions pass in 25.059s at
+90s/2GiB with SR/warnings. No symbol or rule is added. The matched broader
+import has the same 2337 critical-pair bodies before and after the edit.
+
+The next concrete owner is diagram_evaluation_func. The
+[profile review](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_review.md)
+and [bounded consumer inventory](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_consumers.json)
+separate general fixed evaluation/postcomposition from whole shape variation.
+The latter reverses the conventional naturality square and needs the actual
+oplax profile (or a justified strict/ordinary specialization); do not equate
+Functor_cart_cat and Functor_cat or restrict every valid fixed-evaluation input.
+The inventory records 123 direct calls in 55 modules; 115 signatures mention
+an ordinary-category guard, whose actual target must still be reviewed.
+
+The reference's full omega lax/oplax dualities use odd/even reversal, not
+our dimension-one Op_cat. Keep existing T/R/O meanings. The Homd index's
+literal transpose presentation is not a qualified standard omega-oplax Hom;
+its source explicitly records that boundary. Do not upgrade or replace that
+profile without its own actual-consumer evidence. The next bounded slice must
+settle the whole evaluation profile and preserve its mixed functor, higher
+noninvertible action and extracted comparison, before migrating the dependent
+callers. Reuse fixed evaluation/whiskering and appropriate existing strict
+views; new odd/even support or a native oplax interface requires explicit
+qualification. No weak-category implementation or separate nerve work is
+being resumed.
+
+The previous goal turn was progress (qualified inverse action and weighted
+preservation); this continuation qualifies the next original source/reviewer
+and identifies a genuine remaining profile boundary. The full goal remains
+active, including library migration, wrapper retirement and public validation.
+
 Qualified inverse/weighted-colimit continuation after `133e8dc0`, 2026-10-16:
 [review](../emdash2/audits/strict-default-action-boundary/production_weighted_colimit_review.md)
 and [evidence](../emdash2/audits/strict-default-action-boundary/production_weighted_colimit_verification.json)
@@ -71,8 +110,8 @@ checking; its late placement passes without raising memory. Typed unit/strict
 functor overlap observations and a wrong-input negative are retained. Global
 confluence is not claimed.
 
-The next original import is now at groupoidal_fibre_transport_equiv in
-emdash3_2_eq1_hom_action.lp. Its general Cat-valued diagram is being fed through
+At that checkpoint the next original import was at groupoidal_fibre_transport_equiv
+in emdash3_2_eq1_hom_action.lp. Its general Cat-valued diagram is being fed through
 Fibre_cat, now an admitted-Cat_cart-family facade. This transport-equivalence
 theorem only needs ordinary functor application. Prefer explicit fapp0 to
 preserve its broad diagram scope; do not silently narrow it to Cat_cart.

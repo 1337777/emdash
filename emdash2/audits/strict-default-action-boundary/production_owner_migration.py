@@ -1534,6 +1534,35 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
             baseline_target = baseline_package / path
             baseline_target.parent.mkdir(parents=True, exist_ok=True)
             baseline_target.write_text(text)
+            if path in ('emdash3_2_eq1_hom_action.lp', 'examples/groupoidal_structured_j_eq1.lp'):
+                old = text
+                facade = 'Fibre_cat (@strict_functor C Cat_cat D)'
+                expected = 2 if path == 'emdash3_2_eq1_hom_action.lp' else 4
+                assert text.count(facade) == expected, path
+                text = text.replace(facade, '@fapp0 C Cat_cat (@strict_functor C Cat_cat D)')
+                if path == 'emdash3_2_eq1_hom_action.lp':
+                    text = text.replace(
+                        '  The displayed family is supplied as one classified `StrictFunctor`, so its',
+                        '  The ordinary Cat-valued diagram retains its legacy `StrictFunctor` input.\n'
+                        '  Use its actual object action, without imposing Cat_cart-family admission. Its')
+                else:
+                    observation = '  ≡ @fib_cov_transf C D x u;'
+                    assert text.count(observation) == 1
+                    text = text.replace(observation,
+                        '  ≡ @strict_transfor C Cat_cart (@FibCov_source_catd C x) D\n'
+                        '      (@fib_cov_transf C D x u);')
+                    text = text.replace(
+                        '// Structured groupoidal J is the existing directed-family action.',
+                        '// Structured groupoidal J observes the ambient view of canonical fibre covariance.')
+                    action = '(Path_cat A) Cat_cat D x x (@eq_refl A x)'
+                    assert text.count(action) == 2
+                    text = text.replace(action, '(Path_cat A) Cat_cart D x x (@eq_refl A x)')
+                    carrier = '(Hom Cat_cat (Fibre_cat D x) (Fibre_cat D x))'
+                    assert text.count(carrier) == 2
+                    text = text.replace(carrier, '(Functor (Fibre_cat D x) (Fibre_cat D x))')
+                changes.append({'source': path, 'owner': 'groupoidal_fibre_transport_equiv',
+                                'reason': 'Evaluate the existing general Cat-valued diagram directly instead of using the now-specialised admitted-family facade; keep its input, arrow action, chosen inverse and proof body',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_shaped_pathout.lp':
                 old = text
                 cart_pair = '(Functor_cat I (Product_cat (Op_cat I) I))'
@@ -1889,6 +1918,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/gray_interchanger.lp')
     stage('examples/gray_interchanger_orientation.lp')
     stage('examples/profunctor_weighted_limits.lp')
+    stage('examples/groupoidal_structured_j_eq1.lp')
     (package / 'cubical_migration_controls.lp').write_text(''.join(
         'require open emdash.examples.' + name + ';\n' for name in (
             'cubical_dependent_hom', 'cubical_square_total',

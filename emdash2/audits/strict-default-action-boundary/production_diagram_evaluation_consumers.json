@@ -1,0 +1,747 @@
+{
+  "status": "textual direct-call inventory; target/category guard qualification still needs per-consumer review",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "symbols": 123,
+  "files": 55,
+  "signaturesMentioningOneCatOrIsNCat": 115,
+  "entries": [
+    {
+      "file": "emdash3_2_diagram_evaluation.lp",
+      "symbol": "one_cat_diagram_family_transf_whisker_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_diagram_evaluation.lp",
+      "symbol": "one_cat_diagram_family_transf_reindex_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_image_coimage_adjunction_families.lp",
+      "symbol": "kernel_adjunction_family_inclusion_transf",
+      "oneCatInSignature": false,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_image_coimage_adjunction_families.lp",
+      "symbol": "cokernel_adjunction_family_projection_transf",
+      "oneCatInSignature": false,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_observations.lp",
+      "symbol": "one_cat_kernel_counit_zero_column_to_src_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_observations.lp",
+      "symbol": "one_cat_kernel_counit_zero_column_to_tgt_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_observations.lp",
+      "symbol": "one_cat_kernel_counit_zero_column_from_src_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_observations.lp",
+      "symbol": "one_cat_kernel_counit_zero_column_from_tgt_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_observations.lp",
+      "symbol": "one_cat_cokernel_unit_zero_column_to_src_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_observations.lp",
+      "symbol": "one_cat_cokernel_unit_zero_column_to_tgt_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_observations.lp",
+      "symbol": "one_cat_cokernel_unit_zero_column_from_src_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_observations.lp",
+      "symbol": "one_cat_cokernel_unit_zero_column_from_tgt_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_views.lp",
+      "symbol": "one_cat_cokernel_unit_source_transf_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_column_views.lp",
+      "symbol": "one_cat_kernel_counit_target_transf_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_columns.lp",
+      "symbol": "one_cat_kernel_counit_zero_column_evidence",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_adjunction_zero_columns.lp",
+      "symbol": "one_cat_cokernel_unit_zero_column_evidence",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_biproduct_injection_reindex.lp",
+      "symbol": "one_cat_biproduct_inj1_local_input_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_boundary_representatives.lp",
+      "symbol": "one_cat_boundary_image_input_zero",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_coimage_cover_descent.lp",
+      "symbol": "one_cat_coimage_family_factor_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_coimage_cover_descent.lp",
+      "symbol": "one_cat_coimage_family_input_zero",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_coimage_cover_descent.lp",
+      "symbol": "one_cat_coimage_cover_inverse_factor_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_coimage_cover_descent.lp",
+      "symbol": "one_cat_coimage_cover_descent_reconstruction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_coimage_cover_descent.lp",
+      "symbol": "one_cat_coimage_cover_reflect_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_coimage_factor_paths.lp",
+      "symbol": "one_cat_image_factor_ambient_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_coimage_factor_paths.lp",
+      "symbol": "one_cat_coimage_factor_ambient_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_annihilation.lp",
+      "symbol": "one_cat_cokernel_family_zero_view_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_annihilation.lp",
+      "symbol": "one_cat_cokernel_family_annihilation_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_descent.lp",
+      "symbol": "one_cat_cokernel_family_descent",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_descent.lp",
+      "symbol": "one_cat_cokernel_family_descent_reconstruction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_descent.lp",
+      "symbol": "one_cat_cokernel_family_descent_unique",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_inputs.lp",
+      "symbol": "zero_arrow_family_zero_transf",
+      "oneCatInSignature": false,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_inputs.lp",
+      "symbol": "one_cat_cokernel_family_introduced_input",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_inputs.lp",
+      "symbol": "one_cat_cokernel_family_input",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_inputs.lp",
+      "symbol": "one_cat_cokernel_family_introduced_target_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_inputs.lp",
+      "symbol": "one_cat_cokernel_family_input_target_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_point_paths.lp",
+      "symbol": "one_cat_cokernel_family_descent_point_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_cokernel_family_reconstruction.lp",
+      "symbol": "one_cat_cokernel_family_descent_ambient_reconstruction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_connecting_target_lifts.lp",
+      "symbol": "one_cat_target_cover_lift_zero",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_constant_chain_zeros.lp",
+      "symbol": "one_cat_constant_zero_factor_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_diagram_family_paths.lp",
+      "symbol": "one_cat_terminal_family_test_reflect_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_diagram_family_paths.lp",
+      "symbol": "one_cat_initial_family_test_reflect_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_diagram_family_reconstruction.lp",
+      "symbol": "one_cat_diagram_family_reconstruction_to",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_diagram_family_reconstruction.lp",
+      "symbol": "one_cat_diagram_family_reconstruction_from",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_diagram_family_reconstruction.lp",
+      "symbol": "one_cat_diagram_family_reconstruction_left_law",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_diagram_family_reconstruction.lp",
+      "symbol": "one_cat_diagram_family_reconstruction_right_law",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_diagram_family_reconstruction.lp",
+      "symbol": "one_cat_diagram_family_reconstruction_evidence",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_difference_cokernels.lp",
+      "symbol": "one_cat_difference_row_cokernel_zero",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_difference_cover_closure.lp",
+      "symbol": "one_cat_short_exact_outgoing_cokernel_zero",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_difference_covers.lp",
+      "symbol": "one_cat_difference_row_cover_omega",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_homology_family_comparison.lp",
+      "symbol": "homology_family_comparison_native_generator_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_homology_family_comparison.lp",
+      "symbol": "homology_family_comparison_native_generator_evidence",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_homology_family_comparison.lp",
+      "symbol": "homology_family_comparison_native_introduced_diagram_evidence",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_homology_family_comparison.lp",
+      "symbol": "homology_family_comparison_native_diagram_reconstruction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_image_coimage_comparison.lp",
+      "symbol": "one_cat_source_to_image_projection_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_image_coimage_comparison.lp",
+      "symbol": "one_cat_source_to_image_kills_kernel_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_image_coimage_comparison.lp",
+      "symbol": "one_cat_coimage_image_factorization_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_image_coimage_comparison.lp",
+      "symbol": "one_cat_coimage_image_factorization_unique",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_image_family_covers.lp",
+      "symbol": "one_cat_image_family_source_factor_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_inverse_from_universal_zeros.lp",
+      "symbol": "one_cat_kernel_zero_coimage_diagram_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_inverse_from_universal_zeros.lp",
+      "symbol": "one_cat_zero_kernel_cokernel_omega",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_cokernel_family_paths.lp",
+      "symbol": "one_cat_kernel_whole_annihilation",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_cokernel_family_paths.lp",
+      "symbol": "one_cat_cokernel_whole_annihilation",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_cokernel_family_paths.lp",
+      "symbol": "one_cat_kernel_family_projection_zero_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_difference_lifts.lp",
+      "symbol": "one_cat_difference_kernel_precomposition_zero",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_inputs.lp",
+      "symbol": "precomposed_diagram_family_func",
+      "oneCatInSignature": false,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_inputs.lp",
+      "symbol": "one_cat_kernel_family_introduced_input",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_inputs.lp",
+      "symbol": "one_cat_kernel_family_input",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_inputs.lp",
+      "symbol": "one_cat_kernel_family_introduced_source_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_inputs.lp",
+      "symbol": "one_cat_kernel_family_input_source_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_lift.lp",
+      "symbol": "one_cat_kernel_family_lift",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_lift.lp",
+      "symbol": "one_cat_kernel_family_lift_reconstruction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_lift.lp",
+      "symbol": "one_cat_kernel_family_lift_unique",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_point_paths.lp",
+      "symbol": "one_cat_kernel_family_point_incoming_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_reconstruction.lp",
+      "symbol": "one_cat_kernel_family_lift_ambient_reconstruction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_restriction_paths.lp",
+      "symbol": "one_cat_kernel_family_zero_view_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_restriction_paths.lp",
+      "symbol": "one_cat_kernel_family_annihilation_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_family_restriction_paths.lp",
+      "symbol": "one_cat_boundary_kills_incoming_kernel_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_input_boundaries.lp",
+      "symbol": "one_cat_kernel_input_boundary_reconstruction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_input_observation_paths.lp",
+      "symbol": "one_cat_kernel_family_input_incoming_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_precomposition.lp",
+      "symbol": "one_cat_kernel_precomposition_projection_zero_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_pullback_lifts.lp",
+      "symbol": "one_cat_zero_family_precompose_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_kernel_pullback_lifts.lp",
+      "symbol": "one_cat_kernel_pullback_cone_zero",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_native_connecting_projection_zero.lp",
+      "symbol": "one_cat_native_middle_cycle_cover_zero",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_native_connecting_upper_lifts.lp",
+      "symbol": "one_cat_native_upper_lift_zero",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_short_exact_families.lp",
+      "symbol": "one_cat_row_cokernel_comparison",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_short_exact_families.lp",
+      "symbol": "one_cat_row_cokernel_reconstruction_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_short_exact_family_cancellation.lp",
+      "symbol": "one_cat_row_cokernel_ambient_reconstruction_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_short_exact_family_cancellation.lp",
+      "symbol": "one_cat_short_exact_family_outgoing_reflect_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_short_exact_family_colifts.lp",
+      "symbol": "one_cat_short_exact_cokernel_inverse_outgoing_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_short_exact_family_colifts.lp",
+      "symbol": "one_cat_short_exact_family_colift_reconstruction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_short_exact_family_lifts.lp",
+      "symbol": "one_cat_short_exact_family_lift",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_short_exact_family_lifts.lp",
+      "symbol": "one_cat_short_exact_family_lift_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_short_exact_family_lifts.lp",
+      "symbol": "one_cat_short_exact_family_lift_reconstruction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_families.lp",
+      "symbol": "one_cat_terminal_adjunction_family_presentation_evidence",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_families.lp",
+      "symbol": "one_cat_initial_adjunction_family_presentation_evidence",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_family_observations.lp",
+      "symbol": "one_cat_terminal_adjunction_family_presentation_to_src_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_family_observations.lp",
+      "symbol": "one_cat_terminal_adjunction_family_presentation_to_tgt_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_family_observations.lp",
+      "symbol": "one_cat_terminal_adjunction_family_presentation_from_src_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_family_observations.lp",
+      "symbol": "one_cat_terminal_adjunction_family_presentation_from_tgt_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_family_observations.lp",
+      "symbol": "one_cat_initial_adjunction_family_presentation_to_src_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_family_observations.lp",
+      "symbol": "one_cat_initial_adjunction_family_presentation_to_tgt_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_family_observations.lp",
+      "symbol": "one_cat_initial_adjunction_family_presentation_from_src_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_adjunction_family_observations.lp",
+      "symbol": "one_cat_initial_adjunction_family_presentation_from_tgt_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_family_paths.lp",
+      "symbol": "one_cat_terminal_family_arrow_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_terminal_family_paths.lp",
+      "symbol": "one_cat_initial_family_arrow_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_cokernel_covers.lp",
+      "symbol": "one_cat_cokernel_zero_image_diagram_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_cokernel_families.lp",
+      "symbol": "one_cat_zero_cokernel_retraction",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_cokernel_families.lp",
+      "symbol": "one_cat_zero_cokernel_left_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_cokernel_families.lp",
+      "symbol": "one_cat_zero_cokernel_right_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_cokernel_families.lp",
+      "symbol": "one_cat_zero_cokernel_omega",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_cone_row_families.lp",
+      "symbol": "zero_cone_row_family_outgoing",
+      "oneCatInSignature": false,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_family_paths.lp",
+      "symbol": "one_cat_zero_family_prewhisker_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_family_paths.lp",
+      "symbol": "one_cat_zero_family_chain_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_family_postcomposition_paths.lp",
+      "symbol": "one_cat_zero_family_postcompose_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_kernel_families.lp",
+      "symbol": "one_cat_zero_kernel_section",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_kernel_families.lp",
+      "symbol": "one_cat_zero_kernel_right_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_kernel_families.lp",
+      "symbol": "one_cat_zero_kernel_left_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_one_cat_zero_kernel_families.lp",
+      "symbol": "one_cat_zero_kernel_omega",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_preadditive_zero_family_components.lp",
+      "symbol": "preadditive_zero_family_component_path",
+      "oneCatInSignature": false,
+      "preadditiveInSignature": true
+    },
+    {
+      "file": "emdash3_2_walking_arrow_native_observation.lp",
+      "symbol": "diagram_native_arrow_lax_transfor",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_walking_arrow_native_observation.lp",
+      "symbol": "diagram_native_arrow_value_path",
+      "oneCatInSignature": true,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_zero_arrow_cones.lp",
+      "symbol": "zero_arrow_cone_differential_transf",
+      "oneCatInSignature": false,
+      "preadditiveInSignature": false
+    },
+    {
+      "file": "emdash3_2_zero_arrow_pair_observations.lp",
+      "symbol": "zero_arrow_family_pair_at",
+      "oneCatInSignature": false,
+      "preadditiveInSignature": false
+    }
+  ]
+}
