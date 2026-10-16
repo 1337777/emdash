@@ -1,0 +1,359 @@
+// Original opposite/reindex/representable checks, at the admitted coefficient.
+assert [A B : Cat]
+  (R : τ (Prof A B))
+  (a : τ (Obj A))
+  (b : τ (Obj B)) ⊢
+  @fapp0
+    (Product_cat B (Op_cat A))
+    Cat_cart
+    (@Op_prof A B R)
+    (Struct_sigma b a)
+  ≡ @fapp0
+      (Product_cat (Op_cat A) B)
+      Cat_cart
+      R
+      (Struct_sigma a b);
+
+assert [A B X : Cat]
+  (F : τ (Functor A X))
+  (G : τ (Functor B X))
+  (a : τ (Obj A))
+  (b : τ (Obj B)) ⊢
+  @fapp0
+    (Product_cat B (Op_cat A))
+    Cat_cart
+    (@Op_prof A B (@Hom_prof_along A B X F G))
+    (Struct_sigma b a)
+  ≡ @Hom_cat
+      X
+      (@fapp0 A X F a)
+      (@fapp0 B X G b);
+
+assert [A B : Cat]
+  (R : τ (Prof A B)) ⊢
+  @fapp0
+    (@Prof_cat A B)
+    (@Prof_cat (Op_cat B) (Op_cat A))
+    (@Op_prof_func A B)
+    R
+  ≡ @Op_prof A B R;
+
+assert [A B : Cat]
+  (R : τ (Prof A B)) ⊢
+  @Op_prof (Op_cat B) (Op_cat A) (@Op_prof A B R)
+  ≡ R;
+
+assert [A B : Cat]
+  (R : τ (Prof A B))
+  (a a' : τ (Obj A))
+  (b b' : τ (Obj B))
+  (p : τ (Hom A a' a))
+  (q : τ (Hom B b b')) ⊢
+  @fapp1_fapp0
+    (Product_cat B (Op_cat A))
+    Cat_cart
+    (@Op_prof A B R)
+    (Struct_sigma b a)
+    (Struct_sigma b' a')
+    (Struct_sigma q p)
+  ≡ @fapp1_fapp0
+      (Product_cat (Op_cat A) B)
+      Cat_cart
+      R
+      (Struct_sigma a b)
+      (Struct_sigma a' b')
+      (Struct_sigma p q);
+
+assert [A B : Cat]
+  (R : τ (Prof A B)) ⊢
+  eq_refl (@Op_prof A B R)
+  : τ (
+      @Op_prof A B R
+      =
+      @Pullback_catd
+        (Product_cat B (Op_cat A))
+        (Product_cat (Op_cat A) B)
+        R
+        (@Product_swap_func B (Op_cat A)));
+
+assert [A B : Cat] ⊢
+  eq_refl (@Op_prof_func A B)
+  : τ (
+      @Op_prof_func A B
+      =
+      @Pullback_catd_func
+        (Product_cat B (Op_cat A))
+        (Product_cat (Op_cat A) B)
+        (@Product_swap_func B (Op_cat A)));
+
+assert [A B : Cat]
+  [P Q : τ (Prof A B)]
+  (r : τ (ProfMap P Q)) ⊢
+  @Op_prof_map A B P Q r
+  : τ (@ProfMap
+      (Op_cat B)
+      (Op_cat A)
+      (@Op_prof A B P)
+      (@Op_prof A B Q));
+
+assert [A A' B B' : Cat]
+  [R : τ (Prof A B)]
+  [F : τ (Functor A' A)]
+  [G : τ (Functor B' B)] ⊢
+  @Prof_reindex
+    (Op_cat B)
+    (Op_cat B')
+    (Op_cat A)
+    (Op_cat A')
+    (@Op_prof A B R)
+    (@Op_func B' B G)
+    (@Op_func A' A F)
+  ≡ @Op_prof
+      A' B'
+      (@Prof_reindex A A' B B' R F G);
+
+
+// Whole fibre functor, with arbitrary endpoint functors and an arbitrary base object.
+assert [A A' B B' : Cat] [R S : τ (Prof A B)]
+  (r : τ (@ProfMap A B R S)) (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (ab : τ (Obj (Product_cat (Op_cat A') B'))) ⊢
+  @tapp0_fapp0 (Product_cat (Op_cat A') B') Cat_cart
+    (@Prof_reindex A A' B B' R F G) (@Prof_reindex A A' B B' S F G) ab
+    (@Prof_reindex_transf A A' B B' R S r F G)
+  ≡ @tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart R S
+      (@fapp0 (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B)
+        (@Prof_reindex_base_func A A' B B' F G) ab) r;
+// Identity endpoint reindexing agrees whichever constructor projection is exposed first.
+assert [A B : Cat] [R S : τ (Prof A B)] (r : τ (@ProfMap A B R S))
+  (ab : τ (Obj (Product_cat (Op_cat A) B))) ⊢
+  @tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart R S ab
+    (@Prof_reindex_transf A A B B R S r (@id_func A) (@id_func B))
+  ≡ @tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart R S ab r;
+
+// The projection retains a whole functor: its next Hom action is still available.
+assert [A A' B B' : Cat] [R S : τ (Prof A B)]
+  (r : τ (@ProfMap A B R S)) (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (ab : τ (Obj (Product_cat (Op_cat A') B')))
+  (u v : τ (Obj (@fapp0 (Product_cat (Op_cat A) B) Cat_cart R
+    (@fapp0 (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B)
+      (@Prof_reindex_base_func A A' B B' F G) ab)))) ⊢
+  @fapp1_func _ _
+    (@tapp0_fapp0 (Product_cat (Op_cat A') B') Cat_cart
+      (@Prof_reindex A A' B B' R F G) (@Prof_reindex A A' B B' S F G) ab
+      (@Prof_reindex_transf A A' B B' R S r F G)) u v
+  ≡ @fapp1_func _ _
+    (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart R S
+      (@fapp0 (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B)
+        (@Prof_reindex_base_func A A' B B' F G) ab) r) u v;
+
+// Reindexing does not identify unrelated map data.
+assertnot [A A' B B' : Cat] [R S : τ (Prof A B)]
+  (r s : τ (@ProfMap A B R S)) (F : τ (Functor A' A)) (G : τ (Functor B' B))
+  (ab : τ (Obj (Product_cat (Op_cat A') B'))) ⊢
+  @tapp0_fapp0 (Product_cat (Op_cat A') B') Cat_cart
+    (@Prof_reindex A A' B B' R F G) (@Prof_reindex A A' B B' S F G) ab
+    (@Prof_reindex_transf A A' B B' R S r F G)
+  ≡ @tapp0_fapp0 (Product_cat (Op_cat A') B') Cat_cart
+    (@Prof_reindex A A' B B' R F G) (@Prof_reindex A A' B B' S F G) ab
+    (@Prof_reindex_transf A A' B B' R S s F G);
+
+// Whole negative/positive section action retains the existing native ladder.
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (h : τ (Hom (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E Y x))) ⊢
+  fapp0 (fapp0 (@fapp1_func K Cat_cart (@Hom_catd K E X Y) x y) p) h
+  ≡ @Hom_catd_fapp1_fapp0_point K E X Y x y p h;
+
+// Its point comparison is the original Hom owner applied to both actual
+// section cells and E[p]'s Hom action. This is proof-time, not runtime beta.
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (h : τ (Hom (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E Y x))) ⊢
+  eq_refl (@Hom_catd_fapp1_fapp0_point K E X Y x y p h)
+  : τ (@Hom_catd_fapp1_fapp0_point K E X Y x y p h
+       = @Hom_fapp0 (Fibre_cat E y)
+           (fapp0 (@catd_transport_func K E x y p)
+             (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
+           (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+           (fapp0 (@catd_transport_func K E x y p) (@piapp0 K E Y x))
+           (@piapp0 K E Y y)
+           (@fdapp1_int_cell (CoAbove2_cat K) (@Const_catd (CoAbove2_cat K) Terminal_cat) (@TotalOp_catd K E) X x y p Terminal_obj)
+           (@fdapp1_int_cell K (@Const_catd K Terminal_cat) E Y x y p Terminal_obj)
+           (@fapp1_fapp0 (Fibre_cat E x) (Fibre_cat E y)
+             (@catd_transport_func K E x y p)
+             (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+             (@piapp0 K E Y x) h));
+
+// The semantic comparison retains the actual filler; it cannot replace it.
+assertnot [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (h h2 : τ (Hom (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E Y x))) ⊢
+  eq_refl (@Hom_catd_fapp1_fapp0_point K E X Y x y p h)
+  : τ (@Hom_catd_fapp1_fapp0_point K E X Y x y p h
+       = @Hom_fapp0 (Fibre_cat E y)
+           (fapp0 (@catd_transport_func K E x y p)
+             (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
+           (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+           (fapp0 (@catd_transport_func K E x y p) (@piapp0 K E Y x))
+           (@piapp0 K E Y y)
+           (@fdapp1_int_cell (CoAbove2_cat K) (@Const_catd (CoAbove2_cat K) Terminal_cat) (@TotalOp_catd K E) X x y p Terminal_obj)
+           (@fdapp1_int_cell K (@Const_catd K Terminal_cat) E Y x y p Terminal_obj)
+           (@fapp1_fapp0 (Fibre_cat E x) (Fibre_cat E y)
+             (@catd_transport_func K E x y p)
+             (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+             (@piapp0 K E Y x) h2));
+
+
+// A transpose-only negative family has a different base profile.
+assertnot [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (Op_catd E)))) (Y : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) ⊢
+  @Hom_catd_fapp1_func K E X Y x y
+  : τ (Functor (Hom_cat K x y)
+      (Functor_cart_cat
+        (@Hom_cat (Fibre_cat E x)
+          (@piapp0 (CoAt2_cat K) (@Op_catd K E) X x) (@piapp0 K E Y x))
+        (@Hom_cat (Fibre_cat E y)
+          (@piapp0 (CoAt2_cat K) (@Op_catd K E) X y) (@piapp0 K E Y y))));
+
+// Original join consumer with the same corrected coefficient and ordinary Hom views.
+/* Whole/point join cross computation and constant-endpoint regression. */
+
+
+// Regression: the represented hom action still computes after the target
+// family has reduced from Prof_reindex to Const_catd.
+assert (A B : Cat) (b : τ (Obj B))
+  (ab : τ (Obj (Product_cat (Op_cat A) A)))
+  ⊢ @Fibre_func (Product_cat (Op_cat A) A)
+      (@Unit_prof A)
+      (@Const_catd (Product_cat (Op_cat A) A) (Hom_cat B b b))
+      (@Prof_func_hom A B (@Const_func A B b)) ab
+    ≡ @Const_func (Hom_cat A (sigma_Fst ab) (sigma_Snd ab))
+      (Hom_cat B b b) (@id B b);
+
+// The next product-base action still reaches the original internal action
+// even when its target has already normalized to the constant Hom family.
+assert (A B : Cat) (b : τ (Obj B))
+  (ab ab' : τ (Obj (Product_cat (Op_cat A) A)))
+  (pq : τ (Hom (Product_cat (Op_cat A) A) ab ab'))
+  ⊢ @tapp1_fapp0 (Product_cat (Op_cat A) A) Cat_cart
+      (@Unit_prof A)
+      (@Const_catd (Product_cat (Op_cat A) A) (Hom_cat B b b))
+      ab ab' (@Prof_func_hom A B (@Const_func A B b)) pq
+    ≡ @tapp1_fapp0 A Cat_cart
+      (@hom_ A A (@id_func A) (sigma_Fst ab))
+      (@hom_ B A (@Const_func A B b) b)
+      (sigma_Snd ab) (sigma_Snd ab')
+      (@tapp1_fapp0 (Op_cat A) (@Catd_cat A)
+        (@hom_int_view A A (@id_func A))
+        (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (@Catd_cat A)
+          (@hom_int_view B A (@Const_func A B b))
+          (@Op_func A B (@Const_func A B b)))
+        (sigma_Fst ab) (sigma_Fst ab')
+        (@fapp1_int_transf A B (@Const_func A B b)) (sigma_Fst pq))
+      (sigma_Snd pq);
+
+// The two newly exposed syntactic naturality overlaps would require this
+// reversed-type Unit_prof application. It is not a well-typed functor.
+assertnot ⊢ @Unit_prof Cat_cat
+  : τ (Functor Cat_cat (Product_cat (Op_cat Cat_cat) Cat_cat));
+
+symbol probe_cross_func [A B : Cat]
+  (ab : τ (Obj (Product_cat (Op_cat A) B)))
+  : τ (Functor Terminal_cat
+      (Hom_cat (Join_cat A B)
+        (@fapp0 A (Join_cat A B) (@join_fst_func A B) (sigma_Fst ab))
+        (@fapp0 B (Join_cat A B) (@join_snd_func A B) (sigma_Snd ab))))
+≔ @tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart
+    (@Terminal_prof A B)
+    (@Prof_reindex (Join_cat A B) A (Join_cat A B) B
+      (@Unit_prof (Join_cat A B)) (@join_fst_func A B) (@join_snd_func A B))
+    ab (@join_cross_transf A B);
+
+symbol probe_action_func [A B C : Cat]
+  [F : τ (Functor A C)] [G : τ (Functor B C)]
+  (cross : τ (Obj (@Prof_transf_cat C A C B
+    (@Terminal_prof A B) F (@Unit_prof C) G)))
+  (ab : τ (Obj (Product_cat (Op_cat A) B)))
+  : τ (Functor Terminal_cat
+      (Hom_cat C (@fapp0 A C F (sigma_Fst ab)) (@fapp0 B C G (sigma_Snd ab))))
+≔ @comp_cat_fapp0 Terminal_cat _ _
+    (@fapp1_func (Join_cat A B) C (@join_elim_func A B C F G cross)
+      (@fapp0 A (Join_cat A B) (@join_fst_func A B) (sigma_Fst ab))
+      (@fapp0 B (Join_cat A B) (@join_snd_func A B) (sigma_Snd ab)))
+    (@probe_cross_func A B ab);
+
+// Whole cross beta with arbitrary varying endpoints and arbitrary cross data.
+assert (A B C : Cat) (F : τ (Functor A C)) (G : τ (Functor B C))
+  (cross : τ (Obj (@Prof_transf_cat C A C B
+    (@Terminal_prof A B) F (@Unit_prof C) G)))
+  (ab : τ (Obj (Product_cat (Op_cat A) B)))
+  ⊢ @probe_action_func A B C F G cross ab
+    ≡ @Fibre_func (Product_cat (Op_cat A) B)
+      (@Terminal_prof A B)
+      (@Prof_reindex C A C B (@Unit_prof C) F G) cross ab;
+
+// The point-first reduction order reaches the same original cross component.
+assert (A B C : Cat) (F : τ (Functor A C)) (G : τ (Functor B C))
+  (cross : τ (Obj (@Prof_transf_cat C A C B
+    (@Terminal_prof A B) F (@Unit_prof C) G)))
+  (ab : τ (Obj (Product_cat (Op_cat A) B)))
+  ⊢ @fapp1_fapp0 (Join_cat A B) C (@join_elim_func A B C F G cross) _ _
+      (@fapp0 Terminal_cat _ (@probe_cross_func A B ab) Terminal_obj)
+    ≡ @fapp0 Terminal_cat _
+      (@Fibre_func (Product_cat (Op_cat A) B)
+        (@Terminal_prof A B)
+        (@Prof_reindex C A C B (@Unit_prof C) F G) cross ab) Terminal_obj;
+
+// Higher action of the whole reduced functor remains available.
+assert (A B C : Cat) (F : τ (Functor A C)) (G : τ (Functor B C))
+  (cross : τ (Obj (@Prof_transf_cat C A C B
+    (@Terminal_prof A B) F (@Unit_prof C) G)))
+  (ab : τ (Obj (Product_cat (Op_cat A) B)))
+  ⊢ @fapp1_func Terminal_cat _ (@probe_action_func A B C F G cross ab)
+      Terminal_obj Terminal_obj
+    ≡ @fapp1_func Terminal_cat _
+      (@Fibre_func (Product_cat (Op_cat A) B)
+        (@Terminal_prof A B)
+        (@Prof_reindex C A C B (@Unit_prof C) F G) cross ab)
+      Terminal_obj Terminal_obj;
+
+symbol probe_arrow_cross [C : Cat] [x y : τ (Obj C)]
+  (f : τ (Hom C x y))
+  : τ (Obj (@Prof_transf_cat C Terminal_cat C Terminal_cat
+      (@Terminal_prof Terminal_cat Terminal_cat)
+      (@Obj_func C x) (@Unit_prof C) (@Obj_func C y)))
+≔ @Const_func (Product_cat (Op_cat Terminal_cat) Terminal_cat)
+    (Hom_cat C x y) f;
+
+assert (C : Cat) (x y : τ (Obj C)) (f : τ (Hom C x y))
+  ⊢ @probe_action_func Terminal_cat Terminal_cat C
+      (@Obj_func C x) (@Obj_func C y) (@probe_arrow_cross C x y f)
+      (@Product_pair (Op_cat Terminal_cat) Terminal_cat Terminal_obj Terminal_obj)
+    ≡ @Obj_func (Hom_cat C x y) f;
+
+// Constant endpoint folding does not collapse an arbitrary endpoint map.
+assertnot (A B C : Cat) (R : τ (Prof B C))
+  (F : τ (Functor A B)) (b : τ (Obj B)) (c : τ (Obj C))
+  ⊢ @Prof_reindex B A C Terminal_cat R F (@Obj_func C c)
+    ≡ @Const_catd (Product_cat (Op_cat A) Terminal_cat)
+      (@fapp0 (Product_cat (Op_cat B) C) Cat_cart R
+        (@Product_pair (Op_cat B) C b c));
+
+assertnot (C : Cat) (x y : τ (Obj C)) (f g : τ (Hom C x y))
+  ⊢ @probe_action_func Terminal_cat Terminal_cat C
+      (@Obj_func C x) (@Obj_func C y) (@probe_arrow_cross C x y f)
+      (@Product_pair (Op_cat Terminal_cat) Terminal_cat Terminal_obj Terminal_obj)
+    ≡ @Obj_func (Hom_cat C x y) g;

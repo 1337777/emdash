@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: staged native intrinsic composition, whole unit comparisons and identity projection ladder check; continue original-source migration, with consumed composition/index compatibility and public/downstream qualification still open
+Status: staged original-source migration through profunctor/join section 18z checks; comma/extraction tail, consumed compatibility and public/downstream qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,33 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Original profunctor-source continuation after `d07698b6`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_profunctor_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_profunctor_verification.json)
+record migration through original section 18z. Opposite/reindexing, unit
+profunctor, represented action and join computations retain their existing
+owners with the admitted coefficient. ProfMap and shaped inputs remain lax;
+no general Q/coend theory or endpoint-convention migration is introduced.
+
+The original Hom_catd action ladder now uses its selected R-base total-dual
+negative section and both actual section cells. Its positive Hom source is
+the transported Y[x], correcting the old middle-action expression for the
+chosen conventional-lax direction. The actual typed Hom_fapp0 comparison
+checks. Primitive R(T(...)) patterns are required at that comparison;
+reducible type/action aliases did not match the normalized observations.
+
+The definitionally equal Obj(Hom_cat(...)) result annotation at the existing
+tapp0_fapp0 and fdapp1_int_cell declarations avoids premature injective-Hom
+decomposition across coefficient and duality presentations. No operation,
+proof payload or strictness condition is added. The join's original whole
+and point patterns then work without the experimental extra guards. All
+inherited foundation/Homd/section/FF/unit controls remain included.
+
+The full emitted source now stops at CommaFib_catd in section 18zz. Continue
+that original comma/extraction consumer and fdapp1_projection_source/target,
+retaining the selected profiles and the consumer-scoped coherence boundary.
+The later source, public/downstream migration and final gates remain open.
 
 Consumer/scope reassessment, 2026-10-16, after `d64e31a0`:
 the expanded [strict-Functord review](../emdash2/audits/strict-default-action-boundary/strict_functord_reassessment_2026_10_16.md#inventory-of-the-ffs-actually-consumed)

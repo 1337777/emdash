@@ -1237,6 +1237,65 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     insert('// 18. Cat-valued profunctors',
            fragment('production_intrinsic_unit_projection.lpfragment'),
            'Join the intrinsic whole identity with the same existing section, y and index identity projections')
+
+    # Canonical object-of-Hom result types avoid premature decomposition of
+    # the injective Hom alias at the actual Cat_cart/total-opposite consumers.
+    # These are definitionally the same types, not new component operations.
+    for marker in ('symbol tapp0_fapp0 :', 'symbol fdapp1_int_cell ['):
+        a = body.index(marker)
+        b = body.index(';', a)
+        old = body[a:b]
+        start = old.rfind('τ (Hom')
+        assert start >= 0, marker
+        new = old[:start] + old[start:].replace('τ (Hom', 'τ (Obj (Hom_cat', 1) + ')'
+        replace_once(old, new, marker,
+                     'Expose the existing Obj(Hom_cat) result for coefficient inclusion and negative-section arrow typing; no type or computation is added')
+
+    a = body.index('// 18b. Opposite profunctors and fixed-endpoint duality')
+    b = body.index('// 18d. Unit hom profunctor and readable representables', a)
+    old = body[a:b]
+    replace_once(old, old.replace('Cat_cat', 'Cat_cart').replace('Functor_cat', 'Functor_cart_cat'),
+                 'Opposite profunctor and reindexing base action',
+                 'Keep product-swap and product-map owners with the admitted family coefficient and its actual first Hom')
+    a = body.index('// 18d. Unit hom profunctor and readable representables')
+    b = body.index('/*\n  Stable generic action of a displayed hom-family.', a)
+    old = body[a:b]
+    replace_once(old, old.replace('Cat_cat', 'Cat_cart'), 'Unit profunctor projections',
+                 'The existing rigid Hom action lands in the admitted Cartesian coefficient')
+    a = body.index('/*\n  Stable generic action of a displayed hom-family.')
+    b = body.index('// Binary representable hom profunctor as endpoint reindexing of Unit_prof.', a)
+    replace_once(body[a:b], fragment('production_hom_catd_action.lpfragment') + '\n',
+                 'Existing Hom_catd action and semantic point comparison',
+                 'Use the R-base total-dual negative section; retain both actual section cells and the transported positive source under the conventional-lax direction')
+    a = body.index("// Proof-time comparison of curry's semantic telescope with the native Hom family.")
+    b = body.index('// Right-representable hom profunctor,', a)
+    old = body[a:b]
+    replace_once(old, old.replace('(@id Cat_cat Cat_cat)', '(@id Cat_cat Cat_cart)')
+                 .replace('$B _ Cat_cat $R', '$B _ Cat_cart $R'),
+                 'Represented profunctor curry comparisons',
+                 'Retain both actual endpoint functors and compare against the corrected Cartesian Hom package')
+    a = body.index('// Component of the existing whole reindexed map:')
+    b = body.index(';', a) + 1
+    old = body[a:b]
+    replace_once(old, old.replace('Cat_cat', 'Cat_cart'), 'Reindexed profunctor-map component',
+                 'General lax ProfMap components remain ordinary strict fibre functors at the admitted coefficient')
+    a = body.index('// Component of a functor-induced shaped unit is the ordinary hom-action.')
+    b = body.index('// 18h. Tensor, shaped introduction, and fixed-endpoint co-Yoneda maps', a)
+    old = body[a:b]
+    replace_once(old, old.replace('Cat_cat', 'Cat_cart').replace('@hom_int ', '@hom_int_view '),
+                 'Functor-induced shaped unit action',
+                 'Use the existing ordinary view of Cartesian Hom in the retained internal-action projection')
+    a = body.index('// Ordinary whole hom action of a recursor on the generating cross functor.')
+    b = body.index('// 18z. Late cross-section normalization bridges', a)
+    old = body[a:b]
+    replace_once(old, old.replace(') Cat_cat', ') Cat_cart'), 'Join cross component computations',
+                 'Keep the original whole/point cross rules; canonical tapp0 result typing supplies the coefficient boundary without extra LHS guards')
+    old = '''      $A
+      $B
+      Cat_cat
+      (@Pullback_catd $B $C $E $F)'''
+    replace_once(old, old.replace('Cat_cat', 'Cat_cart'), 'Late family pullback accumulation',
+                 'Only the family codomain changes; ambient functor composition remains Cat_cat')
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -1370,6 +1429,12 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'intrinsic_unit_prefix.lp').write_text(
         (package / 'intrinsic_composite_prefix.lp').read_text()
         + '\n' + fragment('production_intrinsic_unit_controls.lpfragment'))
+    profunctor_boundary = '// 18zz. Whole comma projection and displayed laxity extraction'
+    assert body.count(profunctor_boundary) == 1
+    inherited_controls = (package / 'intrinsic_unit_prefix.lp').read_text()[
+        len(body[:body.index(section_pullback_boundary)]):]
+    (package / 'profunctor_prefix.lp').write_text(body[:body.index(profunctor_boundary)]
+        + inherited_controls + '\n' + fragment('production_profunctor_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1580,9 +1645,10 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'section_pullback_prefix.lp',
                               package / 'intrinsic_composite_prefix.lp',
                               package / 'intrinsic_unit_prefix.lp',
+                              package / 'profunctor_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
-        'stillRequired': ['Whole coefficient/mixed-parameter coherence beyond the checked direct and constant-section actions',
+        'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',
                           'Later evaluation/weakening and whole extracted-laxity consumers with their actual profiles',
                           'Consumed Q y-comparison/coherence and late Sigma/Pi/comma consumers',
                           'Moving path-motive interfaces with their actual coefficient profiles',

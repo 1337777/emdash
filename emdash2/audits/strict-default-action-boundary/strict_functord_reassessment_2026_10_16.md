@@ -198,6 +198,41 @@ The fibre functor and its higher Hom action are not identities in general.
 The earlier composition-of-lax-FF question is therefore a real optional
 interface-design tradeoff, not a choice between useful and useless maps.
 
+User clarification on resumption: because identity Homd is separate, an
+ambient lax consumer need not call the public relative alias at all. For
+FF:D=>E it can use Homd_target_map(FF) o homd_id_int(E), together with the
+intrinsic action required by that consumer. This is the same construction
+underlying the alias, not a need for a second primitive Homd ladder.
+Homd_target_map has the corrected parameter variance; arbitrary plain
+composition with FF in every slot is not being asserted. The target action
+and intrinsic comparisons must still be qualified for their ambient inputs.
+
+In particular, tapp1_at_transf(epsilon,x) for a genuinely lax epsilon should
+land in ambient lax Transf. There is no independent mathematical reason
+that it must inhabit an eventual strict Functord classifier. A future split
+can classify exact transport-preserving maps in Functord and comparison-
+bearing maps in ambient Transf, keeping Pi ambient. The word "displayed"
+alone does not select either profile: the intended preservation contract
+does. In the ordinary strict-diagram case, the former preserves chosen
+total transport arrows exactly; the latter need not. Extending that
+description to all higher total-map operations still requires their actual
+profile qualification. Continue the current lax-Functord implementation
+while it remains feasible; retain this separation as an explicit alternative.
+
+Further clarification: this alternative can reuse the generic existing
+StrictTransfor(K,U,E,D) classifier and strict_transfor inclusion, where U is
+the admitted coefficient (currently Cat_cart). It does not require another
+bespoke strict-displayed-map grammar. At the object-classifier level one can
+use a specialization/alias Functord_s(E,D)=StrictTransfor(K,U,E,D).
+Reusing the public name Functord would be a separate API decision. Defining
+its entire Hom category still requires choosing between ambient higher
+transformations on strict map objects and the fully Cartesian mapping
+profile, which restricts higher structure too. The staged Cartesian Hom
+already has StrictTransfor as its arrow classifier. The older separate
+StrictFunctord property/carrier in the pre-migration profile extension is
+historical implementation input, not a requirement to duplicate this generic
+classifier. No meaning of public Functord is changed in this tranche.
+
 ## Coherence work required by the migration
 
 The phrase "broader Q coherence" in recent status reports was too broad as
