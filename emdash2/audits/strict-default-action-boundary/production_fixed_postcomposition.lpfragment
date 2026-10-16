@@ -1,3 +1,10 @@
+// The actual fixed-postcomposition image of the public displayed identity.
+// Both transformation legs are identities; no raw lax map is identified.
+rule @comp_prod_fapp1_fapp0 Cat_cat $K Cat_cart $C
+      (Struct_sigma $E $H) (Struct_sigma $E $H)
+      (Struct_sigma (@id (Catd_cat $K) $E) (@id _ $H))
+  ↪ @id (Functor_cat $K $C) (@comp_cat_fapp0 $K Cat_cart $C $H $E);
+
 // Fixed postcomposition is an ordinary strict functor on lax transformation
 // categories. Both other legs are literal identities; this is not the
 // unrestricted interchange law for two varying lax transformations.

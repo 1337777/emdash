@@ -1,3 +1,7 @@
+// Normality of the existing intrinsic constructor at the actual displayed identity.
+rule @fdapp1_int_transfd $K $E $E (@id (Catd_cat $K) $E)
+  ↪ @id (@Functord_cat $K $E (fapp0 (Homd_target_index_func $K) (@Homd_coeff_diagram $K $E))) (@strict_transfor $K Cat_cart $E (fapp0 (Homd_target_index_func $K) (@Homd_coeff_diagram $K $E)) (@homd_id_int $K $E));
+
 
 // Defined body of intrinsic composition, built from the two existing maps.
 // This alias is shared by the root and its projection-order computations.

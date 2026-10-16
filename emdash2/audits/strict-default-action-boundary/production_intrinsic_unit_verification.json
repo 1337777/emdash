@@ -1,0 +1,476 @@
+{
+  "status": "Native intrinsic identity, its root-to-filler projections, and both whole composition-unit comparisons check; triple associativity, expanded extracted-cell factorization, Q coherence and full migration remain open",
+  "extendsCheckpoint": "d07139e7",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "originalCoreSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "sourcePreservation": {
+    "originalCoreLines": 22644,
+    "candidateCoreLines": 24117,
+    "originalDownstreamSectionsRetained": true,
+    "unretiredNamedDeclarationsRetained": true,
+    "retiredNamesWithReplacements": {
+      "Homd_target_section_catd": "Homd_target_section_cat",
+      "functord_transport_lhs_tele_agrees": "functord_transport_rhs_tele_agrees",
+      "functord_transport_lhs_agrees": "functord_transport_rhs_agrees"
+    },
+    "unrelocatedNamedDeclarationSequenceVerified": true,
+    "namedDeclarationSequenceExceptions": [
+      "Catd_cat_func",
+      "Catd_catd_con",
+      "Const_func_func",
+      "FibCov_source_catd",
+      "FibCov_target_catd",
+      "fib_cov_int",
+      "fib_cov_src_func",
+      "fib_cov_transf",
+      "homd_id_src_sec",
+      "homd_id_tgt_func",
+      "homd_src_func",
+      "homd_src_sec",
+      "homd_tgt_func"
+    ]
+  },
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e",
+    "audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment": "f754d60461ff080b77844f38313953244e425ad28fc49e6e394ed114317a77d0",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/conventional_total_op_mapping.lpfragment": "af021c0bb56a5c6730ab5a2e56a387f4cd30fbb8102e36c70bd7f0bc35a6032f",
+    "audits/strict-default-action-boundary/cartesian_profile.lpfragment": "9baf7c78bdc42695ed2e715dd07185f17a957472f2cc7c0434cabd6314039976",
+    "audits/strict-default-action-boundary/production_family_classifier.lpfragment": "0978dd95a597059e20ecb3e38d8bba249499f522caaea1ae9f65a11753c1e81e",
+    "audits/strict-default-action-boundary/conventional_total_op_transfors.lpfragment": "33842eafce8cfb5f84ac5c401ebaf52e8e128cb1d585311862f812925dd119d9",
+    "audits/strict-default-action-boundary/conventional_total_op_offdiagonal.lpfragment": "9431b15bfbedf363c3863a12d86f94b3afbadd04a265abe3fffce0444321eba9",
+    "audits/strict-default-action-boundary/production_cartesian_closure.lpfragment": "31f8d97603e9c9c8ac2922778e15e8c5efed3a268c8d1872820041940c2be8c9",
+    "audits/strict-default-action-boundary/production_cartesian_family_duality.lpfragment": "96370700b262c367cb14934643bb9b81b8b5bd1290f108d0117a9df61c9c5feb",
+    "audits/strict-default-action-boundary/conventional_total_op_whole_action.lpfragment": "202dc17fe192b57c7a7ce8a054d6bc5746027ffa41c5f9698455ae78ee006f0a",
+    "audits/strict-default-action-boundary/conventional_total_op_source_units.lpfragment": "79dbd611f959bade6d50676325ba69d9dd8ceb866f98f84bdf851a2915d3d9a9",
+    "audits/strict-default-action-boundary/production_cartesian_product.lpfragment": "b9fd844fe022921f356c2cb2a628806ef2f9364e44a2b89546073da14d11dfb5",
+    "audits/strict-default-action-boundary/total_op_family.lpfragment": "13f79efe229f5a560dc54d3ea9c4609fac91de5b095de206277330871fe2e7d0",
+    "audits/strict-default-action-boundary/production_homd_index.lpfragment": "364d59d7bd81582d78021513e66ca5c2b1577ebb57fce4caa430e0c375b38978",
+    "audits/strict-default-action-boundary/production_homd_core.lpfragment": "6b91e32447ff87af9a6d32be6ff237fcf9896e93044b76fcfbce76e7a705dd62",
+    "audits/strict-default-action-boundary/production_intrinsic_projection.lpfragment": "6a99cc8c5da93ab05ac37a3590aa344a57daeca00f667f3fc99c5058bbc1c2d3",
+    "audits/strict-default-action-boundary/production_intrinsic_modification.lpfragment": "d82df7e48ecc52ca6844a20a67fa0cf8bdf1c9c0b2a8e4370e03186d4af8921c",
+    "audits/strict-default-action-boundary/production_index_constant_coherence.lpfragment": "692c58b4f216e0fb19898cfa50986ef4775d87725b38e6967ae55881f16a9f63",
+    "audits/strict-default-action-boundary/production_constant_section_index.lpfragment": "8b54b6cd0ca9b60335abc4f1556b8aef15179eb06492b4dcc79499ec1cfc4c32",
+    "audits/strict-default-action-boundary/production_evaluation.lpfragment": "987c74b00c90e0d95ef7d702a98040effe52ecbb7c0fcab7e8a36bd17e563f28",
+    "audits/strict-default-action-boundary/production_q_reindex.lpfragment": "e14f58912b910f994d9eac6628d6a6a53774313587f1c5738f2c215f88634273",
+    "audits/strict-default-action-boundary/production_ordinary_structural.lpfragment": "c6a89a6b9b391a3d31625395d755b9025c0618a798e6b2a6383cbd9af1387cc5",
+    "audits/strict-default-action-boundary/production_pullback_structural.lpfragment": "58eb1be31606f544940ddd8d3e2f5b4db092d4266f57107ea5942d86720196f8",
+    "audits/strict-default-action-boundary/production_total_op_pullback.lpfragment": "15bef22764f4dea59a5a6ba195099ac4e429ed7296cdda9b070fb4bffa5cd72d",
+    "audits/strict-default-action-boundary/production_section_pullback.lpfragment": "c8724d96788455a8a2777090d74a9c9205d5109828cb77d18da270f759641d85",
+    "audits/strict-default-action-boundary/production_cartesian_intrinsic.lpfragment": "2c3e4e73b6696a534efe22f53ad5e827bc66f7b37d751d0f608c555b6f496f84",
+    "audits/strict-default-action-boundary/production_cartesian_hom_action.lpfragment": "313fe43d68615eecd7094c116ced474dd756f1f18a7714401a5ab38ff51a1ab1",
+    "audits/strict-default-action-boundary/production_cartesian_reindex_view.lpfragment": "1596f796b143cac2d8f943262363a23733e4617b2c66edfe57d1bfb30958ff25",
+    "audits/strict-default-action-boundary/production_cartesian_naturality.lpfragment": "acfdc0040460323d121993951f414a24852fd71f0169ba86bec6178f7994c537",
+    "audits/strict-default-action-boundary/production_hom_source_composition.lpfragment": "f7ba3af6f9349018b8264d2a9847d88c05380151afe81b633533c5022adf73ab",
+    "audits/strict-default-action-boundary/production_fixed_postcomposition.lpfragment": "546ee067abd9648dbe63320f5f08702b07c7f8a9bd706b246bbc1510110ad274",
+    "audits/strict-default-action-boundary/production_hom_next_action.lpfragment": "e568c9b0c45e27af384081ecc9593909f8249e79995462f9a4d0992fade66698",
+    "audits/strict-default-action-boundary/production_composition_identity_pair.lpfragment": "ecb9fa045b86c7de45bdd30e7a7392330dd8b343e010e9c07e2ee3383d9f1127",
+    "audits/strict-default-action-boundary/production_displayed_unit_coherence.lpfragment": "5ff91229a5250c0a05b3526567e1ee220593f8f6a6bec4cf235521bbff96827b",
+    "audits/strict-default-action-boundary/production_intrinsic_composite_views.lpfragment": "9c45248ef0ff4f963fce2886d0083755df266ba3256fd71484fdd0b3b283c543",
+    "audits/strict-default-action-boundary/production_intrinsic_composite.lpfragment": "5a3eb2f73b91bc1160ad35903266344fd7e656da2985fe165f334ceb54fd91e9",
+    "audits/strict-default-action-boundary/production_intrinsic_composite_projection.lpfragment": "1456466238f2011efa85ac69dccdccfb594e5a0c2b90ae266d212e267ef360bd",
+    "audits/strict-default-action-boundary/production_intrinsic_unit_projection.lpfragment": "e79529308881827de74a70abcc7dd2fc74adc46f24ba5a9a0cdfd458ac547e7b",
+    "audits/strict-default-action-boundary/production_owner_controls.lpfragment": "42ba40bf4884d0b9a18cd094ec7735de70b3f8d0c0e6ec9b3699ad164989aa2c",
+    "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+    "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/production_foundations_controls.lpfragment": "d3c768a592094fb5280d4395010d1b24fcb67f394f1f3765f931c54d68a67d0b",
+    "audits/strict-default-action-boundary/production_sections_controls.lpfragment": "57f4d94f69f178e698e652f82f610fea9b8987c36ab1ce92c90cde4825961b95",
+    "audits/strict-default-action-boundary/sigma_total_op_controls.lpfragment": "2f817d10405f707cf3738ff68160f79bcd99e5a2739d0e226f9f012042408b72",
+    "audits/strict-default-action-boundary/mixed_family_controls.lpfragment": "2d0509b7853469f929d3c55b342d396ec4dccaea8493adad962c719d5cb5fd66",
+    "audits/strict-default-action-boundary/mixed_family_parameter_controls.lpfragment": "bb25703b284fc88d1fe64d44fced4ffa65a729d5a135f329654305a24f4a1ad0",
+    "audits/strict-default-action-boundary/total_op_hom_family_controls.lpfragment": "5887b77b910dd9c843af6d5c3fe5a89deddc0b9655904fa69e514c3169b69e62",
+    "audits/strict-default-action-boundary/production_homd_controls.lpfragment": "8490072106fb361ed95a7eb40bc00c5913f6d43edaa18f5ba181a1f1341b1025",
+    "audits/strict-default-action-boundary/production_q_reindex_controls.lpfragment": "37d263a6cc17c4ab0117253e436304c5818e20968c4c583a7182e30a6277c302",
+    "audits/strict-default-action-boundary/production_homd_index_controls.lpfragment": "202bed78e341861596de96ff80f6462b25c40734ef8589cde9c51871ed0c04eb",
+    "audits/strict-default-action-boundary/production_intrinsic_controls.lpfragment": "3b4a4a7fdb867b164e3a33fc6025e96f1c041b3c213a30c5c8004a51a51d1ed3",
+    "audits/strict-default-action-boundary/production_section_action_controls.lpfragment": "6b084092deeed77d1441fdd2bb622175d41512b5980f6c58c7d81c24a6336d6e",
+    "audits/strict-default-action-boundary/production_evaluation_controls.lpfragment": "02d0e4ec79a7d1b5c23b740116d1fc1279fe4fa402cbdc8dc730ff390465797a",
+    "audits/strict-default-action-boundary/production_constant_map_controls.lpfragment": "fe1f4da080a251fd0f28aec197dca4ca58652d8700b015036d8d5854f46f6a8e",
+    "audits/strict-default-action-boundary/production_ordinary_structural_controls.lpfragment": "63d9209054b5750ddbb1e62c78bf63b3ae0d4bbd868eeb7b2bd6f2fd7e3d06cf",
+    "audits/strict-default-action-boundary/production_pullback_structural_controls.lpfragment": "edd230527e3ff391a065a89339586f57f0973200be0047abfe4dc6a896d6fb27",
+    "audits/strict-default-action-boundary/production_section_pullback_controls.lpfragment": "d4d5ceee0a9b31a045cc8a1fed29939cea5901545527aa2191fef964285de0bf",
+    "audits/strict-default-action-boundary/production_intrinsic_composite_controls.lpfragment": "ec5a995c847fab5e3b46c941c43a1fcb742ea78047f98d7dec3fb8dd8186ec8b",
+    "audits/strict-default-action-boundary/production_intrinsic_unit_controls.lpfragment": "d3fb6ee084f67860bc8ae137e96cff1b05296e70efb1573e4fa98c9918178bcf",
+    "audits/strict-default-action-boundary/production_comma_equivalence.lpfragment": "7e70d4dfd77958a06f712dd0e668280efd4a16eb7e3db328030fa693309622ef",
+    "audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment": "956d22e530d20bf54ba5e58bdecfe37354c6743154280ffa0f6ce7be02067b9b",
+    "audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment": "5ebdccd39cd50e224bddb1bb559bd82f14596053102484c62d8e428e5b778344",
+    "audits/strict-default-action-boundary/production_owner_migration.py": "2b4849fca5ce26768d09fad45867a6b6a7ddf56a013f51fee5bfdfd97090d4fb"
+  },
+  "emittedOutputs": {
+    "tmp/probes/production_owner_migration/baseline.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "tmp/probes/production_owner_migration/package/emdash3_2.lp": "aa8e8622cda19b4e0e08cb0232bdfa70a1eb9c96b1ac9ec15f330b25cf40a127",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_profiles.lp": "0cfc35ef81eb2da61890ce96c4b64823ce7d94978b7e2f5699f1542a6b38e389",
+    "tmp/probes/production_owner_migration/package/owner_controls.lp": "f6a2ac4209894cb11d07726ce0641c73f0861f91b664504a3bcd35ffb263db8f",
+    "tmp/probes/production_owner_migration/package/foundations_prefix.lp": "1c36495728574fede1383c91e0028dd1b2b1b087a4c2894af63873556406d946",
+    "tmp/probes/production_owner_migration/package/sections_prefix.lp": "f1630a887a3f5fa40a358652009e134bd986cc820ea7d0c442e26f3bf6efd42a",
+    "tmp/probes/production_owner_migration/package/sigma_prefix.lp": "190299f861f0eebbd5537573c89d3d97b90477bc49704bca42d86651e52c2e74",
+    "tmp/probes/production_owner_migration/package/mixed_prefix.lp": "83d1c66b778cf07647856d9b4f0fdb9f78a65c2ce1f849fa3387c2a7cde02440",
+    "tmp/probes/production_owner_migration/package/homd_prefix.lp": "91b6d2698242a9b9bc627d2eab344e87b8b50e243926273e8741f7e74f946702",
+    "tmp/probes/production_owner_migration/package/index_profile.lp": "25159da9c544914d0d962482409f0252fbb4a84e7f8e84442d4ba6174bfd6ec1",
+    "tmp/probes/production_owner_migration/package/intrinsic_identity_prefix.lp": "308f0611c3aca7e73c9964bd0d476c9ea686d5030846cb81c9e1d33db4ba0b5a",
+    "tmp/probes/production_owner_migration/package/section_action_prefix.lp": "9577ee665524a197ae4667b7e9577dbe76cd7e0d50be72b1bbff1e3801180ded",
+    "tmp/probes/production_owner_migration/package/evaluation_prefix.lp": "f1dbca39b1b7858ea90e19d6aea696feb229ea0e7d395826bf2d80d8d6d98c44",
+    "tmp/probes/production_owner_migration/package/structural_prefix.lp": "1d20b67574f2b548cf0ceb695b8701752c97255a71387c8a16db5808c3369270",
+    "tmp/probes/production_owner_migration/package/ordinary_structural_prefix.lp": "106d3f36ec15c089d0eaeaa3c0f173142842ece1ef38691d92fe8d996a79201a",
+    "tmp/probes/production_owner_migration/package/pullback_structural_prefix.lp": "6d947487ff352c2506985df715c667b001a845f4b0778e2d7fbeb67cdf765245",
+    "tmp/probes/production_owner_migration/package/section_pullback_prefix.lp": "aa8a2838970eb394f8d6c5c09d5e1c2c011ea1b01dea139d0e0848810bc74d4f",
+    "tmp/probes/production_owner_migration/package/intrinsic_composite_prefix.lp": "59cb261c23f117c6bf7c6b8f8feaee814888ef4ec5014f8b431b3a024e2197d1",
+    "tmp/probes/production_owner_migration/package/intrinsic_unit_prefix.lp": "e08950d172304d4c520c1b421f583eb6f9b0fbd56a90b0aca93b6acd464aa58d",
+    "tmp/probes/production_owner_migration/baseline_package/emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+    "tmp/probes/production_owner_migration/baseline_package/emdash3_2_gray_profiles.lp": "f670814a83a508bd8a77a4000c7ab04690bbfc25978d106bb1d761ce6723a69c",
+    "tmp/probes/production_owner_migration/package/examples/gray_profiles.lp": "bd3dedcebf6cbb453ec98aec036c39a3f28f10f9f4df8a9fed2513653fee8944",
+    "tmp/probes/production_owner_migration/package/emdash3_2_represented_comma_families.lp": "aa71722950fe657b175b4bfa66941b570cbb22ad9fde2feca8149ffbe0f2a774",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_interchanger_orientation.lp": "545a3bbc908956856b3aee79c94b2731fe3ffef5ecc7fcf3a118eebe6737d609",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+    "tmp/probes/production_owner_migration/package/emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+    "tmp/probes/production_owner_migration/package/emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "tmp/probes/production_owner_migration/package/emdash3_2_pathout_transformation_reframing.lp": "72ecfd62db7eb98c5605511463492a06636afdf500fd3717b9d1f3f73e56ec19",
+    "tmp/probes/production_owner_migration/package/emdash3_2_shaped_pathout.lp": "e9ea36fda8d093db8c2ef5bafb5d7228cb7657ed13e4d082b01427f99ebf318e",
+    "tmp/probes/production_owner_migration/package/emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+    "tmp/probes/production_owner_migration/package/emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+    "tmp/probes/production_owner_migration/package/emdash3_2_cubical_internalization.lp": "b370e6c426ee336fad67141d95010eed702820f94e3e2d0358fb593dd29ec038",
+    "tmp/probes/production_owner_migration/package/emdash3_2_cubical_square_total.lp": "449333a73f64ee023b3bfc7599eefa6525813ec038d0a1886f8931df2059d254",
+    "tmp/probes/production_owner_migration/package/emdash3_2_cubical_dependent_hom.lp": "6c6fff3c14bc2c68b624b0fc06d8ea9d9d45267b44cda6015aac934e4bca4e0b",
+    "tmp/probes/production_owner_migration/package/emdash3_2_zero_arrow_cones.lp": "47fa107dad029adc6f5943898c980d468b7eb6fdea538637c57573bda0e1f5e7",
+    "tmp/probes/production_owner_migration/package/emdash3_2_zero_arrow_diagrams.lp": "4560d6f737bcce871672682f4557e263b5f9598c869b1f8f04f89c7c4e1c1718",
+    "tmp/probes/production_owner_migration/package/emdash3_2_arrow_diagram_families.lp": "13c8cc92119bf8b1093d71619dbea3f73fd990e2ffdc1871155abdf41aa586d1",
+    "tmp/probes/production_owner_migration/package/emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+    "tmp/probes/production_owner_migration/package/emdash3_2_diagram_evaluation.lp": "e1d879b79073bff7030604ed15340e54f3c94add40c9db97831e0af2f95d13d4",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "tmp/probes/production_owner_migration/package/emdash3_2_eq1_hom_action.lp": "c707cf7c09a32a8557e0b1178e2db4a0c1279ed78c970b4f2d50b0c8348c7a5b",
+    "tmp/probes/production_owner_migration/package/emdash3_2_strict_functor_actions.lp": "eb4d9b4dac0a277e310427ea1325346330e6881f452bb83ba35a51211fca9818",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "tmp/probes/production_owner_migration/package/emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+    "tmp/probes/production_owner_migration/package/emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_adjunction_family_views.lp": "83648e8d217a565b4663e792ca5a39c14e200dfa0e93017e734ee48196607b82",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_adjunction_families.lp": "ebfa6419249100f35d3d2d60e6b22170ef000424f4f05c990a2a8148d2cdfaf9",
+    "tmp/probes/production_owner_migration/package/emdash3_2_adjunction_mates.lp": "237a3f46a8ca98f40f160f5bcb0630068c336f8e6c57c081b4256240d34f0047",
+    "tmp/probes/production_owner_migration/package/emdash3_2_defiso_evaluation_points.lp": "eae44700c8e0b2e797c2effc8cfe9ff42573bc3bbf2e3a9b04e6f386d4171c50",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+    "tmp/probes/production_owner_migration/package/emdash3_2_strict_pointwise_equivalences.lp": "58c23c4a39a2b0a5ff872f0c9c7106830a5226d18d828e819cf15185ccdf04de",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_transfor_profiles.lp": "debb1b42841ac8b8cb7a0603abe0642af289ac9d2f5c6ff2784dffb45ac0efce",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+    "tmp/probes/production_owner_migration/package/emdash3_2_discrete_functor_paths.lp": "9cdb384f984c8bc81e0c1f158cd09b4c1c588ce1fc6e41e82584597ac441b4ea",
+    "tmp/probes/production_owner_migration/package/emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "tmp/probes/production_owner_migration/package/emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "tmp/probes/production_owner_migration/package/emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_op.lp": "85b6430a39562f3ac49f2fe263dd8996626413c12273e530a00c3db16bef3ee5",
+    "tmp/probes/production_owner_migration/package/emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+    "tmp/probes/production_owner_migration/package/emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+    "tmp/probes/production_owner_migration/package/emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+    "tmp/probes/production_owner_migration/package/emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525"
+  },
+  "baselinePrefix": {
+    "id": "20261016T093350Z-6fafc44ab873431dbb133543556ab10e",
+    "target": "intrinsic_composite_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 7.829340604948811,
+    "childrenMaxRssKiB": 583952,
+    "inputSnapshot": "e401c92d1e9e7ee6a947fed8d3de75c5dac3ddf82a0faf1ae681f6b902951173",
+    "inputs": {
+      "intrinsic_composite_prefix.lp": "8bf359e294c248ba32ed96c08ee8ecae37332a0d21e5de822bb43e823794bcfb",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261016T093350Z-6fafc44ab873431dbb133543556ab10e.log",
+    "logSha256": "4c2305d795f8985f8b5631a0fdcf43e30cde4b723ee1649b91739425c015d6fc",
+    "receipt": "logs/check-runs/20261016T093350Z-6fafc44ab873431dbb133543556ab10e.json",
+    "receiptSha256": "dd7c9ae62eb63e896751455af0d3da78a26f731458c97bfa65bc4d1da26ed3c9"
+  },
+  "candidatePrefix": {
+    "id": "20261016T102726Z-e0b5735ee9e645f387855823ed72d814",
+    "target": "intrinsic_unit_prefix.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 10.742337001021951,
+    "childrenMaxRssKiB": 868056,
+    "inputSnapshot": "6d8bfe21c184bbf13b39cf0f9a5c6d203fe4ccb2ce0afd90ae867f0bb42c00ba",
+    "inputs": {
+      "intrinsic_unit_prefix.lp": "e08950d172304d4c520c1b421f583eb6f9b0fbd56a90b0aca93b6acd464aa58d",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261016T102726Z-e0b5735ee9e645f387855823ed72d814.log",
+    "logSha256": "3c5ec8cfb7fc760e9110ef3357adb5b132a0d8a9a1d45c3e19065c7e62df66c7",
+    "receipt": "logs/check-runs/20261016T102726Z-e0b5735ee9e645f387855823ed72d814.json",
+    "receiptSha256": "b1bed0c758be0f3a7cf72de2c1788e5e565b3d76c534c194fe14c1015abcebe1"
+  },
+  "fullSourceFailure": {
+    "id": "20261016T103321Z-0432e93346894131a0505b78b6720afc",
+    "target": "emdash3_2.lp",
+    "outcome": "failed",
+    "wallSeconds": 9.628272211994044,
+    "childrenMaxRssKiB": 844660,
+    "inputSnapshot": "889663de4fd76ff79610d1bda56b84af58f38beaeab76fc48a8930da5fb61eb9",
+    "inputs": {
+      "emdash3_2.lp": "aa8e8622cda19b4e0e08cb0232bdfa70a1eb9c96b1ac9ec15f330b25cf40a127",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "log": "logs/check-runs/20261016T103321Z-0432e93346894131a0505b78b6720afc.log",
+    "logSha256": "8b67c56f11211cc6bf877753742f6f1beb870bff6f49dbb487de255aa31538e4",
+    "receipt": "logs/check-runs/20261016T103321Z-0432e93346894131a0505b78b6720afc.json",
+    "receiptSha256": "b15c0f5e74f609f018f44ec32a6a59af2a56866130bcc9e31248fe6270dfeb25",
+    "owner": "Op_prof fibre component, original section 18b",
+    "diagnosis": "The next old profunctor rule still names Cat_cat rather than the admitted Cat_cart coefficient. The complete original tail is retained."
+  },
+  "interfaces": {
+    "normality": "fdapp1_int_transfd(id_E) computes to id_(homd_id_int(E)) through its ordinary view",
+    "rootIdentity": "Homd_target_map(id_E) and homd_int(id_E) compute to the actual target identity and ordinary view of the identity Homd root",
+    "unitComparisons": "Both fdapp1_int_comp_transfd(FF,id_D) and fdapp1_int_comp_transfd(id_E,FF) agree with fdapp1_int_transfd(FF) by typed proof-time equality of the independently expanded bodies",
+    "unitRuntimeBoundary": "The whole body comparisons are proof-time, not claimed runtime conversion; the native identity and its intermediate projection heads compute at runtime",
+    "projectionOrders": "Whole identity -> x/u section -> y component -> v index -> p filler agrees with observation from the existing native identity heads"
+  },
+  "checks": {
+    "newPositiveAssertions": 10,
+    "newNegativeAssertions": 3,
+    "allPositiveAssertions": 202,
+    "allNegativeAssertions": 48,
+    "meaning": "Inherited two-map and directed-data consumers plus whole units, native identity projection orders, rejection of erasing either arbitrary loop, and rejection of changing the third map in facade associativity."
+  },
+  "normalizationFindings": [
+    {
+      "receipt": {
+        "id": "20261016T094040Z-ebe4e98d37a34237bfcdcbedcb176a79",
+        "target": "intrinsic_unit_probe.lp",
+        "outcome": "failed",
+        "wallSeconds": 7.1330869880039245,
+        "childrenMaxRssKiB": 584456,
+        "inputSnapshot": "cda62bde7e2c74d52ddf3c7afa40696d03ced760af0eb67932dbf31edc4bd2a3",
+        "inputs": {
+          "intrinsic_unit_probe.lp": "2386c872526b14e074f18f1094bc1a5cb0693e8ea40d58a18f32e0d7bbaf1403",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T094040Z-ebe4e98d37a34237bfcdcbedcb176a79.log",
+        "logSha256": "cf0e25e2230adcaa04fb4f63fdab63ca192345d7593fa035ff2e79e989d3e1b5",
+        "receipt": "logs/check-runs/20261016T094040Z-ebe4e98d37a34237bfcdcbedcb176a79.json",
+        "receiptSha256": "99ed5a3953280ab1cc2f8dc4dd780d71c4e0b1823597d249c4ba280f51599aff"
+      },
+      "finding": "The public Catd identity in fixed postcomposition prevents the identity-root endpoint from normalizing."
+    },
+    {
+      "receipt": {
+        "id": "20261016T094210Z-e514477f2d024b309d662f08ccb13f70",
+        "target": "intrinsic_unit_candidate.lp",
+        "outcome": "failed",
+        "wallSeconds": 8.005311124026775,
+        "childrenMaxRssKiB": 585212,
+        "inputSnapshot": "0da560d7d201a88e32603d6358fcb99558f3789544379ce0231f13fa2525fd56",
+        "inputs": {
+          "intrinsic_unit_candidate.lp": "f2bb04f36c9af24283108dd686ed324ac0e78cde70b224e6d53291490a1b5d2d",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T094210Z-e514477f2d024b309d662f08ccb13f70.log",
+        "logSha256": "3defbf2c925fca006fbca75de40651f9eeac7a8a0dd34fe94c6ed53e9431ade2",
+        "receipt": "logs/check-runs/20261016T094210Z-e514477f2d024b309d662f08ccb13f70.json",
+        "receiptSha256": "a4f8e96f01fd4592c68387ac9c5a4ffb7459ec2445f98b28f252ff7095440f24"
+      },
+      "finding": "After the fixed-image identity correction, the identity has the required whole type; the native intrinsic normality rule is still missing."
+    },
+    {
+      "receipt": {
+        "id": "20261016T100751Z-3766309328cd41f9b6df7266be03cd47",
+        "target": "intrinsic_unit_both_candidate.lp",
+        "outcome": "passed-fresh",
+        "wallSeconds": 14.22604450804647,
+        "childrenMaxRssKiB": 872404,
+        "inputSnapshot": "7c7c8dd06b11acfe719d1c20438584371d1bb6d77afd443d461b15cb650e3e37",
+        "inputs": {
+          "intrinsic_unit_both_candidate.lp": "2576fb3e7a5859ca0f4053d1c9d4da45fa9eab91c5b474da1f5422006b82c7f6",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T100751Z-3766309328cd41f9b6df7266be03cd47.log",
+        "logSha256": "73903f182c23f620ca77e57452c2b8994458506b655669515b7c7b8f0e69b9c5",
+        "receipt": "logs/check-runs/20261016T100751Z-3766309328cd41f9b6df7266be03cd47.json",
+        "receiptSha256": "b336568b73f745d33b31c4324e429dac6c98a36f05db065f7df496f0aa9da3c6"
+      },
+      "finding": "Both independently expanded composition bodies satisfy the whole unit comparisons at proof time."
+    },
+    {
+      "receipt": {
+        "id": "20261016T100906Z-e995b443cc534b7a88b67af9b7fd565d",
+        "target": "intrinsic_unit_minimal_candidate.lp",
+        "outcome": "failed",
+        "wallSeconds": 9.791492283926345,
+        "childrenMaxRssKiB": 857996,
+        "inputSnapshot": "58090994ddef60dc1d566f3b66426ae6c844e6da6c968029a701656faca496a0",
+        "inputs": {
+          "intrinsic_unit_minimal_candidate.lp": "eb25ea3a4ba3d1b2773ae47adde1a3eaa8cafc2573e49013455ae0f4677f89aa",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T100906Z-e995b443cc534b7a88b67af9b7fd565d.log",
+        "logSha256": "7665123ca8c41477574e8daaf653257d4660fe4c994481f17a3b47dbe0767347",
+        "receipt": "logs/check-runs/20261016T100906Z-e995b443cc534b7a88b67af9b7fd565d.json",
+        "receiptSha256": "c45b9cae98b9bb48978b8797aa18ffaa59a206497a0795732c8efa763b698f60"
+      },
+      "finding": "The earlier optional displayed/ordinary diagram composition comparison is now needed by the whole unit consumer."
+    },
+    {
+      "receipt": {
+        "id": "20261016T100946Z-e03cf8158e464f778346aa793bcdbe13",
+        "target": "intrinsic_unit_no_rigid_units.lp",
+        "outcome": "passed-fresh",
+        "wallSeconds": 12.242750946083106,
+        "childrenMaxRssKiB": 869316,
+        "inputSnapshot": "840f006b1392d4b4694795943a03a7153fdbd0a76daeebb508ca73ebcb997fbf",
+        "inputs": {
+          "intrinsic_unit_no_rigid_units.lp": "b43fa398d935b6ee4e7f81abd9f31448f903220af1aef9510c4103cab09574b6",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T100946Z-e03cf8158e464f778346aa793bcdbe13.log",
+        "logSha256": "3e0caf1aa9422fc49974185999cf2136fd01dfa8b4d24e88d2f8c74bdd66c554",
+        "receipt": "logs/check-runs/20261016T100946Z-e03cf8158e464f778346aa793bcdbe13.json",
+        "receiptSha256": "67841bf4ba026e6f8b981557901e5da7fb91b56173b2fb5be212c5a9693783db"
+      },
+      "finding": "Extra recursive Hom identity rules are unnecessary and not selected."
+    },
+    {
+      "receipt": {
+        "id": "20261016T101319Z-d0b026be6e3d4861a4e24a0ddab5b00c",
+        "target": "intrinsic_unit_runtime_scoped.lp",
+        "outcome": "passed-fresh",
+        "wallSeconds": 11.330350819975138,
+        "childrenMaxRssKiB": 866388,
+        "inputSnapshot": "2aad53712f0bb87559d46b21e9d24e90e8a5e58b62e5b94a7beafdeb6372c59d",
+        "inputs": {
+          "intrinsic_unit_runtime_scoped.lp": "5f04e629a95036942078b3b021bde434f74f863c9ecc868ff3b81c759c5a93da",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+        },
+        "log": "logs/check-runs/20261016T101319Z-d0b026be6e3d4861a4e24a0ddab5b00c.log",
+        "logSha256": "dfbcc4c54a1667290cf4b5724857e48cab9b4efd880950557154a0a31c787da8",
+        "receipt": "logs/check-runs/20261016T101319Z-d0b026be6e3d4861a4e24a0ddab5b00c.json",
+        "receiptSha256": "a0420fc27b945e23265b4fd01703f43a198cf924d4a321692656bdc1bc5456ca"
+      },
+      "finding": "Restricting the new runtime composition-unit clauses to displayed composition retains both whole unit comparisons; the proof-time unit comparisons retain their generic category form."
+    }
+  ],
+  "warnings": {
+    "comparisonBoundary": "Complete checked source through original section 17e with the same inherited reviewer boundary.",
+    "baseline": {
+      "replaceable pattern variable": 140,
+      "unjoinable critical pair": 1829
+    },
+    "candidate": {
+      "replaceable pattern variable": 148,
+      "unjoinable critical pair": 1856
+    },
+    "baselineCriticalPairs": 1829,
+    "candidateCriticalPairs": 1856,
+    "added": 36,
+    "removed": 9,
+    "addedGroups": {
+      "comp_fapp0 x comp_prod_fapp1_fapp0": {
+        "count": 4,
+        "bodiesSha256": "8ebca8945bc558b9c4091c9a6dca8de32261d3ee1d9ebc86b76a7c0df2c1be2e"
+      },
+      "comp_fapp0 x fdapp1_int_presheaf_arrow": {
+        "count": 1,
+        "bodiesSha256": "50c1486fef321649fa6b685aa59d720870ff05b9bb25361c6181dcdaa3689d64"
+      },
+      "comp_fapp0 x fdapp1_int_section_arrow": {
+        "count": 3,
+        "bodiesSha256": "18491fd4704796c013c75c0ba64e6ea148b47074ef05cb6d446033c2ee0e8b66"
+      },
+      "comp_fapp0 x fdapp1_int_tgt_arrow": {
+        "count": 1,
+        "bodiesSha256": "2c8e184c7c71a69534e6f91e6c55817a278661cac156b6bf521dbe43f6a1bf80"
+      },
+      "comp_prod_fapp1_fapp0 x comp_prod_fapp1_fapp0": {
+        "count": 5,
+        "bodiesSha256": "b3495607fba682a9feaf31c3ca540a2b1cc191277528688acbf1a471340241b5"
+      },
+      "comp_prod_fapp1_fapp0 x id": {
+        "count": 16,
+        "bodiesSha256": "c42540defdebee25c2034be1ff7e80c71c58e469bed7a30fd25bcb97494ddf3b"
+      },
+      "fapp1_fapp0 x fdapp1_int_presheaf_arrow": {
+        "count": 1,
+        "bodiesSha256": "adf2de4a4f6449e5b12925b42798d6193a4deb0bb811e268d7c97c36f20fb4bf"
+      },
+      "fdapp1_int_presheaf_arrow x fdapp1_int_presheaf_arrow": {
+        "count": 1,
+        "bodiesSha256": "c5ab27a489a2ed5068a765228be330d3571ff17f38bcb3e3d8f40c946c0edafd"
+      },
+      "fdapp1_int_tgt_arrow x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "5185f5ab11b76400746da2825d52d59c25f68bf98e4f4f4c58ccf067b097806a"
+      },
+      "fdapp1_int_transfd x tapp0_fapp0": {
+        "count": 1,
+        "bodiesSha256": "c8296d79cb5e24db130bd89ab74752a63fe5922f085c190212c9e92cde39a835"
+      },
+      "hom_postcomp_fapp1_fapp0 x hom_postcomp_fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "3ba600937b83485687a21720b0e3df0faf0727250f49bc74f608653abf60b793"
+      },
+      "hom_precomp_along_fapp1_fapp0 x hom_precomp_along_fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "d63cc9acefaa5f7b424187af753ff72e86342a90d993ef757e26996770483e7c"
+      }
+    },
+    "removedGroups": {
+      "comp_fapp0 x comp_prod_fapp1_fapp0": {
+        "count": 2,
+        "bodiesSha256": "92b3e1e19d656e2274dab7937ea13a14db4cea87ad9cab9430055271a9e01913"
+      },
+      "comp_fapp0 x fdapp1_int_presheaf_arrow": {
+        "count": 1,
+        "bodiesSha256": "f93469f7c3fd5159f37598d09030d7972fde4d885a6528c58797020726837fc2"
+      },
+      "comp_fapp0 x fdapp1_int_section_arrow": {
+        "count": 3,
+        "bodiesSha256": "70865d605298dffbddb8cfcabd7b8f10d5832e883eb206d7a96beaeff29076c0"
+      },
+      "comp_fapp0 x fdapp1_int_tgt_arrow": {
+        "count": 1,
+        "bodiesSha256": "6255fcb0af79eb5b127ca522513a1c816445c5a6b301755020e7e34facc59f13"
+      },
+      "hom_postcomp_fapp1_fapp0 x hom_postcomp_fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "180478ae11340c32ac82b833b1b489afcc24fd256aca4e0293c40a090b4763d3"
+      },
+      "hom_precomp_along_fapp1_fapp0 x hom_precomp_along_fapp1_fapp0": {
+        "count": 1,
+        "bodiesSha256": "86829bca9440933d21b6f3ec90e5f444d07e49d73bd475de69cba43ef8e994f0"
+      }
+    },
+    "parserIssues": 0,
+    "assessment": "New runtime clauses concern fixed-postcomposition identity, displayed identity-pair and unit whiskering, native intrinsic identity and its projection joins. Whole unit proof comparisons constrain identity operands, category presentations and every actual map. Typed noncollapse controls reject arbitrary loops and replacement maps. This is not a global confluence or unrestricted Q-model result; triple and mapped-composite coherence remains required."
+  },
+  "lhsAudit": {
+    "unreviewedClauses": 0,
+    "unreviewedSlots": 0,
+    "annotatedSlots": 62,
+    "intentionalClauses": 42
+  },
+  "runtimeProfile": {
+    "timeoutSeconds": 90,
+    "memoryMiB": 2048,
+    "fileLimitMiB": 64,
+    "subjectReduction": true,
+    "OCAMLRUNPARAM": "o=20",
+    "serialGuard": true,
+    "warnings": true,
+    "compiledObjects": false
+  },
+  "strictAlternative": "The accompanying strict_functord_reassessment_2026_10_16.md is analysis only. Public Functord and default Transf remain lax, families retain Cat_cart coefficients, and no alternative migration was started.",
+  "stillRequired": [
+    "Whole intrinsic triple associativity and mapped-composite coherence",
+    "Expanded extracted-cell factorization with both named laxity cells",
+    "Remaining Q/mate/index and whole duality/inverse qualification",
+    "Later original kernel and downstream consumers",
+    "Public diagnostics, catalog, health and CI"
+  ],
+  "payloadBoundary": "No operational equality/path input, independently supplied laxity cell, strict-Functord default or new primitive section classifier",
+  "scope": "Non-library source-authoring checkpoint; production is not promoted and the full source still fails at the recorded later owner."
+}

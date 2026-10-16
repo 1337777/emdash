@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: staged native composition of two general lax displayed maps checks through the whole Homd/intrinsic ladder and higher filler action; whole unit/associativity, expanded cell factorization, general Q coherence and public/downstream migration remain open
+Status: staged native intrinsic composition, whole unit comparisons and identity projection ladder check; triple associativity, expanded cell factorization, general Q coherence and public/downstream migration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,52 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Intrinsic-unit continuation after `d07139e7`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_intrinsic_unit_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_intrinsic_unit_verification.json)
+record native whole identity normality and both composition-unit comparisons
+of the independently expanded body. The public identity Homd endpoints now
+compute; whole identity observation and the existing x/u, y, v and p heads
+agree. The expanded whole body unit laws are proof-time comparisons, not
+claimed runtime conversion. No arbitrary FF is strictified.
+
+The runtime pair/whiskering units stay at displayed composition. Proof-time
+unit and facade-associativity views constrain the actual identity and every
+map. Arbitrary modification loops and a changed third map are rejected.
+The earlier optional Catd/diagram comparison is required by this new whole
+unit consumer; its prior omission result remains valid at the old boundary.
+Extra recursive-Hom identity rules and the broader inferred-endpoint runtime
+identity-pair experiment remain unselected.
+
+Next qualify whole triple/mapped-composite coherence and expand the retained
+Phi_GG[lambda_FF] cell using its actual fibre-variable naturality. Continue
+the later original owners, including Op_prof (the current full-source
+failure) and fdapp1_projection_target, without changing the selected
+strict-functor/lax-transfor or family coefficient profiles. Q/mate/index,
+whole duality/inverse, public/downstream and final validation remain required.
+The following entries retain the preceding checkpoint and decision history.
+
+Side assessment requested 2026-10-16:
+[strict versus lax displayed maps](../emdash2/audits/strict-default-action-boundary/strict_functord_reassessment_2026_10_16.md)
+compares both migration directions against the current root, classified
+intrinsic action, Pi, constant sections and ordinary laxity extraction.
+The selective strict classifier has positive bounded historical evidence;
+the current outer identity root now has a compatible Cartesian profile.
+Nevertheless Pi and ordinary laxity extraction must retain ambient lax
+inputs. Strict external FF would simplify its leaf computations but does
+not automatically remove P(I), M_I, Q/mate coherence, or normalization
+issues already present at FF=id. This is brainstorming only: retain the
+selected lax Functord default and record the alternative without restarting
+the migration. The review distinguishes strict map objects with ambient
+modifications from a fully Cartesian higher profile, and separates our
+engineering interpretation of interacting laxity from Ara–Guetta's stated
+mathematical motivation. The user's expressivity clarification is explicit
+in the review: lax Functord admits coherent nonidentity transport comparisons
+between the same fixed families. If ambient lax Transf and its operations
+are retained, strict Functord need not reduce the theory's total expressivity;
+it changes which maps enter the displayed interfaces without a separate
+ambient route. General lax FF is not required for the identity Homd alone.
 
 Intrinsic-composition continuation after `1ac8e002`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_intrinsic_composite_review.md)

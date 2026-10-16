@@ -1,0 +1,69 @@
+// Identity must already have the correct whole intrinsic type.
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @id (@Functord_cat K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))) (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E))
+  : τ (@Transfd K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+      (@comp_catd_fapp0 K E E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E E (@id_funcd K E)) (@id_funcd K E))
+      (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E)));
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @fdapp1_int_transfd K E E (@id_funcd K E)
+  ≡ @id (@Functord_cat K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))) (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E));
+
+
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D)) ⊢
+  @eq_refl (@Transfd K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@comp_catd_fapp0 K E D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E D FF) FF) (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E))) (@fdapp1_int_comp_transfd K E D D FF (@id_funcd K D))
+  : τ (@= (@Transfd K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@comp_catd_fapp0 K E D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E D FF) FF) (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E))) (@fdapp1_int_comp_transfd K E D D FF (@id_funcd K D)) (@fdapp1_int_transfd K E D FF));
+
+assert [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D)) ⊢
+  @eq_refl (@Transfd K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@comp_catd_fapp0 K E D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E D FF) FF) (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E))) (@fdapp1_int_comp_transfd K E E D (@id_funcd K E) FF)
+  : τ (@= (@Transfd K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@comp_catd_fapp0 K E D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E D FF) FF) (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E))) (@fdapp1_int_comp_transfd K E E D (@id_funcd K E) FF) (@fdapp1_int_transfd K E D FF));
+
+// Both public identity presentations reach the actual identity Homd core.
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @Homd_target_map K E E (@id_funcd K E)
+  ≡ @id (Functor_cart_cat K Cat_cart) (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E));
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @homd_int K E E (@id_funcd K E)
+  ≡ @strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E);
+
+// A nonidentity loop is not an admissible unit in this comparison.
+assertnot [K : Cat] [E H : τ (Catd K)] (FF : τ (Functord E H))
+  (alpha beta : τ (@Transfd K E H FF FF)) ⊢
+  @eq_refl (@Transfd K E H FF FF) (@comp_fapp0 (@Functord_cat K E H) FF FF FF alpha beta)
+  : τ (@= (@Transfd K E H FF FF) (@comp_fapp0 (@Functord_cat K E H) FF FF FF alpha beta) alpha);
+
+// A nonidentity loop is not an admissible unit in this comparison.
+assertnot [K : Cat] [E H : τ (Catd K)] (FF : τ (Functord E H))
+  (alpha beta : τ (@Transfd K E H FF FF)) ⊢
+  @eq_refl (@Transfd K E H FF FF) (@comp_fapp0 (@Functord_cat K E H) FF FF FF alpha beta)
+  : τ (@= (@Transfd K E H FF FF) (@comp_fapp0 (@Functord_cat K E H) FF FF FF alpha beta) beta);
+
+// Facade associativity must retain the actual third composing map.
+assertnot [K : Cat] [E D J H : τ (Catd K)]
+  (F : τ (Functord E D)) (G : τ (Functord D J))
+  (M N : τ (Functord J H)) ⊢
+  @eq_refl (@Functord K E H) (@comp_fapp0 (Catd_cat K) E D H (@comp_fapp0 (Functor_cat K Cat_cart) D J H M G) F)
+  : τ (@= (@Functord K E H) (@comp_fapp0 (Catd_cat K) E D H (@comp_fapp0 (Functor_cat K Cat_cart) D J H M G) F) (@comp_fapp0 (Catd_cat K) E J H N (@comp_fapp0 (Catd_cat K) E D J G F)));
+
+// Actual root observation and each native intermediate identity head.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @intrinsic_check_section K E E (@id_funcd K E) x u
+  ≡ @fdapp1_int_section_arrow K E E (@id_funcd K E) x u;
+assert [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @tapp0_hom_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+      (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E E (@id_funcd K E) x u) y
+      (@intrinsic_check_section K E E (@id_funcd K E) x u)
+  ≡ @fdapp1_int_tgt_arrow K E E (@id_funcd K E) x u y;
+assert [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y))) ⊢
+  tapp0_fapp0 v (strict_transfor (@fdapp1_int_tgt_arrow K E E (@id_funcd K E) x u y))
+  ≡ @fdapp1_int_presheaf_arrow K E E (@id_funcd K E) x u y v;
+assert [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y))) (p : τ (Hom K x y)) ⊢
+  @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)
+      (fapp0 (@homd_ff_tgt_func K E E (@id_funcd K E) x u y) v)
+      (fapp0 (@homd_id_tgt_func K E x u y) v) p
+      (@fdapp1_int_presheaf_arrow K E E (@id_funcd K E) x u y v)
+  ≡ @fdapp1_int_hom_func K E E (@id_funcd K E) x y p u v;

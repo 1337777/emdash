@@ -1,0 +1,7 @@
+// The actual identity pair after the product identity has projected.
+// This preserves identity for composition's existing strict first action;
+// arbitrary endomorphisms of either input are not matched.
+rule @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Z
+      (Struct_sigma $g $f) (Struct_sigma $g $f)
+      (Struct_sigma (@id _ $g) (@id _ $f))
+  ↪ @id (Hom_cat (Catd_cat $K) $W $Z) (@comp_fapp0 (Catd_cat $K) $W $X $Z $f $g);

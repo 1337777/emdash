@@ -1219,6 +1219,12 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     insert('// 6c. Constant/opposite transfors and Cat-valued composition projections',
            fragment('production_hom_next_action.lpfragment'),
            'The actual intrinsic-composite consumer requires the next Hom of two-sided whiskering and its existing component observations')
+    insert('// 5d. Rigid two-endpoint Hom action',
+           fragment('production_composition_identity_pair.lpfragment'),
+           'The literal identity pair restores normality after displayed composition has projected to its first-Hom owner')
+    insert('// 6c. Constant/opposite transfors and Cat-valued composition projections',
+           fragment('production_displayed_unit_coherence.lpfragment'),
+           'Whole intrinsic units require identity and associativity comparisons across the existing displayed/ordinary diagram facades; preserve actual operands and runtime Hom heads')
     insert('// 14. Section action over dependent homs',
            fragment('production_intrinsic_composite_views.lpfragment'),
            'Actual Homd target contravariance and associativity supply the whole whiskering endpoints without operational equality arguments')
@@ -1228,6 +1234,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     insert('// 18. Cat-valued profunctors',
            fragment('production_intrinsic_composite_projection.lpfragment'),
            'Join root-first and component-first observations of the same intrinsic composite; retain the actual first extracted cell inside the second intrinsic action')
+    insert('// 18. Cat-valued profunctors',
+           fragment('production_intrinsic_unit_projection.lpfragment'),
+           'Join the intrinsic whole identity with the same existing section, y and index identity projections')
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -1358,6 +1367,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'intrinsic_composite_prefix.lp').write_text(
         (package / 'section_pullback_prefix.lp').read_text()
         + '\n' + fragment('production_intrinsic_composite_controls.lpfragment'))
+    (package / 'intrinsic_unit_prefix.lp').write_text(
+        (package / 'intrinsic_composite_prefix.lp').read_text()
+        + '\n' + fragment('production_intrinsic_unit_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1567,6 +1579,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'pullback_structural_prefix.lp',
                               package / 'section_pullback_prefix.lp',
                               package / 'intrinsic_composite_prefix.lp',
+                              package / 'intrinsic_unit_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Whole coefficient/mixed-parameter coherence beyond the checked direct and constant-section actions',

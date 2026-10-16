@@ -1,0 +1,60 @@
+// Proof-time unit comparisons allow compatible presentations of the middle
+// object. They preserve both the actual arrow and the literal identity.
+unif_rule @comp_fapp0 $A $x $y $z $g $f ≡ $g
+  ↪ [ $x ≡ $y; $f ≡ @id $A $y ];
+unif_rule @comp_fapp0 $A $x $y $z $g $f ≡ $f
+  ↪ [ $y ≡ $z; $g ≡ @id $A $y ];
+
+// Identity action after the product identity has projected. Product objects
+// are side conditions, so no pair-eta or equality of arbitrary maps follows.
+unif_rule @comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg'
+      (Struct_sigma (@id _ $g) (@id _ $f))
+  ≡ @id $C $h
+  ↪ [ $C ≡ Hom_cat $A $W $Z;
+      $pg ≡ @Product_pair (Hom_cat $A $W $X) (Hom_cat $A $X $Z) $g $f;
+      $pg' ≡ @Product_pair (Hom_cat $A $W $X) (Hom_cat $A $X $Z) $g $f;
+      $h ≡ @comp_fapp0 $A $W $X $Z $f $g ];
+
+// The displayed category and the ordinary diagram category have their
+// established whole-category comparison. Preserve both runtime composition
+// heads; this is sufficient congruence for the same actual two maps, not
+// injectivity of composition or a comparison of unrelated composites.
+unif_rule @comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF
+  ≡ @comp_fapp0 (Functor_cat $K0 Cat_cart) $E0 $D0 $C0 $GG $FF
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0; $C ≡ $C0 ];
+
+// The precomposition view compares both actual operands before relying on
+// the displayed/ordinary diagram presentation of their composite.
+unif_rule @hom_precomp_along_fapp0 (Catd_cat $K) (Catd_cat $K)
+      (@id Cat_cat (Catd_cat $K)) $H $E $D $FF $GG
+  ≡ @comp_fapp0 (Catd_cat $K0) $E0 $D0 $H0 $GG0 $FF0
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0; $H ≡ $H0; $FF ≡ $FF0; $GG ≡ $GG0 ];
+
+// A canonical right identity may already use the ordinary diagram facade.
+rule @comp_prod_fapp1_fapp0 (Catd_cat $K) $E $D $D
+      (Struct_sigma $p (@id (Functor_cat $K Cat_cart) $D))
+      (Struct_sigma $q (@id (Functor_cat $K Cat_cart) $D))
+      (Struct_sigma $alpha (@id _ (@id (Functor_cat $K Cat_cart) $D)))
+  ↪ $alpha;
+
+// Ordinary diagram composition and displayed composition can present
+// the two bracketings of the same three maps. Compare every actual map and
+// endpoint; this is associativity across the existing category facade.
+unif_rule @comp_fapp0 (Catd_cat $K) $E $D $H
+      (@comp_fapp0 (Functor_cat $K Cat_cart) $D $J $H $M $G) $F
+  ≡ @comp_fapp0 (Catd_cat $K0) $E0 $J0 $H0 $M0
+      (@comp_fapp0 (Catd_cat $K0) $E0 $D0 $J0 $G0 $F0)
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0; $J ≡ $J0; $H ≡ $H0;
+      $M ≡ $M0; $G ≡ $G0; $F ≡ $F0 ];
+
+// Unit whiskering after composition's first Hom has already projected.
+// The first coordinate is the identity of the identity arrow; an arbitrary
+// higher endomorphism of that arrow is deliberately not matched. The
+// repeated endpoint is the unit condition. The adjacent proof-time
+// precomposition reading retains its Product_pair classifiers explicitly
+// now that this previously rigid owner also has a runtime rule here.
+rule @comp_prod_fapp1_fapp0 (Catd_cat $K) $x $x $z
+      (Struct_sigma (@id (Catd_cat $K) $x) $p)
+      (Struct_sigma (@id (Catd_cat $K) $x) $q)
+      (Struct_sigma (@id _ (@id (Catd_cat $K) $x)) $alpha)
+  ↪ $alpha;

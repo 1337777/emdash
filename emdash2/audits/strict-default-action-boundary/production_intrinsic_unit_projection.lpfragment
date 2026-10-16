@@ -1,0 +1,10 @@
+// Unit at the existing projection heads, joining observation before/after
+// the native intrinsic identity contracts at the whole modification.
+rule @fdapp1_int_section_arrow $K $E $E (@id (Catd_cat $K) $E) $x $u
+  ↪ @id (@Homd_target_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u);
+rule @fdapp1_int_tgt_arrow $K $E $E (@id (Catd_cat $K) $E) $x $u $y
+  ↪ @id (Functor_cart_cat (Fibre_cat $E $y) (Homd_index_cat (Hom_cat $K $x $y)))
+      (@homd_id_tgt_func $K $E $x $u $y);
+rule @fdapp1_int_presheaf_arrow $K $E $E (@id (Catd_cat $K) $E) $x $u $y $v
+  ↪ @id (Homd_index_cat (Hom_cat $K $x $y))
+      (fapp0 (@homd_id_tgt_func $K $E $x $u $y) $v);
