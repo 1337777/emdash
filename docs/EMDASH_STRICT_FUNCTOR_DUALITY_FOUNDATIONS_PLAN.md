@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: complete staged core and focused inherited/PathOut consumers check; profile-extension, downstream and public-promotion qualification remain open
+Status: complete staged core, profile extension and first original PathOut/cubical-Hom consumers check; broader import closure, downstream and public-promotion qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,36 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Profile/extension continuation after `c9962d6e`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_profile_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_profile_consumers_verification.json)
+record passing checks of the profile module, its original assertion body
+at the actual profile owner, shaped PathOut, conventional pre/right source
+reframing, and the original fixed-endpoint cubical Hom reviewer. The staged
+core is unchanged. No new rewrite/unification rules were added; two obsolete
+profile-only pre/right unifiers are removed in favor of the existing core
+comparison. StrictTransfor/StrictFunctord properties are retained and public
+Functord remains lax.
+
+The PathOut proof now uses the actual strict pre/right action of fixed-target
+internalization, followed by the core right-leg path. It does not restore
+the retired general left-leg equality. The fixed-endpoint homdc_ consumer
+uses the existing Cartesian inclusion and ordinary Hom views; its E input,
+public result types, leaf Hom(b o u,v o a), and both higher side actions
+remain available. This is existing-consumer migration, not resumed nerve work.
+
+The isolated profile check preserves all original reviewer assertions; it
+does not replace the broader original represented-comma import closure.
+That closure now fails at sigma_proj1_family_funcd in
+emdash3_2_cubical_square_total.lp:23: its Sigma_func composite has public
+Cat_cat codomain where Catd requires Cat_cart. Next review the original
+varying Sigma projection, coefficient admission and opposite/totalization
+consumers. Do not blindly restore same-base fibre opposite or restrict all
+FF to strict transfors. The remaining original import/diagnostic/library
+migration, redundant strict-functor wrapper retirement, consumed compatibility,
+public promotion and final gates remain required. The entries below retain
+their historical next-step boundaries.
 
 Full staged-core continuation after `6788b36c`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_pathout_review.md)

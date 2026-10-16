@@ -1,0 +1,84 @@
+// Migrated original path proofs. Fixed-target internalization uses the
+// selected strict pre/right action even for arbitrary lax epsilon. These
+// proof terms do not impose strict post/left naturality or new rules.
+
+
+symbol pathout_general_pre_lhs_tele_path
+  [A B : Cat]
+  [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  (x y : τ (Obj A))
+  (p : τ (Hom A x y))
+  : τ (@=
+      (Obj (Hom_cat B
+        (@fapp0 A B F x)
+        (@fapp0 A B G y)))
+      (@pathout_general_pre_source A B F G epsilon x y p)
+      (@pathout_lhs_tele_source A B F G epsilon x y p))
+≔ @eq_refl
+    (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+    (@pathout_general_pre_source A B F G epsilon x y p);
+
+symbol pathout_lhs_tele_transport_path
+  [A B : Cat]
+  [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  (x y : τ (Obj A))
+  (p : τ (Hom A x y))
+  : τ (@=
+      (Obj (Functor_cat
+        (Hom_cat A y y)
+        (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))))
+      (@pathout_lhs_tele_at_p A B F G epsilon x y p)
+      (@pathout_transport_at_p A B F G epsilon x y p))
+≔ @eq_trans
+    (Functor (Hom_cat A y y)
+      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+    (@pathout_lhs_tele_at_p A B F G epsilon x y p)
+    (@functord_transport_rhs_func (Op_cat A)
+      (@hom_con A y A (@id_func A))
+      (@hom_con B (@fapp0 A B G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y)
+      y x p)
+    (@pathout_transport_at_p A B F G epsilon x y p)
+    (@eq_refl
+      (Functor (Hom_cat A y y)
+        (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+      (@pathout_lhs_tele_at_p A B F G epsilon x y p))
+    (@functord_transport_rhs_agrees (Op_cat A)
+      (@hom_con A y A (@id_func A))
+      (@hom_con B (@fapp0 A B G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y)
+      y x p);
+
+symbol pathout_top_lhs_transport_path
+  [A B : Cat]
+  [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  (x y : τ (Obj A))
+  (p : τ (Hom A x y))
+  : τ (@=
+      (Obj (Functor_cat
+        (Hom_cat A y y)
+        (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))))
+      (@pathout_top_lhs_func A B F G epsilon x y p)
+      (@pathout_transport_at_p A B F G epsilon x y p))
+≔ @eq_trans
+    (Functor (Hom_cat A y y)
+      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+    (@pathout_top_lhs_func A B F G epsilon x y p)
+    (@functord_transport_rhs_func (Op_cat A)
+      (@hom_con A y A (@id_func A))
+      (@hom_con B (@fapp0 A B G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y)
+      y x p)
+    (@pathout_transport_at_p A B F G epsilon x y p)
+    (@eq_refl
+      (Functor (Hom_cat A y y)
+        (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+      (@pathout_top_lhs_func A B F G epsilon x y p))
+    (@functord_transport_rhs_agrees (Op_cat A)
+      (@hom_con A y A (@id_func A))
+      (@hom_con B (@fapp0 A B G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y)
+      y x p);

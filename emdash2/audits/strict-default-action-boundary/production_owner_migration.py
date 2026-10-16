@@ -133,6 +133,16 @@ rule @comp_fapp0 $B _ _ _
   ↪ @tapp1_fapp0 $A $B $F $G $x $y (@strict_transfor $A $B $F $G $U) $p;
 ''', 'Move existing strict-transfor post computation to the core Cartesian consumer; retain the later admission/property machinery')
     relocated.append({'owner': 'strict-transfor ordinary post action', 'bodySha256': sha(strict_post)})
+    profile_tail = '// Profile-guarded whole target/right reading.'
+    assert profiles.count(profile_tail) == 1
+    begin = profiles.index(profile_tail)
+    old = profiles[begin:]
+    replacement = fragment('production_profile_readings.lpfragment')
+    profiles = profiles[:begin] + replacement
+    changes.append({'source': 'emdash3_2_gray_profiles.lp',
+                    'owner': 'strict_functord_transport_rhs_tele_path / strict_functord_transport_rhs_path',
+                    'reason': 'Use the admitted Cartesian family coefficient and derive the existing compatibility paths from the default pre/right comparison; retire its two redundant profile-only unifiers',
+                    'oldBodySha256': sha(old), 'newBodySha256': sha(replacement)})
     late = profile[profile.index('// Only the object classifier'):profile.index('// The corresponding strict coefficient universe')]
     start = profile.index('// One whole inclusion')
     late += profile[start:profile.index('// A Cartesian evaluator', start)]
@@ -1502,6 +1512,70 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
             baseline_target = baseline_package / path
             baseline_target.parent.mkdir(parents=True, exist_ok=True)
             baseline_target.write_text(text)
+            if path == 'emdash3_2_shaped_pathout.lp':
+                old = text
+                cart_pair = '(Functor_cat I (Product_cat (Op_cat I) I))'
+                component = '(Product_cat (Op_cat I) I)\n    Cat_cat\n    (@Unit_prof I)'
+                assert text.count(cart_pair) == text.count(component) == 1
+                text = text.replace(cart_pair,
+                    '(Functor_cart_cat I (Product_cat (Op_cat I) I))', 1)
+                text = text.replace(component,
+                    '(Product_cat (Op_cat I) I)\n    Cat_cart\n    (@Unit_prof I)', 1)
+                changes.append({'source': path,
+                                'owner': 'shaped_fixed_source_pair_func / shaped_pathout_component',
+                                'reason': 'Follow the Cartesian product-pair and profunctor coefficient annotations; retain the original fixed-source, totalization and higher-action bodies',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_pathout_transformation_reframing.lp':
+                old = text
+                start = text.index('symbol pathout_lhs_tele\n')
+                end = text.index('symbol pathout_lhs_tele_source\n', start)
+                telescope = text[start:end]
+                assert telescope.count('Functor_cat') == 2
+                text = text[:start] + telescope.replace('Functor_cat', 'Functor_cart_cat') + text[end:]
+                proofs = fragment('production_pathout_reframing.lpfragment')
+                for name in ('pathout_general_pre_lhs_tele_path',
+                             'pathout_lhs_tele_transport_path',
+                             'pathout_top_lhs_transport_path'):
+                    marker = 'symbol ' + name + '\n'
+                    assert text.count(marker) == proofs.count(marker) == 1
+                    start = text.index(marker)
+                    end = text.index(';', text.index('≔', start)) + 1
+                    begin = proofs.index(marker)
+                    finish = proofs.index(';', proofs.index('≔', begin)) + 1
+                    text = text[:start] + proofs[begin:finish] + text[end:]
+                text = text.replace(
+                    '// The cold whole Cat-precomposition comparison identifies the stable\n// precomposition component with the same telescope source.',
+                    '// Cartesian precomposition now computes the telescope source directly.\n// The fixed-target action uses the selected pre/right convention.')
+                text = text.replace('symbol pathout_lhs_tele_transport_path\n',
+                    '// Fixed-target internalization has strict pre/right action for any epsilon.\n// Compare through the core right-leg path, not a general left-leg equality.\n'
+                    'symbol pathout_lhs_tele_transport_path\n', 1)
+                changes.append({'source': path, 'owner': 'PathOut pre/right source reframing',
+                                'reason': 'Keep the original statements and arbitrary lax epsilon; derive the two transport paths from the conventional pre action and existing right-leg comparison instead of the retired general left-leg equality',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_cubical_dependent_hom.lp':
+                old = text
+                marker = 'symbol homdc_target_func\n'
+                assert text.count(marker) == 1
+                start = text.index(marker)
+                end = text.index(';', text.index('≔', start)) + 1
+                text = text[:start] + fragment('production_cubical_hom_evaluation.lpfragment').rstrip() + text[end:]
+                assert text.count('(@hom_con_int\n') == 1
+                assert text.count('(@hom_int C C') == 2
+                text = text.replace('(@hom_con_int\n', '(@hom_con_int_view\n', 1)
+                text = text.replace('(@hom_int C C', '(@hom_int_view C C')
+                changes.append({'source': path, 'owner': 'fixed-endpoint cubical Hom evaluation',
+                                'reason': 'Use existing whole Cartesian component evaluation and ordinary Hom views; preserve the original E input and all public ladder/result types',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/cubical_dependent_hom.lp':
+                old = text
+                start = text.index('// The outer and inner hom actions')
+                end = text.index('// A direct unit-profunctor', start)
+                observations = text[start:end]
+                assert observations.count('Cat_cat') == 2
+                text = text[:start] + observations.replace('Cat_cat', 'Cat_cart') + text[end:]
+                changes.append({'source': path, 'owner': 'inner cubical Hom action',
+                                'reason': 'Observe the actual admitted family coefficient; retain original leaf, both higher actions and twisted-boundary negative control',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_action_paths.lp':
                 marker = 'symbol one_cat_composition_path '
                 assert text.count(marker) == 1
@@ -1627,6 +1701,24 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 changes.append({'source': path, 'owner': 'unprofiled compositor endpoint comparison',
                                 'reason': 'The default functor now preserves composition; retain all unrelated negative controls',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(replacement)})
+                old = text
+                text = text.replace('K Cat_cat E D', 'K Cat_cart E D')
+                marker = '// The target/right reading is available only through the strict profile.'
+                assert text.count(marker) == 1
+                start = text.index(marker)
+                end = text.index('// Every opaque classified object', start)
+                section = text[start:end].replace(
+                    '(Functor_cat (Fibre_cat E x) (Fibre_cat D y))',
+                    '(Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y))', 1)
+                section = section.replace(marker,
+                    '// The legacy strict-profile observation agrees with the default pre/right action.')
+                text = text[:start] + section + text[end:]
+                text = text.replace(
+                    '// An ambient compositor is typed between its two retained endpoints; those\n// endpoints are no longer convertible, so a literal identity comparison is\n// not even the appropriate judgment.',
+                    '// An ambient compositor has the same endpoints under the strict default.\n// Its native intrinsic extraction is retained.')
+                changes.append({'source': path, 'owner': 'displayed-profile observations',
+                                'reason': 'Retain the original assertions with the actual family coefficient and whole Hom target; ordinary extracted-cell properties keep Functor_cat',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -1636,6 +1728,14 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 stage(module.removeprefix('emdash.').replace('.', '/') + '.lp')
 
     stage('examples/gray_profiles.lp')
+    stage('examples/cubical_dependent_hom.lp')
+    # Same original reviewer assertions, isolated at their actual profile
+    # owner. The original broader import closure remains staged and required.
+    profile_controls = (package / 'examples/gray_profiles.lp').read_text()
+    assert profile_controls.count('require open emdash.emdash3_2_represented_comma_families;') == 1
+    (package / 'profile_controls.lp').write_text(profile_controls.replace(
+        'require open emdash.emdash3_2_represented_comma_families;',
+        'require open emdash.emdash3_2_gray_profiles;', 1))
     delta = difflib.SequenceMatcher(None, original.splitlines(keepends=True),
                                    body.splitlines(keepends=True), autojunk=False).get_opcodes()
     original_lines_retained = all(kind in ('equal', 'insert') for kind, *_ in delta)
@@ -1694,6 +1794,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'profunctor_prefix.lp',
                               package / 'comma_prefix.lp',
                               package / 'pathout_controls.lp',
+                              package / 'profile_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

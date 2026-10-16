@@ -1,0 +1,233 @@
+{
+  "status": "Staged profile and original PathOut/fixed-endpoint Hom consumers pass; broader import closure and public migration incomplete",
+  "extendsCheckpoint": "c9962d6e",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "unchangedStagedCoreSha256": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+  "candidateCoreLines": 24116,
+  "sourcePreservation": {
+    "originalDownstreamSectionsRetained": true,
+    "unretiredNamedDeclarationsRetained": true,
+    "unrelocatedNamedDeclarationSequenceVerified": true
+  },
+  "manifestSha256": "ad18f4c8ae7e8c0f29b5331f6523e3faf73c2c38ba44432c98cfd39aa14a2c5f",
+  "changedAuthoringInputs": {
+    "production_owner_migration.py": "05f233b41c5f19576f927eef4597ddd4282d09b6e541941dba3105af73e4218f",
+    "production_profile_readings.lpfragment": "c155d93e681dfc1195951d0d840e49523bd179fd8ea8e45240ec93ff9ff563b1",
+    "production_pathout_reframing.lpfragment": "ba67da25ce14aaef70bac3e17b22874af53dfb77362121a1a08b6119958c0f76",
+    "production_cubical_hom_evaluation.lpfragment": "112e0589e78f98aaf229542d85198fd31f9bf4c1a7fcc176b59c0ba1a7ecd534"
+  },
+  "checks": {
+    "profileModule": {
+      "id": "20261016T132737Z-61bb5d3a4c2344e3bdcc8985e98b2f17",
+      "target": "emdash3_2_gray_profiles.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 20.29523450601846,
+      "childrenMaxRssKiB": 1445780,
+      "inputSnapshot": "8d0106387fd822c8281c07aec989e5fa0236cfaa017f7384041bac3eee388258",
+      "inputs": {
+        "emdash3_2.lp": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "f0a28ecd990bb4976edcc104ab2928bfba2a649e6b759da755f55b0403785b0e",
+      "exactFinalInputsMatch": true
+    },
+    "originalProfileAssertionsAtOwner": {
+      "id": "20261016T132819Z-a2104d7ef28e4619b5f3c5cd2c5a6357",
+      "target": "profile_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 25.204687805031426,
+      "childrenMaxRssKiB": 1446392,
+      "inputSnapshot": "01f75564ca370652c6c3594643b0a801cb5df38420a770aab4447a7e9b5e2167",
+      "inputs": {
+        "emdash3_2.lp": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "profile_controls.lp": "3185cceefcc56da7a2223d4a2c785e3e0c6cd622be9689e638b9457cded3b065"
+      },
+      "logSha256": "29dcd2d3be6c6d4962bca592343c5f9ae5c0755df24fedb9bbfb5f4b6fdb269d",
+      "exactFinalInputsMatch": true,
+      "positiveAssertions": 59,
+      "negativeAssertions": 13
+    },
+    "shapedPathout": {
+      "id": "20261016T133108Z-25a0822cb53549b9accaff38ca1d5a05",
+      "target": "emdash3_2_shaped_pathout.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 15.596814273972996,
+      "childrenMaxRssKiB": 1169816,
+      "inputSnapshot": "894c7d5cc57f2d12ce89491c9f58caa65aeb11d31d3d980deb94cd2b42400779",
+      "inputs": {
+        "emdash3_2.lp": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "4e0f1504568e088869ca500263f089f0d74df9c58f445f468a5f4cb0e2e7644e",
+      "exactFinalInputsMatch": true
+    },
+    "pathoutReframing": {
+      "id": "20261016T133712Z-761ac2d5916c42e6bbe370e18ef9c526",
+      "target": "emdash3_2_pathout_transformation_reframing.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 23.555790852056816,
+      "childrenMaxRssKiB": 1172296,
+      "inputSnapshot": "18f4c105ae5456db1ac96eae15bf1f57a8e586ded10e628a0d32d4d9819cccd5",
+      "inputs": {
+        "emdash3_2.lp": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "98dbe679a34c634c7bebc336a5d877edbc7a3daccf07332846fec5a1db15b8bd",
+      "exactFinalInputsMatch": true
+    },
+    "originalCubicalHomReviewer": {
+      "id": "20261016T141729Z-0485fd4c016a465c9db6f268dff6fcda",
+      "target": "examples/cubical_dependent_hom.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 18.398398352903314,
+      "childrenMaxRssKiB": 1145872,
+      "inputSnapshot": "ba8576a7b480617bd58256198cfd439a4a7ca30354fa6f0fda0053d66c07ac68",
+      "inputs": {
+        "emdash3_2.lp": "0fe8e804096779b4abce40d9241c4aa8ce966238c51f89c749fbc782a257d5ea",
+        "emdash3_2_cubical_dependent_hom.lp": "9817021710580f379e614f4215fc9d1867db76a6700c4ada7dfb5447635a9197",
+        "examples/cubical_dependent_hom.lp": "b134387da0e179c5b3f398143ba7a326690e1468e7f5b4f31aadf8d9254189c5",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "b61f83edbfcc7aefca53610c385a185b68748706dba2999a79964109f21dc175",
+      "exactFinalInputsMatch": true,
+      "positiveAssertions": 7,
+      "negativeAssertions": 1
+    }
+  },
+  "settings": {
+    "camlrunparam": "",
+    "fileMiB": 64,
+    "flags": [
+      "--no-colors"
+    ],
+    "memoryMiB": 2048,
+    "ocamlrunparam": "o=20",
+    "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+    "profile": "default",
+    "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+    "resourceBackend": "auto",
+    "runtimeEnvironment": {
+      "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+      "LD_LIBRARY_PATH": "",
+      "LD_PRELOAD": ""
+    },
+    "timeoutMs": 90000
+  },
+  "subjectReduction": true,
+  "compiledObjects": false,
+  "serialExecution": true,
+  "newRuntimeRules": 0,
+  "newUnificationRules": 0,
+  "retiredUnificationRules": 2,
+  "warningComparison": {
+    "profileBaselineReceipt": "20261016T132553Z-4bc15d3eaea249f790808ab2bc6d3342",
+    "profileCandidateReceipt": "20261016T132737Z-61bb5d3a4c2344e3bdcc8985e98b2f17",
+    "baselineCriticalPairBodies": 2301,
+    "candidateCriticalPairBodies": 2301,
+    "addedCriticalPairBodies": 0,
+    "removedCriticalPairBodies": 0,
+    "coreBaselineReceipt": "20261016T131156Z-a5b93c62dd1449deb1d0243e0194c79f",
+    "coreCriticalPairBodies": 1938,
+    "extensionChecks": {
+      "shapedPathout": {
+        "criticalPairBodies": 1938,
+        "addedAgainstCore": 0,
+        "removedAgainstCore": 0
+      },
+      "pathoutReframing": {
+        "criticalPairBodies": 1938,
+        "addedAgainstCore": 0,
+        "removedAgainstCore": 0
+      },
+      "originalCubicalHomReviewer": {
+        "criticalPairBodies": 1938,
+        "addedAgainstCore": 0,
+        "removedAgainstCore": 0
+      }
+    }
+  },
+  "lhsAudits": {
+    "emdash3_2_gray_profiles.lp": {
+      "exitCode": 0,
+      "summary": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_gray_profiles.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 0 annotated slot(s) across 0 intentional clause(s)"
+    },
+    "emdash3_2_shaped_pathout.lp": {
+      "exitCode": 0,
+      "summary": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_shaped_pathout.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 0 annotated slot(s) across 0 intentional clause(s)"
+    },
+    "emdash3_2_pathout_transformation_reframing.lp": {
+      "exitCode": 0,
+      "summary": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_pathout_transformation_reframing.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 0 annotated slot(s) across 0 intentional clause(s)"
+    },
+    "emdash3_2_cubical_dependent_hom.lp": {
+      "exitCode": 0,
+      "summary": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_cubical_dependent_hom.lp: 0 reconstructible compound slot(s) across 0 unreviewed rule clause(s); 0 annotated slot(s) across 0 intentional clause(s)"
+    }
+  },
+  "nextIntegrationFailure": {
+    "id": "20261016T141836Z-c79a6c78bc30467da215376218cb8b15",
+    "target": "examples/gray_profiles.lp",
+    "outcome": "failed",
+    "wallSeconds": 22.96553942398168,
+    "inputSnapshot": "08a056d58864294909e4cf10534f17d99520c630a54819173f59a95a2b9bfbef",
+    "logSha256": "e4ca4a5210a0a017dc7a35ff12c756cf6cded42e9a4435906777cd6f57c9e6fa",
+    "owner": "sigma_proj1_family_funcd",
+    "file": "emdash3_2_cubical_square_total.lp",
+    "line": 23,
+    "exactFinalInputsMatch": true
+  },
+  "developmentFailures": [
+    {
+      "id": "20261016T132553Z-4bc15d3eaea249f790808ab2bc6d3342",
+      "result": "Old Cat_cat coefficient at strict_functord_transport_rhs_tele_path"
+    },
+    {
+      "id": "20261016T132652Z-53d2fbc0a4cb4bdc8db9ea8289c3f8dc",
+      "result": "Whole corrected profile path passes; capped reflexivity does not join the explicit core right-leg path"
+    },
+    {
+      "id": "20261016T133324Z-81dad5bd23f54ea4944207ab34f2f5df",
+      "result": "Old public-Cat precomposition proof does not match the Cartesian-normalized telescope"
+    },
+    {
+      "id": "20261016T133429Z-7390eb82e9e947879f47958138b0dfdb",
+      "result": "Direct middle-action reflexivity is insufficient; factor through the existing rhs agreement"
+    }
+  ],
+  "qualificationBoundary": [
+    "Original gray_profiles assertion body is checked at its actual profile owner; its original represented-comma import closure remains staged and failing later",
+    "Next failure: emdash3_2_cubical_square_total.lp:23, sigma_proj1_family_funcd uses Cat-valued Sigma_func where the admitted family requires Cat_cart",
+    "Default Functord remains lax; StrictFunctord property/carrier unchanged",
+    "No general Q/coend development, nerve reconstruction, or new square primitive",
+    "Public source promotion, remaining import/diagnostic/library migration, redundant strict-functor wrapper retirement and final gates remain required"
+  ],
+  "extensionDeclarationPreservation": {
+    "emdash3_2_gray_profiles.lp": {
+      "namedDeclarations": 65,
+      "sameOrder": true,
+      "priorCoreRelocations": [
+        "StrictTransfor",
+        "strict_transfor"
+      ]
+    },
+    "emdash3_2_shaped_pathout.lp": {
+      "namedDeclarations": 11,
+      "sameOrder": true
+    },
+    "emdash3_2_pathout_transformation_reframing.lp": {
+      "namedDeclarations": 17,
+      "sameOrder": true
+    },
+    "emdash3_2_cubical_dependent_hom.lp": {
+      "namedDeclarations": 6,
+      "sameOrder": true
+    }
+  }
+}

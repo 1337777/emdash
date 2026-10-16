@@ -1,0 +1,40 @@
+// Compatibility observations for the strict displayed profile. The selected
+// conventional-lax default already fixes the pre/right leg for every FF;
+// the former profile-only target/right unifiers are therefore redundant.
+symbol strict_functord_transport_rhs_tele_path
+  [K : Cat]
+  [E D : τ (Catd K)]
+  (S : τ (@StrictFunctord K E D))
+  (x y : τ (Obj K))
+  : τ (@=
+      (Functor
+        (Hom_cat K x y)
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+      (@tapp1_func K Cat_cart E D x y
+        (@strict_functord K E D S))
+      (@functord_transport_rhs_tele_func
+        K E D (@strict_functord K E D S) x y))
+≔ @eq_refl
+    (Functor
+      (Hom_cat K x y)
+      (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+    (@tapp1_func K Cat_cart E D x y
+      (@strict_functord K E D S));
+
+symbol strict_functord_transport_rhs_path
+  [K : Cat]
+  [E D : τ (Catd K)]
+  (S : τ (@StrictFunctord K E D))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  : τ (@=
+      (Functor (Fibre_cat E x) (Fibre_cat D y))
+      (@tapp1_fapp0 K Cat_cart E D x y
+        (@strict_functord K E D S) p)
+      (@functord_transport_rhs_func
+        K E D (@strict_functord K E D S) x y p))
+≔ @eq_sym
+    (Functor (Fibre_cat E x) (Fibre_cat D y))
+    (@functord_transport_rhs_func K E D (@strict_functord K E D S) x y p)
+    (@functord_transport_func K E D (@strict_functord K E D S) x y p)
+    (@functord_transport_rhs_agrees K E D (@strict_functord K E D S) x y p);

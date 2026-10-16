@@ -1,0 +1,64 @@
+// Original whole target-side action, evaluated through the existing
+// Cartesian inclusion. The input family and its lax displayed maps keep
+// their original admitted class; only the actual intermediate Hom changes.
+symbol homdc_target_func
+  [K1 K2 : Cat]
+  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
+  (x1 y1 : τ (Obj K1))
+  (y2 : τ (Obj K2))
+  (v : τ (Obj (Fibre_cat
+    (@fapp0 (Op_cat K1) (Catd_cat K2) E y1) y2)))
+  : τ (Functor
+      (Hom_cat K1 x1 y1)
+      (Fibre_cat
+        (@fapp0 (Op_cat K1) (Catd_cat K2) E x1)
+        y2))
+≔ @comp_cat_fapp0
+    (Hom_cat K1 x1 y1)
+    (Functor_cart_cat
+      (Fibre_cat
+        (@fapp0 (Op_cat K1) (Catd_cat K2) E y1)
+        y2)
+      (Fibre_cat
+        (@fapp0 (Op_cat K1) (Catd_cat K2) E x1)
+        y2))
+    (Fibre_cat
+      (@fapp0 (Op_cat K1) (Catd_cat K2) E x1)
+      y2)
+    (@comp_cat_fapp0
+      (Functor_cart_cat
+        (Fibre_cat (@fapp0 (Op_cat K1) (Catd_cat K2) E y1) y2)
+        (Fibre_cat (@fapp0 (Op_cat K1) (Catd_cat K2) E x1) y2))
+      (Functor_cat
+        (Fibre_cat (@fapp0 (Op_cat K1) (Catd_cat K2) E y1) y2)
+        (Fibre_cat (@fapp0 (Op_cat K1) (Catd_cat K2) E x1) y2))
+      (Fibre_cat (@fapp0 (Op_cat K1) (Catd_cat K2) E x1) y2)
+      (@fapp0_func
+        (Fibre_cat (@fapp0 (Op_cat K1) (Catd_cat K2) E y1) y2)
+        (Fibre_cat (@fapp0 (Op_cat K1) (Catd_cat K2) E x1) y2)
+        v)
+      (Functor_cart_include
+        (Fibre_cat (@fapp0 (Op_cat K1) (Catd_cat K2) E y1) y2)
+        (Fibre_cat (@fapp0 (Op_cat K1) (Catd_cat K2) E x1) y2)))
+    (@comp_cat_fapp0
+      (Hom_cat K1 x1 y1)
+      (@Functord_cat
+        K2
+        (@fapp0 (Op_cat K1) (Catd_cat K2) E y1)
+        (@fapp0 (Op_cat K1) (Catd_cat K2) E x1))
+      (Functor_cart_cat
+        (Fibre_cat
+          (@fapp0 (Op_cat K1) (Catd_cat K2) E y1)
+          y2)
+        (Fibre_cat
+          (@fapp0 (Op_cat K1) (Catd_cat K2) E x1)
+          y2))
+      (@tapp0_func
+        K2 Cat_cart
+        (@fapp0 (Op_cat K1) (Catd_cat K2) E y1)
+        (@fapp0 (Op_cat K1) (Catd_cat K2) E x1)
+        y2)
+      (@fapp1_func
+        (Op_cat K1)
+        (Catd_cat K2)
+        E y1 x1));
