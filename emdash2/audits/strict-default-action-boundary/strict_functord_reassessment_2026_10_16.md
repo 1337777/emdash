@@ -12,6 +12,12 @@ coefficient Cat_cart. The variable under comparison is whether public
 Functord(E,D) admits lax or only strict transformations across the base K.
 Strictness of the fibre functors FF[y] is already part of both alternatives.
 
+User clarification later on 2026-10-16: the relevant question is which
+actual FF producers and consumers need lax admission, not the expressivity
+of arbitrary lax transformations in isolation. The focused inventory and
+coherence-scope correction below refine the recommendation. They do not
+change the selected classifier or claim downstream migration is complete.
+
 Strict Functord is a feasible alternative classifier and simplifies the
 external displayed-map action. It is not established to simplify the full
 migration while retaining the current sections and ordinary laxity
@@ -99,6 +105,137 @@ transport-comparison-bearing maps and for retaining the existing binding
 and internalization interfaces. The recommendation to retain lax Functord
 is not a claim that a strict-Functord foundation with ambient lax Transf
 would be intrinsically less expressive overall.
+
+## Strict maps see base arrows
+
+The constant-family example above isolates the additional data admitted by
+laxness; it is not a representative usefulness test for strict displayed
+maps. For the walking arrow p:0->1, a strict FF:E=>D has a square
+
+```text
+E[0] --FF[0]--> D[0]
+ | E[p]          | D[p]
+ v               v
+E[1] --FF[1]--> D[1]
+
+D[p] o FF[0] = FF[1] o E[p].
+```
+
+The arrow p imposes this equation. Over the discrete two-object base the
+equation is absent and the two components can be chosen independently.
+For constant diagrams the equation becomes FF[0]=FF[1], with that common
+functor still arbitrary; it does not require the functor to be an identity.
+For nonconstant diagrams even the component domains and codomains can
+differ. Strict naturality is exact compatibility with transport, not absence
+of dependence on the base.
+
+A canonical example in this kernel is fib_cov_transf(E,x,u). For a strict
+admitted family it sends f:x->y to `E[f](u)`, and its naturality along p:y->z
+is `E[p](E[f](u))=E[pf](u)`. This is nontrivial base transport and is strict.
+The staged [FibCov owner](production_homd_core.lpfragment) already places
+this map in the Cartesian diagram Hom before its ambient inclusion.
+
+Likewise, for a strict F:A->B, fapp1_at_transf(F,x) sends f:x->y to F[f].
+Its strict naturality is F[p] o F[f]=F[pf]. These are useful examples of
+strict displayed maps directly involved in the existing dependent theory.
+
+## Inventory of the FFs actually consumed
+
+This is a source review of the original core and direct active extension
+call sites, together with the selected staged authoring fragments at
+checkpoint d64e31a0. It is not an exhaustive transitive semantic audit of
+every library theorem, and a generic Functord binder is not itself evidence
+that a concrete construction needs nonidentity comparison cells.
+
+| Producer / consumer | What FF is | Does this use need lax FF? |
+| --- | --- | --- |
+| Core Hom(Sigma), recursive triangle/simplex Homs, [homdc_int](../../emdash3_2_cubical_internalization.lp), [terminal profunctor normalization](../../emdash3_2_prof_reindex_terminal_normalization.lp) | id_funcd(E) | No. These are identity Homd consumers. The surrounding families and higher cells can still be nontrivial. |
+| [pathout_map_func](../../emdash3_2_dependent_simplex_native_dimensions.lp) | fapp1_at_transf(F,x) | Strict F makes this naturality strict. This consumer does not require arbitrary lax FF in the new defaults. Full migrated higher-classifier admission remains an implementation check. |
+| [Represented element totalization](../../emdash3_2_commutative_algebra_presheaves.lp) and native path induction | fib_cov_transf(E,x,u) | Strictness suffices for the admitted strict E. The staged owner already has the Cartesian map profile. |
+| [Slice Sigma/postcomposition](../../emdash3_2_pullbacks.lp) | hom_con_int_postcomp_func(id,f) | Canonical Hom postcomposition is compatible with the selected strict Hom action. This is not evidence for arbitrary lax FF. |
+| [Direct cover glue](../../emdash3_2_direct_cover_completion_hit.lp) | direct_cover_completion_glue_funcd | The producer explicitly supplies direct_cover_completion_glue_is_strict : IsStrictFunctord(...). Its substitution comparison is required to be strict. The existing evidence interface is not automatically a new classifier admission or a judgmental computation. |
+| Core piapp1_func, section_total_func and section_weaken_funcd | A section s:const(1)=>E, or its weakening | General sections genuinely use nonidentity base action. Pi may remain on ambient lax Transf under the proposed strict public Functord split, but these existing extractor call sites must then take that ambient input. |
+| Core tapp1_post_laxity_transf and [pathout_transf_target_func](../../emdash3_2_pathout_transformation_lift.lp) | tapp1_at_transf(epsilon,x) for an ordinary lax epsilon | General epsilon requires lax admission here. At the represented identity the displayed comparison recovers epsilon's retained post/left naturality. Restricting this FF would restrict epsilon or require an ambient extraction route. The selected strict pre/right leg does not erase the post/left cell. |
+| [DependentTriangleImage_catd / dependent_triangle_map](../../emdash3_2_dependent_simplex_bridge.lp) | An arbitrary caller FF | The general statement includes lax maps. Its strict specialization remains mathematically useful; the generic declaration alone does not show non-strict FF is necessary for triangle formation. |
+| [shaped_unit_fixed_funcd](../../emdash3_2_shaped_pathout.lp) | Restriction of an arbitrary shaped Prof_hom cell | It inherits the supplied cell's profile. Preserving the unrestricted API needs the ambient route; necessity of laxness for each special application is not established by this binder. |
+| General Sigma-map/base-change/comma comparisons | Arbitrary FF, or canonical projection/reframing maps | Generic contracts promise their admitted map class. Canonical projection/reframing profiles need individual migration; do not classify all of them as necessarily lax from their present Functord spelling. |
+
+One inspection correction matters: finding a use of functord_laxity_transf
+in the direct-cover module initially suggested a laxness consumer. Reading
+its producer shows that the same cell is explicitly required to be strict.
+The producer's contract, rather than the extractor's name, determines the
+semantic requirement.
+
+For the genuine ordinary-transformation consumer, write
+FF_y(f)=epsilon_y o F[f] in the selected conventional-lax convention. Its
+comparison along p:y->z is the whiskering of
+
+```text
+G[p] o epsilon_y => epsilon_z o F[p].
+```
+
+At f=id_y this is the original naturality cell. Making all these FF strict
+would therefore make that cell identity. This is a specific dependency of
+the current extraction architecture, not a generic expressivity argument.
+
+Consequently, restricting the extra argument of the relative public Homd
+would preserve the identity and canonical strict consumers listed above.
+It would not preserve every existing shared extractor consumer without a
+selective ambient interface. Keeping ambient lax Transf and Pi can preserve
+those data, as the user already proposed; one must migrate the actual
+extraction and totalization call sites too. The current defined relative
+Homd body can be shared through the inclusion, rather than introducing a
+second primitive ladder. No such classifier migration is performed here.
+
+For strict FF, the computation remains meaningful:
+
+```text
+Phi_FF(p,u,v)[a] = FF[y][a]
+lambda_FF(p,u) = id.
+```
+
+The fibre functor and its higher Hom action are not identities in general.
+The earlier composition-of-lax-FF question is therefore a real optional
+interface-design tradeoff, not a choice between useful and useless maps.
+
+## Coherence work required by the migration
+
+The phrase "broader Q coherence" in recent status reports was too broad as
+a blanket prerequisite. The plan already limits Q to structural operations
+consumed by Homd/Sigma and explicitly defers a general profunctor model.
+Restore that distinction:
+
+- Native declarations need correct whole types, their projection ladder,
+  retained higher action, and computation at the required original consumers.
+- Installed rewrite rules need their relevant identity/composition and
+  projection overlaps checked. The two-map intrinsic rule overlaps with the
+  literal identity rule: the completed whole-unit checks address a concrete
+  computational interaction. They are not a request for caller coherence
+  proofs or a new semantic library.
+- Triple associativity of the expanded intrinsic body is a bounded pending
+  compatibility audit of that composition rule and the existing proof-time
+  associativity views. It is not a requirement to derive arbitrary omega
+  coherence before continuing the later original owners. Proof-time
+  equality need not normalize in both directions; a failed typed-reflexivity
+  presentation is not by itself a semantic counterexample or a runtime
+  critical-pair failure. No computational contradiction has been established.
+- Every further Q/mate/index computation must name the actual rule overlap
+  or original consumer that requires it. A full profunctor/coend model,
+  arbitrary balancing laws and general higher coherence are library/model
+  developments, not implicit prerequisites to this migration.
+
+Post-d64 associativity probes remain ignored and unpromoted. Independent
+triple roots typecheck and the displayed map arguments compare; the current
+failure is comparing their expanded relative-root presentations. Broad
+composition-congruence attempts broke otherwise valid endomorphism
+associativity, so they must not be added just to make this extra comparison
+pass. Resume migration of the existing Op_prof and fdapp1_projection_target
+owners; revisit the bounded comparison at its actual dependency or before
+claiming the corresponding whole computation qualified. The outstanding
+source failures and public/downstream gates remain explicit.
+
+This continuation changes documentation and priority only. It installs no
+new Lambdapi rule and performs no new checker probe.
 
 ## A clean selective classifier
 

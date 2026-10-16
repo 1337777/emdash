@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: staged native intrinsic composition, whole unit comparisons and identity projection ladder check; triple associativity, expanded cell factorization, general Q coherence and public/downstream migration remain open
+Status: staged native intrinsic composition, whole unit comparisons and identity projection ladder check; continue original-source migration, with consumed composition/index compatibility and public/downstream qualification still open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,6 +38,41 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Consumer/scope reassessment, 2026-10-16, after `d64e31a0`:
+the expanded [strict-Functord review](../emdash2/audits/strict-default-action-boundary/strict_functord_reassessment_2026_10_16.md#inventory-of-the-ffs-actually-consumed)
+now inventories actual FF producers rather than arguing only from the
+expressivity of lax transformations. Identity Homd, recursive Sigma-Hom,
+strict functor Hom action, represented transport and slice postcomposition
+do not require arbitrary lax FF. Direct-cover glue explicitly has a
+strictness contract. General sections and the retained ordinary post/left
+transformation action are concrete ambient-lax consumers of the shared
+intrinsic extractor. Generic arbitrary-FF library binders are recorded
+separately from evidence that a particular application needs laxness.
+Strict displayed maps impose transport compatibility along base arrows;
+they do not replace the base by its discrete object category.
+
+This remains a design assessment, not a classifier migration. Retain the
+current lax Functord route and the strict alternative. Restricting the public
+relative Homd input could preserve the strict consumers, provided the actual
+section/action extraction call sites retain an ambient lax route.
+
+Scope correction: "general/broader Q coherence" is not a blanket prerequisite
+to the foundational migration. Qualify whole types, projections, retained
+higher action and the precise installed-rule overlaps or original consumers.
+The whole-unit work addresses the actual intrinsic identity/composite
+overlap. Triple expanded-body associativity remains a bounded compatibility
+audit; its proof-time presentation failure is not a proved inconsistency.
+Do not add broad congruence hints merely to force that additional normal-form
+comparison. The existing rule's compatibility still needs review before
+claiming the corresponding full whole computation qualified. General Q
+models, arbitrary balancing and general higher coherence remain deferred.
+Continue the original Op_prof and fdapp1_projection_target owners now;
+revisit pending comparisons at their concrete dependency/integration point.
+No new code or checker probe is introduced by this documentation review.
+
+The entries below retain their checkpoint evidence and historical next-step
+wording; the consumer/scope direction immediately above governs continuation.
+
 Intrinsic-unit continuation after `d07139e7`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_intrinsic_unit_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_intrinsic_unit_verification.json)
@@ -55,12 +90,14 @@ unit consumer; its prior omission result remains valid at the old boundary.
 Extra recursive-Hom identity rules and the broader inferred-endpoint runtime
 identity-pair experiment remain unselected.
 
-Next qualify whole triple/mapped-composite coherence and expand the retained
-Phi_GG[lambda_FF] cell using its actual fibre-variable naturality. Continue
-the later original owners, including Op_prof (the current full-source
-failure) and fdapp1_projection_target, without changing the selected
-strict-functor/lax-transfor or family coefficient profiles. Q/mate/index,
-whole duality/inverse, public/downstream and final validation remain required.
+Pending comparisons include the whole triple/mapped-composite action and
+expansion of Phi_GG[lambda_FF] using its actual fibre-variable naturality.
+Under the scope correction above, continue the later original owners,
+including Op_prof (the current full-source failure) and
+fdapp1_projection_target, without changing the selected
+strict-functor/lax-transfor or family coefficient profiles. Consumed
+Q/mate/index, whole duality/inverse, public/downstream and final validation
+remain required; a general Q coherence theory is not the prerequisite.
 The following entries retain the preceding checkpoint and decision history.
 
 Side assessment requested 2026-10-16:
