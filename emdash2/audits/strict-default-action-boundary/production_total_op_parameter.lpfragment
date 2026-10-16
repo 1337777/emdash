@@ -1,0 +1,12 @@
+// The total-dual counterpart of the existing Op_funcd, on strict maps.
+injective symbol TotalOp_funcd [K : Cat] [E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  : τ (Obj (Hom_cat (Functor_cart_cat (CoAbove2_cat K) Cat_cart)
+      (@TotalOp_catd K E) (@TotalOp_catd K D)));
+rule @fapp1_fapp0 _ _ (@TotalOp_catd_func $K) $E $D $U
+  ↪ @TotalOp_funcd $K $E $D $U;
+rule @tapp0_fapp0 _ Cat_cart _ _ $x
+      (@strict_transfor _ _ _ _ (@TotalOp_funcd $K $E $D $U))
+  ↪ @TotalOp_func (Fibre_cat $E $x) (Fibre_cat $D $x)
+      (@tapp0_fapp0 $K Cat_cart $E $D $x
+        (@strict_transfor $K Cat_cart $E $D $U));

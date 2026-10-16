@@ -67,13 +67,6 @@ def main():
            + '\n' + fragment('production_conventional_pre_reading.lpfragment')
            + '\n' + fragment('conventional_lax_rules.lpfragment'),
            'Strict functor action and conventional-lax pre/right action at the existing whole/projection owners')
-    insert('// The public whole laxity candidate is now an object projection, not an\n',
-           fragment('intrinsic_rule.lpfragment'),
-           'Strict default: normalize the existing extracted functor compositor, without a new witness')
-    insert('// Whole post/left ordinary laxity.',
-           fragment('conventional_lax_intrinsic.lpfragment'),
-           'Conventional lax default: the existing extracted pre/right cell is identity, without a wrapper or supplied comparison')
-
     insert('// Path categories internalize HoTT equality as a groupoidal category.',
            fragment('co_above2_category.lpfragment') + '\n' + fragment('co_at2_category.lpfragment'),
            'Corrected duality: required category-level R, O and dimension-two action')
@@ -1296,6 +1289,32 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
       (@Pullback_catd $B $C $E $F)'''
     replace_once(old, old.replace('Cat_cat', 'Cat_cart'), 'Late family pullback accumulation',
                  'Only the family codomain changes; ambient functor composition remains Cat_cat')
+
+    insert('// Object action of a Sigma map:', fragment('production_sigma_coefficient.lpfragment'),
+           'The actual comma family needs the Cartesian restriction of existing totalization, with the same total categories and strict-map action')
+    insert('// Fibrewise dimension-one transpose changes the base by CoAt2.',
+           fragment('production_total_op_parameter.lpfragment'),
+           'Expose total-dual strict family-map components at the existing whole TotalOp_catd_func owner')
+    a = body.index('// 18zz. Whole comma projection and displayed laxity extraction')
+    b = body.index('// 19. Applications:', a)
+    replace_once(body[a:b], fragment('production_comma_projection.lpfragment') + '\n',
+                 'Original comma identity sections and whole laxity projection',
+                 'Use negative totals, the actual E-to-transposed-target Homd roots, and the existing Q/P projection ladder; keep arbitrary eta and general lax FF')
+    insert('// The public whole laxity candidate is now an object projection, not an\n',
+           fragment('intrinsic_rule.lpfragment'),
+           'Strict default: retain the existing extracted functor-compositor rule at its migrated comma owner')
+    insert('// Whole post/left ordinary laxity.', fragment('conventional_lax_intrinsic.lpfragment'),
+           'Retain the conventional pre/right extracted identity at the same migrated owner; post/left laxity remains directed')
+    old = 'rule @tapp0_fapp0 $A $B $F $H $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ)'
+    replace_once(old, old.replace('$A $B $F $H $Y', '_ _ _ _ $Y', 1),
+                 'Ordinary composite component inference slots',
+                 'Recover endpoints from the actual composite; repeated inferred presentations prevented the arbitrary Homd-action projection')
+    old = '''rule @tapp0_fapp0
+      $K Cat_cart $E $C $x
+      (@comp_fapp0 (@Catd_cat $K) $E $D $C $FF $GG)'''
+    replace_once(old, old.replace('$K Cat_cart $E $C $x', '_ _ _ _ $x', 1),
+                 'Displayed composite component inference slots',
+                 'The displayed constructor supplies the same endpoints; preserve component composition across equivalent target presentations')
     # The original Homd/Pi/Sigma tail remains for coupled adaptation. The
     # separately emitted prefix qualifies the preceding source only; passing
     # that target must not be reported as a passing complete kernel.
@@ -1435,6 +1454,11 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
         len(body[:body.index(section_pullback_boundary)]):]
     (package / 'profunctor_prefix.lp').write_text(body[:body.index(profunctor_boundary)]
         + inherited_controls + '\n' + fragment('production_profunctor_controls.lpfragment'))
+    comma_boundary = '// 19. Applications:'
+    assert body.count(comma_boundary) == 1
+    comma_inherited = (package / 'profunctor_prefix.lp').read_text()[len(body[:body.index(profunctor_boundary)]):]
+    (package / 'comma_prefix.lp').write_text(body[:body.index(comma_boundary)]
+        + comma_inherited + '\n' + fragment('production_comma_controls.lpfragment'))
     # Stage the pre-goal reviewer and exactly its imported source closure.
     # Only the explicit strict-default proof/control adaptations below and
     # the upstream core/profile owners override those original inputs.
@@ -1646,6 +1670,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'intrinsic_composite_prefix.lp',
                               package / 'intrinsic_unit_prefix.lp',
                               package / 'profunctor_prefix.lp',
+                              package / 'comma_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

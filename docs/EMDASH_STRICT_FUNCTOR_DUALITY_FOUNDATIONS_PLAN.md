@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: staged original-source migration through profunctor/join section 18z checks; comma/extraction tail, consumed compatibility and public/downstream qualification remain open
+Status: staged original-source migration through comma/intrinsic extraction section 18zz checks; moving PathOut motives, later source and public/downstream qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,34 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Original comma/extraction continuation after `294d5be1`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_comma_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_comma_verification.json)
+record the corrected negative-total comma family, both existing canonical
+identity sections, arbitrary internal-action projection and extracted whole
+laxity computations. General FF remains lax. The same direct Homd ladder
+supplies every projection; no raw Op_funcd(FF), separate laxity witness or
+operational equality argument is introduced.
+
+The actual comma consumer requires the Cartesian restriction Sigma_coeff_func
+and strict-family-map action TotalOp_funcd. They retain the existing total
+and component functors, with a checked whole ambient Sigma view. Their
+structural profile is explicit; it is not inferred from object agreement.
+The represented mirror now has base O(A), not T(A).
+
+Both original component-of-composition rules now recover their inferred
+arguments from the composite. Explicit canonical eta binders prevent the
+two different Homd-target presentations found by the scalar conversion
+diagnostic. The underlying scalar bodies were identical; no source-fibre
+action or FF naturality condition was changed to make that check pass.
+
+The full source next stops at PathOutMotives_catd: the older public-Cat
+PathOut family is supplied to the now-Cartesian varying-base classifier.
+Review that canonical family using the new totalization restriction and
+continue the original moving Pi/motive owners. Consumed compatibility,
+the later original source, public/downstream promotion and final gates remain
+open. The prior checkpoint entries below retain their historical boundaries.
 
 Original profunctor-source continuation after `d07698b6`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_profunctor_review.md)

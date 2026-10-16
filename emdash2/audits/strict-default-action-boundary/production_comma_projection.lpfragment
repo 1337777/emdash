@@ -1,0 +1,701 @@
+// 18zz. Whole comma projection and displayed laxity extraction
+// -------------------------------------------------------------------------------------------------
+/*
+  This section externalizes the already-active component ladder as a whole,
+  iterable transformation. The self-comma identity section supplies the
+  transported identity; no independent naturality square is postulated.
+*/
+// Comma fibres use the existing negative total:
+//   O(Sigma_{O(A)} O(Hom_B(T[-],b))).
+// The inner and outer total dualities restore the B parameter base.
+symbol CommaFib_catd [A B : Cat]
+  (T : τ (Functor A B))
+  : τ (Catd B)
+≔ @TotalOp_catd (CoAbove2_cat B)
+    (@comp_cat_fapp0 (CoAbove2_cat B)
+      (Functor_cart_cat (TotalOp_cat A) Cat_cart) Cat_cart
+      (@Sigma_coeff_func (TotalOp_cat A))
+      (@comp_cat_fapp0 (CoAbove2_cat B)
+        (CoAbove2_cat (Functor_cart_cat (Op_cat A) Cat_cart))
+        (Functor_cart_cat (TotalOp_cat A) Cat_cart)
+        (@TotalOp_catd_func (Op_cat A))
+        (@CoAbove2_func B (Functor_cart_cat (Op_cat A) Cat_cart)
+          (@hom_con_int B A T))));
+
+// Pulling the comma family back along T gives u |-> (T downarrow T[u]).
+symbol SelfComma_catd [A B : Cat]
+  (T : τ (Functor A B))
+  : τ (Catd A)
+≔ @Pullback_catd A B (@CommaFib_catd A B T) T;
+
+// The canonical object (u,id_Tu) in the self-comma fibre.
+symbol hom_con_identity_graph_obj [A B : Cat]
+  (T : τ (Functor A B))
+  (u : τ (Obj A))
+  : τ (Obj (Fibre_cat (@SelfComma_catd A B T) u))
+≔ @Struct_sigma
+    (Obj (Op_cat A))
+    (λ a : τ (Obj (Op_cat A)),
+      Obj (Fibre_cat (@hom_con B (@fapp0 A B T u) A T) a))
+    u
+    (@id B (@fapp0 A B T u));
+
+// Stable section owner. Its object and retained-arrow projections compute
+// through the existing Pi/displayed-action ladder below.
+injective symbol hom_con_identity_graph_sec [A B : Cat]
+  (T : τ (Functor A B))
+  : τ (Obj (Pi_cat (@SelfComma_catd A B T)));
+
+// Selected object projection of the stable identity section.  The rule lives
+// at the actual terminal-source component application exposed by `piapp0`.
+rule @fapp0
+      _
+      _
+      (@tapp0_fapp0
+        _
+        _
+        _
+        _
+        $u
+        (@hom_con_identity_graph_sec $A $B $T))
+      Terminal_obj
+  ↪ @hom_con_identity_graph_obj $A $B $T $u;
+// Canonical comma arrow (h,id_T[h]).  The fibre is opposite, so this is the
+// Sigma arrow from (u',id_Tu') to (u,T[h]) in the underlying total.
+symbol hom_con_identity_graph_action [A B : Cat]
+  (T : τ (Functor A B))
+  [u u' : τ (Obj A)]
+  (h : τ (Hom A u u'))
+  : τ (Hom
+      (Fibre_cat (@SelfComma_catd A B T) u')
+      (@piapp1_src_obj
+        A
+        (@SelfComma_catd A B T)
+        (@hom_con_identity_graph_sec A B T)
+        u u' h)
+      (@hom_con_identity_graph_obj A B T u'))
+≔ Struct_sigma
+    h
+    (@id
+      (Hom_cat B (@fapp0 A B T u) (@fapp0 A B T u'))
+      (@fapp1_fapp0 A B T u u' h));
+// The selected section action is a specialization of the existing displayed
+// internal-action cell, not an independent rule on `piapp1_fapp0`.
+rule @fdapp1_int_cell
+      $A
+      _
+      _
+      (@hom_con_identity_graph_sec $A $B $T)
+      $u
+      $u'
+      $h
+      Terminal_obj
+  ↪ @hom_con_identity_graph_action $A $B $T $u $u' $h;
+
+/*
+  Covariant represented mirror of the self-comma identity section.
+
+  Over y : O(A), the fibre is O(PathOut(A,y)); its selected object is
+  (y,id_y).  For g : x -> y, the base arrow y -> x in O(A) transports that
+  object to (y,g), and the section action is the opposite of the canonical
+  total arrow (g,id_g) : (x,id_x) -> (y,g).
+
+  This is the ordinary hom_int mirror of hom_con_identity_graph_sec.  It is a
+  reusable internal-action owner, not a transformation-graph constructor.
+*/
+symbol hom_identity_graph_catd (A : Cat)
+  : τ (Catd (TotalOp_cat A))
+≔ @TotalOp_catd (Op_cat A)
+    (@comp_cat_fapp0 (Op_cat A) (Functor_cart_cat A Cat_cart) Cat_cart
+      (@Sigma_coeff_func A) (@hom_int A A (@id_func A)));
+
+symbol hom_identity_graph_obj
+  [A : Cat]
+  (y : τ (Obj A))
+  : τ (Obj (Fibre_cat (@hom_identity_graph_catd A) y))
+≔ @Struct_sigma
+    (Obj A)
+    (λ z : τ (Obj A), Obj (Hom_cat A y z))
+    y
+    (@id A y);
+
+injective symbol hom_identity_graph_sec
+  (A : Cat)
+  : τ (Obj (@Pi_cat
+      (TotalOp_cat A)
+      (@hom_identity_graph_catd A)));
+
+// Selected object projection of the ordinary represented identity section.
+rule @fapp0
+      _ _
+      (@tapp0_fapp0
+        _ _ _ _ $y
+        (@hom_identity_graph_sec $A))
+      Terminal_obj
+  ↪ @hom_identity_graph_obj $A $y;
+
+// Transported source (y,g) of the canonical opposite total arrow.
+symbol hom_identity_graph_action_source
+  [A : Cat]
+  [y x : τ (Obj A)]
+  (g : τ (Hom A x y))
+  : τ (Obj (Fibre_cat (@hom_identity_graph_catd A) x))
+≔ @piapp1_src_obj
+    (TotalOp_cat A)
+    (@hom_identity_graph_catd A)
+    (@hom_identity_graph_sec A)
+    y x g;
+
+// Stable hom owner used to type the constructor-visible section action.
+symbol hom_identity_graph_action_cat
+  [A : Cat]
+  [y x : τ (Obj A)]
+  (g : τ (Hom A x y))
+  : Cat
+≔ @Hom_cat
+    (Fibre_cat (@hom_identity_graph_catd A) x)
+    (@hom_identity_graph_action_source A y x g)
+    (@hom_identity_graph_obj A x);
+
+// Canonical section action: the opposite of (g,id_g).
+symbol hom_identity_graph_action
+  [A : Cat]
+  [y x : τ (Obj A)]
+  (g : τ (Hom A x y))
+  : τ (Obj (@hom_identity_graph_action_cat A y x g))
+≔ @sigma_arrow
+    A
+    (@hom_ A A (@id_func A) x)
+    x y
+    (@id A x)
+    g
+    g
+    (@id (Hom_cat A x y) g);
+
+// The action remains a specialization of the generic displayed internal
+// action; no competing rule is installed on piapp1_fapp0.
+rule @fdapp1_int_cell
+      _ _ _
+      (@hom_identity_graph_sec $A)
+      $y $x $g Terminal_obj
+  ↪ @hom_identity_graph_action $A $y $x $g;
+// -----------------------------------------------------------------------------------------------
+// Arbitrary internal-action projection.  Every rung below is a definition
+// through an existing component owner; no component square is postulated.
+
+// Original projection endpoints, now on E with the corrected transposed target.
+symbol fdapp1_projection_source [K : Cat] (E : τ (Catd K))
+  : τ (Functord E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)))
+≔ @homd_int K E E (@id_funcd K E);
+symbol fdapp1_projection_target [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  : τ (Functord E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)))
+≔ @comp_catd_fapp0 K E D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@homd_int K E D FF) FF;
+
+// The whole modification points from the relative root to the identity root.
+// Its component in T(S_E(x)) has the original forward section direction.
+symbol fdapp1_project_section_arrow
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (Hom_cat (@Homd_target_section_cat K E x)
+      (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E D FF x u)))
+≔ @tapp0_fapp0 (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K E x))
+    (@Fibre_func K E (@Homd_target_catd K E) (@fdapp1_projection_target K E D FF) x)
+    (@Fibre_func K E (@Homd_target_catd K E) (@fdapp1_projection_source K E) x)
+    u (@strict_transfor _ _ _ _
+      (@tdapp0_fapp0 K E (@Homd_target_catd K E)
+        (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E) x eta));
+
+symbol fdapp1_project_tgt_arrow
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (@StrictTransfor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (@homd_id_tgt_func K E x u y) (@homd_ff_tgt_func K E D FF x u y))
+≔ @tapp0_hom_fapp0 K Homd_coeff_cat
+    (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E D FF x u) y
+    (@fdapp1_project_section_arrow K E D FF eta x u);
+
+symbol fdapp1_project_presheaf_arrow
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  (v : τ (Obj (Fibre_cat E y)))
+  : τ (Obj (Hom_cat (Homd_index_cat (Hom_cat K x y))
+      (fapp0 (@homd_id_tgt_func K E x u y) v)
+      (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)))
+≔ @tapp0_fapp0 (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+    (@homd_id_tgt_func K E x u y) (@homd_ff_tgt_func K E D FF x u y) v
+    (@strict_transfor _ _ _ _ (@fdapp1_project_tgt_arrow K E D FF eta x u y));
+
+symbol fdapp1_project_hom_func
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  [x y : τ (Obj K)] (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y)))
+  : τ (Functor
+      (fapp0 (@homd_ K E E (@id_funcd K E) x u y v) p)
+      (fapp0 (@homd_ K E D FF x (fapp0 (@Fibre_func K E D FF x) u) y v) p))
+≔ @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)
+    (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)
+    (fapp0 (@homd_id_tgt_func K E x u y) v) p
+    (@fdapp1_project_presheaf_arrow K E D FF eta x u y v);
+
+// Arbitrary-comma component at alpha.  This is the direct nested projection
+// of eta and will be specialized to the transported identity below.
+symbol fdapp1_project_comma_component
+  [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x)))
+  [v : τ (Obj (Fibre_cat E y))]
+  (alpha : τ (Hom
+    (Fibre_cat E y)
+    (fapp0 (@catd_transport_func K E x y p) u)
+    v))
+  : τ (Hom
+      (Fibre_cat D y)
+      (fapp0 (@functord_transport_lhs_func K E D FF x y p) u)
+      (fapp0 (@Fibre_func K E D FF y) v))
+≔ @fapp0
+    (fapp0
+      (@homd_ K E E (@id_funcd K E) x u y v)
+      p)
+    (fapp0
+      (@homd_ K E D FF x
+        (fapp0 (@Fibre_func K E D FF x) u) y v)
+      p)
+    (@fdapp1_project_hom_func K E D FF eta x y p u v)
+    alpha;
+
+// -----------------------------------------------------------------------------------------------
+// Narrow whole owner.  Its object beta is the arbitrary projection above;
+// because it is a functor rather than a standalone transfor, the generic
+// fapp1/tapp1 tower remains available at the next hom.
+
+injective symbol fdapp1_comma_projection_func
+  [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  : τ (Functor
+      (@Transfd_cat
+        K
+        E
+        (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+        (@fdapp1_projection_target K E D FF)
+        (@fdapp1_projection_source K E))
+      (@Transf_cat
+        (Fibre_cat E x)
+        (Fibre_cat D y)
+        (@functord_transport_lhs_func K E D FF x y p)
+        (@functord_transport_rhs_func K E D FF x y p)));
+
+// The whole transformation selected from an arbitrary internal action.
+injective symbol fdapp1_comma_projection_transf
+  [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  : τ (Transf
+      (@functord_transport_lhs_func K E D FF x y p)
+      (@functord_transport_rhs_func K E D FF x y p));
+
+// Object projection of the narrow whole functor.
+rule @fapp0
+      _
+      _
+      (@fdapp1_comma_projection_func
+        $K $E $D $FF $x $y $p)
+      $eta
+  ↪ @fdapp1_comma_projection_transf
+      $K $E $D $FF $eta $x $y $p;
+
+// Object/component beta of the whole projection functor.  The RHS is the
+// transported-identity specialization of the arbitrary comma component.
+rule @tapp0_fapp0
+      _
+      _
+      _
+      _
+      $u
+      (@fdapp1_comma_projection_transf
+        $K $E $D $FF $eta $x $y $p)
+  ↪ @fdapp1_project_comma_component
+      $K $E $D $FF $eta $x $y $p $u
+      (@fapp0
+        (Fibre_cat $E $x)
+        (Fibre_cat $E $y)
+        (@catd_transport_func $K $E $x $y $p)
+        $u)
+      (@id
+        (Fibre_cat $E $y)
+        (@fapp0
+          (Fibre_cat $E $x)
+          (Fibre_cat $E $y)
+          (@catd_transport_func $K $E $x $y $p)
+          $u));
+
+// Read the transported identity literally from the self-comma identity
+// section for T := E[p].
+symbol fdapp1_identity_section_alpha
+  [K : Cat] [E : τ (Catd K)]
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x)))
+  : τ (Hom
+      (Fibre_cat E y)
+      (fapp0 (@catd_transport_func K E x y p) u)
+      (fapp0 (@catd_transport_func K E x y p) u))
+≔ sigma_Snd
+    (@piapp0
+      (Fibre_cat E x)
+      (@SelfComma_catd
+        (Fibre_cat E x)
+        (Fibre_cat E y)
+        (@catd_transport_func K E x y p))
+      (@hom_con_identity_graph_sec
+        (Fibre_cat E x)
+        (Fibre_cat E y)
+        (@catd_transport_func K E x y p))
+      u);
+
+symbol fdapp1_project_identity_section_component
+  [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x)))
+  : τ (Hom
+      (Fibre_cat D y)
+      (fapp0 (@functord_transport_lhs_func K E D FF x y p) u)
+      (fapp0 (@functord_transport_rhs_func K E D FF x y p) u))
+≔ @fdapp1_project_comma_component
+    K E D FF eta x y p u
+    (fapp0 (@catd_transport_func K E x y p) u)
+    (@fdapp1_identity_section_alpha K E x y p u);
+
+
+// The public whole laxity candidate is now an object projection, not an
+// independently postulated transformation.
+symbol functord_laxity_transf
+  [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  : τ (Transf
+      (@functord_transport_lhs_func K E D FF x y p)
+      (@functord_transport_rhs_func K E D FF x y p))
+≔ @fdapp1_comma_projection_transf
+    K E D FF (@fdapp1_int_transfd K E D FF) x y p;
+
+
+// Whole post/left ordinary laxity. Fixing the source of epsilon's internal
+// action turns g : Y -> Z into a transformation, still whole in f : X -> Y.
+//
+// Surface/formula:
+//   G[g] o epsilon[-]  ==>  epsilon[g o -].
+symbol tapp1_post_laxity_transf
+  [A B : Cat]
+  [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  (X : τ (Obj A))
+  [Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z))
+  : τ (Transf
+      (@functord_transport_lhs_func
+        A
+        (@hom_ A A (@id_func A) X)
+        (@hom_ B A G (@fapp0 A B F X))
+        (@tapp1_at_transf A B F G X epsilon)
+        Y Z g)
+      (@functord_transport_rhs_func
+        A
+        (@hom_ A A (@id_func A) X)
+        (@hom_ B A G (@fapp0 A B F X))
+        (@tapp1_at_transf A B F G X epsilon)
+        Y Z g))
+≔ @functord_laxity_transf
+    A
+    (@hom_ A A (@id_func A) X)
+    (@hom_ B A G (@fapp0 A B F X))
+    (@tapp1_at_transf A B F G X epsilon)
+    Y Z g;
+
+// Capped post/left component, projected from the whole transformation above.
+// Its readable endpoints are G[g] o epsilon[f] and epsilon[g o f].
+symbol tapp1_post_laxity_cell
+  [A B : Cat]
+  [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z))
+  (f : τ (Hom A X Y))
+  : τ (Hom
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))
+      (@fapp0
+        (Hom_cat A X Y)
+        (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))
+        (@functord_transport_lhs_func
+          A
+          (@hom_ A A (@id_func A) X)
+          (@hom_ B A G (@fapp0 A B F X))
+          (@tapp1_at_transf A B F G X epsilon)
+          Y Z g)
+        f)
+      (@fapp0
+        (Hom_cat A X Y)
+        (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))
+        (@functord_transport_rhs_func
+          A
+          (@hom_ A A (@id_func A) X)
+          (@hom_ B A G (@fapp0 A B F X))
+          (@tapp1_at_transf A B F G X epsilon)
+          Y Z g)
+        f))
+≔ @tapp0_fapp0
+    (Hom_cat A X Y)
+    (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Z))
+    (@functord_transport_lhs_func
+      A
+      (@hom_ A A (@id_func A) X)
+      (@hom_ B A G (@fapp0 A B F X))
+      (@tapp1_at_transf A B F G X epsilon)
+      Y Z g)
+    (@functord_transport_rhs_func
+      A
+      (@hom_ A A (@id_func A) X)
+      (@hom_ B A G (@fapp0 A B F X))
+      (@tapp1_at_transf A B F G X epsilon)
+      Y Z g)
+    f
+    (@tapp1_post_laxity_transf A B F G epsilon X Y Z g);
+
+// Whole pre/right ordinary laxity. Fixing the target makes h : W -> X a
+// base arrow X -> W in Op(A), while q : X -> Y remains the retained variable.
+//
+// Surface/formula:
+//   epsilon[-] o F[h]  ==>  epsilon[- o h].
+symbol tapp1_pre_laxity_transf
+  [A B : Cat]
+  [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  (Y : τ (Obj A))
+  [W X : τ (Obj A)]
+  (h : τ (Hom A W X))
+  : τ (Transf
+      (@functord_transport_lhs_func
+        (Op_cat A)
+        (@hom_con A Y A (@id_func A))
+        (@hom_con B (@fapp0 A B G Y) A F)
+        (@tapp1_con_at_transf A B F G epsilon Y)
+        X W h)
+      (@functord_transport_rhs_func
+        (Op_cat A)
+        (@hom_con A Y A (@id_func A))
+        (@hom_con B (@fapp0 A B G Y) A F)
+        (@tapp1_con_at_transf A B F G epsilon Y)
+        X W h))
+≔ @functord_laxity_transf
+    (Op_cat A)
+    (@hom_con A Y A (@id_func A))
+    (@hom_con B (@fapp0 A B G Y) A F)
+    (@tapp1_con_at_transf A B F G epsilon Y)
+    X W h;
+
+// Capped pre/right component, projected from the whole transformation above.
+// Its readable endpoints are epsilon[q] o F[h] and epsilon[q o h].
+symbol tapp1_pre_laxity_cell
+  [A B : Cat]
+  [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  [W X Y : τ (Obj A)]
+  (h : τ (Hom A W X))
+  (q : τ (Hom A X Y))
+  : τ (Hom
+      (Hom_cat B (@fapp0 A B F W) (@fapp0 A B G Y))
+      (@fapp0
+        (Hom_cat A X Y)
+        (Hom_cat B (@fapp0 A B F W) (@fapp0 A B G Y))
+        (@functord_transport_lhs_func
+          (Op_cat A)
+          (@hom_con A Y A (@id_func A))
+          (@hom_con B (@fapp0 A B G Y) A F)
+          (@tapp1_con_at_transf A B F G epsilon Y)
+          X W h)
+        q)
+      (@fapp0
+        (Hom_cat A X Y)
+        (Hom_cat B (@fapp0 A B F W) (@fapp0 A B G Y))
+        (@functord_transport_rhs_func
+          (Op_cat A)
+          (@hom_con A Y A (@id_func A))
+          (@hom_con B (@fapp0 A B G Y) A F)
+          (@tapp1_con_at_transf A B F G epsilon Y)
+          X W h)
+        q))
+≔ @tapp0_fapp0
+    (Hom_cat A X Y)
+    (Hom_cat B (@fapp0 A B F W) (@fapp0 A B G Y))
+    (@functord_transport_lhs_func
+      (Op_cat A)
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)
+      (@tapp1_con_at_transf A B F G epsilon Y)
+      X W h)
+    (@functord_transport_rhs_func
+      (Op_cat A)
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)
+      (@tapp1_con_at_transf A B F G epsilon Y)
+      X W h)
+    q
+    (@tapp1_pre_laxity_transf A B F G epsilon Y W X h);
+
+// Functor compositor, still extracted from the identity transfor.
+// The strict default computes this existing post/left cell to identity.
+//
+// Surface/formula:
+//   fapp1_compositor(F,g,f) : F[g] o F[f] ==> F[g o f].
+symbol fapp1_compositor
+  [A B : Cat]
+  (F : τ (Functor A B))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z))
+  (f : τ (Hom A X Y))
+  : τ (Hom
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z))
+      (@fapp0
+        (Hom_cat A X Y)
+        (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z))
+        (@functord_transport_lhs_func
+          A
+          (@hom_ A A (@id_func A) X)
+          (@hom_ B A F (@fapp0 A B F X))
+          (@fapp1_at_transf A B F X)
+          Y Z g)
+        f)
+      (@fapp0
+        (Hom_cat A X Y)
+        (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z))
+        (@functord_transport_rhs_func
+          A
+          (@hom_ A A (@id_func A) X)
+          (@hom_ B A F (@fapp0 A B F X))
+          (@fapp1_at_transf A B F X)
+          Y Z g)
+        f))
+≔ @tapp1_post_laxity_cell
+    A B F F (@id (Functor_cat A B) F) X Y Z g f;
+// -----------------------------------------------------------------------------------------------
+// Naturality in the retained source-fibre variable u.  The identity section
+// sends h : u -> u' to the comma datum whose transported alpha is E[p][h].
+
+symbol fdapp1_identity_section_transport_alpha
+  [K : Cat] [E : τ (Catd K)]
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  [u u' : τ (Obj (Fibre_cat E x))]
+  (h : τ (Hom (Fibre_cat E x) u u'))
+  : τ (Hom
+      (Fibre_cat E y)
+      (fapp0 (@catd_transport_func K E x y p) u)
+      (fapp0 (@catd_transport_func K E x y p) u'))
+≔ @fapp1_fapp0
+    (Fibre_cat E x)
+    (Fibre_cat E y)
+    (@catd_transport_func K E x y p)
+    u u' h;
+
+// Capped off-diagonal action of the projected transformation.  Unlike the
+// object component, this consumes the arrow part of the identity graph.
+symbol fdapp1_comma_projection_tapp1_fapp0
+  [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  [u u' : τ (Obj (Fibre_cat E x))]
+  (h : τ (Hom (Fibre_cat E x) u u'))
+  : τ (Hom
+      (Fibre_cat D y)
+      (fapp0 (@functord_transport_lhs_func K E D FF x y p) u)
+      (fapp0 (@functord_transport_rhs_func K E D FF x y p) u'))
+≔ @fdapp1_project_comma_component
+    K E D FF eta x y p u
+    (fapp0 (@catd_transport_func K E x y p) u')
+    (@fdapp1_identity_section_transport_alpha
+      K E x y p u u' h);
+
+injective symbol fdapp1_comma_projection_tapp1_func
+  [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  [x y : τ (Obj K)]
+  (p : τ (Hom K x y))
+  (u u' : τ (Obj (Fibre_cat E x)))
+  : τ (Functor
+      (Hom_cat (Fibre_cat E x) u u')
+      (Hom_cat
+        (Fibre_cat D y)
+        (fapp0 (@functord_transport_lhs_func K E D FF x y p) u)
+        (fapp0 (@functord_transport_rhs_func K E D FF x y p) u')));
+
+rule @tapp1_func
+      _
+      _
+      _
+      _
+      $u $u'
+      (@fdapp1_comma_projection_transf
+        $K $E $D $FF $eta $x $y $p)
+  ↪ @fdapp1_comma_projection_tapp1_func
+      $K $E $D $FF $eta $x $y $p $u $u';
+
+rule @fapp0
+      _
+      _
+      (@fdapp1_comma_projection_tapp1_func
+        $K $E $D $FF $eta $x $y $p $u $u')
+      $h
+  ↪ @fdapp1_comma_projection_tapp1_fapp0
+      $K $E $D $FF $eta $x $y $p $u $u' $h;
+
+rule @tapp1_fapp0
+      _
+      _
+      _
+      _
+      $u $u'
+      (@fdapp1_comma_projection_transf
+        $K $E $D $FF $eta $x $y $p)
+      $h
+  ↪ @fdapp1_comma_projection_tapp1_fapp0
+      $K $E $D $FF $eta $x $y $p $u $u' $h;
+
+// -------------------------------------------------------------------------------------------------

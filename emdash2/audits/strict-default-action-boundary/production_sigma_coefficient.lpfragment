@@ -1,0 +1,16 @@
+// Canonical Cartesian restriction of the existing totalization operation.
+// It has the same objects and strict-map action; raw Sigma_func remains lax
+// in its higher parameter profile.
+injective symbol Sigma_coeff_func (K : Cat)
+  : τ (Functor (Functor_cart_cat K Cat_cart) Cat_cart);
+rule @fapp0 _ Cat_cart (@Sigma_coeff_func $K) $E
+  ↪ @Sigma_cat $K $E;
+rule @fapp1_fapp0 _ Cat_cart (@Sigma_coeff_func $K) $E $D $U
+  ↪ @sigma_map_func $K $E $D (@strict_transfor $K Cat_cart $E $D $U);
+
+// The ambient view is the existing totalization restricted by its source
+// inclusion. This is a structural whole view, not a supplied proof input.
+unif_rule @comp_fapp0 Cat_cat _ _ _ Cat_cart_include (@Sigma_coeff_func $K)
+  ≡ @comp_fapp0 Cat_cat $A $B $C (@Sigma_func $K0) (Functor_cart_include $K1 Cat_cart)
+  ↪ [ $K0 ≡ $K; $K1 ≡ $K; $A ≡ Functor_cart_cat $K Cat_cart;
+      $B ≡ Catd_cat $K; $C ≡ Cat_cat ];

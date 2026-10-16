@@ -1,0 +1,291 @@
+{
+  "status": "Non-library migration through original section 18zz and its whole intrinsic extraction consumers checks; full source next fails at PathOutMotives_catd",
+  "extendsCheckpoint": "294d5be1",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "originalCoreSha256": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+  "sourcePreservation": {
+    "originalCoreLines": 22644,
+    "candidateCoreLines": 24085,
+    "originalDownstreamSectionsRetained": true,
+    "unretiredNamedDeclarationsRetained": true,
+    "retiredNamesWithReplacements": {
+      "Homd_target_section_catd": "Homd_target_section_cat",
+      "functord_transport_lhs_tele_agrees": "functord_transport_rhs_tele_agrees",
+      "functord_transport_lhs_agrees": "functord_transport_rhs_agrees"
+    },
+    "unrelocatedNamedDeclarationSequenceVerified": true,
+    "namedDeclarationSequenceExceptions": [
+      "Catd_cat_func",
+      "Catd_catd_con",
+      "Const_func_func",
+      "FibCov_source_catd",
+      "FibCov_target_catd",
+      "fib_cov_int",
+      "fib_cov_src_func",
+      "fib_cov_transf",
+      "homd_id_src_sec",
+      "homd_id_tgt_func",
+      "homd_src_func",
+      "homd_src_sec",
+      "homd_tgt_func"
+    ]
+  },
+  "manifestSha256": "932d8f207dd19778c595cf3d88aa9fb085c601be83d271d702a1c1bce1720594",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/composition_rule.lpfragment": "7e0f6f8df2725f3c03a4b2c2cd408ee0fdd83b6b03eeef3a55fb06003667857b",
+    "audits/strict-default-action-boundary/whole_rules.lpfragment": "cf0b7635b5d7da809417e11b999b4971c1bb2ece2c64a8ca77f0e3e07f8305a5",
+    "audits/strict-default-action-boundary/projected_rules.lpfragment": "32be9346c0eab898758eefda6a11e76c563a3aee5807c5376e155136671b2aad",
+    "audits/strict-default-action-boundary/conventional_lax_projection_readings.lpfragment": "fc5cceb5f1e0537cd4bf0bb1873967c9f680529a80e0c8544b6c6e8943673f6e",
+    "audits/strict-default-action-boundary/production_conventional_pre_reading.lpfragment": "f754d60461ff080b77844f38313953244e425ad28fc49e6e394ed114317a77d0",
+    "audits/strict-default-action-boundary/conventional_lax_rules.lpfragment": "05319b9b6d6249dc48be053418b39737ac42e74fd48639cec6ae0afaa7751dad",
+    "audits/strict-default-action-boundary/co_above2_category.lpfragment": "fae1f97b85f01abc527a3f9dc9c8570e3479d9bd9033028178890402cf9407ea",
+    "audits/strict-default-action-boundary/co_at2_category.lpfragment": "ca88ef66ed4ba5b9f4915a2423afcd69bf8efbe7745cc45127945ad5409fac44",
+    "audits/strict-default-action-boundary/co_above2_functor.lpfragment": "904b38c2b596add77d4ae8ff17133450542233551d06144a367666ca7598e95d",
+    "audits/strict-default-action-boundary/co_at2_functor.lpfragment": "339137de1ead85784301118d67d4f667c0fca84a34084dc88ea0909e568bbc4c",
+    "audits/strict-default-action-boundary/conventional_total_op_mapping.lpfragment": "af021c0bb56a5c6730ab5a2e56a387f4cd30fbb8102e36c70bd7f0bc35a6032f",
+    "audits/strict-default-action-boundary/cartesian_profile.lpfragment": "9baf7c78bdc42695ed2e715dd07185f17a957472f2cc7c0434cabd6314039976",
+    "audits/strict-default-action-boundary/production_family_classifier.lpfragment": "0978dd95a597059e20ecb3e38d8bba249499f522caaea1ae9f65a11753c1e81e",
+    "audits/strict-default-action-boundary/conventional_total_op_transfors.lpfragment": "33842eafce8cfb5f84ac5c401ebaf52e8e128cb1d585311862f812925dd119d9",
+    "audits/strict-default-action-boundary/conventional_total_op_offdiagonal.lpfragment": "9431b15bfbedf363c3863a12d86f94b3afbadd04a265abe3fffce0444321eba9",
+    "audits/strict-default-action-boundary/production_cartesian_closure.lpfragment": "31f8d97603e9c9c8ac2922778e15e8c5efed3a268c8d1872820041940c2be8c9",
+    "audits/strict-default-action-boundary/production_cartesian_family_duality.lpfragment": "96370700b262c367cb14934643bb9b81b8b5bd1290f108d0117a9df61c9c5feb",
+    "audits/strict-default-action-boundary/conventional_total_op_whole_action.lpfragment": "202dc17fe192b57c7a7ce8a054d6bc5746027ffa41c5f9698455ae78ee006f0a",
+    "audits/strict-default-action-boundary/conventional_total_op_source_units.lpfragment": "79dbd611f959bade6d50676325ba69d9dd8ceb866f98f84bdf851a2915d3d9a9",
+    "audits/strict-default-action-boundary/production_cartesian_product.lpfragment": "b9fd844fe022921f356c2cb2a628806ef2f9364e44a2b89546073da14d11dfb5",
+    "audits/strict-default-action-boundary/total_op_family.lpfragment": "13f79efe229f5a560dc54d3ea9c4609fac91de5b095de206277330871fe2e7d0",
+    "audits/strict-default-action-boundary/production_homd_index.lpfragment": "364d59d7bd81582d78021513e66ca5c2b1577ebb57fce4caa430e0c375b38978",
+    "audits/strict-default-action-boundary/production_homd_core.lpfragment": "6b91e32447ff87af9a6d32be6ff237fcf9896e93044b76fcfbce76e7a705dd62",
+    "audits/strict-default-action-boundary/production_intrinsic_projection.lpfragment": "6a99cc8c5da93ab05ac37a3590aa344a57daeca00f667f3fc99c5058bbc1c2d3",
+    "audits/strict-default-action-boundary/production_intrinsic_modification.lpfragment": "d82df7e48ecc52ca6844a20a67fa0cf8bdf1c9c0b2a8e4370e03186d4af8921c",
+    "audits/strict-default-action-boundary/production_index_constant_coherence.lpfragment": "692c58b4f216e0fb19898cfa50986ef4775d87725b38e6967ae55881f16a9f63",
+    "audits/strict-default-action-boundary/production_constant_section_index.lpfragment": "8b54b6cd0ca9b60335abc4f1556b8aef15179eb06492b4dcc79499ec1cfc4c32",
+    "audits/strict-default-action-boundary/production_evaluation.lpfragment": "987c74b00c90e0d95ef7d702a98040effe52ecbb7c0fcab7e8a36bd17e563f28",
+    "audits/strict-default-action-boundary/production_q_reindex.lpfragment": "e14f58912b910f994d9eac6628d6a6a53774313587f1c5738f2c215f88634273",
+    "audits/strict-default-action-boundary/production_ordinary_structural.lpfragment": "c6a89a6b9b391a3d31625395d755b9025c0618a798e6b2a6383cbd9af1387cc5",
+    "audits/strict-default-action-boundary/production_pullback_structural.lpfragment": "58eb1be31606f544940ddd8d3e2f5b4db092d4266f57107ea5942d86720196f8",
+    "audits/strict-default-action-boundary/production_total_op_pullback.lpfragment": "15bef22764f4dea59a5a6ba195099ac4e429ed7296cdda9b070fb4bffa5cd72d",
+    "audits/strict-default-action-boundary/production_section_pullback.lpfragment": "c8724d96788455a8a2777090d74a9c9205d5109828cb77d18da270f759641d85",
+    "audits/strict-default-action-boundary/production_cartesian_intrinsic.lpfragment": "2c3e4e73b6696a534efe22f53ad5e827bc66f7b37d751d0f608c555b6f496f84",
+    "audits/strict-default-action-boundary/production_cartesian_hom_action.lpfragment": "313fe43d68615eecd7094c116ced474dd756f1f18a7714401a5ab38ff51a1ab1",
+    "audits/strict-default-action-boundary/production_cartesian_reindex_view.lpfragment": "1596f796b143cac2d8f943262363a23733e4617b2c66edfe57d1bfb30958ff25",
+    "audits/strict-default-action-boundary/production_cartesian_naturality.lpfragment": "acfdc0040460323d121993951f414a24852fd71f0169ba86bec6178f7994c537",
+    "audits/strict-default-action-boundary/production_hom_source_composition.lpfragment": "f7ba3af6f9349018b8264d2a9847d88c05380151afe81b633533c5022adf73ab",
+    "audits/strict-default-action-boundary/production_fixed_postcomposition.lpfragment": "546ee067abd9648dbe63320f5f08702b07c7f8a9bd706b246bbc1510110ad274",
+    "audits/strict-default-action-boundary/production_hom_next_action.lpfragment": "e568c9b0c45e27af384081ecc9593909f8249e79995462f9a4d0992fade66698",
+    "audits/strict-default-action-boundary/production_composition_identity_pair.lpfragment": "ecb9fa045b86c7de45bdd30e7a7392330dd8b343e010e9c07e2ee3383d9f1127",
+    "audits/strict-default-action-boundary/production_displayed_unit_coherence.lpfragment": "5ff91229a5250c0a05b3526567e1ee220593f8f6a6bec4cf235521bbff96827b",
+    "audits/strict-default-action-boundary/production_intrinsic_composite_views.lpfragment": "9c45248ef0ff4f963fce2886d0083755df266ba3256fd71484fdd0b3b283c543",
+    "audits/strict-default-action-boundary/production_intrinsic_composite.lpfragment": "5a3eb2f73b91bc1160ad35903266344fd7e656da2985fe165f334ceb54fd91e9",
+    "audits/strict-default-action-boundary/production_intrinsic_composite_projection.lpfragment": "1456466238f2011efa85ac69dccdccfb594e5a0c2b90ae266d212e267ef360bd",
+    "audits/strict-default-action-boundary/production_intrinsic_unit_projection.lpfragment": "e79529308881827de74a70abcc7dd2fc74adc46f24ba5a9a0cdfd458ac547e7b",
+    "audits/strict-default-action-boundary/production_hom_catd_action.lpfragment": "36735b3b38ebce27a4d30158810f1f0e6eed56e6ac8b366a83f7a85b625d1d1f",
+    "audits/strict-default-action-boundary/production_sigma_coefficient.lpfragment": "e80a72142efa72fc9321b09c0a6aaada1bc109832a9728b44538605938207e7a",
+    "audits/strict-default-action-boundary/production_total_op_parameter.lpfragment": "4f3ed5e45a5fba3cbf322744d7fcc8d9b209d9202189c54864ef9279e245d40f",
+    "audits/strict-default-action-boundary/production_comma_projection.lpfragment": "7b75edbdca25fe4dbe9ffcd56f52e81b2b1d3be14821eea952ba23997fd62888",
+    "audits/strict-default-action-boundary/intrinsic_rule.lpfragment": "238922b557c0f8164f941e437a7251090bc1afc0c8a9cd391986230f22764c73",
+    "audits/strict-default-action-boundary/conventional_lax_intrinsic.lpfragment": "3b892ee25f34dbfd8797d1d410c17af85a346402f603cc1f4441a1ad9cd035e1",
+    "audits/strict-default-action-boundary/production_owner_controls.lpfragment": "42ba40bf4884d0b9a18cd094ec7735de70b3f8d0c0e6ec9b3699ad164989aa2c",
+    "audits/strict-default-action-boundary/whole_controls.lpfragment": "64eab2613c23a555275e2ab2fa0fb986f2cbf1df441b5c5f3faafca0c5595c78",
+    "audits/strict-default-action-boundary/intrinsic_controls.lpfragment": "9dbda7690cc7d9468e4690f5f44c94906f7e8496b85643c48d03f8870ae19d50",
+    "audits/strict-default-action-boundary/conventional_lax_controls.lpfragment": "3c5aee7e71e82239abc774922efde7dd499ed95cb2fa3d7a7898510373be6983",
+    "audits/strict-default-action-boundary/conventional_lax_projection_controls.lpfragment": "d60b227a52ed7df417e6a72ecd2f1ec08a23e8f9e1d0a8d24cbe6ce0397b6175",
+    "audits/strict-default-action-boundary/production_foundations_controls.lpfragment": "d3c768a592094fb5280d4395010d1b24fcb67f394f1f3765f931c54d68a67d0b",
+    "audits/strict-default-action-boundary/production_sections_controls.lpfragment": "57f4d94f69f178e698e652f82f610fea9b8987c36ab1ce92c90cde4825961b95",
+    "audits/strict-default-action-boundary/sigma_total_op_controls.lpfragment": "2f817d10405f707cf3738ff68160f79bcd99e5a2739d0e226f9f012042408b72",
+    "audits/strict-default-action-boundary/mixed_family_controls.lpfragment": "2d0509b7853469f929d3c55b342d396ec4dccaea8493adad962c719d5cb5fd66",
+    "audits/strict-default-action-boundary/mixed_family_parameter_controls.lpfragment": "bb25703b284fc88d1fe64d44fced4ffa65a729d5a135f329654305a24f4a1ad0",
+    "audits/strict-default-action-boundary/total_op_hom_family_controls.lpfragment": "5887b77b910dd9c843af6d5c3fe5a89deddc0b9655904fa69e514c3169b69e62",
+    "audits/strict-default-action-boundary/production_homd_controls.lpfragment": "8490072106fb361ed95a7eb40bc00c5913f6d43edaa18f5ba181a1f1341b1025",
+    "audits/strict-default-action-boundary/production_q_reindex_controls.lpfragment": "37d263a6cc17c4ab0117253e436304c5818e20968c4c583a7182e30a6277c302",
+    "audits/strict-default-action-boundary/production_homd_index_controls.lpfragment": "202bed78e341861596de96ff80f6462b25c40734ef8589cde9c51871ed0c04eb",
+    "audits/strict-default-action-boundary/production_intrinsic_controls.lpfragment": "3b4a4a7fdb867b164e3a33fc6025e96f1c041b3c213a30c5c8004a51a51d1ed3",
+    "audits/strict-default-action-boundary/production_section_action_controls.lpfragment": "6b084092deeed77d1441fdd2bb622175d41512b5980f6c58c7d81c24a6336d6e",
+    "audits/strict-default-action-boundary/production_evaluation_controls.lpfragment": "02d0e4ec79a7d1b5c23b740116d1fc1279fe4fa402cbdc8dc730ff390465797a",
+    "audits/strict-default-action-boundary/production_constant_map_controls.lpfragment": "fe1f4da080a251fd0f28aec197dca4ca58652d8700b015036d8d5854f46f6a8e",
+    "audits/strict-default-action-boundary/production_ordinary_structural_controls.lpfragment": "63d9209054b5750ddbb1e62c78bf63b3ae0d4bbd868eeb7b2bd6f2fd7e3d06cf",
+    "audits/strict-default-action-boundary/production_pullback_structural_controls.lpfragment": "edd230527e3ff391a065a89339586f57f0973200be0047abfe4dc6a896d6fb27",
+    "audits/strict-default-action-boundary/production_section_pullback_controls.lpfragment": "d4d5ceee0a9b31a045cc8a1fed29939cea5901545527aa2191fef964285de0bf",
+    "audits/strict-default-action-boundary/production_intrinsic_composite_controls.lpfragment": "ec5a995c847fab5e3b46c941c43a1fcb742ea78047f98d7dec3fb8dd8186ec8b",
+    "audits/strict-default-action-boundary/production_intrinsic_unit_controls.lpfragment": "d3fb6ee084f67860bc8ae137e96cff1b05296e70efb1573e4fa98c9918178bcf",
+    "audits/strict-default-action-boundary/production_profunctor_controls.lpfragment": "b0fbad2b8d7a7bb73dd2694efc4241b1903db368a51bc4a65d7bb46221acdc92",
+    "audits/strict-default-action-boundary/production_comma_controls.lpfragment": "8a1ce6a44276a4a3daf4fba84a4255834cf1f10870bab48960bea73f743f31e6",
+    "audits/strict-default-action-boundary/production_comma_equivalence.lpfragment": "7e70d4dfd77958a06f712dd0e668280efd4a16eb7e3db328030fa693309622ef",
+    "audits/strict-default-action-boundary/production_comma_basechange_equivalence.lpfragment": "956d22e530d20bf54ba5e58bdecfe37354c6743154280ffa0f6ce7be02067b9b",
+    "audits/strict-default-action-boundary/production_comma_target_equivalence.lpfragment": "5ebdccd39cd50e224bddb1bb559bd82f14596053102484c62d8e428e5b778344",
+    "audits/strict-default-action-boundary/production_owner_migration.py": "bcaa94273373a408f11d33d4c93e9cc3473df1558ea44491f0d39707c2451c32"
+  },
+  "checks": {
+    "commaPrefix": {
+      "id": "20261016T122020Z-f15e5c0bd4e049febd9b6b081d2c6115",
+      "target": "comma_prefix.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 15.690514515968971,
+      "childrenMaxRssKiB": 1077080,
+      "inputSnapshot": "0327bf406f57b72a0b6e3f9a262651ee9098dadf159370af9fbe60cb0da6a75c",
+      "inputs": {
+        "comma_prefix.lp": "e02fd8ecda4fd5aca5bb4ca750308dca5508ee5c7164e7d66e13712f22d16e8a",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "log": "logs/check-runs/20261016T122020Z-f15e5c0bd4e049febd9b6b081d2c6115.log",
+      "logSha256": "53f9f5107277aa33d70e2253b8f2d969cd34e34392dee0fb7216483a4e014720",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "compileObject": false
+    },
+    "fullSourceBoundary": {
+      "id": "20261016T122130Z-ba74ef83b8524d56abf8b7dc3f7236be",
+      "target": "emdash3_2.lp",
+      "outcome": "failed",
+      "wallSeconds": 11.363032744964585,
+      "childrenMaxRssKiB": 1032772,
+      "inputSnapshot": "06e278c20cc2a74981bd9703116bddee494c4ceed835a11de81f4fe44973eb11",
+      "inputs": {
+        "emdash3_2.lp": "b2ee078d7a2d673f4b2bc2fb0df316e0f4a7bf1c0d93bd93a392b98071c0c7de",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "log": "logs/check-runs/20261016T122130Z-ba74ef83b8524d56abf8b7dc3f7236be.log",
+      "logSha256": "b3f6f66d579602b854fb92355d2c0dc29292625ee8bdf329b4a70bf366f74983",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "compileObject": false
+    }
+  },
+  "assertions": {
+    "inheritedAndNewPositive": 236,
+    "inheritedAndNewNegative": 57,
+    "newOrMigratedPositive": 14,
+    "newOrMigratedNegative": 3
+  },
+  "lhsAudit": {
+    "unreviewedSlots": 0,
+    "unreviewedClauses": 0,
+    "annotatedSlots": 71,
+    "annotatedClauses": 47
+  },
+  "warningComparison": {
+    "baseline": "20261016T114808Z-73e475aaeb804f9185ad5d680cd5ede4",
+    "candidate": "20261016T122020Z-f15e5c0bd4e049febd9b6b081d2c6115",
+    "baselineCategories": {
+      "replaceable pattern variable": 165,
+      "unjoinable critical pair": 1796
+    },
+    "candidateCategories": {
+      "replaceable pattern variable": 165,
+      "unjoinable critical pair": 1807
+    },
+    "addedRuleFamilies": [
+      {
+        "heads": [
+          "comp_fapp0",
+          "fapp1_fapp0"
+        ],
+        "count": 8
+      },
+      {
+        "heads": [
+          "fapp1_fapp0",
+          "fapp1_fapp0"
+        ],
+        "count": 13
+      },
+      {
+        "heads": [
+          "fapp1_fapp0",
+          "hom_postcomp_fapp0"
+        ],
+        "count": 1
+      },
+      {
+        "heads": [
+          "fapp1_fapp0",
+          "hom_precomp_along_fapp0"
+        ],
+        "count": 1
+      }
+    ],
+    "removedRuleFamilies": [
+      {
+        "heads": [
+          "comp_fapp0",
+          "tapp0_fapp0"
+        ],
+        "count": 10
+      },
+      {
+        "heads": [
+          "tapp0_fapp0",
+          "tapp0_fapp0"
+        ],
+        "count": 2
+      }
+    ],
+    "parserIssues": {},
+    "scope": "The candidate extends the section-18z prefix through the original comma extraction and changes inferred arguments in two existing component rules. Counts do not certify confluence."
+  },
+  "diagnostics": {
+    "commaConstructionPastInitialBoundary": "20261016T120019Z-85a432d1a0a84b7589a1fc02b649baea",
+    "mirrorPastInitialBoundary": "20261016T120124Z-f54acc0510a04801abd2ad9eaea77594",
+    "arbitraryComponentRepeatedEndpoints": "20261016T120409Z-f1fca03d2d2a4207b50d94b3f76f2dbe",
+    "rootTargetPresentation": "20261016T120609Z-00e9b36a90e54940898a7bf23b05eb53",
+    "displayedComponentRepeatedEndpoints": "20261016T120706Z-e00a62b2fb6441eab55d714d785912ea",
+    "implicitEtaScalarFailure": "20261016T121006Z-1a82f2ef4cd847a085fe502c5ee8b411",
+    "scalarNormalBodiesIdentical": "20261016T121352Z-c0dec7fa1bcc44228aa7b2cb8eba3b1c",
+    "canonicalEtaChecks": "20261016T121726Z-7ac7ddf4163d45da91fd83fb82a08de7"
+  },
+  "semanticBoundary": {
+    "Sigma_coeff_func": "Canonical structural Cartesian restriction of existing totalization, qualified on the actual comma consumer and whole ambient view; not derived solely from the raw Sigma_func signature",
+    "TotalOp_funcd": "Whole strict-family-map duality projection at TotalOp_catd_func; no raw lax same-profile admission",
+    "reference": "https://arxiv.org/html/2503.08832v3#S7",
+    "referenceUse": "Proposition 94 supports Cartesian Grothendieck restriction; the native formulas/projections have separate qualification"
+  },
+  "remaining": [
+    "Moving PathOut family/motives and internal Pi consumers",
+    "Remaining original kernel and downstream migration",
+    "Consumed whole intrinsic and duality compatibility",
+    "Public promotion, wrapper retirement and final gates"
+  ]
+}
