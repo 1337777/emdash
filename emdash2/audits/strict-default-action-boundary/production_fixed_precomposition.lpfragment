@@ -1,0 +1,15 @@
+// Fixed precomposition is a strict functor on the ordinary lax mapping
+// category. Its first transformation leg is the same literal identity in
+// both factors; this does not impose interchange with two varying legs.
+// lhs-audit: keep 1 -- the ordinary mapping category owns the vertical composite.
+rule @comp_fapp0 (Functor_cat $A $C) _ _ _
+      (@comp_prod_fapp1_fapp0 Cat_cat $A $B $C
+        (Struct_sigma $F $H) (Struct_sigma $F $J)
+        (Struct_sigma (@id _ $F) $eta))
+      (@comp_prod_fapp1_fapp0 Cat_cat $A $B $C
+        (Struct_sigma $F $G) (Struct_sigma $F $H)
+        (Struct_sigma (@id _ $F) $epsilon))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $A $B $C
+      (Struct_sigma $F $G) (Struct_sigma $F $J)
+      (Struct_sigma (@id (Functor_cat $A $B) $F)
+        (@comp_fapp0 (Functor_cat $B $C) $G $H $J $eta $epsilon));

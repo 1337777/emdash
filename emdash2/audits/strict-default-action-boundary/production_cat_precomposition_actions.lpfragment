@@ -1,0 +1,34 @@
+// Cat-valued precomposition, matching the existing postcomposition evaluator.
+// Preserve the whole represented owner; project its composed-functor action.
+//   (G composed with E[h])[w] = G[E[h][w]].
+rule @fapp0 _ _
+      (@hom_precomp_along_fapp0 $A Cat_cat $E $Z $W $X $h $G) $w
+  ↪ @fapp0 (@fapp0 $A Cat_cat $E $X) $Z $G
+      (@fapp0 (@fapp0 $A Cat_cat $E $W) (@fapp0 $A Cat_cat $E $X)
+        (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w);
+
+// The complete Hom action remains available before its object projection.
+rule @fapp1_func _ _
+      (@hom_precomp_along_fapp0 $A Cat_cat $E $Z $W $X $h $G) $w $v
+  ↪ @comp_cat_fapp0
+      (Hom_cat (@fapp0 $A Cat_cat $E $W) $w $v)
+      (Hom_cat (@fapp0 $A Cat_cat $E $X)
+        (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w)
+        (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $v))
+      (Hom_cat $Z
+        (fapp0 $G (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w))
+        (fapp0 $G (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $v)))
+      (@fapp1_func (@fapp0 $A Cat_cat $E $X) $Z $G
+        (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w)
+        (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $v))
+      (@fapp1_func (@fapp0 $A Cat_cat $E $W) (@fapp0 $A Cat_cat $E $X)
+        (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w $v);
+
+// Capped companion joins the two ordinary projection orders.
+rule @fapp1_fapp0 _ _
+      (@hom_precomp_along_fapp0 $A Cat_cat $E $Z $W $X $h $G) $w $v $q
+  ↪ @fapp1_fapp0 (@fapp0 $A Cat_cat $E $X) $Z $G
+      (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w)
+      (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $v)
+      (@fapp1_fapp0 (@fapp0 $A Cat_cat $E $W) (@fapp0 $A Cat_cat $E $X)
+        (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w $v $q);

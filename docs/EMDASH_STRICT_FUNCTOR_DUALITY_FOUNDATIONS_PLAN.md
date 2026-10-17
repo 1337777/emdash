@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; evaluation's exact intrinsic-comparison beta qualified; arrow-diagram profile, downstream migration and public promotion open
+Status: active implementation; corrected arrow-diagram profile and whole observations qualified; terminal/initial arrow integration, remaining migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,48 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Arrow-diagram continuation after `7848669d`, 2026-10-16:
+the [owner review](../emdash2/audits/strict-default-action-boundary/production_arrow_diagram_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_arrow_diagram_verification.json)
+record the corrected original construction. A generally lax eta:F⇒G gives
+K → Functor_oplax_cat(WalkingArrow_cat,C). Opposite-profile evaluation is
+derived from the existing root through OddDual. Whole double exchange and
+its consumed projections recover the original F, G and eta, including their
+next Hom actions. No pointwise assembly, caller comparison, strictness proof
+or OneCat restriction is added to eta.
+
+The required core changes supply the missing Cat-valued precomposition object,
+whole Hom and capped action projections, and the fixed-prewhiskering vertical
+composition clause alongside the existing postwhiskering clause. Both first
+legs must be the same identity; the negative control retains a nonidentity
+leg. The represented and raw composite-functor identity views remain distinct
+runtime heads and compare through the existing typed unifier.
+
+All 22 positive/two negative original reviewer observations are retained with
+the actual profile and explicit identity/mixed-arrow comparison qualifications.
+Five positive/three negative focused controls, the previous six positive/three
+negative intrinsic comparison controls, and the inherited 258 positive/62
+negative core controls pass. Core time is 17.374s; current focused targets
+take about 28s with o=20 and the ordinary 90s/2GiB guard. Moving the new
+exchange definitions/rules after prerequisite imports avoided the earlier
+reviewer allocation failure. The broader importer still uses a measured o=5
+run to stay within the same memory cap; this distinction is recorded.
+
+The next actual error is terminal_arrow_diagram_func in
+emdash3_2_zero_arrow_diagrams.lp. Review its ordinary-versus-oplax target
+together with initial_arrow_transf's currently unqualified use of Op_transf.
+TerminalObject's Hom-groupoid contraction and visible commuting triangle do
+not alone supply strictness of the extracted higher transformation. Review
+actual terminal producers and the coupled kernel/cokernel diagram profiles;
+do not infer OneCat from preadditivity or install a blanket profile coercion.
+The review records the exact original signatures and the required scope.
+
+This tranche is progress: an original owner and its complete reviewer now
+check, with the next import boundary identified. The full goal remains active,
+including remaining library migration, strict-wrapper retirement, public
+promotion and all final catalog/health/CI/source-pin gates. The nerve goal
+remains paused.
 
 Intrinsic evaluation continuation after `ba5fd3ed`, 2026-10-16:
 the [updated review](../emdash2/audits/strict-default-action-boundary/production_diagram_evaluation_review.md)

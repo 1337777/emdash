@@ -61,6 +61,9 @@ def main():
 
     insert('/*\n  The former capped composition cut and detached all-components law are\n',
            fragment('composition_rule.lpfragment'), 'Strict default: existing capped functor action owner')
+    insert('// Hom-action functoriality for precomposition. The composition orientation is',
+           fragment('production_cat_precomposition_actions.lpfragment'),
+           'Cat-valued precomposition evaluator: same composed-functor projection outline as postcomposition, retaining the whole precomposition owner and its next Hom action')
     insert('/*\n  The former whole post/left and pre/right strict-functoriality accumulation\n',
            fragment('whole_rules.lpfragment') + '\n' + fragment('projected_rules.lpfragment')
            + '\n' + fragment('conventional_lax_projection_readings.lpfragment')
@@ -1246,8 +1249,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
            fragment('production_hom_source_composition.lpfragment'),
            'The target-map composition consumer needs strict Hom source action after its generic first-Hom projection has become a named transformation')
     insert('// 6c. Constant/opposite transfors and Cat-valued composition projections',
-           fragment('production_fixed_postcomposition.lpfragment'),
-           'Fixed postcomposition preserves vertical composition with both other legs identity; this joins the actual diagram image in Homd target-map composition')
+           fragment('production_fixed_postcomposition.lpfragment') + '\n'
+           + fragment('production_fixed_precomposition.lpfragment'),
+           'Fixed pre/postcomposition preserve vertical composition with the other legs identity; these are the consumed Homd target-map and corrected arrow-diagram projection joins')
     insert('// 6c. Constant/opposite transfors and Cat-valued composition projections',
            fragment('production_hom_next_action.lpfragment'),
            'The actual intrinsic-composite consumer requires the next Hom of two-sided whiskering and its existing component observations')
@@ -1539,6 +1543,22 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
             baseline_target = baseline_package / path
             baseline_target.parent.mkdir(parents=True, exist_ok=True)
             baseline_target.write_text(text)
+            if path == 'emdash3_2_arrow_diagram_families.lp':
+                old = text
+                text = fragment('production_arrow_diagram_families.lpfragment')
+                for name in ('transf_arrow_diagram_func', 'transf_arrow_diagram_point_path'):
+                    assert old.count('symbol ' + name + '\n') == text.count('symbol ' + name + '\n') == 1
+                changes.append({'source': path, 'owner': 'transf_arrow_diagram_func',
+                                'reason': 'Introduce the same walking diagram through the corrected two-profile exchange; preserve the whole eta and decode its point observation through actual duality',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/arrow_diagram_families.lp':
+                old = text
+                text = fragment('production_arrow_diagram_reviewer.lpfragment')
+                assert [len(re.findall(r'(?m)^' + k + r'\b', old)) for k in ('assert', 'assertnot')] == [22, 2]
+                assert [len(re.findall(r'(?m)^' + k + r'\b', text)) for k in ('assert', 'assertnot')] == [22, 2]
+                changes.append({'source': path, 'owner': 'arrow diagram reviewer',
+                                'reason': 'Retain the original whole observations with oplax diagram coefficients, decoded point functors and the corresponding opposite-profile evaluation',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_diagram_evaluation.lp':
                 old = text
                 first = '// Whole evaluation after precomposition:'
@@ -1551,7 +1571,8 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                         + 'require open emdash.emdash3_2_one_cat_action_paths;\n'
                         + 'require open emdash.emdash3_2_one_cat_functor_closure;\n\n'
                         + text[start:end]
-                        + fragment('production_diagram_evaluation_helpers.lpfragment'))
+                        + fragment('production_diagram_evaluation_helpers.lpfragment') + '\n'
+                        + fragment('production_oplax_diagram_evaluation.lpfragment'))
                 declaration = r'(?m)^(?:(?:constant|injective|protected|private)\s+)?symbol\s+([A-Za-z0-9_]+)\b'
                 old_names, new_names = re.findall(declaration, old), re.findall(declaration, text)
                 assert len(old_names) == 9
@@ -1955,6 +1976,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/profunctor_weighted_limits.lp')
     stage('examples/groupoidal_structured_j_eq1.lp')
     stage('examples/diagram_evaluation.lp')
+    stage('examples/arrow_diagram_families.lp')
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
@@ -1962,6 +1984,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'diagram_evaluation_naturality_controls.lp').write_text(
         (package / 'emdash3_2_diagram_evaluation.lp').read_text() + '\n'
         + fragment('production_diagram_evaluation_naturality_controls.lpfragment'))
+    (package / 'arrow_diagram_migration_controls.lp').write_text(
+        'require open emdash.emdash3_2_arrow_diagram_families;\n'
+        + fragment('production_arrow_diagram_controls.lpfragment'))
     (package / 'cubical_migration_controls.lp').write_text(''.join(
         'require open emdash.examples.' + name + ';\n' for name in (
             'cubical_dependent_hom', 'cubical_square_total',
@@ -2051,6 +2076,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'weighted_migration_controls.lp',
                               package / 'diagram_evaluation_profile_controls.lp',
                               package / 'diagram_evaluation_naturality_controls.lp',
+                              package / 'arrow_diagram_migration_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

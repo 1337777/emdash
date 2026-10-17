@@ -1,0 +1,72 @@
+// Evaluation of oplax diagrams has ordinary lax shape action. It is the
+// alternating dual of the already qualified opposite-profile evaluator.
+symbol diagram_oplax_evaluation_func [I C : Cat]
+  : τ (Functor I (Functor_cat (Functor_oplax_cat I C) C))
+≔ @OddDual_func _ _ (@diagram_evaluation_func (OddDual_cat I) (OddDual_cat C));
+symbol diagram_oplax_evaluation_at_func [I C : Cat] (i : τ (Obj I))
+  : τ (Functor (Functor_oplax_cat I C) C)
+≔ @fapp0 _ _ (@diagram_oplax_evaluation_func I C) i;
+symbol diagram_oplax_evaluation_transf [I C : Cat]
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@Transf (Functor_oplax_cat I C) C
+      (@diagram_oplax_evaluation_at_func I C i) (@diagram_oplax_evaluation_at_func I C j))
+≔ @fapp1_fapp0 _ _ (@diagram_oplax_evaluation_func I C) i j u;
+
+// Whole parameter action is ordinary precomposition of the whole evaluator.
+symbol diagram_oplax_family_shape_func [K I C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat I C)))
+  : τ (Functor I (Functor_cat K C))
+≔ @comp_cat_fapp0 I (Functor_cat (Functor_oplax_cat I C) C) (Functor_cat K C)
+    (@comp_cat_con_func K (Functor_oplax_cat I C) C D)
+    (@diagram_oplax_evaluation_func I C);
+symbol diagram_oplax_family_evaluation_func [K I C : Cat] (i : τ (Obj I))
+  : τ (Functor (Functor_cat K (Functor_oplax_cat I C)) (Functor_cat K C))
+≔ @comp_cat_cov_func K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i);
+symbol diagram_oplax_family_at_func [K I C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat I C))) (i : τ (Obj I))
+  : τ (Functor K C)
+≔ @fapp0 I (Functor_cat K C) (@diagram_oplax_family_shape_func K I C D) i;
+symbol diagram_oplax_family_transf [K I C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat I C)))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@Transf K C (@diagram_oplax_family_at_func K I C D i)
+      (@diagram_oplax_family_at_func K I C D j))
+≔ @fapp1_fapp0 I (Functor_cat K C) (@diagram_oplax_family_shape_func K I C D) i j u;
+
+// Double exchange at its actual composition owner. This is the corrected
+// two-profile counterpart of the original whole symmetry involution.
+// No Cartesian exchange is applied to a general lax mapping category.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $C $B _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@OddDual_func _ _
+            (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+              (OddDual_cat $C) _ _ (@OddDual_func $A _ $D)))
+          (@diagram_evaluation_func $B $C)))
+      (@OddDual_func _ _ (@diagram_evaluation_func (OddDual_cat $A) (OddDual_cat $C)))
+  ↪ $D;
+
+// Fixed-component projection of the same double exchange, after Cat
+// composition has selected its existing left-associated normal form.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@OddDual_func _ _ (@fapp0_func _ _ $a))
+        (@OddDual_func _ _
+          (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+            (OddDual_cat $C) _ _ (@OddDual_func $A _ $D))))
+      (@diagram_evaluation_func $B $C)
+  ↪ @fapp0 $A (Functor_cat $B $C) $D $a;
+
+// Object-first companion: the established represented postcomposition cut
+// expands a composed functor into consecutive cuts. Preserve those owners
+// while observing this literal exchange constructor at the fixed component.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $P _ $C
+      (@OddDual_func _ _ (@fapp0_func _ _ $a))
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $P _ _
+        (@OddDual_func _ _
+          (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+            (OddDual_cat $C) _ _ (@OddDual_func $A _ $D)))
+        (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $P $B _
+          (@diagram_evaluation_func $B $C) $X))
+  ↪ @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $P $B $C
+      (@fapp0 $A (Functor_cat $B $C) $D $a) $X;
