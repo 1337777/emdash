@@ -1659,6 +1659,27 @@ unif_rule @sigma_map_func $K _ _
                 changes.append({'source': path, 'owner': 'adjunction_hom_component_iso',
                                 'reason': 'Evaluate the original Hom comparison in its actual Cat_cart coefficient, then apply the existing whole Cat_cart inclusion to retain the public Cat_cat inverse package and its chosen maps',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_prof_defiso_evaluation_paths.lp',
+                        'examples/action_profile_prof_defiso_controls.lp'):
+                old = text
+                expected = 104 if path.startswith('emdash3_2_') else 38
+                assert text.count('Cat_cat') == expected, (path, text.count('Cat_cat'))
+                text = text.replace('Cat_cat', 'Cat_cart')
+                if path.startswith('emdash3_2_'):
+                    text = text.replace('The stable owner is unchanged; these are proof-time category views only.',
+                        'The actual profunctor coefficient is Cat_cart. The stable owner and\n'
+                        '   the original selected inverse data are unchanged; these remain proof-time views.')
+                changes.append({'source': path, 'owner': 'profunctor selected inverse evaluation',
+                                'reason': 'Evaluate the original forward and inverse maps in the actual Cat_cart coefficient, preserving every selected comparison and original observation',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_defiso_evaluation_points.lp':
+                marker = 'symbol defiso_at_to_path '
+                assert text.count(marker) == 1
+                addition = fragment('production_cartesian_defiso_point_cuts.lpfragment')
+                text = text.replace(marker, addition + '\n' + marker, 1)
+                changes.append({'source': path, 'owner': 'evaluated inverse point cancellation',
+                                'reason': 'Instance the existing two functor-valued point cuts at Cat_cart, retaining the actual chosen inverse package and evaluation point',
+                                'insertedSha256': sha(addition)})
             if path == 'examples/adjunction_mates.lp':
                 old = text
                 carrier = '@Transf (Product_cat (Op_cat R) L) Cat_cat'
@@ -2389,6 +2410,7 @@ unif_rule @sigma_map_func $K _ _
     stage('examples/one_cat_adjunction_families.lp')
     stage('examples/action_profile_inherited_assembly_controls.lp')
     stage('examples/represented_comma_families.lp')
+    stage('examples/action_profile_prof_defiso_controls.lp')
     stage('emdash3_2_one_cat_hom_comparison_data.lp')
     graph_source = (package / 'emdash3_2_represented_comma_families.lp').read_text()
     graph_boundary = '// Fibrewise Sigma of the existing whole internal action.'
@@ -2457,6 +2479,10 @@ unif_rule @sigma_map_func $K _ _
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
         + fragment('production_comma_target_guard_controls.lpfragment'))
+    (package / 'prof_defiso_coefficient_controls.lp').write_text(
+        'require open emdash.emdash3_2_prof_defiso_evaluation_paths;\n'
+        'require emdash.examples.action_profile_prof_defiso_controls;\n'
+        + fragment('production_cartesian_defiso_point_controls.lpfragment'))
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
@@ -2578,6 +2604,7 @@ unif_rule @sigma_map_func $K _ _
                               package / 'sigma_constant_projection_controls.lp',
                               package / 'sigma_projection_regression_controls.lp',
                               package / 'comma_target_guard_controls.lp',
+                              package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

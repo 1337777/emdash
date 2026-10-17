@@ -1,0 +1,32 @@
+// Both evaluations keep the same selected inverse package at the same point.
+assert [K : Cat] (F G : τ (Functor K Cat_cart))
+  (I : τ (@DefIso (Functor_cat K Cat_cart) F G)) (x : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cart F x)))
+  ⊢ @fapp0 _ _ (@defiso_at_from K Cat_cart F G I x)
+      (@fapp0 _ _ (@defiso_at_to K Cat_cart F G I x) u) ≡ u;
+
+assert [K : Cat] (F G : τ (Functor K Cat_cart))
+  (I : τ (@DefIso (Functor_cat K Cat_cart) F G)) (x : τ (Obj K))
+  (v : τ (Obj (@fapp0 K Cat_cart G x)))
+  ⊢ @fapp0 _ _ (@defiso_at_to K Cat_cart F G I x)
+      (@fapp0 _ _ (@defiso_at_from K Cat_cart F G I x) v) ≡ v;
+
+assertnot [K : Cat] (F G : τ (Functor K Cat_cart))
+  (I J : τ (@DefIso (Functor_cat K Cat_cart) F G)) (x : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cart F x)))
+  ⊢ @fapp0 _ _ (@defiso_at_from K Cat_cart F G J x)
+      (@fapp0 _ _ (@defiso_at_to K Cat_cart F G I x) u) ≡ u;
+
+assertnot [K : Cat] (F G : τ (Functor K Cat_cart))
+  (I J : τ (@DefIso (Functor_cat K Cat_cart) F G)) (x : τ (Obj K))
+  (v : τ (Obj (@fapp0 K Cat_cart G x)))
+  ⊢ @fapp0 _ _ (@defiso_at_to K Cat_cart F G I x)
+      (@fapp0 _ _ (@defiso_at_from K Cat_cart F G J x) v) ≡ v;
+
+// Constant fibres make this cross-point comparison well typed. The rule
+// still requires the same point; it does not identify arbitrary evaluations.
+assertnot [K A B : Cat]
+  (I : τ (@DefIso (Functor_cat K Cat_cart) (@Const_catd K A) (@Const_catd K B)))
+  (x y : τ (Obj K)) (u : τ (Obj A))
+  ⊢ @fapp0 B A (@defiso_at_from K Cat_cart (@Const_catd K A) (@Const_catd K B) I y)
+      (@fapp0 A B (@defiso_at_to K Cat_cart (@Const_catd K A) (@Const_catd K B) I x) u) ≡ u;

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; complete represented-comma construction/comparisons and original reviewer qualified; downstream coefficient/inverse migration and public promotion open
+Status: active implementation; represented-comma and profunctor inverse evaluation qualified; downstream ordinary-arrow/Hom-comparison migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,28 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Profunctor inverse-evaluation continuation after `6193e164`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_prof_defiso_coefficient_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_prof_defiso_coefficient_verification.json)
+record the original forward/reverse evaluations and both raw inverse laws in
+the actual Cat_cart coefficient. The same I and z survive. The shared
+evaluated-inverse owner receives only the two coefficient-specific point-cut
+instances; no raw decoder, category-profile equality or new inverse is added.
+All four original positive/four negative controls remain, with two direct
+cancellation positives and three package/point-retention negatives. The
+complete comma regression also passes, with unchanged warning bodies and
+zero unreviewed owning-file LHS candidates. The core itself is unchanged.
+
+The 2GiB owner run exhausted allocation during imports; the existing reviewed
+90s/4GiB/o=20 profile gives the focused result in about 32s and the comma
+regression in about 46s. The broader import now reaches the old identity
+observation in one_cat_arrow_diagrams.lp. Review its total-dual source and
+its ordinary-target diagram construction together. OneCat(C) already supplies
+one_cat_strict_transfor; prefer reuse of that admission and Cartesian exchange
+if it preserves the original public interface. Do not introduce an extra
+source-base truncation or global strict naturality. External Hom-action
+admission and all remaining migration/promotion obligations stay open.
 
 Represented-comma target completion after `d71a28be`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_comma_target_review.md)
