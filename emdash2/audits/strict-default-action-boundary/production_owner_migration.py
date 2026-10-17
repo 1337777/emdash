@@ -1658,6 +1658,40 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 changes.append({'source': path, 'owner': 'displayed pointwise-equivalence coefficient',
                                 'reason': 'Use the actual Cartesian coefficient of tdapp0_fapp0 for all selected pointwise inverse data; preserve ordinary assembly and the original whole declared inverse/law owners',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_represented_comma_families.lp':
+                old = text
+                start_marker = '// Source, middle, and target families for a transformation graph.'
+                end_marker = '// Fibrewise Sigma of the existing whole internal action.'
+                assert text.count(start_marker) == text.count(end_marker) == 1
+                start, end = text.index(start_marker), text.index(end_marker)
+                tail = text[end:]
+                assert tail.count('@hom_int ') == 107
+                tail = tail.replace('@hom_int ', '@hom_int_view ')
+                # The single inner-total formation still consumes Cart,
+                # unlike the surrounding ordinary internal-action inputs.
+                canonical = '(@homdc_edge_catd C C (@hom_int_view C C (@id_func C)))'
+                assert tail.count(canonical) == 1
+                tail = tail.replace(canonical, canonical.replace('@hom_int_view ', '@hom_int '), 1)
+                sigma_end = '// Pointwise opposite turns that whole transformation into the displayed map'
+                assert tail.count(sigma_end) == 1
+                tail = end_marker + '\n' + fragment('production_comma_graph_sigma.lpfragment') + '\n' + tail[tail.index(sigma_end):]
+                old_dual = '''≔ @Op_funcd
+    (Op_cat B)
+    (@comma_graph_source_raw_catd B)
+    (@comma_graph_middle_raw_catd B C F G)
+    (@comma_graph_sigma_transf B C F G epsilon);'''
+                assert tail.count(old_dual) == 1
+                tail = tail.replace(old_dual, '''// Pending: the ordinary Sigma image above needs an actual admitted
+// Cartesian map before this whole total-dual projection can be qualified.
+≔ @strict_transfor _ _ _ _
+    (@TotalOp_funcd (Op_cat B)
+      (@comma_graph_source_raw_catd B)
+      (@comma_graph_middle_raw_catd B C F G)
+      (@comma_graph_sigma_transf B C F G epsilon));''', 1)
+                text = text[:start] + fragment('production_comma_graph_families.lpfragment') + '\n' + tail
+                changes.append({'source': path, 'owner': 'represented-comma graph family profiles',
+                                'reason': 'Retain the canonical Cartesian inner family for Sigma, expose its existing ordinary view for internal action, and use the actual O(B) total-dual base for source/middle/target families; the following action/admission is still under qualification',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/action_profile_inherited_assembly_controls.lp':
                 old = text
                 assert text.count('Functor_cat (@Fibre_cat') == 2
@@ -2155,6 +2189,14 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/adjunction_mates.lp')
     stage('examples/one_cat_adjunction_families.lp')
     stage('examples/action_profile_inherited_assembly_controls.lp')
+    graph_source = (package / 'emdash3_2_represented_comma_families.lp').read_text()
+    graph_boundary = '// Fibrewise Sigma of the existing whole internal action.'
+    assert graph_source.count(graph_boundary) == 1
+    (package / 'comma_graph_family_prefix.lp').write_text(graph_source[:graph_source.index(graph_boundary)])
+    sigma_boundary = '// Pointwise opposite turns that whole transformation into the displayed map'
+    assert graph_source.count(sigma_boundary) == 1
+    (package / 'comma_graph_sigma_prefix.lp').write_text(graph_source[:graph_source.index(sigma_boundary)]
+        + '\n' + fragment('production_comma_graph_sigma_control.lpfragment'))
     # These original assertions exercise the assembly owner itself. Keep the
     # full original downstream import closure staged as a separate obligation.
     assembly_controls = (package / 'examples/action_profile_inherited_assembly_controls.lp').read_text()
@@ -2269,6 +2311,8 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'arrow_diagram_migration_controls.lp',
                               package / 'zero_arrow_migration_controls.lp',
                               package / 'pointwise_assembly_controls.lp',
+                              package / 'comma_graph_family_prefix.lp',
+                              package / 'comma_graph_sigma_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

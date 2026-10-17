@@ -1,0 +1,25 @@
+// Sigma sends the original whole internal action to an ordinary Cat-valued
+// transformation. This declaration does not claim Cartesian admission of
+// that transformation or supply its subsequent fibrewise dual.
+protected symbol comma_graph_sigma_transf [B C : Cat]
+  [F G : τ (Functor B C)]
+  (epsilon : τ (@Transf (Op_cat B) (Catd_cat B)
+    (@hom_int_view B B (@id_func B))
+    (@comp_cat_fapp0 (Op_cat B) (Op_cat C) (Catd_cat B)
+      (@hom_int_view C B G) (@Op_func B C F))))
+  : τ (@Transf (Op_cat B) Cat_cat
+      (@comp_cat_fapp0 (Op_cat B) (Catd_cat B) Cat_cat
+        (@Sigma_func B) (@hom_int_view B B (@id_func B)))
+      (@comp_cat_fapp0 (Op_cat B) (Catd_cat B) Cat_cat
+        (@Sigma_func B) (@comma_graph_middle_inner_catd B C F G)))
+≔ @fapp0
+    (@Transf_cat (Op_cat B) (Catd_cat B)
+      (@hom_int_view B B (@id_func B)) (@comma_graph_middle_inner_catd B C F G))
+    (@Transf_cat (Op_cat B) Cat_cat
+      (@comp_cat_fapp0 (Op_cat B) (Catd_cat B) Cat_cat
+        (@Sigma_func B) (@hom_int_view B B (@id_func B)))
+      (@comp_cat_fapp0 (Op_cat B) (Catd_cat B) Cat_cat
+        (@Sigma_func B) (@comma_graph_middle_inner_catd B C F G)))
+    (@comp_cat_cov_fapp1_func (Op_cat B) (Catd_cat B) Cat_cat (@Sigma_func B)
+      (@hom_int_view B B (@id_func B)) (@comma_graph_middle_inner_catd B C F G))
+    epsilon;

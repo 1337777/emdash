@@ -1,0 +1,12 @@
+// The whole Sigma image retains the actual displayed map at each source.
+assert [B C : Cat] [F G : τ (Functor B C)]
+  (epsilon : τ (@Transf (Op_cat B) (Catd_cat B)
+    (@hom_int_view B B (@id_func B))
+    (@comp_cat_fapp0 (Op_cat B) (Op_cat C) (Catd_cat B)
+      (@hom_int_view C B G) (@Op_func B C F)))) (x : τ (Obj B))
+  ⊢ @tapp0_fapp0 (Op_cat B) Cat_cat _ _ x (@comma_graph_sigma_transf B C F G epsilon)
+    ≡ @sigma_map_func B (@hom_ B B (@id_func B) x) (@hom_ C B G (@fapp0 B C F x))
+      (@tapp0_fapp0 (Op_cat B) (Catd_cat B)
+        (@hom_int_view B B (@id_func B))
+        (@comp_cat_fapp0 (Op_cat B) (Op_cat C) (Catd_cat B)
+          (@hom_int_view C B G) (@Op_func B C F)) x epsilon);

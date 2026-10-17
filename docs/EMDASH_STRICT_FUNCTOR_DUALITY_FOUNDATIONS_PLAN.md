@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; displayed pointwise inverse coefficient and focused observations qualified; represented-comma graph, direct-cover producer, remaining migration and public promotion open
+Status: active implementation; corrected represented-comma family and ordinary Sigma-image prefix qualified; canonical graph-action admission, full graph, direct-cover producer and remaining promotion/migration open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,36 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Represented-comma graph continuation after `88fde500`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_comma_graph_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_comma_graph_verification.json)
+record corrected whole source/middle/target families over the actual O(B)
+total-dual base. Their Cartesian inner Hom family and ordinary internal-action
+view are kept distinct through the existing inclusion. The ordinary Sigma
+image of a general Theta is defined through its original postcomposition
+owner, and its component computes to Sigma of the actual Theta[x].
+Both prefixes pass with subject reduction and unchanged warning bodies.
+The full source still fails at admission of that ordinary Cat_cat-valued
+transformation to the Cartesian TotalOp_funcd input; no graph is yet qualified.
+
+The finite two-category diagnostic refutes the old arbitrary-lax Theta
+contract with prescribed F/G projections: its retained x/y comparisons can be
+a→m←b with a,b incomparable, whereas the graph would require a→b.
+For an actual conventional-lax eta, the pre/right-normal canonical action
+Theta[x,y](f)=eta[y]∘F[f] has strict x comparison while retaining noninvertible
+y comparison. The finite positive control checks this distinction; the
+native whole admission remains to be implemented and checked.
+
+Next qualify that canonical x profile at the existing internal-action owners,
+then its actual Sigma image and total duality. Keep eta general and preserve
+its retained post/left cell. State any corrected general-Theta profile
+explicitly; do not narrow eta, equate Cat_cart with Cat_cat, or replace the
+derived graph with the separate supplied gray_transf_graph_func contract.
+Complete sections, totalization, original inverse data and reviewer remain
+required. The prefix checks use the existing measured 90s/3GiB/o=20 profile
+with ample host headroom; core and three previous consumer receipts still
+match exactly. The full graph, direct-cover route and all final gates remain open.
 
 Displayed pointwise-equivalence continuation after `b94125df`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_pointwise_coefficient_review.md)
