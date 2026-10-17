@@ -7,6 +7,18 @@ core and profile source hashes and inserts at unique original owner anchors.
 
 ## Current continuation, 2026-10-17
 
+The [fibrewise/direct-cover review](production_fibrewise_cover_review.md) and
+[verification](production_fibrewise_cover_verification.json) record the
+original owners and reviewers through the completion HIT, followed by the
+original Yoneda/retained-section derivations. The migration
+retains the same Sigma transport, whole sieve-member section, internal glue
+and silent contracts. It uses existing ordinary inclusions and corrected
+coefficient annotations, with no new primitive or rewrite/unification rule.
+The broader import now reaches the original locality retained-member
+observation's coefficient. Its strict-pointwise-equivalence dependency checks
+with the already-selected Cartesian displayed profile. Further library
+migration and production promotion remain open.
+
 The [presheaf/sieve review](production_presheaf_profile_review.md) and
 [verification](production_presheaf_profile_verification.json) record the
 preserved raw presheaf facade, canonical Cartesian arrow family and whole

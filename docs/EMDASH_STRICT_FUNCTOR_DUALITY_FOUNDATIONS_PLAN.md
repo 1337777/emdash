@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; staged core, original Hom-comparison/adjunction reviewers and presheaf/sieve controls qualified; direct-cover and remaining library migration/public promotion open
+Status: active implementation; staged core and original consumers through direct-cover retained-section derivations qualified; broader library migration/public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,39 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Fibrewise/direct-cover continuation after `b84f544d`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_fibrewise_cover_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_fibrewise_cover_verification.json)
+record the original fibrewise-Sigma, sieve-extension, cover-question,
+matching/section-family, internal sheaf and completion-HIT consumers.
+Their original reviewers pass, including whole glue/silent interfaces,
+retained input and proof-time/runtime distinctions. Seventeen owner/eight
+reviewer coefficient annotations use Cat_cart. The canonical sieve-member
+section uses its existing ordinary inclusion; its original retained-member
+comparison reuses that same section. No new primitive or rule is added.
+
+Functor equalities and equivalence data keep their public Cat_cat coefficient.
+Default Functord remains lax; the completion's existing explicit extracted
+strictness property remains required. The original opaque whole contracts
+retain their supplied status. Core and prior presheaf/sieve source closures
+are unchanged. Warning bodies match their corresponding preceding import
+boundaries exactly, and owning LHS audits have zero unreviewed clauses.
+The original Yoneda identity-evaluation and all fifteen retained-section
+derivations also pass, with 41 component coefficient annotations corrected
+and the same ordinary member-section view used at its fifteen occurrences.
+Undoing those two explicit migrations reproduces the original retained-section
+file byte-for-byte. No extra strictness requirement is imposed on its raw
+matching map or Yoneda section. Focused checks took about 26-32s under the
+existing 2GiB/4GiB/o=20 profiles.
+The broader inherited assembly import now passes the retained-section owner
+and the already-migrated strict-pointwise-equivalence owner. It stops at
+emdash3_2_direct_cover_completion_locality.lp:97-141: the retained-member
+observation still projects its family in Cat_cat rather than Cat_cart.
+The run took about 67s at the existing 600s/4GiB/o=5 profile. Next migrate
+the original locality consumer, preserving its actual selected inverse data
+and the existing Cartesian displayed pointwise-evidence profile. Full
+migration, wrapper retirement, public promotion and final gates remain open.
 
 Presheaf/sieve continuation after `7d17441c`, 2026-10-17: the presheaf owner now uses the
 ordinary hom_con_int_view for its unchanged raw Psh category, while

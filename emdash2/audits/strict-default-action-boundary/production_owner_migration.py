@@ -1751,6 +1751,99 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'ordinary sieve pullback evidence',
                                 'reason': 'Use the actual coefficient of the canonical arrow family; retain pointwise subterminal evidence and the original pullback body',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            fibrewise_family_coefficients = {
+                'emdash3_2_fibrewise_sigma.lp': 6,
+                'examples/fibrewise_sigma.lp': 2,
+                'examples/sieve_extensions.lp': 2,
+                'emdash3_2_direct_cover_questions.lp': 2,
+                'emdash3_2_yoneda_precomposition_value.lp': 3,
+            }
+            if path in fibrewise_family_coefficients:
+                old = text
+                assert text.count('Cat_cat') == fibrewise_family_coefficients[path], path
+                text = text.replace('Cat_cat', 'Cat_cart')
+                if path == 'emdash3_2_fibrewise_sigma.lp':
+                    text = text.replace('Given E : K -> Cat and D : Sigma(E) -> Cat,',
+                        'Given E : K -> Cat_cart and D : Sigma(E) -> Cat_cart,', 1)
+                changes.append({'source': path, 'owner': 'fibrewise Sigma and direct-cover family coefficients',
+                                'reason': 'Use the actual Cat_cart family coefficient in the original fibre/transport/projection computation; retain the original constructor, all family arguments and ambient lax displayed-map type',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_sieve_extensions.lp':
+                old = text
+                member_section = '''≔ @fib_cov_transf
+    (Op_cat K)
+    (@ordinary_sieve_extension_psh K U R)
+    V
+    (Struct_sigma p member);'''
+                assert text.count(member_section) == 1
+                text = text.replace(member_section, '''≔ @strict_transfor (Op_cat K) Cat_cart
+    (@FibCov_source_catd (Op_cat K) V)
+    (@ordinary_sieve_extension_psh K U R)
+    (@fib_cov_transf
+      (Op_cat K)
+      (@ordinary_sieve_extension_psh K U R)
+      V
+      (Struct_sigma p member));''', 1)
+                changes.append({'source': path, 'owner': 'ordinary sieve member section',
+                                'reason': 'Expose the existing ordinary view of the canonical Cartesian FibCov section in the unchanged raw Psh category; retain the sieve member and all higher action',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_direct_cover_question_families.lp':
+                old = text
+                for source, target, expected in [
+                    ('_ Cat_cat _ _', '_ Cat_cart _ _', 2),
+                    ('(Op_cat K) Cat_cat', '(Op_cat K) Cat_cart', 4),
+                ]:
+                    assert text.count(source) == expected, (path, source)
+                    text = text.replace(source, target)
+                represented_member = '''(@fib_cov_transf
+          (Op_cat K)
+          (@direct_cover_question_extension_psh K T U q)
+          V
+          (Struct_sigma p member))'''
+                assert text.count(represented_member) == 1
+                text = text.replace(represented_member, '''(@ordinary_sieve_member_section K V U p
+          (@direct_cover_question_sieve K T U q) member)''', 1)
+                changes.append({'source': path, 'owner': 'direct-cover question family components',
+                                'reason': 'Observe displayed maps in Cat_cart and reuse the actual ordinary sieve-member section view; preserve ordinary functor equality types and the original whole comparison contracts',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/direct_cover_question_families.lp':
+                old = text
+                assert text.count('Cat_cat') == 3
+                text = text.replace('Cat_cat', 'Cat_cart')
+                changes.append({'source': path, 'owner': 'original direct-cover family reviewer',
+                                'reason': 'Project the original displayed maps in their actual coefficient; retain all original observations and the proof-time/runtime distinction',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_direct_cover_internal_sheaves.lp':
+                old = text
+                components = r'(@tapp0_fapp0\s+\(@DirectCoverQuestion_cat K T\)\s+)Cat_cat'
+                assert len(re.findall(components, text)) == 2
+                text = re.sub(components, r'\1Cat_cart', text)
+                changes.append({'source': path, 'owner': 'internal direct-cover glue and silent components',
+                                'reason': 'Use Cat_cart for the two displayed component projections; retain the ambient Functor equality, original internal sheaf structure and whole silent law',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_direct_cover_completion_retained_sections.lp':
+                old = text
+                components = r'(@tapp0_fapp0\s+\(Op_cat K\)\s+)Cat_cat'
+                assert len(re.findall(components, text)) == text.count('Cat_cat') == 38
+                text = re.sub(components, r'\1Cat_cart', text)
+                member = '(@fib_cov_transf (Op_cat K) (@direct_cover_question_extension_psh K T U q) V (Struct_sigma p member))'
+                assert text.count(member) == text.count('@fib_cov_transf') == 15
+                text = text.replace(member,
+                    '(@ordinary_sieve_member_section K V U p (@direct_cover_question_sieve K T U q) member)')
+                changes.append({'source': path, 'owner': 'direct-cover retained section derivations',
+                                'reason': 'Observe the same raw presheaf maps in Cat_cart and reuse the ordinary view of their canonical represented section; preserve all fifteen original derived bodies and their input data',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_direct_cover_completion_hit.lp',
+                        'examples/direct_cover_completion_hit.lp'):
+                old = text
+                component = (r'(@tapp0_fapp0\s+_) Cat_cat' if path.startswith('emdash3_2_')
+                    else r'(@tapp0_fapp0\s+\(@DirectCoverQuestion_cat K T\)\s+)Cat_cat')
+                assert len(re.findall(component, text)) == 1
+                replacement = r'\1 Cat_cart' if path.startswith('emdash3_2_') else r'\1Cat_cart'
+                text = re.sub(component, replacement, text)
+                changes.append({'source': path, 'owner': 'direct-cover completion glue component',
+                                'reason': 'Read the original recursive glue in its actual family coefficient; preserve its extracted strictness property and whole silent law',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_hom_comparison_data.lp':
                 old = text
                 assert text.count('Cat_cat') == 82
@@ -2652,6 +2745,15 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('emdash3_2_one_cat_hom_comparison_data.lp')
     stage('examples/one_cat_hom_comparison_data.lp')
     stage('examples/one_cat_adjunction_introduction.lp')
+    stage('examples/fibrewise_sigma.lp')
+    stage('examples/sieve_extensions.lp')
+    stage('examples/direct_cover_questions.lp')
+    stage('examples/direct_cover_question_families.lp')
+    stage('examples/direct_cover_internal_sheaves.lp')
+    stage('examples/direct_cover_completion_hit.lp')
+    (package / 'direct_cover_question_regression.lp').write_text(
+        (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
+        + (package / 'examples/direct_cover_question_families.lp').read_text())
     original_checks = subprocess.check_output(
         ['git', 'show', PIN + ':emdash2/emdash3_2_checks.lp'], cwd=root, text=True)
     psss_start = '// catalog-area: Cat-valued presheaf facade and restriction'
@@ -2936,6 +3038,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'adjunction_introduction_views_prefix.lp',
                               package / 'presheaf_profile_controls.lp',
                               package / 'sieve_profile_controls.lp',
+                              package / 'direct_cover_question_regression.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

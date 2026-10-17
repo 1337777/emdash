@@ -1,0 +1,731 @@
+{
+  "status": "Original fibrewise-Sigma, direct-cover/HIT reviewers and retained-section derivations qualified in staging; locality and remaining migration/promotion open",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "extendsCheckpoint": "b84f544d",
+  "authoringInputs": {
+    "production_owner_migration.py": "4e8c929460b6ce1260b9a176a7c4b11f656f9d49d064596d372c7f11391834a3"
+  },
+  "manifestSha256": "7a846abb39ca6de9c78679cf643530e6c55fa4dae1c4590f68b14c43f1e78a50",
+  "contracts": {
+    "originalConstructorsRetained": true,
+    "newPrimitives": 0,
+    "newRewriteRules": 0,
+    "newUnificationRules": 0,
+    "familyCoefficient": "Cat_cart",
+    "publicPresheafMaps": "Ambient lax",
+    "ordinaryFunctorEqualities": "Cat_cat unchanged",
+    "memberSection": "Existing ordinary strict_transfor view of canonical fib_cov_transf, preserving p and member",
+    "defaultFunctordStrictnessAdded": false,
+    "completionGlueStrictness": "Original IsStrictFunctord property of its extracted comparison retained",
+    "wholeContractStatus": "Original supplied/structural whole contracts remain supplied/structural",
+    "operationalEqualityArgumentsAdded": false,
+    "rawMatchingInputsStrengthened": false,
+    "publicPromotion": false
+  },
+  "checks": {
+    "fibrewiseSigma": {
+      "positive": 5,
+      "negative": 0,
+      "subjectReduction": true
+    },
+    "sieveExtension": {
+      "positive": 8,
+      "negative": 0,
+      "subjectReduction": true
+    },
+    "coverQuestions": {
+      "positive": 22,
+      "negative": 1,
+      "subjectReduction": true
+    },
+    "internalSheaf": {
+      "positive": 8,
+      "negative": 0,
+      "subjectReduction": true
+    },
+    "completionHIT": {
+      "positive": 17,
+      "negative": 2,
+      "subjectReduction": true
+    },
+    "retainedSections": {
+      "positive": 0,
+      "negative": 0,
+      "subjectReduction": true,
+      "derivedSymbols": 15,
+      "coverage": "Complete original module and its Yoneda-precomposition dependency, not a truncated prefix"
+    }
+  },
+  "receipts": {
+    "fibrewiseSigma": {
+      "id": "20261017T222905Z-3740e6a952e2494eb8101d328d635e5d",
+      "target": "examples/fibrewise_sigma.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 25.850079038995318,
+      "childrenMaxRssKiB": 1390672,
+      "inputSnapshot": "07b47ccfd1dd60500f6626485821d52efe2257a2188c388130153410dd618ee4",
+      "inputs": {
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "examples/fibrewise_sigma.lp": "e43d9d6db9a551f939c72c045b19fbcab5aa95944f033c66232e6abb5afb8a0e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T222905Z-3740e6a952e2494eb8101d328d635e5d.log",
+      "logSha256": "d45941867dc45419c33ff519e9330d785936307e647699d13f5b52939e8b76b7",
+      "allInputsMatchEmittedSource": true
+    },
+    "sieveExtension": {
+      "id": "20261017T223054Z-63c795367327486ba7b6f32b4e8ed807",
+      "target": "examples/sieve_extensions.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 29.153223809902556,
+      "childrenMaxRssKiB": 1960720,
+      "inputSnapshot": "d3386809fa657155c32c883ac06a8a9f9a8360c1b52dbfd7e1bc8ffb49208414",
+      "inputs": {
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "examples/sieve_extensions.lp": "37b0d7a863f2c59368488e0082746dd33d0348fc048b98bb12442dfa91b45b14",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T223054Z-63c795367327486ba7b6f32b4e8ed807.log",
+      "logSha256": "4f67628b5657afe3017a3e1f32e687b6d2149ffc89e2650a2a792859ee149227",
+      "allInputsMatchEmittedSource": true
+    },
+    "coverQuestions": {
+      "id": "20261017T223213Z-8c140ad317534c16ae671fc7bdc6b57c",
+      "target": "direct_cover_question_regression.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 27.653070403961465,
+      "childrenMaxRssKiB": 1972332,
+      "inputSnapshot": "5b87ed58ae48eacb1dd9e308be5ea006930541c98be989376f0265e24e528295",
+      "inputs": {
+        "direct_cover_question_regression.lp": "ffc68224f8dddcf5c9b9b5d6162fccae1480034ca22e78fc41f604501cfaf5df",
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T223213Z-8c140ad317534c16ae671fc7bdc6b57c.log",
+      "logSha256": "b9c27f5841bed01e92568f1b5b0bfd31c053750d27882bbbd5e5f8342d10a0b7",
+      "allInputsMatchEmittedSource": true
+    },
+    "internalSheaf": {
+      "id": "20261017T223316Z-d1dc9c75471743fd8550d438a1705bc3",
+      "target": "examples/direct_cover_internal_sheaves.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 27.28734032693319,
+      "childrenMaxRssKiB": 1973316,
+      "inputSnapshot": "d0aae0e04710dc1d05b8522d0ad122ce8a9432531ca8b5dd678753d858568c5e",
+      "inputs": {
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "examples/direct_cover_internal_sheaves.lp": "0f4373b0e45eb966bb8fa02a5c7b9e7b521ac036680713e53cafe6a0397358ac",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T223316Z-d1dc9c75471743fd8550d438a1705bc3.log",
+      "logSha256": "13fb934657ba58efc59a1e9c3667dc58ff79898cd3bade7893a52b4f432973ff",
+      "allInputsMatchEmittedSource": true
+    },
+    "completionHIT": {
+      "id": "20261017T223424Z-e983b9f68bb24ce089abf98c9881df84",
+      "target": "examples/direct_cover_completion_hit.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 30.42695228708908,
+      "childrenMaxRssKiB": 2168720,
+      "inputSnapshot": "561c887c4a45d7d4f3b13d702dd180063f6b1830fcb7f52803f981f641412f90",
+      "inputs": {
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "examples/direct_cover_completion_hit.lp": "96503a14e79e804d3d0d54d762c65803d21e7585ca76e5911c2cae9525e6345a",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T223424Z-e983b9f68bb24ce089abf98c9881df84.log",
+      "logSha256": "922b4f0f68e74c94715e5bd8ca4252be633cfc300e4abbd90dff87ed87d0caca",
+      "allInputsMatchEmittedSource": true
+    },
+    "retainedSections": {
+      "id": "20261017T223733Z-45134c0a83ab4307be047a80e0b101d2",
+      "target": "emdash3_2_direct_cover_completion_retained_sections.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 32.088007248938084,
+      "childrenMaxRssKiB": 2261856,
+      "inputSnapshot": "b5a0c97f07cda74ed45e3cb4b46757f0aee783894a8d8fe5c911f818394762fe",
+      "inputs": {
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T223733Z-45134c0a83ab4307be047a80e0b101d2.log",
+      "logSha256": "2f70878a7498df5c274df47d606cfc3711ff54eae92a8cc107fb8139df766d5c",
+      "allInputsMatchEmittedSource": true
+    },
+    "integration": {
+      "id": "20261017T223816Z-dae7a4cb4d60406e96bdc4c599068a0b",
+      "target": "examples/action_profile_inherited_assembly_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 66.91493120905943,
+      "childrenMaxRssKiB": 2210536,
+      "inputSnapshot": "0137d2eed440d714172bbc3d52767dd83cb960119ea7760f5b35173d8cb83b99",
+      "inputs": {
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+        "emdash3_2_direct_cover_completion_locality.lp": "03a043ccce6dbd7299d171ba7c6085e5b1780b69ecea7cfc221f7fc97cce7511",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_strict_pointwise_equivalences.lp": "a5afbc2bf77ca2f7f7bcd399b5130631f15aa67a2dbb3529ff880e34c9c3806a",
+        "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+        "examples/action_profile_inherited_assembly_controls.lp": "26f986900ecf43f10964723172e6173e0c8b8bac4e9cb8735735eb74ac4b981f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=5,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T223816Z-dae7a4cb4d60406e96bdc4c599068a0b.log",
+      "logSha256": "6e62c421ceec66fee107b33dde0cb363a8dc9119802fd0a370b5802efc475c5b",
+      "allInputsMatchEmittedSource": true
+    }
+  },
+  "carriedSourceBoundaries": {
+    "core": {
+      "id": "20261017T221449Z-0c29932bace14030ae5013d33f170339",
+      "target": "lax_curry_regression_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 23.665626237052493,
+      "childrenMaxRssKiB": 1476960,
+      "inputSnapshot": "b1f8e2292514e6f9a134b8817ef044213cfe4166381502baedab1d4165d8606d",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "lax_curry_regression_controls.lp": "10c4d1554004a5c41c7ad6d3b2260f8502bfeff9b2294ec67d9af69d62183177"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T221449Z-0c29932bace14030ae5013d33f170339.log",
+      "logSha256": "64a17a3aa2816b89e3aab0fb707f147d850c97efe25bbd4f3a627034fad9e936",
+      "allInputsUnchanged": true
+    },
+    "sieve": {
+      "id": "20261017T222053Z-c9fadf620b254183ac6b10460452f2c7",
+      "target": "sieve_profile_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 30.861402780981734,
+      "childrenMaxRssKiB": 1957492,
+      "inputSnapshot": "1d7ca0d8bbe258014bc9f8c148e5dde58fda0518bcf9db8dbe2dfd153ef96dbf",
+      "inputs": {
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "sieve_profile_controls.lp": "32b14e11e2dd04a01597bd70f0cb7da399bf533913c788eeacb5b8db33ea9422"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T222053Z-c9fadf620b254183ac6b10460452f2c7.log",
+      "logSha256": "b82238e45512c3c6910c3bc4fa5ab6c6fe31e9b3ebd3867a3f59d9622d5a79bd",
+      "allInputsUnchanged": true
+    }
+  },
+  "warnings": {
+    "fibrewiseSigma": {
+      "comparedWith": "20261017T221449Z-0c29932bace14030ae5013d33f170339",
+      "bodies": 1995,
+      "added": 0,
+      "removed": 0
+    },
+    "sieveExtension": {
+      "comparedWith": "20261017T222053Z-c9fadf620b254183ac6b10460452f2c7",
+      "bodies": 2397,
+      "added": 0,
+      "removed": 0
+    },
+    "coverQuestions": {
+      "comparedWith": "20261017T222053Z-c9fadf620b254183ac6b10460452f2c7",
+      "bodies": 2397,
+      "added": 0,
+      "removed": 0
+    },
+    "internalSheaf": {
+      "comparedWith": "20261017T222053Z-c9fadf620b254183ac6b10460452f2c7",
+      "bodies": 2397,
+      "added": 0,
+      "removed": 0
+    },
+    "completionHIT": {
+      "comparedWith": "20261017T222053Z-c9fadf620b254183ac6b10460452f2c7",
+      "bodies": 2397,
+      "added": 0,
+      "removed": 0
+    },
+    "retainedSections": {
+      "comparedWith": "20261017T222053Z-c9fadf620b254183ac6b10460452f2c7",
+      "bodies": 2397,
+      "added": 0,
+      "removed": 0
+    }
+  },
+  "lhsAudits": {
+    "emdash3_2_fibrewise_sigma.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    "emdash3_2_sieve_extensions.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    "emdash3_2_direct_cover_questions.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    "emdash3_2_direct_cover_question_families.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    "emdash3_2_direct_cover_internal_sheaves.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    "emdash3_2_direct_cover_completion_hit.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    "emdash3_2_yoneda_precomposition_value.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    "emdash3_2_direct_cover_completion_retained_sections.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    }
+  },
+  "retainedSectionOriginalBodiesAfterSpecifiedSubstitutions": true,
+  "diagnostics": {
+    "rawCanonicalSectionNeedsOrdinaryView": {
+      "id": "20261017T222950Z-4ae9b2f27c054d5ca9e9fd6e65664e89",
+      "target": "examples/sieve_extensions.lp",
+      "outcome": "failed",
+      "wallSeconds": 32.478633648948744,
+      "childrenMaxRssKiB": 1959696,
+      "inputSnapshot": "924bffafaf20a7ddc08ee984d13d25d6873b29c6ca2b6faf0450663c62c8b27a",
+      "inputs": {
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_sieve_extensions.lp": "95f7c7324af17f2fefb839f87c5f2cf0ff9b6c82065625fb142498c4259f082c",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "examples/sieve_extensions.lp": "37b0d7a863f2c59368488e0082746dd33d0348fc048b98bb12442dfa91b45b14",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T222950Z-4ae9b2f27c054d5ca9e9fd6e65664e89.log",
+      "logSha256": "faf966ff7d81c4163d84ed07ff7b0c4af4b0d1a0d6d10e2e81ee6fe49226c053"
+    },
+    "previousIntegrationYonedaCoefficient": {
+      "id": "20261017T223507Z-02cd3f98db8c4582b36bed97c1ca33b9",
+      "target": "examples/action_profile_inherited_assembly_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 64.99120500602294,
+      "childrenMaxRssKiB": 2103572,
+      "inputSnapshot": "b9c12b003689b38650779e23bb271e7615488495052976ef6da3c0d017468117",
+      "inputs": {
+        "emdash3_2.lp": "bc18e4fc05937584bf86b063b99d1df4432e1a1ad6088034c7bca8bdbc809887",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+        "emdash3_2_direct_cover_completion_locality.lp": "03a043ccce6dbd7299d171ba7c6085e5b1780b69ecea7cfc221f7fc97cce7511",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "b4a1ee88f2695c36318bb0783d4ad59874d918745fa1e040678270ca53a2cacd",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_strict_pointwise_equivalences.lp": "a5afbc2bf77ca2f7f7bcd399b5130631f15aa67a2dbb3529ff880e34c9c3806a",
+        "emdash3_2_yoneda_precomposition_value.lp": "951ddd20c78cc94fceeffd7bf1ffca98e6f4a2b0bb3ca01748805483126ec291",
+        "examples/action_profile_inherited_assembly_controls.lp": "26f986900ecf43f10964723172e6173e0c8b8bac4e9cb8735735eb74ac4b981f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=5,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261017T223507Z-02cd3f98db8c4582b36bed97c1ca33b9.log",
+      "logSha256": "6b7ca2285cda9ff72a6deb9eb1d78c26f45e71ff8a5a575bbc62c4959b802a90"
+    }
+  },
+  "nextRequired": [
+    "Migrate emdash3_2_direct_cover_completion_locality.lp:97-141 and its actual later consumers",
+    "Preserve the selected inverses in the already-migrated Cartesian displayed pointwise-evidence profile",
+    "Remaining library migration and redundant strict-functor wrapper retirement",
+    "Production promotion and catalog/health/CI/source-pin qualification"
+  ]
+}
