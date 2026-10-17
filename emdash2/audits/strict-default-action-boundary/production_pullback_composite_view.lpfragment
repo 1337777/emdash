@@ -1,0 +1,11 @@
+// Whole reindexing after two functors, with both existing presentations kept.
+// The separate composition/Pullback view and associativity comparison did
+// not chain inside the total-dual target-family classifier. Retain all bases
+// and actual functors as proof-time obligations; no runtime fold is added.
+unif_rule @comp_fapp0 Cat_cat $A $B Cat_cart
+    (@comp_fapp0 Cat_cat $B1 $C Cat_cart $E $F) $G
+  ≡ @Pullback_catd $A0 $C0 $E0
+    (@comp_fapp0 Cat_cat $A1 $B0 $C1 $F0 $G0)
+  ↪ [ $B1 ≡ $B; $A0 ≡ $A; $C0 ≡ $C;
+      $A1 ≡ $A; $B0 ≡ $B; $C1 ≡ $C;
+      $E0 ≡ $E; $F0 ≡ $F; $G0 ≡ $G ];

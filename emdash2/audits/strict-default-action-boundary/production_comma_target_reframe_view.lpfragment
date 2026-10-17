@@ -1,0 +1,18 @@
+// Proof-time target observation after an identity family reframe. The two
+// sides retain the specific product projection, displayed map and final map.
+// Compare the actual families before removing the identity Sigma map. This
+// view belongs at the comma consumer, not in every importing kernel module.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@CoAbove2_func _ _ (@Op_func _ _ (@Product_projR_func $A $B)))
+        (@CoAbove2_func _ _ (@Op_func _ _ (@sigma_map_func $K $D $C $FF))))
+      (@CoAbove2_func _ _ (@Op_func _ _
+        (@sigma_map_func $K $E $D (@id (@Catd_cat $K0) $E0))))) $H
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@CoAbove2_func _ _ (@Op_func _ _ (@Product_projR_func $A1 $B1)))
+      (@CoAbove2_func _ _ (@Op_func _ _ (@sigma_map_func $K1 $D1 $C1 $FF1)))) $H1
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $D ≡ $E;
+      $A1 ≡ $A; $B1 ≡ $B; $K1 ≡ $K; $D1 ≡ $D; $C1 ≡ $C;
+      $FF1 ≡ $FF; $H1 ≡ $H ];

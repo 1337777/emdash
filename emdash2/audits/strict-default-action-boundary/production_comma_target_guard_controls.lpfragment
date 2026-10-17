@@ -1,0 +1,23 @@
+// A nonidentity displayed endomap must not disappear as an identity reframe.
+// This has the same projected-composite shape as the qualified target view.
+assertnot [A K C : Cat] (E : τ (Catd K))
+  (FF : τ (@Functord K E E)) (GG : τ (@Functord K E (@Const_catd K C)))
+  (H : τ (Functor A (TotalOp_cat (@Sigma_cat K E))))
+  ⊢ eq_refl
+    (@comp_cat_fapp0 A (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat C)
+      (@comp_cat_fapp0 (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat C)
+        (@TotalOp_func (@Sigma_cat K E) C
+          (@comp_cat_fapp0 (@Sigma_cat K E) (Product_cat K C) C
+            (@Product_projR_func K C) (@sigma_map_func K E (@Const_catd K C) GG)))
+        (@TotalOp_func (@Sigma_cat K E) (@Sigma_cat K E) (@sigma_map_func K E E FF))) H)
+    : τ (@= (Functor A (TotalOp_cat C))
+      (@comp_cat_fapp0 A (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat C)
+        (@comp_cat_fapp0 (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat C)
+          (@TotalOp_func (@Sigma_cat K E) C
+            (@comp_cat_fapp0 (@Sigma_cat K E) (Product_cat K C) C
+              (@Product_projR_func K C) (@sigma_map_func K E (@Const_catd K C) GG)))
+          (@TotalOp_func (@Sigma_cat K E) (@Sigma_cat K E) (@sigma_map_func K E E FF))) H)
+      (@comp_cat_fapp0 A (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat C)
+        (@TotalOp_func (@Sigma_cat K E) C
+          (@comp_cat_fapp0 (@Sigma_cat K E) (Product_cat K C) C
+            (@Product_projR_func K C) (@sigma_map_func K E (@Const_catd K C) GG))) H));

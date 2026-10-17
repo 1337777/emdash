@@ -1367,9 +1367,31 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     insert('// Whole represented-Sigma base change accumulates before a retained outer',
            fragment('production_sigma_basechange_coefficient.lpfragment'),
            'Canonical Cartesian parameter view of original total base change, with unchanged components and actual ordinary restriction')
+    insert('// Whole represented-Sigma base change accumulates before a retained outer',
+           fragment('production_sigma_constant_projection.lpfragment'),
+           'Canonical second-projection owner and measured projection-order joins for constant-target Sigma maps; preserve the original whole and first-Hom views and the conventional pre/right base-change action')
+    sigma_composition = '''// Stable Sigma-map / represented-composition proof-time join.
+unif_rule @sigma_map_func $K _ _
+    (@hom_postcomp_fapp0 (@Catd_cat $K) (@Catd_cat $K)
+      (@id Cat_cat (@Catd_cat $K)) $E $M $D $GG $FF)
+  ≡ @comp_fapp0 Cat_cat (@Sigma_cat $K $E) (@Sigma_cat $K $M) (@Sigma_cat $K $D)
+      (@sigma_map_func $K $M $D $GG) (@sigma_map_func $K $E $M $FF)
+  ↪ [ tt ≡ tt ];'''
+    replace_once(sigma_composition, sigma_composition.replace(
+        '// Stable Sigma-map / represented-composition proof-time join.',
+        '// Stable Sigma-map / represented-composition proof-time join.\n'
+        '// Composite endpoint tags are inferred from the actual Sigma maps;\n'
+        '// they can carry proof-time-equal total-dual family presentations.').replace(
+        '≡ @comp_fapp0 Cat_cat (@Sigma_cat $K $E) (@Sigma_cat $K $M) (@Sigma_cat $K $D)',
+        '≡ @comp_fapp0 Cat_cat _ _ _'),
+        'Sigma represented-composition comparison',
+        'Remove measured inferred endpoint discrimination while preserving the actual base, all three families and both displayed maps')
     insert('rule @fapp0 _ _ (@section_total_func $K $E $s) $k',
            fragment('production_total_dual_projection_views.lpfragment'),
            'Total-dual instances of the existing Sigma projection comparisons, retaining section/map/base-change heads and all data')
+    insert('// Direct proof-time reading of represented-family reindexing.',
+           fragment('production_pullback_composite_view.lpfragment'),
+           'Direct existing reindexing/associativity comparison at the whole family, preserving actual bases and maps under total duality')
     a = body.index('// 18zz. Whole comma projection and displayed laxity extraction')
     b = body.index('// 19. Applications:', a)
     replace_once(body[a:b], fragment('production_comma_projection.lpfragment') + '\n',
@@ -1745,9 +1767,26 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 tail = tail[:o1] + tail[o2:]
                 tail = tail.replace(source_end, '// Original ordinary-lax constructor and source comparison.\n'
                     + ordinary + '\n' + source_end, 1)
+                # Target section uses the same corrected total base and the
+                # existing canonical projection's ordinary displayed view.
+                target_start = 'protected symbol comma_section_gamma_target_family_map '
+                target_end = '// Link that section to the original total base change.'
+                assert tail.count(target_start) == tail.count(target_end) == 1
+                t1, t2 = tail.index(target_start), tail.index(target_end)
+                target_section = tail[t1:t2]
+                assert target_section.count(theta_type) == 6
+                target_section = target_section.replace(theta_type, 'COMMA_TARGET_THETA_TYPE')
+                assert (target_section.count('Op_cat'), target_section.count('Op_func'), target_section.count('Op_transf')) == (35, 3, 1)
+                target_section = (target_section.replace('Op_cat', 'TotalOp_cat')
+                                  .replace('Op_func', 'TotalOp_func').replace('Op_transf', 'TotalOp_transf'))
+                target_section = target_section.replace('COMMA_TARGET_THETA_TYPE', theta_type.replace('@Transf', '@StrictTransfor', 1))
+                target_projection = '(@homdc_total_target_funcd X Y (@represented_comma_prof X Y J))'
+                assert target_section.count(target_projection) == 1
+                target_section = target_section.replace(target_projection, '(@strict_transfor _ _ _ _ ' + target_projection + ')')
+                tail = tail[:t1] + target_section + tail[t2:]
                 text = text[:start] + fragment('production_comma_graph_families.lpfragment') + '\n' + tail
                 changes.append({'source': path, 'owner': 'represented-comma graph family profiles',
-                                'reason': 'Retain canonical strict-x admission, total-dual sections, corrected base change, derived graph and original source inverse data; target comparison remains under qualification',
+                                'reason': 'Retain canonical strict-x admission, total-dual sections, corrected base change, derived graph and original source inverse data; the coupled target adaptation is recorded below',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/action_profile_inherited_assembly_controls.lp':
                 old = text
@@ -1968,11 +2007,13 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 inactive = '''/*
   Migration boundary: the following legacy same-base Op clauses are inactive.
   Op_catd now changes the base, and Op_funcd accepts Cartesian maps. Their
-  required two-sided total/graph observations must be rederived at the
-  corrected TotalOp consumers; none is silently asserted with the old types.
+  corrected whole projection counterparts above use the actual TotalOp
+  profiles. The old point-action clauses remain inactive audit candidates;
+  none is silently asserted with the old types.
 
 ''' + legacy + '\n*/\n\n'
-                text = text[:start] + fragment('production_cubical_sigma_projection.lpfragment') + inactive + text[end:]
+                text = (text[:start] + fragment('production_cubical_sigma_projection.lpfragment')
+                        + '\n' + fragment('production_cubical_projection_views.lpfragment') + '\n' + inactive + text[end:])
                 text = text.replace('(Functor (Hom_cat K1 x1 y1) Cat_cat)',
                                     '(Functor (Hom_cat K1 x1 y1) Cat_cart)')
                 source = '''    (Catd_cat (Op_cat (Hom_cat K2 x2 y2)))
@@ -1999,7 +2040,8 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text),
                                 'redundantDirectIntrinsicRuleRemoved': 1,
                                 'pendingLegacyOppositeRules': 3,
-                                'pendingLegacyOppositeUnifiers': 4,
+                                'pendingLegacyOppositeUnifiers': 0,
+                                'correctedWholeProjectionViews': 4,
                                 'pendingLegacyBlockSha256': sha(legacy)})
             if path == 'emdash3_2_cubical_internalization.lp':
                 old = text
@@ -2184,6 +2226,106 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                                 'reason': 'Preserve the original comparison and construct its inverse evidence before evaluating components',
                                 'insertedSha256': sha(addition),
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(replacement)})
+                # The original target comparison and its selected inverses
+                # run in O(K), O(Y). Internal-Hom inputs remain over T(K).
+                target_before = text
+                raw_start = 'protected symbol comma_basechange_gamma_target_raw0 '
+                raw_end = '// Group the original mapped graph section.'
+                assert text.count(raw_start) == text.count(raw_end) == 1
+                r1, r2 = text.index(raw_start), text.index(raw_end)
+                raw = text[r1:r2]
+                assert raw.count(theta_type) == 11
+                assert raw.count(theta_type.replace('@hom_int_view ', '@hom_int ')) == 3
+                raw = raw.replace(theta_type.replace('@hom_int_view ', '@hom_int '), theta_type)
+                raw = raw.replace(theta_type, 'COMMA_RAW_THETA_TYPE')
+                assert (raw.count('Op_cat'), raw.count('Op_func'), raw.count('Op_transf')) == (151, 8, 1)
+                raw = (raw.replace('Op_cat', 'TotalOp_cat').replace('Op_func', 'TotalOp_func')
+                       .replace('Op_transf', 'TotalOp_transf').replace('@one_cat_op ', '@one_cat_total_op ')
+                       .replace('@comma_op_omega_along ', '@comma_total_op_omega_along '))
+                raw = raw.replace('COMMA_RAW_THETA_TYPE', theta_type.replace('@Transf', '@StrictTransfor', 1))
+                assert raw.count(target_projection) == 6
+                raw = raw.replace(target_projection, '(@strict_transfor _ _ _ _ ' + target_projection + ')')
+                link = 'protected symbol comma_basechange_gamma_target_link '
+                assert raw.count(link) == 1
+                raw = raw.replace(link, fragment('production_comma_target_reframe_view.lpfragment') + '\n' + link, 1)
+                text = text[:r1] + raw + text[r2:]
+                op_evidence = 'protected symbol comma_op_omega_along '
+                oe = text.index(op_evidence); oe_end = text.index(';', text.index('≔', oe)) + 1
+                old = text[oe:oe_end]
+                text = text[:oe] + old.replace('comma_op_omega_along', 'comma_total_op_omega_along').replace('Op_cat', 'TotalOp_cat') + text[oe_end:]
+                grouped_start = '// Group the original mapped graph section.'
+                classify_start = '// Classify the target section and retain the whole target inverse.'
+                ordinary_target = '// Original Γ interface, specialized to the native Hom action of h.'
+                g1, g2 = text.index(grouped_start), text.index(classify_start)
+                grouped = text[g1:g2]
+                assert grouped.count(theta_type) == 2
+                grouped = grouped.replace(theta_type, 'COMMA_GROUPED_THETA_TYPE')
+                assert grouped.count('Op_cat') == 19 and grouped.count('Op_func') == 0
+                grouped = grouped.replace('Op_cat', 'TotalOp_cat')
+                grouped = grouped.replace('COMMA_GROUPED_THETA_TYPE', theta_type.replace('@Transf', '@StrictTransfor', 1))
+                text = text[:g1] + grouped + text[g2:]
+                c1, c2 = text.index(classify_start), text.index(ordinary_target)
+                classification = text[c1:c2]
+                projections = fragment('production_comma_target_projections.lpfragment')
+                projection_names = ('comma_classification_target_projection',
+                                    'comma_classification_middle_projection',
+                                    'comma_classification_identity_section_projected')
+                for name in projection_names:
+                    marker = 'protected symbol ' + name
+                    assert classification.count(marker) == projections.count(marker) == 1
+                    p1 = classification.index(marker); p2 = classification.index(';', classification.index('≔', p1)) + 1
+                    classification = classification[:p1] + name.upper() + classification[p2:]
+                assert classification.count(theta_type) == 14
+                classification = classification.replace(theta_type, 'COMMA_CLASSIFICATION_THETA_TYPE')
+                assert (classification.count('Op_cat'), classification.count('Op_func'), classification.count('Op_transf')) == (53, 7, 1)
+                classification = (classification.replace('Op_cat', 'TotalOp_cat')
+                                  .replace('Op_func', 'TotalOp_func').replace('Op_transf', 'TotalOp_transf'))
+                classification = classification.replace('COMMA_CLASSIFICATION_THETA_TYPE', theta_type.replace('@Transf', '@StrictTransfor', 1))
+                for name in projection_names:
+                    p1 = projections.index('protected symbol ' + name); p2 = projections.index(';', projections.index('≔', p1)) + 1
+                    classification = classification.replace(name.upper(), projections[p1:p2])
+                text = text[:c1] + classification + text[c2:]
+                ordinary = text[text.index(ordinary_target):]
+                assert ordinary.count('@tapp1_int_fapp0_transf') == 3
+                text = text[:text.index(ordinary_target)] + ordinary.replace('@tapp1_int_fapp0_transf', '@tapp1_int_cart')
+                changes.append({'source': path, 'owner': 'whole represented-comma target comparison and classification',
+                                'reason': 'Preserve the original selected inverse data and OneCat target premise, correct the total-dual bases and coefficient views, and retain the ordinary-lax public wrappers through canonical admission',
+                                'oldBodySha256': sha(target_before), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_one_cat_op.lp':
+                addition = fragment('production_one_cat_total_dual.lpfragment')
+                text += '\n' + addition
+                changes.append({'source': path, 'owner': 'one_cat_total_op',
+                                'reason': 'Ordinary-target comparison now uses total duality; retain the original ordinary-category premise through explicit discrete-profile closure',
+                                'declaredBoundary': 'Discrete classifier closure under total duality; no operational chosen inverse or caller proof added',
+                                'insertedSha256': sha(addition)})
+            if path == 'examples/represented_comma_families.lp':
+                old = text
+                # The original arbitrary-section rejection observes the O
+                # total projection; the seven Theta inputs still use T(K).
+                pre, post = text.split('assert [A K : Cat]', 1)
+                assert pre.count('Op_cat') == 11 and pre.count('Op_func') == 4
+                pre = pre.replace('Op_cat', 'TotalOp_cat').replace('Op_func', 'TotalOp_func')
+                text = pre + 'assert [A K : Cat]' + post
+                assert text.count('(theta : τ (@Transf (Op_cat K)') == 7
+                text = text.replace('(theta : τ (@Transf (Op_cat K)', '(theta : τ (@StrictTransfor (Op_cat K)')
+                assert text.count('@hom_int ') == 16
+                text = text.replace('@hom_int ', '@hom_int_view ')
+                assert text.count('@tapp0_fapp0 K Cat_cat') == 1
+                text = text.replace('@tapp0_fapp0 K Cat_cat', '@tapp0_fapp0 K Cat_cart', 1)
+                assert text.count(' x theta)) (@id K x)') == 1
+                text = text.replace(' x theta)) (@id K x)', ' x (@strict_transfor _ _ _ _ theta))) (@id K x)', 1)
+                fibre = '(@homdc_fibre X Y (@represented_comma_prof X Y J)'
+                assert text.count(fibre) == 1
+                text = text.replace(fibre, '(@homdc_fibre X Y\n'
+                    '  (@comp_cat_fapp0 (Op_cat X) (Functor_cart_cat Y Cat_cart) (Catd_cat Y)\n'
+                    '    (Functor_cart_include Y Cat_cart) (@represented_comma_prof X Y J))', 1)
+                text = text.replace('// Whole internal-Hom input: it need not be presented as the action of h.',
+                    '// Whole internal-Hom input with the admitted strict x-profile;\n'
+                    '// its displayed y-components remain lax. It need not be presented\n'
+                    '// as the canonical action of an ordinary transformation h.')
+                changes.append({'source': path, 'owner': 'original represented-comma reviewer',
+                                'reason': 'Retain all original observations with corrected total duality, valid Theta profile and actual coefficient views; ordinary eta inputs remain lax',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/gray_profiles.lp':
                 old = '''assertnot [A B : Cat]
   [X Y Z : τ (Obj A)]
@@ -2247,6 +2389,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/one_cat_adjunction_families.lp')
     stage('examples/action_profile_inherited_assembly_controls.lp')
     stage('examples/represented_comma_families.lp')
+    stage('emdash3_2_one_cat_hom_comparison_data.lp')
     graph_source = (package / 'emdash3_2_represented_comma_families.lp').read_text()
     graph_boundary = '// Fibrewise Sigma of the existing whole internal action.'
     assert graph_source.count(graph_boundary) == 1
@@ -2281,6 +2424,12 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     source_controls = source_controls.replace('Op_cat', 'TotalOp_cat').replace('Op_func', 'TotalOp_func')
     (package / 'represented_comma_source_prefix.lp').write_text(graph_source[:graph_source.index(source_boundary)]
         + '\n' + source_controls + '\n' + fragment('production_total_dual_projection_controls.lpfragment'))
+    target_section_boundary = '// Link that section to the original total base change.'
+    assert graph_source.count(target_section_boundary) == 1
+    (package / 'represented_comma_target_section_prefix.lp').write_text(graph_source[:graph_source.index(target_section_boundary)])
+    target_inverse_boundary = '// Group the original mapped graph section.'
+    assert graph_source.count(target_inverse_boundary) == 1
+    (package / 'represented_comma_target_inverse_prefix.lp').write_text(graph_source[:graph_source.index(target_inverse_boundary)])
     # These original assertions exercise the assembly owner itself. Keep the
     # full original downstream import closure staged as a separate obligation.
     assembly_controls = (package / 'examples/action_profile_inherited_assembly_controls.lp').read_text()
@@ -2298,6 +2447,16 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'sigma_basechange_coefficient_controls.lp').write_text(
         'require open emdash.emdash3_2_gray_profiles;\n'
         + fragment('production_sigma_basechange_coefficient_controls.lpfragment'))
+    (package / 'sigma_constant_projection_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + fragment('production_sigma_constant_projection_controls.lpfragment'))
+    (package / 'sigma_projection_regression_controls.lp').write_text(
+        (package / 'inverse_core_controls.lp').read_text() + '\n'
+        + fragment('production_sigma_constant_projection_controls.lpfragment'))
+    (package / 'comma_target_guard_controls.lp').write_text(
+        'require open emdash.emdash3_2_represented_comma_families;\n'
+        'require emdash.examples.represented_comma_families;\n'
+        + fragment('production_comma_target_guard_controls.lpfragment'))
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
@@ -2414,6 +2573,11 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'comma_graph_total_prefix.lp',
                               package / 'represented_comma_constructor_prefix.lp',
                               package / 'represented_comma_source_prefix.lp',
+                              package / 'represented_comma_target_section_prefix.lp',
+                              package / 'represented_comma_target_inverse_prefix.lp',
+                              package / 'sigma_constant_projection_controls.lp',
+                              package / 'sigma_projection_regression_controls.lp',
+                              package / 'comma_target_guard_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

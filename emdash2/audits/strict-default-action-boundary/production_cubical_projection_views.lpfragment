@@ -1,0 +1,61 @@
+// Reindex the canonical total-dual Sigma projection through its ordinary
+// displayed view. The outer base changes by R; the inner total remains the
+// same projection. An explicit identity reframe requires its actual source
+// family to agree. This is the corrected whole form of the former Op view.
+unif_rule @fapp1_fapp0 _ _ (@Pullback_catd_func $A $B $F) $E0 _
+    (@comp_fapp0 _ $E0 _ _
+      (@strict_transfor _ _ _ _
+        (@TotalOp_funcd $L _ _ (@sigma_proj1_family_funcd $L $I $G)))
+      (@id _ $E0))
+  ≡ @strict_transfor _ _ _ _
+    (@TotalOp_funcd $L0 _ _ (@sigma_proj1_family_funcd $L0 $I0 $G0))
+  ↪ [ $B ≡ CoAbove2_cat $L; $L0 ≡ CoAbove2_cat $A; $I0 ≡ $I;
+      $E0 ≡ @TotalOp_catd $L
+        (@comp_cat_fapp0 $L (Functor_cart_cat $I Cat_cart) Cat_cart (@Sigma_coeff_func $I) $G);
+      $G0 ≡ @comp_cat_fapp0 (CoAbove2_cat $A) $L (Functor_cart_cat $I Cat_cart)
+        $G (@CoAbove2_func $A $B $F) ];
+
+// Project canonical total base change on a section. The prewhiskering is the
+// existing Cartesian Hom-action of sigma_pullback_coeff_transf; F survives
+// as its total-dual base action and in the reindexed source family.
+unif_rule @section_postcomp_sec $K _ _
+    (@strict_transfor _ _ _ _
+      (@TotalOp_funcd $L _ _ (@sigma_proj1_family_funcd $L $B $H)))
+    (@section_postcomp_sec $K _ _
+      (@strict_transfor _ _ _ _
+        (@TotalOp_funcd $L _ _
+          (@hom_precomp_along_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+            Cat_cart $L (Functor_cart_cat $B Cat_cart) $H _ _
+            (@sigma_pullback_coeff_transf $A $B $F)))) $s)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ $F0))
+    (@section_postcomp_sec $K0 _ _
+      (@strict_transfor _ _ _ _
+        (@TotalOp_funcd $L0 _ _ (@sigma_proj1_family_funcd $L0 $A0 $H0))) $s0)
+  ↪ [ $K ≡ CoAbove2_cat $L; $K0 ≡ $K; $L0 ≡ $L; $A0 ≡ $A;
+      $F0 ≡ $F; $s0 ≡ $s;
+      $H0 ≡ @comp_cat_fapp0 $L (Functor_cart_cat $B Cat_cart)
+        (Functor_cart_cat $A Cat_cart) (@comp_cat_con_cart_func $A $B Cat_cart $F) $H ];
+
+// Sigma of the actual strict parameter map preserves the inner base. Its
+// displayed components can still be lax; U is not assumed to be an identity.
+unif_rule @section_postcomp_sec $K _ _
+    (@strict_transfor _ _ _ _
+      (@TotalOp_funcd $L _ _ (@sigma_proj1_family_funcd $L $A $D)))
+    (@section_postcomp_sec $K _ _
+      (@strict_transfor _ _ _ _
+        (@TotalOp_funcd $L _ _ (@Sigma_parameter_funcd $L $A $E $D _))) $s)
+  ≡ @section_postcomp_sec $K0 _ _
+    (@strict_transfor _ _ _ _
+      (@TotalOp_funcd $L0 _ _ (@sigma_proj1_family_funcd $L0 $A0 $E0))) $s0
+  ↪ [ $K ≡ CoAbove2_cat $L; $K0 ≡ $K; $L0 ≡ $L; $A0 ≡ $A;
+      $E0 ≡ $E; $s0 ≡ $s ];
+
+// The original identity graph projects to its whole identity base functor.
+unif_rule @section_postcomp_sec _ _ _
+    (@strict_transfor _ _ _ _
+      (@TotalOp_funcd _ _ _
+        (@sigma_proj1_family_funcd _ $K (@hom_int $K $K (@id Cat_cat $K)))))
+    (@hom_identity_graph_sec $K)
+  ≡ @id Cat_cat (CoAbove2_cat (Op_cat $K))
+  ↪ [ tt ≡ tt ];

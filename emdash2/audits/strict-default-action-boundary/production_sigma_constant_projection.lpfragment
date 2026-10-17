@@ -1,0 +1,78 @@
+// Stable whole second projection of the already existing Sigma map into a
+// constant family. This is a canonical projection owner, with its composition
+// view below; it does not add a separately supplied functor or comparison.
+symbol sigma_const_target_func [K : Cat] [E : τ (Catd K)] [C : Cat]
+  (FF : τ (@Functord K E (@Const_catd K C)))
+  : τ (Functor (@Sigma_cat K E) C);
+
+rule sigma_Snd (@sigma_map_func $K $E (@Const_catd $K $C) $FF)
+  ↪ @sigma_const_target_func $K $E $C $FF;
+
+// Its original whole composition is retained as a proof-time view.
+unif_rule @sigma_const_target_func $K $E $C $FF
+  ≡ @comp_fapp0 Cat_cat _ _ _ (@Product_projR_func $K0 $C0)
+      (@sigma_map_func $K0 $E0 (@Const_catd $K0 $C0) $FF0)
+  ↪ [ $K0 ≡ $K; $C0 ≡ $C; $E0 ≡ $E; $FF0 ≡ $FF ];
+
+// Both object-projection orders use the same established Sigma-map object.
+rule @fapp0 _ _ (@sigma_const_target_func $K $E $C $FF) $q
+  ↪ sigma_Snd (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $q);
+
+// Keep the generic first-Hom head stable: eager expansion bypassed its
+// whole-to-capped application cut. This is the same actual Hom composition,
+// recorded at proof time while capped action remains the projection below.
+unif_rule @fapp1_func _ _ (@sigma_const_target_func $K $E $C $FF) $q $r
+  ≡ @comp_fapp0 Cat_cat _ _ _ (@Product_projR_func $H0 $H1)
+    (@fapp1_func _ _ (@sigma_map_func $K0 $E0 (@Const_catd $K0 $C0) $FF0) $q0 $r0)
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $C0 ≡ $C; $FF0 ≡ $FF; $q0 ≡ $q; $r0 ≡ $r;
+      $H0 ≡ Hom_cat $K
+        (sigma_Fst (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $q))
+        (sigma_Fst (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $r));
+      $H1 ≡ Hom_cat $C
+        (sigma_Snd (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $q))
+        (sigma_Snd (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $r)) ];
+
+// Preserve the generic capped head as well: projecting it eagerly erased the
+// literal functor-action pattern used by default composition/accumulation.
+// The actual Sigma arrow remains available through this proof-time reading.
+unif_rule @fapp1_fapp0 _ _ (@sigma_const_target_func $K $E $C $FF) $q $r $p
+  ≡ @sigma_Snd _ _ (@fapp1_fapp0 _ _
+      (@sigma_map_func $K0 $E0 (@Const_catd $K0 $C0) $FF0) $q0 $r0 $p0)
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $C0 ≡ $C; $FF0 ≡ $FF;
+      $q0 ≡ $q; $r0 ≡ $r; $p0 ≡ $p ];
+
+// Constructor-visible whole projection joins. These retain the original
+// whole component maps and inherit their higher action through composition.
+// The literal product target is needed by SR to recover the projected
+// functor's component type from the otherwise noninjective Obj classifier.
+rule sigma_Snd (@comp_fapp0 Cat_cat _ _ (Product_cat $K $C)
+    (@sigma_map_func $K $M (@Const_catd $K $C) $GG)
+    (@sigma_map_func $K $E $M $FF))
+  ↪ @comp_cat_fapp0 (@Sigma_cat $K $E) (@Sigma_cat $K $M) $C
+      (@sigma_const_target_func $K $M $C $GG) (@sigma_map_func $K $E $M $FF);
+
+rule sigma_Snd (@comp_fapp0 Cat_cat _ _ (Product_cat $K $C)
+    (@sigma_pullback_total_func $A $K $F (@Const_catd $K $C))
+    (@sigma_map_func $A $E (@Const_catd $A $C) $FF))
+  ↪ @comp_cat_fapp0 (@Sigma_cat $A $E) (Product_cat $A $C) $C
+      (sigma_Snd (@sigma_pullback_total_func $A $K $F (@Const_catd $K $C)))
+      (@sigma_map_func $A $E (@Const_catd $A $C) $FF);
+
+// The conventional pre/right action of the existing base-change transfor.
+// The whole tapp1 owner remains; only its constant-target second projection
+// is read through base change at the TARGET family after the pulled-back
+// Sigma map. This is the selected pre/right route, not a strictification of
+// the retained post/left naturality comparison.
+rule sigma_Snd (@tapp1_fapp0 _ Cat_cat _ _ $E (@Const_catd $K $C)
+    (@sigma_pullback_total_transf $A $K $F) $FF)
+  ↪ @comp_cat_fapp0 (@Sigma_cat $A (@Pullback_catd $A $K $E $F)) (Product_cat $A $C) $C
+      (sigma_Snd (@sigma_pullback_total_func $A $K $F (@Const_catd $K $C)))
+      (@sigma_map_func $A (@Pullback_catd $A $K $E $F) (@Const_catd $A $C)
+        (@fapp1_fapp0 (Catd_cat $K) (Catd_cat $A) (@Pullback_catd_func $A $K $F)
+          $E (@Const_catd $K $C) $FF));
+
+// Preserve the whole constant-base-change projection head: the old whole
+// comparison with Product_projR remains proof-time, not runtime equality.
+rule @fapp0 _ $C
+    (@sigma_Snd _ _ (@sigma_pullback_total_func $A $K $F (@Const_catd $K $C))) $q
+  ↪ @sigma_Snd (Obj $A) (λ _ : τ (Obj $A), Obj $C) $q;

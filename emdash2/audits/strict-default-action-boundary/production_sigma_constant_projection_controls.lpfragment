@@ -1,0 +1,101 @@
+// Either object-projection order returns the established Sigma-map object.
+assert [K C : Cat] (E : τ (Catd K)) (FF : τ (@Functord K E (@Const_catd K C)))
+  (q : τ (Obj (@Sigma_cat K E)))
+  ⊢ @fapp0 (@Sigma_cat K E) C
+      (sigma_Snd (@sigma_map_func K E (@Const_catd K C) FF)) q
+    ≡ sigma_Snd (@sigma_map_obj K E (@Const_catd K C) FF q);
+
+// Constant sources normalize to products and remain covered by the same owner.
+assert [K B C : Cat] (FF : τ (@Functord K (@Const_catd K B) (@Const_catd K C)))
+  (k : τ (Obj K)) (u : τ (Obj B))
+  ⊢ @fapp0 (Product_cat K B) C
+      (sigma_Snd (@sigma_map_func K (@Const_catd K B) (@Const_catd K C) FF))
+      (@Product_pair K B k u)
+    ≡ @fapp0 B C (@tapp0_fapp0 K Cat_cart (@Const_catd K B) (@Const_catd K C) k FF) u;
+
+// Whole and capped Hom-action projections agree on the same original arrow.
+assert [K C : Cat] (E : τ (Catd K)) (FF : τ (@Functord K E (@Const_catd K C)))
+  (q r : τ (Obj (@Sigma_cat K E))) (p : τ (Hom (@Sigma_cat K E) q r))
+  ⊢ @fapp0 _ _ (@fapp1_func (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q r) p
+    ≡ @fapp1_fapp0 (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q r p;
+
+// Capped action still reads the original Sigma arrow, at proof time.
+assert [K C : Cat] (E : τ (Catd K)) (FF : τ (@Functord K E (@Const_catd K C)))
+  (q r : τ (Obj (@Sigma_cat K E))) (p : τ (Hom (@Sigma_cat K E) q r))
+  ⊢ eq_refl (@fapp1_fapp0 (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q r p)
+    : τ (@= (Hom C (fapp0 (@sigma_const_target_func K E C FF) q)
+        (fapp0 (@sigma_const_target_func K E C FF) r))
+      (@fapp1_fapp0 (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q r p)
+      (sigma_Snd (@fapp1_fapp0 (@Sigma_cat K E) (Product_cat K C)
+        (@sigma_map_func K E (@Const_catd K C) FF) q r p)));
+
+// The whole Hom comparison retains the actual map and both endpoints.
+assert [K C : Cat] (E : τ (Catd K)) (FF : τ (@Functord K E (@Const_catd K C)))
+  (q : τ (Obj (@Sigma_cat K E)))
+  ⊢ @fapp1_fapp0 (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q q (@id (@Sigma_cat K E) q)
+    ≡ @id C (@fapp0 (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q);
+
+assert [K C : Cat] (E : τ (Catd K)) (FF : τ (@Functord K E (@Const_catd K C)))
+  (q r s : τ (Obj (@Sigma_cat K E)))
+  (p : τ (Hom (@Sigma_cat K E) q r)) (h : τ (Hom (@Sigma_cat K E) r s))
+  ⊢ @fapp1_fapp0 (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q s
+      (@comp_fapp0 (@Sigma_cat K E) q r s h p)
+    ≡ @comp_fapp0 C (fapp0 (@sigma_const_target_func K E C FF) q)
+      (fapp0 (@sigma_const_target_func K E C FF) r) (fapp0 (@sigma_const_target_func K E C FF) s)
+      (@fapp1_fapp0 (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) r s h)
+      (@fapp1_fapp0 (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q r p);
+
+// The whole Hom comparison retains the actual map and both endpoints.
+assert [K C : Cat] (E : τ (Catd K)) (FF : τ (@Functord K E (@Const_catd K C)))
+  (q r : τ (Obj (@Sigma_cat K E)))
+  ⊢ eq_refl (@fapp1_func (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q r)
+    : τ (@= (Functor (Hom_cat (@Sigma_cat K E) q r)
+        (Hom_cat C (fapp0 (@sigma_const_target_func K E C FF) q)
+          (fapp0 (@sigma_const_target_func K E C FF) r)))
+      (@fapp1_func (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q r)
+      (@comp_cat_fapp0 _ _ _
+        (@fapp1_func (Product_cat K C) C (@Product_projR_func K C)
+          (@sigma_map_obj K E (@Const_catd K C) FF q)
+          (@sigma_map_obj K E (@Const_catd K C) FF r))
+        (@fapp1_func (@Sigma_cat K E) (Product_cat K C)
+          (@sigma_map_func K E (@Const_catd K C) FF) q r)));
+
+// Applying before or after the projected composite gives the same value.
+assert [A K C : Cat] (F : τ (Functor A K)) (E : τ (Catd A))
+  (FF : τ (@Functord A E (@Const_catd A C))) (q : τ (Obj (@Sigma_cat A E)))
+  ⊢ @fapp0 (@Sigma_cat A E) C
+      (sigma_Snd (@comp_cat_fapp0 (@Sigma_cat A E) (Product_cat A C) (Product_cat K C)
+        (@sigma_pullback_total_func A K F (@Const_catd K C))
+        (@sigma_map_func A E (@Const_catd A C) FF))) q
+    ≡ @fapp0 (Product_cat A C) C
+      (sigma_Snd (@sigma_pullback_total_func A K F (@Const_catd K C)))
+      (@fapp0 (@Sigma_cat A E) (Product_cat A C) (@sigma_map_func A E (@Const_catd A C) FF) q);
+
+// The stable whole owner has exactly its original projection composition.
+assert [K C : Cat] (E : τ (Catd K)) (FF : τ (@Functord K E (@Const_catd K C)))
+  ⊢ eq_refl (@sigma_const_target_func K E C FF)
+    : τ (@= (Functor (@Sigma_cat K E) C)
+      (@sigma_const_target_func K E C FF)
+      (@comp_cat_fapp0 (@Sigma_cat K E) (Product_cat K C) C
+        (@Product_projR_func K C) (@sigma_map_func K E (@Const_catd K C) FF)));
+
+// The displayed map and its value are retained, not replaced by arbitrary data.
+assertnot [K C : Cat] (E : τ (Catd K)) (FF : τ (@Functord K E (@Const_catd K C)))
+  (q : τ (Obj (@Sigma_cat K E))) (v : τ (Obj C))
+  ⊢ @fapp0 (@Sigma_cat K E) C (@sigma_const_target_func K E C FF) q ≡ v;
+
+// The existing Sigma composition view must keep the actual second map.
+assertnot [K : Cat] (E M D : τ (Catd K))
+  (FF : τ (@Functord K E M)) (GG HH : τ (@Functord K M D))
+  ⊢ eq_refl (@sigma_map_func K E D (@comp_catd_fapp0 K E M D GG FF))
+    : τ (@= (Functor (@Sigma_cat K E) (@Sigma_cat K D))
+      (@sigma_map_func K E D (@comp_catd_fapp0 K E M D GG FF))
+      (@comp_cat_fapp0 (@Sigma_cat K E) (@Sigma_cat K M) (@Sigma_cat K D)
+        (@sigma_map_func K M D HH) (@sigma_map_func K E M FF)));
+
+// The combined reindexing view retains the particular F, even at equal types.
+assertnot [A B C : Cat] (E : τ (Catd C)) (F F0 : τ (Functor B C)) (G : τ (Functor A B))
+  ⊢ eq_refl (@comp_cat_fapp0 A B Cat_cart (@comp_cat_fapp0 B C Cat_cart E F) G)
+    : τ (@= (Catd A)
+      (@comp_cat_fapp0 A B Cat_cart (@comp_cat_fapp0 B C Cat_cart E F) G)
+      (@Pullback_catd A C E (@comp_cat_fapp0 A B C F0 G)));

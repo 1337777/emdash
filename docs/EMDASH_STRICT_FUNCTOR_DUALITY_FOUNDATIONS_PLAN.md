@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; derived represented-comma constructor and original whole source comparison qualified; target comparison, full reviewer and remaining migration/promotion open
+Status: active implementation; complete represented-comma construction/comparisons and original reviewer qualified; downstream coefficient/inverse migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,52 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Represented-comma target completion after `d71a28be`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_comma_target_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_comma_target_verification.json)
+record the complete original module and all 24 positive/seven negative reviewer
+observations. Both source and target comparisons retain their selected inverse
+maps and whole laws. K and X remain arbitrary; the target comparison retains
+the original OneCat(Y) premise. Ordinary eta stays lax, and generic Theta uses
+the established strict x-profile. The higher triangle now uses the existing
+ordinary inclusion of the represented Cartesian family.
+
+The four whole Sigma-projection views have corrected TotalOp counterparts.
+Whole reindexing and Sigma-composition comparisons retain actual bases,
+families and maps while removing measured inferred-tag discrimination. The
+remaining identity-reframe view is narrowly scoped to its actual comma
+consumer. A broad kernel-level trial exhausted memory and was removed.
+
+The constant-target second projection now has one canonical whole owner,
+sigma_const_target_func(FF) : Sigma(E)→C, with its original projection
+composition and Hom/arrow views. Object projection orders compute through
+the existing Sigma-map object. Keeping generic whole and capped Hom heads
+stable preserves the default identity/composition cuts; eager expansions
+failed the focused joins and were retired. The base-change projection follows
+the conventional pre/right route and does not identify the retained post leg.
+No caller comparison or operational equality payload is introduced.
+
+The existing ordinary-target premise is carried through total duality by a
+declared discrete-classifier closure and a homwise defined one_cat_total_op.
+This explicit structural boundary is not a derivation of Core-inclusion
+inverse computation. The combined core/projection check passes 268 positive
+and 66 negative assertions at 90s/2GiB/o=20. The combined reviewer/guard check
+passes all original observations plus the nonidentity-reframe rejection.
+Final warning bodies match the prior checkpoint exactly and LHS audits have
+zero unreviewed candidates. Exact input closures and logs are recorded.
+
+The combined reviewer and broader Hom-comparison import use a measured
+90s/4GiB/o=20 profile after 3GiB allocation failures and host-headroom checks;
+the normal 2GiB default, serial/file/no-swap guards are unchanged. The reviewer
+passes in about 42s. The broader import reaches prof_defiso_at_to_path in
+emdash3_2_prof_defiso_evaluation_paths.lp: its Cat_cat tags disagree with the
+actual Cat_cart profunctor coefficient. Next migrate both selected evaluations
+and their inverse laws together, then the external Hom-comparison action's
+admission, preserving its original arbitrary source base and premises.
+The independent presheaf/direct-cover route, remaining library migration,
+strict-wrapper retirement, public promotion and final qualification remain
+required; the goal stays active.
 
 Represented-comma source comparison after `3f26489e`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_comma_source_review.md)

@@ -1,0 +1,36 @@
+// Canonical target projection: total duality of the existing Cartesian
+// Sigma projection, then its ordinary displayed view. The inner base is T(K)
+// and the resulting section base is R(T(K))=O(K).
+protected symbol comma_classification_target_projection [K X Y : Cat]
+  (J : τ (Functor X Y)) (A : τ (Functor K X))
+  : τ (@Functord (TotalOp_cat K)
+      (@represented_comma_family_target K X Y J A)
+      (@Const_catd (TotalOp_cat K) (TotalOp_cat Y)))
+≔ @strict_transfor _ _ _ _
+    (@TotalOp_funcd (Op_cat K)
+      (@comma_graph_target_raw_catd K Y (@comp_cat_fapp0 K X Y J A))
+      (@Const_catd (Op_cat K) Y)
+      (@sigma_proj1_family_funcd (Op_cat K) Y
+        (@comma_graph_rep_cart K Y (@comp_cat_fapp0 K X Y J A))));
+
+// The middle projection retains the Cartesian inner family already used by
+// its Sigma total, rather than the ordinary view used by the Theta input.
+protected symbol comma_classification_middle_projection [K Y : Cat]
+  (F D : τ (Functor K Y))
+  : τ (@Functord (TotalOp_cat K) (@comma_graph_middle_catd K Y F D)
+      (@Const_catd (TotalOp_cat K) (TotalOp_cat K)))
+≔ @strict_transfor _ _ _ _
+    (@TotalOp_funcd (Op_cat K) (@comma_graph_middle_raw_catd K Y F D)
+      (@Const_catd (Op_cat K) K)
+      (@sigma_proj1_family_funcd (Op_cat K) K (@comma_graph_middle_inner_cart K Y F D)));
+
+// The same canonical projection applied to the original identity graph.
+protected symbol comma_classification_identity_section_projected (K : Cat)
+  : τ (Functor (TotalOp_cat K) (TotalOp_cat K))
+≔ @section_postcomp_sec (TotalOp_cat K) (@comma_graph_source_catd K)
+    (@Const_catd (TotalOp_cat K) (TotalOp_cat K))
+    (@strict_transfor _ _ _ _
+      (@TotalOp_funcd (Op_cat K) (@comma_graph_source_raw_catd K)
+        (@Const_catd (Op_cat K) K)
+        (@sigma_proj1_family_funcd (Op_cat K) K (@hom_int K K (@id_func K)))))
+    (@hom_identity_graph_sec K);

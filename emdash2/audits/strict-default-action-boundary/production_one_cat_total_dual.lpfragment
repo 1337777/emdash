@@ -1,0 +1,13 @@
+// Structural admission of total duality to the existing discrete-category
+// classifier. Object truncation and groupoidality are preserved by reversal.
+// This is a declared classifier closure, not a derivation of new inverse data
+// for Core_incl_func from the presently qualified dual-functor beta rules.
+symbol discrete_total_op [C : Cat] (C0 : τ (IsDiscreteCat C))
+  : τ (IsDiscreteCat (TotalOp_cat C));
+
+// Ordinary categories remain ordinary after total duality. Hom reverses its
+// endpoints and is itself totally dualized; its discrete profile is retained.
+symbol one_cat_total_op [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (IsNCat (cat_succ cat_zero) (TotalOp_cat C))
+≔ λ x : τ (Obj C), λ y : τ (Obj C),
+    @discrete_total_op (Hom_cat C y x) (C1 y x);
