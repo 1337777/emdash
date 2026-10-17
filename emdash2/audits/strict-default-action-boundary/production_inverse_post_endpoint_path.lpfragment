@@ -1,0 +1,156 @@
+// Typed observations of the two whole computation readings.
+symbol inverse_tapp1_pre_view
+  [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) (X Y : τ (Obj A))
+  : τ (@= (Functor (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y)))
+    (@tapp1_func A B F G X Y epsilon)
+    (@comp_cat_fapp0 (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y))
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y))
+      (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X)
+        (@fapp0 A B F Y) (@fapp0 A B G Y)
+        (@tapp0_fapp0 A B F G Y epsilon))
+      (@fapp1_func A B F X Y)))
+≔ @eq_refl (Functor (Hom_cat A X Y)
+    (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y)))
+    (@tapp1_func A B F G X Y epsilon);
+
+symbol inverse_hom_image_view
+  [B A : Cat] (F : τ (Functor A B)) (W : τ (Obj B))
+  [Y Z : τ (Obj A)] (g : τ (Hom A Y Z))
+  : τ (@= (Functor (Hom_cat B W (@fapp0 A B F Y))
+      (Hom_cat B W (@fapp0 A B F Z)))
+    (@hom_postcomp_func B A F W Y Z g)
+    (@hom_postcomp_func B B (@id_func B) W (@fapp0 A B F Y)
+      (@fapp0 A B F Z) (@fapp1_fapp0 A B F Y Z g)))
+≔ @eq_refl (Functor (Hom_cat B W (@fapp0 A B F Y))
+    (Hom_cat B W (@fapp0 A B F Z))) (@hom_postcomp_func B A F W Y Z g);
+
+symbol inverse_functor_hom_whisker_path
+  [A B : Cat] (F : τ (Functor A B)) (X : τ (Obj A))
+  [Y Z : τ (Obj A)] (g : τ (Hom A Y Z))
+  : τ (@= (Functor (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z)))
+    (@comp_fapp0 Cat_cat (Hom_cat A X Y) (Hom_cat A X Z)
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z))
+      (@fapp1_func A B F X Z)
+      (@hom_postcomp_func A A (@id_func A) X Y Z g))
+    (@comp_fapp0 Cat_cat (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y))
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z))
+      (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X)
+        (@fapp0 A B F Y) (@fapp0 A B F Z) (@fapp1_fapp0 A B F Y Z g))
+      (@fapp1_func A B F X Y)))
+≔ @eq_ap
+    (Functor (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y))
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z)))
+    (Functor (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z)))
+    (λ H : τ (Functor (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y))
+        (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z))),
+      @comp_fapp0 Cat_cat (Hom_cat A X Y)
+        (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Y))
+        (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z))
+        H (@fapp1_func A B F X Y))
+      (@hom_postcomp_func B A F (@fapp0 A B F X) Y Z g)
+      (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X)
+        (@fapp0 A B F Y) (@fapp0 A B F Z) (@fapp1_fapp0 A B F Y Z g))
+      (@inverse_hom_image_view B A F (@fapp0 A B F X) Y Z g);
+
+// Whole-in-f equation induced by the same inverse-component path.
+// Agreement with the extracted post/left naturality cell is a separate duty.
+symbol strict_inverse_post_endpoint_path
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G
+    (@strict_transfor A B F G eta)))
+  (X : τ (Obj A)) [Y Z : τ (Obj A)] (g : τ (Hom A Y Z))
+  : τ (@= (Functor
+      (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z)))
+    (@strict_transfor_naturality_lhs_func A B G F
+      (@strict_transf_pointwise_left_inverse A B F G
+        (@strict_transfor A B F G eta) u) X Y Z g)
+    (@strict_transfor_naturality_rhs_func A B G F
+      (@strict_transf_pointwise_left_inverse A B F G
+        (@strict_transfor A B F G eta) u) X Y Z g))
+≔ begin
+  assume A B F G eta u X Y Z g;
+  change τ (@= (Functor (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z)))
+    (@comp_fapp0 Cat_cat (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Y))
+      (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z))
+      (@hom_postcomp_func B A F (@fapp0 A B G X) Y Z g)
+      (@tapp1_func A B G F X Y
+        (@strict_transf_pointwise_left_inverse A B F G
+          (@strict_transfor A B F G eta) u)))
+    (@comp_fapp0 Cat_cat (Hom_cat A X Y) (Hom_cat A X Z)
+      (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z))
+      (@tapp1_func A B G F X Z
+        (@strict_transf_pointwise_left_inverse A B F G
+          (@strict_transfor A B F G eta) u))
+      (@hom_postcomp_func A A (@id_func A) X Y Z g)));
+  rewrite @inverse_tapp1_pre_view A B G F
+    (@strict_transf_pointwise_left_inverse A B F G
+      (@strict_transfor A B F G eta) u) X Y;
+  rewrite @inverse_tapp1_pre_view A B G F
+    (@strict_transf_pointwise_left_inverse A B F G
+      (@strict_transfor A B F G eta) u) X Z;
+  rewrite @inverse_hom_image_view B A F (@fapp0 A B G X) Y Z g;
+  simplify comp_cat_fapp0;
+  simplify rule off;
+  simplify tapp0_fapp0;
+  rewrite @comp_assoc Cat_cat (Hom_cat A X Y)
+    (Hom_cat B (@fapp0 A B G X) (@fapp0 A B G Y))
+    (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Y))
+    (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z))
+    (@hom_postcomp_func B B (@id_func B) (@fapp0 A B G X)
+      (@fapp0 A B F Y) (@fapp0 A B F Z) (@fapp1_fapp0 A B F Y Z g))
+    (@hom_postcomp_func B B (@id_func B) (@fapp0 A B G X)
+      (@fapp0 A B G Y) (@fapp0 A B F Y)
+      (@omega_equiv_along_left_inv B _ _
+        (@tapp0_fapp0 A B F G Y (@strict_transfor A B F G eta)) (u Y)))
+    (@fapp1_func A B G X Y);
+  rewrite left @comp_assoc Cat_cat (Hom_cat A X Y) (Hom_cat A X Z)
+    (Hom_cat B (@fapp0 A B G X) (@fapp0 A B G Z))
+    (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z))
+    (@hom_postcomp_func B B (@id_func B) (@fapp0 A B G X)
+      (@fapp0 A B G Z) (@fapp0 A B F Z)
+      (@omega_equiv_along_left_inv B _ _
+        (@tapp0_fapp0 A B F G Z (@strict_transfor A B F G eta)) (u Z)))
+    (@fapp1_func A B G X Z)
+    (@hom_postcomp_func A A (@id_func A) X Y Z g);
+  rewrite @inverse_functor_hom_whisker_path A B G X Y Z g;
+  rewrite @comp_assoc Cat_cat (Hom_cat A X Y)
+    (Hom_cat B (@fapp0 A B G X) (@fapp0 A B G Y))
+    (Hom_cat B (@fapp0 A B G X) (@fapp0 A B G Z))
+    (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z))
+    (@hom_postcomp_func B B (@id_func B) (@fapp0 A B G X)
+      (@fapp0 A B G Z) (@fapp0 A B F Z)
+      (@omega_equiv_along_left_inv B _ _
+        (@tapp0_fapp0 A B F G Z (@strict_transfor A B F G eta)) (u Z)))
+    (@hom_postcomp_func B B (@id_func B) (@fapp0 A B G X)
+      (@fapp0 A B G Y) (@fapp0 A B G Z) (@fapp1_fapp0 A B G Y Z g))
+    (@fapp1_func A B G X Y);
+  refine @eq_ap
+    (Hom B (@fapp0 A B G Y) (@fapp0 A B F Z))
+    (Functor (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z)))
+    (λ h : τ (Hom B (@fapp0 A B G Y) (@fapp0 A B F Z)),
+      @comp_cat_fapp0 (Hom_cat A X Y)
+        (Hom_cat B (@fapp0 A B G X) (@fapp0 A B G Y))
+        (Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z))
+        (@hom_postcomp_func B B (@id_func B) (@fapp0 A B G X)
+          (@fapp0 A B G Y) (@fapp0 A B F Z) h)
+        (@fapp1_func A B G X Y))
+    (@comp_fapp0 B _ _ _ (@fapp1_fapp0 A B F Y Z g)
+      (@omega_equiv_along_left_inv B _ _
+        (@tapp0_fapp0 A B F G Y (@strict_transfor A B F G eta)) (u Y)))
+    (@comp_fapp0 B _ _ _
+      (@omega_equiv_along_left_inv B _ _
+        (@tapp0_fapp0 A B F G Z (@strict_transfor A B F G eta)) (u Z))
+      (@fapp1_fapp0 A B G Y Z g))
+    (@strict_inverse_component_endpoint_path A B F G eta u Y Z g);
+end;

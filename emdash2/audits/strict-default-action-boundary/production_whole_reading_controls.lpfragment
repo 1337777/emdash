@@ -1,0 +1,61 @@
+// Whole pre/right reading for a genuinely ambient transformation.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) (X Y : τ (Obj A)) ⊢
+  @eq_refl (Functor (Hom_cat A X Y)
+    (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y)))
+    (@tapp1_func A B F G X Y epsilon)
+  : τ (@= (Functor (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y)))
+    (@tapp1_func A B F G X Y epsilon)
+    (@comp_cat_fapp0 _ _ _
+      (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X)
+        (@fapp0 A B F Y) (@fapp0 A B G Y)
+        (@tapp0_fapp0 A B F G Y epsilon))
+      (@fapp1_func A B F X Y)));
+
+// The same mathematical postcomposition, through its actual mapped arrow.
+assert [A B : Cat] (F : τ (Functor A B)) (W : τ (Obj B))
+  [Y Z : τ (Obj A)] (g : τ (Hom A Y Z)) ⊢
+  @eq_refl (Functor (Hom_cat B W (@fapp0 A B F Y))
+    (Hom_cat B W (@fapp0 A B F Z))) (@hom_postcomp_func B A F W Y Z g)
+  : τ (@= (Functor (Hom_cat B W (@fapp0 A B F Y))
+      (Hom_cat B W (@fapp0 A B F Z)))
+    (@hom_postcomp_func B A F W Y Z g)
+    (@hom_postcomp_func B B (@id_func B) W (@fapp0 A B F Y)
+      (@fapp0 A B F Z) (@fapp1_fapp0 A B F Y Z g)));
+
+// The retained post/left leg does not acquire a whole strict reading.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) (X Y : τ (Obj A)) ⊢
+  @eq_refl (Functor (Hom_cat A X Y)
+    (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y)))
+    (@tapp1_func A B F G X Y epsilon)
+  : τ (@= (Functor (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y)))
+    (@tapp1_func A B F G X Y epsilon)
+    (@comp_cat_fapp0 _ _ _
+      (@hom_precomp_along_func B B (@id_func B) (@fapp0 A B G Y)
+        (@fapp0 A B F X) (@fapp0 A B G X)
+        (@tapp0_fapp0 A B F G X epsilon))
+      (@fapp1_func A B G X Y)));
+
+// The image comparison retains the chosen base arrow.
+assertnot [A B : Cat] (F : τ (Functor A B)) (W : τ (Obj B))
+  [Y Z : τ (Obj A)] (g h : τ (Hom A Y Z)) ⊢
+  @eq_refl (Functor (Hom_cat B W (@fapp0 A B F Y))
+    (Hom_cat B W (@fapp0 A B F Z))) (@hom_postcomp_func B A F W Y Z g)
+  : τ (@= (Functor (Hom_cat B W (@fapp0 A B F Y))
+      (Hom_cat B W (@fapp0 A B F Z)))
+    (@hom_postcomp_func B A F W Y Z g)
+    (@hom_postcomp_func B B (@id_func B) W (@fapp0 A B F Y)
+      (@fapp0 A B F Z) (@fapp1_fapp0 A B F Y Z h)));
+
+// This remains a proof-time view; the whole runtime head is retained.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (@Transf A B F G)) (X Y : τ (Obj A)) ⊢
+  @tapp1_func A B F G X Y epsilon
+  ≡ @comp_cat_fapp0 _ _ _
+      (@hom_postcomp_func B B (@id_func B) (@fapp0 A B F X)
+        (@fapp0 A B F Y) (@fapp0 A B G Y)
+        (@tapp0_fapp0 A B F G Y epsilon))
+      (@fapp1_func A B F X Y);

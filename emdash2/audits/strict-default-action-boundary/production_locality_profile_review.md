@@ -49,6 +49,13 @@ inverse component beta rules. The finite
 [calculation](cartesian_pointwise_choice_counterexample.py) checks this
 example; it is not an interpretation of all native object-path cast rules.
 
+The subsequent [native inverse-path review](production_inverse_naturality_review.md)
+derives endpoint-square paths from the native equality-valued inverse laws.
+Consequently the finite example must not be presented as a refutation of
+native IsStrictCell admission. The extracted-cell agreement and whole inverse
+admission still need justification; endpoint equality alone does not supply
+them. The generic Cartesian closure remains unselected.
+
 This does not refute a coherent whole inverse for the particular locality
 comparison. The next task is to construct or justify that actual inverse,
 with its chosen components, before feeding the Cartesian displayed assembly.

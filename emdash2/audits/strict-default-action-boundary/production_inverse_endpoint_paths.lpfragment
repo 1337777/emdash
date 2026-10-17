@@ -1,0 +1,123 @@
+// Proof-only observations of the native equality-valued inverse contract.
+// These add no inverse constructor, strictness admission, or runtime rule.
+symbol inverse_left_right_law
+  [C : Cat] [x y : τ (Obj C)] [f : τ (Hom C x y)]
+  (u : τ (@OmegaEquivAlong C x y f))
+  : τ (@= (Hom C y y)
+      (@comp_fapp0 C y x y f (@omega_equiv_along_left_inv C x y f u))
+      (@id C y))
+≔ @eq_trans (Hom C y y)
+    (@comp_fapp0 C y x y f (@omega_equiv_along_left_inv C x y f u))
+    (@comp_fapp0 C y x y f (@omega_equiv_along_right_inv C x y f u))
+    (@id C y)
+    (@eq_ap (Hom C y x) (Hom C y y)
+      (λ h : τ (Hom C y x), @comp_fapp0 C y x y f h)
+      (@omega_equiv_along_left_inv C x y f u)
+      (@omega_equiv_along_right_inv C x y f u)
+      (@omega_equiv_candidate_left_to_right C x y f
+        (@omega_equiv_along_left_inv C x y f u)
+        (@omega_equiv_along_right_inv C x y f u)
+        (@omega_equiv_along_left_law C x y f u)
+        (@omega_equiv_along_right_law C x y f u)))
+    (@omega_equiv_along_right_law C x y f u);
+
+// A commuting square induces an equality-valued inverse square for the
+// same selected left inverses. This is not strictification of a lax cell.
+symbol inverse_square_endpoint_path
+  [C : Cat] [x0 x1 y0 y1 : τ (Obj C)]
+  (f0 : τ (Hom C x0 y0)) (f1 : τ (Hom C x1 y1))
+  (a : τ (Hom C x0 x1)) (b : τ (Hom C y0 y1))
+  (u0 : τ (@OmegaEquivAlong C x0 y0 f0))
+  (u1 : τ (@OmegaEquivAlong C x1 y1 f1))
+  (square : τ (@= (Hom C x0 y1)
+      (@comp_fapp0 C x0 x1 y1 f1 a)
+      (@comp_fapp0 C x0 y0 y1 b f0)))
+  : τ (@= (Hom C y0 x1)
+      (@comp_fapp0 C y0 x0 x1 a (@omega_equiv_along_left_inv C x0 y0 f0 u0))
+      (@comp_fapp0 C y0 y1 x1 (@omega_equiv_along_left_inv C x1 y1 f1 u1) b))
+≔ let l0 : τ (Hom C y0 x0) ≔ @omega_equiv_along_left_inv C x0 y0 f0 u0 in
+  let l1 : τ (Hom C y1 x1) ≔ @omega_equiv_along_left_inv C x1 y1 f1 u1 in
+  let lhs : τ (Hom C y0 x1) ≔ @comp_fapp0 C y0 x0 x1 a l0 in
+  @eq_trans (Hom C y0 x1) lhs
+    (@comp_fapp0 C y0 x1 x1 (@comp_fapp0 C x1 y1 x1 l1 f1) lhs)
+    (@comp_fapp0 C y0 y1 x1 l1 b)
+    (@eq_ap (Hom C x1 x1) (Hom C y0 x1)
+      (λ h : τ (Hom C x1 x1), @comp_fapp0 C y0 x1 x1 h lhs)
+      (@id C x1) (@comp_fapp0 C x1 y1 x1 l1 f1)
+      (@eq_sym (Hom C x1 x1) (@comp_fapp0 C x1 y1 x1 l1 f1) (@id C x1)
+        (@omega_equiv_along_left_law C x1 y1 f1 u1)))
+    (@eq_trans (Hom C y0 x1)
+      (@comp_fapp0 C y0 x1 x1 (@comp_fapp0 C x1 y1 x1 l1 f1) lhs)
+      (@comp_fapp0 C y0 y1 x1 l1
+        (@comp_fapp0 C y0 x0 y1 (@comp_fapp0 C x0 x1 y1 f1 a) l0))
+      (@comp_fapp0 C y0 y1 x1 l1 b)
+      (@eq_trans (Hom C y0 x1)
+        (@comp_fapp0 C y0 x1 x1 (@comp_fapp0 C x1 y1 x1 l1 f1) lhs)
+        (@comp_fapp0 C y0 y1 x1 l1 (@comp_fapp0 C y0 x1 y1 f1 lhs))
+        (@comp_fapp0 C y0 y1 x1 l1
+          (@comp_fapp0 C y0 x0 y1 (@comp_fapp0 C x0 x1 y1 f1 a) l0))
+        (@eq_sym (Hom C y0 x1)
+          (@comp_fapp0 C y0 y1 x1 l1 (@comp_fapp0 C y0 x1 y1 f1 lhs))
+          (@comp_fapp0 C y0 x1 x1 (@comp_fapp0 C x1 y1 x1 l1 f1) lhs)
+          (@comp_assoc C y0 x1 y1 x1 l1 f1 lhs))
+        (@eq_ap (Hom C y0 y1) (Hom C y0 x1)
+          (λ h : τ (Hom C y0 y1), @comp_fapp0 C y0 y1 x1 l1 h)
+          (@comp_fapp0 C y0 x1 y1 f1 lhs)
+          (@comp_fapp0 C y0 x0 y1 (@comp_fapp0 C x0 x1 y1 f1 a) l0)
+          (@comp_assoc C y0 x0 x1 y1 f1 a l0)))
+      (@eq_trans (Hom C y0 x1)
+        (@comp_fapp0 C y0 y1 x1 l1
+          (@comp_fapp0 C y0 x0 y1 (@comp_fapp0 C x0 x1 y1 f1 a) l0))
+        (@comp_fapp0 C y0 y1 x1 l1
+          (@comp_fapp0 C y0 x0 y1 (@comp_fapp0 C x0 y0 y1 b f0) l0))
+        (@comp_fapp0 C y0 y1 x1 l1 b)
+        (@eq_ap (Hom C x0 y1) (Hom C y0 x1)
+          (λ h : τ (Hom C x0 y1),
+            @comp_fapp0 C y0 y1 x1 l1 (@comp_fapp0 C y0 x0 y1 h l0))
+          (@comp_fapp0 C x0 x1 y1 f1 a) (@comp_fapp0 C x0 y0 y1 b f0)
+          square)
+        (@eq_trans (Hom C y0 x1)
+          (@comp_fapp0 C y0 y1 x1 l1
+            (@comp_fapp0 C y0 x0 y1 (@comp_fapp0 C x0 y0 y1 b f0) l0))
+          (@comp_fapp0 C y0 y1 x1 l1
+            (@comp_fapp0 C y0 y0 y1 b (@comp_fapp0 C y0 x0 y0 f0 l0)))
+          (@comp_fapp0 C y0 y1 x1 l1 b)
+          (@eq_ap (Hom C y0 y1) (Hom C y0 x1)
+            (λ h : τ (Hom C y0 y1), @comp_fapp0 C y0 y1 x1 l1 h)
+            (@comp_fapp0 C y0 x0 y1 (@comp_fapp0 C x0 y0 y1 b f0) l0)
+            (@comp_fapp0 C y0 y0 y1 b (@comp_fapp0 C y0 x0 y0 f0 l0))
+            (@eq_sym (Hom C y0 y1)
+              (@comp_fapp0 C y0 y0 y1 b (@comp_fapp0 C y0 x0 y0 f0 l0))
+              (@comp_fapp0 C y0 x0 y1 (@comp_fapp0 C x0 y0 y1 b f0) l0)
+              (@comp_assoc C y0 x0 y0 y1 b f0 l0)))
+          (@eq_ap (Hom C y0 y0) (Hom C y0 x1)
+            (λ h : τ (Hom C y0 y0),
+              @comp_fapp0 C y0 y1 x1 l1 (@comp_fapp0 C y0 y0 y1 b h))
+            (@comp_fapp0 C y0 x0 y0 f0 l0) (@id C y0)
+            (@inverse_left_right_law C x0 y0 f0 u0)))));
+
+// The actual classified forward transfor supplies the square internally.
+symbol strict_inverse_component_endpoint_path
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G
+    (@strict_transfor A B F G eta)))
+  [x y : τ (Obj A)] (p : τ (Hom A x y))
+  : τ (@= (Hom B (@fapp0 A B G x) (@fapp0 A B F y))
+      (@comp_fapp0 B _ _ _ (@fapp1_fapp0 A B F x y p)
+        (@omega_equiv_along_left_inv B _ _
+          (@tapp0_fapp0 A B F G x (@strict_transfor A B F G eta)) (u x)))
+      (@comp_fapp0 B _ _ _
+        (@omega_equiv_along_left_inv B _ _
+          (@tapp0_fapp0 A B F G y (@strict_transfor A B F G eta)) (u y))
+        (@fapp1_fapp0 A B G x y p)))
+≔ @inverse_square_endpoint_path B
+    (@fapp0 A B F x) (@fapp0 A B F y) (@fapp0 A B G x) (@fapp0 A B G y)
+    (@tapp0_fapp0 A B F G x (@strict_transfor A B F G eta))
+    (@tapp0_fapp0 A B F G y (@strict_transfor A B F G eta))
+    (@fapp1_fapp0 A B F x y p) (@fapp1_fapp0 A B G x y p)
+    (u x) (u y)
+    (@eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@comp_fapp0 B _ _ _
+        (@tapp0_fapp0 A B F G y (@strict_transfor A B F G eta))
+        (@fapp1_fapp0 A B F x y p)));

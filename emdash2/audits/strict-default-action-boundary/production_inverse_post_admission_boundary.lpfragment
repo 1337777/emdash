@@ -1,0 +1,27 @@
+// Positive obligation, not an admitted theorem or an installed computation.
+// The endpoint path is derived. Reflexivity must still justify agreement
+// with the original inverse's extracted post/left cell; if it does not, that
+// agreement needs a real derivation before this could establish admission.
+symbol inverse_post_strict_boundary
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G
+    (@strict_transfor A B F G eta)))
+  : τ (@IsPostStrictTransfor A B G F
+      (@strict_transf_pointwise_left_inverse A B F G
+        (@strict_transfor A B F G eta) u))
+≔ λ X : τ (Obj A), λ Y : τ (Obj A), λ Z : τ (Obj A),
+  λ g : τ (Hom A Y Z),
+  let xi : τ (@Transf A B G F) ≔ @strict_transf_pointwise_left_inverse A B F G
+      (@strict_transfor A B F G eta) u in
+  let S : Cat ≔ Hom_cat A X Y in
+  let C : Cat ≔ Hom_cat B (@fapp0 A B G X) (@fapp0 A B F Z) in
+  let L : τ (Functor S C) ≔ @strict_transfor_naturality_lhs_func A B G F xi X Y Z g in
+  let R : τ (Functor S C) ≔ @strict_transfor_naturality_rhs_func A B G F xi X Y Z g in
+  let cell : τ (@Transf S C L R) ≔ @strict_transfor_naturality_transf A B G F xi X Y Z g in
+  @Struct_sigma
+    (@= (Functor S C) L R)
+    (λ p : τ (@= (Functor S C) L R),
+      @= (@Transf S C L R) cell (@path_to_hom (Functor_cat S C) L R p))
+    (@strict_inverse_post_endpoint_path A B F G eta u X Y Z g)
+    (@eq_refl (@Transf S C L R) cell);

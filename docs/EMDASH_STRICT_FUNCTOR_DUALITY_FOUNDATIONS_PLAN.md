@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; staged core and retained-section/eliminator consumers checked; locality needs a justified whole Cartesian inverse; broader migration/promotion open
+Status: active implementation; native inverse whole endpoint paths checked; locality extracted-cell agreement/Cartesian admission and broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,40 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Native inverse-path continuation after `f2e56729`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_inverse_naturality_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_inverse_naturality_verification.json)
+separates literal strict-2-category naturality from the native IsStrictCell
+contract: an endpoint path plus agreement with the existing extracted cell.
+Three proof-only native inverse observations check using the existing inverse
+laws, inverse uniqueness and explicit associativity. They retain the selected
+left inverse and require no new cancellation axiom or operational proof input.
+
+Two original-owner whole proof-time readings now cover conventional pre/right
+tapp1 action and Hom postcomposition through F[g]. The core/curry regression
+passes 276 positive/73 negative assertions, including retained post/left
+laxness, actual-image retention and stable runtime heads. Warning bodies are
+unchanged (1995). The whole inverse-endpoint path now checks using explicit
+whole-view congruences and associativity; its endpoints are the original
+whole naturality functors of the inherited inverse. The admission probe
+fails specifically at agreement between the derived path's Core-inclusion
+image and the existing extracted comparison. This is not an impossibility
+result: that agreement needs a genuine proof, possibly with another endpoint
+path, before Cartesian admission and whole inverse laws can be concluded.
+
+The original locality lower prefix passes three positives and its coefficient
+noncoercion control under the new core, with unchanged warning bodies (2397).
+The whole endpoint/probe checks took about 25s and the locality prefix about
+30s at 300s/4GiB/o=20; the core regression took about 18s at 240s/2GiB/o=20.
+Next inspect whole inverse cancellation and intrinsic composition action for
+the missing cell agreement. The original whole cancellation paths have no
+component beta to the individual laws in u[x]; do not silently identify those
+proof choices or insist on the specific endpoint path derived here. No new inverse-assembly assumption or supplied
+comparison is selected. The optional assumption-route preference is pending;
+continue derived admission without depending on an answer. Other changed-core
+library closures still need their appropriate integration gates before final
+qualification; wrapper retirement and production promotion remain required.
 
 Locality profile review after `84abd6eb`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_locality_profile_review.md)

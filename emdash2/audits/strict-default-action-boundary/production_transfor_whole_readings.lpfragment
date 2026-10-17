@@ -1,0 +1,12 @@
+// Whole pre/right reading of the selected conventional-lax action.
+// The component may already have projected; compare it as a side condition.
+// This is proof-time agreement, not a runtime expansion of tapp1_func.
+unif_rule @tapp1_func $A $B $F $G $X $Y $epsilon
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func $B $B $IdB $FX $FY $GY $component)
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ [ $IdB ≡ @id Cat_cat $B;
+      $FX ≡ @fapp0 $A $B $F $X;
+      $FY ≡ @fapp0 $A $B $F $Y;
+      $GY ≡ @fapp0 $A $B $G $Y;
+      $component ≡ @tapp0_fapp0 $A $B $F $G $Y $epsilon ];

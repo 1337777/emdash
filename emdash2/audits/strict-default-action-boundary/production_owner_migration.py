@@ -1435,6 +1435,12 @@ unif_rule @sigma_map_func $K _ _
     replace_once(body[a:b], fragment('production_pathout.lpfragment') + '\n',
                  'Original moving PathOut, path-induction and nested telescope interfaces',
                  'Use Cartesian PathOut formation, the actual motive pullback, restricted moving components of the retained lax fixed-source theorem, and total-dual negative sections')
+    insert('// Generic object projection for Cat-valued postcomposition:',
+           fragment('production_hom_image_reading.lpfragment'),
+           'Proof-time whole reading of postcomposition through its actual mapped arrow, required by the inverse whole-endpoint proof')
+    insert('// Whole post/left strict naturality guarded by the evidence-bearing view.',
+           fragment('production_transfor_whole_readings.lpfragment'),
+           'Whole pre/right presentation of the selected conventional action; compare already-projected components without changing the retained post/left cell')
     # Preserve the complete original tail. A separately emitted prefix
     # qualifies only its preceding source; full-core qualification requires
     # the complete target and its actual consumers.
@@ -2802,6 +2808,18 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         locality_source[:locality_source.index(locality_boundary)] + '\n'
         + locality_controls[:locality_controls.index(controls_boundary)] + '\n'
         + fragment('production_pointwise_coefficient_control.lpfragment'))
+    (package / 'inverse_endpoint_paths.lp').write_text(
+        'require open emdash.emdash3_2_strict_pointwise_equivalences;\n'
+        'require open emdash.emdash3_2_eq1_evidence_property;\n'
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + fragment('production_inverse_endpoint_paths.lpfragment'))
+    (package / 'inverse_post_endpoint_paths.lp').write_text(
+        (package / 'inverse_endpoint_paths.lp').read_text() + '\n'
+        + fragment('production_inverse_post_endpoint_path.lpfragment'))
+    (package / 'inverse_post_admission_boundary.lp').write_text(
+        'require open emdash.inverse_post_endpoint_paths;\n'
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + fragment('production_inverse_post_admission_boundary.lpfragment'))
     psss_start = '// catalog-area: Cat-valued presheaf facade and restriction'
     psss_end = '/* End of the PSSS-02 higher-sieve diagnostics. */'
     assert original_checks.count(psss_start) == original_checks.count(psss_end) == 1
@@ -2948,6 +2966,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         (package / 'sigma_projection_regression_controls.lp').read_text() + '\n'
         + fragment('production_lax_curry_hom_views.lpfragment') + '\n'
         + fragment('production_lax_curry_controls.lpfragment'))
+    (package / 'whole_reading_regression_controls.lp').write_text(
+        (package / 'lax_curry_regression_controls.lp').read_text() + '\n'
+        + fragment('production_whole_reading_controls.lpfragment'))
     (package / 'comma_target_guard_controls.lp').write_text(
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
@@ -3087,6 +3108,10 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'direct_cover_question_regression.lp',
                               package / 'locality_profile_controls.lp',
                               package / 'locality_fibre_prefix.lp',
+                              package / 'inverse_endpoint_paths.lp',
+                              package / 'inverse_post_endpoint_paths.lp',
+                              package / 'inverse_post_admission_boundary.lp',
+                              package / 'whole_reading_regression_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

@@ -7,6 +7,14 @@ core and profile source hashes and inserts at unique original owner anchors.
 
 ## Current continuation, 2026-10-17
 
+The [native inverse-path review](production_inverse_naturality_review.md) and
+[verification](production_inverse_naturality_verification.json) record derived
+component and whole inverse-endpoint paths. Two missing whole action readings
+pass the core regression while retaining the post/left lax leg. The separate
+admission probe still needs agreement with the existing extracted cell;
+endpoint equality is not labelled as Cartesian admission. The locality lower
+prefix and its coefficient noncoercion control pass under the changed core.
+
 The [locality profile review](production_locality_profile_review.md) and
 [verification](production_locality_profile_verification.json) distinguish the
 checked lower tower from the unresolved whole Cartesian inverse admission.
