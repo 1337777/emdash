@@ -1,0 +1,35 @@
+// Admitted internal actions are strict in x, with the original generally
+// lax displayed y-components. Arbitrary two-direction lax Theta is excluded.
+protected symbol comma_graph_sigma_parameter_funcd [B C : Cat]
+  [F G : τ (Functor B C)]
+  (theta : τ (Hom (Functor_cart_cat (Op_cat B) (Catd_cat B))
+    (@hom_int_view B B (@id_func B)) (@comma_graph_middle_inner_catd B C F G)))
+  : τ (Hom (Functor_cart_cat (Op_cat B) Cat_cart)
+      (@comma_graph_source_raw_catd B) (@comma_graph_middle_raw_catd B C F G))
+≔ @Sigma_parameter_funcd (Op_cat B) B (@hom_int B B (@id_func B))
+    (@comma_graph_middle_inner_cart B C F G) theta;
+
+// Total fibre duality now consumes the actual admitted whole map.
+protected symbol comma_graph_sigma_op_funcd [B C : Cat]
+  [F G : τ (Functor B C)]
+  (theta : τ (Hom (Functor_cart_cat (Op_cat B) (Catd_cat B))
+    (@hom_int_view B B (@id_func B)) (@comma_graph_middle_inner_catd B C F G)))
+  : τ (@Functord (TotalOp_cat B)
+      (@comma_graph_source_catd B) (@comma_graph_middle_catd B C F G))
+≔ @strict_transfor _ _ _ _
+    (@TotalOp_funcd (Op_cat B)
+      (@comma_graph_source_raw_catd B) (@comma_graph_middle_raw_catd B C F G)
+      (@comma_graph_sigma_parameter_funcd B C F G theta));
+
+protected symbol comma_graph_identity_sec [B : Cat]
+  : τ (Obj (@Pi_cat (TotalOp_cat B) (@comma_graph_source_catd B)))
+≔ @hom_identity_graph_sec B;
+
+protected symbol comma_graph_middle_sec [B C : Cat]
+  [F G : τ (Functor B C)]
+  (theta : τ (Hom (Functor_cart_cat (Op_cat B) (Catd_cat B))
+    (@hom_int_view B B (@id_func B)) (@comma_graph_middle_inner_catd B C F G)))
+  : τ (Obj (@Pi_cat (TotalOp_cat B) (@comma_graph_middle_catd B C F G)))
+≔ @section_postcomp_sec (TotalOp_cat B)
+    (@comma_graph_source_catd B) (@comma_graph_middle_catd B C F G)
+    (@comma_graph_sigma_op_funcd B C F G theta) (@comma_graph_identity_sec B);

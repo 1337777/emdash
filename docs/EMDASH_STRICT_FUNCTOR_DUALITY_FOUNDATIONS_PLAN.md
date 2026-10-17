@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; corrected represented-comma family and ordinary Sigma-image prefix qualified; canonical graph-action admission, full graph, direct-cover producer and remaining promotion/migration open
+Status: active implementation; canonical action admission and comma middle-section directed action qualified; base-change step, full graph and remaining migration/promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,39 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Canonical graph-action admission after `a4b774e4`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_comma_admission_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_comma_admission_verification.json)
+record the declared canonical strict-x view of the existing internal action.
+Its whole ordinary inclusion, next Hom, point/component and identity views
+are qualified while the original eta remains ordinary lax. Sigma of a
+strict outer-parameter map is admitted through Sigma_parameter_funcd; its
+inner displayed components stay lax and its ordinary image is the original
+Sigma action. No caller proof or comparison cell is introduced. These are
+canonical profile refinements with checked views, not strictification of
+arbitrary raw Theta or a new Cartesian Sigma functor on all Catd.
+
+The original total-dual map and identity-section composition now form the
+whole middle section over O(B). Its object is (x,eta[x]); its nonidentity
+action retains p together with the original extracted post/left cell
+G[p]∘eta[x]→eta[y]∘F[p]. This arrow conversion and a typed carrier comparison
+pass, beyond the earlier object-only observation. A direct mapped-precomposition
+view and sufficient Obj(Sigma) congruence resolve the measured endpoint
+comparison; Obj is not made injective. All negative controls and the affected
+core pass. Identity-tag overlap reports at the explicit forgetting projection
+are classified; the reviewed resource limits are unchanged.
+
+The full source now fails at comma_graph_basechange_source_catd: its old
+ordinary Cat_cat image is used where an admitted Cat_cart family is needed.
+Review Cartesian represented-family reindexing, total formation and the
+whole base-change map together, retaining G and its existing total maps.
+Then complete the target section, totalization and original inverse data.
+The remaining general-Theta interfaces must state a valid x-profile, while
+ordinary eta wrappers use the canonical admission with no extra premise.
+Preserve the ordinary-target admission of the external Hom-comparison caller.
+The full graph, direct-cover route, other library migration, wrapper retirement,
+public promotion and final qualification gates remain required.
 
 Represented-comma graph continuation after `88fde500`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_comma_graph_review.md)

@@ -1,0 +1,69 @@
+// Test-only spellings for the existing included and totalized families.
+symbol param_in [L K : Cat] (E : τ (Functor L (Functor_cart_cat K Cat_cart)))
+  : τ (Functor L (Catd_cat K))
+≔ @comp_cat_fapp0 _ _ _ (Functor_cart_include K Cat_cart) E;
+symbol param_out [L K : Cat] (E : τ (Functor L (Functor_cart_cat K Cat_cart)))
+  : τ (Catd L)
+≔ @comp_cat_fapp0 _ _ _ (@Sigma_coeff_func K) E;
+
+assert [L K : Cat] [E D : τ (Functor L (Functor_cart_cat K Cat_cart))]
+  (U : τ (Hom (Functor_cart_cat L (Catd_cat K)) (@param_in L K E) (@param_in L K D)))
+  ⊢ eq_refl (@fapp0 _ _
+      (@comp_cat_cov_fapp1_func L Cat_cart Cat_cat Cat_cart_include (@param_out L K E) (@param_out L K D))
+      (@strict_transfor _ _ _ _ (@Sigma_parameter_funcd L K E D U)))
+    : τ (@= (@Transf L Cat_cat _ _)
+      (@fapp0 _ _
+        (@comp_cat_cov_fapp1_func L Cat_cart Cat_cat Cat_cart_include (@param_out L K E) (@param_out L K D))
+        (@strict_transfor _ _ _ _ (@Sigma_parameter_funcd L K E D U)))
+      (@fapp0 _ _
+        (@comp_cat_cov_fapp1_func L (Catd_cat K) Cat_cat (@Sigma_func K) (@param_in L K E) (@param_in L K D))
+        (@strict_transfor _ _ _ _ U)));
+
+assert [L K : Cat] [E D : τ (Functor L (Functor_cart_cat K Cat_cart))]
+  (U : τ (Hom (Functor_cart_cat L (Catd_cat K)) (@param_in L K E) (@param_in L K D))) (x : τ (Obj L))
+  ⊢ @tapp0_fapp0 _ _ _ _ x (@strict_transfor _ _ _ _ (@Sigma_parameter_funcd L K E D U))
+    ≡ @sigma_map_func K (fapp0 E x) (fapp0 D x)
+      (@tapp0_fapp0 L (Catd_cat K) (@param_in L K E) (@param_in L K D) x (@strict_transfor _ _ _ _ U));
+
+// Actual graph consumer: arbitrary lax eta supplies the canonical strict-x
+// action, whose Sigma image is admitted to whole total fibre duality.
+symbol canonical_graph_sigma [A B : Cat] [F G : τ (Functor A B)] (eta : τ (@Transf A B F G))
+  : τ (Hom (Functor_cart_cat (Op_cat A) Cat_cart)
+      (@param_out (Op_cat A) A (@hom_int A A (@id_func A)))
+      (@param_out (Op_cat A) A
+        (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Functor_cart_cat A Cat_cart)
+          (@hom_int B A G) (@Op_func A B F))))
+≔ @Sigma_parameter_funcd (Op_cat A) A (@hom_int A A (@id_func A))
+    (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Functor_cart_cat A Cat_cart)
+      (@hom_int B A G) (@Op_func A B F)) (@tapp1_int_cart A B F G eta);
+
+assert [A B : Cat] [F G : τ (Functor A B)] (eta : τ (@Transf A B F G))
+  ⊢ @TotalOp_funcd (Op_cat A) _ _ (@canonical_graph_sigma A B F G eta)
+    : τ (Hom (Functor_cart_cat (TotalOp_cat A) Cat_cart)
+      (@hom_identity_graph_catd A)
+      (@TotalOp_catd (Op_cat A)
+        (@param_out (Op_cat A) A
+          (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Functor_cart_cat A Cat_cart)
+            (@hom_int B A G) (@Op_func A B F)))));
+
+assertnot [L K : Cat] [E D : τ (Functor L (Functor_cart_cat K Cat_cart))]
+  (U : τ (@Transf L (Catd_cat K) (@param_in L K E) (@param_in L K D)))
+  ⊢ @Sigma_parameter_funcd L K E D U : τ (Hom (Functor_cart_cat L Cat_cart) _ _);
+
+// The other horizontal leg must remain the actual identity of inclusion.
+assertnot [L K : Cat] [E D : τ (Functor L (Functor_cart_cat K Cat_cart))]
+  (U : τ (Hom (Functor_cart_cat L (Catd_cat K)) (@param_in L K E) (@param_in L K D)))
+  (omega : τ (@Transf Cat_cart Cat_cat Cat_cart_include Cat_cart_include))
+  ⊢ @comp_prod_fapp1_fapp0 Cat_cat L Cat_cart Cat_cat
+      (Struct_sigma (@param_out L K E) Cat_cart_include)
+      (Struct_sigma (@param_out L K D) Cat_cart_include)
+      (Struct_sigma (@strict_transfor _ _ _ _ (@Sigma_parameter_funcd L K E D U)) omega)
+    ≡ @comp_prod_fapp1_fapp0 Cat_cat L Cat_cart Cat_cat
+      (Struct_sigma (@param_out L K E) Cat_cart_include)
+      (Struct_sigma (@param_out L K D) Cat_cart_include)
+      (Struct_sigma (@strict_transfor _ _ _ _ (@Sigma_parameter_funcd L K E D U))
+        (@id (Functor_cat Cat_cart Cat_cat) Cat_cart_include));
+
+// Sigma-carrier congruence retains the whole family.
+assertnot [K : Cat] (E D : τ (Catd K)) (u : τ (Obj (@Sigma_cat K E)))
+  ⊢ u : τ (Obj (@Sigma_cat K D));

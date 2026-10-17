@@ -1,0 +1,49 @@
+// Sigma of a strict map in an outer parameter. Its components are still
+// general displayed maps over K. This refines that existing Sigma image;
+// it does not make Sigma_func a Cat_cart-valued functor on all Catd(K).
+symbol Sigma_parameter_funcd [L K : Cat]
+  [E D : τ (Functor L (Functor_cart_cat K Cat_cart))]
+  (U : τ (Hom (Functor_cart_cat L (Catd_cat K))
+    (@comp_cat_fapp0 L (Functor_cart_cat K Cat_cart) (Catd_cat K)
+      (Functor_cart_include K Cat_cart) E)
+    (@comp_cat_fapp0 L (Functor_cart_cat K Cat_cart) (Catd_cat K)
+      (Functor_cart_include K Cat_cart) D)))
+  : τ (Hom (Functor_cart_cat L Cat_cart)
+      (@comp_cat_fapp0 L (Functor_cart_cat K Cat_cart) Cat_cart (@Sigma_coeff_func K) E)
+      (@comp_cat_fapp0 L (Functor_cart_cat K Cat_cart) Cat_cart (@Sigma_coeff_func K) D));
+
+// The actual component is the old total map, with U's lax displayed component.
+rule @tapp0_fapp0 _ Cat_cart _ _ $x
+    (@strict_transfor _ _ _ _ (@Sigma_parameter_funcd $L $K $E $D $U))
+  ↪ @sigma_map_func $K
+      (@fapp0 $L (Functor_cart_cat $K Cat_cart) $E $x)
+      (@fapp0 $L (Functor_cart_cat $K Cat_cart) $D $x)
+      (@tapp0_fapp0 $L (Catd_cat $K)
+        (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+          (Functor_cart_include $K Cat_cart) $E)
+        (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+          (Functor_cart_include $K Cat_cart) $D)
+        $x (@strict_transfor _ _ _ _ $U));
+
+// The explicit forgetting projection computes to the original whole Sigma
+// image. Its family endpoints are determined by the admitted constructor.
+// Keep the identity guard on the other leg; U and its actual families survive.
+rule @comp_prod_fapp1_fapp0 Cat_cat _ _ _
+    (Struct_sigma _ Cat_cart_include) (Struct_sigma _ Cat_cart_include)
+    (Struct_sigma
+      (@strict_transfor _ _ _ _ (@Sigma_parameter_funcd $L $K $E $D $U))
+      (@id _ Cat_cart_include))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $L (Catd_cat $K) Cat_cat
+      (Struct_sigma
+        (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+          (Functor_cart_include $K Cat_cart) $E) (@Sigma_func $K))
+      (Struct_sigma
+        (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+          (Functor_cart_include $K Cat_cart) $D) (@Sigma_func $K))
+      (Struct_sigma
+        (@strict_transfor $L (Catd_cat $K)
+          (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+            (Functor_cart_include $K Cat_cart) $E)
+          (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+            (Functor_cart_include $K Cat_cart) $D) $U)
+        (@id (Functor_cat (Catd_cat $K) Cat_cat) (@Sigma_func $K)));

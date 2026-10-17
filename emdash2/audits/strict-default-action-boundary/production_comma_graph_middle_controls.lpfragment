@@ -1,0 +1,73 @@
+// The actual lax eta requires no supplied naturality or strictness evidence.
+assert [B C : Cat] [F G : τ (Functor B C)] (eta : τ (@Transf B C F G))
+  ⊢ @comma_graph_middle_sec B C F G (@tapp1_int_cart B C F G eta)
+    : τ (Obj (@Pi_cat (TotalOp_cat B) (@comma_graph_middle_catd B C F G)));
+
+// The whole section's object is the original (x,eta[x]) in the inner total.
+assert [B C : Cat] [F G : τ (Functor B C)] (eta : τ (@Transf B C F G)) (x : τ (Obj B))
+  ⊢ @fapp0 Terminal_cat (Fibre_cat (@comma_graph_middle_catd B C F G) x)
+      (@tapp0_fapp0 (TotalOp_cat B) Cat_cart _ _ x
+        (@comma_graph_middle_sec B C F G (@tapp1_int_cart B C F G eta))) Terminal_obj
+    ≡ @Struct_sigma (Obj B)
+      (λ y : τ (Obj B), Obj (Hom_cat C (@fapp0 B C F x) (@fapp0 B C G y)))
+      x (@tapp0_fapp0 B C F G x eta);
+
+// Its included Sigma map is the existing ordinary image of that same eta.
+assert [B C : Cat] [F G : τ (Functor B C)] (eta : τ (@Transf B C F G))
+  ⊢ eq_refl (@fapp0 _ _
+      (@comp_cat_cov_fapp1_func (Op_cat B) Cat_cart Cat_cat Cat_cart_include
+        (@comma_graph_source_raw_catd B) (@comma_graph_middle_raw_catd B C F G))
+      (@strict_transfor _ _ _ _
+        (@comma_graph_sigma_parameter_funcd B C F G (@tapp1_int_cart B C F G eta))))
+    : τ (@= (@Transf (Op_cat B) Cat_cat _ _)
+      (@fapp0 _ _
+        (@comp_cat_cov_fapp1_func (Op_cat B) Cat_cart Cat_cat Cat_cart_include
+          (@comma_graph_source_raw_catd B) (@comma_graph_middle_raw_catd B C F G))
+        (@strict_transfor _ _ _ _
+          (@comma_graph_sigma_parameter_funcd B C F G (@tapp1_int_cart B C F G eta))))
+      (@comma_graph_sigma_transf B C F G (@tapp1_int_fapp0_transf B C F G eta)));
+
+// First nonidentity section action: the original p and retained post/left
+// laxity cell form the opposite of the canonical arrow in the inner total.
+symbol middle_action [B C : Cat] [F G : τ (Functor B C)]
+  (eta : τ (@Transf B C F G)) [y x : τ (Obj B)] (p : τ (Hom B x y))
+  : τ (Obj (@Sigma_cat (TotalOp_cat (Hom_cat B x y))
+      (@TotalOp_catd (Op_cat (Hom_cat B x y))
+        (@homd_ B (@hom_ C B G (@fapp0 B C F x)) (@hom_ C B G (@fapp0 B C F x))
+          (@id_funcd B (@hom_ C B G (@fapp0 B C F x)))
+          x (@tapp0_fapp0 B C F G x eta) y
+          (@hom_precomp_along_fapp0 C C (@id_func C) (@fapp0 B C G y)
+            (@fapp0 B C F x) (@fapp0 B C F y) (@fapp1_fapp0 B C F x y p)
+            (@tapp0_fapp0 B C F G y eta))))))
+≔ @piapp1_fapp0 (TotalOp_cat B) (@comma_graph_middle_catd B C F G)
+    (@comma_graph_middle_sec B C F G (@tapp1_int_cart B C F G eta)) y x p;
+
+symbol middle_expected_action [B C : Cat] [F G : τ (Functor B C)]
+  (eta : τ (@Transf B C F G)) [y x : τ (Obj B)] (p : τ (Hom B x y))
+  : τ (Obj (@Sigma_cat (TotalOp_cat (Hom_cat B x y))
+      (@TotalOp_catd (Op_cat (Hom_cat B x y))
+        (@homd_ B (@hom_ C B G (@fapp0 B C F x)) (@hom_ C B G (@fapp0 B C F x))
+          (@id_funcd B (@hom_ C B G (@fapp0 B C F x)))
+          x (@tapp0_fapp0 B C F G x eta) y
+          (@hom_precomp_along_fapp0 C C (@id_func C) (@fapp0 B C G y)
+            (@fapp0 B C F x) (@fapp0 B C F y) (@fapp1_fapp0 B C F x y p)
+            (@tapp0_fapp0 B C F G y eta))))))
+≔ @sigma_arrow B (@hom_ C B G (@fapp0 B C F x)) x y
+    (@tapp0_fapp0 B C F G x eta) (@tapp1_fapp0 B C F G x y eta p) p
+    (@tapp1_post_laxity_cell B C F G eta x x y p (@id B x));
+
+assert [B C : Cat] [F G : τ (Functor B C)] (eta : τ (@Transf B C F G))
+  [y x : τ (Obj B)] (p : τ (Hom B x y))
+  ⊢ @middle_action B C F G eta y x p ≡ @middle_expected_action B C F G eta y x p;
+
+// Typed reflexivity exercises Sigma-carrier congruence when the endpoint is
+// read through the original off-diagonal owner instead of mapped precomposition.
+assert [B C : Cat] [F G : τ (Functor B C)] (eta : τ (@Transf B C F G))
+  [y x : τ (Obj B)] (p : τ (Hom B x y))
+  ⊢ eq_refl (@middle_expected_action B C F G eta y x p)
+    : τ (@= (Obj (@Sigma_cat (TotalOp_cat (Hom_cat B x y))
+        (@TotalOp_catd (Op_cat (Hom_cat B x y))
+          (@homd_ B (@hom_ C B G (@fapp0 B C F x)) (@hom_ C B G (@fapp0 B C F x))
+            (@id_funcd B (@hom_ C B G (@fapp0 B C F x)))
+            x (@tapp0_fapp0 B C F G x eta) y (@tapp1_fapp0 B C F G x y eta p)))))
+      (@middle_action B C F G eta y x p) (@middle_expected_action B C F G eta y x p));

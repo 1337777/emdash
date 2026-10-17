@@ -1,0 +1,72 @@
+// Actual whole inclusion, used to compare both observation orders below.
+symbol internal_x_view [A B : Cat] [F G : τ (Functor A B)]
+  : τ (Functor (@Transf_cat A B F G)
+      (@Transf_cat (Op_cat A) (Catd_cat A)
+        (@hom_int_view A A (@id_func A))
+        (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Catd_cat A)
+          (@hom_int_view B A G) (@Op_func A B F))))
+≔ @comp_cat_fapp0 _ _ _
+    (@fapp1_func _ _ (Functor_cart_include (Op_cat A) (Catd_cat A))
+      (@hom_int_view A A (@id_func A))
+      (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Catd_cat A)
+        (@hom_int_view B A G) (@Op_func A B F)))
+    (@tapp1_int_cart_func A B F G);
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  ⊢ eq_refl (@internal_x_view A B F G)
+    : τ (@= (Functor (@Transf_cat A B F G) _)
+      (@internal_x_view A B F G) (@tapp1_int_func_transf A B F G));
+
+assert [A B : Cat] [F G : τ (Functor A B)] (eta : τ (@Transf A B F G))
+  ⊢ eq_refl (@strict_transfor _ _ _ _ (@tapp1_int_cart A B F G eta))
+    : τ (@= (@Transf (Op_cat A) (Catd_cat A) _ _)
+      (@strict_transfor _ _ _ _ (@tapp1_int_cart A B F G eta))
+      (@tapp1_int_fapp0_transf A B F G eta));
+
+assert [A B : Cat] [F G : τ (Functor A B)] (eta : τ (@Transf A B F G)) (x : τ (Obj A))
+  ⊢ @tapp0_fapp0 _ _ _ _ x (@strict_transfor _ _ _ _ (@tapp1_int_cart A B F G eta))
+    ≡ @tapp1_at_transf A B F G x eta;
+
+assert [A B : Cat] [F G : τ (Functor A B)] (eta : τ (@Transf A B F G)) (x y : τ (Obj A))
+  ⊢ @tapp0_fapp0 _ _ _ _ y
+      (@tapp0_fapp0 _ _ _ _ x (@strict_transfor _ _ _ _ (@tapp1_int_cart A B F G eta)))
+    ≡ @tapp1_func A B F G x y eta;
+
+// The included next Hom must retain the original arbitrary higher input.
+assert [A B : Cat] [F G : τ (Functor A B)] (eta theta : τ (@Transf A B F G))
+  ⊢ eq_refl (@fapp1_func _ _ (@internal_x_view A B F G) eta theta)
+    : τ (@= (Functor (Hom_cat (@Transf_cat A B F G) eta theta) _)
+      (@fapp1_func _ _ (@internal_x_view A B F G) eta theta)
+      (@tapp1_int_fapp1_func_transf A B F G eta theta));
+
+// The pre-existing identity shortcut has its own stable ordinary head.
+assert [A B : Cat] (F : τ (Functor A B))
+  ⊢ eq_refl (@strict_transfor _ _ _ _ (@tapp1_int_cart A B F F (@id (Functor_cat A B) F)))
+    : τ (@= (@Transf (Op_cat A) (Catd_cat A) _ _)
+      (@strict_transfor _ _ _ _ (@tapp1_int_cart A B F F (@id (Functor_cat A B) F)))
+      (@fapp1_int_transf A B F));
+
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (other : τ (@Transf (Op_cat A) (Catd_cat A)
+    (@hom_int_view A A (@id_func A))
+    (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Catd_cat A) (@hom_int_view B A G) (@Op_func A B F))))
+  ⊢ other : τ (@StrictTransfor (Op_cat A) (Catd_cat A) _ _);
+
+// Canonical x strictness does not make eta's retained y comparison strict.
+assertnot [A B : Cat] [F G : τ (Functor A B)] (eta : τ (@Transf A B F G))
+  (x y : τ (Obj A)) (p : τ (Hom A x y))
+  ⊢ eq_refl (@comp_fapp0 B _ _ _ (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x eta))
+    : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@comp_fapp0 B _ _ _ (@fapp1_fapp0 A B G x y p) (@tapp0_fapp0 A B F G x eta))
+      (@comp_fapp0 B _ _ _ (@tapp0_fapp0 A B F G y eta) (@fapp1_fapp0 A B F x y p)));
+
+// The mapped precomposition reading retains the actual image F[p].
+assertnot [A B : Cat] [F G : τ (Functor A B)] (eta : τ (@Transf A B F G))
+  (x y : τ (Obj A)) (p : τ (Hom A x y))
+  (other : τ (Hom B (@fapp0 A B F x) (@fapp0 A B F y)))
+  ⊢ eq_refl (@hom_precomp_along_fapp0 B B (@id_func B) (@fapp0 A B G y)
+      (@fapp0 A B F x) (@fapp0 A B F y) other (@tapp0_fapp0 A B F G y eta))
+    : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@hom_precomp_along_fapp0 B B (@id_func B) (@fapp0 A B G y)
+        (@fapp0 A B F x) (@fapp0 A B F y) other (@tapp0_fapp0 A B F G y eta))
+      (@tapp1_fapp0 A B F G x y eta p));

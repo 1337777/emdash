@@ -1,0 +1,61 @@
+// Canonical x-profile of the existing off-diagonal action. The selected
+// pre/right convention fixes eta[y] o F[f], strictly in the source x.
+// Inner y-naturality remains the original possibly noninvertible action.
+// This is a declared profile refinement with a whole ordinary view, not a
+// constructor for making an arbitrary transformation strict.
+symbol tapp1_int_cart_func [A B : Cat] [F G : τ (Functor A B)]
+  : τ (Functor (@Transf_cat A B F G)
+      (Hom_cat (Functor_cart_cat (Op_cat A) (Catd_cat A))
+        (@hom_int_view A A (@id_func A))
+        (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Catd_cat A)
+          (@hom_int_view B A G) (@Op_func A B F))));
+
+symbol tapp1_int_cart [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@Transf A B F G))
+  : τ (@StrictTransfor (Op_cat A) (Catd_cat A)
+      (@hom_int_view A A (@id_func A))
+      (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Catd_cat A)
+        (@hom_int_view B A G) (@Op_func A B F)));
+
+rule @fapp0 _ _ (@tapp1_int_cart_func $A $B $F $G) $eta
+  ↪ @tapp1_int_cart $A $B $F $G $eta;
+
+// Keep the strict-profile runtime owner; compare its ordinary view at proof time.
+unif_rule @strict_transfor _ _ _ _ (@tapp1_int_cart $A $B $F $G $eta)
+  ≡ @tapp1_int_fapp0_transf $A0 $B0 $F0 $G0 $eta0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F; $G0 ≡ $G; $eta0 ≡ $eta ];
+
+// The existing identity projection selects fapp1_int_transf before the
+// general ordinary-view comparison can match its original head.
+unif_rule @strict_transfor _ _ _ _
+    (@tapp1_int_cart $A $B $F $F (@id _ $F))
+  ≡ @fapp1_int_transf $A0 $B0 $F0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F ];
+
+// The entire included action is the original functor in eta.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@fapp1_func _ _ (Functor_cart_include (Op_cat $A) (Catd_cat $A)) _ _)
+    (@tapp1_int_cart_func $A $B $F $G)
+  ≡ @tapp1_int_func_transf $A0 $B0 $F0 $G0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F; $G0 ≡ $G ];
+
+// The generic first-Hom projection splits composition before the whole
+// comparison above is selected. Retain both endpoints and every higher input.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@fapp1_func _ _
+      (@fapp1_func _ _ (Functor_cart_include (Op_cat $A) (Catd_cat $A)) $H0 $H1)
+      $U $V)
+    (@fapp1_func _ _ (@tapp1_int_cart_func $A $B $F $G) $eta $theta)
+  ≡ @tapp1_int_fapp1_func_transf $A0 $B0 $F0 $G0 $eta0 $theta0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F; $G0 ≡ $G;
+      $eta0 ≡ $eta; $theta0 ≡ $theta;
+      $H0 ≡ @hom_int_view $A $A (@id_func $A);
+      $H1 ≡ @comp_cat_fapp0 (Op_cat $A) (Op_cat $B) (Catd_cat $A)
+        (@hom_int_view $B $A $G) (@Op_func $A $B $F);
+      $U ≡ @tapp1_int_cart $A $B $F $G $eta;
+      $V ≡ @tapp1_int_cart $A $B $F $G $theta ];
+
+// A component is the original whole, generally lax, y-family action.
+rule @tapp0_fapp0 _ _ _ _ $x
+    (@strict_transfor _ _ _ _ (@tapp1_int_cart $A $B $F $G $eta))
+  ↪ @tapp1_at_transf $A $B $F $G $x $eta;

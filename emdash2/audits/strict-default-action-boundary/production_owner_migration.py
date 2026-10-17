@@ -522,12 +522,22 @@ rule @fapp1_fapp0 _ _ (Op_func_func $A $B) $G $F $eta
         new_internal = new_internal.replace(old, new, 1)
     replace_once(old_internal, new_internal, 'ordinary internal-action ladders',
                  'Keep general lax epsilon through ordinary whole-Hom inclusion views and direct contravariant roots; use transpose comparisons only for actual Cartesian inputs')
+    insert('// 7f. Target-internalized ordinary hom-action mirror',
+           fragment('production_internal_x_profile.lpfragment'),
+           'Canonical strict-x refinement of the pre/right-normal internal action, retaining its whole ordinary view and lax inner y-action')
 
     insert('// Product homs compute componentwise.',
            '''// Cartesian mapping categories preserve target products.
 rule Functor_cart_cat $X (Product_cat $A $B)
   ↪ Product_cat (Functor_cart_cat $X $A) (Functor_cart_cat $X $B);
 ''', 'The existing paired-functor computation also applies to the Cartesian mapping profile')
+    insert('// Generic projections of an arbitrary object of a Sigma total.',
+           '''// Sufficient object-carrier congruence for the same Sigma constructor.
+// Obj is not injective: this only compares the actual bases and whole families
+// to propagate an already justified proof-time endpoint comparison.
+unif_rule Obj (@Sigma_cat $K $E) ≡ Obj (@Sigma_cat $K0 $E0)
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E ];
+''', 'Propagate proved family comparisons through the Sigma object facade without making Obj injective')
     start = body.index('symbol Product_pair_tele_func ')
     end = body.index(';', start) + 1
     old_pair = body[start:end]
@@ -1348,7 +1358,8 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     replace_once(old, old.replace('Cat_cat', 'Cat_cart'), 'Late family pullback accumulation',
                  'Only the family codomain changes; ambient functor composition remains Cat_cat')
 
-    insert('// Object action of a Sigma map:', fragment('production_sigma_coefficient.lpfragment'),
+    insert('// Object action of a Sigma map:', fragment('production_sigma_coefficient.lpfragment')
+           + '\n' + fragment('production_sigma_parameter_profile.lpfragment'),
            'The actual comma family needs the Cartesian restriction of existing totalization, with the same total categories and strict-map action')
     insert('// Fibrewise dimension-one transpose changes the base by CoAt2.',
            fragment('production_total_op_parameter.lpfragment'),
@@ -1675,22 +1686,13 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 sigma_end = '// Pointwise opposite turns that whole transformation into the displayed map'
                 assert tail.count(sigma_end) == 1
                 tail = end_marker + '\n' + fragment('production_comma_graph_sigma.lpfragment') + '\n' + tail[tail.index(sigma_end):]
-                old_dual = '''≔ @Op_funcd
-    (Op_cat B)
-    (@comma_graph_source_raw_catd B)
-    (@comma_graph_middle_raw_catd B C F G)
-    (@comma_graph_sigma_transf B C F G epsilon);'''
-                assert tail.count(old_dual) == 1
-                tail = tail.replace(old_dual, '''// Pending: the ordinary Sigma image above needs an actual admitted
-// Cartesian map before this whole total-dual projection can be qualified.
-≔ @strict_transfor _ _ _ _
-    (@TotalOp_funcd (Op_cat B)
-      (@comma_graph_source_raw_catd B)
-      (@comma_graph_middle_raw_catd B C F G)
-      (@comma_graph_sigma_transf B C F G epsilon));''', 1)
+                admission_end = '// The represented C-family at the varying source F[x].'
+                assert tail.count(admission_end) == 1
+                begin, end_admission = tail.index(sigma_end), tail.index(admission_end)
+                tail = tail[:begin] + sigma_end + '\n' + fragment('production_comma_graph_admitted.lpfragment') + '\n' + tail[end_admission:]
                 text = text[:start] + fragment('production_comma_graph_families.lpfragment') + '\n' + tail
                 changes.append({'source': path, 'owner': 'represented-comma graph family profiles',
-                                'reason': 'Retain the canonical Cartesian inner family for Sigma, expose its existing ordinary view for internal action, and use the actual O(B) total-dual base for source/middle/target families; the following action/admission is still under qualification',
+                                'reason': 'Retain the Cartesian inner family and ordinary view, admit the strict-x Sigma map and total-dual middle section over O(B); the following base-change and full graph remain under qualification',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/action_profile_inherited_assembly_controls.lp':
                 old = text
@@ -2197,6 +2199,10 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     assert graph_source.count(sigma_boundary) == 1
     (package / 'comma_graph_sigma_prefix.lp').write_text(graph_source[:graph_source.index(sigma_boundary)]
         + '\n' + fragment('production_comma_graph_sigma_control.lpfragment'))
+    middle_boundary = '// The represented C-family at the varying source F[x].'
+    assert graph_source.count(middle_boundary) == 1
+    (package / 'comma_graph_middle_prefix.lp').write_text(graph_source[:graph_source.index(middle_boundary)]
+        + '\n' + fragment('production_comma_graph_middle_controls.lpfragment'))
     # These original assertions exercise the assembly owner itself. Keep the
     # full original downstream import closure staged as a separate obligation.
     assembly_controls = (package / 'examples/action_profile_inherited_assembly_controls.lp').read_text()
@@ -2205,6 +2211,12 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'pointwise_assembly_controls.lp').write_text(assembly_controls.replace(
         imports, 'require open emdash.emdash3_2_strict_pointwise_equivalences;', 1)
         + '\n' + fragment('production_pointwise_coefficient_control.lpfragment'))
+    (package / 'internal_x_profile_controls.lp').write_text(
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + fragment('production_internal_x_profile_controls.lpfragment'))
+    (package / 'sigma_parameter_profile_controls.lp').write_text(
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + fragment('production_sigma_parameter_profile_controls.lpfragment'))
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
@@ -2313,6 +2325,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'pointwise_assembly_controls.lp',
                               package / 'comma_graph_family_prefix.lp',
                               package / 'comma_graph_sigma_prefix.lp',
+                              package / 'internal_x_profile_controls.lp',
+                              package / 'sigma_parameter_profile_controls.lp',
+                              package / 'comma_graph_middle_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',
