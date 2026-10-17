@@ -7,14 +7,21 @@ core and profile source hashes and inserts at unique original owner anchors.
 
 ## Current continuation, 2026-10-17
 
+The [adjunction-introduction review](production_adjunction_introduction_review.md)
+and [verification](production_adjunction_introduction_verification.json)
+record the complete original constructor/whole agreement owner and its 25
+positive/eight negative reviewer checks. The seven input-comparison rules
+and actual selected inverse are retained. The next route is presheaves/direct
+cover; remaining migration and promotion gates stay open.
+
 The [supplied Hom-action/curry review](production_hom_comparison_admission_review.md)
 and [verification](production_hom_comparison_admission_verification.json)
 record the complete original Hom-comparison owner and its 12 positive/four
 negative reviewer checks. The same unit/counit, reconstructed action and
 triangle computations retain the selected comparison. One-way lax currying
 and ordinary-target strict x-admission preserve general raw inputs and the
-original premises. The next consumer is one_cat_adjunction_introduction;
-remaining library migration and promotion gates stay open.
+original premises. Its adjunction-introduction consumer is covered by the
+continuation above.
 
 The preceding [ordinary-arrow review](production_one_cat_arrow_review.md) and
 [verification](production_one_cat_arrow_verification.json) record preservation

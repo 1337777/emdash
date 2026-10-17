@@ -1,0 +1,264 @@
+{
+  "status": "Original adjunction-introduction owner and reviewer qualified in non-library staging; remaining migration and public promotion open",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "extendsCheckpoint": "fddadd33",
+  "authoringInputs": {
+    "production_owner_migration.py": "d3679e4f402866561d48a28a1d546c846ed169eef2126cd4a79ad58c178f4ff7"
+  },
+  "manifestSha256": "ab9dfa3aa4e867a1b176a6e4fddb7b779a4c2458eda8e157cdd5440f2dc43f88",
+  "contracts": {
+    "structuralConstructor": "Original one_cat_adjunction_from_hom_comparison with original OneCat(A/B), F,G and selected i",
+    "coefficientTags": {
+      "owner": 20,
+      "reviewer": 6
+    },
+    "proofChange": "Prepend existing defiso_fmap_to/from_path for Cat_cart_include before original input-agreement/component paths",
+    "runtimeRulesAdded": 0,
+    "unificationRulesAdded": 0,
+    "originalScopedComparisons": 7,
+    "callerComparisonsAdded": false,
+    "selectedMapsRetained": true,
+    "publicPromotion": false
+  },
+  "checks": {
+    "originalReviewer": {
+      "positive": 25,
+      "negative": 8,
+      "coverage": [
+        "input comparison and selected inverse",
+        "transpose/untranspose whole and point observations",
+        "whole inverse cancellation",
+        "native runtime-head distinction",
+        "whole unit/counit paths and modifications",
+        "higher action",
+        "retained input and nonidentity observations"
+      ]
+    }
+  },
+  "receipts": {
+    "focusedViews": {
+      "id": "20261017T213546Z-def7cd56f466435099c60b9c235eedbe",
+      "target": "adjunction_introduction_views_prefix.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 25.315236720955,
+      "childrenMaxRssKiB": 2222740,
+      "inputSnapshot": "5a86edbb29c8211166cb60a5c68f33bc79ffb78b030969c57225aa65204e3baf",
+      "logSha256": "7f7b45893bb28b10d255a90558ec413ee8fdf2fb72eed6f56d1379cebd0378be",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "inputs": {
+        "adjunction_introduction_views_prefix.lp": "58deba4398daff1a391ce53686e9be127fb1e781d2bb16f743f58f6dae8d57bb",
+        "emdash3_2.lp": "362261a66f7270ed759d8fc67b50e32484d6d5c5856faeb3a69c4c4ec6617f8c",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_prof_defiso_evaluation_paths.lp": "b50e3d336ba0284132ccf4a0f9d4c2c68b8f0f38b01adcb83548543569c39641",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      }
+    },
+    "originalReviewer": {
+      "id": "20261017T213723Z-941fc3964305400cbd09a609db65a190",
+      "target": "examples/one_cat_adjunction_introduction.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 91.23606126802042,
+      "childrenMaxRssKiB": 3844792,
+      "inputSnapshot": "9455d4775590eb26769dc67558779893f39d89962e6ebb52c1ebde0d06c6b8ac",
+      "logSha256": "5d33f415b148de75590a397c51f8da33e7d654087b0db5702af58315457ffdac",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=5,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      },
+      "inputs": {
+        "emdash3_2.lp": "362261a66f7270ed759d8fc67b50e32484d6d5c5856faeb3a69c4c4ec6617f8c",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+        "emdash3_2_diagram_evaluation.lp": "283c1971ccfe48c0d354cf587d1d4036628c7c4ccd785de26605299dabfb11e2",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_adjunction_family_views.lp": "83648e8d217a565b4663e792ca5a39c14e200dfa0e93017e734ee48196607b82",
+        "emdash3_2_one_cat_adjunction_introduction.lp": "3d3188582cba58022d855c9f921279531a0b5b7667b5ea381b9e5ab7e8ef153d",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "f61cd22c78c9252c31069395521f4a69559e62d0a50f46874013260bc8e9003a",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_hom_comparison_data.lp": "2f051e2f1c604523505298d667933c2690ebd4cd60ad4e2b04c7e5255d52f668",
+        "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+        "emdash3_2_one_cat_modifications.lp": "980ffead150ec47cf977d71ec24f667a649a727a3007b99f0649362f9c52c1d3",
+        "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+        "emdash3_2_one_cat_op.lp": "96e582872c5c00315d2d9668c32f75f483db852421efece79c188b08caec91de",
+        "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+        "emdash3_2_one_cat_transfor_profiles.lp": "debb1b42841ac8b8cb7a0603abe0642af289ac9d2f5c6ff2784dffb45ac0efce",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_prof_defiso_evaluation_paths.lp": "b50e3d336ba0284132ccf4a0f9d4c2c68b8f0f38b01adcb83548543569c39641",
+        "emdash3_2_represented_comma_families.lp": "9c9b18ead5d894635b068e6ea397f7c305cf3e31d1804a8e181818ed189e5305",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_strict_pointwise_equivalences.lp": "a5afbc2bf77ca2f7f7bcd399b5130631f15aa67a2dbb3529ff880e34c9c3806a",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_zero_arrow_cones.lp": "80950d73775beba104c4d6dd40103b2b865e68edd3a3628c7895801d440d1233",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "examples/one_cat_adjunction_introduction.lp": "bfa12e2d3d9761de5a678ab517f07688af2d260c030e529ecc85b2512e6641ed",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      }
+    }
+  },
+  "diagnostics": {
+    "baselineAllocation": {
+      "id": "20261017T211437Z-cee83b0d4b90416c81a04f6c33ed0db3",
+      "target": "examples/one_cat_adjunction_introduction.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 414.43806920200586,
+      "childrenMaxRssKiB": 3915040,
+      "inputSnapshot": "d9dac1a0193297e84598333a276e2ad3fd453caaf3eb90115658e4a730065b4b",
+      "logSha256": "38344a05a23381651ebdb63b88222064b15a9e1ba249c7b46181429b257f5294",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      }
+    },
+    "coefficientCorrectedMappedViewGap": {
+      "id": "20261017T212335Z-31803e4416de4a4f8beac77e33bf63b8",
+      "target": "examples/one_cat_adjunction_introduction.lp",
+      "outcome": "failed",
+      "wallSeconds": 539.8303210270824,
+      "childrenMaxRssKiB": 3839236,
+      "inputSnapshot": "18d73fff12ccd707d200b387b788a666b24c3a3798c1542d4806e17476cf408d",
+      "logSha256": "98100ab9d2baeaee2717b96f4fb36a29dd6e1ea49d542b9fc3e6b2246fda47ed",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=5,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      }
+    }
+  },
+  "warnings": {
+    "before": 2650,
+    "after": 2650,
+    "added": 0,
+    "removed": 0,
+    "sameBodies": true,
+    "bodiesSha256": "495fe35ca66963330c8fdfdc6906abfdae6a198ebaae6f3c6008813e8da1435a",
+    "qualification": "No confluence certificate; compare actual bodies despite changed GC profile/timing."
+  },
+  "lhsAudits": {
+    "emdash3_2_one_cat_adjunction_introduction.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    "examples/one_cat_adjunction_introduction.lp": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    }
+  },
+  "nextRequired": [
+    "Presheaf/direct-cover migration at yoneda_psh_func and canonical Sigma coefficient admission",
+    "Review actual slice variance before changing T/O occurrences",
+    "Remaining library scope and redundant strict-functor wrapper retirement",
+    "Production promotion and catalog/health/CI/source-pin qualification"
+  ],
+  "originalComparisonTextUnchanged": true,
+  "carriedSourceBoundaries": {
+    "lax_curry_regression_controls.lp": {
+      "receipt": "20261017T193003Z-5ffa80a8878e48de958127f9271f302f",
+      "inputSnapshot": "fdac72c4de5cd33b9bf222147694aaf137458cb8fb18beb078c75c0d1b6c65c5",
+      "allInputsUnchanged": true
+    },
+    "examples/one_cat_hom_comparison_data.lp": {
+      "receipt": "20261017T205045Z-998d315816124fb5a5f16e5a9c3799dd",
+      "inputSnapshot": "7c6bbaa242558f8be663e17b26e65a0587643d8aa5c6e1d94320dfe570172a10",
+      "allInputsUnchanged": true
+    }
+  }
+}

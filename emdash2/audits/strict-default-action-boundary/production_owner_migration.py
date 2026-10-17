@@ -1777,6 +1777,45 @@ unif_rule @sigma_map_func $K _ _
                 changes.append({'source': path, 'owner': 'original Hom-comparison reviewer',
                                 'reason': 'Retag the four original profunctor component observations with their actual coefficient; preserve all selected comparisons and inverse controls',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            adjunction_intro_coefficients = {
+                'emdash3_2_one_cat_adjunction_introduction.lp': 20,
+                'examples/one_cat_adjunction_introduction.lp': 6,
+            }
+            if path in adjunction_intro_coefficients:
+                old = text
+                expected = adjunction_intro_coefficients[path]
+                pattern = r'(\(Product_cat \(Op_cat A\) [AB]\)\s+)Cat_cat'
+                assert text.count('Cat_cat') == expected, path
+                assert len(re.findall(pattern, text)) == expected, path
+                text = re.sub(pattern, r'\1Cat_cart', text)
+                if path == 'emdash3_2_one_cat_adjunction_introduction.lp':
+                    base = '(Product_cat (Op_cat A) B)'
+                    left = '(@Hom_prof_along A B B F (@id_func B))'
+                    right = '(@Hom_prof_along A B A (@id_func A) G)'
+                    adj = '(@one_cat_adjunction_from_hom_comparison A B A1 B1 F G i)'
+                    comparison = f'(@Adjunction_hom_prof_comparison A B F G {adj})'
+                    point = '(@Product_pair (Op_cat A) B x y)'
+                    evaluated = f'(@defiso_at {base} Cat_cart {left} {right} {comparison} {point})'
+                    for direction, projection in [('transpose', 'to'), ('untranspose', 'from')]:
+                        marker = f'symbol one_cat_adjunction_from_hom_comparison_{direction}_path'
+                        assert text.count(marker) == 1
+                        start = text.index(marker)
+                        end = text.index(';', start) + 1
+                        signature, definition = text[start:end].split('≔', 1)
+                        mate = f'(@adjunction_{direction}_func A B F G {adj} x y)'
+                        assert definition.count(mate) == 1
+                        raw = f'(@defiso_at_{projection} {base} Cat_cart {left} {right} {comparison} {point})'
+                        original_proof = definition[:-1].strip().replace(mate, raw, 1)
+                        included_view = f'''@defiso_fmap_{projection}_path Cat_cart Cat_cat Cat_cart_include
+      (Hom_cat B (@fapp0 A B F x) y) (Hom_cat A x (@fapp0 B A G y))
+      {evaluated}'''
+                        definition = f'''≔ @eq_trans _ _ _ _
+    ({included_view})
+    ({original_proof});'''
+                        text = text[:start] + signature + definition + text[end:]
+                changes.append({'source': path, 'owner': 'ordinary Hom-comparison adjunction introduction',
+                                'reason': 'Retag the original coefficient positions and observe the actual Cat_cart_include mapped inverse before the existing input agreement; preserve the constructor, seven scoped comparisons, whole unit/counit agreement and reviewer controls',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_arrow_diagrams.lp':
                 old = text
                 dep = 'require open emdash.emdash3_2_arrow_diagram_families;'
@@ -2553,6 +2592,16 @@ unif_rule @sigma_map_func $K _ _
         + fragment('production_one_cat_arrow_controls.lpfragment'))
     stage('emdash3_2_one_cat_hom_comparison_data.lp')
     stage('examples/one_cat_hom_comparison_data.lp')
+    stage('examples/one_cat_adjunction_introduction.lp')
+    introduction_source = (package / 'emdash3_2_one_cat_adjunction_introduction.lp').read_text()
+    prefix_end = 'protected symbol intro_unit_original_identity_path'
+    assert introduction_source.count(prefix_end) == 1
+    introduction_prefix = introduction_source[:introduction_source.index(prefix_end)]
+    dependency = 'require open emdash.emdash3_2_one_cat_hom_comparison_data;'
+    assert introduction_prefix.count(dependency) == 1
+    (package / 'adjunction_introduction_views_prefix.lp').write_text(
+        introduction_prefix.replace(dependency,
+            'require open emdash.emdash3_2_prof_defiso_evaluation_paths;', 1))
     (package / 'hom_action_admission_controls.lp').write_text(
         'require open emdash.emdash3_2_one_cat_transfor_profiles;\n'
         + fragment('production_one_cat_hom_action_admission.lpfragment') + '\n'
@@ -2779,6 +2828,7 @@ unif_rule @sigma_map_func $K _ _
                               package / 'hom_comparison_curry_path_controls.lp',
                               package / 'hom_comparison_admitted_path_controls.lp',
                               package / 'lax_curry_regression_controls.lp',
+                              package / 'adjunction_introduction_views_prefix.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

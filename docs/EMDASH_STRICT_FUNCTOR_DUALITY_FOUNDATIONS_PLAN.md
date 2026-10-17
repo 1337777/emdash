@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original Hom-comparison unit/counit and triangle reviewer qualified; adjunction-introduction and remaining library migration/public promotion open
+Status: active implementation; original Hom-comparison and adjunction-introduction reviewers qualified; presheaf/direct-cover and remaining library migration/public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,37 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Adjunction-introduction continuation after `fddadd33`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_adjunction_introduction_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_adjunction_introduction_verification.json)
+record the complete original owner and all 25 positive/eight negative
+reviewer assertions. Both mate directions, whole and point inverse
+cancellation, whole unit/counit agreement, higher action and retained-input
+controls pass under the original OneCat(A/B) premises.
+
+The 20 owner/six reviewer coefficient slots now use Cat_cart. The two mate
+comparison proofs first observe the actual Cat_cart_include image through
+existing defiso_fmap_to/from_path, then retain their original input-agreement
+and raw-component steps. The original structural constructor and seven scoped
+proof-time comparisons are unchanged; no new rewrite/unification rule or
+caller comparison is added. Do not relabel the existing structural Adjunction
+introduction as a theorem derived from its opaque classifier.
+
+The 4GiB/o=20 baseline failed allocation after imports. At the same 4GiB cap,
+o=5 reached the actual coefficient-view diagnostic; the focused repaired
+views passed at 300s/4GiB/o=20 in 25.3s, and the full reviewer passed at
+600s/4GiB/o=5 in 91.2s. Runtime profiles and variable host throughput remain
+explicit. Warning bodies match the preceding completed import/owner prefix
+exactly (2650), and LHS audits have zero unreviewed candidates. The prior
+core and Hom-comparison source boundaries are unchanged.
+
+Next resume the required presheaf/direct-cover route at yoneda_psh_func and
+its canonical Sigma-family coefficient admission. Preserve the raw presheaf
+map interface; review actual slice variance and consumed comparison types
+before changing T/O or strengthening a classifier. Remaining library scope,
+strict-functor wrapper retirement, public promotion and final catalog/health/
+CI/source-pin qualification remain required. The goal stays active.
 
 Hom-comparison continuation after `a2b7ae37`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_hom_comparison_admission_review.md)
