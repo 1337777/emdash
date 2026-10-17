@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; terminal/initial embeddings and supplied kernel/cokernel adjunction reviewers qualified; represented-comma consumer, remaining migration and public promotion open
+Status: active implementation; zero-cone total and original map projections qualified; ordinary-target adjunction-family observations, remaining migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,34 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Represented-comma/zero-cone continuation after `a4c58fc8`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_zero_cone_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_zero_cone_verification.json)
+record the original zero-cone total and map projections in the corrected
+diagram coefficient. represented_comma_prof exposes the actual Cartesian
+Hom family already required by homdc_total_cat. This supersedes the prior
+tentative hom_int_view route, which would forget that required profile.
+Zero-cone vertices and differential reuse the existing oplax-diagram evaluator.
+
+The original map tuple is elaborated once for general A,B,F in the transparent
+represented_comma_map definition, then specialized to the zero-cone target.
+This avoids the measured category-inference failure after expanding the
+alternating dual, while retaining the exact original arrows and filler.
+No new rewrite/unification rule is selected. The experimental OddDual
+precomposition comparison was unnecessary with this definition and removed.
+The original two map-projection assertions pass in 57.389s at 90s/2GiB/o=5,
+with subject reduction and exactly the same warning bodies as the earlier
+failed direct-tuple attempt. All six green receipts from the preceding
+checkpoint still match their complete inputs; no unchanged core rerun is needed.
+
+The broader source now reaches one_cat_postcomp_adjunction's unit observation
+in emdash3_2_one_cat_adjunction_families.lp. Its old whiskering RHS mixes the
+ordinary mapping category with the migrated Cartesian/strict-transfor unit
+profile. Review its existing OneCat hypotheses and actual unit/counit owners;
+preserve the supplied adjunction and avoid a global mapping-profile equality.
+The broader run remains a failed integration boundary. Remaining migration,
+strict-wrapper retirement, public promotion and final gates are still required.
 
 Zero-arrow and adjunction continuation after `1513dd07`, 2026-10-16:
 the [owner review](../emdash2/audits/strict-default-action-boundary/production_zero_arrow_review.md)

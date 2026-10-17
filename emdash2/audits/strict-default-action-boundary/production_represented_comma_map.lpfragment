@@ -1,0 +1,16 @@
+// The existing nested-pair map, elaborated before specializing the target
+// to an alternating-dual diagram category. This is a definition, with no
+// new arrow data, projection rule or equality transport.
+symbol represented_comma_map [A B : Cat] [F : τ (Functor A B)]
+  [x0 x1 : τ (Obj A)] [y0 y1 : τ (Obj B)]
+  [h0 : τ (Hom B (@fapp0 A B F x0) y0)]
+  [h1 : τ (Hom B (@fapp0 A B F x1) y1)]
+  (a : τ (Hom A x0 x1)) (b : τ (Hom B y0 y1))
+  (alpha : τ (Hom (Hom_cat B (@fapp0 A B F x0) y1)
+    (@comp_fapp0 B (@fapp0 A B F x0) y0 y1 b h0)
+    (@comp_fapp0 B (@fapp0 A B F x0) (@fapp0 A B F x1) y1 h1
+      (@fapp1_fapp0 A B F x0 x1 a))))
+  : τ (Hom (@RepresentedComma_cat A B F)
+      (@represented_comma_obj A B F x0 y0 h0)
+      (@represented_comma_obj A B F x1 y1 h1))
+≔ Struct_sigma a (Struct_sigma b alpha);

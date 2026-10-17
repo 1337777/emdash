@@ -1558,6 +1558,40 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
             baseline_target = baseline_package / path
             baseline_target.parent.mkdir(parents=True, exist_ok=True)
             baseline_target.write_text(text)
+            comma_profiles = {
+                'emdash3_2_zero_arrow_cones.lp': (2, 6, 1, 1),
+                'emdash3_2_zero_arrow_cone_maps.lp': (0, 10, 1, 3),
+                'examples/zero_arrow_cone_maps.lp': (0, 21, 2, 6),
+            }
+            if path in comma_profiles:
+                old = text
+                counts = tuple(text.count(s) for s in ('(@Catd_cat B)',
+                    'Functor_cat WalkingArrow_cat C', 'Functor WalkingArrow_cat C',
+                    '@Transf WalkingArrow_cat C'))
+                assert counts == comma_profiles[path], (path, counts)
+                # The original whole two-sided total consumes this Cartesian
+                # Hom family; keep its actual profile instead of forgetting it.
+                text = text.replace('(@Catd_cat B)', '(Functor_cart_cat B Cat_cart)')
+                text = text.replace('Functor_cat WalkingArrow_cat C', 'Functor_oplax_cat WalkingArrow_cat C')
+                text = text.replace('Functor WalkingArrow_cat C', 'Obj (Functor_oplax_cat WalkingArrow_cat C)')
+                text = text.replace('@Transf WalkingArrow_cat C', '@Hom (Functor_oplax_cat WalkingArrow_cat C)')
+                text = text.replace('@diagram_family_at_func', '@diagram_oplax_family_at_func')
+                text = text.replace('@diagram_family_transf', '@diagram_oplax_family_transf')
+                if path == 'emdash3_2_zero_arrow_cones.lp':
+                    text = text.replace('// Hom_B(F[-],-), with the first coordinate contravariant as required by homdc.',
+                        '// Hom_B(F[-],-), retaining the Cartesian inner family required by\n'
+                        '// the corrected two-sided total. No ordinary-family coercion is needed.')
+                    marker = '// The zero-cone\'s datum is an actual transformation J(A)⇒d of arrow diagrams.'
+                    assert text.count(marker) == 1
+                    text = text.replace(marker, fragment('production_represented_comma_map.lpfragment') + '\n' + marker, 1)
+                if path == 'emdash3_2_zero_arrow_cone_maps.lp':
+                    map_body = '≔ Struct_sigma u (Struct_sigma v alpha);'
+                    assert text.count(map_body) == 1
+                    text = text.replace(map_body, '≔ @represented_comma_map C (Functor_oplax_cat WalkingArrow_cat C)\n'
+                        '    (@terminal_arrow_diagram_func C t T) a0 a1 d0 d1 h0 h1 u v alpha;', 1)
+                changes.append({'source': path, 'owner': 'represented comma and zero-cone total/maps',
+                                'reason': 'Keep the canonical Cartesian Hom family consumed by the existing two-sided total, and use the actual oplax arrow coefficient of the terminal embedding; preserve the original nested-Sigma and map bodies',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_adjunction_mates.lp':
                 old = text
                 dependency = 'require open emdash.emdash3_2_defiso_evaluation_points;'
@@ -2074,6 +2108,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/diagram_evaluation.lp')
     stage('examples/arrow_diagram_families.lp')
     stage('examples/zero_arrow_diagrams.lp')
+    stage('examples/zero_arrow_cone_maps.lp')
     stage('examples/kernel_cokernel_adjunctions.lp')
     stage('examples/adjunction_mates.lp')
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
