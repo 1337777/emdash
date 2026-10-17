@@ -1643,6 +1643,33 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 changes.append({'source': path, 'owner': 'ordinary-target postcomposition adjunction unit/counit',
                                 'reason': 'Use the existing generic Cat_cat telescope directly at the original ordinary mapping endpoints; preserve the supplied J, existing OneCat hypotheses and every reviewer statement',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_strict_pointwise_equivalences.lp':
+                old = text
+                marker = '// Displayed fixed-forward pointwise evidence over one whole transformation.'
+                assert text.count(marker) == 1
+                start = text.index(marker)
+                displayed = text[start:]
+                assert displayed.count('@Functor_cat') == 3
+                text = text[:start] + displayed.replace('@Functor_cat', '@Functor_cart_cat')
+                text = text.replace(marker, marker + '\n'
+                    '// The actual Cat_cart fibre Hom is Cartesian: retain the forward cell\n'
+                    '// and both chosen inverse components in that same coefficient.\n'
+                    '// Whole assembly remains the inherited primitive assumption above.')
+                changes.append({'source': path, 'owner': 'displayed pointwise-equivalence coefficient',
+                                'reason': 'Use the actual Cartesian coefficient of tdapp0_fapp0 for all selected pointwise inverse data; preserve ordinary assembly and the original whole declared inverse/law owners',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/action_profile_inherited_assembly_controls.lp':
+                old = text
+                assert text.count('Functor_cat (@Fibre_cat') == 2
+                text = text.replace('Functor_cat (@Fibre_cat', 'Functor_cart_cat (@Fibre_cat')
+                old_negative = 'assertnot [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]'
+                assert text.count(old_negative) == 1
+                text = text.replace(old_negative, old_negative.replace('assertnot', 'assert'), 1)
+                text = text.replace('// The inherited primitive does not install these generic reflexivity cuts.',
+                    '// Default functors now preserve composition; ordinary transfors remain lax.')
+                changes.append({'source': path, 'owner': 'inherited assembly controls',
+                                'reason': 'Observe the selected displayed inverse in its actual Cartesian coefficient, and update only the former lax-functor negative to the strict-default positive',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             zero_profiles = {
                 'emdash3_2_zero_arrow_diagrams.lp': (2, 10, 0),
                 'emdash3_2_kernel_cokernel_adjunctions.lp': (38, 5, 0),
@@ -2127,6 +2154,15 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/kernel_cokernel_adjunctions.lp')
     stage('examples/adjunction_mates.lp')
     stage('examples/one_cat_adjunction_families.lp')
+    stage('examples/action_profile_inherited_assembly_controls.lp')
+    # These original assertions exercise the assembly owner itself. Keep the
+    # full original downstream import closure staged as a separate obligation.
+    assembly_controls = (package / 'examples/action_profile_inherited_assembly_controls.lp').read_text()
+    imports = 'require open emdash.emdash3_2_direct_cover_completion_locality;\nrequire open emdash.emdash3_2_gray_profiles;'
+    assert assembly_controls.count(imports) == 1
+    (package / 'pointwise_assembly_controls.lp').write_text(assembly_controls.replace(
+        imports, 'require open emdash.emdash3_2_strict_pointwise_equivalences;', 1)
+        + '\n' + fragment('production_pointwise_coefficient_control.lpfragment'))
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
@@ -2232,6 +2268,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'diagram_evaluation_naturality_controls.lp',
                               package / 'arrow_diagram_migration_controls.lp',
                               package / 'zero_arrow_migration_controls.lp',
+                              package / 'pointwise_assembly_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

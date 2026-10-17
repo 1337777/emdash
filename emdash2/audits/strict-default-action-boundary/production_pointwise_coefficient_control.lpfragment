@@ -1,0 +1,10 @@
+// Forgetting a strict component does not promote ordinary inverse data back
+// to the Cartesian fibre Hom required by the displayed assembly contract.
+assertnot [K : Cat] [E D : τ (Catd K)] [FF GG : τ (@Functord K E D)]
+  (eta : τ (@Transfd K E D FF GG))
+  (u : τ (@Pi_grpd (Obj K) (λ x : τ (Obj K),
+    @OmegaEquivAlong (Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D x))
+      (@Fibre_func K E D FF x) (@Fibre_func K E D GG x)
+      (@strict_transfor _ _ _ _ (@tdapp0_fapp0 K E D FF GG x eta)))))
+  ⊢ @strict_transfd_pointwise_left_inverse K E D FF GG eta u
+    : τ (@Transfd K E D GG FF);

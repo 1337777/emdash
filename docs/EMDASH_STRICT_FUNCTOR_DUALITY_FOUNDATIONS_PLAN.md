@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; ordinary-target adjunction-family owner and complete reviewer qualified; displayed pointwise-equivalence coefficient, remaining migration and public promotion open
+Status: active implementation; displayed pointwise inverse coefficient and focused observations qualified; represented-comma graph, direct-cover producer, remaining migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,32 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Displayed pointwise-equivalence continuation after `b94125df`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_pointwise_coefficient_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_pointwise_coefficient_verification.json)
+record the assembly owner's three coefficient corrections. Its forward
+component and both selected inverse components now live in the actual
+Cart(E[x],D[x]) Hom. Whole outputs and both cancellation-law owners are
+retained, as is the baseline's explicit primitive-assembly assumption.
+Ordinary pointwise assembly is unchanged; no global FF strictness is added.
+
+The focused original observations pass with nine positive/two negative checks
+in 18.899s at 90s/2GiB/o=20. The old functor-composition negative becomes
+positive under the selected default; ordinary lax naturality remains negative.
+A new negative rejects ordinary inverse data in the Cartesian slot. Owner
+warnings and unreviewed LHS candidates are zero. Three previous green
+core/adjunction/inverse receipts still match their complete inputs.
+
+The main broader import now reaches comma_graph_source_catd in
+emdash3_2_represented_comma_families.lp: its declared T(B) base disagrees with
+the corrected O(B) identity graph. Review the coupled whole graph families
+and total-dual action, preserving the original lax input rather than equating
+those bases. The full inherited-assembly reviewer separately fails earlier at
+yoneda_psh_func in emdash3_2_presheaves.lp. Its direct-cover pointwise producer
+also still supplies ordinary-category inverse data and must be migrated with
+its actual fibre transformation; focused success does not qualify that producer.
+Both integration paths and all remaining migration/promotion gates stay open.
 
 Ordinary-target adjunction-family continuation after `d5bd294c`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_adjunction_family_review.md)
