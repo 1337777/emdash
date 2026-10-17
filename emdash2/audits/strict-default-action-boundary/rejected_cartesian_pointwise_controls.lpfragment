@@ -1,0 +1,56 @@
+// REJECTED candidate's syntactic controls. Their success does not establish
+// semantic validity; the generic Cartesian assembly is unselected.
+// Both Cartesian inverse components retain the supplied pointwise choices.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@CartTransfPointwiseOmegaAlong A B F G eta))
+  (x : τ (Obj A)) ⊢
+  @tapp0_fapp0 A B G F x
+    (@strict_transfor A B G F
+      (@cart_transf_pointwise_left_inverse A B F G eta u))
+  ≡ @omega_equiv_along_left_inv B
+      (@fapp0 A B F x) (@fapp0 A B G x)
+      (@tapp0_fapp0 A B F G x (@strict_transfor A B F G eta)) (u x);
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@CartTransfPointwiseOmegaAlong A B F G eta))
+  (x : τ (Obj A)) ⊢
+  @tapp0_fapp0 A B G F x
+    (@strict_transfor A B G F
+      (@cart_transf_pointwise_right_inverse A B F G eta u))
+  ≡ @omega_equiv_along_right_inv B
+      (@fapp0 A B F x) (@fapp0 A B G x)
+      (@tapp0_fapp0 A B F G x (@strict_transfor A B F G eta)) (u x);
+
+// The whole package uses those same inverse owners in the actual coefficient.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@CartTransfPointwiseOmegaAlong A B F G eta)) ⊢
+  @omega_equiv_along_left_inv (Functor_cart_cat A B) F G eta
+    (@cart_transf_pointwise_omega_along A B F G eta u)
+  ≡ @cart_transf_pointwise_left_inverse A B F G eta u;
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@CartTransfPointwiseOmegaAlong A B F G eta)) ⊢
+  @omega_equiv_along_right_inv (Functor_cart_cat A B) F G eta
+    (@cart_transf_pointwise_omega_along A B F G eta u)
+  ≡ @cart_transf_pointwise_right_inverse A B F G eta u;
+
+// The structural closure does not turn a raw lax transformation into a strict one.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@Transf A B F G)) ⊢
+  eta : τ (@StrictTransfor A B F G);
+
+// Distinct supplied inverse choices are not erased.
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u v : τ (@CartTransfPointwiseOmegaAlong A B F G eta))
+  (x : τ (Obj A)) ⊢
+  @tapp0_fapp0 A B G F x
+    (@strict_transfor A B G F
+      (@cart_transf_pointwise_left_inverse A B F G eta u))
+  ≡ @omega_equiv_along_left_inv B
+      (@fapp0 A B F x) (@fapp0 A B G x)
+      (@tapp0_fapp0 A B F G x (@strict_transfor A B F G eta)) (v x);

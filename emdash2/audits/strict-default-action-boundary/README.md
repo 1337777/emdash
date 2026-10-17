@@ -7,6 +7,14 @@ core and profile source hashes and inserts at unique original owner anchors.
 
 ## Current continuation, 2026-10-17
 
+The [locality profile review](production_locality_profile_review.md) and
+[verification](production_locality_profile_verification.json) distinguish the
+checked lower tower from the unresolved whole Cartesian inverse admission.
+A generic pointwise Cartesian inverse candidate passed syntactic controls
+but was rejected by the finite strict-2-category choice example. It is absent
+from the selected replay. The independent original eliminator reviewer passes;
+the full locality theorem remains a failed positive obligation.
+
 The [fibrewise/direct-cover review](production_fibrewise_cover_review.md) and
 [verification](production_fibrewise_cover_verification.json) record the
 original owners and reviewers through the completion HIT, followed by the

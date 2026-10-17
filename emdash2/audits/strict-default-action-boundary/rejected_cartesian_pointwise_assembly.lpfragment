@@ -1,0 +1,67 @@
+// REJECTED candidate; never included by the selected migration recipe.
+// This typechecks, but arbitrary pointwise inverse choices need not satisfy
+// strict naturality. See cartesian_pointwise_choice_counterexample.py and
+// production_locality_profile_review.md. Retained only as diagnostic evidence.
+symbol CartTransfPointwiseOmegaAlong
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G)) : Grpd
+≔ @StrictTransfPointwiseOmegaAlong A B F G
+    (@strict_transfor A B F G eta);
+
+injective symbol cart_transf_pointwise_left_inverse
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@CartTransfPointwiseOmegaAlong A B F G eta))
+  : τ (@StrictTransfor A B G F);
+
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _
+        (@cart_transf_pointwise_left_inverse $A $B $F $G $eta $u))
+  ↪ @omega_equiv_along_left_inv $B
+      (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $x)
+      (@tapp0_fapp0 $A $B $F $G $x
+        (@strict_transfor $A $B $F $G $eta)) ($u $x);
+
+injective symbol cart_transf_pointwise_right_inverse
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@CartTransfPointwiseOmegaAlong A B F G eta))
+  : τ (@StrictTransfor A B G F);
+
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _
+        (@cart_transf_pointwise_right_inverse $A $B $F $G $eta $u))
+  ↪ @omega_equiv_along_right_inv $B
+      (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $x)
+      (@tapp0_fapp0 $A $B $F $G $x
+        (@strict_transfor $A $B $F $G $eta)) ($u $x);
+
+// Whole cancellation remains supplied, as in the ordinary assembly owner.
+constant symbol cart_transf_pointwise_left_law
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@CartTransfPointwiseOmegaAlong A B F G eta))
+  : τ (@= (Hom (Functor_cart_cat A B) F F)
+      (@comp_fapp0 (Functor_cart_cat A B) F G F
+        (@cart_transf_pointwise_left_inverse A B F G eta u) eta)
+      (@id (Functor_cart_cat A B) F));
+
+constant symbol cart_transf_pointwise_right_law
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@CartTransfPointwiseOmegaAlong A B F G eta))
+  : τ (@= (Hom (Functor_cart_cat A B) G G)
+      (@comp_fapp0 (Functor_cart_cat A B) G F G
+        eta (@cart_transf_pointwise_right_inverse A B F G eta u))
+      (@id (Functor_cart_cat A B) G));
+
+symbol cart_transf_pointwise_omega_along
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@CartTransfPointwiseOmegaAlong A B F G eta))
+  : τ (@OmegaEquivAlong (Functor_cart_cat A B) F G eta)
+≔ @omega_equiv_along_intro (Functor_cart_cat A B) F G eta
+    (@cart_transf_pointwise_left_inverse A B F G eta u)
+    (@cart_transf_pointwise_right_inverse A B F G eta u)
+    (@cart_transf_pointwise_left_law A B F G eta u)
+    (@cart_transf_pointwise_right_law A B F G eta u);

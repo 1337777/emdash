@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; staged core and original consumers through direct-cover retained-section derivations qualified; broader library migration/public promotion open
+Status: active implementation; staged core and retained-section/eliminator consumers checked; locality needs a justified whole Cartesian inverse; broader migration/promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,35 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Locality profile review after `84abd6eb`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_locality_profile_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_locality_profile_verification.json)
+record the checked lower projection/ordinary-equivalence prefix and the
+remaining full-source failure. The canonical fibre transformation has the
+StrictTransfor type required by tdapp0; its ordinary observers use the
+existing view. The three original prefix diagnostics and the existing
+coefficient noncoercion control pass. The independent
+completion-eliminator reviewer passes thirteen assertions, with an input
+closure unchanged by the rejected experiment below. The Homd core is unchanged.
+
+The complete locality proof now stops at
+direct_cover_completion_restriction_glue_transfd_pointwise_omega: its ordinary
+fibre equivalence cannot supply the Cartesian equivalence and actual forward
+cell required by displayed assembly. A generic Cartesian pointwise assembly
+candidate typechecked but is rejected. The finite strict-2-category example
+in the review shows that arbitrary pointwise quasi-inverse choices need not
+form a strictly natural inverse. Its green diagnostic receipts do not qualify
+the candidate, and its declarations are absent from the selected replay.
+
+Next construct or justify coherent whole Cartesian inverse data for the
+particular locality comparison. Do not collapse raw/Cartesian categories,
+erase the selected inverse choices, or replace this obligation with the
+rejected generic closure. Stronger genuine-inverse profiles or a changed
+downstream mapping contract require specific qualification. The selected
+prefix and eliminator pass in about 36s/26s; the full locality failure takes
+about 32s at the existing 300s/4GiB/o=20 profile. Remaining library work,
+wrapper retirement, production promotion and final gates remain required.
 
 Fibrewise/direct-cover continuation after `b84f544d`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_fibrewise_cover_review.md)

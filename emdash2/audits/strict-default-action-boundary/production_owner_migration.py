@@ -1833,6 +1833,31 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'direct-cover retained section derivations',
                                 'reason': 'Observe the same raw presheaf maps in Cat_cart and reuse the ordinary view of their canonical represented section; preserve all fifteen original derived bodies and their input data',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_direct_cover_completion_locality.lp':
+                old = text
+                components = r'(@tapp0_fapp0\s+\(Op_cat \$?K\)\s+)Cat_cat'
+                assert len(re.findall(components, text)) == 4
+                text = re.sub(components, r'\1Cat_cart', text)
+                start = text.index('injective symbol direct_cover_completion_restriction_glue_fibre_transf')
+                end = text.index('rule @tdapp0_fapp0', start)
+                declaration = text[start:end]
+                assert declaration.count(': τ (@Transf\n') == 1
+                text = text[:start] + declaration.replace(': τ (@Transf\n', ': τ (@StrictTransfor\n', 1) + text[end:]
+                component = '''(@direct_cover_completion_restriction_glue_fibre_transf
+        $K $T $P $V $U $q $m)'''
+                assert text.count(component) == 1
+                text = text.replace(component, '(@strict_transfor _ _ _ _ ' + component + ')', 1)
+                member = '''(@direct_cover_completion_restriction_glue_fibre_transf
+          K T P V U q m)'''
+                assert text.count(member) == 1
+                text = text.replace(member, '(@strict_transfor _ _ _ _ ' + member + ')', 1)
+                for indent, expected in ((8, 2), (6, 1)):
+                    ordinary_view = '(@direct_cover_completion_restriction_glue_fibre_transf\n' + ' ' * indent + 'K T P V U q m)'
+                    assert text.count(ordinary_view) == expected
+                    text = text.replace(ordinary_view, '(@strict_transfor _ _ _ _ ' + ordinary_view + ')')
+                changes.append({'source': path, 'owner': 'direct-cover locality retained-member observation',
+                                'reason': 'Give the canonical fibre transformation its actual Cartesian profile and use its ordinary view below; the final Cartesian inverse admission remains an explicit failed obligation, not a generic pointwise closure assumption',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_direct_cover_completion_hit.lp',
                         'examples/direct_cover_completion_hit.lp'):
                 old = text
@@ -2751,11 +2776,32 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/direct_cover_question_families.lp')
     stage('examples/direct_cover_internal_sheaves.lp')
     stage('examples/direct_cover_completion_hit.lp')
+    stage('examples/direct_cover_completion_eliminator.lp')
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
     original_checks = subprocess.check_output(
         ['git', 'show', PIN + ':emdash2/emdash3_2_checks.lp'], cwd=root, text=True)
+    locality_start = '// catalog-area: Strict pointwise equivalences and direct-cover locality'
+    locality_end = '/* End of the CS-12q conventional direct-cover locality diagnostics. */'
+    assert original_checks.count(locality_start) == original_checks.count(locality_end) == 1
+    locality_controls = original_checks[original_checks.index(locality_start):original_checks.index(locality_end)+len(locality_end)]
+    displayed_hom = '(@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D x))'
+    assert locality_controls.count(displayed_hom) == 1
+    locality_controls = locality_controls.replace(displayed_hom,
+        displayed_hom.replace('@Functor_cat', '@Functor_cart_cat'), 1)
+    (package / 'locality_profile_controls.lp').write_text(
+        (package / 'examples/action_profile_inherited_assembly_controls.lp').read_text()
+        + '\n' + locality_controls + '\n')
+    locality_source = (package / 'emdash3_2_direct_cover_completion_locality.lp').read_text()
+    locality_boundary = '// Fibrewise whole equivalences are the pointwise evidence for rho[m].'
+    assert locality_source.count(locality_boundary) == 1
+    controls_boundary = '// The second inverse and whole locality have their conventional public types.'
+    assert locality_controls.count(controls_boundary) == 1
+    (package / 'locality_fibre_prefix.lp').write_text(
+        locality_source[:locality_source.index(locality_boundary)] + '\n'
+        + locality_controls[:locality_controls.index(controls_boundary)] + '\n'
+        + fragment('production_pointwise_coefficient_control.lpfragment'))
     psss_start = '// catalog-area: Cat-valued presheaf facade and restriction'
     psss_end = '/* End of the PSSS-02 higher-sieve diagnostics. */'
     assert original_checks.count(psss_start) == original_checks.count(psss_end) == 1
@@ -3039,6 +3085,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'presheaf_profile_controls.lp',
                               package / 'sieve_profile_controls.lp',
                               package / 'direct_cover_question_regression.lp',
+                              package / 'locality_profile_controls.lp',
+                              package / 'locality_fibre_prefix.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
