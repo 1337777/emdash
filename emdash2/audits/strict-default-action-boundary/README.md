@@ -1,9 +1,20 @@
 # Strict-default action owner audit
 
-Status: non-library implementation pilot; no production rule is promoted.
+Status: non-library staged implementation; production promotion remains open.
 Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md).
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
+
+## Current continuation, 2026-10-17
+
+The complete staged core and the original ordinary-arrow reviewer pass. The
+[ordinary-arrow review](production_one_cat_arrow_review.md) and its
+[verification](production_one_cat_arrow_verification.json) record preservation
+of the original interface through the existing OneCat admission, Cartesian
+exchange and ordinary inclusion. The next broader-import failure is the old
+coefficient tag in one_cat_modifications; external Hom-comparison admission
+and remaining migration/promotion gates are open. The living plan owns the
+current execution contract; the sections below retain earlier checkpoints.
 
 ## Internal Pi and classified intrinsic action, 2026-10-15
 

@@ -1,0 +1,36 @@
+// The admitted universal arrow has the original components. Keep its whole
+// strict view stable: only this named constructor's component is projected.
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _
+        (@make_strict_transfor _ _ _ _
+          (@one_cat_arrow_universal_transf $C $C1) _))
+  ↪ @tapp0_fapp0 (@LaxArrow_cat $C) $C
+      (@cubical_src_func $C) (@cubical_tgt_func $C) $x
+      (@one_cat_arrow_universal_transf $C $C1);
+
+// Existing walking-arrow point comparison at its Cartesian exchange profile.
+// The two Terminal domains select the actual constructor. The strict U is
+// observed through its ambient view; no arbitrary lax input is admitted.
+unif_rule
+  @sym_fapp0_func _ $K $C
+    (@join_elim_func Terminal_cat Terminal_cat _
+      (@Const_func _ _ $F) (@Const_func _ _ $G) (@Const_func _ _ $U)) $x
+  ≡ @join_elim_func $A $B $E
+      (@Const_func _ _ $Fx) (@Const_func _ _ $Gx) (@Const_func _ _ $Ux)
+  ↪ [ $A ≡ Terminal_cat; $B ≡ Terminal_cat; $E ≡ $C;
+      $Fx ≡ @fapp0 $K $C $F $x; $Gx ≡ @fapp0 $K $C $G $x;
+      $Ux ≡ @tapp0_fapp0 $K $C $F $G $x
+        (@strict_transfor $K $C $F $G $U) ];
+
+// Typed reflexivity exercises the proof-time rule without a runtime fold.
+symbol cart_arrow_diagram_point_path
+  [K C : Cat] [F G : τ (Functor K C)]
+  (U : τ (@StrictTransfor K C F G)) (x : τ (Obj K))
+  : τ (@= (Functor WalkingArrow_cat C)
+      (@sym_fapp0_func WalkingArrow_cat K C
+        (@walking_arrow_func (Functor_cart_cat K C) F G U) x)
+      (@walking_arrow_func C (@fapp0 K C F x) (@fapp0 K C G x)
+        (@tapp0_fapp0 K C F G x (@strict_transfor K C F G U))))
+≔ @eq_refl (Functor WalkingArrow_cat C)
+    (@sym_fapp0_func WalkingArrow_cat K C
+      (@walking_arrow_func (Functor_cart_cat K C) F G U) x);

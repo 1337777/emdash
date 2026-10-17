@@ -1680,6 +1680,44 @@ unif_rule @sigma_map_func $K _ _
                 changes.append({'source': path, 'owner': 'evaluated inverse point cancellation',
                                 'reason': 'Instance the existing two functor-valued point cuts at Cat_cart, retaining the actual chosen inverse package and evaluation point',
                                 'insertedSha256': sha(addition)})
+            if path == 'emdash3_2_one_cat_arrow_diagrams.lp':
+                old = text
+                dep = 'require open emdash.emdash3_2_arrow_diagram_families;'
+                assert text.count(dep) == 1
+                text = text.replace(dep, dep + '\nrequire open emdash.emdash3_2_one_cat_transfor_profiles;', 1)
+                identity = 'rule @tapp1_fapp0 (Op_cat $K) _ _ _'
+                assert text.count(identity) == 1
+                text = text.replace(identity, 'rule @tapp1_fapp0 (CoAbove2_cat (Op_cat $K)) _ _ _', 1)
+                text = text.replace('after its opposite identity normalizes.', 'after its total-dual identity normalizes.')
+                original_body = '''≔ @transf_arrow_diagram_func (@LaxArrow_cat C) C
+    (@cubical_src_func C) (@cubical_tgt_func C)
+    (@one_cat_arrow_universal_transf C C1);'''
+                assert text.count(original_body) == 1
+                replacement = '''// OneCat(C) supplies the existing strict-transfor admission. Cartesian
+// exchange then constructs the same ordinary diagram interface, through its
+// actual inclusion; the default ambient transformations remain lax.
+≔ @comp_cat_fapp0 (@LaxArrow_cat C) (Functor_cart_cat WalkingArrow_cat C)
+    (Functor_cat WalkingArrow_cat C) (Functor_cart_include WalkingArrow_cat C)
+    (@sym_func WalkingArrow_cat (@LaxArrow_cat C) C
+      (@walking_arrow_func (Functor_cart_cat (@LaxArrow_cat C) C)
+        (@cubical_src_func C) (@cubical_tgt_func C)
+        (@one_cat_strict_transfor (@LaxArrow_cat C) C C1
+          (@cubical_src_func C) (@cubical_tgt_func C)
+          (@one_cat_arrow_universal_transf C C1))));'''
+                text = text.replace(original_body, replacement, 1)
+                anchor = 'symbol one_cat_arrow_diagram_func\n'
+                assert text.count(anchor) == 1
+                text = text.replace(anchor, fragment('production_cartesian_arrow_point.lpfragment') + '\n' + anchor, 1)
+                changes.append({'source': path, 'owner': 'ordinary-target arrow diagrams',
+                                'reason': 'Correct the total-dual identity guard and reuse existing OneCat strict-transfor admission with Cartesian exchange; preserve the public ordinary diagram target and original square data',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/one_cat_arrow_diagrams.lp':
+                old = text
+                assert text.count('@hom_int ') == 2
+                text = text.replace('@hom_int ', '@hom_int_view ')
+                changes.append({'source': path, 'owner': 'ordinary arrow reviewer coefficient',
+                                'reason': 'Pass the existing ordinary Hom-family view to the local square-fibre interface; preserve all original observations',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/adjunction_mates.lp':
                 old = text
                 carrier = '@Transf (Product_cat (Op_cat R) L) Cat_cat'
@@ -2411,6 +2449,10 @@ unif_rule @sigma_map_func $K _ _
     stage('examples/action_profile_inherited_assembly_controls.lp')
     stage('examples/represented_comma_families.lp')
     stage('examples/action_profile_prof_defiso_controls.lp')
+    stage('examples/one_cat_arrow_diagrams.lp')
+    (package / 'one_cat_arrow_profile_controls.lp').write_text(
+        'require open emdash.examples.one_cat_arrow_diagrams;\n'
+        + fragment('production_one_cat_arrow_controls.lpfragment'))
     stage('emdash3_2_one_cat_hom_comparison_data.lp')
     graph_source = (package / 'emdash3_2_represented_comma_families.lp').read_text()
     graph_boundary = '// Fibrewise Sigma of the existing whole internal action.'

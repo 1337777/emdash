@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; represented-comma and profunctor inverse evaluation qualified; downstream ordinary-arrow/Hom-comparison migration and public promotion open
+Status: active implementation; represented-comma, profunctor inverse evaluation and ordinary-arrow reviewer qualified; downstream modification/Hom-comparison migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,44 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Ordinary-arrow continuation after `5f96019d`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_arrow_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_one_cat_arrow_verification.json)
+record the unchanged ordinary-target public interface and all nine original
+positive/one negative observations, including its higher-Hom typing query.
+The existing OneCat(C) premise supplies strict-transfor admission; Cartesian
+exchange and its actual inclusion produce the original ordinary diagram.
+No extra source-base truncation, arbitrary strict naturality or caller
+comparison is added. Its component, whole point comparison and total-dual
+identity observations retain the original data. One added positive and two
+negative controls check the point comparison and retain its generating arrow
+and distinct whole runtime heads.
+
+The original exchange owner now handles identities whose total-dual source
+annotation has normalized, and composition whose two Cartesian images have
+already projected through the ordinary inclusion. Core/projection regression
+passes 268 positive/66 negative assertions. Both owning LHS audits have zero
+unreviewed candidates. Warning review records 26 additional bodies in the
+arrow import (24 in core): total-dual identity, unit/projection, product-target
+and included double-exchange overlaps. The actual typed consumers pass;
+unrestricted confluence and every specialized projection order are not
+claimed. These warning boundaries remain explicit at promotion.
+
+The arrow reviewer passes in about 36s at the reviewed 90s/4GiB/o=20 import
+profile; the core regression passes in about 21s at 90s/2GiB/o=20. A separate
+full-normalization diagnostic of the expanded admitted constructor exhausted
+the 4GiB guard; this is retained as a performance boundary, not a typing or
+semantic rejection. No resource defaults or runtime limits were increased.
+
+The broader import passes the arrow owner and now stops at
+emdash3_2_one_cat_modifications.lp:27–29, whose old internalization rule uses
+Cat_cat where its family now requires Cat_cart. Next migrate that original
+modification owner and its actual consumers, then qualify the external
+Hom-action admission. Preserve the original arbitrary source base, actual
+comparison/inverse data and allowed laxness. Remaining library work, redundant
+strict-functor wrapper retirement, public promotion and final gates remain
+required; the goal stays active.
 
 Profunctor inverse-evaluation continuation after `6193e164`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_prof_defiso_coefficient_review.md)
