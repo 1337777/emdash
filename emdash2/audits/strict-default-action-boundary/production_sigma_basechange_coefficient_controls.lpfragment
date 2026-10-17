@@ -1,0 +1,57 @@
+assert [A K : Cat] (F : τ (Functor A K)) (E : τ (Catd K))
+  ⊢ @tapp0_fapp0 _ _ _ _ E (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf A K F))
+    ≡ @sigma_pullback_total_func A K F E;
+
+assert [A K : Cat] (F : τ (Functor A K)) (E : τ (Catd K))
+  (a : τ (Obj A)) (u : τ (Obj (Fibre_cat E (@fapp0 A K F a))))
+  ⊢ @fapp0 _ _
+      (@tapp0_fapp0 _ _ _ _ E (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf A K F)))
+      (@Struct_sigma (Obj A) (λ x : τ (Obj A), Obj (Fibre_cat E (@fapp0 A K F x))) a u)
+    ≡ @Struct_sigma (Obj K) (λ x : τ (Obj K), Obj (Fibre_cat E x)) (@fapp0 A K F a) u;
+
+assert [A K : Cat] (F : τ (Functor A K))
+  ⊢ eq_refl (@fapp0 _ _
+      (@comp_cat_cov_fapp1_func (Functor_cart_cat K Cat_cart) Cat_cart Cat_cat Cat_cart_include
+        (@Sigma_pullback_coeff_source A K F) (@Sigma_coeff_func K))
+      (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf A K F)))
+    : τ (@= (@Transf (Functor_cart_cat K Cat_cart) Cat_cat _ _)
+      (@fapp0 _ _
+        (@comp_cat_cov_fapp1_func (Functor_cart_cat K Cat_cart) Cat_cart Cat_cat Cat_cart_include
+          (@Sigma_pullback_coeff_source A K F) (@Sigma_coeff_func K))
+        (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf A K F)))
+      (@fapp0 _ _
+        (@comp_cat_con_fapp1_func (Functor_cart_cat K Cat_cart) (Catd_cat K) Cat_cat
+          (Functor_cart_include K Cat_cart)
+          (@comp_cat_fapp0 (Catd_cat K) (Catd_cat A) Cat_cat (@Sigma_func A) (@Pullback_catd_func A K F))
+          (@Sigma_func K)) (@sigma_pullback_total_transf A K F)));
+
+// A different object of the same target total is not substituted for (F[a],u).
+assertnot [A K : Cat] (F : τ (Functor A K)) (E : τ (Catd K))
+  (a : τ (Obj A)) (u : τ (Obj (Fibre_cat E (@fapp0 A K F a))))
+  (b : τ (Obj K)) (v : τ (Obj (Fibre_cat E b)))
+  ⊢ @fapp0 _ _
+      (@tapp0_fapp0 _ _ _ _ E (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf A K F)))
+      (@Struct_sigma (Obj A) (λ x : τ (Obj A), Obj (Fibre_cat E (@fapp0 A K F x))) a u)
+    ≡ @Struct_sigma (Obj K) (λ x : τ (Obj K), Obj (Fibre_cat E x)) b v;
+
+// Concrete constant-family instance, with its canonical product endpoints.
+assert [A K C : Cat] (F : τ (Functor A K)) (a : τ (Obj A)) (u : τ (Obj C))
+  ⊢ @fapp0 (Product_cat A C) (Product_cat K C)
+      (@tapp0_fapp0 (Functor_cart_cat K Cat_cart) Cat_cart
+        (@Sigma_pullback_coeff_source A K F) (@Sigma_coeff_func K) (@Const_catd K C)
+        (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf A K F)))
+      (@Struct_sigma (Obj A) (λ _ : τ (Obj A), Obj C) a u)
+    ≡ @Struct_sigma (Obj K) (λ _ : τ (Obj K), Obj C) (@fapp0 A K F a) u;
+
+// The explicit forgetting cut does not discard a nonidentity other leg.
+assertnot [A K : Cat] (F : τ (Functor A K))
+  (omega : τ (@Transf Cat_cart Cat_cat Cat_cart_include Cat_cart_include))
+  ⊢ @comp_prod_fapp1_fapp0 Cat_cat (Functor_cart_cat K Cat_cart) Cat_cart Cat_cat
+      (Struct_sigma (@Sigma_pullback_coeff_source A K F) Cat_cart_include)
+      (Struct_sigma (@Sigma_coeff_func K) Cat_cart_include)
+      (Struct_sigma (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf A K F)) omega)
+    ≡ @comp_prod_fapp1_fapp0 Cat_cat (Functor_cart_cat K Cat_cart) Cat_cart Cat_cat
+      (Struct_sigma (@Sigma_pullback_coeff_source A K F) Cat_cart_include)
+      (Struct_sigma (@Sigma_coeff_func K) Cat_cart_include)
+      (Struct_sigma (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf A K F))
+        (@id (Functor_cat Cat_cart Cat_cat) Cat_cart_include));

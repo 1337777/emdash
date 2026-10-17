@@ -1,0 +1,69 @@
+// Cartesian represented family, with its existing ordinary input view.
+protected symbol comma_graph_rep_cart [B C : Cat] (F : τ (Functor B C))
+  : τ (Functor (Op_cat B) (Functor_cart_cat C Cat_cart))
+≔ @comp_cat_fapp0 (Op_cat B) (Op_cat C) (Functor_cart_cat C Cat_cart)
+    (@hom_int C C (@id_func C)) (@Op_func B C F);
+
+protected symbol comma_graph_rep_catd [B C : Cat] (F : τ (Functor B C))
+  : τ (Functor (Op_cat B) (Catd_cat C))
+≔ @comp_cat_fapp0 (Op_cat B) (Functor_cart_cat C Cat_cart) (Catd_cat C)
+    (Functor_cart_include C Cat_cart) (@comma_graph_rep_cart B C F);
+
+// Retain the original ordinary source functor for its whole ambient view.
+protected symbol comma_graph_basechange_source_func [B C : Cat] (G : τ (Functor B C))
+  : τ (Functor (Catd_cat C) Cat_cat)
+≔ @comp_cat_fapp0 (Catd_cat C) (Catd_cat B) Cat_cat
+    (@Sigma_func B) (@Pullback_catd_func B C G);
+
+protected symbol comma_graph_basechange_source_catd [B C : Cat]
+  (F G : τ (Functor B C))
+  : τ (Catd (Op_cat B))
+≔ @comp_cat_fapp0 (Op_cat B) (Functor_cart_cat C Cat_cart) Cat_cart
+    (@Sigma_pullback_coeff_source B C G) (@comma_graph_rep_cart B C F);
+
+protected symbol comma_graph_target_raw_catd [B C : Cat] (F : τ (Functor B C))
+  : τ (Catd (Op_cat B))
+≔ @comp_cat_fapp0 (Op_cat B) (Op_cat C) Cat_cart
+    (@homdc_edge_catd C C (@hom_int C C (@id_func C))) (@Op_func B C F);
+
+// Existing Cartesian prewhiskering of the admitted base-change map.
+protected symbol comma_graph_basechange_transf [B C : Cat]
+  (F G : τ (Functor B C))
+  : τ (Hom (Functor_cart_cat (Op_cat B) Cat_cart)
+      (@comma_graph_basechange_source_catd B C F G) (@comma_graph_target_raw_catd B C F))
+≔ @hom_precomp_along_fapp1_fapp0 Cat_cart Cat_cart (@id_func Cat_cart)
+    Cat_cart (Op_cat B) (Functor_cart_cat C Cat_cart) (@comma_graph_rep_cart B C F)
+    (@Sigma_pullback_coeff_source B C G) (@Sigma_coeff_func C)
+    (@sigma_pullback_coeff_transf B C G);
+
+protected symbol comma_graph_basechange_op_raw_funcd [B C : Cat]
+  (F G : τ (Functor B C))
+  : τ (@Functord (TotalOp_cat B)
+      (@TotalOp_catd (Op_cat B) (@comma_graph_basechange_source_catd B C F G))
+      (@TotalOp_catd (Op_cat B) (@comma_graph_target_raw_catd B C F)))
+≔ @strict_transfor _ _ _ _
+    (@TotalOp_funcd (Op_cat B)
+      (@comma_graph_basechange_source_catd B C F G) (@comma_graph_target_raw_catd B C F)
+      (@comma_graph_basechange_transf B C F G));
+
+protected symbol comma_graph_basechange_source_reframe_funcd [B C : Cat]
+  (F G : τ (Functor B C))
+  : τ (@Functord (TotalOp_cat B)
+      (@comma_graph_middle_catd B C F G)
+      (@TotalOp_catd (Op_cat B) (@comma_graph_basechange_source_catd B C F G)))
+≔ @id_funcd (TotalOp_cat B) (@comma_graph_middle_catd B C F G);
+
+protected symbol comma_graph_basechange_target_reframe_funcd [B C : Cat]
+  (F : τ (Functor B C))
+  : τ (@Functord (TotalOp_cat B)
+      (@TotalOp_catd (Op_cat B) (@comma_graph_target_raw_catd B C F))
+      (@comma_graph_target_catd B C F))
+≔ @id_funcd (TotalOp_cat B) (@TotalOp_catd (Op_cat B) (@comma_graph_target_raw_catd B C F));
+
+protected symbol comma_graph_basechange_op_funcd [B C : Cat]
+  (F G : τ (Functor B C))
+  : τ (@Functord (TotalOp_cat B)
+      (@comma_graph_middle_catd B C F G) (@comma_graph_target_catd B C F))
+// The two reframings above are identities of proof-time-equal families.
+// Keep the same actual map without inserting those identities as runtime cuts.
+≔ @comma_graph_basechange_op_raw_funcd B C F G;

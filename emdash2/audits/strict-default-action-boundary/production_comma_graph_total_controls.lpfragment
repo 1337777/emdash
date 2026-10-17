@@ -1,0 +1,18 @@
+// The whole graph still accepts the original general lax transformation.
+symbol canonical_comma_graph [B C : Cat] [F G : τ (Functor B C)]
+  (eta : τ (@Transf B C F G)) : τ (Functor B (@LaxArrow_cat C))
+≔ @comma_graph_internal_func B C F G (@tapp1_int_cart B C F G eta);
+
+assert [B C : Cat] [F G : τ (Functor B C)] (eta : τ (@Transf B C F G)) (x : τ (Obj B))
+  ⊢ @fapp0 B (@LaxArrow_cat C) (@canonical_comma_graph B C F G eta) x
+    ≡ @lax_edge C (@fapp0 B C F x) (@fapp0 B C G x) (@tapp0_fapp0 B C F G x eta);
+
+// All three components are the original data, including noninvertible laxity.
+assert [B C : Cat] [F G : τ (Functor B C)] (eta : τ (@Transf B C F G))
+  (x y : τ (Obj B)) (p : τ (Hom B x y))
+  ⊢ @fapp1_fapp0 B (@LaxArrow_cat C) (@canonical_comma_graph B C F G eta) x y p
+    ≡ @lax_square C
+      (@fapp0 B C F x) (@fapp0 B C F y) (@fapp0 B C G x) (@fapp0 B C G y)
+      (@tapp0_fapp0 B C F G x eta) (@tapp0_fapp0 B C F G y eta)
+      (@fapp1_fapp0 B C F x y p) (@fapp1_fapp0 B C G x y p)
+      (@tapp1_post_laxity_cell B C F G eta x x y p (@id B x));

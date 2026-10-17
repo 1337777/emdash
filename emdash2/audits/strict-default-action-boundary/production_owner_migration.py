@@ -1364,6 +1364,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     insert('// Fibrewise dimension-one transpose changes the base by CoAt2.',
            fragment('production_total_op_parameter.lpfragment'),
            'Expose total-dual strict family-map components at the existing whole TotalOp_catd_func owner')
+    insert('// Whole represented-Sigma base change accumulates before a retained outer',
+           fragment('production_sigma_basechange_coefficient.lpfragment'),
+           'Canonical Cartesian parameter view of original total base change, with unchanged components and actual ordinary restriction')
     a = body.index('// 18zz. Whole comma projection and displayed laxity extraction')
     b = body.index('// 19. Applications:', a)
     replace_once(body[a:b], fragment('production_comma_projection.lpfragment') + '\n',
@@ -1690,9 +1693,21 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 assert tail.count(admission_end) == 1
                 begin, end_admission = tail.index(sigma_end), tail.index(admission_end)
                 tail = tail[:begin] + sigma_end + '\n' + fragment('production_comma_graph_admitted.lpfragment') + '\n' + tail[end_admission:]
+                basechange_end = 'protected symbol comma_graph_target_sec\n'
+                assert tail.count(basechange_end) == 1
+                begin, end_basechange = tail.index(admission_end), tail.index(basechange_end)
+                tail = tail[:begin] + admission_end + '\n' + fragment('production_comma_graph_basechange.lpfragment') + '\n' + tail[end_basechange:]
+                total_end = '// The actual whole input classifier.'
+                assert tail.count(total_end) == 1
+                begin, end_total = tail.index(basechange_end), tail.index(total_end)
+                tail = tail[:begin] + fragment('production_comma_graph_total.lpfragment') + '\n' + tail[end_total:]
+                constructor_end = '// Whole source projection with its original inverse data.'
+                assert tail.count(constructor_end) == 1
+                begin, end_constructor = tail.index(total_end), tail.index(constructor_end)
+                tail = tail[:begin] + total_end + '\n\n' + fragment('production_represented_comma_constructor.lpfragment') + '\n' + tail[end_constructor:]
                 text = text[:start] + fragment('production_comma_graph_families.lpfragment') + '\n' + tail
                 changes.append({'source': path, 'owner': 'represented-comma graph family profiles',
-                                'reason': 'Retain the Cartesian inner family and ordinary view, admit the strict-x Sigma map and total-dual middle section over O(B); the following base-change and full graph remain under qualification',
+                                'reason': 'Retain the Cartesian inner family and ordinary view, canonical strict-x admission, total-dual sections, corrected base change and derived graph; original comparison helpers remain under qualification',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/action_profile_inherited_assembly_controls.lp':
                 old = text
@@ -2203,6 +2218,17 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     assert graph_source.count(middle_boundary) == 1
     (package / 'comma_graph_middle_prefix.lp').write_text(graph_source[:graph_source.index(middle_boundary)]
         + '\n' + fragment('production_comma_graph_middle_controls.lpfragment'))
+    basechange_boundary = 'protected symbol comma_graph_target_sec [B C : Cat]'
+    assert graph_source.count(basechange_boundary) == 1
+    (package / 'comma_graph_basechange_prefix.lp').write_text(graph_source[:graph_source.index(basechange_boundary)])
+    total_boundary = '// The actual whole input classifier.'
+    assert graph_source.count(total_boundary) == 1
+    (package / 'comma_graph_total_prefix.lp').write_text(graph_source[:graph_source.index(total_boundary)]
+        + '\n' + fragment('production_comma_graph_total_controls.lpfragment'))
+    constructor_boundary = '// Whole source projection with its original inverse data.'
+    assert graph_source.count(constructor_boundary) == 1
+    (package / 'represented_comma_constructor_prefix.lp').write_text(graph_source[:graph_source.index(constructor_boundary)]
+        + '\n' + fragment('production_represented_comma_constructor_controls.lpfragment'))
     # These original assertions exercise the assembly owner itself. Keep the
     # full original downstream import closure staged as a separate obligation.
     assembly_controls = (package / 'examples/action_profile_inherited_assembly_controls.lp').read_text()
@@ -2217,6 +2243,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'sigma_parameter_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_gray_profiles;\n'
         + fragment('production_sigma_parameter_profile_controls.lpfragment'))
+    (package / 'sigma_basechange_coefficient_controls.lp').write_text(
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + fragment('production_sigma_basechange_coefficient_controls.lpfragment'))
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
@@ -2328,6 +2357,10 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'internal_x_profile_controls.lp',
                               package / 'sigma_parameter_profile_controls.lp',
                               package / 'comma_graph_middle_prefix.lp',
+                              package / 'sigma_basechange_coefficient_controls.lp',
+                              package / 'comma_graph_basechange_prefix.lp',
+                              package / 'comma_graph_total_prefix.lp',
+                              package / 'represented_comma_constructor_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',

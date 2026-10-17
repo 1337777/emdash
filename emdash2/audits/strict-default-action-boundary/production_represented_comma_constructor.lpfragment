@@ -1,0 +1,54 @@
+// The original represented-comma family, over its corrected total-dual base.
+protected symbol represented_comma_family_catd [X Y : Cat] (J : τ (Functor X Y))
+  : τ (Catd (TotalOp_cat X))
+≔ @Pullback_catd (TotalOp_cat X) (TotalOp_cat Y)
+    (@comma_graph_target_base_catd Y) (@TotalOp_func X Y J);
+
+protected symbol represented_comma_family_reframe [X Y : Cat] (J : τ (Functor X Y))
+  : τ (@Functord (TotalOp_cat X) (@represented_comma_family_catd X Y J)
+      (@homdc_op_edge_catd X Y (@represented_comma_prof X Y J)))
+≔ @id_funcd (TotalOp_cat X) (@represented_comma_family_catd X Y J);
+
+protected symbol represented_comma_family_target [K X Y : Cat]
+  (J : τ (Functor X Y)) (A : τ (Functor K X))
+  : τ (Catd (TotalOp_cat K))
+≔ @Pullback_catd (TotalOp_cat K) (TotalOp_cat X)
+    (@represented_comma_family_catd X Y J) (@TotalOp_func K X A);
+
+protected symbol represented_comma_family_section [K X Y : Cat]
+  (J : τ (Functor X Y)) (A : τ (Functor K X)) (D : τ (Functor K Y))
+  (h : τ (Hom (Functor_cart_cat (Op_cat K) (Catd_cat K))
+    (@hom_int_view K K (@id_func K))
+    (@comp_cat_fapp0 (Op_cat K) (Op_cat Y) (Catd_cat K)
+      (@hom_int_view Y K D) (@Op_func K Y (@comp_cat_fapp0 K X Y J A)))))
+  : τ (Obj (@Pi_cat (TotalOp_cat K) (@represented_comma_family_target K X Y J A)))
+≔ @comma_graph_target_sec K Y (@comp_cat_fapp0 K X Y J A) D h;
+
+protected symbol represented_comma_family_underlying_func [K X Y : Cat]
+  (J : τ (Functor X Y)) (A : τ (Functor K X)) (D : τ (Functor K Y))
+  (h : τ (Hom (Functor_cart_cat (Op_cat K) (Catd_cat K))
+    (@hom_int_view K K (@id_func K))
+    (@comp_cat_fapp0 (Op_cat K) (Op_cat Y) (Catd_cat K)
+      (@hom_int_view Y K D) (@Op_func K Y (@comp_cat_fapp0 K X Y J A)))))
+  : τ (Functor (TotalOp_cat K)
+      (@Sigma_cat (TotalOp_cat X) (@represented_comma_family_catd X Y J)))
+≔ @comp_cat_fapp0 (TotalOp_cat K)
+    (@Sigma_cat (TotalOp_cat K) (@represented_comma_family_target K X Y J A))
+    (@Sigma_cat (TotalOp_cat X) (@represented_comma_family_catd X Y J))
+    (@sigma_pullback_total_func (TotalOp_cat K) (TotalOp_cat X) (@TotalOp_func K X A)
+      (@represented_comma_family_catd X Y J))
+    (@section_total_func (TotalOp_cat K) (@represented_comma_family_target K X Y J A)
+      (@represented_comma_family_section K X Y J A D h));
+
+// A valid internal-Hom input is strict in x; its displayed y-maps can be lax.
+// Ordinary eta supplies this profile through tapp1_int_cart without extra input.
+symbol represented_comma_hom_action_func [K X Y : Cat]
+  (J : τ (Functor X Y)) (A : τ (Functor K X)) (D : τ (Functor K Y))
+  (h : τ (Hom (Functor_cart_cat (Op_cat K) (Catd_cat K))
+    (@hom_int_view K K (@id_func K))
+    (@comp_cat_fapp0 (Op_cat K) (Op_cat Y) (Catd_cat K)
+      (@hom_int_view Y K D) (@Op_func K Y (@comp_cat_fapp0 K X Y J A)))))
+  : τ (Functor K (@RepresentedComma_cat X Y J))
+≔ @TotalOp_func (TotalOp_cat K)
+    (@Sigma_cat (TotalOp_cat X) (@homdc_op_edge_catd X Y (@represented_comma_prof X Y J)))
+    (@represented_comma_family_underlying_func K X Y J A D h);

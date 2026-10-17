@@ -1,0 +1,24 @@
+// The original ordinary interface, at the dependency-ready construction owner.
+symbol canonical_represented_graph [K X Y : Cat]
+  (J : τ (Functor X Y)) (A : τ (Functor K X)) (D : τ (Functor K Y))
+  (eta : τ (@Transf K Y (@comp_cat_fapp0 K X Y J A) D))
+  : τ (Functor K (@RepresentedComma_cat X Y J))
+≔ @represented_comma_hom_action_func K X Y J A D
+    (@tapp1_int_cart K Y (@comp_cat_fapp0 K X Y J A) D eta);
+
+assert [K X Y : Cat] (J : τ (Functor X Y)) (A : τ (Functor K X)) (D : τ (Functor K Y))
+  (eta : τ (@Transf K Y (@comp_cat_fapp0 K X Y J A) D)) (x : τ (Obj K))
+  ⊢ @fapp0 K (@RepresentedComma_cat X Y J) (@canonical_represented_graph K X Y J A D eta) x
+    ≡ @represented_comma_obj X Y J (@fapp0 K X A x) (@fapp0 K Y D x)
+      (@tapp0_fapp0 K Y (@comp_cat_fapp0 K X Y J A) D x eta);
+
+assert [K X Y : Cat] (J : τ (Functor X Y)) (A : τ (Functor K X)) (D : τ (Functor K Y))
+  (eta : τ (@Transf K Y (@comp_cat_fapp0 K X Y J A) D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  ⊢ @fapp1_fapp0 K (@RepresentedComma_cat X Y J) (@canonical_represented_graph K X Y J A D eta) x y p
+    ≡ @represented_comma_map X Y J
+      (@fapp0 K X A x) (@fapp0 K X A y) (@fapp0 K Y D x) (@fapp0 K Y D y)
+      (@tapp0_fapp0 K Y (@comp_cat_fapp0 K X Y J A) D x eta)
+      (@tapp0_fapp0 K Y (@comp_cat_fapp0 K X Y J A) D y eta)
+      (@fapp1_fapp0 K X A x y p) (@fapp1_fapp0 K Y D x y p)
+      (@tapp1_post_laxity_cell K Y (@comp_cat_fapp0 K X Y J A) D eta x x y p (@id K x));

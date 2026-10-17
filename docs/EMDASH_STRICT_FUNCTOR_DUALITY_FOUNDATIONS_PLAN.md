@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; canonical action admission and comma middle-section directed action qualified; base-change step, full graph and remaining migration/promotion open
+Status: active implementation; derived represented-comma constructor and directed-square computation qualified; original comparison helpers, full reviewer and remaining migration/promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,34 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Represented-comma constructor after `e3a2e121`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_comma_constructor_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_comma_constructor_verification.json)
+record the original base-change and totalization pipeline in the corrected
+coefficient and total-dual bases. The new canonical base-change parameter
+view has the same original components and whole ordinary restriction. It
+introduces no caller proof or square. Whole inclusion/reindexing comparisons
+retain the actual bases and functors; both identity reframings are checked.
+
+The basic graph into LaxArrow(C) and the generalized constructor for J,A,D
+now compute their object and complete directed-square data. General ordinary
+lax eta:J∘A⇒D gives (A[x],D[x],eta[x]) and
+(A[p],D[p],tapp1_post_laxity_cell(eta,x,x,y,p,id_x)). These constructions are
+definitions through the existing section/total operations and the qualified
+canonical profile refinements, not uses of the separate supplied graph.
+Operational compositions with identity reframings were removed while keeping
+the same maps and named identity observations. The broader identity-pattern
+trial was reverted; global identity rules are unchanged.
+
+The full file now stops at represented_comma_hom_action_source_func's old
+ordinary-Theta argument. Next migrate the remaining valid-Theta signatures,
+ordinary eta wrappers and actual source/target comparison helpers together.
+Keep the internal Hom's T(K) domain distinct from the total constructions'
+O(K) bases. Preserve original selected inverse data and the existing OneCat
+target boundary, including the external Hom-comparison caller's admission.
+The full reviewer, other library routes, wrapper retirement, public promotion
+and all final qualification gates remain required.
 
 Canonical graph-action admission after `a4b774e4`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_comma_admission_review.md)

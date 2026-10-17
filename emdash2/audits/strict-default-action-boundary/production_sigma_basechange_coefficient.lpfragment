@@ -1,0 +1,58 @@
+// Cartesian reindexing has the existing ordinary family-pullback view.
+// This is an inclusion comparison, not equality of the two mapping profiles.
+unif_rule @comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $A Cat_cart)
+    (@hom_precomp_along_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) Cat_cart $A $K $F)
+  ≡ @comp_fapp0 Cat_cat _ _ _ (@Pullback_catd_func $A0 $K0 $F0)
+    (Functor_cart_include $K1 Cat_cart)
+  ↪ [ $A0 ≡ $A; $K0 ≡ $K; $K1 ≡ $K; $F0 ≡ $F ];
+
+// Admitted source of total base change, sharing the original total categories.
+symbol Sigma_pullback_coeff_source [A K : Cat] (F : τ (Functor A K))
+  : τ (Functor (Functor_cart_cat K Cat_cart) Cat_cart)
+≔ @comp_cat_fapp0 (Functor_cart_cat K Cat_cart) (Functor_cart_cat A Cat_cart) Cat_cart
+    (@Sigma_coeff_func A) (@comp_cat_con_cart_func A K Cat_cart F);
+
+// Direct combined source view. The checker does not chain the separate
+// Sigma-inclusion and pullback-inclusion comparisons under composition.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ Cat_cart_include (@Sigma_coeff_func $A))
+    (@hom_precomp_along_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) Cat_cart $A $K $F)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (@Sigma_func $A0) (@Pullback_catd_func $A1 $K0 $F0))
+    (Functor_cart_include $K1 Cat_cart)
+  ↪ [ $A0 ≡ $A; $A1 ≡ $A; $K0 ≡ $K; $K1 ≡ $K; $F0 ≡ $F ];
+
+// Whole represented source reframe, using the existing Cartesian Hom
+// reindexing law without changing either composition's runtime form.
+unif_rule @comp_fapp0 Cat_cat _ _ _ (@Sigma_coeff_func $B) (@hom_int $C $B $R)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (@Sigma_coeff_func $B0)
+      (@hom_precomp_along_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) Cat_cart $B1 $D $G))
+    (@hom_int $C0 $D0 $H)
+  ↪ [ $B0 ≡ $B; $B1 ≡ $B; $C0 ≡ $C; $D0 ≡ $D;
+      $R ≡ @comp_cat_fapp0 $B $D $C $H $G ];
+
+// Canonical strict parameter refinement of the original base-change map.
+// Its components are the same sigma_pullback_total_func, with no new data.
+symbol sigma_pullback_coeff_transf [A K : Cat] (F : τ (Functor A K))
+  : τ (Hom (Functor_cart_cat (Functor_cart_cat K Cat_cart) Cat_cart)
+      (@Sigma_pullback_coeff_source A K F) (@Sigma_coeff_func K));
+
+rule @tapp0_fapp0 _ Cat_cart _ _ $E
+    (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf $A $K $F))
+  ↪ @sigma_pullback_total_func $A $K $F $E;
+
+// Forgetting computes to the original whole transformation restricted along
+// the actual Cartesian inclusion. The identity other leg is essential.
+rule @comp_prod_fapp1_fapp0 Cat_cat _ _ _
+    (Struct_sigma _ Cat_cart_include) (Struct_sigma _ Cat_cart_include)
+    (Struct_sigma
+      (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf $A $K $F))
+      (@id _ Cat_cart_include))
+  ↪ @fapp0 _ _
+      (@comp_cat_con_fapp1_func (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat
+        (Functor_cart_include $K Cat_cart)
+        (@comp_cat_fapp0 (Catd_cat $K) (Catd_cat $A) Cat_cat
+          (@Sigma_func $A) (@Pullback_catd_func $A $K $F))
+        (@Sigma_func $K))
+      (@sigma_pullback_total_transf $A $K $F);
