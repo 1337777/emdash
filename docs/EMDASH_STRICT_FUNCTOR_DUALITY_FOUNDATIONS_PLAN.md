@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; corrected arrow-diagram profile and whole observations qualified; terminal/initial arrow integration, remaining migration and public promotion open
+Status: active implementation; terminal/initial embeddings and supplied kernel/cokernel adjunction reviewers qualified; represented-comma consumer, remaining migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,45 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Zero-arrow and adjunction continuation after `1513dd07`, 2026-10-16:
+the [owner review](../emdash2/audits/strict-default-action-boundary/production_zero_arrow_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_zero_arrow_verification.json)
+record the migrated original terminal/initial embeddings and supplied K/Q
+adjunctions. The graph of the retained generally lax terminal transformation
+lands in Functor_oplax_cat(WalkingArrow_cat,C). The initial transformation
+uses existing total duality with the explicit TerminalObject(TotalOp_cat C,t)
+hypothesis. No blanket terminal strictness or ordinary-category restriction
+is added. The chosen K/Q, unit/counit, whole mate maps and inverse data remain.
+
+The adjunction Hom comparison is evaluated in its actual Cat_cart coefficient,
+then mapped through the existing inclusion to retain its public Cat_cat
+component. The mapped inverse remains the runtime owner; two point inverse
+cuts and four scoped proof-time semantic views preserve whole/point
+cancellation without reconstructing a family in the wrong coefficient.
+The original generic evaluated-inverse module is unchanged. A measured
+precomposition identity-category normalization issue is fixed at its existing
+cut, following the earlier postcomposition correction.
+
+The original zero-arrow, kernel/cokernel and generic mate reviewers pass with
+all their observations retained (18+/2−, 16+/2− and 17+/7− respectively).
+Initial-action/profile controls, shared inverse-action regressions and the
+inherited core also pass with subject reduction. Their exact source hashes
+still match. The zero-arrow targets use the measured o=5/2GiB profile; the
+kernel/cokernel reviewer requires an explicit 3GiB/o=20 profile after its
+2GiB allocation failure and host-headroom review. It passes in 29.696s;
+other current focused checks remain within 90s/2GiB. The default limits and
+serial/no-swap/file safeguards are unchanged. Warning bodies and manual
+owner-pattern review are recorded; no global confluence claim is made.
+
+The next actual integration error is represented_comma_prof in
+emdash3_2_zero_arrow_cones.lp: its old direct hom_int body needs the existing
+whole hom_int_view inclusion into Catd(B). Review its coupled diagram profile
+and original consumers without installing a Cart/Catd or lax/oplax equality.
+The broader import remains a failed boundary check. This is a non-library
+source-authoring checkpoint; public promotion, remaining original library
+migration, strict-wrapper retirement and final catalog/health/CI/source-pin
+gates remain required. The separate nerve goal stays paused.
 
 Arrow-diagram continuation after `7848669d`, 2026-10-16:
 the [owner review](../emdash2/audits/strict-default-action-boundary/production_arrow_diagram_review.md)

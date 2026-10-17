@@ -1,0 +1,24 @@
+// The whole-first initial action joins the graph reviewer's capped route.
+assert (C : Cat) (t : τ (Obj C)) (T : τ (@TerminalObject (TotalOp_cat C) t))
+  (x y : τ (Obj C)) (p : τ (Hom C x y))
+  ⊢ @fapp0 (Hom_cat C x y) (Hom_cat C t y)
+      (@tapp1_func C C (@Const_func C C t) (@id_func C) x y (@initial_arrow_transf C t T)) p
+    ≡ @initial_arrow_fapp0 C t T y;
+
+// A dimension-one terminal hypothesis is not silently treated as total duality.
+assertnot (C : Cat) (t : τ (Obj C)) (T : τ (@TerminalObject (Op_cat C) t))
+  ⊢ @initial_arrow_transf C t T : τ (@Transf C C (@Const_func C C t) (@id_func C));
+
+// The unchanged terminal API supplies no automatic strict-profile admission.
+assertnot (C : Cat) (t : τ (Obj C)) (T : τ (@TerminalObject C t))
+  ⊢ @terminal_arrow_transf C t T : τ (@StrictTransfor C C (@id_func C) (@Const_func C C t));
+
+// Mapped point cancellation keeps the selected inverse package, not only
+// its source/target objects. Distinct packages cannot cancel each other.
+assertnot (C : Cat) (F : τ (Functor C Cat_cat)) (x y : τ (Obj C))
+  (I J : τ (@DefIso C x y)) (a : τ (Obj (@fapp0 C Cat_cat F x)))
+  ⊢ @fapp0 (@fapp0 C Cat_cat F y) (@fapp0 C Cat_cat F x)
+      (@defiso_from Cat_cat _ _ (@defiso_fmap C Cat_cat F x y J))
+      (@fapp0 (@fapp0 C Cat_cat F x) (@fapp0 C Cat_cat F y)
+        (@defiso_to Cat_cat _ _ (@defiso_fmap C Cat_cat F x y I)) a)
+    ≡ a;

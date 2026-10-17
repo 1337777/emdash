@@ -1,0 +1,32 @@
+// Keep the whole mapped inverse as runtime owner. Its actual coefficient is
+// Cat_cart, while the public component is observed in Cat_cat. These scoped
+// comparisons reuse the original unit/counit semantic bodies without relying
+// on transitivity through a bare evaluated-inverse view.
+unif_rule
+  @defiso_fmap_to _ _ Cat_cart_include _ _
+    (@defiso_at _ Cat_cart _ _
+      (@Adjunction_hom_prof_comparison $R $L $F $G $J) (Struct_sigma $X $Y))
+  ≡ @comp_fapp0 Cat_cat $Source $Mid $Target $first $second
+  ↪ [ (@comp_fapp0 Cat_cat $Source $Mid $Target $first $second)
+        ≡ @adjunction_transpose_semantic_func $R $L $F $G $J $X $Y ];
+unif_rule
+  @defiso_fmap_from _ _ Cat_cart_include _ _
+    (@defiso_at _ Cat_cart _ _
+      (@Adjunction_hom_prof_comparison $R $L $F $G $J) (Struct_sigma $X $Y))
+  ≡ @comp_fapp0 Cat_cat $Source $Mid $Target $first $second
+  ↪ [ (@comp_fapp0 Cat_cat $Source $Mid $Target $first $second)
+        ≡ @adjunction_untranspose_semantic_func $R $L $F $G $J $X $Y ];
+unif_rule
+  @fapp0 _ _ (@defiso_fmap_to _ _ Cat_cart_include _ _
+    (@defiso_at _ Cat_cart _ _
+      (@Adjunction_hom_prof_comparison $R $L $F $G $J) (Struct_sigma $X $Y))) $h
+  ≡ @comp_fapp0 $C $a $b $c $g $f
+  ↪ [ (@comp_fapp0 $C $a $b $c $g $f)
+        ≡ @fapp0 _ _ (@adjunction_transpose_semantic_func $R $L $F $G $J $X $Y) $h ];
+unif_rule
+  @fapp0 _ _ (@defiso_fmap_from _ _ Cat_cart_include _ _
+    (@defiso_at _ Cat_cart _ _
+      (@Adjunction_hom_prof_comparison $R $L $F $G $J) (Struct_sigma $X $Y))) $k
+  ≡ @comp_fapp0 $C $a $b $c $g $f
+  ↪ [ (@comp_fapp0 $C $a $b $c $g $f)
+        ≡ @fapp0 _ _ (@adjunction_untranspose_semantic_func $R $L $F $G $J $X $Y) $k ];

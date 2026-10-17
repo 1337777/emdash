@@ -159,6 +159,16 @@ with @hom_postcomp_fapp0
         $g)
   ↪ $g;
 
+// Functor-valued mapped inverses retain their whole owner through point
+// cancellation, just as evaluated inverses do. Cat_cat is the actual target
+// classifier here; the source coefficient and its inverse data remain intact.
+rule @fapp0 _ _ (@defiso_fmap_from $C Cat_cat $F $x $y $I)
+      (@fapp0 _ _ (@defiso_fmap_to $C Cat_cat $F $x $y $I) $a)
+  ↪ $a
+with @fapp0 _ _ (@defiso_fmap_to $C Cat_cat $F $x $y $I)
+      (@fapp0 _ _ (@defiso_fmap_from $C Cat_cat $F $x $y $I) $a)
+  ↪ $a;
+
 rule @defiso_iso_evidence
       $D _ _
       (@defiso_fmap $C $D $F $x $y $i)

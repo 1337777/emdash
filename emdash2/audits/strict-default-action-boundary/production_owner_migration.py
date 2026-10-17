@@ -85,6 +85,21 @@ def main():
 with @hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $X $X $Y $f (@id _ $X) ↪ $f;''',
                  'identity input of represented postcomposition',
                  'Let the typed represented owner determine the identity category after duality normalization; do not discriminate on the erased category annotation')
+    precomp_identity = '''rule @hom_precomp_along_fapp0
+      $A
+      $B
+      $F
+      _
+      $W
+      $X
+      $h
+      (@id $B _)
+  ↪ @fapp1_fapp0 $A $B $F $W $X $h;'''
+    replace_once(precomp_identity,
+                 '// The identity category can normalize through duality before this cut.\n'
+                 + precomp_identity.replace('(@id $B _)', '(@id _ _)'),
+                 'identity input of represented precomposition',
+                 'The typed precomposition owner determines the identity endpoints; allow its inferred category annotation to normalize through total duality')
     insert('// Path categories internalize HoTT equality as a groupoidal category.',
            fragment('co_above2_category.lpfragment') + '\n' + fragment('co_at2_category.lpfragment'),
            'Corrected duality: required category-level R, O and dimension-two action')
@@ -1543,6 +1558,87 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
             baseline_target = baseline_package / path
             baseline_target.parent.mkdir(parents=True, exist_ok=True)
             baseline_target.write_text(text)
+            if path == 'emdash3_2_adjunction_mates.lp':
+                old = text
+                dependency = 'require open emdash.emdash3_2_defiso_evaluation_points;'
+                assert text.count(dependency) == 1
+                text = text.replace(dependency,
+                    'require open emdash.emdash3_2_strict_functor_actions;\n' + dependency, 1)
+                old_unif = 'unif_rule @Prof_cat $A $B ≡ @Functor_cat $Base Cat_cat'
+                assert text.count(old_unif) == 1
+                text = text.replace(old_unif, old_unif.replace('Cat_cat', 'Cat_cart'), 1)
+                component = '''≔ @defiso_at (Product_cat (Op_cat R) L) Cat_cat
+    (@Hom_prof_along R L L F (@id_func L))
+    (@Hom_prof_along R L R (@id_func R) G)
+    (@Adjunction_hom_prof_comparison R L F G J)
+    (@Product_pair (Op_cat R) L X Y);'''
+                assert text.count(component) == 1
+                text = text.replace(component, '''≔ @defiso_fmap Cat_cart Cat_cat Cat_cart_include
+    (Hom_cat L (@fapp0 R L F X) Y) (Hom_cat R X (@fapp0 L R G Y))
+    (@defiso_at (Product_cat (Op_cat R) L) Cat_cart
+      (@Hom_prof_along R L L F (@id_func L))
+      (@Hom_prof_along R L R (@id_func R) G)
+      (@Adjunction_hom_prof_comparison R L F G J)
+      (@Product_pair (Op_cat R) L X Y));''', 1)
+                observation = 'symbol adjunction_transpose_semantic_path'
+                assert text.count(observation) == 1
+                text = text.replace(observation, fragment('production_cartesian_defiso_component.lpfragment') + '\n' + observation, 1)
+                changes.append({'source': path, 'owner': 'adjunction_hom_component_iso',
+                                'reason': 'Evaluate the original Hom comparison in its actual Cat_cart coefficient, then apply the existing whole Cat_cart inclusion to retain the public Cat_cat inverse package and its chosen maps',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/adjunction_mates.lp':
+                old = text
+                carrier = '@Transf (Product_cat (Op_cat R) L) Cat_cat'
+                assert text.count(carrier) == 1
+                text = text.replace(carrier, carrier.replace('Cat_cat', 'Cat_cart'), 1)
+                changes.append({'source': path, 'owner': 'adjunction mate negative control',
+                                'reason': 'Keep the constant-source rejection well typed in the actual displayed-family coefficient Cat_cart',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            zero_profiles = {
+                'emdash3_2_zero_arrow_diagrams.lp': (2, 10, 0),
+                'emdash3_2_kernel_cokernel_adjunctions.lp': (38, 5, 0),
+                'emdash3_2_kernel_cokernel_adjunction_mates.lp': (16, 2, 4),
+                'examples/kernel_cokernel_adjunctions.lp': (100, 9, 14),
+            }
+            if path in zero_profiles:
+                old = text
+                counts = (text.count('Functor_cat WalkingArrow_cat C'), text.count('(Op_cat C)'),
+                          text.count('τ (Functor WalkingArrow_cat C)'))
+                assert counts == zero_profiles[path], (path, counts)
+                text = text.replace('Functor_cat WalkingArrow_cat C', 'Functor_oplax_cat WalkingArrow_cat C')
+                text = text.replace('(Op_cat C)', '(TotalOp_cat C)')
+                text = text.replace('τ (Functor WalkingArrow_cat C)', 'τ (Obj (Functor_oplax_cat WalkingArrow_cat C))')
+                text = text.replace('τ (Transf d0 d1)', 'τ (Hom (Functor_oplax_cat WalkingArrow_cat C) d0 d1)')
+                if path == 'emdash3_2_zero_arrow_diagrams.lp':
+                    assert text.count('@Op_transf ') == 1
+                    text = text.replace('@Op_transf ', '@TotalOp_transf ')
+                    text = text.replace('TerminalObject(Op(C),t)', 'TerminalObject(TotalOp(C),t)')
+                    text = text.replace('  Op_transf.', '  TotalOp_transf.')
+                    text = text.replace('transparently via Op.', 'through total duality, which retains the default lax profile.')
+                    text = text.replace('C→Arr(C)', 'C→Arr_oplax(C)')
+                elif path == 'emdash3_2_kernel_cokernel_adjunctions.lp':
+                    text = text.replace('diagram_evaluation_at_func', 'diagram_oplax_evaluation_at_func')
+                    text = text.replace('/* Whole kernel/cokernel adjunction structures for the preadditive setting.',
+                        '/* Whole kernel/cokernel adjunction structures for the preadditive setting.\n'
+                        '   The corrected whole zero-arrow embeddings land in oplax diagrams;\n'
+                        '   the supplied adjunctions and their actual unit/counit data use that profile.')
+                if path == 'examples/kernel_cokernel_adjunctions.lp':
+                    component = '@tapp0_fapp0 WalkingArrow_cat C _ _'
+                    assert text.count(component) == 2
+                    text = text.replace(component,
+                        '@tapp0_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) _ _')
+                    assert [len(re.findall(r'(?m)^' + k + r'\b', text)) for k in ('assert','assertnot')] == [16,2]
+                changes.append({'source': path, 'owner': 'whole terminal/initial embeddings and supplied kernel/cokernel adjunctions',
+                                'reason': 'Retain the existing general terminal transformation; use the corrected oplax arrow-diagram profile and total duality for the initial transformation, with its dual hypothesis explicit',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/zero_arrow_diagrams.lp':
+                old = text
+                text = fragment('production_zero_arrow_reviewer.lpfragment')
+                assert [len(re.findall(r'(?m)^' + k + r'\b', old)) for k in ('assert','assertnot')] == [18,2]
+                assert [len(re.findall(r'(?m)^' + k + r'\b', text)) for k in ('assert','assertnot')] == [18,2]
+                changes.append({'source': path, 'owner': 'zero-arrow reviewer',
+                                'reason': 'Retain all original observations using the actual oplax coefficient, decoded point functors and the explicit total-dual terminal hypothesis',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_arrow_diagram_families.lp':
                 old = text
                 text = fragment('production_arrow_diagram_families.lpfragment')
@@ -1977,6 +2073,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/groupoidal_structured_j_eq1.lp')
     stage('examples/diagram_evaluation.lp')
     stage('examples/arrow_diagram_families.lp')
+    stage('examples/zero_arrow_diagrams.lp')
+    stage('examples/kernel_cokernel_adjunctions.lp')
+    stage('examples/adjunction_mates.lp')
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
@@ -1987,6 +2086,10 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     (package / 'arrow_diagram_migration_controls.lp').write_text(
         'require open emdash.emdash3_2_arrow_diagram_families;\n'
         + fragment('production_arrow_diagram_controls.lpfragment'))
+    (package / 'zero_arrow_migration_controls.lp').write_text(
+        'require open emdash.emdash3_2_zero_arrow_diagrams;\n'
+        'require open emdash.emdash3_2_strict_functor_actions;\n'
+        + fragment('production_zero_arrow_controls.lpfragment'))
     (package / 'cubical_migration_controls.lp').write_text(''.join(
         'require open emdash.examples.' + name + ';\n' for name in (
             'cubical_dependent_hom', 'cubical_square_total',
@@ -2077,6 +2180,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'diagram_evaluation_profile_controls.lp',
                               package / 'diagram_evaluation_naturality_controls.lp',
                               package / 'arrow_diagram_migration_controls.lp',
+                              package / 'zero_arrow_migration_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',
