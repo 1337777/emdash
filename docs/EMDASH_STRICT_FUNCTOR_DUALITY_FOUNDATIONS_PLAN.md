@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original Hom-comparison and adjunction-introduction reviewers qualified; presheaf/direct-cover and remaining library migration/public promotion open
+Status: active implementation; staged core, original Hom-comparison/adjunction reviewers and presheaf/sieve controls qualified; direct-cover and remaining library migration/public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,47 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Presheaf/sieve continuation after `7d17441c`, 2026-10-17: the presheaf owner now uses the
+ordinary hom_con_int_view for its unchanged raw Psh category, while
+arrow_into_catd uses the canonical Cartesian Hom and Sigma_coeff_func.
+The direct facade consumer exposed redundant outer source/target tags in
+the existing fapp0/fapp1_fapp0/fapp1_func composition clauses. Recovering
+those inferred tags from the visible composite passes subject reduction,
+the complete presheaf owner, and the inherited core/curry regression
+(274 positive/70 negative assertions). The presheaf/profile controls pass
+26 positive/five negative assertions; the original ordinary-sieve diagnostics
+extend that to 35 positive/six negative assertions. Their exact input closures
+rehash to the current emitted sources.
+
+Catd_catd_con already computes a Cartesian varying-base classifier in the
+selected core. Consequently HigherSieve_cat(U) has Cartesian diagram maps,
+while Psh_cat(Slice(U)) retains ordinary lax maps. Their family objects agree;
+the former category-equality assertion must now target Functor_cart_cat,
+with a whole ordinary inclusion instead of identifying the two categories.
+higher_sieve_include_func is only the existing Functor_cart_include with its
+fixed-base Catd target annotation. It supplies the direct Psh facade view
+without a new category equality or operational proof argument. The original
+PSSS-01/PSSS-02 controls are adapted to these actual profiles, with added
+inclusion/noncollapse and directed slice-filler checks. No slice T/O change
+or raw presheaf-map restriction has been made. The ordinary-sieve pullback
+proof needs only the corresponding arrow-family Cat_cart coefficient tag.
+
+The [review](../emdash2/audits/strict-default-action-boundary/production_presheaf_profile_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_presheaf_profile_verification.json)
+record the actual mapping-profile distinction and retained directed slice
+filler. Owning-file LHS audits report zero unreviewed clauses. Warning review
+records 27 added/23 removed bodies (1991 to 1995), including reshaped
+composition overlaps; this is not a global confluence qualification.
+The presheaf/core checks took about 28s/24s at 240s/2GiB/o=20; the sieve
+import took about 31s at 300s/4GiB/o=20. The broader inherited assembly import
+now passes sieves and sites and stops at emdash3_2_fibrewise_sigma.lp:53-54:
+the original family beta rule still requires Cat_cat instead of Cat_cart.
+That run took about 63s at 600s/4GiB/o=5; it is a failed integration gate,
+not a resource failure. Next migrate the original fibrewise-Sigma owner and
+its consumers, preserving its actual family and transport arguments.
+Direct-cover and remaining library migration, wrapper retirement, public
+promotion and final gates remain required.
 
 Adjunction-introduction continuation after `fddadd33`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_adjunction_introduction_review.md)

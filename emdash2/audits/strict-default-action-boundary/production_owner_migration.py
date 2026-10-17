@@ -667,6 +667,14 @@ unif_rule @comp_fapp0 Cat_cat $K $C Cat_cart
         '// Generic whole identity/composition action moved to the earlier composition owner.\n', 1)
     insert('// Ordinary category identity cuts: g ∘ id ↪ g and id ∘ f ↪ f.',
            whole, 'Relocate the unchanged original whole first-Hom action before the derived duality/family consumers')
+    for projection in ('fapp0', 'fapp1_fapp0', 'fapp1_func'):
+        original_lhs = f'rule @{projection} $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G)'
+        replace_once(original_lhs,
+            '// The typed composite supplies its own source and target; caller\n'
+            '// annotations may be a proof-time category facade.\n'
+            + original_lhs.replace(f'@{projection} $A $C', f'@{projection} _ _', 1),
+            projection + ' composite inferred annotations',
+            'The ordinary Yoneda view is applied through Psh_cat rather than the literal Catd_cat target; recover inferred annotations from the visible composite')
     insert('/*\n   Typed equality view of the generic strict identity cut.',
            fragment('conventional_total_op_source_units.lpfragment') + '''
 // The shifted family source likewise loses its dimension-two identity tag.
@@ -1692,6 +1700,57 @@ unif_rule @sigma_map_func $K _ _
                 changes.append({'source': path, 'owner': 'discrete displayed mapping category',
                                 'reason': 'Structural fibrewise-discrete closure required for the original ordinary-target Hom-action admission; no global strictness or new caller data',
                                 'insertedSha256': sha(addition)})
+            if path == 'emdash3_2_presheaves.lp':
+                old = text
+                yoneda = '≔ @hom_con_int K K (@id_func K);'
+                assert text.count(yoneda) == 1
+                text = text.replace(yoneda, '≔ @hom_con_int_view K K (@id_func K);', 1)
+                arrow_family = '''symbol arrow_into_catd (K : Cat) : τ (Catd K)
+≔ @comp_cat_fapp0
+    K
+    (@Catd_cat (Op_cat K))
+    Cat_cat
+    (@Sigma_func (Op_cat K))
+    (@yoneda_psh_func K);'''
+                assert text.count(arrow_family) == 1
+                text = text.replace(arrow_family, '''symbol arrow_into_catd (K : Cat) : τ (Catd K)
+≔ @comp_cat_fapp0 K (Functor_cart_cat (Op_cat K) Cat_cart) Cat_cart
+    (@Sigma_coeff_func (Op_cat K)) (@hom_con_int K K (@id_func K));''', 1)
+                pullback_coefficient = '(Op_cat K)\n    Cat_cat\n    (@HigherSieveClassifier K)'
+                assert text.count(pullback_coefficient) == 1
+                text = text.replace(pullback_coefficient, pullback_coefficient.replace('Cat_cat', 'Cat_cart'), 1)
+                postcompose_coefficient = '@fapp1_fapp0 K Cat_cat (@arrow_into_catd K)'
+                assert text.count(postcompose_coefficient) == 1
+                text = text.replace(postcompose_coefficient, postcompose_coefficient.replace('Cat_cat', 'Cat_cart'), 1)
+                old_comment = '''  The comparison with `Psh_cat(Slice_cat(U))` goes through the stable shared
+  presentation `Catd_cat(Into_restr_cat(U))`; no direct conversion rule is
+  installed merely to make unification transitive.'''
+                assert text.count(old_comment) == 1
+                text = text.replace(old_comment, '''  The varying-base classifier uses Cartesian diagram maps. Its objects
+  are the same Cat-valued families as Psh_cat(Slice_cat(U)), while their
+  mapping profiles differ. No category equality with the ordinary lax-map
+  presheaf category is asserted.''', 1)
+                inclusion_anchor = 'symbol HigherSieve\n'
+                assert text.count(inclusion_anchor) == 1
+                text = text.replace(inclusion_anchor, '''// Whole ordinary view through the existing fixed-base family facade.
+// The target annotation supplies the established one-step Psh comparison.
+symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
+  : τ (Functor (@HigherSieve_cat K U) (@Catd_cat (@Into_restr_cat K U)))
+≔ Functor_cart_include (@Into_restr_cat K U) Cat_cart;
+
+''' + inclusion_anchor, 1)
+                changes.append({'source': path, 'owner': 'presheaf Yoneda and canonical Sigma family',
+                                'reason': 'Use the ordinary Hom inclusion for the unchanged raw presheaf category, and the canonical Cartesian Hom/Sigma coefficient for the whole arrow family; retain the existing slice presentation pending its actual controls',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_sieves.lp':
+                old = text
+                family_action = '@fapp1_fapp0 K Cat_cat (@arrow_into_catd K)'
+                assert text.count(family_action) == 1
+                text = text.replace(family_action,
+                    '@fapp1_fapp0 K Cat_cart (@arrow_into_catd K)', 1)
+                changes.append({'source': path, 'owner': 'ordinary sieve pullback evidence',
+                                'reason': 'Use the actual coefficient of the canonical arrow family; retain pointwise subterminal evidence and the original pullback body',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_hom_comparison_data.lp':
                 old = text
                 assert text.count('Cat_cat') == 82
@@ -2593,6 +2652,52 @@ unif_rule @sigma_map_func $K _ _
     stage('emdash3_2_one_cat_hom_comparison_data.lp')
     stage('examples/one_cat_hom_comparison_data.lp')
     stage('examples/one_cat_adjunction_introduction.lp')
+    original_checks = subprocess.check_output(
+        ['git', 'show', PIN + ':emdash2/emdash3_2_checks.lp'], cwd=root, text=True)
+    psss_start = '// catalog-area: Cat-valued presheaf facade and restriction'
+    psss_end = '/* End of the PSSS-02 higher-sieve diagnostics. */'
+    assert original_checks.count(psss_start) == original_checks.count(psss_end) == 1
+    psss = original_checks[original_checks.index(psss_start):original_checks.index(psss_end)+len(psss_end)]
+    original_psss = psss
+    psss = psss.replace('Cat_cat', 'Cat_cart')
+    postcomp = '@hom_con_int_postcomp_func K K (@id_func K) V U p'
+    assert psss.count(postcomp) == 2
+    psss = psss.replace(postcomp, '@strict_transfor _ _ _ _ (' + postcomp + ')')
+    higher_sieve_comparison = '''(@HigherSieve_cat K U)
+      (@Catd_cat (@Into_restr_cat K U))'''
+    assert psss.count(higher_sieve_comparison) == 1
+    psss = psss.replace(higher_sieve_comparison, '''(@HigherSieve_cat K U)
+      (Functor_cart_cat (@Into_restr_cat K U) Cat_cart)''', 1)
+    psss = psss.replace('// Both higher-sieve presentations compare to this stable Catd intermediary.',
+        '// The varying-base classifier has Cartesian diagram maps; the ordinary\n// presheaf facade retains its separate lax-map category.')
+    psss = psss.replace('// Experimental unifiers are not transitively chained at runtime.',
+        '// These categories have different mapping profiles, while their objects agree.')
+    psss = psss.replace('// Restriction of higher sieves reuses Catd pullback along the arrow-total map.',
+        '// Restriction of higher sieves is Cartesian precomposition along the arrow-total map.')
+    pullback = '''@Pullback_catd_func
+      (@Into_restr_cat K V)
+      (@Into_restr_cat K U)
+      (@fapp1_fapp0 K Cat_cart (@arrow_into_catd K) V U p)'''
+    assert psss.count(pullback) == 1
+    psss = psss.replace(pullback, '''@comp_cat_con_cart_func
+      (@Into_restr_cat K V) (@Into_restr_cat K U) Cat_cart
+      (@fapp1_fapp0 K Cat_cart (@arrow_into_catd K) V U p)''', 1)
+    (package / 'presheaf_profile_controls.lp').write_text(
+        'require open emdash.emdash3_2_presheaves;\n' + psss + '\n'
+        + fragment('production_presheaf_profile_controls.lpfragment'))
+    changes.append({'source': 'emdash3_2_checks.lp/PSSS-01/PSSS-02',
+                    'owner': 'original presheaf and higher-sieve diagnostics',
+                    'reason': 'Preserve the raw presheaf facade; use actual Cartesian inclusion for Yoneda and the selected Cartesian higher-sieve classifier/restriction, with explicit ordinary inclusion and directed-filler controls',
+                    'oldBodySha256': sha(original_psss), 'newBodySha256': sha(psss)})
+    sieve_start = '// catalog-area: Ordinary subterminal sieves and pullback'
+    sieve_end = '/* End of the PSSS-03a ordinary-sieve diagnostics. */'
+    assert original_checks.count(sieve_start) == original_checks.count(sieve_end) == 1
+    sieve_controls = original_checks[original_checks.index(sieve_start):original_checks.index(sieve_end)+len(sieve_end)]
+    assert sieve_controls.count('Cat_cat') == 1
+    sieve_controls = sieve_controls.replace('Cat_cat', 'Cat_cart')
+    (package / 'sieve_profile_controls.lp').write_text(
+        'require open emdash.emdash3_2_sieves;\n' + psss + '\n' + sieve_controls + '\n'
+        + fragment('production_presheaf_profile_controls.lpfragment'))
     introduction_source = (package / 'emdash3_2_one_cat_adjunction_introduction.lp').read_text()
     prefix_end = 'protected symbol intro_unit_original_identity_path'
     assert introduction_source.count(prefix_end) == 1
@@ -2829,6 +2934,8 @@ unif_rule @sigma_map_func $K _ _
                               package / 'hom_comparison_admitted_path_controls.lp',
                               package / 'lax_curry_regression_controls.lp',
                               package / 'adjunction_introduction_views_prefix.lp',
+                              package / 'presheaf_profile_controls.lp',
+                              package / 'sieve_profile_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

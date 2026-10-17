@@ -7,6 +7,15 @@ core and profile source hashes and inserts at unique original owner anchors.
 
 ## Current continuation, 2026-10-17
 
+The [presheaf/sieve review](production_presheaf_profile_review.md) and
+[verification](production_presheaf_profile_verification.json) record the
+preserved raw presheaf facade, canonical Cartesian arrow family and whole
+inclusion of higher-sieve maps. The original diagnostics plus mapping-profile
+and directed-filler controls pass 35 positive/six negative assertions; the
+core/curry regression passes 274 positive/70 negative assertions. The broader
+import now passes sites and reaches the original fibrewise-Sigma coefficient
+rule. Direct-cover integration and public promotion remain open.
+
 The [adjunction-introduction review](production_adjunction_introduction_review.md)
 and [verification](production_adjunction_introduction_verification.json)
 record the complete original constructor/whole agreement owner and its 25

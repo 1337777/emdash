@@ -1,0 +1,38 @@
+// The varying-base Cartesian classifier has the original family objects.
+assert [K : Cat] (U : τ (Obj K)) ⊢
+  Obj (@HigherSieve_cat K U) ≡ Obj (@Psh_cat (@Slice_cat K U));
+
+// Its whole ordinary inclusion, with all higher action, is the existing one.
+assert [K : Cat] (U : τ (Obj K)) ⊢
+  @higher_sieve_include_func K U
+  : τ (Functor (@HigherSieve_cat K U) (@Psh_cat (@Slice_cat K U)));
+
+assert [K : Cat] (U : τ (Obj K))
+  [S T : τ (@HigherSieve K U)] (a : τ (Hom (@HigherSieve_cat K U) S T)) ⊢
+  @fapp1_fapp0 (@HigherSieve_cat K U) (@Psh_cat (@Slice_cat K U))
+    (@higher_sieve_include_func K U) S T a
+  ≡ @strict_transfor (@Into_restr_cat K U) Cat_cart S T a;
+
+// Sharing objects does not identify strict and lax mapping categories.
+assertnot [K : Cat] (U : τ (Obj K)) ⊢
+  @eq_refl Cat_grpd (@HigherSieve_cat K U)
+  : τ (@= Cat_grpd (@HigherSieve_cat K U) (@Psh_cat (@Slice_cat K U)));
+
+// A slice arrow retains its base arrow and its directed triangle filler.
+assert [K : Cat] [U : τ (Obj K)] [q r : τ (Obj (@Slice_cat K U))]
+  (p : τ (Hom K (@slice_object_domain K U q) (@slice_object_domain K U r)))
+  (alpha : τ (Hom (Hom_cat K (@slice_object_domain K U q) U)
+    (@comp_fapp0 K _ _ _ (@slice_object_arrow K U r) p) (@slice_object_arrow K U q))) ⊢
+  @slice_arrow_underlying K U q r (@slice_arrow_intro K U q r p alpha) ≡ p;
+
+assert [K : Cat] [U : τ (Obj K)] [q r : τ (Obj (@Slice_cat K U))]
+  (p : τ (Hom K (@slice_object_domain K U q) (@slice_object_domain K U r)))
+  (alpha : τ (Hom (Hom_cat K (@slice_object_domain K U q) U)
+    (@comp_fapp0 K _ _ _ (@slice_object_arrow K U r) p) (@slice_object_arrow K U q))) ⊢
+  @slice_arrow_cell K U q r (@slice_arrow_intro K U q r p alpha) ≡ alpha;
+
+assertnot [K : Cat] [U : τ (Obj K)] [q r : τ (Obj (@Slice_cat K U))]
+  (p : τ (Hom K (@slice_object_domain K U q) (@slice_object_domain K U r)))
+  (alpha beta : τ (Hom (Hom_cat K (@slice_object_domain K U q) U)
+    (@comp_fapp0 K _ _ _ (@slice_object_arrow K U r) p) (@slice_object_arrow K U q))) ⊢
+  @slice_arrow_cell K U q r (@slice_arrow_intro K U q r p alpha) ≡ beta;
