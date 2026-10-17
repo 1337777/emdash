@@ -1,0 +1,82 @@
+// Currying exposes the original whole prewhiskered component. Its further
+// product-identity observation uses the original consumer's staged unit proof.
+assert [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (eta : τ (@Transf (Product_cat A B) C F G))
+  (a : τ (Obj A)) ⊢
+  tapp0_fapp0 a (@fapp1_fapp0 _ _ (@curry_lax_func_func A B C) F G eta)
+  ≡ @fapp1_fapp0 (Functor_cat (Product_cat A B) C) (Functor_cat B C)
+      (@comp_cat_con_func B (Product_cat A B) C
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B))
+          (@Product_pair_tele_func A B) a)) F G eta;
+
+assert [A B C : Cat] (F : τ (Functor (Product_cat A B) C)) ⊢
+  @curry_lax_transf A B C F F (@id (Functor_cat (Product_cat A B) C) F)
+  ≡ @id (Functor_cat A (Functor_cat B C)) (@curry_lax_object A B C F);
+
+assert [A B C : Cat] [F G H : τ (Functor (Product_cat A B) C)]
+  (eta : τ (@Transf (Product_cat A B) C F G))
+  (theta : τ (@Transf (Product_cat A B) C G H)) ⊢
+  @comp_fapp0 (Functor_cat A (Functor_cat B C)) _ _ _
+    (@curry_lax_transf A B C G H theta) (@curry_lax_transf A B C F G eta)
+  ≡ @curry_lax_transf A B C F H
+      (@comp_fapp0 (Functor_cat (Product_cat A B) C) F G H theta eta);
+
+// Evaluation of the entire next-Hom action uses the original prewhiskering.
+assert [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (eta theta : τ (@Transf (Product_cat A B) C F G)) (a : τ (Obj A)) ⊢
+  @fapp1_func _ _
+    (@comp_cat_fapp0 _ _ _
+      (@tapp0_func A (Functor_cat B C)
+        (@curry_lax_object A B C F) (@curry_lax_object A B C G) a)
+      (@curry_lax_hom_func A B C F G)) eta theta
+  ≡ @fapp1_func _ _
+      (@comp_cat_con_fapp1_func B (Product_cat A B) C
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B))
+          (@Product_pair_tele_func A B) a) F G) eta theta;
+
+assertnot [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (eta theta : τ (@Transf (Product_cat A B) C F G))
+  (a : τ (Obj A)) ⊢
+  tapp0_fapp0 a (@curry_lax_transf A B C F G eta)
+  ≡ @fapp1_fapp0 (Functor_cat (Product_cat A B) C) (Functor_cat B C)
+      (@comp_cat_con_func B (Product_cat A B) C
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B))
+          (@Product_pair_tele_func A B) a)) F G theta;
+
+// The curried result remains a general lax transformation.
+assertnot [A B C : Cat] [F G : τ (Functor (Product_cat A B) C)]
+  (eta : τ (@Transf (Product_cat A B) C F G)) ⊢
+  @curry_lax_transf A B C F G eta
+  : τ (@StrictTransfor A (Functor_cat B C)
+      (@curry_lax_object A B C F) (@curry_lax_object A B C G));
+
+// Both canonical whole objects agree with the original ordinary Hom views.
+assert [I : Cat] ⊢
+  @eq_refl (Functor (Op_cat I) (Catd_cat I))
+    (@curry_lax_object (Op_cat I) I Cat_cart (@Unit_prof I))
+  : τ (@= (Functor (Op_cat I) (Catd_cat I))
+      (@curry_lax_object (Op_cat I) I Cat_cart (@Unit_prof I))
+      (@hom_int_view I I (@id_func I)));
+
+assert [A B C : Cat] (F : τ (Functor A C)) (G : τ (Functor B C)) ⊢
+  @eq_refl (Functor (Op_cat A) (Catd_cat B))
+    (@curry_lax_object (Op_cat A) B Cat_cart (@Hom_prof_along A B C F G))
+  : τ (@= (Functor (Op_cat A) (Catd_cat B))
+      (@curry_lax_object (Op_cat A) B Cat_cart (@Hom_prof_along A B C F G))
+      (@comp_cat_fapp0 (Op_cat A) (Op_cat C) (Catd_cat B)
+        (@hom_int_view C B G) (@Op_func A C F)));
+
+assertnot [I : Cat] (P : τ (Prof I I)) ⊢
+  @eq_refl (Functor (Op_cat I) (Catd_cat I))
+    (@curry_lax_object (Op_cat I) I Cat_cart P)
+  : τ (@= (Functor (Op_cat I) (Catd_cat I))
+      (@curry_lax_object (Op_cat I) I Cat_cart P)
+      (@hom_int_view I I (@id_func I)));
+
+assertnot [A B C : Cat] (F H : τ (Functor A C)) (G : τ (Functor B C)) ⊢
+  @eq_refl (Functor (Op_cat A) (Catd_cat B))
+    (@curry_lax_object (Op_cat A) B Cat_cart (@Hom_prof_along A B C F G))
+  : τ (@= (Functor (Op_cat A) (Catd_cat B))
+      (@curry_lax_object (Op_cat A) B Cat_cart (@Hom_prof_along A B C F G))
+      (@comp_cat_fapp0 (Op_cat A) (Op_cat C) (Catd_cat B)
+        (@hom_int_view C B G) (@Op_func A C H)));

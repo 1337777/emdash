@@ -1,0 +1,21 @@
+// The existing represented-curry comparison after its Cartesian result has
+// been included into ordinary families. Associativity exposes the composite
+// below before the original raw-curry comparison can match. Retain the actual
+// supplied profunctor and both endpoint functors as side conditions.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $B Cat_cart)
+      (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R))
+    (@Product_pair_tele_func (Op_cat $A) $B)
+  ≡ @comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $B Cat_cart)
+      (@hom_int $X $B $G)
+  ↪ [ $A ≡ $X;
+      $R ≡ @Prof_reindex $X $X $X $B (@Unit_prof $X) (@id Cat_cat $X) $G ];
+
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $B Cat_cart)
+      (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R))
+    (@Product_pair_tele_func (Op_cat $A) $B)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $B Cat_cart)
+        (@hom_int $X $B $G)) (@Op_func $A $X $F)
+  ↪ [ $R ≡ @Prof_reindex $X $A $X $B (@Unit_prof $X) $F $G ];

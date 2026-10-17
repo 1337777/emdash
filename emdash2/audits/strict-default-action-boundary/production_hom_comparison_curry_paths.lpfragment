@@ -1,0 +1,44 @@
+// The one-way curry component prewhiskers directly by the pair fibre (x,-).
+// Stage evaluation of its identity before specializing the product target.
+protected symbol hom_comparison_pair_tele_identity_path [A B : Cat]
+  (x : τ (Obj A)) (y : τ (Obj B))
+  : τ (@= (Hom (Product_cat A B) (@Product_pair A B x y) (@Product_pair A B x y))
+      (@tapp0_fapp0 B (Product_cat A B)
+        (fapp0 (@hom_comparison_pair_tele_func A B) x)
+        (fapp0 (@hom_comparison_pair_tele_func A B) x) y
+        (@id (Functor_cat B (Product_cat A B))
+          (fapp0 (@hom_comparison_pair_tele_func A B) x)))
+      (@id (Product_cat A B) (@Product_pair A B x y)))
+≔ @fapp1_id_path (Functor_cat B (Product_cat A B)) (Product_cat A B)
+    (@fapp0_func B (Product_cat A B) y)
+    (fapp0 (@hom_comparison_pair_tele_func A B) x);
+
+// COMPONENT PATH
+// The original point formula, with the single identity evaluation exposed
+// by one-way curry. The second step is the unchanged generic identity beta.
+protected symbol hom_comparison_prof_hom_action_component_path [I C : Cat]
+  (I1 : τ (IsNCat (cat_succ cat_zero) I)) (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C))
+  (r : τ (@ProfMap I I (@Unit_prof I) (@Hom_prof_along I I C F G))) (x : τ (Obj I))
+  : τ (@= (Functor (Hom_cat I x x) (Hom_cat C (fapp0 F x) (fapp0 G x)))
+      (@tapp0_fapp0 I Cat_cart (@hom_ I I (@id_func I) x)
+        (@hom_ C I G (fapp0 F x)) x
+        (@tapp0_fapp0 (Op_cat I) (Catd_cat I) (@hom_int_view I I (@id_func I))
+          (@comp_cat_fapp0 (Op_cat I) (Op_cat C) (Catd_cat I)
+            (@hom_int_view C I G) (@Op_func I C F)) x
+          (@profmap_internal_hom_action I C F G r)))
+      (@tapp0_fapp0 (Product_cat (Op_cat I) I) Cat_cart (@Unit_prof I)
+        (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x) r))
+≔ @eq_trans _ _ _ _
+    (@eq_ap
+      (Hom (Product_cat (Op_cat I) I) (@Product_pair (Op_cat I) I x x)
+        (@Product_pair (Op_cat I) I x x))
+      (Functor (Hom_cat I x x) (Hom_cat C (fapp0 F x) (fapp0 G x)))
+      (λ p : τ (Hom (Product_cat (Op_cat I) I) (@Product_pair (Op_cat I) I x x)
+          (@Product_pair (Op_cat I) I x x)),
+        @tapp1_fapp0 (Product_cat (Op_cat I) I) Cat_cart (@Unit_prof I)
+          (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x)
+          (@Product_pair (Op_cat I) I x x) r p)
+      _ _ (@hom_comparison_pair_tele_identity_path (Op_cat I) I x x))
+    (@hom_comparison_transf_identity_beta (Product_cat (Op_cat I) I) Cat_cart
+      (@Unit_prof I) (@Hom_prof_along I I C F G) r (@Product_pair (Op_cat I) I x x));

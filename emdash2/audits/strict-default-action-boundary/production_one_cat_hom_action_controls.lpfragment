@@ -1,0 +1,15 @@
+// The source I remains arbitrary; only the original target C is ordinary.
+// Admission retains the exact supplied action rather than choosing a new one.
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C))
+  (alpha : τ (@Transf (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G))) ⊢
+  @strict_transfor_underlying _ _ _ _ (@one_cat_hom_action_cart I C C1 F G alpha)
+  ≡ alpha;
+
+// The coefficient closure does not make an unclassified raw input strict.
+assertnot [I C : Cat] (F G : τ (Functor I C))
+  (alpha : τ (@Transf (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G))) ⊢
+  alpha : τ (@StrictTransfor (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G));

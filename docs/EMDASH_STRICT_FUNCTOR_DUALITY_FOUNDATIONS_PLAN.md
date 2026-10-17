@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; represented-comma, profunctor inverse evaluation and ordinary-arrow reviewer qualified; downstream modification/Hom-comparison migration and public promotion open
+Status: active implementation; original Hom-comparison unit/counit and triangle reviewer qualified; adjunction-introduction and remaining library migration/public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,60 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Hom-comparison continuation after `a2b7ae37`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_hom_comparison_admission_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_hom_comparison_admission_verification.json)
+record the complete original Hom-comparison source and all 12 positive/four
+negative reviewer assertions. Unit/counit identity images, reconstruction
+arrow action, both actual triangle modifications/paths and retention of the
+selected comparison all pass. The original OneCat premises remain; the
+reconstruction constructor still permits an arbitrary source I.
+
+The required strict x-admission is derived from the supplied action's existing
+extracted cells and an explicit discrete-Functord closure/model obligation,
+parallel to discrete_functor_category. Its ordinary view is related to the
+same raw action by the existing admission carrier path, used only inside the
+component proofs. No new caller comparison or operational equality argument
+is added. Default Transf/Functord remain conventional lax.
+
+The original raw ProfMap curry consumer now uses a one-way lax mapping
+operation. Its objects reuse Cartesian curry and the actual ordinary inclusion;
+its whole first Hom and component evaluation retain the original prewhiskering
+and higher input. No ambient Cartesian uncurry/equivalence is claimed. The
+semantic justification is tensor-to-product restriction and closed-Hom
+adjunctions (inference from Ara–Guetta v1, §§12 and 21, linked in the review).
+Contextual whole represented-curry comparisons are proof-time at the actual
+consumer and preserve the profunctor and both endpoint maps.
+
+The component proof uses one fibre identity evaluation, matching the new
+curry, followed by the original staged transformation-identity beta. Unit,
+counit and reconstruction observations explicitly read the admitted action
+back to the supplied one. The 68 actual coefficient annotations are migrated;
+14 Cat_cat tags in two generic ordinary inverse helpers are preserved exactly
+as in the baseline. They do not consume the profunctor inverse package. The
+unnecessary proposed extra inverse cuts were withdrawn. No new runtime rule
+was needed for either point-proof repair.
+
+The combined core/curry check passes 274 positive/70 negative assertions.
+Owning LHS audits have zero unreviewed candidates. Fourteen new core warning
+bodies concern the curry projections and generic identity/accumulation cuts;
+actual typed controls pass, without a global confluence claim. The final
+full-reviewer warning bodies match the prior late-prefix run exactly (2650).
+
+The normal 90s/2GiB defaults remain. Sampled CPU frequencies near 400MHz explain
+a substantial throughput qualification: identical core bytes/checker/settings
+passed in 26.5s earlier and later needed 162.5s with timing. The combined core
+subsequently passed in 28.3s. The final original reviewer completed in 397.4s
+at the reviewed 600s/4GiB/o=20 profile after a 300s import timeout. Per-command
+timing, unchanged memory/file/serial/no-swap guards, receipts and exact inputs
+are recorded. These deadlines do not qualify unrestricted full normalization.
+
+Next migrate/check the original one_cat_adjunction_introduction owner and its
+reviewer, especially its profunctor component coefficient and retained inverse
+views. The independent presheaf/direct-cover route, remaining library scope,
+redundant strict-functor wrapper retirement, public promotion and catalog/
+health/CI/source-pin qualification remain required. The goal stays active.
 
 Ordinary-arrow continuation after `5f96019d`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_arrow_review.md)

@@ -1,0 +1,60 @@
+// One-way product currying on the ambient lax mapping categories. Semantically
+// this is restriction along the tensor-to-product projection followed by
+// the appropriate closed-Hom adjunction. It does not assert a Cartesian
+// closed equivalence on lax transformations or introduce a lax uncurry.
+// Its objects retain the existing Cartesian curry and ordinary inclusion.
+symbol curry_lax_object [A B C : Cat]
+  (F : τ (Functor (Product_cat A B) C))
+  : τ (Functor A (Functor_cat B C))
+≔ @comp_cat_fapp0 A (Functor_cart_cat B C) (Functor_cat B C)
+    (Functor_cart_include B C) (@curry_func A B C F);
+
+injective symbol curry_lax_func_func [A B C : Cat]
+  : τ (Functor (Functor_cat (Product_cat A B) C)
+      (Functor_cat A (Functor_cat B C)));
+
+injective symbol curry_lax_hom_func [A B C : Cat]
+  (F G : τ (Functor (Product_cat A B) C))
+  : τ (Functor (@Transf_cat (Product_cat A B) C F G)
+      (@Transf_cat A (Functor_cat B C)
+        (@curry_lax_object A B C F) (@curry_lax_object A B C G)));
+
+injective symbol curry_lax_transf [A B C : Cat]
+  [F G : τ (Functor (Product_cat A B) C)]
+  (eta : τ (@Transf (Product_cat A B) C F G))
+  : τ (@Transf A (Functor_cat B C)
+      (@curry_lax_object A B C F) (@curry_lax_object A B C G));
+
+rule @fapp0 _ _ (@curry_lax_func_func $A $B $C) $F
+  ↪ @curry_lax_object $A $B $C $F;
+rule @fapp1_func _ _ (@curry_lax_func_func $A $B $C) $F $G
+  ↪ @curry_lax_hom_func $A $B $C $F $G;
+rule fapp0 (@curry_lax_hom_func $A $B $C $F $G) $eta
+  ↪ @curry_lax_transf $A $B $C $F $G $eta;
+rule @fapp1_fapp0 _ _ (@curry_lax_func_func $A $B $C) $F $G $eta
+  ↪ @curry_lax_transf $A $B $C $F $G $eta;
+
+// The whole component is the original transformation prewhiskered by (a,-).
+rule @tapp0_fapp0 _ _ _ _ $a (@curry_lax_transf $A $B $C $F $G $eta)
+  ↪ @fapp1_fapp0 (Functor_cat (Product_cat $A $B) $C) (Functor_cat $B $C)
+      (@comp_cat_con_func $B (Product_cat $A $B) $C
+        (@fapp0 $A (Functor_cart_cat $B (Product_cat $A $B))
+          (@Product_pair_tele_func $A $B) $a)) $F $G $eta;
+
+// Component evaluation of every higher input uses the same prewhiskering Hom.
+// lhs-audit: keep 1 -- composition of the actual component/action functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@tapp0_func _ _ _ _ $a) (@curry_lax_hom_func $A $B $C $F $G)
+  ↪ @comp_cat_con_fapp1_func $B (Product_cat $A $B) $C
+      (@fapp0 $A (Functor_cart_cat $B (Product_cat $A $B))
+        (@Product_pair_tele_func $A $B) $a) $F $G;
+
+// Join the whole strict functor's laws after its transformation has projected.
+rule @curry_lax_transf $A $B $C $F $F (@id _ $F)
+  ↪ @id (Functor_cat $A (Functor_cat $B $C)) (@curry_lax_object $A $B $C $F);
+// lhs-audit: keep 1 -- this is composition in the specified mapping category.
+rule @comp_fapp0 (Functor_cat $A (Functor_cat $B $C)) _ _ _
+      (@curry_lax_transf $A $B $C $G $H $theta)
+      (@curry_lax_transf _ _ _ $F $G $eta)
+  ↪ @curry_lax_transf $A $B $C $F $H
+      (@comp_fapp0 (Functor_cat (Product_cat $A $B) $C) $F $G $H $theta $eta);

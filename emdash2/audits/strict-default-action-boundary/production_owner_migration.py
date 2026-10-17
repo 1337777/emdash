@@ -685,6 +685,10 @@ rule @fapp1_fapp0 (CoAt2_cat $K) $D $F $x $x (@id $K $x)
                  'fibrewise products',
                  'Retain the original uncurry/product/pair construction and displayed owners with the admitted coefficient and its actual Cartesian fibre Homs')
 
+    insert('// Semantic uncurry package through fixed-right product action and evaluation.',
+           fragment('production_lax_curry.lpfragment'),
+           'One-way lax currying for the original raw ProfMap consumer; object action reuses Cartesian curry and inclusion, without claiming an ambient Cartesian inverse')
+
     a = body.index('// 8c. Section categories and Pi action')
     b = body.index('// 8d. Fibre covariance and dependent-hom endpoint notation', a)
     old_sections = body[a:b]
@@ -1680,6 +1684,99 @@ unif_rule @sigma_map_func $K _ _
                 changes.append({'source': path, 'owner': 'evaluated inverse point cancellation',
                                 'reason': 'Instance the existing two functor-valued point cuts at Cat_cart, retaining the actual chosen inverse package and evaluation point',
                                 'insertedSha256': sha(addition)})
+            if path == 'emdash3_2_discrete_functor_paths.lp':
+                anchor = '// Core reflection, set-valued pointwise assembly, then the original core law.'
+                assert text.count(anchor) == 1
+                addition = fragment('production_discrete_functord_closure.lpfragment')
+                text = text.replace(anchor, addition + '\n' + anchor, 1)
+                changes.append({'source': path, 'owner': 'discrete displayed mapping category',
+                                'reason': 'Structural fibrewise-discrete closure required for the original ordinary-target Hom-action admission; no global strictness or new caller data',
+                                'insertedSha256': sha(addition)})
+            if path == 'emdash3_2_one_cat_hom_comparison_data.lp':
+                old = text
+                assert text.count('Cat_cat') == 82
+                assert text.count('@hom_int ') == 12
+                assert text.count('@Product_pair_tele_func') == 43
+                # Preserve the two generic ordinary-functor inverse helpers.
+                # The live profunctor paths below use their own coefficient
+                # evaluations; these helpers do not consume those packages.
+                ordinary_start = text.index('protected symbol hom_comparison_defiso_point_left')
+                ordinary_end = text.index('// Evaluate the supplied whole DefIso', ordinary_start)
+                ordinary_helpers = text[ordinary_start:ordinary_end]
+                assert ordinary_helpers.count('Cat_cat') == 14
+                text = (text[:ordinary_start].replace('Cat_cat', 'Cat_cart')
+                        + ordinary_helpers
+                        + text[ordinary_end:].replace('Cat_cat', 'Cat_cart'))
+                text = text.replace('@hom_int ', '@hom_int_view ')
+                text = text.replace('@Product_pair_tele_func', '@hom_comparison_pair_tele_func')
+                anchor = '// Reconstruct F⇒G from its whole internal Hom action using the shared graph.'
+                assert text.count(anchor) == 1
+                addition = fragment('production_one_cat_hom_action_admission.lpfragment')
+                text = text.replace(anchor, addition + '\n' + anchor, 1)
+                view_anchor = '// Curry the supplied whole represented map at its original hom_int owners.'
+                assert text.count(view_anchor) == 1
+                text = text.replace(view_anchor,
+                    fragment('production_lax_curry_hom_views.lpfragment') + '\n' + view_anchor, 1)
+                start = text.index('symbol one_cat_transf_from_hom_action')
+                end = text.index('// The original forward comparison', start)
+                original = text[start:end]
+                replacement = original.replace('@hom_int ', '@hom_int_view ')
+                signature, definition = replacement.split('≔', 1)
+                definition = re.sub(r'\balpha\b', '(@one_cat_hom_action_cart B C C1 F G alpha)', definition)
+                text = text[:start] + signature + '≔' + definition + text[end:]
+                start = text.index('symbol profmap_internal_hom_action')
+                end = text.index('// η:id_A⇒GF', start)
+                original_curry = text[start:end]
+                replacement_curry = original_curry.replace('@hom_int ', '@hom_int_view ')
+                replacement_curry = replacement_curry.replace('Cat_cat', 'Cat_cart')
+                replacement_curry = replacement_curry.replace('@curry_func_func', '@curry_lax_func_func')
+                text = text[:start] + replacement_curry + text[end:]
+                pair_path, component_path = fragment('production_hom_comparison_curry_paths.lpfragment').split('// COMPONENT PATH\n', 1)
+                start = text.index('protected symbol hom_comparison_pair_tele_identity_path')
+                end = text.index('// Stage transfor identity evaluation', start)
+                text = text[:start] + pair_path + '\n' + text[end:]
+                start = text.index('protected symbol hom_comparison_prof_hom_action_component_path')
+                end = text.index('symbol one_cat_hom_comparison_unit_component_path', start)
+                text = text[:start] + component_path + '\n' + fragment('production_hom_comparison_admitted_path.lpfragment') + '\n' + text[end:]
+                for owner, next_owner, idx, cod, ordinary, ff, gg, rr in (
+                    ('symbol one_cat_hom_comparison_unit_component_path', 'symbol one_cat_hom_comparison_counit_component_path',
+                     'A', 'A', 'A1', '(@id_func A)', '(@comp_cat_fapp0 A B A G F)', '(@hom_comparison_unit_profmap A B F G i)'),
+                    ('symbol one_cat_hom_comparison_counit_component_path', 'protected symbol hom_comparison_prof_cov_cell',
+                     'B', 'B', 'B1', '(@comp_cat_fapp0 B A B F G)', '(@id_func B)', '(@hom_comparison_counit_profmap A B F G i)'),
+                    ('protected symbol hom_comparison_reconstruction_component_path', 'symbol one_cat_profmap_reconstruction_action_path',
+                     'A', 'C', 'C1', 'F', 'G', 'r')):
+                    start = text.index(owner)
+                    end = text.index(next_owner, start)
+                    signature, definition = text[start:end].split('≔', 1)
+                    action = f'(@profmap_internal_hom_action {idx} {cod} {ff} {gg} {rr})'
+                    assert definition.count(action) == 1, owner
+                    admitted = f'''(@strict_transfor (Op_cat {idx}) (Catd_cat {idx})
+        (one_cat_hom_action_source {idx}) (@one_cat_hom_action_target {idx} {cod} {ff} {gg})
+        (@one_cat_hom_action_cart {idx} {cod} {ordinary} {ff} {gg} {action}))'''
+                    definition = definition.replace(action, admitted, 1)
+                    assert definition.count('@hom_comparison_prof_hom_action_component_path') == 1, owner
+                    definition = definition.replace('@hom_comparison_prof_hom_action_component_path',
+                        '@hom_comparison_admitted_hom_action_component_path', 1)
+                    text = text[:start] + signature + '≔' + definition + text[end:]
+                changes.append({'source': path, 'owner': 'ordinary-target supplied Hom-action reconstruction',
+                                'reason': 'Retag 68 coefficient uses, retaining the two generic ordinary inverse helpers; adapt 12 ordinary Hom views and 43 pair-telescope views, derive admission from original OneCat(C), and use one-way lax curry with the shared graph and actual selected maps',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_one_cat_modifications.lp':
+                old = text
+                specialization = '(@one_cat_modification _ Cat_cat _ _ _ _ _ $m)'
+                assert text.count(specialization) == 1
+                text = text.replace(specialization,
+                    '(@one_cat_modification _ Cat_cart _ _ _ _ _ $m)', 1)
+                changes.append({'source': path, 'owner': 'ordinary modification displayed component',
+                                'reason': 'Retag the existing displayed specialization at its actual Cat_cart coefficient; preserve the general modification, original OneCat premise and supplied components',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/one_cat_hom_comparison_data.lp':
+                old = text
+                assert text.count('Cat_cat') == 4
+                text = text.replace('Cat_cat', 'Cat_cart')
+                changes.append({'source': path, 'owner': 'original Hom-comparison reviewer',
+                                'reason': 'Retag the four original profunctor component observations with their actual coefficient; preserve all selected comparisons and inverse controls',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_arrow_diagrams.lp':
                 old = text
                 dep = 'require open emdash.emdash3_2_arrow_diagram_families;'
@@ -2450,10 +2547,38 @@ unif_rule @sigma_map_func $K _ _
     stage('examples/represented_comma_families.lp')
     stage('examples/action_profile_prof_defiso_controls.lp')
     stage('examples/one_cat_arrow_diagrams.lp')
+    stage('examples/one_cat_modifications.lp')
     (package / 'one_cat_arrow_profile_controls.lp').write_text(
         'require open emdash.examples.one_cat_arrow_diagrams;\n'
         + fragment('production_one_cat_arrow_controls.lpfragment'))
     stage('emdash3_2_one_cat_hom_comparison_data.lp')
+    stage('examples/one_cat_hom_comparison_data.lp')
+    (package / 'hom_action_admission_controls.lp').write_text(
+        'require open emdash.emdash3_2_one_cat_transfor_profiles;\n'
+        + fragment('production_one_cat_hom_action_admission.lpfragment') + '\n'
+        + fragment('production_one_cat_hom_action_controls.lpfragment'))
+    (package / 'lax_curry_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + fragment('production_lax_curry_hom_views.lpfragment') + '\n'
+        + fragment('production_lax_curry_controls.lpfragment'))
+    hom_comparison_source = (package / 'emdash3_2_one_cat_hom_comparison_data.lp').read_text()
+    def source_slice(start, end):
+        assert hom_comparison_source.count(start) == 1, start
+        assert hom_comparison_source.count(end) == 1, end
+        a = hom_comparison_source.index(start)
+        return hom_comparison_source[a:hom_comparison_source.index(end, a)]
+    (package / 'hom_comparison_curry_path_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + fragment('production_lax_curry_hom_views.lpfragment') + '\n'
+        + source_slice('protected symbol hom_comparison_pair_tele_func', 'protected symbol one_cat_hom_action_source')
+        + source_slice('symbol profmap_internal_hom_action', '// η:id_A⇒GF')
+        + source_slice('protected symbol hom_comparison_pair_tele_identity_path', 'protected symbol hom_comparison_admitted_hom_action_component_path'))
+    (package / 'hom_comparison_admitted_path_controls.lp').write_text(
+        'require open emdash.emdash3_2_one_cat_transfor_profiles;\n'
+        + fragment('production_one_cat_hom_action_admission.lpfragment') + '\n'
+        + fragment('production_lax_curry_hom_views.lpfragment') + '\n'
+        + source_slice('symbol profmap_internal_hom_action', '// η:id_A⇒GF')
+        + source_slice('protected symbol hom_comparison_pair_tele_identity_path', 'symbol one_cat_hom_comparison_unit_component_path'))
     graph_source = (package / 'emdash3_2_represented_comma_families.lp').read_text()
     graph_boundary = '// Fibrewise Sigma of the existing whole internal action.'
     assert graph_source.count(graph_boundary) == 1
@@ -2517,6 +2642,10 @@ unif_rule @sigma_map_func $K _ _
     (package / 'sigma_projection_regression_controls.lp').write_text(
         (package / 'inverse_core_controls.lp').read_text() + '\n'
         + fragment('production_sigma_constant_projection_controls.lpfragment'))
+    (package / 'lax_curry_regression_controls.lp').write_text(
+        (package / 'sigma_projection_regression_controls.lp').read_text() + '\n'
+        + fragment('production_lax_curry_hom_views.lpfragment') + '\n'
+        + fragment('production_lax_curry_controls.lpfragment'))
     (package / 'comma_target_guard_controls.lp').write_text(
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
@@ -2645,6 +2774,11 @@ unif_rule @sigma_map_func $K _ _
                               package / 'represented_comma_target_inverse_prefix.lp',
                               package / 'sigma_constant_projection_controls.lp',
                               package / 'sigma_projection_regression_controls.lp',
+                              package / 'hom_action_admission_controls.lp',
+                              package / 'lax_curry_controls.lp',
+                              package / 'hom_comparison_curry_path_controls.lp',
+                              package / 'hom_comparison_admitted_path_controls.lp',
+                              package / 'lax_curry_regression_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

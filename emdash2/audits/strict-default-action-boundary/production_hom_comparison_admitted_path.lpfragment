@@ -1,0 +1,33 @@
+// Read back the actual classified action inside the component theorem.
+// This is a derived observation of the existing admission carrier path;
+// no equality is passed to the reconstruction or installed as a runtime cut.
+protected symbol hom_comparison_admitted_hom_action_component_path [I C : Cat]
+  (I1 : τ (IsNCat (cat_succ cat_zero) I)) (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C))
+  (r : τ (@ProfMap I I (@Unit_prof I) (@Hom_prof_along I I C F G))) (x : τ (Obj I))
+  : τ (@= (Functor (Hom_cat I x x) (Hom_cat C (fapp0 F x) (fapp0 G x)))
+      (@tapp0_fapp0 I Cat_cart (@hom_ I I (@id_func I) x)
+        (@hom_ C I G (fapp0 F x)) x
+        (@tapp0_fapp0 (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) x
+          (@strict_transfor _ _ _ _ (@one_cat_hom_action_cart I C C1 F G
+            (@profmap_internal_hom_action I C F G r)))))
+      (@tapp0_fapp0 (Product_cat (Op_cat I) I) Cat_cart (@Unit_prof I)
+        (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x) r))
+≔ @eq_trans _ _ _ _
+    (@eq_ap
+      (@Transf (Op_cat I) (Catd_cat I)
+        (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G))
+      (Functor (Hom_cat I x x) (Hom_cat C (fapp0 F x) (fapp0 G x)))
+      (λ h : τ (@Transf (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G)),
+        @tapp0_fapp0 I Cat_cart (@hom_ I I (@id_func I) x)
+          (@hom_ C I G (fapp0 F x)) x
+          (@tapp0_fapp0 (Op_cat I) (Catd_cat I)
+            (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) x h))
+      _ _ (@make_strict_transfor_carrier_path (Op_cat I) (Catd_cat I)
+        (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G)
+        (@profmap_internal_hom_action I C F G r)
+        (@one_cat_hom_action_is_strict I C C1 F G
+          (@profmap_internal_hom_action I C F G r))))
+    (@hom_comparison_prof_hom_action_component_path I C I1 C1 F G r x);

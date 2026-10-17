@@ -1,0 +1,82 @@
+// The original arbitrary-source Hom-action interface, with its ordinary
+// views of the canonical Cartesian Hom families.
+protected symbol hom_comparison_pair_tele_func [A B : Cat]
+  : τ (Functor A (Functor_cat B (Product_cat A B)))
+≔ @comp_cat_fapp0 A (Functor_cart_cat B (Product_cat A B))
+    (Functor_cat B (Product_cat A B)) (Functor_cart_include B (Product_cat A B))
+    (@Product_pair_tele_func A B);
+
+protected symbol one_cat_hom_action_source (I : Cat)
+  : τ (Functor (Op_cat I) (Catd_cat I))
+≔ @hom_int_view I I (@id_func I);
+
+protected symbol one_cat_hom_action_target [I C : Cat]
+  (F G : τ (Functor I C))
+  : τ (Functor (Op_cat I) (Catd_cat I))
+≔ @comp_cat_fapp0 (Op_cat I) (Op_cat C) (Catd_cat I)
+    (@hom_int_view C I G) (@Op_func I C F);
+
+// Only the Hom categories ending in this represented family need discreteness.
+// The whole universe Catd(I) is not asserted to be an ordinary category.
+protected symbol one_cat_hom_action_local_discrete [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C)) (a b : τ (Obj I))
+  : τ (IsDiscreteCat (Hom_cat (Catd_cat I)
+      (fapp0 (one_cat_hom_action_source I) a)
+      (fapp0 (@one_cat_hom_action_target I C F G) b)))
+≔ @discrete_functord_category I
+    (fapp0 (one_cat_hom_action_source I) a)
+    (fapp0 (@one_cat_hom_action_target I C F G) b)
+    (λ y : τ (Obj I), C1 (fapp0 F b) (fapp0 G y));
+
+// Strictness evidence is extracted from alpha's existing two internal cells.
+// No replacement cell or additional caller premise is supplied.
+protected symbol one_cat_hom_action_is_strict [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C))
+  (alpha : τ (@Transf (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G)))
+  : τ (@IsStrictTransfor (Op_cat I) (Catd_cat I)
+      (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha)
+≔ @strict_transfor_strictness_intro (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha
+    (λ X : τ (Obj I), λ Y : τ (Obj I), λ Z : τ (Obj I),
+      λ g : τ (Hom (Op_cat I) Y Z),
+      @discrete_cell_is_strict
+        (Functor_cat (Hom_cat (Op_cat I) X Y)
+          (Hom_cat (Catd_cat I) (fapp0 (one_cat_hom_action_source I) X)
+            (fapp0 (@one_cat_hom_action_target I C F G) Z)))
+        (@discrete_functor_category (Hom_cat (Op_cat I) X Y) _
+          (@one_cat_hom_action_local_discrete I C C1 F G X Z))
+        (@strict_transfor_naturality_lhs_func (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha X Y Z g)
+        (@strict_transfor_naturality_rhs_func (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha X Y Z g)
+        (@strict_transfor_naturality_transf (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha X Y Z g))
+    (λ Y : τ (Obj I), λ W : τ (Obj I), λ X : τ (Obj I),
+      λ h : τ (Hom (Op_cat I) W X),
+      @discrete_cell_is_strict
+        (Functor_cat (Hom_cat (Op_cat I) X Y)
+          (Hom_cat (Catd_cat I) (fapp0 (one_cat_hom_action_source I) W)
+            (fapp0 (@one_cat_hom_action_target I C F G) Y)))
+        (@discrete_functor_category (Hom_cat (Op_cat I) X Y) _
+          (@one_cat_hom_action_local_discrete I C C1 F G W Y))
+        (@strict_transfor_pre_naturality_lhs_func (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha Y W X h)
+        (@strict_transfor_pre_naturality_rhs_func (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha Y W X h)
+        (@strict_transfor_pre_naturality_transf (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha Y W X h));
+
+// The actual supplied action is admitted, retaining its original raw view.
+symbol one_cat_hom_action_cart [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C))
+  (alpha : τ (@Transf (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G)))
+  : τ (@StrictTransfor (Op_cat I) (Catd_cat I)
+      (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G))
+≔ @make_strict_transfor (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha
+    (@one_cat_hom_action_is_strict I C C1 F G alpha);
