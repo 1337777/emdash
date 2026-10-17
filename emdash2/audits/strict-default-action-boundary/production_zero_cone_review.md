@@ -60,7 +60,7 @@ non-library checkpoint. Public promotion and the remaining goal gates stay open.
 
 The broader importer reaches one_cat_postcomp_adjunction's unit observation
 in one_cat_adjunction_families (lines 21–25 of the unchanged original owner).
-Its old whiskering RHS does not have the migrated Cartesian/strict-transfor
-unit profile. The input already carries ordinary-target hypotheses; the next
+Its old whiskering RHS now selects a Cartesian/strict-transfor helper,
+whereas the unit/counit endpoints remain ordinary. The input already carries ordinary-target hypotheses; the next
 slice must review those existing capabilities and retain its supplied J.
 The failure is recorded, not bypassed with a mapping-category equality.

@@ -1628,6 +1628,21 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 changes.append({'source': path, 'owner': 'adjunction mate negative control',
                                 'reason': 'Keep the constant-source rejection well typed in the actual displayed-family coefficient Cat_cart',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_one_cat_adjunction_families.lp',
+                        'examples/one_cat_adjunction_families.lp'):
+                old = text
+                count = 2 if path.startswith('emdash3_2_') else 4
+                assert text.count('@comp_cat_cov_func_func_transf') == count
+                text = text.replace('@comp_cat_cov_func_func_transf',
+                    '@hom_postcomp_tele_transf Cat_cat Cat_cat (@id_func Cat_cat)')
+                if path.startswith('emdash3_2_'):
+                    text = text.replace('// Whole unit/counit observations through existing tele-postcomposition.',
+                        '// Whole unit/counit observations through existing ordinary tele-postcomposition.\n'
+                        '// The short comp_cat_cov_func_func_transf alias now selects Cartesian\n'
+                        '// mapping categories; these original endpoints are ordinary Functor_cat.')
+                changes.append({'source': path, 'owner': 'ordinary-target postcomposition adjunction unit/counit',
+                                'reason': 'Use the existing generic Cat_cat telescope directly at the original ordinary mapping endpoints; preserve the supplied J, existing OneCat hypotheses and every reviewer statement',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             zero_profiles = {
                 'emdash3_2_zero_arrow_diagrams.lp': (2, 10, 0),
                 'emdash3_2_kernel_cokernel_adjunctions.lp': (38, 5, 0),
@@ -2111,6 +2126,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/zero_arrow_cone_maps.lp')
     stage('examples/kernel_cokernel_adjunctions.lp')
     stage('examples/adjunction_mates.lp')
+    stage('examples/one_cat_adjunction_families.lp')
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'

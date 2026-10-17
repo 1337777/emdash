@@ -39,3 +39,21 @@ assertnot [C : Cat] [w x y z : τ (Obj C)]
   (f : τ (Hom C w x)) (g : τ (Hom C x y)) (h : τ (Hom C y z)) ⊢
   @comp_fapp0 C w y z h (@comp_fapp0 C w x y g f)
   ≡ @comp_fapp0 C w x z (@comp_fapp0 C x y z h g) f;
+// Nested represented cuts retain the same associative raw-composition view.
+assert (C : Cat) (w x y z : τ (Obj C))
+  (g : τ (Hom C w x)) (p : τ (Hom C x y)) (q : τ (Hom C y z))
+  ⊢ eq_refl (@hom_postcomp_fapp0 C C (@id_func C) w y z q
+      (@hom_postcomp_fapp0 C C (@id_func C) w x y p g))
+    : τ (@= (Obj (Hom_cat C w z))
+      (@hom_postcomp_fapp0 C C (@id_func C) w y z q
+        (@hom_postcomp_fapp0 C C (@id_func C) w x y p g))
+      (@comp_fapp0 C w x z (@comp_fapp0 C x y z q p) g));
+
+assertnot (C : Cat) (w x y z : τ (Obj C))
+  (g : τ (Hom C w x)) (p : τ (Hom C x y)) (q other : τ (Hom C y z))
+  ⊢ eq_refl (@hom_postcomp_fapp0 C C (@id_func C) w y z q
+      (@hom_postcomp_fapp0 C C (@id_func C) w x y p g))
+    : τ (@= (Obj (Hom_cat C w z))
+      (@hom_postcomp_fapp0 C C (@id_func C) w y z q
+        (@hom_postcomp_fapp0 C C (@id_func C) w x y p g))
+      (@comp_fapp0 C w x z (@comp_fapp0 C x y z other p) g));

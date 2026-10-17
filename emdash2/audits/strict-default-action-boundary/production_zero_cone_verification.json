@@ -327,7 +327,7 @@
   "nextOwner": {
     "module": "emdash3_2_one_cat_adjunction_families.lp",
     "symbol": "unit_adj_transf(one_cat_postcomp_adjunction(...))",
-    "problem": "Original whiskering RHS expects ordinary Functor_cat/default Transf while the migrated unit and parameter action carry Cartesian/StrictTransfor structure",
+    "problem": "Original unit/counit endpoints remain ordinary Functor_cat/default Transf while the old short whiskering helper now selects Cartesian/StrictTransfor structure",
     "next": "Review the existing OneCat hypotheses and selected unit/counit operations, retaining J; do not install profile equalities"
   },
   "receipts": {

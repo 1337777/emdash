@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; zero-cone total and original map projections qualified; ordinary-target adjunction-family observations, remaining migration and public promotion open
+Status: active implementation; ordinary-target adjunction-family owner and complete reviewer qualified; displayed pointwise-equivalence coefficient, remaining migration and public promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,6 +38,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Ordinary-target adjunction-family continuation after `d5bd294c`, 2026-10-16:
+the [review](../emdash2/audits/strict-default-action-boundary/production_adjunction_family_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_adjunction_family_verification.json)
+record the original whole postcomposition adjunction with its unit/counit
+and complete reviewer. Source review corrects the preceding diagnosis: the
+unit/counit remain ordinary lax transfors; the old short helper now selects
+Cartesian mapping categories. The two projection rules use the existing
+generic Cat_cat telescope directly, preserving every original parameter,
+OneCat hypothesis and ordinary mapping endpoint.
+
+The original component consumer additionally required a direct proof-time
+associativity view after composite postcomposition splits into consecutive
+represented cuts. It is installed at that existing owner, retaining all
+operands and inverse-cancellation runtime forms. Its typed positive and
+different-arrow negative controls pass. The original reviewer retains all
+16 positive/four negative checks, including whole inverse and higher action;
+the core and shared inverse-action regression also pass. These checks take
+18–28s at 90s/2GiB/o=20. Exact warning bodies are unchanged and the rule/LHS
+reviews pass. No new strictness requirement on units, counits or FF is added.
+
+The next actual import boundary is StrictTransfdPointwiseOmegaAlong in
+emdash3_2_strict_pointwise_equivalences.lp: its ordinary pointwise evidence
+does not match the actual Cartesian fibre component of tdapp0_fapp0.
+Review the chosen inverse profile and real callers together; do not insert
+an arbitrary ordinary inverse into a strict component by forgetting its type.
+The broader import remains failed. Public promotion, remaining library
+migration, strict-wrapper retirement and final gates remain required.
+
 Represented-comma/zero-cone continuation after `a4c58fc8`, 2026-10-16:
 the [review](../emdash2/audits/strict-default-action-boundary/production_zero_cone_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_zero_cone_verification.json)
@@ -58,10 +86,10 @@ with subject reduction and exactly the same warning bodies as the earlier
 failed direct-tuple attempt. All six green receipts from the preceding
 checkpoint still match their complete inputs; no unchanged core rerun is needed.
 
-The broader source now reaches one_cat_postcomp_adjunction's unit observation
+The broader source then reached one_cat_postcomp_adjunction's unit observation
 in emdash3_2_one_cat_adjunction_families.lp. Its old whiskering RHS mixes the
-ordinary mapping category with the migrated Cartesian/strict-transfor unit
-profile. Review its existing OneCat hypotheses and actual unit/counit owners;
+Cartesian short helper with the original ordinary unit/counit endpoints.
+Review its existing OneCat hypotheses and actual unit/counit owners;
 preserve the supplied adjunction and avoid a global mapping-profile equality.
 The broader run remains a failed integration boundary. Remaining migration,
 strict-wrapper retirement, public promotion and final gates are still required.
