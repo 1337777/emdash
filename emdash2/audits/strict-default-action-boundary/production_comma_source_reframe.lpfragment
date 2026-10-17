@@ -1,0 +1,21 @@
+// The constructor now uses its underlying map directly at the checked
+// target type. This first comparison therefore only reassociates its source
+// projection. The old proof reinserted the removed sigma_map(id_reframe).
+// Its selected forward and reverse maps were mapped identities; retain those
+// identities directly, with the same comparison endpoints and public owner.
+protected symbol comma_source_gamma_step1 [K X Y : Cat]
+  (J : τ (Functor X Y)) (A : τ (Functor K X)) (D : τ (Functor K Y))
+  (h : τ (@StrictTransfor (Op_cat K) (Catd_cat K)
+    (@hom_int_view K K (@id_func K))
+    (@comp_cat_fapp0 (Op_cat K) (Op_cat Y) (Catd_cat K)
+      (@hom_int_view Y K D) (@Op_func K Y (@comp_cat_fapp0 K X Y J A)))))
+  : τ (IsoEvidence (Functor_cat K X)
+      (@represented_comma_hom_action_source_func K X Y J A D h)
+      (@comma_source_gamma_source1 K X Y J A D h))
+≔ @iso_evidence_intro (Functor_cat K X)
+    (@represented_comma_hom_action_source_func K X Y J A D h)
+    (@comma_source_gamma_source1 K X Y J A D h)
+    (@id (Functor_cat K X) (@represented_comma_hom_action_source_func K X Y J A D h))
+    (@id (Functor_cat K X) (@comma_source_gamma_source1 K X Y J A D h))
+    (eq_refl (@id (Functor_cat K X) (@represented_comma_hom_action_source_func K X Y J A D h)))
+    (eq_refl (@id (Functor_cat K X) (@comma_source_gamma_source1 K X Y J A D h)));

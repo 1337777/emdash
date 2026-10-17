@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; derived represented-comma constructor and directed-square computation qualified; original comparison helpers, full reviewer and remaining migration/promotion open
+Status: active implementation; derived represented-comma constructor and original whole source comparison qualified; target comparison, full reviewer and remaining migration/promotion open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,34 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Represented-comma source comparison after `3f26489e`, 2026-10-17:
+the [review](../emdash2/audits/strict-default-action-boundary/production_comma_source_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_comma_source_verification.json)
+record the original whole p∘Gamma≅A with both selected maps and inverse laws.
+All seven original source observations pass, along with the four original
+rejections and two targeted map-retention negatives. The ordinary-lax public
+constructor/source wrappers retain their types and use tapp1_int_cart;
+their actual input eta is not made strict.
+
+The source helpers now distinguish the internal Hom's T(K) from the total
+constructions' O(K). Three original projection views have total-dual instances.
+A sufficient projected-composite comparison retains the actual base, family
+and other map as residual obligations. The first source-comparison step now
+uses its identity maps directly, following removal of the operational identity
+reframe in the constructor. A trial changing the represented family's normal
+form regressed the earlier section and was reverted; the original pullback
+definition remains. No new runtime cut or caller proof is introduced.
+
+The source reviewer, constructor and affected core pass in 22–39s under their
+existing 90s/2–3GiB/o=20 profiles, with subject reduction and unchanged warning
+bodies. Exact input closures and logs rehash. The full source reaches
+comma_section_gamma_target_family_map: its old T(X) base and ordinary map
+typing must be aligned with the actual O(X) total and Cartesian target-map
+view. Continue the original target-section/comparison pipeline, preserving
+its selected inverse data and OneCat target boundary. Full reviewer, external
+Hom-comparison admission, remaining library routes, wrapper retirement,
+promotion and final qualification remain required; the goal remains active.
 
 Represented-comma constructor after `e3a2e121`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_comma_constructor_review.md)

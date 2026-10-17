@@ -1,0 +1,31 @@
+// Total-dual instances of the existing three Sigma projection views.
+// Pattern on the stable R(T(-)) functor heads, not the reducible TotalOp alias.
+// These are proof-time comparisons; section/map/base-change owners remain.
+// A composite with this projection may carry two proof-time-equal family
+// presentations. Compare the actual families and other maps separately;
+// composition is not made injective and no family or map is discarded.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $E))) $H
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K0 $E0))) $H0
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $H0 ≡ $H ];
+
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $E)))
+    (@CoAbove2_func _ _ (@Op_func _ _ (@section_total_func $K $E _)))
+  ≡ @id Cat_cat (CoAbove2_cat (Op_cat $K)) ↪ [ tt ≡ tt ];
+
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $D)))
+    (@CoAbove2_func _ _ (@Op_func _ _ (@sigma_map_func $K $E $D _)))
+  ≡ @CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $E))
+  ↪ [ tt ≡ tt ];
+
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $E)))
+    (@CoAbove2_func _ _ (@Op_func _ _ (@sigma_pullback_total_func $A $K $F $E)))
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ $F))
+    (@CoAbove2_func _ _ (@Op_func _ _
+      (@Sigma_proj1_func $A (@Pullback_catd $A $K $E $F))))
+  ↪ [ tt ≡ tt ];

@@ -1,0 +1,25 @@
+// Sufficient congruence retains the other actual map; it is not a blanket
+// equality of functors with the same projected target.
+assertnot [A K : Cat] (E : τ (Catd K))
+  (F G : τ (Functor A (@Sigma_cat K E)))
+  ⊢ eq_refl (@comp_cat_fapp0 (TotalOp_cat A) (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat K)
+      (@TotalOp_func (@Sigma_cat K E) K (@Sigma_proj1_func K E))
+      (@TotalOp_func A (@Sigma_cat K E) F))
+    : τ (@= (Functor (TotalOp_cat A) (TotalOp_cat K))
+      (@comp_cat_fapp0 (TotalOp_cat A) (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat K)
+        (@TotalOp_func (@Sigma_cat K E) K (@Sigma_proj1_func K E))
+        (@TotalOp_func A (@Sigma_cat K E) F))
+      (@comp_cat_fapp0 (TotalOp_cat A) (TotalOp_cat (@Sigma_cat K E)) (TotalOp_cat K)
+        (@TotalOp_func (@Sigma_cat K E) K (@Sigma_proj1_func K E))
+        (@TotalOp_func A (@Sigma_cat K E) G)));
+
+// Base change keeps the particular F, even though another G has the same type.
+assertnot [A K : Cat] (F G : τ (Functor A K)) (E : τ (Catd K))
+  ⊢ eq_refl (@comma_source_op_basechange_projection A K F E)
+    : τ (@= (Functor (TotalOp_cat (@Sigma_cat A (@Pullback_catd A K E F))) (TotalOp_cat K))
+      (@comma_source_op_basechange_projection A K F E)
+      (@comp_cat_fapp0 (TotalOp_cat (@Sigma_cat A (@Pullback_catd A K E F)))
+        (TotalOp_cat A) (TotalOp_cat K)
+        (@TotalOp_func A K G)
+        (@TotalOp_func (@Sigma_cat A (@Pullback_catd A K E F)) A
+          (@Sigma_proj1_func A (@Pullback_catd A K E F)))));

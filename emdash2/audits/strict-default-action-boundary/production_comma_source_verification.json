@@ -1,0 +1,364 @@
+{
+  "status": "Non-library whole represented-comma source comparison and original focused reviewer qualified; target/full-reviewer and public migration incomplete",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "extendsCheckpoint": "3f26489e",
+  "authoringInputs": {
+    "production_owner_migration.py": "87243b8d97419f26cd05411a6a982e9121a7798a278ad68c62b3a9335a55b3ec",
+    "production_comma_source_reframe.lpfragment": "a52c3755ccaf26e67556a23bc6c97c17c79d7ff70902b3f897034c8f79868cfb",
+    "production_total_dual_projection_views.lpfragment": "6901a76d87983833a63f3446ef9721daf83d4483d3b084e358d680463c5e62d2",
+    "production_total_dual_projection_controls.lpfragment": "401d1c72116a5aa3485de636927d3667cebe4bf204f53fec1ee9e272736b6097"
+  },
+  "manifestSha256": "6829cec08114a26b83edb11c9bb3d44f066522136debe4afc8983f2cf783f3eb",
+  "contracts": {
+    "source": "Original p o Gamma is isomorphic to A, retaining both selected maps and both laws",
+    "ordinaryInput": "eta:J o A => D remains ordinary lax and enters through tapp1_int_cart",
+    "internalInput": "Existing strict-x whole internal Hom over T(K), with ordinary lax displayed y-components",
+    "totalBase": "O(K), distinct from internal Hom T(K)",
+    "callerEvidenceAdded": false,
+    "runtimeRulesAdded": false,
+    "representedFamilyDefinitionChanged": false,
+    "publicPromotion": false
+  },
+  "changes": [
+    "Total-dual instances of three original Sigma projection proof-time views",
+    "Sufficient projected-composite congruence retains actual base, family and other map as obligations",
+    "First comparison uses the same selected identity maps directly after removal of the operational identity reframe; later original mapped inverse construction retained",
+    "Four original ordinary-lax source/constructor wrappers moved to dependency-ready position with canonical admission"
+  ],
+  "checks": {
+    "represented_comma_source_prefix.lp": {
+      "assert": 7,
+      "assertnot": 6
+    },
+    "inverse_core_controls.lp": {
+      "assert": 259,
+      "assertnot": 63
+    },
+    "represented_comma_constructor_prefix.lp": {
+      "assert": 2,
+      "assertnot": 0
+    }
+  },
+  "warnings": {
+    "core": {
+      "before": 1953,
+      "after": 1953,
+      "added": 0,
+      "removed": 0,
+      "sameBodies": true,
+      "bodiesSha256": "eae6304a21c769bec45208170f3a9bf655ccda6d48b2b7f5d654dbb436c088af"
+    },
+    "sourceConsumer": {
+      "before": 2608,
+      "after": 2608,
+      "added": 0,
+      "removed": 0,
+      "sameBodies": true,
+      "bodiesSha256": "0806ede67738438e42a957ca96cbec55ca39f73ebad2489b415770171dd6a59a"
+    },
+    "qualification": "No new warning bodies; retained historical overlap qualifications and no global confluence claim"
+  },
+  "lhsReview": {
+    "unreviewedSlots": 0,
+    "coreAnnotatedSlots": 74,
+    "coreAnnotatedClauses": 49,
+    "manual": "New unification clauses pattern on stable CoAbove2_func/Op_func and Sigma projection constructors. Inferred functor endpoints are wildcards. Sufficient congruence leaves K,E,H comparisons; base-change view keeps the same actual F and pulled-back family."
+  },
+  "receipts": {
+    "represented_comma_source_prefix.lp": {
+      "id": "20261017T060143Z-25856a082ffc474c9b43146f2dcd1671",
+      "target": "represented_comma_source_prefix.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 38.61098394996952,
+      "childrenMaxRssKiB": 2502136,
+      "inputSnapshot": "6bdfdc5318046763dc22830f87a969f52798263258df54fbce585bac08dc373d",
+      "inputs": {
+        "emdash3_2.lp": "f0e48cafb571e093026da093f2b0187fe69b62c7ad8a93b66fb630345e39f287",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "50c064e3094b2d1ef4d754b9dbcc24590077513f45c2b47d2e9894b9d429cb4b",
+        "emdash3_2_defiso_evaluation_points.lp": "eae44700c8e0b2e797c2effc8cfe9ff42573bc3bbf2e3a9b04e6f386d4171c50",
+        "emdash3_2_diagram_evaluation.lp": "283c1971ccfe48c0d354cf587d1d4036628c7c4ccd785de26605299dabfb11e2",
+        "emdash3_2_discrete_functor_paths.lp": "9cdb384f984c8bc81e0c1f158cd09b4c1c588ce1fc6e41e82584597ac441b4ea",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_adjunction_family_views.lp": "83648e8d217a565b4663e792ca5a39c14e200dfa0e93017e734ee48196607b82",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+        "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+        "emdash3_2_one_cat_op.lp": "85b6430a39562f3ac49f2fe263dd8996626413c12273e530a00c3db16bef3ee5",
+        "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+        "emdash3_2_one_cat_transfor_profiles.lp": "debb1b42841ac8b8cb7a0603abe0642af289ac9d2f5c6ff2784dffb45ac0efce",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_strict_pointwise_equivalences.lp": "a5afbc2bf77ca2f7f7bcd399b5130631f15aa67a2dbb3529ff880e34c9c3806a",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_zero_arrow_cones.lp": "80950d73775beba104c4d6dd40103b2b865e68edd3a3628c7895801d440d1233",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "represented_comma_source_prefix.lp": "6c0d581f36f0866398d09d8859311f993e50888eba212829889d4ef07f628fdd"
+      },
+      "logSha256": "8e534cec97e434873beaaafddd23c25b267733246850afdb3fe115d0b2410c19",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      }
+    },
+    "inverse_core_controls.lp": {
+      "id": "20261017T060245Z-dae371a1974a431f8183ac21ebe3014c",
+      "target": "inverse_core_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 21.699802575982176,
+      "childrenMaxRssKiB": 1388108,
+      "inputSnapshot": "e226cbe03f4f3bcc7e8a06d8ba0099fe92f1787aef1cfbeb9b64e81dfaabb183",
+      "inputs": {
+        "inverse_core_controls.lp": "f92c5d0db4fae73c4aa37ca6ba54354b3f224aa82394bd71c38d915c95fb0723",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "7dd77da9391ec8db8c519599922b9616fcfaa7d8ffd9538ac2ab7d97aa6b2db5",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      }
+    },
+    "represented_comma_constructor_prefix.lp": {
+      "id": "20261017T060308Z-35f86bda93b4435d8ea3aa3cde50faeb",
+      "target": "represented_comma_constructor_prefix.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 37.40070300898515,
+      "childrenMaxRssKiB": 2482252,
+      "inputSnapshot": "3058862096d94a527a9c1cca9009c110283b111893012e8eb7e575891210bfda",
+      "inputs": {
+        "emdash3_2.lp": "f0e48cafb571e093026da093f2b0187fe69b62c7ad8a93b66fb630345e39f287",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "50c064e3094b2d1ef4d754b9dbcc24590077513f45c2b47d2e9894b9d429cb4b",
+        "emdash3_2_defiso_evaluation_points.lp": "eae44700c8e0b2e797c2effc8cfe9ff42573bc3bbf2e3a9b04e6f386d4171c50",
+        "emdash3_2_diagram_evaluation.lp": "283c1971ccfe48c0d354cf587d1d4036628c7c4ccd785de26605299dabfb11e2",
+        "emdash3_2_discrete_functor_paths.lp": "9cdb384f984c8bc81e0c1f158cd09b4c1c588ce1fc6e41e82584597ac441b4ea",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_adjunction_family_views.lp": "83648e8d217a565b4663e792ca5a39c14e200dfa0e93017e734ee48196607b82",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+        "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+        "emdash3_2_one_cat_op.lp": "85b6430a39562f3ac49f2fe263dd8996626413c12273e530a00c3db16bef3ee5",
+        "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+        "emdash3_2_one_cat_transfor_profiles.lp": "debb1b42841ac8b8cb7a0603abe0642af289ac9d2f5c6ff2784dffb45ac0efce",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_strict_pointwise_equivalences.lp": "a5afbc2bf77ca2f7f7bcd399b5130631f15aa67a2dbb3529ff880e34c9c3806a",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_zero_arrow_cones.lp": "80950d73775beba104c4d6dd40103b2b865e68edd3a3628c7895801d440d1233",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "represented_comma_constructor_prefix.lp": "adec662d3a1d7b5b735ef79f0612ff7dc774062166dbbafb42de0923b05b5ab3"
+      },
+      "logSha256": "0cb2291723bd2d473844858867265a5b9c9f9661c5c35489263c7b0559bb1f55",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      }
+    },
+    "emdash3_2_represented_comma_families.lp": {
+      "id": "20261017T060346Z-5bdba30b9ad14ab79354fcb64966a8b9",
+      "target": "emdash3_2_represented_comma_families.lp",
+      "outcome": "failed",
+      "wallSeconds": 39.24200334993657,
+      "childrenMaxRssKiB": 2500528,
+      "inputSnapshot": "e4e139a88673f31ac82d2584272b9fab63a2eb14187a8a66fca6e3110d031498",
+      "inputs": {
+        "emdash3_2.lp": "f0e48cafb571e093026da093f2b0187fe69b62c7ad8a93b66fb630345e39f287",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "50c064e3094b2d1ef4d754b9dbcc24590077513f45c2b47d2e9894b9d429cb4b",
+        "emdash3_2_defiso_evaluation_points.lp": "eae44700c8e0b2e797c2effc8cfe9ff42573bc3bbf2e3a9b04e6f386d4171c50",
+        "emdash3_2_diagram_evaluation.lp": "283c1971ccfe48c0d354cf587d1d4036628c7c4ccd785de26605299dabfb11e2",
+        "emdash3_2_discrete_functor_paths.lp": "9cdb384f984c8bc81e0c1f158cd09b4c1c588ce1fc6e41e82584597ac441b4ea",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_adjunction_family_views.lp": "83648e8d217a565b4663e792ca5a39c14e200dfa0e93017e734ee48196607b82",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+        "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+        "emdash3_2_one_cat_op.lp": "85b6430a39562f3ac49f2fe263dd8996626413c12273e530a00c3db16bef3ee5",
+        "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+        "emdash3_2_one_cat_transfor_profiles.lp": "debb1b42841ac8b8cb7a0603abe0642af289ac9d2f5c6ff2784dffb45ac0efce",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_represented_comma_families.lp": "99a8a761233da604dba5a318b07d974f1c044381c6b47c4a73bfcb4c9ce79d20",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_strict_pointwise_equivalences.lp": "a5afbc2bf77ca2f7f7bcd399b5130631f15aa67a2dbb3529ff880e34c9c3806a",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_zero_arrow_cones.lp": "80950d73775beba104c4d6dd40103b2b865e68edd3a3628c7895801d440d1233",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "9a08ff2e994e48e9a50e82e689e390a470bcbb19a4f90d6d83b75106ce332a85",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      }
+    }
+  },
+  "diagnostics": {
+    "20261017T055333Z-21d408d625214d6aa7fcc317c3709f85": "Original T-only projection views did not compare the total-dual composite with identity",
+    "20261017T055502Z-f8c0ac5aaef44681b2d3fbeaeef5e7f0": "Three total-dual views pass; old first source proof reinserted the removed identity reframe and failed its endpoints",
+    "20261017T055648Z-46b88ec2551a46baa374336b7aa121f0": "Direct selected identity comparison still needed the actual projected-composite congruence",
+    "20261017T055831Z-07c34faf91b147698b4d6ade2027da72": "Alternative canonical represented-family body regressed the family section with Y versus X; reverted",
+    "20261017T060007Z-889e6bd54bca4856b0ba2fad83dd0eca": "Original pullback body plus sufficient congruence checks the whole source comparison before adding its original reviewer"
+  },
+  "resources": {
+    "defaults": "90s/2048MiB; OCAMLRUNPARAM=o=20,v=1024",
+    "commaImportProfile": "Existing reviewed 90s/3072MiB/o=20",
+    "hostAvailableKiB": [
+      16261076,
+      16388776
+    ],
+    "limitsRaised": false,
+    "preserved": [
+      "subject reduction",
+      "serial execution",
+      "64MiB file limit",
+      "no swap"
+    ]
+  },
+  "nextOwner": {
+    "symbol": "comma_section_gamma_target_family_map",
+    "module": "emdash3_2_represented_comma_families.lp",
+    "failure": "Old T(X) base and ordinary-map typing disagree with the actual O(X) total and Cartesian homdc_total_target_funcd output",
+    "next": "Continue the original target section and comparison pipeline, retaining its inverse data and OneCat(Y) boundary"
+  },
+  "remaining": [
+    "Full target comparison and selected inverse data",
+    "Complete original reviewer including higher action and generic admitted Theta",
+    "External ordinary Hom-comparison caller admission",
+    "Other library routes and wrapper retirement",
+    "Public promotion and final catalog/health/CI/source-pin review"
+  ]
+}

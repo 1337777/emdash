@@ -1367,6 +1367,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     insert('// Whole represented-Sigma base change accumulates before a retained outer',
            fragment('production_sigma_basechange_coefficient.lpfragment'),
            'Canonical Cartesian parameter view of original total base change, with unchanged components and actual ordinary restriction')
+    insert('rule @fapp0 _ _ (@section_total_func $K $E $s) $k',
+           fragment('production_total_dual_projection_views.lpfragment'),
+           'Total-dual instances of the existing Sigma projection comparisons, retaining section/map/base-change heads and all data')
     a = body.index('// 18zz. Whole comma projection and displayed laxity extraction')
     b = body.index('// 19. Applications:', a)
     replace_once(body[a:b], fragment('production_comma_projection.lpfragment') + '\n',
@@ -1705,9 +1708,46 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                 assert tail.count(constructor_end) == 1
                 begin, end_constructor = tail.index(total_end), tail.index(constructor_end)
                 tail = tail[:begin] + total_end + '\n\n' + fragment('production_represented_comma_constructor.lpfragment') + '\n' + tail[end_constructor:]
+                # Original source-comparison proof, with its actual selected
+                # inverse data. Only total/section duals become O here; protect
+                # the nine internal-Hom T(K) classifiers before that change.
+                source_end = '// Extract the actual target section before taking the outer opposite.'
+                assert tail.count(source_end) == 1
+                begin, end_source = tail.index(constructor_end), tail.index(source_end)
+                source = tail[begin:end_source]
+                theta_type = '''(@Transf (Op_cat K) (@Catd_cat K)
+    (@hom_int_view K K (@id_func K))
+    (@comp_cat_fapp0 (Op_cat K) (Op_cat Y) (@Catd_cat K)
+      (@hom_int_view Y K D) (@Op_func K Y (@comp_cat_fapp0 K X Y J A))))'''
+                assert source.count(theta_type) == 9
+                source = source.replace(theta_type, 'COMMA_SOURCE_THETA_TYPE')
+                assert source.count('Op_cat') == 396 and source.count('Op_func') == 80
+                source = source.replace('Op_cat', 'TotalOp_cat').replace('Op_func', 'TotalOp_func')
+                source = source.replace('COMMA_SOURCE_THETA_TYPE', theta_type.replace('@Transf', '@StrictTransfor', 1))
+                source = source.replace(constructor_end, constructor_end + '\n'
+                    '// Total/section duality is O; the admitted internal Hom remains over T(K).')
+                step1 = 'protected symbol comma_source_gamma_step1 '
+                step2 = 'protected symbol comma_source_gamma_step2 '
+                assert source.count(step1) == source.count(step2) == 1
+                s1, s2 = source.index(step1), source.index(step2)
+                source = source[:s1] + fragment('production_comma_source_reframe.lpfragment') + '\n' + source[s2:]
+                tail = tail[:begin] + source + tail[end_source:]
+                # Expose the unchanged ordinary-lax public source interface
+                # at its dependency-ready position. Only its canonical
+                # internal-action admission changes; eta gains no premise.
+                ordinary_start = 'symbol represented_comma_family_func '
+                ordinary_end = 'symbol represented_comma_family_target_func '
+                assert tail.count(ordinary_start) == tail.count(ordinary_end) == 1
+                o1, o2 = tail.index(ordinary_start), tail.index(ordinary_end)
+                ordinary = tail[o1:o2]
+                assert ordinary.count('@tapp1_int_fapp0_transf') == 4
+                ordinary = ordinary.replace('@tapp1_int_fapp0_transf', '@tapp1_int_cart')
+                tail = tail[:o1] + tail[o2:]
+                tail = tail.replace(source_end, '// Original ordinary-lax constructor and source comparison.\n'
+                    + ordinary + '\n' + source_end, 1)
                 text = text[:start] + fragment('production_comma_graph_families.lpfragment') + '\n' + tail
                 changes.append({'source': path, 'owner': 'represented-comma graph family profiles',
-                                'reason': 'Retain the Cartesian inner family and ordinary view, canonical strict-x admission, total-dual sections, corrected base change and derived graph; original comparison helpers remain under qualification',
+                                'reason': 'Retain canonical strict-x admission, total-dual sections, corrected base change, derived graph and original source inverse data; target comparison remains under qualification',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/action_profile_inherited_assembly_controls.lp':
                 old = text
@@ -2206,6 +2246,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     stage('examples/adjunction_mates.lp')
     stage('examples/one_cat_adjunction_families.lp')
     stage('examples/action_profile_inherited_assembly_controls.lp')
+    stage('examples/represented_comma_families.lp')
     graph_source = (package / 'emdash3_2_represented_comma_families.lp').read_text()
     graph_boundary = '// Fibrewise Sigma of the existing whole internal action.'
     assert graph_source.count(graph_boundary) == 1
@@ -2229,6 +2270,17 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     assert graph_source.count(constructor_boundary) == 1
     (package / 'represented_comma_constructor_prefix.lp').write_text(graph_source[:graph_source.index(constructor_boundary)]
         + '\n' + fragment('production_represented_comma_constructor_controls.lpfragment'))
+    source_boundary = '// Extract the actual target section before taking the outer opposite.'
+    assert graph_source.count(source_boundary) == 1
+    source_controls = (baseline_package / 'examples/represented_comma_families.lp').read_text()
+    source_controls = source_controls.split('assert [A K : Cat]', 1)[0]
+    source_controls = source_controls.replace('require open emdash.emdash3_2_represented_comma_families;', '')
+    assert source_controls.count('Op_cat') == 11 and source_controls.count('Op_func') == 4
+    # Only the original arbitrary-section negative has Op here: its total
+    # projection is now O. All seven positive observations are unchanged.
+    source_controls = source_controls.replace('Op_cat', 'TotalOp_cat').replace('Op_func', 'TotalOp_func')
+    (package / 'represented_comma_source_prefix.lp').write_text(graph_source[:graph_source.index(source_boundary)]
+        + '\n' + source_controls + '\n' + fragment('production_total_dual_projection_controls.lpfragment'))
     # These original assertions exercise the assembly owner itself. Keep the
     # full original downstream import closure staged as a separate obligation.
     assembly_controls = (package / 'examples/action_profile_inherited_assembly_controls.lp').read_text()
@@ -2361,6 +2413,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
                               package / 'comma_graph_basechange_prefix.lp',
                               package / 'comma_graph_total_prefix.lp',
                               package / 'represented_comma_constructor_prefix.lp',
+                              package / 'represented_comma_source_prefix.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',
