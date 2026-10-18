@@ -1,0 +1,1554 @@
+{
+  "status": "Native K/unit/boundary/Q family and all original observations migrated and checked; ordinary whole comparison layer remains open",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "extendsCheckpoint": "9077c9b3",
+  "authoringInputs": {
+    "production_owner_migration.py": "24aa56d0a42545bb57f676e44a06e26914a815c4484af2d7aef560bed10840cc",
+    "production_diagram_evaluation_profile.lpfragment": "e2504ba29eedae438ade2977e2062a476b5474fb0b1610c2fc4e1fe0ac62b6c8",
+    "production_alternating_identity_controls.lpfragment": "eb96d165ed2256b0e3752b5badbff7723f1ae560e772d224042dc0e4a4171ace"
+  },
+  "manifestSha256": "a66bd6f7c3dd982a45960d923fe94fd9907b6ea37ec925b80c1fb5b3259a999b",
+  "contracts": {
+    "newOperationalSymbols": 0,
+    "newStructuralAssumptions": 0,
+    "newRuntimeRules": 2,
+    "newUnificationRules": 0,
+    "coreUnchanged": true,
+    "familyBodies": "Original compositions of K, unit, h, boundary-diagram introduction and Q",
+    "inputH": "Original general lax transformation, with no new strictness requirement",
+    "initialChoice": "Original total-dual terminality data, now named TotalOp_cat",
+    "diagramProfile": "Existing native Functor_oplax_cat",
+    "publicPromotion": false
+  },
+  "sourceCorrespondence": {
+    "owner": "emdash3_2_homology_adjunction_families.lp",
+    "originalSha256": "a0104196dc42e770df4dfd74027a7a6cb30fe73c70a948b88981478d89921d2e",
+    "stagedSha256": "d30fb1f1c146b638dfd8511efe4b1420931308b8fbf8400666f5aef813964177",
+    "ownerRecoveredModuloWhitespace": true,
+    "reviewer": "examples/homology_adjunction_families.lp",
+    "originalReviewerSha256": "fa235f1e3c676cc15d66bc8d8747027aec90bc183873c9303ff375833436db31",
+    "stagedReviewerSha256": "1b10cadbbb2d7044db2a3ca3d9e9b593f1c6b9d17ec449e39a44a682da8837c0",
+    "reviewerExactlyMatchesRecordedAdaptations": true,
+    "pointObservations": [
+      {
+        "originalProfileAdjustedView": "@tapp0_fapp0 WalkingArrow_cat C\n    (@fapp0 B (Functor_oplax_cat WalkingArrow_cat C) (@kernel_adjunction_family_boundary_diagram_func B C S t T P A D h) b)\n    (@fapp0 B (Functor_oplax_cat WalkingArrow_cat C) (@kernel_adjunction_family_boundary_diagram_func B C S t T P A D h) c) walking_arrow_src\n",
+        "encodedView": "@tapp0_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) _ _ walking_arrow_src\n"
+      },
+      {
+        "originalProfileAdjustedView": "@tapp0_fapp0 WalkingArrow_cat C\n    (@fapp0 B (Functor_oplax_cat WalkingArrow_cat C) (@kernel_adjunction_family_boundary_diagram_func B C S t T P A D h) b)\n    (@fapp0 B (Functor_oplax_cat WalkingArrow_cat C) (@kernel_adjunction_family_boundary_diagram_func B C S t T P A D h) c) walking_arrow_tgt\n",
+        "encodedView": "@tapp0_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) _ _ walking_arrow_tgt\n"
+      }
+    ],
+    "assertionPolarityChange": "The original lax-functor composition negative is now a strict-default positive; all eleven original observations remain"
+  },
+  "checks": {
+    "reviewerPositive": 10,
+    "reviewerNegative": 1,
+    "originalObservationsRetained": 11,
+    "newAlternatingPositive": 2,
+    "newAlternatingNegative": 2,
+    "inheritedDiagramControls": "18 positive/5 negative plus the original 10 positive/3 negative diagram reviewer",
+    "wholeEndpointsAndGenerator": true,
+    "nonidentityArrowAction": true,
+    "strictComposition": true,
+    "nextHomIdentity": true,
+    "unrelatedArrowDoesNotCollapse": true,
+    "subjectReduction": true,
+    "centralGateGreen": false
+  },
+  "lhsAudits": [
+    {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_diagram_evaluation.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 4,
+      "annotated_slots": 4,
+      "annotated": [
+        {
+          "line": 24,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(OddDual_cat $A)",
+          "reason": "the Odd source determines the erased identity's actual category."
+        },
+        {
+          "line": 27,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(EvenDual_cat $A)",
+          "reason": "the Even source occurs at the next Hom of an oplax diagram."
+        },
+        {
+          "line": 162,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cat (OddDual_cat (Functor_cat $I $C)) (OddDual_cat $C))",
+          "reason": "the encoded mapping category is the measured SR guard."
+        },
+        {
+          "line": 251,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cart_cat (EvenDual_cat $A) (EvenDual_cat $B))",
+          "reason": "measured SR guard for the Cartesian image category."
+        }
+      ]
+    },
+    {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_homology_adjunction_families.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    }
+  ],
+  "warnings": {
+    "baselineCount": 2609,
+    "finalCount": 2787,
+    "added": 178,
+    "removed": 0,
+    "groups": {
+      "named first-Hom/action projections": 106,
+      "source identity normalizations": 20,
+      "higher projections, whiskering, dual actions and profile views": 52
+    },
+    "bodies": [
+      {
+        "index": 1,
+        "sha256": "2bc7d4143d884c104345e38a09b831825aa66bfbd7d2e40371c3f1ee958169e0",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 Cat_cart_include $3 $3 (id $A' $3)"
+      },
+      {
+        "index": 2,
+        "sha256": "d5f90841f825f975b9bc6c7993b72cd9aeff6458e6af6aa1a15571bf9253a245",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 Path_cat_cart_func $B $B (id $A' $B)"
+      },
+      {
+        "index": 3,
+        "sha256": "aaf297f88847d231dbf624971a9c60a7bdc78fe0830a6aee939dfc0d3c22353d",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Op_func $A $B $F) $Y $Y (id $A' $Y)"
+      },
+      {
+        "index": 4,
+        "sha256": "290ae2e3779c48095684fe9535764c5d0db43fa04c425d22c247db2c4320cf4b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@CoAbove2_func $A $B $F) $y $y (id $A' $y)"
+      },
+      {
+        "index": 5,
+        "sha256": "22565ffbb24980be82c5db330f61c7875bae5ced44bb81728f8bc68ac5a39049",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@CoAt2_func $A $B $F) $y $y (id $A' $y)"
+      },
+      {
+        "index": 6,
+        "sha256": "cfda438997dc3aa9a666f513f7239b8a8fbe9b6321c4702c1ebe4e13bbc76089",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 total_op_cart $B $B (id $A' $B)"
+      },
+      {
+        "index": 7,
+        "sha256": "edf773a41f7109968b0a4b595e7d135bedefbca76d7c881b7bdb3f25686702f0",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 total_op $B $B (id $A' $B)"
+      },
+      {
+        "index": 8,
+        "sha256": "cb9bb89e56a1a8fcb5d9d79998bd809ae8cdbb6523e37e17d2630115a66b5495",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') Cat_cart (@hom_ $A (OddDual_cat $A') $F $W) $Y $Y (id $A' $Y)"
+      },
+      {
+        "index": 9,
+        "sha256": "f65e88884922b79a23adaddb92ab97e756b1a54772816a83810327d85dd11ab2",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $g $g (id $A' $g)"
+      },
+      {
+        "index": 10,
+        "sha256": "077fe1c0c3dda9b934903171e3c20b44953667529fb8fe94d7ebcb039328cc80",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $h $h (id $A' $h)"
+      },
+      {
+        "index": 11,
+        "sha256": "a8cec1f09e21208feea317de95c99b8dc8f8967894045aa6bbcac6fc91466815",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') Cat_cart (@hom_con $A $W $B $F) $Y $Y (id $A' $Y)"
+      },
+      {
+        "index": 12,
+        "sha256": "dfc8d2fc88d47b0eabeb5d7d89fa4a9e5cd93a8309646345ae71042befdf1a0c",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $k $k (id $A' $k)"
+      },
+      {
+        "index": 13,
+        "sha256": "b586db8a29fdf9a875eb21fbb95973e50e91f66568aeec1f0c883f4bb78f4ea5",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $k $k (id $A' $k)"
+      },
+      {
+        "index": 14,
+        "sha256": "c22fed9c54e849c4b7658a59d7d9dee9f1d88c5e05aa82ee8c522d3f770f078c",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@hom_int $A $B $F) $X $X (id $A' $X)"
+      },
+      {
+        "index": 15,
+        "sha256": "793e1a87bb35169ac86603e39c83d1c1ca4bd55f87c8a0c206c951c75b913066",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@hom_con_int $A $B $F) $X $X (id $A' $X)"
+      },
+      {
+        "index": 16,
+        "sha256": "0a8d15906a47b5ad3e0c005c40ba3dc45cbfbefab9f9a420477a108aa0a82d8b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Product_projL_func $1 $B) $q $q (id $A' $q)"
+      },
+      {
+        "index": 17,
+        "sha256": "6461e0a0d2379eed1b0d40a27ea8c5aa623a53684da2931b0a11866f1bda2bfc",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Product_projR_func $A $1) $q $q (id $A' $q)"
+      },
+      {
+        "index": 18,
+        "sha256": "51770d1675db7c7e605491a97abcf2111bc398d329c0a1ccb2c75af57891df2b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Product_swap_func $A $B) $q $q (id $A' $q)"
+      },
+      {
+        "index": 19,
+        "sha256": "7bcd6674e6c121f1c8b6396937a9f683247120063ceebe3ea444061ea3ee5fe8",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@comp_prod_func $A $W $X $Z) $pg' $pg' (id $A' $pg')"
+      },
+      {
+        "index": 20,
+        "sha256": "34f845a6d330a59671f614abc0c38f3f5e8e102f020bf0812fed8405ddacee08",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (Functor_cart_include $A $B) $G $G (id $A' $G)"
+      },
+      {
+        "index": 21,
+        "sha256": "558ae056ec83d000eeb44a28f532bf2fef18c2d4b87af17260ad6f6a9bb0fe5b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@tapp0_func $A $B $F $G $Y) $eta' $eta' (id $A' $eta')"
+      },
+      {
+        "index": 22,
+        "sha256": "4c19299517ad2c66afb9e5757860f5c740021f44b03fdaa6cf8cc9d254946bc1",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $B (@fapp0_func $A $B $x) $G $G (id $A' $G)"
+      },
+      {
+        "index": 23,
+        "sha256": "790ea9cd3886c358aa52b1f598d0dde6b6795d773e2997ffed375d19d8031361",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (Op_func_func $A $B) $F $F (id $A' $F)"
+      },
+      {
+        "index": 24,
+        "sha256": "261f456053afa8de0f6b28ae4aac7014c8a9208bdd5fe76b3e76492ad3e8ef06",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (TotalOp_func_func $A $B) $F $F (id $A' $F)"
+      },
+      {
+        "index": 25,
+        "sha256": "beae00877af9cf96e107136cb27a3f44e05d40433c0be46c9f77ee4f4a93eab9",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Hom_func $A $x $x' $y $y' $g $f) $k $k (id $A' $k)"
+      },
+      {
+        "index": 26,
+        "sha256": "5e21dec0359396a6cbc786d49c586ae3ccadc89f821710ca42a84a4198898a84",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 Product_cat_func $A' $A' (id $A' $A')"
+      },
+      {
+        "index": 27,
+        "sha256": "30068acff234b35211d76f993d4a1ea242ecce24a84150aac8f4d885c1f501f9",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Product_map_func $A $A' $B $B' $F $G) $ab' $ab' (id $A' $ab')"
+      },
+      {
+        "index": 28,
+        "sha256": "20cd2a24a89f11d44232268ae438412b6afc6205eeb52190ccf54549998c0650",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Eval_at_func $A $B $x) $G $G (id $A' $G)"
+      },
+      {
+        "index": 29,
+        "sha256": "b290719a50228a7a286d591a265b3528d083a5b392ac1f0761a713cdbcc38f74",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@curry_lax_func_func $A $B $C) $G $G (id $A' $G)"
+      },
+      {
+        "index": 30,
+        "sha256": "83c8141945bc605e380998de2a5955cc5a1ab4e12a1acccf0fafbcde3187a657",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (TotalOp_catd_func $K) $D $D (id $A' $D)"
+      },
+      {
+        "index": 31,
+        "sha256": "e96d7b93b706aec15a49a00a0eafb33e32fe5c4477981a1b1ec991c29cb83936",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (Op_catd_func $K) $D $D (id $A' $D)"
+      },
+      {
+        "index": 32,
+        "sha256": "5dcde9f56e3af65c5746979cd85798c691c7eaf898b2f227572bbc0785804ac6",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (Product_cat_coeff_fapp0_func $A) $B' $B' (id $A' $B')"
+      },
+      {
+        "index": 33,
+        "sha256": "0809357df57090b81c2d769c89eaa57ca73731d5e6b5ab8e4d9ac7aaaa3a62ac",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') Cat_cat (Sigma_func $K) $D $D (id $A' $D)"
+      },
+      {
+        "index": 34,
+        "sha256": "bcea150d04625793a7bfdfb01c9ab3a8e25d42c01243689414257d2dd3b66686",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') Cat_cart (Sigma_coeff_func $K) $D $D (id $A' $D)"
+      },
+      {
+        "index": 35,
+        "sha256": "6cff1de453e05f5f8a03c16bcac208103d3be344e4ce170737a3c36edc76c927",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') Cat_cart (@Functor_catd (OddDual_cat $A') $A $B) $y $y (id $A' $y)"
+      },
+      {
+        "index": 36,
+        "sha256": "3664f3d0e98452558c4f16dc2e46362688418f1456000252ba9d0df0f9833d40",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@fib_cov_tapp0_u_func $K $E $x $y) $v $v (id $A' $v)"
+      },
+      {
+        "index": 37,
+        "sha256": "dbc5a1693e58ad4e982bbcce2dcad6bc56c2f593fbbeb716aed74b93ff6a71f3",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 Homd_coeff_include $B $B (id $A' $B)"
+      },
+      {
+        "index": 38,
+        "sha256": "682a70c15a534271a08a101617d3400083d221350f7d23349ec85eb5f2731a9b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (Homd_coeff_conjoint_func $A $B) $F $F (id $A' $F)"
+      },
+      {
+        "index": 39,
+        "sha256": "c8bd9b4d7883df1b339d0effa1ed9c4458ab010a2ec888a51d41a8a9a34a47ef",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (Homd_representable_func $K) $x' $x' (id $A' $x')"
+      },
+      {
+        "index": 40,
+        "sha256": "223dfadf2d67bdae24be0bcd4c1b8fc22ab35179b11e17e70273e9f6f17a87e3",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@section_total_func $K $E $s) $y $y (id $A' $y)"
+      },
+      {
+        "index": 41,
+        "sha256": "239b156b16ab5d2c20bdda5bc4a76f5137f331d05dbbf6f5a70df853e118812d",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (const_section_func $K (OddDual_cat $A')) $y $y (id $A' $y)"
+      },
+      {
+        "index": 42,
+        "sha256": "31a0a3f0666301847fae9f0d48e5b424ad8aa89d92fdbf8b25b6c59181b0d35c",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') (Functor_cart_cat $A (OddDual_cat $A')) (@Const_func_func $A (OddDual_cat $A')) $y $y (id $A' $y)"
+      },
+      {
+        "index": 43,
+        "sha256": "ef990c32b22906c9a46e05eb2bc956d1edc0abff80d0d93f5134f05f404042ee",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Product_pair_tele_func $A $B) $x' $x' (id $A' $x')"
+      },
+      {
+        "index": 44,
+        "sha256": "72e51a27085fe1989d9048440a2605b16807e08ebc72ab48235501247b9f4306",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@sym_func_func $A $B $C) $K $K (id $A' $K)"
+      },
+      {
+        "index": 45,
+        "sha256": "4f323cde67dde2b61ca5840de6aa2dc3436c2d75fbf30557ccc3eba1bb029ada",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@sym_func $A $B $C $H) $b' $b' (id $A' $b')"
+      },
+      {
+        "index": 46,
+        "sha256": "b8e98e78b3e4c174894e883becb72a6857dd8fb58f9ece4786d32655ac32b073",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@diag_func_func $A $C) $K $K (id $A' $K)"
+      },
+      {
+        "index": 47,
+        "sha256": "ebba47aa9b1cc51f5697ed1d4c73adccd548974fb6065f444a371f3bf66ce52b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') Cat_cart (@Transf_catd (OddDual_cat $A') $A $B $FF $GG) $y $y (id $A' $y)"
+      },
+      {
+        "index": 48,
+        "sha256": "316604cff1f55c0a891d3394fa19997eab77dbbef100a104b023e6884e56df0e",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') Cat_cart (@Hom_catd (OddDual_cat $A') $E $X $Y) $y $y (id $A' $y)"
+      },
+      {
+        "index": 49,
+        "sha256": "a4d3dd61b842c6e4c39786fc4905bfeb170cf71a5610dd7bc46d07b423b50137",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Prof_reindex_func $A $A' $B $B' $F $G) $S $S (id $A' $S)"
+      },
+      {
+        "index": 50,
+        "sha256": "12d76ec671fbb18a98ef9cb2d565f0da501a96e724f3aec56a7f43501eac10d7",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@Prof_tensor_func $A $B $X) $PQ' $PQ' (id $A' $PQ')"
+      },
+      {
+        "index": 51,
+        "sha256": "3fe8ab45a01313660aa3413111ed9d95c40697b926dbe2794f1fa77d80419ae1",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 (@eq_skeleton_map_func (cat_succ $n) $A $B $F) $y $y (id $A' $y)"
+      },
+      {
+        "index": 52,
+        "sha256": "fed5f73628c48575ef4058a9d408e828ad6983f67508cf84f35ce290be68cb42",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $A (eq_skeleton_incl_func (cat_succ $n) $A) $y $y (id $A' $y)"
+      },
+      {
+        "index": 53,
+        "sha256": "11bd27d5074dd0d83540cb7ddc83e88c9210b689b2d602f83c0929d4d0d76c78",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A') $1 Core1_func $D $D (id $A' $D)"
+      },
+      {
+        "index": 54,
+        "sha256": "851107fdd3690eb03867af0dc122ac41a0b94360082d9be0bb5fc0373d700840",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat (Op_cat $A)) $B' $F' $X $X (id (Op_cat $A) $X)"
+      },
+      {
+        "index": 55,
+        "sha256": "4d42938acd9c8b1df6fc7d1031047903b3f5c3c46f01939ee971df067a05dfb0",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat (CoAbove2_cat $A)) $B' $F' $x $x (id (CoAbove2_cat $A) $x)"
+      },
+      {
+        "index": 56,
+        "sha256": "7ef806e27183fd088882c657c4027f7b3f1a4519ef8f6929ccb8adc1690c805c",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat (CoAt2_cat $A)) $B' $F' $X $X (id (CoAt2_cat $A) $X)"
+      },
+      {
+        "index": 57,
+        "sha256": "a13ed52e538fd6c5537f5d1aac5c2cf0fdcbada64a6e77d49011dc5394db62e6",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat (Path_cat $A)) $B' $F' $x $x (id (Path_cat $A) $x)"
+      },
+      {
+        "index": 58,
+        "sha256": "3362069bb521c91046d51baaf0dced68f24865299bf1f9577ce328d41429eddf",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat Cat_cart) $B' $F' $A $A (id Cat_cart $A)"
+      },
+      {
+        "index": 59,
+        "sha256": "b0bb70dcc593102f27c5596f08f890333025ddb71f74bd2ded649724767d8f6b",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat Terminal_cat) $B' $F' $0 $0 (id Terminal_cat $0)"
+      },
+      {
+        "index": 60,
+        "sha256": "d25101aaab5e980f34a4a1b4a61d6c0d62bb40d1c85689e8a219fbbda33fb1c4",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat (Product_cat $A $B)) $B' $F' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u))"
+      },
+      {
+        "index": 61,
+        "sha256": "8baf6e677d957e971167ad7491cb812df5115d93868a730dec9c888670474a6b",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat Homd_coeff_cat) $B' $F' $A $A (id Homd_coeff_cat $A)"
+      },
+      {
+        "index": 62,
+        "sha256": "4db29949b4553b45b4f6a20c2161dd5d379ba79f5044c0f3a7cd3fff62a61ce5",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat (EqSkeleton_cat (cat_succ $0) $A)) $B' $F' $x $x (id (EqSkeleton_cat (cat_succ $0) $A) $x)"
+      },
+      {
+        "index": 63,
+        "sha256": "05504ff7f53c9b4ff132bbce11590d18144d517a9c784da2e57aa17e65647a8b",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat (EvenDual_cat $A)) $B' $F' $x $x (id (EvenDual_cat $A) $x)"
+      },
+      {
+        "index": 64,
+        "sha256": "9fa37c8110879e9d176024c6be3c3fd2388e2fc22da09e27670960d5fde1acfc",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp0_hom_fapp0 $0 Homd_coeff_cat $1 (@Homd_coeff_mate_func $K $E $D) $4 $4 $y (@fapp1_fapp0 (OddDual_cat $A) $B (@Homd_coeff_mate_func $K $E $D) $4 $4 (id $A $4))"
+      },
+      {
+        "index": 65,
+        "sha256": "c5f0fe3774c31ad4bcf12341e794c1ad6269d32a676d3e6be5b0f91e5e73aa82",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp0_hom_fapp0 $0 $20 (@fapp1_func $19 $20 (@fib_cov_tapp0_u_func $K $E $x $y) $u $v) $3 $4 $5 $f (@fapp1_fapp0 $7 $8 (@fapp1_func $9 $10 (Functor_cart_include $11 $12) $13 $14) $15 $16 (@fapp1_fapp0 (OddDual_cat $A) $20 (@fapp1_func $19 $20 (@fib_cov_tapp0_u_func $K $E $x $y) $u $v) $x $x (id $A $x)))"
+      },
+      {
+        "index": 66,
+        "sha256": "75ff7adb7beb6be8e9030f54b92c71e8eafe748c71d19f18626e21a59f68b008",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $1 $2 $F (@fapp1_fapp0 (OddDual_cat $B) $B $F $F $F (id $B $F)) (@tapp1_fapp0 (OddDual_cat $B) $B $F $F $X $F (@strict_transfor (OddDual_cat $B) $B $F $F $U) $f)"
+      },
+      {
+        "index": 67,
+        "sha256": "c80829b54fc2ea7616509ff336c60b80718ea11abb7bc83c9fd78483fdfc59c1",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $1 $B $3 (@tapp1_fapp0 (OddDual_cat $B) $B $B $G $x $Y $epsilon $f) (@fapp1_fapp0 (OddDual_cat $B) $B $B $x $x (id $B $x))"
+      },
+      {
+        "index": 68,
+        "sha256": "1d1ab3d8eb76e9b3fe42f71851704a50af964550c3c201a95b244b8b0e18489c",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp0_hom_fapp0 $0 $1 (@fapp1_func $9 $10 (TotalOp_func_func $A $B) $G $F) $3 $4 $5 $x (@fapp1_fapp0 (OddDual_cat $A) $B (@fapp1_func $9 $10 (TotalOp_func_func $A $B) $G $F) $x $x (id $A $x))"
+      },
+      {
+        "index": 69,
+        "sha256": "92a6be3def9700ac88f4144f73b784959b0716a196183fe14d926ec3bc0a3af3",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $10 (Core_incl_func $B) $3 (@fapp1_fapp0 (OddDual_cat $B) $10 (Core_incl_func $B) $x $x (id $B $x)) (@fapp1_fapp0 $9 $10 (Core_incl_func $B) $B $x $f)"
+      },
+      {
+        "index": 70,
+        "sha256": "9236c70261322e7486676e312ce0674e1936caeb582c8f8b82d2afea39636481",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $5 $A (Core_incl_func $5) $Z (@fapp1_fapp0 $4 $5 (Core_incl_func $5) $Z $B $g) (@fapp1_fapp0 (OddDual_cat $5) $A (Core_incl_func $5) $Z $Z (id $5 $Z))"
+      },
+      {
+        "index": 71,
+        "sha256": "93ffa2bf918ad8357a45adbd578c7444b6902a8891b0641e75bc2afcb3b70053",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $1 $2 $F (@fapp1_fapp0 (OddDual_cat $B) $B $F $F $F (id $B $F)) (@fapp1_fapp0 (OddDual_cat $B) $B $F $X $F $f)"
+      },
+      {
+        "index": 72,
+        "sha256": "d654a3710efb29f4eabc30e35572e33922832b0a820c578d47690140bf6d8b1b",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $1 $B $3 (@fapp1_fapp0 (OddDual_cat $B) $B $B $x $Z $g) (@fapp1_fapp0 (OddDual_cat $B) $B $B $x $x (id $B $x))"
+      },
+      {
+        "index": 73,
+        "sha256": "57124077064b815734cfd45b8c19c52cc9bc244943e88e34f73ad2cb857eef2f",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 Cat_cart_include $3 $3 (id $A' $3)"
+      },
+      {
+        "index": 74,
+        "sha256": "5be5bead34866d10d35c2de95a4a77122ad0335158075c46073f270d33996e3c",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 Path_cat_cart_func $B $B (id $A' $B)"
+      },
+      {
+        "index": 75,
+        "sha256": "3281998f1e2bf722c4742f92f64025cd58f7185f339bcecbf55a63bd3939dbe4",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Op_func $A $B $F) $Y $Y (id $A' $Y)"
+      },
+      {
+        "index": 76,
+        "sha256": "569a384ff0ee57e265811af65ac8b8aef2d5541b25877b6ebe7e9bed3eaf79e9",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@CoAbove2_func $A $B $F) $y $y (id $A' $y)"
+      },
+      {
+        "index": 77,
+        "sha256": "ab3300579f72ccaaca8359cfd17d96f6a7f66a42476bcfab20ec2ca5880c9364",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@CoAt2_func $A $B $F) $y $y (id $A' $y)"
+      },
+      {
+        "index": 78,
+        "sha256": "fd264a0db4e0f0119fed4dc8b9fb507c3206da31ec810ba2fc36992566bc1a8b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 total_op_cart $B $B (id $A' $B)"
+      },
+      {
+        "index": 79,
+        "sha256": "bb0d8e3cabee3621d80860f0af7fa391980e45338ea0ae45915fbc68aca0fa09",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 total_op $B $B (id $A' $B)"
+      },
+      {
+        "index": 80,
+        "sha256": "788b98d528099937815e6799e772275e894d968050ee68991adf3cee5bc08458",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') Cat_cart (@hom_ $A (EvenDual_cat $A') $F $W) $Y $Y (id $A' $Y)"
+      },
+      {
+        "index": 81,
+        "sha256": "c2f581cc8389eb5c609ebae9aa349702c05857ddd9c64d13e31066e532159fba",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $g $g (id $A' $g)"
+      },
+      {
+        "index": 82,
+        "sha256": "fc546a4aa75663108070c249e8a52f86cdab33ab3db3e6ea1d7b5b6c2eda0028",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@hom_postcomp_func $A $B $F $W $X $Y $f) $h $h (id $A' $h)"
+      },
+      {
+        "index": 83,
+        "sha256": "9e3ac3536f4d2c679871512384b6f7f2817cc52428b99492517df44f8a69bdcd",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') Cat_cart (@hom_con $A $W $B $F) $Y $Y (id $A' $Y)"
+      },
+      {
+        "index": 84,
+        "sha256": "f4cab2d69c1e36dcaa997bc9b64a0949af940899d079999017fb76b8ba997b95",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $k $k (id $A' $k)"
+      },
+      {
+        "index": 85,
+        "sha256": "975b0b0b29959910bf25e58336292cff0d5436ecf677e1f8bcda1d26864b872e",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $k $k (id $A' $k)"
+      },
+      {
+        "index": 86,
+        "sha256": "0477ef5d0b792d1b56fe7502636ae0210200e4a004423472f7c19c8648df25e1",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@hom_int $A $B $F) $X $X (id $A' $X)"
+      },
+      {
+        "index": 87,
+        "sha256": "21851362785985e83481d342b5b065123ccb60a80438ae85e133b77a7edf1a3d",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@hom_con_int $A $B $F) $X $X (id $A' $X)"
+      },
+      {
+        "index": 88,
+        "sha256": "43a630297250253474047cbad1a1cfe6de90c299c17714aaac62853f3f72567e",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Product_projL_func $1 $B) $q $q (id $A' $q)"
+      },
+      {
+        "index": 89,
+        "sha256": "ac129c222a30b58b27e5e4dc00008011f02492f1ea3994333b9b3a044fb18236",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Product_projR_func $A $1) $q $q (id $A' $q)"
+      },
+      {
+        "index": 90,
+        "sha256": "398ffefbb8a40d48d717db43d35fd257543833cfce0fdfc085fc782630edee5c",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Product_swap_func $A $B) $q $q (id $A' $q)"
+      },
+      {
+        "index": 91,
+        "sha256": "e9d0ade1cd89febf2ff4bee3a4971272769c5ad5e58e0b75ca56d15851ebccb0",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@comp_prod_func $A $W $X $Z) $pg' $pg' (id $A' $pg')"
+      },
+      {
+        "index": 92,
+        "sha256": "af90a874b31da40432536d43f2643a28a07e357d0fab671140cdaa0dd3605b9e",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (Functor_cart_include $A $B) $G $G (id $A' $G)"
+      },
+      {
+        "index": 93,
+        "sha256": "f4a480c36a28c73457b8f51d1b3ad1c72858b80bd7a82a4789d71c4086b8d7d8",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@tapp0_func $A $B $F $G $Y) $eta' $eta' (id $A' $eta')"
+      },
+      {
+        "index": 94,
+        "sha256": "e08cc932c191df35f6003365ba4eda603b287180c3a48834700bbdab9c548611",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $B (@fapp0_func $A $B $x) $G $G (id $A' $G)"
+      },
+      {
+        "index": 95,
+        "sha256": "efaf0ecdef284c35ffcdf0a7edcd4aa09b47b11ceeac78b246e2dada8e8ebe92",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (Op_func_func $A $B) $F $F (id $A' $F)"
+      },
+      {
+        "index": 96,
+        "sha256": "b927c26e0864cc62f659c0ca9cd9c805f07d8ee997e0f8e1bca53b81f1ce5710",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (TotalOp_func_func $A $B) $F $F (id $A' $F)"
+      },
+      {
+        "index": 97,
+        "sha256": "9464948dd006bfac74c7207a1d6502edccec1f65ff70f9c9111a180335694c40",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Hom_func $A $x $x' $y $y' $g $f) $k $k (id $A' $k)"
+      },
+      {
+        "index": 98,
+        "sha256": "4ac2765223dab6bc8d1e7cfa5d7cba8af1faf679fe506a3ec976f4720b43c30e",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 Product_cat_func $A' $A' (id $A' $A')"
+      },
+      {
+        "index": 99,
+        "sha256": "b7cc12ff5e225bfcf0bea9fa9707e7f084936d51dd2efbfe9b924116a3ec4db7",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Product_map_func $A $A' $B $B' $F $G) $ab' $ab' (id $A' $ab')"
+      },
+      {
+        "index": 100,
+        "sha256": "aeaf3a9606d4b6011ccaa4e342763d052eedf5d8e5f547ea4ff47b9c1386bb3b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Eval_at_func $A $B $x) $G $G (id $A' $G)"
+      },
+      {
+        "index": 101,
+        "sha256": "0e7887bb6e887e085ffe60ee46ec9077b1a878e4b76f97b85db0d2ff36d56b2a",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@curry_lax_func_func $A $B $C) $G $G (id $A' $G)"
+      },
+      {
+        "index": 102,
+        "sha256": "01dbf9f289d0c7f49aa792e440cdcc884dfacd943fb0d3b08cbfb8145f46b17b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (TotalOp_catd_func $K) $D $D (id $A' $D)"
+      },
+      {
+        "index": 103,
+        "sha256": "3e44b48543ab99dd1b4f11f7f0c289a4276abe6fc6dbb18eec489897faa0030a",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (Op_catd_func $K) $D $D (id $A' $D)"
+      },
+      {
+        "index": 104,
+        "sha256": "063993dbaad5380e6391ff653bb8d61b253f4890ff3b07b8782f316619e6921c",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (Product_cat_coeff_fapp0_func $A) $B' $B' (id $A' $B')"
+      },
+      {
+        "index": 105,
+        "sha256": "3be299b4c2891bbca7320f5aa7552bea150aa06bb91fec8d3b2451587ed20623",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') Cat_cat (Sigma_func $K) $D $D (id $A' $D)"
+      },
+      {
+        "index": 106,
+        "sha256": "e01c19ffd0d073c75a1f52fced92f6c6dcf7fb5c58a8357ae289621428c23806",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') Cat_cart (Sigma_coeff_func $K) $D $D (id $A' $D)"
+      },
+      {
+        "index": 107,
+        "sha256": "67f8208cd7204588adc09806c7d18641731e69b0dfba88ecb86a64aee440a45b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') Cat_cart (@Functor_catd (EvenDual_cat $A') $A $B) $y $y (id $A' $y)"
+      },
+      {
+        "index": 108,
+        "sha256": "20997d8185a5125b7c19b826556d0268c626b2e0c1b2b87166f616dcc3a8f011",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@fib_cov_tapp0_u_func $K $E $x $y) $v $v (id $A' $v)"
+      },
+      {
+        "index": 109,
+        "sha256": "d37d297b13f73305a5941a8a658d3804ed96caff621457419c5b755257b77b97",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 Homd_coeff_include $B $B (id $A' $B)"
+      },
+      {
+        "index": 110,
+        "sha256": "3e25446f5e9828ab590377eb15445242b61ec53e0803c2252e9c9083701227ad",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (Homd_coeff_conjoint_func $A $B) $F $F (id $A' $F)"
+      },
+      {
+        "index": 111,
+        "sha256": "6b1e4015d989d0735ab463fa52192e6be698e1f67232b26ebd6e56dbf0d0eb0a",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (Homd_representable_func $K) $x' $x' (id $A' $x')"
+      },
+      {
+        "index": 112,
+        "sha256": "b9e9bf64f074e358773cf7efd6a28b2b4b02246d7a1638cdce775c03a0fc45b0",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@section_total_func $K $E $s) $y $y (id $A' $y)"
+      },
+      {
+        "index": 113,
+        "sha256": "2368218054faa7448d815e8791a81f762ba996d973baaf566236207541635c7d",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (const_section_func $K (EvenDual_cat $A')) $y $y (id $A' $y)"
+      },
+      {
+        "index": 114,
+        "sha256": "258dd129d18943a1927014592018b89ee221ad48118c4c422302b4dee2772371",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') (Functor_cart_cat $A (EvenDual_cat $A')) (@Const_func_func $A (EvenDual_cat $A')) $y $y (id $A' $y)"
+      },
+      {
+        "index": 115,
+        "sha256": "d1d3ed664996ef9801c6fc8d55a0986cb09a55eb5935acae9848a92974b08595",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Product_pair_tele_func $A $B) $x' $x' (id $A' $x')"
+      },
+      {
+        "index": 116,
+        "sha256": "bf702c80ee43b303a2f62570c5633383e4c0a9b72b1d7eb3881894e842bc35c1",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@sym_func_func $A $B $C) $K $K (id $A' $K)"
+      },
+      {
+        "index": 117,
+        "sha256": "4def437ac91cb05a52def1a09c1fd0a27c72a3ba28ea3f64538b723cc5262c02",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@sym_func $A $B $C $H) $b' $b' (id $A' $b')"
+      },
+      {
+        "index": 118,
+        "sha256": "bbc17dc6d21b24c2875f8cf832b58ddad18cf188a7dc42b40c3a2c9d3600662b",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@diag_func_func $A $C) $K $K (id $A' $K)"
+      },
+      {
+        "index": 119,
+        "sha256": "45727acc91bf2ff946f43cb551c93f975c2beac43fa3f4a39d86bbed29de6fb5",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') Cat_cart (@Transf_catd (EvenDual_cat $A') $A $B $FF $GG) $y $y (id $A' $y)"
+      },
+      {
+        "index": 120,
+        "sha256": "b7b4b68aed2b6f16a620560021df87e81fef76a128c96e38463f32672b376307",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') Cat_cart (@Hom_catd (EvenDual_cat $A') $E $X $Y) $y $y (id $A' $y)"
+      },
+      {
+        "index": 121,
+        "sha256": "cc76c2f378f869f6b6aeaabf85f03c7a233521e4d238c6f38215d54dd8fc9bbd",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Prof_reindex_func $A $A' $B $B' $F $G) $S $S (id $A' $S)"
+      },
+      {
+        "index": 122,
+        "sha256": "434f3b55069fc24d56030a2f48bbe7e2172c68553f980c38b301b1444fe92c92",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@Prof_tensor_func $A $B $X) $PQ' $PQ' (id $A' $PQ')"
+      },
+      {
+        "index": 123,
+        "sha256": "ff24e8476bbbe6a61ab86a1f47fe578261f93c86dbf49d0b2b91b10a14aff932",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 (@eq_skeleton_map_func (cat_succ $n) $A $B $F) $y $y (id $A' $y)"
+      },
+      {
+        "index": 124,
+        "sha256": "cd223bb84dbdbc23a5e7751a7772886e07184093e2e5e651d94245b36b45df42",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $A (eq_skeleton_incl_func (cat_succ $n) $A) $y $y (id $A' $y)"
+      },
+      {
+        "index": 125,
+        "sha256": "7dbcdc142abb4c745e504d9d5f92c5f795d282488d0f77710d1b878cfff64365",
+        "classification": "named first-Hom/action projections",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A') $1 Core1_func $D $D (id $A' $D)"
+      },
+      {
+        "index": 126,
+        "sha256": "7e5ffd63faed0e377f14fc5d82d9ec91a8df30b7fd3ee8c55513b12cad2b7118",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat (Op_cat $A)) $B' $F' $X $X (id (Op_cat $A) $X)"
+      },
+      {
+        "index": 127,
+        "sha256": "e712cd294cc94e550dc1204bbd236c17ec30898d4604716769d6e343c5d69991",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat (CoAbove2_cat $A)) $B' $F' $x $x (id (CoAbove2_cat $A) $x)"
+      },
+      {
+        "index": 128,
+        "sha256": "2e0ff5c611a0567dc1ce6374b814b0a31b66add7a9528b86a8bd6bfbf5a880d6",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat (CoAt2_cat $A)) $B' $F' $X $X (id (CoAt2_cat $A) $X)"
+      },
+      {
+        "index": 129,
+        "sha256": "c2fd600af5c36f954571a54800fe38f8398877568cb42156debfd9ae41c4c3fb",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat (Path_cat $A)) $B' $F' $x $x (id (Path_cat $A) $x)"
+      },
+      {
+        "index": 130,
+        "sha256": "1ade78d8c015141543d00c26c2d55e2ebd21b86b06a72334843f9aa7e26dca2c",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat Cat_cart) $B' $F' $A $A (id Cat_cart $A)"
+      },
+      {
+        "index": 131,
+        "sha256": "5c43d7487fb07a411e1b02f0f1f10bcd65aa5be985efdca3ef860a2ed3eb1f51",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat Terminal_cat) $B' $F' $0 $0 (id Terminal_cat $0)"
+      },
+      {
+        "index": 132,
+        "sha256": "b856bec97d40d035bc6886fa5130814732f9f2e5ba17f10f0367109c3dad42a8",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat (Product_cat $A $B)) $B' $F' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u))"
+      },
+      {
+        "index": 133,
+        "sha256": "86553fc9bfa27891e60559f68146b2dbb591c7ddfb5ee8e21cb4aaf03ba3df3c",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat Homd_coeff_cat) $B' $F' $A $A (id Homd_coeff_cat $A)"
+      },
+      {
+        "index": 134,
+        "sha256": "3a3c0a0d3b3d243be973532a2f0a62dcba79cda1ccb5408d92016725a23c0abe",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat (EqSkeleton_cat (cat_succ $0) $A)) $B' $F' $x $x (id (EqSkeleton_cat (cat_succ $0) $A) $x)"
+      },
+      {
+        "index": 135,
+        "sha256": "bec01e00da30f9e3b2c44b6394890e51d51bc759a0140d0c3a1fe2b143b916a8",
+        "classification": "source identity normalizations",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat (OddDual_cat $A)) $B' $F' $x $x (id (OddDual_cat $A) $x)"
+      },
+      {
+        "index": 136,
+        "sha256": "c1d2160437db9149d0c41441b7e51852b9fac4132a376e7a79945ac33dafa07d",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp0_hom_fapp0 $0 Homd_coeff_cat $1 (@Homd_coeff_mate_func $K $E $D) $4 $4 $y (@fapp1_fapp0 (EvenDual_cat $A) $B (@Homd_coeff_mate_func $K $E $D) $4 $4 (id $A $4))"
+      },
+      {
+        "index": 137,
+        "sha256": "75bcf64cb5a8b36595fcb95625787f74549edaed628bd4e9dac042b3d4222f86",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp0_hom_fapp0 $0 $20 (@fapp1_func $19 $20 (@fib_cov_tapp0_u_func $K $E $x $y) $u $v) $3 $4 $5 $f (@fapp1_fapp0 $7 $8 (@fapp1_func $9 $10 (Functor_cart_include $11 $12) $13 $14) $15 $16 (@fapp1_fapp0 (EvenDual_cat $A) $20 (@fapp1_func $19 $20 (@fib_cov_tapp0_u_func $K $E $x $y) $u $v) $x $x (id $A $x)))"
+      },
+      {
+        "index": 138,
+        "sha256": "2f423fd2dc54aa67c1e9a3b280656796f52074cdf453040ab28141455d7c925b",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $1 $2 $F (@fapp1_fapp0 (EvenDual_cat $B) $B $F $F $F (id $B $F)) (@tapp1_fapp0 (EvenDual_cat $B) $B $F $F $X $F (@strict_transfor (EvenDual_cat $B) $B $F $F $U) $f)"
+      },
+      {
+        "index": 139,
+        "sha256": "9e54f2ecbb680e221b00e9443d74fdb3a4d0dfe80ca4d8bb8166dc445406b81a",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $1 $B $3 (@tapp1_fapp0 (EvenDual_cat $B) $B $B $G $x $Y $epsilon $f) (@fapp1_fapp0 (EvenDual_cat $B) $B $B $x $x (id $B $x))"
+      },
+      {
+        "index": 140,
+        "sha256": "69c1ca77b31657428288eadb7a2582da9d2503403b9a25036a644c78bbd2fea9",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp0_hom_fapp0 $0 $1 (@fapp1_func $9 $10 (TotalOp_func_func $A $B) $G $F) $3 $4 $5 $x (@fapp1_fapp0 (EvenDual_cat $A) $B (@fapp1_func $9 $10 (TotalOp_func_func $A $B) $G $F) $x $x (id $A $x))"
+      },
+      {
+        "index": 141,
+        "sha256": "6209163e1586a47692ec218be399372599541cd6bc4d833147f314cb77a6e415",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $10 (Core_incl_func $B) $3 (@fapp1_fapp0 (EvenDual_cat $B) $10 (Core_incl_func $B) $x $x (id $B $x)) (@fapp1_fapp0 $9 $10 (Core_incl_func $B) $B $x $f)"
+      },
+      {
+        "index": 142,
+        "sha256": "2e9e5d87a53215e40668c8f1876bae2b12242f80e126c3f740ca92c33c7f4c65",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $5 $A (Core_incl_func $5) $Z (@fapp1_fapp0 $4 $5 (Core_incl_func $5) $Z $B $g) (@fapp1_fapp0 (EvenDual_cat $5) $A (Core_incl_func $5) $Z $Z (id $5 $Z))"
+      },
+      {
+        "index": 143,
+        "sha256": "252019d1faabe129db8a0ca6cafa8f8fc2f0ecef3ef59f4d818426650397fe06",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $1 $2 $F (@fapp1_fapp0 (EvenDual_cat $B) $B $F $F $F (id $B $F)) (@fapp1_fapp0 (EvenDual_cat $B) $B $F $X $F $f)"
+      },
+      {
+        "index": 144,
+        "sha256": "6075c563b4fc804dd0a62603dc65fbd6337cfd64dc33b614a226d416dbd4ffe5",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $1 $B $3 (@fapp1_fapp0 (EvenDual_cat $B) $B $B $x $Z $g) (@fapp1_fapp0 (EvenDual_cat $B) $B $B $x $x (id $B $x))"
+      },
+      {
+        "index": 145,
+        "sha256": "4c46f857b1d70c58b98b63f518283de2fca92b1710adec4a8e1fc8d81b096f84",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A) $B (@OddDual_func $A $B' $F') $x $x (id $A $x)"
+      },
+      {
+        "index": 146,
+        "sha256": "fc854dc683b47aa67e491004b7f01945006dafb87f8bb87c937002e0282bd54c",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A) $B (@OddDual_func $A' $B' $F') $x $x (id $A $x)"
+      },
+      {
+        "index": 147,
+        "sha256": "fff185f64d3e60ef3d31825653a383fe4d3699e9c1ff149cc770f3fe0fca7e58",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A) $B (@EvenDual_func $A' $B' $F') $x $x (id $A $x)"
+      },
+      {
+        "index": 148,
+        "sha256": "8beed374fff7449bcf6ed45a4b775c5385f7f714490743228c11e4efa71478c6",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A) $B (@EvenDual_func $A $B' $F') $x $x (id $A $x)"
+      },
+      {
+        "index": 149,
+        "sha256": "db9e261d3a5d73fb4be6285261a1e8c10e923c0578f44ebfad2af13b7445e811",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A) $B (@diagram_evaluation_mixed_func $I' $C' $i' $j' $u' $F' $G') $x $x (id $A $x)"
+      },
+      {
+        "index": 150,
+        "sha256": "3221cb10382f8ddea9390856ed959e844b929e442519b03ff67e3c0be704b9f5",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A) $B (@diagram_evaluation_mixed_func $I' $C' $i' $j' $u' $F' $G') $x $x (id $A $x)"
+      },
+      {
+        "index": 151,
+        "sha256": "4cb6e1dbd6bbedfe938eeded010091257888bf3d1d1a97029540d9745e007a26",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A) $B (@diagram_evaluation_func $I' $C') $x $x (id $A $x)"
+      },
+      {
+        "index": 152,
+        "sha256": "ba41725849ec5ec5b2a77d0afb03d752e6b1a74ddef784271ca54f3ac4ad2f3f",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A) $B (@diagram_evaluation_func $I' $C') $x $x (id $A $x)"
+      },
+      {
+        "index": 153,
+        "sha256": "95518ab0933de8597f2ace87642e945c3c2e1dfd5528c8d8710b1fd95999ae50",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A) $B (EvenDual_cart_func_func $A' $B') $x $x (id $A $x)"
+      },
+      {
+        "index": 154,
+        "sha256": "27d3df177f4c779ab3b485327ef894faf7cfd88821f7148f3a851e628aa688e3",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A) $B (EvenDual_cart_func_func $A' $B') $x $x (id $A $x)"
+      },
+      {
+        "index": 155,
+        "sha256": "a43c7794d0da084e31b1b56ff2a6850e16e515d97ae7deebcff813d27e947e78",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $S') $x $Z' $g') (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $S') $x $x (id $A $x))"
+      },
+      {
+        "index": 156,
+        "sha256": "eb7c76ef263d33fb8d1a3b330962a9c0b8976c1fbc27407b2d81bd3a1f05cd4f",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $S') $x $Z' $g') (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $S') $x $x (id $A $x))"
+      },
+      {
+        "index": 157,
+        "sha256": "da39fb20b309b02409ce88fb8b9ad869de9d4c37dd4964459ae893ebf959cd37",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $S') $x $x (id $A $x)) (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $S') $X' $x $f')"
+      },
+      {
+        "index": 158,
+        "sha256": "9d79a991558d972dbdc58a8da930ffce6be143fbd6213f623832d8006ab5ecd2",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $S') $x $x (id $A $x)) (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $S') $X' $x $f')"
+      },
+      {
+        "index": 159,
+        "sha256": "56285f205ac197ee9aa52aa4b48b2c6e641889ce5fc9dde5b2d1d7cdb0b0273d",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $S') $x $x (id $A $x)) (@hom_postcomp_fapp0 $B (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) (@strict_functor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $S') $' $X' $x $p' $g')"
+      },
+      {
+        "index": 160,
+        "sha256": "a2f6f42f97c12bb014ff29be01b11eb072d0c819c8555e11dc132809ea73c9a4",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $S') $x $x (id $A $x)) (@hom_postcomp_fapp0 $B (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) (@strict_functor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $S') $' $X' $x $p' $g')"
+      },
+      {
+        "index": 161,
+        "sha256": "c3edcc737c90667814904ce8bcf911d7d7f03d5d5545b8ed268eafd4ad25aee1",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@hom_precomp_along_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $S') $' $x $X' $p' $g') (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $S') $x $x (id $A $x))"
+      },
+      {
+        "index": 162,
+        "sha256": "cbc2cb88d0341fc065c0abf155a6de02b5f3bcaea8b7205cc9b73e9545a205a8",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@hom_precomp_along_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $S') $' $x $X' $p' $g') (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (@strict_functor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $S') $x $x (id $A $x))"
+      },
+      {
+        "index": 163,
+        "sha256": "ff744ff1467d19df1b31f45ba0cfcf5ecc9204202c70722f26db26260f49cb09",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (strict_functor_include_func $' $') $x $x (id $A $x)"
+      },
+      {
+        "index": 164,
+        "sha256": "8148576345036aced40a7f86adfe97a29a0d674eef5e35346e62c3cc87bad8b8",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (strict_functor_include_func $' $') $x $x (id $A $x)"
+      },
+      {
+        "index": 165,
+        "sha256": "4644cc198834850b1ef58bf4e8f59091a80a0615723d66b2841967d0e55d1742",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (@lax_transfor_include_func $' $' $' $') $x $x (id $A $x)"
+      },
+      {
+        "index": 166,
+        "sha256": "6773a6d1bb0b58e23261156c502ee9ad0c1ef737904d4c1e98cb4eef3e3fe9de",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (@lax_transfor_include_func $' $' $' $') $x $x (id $A $x)"
+      },
+      {
+        "index": 167,
+        "sha256": "36c0153ff977d0a801fc6825bdac621aabb4eab3d65c249f877e11aea72704f8",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B (grayhom_lax_include_func $A' $B') $x $x (id $A $x)"
+      },
+      {
+        "index": 168,
+        "sha256": "4933a18bd13f955e8236dfac853477a0a024598dd5bc011a57ba13452df5de3d",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B (grayhom_lax_include_func $A' $B') $x $x (id $A $x)"
+      },
+      {
+        "index": 169,
+        "sha256": "551f8d0da7ed21d56d8a28b7c12da60db31a01bd153e328cc141fed6cd3f1b85",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@tapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $F $G' $x $Y' (@lax_transfor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $F $G' $L') $f') (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $F $x $x (id $A $x))"
+      },
+      {
+        "index": 170,
+        "sha256": "e368ebdfe0c75b9b57ec5520d4bc26c0793fcafe8948d45c08f9e9ba9be7b6d0",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@tapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $F $G' $x $Y' (@lax_transfor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $F $G' $L') $f') (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $F $x $x (id $A $x))"
+      },
+      {
+        "index": 171,
+        "sha256": "5452eafdbaff1c31e053b2c5db812e6dabae469a5f8f49626d609e943ffcdb32",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@tapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $F $G' $x $Y' (@strict_transfor (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $F $G' $U') $f') (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.OddDual_cat $A) $B $F $x $x (id $A $x))"
+      },
+      {
+        "index": 172,
+        "sha256": "67436d330c0f7fec85e1880f46b2c1ac112693e3549af1ee357258f19b601f17",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @comp_fapp0 $B $' $' $' (@tapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $F $G' $x $Y' (@strict_transfor (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $F $G' $U') $f') (@fapp1_fapp0 (emdash.emdash3_2_diagram_evaluation.EvenDual_cat $A) $B $F $x $x (id $A $x))"
+      },
+      {
+        "index": 173,
+        "sha256": "664b864180ad3dfd1814de9d53c34811363fa5961b35521695b1a1b1e5f1b6ac",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp0_fapp0 $' $' $' $' $F' (@fapp1_fapp0 (OddDual_cat $A) $B (@one_cat_diagram_evaluation_func $I' $C' $C1') $x $x (id $A $x))"
+      },
+      {
+        "index": 174,
+        "sha256": "5b59f7bdba78ba99e274746f54920c63b600fd8575f07454f99b0ca80848d261",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp0_fapp0 $' $' $' $' $F' (@fapp1_fapp0 (EvenDual_cat $A) $B (@one_cat_diagram_evaluation_func $I' $C' $C1') $x $x (id $A $x))"
+      },
+      {
+        "index": 175,
+        "sha256": "52c44c03fa8a0ade588550bc8e8bc384dea58f2c0a1d1a6a9d08abeddef10817",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp1_func $' $' $' $' $F' $G' (@fapp1_fapp0 (OddDual_cat $A) $B (@one_cat_diagram_evaluation_func $I' $C' $C1') $x $x (id $A $x))"
+      },
+      {
+        "index": 176,
+        "sha256": "8f2cba7aac2783ee8abbbf113fe0516024e5c6c579debd4af1c1ec4d962b53ad",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp1_func $' $' $' $' $F' $G' (@fapp1_fapp0 (EvenDual_cat $A) $B (@one_cat_diagram_evaluation_func $I' $C' $C1') $x $x (id $A $x))"
+      },
+      {
+        "index": 177,
+        "sha256": "0dfcab87db226570bc0b9cdb759ed7ca4188ed49be0ec457104e6f3d38d0de38",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp1_fapp0 $' $' $' $' $F' $G' (@fapp1_fapp0 (OddDual_cat $A) $B (@one_cat_diagram_evaluation_func $I' $C' $C1') $x $x (id $A $x)) $alpha'"
+      },
+      {
+        "index": 178,
+        "sha256": "9b1e730a9405e33ab9ae6b469d77f1a669ceb1abb71eac786cfe841aa9fe15ad",
+        "classification": "higher projections, whiskering, dual actions and profile views",
+        "overlap": "t \u2254 @tapp1_fapp0 $' $' $' $' $F' $G' (@fapp1_fapp0 (EvenDual_cat $A) $B (@one_cat_diagram_evaluation_func $I' $C' $C1') $x $x (id $A $x)) $alpha'"
+      }
+    ],
+    "qualification": "Canonical Odd/Even identity joins and noncollapse checked, including the actual native next-Hom consumer. Nested source identities and constructor interactions remain reported; no global confluence claim."
+  },
+  "receipts": {
+    "firstBoundary": {
+      "id": "20261018T103531Z-e9ccc52e69f44541988a7f547ecdf2f2",
+      "target": "emdash3_2_one_cat_homology_family_comparison_points.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 65.03651649598032,
+      "childrenMaxRssKiB": 3143296,
+      "inputSnapshot": "fbb3b8c3132a7692fe419abeabf5e0b6683cd58eab825ce40c6c26a5da0428b5",
+      "inputs": {
+        "emdash3_2.lp": "1f09fb6fa17e832a8cc796325525102b1b1d2933aafc0420f101a77c8cb2e1bc",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_defiso_evaluation_ordinary_paths.lp": "a5bff3389191012d1af4388d2aab01e5566c005cda6f0f5932bd552fb560f560",
+        "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+        "emdash3_2_diagram_evaluation.lp": "1646c77115c25f75eddea7f041420b663f67ddab6fdba0459c896f13d02eb311",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_discrete_iso_maps.lp": "2d5afecd18046093cf2c6bc31f4d866e4935adaf71f43811e9b1739c54990c3a",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_functor_reconstruction_paths.lp": "a1df7f1b1486626892c55fa99819b8df43df5275d49a7329fcaacbac1d277430",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_homology_adjunction_families.lp": "a0104196dc42e770df4dfd74027a7a6cb30fe73c70a948b88981478d89921d2e",
+        "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+        "emdash3_2_omega_equiv_cancellation_paths.lp": "1369c5ac4412d37e10391b25a91b2f20c04685b2cfc5d577bdcefdfea89a8e63",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_omega_equiv_inverse_square.lp": "3f0e8ca36ac0174e9f093db17b17b02dc856f0b23f886e0b079980c4bbed408d",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "f61cd22c78c9252c31069395521f4a69559e62d0a50f46874013260bc8e9003a",
+        "emdash3_2_one_cat_arrow_family_isomorphisms.lp": "0071aafce3052ffd3c12aed76865d68d0b597c77f774923589bbc85adee14e43",
+        "emdash3_2_one_cat_diagram_family_reconstruction.lp": "351df44386320b2372ba0c60fe920e682bfd4ed4a454f15d70418856e568cf49",
+        "emdash3_2_one_cat_diagram_family_reflection.lp": "ad7b0844fe2e81e194ba0289b93c9c31ebc460b0efcef468c8b7ef6eb29aa84d",
+        "emdash3_2_one_cat_diagram_map_paths.lp": "6d0545de5e04a1ecb477c863f77dce55660ccf4ccd27e79957fe908a3a685f98",
+        "emdash3_2_one_cat_diagram_reconstruction.lp": "c4ee8c91413c7b69f573215c6ee1cf4e8e396c350a8df173d7fe942760c43d6d",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_homology_family_comparison.lp": "f6b5a5efd62bdddc2dd7635680a4fd548158e1e72fbe216a9c29356e625adb57",
+        "emdash3_2_one_cat_homology_family_comparison_points.lp": "330cbc44de6ba83d4f9b16b09c9fda6a397c86e21cfc6fd6e69c268bec088344",
+        "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+        "emdash3_2_one_cat_modifications.lp": "980ffead150ec47cf977d71ec24f667a649a727a3007b99f0649362f9c52c1d3",
+        "emdash3_2_one_cat_native_square_paths.lp": "f95e4ec4b2a86378d93b787e01c6934c68854d5adf04f5ea24045926686b0030",
+        "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+        "emdash3_2_one_cat_op.lp": "96e582872c5c00315d2d9668c32f75f483db852421efece79c188b08caec91de",
+        "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+        "emdash3_2_one_cat_transfor_profiles.lp": "875381b59a4926d1eb1b912a615bebaaa44e600f864f8018366e213b3cbf58bb",
+        "emdash3_2_one_cat_zero_arrow_family_classification.lp": "887e7b72d37a60c2415086332c43d9bd7d0d9584b4cbd01dfaf0b59addf78a20",
+        "emdash3_2_one_cat_zero_cones.lp": "4023e5b9c6768c0cc888dc180a6b08b9794f722ca2df89af1c7a4d6a385f05e4",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+        "emdash3_2_prop_fibre_constructor_paths.lp": "53da73d74f5f72281cd268e06df5da965cbf3dcd3b4689a5284f5eb28e1a7616",
+        "emdash3_2_represented_comma_families.lp": "9c9b18ead5d894635b068e6ea397f7c305cf3e31d1804a8e181818ed189e5305",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_walking_arrow_native_observation.lp": "17557f65653465a4c3cead2d8e42a925ce35b158dc20ae8ddb662af30af190eb",
+        "emdash3_2_zero_arrow_cones.lp": "80950d73775beba104c4d6dd40103b2b865e68edd3a3628c7895801d440d1233",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "emdash3_2_zero_arrow_family_point_inputs.lp": "80048f26c1401f5d16d893a8afe60b2e23a44a996f02ed98dd000f2775c9972f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261018T103531Z-e9ccc52e69f44541988a7f547ecdf2f2.log",
+      "logSha256": "293ccde7d0942d62769ac3cf671aab570ca9b79955821f0ab00b9a6ed6e84ad5",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "currentInputChanges": [
+        "emdash3_2_diagram_evaluation.lp",
+        "emdash3_2_homology_adjunction_families.lp"
+      ]
+    },
+    "ownerBeforeIdentityJoins": {
+      "id": "20261018T104119Z-2afffc4399f544a68e49ba20935f35b2",
+      "target": "emdash3_2_homology_adjunction_families.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 48.448908732039854,
+      "childrenMaxRssKiB": 2261008,
+      "inputSnapshot": "3ddd72cbc4b4fde54abf0be19d93bb79e686274bfc6004730e6900562d542184",
+      "inputs": {
+        "emdash3_2.lp": "1f09fb6fa17e832a8cc796325525102b1b1d2933aafc0420f101a77c8cb2e1bc",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_diagram_evaluation.lp": "1646c77115c25f75eddea7f041420b663f67ddab6fdba0459c896f13d02eb311",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_homology_adjunction_families.lp": "d30fb1f1c146b638dfd8511efe4b1420931308b8fbf8400666f5aef813964177",
+        "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261018T104119Z-2afffc4399f544a68e49ba20935f35b2.log",
+      "logSha256": "5c6ac242d59b78a0df68bbad2f6c2027585adff175e753f03e806b4256f10cb4",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "currentInputChanges": [
+        "emdash3_2_diagram_evaluation.lp"
+      ]
+    },
+    "reviewerBeforeIdentityJoins": {
+      "id": "20261018T104224Z-297d8f751d764e72b02406cd1dfae7f9",
+      "target": "examples/homology_adjunction_families.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 47.83530393696856,
+      "childrenMaxRssKiB": 2262776,
+      "inputSnapshot": "94209a9331f012118abdf2d4023184e5b6c7240466fd1d6ce3bedf65739d7f33",
+      "inputs": {
+        "emdash3_2.lp": "1f09fb6fa17e832a8cc796325525102b1b1d2933aafc0420f101a77c8cb2e1bc",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_diagram_evaluation.lp": "1646c77115c25f75eddea7f041420b663f67ddab6fdba0459c896f13d02eb311",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_homology_adjunction_families.lp": "d30fb1f1c146b638dfd8511efe4b1420931308b8fbf8400666f5aef813964177",
+        "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "examples/homology_adjunction_families.lp": "1b10cadbbb2d7044db2a3ca3d9e9b593f1c6b9d17ec449e39a44a682da8837c0",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261018T104224Z-297d8f751d764e72b02406cd1dfae7f9.log",
+      "logSha256": "a94fabe4b1c26d84d62e79c0172ee837c6079ba2dc2dcc5a5431eabedd0f7afd",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "currentInputChanges": [
+        "emdash3_2_diagram_evaluation.lp"
+      ]
+    },
+    "reviewer": {
+      "id": "20261018T104608Z-ef5fca7d2d304767bb911e8bbee76fa4",
+      "target": "examples/homology_adjunction_families.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 49.36636472598184,
+      "childrenMaxRssKiB": 2272800,
+      "inputSnapshot": "9cf6c677de13ea148814ac87caadcbe6787fd8d041785e9048264b6c30f159b4",
+      "inputs": {
+        "emdash3_2.lp": "1f09fb6fa17e832a8cc796325525102b1b1d2933aafc0420f101a77c8cb2e1bc",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_diagram_evaluation.lp": "411dd5df491fd0b56194697f8e74dc09636ffe55ebb6d0071d6b68d637aabf14",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_homology_adjunction_families.lp": "d30fb1f1c146b638dfd8511efe4b1420931308b8fbf8400666f5aef813964177",
+        "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "examples/homology_adjunction_families.lp": "1b10cadbbb2d7044db2a3ca3d9e9b593f1c6b9d17ec449e39a44a682da8837c0",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261018T104608Z-ef5fca7d2d304767bb911e8bbee76fa4.log",
+      "logSha256": "fb8a9b6ce7bd068b47086923e66ef76035396218fe5c779417d0bcc426d6c411",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "currentInputChanges": []
+    },
+    "alternatingControls": {
+      "id": "20261018T105548Z-02686c0e4721463f8490c99bd90771bc",
+      "target": "alternating_identity_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 46.647770046954975,
+      "childrenMaxRssKiB": 2213588,
+      "inputSnapshot": "4a07669b7ad54a211f3a7960d4a1ad295688c5360d70777f7690897b94cdc99b",
+      "inputs": {
+        "alternating_identity_controls.lp": "2941c6f666c86b501ef96874f2423df29cd0dbf76d7dd787811ab6fb10ce2538",
+        "diagram_evaluation_profile_controls.lp": "cce51b3bfb0bc7e65a45f82c1a83f11eef1fe29e1b72a46c3723ab6c8bf34599",
+        "emdash3_2.lp": "1f09fb6fa17e832a8cc796325525102b1b1d2933aafc0420f101a77c8cb2e1bc",
+        "emdash3_2_diagram_evaluation.lp": "411dd5df491fd0b56194697f8e74dc09636ffe55ebb6d0071d6b68d637aabf14",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "examples/diagram_evaluation.lp": "9c13891222804890ad439b2b1dcf4cf9fc9d0154aae13e50441069e3b2bacce4",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261018T105548Z-02686c0e4721463f8490c99bd90771bc.log",
+      "logSha256": "c732417a43ce31e5009d69ef204b7b24fde1313fe30194683e0ac38ced4fcc15",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "currentInputChanges": []
+    },
+    "carriedCore": {
+      "id": "20261018T102846Z-f81f3401edb84288a02ccebd6e3e0984",
+      "target": "zero_family_core_controls.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 32.98749738896731,
+      "childrenMaxRssKiB": 1531400,
+      "inputSnapshot": "45035e9b4edd7b35eb6e356bbbf2340eaa140e8529c221c5c2d6c20aa31af58d",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "zero_family_core_controls.lp": "2bfa5648fa6f7114e295096f42ea6b4634068b24b7fde78fe7ec9d1e9f877dce"
+      },
+      "log": "logs/check-runs/20261018T102846Z-f81f3401edb84288a02ccebd6e3e0984.log",
+      "logSha256": "13e274b337b4942268850a36337c3c4ce8a4458a53c4030e9d391996623b67be",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "currentInputChanges": []
+    }
+  },
+  "next": "Migrate the ordinary whole homology comparison and point consumers to the actual diagram profile, preserving all selected maps/inverse data and reviewing their reflection/reconstruction dependencies at actual failures.",
+  "remaining": "Ordinary comparison and terminal/initial zero-column integration, other library owners, redundant strict wrappers, production promotion, full central/catalogue/health/CI/source-pin gates",
+  "resources": "Existing 300s/4GiB/o20 library profile; carried core retains its 240s/2GiB/o20 profile. No new resource increase; serial/file/no-swap/SR safeguards unchanged."
+}

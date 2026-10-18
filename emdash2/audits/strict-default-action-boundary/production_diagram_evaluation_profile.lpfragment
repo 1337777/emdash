@@ -17,6 +17,16 @@ rule Hom_cat (OddDual_cat $A) $x $y ↪ EvenDual_cat (Hom_cat $A $y $x);
 rule Hom_cat (EvenDual_cat $A) $x $y ↪ OddDual_cat (Hom_cat $A $x $y);
 rule @id (OddDual_cat $A) $x ↪ @id $A $x;
 rule @id (EvenDual_cat $A) $x ↪ @id $A $x;
+
+// Strict-functor identity after the source identity has lost its dual tag.
+// These are the alternating-duality counterparts of the existing T/R joins.
+// lhs-audit: keep 1 -- the Odd source determines the erased identity's actual category.
+rule @fapp1_fapp0 (OddDual_cat $A) $B $F $x $x (@id $A $x)
+  ↪ @id $B (@fapp0 (OddDual_cat $A) $B $F $x);
+// lhs-audit: keep 1 -- the Even source occurs at the next Hom of an oplax diagram.
+rule @fapp1_fapp0 (EvenDual_cat $A) $B $F $x $x (@id $A $x)
+  ↪ @id $B (@fapp0 (EvenDual_cat $A) $B $F $x);
+
 rule @comp_fapp0 (OddDual_cat $A) $x $y $z $g $f
   ↪ @comp_fapp0 $A $z $y $x $f $g;
 rule @comp_fapp0 (EvenDual_cat $A) $x $y $z $g $f

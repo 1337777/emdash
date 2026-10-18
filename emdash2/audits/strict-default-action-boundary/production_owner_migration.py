@@ -2556,6 +2556,42 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'original arrow-family isomorphism reviewer',
                                 'reason': 'Retain its four endpoint identity and two inverse-choice observations at the guarded ordinary family/exchange presentation',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_homology_adjunction_families.lp':
+                old = text
+                text, count = re.subn(r'Functor_cat\s+WalkingArrow_cat\s+C',
+                                      'Functor_oplax_cat WalkingArrow_cat C', text)
+                assert count == 24
+                assert text.count('(@TerminalObject (Op_cat C) t)') == 1
+                text = text.replace('(@TerminalObject (Op_cat C) t)',
+                                    '(@TerminalObject (TotalOp_cat C) t)')
+                changes.append({'source': path, 'owner': 'native kernel/cokernel homology family',
+                                'reason': 'Use the corrected native oplax diagram profile and original total-dual initial-object data throughout the existing K/unit/boundary/Q compositions; preserve P, Q, A, D and h',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/homology_adjunction_families.lp':
+                old = text
+                text, count = re.subn(r'Functor_cat\s+WalkingArrow_cat\s+C',
+                                      'Functor_oplax_cat WalkingArrow_cat C', text)
+                assert count == 50
+                assert text.count('(@TerminalObject (Op_cat C) t)') == 11
+                text = text.replace('(@TerminalObject (Op_cat C) t)',
+                                    '(@TerminalObject (TotalOp_cat C) t)')
+                text = text.replace('@diagram_family_at_func', '@diagram_oplax_family_at_func')
+                text = text.replace('@diagram_family_transf', '@diagram_oplax_family_transf')
+                point_pattern = (r'@tapp0_fapp0 WalkingArrow_cat C\s+'
+                                 r'\(@fapp0 B .*?\) (walking_arrow_src|walking_arrow_tgt)\n')
+                text, point_count = re.subn(point_pattern,
+                    lambda m: '@tapp0_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) _ _ ' + m[1] + '\n',
+                    text, flags=re.S)
+                assert point_count == 2
+                old_composition = '// Ambient H retains its compositor; arbitrary composition does not collapse.\nassertnot'
+                assert text.count(old_composition) == 1
+                text = text.replace(old_composition,
+                    '// H is a default-strict functor, including for the retained lax input h.\nassert', 1)
+                text = text.replace('// In an ordinary target the existing lax compositor supplies an equality.',
+                    '// The existing ordinary path view observes the same strict composition.')
+                changes.append({'source': path, 'owner': 'original native homology family reviewer',
+                                'reason': 'Use actual oplax evaluation and encoded transformation components; retain all eleven observations, with the former lax-functor composition negative changed to the required strict-default positive',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_one_cat_zero_cones.lp',
                         'emdash3_2_one_cat_zero_arrow_family_classification.lp',
                         'examples/one_cat_zero_arrow_family_classification.lp'):
@@ -3177,6 +3213,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/one_cat_diagram_family_reconstruction.lp')
     stage('examples/commutative_ring_presheaf_invertibility.lp')
     stage('examples/one_cat_zero_arrow_family_classification.lp')
+    stage('examples/homology_adjunction_families.lp')
     stage('emdash3_2_one_cat_terminal_adjunction_family_observations.lp')
     stage('examples/one_cat_modifications.lp')
     # Preserve the real production diagnostic dependency closure as the next
@@ -3491,6 +3528,10 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
         + fragment('production_diagram_evaluation_controls.lpfragment'))
+    (package / 'alternating_identity_controls.lp').write_text(
+        'require open emdash.emdash3_2_diagram_evaluation;\n'
+        'require emdash.diagram_evaluation_profile_controls;\n'
+        + fragment('production_alternating_identity_controls.lpfragment'))
     (package / 'diagram_evaluation_naturality_controls.lp').write_text(
         (package / 'emdash3_2_diagram_evaluation.lp').read_text() + '\n'
         + fragment('production_diagram_evaluation_naturality_controls.lpfragment'))
@@ -3590,6 +3631,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'weighted_migration_controls.lp',
                               package / 'path_cartesian_controls.lp',
                               package / 'diagram_evaluation_profile_controls.lp',
+                              package / 'alternating_identity_controls.lp',
                               package / 'diagram_evaluation_naturality_controls.lp',
                               package / 'arrow_diagram_migration_controls.lp',
                               package / 'zero_arrow_migration_controls.lp',

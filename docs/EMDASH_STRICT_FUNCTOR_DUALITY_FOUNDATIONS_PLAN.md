@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; native zero-arrow family classification and original reviewer checked; matching/glue pass on the final core; ordinary homology/adjunction consumers and broader migration/promotion remain open
+Status: active implementation; shared native homology families and all original observations checked; ordinary whole comparison layer and broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,38 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Native K/unit/boundary/Q families after `9077c9b3`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_homology_family_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_homology_family_verification.json)
+record the shared family owner with its actual oplax diagram inputs and
+total-dual initial-object choice. All original composition bodies, actual
+P/Q/A/D/h and the general lax type of h remain. There is no new restriction
+on B or C, operational symbol, structural assumption or supplied comparison.
+
+All eleven original reviewer observations pass, now 10 positive/1 negative:
+the former lax-functor composition negative becomes the strict-default
+positive, while the unrelated-arrow negative remains. Whole endpoint and
+generator recovery, boundary components, nonidentity action, composition
+and the next Hom level are checked. Two identity joins at the existing
+Odd/Even duality owner repair the last observation after its source identity
+has projected away its dual tag. They mirror the existing core T/R joins;
+arbitrary endomorphisms are not collapsed.
+
+The reviewer passes in 49s and the alternating-identity/diagram driver in
+47s under the existing 300s/4GiB/o=20 profile. Core source and its exact
+281/81 regression closure are unchanged. Owning LHS audits report no
+unreviewed candidates. The 178 new warning bodies are classified in the
+review; canonical identity/projection behavior is qualified, not global
+confluence for every nested constructor. No resource ceiling was increased.
+
+Next migrate the ordinary whole homology comparison and its point
+consumers, checking their reflection/reconstruction dependencies at actual
+uses and retaining the original chosen maps and inverse data. Terminal/
+initial zero-column integration and other libraries remain open. Keep the
+required strict-wrapper retirement, source promotion and final central/
+catalogue/health/CI/source-pin qualification; the application goal stays
+paused.
 
 Native zero-arrow family classification after `422cf92c`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_zero_family_review.md)

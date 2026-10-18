@@ -1,0 +1,19 @@
+// Both alternating source profiles preserve identity after its tag projects.
+assert [A B : Cat] (F : τ (Functor (OddDual_cat A) B)) (x : τ (Obj A)) ⊢
+  @fapp1_fapp0 (OddDual_cat A) B F x x (@id A x)
+  ≡ @id B (@fapp0 (OddDual_cat A) B F x);
+
+assert [A B : Cat] (F : τ (Functor (EvenDual_cat A) B)) (x : τ (Obj A)) ⊢
+  @fapp1_fapp0 (EvenDual_cat A) B F x x (@id A x)
+  ≡ @id B (@fapp0 (EvenDual_cat A) B F x);
+
+// The source-category join does not discard an arbitrary endomorphism.
+assertnot [A B : Cat] (F : τ (Functor (OddDual_cat A) B)) (x : τ (Obj A))
+  (p : τ (Hom (OddDual_cat A) x x)) ⊢
+  @fapp1_fapp0 (OddDual_cat A) B F x x p
+  ≡ @id B (@fapp0 (OddDual_cat A) B F x);
+
+assertnot [A B : Cat] (F : τ (Functor (EvenDual_cat A) B)) (x : τ (Obj A))
+  (p : τ (Hom (EvenDual_cat A) x x)) ⊢
+  @fapp1_fapp0 (EvenDual_cat A) B F x x p
+  ≡ @id B (@fapp0 (EvenDual_cat A) B F x);
