@@ -1,0 +1,13 @@
+// The odd-dual image of the existing whole double-exchange projection.
+// This is the opposite starting profile: D already takes values in oplax
+// diagrams. Retain the entire D, including all of its higher action.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@OddDual_func _ _
+      (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        (OddDual_cat $C) (OddDual_cat $B) _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@OddDual_func _ _
+            (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $C $A _ $D))
+          (@diagram_evaluation_func (OddDual_cat $B) (OddDual_cat $C)))))
+    (@diagram_evaluation_func $A $C)
+  ↪ $D;

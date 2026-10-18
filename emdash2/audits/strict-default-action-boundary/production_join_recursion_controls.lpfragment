@@ -1,0 +1,22 @@
+// Diagnostic alias of the existing walking-arrow introduction, entirely in
+// the core dependency closure. Its cross datum retains the actual arrow.
+symbol audit_join_arrow [C : Cat] [x y : τ (Obj C)] (p : τ (Hom C x y))
+  : τ (Functor (Join_cat Terminal_cat Terminal_cat) C)
+≔ @join_elim_func Terminal_cat Terminal_cat C (@Obj_func C x) (@Obj_func C y)
+    (@Const_func (Product_cat (Op_cat Terminal_cat) Terminal_cat) (Hom_cat C x y) p);
+
+// The endpoint functors agree only through the existing proof-time reading.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C))
+  (L : τ (Functor A C))
+  (eta : τ (@Transf A C (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A B F G) L)) ⊢
+  @eq_refl (Functor (Join_cat Terminal_cat Terminal_cat) (Functor_cat A C))
+    (@audit_join_arrow (Functor_cat A C)
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A B F G) L eta)
+  : τ (@= (Functor (Join_cat Terminal_cat Terminal_cat) (Functor_cat A C))
+      (@audit_join_arrow (Functor_cat A C)
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A B F G) L eta)
+      (@audit_join_arrow (Functor_cat A C) (@comp_cat_fapp0 A B C G F) L eta));
+assertnot [C : Cat] (x y : τ (Obj C)) (p q : τ (Hom C x y)) ⊢
+  @eq_refl (Functor (Join_cat Terminal_cat Terminal_cat) C) (@audit_join_arrow C x y p)
+  : τ (@= (Functor (Join_cat Terminal_cat Terminal_cat) C)
+      (@audit_join_arrow C x y p) (@audit_join_arrow C x y q));

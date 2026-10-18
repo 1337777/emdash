@@ -1,0 +1,51 @@
+require open emdash.emdash3_2_iso_evidence_constructors;
+require open emdash.emdash3_2_strict_functor_actions;
+
+// Retain the original ordinary reconstruction maps. Their endpoint
+// components are identities, so the existing walking-diagram reflection
+// derives their inverse laws without any new universality assumption.
+symbol one_cat_diagram_reconstruction_evidence [C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C)) (d : τ (Functor WalkingArrow_cat C))
+  : τ (IsoEvidence (Functor_cat WalkingArrow_cat C)
+      (@walking_arrow_func C (fapp0 d walking_arrow_src) (fapp0 d walking_arrow_tgt)
+        (@fapp1_fapp0 WalkingArrow_cat C d walking_arrow_src walking_arrow_tgt walking_arrow_generator)) d)
+≔ let S : Cat ≔ Functor_cat WalkingArrow_cat C in
+  let r : τ (Functor WalkingArrow_cat C) ≔ @walking_arrow_func C
+    (fapp0 d walking_arrow_src) (fapp0 d walking_arrow_tgt)
+    (@fapp1_fapp0 WalkingArrow_cat C d walking_arrow_src walking_arrow_tgt walking_arrow_generator) in
+  let t : τ (@Transf WalkingArrow_cat C r d) ≔ @one_cat_diagram_reconstruction_to C C1 d in
+  let s : τ (@Transf WalkingArrow_cat C d r) ≔ @one_cat_diagram_reconstruction_from C C1 d in
+  @iso_evidence_intro S r d t s
+    (@one_cat_diagram_map_path C C1 r r (@comp_fapp0 S r d r s t) (@id S r)
+      (@eq_refl (Hom C (fapp0 d walking_arrow_src) (fapp0 d walking_arrow_src))
+        (@id C (fapp0 d walking_arrow_src)))
+      (@eq_refl (Hom C (fapp0 d walking_arrow_tgt) (fapp0 d walking_arrow_tgt))
+        (@id C (fapp0 d walking_arrow_tgt))))
+    (@one_cat_diagram_map_path C C1 d d (@comp_fapp0 S d r d t s) (@id S d)
+      (@eq_refl (Hom C (fapp0 d walking_arrow_src) (fapp0 d walking_arrow_src))
+        (@id C (fapp0 d walking_arrow_src)))
+      (@eq_refl (Hom C (fapp0 d walking_arrow_tgt) (fapp0 d walking_arrow_tgt))
+        (@id C (fapp0 d walking_arrow_tgt))));
+
+// Native oplax-family reconstruction is the image of that same ordinary
+// source evidence. The whole double exchange retains the actual family D.
+symbol one_cat_oplax_diagram_family_reconstruction_evidence [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
+  : τ (IsoEvidence (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
+      (@transf_arrow_diagram_func B C
+        (@diagram_oplax_family_at_func B WalkingArrow_cat C D walking_arrow_src)
+        (@diagram_oplax_family_at_func B WalkingArrow_cat C D walking_arrow_tgt)
+        (@diagram_oplax_family_transf B WalkingArrow_cat C D
+          walking_arrow_src walking_arrow_tgt walking_arrow_generator)) D)
+≔ let E : τ (Functor WalkingArrow_cat (Functor_cat B C)) ≔
+    @diagram_oplax_family_shape_func B WalkingArrow_cat C D in
+  let r : τ (Functor WalkingArrow_cat (Functor_cat B C)) ≔
+    @walking_arrow_func (Functor_cat B C) (fapp0 E walking_arrow_src) (fapp0 E walking_arrow_tgt)
+      (@fapp1_fapp0 WalkingArrow_cat (Functor_cat B C) E
+        walking_arrow_src walking_arrow_tgt walking_arrow_generator) in
+  @iso_evidence_fmap (Functor_cat WalkingArrow_cat (Functor_cat B C))
+    (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
+    (@one_cat_family_oplax_exchange_func WalkingArrow_cat B C C1) r E
+    (@one_cat_diagram_reconstruction_evidence (Functor_cat B C)
+      (@one_cat_functor_category B C C1) E);

@@ -1,0 +1,14 @@
+// Native oplax view of the same original square maps and their inverse data.
+// The source evidence already exists; only the whole exchange target changes.
+symbol one_cat_oplax_arrow_family_comparison_evidence [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B C)] [h k : τ (@Transf B C F G)]
+  (i : τ (IsoEvidence (Hom_cat (Functor_cat B C) F G) h k))
+  : τ (IsoEvidence (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
+      (@transf_arrow_diagram_func B C F G h) (@transf_arrow_diagram_func B C F G k))
+≔ @iso_evidence_fmap (Functor_cat WalkingArrow_cat (Functor_cat B C))
+    (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
+    (@one_cat_family_oplax_exchange_func WalkingArrow_cat B C C1)
+    (@walking_arrow_func (Functor_cat B C) F G h)
+    (@walking_arrow_func (Functor_cat B C) F G k)
+    (@one_cat_arrow_family_source_evidence B C C1 F G h k i);

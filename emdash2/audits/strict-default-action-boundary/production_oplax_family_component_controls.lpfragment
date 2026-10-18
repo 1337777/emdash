@@ -1,0 +1,22 @@
+// Fixed evaluation: object-first and whole-composition-first observations.
+assert [A B C : Cat] (D : τ (Functor A (Functor_cat B C))) (a : τ (Obj A)) ⊢
+  @fapp0 (Functor_cat B (Functor_oplax_cat A C)) (Functor_cat B C)
+    (@diagram_oplax_family_evaluation_func B A C a)
+    (@diagram_family_shape_func A B C D)
+  ≡ @fapp0 A (Functor_cat B C) D a;
+assert [A B C : Cat] (D : τ (Functor A (Functor_cat B C))) (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 B (Functor_oplax_cat A C) C
+    (@diagram_oplax_evaluation_at_func A C a) (@diagram_family_shape_func A B C D)
+  ≡ @fapp0 A (Functor_cat B C) D a;
+assertnot [A B C : Cat] (D E : τ (Functor A (Functor_cat B C))) (a : τ (Obj A)) ⊢
+  @fapp0 (Functor_cat B (Functor_oplax_cat A C)) (Functor_cat B C)
+    (@diagram_oplax_family_evaluation_func B A C a)
+    (@diagram_family_shape_func A B C D)
+  ≡ @fapp0 A (Functor_cat B C) E a;
+// The other starting profile of whole double exchange retains D itself.
+assert [A B C : Cat] (D : τ (Functor A (Functor_oplax_cat B C))) ⊢
+  @diagram_family_shape_func B A C (@diagram_oplax_family_shape_func A B C D)
+  ≡ D;
+assertnot [A B C : Cat] (D E : τ (Functor A (Functor_oplax_cat B C))) ⊢
+  @diagram_family_shape_func B A C (@diagram_oplax_family_shape_func A B C D)
+  ≡ E;

@@ -1,0 +1,16 @@
+// Direct proof-time reading of the admitted/native round trip. The existing
+// exchange comparison and the native double-exchange projection do not
+// chain once the latter side has already reduced to the original family.
+// Keep the actual OneCat admission and the entire family D in this join.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@OddDual_func _ _ (Functor_cart_include (OddDual_cat $I) (OddDual_cat $C)))
+      (@OddDual_func _ _ (OddDual_cart_func_func $I $C)))
+    (@sym_func $I $B $C
+      (@comp_fapp0 Cat_cat _ _ _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@defiso_to _ _ _ (@one_cat_mapping_comparison $B $C _))
+          (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $C $B _ $D))
+        (@OddDual_func _ _ (@diagram_evaluation_func (OddDual_cat $I) (OddDual_cat $C)))))
+  ≡ $H
+  ↪ [ $H ≡ $D ];

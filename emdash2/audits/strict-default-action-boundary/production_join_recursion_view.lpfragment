@@ -1,0 +1,7 @@
+// Sufficient proof-time congruence for two explicit join introductions.
+// Compare all constructor data; this declares neither join eta nor an
+// injectivity property of arbitrary functors out of the join.
+unif_rule @join_elim_func $A $B $C $F $G $theta
+  ≡ @join_elim_func $A1 $B1 $C1 $F1 $G1 $theta1
+  ↪ [ $A1 ≡ $A; $B1 ≡ $B; $C1 ≡ $C;
+      $F1 ≡ $F; $G1 ≡ $G; $theta1 ≡ $theta ];

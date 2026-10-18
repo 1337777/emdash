@@ -1,0 +1,11 @@
+// Whole Cat-composition reading for the measured composite-input case.
+// Keep the generic two-factor reading and the separate displayed owners.
+// Reassociation can change the intermediate category, so compare the
+// complete composite while retaining all three actual functors.
+unif_rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $Z $W $X (@comp_fapp0 Cat_cat $W $Y $X $p $q) $g
+  ≡ @comp_fapp0 Cat_cat $W1 $X1 $Z1 $g1 $h1
+  ↪ [ $W1 ≡ $W; $Z1 ≡ $Z;
+      (@comp_fapp0 Cat_cat $W $X $Z $g
+        (@comp_fapp0 Cat_cat $W $Y $X $p $q))
+        ≡ (@comp_fapp0 Cat_cat $W1 $X1 $Z1 $g1 $h1) ];

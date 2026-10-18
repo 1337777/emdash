@@ -1,0 +1,27 @@
+// A composite input changes the syntactic intermediate category after
+// reassociation; the complete three-functor composite remains the same.
+assert [A B C D : Cat] (F : τ (Functor A B))
+  (G : τ (Functor B C)) (H : τ (Functor C D)) ⊢
+  @eq_refl (Functor A D)
+    (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) D A C
+      (@comp_cat_fapp0 A B C G F) H)
+  : τ (@= (Functor A D)
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) D A C
+        (@comp_cat_fapp0 A B C G F) H)
+      (@comp_cat_fapp0 A B D
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) D B C G H) F));
+assertnot [A B C D : Cat] (F F1 : τ (Functor A B))
+  (G : τ (Functor B C)) (H : τ (Functor C D)) ⊢
+  @eq_refl (Functor A D)
+    (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) D A C
+      (@comp_cat_fapp0 A B C G F) H)
+  : τ (@= (Functor A D)
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) D A C
+        (@comp_cat_fapp0 A B C G F) H)
+      (@comp_cat_fapp0 A B D
+        (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) D B C G H) F1));
+// The existing atomic-input reading for an arbitrary category is retained.
+assert [C : Cat] (x y z : τ (Obj C)) (f : τ (Hom C x y)) (g : τ (Hom C y z)) ⊢
+  @eq_refl (Hom C x z) (@hom_precomp_along_fapp0 C C (@id_func C) z x y f g)
+  : τ (@= (Hom C x z) (@hom_precomp_along_fapp0 C C (@id_func C) z x y f g)
+      (@comp_fapp0 C x y z g f));

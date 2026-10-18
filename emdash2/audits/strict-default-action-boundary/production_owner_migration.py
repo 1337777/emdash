@@ -26,6 +26,148 @@ def sha(text):
     return hashlib.sha256(text.encode()).hexdigest()
 
 
+def migrate_homology_boundary_paths(text):
+    """Retain the two original square bodies and adapt only their path observers."""
+    def terms(expression):
+        result, start, depth = [], None, 0
+        for i, char in enumerate(expression):
+            if start is None:
+                if char.isspace():
+                    continue
+                start = i
+            if char == '(':
+                depth += 1
+            elif char == ')':
+                depth -= 1
+            if depth == 0 and char.isspace():
+                result.append(expression[start:i])
+                start = None
+        assert depth == 0
+        if start is not None:
+            result.append(expression[start:])
+        return result
+
+    squares = {}
+    for direction in ('to', 'from'):
+        name = 'homology_family_comparison_boundary_diagram_' + direction
+        pattern = r'protected symbol ' + name + r'\b.*?;'
+        match = re.search(pattern, text, re.S)
+        assert match is not None
+        block = match.group()
+        signature, body = block[:-1].rsplit('≔ ', 1)
+        args = terms(body)
+        assert args[:5] == ['@one_cat_family_oplax_exchange_map', 'WalkingArrow_cat', 'B', 'C', 'C1']
+        assert len(args) == 8
+        raw_source, raw_target, square = args[5:]
+        assert square.startswith('(@one_cat_square_diagram_transf')
+        square_name = 'homology_family_comparison_boundary_square_' + direction
+        parameters, _ = signature.split('\n : τ', 1)
+        helper = parameters.replace(name, square_name, 1)
+        helper += '\n : τ (@Transf WalkingArrow_cat (Functor_cat B C)\n  ' + raw_source + '\n  ' + raw_target + ')\n≔ ' + square + ';\n\n'
+        selected = '(@' + square_name + ' B C C1 t T A D h S P)'
+        replacement = ('// Retained original square, shared by its whole image and path observations.\n'
+                       + helper + signature + '≔ ' + ' '.join(args[:7] + [selected]) + ';')
+        text = text[:match.start()] + replacement + text[match.end():]
+        squares[direction] = (raw_source, raw_target)
+
+    marker = '(@one_cat_oplax_family_evaluation_comp_path'
+    count = 0
+    while marker in text:
+        start = text.index(marker)
+        end, depth = start, 0
+        while end < len(text):
+            if text[end] == '(':
+                depth += 1
+            elif text[end] == ')':
+                depth -= 1
+                if depth == 0:
+                    break
+            end += 1
+        args = terms(text[start + 1:end])
+        assert len(args) == 11
+        assert args[1:5] == ['B', 'WalkingArrow_cat', 'C', 'C1']
+        a, g, f = args[5], args[9], args[10]
+        gd = 'from' if g.startswith('(@homology_family_comparison_boundary_diagram_from') else 'to'
+        fd = 'from' if f.startswith('(@homology_family_comparison_boundary_diagram_from') else 'to'
+        assert g.startswith('(@homology_family_comparison_boundary_diagram_' + gd)
+        assert f.startswith('(@homology_family_comparison_boundary_diagram_' + fd)
+        assert re.sub(r'\s+', '', squares[fd][1]) == re.sub(r'\s+', '', squares[gd][0])
+        raw_g = g.replace('boundary_diagram_' + gd, 'boundary_square_' + gd, 1)
+        raw_f = f.replace('boundary_diagram_' + fd, 'boundary_square_' + fd, 1)
+        replacement = ('(@one_cat_oplax_exchange_comp_at_path WalkingArrow_cat B C C1 ' + a + '\n'
+                       + '\n'.join((squares[fd][0], squares[fd][1], squares[gd][1], raw_g, raw_f)) + ')')
+        text = text[:start] + replacement + text[end + 1:]
+        count += 1
+    assert count == 4
+    # Reflect the original two square maps before applying exchange. This
+    # uses the existing ordinary diagram theorem and the same four inverse
+    # paths; it does not introduce a general oplax reflection contract.
+    def declaration(name):
+        match = re.search(r'protected symbol ' + name + r'\b.*?;', text, re.S)
+        assert match is not None
+        return match
+
+    def bracketed(expression, marker):
+        start = expression.index(marker)
+        depth = 0
+        for end in range(start, len(expression)):
+            if expression[end] == '(':
+                depth += 1
+            elif expression[end] == ')':
+                depth -= 1
+                if depth == 0:
+                    return expression[start:end + 1]
+        raise AssertionError('unclosed original inverse path')
+
+    paths = {}
+    for side in ('left', 'right'):
+        for endpoint in ('source', 'target'):
+            old = declaration('homology_family_comparison_diagram_' + side + '_' + endpoint + '_law').group()
+            head = 'omega_equiv_along_left_law' if side == 'left' else 'omega_equiv_left_as_right_law'
+            paths[side, endpoint] = bracketed(old, '(@' + head)
+    original = declaration('homology_family_comparison_boundary_square_to').group()
+    telescope = original.split('\n : τ', 1)[0]
+    raw_name = 'homology_family_comparison_boundary_square_evidence'
+    mapped_name = 'homology_family_comparison_mapped_boundary_evidence'
+    params = 'B C C1 t T A D h S P'
+    raw_source, raw_target = squares['to']
+    U = '(@homology_family_comparison_boundary_square_to ' + params + ')'
+    V = '(@homology_family_comparison_boundary_square_from ' + params + ')'
+    raw_category = '(Functor_cat WalkingArrow_cat (Functor_cat B C))'
+    target_category = '(Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))'
+    left = ('(@one_cat_diagram_map_path (Functor_cat B C) (@one_cat_functor_category B C C1)\n'
+            + raw_source + '\n' + raw_source + '\n'
+            + '(@comp_fapp0 ' + raw_category + ' ' + raw_source + ' ' + raw_target + ' ' + raw_source + ' ' + V + ' ' + U + ')\n'
+            + '(@id ' + raw_category + ' ' + raw_source + ')\n'
+            + paths['left', 'source'] + '\n' + paths['left', 'target'] + ')')
+    right = ('(@one_cat_diagram_map_path (Functor_cat B C) (@one_cat_functor_category B C C1)\n'
+             + raw_target + '\n' + raw_target + '\n'
+             + '(@comp_fapp0 ' + raw_category + ' ' + raw_target + ' ' + raw_source + ' ' + raw_target + ' ' + U + ' ' + V + ')\n'
+             + '(@id ' + raw_category + ' ' + raw_target + ')\n'
+             + paths['right', 'source'] + '\n' + paths['right', 'target'] + ')')
+    addition = '\n// The original square maps and inverse paths, reflected in their ordinary source.\n'
+    addition += telescope.replace('homology_family_comparison_boundary_square_to', raw_name, 1)
+    addition += '\n : τ (IsoEvidence ' + raw_category + ' ' + raw_source + ' ' + raw_target + ')\n'
+    addition += '≔ @iso_evidence_intro ' + raw_category + ' ' + raw_source + ' ' + raw_target + '\n' + U + '\n' + V + '\n' + left + '\n' + right + ';\n\n'
+    addition += '// Apply the existing whole strict exchange to that retained evidence.\n'
+    addition += telescope.replace('homology_family_comparison_boundary_square_to', mapped_name, 1)
+    addition += '\n : τ (IsoEvidence ' + target_category + '\n'
+    addition += '(@diagram_family_shape_func WalkingArrow_cat B C ' + raw_source + ')\n'
+    addition += '(@diagram_family_shape_func WalkingArrow_cat B C ' + raw_target + '))\n'
+    addition += '≔ @one_cat_iso_evidence_fmap ' + raw_category + ' ' + target_category + '\n'
+    addition += '(@one_cat_functor_category B (Functor_oplax_cat WalkingArrow_cat C) (@one_cat_oplax_functor_category WalkingArrow_cat C C1))\n'
+    addition += '(@one_cat_family_oplax_exchange_func WalkingArrow_cat B C C1)\n' + raw_source + '\n' + raw_target + '\n(@' + raw_name + ' ' + params + ');\n'
+    owner = declaration('homology_family_comparison_boundary_diagram_from')
+    text = text[:owner.end()] + '\n' + addition + text[owner.end():]
+    for side in ('left', 'right'):
+        owner = declaration('homology_family_comparison_diagram_' + side + '_law')
+        signature = owner.group().rsplit('≔ ', 1)[0]
+        body = '≔ @iso_evidence_' + side + ' ' + target_category + ' _ _\n(@' + mapped_name + ' ' + params + ');'
+        text = text[:owner.start()] + signature + body + text[owner.end():]
+
+    return text
+
+
 def main():
     audit = Path(__file__).resolve().parent
     root = audit.parents[1]
@@ -58,6 +200,25 @@ def main():
         body = body.replace(old, new, 1)
         changes.append({'owner': owner, 'reason': reason,
                         'oldSha256': sha(old), 'newSha256': sha(new)})
+
+    precomposition_raw_view = '''// Proof-time identity-family comparison with ordinary raw composition.
+unif_rule @hom_precomp_along_fapp0 $A $A (@id Cat_cat $A) $Z $W $X $h $g
+  ≡ @comp_fapp0
+      $A
+      _
+      _
+      $Z
+      $g
+      $h
+  ↪ [ tt ≡ tt ];'''
+    replace_once(precomposition_raw_view,
+                 precomposition_raw_view + '\n' + fragment('production_precomposition_association.lpfragment'),
+                 'Cat-valued composite-input precomposition reading',
+                 'Retain the original generic comparison and all displayed owners; compare the complete Cat composite only for a literal composite input')
+
+    insert('// Primitive join-recursion beta for the internally natural cross cell.',
+           fragment('production_join_recursion_view.lpfragment'),
+           'Expose sufficient constructor congruence so proof-time endpoint comparisons are available under a join introduction, retaining the cross datum')
 
     admission_marker = '// Transparent typed carrier comparison.\nsymbol make_strict_transfor_carrier_path'
     assert profiles.count(admission_marker) == 1
@@ -2396,6 +2557,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                         + fragment('production_one_cat_evaluation.lpfragment') + '\n'
                         + fragment('production_diagram_evaluation_helpers.lpfragment') + '\n'
                         + fragment('production_oplax_diagram_evaluation.lpfragment') + '\n'
+                        + fragment('production_oplax_family_component_join.lpfragment') + '\n'
+                        + fragment('production_oplax_family_double_exchange.lpfragment') + '\n'
                         + fragment('production_oplax_family_observations.lpfragment'))
                 declaration = r'(?m)^(?:(?:constant|injective|protected|private)\s+)?symbol\s+([A-Za-z0-9_]+)\b'
                 old_names, new_names = re.findall(declaration, old), re.findall(declaration, text)
@@ -2453,6 +2616,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 text += '\n' + fragment('production_one_cat_arrow_family_presentation.lpfragment')
                 text += '\n' + fragment('production_one_cat_family_observations.lpfragment')
                 text += '\n' + fragment('production_one_cat_family_oplax_exchange.lpfragment')
+                text += '\n' + fragment('production_one_cat_oplax_roundtrip_view.lpfragment')
+                text += '\n' + fragment('production_one_cat_oplax_exchange_paths.lpfragment')
                 changes.append({'source': path, 'owner': 'ordinary-target whole diagram-family reflection',
                                 'reason': 'Reprofile both mapping levels through actual inverse maps, reuse Cartesian exchange and original diagram reflection, then reflect through the derived left inverses; retain raw inputs and whole endpoint premises',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
@@ -2496,6 +2661,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                             f'''@one_cat_family_exchange_map_at B WalkingArrow_cat C C1
     {source} {target}
     (@one_cat_diagram_family_reconstruction_{direction} B C C1 D)''')
+                if not path.startswith('examples/'):
+                    text += '\n' + fragment('production_one_cat_oplax_family_reconstruction.lpfragment')
                 changes.append({'source': path, 'owner': 'whole diagram-family reconstruction',
                                 'reason': 'Use the guarded ordinary exchange for the original exchanged endpoints and shape action, preserving arbitrary D, both reconstruction maps and the original proof outline',
                                 'replacementCounts': changed,
@@ -2538,6 +2705,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
       (@walking_arrow_func (Functor_cat B C) F G k)
       (@one_cat_arrow_family_source_evidence B C C1 F G h k i));'''
                     text = text[:start] + signature + arrow_law_body + text[end:]
+                text += '\n' + fragment('production_one_cat_oplax_arrow_family_evidence.lpfragment')
                 changes.append({'source': path, 'owner': 'whole arrow-family isomorphism',
                                 'reason': 'Preserve the original square maps and chosen modifications through guarded ordinary exchange; prove their source diagram inverse laws and map that evidence with the existing strict functor action',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
@@ -2558,6 +2726,32 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (@one_cat_arrow_family_comparison_{direction} B C C1 F G h k i)''')
                 changes.append({'source': path, 'owner': 'original arrow-family isomorphism reviewer',
                                 'reason': 'Retain its four endpoint identity and two inverse-choice observations at the guarded ordinary family/exchange presentation',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_zero_arrow_family_point_inputs.lp':
+                old = text
+                text, count = re.subn(r'Functor_cat\s+WalkingArrow_cat\s+C',
+                    'Functor_oplax_cat WalkingArrow_cat C', text)
+                assert count == 6
+                changes.append({'source': path, 'owner': 'original zero-arrow family point input',
+                                'reason': 'Keep the original A[x], D[x], h[x] and cone constructor at the already-migrated native oplax diagram profile',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('examples/one_cat_homology_family_comparison.lp',
+                        'examples/one_cat_homology_family_comparison_points.lp'):
+                old = text
+                is_points = path.endswith('_points.lp')
+                text, count = re.subn(r'Functor_cat\s+WalkingArrow_cat\s+C',
+                    'Functor_oplax_cat WalkingArrow_cat C', text)
+                assert count == (9 if is_points else 46)
+                text, count = re.subn(r'\(@TerminalObject\s+\(Op_cat C\)\s+t\)',
+                    '(@TerminalObject (TotalOp_cat C) t)', text)
+                assert count == (2 if is_points else 4)
+                text, count = re.subn(r'@one_cat_functor_category\s+WalkingArrow_cat\s+C\s+C1',
+                    '@one_cat_oplax_functor_category WalkingArrow_cat C C1', text)
+                assert count == (0 if is_points else 6)
+                assert [len(re.findall(r'(?m)^' + kind + r'\b', text))
+                        for kind in ('assert', 'assertnot')] == ([4, 1] if is_points else [6, 0])
+                changes.append({'source': path, 'owner': 'original whole/point homology comparison reviewer',
+                                'reason': 'Retain every original assertion with only the native diagram profile, its existing OneCat closure and total-dual initial choice adjusted',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_one_cat_homology_family_comparison.lp',
                         'emdash3_2_one_cat_homology_family_comparison_points.lp'):
@@ -2580,11 +2774,18 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                     text = text.replace('@sym_transf_tapp0_transf', '@diagram_oplax_family_map_at')
                     text = text.replace('@one_cat_diagram_family_evaluation_comp_path',
                         '@one_cat_oplax_family_evaluation_comp_path')
+                    text = text.replace('@one_cat_diagram_family_transf_reindex_path',
+                        '@one_cat_oplax_family_transf_reindex_path')
+                    text = text.replace('@one_cat_arrow_family_comparison_evidence',
+                        '@one_cat_oplax_arrow_family_comparison_evidence')
+                    text = text.replace('@one_cat_diagram_family_reconstruction_evidence',
+                        '@one_cat_oplax_diagram_family_reconstruction_evidence')
                     anchor = 'require open emdash.emdash3_2_one_cat_arrow_diagrams;'
                     assert text.count(anchor) == 1
                     text = text.replace(anchor, anchor + '\nrequire open emdash.emdash3_2_one_cat_diagram_family_reflection;')
+                    text = migrate_homology_boundary_paths(text)
                 changes.append({'source': path, 'owner': 'ordinary whole native homology comparison profile',
-                                'reason': 'Align the existing whole comparison and point consumers with the native oplax diagram carrier, its OneCat closure and total-dual initial choice; keep the original maps and proof bodies for subsequent qualification',
+                                'reason': 'Align native profiles and keep the original maps and endpoint inverse data; derive whole source-square inverse evidence before applying exchange, then use the native observation/reconstruction views',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_homology_adjunction_families.lp':
                 old = text
@@ -3244,6 +3445,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/commutative_ring_presheaf_invertibility.lp')
     stage('examples/one_cat_zero_arrow_family_classification.lp')
     stage('examples/homology_adjunction_families.lp')
+    stage('examples/one_cat_homology_family_comparison.lp')
+    stage('examples/one_cat_homology_family_comparison_points.lp')
     stage('emdash3_2_one_cat_terminal_adjunction_family_observations.lp')
     stage('examples/one_cat_modifications.lp')
     # Preserve the real production diagnostic dependency closure as the next
@@ -3546,6 +3749,12 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'postcomposition_association_controls.lp').write_text(
         (package / 'zero_family_core_controls.lp').read_text() + '\n'
         + fragment('production_nested_postcomposition_controls.lpfragment'))
+    (package / 'precomposition_association_controls.lp').write_text(
+        (package / 'postcomposition_association_controls.lp').read_text() + '\n'
+        + fragment('production_precomposition_association_controls.lpfragment'))
+    (package / 'join_recursion_controls.lp').write_text(
+        (package / 'precomposition_association_controls.lp').read_text() + '\n'
+        + fragment('production_join_recursion_controls.lpfragment'))
     (package / 'comma_target_guard_controls.lp').write_text(
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
@@ -3572,9 +3781,21 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'one_cat_oplax_exchange_controls.lp').write_text(
         'require open emdash.emdash3_2_one_cat_diagram_family_reflection;\n'
         + fragment('production_one_cat_oplax_exchange_controls.lpfragment'))
+    (package / 'oplax_family_component_controls.lp').write_text(
+        'require open emdash.emdash3_2_diagram_evaluation;\n'
+        + fragment('production_oplax_family_component_controls.lpfragment'))
+    (package / 'one_cat_oplax_roundtrip_controls.lp').write_text(
+        'require open emdash.emdash3_2_one_cat_diagram_family_reflection;\n'
+        + fragment('production_one_cat_oplax_roundtrip_controls.lpfragment'))
+    (package / 'native_homology_comparison_reviewers.lp').write_text(
+        'require emdash.native_exchange_regression_controls;\n'
+        'require emdash.examples.one_cat_homology_family_comparison;\n'
+        'require emdash.examples.one_cat_homology_family_comparison_points;\n')
     (package / 'native_exchange_regression_controls.lp').write_text(
         'require emdash.odd_cartesian_action_controls;\n'
+        'require emdash.oplax_family_component_controls;\n'
         'require emdash.one_cat_oplax_exchange_controls;\n'
+        'require emdash.one_cat_oplax_roundtrip_controls;\n'
         'require emdash.one_cat_mapping_controls;\n'
         'require emdash.examples.one_cat_diagram_family_reconstruction;\n'
         'require emdash.examples.one_cat_arrow_family_isomorphisms;\n')
@@ -3728,7 +3949,10 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'one_cat_family_exchange.lp',
                               package / 'one_cat_family_exchange_controls.lp',
                               package / 'one_cat_oplax_exchange_controls.lp',
+                              package / 'one_cat_oplax_roundtrip_controls.lp',
                               package / 'native_exchange_regression_controls.lp',
+                              package / 'native_homology_comparison_reviewers.lp',
+                              package / 'oplax_family_component_controls.lp',
                               package / 'one_cat_double_exchange_controls.lp',
                               package / 'one_cat_arrow_family_integration.lp',
                               package / 'one_cat_evaluation_integration.lp',
@@ -3739,6 +3963,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'hygiene_full_controls.lp',
                               package / 'zero_family_core_controls.lp',
                               package / 'postcomposition_association_controls.lp',
+                              package / 'precomposition_association_controls.lp',
+                              package / 'join_recursion_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

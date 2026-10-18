@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; native diagram exchange and original homology boundary maps checked; whole inverse-law comparison and broader migration/promotion remain open
+Status: active implementation; complete staged native homology family comparison and original whole/point reviewers checked; remaining libraries, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,49 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Whole native homology comparison after `fcee49f3`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_native_exchange_paths_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_exchange_paths_verification.json)
+close the complete original comparison owner and its point view in staging.
+The actual K/Q structures, general lax h, all original symbols, square maps
+and four endpoint inverse paths remain. Whole inverse evidence is proved in
+the original ordinary source and mapped through the native exchange. The
+native reconstruction view retains the original reconstruction maps and
+universality assumption; it adds no new structural primitive or operational
+path payload. The complete original Q-image body is preserved modulo profiles.
+
+Two diagram-evaluation projection joins retain whole families. Proof-time
+comparisons handle Cat-composite precomposition, the admitted/native round
+trip, and congruence of explicit join introductions. The generic
+precomposition rule is retained; a broader replacement was rejected after
+an actual Homd regression. No join eta or injectivity claim is introduced.
+Changed functors, families and cross-arrows remain distinct in the controls.
+
+The core passes 286 positive/84 negative assertions. All eleven original
+whole/point reviewer observations pass (10 positive/1 negative), together
+with the inherited mapping, exchange, reconstruction and arrow-family
+reviewers and the new projection/round-trip controls. Eight owning-file LHS
+audits have no unreviewed candidates. The recorded owner warning comparison
+has no additions and removes two identity/composite endpoint bodies; global
+confluence is not claimed.
+
+Cold validation remains costly: the full owner passes in 164s at 5.14 GiB
+maximum child RSS, and the combined reviewer in 82s at 5.47 GiB. These use
+an explicit reviewed 300s/6GiB/o=10 profile after measured 4/5GiB failures
+and a 5GiB/o=5 timeout. Available host memory was 12178 MiB before the 6GiB
+run. Defaults, serial/file/no-swap containment and subject reduction remain
+unchanged. The core uses the existing 240s/2GiB/o=20 profile. Different
+profiles/workloads do not establish a speedup; the timeout's wrapper RSS is
+not a checker peak. An evaluator-local comparison variant did not remove
+the allocation failure and was discarded.
+
+Next continue the original terminal/initial zero-column consumers and the
+remaining library import frontier. Keep the required strict-wrapper
+retirement, production promotion and final central/catalogue/health/CI/
+source-pin qualification. The application goal stays paused. Earlier
+checkpoint descriptions below record their then-open frontiers; this entry
+supersedes their homology-comparison incompletion statements.
 
 Native diagram exchange after `92d28e75`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_native_exchange_review.md)

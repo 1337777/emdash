@@ -25,3 +25,22 @@ symbol one_cat_oplax_family_evaluation_comp_path [B I C : Cat]
 ≔ @one_cat_composition_path (Functor_cat B (Functor_oplax_cat I C))
     (Functor_cat B C) (@one_cat_functor_category B C C1)
     (@diagram_oplax_family_evaluation_func B I C i) F G H g f;
+
+// Shape action after restriction of a native oplax family. The result is an
+// ordinary lax transformation, so its actual reindexing uses ordinary
+// precomposition; the existing OneCat guard is retained at this library view.
+symbol one_cat_oplax_family_transf_reindex_path [A B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (D : τ (Functor B (Functor_oplax_cat I C))) (F : τ (Functor A B))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@= (@Transf A C
+      (@comp_cat_fapp0 A B C (@diagram_oplax_family_at_func B I C D i) F)
+      (@comp_cat_fapp0 A B C (@diagram_oplax_family_at_func B I C D j) F))
+      (@diagram_oplax_family_transf A I C
+        (@comp_cat_fapp0 A B (Functor_oplax_cat I C) D F) i j u)
+      (@fapp1_fapp0 _ _ (@comp_cat_con_func A B C F)
+        (@diagram_oplax_family_at_func B I C D i)
+        (@diagram_oplax_family_at_func B I C D j)
+        (@diagram_oplax_family_transf B I C D i j u)))
+≔ eq_refl (@diagram_oplax_family_transf A I C
+    (@comp_cat_fapp0 A B (Functor_oplax_cat I C) D F) i j u);

@@ -1,0 +1,63 @@
+require open emdash.emdash3_2_one_cat_modifications;
+// Ordinary target: the existing modification introduction assembles the
+// already-computing components, and discreteness reflects it to a path.
+symbol one_cat_oplax_exchange_at_path [A B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor A (Functor_cat B C)))
+  (eta : τ (@Transf A (Functor_cat B C) F G)) (a : τ (Obj A))
+  : τ (@= (@Transf B C (fapp0 F a) (fapp0 G a))
+      (@diagram_oplax_family_map_at B A C
+        (@diagram_family_shape_func A B C F) (@diagram_family_shape_func A B C G)
+        (@one_cat_family_oplax_exchange_map A B C C1 F G eta) a)
+      (@tapp0_fapp0 A (Functor_cat B C) F G a eta))
+≔ let X : τ (Functor B C) ≔ fapp0 F a in
+  let Y : τ (Functor B C) ≔ fapp0 G a in
+  let alpha : τ (@Transf B C X Y) ≔ @diagram_oplax_family_map_at B A C
+      (@diagram_family_shape_func A B C F) (@diagram_family_shape_func A B C G)
+      (@one_cat_family_oplax_exchange_map A B C C1 F G eta) a in
+  let beta : τ (@Transf B C X Y) ≔ @tapp0_fapp0 A (Functor_cat B C) F G a eta in
+  @hom_to_path (@Transf_cat B C X Y) ((@one_cat_functor_category B C C1) X Y)
+    alpha beta (@one_cat_modification B C C1 X Y alpha beta
+      (λ b : τ (Obj B), @path_to_hom (Hom_cat C (fapp0 X b) (fapp0 Y b))
+        (@tapp0_fapp0 B C X Y b alpha) (@tapp0_fapp0 B C X Y b beta)
+        (@eq_refl (Hom C (fapp0 X b) (fapp0 Y b)) (@tapp0_fapp0 B C X Y b beta))));
+
+// Composition observation with the original endpoint maps. These are paths
+// between already-formed whole transformations, never operational inputs.
+symbol one_cat_oplax_exchange_comp_at_path [A B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C)) (a : τ (Obj A))
+  (F G H : τ (Functor A (Functor_cat B C)))
+  (V : τ (@Transf A (Functor_cat B C) G H))
+  (U : τ (@Transf A (Functor_cat B C) F G))
+  : τ (@= (@Transf B C (fapp0 F a) (fapp0 H a))
+      (@diagram_oplax_family_map_at B A C
+        (@diagram_family_shape_func A B C F) (@diagram_family_shape_func A B C H)
+        (@comp_fapp0 (Functor_cat B (Functor_oplax_cat A C))
+          (@diagram_family_shape_func A B C F) (@diagram_family_shape_func A B C G)
+          (@diagram_family_shape_func A B C H)
+          (@one_cat_family_oplax_exchange_map A B C C1 G H V)
+          (@one_cat_family_oplax_exchange_map A B C C1 F G U)) a)
+      (@comp_fapp0 (Functor_cat B C) (fapp0 F a) (fapp0 G a) (fapp0 H a)
+        (@tapp0_fapp0 A (Functor_cat B C) G H a V)
+        (@tapp0_fapp0 A (Functor_cat B C) F G a U)))
+≔ let X : τ (Functor B C) ≔ fapp0 F a in
+  let Y : τ (Functor B C) ≔ fapp0 G a in
+  let Z : τ (Functor B C) ≔ fapp0 H a in
+  let EF : τ (Functor B (Functor_oplax_cat A C)) ≔ @diagram_family_shape_func A B C F in
+  let EG : τ (Functor B (Functor_oplax_cat A C)) ≔ @diagram_family_shape_func A B C G in
+  let EH : τ (Functor B (Functor_oplax_cat A C)) ≔ @diagram_family_shape_func A B C H in
+  let EU : τ (@Transf B (Functor_oplax_cat A C) EF EG) ≔ @one_cat_family_oplax_exchange_map A B C C1 F G U in
+  let EV : τ (@Transf B (Functor_oplax_cat A C) EG EH) ≔ @one_cat_family_oplax_exchange_map A B C C1 G H V in
+  let u : τ (@Transf B C X Y) ≔ @diagram_oplax_family_map_at B A C EF EG EU a in
+  let v : τ (@Transf B C Y Z) ≔ @diagram_oplax_family_map_at B A C EG EH EV a in
+  let u0 : τ (@Transf B C X Y) ≔ @tapp0_fapp0 A (Functor_cat B C) F G a U in
+  let v0 : τ (@Transf B C Y Z) ≔ @tapp0_fapp0 A (Functor_cat B C) G H a V in
+  @eq_trans (@Transf B C X Z) _ (@comp_fapp0 (Functor_cat B C) X Y Z v u) _
+    (@one_cat_oplax_family_evaluation_comp_path B A C C1 a EF EG EH EV EU)
+    (@eq_trans (@Transf B C X Z) _ (@comp_fapp0 (Functor_cat B C) X Y Z v0 u) _
+      (@eq_ap (@Transf B C Y Z) (@Transf B C X Z)
+        (λ w : τ (@Transf B C Y Z), @comp_fapp0 (Functor_cat B C) X Y Z w u)
+        v v0 (@one_cat_oplax_exchange_at_path A B C C1 G H V a))
+      (@eq_ap (@Transf B C X Y) (@Transf B C X Z)
+        (λ w : τ (@Transf B C X Y), @comp_fapp0 (Functor_cat B C) X Y Z v0 w)
+        u u0 (@one_cat_oplax_exchange_at_path A B C C1 F G U a)));
