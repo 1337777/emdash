@@ -1,0 +1,559 @@
+{
+  "status": "Staged complete WalkingEnd owner and three original reviewers qualified by installed checker; remaining migration and production promotion incomplete",
+  "predecessor": "4abd18cb19aa67461ac2cf4aaca9438e6a480c38",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/production_owner_migration.py": "1e7d02d628f6bbf623373539e1b993169f94b0bffbe8f526b272e9fd1ef4b918",
+    "audits/strict-default-action-boundary/production_discrete_one_cat.lpfragment": "f1b0386722f17e8f476bf8a7ff746c8b9142667ee1e44d730dd81ac54a97a4ff"
+  },
+  "manifestSha256": "b7470bf59cfc468832db434d970430bb0ea6cb860cbf92a309b8ca5f5ad57d7b",
+  "checks": {
+    "finalInstalled": {
+      "id": "20261018T210610Z-c2d612d788b5461583330308243e8f7f",
+      "target": "walking_end_migration_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 26.9093307639705,
+      "childrenMaxRssKiB": 2355504,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "87f93913331a449027b53cfb1386c4ad735a38aa0c6522edf1dfd34826c12acc",
+      "log": "logs/check-runs/20261018T210610Z-c2d612d788b5461583330308243e8f7f.log",
+      "logSha256": "835be0986a5a2817ca56ddc25937a310838783675bf6a630f8fcfd6e53390cf4",
+      "inputs": {
+        "emdash3_2.lp": "1105c4ff4e16d47566c6755b0a31d5d045f6c84f9a872020fb2fa16283700587",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_one_cat_functor_profiles.lp": "50eefd24cb07d7c8badf4239ad2158b12b6c2eb615450136f577f6272348fc0c",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+        "examples/action_profile_walking_named_overlap_controls.lp": "c7fdb9b8b76c588beb38f9c38eaa5647a25e1dc0ae71bfb39f6334fbfe4f400e",
+        "examples/action_profile_walking_named_rec_controls.lp": "2c4246e4988812a6a6c7108d9a22853aaa8b3d0f63086c294895f90c5f43e638",
+        "examples/walking_endomorphism_hit.lp": "ff0659faa13a7e254c9bbd8784049cf9d628824fc6cb89babdb6c35928a55bce",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "walking_end_migration_controls.lp": "d063f4f341a85a0645ab992c09a325212ad3c1229b6b2872797acb589c3de164"
+      },
+      "currentInputMismatches": []
+    },
+    "beforeDuplicateRetirement": {
+      "id": "20261018T205702Z-1ad84d477f354ad0a87b729871ccc58f",
+      "target": "walking_end_migration_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 31.94293171109166,
+      "childrenMaxRssKiB": 2363140,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "bd1cf6484f658d533edb3021060c327fc143168081e16e4d2e335e4eeb2310cb",
+      "log": "logs/check-runs/20261018T205702Z-1ad84d477f354ad0a87b729871ccc58f.log",
+      "logSha256": "96ac192dff21fa9232e693d54960224d742e1f8be338889d3a29dc2e49e71315"
+    },
+    "isolatedCheckerConformanceBeforeRetirement": {
+      "id": "20261018T205843Z-fba0223fde7d45dc8a4e555cbc37c263",
+      "target": "walking_end_migration_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 31.359745306894183,
+      "childrenMaxRssKiB": 178088,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "bd1cf6484f658d533edb3021060c327fc143168081e16e4d2e335e4eeb2310cb",
+      "log": "logs/check-runs/20261018T205843Z-fba0223fde7d45dc8a4e555cbc37c263.log",
+      "logSha256": "24aee1026d2e5db3e83975ed9d5d2042f31306caee8dfc4fa1d5fbb346859984"
+    },
+    "originalOwner": {
+      "id": "20261018T210141Z-f2ee962989ba4ab181279ef2f9f0ab79",
+      "target": "emdash3_2_walking_end_hit.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 6.5039058739785105,
+      "childrenMaxRssKiB": 497528,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "b05b904e11bacc63db0171f8810109c5c2b59eeb108304ac5d224004116b9317",
+      "log": "logs/check-runs/20261018T210141Z-f2ee962989ba4ab181279ef2f9f0ab79.log",
+      "logSha256": "a4e09d00ccb928a4e2320abc3bf9b62fe3065bb5cd8540e44c6381632014c616"
+    },
+    "unchangedCore": {
+      "id": "20261018T162035Z-1820b031801e440ab20b20cfef7bcc97",
+      "target": "join_recursion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 23.320111226057634,
+      "childrenMaxRssKiB": 1647288,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "f69e4dbcc1cc374f7f3ec08a113b8431642a91df6b1105f67bf1fdbdb53dbfac",
+      "log": "logs/check-runs/20261018T162035Z-1820b031801e440ab20b20cfef7bcc97.log",
+      "logSha256": "0d15b5288ea9617d00e48cd76a0a1c6d6ae0e4af627cb63a2f0cc6892015fd38",
+      "inputs": {
+        "join_recursion_controls.lp": "03d8c83f87cdff4019e48baa2b8e9d3a491619ba23a0a8d3b073aac85044c22c",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "currentInputMismatches": []
+    }
+  },
+  "failures": [
+    {
+      "id": "20261018T204243Z-51ca2e84eb7c42fa886ec222ee56f9da",
+      "target": "emdash3_2_walking_end_hit.lp",
+      "outcome": "failed",
+      "wallSeconds": 24.661104102036916,
+      "childrenMaxRssKiB": 2189052,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "c05346a48c8fd4c1bd6356d58ad6cc2e3a4bc29381ca7e6d93afee70887c8632",
+      "log": "logs/check-runs/20261018T204243Z-51ca2e84eb7c42fa886ec222ee56f9da.log",
+      "logSha256": "17ee3e9ea995a4797e68b6d10899314c7a95017ffa26ec474b37e7a8b41f0346",
+      "reason": "Contextual constructor and section pass; Code still targets Cat_cat."
+    },
+    {
+      "id": "20261018T204723Z-45b217cba19848e0b2146c7438775c13",
+      "target": "emdash3_2_walking_end_hit.lp",
+      "outcome": "failed",
+      "wallSeconds": 28.94743695599027,
+      "childrenMaxRssKiB": 2189792,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "034305ed8c825d97139c1d30fa50f0644176614102837f5a9a1dc13c5e7b4ec2",
+      "log": "logs/check-runs/20261018T204723Z-45b217cba19848e0b2146c7438775c13.log",
+      "logSha256": "d71699858065ee5b9d2eb0cfb70fc4893bab0e45a584c384228785816bf0d050",
+      "reason": "Code corrected; original spiral needs strict fibre admission."
+    },
+    {
+      "id": "20261018T205122Z-1409136a62a8439b8bcdb6c9f31e86cd",
+      "target": "emdash3_2_walking_end_hit.lp",
+      "outcome": "failed",
+      "wallSeconds": 26.19894213497173,
+      "childrenMaxRssKiB": 2362768,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "d90fc2f6c99f12b94f6ec7d40fc57421905fee6ea237440d8b4dbdded5e4d9a2",
+      "log": "logs/check-runs/20261018T205122Z-1409136a62a8439b8bcdb6c9f31e86cd.log",
+      "logSha256": "efebe4bc3929f483721a7cc862c9003655834aa6ef05369abb8f80012b30e142",
+      "reason": "Discrete admission passes; later Code action observations retain old coefficient tags."
+    },
+    {
+      "id": "20261018T205331Z-82b87a82722e45068cf4a7722fadbf0e",
+      "target": "emdash3_2_walking_end_hit.lp",
+      "outcome": "failed",
+      "wallSeconds": 26.30767100106459,
+      "childrenMaxRssKiB": 2362632,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "c606b9c0d26c15581a0a02494bf66bb5679c02cc1f65c44294b4d3e4715e7e51",
+      "log": "logs/check-runs/20261018T205331Z-82b87a82722e45068cf4a7722fadbf0e.log",
+      "logSha256": "8b50989bc6e847a69e89abd73754500c168201f2b863c17222e81bfc95854aef",
+      "reason": "Encoder needs the existing Cartesian-to-ambient mapping inclusion before evaluation."
+    }
+  ],
+  "assertions": {
+    "positive": 64,
+    "negative": 10,
+    "bySource": [
+      {
+        "source": "emdash3_2_one_cat_functor_profiles.lp",
+        "positive": 2,
+        "negative": 0
+      },
+      {
+        "source": "emdash3_2_one_cat_transfor_profiles.lp",
+        "positive": 1,
+        "negative": 0
+      },
+      {
+        "source": "examples/action_profile_walking_named_overlap_controls.lp",
+        "positive": 8,
+        "negative": 2
+      },
+      {
+        "source": "examples/action_profile_walking_named_rec_controls.lp",
+        "positive": 4,
+        "negative": 1
+      },
+      {
+        "source": "examples/walking_endomorphism_hit.lp",
+        "positive": 49,
+        "negative": 7
+      }
+    ],
+    "unchangedCorePositive": 287,
+    "unchangedCoreNegative": 85
+  },
+  "profile": {
+    "ambientFunctord": "lax across WalkingEnd, unchanged",
+    "loopCoherence": "strict naturality in fibre variable, following Cat_cart coefficient; noninvertible comparison allowed",
+    "code": "original recursor into Cat_cart",
+    "spiral": "original CoreIncl/PathLift body, with existing strict-transfor admission derived from existing discrete target datum",
+    "encoder": "original Code Hom action followed by existing Functor_cart_include and evaluation",
+    "newOperationalEqualityPayloads": 0,
+    "newCallerProofParameters": 0,
+    "admissionQualification": "The generic loop datum is refined to the strict fibre-Hom required by Cat_cart; this does not admit arbitrary ambient-lax fibre transformations."
+  },
+  "computation": {
+    "newPrimitiveDeclarations": 0,
+    "newUnificationRules": 0,
+    "newRuntimeRules": 0,
+    "retiredRuntimeRules": 1,
+    "changedExistingConstructorRules": 2,
+    "retiredRule": "Named walking_end_rec_func composition is a literal instance of default-strict fapp1 composition."
+  },
+  "lhsAudits": {
+    "walkingEnd": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_walking_end_hit.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "profileProperty": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_functor_profiles.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    }
+  },
+  "warnings": {
+    "retirementDelta": {
+      "before": 2453,
+      "after": 2442,
+      "added": 0,
+      "removed": 11,
+      "removedBodies": [
+        "t \u2254 @comp_fapp0 (Op_cat $A) $X $Y $Z (@fapp1_fapp0 WalkingEnd_cat (Op_cat $A) (walking_end_rec_func (Op_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (Op_cat $A) (walking_end_rec_func (Op_cat $A) $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat (Op_cat $A) (walking_end_rec_func (Op_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat (Op_cat $A) (walking_end_rec_func (Op_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] @comp_fapp0 $A $Z $Y $X (@fapp1_fapp0 WalkingEnd_cat (Op_cat $A) (walking_end_rec_func (Op_cat $A) $x' $a') $X' $Y' $f') (@fapp1_fapp0 WalkingEnd_cat (Op_cat $A) (walking_end_rec_func (Op_cat $A) $x' $a') $Y' $Z' $g') \u21aa* @comp_fapp0 $A $Z $Y $X (@fapp1_fapp0 WalkingEnd_cat (Op_cat $A) (walking_end_rec_func (Op_cat $A) $x' $a') $X' $Y' $f') (@fapp1_fapp0 WalkingEnd_cat (Op_cat $A) (walking_end_rec_func (Op_cat $A) $x' $a') $Y' $Z' $g')\n  with @comp_fapp0 (Op_cat $A) $X $Y $Z $g $f \u21aa @comp_fapp0 $A $Z $Y $X $f $g",
+        "t \u2254 @comp_fapp0 (CoAbove2_cat $A) $x $y $z (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] @comp_fapp0 $A $x $y $z (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Y' $f') \u21aa* @comp_fapp0 $A $x $y $z (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Y' $f')\n  with @comp_fapp0 (CoAbove2_cat $A) $x $y $z $g $f \u21aa @comp_fapp0 $A $x $y $z $g $f",
+        "t \u2254 @comp_fapp0 (CoAt2_cat $A) $X $Y $Z (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] @comp_fapp0 $A $X $Y $Z (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Y' $f') \u21aa* @comp_fapp0 $A $X $Y $Z (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Y' $f')\n  with @comp_fapp0 (CoAt2_cat $A) $X $Y $Z $g $f \u21aa @comp_fapp0 $A $X $Y $Z $g $f",
+        "t \u2254 @comp_fapp0 Cat_cart $A $B $C (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] @comp_fapp0 Cat_cat $A $B $C (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Y' $f') \u21aa* @comp_fapp0 Cat_cat $A $B $C (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Y' $f')\n  with @comp_fapp0 Cat_cart $A $B $C $G $F \u21aa @comp_fapp0 Cat_cat $A $B $C $G $F",
+        "t \u2254 @comp_fapp0 Terminal_cat $0 $1 $2 (@fapp1_fapp0 WalkingEnd_cat Terminal_cat (walking_end_rec_func Terminal_cat $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat Terminal_cat (walking_end_rec_func Terminal_cat $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat Terminal_cat (walking_end_rec_func Terminal_cat $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat Terminal_cat (walking_end_rec_func Terminal_cat $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] Terminal_obj \u21aa* Terminal_obj\n  with @comp_fapp0 Terminal_cat $0 $1 $2 $3 $4 \u21aa Terminal_obj",
+        "t \u2254 @comp_fapp0 (EqSkeleton_cat (cat_succ $0) $A) $w $x $y (@fapp1_fapp0 WalkingEnd_cat (EqSkeleton_cat (cat_succ $0) $A) (walking_end_rec_func (EqSkeleton_cat (cat_succ $0) $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (EqSkeleton_cat (cat_succ $0) $A) (walking_end_rec_func (EqSkeleton_cat (cat_succ $0) $A) $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat (EqSkeleton_cat (cat_succ $0) $A) (walking_end_rec_func (EqSkeleton_cat (cat_succ $0) $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat (EqSkeleton_cat (cat_succ $0) $A) (walking_end_rec_func (EqSkeleton_cat (cat_succ $0) $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] @comp_fapp0 $A $w $x $y (@fapp1_fapp0 WalkingEnd_cat (EqSkeleton_cat (cat_succ $0) $A) (walking_end_rec_func (EqSkeleton_cat (cat_succ $0) $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (EqSkeleton_cat (cat_succ $0) $A) (walking_end_rec_func (EqSkeleton_cat (cat_succ $0) $A) $x' $a') $X' $Y' $f') \u21aa* @comp_fapp0 $A $w $x $y (@fapp1_fapp0 WalkingEnd_cat (EqSkeleton_cat (cat_succ $0) $A) (walking_end_rec_func (EqSkeleton_cat (cat_succ $0) $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (EqSkeleton_cat (cat_succ $0) $A) (walking_end_rec_func (EqSkeleton_cat (cat_succ $0) $A) $x' $a') $X' $Y' $f')\n  with @comp_fapp0 (EqSkeleton_cat (cat_succ $0) $A) $w $x $y $g $f \u21aa @comp_fapp0 $A $w $x $y $g $f",
+        "t \u2254 @comp_fapp0 (StrictFunctor_cat $A $B) $X $Y $Z (@fapp1_fapp0 WalkingEnd_cat (StrictFunctor_cat $A $B) (walking_end_rec_func (StrictFunctor_cat $A $B) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (StrictFunctor_cat $A $B) (walking_end_rec_func (StrictFunctor_cat $A $B) $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat (StrictFunctor_cat $A $B) (walking_end_rec_func (StrictFunctor_cat $A $B) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat (StrictFunctor_cat $A $B) (walking_end_rec_func (StrictFunctor_cat $A $B) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] @comp_fapp0 (Functor_cat $A $B) (@strict_functor $A $B $X) (@strict_functor $A $B $Y) (@strict_functor $A $B $Z) (@fapp1_fapp0 WalkingEnd_cat (StrictFunctor_cat $A $B) (walking_end_rec_func (StrictFunctor_cat $A $B) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (StrictFunctor_cat $A $B) (walking_end_rec_func (StrictFunctor_cat $A $B) $x' $a') $X' $Y' $f') \u21aa* @comp_fapp0 (Functor_cat $A $B) (@strict_functor $A $B $X) (@strict_functor $A $B $Y) (@strict_functor $A $B $Z) (@fapp1_fapp0 WalkingEnd_cat (StrictFunctor_cat $A $B) (walking_end_rec_func (StrictFunctor_cat $A $B) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (StrictFunctor_cat $A $B) (walking_end_rec_func (StrictFunctor_cat $A $B) $x' $a') $X' $Y' $f')\n  with @comp_fapp0 (StrictFunctor_cat $A $B) $X $Y $Z $g $f \u21aa @comp_fapp0 (Functor_cat $A $B) (@strict_functor $A $B $X) (@strict_functor $A $B $Y) (@strict_functor $A $B $Z) $g $f",
+        "t \u2254 @comp_fapp0 $B $' $' $' (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X $X (id WalkingEnd_cat $X))\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X $Z' (@comp_fapp0 WalkingEnd_cat $X $X $Z' $g' (id WalkingEnd_cat $X)) \u21aa* @fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X $Z' $g'\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[1] @comp_fapp0 $B $' $' $' (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X $Z' $g') (id $B (@fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X)) \u21aa* @comp_fapp0 $B $' $' $' (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X $Z' $g') (id $B (@fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X))\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) \u21aa id $B (@fapp0 $A $B $F $X)",
+        "t \u2254 @comp_fapp0 $C $' $' $1 (@fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base walking_base walking_loop)\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base $Z' (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Z' $g' walking_loop) \u21aa* @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base $Z' (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Z' $g' walking_loop)\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[1] @comp_fapp0 $C $' $' $1 (@fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base $Z' $g') $a \u21aa* @comp_fapp0 $C $' $' $1 (@fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base $Z' $g') $a\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base walking_base walking_loop \u21aa $a",
+        "t \u2254 @comp_fapp0 $B $' $' $' (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X $X (id WalkingEnd_cat $X)) (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X' $X $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X' $X (@comp_fapp0 WalkingEnd_cat $X' $X $X (id WalkingEnd_cat $X) $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X' $X $f'\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[0; 1] @comp_fapp0 $B $' $' $' (id $B (@fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X)) (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X' $X $f') \u21aa* @comp_fapp0 $B $' $' $' (id $B (@fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X)) (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $B $x' $a') $X' $X $f')\n  with @fapp1_fapp0 $A $B $F $X $X (id $A $X) \u21aa id $B (@fapp0 $A $B $F $X)",
+        "t \u2254 @comp_fapp0 $C $' $' $1 (@fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base walking_base walking_loop) (@fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) $X' walking_base $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) $X' walking_base (@comp_fapp0 WalkingEnd_cat $X' walking_base walking_base walking_loop $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) $X' walking_base (@comp_fapp0 WalkingEnd_cat $X' walking_base walking_base walking_loop $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[0; 1] @comp_fapp0 $C $' $' $1 $a (@fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) $X' walking_base $f') \u21aa* @comp_fapp0 $C $' $' $1 $a (@fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) $X' walking_base $f')\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base walking_base walking_loop \u21aa $a"
+      ]
+    },
+    "originalToMigratedOwner": {
+      "baseline": "20261018T210141Z-f2ee962989ba4ab181279ef2f9f0ab79",
+      "current": "20261018T205702Z-1ad84d477f354ad0a87b729871ccc58f",
+      "before": 12,
+      "after": 32,
+      "added": [
+        {
+          "count": 1,
+          "body": "t \u2254 @fapp0 WalkingEnd_cat Cat_cart (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat Cat_cart) (@Const_func Terminal_cat Cat_cart $C) $') walking_base\nt \u21aa[] $C \u21aa* $C\n  with @fapp0 WalkingEnd_cat $C' (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C') (@Const_func Terminal_cat $C' $x') $') walking_base \u21aa $x'\nt \u21aa[0; 1; 0; 1] @fapp0 WalkingEnd_cat Cat_cart (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat Cat_cart) (Const_catd Terminal_cat $C) $') walking_base \u21aa* @fapp0 WalkingEnd_cat Cat_cart (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat Cat_cart) (Const_catd Terminal_cat $C) $') walking_base\n  with @Const_func $K Cat_cart $C \u21aa Const_catd $K $C"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @fdapp1_int_cell WalkingEnd_cat (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $B) (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $B) $u' $sigma') walking_base walking_base walking_loop $6\nt \u21aa[] @tapp0_fapp0 (@Fibre_cat WalkingEnd_cat (Const_catd WalkingEnd_cat Terminal_cat) walking_base) (@Fibre_cat WalkingEnd_cat (Const_catd WalkingEnd_cat $B) walking_base) (walking_end_loop_lhs_func (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $B) $u') (walking_end_loop_rhs_func (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $B) $u') $6 (@strict_transfor (@Fibre_cat WalkingEnd_cat (Const_catd WalkingEnd_cat Terminal_cat) walking_base) (@Fibre_cat WalkingEnd_cat (Const_catd WalkingEnd_cat $B) walking_base) (walking_end_loop_lhs_func (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $B) $u') (walking_end_loop_rhs_func (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $B) $u') $sigma') \u21aa* @tapp0_fapp0 Terminal_cat $B $u' $u' $6 (@strict_transfor Terminal_cat $B $u' $u' $sigma')\n  with @fdapp1_int_cell WalkingEnd_cat $R' $D' (walking_end_ind_funcd $R' $D' $u' $sigma') walking_base walking_base walking_loop $r' \u21aa @tapp0_fapp0 (@Fibre_cat WalkingEnd_cat $R' walking_base) (@Fibre_cat WalkingEnd_cat $D' walking_base) (walking_end_loop_lhs_func $R' $D' $u') (walking_end_loop_rhs_func $R' $D' $u') $r' (@strict_transfor (@Fibre_cat WalkingEnd_cat $R' walking_base) (@Fibre_cat WalkingEnd_cat $D' walking_base) (walking_end_loop_lhs_func $R' $D' $u') (walking_end_loop_rhs_func $R' $D' $u') $sigma')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $B) $u' $sigma') walking_base walking_base walking_loop \u21aa* @fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $B) $u' $sigma') walking_base walking_base walking_loop\n  with @fdapp1_int_cell $K (Const_catd $K Terminal_cat) (Const_catd $K $B) $F $x $y $p $6 \u21aa @fapp1_fapp0 $K $B $F $x $y $p"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat Cat_cart) (@Const_func Terminal_cat Cat_cart $C) (@Const_transf Terminal_cat Cat_cart $C $C $f')) walking_base walking_base walking_loop\nt \u21aa[] $f' \u21aa* $f'\n  with @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C') (@Const_func Terminal_cat $C' $x') (@Const_transf Terminal_cat $C' $x' $x' $f')) walking_base walking_base walking_loop \u21aa $f'\nt \u21aa[0; 0; 0; 1; 0; 1] @fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat Cat_cart) (Const_catd Terminal_cat $C) (@Const_transf Terminal_cat Cat_cart $C $C $f')) walking_base walking_base walking_loop \u21aa* @fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat Cat_cart) (Const_catd Terminal_cat $C) (@Const_transf Terminal_cat Cat_cart $C $C $f')) walking_base walking_base walking_loop\n  with @Const_func $K Cat_cart $C \u21aa Const_catd $K $C"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 $B $f $2 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) walking_base walking_base walking_loop) (@tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $U) $3)\nt \u21aa[] @tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $U) (@comp_fapp0 WalkingEnd_cat $X walking_base walking_base walking_loop $3) \u21aa* @tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $U) (@comp_fapp0 WalkingEnd_cat $X walking_base walking_base walking_loop $3)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $G $Y $Z $g) (@tapp1_fapp0 $A $B $F $G $X $Y (@strict_transfor $A $B $F $G $U) $f) \u21aa @tapp1_fapp0 $A $B $F $G $X $Z (@strict_transfor $A $B $F $G $U) (@comp_fapp0 $A $X $Y $Z $g $f)\nt \u21aa[0; 1] @comp_fapp0 $B $f $2 $3 $f (@tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $U) $3) \u21aa* @comp_fapp0 $B $f $2 $3 $f (@tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $U) $3)\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $x) (@Const_transf Terminal_cat $C $x $x $f)) walking_base walking_base walking_loop \u21aa $f"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 $B $f $2 $3 (@tapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $G walking_base $Y $epsilon $f) (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) walking_base walking_base walking_loop)\nt \u21aa[] @tapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $G walking_base $Y $epsilon (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Y $f walking_loop) \u21aa* @tapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $G walking_base $Y $epsilon (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Y $f walking_loop)\n  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B $F $G $X $Y $epsilon $f) (@fapp1_fapp0 $A $B $F $W $X $h) \u21aa @tapp1_fapp0 $A $B $F $G $W $Y $epsilon (@comp_fapp0 $A $W $X $Y $f $h)\nt \u21aa[1] @comp_fapp0 $B $f $2 $3 (@tapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $G walking_base $Y $epsilon $f) $f \u21aa* @comp_fapp0 $B $f $2 $3 (@tapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $G walking_base $Y $epsilon $f) $f\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $x) (@Const_transf Terminal_cat $C $x $x $f)) walking_base walking_base walking_loop \u21aa $f"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 $B $f $2 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) walking_base walking_base walking_loop) (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base $3)\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base (@comp_fapp0 WalkingEnd_cat $X walking_base walking_base walking_loop $3) \u21aa* @fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base (@comp_fapp0 WalkingEnd_cat $X walking_base walking_base walking_loop $3)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f) \u21aa @fapp1_fapp0 $A $B $F $X $Z (@comp_fapp0 $A $X $Y $Z $g $f)\nt \u21aa[0; 1] @comp_fapp0 $B $f $2 $3 $f (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base $3) \u21aa* @comp_fapp0 $B $f $2 $3 $f (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) $X walking_base $3)\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $x) (@Const_transf Terminal_cat $C $x $x $f)) walking_base walking_base walking_loop \u21aa $f"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 $B $f $2 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) walking_base $Z $g) (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) walking_base walking_base walking_loop)\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) walking_base $Z (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Z $g walking_loop) \u21aa* @fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) walking_base $Z (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Z $g walking_loop)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f) \u21aa @fapp1_fapp0 $A $B $F $X $Z (@comp_fapp0 $A $X $Y $Z $g $f)\nt \u21aa[1] @comp_fapp0 $B $f $2 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) walking_base $Z $g) $f \u21aa* @comp_fapp0 $B $f $2 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $f) (@Const_transf Terminal_cat $C $f $f $f)) walking_base $Z $g) $f\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $C) (@Const_func Terminal_cat $C $x) (@Const_transf Terminal_cat $C $x $x $f)) walking_base walking_base walking_loop \u21aa $f"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 $B $1 $1 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) walking_base walking_base walking_loop) (@tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $U) $f)\nt \u21aa[] @tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $U) (@comp_fapp0 WalkingEnd_cat $X walking_base walking_base walking_loop $f) \u21aa* @tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $U) (@comp_fapp0 WalkingEnd_cat $X walking_base walking_base walking_loop $f)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $G $Y $Z $g) (@tapp1_fapp0 $A $B $F $G $X $Y (@strict_transfor $A $B $F $G $U) $f) \u21aa @tapp1_fapp0 $A $B $F $G $X $Z (@strict_transfor $A $B $F $G $U) (@comp_fapp0 $A $X $Y $Z $g $f)\nt \u21aa[0; 1] @comp_fapp0 $B $1 $1 $3 $1 (@tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $U) $f) \u21aa* @comp_fapp0 $B $1 $1 $3 $1 (@tapp1_fapp0 WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $X walking_base (@strict_transfor WalkingEnd_cat $B $F (walking_end_rec_func $C $1 $1) $U) $f)\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base walking_base walking_loop \u21aa $a"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 $B $1 $1 $3 (@tapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $G walking_base $Y $epsilon $f) (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) walking_base walking_base walking_loop)\nt \u21aa[] @tapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $G walking_base $Y $epsilon (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Y $f walking_loop) \u21aa* @tapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $G walking_base $Y $epsilon (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Y $f walking_loop)\n  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B $F $G $X $Y $epsilon $f) (@fapp1_fapp0 $A $B $F $W $X $h) \u21aa @tapp1_fapp0 $A $B $F $G $W $Y $epsilon (@comp_fapp0 $A $W $X $Y $f $h)\nt \u21aa[1] @comp_fapp0 $B $1 $1 $3 (@tapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $G walking_base $Y $epsilon $f) $1 \u21aa* @comp_fapp0 $B $1 $1 $3 (@tapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $G walking_base $Y $epsilon $f) $1\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base walking_base walking_loop \u21aa $a"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 $B $1 $1 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) walking_base walking_base walking_loop) (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $X walking_base $f)\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $X walking_base (@comp_fapp0 WalkingEnd_cat $X walking_base walking_base walking_loop $f) \u21aa* @fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $X walking_base (@comp_fapp0 WalkingEnd_cat $X walking_base walking_base walking_loop $f)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f) \u21aa @fapp1_fapp0 $A $B $F $X $Z (@comp_fapp0 $A $X $Y $Z $g $f)\nt \u21aa[0; 1] @comp_fapp0 $B $1 $1 $3 $1 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $X walking_base $f) \u21aa* @comp_fapp0 $B $1 $1 $3 $1 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) $X walking_base $f)\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base walking_base walking_loop \u21aa $a"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 $B $1 $1 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) walking_base $Z $g) (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) walking_base walking_base walking_loop)\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) walking_base $Z (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Z $g walking_loop) \u21aa* @fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) walking_base $Z (@comp_fapp0 WalkingEnd_cat walking_base walking_base $Z $g walking_loop)\n  with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f) \u21aa @fapp1_fapp0 $A $B $F $X $Z (@comp_fapp0 $A $X $Y $Z $g $f)\nt \u21aa[1] @comp_fapp0 $B $1 $1 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) walking_base $Z $g) $1 \u21aa* @comp_fapp0 $B $1 $1 $3 (@fapp1_fapp0 WalkingEnd_cat $B (walking_end_rec_func $C $1 $1) walking_base $Z $g) $1\n  with @fapp1_fapp0 WalkingEnd_cat $C (walking_end_rec_func $C $1 $a) walking_base walking_base walking_loop \u21aa $a"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 (CoAbove2_cat $A) $x $y $z (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] @comp_fapp0 $A $x $y $z (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Y' $f') \u21aa* @comp_fapp0 $A $x $y $z (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAbove2_cat $A) (walking_end_rec_func (CoAbove2_cat $A) $x' $a') $X' $Y' $f')\n  with @comp_fapp0 (CoAbove2_cat $A) $x $y $z $g $f \u21aa @comp_fapp0 $A $x $y $z $g $f"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 (CoAt2_cat $A) $X $Y $Z (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] @comp_fapp0 $A $X $Y $Z (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Y' $f') \u21aa* @comp_fapp0 $A $X $Y $Z (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat (CoAt2_cat $A) (walking_end_rec_func (CoAt2_cat $A) $x' $a') $X' $Y' $f')\n  with @comp_fapp0 (CoAt2_cat $A) $X $Y $Z $g $f \u21aa @comp_fapp0 $A $X $Y $Z $g $f"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 Cat_cart $A $B $C (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Y' $f')\nt \u21aa[] @fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f') \u21aa* @fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\n  with @comp_fapp0 $C' $' $' $' (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Y' $f') \u21aa @fapp1_fapp0 WalkingEnd_cat $C' (walking_end_rec_func $C' $x' $a') $X' $Z' (@comp_fapp0 WalkingEnd_cat $X' $Y' $Z' $g' $f')\nt \u21aa[] @comp_fapp0 Cat_cat $A $B $C (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Y' $f') \u21aa* @comp_fapp0 Cat_cat $A $B $C (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $Y' $Z' $g') (@fapp1_fapp0 WalkingEnd_cat Cat_cart (walking_end_rec_func Cat_cart $x' $a') $X' $Y' $f')\n  with @comp_fapp0 Cat_cart $A $B $C $G $F \u21aa @comp_fapp0 Cat_cat $A $B $C $G $F"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat Cat_cart_include $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 Nat_grpd (@sigma_pullback_coeff_transf $A $K $F)) (id BNat_cat Cat_cart_include))\nt \u21aa[] @fapp0 (@Transf_cat (Catd_cat $K) Cat_cat (@comp_cat_fapp0 (Catd_cat $K) (Catd_cat $A) Cat_cat (Sigma_func $A) (@Pullback_catd_func $A $K $F)) (Sigma_func $K)) (@Transf_cat (Functor_cart_cat $K Cat_cart) Cat_cat (@comp_cat_fapp0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat (@comp_cat_fapp0 (Catd_cat $K) (Catd_cat $A) Cat_cat (Sigma_func $A) (@Pullback_catd_func $A $K $F)) (Functor_cart_include $K Cat_cart)) (@comp_cat_fapp0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat (Sigma_func $K) (Functor_cart_include $K Cat_cart))) (@comp_cat_con_fapp1_func (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat (Functor_cart_include $K Cat_cart) (@comp_cat_fapp0 (Catd_cat $K) (Catd_cat $A) Cat_cat (Sigma_func $A) (@Pullback_catd_func $A $K $F)) (Sigma_func $K)) (@sigma_pullback_total_transf $A $K $F) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat (@Struct_sigma (Obj (Functor_cat (Functor_cart_cat $K Cat_cart) (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat (Functor_cart_cat $K Cat_cart) (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (Functor_cart_include $K Cat_cart) (@comp_fapp0 Cat_cat (Catd_cat $K) (Catd_cat $A) Cat_cat (Sigma_func $A) (@Pullback_catd_func $A $K $F))) (@Struct_sigma (Obj (Functor_cat (Functor_cart_cat $K Cat_cart) (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat (Functor_cart_cat $K Cat_cart) (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (Functor_cart_include $K Cat_cart) (Sigma_func $K)) (@Struct_sigma (Obj (@Transf_cat (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) (Functor_cart_include $K Cat_cart))) (\u03bb _:\u03c4 (Obj (@Transf_cat (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) (Functor_cart_include $K Cat_cart))), Obj (@Transf_cat (Catd_cat $K) Cat_cat (@comp_fapp0 Cat_cat (Catd_cat $K) (Catd_cat $A) Cat_cat (Sigma_func $A) (@Pullback_catd_func $A $K $F)) (Sigma_func $K))) (id (Functor_cat (Functor_cart_cat $K Cat_cart) (Catd_cat $K)) (Functor_cart_include $K Cat_cart)) (@sigma_pullback_total_transf $A $K $F))\n  with @comp_prod_fapp1_fapp0 Cat_cat $0 $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 $14 (@sigma_pullback_coeff_transf $A $K $F)) (id $18 Cat_cart_include)) \u21aa @fapp0 (@Transf_cat (Catd_cat $K) Cat_cat (@comp_cat_fapp0 (Catd_cat $K) (Catd_cat $A) Cat_cat (Sigma_func $A) (@Pullback_catd_func $A $K $F)) (Sigma_func $K)) (@Transf_cat (Functor_cart_cat $K Cat_cart) Cat_cat (@comp_cat_fapp0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat (@comp_cat_fapp0 (Catd_cat $K) (Catd_cat $A) Cat_cat (Sigma_func $A) (@Pullback_catd_func $A $K $F)) (Functor_cart_include $K Cat_cart)) (@comp_cat_fapp0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat (Sigma_func $K) (Functor_cart_include $K Cat_cart))) (@comp_cat_con_fapp1_func (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat (Functor_cart_include $K Cat_cart) (@comp_cat_fapp0 (Catd_cat $K) (Catd_cat $A) Cat_cat (Sigma_func $A) (@Pullback_catd_func $A $K $F)) (Sigma_func $K)) (@sigma_pullback_total_transf $A $K $F)\nt \u21aa[1; 1] @comp_prod_fapp1_fapp0 Cat_cat Cat_cart_include $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 Nat_grpd (@sigma_pullback_coeff_transf $A $K $F)) zero) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat Cat_cart_include $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 Nat_grpd (@sigma_pullback_coeff_transf $A $K $F)) zero)\n  with id BNat_cat $0 \u21aa zero"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat Cat_cart_include $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 Nat_grpd (@Sigma_parameter_funcd $14 $K $E $D $U)) (id BNat_cat Cat_cart_include))\nt \u21aa[] @comp_prod_fapp1_fapp0 Cat_cat Cat_cart_include (Catd_cat $K) Cat_cat (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (Sigma_func $K)) (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) (Sigma_func $K)) (@Struct_sigma (Obj (@Transf_cat Cat_cart_include (Catd_cat $K) (@sigma_Fst (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (Sigma_func $K))) (@sigma_Fst (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) (Sigma_func $K))))) (\u03bb _:\u03c4 (Obj (@Transf_cat Cat_cart_include (Catd_cat $K) (@sigma_Fst (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (Sigma_func $K))) (@sigma_Fst (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) (Sigma_func $K))))), Obj (@Transf_cat (Catd_cat $K) Cat_cat (@sigma_Snd (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (Sigma_func $K))) (@sigma_Snd (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) (Sigma_func $K))))) (@strict_transfor Cat_cart_include (Catd_cat $K) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (@comp_cat_fapp0 Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) $U) (id (Functor_cat (Catd_cat $K) Cat_cat) (Sigma_func $K))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat Cat_cart_include (Catd_cat $K) Cat_cat (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_fapp0 Cat_cat Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (Sigma_func $K)) (@Struct_sigma (Obj (Functor_cat Cat_cart_include (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat Cat_cart_include (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_fapp0 Cat_cat Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) (Sigma_func $K)) (@Struct_sigma (Obj (@Transf_cat Cat_cart_include (Catd_cat $K) (@comp_fapp0 Cat_cat Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (@comp_fapp0 Cat_cat Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D))) (\u03bb _:\u03c4 (Obj (@Transf_cat Cat_cart_include (Catd_cat $K) (@comp_fapp0 Cat_cat Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (@comp_fapp0 Cat_cat Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D))), Obj (@Transf_cat (Catd_cat $K) Cat_cat (Sigma_func $K) (Sigma_func $K))) (@strict_transfor Cat_cart_include (Catd_cat $K) (@comp_fapp0 Cat_cat Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (@comp_fapp0 Cat_cat Cat_cart_include (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) $U) (id (Functor_cat (Catd_cat $K) Cat_cat) (Sigma_func $K)))\n  with @comp_prod_fapp1_fapp0 Cat_cat $0 $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 $14 (@Sigma_parameter_funcd $L $K $E $D $U)) (id $20 Cat_cart_include)) \u21aa @comp_prod_fapp1_fapp0 Cat_cat $0 (Catd_cat $K) Cat_cat (@Struct_sigma (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (Sigma_func $K)) (@Struct_sigma (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) (Sigma_func $K)) (@Struct_sigma (Obj (@Transf_cat $0 (Catd_cat $K) (@sigma_Fst (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (Sigma_func $K))) (@sigma_Fst (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) (Sigma_func $K))))) (\u03bb _:\u03c4 (Obj (@Transf_cat $0 (Catd_cat $K) (@sigma_Fst (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (Sigma_func $K))) (@sigma_Fst (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) (Sigma_func $K))))), Obj (@Transf_cat (Catd_cat $K) Cat_cat (@sigma_Snd (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (Sigma_func $K))) (@sigma_Snd (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@Struct_sigma (Obj (Functor_cat $0 (Catd_cat $K))) (\u03bb _:\u03c4 (Obj (Functor_cat $0 (Catd_cat $K))), Obj (Functor_cat (Catd_cat $K) Cat_cat)) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) (Sigma_func $K))))) (@strict_transfor $0 (Catd_cat $K) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $E) (@comp_cat_fapp0 $0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) (Functor_cart_include $K Cat_cart) $D) $U) (id (Functor_cat (Catd_cat $K) Cat_cat) (Sigma_func $K)))\nt \u21aa[1; 1] @comp_prod_fapp1_fapp0 Cat_cat Cat_cart_include $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 Nat_grpd (@Sigma_parameter_funcd $14 $K $E $D $U)) zero) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat Cat_cart_include $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 Nat_grpd (@Sigma_parameter_funcd $14 $K $E $D $U)) zero)\n  with id BNat_cat $0 \u21aa zero"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 (Functor_cat ($0 $0) $C) $2 $3 $4 (@comp_prod_fapp1_fapp0 Cat_cat ($0 $0) $B $C (@Struct_sigma $6 $7 ($0 $0) $H) (@Struct_sigma $10 $11 ($0 $0) $J) (@Struct_sigma $13 $14 (id BNat_cat ($0 $0)) $eta)) (@comp_prod_fapp1_fapp0 Cat_cat ($0 $0) $B $C (@Struct_sigma $17 $18 ($0 $0) $G) (@Struct_sigma $20 $21 ($0 $0) $H) (@Struct_sigma $22 $23 (id $24 ($0 $0)) $epsilon))\nt \u21aa[] @comp_prod_fapp1_fapp0 Cat_cat ($0 $0) $B $C (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $G) (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $J) (@Struct_sigma (Obj (@Transf_cat ($0 $0) $B (@sigma_Fst (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $G)) (@sigma_Fst (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $J)))) (\u03bb _:\u03c4 (Obj (@Transf_cat ($0 $0) $B (@sigma_Fst (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $G)) (@sigma_Fst (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $J)))), Obj (@Transf_cat $B $C (@sigma_Snd (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $G)) (@sigma_Snd (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $J)))) (id (Functor_cat ($0 $0) $B) ($0 $0)) (@comp_fapp0 (Functor_cat $B $C) $G $H $J $eta $epsilon)) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat ($0 $0) $B $C (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $G) (@Struct_sigma (Obj (Functor_cat ($0 $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat ($0 $0) $B)), Obj (Functor_cat $B $C)) ($0 $0) $J) (@Struct_sigma (Obj (@Transf_cat ($0 $0) $B ($0 $0) ($0 $0))) (\u03bb _:\u03c4 (Obj (@Transf_cat ($0 $0) $B ($0 $0) ($0 $0))), Obj (@Transf_cat $B $C $G $J)) (id (Functor_cat ($0 $0) $B) ($0 $0)) (@comp_fapp0 (Functor_cat $B $C) $G $H $J $eta $epsilon))\n  with @comp_fapp0 (Functor_cat $A $C) $2 $3 $4 (@comp_prod_fapp1_fapp0 Cat_cat $A $B $C (@Struct_sigma $6 $7 $F $H) (@Struct_sigma $10 $11 $F $J) (@Struct_sigma $13 $14 (id $15 $F) $eta)) (@comp_prod_fapp1_fapp0 Cat_cat $A $B $C (@Struct_sigma $17 $18 $F $G) (@Struct_sigma $20 $21 $F $H) (@Struct_sigma $22 $23 (id $24 $F) $epsilon)) \u21aa @comp_prod_fapp1_fapp0 Cat_cat $A $B $C (@Struct_sigma (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) $F $G) (@Struct_sigma (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) $F $J) (@Struct_sigma (Obj (@Transf_cat $A $B (@sigma_Fst (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) $F $G)) (@sigma_Fst (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) $F $J)))) (\u03bb _:\u03c4 (Obj (@Transf_cat $A $B (@sigma_Fst (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) $F $G)) (@sigma_Fst (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) $F $J)))), Obj (@Transf_cat $B $C (@sigma_Snd (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) $F $G)) (@sigma_Snd (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $A $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $A $B)), Obj (Functor_cat $B $C)) $F $J)))) (id (Functor_cat $A $B) $F) (@comp_fapp0 (Functor_cat $B $C) $G $H $J $eta $epsilon))\nt \u21aa[0; 1; 1; 0; 1] @comp_fapp0 (Functor_cat ($0 $0) $C) $2 $3 $4 (@comp_prod_fapp1_fapp0 Cat_cat ($0 $0) $B $C (@Struct_sigma $6 $7 ($0 $0) $H) (@Struct_sigma $10 $11 ($0 $0) $J) (@Struct_sigma $13 $14 zero $eta)) (@comp_prod_fapp1_fapp0 Cat_cat ($0 $0) $B $C (@Struct_sigma $17 $18 ($0 $0) $G) (@Struct_sigma $20 $21 ($0 $0) $H) (@Struct_sigma $22 $23 (id $24 ($0 $0)) $epsilon)) \u21aa* @comp_fapp0 (Functor_cat ($0 $0) $C) $2 $3 $4 (@comp_prod_fapp1_fapp0 Cat_cat ($0 $0) $B $C (@Struct_sigma $6 $7 ($0 $0) $H) (@Struct_sigma $10 $11 ($0 $0) $J) (@Struct_sigma $13 $14 zero $eta)) (@comp_prod_fapp1_fapp0 Cat_cat ($0 $0) $B $C (@Struct_sigma $17 $18 ($0 $0) $G) (@Struct_sigma $20 $21 ($0 $0) $H) (@Struct_sigma $22 $23 (id $24 ($0 $0)) $epsilon))\n  with id BNat_cat $0 \u21aa zero"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_fapp0 (Functor_cat (Obj $0) $C) $2 $3 $4 (@comp_prod_fapp1_fapp0 Cat_cat (Obj $0) $B $C (@Struct_sigma $6 $7 $G (Obj $0)) (@Struct_sigma $10 $11 $J (Obj $0)) (@Struct_sigma $13 $14 $eta (id BNat_cat (Obj $0)))) (@comp_prod_fapp1_fapp0 Cat_cat (Obj $0) $B $C (@Struct_sigma $17 $18 $F (Obj $0)) (@Struct_sigma $20 $21 $G (Obj $0)) (@Struct_sigma $22 $23 $epsilon (id $25 (Obj $0))))\nt \u21aa[] @comp_prod_fapp1_fapp0 Cat_cat (Obj $0) $B $C (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $F (Obj $0)) (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $J (Obj $0)) (@Struct_sigma (Obj (@Transf_cat (Obj $0) $B (@sigma_Fst (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $F (Obj $0))) (@sigma_Fst (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $J (Obj $0))))) (\u03bb _:\u03c4 (Obj (@Transf_cat (Obj $0) $B (@sigma_Fst (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $F (Obj $0))) (@sigma_Fst (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $J (Obj $0))))), Obj (@Transf_cat $B $C (@sigma_Snd (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $F (Obj $0))) (@sigma_Snd (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $J (Obj $0))))) (@comp_fapp0 (Functor_cat (Obj $0) $B) $F $G $J $eta $epsilon) (id (Functor_cat $B $C) (Obj $0))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (Obj $0) $B $C (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $F (Obj $0)) (@Struct_sigma (Obj (Functor_cat (Obj $0) $B)) (\u03bb _:\u03c4 (Obj (Functor_cat (Obj $0) $B)), Obj (Functor_cat $B $C)) $J (Obj $0)) (@Struct_sigma (Obj (@Transf_cat (Obj $0) $B $F $J)) (\u03bb _:\u03c4 (Obj (@Transf_cat (Obj $0) $B $F $J)), Obj (@Transf_cat $B $C (Obj $0) (Obj $0))) (@comp_fapp0 (Functor_cat (Obj $0) $B) $F $G $J $eta $epsilon) (id (Functor_cat $B $C) (Obj $0)))\n  with @comp_fapp0 (Functor_cat $I $C) $2 $3 $4 (@comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $6 $7 $G $H) (@Struct_sigma $10 $11 $J $H) (@Struct_sigma $13 $14 $eta (id $16 $H))) (@comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $17 $18 $F $H) (@Struct_sigma $20 $21 $G $H) (@Struct_sigma $22 $23 $epsilon (id $25 $H))) \u21aa @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) $F $H) (@Struct_sigma (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) $J $H) (@Struct_sigma (Obj (@Transf_cat $I $B (@sigma_Fst (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) $F $H)) (@sigma_Fst (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) $J $H)))) (\u03bb _:\u03c4 (Obj (@Transf_cat $I $B (@sigma_Fst (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) $F $H)) (@sigma_Fst (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) $J $H)))), Obj (@Transf_cat $B $C (@sigma_Snd (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) $F $H)) (@sigma_Snd (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) (@Struct_sigma (Obj (Functor_cat $I $B)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $B)), Obj (Functor_cat $B $C)) $J $H)))) (@comp_fapp0 (Functor_cat $I $B) $F $G $J $eta $epsilon) (id (Functor_cat $B $C) $H))\nt \u21aa[0; 1; 1; 1] @comp_fapp0 (Functor_cat (Obj $0) $C) $2 $3 $4 (@comp_prod_fapp1_fapp0 Cat_cat (Obj $0) $B $C (@Struct_sigma $6 $7 $G (Obj $0)) (@Struct_sigma $10 $11 $J (Obj $0)) (@Struct_sigma $13 $14 $eta zero)) (@comp_prod_fapp1_fapp0 Cat_cat (Obj $0) $B $C (@Struct_sigma $17 $18 $F (Obj $0)) (@Struct_sigma $20 $21 $G (Obj $0)) (@Struct_sigma $22 $23 $epsilon (id $25 (Obj $0)))) \u21aa* @comp_fapp0 (Functor_cat (Obj $0) $C) $2 $3 $4 (@comp_prod_fapp1_fapp0 Cat_cat (Obj $0) $B $C (@Struct_sigma $6 $7 $G (Obj $0)) (@Struct_sigma $10 $11 $J (Obj $0)) (@Struct_sigma $13 $14 $eta zero)) (@comp_prod_fapp1_fapp0 Cat_cat (Obj $0) $B $C (@Struct_sigma $17 $18 $F (Obj $0)) (@Struct_sigma $20 $21 $G (Obj $0)) (@Struct_sigma $22 $23 $epsilon (id $25 (Obj $0))))\n  with id BNat_cat $0 \u21aa zero"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat (id Cat_cat $A) $A $A (@Struct_sigma $2 $3 $F (id Cat_cat $A)) (@Struct_sigma $5 $6 $G (id Cat_cat $A)) (@Struct_sigma $8 Nat_grpd $epsilon (id BNat_cat (id Cat_cat $A)))\nt \u21aa[] $epsilon \u21aa* $epsilon\n  with @comp_prod_fapp1_fapp0 Cat_cat $I $A $A (@Struct_sigma $2 $3 $F (id Cat_cat $A)) (@Struct_sigma $5 $6 $G (id Cat_cat $A)) (@Struct_sigma $8 $9 $epsilon (id $11 (id Cat_cat $A))) \u21aa $epsilon\nt \u21aa[1; 1] @comp_prod_fapp1_fapp0 Cat_cat (id Cat_cat $A) $A $A (@Struct_sigma $2 $3 $F (id Cat_cat $A)) (@Struct_sigma $5 $6 $G (id Cat_cat $A)) (@Struct_sigma $8 Nat_grpd $epsilon zero) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat (id Cat_cat $A) $A $A (@Struct_sigma $2 $3 $F (id Cat_cat $A)) (@Struct_sigma $5 $6 $G (id Cat_cat $A)) (@Struct_sigma $8 Nat_grpd $epsilon zero)\n  with id BNat_cat $0 \u21aa zero"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $3 $4 $5 $H) (@Struct_sigma $7 $8 $9 $H) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B (@Struct_sigma $13 $14 $F $0) (@Struct_sigma $17 $18 $F' $0) (@Struct_sigma $20 $21 $epsilon (id BNat_cat $0))) (id (Obj (Hom_cat $24 $H $H)) $H))\nt \u21aa[] @comp_prod_fapp1_fapp0 Cat_cat $I $A $C (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $0)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $0)) (@Struct_sigma (Obj (@Transf_cat $I $A (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $0))) (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $0))))) (\u03bb _:\u03c4 (Obj (@Transf_cat $I $A (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $0))) (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $0))))), Obj (@Transf_cat $A $C (@sigma_Snd (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $0))) (@sigma_Snd (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $0))))) $epsilon (id (Functor_cat $A $C) (@comp_cat_fapp0 $A $B $C $H $0))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat $I $A $C (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_fapp0 Cat_cat $A $B $C $H $0)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_fapp0 Cat_cat $A $B $C $H $0)) (@Struct_sigma (Obj (@Transf_cat $I $A $F $F')) (\u03bb _:\u03c4 (Obj (@Transf_cat $I $A $F $F')), Obj (@Transf_cat $A $C (@comp_fapp0 Cat_cat $A $B $C $H $0) (@comp_fapp0 Cat_cat $A $B $C $H $0))) $epsilon (id (Functor_cat $A $C) (@comp_fapp0 Cat_cat $A $B $C $H $0)))\n  with @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $3 $4 $5 $H) (@Struct_sigma $7 $8 $9 $H) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B (@Struct_sigma $13 $14 $F $G) (@Struct_sigma $17 $18 $F' $G) (@Struct_sigma $20 $21 $epsilon (id $23 $G))) (id $24 $H)) \u21aa @comp_prod_fapp1_fapp0 Cat_cat $I $A $C (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $G)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $G)) (@Struct_sigma (Obj (@Transf_cat $I $A (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $G))) (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $G))))) (\u03bb _:\u03c4 (Obj (@Transf_cat $I $A (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $G))) (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $G))))), Obj (@Transf_cat $A $C (@sigma_Snd (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $G))) (@sigma_Snd (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $G))))) $epsilon (id (Functor_cat $A $C) (@comp_cat_fapp0 $A $B $C $H $G)))\nt \u21aa[1; 0; 1; 1; 1] @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $3 $4 $5 $H) (@Struct_sigma $7 $8 $9 $H) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B (@Struct_sigma $13 $14 $F $0) (@Struct_sigma $17 $18 $F' $0) (@Struct_sigma $20 $21 $epsilon zero)) (id (Obj (Hom_cat $24 $H $H)) $H)) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $3 $4 $5 $H) (@Struct_sigma $7 $8 $9 $H) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B (@Struct_sigma $13 $14 $F $0) (@Struct_sigma $17 $18 $F' $0) (@Struct_sigma $20 $21 $epsilon zero)) (id (Obj (Hom_cat $24 $H $H)) $H))\n  with id BNat_cat $0 \u21aa zero"
+        },
+        {
+          "count": 1,
+          "body": "t \u2254 @comp_prod_fapp1_fapp0 Cat_cat Nat_grpd $B $C (@Struct_sigma $3 $4 $5 Nat_grpd) (@Struct_sigma $7 $8 $9 Nat_grpd) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat Nat_grpd $A $B (@Struct_sigma $13 $14 $F $G) (@Struct_sigma $17 $18 $F' $G) (@Struct_sigma $20 $21 $epsilon (id $23 $G))) (id BNat_cat Nat_grpd))\nt \u21aa[] @comp_prod_fapp1_fapp0 Cat_cat Nat_grpd $A $C (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C Nat_grpd $G)) (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C Nat_grpd $G)) (@Struct_sigma (Obj (@Transf_cat Nat_grpd $A (@sigma_Fst (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C Nat_grpd $G))) (@sigma_Fst (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C Nat_grpd $G))))) (\u03bb _:\u03c4 (Obj (@Transf_cat Nat_grpd $A (@sigma_Fst (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C Nat_grpd $G))) (@sigma_Fst (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C Nat_grpd $G))))), Obj (@Transf_cat $A $C (@sigma_Snd (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C Nat_grpd $G))) (@sigma_Snd (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C Nat_grpd $G))))) $epsilon (id (Functor_cat $A $C) (@comp_cat_fapp0 $A $B $C Nat_grpd $G))) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat Nat_grpd $A $C (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F (@comp_fapp0 Cat_cat $A $B $C Nat_grpd $G)) (@Struct_sigma (Obj (Functor_cat Nat_grpd $A)) (\u03bb _:\u03c4 (Obj (Functor_cat Nat_grpd $A)), Obj (Functor_cat $A $C)) $F' (@comp_fapp0 Cat_cat $A $B $C Nat_grpd $G)) (@Struct_sigma (Obj (@Transf_cat Nat_grpd $A $F $F')) (\u03bb _:\u03c4 (Obj (@Transf_cat Nat_grpd $A $F $F')), Obj (@Transf_cat $A $C (@comp_fapp0 Cat_cat $A $B $C Nat_grpd $G) (@comp_fapp0 Cat_cat $A $B $C Nat_grpd $G))) $epsilon (id (Functor_cat $A $C) (@comp_fapp0 Cat_cat $A $B $C Nat_grpd $G)))\n  with @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $3 $4 $5 $H) (@Struct_sigma $7 $8 $9 $H) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B (@Struct_sigma $13 $14 $F $G) (@Struct_sigma $17 $18 $F' $G) (@Struct_sigma $20 $21 $epsilon (id $23 $G))) (id $24 $H)) \u21aa @comp_prod_fapp1_fapp0 Cat_cat $I $A $C (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $G)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $G)) (@Struct_sigma (Obj (@Transf_cat $I $A (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $G))) (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $G))))) (\u03bb _:\u03c4 (Obj (@Transf_cat $I $A (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $G))) (@sigma_Fst (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $G))))), Obj (@Transf_cat $A $C (@sigma_Snd (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F (@comp_cat_fapp0 $A $B $C $H $G))) (@sigma_Snd (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) (@Struct_sigma (Obj (Functor_cat $I $A)) (\u03bb _:\u03c4 (Obj (Functor_cat $I $A)), Obj (Functor_cat $A $C)) $F' (@comp_cat_fapp0 $A $B $C $H $G))))) $epsilon (id (Functor_cat $A $C) (@comp_cat_fapp0 $A $B $C $H $G)))\nt \u21aa[1; 1] @comp_prod_fapp1_fapp0 Cat_cat Nat_grpd $B $C (@Struct_sigma $3 $4 $5 Nat_grpd) (@Struct_sigma $7 $8 $9 Nat_grpd) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat Nat_grpd $A $B (@Struct_sigma $13 $14 $F $G) (@Struct_sigma $17 $18 $F' $G) (@Struct_sigma $20 $21 $epsilon (id $23 $G))) zero) \u21aa* @comp_prod_fapp1_fapp0 Cat_cat Nat_grpd $B $C (@Struct_sigma $3 $4 $5 Nat_grpd) (@Struct_sigma $7 $8 $9 Nat_grpd) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat Nat_grpd $A $B (@Struct_sigma $13 $14 $F $G) (@Struct_sigma $17 $18 $F' $G) (@Struct_sigma $20 $21 $epsilon (id $23 $G))) zero)\n  with id BNat_cat $0 \u21aa zero"
+        }
+      ],
+      "removed": [
+        {
+          "count": 1,
+          "body": "t \u2254 @tapp0_fapp0 WalkingEnd_cat Cat_cat (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $A) walking_base (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $A) $u' $')\nt \u21aa[] $u' \u21aa* $u'\n  with @tapp0_fapp0 WalkingEnd_cat Cat_cat $R' $D' walking_base (walking_end_ind_funcd $R' $D' $u' $') \u21aa $u'\nt \u21aa[] @Obj_func $A (@fapp0 WalkingEnd_cat $A (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $A) $u' $') walking_base) \u21aa* @Const_func Terminal_cat $A (@fapp0 WalkingEnd_cat $A (walking_end_ind_funcd (Const_catd WalkingEnd_cat Terminal_cat) (Const_catd WalkingEnd_cat $A) $u' $') walking_base)\n  with @tapp0_fapp0 $K Cat_cat (Const_catd $K Terminal_cat) (Const_catd $K $A) $k $F \u21aa @Obj_func $A (@fapp0 $K $A $F $k)"
+        }
+      ]
+    },
+    "qualification": "The original-to-migrated delta is before duplicate retirement. Final owning count is 21; three constructor/constant-coefficient and seven BNat-identity overlap bodies remain additional to the original owner, with one old body removed. General confluence is not established."
+  },
+  "resourceProfile": "Installed checker, 300s/4096MiB/o=20, SR/warnings, serial/file/core/no-swap guards; no default change.",
+  "next": "Walking-circle completion/restriction at the original central import frontier. Checker snapshot patch remains an isolated diagnostic; normalization/performance, wrapper retirement, production promotion and final gates remain required."
+}

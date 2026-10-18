@@ -2936,6 +2936,115 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'original ring-presheaf invertibility reviewer',
                                 'reason': 'Observe the existing represented-family comparison in its actual Cat_cart coefficient; retain public Cat identities and every original assertion',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_one_cat_functor_profiles.lp':
+                text += '\n\n' + fragment('production_discrete_one_cat.lpfragment')
+                changes.append({'source': path, 'owner': 'discrete target dimension weakening',
+                                'reason': 'Derive the OneCat property from the existing discrete core Hom equivalence, consumed by strict fibre-coherence admission of the original WalkingEnd spiral'})
+            if path == 'emdash3_2_walking_end_hit.lp':
+                old = text
+                text = text.replace('require open emdash.emdash3_2_eq1_hom_action;',
+                    'require open emdash.emdash3_2_eq1_hom_action;\n'
+                    'require open emdash.emdash3_2_one_cat_transfor_profiles;')
+                coherence = '≔ @Transf\n    (Fibre_cat R walking_base)'
+                assert text.count(coherence) == 1
+                text = text.replace(coherence, '≔ @StrictTransfor\n    (Fibre_cat R walking_base)')
+                text = text.replace('// Contextual loop coherence D[loop] o u => u o R[loop].',
+                    '// Contextual loop coherence D[loop] o u => u o R[loop].\n'
+                    '// Cat_cart-valued motives require strict naturality in the fibre\n'
+                    '// variable; the loop comparison itself remains directed/noninvertible.')
+                base_rule = '      WalkingEnd_cat Cat_cat\n      $R $D walking_base\n      (@walking_end_ind_funcd $R $D $u _)'
+                assert text.count(base_rule) == 1
+                text = text.replace(base_rule,
+                    '      _ _\n      _ _ walking_base\n      (@walking_end_ind_funcd $R $D $u _)')
+                assert text.count('$r $sigma;') == 1
+                text = text.replace('$r $sigma;',
+                    '$r (@strict_transfor (Fibre_cat $R walking_base) (Fibre_cat $D walking_base)\n'
+                    '        (@walking_end_loop_lhs_func $R $D $u) (@walking_end_loop_rhs_func $R $D $u) $sigma);')
+                assert text.count('r sigma)') == 2
+                text = text.replace('r sigma)',
+                    'r (@strict_transfor (Fibre_cat R walking_base) (Fibre_cat D walking_base)\n'
+                    '        (@walking_end_loop_lhs_func R D u) (@walking_end_loop_rhs_func R D u) sigma))')
+                # Every remaining universe tag is an observation of Code,
+                # including its generator-prefix action and fapp1 view.
+                assert text.count('Cat_cat') == 10
+                text = text.replace('Cat_cat', 'Cat_cart')
+                text = text.replace('// Code : WalkingEnd -> Cat, with base Path(Nat) and loop NatSucc.',
+                    '// Code : WalkingEnd -> Cat_cart, with base Path(Nat) and loop NatSucc.')
+                spiral_start = text.index('symbol walking_power_spiral_coreincl\n')
+                spiral_end = text.index(';', spiral_start) + 1
+                spiral = text[spiral_start:spiral_end]
+                assert spiral.count(': τ (Transf\n') == 1
+                spiral = spiral.replace(': τ (Transf\n',
+                    ': τ (@StrictTransfor (Path_cat Nat_grpd)\n'
+                    '      (Hom_cat WalkingEnd_cat walking_base walking_base)\n')
+                original_spiral_body = spiral.split('≔', 1)[1].strip().removesuffix(';')
+                spiral = spiral.split('≔', 1)[0] + '''≔ @one_cat_strict_transfor (Path_cat Nat_grpd)
+    (Hom_cat WalkingEnd_cat walking_base walking_base)
+    (@discrete_cat_is_one_cat (Hom_cat WalkingEnd_cat walking_base walking_base)
+      (walking_end_hom_discrete walking_base walking_base)) _ _
+    (''' + original_spiral_body + ');'
+                text = text[:spiral_start] + spiral + text[spiral_end:]
+                component = '    n\n    walking_power_spiral;'
+                assert text.count(component) == 1
+                text = text.replace(component,
+                    '    n\n    (@strict_transfor (Path_cat Nat_grpd) (Hom_cat WalkingEnd_cat walking_base walking_base)\n'
+                    '      (@walking_end_loop_lhs_func walking_Code_catd walking_based_rep_catd walking_power_func)\n'
+                    '      (@walking_end_loop_rhs_func walking_Code_catd walking_based_rep_catd walking_power_func)\n'
+                    '      walking_power_spiral);')
+                encode_action = '''    (@fapp1_func
+      WalkingEnd_cat Cat_cart walking_Code_catd
+      walking_base walking_base);'''
+                assert text.count(encode_action) == 1
+                text = text.replace(encode_action, '''    (@comp_cat_fapp0 (Hom_cat WalkingEnd_cat walking_base walking_base)
+      (Functor_cart_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (Functor_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (Functor_cart_include (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (@fapp1_func WalkingEnd_cat Cat_cart walking_Code_catd
+        walking_base walking_base));''')
+                rec_composition = '''rule @comp_fapp0
+      $C _ _ _
+      (@fapp1_fapp0
+        WalkingEnd_cat $C (@walking_end_rec_func $C $x $a)
+        $Y $Z $g)
+      (@fapp1_fapp0
+        WalkingEnd_cat $C (@walking_end_rec_func $C $x $a)
+        $X $Y $f)
+  ↪ @fapp1_fapp0
+      WalkingEnd_cat $C (@walking_end_rec_func $C $x $a)
+      $X $Z
+      (@comp_fapp0 WalkingEnd_cat $X $Y $Z $g $f);'''
+                assert text.count(rec_composition) == 1
+                text = text.replace(rec_composition,
+                    '// Composition is the existing generic default-strict functor cut.\n'
+                    '// The former named instance is redundant and is retired.')
+                text = text.replace('generator, and named strict-composition computations.',
+                    'generator computations; composition uses the generic strict-functor owner.')
+                text = text.replace('is protected and owns exactly its point, generator, and strict-composition\n  observations.',
+                    'is protected and owns its point and generator observations. Composition\n  uses the generic default-strict functor owner.')
+                text = text.replace('// One named component of the recursor\'s guarded composition computation.\n// This is a theorem over explicit arrows, not an all-components capability.',
+                    '// Named theorem view of the default-strict functor composition law.')
+                changes.append({'source': path, 'owner': 'walking-end contextual eliminator coefficient',
+                                'reason': 'Use the existing strict fibre-transformation Hom of Cat_cart for loop coherence; retain the directed loop datum, its original component beta, section and recursor bodies',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/walking_endomorphism_hit.lp':
+                old = text
+                assert text.count('r sigma;') == 1
+                text = text.replace('r sigma;',
+                    'r (@strict_transfor (Fibre_cat R walking_base) (Fibre_cat D walking_base)\n'
+                    '        (@walking_end_loop_lhs_func R D u) (@walking_end_loop_rhs_func R D u) sigma);')
+                changes.append({'source': path, 'owner': 'original contextual WalkingEnd reviewer',
+                                'reason': 'Observe the selected strict fibre-coherence through its existing ambient inclusion; retain every constructor, model, normalization and noncollapse assertion',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/action_profile_walking_named_rec_controls.lp':
+                old = text
+                marker = 'assertnot [C : Cat] (F : τ (Functor WalkingEnd_cat C))'
+                assert text.count(marker) == 1
+                text = text.replace(marker, 'assert [C : Cat] (F : τ (Functor WalkingEnd_cat C))')
+                text = text.replace('/* Named recursor computation remains separate from arbitrary functors. */',
+                    '/* Default-strict functors share the composition law; distinct chosen loop maps remain distinct. */')
+                changes.append({'source': path, 'owner': 'WalkingEnd default-strict functor observation',
+                                'reason': 'The former arbitrary-lax functor composition negative becomes the required strict-default positive; retain the different-recursor negative',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_terminal_adjunctions.lp':
                 old = text
                 assert text.count('(@TerminalObject (Op_cat C) t)') == 5
@@ -3800,6 +3909,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/one_cat_kernel_cokernel_transposes.lp')
     stage('examples/one_cat_adjunction_zero_column_views.lp')
     stage('examples/one_cat_terminal_adjunction_families.lp')
+    stage('examples/walking_endomorphism_hit.lp')
+    stage('examples/action_profile_walking_named_rec_controls.lp')
+    stage('examples/action_profile_walking_named_overlap_controls.lp')
     # Preserve the real production diagnostic dependency closure as the next
     # integration boundary. Its unchanged assertions are not automatically
     # qualified by the focused owner checks below.
@@ -4180,6 +4292,10 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require emdash.examples.one_cat_adjunction_zero_column_views;\n'
         'require emdash.native_transpose_regression_controls;\n'
         'require emdash.mapping_normalization_regression_controls;\n')
+    (package / 'walking_end_migration_controls.lp').write_text(
+        'require emdash.examples.walking_endomorphism_hit;\n'
+        'require emdash.examples.action_profile_walking_named_rec_controls;\n'
+        'require emdash.examples.action_profile_walking_named_overlap_controls;\n')
     (package / 'zero_column_dependency_controls.lp').write_text(
         'require emdash.walking_arrow_postcomposition_controls;\n'
         'require emdash.mapping_evaluation_controls;\n'
@@ -4412,6 +4528,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'one_cat_oplax_transpose_controls.lp',
                               package / 'native_transpose_regression_controls.lp',
                               package / 'native_zero_column_regression_controls.lp',
+                              package / 'walking_end_migration_controls.lp',
                               package / 'zero_column_dependency_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',

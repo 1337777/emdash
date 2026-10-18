@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; staged native zero-column universality and mate observations checked; remaining library integration, normalization/performance, wrapper retirement and promotion remain open
+Status: active implementation; staged WalkingEnd coefficient/recursor migration checked; batch-memory retention diagnosed separately; remaining library integration, normalization/performance, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,57 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+WalkingEnd continuation after `4abd18cb`, 2026-10-18: the
+[review](../emdash2/audits/strict-default-action-boundary/production_walking_end_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_walking_end_verification.json)
+qualify the complete original owner and three original reviewers with the
+installed checker. Contextual loop coherence uses the strict fibre-Hom of
+Cat_cart while remaining a directed, potentially noninvertible comparison.
+Functord remains lax across WalkingEnd. The section/recursor bodies and
+original power spiral data remain; the spiral's needed admission is derived
+from its already discrete target. A small discrete-to-OneCat property proof
+uses the existing native core Hom equivalence. No extra caller proof parameter,
+primitive or unification rule is added; the loop input's profile now matches
+the Hom in the existing Cat_cart-valued output classifier.
+
+Code and its observations use Cat_cart. The encoder keeps Code's whole Hom
+action, passing through the existing mapping inclusion before ordinary
+evaluation. Its named recursor composition rule is a literal instance of
+the restored generic strict-functor cut and is removed. The protected head
+and point/generator betas remain. The original arbitrary-F composition
+negative becomes the required strict-default positive; the other original
+noncollapse and projection-order negatives remain.
+
+The final installed-checker run passes 64 positive/ten negative observations
+in 26.909s under 300s/4GiB/o=20. Retiring the duplicate removes eleven warning
+bodies with none added (2453 to 2442). Remaining constructor/coefficient and
+BNat identity overlaps are recorded without a global confluence claim.
+Both owner LHS audits pass; the complete core/Homd 287/85 hashes are unchanged.
+
+The central run exposed a separate
+[batch-checker memory issue](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#batch-checker-memory-diagnosis-after-4abd18cb).
+The installed checker exhausted 8GiB during presheaf imports with both o=10
+and o=5. An isolated patch to the exact checker pin drops unused outer
+rollback snapshots for single-file batch checks; it changes no mathematical
+checking code. The original central source passes with identical inputs,
+settings and 1372 warning bodies, at 518.9 MiB rather than 4627.1 MiB peak RSS.
+On the migrated source it reaches the actual WalkingEnd coefficient error
+at 1274.4 MiB instead of exhausting memory. The installed checker independently
+reproduces and qualifies the subsequent owner corrections. An invalid rewrite
+is still rejected by SR, and paired WalkingEnd runs before duplicate retirement
+have identical outcomes and warning bodies. The installed binary/toolchain
+pin remain unchanged; the patch is a recorded diagnostic, not an adopted
+checker replacement. Normalization CPU cost and formal usability remain open.
+
+Next continue walking-circle completion/restriction at the original central
+import frontier. Do not repeat the unchanged failing stock central aggregate
+without a new resource/normalization hypothesis. The isolated checker can
+localize later failures, while installed-checker owner checks retain their
+qualification role. A toolchain change needs its own state-lifetime review.
+Remaining libraries, wrapper retirement, normalization/performance, production
+promotion and final catalogue/health/CI/source-pin gates remain required.
+The separate application goal stays paused.
 
 Native zero-column universality after `0c180e48`, 2026-10-18: the
 [review](../emdash2/audits/strict-default-action-boundary/production_native_zero_column_review.md)

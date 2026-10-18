@@ -223,3 +223,72 @@ input closure, record allocation and peak memory as well as time, and avoid
 combining that correction with an optional foundational redesign. The staged
 Homd computations support feasibility, but production computational usability
 and a satisfactory normalization policy remain unqualified.
+
+## Batch-checker memory diagnosis after `4abd18cb`
+
+The unchanged original central import order exposed a practical blocker:
+the migrated diagnostic exhausted 8 GiB during commutative-algebra presheaf
+imports, before its assertions. Both o=10 and o=5 failed. The matched
+pre-migration source passed. The
+[runtime evidence](production_checker_memory_verification.json) retains the
+source snapshots, checker identities, resource settings and failed runs.
+
+Inspection used the installed checker's exact source pin,
+`db4f7809961b8c107247613067fb567491fb0b84`, and its Timed 1.1 dependency:
+
+- `src/cli/config.ml` saves the initial Pure rollback state;
+- `src/cli/lambdapi.ml:check_cmd` saves another state for restoring between
+  input files, even for a single input;
+- `src/core/eval.ml:to_tref` creates mutable normalization references; and
+- Timed records reference updates while an accessible rollback point exists.
+  Its journal can therefore retain otherwise transient evaluation objects.
+
+The isolated [patch](production_checker_batch_snapshot.patch) releases the
+unused initial Pure snapshot and skips the outer inter-file snapshot only
+for a single-file batch check. It preserves the initial snapshot behavior
+for interactive use and the inter-file restore branch for multiple inputs.
+Internal tactic/backtracking snapshots remain. It changes no parser,
+inference, conversion, rewriting, unification or subject-reduction code.
+The installed binary and repository toolchain pin have not been changed.
+
+| Exact original central source; same 600s/8GiB/o=5 settings | Wall | Peak child RSS |
+| --- | ---: | ---: |
+| Installed checker | 148.446s | 4627.1 MiB |
+| Isolated single-file snapshot experiment | 133.937s | 518.9 MiB |
+
+Both runs pass the same 2133 positive and 299 negative assertions and have
+identical input hashes and all 1372 warning bodies. An independent invalid
+rewrite is rejected by subject reduction with the isolated binary. These
+are single samples, not a statistical speed benchmark. The snapshot change
+strongly implicates retained rollback history in the large memory footprint;
+it does not excuse expensive normalization or establish a clean rule design.
+
+On the unchanged migrated source, the isolated checker proceeds beyond the
+old allocation boundary and reaches a genuine coefficient mismatch in
+`emdash3_2_walking_end_hit.lp`, in 278.830s at 1274.4 MiB peak RSS. This is a
+failed diagnostic locating the next owner, not a passed central gate. The
+installed checker separately reproduces the owner migration failures, so
+formal corrections need not depend on adopting this experimental binary.
+
+The experiment was built in an ignored checkout of the exact pin with
+`dune build --profile release -j 1 src/cli/lambdapi.exe`, under the ordinary
+300s/4GiB build guard. Replay by checking out the exact source pin and applying
+the zero-context patch with `git apply --unidiff-zero`, then selecting only
+that isolated binary for `scripts/run_lambdapi.py`.
+Keep source-only checking, subject reduction, warnings and all resource
+guards. Do not replace the installed executable or silently reinterpret old
+receipts as results of the new checker. A toolchain change still needs its
+own review, including the multiple-input and interactive-state boundary.
+
+An additional paired control checks the migrated WalkingEnd owner and its
+original reviewers before duplicate-rule retirement: both binaries pass all
+64 positive/ten negative observations with identical source/settings and
+2453 warning bodies. Peak child RSS is 2307.8 MiB versus 173.9 MiB, while
+elapsed time is 31.943s versus 31.360s. The subsequent formal checkpoint is
+validated independently by the installed checker. These results reinforce
+the distinction between retained heap and normalization work.
+
+The computational-owner review above remains required. In particular,
+`Psh_pullback_func` and some simple whole composition observations still
+take seconds in this import context. Reduced retained heap is not evidence
+that those comparison/normalization costs have been resolved.
