@@ -1328,6 +1328,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
            fragment('production_fixed_postcomposition.lpfragment') + '\n'
            + fragment('production_fixed_precomposition.lpfragment'),
            'Fixed pre/postcomposition preserve vertical composition with the other legs identity; these are the consumed Homd target-map and corrected arrow-diagram projection joins')
+    insert('// The old `comp_cat_con_transf` compatibility name has been removed; the Cat',
+           fragment('production_precomposition_unit_view.lpfragment'),
+           'The native zero-arrow family consumes the left unit across the existing stable-precomposition/raw-composite presentations; retain both actual functors and leave the general category-unit guards and whole horizontal-action interface unchanged')
     insert('// 6c. Constant/opposite transfors and Cat-valued composition projections',
            fragment('production_hom_next_action.lpfragment'),
            'The actual intrinsic-composite consumer requires the next Hom of two-sided whiskering and its existing component observations')
@@ -2553,6 +2556,44 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'original arrow-family isomorphism reviewer',
                                 'reason': 'Retain its four endpoint identity and two inverse-choice observations at the guarded ordinary family/exchange presentation',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_one_cat_zero_cones.lp',
+                        'emdash3_2_one_cat_zero_arrow_family_classification.lp',
+                        'examples/one_cat_zero_arrow_family_classification.lp'):
+                old = text
+                expected_diagram_types = {
+                    'emdash3_2_one_cat_zero_cones.lp': 2,
+                    'emdash3_2_one_cat_zero_arrow_family_classification.lp': 124,
+                    'examples/one_cat_zero_arrow_family_classification.lp': 49,
+                }
+                text, diagram_count = re.subn(r'Functor_cat\s+WalkingArrow_cat\s+C',
+                                             'Functor_oplax_cat WalkingArrow_cat C', text)
+                assert diagram_count == expected_diagram_types[path], (path, diagram_count)
+                text, closure_count = re.subn(r'@one_cat_functor_category\s+WalkingArrow_cat\s+C\s+C1',
+                    '@one_cat_oplax_functor_category WalkingArrow_cat C C1', text)
+                assert closure_count == (5 if path == 'emdash3_2_one_cat_zero_arrow_family_classification.lp' else 0)
+                if path == 'emdash3_2_one_cat_zero_cones.lp':
+                    identity_pattern = 'rule @tapp1_fapp0 (Op_cat $K) _ _ _'
+                    assert text.count(identity_pattern) == 1
+                    text = text.replace(identity_pattern, 'rule @tapp1_fapp0 _ _ _ _', 1)
+                    text = text.replace('(@id $K (Struct_sigma $a (Struct_sigma $d $h)))',
+                                        '(@id _ (Struct_sigma $a (Struct_sigma $d $h)))', 1)
+                    text = text.replace('// lhs-audit: keep 1,5,6 -- retain the qualified opposite-source, constructor-visible identity endpoints.',
+                        '// The whole universal head fixes its total-opposite source; let that\n'
+                        '// inferred category normalize before matching the visible identity.\n'
+                        '// lhs-audit: keep 5,6 -- retain the constructor-visible identity endpoints.')
+                if path.startswith('examples/'):
+                    assert text.count('(d : τ (Functor WalkingArrow_cat C))') == 3
+                    assert text.count('(@Transf WalkingArrow_cat C') == 3
+                    text = text.replace('(d : τ (Functor WalkingArrow_cat C))',
+                                        '(d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C)))')
+                    text = text.replace('(@Transf WalkingArrow_cat C',
+                                        '(Hom (Functor_oplax_cat WalkingArrow_cat C)')
+                    text = text.replace('(@id (Op_cat\n  (@ZeroArrowCone_cat',
+                                        '(@id (TotalOp_cat\n  (@ZeroArrowCone_cat')
+                changes.append({'source': path, 'owner': 'ordinary native zero-arrow family classification',
+                                'reason': 'Use the existing native oplax walking-diagram category and its OneCat closure; preserve the actual comma, arbitrary A/D/h, both chosen modification maps and inverse laws',
+                                'diagramTypeCount': diagram_count, 'closureCount': closure_count,
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_commutative_algebra_category.lp':
                 old = text
                 old_family = '''    CommRing_cat Grpd_cat Cat_cat
@@ -3135,6 +3176,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/one_cat_arrow_family_isomorphisms.lp')
     stage('examples/one_cat_diagram_family_reconstruction.lp')
     stage('examples/commutative_ring_presheaf_invertibility.lp')
+    stage('examples/one_cat_zero_arrow_family_classification.lp')
     stage('emdash3_2_one_cat_terminal_adjunction_family_observations.lp')
     stage('examples/one_cat_modifications.lp')
     # Preserve the real production diagnostic dependency closure as the next
@@ -3431,6 +3473,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'hygiene_full_controls.lp').write_text(
         (package / 'inverse_admission_regression_controls.lp').read_text() + '\n'
         + fragment('production_hygiene_controls.lpfragment'))
+    (package / 'zero_family_core_controls.lp').write_text(
+        (package / 'hygiene_full_controls.lp').read_text() + '\n'
+        + fragment('production_precomposition_unit_controls.lpfragment'))
     (package / 'comma_target_guard_controls.lp').write_text(
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
@@ -3601,6 +3646,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'mapped_hom_regression_controls.lp',
                               package / 'inverse_admission_regression_controls.lp',
                               package / 'hygiene_full_controls.lp',
+                              package / 'zero_family_core_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

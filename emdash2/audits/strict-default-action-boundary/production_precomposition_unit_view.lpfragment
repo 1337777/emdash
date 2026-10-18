@@ -1,0 +1,10 @@
+// The two existing presentations describe the same composed functor. The
+// diagram's mapped identity can expose the raw composite while its endpoint
+// retains the stable precomposition head. This is the corresponding typed
+// left-unit instance, retaining the actual F and G in both presentations.
+// lhs-audit: keep 1,3 -- ordinary transfor composition at this canonical precomposition endpoint.
+rule @comp_fapp0 (Functor_cat $A $C) _
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $C $A $B $F $G) _
+      (@id _ (@comp_fapp0 Cat_cat $A $B $C $G $F)) $eta
+  ↪ $eta;

@@ -84,3 +84,9 @@ symbol one_cat_diagram_evaluation_mixed_func_path [I C : Cat]
     (@diagram_evaluation_mixed_func I C i j u F G)
     (λ alpha : τ (@Transf I C F G),
       @one_cat_diagram_evaluation_mixed_path I C C1 i j u F G alpha);
+// Structural ordinary-category closure for the corrected oplax diagram
+// profile. As for one_cat_functor_category, the actual target OneCat witness
+// is required; this does not identify ordinary and oplax mapping categories.
+constant symbol one_cat_oplax_functor_category [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (IsNCat (cat_succ cat_zero) (Functor_oplax_cat I C));

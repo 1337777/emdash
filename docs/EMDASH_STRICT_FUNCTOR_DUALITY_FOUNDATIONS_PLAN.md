@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; bounded SOP/performance review and local corrections checked; locality and affine-atlas closure pass; matching/glue and broader migration/promotion remain open
+Status: active implementation; native zero-arrow family classification and original reviewer checked; matching/glue pass on the final core; ordinary homology/adjunction consumers and broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,41 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Native zero-arrow family classification after `422cf92c`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_zero_family_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_zero_family_verification.json)
+record the original whole classifier over the native oplax walking-diagram
+category. Arbitrary A/D/h, the actual comma, both projection comparisons,
+the triangle modification and its inverse-law proof bodies remain. B stays
+unrestricted and OneCat(C) is the existing target hypothesis. A structural
+OneCat closure for Functor_oplax_cat is declared at the existing diagram
+owner; it is explicitly not claimed derived from duality beta rules.
+
+One core unit-view instance repairs the measured mismatch between an
+identity at a raw composite and its stable precomposition endpoint. It
+retains both actual functors and the incoming transformation. The general
+unit guards, whole horizontal-action interface, precomposition accumulation
+and unifiers remain unchanged. Broader identity/projection experiments were
+rejected after actual consumer regressions and are absent from the final
+source. The native cone's constructor-visible identity rule now infers its
+total-opposite source from the whole owner instead of retaining the old
+Op-tag discriminator.
+
+The original reviewer passes 9 positive and 4 negative assertions in 36s
+at 300s/4GiB/o=20. Combined core controls pass 281/81, including the typed
+unit-overlap comparison and a nonidentity-transfor control. Matching/glue/
+affine-glue passes on that same final core in 45s. No resource ceiling was
+increased. Four owning-file LHS audits have no unreviewed candidates; the
+intentional unit-view pattern was also inspected manually. Twenty-seven
+added warning bodies are classified; no global confluence claim is made.
+
+Next continue the original ordinary homology and adjunction-family
+consumers with their corrected diagram profiles. The terminal/initial and
+native K/Q zero-column integration is still open. Keep the selected
+foundation design and the paused application-goal boundary. Broader library
+migration, strict-wrapper retirement, source promotion and the final
+central/catalogue/health/CI/source-pin gates remain required.
 
 Bounded SOP/performance review after `c809b9c9`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_hygiene_review.md)
