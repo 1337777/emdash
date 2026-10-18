@@ -2490,6 +2490,51 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'original arrow-family isomorphism reviewer',
                                 'reason': 'Retain its four endpoint identity and two inverse-choice observations at the guarded ordinary family/exchange presentation',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_one_cat_terminal_adjunction_families.lp',
+                        'emdash3_2_one_cat_terminal_adjunction_family_observations.lp'):
+                old = text
+                if path == 'emdash3_2_one_cat_terminal_adjunction_families.lp':
+                    for kind in ('terminal', 'initial'):
+                        name = kind + '_adjunction_presented_family'
+                        marker = 'symbol ' + name + ' [B C : Cat]'
+                        assert text.count(marker) == 1
+                        start = text.index(marker)
+                        end = text.index(';', start) + 1
+                        original_presentation = text[start:end]
+                        assert original_presentation.count('(Functor_cat WalkingArrow_cat C)') == 2
+                        general_presentation = original_presentation.replace(
+                            '(Functor_cat WalkingArrow_cat C)', '(Functor_oplax_cat WalkingArrow_cat C)')
+                        ordinary_presentation = original_presentation.replace(marker,
+                            'symbol one_cat_' + name + ' [B C : Cat]\n'
+                            '  (C1 : τ (IsNCat (cat_succ cat_zero) C))')
+                        ordinary_presentation = ordinary_presentation.replace(
+                            '@transf_arrow_diagram_func C C', '@one_cat_transf_arrow_diagram_func C C C1')
+                        text = (text[:start] + general_presentation
+                                + '\n\n// Ordinary realization under the existing target hypothesis, retaining e and F.\n'
+                                + ordinary_presentation + text[end:])
+                ordinary_references = [
+                    (r'@terminal_adjunction_presented_family\s+B\s+C',
+                     '@one_cat_terminal_adjunction_presented_family B C C1'),
+                    (r'@initial_adjunction_presented_family\s+B\s+C',
+                     '@one_cat_initial_adjunction_presented_family B C C1'),
+                    (r'@transf_arrow_diagram_func\s+B\s+C',
+                     '@one_cat_transf_arrow_diagram_func B C C1'),
+                    (r'@diagram_family_transf\s+B\s+WalkingArrow_cat\s+C',
+                     '@one_cat_diagram_family_transf B WalkingArrow_cat C C1'),
+                    (r'@sym_transf_tapp0_transf\s+B\s+WalkingArrow_cat\s+C',
+                     '@one_cat_family_exchange_map_at B WalkingArrow_cat C C1'),
+                    (r'@one_cat_diagram_family_evaluation_comp_path\b',
+                     '@one_cat_diagram_family_exchange_comp_path'),
+                ]
+                ordinary_reference_counts = {}
+                for pattern, replacement in ordinary_references:
+                    text, count = re.subn(pattern, lambda _: replacement, text)
+                    ordinary_reference_counts[pattern] = count
+                assert all(ordinary_reference_counts[p] > 0 for p, _ in ordinary_references[:4])
+                changes.append({'source': path, 'owner': 'terminal/initial family presentations and observations',
+                                'reason': 'Retain the general helpers with corrected oplax outputs and their original e/F inputs; use defined ordinary presentations under existing OneCat hypotheses while preserving the original universality and endpoint proof bodies',
+                                'replacementCounts': ordinary_reference_counts,
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_eq1_hom_action.lp', 'examples/groupoidal_structured_j_eq1.lp'):
                 old = text
                 facade = 'Fibre_cat (@strict_functor C Cat_cat D)'
@@ -2991,6 +3036,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/one_cat_arrow_diagrams.lp')
     stage('examples/one_cat_arrow_family_isomorphisms.lp')
     stage('examples/one_cat_diagram_family_reconstruction.lp')
+    stage('emdash3_2_one_cat_terminal_adjunction_family_observations.lp')
     stage('examples/one_cat_modifications.lp')
     # Preserve the real production diagnostic dependency closure as the next
     # integration boundary. Its unchanged assertions are not automatically

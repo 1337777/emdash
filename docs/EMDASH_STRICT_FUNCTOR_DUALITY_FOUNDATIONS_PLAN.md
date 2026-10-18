@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; whole diagram-family reconstruction and original observations checked; central boundary is terminal/initial family presentations; broader migration/promotion remain open
+Status: active implementation; terminal/initial family presentations and eight original endpoint proofs checked; central boundary is ring carrier-family coefficients; broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,34 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Terminal/initial family presentations after `bedea259`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_terminal_family_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_terminal_family_verification.json)
+record the original general helpers with corrected oplax outputs, plus two
+defined ordinary counterparts under the consumers' existing OneCat(C)
+hypothesis. The actual e, F and adjunction/inverse data remain unchanged.
+Removing the two helpers, restoring the general codomains and reversing six
+interface substitutions recovers both complete original owners modulo
+whitespace. No primitive, rewrite, unifier, operational equality payload or
+strictness assumption on general e/FF is added.
+
+The family owner and all eight original endpoint-observation proof bodies
+pass in about 125s at the existing 600s/4GiB/o=5 profile, with about 3.39 GiB
+maximum child RSS. All 2709 warning bodies match the preceding central
+baseline. Core and mapping/exchange control closures still match their
+existing receipts exactly. The broader terminal-family reviewer also
+imports unmigrated native K/Q zero-column consumers and is not yet qualified.
+
+The fresh central check advances through this owner and stops at
+`comm_ring_carrier_catd` in `emdash3_2_commutative_algebra_category.lp`:
+its composite with `Path_cat_func` still lands in Cat_cat while migrated
+Catd requires Cat_cart. Next qualify that carrier-family coefficient at its
+actual owner, preserving the existing whole ring-carrier action. Do not
+equate the two coefficient universes. This central run took about 135s and
+3.68 GiB maximum child RSS at the same cap. The full central gate remains
+incomplete. Remaining library migration, wrapper retirement, production
+promotion and final gates stay required.
 
 Whole diagram-family reconstruction after `597b6b4c`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_family_reconstruction_review.md)
