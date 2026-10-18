@@ -2614,6 +2614,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 text = new.replace(marker,
                     fragment('production_one_cat_family_exchange.lpfragment') + '\n' + marker, 1)
                 text += '\n' + fragment('production_one_cat_arrow_family_presentation.lpfragment')
+                text += '\n' + fragment('production_one_cat_arrow_point_view.lpfragment')
                 text += '\n' + fragment('production_one_cat_family_observations.lpfragment')
                 text += '\n' + fragment('production_one_cat_family_oplax_exchange.lpfragment')
                 text += '\n' + fragment('production_one_cat_oplax_roundtrip_view.lpfragment')
@@ -2940,6 +2941,85 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'terminal/initial family presentations and observations',
                                 'reason': 'Retain the general helpers with corrected oplax outputs and their original e/F inputs; use defined ordinary presentations under existing OneCat hypotheses while preserving the original universality and endpoint proof bodies',
                                 'replacementCounts': ordinary_reference_counts,
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_image_coimage_adjunction_families.lp',
+                        'examples/image_coimage_adjunction_families.lp'):
+                old = text
+                reviewer = path.startswith('examples/')
+                text, count = re.subn(r'Functor_cat\s+WalkingArrow_cat\s+C',
+                    'Functor_oplax_cat WalkingArrow_cat C', text)
+                assert count == (74 if reviewer else 26), count
+                text, count = re.subn(r'\(@TerminalObject\s+\(Op_cat C\)\s+t\)',
+                    '(@TerminalObject (TotalOp_cat C) t)', text)
+                assert count == (16 if reviewer else 6), count
+                for name in ('diagram_family_at_func', 'diagram_family_transf', 'diagram_evaluation_at_func'):
+                    text = text.replace('@' + name, '@diagram_oplax_' + name.removeprefix('diagram_'))
+                if reviewer:
+                    text, count = re.subn(r'Functor\s+WalkingArrow_cat\s+C',
+                        'Obj (Functor_oplax_cat WalkingArrow_cat C)', text)
+                    assert count == 12, count
+                    text = text.replace('@Transf WalkingArrow_cat C d e',
+                        '@Hom (Functor_oplax_cat WalkingArrow_cat C) d e')
+                    text = text.replace('@tapp0_fapp0 WalkingArrow_cat C _ _',
+                        '@tapp0_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) _ _')
+                    text = text.replace('@tapp0_fapp0 WalkingArrow_cat C d e',
+                        '@tapp0_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) e d')
+                changes.append({'source': path, 'owner': 'native image/coimage families and original observations',
+                                'reason': 'Align the same K/Q compositions and whiskerings with their native oplax diagram category and whole evaluator; retain the actual chosen structures and arbitrary diagram maps',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_one_cat_diagram_transpose.lp':
+                old = text
+                text = text.replace('require open emdash.emdash3_2_arrow_diagram_families;',
+                    'require open emdash.emdash3_2_one_cat_diagram_family_reflection;')
+                replacements = [
+                    ('@sym_func_func WalkingArrow_cat B C', '@one_cat_family_exchange_func WalkingArrow_cat B C C1', 1),
+                    ('@transf_arrow_diagram_func I (Functor_cat B C)', '@one_cat_transf_arrow_diagram_func I (Functor_cat B C) (@one_cat_functor_category B C C1)', 1),
+                    ('@sym_func B I C', '@one_cat_family_exchange B I C C1', 2),
+                    ('@sym_func_func_transf B I C', '@one_cat_family_exchange_map B I C C1', 1),
+                ]
+                for before, after, expected in replacements:
+                    assert text.count(before) == expected, before
+                    text = text.replace(before, after)
+                changes.append({'source': path, 'owner': 'ordinary whole diagram transposition',
+                                'reason': 'Follow the original exchange/arrow-family/exchange construction through the existing guarded ordinary mapping presentations, retaining h and whole shape action',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/one_cat_diagram_transpose.lp':
+                old = text
+                for before, after in [
+                    ('@transf_arrow_diagram_func B C', '@one_cat_transf_arrow_diagram_func B C C1'),
+                    ('@diagram_family_at_func B I C', '@one_cat_family_exchange_at_func B I C C1'),
+                    ('@diagram_family_at_func B WalkingArrow_cat C', '@one_cat_family_exchange_at_func B WalkingArrow_cat C C1'),
+                    ('@diagram_family_transf B WalkingArrow_cat C', '@one_cat_diagram_family_transf B WalkingArrow_cat C C1'),
+                    ('@sym_transf_tapp0_transf B I C', '@one_cat_family_exchange_map_at B I C C1'),
+                ]:
+                    assert before in text, before
+                    text = text.replace(before, after)
+                changes.append({'source': path, 'owner': 'original ordinary transposition reviewer',
+                                'reason': 'Keep every original observation at the ordinary exchange and arrow-family presentation',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_omega_evaluation_points.lp':
+                old = text
+                marker = 'symbol omega_equiv_catd_at [K : Cat]'
+                assert text.count(marker) == 1
+                first, displayed = text.split(marker, 1)
+                displayed, count = re.subn(r'(@(?:fapp0|tapp0_fapp0) K) Cat_cat',
+                    r'\1 Cat_cart', displayed)
+                assert count == 14, count
+                text = (first + '// Evaluate in Cat_cart and retain the original ambient equivalence observation.\n'
+                        + marker + displayed)
+                changes.append({'source': path, 'owner': 'displayed whole equivalence at a point',
+                                'reason': 'Evaluate the same family data in Cat_cart and retain its ambient Cat_cat result, both original inverse components and the two mapped unit laws',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/categorical_contractions.lp':
+                old = text
+                text, count = re.subn(r'(@(?:tapp0_fapp0|tapp1_func) K) Cat_cat',
+                    r'\1 Cat_cart', text)
+                assert count == 3
+                target = 'Functor_cat Terminal_cat (@Fibre_cat K E y)'
+                assert text.count(target) == 1
+                text = text.replace(target, 'Functor_cart_cat Terminal_cat (@Fibre_cat K E y)')
+                changes.append({'source': path, 'owner': 'original categorical-contraction reviewer',
+                                'reason': 'Retain all five observations and both supplied inverses, reading the family component and whole Hom action in their actual Cartesian coefficient',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_eq1_hom_action.lp', 'examples/groupoidal_structured_j_eq1.lp'):
                 old = text
@@ -3449,6 +3529,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/one_cat_homology_family_comparison_points.lp')
     stage('emdash3_2_one_cat_terminal_adjunction_family_observations.lp')
     stage('examples/one_cat_modifications.lp')
+    stage('examples/categorical_contractions.lp')
+    stage('examples/one_cat_diagram_transpose.lp')
+    stage('examples/image_coimage_adjunction_families.lp')
     # Preserve the real production diagnostic dependency closure as the next
     # integration boundary. Its unchanged assertions are not automatically
     # qualified by the focused owner checks below.
@@ -3755,6 +3838,20 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'join_recursion_controls.lp').write_text(
         (package / 'precomposition_association_controls.lp').read_text() + '\n'
         + fragment('production_join_recursion_controls.lpfragment'))
+    (package / 'ordinary_transposition_controls.lp').write_text(
+        'require open emdash.emdash3_2_one_cat_diagram_transpose;\n'
+        'require emdash.examples.one_cat_diagram_transpose;\n'
+        'require emdash.coefficient_inverse_view_controls;\n'
+        + fragment('production_one_cat_arrow_point_controls.lpfragment'))
+    (package / 'zero_column_dependency_controls.lp').write_text(
+        'require emdash.ordinary_transposition_controls;\n'
+        'require emdash.alternating_identity_controls;\n'
+        'require emdash.examples.image_coimage_adjunction_families;\n')
+    (package / 'coefficient_inverse_view_controls.lp').write_text(
+        'require open emdash.emdash3_2_strict_functor_actions;\n'
+        'require open emdash.emdash3_2_defiso_evaluation_points;\n'
+        'require emdash.examples.categorical_contractions;\n'
+        + fragment('production_coefficient_inverse_view_controls.lpfragment'))
     (package / 'comma_target_guard_controls.lp').write_text(
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
@@ -3965,6 +4062,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'postcomposition_association_controls.lp',
                               package / 'precomposition_association_controls.lp',
                               package / 'join_recursion_controls.lp',
+                              package / 'coefficient_inverse_view_controls.lp',
+                              package / 'ordinary_transposition_controls.lp',
+                              package / 'zero_column_dependency_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

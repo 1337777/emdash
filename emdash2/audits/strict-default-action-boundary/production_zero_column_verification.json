@@ -1,0 +1,352 @@
+{
+  "status": "Staged zero-column dependencies qualified; full native zero columns and overall production migration remain open",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "extendsCheckpoint": "556f6350",
+  "authoringInputs": {
+    "production_owner_migration.py": "fbf25aaf5594c5f4053c37b03179c5d2a412319d1b0863150a712f783e61c517",
+    "production_default_inverse_action.lpfragment": "258cd4bff5fc310135694faa0257ca150b74b27dcb64ab1e1eb0321009af0913",
+    "production_precomposition_association.lpfragment": "d8aa3dd89bce171bf98e4cc92b6127d737e819762d8effccd3e558a75d37efde",
+    "production_precomposition_association_controls.lpfragment": "fa44c5485a93aeb72c68498c0b496fd87a1b1f88820159a58c1449093854c7d9",
+    "production_coefficient_inverse_view_controls.lpfragment": "ff3b87591f4e9d88d623d4dfcdd0a9495a61f98b0df1483aab4f6935b10136d9",
+    "production_one_cat_arrow_point_view.lpfragment": "65ec57649bb992eb40e3f1e3de629d0fa1b7d8cd5cb9d09f4cb9e007e0f0d91f",
+    "production_one_cat_arrow_point_controls.lpfragment": "9e0aa6cbc087c9c2536325b3ced4513ca2031beb73088fb5009a0fe33f87305a",
+    "production_diagram_evaluation_profile.lpfragment": "a1353ff063c333af1214a3a8747de208e07ae69ac74c992b1db3d013bc0482a4",
+    "production_alternating_identity_controls.lpfragment": "921cf7c0db80ff0d11f895311ba295be851b253a365350ab120e5f0fbf7bdb50"
+  },
+  "manifestSha256": "f057a961cdff1d5e4a1d929e11cc2003612124c13c46256cacebddae7db04697",
+  "checks": {
+    "core": {
+      "id": "20261018T162035Z-1820b031801e440ab20b20cfef7bcc97",
+      "target": "join_recursion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 23.320111226057634,
+      "childrenMaxRssKiB": 1647288,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "f69e4dbcc1cc374f7f3ec08a113b8431642a91df6b1105f67bf1fdbdb53dbfac",
+      "inputs": {
+        "join_recursion_controls.lp": "03d8c83f87cdff4019e48baa2b8e9d3a491619ba23a0a8d3b073aac85044c22c",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261018T162035Z-1820b031801e440ab20b20cfef7bcc97.log",
+      "logSha256": "0d15b5288ea9617d00e48cd76a0a1c6d6ae0e4af627cb63a2f0cc6892015fd38",
+      "currentInputMismatches": []
+    },
+    "imageCoimageReviewer": {
+      "id": "20261018T163303Z-4c7910d98c514fb9a2f7745b1d83086f",
+      "target": "examples/image_coimage_adjunction_families.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 47.913766894023865,
+      "childrenMaxRssKiB": 2514960,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "27a922bad3c47a3240f233a2f8e48f9932adad5a41cbc2b7e2796a07a475d11b",
+      "inputs": {
+        "emdash3_2.lp": "1105c4ff4e16d47566c6755b0a31d5d045f6c84f9a872020fb2fa16283700587",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_diagram_evaluation.lp": "3ffc004fa90d8434dab7f3522178e7dddc8ad9ca17511565d328160f4eb8ca92",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_image_coimage_adjunction_families.lp": "15f2740d121ea038b3bf136dcc99849bf4026579e8608439c64e779ee5725ab7",
+        "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "examples/image_coimage_adjunction_families.lp": "acf73fe1f701949a5a90df6cb96a0152fa1fae724310c1108991332ba126afdc",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "log": "logs/check-runs/20261018T163303Z-4c7910d98c514fb9a2f7745b1d83086f.log",
+      "logSha256": "f3df9591465dc25e6902f6178e65a35c01fa9d74560b848e5b2bd1b52315aaa5",
+      "currentInputMismatches": []
+    },
+    "combinedDependencies": {
+      "id": "20261018T163418Z-fb81d1c36f7c49469ecd55bad8fb2bed",
+      "target": "zero_column_dependency_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 60.70414956193417,
+      "childrenMaxRssKiB": 3631324,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=10,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "ccc5176ff67bed758aed476271e1ad42140b3547608afad5771ce4bcc109debe",
+      "inputs": {
+        "alternating_identity_controls.lp": "be27efc138b99d35e0cf10621992b117b1fd875850deb9ca7fe113a89113d94a",
+        "coefficient_inverse_view_controls.lp": "725b4e896c815448aec9ea1adeb8ea6e33ab319b93c881c200f5a9c24861b9cf",
+        "diagram_evaluation_profile_controls.lp": "cce51b3bfb0bc7e65a45f82c1a83f11eef1fe29e1b72a46c3723ab6c8bf34599",
+        "emdash3_2.lp": "1105c4ff4e16d47566c6755b0a31d5d045f6c84f9a872020fb2fa16283700587",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_categorical_contractions.lp": "d8b2fd7375ab02e6aba31883345883a384585bb2a45cf18e92b793d1629e0aec",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_defiso_evaluation_ordinary_paths.lp": "a5bff3389191012d1af4388d2aab01e5566c005cda6f0f5932bd552fb560f560",
+        "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+        "emdash3_2_diagram_evaluation.lp": "3ffc004fa90d8434dab7f3522178e7dddc8ad9ca17511565d328160f4eb8ca92",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_functor_reconstruction_paths.lp": "a1df7f1b1486626892c55fa99819b8df43df5275d49a7329fcaacbac1d277430",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_image_coimage_adjunction_families.lp": "15f2740d121ea038b3bf136dcc99849bf4026579e8608439c64e779ee5725ab7",
+        "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_omega_evaluation_points.lp": "ad1d3ae47ed220c9121de66f85d5a9cc170ea44fa823b1a8a899810959ab0524",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "f61cd22c78c9252c31069395521f4a69559e62d0a50f46874013260bc8e9003a",
+        "emdash3_2_one_cat_diagram_family_reflection.lp": "f4694dbbe560aecafcddf74f528dc5ee194a11d9425e59a9bd1efc45f0612a17",
+        "emdash3_2_one_cat_diagram_map_paths.lp": "6d0545de5e04a1ecb477c863f77dce55660ccf4ccd27e79957fe908a3a685f98",
+        "emdash3_2_one_cat_diagram_reconstruction.lp": "c4ee8c91413c7b69f573215c6ee1cf4e8e396c350a8df173d7fe942760c43d6d",
+        "emdash3_2_one_cat_diagram_transpose.lp": "987e3213252d2d645d657ae4d5ba6e215a709ffa8567dc2a9f79dc33199f5cd7",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_modifications.lp": "980ffead150ec47cf977d71ec24f667a649a727a3007b99f0649362f9c52c1d3",
+        "emdash3_2_one_cat_native_square_paths.lp": "f95e4ec4b2a86378d93b787e01c6934c68854d5adf04f5ea24045926686b0030",
+        "emdash3_2_one_cat_transfor_profiles.lp": "f1d8c51550d24d1eb347bb236be223203dc9142539ab982c9986642207dbb5c3",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+        "emdash3_2_prop_fibre_constructor_paths.lp": "53da73d74f5f72281cd268e06df5da965cbf3dcd3b4689a5284f5eb28e1a7616",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_walking_arrow_native_observation.lp": "17557f65653465a4c3cead2d8e42a925ce35b158dc20ae8ddb662af30af190eb",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "examples/categorical_contractions.lp": "088b6f89aa6b55d0d9276fbc1f782180fd78750e4463e82f6cee9d9ff8bd9451",
+        "examples/diagram_evaluation.lp": "9c13891222804890ad439b2b1dcf4cf9fc9d0154aae13e50441069e3b2bacce4",
+        "examples/image_coimage_adjunction_families.lp": "acf73fe1f701949a5a90df6cb96a0152fa1fae724310c1108991332ba126afdc",
+        "examples/one_cat_diagram_transpose.lp": "fc5aaad07eb2c653b24502431f0e793dae918aed7c31c17d00b96ac5d3691fd4",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "ordinary_transposition_controls.lp": "c2ac4eeadd93b2bcc75c64954252b591f2c449c0508aededbba441006329b194",
+        "zero_column_dependency_controls.lp": "01a0aa856fa137f77709e10bb10050a98670a5adb225a71331dfbefd36cde393"
+      },
+      "log": "logs/check-runs/20261018T163418Z-fb81d1c36f7c49469ecd55bad8fb2bed.log",
+      "logSha256": "0a530c10f387017dcb41f2c2e21a189d03280b58985897868850ecc76ccf147e",
+      "currentInputMismatches": []
+    }
+  },
+  "directAssertionCounts": {
+    "join_recursion_controls.lp": {
+      "positive": 287,
+      "negative": 85
+    },
+    "examples/categorical_contractions.lp": {
+      "positive": 5,
+      "negative": 0
+    },
+    "examples/one_cat_diagram_transpose.lp": {
+      "positive": 8,
+      "negative": 1
+    },
+    "examples/image_coimage_adjunction_families.lp": {
+      "positive": 14,
+      "negative": 2
+    },
+    "alternating_identity_controls.lp": {
+      "positive": 5,
+      "negative": 3
+    },
+    "coefficient_inverse_view_controls.lp": {
+      "positive": 3,
+      "negative": 2
+    },
+    "ordinary_transposition_controls.lp": {
+      "positive": 1,
+      "negative": 1
+    }
+  },
+  "lhsAudits": [
+    {
+      "source": "emdash3_2.lp",
+      "sha256": "1105c4ff4e16d47566c6755b0a31d5d045f6c84f9a872020fb2fa16283700587",
+      "candidateSlots": 0,
+      "annotatedClauses": 52
+    },
+    {
+      "source": "emdash3_2_diagram_evaluation.lp",
+      "sha256": "3ffc004fa90d8434dab7f3522178e7dddc8ad9ca17511565d328160f4eb8ca92",
+      "candidateSlots": 0,
+      "annotatedClauses": 6
+    },
+    {
+      "source": "emdash3_2_strict_functor_actions.lp",
+      "sha256": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+      "candidateSlots": 0,
+      "annotatedClauses": 0
+    },
+    {
+      "source": "emdash3_2_one_cat_diagram_family_reflection.lp",
+      "sha256": "f4694dbbe560aecafcddf74f528dc5ee194a11d9425e59a9bd1efc45f0612a17",
+      "candidateSlots": 0,
+      "annotatedClauses": 0
+    },
+    {
+      "source": "emdash3_2_one_cat_diagram_transpose.lp",
+      "sha256": "987e3213252d2d645d657ae4d5ba6e215a709ffa8567dc2a9f79dc33199f5cd7",
+      "candidateSlots": 0,
+      "annotatedClauses": 0
+    },
+    {
+      "source": "emdash3_2_omega_evaluation_points.lp",
+      "sha256": "ad1d3ae47ed220c9121de66f85d5a9cc170ea44fa823b1a8a899810959ab0524",
+      "candidateSlots": 0,
+      "annotatedClauses": 0
+    },
+    {
+      "source": "emdash3_2_image_coimage_adjunction_families.lp",
+      "sha256": "15f2740d121ea038b3bf136dcc99849bf4026579e8608439c64e779ee5725ab7",
+      "candidateSlots": 0,
+      "annotatedClauses": 0
+    }
+  ],
+  "warnings": {
+    "baseline": "20261018T162450Z-df3839624e174da99133c4d4c00b60a5",
+    "final": "20261018T163303Z-4c7910d98c514fb9a2f7745b1d83086f",
+    "baselineBodies": 2816,
+    "finalBodies": 2828,
+    "added": 12,
+    "removed": 0,
+    "addedBodies": [
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat (Op_cat $A)) $B' $F' $G' $X $X $eta' (id (Op_cat $A) $X)\nt \u21aa[] @tapp0_fapp0 (OddDual_cat (Op_cat $A)) $B' $F' $G' $X $eta' \u21aa* @tapp0_fapp0 (OddDual_cat (Op_cat $A)) $B' $F' $G' $X $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat (Op_cat $A)) $B' $F' $G' $X $X $eta' (id $A $X) \u21aa* @tapp1_fapp0 (OddDual_cat (Op_cat $A)) $B' $F' $G' $X $X $eta' (id $A $X)\n  with id (Op_cat $A) $X \u21aa id $A $X"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat (CoAbove2_cat $A)) $B' $F' $G' $x $x $eta' (id (CoAbove2_cat $A) $x)\nt \u21aa[] @tapp0_fapp0 (OddDual_cat (CoAbove2_cat $A)) $B' $F' $G' $x $eta' \u21aa* @tapp0_fapp0 (OddDual_cat (CoAbove2_cat $A)) $B' $F' $G' $x $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat (CoAbove2_cat $A)) $B' $F' $G' $x $x $eta' (id $A $x) \u21aa* @tapp1_fapp0 (OddDual_cat (CoAbove2_cat $A)) $B' $F' $G' $x $x $eta' (id $A $x)\n  with id (CoAbove2_cat $A) $x \u21aa id $A $x"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat (CoAt2_cat $A)) $B' $F' $G' $X $X $eta' (id (CoAt2_cat $A) $X)\nt \u21aa[] @tapp0_fapp0 (OddDual_cat (CoAt2_cat $A)) $B' $F' $G' $X $eta' \u21aa* @tapp0_fapp0 (OddDual_cat (CoAt2_cat $A)) $B' $F' $G' $X $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat (CoAt2_cat $A)) $B' $F' $G' $X $X $eta' (id $A $X) \u21aa* @tapp1_fapp0 (OddDual_cat (CoAt2_cat $A)) $B' $F' $G' $X $X $eta' (id $A $X)\n  with id (CoAt2_cat $A) $X \u21aa id $A $X"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat (Path_cat $A)) $B' $F' $G' $x $x $eta' (id (Path_cat $A) $x)\nt \u21aa[] @tapp0_fapp0 (OddDual_cat (Path_cat $A)) $B' $F' $G' $x $eta' \u21aa* @tapp0_fapp0 (OddDual_cat (Path_cat $A)) $B' $F' $G' $x $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat (Path_cat $A)) $B' $F' $G' $x $x $eta' (@eq_refl $A $x) \u21aa* @tapp1_fapp0 (OddDual_cat (Path_cat $A)) $B' $F' $G' $x $x $eta' (@eq_refl $A $x)\n  with id (Path_cat $A) $x \u21aa @eq_refl $A $x"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat Cat_cart) $B' $F' $G' $A $A $eta' (id Cat_cart $A)\nt \u21aa[] @tapp0_fapp0 (OddDual_cat Cat_cart) $B' $F' $G' $A $eta' \u21aa* @tapp0_fapp0 (OddDual_cat Cat_cart) $B' $F' $G' $A $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat Cat_cart) $B' $F' $G' $A $A $eta' (id Cat_cat $A) \u21aa* @tapp1_fapp0 (OddDual_cat Cat_cart) $B' $F' $G' $A $A $eta' (id Cat_cat $A)\n  with id Cat_cart $A \u21aa id Cat_cat $A"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat Terminal_cat) $B' $F' $G' $0 $0 $eta' (id Terminal_cat $0)\nt \u21aa[] @tapp0_fapp0 (OddDual_cat Terminal_cat) $B' $F' $G' $0 $eta' \u21aa* @tapp0_fapp0 (OddDual_cat Terminal_cat) $B' $F' $G' $0 $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat Terminal_cat) $B' $F' $G' $0 $0 $eta' Terminal_obj \u21aa* @tapp1_fapp0 (OddDual_cat Terminal_cat) $B' $F' $G' $0 $0 $eta' Terminal_obj\n  with id Terminal_cat $0 \u21aa Terminal_obj"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat (Product_cat $A $B)) $B' $F' $G' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) $eta' (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u))\nt \u21aa[] @tapp0_fapp0 (OddDual_cat (Product_cat $A $B)) $B' $F' $G' (@Struct_sigma $2 $3 $x $u) $eta' \u21aa* @tapp0_fapp0 (OddDual_cat (Product_cat $A $B)) $B' $F' $G' (@Struct_sigma $2 $3 $x $u) $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat (Product_cat $A $B)) $B' $F' $G' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) $eta' (@Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (\u03bb _:\u03c4 (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (id $A $x) (id $B $u)) \u21aa* @tapp1_fapp0 (OddDual_cat (Product_cat $A $B)) $B' $F' $G' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) $eta' (@Struct_sigma (Obj (Hom_cat $A $x $x)) (\u03bb _:\u03c4 (Obj (Hom_cat $A $x $x)), Obj (Hom_cat $B $u $u)) (id $A $x) (id $B $u))\n  with id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u) \u21aa @Struct_sigma (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (\u03bb _:\u03c4 (Obj (Hom_cat $A (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Fst (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))), Obj (Hom_cat $B (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)) (@sigma_Snd (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) (@Struct_sigma (Obj $A) (\u03bb _:\u03c4 (Obj $A), Obj $B) $x $u)))) (id $A $x) (id $B $u)"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat Homd_coeff_cat) $B' $F' $G' $A $A $eta' (id Homd_coeff_cat $A)\nt \u21aa[] @tapp0_fapp0 (OddDual_cat Homd_coeff_cat) $B' $F' $G' $A $eta' \u21aa* @tapp0_fapp0 (OddDual_cat Homd_coeff_cat) $B' $F' $G' $A $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat Homd_coeff_cat) $B' $F' $G' $A $A $eta' (@Homd_coeff_conjoint $A $A (@id_func $A)) \u21aa* @tapp1_fapp0 (OddDual_cat Homd_coeff_cat) $B' $F' $G' $A $A $eta' (@Homd_coeff_conjoint $A $A (id Cat_cat $A))\n  with id Homd_coeff_cat $A \u21aa @Homd_coeff_conjoint $A $A (@id_func $A)"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat (EqSkeleton_cat (cat_succ $0) $A)) $B' $F' $G' $x $x $eta' (id (EqSkeleton_cat (cat_succ $0) $A) $x)\nt \u21aa[] @tapp0_fapp0 (OddDual_cat (EqSkeleton_cat (cat_succ $0) $A)) $B' $F' $G' $x $eta' \u21aa* @tapp0_fapp0 (OddDual_cat (EqSkeleton_cat (cat_succ $0) $A)) $B' $F' $G' $x $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat (EqSkeleton_cat (cat_succ $0) $A)) $B' $F' $G' $x $x $eta' (id $A $x) \u21aa* @tapp1_fapp0 (OddDual_cat (EqSkeleton_cat (cat_succ $0) $A)) $B' $F' $G' $x $x $eta' (id $A $x)\n  with id (EqSkeleton_cat (cat_succ $0) $A) $x \u21aa id $A $x"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat (EvenDual_cat $A)) $B' $F' $G' $x $x $eta' (id (EvenDual_cat $A) $x)\nt \u21aa[] @tapp0_fapp0 (OddDual_cat (EvenDual_cat $A)) $B' $F' $G' $x $eta' \u21aa* @tapp0_fapp0 (OddDual_cat (EvenDual_cat $A)) $B' $F' $G' $x $eta'\n  with @tapp1_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $x' $eta' (id $A' $x') \u21aa @tapp0_fapp0 (OddDual_cat $A') $B' $F' $G' $x' $eta'\nt \u21aa[1] @tapp1_fapp0 (OddDual_cat (EvenDual_cat $A)) $B' $F' $G' $x $x $eta' (id $A $x) \u21aa* @tapp1_fapp0 (OddDual_cat (EvenDual_cat $A)) $B' $F' $G' $x $x $eta' (id $A $x)\n  with id (EvenDual_cat $A) $x \u21aa id $A $x"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 (OddDual_cat $B) $B $F $G (OddDual_cat $B) (OddDual_cat $B) $F (id $B (OddDual_cat $B))) (@fapp1_fapp0 (OddDual_cat $B) $B $F $W (OddDual_cat $B) $h)\nt \u21aa[] @tapp1_fapp0 (OddDual_cat $B) $B $F $G $W (OddDual_cat $B) $F (@comp_fapp0 (OddDual_cat $B) $W (OddDual_cat $B) (OddDual_cat $B) (id $B (OddDual_cat $B)) $h) \u21aa* @tapp1_fapp0 (OddDual_cat $B) $B $F $G $W (OddDual_cat $B) $F (@comp_fapp0 (OddDual_cat $B) $W (OddDual_cat $B) (OddDual_cat $B) (id $B (OddDual_cat $B)) $h)\n  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B $F $G $X $Y $epsilon $f) (@fapp1_fapp0 $A $B $F $W $X $h) \u21aa @tapp1_fapp0 $A $B $F $G $W $Y $epsilon (@comp_fapp0 $A $W $X $Y $f $h)\nt \u21aa[0; 1] @comp_fapp0 $B $1 $2 $3 (@tapp0_fapp0 (OddDual_cat $B) $B $F $G (OddDual_cat $B) $F) (@fapp1_fapp0 (OddDual_cat $B) $B $F $W (OddDual_cat $B) $h) \u21aa* @tapp1_fapp0 (OddDual_cat $B) $B $F $G $W (OddDual_cat $B) $F $h\n  with @tapp1_fapp0 (OddDual_cat $A) $B $F $G $x $x $eta (id $A $x) \u21aa @tapp0_fapp0 (OddDual_cat $A) $B $F $G $x $eta"
+      },
+      {
+        "count": 1,
+        "body": "t \u2254 @tapp1_fapp0 (OddDual_cat $A) $B $F $G $x $x (@fapp1_fapp0 $' $' (@one_cat_diagram_evaluation_func $' $C' $C1') $i' $j' $u') (id $A $x)\nt \u21aa[] @fapp0 (@Transf_cat $6' $B $x $x) (Hom_cat $B (@fapp0 $6' $B $x $i') (@fapp0 $6' $B $x $j')) (@one_cat_diagram_evaluation_mixed_func $6' $B $C1' $i' $j' $u' $x $x) (id $A $x) \u21aa* @hom_postcomp_fapp0 $B $B (id Cat_cat $B) (@fapp0 $6' $B $x $i') (@fapp0 $6' $B $x $i') (@fapp0 $6' $B $x $j') (@fapp1_fapp0 $6' $B $x $i' $j' $u') (@tapp0_fapp0 $6' $B $x $x $i' (id $A $x))\n  with @tapp1_fapp0 $' $' $' $' $F' $G' (@fapp1_fapp0 $' $' (@one_cat_diagram_evaluation_func $I' $C' $C1') $i' $j' $u') $alpha' \u21aa @fapp0 (@Transf_cat $6' $1' $F' $G') (Hom_cat $1' (@fapp0 $6' $1' $F' $i') (@fapp0 $6' $1' $G' $j')) (@one_cat_diagram_evaluation_mixed_func $6' $1' $C1' $i' $j' $u' $F' $G') $alpha'\nt \u21aa[] @tapp0_fapp0 (OddDual_cat $A) $B $F $G $x (@fapp1_fapp0 $' $' (@one_cat_diagram_evaluation_func $' $C' $C1') $i' $j' $u') \u21aa* @fapp1_fapp0 $' $B $x $i' $j' $u'\n  with @tapp1_fapp0 (OddDual_cat $A) $B $F $G $x $x $eta (id $A $x) \u21aa @tapp0_fapp0 (OddDual_cat $A) $B $F $G $x $eta"
+      }
+    ],
+    "qualification": "Ten further source-identity normalization overlaps, one pre-accumulation overlap, one ordinary evaluator overlap; no global confluence claim. Actual native components and the source-identity/identity-transfor observation orders pass."
+  },
+  "resourceReason": "Use the existing measured 300s/6GiB/o10 profile for the combined ordinary transposition, contractions and native image/coimage closure. Host available memory was 13246 MiB. Normal defaults, SR, serial/file/no-swap guard retained.",
+  "unchangedProduction": "No promoted library owner is changed; generated staged sources and retained authoring fragments are the qualification boundary.",
+  "next": "Continue native K/Q transposition and terminal/initial zero columns, then remaining library migration, strict-wrapper retirement and production/final gates."
+}

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; complete staged native homology family comparison and original whole/point reviewers checked; remaining libraries, wrapper retirement and promotion remain open
+Status: active implementation; staged native homology comparison and zero-column dependencies checked; remaining zero-column/library integration, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,40 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Zero-column dependencies after `556f6350`, 2026-10-18 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_zero_column_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_zero_column_verification.json)
+qualify family Omega-equivalence observation, ordinary whole transposition,
+and native image/coimage families in staging. The unchanged contraction
+consumer and all original observations pass: 5 contraction, 8 positive/1
+negative transposition, and 14 positive/2 negative image/coimage assertions.
+Actual inverse choices, P/Q selections, general lax transformations and
+whole/higher action remain. The original definition outlines are preserved.
+
+Two mapped-inverse readings retain runtime cancellation heads. Ordinary
+transposition uses the existing guarded mapping presentations; its point
+comparisons retain all walking-arrow data. A literal composite-input
+precomposition comparison now handles both stable endpoints without fixing
+their middle category. The final native component gap was the existing
+transfor-unit rule after odd duality erased an identity annotation. A scoped
+identity join repairs it; arbitrary nonidentity endomorphisms remain distinct.
+An explicit-endpoint reviewer experiment did not fix that gap and was removed.
+
+The complete core passes 287 positive/85 negative assertions in 23.320s at
+1608.7 MiB, with its exact source snapshot carried into this checkpoint.
+The combined dependency reviewer passes in 60.704s at 3546.2 MiB under the
+existing reviewed 300s/6GiB/o=10 profile; the image/coimage reviewer alone
+passes in 47.914s at 2456.0 MiB under 300s/4GiB/o=20. Seven owner-position
+LHS audits have no unreviewed candidates. Twelve added warning bodies are
+classified; further nested identity overlaps are not globally qualified.
+No default resource limit or public strictness condition is changed.
+
+Next continue the original native K/Q transpose and terminal/initial
+zero-column owners. This dependency checkpoint does not complete those
+owners or promote the staged implementation. Remaining libraries, redundant
+strict wrappers and final central/catalogue/health/CI/source-pin gates remain
+required. The application goal stays paused.
 
 Whole native homology comparison after `fcee49f3`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_native_exchange_paths_review.md)

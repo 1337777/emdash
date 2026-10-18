@@ -27,6 +27,12 @@ rule @fapp1_fapp0 (OddDual_cat $A) $B $F $x $x (@id $A $x)
 rule @fapp1_fapp0 (EvenDual_cat $A) $B $F $x $x (@id $A $x)
   ↪ @id $B (@fapp0 (EvenDual_cat $A) $B $F $x);
 
+// The same source-identity join for a normal transfor component. Native
+// prewhiskering reaches this after OddDual has erased the identity's tag.
+// lhs-audit: keep 1 -- measured odd-dual source/identity projection overlap.
+rule @tapp1_fapp0 (OddDual_cat $A) $B $F $G $x $x $eta (@id $A $x)
+  ↪ @tapp0_fapp0 (OddDual_cat $A) $B $F $G $x $eta;
+
 rule @comp_fapp0 (OddDual_cat $A) $x $y $z $g $f
   ↪ @comp_fapp0 $A $z $y $x $f $g;
 rule @comp_fapp0 (EvenDual_cat $A) $x $y $z $g $f

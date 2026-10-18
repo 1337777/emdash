@@ -9,3 +9,14 @@ unif_rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
       (@comp_fapp0 Cat_cat $W $X $Z $g
         (@comp_fapp0 Cat_cat $W $Y $X $p $q))
         ≡ (@comp_fapp0 Cat_cat $W1 $X1 $Z1 $g1 $h1) ];
+
+// Direct stable-head comparison when neither side exposes raw composition.
+// This is the same complete-composite reading, with no forced middle object.
+unif_rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $Z $W $X (@comp_fapp0 Cat_cat $W $Y $X $p $q) $g
+  ≡ @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $Z1 $W1 $X1 $h1 $g1
+  ↪ [ $W1 ≡ $W; $Z1 ≡ $Z;
+      (@comp_fapp0 Cat_cat $W $X $Z $g
+        (@comp_fapp0 Cat_cat $W $Y $X $p $q))
+        ≡ (@comp_fapp0 Cat_cat $W1 $X1 $Z1 $g1 $h1) ];

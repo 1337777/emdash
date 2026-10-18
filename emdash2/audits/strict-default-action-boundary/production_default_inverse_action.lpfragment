@@ -59,6 +59,16 @@ unif_rule
       $y $x (@defiso_from $C $x $y $i)
   ↪ [ tt ≡ tt ];
 
+// The coefficient inclusion is identity on the actual functor objects.
+// Read both retained mapped inverse heads after that first action has
+// normalized, without erasing their computational cancellation owners.
+unif_rule @defiso_fmap_to Cat_cart Cat_cat Cat_cart_include $A $B $i
+  ≡ $F
+  ↪ [ $F ≡ @defiso_to Cat_cart $A $B $i ];
+unif_rule @defiso_fmap_from Cat_cart Cat_cat Cat_cart_include $A $B $i
+  ≡ $F
+  ↪ [ $F ≡ @defiso_from Cat_cart $A $B $i ];
+
 symbol defiso_fmap_to_path
   [C D : Cat]
   (F : τ (Functor C D))

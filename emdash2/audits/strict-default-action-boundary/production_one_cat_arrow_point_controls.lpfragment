@@ -1,0 +1,15 @@
+// Direct point view underlying the original whole transposition comparison.
+assert [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor K C)) (eta : τ (@Transf K C F G)) (x : τ (Obj K)) ⊢
+  @eq_refl (Functor WalkingArrow_cat C)
+    (@fapp0 K (Functor_cat WalkingArrow_cat C) (@one_cat_transf_arrow_diagram_func K C C1 F G eta) x)
+  : τ (@= (Functor WalkingArrow_cat C)
+      (@fapp0 K (Functor_cat WalkingArrow_cat C) (@one_cat_transf_arrow_diagram_func K C C1 F G eta) x)
+      (@walking_arrow_func C (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x eta)));
+assertnot [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor K C)) (eta other : τ (@Transf K C F G)) (x : τ (Obj K)) ⊢
+  @eq_refl (Functor WalkingArrow_cat C)
+    (@fapp0 K (Functor_cat WalkingArrow_cat C) (@one_cat_transf_arrow_diagram_func K C C1 F G eta) x)
+  : τ (@= (Functor WalkingArrow_cat C)
+      (@fapp0 K (Functor_cat WalkingArrow_cat C) (@one_cat_transf_arrow_diagram_func K C C1 F G eta) x)
+      (@walking_arrow_func C (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x other)));

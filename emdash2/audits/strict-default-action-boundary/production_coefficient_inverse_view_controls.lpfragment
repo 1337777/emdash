@@ -1,0 +1,26 @@
+// Actual whole forward/inverse objects remain those of the supplied i.
+assert [A B : Cat] (i : τ (@DefIso Cat_cart A B)) ⊢
+  @eq_refl (Functor A B) (@defiso_fmap_to Cat_cart Cat_cat Cat_cart_include A B i)
+  : τ (@= (Functor A B) (@defiso_fmap_to Cat_cart Cat_cat Cat_cart_include A B i)
+      (@defiso_to Cat_cart A B i));
+assert [A B : Cat] (i : τ (@DefIso Cat_cart A B)) ⊢
+  @eq_refl (Functor B A) (@defiso_fmap_from Cat_cart Cat_cat Cat_cart_include A B i)
+  : τ (@= (Functor B A) (@defiso_fmap_from Cat_cart Cat_cat Cat_cart_include A B i)
+      (@defiso_from Cat_cart A B i));
+// The component constructor can normalize before this comparison is read.
+assert [K : Cat] (E D : τ (Functor K Cat_cart))
+  (i : τ (@DefIso (Functor_cat K Cat_cart) E D)) (x : τ (Obj K)) ⊢
+  @eq_refl (Functor (fapp0 D x) (fapp0 E x))
+    (@defiso_fmap_from Cat_cart Cat_cat Cat_cart_include (fapp0 E x) (fapp0 D x)
+      (@defiso_at K Cat_cart E D i x))
+  : τ (@= (Functor (fapp0 D x) (fapp0 E x))
+      (@defiso_fmap_from Cat_cart Cat_cat Cat_cart_include (fapp0 E x) (fapp0 D x)
+        (@defiso_at K Cat_cart E D i x)) (@defiso_at_from K Cat_cart E D i x));
+assertnot [A B : Cat] (i j : τ (@DefIso Cat_cart A B)) ⊢
+  @eq_refl (Functor B A) (@defiso_fmap_from Cat_cart Cat_cat Cat_cart_include A B i)
+  : τ (@= (Functor B A) (@defiso_fmap_from Cat_cart Cat_cat Cat_cart_include A B i)
+      (@defiso_from Cat_cart A B j));
+// Runtime owners remain available for mapped inverse cancellation.
+assertnot [A B : Cat] (i : τ (@DefIso Cat_cart A B)) (b : τ (Obj B)) ⊢
+  @fapp0 B A (@defiso_fmap_from Cat_cart Cat_cat Cat_cart_include A B i) b
+  ≡ @fapp0 B A (@defiso_from Cat_cart A B i) b;
