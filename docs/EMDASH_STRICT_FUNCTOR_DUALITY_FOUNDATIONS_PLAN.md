@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; Cartesian inverse cancellation and original locality checked; central diagnostics stop at whole diagram-evaluation reindexing; broader migration/promotion remain open
+Status: active implementation; whole diagram reindexing import interaction repaired; central diagnostics now stop at ordinary-target walking-arrow evaluation; broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,37 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Diagram import interaction after `9cc46e71`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_diagram_import_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_diagram_import_verification.json)
+record a standalone passing diagram-evaluation module and a reproduced
+failure after preloading adjunction-family views. An overbroad horizontal
+congruence was intercepting different whiskering factorizations. Removing it
+breaks its original mate consumer; restricting it to the same category triple
+and actual cell payloads preserves that consumer and the existing whole
+reindexing computation. No diagram declaration, runtime rule, or new
+reindexing equation is added.
+
+The original diagram reviewer passes all ten positives/three negatives in
+that import context, plus a whole test with B itself a mapping category and
+arbitrary endofunctor D. The focused run takes about 96s at 600s/4GiB/o=5;
+its diagram warning bodies are unchanged from the same-import failing run.
+The original core source is unchanged and its recorded closure still matches.
+The affected coupled profile/locality gate passes again in about 125s under
+the existing 600s/4GiB/o=5 profile, with unchanged warning bodies.
+
+Both the larger original adjunction-view reviewer and the central diagnostic
+now advance to `diagram_native_arrow_lax_transfor` in
+`emdash3_2_walking_arrow_native_observation.lp`. It supplies the general oplax
+evaluation to an ordinary-transformation input. Next qualify an actual
+ordinary-target evaluation view under the already-present OneCat assumption,
+preserving ordinary diagram inputs, the original generator, whole action and
+projection ladder. Reuse whole fixed evaluation/mixed-action owners; do not
+equate C with its odd dual or silently coerce general oplax transformations.
+The fresh central gate reaches this boundary in about 110s. Remaining
+library migration, wrapper retirement, production promotion and final gates
+stay required; no separate application-equivalence work is resumed.
 
 Cartesian cancellation and locality after `5319dcc2`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_locality_completion_review.md)

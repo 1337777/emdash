@@ -1,0 +1,17 @@
+// Reindexing still works when both factorizations have the same intermediate
+// category. Their factors need not agree: D is an arbitrary endofunctor here.
+assert [A I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (D : τ (Functor (Functor_cat I C) (Functor_cat I C)))
+  (F : τ (Functor A (Functor_cat I C)))
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) ⊢
+  eq_refl (@diagram_family_transf A I C
+    (@comp_cat_fapp0 A (Functor_cat I C) (Functor_cat I C) D F) i j u)
+  : τ (@= (@Transf_oplax A C
+    (@comp_cat_fapp0 A (Functor_cat I C) C (@diagram_family_at_func (Functor_cat I C) I C D i) F)
+    (@comp_cat_fapp0 A (Functor_cat I C) C (@diagram_family_at_func (Functor_cat I C) I C D j) F))
+    (@diagram_family_transf A I C (@comp_cat_fapp0 A (Functor_cat I C) (Functor_cat I C) D F) i j u)
+    (@fapp1_fapp0 (Functor_oplax_cat (Functor_cat I C) C) (Functor_oplax_cat A C)
+      (@oplax_precomp_func A (Functor_cat I C) C F)
+      (@OddDual_func (Functor_cat I C) C (@diagram_family_at_func (Functor_cat I C) I C D i))
+      (@OddDual_func (Functor_cat I C) C (@diagram_family_at_func (Functor_cat I C) I C D j))
+      (@diagram_family_transf (Functor_cat I C) I C D i j u)));

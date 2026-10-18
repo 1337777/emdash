@@ -2133,6 +2133,23 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'displayed pointwise-equivalence coefficient',
                                 'reason': 'Use the actual Cartesian coefficient of tdapp0_fapp0 and derive the Cartesian whole equivalence for strict forward maps from the original retained ordinary inverse/law owners',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_one_cat_adjunction_family_views.lp':
+                begin = '// Same Cat horizontal-action shape. Every pair and endpoint is compared.'
+                end = '// Associativity where the inner composite retains its represented owner.'
+                assert text.count(begin) == text.count(end) == 1
+                a, b = text.index(begin), text.index(end)
+                broad = text[a:b]
+                assert broad.count('unif_rule') == 1
+                replacement = (fragment('production_horizontal_payload_congruence.lpfragment') + '\n'
+                    '/* Inactive broad view: unrestricted horizontal-action\n'
+                    '   congruence intercepts reindexing across different factorizations.\n'
+                    '   Restore only with guards qualified against both whole adjunction\n'
+                    '   observations and arbitrary-parameter diagram reindexing.\n\n'
+                    + broad.rstrip() + '\n*/\n\n')
+                text = text[:a] + replacement + text[b:]
+                changes.append({'source': path, 'owner': 'horizontal-action congruence',
+                                'reason': 'Guard congruence by the common category triple and both actual input cells; preserve adjunction endpoint comparisons without decomposing distinct reindexing factorizations',
+                                'oldBodySha256': sha(broad), 'newBodySha256': sha(replacement)})
             if path == 'emdash3_2_represented_comma_families.lp':
                 old = text
                 start_marker = '// Source, middle, and target families for a transformation graph.'
@@ -2832,6 +2849,13 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     # integration boundary. Its unchanged assertions are not automatically
     # qualified by the focused owner checks below.
     stage('emdash3_2_checks.lp')
+    stage('examples/one_cat_adjunction_family_views.lp')
+    (package / 'diagram_with_adjunction_views.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        'require emdash.emdash3_2_one_cat_adjunction_family_views;\n'
+        'require open emdash.emdash3_2_diagram_evaluation;\n'
+        'require emdash.examples.diagram_evaluation;\n'
+        + fragment('production_diagram_import_controls.lpfragment'))
     (package / 'one_cat_arrow_profile_controls.lp').write_text(
         'require open emdash.examples.one_cat_arrow_diagrams;\n'
         + fragment('production_one_cat_arrow_controls.lpfragment'))
@@ -3238,6 +3262,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'cartesian_inverse_laws.lp',
                               package / 'cartesian_inverse_controls.lp',
                               package / 'inverse_locality_regression.lp',
+                              package / 'diagram_with_adjunction_views.lp',
                               package / 'whole_reading_regression_controls.lp',
                               package / 'internal_composite_regression_controls.lp',
                               package / 'mapped_hom_regression_controls.lp',

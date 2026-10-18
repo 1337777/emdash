@@ -1,0 +1,9 @@
+// Congruence for the same horizontal action and the same two actual cells.
+// Only the endpoint presentations may differ. In particular this does not
+// decompose an equality between different whiskering factorizations.
+// lhs-audit: keep 1,2,3,4 -- the common category triple and shared cell payloads guard this congruence case.
+unif_rule @comp_prod_fapp1_fapp0 Cat_cat $B $C $D $fg $fg'
+    (@Struct_sigma _ _ $alpha $beta)
+  ≡ @comp_prod_fapp1_fapp0 Cat_cat $B $C $D $hk $hk'
+      (@Struct_sigma _ _ $alpha $beta)
+  ↪ [ $fg ≡ $hk; $fg' ≡ $hk' ];

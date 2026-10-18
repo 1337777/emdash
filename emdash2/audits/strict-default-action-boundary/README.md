@@ -7,6 +7,14 @@ core and profile source hashes and inserts at unique original owner anchors.
 
 ## Current continuation, 2026-10-18 UTC
 
+The [diagram import review](production_diagram_import_review.md) and
+[verification](production_diagram_import_verification.json) record the
+restricted horizontal-action congruence and passing whole reindexing in the
+previously failing import context. Arbitrary parameters, both cell payloads
+and the original diagram reviewer are retained. Central diagnostics now
+reach the ordinary-target native walking-arrow observation, which needs an
+actual ordinary evaluation view under its existing OneCat assumption.
+
 The [Cartesian equivalence/locality review](production_locality_completion_review.md)
 and [verification](production_locality_completion_verification.json) record
 derived cancellation for the actual classified inverses and integration into
