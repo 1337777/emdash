@@ -2326,6 +2326,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                         + 'require open emdash.emdash3_2_one_cat_action_paths;\n'
                         + 'require open emdash.emdash3_2_one_cat_functor_closure;\n\n'
                         + text[start:end]
+                        + fragment('production_one_cat_evaluation.lpfragment') + '\n'
                         + fragment('production_diagram_evaluation_helpers.lpfragment') + '\n'
                         + fragment('production_oplax_diagram_evaluation.lpfragment'))
                 declaration = r'(?m)^(?:(?:constant|injective|protected|private)\s+)?symbol\s+([A-Za-z0-9_]+)\b'
@@ -2344,6 +2345,22 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                         for kind in ('assert', 'assertnot')] == [10, 3]
                 changes.append({'source': path, 'owner': 'diagram evaluation reviewer',
                                 'reason': 'Retain every original observation with the corrected opposite transformation profile and existing postcomposition action',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_walking_arrow_native_observation.lp':
+                old = text
+                evaluation = '@diagram_evaluation_transf WalkingArrow_cat C walking_arrow_src walking_arrow_tgt walking_arrow_generator'
+                assert text.count(evaluation) == 3
+                text = text.replace(evaluation,
+                    '@one_cat_diagram_evaluation_transf WalkingArrow_cat C C1 walking_arrow_src walking_arrow_tgt walking_arrow_generator')
+                former_head = '(@sym_tapp1_fapp0_transf _ $I $C (@id Cat_cat _) $i $j $u)'
+                assert text.count(former_head) == 1
+                text = text.replace(former_head,
+                    '(@fapp1_fapp0 _ _ (@one_cat_diagram_evaluation_func $I $C $C1) $i $j $u)', 1)
+                text = text.replace('// Whole classified evaluation; the ordinary hypothesis supplies its evidence.',
+                    '// The existing ordinary-target guard selects ordinary evaluation.\n'
+                    '// Its native lax admission and subsequent graph keep the original interface.')
+                changes.append({'source': path, 'owner': 'ordinary-target native walking-arrow observation',
+                                'reason': 'Use actual ordinary evaluation under the existing OneCat guard; retain the input diagram category, native graph, generator value and original value-path proof',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_eq1_hom_action.lp', 'examples/groupoidal_structured_j_eq1.lp'):
                 old = text
@@ -2850,6 +2867,14 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     # qualified by the focused owner checks below.
     stage('emdash3_2_checks.lp')
     stage('examples/one_cat_adjunction_family_views.lp')
+    stage('examples/walking_arrow_native_observation.lp')
+    (package / 'one_cat_evaluation_controls.lp').write_text(
+        'require open emdash.emdash3_2_diagram_evaluation;\n'
+        + fragment('production_one_cat_evaluation_controls.lpfragment'))
+    (package / 'one_cat_evaluation_integration.lp').write_text(
+        'require emdash.diagram_with_adjunction_views;\n'
+        'require emdash.one_cat_evaluation_controls;\n'
+        'require emdash.examples.walking_arrow_native_observation;\n')
     (package / 'diagram_with_adjunction_views.lp').write_text(
         'require open emdash.emdash3_2;\n'
         'require emdash.emdash3_2_one_cat_adjunction_family_views;\n'
@@ -3263,6 +3288,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'cartesian_inverse_controls.lp',
                               package / 'inverse_locality_regression.lp',
                               package / 'diagram_with_adjunction_views.lp',
+                              package / 'one_cat_evaluation_controls.lp',
+                              package / 'one_cat_evaluation_integration.lp',
                               package / 'whole_reading_regression_controls.lp',
                               package / 'internal_composite_regression_controls.lp',
                               package / 'mapped_hom_regression_controls.lp',

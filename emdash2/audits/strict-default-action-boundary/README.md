@@ -7,6 +7,14 @@ core and profile source hashes and inserts at unique original owner anchors.
 
 ## Current continuation, 2026-10-18 UTC
 
+The [ordinary-target evaluation review](production_one_cat_evaluation_review.md)
+and [verification](production_one_cat_evaluation_verification.json) record the
+guarded whole evaluator and unchanged-interface native arrow observer.
+The general evaluator remains oplax. Whole/higher action and the original
+observer controls pass; central diagnostics advance to ordinary/Cartesian
+exchange in the existing diagram-family reflection proof. The old ordinary
+reconstruction assumption is preserved, not newly derived or strengthened.
+
 The [diagram import review](production_diagram_import_review.md) and
 [verification](production_diagram_import_verification.json) record the
 restricted horizontal-action congruence and passing whole reindexing in the

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; whole diagram reindexing import interaction repaired; central diagnostics now stop at ordinary-target walking-arrow evaluation; broader migration/promotion remain open
+Status: active implementation; guarded ordinary evaluation and native observer checked; central diagnostics now stop at ordinary/Cartesian family reflection; broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,38 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Ordinary-target evaluation after `d3ab4277`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_evaluation_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_one_cat_evaluation_verification.json)
+record a guarded whole ordinary evaluator at the existing diagram owner.
+It has one structural root, defined Hom/transfor aliases through generic
+action, existing fixed evaluation and a mixed body built from component
+evaluation/postcomposition. Its component and whole mixed comparisons use
+the existing OneCat naturality and discrete-target theorems. The general
+evaluator remains oplax; no profile equality or standalone laxity cell is added.
+
+The native observer preserves its original public types and complete proof
+outline, changing only three evaluator uses and its scoped observation.
+All five original positives/two negatives pass. The new nine positive/three
+negative controls retain whole Hom and higher modification action, unit and
+composition observations, the generator, and the profile boundaries. The
+final combined gate also checks the existing general evaluator and its
+preloaded-adjunction-view regression. The 21 new warning bodies are recorded
+by identity/interpretation family; they are not a confluence certificate.
+Core source is unchanged; prior locality receipts retain their own snapshot
+because their diagram import has changed.
+
+Central diagnostics now pass the observer and existing ordinary reconstruction
+and stop at `one_cat_diagram_family_map_path` in
+`emdash3_2_one_cat_diagram_family_reflection.lp`. The old proof applies
+Cartesian exchange to raw ordinary families/maps. Next qualify a whole
+ordinary-target mapping-profile comparison or ordinary exchange under its
+existing OneCat guard, addressing inner family carriers and outer map profiles
+together. Preserve raw F,G,h,k, the whole endpoint-path premises
+and actual maps/inverses; do not equate the two mapping classifiers globally
+or replace whole reflection by point observations. Remaining migration,
+wrapper retirement, production promotion and final gates stay required.
 
 Diagram import interaction after `9cc46e71`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_diagram_import_review.md)

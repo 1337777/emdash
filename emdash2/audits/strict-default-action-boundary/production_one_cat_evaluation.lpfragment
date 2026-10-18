@@ -1,0 +1,86 @@
+// Ordinary-target evaluation is a guarded whole construction. A diagram
+// transformation into a OneCat has commuting naturality squares, so shape
+// evaluation has the ordinary transformation profile. The general evaluator
+// above retains its oplax profile; no equality of those classifiers is used.
+require open emdash.emdash3_2_discrete_functor_paths;
+
+injective symbol one_cat_diagram_evaluation_func [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (Functor I (Functor_cat (Functor_cat I C) C));
+
+rule @fapp0 _ _ (@one_cat_diagram_evaluation_func $I $C $C1) $i
+  ↪ @diagram_evaluation_at_func $I $C $i;
+
+symbol one_cat_diagram_evaluation_hom_func [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C)) (i j : τ (Obj I))
+  : τ (Functor (Hom_cat I i j)
+    (@Transf_cat (Functor_cat I C) C
+      (@diagram_evaluation_at_func I C i) (@diagram_evaluation_at_func I C j)))
+≔ @fapp1_func I (Functor_cat (Functor_cat I C) C)
+    (@one_cat_diagram_evaluation_func I C C1) i j;
+
+symbol one_cat_diagram_evaluation_transf [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@Transf (Functor_cat I C) C
+    (@diagram_evaluation_at_func I C i) (@diagram_evaluation_at_func I C j))
+≔ @fapp1_fapp0 I (Functor_cat (Functor_cat I C) C)
+    (@one_cat_diagram_evaluation_func I C C1) i j u;
+
+// The projected action remains at fapp1_func/fapp1_fapp0, so generic
+// functor identity and composition own every observation order.
+rule @tapp0_fapp0 _ _ _ _ $F (@fapp1_fapp0 _ _ (@one_cat_diagram_evaluation_func $I $C $C1) $i $j $u)
+  ↪ @fapp1_fapp0 $I $C $F $i $j $u;
+
+// The default ordinary pre/right action: alpha maps to G[u] o alpha[i].
+// This is a composition of the existing evaluation and fixed Hom action.
+symbol one_cat_diagram_evaluation_mixed_func [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) (F G : τ (Functor I C))
+  : τ (Functor (@Transf_cat I C F G)
+    (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j)))
+≔ @comp_cat_fapp0 (@Transf_cat I C F G)
+    (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G i))
+    (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j))
+    (@hom_postcomp_func C C (@id_func C)
+      (@fapp0 I C F i) (@fapp0 I C G i) (@fapp0 I C G j) (@fapp1_fapp0 I C G i j u))
+    (@tapp0_func I C F G i);
+
+rule @tapp1_func _ _ _ _ $F $G (@fapp1_fapp0 _ _ (@one_cat_diagram_evaluation_func $I $C $C1) $i $j $u)
+  ↪ @one_cat_diagram_evaluation_mixed_func $I $C $C1 $i $j $u $F $G;
+rule @tapp1_fapp0 _ _ _ _ $F $G (@fapp1_fapp0 _ _ (@one_cat_diagram_evaluation_func $I $C $C1) $i $j $u) $alpha
+  ↪ fapp0 (@one_cat_diagram_evaluation_mixed_func $I $C $C1 $i $j $u $F $G) $alpha;
+
+// Whole observation of shape-Hom action, retaining all further Hom levels.
+rule @comp_fapp0 Cat_cat _ _ _ (@tapp0_func _ _ _ _ $F)
+    (@fapp1_func _ _ (@one_cat_diagram_evaluation_func $I $C $C1) $i $j)
+  ↪ @fapp1_func $I $C $F $i $j;
+
+// Agreement with the general mixed evaluator uses the actual existing
+// naturality cell and OneCat(C), rather than declaring a reverse cell.
+symbol one_cat_diagram_evaluation_mixed_path [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  (F G : τ (Functor I C)) (alpha : τ (@Transf I C F G))
+  : τ (@= (Hom C (@fapp0 I C F i) (@fapp0 I C G j))
+    (fapp0 (@one_cat_diagram_evaluation_mixed_func I C C1 i j u F G) alpha)
+    (fapp0 (@diagram_evaluation_mixed_func I C i j u F G) alpha))
+≔ @one_cat_component_naturality_path I C C1 F G alpha i j u;
+
+// Both mixed actions are whole functors into the same genuinely discrete
+// Hom category. Reuse its existing comparison theorem; no profile equality
+// or pointwise assembly of the evaluation constructor is asserted.
+symbol one_cat_diagram_evaluation_mixed_func_path [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) (F G : τ (Functor I C))
+  : τ (@= (Functor (@Transf_cat I C F G)
+      (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j)))
+    (@one_cat_diagram_evaluation_mixed_func I C C1 i j u F G)
+    (@diagram_evaluation_mixed_func I C i j u F G))
+≔ @discrete_functor_path (@Transf_cat I C F G)
+    (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j))
+    (C1 (@fapp0 I C F i) (@fapp0 I C G j))
+    (@one_cat_diagram_evaluation_mixed_func I C C1 i j u F G)
+    (@diagram_evaluation_mixed_func I C i j u F G)
+    (λ alpha : τ (@Transf I C F G),
+      @one_cat_diagram_evaluation_mixed_path I C C1 i j u F G alpha);

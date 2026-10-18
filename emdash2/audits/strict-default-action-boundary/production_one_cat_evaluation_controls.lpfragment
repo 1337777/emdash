@@ -1,0 +1,91 @@
+// Complete root-to-component projection retains the actual shape arrow.
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) (F : τ (Functor I C)) ⊢
+  @tapp0_fapp0 (Functor_cat I C) C _ _ F
+    (@fapp1_fapp0 I (Functor_cat (Functor_cat I C) C)
+      (@one_cat_diagram_evaluation_func I C C1) i j u)
+  ≡ @fapp1_fapp0 I C F i j u;
+
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (i : τ (Obj I)) ⊢
+  @one_cat_diagram_evaluation_transf I C C1 i i (@id I i)
+  ≡ @id (Functor_cat (Functor_cat I C) C) (@diagram_evaluation_at_func I C i);
+
+// Identity also joins after the ordinary mixed-action projection.
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (i : τ (Obj I)) (F G : τ (Functor I C)) ⊢
+  @tapp1_func (Functor_cat I C) C _ _ F G
+    (@one_cat_diagram_evaluation_transf I C C1 i i (@id I i))
+  ≡ @tapp0_func I C F G i;
+
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (i : τ (Obj I)) (F G : τ (Functor I C)) ⊢
+  @one_cat_diagram_evaluation_mixed_func I C C1 i i (@id I i) F G
+  ≡ @tapp0_func I C F G i;
+
+// The diagram-identity overlap joins through the same mixed body.
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) (F : τ (Functor I C)) ⊢
+  fapp0 (@one_cat_diagram_evaluation_mixed_func I C C1 i j u F F)
+    (@id (Functor_cat I C) F)
+  ≡ @fapp1_fapp0 I C F i j u;
+
+// Whole composition and the component-first observation have the same value.
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j k : τ (Obj I)] (u : τ (Hom I i j)) (v : τ (Hom I j k)) ⊢
+  @comp_fapp0 (Functor_cat (Functor_cat I C) C) _ _ _
+    (@one_cat_diagram_evaluation_transf I C C1 j k v)
+    (@one_cat_diagram_evaluation_transf I C C1 i j u)
+  ≡ @one_cat_diagram_evaluation_transf I C C1 i k (@comp_fapp0 I i j k v u);
+
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j k : τ (Obj I)] (u : τ (Hom I i j)) (v : τ (Hom I j k))
+  (F : τ (Functor I C)) ⊢
+  @eq_refl (Hom C (@fapp0 I C F i) (@fapp0 I C F k))
+    (@fapp1_fapp0 I C F i k (@comp_fapp0 I i j k v u))
+  : τ (@= (Hom C (@fapp0 I C F i) (@fapp0 I C F k))
+    (@fapp1_fapp0 I C F i k (@comp_fapp0 I i j k v u))
+    (@comp_fapp0 C _ _ _
+      (@tapp0_fapp0 (Functor_cat I C) C _ _ F (@one_cat_diagram_evaluation_transf I C C1 j k v))
+      (@tapp0_fapp0 (Functor_cat I C) C _ _ F (@one_cat_diagram_evaluation_transf I C C1 i j u))));
+
+// The entire shape-Hom observation is F's original Hom functor.
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (i j : τ (Obj I)) (F : τ (Functor I C)) ⊢
+  @comp_cat_fapp0 (Hom_cat I i j) _ (Hom_cat C (@fapp0 I C F i) (@fapp0 I C F j))
+    (@tapp0_func (Functor_cat I C) C (@diagram_evaluation_at_func I C i)
+      (@diagram_evaluation_at_func I C j) F)
+    (@one_cat_diagram_evaluation_hom_func I C C1 i j)
+  ≡ @fapp1_func I C F i j;
+
+// The lower mixed action preserves a supplied modification through native
+// evaluation and postcomposition, not just through its endpoints.
+assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) (F G : τ (Functor I C))
+  (alpha beta : τ (@Transf I C F G)) (m : τ (Hom (@Transf_cat I C F G) alpha beta)) ⊢
+  @fapp1_fapp0 (@Transf_cat I C F G) (Hom_cat C (@fapp0 I C F i) (@fapp0 I C G j))
+    (@tapp1_func (Functor_cat I C) C _ _ F G (@one_cat_diagram_evaluation_transf I C C1 i j u)) alpha beta m
+  ≡ @hom_postcomp_fapp1_fapp0 C C (@id_func C)
+    (@fapp0 I C F i) (@fapp0 I C G i) (@fapp0 I C G j) (@fapp1_fapp0 I C G i j u)
+    (@tapp0_fapp0 I C F G i alpha) (@tapp0_fapp0 I C F G i beta)
+    (@tapp0_hom_fapp0 I C F G alpha beta i m);
+
+assertnot [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j : τ (Obj I)] (u v : τ (Hom I i j)) (F : τ (Functor I C)) ⊢
+  @tapp0_fapp0 (Functor_cat I C) C _ _ F (@one_cat_diagram_evaluation_transf I C C1 i j u)
+  ≡ @fapp1_fapp0 I C F i j v;
+
+// An ordinary-target view does not retype the general oplax constructor.
+assertnot [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) ⊢
+  @diagram_evaluation_transf I C i j u
+  : τ (@Transf (Functor_cat I C) C (@diagram_evaluation_at_func I C i) (@diagram_evaluation_at_func I C j));
+
+// The new component beta cannot be reinterpreted as the unrelated
+// terminal-source constant-family component clause.
+assertnot [I A : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) Cat_cart))
+  [i j : τ (Obj I)] (u : τ (Hom I i j)) ⊢
+  @one_cat_diagram_evaluation_transf I Cat_cart C1 i j u
+  : τ (@Functord (Functor_cat I Cat_cart)
+    (@Const_catd (Functor_cat I Cat_cart) Terminal_cat)
+    (@Const_catd (Functor_cat I Cat_cart) A));
