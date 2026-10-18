@@ -2362,6 +2362,28 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'ordinary-target native walking-arrow observation',
                                 'reason': 'Use actual ordinary evaluation under the existing OneCat guard; retain the input diagram category, native graph, generator value and original value-path proof',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_one_cat_transfor_profiles.lp':
+                addition = fragment('production_one_cat_mapping_comparison.lpfragment')
+                text += '\n' + addition
+                changes.append({'source': path, 'owner': 'ordinary-target whole mapping-profile comparison',
+                                'reason': 'Internalize existing strict admission under OneCat while retaining actual forward/inverse maps and the original mapping inclusion as a whole view; no classifier equality',
+                                'insertedSha256': sha(addition)})
+            if path == 'emdash3_2_functor_reconstruction_paths.lp':
+                addition = fragment('production_functor_inverse_reflection.lpfragment')
+                text += '\n' + addition
+                changes.append({'source': path, 'owner': 'reflection from a whole left-inverse path',
+                                'reason': 'Use the actual inverse functor and its whole path to reflect arrow equality without requiring a new ordinary-category closure premise',
+                                'insertedSha256': sha(addition)})
+            if path == 'emdash3_2_one_cat_diagram_family_reflection.lp':
+                old = text
+                new = fragment('production_one_cat_family_reflection.lpfragment')
+                marker = 'symbol one_cat_diagram_family_map_path'
+                assert new.count(marker) == 1
+                text = new.replace(marker,
+                    fragment('production_one_cat_family_exchange.lpfragment') + '\n' + marker, 1)
+                changes.append({'source': path, 'owner': 'ordinary-target whole diagram-family reflection',
+                                'reason': 'Reprofile both mapping levels through actual inverse maps, reuse Cartesian exchange and original diagram reflection, then reflect through the derived left inverses; retain raw inputs and whole endpoint premises',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_eq1_hom_action.lp', 'examples/groupoidal_structured_j_eq1.lp'):
                 old = text
                 facade = 'Fibre_cat (@strict_functor C Cat_cat D)'
@@ -2871,6 +2893,18 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'one_cat_evaluation_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         + fragment('production_one_cat_evaluation_controls.lpfragment'))
+    (package / 'one_cat_mapping_controls.lp').write_text(
+        'require open emdash.emdash3_2_one_cat_transfor_profiles;\n'
+        + fragment('production_one_cat_mapping_controls.lpfragment'))
+    (package / 'one_cat_family_exchange.lp').write_text(
+        'require open emdash.emdash3_2_one_cat_transfor_profiles;\n'
+        'require open emdash.emdash3_2_one_cat_functor_closure;\n'
+        'require open emdash.emdash3_2_functor_reconstruction_paths;\n'
+        + fragment('production_one_cat_family_exchange.lpfragment'))
+    (package / 'one_cat_family_exchange_controls.lp').write_text(
+        'require open emdash.one_cat_family_exchange;\n'
+        'require emdash.one_cat_mapping_controls;\n'
+        + fragment('production_one_cat_family_exchange_controls.lpfragment'))
     (package / 'one_cat_evaluation_integration.lp').write_text(
         'require emdash.diagram_with_adjunction_views;\n'
         'require emdash.one_cat_evaluation_controls;\n'
@@ -3289,6 +3323,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'inverse_locality_regression.lp',
                               package / 'diagram_with_adjunction_views.lp',
                               package / 'one_cat_evaluation_controls.lp',
+                              package / 'one_cat_mapping_controls.lp',
+                              package / 'one_cat_family_exchange.lp',
+                              package / 'one_cat_family_exchange_controls.lp',
                               package / 'one_cat_evaluation_integration.lp',
                               package / 'whole_reading_regression_controls.lp',
                               package / 'internal_composite_regression_controls.lp',

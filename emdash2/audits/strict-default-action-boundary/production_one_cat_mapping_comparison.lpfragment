@@ -1,0 +1,76 @@
+// Structural ordinary-target comparison of the two mapping profiles.
+// Under OneCat(C), every ordinary transfor has the existing strict admission.
+// This declares the whole canonical comparison, not an inference of category
+// equality from object coincidence. Keep both DefIso map heads for inversion.
+injective symbol one_cat_mapping_comparison [A C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (@DefIso Cat_cat (Functor_cat A C) (Functor_cart_cat A C));
+
+symbol one_cat_mapping_to_cart_func [A C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (Functor (Functor_cat A C) (Functor_cart_cat A C))
+≔ @defiso_to Cat_cat (Functor_cat A C) (Functor_cart_cat A C)
+    (@one_cat_mapping_comparison A C C1);
+
+symbol one_cat_mapping_from_cart_func [A C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (Functor (Functor_cart_cat A C) (Functor_cat A C))
+≔ @defiso_from Cat_cat (Functor_cat A C) (Functor_cart_cat A C)
+    (@one_cat_mapping_comparison A C C1);
+
+rule @fapp0 _ _ (@defiso_to _ _ _ (@one_cat_mapping_comparison _ _ _)) $F
+  ↪ $F;
+rule @fapp0 _ _ (@defiso_from _ _ _ (@one_cat_mapping_comparison _ _ _)) $F
+  ↪ $F;
+
+// The chosen inverse is the existing inclusion, at the whole-functor level.
+// Keep this as a comparison so generic DefIso cancellation retains its owner.
+unif_rule @defiso_from _ _ _ (@one_cat_mapping_comparison $A $C _)
+  ≡ Functor_cart_include $A $C
+  ↪ [ tt ≡ tt ];
+
+// Read the classified action as the existing derived admission. Expanding
+// its evidence in runtime rules makes critical-pair normalization enormous;
+// the selected action stays stable and its ordinary view retains epsilon.
+unif_rule @fapp1_fapp0 _ _
+    (@defiso_to _ _ _ (@one_cat_mapping_comparison $A $C _)) $F $G $epsilon
+  ≡ @make_strict_transfor $A $C $F $G $epsilon1 _
+  ↪ [ $epsilon ≡ $epsilon1 ];
+rule @fapp1_fapp0 _ _
+    (@defiso_from _ _ _ (@one_cat_mapping_comparison $A $C _)) $F $G $U
+  ↪ @strict_transfor $A $C $F $G $U;
+
+rule @strict_transfor_underlying _ _ _ _
+    (@fapp1_fapp0 _ _
+      (@defiso_to _ _ _ (@one_cat_mapping_comparison _ _ _)) _ _ $epsilon)
+  ↪ $epsilon;
+
+// Direct whole ordinary reading after classified action has projected.
+// As for make_strict_transfor, keep the strict view available at runtime.
+unif_rule @strict_transfor _ _ _ _
+    (@fapp1_fapp0 _ _
+      (@defiso_to _ _ _ (@one_cat_mapping_comparison _ _ _)) _ _ $epsilon)
+  ≡ $theta
+  ↪ [ $theta ≡ $epsilon ];
+
+// First-Hom projection of the two actual inverse laws. Expanding the
+// composite's Hom action first otherwise loses the literal DefIso cut.
+// Keep these whole comparisons scoped to this canonical comparison and
+// retain both endpoint functors; no arbitrary admission/retraction law.
+// lhs-audit: keep 1 -- composition of the two first-Hom functors is in Cat_cat.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@fapp1_func _ _
+      (@defiso_from _ _ _ (@one_cat_mapping_comparison $A $C $C1)) $F $G)
+    (@fapp1_func _ _
+      (@defiso_to _ _ _ (@one_cat_mapping_comparison $A $C $C1)) $F $G)
+  ≡ @id Cat_cat $H
+  ↪ [ $H ≡ @Transf_cat $A $C $F $G ];
+
+// lhs-audit: keep 1 -- the other inverse order has the Cartesian Hom target.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@fapp1_func _ _
+      (@defiso_to _ _ _ (@one_cat_mapping_comparison $A $C $C1)) $F $G)
+    (@fapp1_func _ _
+      (@defiso_from _ _ _ (@one_cat_mapping_comparison $A $C $C1)) $F $G)
+  ≡ @id Cat_cat $H
+  ↪ [ $H ≡ Hom_cat (Functor_cart_cat $A $C) $F $G ];

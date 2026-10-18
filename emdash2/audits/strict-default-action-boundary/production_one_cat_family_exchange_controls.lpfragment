@@ -1,0 +1,21 @@
+// The derived exchange preserves the original double object observation.
+assert [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F : τ (Functor B (Functor_cat I C))) (b : τ (Obj B)) (i : τ (Obj I)) ⊢
+  fapp0 (@one_cat_family_exchange_at_func B I C C1 F i) b
+  ≡ fapp0 (fapp0 F b) i;
+
+// The actual input transformation remains observable through the derived
+// component path; the two sequential admissions are not a runtime erasure.
+assert [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_cat I C))]
+  (h : τ (@Transf B (Functor_cat I C) F G)) (b : τ (Obj B)) (i : τ (Obj I)) ⊢
+  @one_cat_family_exchange_component_path B I C C1 F G h b i
+  : τ (@= (Hom C (fapp0 (fapp0 F b) i) (fapp0 (fapp0 G b) i))
+    (@tapp0_fapp0 B C _ _ b (@one_cat_family_exchange_map_at B I C C1 F G h i))
+    (@tapp0_fapp0 I C (fapp0 F b) (fapp0 G b) i
+      (@tapp0_fapp0 B (Functor_cat I C) F G b h)));
+
+assertnot [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F : τ (Functor B (Functor_cat I C))) (b : τ (Obj B)) (i j : τ (Obj I)) ⊢
+  fapp0 (@one_cat_family_exchange_at_func B I C C1 F i) b
+  ≡ fapp0 (fapp0 F b) j;

@@ -1,0 +1,153 @@
+// Convert both mapping levels. The outer comparison admits maps into the
+// ordinary mapping category; Cartesian postcomposition changes its codomain.
+symbol one_cat_family_to_cart_func [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (Functor (Functor_cat B (Functor_cat I C))
+    (Functor_cart_cat B (Functor_cart_cat I C)))
+≔ @comp_cat_fapp0 (Functor_cat B (Functor_cat I C))
+    (Functor_cart_cat B (Functor_cat I C))
+    (Functor_cart_cat B (Functor_cart_cat I C))
+    (@comp_cat_cov_cart_func B (Functor_cat I C) (Functor_cart_cat I C)
+      (@one_cat_mapping_to_cart_func I C C1))
+    (@one_cat_mapping_to_cart_func B (Functor_cat I C)
+      (@one_cat_functor_category I C C1));
+
+symbol one_cat_family_from_cart_func [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (Functor (Functor_cart_cat B (Functor_cart_cat I C))
+    (Functor_cat B (Functor_cat I C)))
+≔ @comp_cat_fapp0 (Functor_cart_cat B (Functor_cart_cat I C))
+    (Functor_cart_cat B (Functor_cat I C))
+    (Functor_cat B (Functor_cat I C))
+    (@one_cat_mapping_from_cart_func B (Functor_cat I C)
+      (@one_cat_functor_category I C C1))
+    (@comp_cat_cov_cart_func B (Functor_cart_cat I C) (Functor_cat I C)
+      (@one_cat_mapping_from_cart_func I C C1));
+
+// The actual composite maps, with their original selected inverse factors.
+symbol one_cat_family_from_to_path [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (@= (Functor (Functor_cat B (Functor_cat I C)) (Functor_cat B (Functor_cat I C)))
+    (@comp_cat_fapp0 _ _ _ (@one_cat_family_from_cart_func B I C C1)
+      (@one_cat_family_to_cart_func B I C C1))
+    (@id_func (Functor_cat B (Functor_cat I C))))
+≔ let A0 : Cat ≔ Functor_cat B (Functor_cat I C) in
+  let A1 : Cat ≔ Functor_cart_cat B (Functor_cat I C) in
+  let A2 : Cat ≔ Functor_cart_cat B (Functor_cart_cat I C) in
+  let a : τ (Functor A0 A1) ≔ @one_cat_mapping_to_cart_func B (Functor_cat I C) (@one_cat_functor_category I C C1) in
+  let b : τ (Functor A1 A2) ≔ @comp_cat_cov_cart_func B (Functor_cat I C) (Functor_cart_cat I C) (@one_cat_mapping_to_cart_func I C C1) in
+  let c : τ (Functor A2 A1) ≔ @comp_cat_cov_cart_func B (Functor_cart_cat I C) (Functor_cat I C) (@one_cat_mapping_from_cart_func I C C1) in
+  let d : τ (Functor A1 A0) ≔ @one_cat_mapping_from_cart_func B (Functor_cat I C) (@one_cat_functor_category I C C1) in
+  @eq_trans (Functor A0 A0)
+    (@comp_cat_fapp0 A0 A2 A0 (@comp_cat_fapp0 A2 A1 A0 d c) (@comp_cat_fapp0 A0 A1 A2 b a))
+    (@comp_cat_fapp0 A0 A1 A0 (@comp_cat_fapp0 A1 A2 A0 (@comp_cat_fapp0 A2 A1 A0 d c) b) a)
+    (@id_func A0)
+    (@comp_assoc Cat_cat A0 A1 A2 A0 (@comp_cat_fapp0 A2 A1 A0 d c) b a)
+    (@eq_ap (Functor A1 A0) (Functor A0 A0)
+      (λ z : τ (Functor A1 A0), @comp_cat_fapp0 A0 A1 A0 z a)
+      (@comp_cat_fapp0 A1 A2 A0 (@comp_cat_fapp0 A2 A1 A0 d c) b)
+      (@comp_cat_fapp0 A1 A1 A0 d (@comp_cat_fapp0 A1 A2 A1 c b))
+      (@eq_sym (Functor A1 A0) _ _ (@comp_assoc Cat_cat A1 A2 A1 A0 d c b)));
+
+symbol one_cat_family_to_from_path [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (@= (Functor (Functor_cart_cat B (Functor_cart_cat I C)) (Functor_cart_cat B (Functor_cart_cat I C)))
+    (@comp_cat_fapp0 _ _ _ (@one_cat_family_to_cart_func B I C C1)
+      (@one_cat_family_from_cart_func B I C C1))
+    (@id_func (Functor_cart_cat B (Functor_cart_cat I C))))
+≔ let A0 : Cat ≔ Functor_cat B (Functor_cat I C) in
+  let A1 : Cat ≔ Functor_cart_cat B (Functor_cat I C) in
+  let A2 : Cat ≔ Functor_cart_cat B (Functor_cart_cat I C) in
+  let a : τ (Functor A0 A1) ≔ @one_cat_mapping_to_cart_func B (Functor_cat I C) (@one_cat_functor_category I C C1) in
+  let b : τ (Functor A1 A2) ≔ @comp_cat_cov_cart_func B (Functor_cat I C) (Functor_cart_cat I C) (@one_cat_mapping_to_cart_func I C C1) in
+  let c : τ (Functor A2 A1) ≔ @comp_cat_cov_cart_func B (Functor_cart_cat I C) (Functor_cat I C) (@one_cat_mapping_from_cart_func I C C1) in
+  let d : τ (Functor A1 A0) ≔ @one_cat_mapping_from_cart_func B (Functor_cat I C) (@one_cat_functor_category I C C1) in
+  @eq_trans (Functor A2 A2)
+    (@comp_cat_fapp0 A2 A0 A2 (@comp_cat_fapp0 A0 A1 A2 b a) (@comp_cat_fapp0 A2 A1 A0 d c))
+    (@comp_cat_fapp0 A2 A1 A2 (@comp_cat_fapp0 A1 A0 A2 (@comp_cat_fapp0 A0 A1 A2 b a) d) c)
+    (@id_func A2)
+    (@comp_assoc Cat_cat A2 A1 A0 A2 (@comp_cat_fapp0 A0 A1 A2 b a) d c)
+    (@eq_ap (Functor A1 A2) (Functor A2 A2)
+      (λ z : τ (Functor A1 A2), @comp_cat_fapp0 A2 A1 A2 z c)
+      (@comp_cat_fapp0 A1 A0 A2 (@comp_cat_fapp0 A0 A1 A2 b a) d)
+      (@comp_cat_fapp0 A1 A1 A2 b (@comp_cat_fapp0 A1 A0 A1 a d))
+      (@eq_sym (Functor A1 A2) _ _ (@comp_assoc Cat_cat A1 A0 A1 A2 b a d)));
+
+// Ordinary exchange is the existing Cartesian exchange between those actual
+// presentations. No second exchange primitive or pointwise map assembly.
+symbol one_cat_family_exchange_func [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (Functor (Functor_cat B (Functor_cat I C))
+    (Functor_cat I (Functor_cat B C)))
+≔ @comp_cat_fapp0 (Functor_cat B (Functor_cat I C))
+    (Functor_cart_cat I (Functor_cart_cat B C))
+    (Functor_cat I (Functor_cat B C))
+    (@one_cat_family_from_cart_func I B C C1)
+    (@comp_cat_fapp0 (Functor_cat B (Functor_cat I C))
+      (Functor_cart_cat B (Functor_cart_cat I C))
+      (Functor_cart_cat I (Functor_cart_cat B C))
+      (@sym_func_func B I C) (@one_cat_family_to_cart_func B I C C1));
+
+// Readable rungs of that actual whole functor.
+symbol one_cat_family_exchange [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F : τ (Functor B (Functor_cat I C)))
+  : τ (Functor I (Functor_cat B C))
+≔ fapp0 (@one_cat_family_exchange_func B I C C1) F;
+
+symbol one_cat_family_exchange_map [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_cat I C))]
+  (h : τ (@Transf B (Functor_cat I C) F G))
+  : τ (@Transf I (Functor_cat B C)
+    (@one_cat_family_exchange B I C C1 F) (@one_cat_family_exchange B I C C1 G))
+≔ @fapp1_fapp0 _ _ (@one_cat_family_exchange_func B I C C1) F G h;
+
+symbol one_cat_family_exchange_at_func [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F : τ (Functor B (Functor_cat I C))) (i : τ (Obj I))
+  : τ (Functor B C)
+≔ fapp0 (@one_cat_family_exchange B I C C1 F) i;
+
+symbol one_cat_family_exchange_map_at [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_cat I C))]
+  (h : τ (@Transf B (Functor_cat I C) F G)) (i : τ (Obj I))
+  : τ (@Transf B C (@one_cat_family_exchange_at_func B I C C1 F i)
+    (@one_cat_family_exchange_at_func B I C C1 G i))
+≔ @tapp0_fapp0 I (Functor_cat B C)
+    (@one_cat_family_exchange B I C C1 F) (@one_cat_family_exchange B I C C1 G) i
+    (@one_cat_family_exchange_map B I C C1 F G h);
+
+// Ordinary observation of the two actual admissions. Compare them in order
+// and apply existing component evaluation; do not expand strictness evidence
+// or erase the strict-action view in runtime. This is a derived path, not a
+// new operational argument or a pointwise definition of the whole exchange.
+symbol one_cat_family_exchange_component_path [B I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_cat I C))]
+  (h : τ (@Transf B (Functor_cat I C) F G)) (b : τ (Obj B)) (i : τ (Obj I))
+  : τ (@= (Hom C (fapp0 (fapp0 F b) i) (fapp0 (fapp0 G b) i))
+    (@tapp0_fapp0 B C _ _ b (@one_cat_family_exchange_map_at B I C C1 F G h i))
+    (@tapp0_fapp0 I C (fapp0 F b) (fapp0 G b) i
+      (@tapp0_fapp0 B (Functor_cat I C) F G b h)))
+≔ let M : Cat ≔ Functor_cat I C in
+  let h_adm : τ (@Transf B M F G) ≔ @strict_transfor B M F G
+    (@fapp1_fapp0 _ _ (@one_cat_mapping_to_cart_func B M
+      (@one_cat_functor_category I C C1)) F G h) in
+  let outer : τ (@= (@Transf B M F G) h_adm h) ≔ @eq_refl (@Transf B M F G) h_adm in
+  let Fb : τ (Functor I C) ≔ fapp0 F b in
+  let Gb : τ (Functor I C) ≔ fapp0 G b in
+  let hb_adm : τ (@Transf I C Fb Gb) ≔ @tapp0_fapp0 B M F G b h_adm in
+  let hb : τ (@Transf I C Fb Gb) ≔ @tapp0_fapp0 B M F G b h in
+  let inner_view : τ (@Transf I C Fb Gb) ≔ @strict_transfor I C Fb Gb
+    (@fapp1_fapp0 _ _ (@one_cat_mapping_to_cart_func I C C1) Fb Gb hb_adm) in
+  let inner : τ (@= (@Transf I C Fb Gb) inner_view hb_adm) ≔
+    @eq_refl (@Transf I C Fb Gb) inner_view in
+  @eq_ap (@Transf I C Fb Gb) (Hom C (fapp0 Fb i) (fapp0 Gb i))
+    (λ eta : τ (@Transf I C Fb Gb), @tapp0_fapp0 I C Fb Gb i eta)
+    inner_view hb
+    (@eq_trans (@Transf I C Fb Gb) inner_view hb_adm hb inner
+      (@eq_ap (@Transf B M F G) (@Transf I C Fb Gb)
+        (λ eta : τ (@Transf B M F G), @tapp0_fapp0 B M F G b eta)
+        h_adm h outer));

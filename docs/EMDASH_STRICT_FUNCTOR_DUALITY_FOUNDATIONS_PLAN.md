@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; guarded ordinary evaluation and native observer checked; central diagnostics now stop at ordinary/Cartesian family reflection; broader migration/promotion remain open
+Status: active implementation; ordinary-target whole family exchange/reflection checked; central diagnostics now stop at arrow-family isomorphisms; broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,39 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Ordinary-target family reflection after `a44fe813`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_family_reflection_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_one_cat_family_reflection_verification.json)
+record a guarded structural whole comparison between ordinary and Cartesian
+mapping categories. Its canonical action uses the existing strict admission
+and inclusion; it does not identify the two classifiers. Both levels of a
+diagram family are changed through actual maps. Their inverse paths and the
+ordinary exchange are derived from existing postcomposition, associativity
+and Cartesian exchange. The original family-reflection proof retains raw
+F,G,h,k and whole endpoint-transformation premises.
+
+The double object observation computes; the component observation is a
+derived path through the two actual admissions, not an asserted runtime
+erasure of strict views. A direct runtime expansion of the full strictness
+certificate was rejected after its critical-pair output reached the 64 MiB
+file guard. The selected stable/proof-time interface returns the focused
+check to about 40s at the existing 300s/4GiB/o=20 profile. No resource cap
+was raised. Core source and its carried regression closure remain unchanged.
+
+The central check now passes whole diagram-family reflection and stops at
+`one_cat_arrow_family_comparison_to` in
+`emdash3_2_one_cat_arrow_family_isomorphisms.lp`. That original consumer
+still uses Cartesian exchange on raw transformations and expects the former
+ordinary target of `transf_arrow_diagram_func`; the migrated general arrow
+family now has an oplax target. Next use the already-present OneCat guard
+to construct the ordinary arrow-family presentation through the qualified
+whole exchange. Preserve both original modification choices and inverse-law
+proofs. Do not equate the ordinary/oplax profiles, weaken whole endpoint
+premises to pointwise ones, or restrict general arrow families globally.
+The central failure is an outstanding positive obligation, not a negative
+control or a completed central gate. Remaining library migration, wrapper
+retirement, production promotion and final gates remain required.
 
 Ordinary-target evaluation after `d3ab4277`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_evaluation_review.md)

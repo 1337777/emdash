@@ -1,0 +1,53 @@
+/* Whole reflection through the actual ordinary-target profile comparison,
+   Cartesian exchange, and the original ordinary diagram reflection. */
+require open emdash.emdash3_2_one_cat_diagram_map_paths;
+require open emdash.emdash3_2_one_cat_adjunction_families;
+require open emdash.emdash3_2_one_cat_transfor_profiles;
+
+symbol one_cat_diagram_family_map_path [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_cat WalkingArrow_cat C))]
+  (h k : τ (@Transf B (Functor_cat WalkingArrow_cat C) F G))
+  (p : τ (@= (@Transf B C
+    (@one_cat_family_exchange_at_func B WalkingArrow_cat C C1 F walking_arrow_src)
+    (@one_cat_family_exchange_at_func B WalkingArrow_cat C C1 G walking_arrow_src))
+    (@one_cat_family_exchange_map_at B WalkingArrow_cat C C1 F G h walking_arrow_src)
+    (@one_cat_family_exchange_map_at B WalkingArrow_cat C C1 F G k walking_arrow_src)))
+  (q : τ (@= (@Transf B C
+    (@one_cat_family_exchange_at_func B WalkingArrow_cat C C1 F walking_arrow_tgt)
+    (@one_cat_family_exchange_at_func B WalkingArrow_cat C C1 G walking_arrow_tgt))
+    (@one_cat_family_exchange_map_at B WalkingArrow_cat C C1 F G h walking_arrow_tgt)
+    (@one_cat_family_exchange_map_at B WalkingArrow_cat C C1 F G k walking_arrow_tgt)))
+  : τ (@= (@Transf B (Functor_cat WalkingArrow_cat C) F G) h k)
+≔ let I : Cat ≔ WalkingArrow_cat in
+  let X : Cat ≔ Functor_cat B (Functor_cat I C) in
+  let Y : Cat ≔ Functor_cart_cat B (Functor_cart_cat I C) in
+  let Z : Cat ≔ Functor_cart_cat I (Functor_cart_cat B C) in
+  let W : Cat ≔ Functor_cat I (Functor_cat B C) in
+  let L : τ (Functor X Y) ≔ @one_cat_family_to_cart_func B I C C1 in
+  let R : τ (Functor Z W) ≔ @one_cat_family_from_cart_func I B C C1 in
+  let LF : τ (Obj Y) ≔ fapp0 L F in
+  let LG : τ (Obj Y) ≔ fapp0 L G in
+  let SF : τ (Obj Z) ≔ @sym_func B I C LF in
+  let SG : τ (Obj Z) ≔ @sym_func B I C LG in
+  let Lh : τ (Hom Y LF LG) ≔ @fapp1_fapp0 X Y L F G h in
+  let Lk : τ (Hom Y LF LG) ≔ @fapp1_fapp0 X Y L F G k in
+  let Sh : τ (Hom Z SF SG) ≔ @sym_func_func_transf B I C LF LG Lh in
+  let Sk : τ (Hom Z SF SG) ≔ @sym_func_func_transf B I C LF LG Lk in
+  let observed : τ (@= (Hom W (fapp0 R SF) (fapp0 R SG))
+      (@fapp1_fapp0 Z W R SF SG Sh) (@fapp1_fapp0 Z W R SF SG Sk)) ≔
+    @one_cat_diagram_map_path (Functor_cat B C) (@one_cat_functor_category B C C1)
+      (@one_cat_family_exchange B I C C1 F) (@one_cat_family_exchange B I C C1 G)
+      (@one_cat_family_exchange_map B I C C1 F G h)
+      (@one_cat_family_exchange_map B I C C1 F G k) p q in
+  let exchanged : τ (@= (Hom Z SF SG) Sh Sk) ≔
+    @functor_left_inverse_reflect_path Z W R
+      (@one_cat_family_to_cart_func I B C C1)
+      (@one_cat_family_to_from_path I B C C1) SF SG Sh Sk observed in
+  let admitted_path : τ (@= (Hom Y LF LG) Lh Lk) ≔
+    @eq_ap (Hom Z SF SG) (Hom Y LF LG)
+      (λ alpha : τ (Hom Z SF SG), @sym_func_func_transf I B C SF SG alpha)
+      Sh Sk exchanged in
+  @functor_left_inverse_reflect_path X Y L
+    (@one_cat_family_from_cart_func B I C C1)
+    (@one_cat_family_from_to_path B I C C1) F G h k admitted_path;
