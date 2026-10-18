@@ -7,6 +7,14 @@ core and profile source hashes and inserts at unique original owner anchors.
 
 ## Current continuation, 2026-10-18 UTC
 
+The [inverse admission review](production_inverse_admission_review.md) and
+[verification](production_inverse_admission_verification.json) record full
+native strictness and admission of both original inverse maps. The proofs
+retain their actual extracted cells and chosen underlying maps. Whole and
+component extraction agree at proof time; arbitrary modifications and distinct
+Core paths remain observable. Cartesian whole cancellation and the original
+locality consumer remain open, followed by broader migration and promotion.
+
 The [inverse cancellation review](production_inverse_cancellation_review.md)
 and [verification](production_inverse_cancellation_verification.json) record
 derived strictness of the inherited inverse composites and reflection of

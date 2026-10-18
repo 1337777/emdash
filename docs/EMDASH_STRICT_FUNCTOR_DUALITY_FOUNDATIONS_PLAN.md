@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; native inverse cancellation/reflection prerequisites checked; locality whole extracted-cell comparison/Cartesian admission and broader migration/promotion remain open
+Status: active implementation; both retained inverse maps admitted from their actual extracted-cell strictness; Cartesian whole cancellation, locality and broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,34 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Native inverse admission after `578a17bc`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_inverse_admission_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_inverse_admission_verification.json)
+record derived full native strictness of the original left inverse, including
+its actual extracted-cell agreement. Inverse uniqueness and the original
+whole laws transfer that property to the original right inverse. Both are
+admitted through the existing strict-transfor constructor, and their
+underlying observations recover the respective original maps. No new inverse
+or assembly assumption, runtime rule, or operational proof payload is added.
+
+Three proof-time comparisons cover the canonical represented extraction,
+Core-image congruence with the actual path retained, and the capped mapped
+Hom square. The existing arbitrary-action projection now recovers component
+annotations from its actual whole modification, following the already-checked
+native composite projection. Component-first computation, proof-time whole
+extraction agreement, and both arbitrary-modification rejection controls pass.
+The combined admission check takes about 34s at 300s/4GiB/o=20; the core
+regression passes 276 positive/79 negative assertions in about 26s at
+240s/2GiB/o=20. The verification owns exact current inputs and warnings.
+
+Next derive the cancellation paths in the actual Cartesian mapping category
+for these classified inverse maps, then integrate the original locality
+consumer. Raw ordinary cancellation paths are not automatically Cartesian
+ones; inverse-arrow admission alone is not a whole OmegaEquivAlong there.
+The original pointwise assembly assumptions retain their supplied status.
+Further library migration, wrapper retirement, production promotion and final
+gates remain required. The Homd design and lax public Functord remain unchanged.
 
 Native inverse-cancellation continuation after `f18c2ecd`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_inverse_cancellation_review.md)

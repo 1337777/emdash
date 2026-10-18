@@ -1,0 +1,157 @@
+// Cancel the actual represented equivalence in the whole extracted cell.
+// The only premise is strictness of the existing composite, already obtained
+// from its original whole cancellation law at the inverse consumer.
+symbol represented_precomp_reflect_strictness
+  [K B : Cat] (H : τ (Functor K B))
+  [P Q : τ (Obj B)] (e : τ (Hom B P Q))
+  (equiv : τ (@OmegaEquivAlong B P Q e))
+  (E : τ (Catd K)) (L : τ (@Functord K E (@hom_ B K H Q)))
+  (strict : τ (@IsStrictFunctord K E (@hom_ B K H P)
+    (@comp_catd_fapp0 K E (@hom_ B K H Q) (@hom_ B K H P)
+      (@strict_transfor K Cat_cart _ _ (@hom_int_precomp_func B K H Q P e)) L)))
+  : τ (@IsStrictFunctord K E (@hom_ B K H Q) L)
+≔ λ x : τ (Obj K), λ y : τ (Obj K), λ p : τ (Hom K x y),
+  let M : τ (Catd K) ≔ @hom_ B K H Q in
+  let D : τ (Catd K) ≔ @hom_ B K H P in
+  let S : Cat ≔ @Fibre_cat K E x in
+  let Mx : Cat ≔ @Fibre_cat K M x in
+  let My : Cat ≔ @Fibre_cat K M y in
+  let Ey : Cat ≔ @Fibre_cat K E y in
+  let Dy : Cat ≔ @Fibre_cat K D y in
+  let Hy : τ (Functor My Dy) ≔
+    @hom_precomp_along_func B B (@id_func B) (@fapp0 K B H y) P Q e in
+  let sourceL : τ (Functor S My) ≔
+    @hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) S Mx My
+      (@catd_transport_func K M x y p) (@Fibre_func K E M L x) in
+  let targetL : τ (Functor S My) ≔
+    @hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) S Ey My
+      (@Fibre_func K E M L y) (@catd_transport_func K E x y p) in
+  let C : τ (@Functord K E D) ≔ @comp_catd_fapp0 K E M D
+    (@strict_transfor K Cat_cart M D (@hom_int_precomp_func B K H Q P e)) L in
+  let sourceC : τ (Functor S Dy) ≔ @comp_cat_fapp0 S Mx Dy
+    (@Hom_func B Q P (@fapp0 K B H x) (@fapp0 K B H y) e (@fapp1_fapp0 K B H x y p))
+    (@Fibre_func K E M L x) in
+  let targetC : τ (Functor S Dy) ≔
+    @hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) S My Dy Hy targetL in
+  let post : τ (Functor (Functor_cat S My) (Functor_cat S Dy)) ≔
+    @hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) S My Dy Hy in
+  let image : τ (@Transf S Dy sourceC targetC) ≔
+    @fapp1_fapp0 (Functor_cat S My) (Functor_cat S Dy) post sourceL targetL
+      (@functord_laxity_transf K E M L x y p) in
+  let image_strict : τ (@IsStrictCell (Functor_cat S Dy) sourceC targetC image) ≔
+    @ind_eq (@Transf S Dy sourceC targetC)
+      image (@functord_laxity_transf K E D C x y p)
+      (@eq_sym (@Transf S Dy sourceC targetC)
+        (@functord_laxity_transf K E D C x y p) image
+        (@represented_precomp_laxity_path K B H P Q e E L x y p))
+      (λ cell : τ (@Transf S Dy sourceC targetC),
+        @IsStrictCell (Functor_cat S Dy) sourceC targetC cell)
+      (strict x y p) in
+  @strict_cell_reflect_equivalence
+    (Functor_cat S My) (Functor_cat S Dy)
+    post
+    (@fixed_postcomp_equivalence S My Dy Hy
+      (@represented_precomp_equivalence B P Q e equiv (@fapp0 K B H y)))
+    sourceL targetL (@functord_laxity_transf K E M L x y p)
+    image_strict;
+
+// Apply reflection to the inherited inverse. No new inverse is selected and
+// the component evidence is exactly u[X], with its original two choices.
+symbol strict_inverse_is_post_strict
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G
+    (@strict_transfor A B F G eta)))
+  : τ (@IsPostStrictTransfor A B G F
+    (@strict_transf_pointwise_left_inverse A B F G
+      (@strict_transfor A B F G eta) u))
+≔ λ X : τ (Obj A),
+  @represented_precomp_reflect_strictness A B F
+    (@fapp0 A B F X) (@fapp0 A B G X)
+    (@tapp0_fapp0 A B F G X (@strict_transfor A B F G eta))
+    (u X) (@hom_ A A (@id_func A) X)
+    (@tapp1_at_transf A B G F X
+      (@strict_transf_pointwise_left_inverse A B F G
+        (@strict_transfor A B F G eta) u))
+    (@inverse_represented_composite_is_strict A B F G eta u X);
+
+// The selected conventional default already makes the pre/right leg strict.
+symbol conventional_transfor_is_pre_strict
+  [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (@Transf A B F G))
+  : τ (@IsPreStrictTransfor A B F G epsilon)
+≔ λ Y : τ (Obj A), λ W : τ (Obj A), λ X : τ (Obj A),
+  λ h : τ (Hom A W X),
+  Struct_sigma
+    (@eq_refl
+      (Functor (Hom_cat A X Y) (Hom_cat B (@fapp0 A B F W) (@fapp0 A B G Y)))
+      (@strict_transfor_pre_naturality_lhs_func A B F G epsilon Y W X h))
+    (@eq_refl
+      (@Transf (Hom_cat A X Y) (Hom_cat B (@fapp0 A B F W) (@fapp0 A B G Y))
+        (@strict_transfor_pre_naturality_lhs_func A B F G epsilon Y W X h)
+        (@strict_transfor_pre_naturality_rhs_func A B F G epsilon Y W X h))
+      (@strict_transfor_pre_naturality_transf A B F G epsilon Y W X h));
+
+symbol strict_inverse_is_strict
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G
+    (@strict_transfor A B F G eta)))
+  : τ (@IsStrictTransfor A B G F
+    (@strict_transf_pointwise_left_inverse A B F G
+      (@strict_transfor A B F G eta) u))
+≔ @strict_transfor_strictness_intro A B G F
+    (@strict_transf_pointwise_left_inverse A B F G (@strict_transfor A B F G eta) u)
+    (@strict_inverse_is_post_strict A B F G eta u)
+    (@conventional_transfor_is_pre_strict A B G F
+      (@strict_transf_pointwise_left_inverse A B F G (@strict_transfor A B F G eta) u));
+
+// The existing inverse-uniqueness theorem compares the two original whole
+// choices. Transporting the proved property retains the chosen right inverse.
+symbol strict_right_inverse_is_strict
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G
+    (@strict_transfor A B F G eta)))
+  : τ (@IsStrictTransfor A B G F
+    (@strict_transf_pointwise_right_inverse A B F G
+      (@strict_transfor A B F G eta) u))
+≔ let forward : τ (@Transf A B F G) ≔ @strict_transfor A B F G eta in
+  let linv : τ (@Transf A B G F) ≔ @strict_transf_pointwise_left_inverse A B F G forward u in
+  let rinv : τ (@Transf A B G F) ≔ @strict_transf_pointwise_right_inverse A B F G forward u in
+  @ind_eq (@Transf A B G F) rinv linv
+    (@eq_sym (@Transf A B G F) linv rinv
+      (@omega_equiv_candidate_left_to_right (Functor_cat A B) F G forward linv rinv
+        (@strict_transf_pointwise_left_law A B F G forward u)
+        (@strict_transf_pointwise_right_law A B F G forward u)))
+    (λ inverse : τ (@Transf A B G F), @IsStrictTransfor A B G F inverse)
+    (@strict_inverse_is_strict A B F G eta u);
+
+// Classified views of the same maps, through the existing admission owner.
+symbol pointwise_cart_left_inverse
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G (@strict_transfor A B F G eta)))
+  : τ (@StrictTransfor A B G F)
+≔ @make_strict_transfor A B G F
+    (@strict_transf_pointwise_left_inverse A B F G (@strict_transfor A B F G eta) u)
+    (@strict_inverse_is_strict A B F G eta u);
+
+symbol pointwise_cart_right_inverse
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G (@strict_transfor A B F G eta)))
+  : τ (@StrictTransfor A B G F)
+≔ @make_strict_transfor A B G F
+    (@strict_transf_pointwise_right_inverse A B F G (@strict_transfor A B F G eta) u)
+    (@strict_right_inverse_is_strict A B F G eta u);
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G (@strict_transfor A B F G eta))) ⊢
+  @strict_transfor_underlying A B G F (@pointwise_cart_left_inverse A B F G eta u)
+  ≡ @strict_transf_pointwise_left_inverse A B F G (@strict_transfor A B F G eta) u;
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G (@strict_transfor A B F G eta))) ⊢
+  @strict_transfor_underlying A B G F (@pointwise_cart_right_inverse A B F G eta u)
+  ≡ @strict_transf_pointwise_right_inverse A B F G (@strict_transfor A B F G eta) u;

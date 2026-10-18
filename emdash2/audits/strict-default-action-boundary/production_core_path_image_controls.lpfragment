@@ -1,0 +1,10 @@
+// Core-image congruence retains the actual path.
+assertnot [C : Cat] [x y : τ (Obj C)] (p q : τ (@= (Obj C) x y)) ⊢
+  @eq_refl (Hom C x y) (@path_to_hom C x y p)
+  : τ (@= (Hom C x y) (@path_to_hom C x y p) (@path_to_hom C x y q));
+
+// An arbitrary arrow is not identified with a path image.
+assertnot [C : Cat] [x y : τ (Obj C)] (p : τ (@= (Obj C) x y))
+  (a : τ (Hom C x y)) ⊢
+  @eq_refl (Hom C x y) (@path_to_hom C x y p)
+  : τ (@= (Hom C x y) (@path_to_hom C x y p) a);

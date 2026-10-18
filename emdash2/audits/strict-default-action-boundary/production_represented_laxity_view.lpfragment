@@ -1,0 +1,33 @@
+// Whole extraction after the canonical represented strict factor. This is
+// the whole computation of the existing intrinsic-composition body; its
+// components are already the corresponding mapped intrinsic cells.
+// Match the fixed-slot composition Hom action after ordinary whiskering has
+// projected. Both modification arguments must be the actual intrinsic ones.
+// This proof-time join does not compute an arbitrary supplied modification.
+// lhs-audit: keep 1 -- Catd_cat and Cat_cat distinguish the actual displayed composition and ordinary fixed-slot Hom action.
+unif_rule @fdapp1_comma_projection_transf $K $E $D
+    (@comp_fapp0 (Catd_cat $K) _ _ _
+      (@strict_transfor $K Cat_cart _ _
+        (@hom_int_precomp_func $B $K $H $Q $P $e)) $L)
+    $eta $x $y $p
+  ≡ @comp_prod_fapp1_fapp0 Cat_cat $S $My $Dy
+      (@Struct_sigma _ _ $s $hy)
+      (@Struct_sigma _ _ $t $hy1)
+      (@Struct_sigma _ _
+        (@fdapp1_comma_projection_transf $K $E $M $L $omega $x $y $p)
+        (@id (Functor_cat $My $Dy) $hy2))
+  ↪ [ $D ≡ @hom_ $B $K $H $P;
+      $M ≡ @hom_ $B $K $H $Q;
+      $S ≡ @Fibre_cat $K $E $x;
+      $My ≡ @Fibre_cat $K $M $y;
+      $Dy ≡ @Fibre_cat $K $D $y;
+      $s ≡ @functord_transport_lhs_func $K $E $M $L $x $y $p;
+      $t ≡ @functord_transport_rhs_func $K $E $M $L $x $y $p;
+      $hy ≡ @hom_precomp_along_func $B $B (@id Cat_cat $B)
+        (@fapp0 $K $B $H $y) $P $Q $e;
+      $hy1 ≡ $hy; $hy2 ≡ $hy;
+      $eta ≡ @fdapp1_int_transfd $K $E $D
+        (@comp_catd_fapp0 $K $E $M $D
+          (@strict_transfor $K Cat_cart $M $D
+            (@hom_int_precomp_func $B $K $H $Q $P $e)) $L);
+      $omega ≡ @fdapp1_int_transfd $K $E $M $L ];

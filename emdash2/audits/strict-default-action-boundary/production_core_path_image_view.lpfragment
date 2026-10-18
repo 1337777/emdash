@@ -1,0 +1,6 @@
+// Congruence of the existing Core inclusion at proof-time-equal endpoint
+// presentations. All endpoints and the actual path remain constrained; this
+// does not reflect arbitrary arrows or identify different native paths.
+unif_rule @fapp1_fapp0 _ _ (@Core_incl_func $C) $x $y $p
+  ≡ @fapp1_fapp0 _ _ (@Core_incl_func $C) $x1 $y1 $p1
+  ↪ [ $x ≡ $x1; $y ≡ $y1; $p ≡ $p1 ];

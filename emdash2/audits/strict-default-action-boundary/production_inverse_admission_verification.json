@@ -1,0 +1,197 @@
+{
+  "status": "Both original inverse maps have derived native strictness and classified admission; Cartesian whole cancellation and locality remain open",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "extendsCheckpoint": "578a17bc",
+  "authoringInputs": {
+    "production_owner_migration.py": "35c5fc1da4727bdd6d5117079b9f0ac8749685c11def497ddb9bb3716bf2083e",
+    "production_represented_laxity_view.lpfragment": "181d059ef5a969f18784147c26e4fe41c022632e9c832dcbb1a1044085b70341",
+    "production_core_path_image_view.lpfragment": "f954bbf8e83afd192b217106b6ceb0e356b7ac86c4655c18c8c5c631d3813b93",
+    "production_core_path_image_controls.lpfragment": "f3c1df36bee68423312144d5081922b893c578a126d5a0c8bdfb1c14660ce21f",
+    "production_mapped_hom_square_views.lpfragment": "a35c6af9fdcf087e69725ce6cc0a2f2183279677c58c923604ad65630f7b80d9",
+    "production_comma_projection.lpfragment": "89382dff7a788da8d058217d57426b926156f0931a97fd9f68052a668b1379e9",
+    "production_represented_laxity_controls.lpfragment": "621d621829ad0538a7c5e53170f9c13045671d9b91bebb8574ccd87420c5b4b8",
+    "production_inverse_admission.lpfragment": "980274ebd38ed339a735a713c36dc4923ad0843106acca9c6d9436f801d5e4d3"
+  },
+  "manifestSha256": "ba1df082404aa4a45e8767f430adc2f023cce521b3d82812d098f3e03f574eff",
+  "contracts": {
+    "newUnificationRules": 3,
+    "newRuntimeRules": 0,
+    "newPrimitives": 0,
+    "newInverseAssemblyAssumptions": 0,
+    "changedExistingProjectionDefinitions": 1,
+    "wholeExtraction": "Selected comparison of canonical intrinsic composition with fixed represented postcomposition; both intrinsic modification arguments constrained",
+    "coreImage": "Congruence with endpoints and actual path retained; not arbitrary-arrow reflection",
+    "leftInverseStrictness": "Derived from original whole inverse law and checked reflection, including actual extracted cell agreement",
+    "rightInverseStrictness": "Transport along the derived equality of the original selected left/right inverse maps",
+    "classifiedMaps": "Defined through existing make_strict_transfor; underlying observations compute to the respective original maps",
+    "pointwiseAssembly": "Inherited supplied assumption, not justified anew by these checks",
+    "wholeCartesianCancellation": "Not yet proved for classified composition and identity",
+    "operationalProofPayloadAdded": false,
+    "publicPromotion": false
+  },
+  "checks": {
+    "inverse_admission_regression_controls.lp": {
+      "positive": 276,
+      "negative": 79
+    },
+    "represented_laxity_controls.lp": {
+      "positive": 2,
+      "negative": 3
+    },
+    "inverse_admission.lp": {
+      "positive": 2,
+      "negative": 0
+    },
+    "derivedStrictnessProofs": 5,
+    "definedClassifiedInverseViews": 2,
+    "wholeExtractionPath": "passed through selected scoped comparison",
+    "subjectReduction": true
+  },
+  "receipts": {
+    "coreRegression": {
+      "id": "20261018T024929Z-dc0403274d9a4a2db2384cc85e0fbac3",
+      "target": "inverse_admission_regression_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 26.496548191062175,
+      "childrenMaxRssKiB": 1569796,
+      "inputSnapshot": "6e3217c34f7b85bd74069faef3decffdc1bd6fa2d0c9ecc4241a0326a52dcc0f",
+      "inputs": {
+        "inverse_admission_regression_controls.lp": "bf9721f1ee6b0e2abd9640a11d32467a5200beec2b4f17423adab3c97b0bbfb6",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261018T024929Z-dc0403274d9a4a2db2384cc85e0fbac3.log",
+      "logSha256": "7177029df57759fedcf72517ecc63fba027f9d01b9da734f2b07ebc68a27fbe8",
+      "allInputsMatchCurrentSource": true
+    },
+    "combinedAdmission": {
+      "id": "20261018T025023Z-163552dcae17437f9f528d4e17f400bb",
+      "target": "inverse_admission.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 33.75837973994203,
+      "childrenMaxRssKiB": 2031160,
+      "inputSnapshot": "f15be0abb949154dac8bcc1fcea302fb2bb154b9259135cff878ef8556fd6d44",
+      "inputs": {
+        "emdash3_2.lp": "a9c41bf671ee43c5499b52d3df168c2bcf5404dc941f503964f25b2749d831d9",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_strict_pointwise_equivalences.lp": "a5afbc2bf77ca2f7f7bcd399b5130631f15aa67a2dbb3529ff880e34c9c3806a",
+        "internal_composite_action_controls.lp": "586042f55119b6589147f4486c5c3d0dff19dc80a24d6982882f27c2dbbfee31",
+        "inverse_admission.lp": "b3aa286910c9b611b28df00c362dd3475f88a93b0772d47b253b415007ac9223",
+        "inverse_cell_reflection.lp": "ca071822b1e6fdeba8219ead19f45217a33b2036cc066ed6c88a3ac582c1124e",
+        "inverse_represented_unit.lp": "aaad235b27389d19ee642e511aa019cff228e180bdc79b87c33dc413ea19bd9d",
+        "inverse_unit_profiles.lp": "2de17babc07e7d1e1b846772e6710ff8dd0d24ae3522bb1a24157d380d6a6523",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "represented_laxity_boundary.lp": "ac11be37984dc15233bad92cffd893bd1ba7ad81a30f3588a66709edaf21d91e",
+        "represented_laxity_controls.lp": "6e97d7e2e65f9f2ffb2b32a11727b14b2f4f3ec0d65d415e804afbcafad0ac6d",
+        "whiskering_equivalences.lp": "ce438ded5e35f5d226007f1aed10861add6912c3e7ae14bbccda447c555c8482"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261018T025023Z-163552dcae17437f9f528d4e17f400bb.log",
+      "logSha256": "ae16ec83bbf0b4469e0138a7c73cc099b32cf0c2e3288fc5766eaba694228785",
+      "allInputsMatchCurrentSource": true
+    }
+  },
+  "warningComparisons": {
+    "core": {
+      "baselineReceipt": "20261018T021311Z-d38042c673ba4b8f8057ee49d549f53e",
+      "currentReceipt": "20261018T024929Z-dc0403274d9a4a2db2384cc85e0fbac3",
+      "before": 1995,
+      "after": 1995,
+      "addedBodies": 0,
+      "removedBodies": 0,
+      "meaning": "Warning body multisets; not a confluence certificate"
+    },
+    "combined": {
+      "baselineReceipt": "20261018T021444Z-3b204e6798ad42709530f334a0e450dc",
+      "currentReceipt": "20261018T025023Z-163552dcae17437f9f528d4e17f400bb",
+      "before": 2397,
+      "after": 2397,
+      "addedBodies": 0,
+      "removedBodies": 0,
+      "meaning": "Warning body multisets; not a confluence certificate"
+    }
+  },
+  "lhsAudit": {
+    "candidateClauses": 0,
+    "candidateSlots": 0,
+    "annotatedClauses": 51,
+    "annotatedSlots": 76,
+    "manualReview": "Canonical extraction restricts displayed composition, actual represented factor, both intrinsic arguments and fixed one-slot action. Core image checks both endpoints and path. Capped Hom square retains both arrows and middle value."
+  },
+  "diagnosticReceipts": {
+    "extraction2GiBAllocationFailure": "20261018T022023Z-8055648eaa2b40c7b91749ac23c7f63c",
+    "wholeExtractionFirstPass": "20261018T022133Z-0307850f5a564b9aa6f2d039fe94ed58",
+    "nativePathImageReframingFailure": "20261018T022502Z-ffe1e43cdf2b4a01a3afef32e11059ea",
+    "inlineDidNotResolve": "20261018T023104Z-c721852f04d7416e8fc2510963ce16d7",
+    "firstLeftStrictnessPass": "20261018T023300Z-4a631b88f957452da1a156c7cfd7dcf2",
+    "preProjectionRepairFailure": "20261018T024132Z-a2f2b4c2f6794e50874d77b9c844f863",
+    "postProjectionChecksPassBeforeControlAnnotationRepair": "20261018T024433Z-605a4e3a7e074f5383c15e864f70bc2d"
+  },
+  "resources": {
+    "normalDefaultsUnchanged": true,
+    "serial": true,
+    "fileMiB": 64,
+    "noSwap": true,
+    "compiledObjects": 0,
+    "hostMemAvailableKiBBefore4GiBRun": 16019180,
+    "reason": "A measured 2GiB allocation failure at the profile import led to the existing 300s/4GiB/o=20 profile; core regression remains 2GiB. Deadlines retain host-variability headroom."
+  },
+  "remaining": [
+    "Cartesian cancellation paths for the actual classified inverse composites and identities",
+    "original locality assembly integration",
+    "remaining library migration",
+    "redundant strict-functor-wrapper retirement",
+    "production promotion and final catalogue/health/CI/source-pin qualification"
+  ]
+}

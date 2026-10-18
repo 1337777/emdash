@@ -9,6 +9,16 @@ unif_rule @Hom_func $B $Q $P $Y $Z $e $image
       $Z ≡ @fapp0 $K $B $H $y;
       $image ≡ @fapp1_fapp0 $K $B $H $x $y $p ];
 
+// The same square after object projection has two distinct stable cut heads.
+// Compare them directly instead of asking unification to pass transitively
+// through Hom_fapp0; retain both arrows and the actual middle object.
+unif_rule @hom_precomp_along_fapp0 $B $B (@id Cat_cat $B) $Z $P $Q $e
+    (@hom_postcomp_fapp0 $B $K $H $Q $x $y $p $a)
+  ≡ @hom_postcomp_fapp0 $B $K $H $P $x $y $p
+      (@hom_precomp_along_fapp0 $B $B (@id Cat_cat $B) $Y $P $Q $e $a)
+  ↪ [ $Y ≡ @fapp0 $K $B $H $x;
+      $Z ≡ @fapp0 $K $B $H $y ];
+
 unif_rule @Hom_func $B $Q $P $Y $Z $e $image
   ≡ @comp_fapp0 Cat_cat _ _ _
       (@hom_precomp_along_func $B $B (@id Cat_cat $B) $Z $P $Q $e)

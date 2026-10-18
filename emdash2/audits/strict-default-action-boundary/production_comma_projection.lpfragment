@@ -203,12 +203,11 @@ symbol fdapp1_project_section_arrow
   (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
   : τ (Obj (Hom_cat (@Homd_target_section_cat K E x)
       (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E D FF x u)))
+// Recover the component's two functor endpoints from the actual whole eta,
+// as in fdapp1_int_comp_section. Expanding the alternative target-family
+// presentation here obstructs the root-first composition projection.
 ≔ @tapp0_fapp0 (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K E x))
-    (@Fibre_func K E (@Homd_target_catd K E) (@fdapp1_projection_target K E D FF) x)
-    (@Fibre_func K E (@Homd_target_catd K E) (@fdapp1_projection_source K E) x)
-    u (@strict_transfor _ _ _ _
-      (@tdapp0_fapp0 K E (@Homd_target_catd K E)
-        (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E) x eta));
+    _ _ u (@strict_transfor _ _ _ _ (tdapp0_fapp0 x eta));
 
 symbol fdapp1_project_tgt_arrow
   [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))

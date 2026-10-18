@@ -1414,6 +1414,8 @@ unif_rule @sigma_map_func $K _ _
            'Strict default: retain the existing extracted functor-compositor rule at its migrated comma owner')
     insert('// Whole post/left ordinary laxity.', fragment('conventional_lax_intrinsic.lpfragment'),
            'Retain the conventional pre/right extracted identity at the same migrated owner; post/left laxity remains directed')
+    insert('// Whole post/left ordinary laxity.', fragment('production_represented_laxity_view.lpfragment'),
+           'Whole canonical extraction after represented strict precomposition, constrained to the actual intrinsic modifications and retained fixed-slot Hom action')
     old = 'rule @tapp0_fapp0 $A $B $F $H $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ)'
     replace_once(old, old.replace('$A $B $F $H $Y', '_ _ _ _ $Y', 1),
                  'Ordinary composite component inference slots',
@@ -1438,6 +1440,9 @@ unif_rule @sigma_map_func $K _ _
     insert('// Generic object projection for Cat-valued postcomposition:',
            fragment('production_hom_image_reading.lpfragment'),
            'Proof-time whole reading of postcomposition through its actual mapped arrow, required by the inverse whole-endpoint proof')
+    insert('// Pointwise arrow form of the Core-inclusion/opposite square.',
+           fragment('production_core_path_image_view.lpfragment'),
+           'Native strict-cell certificates retain the same path across proof-time-equal endpoint presentations; constrain every endpoint and the path itself')
     insert('// Whole post/left strict naturality guarded by the evidence-bearing view.',
            fragment('production_transfor_whole_readings.lpfragment'),
            'Whole pre/right presentation of the selected conventional action; compare already-projected components without changing the retained post/left cell')
@@ -2847,9 +2852,19 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'represented_laxity_boundary.lp').write_text(
         'require open emdash.emdash3_2_gray_profiles;\n'
         + fragment('production_represented_laxity_boundary.lpfragment'))
+    (package / 'represented_laxity_controls.lp').write_text(
+        'require open emdash.represented_laxity_boundary;\n'
+        + fragment('production_represented_laxity_controls.lpfragment'))
     (package / 'whiskering_equivalences.lp').write_text(
         'require open emdash.emdash3_2;\n'
         + fragment('production_whiskering_equivalences.lpfragment'))
+    (package / 'inverse_admission.lp').write_text(
+        'require open emdash.inverse_represented_unit;\n'
+        'require open emdash.whiskering_equivalences;\n'
+        'require open emdash.emdash3_2_eq1_evidence_property;\n'
+        'require open emdash.represented_laxity_boundary;\n'
+        'require open emdash.represented_laxity_controls;\n'
+        + fragment('production_inverse_admission.lpfragment'))
     psss_start = '// catalog-area: Cat-valued presheaf facade and restriction'
     psss_end = '/* End of the PSSS-02 higher-sieve diagnostics. */'
     assert original_checks.count(psss_start) == original_checks.count(psss_end) == 1
@@ -3005,6 +3020,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'mapped_hom_regression_controls.lp').write_text(
         (package / 'internal_composite_regression_controls.lp').read_text() + '\n'
         + fragment('production_mapped_hom_square_controls.lpfragment'))
+    (package / 'inverse_admission_regression_controls.lp').write_text(
+        (package / 'mapped_hom_regression_controls.lp').read_text() + '\n'
+        + fragment('production_core_path_image_controls.lpfragment'))
     (package / 'comma_target_guard_controls.lp').write_text(
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
@@ -3152,10 +3170,13 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'internal_composite_action_controls.lp',
                               package / 'inverse_represented_unit.lp',
                               package / 'represented_laxity_boundary.lp',
+                              package / 'represented_laxity_controls.lp',
                               package / 'whiskering_equivalences.lp',
+                              package / 'inverse_admission.lp',
                               package / 'whole_reading_regression_controls.lp',
                               package / 'internal_composite_regression_controls.lp',
                               package / 'mapped_hom_regression_controls.lp',
+                              package / 'inverse_admission_regression_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
