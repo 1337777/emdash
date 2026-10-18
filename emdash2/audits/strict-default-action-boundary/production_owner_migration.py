@@ -2388,13 +2388,15 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 start = text.index(first)
                 end = text.index(last)
                 text = (fragment('production_diagram_evaluation_profile.lpfragment') + '\n'
+                        + fragment('production_odd_cartesian_action.lpfragment') + '\n'
                         + fragment('production_diagram_evaluation_naturality.lpfragment') + '\n'
                         + 'require open emdash.emdash3_2_one_cat_action_paths;\n'
                         + 'require open emdash.emdash3_2_one_cat_functor_closure;\n\n'
                         + text[start:end]
                         + fragment('production_one_cat_evaluation.lpfragment') + '\n'
                         + fragment('production_diagram_evaluation_helpers.lpfragment') + '\n'
-                        + fragment('production_oplax_diagram_evaluation.lpfragment'))
+                        + fragment('production_oplax_diagram_evaluation.lpfragment') + '\n'
+                        + fragment('production_oplax_family_observations.lpfragment'))
                 declaration = r'(?m)^(?:(?:constant|injective|protected|private)\s+)?symbol\s+([A-Za-z0-9_]+)\b'
                 old_names, new_names = re.findall(declaration, old), re.findall(declaration, text)
                 assert len(old_names) == 9
@@ -2450,6 +2452,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                     fragment('production_one_cat_family_exchange.lpfragment') + '\n' + marker, 1)
                 text += '\n' + fragment('production_one_cat_arrow_family_presentation.lpfragment')
                 text += '\n' + fragment('production_one_cat_family_observations.lpfragment')
+                text += '\n' + fragment('production_one_cat_family_oplax_exchange.lpfragment')
                 changes.append({'source': path, 'owner': 'ordinary-target whole diagram-family reflection',
                                 'reason': 'Reprofile both mapping levels through actual inverse maps, reuse Cartesian exchange and original diagram reflection, then reflect through the derived left inverses; retain raw inputs and whole endpoint premises',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
@@ -2555,6 +2558,33 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (@one_cat_arrow_family_comparison_{direction} B C C1 F G h k i)''')
                 changes.append({'source': path, 'owner': 'original arrow-family isomorphism reviewer',
                                 'reason': 'Retain its four endpoint identity and two inverse-choice observations at the guarded ordinary family/exchange presentation',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_one_cat_homology_family_comparison.lp',
+                        'emdash3_2_one_cat_homology_family_comparison_points.lp'):
+                old = text
+                text, diagram_count = re.subn(r'Functor_cat\s+WalkingArrow_cat\s+C',
+                    'Functor_oplax_cat WalkingArrow_cat C', text)
+                assert diagram_count == (165 if path.endswith('_comparison.lp') else 3)
+                text, initial_count = re.subn(r'\(@TerminalObject\s+\(Op_cat C\)\s+t\)',
+                    '(@TerminalObject (TotalOp_cat C) t)', text)
+                assert initial_count == 1
+                text, closure_count = re.subn(r'@one_cat_functor_category\s+WalkingArrow_cat\s+C\s+C1',
+                    '@one_cat_oplax_functor_category WalkingArrow_cat C C1', text)
+                assert closure_count == (5 if path.endswith('_comparison.lp') else 0)
+                for name in ('diagram_family_at_func', 'diagram_family_transf', 'diagram_family_evaluation_func'):
+                    text = text.replace('@' + name, '@diagram_oplax_' + name.removeprefix('diagram_'))
+                if path.endswith('_comparison.lp'):
+                    text, count = re.subn(r'@sym_func_func_transf\s+WalkingArrow_cat\s+B\s+C',
+                        '@one_cat_family_oplax_exchange_map WalkingArrow_cat B C C1', text)
+                    assert count == 2
+                    text = text.replace('@sym_transf_tapp0_transf', '@diagram_oplax_family_map_at')
+                    text = text.replace('@one_cat_diagram_family_evaluation_comp_path',
+                        '@one_cat_oplax_family_evaluation_comp_path')
+                    anchor = 'require open emdash.emdash3_2_one_cat_arrow_diagrams;'
+                    assert text.count(anchor) == 1
+                    text = text.replace(anchor, anchor + '\nrequire open emdash.emdash3_2_one_cat_diagram_family_reflection;')
+                changes.append({'source': path, 'owner': 'ordinary whole native homology comparison profile',
+                                'reason': 'Align the existing whole comparison and point consumers with the native oplax diagram carrier, its OneCat closure and total-dual initial choice; keep the original maps and proof bodies for subsequent qualification',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_homology_adjunction_families.lp':
                 old = text
@@ -3513,6 +3543,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'zero_family_core_controls.lp').write_text(
         (package / 'hygiene_full_controls.lp').read_text() + '\n'
         + fragment('production_precomposition_unit_controls.lpfragment'))
+    (package / 'postcomposition_association_controls.lp').write_text(
+        (package / 'zero_family_core_controls.lp').read_text() + '\n'
+        + fragment('production_nested_postcomposition_controls.lpfragment'))
     (package / 'comma_target_guard_controls.lp').write_text(
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
@@ -3532,6 +3565,19 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.diagram_evaluation_profile_controls;\n'
         + fragment('production_alternating_identity_controls.lpfragment'))
+    (package / 'odd_cartesian_action_controls.lp').write_text(
+        'require open emdash.emdash3_2_diagram_evaluation;\n'
+        'require emdash.alternating_identity_controls;\n'
+        + fragment('production_odd_cartesian_controls.lpfragment'))
+    (package / 'one_cat_oplax_exchange_controls.lp').write_text(
+        'require open emdash.emdash3_2_one_cat_diagram_family_reflection;\n'
+        + fragment('production_one_cat_oplax_exchange_controls.lpfragment'))
+    (package / 'native_exchange_regression_controls.lp').write_text(
+        'require emdash.odd_cartesian_action_controls;\n'
+        'require emdash.one_cat_oplax_exchange_controls;\n'
+        'require emdash.one_cat_mapping_controls;\n'
+        'require emdash.examples.one_cat_diagram_family_reconstruction;\n'
+        'require emdash.examples.one_cat_arrow_family_isomorphisms;\n')
     (package / 'diagram_evaluation_naturality_controls.lp').write_text(
         (package / 'emdash3_2_diagram_evaluation.lp').read_text() + '\n'
         + fragment('production_diagram_evaluation_naturality_controls.lpfragment'))
@@ -3632,6 +3678,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'path_cartesian_controls.lp',
                               package / 'diagram_evaluation_profile_controls.lp',
                               package / 'alternating_identity_controls.lp',
+                              package / 'odd_cartesian_action_controls.lp',
                               package / 'diagram_evaluation_naturality_controls.lp',
                               package / 'arrow_diagram_migration_controls.lp',
                               package / 'zero_arrow_migration_controls.lp',
@@ -3680,6 +3727,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'one_cat_mapping_controls.lp',
                               package / 'one_cat_family_exchange.lp',
                               package / 'one_cat_family_exchange_controls.lp',
+                              package / 'one_cat_oplax_exchange_controls.lp',
+                              package / 'native_exchange_regression_controls.lp',
                               package / 'one_cat_double_exchange_controls.lp',
                               package / 'one_cat_arrow_family_integration.lp',
                               package / 'one_cat_evaluation_integration.lp',
@@ -3689,6 +3738,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'inverse_admission_regression_controls.lp',
                               package / 'hygiene_full_controls.lp',
                               package / 'zero_family_core_controls.lp',
+                              package / 'postcomposition_association_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

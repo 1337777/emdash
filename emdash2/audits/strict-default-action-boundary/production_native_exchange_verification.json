@@ -1,0 +1,535 @@
+{
+  "status": "Whole ordinary-to-oplax exchange and original boundary-map definitions checked; full homology inverse-law comparison remains incomplete",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "extendsCheckpoint": "92d28e75",
+  "authoringInputs": {
+    "production_owner_migration.py": "30f2ace3e16c9c153036e01f1607e09e822cd1a662c9f10ad00f13adc858bcb0",
+    "production_postcomposition_inverse.lpfragment": "fb7d953d7e80b6a9ae48afc046588d5f817d527657d9bdb0650e7a28baef76d4",
+    "production_nested_postcomposition_controls.lpfragment": "df13b6280c8f8e9378d6e12ddc5a9bf4c4ece3572fecd0818b4b32be8fc0021f",
+    "production_odd_cartesian_action.lpfragment": "35b0b65ff2add5bf154f337aa20e3a558fb865eafa7e27a6ee1dd097bf10b42e",
+    "production_odd_cartesian_controls.lpfragment": "9bd1111110f895b42d448592b492635564c4e75122cd782fbaa130c1f38a9a5b",
+    "production_one_cat_mapping_inverse_views.lpfragment": "253311547fb6a3ed4bcb623118aa1c107b19cbac4b8ee73746a3b18190de1231",
+    "production_one_cat_family_oplax_exchange.lpfragment": "e3a4e241a9bf8c949b308b17eb71369b6562aea044a58693482913068a5951d8",
+    "production_one_cat_oplax_exchange_controls.lpfragment": "c99cdfa770e6f194eb23f98e4109e0b609772b1697fe87d75f3bc55da0e4cbc0",
+    "production_oplax_family_observations.lpfragment": "d2ccfbb1929dd540e59752ff4d9fc3319877e0fbb0c0e45aa54111f8ce769025"
+  },
+  "manifestSha256": "12e575bf1a6ba3bbd576a6dc1d743e8d0f7226c86205239c076b71b07617fddb",
+  "contracts": {
+    "newStructuralDeclarations": [
+      "OddDual_cart_func_func",
+      "OddDual_transf"
+    ],
+    "newDefinedSymbols": [
+      "Functor_cart_oplax_include",
+      "one_cat_family_oplax_exchange_func",
+      "one_cat_family_oplax_exchange_map",
+      "diagram_oplax_family_map_at",
+      "one_cat_oplax_family_evaluation_comp_path"
+    ],
+    "newRuntimeRules": 7,
+    "newUnificationRules": 2,
+    "modifiedUnificationRules": 1,
+    "hRemainsGeneralLax": true,
+    "addedHypothesesOnB": false,
+    "operationalProofPayloads": false,
+    "publicPromotion": false
+  },
+  "qualifiedChecks": {
+    "corePositive": 283,
+    "coreNegative": 82,
+    "oddNewPositive": 8,
+    "oddNewNegative": 2,
+    "exchangePositive": 3,
+    "exchangeNegative": 2,
+    "inheritedDiagramControls": true,
+    "existingOrdinaryMappingControls": true,
+    "originalReconstructionReviewer": true,
+    "originalArrowFamilyIsomorphismReviewer": true,
+    "subjectReduction": true
+  },
+  "checks": {
+    "finalRegression": {
+      "id": "20261018T130535Z-8e282a1a039642d28e2d7c618f42d56d",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "childrenMaxRssKiB": 3007968,
+      "inputSnapshot": "5000509ca3fef7afe8fcc19cec07e040ab2384d5816e8326c68a7439acc33593",
+      "inputs": {
+        "alternating_identity_controls.lp": "2941c6f666c86b501ef96874f2423df29cd0dbf76d7dd787811ab6fb10ce2538",
+        "diagram_evaluation_profile_controls.lp": "cce51b3bfb0bc7e65a45f82c1a83f11eef1fe29e1b72a46c3723ab6c8bf34599",
+        "emdash3_2.lp": "4d41e2f38114b1a259bbc3a7f263170b1824c55660e6824ae92ee71cb6bcd286",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_defiso_evaluation_ordinary_paths.lp": "a5bff3389191012d1af4388d2aab01e5566c005cda6f0f5932bd552fb560f560",
+        "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+        "emdash3_2_diagram_evaluation.lp": "1fcf631971c45533926cecd4224bca0acc2bfef395265484c874656b9f2db29f",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_functor_reconstruction_paths.lp": "a1df7f1b1486626892c55fa99819b8df43df5275d49a7329fcaacbac1d277430",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "f61cd22c78c9252c31069395521f4a69559e62d0a50f46874013260bc8e9003a",
+        "emdash3_2_one_cat_arrow_family_isomorphisms.lp": "0071aafce3052ffd3c12aed76865d68d0b597c77f774923589bbc85adee14e43",
+        "emdash3_2_one_cat_diagram_family_reconstruction.lp": "351df44386320b2372ba0c60fe920e682bfd4ed4a454f15d70418856e568cf49",
+        "emdash3_2_one_cat_diagram_family_reflection.lp": "d532fa10a6eb1e9d9e0301691a9b93bdff06cda9ba7cf66440de832b8249611e",
+        "emdash3_2_one_cat_diagram_map_paths.lp": "6d0545de5e04a1ecb477c863f77dce55660ccf4ccd27e79957fe908a3a685f98",
+        "emdash3_2_one_cat_diagram_reconstruction.lp": "c4ee8c91413c7b69f573215c6ee1cf4e8e396c350a8df173d7fe942760c43d6d",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_native_square_paths.lp": "f95e4ec4b2a86378d93b787e01c6934c68854d5adf04f5ea24045926686b0030",
+        "emdash3_2_one_cat_transfor_profiles.lp": "f1d8c51550d24d1eb347bb236be223203dc9142539ab982c9986642207dbb5c3",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_prop_fibre_constructor_paths.lp": "53da73d74f5f72281cd268e06df5da965cbf3dcd3b4689a5284f5eb28e1a7616",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_walking_arrow_native_observation.lp": "17557f65653465a4c3cead2d8e42a925ce35b158dc20ae8ddb662af30af190eb",
+        "examples/diagram_evaluation.lp": "9c13891222804890ad439b2b1dcf4cf9fc9d0154aae13e50441069e3b2bacce4",
+        "examples/one_cat_arrow_family_isomorphisms.lp": "f453151be8ebf2a600addbd32ebfa8b209d9d56cd547b92d3ff6a60abdc9a46b",
+        "examples/one_cat_diagram_family_reconstruction.lp": "493f584994e021c53dd65f390706b67eacc832c154529f05259642143d158427",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "native_exchange_regression_controls.lp": "d37557be8b2d095f744966280ef0c9c028e3939a7f19bceef14e302a99e3c64d",
+        "odd_cartesian_action_controls.lp": "c28bf2e1a4af7f787b79ad5e8582958e2137878cba186ee22dc8474f75dc20bf",
+        "one_cat_mapping_controls.lp": "ccd1eafa5a0f5987e39beb9fbb92d27e727caebac36039a621ee028bb718fd9d",
+        "one_cat_oplax_exchange_controls.lp": "71ef7896bb537a2214ea484d74c79194f4db82d9869c921e6214f629112c4906"
+      },
+      "log": "logs/check-runs/20261018T130535Z-8e282a1a039642d28e2d7c618f42d56d.log",
+      "logSha256": "af60edac07ccc15d616792ac98a692d17e5e293831703d97333f488861821de6",
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "--too-long=0.5",
+        "--no-colors",
+        "native_exchange_regression_controls.lp"
+      ],
+      "wallSeconds": 71.16241310106125,
+      "currentInputMismatches": [],
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "carriedCore": {
+      "id": "20261018T123358Z-636e4215e56144d19ac6463da7340957",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "childrenMaxRssKiB": 1531000,
+      "inputSnapshot": "dd2fe5bbb8f3b7358d1bd135e03e3f48976d095160e9b3aa6d5d3d28a52a1f9d",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "postcomposition_association_controls.lp": "ccf88da11771d3ca75758df6066e94b393f05b11454b197313ecc99d29ef30c7"
+      },
+      "log": "logs/check-runs/20261018T123358Z-636e4215e56144d19ac6463da7340957.log",
+      "logSha256": "2ef55a61f32a6968a4f4c4e9fe44d58aadab46fea50f62afd4dea9e83b606944",
+      "command": [
+        "bash",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/.opam/default/bin/lambdapi",
+        "check",
+        "--too-long=0.5",
+        "--no-colors",
+        "postcomposition_association_controls.lp"
+      ],
+      "wallSeconds": 19.511210020980798,
+      "currentInputMismatches": [],
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    }
+  },
+  "lhsAudits": [
+    {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 52,
+      "annotated_slots": 78
+    },
+    {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_diagram_evaluation.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 5,
+      "annotated_slots": 5
+    },
+    {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_transfor_profiles.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_diagram_family_reflection.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    },
+    {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_homology_family_comparison.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0
+    }
+  ],
+  "manualLhsReview": "OddDual_transf has the same actual strict-transfor input guard as the existing Even action; its composition rule couples that input to the image category. Exchange comparison matches the actual normalized composition, not transparent aliases. All input families and the native evaluator parameters remain constrained. The ordinary inverse reading is guarded by the existing OneCat comparison constructor.",
+  "warnings": {
+    "baselineReceipt": "20261018T105548Z-02686c0e4721463f8490c99bd90771bc",
+    "focusedReceipt": "20261018T130043Z-7cd3374adfb4456899bb6a9b0bf7f131",
+    "baselineCount": 2772,
+    "focusedCount": 2803,
+    "added": 31,
+    "removed": 0,
+    "groups": {
+      "first-action identity joins": 8,
+      "strict composition and naturality projections": 4,
+      "identity constructor normalizations": 4,
+      "projected composition units and nested duals": 4,
+      "component and next-Hom identity projections": 5,
+      "inherited whiskering and profile-action overlaps": 6
+    },
+    "bodies": [
+      {
+        "index": 1,
+        "count": 1,
+        "sha256": "985641bbb644e9f2056239e61f14ccf90b0044603cdf2d6143f5aedd7cb66f94",
+        "classification": "first-action identity joins",
+        "overlap": "t \u2254 @fapp1_fapp0 $A $B (OddDual_cart_func_func $A' $B') $X $X (id $A $X)"
+      },
+      {
+        "index": 2,
+        "count": 1,
+        "sha256": "8c35476be133f813b2a6ac22f8fee92fa3c10b5d04f84ebac816c6837f3710e7",
+        "classification": "first-action identity joins",
+        "overlap": "t \u2254 @fapp1_fapp0 (Op_cat $K) $D (OddDual_cart_func_func $A' $B') $x $x (id $K $x)"
+      },
+      {
+        "index": 3,
+        "count": 1,
+        "sha256": "7f99d2f9d089e0ba6d6d93e5c45a0bec5892999a8deedf680e56c69e8b90db0d",
+        "classification": "first-action identity joins",
+        "overlap": "t \u2254 @fapp1_fapp0 (CoAbove2_cat $K) $D (OddDual_cart_func_func $A' $B') $x $x (id $K $x)"
+      },
+      {
+        "index": 4,
+        "count": 1,
+        "sha256": "21d45ad310d9f5e8e12c6829d023878d2aa9e9796b6b2054aa355a2cd4e4d2ef",
+        "classification": "first-action identity joins",
+        "overlap": "t \u2254 @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D (OddDual_cart_func_func $A' $B') $x $x (id $K $x)"
+      },
+      {
+        "index": 5,
+        "count": 1,
+        "sha256": "7776aa3116f6fad524b563e1a414b35c80c66e1510802e6394fd86a76b4e7b80",
+        "classification": "first-action identity joins",
+        "overlap": "t \u2254 @fapp1_fapp0 (CoAt2_cat $K) $D (OddDual_cart_func_func $A' $B') $x $x (id $K $x)"
+      },
+      {
+        "index": 6,
+        "count": 1,
+        "sha256": "ffa016f6525c033bef7d8e7aa69edb58fb96a0c5222b2587e53f827599c7a965",
+        "classification": "first-action identity joins",
+        "overlap": "t \u2254 @fapp1_fapp0 (Catd_cat $K) $B (OddDual_cart_func_func $A' $B') $E $E (id (Catd_cat $K) $E)"
+      },
+      {
+        "index": 7,
+        "count": 1,
+        "sha256": "13b79c6d58a7d8e47de92101754aae2697358e39664af9a9bdbdc461caadde16",
+        "classification": "first-action identity joins",
+        "overlap": "t \u2254 @fapp1_fapp0 (OddDual_cat $A) $B (OddDual_cart_func_func $A' $B') $x $x (id $A $x)"
+      },
+      {
+        "index": 8,
+        "count": 1,
+        "sha256": "5f3b4bf7cab676f3e05e478dfb93825854f518839e653fbd66dcfccc56c6d530",
+        "classification": "first-action identity joins",
+        "overlap": "t \u2254 @fapp1_fapp0 (EvenDual_cat $A) $B (OddDual_cart_func_func $A' $B') $x $x (id $A $x)"
+      },
+      {
+        "index": 9,
+        "count": 1,
+        "sha256": "bac67256f7764b6ceb12a6c39c925c46b21aa553cca5699479b4c31d49b30721",
+        "classification": "strict composition and naturality projections",
+        "overlap": "t \u2254 @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 (OddDual_cart_func_func $A $B) $1 (OddDual_cart_func_func $A $B) $1) (@tapp1_fapp0 $1 $1 $F (OddDual_cart_func_func $A $B) $X $1 (@strict_transfor $1 $1 $F (OddDual_cart_func_func $A $B) $U) $f)"
+      },
+      {
+        "index": 10,
+        "count": 1,
+        "sha256": "f307d2d3d0ec423ae460710eec8d90392b0f5166d0f9a3dee3a8e5a02a2dc282",
+        "classification": "strict composition and naturality projections",
+        "overlap": "t \u2254 @comp_fapp0 $1 $1 $2 $3 (@tapp1_fapp0 $1 $1 (OddDual_cart_func_func $A $B) $G (OddDual_cart_func_func $A $B) $Y $epsilon $f) (@fapp1_fapp0 $1 $1 (OddDual_cart_func_func $A $B) $1 (OddDual_cart_func_func $A $B) $U)"
+      },
+      {
+        "index": 11,
+        "count": 1,
+        "sha256": "9760998df257b4a1a47f290f8afb245edee39155c803018631e604742e64855e",
+        "classification": "strict composition and naturality projections",
+        "overlap": "t \u2254 @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 (OddDual_cart_func_func $A $B) $1 (OddDual_cart_func_func $A $B) $1) (@fapp1_fapp0 $1 $1 (OddDual_cart_func_func $A $B) $X $1 $f)"
+      },
+      {
+        "index": 12,
+        "count": 1,
+        "sha256": "230810ab88d266a13c42fcb4a6b04f9ecad6b45df389895f9f46cd488fde1312",
+        "classification": "strict composition and naturality projections",
+        "overlap": "t \u2254 @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 (OddDual_cart_func_func $A $B) (OddDual_cart_func_func $A $B) $Z $g) (@fapp1_fapp0 $1 $1 (OddDual_cart_func_func $A $B) $1 (OddDual_cart_func_func $A $B) (OddDual_cart_func_func $A $B))"
+      },
+      {
+        "index": 13,
+        "count": 1,
+        "sha256": "d716312f54328345659753352262bdbdb49745247e0187b1195af34c05254461",
+        "classification": "identity constructor normalizations",
+        "overlap": "t \u2254 @OddDual_transf $A' $B' $x $x (id (Path_cat $A) $x)"
+      },
+      {
+        "index": 14,
+        "count": 1,
+        "sha256": "e05b45084d6d0ab7d3673a1b4f737ba42debc345365943572119aed5a3eab9a2",
+        "classification": "identity constructor normalizations",
+        "overlap": "t \u2254 @OddDual_transf $A' $B' $0 $0 (id Terminal_cat $0)"
+      },
+      {
+        "index": 15,
+        "count": 1,
+        "sha256": "9c5540e15c56fcdd2d5e8733ee22195a6e9d52a48a1808419e18a74fdc96a4e6",
+        "classification": "identity constructor normalizations",
+        "overlap": "t \u2254 @OddDual_transf $A' $B' (@Struct_sigma $2 $3 $x $u) (@Struct_sigma $2 $3 $x $u) (id (Product_cat $A $B) (@Struct_sigma $2 $3 $x $u))"
+      },
+      {
+        "index": 16,
+        "count": 1,
+        "sha256": "168d082b41237ec0b1065a9a0a647356d3daff0c5a8cce4f2996c85114fdf5e5",
+        "classification": "identity constructor normalizations",
+        "overlap": "t \u2254 @OddDual_transf $A' $B' $A $A (id Homd_coeff_cat $A)"
+      },
+      {
+        "index": 17,
+        "count": 1,
+        "sha256": "c332cccf1d6019a62fa3fc7b169b91df3f31f0e38aea7a363e97757d41052144",
+        "classification": "projected composition units and nested duals",
+        "overlap": "t \u2254 @comp_fapp0 (Functor_cart_cat (OddDual_cat $A) (OddDual_cat $B)) $' $' $' (@OddDual_transf $A $B $F' $F $U') (@OddDual_transf $A $B $F $F (id $3 $F))"
+      },
+      {
+        "index": 18,
+        "count": 1,
+        "sha256": "a1c047beb02b0a5eac19a68cbea27ec53fd948495ed07a5972d7367ca77b7108",
+        "classification": "projected composition units and nested duals",
+        "overlap": "t \u2254 @comp_fapp0 (Functor_cart_cat (OddDual_cat $A) (OddDual_cat $B)) $' $' $' (@OddDual_transf $A $B $F $F (id $3 $F)) (@OddDual_transf $A $B $F $H' $V')"
+      },
+      {
+        "index": 19,
+        "count": 1,
+        "sha256": "7fb50139b6f36eaaababc306cb2d5508f3a4154d3a86b3070ebf73ffc87c7c29",
+        "classification": "projected composition units and nested duals",
+        "overlap": "t \u2254 @comp_fapp0 (Functor_cart_cat (OddDual_cat $A') (OddDual_cat (OddDual_cat $A))) $' $' $' (@OddDual_transf $A' (OddDual_cat $A) $F' $G' $U') (@OddDual_transf $A' (OddDual_cat $A) $G' $H' $V')"
+      },
+      {
+        "index": 20,
+        "count": 1,
+        "sha256": "7d02f224d20e7547d7c02d2ee570c785aeec8e6e06b332496a885660eee8a7df",
+        "classification": "projected composition units and nested duals",
+        "overlap": "t \u2254 @comp_fapp0 (Functor_cart_cat (OddDual_cat (OddDual_cat $A)) (OddDual_cat $B')) $' $' $' (@OddDual_transf (OddDual_cat $A) $B' $F' $G' $U') (@OddDual_transf (OddDual_cat $A) $B' $G' $H' $V')"
+      },
+      {
+        "index": 21,
+        "count": 1,
+        "sha256": "ecd24c16aa4f2d0434d967bdf1efb6d3d7d439d7f3c6eba184a95fce6d0fe129",
+        "classification": "component and next-Hom identity projections",
+        "overlap": "t \u2254 @tapp0_fapp0 $' $' $' $' $x' (@strict_transfor $' $' $' $' (@OddDual_transf $A $B $F $F (id $3 $F)))"
+      },
+      {
+        "index": 22,
+        "count": 1,
+        "sha256": "fb6ab68945acbbf8c5fa4d9927d6bff8f808f2d4c16ba8c9a91aeba9691493aa",
+        "classification": "component and next-Hom identity projections",
+        "overlap": "t \u2254 @tapp1_func $' $' $' $' $x' $y' (@strict_transfor $' $' $' $' (@OddDual_transf $A $B $F $F (id $3 $F)))"
+      },
+      {
+        "index": 23,
+        "count": 1,
+        "sha256": "da8fc4075581acac47fa2bdc72aa3cfdf21d4efcfe3c9bad0d29351dffa98318",
+        "classification": "component and next-Hom identity projections",
+        "overlap": "t \u2254 @tapp1_fapp0 $' $' $' $' $X $X (@strict_transfor $' $' $' $' (@OddDual_transf $A' $B' $F' $G' $U')) (id $' $X)"
+      },
+      {
+        "index": 24,
+        "count": 1,
+        "sha256": "f1f0e606d0ed764c8e344d83eb9a661b21ffcad9c0cfbb7d0d0230747f0ba9cb",
+        "classification": "component and next-Hom identity projections",
+        "overlap": "t \u2254 @tapp1_fapp0 $' $' $' $' $x' $y' (@strict_transfor $' $' $' $' (@OddDual_transf $A $B $F $F (id $3 $F))) $p'"
+      },
+      {
+        "index": 25,
+        "count": 1,
+        "sha256": "52f8906d40c0e154790df704fdf24efe53fbe98f3f8699f417c01b78598a38ad",
+        "classification": "component and next-Hom identity projections",
+        "overlap": "t \u2254 @tapp1_fapp0 $A $B $F $G (@strict_transfor $6 $7 $8 $9 (@OddDual_transf $9 $9 $9 $9 $U)) (@strict_transfor $6 $7 $8 $9 (@OddDual_transf $9 $9 $9 $9 $U)) (@strict_transfor $6 $7 $8 $9 (@OddDual_transf $9 $9 $9 $9 $U)) (id $A (@strict_transfor $6 $7 $8 $9 (@OddDual_transf $9 $9 $9 $9 $U)))"
+      },
+      {
+        "index": 26,
+        "count": 1,
+        "sha256": "d43b02e8c15ce9b5533cee67a6a29ea1e2e2f3c16896442065b183739be9546c",
+        "classification": "inherited whiskering and profile-action overlaps",
+        "overlap": "t \u2254 @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (emdash.emdash3_2_diagram_evaluation.OddDual_cart_func_func $A $B) $G' $F $Y' (@lax_transfor $0 $1 (emdash.emdash3_2_diagram_evaluation.OddDual_cart_func_func $A $B) $G' $L') $f') (@fapp1_fapp0 $0 $1 (emdash.emdash3_2_diagram_evaluation.OddDual_cart_func_func $A $B) $G $F $U)"
+      },
+      {
+        "index": 27,
+        "count": 1,
+        "sha256": "b9343d4a1697b1f5256da594fed92b7dc420d4ff5fd3b455d35bde5a6d406796",
+        "classification": "inherited whiskering and profile-action overlaps",
+        "overlap": "t \u2254 @comp_fapp0 $1 $' $' $' (@tapp1_fapp0 $0 $1 (emdash.emdash3_2_diagram_evaluation.OddDual_cart_func_func $A $B) $G' $F $Y' (@strict_transfor $0 $1 (emdash.emdash3_2_diagram_evaluation.OddDual_cart_func_func $A $B) $G' $U') $f') (@fapp1_fapp0 $0 $1 (emdash.emdash3_2_diagram_evaluation.OddDual_cart_func_func $A $B) $G $F $U)"
+      },
+      {
+        "index": 28,
+        "count": 1,
+        "sha256": "4625887c4784b0d31d624ea7319670374ed886a972fe76a2c234ef008d2ccd34",
+        "classification": "inherited whiskering and profile-action overlaps",
+        "overlap": "t \u2254 @comp_fapp0 $7 $' $' $' (@tapp1_fapp0 $6 $7 $8 $9 $x $y (@strict_transfor $6 $7 $8 $9 (@emdash.emdash3_2_diagram_evaluation.OddDual_transf $A $B $F $G $U)) $p) (@fapp1_fapp0 $6 $7 $8 $W' $x $h')"
+      },
+      {
+        "index": 29,
+        "count": 1,
+        "sha256": "ee67033cf342de78f7ef20a2e29f460619a8cca3a5181f3853ad68175a2f9ee5",
+        "classification": "inherited whiskering and profile-action overlaps",
+        "overlap": "t \u2254 @comp_fapp0 $7 $' $' $' (@tapp1_fapp0 $' $' $' $9 $y $Z' (@lax_transfor $6 $7 $9 $' $V') $q') (@tapp1_fapp0 $0 $1 $2 $3 $x $y (@strict_transfor $6 $7 $8 $9 (@emdash.emdash3_2_diagram_evaluation.OddDual_transf $A $B $F $G $U)) $p)"
+      },
+      {
+        "index": 30,
+        "count": 1,
+        "sha256": "5fb0b9012f226b78ecdaafb7d4868a77656fb4bab5d5a061f7f2fc9bed9c33d9",
+        "classification": "inherited whiskering and profile-action overlaps",
+        "overlap": "t \u2254 @comp_fapp0 $7 $' $' $' (@tapp1_fapp0 $' $' $' $9 $y $Z' (@strict_transfor $6 $7 $9 $' $V') $q') (@tapp1_fapp0 $0 $1 $2 $3 $x $y (@strict_transfor $6 $7 $8 $9 (@emdash.emdash3_2_diagram_evaluation.OddDual_transf $A $B $F $G $U)) $p)"
+      },
+      {
+        "index": 31,
+        "count": 1,
+        "sha256": "5feb144b8cf6dea25e1584cd371f2db05567122ce7cc45ec990aebe488bf0044",
+        "classification": "inherited whiskering and profile-action overlaps",
+        "overlap": "t \u2254 @comp_fapp0 $7 $' $' $' (@tapp1_fapp0 $0 $1 $2 $3 $x $y (@strict_transfor $6 $7 $8 $9 (@emdash.emdash3_2_diagram_evaluation.OddDual_transf $A $B $F $G $U)) $p) (@tapp1_fapp0 $' $' $' $8 $X' $x (@strict_transfor $6 $7 $' $8 $U') $p')"
+      }
+    ],
+    "scope": "Focused same-dependency diagram comparison; the later observation helpers and two unification rules add no runtime rules. Final combined regression is recorded separately; no global confluence assertion.",
+    "bodyRecovery": "Each hash covers the five lines after Unjoinable critical pair in the recorded focused receipt log; the readable inventory shows its overlap term."
+  },
+  "developmentEvidence": [
+    {
+      "receipt": "20261018T121535Z-856a0ff84526496ba867d881eb2bef43",
+      "outcome": "Original nested postcomposition unifier fails on a composite incoming functor"
+    },
+    {
+      "receipt": "20261018T122337Z-6ec89102cd4140e7ba636d524e490791",
+      "outcome": "Whole-composite residual passes the same typed consumer"
+    },
+    {
+      "receipt": "20261018T124149Z-928b98a6c2d0422c9da9b459102a86ff",
+      "outcome": "Defined exchange without the whole restriction comparison fails its actual whole native-family equality"
+    },
+    {
+      "receipt": "20261018T125544Z-42858c1f1a924fdea26f14f8cd0e3ecd",
+      "outcome": "Whole restriction comparison reaches the existing admission/inclusion inverse law; its explicit proof-time view is needed"
+    },
+    {
+      "receipt": "20261018T125653Z-8f2c9129c3784085a9f8b0b94f9134a7",
+      "outcome": "Whole native walking-arrow exchange comparison passes"
+    },
+    {
+      "receipt": "20261018T125932Z-5ed0656924de4da09559965f53bc90d2",
+      "outcome": "Capped-action diagnostic fails inference through reducible Hom aliases"
+    },
+    {
+      "receipt": "20261018T130043Z-7cd3374adfb4456899bb6a9b0bf7f131",
+      "outcome": "Canonical Obj(Hom_cat) expected type resolves diagnostic without changing operational rules"
+    },
+    {
+      "receipt": "20261018T130257Z-c45153c0fd9540f294db54e794038548",
+      "outcome": "Full original comparison checks both boundary maps then fails at its left-source inverse observation"
+    }
+  ],
+  "remaining": [
+    "Whole evaluated-map comparison in homology_family_comparison_diagram_left_source_law",
+    "Native oplax reflection/reconstruction integration and remaining whole comparison/points",
+    "Other libraries and redundant strict wrapper retirement",
+    "Production promotion and central/catalogue/health/CI/source-pin gates"
+  ],
+  "sourceCorrespondence": {
+    "owner": "emdash3_2_one_cat_homology_family_comparison.lp",
+    "originalSha256": "f6b5a5efd62bdddc2dd7635680a4fd548158e1e72fbe216a9c29356e625adb57",
+    "stagedSha256": "ffd1c59f0ad777f260f45468c27e7f51eed1616b403e1b84d585c7a20ecd6ca8",
+    "originalRecoveredModuloWhitespace": true,
+    "changedInterfaceOnly": [
+      "native walking-diagram and initial-choice profile names",
+      "existing OneCat closure for that profile",
+      "whole opposite-profile exchange for the two original square maps",
+      "actual fixed-index evaluator for the original inverse-law observations",
+      "earlier import of the existing reflection owner"
+    ],
+    "fullFilePassed": false,
+    "firstUnfinishedSymbol": "homology_family_comparison_diagram_left_source_law"
+  }
+}

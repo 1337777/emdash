@@ -10,9 +10,12 @@ rule @hom_postcomp_fapp0
 // Proof-time associative reading after the composite has split into two
 // represented cuts. Keep those runtime owners for inverse cancellation.
 // The named identity functors determine A; inferred classifier slots remain open.
+// Compare the whole raw composite before its inferred middle object: when A
+// is Cat_cat, a composite incoming g can reassociate to a different middle.
 unif_rule
   @hom_postcomp_fapp0 _ _ (@id Cat_cat $A) $W $Y $Z $q
     (@hom_postcomp_fapp0 _ _ (@id Cat_cat $A) $W $X $Y $p $g)
   ≡ @comp_fapp0 $A1 $W1 $X1 $Z1 $q1 $g1
-  ↪ [ $A1 ≡ $A; $W1 ≡ $W; $X1 ≡ $X; $Z1 ≡ $Z;
-      $q1 ≡ @comp_fapp0 $A $X $Y $Z $q $p; $g1 ≡ $g ];
+  ↪ [ $A1 ≡ $A; $W1 ≡ $W; $Z1 ≡ $Z;
+      (@comp_fapp0 $A $W $X $Z (@comp_fapp0 $A $X $Y $Z $q $p) $g)
+        ≡ (@comp_fapp0 $A1 $W1 $X1 $Z1 $q1 $g1) ];

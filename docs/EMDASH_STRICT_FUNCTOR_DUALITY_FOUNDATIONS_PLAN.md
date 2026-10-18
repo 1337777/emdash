@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; shared native homology families and all original observations checked; ordinary whole comparison layer and broader migration/promotion remain open
+Status: active implementation; native diagram exchange and original homology boundary maps checked; whole inverse-law comparison and broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,48 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Native diagram exchange after `92d28e75`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_native_exchange_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_exchange_verification.json)
+record a corrected whole exchange into the native oplax diagram profile.
+It uses the existing two Cartesian admissions, symmetry and an actual
+Cartesian-to-oplax inclusion. The latter is defined through odd duality;
+its mapping-category action mirrors the existing even-duality owner.
+Default lax transformations and the existing OneCat(C) hypothesis remain.
+No restriction on B or externally supplied comparison is added.
+
+The nested-postcomposition unifier now compares complete composites before
+fixing intermediate categories, preserving all actual factors and runtime
+cuts. This fixes the initial original homology comparison consumer. Both
+original boundary-diagram maps subsequently typecheck through the new
+exchange, with their square maps, boundary cells and inverse choices intact.
+Two proof-time comparisons retain the native and Cartesian runtime owners.
+The new fixed-index observation uses the existing oplax evaluator.
+
+The combined focused regression passes in 71s at about 2.87 GiB maximum
+child RSS under the existing 300s/4GiB/o=20 profile. It includes original
+ordinary reconstruction and arrow-family isomorphism reviewers. The core's
+283/82 check is carried after exact input-hash verification. The new
+odd-action controls pass 8/2 and whole exchange controls 3/2. Five owner
+LHS audits have no unreviewed candidates; the 31 new focused warning bodies
+are classified. No resource limit was increased and no global confluence
+or full-library result is claimed.
+
+The full original comparison still fails at
+`homology_family_comparison_diagram_left_source_law`: its evaluated whole
+composite has not yet been compared with the original source-endpoint
+composite. The checked two-parameter component formula does not discharge
+this whole transformation-action obligation. Next inspect the actual
+inclusion/exchange projection through fixed oplax evaluation, then retain
+the original inverse proofs and finish reflection/reconstruction integration
+and the point consumers. Avoid caller-specific equations or new supplied
+inverse data. The complete original file is retained in staging, and its
+pre-goal body is recovered by reversing the recorded interface changes.
+
+This remains a non-library checkpoint. Remaining library migration,
+redundant strict wrappers, production promotion and final central/catalogue/
+health/CI/source-pin gates remain required; the application goal stays paused.
 
 Native K/unit/boundary/Q families after `9077c9b3`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_homology_family_review.md)

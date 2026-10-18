@@ -1,0 +1,61 @@
+// Odd duality on Cartesian mapping categories. This is the strict-transfor
+// counterpart of the existing Even action, with the first Hom reversed.
+injective symbol OddDual_cart_func_func (A B : Cat)
+  : τ (Functor (OddDual_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (OddDual_cat A) (OddDual_cat B)));
+rule @fapp0 _ _ (OddDual_cart_func_func $A $B) $F ↪ @OddDual_func $A $B $F;
+
+injective symbol OddDual_transf [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G))
+  : τ (@StrictTransfor (OddDual_cat A) (OddDual_cat B)
+      (@OddDual_func A B G) (@OddDual_func A B F));
+rule @fapp1_fapp0 _ _ (OddDual_cart_func_func $A $B) $G $F $U
+  ↪ @OddDual_transf $A $B $F $G $U;
+rule @OddDual_transf $A $B $F $F (@id _ $F)
+  ↪ @id (Functor_cart_cat (OddDual_cat $A) (OddDual_cat $B)) (@OddDual_func $A $B $F);
+// lhs-audit: keep 1 -- actual Cartesian image category after reversing composition.
+rule @comp_fapp0 (Functor_cart_cat (OddDual_cat $A) (OddDual_cat $B)) _ _ _
+      (@OddDual_transf $A $B $F $G $U) (@OddDual_transf $A $B $G $H $V)
+  ↪ @OddDual_transf $A $B $F $H
+      (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $V $U);
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _ (@OddDual_transf $A $B $F $G $U))
+  ↪ @tapp0_fapp0 $A $B $F $G $x (@strict_transfor $A $B $F $G $U);
+rule @tapp1_func _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@OddDual_transf $A $B $F $G $U))
+  ↪ @EvenDual_func (Hom_cat $A $y $x)
+      (Hom_cat $B (@fapp0 $A $B $F $y) (@fapp0 $A $B $G $x))
+      (@tapp1_func $A $B $F $G $y $x (@strict_transfor $A $B $F $G $U));
+rule @tapp1_fapp0 _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@OddDual_transf $A $B $F $G $U)) $p
+  ↪ @tapp1_fapp0 $A $B $F $G $y $x (@strict_transfor $A $B $F $G $U) $p;
+
+// Whole inclusion of strict transformations into the opposite profile.
+// Its object map is OddDual_func; it supplies no comparison-cell argument.
+symbol Functor_cart_oplax_include (A B : Cat)
+  : τ (Functor (Functor_cart_cat A B) (Functor_oplax_cat A B))
+≔ @OddDual_func (OddDual_cat (Functor_cart_cat A B))
+    (Functor_cat (OddDual_cat A) (OddDual_cat B))
+    (@comp_cat_fapp0 (OddDual_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (OddDual_cat A) (OddDual_cat B))
+      (Functor_cat (OddDual_cat A) (OddDual_cat B))
+      (Functor_cart_include (OddDual_cat A) (OddDual_cat B))
+      (OddDual_cart_func_func A B));
+
+// The strict Cartesian exchange is the restriction of opposite-profile
+// evaluation along the actual inclusion, as whole functors. No arbitrary
+// lax transformation is admitted to a Cartesian mapping category.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@OddDual_func _ _ (Functor_cart_include (OddDual_cat $A) (OddDual_cat $C)))
+      (@OddDual_func _ _ (OddDual_cart_func_func $A $C)))
+    (@sym_func $A $B $C $F)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@OddDual_func _ _
+      (@hom_precomp_along_func _ _ (@id Cat_cat Cat_cat) _ _ _
+        (@OddDual_func $A1 _ $D)))
+    (@diagram_evaluation_func $B1 $C1)
+  ↪ [ $A1 ≡ $A; $B1 ≡ $B; $C1 ≡ $C;
+      $D ≡ @comp_cat_fapp0 $A (Functor_cart_cat $B $C)
+        (Functor_cat $B $C) (Functor_cart_include $B $C) $F ];

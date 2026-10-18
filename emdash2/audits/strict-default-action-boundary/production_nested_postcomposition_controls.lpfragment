@@ -1,0 +1,40 @@
+// Reassociation of a composed incoming functor keeps every actual factor.
+assert [A B C D E : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  (P : τ (Functor C D)) (Q : τ (Functor D E)) ⊢
+  @eq_refl (Functor A E)
+    (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) A D E Q
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) A C D P
+        (@comp_cat_fapp0 A B C G F)))
+  : τ (@= (Functor A E)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) A D E Q
+        (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) A C D P
+          (@comp_cat_fapp0 A B C G F)))
+      (@comp_cat_fapp0 A B E
+        (@comp_cat_fapp0 B C E (@comp_cat_fapp0 C D E Q P) G) F));
+
+// A different outer functor is not silently identified.
+assertnot [A B C D E : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B C))
+  (P : τ (Functor C D)) (Q Q_other : τ (Functor D E)) ⊢
+  @eq_refl (Functor A E)
+    (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) A D E Q
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) A C D P
+        (@comp_cat_fapp0 A B C G F)))
+  : τ (@= (Functor A E)
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) A D E Q
+        (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) A C D P
+          (@comp_cat_fapp0 A B C G F)))
+      (@comp_cat_fapp0 A B E
+        (@comp_cat_fapp0 B C E (@comp_cat_fapp0 C D E Q_other P) G) F));
+
+// The original generic-category reading remains available for an atomic input.
+assert [C : Cat] (w x y z : τ (Obj C))
+  (g : τ (Hom C w x)) (p : τ (Hom C x y)) (q : τ (Hom C y z)) ⊢
+  @eq_refl (Hom C w z)
+    (@hom_postcomp_fapp0 C C (@id_func C) w y z q
+      (@hom_postcomp_fapp0 C C (@id_func C) w x y p g))
+  : τ (@= (Hom C w z)
+      (@hom_postcomp_fapp0 C C (@id_func C) w y z q
+        (@hom_postcomp_fapp0 C C (@id_func C) w x y p g))
+      (@comp_fapp0 C w x z (@comp_fapp0 C x y z q p) g));

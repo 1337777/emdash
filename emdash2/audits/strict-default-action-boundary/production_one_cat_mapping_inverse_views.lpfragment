@@ -39,3 +39,9 @@ rule @tapp0_fapp0 _ _ _ _ $a
       (@fapp1_fapp0 _ _
         (@defiso_to _ _ _ (@one_cat_mapping_comparison $A $C _)) $F $G $epsilon))
   ↪ @tapp0_fapp0 $A $C $F $G $a $epsilon;
+
+// Existing inverse law after its inverse has been read as ordinary inclusion.
+unif_rule @comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $A $C)
+    (@defiso_to _ _ _ (@one_cat_mapping_comparison $A $C $C1))
+  ≡ @id Cat_cat $H
+  ↪ [ $H ≡ Functor_cat $A $C ];

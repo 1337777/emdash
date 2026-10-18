@@ -1,0 +1,41 @@
+// Whole exchange uses the native opposite-profile family, not object-only eta.
+assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F : τ (Functor A (Functor_cat B C))) ⊢
+  @eq_refl (Functor B (Functor_oplax_cat A C))
+    (fapp0 (@one_cat_family_oplax_exchange_func A B C C1) F)
+  : τ (@= (Functor B (Functor_oplax_cat A C))
+      (fapp0 (@one_cat_family_oplax_exchange_func A B C C1) F)
+      (@diagram_family_shape_func A B C F));
+// The walking-arrow consumer specializes that whole comparison.
+assert [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor B C)) (eta : τ (@Transf B C F G)) ⊢
+  @eq_refl (Functor B (Functor_oplax_cat WalkingArrow_cat C))
+    (fapp0 (@one_cat_family_oplax_exchange_func WalkingArrow_cat B C C1)
+      (@walking_arrow_func (Functor_cat B C) F G eta))
+  : τ (@= (Functor B (Functor_oplax_cat WalkingArrow_cat C))
+      (fapp0 (@one_cat_family_oplax_exchange_func WalkingArrow_cat B C C1)
+        (@walking_arrow_func (Functor_cat B C) F G eta))
+      (@transf_arrow_diagram_func B C F G eta));
+// Different whole input families cannot disappear in that comparison.
+assertnot [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor A (Functor_cat B C))) ⊢
+  @eq_refl (Functor B (Functor_oplax_cat A C))
+    (fapp0 (@one_cat_family_oplax_exchange_func A B C C1) F)
+  : τ (@= (Functor B (Functor_oplax_cat A C))
+      (fapp0 (@one_cat_family_oplax_exchange_func A B C C1) F)
+      (@diagram_family_shape_func A B C G));
+// The comparison is proof-time: native and Cartesian owners stay distinct.
+assertnot [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F : τ (Functor A (Functor_cat B C))) ⊢
+  fapp0 (@one_cat_family_oplax_exchange_func A B C C1) F
+  ≡ @diagram_family_shape_func A B C F;
+// Whole map action retains the original component at both parameters.
+assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor A (Functor_cat B C)))
+  (eta : τ (@Transf A (Functor_cat B C) F G))
+  (a : τ (Obj A)) (b : τ (Obj B)) ⊢
+  @tapp0_fapp0 (OddDual_cat A) (OddDual_cat C) _ _ a
+    (@tapp0_fapp0 B (Functor_oplax_cat A C) _ _ b
+      (@one_cat_family_oplax_exchange_map A B C C1 F G eta))
+  ≡ @tapp0_fapp0 B C _ _ b
+    (@tapp0_fapp0 A (Functor_cat B C) F G a eta);
