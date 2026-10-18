@@ -38,6 +38,43 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Computational ownership review after `5d2618fb`, 2026-10-18 UTC: the user
+asked whether accumulating comparison rules indicates an incomplete
+normalization design and contributes to performance. The
+[review](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md)
+and [matched evidence](../emdash2/audits/strict-default-action-boundary/production_normalization_review_verification.json)
+record an actual regression: image/coimage is 6.792s/495.3 MiB before the
+migration versus 37.143s/2462.8 MiB now; the corresponding homology comparison
+is 13.413s/754.1 MiB versus 81.370s/5518.8 MiB. Each pair uses the same
+checker, source-only/SR/warnings and resource/GC settings. These are single
+samples of end-to-end migration cost, not an isolated-unifier benchmark.
+
+The inventory covers 151 corresponding non-example LP files: unification
+commands grow from 172 to 250 (core 91 to 144). No changed unconditional
+primitive-head expansion was found by the structural scan. The deep ordinary
+exchange comparison and repeated raw/pre/postcomposition bridges remain
+concrete normalization debt. The existing stable-cut architecture predates
+the migration; coefficient/duality changes add further presentations. The
+largest measured non-import command is one_cat_oplax_exchange_at_path at
+12.16s. Rewriting dominates the reported cost, without proving that a
+particular unifier causes it.
+
+Before adding more variants in these comparison families, review their
+canonical runtime forms and projection paths as one owner. Select one local
+consolidation, preserve the current interfaces, actual inverse choices and
+whole/Homd observations, and measure it against the matched baseline. Do
+not respond with blanket eager unfolding, more supplied proof data or a new
+foundational design matrix. The Sigma constant-target projection's runtime
+versus proof-time action contract and repeated identity/duality joins are
+additional bounded review items. Computational ownership and measured
+usability are explicit pre-promotion gates; only genuinely optional larger
+redesign is deferred. Independent mechanical migration may continue.
+
+No mathematical source or rule changed in this review. The selected
+foundation design and the qualified checkpoint below remain in force;
+production promotion remains pending and the separate application goal stays
+paused.
+
 Zero-column dependencies after `556f6350`, 2026-10-18 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_zero_column_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_zero_column_verification.json)
