@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; staged native homology comparison and zero-column dependencies checked; remaining zero-column/library integration, wrapper retirement and promotion remain open
+Status: active implementation; staged native zero-column universality and mate observations checked; remaining library integration, normalization/performance, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -38,19 +38,49 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
-In flight after `6d2b3771`: adapt the original zero-column universality
-construction to the native diagram profile. The candidate adds two defined
-native presentation-evidence views using the existing modification,
-arrow-family comparison and reconstruction evidence; it retains the original
-J/F/e/h and inverse data. The four zero-column/mate definitions keep their
-original composition bodies, with native profiles and the selected total-dual
-initial-object input. No new structural witness or comparison rule is planned.
+Native zero-column universality after `0c180e48`, 2026-10-18: the
+[review](../emdash2/audits/strict-default-action-boundary/production_native_zero_column_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_zero_column_verification.json)
+qualify the two native terminal/initial family-presentation evidence views,
+four original zero-column/mate constructions, their endpoint and whole
+differential paths, and the original reviewers. The construction retains the
+original J/F/e/h, P/Q and inverse choices. All four construction bodies match
+the original after the explicit profile/name substitutions. The existing
+OneCat(C) scope remains; parameter categories retain their original scope.
 
-Resumption review at `6d2b3771`: the latest uncommitted zero-column reviewer
-still fails (`20261018T195406Z-6d1fe64ac19141de99dd5f08dd367a0d`). Its remaining
-constraints include ordinary versus native diagram-category inputs; this is
-not grounds for identifying those classifiers with a new unifier. The current
-source changes remain unqualified and outside the documentation checkpoint.
+The shared evaluator/map/reconstruction signatures now expose canonical
+fixed-composition endpoints; their bodies are unchanged. The native whole
+transpose endpoint paths and ordinary zero-column observations are derived
+using the existing modification/discreteness interface. The mate proofs keep
+the original composition plus identity-endpoint outline, adding the derived
+whole transpose reading. This tranche adds no primitive, runtime rule,
+unifier, supplied structural witness or operational equality argument.
+
+The earlier remaining ordinary/native constraints came from missed
+line-wrapped types and reviewer carriers, now corrected by guarded migration.
+The original eight zero-column observations retain their whole, component,
+Hom and arrow action; the twelve original selected-presentation observations
+use the native profile. Ordinary evidence interfaces remain in their owner.
+
+The combined driver passes 139 positive/27 negative observations, including
+native/ordinary transpose, K/Q, arrow/reconstruction and homology whole/point
+regressions. The unchanged core/Homd 287/85 receipt is carried after exact hash
+verification. Nine owner LHS audits pass. The combined warning multiset adds
+four existing odd/even-action versus adjunction-inverse-cancellation peaks
+relative to the native transpose closure; no source rule is added or changed.
+Their general convergence remains an explicit normalization review item.
+
+The combined closure allocation-failed at 6GiB with both o=10 and o=5. With
+21922 MiB available host memory, the authorized 300s/8GiB/o=10 target profile
+passes in 126.628s at 6147.8 MiB peak child RSS. Defaults, subject reduction,
+serial/file/core/no-swap containment remain. The increase is validation
+headroom, not a performance fix; both failed receipts are retained.
+
+Next return to the original central diagnostic/library import frontier,
+using the earliest affected owner rather than broad unrelated checks. The
+normalization/performance gates, redundant-wrapper retirement, production
+promotion and final catalogue/health/CI/source-pin review remain required.
+The separate application goal stays paused.
 
 The [normalization follow-through](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#follow-through-at-6d2b3771)
 reaffirms the pre-promotion gates after inspecting the actual pre-goal

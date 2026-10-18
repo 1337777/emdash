@@ -26,6 +26,39 @@ def sha(text):
     return hashlib.sha256(text.encode()).hexdigest()
 
 
+def ordinary_identity_observation_body(signature):
+    """Derive the same whole identity claim from its actual native components."""
+    def terms(expr):
+        result, start, depth = [], 0, 0
+        for i, char in enumerate(expr):
+            depth += (char == '(') - (char == ')')
+            if char.isspace() and depth == 0:
+                if i > start:
+                    result.append(expr[start:i])
+                start = i + 1
+        if start < len(expr):
+            result.append(expr[start:])
+        assert depth == 0
+        return result
+    formula = signature.split(': τ (@=', 1)[1].strip()
+    assert formula.endswith(')')
+    eqargs = terms(formula[:-1].strip())
+    assert len(eqargs) == 3
+    transfor, left, right = eqargs
+    assert transfor.startswith('(@Transf ') and transfor.endswith(')')
+    _, base, codomain, source, target = terms(transfor[1:-1])
+    assert codomain == 'C' and source == target
+    return f'''≔ let A : Cat ≔ {base} in
+  let X : τ (Functor A C) ≔ {source} in
+  let alpha : τ (@Transf A C X X) ≔ {left} in
+  let beta : τ (@Transf A C X X) ≔ {right} in
+  @hom_to_path (@Transf_cat A C X X) ((@one_cat_functor_category A C C1) X X)
+    alpha beta (@one_cat_modification A C C1 X X alpha beta
+      (λ a : τ (Obj A), @path_to_hom (Hom_cat C (fapp0 X a) (fapp0 X a))
+        (@tapp0_fapp0 A C X X a alpha) (@tapp0_fapp0 A C X X a beta)
+        (@eq_refl (Hom C (fapp0 X a) (fapp0 X a)) (@tapp0_fapp0 A C X X a beta))));'''
+
+
 def migrate_homology_boundary_paths(text):
     """Retain the two original square bodies and adapt only their path observers."""
     def terms(expression):
@@ -2903,6 +2936,14 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'original ring-presheaf invertibility reviewer',
                                 'reason': 'Observe the existing represented-family comparison in its actual Cat_cart coefficient; retain public Cat identities and every original assertion',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_one_cat_terminal_adjunctions.lp':
+                old = text
+                assert text.count('(@TerminalObject (Op_cat C) t)') == 5
+                text = text.replace('(@TerminalObject (Op_cat C) t)',
+                    '(@TerminalObject (TotalOp_cat C) t)')
+                changes.append({'source': path, 'owner': 'ordinary initial-object adjunction presentation',
+                                'reason': 'Use the same total-dual initial-object input as the existing native initial-arrow and cokernel owners; preserve both structural presentations and their original evidence bodies',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_one_cat_terminal_adjunction_families.lp',
                         'emdash3_2_one_cat_terminal_adjunction_family_observations.lp'):
                 old = text
@@ -2947,6 +2988,187 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'terminal/initial family presentations and observations',
                                 'reason': 'Retain the general helpers with corrected oplax outputs and their original e/F inputs; use defined ordinary presentations under existing OneCat hypotheses while preserving the original universality and endpoint proof bodies',
                                 'replacementCounts': ordinary_reference_counts,
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+                if path == 'emdash3_2_one_cat_terminal_adjunction_families.lp':
+                    for kind in ('terminal', 'initial'):
+                        name = 'one_cat_' + kind + '_adjunction_family_presentation_evidence'
+                        marker = 'symbol ' + name + ' [B C : Cat]'
+                        assert text.count(marker) == 1
+                        start = text.index(marker)
+                        end = text.index(';', start) + 1
+                        ordinary_evidence = text[start:end]
+                        native = ordinary_evidence.replace(name, 'one_cat_oplax_' + kind + '_adjunction_family_presentation_evidence')
+                        native = native.replace('Functor_cat WalkingArrow_cat C',
+                            'Functor_oplax_cat WalkingArrow_cat C')
+                        native = native.replace('@one_cat_transf_arrow_diagram_func B C C1',
+                            '@transf_arrow_diagram_func B C')
+                        native = native.replace('@one_cat_' + kind + '_adjunction_presented_family B C C1',
+                            '@' + kind + '_adjunction_presented_family B C')
+                        native = native.replace('@one_cat_diagram_family_transf B WalkingArrow_cat C C1',
+                            '@diagram_oplax_family_transf B WalkingArrow_cat C')
+                        native = native.replace('@one_cat_diagram_family_reconstruction_evidence',
+                            '@one_cat_oplax_diagram_family_reconstruction_evidence')
+                        native = native.replace('@one_cat_arrow_family_comparison_evidence',
+                            '@one_cat_oplax_arrow_family_comparison_evidence')
+                        text += ('\n\n// Native view of the same original universality, modification and inverse data.\n'
+                                 + native + '\n')
+                        changes.append({'source': path, 'owner': 'native ' + kind + ' family-presentation evidence',
+                                        'reason': 'Reuse the original modification evidence and actual native arrow-family comparison/reconstruction maps; no new universal or inverse witness',
+                                        'ordinaryBodySha256': sha(ordinary_evidence), 'nativeBodySha256': sha(native)})
+                if path == 'emdash3_2_one_cat_terminal_adjunction_family_observations.lp':
+                    for kind in ('terminal', 'initial'):
+                        for direction in ('to', 'from'):
+                            for endpoint in ('src', 'tgt'):
+                                name = f'one_cat_{kind}_adjunction_family_presentation_{direction}_{endpoint}_path'
+                                marker = 'symbol ' + name + ' [B C : Cat]'
+                                assert text.count(marker) == 1
+                                start = text.index(marker)
+                                end = text.index(';', start) + 1
+                                ordinary_observation = text[start:end]
+                                native = ordinary_observation.replace(name,
+                                    f'one_cat_oplax_{kind}_adjunction_family_presentation_{direction}_{endpoint}_path')
+                                native = native.replace('Functor_cat WalkingArrow_cat C',
+                                    'Functor_oplax_cat WalkingArrow_cat C')
+                                native = native.replace('@one_cat_transf_arrow_diagram_func B C C1',
+                                    '@transf_arrow_diagram_func B C')
+                                native = native.replace('@one_cat_' + kind + '_adjunction_presented_family B C C1',
+                                    '@' + kind + '_adjunction_presented_family B C')
+                                native = native.replace('@one_cat_' + kind + '_adjunction_family_presentation_evidence',
+                                    '@one_cat_oplax_' + kind + '_adjunction_family_presentation_evidence')
+                                native = native.replace('@one_cat_diagram_family_transf B WalkingArrow_cat C C1',
+                                    '@diagram_oplax_family_transf B WalkingArrow_cat C')
+                                native = native.replace('@one_cat_family_exchange_map_at B WalkingArrow_cat C C1',
+                                    '@diagram_oplax_family_map_at B WalkingArrow_cat C')
+                                native = native.replace('@one_cat_diagram_family_reconstruction_evidence',
+                                    '@one_cat_oplax_diagram_family_reconstruction_evidence')
+                                native = native.replace('@one_cat_arrow_family_comparison_evidence',
+                                    '@one_cat_oplax_arrow_family_comparison_evidence')
+                                native = native.replace('@one_cat_diagram_family_exchange_comp_path',
+                                    '@one_cat_oplax_family_evaluation_comp_path')
+                                signature = native.split('≔', 1)[0]
+                                left_end = 'F' if kind == 'terminal' else '(@Const_func B C t)'
+                                right_end = '(@Const_func B C t)' if kind == 'terminal' else 'F'
+                                graph = f'(@transf_arrow_diagram_func B C {left_end} {right_end} h)'
+                                presented = f'(@{kind}_adjunction_presented_family B C t e F)'
+                                source, target = (graph, presented) if direction == 'to' else (presented, graph)
+                                selected = f'(@iso_evidence_{direction} _ _ _ (@one_cat_oplax_{kind}_adjunction_family_presentation_evidence B C C1 t J F e h))'
+                                endpoint_functor = left_end if endpoint == 'src' else right_end
+                                native = signature + f'''≔ let X : τ (Functor B C) ≔ {endpoint_functor} in
+  let alpha : τ (@Transf B C X X) ≔
+    @diagram_oplax_family_map_at B WalkingArrow_cat C {source} {target} {selected} walking_arrow_{endpoint} in
+  let beta : τ (@Transf B C X X) ≔ @id (Functor_cat B C) X in
+  @hom_to_path (@Transf_cat B C X X) ((@one_cat_functor_category B C C1) X X)
+    alpha beta (@one_cat_modification B C C1 X X alpha beta
+      (λ b : τ (Obj B), @path_to_hom (Hom_cat C (fapp0 X b) (fapp0 X b))
+        (@tapp0_fapp0 B C X X b alpha) (@tapp0_fapp0 B C X X b beta)
+        (@eq_refl (Hom C (fapp0 X b) (fapp0 X b)) (@tapp0_fapp0 B C X X b beta))));'''
+                                text += '\n\n// Native endpoint view of the same chosen maps and inverse laws.\n' + native + '\n'
+                                changes.append({'source': path, 'owner': 'native ' + name,
+                                                'reason': 'Observe the same selected native maps; derive whole endpoint identity from their actual components using the existing ordinary modification/reflection interface',
+                                                'ordinaryBodySha256': sha(ordinary_observation), 'nativeBodySha256': sha(native)})
+            if path == 'examples/one_cat_terminal_adjunction_families.lp':
+                old = text
+                text, count = re.subn(r'\bFunctor_cat\s+WalkingArrow_cat\s+C\b',
+                    'Functor_oplax_cat WalkingArrow_cat C', text)
+                assert count == 54, count
+                assert text.count('(@TerminalObject (Op_cat C) t)') == 11
+                text = text.replace('(@TerminalObject (Op_cat C) t)',
+                    '(@TerminalObject (TotalOp_cat C) t)')
+                for before, after in (
+                    ('@sym_transf_tapp0_transf', '@diagram_oplax_family_map_at'),
+                    ('@diagram_family_transf', '@diagram_oplax_family_transf'),
+                    ('@diagram_evaluation_at_func', '@diagram_oplax_evaluation_at_func'),
+                    ('@one_cat_diagram_family_reconstruction_evidence', '@one_cat_oplax_diagram_family_reconstruction_evidence'),
+                    ('@one_cat_terminal_adjunction_family_presentation_evidence', '@one_cat_oplax_terminal_adjunction_family_presentation_evidence'),
+                    ('@one_cat_initial_adjunction_family_presentation_evidence', '@one_cat_oplax_initial_adjunction_family_presentation_evidence'),
+                ):
+                    assert before in text, (path, before)
+                    text = text.replace(before, after)
+                assert len(re.findall(r'^assert\b', text, re.M)) == 12
+                changes.append({'source': path, 'owner': 'native selected terminal/initial presentations and zero-column reviewer',
+                                'reason': 'Retain all twelve original observations, actual selected terminal/initial maps and K/Q zero columns in the native diagram profile; the ordinary evidence interfaces remain in the owner',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_one_cat_adjunction_zero_column_observations.lp',
+                        'emdash3_2_one_cat_adjunction_zero_column_views.lp',
+                        'examples/one_cat_adjunction_zero_column_views.lp'):
+                old = text
+                counts = {
+                    'emdash3_2_one_cat_adjunction_zero_column_observations.lp': (432, 8),
+                    'emdash3_2_one_cat_adjunction_zero_column_views.lp': (46, 2),
+                    'examples/one_cat_adjunction_zero_column_views.lp': (74, 8),
+                }
+                expected_arrows, expected_initials = counts[path]
+                assert text.count('(@TerminalObject (Op_cat C) t)') == expected_initials
+                text, count = re.subn(r'\bFunctor_cat\s+WalkingArrow_cat\s+C\b',
+                    'Functor_oplax_cat WalkingArrow_cat C', text)
+                assert count == expected_arrows, (path, count)
+                text = text.replace('(@TerminalObject (Op_cat C) t)',
+                    '(@TerminalObject (TotalOp_cat C) t)')
+                for before, after in (
+                    ('@sym_transf_tapp0_transf', '@diagram_oplax_family_map_at'),
+                    ('@diagram_family_transf', '@diagram_oplax_family_transf'),
+                    ('@diagram_evaluation_at_func', '@diagram_oplax_evaluation_at_func'),
+                    ('@diagram_evaluation_transf', '@diagram_oplax_evaluation_transf'),
+                    ('@one_cat_diagram_family_evaluation_comp_path', '@one_cat_oplax_family_evaluation_comp_path'),
+                    ('@one_cat_diagram_family_reconstruction_evidence', '@one_cat_oplax_diagram_family_reconstruction_evidence'),
+                ):
+                    text = text.replace(before, after)
+                for kind in ('terminal', 'initial'):
+                    text = text.replace('@one_cat_' + kind + '_adjunction_family_presentation_',
+                        '@one_cat_oplax_' + kind + '_adjunction_family_presentation_')
+                if path == 'emdash3_2_one_cat_adjunction_zero_column_observations.lp':
+                    matches = list(re.finditer(r'(?m)^symbol one_cat_(?:kernel_counit|cokernel_unit)_zero_column_(?:to|from)_(?:src|tgt)_path\b.*?;', text, re.S))
+                    assert len(matches) == 8
+                    for match in reversed(matches):
+                        signature = match.group().split('≔', 1)[0]
+                        text = text[:match.start()] + signature + ordinary_identity_observation_body(signature) + text[match.end():]
+                if path == 'emdash3_2_one_cat_adjunction_zero_column_views.lp':
+                    views = fragment('production_zero_column_mate_paths.lpfragment')
+                    for name in ('one_cat_cokernel_unit_source_transf_path',
+                                 'one_cat_kernel_counit_target_transf_path'):
+                        pattern = r'(?m)^symbol ' + name + r'\b.*?;'
+                        previous = re.findall(pattern, text, re.S)
+                        replacement = re.findall(pattern, views, re.S)
+                        assert len(previous) == len(replacement) == 1, name
+                        assert previous[0].split('≔', 1)[0] == replacement[0].split('≔', 1)[0], name
+                        text = text.replace(previous[0], replacement[0])
+                if path == 'examples/one_cat_adjunction_zero_column_views.lp':
+                    for pattern, replacement, expected in (
+                        (r'\bFunctor\s+WalkingArrow_cat\s+C\b',
+                         'Obj (Functor_oplax_cat WalkingArrow_cat C)', 6),
+                        (r'@Transf\s+WalkingArrow_cat\s+C\s+d\s+e\b',
+                         'Hom (Functor_oplax_cat WalkingArrow_cat C) d e', 2),
+                        (r'@fapp0\s+WalkingArrow_cat\s+C\b',
+                         '@fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C)', 24),
+                        (r'@fapp1_fapp0\s+WalkingArrow_cat\s+C\s+d\s+walking_arrow_src\s+walking_arrow_tgt\s+walking_arrow_generator',
+                         '@fapp1_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) d walking_arrow_tgt walking_arrow_src walking_arrow_generator', 2),
+                        (r'@tapp1_fapp0\s+WalkingArrow_cat\s+C\s+d\s+e\s+walking_arrow_src\s+walking_arrow_tgt\s+u\s+walking_arrow_generator',
+                         '@tapp1_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) e d walking_arrow_tgt walking_arrow_src u walking_arrow_generator', 2),
+                    ):
+                        text, count = re.subn(pattern, replacement, text)
+                        assert count == expected, (path, pattern, count)
+                    assert len(re.findall(r'^assert\b', text, re.M)) == 8
+                changes.append({'source': path, 'owner': 'native zero-column endpoint and mate observations',
+                                'reason': 'Retain the original selected maps and claims in the native profile; reflect the actual identity endpoint components and keep the mate-view composition/endpoint proof outline with derived transpose endpoint paths',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_one_cat_adjunction_zero_columns.lp':
+                old = text
+                assert text.count('Functor_cat WalkingArrow_cat C') == 34
+                assert text.count('(@TerminalObject (Op_cat C) t)') == 4
+                text = text.replace('Functor_cat WalkingArrow_cat C',
+                    'Functor_oplax_cat WalkingArrow_cat C')
+                text = text.replace('(@TerminalObject (Op_cat C) t)',
+                    '(@TerminalObject (TotalOp_cat C) t)')
+                for kind in ('terminal', 'initial'):
+                    before = '@one_cat_' + kind + '_adjunction_family_presentation_evidence'
+                    assert text.count(before) == 1
+                    text = text.replace(before, '@one_cat_oplax_' + kind + '_adjunction_family_presentation_evidence')
+                text = text.replace('@one_cat_diagram_family_reconstruction_evidence',
+                    '@one_cat_oplax_diagram_family_reconstruction_evidence')
+                text = text.replace('@diagram_family_transf', '@diagram_oplax_family_transf')
+                text = text.replace('@diagram_evaluation_at_func', '@diagram_oplax_evaluation_at_func')
+                changes.append({'source': path, 'owner': 'original native zero-column comparisons and mate inputs',
+                                'reason': 'Retain all original comparison/composition bodies and P/Q choices in the native diagram and total-dual profiles',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_image_coimage_adjunction_families.lp',
                         'examples/image_coimage_adjunction_families.lp'):
@@ -3576,6 +3798,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/one_cat_diagram_transpose.lp')
     stage('examples/image_coimage_adjunction_families.lp')
     stage('examples/one_cat_kernel_cokernel_transposes.lp')
+    stage('examples/one_cat_adjunction_zero_column_views.lp')
+    stage('examples/one_cat_terminal_adjunction_families.lp')
     # Preserve the real production diagnostic dependency closure as the next
     # integration boundary. Its unchanged assertions are not automatically
     # qualified by the focused owner checks below.
@@ -3951,6 +4175,11 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require emdash.one_cat_oplax_transpose_controls;\n'
         'require emdash.examples.one_cat_kernel_cokernel_transposes;\n'
         'require emdash.examples.one_cat_diagram_transpose;\n')
+    (package / 'native_zero_column_regression_controls.lp').write_text(
+        'require emdash.examples.one_cat_terminal_adjunction_families;\n'
+        'require emdash.examples.one_cat_adjunction_zero_column_views;\n'
+        'require emdash.native_transpose_regression_controls;\n'
+        'require emdash.mapping_normalization_regression_controls;\n')
     (package / 'zero_column_dependency_controls.lp').write_text(
         'require emdash.walking_arrow_postcomposition_controls;\n'
         'require emdash.mapping_evaluation_controls;\n'
@@ -4182,6 +4411,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'ordinary_transposition_controls.lp',
                               package / 'one_cat_oplax_transpose_controls.lp',
                               package / 'native_transpose_regression_controls.lp',
+                              package / 'native_zero_column_regression_controls.lp',
                               package / 'zero_column_dependency_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',

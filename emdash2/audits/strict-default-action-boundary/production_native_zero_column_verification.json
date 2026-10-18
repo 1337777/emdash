@@ -1,0 +1,830 @@
+{
+  "status": "Staged native zero-column universality, original mate observations and shared regressions checked; production promotion and broader goal incomplete",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "predecessor": "0c180e4865b48cf46e065ee41fd318fc1952b872",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/production_owner_migration.py": "2a2ebfea095b163b3d2fef9fe84fc0017ecf412631abb4fcfc0b60d5427b988f",
+    "audits/strict-default-action-boundary/production_oplax_diagram_evaluation.lpfragment": "4eaad3c6fab0ca1aebfb062362574c5be26827f939f867101c269b23e1a0dde1",
+    "audits/strict-default-action-boundary/production_oplax_family_observations.lpfragment": "bccb7d1e9e4ea110ed15b3177b89f0157ac194da8b681c67a503d6ccf00954f3",
+    "audits/strict-default-action-boundary/production_one_cat_oplax_family_reconstruction.lpfragment": "b12b9443e2596347a543ecd5ca6e7f593c1f02006a52e048bb1dee9d1c3290c5",
+    "audits/strict-default-action-boundary/production_one_cat_oplax_transpose.lpfragment": "b89a762eb2a811cd8e17b9c9f161d8c291fab65f249876f82ded1744c46773f3",
+    "audits/strict-default-action-boundary/production_zero_column_mate_paths.lpfragment": "f97f28eeed93029386de6e3bf77ecd5a4d41f062a3a411cf29219092bd1068b5"
+  },
+  "manifestSha256": "39751e8a6a0372b20c3b99cfbb46de2ba72f208f1a851966074dc5295f99eb9c",
+  "checks": {
+    "finalCombined": {
+      "id": "20261018T201229Z-5e52d816878946edbe86234ad7278fea",
+      "target": "native_zero_column_regression_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 126.62834658205975,
+      "childrenMaxRssKiB": 6295344,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 8192,
+        "ocamlrunparam": "o=10,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "2eecc02465a2b3a238a81371daf12c7350ad9355986551842b0896fec9cf6211",
+      "log": "logs/check-runs/20261018T201229Z-5e52d816878946edbe86234ad7278fea.log",
+      "logSha256": "32e9076dc57bb18345d1aadf156a78cabfef174c3260cdb9142fad42d200092f",
+      "inputs": {
+        "alternating_identity_controls.lp": "be27efc138b99d35e0cf10621992b117b1fd875850deb9ca7fe113a89113d94a",
+        "diagram_evaluation_profile_controls.lp": "cce51b3bfb0bc7e65a45f82c1a83f11eef1fe29e1b72a46c3723ab6c8bf34599",
+        "emdash3_2.lp": "1105c4ff4e16d47566c6755b0a31d5d045f6c84f9a872020fb2fa16283700587",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_categorical_contractions.lp": "d8b2fd7375ab02e6aba31883345883a384585bb2a45cf18e92b793d1629e0aec",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_defiso_evaluation_ordinary_paths.lp": "a5bff3389191012d1af4388d2aab01e5566c005cda6f0f5932bd552fb560f560",
+        "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+        "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_discrete_iso_maps.lp": "2d5afecd18046093cf2c6bc31f4d866e4935adaf71f43811e9b1739c54990c3a",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_functor_reconstruction_paths.lp": "a1df7f1b1486626892c55fa99819b8df43df5275d49a7329fcaacbac1d277430",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_homology_adjunction_families.lp": "d30fb1f1c146b638dfd8511efe4b1420931308b8fbf8400666f5aef813964177",
+        "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+        "emdash3_2_image_coimage_adjunction_families.lp": "15f2740d121ea038b3bf136dcc99849bf4026579e8608439c64e779ee5725ab7",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_omega_equiv_cancellation_paths.lp": "1369c5ac4412d37e10391b25a91b2f20c04685b2cfc5d577bdcefdfea89a8e63",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_omega_equiv_inverse_square.lp": "3f0e8ca36ac0174e9f093db17b17b02dc856f0b23f886e0b079980c4bbed408d",
+        "emdash3_2_omega_evaluation_points.lp": "ad1d3ae47ed220c9121de66f85d5a9cc170ea44fa823b1a8a899810959ab0524",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+        "emdash3_2_one_cat_adjunction_zero_column_observations.lp": "8f7cbcb4bf439ba9dc0d390266d41fa198fdeefae2ec617087f81c40b0098a20",
+        "emdash3_2_one_cat_adjunction_zero_column_views.lp": "8b180dbf254b2403a51eaf2301b8957d80eeb32b72b651dffad70dc1f4cba49c",
+        "emdash3_2_one_cat_adjunction_zero_columns.lp": "b01c824949a321dc211510a34f878ad4ee15e738faab7804578e09af2209527a",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "dec0ef9784afcafec39fcbd36b7381fd1f4ab590fd47976db2d8a687b604e7fc",
+        "emdash3_2_one_cat_arrow_family_isomorphisms.lp": "5b9adef4471b50386a2c413cd88ce750b5f3b6a118a2a187765cd163ec54aa62",
+        "emdash3_2_one_cat_diagram_family_reconstruction.lp": "9bd61783cb9bb038ac0efdacc9e493ff8827e3dcb193bc89828f8cd3337710b3",
+        "emdash3_2_one_cat_diagram_family_reflection.lp": "d9e50a9b7a41d7c62cec1f6963ed08ee2282e43fbe321fa84d5940fdc5ede2d7",
+        "emdash3_2_one_cat_diagram_map_paths.lp": "6d0545de5e04a1ecb477c863f77dce55660ccf4ccd27e79957fe908a3a685f98",
+        "emdash3_2_one_cat_diagram_reconstruction.lp": "c4ee8c91413c7b69f573215c6ee1cf4e8e396c350a8df173d7fe942760c43d6d",
+        "emdash3_2_one_cat_diagram_transpose.lp": "5b24001136d7a84ec92e70ddb83250f0af801bef3893c3c91a1dec76564d70d8",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_homology_family_comparison.lp": "23952fa1d52fd64dc1eaf3cd88b9521467a008c266f5787499c569b3d3764778",
+        "emdash3_2_one_cat_homology_family_comparison_points.lp": "bf7788766e735b46940dccda5f6795c6945c75e0f57c18a86d702641349f0506",
+        "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+        "emdash3_2_one_cat_kernel_cokernel_transposes.lp": "5c05662018cbd232281ed24c5982461353925a5382dcd97955b3832383f654a6",
+        "emdash3_2_one_cat_modifications.lp": "980ffead150ec47cf977d71ec24f667a649a727a3007b99f0649362f9c52c1d3",
+        "emdash3_2_one_cat_native_square_paths.lp": "f95e4ec4b2a86378d93b787e01c6934c68854d5adf04f5ea24045926686b0030",
+        "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+        "emdash3_2_one_cat_op.lp": "96e582872c5c00315d2d9668c32f75f483db852421efece79c188b08caec91de",
+        "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+        "emdash3_2_one_cat_terminal_adjunction_families.lp": "5baa8f70db201addbe057316bdec6b1cdd6ac8ba9f8096a8461d70efd59150b2",
+        "emdash3_2_one_cat_terminal_adjunction_family_observations.lp": "b0c0d5a3aeeb0f3cd30c145bf1e794b3075a8fcf5e0c9f9f078d491f99665934",
+        "emdash3_2_one_cat_terminal_adjunctions.lp": "beb3db840898d483ce5064be364f9394eadc1a23237736aa2ee114d892880ab5",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_one_cat_zero_arrow_family_classification.lp": "887e7b72d37a60c2415086332c43d9bd7d0d9584b4cbd01dfaf0b59addf78a20",
+        "emdash3_2_one_cat_zero_cones.lp": "4023e5b9c6768c0cc888dc180a6b08b9794f722ca2df89af1c7a4d6a385f05e4",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+        "emdash3_2_prop_fibre_constructor_paths.lp": "53da73d74f5f72281cd268e06df5da965cbf3dcd3b4689a5284f5eb28e1a7616",
+        "emdash3_2_represented_comma_families.lp": "9c9b18ead5d894635b068e6ea397f7c305cf3e31d1804a8e181818ed189e5305",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+        "emdash3_2_terminal_category_profile.lp": "cd3b2c437c8b3ae45925d5e7dbb57e7e95210197f508818110de95ad6c9c7a4f",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "emdash3_2_walking_arrow_native_observation.lp": "17557f65653465a4c3cead2d8e42a925ce35b158dc20ae8ddb662af30af190eb",
+        "emdash3_2_zero_arrow_cones.lp": "80950d73775beba104c4d6dd40103b2b865e68edd3a3628c7895801d440d1233",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "emdash3_2_zero_arrow_family_point_inputs.lp": "7ee58972cf58f9d3094ae29771ab52371d649f793a39229cdc297234f852ce2c",
+        "examples/diagram_evaluation.lp": "9c13891222804890ad439b2b1dcf4cf9fc9d0154aae13e50441069e3b2bacce4",
+        "examples/one_cat_adjunction_zero_column_views.lp": "943a4843b970466844b9a12db1cdb7e92a41491f68c2f3e837ee2a0615068717",
+        "examples/one_cat_arrow_diagrams.lp": "ece4846aa2151733339d86ecf49fc835f8013e4e6de70290f2f7a375d62a4fe8",
+        "examples/one_cat_arrow_family_isomorphisms.lp": "f453151be8ebf2a600addbd32ebfa8b209d9d56cd547b92d3ff6a60abdc9a46b",
+        "examples/one_cat_diagram_family_reconstruction.lp": "493f584994e021c53dd65f390706b67eacc832c154529f05259642143d158427",
+        "examples/one_cat_diagram_transpose.lp": "fc5aaad07eb2c653b24502431f0e793dae918aed7c31c17d00b96ac5d3691fd4",
+        "examples/one_cat_homology_family_comparison.lp": "b24ce08a2eac86986e87b2a608ce302ab7c995c6da95b06917f49212a035b3b0",
+        "examples/one_cat_homology_family_comparison_points.lp": "91a408131765ffdb78372e6a345ae8c24e667bba71c21b550bfccbbf79b6403c",
+        "examples/one_cat_kernel_cokernel_transposes.lp": "c57aa87fb7af9d2442693675084a011af5076e1fbeccf5a4ff333b056d64bd23",
+        "examples/one_cat_terminal_adjunction_families.lp": "e5f0a6a98273dad376bccc81e0a5fe652b68ca3d78eed7cfedbba1fc952d47f5",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "mapping_normalization_regression_controls.lp": "cb6040e57eb3d28a7572ea6907c02bdfee074dd5ceb7498f378825dbc3548970",
+        "native_exchange_regression_controls.lp": "fac0cf12d50cc12e9ed15c3bcd48a8da0fa87b6aa44627cad59bd9fa9c26f7c6",
+        "native_homology_comparison_reviewers.lp": "aa0756a7727fd00eb576ad89f379bf5fcff28e0a3e67dca863bc1d9eb7c09ded",
+        "native_transpose_regression_controls.lp": "061a654fa907a9a7e24e33f4308196e8735f4f9e6f0acd2e2b5c29d4553d6f12",
+        "native_zero_column_regression_controls.lp": "773c87867363dde68df673d7d20823778a984e06dc38d0c27fa63153b49b7ecf",
+        "odd_cartesian_action_controls.lp": "c28bf2e1a4af7f787b79ad5e8582958e2137878cba186ee22dc8474f75dc20bf",
+        "one_cat_arrow_profile_controls.lp": "c81e6ac4cd04cbb70c29f6c71b1c10b1cef19c98fd8abce98b57a176ce568a39",
+        "one_cat_mapping_controls.lp": "ccd1eafa5a0f5987e39beb9fbb92d27e727caebac36039a621ee028bb718fd9d",
+        "one_cat_oplax_exchange_controls.lp": "71ef7896bb537a2214ea484d74c79194f4db82d9869c921e6214f629112c4906",
+        "one_cat_oplax_roundtrip_controls.lp": "0efe21f6d99c5911f9e099c12b22207241273e037212b2eb41ac8c013bfbd528",
+        "one_cat_oplax_transpose_controls.lp": "07f74a4ad53ad18598f0cccb1dd8aeda1c38de485dcb0c7db4abf7edcf1b2f71",
+        "oplax_family_component_controls.lp": "c831df947299940c047334edd6e3a24ef98e09eb5421f7ea5a1c74e0c4333775"
+      },
+      "currentInputMismatches": []
+    },
+    "selectedTerminalInitialReviewer": {
+      "id": "20261018T200257Z-a65a75d9d84d413ba39791273a16c531",
+      "target": "examples/one_cat_terminal_adjunction_families.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 51.19506972201634,
+      "childrenMaxRssKiB": 4763516,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "099dafd93c608dc367688715164be85b1c8e9354c9678385c2e2a5dd3086b618",
+      "log": "logs/check-runs/20261018T200257Z-a65a75d9d84d413ba39791273a16c531.log",
+      "logSha256": "28bf3d4619e8140a6303b9269ef592a7c1b86d9b7727e1a42e6e3d92b89069cd",
+      "inputs": {
+        "emdash3_2.lp": "1105c4ff4e16d47566c6755b0a31d5d045f6c84f9a872020fb2fa16283700587",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_categorical_contractions.lp": "d8b2fd7375ab02e6aba31883345883a384585bb2a45cf18e92b793d1629e0aec",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_defiso_evaluation_ordinary_paths.lp": "a5bff3389191012d1af4388d2aab01e5566c005cda6f0f5932bd552fb560f560",
+        "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+        "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_discrete_iso_maps.lp": "2d5afecd18046093cf2c6bc31f4d866e4935adaf71f43811e9b1739c54990c3a",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_functor_reconstruction_paths.lp": "a1df7f1b1486626892c55fa99819b8df43df5275d49a7329fcaacbac1d277430",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_image_coimage_adjunction_families.lp": "15f2740d121ea038b3bf136dcc99849bf4026579e8608439c64e779ee5725ab7",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_omega_evaluation_points.lp": "ad1d3ae47ed220c9121de66f85d5a9cc170ea44fa823b1a8a899810959ab0524",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+        "emdash3_2_one_cat_adjunction_zero_columns.lp": "b01c824949a321dc211510a34f878ad4ee15e738faab7804578e09af2209527a",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "dec0ef9784afcafec39fcbd36b7381fd1f4ab590fd47976db2d8a687b604e7fc",
+        "emdash3_2_one_cat_arrow_family_isomorphisms.lp": "5b9adef4471b50386a2c413cd88ce750b5f3b6a118a2a187765cd163ec54aa62",
+        "emdash3_2_one_cat_diagram_family_reconstruction.lp": "9bd61783cb9bb038ac0efdacc9e493ff8827e3dcb193bc89828f8cd3337710b3",
+        "emdash3_2_one_cat_diagram_family_reflection.lp": "d9e50a9b7a41d7c62cec1f6963ed08ee2282e43fbe321fa84d5940fdc5ede2d7",
+        "emdash3_2_one_cat_diagram_map_paths.lp": "6d0545de5e04a1ecb477c863f77dce55660ccf4ccd27e79957fe908a3a685f98",
+        "emdash3_2_one_cat_diagram_reconstruction.lp": "c4ee8c91413c7b69f573215c6ee1cf4e8e396c350a8df173d7fe942760c43d6d",
+        "emdash3_2_one_cat_diagram_transpose.lp": "5b24001136d7a84ec92e70ddb83250f0af801bef3893c3c91a1dec76564d70d8",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_kernel_cokernel_transposes.lp": "5c05662018cbd232281ed24c5982461353925a5382dcd97955b3832383f654a6",
+        "emdash3_2_one_cat_modifications.lp": "980ffead150ec47cf977d71ec24f667a649a727a3007b99f0649362f9c52c1d3",
+        "emdash3_2_one_cat_native_square_paths.lp": "f95e4ec4b2a86378d93b787e01c6934c68854d5adf04f5ea24045926686b0030",
+        "emdash3_2_one_cat_terminal_adjunction_families.lp": "5baa8f70db201addbe057316bdec6b1cdd6ac8ba9f8096a8461d70efd59150b2",
+        "emdash3_2_one_cat_terminal_adjunctions.lp": "beb3db840898d483ce5064be364f9394eadc1a23237736aa2ee114d892880ab5",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+        "emdash3_2_prop_fibre_constructor_paths.lp": "53da73d74f5f72281cd268e06df5da965cbf3dcd3b4689a5284f5eb28e1a7616",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_terminal_category_profile.lp": "cd3b2c437c8b3ae45925d5e7dbb57e7e95210197f508818110de95ad6c9c7a4f",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "emdash3_2_walking_arrow_native_observation.lp": "17557f65653465a4c3cead2d8e42a925ce35b158dc20ae8ddb662af30af190eb",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "examples/one_cat_terminal_adjunction_families.lp": "e5f0a6a98273dad376bccc81e0a5fe652b68ca3d78eed7cfedbba1fc952d47f5",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "currentInputMismatches": []
+    },
+    "unchangedCore": {
+      "id": "20261018T162035Z-1820b031801e440ab20b20cfef7bcc97",
+      "target": "join_recursion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 23.320111226057634,
+      "childrenMaxRssKiB": 1647288,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "f69e4dbcc1cc374f7f3ec08a113b8431642a91df6b1105f67bf1fdbdb53dbfac",
+      "log": "logs/check-runs/20261018T162035Z-1820b031801e440ab20b20cfef7bcc97.log",
+      "logSha256": "0d15b5288ea9617d00e48cd76a0a1c6d6ae0e4af627cb63a2f0cc6892015fd38",
+      "inputs": {
+        "join_recursion_controls.lp": "03d8c83f87cdff4019e48baa2b8e9d3a491619ba23a0a8d3b073aac85044c22c",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "currentInputMismatches": []
+    }
+  },
+  "failures": [
+    {
+      "id": "20261018T195406Z-6d1fe64ac19141de99dd5f08dd367a0d",
+      "target": "examples/one_cat_adjunction_zero_column_views.lp",
+      "outcome": "failed",
+      "wallSeconds": 51.198775078053586,
+      "childrenMaxRssKiB": 4888004,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "4982eb5e31ad7668ee4e9008e4c08a13c7ae736d897edc8a309db87125899f67",
+      "log": "logs/check-runs/20261018T195406Z-6d1fe64ac19141de99dd5f08dd367a0d.log",
+      "logSha256": "00d049940fe45b38be359df51524e880afb861b0dfd59927b77b7eade6806557",
+      "reason": "Line-wrapped ordinary diagram types remained in native owner/reviewer."
+    },
+    {
+      "id": "20261018T195952Z-b9eb6311a82f47fea29f7b2b73721e93",
+      "target": "examples/one_cat_adjunction_zero_column_views.lp",
+      "outcome": "failed",
+      "wallSeconds": 53.067980468971655,
+      "childrenMaxRssKiB": 4887332,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "380125752fe8634ea6a32b707ff2a6bf262b90a5c506ed5a3ed2a6e8d05adc57",
+      "log": "logs/check-runs/20261018T195952Z-b9eb6311a82f47fea29f7b2b73721e93.log",
+      "logSha256": "b97e28e0bb1c7192790c481a73e2239f6effd74aa3782089ab0b9919ef832b0f",
+      "reason": "Whole evaluated transpose needed a derived comparison; no new unifier selected."
+    },
+    {
+      "id": "20261018T200412Z-8975752e16604c09b13f27dd7b953b50",
+      "target": "examples/one_cat_adjunction_zero_column_views.lp",
+      "outcome": "failed",
+      "wallSeconds": 52.94987754803151,
+      "childrenMaxRssKiB": 4901912,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "04a79e757ea496eaee91ba0110e31c92be122098240c4bed32b5beda8830b201",
+      "log": "logs/check-runs/20261018T200412Z-8975752e16604c09b13f27dd7b953b50.log",
+      "logSha256": "6986fe7034cd78c66d67ed0fddcc46e0fba32c584af59e26b14bb10d5ef1a292",
+      "reason": "Whole mate owners passed; original reviewer object/map carriers still needed native adaptation."
+    },
+    {
+      "id": "20261018T200623Z-c41129e4548a45c3a0863df21b1629e4",
+      "target": "native_zero_column_regression_controls.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 95.91339227801654,
+      "childrenMaxRssKiB": 6013472,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=10,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "2eecc02465a2b3a238a81371daf12c7350ad9355986551842b0896fec9cf6211",
+      "log": "logs/check-runs/20261018T200623Z-c41129e4548a45c3a0863df21b1629e4.log",
+      "logSha256": "8af467a4175f1ab44795e4c813b2ec14dc3b6e6f2d2ca91bb9f06c3ca31cd60c",
+      "reason": "Combined 6GiB/o=10 allocation failure after new zero-column and transpose reviewers."
+    },
+    {
+      "id": "20261018T200859Z-69dce6ef2b254b00b0335bff28ac248b",
+      "target": "native_zero_column_regression_controls.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 169.62855842290446,
+      "childrenMaxRssKiB": 6013336,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=5,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputSnapshot": "2eecc02465a2b3a238a81371daf12c7350ad9355986551842b0896fec9cf6211",
+      "log": "logs/check-runs/20261018T200859Z-69dce6ef2b254b00b0335bff28ac248b.log",
+      "logSha256": "376858d12ae302120083f033bc4e597cd94c62d66c01b5e7919d48e3a131d2f0",
+      "reason": "Same-source 6GiB/o=5 retry failed at the same homology boundary."
+    }
+  ],
+  "assertions": {
+    "positive": 139,
+    "negative": 27,
+    "bySource": [
+      [
+        "alternating_identity_controls.lp",
+        5,
+        3
+      ],
+      [
+        "diagram_evaluation_profile_controls.lp",
+        18,
+        5
+      ],
+      [
+        "emdash3_2_one_cat_functor_profiles.lp",
+        2,
+        0
+      ],
+      [
+        "emdash3_2_one_cat_transfor_profiles.lp",
+        1,
+        0
+      ],
+      [
+        "examples/diagram_evaluation.lp",
+        10,
+        3
+      ],
+      [
+        "examples/one_cat_adjunction_zero_column_views.lp",
+        8,
+        0
+      ],
+      [
+        "examples/one_cat_arrow_diagrams.lp",
+        9,
+        1
+      ],
+      [
+        "examples/one_cat_arrow_family_isomorphisms.lp",
+        6,
+        0
+      ],
+      [
+        "examples/one_cat_diagram_family_reconstruction.lp",
+        6,
+        0
+      ],
+      [
+        "examples/one_cat_diagram_transpose.lp",
+        8,
+        1
+      ],
+      [
+        "examples/one_cat_homology_family_comparison.lp",
+        6,
+        0
+      ],
+      [
+        "examples/one_cat_homology_family_comparison_points.lp",
+        4,
+        1
+      ],
+      [
+        "examples/one_cat_kernel_cokernel_transposes.lp",
+        10,
+        0
+      ],
+      [
+        "examples/one_cat_terminal_adjunction_families.lp",
+        12,
+        0
+      ],
+      [
+        "odd_cartesian_action_controls.lp",
+        8,
+        2
+      ],
+      [
+        "one_cat_arrow_profile_controls.lp",
+        2,
+        1
+      ],
+      [
+        "one_cat_mapping_controls.lp",
+        9,
+        3
+      ],
+      [
+        "one_cat_oplax_exchange_controls.lp",
+        3,
+        2
+      ],
+      [
+        "one_cat_oplax_roundtrip_controls.lp",
+        1,
+        2
+      ],
+      [
+        "one_cat_oplax_transpose_controls.lp",
+        8,
+        1
+      ],
+      [
+        "oplax_family_component_controls.lp",
+        3,
+        2
+      ]
+    ],
+    "unchangedCorePositive": 287,
+    "unchangedCoreNegative": 85
+  },
+  "constructionPreservation": {
+    "fourOriginalZeroColumnBodiesPreservedModuloProfiles": [
+      "one_cat_kernel_counit_zero_column_evidence",
+      "one_cat_cokernel_unit_zero_column_evidence",
+      "one_cat_kernel_counit_mate_input",
+      "one_cat_cokernel_unit_mate_input"
+    ],
+    "threeSharedAccessorFragmentBodiesUnchanged": true,
+    "primitiveAdditions": 0,
+    "runtimeRuleAdditions": 0,
+    "unifierAdditions": 0,
+    "obsoleteAuthoringHelperRemovalChangesNoEmittedLP": true
+  },
+  "lhsAudits": {
+    "emdash3_2_diagram_evaluation.lp": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_diagram_evaluation.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 6,
+      "annotated_slots": 6,
+      "annotated": [
+        {
+          "line": 24,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(OddDual_cat $A)",
+          "reason": "the Odd source determines the erased identity's actual category."
+        },
+        {
+          "line": 27,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(EvenDual_cat $A)",
+          "reason": "the Even source occurs at the next Hom of an oplax diagram."
+        },
+        {
+          "line": 33,
+          "head": "tapp1_fapp0",
+          "slot": 1,
+          "argument": "(OddDual_cat $A)",
+          "reason": "measured odd-dual source/identity projection overlap."
+        },
+        {
+          "line": 168,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cat (OddDual_cat (Functor_cat $I $C)) (OddDual_cat $C))",
+          "reason": "the encoded mapping category is the measured SR guard."
+        },
+        {
+          "line": 253,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cart_cat (OddDual_cat $A) (OddDual_cat $B))",
+          "reason": "actual Cartesian image category after reversing composition."
+        },
+        {
+          "line": 319,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cart_cat (EvenDual_cat $A) (EvenDual_cat $B))",
+          "reason": "measured SR guard for the Cartesian image category."
+        }
+      ]
+    },
+    "emdash3_2_one_cat_diagram_family_reconstruction.lp": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_diagram_family_reconstruction.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_one_cat_diagram_transpose.lp": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_diagram_transpose.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_one_cat_terminal_adjunctions.lp": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_terminal_adjunctions.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_one_cat_terminal_adjunction_families.lp": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_terminal_adjunction_families.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_one_cat_terminal_adjunction_family_observations.lp": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_terminal_adjunction_family_observations.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_one_cat_adjunction_zero_columns.lp": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_adjunction_zero_columns.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_one_cat_adjunction_zero_column_observations.lp": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_adjunction_zero_column_observations.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_one_cat_adjunction_zero_column_views.lp": {
+      "file": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/production_owner_migration/package/emdash3_2_one_cat_adjunction_zero_column_views.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    }
+  },
+  "warningDelta": {
+    "byOwner": [
+      {
+        "against": "20261018T171808Z-20e7d334153e42a084ad6d7eb1cbccc7",
+        "commonWarningOwners": 11,
+        "changedOwners": [
+          {
+            "file": "emdash3_2_defiso_evaluation_points.lp",
+            "added": 0,
+            "removed": 4
+          },
+          {
+            "file": "emdash3_2_diagram_evaluation.lp",
+            "added": 54,
+            "removed": 0
+          },
+          {
+            "file": "emdash3_2_gray_profiles.lp",
+            "added": 0,
+            "removed": 48
+          },
+          {
+            "file": "emdash3_2_gray_transformation_graph.lp",
+            "added": 0,
+            "removed": 2
+          },
+          {
+            "file": "emdash3_2_strict_functor_actions.lp",
+            "added": 0,
+            "removed": 4
+          }
+        ],
+        "totalBefore": 2931,
+        "totalAfter": 2927,
+        "newWarningOwners": {}
+      },
+      {
+        "against": "20261018T191604Z-f65fb27c3081412a8e4108cb3dbfed37",
+        "commonWarningOwners": 11,
+        "changedOwners": [
+          {
+            "file": "emdash3_2_diagram_evaluation.lp",
+            "added": 4,
+            "removed": 0
+          }
+        ],
+        "totalBefore": 2923,
+        "totalAfter": 2927,
+        "newWarningOwners": {}
+      }
+    ],
+    "againstNativeTranspose": {
+      "before": 2923,
+      "after": 2927,
+      "added": 4,
+      "removed": 0,
+      "classification": "Existing odd/even functor composition versus Adjunction_hom_prof_comparison component inverse cancellation; no new rules in this tranche. General convergence remains open.",
+      "addedBodies": [
+        {
+          "count": 1,
+          "sha256": "cba735f0865f3ba8f5cd843674c1d4be874690961871021f96890e6ccdfc8d8b",
+          "body": "t ≔ @OddDual_func $' $' (@comp_fapp0 Cat_cat $' $1 $' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_from $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_to $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))))\nt ↪[] @comp_cat_fapp0 (OddDual_cat $0') (OddDual_cat $1) (OddDual_cat $1') (@OddDual_func $1 $1' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_from $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) (@OddDual_func $0' $1 (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_to $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) ↪* @comp_fapp0 Cat_cat (OddDual_cat $0') (OddDual_cat $1) (OddDual_cat $1') (@OddDual_func $1 $1' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_from $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) (@OddDual_func $0' $1 (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_to $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))))\n  with @OddDual_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F') ↪ @comp_cat_fapp0 (OddDual_cat $0') (OddDual_cat $B') (OddDual_cat $1') (@OddDual_func $B' $1' $G') (@OddDual_func $0' $B' $F')\nt ↪[1] @OddDual_func $' $' (id Cat_cat (Hom_cat $L (@sigma_Fst (Obj $L) (λ _:τ (Obj $L), Obj $L) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $L) $L) (@Product_map_func (Op_cat $R) (Op_cat $L) $L $L (@Op_func $R $L $F) (@id_func $L)) $ab)) (@sigma_Snd (Obj (Op_cat $L)) (λ _:τ (Obj (Op_cat $L)), Obj $L) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $L) $L) (@Product_map_func (Op_cat $R) (Op_cat $L) $L $L (@Op_func $R $L $F) (@id_func $L)) $ab)))) ↪* id Cat_cat (OddDual_cat $')\n  with @comp_fapp0 Cat_cat $Source $1 $Source (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_from $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_to $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) ↪ id Cat_cat (Hom_cat $L (@sigma_Fst (Obj $L) (λ _:τ (Obj $L), Obj $L) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $L) $L) (@Product_map_func (Op_cat $R) (Op_cat $L) $L $L (@Op_func $R $L $F) (@id_func $L)) $ab)) (@sigma_Snd (Obj (Op_cat $L)) (λ _:τ (Obj (Op_cat $L)), Obj $L) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $L) $L) (@Product_map_func (Op_cat $R) (Op_cat $L) $L $L (@Op_func $R $L $F) (@id_func $L)) $ab)))"
+        },
+        {
+          "count": 1,
+          "sha256": "5a6bb5e4a5970a9104ea860dea40319582868021ba3771d7608d21f23b508d40",
+          "body": "t ≔ @OddDual_func $' $' (@comp_fapp0 Cat_cat $' $1 $' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_to $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_from $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))))\nt ↪[] @comp_cat_fapp0 (OddDual_cat $0') (OddDual_cat $1) (OddDual_cat $1') (@OddDual_func $1 $1' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_to $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) (@OddDual_func $0' $1 (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_from $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) ↪* @comp_fapp0 Cat_cat (OddDual_cat $0') (OddDual_cat $1) (OddDual_cat $1') (@OddDual_func $1 $1' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_to $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) (@OddDual_func $0' $1 (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_from $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))))\n  with @OddDual_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F') ↪ @comp_cat_fapp0 (OddDual_cat $0') (OddDual_cat $B') (OddDual_cat $1') (@OddDual_func $B' $1' $G') (@OddDual_func $0' $B' $F')\nt ↪[1] @OddDual_func $' $' (id Cat_cat (Hom_cat $R (@sigma_Fst (Obj $R) (λ _:τ (Obj $R), Obj $R) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $R) $R) (@Product_map_func (Op_cat $R) (Op_cat $R) $L $R (@Op_func $R $R (id Cat_cat $R)) $G) $ab)) (@sigma_Snd (Obj (Op_cat $R)) (λ _:τ (Obj (Op_cat $R)), Obj $R) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $R) $R) (@Product_map_func (Op_cat $R) (Op_cat $R) $L $R (@Op_func $R $R (id Cat_cat $R)) $G) $ab)))) ↪* id Cat_cat (OddDual_cat $')\n  with @comp_fapp0 Cat_cat $Target $1 $Target (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_to $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_from $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) ↪ id Cat_cat (Hom_cat $R (@sigma_Fst (Obj $R) (λ _:τ (Obj $R), Obj $R) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $R) $R) (@Product_map_func (Op_cat $R) (Op_cat $R) $L $R (@Op_func $R $R (id Cat_cat $R)) $G) $ab)) (@sigma_Snd (Obj (Op_cat $R)) (λ _:τ (Obj (Op_cat $R)), Obj $R) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $R) $R) (@Product_map_func (Op_cat $R) (Op_cat $R) $L $R (@Op_func $R $R (id Cat_cat $R)) $G) $ab)))"
+        },
+        {
+          "count": 1,
+          "sha256": "3720920b361b3c3be6c7e0dc3d6d7e88d3673460e8b9a31102ac70598ad29286",
+          "body": "t ≔ @EvenDual_func $' $' (@comp_fapp0 Cat_cat $' $1 $' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_from $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_to $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))))\nt ↪[] @comp_cat_fapp0 (EvenDual_cat $0') (EvenDual_cat $1) (EvenDual_cat $1') (@EvenDual_func $1 $1' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_from $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) (@EvenDual_func $0' $1 (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_to $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) ↪* @comp_fapp0 Cat_cat (EvenDual_cat $0') (EvenDual_cat $1) (EvenDual_cat $1') (@EvenDual_func $1 $1' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_from $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) (@EvenDual_func $0' $1 (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_to $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))))\n  with @EvenDual_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F') ↪ @comp_cat_fapp0 (EvenDual_cat $0') (EvenDual_cat $B') (EvenDual_cat $1') (@EvenDual_func $B' $1' $G') (@EvenDual_func $0' $B' $F')\nt ↪[1] @EvenDual_func $' $' (id Cat_cat (Hom_cat $L (@sigma_Fst (Obj $L) (λ _:τ (Obj $L), Obj $L) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $L) $L) (@Product_map_func (Op_cat $R) (Op_cat $L) $L $L (@Op_func $R $L $F) (@id_func $L)) $ab)) (@sigma_Snd (Obj (Op_cat $L)) (λ _:τ (Obj (Op_cat $L)), Obj $L) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $L) $L) (@Product_map_func (Op_cat $R) (Op_cat $L) $L $L (@Op_func $R $L $F) (@id_func $L)) $ab)))) ↪* id Cat_cat (EvenDual_cat $')\n  with @comp_fapp0 Cat_cat $Source $1 $Source (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_from $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_to $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) ↪ id Cat_cat (Hom_cat $L (@sigma_Fst (Obj $L) (λ _:τ (Obj $L), Obj $L) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $L) $L) (@Product_map_func (Op_cat $R) (Op_cat $L) $L $L (@Op_func $R $L $F) (@id_func $L)) $ab)) (@sigma_Snd (Obj (Op_cat $L)) (λ _:τ (Obj (Op_cat $L)), Obj $L) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $L) $L) (@Product_map_func (Op_cat $R) (Op_cat $L) $L $L (@Op_func $R $L $F) (@id_func $L)) $ab)))"
+        },
+        {
+          "count": 1,
+          "sha256": "00994d50336a5b713bba82776e7628ba7df3b73ea5c12afc0372ccc810f4e208",
+          "body": "t ≔ @EvenDual_func $' $' (@comp_fapp0 Cat_cat $' $1 $' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_to $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_from $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))))\nt ↪[] @comp_cat_fapp0 (EvenDual_cat $0') (EvenDual_cat $1) (EvenDual_cat $1') (@EvenDual_func $1 $1' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_to $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) (@EvenDual_func $0' $1 (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_from $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) ↪* @comp_fapp0 Cat_cat (EvenDual_cat $0') (EvenDual_cat $1) (EvenDual_cat $1') (@EvenDual_func $1 $1' (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_to $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J)))) (@EvenDual_func $0' $1 (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_from $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))))\n  with @EvenDual_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F') ↪ @comp_cat_fapp0 (EvenDual_cat $0') (EvenDual_cat $B') (EvenDual_cat $1') (@EvenDual_func $B' $1' $G') (@EvenDual_func $0' $B' $F')\nt ↪[1] @EvenDual_func $' $' (id Cat_cat (Hom_cat $R (@sigma_Fst (Obj $R) (λ _:τ (Obj $R), Obj $R) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $R) $R) (@Product_map_func (Op_cat $R) (Op_cat $R) $L $R (@Op_func $R $R (id Cat_cat $R)) $G) $ab)) (@sigma_Snd (Obj (Op_cat $R)) (λ _:τ (Obj (Op_cat $R)), Obj $R) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $R) $R) (@Product_map_func (Op_cat $R) (Op_cat $R) $L $R (@Op_func $R $R (id Cat_cat $R)) $G) $ab)))) ↪* id Cat_cat (EvenDual_cat $')\n  with @comp_fapp0 Cat_cat $Target $1 $Target (@tapp0_fapp0 $2 $3 $4 $5 $ab (@defiso_to $7 $8 $9 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) (@tapp0_fapp0 $15 $16 $17 $18 $ab (@defiso_from $19 $20 $21 (@Adjunction_hom_prof_comparison $R $L $F $G $J))) ↪ id Cat_cat (Hom_cat $R (@sigma_Fst (Obj $R) (λ _:τ (Obj $R), Obj $R) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $R) $R) (@Product_map_func (Op_cat $R) (Op_cat $R) $L $R (@Op_func $R $R (id Cat_cat $R)) $G) $ab)) (@sigma_Snd (Obj (Op_cat $R)) (λ _:τ (Obj (Op_cat $R)), Obj $R) (@fapp0 (Product_cat (Op_cat $R) $L) (Product_cat (Op_cat $R) $R) (@Product_map_func (Op_cat $R) (Op_cat $R) $L $R (@Op_func $R $R (id Cat_cat $R)) $G) $ab)))"
+        }
+      ]
+    }
+  },
+  "resourceReview": {
+    "memoryAvailableMiBBefore8GiB": 21922,
+    "selectedProfile": "300s/8192MiB/o=10, source-only, subject reduction and warnings, serial, file/core/no-swap limits",
+    "two6GiBFailuresRetained": true,
+    "defaultsChanged": false,
+    "performanceQualification": "Cumulative closure required measured headroom; no speedup or satisfactory overall normalization claim."
+  },
+  "next": "Resume remaining original library/central dependency frontier; retain normalization/performance gates, wrapper retirement, production promotion and final catalogue/health/CI/source-pin review."
+}

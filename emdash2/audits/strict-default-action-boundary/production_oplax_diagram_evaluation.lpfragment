@@ -29,8 +29,9 @@ symbol diagram_oplax_family_at_func [K I C : Cat]
 symbol diagram_oplax_family_transf [K I C : Cat]
   (D : τ (Functor K (Functor_oplax_cat I C)))
   [i j : τ (Obj I)] (u : τ (Hom I i j))
-  : τ (@Transf K C (@diagram_oplax_family_at_func K I C D i)
-      (@diagram_oplax_family_at_func K I C D j))
+  : τ (@Transf K C
+      (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) D)
+      (@comp_cat_fapp0 K (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) D))
 ≔ @fapp1_fapp0 I (Functor_cat K C) (@diagram_oplax_family_shape_func K I C D) i j u;
 
 // Double exchange at its actual composition owner. This is the corrected

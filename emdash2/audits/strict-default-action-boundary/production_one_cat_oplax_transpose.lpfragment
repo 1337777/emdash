@@ -62,3 +62,55 @@ symbol one_cat_oplax_diagram_transpose_transf
       (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h j))
 ≔ @fapp1_fapp0 I (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
     (@one_cat_oplax_diagram_transpose_family_func B I C C1 F G h) i j u;
+
+// Whole src evaluation of the transposed shape map, consumed by the
+// original K/Q mate observations. Existing ordinary modification/reflection
+// derives the equality from the actual components; no new comparison rule.
+symbol one_cat_oplax_diagram_transpose_transf_src_path
+  [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_oplax_cat I C))]
+  (h : τ (@Transf B (Functor_oplax_cat I C) F G))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@= (@Transf B C (@comp_cat_fapp0 B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) F) (@comp_cat_fapp0 B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) F))
+      (@diagram_oplax_family_map_at B WalkingArrow_cat C
+        (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h i)
+        (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h j)
+        (@one_cat_oplax_diagram_transpose_transf B I C C1 F G h i j u) walking_arrow_src) (@diagram_oplax_family_transf B I C F i j u))
+≔ let X : τ (Functor B C) ≔ (@comp_cat_fapp0 B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) F) in
+  let Y : τ (Functor B C) ≔ (@comp_cat_fapp0 B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) F) in
+  let alpha : τ (@Transf B C X Y) ≔ (@diagram_oplax_family_map_at B WalkingArrow_cat C
+        (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h i)
+        (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h j)
+        (@one_cat_oplax_diagram_transpose_transf B I C C1 F G h i j u) walking_arrow_src) in
+  let beta : τ (@Transf B C X Y) ≔ (@diagram_oplax_family_transf B I C F i j u) in
+  @hom_to_path (@Transf_cat B C X Y) ((@one_cat_functor_category B C C1) X Y)
+    alpha beta (@one_cat_modification B C C1 X Y alpha beta
+      (λ b : τ (Obj B), @path_to_hom (Hom_cat C (fapp0 X b) (fapp0 Y b))
+        (@tapp0_fapp0 B C X Y b alpha) (@tapp0_fapp0 B C X Y b beta)
+        (@eq_refl (Hom C (fapp0 X b) (fapp0 Y b)) (@tapp0_fapp0 B C X Y b beta))));
+
+// Whole tgt evaluation of the transposed shape map, consumed by the
+// original K/Q mate observations. Existing ordinary modification/reflection
+// derives the equality from the actual components; no new comparison rule.
+symbol one_cat_oplax_diagram_transpose_transf_tgt_path
+  [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_oplax_cat I C))]
+  (h : τ (@Transf B (Functor_oplax_cat I C) F G))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@= (@Transf B C (@comp_cat_fapp0 B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) G) (@comp_cat_fapp0 B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) G))
+      (@diagram_oplax_family_map_at B WalkingArrow_cat C
+        (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h i)
+        (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h j)
+        (@one_cat_oplax_diagram_transpose_transf B I C C1 F G h i j u) walking_arrow_tgt) (@diagram_oplax_family_transf B I C G i j u))
+≔ let X : τ (Functor B C) ≔ (@comp_cat_fapp0 B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) G) in
+  let Y : τ (Functor B C) ≔ (@comp_cat_fapp0 B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C j) G) in
+  let alpha : τ (@Transf B C X Y) ≔ (@diagram_oplax_family_map_at B WalkingArrow_cat C
+        (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h i)
+        (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h j)
+        (@one_cat_oplax_diagram_transpose_transf B I C C1 F G h i j u) walking_arrow_tgt) in
+  let beta : τ (@Transf B C X Y) ≔ (@diagram_oplax_family_transf B I C G i j u) in
+  @hom_to_path (@Transf_cat B C X Y) ((@one_cat_functor_category B C C1) X Y)
+    alpha beta (@one_cat_modification B C C1 X Y alpha beta
+      (λ b : τ (Obj B), @path_to_hom (Hom_cat C (fapp0 X b) (fapp0 Y b))
+        (@tapp0_fapp0 B C X Y b alpha) (@tapp0_fapp0 B C X Y b beta)
+        (@eq_refl (Hom C (fapp0 X b) (fapp0 Y b)) (@tapp0_fapp0 B C X Y b beta))));

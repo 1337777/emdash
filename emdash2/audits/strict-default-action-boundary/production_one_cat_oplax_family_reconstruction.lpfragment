@@ -34,8 +34,10 @@ symbol one_cat_oplax_diagram_family_reconstruction_evidence [B C : Cat]
   (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
   : τ (IsoEvidence (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
       (@transf_arrow_diagram_func B C
-        (@diagram_oplax_family_at_func B WalkingArrow_cat C D walking_arrow_src)
-        (@diagram_oplax_family_at_func B WalkingArrow_cat C D walking_arrow_tgt)
+        (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C
+          (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D)
+        (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C
+          (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D)
         (@diagram_oplax_family_transf B WalkingArrow_cat C D
           walking_arrow_src walking_arrow_tgt walking_arrow_generator)) D)
 ≔ let E : τ (Functor WalkingArrow_cat (Functor_cat B C)) ≔
