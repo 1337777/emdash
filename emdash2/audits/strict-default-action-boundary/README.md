@@ -7,6 +7,14 @@ core and profile source hashes and inserts at unique original owner anchors.
 
 ## Current continuation, 2026-10-18 UTC
 
+The [Cartesian equivalence/locality review](production_locality_completion_review.md)
+and [verification](production_locality_completion_verification.json) record
+derived cancellation for the actual classified inverses and integration into
+the original locality theorem. The whole profile/locality gate passes with
+the outer matching map still lax. The real central diagnostics are now staged;
+their next failed obligation is whole diagram-evaluation reindexing, with the
+arbitrary parameter category retained. Broader migration and promotion remain.
+
 The [inverse admission review](production_inverse_admission_review.md) and
 [verification](production_inverse_admission_verification.json) record full
 native strictness and admission of both original inverse maps. The proofs

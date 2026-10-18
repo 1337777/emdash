@@ -7,6 +7,16 @@ unif_rule
   ≡ @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p
   ↪ [ tt ≡ tt ];
 
+// Pre/right accumulation after both Hom and transfor actions have capped.
+// This is the existing conventional leg with strict F, preserving the
+// nonidentity q and h. It imposes no post/left naturality on epsilon.
+unif_rule
+  @hom_precomp_along_fapp0 $A $B $F $Z $w $x $h
+    (@tapp1_fapp0 $A $B $F $G $x $y $epsilon $q)
+  ≡ @tapp1_fapp0 $A $B $F $G $w $y $epsilon
+      (@hom_precomp_along_fapp0 $A $A (@id Cat_cat $A) $y $w $x $h $q)
+  ↪ [ $Z ≡ @fapp0 $A $B $G $y ];
+
 // Transport through the canonical Hom first maps p by F, then precomposes
 // in B. Compare that actual image directly, without a transitive detour
 // through raw composition or an inverse inference of p from F[p].

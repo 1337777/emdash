@@ -1,0 +1,15 @@
+// Admission respects the existing Cartesian identity and composition.
+// These are constructor comparisons for the full-image classifier, not an
+// identification with the ambient lax mapping category or new inverse laws.
+unif_rule @make_strict_transfor $A $B $F $F
+    (@id (Functor_cat $A $B) $F) _
+  ≡ @id (Functor_cart_cat $A $B) $F
+  ↪ [ tt ≡ tt ];
+
+// lhs-audit: keep 1 -- the ordinary/Cartesian mapping classifiers are actual profile discriminators.
+unif_rule @make_strict_transfor $A $B $F $H
+    (@comp_fapp0 (Functor_cat $A $B) _ $G _ $eta $epsilon) _
+  ≡ @comp_fapp0 (Functor_cart_cat $A $B) _ $G1 _ $V $U
+  ↪ [ $G ≡ $G1;
+      $eta ≡ @strict_transfor $A $B $G $H $V;
+      $epsilon ≡ @strict_transfor $A $B $F $G $U ];

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; both retained inverse maps admitted from their actual extracted-cell strictness; Cartesian whole cancellation, locality and broader migration/promotion remain open
+Status: active implementation; Cartesian inverse cancellation and original locality checked; central diagnostics stop at whole diagram-evaluation reindexing; broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,39 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Cartesian cancellation and locality after `5319dcc2`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_locality_completion_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_locality_completion_verification.json)
+record the actual Cartesian inverse laws and whole equivalence, derived from
+the retained ordinary inverse maps/laws. Two scoped admission comparisons
+cover Cartesian identity/composition, without a new inverse-assembly axiom.
+The derivations are integrated into the staged original pointwise-equivalence
+owner. Its old ordinary assembly is recovered byte-for-byte after removing
+the derived block/imports and reverting the three displayed coefficient tags.
+
+The original locality fibre equivalence now uses that derived Cartesian
+result. Its retained-member data, outer lax matching map, subsequent whole
+assembly and final public locality statement remain. The complete locality
+and profile reviewers pass together. A further capped pre/right comparison
+at the existing conventional-action owner resolves the represented-comma
+reviewer while preserving the post/left lax leg. The core regression passes
+276 positive/79 negative assertions; all 59 positive/13 negative original
+profile assertions pass. New controls preserve both inverse choices and both
+composition operands and reject raw-to-Cartesian evidence coercion.
+
+The real central diagnostics and their full original import closure are now
+staged. The next failed positive obligation is
+`one_cat_diagram_family_transf_reindex_path` in `emdash3_2_diagram_evaluation.lp`:
+the whole opposite-profile reindexing proof spuriously forces B to the mapping
+category and D to an identity. Review fixed precomposition's actual whole
+composition and first-Hom action; retain arbitrary B,D,F and the original
+guard. Do not discard this diagnostic or weaken its claim to point components.
+The coupled locality/profile check takes about 123s at 600s/4GiB/o=5; core
+takes about 26s at 240s/2GiB/o=20. The central failure reaches its type boundary
+in about 104s. Exact inputs/resources/warnings are recorded in the verification.
+Remaining library migration, wrapper retirement, production promotion and
+final gates remain required; the separate application goal stays paused.
 
 Native inverse admission after `578a17bc`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_inverse_admission_review.md)

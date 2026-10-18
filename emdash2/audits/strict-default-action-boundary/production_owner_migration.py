@@ -59,6 +59,15 @@ def main():
         changes.append({'owner': owner, 'reason': reason,
                         'oldSha256': sha(old), 'newSha256': sha(new)})
 
+    admission_marker = '// Transparent typed carrier comparison.\nsymbol make_strict_transfor_carrier_path'
+    assert profiles.count(admission_marker) == 1
+    admission_views = fragment('production_strict_admission_views.lpfragment')
+    profiles = profiles.replace(admission_marker, admission_views + '\n' + admission_marker, 1)
+    changes.append({'source': 'emdash3_2_gray_profiles.lp',
+                    'owner': 'strict-transfor admission of Cartesian identity/composition',
+                    'reason': 'The actual classified inverse laws require admission to agree with existing Cartesian constructors while retaining each ordinary operand',
+                    'insertedSha256': sha(admission_views)})
+
     insert('/*\n  The former capped composition cut and detached all-components law are\n',
            fragment('composition_rule.lpfragment'), 'Strict default: existing capped functor action owner')
     insert('// Hom-action functoriality for precomposition. The composition orientation is',
@@ -1872,8 +1881,19 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                     ordinary_view = '(@direct_cover_completion_restriction_glue_fibre_transf\n' + ' ' * indent + 'K T P V U q m)'
                     assert text.count(ordinary_view) == expected
                     text = text.replace(ordinary_view, '(@strict_transfor _ _ _ _ ' + ordinary_view + ')')
+                fibre_start = text.index('symbol direct_cover_completion_restriction_glue_fibre_omega')
+                fibre_end = text.index('// Fibrewise whole equivalences are the pointwise evidence for rho[m].', fibre_start)
+                fibre = text[fibre_start:fibre_end]
+                assert fibre.count('@Functor_cat') == 1
+                assert fibre.count('@strict_transf_pointwise_omega_along') == 1
+                included = r'\(@strict_transfor _ _ _ _ (\(@direct_cover_completion_restriction_glue_fibre_transf\n\s+K T P V U q m\))\)'
+                assert len(re.findall(included, fibre)) == 2
+                fibre = fibre.replace('@Functor_cat', '@Functor_cart_cat')
+                fibre = fibre.replace('@strict_transf_pointwise_omega_along', '@pointwise_cart_omega_along')
+                fibre = re.sub(included, r'\1', fibre)
+                text = text[:fibre_start] + fibre + text[fibre_end:]
                 changes.append({'source': path, 'owner': 'direct-cover locality retained-member observation',
-                                'reason': 'Give the canonical fibre transformation its actual Cartesian profile and use its ordinary view below; the final Cartesian inverse admission remains an explicit failed obligation, not a generic pointwise closure assumption',
+                                'reason': 'Use the canonical Cartesian fibre transformation and its derived Cartesian pointwise equivalence; preserve the original outer lax matching map, retained-member input and inherited outer assembly',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_direct_cover_completion_hit.lp',
                         'examples/direct_cover_completion_hit.lp'):
@@ -2083,8 +2103,35 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                     '// The actual Cat_cart fibre Hom is Cartesian: retain the forward cell\n'
                     '// and both chosen inverse components in that same coefficient.\n'
                     '// Whole assembly remains the inherited primitive assumption above.')
+                imported = 'require open emdash.emdash3_2;'
+                assert text.count(imported) == 1
+                text = text.replace(imported, imported + '\n'
+                    'require open emdash.emdash3_2_gray_profiles;\n'
+                    'require open emdash.emdash3_2_eq1_evidence_property;', 1)
+                derived_parts = []
+                for name, boundary in (
+                    ('production_inverse_unit_profiles.lpfragment', None),
+                    ('production_strict_cell_reflection.lpfragment', '// Reflection keeps the actual cell'),
+                    ('production_internal_composite_action_controls.lpfragment', '// A general earlier lax transfor'),
+                    ('production_inverse_represented_unit.lpfragment', None),
+                    ('production_whiskering_equivalences.lpfragment', '\nassert '),
+                    ('production_represented_laxity_boundary.lpfragment', None),
+                    ('production_inverse_admission.lpfragment', '\nassert '),
+                    ('production_cartesian_inverse_laws.lpfragment', None),
+                ):
+                    part = fragment(name)
+                    if boundary:
+                        assert boundary in part, name
+                        part = part.split(boundary, 1)[0]
+                    derived_parts.append(part.rstrip())
+                derived = ('// Derived Cartesian assembly for a classified strict forward map.\n'
+                    '// The original ordinary inverse choices and whole laws are retained.\n'
+                    '// Their extracted-cell strictness and the Cartesian cancellation laws\n'
+                    '// are proved below; no further assembly principle is supplied.\n\n'
+                    + '\n\n'.join(derived_parts) + '\n\n')
+                text = text.replace(marker, derived + marker, 1)
                 changes.append({'source': path, 'owner': 'displayed pointwise-equivalence coefficient',
-                                'reason': 'Use the actual Cartesian coefficient of tdapp0_fapp0 for all selected pointwise inverse data; preserve ordinary assembly and the original whole declared inverse/law owners',
+                                'reason': 'Use the actual Cartesian coefficient of tdapp0_fapp0 and derive the Cartesian whole equivalence for strict forward maps from the original retained ordinary inverse/law owners',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_represented_comma_families.lp':
                 old = text
@@ -2781,6 +2828,10 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/action_profile_prof_defiso_controls.lp')
     stage('examples/one_cat_arrow_diagrams.lp')
     stage('examples/one_cat_modifications.lp')
+    # Preserve the real production diagnostic dependency closure as the next
+    # integration boundary. Its unchanged assertions are not automatically
+    # qualified by the focused owner checks below.
+    stage('emdash3_2_checks.lp')
     (package / 'one_cat_arrow_profile_controls.lp').write_text(
         'require open emdash.examples.one_cat_arrow_diagrams;\n'
         + fragment('production_one_cat_arrow_controls.lpfragment'))
@@ -2865,6 +2916,17 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require open emdash.represented_laxity_boundary;\n'
         'require open emdash.represented_laxity_controls;\n'
         + fragment('production_inverse_admission.lpfragment'))
+    (package / 'cartesian_inverse_laws.lp').write_text(
+        'require open emdash.inverse_admission;\n'
+        + fragment('production_cartesian_inverse_laws.lpfragment'))
+    (package / 'cartesian_inverse_controls.lp').write_text(
+        'require open emdash.emdash3_2_strict_pointwise_equivalences;\n'
+        'require emdash.examples.gray_profiles;\n'
+        + fragment('production_cartesian_inverse_controls.lpfragment') + '\n'
+        + fragment('production_pointwise_coefficient_control.lpfragment'))
+    (package / 'inverse_locality_regression.lp').write_text(
+        'require emdash.cartesian_inverse_controls;\n'
+        'require emdash.locality_profile_controls;\n')
     psss_start = '// catalog-area: Cat-valued presheaf facade and restriction'
     psss_end = '/* End of the PSSS-02 higher-sieve diagnostics. */'
     assert original_checks.count(psss_start) == original_checks.count(psss_end) == 1
@@ -3173,6 +3235,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'represented_laxity_controls.lp',
                               package / 'whiskering_equivalences.lp',
                               package / 'inverse_admission.lp',
+                              package / 'cartesian_inverse_laws.lp',
+                              package / 'cartesian_inverse_controls.lp',
+                              package / 'inverse_locality_regression.lp',
                               package / 'whole_reading_regression_controls.lp',
                               package / 'internal_composite_regression_controls.lp',
                               package / 'mapped_hom_regression_controls.lp',

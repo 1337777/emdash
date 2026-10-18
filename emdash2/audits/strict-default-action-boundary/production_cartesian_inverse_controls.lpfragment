@@ -1,0 +1,40 @@
+// The new whole equivalence preserves both original selected inverse maps.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G (@strict_transfor A B F G eta))) ⊢
+  @strict_transfor_underlying A B G F
+    (@omega_equiv_along_left_inv (Functor_cart_cat A B) F G eta
+      (@pointwise_cart_omega_along A B F G eta u))
+  ≡ @strict_transf_pointwise_left_inverse A B F G (@strict_transfor A B F G eta) u;
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G (@strict_transfor A B F G eta))) ⊢
+  @strict_transfor_underlying A B G F
+    (@omega_equiv_along_right_inv (Functor_cart_cat A B) F G eta
+      (@pointwise_cart_omega_along A B F G eta u))
+  ≡ @strict_transf_pointwise_right_inverse A B F G (@strict_transfor A B F G eta) u;
+
+// Admission of composition retains its earlier operand.
+assertnot [A B : Cat] [F G H : τ (Functor A B)]
+  (U Uother : τ (@StrictTransfor A B F G))
+  (V : τ (@StrictTransfor A B G H)) ⊢
+  @eq_refl (Hom (Functor_cart_cat A B) F H)
+    (@comp_fapp0 (Functor_cart_cat A B) F G H V U)
+  : τ (@= (Hom (Functor_cart_cat A B) F H)
+    (@comp_fapp0 (Functor_cart_cat A B) F G H V U)
+    (@make_strict_transfor A B F H
+      (@strict_transfor A B F H (@comp_fapp0 (Functor_cart_cat A B) F G H V Uother))
+      (@strict_transfor_is_strict A B F H (@comp_fapp0 (Functor_cart_cat A B) F G H V Uother))));
+
+// Its later operand is retained as well.
+assertnot [A B : Cat] [F G H : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G))
+  (V Vother : τ (@StrictTransfor A B G H)) ⊢
+  @eq_refl (Hom (Functor_cart_cat A B) F H)
+    (@comp_fapp0 (Functor_cart_cat A B) F G H V U)
+  : τ (@= (Hom (Functor_cart_cat A B) F H)
+    (@comp_fapp0 (Functor_cart_cat A B) F G H V U)
+    (@make_strict_transfor A B F H
+      (@strict_transfor A B F H (@comp_fapp0 (Functor_cart_cat A B) F G H Vother U))
+      (@strict_transfor_is_strict A B F H (@comp_fapp0 (Functor_cart_cat A B) F G H Vother U))));

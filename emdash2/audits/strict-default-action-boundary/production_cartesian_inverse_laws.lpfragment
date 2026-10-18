@@ -1,0 +1,67 @@
+// Equality lifts between actual admitted constructors. Evidence choice is
+// already unobservable; equality induction supplies the comparison of maps.
+symbol strict_transfor_admission_path
+  [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon theta : τ (@Transf A B F G))
+  (pe : τ (@IsStrictTransfor A B F G epsilon))
+  (pt : τ (@IsStrictTransfor A B F G theta))
+  (path : τ (@= (@Transf A B F G) epsilon theta))
+  : τ (@= (@StrictTransfor A B F G)
+    (@make_strict_transfor A B F G epsilon pe)
+    (@make_strict_transfor A B F G theta pt))
+≔ (@ind_eq (@Transf A B F G) epsilon theta path
+    (λ eta : τ (@Transf A B F G),
+      @Pi_grpd (@IsStrictTransfor A B F G eta)
+        (λ s : τ (@IsStrictTransfor A B F G eta),
+          @= (@StrictTransfor A B F G)
+            (@make_strict_transfor A B F G eta s)
+            (@make_strict_transfor A B F G theta pt)))
+    (λ s : τ (@IsStrictTransfor A B F G theta),
+      @eq_refl (@StrictTransfor A B F G) (@make_strict_transfor A B F G theta pt))) pe;
+
+// The required consumer is the actual Cartesian composite and identity,
+// rather than only their separately admitted ordinary presentations.
+symbol pointwise_cart_left_law
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G (@strict_transfor A B F G eta)))
+  : τ (@= (Hom (Functor_cart_cat A B) F F)
+    (@comp_fapp0 (Functor_cart_cat A B) F G F
+      (@pointwise_cart_left_inverse A B F G eta u) eta)
+    (@id (Functor_cart_cat A B) F))
+≔ let forward : τ (@Transf A B F G) ≔ @strict_transfor A B F G eta in
+  @strict_transfor_admission_path A B F F
+    (@comp_fapp0 (Functor_cat A B) F G F
+      (@strict_transf_pointwise_left_inverse A B F G forward u) forward)
+    (@id (Functor_cat A B) F)
+    (@inverse_left_unit_is_strict A B F G forward u)
+    (@strict_transfor_is_strict A B F F (@id (Functor_cart_cat A B) F))
+    (@strict_transf_pointwise_left_law A B F G forward u);
+
+symbol pointwise_cart_right_law
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G (@strict_transfor A B F G eta)))
+  : τ (@= (Hom (Functor_cart_cat A B) G G)
+    (@comp_fapp0 (Functor_cart_cat A B) G F G
+      eta (@pointwise_cart_right_inverse A B F G eta u))
+    (@id (Functor_cart_cat A B) G))
+≔ let forward : τ (@Transf A B F G) ≔ @strict_transfor A B F G eta in
+  @strict_transfor_admission_path A B G G
+    (@comp_fapp0 (Functor_cat A B) G F G
+      forward (@strict_transf_pointwise_right_inverse A B F G forward u))
+    (@id (Functor_cat A B) G)
+    (@inverse_right_unit_is_strict A B F G forward u)
+    (@strict_transfor_is_strict A B G G (@id (Functor_cart_cat A B) G))
+    (@strict_transf_pointwise_right_law A B F G forward u);
+
+symbol pointwise_cart_omega_along
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G (@strict_transfor A B F G eta)))
+  : τ (@OmegaEquivAlong (Functor_cart_cat A B) F G eta)
+≔ @omega_equiv_along_intro (Functor_cart_cat A B) F G eta
+    (@pointwise_cart_left_inverse A B F G eta u)
+    (@pointwise_cart_right_inverse A B F G eta u)
+    (@pointwise_cart_left_law A B F G eta u)
+    (@pointwise_cart_right_law A B F G eta u);
