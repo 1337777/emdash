@@ -1,0 +1,70 @@
+// Fixed precomposition reflects the chosen scalar equivalence. Contravariance
+// swaps the two inverse choices; neither is replaced or reconstructed.
+symbol represented_precomp_equivalence
+  [B : Cat] [P Q : τ (Obj B)] (e : τ (Hom B P Q))
+  (u : τ (@OmegaEquivAlong B P Q e)) (Z : τ (Obj B))
+  : τ (@OmegaEquivAlong Cat_cat (Hom_cat B Q Z) (Hom_cat B P Z)
+      (@hom_precomp_along_func B B (@id_func B) Z P Q e))
+≔ @omega_equiv_along_intro Cat_cat (Hom_cat B Q Z) (Hom_cat B P Z)
+    (@hom_precomp_along_func B B (@id_func B) Z P Q e)
+    (@hom_precomp_along_func B B (@id_func B) Z Q P
+      (@omega_equiv_along_right_inv B P Q e u))
+    (@hom_precomp_along_func B B (@id_func B) Z Q P
+      (@omega_equiv_along_left_inv B P Q e u))
+    (@eq_ap (Hom B Q Q) (Functor (Hom_cat B Q Z) (Hom_cat B Q Z))
+      (λ a : τ (Hom B Q Q), @hom_precomp_along_func B B (@id_func B) Z Q Q a)
+      (@comp_fapp0 B Q P Q e (@omega_equiv_along_right_inv B P Q e u))
+      (@id B Q) (@omega_equiv_along_right_law B P Q e u))
+    (@eq_ap (Hom B P P) (Functor (Hom_cat B P Z) (Hom_cat B P Z))
+      (λ a : τ (Hom B P P), @hom_precomp_along_func B B (@id_func B) Z P P a)
+      (@comp_fapp0 B P Q P (@omega_equiv_along_left_inv B P Q e u) e)
+      (@id B P) (@omega_equiv_along_left_law B P Q e u));
+
+// Fixed postcomposition acts on ordinary lax mapping categories. Only the
+// supplied whole unit paths are mapped; no joint Cartesian action on two
+// varying lax transformations or stronger coefficient universe is asserted.
+symbol fixed_postcomp_equivalence
+  (S : Cat) [C D : Cat] (F : τ (Functor C D))
+  (u : τ (@OmegaEquivAlong Cat_cat C D F))
+  : τ (@OmegaEquivAlong Cat_cat (Functor_cat S C) (Functor_cat S D)
+      (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) S C D F))
+≔ @omega_equiv_along_intro Cat_cat (Functor_cat S C) (Functor_cat S D)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) S C D F)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) S D C
+      (@omega_equiv_along_left_inv Cat_cat C D F u))
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) S D C
+      (@omega_equiv_along_right_inv Cat_cat C D F u))
+    (@eq_ap (Functor C C) (Functor (Functor_cat S C) (Functor_cat S C))
+      (λ V : τ (Functor C C),
+        @hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) S C C V)
+      (@comp_cat_fapp0 C D C (@omega_equiv_along_left_inv Cat_cat C D F u) F)
+      (@id_func C) (@omega_equiv_along_left_law Cat_cat C D F u))
+    (@eq_ap (Functor D D) (Functor (Functor_cat S D) (Functor_cat S D))
+      (λ V : τ (Functor D D),
+        @hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) S D D V)
+      (@comp_cat_fapp0 D C D F (@omega_equiv_along_right_inv Cat_cat C D F u))
+      (@id_func D) (@omega_equiv_along_right_law Cat_cat C D F u));
+
+assert [B : Cat] [P Q : τ (Obj B)] (e : τ (Hom B P Q))
+  (u : τ (@OmegaEquivAlong B P Q e)) (Z : τ (Obj B)) ⊢
+  @omega_equiv_along_left_inv Cat_cat (Hom_cat B Q Z) (Hom_cat B P Z)
+    (@hom_precomp_along_func B B (@id_func B) Z P Q e)
+    (@represented_precomp_equivalence B P Q e u Z)
+  ≡ @hom_precomp_along_func B B (@id_func B) Z Q P
+      (@omega_equiv_along_right_inv B P Q e u);
+
+assert [B : Cat] [P Q : τ (Obj B)] (e : τ (Hom B P Q))
+  (u : τ (@OmegaEquivAlong B P Q e)) (Z : τ (Obj B)) ⊢
+  @omega_equiv_along_right_inv Cat_cat (Hom_cat B Q Z) (Hom_cat B P Z)
+    (@hom_precomp_along_func B B (@id_func B) Z P Q e)
+    (@represented_precomp_equivalence B P Q e u Z)
+  ≡ @hom_precomp_along_func B B (@id_func B) Z Q P
+      (@omega_equiv_along_left_inv B P Q e u);
+
+assertnot [B : Cat] [P Q : τ (Obj B)] (e : τ (Hom B P Q))
+  (u : τ (@OmegaEquivAlong B P Q e)) (Z : τ (Obj B)) ⊢
+  @omega_equiv_along_left_inv Cat_cat (Hom_cat B Q Z) (Hom_cat B P Z)
+    (@hom_precomp_along_func B B (@id_func B) Z P Q e)
+    (@represented_precomp_equivalence B P Q e u Z)
+  ≡ @hom_precomp_along_func B B (@id_func B) Z Q P
+      (@omega_equiv_along_left_inv B P Q e u);

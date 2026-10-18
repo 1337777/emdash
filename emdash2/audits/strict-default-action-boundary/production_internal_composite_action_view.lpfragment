@@ -1,0 +1,16 @@
+// Fixed-source whole internal action of a vertical composite. The earlier
+// transfor is genuinely strict; the later one retains its lax comparison.
+// This selects the whole computation corresponding to the existing guarded
+// vertical component action, not a new inverse-assembly assumption.
+// lhs-audit: keep 1 -- the ordinary and displayed composition categories are actual owner/profile discriminators.
+unif_rule @tapp1_at_transf $A $B $F $H $X
+    (@comp_fapp0 (Functor_cat $A $B) _ _ _ $xi
+      (@strict_transfor $A $B $F $G $eta))
+  ≡ @comp_fapp0 (Catd_cat $A) _ _ _
+      (@strict_transfor $A Cat_cart _ _
+        (@hom_int_precomp_func $B $A $H $GX $FX $component))
+      (@tapp1_at_transf $A $B $G $H $X $xi)
+  ↪ [ $GX ≡ @fapp0 $A $B $G $X;
+      $FX ≡ @fapp0 $A $B $F $X;
+      $component ≡ @tapp0_fapp0 $A $B $F $G $X
+        (@strict_transfor $A $B $F $G $eta) ];

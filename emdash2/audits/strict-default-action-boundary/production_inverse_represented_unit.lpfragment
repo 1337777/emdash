@@ -1,0 +1,27 @@
+// The original whole cancellation path constrains the represented composite.
+// This transports a proof, not a replacement comparison cell or inverse map.
+symbol inverse_represented_composite_is_strict
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G
+      (@strict_transfor A B F G eta)))
+  (X : τ (Obj A))
+  : τ (@IsStrictFunctord A
+      (@hom_ A A (@id_func A) X)
+      (@hom_ B A F (@fapp0 A B F X))
+      (@strict_left_internal_composite_view A B F G F eta
+        (@strict_transf_pointwise_left_inverse A B F G
+          (@strict_transfor A B F G eta) u) X))
+≔ let xi : τ (@Transf A B G F) ≔ @strict_transf_pointwise_left_inverse A B F G
+      (@strict_transfor A B F G eta) u in
+  let alpha : τ (@Transf A B F F) ≔ @comp_fapp0 (Functor_cat A B) F G F
+      xi (@strict_transfor A B F G eta) in
+  let S : τ (Catd A) ≔ @hom_ A A (@id_func A) X in
+  let D : τ (Catd A) ≔ @hom_ B A F (@fapp0 A B F X) in
+  let view : τ (@Functord A S D) ≔ @strict_left_internal_composite_view A B F G F eta xi X in
+  @ind_eq (@Functord A S D) view (@tapp1_at_transf A B F F X alpha)
+    (@eq_sym (@Functord A S D) (@tapp1_at_transf A B F F X alpha) view
+      (@strict_left_internal_composite_path A B F G F eta xi X))
+    (λ FF : τ (@Functord A S D), @IsStrictFunctord A S D FF)
+    ((@strict_transfor_post_evidence A B F F alpha
+      (@inverse_left_unit_is_strict A B F G (@strict_transfor A B F G eta) u)) X);

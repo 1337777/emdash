@@ -1,0 +1,30 @@
+symbol mapped_hom_square_path
+  [K B : Cat] (H : τ (Functor K B)) [P Q : τ (Obj B)]
+  (e : τ (Hom B P Q)) [x y : τ (Obj K)] (p : τ (Hom K x y))
+  : τ (@= (Functor (Hom_cat B Q (@fapp0 K B H x)) (Hom_cat B P (@fapp0 K B H y)))
+    (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B K H P x y p)
+      (@hom_precomp_along_func B B (@id_func B) (@fapp0 K B H x) P Q e))
+    (@comp_cat_fapp0 _ _ _
+      (@hom_precomp_along_func B B (@id_func B) (@fapp0 K B H y) P Q e)
+      (@hom_postcomp_func B K H Q x y p)))
+≔ @eq_refl (Functor (Hom_cat B Q (@fapp0 K B H x)) (Hom_cat B P (@fapp0 K B H y)))
+    (@Hom_func B Q P (@fapp0 K B H x) (@fapp0 K B H y) e (@fapp1_fapp0 K B H x y p));
+
+assertnot [K B : Cat] (H : τ (Functor K B)) [P Q : τ (Obj B)]
+  (e other : τ (Hom B P Q)) [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @eq_refl (Functor (Hom_cat B Q (@fapp0 K B H x)) (Hom_cat B P (@fapp0 K B H y)))
+    (@Hom_func B Q P (@fapp0 K B H x) (@fapp0 K B H y) e (@fapp1_fapp0 K B H x y p))
+  : τ (@= (Functor (Hom_cat B Q (@fapp0 K B H x)) (Hom_cat B P (@fapp0 K B H y)))
+    (@Hom_func B Q P (@fapp0 K B H x) (@fapp0 K B H y) e (@fapp1_fapp0 K B H x y p))
+    (@comp_cat_fapp0 _ _ _ (@hom_postcomp_func B K H P x y p)
+      (@hom_precomp_along_func B B (@id_func B) (@fapp0 K B H x) P Q other)));
+
+assertnot [K B : Cat] (H : τ (Functor K B)) [P Q : τ (Obj B)]
+  (e : τ (Hom B P Q)) [x y : τ (Obj K)] (p q : τ (Hom K x y)) ⊢
+  @eq_refl (Functor (Hom_cat B Q (@fapp0 K B H x)) (Hom_cat B P (@fapp0 K B H y)))
+    (@Hom_func B Q P (@fapp0 K B H x) (@fapp0 K B H y) e (@fapp1_fapp0 K B H x y p))
+  : τ (@= (Functor (Hom_cat B Q (@fapp0 K B H x)) (Hom_cat B P (@fapp0 K B H y)))
+    (@Hom_func B Q P (@fapp0 K B H x) (@fapp0 K B H y) e (@fapp1_fapp0 K B H x y p))
+    (@comp_cat_fapp0 _ _ _
+      (@hom_precomp_along_func B B (@id_func B) (@fapp0 K B H y) P Q e)
+      (@hom_postcomp_func B K H Q x y q)));

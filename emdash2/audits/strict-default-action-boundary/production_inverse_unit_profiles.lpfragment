@@ -1,0 +1,54 @@
+// Transport a property of the identity along the original whole inverse law.
+// No component law of u[x] is substituted for that whole path.
+symbol inverse_left_unit_is_strict
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@Transf A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G eta))
+  : τ (@IsStrictTransfor A B F F
+      (@comp_fapp0 (Functor_cat A B) F G F
+        (@strict_transf_pointwise_left_inverse A B F G eta u) eta))
+≔ @ind_eq (@Transf A B F F)
+    (@comp_fapp0 (Functor_cat A B) F G F
+      (@strict_transf_pointwise_left_inverse A B F G eta u) eta)
+    (@id (Functor_cat A B) F)
+    (@strict_transf_pointwise_left_law A B F G eta u)
+    (λ alpha : τ (@Transf A B F F), @IsStrictTransfor A B F F alpha)
+    (@strict_transfor_is_strict A B F F (@id (Functor_cart_cat A B) F));
+
+symbol inverse_right_unit_is_strict
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@Transf A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G eta))
+  : τ (@IsStrictTransfor A B G G
+      (@comp_fapp0 (Functor_cat A B) G F G eta
+        (@strict_transf_pointwise_right_inverse A B F G eta u)))
+≔ @ind_eq (@Transf A B G G)
+    (@comp_fapp0 (Functor_cat A B) G F G eta
+      (@strict_transf_pointwise_right_inverse A B F G eta u))
+    (@id (Functor_cat A B) G)
+    (@strict_transf_pointwise_right_law A B F G eta u)
+    (λ alpha : τ (@Transf A B G G), @IsStrictTransfor A B G G alpha)
+    (@strict_transfor_is_strict A B G G (@id (Functor_cart_cat A B) G));
+
+// The post/left field really constrains the composite's extracted whole cell.
+symbol inverse_left_composite_post_is_strict
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@Transf A B F G))
+  (u : τ (@StrictTransfPointwiseOmegaAlong A B F G eta))
+  (X : τ (Obj A)) [Y Z : τ (Obj A)] (g : τ (Hom A Y Z))
+  : τ (@IsStrictCell
+      (Functor_cat (Hom_cat A X Y)
+        (Hom_cat B (@fapp0 A B F X) (@fapp0 A B F Z)))
+      (@strict_transfor_naturality_lhs_func A B F F
+        (@comp_fapp0 (Functor_cat A B) F G F
+          (@strict_transf_pointwise_left_inverse A B F G eta u) eta) X Y Z g)
+      (@strict_transfor_naturality_rhs_func A B F F
+        (@comp_fapp0 (Functor_cat A B) F G F
+          (@strict_transf_pointwise_left_inverse A B F G eta u) eta) X Y Z g)
+      (@strict_transfor_naturality_transf A B F F
+        (@comp_fapp0 (Functor_cat A B) F G F
+          (@strict_transf_pointwise_left_inverse A B F G eta u) eta) X Y Z g))
+≔ (@strict_transfor_post_evidence A B F F
+      (@comp_fapp0 (Functor_cat A B) F G F
+        (@strict_transf_pointwise_left_inverse A B F G eta u) eta)
+      (@inverse_left_unit_is_strict A B F G eta u)) X Y Z g;

@@ -1441,6 +1441,12 @@ unif_rule @sigma_map_func $K _ _
     insert('// Whole post/left strict naturality guarded by the evidence-bearing view.',
            fragment('production_transfor_whole_readings.lpfragment'),
            'Whole pre/right presentation of the selected conventional action; compare already-projected components without changing the retained post/left cell')
+    insert('// Second projection of off-diagonal internal hom-action.',
+           fragment('production_internal_composite_action_view.lpfragment'),
+           'Fixed-source whole vertical action with a strict earlier factor, retaining the later lax transfor and the actual source component')
+    insert('// Cartesian whiskering uses the same Hom owners in the selected coefficient.',
+           fragment('production_mapped_hom_square_views.lpfragment'),
+           'Use the existing rigid two-endpoint Hom action as the common endpoint of canonical represented precomposition, including a mapped target arrow')
     # Preserve the complete original tail. A separately emitted prefix
     # qualifies only its preceding source; full-core qualification requires
     # the complete target and its actual consumers.
@@ -2820,6 +2826,30 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require open emdash.inverse_post_endpoint_paths;\n'
         'require open emdash.emdash3_2_gray_profiles;\n'
         + fragment('production_inverse_post_admission_boundary.lpfragment'))
+    (package / 'inverse_unit_profiles.lp').write_text(
+        'require open emdash.emdash3_2_strict_pointwise_equivalences;\n'
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + fragment('production_inverse_unit_profiles.lpfragment'))
+    (package / 'inverse_cell_reflection.lp').write_text(
+        'require open emdash.inverse_unit_profiles;\n'
+        'require open emdash.emdash3_2_eq1_hom_action;\n'
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + fragment('production_strict_cell_reflection.lpfragment'))
+    (package / 'internal_composite_action_controls.lp').write_text(
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + fragment('production_internal_composite_action_controls.lpfragment'))
+    (package / 'inverse_represented_unit.lp').write_text(
+        'require open emdash.inverse_cell_reflection;\n'
+        'require open emdash.internal_composite_action_controls;\n'
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        'require open emdash.emdash3_2_strict_pointwise_equivalences;\n'
+        + fragment('production_inverse_represented_unit.lpfragment'))
+    (package / 'represented_laxity_boundary.lp').write_text(
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + fragment('production_represented_laxity_boundary.lpfragment'))
+    (package / 'whiskering_equivalences.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + fragment('production_whiskering_equivalences.lpfragment'))
     psss_start = '// catalog-area: Cat-valued presheaf facade and restriction'
     psss_end = '/* End of the PSSS-02 higher-sieve diagnostics. */'
     assert original_checks.count(psss_start) == original_checks.count(psss_end) == 1
@@ -2969,6 +2999,12 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'whole_reading_regression_controls.lp').write_text(
         (package / 'lax_curry_regression_controls.lp').read_text() + '\n'
         + fragment('production_whole_reading_controls.lpfragment'))
+    (package / 'internal_composite_regression_controls.lp').write_text(
+        (package / 'whole_reading_regression_controls.lp').read_text() + '\n'
+        + fragment('production_internal_composite_action_controls.lpfragment'))
+    (package / 'mapped_hom_regression_controls.lp').write_text(
+        (package / 'internal_composite_regression_controls.lp').read_text() + '\n'
+        + fragment('production_mapped_hom_square_controls.lpfragment'))
     (package / 'comma_target_guard_controls.lp').write_text(
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
@@ -3111,7 +3147,15 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'inverse_endpoint_paths.lp',
                               package / 'inverse_post_endpoint_paths.lp',
                               package / 'inverse_post_admission_boundary.lp',
+                              package / 'inverse_unit_profiles.lp',
+                              package / 'inverse_cell_reflection.lp',
+                              package / 'internal_composite_action_controls.lp',
+                              package / 'inverse_represented_unit.lp',
+                              package / 'represented_laxity_boundary.lp',
+                              package / 'whiskering_equivalences.lp',
                               package / 'whole_reading_regression_controls.lp',
+                              package / 'internal_composite_regression_controls.lp',
+                              package / 'mapped_hom_regression_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

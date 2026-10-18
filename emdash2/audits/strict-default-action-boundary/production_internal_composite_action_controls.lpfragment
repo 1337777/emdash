@@ -1,0 +1,88 @@
+// Typed whole computation view for vertical composition with a strict
+// earlier transfor. This uses the selected whole view at the original owner;
+// it is not inferred from the legacy scalar beta rules alone.
+// This readable view is a defined composite, not another action constructor.
+symbol strict_left_internal_composite_view
+  [A B : Cat] [F G H : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (xi : τ (@Transf A B G H)) (X : τ (Obj A))
+  : τ (@Functord A (@hom_ A A (@id_func A) X)
+      (@hom_ B A H (@fapp0 A B F X)))
+≔ @comp_catd_fapp0 A (@hom_ A A (@id_func A) X)
+    (@hom_ B A H (@fapp0 A B G X)) (@hom_ B A H (@fapp0 A B F X))
+    (@strict_transfor A Cat_cart _ _
+      (@hom_int_precomp_func B A H (@fapp0 A B G X) (@fapp0 A B F X)
+        (@tapp0_fapp0 A B F G X (@strict_transfor A B F G eta))))
+    (@tapp1_at_transf A B G H X xi);
+
+symbol strict_left_internal_composite_path
+  [A B : Cat] [F G H : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (xi : τ (@Transf A B G H)) (X : τ (Obj A))
+  : τ (@= (@Functord A
+      (@hom_ A A (@id_func A) X)
+      (@hom_ B A H (@fapp0 A B F X)))
+    (@tapp1_at_transf A B F H X
+      (@comp_fapp0 (Functor_cat A B) F G H xi
+        (@strict_transfor A B F G eta)))
+    (@strict_left_internal_composite_view A B F G H eta xi X))
+≔ @eq_refl (@Functord A
+    (@hom_ A A (@id_func A) X)
+    (@hom_ B A H (@fapp0 A B F X)))
+    (@tapp1_at_transf A B F H X
+      (@comp_fapp0 (Functor_cat A B) F G H xi
+        (@strict_transfor A B F G eta)));
+
+// Its first projection is a whole functor in the retained source arrow.
+symbol strict_left_internal_component_path
+  [A B : Cat] [F G H : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G))
+  (xi : τ (@Transf A B G H)) (X Y : τ (Obj A))
+  : τ (@= (Functor (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B F X) (@fapp0 A B H Y)))
+    (@tapp1_func A B F H X Y
+      (@comp_fapp0 (Functor_cat A B) F G H xi (@strict_transfor A B F G eta)))
+    (@comp_cat_fapp0 _ _ _
+      (@hom_precomp_along_func B B (@id_func B) (@fapp0 A B H Y)
+        (@fapp0 A B F X) (@fapp0 A B G X)
+        (@tapp0_fapp0 A B F G X (@strict_transfor A B F G eta)))
+      (@tapp1_func A B G H X Y xi)))
+≔ @eq_ap
+    (@Functord A (@hom_ A A (@id_func A) X) (@hom_ B A H (@fapp0 A B F X)))
+    (Functor (Hom_cat A X Y) (Hom_cat B (@fapp0 A B F X) (@fapp0 A B H Y)))
+    (λ FF : τ (@Functord A (@hom_ A A (@id_func A) X) (@hom_ B A H (@fapp0 A B F X))),
+      @tapp0_fapp0 A Cat_cart _ _ Y FF)
+    (@tapp1_at_transf A B F H X
+      (@comp_fapp0 (Functor_cat A B) F G H xi (@strict_transfor A B F G eta)))
+    (@strict_left_internal_composite_view A B F G H eta xi X)
+    (@strict_left_internal_composite_path A B F G H eta xi X);
+
+// A general earlier lax transfor does not have this strict whole action.
+assertnot [A B : Cat] [F G H : τ (Functor A B)]
+  (eta : τ (@Transf A B F G)) (xi : τ (@Transf A B G H)) (X : τ (Obj A)) ⊢
+  @eq_refl (@Functord A (@hom_ A A (@id_func A) X) (@hom_ B A H (@fapp0 A B F X)))
+    (@tapp1_at_transf A B F H X (@comp_fapp0 (Functor_cat A B) F G H xi eta))
+  : τ (@= (@Functord A (@hom_ A A (@id_func A) X) (@hom_ B A H (@fapp0 A B F X)))
+    (@tapp1_at_transf A B F H X (@comp_fapp0 (Functor_cat A B) F G H xi eta))
+    (@comp_catd_fapp0 A (@hom_ A A (@id_func A) X)
+      (@hom_ B A H (@fapp0 A B G X)) (@hom_ B A H (@fapp0 A B F X))
+      (@strict_transfor A Cat_cart _ _
+        (@hom_int_precomp_func B A H (@fapp0 A B G X) (@fapp0 A B F X)
+          (@tapp0_fapp0 A B F G X eta)))
+      (@tapp1_at_transf A B G H X xi)));
+
+// A different source component cannot replace the retained eta[X].
+assertnot [A B : Cat] [F G H : τ (Functor A B)]
+  (eta : τ (@StrictTransfor A B F G)) (xi : τ (@Transf A B G H))
+  (X : τ (Obj A)) (other : τ (Hom B (@fapp0 A B F X) (@fapp0 A B G X))) ⊢
+  @eq_refl (@Functord A (@hom_ A A (@id_func A) X) (@hom_ B A H (@fapp0 A B F X)))
+    (@tapp1_at_transf A B F H X
+      (@comp_fapp0 (Functor_cat A B) F G H xi (@strict_transfor A B F G eta)))
+  : τ (@= (@Functord A (@hom_ A A (@id_func A) X) (@hom_ B A H (@fapp0 A B F X)))
+    (@tapp1_at_transf A B F H X
+      (@comp_fapp0 (Functor_cat A B) F G H xi (@strict_transfor A B F G eta)))
+    (@comp_catd_fapp0 A (@hom_ A A (@id_func A) X)
+      (@hom_ B A H (@fapp0 A B G X)) (@hom_ B A H (@fapp0 A B F X))
+      (@strict_transfor A Cat_cart _ _
+        (@hom_int_precomp_func B A H (@fapp0 A B G X) (@fapp0 A B F X) other))
+      (@tapp1_at_transf A B G H X xi)));

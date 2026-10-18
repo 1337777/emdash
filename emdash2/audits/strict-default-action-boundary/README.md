@@ -5,7 +5,16 @@ Plan: [SF-0 / SF-1](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN
 Source: main `f8af1fca472657ff1598c639eb29c0566e7b2ec0`; the replay pins the
 core and profile source hashes and inserts at unique original owner anchors.
 
-## Current continuation, 2026-10-17
+## Current continuation, 2026-10-18 UTC
+
+The [inverse cancellation review](production_inverse_cancellation_review.md)
+and [verification](production_inverse_cancellation_verification.json) record
+derived strictness of the inherited inverse composites and reflection of
+native strict cells through actual equivalences. The represented-composite
+strictness proof and fixed-whiskering equivalences check. The core regression
+retains its warning bodies. The whole extracted-cell comparison needed to
+cancel the represented factor still fails; Cartesian inverse admission and
+complete locality remain open. No new inverse-assembly assumption is selected.
 
 The [native inverse-path review](production_inverse_naturality_review.md) and
 [verification](production_inverse_naturality_verification.json) record derived

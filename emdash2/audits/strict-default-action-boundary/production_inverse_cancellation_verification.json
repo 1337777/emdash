@@ -1,0 +1,268 @@
+{
+  "status": "Derived inverse cancellation/reflection prerequisites checked; whole extracted-cell comparison and Cartesian inverse admission remain open",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "extendsCheckpoint": "f18c2ecd",
+  "authoringInputs": {
+    "production_owner_migration.py": "171fb22770b02b7f0dd8c05ee364b026eedf8f37a191093689261b7eec819c56",
+    "production_inverse_unit_profiles.lpfragment": "6f58c67848cecfda4c5f0746cdaefd5662ef9e7eec22e1d538ee7401c6868a9f",
+    "production_strict_cell_reflection.lpfragment": "12e1ece8d7e475d531165ca4330337a72359e339bb57137a44f79c4db5d01b34",
+    "production_internal_composite_action_view.lpfragment": "69f3620707a63758c8fc5816530b56cf5dc96b42f48b4c67dd13e1dea0cde404",
+    "production_internal_composite_action_controls.lpfragment": "9962b07caaef6aa618002e36f7a53ad3233e952bc261a9b21151aae52ebd4427",
+    "production_inverse_represented_unit.lpfragment": "d7525092b27a0feb7b803632a279db41b19c0e25ff10f68d6da919f13fbec5fc",
+    "production_mapped_hom_square_views.lpfragment": "3ccf8d14947ba2ee83542f34ec56eea5879db167e1d54e5d3a1d231a7b3b4a7c",
+    "production_mapped_hom_square_controls.lpfragment": "95f4516446d94175f6470403d1a4b6af9c6c0f1462933949db20a33776b88ee3",
+    "production_whiskering_equivalences.lpfragment": "70d0c4a6467e68031f6ee994d85f34818c58e988d3f9868ca4b3b9f94870e398",
+    "production_represented_laxity_boundary.lpfragment": "b6ba4c618768c3377cb7062cfae0d38af2832651fa71c5822228c901de21b010"
+  },
+  "manifestSha256": "152c1d584245290d6cf2f1e849bd162c2f5a3aa993065157ff34e0f6339a81db",
+  "contracts": {
+    "newUnificationRules": 3,
+    "newRuntimeRules": 0,
+    "newPrimitives": 0,
+    "newInverseAssemblyAssumptions": 0,
+    "inverseCompositeStrictness": "Derived by transport along the inherited whole cancellation paths",
+    "strictCellReflection": "Derived using the selected inverse and native path-image action, retaining the actual agreement field",
+    "fixedSourceCompositeView": "Selected whole proof-time computation; earlier factor classified strict, later factor remains lax",
+    "whiskeringEquivalences": "Derived through existing Hom owners and supplied inverse laws; fixed one-slot action only",
+    "wholeExtractedCellAgreement": "Unproved; failed positive obligation, not a successful negative control",
+    "publicPromotion": false
+  },
+  "checks": {
+    "coreRegression": {
+      "positive": 276,
+      "negative": 77,
+      "subjectReduction": true
+    },
+    "inversePrerequisites": {
+      "subjectReduction": true,
+      "newDerivedProofs": 8,
+      "newDefinedAliases": 1,
+      "negative": 3
+    },
+    "whiskeringEquivalences": {
+      "subjectReduction": true,
+      "newDerivedProofs": 2,
+      "positive": 2,
+      "negative": 1
+    },
+    "wholeExtractedCellBoundary": {
+      "subjectReduction": true,
+      "status": "failed positive: actual whole extracted cell versus its fixed functorial image"
+    }
+  },
+  "receipts": {
+    "coreRegression": {
+      "id": "20261018T021311Z-d38042c673ba4b8f8057ee49d549f53e",
+      "target": "mapped_hom_regression_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 25.368879587971605,
+      "childrenMaxRssKiB": 1508512,
+      "inputSnapshot": "ab6c10fdbc41ddea158e8500798e7a0c4f417533c985e6bb264f6dfa11b9e806",
+      "inputs": {
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "mapped_hom_regression_controls.lp": "a02a1693d375ab4ba53073f9e0f1edd2104fb45e14313616127409d0a975a813"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261018T021311Z-d38042c673ba4b8f8057ee49d549f53e.log",
+      "logSha256": "09541a49dd5de0982425411e20d81f8cacb762ceed102edf6688a8b533cee487",
+      "allInputsMatchCurrentSource": true
+    },
+    "inversePrerequisites": {
+      "id": "20261018T021444Z-3b204e6798ad42709530f334a0e450dc",
+      "target": "inverse_represented_unit.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 36.72408090904355,
+      "childrenMaxRssKiB": 1960040,
+      "inputSnapshot": "4d94e4d4bac1a00319198a70dbe4d364a3c02ec0a42e640a42b135bfac8c6b2b",
+      "inputs": {
+        "emdash3_2.lp": "bf480368b0f699fe098ebbfcca7ff0a29b657c8c782f89d04c68566064fdec3e",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "emdash3_2_strict_functor_actions.lp": "4baddcd1d7d06a3c7f2f67a1426855861942628b92a6642cf01b188cd5f9e142",
+        "emdash3_2_strict_pointwise_equivalences.lp": "a5afbc2bf77ca2f7f7bcd399b5130631f15aa67a2dbb3529ff880e34c9c3806a",
+        "internal_composite_action_controls.lp": "586042f55119b6589147f4486c5c3d0dff19dc80a24d6982882f27c2dbbfee31",
+        "inverse_cell_reflection.lp": "ca071822b1e6fdeba8219ead19f45217a33b2036cc066ed6c88a3ac582c1124e",
+        "inverse_represented_unit.lp": "aaad235b27389d19ee642e511aa019cff228e180bdc79b87c33dc413ea19bd9d",
+        "inverse_unit_profiles.lp": "2de17babc07e7d1e1b846772e6710ff8dd0d24ae3522bb1a24157d380d6a6523",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261018T021444Z-3b204e6798ad42709530f334a0e450dc.log",
+      "logSha256": "d3eb7efc8fca7da09825149be7ee899508299361d91bc8ccf8cec5f70d4411aa",
+      "allInputsMatchCurrentSource": true
+    },
+    "whiskeringEquivalences": {
+      "id": "20261018T021350Z-1590eaf1eadb4623a777a7d93a3694c7",
+      "target": "whiskering_equivalences.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 25.714943284052424,
+      "childrenMaxRssKiB": 1420444,
+      "inputSnapshot": "da1bf284237ae277c241e7d0649f3f7d37c06b9e0e40d09af317d2fd366f6b2d",
+      "inputs": {
+        "emdash3_2.lp": "bf480368b0f699fe098ebbfcca7ff0a29b657c8c782f89d04c68566064fdec3e",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "whiskering_equivalences.lp": "ce438ded5e35f5d226007f1aed10861add6912c3e7ae14bbccda447c555c8482"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261018T021350Z-1590eaf1eadb4623a777a7d93a3694c7.log",
+      "logSha256": "d57ba91cde2be743a8c3968d0b98c29a52af00d4c3f21bd645201ac9918d873b",
+      "allInputsMatchCurrentSource": true
+    },
+    "wholeExtractedCellBoundary": {
+      "id": "20261018T014331Z-57cdf469b565492ab5875159a48d8601",
+      "target": "represented_laxity_boundary.lp",
+      "outcome": "failed",
+      "wallSeconds": 29.892707886057906,
+      "childrenMaxRssKiB": 1789604,
+      "inputSnapshot": "8fce71c19983b4a6430c68139a288ee09482536d80e9787bc2f730f32ca774e4",
+      "inputs": {
+        "emdash3_2.lp": "bf480368b0f699fe098ebbfcca7ff0a29b657c8c782f89d04c68566064fdec3e",
+        "emdash3_2_gray_profiles.lp": "6af2cad85a8a16838004c8259376845c9f151fdc91812c3305cfc8b74f5c52e8",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "represented_laxity_boundary.lp": "ac11be37984dc15233bad92cffd893bd1ba7ad81a30f3588a66709edaf21d91e"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "log": "logs/check-runs/20261018T014331Z-57cdf469b565492ab5875159a48d8601.log",
+      "logSha256": "024ee4f84b99b02ab457183f7b1705d3bb0c77f7b7d4854c09e3496f0abddb5d",
+      "allInputsMatchCurrentSource": true
+    }
+  },
+  "warningComparisons": {
+    "core": {
+      "baselineReceipt": "20261017T233039Z-3f65c8c03dab4e08994fa7e47dc9df06",
+      "currentReceipt": "20261018T021311Z-d38042c673ba4b8f8057ee49d549f53e",
+      "before": 1995,
+      "after": 1995,
+      "addedBodies": 0,
+      "removedBodies": 0,
+      "meaning": "Warning body multiset comparison; not a confluence certificate"
+    },
+    "inversePrerequisites": {
+      "baselineReceipt": "20261018T010214Z-a937a8bd1c6a420cbab169f443b8e068",
+      "currentReceipt": "20261018T021444Z-3b204e6798ad42709530f334a0e450dc",
+      "before": 2397,
+      "after": 2397,
+      "addedBodies": 0,
+      "removedBodies": 0,
+      "meaning": "Warning body multiset comparison; not a confluence certificate"
+    }
+  },
+  "lhsAudit": {
+    "candidateClauses": 0,
+    "candidateSlots": 0,
+    "annotatedClauses": 51,
+    "annotatedSlots": 76,
+    "manualReview": "Whole computation is guarded by the actual ordinary/displayed composition classifiers and strict earlier constructor; mapped Hom views retain both actual arrows."
+  },
+  "resources": {
+    "normalDefaultsUnchanged": true,
+    "serial": true,
+    "subjectReduction": true,
+    "compiledObjects": 0,
+    "hostMemAvailableKiBBefore4GiBRun": 15935648,
+    "reason": "Existing reviewed inverse-import closure uses 4GiB; core, fixed whiskering and failed comparison use 2GiB. Deadlines retain measured host-variability headroom."
+  },
+  "remaining": [
+    "whole canonical represented-laxity projection comparison",
+    "Cartesian inverse admission and original locality theorem",
+    "remaining library integration",
+    "redundant strict-functor wrapper retirement",
+    "production promotion and final catalogue/health/CI/source-pin qualification"
+  ]
+}

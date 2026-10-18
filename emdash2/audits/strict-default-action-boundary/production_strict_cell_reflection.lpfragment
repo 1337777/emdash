@@ -1,0 +1,55 @@
+// Functoriality of the existing path-image property. The agreement field
+// follows by mapping the original agreement and the native Core action law.
+symbol strict_cell_fmap
+  [C D : Cat] (F : τ (Functor C D))
+  [x y : τ (Obj C)] (cell : τ (Hom C x y))
+  (e : τ (@IsStrictCell C x y cell))
+  : τ (@IsStrictCell D (@fapp0 C D F x) (@fapp0 C D F y)
+      (@fapp1_fapp0 C D F x y cell))
+≔ let p : τ (@= (Obj C) x y) ≔ @strict_cell_path C x y cell e in
+  @Struct_sigma
+    (@= (Obj D) (@fapp0 C D F x) (@fapp0 C D F y))
+    (λ q : τ (@= (Obj D) (@fapp0 C D F x) (@fapp0 C D F y)),
+      @= (Hom D (@fapp0 C D F x) (@fapp0 C D F y))
+        (@fapp1_fapp0 C D F x y cell)
+        (@path_to_hom D (@fapp0 C D F x) (@fapp0 C D F y) q))
+    (@eq_ap (Obj C) (Obj D) (λ z : τ (Obj C), @fapp0 C D F z) x y p)
+    (@eq_trans (Hom D (@fapp0 C D F x) (@fapp0 C D F y))
+      (@fapp1_fapp0 C D F x y cell)
+      (@fapp1_fapp0 C D F x y (@path_to_hom C x y p))
+      (@path_to_hom D (@fapp0 C D F x) (@fapp0 C D F y)
+        (@eq_ap (Obj C) (Obj D) (λ z : τ (Obj C), @fapp0 C D F z) x y p))
+      (@eq_ap (Hom C x y) (Hom D (@fapp0 C D F x) (@fapp0 C D F y))
+        (λ c : τ (Hom C x y), @fapp1_fapp0 C D F x y c)
+        cell (@path_to_hom C x y p) (@strict_cell_agreement C x y cell e))
+      (@path_to_hom_fapp1_agrees C D F x y p));
+
+// Reflect the same property through an actual equivalence. Its selected
+// left inverse and whole cancellation path supply the proof. No new inverse,
+// Core reflection axiom, or runtime equality payload is introduced.
+symbol strict_cell_reflect_equivalence
+  [C D : Cat] (F : τ (Functor C D))
+  (u : τ (@OmegaEquivAlong Cat_cat C D F))
+  [x y : τ (Obj C)] (cell : τ (Hom C x y))
+  (image : τ (@IsStrictCell D (@fapp0 C D F x) (@fapp0 C D F y)
+      (@fapp1_fapp0 C D F x y cell)))
+  : τ (@IsStrictCell C x y cell)
+≔ let L : τ (Functor D C) ≔ @omega_equiv_along_left_inv Cat_cat C D F u in
+  @ind_eq (Functor C C)
+    (@id_func C) (@comp_cat_fapp0 C D C L F)
+    (@eq_sym (Functor C C) (@comp_cat_fapp0 C D C L F) (@id_func C)
+      (@omega_equiv_along_left_law Cat_cat C D F u))
+    (λ H : τ (Functor C C),
+      @IsStrictCell C (@fapp0 C C H x) (@fapp0 C C H y)
+        (@fapp1_fapp0 C C H x y cell))
+    (@strict_cell_fmap D C L (@fapp0 C D F x) (@fapp0 C D F y)
+      (@fapp1_fapp0 C D F x y cell) image);
+
+// Reflection keeps the actual cell, not just its endpoint path.
+assertnot [C D : Cat] (F : τ (Functor C D))
+  (u : τ (@OmegaEquivAlong Cat_cat C D F))
+  [x y : τ (Obj C)] (cell other : τ (Hom C x y))
+  (image : τ (@IsStrictCell D (@fapp0 C D F x) (@fapp0 C D F y)
+      (@fapp1_fapp0 C D F x y cell))) ⊢
+  @strict_cell_reflect_equivalence C D F u x y cell image
+  : τ (@IsStrictCell C x y other);

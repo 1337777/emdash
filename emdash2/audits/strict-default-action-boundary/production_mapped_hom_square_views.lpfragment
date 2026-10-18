@@ -1,0 +1,18 @@
+// The existing two Hom factorizations with a mapped target arrow H[p].
+// These direct proof-time views combine Hom_func's old factorizations with
+// the checked Hom-image view; unification need not chain those comparisons.
+unif_rule @Hom_func $B $Q $P $Y $Z $e $image
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func $B $K $H $P $x $y $p)
+      (@hom_precomp_along_func $B $B (@id Cat_cat $B) $Y $P $Q $e)
+  ↪ [ $Y ≡ @fapp0 $K $B $H $x;
+      $Z ≡ @fapp0 $K $B $H $y;
+      $image ≡ @fapp1_fapp0 $K $B $H $x $y $p ];
+
+unif_rule @Hom_func $B $Q $P $Y $Z $e $image
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func $B $B (@id Cat_cat $B) $Z $P $Q $e)
+      (@hom_postcomp_func $B $K $H $Q $x $y $p)
+  ↪ [ $Y ≡ @fapp0 $K $B $H $x;
+      $Z ≡ @fapp0 $K $B $H $y;
+      $image ≡ @fapp1_fapp0 $K $B $H $x $y $p ];

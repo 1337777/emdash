@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; native inverse whole endpoint paths checked; locality extracted-cell agreement/Cartesian admission and broader migration/promotion remain open
+Status: active implementation; native inverse cancellation/reflection prerequisites checked; locality whole extracted-cell comparison/Cartesian admission and broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,31 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Native inverse-cancellation continuation after `f18c2ecd`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_inverse_cancellation_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_inverse_cancellation_verification.json)
+record derived strictness of the original inverse composites, functorial
+mapping/reflection of native strict cells through actual equivalences, and
+the represented-composite strictness consequence. Fixed precomposition and
+postcomposition equivalences retain the original selected inverse data.
+Three original-owner proof-time views expose fixed-source vertical action
+with a strict earlier factor and the two mapped Hom square presentations.
+The core regression passes 276 positive/77 negative assertions, with unchanged
+critical-pair warning bodies. No inverse-assembly assumption, runtime rule,
+or independent laxity cell is added.
+
+The remaining positive obligation compares the canonical represented
+composite's whole extracted laxity with the fixed functorial image of the
+original laxity. Its reflexivity attempt still fails at the actual cell;
+endpoint equations alone do not prove Cartesian inverse admission. Next use
+the existing defined `fdapp1_int_comp_transfd` and its already-checked filler
+composition projections to qualify that whole extraction. Do not restart
+the Homd interface design or add general profunctor machinery for this
+downstream consumer. Locality, remaining library migration, wrapper retirement,
+production promotion and final gates remain open. The core/whiskering checks
+take about 25s at 240s/2GiB/o=20; the current failed cell comparison takes about
+30s. The exact combined inverse-import resource profile is in the verification.
 
 Native inverse-path continuation after `f2e56729`, 2026-10-17:
 the [review](../emdash2/audits/strict-default-action-boundary/production_inverse_naturality_review.md)
