@@ -292,3 +292,22 @@ The computational-owner review above remains required. In particular,
 `Psh_pullback_func` and some simple whole composition observations still
 take seconds in this import context. Reduced retained heap is not evidence
 that those comparison/normalization costs have been resolved.
+
+## Sheafification final-assembly follow-through, 2026-10-18
+
+The [sheafification review](production_sheafification_review.md) supplies another
+concrete case of local presentation cost. The coefficient-corrected whole
+construction passed through its pointwise counit equivalence, then exhausted
+4 and 6 GiB at final reflector assembly. The isolated checker snapshot patch
+did not remove this failure. A conversion trace showed repeated expansion of
+large locality-proof fields across rigid/generic endpoint presentations.
+
+Reusing the existing generic package projections at the existing counit and
+reflected-object accessors repairs that comparison. The full original reviewer
+passes with the installed checker in 38.492s/2993.2MiB at 4GiB, with no new
+primitive or rewrite/unification rule and no change to chosen inverse data.
+The final assembly reports 0.00s. Warning bodies are unchanged by this fix.
+The matched pre-goal run is still cheaper at 14.319s/1077.8MiB; this is a local
+repair, not a general performance qualification. Exact receipts and discarded
+variants are in the linked verification. Preserve this distinction from the
+separate checker-state retention issue.

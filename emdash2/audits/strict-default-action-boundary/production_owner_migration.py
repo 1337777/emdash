@@ -2940,6 +2940,67 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 text += '\n\n' + fragment('production_discrete_one_cat.lpfragment')
                 changes.append({'source': path, 'owner': 'discrete target dimension weakening',
                                 'reason': 'Derive the OneCat property from the existing discrete core Hom equivalence, consumed by strict fibre-coherence admission of the original WalkingEnd spiral'})
+            if path == 'emdash3_2_direct_cover_sheafification.lp':
+                old = text
+                # Every literal Cat_cat in this specialized owner is the
+                # presheaf value coefficient, including the supplied generic
+                # capability's V parameter; none is a composition universe.
+                assert text.count('Cat_cat') == 59
+                text = text.replace('Cat_cat', 'Cat_cart')
+                assert text.count('symbol direct_cover_sheafification_reflected_object\n') == 1
+                reflected_start = text.index('symbol direct_cover_sheafification_reflected_object\n')
+                reflected_end = text.index(';', reflected_start) + 1
+                reflected = text[reflected_start:reflected_end]
+                assert reflected.count('(@Psh_cat K)') == 2
+                reflected = reflected.replace('(@Psh_cat K)',
+                    '(@Functor_cat (Op_cat K) Cat_cart)')
+                for selected, generic in (
+                    ('direct_cover_sheafification_func', 'sheaf_adjunction_sheafify'),
+                    ('cat_valued_sheaf_include_psh_func', 'sheaf_adjunction_include'),
+                ):
+                    old_selected = '(@' + selected + ' K T)'
+                    assert reflected.count(old_selected) == 1
+                    reflected = reflected.replace(old_selected,
+                        '(@' + generic + ' K T Cat_cart\n'
+                        '      (@direct_cover_sheafification_adjunction_data K T))')
+                text = text[:reflected_start] + reflected + text[reflected_end:]
+                assert text.count('symbol direct_cover_sheafification_counit_at\n') == 1
+                counit_start = text.index('symbol direct_cover_sheafification_counit_at\n')
+                counit_end = text.index(';', counit_start) + 1
+                counit = text[counit_start:counit_end]
+                assert counit.count('≔ @tapp0_fapp0') == 1
+                counit = counit.split('≔', 1)[0] + '''≔ @sheaf_adjunction_counit_at K T Cat_cart
+    (@direct_cover_sheafification_adjunction_data K T) Y;'''
+                text = text[:counit_start] + counit + text[counit_end:]
+                for indent in (6, 4):
+                    padding = ' ' * indent
+                    expanded = '(' + '@sheaf_adjunction_intro\n' + padding + '  K T Cat_cart\n' \
+                        + padding + '  (@cat_valued_sheaf_include_psh_func K T)\n' \
+                        + padding + '  (@direct_cover_sheafification_func K T)\n' \
+                        + padding + '  (@direct_cover_sheafification_adjunction K T))'
+                    assert text.count(expanded) == 1
+                    text = text.replace(expanded, '(@direct_cover_sheafification_adjunction_data K T)')
+                changes.append({'source': path, 'owner': 'direct-cover sheafification coefficient specialization',
+                                'reason': 'Use the actual Cat_cart coefficient and the exact existing generic package projections at final reflector endpoints; preserve the chosen functors, inverse data, cancellation proofs and all original rules',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_checks.lp':
+                marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
+                end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
+                assert text.count(marker) == text.count(end_marker) == 1
+                start, end = text.index(marker), text.index(end_marker) + len(end_marker)
+                old = text[start:end]
+                section = old
+                for pattern, count in (
+                    ('@Sheaf_cat K T Cat_cat', 7),
+                    ('@Functor_cat (Op_cat K) Cat_cat', 2),
+                    ('@SheafificationCapability K T Cat_cat', 1),
+                ):
+                    assert section.count(pattern) == count
+                    section = section.replace(pattern, pattern.replace('Cat_cat', 'Cat_cart'))
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/CS-12s', 'owner': 'original constructed sheafification diagnostics',
+                                'reason': 'Observe the migrated coefficient specialization while preserving ambient Obj(Cat), the proof-time/runtime distinction and all nine original assertions',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
             ambient_postcomp_consumers = {
                 'emdash3_2_profiled_interchange.lp': 13,
                 'examples/action_profile_eckmann_hilton_one_hom.lp': 1,
@@ -3998,6 +4059,16 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         + (package / 'examples/direct_cover_question_families.lp').read_text())
     original_checks = subprocess.check_output(
         ['git', 'show', PIN + ':emdash2/emdash3_2_checks.lp'], cwd=root, text=True)
+    sheaf_start = '// catalog-area: Constructed Cat-valued sheafification reflector'
+    sheaf_end = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
+    for target_package, checks_source in (
+        (baseline_package, original_checks),
+        (package, (package / 'emdash3_2_checks.lp').read_text()),
+    ):
+        assert checks_source.count(sheaf_start) == checks_source.count(sheaf_end) == 1
+        selected = checks_source[checks_source.index(sheaf_start):checks_source.index(sheaf_end)+len(sheaf_end)]
+        (target_package / 'direct_cover_sheafification_controls.lp').write_text(
+            'require open emdash.emdash3_2_direct_cover_sheafification;\n' + selected + '\n')
     locality_start = '// catalog-area: Strict pointwise equivalences and direct-cover locality'
     locality_end = '/* End of the CS-12q conventional direct-cover locality diagnostics. */'
     assert original_checks.count(locality_start) == original_checks.count(locality_end) == 1
@@ -4559,6 +4630,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'walking_end_migration_controls.lp',
                               package / 'walking_circle_migration_controls.lp',
                               package / 'profiled_interchange_migration_controls.lp',
+                              package / 'direct_cover_sheafification_controls.lp',
                               package / 'zero_column_dependency_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',

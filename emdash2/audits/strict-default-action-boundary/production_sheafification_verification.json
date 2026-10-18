@@ -1,0 +1,633 @@
+{
+  "status": "Complete staged sheafification owner and original reviewer qualified with installed checker; overall migration and production promotion incomplete",
+  "predecessor": "370cc759608abe6bfb6454a4f11762c9574b5a42",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/production_owner_migration.py": "29647d49561dc15119b1bbcbd12ea798608a7484f8342285c624ed358c1d358a"
+  },
+  "manifestSha256": "9149b3beafcf9bec30ac144504ce5b2a6eceae0c4d321ffe54c7161a115ae5f9",
+  "originalOutline": {
+    "declarationNamesPreserved": true,
+    "rulesIdenticalModuloCoefficient": true,
+    "changedDeclarationsBeyondCoefficient": [
+      "direct_cover_sheafification_counit_at",
+      "direct_cover_sheafification_reflected_object",
+      "direct_cover_sheafification_reflector",
+      "direct_cover_sheafification_capability"
+    ],
+    "inverseAndCancellationProofsUnchangedModuloCoefficient": true,
+    "newPrimitives": 0,
+    "newRewriteRules": 0,
+    "newUnificationRules": 0,
+    "newCallerHypotheses": 0
+  },
+  "checks": {
+    "centralFrontier": {
+      "id": "20261018T213909Z-39b9723a80e24fbeac0723998ca418fd",
+      "target": "emdash3_2_checks.lp",
+      "outcome": "failed",
+      "wallSeconds": 321.94247325800825,
+      "childrenMaxRssKiB": 1632648,
+      "inputSnapshot": "eae5131e231c118391555a44176cf024b563d9c8593fc728d9d2323820bd7f30",
+      "logSha256": "b1b76467aa83fd723a780f93fced00e15395ebe624b63da5cc3a1db354d17785",
+      "checkerSha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+      "settings": {
+        "timeoutMs": 600000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "stockInitialMismatch": {
+      "id": "20261018T214510Z-c88ce9ba1e1f4f2c80712550f4b4547b",
+      "target": "emdash3_2_direct_cover_sheafification.lp",
+      "outcome": "failed",
+      "wallSeconds": 70.13445553299971,
+      "childrenMaxRssKiB": 3059380,
+      "inputSnapshot": "3cba46ab03b7cb24f6872c8b3c488b2d856ee0ce8825bfbc0a4c807b340606bd",
+      "logSha256": "e40a955e87cd6ce5d28206d5085da2e780734cd0f5f78dae9e031f4357dcce2c",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 300000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "coefficientOnly4GiB": {
+      "id": "20261018T214658Z-1f81ac83b21045948f79592372cb302b",
+      "target": "direct_cover_sheafification_controls.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 103.90193171403371,
+      "childrenMaxRssKiB": 3915288,
+      "inputSnapshot": "aa4c33d9ecb219efcca28108ca010af9d48457d771b777c0ebe3fa4d8ae9a4a7",
+      "logSha256": "c87f24fbd60047b330ca38b1bada6bdd264a3507cfc1f81a686f385891601755",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 300000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "coefficientOnly6GiB": {
+      "id": "20261018T214903Z-9be0a2c2e2d3450b9cd6e36e908dc7ff",
+      "target": "direct_cover_sheafification_controls.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 112.95392592099961,
+      "childrenMaxRssKiB": 6013148,
+      "inputSnapshot": "aa4c33d9ecb219efcca28108ca010af9d48457d771b777c0ebe3fa4d8ae9a4a7",
+      "logSha256": "4aada0dbe433820be0676378693138cdbe6afb5ed71b1a07cb4f1853d9e4e20b",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 300000,
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "isolatedChecker4GiB": {
+      "id": "20261018T215131Z-12635b4028f34f31ab61cf4b462a0850",
+      "target": "direct_cover_sheafification_controls.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 105.39757485105656,
+      "childrenMaxRssKiB": 3916256,
+      "inputSnapshot": "aa4c33d9ecb219efcca28108ca010af9d48457d771b777c0ebe3fa4d8ae9a4a7",
+      "logSha256": "6808ddc0de866f6d2131be6274400ac33c1b09972469e4988ce52d8289f37cf8",
+      "checkerSha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+      "settings": {
+        "timeoutMs": 300000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "inclusionPrefix": {
+      "id": "20261018T215359Z-fe21fc61173e4bba94d19edeeeeb1726",
+      "target": "direct_cover_sheafification_inclusion_trace.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 37.09657002403401,
+      "childrenMaxRssKiB": 3058504,
+      "inputSnapshot": "c97e9b46233df97245c23a3d48ae6a640e1f5a0722312faf089ad9948f1f8ff4",
+      "logSha256": "1c8a52b2155b126a533aaafcb060a6e34f423b9c2c8846f1c008a8dcdc74e911",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "discardedEarlyHomEndpoint": {
+      "id": "20261018T215535Z-b32a49ab4f8e420ebde6cb5da0e5d0a0",
+      "target": "direct_cover_sheafification_controls.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 66.85072594601661,
+      "childrenMaxRssKiB": 3916008,
+      "inputSnapshot": "0f28bf45939809df2952f727e169bd096d1291e7b6bacf1240a4956c48ae52e6",
+      "logSha256": "e7dc7b3eb6bf70254164533fa086cc288d1b59b7e7ff5a8f8808a14a11a406ae",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 300000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "homComparisonPrefix": {
+      "id": "20261018T215700Z-b9acb2ce658344718b3163931912457a",
+      "target": "direct_cover_sheafification_hom_trace.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 38.26286123204045,
+      "childrenMaxRssKiB": 3058936,
+      "inputSnapshot": "12795fbfe175158c41c0ef75da440144bafe26d2b11e2f3cc9e707439494bc1e",
+      "logSha256": "d560ac25d89ed3fa15947a59bd9616618b19cfba9b45e49da9e77efa508257c9",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "allCommandTrace": {
+      "id": "20261018T215822Z-893a758cf9304e69a0f685174687528b",
+      "target": "direct_cover_sheafification_command_trace.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 50.297889156034216,
+      "childrenMaxRssKiB": 3916272,
+      "inputSnapshot": "2bd32b6a489214180743245e095322dc704e64e96222aff9ea29f0949521addc",
+      "logSha256": "55656fc7b1dc453f0559f9afb62bf24050be9beeee508b71cfefe530251b8ed2",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0",
+          "--no-colors"
+        ]
+      }
+    },
+    "unificationTrace": {
+      "id": "20261018T215957Z-01a310bb3eea40449edde4c84860850d",
+      "target": "direct_cover_sheafification_reflector_trace.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 115.58048286300618,
+      "childrenMaxRssKiB": 3915828,
+      "inputSnapshot": "a58516b7e3f648b5db6f52b1e3cbebeba8e5518b85e3acaf33a3c205fe67ca5b",
+      "logSha256": "f9e421e173cca17861623fbf1ba65eb5695dbd892aeb2f5dc9480205100f6298",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0",
+          "--no-colors"
+        ]
+      }
+    },
+    "namedPackageOnly": {
+      "id": "20261018T220222Z-5acc092c67824b62b1806b417ca990e7",
+      "target": "direct_cover_sheafification_controls.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 51.493555399007164,
+      "childrenMaxRssKiB": 3916064,
+      "inputSnapshot": "9d50b3f4811a0507549ef3a8557119f7e19ff0ac9c74d3320abad40c70eeb595",
+      "logSha256": "c219ba604d69c6bf1b6ca48d669a6780b6dadf90d838031a2cd0a1740577bd7a",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0",
+          "--no-colors"
+        ]
+      }
+    },
+    "conversionTrace": {
+      "id": "20261018T220429Z-b7682f6267694ac39dbc994954a5f75c",
+      "target": "direct_cover_sheafification_conversion_trace.lp",
+      "outcome": "failed",
+      "wallSeconds": 43.59700416098349,
+      "childrenMaxRssKiB": 3082092,
+      "inputSnapshot": "775553997ab5632bb110c97dc5bd292c8f81cea68cbab28050d56640e69ab44e",
+      "logSha256": "cbb2408f6a245cf3edb83f2eca8909abcfea3ed0de5d679605f85dd4191a56ff",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0",
+          "--no-colors"
+        ]
+      }
+    },
+    "reflectionCategoryAnnotationsOnly": {
+      "id": "20261018T220557Z-cf11cf79544c4778b9541c563d7de306",
+      "target": "direct_cover_sheafification_controls.lp",
+      "outcome": "allocation-failed",
+      "wallSeconds": 51.26643715600949,
+      "childrenMaxRssKiB": 3915992,
+      "inputSnapshot": "619d775b611dd26da6683cf5eb3bc99bc469dc60e979de220ab498e6058c0443",
+      "logSha256": "ac30dd8dba7c69e710f1c35d7aebddc888f14f53fd3d6c7bf6b06e242b0a8661",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0",
+          "--no-colors"
+        ]
+      }
+    },
+    "final": {
+      "id": "20261018T220809Z-4076f702c9b940fea95dca7438752186",
+      "target": "direct_cover_sheafification_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 38.4915127500426,
+      "childrenMaxRssKiB": 3065000,
+      "inputSnapshot": "d915f29e6c35b1193fb8c3eff9ce7254cc1099aec5e758db813f710dc78a993c",
+      "logSha256": "b42f79ad9555006addd3b17facedd83d203711091b84318422e8ea1d44b6d5f7",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0",
+          "--no-colors"
+        ]
+      },
+      "currentInputMismatches": [],
+      "inputs": {
+        "direct_cover_sheafification_controls.lp": "4560b581f56e214000ad8f4e5a367807c806e64f9876e4288dd92c704805d1b4",
+        "emdash3_2.lp": "1105c4ff4e16d47566c6755b0a31d5d045f6c84f9a872020fb2fa16283700587",
+        "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+        "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+        "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+        "emdash3_2_commutative_algebra_presheaves.lp": "57fcff1a17cd6e9e8c7054d154c3f9d9f9dff05e159a037dbebfcdb4dbb52325",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+        "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+        "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+        "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+        "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "assertionsIncludingImports": {
+        "positive": 9,
+        "negative": 1
+      }
+    },
+    "matchedOriginal": {
+      "id": "20261018T220940Z-4aeb936650ba4fbe820987c2ca2c1d1b",
+      "target": "direct_cover_sheafification_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 14.318758078967221,
+      "childrenMaxRssKiB": 1103704,
+      "inputSnapshot": "fd40b2bf7fec456f89ffc4bc51ba572e42df148684148a0338bcccd4ac95a54f",
+      "logSha256": "70858535165d5d2996d7a9b6af123935a8ef6ef6d96137a44697bf04e03f0699",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0",
+          "--no-colors"
+        ]
+      },
+      "currentInputMismatches": [],
+      "inputs": {
+        "direct_cover_sheafification_controls.lp": "5f3b0089f7e4d2173b4b324a07c0a60beb8c804bb3ee6789c83740c859605a6b",
+        "emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+        "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+        "emdash3_2_commutative_algebra_category.lp": "8258ee789a719ed3ff5b31476fbd7bca020d8c822a321a797d3b3574f328daed",
+        "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+        "emdash3_2_commutative_algebra_presheaves.lp": "a54f611fba3d833050bea53f591e69915fbceee63b130c551186ded4889419c9",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+        "emdash3_2_direct_cover_completion_hit.lp": "aa43a448ff4bdee3a92b9fc284d3ff23ff99db53f2be55b30e8dc419e6d5fe8c",
+        "emdash3_2_direct_cover_completion_locality.lp": "03a043ccce6dbd7299d171ba7c6085e5b1780b69ecea7cfc221f7fc97cce7511",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "b4a1ee88f2695c36318bb0783d4ad59874d918745fa1e040678270ca53a2cacd",
+        "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "5ec2d41996b200b9f075020991ddaaaed407bfc01108bebdfeb88efeb1fa90cf",
+        "emdash3_2_direct_cover_question_families.lp": "6cdff5a5cfe66f584d7fae9a76bfc2ae1f35eada4881934b1460c39e0e2f97c3",
+        "emdash3_2_direct_cover_questions.lp": "0190e662ee5443d8b332fe422b6fa43c79f1d9bc583d2a0d257ce828aab6473c",
+        "emdash3_2_direct_cover_sheafification.lp": "604ca7dfc05c7183dc9d72010fb76407341de765199f41b4a396289f2a2a72c7",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "c707cf7c09a32a8557e0b1178e2db4a0c1279ed78c970b4f2d50b0c8348c7a5b",
+        "emdash3_2_fibrewise_sigma.lp": "d12876b01cdb6c08a26b3b2b83344b8da2e205f65df5890e665b4b8fd732d91a",
+        "emdash3_2_gray_profiles.lp": "f670814a83a508bd8a77a4000c7ab04690bbfc25978d106bb1d761ce6723a69c",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_one_cat_action_paths.lp": "3ecda4df0496d11f2372420fa7fead3aa63b73043b7624440ee0f40082cadd2b",
+        "emdash3_2_presheaves.lp": "2bee7354ab1c2be469b46d9120d58e6d2ddef09f6444e8c3dd32824968b2618f",
+        "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+        "emdash3_2_sieve_extensions.lp": "95f7c7324af17f2fefb839f87c5f2cf0ff9b6c82065625fb142498c4259f082c",
+        "emdash3_2_sieves.lp": "cbeec95b91a16da6be7296337eac626932016507a661a647aaa162b9e916868f",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_strict_functor_actions.lp": "eb4d9b4dac0a277e310427ea1325346330e6881f452bb83ba35a51211fca9818",
+        "emdash3_2_strict_pointwise_equivalences.lp": "58c23c4a39a2b0a5ff872f0c9c7106830a5226d18d828e819cf15185ccdf04de",
+        "emdash3_2_yoneda_precomposition_value.lp": "951ddd20c78cc94fceeffd7bf1ffca98e6f4a2b0bb3ca01748805483126ec291",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "assertionsIncludingImports": {
+        "positive": 9,
+        "negative": 1
+      }
+    },
+    "unchangedCore": {
+      "id": "20261018T162035Z-1820b031801e440ab20b20cfef7bcc97",
+      "target": "join_recursion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 23.320111226057634,
+      "childrenMaxRssKiB": 1647288,
+      "inputSnapshot": "f69e4dbcc1cc374f7f3ec08a113b8431642a91df6b1105f67bf1fdbdb53dbfac",
+      "logSha256": "0d15b5288ea9617d00e48cd76a0a1c6d6ae0e4af627cb63a2f0cc6892015fd38",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 240000,
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      },
+      "currentInputMismatches": []
+    },
+    "unchangedInterchange": {
+      "id": "20261018T213235Z-68b5ba7ceb98411697eaa7904afb09cf",
+      "target": "profiled_interchange_migration_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 111.54468438099138,
+      "childrenMaxRssKiB": 2294424,
+      "inputSnapshot": "a742a206a96e617cbae21cf05217f4f53c4ccc625d810fe94027613376c20dc2",
+      "logSha256": "ba4734ff35118926d518b8ffca94c4e2e7bede5f578b0915d8631bc312c68af7",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "settings": {
+        "timeoutMs": 300000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      },
+      "currentInputMismatches": []
+    }
+  },
+  "warningComparison": {
+    "finalTotal": 2418,
+    "matchedOriginalTotal": 975,
+    "finalOwner": 26,
+    "matchedOriginalOwner": 13,
+    "finalVsCoefficientOnlyTotalAdded": 0,
+    "finalVsCoefficientOnlyTotalRemoved": 0,
+    "groups": {
+      "identityProjection": 11,
+      "compositionActionInverse": 15
+    },
+    "ownerInventory": [
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "26ff3ae8c8f86338a50a6f975540dccd1e786484c9d730116e1c4357a9c87538",
+        "firstRule": "with @fib_cov_tapp0_u_map $K $E $x $y $u $u (id $5 $u)",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "e755395a1e6ca5aed21b1f3eebde1bc9bdce975c28ec4874279f370edb26e9c7",
+        "firstRule": "with @comp_prod_fapp1_fapp0 Cat_cat $0 $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 $14 (@sigma_pullback_coeff_transf $A $K $F)) (id $18 Cat_cart_include))",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "5d546ec86a0fcc873419caaf94cd17d4a3dac00e1eedb003e6df7a44c1f8ae4f",
+        "firstRule": "with @comp_prod_fapp1_fapp0 Cat_cat $0 $1 $2 (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 $14 (@Sigma_parameter_funcd $L $K $E $D $U)) (id $20 Cat_cart_include))",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "4b2f0e285e96c85e5c7565b0050d5bf31938f77b39547fc7a7001e88e0108ac9",
+        "firstRule": "with @comp_fapp0 (Functor_cat $A $C) $2 (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C $A $B $F $G) $6 (id $7 (@comp_fapp0 Cat_cat $A $B $C $G $F)) $eta",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "7713949fbf1729c1d7772071366fd80740099b63ab2e41752ee70b686179620f",
+        "firstRule": "with @comp_prod_fapp1_fapp0 (Catd_cat $K) $x $x $z (@Struct_sigma $3 $4 (id (Catd_cat $K) $x) $p) (@Struct_sigma $6 $7 (id (Catd_cat $K) $x) $q) (@Struct_sigma $9 $10 (id $11 (id (Catd_cat $K) $x)) $alpha)",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "a3dfbf35808cb05661d8842cb44f1e23c401a6bc2a5cf9129405a0335cee7ff0",
+        "firstRule": "with @comp_prod_fapp1_fapp0 Cat_cat $I $A $A (@Struct_sigma $2 $3 $F (id Cat_cat $A)) (@Struct_sigma $5 $6 $G (id Cat_cat $A)) (@Struct_sigma $8 $9 $epsilon (id $11 (id Cat_cat $A)))",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "aa6bac70ff5ea521dd11b08516b946cd20b7632d226b8c2ff289b43012084a2b",
+        "firstRule": "with @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $3 $4 $5 $H) (@Struct_sigma $7 $8 $9 $H) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B (@Struct_sigma $13 $14 $F $G) (@Struct_sigma $17 $18 $F' $G) (@Struct_sigma $20 $21 $epsilon (id $23 $G))) (id $24 $H))",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "eccbb6fb0b2d6f00142a0110ac69d7ed52e5a07f16688a9479ea68ba543d69ce",
+        "firstRule": "with @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $3 $4 $5 $H) (@Struct_sigma $7 $8 $9 $H) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B (@Struct_sigma $13 $14 $F $G) (@Struct_sigma $17 $18 $F' $G) (@Struct_sigma $20 $21 $epsilon (id $23 $G))) (id $24 $H))",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "bfd93dbfc4c3e688f5116251314c1fcf9b95fec9fb79706010f620f539524a97",
+        "firstRule": "with @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Z (@Struct_sigma $4 $5 $g $f) (@Struct_sigma $8 $9 $g $f) (@Struct_sigma $10 $11 (id $12 $g) (id $13 $f))",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "962c2cd3cda57afd7f34ce1c37e13f5bc24e6e440754852be6da83fb63cc9608",
+        "firstRule": "with @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Z (@Struct_sigma $4 $5 $g $f) (@Struct_sigma $8 $9 $g $f) (@Struct_sigma $10 $11 (id $12 $g) (id $13 $f))",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+        "bodySha256": "1765cfdc8844b9474f14cd2908e76a27feecba4e882e3aad930ea62acba88cc1",
+        "firstRule": "with @hom_postcomp_fapp0 $A $A (id Cat_cat $A) $X $X $Y $f (id $4 $X)",
+        "secondRule": "with id (@Sheaf_cat $K $T Cat_cart) $X"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "b8ba273ff91b988e22272ef7a8569ba4fffe9a6cc57b70e9cd2d3fcb9d9ed6d2",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $F $Y $Z $g) (@fapp1_fapp0 $A $B $F $X $Y $f)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "185092d572757a663deac4f2ccb12c12bf22d28dc02e2894c8e6067f316d79ed",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "cfa51d71be2388782935a8b10806f287f8f1b749751701cb7e102ff4369ee6d6",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $A $V $W $3 (@hom_postcomp_fapp0 $A $B $F $W $X $Y $f $g) $h"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "60533e88f7875bd816321ea293d4800fea40c14b029a6e85bd901c58cd3a15b8",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $C $x $y $x (@defiso_from $C $x $y $i) (@defiso_to $C $x $y $i)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "c6e18aee1ffb67035f54f896f0111caa6d15832cb583767eae0891af57985969",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $C $y $x $y (@defiso_to $C $x $y $i) (@defiso_from $C $x $y $i)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "9021b90a10ba2c0fcf6081b61772d66248857a6fd70db59046b602a85a7d554f",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $B $1 $Z $U $k (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $p $g)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "32256f77507c55f6e540056c4b0065546706d99c32d0403c67bc43afc1a71a68",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B $F $G $X $Y $epsilon $f) (@fapp1_fapp0 $A $B $F $W $X $h)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "4d2a969b7e706cba708fe543f01fc4f4084f021937f9cd961d5e9f693f60b2de",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B $G $Y $Z $g) (@tapp1_fapp0 $A $B $F $G $X $Y (@strict_transfor $A $B $F $G $U) $f)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "81565ea90cee45b5d641e501310e4b543ed6721fe3fd31230ddf52774d77fcd4",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $B $1 $2 $3 (@fapp1_fapp0 $A $B (@strict_functor $A $B $S) $Y $Z $g) (@fapp1_fapp0 $A $B (@strict_functor $A $B $S) $X $Y $f)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "75c7b4ae5356dbeb65162422196f03f614a0ed718ffdc7fffd96d956659ab7f1",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $A $1 $2 $3 (@fapp1_fapp0 $B $A (@strict_functor $B $A $S) $Y $Z $q) (@hom_postcomp_fapp0 $A $B (@strict_functor $B $A $S) $W $X $Y $p $g)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "d125ee23835cab88f736d9e004f1732fecf4efc04ac27b82ffad4491627a8d8f",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $B $1 $2 $3 (@hom_precomp_along_fapp0 $A $B (@strict_functor $A $B $S) $Z $W $X $p $g) (@fapp1_fapp0 $A $B (@strict_functor $A $B $S) $V $W $q)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "598c8f08db9f8745e36cb0421107d1beca5f9a923886f68f3af1573e99a15943",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B $F $G $X $Y (@lax_transfor $A $B $F $G $L) $f) (@fapp1_fapp0 $A $B $F $W $X $h)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "359ce04cb7dee0aaeffc7a725019ab3071aae457442480b2a79403c6985d4f9b",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B $F $G $X $Y (@strict_transfor $A $B $F $G $U) $f) (@fapp1_fapp0 $A $B $F $W $X $h)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "297330399a2093a17124dd3726caa2e847ff83b0c7071f76841c1e434050319e",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $0 $1 $2 $3 (@defiso_fmap_from $C $D $F $x $y $i) (@defiso_fmap_to $C $D $F $x $y $i)"
+      },
+      {
+        "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+        "bodySha256": "08c74c0279b505af1d452bcf53e6d373618c4b1ef05c1e6084990037f47afaac",
+        "firstRule": "with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f'",
+        "secondRule": "with @comp_fapp0 $0 $1 $2 $3 (@defiso_fmap_to $C $D $F $x $y $i) (@defiso_fmap_from $C $D $F $x $y $i)"
+      }
+    ],
+    "qualification": "Existing identity/projection and action/inverse overlap families under the migrated core; no overlap added by the final projection repair; no global confluence claim."
+  },
+  "lhsAudit": {
+    "file": "emdash3_2_direct_cover_sheafification.lp",
+    "candidate_clauses": 0,
+    "candidate_slots": 0,
+    "candidates": [],
+    "annotated_clauses": 0,
+    "annotated_slots": 0,
+    "annotated": []
+  },
+  "resourceReview": {
+    "availableHostMiBBefore6GiB": 16861,
+    "normalDefaultsChanged": false,
+    "isolatedCheckerUsedForQualification": false,
+    "logTraceLimitMiB": 64,
+    "finalProfile": "180s/4096MiB/o=20; installed checker; serial, SR, warnings, file/core/no-swap guards"
+  },
+  "normalizationFinding": "Final generic reflector assembly compared equivalent but syntactically different package projections, repeatedly expanding locality-proof fields. Using exact existing generic projections fixes the allocation failure; same source coefficient-only versions failed at 4/6GiB and with isolated checker memory patch.",
+  "performanceQualification": "Final 38.492s/3065000KiB versus original 14.319s/1103704KiB are single matched end-to-end samples. The local allocation failure is fixed, but migration/import overhead remains. Final reflector/capability commands report 0.00s.",
+  "next": "Continue groupoidification composition/interval recovery, monad/product/pullback imports, then central assertions. Wrapper retirement, normalization/performance review, promotion and final gates remain."
+}

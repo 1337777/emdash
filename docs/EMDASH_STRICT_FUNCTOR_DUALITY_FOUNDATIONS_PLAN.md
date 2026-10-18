@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; staged walking-circle and profiled-interchange owners/reviewers checked after WalkingEnd; remaining library integration, normalization/performance, wrapper retirement and promotion remain open
+Status: active implementation; staged direct-cover sheafification and its original central reviewer checked; a concrete final-assembly normalization failure repaired; remaining library integration, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,39 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Direct-cover sheafification continuation after `370cc759`, 2026-10-18:
+the [review](../emdash2/audits/strict-default-action-boundary/production_sheafification_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_sheafification_verification.json)
+qualify the complete original owner and its central assertions. The specialized
+coefficient becomes Cat_cart, matching the actual presheaves; the generic
+arbitrary-V sheaf capability remains unchanged. Original recursor/adjunction
+data, unit/counit rules, inverse choices and cancellation proofs are retained.
+
+The coefficient correction alone exhausted 4 and 6 GiB. Command-level tracing
+located the failure at final reflector assembly, after all pointwise
+equivalences checked. Conversion repeatedly expanded large locality-proof
+fields while comparing rigid and generic presentations of the same package
+projections. The existing counit/reflected-object accessors now use the exact
+generic package projections and existing named adjunction data. No primitive,
+new rewrite/unifier, supplied strictness premise or operational equality
+argument is introduced. Incomplete endpoint-only/package-only experiments
+are discarded; the actual full assembly now checks.
+
+The installed checker passes nine positives/one negative including the inherited
+positive, in 38.492s at 2993.2 MiB under 180s/4GiB/o=20. The final reflector and
+capability commands each report 0.00s. The matched pre-goal closure passes in
+14.319s/1077.8 MiB, so broader normalization/import cost remains open. All 2418
+warning bodies match the coefficient-only candidate; the final local repair
+adds none. The 26 owner overlaps and their pre-goal comparison remain explicitly
+classified without a global confluence claim. Core/Homd 287/85 and the prior
+interchange evidence are carried only after exact input rehashing.
+
+Next continue at groupoidification composition/interval recovery and the final
+monad/product/pullback imports, then migrate the central assertions. Remaining
+library qualification, wrapper retirement, normalization/performance,
+production promotion and final catalogue/health/CI/source-pin gates are still
+required. The separate application goal remains paused.
 
 Walking-circle and interchange continuation after `85fdaefc`, 2026-10-18:
 the [review](../emdash2/audits/strict-default-action-boundary/production_circle_interchange_review.md)
