@@ -1,0 +1,64 @@
+// Native-input counterpart of ordinary diagram transposition. OneCat(C)
+// is the existing semantic guard: the naturality squares of these evaluated
+// maps commute in the ordinary target. This is not unrestricted exchange of
+// two lax transformation directions. Every map below is an actual composite.
+
+// Exchange the original map by prewhiskering the precomposition telescope
+// with the whole native evaluator. This keeps the I-action internal.
+symbol one_cat_oplax_diagram_transpose_shape_transf
+  [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_oplax_cat I C))]
+  (h : τ (@Transf B (Functor_oplax_cat I C) F G))
+  : τ (@Transf I (Functor_cat B C)
+      (@diagram_oplax_family_shape_func B I C F)
+      (@diagram_oplax_family_shape_func B I C G))
+≔ @fapp0 _ _
+    (@comp_cat_con_fapp1_func I (Functor_cat (Functor_oplax_cat I C) C)
+      (Functor_cat B C) (@diagram_oplax_evaluation_func I C)
+      (@comp_cat_con_func B (Functor_oplax_cat I C) C F)
+      (@comp_cat_con_func B (Functor_oplax_cat I C) C G))
+    (@hom_precomp_along_tele_transf Cat_cat Cat_cat (@id_func Cat_cat)
+      C B (Functor_oplax_cat I C) F G h);
+
+// The same exchange / arrow-family / exchange outline as the original
+// ordinary version, with its actual native input and output diagram profiles.
+symbol one_cat_oplax_diagram_transpose_family_func
+  [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_oplax_cat I C))]
+  (h : τ (@Transf B (Functor_oplax_cat I C) F G))
+  : τ (Functor I (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C)))
+≔ @comp_cat_fapp0 I (Functor_cat WalkingArrow_cat (Functor_cat B C))
+    (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
+    (@one_cat_family_oplax_exchange_func WalkingArrow_cat B C C1)
+    (@one_cat_transf_arrow_diagram_func I (Functor_cat B C)
+      (@one_cat_functor_category B C C1)
+      (@diagram_oplax_family_shape_func B I C F)
+      (@diagram_oplax_family_shape_func B I C G)
+      (@one_cat_oplax_diagram_transpose_shape_transf B I C C1 F G h));
+
+// Canonical whole column view. Its comparison with the actual I-functor's
+// projection is checked independently; the I-functor and its action below
+// remain the constructed whole owners, not a pointwise assembly.
+symbol one_cat_oplax_diagram_transpose_column_func
+  [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_oplax_cat I C))]
+  (h : τ (@Transf B (Functor_oplax_cat I C) F G)) (i : τ (Obj I))
+  : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C))
+≔ @transf_arrow_diagram_func B C
+    (@comp_cat_fapp0 B (Functor_oplax_cat I C) C
+      (@diagram_oplax_evaluation_at_func I C i) F)
+    (@comp_cat_fapp0 B (Functor_oplax_cat I C) C
+      (@diagram_oplax_evaluation_at_func I C i) G)
+    (@fapp0 _ _ (@comp_cat_cov_fapp1_func B (Functor_oplax_cat I C) C
+      (@diagram_oplax_evaluation_at_func I C i) F G) h);
+
+symbol one_cat_oplax_diagram_transpose_transf
+  [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_oplax_cat I C))]
+  (h : τ (@Transf B (Functor_oplax_cat I C) F G))
+  [i j : τ (Obj I)] (u : τ (Hom I i j))
+  : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C)
+      (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h i)
+      (@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h j))
+≔ @fapp1_fapp0 I (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
+    (@one_cat_oplax_diagram_transpose_family_func B I C C1 F G h) i j u;

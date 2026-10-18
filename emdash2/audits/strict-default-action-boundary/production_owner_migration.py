@@ -2973,6 +2973,38 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'native image/coimage families and original observations',
                                 'reason': 'Align the same K/Q compositions and whiskerings with their native oplax diagram category and whole evaluator; retain the actual chosen structures and arbitrary diagram maps',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_one_cat_kernel_cokernel_transposes.lp',
+                        'examples/one_cat_kernel_cokernel_transposes.lp'):
+                old = text
+                reviewer = path.startswith('examples/')
+                assert text.count('Functor_cat WalkingArrow_cat C') == 28
+                text = text.replace('Functor_cat WalkingArrow_cat C',
+                    'Functor_oplax_cat WalkingArrow_cat C')
+                assert text.count('(@TerminalObject (Op_cat C) t)') == (5 if reviewer else 2)
+                text = text.replace('(@TerminalObject (Op_cat C) t)',
+                    '(@TerminalObject (TotalOp_cat C) t)')
+                if reviewer:
+                    assert text.count('Functor WalkingArrow_cat C') == 6
+                    text = text.replace('Functor WalkingArrow_cat C',
+                        'Obj (Functor_oplax_cat WalkingArrow_cat C)')
+                    text = text.replace('@Transf_cat WalkingArrow_cat C',
+                        'Hom_cat (Functor_oplax_cat WalkingArrow_cat C)')
+                    text = text.replace('@diagram_family_at_func', '@diagram_oplax_family_at_func')
+                    text = text.replace('@diagram_evaluation_at_func', '@diagram_oplax_evaluation_at_func')
+                    text = text.replace('@tapp0_fapp0 WalkingArrow_cat C _ _',
+                        '@tapp0_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) _ _')
+                    before = '@fapp1_fapp0 WalkingArrow_cat C d walking_arrow_src walking_arrow_tgt walking_arrow_generator'
+                    assert text.count(before) == 2
+                    text = text.replace(before,
+                        '@fapp1_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) d walking_arrow_tgt walking_arrow_src walking_arrow_generator')
+                else:
+                    for name in ('column_func', 'transf'):
+                        before = '@one_cat_diagram_transpose_' + name
+                        assert text.count(before) == 2
+                        text = text.replace(before, '@one_cat_oplax_diagram_transpose_' + name)
+                changes.append({'source': path, 'owner': 'native K/Q unit and counit transposes',
+                                'reason': 'Preserve the original counit/unit construction, chosen P/Q and all observations at their actual native diagram profiles and total-dual initial-object hypothesis',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_diagram_transpose.lp':
                 old = text
                 text = text.replace('require open emdash.emdash3_2_arrow_diagram_families;',
@@ -2989,6 +3021,11 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'ordinary whole diagram transposition',
                                 'reason': 'Follow the original exchange/arrow-family/exchange construction through the existing guarded ordinary mapping presentations, retaining h and whole shape action',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+                addition = fragment('production_one_cat_oplax_transpose.lpfragment')
+                text += '\n' + addition
+                changes.append({'source': path, 'owner': 'native-input whole diagram transposition',
+                                'reason': 'Use the same original outline with native evaluation, ordinary prewhiskering and the existing native exchange; keep the ordinary-target guard and original h',
+                                'insertedSha256': sha(addition)})
             if path == 'examples/one_cat_diagram_transpose.lp':
                 old = text
                 for before, after in [
@@ -3538,6 +3575,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/categorical_contractions.lp')
     stage('examples/one_cat_diagram_transpose.lp')
     stage('examples/image_coimage_adjunction_families.lp')
+    stage('examples/one_cat_kernel_cokernel_transposes.lp')
     # Preserve the real production diagnostic dependency closure as the next
     # integration boundary. Its unchanged assertions are not automatically
     # qualified by the focused owner checks below.
@@ -3856,6 +3894,63 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require emdash.examples.one_cat_diagram_transpose;\n'
         'require emdash.coefficient_inverse_view_controls;\n'
         + fragment('production_one_cat_arrow_point_controls.lpfragment'))
+    native_transpose_controls = (baseline_package / 'examples/one_cat_diagram_transpose.lp').read_text()
+    native_transpose_controls = native_transpose_controls.replace(
+        'one_cat_diagram_transpose_', 'one_cat_oplax_diagram_transpose_')
+    native_transpose_controls = native_transpose_controls.replace(
+        'Functor_cat I C', 'Functor_oplax_cat I C').replace(
+        'Functor_cat WalkingArrow_cat C', 'Functor_oplax_cat WalkingArrow_cat C')
+    native_transpose_controls = native_transpose_controls.replace(
+        '@diagram_family_at_func', '@diagram_oplax_family_at_func').replace(
+        '@diagram_family_transf', '@diagram_oplax_family_transf')
+    for variable in ('h', 'k'):
+        before = f'@sym_transf_tapp0_transf B I C F G {variable} i'
+        assert before in native_transpose_controls
+        native_transpose_controls = native_transpose_controls.replace(before,
+            f'@diagram_oplax_family_map_at B I C F G {variable} i')
+    native_transpose_controls = native_transpose_controls.replace(
+        '@tapp0_fapp0 WalkingArrow_cat C _ _',
+        '@tapp0_fapp0 (OddDual_cat WalkingArrow_cat) (OddDual_cat C) _ _')
+    for variable in ('F', 'G'):
+        before = f'@fapp1_fapp0 I C (@fapp0 B (Functor_oplax_cat I C) {variable} x) i j u'
+        after = f'@fapp1_fapp0 (OddDual_cat I) (OddDual_cat C) (@fapp0 B (Functor_oplax_cat I C) {variable} x) j i u'
+        assert native_transpose_controls.count(before) == 1
+        native_transpose_controls = native_transpose_controls.replace(before, after)
+    # Preserve the nontrivial observation of the actual whole I-functor.
+    # The canonical column accessor must not make either comparison a test
+    # of its own defining body; retain h versus k in the negative as well.
+    point = '@one_cat_oplax_diagram_transpose_column_func B I C C1 F G h i'
+    actual = ('@fapp0 I (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C)) '
+              '(@one_cat_oplax_diagram_transpose_family_func B I C C1 F G h) i')
+    split = '// The src of the whole column is the original evaluated diagram family.'
+    first, rest = native_transpose_controls.split(split, 1)
+    assert first.count(point) == 2
+    first = first.replace(point, actual)
+    split_last = '// The point comparison retains the chosen h, not an unrelated transformation.'
+    middle, last = rest.split(split_last, 1)
+    assert last.count(point) == 2
+    last = last.replace(point, actual)
+    native_transpose_controls = first + split + middle + split_last + last
+    # The fixed-index column uses the existing covariant composition owner.
+    # Observe that same whole value through its raw composition signature,
+    # rather than the differently normalized varying-index accessor.
+    for variable in ('F', 'G'):
+        native_transpose_controls = native_transpose_controls.replace(
+            f'@diagram_oplax_family_at_func B I C {variable} i',
+            f'@comp_cat_fapp0 B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) {variable}')
+    for variable in ('h', 'k'):
+        native_transpose_controls = native_transpose_controls.replace(
+            f'@diagram_oplax_family_map_at B I C F G {variable} i',
+            f'@fapp0 _ _ (@comp_cat_cov_fapp1_func B (Functor_oplax_cat I C) C (@diagram_oplax_evaluation_at_func I C i) F G) {variable}')
+    assert len(re.findall(r'^assert\b', native_transpose_controls, re.M)) == 8
+    assert len(re.findall(r'^assertnot\b', native_transpose_controls, re.M)) == 1
+    (package / 'one_cat_oplax_transpose_controls.lp').write_text(
+        '// Native-profile adaptation of all original transposition observations.\n'
+        + native_transpose_controls)
+    (package / 'native_transpose_regression_controls.lp').write_text(
+        'require emdash.one_cat_oplax_transpose_controls;\n'
+        'require emdash.examples.one_cat_kernel_cokernel_transposes;\n'
+        'require emdash.examples.one_cat_diagram_transpose;\n')
     (package / 'zero_column_dependency_controls.lp').write_text(
         'require emdash.walking_arrow_postcomposition_controls;\n'
         'require emdash.mapping_evaluation_controls;\n'
@@ -4085,6 +4180,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'join_recursion_controls.lp',
                               package / 'coefficient_inverse_view_controls.lp',
                               package / 'ordinary_transposition_controls.lp',
+                              package / 'one_cat_oplax_transpose_controls.lp',
+                              package / 'native_transpose_regression_controls.lp',
                               package / 'zero_column_dependency_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',

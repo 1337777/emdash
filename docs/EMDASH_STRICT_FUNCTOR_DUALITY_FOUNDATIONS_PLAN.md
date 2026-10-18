@@ -38,6 +38,46 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native transposition after `99eed0bb`, 2026-10-18: the
+[review](../emdash2/audits/strict-default-action-boundary/production_native_transpose_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_transpose_verification.json)
+qualify the native-input whole transpose and the four original K/Q
+unit/counit consumers. The whole indexed functor retains the original
+exchange/arrow-family/exchange outline and OneCat(C) scope. B and I remain
+arbitrary; its shape transformation is an actual prewhiskered precomposition
+telescope. Four definitions are added, with no new primitive, rewrite,
+unifier or supplied comparison.
+
+The fixed-index column is the canonical native graph of covariant
+postcomposition by that index's evaluator. Its raw composition endpoint
+types compute when K/Q are substituted. The actual whole root projection
+is checked against this view, including a changed-h negative; the test does
+not merely compare the accessor with its defining body. The root-to-column
+comparison is proof-time, not a new runtime root beta. Shape action remains
+the actual whole functor's fapp1 action.
+
+All eight native observations and the changed-map negative pass, together
+with the ten original K/Q observations and the original ordinary transpose's
+eight positives/one negative. Actual P/Q, unit/counit cells and higher action
+remain. The initial-object hypothesis uses TotalOp_cat. The combined check
+passes in 66.670s at 3545.7 MiB under 300s/6GiB/o=20. Both owners have no
+unreviewed LHS candidates; the same K/Q closure's 2923 warning bodies are
+unchanged. The original complete core's exact 287/85 snapshot is unchanged.
+
+An attempted broad composite-precomposition comparison passed an expanded
+core at 4 GiB but did not repair the runtime K/Q endpoint observations. It
+is reverted: selecting the covariant column owner solves the consumer with
+the prior core. The review preserves the failed attempts and the two 300s
+import timeouts. Unchanged source/checker hashes and sampled 400MHz CPU
+frequencies qualified the temporary 600s diagnostic, not a performance claim;
+no host or default resource setting changed.
+
+Next adapt native terminal/initial family-presentation and zero-column
+universality evidence using the existing modification, native arrow-family
+comparison and native reconstruction owners. Those outcomes remain required,
+as do remaining libraries, wrapper retirement, performance/normalization
+review, promotion and final gates. The separate application goal stays paused.
+
 Canonical evaluation/constructor consolidation after `16aa222c`, 2026-10-18:
 the [review](../emdash2/audits/strict-default-action-boundary/production_mapping_normalization_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_mapping_normalization_verification.json)
