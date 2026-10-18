@@ -1,0 +1,45 @@
+
+// Existing Pi identity and the repaired whole represented-Sigma reframe.
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @fapp1_fapp0 (Catd_cat K) Cat_cart (@Pi_func K) E E (@id_funcd K E)
+  ≡ @id_func (@Pi_cat K E);
+
+assert [A B C D : Cat]
+  (H : τ (Functor D C)) (G : τ (Functor B D))
+  (F : τ (Functor A (Op_cat C))) ⊢
+  @comp_cat_fapp0 A (Op_cat C) Cat_cat
+    (@comp_cat_fapp0 (Op_cat C) (Catd_cat D) Cat_cat
+      (@comp_cat_fapp0 (Catd_cat D) (Catd_cat B) Cat_cat
+        (@Sigma_func B) (@Pullback_catd_func B D G))
+      (@hom_int_view C D H)) F
+  ≡ @comp_cat_fapp0 A (Op_cat C) Cat_cat
+      (@comp_cat_fapp0 (Op_cat C) (Catd_cat B) Cat_cat
+        (@Sigma_func B)
+        (@hom_int_view C B (@comp_cat_fapp0 B D C H G))) F;
+
+// The whole fold retains the actual outer functor.
+assertnot [A B C D : Cat]
+  (H : τ (Functor D C)) (G : τ (Functor B D))
+  (F F_other : τ (Functor A (Op_cat C))) ⊢
+  @comp_cat_fapp0 A (Op_cat C) Cat_cat
+    (@comp_cat_fapp0 (Op_cat C) (Catd_cat D) Cat_cat
+      (@comp_cat_fapp0 (Catd_cat D) (Catd_cat B) Cat_cat
+        (@Sigma_func B) (@Pullback_catd_func B D G))
+      (@hom_int_view C D H)) F
+  ≡ @comp_cat_fapp0 A (Op_cat C) Cat_cat
+      (@comp_cat_fapp0 (Op_cat C) (Catd_cat B) Cat_cat
+        (@Sigma_func B)
+        (@hom_int_view C B (@comp_cat_fapp0 B D C H G))) F_other;
+
+// Expanding object evaluation first gives the same represented total.
+assert [A B C D : Cat]
+  (H : τ (Functor D C)) (G : τ (Functor B D))
+  (F : τ (Functor A (Op_cat C))) (a : τ (Obj A)) ⊢
+  @fapp0 (Catd_cat B) Cat_cat (@Sigma_func B)
+    (@fapp0 (Catd_cat D) (Catd_cat B) (@Pullback_catd_func B D G)
+      (@fapp0 (Op_cat C) (Catd_cat D) (@hom_int_view C D H)
+        (@fapp0 A (Op_cat C) F a)))
+  ≡ @fapp0 (Catd_cat B) Cat_cat (@Sigma_func B)
+      (@fapp0 (Op_cat C) (Catd_cat B)
+        (@hom_int_view C B (@comp_cat_fapp0 B D C H G))
+        (@fapp0 A (Op_cat C) F a));

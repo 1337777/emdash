@@ -887,6 +887,32 @@ rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
     replace_once(old_sigma_families, new_sigma_families, 'Sigma family observations and base change',
                  'Change only the admitted family coefficient and the existing whole Hom inclusion at the original total-map consumers')
 
+    hom_view_pattern = '''      (@comp_fapp0
+        Cat_cat _ _ Cat_cat
+        (@comp_fapp0
+          Cat_cat _ _ Cat_cat
+          (@Sigma_func $B)
+          (@Pullback_catd_func $B $D $G))
+        (@hom_int_view $C $D $H))
+      $F
+  ↪'''
+    replace_once(hom_view_pattern, '''      (@comp_fapp0 Cat_cat _ _ _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@comp_fapp0 Cat_cat _ _ _
+            (@Sigma_func $B)
+            (@Pullback_catd_func $B $D $G))
+          (Functor_cart_include $D Cat_cart))
+        (@hom_int $C $D $H))
+      $F
+  ↪''', 'represented Sigma base change through the actual Hom inclusion',
+                 'Match the normalized composition of the transparent Hom view: its existing inclusion associates to the left before the stable Hom owner; preserve the original reframe and outer F')
+    replace_once('// Keeping F outside the fold preserves its whole higher action.  The rule is',
+                 '// hom_int_view is transparent. Match its normalized whole inclusion and\n'
+                 '// stable Hom owner, after the existing composition normalization.\n'
+                 '// Keeping F outside the fold preserves its whole higher action.  The rule is',
+                 'represented Sigma reframe pattern explanation',
+                 'Record why the runtime pattern contains the actual inclusion rather than the readable alias')
+
     a = body.index('// 9c. Families over Sigma totals and displayed-transfor uncurrying')
     b = body.index('// 10. Mixed-variance family functor', a)
     old_sigma_uncurry = body[a:b]
@@ -1343,6 +1369,39 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     replace_once(old, old.replace('Cat_cat', 'Cat_cart').replace('Functor_cat', 'Functor_cart_cat'),
                  'Opposite profunctor and reindexing base action',
                  'Keep product-swap and product-map owners with the admitted family coefficient and its actual first Hom')
+
+    # These original named strictness instances now duplicate the restored
+    # generic strict-functor law. Keep projected/reindexing action rules:
+    # their heads can erase the generic pattern and are a different case.
+    for marker, name in (
+            ('// Named direct strict composition owner for fixed-endpoint\n// profunctor duality.', 'Op_prof_func'),
+            ('// Named direct strict composition owner for mixed-variance\n// profunctor implication.', 'Prof_imply_cov_func2'),
+            ('// Named direct strict composition owner for the opaque\n// fixed-weight implication functor.', 'Prof_imply_cov_func')):
+        assert body.count(marker) == 1, name
+        start = body.index(marker)
+        end = body.index(';', start) + 1
+        redundant = body[start:end]
+        assert redundant.count('rule @comp_fapp0') == 1, name
+        replace_once(redundant,
+                     '// Composition is inherited from the default strict-functor rule.',
+                     name + ' redundant raw composition instance',
+                     'Remove only the literal instance of the restored generic law; preserve the stable functor and every projected or higher-action owner')
+    for old_comment, new_comment in (
+            ('  Ambient normal-lax identity is inherited from the generic functor calculus;\n'
+             '  composition is retained by the guarded named owner below.',
+             '  Identity and composition are inherited from the default strict-functor\n'
+             '  calculus.'),
+            ('  direct product-domain presentation inherits ambient normal-lax identity\n'
+             '  without requiring a visible Struct_sigma constructor. Its named composition\n'
+             '  owner below preserves the intended strict mixed action.',
+             '  direct product-domain presentation inherits default strict identity and\n'
+             '  composition without requiring a visible Struct_sigma constructor.'),
+            ('  normal-lax identity and guarded named composition owner remain visible before\n'
+             '  the product pipeline unfolds.',
+             '  generic strict identity and composition owners remain visible before\n'
+             '  the product pipeline unfolds.')):
+        replace_once(old_comment, new_comment, 'profunctor strict-default owner comments',
+                     'Document the existing generic owner after retiring its redundant local instances')
     a = body.index('// 18d. Unit hom profunctor and readable representables')
     b = body.index('/*\n  Stable generic action of a displayed hom-family.', a)
     old = body[a:b]
@@ -3369,6 +3428,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'inverse_admission_regression_controls.lp').write_text(
         (package / 'mapped_hom_regression_controls.lp').read_text() + '\n'
         + fragment('production_core_path_image_controls.lpfragment'))
+    (package / 'hygiene_full_controls.lp').write_text(
+        (package / 'inverse_admission_regression_controls.lp').read_text() + '\n'
+        + fragment('production_hygiene_controls.lpfragment'))
     (package / 'comma_target_guard_controls.lp').write_text(
         'require open emdash.emdash3_2_represented_comma_families;\n'
         'require emdash.examples.represented_comma_families;\n'
@@ -3538,6 +3600,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'internal_composite_regression_controls.lp',
                               package / 'mapped_hom_regression_controls.lp',
                               package / 'inverse_admission_regression_controls.lp',
+                              package / 'hygiene_full_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']

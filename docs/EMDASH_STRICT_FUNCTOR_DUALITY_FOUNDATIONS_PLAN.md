@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; Cartesian Path carrier families and original ring-presheaf invertibility reviewer checked; bounded SOP/performance review next; broader migration/promotion remain open
+Status: active implementation; bounded SOP/performance review and local corrections checked; locality and affine-atlas closure pass; matching/glue and broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,42 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Bounded SOP/performance review after `c809b9c9`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_hygiene_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_hygiene_review_verification.json)
+complete the requested checkpoint review. The advisory inferred-slot scan
+covers 76 changed sources and reports no unreviewed candidates. A separate
+core alias-pattern review found a real failed represented-Sigma runtime fold:
+the migration had left transparent hom_int_view in its pattern. Its actual
+inclusion normalizes to a left-associated composition. Matching that existing
+shape repairs the original whole fold without changing its RHS, signatures,
+parameters or global normalization. Whole and object-first observations pass;
+a changed outer F remains distinct. The Pi identity alias control passes and
+its existing owner is retained.
+
+Three profunctor raw composition clauses duplicate the restored generic
+strict-functor law and are now retired after actual weighted-consumer checks.
+Projected action and strict-transfor clauses remain. No primitive or
+unification rule is added or changed. The final combined core check passes
+279 positive and 80 negative assertions. The weighted warning multiset loses
+48 bodies and gains none; the Sigma repair changes no warning bodies.
+
+Matched source-only timing at 240s/2GiB/o=20 measures the original pinned core
+at 4.442s/326.3 MiB and the migrated core at 17.064s/1426.0 MiB maximum child
+RSS. Normalization dominates; the largest reported individual command is
+0.49s. This supports a larger cumulative normalization/overlap footprint,
+not one demonstrated runaway owner. Single samples do not establish a
+cleanup speedup or full performance qualification. No resource limit was
+increased by this review, and the existing containment remains in force.
+
+The final weighted consumer passes in 23s, the original algebra-locality
+owner in 26s, and the affine-atlas dependency closure in 49s. The latter does
+not include matching/glue, which are next, followed by the remaining central
+imports. Use focused owners before another cumulative aggregate. The full
+central gate, redundant-wrapper retirement, production promotion and final
+catalogue/health/CI/source-pin review remain required. The selected design
+and paused application-goal boundary are unchanged.
 
 Cartesian Path carrier families after `9f4751a5`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_path_cartesian_review.md)
