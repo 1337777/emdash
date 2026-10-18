@@ -2383,8 +2383,53 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 text = new.replace(marker,
                     fragment('production_one_cat_family_exchange.lpfragment') + '\n' + marker, 1)
                 text += '\n' + fragment('production_one_cat_arrow_family_presentation.lpfragment')
+                text += '\n' + fragment('production_one_cat_family_observations.lpfragment')
                 changes.append({'source': path, 'owner': 'ordinary-target whole diagram-family reflection',
                                 'reason': 'Reprofile both mapping levels through actual inverse maps, reuse Cartesian exchange and original diagram reflection, then reflect through the derived left inverses; retain raw inputs and whole endpoint premises',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_one_cat_diagram_family_reconstruction.lp',
+                        'examples/one_cat_diagram_family_reconstruction.lp'):
+                old = text
+                replacements = [
+                    (r'@diagram_family_at_func\s+B\s+WalkingArrow_cat\s+C\s+D',
+                     '@one_cat_family_exchange_at_func B WalkingArrow_cat C C1 D'),
+                    (r'@diagram_family_transf\s+B\s+WalkingArrow_cat\s+C\s+D',
+                     '@one_cat_diagram_family_transf B WalkingArrow_cat C C1 D'),
+                    (r'@transf_arrow_diagram_func\s+B\s+C',
+                     '@one_cat_transf_arrow_diagram_func B C C1'),
+                    (r'@sym_func\s+B\s+WalkingArrow_cat\s+C\s+D',
+                     '@one_cat_family_exchange B WalkingArrow_cat C C1 D'),
+                    (r'@sym_func_func_transf\s+WalkingArrow_cat\s+B\s+C',
+                     '@one_cat_family_exchange_map WalkingArrow_cat B C C1'),
+                    (r'@sym_transf_tapp0_transf\s+B\s+WalkingArrow_cat\s+C',
+                     '@one_cat_family_exchange_map_at B WalkingArrow_cat C C1'),
+                    (r'@diagram_family_evaluation_func\s+B\s+WalkingArrow_cat\s+C',
+                     '@one_cat_diagram_family_evaluation_func B WalkingArrow_cat C C1'),
+                    (r'@one_cat_diagram_family_evaluation_comp_path\b',
+                     '@one_cat_diagram_family_exchange_comp_path'),
+                ]
+                changed = {}
+                for pattern, replacement in replacements:
+                    text, count = re.subn(pattern, lambda _: replacement, text)
+                    changed[pattern] = count
+                assert all(changed[p] > 0 for p, _ in replacements[:3])
+                if path.startswith('examples/'):
+                    reconstructed = '''(@one_cat_transf_arrow_diagram_func B C C1
+      (@one_cat_family_exchange_at_func B WalkingArrow_cat C C1 D walking_arrow_src)
+      (@one_cat_family_exchange_at_func B WalkingArrow_cat C C1 D walking_arrow_tgt)
+      (@one_cat_diagram_family_transf B WalkingArrow_cat C C1 D
+        walking_arrow_src walking_arrow_tgt walking_arrow_generator))'''
+                    for direction, source, target in (('to', reconstructed, 'D'), ('from', 'D', reconstructed)):
+                        observation = f'''@one_cat_family_exchange_map_at B WalkingArrow_cat C C1 _ _
+    (@one_cat_diagram_family_reconstruction_{direction} B C C1 D)'''
+                        assert text.count(observation) == 2
+                        text = text.replace(observation,
+                            f'''@one_cat_family_exchange_map_at B WalkingArrow_cat C C1
+    {source} {target}
+    (@one_cat_diagram_family_reconstruction_{direction} B C C1 D)''')
+                changes.append({'source': path, 'owner': 'whole diagram-family reconstruction',
+                                'reason': 'Use the guarded ordinary exchange for the original exchanged endpoints and shape action, preserving arbitrary D, both reconstruction maps and the original proof outline',
+                                'replacementCounts': changed,
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_arrow_family_isomorphisms.lp':
                 old = text
@@ -2945,6 +2990,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/action_profile_prof_defiso_controls.lp')
     stage('examples/one_cat_arrow_diagrams.lp')
     stage('examples/one_cat_arrow_family_isomorphisms.lp')
+    stage('examples/one_cat_diagram_family_reconstruction.lp')
     stage('examples/one_cat_modifications.lp')
     # Preserve the real production diagnostic dependency closure as the next
     # integration boundary. Its unchanged assertions are not automatically

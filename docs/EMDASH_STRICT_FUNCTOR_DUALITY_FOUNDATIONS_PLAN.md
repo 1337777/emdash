@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; whole ordinary arrow-family isomorphisms and original observations checked; last central boundary is diagram-family reconstruction; broader migration/promotion remain open
+Status: active implementation; whole diagram-family reconstruction and original observations checked; central boundary is terminal/initial family presentations; broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,37 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Whole diagram-family reconstruction after `597b6b4c`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_family_reconstruction_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_one_cat_family_reconstruction_verification.json)
+record a direct migration of the original reconstruction owner. Undoing
+eight interface substitutions recovers the complete original source modulo
+whitespace, including both reconstruction maps and inverse-law proofs.
+The arbitrary D and unrestricted base B remain; OneCat(C) is the original
+target hypothesis. The previously supplied whole reconstruction comparison
+is retained, not replaced by a new universality or inverse-assembly axiom.
+
+Three observation helpers are definitions through the qualified ordinary
+exchange and existing strict functor action. General shape evaluation stays
+oplax. No primitive, rewrite or unification rule is added. The original six
+runtime observations pass in about 103s at 600s/4GiB/o=5, with about 2.75 GiB
+maximum child RSS. Warning bodies are unchanged from the same-import
+baseline. Core and mapping/exchange negative-control closures still match
+their existing receipts exactly.
+
+The fresh central gate advances through reconstruction and stops at
+`terminal_adjunction_presented_family` in
+`emdash3_2_one_cat_terminal_adjunction_families.lp`. Its declared ordinary
+output conflicts with the general arrow constructor's corrected oplax
+target; the initial presentation has the same issue. Next retain the
+unguarded general presentations with their correct oplax types and use
+guarded ordinary counterparts in the OneCat consumers. Preserve e, F and
+the original adjunction data, and review the coupled observation modules.
+Do not identify general ordinary/oplax profiles or narrow the unguarded
+general operation merely to make its ordinary consumer pass. The full
+central gate remains incomplete. Remaining library migration, wrapper
+retirement, production promotion and final gates stay required.
 
 Ordinary arrow-family isomorphisms after `1f38891f`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_arrow_family_review.md)
