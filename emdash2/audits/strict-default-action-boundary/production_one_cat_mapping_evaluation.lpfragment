@@ -1,0 +1,12 @@
+// Canonical admission preserves fixed-point evaluation as a whole functor.
+// The literal mapping comparison supplies OneCat(C); its inverse and
+// arbitrary raw/Cartesian mapping categories remain distinct.
+rule @sym_fapp0_func _ _ _
+    (@defiso_to _ _ _ (@one_cat_mapping_comparison $A $C _)) $a
+  ↪ @fapp0_func $A $C $a;
+
+// The same first-Hom projection when exchange has already projected.
+// Its existing capped/component beta then reads the original transfor.
+rule @sym_fapp0_fapp1_func _ _ _
+    (@defiso_to _ _ _ (@one_cat_mapping_comparison $A $C _)) $a $F $G
+  ↪ @tapp0_func $A $C $F $G $a;

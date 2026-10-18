@@ -1,0 +1,21 @@
+// Postcomposition of the free walking-arrow introduction. A strict functor
+// maps its two endpoints and its generator; the result is the same join
+// constructor. This cut is independent of ordinary-target admissions.
+// lhs-audit: keep 1 -- composition of functors at this constructor cut.
+rule @comp_fapp0 Cat_cat _ _ $D $H
+    (@join_elim_func Terminal_cat Terminal_cat $C
+      (@Const_func _ _ $x) (@Const_func _ _ $y) (@Const_func _ _ $f))
+  ↪ @walking_arrow_func $D
+      (@fapp0 $C $D $H $x) (@fapp0 $C $D $H $y)
+      (@fapp1_fapp0 $C $D $H $x $y $f);
+
+// Cartesian evaluation of that same constructor. The cross datum is an
+// actual strict transformation; evaluating it gives the generator of the
+// resulting walking-arrow functor. This replaces the former proof-time
+// Cartesian point comparison with its constructor computation.
+rule @sym_fapp0_func _ $K $C
+    (@join_elim_func Terminal_cat Terminal_cat _
+      (@Const_func _ _ $F) (@Const_func _ _ $G) (@Const_func _ _ $U)) $x
+  ↪ @walking_arrow_func $C
+      (@fapp0 $K $C $F $x) (@fapp0 $K $C $G $x)
+      (@tapp0_fapp0 $K $C $F $G $x (@strict_transfor $K $C $F $G $U));

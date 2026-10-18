@@ -1,0 +1,24 @@
+// Whole evaluation, then its object observation.
+assert [A C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) (a : τ (Obj A)) ⊢
+  @sym_fapp0_func (Functor_cat A C) A C (@one_cat_mapping_to_cart_func A C C1) a
+  ≡ @fapp0_func A C a;
+assert [A C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (a : τ (Obj A)) (F : τ (Functor A C)) ⊢
+  fapp0 (@sym_fapp0_func (Functor_cat A C) A C (@one_cat_mapping_to_cart_func A C C1) a) F
+  ≡ fapp0 F a;
+
+// The first-Hom projection may have fired before the whole computation.
+assert [A C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (a : τ (Obj A)) (F G : τ (Functor A C)) ⊢
+  @sym_fapp0_fapp1_func (Functor_cat A C) A C
+    (@one_cat_mapping_to_cart_func A C C1) a F G
+  ≡ @tapp0_func A C F G a;
+
+// An arbitrary admitted diagram is not the canonical admission.
+assertnot [A C : Cat] (J : τ (Functor (Functor_cat A C) (Functor_cart_cat A C)))
+  (a : τ (Obj A)) ⊢
+  @sym_fapp0_func (Functor_cat A C) A C J a ≡ @fapp0_func A C a;
+assertnot [A C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (a b : τ (Obj A)) ⊢
+  @sym_fapp0_func (Functor_cat A C) A C (@one_cat_mapping_to_cart_func A C C1) a
+  ≡ @fapp0_func A C b;

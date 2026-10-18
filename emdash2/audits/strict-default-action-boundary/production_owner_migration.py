@@ -2593,9 +2593,16 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'ordinary-target native walking-arrow observation',
                                 'reason': 'Use actual ordinary evaluation under the existing OneCat guard; retain the input diagram category, native graph, generator value and original value-path proof',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_walking_arrow_introduction.lp':
+                addition = fragment('production_walking_arrow_postcomposition.lpfragment')
+                text += '\n' + addition
+                changes.append({'source': path, 'owner': 'walking-arrow constructor postcomposition',
+                                'reason': 'Normalize strict postcomposition and Cartesian evaluation at the existing free-arrow introduction, retaining both endpoints and its actual generating arrow',
+                                'insertedSha256': sha(addition)})
             if path == 'emdash3_2_one_cat_transfor_profiles.lp':
                 addition = (fragment('production_one_cat_mapping_comparison.lpfragment')
-                            + '\n' + fragment('production_one_cat_mapping_inverse_views.lpfragment'))
+                            + '\n' + fragment('production_one_cat_mapping_inverse_views.lpfragment')
+                            + '\n' + fragment('production_one_cat_mapping_evaluation.lpfragment'))
                 text += '\n' + addition
                 changes.append({'source': path, 'owner': 'ordinary-target whole mapping-profile comparison',
                                 'reason': 'Internalize existing strict admission under OneCat while retaining actual forward/inverse maps and the original mapping inclusion as a whole view; no classifier equality',
@@ -2614,7 +2621,6 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 text = new.replace(marker,
                     fragment('production_one_cat_family_exchange.lpfragment') + '\n' + marker, 1)
                 text += '\n' + fragment('production_one_cat_arrow_family_presentation.lpfragment')
-                text += '\n' + fragment('production_one_cat_arrow_point_view.lpfragment')
                 text += '\n' + fragment('production_one_cat_family_observations.lpfragment')
                 text += '\n' + fragment('production_one_cat_family_oplax_exchange.lpfragment')
                 text += '\n' + fragment('production_one_cat_oplax_roundtrip_view.lpfragment')
@@ -3544,6 +3550,13 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     (package / 'one_cat_mapping_controls.lp').write_text(
         'require open emdash.emdash3_2_one_cat_transfor_profiles;\n'
         + fragment('production_one_cat_mapping_controls.lpfragment'))
+    (package / 'mapping_evaluation_controls.lp').write_text(
+        'require open emdash.emdash3_2_one_cat_transfor_profiles;\n'
+        'require emdash.one_cat_mapping_controls;\n'
+        + fragment('production_one_cat_mapping_evaluation_controls.lpfragment'))
+    (package / 'walking_arrow_postcomposition_controls.lp').write_text(
+        'require open emdash.emdash3_2_walking_arrow_introduction;\n'
+        + fragment('production_walking_arrow_postcomposition_controls.lpfragment'))
     (package / 'one_cat_family_exchange.lp').write_text(
         'require open emdash.emdash3_2_one_cat_transfor_profiles;\n'
         'require open emdash.emdash3_2_one_cat_functor_closure;\n'
@@ -3844,6 +3857,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require emdash.coefficient_inverse_view_controls;\n'
         + fragment('production_one_cat_arrow_point_controls.lpfragment'))
     (package / 'zero_column_dependency_controls.lp').write_text(
+        'require emdash.walking_arrow_postcomposition_controls;\n'
+        'require emdash.mapping_evaluation_controls;\n'
         'require emdash.ordinary_transposition_controls;\n'
         'require emdash.alternating_identity_controls;\n'
         'require emdash.examples.image_coimage_adjunction_families;\n')
@@ -3888,6 +3903,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require emdash.native_exchange_regression_controls;\n'
         'require emdash.examples.one_cat_homology_family_comparison;\n'
         'require emdash.examples.one_cat_homology_family_comparison_points;\n')
+    (package / 'mapping_normalization_regression_controls.lp').write_text(
+        'require emdash.one_cat_arrow_profile_controls;\n'
+        'require emdash.native_homology_comparison_reviewers;\n')
     (package / 'native_exchange_regression_controls.lp').write_text(
         'require emdash.odd_cartesian_action_controls;\n'
         'require emdash.oplax_family_component_controls;\n'
@@ -4043,6 +4061,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'diagram_with_adjunction_views.lp',
                               package / 'one_cat_evaluation_controls.lp',
                               package / 'one_cat_mapping_controls.lp',
+                              package / 'mapping_evaluation_controls.lp',
+                              package / 'mapping_normalization_regression_controls.lp',
+                              package / 'walking_arrow_postcomposition_controls.lp',
                               package / 'one_cat_family_exchange.lp',
                               package / 'one_cat_family_exchange_controls.lp',
                               package / 'one_cat_oplax_exchange_controls.lp',

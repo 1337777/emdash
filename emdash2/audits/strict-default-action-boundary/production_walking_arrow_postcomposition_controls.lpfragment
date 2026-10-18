@@ -1,0 +1,55 @@
+// The whole constructor cut keeps the actual functor and generating arrow.
+assert [C D : Cat] (H : τ (Functor C D)) [x y : τ (Obj C)]
+  (f : τ (Hom C x y)) ⊢
+  @comp_cat_fapp0 WalkingArrow_cat C D H (@walking_arrow_func C x y f)
+  ≡ @walking_arrow_func D (fapp0 H x) (fapp0 H y) (@fapp1_fapp0 C D H x y f);
+
+// Evaluation before the whole cut has the same endpoint and generator.
+assert [C D : Cat] (H : τ (Functor C D)) [x y : τ (Obj C)]
+  (f : τ (Hom C x y)) ⊢
+  fapp0 H (fapp0 (@walking_arrow_func C x y f) walking_arrow_src)
+  ≡ fapp0 (@walking_arrow_func D (fapp0 H x) (fapp0 H y) (@fapp1_fapp0 C D H x y f)) walking_arrow_src;
+assert [C D : Cat] (H : τ (Functor C D)) [x y : τ (Obj C)]
+  (f : τ (Hom C x y)) ⊢
+  @fapp1_fapp0 C D H x y
+    (@fapp1_fapp0 WalkingArrow_cat C (@walking_arrow_func C x y f)
+      walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+  ≡ @fapp1_fapp0 WalkingArrow_cat D
+      (@walking_arrow_func D (fapp0 H x) (fapp0 H y) (@fapp1_fapp0 C D H x y f))
+      walking_arrow_src walking_arrow_tgt walking_arrow_generator;
+
+// The identity and composition cases retain the generic functor laws.
+assert [C : Cat] [x y : τ (Obj C)] (f : τ (Hom C x y)) ⊢
+  @comp_cat_fapp0 WalkingArrow_cat C C (@id_func C) (@walking_arrow_func C x y f)
+  ≡ @walking_arrow_func C x y f;
+assert [C D E : Cat] (H : τ (Functor C D)) (J : τ (Functor D E))
+  [x y : τ (Obj C)] (f : τ (Hom C x y)) ⊢
+  @comp_cat_fapp0 WalkingArrow_cat C E (@comp_cat_fapp0 C D E J H)
+    (@walking_arrow_func C x y f)
+  ≡ @comp_cat_fapp0 WalkingArrow_cat D E J
+      (@comp_cat_fapp0 WalkingArrow_cat C D H (@walking_arrow_func C x y f));
+assertnot [C D : Cat] (H : τ (Functor C D)) [x y : τ (Obj C)]
+  (f : τ (Hom C x y)) (g : τ (Hom D (fapp0 H x) (fapp0 H y))) ⊢
+  @comp_cat_fapp0 WalkingArrow_cat C D H (@walking_arrow_func C x y f)
+  ≡ @walking_arrow_func D (fapp0 H x) (fapp0 H y) g;
+
+// The whole Cartesian evaluation cut and its generating-arrow observation.
+assert [K C : Cat] (F G : τ (Functor K C))
+  (U : τ (@StrictTransfor K C F G)) (x : τ (Obj K)) ⊢
+  @sym_fapp0_func WalkingArrow_cat K C
+    (@walking_arrow_func (Functor_cart_cat K C) F G U) x
+  ≡ @walking_arrow_func C (fapp0 F x) (fapp0 G x)
+      (@tapp0_fapp0 K C F G x (@strict_transfor K C F G U));
+assert [K C : Cat] (F G : τ (Functor K C))
+  (U : τ (@StrictTransfor K C F G)) (x : τ (Obj K)) ⊢
+  @fapp1_fapp0 WalkingArrow_cat C
+    (@sym_fapp0_func WalkingArrow_cat K C
+      (@walking_arrow_func (Functor_cart_cat K C) F G U) x)
+    walking_arrow_src walking_arrow_tgt walking_arrow_generator
+  ≡ @tapp0_fapp0 K C F G x (@strict_transfor K C F G U);
+assertnot [K C : Cat] (F G : τ (Functor K C))
+  (U V : τ (@StrictTransfor K C F G)) (x : τ (Obj K)) ⊢
+  @sym_fapp0_func WalkingArrow_cat K C
+    (@walking_arrow_func (Functor_cart_cat K C) F G U) x
+  ≡ @walking_arrow_func C (fapp0 F x) (fapp0 G x)
+      (@tapp0_fapp0 K C F G x (@strict_transfor K C F G V));

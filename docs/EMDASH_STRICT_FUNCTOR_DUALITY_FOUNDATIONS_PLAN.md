@@ -38,6 +38,40 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Canonical evaluation/constructor consolidation after `16aa222c`, 2026-10-18:
+the [review](../emdash2/audits/strict-default-action-boundary/production_mapping_normalization_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_mapping_normalization_verification.json)
+qualify four runtime computations at existing semantic owners, replacing
+three comparison rules without a new primitive or unifier. Canonical
+ordinary-to-Cartesian admission now preserves whole fixed-point evaluation
+and its projected Hom action. Strict postcomposition and Cartesian evaluation
+of a walking-arrow introduction return the existing mapped constructor.
+The two expanded ordinary point/exchange comparisons are retired; the old
+Cartesian point comparison now computes. Its original derived path remains.
+
+The original ordinary-arrow runtime-head-distinction negative deliberately
+becomes a positive constructor computation. Actual generator/map distinctions,
+mapping inverses, arbitrary higher-cell negatives, original transposition,
+native image/coimage, reconstruction and homology whole/point observations
+pass. The complete core is unchanged, with its exact 287/85 input snapshot
+verified. Two new constant-family normalization warnings are recorded; no
+global confluence or blanket strict naturality is asserted.
+
+The final dependency driver passes in 57.535s/3459.1 MiB, the complete native
+homology owner in 114.659s/5306.1 MiB, and the combined ordinary/native reviewer
+in 136.463s/5869.9 MiB, all under existing profiles. Compared with the preceding
+81.370s/5518.8 MiB native-owner sample, allocation traffic and peak RSS decrease
+slightly while wall time increases. This is a computation consolidation, not
+a demonstrated performance fix. A shorter reflexivity proof of the general
+whole exchange comparison failed; its original derived modification proof is
+restored byte-for-byte, without adding a rule to force it.
+
+Next continue the native K/Q transpose and terminal/initial zero-column
+owners. Apply the recorded owner-level normalization policy at further
+failures. Other composition/Sigma concerns, strict-wrapper retirement,
+remaining libraries, performance qualification, promotion and final gates
+remain open; the separate application goal stays paused.
+
 Computational ownership review after `5d2618fb`, 2026-10-18 UTC: the user
 asked whether accumulating comparison rules indicates an incomplete
 normalization design and contributes to performance. The

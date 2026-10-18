@@ -1,4 +1,4 @@
-// The migrated constructor retains the original proof-time point comparison.
+// The original point path now follows the constructor's runtime computation.
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [x y : τ (Obj C)] (f : τ (Hom C x y)) ⊢
   @eq_refl (Functor WalkingArrow_cat C)
@@ -16,8 +16,9 @@ assertnot [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
       (@fapp0 _ _ (@one_cat_arrow_diagram_func C C1) (@lax_edge C x y f))
       (@walking_arrow_func C x y g));
 
-// The whole exchanged and introduced heads remain distinct at runtime.
-assertnot [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+// The canonical constructor now computes through Cartesian evaluation.
+// This intentionally replaces the former proof-time-only runtime negative.
+assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [x y : τ (Obj C)] (f : τ (Hom C x y)) ⊢
   @fapp0 _ _ (@one_cat_arrow_diagram_func C C1) (@lax_edge C x y f)
   ≡ @walking_arrow_func C x y f;

@@ -106,7 +106,8 @@ constructor laws. The deeper cases were inspected explicitly.
    pressure to a pre-existing design choice.
 
 2. **The ordinary exchange bridge is genuinely brittle.** The second
-   [point comparison](production_one_cat_arrow_point_view.lpfragment) matches
+   [point comparison](production_mapping_normalization_review.md#retired-comparisons),
+   present at the checkpoint reviewed here, matches
    an expanded admission/inverse/exchange/walking-arrow pipeline. It has an
    actual consumer and preserves the cross-cell, but depends closely on the
    current unfolding and association order. It should be reviewed as a
