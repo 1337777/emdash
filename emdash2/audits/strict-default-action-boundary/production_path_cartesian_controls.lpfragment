@@ -1,0 +1,60 @@
+// The coefficient realization exposes the original actual path-map functor.
+assert [A B : Grpd] (f : τ (@Function_grpd A B)) ⊢
+  @fapp1_fapp0 Grpd_cat Cat_cart Path_cat_cart_func A B f
+  ≡ @path_map_func A B f;
+
+// The expanded whole action has the same object value as its capped rule.
+assert [A B : Grpd] (f : τ (@Function_grpd A B)) ⊢
+  @fapp0 (Path_cat (@Function_grpd A B))
+    (Functor_cart_cat (Path_cat A) (Path_cat B))
+    (@comp_cat_fapp0
+      (Path_cat (@Function_grpd A B))
+      (Core_cat (Functor_cart_cat (Path_cat A) (Path_cat B)))
+      (Functor_cart_cat (Path_cat A) (Path_cat B))
+      (Core_incl_func (Functor_cart_cat (Path_cat A) (Path_cat B)))
+      (@path_map_func (@Function_grpd A B)
+        (Functor (Path_cat A) (Path_cat B))
+        (λ g : τ (@Function_grpd A B), @path_map_func A B g))) f
+  ≡ @path_map_func A B f;
+
+// It retains the iterable equality action, not just the object function.
+assert [A B : Grpd] (f : τ (@Function_grpd A B)) (x y : τ A) ⊢
+  @fapp1_func (Path_cat A) (Path_cat B)
+    (@fapp1_fapp0 Grpd_cat Cat_cart Path_cat_cart_func A B f) x y
+  ≡ @path_map_func (@= A x y) (@= B (f x) (f y))
+      (λ p : τ (@= A x y), @eq_ap A B f x y p);
+
+// A nonidentity equality of functions remains an actual Cartesian transfor.
+assert [A B : Grpd] (f g : τ (@Function_grpd A B))
+  (h : τ (@= (@Function_grpd A B) f g)) ⊢
+  @fapp1_fapp0
+    (Path_cat (@Function_grpd A B))
+    (Functor_cart_cat (Path_cat A) (Path_cat B))
+    (@fapp1_func Grpd_cat Cat_cart Path_cat_cart_func A B) f g h
+  : τ (Hom (Functor_cart_cat (Path_cat A) (Path_cat B))
+      (@path_map_func A B f) (@path_map_func A B g));
+
+// Reflexive equality agrees with the Cartesian identity under both actions.
+assert [A B : Grpd] (f : τ (@Function_grpd A B)) ⊢
+  @fapp1_fapp0
+    (Path_cat (@Function_grpd A B))
+    (Functor_cart_cat (Path_cat A) (Path_cat B))
+    (@fapp1_func Grpd_cat Cat_cart Path_cat_cart_func A B)
+    f f (@eq_refl (@Function_grpd A B) f)
+  ≡ @id (Functor_cart_cat (Path_cat A) (Path_cat B)) (@path_map_func A B f);
+
+// Original ring-carrier consumers keep their fibre and transported value.
+assert (R : τ CommRing) ⊢
+  @Fibre_cat CommRing_cat comm_ring_carrier_catd R
+  ≡ Path_cat (@comm_ring_carrier R);
+
+assert [R S : τ CommRing] (h : τ (@CommRingHom R S))
+  (x : τ (@comm_ring_carrier R)) ⊢
+  @fapp0
+    (Path_cat (@CommRingHom R S)) (Path_cat (@comm_ring_carrier S))
+    (@fib_cov_tapp0_func CommRing_cat comm_ring_carrier_catd R S x) h
+  ≡ @comm_ring_hom_apply R S h x;
+
+// The new coefficient view does not identify the two mapping profiles.
+assertnot ⊢ Path_cat_func : τ (Functor Grpd_cat Cat_cart);
+assertnot (A B : Cat) ⊢ Functor_cart_cat A B ≡ Functor_cat A B;

@@ -1,0 +1,23 @@
+// Cartesian realization of groupoids. The ordinary Path_cat_func remains
+// available; this whole coefficient view has strict transformation action.
+injective symbol Path_cat_cart_func : τ (Functor Grpd_cat Cat_cart);
+
+rule @fapp0 _ _ Path_cat_cart_func $A ↪ Path_cat $A;
+
+// Equalities of functions act through their equality of actual Path-map
+// objects and the existing core inclusion into the Cartesian mapping category.
+rule @fapp1_func _ _ Path_cat_cart_func $A $B
+  ↪ @comp_fapp0 Cat_cat
+      (Path_cat (@Function_grpd $A $B))
+      (Core_cat (Functor_cart_cat (Path_cat $A) (Path_cat $B)))
+      (Functor_cart_cat (Path_cat $A) (Path_cat $B))
+      (Core_incl_func (Functor_cart_cat (Path_cat $A) (Path_cat $B)))
+      (@path_map_func
+        (@Function_grpd $A $B)
+        (Functor (Path_cat $A) (Path_cat $B))
+        (λ f : τ (@Function_grpd $A $B), @path_map_func $A $B f));
+
+// The generic capped projection can fire before the whole action above.
+// Both orders retain the same actual Path-map functor.
+rule @fapp1_fapp0 _ _ Path_cat_cart_func $A $B $f
+  ↪ @path_map_func $A $B $f;

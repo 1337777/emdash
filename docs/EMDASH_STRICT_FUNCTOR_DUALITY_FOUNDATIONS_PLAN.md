@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; terminal/initial family presentations and eight original endpoint proofs checked; central boundary is ring carrier-family coefficients; broader migration/promotion remain open
+Status: active implementation; Cartesian Path carrier families and original ring-presheaf invertibility reviewer checked; bounded SOP/performance review next; broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,50 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Cartesian Path carrier families after `9f4751a5`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_path_cartesian_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_path_cartesian_verification.json)
+record the whole `Path_cat_cart_func : Grpd_cat → Cat_cart`. Its higher
+action uses the existing path-map functor and core inclusion into the
+Cartesian mapping category. It preserves the original actual path-map
+objects, while the ordinary Path_cat_func remains available unchanged.
+This is a structural coefficient realization with projections, not arbitrary
+admission from Cat_cat into Cat_cart. Three runtime projections and no
+unifiers or operational proof arguments are added; both projection orders
+and reflexive higher action check.
+
+The ring-carrier family uses that realization. The presheaf total-restriction
+map uses the existing ordinary inclusion of its canonical Cartesian FibCov
+section. The original ring category, presheaf owner and reviewer are each
+recovered byte for byte by reversing their small interface substitutions.
+The full reviewer passes 25 positive and 4 negative assertions in about 48s
+with 2.25 GiB maximum child RSS at 300s/4GiB/o=20. Focused Path controls pass
+7 positive and 2 negative checks; the full core regression passes 276/79
+fresh. The strict LHS audit reports no unreviewed candidates, with a separate
+manual inspection of the new owner patterns. Sixteen new warning bodies are
+classified in the review; no global confluence claim is made.
+
+The central run passed the carrier family but exhausted 4 GiB while importing
+localization at zero. That unchanged module passes independently in 35s at
+about 1.57 GiB child RSS. With approximately 14.5 GiB host memory available,
+one reviewed 600s/6GiB/o=5 central run passed those imports and reached the
+presheaf inclusion mismatch in 196s at about 4.50 GiB child RSS. The focused
+reviewer now checks its correction. The central gate has not been rerun
+after that final correction and remains incomplete. Defaults and
+serial/file/no-swap/subject-reduction safeguards remain unchanged.
+
+User steering, 2026-10-18: perform a bounded overall implementation/SOP and
+performance review at this checkpoint, before the next broader migration
+pass. Compare the migrated owner outline with the pre-goal source; inspect
+inferred slots, reducible alias patterns and stable-head/projection ownership
+beyond the advisory generic-head audit; distinguish import footprint from
+individual slow commands. Apply demonstrated local corrections and retain
+their actual consumers. Do not reopen the foundation design or add optional
+theory. Then continue the original locality/matching/glue owners and other
+central imports, preferring focused failures before the final aggregate.
+Remaining library migration, wrapper retirement, source promotion and final
+gates stay required; the separate application goal remains paused.
 
 Terminal/initial family presentations after `bedea259`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_terminal_family_review.md)

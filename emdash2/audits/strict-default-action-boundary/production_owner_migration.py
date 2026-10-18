@@ -468,6 +468,10 @@ rule @fapp1_fapp0 _ _ (Op_func_func $A $B) $G $F $eta
            + fragment('conventional_total_op_offdiagonal.lpfragment'),
            'Retain the qualified total reversal of arbitrary conventional-lax transfors and its correct post-boundary off-diagonal action')
 
+    insert('// Canonical off-diagonal equality action for h : f = g.',
+           fragment('production_path_cartesian.lpfragment'),
+           'Cartesian Path realization retains the original path-map objects and derives its whole higher action through the existing equality-core inclusion')
+
     for owner, old_type, new_type in (
             ('Product_cat_fapp1_func', '(Functord_cat\n', '(@Transf_cat Cat_cat Cat_cat\n'),
             ('Product_cat_fapp1_fapp0_functord', '(Functord\n', '(@Transf Cat_cat Cat_cat\n')):
@@ -2490,6 +2494,41 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 changes.append({'source': path, 'owner': 'original arrow-family isomorphism reviewer',
                                 'reason': 'Retain its four endpoint identity and two inverse-choice observations at the guarded ordinary family/exchange presentation',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_commutative_algebra_category.lp':
+                old = text
+                old_family = '''    CommRing_cat Grpd_cat Cat_cat
+    Path_cat_func comm_ring_carrier_func;'''
+                assert text.count(old_family) == 1
+                text = text.replace(old_family, '''    CommRing_cat Grpd_cat Cat_cart
+    Path_cat_cart_func comm_ring_carrier_func;''', 1)
+                changes.append({'source': path, 'owner': 'comm_ring_carrier_catd',
+                                'reason': 'Use the whole Cartesian Path realization for the admitted carrier family, retaining the original ring-carrier functor and its whole Hom action',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_commutative_algebra_presheaves.lp':
+                old = text
+                represented_section = '''(@fib_cov_transf
+        (Op_cat K)
+        (@comm_ring_psh_carrier_catd K O)
+        U s)'''
+                assert text.count(represented_section) == 1
+                text = text.replace(represented_section, '''(@strict_transfor (Op_cat K) Cat_cart
+        (@FibCov_source_catd (Op_cat K) U)
+        (@comm_ring_psh_carrier_catd K O)
+        (@fib_cov_transf
+          (Op_cat K)
+          (@comm_ring_psh_carrier_catd K O)
+          U s))''', 1)
+                changes.append({'source': path, 'owner': 'ring-presheaf total restriction map',
+                                'reason': 'Use the existing ordinary inclusion of the canonical Cartesian FibCov section at the unchanged Sigma-map consumer',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/commutative_ring_presheaf_invertibility.lp':
+                old = text
+                family_type = '(Functor (Op_cat K) Cat_cat)'
+                assert text.count(family_type) == 2
+                text = text.replace(family_type, '(Functor (Op_cat K) Cat_cart)')
+                changes.append({'source': path, 'owner': 'original ring-presheaf invertibility reviewer',
+                                'reason': 'Observe the existing represented-family comparison in its actual Cat_cart coefficient; retain public Cat identities and every original assertion',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_one_cat_terminal_adjunction_families.lp',
                         'emdash3_2_one_cat_terminal_adjunction_family_observations.lp'):
                 old = text
@@ -3036,6 +3075,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/one_cat_arrow_diagrams.lp')
     stage('examples/one_cat_arrow_family_isomorphisms.lp')
     stage('examples/one_cat_diagram_family_reconstruction.lp')
+    stage('examples/commutative_ring_presheaf_invertibility.lp')
     stage('emdash3_2_one_cat_terminal_adjunction_family_observations.lp')
     stage('examples/one_cat_modifications.lp')
     # Preserve the real production diagnostic dependency closure as the next
@@ -3337,6 +3377,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require open emdash.emdash3_2_prof_defiso_evaluation_paths;\n'
         'require emdash.examples.action_profile_prof_defiso_controls;\n'
         + fragment('production_cartesian_defiso_point_controls.lpfragment'))
+    (package / 'path_cartesian_controls.lp').write_text(
+        'require open emdash.emdash3_2_commutative_algebra_category;\n'
+        + fragment('production_path_cartesian_controls.lpfragment'))
     (package / 'diagram_evaluation_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_diagram_evaluation;\n'
         'require emdash.examples.diagram_evaluation;\n'
@@ -3438,6 +3481,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'cubical_migration_controls.lp',
                               package / 'interchanger_controls.lp',
                               package / 'weighted_migration_controls.lp',
+                              package / 'path_cartesian_controls.lp',
                               package / 'diagram_evaluation_profile_controls.lp',
                               package / 'diagram_evaluation_naturality_controls.lp',
                               package / 'arrow_diagram_migration_controls.lp',
