@@ -1,0 +1,45 @@
+// Both axes are genuine parameters. The whole object and map round trips
+// test the inverse projections consumed by ordinary arrow-family faces.
+assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F : τ (Functor A (Functor_cat B C))) ⊢
+  @one_cat_family_exchange B A C C1 (@one_cat_family_exchange A B C C1 F) ≡ F;
+
+assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor A (Functor_cat B C))]
+  (h : τ (@Transf A (Functor_cat B C) F G)) ⊢
+  @eq_refl (@Transf A (Functor_cat B C) F G)
+    (@one_cat_family_exchange_map B A C C1
+      (@one_cat_family_exchange A B C C1 F) (@one_cat_family_exchange A B C C1 G)
+      (@one_cat_family_exchange_map A B C C1 F G h))
+  : τ (@= (@Transf A (Functor_cat B C) F G)
+    (@one_cat_family_exchange_map B A C C1
+      (@one_cat_family_exchange A B C C1 F) (@one_cat_family_exchange A B C C1 G)
+      (@one_cat_family_exchange_map A B C C1 F G h)) h);
+
+assertnot [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor A (Functor_cat B C))]
+  (h other : τ (@Transf A (Functor_cat B C) F G)) ⊢
+  @eq_refl (@Transf A (Functor_cat B C) F G)
+    (@one_cat_family_exchange_map B A C C1
+      (@one_cat_family_exchange A B C C1 F) (@one_cat_family_exchange A B C C1 G)
+      (@one_cat_family_exchange_map A B C C1 F G h))
+  : τ (@= (@Transf A (Functor_cat B C) F G)
+    (@one_cat_family_exchange_map B A C C1
+      (@one_cat_family_exchange A B C C1 F) (@one_cat_family_exchange A B C C1 G)
+      (@one_cat_family_exchange_map A B C C1 F G h)) other);
+
+// The mapping classifiers distribute over products before the inverse
+// observation. This specializes the whole consumer at that real overlap.
+assert [A B C D : Cat] (CD1 : τ (IsNCat (cat_succ cat_zero) (Product_cat C D)))
+  [F G : τ (Functor A (Functor_cat B (Product_cat C D)))]
+  (h : τ (@Transf A (Functor_cat B (Product_cat C D)) F G)) ⊢
+  @eq_refl (@Transf A (Functor_cat B (Product_cat C D)) F G)
+    (@one_cat_family_exchange_map B A (Product_cat C D) CD1
+      (@one_cat_family_exchange A B (Product_cat C D) CD1 F)
+      (@one_cat_family_exchange A B (Product_cat C D) CD1 G)
+      (@one_cat_family_exchange_map A B (Product_cat C D) CD1 F G h))
+  : τ (@= (@Transf A (Functor_cat B (Product_cat C D)) F G)
+    (@one_cat_family_exchange_map B A (Product_cat C D) CD1
+      (@one_cat_family_exchange A B (Product_cat C D) CD1 F)
+      (@one_cat_family_exchange A B (Product_cat C D) CD1 G)
+      (@one_cat_family_exchange_map A B (Product_cat C D) CD1 F G h)) h);

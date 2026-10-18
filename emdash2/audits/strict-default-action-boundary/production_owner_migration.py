@@ -2363,7 +2363,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                                 'reason': 'Use actual ordinary evaluation under the existing OneCat guard; retain the input diagram category, native graph, generator value and original value-path proof',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_one_cat_transfor_profiles.lp':
-                addition = fragment('production_one_cat_mapping_comparison.lpfragment')
+                addition = (fragment('production_one_cat_mapping_comparison.lpfragment')
+                            + '\n' + fragment('production_one_cat_mapping_inverse_views.lpfragment'))
                 text += '\n' + addition
                 changes.append({'source': path, 'owner': 'ordinary-target whole mapping-profile comparison',
                                 'reason': 'Internalize existing strict admission under OneCat while retaining actual forward/inverse maps and the original mapping inclusion as a whole view; no classifier equality',
@@ -2381,8 +2382,68 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 assert new.count(marker) == 1
                 text = new.replace(marker,
                     fragment('production_one_cat_family_exchange.lpfragment') + '\n' + marker, 1)
+                text += '\n' + fragment('production_one_cat_arrow_family_presentation.lpfragment')
                 changes.append({'source': path, 'owner': 'ordinary-target whole diagram-family reflection',
                                 'reason': 'Reprofile both mapping levels through actual inverse maps, reuse Cartesian exchange and original diagram reflection, then reflect through the derived left inverses; retain raw inputs and whole endpoint premises',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_one_cat_arrow_family_isomorphisms.lp':
+                old = text
+                text = text.replace('@transf_arrow_diagram_func B C F G',
+                    '@one_cat_transf_arrow_diagram_func B C C1 F G')
+                assert text.count('≔ @sym_func_func_transf WalkingArrow_cat B C') == 2
+                text = text.replace('≔ @sym_func_func_transf WalkingArrow_cat B C',
+                    '≔ @one_cat_family_exchange_map WalkingArrow_cat B C C1')
+                for direction, source_arrow, target_arrow in (('to','h','k'),('from','k','h')):
+                    square = f'''(@one_cat_square_diagram_transf (Functor_cat B C) (@one_cat_functor_category B C C1)
+      F F G G {source_arrow} {target_arrow} (@id (Functor_cat B C) F) (@id (Functor_cat B C) G)
+      (@iso_evidence_{direction} (Hom_cat (Functor_cat B C) F G) h k i))'''
+                    assert text.count(square) == 1
+                    text = text.replace(square,
+                        f'(@one_cat_arrow_family_square_{direction} B C C1 F G h k i)', 1)
+                anchor = '// Whole diagram action on the selected to modification.'
+                assert text.count(anchor) == 1
+                text = text.replace(anchor,
+                    'require open emdash.emdash3_2_strict_functor_actions;\n\n'
+                    + fragment('production_one_cat_arrow_family_source_evidence.lpfragment')
+                    + '\n' + anchor, 1)
+                for direction in ('left', 'right'):
+                    marker = 'symbol one_cat_arrow_family_comparison_' + direction + '_law'
+                    assert text.count(marker) == 1
+                    start = text.index(marker)
+                    end = text.index(';', start) + 1
+                    signature, _ = text[start:end].split('≔', 1)
+                    arrow_law_body = f'''≔ @iso_evidence_{direction}
+    (Functor_cat B (Functor_cat WalkingArrow_cat C))
+    (@one_cat_transf_arrow_diagram_func B C C1 F G h)
+    (@one_cat_transf_arrow_diagram_func B C C1 F G k)
+    (@iso_evidence_fmap
+      (Functor_cat WalkingArrow_cat (Functor_cat B C))
+      (Functor_cat B (Functor_cat WalkingArrow_cat C))
+      (@one_cat_family_exchange_func WalkingArrow_cat B C C1)
+      (@walking_arrow_func (Functor_cat B C) F G h)
+      (@walking_arrow_func (Functor_cat B C) F G k)
+      (@one_cat_arrow_family_source_evidence B C C1 F G h k i));'''
+                    text = text[:start] + signature + arrow_law_body + text[end:]
+                changes.append({'source': path, 'owner': 'whole arrow-family isomorphism',
+                                'reason': 'Preserve the original square maps and chosen modifications through guarded ordinary exchange; prove their source diagram inverse laws and map that evidence with the existing strict functor action',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/one_cat_arrow_family_isomorphisms.lp':
+                old = text
+                assert text.count('@sym_transf_tapp0_transf B WalkingArrow_cat C') == 4
+                text = text.replace('@sym_transf_tapp0_transf B WalkingArrow_cat C',
+                    '@one_cat_family_exchange_map_at B WalkingArrow_cat C C1')
+                text = text.replace('@transf_arrow_diagram_func B C F G',
+                    '@one_cat_transf_arrow_diagram_func B C C1 F G')
+                for direction, source_arrow, target_arrow in (('to','h','k'),('from','k','h')):
+                    observation = f'''@one_cat_family_exchange_map_at B WalkingArrow_cat C C1 _ _
+    (@one_cat_arrow_family_comparison_{direction} B C C1 F G h k i)'''
+                    assert text.count(observation) == 2
+                    text = text.replace(observation, f'''@one_cat_family_exchange_map_at B WalkingArrow_cat C C1
+    (@one_cat_transf_arrow_diagram_func B C C1 F G {source_arrow})
+    (@one_cat_transf_arrow_diagram_func B C C1 F G {target_arrow})
+    (@one_cat_arrow_family_comparison_{direction} B C C1 F G h k i)''')
+                changes.append({'source': path, 'owner': 'original arrow-family isomorphism reviewer',
+                                'reason': 'Retain its four endpoint identity and two inverse-choice observations at the guarded ordinary family/exchange presentation',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path in ('emdash3_2_eq1_hom_action.lp', 'examples/groupoidal_structured_j_eq1.lp'):
                 old = text
@@ -2883,6 +2944,7 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/represented_comma_families.lp')
     stage('examples/action_profile_prof_defiso_controls.lp')
     stage('examples/one_cat_arrow_diagrams.lp')
+    stage('examples/one_cat_arrow_family_isomorphisms.lp')
     stage('examples/one_cat_modifications.lp')
     # Preserve the real production diagnostic dependency closure as the next
     # integration boundary. Its unchanged assertions are not automatically
@@ -2905,6 +2967,13 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require open emdash.one_cat_family_exchange;\n'
         'require emdash.one_cat_mapping_controls;\n'
         + fragment('production_one_cat_family_exchange_controls.lpfragment'))
+    (package / 'one_cat_double_exchange_controls.lp').write_text(
+        'require open emdash.one_cat_family_exchange;\n'
+        'require emdash.one_cat_family_exchange_controls;\n'
+        + fragment('production_one_cat_double_exchange_controls.lpfragment'))
+    (package / 'one_cat_arrow_family_integration.lp').write_text(
+        'require emdash.examples.one_cat_arrow_family_isomorphisms;\n'
+        'require emdash.one_cat_double_exchange_controls;\n')
     (package / 'one_cat_evaluation_integration.lp').write_text(
         'require emdash.diagram_with_adjunction_views;\n'
         'require emdash.one_cat_evaluation_controls;\n'
@@ -3326,6 +3395,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'one_cat_mapping_controls.lp',
                               package / 'one_cat_family_exchange.lp',
                               package / 'one_cat_family_exchange_controls.lp',
+                              package / 'one_cat_double_exchange_controls.lp',
+                              package / 'one_cat_arrow_family_integration.lp',
                               package / 'one_cat_evaluation_integration.lp',
                               package / 'whole_reading_regression_controls.lp',
                               package / 'internal_composite_regression_controls.lp',

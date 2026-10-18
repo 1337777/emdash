@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; ordinary-target whole family exchange/reflection checked; central diagnostics now stop at arrow-family isomorphisms; broader migration/promotion remain open
+Status: active implementation; whole ordinary arrow-family isomorphisms and original observations checked; last central boundary is diagram-family reconstruction; broader migration/promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,45 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Ordinary arrow-family isomorphisms after `1f38891f`, 2026-10-18 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_arrow_family_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_one_cat_arrow_family_verification.json)
+record the original two square maps through the guarded ordinary exchange,
+with both chosen modifications retained. Ordinary diagram reflection proves
+their source inverse laws; existing strict-functor action carries those laws
+through exchange. The ordinary arrow-family presentation is a defined alias,
+not a retyping of the general oplax family or a new inverse-assembly contract.
+
+Factoring the repeated square maps/laws into named definitions resolves the
+4 GiB allocation failure of the monolithic proof without changing the
+mathematics or limits. The original owner checks in about 102s at 4 GiB/o=5,
+mostly import cost. Four constructor-scoped projection joins preserve the
+actual inverse laws after Hom action has projected. Their shared classifier
+endpoints typecheck without reducible inferred-slot guards and pass an
+explicit product specialization. Seventeen new warning bodies concern
+identity, existing strict-view and inverse-overlap computations; the sixteen
+product-normalization overlaps of the earlier candidate are removed.
+
+The final combined check passes all six original runtime observations and
+the focused mapping/exchange controls in about 101s at the existing
+600s/4GiB/o=5 profile. No equality-proof payload or new strictness assumption
+on general FF is added. Core source and its exact carried regression closure
+remain unchanged.
+
+The last central gate passes the isomorphism owner and stops at
+`one_cat_diagram_family_reconstruction_to` in
+`emdash3_2_one_cat_diagram_family_reconstruction.lp`. That original proof
+still uses Cartesian exchange on a raw family and feeds the now-oplax
+`diagram_family_transf` to an ordinary walking-diagram constructor. Next
+adapt that whole route under its existing OneCat hypothesis, retaining the
+arbitrary original D and both reconstruction maps. Do not identify general
+ordinary/oplax profiles, replace whole reconstruction with object data, or
+introduce a new shape-universality assumption. The central receipt precedes
+the final shared-endpoint refinement; the changed owner and original
+reviewer have fresh combined evidence, but the central gate is not claimed
+green. Remaining library migration, wrapper retirement, production promotion
+and final gates remain required.
 
 Ordinary-target family reflection after `a44fe813`, 2026-10-18 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_one_cat_family_reflection_review.md)

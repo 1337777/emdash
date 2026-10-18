@@ -1,0 +1,41 @@
+// The same canonical inverse law after its inverse action has projected to
+// the ordinary strict view. Keep the classified map U, not its certificate.
+rule @fapp1_fapp0 _ _
+    (@defiso_to _ _ _ (@one_cat_mapping_comparison $A $C _)) $F $G
+    (@strict_transfor $A $C $F $G $U)
+  ↪ $U;
+
+// The two inverse laws under existing Cartesian postcomposition, after
+// its first-Hom action caps. Whole postcomposition already cancels these
+// exact to/from functors; these joins retain that result after projection.
+// lhs-audit: keep 1,2,3,5,6 -- share the actual classifier endpoints with
+// the primitive DefIso maps. Their values may already have distributed
+// over a product; no reducible mapping expression is a pattern guard.
+rule @hom_postcomp_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+    $K $Raw $Cart
+    (@defiso_to Cat_cat $Raw $Cart
+      (@one_cat_mapping_comparison $A $C $C1)) _ _
+    (@hom_postcomp_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+      $K $Cart $Raw
+      (@defiso_from Cat_cat $Raw $Cart
+        (@one_cat_mapping_comparison $A $C $C1)) _ _ $U)
+  ↪ $U;
+
+// lhs-audit: keep 1,2,3,5,6 -- the reverse order needs the same SR guards.
+rule @hom_postcomp_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+    $K $Cart $Raw
+    (@defiso_from Cat_cat $Raw $Cart
+      (@one_cat_mapping_comparison $A $C $C1)) _ _
+    (@hom_postcomp_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+      $K $Raw $Cart
+      (@defiso_to Cat_cat $Raw $Cart
+        (@one_cat_mapping_comparison $A $C $C1)) _ _ $U)
+  ↪ $U;
+
+// Component beta of the canonical admission. Its whole strict view remains
+// stable, while this actual observation returns the original component.
+rule @tapp0_fapp0 _ _ _ _ $a
+    (@strict_transfor _ _ _ _
+      (@fapp1_fapp0 _ _
+        (@defiso_to _ _ _ (@one_cat_mapping_comparison $A $C _)) $F $G $epsilon))
+  ↪ @tapp0_fapp0 $A $C $F $G $a $epsilon;
