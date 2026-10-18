@@ -1,0 +1,37 @@
+// Preserve the original profiled vertical proof. Its final telescope
+// comparison is the strict functor law of the actual whole ambient view.
+// Abstract that law before specializing, so no stable-head comparison rule
+// is needed after the two projection orders expose different normal forms.
+≔ let A : Cat ≔ Hom_cat B N L in
+  let C : Cat ≔ Hom_cat B M N in
+  let D : Cat ≔ Hom_cat B M L in
+  let Hf : τ (Functor C D) ≔ @hom_postcomp_func B B (@id_func B) M N L f in
+  let Hg : τ (Functor C D) ≔ @hom_postcomp_func B B (@id_func B) M N L g in
+  let Hh : τ (Functor C D) ≔ @hom_postcomp_func B B (@id_func B) M N L h in
+  let U : τ (@Transf C D Hf Hg) ≔ @hom_postcomp_tele_transf B B (@id_func B) M N L f g e_fg in
+  let V : τ (@Transf C D Hg Hh) ≔ @hom_postcomp_tele_transf B B (@id_func B) M N L g h e_gh in
+  let W : τ (@Transf C D Hf Hh) ≔ @hom_postcomp_tele_transf B B (@id_func B) M N L f h
+    (@comp_fapp0 A f g h e_gh e_fg) in
+  let law : Π (J : τ (Functor A (Functor_cat C D))),
+    τ (@= (@Transf C D (@fapp0 A (Functor_cat C D) J f) (@fapp0 A (Functor_cat C D) J h))
+      (@comp_fapp0 (Functor_cat C D)
+        (@fapp0 A (Functor_cat C D) J f) (@fapp0 A (Functor_cat C D) J g) (@fapp0 A (Functor_cat C D) J h)
+        (@fapp1_fapp0 A (Functor_cat C D) J g h e_gh)
+        (@fapp1_fapp0 A (Functor_cat C D) J f g e_fg))
+      (@fapp1_fapp0 A (Functor_cat C D) J f h (@comp_fapp0 A f g h e_gh e_fg)))
+  ≔ λ J : τ (Functor A (Functor_cat C D)),
+    @eq_refl (@Transf C D (@fapp0 A (Functor_cat C D) J f) (@fapp0 A (Functor_cat C D) J h))
+      (@fapp1_fapp0 A (Functor_cat C D) J f h (@comp_fapp0 A f g h e_gh e_fg)) in
+  @eq_trans (Hom D (@fapp0 C D Hf X) (@fapp0 C D Hh Z))
+    (@comp_fapp0 D (@fapp0 C D Hf X) (@fapp0 C D Hg Y) (@fapp0 C D Hh Z)
+      (@tapp1_fapp0 C D Hg Hh Y Z V beta) (@tapp1_fapp0 C D Hf Hg X Y U alpha))
+    (@tapp1_fapp0 C D Hf Hh X Z (@comp_fapp0 (Functor_cat C D) Hf Hg Hh V U)
+      (@comp_fapp0 C X Y Z beta alpha))
+    (@tapp1_fapp0 C D Hf Hh X Z W (@comp_fapp0 C X Y Z beta alpha))
+    (@profiled_vertical_both_raw_path C D Hf Hg Hh U V PE PN X Y Z alpha beta)
+    (@eq_ap (@Transf C D Hf Hh) (Hom D (@fapp0 C D Hf X) (@fapp0 C D Hh Z))
+      (λ theta : τ (@Transf C D Hf Hh), @tapp1_fapp0 C D Hf Hh X Z theta
+        (@comp_fapp0 C X Y Z beta alpha))
+      (@comp_fapp0 (Functor_cat C D) Hf Hg Hh V U) W
+      (law (@comp_cat_fapp0 A (Functor_cart_cat C D) (Functor_cat C D)
+        (Functor_cart_include C D) (@hom_postcomp_tele_func B B (@id_func B) M N L))));

@@ -1,0 +1,368 @@
+{
+  "status": "Staged walking-circle and profiled-interchange owners plus original reviewers qualified; production promotion and overall goal incomplete",
+  "predecessor": "85fdaefc32c9c641eb1971085c4e4f335288d606",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/production_owner_migration.py": "69cff31eb9fb72a4c59feae6a26753724f8e9d45694dbfcf8bd795fa09f7ed0f",
+    "audits/strict-default-action-boundary/production_profiled_interchange.lpfragment": "ab3b0657679aec2de923d94174bc49a22cd2c39b03e2bf2bde2b0de657f02d52"
+  },
+  "manifestSha256": "b94cdb1368a4e1fd64f9f51de9180c5c1ae834f72a8a149733d506b94b1a15a0",
+  "originalCircleSourceHashes": {
+    "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+    "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+    "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+    "examples/walking_circle_completion.lp": "7a22d6893998b2b849c893ec5ddb7787f3120ffd46bbaa5e0d31cc07ac60e472",
+    "examples/walking_circle_groupoidification_restriction.lp": "9540aa064e1039d8c1860e3cef4dfc856f20d3bde2f9088505d86a26ff70f2c9"
+  },
+  "originalOutlineChecks": {
+    "interchangeOwner": "exact original modulo 13 ambient-view substitutions and the recorded replacement body of its first theorem",
+    "interchangeReviewer": "exact original modulo one ambient-view substitution; original positive and omitted-premise negative retained",
+    "newPrimitives": 0,
+    "newRewriteRules": 0,
+    "newUnificationRules": 0,
+    "newCallerHypotheses": 0
+  },
+  "checks": {
+    "circleOwner": {
+      "id": "20261018T211756Z-01da0f96b01b4162885767573df649d6",
+      "target": "emdash3_2_walking_circle_restriction.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 27.136343781021424,
+      "childrenMaxRssKiB": 2358812,
+      "inputSnapshot": "2e5ca0f22f8c80fcac10b51ffac30cb1cea4e99df69b02f38a517136ae230eca",
+      "log": "logs/check-runs/20261018T211756Z-01da0f96b01b4162885767573df649d6.log",
+      "logSha256": "fffb8a4e7796fa68b0fbe80695b43458fa45e30b87f4f2957718755054bfc2ef",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "criticalPairBodies": 2442,
+      "positiveAssertionsIncludingImports": 3,
+      "negativeAssertionsIncludingImports": 0
+    },
+    "circleReviewers": {
+      "id": "20261018T212017Z-c680973c69dc4c04a42c5703f381241a",
+      "target": "walking_circle_migration_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 31.533286119927652,
+      "childrenMaxRssKiB": 2359264,
+      "inputSnapshot": "570106aaf7d93a19984c507c16006232183a0d2696b4913d48caeacf12a26ecf",
+      "log": "logs/check-runs/20261018T212017Z-c680973c69dc4c04a42c5703f381241a.log",
+      "logSha256": "e2fdc34d5cb04d18bb78d05666b5946685b9837d03e3ff71ac3b3b0c3322ba54",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "criticalPairBodies": 2442,
+      "positiveAssertionsIncludingImports": 18,
+      "negativeAssertionsIncludingImports": 2,
+      "inputs": {
+        "emdash3_2.lp": "1105c4ff4e16d47566c6755b0a31d5d045f6c84f9a872020fb2fa16283700587",
+        "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_one_cat_functor_profiles.lp": "50eefd24cb07d7c8badf4239ad2158b12b6c2eb615450136f577f6272348fc0c",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+        "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+        "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+        "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+        "examples/walking_circle_completion.lp": "7a22d6893998b2b849c893ec5ddb7787f3120ffd46bbaa5e0d31cc07ac60e472",
+        "examples/walking_circle_groupoidification_restriction.lp": "9540aa064e1039d8c1860e3cef4dfc856f20d3bde2f9088505d86a26ff70f2c9",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "walking_circle_migration_controls.lp": "2dbc85785dc5ef4f0714b73bfc6144a8f3e51c2ad5daaa5e836353713cd1a58e"
+      },
+      "currentInputMismatches": []
+    },
+    "initialClassifierFailure": {
+      "id": "20261018T212905Z-2b951060b9ef4c5c88fd438f97eba703",
+      "target": "emdash3_2_profiled_interchange.lp",
+      "outcome": "failed",
+      "wallSeconds": 28.29933679208625,
+      "childrenMaxRssKiB": 1938028,
+      "inputSnapshot": "7c37ae02c87fe6c4c0aa150f0486a0bf638bd6225071d958e87aab7343b1325a",
+      "log": "logs/check-runs/20261018T212905Z-2b951060b9ef4c5c88fd438f97eba703.log",
+      "logSha256": "813390719bb9d7bbfe4b8312d744ca5e5d50f02e25778920f726c298d473b27b",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "criticalPairBodies": 2358
+    },
+    "ambientViewOnlyFailure": {
+      "id": "20261018T213002Z-04fae590cde249b592067f3cd0eeff24",
+      "target": "profiled_interchange_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 28.523036636062898,
+      "childrenMaxRssKiB": 1936488,
+      "inputSnapshot": "337bfd2562bf01deff8079381bcee97855eca8caaeb473cea8ee5a6903d744c5",
+      "log": "logs/check-runs/20261018T213002Z-04fae590cde249b592067f3cd0eeff24.log",
+      "logSha256": "0344dc0ef13e662bba057027ec46673ba67b7236f02eafa8d9bd9594937f0602",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "criticalPairBodies": 2358
+    },
+    "finalInterchangeReview": {
+      "id": "20261018T213235Z-68b5ba7ceb98411697eaa7904afb09cf",
+      "target": "profiled_interchange_migration_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 111.54468438099138,
+      "childrenMaxRssKiB": 2294424,
+      "inputSnapshot": "a742a206a96e617cbae21cf05217f4f53c4ccc625d810fe94027613376c20dc2",
+      "log": "logs/check-runs/20261018T213235Z-68b5ba7ceb98411697eaa7904afb09cf.log",
+      "logSha256": "ba4734ff35118926d518b8ffca94c4e2e7bede5f578b0915d8631bc312c68af7",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "criticalPairBodies": 2421,
+      "positiveAssertionsIncludingImports": 4,
+      "negativeAssertionsIncludingImports": 1,
+      "inputs": {
+        "emdash3_2.lp": "1105c4ff4e16d47566c6755b0a31d5d045f6c84f9a872020fb2fa16283700587",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_one_cat_functor_profiles.lp": "50eefd24cb07d7c8badf4239ad2158b12b6c2eb615450136f577f6272348fc0c",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+        "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "examples/action_profile_eckmann_hilton_one_hom.lp": "ffa7f67d53252189a6952309b804e442424d9348190a56b354957539d6a2a315",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "profiled_interchange_migration_controls.lp": "57e319c28a76f293d36824ba73073e31f3d3357dc2ce37cc374fe80f62994f39"
+      },
+      "currentInputMismatches": []
+    },
+    "preGoalInterchangeReview": {
+      "id": "20261018T213451Z-8501cd32bbf34fd08907540e6c2054f9",
+      "target": "examples/action_profile_eckmann_hilton_one_hom.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 9.832433174946345,
+      "childrenMaxRssKiB": 485052,
+      "inputSnapshot": "694dc8b1026bbb043c49bd77f291fe18ba77b4dbff74bbd1f2782904ac4ab260",
+      "log": "logs/check-runs/20261018T213451Z-8501cd32bbf34fd08907540e6c2054f9.log",
+      "logSha256": "4071d7296e8ef29fbc509fd7da636084b61b89f8d09f1928997c6d5a56f10800",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "criticalPairBodies": 962,
+      "positiveAssertionsIncludingImports": 4,
+      "negativeAssertionsIncludingImports": 1
+    },
+    "unchangedCore": {
+      "id": "20261018T162035Z-1820b031801e440ab20b20cfef7bcc97",
+      "target": "join_recursion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 23.320111226057634,
+      "childrenMaxRssKiB": 1647288,
+      "inputSnapshot": "f69e4dbcc1cc374f7f3ec08a113b8431642a91df6b1105f67bf1fdbdb53dbfac",
+      "log": "logs/check-runs/20261018T162035Z-1820b031801e440ab20b20cfef7bcc97.log",
+      "logSha256": "0d15b5288ea9617d00e48cd76a0a1c6d6ae0e4af627cb63a2f0cc6892015fd38",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 240000
+      },
+      "criticalPairBodies": 1987,
+      "positiveAssertionsIncludingImports": 287,
+      "negativeAssertionsIncludingImports": 85,
+      "inputs": {
+        "join_recursion_controls.lp": "03d8c83f87cdff4019e48baa2b8e9d3a491619ba23a0a8d3b073aac85044c22c",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "currentInputMismatches": []
+    }
+  },
+  "warningComparison": {
+    "initialFailingOwner": 2358,
+    "finalReviewerClosure": 2421,
+    "addedFromNewlyReachedExistingReviewerImports": 63,
+    "removed": 0,
+    "allFinalBodiesContainedInQualifiedCircleClosure": true,
+    "circleReferenceReceipt": "20261018T212017Z-c680973c69dc4c04a42c5703f381241a",
+    "ownerRuleDelta": 0,
+    "qualification": "No rule changed. Newly reached warnings belong to unchanged strict_functor_actions and one_cat_transfor_profiles imports; not a global confluence claim."
+  },
+  "lhsAudit": {
+    "file": "emdash3_2_profiled_interchange.lp",
+    "candidate_clauses": 0,
+    "candidate_slots": 0,
+    "candidates": [],
+    "annotated_clauses": 0,
+    "annotated_slots": 0,
+    "annotated": []
+  },
+  "performanceQualification": {
+    "finalFirstImportReportedSeconds": 102.77,
+    "finalReviewerDependencyReportedSeconds": 6.72,
+    "changedOwnerCommandsAboveHalfSecond": [],
+    "interpretation": "Single end-to-end samples. The revised proof stays below 0.5 seconds; import/normalization cost remains. No checker runtime patch is used for this tranche."
+  },
+  "next": "Continue original central imports after profiled_interchange; migrate central observations, retire redundant wrappers, complete normalization/performance review and production/final gates."
+}

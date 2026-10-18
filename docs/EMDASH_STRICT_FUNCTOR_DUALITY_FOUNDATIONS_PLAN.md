@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; staged WalkingEnd coefficient/recursor migration checked; batch-memory retention diagnosed separately; remaining library integration, normalization/performance, wrapper retirement and promotion remain open
+Status: active implementation; staged walking-circle and profiled-interchange owners/reviewers checked after WalkingEnd; remaining library integration, normalization/performance, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,37 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Walking-circle and interchange continuation after `85fdaefc`, 2026-10-18:
+the [review](../emdash2/audits/strict-default-action-boundary/production_circle_interchange_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_circle_interchange_verification.json)
+qualify the original walking-circle completion/restriction and their two
+reviewers without source edits. Their closure passes eighteen positives/two
+negatives against the migrated dependencies with the installed checker.
+
+The profiled interchange/Eckmann–Hilton owner uses the existing ambient
+`hom_postcomp_tele_transf` view of the canonical Cartesian Hom action. Its
+original vertical proof is retained; a derived application of ordinary strict
+functoriality joins the final telescope-composition presentations. There is no
+new primitive, rewrite, unifier, caller hypothesis or operational equality
+argument. The original profile premises and remaining theorem/reviewer bodies
+are preserved, modulo the ambient-view substitution.
+
+The complete owner and original reviewer pass four positives/one negative
+including inherited checks. All 2421 warning bodies are already present in
+the checked walking-circle dependency closure. The unchanged complete
+core/Homd 287/85 input snapshot was rehashed and carried forward. The final
+installed run is 111.545s/2240.6MiB under 300s/4GiB/o=20; the first import
+accounts for 102.77s, the reviewer dependency for 6.72s, and the revised theorem
+does not cross the 0.5s command-reporting threshold. This is a library proof
+repair, not a runtime normalization or performance fix.
+
+Next continue the original central import frontier after profiled interchange
+and migrate its actual remaining consumers/observations. Preserve the prior
+checker-memory diagnostic as separate evidence; the installed checker is
+unchanged. Production promotion, redundant-wrapper retirement, normalization
+review and final catalogue/health/CI/source-pin gates remain open. The separate
+application goal remains paused.
 
 WalkingEnd continuation after `4abd18cb`, 2026-10-18: the
 [review](../emdash2/audits/strict-default-action-boundary/production_walking_end_review.md)

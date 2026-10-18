@@ -2940,6 +2940,26 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 text += '\n\n' + fragment('production_discrete_one_cat.lpfragment')
                 changes.append({'source': path, 'owner': 'discrete target dimension weakening',
                                 'reason': 'Derive the OneCat property from the existing discrete core Hom equivalence, consumed by strict fibre-coherence admission of the original WalkingEnd spiral'})
+            ambient_postcomp_consumers = {
+                'emdash3_2_profiled_interchange.lp': 13,
+                'examples/action_profile_eckmann_hilton_one_hom.lp': 1,
+            }
+            if path in ambient_postcomp_consumers:
+                old = text
+                # These consumers take ambient transfors. The existing
+                # ordinary telescope owner is exactly the strict_transfor
+                # projection of the canonical Cartesian Hom action.
+                assert text.count('@hom_postcomp_tele_fapp1_fapp0') == ambient_postcomp_consumers[path]
+                text = text.replace('@hom_postcomp_tele_fapp1_fapp0',
+                                    '@hom_postcomp_tele_transf')
+                if path == 'emdash3_2_profiled_interchange.lp':
+                    assert text.count('≔ @profiled_vertical_both_raw_path') == 1
+                    start = text.index('≔ @profiled_vertical_both_raw_path')
+                    end = text.index(';', start) + 1
+                    text = text[:start] + fragment('production_profiled_interchange.lpfragment').rstrip() + text[end:]
+                changes.append({'source': path, 'owner': 'profiled interchange and Eckmann-Hilton observations',
+                                'reason': 'Use the existing ambient projection of canonical Cartesian Hom action; retain the original profiled vertical proof and join its final telescope by ordinary strict functoriality, with no new rule or hypothesis',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_walking_end_hit.lp':
                 old = text
                 text = text.replace('require open emdash.emdash3_2_eq1_hom_action;',
@@ -3912,6 +3932,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/walking_endomorphism_hit.lp')
     stage('examples/action_profile_walking_named_rec_controls.lp')
     stage('examples/action_profile_walking_named_overlap_controls.lp')
+    stage('examples/walking_circle_completion.lp')
+    stage('examples/walking_circle_groupoidification_restriction.lp')
+    stage('examples/action_profile_eckmann_hilton_one_hom.lp')
     # Preserve the real production diagnostic dependency closure as the next
     # integration boundary. Its unchanged assertions are not automatically
     # qualified by the focused owner checks below.
@@ -4296,6 +4319,11 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require emdash.examples.walking_endomorphism_hit;\n'
         'require emdash.examples.action_profile_walking_named_rec_controls;\n'
         'require emdash.examples.action_profile_walking_named_overlap_controls;\n')
+    (package / 'walking_circle_migration_controls.lp').write_text(
+        'require emdash.examples.walking_circle_completion;\n'
+        'require emdash.examples.walking_circle_groupoidification_restriction;\n')
+    (package / 'profiled_interchange_migration_controls.lp').write_text(
+        'require emdash.examples.action_profile_eckmann_hilton_one_hom;\n')
     (package / 'zero_column_dependency_controls.lp').write_text(
         'require emdash.walking_arrow_postcomposition_controls;\n'
         'require emdash.mapping_evaluation_controls;\n'
@@ -4529,6 +4557,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'native_transpose_regression_controls.lp',
                               package / 'native_zero_column_regression_controls.lp',
                               package / 'walking_end_migration_controls.lp',
+                              package / 'walking_circle_migration_controls.lp',
+                              package / 'profiled_interchange_migration_controls.lp',
                               package / 'zero_column_dependency_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',
