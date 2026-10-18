@@ -234,6 +234,20 @@ def main():
         changes.append({'owner': owner, 'reason': reason,
                         'oldSha256': sha(old), 'newSha256': sha(new)})
 
+    capped_action_type = '''symbol fapp1_fapp0 : Π [A B : Cat], Π (F_AB : τ (Functor A B)),
+  Π [X_A Y_A : τ (Obj A)],
+  Π (f : τ (Hom A X_A Y_A)),
+  τ (Hom B (fapp0 F_AB X_A) (fapp0 F_AB Y_A));'''
+    replace_once(capped_action_type, '''// The result uses the whole action's canonical Hom category, so opposite
+// endpoints compute before Hom-alias inversion. Keep the input classifier
+// for domain inference when object-level duality erases carrier information.
+symbol fapp1_fapp0 : Π [A B : Cat], Π (F_AB : τ (Functor A B)),
+  Π [X_A Y_A : τ (Obj A)],
+  Π (f : τ (Hom A X_A Y_A)),
+  τ (Obj (Hom_cat B (fapp0 F_AB X_A) (fapp0 F_AB Y_A)));''',
+        'capped functor action canonical Hom types',
+        'Definitionally align the capped result with fapp0 of the whole Hom functor while retaining the input classifier for dual-domain inference; no new operation or computation rule')
+
     precomposition_raw_view = '''// Proof-time identity-family comparison with ordinary raw composition.
 unif_rule @hom_precomp_along_fapp0 $A $A (@id Cat_cat $A) $Z $W $X $h $g
   ≡ @comp_fapp0
@@ -2940,6 +2954,290 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 text += '\n\n' + fragment('production_discrete_one_cat.lpfragment')
                 changes.append({'source': path, 'owner': 'discrete target dimension weakening',
                                 'reason': 'Derive the OneCat property from the existing discrete core Hom equivalence, consumed by strict fibre-coherence admission of the original WalkingEnd spiral'})
+            if path == 'emdash3_2_walking_interval_comparison.lp':
+                old = text
+                component = '      _ Cat_cat _ _ _\n      walking_interval_seg_cross'
+                assert text.count(component) == 1
+                text = text.replace(component,
+                    '      _ _ _ _ _\n      walking_interval_seg_cross')
+                changes.append({'source': path, 'owner': 'walking-interval profunctor-cell component',
+                                'reason': 'Infer the actual coefficient from the unique named cross owner instead of retaining the obsolete Cat_cat classifier discriminator',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_groupoidification_composition.lp':
+                old = text
+                former = '''  For arbitrary composable arrows f and g in C, the whole unit carries the
+  ordinary normal-lax compositor extracted by the existing internal-action
+  calculus.  Its codomain is Path_cat(Groupoidify(C)), so this cell is
+  groupoidal.  The historical strict endpoint cuts may make its displayed
+  endpoints convertible, but they do not reduce this explicit cell to an
+  identity.'''
+                assert text.count(former) == 1
+                text = text.replace(former, '''  For arbitrary composable arrows f and g in C, the unit uses the public
+  strict-functor default. Its compositor is still extracted by the existing
+  internal-action calculus; its endpoints agree and the extracted cell
+  computes to identity. This does not impose strict naturality on arbitrary
+  transformations.''')
+                changes.append({'source': path, 'owner': 'groupoidification compositor contract comment',
+                                'reason': 'Describe the restored strict default and retained intrinsic extraction; all declarations and bodies are unchanged',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_triangular_binary_products.lp':
+                old = text
+                assert text.count('Cat_cat') == 9
+                assert text.count('Product_cat_func') == 1
+                text = text.replace('Cat_cat', 'Cat_cart')
+                text = text.replace('Product_cat_func', 'Product_cat_coeff_func')
+                component = '      _ Cat_cart _ _ $X\n      (@binary_products_pair_transf'
+                assert text.count(component) == 1
+                text = text.replace(component,
+                    '      _ _ _ _ $X\n      (@binary_products_pair_transf')
+                changes.append({'source': path, 'owner': 'triangular product represented pairing families',
+                                'reason': 'Use the existing Cat_cart product constructor for the two canonical Hom families and infer the component coefficient; retain the original pairing, inverse and triangular computation owners',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/triangular_binary_products.lp':
+                old = text
+                assert text.count('Cat_cat') == 3
+                assert text.count('Functor_cat') == 1
+                text = text.replace('Cat_cat', 'Cat_cart')
+                text = text.replace('Functor_cat', 'Functor_cart_cat')
+                changes.append({'source': path, 'owner': 'original whole pairing-action reviewer',
+                                'reason': 'Read the existing next Hom action in its actual Cat_cart coefficient and Cartesian mapping Hom; preserve all original computations and negatives',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_finite_limits.lp':
+                old = text
+                assert text.count('Cat_cat') == 1
+                text = text.replace('Cat_cat', 'Cat_cart')
+                changes.append({'source': path, 'owner': 'weighted binary-product projection cell',
+                                'reason': 'Evaluate the existing Prof_cell_apply result in its actual Cat_cart coefficient; preserve the original universal datum and projection body',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            pullback_views = {
+                'emdash3_2_pullbacks.lp': 33,
+                'examples/pullbacks.lp': 1,
+            }
+            if path in pullback_views:
+                old = text
+                starts = [m.start() for m in re.finditer(r'\(@hom_con_int_postcomp_func\b', text)]
+                assert len(starts) == pullback_views[path]
+                # The old consumers take an ambient displayed map. Its
+                # canonical represented producer now has the strict carrier.
+                # Keep the existing inclusion visible in runtime patterns.
+                for start in reversed(starts):
+                    depth = 0
+                    for end in range(start, len(text)):
+                        depth += (text[end] == '(') - (text[end] == ')')
+                        if depth == 0:
+                            break
+                    assert depth == 0
+                    term = text[start:end + 1]
+                    text = text[:start] + '(@strict_transfor _ _ _ _ ' + term + ')' + text[end + 1:]
+                if path == 'emdash3_2_pullbacks.lp':
+                    sigma_family = '''symbol SliceSigma_catd
+  (C : Cat)
+  : τ (Catd C)
+≔ @CommaFib_catd C C (@id_func C);'''
+                    assert text.count(sigma_family) == 1
+                    text = text.replace(sigma_family, '''// Fibrewise dimension-one transpose reverses the base two-cell action.
+// This is the original restriction-opposite slice, not the opposite triangle
+// convention of the core CommaFib family.
+symbol SliceSigma_catd
+  (C : Cat)
+  : τ (Catd (CoAt2_cat C))
+≔ @comp_cat_fapp0
+    (CoAt2_cat C) (CoAt2_cat Cat_cart) Cat_cart op
+    (@CoAt2_func C Cat_cart (@arrow_into_catd C));''')
+                    assert text.count('C Cat_cat\n    (@SliceSigma_catd C)') == 1
+                    text = text.replace('C Cat_cat\n    (@SliceSigma_catd C)',
+                        '(CoAt2_cat C) Cat_cart\n    (@SliceSigma_catd C)')
+                    assert text.count('rule @fapp0 _ Cat_cat') == 1
+                    text = text.replace('rule @fapp0 _ Cat_cat', 'rule @fapp0 _ _')
+                    assert text.count('(Op_cat $C) Cat_cat') == 1
+                    text = text.replace('(Op_cat $C) Cat_cat', '(Op_cat $C) _')
+                    assert text.count('C (Catd_cat (Op_cat C))') == 2
+                    text = text.replace('C (Catd_cat (Op_cat C))',
+                        'C (Functor_cart_cat (Op_cat C) Cat_cart)')
+                    for owner in ('slice_base_change_gamma', 'slice_base_change_phi'):
+                        marker = 'injective symbol ' + owner + '\n'
+                        assert text.count(marker) == 1
+                        first = text.index(marker)
+                        last = text.index(';', first) + 1
+                        block = text[first:last]
+                        homs = [m.start() for m in re.finditer(r'\(Hom\s', block)]
+                        assert len(homs) == 3
+                        for start in reversed(homs):
+                            depth = 0
+                            for end in range(start, len(block)):
+                                depth += (block[end] == '(') - (block[end] == ')')
+                                if depth == 0:
+                                    break
+                            assert depth == 0
+                            term = block[start:end + 1].replace('(Hom', '(Hom_cat', 1)
+                            block = block[:start] + '(Obj ' + term + ')' + block[end + 1:]
+                        text = text[:first] + '// Canonical Hom types expose the opposite endpoints before inversion.\n' + block + text[last:]
+                    left_hom = '''(Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C Y C (@id Cat_cat C)))
+      b (@slice_sigma_obj C X Y f a))'''
+                    right_hom = '''(Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C X C (@id Cat_cat C)))
+      (@slice_base_change_obj C PB X Y f b) a)'''
+                    for owner, source_hom, target_hom in (
+                        ('slice_base_change_transpose_func', left_hom, right_hom),
+                        ('slice_base_change_untranspose_func', right_hom, left_hom),
+                        ('slice_base_change_transpose_semantic_func', left_hom, right_hom),
+                        ('slice_base_change_untranspose_semantic_func', right_hom, left_hom),
+                    ):
+                        marker = ('symbol ' if '_semantic_' in owner else 'injective symbol ') + owner + '\n'
+                        assert text.count(marker) == 1
+                        first = text.index(marker)
+                        last = text.index(';', first) + 1
+                        block = text[first:last]
+                        assert block.count(': τ (Functor\n') == 1
+                        body_suffix = '\n≔' + block.split('≔', 1)[1] if '≔' in block else ';'
+                        block = block.split(': τ (Functor\n', 1)[0] \
+                            + ': τ (Functor\n    ' + source_hom + '\n    ' + target_hom + ')' + body_suffix
+                        text = text[:first] + '// Keep both whole mate endpoints in their canonical total-Hom form.\n' + block + text[last:]
+                else:
+                    assert text.count('C Cat_cat') == 1
+                    assert text.count('(Op_cat C) Cat_cat') == 3
+                    assert text.count('Functor_cat') == 1
+                    text = text.replace('C Cat_cat', '(CoAt2_cat C) Cat_cart')
+                    text = text.replace('(Op_cat C) Cat_cat', '(Op_cat C) Cat_cart')
+                    text = text.replace('Functor_cat', 'Functor_cart_cat')
+                changes.append({'source': path, 'owner': 'canonical slice-family and represented Sigma-map views',
+                                'reason': 'Preserve the restriction-opposite slice via its CoAt2-based whole family, use the existing ambient view of canonical strict represented maps, and canonicalize conversion-sensitive Hom types while retaining the Sigma-map, triangle and mate operations',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'emdash3_2_slice_dependent_products.lp':
+                old = text
+                declaration = '''injective symbol SliceDependentProduct_catd
+  [C : Cat]
+  [PB : τ (@PullbackStructure C)]
+  (DP : τ (@DependentProductStructure C PB))
+  : τ (Catd C);'''
+                assert text.count(declaration) == 1
+                text = text.replace(declaration,
+                    '// Right-adjoint variance returns the same CoAt2(C) base as Sigma.\n'
+                    + declaration.replace('(Catd C)', '(Catd (CoAt2_cat C))'))
+                assert text.count('rule @fapp0 _ Cat_cat') == 1
+                assert text.count('rule @fapp1_fapp0 _ Cat_cat') == 1
+                text = text.replace('rule @fapp0 _ Cat_cat', 'rule @fapp0 _ _')
+                text = text.replace('rule @fapp1_fapp0 _ Cat_cat', 'rule @fapp1_fapp0 _ _')
+                changes.append({'source': path, 'owner': 'dependent-product family projections',
+                                'reason': 'Use the CoAt2(C) whole-family base matching right-adjoint variance and infer its Cat_cart coefficient; retain the original selected dependent-product action',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/slice_dependent_products.lp':
+                old = text
+                assert text.count('C Cat_cat') == 3
+                assert text.count('Functor_cat') == 1
+                text = text.replace('C Cat_cat', '(CoAt2_cat C) Cat_cart')
+                text = text.replace('Functor_cat', 'Functor_cart_cat')
+                hom_source = '(Hom_cat C X Y)\n      (Functor_cart_cat (@Slice_cat C X) (@Slice_cat C Y))'
+                assert text.count(hom_source) == 1
+                text = text.replace(hom_source, hom_source.replace('(Hom_cat C X Y)',
+                    '(Hom_cat (CoAt2_cat C) X Y)'))
+                changes.append({'source': path, 'owner': 'original dependent-product family reviewer',
+                                'reason': 'Observe the whole family over CoAt2(C) and its next Hom in Cat_cart; preserve all original assertions',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path in ('emdash3_2_monads.lp', 'examples/monads_comonads.lp'):
+                old = text
+                expected = (26, 23, 8) if path == 'emdash3_2_monads.lp' else (5, 3, 1)
+                assert tuple(text.count(s) for s in ('Op_cat', 'Op_func', 'Op_transf')) == expected
+                for name in ('Op_cat', 'Op_func', 'Op_transf'):
+                    text = re.sub(r'\b' + name + r'\b', 'Total' + name, text)
+                if path == 'emdash3_2_monads.lp':
+                    body0 = '''≔ @kleisli_extend_func
+    (TotalOp_cat A)
+    (@TotalOp_func A A D)
+    C
+    Y X;'''
+                    assert text.count(body0) == 1
+                    text = text.replace(body0, '''≔ @TotalOp_func
+    (TotalOp_cat (@Hom_cat A (@fapp0 A A D X) Y))
+    (TotalOp_cat (@Hom_cat A (@fapp0 A A D X) (@fapp0 A A D Y)))
+    (@kleisli_extend_func
+      (TotalOp_cat A) (@TotalOp_func A A D) C Y X);''')
+                    text = text.replace('A comonad on A is classified transparently as a monad on A^op.',
+                        'A comonad on A is classified transparently as a monad on its total opposite.\n'
+                        '  Total duality preserves the ambient lax transformation profile.')
+                    text = text.replace('// A comonad on A is transparently a monad on A^op.',
+                        '// A comonad on A is transparently a monad on TotalOp_cat(A).\n'
+                        '// The historical Op_monad/Op_comonad names remain readability views.')
+                    text = text.replace('Whole coextension is transparently endpoint-swapped monadic extension in\n  A^op.',
+                        'Whole coextension applies total duality to endpoint-swapped monadic\n'
+                        '  extension in TotalOp_cat(A), restoring the original Hom categories.\n ')
+                    text = text.replace('Canonical Op terms', 'Canonical total-duality terms')
+                    text = text.replace('after Op normalization', 'after total-duality normalization')
+                    text = text.replace('whole Op fold', 'whole total-duality fold')
+                    text = text.replace('Op-derived term', 'total-duality-derived term')
+                    for observation in ('unit_monad_transf', 'mult_monad_transf'):
+                        pattern = '(@' + observation + ' _ (@TotalOp_func $A $A $D) $C)'
+                        assert text.count(pattern) == 1
+                        text = text.replace(pattern,
+                            '(@' + observation + ' _ (@CoAbove2_func _ _ (@Op_func $A $A $D)) $C)')
+                    pattern = '_ (@TotalOp_func $A $A $D) $C $Y $X $f'
+                    assert text.count(pattern) == 1
+                    text = text.replace(pattern,
+                        '_ (@CoAbove2_func _ _ (@Op_func $A $A $D)) $C $Y $X $f')
+                    text = text.replace('TotalOp_func(D) avoids repeated reducible category and endpoint guards.',
+                        'the native CoAbove2_func(Op_func(D)) constructors avoids a reducible\n'
+                        '  TotalOp_func alias in the pattern and keeps category/endpoint guards inferred.')
+                    marker = '// Direct opposite unit/multiplication components fold toward the stable'
+                    assert text.count(marker) == 1
+                    text = text.replace(marker,
+                        '// TotalOp_func is an alias; its runtime pattern uses the native R(T(-)) heads.\n' + marker)
+                    for observation in ('counit_comonad_transf', 'comult_comonad_transf'):
+                        rule0 = 'rule @' + observation + '\n      _ _\n      (@adjunction_comonad $R $L $F $G $J)'
+                        assert text.count(rule0) == 1
+                        text = text.replace(rule0,
+                            '// lhs-audit: keep 2 -- total duality normalizes the witness index;\n'
+                            '// retain its actual FG endofunctor for subject reduction.\n'
+                            'rule @' + observation + '\n'
+                            '      _ (@comp_fapp0 Cat_cat $L $R $L $F $G)\n'
+                            '      (@adjunction_comonad $R $L $F $G $J)')
+                else:
+                    text = text.replace('endpoint-swapped primary monadic whole owner.',
+                        'total dual of the endpoint-swapped primary monadic whole owner.')
+                    for observation in ('counit_comonad_transf', 'comult_comonad_transf'):
+                        old_view = observation + ' (adjunction_comonad J)'
+                        assert text.count(old_view) == 1
+                        text = text.replace(old_view, '@' + observation
+                            + ' L (@comp_cat_fapp0 L R L F G) (@adjunction_comonad R L F G J)')
+                    marker = '// The existing adjunction constructs both exact structural instances.'
+                    assert text.count(marker) == 1
+                    text = text.replace(marker, '''// Object carriers agree, but the untransposed whole dual extension has
+// total-opposite Hom categories. The outer TotalOp_func is required.
+assertnot [A : Cat] [D : τ (Functor A A)]
+  (C : τ (@Comonad A D)) (X Y : τ (Obj A)) ⊢
+  @kleisli_extend_func (TotalOp_cat A) (@TotalOp_func A A D) C Y X
+  : τ (Functor
+      (Hom_cat A (@fapp0 A A D X) Y)
+      (Hom_cat A (@fapp0 A A D X) (@fapp0 A A D Y)));
+
+''' + marker)
+                changes.append({'source': path, 'owner': 'total-duality monad/comonad computation',
+                                'reason': 'Use the existing total-duality action on ambient lax transformations and restore whole coextension variance with TotalOp_func; preserve the original primary operations and witness data',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/generic_groupoidification.lp':
+                old = text
+                former = '''// The explicit compositor has distinct endpoints, so comparison with an
+// identity is no longer a homogeneous judgment.
+assertnot [C : Cat]'''
+                assert text.count(former) == 1
+                text = text.replace(former, '''// The strict-functor default identifies the composition endpoints.
+assert [C : Cat]''')
+                marker = '// Source and target parameters are not erased by the generic facade.'
+                assert text.count(marker) == 1
+                text = text.replace(marker, '''// The native extracted compositor itself has the required identity value.
+assert [C : Cat] [x y z : τ (Obj C)]
+  (g : τ (Hom C y z)) (f : τ (Hom C x y)) ⊢
+  @groupoidify_unit_compositor C x y z g f
+  ≡ @id
+      (Hom_cat (Path_cat (Groupoidify C))
+        (@fapp0 C (Path_cat (Groupoidify C)) (@groupoidify_unit_func C) x)
+        (@fapp0 C (Path_cat (Groupoidify C)) (@groupoidify_unit_func C) z))
+      (@fapp0 _ _ (@groupoidify_unit_compositor_lhs_func C x y z g) f);
+
+''' + marker)
+                changes.append({'source': path, 'owner': 'original groupoidification strict-default reviewer',
+                                'reason': 'Replace the obsolete lax composition-endpoint negative by its strict positive and check the extracted identity cell; preserve the original parameter and nonconstructor negatives',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_direct_cover_sheafification.lp':
                 old = text
                 # Every literal Cat_cat in this specialized owner is the
@@ -3996,6 +4294,15 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
     stage('examples/walking_circle_completion.lp')
     stage('examples/walking_circle_groupoidification_restriction.lp')
     stage('examples/action_profile_eckmann_hilton_one_hom.lp')
+    stage('examples/generic_groupoidification.lp')
+    stage('examples/generic_groupoidification_interval.lp')
+    stage('examples/walking_interval_groupoidification.lp')
+    stage('examples/monads_comonads.lp')
+    stage('examples/triangular_binary_products.lp')
+    stage('examples/cartesian_categories.lp')
+    stage('examples/triangular_binary_products_finite_limits.lp')
+    stage('examples/pullbacks.lp')
+    stage('examples/slice_dependent_products.lp')
     # Preserve the real production diagnostic dependency closure as the next
     # integration boundary. Its unchanged assertions are not automatically
     # qualified by the focused owner checks below.
@@ -4395,6 +4702,33 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
         'require emdash.examples.walking_circle_groupoidification_restriction;\n')
     (package / 'profiled_interchange_migration_controls.lp').write_text(
         'require emdash.examples.action_profile_eckmann_hilton_one_hom;\n')
+    (package / 'groupoidification_migration_controls.lp').write_text(
+        'require emdash.examples.generic_groupoidification;\n'
+        'require emdash.examples.generic_groupoidification_interval;\n'
+        'require emdash.examples.walking_interval_groupoidification;\n')
+    (package / 'monads_migration_controls.lp').write_text(
+        'require emdash.examples.monads_comonads;\n')
+    (package / 'product_pullback_migration_controls.lp').write_text(
+        'require emdash.examples.triangular_binary_products;\n'
+        'require emdash.examples.cartesian_categories;\n'
+        'require emdash.examples.triangular_binary_products_finite_limits;\n'
+        'require emdash.examples.pullbacks;\n'
+        'require emdash.examples.slice_dependent_products;\n')
+    foundation_reviewers = (
+        'groupoidification_migration_controls.lp',
+        'monads_migration_controls.lp',
+        'product_pullback_migration_controls.lp',
+        'walking_circle_migration_controls.lp',
+        'profiled_interchange_migration_controls.lp',
+    )
+    for name in foundation_reviewers:
+        (baseline_package / name).write_text((package / name).read_text())
+    foundation_regression = ''.join(
+        'require emdash.' + Path(name).stem + ';\n'
+        for name in foundation_reviewers + ('direct_cover_sheafification_controls.lp',))
+    foundation_regression += 'require emdash.examples.one_cat_arrow_diagrams;\n'
+    for target_package in (package, baseline_package):
+        (target_package / 'foundations_library_regression.lp').write_text(foundation_regression)
     (package / 'zero_column_dependency_controls.lp').write_text(
         'require emdash.walking_arrow_postcomposition_controls;\n'
         'require emdash.mapping_evaluation_controls;\n'
@@ -4631,6 +4965,11 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                               package / 'walking_circle_migration_controls.lp',
                               package / 'profiled_interchange_migration_controls.lp',
                               package / 'direct_cover_sheafification_controls.lp',
+                              package / 'groupoidification_migration_controls.lp',
+                              package / 'monads_migration_controls.lp',
+                              package / 'product_pullback_migration_controls.lp',
+                              package / 'foundations_library_regression.lp',
+                              baseline_package / 'foundations_library_regression.lp',
                               package / 'zero_column_dependency_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',

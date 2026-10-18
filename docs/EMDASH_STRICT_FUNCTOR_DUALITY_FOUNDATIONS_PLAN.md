@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; staged direct-cover sheafification and its original central reviewer checked; a concrete final-assembly normalization failure repaired; remaining library integration, wrapper retirement and promotion remain open
+Status: active implementation; reviewed groupoidification, monad and product/slice owners qualified with canonical capped-result typing and refreshed regressions; central diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,46 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `a9185d80`, 2026-10-18: the
+[review](../emdash2/audits/strict-default-action-boundary/production_final_imports_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_final_imports_verification.json)
+qualify the reviewed groupoidification, monad/comonad, product and slice owners.
+The original operations and selected data are retained; no primitive, runtime
+or unification rule is added. Groupoidification observes the intrinsically
+extracted strict-default compositor. Monad duality uses TotalOp for ambient
+transformations and explicitly restores the coextension Hom variance. Native
+R(T(-)) patterns replace reducible TotalOp_func aliases, with two documented
+actual-FG index guards and corresponding explicit reviewer indices.
+
+The original restriction-opposite slice convention is retained. Its whole
+Sigma family is `op o CoAt2_func(arrow_into_catd)` over CoAt2(C); the chosen
+dependent-product family uses the same base and pullback remains over Op(C).
+This avoids identifying it with the different core CommaFib triangle direction.
+Canonical represented maps pass through their existing ambient inclusion.
+Product/finite-limit observations use their actual Cat_cart coefficient.
+
+Canonical Hom types at the rectangle/mate owners and a definitionally equal
+result type for generic fapp1_fapp0 prevent premature alias inversion and
+endpoint loss. The original Hom input classifier remains: canonicalizing it
+too lost dual-domain inference in an existing arrow-diagram consumer. Removing
+all local canonical types also failed SR; that experiment is reverted. No
+endpoint equation or operational equality payload is imposed.
+
+Fresh installed-checker runs pass core/Homd 287/85, the combined original
+library closure 178/27, and the larger native-universality regression 139/27.
+Their exact current input snapshots are reverified. The combined run is
+55.084s/4405.8MiB at 180s/6GiB/o=20, versus its pre-goal 22.544s/1559.7MiB
+sample. The native run is 91.674s/6138.4MiB at the existing 300s/8GiB/o=10
+profile. The core warning stream changes 1987 to 1564 bodies (34 added,
+457 removed); added families are inventoried without a confluence claim.
+Eight LHS audits pass. The checker-memory patch remains an isolated diagnostic.
+
+Next run the original central diagnostic against this full dependency snapshot
+and migrate its assertions, then finish remaining registered consumers,
+redundant wrappers/instances, normalization/performance review and production
+promotion with catalogue/health/CI/source-pin gates. Those outcomes are still
+required; the separate application goal remains paused.
 
 Direct-cover sheafification continuation after `370cc759`, 2026-10-18:
 the [review](../emdash2/audits/strict-default-action-boundary/production_sheafification_review.md)

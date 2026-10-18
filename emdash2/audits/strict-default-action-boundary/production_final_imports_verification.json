@@ -1,0 +1,2193 @@
+{
+  "status": "Final staged core, reviewed remaining-import owners, combined original library reviewers and larger native-universality regression qualified; central diagnostics, retirement, production promotion and final gates remain open",
+  "predecessor": "a9185d801a7f3093ec92475aafc041e111f0ea6f",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "audits/strict-default-action-boundary/production_owner_migration.py": "8d318ca4ca10b22744014fed0ea435c9a64711489c10f223d1c64691791c7b87"
+  },
+  "manifestSha256": "cab8b1641c0427443e3f1037808b996a6d177be374c7777baa03417a3416c359",
+  "contracts": [
+    "public Functor strict, ambient Transf/Functord conventional lax",
+    "Comonad is Monad on total opposite; whole coextension restores Hom variance through TotalOp_func",
+    "restriction-opposite Slice retained; Sigma and dependent-product families over CoAt2(C), pullback family over Op(C)",
+    "canonical capped-action result only; original Hom input retained for implicit dual-domain inference",
+    "existing primitive names and rule counts preserved; no new runtime/unification rule or operational equality argument"
+  ],
+  "coreChange": "Only the definitionally equal result type of fapp1_fapp0 changes after comments are stripped; input classifier and all core rules remain byte-identical modulo whitespace.",
+  "outline": {
+    "emdash3_2_walking_interval_comparison.lp": {
+      "originalSha256": "f224f3ef8556c882cd5d20e21569e7d2ad03c969502f30d6116da9afe11769d8",
+      "currentSha256": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+      "declarationNamesPreserved": true,
+      "originalRuleCommands": 2,
+      "currentRuleCommands": 2,
+      "originalUnificationCommands": 0,
+      "currentUnificationCommands": 0
+    },
+    "emdash3_2_groupoidification_composition.lp": {
+      "originalSha256": "afeef18c949658cafeb4869eb5aa623a27a4582da587e13af0e0d1e5e3fe490f",
+      "currentSha256": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+      "declarationNamesPreserved": true,
+      "originalRuleCommands": 0,
+      "currentRuleCommands": 0,
+      "originalUnificationCommands": 0,
+      "currentUnificationCommands": 0
+    },
+    "emdash3_2_monads.lp": {
+      "originalSha256": "75a8762cfff9318381aa3db77b8ee68851d9c6abbcade421eb69ce485c863f83",
+      "currentSha256": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+      "declarationNamesPreserved": true,
+      "originalRuleCommands": 26,
+      "currentRuleCommands": 26,
+      "originalUnificationCommands": 3,
+      "currentUnificationCommands": 3
+    },
+    "emdash3_2_triangular_binary_products.lp": {
+      "originalSha256": "f34c5bdf4b58663d80fe03cb166e540e8c212cdc1639c657d345db183e606827",
+      "currentSha256": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+      "declarationNamesPreserved": true,
+      "originalRuleCommands": 18,
+      "currentRuleCommands": 18,
+      "originalUnificationCommands": 1,
+      "currentUnificationCommands": 1
+    },
+    "emdash3_2_finite_limits.lp": {
+      "originalSha256": "611938177854925f5f0961a755eb797c6940ab8d54ba4a1e22b6e4b13743005d",
+      "currentSha256": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+      "declarationNamesPreserved": true,
+      "originalRuleCommands": 0,
+      "currentRuleCommands": 0,
+      "originalUnificationCommands": 0,
+      "currentUnificationCommands": 0
+    },
+    "emdash3_2_pullbacks.lp": {
+      "originalSha256": "8c9a32eb5dc126fee2186ec38e86c07ac1b6d601ecab357dcce558ef8dedd107",
+      "currentSha256": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+      "declarationNamesPreserved": true,
+      "originalRuleCommands": 19,
+      "currentRuleCommands": 19,
+      "originalUnificationCommands": 4,
+      "currentUnificationCommands": 4
+    },
+    "emdash3_2_slice_dependent_products.lp": {
+      "originalSha256": "efe93a4a84de62810eb8ee536ce473ee36d9e87aea94f6b0722caa97cc15e7c0",
+      "currentSha256": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+      "declarationNamesPreserved": true,
+      "originalRuleCommands": 11,
+      "currentRuleCommands": 11,
+      "originalUnificationCommands": 0,
+      "currentUnificationCommands": 0
+    }
+  },
+  "checks": {
+    "coreFinal": {
+      "id": "20261018T233711Z-f5267d9e45ce4bf3ae2d5cf4200f9915",
+      "target": "join_recursion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 19.642562653985806,
+      "childrenMaxRssKiB": 1628016,
+      "inputSnapshot": "a50b10656db6cf8fa7803ff9486bdbe5cabed343bb35713daad6b6233a1a5a6b",
+      "logSha256": "1734be16404196139b3884289774916a0098514c96c9b95fd5caa4d30227a11f",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      },
+      "currentInputMismatches": [],
+      "assertionsIncludingImports": {
+        "positive": 287,
+        "negative": 85
+      },
+      "inputs": {
+        "join_recursion_controls.lp": "bd683c13315026181318530f0b3bf00d086592a5a851f1c8eacf919b87893eaa",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      }
+    },
+    "libraryFinal": {
+      "id": "20261018T234440Z-f35b43550d2b4a2c8d298a39dc4fa745",
+      "target": "foundations_library_regression.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 55.08402436506003,
+      "childrenMaxRssKiB": 4511532,
+      "inputSnapshot": "9221344003d5a8b9a15b0dc729210ba37b0eebc5948a130bd06c43f15591f943",
+      "logSha256": "29a19f944cb6294a4db262425ccdadee092a3be4b8949e3af4ce9aeeee474e3f",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      },
+      "currentInputMismatches": [],
+      "assertionsIncludingImports": {
+        "positive": 178,
+        "negative": 27
+      },
+      "inputs": {
+        "direct_cover_sheafification_controls.lp": "4560b581f56e214000ad8f4e5a367807c806e64f9876e4288dd92c704805d1b4",
+        "emdash3_2.lp": "ac3371de287ed950f91eb64ee30292671497aa1f59ba1bdc702e0fe953a28258",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+        "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+        "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+        "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+        "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+        "emdash3_2_commutative_algebra_presheaves.lp": "57fcff1a17cd6e9e8c7054d154c3f9d9f9dff05e159a037dbebfcdb4dbb52325",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+        "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+        "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+        "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+        "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+        "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+        "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+        "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+        "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "dec0ef9784afcafec39fcbd36b7381fd1f4ab590fd47976db2d8a687b604e7fc",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "50eefd24cb07d7c8badf4239ad2158b12b6c2eb615450136f577f6272348fc0c",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+        "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+        "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+        "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+        "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+        "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+        "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+        "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+        "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+        "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+        "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+        "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+        "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+        "examples/action_profile_eckmann_hilton_one_hom.lp": "ffa7f67d53252189a6952309b804e442424d9348190a56b354957539d6a2a315",
+        "examples/cartesian_categories.lp": "4a663023dce2cd2f0d4daf989feeaecb352ba10a6543f47c6601e14ebda92f4f",
+        "examples/generic_groupoidification.lp": "048edf9867fc7d7eb478545f0354d31077c8ee7e0b280d4e85b5d44592475f29",
+        "examples/generic_groupoidification_interval.lp": "bbb593930000f4792396e8565b196995c275718c52a16320ba58d1a83d394d43",
+        "examples/monads_comonads.lp": "47fc5c74f2896f0cb7c22b05b1793553cc514790145a69dc409d035f6851125a",
+        "examples/one_cat_arrow_diagrams.lp": "ece4846aa2151733339d86ecf49fc835f8013e4e6de70290f2f7a375d62a4fe8",
+        "examples/pullbacks.lp": "5f9bfb2e0a271ab2ac7ce2f24504864eb70456c9d028ce5baf794f9c5c4db314",
+        "examples/slice_dependent_products.lp": "3bb2825db500cf477f29421d1ed6e0d408ba8443529207576e38d9e00d693121",
+        "examples/triangular_binary_products.lp": "b7f6aa4ea1cd85139a988554575ab1b64768e09d4c63d6d448a431a9c8c515f8",
+        "examples/triangular_binary_products_finite_limits.lp": "9a4b41b7bf67b8f7a3a01f15940e4c81202933620a551c31d69afa19dc7cb504",
+        "examples/walking_circle_completion.lp": "7a22d6893998b2b849c893ec5ddb7787f3120ffd46bbaa5e0d31cc07ac60e472",
+        "examples/walking_circle_groupoidification_restriction.lp": "9540aa064e1039d8c1860e3cef4dfc856f20d3bde2f9088505d86a26ff70f2c9",
+        "examples/walking_interval_groupoidification.lp": "6cda56d060c23d579ed2485f1adce024aeb036930d64e8f467d0ad1c4168fa1e",
+        "foundations_library_regression.lp": "a408e9050caf1f6b0228b87824bc6d6b384af655faef76643485c092a578c554",
+        "groupoidification_migration_controls.lp": "a4db02a4355b2984ccfa32a304f8d5489087b77ec96723f62eb01ebee318b169",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "monads_migration_controls.lp": "c275aaca36c5f2fd3d3e8b2f82e3c934fc21ecfc1887e1653e5cbcdaf8c74eb7",
+        "product_pullback_migration_controls.lp": "cbbab46ef6e016e9fbced8e1df1c7b376e0daa4a064db1e977a1762b219e697a",
+        "profiled_interchange_migration_controls.lp": "57e319c28a76f293d36824ba73073e31f3d3357dc2ce37cc374fe80f62994f39",
+        "walking_circle_migration_controls.lp": "2dbc85785dc5ef4f0714b73bfc6144a8f3e51c2ad5daaa5e836353713cd1a58e"
+      }
+    },
+    "nativeFinal": {
+      "id": "20261018T234107Z-76fcc289d792451eb52c2ef1a771531f",
+      "target": "native_zero_column_regression_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 91.67421012592968,
+      "childrenMaxRssKiB": 6285756,
+      "inputSnapshot": "abf0150ab599ff65c70936fdf35191ba1f9b72a5d0e3f427a86c1e63278daf5c",
+      "logSha256": "5989ef9ae43eedf614ccafe93594af0246b98d2224757e2ab1847d125940d69f",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 300000,
+        "memoryMiB": 8192,
+        "ocamlrunparam": "o=10,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      },
+      "currentInputMismatches": [],
+      "assertionsIncludingImports": {
+        "positive": 139,
+        "negative": 27
+      },
+      "inputs": {
+        "alternating_identity_controls.lp": "be27efc138b99d35e0cf10621992b117b1fd875850deb9ca7fe113a89113d94a",
+        "diagram_evaluation_profile_controls.lp": "cce51b3bfb0bc7e65a45f82c1a83f11eef1fe29e1b72a46c3723ab6c8bf34599",
+        "emdash3_2.lp": "ac3371de287ed950f91eb64ee30292671497aa1f59ba1bdc702e0fe953a28258",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_categorical_contractions.lp": "d8b2fd7375ab02e6aba31883345883a384585bb2a45cf18e92b793d1629e0aec",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_defiso_evaluation_ordinary_paths.lp": "a5bff3389191012d1af4388d2aab01e5566c005cda6f0f5932bd552fb560f560",
+        "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+        "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_discrete_iso_maps.lp": "2d5afecd18046093cf2c6bc31f4d866e4935adaf71f43811e9b1739c54990c3a",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_functor_reconstruction_paths.lp": "a1df7f1b1486626892c55fa99819b8df43df5275d49a7329fcaacbac1d277430",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+        "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+        "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_homology_adjunction_families.lp": "d30fb1f1c146b638dfd8511efe4b1420931308b8fbf8400666f5aef813964177",
+        "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+        "emdash3_2_image_coimage_adjunction_families.lp": "15f2740d121ea038b3bf136dcc99849bf4026579e8608439c64e779ee5725ab7",
+        "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+        "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_omega_equiv_cancellation_paths.lp": "1369c5ac4412d37e10391b25a91b2f20c04685b2cfc5d577bdcefdfea89a8e63",
+        "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+        "emdash3_2_omega_equiv_inverse_square.lp": "3f0e8ca36ac0174e9f093db17b17b02dc856f0b23f886e0b079980c4bbed408d",
+        "emdash3_2_omega_evaluation_points.lp": "ad1d3ae47ed220c9121de66f85d5a9cc170ea44fa823b1a8a899810959ab0524",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+        "emdash3_2_one_cat_adjunction_zero_column_observations.lp": "8f7cbcb4bf439ba9dc0d390266d41fa198fdeefae2ec617087f81c40b0098a20",
+        "emdash3_2_one_cat_adjunction_zero_column_views.lp": "8b180dbf254b2403a51eaf2301b8957d80eeb32b72b651dffad70dc1f4cba49c",
+        "emdash3_2_one_cat_adjunction_zero_columns.lp": "b01c824949a321dc211510a34f878ad4ee15e738faab7804578e09af2209527a",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "dec0ef9784afcafec39fcbd36b7381fd1f4ab590fd47976db2d8a687b604e7fc",
+        "emdash3_2_one_cat_arrow_family_isomorphisms.lp": "5b9adef4471b50386a2c413cd88ce750b5f3b6a118a2a187765cd163ec54aa62",
+        "emdash3_2_one_cat_diagram_family_reconstruction.lp": "9bd61783cb9bb038ac0efdacc9e493ff8827e3dcb193bc89828f8cd3337710b3",
+        "emdash3_2_one_cat_diagram_family_reflection.lp": "d9e50a9b7a41d7c62cec1f6963ed08ee2282e43fbe321fa84d5940fdc5ede2d7",
+        "emdash3_2_one_cat_diagram_map_paths.lp": "6d0545de5e04a1ecb477c863f77dce55660ccf4ccd27e79957fe908a3a685f98",
+        "emdash3_2_one_cat_diagram_reconstruction.lp": "c4ee8c91413c7b69f573215c6ee1cf4e8e396c350a8df173d7fe942760c43d6d",
+        "emdash3_2_one_cat_diagram_transpose.lp": "5b24001136d7a84ec92e70ddb83250f0af801bef3893c3c91a1dec76564d70d8",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "50eefd24cb07d7c8badf4239ad2158b12b6c2eb615450136f577f6272348fc0c",
+        "emdash3_2_one_cat_homology_family_comparison.lp": "23952fa1d52fd64dc1eaf3cd88b9521467a008c266f5787499c569b3d3764778",
+        "emdash3_2_one_cat_homology_family_comparison_points.lp": "bf7788766e735b46940dccda5f6795c6945c75e0f57c18a86d702641349f0506",
+        "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+        "emdash3_2_one_cat_kernel_cokernel_transposes.lp": "5c05662018cbd232281ed24c5982461353925a5382dcd97955b3832383f654a6",
+        "emdash3_2_one_cat_modifications.lp": "980ffead150ec47cf977d71ec24f667a649a727a3007b99f0649362f9c52c1d3",
+        "emdash3_2_one_cat_native_square_paths.lp": "f95e4ec4b2a86378d93b787e01c6934c68854d5adf04f5ea24045926686b0030",
+        "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+        "emdash3_2_one_cat_op.lp": "96e582872c5c00315d2d9668c32f75f483db852421efece79c188b08caec91de",
+        "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+        "emdash3_2_one_cat_terminal_adjunction_families.lp": "5baa8f70db201addbe057316bdec6b1cdd6ac8ba9f8096a8461d70efd59150b2",
+        "emdash3_2_one_cat_terminal_adjunction_family_observations.lp": "b0c0d5a3aeeb0f3cd30c145bf1e794b3075a8fcf5e0c9f9f078d491f99665934",
+        "emdash3_2_one_cat_terminal_adjunctions.lp": "beb3db840898d483ce5064be364f9394eadc1a23237736aa2ee114d892880ab5",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_one_cat_zero_arrow_family_classification.lp": "887e7b72d37a60c2415086332c43d9bd7d0d9584b4cbd01dfaf0b59addf78a20",
+        "emdash3_2_one_cat_zero_cones.lp": "4023e5b9c6768c0cc888dc180a6b08b9794f722ca2df89af1c7a4d6a385f05e4",
+        "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+        "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+        "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+        "emdash3_2_prop_fibre_constructor_paths.lp": "53da73d74f5f72281cd268e06df5da965cbf3dcd3b4689a5284f5eb28e1a7616",
+        "emdash3_2_represented_comma_families.lp": "9c9b18ead5d894635b068e6ea397f7c305cf3e31d1804a8e181818ed189e5305",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+        "emdash3_2_terminal_category_profile.lp": "cd3b2c437c8b3ae45925d5e7dbb57e7e95210197f508818110de95ad6c9c7a4f",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "emdash3_2_walking_arrow_native_observation.lp": "17557f65653465a4c3cead2d8e42a925ce35b158dc20ae8ddb662af30af190eb",
+        "emdash3_2_zero_arrow_cones.lp": "80950d73775beba104c4d6dd40103b2b865e68edd3a3628c7895801d440d1233",
+        "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+        "emdash3_2_zero_arrow_family_point_inputs.lp": "7ee58972cf58f9d3094ae29771ab52371d649f793a39229cdc297234f852ce2c",
+        "examples/diagram_evaluation.lp": "9c13891222804890ad439b2b1dcf4cf9fc9d0154aae13e50441069e3b2bacce4",
+        "examples/one_cat_adjunction_zero_column_views.lp": "943a4843b970466844b9a12db1cdb7e92a41491f68c2f3e837ee2a0615068717",
+        "examples/one_cat_arrow_diagrams.lp": "ece4846aa2151733339d86ecf49fc835f8013e4e6de70290f2f7a375d62a4fe8",
+        "examples/one_cat_arrow_family_isomorphisms.lp": "f453151be8ebf2a600addbd32ebfa8b209d9d56cd547b92d3ff6a60abdc9a46b",
+        "examples/one_cat_diagram_family_reconstruction.lp": "493f584994e021c53dd65f390706b67eacc832c154529f05259642143d158427",
+        "examples/one_cat_diagram_transpose.lp": "fc5aaad07eb2c653b24502431f0e793dae918aed7c31c17d00b96ac5d3691fd4",
+        "examples/one_cat_homology_family_comparison.lp": "b24ce08a2eac86986e87b2a608ce302ab7c995c6da95b06917f49212a035b3b0",
+        "examples/one_cat_homology_family_comparison_points.lp": "91a408131765ffdb78372e6a345ae8c24e667bba71c21b550bfccbbf79b6403c",
+        "examples/one_cat_kernel_cokernel_transposes.lp": "c57aa87fb7af9d2442693675084a011af5076e1fbeccf5a4ff333b056d64bd23",
+        "examples/one_cat_terminal_adjunction_families.lp": "e5f0a6a98273dad376bccc81e0a5fe652b68ca3d78eed7cfedbba1fc952d47f5",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "mapping_normalization_regression_controls.lp": "cb6040e57eb3d28a7572ea6907c02bdfee074dd5ceb7498f378825dbc3548970",
+        "native_exchange_regression_controls.lp": "fac0cf12d50cc12e9ed15c3bcd48a8da0fa87b6aa44627cad59bd9fa9c26f7c6",
+        "native_homology_comparison_reviewers.lp": "aa0756a7727fd00eb576ad89f379bf5fcff28e0a3e67dca863bc1d9eb7c09ded",
+        "native_transpose_regression_controls.lp": "061a654fa907a9a7e24e33f4308196e8735f4f9e6f0acd2e2b5c29d4553d6f12",
+        "native_zero_column_regression_controls.lp": "773c87867363dde68df673d7d20823778a984e06dc38d0c27fa63153b49b7ecf",
+        "odd_cartesian_action_controls.lp": "c28bf2e1a4af7f787b79ad5e8582958e2137878cba186ee22dc8474f75dc20bf",
+        "one_cat_arrow_profile_controls.lp": "c81e6ac4cd04cbb70c29f6c71b1c10b1cef19c98fd8abce98b57a176ce568a39",
+        "one_cat_mapping_controls.lp": "ccd1eafa5a0f5987e39beb9fbb92d27e727caebac36039a621ee028bb718fd9d",
+        "one_cat_oplax_exchange_controls.lp": "71ef7896bb537a2214ea484d74c79194f4db82d9869c921e6214f629112c4906",
+        "one_cat_oplax_roundtrip_controls.lp": "0efe21f6d99c5911f9e099c12b22207241273e037212b2eb41ac8c013bfbd528",
+        "one_cat_oplax_transpose_controls.lp": "07f74a4ad53ad18598f0cccb1dd8aeda1c38de485dcb0c7db4abf7edcf1b2f71",
+        "oplax_family_component_controls.lp": "c831df947299940c047334edd6e3a24ef98e09eb5421f7ea5a1c74e0c4333775"
+      }
+    },
+    "matchedOriginal": {
+      "id": "20261018T234605Z-da681eb6e73f4be5aea90bfb107a99f4",
+      "target": "foundations_library_regression.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 22.543720977031626,
+      "childrenMaxRssKiB": 1597160,
+      "inputSnapshot": "89179132a45452228c6b1c6d587e06ad1c4c4295be782439f702a66ecedf7a99",
+      "logSha256": "59b5d87dac8027a9a915f1793087c742daa3252ab9a1e1fd94b8ba2dff28f1bc",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      },
+      "currentInputMismatches": [],
+      "assertionsIncludingImports": {
+        "positive": 176,
+        "negative": 27
+      },
+      "inputs": {
+        "direct_cover_sheafification_controls.lp": "5f3b0089f7e4d2173b4b324a07c0a60beb8c804bb3ee6789c83740c859605a6b",
+        "emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+        "emdash3_2_arrow_diagram_families.lp": "13c8cc92119bf8b1093d71619dbea3f73fd990e2ffdc1871155abdf41aa586d1",
+        "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+        "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+        "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+        "emdash3_2_commutative_algebra_category.lp": "8258ee789a719ed3ff5b31476fbd7bca020d8c822a321a797d3b3574f328daed",
+        "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+        "emdash3_2_commutative_algebra_presheaves.lp": "a54f611fba3d833050bea53f591e69915fbceee63b130c551186ded4889419c9",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "6c6fff3c14bc2c68b624b0fc06d8ea9d9d45267b44cda6015aac934e4bca4e0b",
+        "emdash3_2_cubical_internalization.lp": "b370e6c426ee336fad67141d95010eed702820f94e3e2d0358fb593dd29ec038",
+        "emdash3_2_cubical_square_total.lp": "449333a73f64ee023b3bfc7599eefa6525813ec038d0a1886f8931df2059d254",
+        "emdash3_2_diagram_evaluation.lp": "e1d879b79073bff7030604ed15340e54f3c94add40c9db97831e0af2f95d13d4",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+        "emdash3_2_direct_cover_completion_hit.lp": "aa43a448ff4bdee3a92b9fc284d3ff23ff99db53f2be55b30e8dc419e6d5fe8c",
+        "emdash3_2_direct_cover_completion_locality.lp": "03a043ccce6dbd7299d171ba7c6085e5b1780b69ecea7cfc221f7fc97cce7511",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "b4a1ee88f2695c36318bb0783d4ad59874d918745fa1e040678270ca53a2cacd",
+        "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "5ec2d41996b200b9f075020991ddaaaed407bfc01108bebdfeb88efeb1fa90cf",
+        "emdash3_2_direct_cover_question_families.lp": "6cdff5a5cfe66f584d7fae9a76bfc2ae1f35eada4881934b1460c39e0e2f97c3",
+        "emdash3_2_direct_cover_questions.lp": "0190e662ee5443d8b332fe422b6fa43c79f1d9bc583d2a0d257ce828aab6473c",
+        "emdash3_2_direct_cover_sheafification.lp": "604ca7dfc05c7183dc9d72010fb76407341de765199f41b4a396289f2a2a72c7",
+        "emdash3_2_discrete_functor_paths.lp": "9cdb384f984c8bc81e0c1f158cd09b4c1c588ce1fc6e41e82584597ac441b4ea",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "c707cf7c09a32a8557e0b1178e2db4a0c1279ed78c970b4f2d50b0c8348c7a5b",
+        "emdash3_2_fibrewise_sigma.lp": "d12876b01cdb6c08a26b3b2b83344b8da2e205f65df5890e665b4b8fd732d91a",
+        "emdash3_2_finite_limits.lp": "611938177854925f5f0961a755eb797c6940ab8d54ba4a1e22b6e4b13743005d",
+        "emdash3_2_gray_profiles.lp": "f670814a83a508bd8a77a4000c7ab04690bbfc25978d106bb1d761ce6723a69c",
+        "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_groupoidification_composition.lp": "afeef18c949658cafeb4869eb5aa623a27a4582da587e13af0e0d1e5e3fe490f",
+        "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+        "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+        "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+        "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+        "emdash3_2_monads.lp": "75a8762cfff9318381aa3db77b8ee68851d9c6abbcade421eb69ce485c863f83",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_one_cat_action_paths.lp": "3ecda4df0496d11f2372420fa7fead3aa63b73043b7624440ee0f40082cadd2b",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "9d27db22beb4ce086cae822d1715a15ffea3a11e5a346ac7660522e9ff7f3e7e",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "c589e1edd75e44ad55832f6403f25b48895b360b846404fe7ae48e70977d2227",
+        "emdash3_2_one_cat_transfor_profiles.lp": "debb1b42841ac8b8cb7a0603abe0642af289ac9d2f5c6ff2784dffb45ac0efce",
+        "emdash3_2_presheaves.lp": "2bee7354ab1c2be469b46d9120d58e6d2ddef09f6444e8c3dd32824968b2618f",
+        "emdash3_2_profiled_interchange.lp": "fb056546d2addb2e9fbc6307a98e36af726f0696540c88d9232fb7e76fc78376",
+        "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+        "emdash3_2_pullbacks.lp": "8c9a32eb5dc126fee2186ec38e86c07ac1b6d601ecab357dcce558ef8dedd107",
+        "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_sieve_extensions.lp": "95f7c7324af17f2fefb839f87c5f2cf0ff9b6c82065625fb142498c4259f082c",
+        "emdash3_2_sieves.lp": "cbeec95b91a16da6be7296337eac626932016507a661a647aaa162b9e916868f",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_slice_dependent_products.lp": "efe93a4a84de62810eb8ee536ce473ee36d9e87aea94f6b0722caa97cc15e7c0",
+        "emdash3_2_strict_functor_actions.lp": "eb4d9b4dac0a277e310427ea1325346330e6881f452bb83ba35a51211fca9818",
+        "emdash3_2_strict_pointwise_equivalences.lp": "58c23c4a39a2b0a5ff872f0c9c7106830a5226d18d828e819cf15185ccdf04de",
+        "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_triangular_binary_products.lp": "f34c5bdf4b58663d80fe03cb166e540e8c212cdc1639c657d345db183e606827",
+        "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "01050ea165dcb03fab88d13b0053933fe66fc526d29a6d7cc2d63361d6513580",
+        "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+        "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+        "emdash3_2_walking_end_hit.lp": "334065f669c539d20b94087deee153ac8ff515e0ad3e3ec7f23d5eb5a297b607",
+        "emdash3_2_walking_interval_comparison.lp": "f224f3ef8556c882cd5d20e21569e7d2ad03c969502f30d6116da9afe11769d8",
+        "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+        "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+        "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+        "emdash3_2_yoneda_precomposition_value.lp": "951ddd20c78cc94fceeffd7bf1ffca98e6f4a2b0bb3ca01748805483126ec291",
+        "examples/action_profile_eckmann_hilton_one_hom.lp": "e30803fb43cb3579b2897a621e2d30b944a6098ed16e53cc7e3893e704e8dd9a",
+        "examples/cartesian_categories.lp": "4a663023dce2cd2f0d4daf989feeaecb352ba10a6543f47c6601e14ebda92f4f",
+        "examples/generic_groupoidification.lp": "364b065b5985387c6de8bbff6e4ac87ddb4cad779f4179e550081674da17e70a",
+        "examples/generic_groupoidification_interval.lp": "bbb593930000f4792396e8565b196995c275718c52a16320ba58d1a83d394d43",
+        "examples/monads_comonads.lp": "14583a706ce6c21850882c11078799d322d31ce8087d11e9a16270965f4f2daa",
+        "examples/one_cat_arrow_diagrams.lp": "341c3a02cce60369b6bb7ac033eb9e09b04d4d444b36ac7ba726fec1d05eb148",
+        "examples/pullbacks.lp": "67b145549d2529bc5a00dd56d8029a6950d439619a8048279dde34d4ae0a5058",
+        "examples/slice_dependent_products.lp": "974120b710c0cd28b85a8d03c8317e35840c2ba36512a0a8cbe1f0d5e72b6b2d",
+        "examples/triangular_binary_products.lp": "ce24f6c16ba92c62d354003b1b7e7c0e02b5f3cdd75f46fb9938f46ba3d08d07",
+        "examples/triangular_binary_products_finite_limits.lp": "9a4b41b7bf67b8f7a3a01f15940e4c81202933620a551c31d69afa19dc7cb504",
+        "examples/walking_circle_completion.lp": "7a22d6893998b2b849c893ec5ddb7787f3120ffd46bbaa5e0d31cc07ac60e472",
+        "examples/walking_circle_groupoidification_restriction.lp": "9540aa064e1039d8c1860e3cef4dfc856f20d3bde2f9088505d86a26ff70f2c9",
+        "examples/walking_interval_groupoidification.lp": "6cda56d060c23d579ed2485f1adce024aeb036930d64e8f467d0ad1c4168fa1e",
+        "foundations_library_regression.lp": "a408e9050caf1f6b0228b87824bc6d6b384af655faef76643485c092a578c554",
+        "groupoidification_migration_controls.lp": "a4db02a4355b2984ccfa32a304f8d5489087b77ec96723f62eb01ebee318b169",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "monads_migration_controls.lp": "c275aaca36c5f2fd3d3e8b2f82e3c934fc21ecfc1887e1653e5cbcdaf8c74eb7",
+        "product_pullback_migration_controls.lp": "cbbab46ef6e016e9fbced8e1df1c7b376e0daa4a064db1e977a1762b219e697a",
+        "profiled_interchange_migration_controls.lp": "57e319c28a76f293d36824ba73073e31f3d3357dc2ce37cc374fe80f62994f39",
+        "walking_circle_migration_controls.lp": "2dbc85785dc5ef4f0714b73bfc6144a8f3e51c2ad5daaa5e836353713cd1a58e"
+      }
+    },
+    "coreBefore": {
+      "id": "20261018T162035Z-1820b031801e440ab20b20cfef7bcc97",
+      "target": "join_recursion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 23.320111226057634,
+      "childrenMaxRssKiB": 1647288,
+      "inputSnapshot": "f69e4dbcc1cc374f7f3ec08a113b8431642a91df6b1105f67bf1fdbdb53dbfac",
+      "logSha256": "0d15b5288ea9617d00e48cd76a0a1c6d6ae0e4af627cb63a2f0cc6892015fd38",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 240000,
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "groupoidificationInitial": {
+      "id": "20261018T221513Z-07fd3deb03144c89a6e1d0b880b27f35",
+      "target": "groupoidification_imports.lp",
+      "outcome": "failed",
+      "wallSeconds": 24.98674885497894,
+      "childrenMaxRssKiB": 2125788,
+      "inputSnapshot": "7909f05d4cfc2ae7da035929ff04ff893b1f9c57b99ae832cc2d7c5cb7fceefb",
+      "logSha256": "c1d57ab279a9d6417623c46ef189da541e94035af1c72e8dcbb3c32fcb3e1c56",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "obsoleteGroupoidificationNegative": {
+      "id": "20261018T221703Z-1800b6c726db4745baa4eb79fc4a1232",
+      "target": "groupoidification_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 18.767189194913954,
+      "childrenMaxRssKiB": 1559900,
+      "inputSnapshot": "f4d593c10fe85443f813926f4f3f12184888e6f426d152158d504d5d685641ca",
+      "logSha256": "d96d74960ea6132862887ab74edf94e576a6ab740ae1d595fe05d814cfb97b94",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "groupoidificationBeforeCoreChange": {
+      "id": "20261018T221828Z-54fdd03bcdb7475eae607d7002fb8e82",
+      "target": "groupoidification_migration_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 25.43439002102241,
+      "childrenMaxRssKiB": 2135692,
+      "inputSnapshot": "dc04dcd6f833fcda850c4e5a3abca3f8a535c99f29c2e81f2a9b5bcbc9611f5c",
+      "logSha256": "6cb375d1a30e320060dc079e2a2ce6c801629a949b5b33e7531e107e422bfac5",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "monadInitial": {
+      "id": "20261018T221937Z-33ce34830e524618a20322f61eb61132",
+      "target": "remaining_foundation_imports.lp",
+      "outcome": "failed",
+      "wallSeconds": 18.799452138948254,
+      "childrenMaxRssKiB": 1606328,
+      "inputSnapshot": "27ed4e416091726ab68eae6a0a4a97939a56949820b996809de0feae88ec01e3",
+      "logSha256": "4319267902d6bda7728df3fb34712e1a60806972eeed729ee211fb0bc2be6093",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "monadInducedIndex": {
+      "id": "20261018T222400Z-73219291b74c4b938cb60560283d5f78",
+      "target": "monads_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 19.958458596956916,
+      "childrenMaxRssKiB": 1645984,
+      "inputSnapshot": "31188801fb513bc839ecc34fddc16aa54ba879f9e36a85993b8a58d97acabda7",
+      "logSha256": "23e1b800a3b0d4238711577798444cbcbcfb3f96f2b4d39632fa1dcf12ce8cf9",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "monadAliasPattern": {
+      "id": "20261018T222621Z-ed5fbb30c7184808bba6e79275d0599c",
+      "target": "monads_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 19.559402568964288,
+      "childrenMaxRssKiB": 1652520,
+      "inputSnapshot": "d5afebd8c7fac176c27c5d7f847d99e6c6320f7113f7277b392a083e93952934",
+      "logSha256": "edaa95b73a211fb2579338fc217a727a815f921e833c720bdaccedf20f9c9dcf",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "monadProjectionIsolation": {
+      "id": "20261018T222832Z-ac1ede2419424d9a842cbbfba61314b5",
+      "target": "monad_dual_projection_probe.lp",
+      "outcome": "failed",
+      "wallSeconds": 19.56619453697931,
+      "childrenMaxRssKiB": 1653144,
+      "inputSnapshot": "bf22068503dffcc27f34f43a9b7c9d911b7478dfad127318ca8d8c876397936f",
+      "logSha256": "2ae7cee7ed5675375450e7bd08fe3629d702842214eef496d85dbedabc96c048",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "monadReviewerInference": {
+      "id": "20261018T223202Z-797a3808272546669cca3c5a2815a41d",
+      "target": "monads_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 19.876275875023566,
+      "childrenMaxRssKiB": 1653348,
+      "inputSnapshot": "e1e544aeeec40567ceb7a7f6b407b59d93e02e7ba3f3fb33f4743ed692a71e30",
+      "logSha256": "192007fe810739ea4e5b0f306c7a89607cad13457478d57d774a67a1a5076241",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "monadBeforeCoreChange": {
+      "id": "20261018T223410Z-7124c69c612e4ab1aa807826aa798a7d",
+      "target": "monads_migration_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 19.592430234886706,
+      "childrenMaxRssKiB": 1653112,
+      "inputSnapshot": "e60d0e808cefaadf655f4c94db51c1a0c04fec0e1459c59006c8f9be0800ae8f",
+      "logSha256": "d91cdd92e99ba5d6cbb32c22dcbb601dbd49475d99890039ed36b475c223e8a1",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "productInitial": {
+      "id": "20261018T223453Z-654f384dcd9b4643bb973ea4570992a5",
+      "target": "remaining_foundation_imports.lp",
+      "outcome": "failed",
+      "wallSeconds": 20.132079430040903,
+      "childrenMaxRssKiB": 1653188,
+      "inputSnapshot": "9ddf5dbca5c19ae5f8d53a20d68c8b37ebb6df6210a5d28ab78dcc4fbb6bee91",
+      "logSha256": "cf1f60014a521a33ce16f6a94adf1375ce337cf314b53f8fbd784e3598b4b13c",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "productReviewerCoefficient": {
+      "id": "20261018T223701Z-e5c3e647c2014818afe3d4f240dbceb5",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 19.236995466053486,
+      "childrenMaxRssKiB": 1647356,
+      "inputSnapshot": "f6b19fc32dfb467f847baf286cebf6ea24204dec8406e2a0f0f221eaa134bc0f",
+      "logSha256": "d40643ed999f26702ccc22a31eedde3cc2b964e940e7cbd4f142dcbb258b5f10",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "finiteLimitCoefficient": {
+      "id": "20261018T223840Z-b30467bc39b442f8867b684ede4b02b7",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 26.79871220397763,
+      "childrenMaxRssKiB": 2249348,
+      "inputSnapshot": "6851e8714b4e537ae1a07c6c84340696359fb9a4a6b6ad4f69c8d752633d9f8f",
+      "logSha256": "e2eff2dd6e232cedb8ef9ca9b31451fee36d2ac3c4e43b7f874831f4d7a0ca80",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "pullbackCoefficient": {
+      "id": "20261018T224053Z-a7c17131b31e49579d5ee9c663038978",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 27.354379258933477,
+      "childrenMaxRssKiB": 2310960,
+      "inputSnapshot": "fd36eb93cdde6e2f7dda396471bf144442445d3646a3aa3cd5afcfcd66d76604",
+      "logSha256": "daa03ef7ca279bb818fb3605de84fae4fac746ff1e274275d712033638db5f0d",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "distinctCommaConvention": {
+      "id": "20261018T224538Z-86dfdf95d49f428d907e3c65ff33cafd",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 27.591185712022707,
+      "childrenMaxRssKiB": 2310796,
+      "inputSnapshot": "242268ef89ec1fbbd0fe189c9e718c2a05e8a84269b2b8a90ed53f835fa8594b",
+      "logSha256": "a6491d7075fdaa2db3fb41488086c819b15a34a33fa39822a10b38fa500e6f32",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "rectangleSourceType": {
+      "id": "20261018T225349Z-2380e1bf312647a9aaf5171f1e555f6e",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 28.92007424100302,
+      "childrenMaxRssKiB": 2352272,
+      "inputSnapshot": "68ec9bc38ec1c565fb2a2408d207629bac6f12c7fe59ae03ac8ca57dec669c1d",
+      "logSha256": "981a1d88d8ee4784968b93c0a9a4b01266dc7a72d42de47065823512e48d81ce",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "rectangleSubjectReductionTrace": {
+      "id": "20261018T225754Z-5161159f535746acbf53bce8cf3cf6b2",
+      "target": "pullback_rectangle_sr_trace.lp",
+      "outcome": "failed",
+      "wallSeconds": 19.55381931201555,
+      "childrenMaxRssKiB": 1626216,
+      "inputSnapshot": "3b6a9df6564c155a5c10f31d7c9382c14ed1b4f3f64278fdbf2b0c36207d954a",
+      "logSha256": "f6f6c6001195ab1074eae4d20735dd5cce215097bf8e61527438f97b9cefdb18",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "wholeMateEndpoint": {
+      "id": "20261018T230215Z-10f4585497314d3e98c8eeeca013b82d",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 29.079220267012715,
+      "childrenMaxRssKiB": 2477788,
+      "inputSnapshot": "4a99d3258400d2a6d18a10ee97fa0183e7f8935fb0e72aaf5a8c7399121939af",
+      "logSha256": "7e8037483cf8db0efa6034ba8ec2c47d2c86436d540d929c07c995fd2ae337ed",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "mateConversionTrace": {
+      "id": "20261018T230445Z-656afeca6aee42b7a841667598bbc2f3",
+      "target": "pullback_mate_conversion_trace.lp",
+      "outcome": "failed",
+      "wallSeconds": 20.66375152801629,
+      "childrenMaxRssKiB": 1713664,
+      "inputSnapshot": "5e9ccfedfce2a1bfacbe1cb442e375fd5bb189f3f1c464a5bfd3888fff1759f4",
+      "logSha256": "70c0c4dbe41978dc7764b918b9df67ccc576fc77e95113302ed4d77ba578e1d4",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "mateComparisonType": {
+      "id": "20261018T230806Z-fb8d1bec6daf435d9a096bae72e8fca6",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 29.173660884029232,
+      "childrenMaxRssKiB": 2477836,
+      "inputSnapshot": "d562c5ee75b46d38a5214503e01002a6de2d44db422a71cc6bec74c786158e6d",
+      "logSha256": "6d4e3215c8564e03dff455c3f8427b9d8c25bf7376366084944241e58c0b7543",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "gRectangle": {
+      "id": "20261018T231046Z-cd94ed7bb44f4f40bd6e6ab3004d6f72",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 30.37431393004954,
+      "childrenMaxRssKiB": 2479696,
+      "inputSnapshot": "bd2876eac8e3f957d3ab8b05ac0b56379d7fb60973b39971318b0e43c72da377",
+      "logSha256": "6e83919c0bd7db910054cae0113c07b294bab3cee8cb3eeaaf4b232171559e73",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "gRectangleConversionTrace": {
+      "id": "20261018T231312Z-f594acecec32431aa114a05be3a08091",
+      "target": "pullback_g_rectangle_conversion_trace.lp",
+      "outcome": "failed",
+      "wallSeconds": 21.112276706960984,
+      "childrenMaxRssKiB": 1714208,
+      "inputSnapshot": "23d6b3d1a9ffdd10cc44ea53c65b3ce4a7135461960f2d726946451030a09f12",
+      "logSha256": "78503acbcf7b66f9ecbdb11a1046978be5ef067ad5969c18057fab336b27bae9",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "canonicalInputAndResultCore": {
+      "id": "20261018T231758Z-cf0f4635c72649e8a64ebc4872aec7e7",
+      "target": "join_recursion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 19.320686112041585,
+      "childrenMaxRssKiB": 1631780,
+      "inputSnapshot": "8882398826fdfef2965ffa583af7fda80654c8634d4c7fa36f16f08fcda71790",
+      "logSha256": "7dc8d7f1edad81140bd50aa5dff844c5ee11ced93808ff67955494f3b1135482",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "canonicalInputAndResultConsumer": {
+      "id": "20261018T231828Z-16175a2a7cb44fa588895175e7ada2be",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 31.570862500113435,
+      "childrenMaxRssKiB": 2528180,
+      "inputSnapshot": "5e1484f59c66b3742a8fb11d5241421ce997102cfb4bd0be1ca1137c2875d9d5",
+      "logSha256": "f924ae5689f87565b4e0b3850c36000cc24ce3361e5e5d3b698cafd4278e5017",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "localTypeRemovalRejected": {
+      "id": "20261018T232114Z-58ec258ba36040caa907051153ba13dc",
+      "target": "product_pullback_migration_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 27.06785550096538,
+      "childrenMaxRssKiB": 2333108,
+      "inputSnapshot": "ecc874ec5f9a8e2c6de8e3470c9eb3fcdb7566be87abfd362ba354ce29301cf4",
+      "logSha256": "3086b334fae3103ab53ec646ec158e5eb8a65f643509f3cc2ef355547bbec56e",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "canonicalInputDomainInferenceFailure": {
+      "id": "20261018T233028Z-74f7c7c0b002419f900c6eeb78e32d9b",
+      "target": "native_zero_column_regression_controls.lp",
+      "outcome": "failed",
+      "wallSeconds": 73.16071222908795,
+      "childrenMaxRssKiB": 4817728,
+      "inputSnapshot": "da12a3580a44ed2192bb03f155fd1910706b80d0cdc64041ba627400b059c136",
+      "logSha256": "e89fdd2c3266decdf40a4978baacdbcf06f68a9ba0261ee16287e3cc536795de",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 300000,
+        "memoryMiB": 8192,
+        "ocamlrunparam": "o=10,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      }
+    },
+    "resultOnlyFocusedConsumer": {
+      "id": "20261018T233851Z-15204527567747d68709faf7bf86cde6",
+      "target": "canonical_result_consumers.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 39.349733536015265,
+      "childrenMaxRssKiB": 3303260,
+      "inputSnapshot": "5b602f5831de4e78972688d0a37df86350e17f41718f362503754259a7b1ad2b",
+      "logSha256": "3efd0149ba3268cd4e2ebe53fbb000138c53109742b5700d1e7e62c5be0fe8f8",
+      "checkerSha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "profile": {
+        "timeoutMs": 180000,
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ]
+      },
+      "currentInputMismatches": [],
+      "assertionsIncludingImports": {
+        "positive": 95,
+        "negative": 14
+      }
+    }
+  },
+  "coreWarningComparison": {
+    "before": 1987,
+    "after": 1564,
+    "added": 34,
+    "removed": 457,
+    "families": {
+      "existing Core inclusion composition overlaps": 24,
+      "existing product projection identity overlaps": 6,
+      "existing path-record symmetry/reflexivity overlaps": 4
+    },
+    "addedInventory": [
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "d21560b4e0ab001db99954e76397bb77f6bc71782a592e69f1522e25cae71594",
+        "firstRule": "with @comp_fapp0 Grpd_cat $' $' $' $g' $f' $x'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "2d9e1d591a416affe56ccca77a62d055d241b4b1bb1904064df29267ecc56148",
+        "firstRule": "with @comp_fapp0 Cat_cart $A' $B' $C' $G' $F'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "6a61b1c716656771cdd3507593227809570d2507d52dfac2f6672144a61da39f",
+        "firstRule": "with @comp_fapp0 Cat_cat $A' $C' $E' $H' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "6880da9e304ec1c94ad1b158b435fcda86ebb7dd6a05f013f0ef05e4db551648",
+        "firstRule": "with @fapp0 $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $F' $G') $x'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "3e0df755efc090130cae30e9a487e5a80abab85e50bd1103db9c629eab982632",
+        "firstRule": "with @fapp1_fapp0 $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $F' $G') $x' $y' $f'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "e2a3ac6c7666d0d7942b82915798a7d7609bf848547df2ff42f5e8bb1418b7ad",
+        "firstRule": "with @fapp1_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $F' $G') $x' $y'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "6b73097f49b39d67a4512377d47b96da03f037a49f09244f3973635a278ee5cf",
+        "firstRule": "with @Op_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $F' $G')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "91783524ba8abe7e86d0bf929d926f24c7b4ff5d93840e5add4b04c2cb82490b",
+        "firstRule": "with @CoAbove2_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "6637a893e79a1cce482eb5303899f7504506ab023cb5d7bea7bd082b4cdd462f",
+        "firstRule": "with @CoAt2_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "5852388f91c93064d106d9a11f9b0d5a9f1d15363b86be127761be1da27804e3",
+        "firstRule": "with @comp_fapp0 Terminal_cat $' $' $' $' $'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing product projection identity overlaps",
+        "bodySha256": "aae4da5366136695042161e722807d17f1e912567227a47b565b41299793f24c",
+        "firstRule": "with @fapp1_fapp0 $' $' (@Product_projL_func $A' $B') $p' $q' $h'",
+        "secondRule": "with @fapp1_fapp0 $A $B $F $X $X (id $A $X)"
+      },
+      {
+        "count": 1,
+        "family": "existing product projection identity overlaps",
+        "bodySha256": "15b791866de92d57da2d516401268fe152829a8f4c8ba36c3d6195d021fc242a",
+        "firstRule": "with @fapp1_fapp0 $' $' (@Product_projL_func $A' $B') $p' $q' $h'",
+        "secondRule": "with @fapp1_fapp0 (Op_cat $K) $D $F $x $x (id $K $x)"
+      },
+      {
+        "count": 1,
+        "family": "existing product projection identity overlaps",
+        "bodySha256": "3ddd4515d68ebc30297984394e707edf407afaf4fdf6a6b66b811a3be4f61913",
+        "firstRule": "with @fapp1_fapp0 $' $' (@Product_projL_func $A' $B') $p' $q' $h'",
+        "secondRule": "with @fapp1_fapp0 (CoAbove2_cat $K) $D $F $x $x (id $K $x)"
+      },
+      {
+        "count": 1,
+        "family": "existing product projection identity overlaps",
+        "bodySha256": "aa8056ae679976bf5e0f92d03ea0d0dd4f47d00b80b426fff39b036bc9be7dc6",
+        "firstRule": "with @fapp1_fapp0 $' $' (@Product_projL_func $A' $B') $p' $q' $h'",
+        "secondRule": "with @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D $F $x $x (id $K $x)"
+      },
+      {
+        "count": 1,
+        "family": "existing product projection identity overlaps",
+        "bodySha256": "ba7facd9d686f2ca67066973d2e428a720df0184f6d6f1ddb54a4017335d3250",
+        "firstRule": "with @fapp1_fapp0 $' $' (@Product_projL_func $A' $B') $p' $q' $h'",
+        "secondRule": "with @fapp1_fapp0 (CoAt2_cat $K) $D $F $x $x (id $K $x)"
+      },
+      {
+        "count": 1,
+        "family": "existing product projection identity overlaps",
+        "bodySha256": "bf8005da870dd8e6b07f06bfed92854ee8b3fc347317525fd958c5f46b461463",
+        "firstRule": "with @fapp1_fapp0 $' $' (@Product_projL_func $A' $B') $p' $q' $h'",
+        "secondRule": "with @fapp1_fapp0 (Catd_cat $K) $B $F $E $E (id (Catd_cat $K) $E)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "37c5d9310b56f5a46ec0715423bab4e5d843fdf72faf296eebace69c60c8bcb2",
+        "firstRule": "with @strict_transfor $A' $B' $F' $H' (@comp_fapp0 (Functor_cart_cat $A' $B') $F' $G' $H' $eta' $epsilon')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "6d5efcf4aba846f0adc331f97768ba939ed5e8d9c5b52852cb5cf85fe079a9b7",
+        "firstRule": "with @tapp0_fapp0 $' $' $' $' $Y' (@comp_fapp0 (Functor_cat $A' $B') $F' $G' $H' $η' $ϵ')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "6d0b693fd4b53a23ab8d7ade00526729ff0ae27c9cf1b06edc1479c306ce333b",
+        "firstRule": "with @Op_transf $A' $B' $F' $H' (@comp_fapp0 (Functor_cart_cat $A' $B') $F' $G' $H' $eta' $epsilon')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "bb0b1c71d7dda2ff4592e2bd8f520b7c869bdb20fc636c98d863cfabeeea7da4",
+        "firstRule": "with @TotalOp_transf $A' $B' $F' $H' (@comp_fapp0 (Functor_cat $A' $B') $F' $G' $H' $eta' $epsilon')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "a19c6e3f519ea1a3adab6e5a8f6489b61dbab84c933f6f29669f1c710308d10f",
+        "firstRule": "with @comp_prod_fapp1_fapp0 Cat_cat $K' Cat_cart $C' (@Struct_sigma $' $' $E' $H') (@Struct_sigma $' $' $D' $H') (@Struct_sigma $' $' (@comp_fapp0 (Catd_cat $K') $E' $M' $D' $GG' $FF') (id $' $H'))",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "b7f90df9421643c31b86435ac1fe2378a9bf9b13e6d1281f3eb2030a3963cf13",
+        "firstRule": "with @comp_fapp0 (Functor_cat $A' $C') $' (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C' $A' $B' $F' $G') $' (id $' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F')) $eta'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing path-record symmetry/reflexivity overlaps",
+        "bodySha256": "bef6d783d6b6044b037c25c48e2ceb16930e8741dd58bc52b1f382d975b81784",
+        "firstRule": "with @hom_postcomp_fapp0 $B' $A' $F' $' $Y' $Z' $g' (@fapp1_fapp0 $A' $B' $F' $X' $Y' $f')",
+        "secondRule": "with @fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $r $r (@PathRecordPathRefl $A $r)"
+      },
+      {
+        "count": 1,
+        "family": "existing path-record symmetry/reflexivity overlaps",
+        "bodySha256": "75be418f615fd7f46df9a482a3fb19c142d83ac35341f42ebc94b10836a9daf0",
+        "firstRule": "with @hom_precomp_along_fapp0 $A' $B' $F' $' $W' $X' $h' (@fapp1_fapp0 $A' $B' $F' $X' $Y' $f')",
+        "secondRule": "with @fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $r $r (@PathRecordPathRefl $A $r)"
+      },
+      {
+        "count": 1,
+        "family": "existing path-record symmetry/reflexivity overlaps",
+        "bodySha256": "f9b617938d173739b9d57486c988cba89c00bd04bf00a155005e0a95bfe582ce",
+        "firstRule": "with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' $F' $G' $Y' $epsilon') (@fapp1_fapp0 $A' $B' $F' $X' $Y' $p')",
+        "secondRule": "with @fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $r $r (@PathRecordPathRefl $A $r)"
+      },
+      {
+        "count": 1,
+        "family": "existing path-record symmetry/reflexivity overlaps",
+        "bodySha256": "f4eac9e359998e2c26e6a6fa9e214352002632dfe99afca44610dd170135b117",
+        "firstRule": "with @comp_fapp0 $B' $' $' $' (@fapp1_fapp0 $A' $B' $G' $x' $y' $p') (@tapp0_fapp0 $A' $B' $F' $G' $x' (@strict_transfor $A' $B' $F' $G' $U'))",
+        "secondRule": "with @fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $r $r (@PathRecordPathRefl $A $r)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "0099dc7ce6a12ed3f3972917689baf63ddd1c9dcfb9724db028b62eab5cbf8a1",
+        "firstRule": "with @Op_funcd $K' $E' $G' (@comp_fapp0 (Functor_cart_cat $K' Cat_cart) $E' $D' $G' $V' $U')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "0f03cd98018b92f71b9acd6f5a9e9a5771a59448187a4635cfec4955ccd1fdc3",
+        "firstRule": "with @fdapp1_int_transfd $' $' $' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF')",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "ca85a20c853d1f30200892e6ec2197b5ffb7fd130d646e4dea3ed1b5bab64123",
+        "firstRule": "with @fdapp1_int_section_arrow $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $u'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "2fcec4615dfb7285a1b26abd3efb1e599b363b6ad2dd225695aeebf52270321a",
+        "firstRule": "with @fdapp1_int_tgt_arrow $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $u' $y'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "c13820f4024edec6218cd28c925cf3aea389b328b50149db8a0e2153a4edd14f",
+        "firstRule": "with @fdapp1_int_presheaf_arrow $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $u' $y' $v'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "e827936147cad736193cc4ad8a7449dd7d5bb65c4d46c59c999a6369644fc00a",
+        "firstRule": "with @fdapp1_int_hom_func $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $y' $p' $u' $v'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "54674411022520defc2eaa1d0693782c7d0865450614b3ac65e765b6d0d1b6df",
+        "firstRule": "with @fdapp1_int_hom_fapp0 $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $y' $p' $u' $v' $alpha'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      },
+      {
+        "count": 1,
+        "family": "existing Core inclusion composition overlaps",
+        "bodySha256": "f387deb0b4e4a16fe74841d286d8f2b298db61638adc8575fc78a1d2710b11b8",
+        "firstRule": "with @fdapp1_int_cell $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $y' $p' $u'",
+        "secondRule": "with @comp_fapp0 $C $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func $C) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func $C) $X $Y $f)"
+      }
+    ],
+    "qualification": "Source rule text is unchanged; canonical result typing alters elaborated overlap presentations. These are inventories, not a confluence certificate. Redundant named strict instances remain for the planned retirement review."
+  },
+  "libraryWarningComparison": {
+    "currentTotal": 2404,
+    "originalTotal": 1315,
+    "currentOwners": {
+      "emdash3_2.lp": 1564,
+      "emdash3_2_gray_profiles.lp": 113,
+      "emdash3_2_strict_functor_actions.lp": 34,
+      "emdash3_2_monads.lp": 67,
+      "emdash3_2_triangular_binary_products.lp": 91,
+      "emdash3_2_terminal_objects.lp": 15,
+      "emdash3_2_pullbacks.lp": 10,
+      "emdash3_2_slice_dependent_products.lp": 50,
+      "emdash3_2_one_cat_transfor_profiles.lp": 29,
+      "emdash3_2_walking_end_hit.lp": 19,
+      "emdash3_2_direct_cover_sheafification.lp": 26,
+      "emdash3_2_walking_arrow_introduction.lp": 2,
+      "emdash3_2_diagram_evaluation.lp": 384
+    },
+    "originalOwners": {
+      "emdash3_2.lp": 648,
+      "emdash3_2_gray_profiles.lp": 299,
+      "emdash3_2_strict_functor_actions.lp": 15,
+      "emdash3_2_monads.lp": 25,
+      "emdash3_2_triangular_binary_products.lp": 70,
+      "emdash3_2_terminal_objects.lp": 10,
+      "emdash3_2_pullbacks.lp": 167,
+      "emdash3_2_slice_dependent_products.lp": 37,
+      "emdash3_2_walking_end_hit.lp": 18,
+      "emdash3_2_direct_cover_sheafification.lp": 22,
+      "emdash3_2_diagram_evaluation.lp": 4
+    },
+    "qualification": "Monad total-duality/induced-index, product triangular/action, slice triangle/mate and identity/projection families retain the original operational owners; full symbolic confluence is not claimed."
+  },
+  "lhsAudits": {
+    "emdash3_2.lp": {
+      "file": "emdash3_2.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 52,
+      "annotated_slots": 78,
+      "annotated": [
+        {
+          "line": 3421,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(Op_cat $K)",
+          "reason": "Op_cat is the measured source discriminator after the"
+        },
+        {
+          "line": 3428,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(CoAbove2_cat $K)",
+          "reason": "the R source selects the erased-identity presentation."
+        },
+        {
+          "line": 3432,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(CoAbove2_cat (Op_cat $K))",
+          "reason": "the total source has lost both R and T identity tags."
+        },
+        {
+          "line": 3437,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(CoAt2_cat $K)",
+          "reason": "CoAt2 is the erased-identity source discriminator."
+        },
+        {
+          "line": 3506,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(Op_cat (Path_cat $A))",
+          "reason": "measured opposite/path category discriminators reduce"
+        },
+        {
+          "line": 3506,
+          "head": "fapp1_fapp0",
+          "slot": 2,
+          "argument": "(Path_cat $A)",
+          "reason": "measured opposite/path category discriminators reduce"
+        },
+        {
+          "line": 3518,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Path_cat $A)",
+          "reason": "the target Path_cat guard removes eleven otherwise"
+        },
+        {
+          "line": 3536,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(Op_cat (Path_cat (PathRecord_grpd $A)))",
+          "reason": "measured rigid PathSym categories are warning guards."
+        },
+        {
+          "line": 3536,
+          "head": "fapp1_fapp0",
+          "slot": 2,
+          "argument": "(Path_cat (PathRecord_grpd $A))",
+          "reason": "measured rigid PathSym categories are warning guards."
+        },
+        {
+          "line": 5657,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(@Catd_cat $K)",
+          "reason": "Catd_cat is the source discriminator for id_funcd."
+        },
+        {
+          "line": 5815,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Path_cat $A)",
+          "reason": "Path_cat is the semantic discriminator for the projected right-unit bridge."
+        },
+        {
+          "line": 5820,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Path_cat $A)",
+          "reason": "Path_cat is the semantic discriminator for the projected left-unit bridge."
+        },
+        {
+          "line": 5826,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Path_cat (PathRecord_grpd $A))",
+          "reason": "the nested Path_cat/PathRecord heads select this former."
+        },
+        {
+          "line": 5832,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Path_cat (PathRecord_grpd $A))",
+          "reason": "the nested Path_cat/PathRecord heads select this former."
+        },
+        {
+          "line": 8736,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cart_cat $B Cat_cart)",
+          "reason": "the Cartesian diagram category owns this projected Hom action."
+        },
+        {
+          "line": 9057,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(Product_cat $A $B)",
+          "reason": "product source/middle/target categories guard the symmetry involution rule."
+        },
+        {
+          "line": 9057,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(Product_cat $B $A)",
+          "reason": "product source/middle/target categories guard the symmetry involution rule."
+        },
+        {
+          "line": 9057,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(Product_cat $A $B)",
+          "reason": "product source/middle/target categories guard the symmetry involution rule."
+        },
+        {
+          "line": 9069,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(Product_cat $A $B)",
+          "reason": "product source/middle categories guard the symmetry-involution pullback rule."
+        },
+        {
+          "line": 9069,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(Product_cat $B $A)",
+          "reason": "product source/middle categories guard the symmetry-involution pullback rule."
+        },
+        {
+          "line": 10431,
+          "head": "tapp1_func",
+          "slot": 3,
+          "argument": "(@hom_ $A $B $F $Y)",
+          "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+        },
+        {
+          "line": 10431,
+          "head": "tapp1_func",
+          "slot": 4,
+          "argument": "(@hom_ $A $B $F $X)",
+          "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+        },
+        {
+          "line": 10464,
+          "head": "tapp1_fapp0",
+          "slot": 3,
+          "argument": "(@hom_ $A $B $F $Y)",
+          "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+        },
+        {
+          "line": 10464,
+          "head": "tapp1_fapp0",
+          "slot": 4,
+          "argument": "(@hom_ $A $B $F $X)",
+          "reason": "required subject-reduction endpoints of the Catd-valued hom component."
+        },
+        {
+          "line": 10683,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cat $I $C)",
+          "reason": "the ordinary mapping category owns the vertical composite."
+        },
+        {
+          "line": 10711,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cat $A $C)",
+          "reason": "the ordinary mapping category owns the vertical composite."
+        },
+        {
+          "line": 11545,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cat $A $C)",
+          "reason": "ordinary transfor composition at this canonical precomposition endpoint."
+        },
+        {
+          "line": 11545,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)\n        $C $A $B $F $G)",
+          "reason": "ordinary transfor composition at this canonical precomposition endpoint."
+        },
+        {
+          "line": 12096,
+          "head": "fapp1_func",
+          "slot": 4,
+          "argument": "(Struct_sigma $x $y)",
+          "reason": "pair endpoint is decomposed by the rule"
+        },
+        {
+          "line": 12121,
+          "head": "fapp1_fapp0",
+          "slot": 4,
+          "argument": "(Struct_sigma $x $y)",
+          "reason": "pair endpoint is decomposed by the rule"
+        },
+        {
+          "line": 12365,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(Functor_cart_cat $A $A')",
+          "reason": "product-valued mapping categories normalize before SR can recover the composition endpoints."
+        },
+        {
+          "line": 12365,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(Functor_cart_cat (Product_cat $A $B) (Product_cat $A' $B))",
+          "reason": "product-valued mapping categories normalize before SR can recover the composition endpoints."
+        },
+        {
+          "line": 12365,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(Functor_cat (Product_cat $A $B) (Product_cat $A' $B))",
+          "reason": "product-valued mapping categories normalize before SR can recover the composition endpoints."
+        },
+        {
+          "line": 12606,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cat $A (Functor_cat $B $C))",
+          "reason": "this is composition in the specified mapping category."
+        },
+        {
+          "line": 13983,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Catd_cat $K)",
+          "reason": "Catd_cat is the subject-reduction guard for the displayed left beta."
+        },
+        {
+          "line": 13993,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Catd_cat $K)",
+          "reason": "Catd_cat is the subject-reduction guard for the displayed right beta."
+        },
+        {
+          "line": 14102,
+          "head": "fapp0",
+          "slot": 1,
+          "argument": "(@Pi_cat $K $E)",
+          "reason": "both section categories are subject-reduction guards"
+        },
+        {
+          "line": 14102,
+          "head": "fapp0",
+          "slot": 2,
+          "argument": "(@Pi_cat $K $D)",
+          "reason": "both section categories are subject-reduction guards"
+        },
+        {
+          "line": 14223,
+          "head": "tapp0_fapp0",
+          "slot": 3,
+          "argument": "(@Const_catd $K Terminal_cat)",
+          "reason": "terminal-source family is the semantic discriminator"
+        },
+        {
+          "line": 14498,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat $K $E)",
+          "reason": "`Sigma_cat(K,E)` is the semantic discriminator that"
+        },
+        {
+          "line": 14532,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Product_cat $K $A)",
+          "reason": "`Product_cat(K,A)` is the surviving semantic"
+        },
+        {
+          "line": 14566,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat $K $E)",
+          "reason": "the Sigma source and base target guard the"
+        },
+        {
+          "line": 14748,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat $K $R)",
+          "reason": "the Sigma source and Cat target guard the stable"
+        },
+        {
+          "line": 14827,
+          "head": "tapp0_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat $K $R)",
+          "reason": "the Sigma source, terminal source family, and"
+        },
+        {
+          "line": 14827,
+          "head": "tapp0_fapp0",
+          "slot": 3,
+          "argument": "(@Const_catd (@Sigma_cat $K $R) Terminal_cat)",
+          "reason": "the Sigma source, terminal source family, and"
+        },
+        {
+          "line": 14827,
+          "head": "tapp0_fapp0",
+          "slot": 4,
+          "argument": "(@Sigma_proj1_pullback_catd $K $R $D)",
+          "reason": "the Sigma source, terminal source family, and"
+        },
+        {
+          "line": 14929,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(@Functord_cat $K $E $D)",
+          "reason": "measured critical-pair guards for the iterated Sigma action"
+        },
+        {
+          "line": 14929,
+          "head": "fapp1_fapp0",
+          "slot": 2,
+          "argument": "(Functor_cat (@Sigma_cat $K $E) (@Sigma_cat $K $D))",
+          "reason": "measured critical-pair guards for the iterated Sigma action"
+        },
+        {
+          "line": 16294,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(Op_cat (Functor_cat $C (Op_cat Cat_cart)))",
+          "reason": "retain P(C); otherwise the emitted rule recovers C as P(C)."
+        },
+        {
+          "line": 16531,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cat $K Homd_coeff_cat)",
+          "reason": "the actual lax diagram category, on canonical mates."
+        },
+        {
+          "line": 17047,
+          "head": "tdapp0_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat $K $R)",
+          "reason": "the total base, terminal source, projection"
+        },
+        {
+          "line": 17047,
+          "head": "tdapp0_fapp0",
+          "slot": 2,
+          "argument": "(@Const_catd (@Sigma_cat $K $R) Terminal_cat)",
+          "reason": "the total base, terminal source, projection"
+        },
+        {
+          "line": 17047,
+          "head": "tdapp0_fapp0",
+          "slot": 3,
+          "argument": "(@Sigma_proj1_pullback_catd $K $R $D)",
+          "reason": "the total base, terminal source, projection"
+        },
+        {
+          "line": 17047,
+          "head": "tdapp0_fapp0",
+          "slot": 4,
+          "argument": "(@sigma_functord_sec $K $R $D $FF)",
+          "reason": "the total base, terminal source, projection"
+        },
+        {
+          "line": 17047,
+          "head": "tdapp0_fapp0",
+          "slot": 5,
+          "argument": "(@sigma_functord_sec $K $R $D $GG)",
+          "reason": "the total base, terminal source, projection"
+        },
+        {
+          "line": 18078,
+          "head": "tapp0_fapp0",
+          "slot": 3,
+          "argument": "(@Const_catd $K Terminal_cat)",
+          "reason": "the exact base, terminal source, and target family"
+        },
+        {
+          "line": 18708,
+          "head": "tdapp0_fapp0",
+          "slot": 2,
+          "argument": "(@Const_catd $K Terminal_cat)",
+          "reason": "measured section-facade component discriminators"
+        },
+        {
+          "line": 18708,
+          "head": "tdapp0_fapp0",
+          "slot": 3,
+          "argument": "(@Const_catd $K $A)",
+          "reason": "measured section-facade component discriminators"
+        },
+        {
+          "line": 18708,
+          "head": "tdapp0_fapp0",
+          "slot": 4,
+          "argument": "(@Const_func $K $A $x)",
+          "reason": "measured section-facade component discriminators"
+        },
+        {
+          "line": 18708,
+          "head": "tdapp0_fapp0",
+          "slot": 5,
+          "argument": "(@Const_func $K $A $y)",
+          "reason": "measured section-facade component discriminators"
+        },
+        {
+          "line": 18728,
+          "head": "fapp0",
+          "slot": 2,
+          "argument": "(Functor_cart_cat $A $B)",
+          "reason": "measured ordinary-weakening codomain discriminator"
+        },
+        {
+          "line": 18733,
+          "head": "fapp1_func",
+          "slot": 2,
+          "argument": "(Functor_cart_cat $A $B)",
+          "reason": "measured ordinary-weakening codomain discriminator"
+        },
+        {
+          "line": 18738,
+          "head": "fapp1_fapp0",
+          "slot": 2,
+          "argument": "(Functor_cart_cat $A $B)",
+          "reason": "measured ordinary-weakening codomain discriminator"
+        },
+        {
+          "line": 19022,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cart_cat $A $C)",
+          "reason": "subject reduction cannot reconstruct an arbitrary"
+        },
+        {
+          "line": 19032,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cat $A $C)",
+          "reason": "the ordinary mapping category types this projection"
+        },
+        {
+          "line": 19362,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cart_cat $A $C)",
+          "reason": "ambient transfor category is the measured SR guard."
+        },
+        {
+          "line": 19376,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(Functor_cart_cat $A $C)",
+          "reason": "same ambient transfor-category guard."
+        },
+        {
+          "line": 20437,
+          "head": "fapp1_func",
+          "slot": 4,
+          "argument": "(Struct_sigma $x $y)",
+          "reason": "constructed pair endpoint is decomposed by the rule."
+        },
+        {
+          "line": 21013,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Prof_cat $A2 $B2)",
+          "reason": "Prof_cat is the target-category discriminator for reindexing composition."
+        },
+        {
+          "line": 21114,
+          "head": "tapp0_fapp0",
+          "slot": 1,
+          "argument": "(Product_cat (Op_cat $A) $A)",
+          "reason": "the product/opposite base types sigma_Fst/Snd and"
+        },
+        {
+          "line": 21114,
+          "head": "tapp0_fapp0",
+          "slot": 3,
+          "argument": "(@Unit_prof $A)",
+          "reason": "the product/opposite base types sigma_Fst/Snd and"
+        },
+        {
+          "line": 21132,
+          "head": "tapp1_fapp0",
+          "slot": 1,
+          "argument": "(Product_cat (Op_cat $A) $A)",
+          "reason": "as above, retain the measured base/source guards,"
+        },
+        {
+          "line": 21132,
+          "head": "tapp1_fapp0",
+          "slot": 3,
+          "argument": "(@Unit_prof $A)",
+          "reason": "as above, retain the measured base/source guards,"
+        },
+        {
+          "line": 22041,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(Product_cat $A0 $B0)",
+          "reason": "product source/middle/target categories guard componentwise product-map composition."
+        },
+        {
+          "line": 22041,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(Product_cat $A1 $B1)",
+          "reason": "product source/middle/target categories guard componentwise product-map composition."
+        },
+        {
+          "line": 22041,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(Product_cat $A2 $B2)",
+          "reason": "product source/middle/target categories guard componentwise product-map composition."
+        },
+        {
+          "line": 23370,
+          "head": "tapp0_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat $Z (@hom_ $Z $Z (@id Cat_cat $Z) $x))",
+          "reason": "measured subject-reduction and performance guard"
+        },
+        {
+          "line": 23370,
+          "head": "tapp0_fapp0",
+          "slot": 3,
+          "argument": "(@Const_catd (@Sigma_cat $Z (@hom_ $Z $Z (@id Cat_cat $Z) $x)) Terminal_cat)",
+          "reason": "measured subject-reduction and performance guard"
+        }
+      ]
+    },
+    "emdash3_2_walking_interval_comparison.lp": {
+      "file": "emdash3_2_walking_interval_comparison.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_groupoidification_composition.lp": {
+      "file": "emdash3_2_groupoidification_composition.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_monads.lp": {
+      "file": "emdash3_2_monads.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_triangular_binary_products.lp": {
+      "file": "emdash3_2_triangular_binary_products.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_finite_limits.lp": {
+      "file": "emdash3_2_finite_limits.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 0,
+      "annotated_slots": 0,
+      "annotated": []
+    },
+    "emdash3_2_pullbacks.lp": {
+      "file": "emdash3_2_pullbacks.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 7,
+      "annotated_slots": 21,
+      "annotated": [
+        {
+          "line": 76,
+          "head": "fapp1_fapp0",
+          "slot": 1,
+          "argument": "(Op_cat $C)",
+          "reason": "`Op_cat(C)` is the variance guard on the whole family action."
+        },
+        {
+          "line": 289,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat\n        (Op_cat $C)\n        (@hom_con $C $Y $C (@id Cat_cat $C)))",
+          "reason": "exact raw endpoints are the subject-reduction guards."
+        },
+        {
+          "line": 289,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(@sigma_map_obj\n        (Op_cat $C)\n        (@hom_con $C $X $C (@id Cat_cat $C))\n        (@hom_con $C $Y $C (@id Cat_cat $C))\n        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n          $C $C (@id Cat_cat $C) $X $Y $u))\n        $a)",
+          "reason": "exact raw endpoints are the subject-reduction guards."
+        },
+        {
+          "line": 289,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(@sigma_map_obj\n        (Op_cat $C)\n        (@hom_con $C $X $C (@id Cat_cat $C))\n        (@hom_con $C $Y $C (@id Cat_cat $C))\n        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n          $C $C (@id Cat_cat $C) $X $Y $u))\n        (@slice_base_change_obj $C $PB $X $Y $u\n          (@sigma_map_obj\n            (Op_cat $C)\n            (@hom_con $C $X $C (@id Cat_cat $C))\n            (@hom_con $C $Y $C (@id Cat_cat $C))\n            (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n              $C $C (@id Cat_cat $C) $X $Y $u))\n            $a)))",
+          "reason": "exact raw endpoints are the subject-reduction guards."
+        },
+        {
+          "line": 289,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(@sigma_map_obj\n        (Op_cat $C)\n        (@hom_con $C $X $C (@id Cat_cat $C))\n        (@hom_con $C $Y $C (@id Cat_cat $C))\n        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n          $C $C (@id Cat_cat $C) $X $Y $u))\n        $a)",
+          "reason": "exact raw endpoints are the subject-reduction guards."
+        },
+        {
+          "line": 370,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat\n        (Op_cat $C)\n        (@hom_con $C $X $C (@id Cat_cat $C)))",
+          "reason": "exact raw endpoints are the subject-reduction guards."
+        },
+        {
+          "line": 370,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u $b)",
+          "reason": "exact raw endpoints are the subject-reduction guards."
+        },
+        {
+          "line": 370,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u\n        (@sigma_map_obj\n          (Op_cat $C)\n          (@hom_con $C $X $C (@id Cat_cat $C))\n          (@hom_con $C $Y $C (@id Cat_cat $C))\n          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n            $C $C (@id Cat_cat $C) $X $Y $u))\n          (@slice_base_change_obj $C $PB $X $Y $u $b)))",
+          "reason": "exact raw endpoints are the subject-reduction guards."
+        },
+        {
+          "line": 370,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u $b)",
+          "reason": "exact raw endpoints are the subject-reduction guards."
+        },
+        {
+          "line": 417,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat\n        (Op_cat $C)\n        (@hom_con $C $Y $C (@id Cat_cat $C)))",
+          "reason": "exact raw category/middle/final guards prevent endpoint collapse."
+        },
+        {
+          "line": 417,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(@sigma_map_obj\n        (Op_cat $C)\n        (@hom_con $C $X $C (@id Cat_cat $C))\n        (@hom_con $C $Y $C (@id Cat_cat $C))\n        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n          $C $C (@id Cat_cat $C) $X $Y $u))\n        (@slice_base_change_obj $C $PB $X $Y $u\n          (@sigma_map_obj\n            (Op_cat $C)\n            (@hom_con $C $X $C (@id Cat_cat $C))\n            (@hom_con $C $Y $C (@id Cat_cat $C))\n            (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n              $C $C (@id Cat_cat $C) $X $Y $u))\n            $a')))",
+          "reason": "exact raw category/middle/final guards prevent endpoint collapse."
+        },
+        {
+          "line": 417,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(@sigma_map_obj\n        (Op_cat $C)\n        (@hom_con $C $X $C (@id Cat_cat $C))\n        (@hom_con $C $Y $C (@id Cat_cat $C))\n        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n          $C $C (@id Cat_cat $C) $X $Y $u))\n        $a)",
+          "reason": "exact raw category/middle/final guards prevent endpoint collapse."
+        },
+        {
+          "line": 512,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat\n        (Op_cat $C)\n        (@hom_con $C $X $C (@id Cat_cat $C)))",
+          "reason": "exact raw category/source/middle guards retain Y."
+        },
+        {
+          "line": 512,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u $b)",
+          "reason": "exact raw category/source/middle guards retain Y."
+        },
+        {
+          "line": 512,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u\n        (@sigma_map_obj\n          (Op_cat $C)\n          (@hom_con $C $X $C (@id Cat_cat $C))\n          (@hom_con $C $Y $C (@id Cat_cat $C))\n          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n            $C $C (@id Cat_cat $C) $X $Y $u))\n          (@slice_base_change_obj $C $PB $X $Y $u $b')))",
+          "reason": "exact raw category/source/middle guards retain Y."
+        },
+        {
+          "line": 810,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(Hom_cat\n        (@Sigma_cat\n          (Op_cat $C)\n          (@hom_con $C $Y $C (@id Cat_cat $C)))\n        $b\n        (@sigma_map_obj\n          (Op_cat $C)\n          (@hom_con $C $X $C (@id Cat_cat $C))\n          (@hom_con $C $Y $C (@id Cat_cat $C))\n          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n            $C $C (@id Cat_cat $C) $X $Y $f))\n          $a))",
+          "reason": "exact raw Hom-category endpoints retain a and b."
+        },
+        {
+          "line": 810,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(Hom_cat\n        (@Sigma_cat\n          (Op_cat $C)\n          (@hom_con $C $X $C (@id Cat_cat $C)))\n        (@slice_base_change_obj $C $PB $X $Y $f $b)\n        $a)",
+          "reason": "exact raw Hom-category endpoints retain a and b."
+        },
+        {
+          "line": 810,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(Hom_cat\n        (@Sigma_cat\n          (Op_cat $C)\n          (@hom_con $C $Y $C (@id Cat_cat $C)))\n        $b\n        (@sigma_map_obj\n          (Op_cat $C)\n          (@hom_con $C $X $C (@id Cat_cat $C))\n          (@hom_con $C $Y $C (@id Cat_cat $C))\n          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n            $C $C (@id Cat_cat $C) $X $Y $f))\n          $a))",
+          "reason": "exact raw Hom-category endpoints retain a and b."
+        },
+        {
+          "line": 863,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(Hom_cat\n        (@Sigma_cat\n          (Op_cat $C)\n          (@hom_con $C $X $C (@id Cat_cat $C)))\n        (@slice_base_change_obj $C $PB $X $Y $f $b)\n        $a)",
+          "reason": "exact raw Hom-category endpoints retain a and b."
+        },
+        {
+          "line": 863,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(Hom_cat\n        (@Sigma_cat\n          (Op_cat $C)\n          (@hom_con $C $Y $C (@id Cat_cat $C)))\n        $b\n        (@sigma_map_obj\n          (Op_cat $C)\n          (@hom_con $C $X $C (@id Cat_cat $C))\n          (@hom_con $C $Y $C (@id Cat_cat $C))\n          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func\n            $C $C (@id Cat_cat $C) $X $Y $f))\n          $a))",
+          "reason": "exact raw Hom-category endpoints retain a and b."
+        },
+        {
+          "line": 863,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(Hom_cat\n        (@Sigma_cat\n          (Op_cat $C)\n          (@hom_con $C $X $C (@id Cat_cat $C)))\n        (@slice_base_change_obj $C $PB $X $Y $f $b)\n        $a)",
+          "reason": "exact raw Hom-category endpoints retain a and b."
+        }
+      ]
+    },
+    "emdash3_2_slice_dependent_products.lp": {
+      "file": "emdash3_2_slice_dependent_products.lp",
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "candidates": [],
+      "annotated_clauses": 4,
+      "annotated_slots": 14,
+      "annotated": [
+        {
+          "line": 233,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat\n        (Op_cat $C)\n        (@hom_con $C $X $C (@id Cat_cat $C)))",
+          "reason": "raw slice and endpoint guards retain X and Y."
+        },
+        {
+          "line": 233,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u\n        (@slice_dependent_product_obj $C $PB $DP $X $Y $u\n          (@slice_base_change_obj $C $PB $X $Y $u $a')))",
+          "reason": "raw slice and endpoint guards retain X and Y."
+        },
+        {
+          "line": 233,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u $a)",
+          "reason": "raw slice and endpoint guards retain X and Y."
+        },
+        {
+          "line": 282,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat\n        (Op_cat $C)\n        (@hom_con $C $Y $C (@id Cat_cat $C)))",
+          "reason": "raw slice and endpoint guards retain X and Y."
+        },
+        {
+          "line": 282,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(@slice_dependent_product_obj $C $PB $DP $X $Y $u $b)",
+          "reason": "raw slice and endpoint guards retain X and Y."
+        },
+        {
+          "line": 282,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(@slice_dependent_product_obj $C $PB $DP $X $Y $u\n        (@slice_base_change_obj $C $PB $X $Y $u\n          (@slice_dependent_product_obj $C $PB $DP $X $Y $u $b')))",
+          "reason": "raw slice and endpoint guards retain X and Y."
+        },
+        {
+          "line": 331,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat\n        (Op_cat $C)\n        (@hom_con $C $X $C (@id Cat_cat $C)))",
+          "reason": "exact raw endpoints retain the slice indices."
+        },
+        {
+          "line": 331,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u $a)",
+          "reason": "exact raw endpoints retain the slice indices."
+        },
+        {
+          "line": 331,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u\n        (@slice_dependent_product_obj $C $PB $DP $X $Y $u\n          (@slice_base_change_obj $C $PB $X $Y $u $a)))",
+          "reason": "exact raw endpoints retain the slice indices."
+        },
+        {
+          "line": 331,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(@slice_base_change_obj $C $PB $X $Y $u $a)",
+          "reason": "exact raw endpoints retain the slice indices."
+        },
+        {
+          "line": 370,
+          "head": "comp_fapp0",
+          "slot": 1,
+          "argument": "(@Sigma_cat\n        (Op_cat $C)\n        (@hom_con $C $Y $C (@id Cat_cat $C)))",
+          "reason": "exact raw endpoints retain the slice indices."
+        },
+        {
+          "line": 370,
+          "head": "comp_fapp0",
+          "slot": 2,
+          "argument": "(@slice_dependent_product_obj $C $PB $DP $X $Y $u $b)",
+          "reason": "exact raw endpoints retain the slice indices."
+        },
+        {
+          "line": 370,
+          "head": "comp_fapp0",
+          "slot": 3,
+          "argument": "(@slice_dependent_product_obj $C $PB $DP $X $Y $u\n        (@slice_base_change_obj $C $PB $X $Y $u\n          (@slice_dependent_product_obj $C $PB $DP $X $Y $u $b)))",
+          "reason": "exact raw endpoints retain the slice indices."
+        },
+        {
+          "line": 370,
+          "head": "comp_fapp0",
+          "slot": 4,
+          "argument": "(@slice_dependent_product_obj $C $PB $DP $X $Y $u $b)",
+          "reason": "exact raw endpoints retain the slice indices."
+        }
+      ]
+    }
+  },
+  "resourceReview": {
+    "headroomBeforeCombinedMiB": 17261,
+    "headroomBeforeNativeMiB": 17221,
+    "normalDefaultsChanged": false,
+    "installedCheckerUsedForFinalChecks": true,
+    "combinedProfile": "180s/6144MiB/o=20",
+    "nativeProfile": "300s/8192MiB/o=10",
+    "safeguards": "SR, warnings, serial execution, file/core limits and no swap retained"
+  },
+  "qualificationLimits": [
+    "Older core-dependent receipts remain historical unless refreshed at matching input hashes.",
+    "The new central-import assertion body is not qualified by these focused reviewers.",
+    "No global normalization, confluence, performance or semantic consistency certificate is claimed.",
+    "The isolated checker-memory patch remains unadopted."
+  ],
+  "next": "Run the central diagnostic at the current full dependency snapshot, migrate its original assertions, finish registered consumers and redundant wrapper/instance retirement, then production promotion and final catalogue/health/CI/source-pin gates."
+}

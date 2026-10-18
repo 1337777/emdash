@@ -311,3 +311,28 @@ The matched pre-goal run is still cheaper at 14.319s/1077.8MiB; this is a local
 repair, not a general performance qualification. Exact receipts and discarded
 variants are in the linked verification. Preserve this distinction from the
 separate checker-state retention issue.
+
+## Capped-action result and slice endpoint follow-through, 2026-10-18
+
+The [final-import review](production_final_imports_review.md) records an
+inference/normalization issue rather than another missing comparison equation.
+After correcting the slice family's higher variance, readable Hom aliases
+could be inverted before the opposite-Hom computation. Owner-position SR and
+runtime observations exposed spurious endpoint constraints and a mate identity
+that lost its independent endpoint. Canonical Hom types at the affected
+rectangle/mate declarations, together with a canonical result type for the
+existing generic capped functor action, restore the original observations.
+
+The generic input stays Hom(A,x,y): canonicalizing that too erased information
+needed to infer a dual domain in an existing arrow-diagram consumer. The final
+result-only change passes the complete core/Homd, combined library and larger
+native-universality regressions. Removing the local canonical types failed SR;
+that attempted simplification is not retained.
+
+No core rule text or rule count changes in this step. The changed type affects
+elaborated overlap presentations: 34 newly printed and 457 removed bodies,
+with 24 added Core-inclusion-composition overlaps, six product-projection
+identity overlaps and four path-record symmetry/reflexivity overlaps. The
+verification preserves their exact rule identities and log hashes. The
+redundant named strict-instance family belongs to the already required
+retirement review; counts are not a proof of confluence or a performance result.
