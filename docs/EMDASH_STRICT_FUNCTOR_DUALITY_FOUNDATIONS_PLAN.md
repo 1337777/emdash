@@ -38,6 +38,31 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+In flight after `6d2b3771`: adapt the original zero-column universality
+construction to the native diagram profile. The candidate adds two defined
+native presentation-evidence views using the existing modification,
+arrow-family comparison and reconstruction evidence; it retains the original
+J/F/e/h and inverse data. The four zero-column/mate definitions keep their
+original composition bodies, with native profiles and the selected total-dual
+initial-object input. No new structural witness or comparison rule is planned.
+
+Resumption review at `6d2b3771`: the latest uncommitted zero-column reviewer
+still fails (`20261018T195406Z-6d1fe64ac19141de99dd5f08dd367a0d`). Its remaining
+constraints include ordinary versus native diagram-category inputs; this is
+not grounds for identifying those classifiers with a new unifier. The current
+source changes remain unqualified and outside the documentation checkpoint.
+
+The [normalization follow-through](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#follow-through-at-6d2b3771)
+reaffirms the pre-promotion gates after inspecting the actual pre-goal
+pre/postcomposition owners and the selected local corrections. The original
+matched receipts and immutable inputs were reverified. The evaluation cuts
+replace comparison patches; the fixed-column signature correction avoids a
+broader unifier. Neither establishes a general performance fix. Before adding
+another comparison in these families, inspect canonical endpoint types and
+existing projection computation. Remaining composition, higher Sigma
+projection and identity/duality debt must stay explicit; optional broader
+redesign remains deferred.
+
 Native transposition after `99eed0bb`, 2026-10-18: the
 [review](../emdash2/audits/strict-default-action-boundary/production_native_transpose_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_native_transpose_verification.json)

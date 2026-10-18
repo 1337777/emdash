@@ -184,3 +184,42 @@ case-specific bridges in the identified families should trigger this local
 consolidation review. Larger alternatives may be documented and deferred;
 a demonstrably broken required runtime projection cannot be deferred while
 claiming that projection complete.
+
+## Follow-through at `6d2b3771`
+
+The matched measurements above remain measurements of `5d2618fb`, not of
+every later checkpoint. On review, all four receipts, their log hashes and
+their immutable input blobs were reverified, including matching checker and
+resource/GC settings within each pair. No expensive rerun was needed for
+this documentation review.
+
+Two subsequent slices provide concrete guidance for this migration:
+
+- `99eed0bb` replaces three expanded comparisons with four computations at
+  existing evaluation and walking-arrow owners, without introducing a new
+  primitive. The [mapping review](production_mapping_normalization_review.md)
+  records the actual runtime improvement and retained higher consumers.
+  Its timing measurements do **not** establish a speedup.
+- `6d2b3771` rejects a broader precomposition unifier. Selecting the existing
+  covariant composition accessor for a fixed-index column instead exposes
+  the required endpoint computation. The [transpose review](production_native_transpose_review.md)
+  records why the broader comparison was insufficient and was removed.
+
+Consequently, investigate the declared endpoint forms and the existing
+projection routes before adding another equation between surviving stable
+heads. A stable head is useful when its eliminations retain the operation's
+whole and higher action or its inverse cuts. A head that only names an
+expanded term, or a typed-reflexivity view that substitutes for required
+runtime action, needs correction or an explicitly incomplete contract.
+The primitive-expansion scan above is only a syntactic filter; it does not
+settle that distinction for every declaration.
+
+The remaining priority is local consolidation of composition presentations,
+the Sigma constant-target higher projection contract, and identity/duality
+joins. Retain proof-time associativity and genuine presentation comparisons
+where intended; do not equate a smaller unifier count with a normalization
+theorem. For any selected correction, compare the same whole consumer and
+input closure, record allocation and peak memory as well as time, and avoid
+combining that correction with an optional foundational redesign. The staged
+Homd computations support feasibility, but production computational usability
+and a satisfactory normalization policy remain unqualified.
