@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original central consumers through displayed products/evaluation, dependent chains and indexed adjunction duality qualified in bounded drivers; remaining diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original central monad/comonad, internal-action and PathOut/transitivity consumers qualified in bounded drivers; intrinsic-Homd and later central diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,56 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `a93edce4`, 2026-10-19 UTC: the
+[monad/action/PathOut verification](../emdash2/audits/strict-default-action-boundary/production_central_monads_actions_verification.json)
+qualifies three more complete original central sections. No mathematical
+source, primitive, rewrite or unification rule changes in this tranche.
+
+Monad/comonad observations use the already qualified total-duality owner.
+The whole coextension comparison includes its existing outer TotalOp_func,
+and the two adjunction-induced observations state their actual FG index.
+The old dimension-one annotation failed by demanding R(A)=A. Units,
+multiplication, coextension, whole Hom action, triangular computations and
+all six original negative controls now pass against the unchanged owner.
+
+Profunctor swapping retains its original endpoint convention, maps and
+reindexing; its observations name Cat_cart. Ordinary internal action uses
+the existing hom_int_view inclusion. Eight obsolete negatives become
+positives under the installed default laws: three conventional pre/right
+transfor observations and five strict functor observations. The post/left
+laxness negatives remain. Two legacy mixed stable-cut negatives and their
+StrictFunctor instances still record a runtime normalization boundary pending
+wrapper retirement; their comments no longer claim mathematical failure of
+functoriality. This boundary must not be mistaken for a completed retirement.
+
+Profiled interchange observes the same canonical Hom action through its
+ambient transfor head and retains the original profile premises. Fixed-x
+PathInd still accepts the ordinary motive category. The moving-x component
+is explicitly the restriction of that fixed-x theorem along
+Functor_cart_include; it is not identified with the unrestricted whole map.
+All original point, weakening, transitivity and Sigma-total consumers remain.
+The old Homd target fibre observation uses T(Homd_target_section_cat(E,x)),
+matching the actual whole corrected target, rather than restoring the retired
+Pi-based family. No operational equality payload or new supplied witness is
+introduced.
+
+Installed-checker runs pass monads 54/6 in 29.381s, ordinary internal action
+39/5 in 38.149s, and interchange/PathOut 29/1 in 32.969s, with SR and warnings.
+Peak child RSS is respectively 1597.8, 2023.0 and 1871.9MiB under explicit
+4GiB/o=20 profiles (180s, 180s and the existing 300s interchange profile).
+Core/Homd 287/85, earlier central 823/161 and displayed consumers 82/11 carry
+after exact input rehashing. The full central source retains all tails and
+66 declarations, now with 2141 positives/292 negatives after the eight
+contract-driven polarity changes. Full imported-suite qualification and
+production promotion remain open; these are bounded consumer results.
+
+Next continue at the original Fibre_transf_app/tdapp1_int intrinsic-Homd
+projection block following PathOut. Use the corrected whole root and
+target-map composition types, not the retired Op_catd(FF) expression for a
+general lax FF. Then continue the remaining central/registered consumers,
+wrapper retirement, normalization/performance and final promotion gates.
+The separate application goal remains paused.
 
 Continuation after `d61994d4`, 2026-10-19 UTC: the
 [displayed-consumer verification](../emdash2/audits/strict-default-action-boundary/production_central_displayed_verification.json)

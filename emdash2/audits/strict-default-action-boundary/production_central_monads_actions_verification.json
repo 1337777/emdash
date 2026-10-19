@@ -1,0 +1,358 @@
+{
+  "status": "Original central monad/comonad, profunctor/internal-action, profiled interchange and PathOut/transitivity consumers qualified in bounded drivers; complete central and production promotion remain open.",
+  "predecessor": "a93edce4d01fdac3a109b442aa0cbcde221cbe72",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "production_owner_migration.py": "401d406e90914336dc1b42094f57707b95ab9c251f1e73892203f21673a85c7a"
+  },
+  "manifestSha256": "9c936974776230af4e4cc44c29d6c263878fcc182afa0485982dfcdeae78438b",
+  "contracts": [
+    "Monad/comonad observations use the existing total-duality owner, outer TotalOp_func on whole coextension and explicit original FG indices on the two adjunction-induced observations.",
+    "Profunctor swapping retains its original convention, maps and reindexing, with Cat_cart coefficients.",
+    "Ordinary intrinsic action observes the canonical Hom packages through hom_int_view and retains general lax transformations.",
+    "Eight old negative assertions become positive under already installed rules: three conventional pre/right action observations and five strict functor observations. Post/left laxness negatives remain.",
+    "Two legacy mixed stable-cut negatives and their StrictFunctor instances remain runtime boundaries pending wrapper/normalization retirement, not mathematical non-functoriality claims.",
+    "Profiled interchange retains all original profile assumptions and uses the existing ambient hom_postcomp_tele_transf observation.",
+    "Fixed-source PathInd keeps the ordinary motive category. The moving-source component is observed as restriction along Functor_cart_include, followed by the existing fixed-source PathInd.",
+    "The old Homd target fibre observation now uses Op_cat(Homd_target_section_cat(E,x)); the retired Pi-based target is not restored.",
+    "All original transitivity and Sigma-total PathInd observations retain their whole terms and point computations; no operational proof parameters are introduced."
+  ],
+  "coreAndLibraryMutation": "None. Mathematical source/dependency inputs are unchanged; only original central diagnostic types/observations and their authoring/replay inventory are migrated.",
+  "assertionInventory": {
+    "central_monads_controls.lp": {
+      "positive": 54,
+      "negative": 6,
+      "declarations": 0
+    },
+    "central_internal_action_controls.lp": {
+      "positive": 39,
+      "negative": 5,
+      "declarations": 0
+    },
+    "central_path_induction_controls.lp": {
+      "positive": 29,
+      "negative": 1,
+      "declarations": 0
+    },
+    "emdash3_2_checks.lp": {
+      "positive": 2141,
+      "negative": 292,
+      "declarations": 66
+    }
+  },
+  "freshChecks": {
+    "monads": {
+      "outcome": "passed-fresh",
+      "target": "central_monads_controls.lp",
+      "wallSeconds": 29.381016172934324,
+      "childrenMaxRssKiB": 1636112,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "central_monads_controls.lp": "9cf1eb40e4813b0524910414c245218d0813df075cd10dc6122653efcb38ee33",
+        "emdash3_2.lp": "d7b4636afbdf4f6930cfb697d5486048251b768ffa8bf2b00439cf4d60d41c47",
+        "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "df0f0dd0162c72081d845d9edd4c416b537c8667be477fca196ffcddecd85d8e",
+      "receipt": "logs/check-runs/20261019T020801Z-45c90990632445d08b34435111bd9819.json",
+      "receiptSha256": "98e9a3b2521960f565199d3625d6cb586717a875e99f63ad45f549847bb884e3",
+      "currentInputHashesVerified": true
+    },
+    "internalAction": {
+      "outcome": "passed-fresh",
+      "target": "central_internal_action_controls.lp",
+      "wallSeconds": 38.14870951802004,
+      "childrenMaxRssKiB": 2071504,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "central_internal_action_controls.lp": "0f4287bd29edf654e325db252ac2f71ff421af39d5d2f64ee008b7cb0d9cd706",
+        "emdash3_2.lp": "d7b4636afbdf4f6930cfb697d5486048251b768ffa8bf2b00439cf4d60d41c47",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "451c8b93f1c31259f7bb2c572503dab878f409548a820be382d93a1a2c4d2f44",
+      "receipt": "logs/check-runs/20261019T021150Z-69dae8a66df74e7e89baa24262787a45.json",
+      "receiptSha256": "6a64a1c935583a9193574ae54e28cdce7bf32ca59ae2dccb31c7e887d5a21280",
+      "currentInputHashesVerified": true
+    },
+    "pathInduction": {
+      "outcome": "passed-fresh",
+      "target": "central_path_induction_controls.lp",
+      "wallSeconds": 32.96865002706181,
+      "childrenMaxRssKiB": 1916872,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "central_path_induction_controls.lp": "dfe5423cea3087389828e10cf3d8c73910a1b6347f1fbeb08553cba774f24330",
+        "emdash3_2.lp": "d7b4636afbdf4f6930cfb697d5486048251b768ffa8bf2b00439cf4d60d41c47",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+        "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "cee04530b91e328472d57b41838ea75f9422ba031244b03c658e40ce8e0b0b30",
+      "receipt": "logs/check-runs/20261019T021722Z-fd006cea5c5b4b1e9dc43a130d11c2b8.json",
+      "receiptSha256": "9f21862644190edc7b0d8d80b52ed2dfbeed1e19275776f6d6ea12d24186b394",
+      "currentInputHashesVerified": true
+    }
+  },
+  "carriedAfterExactRehash": {
+    "coreHomd": {
+      "outcome": "passed-fresh",
+      "target": "join_recursion_controls.lp",
+      "wallSeconds": 29.71973146207165,
+      "childrenMaxRssKiB": 1629692,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "join_recursion_controls.lp": "584f54b6bcdb430d80ef1a8ac08e3156e6dd75daef6f07590a1fcea2a5d32151",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "cbda934bc848de9895bbd6dd4937d238e678c64eb4d691f8d1d1dbbd5c118a2b",
+      "receipt": "logs/check-runs/20261019T014648Z-462ffa2be8bb4cd09b14409795d251a6.json",
+      "receiptSha256": "2e13a32f69b28b2b09864ee0a219ce2dd795a5017b9006ad14dc5dbb13d27c28",
+      "currentInputHashesVerified": true
+    },
+    "centralEarlyAndHom": {
+      "outcome": "passed-fresh",
+      "target": "central_owner_regression.lp",
+      "wallSeconds": 37.20704648294486,
+      "childrenMaxRssKiB": 2119180,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "central_early_controls.lp": "7a60d226ef64151c7a5e6201145b159bcc078d48e2436eadebaee78deb3fcbaa",
+        "central_hom_action_controls.lp": "58e623adfd7bd4cfcf9ae7d784be23802fe931694a01e90f1ff6a2132e4c1ddd",
+        "central_owner_regression.lp": "e8bb2fded42b8197a0f904f6cb88ee3481aba53dad4c9cae07e962eff97a69c9",
+        "emdash3_2.lp": "d7b4636afbdf4f6930cfb697d5486048251b768ffa8bf2b00439cf4d60d41c47",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "e5651247ff36a09d4116c078dc4761cca243d814235b30e23fca5fe9fc22bdb7",
+      "receipt": "logs/check-runs/20261019T014604Z-3968985a9e6341eb8353aa3114a8aa72.json",
+      "receiptSha256": "4600e478b173b0336d122f06ad252309892d31dad71e3c81107ae1f7c34e09a5",
+      "currentInputHashesVerified": true
+    },
+    "centralDisplayed": {
+      "outcome": "passed-fresh",
+      "target": "central_displayed_regression.lp",
+      "wallSeconds": 26.595040568034165,
+      "childrenMaxRssKiB": 1542808,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "central_displayed_chain_controls.lp": "ac37e214f2bd3b0ff5aa99faee07ca0a68d5bcd70b1eb8c1e93cf29459391092",
+        "central_displayed_evaluation_controls.lp": "469074851e939b5a6934d1c6b432f2cdc3022055085db9bb58fdecaedc0d5f3b",
+        "central_displayed_products_controls.lp": "a6f93aa617a473717be7707a48dc20e1e7581db3cb2a42cb541312be5ec57cd6",
+        "central_displayed_regression.lp": "b6a7be4403e8bce0e2edbd56130202b5596dbded7697edcf88511e8b0bdfd47d",
+        "central_evaluation_adjunction_controls.lp": "af6ceea6b3b64883b657d69e3f692831ccaff0af24bf9a4e4d34fcd16a68fb95",
+        "emdash3_2.lp": "d7b4636afbdf4f6930cfb697d5486048251b768ffa8bf2b00439cf4d60d41c47",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "f0f4c026544e06fa3d3109d6f99a5f1aaf71050b86730407b96ae90bacc18d4e",
+      "receipt": "logs/check-runs/20261019T020232Z-2169366814b84279bfaab05a7652e249.json",
+      "receiptSha256": "74402d5a6a27edea9e111a974bc23770980c889b8f8bfdd518ded3f4bb8b4554",
+      "currentInputHashesVerified": true
+    }
+  },
+  "baselineFailure": {
+    "outcome": "failed",
+    "target": "central_monads_baseline.lp",
+    "wallSeconds": 28.553150305058807,
+    "childrenMaxRssKiB": 1635360,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 4096,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "central_monads_baseline.lp": "227662c1bbdffb11672ceae4d66f0c214052ce53bb510c7da86a2537e8ac8262",
+      "emdash3_2.lp": "d7b4636afbdf4f6930cfb697d5486048251b768ffa8bf2b00439cf4d60d41c47",
+      "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "logSha256": "cfbace42bf5d0d21e967ee71155fa35a3738feff70457e7d8ba2349a52e1e4c9",
+    "receipt": "logs/check-runs/20261019T020607Z-411d5c93fa9e494dbdcca68da3d5ffed.json",
+    "receiptSha256": "d64ac1dc371a2a3d1fc6c5391c5a1c5ba3a3343bdc99875f9d3f82f9ba500fd8",
+    "currentInputHashesVerified": false
+  },
+  "baselineFinding": "Old Comonad(T(A),T(T)) expected one-dimensional reversal where the current owner requires total reversal; it demanded CoAbove2_cat(A)=A. The corrected central observations pass without changing the owner.",
+  "warningBoundary": "No mathematical source or rule is added/edited in this tranche. Raw warning streams are retained by exact log hash; unchanged core/LHS qualification carries by exact input rehash. No claim of confluence or improved performance.",
+  "limits": [
+    "The full imported central suite is not yet qualified. These drivers retain complete selected original sections and do not replace the complete source.",
+    "2141 positive and 292 negative central assertions retain all original tails and 66 declarations; the eight polarity changes implement the selected default contract.",
+    "Wrapper retirement, normalization/performance, remaining registered consumers and final promotion/catalogue/health/CI/source-pin gates remain required."
+  ],
+  "next": "Continue at the original Fibre_transf_app/tdapp1_int intrinsic-Homd projection block after PathOut, using the corrected root and target-map types rather than the retired Op_catd(FF) contract."
+}

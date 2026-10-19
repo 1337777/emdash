@@ -3602,6 +3602,127 @@ assert [C : Cat] [x y z : τ (Obj C)]
                                 'owner': 'original indexed adjunction and ambient transfor duality observations',
                                 'reason': 'Use the existing total reversal on general lax unit/counit transformations and its actual post/left off-diagonal boundary; retain triangle computations and adjunction data, and add the old-middle noncollapse control',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Monad/Kleisli computation and opposite-derived comonads.')
+                end = text.index('// catalog-area: auto', start)
+                old = text[start:end]
+                section = re.sub(r'\bOp_(cat|func|transf)\b', r'TotalOp_\1', old)
+                whole_dual = '(@kleisli_extend_func\n        (TotalOp_cat A) (@TotalOp_func A A D) C Y X)'
+                assert section.count(whole_dual) == 1
+                section = section.replace(whole_dual,
+                    '(@TotalOp_func\n'
+                    '        (TotalOp_cat (Hom_cat A (@fapp0 A A D X) Y))\n'
+                    '        (TotalOp_cat (Hom_cat A (@fapp0 A A D X) (@fapp0 A A D Y)))\n'
+                    '        (@kleisli_extend_func\n'
+                    '          (TotalOp_cat A) (@TotalOp_func A A D) C Y X))')
+                for observation in ('counit_comonad_transf', 'comult_comonad_transf'):
+                    old_view = observation + ' (adjunction_comonad J)'
+                    assert section.count(old_view) == 1
+                    section = section.replace(old_view, '@' + observation
+                        + ' L (@comp_cat_fapp0 L R L F G) (@adjunction_comonad R L F G J)')
+                section = section.replace('Monad evidence is definitionally Comonad evidence after one opposite.',
+                    'Monad evidence is definitionally Comonad evidence after total reversal.')
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/monad-comonad-observations',
+                                'owner': 'original monad, Kleisli, dual comonad and adjunction-induced computation diagnostics',
+                                'reason': 'Match the already qualified total-duality owner, restore the whole coextension Hom categories with TotalOp_func, and retain the two actual FG indices; preserve every original assertion',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// catalog-area: auto', text.index('// Monad/Kleisli computation and opposite-derived comonads.'))
+                end = text.index('// Pre-configured four-cell interchange', start)
+                old = text[start:end]
+                hom_start = old.index('assert [A B : Cat] (F : τ (Functor A B)) (X : τ (Obj A)) ⊢')
+                action_start = old.index('assertnot [A B : Cat] (F G : τ (Functor A B))', hom_start)
+                prof = old[:hom_start]
+                hom = old[hom_start:action_start]
+                assert prof.count('Cat_cat') == 5
+                assert hom.count('Cat_cat') == 5 and hom.count('@hom_int ') == 4
+                prof = prof.replace('Cat_cat', 'Cat_cart')
+                hom = hom.replace('Cat_cat', 'Cat_cart').replace('@hom_int ', '@hom_int_view ')
+                actions = old[action_start:]
+                pre_count, functor_count = 0, 0
+                for match in reversed(list(re.finditer(r'(?m)^assertnot\b.*?;', actions, re.S))):
+                    block = match.group()
+                    pre = ('(@hom_precomp_along_func A B F (@fapp0 A B G Y)' in block
+                           and 'τ (Transf F G)' in block) or (
+                           '(@tapp1_fapp0 A B F G X Y ϵ f)' in block
+                           and '(@fapp1_fapp0 A B F X0 X g)' in block)
+                    functor = '(F : τ (Functor A B))' in block and (
+                        '@fapp1_func' in block or (
+                            '(@fapp1_fapp0 A B F Y Z g)' in block and '@hom_' not in block))
+                    if pre or functor:
+                        pre_count += bool(pre)
+                        functor_count += bool(functor)
+                        actions = actions[:match.start()] + block.replace('assertnot', 'assert', 1) + actions[match.end():]
+                assert (pre_count, functor_count) == (3, 5), (pre_count, functor_count)
+                actions = actions.replace('Whole pre/right naturality is no longer strict for an ambient transfor.',
+                    'The conventional-lax pre/right leg computes for every ambient transfor.')
+                actions = actions.replace('Whole post/left accumulation no longer collapses for an ambient functor.',
+                    'Whole post/left accumulation computes for the strict public functor default.')
+                actions = actions.replace('Whole pre/right accumulation likewise retains the ambient lax endpoint.',
+                    'Whole pre/right accumulation also computes for the strict public functor default.')
+                actions = actions.replace('Capped composition is not silently strict for an ambient functor.',
+                    'Capped composition is part of the strict public functor contract.')
+                actions = actions.replace('Generic accumulation stays distinct; the actual strict view computes.',
+                    'The legacy stable-cut normalization boundary remains pending wrapper retirement;\n'
+                    '// these runtime observations do not assert mathematical non-functoriality.')
+                section = prof + hom + actions
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/ordinary-internal-action',
+                                'owner': 'original profunctor swap, internal Hom action and strict/conventional-lax laws',
+                                'reason': 'Use the actual Cat_cart profunctor coefficient and ambient Hom views; replace eight obsolete negatives by the selected strict-functor/pre-right positives while retaining post/left laxness and separate stable-cut controls',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Pre-configured four-cell interchange')
+                intrinsic = text.index('  @Fibre_transf_app\n    K\n    (@Op_catd K E)', start)
+                end = text.rfind('assert [', start, intrinsic)
+                old = text[start:end]
+                assert old.count('Cat_cat') == 31
+                assert old.count('@hom_postcomp_tele_fapp1_fapp0') == 8
+                section = old.replace('Cat_cat', 'Cat_cart')
+                section = section.replace('@hom_postcomp_tele_fapp1_fapp0', '@hom_postcomp_tele_transf')
+                old_target = 'Pi_cat (@Homd_target_section_catd Z E x)'
+                assert section.count(old_target) == 1
+                section = section.replace(old_target, 'Op_cat (@Homd_target_section_cat Z E x)')
+                old_covariance = '≡ @fib_cov_transf Z D x u;'
+                assert section.count(old_covariance) == 1
+                section = section.replace(old_covariance,
+                    '≡ @strict_transfor _ _ _ _ (@fib_cov_transf Z D x u);')
+                # Moving-x path induction restricts motive maps through the
+                # existing Cartesian inclusion; fixed-x induction stays raw.
+                for match in reversed(list(re.finditer(r'(?m)^assert\b.*?;', section, re.S))):
+                    block = match.group()
+                    if '@PathInd_transfd' in block:
+                        block = re.sub(r'\(@Catd_cat \(@PathOut_cat Z x\)\)\s+Cat_cart\s+'
+                            r'\(@PathInd_src_catd Z x\)\s+\(@PathInd_tgt_catd Z x\)',
+                            '_ Cat_cart _ _', block)
+                        if block.split('⊢', 1)[1].strip().startswith('@tdapp0_fapp0'):
+                            telescope, equation = block.split('⊢', 1)
+                            left, right = equation.split('≡', 1)
+                            assert right.strip() == '@PathInd_func Z x;'
+                            block = telescope + '⊢\n  @strict_transfor _ _ _ _ (' + left.strip() + ')\n'
+                            block += '''  ≡ fapp0
+      (@comp_cat_con_fapp1_func
+        (Functor_cart_cat (@PathOut_cat Z x) Cat_cart)
+        (Catd_cat (@PathOut_cat Z x)) Cat_cart
+        (Functor_cart_include (@PathOut_cat Z x) Cat_cart)
+        (@PathInd_src_catd Z x) (@PathInd_tgt_catd Z x))
+      (@PathInd_func Z x);'''
+                            section = section[:match.start()] + block + section[match.end():]
+                            continue
+                    starts = [m.start() for m in re.finditer(r'\(@tdapp0_fapp0\b', block)]
+                    for first in reversed(starts):
+                        depth = 0
+                        for last in range(first, len(block)):
+                            depth += (block[last] == '(') - (block[last] == ')')
+                            if depth == 0:
+                                break
+                        assert depth == 0
+                        term = block[first:last + 1]
+                        block = block[:first] + '(@strict_transfor _ _ _ _ ' + term + ')' + block[last + 1:]
+                    section = section[:match.start()] + block + section[match.end():]
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/interchange-and-path-induction',
+                                'owner': 'original profiled interchange, fixed/moving PathOut induction and transitivity diagnostics',
+                                'reason': 'Use existing ambient Hom observations and the selected coefficient; retain fixed-x induction and every transitivity consumer, while explicitly observing the moving-x motive restriction and the corrected transposed Homd section target',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -4837,7 +4958,7 @@ assert [C : Cat] [x y z : τ (Obj C)]
                         'reason': 'Integrate the exact previously adapted original section from its focused reviewer, without omitting assertions or changing its scope',
                         'oldBodySha256': sha(previous), 'newBodySha256': sha(replacement)})
     represented_coefficient = r'Cat_cat(\s+)(\(@(?:hom_|hom_con|Rep_catd)\b)'
-    assert len(list(re.finditer(represented_coefficient, central))) == 32
+    assert len(list(re.finditer(represented_coefficient, central))) == 20
     before_represented_tags = central
     central = re.sub(represented_coefficient, r'Cat_cart\1\2', central)
     changes.append({'source': 'emdash3_2_checks.lp',
@@ -4879,6 +5000,19 @@ assert [C : Cat] [x y z : τ (Obj C)]
     (package / 'central_evaluation_adjunction_controls.lp').write_text(
         'require open emdash.emdash3_2;\n'
         + central[displayed_chain_end:ordinary_adjunction_end])
+    monads_end = central.index('// catalog-area: auto', ordinary_adjunction_end)
+    (package / 'central_monads_controls.lp').write_text(
+        'require open emdash.emdash3_2_monads;\n'
+        + central[ordinary_adjunction_end:monads_end])
+    ordinary_action_end = central.index('// Pre-configured four-cell interchange', monads_end)
+    (package / 'central_internal_action_controls.lp').write_text(
+        'require open emdash.emdash3_2_strict_functor_actions;\n'
+        + central[monads_end:ordinary_action_end])
+    intrinsic_start = central.index('  @Fibre_transf_app\n    K\n    (@Op_catd K E)', ordinary_action_end)
+    path_induction_end = central.rfind('assert [', ordinary_action_end, intrinsic_start)
+    (package / 'central_path_induction_controls.lp').write_text(
+        'require open emdash.emdash3_2_profiled_interchange;\n'
+        + central[ordinary_action_end:path_induction_end])
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -5374,6 +5508,9 @@ assert [C : Cat] [x y z : τ (Obj C)]
                               package / 'central_displayed_evaluation_controls.lp',
                               package / 'central_displayed_chain_controls.lp',
                               package / 'central_evaluation_adjunction_controls.lp',
+                              package / 'central_monads_controls.lp',
+                              package / 'central_internal_action_controls.lp',
+                              package / 'central_path_induction_controls.lp',
                               package / 'central_displayed_regression.lp',
                               package / 'central_hom_action_controls.lp',
                               package / 'central_owner_regression.lp',
