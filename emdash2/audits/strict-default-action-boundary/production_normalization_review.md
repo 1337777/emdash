@@ -454,3 +454,50 @@ are retained. The concrete projection, inclusion and naturality consumers
 pass; complete symbolic joins remain a normalization-review obligation.
 The constructor-only variant's whole-naturality peak is absent from the
 selected source. No broad eta or new case-specific unification bridge is added.
+
+## PathOut motive consumers after `81e68dee`
+
+This tranche returns to a later block of the original diagnostics, not to
+the PathOut construction itself. The earlier source migration and
+PathInd/transitivity checks remain. The new block observes the moving motive
+classifier, reindexing, reflexive evaluation, Pi and covariance. Its old
+Cat_cat annotations were incompatible with the already selected Cat_cart
+coefficient; moving motive maps use Cartesian Homs, while fixed-source
+evaluation and Pi still accept ordinary lax maps through their existing
+inclusion.
+
+After those type corrections, the original moving-motive fibre computation
+still failed. A normal-form trace identified
+hom_precomp_along_fapp0 with a Cat_cart coefficient under fapp0. The existing
+precomposition evaluator had object, whole-Hom and capped projections for
+Cat_cat only. The correction instantiates that same ladder at Cat_cart,
+at the same owner. It adds three runtime rules and no unifier or primitive.
+It does not unfold the whole stable Hom head or fold a large expression
+into an ad hoc PathOut helper. Outer inferred evaluator arguments remain
+underscores; the original actual family, arrow and postfunctor are retained.
+
+The pre-goal varying-base Catd fold exposed the raw pullback functor directly.
+That whole fold cannot be copied to the corrected Cartesian parameter
+category: it would identify its strict maps with the larger lax-map category.
+The two whole family presentations therefore use the existing proof-time
+comparison. The diagnostic now checks it by typed reflexivity and separately
+rejects runtime conversion. This is an explicit change to that observation,
+not a claim that its former runtime equation was preserved. Object transport,
+whole Hom action and capped arrow action still compute to the original
+pullback observations. The large existing Sigma-composition expression and
+its identity-fibre proof are retained unchanged.
+
+The [verification](production_central_pathout_motives_verification.json)
+records all 36 original assertions plus two higher-action comparisons and
+one stable-head boundary. Fresh installed-checker core/Homd, merged central
+and library checks pass, with exact input hashes, SR and resource containment.
+The library still uses about 4.3GiB; differing single-run times are not evidence
+of a normalization improvement. The LHS scan reports no unreviewed candidates,
+and the actual core diff is only the coefficient evaluator instance.
+
+Warnings grow from 1570 to 1572. The two added bodies are byte-for-byte the
+existing Cat_cat product-projection/evaluator bodies after substituting
+Cat_cart. Their exact bodies and hashes are recorded. These are reviewed
+symbolic overlaps, not newly proved joins. They remain in the required
+normalization work with the six earlier product-profile peaks; no additional
+commuting conversion or comparison rule is installed to hide them.

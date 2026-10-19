@@ -278,9 +278,13 @@ unif_rule @hom_precomp_along_fapp0 $A $A (@id Cat_cat $A) $Z $W $X $h $g
 
     insert('/*\n  The former capped composition cut and detached all-components law are\n',
            fragment('composition_rule.lpfragment'), 'Strict default: existing capped functor action owner')
+    precomposition_actions = fragment('production_cat_precomposition_actions.lpfragment')
     insert('// Hom-action functoriality for precomposition. The composition orientation is',
-           fragment('production_cat_precomposition_actions.lpfragment'),
-           'Cat-valued precomposition evaluator: same composed-functor projection outline as postcomposition, retaining the whole precomposition owner and its next Hom action')
+           precomposition_actions + '\n'
+           + '// The same projection ladder for the selected Cartesian coefficient.\n'
+           + '// Cat_cart and public Cat_cat share functor objects; their higher maps differ.\n'
+           + precomposition_actions.replace('Cat_cat', 'Cat_cart'),
+           'Cat-valued precomposition evaluator at both actual coefficient universes: preserve the whole owner and its object/whole-Hom/capped projections, without a whole semantic fold')
     insert('/*\n  The former whole post/left and pre/right strict-functoriality accumulation\n',
            fragment('whole_rules.lpfragment') + '\n' + fragment('projected_rules.lpfragment')
            + '\n' + fragment('conventional_lax_projection_readings.lpfragment')
@@ -4129,6 +4133,64 @@ assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
                                 'owner': 'original Functor_catd, Hom_catd and Transf_catd formation/fibre observations',
                                 'reason': 'Use Cartesian fibre-Homs and the actual total-dual negative sections over R(K), including the existing total-dual constant-family conversion; preserve all six original observations',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start_marker = 'assert [Z : Cat] (x y : τ (Obj Z)) ⊢\n  Fibre_cat (@Rep_catd Z x) y'
+                end_marker = 'assert [Z : Cat] (x : τ (Obj (Op_cat Z))) (y : τ (Obj Z)) ⊢'
+                assert text.count(start_marker) == 1
+                start = text.index(start_marker)
+                end = text.index(end_marker, start)
+                old = text[start:end]
+                assert old.count('Cat_cat') == 13
+                section = old.replace('Cat_cat', 'Cat_cart')
+                motive_fibre = '      (@Catd_cat (@PathOut_cat Z x)));'
+                assert section.count(motive_fibre) == 1
+                section = section.replace(motive_fibre,
+                    '      (Functor_cart_cat (@PathOut_cat Z x) Cat_cart));')
+                for match in reversed(list(re.finditer(r'(?m)^assert\b.*?;', section, re.S))):
+                    block = match.group()
+                    if '(@fapp1_fapp0' in block and '(@PathOutMotives_catd Z)' in block:
+                        for endpoint in ('x', 'y'):
+                            carrier = '(@Catd_cat (@PathOut_cat Z ' + endpoint + '))'
+                            assert block.count(carrier) == 1
+                            block = block.replace(carrier,
+                                '(Functor_cart_cat (@PathOut_cat Z ' + endpoint + ') Cat_cart)')
+                    if ('@pathout_motive_transport_obj Z x y p E' in block
+                            and '(@PathOutMotives_catd Z)' in block):
+                        context, comparison = block.split('⊢', 1)
+                        left, right = comparison.removesuffix(';').split('≡', 1)
+                        block = (context + '⊢\n'
+                            '  @eq_refl (Catd (@PathOut_cat Z y))\n'
+                            '    (' + left.strip() + ')\n'
+                            '  : τ (@= (Catd (@PathOut_cat Z y))\n'
+                            '      (' + left.strip() + ')\n'
+                            '      (' + right.strip() + '));')
+                        block = ('// Whole Cartesian reindexing and the stable pullback are compared\n'
+                                 '// at proof time; their object and Hom actions compute directly.\n'
+                                 + block)
+                    section = section[:match.start()] + block + section[match.end():]
+                for former, action in (
+                    ('@pathout_refl_eval_func Z x', '(@pathout_refl_eval_func Z x)'),
+                    ('@Pi_func (@PathOut_cat Z x)', '(@Pi_func (@PathOut_cat Z x))'),
+                ):
+                    expected = '    ≡ ' + former + ';'
+                    assert section.count(expected) == 1
+                    section = section.replace(expected,
+                        '    ≡ @comp_cat_fapp0\n'
+                        '        (Functor_cart_cat (@PathOut_cat Z x) Cat_cart)\n'
+                        '        (Catd_cat (@PathOut_cat Z x)) Cat_cart\n'
+                        '        ' + action + '\n'
+                        '        (Functor_cart_include (@PathOut_cat Z x) Cat_cart);')
+                covariance_fibre = ('  Fibre_cat (@FibCov_target_catd Z D) x\n'
+                                    '    ≡ @Functord_cat Z (@Rep_catd Z x) D;')
+                assert section.count(covariance_fibre) == 1
+                section = section.replace(covariance_fibre,
+                    '  Fibre_cat (@FibCov_target_catd Z D) x\n'
+                    '    ≡ Hom_cat (Functor_cart_cat Z Cat_cart) (@Rep_catd Z x) D;')
+                section += fragment('production_pathout_motive_controls.lpfragment') + '\n'
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/pathout-motive-observations',
+                                'owner': 'original repeated PathOut, motive reindexing, evaluation, Pi and covariance diagnostics',
+                                'reason': 'Observe the existing Cartesian moving-motive classifier and its inclusions into fixed-source evaluation/Pi; retain original transport computations and general lax fixed-source maps',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5470,6 +5532,12 @@ assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
         'require open emdash.central_mixed_parameter_controls;\n'
         'require open emdash.central_mixed_composition_controls;\n'
         'require open emdash.central_mixed_formation_controls;\n')
+    pathout_motives_end = central.index(
+        'assert [Z : Cat] (x : τ (Obj (Op_cat Z))) (y : τ (Obj Z)) ⊢',
+        mixed_formation_end)
+    (package / 'central_pathout_motive_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[mixed_formation_end:pathout_motives_end])
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5486,7 +5554,10 @@ assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
         'require open emdash.central_monads_controls;\n'
         'require open emdash.central_internal_action_controls;\n'
         'require open emdash.central_path_induction_controls;\n'
-        'require open emdash.central_projection_regression;\n')
+        'require open emdash.central_projection_regression;\n'
+        'require open emdash.central_curry_family_regression;\n'
+        'require open emdash.central_mixed_regression;\n'
+        'require open emdash.central_pathout_motive_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -5997,6 +6068,7 @@ assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
                               package / 'central_mixed_composition_controls.lp',
                               package / 'central_mixed_formation_controls.lp',
                               package / 'central_mixed_regression.lp',
+                              package / 'central_pathout_motive_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',

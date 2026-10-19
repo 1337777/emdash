@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original mixed-action, direct mixed-constructor and Hom/Transf formation observations qualified; repeated PathOut/covariance/Homd and later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; later PathOut/motive/covariance observations qualified with the missing Cartesian precomposition projections; Hom-presheaf/Homd and later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,53 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `81e68dee`, 2026-10-19 UTC: the
+[PathOut-motive verification](../emdash2/audits/strict-default-action-boundary/production_central_pathout_motives_verification.json)
+qualifies a later original diagnostic block. The PathOut source and its earlier
+PathInd/transitivity consumers were already migrated; this is not a new
+PathOut design. Moving motives use Cart(PathOut(x),Cat_cart), while fixed-x
+evaluation/Pi retain their ordinary domains and the moving components use
+the existing Cartesian inclusion. Public Functord remains lax. The covariance
+target is the Hom of the Cartesian diagram category, as already implemented.
+
+Correcting those annotations exposed a concrete missing evaluator case:
+the represented-precomposition projection ladder only handled Cat_cat.
+The same three object/whole-Hom/capped projections now also handle Cat_cart
+at the existing owner. The complete emitted core diff contains only those
+three rules and their comments. No primitive, unifier, operational proof
+argument or PathOut-specific runtime rule is added. The
+[normalization review](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#pathout-motive-consumers-after-81e68dee)
+records the normal-form trace and comparison with the original outline.
+
+All 36 original observations remain. The whole motive/pullback comparison
+now uses the existing proof-time agreement: the old raw varying-base fold
+cannot identify Cartesian parameter maps with arbitrary lax diagram maps.
+Object transport still computes directly. Two additional observations check
+the whole Hom and capped arrow action against the pullback, and one negative
+preserves the distinction between the whole stable heads.
+
+Fresh installed-checker passes with SR/warnings cover this block (38/1),
+core/Homd (287/85), all central sections migrated so far (1248/197), and the
+existing library closure (178/27). Their wall times/peak child RSS are
+33.292s/1502.1MiB, 22.092s/1593.1MiB, 29.833s/2225.7MiB and
+61.388s/4413.2MiB respectively, under the existing bounded profiles.
+The exact inputs are rehashed in the verification. These samples do not
+establish a performance improvement. The LHS scan has no unreviewed
+candidates; the added nested patterns retain the existing evaluator outline.
+
+Core warning bodies increase from 1570 to 1572. Both additions are exact
+Cat_cart counterparts of existing Cat_cat product-projection/evaluation
+peaks. No old warning is removed; general symbolic joins remain part of the
+normalization review, alongside the six earlier product-profile peaks.
+The full central file retains all original tails and 66 declarations, with
+2143 positives and 294 negatives after the three additional observations.
+
+Next migrate the original Edge_catd_func/HomPresheaf and whole Homd
+target/ladder observations following this block. Remaining registered
+consumers, wrapper retirement, normalization/performance, production
+promotion and final catalogue/health/CI/source-pin gates remain required.
+The separate application goal stays paused.
 
 Continuation after `19951b16`, 2026-10-19 UTC: the
 [mixed-consumer verification](../emdash2/audits/strict-default-action-boundary/production_central_mixed_verification.json)

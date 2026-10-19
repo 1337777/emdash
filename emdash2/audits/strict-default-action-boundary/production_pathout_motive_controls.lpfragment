@@ -1,0 +1,27 @@
+// Moving-motive action agrees with its existing pullback at the whole Hom
+// and capped arrow levels, not only after evaluating a fibre object.
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
+  (E : τ (Catd (@PathOut_cat Z x)))
+  (a b : τ (Obj (@PathOut_cat Z y))) ⊢
+  @fapp1_func (@PathOut_cat Z y) Cat_cart
+    (fapp0 (@fapp1_fapp0 Z Cat_cart (@PathOutMotives_catd Z) x y p) E)
+    a b
+  ≡ @fapp1_func (@PathOut_cat Z y) Cat_cart
+      (@pathout_motive_transport_obj Z x y p E) a b;
+
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
+  (E : τ (Catd (@PathOut_cat Z x)))
+  (a b : τ (Obj (@PathOut_cat Z y)))
+  (q : τ (Hom (@PathOut_cat Z y) a b)) ⊢
+  @fapp1_fapp0 (@PathOut_cat Z y) Cat_cart
+    (fapp0 (@fapp1_fapp0 Z Cat_cart (@PathOutMotives_catd Z) x y p) E)
+    a b q
+  ≡ @fapp1_fapp0 (@PathOut_cat Z y) Cat_cart
+      (@pathout_motive_transport_obj Z x y p E) a b q;
+
+// The whole stable heads are compared at proof time; evaluating them does
+// not install an eager fold from every represented composite to Pullback.
+assertnot [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
+  (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  @pathout_motive_transport_obj Z x y p E
+  ≡ fapp0 (@fapp1_fapp0 Z Cat_cart (@PathOutMotives_catd Z) x y p) E;
