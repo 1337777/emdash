@@ -494,6 +494,16 @@ rule @hom_int_precomp_func $A $B $F $X $X (@id _ $X)
     replace_once(old_two_endpoint, old_two_endpoint.replace('Functor_cat', 'Functor_cart_cat'),
                  'Hom_tele_func',
                  'The original two-endpoint Hom action has the same Cartesian higher mapping profile as its curried observations')
+    a = body.index('unif_rule @Hom_tele_func ')
+    b = body.index(';', a) + 1
+    old_factorization = body[a:b]
+    assert old_factorization.count('Functor_cat') == 2
+    new_factorization = old_factorization.replace('Functor_cat', 'Functor_cart_cat')
+    new_factorization, count = re.subn(r'(@comp_prod_func\s+)Cat_cat', r'\1Cat_cart', new_factorization)
+    assert count == 1
+    replace_once(old_factorization, new_factorization,
+                 'Existing two-endpoint Hom factorization comparison',
+                 'Migrate the original comparison with its whole owner to Cartesian mapping categories; retain every endpoint and both represented actions')
 
     facade_start = '// Proof-time comparison only: ordinary Cat-valued transfors and displayed'
     facade_end = '// Product-valued transfors project componentwise.'
@@ -526,6 +536,40 @@ rule @hom_int_precomp_func $A $B $F $X $X (@id _ $X)
                                                     '@' + owner + '_transf')
     replace_once(old_observations, new_observations, 'ordinary observations of canonical Hom transfors',
                  'Retain existing tapp observations through their original ordinary-view heads after canonical action acquires the Cartesian profile')
+    # The old raw capped action and its ordinary view had different tapp0
+    # clauses. Identifying their observation heads must not retain competing
+    # runtime results. Keep the original ordinary-view computation once.
+    a = body.index('// Component of a postcomposition-telescope action.')
+    b = body.index('// Reflexive theorem exposing the selected component formula', a)
+    c = body.index('// Component of tele-postcomposition in an arbitrary ambient category.')
+    d = body.index(';', c) + 1
+    component_rule = body[c:d]
+    assert body[a:b].count('rule @tapp0_fapp0') == component_rule.count('rule @tapp0_fapp0') == 1
+    replace_once(component_rule,
+                 '// The telescope component is computed once at its earlier projection owner.\n',
+                 'Duplicate postcomposition component owner',
+                 'Retire the duplicate created by redirecting the two old observation heads to the same ambient head')
+    replace_once(body[a:b],
+                 '// Component of a postcomposition-telescope action uses the original\n'
+                 '// horizontal composition owner with its first argument fixed. The alternative\n'
+                 '// stable precomposition reading below is proof-time, via its existing comparison.\n'
+                 + component_rule[component_rule.index('rule @tapp0_fapp0'):] + '\n\n',
+                 'Canonical postcomposition component computation',
+                 'Preserve the original ordinary-view runtime computation without a new projection or comparison rule')
+    a = body.index('symbol hom_postcomp_tele_tapp0_component_eq')
+    b = body.index('≔ eq_refl', a)
+    c = body.index(';', b) + 1
+    replace_once(body[b:c], '''≔ eq_sym
+    (@hom_precomp_along_fapp1_comp_prod_path
+      A A (@id_func A) (@fapp0 B A F Y) W (@fapp0 B A F X) u
+      (@fapp1_fapp0 B A F X Y f)
+      (@fapp1_fapp0 B A F X Y g)
+      (@fapp1_fapp0
+        (Hom_cat B X Y)
+        (Hom_cat A (@fapp0 B A F X) (@fapp0 B A F Y))
+        (@fapp1_func B A F X Y) f g alpha));''',
+                 'Existing precomposition component theorem',
+                 'Derive the unchanged theorem from its existing typed comparison, avoiding fresh implicit product-classifier inference')
     replace_once('''rule @tapp0_fapp0 $K Cat_cat _ _ $Y (@id (@Catd_cat $K) $E)
   ↪ @id Cat_cat (@fapp0 $K Cat_cat $E $Y);''',
                  '''rule @tapp0_fapp0 $K Cat_cart _ _ $Y (@id (@Catd_cat $K) $E)
@@ -3282,6 +3326,128 @@ assert [C : Cat] [x y z : τ (Obj C)]
                                 'reason': 'Use the actual Cat_cart coefficient and the exact existing generic package projections at final reflector endpoints; preserve the chosen functors, inverse data, cancellation proofs and all original rules',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_checks.lp':
+                facade_start = 'assert [K : Cat] ⊢\n  @eq_refl Cat_grpd (Catd_cat K)'
+                hom_start = 'assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A)) (y : τ (Obj B)) ⊢'
+                hom_end = '// Hom-action functoriality joins for postcomposition.'
+                assert text.count(facade_start) == text.count(hom_start) == text.count(hom_end) == 1
+                first, middle, last = text.index(facade_start), text.index(hom_start), text.index(hom_end)
+                old = text[first:last]
+                facade = text[first:middle]
+                assert facade.count('Cat_cat') == 5
+                facade = facade.replace('Cat_cat', 'Cat_cart')
+                hom = text[middle:last]
+                assert hom.count('Functor_cat') == 10
+                hom = hom.replace('Functor_cat', 'Functor_cart_cat')
+                for pattern, replacement, count in (
+                    ('(Catd_cat B)', '(Functor_cart_cat B Cat_cart)', 2),
+                    ('(@Catd_cat B)', '(Functor_cart_cat B Cat_cart)', 2),
+                    ('(@Catd_cat (Op_cat B))', '(Functor_cart_cat (Op_cat B) Cat_cart)', 8),
+                ):
+                    assert hom.count(pattern) == count
+                    hom = hom.replace(pattern, replacement)
+                hom = re.sub(r'\bB(\s+)Cat_cat', r'B\1Cat_cart', hom)
+                hom = re.sub(r'\(Op_cat B\)(\s+)Cat_cat', r'(Op_cat B)\1Cat_cart', hom)
+                hom = re.sub(r'(_\s+)Cat_cat(\s+\(@hom_con\b)', r'\1Cat_cart\2', hom)
+                for name in ('hom_int_precomp_func', 'hom_con_int_postcomp_func'):
+                    starts = [m.start() for m in re.finditer(r'\(@' + name + r'\b', hom)]
+                    assert len(starts) == 5
+                    for start in reversed(starts):
+                        depth = 0
+                        for end in range(start, len(hom)):
+                            depth += (hom[end] == '(') - (hom[end] == ')')
+                            if depth == 0:
+                                break
+                        assert depth == 0
+                        term = hom[start:end + 1]
+                        hom = hom[:start] + '(@strict_transfor _ _ _ _ ' + term + ')' + hom[end + 1:]
+                rep_view = '≡ @hom_int_precomp_func Z Z (@id_func Z) y x p;'
+                assert hom.count(rep_view) == 1
+                hom = hom.replace(rep_view,
+                    '≡ @strict_transfor _ _ _ _ (@hom_int_precomp_func Z Z (@id_func Z) y x p);')
+                replacement = facade + hom
+                text = text[:first] + replacement + text[last:]
+                changes.append({'source': path + '/family-and-represented-hom',
+                                'owner': 'original family classifiers and whole represented-Hom ladder',
+                                'reason': 'Use the actual Cat_cart family coefficient, Cartesian canonical Hom classifiers and existing ambient transfor views; keep public Hom(Cat)=Functor_cat and all original observations',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(replacement)})
+                marker = 'symbol hom_postcomp_opfunc_general_tele_visible_check\n'
+                assert text.count(marker) == 1
+                first = text.index(marker)
+                last = text.index(';', first) + 1
+                old = text[first:last]
+                assert old.count('Functor_cat') == 1
+                replacement = old.replace('Functor_cat', 'Functor_cart_cat')
+                text = text[:first] + replacement + text[last:]
+                changes.append({'source': path + '/opposite-hom-telescope',
+                                'owner': 'original opposite postcomposition telescope type',
+                                'reason': 'Retain its complete source/action comparison and use the actual Cartesian mapping category of the canonical Hom telescope',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(replacement)})
+                composition_changes = []
+                root_count, generic_tele_count, view_count, two_endpoint_count = 0, 0, 0, 0
+                for match in reversed(list(re.finditer(r'(?m)^assert(?:not)?\b.*?;', text, re.S))):
+                    old = match.group()
+                    block = old
+                    composition_root = 'comp_cat_con_func_func' in block or 'comp_cat_cov_func_func' in block
+                    generic_tele = bool(re.search(r'@fapp1_(?:func|fapp0)\b', block)) and (
+                        '(@hom_postcomp_tele_func' in block or '(@hom_precomp_along_tele_func' in block)
+                    if composition_root:
+                        root_count += 1
+                        block = block.replace('Functor_cat', 'Functor_cart_cat').replace('Cat_cat', 'Cat_cart')
+                        block = block.replace('(Transf G H)', '(@StrictTransfor X Y G H)')
+                        block = block.replace('(Transf F K)', '(@StrictTransfor X Y F K)')
+                        block = block.replace('≡ @comp_cat_con_func X Y Z F;',
+                            '≡ @comp_cat_con_cart_func X Y Z F;')
+                    elif generic_tele:
+                        generic_tele_count += 1
+                        block = block.replace('Functor_cat', 'Functor_cart_cat')
+                    elif '@Hom_tele_func' in block and '@Product_map_func' in block:
+                        two_endpoint_count += 1
+                        block = block.replace('Functor_cat', 'Functor_cart_cat')
+                        block = re.sub(r'(@comp_prod_func\s+)Cat_cat', r'\1Cat_cart', block)
+                    if '⊢' in block and '≡' in block:
+                        telescope, equation = block.split('⊢', 1)
+                        left, right = equation.rsplit('≡', 1)
+                        left_head = left.strip().split()[0]
+                        right_head = right.strip().split()[0]
+                        if left_head in ('@fapp1_fapp0', 'fapp0', '@fapp0',
+                                         '@hom_postcomp_tele_fapp1_fapp0', '@hom_precomp_along_tele_fapp1_fapp0') \
+                            and right_head in ('@comp_cat_cov_func_func_transf', '@comp_cat_con_func_func_transf',
+                                               '@hom_postcomp_tele_transf', '@hom_precomp_along_tele_transf'):
+                            view_count += 1
+                            block = telescope + '⊢\n  @strict_transfor _ _ _ _ (' + left.strip() + ')\n  ≡' + right
+                    if block != old:
+                        text = text[:match.start()] + block + text[match.end():]
+                        composition_changes.append({'oldSha256': sha(old), 'newSha256': sha(block)})
+                assert root_count == 11, root_count
+                assert generic_tele_count == 4, generic_tele_count
+                assert view_count == 8, view_count
+                assert two_endpoint_count == 2, two_endpoint_count
+                changes.append({'source': path + '/composition-parameter-profiles',
+                                'owner': 'whole composition roots and canonical Hom telescope views',
+                                'reason': 'Match the existing Cartesian whole-parameter roots and use their ambient transfor projections, while retaining raw fixed-whiskering and ordinary Cat-valued diagram tests',
+                                'assertions': list(reversed(composition_changes))})
+                marker = '// catalog-area: Internal groupoidality and structured J'
+                end_marker = '// Phase 9 discrete-category core and homwise adequacy.'
+                assert text.count(marker) == text.count(end_marker) == 1
+                start, end = text.index(marker), text.index(end_marker)
+                old = text[start:end]
+                section = old
+                assert section.count('Fibre_cat (@strict_functor C Cat_cat D)') == 4
+                section = section.replace('Fibre_cat (@strict_functor C Cat_cat D)',
+                    '@fapp0 C Cat_cat (@strict_functor C Cat_cat D)')
+                assert section.count('≡ @fib_cov_transf C D x u;') == 1
+                section = section.replace('≡ @fib_cov_transf C D x u;',
+                    '≡ @strict_transfor _ _ _ _ (@fib_cov_transf C D x u);')
+                assert section.count('(@fib_cov_transf (Path_cat A) D x u)') == 3
+                section = section.replace('(@fib_cov_transf (Path_cat A) D x u)',
+                    '(@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D x u))')
+                split = section.index('// The path-category identity join')
+                section = section[:split] + section[split:].replace('Cat_cat', 'Cat_cart')
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/internal-groupoidality',
+                                'owner': 'original groupoidal transport and structured-J diagnostics',
+                                'reason': 'Keep the raw Cat-valued diagram theorem at its object action, and observe Catd transport/fibre covariance through the actual coefficient and ambient inclusion; preserve every original assertion',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -4497,6 +4663,63 @@ assert [C : Cat] [x y z : τ (Obj C)]
     (package / 'sieve_profile_controls.lp').write_text(
         'require open emdash.emdash3_2_sieves;\n' + psss + '\n' + sieve_controls + '\n'
         + fragment('production_presheaf_profile_controls.lpfragment'))
+    # Reuse the original central sections already adapted and checked in
+    # focused owners. The full diagnostic retains every original tail.
+    central = (package / 'emdash3_2_checks.lp').read_text()
+    for start_marker, end_marker, replacement in (
+        (locality_start, locality_end, locality_controls),
+        (psss_start, psss_end, psss),
+        (sieve_start, sieve_end, sieve_controls),
+    ):
+        assert central.count(start_marker) == central.count(end_marker) == 1
+        first = central.index(start_marker)
+        last = central.index(end_marker, first) + len(end_marker)
+        previous = central[first:last]
+        assert previous == original_checks[original_checks.index(start_marker):
+            original_checks.index(end_marker) + len(end_marker)]
+        central = central[:first] + replacement + central[last:]
+        changes.append({'source': 'emdash3_2_checks.lp',
+                        'owner': start_marker.removeprefix('// catalog-area: '),
+                        'reason': 'Integrate the exact previously adapted original section from its focused reviewer, without omitting assertions or changing its scope',
+                        'oldBodySha256': sha(previous), 'newBodySha256': sha(replacement)})
+    represented_coefficient = r'Cat_cat(\s+)(\(@(?:hom_|hom_con|Rep_catd)\b)'
+    assert len(list(re.finditer(represented_coefficient, central))) == 32
+    before_represented_tags = central
+    central = re.sub(represented_coefficient, r'Cat_cart\1\2', central)
+    changes.append({'source': 'emdash3_2_checks.lp',
+                    'owner': 'remaining direct represented-family coefficient observations',
+                    'reason': 'Correct only coefficient arguments immediately followed by a known hom_/hom_con/Rep_catd family producer; retain ordinary Cat composition and unrelated Cat-valued diagrams',
+                    'oldBodySha256': sha(before_represented_tags), 'newBodySha256': sha(central)})
+    (package / 'emdash3_2_checks.lp').write_text(central)
+    groupoid_start = '// catalog-area: Internal groupoidality and structured J'
+    groupoid_end = '// Phase 9 discrete-category core and homwise adequacy.'
+    (package / 'central_groupoidality_controls.lp').write_text(
+        'require open emdash.emdash3_2_eq1_hom_action;\n'
+        + central[central.index(groupoid_start):central.index(groupoid_end)])
+    early_start = '// Elementary decoded H0 classifiers, constructors, and dependent eliminators.'
+    early_end = '// catalog-area: Groupoid-universe identity view'
+    assert central.count(early_start) == central.count(early_end) == 1
+    (package / 'central_early_controls.lp').write_text(
+        central[:central.index('require open')]
+        + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
+        + central[central.index(early_start):central.index(early_end)])
+    action_end = '// catalog-area: Constant-domain displayed evaluation'
+    assert central.count(action_end) == 1
+    (package / 'central_action_controls.lp').write_text(
+        central[:central.index('require open')]
+        + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
+        + central[central.index(early_end):central.index(action_end)])
+    hom_action_end = 'assert [K : Cat] (E D : τ (Catd K)) ⊢\n  @eq_refl Cat_grpd (Hom_cat (Catd_cat K) E D)'
+    for folder, source in ((package, central), (baseline_package, original_checks)):
+        assert source.count(hom_action_end) == 1
+        header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
+        (folder / 'central_early_controls.lp').write_text(
+            header + source[source.index(early_start):source.index(early_end)])
+        (folder / 'central_hom_action_controls.lp').write_text(
+            header + source[source.index(early_end):source.index(hom_action_end)])
+        (folder / 'central_owner_regression.lp').write_text(
+            'require open emdash.central_early_controls;\n'
+            'require open emdash.central_hom_action_controls;\n')
     introduction_source = (package / 'emdash3_2_one_cat_adjunction_introduction.lp').read_text()
     prefix_end = 'protected symbol intro_unit_original_identity_path'
     assert introduction_source.count(prefix_end) == 1
@@ -4970,6 +5193,14 @@ assert [C : Cat] [x y z : τ (Obj C)]
                               package / 'product_pullback_migration_controls.lp',
                               package / 'foundations_library_regression.lp',
                               baseline_package / 'foundations_library_regression.lp',
+                              package / 'central_groupoidality_controls.lp',
+                              package / 'central_early_controls.lp',
+                              package / 'central_action_controls.lp',
+                              package / 'central_hom_action_controls.lp',
+                              package / 'central_owner_regression.lp',
+                              baseline_package / 'central_early_controls.lp',
+                              baseline_package / 'central_hom_action_controls.lp',
+                              baseline_package / 'central_owner_regression.lp',
                               package / 'zero_column_dependency_controls.lp',
                               package / 'comma_target_guard_controls.lp',
                               package / 'prof_defiso_coefficient_controls.lp',

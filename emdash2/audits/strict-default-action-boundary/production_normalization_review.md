@@ -2,7 +2,7 @@
 
 Date: 2026-10-18 (UTC)
 Checkpoint reviewed: `5d2618fb`
-Status: source review and matched measurements complete; normalization consolidation remains required before production promotion
+Status: source review and matched measurements complete; local consolidations recorded below, broader normalization qualification remains required before production promotion
 Plan: [foundations migration](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Evidence: [verification](production_normalization_review_verification.json)
 
@@ -336,3 +336,72 @@ identity overlaps and four path-record symmetry/reflexivity overlaps. The
 verification preserves their exact rule identities and log hashes. The
 redundant named strict-instance family belongs to the already required
 retirement review; counts are not a proof of confluence or a performance result.
+
+## Central diagnostic owner review after `294b5b69`
+
+Date: 2026-10-19 UTC. [Exact evidence](production_central_owners_verification.json).
+This is a bounded migration checkpoint, not completion of the central suite.
+
+The original early central diagnostics and ordinary Hom/action section now
+check under the selected coefficients. Raw Cat-valued diagrams remain raw:
+their objects use fapp0 rather than the stronger Catd/Fibre facade. Admitted
+families use Cat_cart. Canonical Hom packages use their Cartesian mapping
+categories; their ambient observers use the existing strict_transfor view.
+Whole parameterized composition roots have Cartesian parameter classifiers,
+whereas the fixed pre/postwhiskering maps still accept ambient lax transfors.
+The tests now state that distinction rather than silently equating the two
+mapping categories. No new strict-naturality rule is introduced.
+
+The next failure supplied a concrete instance of the user's normalization
+concern. Before migration there were two component clauses: one for the raw
+capped telescope action, one for its ordinary transfor view. Redirecting their
+observations to the same ambient head retained both clauses with different
+runtime results, stable precomposition versus product composition. The
+original central assertion of the ordinary-view computation then failed.
+
+The repair keeps the original ordinary-view comp_prod computation once, at
+the earlier component owner, and removes its later duplicate. The existing
+precomposition theorem retains its statement but uses symmetry of the already
+defined hom_precomp_along_fapp1_comp_prod_path. Reusing a direct eq_refl at
+that site left unresolved implicit product classifiers; the explicit existing
+theorem avoids that inference problem. No operational symbol receives a path.
+The separate Hom_tele_func factorization comparison also needed the same
+Cart classifier correction as its whole owner. It is an edit to the original
+comparison, not another equation alongside it.
+
+Core symbol declarations stay at 897, runtime rule commands decrease from
+991 to 990, and unification commands stay at 144. These lexical counts exclude
+comments; they are an inventory, not a normalization proof. The LHS audit
+reports zero unreviewed candidates, and the edited custom Hom comparison
+retains all endpoints and both actual represented actions.
+
+The installed checker passes the 823 positive/161 negative assertions of the
+two original central sections, plus the fresh core/Homd 287/85 regression.
+The entire central file still retains 2133 positives, 299 negatives and its
+66 original declarations. No assertion is deleted or has its polarity flipped;
+the changed classifier restrictions are identified above. The larger action
+driver still fails in its following displayed
+family comparison, where an old Cat_cat annotation conflicts with Cat_cart.
+The exact previously adapted locality/presheaf/sieve sections are also copied
+into the full central file, but that file is not yet qualified end to end.
+
+One matched sample of these central sections takes 9.541s/489.3MiB before the
+goal and 37.207s/2069.5MiB after migration, under identical installed-checker,
+SR/warnings, 180s/4GiB and o=20 settings. The fresh core takes
+29.720s/1591.5MiB. The component correction restores a required computation;
+it does not establish a performance improvement. Broader measurements at the
+preceding checkpoint remain historical after this core change.
+
+Core critical-pair bodies remain at 1564. Five bodies are replaced at exactly
+the same overlap sources: two product component projections and three
+intrinsic-action/strict-inclusion observations. Their normalized branch now
+uses the selected product-composition component. Exact body hashes and both
+logs are retained; general symbolic joins are not claimed. These overlap
+families, redundant strict instances and overall normalization cost remain
+pre-promotion review work.
+
+Next continue the original displayed-family/product observations and the
+remaining central diagnostics. Do not change ambient lax FF to strict merely
+to make these observations pass. Wrapper retirement, remaining registered
+consumers and final production/catalogue/health/CI/source-pin gates remain
+required, with the separate application goal still paused.

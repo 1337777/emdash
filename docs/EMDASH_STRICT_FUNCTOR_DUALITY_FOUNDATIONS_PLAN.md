@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; reviewed groupoidification, monad and product/slice owners qualified with canonical capped-result typing and refreshed regressions; central diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; early central and ordinary Hom/action diagnostics qualified, competing component computations consolidated; remaining central diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,48 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `294b5b69`, 2026-10-19 UTC: the original early central
+diagnostics and ordinary Hom/action section now pass as complete bounded
+drivers. The [review](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#central-diagnostic-owner-review-after-294b5b69)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_central_owners_verification.json)
+record the exact scope and current full-file failure. All 2133 positive and
+299 negative assertions and all original source tails remain in the full
+central file; the bounded drivers do not replace that unfinished target.
+
+Classifier observations now use the actual family coefficient and canonical
+Cartesian Hom packages, through existing ambient inclusions where needed.
+Whole parameterized composition roots retain their Cartesian domains; fixed
+pre/postwhiskering and raw Cat-valued diagram assertions retain ambient lax
+transformations. This does not install a new strictness assumption on them.
+
+The central action consumer exposed a migration-created conflict: redirecting
+two old telescope observation heads to the same ambient head retained two
+competing component rules. The original ordinary-view comp_prod computation
+now has one owner. The unchanged precomposition theorem is derived using its
+existing typed comparison; its direct-reflexivity experiment left unresolved
+implicit product classifiers. The existing Hom_tele_func factorization
+comparison receives the same Cartesian coefficient correction as its owner.
+No primitive or new unifier is introduced; core runtime rule commands decrease
+991 to 990, while the 144 unification commands remain.
+
+The installed checker passes the original central subset (823 positive/161
+negative assertions) and fresh core/Homd 287/85. The central subset costs
+37.207s/2069.5MiB, compared with its matched pre-goal 9.541s/489.3MiB sample
+under the same 180s/4GiB/o=20 settings. The core costs 29.720s/1591.5MiB.
+This is computation repair, not a performance fix. Core warnings remain 1564;
+five bodies change at the same product-projection/intrinsic-inclusion overlap
+sources, and general joins remain open. The LHS audit has no unreviewed slots.
+
+The next full action failure is the following displayed-family classifier
+observation using Cat_cat where its admitted families use Cat_cart. Continue
+there and through the remaining original diagnostics/consumers. Broader
+library receipts at the previous checkpoint are historical after this core
+change. Wrapper/duplicate retirement, normalization/performance qualification,
+production promotion and catalogue/health/CI/source-pin gates remain required.
+The selected Homd design has working computational evidence; full repository
+qualification and usable normalization are still unfinished. The separate
+application goal remains paused.
 
 Continuation after `a9185d80`, 2026-10-18: the
 [review](../emdash2/audits/strict-default-action-boundary/production_final_imports_review.md)
