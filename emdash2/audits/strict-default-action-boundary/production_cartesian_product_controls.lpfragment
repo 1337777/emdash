@@ -1,0 +1,45 @@
+// The two classifier projection orders agree for an arbitrary product map.
+assert [X A B : Cat] (F G : τ (Functor X (Product_cat A B)))
+  (U : τ (@StrictTransfor X (Product_cat A B) F G)) ⊢
+  U : τ (Obj (Hom_cat (Functor_cart_cat X (Product_cat A B)) F G));
+
+// Project the actual whole inclusion, retaining a neutral strict input.
+assert [X A B : Cat] (F G : τ (Functor X (Product_cat A B)))
+  (U : τ (@StrictTransfor X (Product_cat A B) F G)) ⊢
+  sigma_Fst (@fapp1_fapp0
+    (Functor_cart_cat X (Product_cat A B)) (Functor_cat X (Product_cat A B))
+    (Functor_cart_include X (Product_cat A B)) F G U)
+  ≡ @fapp1_fapp0 (Functor_cart_cat X A) (Functor_cat X A)
+      (Functor_cart_include X A) (sigma_Fst F) (sigma_Fst G) (sigma_Fst U);
+
+assert [X A B : Cat] (F G : τ (Functor X (Product_cat A B)))
+  (U : τ (@StrictTransfor X (Product_cat A B) F G)) ⊢
+  sigma_Snd (@fapp1_fapp0
+    (Functor_cart_cat X (Product_cat A B)) (Functor_cat X (Product_cat A B))
+    (Functor_cart_include X (Product_cat A B)) F G U)
+  ≡ @fapp1_fapp0 (Functor_cart_cat X B) (Functor_cat X B)
+      (Functor_cart_include X B) (sigma_Snd F) (sigma_Snd G) (sigma_Snd U);
+
+// The whole strict view remains available to the existing naturality owner.
+assert [X A B : Cat] (F G : τ (Functor X (Product_cat A B)))
+  (U : τ (@StrictTransfor X A (sigma_Fst F) (sigma_Fst G)))
+  (V : τ (@StrictTransfor X B (sigma_Snd F) (sigma_Snd G)))
+  (x y z : τ (Obj X)) (q : τ (Hom X y z)) ⊢
+  @comp_cat_fapp0
+    (Hom_cat X x y)
+    (Hom_cat (Product_cat A B) (fapp0 F x) (fapp0 G y))
+    (Hom_cat (Product_cat A B) (fapp0 F x) (fapp0 G z))
+    (@hom_postcomp_func (Product_cat A B) X G (fapp0 F x) y z q)
+    (@tapp1_func X (Product_cat A B) F G x y
+      (@strict_transfor X (Product_cat A B) F G (Struct_sigma U V)))
+  ≡ @comp_cat_fapp0
+      (Hom_cat X x y) (Hom_cat X x z)
+      (Hom_cat (Product_cat A B) (fapp0 F x) (fapp0 G z))
+      (@tapp1_func X (Product_cat A B) F G x z
+        (@strict_transfor X (Product_cat A B) F G (Struct_sigma U V)))
+      (@hom_postcomp_func X X (@id_func X) x y z q);
+
+// Product formation does not promote arbitrary lax naturality to strict.
+assertnot [X A B : Cat] (F G : τ (Functor X (Product_cat A B)))
+  (eta : τ (@Transf X (Product_cat A B) F G)) ⊢
+  eta : τ (@StrictTransfor X (Product_cat A B) F G);

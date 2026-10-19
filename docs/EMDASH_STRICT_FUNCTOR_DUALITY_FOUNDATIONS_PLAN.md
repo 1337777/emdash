@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original central monad/comonad, internal-action and PathOut/transitivity consumers qualified in bounded drivers; intrinsic-Homd and later central diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original intrinsic-Homd and product-pair projections qualified with a Cartesian product-profile repair and refreshed central/core/library regressions; later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,52 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `1f8ffe50`, 2026-10-19 UTC: the
+[intrinsic/product verification](../emdash2/audits/strict-default-action-boundary/production_central_intrinsic_product_verification.json)
+and [normalization review](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#cartesian-product-profile-repair-after-1f8ffe50)
+qualify the original arbitrary-modification Homd ladder and product-pair
+telescope. The whole Fibre_transf_app now observes
+`homd_int(GG) o FF -> homd_id(E)` at its actual target-index family. Its y
+projection is the Q-valued modification component; v uses the existing
+Cartesian inclusion and f evaluates the reversed P-index arrow. All thirteen
+original root/section/index/filler/identity observations pass with arbitrary
+lax FF/GG/epsilon. No Op_funcd of a raw FF, supplied comparison or operational
+equality payload is introduced.
+
+The adjacent product telescope exposed a real classifier mismatch rather
+than only missing annotations: Cart(X,A*B) already split componentwise,
+while StrictTransfor(X,A*B,F,G) did not. A matching product carrier rule and
+two component projections of strict_transfor repair that interface. They are
+placed after the existing ordinary Transf product rule; earlier placement
+failed SR. The runtime projections infer source/functor indices and retain
+the product target as the discriminator. A constructor-only pair expansion
+passed the first consumer but erased the whole head used by strict naturality;
+the selected projections preserve that head, including for neutral inputs.
+Four positive product/inclusion/naturality controls and the lax-to-strict
+negative qualify the repair. There is no new primitive or unification rule.
+
+Fresh installed-checker runs pass the merged migrated-central sections,
+the complete core/Homd 287/85 regression and the existing combined library
+closure, all with SR and warnings. They take 45.379s/2208.0MiB,
+29.793s/1589.8MiB and 93.097s/4407.8MiB respectively. The central/core
+profiles remain 4GiB; the library uses its existing 180s/6GiB/o=20 profile
+after a host-headroom check. These are validation measurements, not a
+performance improvement. The LHS audit has zero unreviewed candidates;
+the two custom heads were also inspected directly.
+
+Core warning bodies change 1564 -> 1570: two product-projection/composition
+and four product-projection/canonical-Hom-inclusion overlaps. Their exact
+bodies are retained; general symbolic joins are not claimed and remain in
+the normalization review. Broader native-universality receipts are historical
+after this core change unless separately refreshed. The full central file
+still retains all tails, 2141 positives/292 negatives and 66 declarations.
+
+Next continue at the original higher curry_func_func action and subsequent
+family/Pi/Sigma observations. The full imported central suite, remaining
+registered consumers, wrapper retirement, normalization/performance and
+production/catalogue/health/CI/source-pin gates remain required. The separate
+application goal remains paused.
 
 Continuation after `a93edce4`, 2026-10-19 UTC: the
 [monad/action/PathOut verification](../emdash2/audits/strict-default-action-boundary/production_central_monads_actions_verification.json)

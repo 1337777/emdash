@@ -1,0 +1,14 @@
+// Production-migration fragment, inserted after the ordinary Transf product
+// owner. Both projection orders of the Cartesian Hom classifier must agree.
+rule @StrictTransfor $X (Product_cat $A $B) $F $G
+  ↪ @Product_grpd
+      (@StrictTransfor $X $A (sigma_Fst $F) (sigma_Fst $G))
+      (@StrictTransfor $X $B (sigma_Snd $F) (sigma_Snd $G));
+
+// Product components of the ordinary inclusion. The product target is the
+// discriminator; source/functor indices are inferred. Keep the whole strict
+// view visible for naturality instead of expanding a neutral U into a pair.
+rule sigma_Fst (@strict_transfor _ (Product_cat _ _) _ _ $U)
+  ↪ strict_transfor (sigma_Fst $U);
+rule sigma_Snd (@strict_transfor _ (Product_cat _ _) _ _ $U)
+  ↪ strict_transfor (sigma_Snd $U);

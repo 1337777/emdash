@@ -513,6 +513,9 @@ rule @hom_int_precomp_func $A $B $F $X $X (@id _ $X)
     new_facade = re.sub(r'(\$K\s+)Cat_cat', r'\1Cat_cart', old_facade)
     replace_once(old_facade, new_facade, 'Functord and Transfd facade projections',
                  'Default lax transformations between the newly admitted Cartesian-coefficient families')
+    insert('// Readable second Path action: a function equality induces a path-valued',
+           fragment('production_cartesian_product_views.lpfragment'),
+           'Join the Cartesian product-Hom classifier and expose the existing inclusion componentwise, preserving its whole strict head for naturality')
 
     observation_start = '// Component of a postcomposition-telescope action.'
     assert body.count(observation_start) == 1
@@ -3723,6 +3726,83 @@ assert [C : Cat] [x y z : τ (Obj C)]
                                 'owner': 'original profiled interchange, fixed/moving PathOut induction and transitivity diagnostics',
                                 'reason': 'Use existing ambient Hom observations and the selected coefficient; retain fixed-x induction and every transitivity consumer, while explicitly observing the moving-x motive restriction and the corrected transposed Homd section target',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                intrinsic = text.index('  @Fibre_transf_app\n    K\n    (@Op_catd K E)')
+                start = text.rfind('assert [', 0, intrinsic)
+                end = text.index('assert [A B : Cat] (x : τ (Obj A)) (y : τ (Obj B)) ⊢\n  sigma_Fst', start)
+                old = text[start:end]
+                section = old.replace('Cat_cat', 'Cat_cart')
+                projections = [
+                    '''@Fibre_transf_app
+    K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@comp_catd_fapp0 K E D
+      (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+      (@homd_int K E D GG) FF)
+    (@strict_transfor K Cat_cart E
+      (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+      (@homd_id_int K E))
+    (@tdapp1_int_fapp0_transfd K E D FF GG ϵ) x u''',
+                    '''@tapp0_hom_fapp0 K Homd_coeff_cat
+    (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u)
+    (@homd_tdapp1_src_sec K E D FF GG x u) y
+    (@tdapp1_int_section_arrow K E D FF GG ϵ x u)''',
+                    '''@tapp0_fapp0
+    (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+    (@homd_id_tgt_func K E x u y)
+    (@homd_tdapp1_tgt_func K E D FF GG x u y) v
+    (@strict_transfor _ _ _ _ (@tdapp1_int_tgt_arrow K E D FF GG ϵ x u y))''',
+                    '''@fapp1_fapp0
+    (Functor_cat (Hom_cat K x y) (Op_cat Cat_cart)) (Op_cat Cat_cart)
+    (@fapp0_func (Hom_cat K x y) (Op_cat Cat_cart) p)
+    (fapp0 (@homd_tdapp1_tgt_func K E D FF GG x u y) v)
+    (fapp0 (@homd_id_tgt_func K E x u y) v)
+    (@tdapp1_int_presheaf_arrow K E D FF GG ϵ x u y v)''',
+                ]
+                assertions = list(re.finditer(r'(?m)^assert\b.*?;', section, re.S))
+                assert len(assertions) == 13
+                for match, projection in reversed(list(zip(assertions[:4], projections))):
+                    telescope, equation = match.group().split('⊢', 1)
+                    _, result = equation.split('≡', 1)
+                    section = section[:match.start()] + telescope + '⊢\n  ' + projection + '\n  ≡' + result + section[match.end():]
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/intrinsic-homd-projections',
+                                'owner': 'original arbitrary-modification Homd ladder and displayed-identity extraction observations',
+                                'reason': 'Retain the whole Fibre_transf_app observation using homd_int(GG) composed with raw FF, followed by the actual Q modification, Cartesian v component and reversed P-index evaluation; preserve arbitrary FF/GG/epsilon and every identity/filler observation',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('assert [A B : Cat] (x : τ (Obj A)) (y : τ (Obj B)) ⊢\n  sigma_Fst', start)
+                end = text.index('assert [A B C : Cat]\n  (F G : τ (Functor (Product_cat A B) C)) ⊢\n  @fapp1_func', start)
+                old = text[start:end]
+                section = old
+                changed_blocks, view_count = 0, 0
+                for match in reversed(list(re.finditer(r'(?m)^assert\b.*?;', section, re.S))):
+                    block = match.group()
+                    if '@Product_pair_tele_func' not in block:
+                        continue
+                    changed_blocks += 1
+                    block = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', block)
+                    starts = [m.start() for m in re.finditer(r'\(@fapp1_fapp0 A \(Functor_cart_cat B \(Product_cat A B\)\)', block)]
+                    for first in reversed(starts):
+                        depth = 0
+                        for last in range(first, len(block)):
+                            depth += (block[last] == '(') - (block[last] == ')')
+                            if depth == 0:
+                                break
+                        assert depth == 0
+                        term = block[first:last + 1]
+                        block = block[:first] + '''(@strict_transfor B (Product_cat A B)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x')
+        ''' + term + ')' + block[last + 1:]
+                        view_count += 1
+                    section = section[:match.start()] + block + section[match.end():]
+                assert (changed_blocks, view_count) == (6, 4), (changed_blocks, view_count)
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/product-pair-telescope',
+                                'owner': 'original product-pair telescope and generic composition observations',
+                                'reason': 'Use the actual Cartesian pair telescope and its ambient transfor observations; preserve point, whole and capped actions and leave the following generic composition laws unchanged',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5008,11 +5088,30 @@ assert [C : Cat] [x y z : τ (Obj C)]
     (package / 'central_internal_action_controls.lp').write_text(
         'require open emdash.emdash3_2_strict_functor_actions;\n'
         + central[monads_end:ordinary_action_end])
-    intrinsic_start = central.index('  @Fibre_transf_app\n    K\n    (@Op_catd K E)', ordinary_action_end)
+    intrinsic_start = central.index('  @Fibre_transf_app\n    K E\n', ordinary_action_end)
     path_induction_end = central.rfind('assert [', ordinary_action_end, intrinsic_start)
     (package / 'central_path_induction_controls.lp').write_text(
         'require open emdash.emdash3_2_profiled_interchange;\n'
         + central[ordinary_action_end:path_induction_end])
+    intrinsic_end = central.index('assert [A B : Cat] (x : τ (Obj A)) (y : τ (Obj B)) ⊢\n  sigma_Fst', intrinsic_start)
+    (package / 'central_intrinsic_projection_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[path_induction_end:intrinsic_end])
+    pair_telescope_end = central.index('assert [A B C : Cat]\n  (F G : τ (Functor (Product_cat A B) C)) ⊢\n  @fapp1_func', intrinsic_end)
+    (package / 'central_pair_telescope_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[intrinsic_end:pair_telescope_end])
+    (package / 'central_projection_regression.lp').write_text(
+        'require open emdash.central_intrinsic_projection_controls;\n'
+        'require open emdash.central_pair_telescope_controls;\n'
+        + fragment('production_cartesian_product_controls.lpfragment'))
+    (package / 'central_migration_regression.lp').write_text(
+        'require open emdash.central_owner_regression;\n'
+        'require open emdash.central_displayed_regression;\n'
+        'require open emdash.central_monads_controls;\n'
+        'require open emdash.central_internal_action_controls;\n'
+        'require open emdash.central_path_induction_controls;\n'
+        'require open emdash.central_projection_regression;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -5511,6 +5610,10 @@ assert [C : Cat] [x y z : τ (Obj C)]
                               package / 'central_monads_controls.lp',
                               package / 'central_internal_action_controls.lp',
                               package / 'central_path_induction_controls.lp',
+                              package / 'central_intrinsic_projection_controls.lp',
+                              package / 'central_pair_telescope_controls.lp',
+                              package / 'central_projection_regression.lp',
+                              package / 'central_migration_regression.lp',
                               package / 'central_displayed_regression.lp',
                               package / 'central_hom_action_controls.lp',
                               package / 'central_owner_regression.lp',

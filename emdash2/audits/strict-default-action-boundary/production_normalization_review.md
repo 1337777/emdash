@@ -405,3 +405,52 @@ remaining central diagnostics. Do not change ambient lax FF to strict merely
 to make these observations pass. Wrapper retirement, remaining registered
 consumers and final production/catalogue/health/CI/source-pin gates remain
 required, with the separate application goal still paused.
+
+## Cartesian product-profile repair after `1f8ffe50`
+
+The original product-pair telescope exposed an inconsistency between two
+existing classifier computations. Functor_cart_cat(X,A*B) splits into a
+product, so its Hom object classifier becomes a pair of strict-transfor
+carriers. The independent StrictTransfor(X,A*B,F,G) carrier remained opaque.
+Neither implicit nor fully explicit inclusion parameters joined those types.
+This was a missing structural computation, not a reason to add a bespoke
+comparison for Product_pair_tele_func.
+
+The [repair](production_cartesian_product_views.lpfragment) adds the matching
+product rule to the strict-transfor carrier and computes both product
+components of its ordinary inclusion. The whole inclusion head stays visible
+for existing strict-naturality rules; it does not expand a neutral input into
+a pair. Product is the actual runtime discriminator, with source and endpoint
+slots inferred. The classifier-former rule keeps the source and endpoints
+needed to form its actual component types. There is no new primitive, unifier
+or operational proof argument.
+
+The rules must follow the ordinary Transf_cat product projection. Installing
+them earlier failed subject reduction before the output product was available.
+A constructor-only pair beta passed the first consumer but introduced a
+whole strict-naturality overlap by erasing the head that selects that law.
+It was not retained. The selected projections pass the original telescope,
+neutral-input whole-inclusion observations, a whole strict-naturality
+observation and a negative rejecting admission of a general lax transformation
+to the strict product carrier. The [controls](production_cartesian_product_controls.lpfragment)
+retain the actual functor inputs and both component transformations.
+
+The same tranche migrates the original general-epsilon Homd projection
+diagnostics through the corrected root, Q modification, Cartesian v component
+and reversed P-index evaluation. All original identity/filler observations
+remain, with no Op_funcd applied to a raw FF. This is further consumer
+qualification of the implemented ladder, not a new Homd construction.
+
+[Exact evidence](production_central_intrinsic_product_verification.json)
+records fresh installed-checker passes for all migrated central sections,
+core/Homd and the combined library closure. The library remains expensive:
+93.097 seconds and 4407.8MiB in this sample. No performance improvement is
+claimed. All checks retain subject reduction and explicit resource bounds.
+
+Core warning bodies increase from 1564 to 1570. The six new symbolic peaks
+are the two projections against included Cartesian composition and against
+the canonical pre/post Hom-telescope inclusions. Their hashes and source logs
+are retained. The concrete projection, inclusion and naturality consumers
+pass; complete symbolic joins remain a normalization-review obligation.
+The constructor-only variant's whole-naturality peak is absent from the
+selected source. No broad eta or new case-specific unification bridge is added.
