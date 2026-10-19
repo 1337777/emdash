@@ -3803,6 +3803,199 @@ assert [C : Cat] [x y z : τ (Obj C)]
                                 'owner': 'original product-pair telescope and generic composition observations',
                                 'reason': 'Use the actual Cartesian pair telescope and its ambient transfor observations; preserve point, whole and capped actions and leave the following generic composition laws unchanged',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                curry_start = 'assert [A B C : Cat]\n  (F G : τ (Functor (Product_cat A B) C)) ⊢\n  @fapp1_func'
+                curry_end = 'assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))\n  (E : τ (Catd (@PathOut_cat Z x))) ⊢'
+                start = text.index(curry_start)
+                end = text.index(curry_end, start)
+                old = text[start:end]
+                section = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', old)
+                assert section.count('(eta : τ (Transf F G))') == 3
+                section = section.replace('(eta : τ (Transf F G))',
+                    '(eta : τ (@StrictTransfor (Product_cat A B) C F G))')
+                profile_pattern = r'(@hom_(?:postcomp|precomp_along)[A-Za-z0-9_]*\s+)Cat_cat(\s+)Cat_cat(\s+\(@id Cat_cat )Cat_cat'
+                section, count = re.subn(profile_pattern, r'\1Cat_cart\2Cat_cart\3Cat_cart', section)
+                assert count == 42, count
+
+                def curry_argument_spans(value, offset, count):
+                    """Read only the explicit, parenthesized terms in this pinned block."""
+                    result = []
+                    for _ in range(count):
+                        while value[offset].isspace():
+                            offset += 1
+                        first = offset
+                        if value[offset] == '(':
+                            depth = 0
+                            while offset < len(value):
+                                depth += (value[offset] == '(') - (value[offset] == ')')
+                                offset += 1
+                                if depth == 0:
+                                    break
+                            assert depth == 0
+                        else:
+                            while offset < len(value) and not value[offset].isspace() and value[offset] not in ');':
+                                offset += 1
+                        assert offset > first
+                        result.append((first, offset))
+                    return result
+
+                starts = [m.start() for m in re.finditer(r'\(@Transf_cat\b', section)]
+                assert len(starts) == 3
+                for first in reversed(starts):
+                    spans = curry_argument_spans(section, first + len('(@Transf_cat'), 4)
+                    args = [section[a:b] for a,b in spans]
+                    last = spans[-1][1]
+                    while section[last].isspace():
+                        last += 1
+                    assert section[last] == ')'
+                    replacement = '(@Hom_cat (Functor_cart_cat ' + args[0] + ' ' + args[1] + ') ' + args[2] + ' ' + args[3] + ')'
+                    section = section[:first] + replacement + section[last + 1:]
+                starts = [m.start() for m in re.finditer(r'@tapp0_fapp0\b', section)]
+                assert len(starts) == 6
+                for first in reversed(starts):
+                    spans = curry_argument_spans(section, first + len('@tapp0_fapp0'), 6)
+                    a,b = spans[-1]
+                    section = section[:a] + '(@strict_transfor _ _ _ _ ' + section[a:b] + ')' + section[b:]
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/cartesian-curry-higher-observations',
+                                'owner': 'original seven whole/capped/two-component/point curry and uncurry expansion checks',
+                                'reason': 'Retain the actual semantic expansion at Cartesian classifiers, with canonical higher Homs and existing ambient component views; the three transfor parameters use the required strict carrier, while general lax currying is qualified separately through its existing interface',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index(curry_end, start)
+                family_end = 'assert [K : Cat] (E : τ (Catd K)) ⊢\n  fapp1_fapp0 (Pi_func K)'
+                end = text.index(family_end, start)
+                old = text[start:end]
+                assert old.count('Cat_cat') == 31
+                section = old.replace('Cat_cat', 'Cat_cart')
+                replacements = (
+                    ('Op_catd (Const_catd K A) ≡ Const_catd K (Op_cat A);',
+                     'Op_catd (Const_catd K A) ≡ Const_catd (CoAt2_cat K) (Op_cat A);'),
+                    ('@Pullback_catd K Cat_cart op E',
+                     '@Pullback_catd (CoAt2_cat K) (CoAt2_cat Cat_cart) op (@CoAt2_func K Cat_cart E)'),
+                    ('      (Catd_cat K));', '      (Functor_cart_cat K Cat_cart));'),
+                    ('    ≡ @Pullback_catd_func A B F;',
+                     '    ≡ @comp_cat_con_cart_func A B Cat_cart F;'),
+                    ('      (Catd_cat (Fibre_cat K l)));',
+                     '      (Functor_cart_cat (Fibre_cat K l) Cat_cart));'),
+                    ('''    ≡ @Pullback_catd_func
+        (Fibre_cat K x)
+        (Fibre_cat K y)
+        (@fapp1_fapp0 L Cat_cart K x y p);''',
+                     '''    ≡ @comp_cat_con_cart_func
+        (Fibre_cat K x) (Fibre_cat K y) Cat_cart
+        (@fapp1_fapp0 L Cat_cart K x y p);'''),
+                    ('    ≡ @Pi_func (@fapp0 K (Op_cat Cat_cart) G x);',
+                     '''    ≡ @comp_cat_fapp0
+        (Functor_cart_cat (@fapp0 K (Op_cat Cat_cart) G x) Cat_cart)
+        (Catd_cat (@fapp0 K (Op_cat Cat_cart) G x)) Cat_cart
+        (@Pi_func (@fapp0 K (Op_cat Cat_cart) G x))
+        (Functor_cart_include (@fapp0 K (Op_cat Cat_cart) G x) Cat_cart);'''),
+                )
+                for before, after in replacements:
+                    assert section.count(before) == 1, before
+                    section = section.replace(before, after)
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/family-constructor-observations',
+                                'owner': 'original PathOut transport, family transpose/reindexing and internal Pi classifier observations',
+                                'reason': 'Keep fixed-base lax family maps and raw pullback, while correctly observing the Cartesian varying-base classifier, its actual fixed-precomposition action, the CoAt2 transpose base and the existing inclusion before internal Pi',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index(family_end, start)
+                section_end = 'assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C))) ⊢'
+                end = text.index(section_end, start)
+                old = text[start:end]
+                assert old.count('Cat_cat') == 21
+                section = old.replace('Cat_cat', 'Cat_cart')
+                old_pi_component = '    ≡ @Pi_func K;'
+                assert section.count(old_pi_component) == 1
+                section = section.replace(old_pi_component,
+                    '''    ≡ @comp_cat_fapp0 (Functor_cart_cat K Cat_cart) (Catd_cat K) Cat_cart
+        (@Pi_func K) (Functor_cart_include K Cat_cart);''')
+                structural_count, constant_views, eval_count = 0, 0, 0
+                for match in reversed(list(re.finditer(r'(?m)^assert\b.*?;', section, re.S))):
+                    block = match.group()
+                    if '@pi_eval_transf' in block:
+                        eval_count += 1
+                        telescope, equation = block.split('⊢', 1)
+                        _, result = equation.split('≡', 1)
+                        block = '''// Evaluate the existing section-first whole map at the fixed k.
+''' + telescope + '''⊢
+  @fapp0 (Pi_cat E) (Fibre_cat E k)
+    (@comp_cat_fapp0 (Pi_cat E) (Pi_cat E) (Fibre_cat E k)
+      (@piapp0_func K E k) (@pi_eval_transf K E)) s
+  ≡''' + result
+                    if '@Const_func_func' in block or '@Functor_catd_const_funcd' in block:
+                        structural_count += 1
+                        block = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', block)
+                        block = block.replace('@comp_cat_cov_func', '@comp_cat_cov_cart_func')
+                        starts = [m.start() for m in re.finditer(r'\(@fapp1_fapp0\s+B\s+\(Functor_cart_cat A B\)', block)]
+                        for first in reversed(starts):
+                            depth = 0
+                            for last in range(first, len(block)):
+                                depth += (block[last] == '(') - (block[last] == ')')
+                                if depth == 0:
+                                    break
+                            assert depth == 0
+                            term = block[first:last + 1]
+                            block = block[:first] + '(@strict_transfor _ _ _ _ ' + term + ')' + block[last + 1:]
+                            constant_views += 1
+                    section = section[:match.start()] + block + section[match.end():]
+                assert (structural_count, constant_views, eval_count) == (10, 2, 1)
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/sections-and-weakening',
+                                'owner': 'original section postcomposition, Sigma-total comparisons, Pi interfaces and structural weakening observations',
+                                'reason': 'Retain arbitrary lax FF/H and the original whole/point/arrow computations, with the actual coefficient, Cartesian constant/weakening classifiers and section-first Pi evaluation; keep Pi(const A) identified with the ambient Functor_cat(K,A)',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index(section_end, start)
+                exchange_end = 'assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B))\n  (s : τ (Obj (@Functord_cat'
+                end = text.index(exchange_end, start)
+                old = text[start:end]
+                section = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', old)
+                count = 0
+                for match in reversed(list(re.finditer(r'(?m)^assert\b.*?;', section, re.S))):
+                    block = match.group()
+                    if '(eta : τ (Transf H K))' in block:
+                        target = '(Functor_cart_cat B C)' if '[A B C : Cat]' in block else '(Functor_cart_cat A C)'
+                        block = block.replace('(eta : τ (Transf H K))',
+                            '(eta : τ (@StrictTransfor A ' + target + ' H K))')
+                        count += 1
+                        section = section[:match.start()] + block + section[match.end():]
+                assert count == 3
+                observations = list(re.finditer(r'@tapp([01])_fapp0\b', section))
+                assert len(observations) == 13
+                for match in reversed(observations):
+                    arity, position = (6, 5) if match.group(1) == '0' else (8, 6)
+                    spans = curry_argument_spans(section, match.end(), arity)
+                    a,b = spans[position]
+                    section = section[:a] + '(@strict_transfor _ _ _ _ ' + section[a:b] + ')' + section[b:]
+                section = '// Migrated Cartesian exchange and diagonal observations.\n' + section
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/cartesian-exchange-diagonal',
+                                'owner': 'original whole, object, arrow and transfor exchange/diagonal diagnostics',
+                                'reason': 'Use the implemented Cartesian structural contracts and ambient views of their classified higher action; retain all thirteen original computations and their actual inputs',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index(exchange_end, start)
+                end = text.index('// Mixed-action foundation', start)
+                old = text[start:end]
+                section = old
+                blocks = list(re.finditer(r'(?m)^assert(?:not)?\b.*?;', section, re.S))
+                assert len(blocks) == 24
+                assert section.count('@hom_int ') == 2
+                for match in reversed(blocks):
+                    block = match.group()
+                    # General totalization still lands in ambient Cat_cat.
+                    # The other literal universe arguments here are family
+                    # coefficients or Pi coefficients, which are Cat_cart.
+                    if 'Sigma_func' not in block:
+                        block = block.replace('Cat_cat', 'Cat_cart')
+                    block = block.replace('@hom_int ', '@hom_int_view ')
+                    component = '(@tdapp0_fapp0 K E D FF GG k eta)'
+                    if component in block:
+                        block = block.replace(component, '(@strict_transfor _ _ _ _ ' + component + ')')
+                    section = section[:match.start()] + block + section[match.end():]
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/section-reindexing-and-totalization',
+                                'owner': 'original section pullback, totalized maps/modifications and Sigma-projection observations',
+                                'reason': 'Correct the family/Pi coefficient while retaining the ambient Sigma codomain, use the existing ordinary Hom-family view and observe the Cartesian fibre modification through its inclusion; preserve all 22 positives and two runtime/proof-time boundary negatives',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5101,6 +5294,34 @@ assert [C : Cat] [x y z : τ (Obj C)]
     (package / 'central_pair_telescope_controls.lp').write_text(
         'require open emdash.emdash3_2;\n'
         + central[intrinsic_end:pair_telescope_end])
+    curry_end = central.index('assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))\n  (E : τ (Catd (@PathOut_cat Z x))) ⊢', pair_telescope_end)
+    (package / 'central_curry_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[pair_telescope_end:curry_end]
+        + '\n' + fragment('production_lax_curry_controls.lpfragment').split(
+            '// Both canonical whole objects agree with the original ordinary Hom views.', 1)[0])
+    family_end = central.index('assert [K : Cat] (E : τ (Catd K)) ⊢\n  fapp1_fapp0 (Pi_func K)', curry_end)
+    (package / 'central_family_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[curry_end:family_end])
+    section_end = central.index('// Migrated Cartesian exchange and diagonal observations.', family_end)
+    (package / 'central_sections_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[family_end:section_end])
+    exchange_end = central.index('assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B))\n  (s : τ (Obj (@Functord_cat', section_end)
+    (package / 'central_structural_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[section_end:exchange_end])
+    reindex_end = central.index('// Mixed-action foundation', exchange_end)
+    (package / 'central_reindex_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[exchange_end:reindex_end])
+    (package / 'central_curry_family_regression.lp').write_text(
+        'require open emdash.central_curry_controls;\n'
+        'require open emdash.central_family_controls;\n'
+        'require open emdash.central_sections_controls;\n'
+        'require open emdash.central_structural_controls;\n'
+        'require open emdash.central_reindex_controls;\n')
     (package / 'central_projection_regression.lp').write_text(
         'require open emdash.central_intrinsic_projection_controls;\n'
         'require open emdash.central_pair_telescope_controls;\n'
@@ -5612,6 +5833,12 @@ assert [C : Cat] [x y z : τ (Obj C)]
                               package / 'central_path_induction_controls.lp',
                               package / 'central_intrinsic_projection_controls.lp',
                               package / 'central_pair_telescope_controls.lp',
+                              package / 'central_curry_controls.lp',
+                              package / 'central_family_controls.lp',
+                              package / 'central_sections_controls.lp',
+                              package / 'central_structural_controls.lp',
+                              package / 'central_reindex_controls.lp',
+                              package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',
                               package / 'central_displayed_regression.lp',

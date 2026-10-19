@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original intrinsic-Homd and product-pair projections qualified with a Cartesian product-profile repair and refreshed central/core/library regressions; later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original central curry/family/Pi/Sigma/structural observations qualified through total reindexing; full-context diagnostic reaches mixed-action foundation; later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,54 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `ffb48ec5`, 2026-10-19 UTC: the
+[curry/section verification](../emdash2/audits/strict-default-action-boundary/production_central_curry_sections_verification.json)
+qualifies the next original central sections without changing any mathematical
+source. The seven Cartesian curry/uncurry expansion checks retain their whole,
+capped, component and point computations at the actual Cartesian classifiers.
+Their three transformation parameters use the required strict carrier. General
+lax currying remains checked separately through the existing one-way interface,
+including higher action and the negative against strictifying its output.
+The later represented-Hom comparisons retain their existing extension owner;
+they are not copied into the core to satisfy an incorrectly scoped test import.
+
+Fixed-base Catd/Functord/pullback keep lax maps. Varying-base Catd_cat_func and
+Catd_catd_con expose Cartesian mapping categories and their actual Cartesian
+precomposition action. Op_catd observations use CoAt2(K) and op o CoAt2(E).
+Internal Pi components include the Cartesian family category into the ordinary
+one before applying Pi_func. Pi(const A) remains the ambient Functor_cat(K,A).
+The original evaluation observation uses the implemented section-first whole
+map at fixed k, rather than the retired k-first Functord(const(Pi(E)),E) type.
+
+Section postcomposition, totalized maps/modifications, recursive weakening and
+reindexing retain arbitrary lax FF/H and all original whole/point/arrow
+observations. Sigma_func still lands in ambient Cat_cat; only family and Pi
+coefficients become Cat_cart. Exchange and diagonal use their actual Cartesian
+inputs and existing ambient component views. No primitive, rewrite, unifier
+or operational equality payload is added in this tranche.
+
+The installed checker passes 119 positive/4 negative observations in
+36.972s/1505.2MiB under 180s/4GiB/o=20 with SR and warnings. Core warning
+bodies remain exactly 1570. The prior migrated-central, core/Homd and library
+receipts carry after exact input rehashing. All original central assertions
+and declarations remain: 2141 positives, 292 negatives and 66 declarations.
+
+The verified isolated checker-memory diagnostic also completes all imports
+and reaches the next unmigrated mixed-action statement at line 15144 in this
+snapshot. It takes 399.236s/1603.3MiB under the reviewed 600s/4GiB/o=20
+profile. That is full-context diagnostic evidence, not adoption of the patched
+checker or installed-checker qualification of the full suite. Its command
+timings identify expensive affine-glue, Hom-comparison, monad and slice/product
+commands; the exact locations remain in the verification record without
+attributing their cost to the current diagnostic-only edits.
+
+Next migrate mixed-action foundation, starting with Op_catd's whole action
+over CoAt2(K), transposed Hom input and Cartesian fibre mapping categories;
+then its direct mixed constructors and remaining consumers. Full central and
+registered-consumer validation, wrapper retirement, normalization/performance
+and promotion/catalogue/health/CI/source-pin gates remain required. The
+separate application goal remains paused.
 
 Continuation after `1f8ffe50`, 2026-10-19 UTC: the
 [intrinsic/product verification](../emdash2/audits/strict-default-action-boundary/production_central_intrinsic_product_verification.json)
