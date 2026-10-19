@@ -3996,6 +3996,139 @@ assert [C : Cat] [x y z : τ (Obj C)]
                                 'owner': 'original section pullback, totalized maps/modifications and Sigma-projection observations',
                                 'reason': 'Correct the family/Pi coefficient while retaining the ambient Sigma codomain, use the existing ordinary Hom-family view and observe the Cartesian fibre modification through its inclusion; preserve all 22 positives and two runtime/proof-time boundary negatives',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Mixed-action foundation')
+                end = text.index('// Direct recursive mixed displayed introduction', start)
+                old = text[start:end]
+                section = old
+                family_count, opposite_count = 0, 0
+                blocks = list(re.finditer(r'(?m)^assert\b.*?;', section, re.S))
+                for match in reversed(blocks):
+                    block = match.group()
+                    if '@Op_catd' in block or '@Functor_catd' in block:
+                        family_count += 1
+                        block = block.replace('Cat_cat', 'Cat_cart')
+                        block = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', block)
+                    if '@Op_catd' in block:
+                        opposite_count += 1
+                        block = block.replace('@fapp1_func K Cat_cart (@Op_catd',
+                            '@fapp1_func (CoAt2_cat K) Cat_cart (@Op_catd')
+                        block = block.replace('@fapp1_fapp0 K Cat_cart (@Op_catd',
+                            '@fapp1_fapp0 (CoAt2_cat K) Cat_cart (@Op_catd')
+                        if '@comp_cat_fapp0' in block:
+                            telescope, equation = block.split('⊢', 1)
+                            left, _ = equation.split('≡', 1)
+                            block = telescope + '⊢' + left + '''≡ @comp_cat_fapp0
+      (Op_cat (Hom_cat K x y))
+      (Op_cat (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y)))
+      (Functor_cart_cat (Op_cat (Fibre_cat E x)) (Op_cat (Fibre_cat E y)))
+      (@fapp1_func (CoAt2_cat Cat_cart) Cat_cart op (Fibre_cat E x) (Fibre_cat E y))
+      (@fapp1_func (CoAt2_cat K) (CoAt2_cat Cat_cart)
+        (@CoAt2_func K Cat_cart E) x y);'''
+                        elif '@fapp0' in block:
+                            assert block.count('(Hom_cat K x y)') == 1
+                            block = block.replace('(Hom_cat K x y)', '(Op_cat (Hom_cat K x y))')
+                    section = section[:match.start()] + block + section[match.end():]
+                assert (family_count, opposite_count) == (7, 3)
+                boundary = '''// Object and arrow carriers agree, but the whole Hom input is transposed.
+assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
+  @fapp1_func (CoAt2_cat K) Cat_cart (@Op_catd K E) x y
+  : τ (Functor (Hom_cat K x y)
+      (Functor_cart_cat (Op_cat (Fibre_cat E x)) (Op_cat (Fibre_cat E y))));
+
+'''
+                section = section.rstrip() + '\n\n' + boundary
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/mixed-action-foundation',
+                                'owner': 'original full/capped family transpose and mixed-family action observations',
+                                'reason': 'Use CoAt2(K), the transposed Hom input and actual coefficient/Hom actions; preserve the mixed Unit_prof computation, ordinary ambient Hom object action and noncollapse control, and reject the old untransposed whole source',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Direct recursive mixed displayed introduction')
+                end = text.index('// Direct mixed source-family action', start)
+                old = text[start:end]
+                assert old.count('Cat_cat') == 14
+                section = old.replace('Cat_cat', 'Cat_cart').replace('@id Cat_cart Cat_cart', '@id Cat_cat Cat_cart')
+                section = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', section)
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/direct-mixed-target',
+                                'owner': 'original direct postmap and recursively mapped binder consumers',
+                                'reason': 'Use actual Cartesian fibre-Homs while retaining unrestricted lax positive maps F/G, all recursive object/arrow computations and intrinsic base-cell typing',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Direct mixed source-family action', start)
+                end = text.index('// Direct mixed pointwise product distribution', start)
+                old = text[start:end]
+                assert old.count('Cat_cat') == 11
+                section = old.replace('Cat_cat', 'Cat_cart')
+                section = re.sub(r'\bFunctor_cat(\s+\(Fibre_cat)', r'Functor_cart_cat\1', section)
+                source_classifier = '(Op_cat (Catd_cat (Op_cat K)))'
+                assert section.count(source_classifier) == 1
+                section = section.replace(source_classifier, '(Op_cat (Functor_cart_cat (Op_cat K) Cat_cart))')
+                for source, target, name, declarations, components in (
+                    ("A'", 'A', 'L', 4, 5), ('A0', 'A1', 'L1', 2, 1), ('A1', 'A2', 'L2', 2, 1),
+                ):
+                    before = '(' + name + ' : τ (Functord ' + source + ' ' + target + '))'
+                    assert section.count(before) == declarations
+                    section = section.replace(before, '(' + name + ' : τ (@StrictTransfor (Op_cat K) Cat_cart ' + source + ' ' + target + '))')
+                    component = '@tapp0_fapp0 (Op_cat K) Cat_cart ' + source + ' ' + target + ' k ' + name
+                    assert section.count(component) == components
+                    section = section.replace(component,
+                        '@tapp0_fapp0 (Op_cat K) Cat_cart ' + source + ' ' + target
+                        + ' k (@strict_transfor (Op_cat K) Cat_cart ' + source + ' ' + target + ' ' + name + ')')
+                section = section.replace('// Check-only source action assembled from the existing constructor action.',
+                    '// Check-only source action assembled from the existing constructor action.\n'
+                    '// Its negative parameter uses the constructor\'s Cartesian source-map classifier;\n'
+                    '// positive target maps and public Functord remain lax.')
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/direct-mixed-source',
+                                'owner': 'original direct negative-family action and iterated source-map consumers',
+                                'reason': 'Use the existing Cartesian negative-parameter classifier and ordinary component inclusion; retain all source maps, compositions and four original computations, without changing public Functord',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Direct mixed pointwise product distribution', start)
+                end = text.index('// The following formation checks return to the general diagnostic inventory.', start)
+                old = text[start:end]
+                section = old.replace('Cat_cat', 'Cat_cart')
+                section = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', section)
+                for helper, source, target in (
+                    ('direct_mixed_product_higher_check',
+                     '(Fibre_cat (@Product_catd_transparent_check K (@Functor_catd K A B) (@Functor_catd K A C)) x)',
+                     '(Fibre_cat (@Functor_catd K A (@Product_catd_transparent_check K B C)) y)'),
+                    ('direct_mixed_comp_higher_check',
+                     '(Fibre_cat (@direct_mixed_comp_source_check K X A B) x)',
+                     '(Fibre_cat (@Functor_catd K A B) y)'),
+                ):
+                    a = section.index('symbol ' + helper + '\n')
+                    b = section.index('≔', a)
+                    signature = section[a:b]
+                    assert signature.count(': τ (Transf\n') == 1
+                    signature = signature.replace(': τ (Transf\n',
+                        ': τ (Obj (Hom_cat\n      (Functor_cart_cat ' + source + '\n        ' + target + ')\n')
+                    section = section[:a] + signature.rstrip() + ')\n' + section[b:]
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/direct-mixed-product-composition',
+                                'owner': 'original product distribution and constant-middle composition consumers',
+                                'reason': 'Retain the transparent products, generic lax FF/GG and original whole/object/arrow/cell computations at the actual Cartesian fibre-Homs; give the two iterable higher-action helpers canonical Hom results',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// The following formation checks return to the general diagnostic inventory.', start)
+                end = text.index('assert [Z : Cat] (x y : τ (Obj Z)) ⊢\n  Fibre_cat (@Rep_catd Z x) y', start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 6
+                section = old.replace('Cat_cat', 'Cat_cart').replace('Op_catd', 'TotalOp_catd')
+                section = section.replace('≡ Functor_cat (Fibre_cat A k) (Fibre_cat B k);',
+                    '≡ Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k);')
+                section = section.replace('(Op_cat (Catd_cat (Op_cat K)))',
+                    '(Op_cat (Functor_cart_cat (Op_cat K) Cat_cart))')
+                section = section.replace('@piapp0 K (@TotalOp_catd K',
+                    '@piapp0 (CoAbove2_cat K) (@TotalOp_catd K')
+                section = section.replace('≡ Transf_cat\n',
+                    '≡ Hom_cat (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))\n')
+                old_op = '@Op_func K (Op_cat Cat_cart) X'
+                assert section.count(old_op) == 1
+                section = section.replace(old_op,
+                    '@TotalOp_func (CoAbove2_cat K) (TotalOp_cat Cat_cart) X')
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/mixed-formation',
+                                'owner': 'original Functor_catd, Hom_catd and Transf_catd formation/fibre observations',
+                                'reason': 'Use Cartesian fibre-Homs and the actual total-dual negative sections over R(K), including the existing total-dual constant-family conversion; preserve all six original observations',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5316,6 +5449,27 @@ assert [C : Cat] [x y z : τ (Obj C)]
     (package / 'central_reindex_controls.lp').write_text(
         'require open emdash.emdash3_2;\n'
         + central[exchange_end:reindex_end])
+    mixed_action_end = central.index('// Direct recursive mixed displayed introduction', reindex_end)
+    (package / 'central_mixed_action_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[reindex_end:mixed_action_end])
+    mixed_source_end = central.index('// Direct mixed pointwise product distribution', mixed_action_end)
+    (package / 'central_mixed_parameter_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[mixed_action_end:mixed_source_end])
+    mixed_composition_end = central.index('// The following formation checks return to the general diagnostic inventory.', mixed_source_end)
+    (package / 'central_mixed_composition_controls.lp').write_text(
+        'require open emdash.central_displayed_products_controls;\n'
+        + central[mixed_source_end:mixed_composition_end])
+    mixed_formation_end = central.index('assert [Z : Cat] (x y : τ (Obj Z)) ⊢\n  Fibre_cat (@Rep_catd Z x) y', mixed_composition_end)
+    (package / 'central_mixed_formation_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[mixed_composition_end:mixed_formation_end])
+    (package / 'central_mixed_regression.lp').write_text(
+        'require open emdash.central_mixed_action_controls;\n'
+        'require open emdash.central_mixed_parameter_controls;\n'
+        'require open emdash.central_mixed_composition_controls;\n'
+        'require open emdash.central_mixed_formation_controls;\n')
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5838,6 +5992,11 @@ assert [C : Cat] [x y z : τ (Obj C)]
                               package / 'central_sections_controls.lp',
                               package / 'central_structural_controls.lp',
                               package / 'central_reindex_controls.lp',
+                              package / 'central_mixed_action_controls.lp',
+                              package / 'central_mixed_parameter_controls.lp',
+                              package / 'central_mixed_composition_controls.lp',
+                              package / 'central_mixed_formation_controls.lp',
+                              package / 'central_mixed_regression.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',

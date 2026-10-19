@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original central curry/family/Pi/Sigma/structural observations qualified through total reindexing; full-context diagnostic reaches mixed-action foundation; later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original mixed-action, direct mixed-constructor and Hom/Transf formation observations qualified; repeated PathOut/covariance/Homd and later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,48 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `19951b16`, 2026-10-19 UTC: the
+[mixed-consumer verification](../emdash2/audits/strict-default-action-boundary/production_central_mixed_verification.json)
+qualifies the original mixed-action and direct mixed-constructor sections.
+No mathematical source, primitive, rewrite, unifier or operational proof
+parameter changes in this tranche.
+
+Op_catd(E) is observed over CoAt2(K), with T(Hom_K(x,y)) as its whole Hom
+input. Its whole action still factors through the actual first actions of
+op and CoAt2(E). The added negative rejects the old untransposed source.
+Functor_catd's full/capped action and Unit_prof comparison use their actual
+Cartesian fibre-Homs, while the ordinary ambient Hom object computation and
+Op noncollapse remain checked.
+
+Direct positive postmaps and recursively mapped binders retain general lax
+F/G. The negative source slot uses the existing Cartesian source-map
+classifier required by Functor_catd_func, with ordinary component observations
+through its inclusion; this does not make public Functord strict. Iterated
+source maps retain both actual inputs and all original computations.
+Product distribution and constant-middle composition keep their transparent
+products, general lax FF/GG, whole/capped actions, object/inner-arrow betas
+and intrinsic-cell typing. The two higher-action helpers now use canonical
+Hom results instead of the old ambient-transfor annotation.
+
+The six mixed-formation observations use negative sections of TotalOp_catd(E)
+over R(K), the Cartesian Hom of the fibre functor category, and the existing
+TotalOp_func conversion for constant coefficients. All original formation
+and fibre comparisons remain, at their corrected types.
+
+The installed checker passes 35 positive/7 negative selected observations,
+along with the existing product-helper dependency checks, in
+19.335s/1510.5MiB under 180s/4GiB/o=20 with SR and warnings. All 1570 core
+warning bodies are unchanged. Core/Homd, library and the preceding 119/4
+consumer receipts carry after exact input rehashing. The full central file
+retains every original tail and 66 declarations, now 2141 positives and
+293 negatives after the additional Hom-variance control.
+
+Next continue at the repeated representable/PathOut classifier and transport
+observations after mixed formation, then the remaining covariance and Homd
+target/ladder observations. Full imported central qualification, remaining
+registered consumers, wrapper retirement, normalization/performance and final
+promotion gates remain required. The separate application goal stays paused.
 
 Continuation after `ffb48ec5`, 2026-10-19 UTC: the
 [curry/section verification](../emdash2/audits/strict-default-action-boundary/production_central_curry_sections_verification.json)
