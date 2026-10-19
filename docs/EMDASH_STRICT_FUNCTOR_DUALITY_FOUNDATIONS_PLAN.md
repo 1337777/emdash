@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; later PathOut/motive/covariance observations qualified with the missing Cartesian precomposition projections; Hom-presheaf/Homd and later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; whole Homd-target classifiers and higher displayed-action diagnostics qualified; public Homd-ladder/constant-family and later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,52 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `4b3bce9e`, 2026-10-19 UTC: the
+[classifier/component verification](../emdash2/audits/strict-default-action-boundary/production_central_homd_classifiers_verification.json)
+qualifies the next two original diagnostic blocks. Mathematical sources are
+unchanged: this tranche adds no primitive, rewrite, unifier or operational
+proof argument.
+
+The standalone Edge/HomPresheaf observations now use their actual CoAt2-shifted
+bases and Cartesian fibre categories. The corrected Homd target is observed
+as the existing whole Q-diagram transformation category S_E(x), with T(S_E(x))
+as the target-family fibre. The retired ordinary Pi/Functor_catd target is not
+restored. Canonical covariance uses its actual Cartesian Hom. Only the
+Op_funcd observations take the already required Cartesian map input and
+shifted base; public Functord and the other displayed maps remain lax.
+
+Higher displayed components use their actual strict-transfor fibre carrier,
+with ordinary scalar observation through the existing inclusion. Horizontal
+and vertical action, product targets, identities, source/target transport and
+the original Sigma-composition expression retain their operands and behavior.
+The conventional-lax agreement observations now select the existing pre/right
+comparison owners. Its point computation changes one old negative to a
+positive; the post/left noncollapse controls remain.
+
+Three original projected pre/right runtime negatives remain explicitly
+normalization boundaries. They do not deny the strictness of that leg.
+Plain reflexivity and direct projection of the whole law did not automatically
+join the specialized stable-head presentations. The
+[review](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#displayed-component-observations-after-4b3bce9e)
+records those failures and the existing generic comparison staged before
+specialization. No case-specific unifier was added. Explicit categories and
+endpoints keep the two identity-specialized negative expressions well-typed.
+
+Fresh installed-checker passes with SR/warnings cover the 28 classifier
+observations and 37 positive/8 negative component/transport observations.
+All migrated central sections pass together (1313/205) in
+50.650s/2233.1MiB under the existing 300s/4GiB/o=20 profile. Warning bodies
+are unchanged (1786 in that imported closure, 1572 in core). Core/Homd and
+library receipts carry only after exact input rehashing. The complete central
+file retains all original tails and 66 declarations, now 2144 positives and
+293 negatives after the single contract-driven polarity change.
+
+Next migrate the original public Homd root/component/section ladder and its
+constant-family and section specializations immediately following the
+Sigma_catd transport observation. Remaining consumers, wrapper retirement,
+normalization/performance, production promotion and final gates remain
+required. The separate application goal stays paused.
 
 Continuation after `81e68dee`, 2026-10-19 UTC: the
 [PathOut-motive verification](../emdash2/audits/strict-default-action-boundary/production_central_pathout_motives_verification.json)

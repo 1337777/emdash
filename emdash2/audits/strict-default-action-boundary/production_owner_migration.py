@@ -4191,6 +4191,178 @@ assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
                                 'owner': 'original repeated PathOut, motive reindexing, evaluation, Pi and covariance diagnostics',
                                 'reason': 'Observe the existing Cartesian moving-motive classifier and its inclusions into fixed-source evaluation/Pi; retain original transport computations and general lax fixed-source maps',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index(end_marker, start)
+                end = text.index('// Generic component evaluation owns', start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 28
+                covariance_start = old.index('assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢')
+                section = '''// The legacy edge/presheaf classifiers retain their corrected shifted bases.
+assert [Z : Cat] (x : τ (Obj (CoAt2_cat (Op_cat Z))))
+  (y : τ (Obj (CoAt2_cat Z))) ⊢
+  @fapp0 (CoAt2_cat Z) Cat_cart
+    (@fapp0 (CoAt2_cat (Op_cat Z))
+      (Functor_cart_cat (CoAt2_cat Z) Cat_cart) (@Edge_catd_func Z) x) y
+  ≡ Op_cat (Hom_cat Z x y);
+
+assert [Z : Cat] (x : τ (Obj (CoAt2_cat Z)))
+  (y : τ (Obj (Op_cat (CoAt2_cat Z)))) ⊢
+  Fibre_cat
+    (@fapp0 (CoAt2_cat Z) (Catd_cat (Op_cat (CoAt2_cat Z)))
+      (@HomPresheaf_catd_func Z) x) y
+  ≡ Functor_cart_cat (Op_cat (Hom_cat Z x y)) Cat_cart;
+
+// The corrected whole Homd target uses the actual Q-diagram transformation
+// category, replacing the former ordinary Pi/Functor_catd target.
+assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
+  @Homd_target_section_cat Z E x
+  ≡ @Transf_cat Z Homd_coeff_cat (@Homd_coeff_diagram Z E)
+      (@Homd_coeff_diagram Z (@hom_ Z Z (@id_func Z) x));
+
+assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
+  @fapp0 Z Cat_cart (@Homd_target_catd Z E) x
+  ≡ Op_cat (@Homd_target_section_cat Z E x);
+
+''' + old[covariance_start:].replace('Cat_cat', 'Cat_cart')
+                section = section.replace(
+                    'Fibre_cat (@FibCov_target_catd K E) x\n'
+                    '    ≡ @Functord_cat K (@hom_ K K (@id_func K) x) E;',
+                    'Fibre_cat (@FibCov_target_catd K E) x\n'
+                    '    ≡ Hom_cat (Functor_cart_cat K Cat_cart) (@hom_ K K (@id_func K) x) E;')
+                section = section.replace(
+                    'Obj (Fibre_cat (@FibCov_target_catd K E) x)\n'
+                    '    ≡ @Functord K (@hom_ K K (@id_func K) x) E;',
+                    'Obj (Fibre_cat (@FibCov_target_catd K E) x)\n'
+                    '    ≡ @StrictTransfor K Cat_cart (@hom_ K K (@id_func K) x) E;')
+                section = section.replace('    (@fib_cov_transf K E x u)\n',
+                    '    (@strict_transfor K Cat_cart (@hom_ K K (@id_func K) x) E\n'
+                    '      (@fib_cov_transf K E x u))\n')
+                section = section.replace(
+                    '@Op_funcd K E E (@id_funcd K E)\n'
+                    '    ≡ @id_funcd K (@Op_catd K E);',
+                    '@Op_funcd K E E (@id (Functor_cart_cat K Cat_cart) E)\n'
+                    '    ≡ @id (Functor_cart_cat (CoAt2_cat K) Cat_cart) (@Op_catd K E);')
+                for match in reversed(list(re.finditer(r'(?m)^assert\b.*?;', section, re.S))):
+                    block = match.group()
+                    if '@Op_funcd' not in block:
+                        continue
+                    block = block.replace('(FF : τ (Functord E D))',
+                        '(FF : τ (Hom (Functor_cart_cat K Cat_cart) E D))')
+                    block = block.replace('@Op_funcd K (@Op_catd K E)',
+                        '@Op_funcd (CoAt2_cat K) (@Op_catd K E)')
+                    if '@tapp0_fapp0' in block:
+                        block = block.replace('    K\n    Cat_cart\n',
+                            '    (CoAt2_cat K)\n    Cat_cart\n', 1)
+                        block = block.replace('    (@Op_funcd K E D FF)\n',
+                            '    (@strict_transfor _ _ _ _ (@Op_funcd K E D FF))\n')
+                        block = block.replace('(@tapp0_fapp0 K Cat_cart E D x FF)',
+                            '(@tapp0_fapp0 K Cat_cart E D x (@strict_transfor K Cat_cart E D FF))')
+                    section = section[:match.start()] + block + section[match.end():]
+                assert len(re.findall(r'(?m)^assert\b', section)) == 28
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/homd-classifier-observations',
+                                'owner': 'original edge/presheaf, Homd target, covariance, family duality and elementary displayed projection diagnostics',
+                                'reason': 'Observe the shifted classifier bases and actual Q transformation target; retain ordinary lax Functord while using the already required Cartesian input only for Op_funcd',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Generic component evaluation owns', start)
+                end_marker = ('assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))\n'
+                              '  (x : τ (Obj Z)) ⊢\n  @tapp0_fapp0')
+                end = text.index(end_marker, start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 36
+                assert len(re.findall(r'(?m)^assertnot\b', old)) == 9
+                section = old.replace('Cat_cat', 'Cat_cart')
+                section = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', section)
+                # The extracted strict-cell property lives in the ordinary
+                # transformation category, independently of the family coefficient.
+                section = section.replace('@strict_cell_path\n    (@Functor_cart_cat',
+                    '@strict_cell_path\n    (@Functor_cat')
+                for match in reversed(list(re.finditer(r'(?m)^assert(?:not)?\b.*?;', section, re.S))):
+                    block = match.group()
+                    if '@functord_transport_lhs_tele_agrees' in block:
+                        block = block.replace('functord_transport_lhs_', 'functord_transport_rhs_')
+                    if '@functord_transport_lhs_agrees' in block:
+                        block = block.replace('functord_transport_lhs_', 'functord_transport_rhs_')
+                    if (block.startswith('assertnot')
+                            and '@functord_transport_rhs_func K E D FF x y p' in block
+                            and '@fapp0' in block):
+                        block = block.replace('assertnot', 'assert', 1)
+                    if (block.startswith('assertnot') and '  comp_fapp0\n' in block
+                            and ('(G : τ (Functor' in block or '(F : τ (Functor' in block)):
+                        offset = block.index('(epsilon : τ (@Transf') + len('(epsilon : τ (@Transf')
+                        spans = curry_argument_spans(block, offset, 4)
+                        _, carrier, source_map, target_map = [block[a:b] for a,b in spans]
+                        end_object = 'HH' if '(FF GG HH :' in block else 'GG'
+                        if '(G : τ (Functor' in block:
+                            middle_map, middle_object = source_map, 'GG'
+                        else:
+                            middle_map = target_map
+                            middle_object = 'GG' if end_object == 'HH' else 'FF'
+                        assert block.count('  comp_fapp0\n') == 1
+                        block = block.replace('  comp_fapp0\n',
+                            '  @comp_fapp0 ' + carrier + '\n'
+                            '    (fapp0 ' + source_map + ' FF)\n'
+                            '    (fapp0 ' + middle_map + ' ' + middle_object + ')\n'
+                            '    (fapp0 ' + target_map + ' ' + end_object + ')\n')
+                    if '@Op_funcd' in block:
+                        block = block.replace('(FF : τ (Functord E D))',
+                            '(FF : τ (Hom (Functor_cart_cat K Cat_cart) E D))')
+                        block = block.replace('    K\n    (@Op_catd K E)',
+                            '    (CoAt2_cat K)\n    (@Op_catd K E)')
+                        block = block.replace('@Fibre_func K (@Op_catd K E)',
+                            '@Fibre_func (CoAt2_cat K) (@Op_catd K E)')
+                        block = block.replace('(@Op_funcd K E D FF)',
+                            '(@strict_transfor _ _ _ _ (@Op_funcd K E D FF))')
+                        block = block.replace('@Fibre_func K E D FF z',
+                            '@Fibre_func K E D (@strict_transfor K Cat_cart E D FF) z')
+                    if '@tapp0_fapp0\n      (Fibre_cat E z)' in block:
+                        occurrences = [m.start() for m in re.finditer(r'\(@tdapp0_fapp0\b', block)]
+                        assert len(occurrences) == 3
+                        for first in reversed(occurrences):
+                            spans = curry_argument_spans(block, first + len('(@tdapp0_fapp0'), 7)
+                            last = spans[-1][1]
+                            while block[last].isspace():
+                                last += 1
+                            assert block[last] == ')'
+                            term = block[first:last+1]
+                            block = block[:first] + '(@strict_transfor _ _ _ _ ' + term + ')' + block[last+1:]
+                    if '≡ @tdapp0_fapp0 K E D FF GG z ϵ;' in block:
+                        block = block.replace('≡ @tdapp0_fapp0 K E D FF GG z ϵ;',
+                            '≡ @strict_transfor _ _ _ _ (@tdapp0_fapp0 K E D FF GG z ϵ);')
+                    section = section[:match.start()] + block + section[match.end():]
+                fibre_homs = 0
+                for first in reversed([m.start() for m in re.finditer(r'\(@Transf_cat\b', section)]):
+                    spans = curry_argument_spans(section, first + len('(@Transf_cat'), 4)
+                    args = [section[a:b] for a,b in spans]
+                    if not args[0].startswith('(Fibre_cat'):
+                        continue
+                    fibre_homs += 1
+                    last = spans[-1][1]
+                    while section[last].isspace():
+                        last += 1
+                    assert section[last] == ')'
+                    replacement = ('(Hom_cat (Functor_cart_cat ' + args[0] + ' ' + args[1] + ')\n'
+                                   '          ' + args[2] + '\n          ' + args[3] + ')')
+                    section = section[:first] + replacement + section[last+1:]
+                assert fibre_homs == 2
+                section = section.replace('// Component evaluation does not silently impose pre/right naturality on an\n// arbitrary outer transfor.',
+                    '// Projected component heads still hide the generic pre/right cut.\n// This is a runtime normalization boundary, not a claim of semantic laxness\n// in the selected strict leg. Retain it for the normalization review.')
+                section = section.replace('// Product-valued target reduction does not restore that retired cut.',
+                    '// The same projected runtime boundary with a product-valued target.')
+                section = section.replace('// Normal-lax identity projection does not recreate pre/right strictness.',
+                    '// The identity specialization also retains that projected runtime boundary.')
+                section = section.replace('// The ambient left/source route remains the selected lax action.',
+                    '// The ambient pre/right route is the selected conventional-lax action.')
+                section = section.replace('// The right/target route is available only through a strict displayed profile.',
+                    '// The old strict displayed wrapper observes that same selected route.')
+                section = section.replace('// Evaluation at p retains the ambient left/source comparison.',
+                    '// Evaluation at p retains the selected pre/right comparison.')
+                assert len(re.findall(r'(?m)^assert\b', section)) == 37
+                assert len(re.findall(r'(?m)^assertnot\b', section)) == 8
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/displayed-component-transport-observations',
+                                'owner': 'original whole/higher displayed components, transport and Sigma-composition diagnostics',
+                                'reason': 'Use actual Cartesian fibre-Homs and ordinary inclusion; observe the selected pre/right transport while retaining projected runtime boundaries, post/left laxness and general FF',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5426,7 +5598,8 @@ assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
                         'reason': 'Integrate the exact previously adapted original section from its focused reviewer, without omitting assertions or changing its scope',
                         'oldBodySha256': sha(previous), 'newBodySha256': sha(replacement)})
     represented_coefficient = r'Cat_cat(\s+)(\(@(?:hom_|hom_con|Rep_catd)\b)'
-    assert len(list(re.finditer(represented_coefficient, central))) == 20
+    # Three former matches are now owned by the complete Homd-classifier block.
+    assert len(list(re.finditer(represented_coefficient, central))) == 17
     before_represented_tags = central
     central = re.sub(represented_coefficient, r'Cat_cart\1\2', central)
     changes.append({'source': 'emdash3_2_checks.lp',
@@ -5533,11 +5706,21 @@ assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
         'require open emdash.central_mixed_composition_controls;\n'
         'require open emdash.central_mixed_formation_controls;\n')
     pathout_motives_end = central.index(
-        'assert [Z : Cat] (x : τ (Obj (Op_cat Z))) (y : τ (Obj Z)) ⊢',
+        '// The legacy edge/presheaf classifiers retain their corrected shifted bases.',
         mixed_formation_end)
     (package / 'central_pathout_motive_controls.lp').write_text(
         'require open emdash.emdash3_2;\n'
         + central[mixed_formation_end:pathout_motives_end])
+    homd_classifiers_end = central.index('// Generic component evaluation owns', pathout_motives_end)
+    (package / 'central_homd_classifier_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[pathout_motives_end:homd_classifiers_end])
+    displayed_transport_end = central.index(
+        'assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))\n'
+        '  (x : τ (Obj Z)) ⊢\n  @tapp0_fapp0', homd_classifiers_end)
+    (package / 'central_displayed_transport_controls.lp').write_text(
+        'require open emdash.emdash3_2_gray_profiles;\n'
+        + central[homd_classifiers_end:displayed_transport_end])
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5557,7 +5740,9 @@ assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
         'require open emdash.central_projection_regression;\n'
         'require open emdash.central_curry_family_regression;\n'
         'require open emdash.central_mixed_regression;\n'
-        'require open emdash.central_pathout_motive_controls;\n')
+        'require open emdash.central_pathout_motive_controls;\n'
+        'require open emdash.central_homd_classifier_controls;\n'
+        'require open emdash.central_displayed_transport_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6069,6 +6254,8 @@ assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
                               package / 'central_mixed_formation_controls.lp',
                               package / 'central_mixed_regression.lp',
                               package / 'central_pathout_motive_controls.lp',
+                              package / 'central_homd_classifier_controls.lp',
+                              package / 'central_displayed_transport_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',

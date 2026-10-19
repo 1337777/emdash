@@ -501,3 +501,52 @@ Cat_cart. Their exact bodies and hashes are recorded. These are reviewed
 symbolic overlaps, not newly proved joins. They remain in the required
 normalization work with the six earlier product-profile peaks; no additional
 commuting conversion or comparison rule is installed to hide them.
+
+## Displayed component observations after `4b3bce9e`
+
+The original component-action diagnostics now use the actual Cartesian fibre
+Homs and ordinary inclusions of their strict-transfor components. General
+displayed maps/modifications still retain their base laxness. The standalone
+edge/presheaf classifiers have shifted bases, while the corrected Homd target
+is the actual Q-diagram transformation category and its transposed family
+fibre. These are changes to the observations, not new mathematical owners.
+
+Three original runtime negatives combine an arbitrary conventional-lax
+transfor with the canonical displayed component evaluator. The generic
+pre/right composition rule expects fapp1(tapp0_func); component projection
+first changes that argument to tdapp0_fapp0. Its identity specialization has
+the same issue. The ordinary and product-valued examples therefore remain
+runtime nonconversion controls, although the selected leg is mathematically
+strict. Their comments now make this distinction explicit. The two identity
+examples also need canonical composition categories/endpoints: without those
+annotations, the changed strict-transfor carrier prevents type inference and
+would not provide a legitimate negative conversion test.
+
+Two attempted direct repairs to the diagnostic proof were not retained.
+Plain typed reflexivity failed to join the specialized scalar expressions.
+Applying the existing whole pre/right functor equation reaches the expected
+represented-precomposition endpoints, but the checker still does not join
+their specialized raw-composition presentations automatically. Neither
+failure licenses a new semantic strictness restriction or demonstrates an
+invalid conventional-lax law.
+
+The existing precomposition_point_path in
+emdash3_2_direct_cover_completion_retained_sections.lp stages precisely the
+generic precomposition reading before specialization. Its reuse and owner
+placement are available options for the normalization review; this tranche
+does not introduce another theorem, proof payload or case-specific unifier.
+The raw projection-order boundary remains recorded rather than being hidden
+by an additional rule or described as semantic non-naturality.
+
+The ordinary transport comparison observations use the already implemented
+rhs/pre-right owners. One old pointwise rhs nonconversion becomes a positive;
+the actual post/left laxness and the separate whole-head runtime distinctions
+remain negative. The original Sigma-composition expression is unchanged.
+
+[Exact evidence](production_central_homd_classifiers_verification.json)
+records the failed candidates, the final well-typed controls, and fresh
+classifier/component and merged-central checks. Mathematical inputs and
+warning bodies are unchanged, so the preceding exact core/Homd and library
+receipts carry. The specialized comparison/normalization work remains part
+of the pre-promotion review, alongside the earlier product peaks and resource
+cost; this is not a new confluence claim.
