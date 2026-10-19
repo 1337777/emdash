@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; early central and ordinary Hom/action diagnostics qualified, competing component computations consolidated; remaining central diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original central consumers through displayed products/evaluation, dependent chains and indexed adjunction duality qualified in bounded drivers; remaining diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,49 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `d61994d4`, 2026-10-19 UTC: the
+[displayed-consumer verification](../emdash2/audits/strict-default-action-boundary/production_central_displayed_verification.json)
+qualifies the original displayed products, constant-domain evaluation,
+dependent chain, ordinary evaluation/curry and indexed adjunction observations.
+The original constructions and all existing assertion polarities are retained;
+the diagnostic types now name the actual coefficient and mapping categories.
+The whole kernel and core/Homd regression inputs are unchanged from the prior
+checkpoint. No primitive, rewrite, unifier or operational proof payload is added.
+
+Canonical product projections, constant transforms and the displayed evaluator
+are observed through their existing ambient inclusions. General displayed
+FF/GG remain lax. The three product higher-action helpers and the evaluator
+helper expose canonical Obj(Hom_cat(Functor_cart_cat(...),...,...)) results.
+An attempted StrictTransfor type with inferred endpoints failed when the
+product target reduced; the canonical result retains the original endpoints.
+The dependent-chain consumers retain genuine dependent fibres, recursive
+weakening, arbitrary lax FF and the whole Sigma-section transformation action.
+
+Joint evaluation and curry/uncurry use their selected Cartesian classifiers.
+The fixed evaluator continues to act on ambient lax transformations; its
+comparison with joint evaluation explicitly uses Functor_cart_include.
+Adjunction and general-transfor duality use TotalOp. Their off-diagonal action
+reads the original post/left endpoint G[p] o eta[x], not the original
+pre/right middle eta[y] o F[p]. The old diagnostic equality is corrected to
+the already implemented tapp1_post_endpoint_func observation, and a negative
+retains the distinction for arbitrary lax eta. Actual adjunction data,
+triangles and dual involutions remain. This is the previously selected
+conventional-lax duality contract, not a new strictness exception.
+
+The installed checker passes the combined 82 positive/11 negative observations
+with SR and warnings in 26.595s/1506.6MiB under 180s/4GiB/o=20. The 1564
+core warning bodies are unchanged. Core/Homd 287/85 and the prior central
+823/161 evidence carry only after exact input rehashing. The full central file
+retains 2133 positives, now 300 negatives (the additional duality boundary),
+66 declarations and every original tail. These bounded passes do not qualify
+the full imported central suite or complete the library migration.
+
+Next continue at the original Monad/Kleisli and opposite-derived comonad
+diagnostics using their already migrated owner/reviewer, then the remaining
+central sections. Wrapper/duplicate retirement, normalization/performance,
+remaining registered consumers and promotion/catalogue/health/CI/source-pin
+gates remain required. The separate application goal remains paused.
 
 Continuation after `294b5b69`, 2026-10-19 UTC: the original early central
 diagnostics and ordinary Hom/action section now pass as complete bounded

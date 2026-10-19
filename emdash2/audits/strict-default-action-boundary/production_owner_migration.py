@@ -3448,6 +3448,160 @@ assert [C : Cat] [x y z : τ (Obj C)]
                                 'owner': 'original groupoidal transport and structured-J diagnostics',
                                 'reason': 'Keep the raw Cat-valued diagram theorem at its object action, and observe Catd transport/fibre covariance through the actual coefficient and ambient inclusion; preserve every original assertion',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                marker = 'assert [K : Cat] (E D : τ (Catd K)) ⊢\n  @eq_refl Cat_grpd (Hom_cat (Catd_cat K) E D)'
+                assert text.count(marker) == 1
+                start = text.index(marker)
+                end = text.index(';', text.index(';', start) + 1) + 1
+                old = text[start:end]
+                assert old.count('Cat_cat') == 3
+                text = text[:start] + old.replace('Cat_cat', 'Cat_cart') + text[end:]
+                changes.append({'source': path + '/displayed-mapping-facade',
+                                'owner': 'original Catd/Functord versus ordinary mapping category observations',
+                                'reason': 'Observe the retained ambient lax Functord at its actual Cat_cart coefficient',
+                                'oldBodySha256': sha(old)})
+                old = '(@fapp1_fapp0 (Op_cat A) (@Catd_cat B) (@hom_int A B F) y x p)'
+                assert text.count(old) == 1
+                text = text.replace(old,
+                    '(@strict_transfor _ _ _ _ (@fapp1_fapp0 (Op_cat A)\n'
+                    '      (Functor_cart_cat B Cat_cart) (@hom_int A B F) y x p))')
+                old = '(@Const_transf K A x y p)'
+                assert text.count(old) == 3
+                text = text.replace(old, '(@strict_transfor K A _ _ ' + old + ')')
+                product_start = '// Transparent fibrewise product: no Product_catd owner is introduced.'
+                product_end = '// catalog-area: Constant-domain displayed evaluation'
+                assert text.count(product_start) == text.count(product_end) == 1
+                start, end = text.index(product_start), text.index(product_end)
+                old = text[start:end]
+                # The negative about the original raw curried product remains
+                # at that ambient interface; it is not the coefficient root.
+                raw_start = old.index('// The shared base arrow is a real discriminator:')
+                raw_end = old.index('// An opaque family is not identified', raw_start)
+                raw_product_negative = old[raw_start:raw_end]
+                section = old[:raw_start] + 'RAW_PRODUCT_NEGATIVE_PLACEHOLDER\n' + old[raw_end:]
+                section = section.replace('Cat_cat', 'Cat_cart')
+                section = section.replace('Product_cat_func', 'Product_cat_coeff_func')
+                section = section.replace('@comp_cat_con_func', '@comp_cat_con_cart_func')
+                section = re.sub(r'Functor_cat(\s+\((?:Fibre_cat|Product_cat)\b)',
+                                 r'Functor_cart_cat\1', section)
+                for helper, source, target in (
+                    ('Product_projL_funcd_higher_check',
+                     '(Fibre_cat (@Product_catd_transparent_check K B C) x)', '(Fibre_cat B y)'),
+                    ('Product_projR_funcd_higher_check',
+                     '(Fibre_cat (@Product_catd_transparent_check K B C) x)', '(Fibre_cat C y)'),
+                    ('Product_pair_funcd_higher_check',
+                     '(Fibre_cat E x)', '(Fibre_cat (@Product_catd_transparent_check K B C) y)'),
+                ):
+                    a = section.index('symbol ' + helper + '\n')
+                    b = section.index('≔', a)
+                    signature = section[a:b]
+                    assert signature.count(': τ (Transf\n') == 1
+                    signature = signature.replace(': τ (Transf\n',
+                        ': τ (Obj (Hom_cat\n      (Functor_cart_cat ' + source + ' ' + target + ')\n')
+                    signature = signature.rstrip() + ')\n'
+                    section = section[:a] + signature + section[b:]
+                section = section.replace('RAW_PRODUCT_NEGATIVE_PLACEHOLDER\n', raw_product_negative)
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/displayed-products',
+                                'owner': 'original transparent product, displayed projections/pairing and higher-action reviewers',
+                                'reason': 'Use the existing coefficient product and its Cartesian fibre-Homs; retain general lax FF/GG, all whole and higher projections, and the raw-product noncollapse control',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                eval_start = '// catalog-area: Constant-domain displayed evaluation'
+                eval_end = '// catalog-area: Displayed dependent chain'
+                assert text.count(eval_start) == text.count(eval_end) == 1
+                start, end = text.index(eval_start), text.index(eval_end)
+                old = text[start:end]
+                assert old.count('Cat_cat') == 17 and old.count('(@Eval_funcd K A B)') == 8
+                section = old.replace('Cat_cat', 'Cat_cart')
+                section = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', section)
+                section = section.replace('Product_cat_func', 'Product_cat_coeff_func')
+                section = section.replace('(@Eval_funcd K A B)',
+                    '(@strict_transfor _ _ _ _ (@Eval_funcd K A B))')
+                a = section.index('symbol Displayed_eval_higher_check')
+                b = section.index('≔', a)
+                signature = section[a:b]
+                assert signature.count(': τ (Transf\n') == 1
+                signature = signature.replace(': τ (Transf\n',
+                    ': τ (Obj (Hom_cat\n'
+                    '      (Functor_cart_cat (Fibre_cat (@Displayed_eval_source_check K A B) x)\n'
+                    '        (Fibre_cat B y))\n')
+                section = section[:a] + signature.rstrip() + ')\n' + section[b:]
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/displayed-evaluation',
+                                'owner': 'original constant-domain displayed evaluation and its direct varying/fixed consumers',
+                                'reason': 'Retain the original transparent product and evaluation composites at the actual coefficient, observing the existing Cartesian evaluator through its ambient inclusion; canonicalize the next-Hom type',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// catalog-area: Displayed dependent chain')
+                end = text.index('// catalog-area: auto', start)
+                old = text[start:end]
+                assert old.count('Cat_cat') == 3
+                section = old.replace('Cat_cat', 'Cat_cart')
+                starts = [m.start() for m in re.finditer(r'\(@tdapp0_fapp0\b', section)]
+                assert len(starts) == 2
+                for first in reversed(starts):
+                    depth = 0
+                    for last in range(first, len(section)):
+                        depth += (section[last] == '(') - (section[last] == ')')
+                        if depth == 0:
+                            break
+                    assert depth == 0
+                    term = section[first:last + 1]
+                    section = section[:first] + '(@strict_transfor _ _ _ _ ' + term + ')' + section[last + 1:]
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/displayed-dependent-chain',
+                                'owner': 'original dependent variables and recursively weakened Sigma-section consumers',
+                                'reason': 'Retain every original construction and arbitrary lax displayed map; correct the coefficient and observe its strict fibre modifications through the existing ambient view',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// catalog-area: auto', text.index('// catalog-area: Displayed dependent chain'))
+                end = text.index('// Indexed adjunction triangles, opposite, and operation-trust boundary.', start)
+                old = text[start:end]
+                section = old
+                for match in reversed(list(re.finditer(r'(?m)^assert\b.*?;', section, re.S))):
+                    block = match.group()
+                    if '@Eval_func' in block or 'uncurry_func' in block:
+                        block = re.sub(r'\bFunctor_cat\b', 'Functor_cart_cat', block)
+                    if '(eta : τ (Transf F G))' in block and '@Eval_func' in block:
+                        block = block.replace('(eta : τ (Transf F G))', '(eta : τ (@StrictTransfor A B F G))')
+                        block = block.replace('@tapp1_fapp0 A B F G x y eta p',
+                            '@tapp1_fapp0 A B F G x y (@strict_transfor A B F G eta) p')
+                    if '@Eval_at_func' in block:
+                        block = block.replace('≡ @fapp0_func A B x;',
+                            '≡ @comp_cat_fapp0 (Functor_cart_cat A B) (Functor_cat A B) B\n'
+                            '      (@fapp0_func A B x) (Functor_cart_include A B);')
+                    if 'uncurry_func' in block:
+                        block = re.sub(r'(@hom_postcomp_fapp0\s+)Cat_cat(\s+)Cat_cat(\s+\(@id Cat_cat )Cat_cat',
+                            r'\1Cat_cart\2Cat_cart\3Cat_cart', block)
+                    section = section[:match.start()] + block + section[match.end():]
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/ordinary-cartesian-evaluation',
+                                'owner': 'original joint evaluator, fixed evaluation and curry/uncurry observations',
+                                'reason': 'State the actual Cartesian joint interface and its existing inclusion into ambient fixed evaluation; retain raw fixed-evaluator action on lax transfors',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Indexed adjunction triangles, opposite, and operation-trust boundary.')
+                end = text.index('// Monad/Kleisli computation and opposite-derived comonads.', start)
+                old = text[start:end]
+                section = re.sub(r'\bOp_(cat|func|transf)\b', r'TotalOp_\1', old)
+                marker = '// Stable capped action projects the already-existing whole Op-transfor beta.'
+                a = section.index(marker)
+                b = section.index('// Involution still fires', a)
+                former = section[a:b]
+                expected = '(@tapp1_fapp0 A B F G x y eta p));'
+                assert former.count(expected) == 1
+                corrected = former.replace(marker,
+                    '// Total duality exchanges the naturality boundaries; its conventional\n'
+                    '// pre/right action reads the original post/left endpoint.')
+                corrected = corrected.replace(expected,
+                    '(@fapp0 (Hom_cat A x y)\n'
+                    '        (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))\n'
+                    '        (@tapp1_post_endpoint_func A B F G eta x y) p));')
+                negative = former.replace(marker,
+                    '// The old middle is not identified with that boundary for a general lax eta.')
+                negative = negative.replace('assert [A B : Cat]', 'assertnot [A B : Cat]', 1)
+                section = section[:a] + corrected + negative + section[b:]
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/adjunction-total-duality',
+                                'owner': 'original indexed adjunction and ambient transfor duality observations',
+                                'reason': 'Use the existing total reversal on general lax unit/counit transformations and its actual post/left off-diagonal boundary; retain triangle computations and adjunction data, and add the old-middle noncollapse control',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -4710,6 +4864,21 @@ assert [C : Cat] [x y z : τ (Obj C)]
         + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
         + central[central.index(early_end):central.index(action_end)])
     hom_action_end = 'assert [K : Cat] (E D : τ (Catd K)) ⊢\n  @eq_refl Cat_grpd (Hom_cat (Catd_cat K) E D)'
+    (package / 'central_displayed_products_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[central.index(hom_action_end):central.index(action_end)])
+    displayed_eval_end = '// catalog-area: Displayed dependent chain'
+    (package / 'central_displayed_evaluation_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[central.index(action_end):central.index(displayed_eval_end)])
+    displayed_chain_end = central.index('// catalog-area: auto', central.index(displayed_eval_end))
+    (package / 'central_displayed_chain_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[central.index(displayed_eval_end):displayed_chain_end])
+    ordinary_adjunction_end = central.index('// Monad/Kleisli computation and opposite-derived comonads.', displayed_chain_end)
+    (package / 'central_evaluation_adjunction_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[displayed_chain_end:ordinary_adjunction_end])
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -4720,6 +4889,11 @@ assert [C : Cat] [x y z : τ (Obj C)]
         (folder / 'central_owner_regression.lp').write_text(
             'require open emdash.central_early_controls;\n'
             'require open emdash.central_hom_action_controls;\n')
+    (package / 'central_displayed_regression.lp').write_text(
+        'require open emdash.central_displayed_products_controls;\n'
+        'require open emdash.central_displayed_evaluation_controls;\n'
+        'require open emdash.central_displayed_chain_controls;\n'
+        'require open emdash.central_evaluation_adjunction_controls;\n')
     introduction_source = (package / 'emdash3_2_one_cat_adjunction_introduction.lp').read_text()
     prefix_end = 'protected symbol intro_unit_original_identity_path'
     assert introduction_source.count(prefix_end) == 1
@@ -5196,6 +5370,11 @@ assert [C : Cat] [x y z : τ (Obj C)]
                               package / 'central_groupoidality_controls.lp',
                               package / 'central_early_controls.lp',
                               package / 'central_action_controls.lp',
+                              package / 'central_displayed_products_controls.lp',
+                              package / 'central_displayed_evaluation_controls.lp',
+                              package / 'central_displayed_chain_controls.lp',
+                              package / 'central_evaluation_adjunction_controls.lp',
+                              package / 'central_displayed_regression.lp',
                               package / 'central_hom_action_controls.lp',
                               package / 'central_owner_regression.lp',
                               baseline_package / 'central_early_controls.lp',
