@@ -80,3 +80,8 @@ All five runtime obligations remain required. Their existing whole proof-time
 comparisons remain available, without being counted as the old reductions.
 This review neither exhausts the alternatives nor proves impossibility of a
 local terminal repair. It adds no general Q/coend theory or new prerequisite.
+
+The later [matched identity-section review](production_terminal_identity_section_review.md)
+isolates the same component boundary without any candidate contraction and
+finds it in the exact pre-goal kernel too. That qualifies its origin; it does
+not make this rejected implementation or the five runtime obligations pass.

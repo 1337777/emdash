@@ -1,0 +1,154 @@
+{
+  "status": "Inherited identity-section runtime boundary; no rule adopted",
+  "date": "2026-10-20",
+  "checkpoint": "deedfa1fa665f8ca31db84fe12c9ad6b64a9cd26",
+  "preGoalPin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "selectedCoreSha256": "7ed6b2d06bded69965fc771d447dfb8b9faa26d114aa060b1e5389243ffe7789",
+  "fixtureSha256": "be0fe8d99939fc4bc1a3f42bd71521fd7604ea2c594ff443ce210639f8e84d8b",
+  "runs": {
+    "initial_current": {
+      "id": "20261020T194150Z-34528390b8314df7ad3ccba5f255e740",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "target": "terminal_section_identity_review.lp",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputs": {
+        "emdash3_2.lp": "7ed6b2d06bded69965fc771d447dfb8b9faa26d114aa060b1e5389243ffe7789",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_section_identity_review.lp": "6c67cb73117ae7175501d07909ec71449836ee24d217bc64567cf6ee8cac13f7"
+      },
+      "inputSnapshot": "a6ac960e3baa9b6894fe71b26a29f3420eeabe9fe2c5c3808416a1a223cdfdd7",
+      "wallSeconds": 18.814544254913926,
+      "childrenMaxRssKiB": 1629888,
+      "logSha256": "87c8b640662a8793d73eff5434e4349a4a1e860e9c23770778917032ae9f93dc",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "typed_pre_goal": {
+      "id": "20261020T194346Z-a6f559b37fc340198e28920531bde1e3",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "target": "terminal_section_identity_review.lp",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "inputs": {
+        "emdash3_2.lp": "6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_section_identity_review.lp": "641521a544f86889442d6b901e5103fd06b81079d94a32503ef42ff7d3930c97"
+      },
+      "inputSnapshot": "c0cb8b7a090f1051f3904d93c81990048ec7eede733da26022d67e5b1c9819f0",
+      "wallSeconds": 4.150382692925632,
+      "childrenMaxRssKiB": 335320,
+      "logSha256": "329a7c0dcff2b17f4922927d51c96a4120a25e00ef626d3700d65457d72f8d54",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "typed_current": {
+      "id": "20261020T194801Z-94d79857945643b9af974cf18cbb3d96",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "target": "terminal_section_identity_review.lp",
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputs": {
+        "emdash3_2.lp": "7ed6b2d06bded69965fc771d447dfb8b9faa26d114aa060b1e5389243ffe7789",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_section_identity_review.lp": "f14de5cac2f29a6b884f64f8c0974e2858af30bf2388ee35cffae9e05094eefc"
+      },
+      "inputSnapshot": "3d523d66cc5ee7194630933f99a7b187f955f396b41049bac3f1523dfcb9b4c4",
+      "wallSeconds": 24.174158331938088,
+      "childrenMaxRssKiB": 1629860,
+      "logSha256": "30ce1769c700c4eb2c6194818dffa9b39f75ce06ef49526e2b72fc014e3cf8e0",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    }
+  },
+  "interpretation": {
+    "typedTerms": "Section/functor carrier, evaluated object and component carrier pass. Both comparison aliases have explicit common carriers. Rejection occurs at the final conversion assertion.",
+    "normalForms": [
+      "Const_func Terminal_cat Terminal_cat (fapp0 (id (Functor_cat K C) (Const_catd K Terminal_cat)) k)",
+      "id Cat_cat Terminal_cat"
+    ],
+    "coefficientMapping": {
+      "preGoal": "C = Cat_cat",
+      "selected": "C = Cat_cart"
+    },
+    "scope": "Neither logical inconsistency nor impossibility of local Homd terminal normalization is established. The global terminal candidate exposed a pre-existing identity/constant-section projection boundary."
+  },
+  "adopted": false,
+  "selectedInputRehash": {
+    "core": "20261020T192803Z-cf45f70ac3fa469cbc0f45c61edcd47c",
+    "cubical": "20261020T193038Z-c8312d456c6048eda09c32fa2746286c",
+    "combined": "20261020T193237Z-650e03a38b514c24a3d85aa92945589a",
+    "library": "20261020T193520Z-60d635937a054a8da8894dbc8ee56a52"
+  },
+  "next": "Review existing native identity-Homd ownership and shared section identity projection, retaining actual semantic comparison and both observation orders. Five terminal runtime obligations remain open.",
+  "replay": "Emit the pinned migration; copy the fixture into its package. For pre-goal baseline_package replace only Cat_cart by Cat_cat. Use each recorded runner profile. Expect the final conversion assertion to be rejected after the typed declarations; preserve the printed normal forms."
+}

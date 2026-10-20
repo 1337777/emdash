@@ -99,6 +99,17 @@ the existing whole proof-time comparison passes. This is an intended
 presentation distinction to retain in R06, not a newly discovered invalid
 typing or a regression caused by the terminal experiment.
 
+The [matched identity-section review][terminal-identity] narrows the later
+canonical-point failure further. Without any candidate contraction, both
+the original kernel and the selected migration accept the typed identity
+section/component terms but reject the final runtime identity-component
+comparison. Their normal forms cross the same constant-section reading.
+This is an inherited computational boundary, not evidence that Cat_cart or
+strict functors introduce it. It remains relevant to R02 because the eager
+terminal normalization exposes that reading. No new rule is adopted and the
+five terminal obligations remain open; a native-owner repair must preserve
+the actual projection orders rather than normalize arbitrary unit inputs.
+
 ## Deliberate interface changes to audit for compatibility
 
 These are migration contracts, not automatically defects. Their full consumer
@@ -175,6 +186,7 @@ that all possible alternatives or future regressions have been discovered.
 [alternatives]: ../emdash2/audits/strict-default-action-boundary/production_terminal_alternatives_verification.json
 [terminal-views]: ../emdash2/audits/strict-default-action-boundary/production_terminal_homd_views_verification.json
 [terminal-canonical]: ../emdash2/audits/strict-default-action-boundary/production_terminal_canonical_review.md
+[terminal-identity]: ../emdash2/audits/strict-default-action-boundary/production_terminal_identity_section_review.md
 [homcatd]: ../emdash2/audits/strict-default-action-boundary/production_central_homd_homcatd_verification.json
 [product-path]: ../emdash2/audits/strict-default-action-boundary/production_central_product_path_verification.json
 [walking]: ../emdash2/audits/strict-default-action-boundary/production_central_walking_verification.json

@@ -42,6 +42,26 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Terminal identity-section review after `deedfa1f`: the
+[matched review](../emdash2/audits/strict-default-action-boundary/production_terminal_identity_section_review.md)
+and [receipts](../emdash2/audits/strict-default-action-boundary/production_terminal_identity_section_verification.json)
+isolate the section/identity boundary exposed by the rejected canonical
+terminal contraction. The same typed identity component is rejected as a
+runtime comparison with id_1 in both the exact pre-goal kernel and the current
+migrated core. The printed component is a constant functor containing the
+identity section's ordinary application. Thus this particular mismatch is
+inherited; it is not a new strict-functor or duality obstruction. The typed
+carriers and explicit comparison declarations precede the rejected query.
+No rule or diagnostic expectation is changed. The four selected receipts
+from `deedfa1f` rehash exactly and carry forward without another broad run.
+
+Continue at the native Homd/constant-section projection owners, preserving
+the semantic comparison with the mate/covariance body and both observation
+orders. Do not repeat global terminal uniqueness or postcomposition
+contractions, and do not relabel the five runtime obligations as solved by
+their existing whole proof-time comparisons. This review does not prove that
+a local owner repair is impossible or require a new categorical design.
+
 Status clarification, 2026-10-20: the broad kernel/library **source adaptation**
 is staged, but its full **computational qualification** is not complete.
 Migrating a diagnostic is mechanical when its contract is unchanged and

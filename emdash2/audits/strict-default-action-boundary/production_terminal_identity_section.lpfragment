@@ -1,0 +1,33 @@
+// Non-library reproducer: the final conversion assertion is expected to fail.
+require open emdash.emdash3_2;
+
+// The existing section/functor view of the identity of the constant unit family.
+assert [K : Cat] (k : τ (Obj K)) ⊢
+  @id (Functor_cat K Cat_cart) (@Const_catd K Terminal_cat)
+  : τ (Functor K Terminal_cat);
+assert [K : Cat] (k : τ (Obj K)) ⊢
+  @fapp0 K Terminal_cat
+    (@id (Functor_cat K Cat_cart) (@Const_catd K Terminal_cat)) k
+  : τ (Obj Terminal_cat);
+assert [K : Cat] (k : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cart (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat) k
+    (@id (Functor_cat K Cat_cart) (@Const_catd K Terminal_cat))
+  : τ (Functor Terminal_cat Terminal_cat);
+
+compute λ (K : Cat) (k : τ (Obj K)),
+  @tapp0_fapp0 K Cat_cart (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat) k
+    (@id (Functor_cat K Cat_cart) (@Const_catd K Terminal_cat));
+compute @id_func Terminal_cat;
+
+// Give both comparison terms fixed carriers before the conversion observation.
+protected symbol terminal_section_identity_component (K : Cat) (k : τ (Obj K))
+ : τ (Functor Terminal_cat Terminal_cat)
+ ≔ @tapp0_fapp0 K Cat_cart (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat) k
+    (@id (Functor_cat K Cat_cart) (@Const_catd K Terminal_cat));
+protected symbol terminal_expected_identity : τ (Functor Terminal_cat Terminal_cat)
+ ≔ @id_func Terminal_cat;
+assert [K : Cat] (k : τ (Obj K)) ⊢
+ terminal_section_identity_component K k ≡ terminal_expected_identity;
