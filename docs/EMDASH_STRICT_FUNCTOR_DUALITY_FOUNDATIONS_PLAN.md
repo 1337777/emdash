@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Original import-context continuation after `42465235`: the
+[checker-boundary review](../emdash2/audits/strict-default-action-boundary/production_checker_boundary_review.md)
+and [exact verification](../emdash2/audits/strict-default-action-boundary/production_checker_boundary_verification.json)
+qualify the existing isolated batch-snapshot patch's CLI rollback and Pure
+state boundaries. Both installed and isolated binaries retain multi-input
+restoration, reject a sensitive single-input control, and reject an ill-typed
+rewrite. The isolated Pure API preserves rule rollback/redo and
+fresh-file state, including after lazy initial-snapshot recreation. No
+inference, conversion or formal-rule code changes; the installed executable
+and normal defaults remain unchanged.
+
+With the same selected mathematical snapshot, the original all-import
+diagnostic now passes through the isolated binary in 219.526s/1609584KiB.
+Its separate target preserves the import order, all 66 declarations and 2435
+assertions (2157/278), excluding exactly the five unchanged terminal runtime
+obligations. All 140 source/package inputs rehash; no compiled objects are
+used. The source-only run uses 600s/4GiB/o=20 with SR, warnings, serial guards,
+64MiB file limits and no swap. Its 2455 critical-pair bodies are inventoried.
+This closes R10's original combined-context execution gap only for that scope
+and isolated runtime, not all registered consumers or production qualification.
+
+Rewriting still accounts for 96% of the run, so the memory result does not
+settle normalization usability. R12 retains supported-checker/pin qualification
+and measured performance review. Keep R01--R03 open, preserve the pending
+relative-terminal contract question, and continue the remaining actual-consumer
+inventory before production promotion. Do not repeat this unchanged successful
+aggregate or promote the checker silently. No new mathematical rule is selected.
+
 Native-owner experiment after `92c7b89f`: the
 [review](../emdash2/audits/strict-default-action-boundary/production_native_homd_projection_review.md)
 and [exact patches/receipts](../emdash2/audits/strict-default-action-boundary/production_native_homd_projection_verification.json)
