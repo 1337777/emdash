@@ -1,0 +1,234 @@
+{
+  "status": "Alternative reviewed, not adopted. Constant-transport terminal conjoint normalization passes one original whole terminal component and Q units, but regresses conjoint composition. Consolidated follow-up inventory added; selected mathematical sources unchanged.",
+  "date": "2026-10-20",
+  "predecessor": "708bb2de8d51d004cb5888d2196f860562e15f11",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "selectedCoreSha256": "b86d56289c5ae58b20b6115e1b7d253eb2d7c1b89d80f9efb7fa25c280223ec7",
+  "candidateCoreSha256": "42b8a01d83c330605f45ffd6df48cdc710d7f5a75ec9a10c0bbb1685f6620244",
+  "adopted": false,
+  "authoringInputs": {
+    "production_owner_migration.py": "ebe9174c41a40a0d94806edbd5286c9508f7c949d8140d76764a27a8f01ccec5",
+    "production_homd_core.lpfragment": "6b91e32447ff87af9a6d32be6ff237fcf9896e93044b76fcfbce76e7a705dd62",
+    "production_public_homd_controls.lpfragment": "c74817cd9e717e7e8e05fa200369468f63588933f57d5761db610a6549a85fbc"
+  },
+  "manifestSha256": "38a9691666dfaf27628d7b5d2ca4aa598e13ec501fffbff3fb17a318f756b407",
+  "ledger": "../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md",
+  "hypothesis": "Restrict terminal conjoint normalization to an explicitly constant transport, so the represented identity unit is retained.",
+  "candidatePatch": "--- selected/emdash3_2.lp\n+++ constant-candidate/emdash3_2.lp\n@@ -16266,6 +16266,12 @@\n rule @fapp1_fapp0 _ _ (@Homd_coeff_conjoint $A $B $F) $a $b $h\n   ↪ @fapp1_fapp0 $A (Homd_index_cat $B) (@Homd_coeff_conjoint_body $A $B $F) $a $b $h;\n \n+// Candidate: a terminal Hom with an explicitly constant transport.\n+// Preserve the separate represented identity used by Q units.\n+rule @Homd_coeff_conjoint Terminal_cat $I (@Const_func _ Terminal_cat $_)\n+  ↪ @Obj_func (Homd_index_cat $I)\n+      (@Op_func (Op_cat $I) Cat_cart (@Const_catd (Op_cat $I) Terminal_cat));\n+\n // Proof-time whole agreement; runtime projections retain the stable view.\n unif_rule @Homd_coeff_conjoint $A $B $F\n   ≡ @comp_fapp0 Cat_cat _ _ _ $M (@hom_con_int $A0 $B0 $F0)\n",
+  "sourceControls": {
+    "constant_terminal_focused.lp": "require open emdash.emdash3_2;\nassert [K : Cat] (x y : τ (Obj K)) ⊢\n  @homd_tgt_func K\n    (@Const_catd K Terminal_cat)\n    (@Const_catd K Terminal_cat)\n    (@id_funcd K (@Const_catd K Terminal_cat))\n    x\n    Terminal_obj\n    y\n    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))\n        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))));\nassert [B : Cat] (P : τ (Hom Homd_coeff_cat Terminal_cat B)) ⊢\n @comp_fapp0 Homd_coeff_cat Terminal_cat Terminal_cat B P\n  (@Homd_coeff_conjoint Terminal_cat Terminal_cat (@id_func Terminal_cat)) ≡ P;\nassert [A : Cat] (P : τ (Hom Homd_coeff_cat A Terminal_cat)) ⊢\n @comp_fapp0 Homd_coeff_cat A Terminal_cat Terminal_cat\n  (@Homd_coeff_conjoint Terminal_cat Terminal_cat (@id_func Terminal_cat)) P ≡ P;\nassertnot [A I : Cat] (u : τ (Obj A)) ⊢\n @Homd_coeff_conjoint A I (@Const_func I A u)\n ≡ @Const_func A (Homd_index_cat I)\n     (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) Terminal_cat));\n\nassert [A : Cat] (F : τ (Functor A Terminal_cat)) ⊢\n @fapp0 (Functor_cart_cat A Terminal_cat) (Hom_cat Homd_coeff_cat A Terminal_cat)\n  (@fapp1_func Cat_cart Homd_coeff_cat Homd_coeff_include A Terminal_cat) F\n : τ (Hom Homd_coeff_cat A Terminal_cat);\nassert [A : Cat] (F : τ (Functor A Terminal_cat)) ⊢\n @Homd_coeff_rep A Terminal_cat F : τ (Hom Homd_coeff_cat A Terminal_cat);\ncompute λ (A : Cat) (F : τ (Functor A Terminal_cat)),\n @fapp0 (Functor_cart_cat A Terminal_cat) (Hom_cat Homd_coeff_cat A Terminal_cat)\n  (@fapp1_func Cat_cart Homd_coeff_cat Homd_coeff_include A Terminal_cat) F;\ncompute λ (A : Cat) (F : τ (Functor A Terminal_cat)),\n @Homd_coeff_rep A Terminal_cat F;\n",
+    "constant_conjoint_composition.lp": "require open emdash.emdash3_2;\n// The existing representation distinction has a whole proof-time reading.\nassert [A : Cat] (F : τ (Functor A Terminal_cat)) ⊢\n @eq_refl (Hom Homd_coeff_cat A Terminal_cat) (@Homd_coeff_rep A Terminal_cat F)\n : τ (@= (Hom Homd_coeff_cat A Terminal_cat)\n     (@Homd_coeff_rep A Terminal_cat F)\n     (@fapp0 (Functor_cart_cat A Terminal_cat) (Hom_cat Homd_coeff_cat A Terminal_cat)\n       (@fapp1_func Cat_cart Homd_coeff_cat Homd_coeff_include A Terminal_cat) F));\n// Original outer-first conjoint composition.\nassert [A B : Cat] (F : τ (Functor A B)) (u : τ (Obj Terminal_cat)) ⊢\n @comp_fapp0 Homd_coeff_cat Terminal_cat B A\n   (@Homd_coeff_conjoint B A F)\n   (@Homd_coeff_conjoint Terminal_cat B (@Const_func B Terminal_cat u))\n ≡ @Homd_coeff_conjoint Terminal_cat A\n     (@comp_cat_fapp0 A B Terminal_cat (@Const_func B Terminal_cat u) F);\n// Same law after the right constituent has normalized first.\nassert [A B : Cat] (F : τ (Functor A B)) (u : τ (Obj Terminal_cat)) ⊢\n @comp_fapp0 Homd_coeff_cat Terminal_cat B A\n   (@Homd_coeff_conjoint B A F)\n   (@Obj_func (Homd_index_cat B)\n     (@Op_func (Op_cat B) Cat_cart (@Const_catd (Op_cat B) Terminal_cat)))\n ≡ @Homd_coeff_conjoint Terminal_cat A\n     (@comp_cat_fapp0 A B Terminal_cat (@Const_func B Terminal_cat u) F);\n",
+    "terminal_conjoint_baseline.lp": "require open emdash.emdash3_2;\nassert [A : Cat] (F : τ (Functor A Terminal_cat)) ⊢\n @eq_refl (Hom Homd_coeff_cat A Terminal_cat) (@Homd_coeff_rep A Terminal_cat F)\n : τ (@= (Hom Homd_coeff_cat A Terminal_cat)\n     (@Homd_coeff_rep A Terminal_cat F)\n     (@fapp0 (Functor_cart_cat A Terminal_cat) (Hom_cat Homd_coeff_cat A Terminal_cat)\n       (@fapp1_func Cat_cart Homd_coeff_cat Homd_coeff_include A Terminal_cat) F));\nassert [A B : Cat] (F : τ (Functor A B)) (u : τ (Obj Terminal_cat)) ⊢\n @comp_fapp0 Homd_coeff_cat Terminal_cat B A\n   (@Homd_coeff_conjoint B A F)\n   (@Homd_coeff_conjoint Terminal_cat B (@Const_func B Terminal_cat u))\n ≡ @Homd_coeff_conjoint Terminal_cat A\n     (@comp_cat_fapp0 A B Terminal_cat (@Const_func B Terminal_cat u) F);\n",
+    "terminal_rep_order_audit.lp": "require open emdash.emdash3_2;\nassert [A : Cat] (F : τ (Functor A Terminal_cat)) ⊢\n @fapp0 (Functor_cart_cat A Terminal_cat) (Hom_cat Homd_coeff_cat A Terminal_cat)\n  (@fapp1_func Cat_cart Homd_coeff_cat Homd_coeff_include A Terminal_cat) F\n ≡ @Homd_coeff_rep A Terminal_cat F;\n"
+  },
+  "checks": {
+    "focusedCandidate": {
+      "outcome": "passed-fresh",
+      "target": "constant_terminal_focused.lp",
+      "wallSeconds": 22.4005726238247,
+      "childrenMaxRssKiB": 1537104,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "constant_terminal_focused.lp": "4dcd15743724708710acc488bd897c4a8e2b1e662e485a61e8eda580dfad97ff",
+        "emdash3_2.lp": "42b8a01d83c330605f45ffd6df48cdc710d7f5a75ec9a10c0bbb1685f6620244",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "5cfdd3adb5f675c4059fcb5263c91fbd38f31de66616d5d5ada34b53d64166cc",
+      "receipt": "logs/check-runs/20261020T093945Z-8b04d96d935d41c3b34101296d6bdde3.json",
+      "receiptSha256": "03b6ab1e4971906b39c238bf79819f0346d67ffacfbc2796b4288cf6ede60704",
+      "immutableInputHashesVerified": true
+    },
+    "candidateComposition": {
+      "outcome": "failed",
+      "target": "constant_conjoint_composition.lp",
+      "wallSeconds": 19.275638919090852,
+      "childrenMaxRssKiB": 1536672,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "constant_conjoint_composition.lp": "d30e9e7e3688fdb686f3a04a7ab58750fbcae69389fad464bb79c71ffc41d50b",
+        "emdash3_2.lp": "42b8a01d83c330605f45ffd6df48cdc710d7f5a75ec9a10c0bbb1685f6620244",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "888179760e2fb1ff76a32ead5af626fdc3e55a3ce6e693f8199c39c588a351de",
+      "receipt": "logs/check-runs/20261020T094106Z-90fb8964df0a46d8a6e8c7cbcde952e8.json",
+      "receiptSha256": "3b573893daf46152aaa0f1a3da54fd00b0f93cedf80e051c974c46c3d3188da3",
+      "immutableInputHashesVerified": true
+    },
+    "unchangedCompositionAndWholeComparison": {
+      "outcome": "passed-fresh",
+      "target": "terminal_conjoint_baseline.lp",
+      "wallSeconds": 36.398357118014246,
+      "childrenMaxRssKiB": 1535828,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "emdash3_2.lp": "b86d56289c5ae58b20b6115e1b7d253eb2d7c1b89d80f9efb7fa25c280223ec7",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_conjoint_baseline.lp": "e0001d37459d3b5e6670a11f598f42d96d8a6f247a116c7ccce9668faccc13bb"
+      },
+      "logSha256": "c795852699955cc343f69ffa687eda9f5e5edbcfb533143b72cdacb0e7d3c3af",
+      "receipt": "logs/check-runs/20261020T094211Z-8bd68d1b59174a058a467450677a563f.json",
+      "receiptSha256": "93fbc7f7e4d8cb7b902db609286ccc890c288a497217de1375594eacded8858d",
+      "immutableInputHashesVerified": true
+    },
+    "unchangedRuntimeRepresentation": {
+      "outcome": "failed",
+      "target": "terminal_rep_order_audit.lp",
+      "wallSeconds": 20.92141361301765,
+      "childrenMaxRssKiB": 1536744,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "emdash3_2.lp": "b86d56289c5ae58b20b6115e1b7d253eb2d7c1b89d80f9efb7fa25c280223ec7",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_rep_order_audit.lp": "3e8c00d76e892aaf21a58d99b19da33af7cf604db82d8b1e230e624f587bc5ed"
+      },
+      "logSha256": "54c026f1604d65bba54c3fc27a9842bd185f438ce073eae627c9d6ac029e0bc4",
+      "receipt": "logs/check-runs/20261020T093453Z-52ef5308bd434a4faf50e54375be908f.json",
+      "receiptSha256": "544c4ce24103eeae2ce33285def2f491ca899aee6af4ebec0447065fedffeabf",
+      "immutableInputHashesVerified": true
+    }
+  },
+  "interpretation": {
+    "focusedCandidate": "Five positive and one typed negative assertion pass: unchanged original public assertion 13; both native unit cuts; formation of the two represented-inclusion routes; nonterminal constant-collapse rejected. Two compute observations retain their different raw-composition/stable-representation forms.",
+    "candidateComposition": "First whole proof-time represented-inclusion comparison passes. Second assertion, the ordinary conjoint-composition law with constant terminal transport, fails. The explicitly pre-normalized third assertion is not reached and is not claimed checked.",
+    "unchangedCompositionAndWholeComparison": "The same first two assertions pass in unchanged staging. This isolates a regression from the one-rule candidate, not a new strictness or semantic-family obstruction.",
+    "unchangedRuntimeRepresentation": "The whole Hom route and capped represented image do not have the same runtime normal form in unchanged staging either. Their types and existing proof-time comparison are checked in the successful runs. Do not classify this intended presentation distinction as a new candidate regression."
+  },
+  "warnings": {
+    "baselineBodies": 1572,
+    "candidateBodies": 1574,
+    "addedBodies": 2,
+    "removedBodies": 0,
+    "added": [
+      {
+        "count": 1,
+        "body": "t ≔ @comp_fapp0 Homd_coeff_cat Terminal_cat $2 $A' (@Homd_coeff_conjoint $2 $A' $F') (@Homd_coeff_conjoint Terminal_cat $2 (@Const_func $1 Terminal_cat $2))\nt ↪[] @Homd_coeff_conjoint Terminal_cat $A' (@comp_cat_fapp0 $A' $2 Terminal_cat (@Const_func $1 Terminal_cat $2) $F') ↪* @Homd_coeff_conjoint Terminal_cat $A' (@comp_fapp0 Cat_cat $A' $2 Terminal_cat (@Const_func $1 Terminal_cat $2) $F')\n  with @comp_fapp0 Homd_coeff_cat $C' $B' $A' (@Homd_coeff_conjoint $B' $A' $F') (@Homd_coeff_conjoint $C' $B' $G') ↪ @Homd_coeff_conjoint $C' $A' (@comp_cat_fapp0 $A' $B' $C' $G' $F')\nt ↪[1] @comp_fapp0 Homd_coeff_cat Terminal_cat $2 $A' (@Homd_coeff_conjoint $2 $A' $F') (@Obj_func (Homd_index_cat $2) (@Op_func (Op_cat $2) Cat_cart (Const_catd (Op_cat $2) Terminal_cat))) ↪* @comp_fapp0 Homd_coeff_cat Terminal_cat $2 $A' (@Homd_coeff_conjoint $2 $A' $F') (@Const_func Terminal_cat (Op_cat (Functor_cat $2 (Op_cat Cat_cart))) (@Const_func $2 (Op_cat Cat_cart) Terminal_cat))\n  with @Homd_coeff_conjoint Terminal_cat $I (@Const_func $1 Terminal_cat $2) ↪ @Obj_func (Homd_index_cat $I) (@Op_func (Op_cat $I) Cat_cart (Const_catd (Op_cat $I) Terminal_cat))"
+      },
+      {
+        "count": 1,
+        "body": "t ≔ @comp_fapp0 Homd_coeff_cat $C' Terminal_cat $2 (@Homd_coeff_conjoint Terminal_cat $2 (@Const_func $1 Terminal_cat $2)) (@Homd_coeff_conjoint $C' Terminal_cat $G')\nt ↪[] @Homd_coeff_conjoint $C' $2 (@comp_cat_fapp0 $2 Terminal_cat $C' $G' (@Const_func $1 Terminal_cat $2)) ↪* @Homd_coeff_conjoint $C' $2 (@comp_fapp0 Cat_cat $2 Terminal_cat $C' $G' (@Const_func $1 Terminal_cat $2))\n  with @comp_fapp0 Homd_coeff_cat $C' $B' $A' (@Homd_coeff_conjoint $B' $A' $F') (@Homd_coeff_conjoint $C' $B' $G') ↪ @Homd_coeff_conjoint $C' $A' (@comp_cat_fapp0 $A' $B' $C' $G' $F')\nt ↪[0; 1] @comp_fapp0 Homd_coeff_cat $C' Terminal_cat $2 (@Obj_func (Homd_index_cat $2) (@Op_func (Op_cat $2) Cat_cart (Const_catd (Op_cat $2) Terminal_cat))) (@Homd_coeff_conjoint $C' Terminal_cat $G') ↪* @comp_fapp0 Homd_coeff_cat $C' Terminal_cat $2 (@Const_func Terminal_cat (Op_cat (Functor_cat $2 (Op_cat Cat_cart))) (@Const_func $2 (Op_cat Cat_cart) Terminal_cat)) (@Homd_coeff_conjoint $C' Terminal_cat $G')\n  with @Homd_coeff_conjoint Terminal_cat $I (@Const_func $1 Terminal_cat $2) ↪ @Obj_func (Homd_index_cat $I) (@Op_func (Op_cat $I) Cat_cart (Const_catd (Op_cat $I) Terminal_cat))"
+      }
+    ],
+    "assessment": "Both additions are conjoint-composition overlaps with the constant terminal constituent in the two positions. One actual composition consumer fails; no complete join or global confluence is claimed."
+  },
+  "developmentControls": [
+    {
+      "receipt": "logs/check-runs/20261020T093346Z-30b05eff6d704343b321fa61a7503aa5.json",
+      "status": "First three positives pass; runtime represented-inclusion assertion fails. Later unchanged-source control isolates that observation from the candidate."
+    },
+    {
+      "receipt": "logs/check-runs/20261020T093539Z-ccff7f9831094e81a839d69e1de4b65a.json",
+      "status": "Draft negative compares different source categories (Obj_func versus Const_func A). It is an invalid negative control, corrected in the final focused driver."
+    },
+    {
+      "receipt": "logs/check-runs/20261020T093833Z-a133beeb661c45a096bdab7c4250f85c.json",
+      "status": "Draft compute command has invalid binder syntax. Not qualification; corrected lambda syntax is in the final focused driver."
+    }
+  ],
+  "scope": [
+    "The prior terminal experiments were not exhaustive; this additional candidate is also not a general impossibility result.",
+    "No rule, unifier, primitive, default profile, supplied witness or operational proof argument is added to the selected migration.",
+    "All five old terminal assertions remain explicit required obligations; the local successful assertion is not promoted from this rejected candidate.",
+    "No broad or aggregate rerun is needed because selected formal inputs did not change. Earlier carried qualification retains its original exact scope.",
+    "No full general Q/coend theory is added to the goal. Preserve represented heads and investigate actual owner projections/comparisons before another eager terminal normalizer."
+  ]
+}

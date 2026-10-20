@@ -5,6 +5,11 @@ Checkpoint reviewed: `5d2618fb`
 Status: source review and matched measurements complete; local consolidations recorded below, broader normalization qualification remains required before production promotion
 Plan: [foundations migration](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Evidence: [verification](production_normalization_review_verification.json)
+Current follow-up inventory:
+[migration regression ledger](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md).
+It distinguishes still-open obligations from later resolutions of the dated
+findings below, and tracks the terminal alternatives without claiming an
+exhaustive search.
 
 ## Assessment
 
@@ -609,3 +614,51 @@ All mathematical sources, the core warning bodies and the earlier exact
 core/Homd/library closures remain unchanged in the selected source. The
 public terminal-source obligations, full central gate and production
 promotion remain incomplete.
+
+## Terminal alternatives and consolidated follow-up after `708bb2de`
+
+The rejected terminal-mate experiment does not exhaust the available designs.
+The [consolidated ledger](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md)
+now separates the five assertions into the identity source-u map, the terminal
+identity y-component and the two general-section components. It also tracks
+other normalization/projection boundaries, wrappers, performance, original
+consumer coverage and promotion. Required corrections are distinguished from
+optional redesign and from historical failures resolved by later checkpoints.
+
+A smaller new experiment restricts conjoint normalization to an explicitly
+constant transport:
+
+```text
+Conjoint(1,I,Const(I,1,u)) → Const(1,P(I),terminal-presheaf).
+```
+
+There is one runtime rule and no new primitive or unifier. Unlike the rejected
+unrestricted rule, it does not unfold `Conjoint(1,1,id_1)`. The original whole
+terminal identity y-component and both native Q-unit cuts pass. A typed
+nonterminal control rejects extending this simplification to an arbitrary
+target category. The same experiment also verifies formation of the two
+represented-inclusion views.
+
+The remaining interaction is concrete: normalizing the constant conjoint
+first prevents the existing conjoint-composition rule from matching. The
+whole composition assertion fails. The two new warning bodies, 1572 to 1574,
+are exactly the two orientations of this overlap. This candidate is not
+adopted; passing the terminal component and units is insufficient. The
+[alternative evidence](production_terminal_alternatives_verification.json)
+records the actual rule, complete controls, successful and failed receipts,
+development-test corrections, source pins and warning bodies.
+
+The whole represented-inclusion observation separately fails runtime equality
+in the unchanged staging source: one route gives raw composition, the other
+`Homd_coeff_rep`. Its existing proof-time comparison passes. This is the
+already intended stable-head/body distinction, not a new semantic failure.
+It reinforces the need to specify which observations are runtime reductions
+and which are whole comparison views.
+
+Prefer preserving represented heads while reviewing their existing projection
+and comparison owners. A normalized-unit repair remains an unqualified
+alternative, but fixing only the unit would not address the composition
+overlap found here. No impossibility claim, global terminal eta, stronger FF
+profile, operational proof payload or general profunctor theory follows.
+The five original terminal obligations remain required. Production and
+selected mathematical authoring sources are unchanged.

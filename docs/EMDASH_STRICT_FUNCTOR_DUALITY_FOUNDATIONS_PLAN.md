@@ -16,6 +16,10 @@ The completed integration evidence remains valid for its original snapshot.
 
 Side-Task-Ledger: SF-0 through SF-CLOSE and the launch/tranche ledger below;
 bounded owner experiments are retained with their replay inputs and outcomes.
+The [consolidated follow-up ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md)
+tracks current obligations, possible regressions, resolved historical failures
+and optional improvements. It distinguishes completion gates from work that
+can wait until after this goal.
 
 Infinity-Codex-Origin: fork session `01a12a87-a47e-73f1-9351-1159597be30d`;
 user accepted the prior response and authorized implementation, a dedicated
@@ -37,6 +41,35 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Alternative/deferral reassessment after `708bb2de`, 2026-10-20 UTC: the
+terminal experiments below are not an exhaustive search and do not establish
+impossibility. The [follow-up ledger](EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md)
+separates the five observations into the identity source-u map, the terminal
+identity y-component and the two general-section components. It inventories
+remaining normalization, higher-projection, wrapper, consumer and performance
+boundaries, together with later evidence that supersedes historical blockers.
+Required repairs may be revisited after the basic source sweep, but remain
+pre-promotion obligations. The user did not authorize silently dropping them.
+
+The constructor-restricted terminal alternative at the existing conjoint
+owner passes the original whole identity y-component and both native Q units,
+but fails conjoint composition after the constant constituent has normalized.
+Two added warning bodies identify the corresponding composition overlaps.
+Its bounded evidence and limits are recorded in
+[the alternative review](../emdash2/audits/strict-default-action-boundary/production_terminal_alternatives_verification.json).
+No experimental rule is adopted by this review checkpoint. The current
+mathematical source and qualified subset therefore retain their earlier pins.
+Other alternatives include preserving represented heads through existing
+projections, reviewing native Homd ownership and, if justified, a whole
+proof-time comparison explicitly distinguished from runtime normalization.
+Do not accumulate unit patches merely to rescue eager representation erasure.
+
+Treat subsequent dated "next" entries as chronological evidence. The
+consolidated ledger and newest execution entry determine the current backlog.
+General Q-model/coend development and optional foundational redesign are not
+new prerequisites; actual installed-rule overlaps and consumed computations
+still require qualification.
 
 Continuation after `104c91a2`, 2026-10-20 UTC: the
 [public-ladder verification](../emdash2/audits/strict-default-action-boundary/production_public_homd_verification.json)
