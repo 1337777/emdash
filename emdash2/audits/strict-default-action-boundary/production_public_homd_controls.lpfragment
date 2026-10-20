@@ -1,0 +1,223 @@
+// Original public Homd ladder, at the selected Q/index types.
+// The five whole terminal-source Obj_func assertions remain required,
+// unqualified normalization obligations. They are not silently downgraded.
+
+assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
+  (x : τ (Obj Z)) ⊢
+  @tapp0_fapp0
+    Z
+    Cat_cart
+    E
+    (@Homd_target_catd Z D)
+    x
+    (@homd_int Z D E FF)
+    ≡ @homd_src_func Z D E FF x;
+
+assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
+  (x : τ (Obj Z)) ⊢
+  @Fibre_func
+    Z
+    E
+    (@Homd_target_catd Z D)
+    (@homd_int Z D E FF)
+    x
+    ≡ @homd_src_func Z D E FF x;
+
+assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
+  (x : τ (Obj Z))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @fapp0
+    (Fibre_cat E x)
+    (Fibre_cat (@Homd_target_catd Z D) x)
+    (@Fibre_func Z E (@Homd_target_catd Z D) (@homd_int Z D E FF) x)
+    u
+    ≡ @homd_src_sec Z D E FF x u;
+
+assert [Z : Cat] (E : τ (Catd Z))
+  (x : τ (Obj Z)) ⊢
+  @tapp0_fapp0
+    Z
+    Cat_cart
+    E
+    (@Homd_target_catd Z E)
+    x
+    (@homd_int Z E E (@id_funcd Z E))
+    ≡ @homd_src_func Z E E (@id_funcd Z E) x;
+
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) ⊢
+  fapp0 (@tdapp1_int_func_transfd K E D FF FF)
+    (@id (@Functord_cat K E D) FF)
+    ≡ @fdapp1_int_transfd K E D FF;
+
+assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
+  (x : τ (Obj Z))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  fapp0 (@homd_src_func Z D E FF x) u
+    ≡ @homd_src_sec Z D E FF x u;
+
+assert [Z : Cat] (E : τ (Catd Z))
+  (x : τ (Obj Z))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  fapp0 (@homd_src_func Z E E (@id_funcd Z E) x) u
+    ≡ @homd_src_sec Z E E (@id_funcd Z E) x u;
+
+assert [K : Cat] (x : τ (Obj K)) ⊢
+  @homd_src_func K
+    (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat))
+    x
+    ≡ @Obj_func
+        (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
+        (@homd_src_sec K
+          (@Const_catd K Terminal_cat)
+          (@Const_catd K Terminal_cat)
+          (@id_funcd K (@Const_catd K Terminal_cat))
+          x
+          Terminal_obj);
+
+assert [K : Cat] (x : τ (Obj K)) ⊢
+  @Fibre_func
+    K
+    (@Const_catd K Terminal_cat)
+    (@Homd_target_catd K (@Const_catd K Terminal_cat))
+    (@homd_int
+      K
+      (@Const_catd K Terminal_cat)
+      (@Const_catd K Terminal_cat)
+      (@id_funcd K (@Const_catd K Terminal_cat)))
+    x
+    ≡ @Obj_func
+        (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
+        (@homd_src_sec K
+          (@Const_catd K Terminal_cat)
+          (@Const_catd K Terminal_cat)
+          (@id_funcd K (@Const_catd K Terminal_cat))
+          x
+          Terminal_obj);
+
+assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
+  (x y : τ (Obj Z))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @tapp0_fapp0 Z Homd_coeff_cat (@Homd_coeff_diagram Z D)
+      (@Homd_coeff_diagram Z (@hom_ Z Z (@id_func Z) x)) y
+      (@homd_src_sec Z D E FF x u)
+    ≡ @homd_tgt_func Z D E FF x u y;
+
+assert [Z : Cat] (E : τ (Catd Z))
+  (x y : τ (Obj Z))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @tapp0_fapp0 Z Homd_coeff_cat (@Homd_coeff_diagram Z E)
+      (@Homd_coeff_diagram Z (@hom_ Z Z (@id_func Z) x)) y
+      (@homd_src_sec Z E E (@id_funcd Z E) x u)
+    ≡ @homd_tgt_func Z E E (@id_funcd Z E) x u y;
+
+assert [Z : Cat] (E : τ (Catd Z))
+  (x y : τ (Obj Z))
+  (u : τ (Obj (Fibre_cat E x)))
+  (v : τ (Obj (Fibre_cat E y))) ⊢
+  @homd_index_presheaf (Hom_cat Z x y)
+    (fapp0 (@homd_tgt_func Z E E (@id_funcd Z E) x u y) v)
+  ≡ @homd_ Z E E (@id_funcd Z E) x u y v;
+
+assert [K : Cat] (x y : τ (Obj K)) ⊢
+  @homd_tgt_func K
+    (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat))
+    x
+    Terminal_obj
+    y
+    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))
+        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))));
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y
+    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))
+        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
+          K
+          E
+          E
+          (@id_funcd K E)
+          x
+          u
+          y
+          (@piapp0 K E s y)));
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u)
+    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))
+        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
+          K
+          E
+          E
+          (@id_funcd K E)
+          x
+          u
+          y
+          (@piapp0 K E s y)));
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @homd_index_presheaf (Hom_cat K x y)
+    (fapp0 (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y) Terminal_obj)
+  ≡ @homd_
+        K
+        E
+        E
+        (@id_funcd K E)
+        x
+        u
+        y
+        (@piapp0 K E s y);
+
+// catalog-area: auto
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) ⊢
+  @homd_index_presheaf (Hom_cat K x y)
+    (fapp0
+    (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+      (@homd_src_sec
+        K
+        (@Const_catd K Terminal_cat)
+        E
+        s
+        x
+        (@piapp0 K E s x)))
+    Terminal_obj)
+  ≡ @homd_
+        K
+        E
+        E
+        (@id_funcd K E)
+        x
+        (@piapp0 K E s x)
+        y
+        (@piapp0 K E s y);
+
+// Actual whole relative component for a general lax section. This is
+// qualified independently of the stronger legacy terminal-source eta claim.
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y
+  ≡ @comp_cat_fapp0 Terminal_cat (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (@homd_id_tgt_func K E x u y)
+      (@Fibre_func K (@Const_catd K Terminal_cat) E s y);
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+    (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u)
+  ≡ @comp_cat_fapp0 Terminal_cat (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (@homd_id_tgt_func K E x u y)
+      (@Fibre_func K (@Const_catd K Terminal_cat) E s y);

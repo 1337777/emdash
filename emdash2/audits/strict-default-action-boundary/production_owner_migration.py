@@ -4363,6 +4363,17 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'owner': 'original whole/higher displayed components, transport and Sigma-composition diagnostics',
                                 'reason': 'Use actual Cartesian fibre-Homs and ordinary inclusion; observe the selected pre/right transport while retaining projected runtime boundaries, post/left laxness and general FF',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index(end_marker, start)
+                end = text.index('// catalog-area: Categorical-universe direct equality-valued', start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 17
+                section = fragment('production_public_homd_controls.lpfragment') + '\n'
+                assert len(re.findall(r'(?m)^assert\b', section)) == 19
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/public-homd-ladder-observations',
+                                'owner': 'original public Homd x/u/y/v ladder and constant-family specializations',
+                                'reason': 'Retain every original assertion at the actual Q/index types and add the whole relative component comparison; five whole terminal-source reductions remain explicit unqualified obligations',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5716,11 +5727,25 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.emdash3_2;\n'
         + central[pathout_motives_end:homd_classifiers_end])
     displayed_transport_end = central.index(
-        'assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))\n'
-        '  (x : τ (Obj Z)) ⊢\n  @tapp0_fapp0', homd_classifiers_end)
+        '// Original public Homd ladder, at the selected Q/index types.', homd_classifiers_end)
     (package / 'central_displayed_transport_controls.lp').write_text(
         'require open emdash.emdash3_2_gray_profiles;\n'
         + central[homd_classifiers_end:displayed_transport_end])
+    public_homd_end = central.index('// catalog-area: Categorical-universe direct equality-valued', displayed_transport_end)
+    public_homd = central[displayed_transport_end:public_homd_end]
+    (package / 'central_public_homd_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n' + public_homd)
+    public_homd_assertions = re.findall(r'(?m)^assert\b.*?;', public_homd, re.S)
+    terminal_obligations = [block for block in public_homd_assertions if '≡ @Obj_func' in block]
+    general_observations = [block for block in public_homd_assertions if '≡ @Obj_func' not in block]
+    assert len(terminal_obligations) == 5 and len(general_observations) == 14
+    (package / 'central_public_homd_general_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + '\n\n'.join(general_observations) + '\n')
+    (package / 'central_public_homd_terminal_obligations.lp').write_text(
+        '// Unqualified required normalization obligations; not a passing target.\n'
+        'require open emdash.emdash3_2;\n'
+        + '\n\n'.join(terminal_obligations) + '\n')
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5742,7 +5767,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_mixed_regression;\n'
         'require open emdash.central_pathout_motive_controls;\n'
         'require open emdash.central_homd_classifier_controls;\n'
-        'require open emdash.central_displayed_transport_controls;\n')
+        'require open emdash.central_displayed_transport_controls;\n'
+        'require open emdash.central_public_homd_general_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6256,6 +6282,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'central_pathout_motive_controls.lp',
                               package / 'central_homd_classifier_controls.lp',
                               package / 'central_displayed_transport_controls.lp',
+                              package / 'central_public_homd_controls.lp',
+                              package / 'central_public_homd_general_controls.lp',
+                              package / 'central_public_homd_terminal_obligations.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',
@@ -6271,6 +6300,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',
+                          'Five original whole terminal-source Homd reductions, preserving Q units and the actual relative maps',
                           'Profile-extension and original diagnostic/import-closure migration',
                           'Whole duality/adjunction and closure-consumer qualification',
                           'Downstream qualification and retirement of redundant strict-functor wrappers',

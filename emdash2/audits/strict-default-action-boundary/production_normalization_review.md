@@ -550,3 +550,62 @@ warning bodies are unchanged, so the preceding exact core/Homd and library
 receipts carry. The specialized comparison/normalization work remains part
 of the pre-promotion review, alongside the earlier product peaks and resource
 cost; this is not a new confluence claim.
+
+## Public Homd terminal boundary after `104c91a2`
+
+The public ladder uses E as its source and the transposed whole Q-section
+category as its target fibre. Its y projection is a Q-valued transformation
+component. At v it gives an object of Homd_index_cat(I); the existing
+homd_index_presheaf exposes the complete functor T(I) -> Cat_cart. Fourteen
+general/root/component/section observations pass, including two whole
+relative-composition observations for an arbitrary lax section parameter.
+No enlarged base, new curry operation or equality-proof payload is involved.
+
+Five old whole terminal-source shortcuts are still unqualified. These are
+not the pointwise fact Hom_1(u,v)=1, which already computes. The source-u
+whole functor retains a mate/covariance composite, the identity terminal
+y-component retains a conjoint, and a general section parameter retains
+composition with its actual fibre functor. The full diagnostic source keeps
+the original positive obligations at their corrected types. A separately
+named passing driver contains only the fourteen qualified observations;
+the five obligations remain outside that driver and inside the full gate.
+
+The owner-position experiments have these outcomes:
+
+- A direct terminal-source rule at fib_cov_src_func passes formation but
+  breaks its neutral-unit projection. Covariance still carries the supplied
+  unit object; it cannot simply choose Terminal_obj before Hom forgets it.
+- A canonical terminal-map/covariance variant fails subject reduction at
+  the higher covariance projection. Its endpoint obligations would identify
+  arbitrary unit variables with Terminal_obj. It is not adopted.
+- A mate-only variant introduces a terminal mate and unfolds terminal
+  conjoints. It passes neutral-input observations, its seventeen adjusted
+  ladder observations and the existing core/Homd suite. In that experiment,
+  two general-section constant expectations were replaced by their actual
+  composites; the pass does not establish all five original shortcuts.
+- The mate-only variant fails the independent right-unit consumer after its
+  unit has normalized to the constant-functor presentation. The unit itself
+  converts to that value, but composition with that value no longer selects
+  the existing unit reduction. Fourteen new symbolic warning bodies include
+  the erased-unit cases. The unchanged source's native unit presentation
+  passes both unit cuts. The experimental normalizers are not adopted.
+
+[The verification](production_public_homd_verification.json) retains exact
+source snapshots, receipts and the first outstanding assertion. This is
+evidence of a computational owner/normal-form issue; it does not establish
+that the selected general Homd interface is mathematically impossible.
+The passing generic suite was insufficient to qualify the new terminal
+normalizer, so an actual unit consumer took precedence.
+
+The next repair must preserve the whole Q-unit representation and the actual
+relative-map input. Prefer the existing native projection owners and their
+whole semantic comparisons to an eager unfolding of a represented morphism.
+The distinction between the identity core's normalization and composition
+with a general lax FF must remain explicit. No candidate here authorizes a
+blanket terminal-source eta rule, stronger default naturality, new caller
+proof arguments or a general profunctor-composition development.
+
+All mathematical sources, the core warning bodies and the earlier exact
+core/Homd/library closures remain unchanged in the selected source. The
+public terminal-source obligations, full central gate and production
+promotion remain incomplete.

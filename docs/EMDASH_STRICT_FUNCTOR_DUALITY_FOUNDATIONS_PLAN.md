@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; whole Homd-target classifiers and higher displayed-action diagnostics qualified; public Homd-ladder/constant-family and later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; general public Homd ladder and relative composites qualified; five whole terminal-source normal forms, later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -37,6 +37,57 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Continuation after `104c91a2`, 2026-10-20 UTC: the
+[public-ladder verification](../emdash2/audits/strict-default-action-boundary/production_public_homd_verification.json)
+records a partial migration with an explicit remaining boundary. The general
+public root, x/u projections, Q-valued y component and whole presheaf view of
+the v component check for arbitrary admitted E/D and general lax FF. Two
+additional whole observations expose the actual composition with a general
+section's fibre component. No mathematical declaration or rule is adopted.
+
+The [replay fragment](../emdash2/audits/strict-default-action-boundary/production_public_homd_controls.lpfragment)
+retains all 17 original observations at the corrected types, plus those two
+relative-composition observations. Fourteen observations pass. Five original
+whole terminal-source reductions to Obj_func remain required and unqualified:
+the two source-terminal component views, the terminal identity y component,
+and the two whole general-section terminal components. They remain positive
+assertions in the full emitted central source and in the explicitly named
+terminal-obligations driver. The passing aggregate does not include them,
+and must not be cited as full public-ladder or full-central qualification.
+
+Bounded owner experiments locate the difficulty. Moving the constant-source
+shortcut to covariance breaks a neutral-unit projection; a more explicit
+terminal-map variant fails subject reduction because unit variables are not
+convertible to the chosen Terminal_obj. A mate/conjoint variant preserves
+those neutral inputs, passes its adjusted ladder and the existing core suite,
+but fails an independent Q-unit observation after unfolding the terminal
+conjoint. The current source passes both unit cuts. The candidate's 14 added
+warning bodies include exactly that lost unit representation. None of these
+experimental rules or new terminal constructors is adopted.
+
+The [normalization review](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#public-homd-terminal-boundary-after-104c91a2)
+records the experiments and the distinction between a semantic terminal
+property and a qualified native normal form. Do not erase represented heads
+or actual input maps merely to obtain the old constant-looking expression.
+Keep the five obligations open until their whole computations/comparisons
+are settled with Q units and both projection orders preserved.
+
+The general public-ladder driver passes 14 assertions in 21.066s/1501.8MiB.
+The qualified central subset passes 1327 positive/205 negative assertions in
+32.002s/2234.1MiB under the existing 300s/4GiB/o=20 profile, with SR and
+unchanged warnings (1786 imported bodies, 1572 in core). The independent
+current-unit control passes three assertions. Core/Homd and library receipts
+carry after exact input rehashing. The full central inventory retains every
+original tail and 66 declarations, now 2146 positives and 293 negatives.
+
+Next resolve the five whole terminal-source obligations at native owners,
+with particular attention to the stable Q-unit representation and the
+distinction between identity Homd and the defined general-FF composite.
+Do not treat the rejected candidate's passing core suite as qualification.
+Later diagnostics, wrapper retirement, normalization/performance, production
+promotion and final gates remain required. The separate application goal
+stays paused; this foundations goal remains active.
 
 Continuation after `4b3bce9e`, 2026-10-19 UTC: the
 [classifier/component verification](../emdash2/audits/strict-default-action-boundary/production_central_homd_classifiers_verification.json)
