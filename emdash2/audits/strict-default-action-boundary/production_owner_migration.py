@@ -4377,6 +4377,43 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'owner': 'original public Homd x/u/y/v ladder and constant-family specializations',
                                 'reason': 'Retain every original assertion at the actual Q/index types and add the whole relative component comparison; five whole terminal-source reductions remain explicit unqualified obligations',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// catalog-area: Categorical-universe direct equality-valued', start)
+                start = text.index('// catalog-area: auto', start)
+                end = text.index('// Cat-valued profunctor facade and representable hom action.', start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 13
+                assert len(re.findall(r'(?m)^assertnot\b', old)) == 1
+                section = fragment('production_central_homd_leaf_controls.lpfragment') + '\n\n'
+                assert len(re.findall(r'(?m)^assert\b', section)) == 14
+                assert len(re.findall(r'(?m)^assertnot\b', section)) == 1
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/public-homd-leaf-intrinsic-observations',
+                                'owner': 'original Homd presheaf leaf, identity extraction and intrinsic projection ladder',
+                                'reason': 'Use the actual index presheaf view, relative-to-identity root and Cartesian component inclusion; retain general FF and the full index action. The installed constant-index computation changes one old negative to positive; an arbitrary-loop control preserves noncollapse',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Cat-valued profunctor facade and representable hom action.', start)
+                end = text.index('// Generic displayed Hom action: full/capped/point projection ladder.', start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 15
+                section = old.replace('Cat_cat', 'Cat_cart')
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/profunctor-hom-observations',
+                                'owner': 'original profunctor facade and represented Hom action diagnostics',
+                                'reason': 'Retain the product-base convention, original maps and all full/capped/point observations at their actual Cat_cart coefficient',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// Generic displayed Hom action: full/capped/point projection ladder.', start)
+                end = text.index('// General two-sided product maps used by profunctor reindexing.', start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 12
+                assert len(re.findall(r'(?m)^assertnot\b', old)) == 1
+                section = fragment('production_central_homcatd_controls.lpfragment') + '\n\n'
+                assert len(re.findall(r'(?m)^assert\b', section)) == 12
+                assert len(re.findall(r'(?m)^assertnot\b', section)) == 1
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/hom-catd-action-observations',
+                                'owner': 'original generic displayed Hom action, classifier folds and inline Unit_prof comparison',
+                                'reason': 'Use total-dual negative sections over R(K), actual Cat_cart coefficients and the same Hom/profunctor values. Establish the generic inline comparison before specializing to the original strict section, without a new rule or operational proof argument',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5752,6 +5789,16 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     (package / 'terminal_homd_comparison_controls.lp').write_text(
         'require open emdash.emdash3_2;\n'
         + fragment('production_terminal_homd_comparison_controls.lpfragment'))
+    homcatd_action_start = central.index(
+        '// Generic displayed Hom action: full/capped/point projection ladder.', public_homd_end)
+    homcatd_action_end = central.index(
+        '// General two-sided product maps used by profunctor reindexing.', homcatd_action_start)
+    (package / 'central_homd_leaf_prof_controls.lp').write_text(
+        'require open emdash.emdash3_2_eq1_evidence_property;\n'
+        + central[public_homd_end:homcatd_action_start])
+    (package / 'central_homcatd_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + central[homcatd_action_start:homcatd_action_end])
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5775,7 +5822,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_homd_classifier_controls;\n'
         'require open emdash.central_displayed_transport_controls;\n'
         'require open emdash.central_public_homd_general_controls;\n'
-        'require open emdash.terminal_homd_comparison_controls;\n')
+        'require open emdash.terminal_homd_comparison_controls;\n'
+        'require open emdash.central_homd_leaf_prof_controls;\n'
+        'require open emdash.central_homcatd_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6293,6 +6342,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'central_public_homd_general_controls.lp',
                               package / 'central_public_homd_terminal_obligations.lp',
                               package / 'terminal_homd_comparison_controls.lp',
+                              package / 'central_homd_leaf_prof_controls.lp',
+                              package / 'central_homcatd_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',

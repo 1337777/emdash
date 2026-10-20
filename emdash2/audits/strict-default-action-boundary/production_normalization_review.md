@@ -717,3 +717,42 @@ profile; this remains a usability concern, not a measured improvement.
 Broader receipts are historical after the shared core change unless separately
 refreshed. The original full central source still retains its five runtime
 terminal obligations and all subsequent diagnostics.
+
+## Original Homd and displayed-Hom diagnostics after `2d55c39a`
+
+The next original blocks now observe the actual P(I) object/presheaf view,
+Q-valued section modification, Cartesian component and reversed index
+evaluation. Their general FF is unchanged. The intrinsic root's explicit
+endpoint annotation must use its computed Homd_target_index_func family;
+substituting the alternative expanded Homd_target_catd presentation obstructed
+inference. The native annotation passes without changing an owner or equation.
+
+One old negative asserted that the constant-family extracted cell would not
+compute to the ordinary arrow. The existing whole constant-index constructor
+already makes it compute to F[p]. The migrated observation is positive and
+the retained theorem still checks. An arbitrary-loop negative checks that
+the actual F[p] is not replaced by identity. No new strictness for general FF
+is inferred from that ordinary-functor specialization.
+
+The displayed Hom observations use the actual negative section in O(E) over
+R(K), together with Cat_cart coefficients. The inline Unit_prof comparison
+keeps its original formula, filler and strict positive section. Both the old
+two-identity inference form and direct typed reflexivity after specializing
+the strict view failed. The generic comparison with an arbitrary section
+passes at the already installed semantic owner. A local proof of that generic
+equality, then applied to the original strict section and filler, passes.
+
+This is a diagnostic proof using the existing comparison, not an extra path
+argument or cast in Hom_catd, Homd or any library operation. It adds no kernel
+unifier or global declaration. It gives another concrete example of checking
+a whole generic comparison before projection/profile specialization. It does
+not prove that every earlier projected pre/right comparison is resolved.
+
+[Exact evidence](production_central_homd_homcatd_verification.json) retains the
+failed candidates, successful generic/specialized checks and final combined
+1386/215 pass. The two new blocks contain 38/4 and 12/1 observations. Core
+and library input hashes are unchanged and reverified; their existing passes
+carry. Combined warning bodies remain 1786. The full source retains its 66
+global declarations, all subsequent diagnostics and the five unqualified
+terminal runtime assertions. This tranche introduces no mathematical source
+or default-profile change and does not establish production qualification.

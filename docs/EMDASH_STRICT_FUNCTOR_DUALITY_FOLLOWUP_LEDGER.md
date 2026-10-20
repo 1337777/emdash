@@ -2,7 +2,7 @@
 
 Date: 2026-10-20 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; inventory refreshed after `f8755cda` with whole terminal comparison evidence
+Status: active; inventory refreshed after `2d55c39a` with original Homd/Hom_catd diagnostic evidence
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 
 This is the consolidated inventory of known remaining obligations, changed
@@ -33,9 +33,9 @@ has not been promoted. The [public-ladder evidence][public] qualifies fourteen
 general/relative observations. The five terminal expressions now also have
 [qualified whole proof-time comparisons][terminal-views]; their stronger
 runtime assertions remain positive obligations in the full diagnostic.
-The qualified central subset contains 1336 positive and 210 negative
+The qualified central subset contains 1386 positive and 215 negative
 assertions, including the separate comparison/guard reviewer; the full source retains
-2146 positives, 293 negatives and all 66 original diagnostic declarations.
+2147 positives, 293 negatives and all 66 original diagnostic declarations.
 These counts describe different scopes and must not be interchanged.
 
 ## Required completion and regression review
@@ -122,6 +122,7 @@ snapshot and consumers; R10/R14 still govern final integration.
 | Original whole homology family/exchange/zero-column route | Later reconstruction, transpose and zero-column slices check; [native zero-column review][zero-column] and [final-import regression][imports]. Their supplied-model qualifications remain. |
 | Duplicate canonical Hom postcomposition component after views converged | Removed at the original owner in `d61994d4`; one original component rule retained. [Normalization follow-through][normalization]. |
 | PathOut foundation versus its later motive diagnostics | Earlier core/PathInd work and later motive block are different consumers. The latter required three existing Cat precomposition projections also at Cat_cart, not a new PathOut theory. [PathOut evidence][pathout]. |
+| Inline Unit_prof comparison after strict-section specialization | The original expanded formula checks generically; specializing that local proof to the original strict section preserves the observation without another kernel unifier. The retained projected runtime boundaries in R04 are not thereby resolved. [Homd/Hom_catd diagnostic evidence][homcatd]. |
 | Pointwise-equivalence producer/profile failures | Later whole locality and inverse work resolves the producer integration. The inherited primitive pointwise-to-whole assembly is still an explicit assumption, not a newly derived theorem. [Assembly qualification][assembly]. |
 | Core `Op_prof`, comma, monad, groupoidification and slice import stops | Subsequent original-owner migration and the [full import closure][imports] pass. The central diagnostic tail and other R10 gates are distinct from those former import stops. |
 
@@ -154,6 +155,7 @@ that all possible alternatives or future regressions have been discovered.
 [terminal]: ../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#public-homd-terminal-boundary-after-104c91a2
 [alternatives]: ../emdash2/audits/strict-default-action-boundary/production_terminal_alternatives_verification.json
 [terminal-views]: ../emdash2/audits/strict-default-action-boundary/production_terminal_homd_views_verification.json
+[homcatd]: ../emdash2/audits/strict-default-action-boundary/production_central_homd_homcatd_verification.json
 [components]: ../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#displayed-component-observations-after-4b3bce9e
 [monads]: ../emdash2/audits/strict-default-action-boundary/production_central_monads_actions_verification.json
 [normalization]: ../emdash2/audits/strict-default-action-boundary/production_normalization_review.md

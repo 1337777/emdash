@@ -1,0 +1,342 @@
+// Generic displayed Hom action: full/capped/point projection ladder.
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K))
+  (p : τ (Hom K x y)) ⊢
+  fapp0 (@fapp1_func K Cat_cart (@Hom_catd K E X Y) x y) p
+  ≡ @fapp1_fapp0 K Cat_cart (@Hom_catd K E X Y) x y p;
+
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K))
+  (p : τ (Hom K x y))
+  (h : τ (Hom
+      (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E Y x))) ⊢
+  fapp0 (@fapp1_fapp0 K Cat_cart (@Hom_catd K E X Y) x y p) h
+  ≡ @Hom_catd_fapp1_fapp0_point K E X Y x y p h;
+
+// Identity and composition agree before and after consuming the fibre arrow.
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x : τ (Obj K)) ⊢
+  @Hom_catd_fapp1_fapp0 K E X Y x x (@id K x)
+  ≡ @id_func
+      (Hom_cat
+        (Fibre_cat E x)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+        (@piapp0 K E Y x));
+
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x : τ (Obj K))
+  (h : τ (Hom
+      (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E Y x))) ⊢
+  fapp0
+    (@Hom_catd_fapp1_fapp0 K E X Y x x (@id K x))
+    h
+  ≡ h;
+
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x y z : τ (Obj K))
+  (p : τ (Hom K x y))
+  (q : τ (Hom K y z)) ⊢
+  @comp_fapp0
+    Cat_cat _ _ _
+    (@Hom_catd_fapp1_fapp0 K E X Y y z q)
+    (@Hom_catd_fapp1_fapp0 K E X Y x y p)
+  ≡ @Hom_catd_fapp1_fapp0
+      K E X Y x z (@comp_fapp0 K x y z q p);
+
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x y z : τ (Obj K))
+  (p : τ (Hom K x y))
+  (q : τ (Hom K y z))
+  (h : τ (Hom
+      (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E Y x))) ⊢
+  fapp0
+    (@Hom_catd_fapp1_fapp0
+      K E X Y x z (@comp_fapp0 K x y z q p))
+    h
+  ≡ fapp0
+      (@Hom_catd_fapp1_fapp0 K E X Y y z q)
+      (fapp0 (@Hom_catd_fapp1_fapp0 K E X Y x y p) h);
+
+// Existing classifier folds share the same full and capped action.
+assert [K : Cat]
+  (X : τ (Obj (Pi_cat (TotalOp_catd (Const_catd K Cat_cart)))))
+  (Y : τ (Obj (Pi_cat (Const_catd K Cat_cart))))
+  (x y : τ (Obj K)) ⊢
+  @fapp1_func
+    K Cat_cart
+    (@Hom_catd K (@Const_catd K Cat_cart) X Y)
+    x y
+  ≡ @fapp1_func
+      K Cat_cart
+      (@Functor_catd K (@TotalOp_func (CoAbove2_cat K) (TotalOp_cat Cat_cart) X) Y)
+      x y;
+
+assert [K : Cat]
+  (X : τ (Obj (Pi_cat (TotalOp_catd (Const_catd K Cat_cart)))))
+  (Y : τ (Obj (Pi_cat (Const_catd K Cat_cart))))
+  (x y : τ (Obj K))
+  (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0
+    K Cat_cart
+    (@Hom_catd K (@Const_catd K Cat_cart) X Y)
+    x y p
+  ≡ @fapp1_fapp0
+      K Cat_cart
+      (@Functor_catd K (@TotalOp_func (CoAbove2_cat K) (TotalOp_cat Cat_cart) X) Y)
+      x y p;
+
+assert [K : Cat]
+  (A : τ (Catd (Op_cat K)))
+  (B : τ (Catd K))
+  (FF : τ (Obj (Pi_cat (TotalOp_catd (Functor_catd A B)))))
+  (GG : τ (Obj (Pi_cat (Functor_catd A B))))
+  (x y : τ (Obj K)) ⊢
+  @fapp1_func
+    K Cat_cart (@Transf_catd K A B FF GG) x y
+  ≡ @fapp1_func
+      K Cat_cart
+      (@Hom_catd K (@Functor_catd K A B) FF GG)
+      x y;
+
+assert [K : Cat]
+  (A : τ (Catd (Op_cat K)))
+  (B : τ (Catd K))
+  (FF : τ (Obj (Pi_cat (TotalOp_catd (Functor_catd A B)))))
+  (GG : τ (Obj (Pi_cat (Functor_catd A B))))
+  (x y : τ (Obj K))
+  (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0
+    K Cat_cart (@Transf_catd K A B FF GG) x y p
+  ≡ @fapp1_fapp0
+      K Cat_cart
+      (@Hom_catd K (@Functor_catd K A B) FF GG)
+      x y p;
+
+// Establish the same inline Unit_prof comparison before specializing its
+// positive section to the original strict view. The local proof uses the
+// existing generic comparison; it adds no rule or operational proof input.
+assert [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (@StrictTransfor
+      K Cat_cart (@Const_catd K Terminal_cat) E))
+  (x y : τ (Obj K))
+  (p : τ (Hom K x y))
+  (h : τ (Hom
+      (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E
+        (@strict_transfor
+          K Cat_cart (@Const_catd K Terminal_cat) E Y)
+        x))) ⊢
+  let point_comparison : Π (V : τ (Obj (Pi_cat E))), Π (a : τ (Hom (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E V x))),
+      τ (@= (Obj (Hom_cat
+        (Fibre_cat E y)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+        (@piapp0 K E
+          V
+          y)))
+    (@Hom_catd_fapp1_fapp0_point K E X
+      V
+      x y p a)
+    (@fapp0
+        (Hom_cat
+          (Fibre_cat E y)
+          (@fapp0
+            (Fibre_cat E x)
+            (Fibre_cat E y)
+            (@fapp1_fapp0 K Cat_cart E x y p)
+            (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
+          (@fapp0
+            (Fibre_cat E x)
+            (Fibre_cat E y)
+            (@fapp1_fapp0 K Cat_cart E x y p)
+            (@piapp0 K E
+              V
+              x)))
+        (Hom_cat
+          (Fibre_cat E y)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+          (@piapp0 K E
+            V
+            y))
+        (@fapp1_fapp0
+          (Product_cat (Op_cat (Fibre_cat E y)) (Fibre_cat E y))
+          Cat_cart
+          (@Unit_prof (Fibre_cat E y))
+          (Struct_sigma
+            (@fapp0
+              (Fibre_cat E x)
+              (Fibre_cat E y)
+              (@fapp1_fapp0 K Cat_cart E x y p)
+              (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
+            (@fapp0
+              (Fibre_cat E x)
+              (Fibre_cat E y)
+              (@fapp1_fapp0 K Cat_cart E x y p)
+              (@piapp0 K E
+                V
+                x)))
+          (Struct_sigma
+            (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+            (@piapp0 K E
+              V
+              y))
+          (Struct_sigma
+            (@piapp1_fapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x y p)
+            (@piapp1_fapp0 K E
+              V
+              x y p)))
+        (@fapp1_fapp0
+          (Fibre_cat E x)
+          (Fibre_cat E y)
+          (@fapp1_fapp0 K Cat_cart E x y p)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+          (@piapp0 K E
+            V
+            x)
+          a)))
+    ≔ λ (V : τ (Obj (Pi_cat E))) (a : τ (Hom (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E V x))),
+      @eq_refl (Obj (Hom_cat
+        (Fibre_cat E y)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+        (@piapp0 K E
+          V
+          y)))
+    (@Hom_catd_fapp1_fapp0_point K E X
+      V
+      x y p a)
+  in point_comparison (@strict_transfor K Cat_cart (@Const_catd K Terminal_cat) E Y) h
+  : τ (@= (Obj (Hom_cat
+        (Fibre_cat E y)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+        (@piapp0 K E
+          (@strict_transfor
+            K Cat_cart (@Const_catd K Terminal_cat) E Y)
+          y)))
+    (@Hom_catd_fapp1_fapp0_point K E X
+      (@strict_transfor K Cat_cart (@Const_catd K Terminal_cat) E Y)
+      x y p h)
+    (@fapp0
+        (Hom_cat
+          (Fibre_cat E y)
+          (@fapp0
+            (Fibre_cat E x)
+            (Fibre_cat E y)
+            (@fapp1_fapp0 K Cat_cart E x y p)
+            (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
+          (@fapp0
+            (Fibre_cat E x)
+            (Fibre_cat E y)
+            (@fapp1_fapp0 K Cat_cart E x y p)
+            (@piapp0 K E
+              (@strict_transfor
+                K Cat_cart (@Const_catd K Terminal_cat) E Y)
+              x)))
+        (Hom_cat
+          (Fibre_cat E y)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+          (@piapp0 K E
+            (@strict_transfor
+              K Cat_cart (@Const_catd K Terminal_cat) E Y)
+            y))
+        (@fapp1_fapp0
+          (Product_cat (Op_cat (Fibre_cat E y)) (Fibre_cat E y))
+          Cat_cart
+          (@Unit_prof (Fibre_cat E y))
+          (Struct_sigma
+            (@fapp0
+              (Fibre_cat E x)
+              (Fibre_cat E y)
+              (@fapp1_fapp0 K Cat_cart E x y p)
+              (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
+            (@fapp0
+              (Fibre_cat E x)
+              (Fibre_cat E y)
+              (@fapp1_fapp0 K Cat_cart E x y p)
+              (@piapp0 K E
+                (@strict_transfor
+                  K Cat_cart (@Const_catd K Terminal_cat) E Y)
+                x)))
+          (Struct_sigma
+            (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+            (@piapp0 K E
+              (@strict_transfor
+                K Cat_cart (@Const_catd K Terminal_cat) E Y)
+              y))
+          (Struct_sigma
+            (@piapp1_fapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x y p)
+            (@piapp1_fapp0 K E
+              (@strict_transfor
+                K Cat_cart (@Const_catd K Terminal_cat) E Y)
+              x y p)))
+        (@fapp1_fapp0
+          (Fibre_cat E x)
+          (Fibre_cat E y)
+          (@fapp1_fapp0 K Cat_cart E x y p)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+          (@piapp0 K E
+            (@strict_transfor
+              K Cat_cart (@Const_catd K Terminal_cat) E Y)
+            x)
+          h)));
+
+// An arbitrary base endomorphism does not collapse to identity.
+assertnot [K : Cat] (E : τ (Catd K))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
+  (Y : τ (Obj (Pi_cat E)))
+  (x : τ (Obj K))
+  (p : τ (Hom K x x)) ⊢
+  @Hom_catd_fapp1_fapp0 K E X Y x x p
+  ≡ @id_func
+      (Hom_cat
+        (Fibre_cat E x)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+        (@piapp0 K E Y x));
+
+assert [A B X : Cat]
+  (F : τ (Functor A X))
+  (G : τ (Functor B X))
+  (a : τ (Obj A))
+  (b : τ (Obj B)) ⊢
+  Fibre_cat
+    (@Hom_catd
+      (Product_cat (Op_cat A) B)
+      (@Const_catd (Product_cat (Op_cat A) B) X)
+      (@comp_cat_fapp0
+        (Product_cat (TotalOp_cat A) (CoAbove2_cat B))
+        (TotalOp_cat A)
+        (TotalOp_cat X)
+        (@TotalOp_func A X F)
+        (@Product_projL_func (TotalOp_cat A) (CoAbove2_cat B)))
+      (@comp_cat_fapp0
+        (Product_cat (Op_cat A) B)
+        B
+        X
+        G
+        (@Product_projR_func (Op_cat A) B)))
+    (Struct_sigma a b)
+  ≡ Fibre_cat
+      (@Hom_prof_along A B X F G)
+      (Struct_sigma a b);

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; whole terminal Homd comparisons added in staging; stronger runtime normal forms, later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original Homd leaf/intrinsic and displayed-Hom diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,51 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Diagnostic continuation after `2d55c39a`, 2026-10-20 UTC: the
+[Homd/Hom_catd verification](../emdash2/audits/strict-default-action-boundary/production_central_homd_homcatd_verification.json)
+qualifies the next original category-universe equality, Homd leaf/intrinsic,
+profunctor Hom and generic displayed-Hom observations. No mathematical
+declaration, rewrite, unifier, default profile or operational proof parameter
+changes in this tranche.
+
+The public equality/OmegaEquiv block is unchanged. The Homd v-result now uses
+its actual whole presheaf view; the intrinsic root uses the computed target
+family and its relative-to-identity direction. The Q-section, Cartesian fibre
+component and reversed index evaluation follow the existing native ladder.
+No Op_funcd is applied to raw FF, and FF remains general lax.
+
+The existing whole constant-index constructor already computes the extracted
+cell to the ordinary functor's actual F[p]. Its obsolete negative is changed
+to positive; a new arbitrary-loop negative rejects collapse to identity.
+The theorem observation remains. Profunctor maps and the traditional product
+base are retained, with the actual Cat_cart coefficient. Hom_catd's negative
+section uses total duality over R(K); its classifier folds and represented
+example use the coordinated whole dualities rather than the retired same-base
+transpose.
+
+The expanded Unit_prof comparison retains the original strict positive section
+and actual filler. Direct checking after strict specialization failed, even
+with explicit equality types. Checking its generic comparison first, then
+specializing that local proof to the original strict section, succeeds. This
+uses the existing semantic comparison and adds no new kernel hint, primitive,
+global declaration or proof argument to a construction. The
+[normalization review](../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#original-homd-and-displayed-hom-diagnostics-after-2d55c39a)
+records the inference distinction.
+
+The two focused blocks pass 38/4 and 12/1. The final installed-checker combined
+subset passes 1386 positive/215 negative assertions in 33.999s/2240.8MiB with
+SR and unchanged warning bodies (1786). Mathematical input hashes for the
+recent core/Homd and library passes are unchanged and reverified, so those
+receipts carry without rerunning unchanged aggregates. The full central source
+retains all original tails and 66 global declarations, now 2147 positives and
+293 negatives after the explicit polarity change and loop control.
+
+Next migrate the original two-sided product-map/reindexing observations and
+the following profunctor operations, before the Internal Path action block.
+The five stronger terminal-runtime obligations, remaining registered
+consumers, wrapper retirement, normalization/performance and production/final
+gates remain open. The separate application goal stays paused.
 
 Whole terminal comparison continuation after `f8755cda`, 2026-10-20 UTC:
 two comparisons at existing semantic owners preserve the runtime Q heads.
