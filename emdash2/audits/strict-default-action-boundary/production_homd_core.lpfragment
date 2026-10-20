@@ -250,6 +250,14 @@ unif_rule @Homd_coeff_conjoint $A $B $F
   ≡ @comp_fapp0 Cat_cat _ _ _ $M (@hom_con_int $A0 $B0 $F0)
   ↪ [ $A ≡ $A0; $B ≡ $B0; $F ≡ $F0; $M ≡ Homd_index_include_func $B ];
 
+// Whole terminal-Hom comparison. Keep the runtime conjoint: its represented
+// identity/composition cuts consume that head. Hom_1(F[i],u)=1 for every
+// terminal-valued F; no unit-object eta or strictness of a raw FF is imposed.
+unif_rule @Homd_coeff_conjoint Terminal_cat $I $F
+  ≡ @Const_func $S $P $H
+  ↪ [ $S ≡ Terminal_cat; $P ≡ Homd_index_cat $I;
+      $H ≡ @Op_func (Op_cat $I) Cat_cart (@Const_catd (Op_cat $I) Terminal_cat) ];
+
 // The represented inclusion's whole Hom is actual Cartesian postcomposition.
 // iota(F)[a][b] = Hom_B(b,F[a]).
 symbol Homd_coeff_rep_func (A B : Cat)

@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; general public Homd ladder and relative composites qualified; five whole terminal-source normal forms, later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; whole terminal Homd comparisons added in staging; stronger runtime normal forms, later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,53 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Whole terminal comparison continuation after `f8755cda`, 2026-10-20 UTC:
+two comparisons at existing semantic owners preserve the runtime Q heads.
+The ordinary terminal/constant-functor owner compares a composite F∘G out of
+Terminal with the point F[G[Terminal_obj]], retaining both maps. The conjoint
+owner compares terminal Hom with the terminal presheaf. Neither law is an
+eager normalization or a variable-sided terminal eta rule.
+
+These are explicitly installed proof-time laws, not a claim that the earlier
+runtime rules alone derived them. Their hypotheses are the actual strict
+functor/terminal source and terminal Hom. No new primitive, representation
+grammar, caller equality argument or strictness premise on FF is introduced.
+They use rigid existing heads and retain the actual selected point; they do
+not match an expanded Homd pipeline or invent another case-specific owner.
+
+The five original whole terminal expressions now have typed comparison
+observations in the
+[new reviewer](../emdash2/audits/strict-default-action-boundary/production_terminal_homd_comparison_controls.lpfragment).
+The old five runtime assertions remain unchanged and unqualified in the full
+source and their separate obligations driver. This is progress on their whole
+semantic presentations, not a silent conversion of the runtime requirements
+into passing checks. The remaining acceptance decision must explicitly settle
+their runtime presentation and consumed higher projections.
+
+Owner-position experiments check all nineteen public observations when just
+those five are read as whole comparisons, Q's actual unit and conjoint
+composition cuts, and rejection of an arbitrary substituted point or a
+nonterminal source. The two baseline omission controls fail at their intended
+whole comparisons. Production promotion and the broader migration remain open.
+Final regression and warning evidence is recorded with this tranche's
+[verification](../emdash2/audits/strict-default-action-boundary/production_terminal_homd_views_verification.json).
+
+The installed checker passes core/Homd 287/85 in 19.578s/1591.9MiB,
+the qualified central subset 1336/210 in 28.867s/2236.2MiB, and the existing
+library closure 178/27 in 62.385s/4409.0MiB, with SR and their established
+bounded profiles. Warning bodies are unchanged at 1572, 1786 and 2412
+respectively. The final LHS scan has no unreviewed candidates; both custom
+comparison patterns are also reviewed explicitly. The emitted core diff is
+exactly two additional unification rules and their comments, with no runtime
+rule or declaration added. These samples do not establish a speedup.
+
+Continue the original diagnostic tail after the public Homd section while
+keeping the stronger terminal-normal-form obligations visible in R01–R03 of
+the follow-up ledger. Do not claim full public runtime normalization from
+the new comparison reviewer. Remaining registered consumers, wrapper
+retirement, normalization/performance and promotion/final gates stay required.
+The separate application goal remains paused.
 
 Alternative/deferral reassessment after `708bb2de`, 2026-10-20 UTC: the
 terminal experiments below are not an exhaustive search and do not establish

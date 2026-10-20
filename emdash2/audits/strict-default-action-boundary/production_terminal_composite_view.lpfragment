@@ -1,0 +1,8 @@
+// A whole composite out of 1 agrees with the point it selects. Functors are
+// strict by default. This is a proof-time view, not a terminal-source runtime
+// eta rule: both supplied functors survive in the selected point.
+// lhs-audit: keep 1,2,3,4 -- ordinary terminal source; B,C type the retained point action.
+unif_rule @comp_fapp0 Cat_cat Terminal_cat $B $C $F $G
+  ≡ @Const_func $S $D $d
+  ↪ [ $S ≡ Terminal_cat; $D ≡ $C;
+      $d ≡ @fapp0 $B $C $F (@fapp0 Terminal_cat $B $G Terminal_obj) ];

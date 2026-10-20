@@ -1,0 +1,169 @@
+// Whole terminal Homd comparisons at the existing represented runtime heads.
+// These typed reflexivity observations do not replace the five original
+// runtime assertions in production_public_homd_controls.lpfragment.
+// First two: terminal source-u map and its fibre view. Next three: terminal
+// identity y-component and both general-section y-component observations.
+
+assert [K : Cat] (x : τ (Obj K)) ⊢
+ @eq_refl (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
+  (@homd_src_func K
+    (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat))
+    x)
+ : τ (@= (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
+  (@homd_src_func K
+    (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat))
+    x)
+  (@Obj_func
+        (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
+        (@homd_src_sec K
+          (@Const_catd K Terminal_cat)
+          (@Const_catd K Terminal_cat)
+          (@id_funcd K (@Const_catd K Terminal_cat))
+          x
+          Terminal_obj)));
+
+assert [K : Cat] (x : τ (Obj K)) ⊢
+ @eq_refl (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
+  (@Fibre_func
+    K
+    (@Const_catd K Terminal_cat)
+    (@Homd_target_catd K (@Const_catd K Terminal_cat))
+    (@homd_int
+      K
+      (@Const_catd K Terminal_cat)
+      (@Const_catd K Terminal_cat)
+      (@id_funcd K (@Const_catd K Terminal_cat)))
+    x)
+ : τ (@= (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
+  (@Fibre_func
+    K
+    (@Const_catd K Terminal_cat)
+    (@Homd_target_catd K (@Const_catd K Terminal_cat))
+    (@homd_int
+      K
+      (@Const_catd K Terminal_cat)
+      (@Const_catd K Terminal_cat)
+      (@id_funcd K (@Const_catd K Terminal_cat)))
+    x)
+  (@Obj_func
+        (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
+        (@homd_src_sec K
+          (@Const_catd K Terminal_cat)
+          (@Const_catd K Terminal_cat)
+          (@id_funcd K (@Const_catd K Terminal_cat))
+          x
+          Terminal_obj)));
+
+assert [K : Cat] (x y : τ (Obj K)) ⊢
+ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@homd_tgt_func K
+    (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat))
+    x
+    Terminal_obj
+    y)
+ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@homd_tgt_func K
+    (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat))
+    x
+    Terminal_obj
+    y)
+  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))))));
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y)
+ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y)
+  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
+          K
+          E
+          E
+          (@id_funcd K E)
+          x
+          u
+          y
+          (@piapp0 K E s y)))));
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u))
+ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u))
+  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
+          K
+          E
+          E
+          (@id_funcd K E)
+          x
+          u
+          y
+          (@piapp0 K E s y)))));
+
+// Q units/composition, generic point comparison, and scope/noncollapse controls.
+
+assert [B : Cat] (P : τ (Hom Homd_coeff_cat Terminal_cat B)) ⊢
+ @comp_fapp0 Homd_coeff_cat Terminal_cat Terminal_cat B P
+  (@Homd_coeff_conjoint Terminal_cat Terminal_cat (@id_func Terminal_cat)) ≡ P;
+
+assert [A : Cat] (P : τ (Hom Homd_coeff_cat A Terminal_cat)) ⊢
+ @comp_fapp0 Homd_coeff_cat A Terminal_cat Terminal_cat
+  (@Homd_coeff_conjoint Terminal_cat Terminal_cat (@id_func Terminal_cat)) P ≡ P;
+
+assert [A B : Cat] (F : τ (Functor A B)) (u : τ (Obj Terminal_cat)) ⊢
+ @comp_fapp0 Homd_coeff_cat Terminal_cat B A
+   (@Homd_coeff_conjoint B A F)
+   (@Homd_coeff_conjoint Terminal_cat B (@Const_func B Terminal_cat u))
+ ≡ @Homd_coeff_conjoint Terminal_cat A
+     (@comp_cat_fapp0 A B Terminal_cat (@Const_func B Terminal_cat u) F);
+
+assertnot [A I : Cat] (u : τ (Obj A)) ⊢
+ @eq_refl (Functor A (Homd_index_cat I))
+   (@Homd_coeff_conjoint A I (@Const_func I A u))
+ : τ (@= (Functor A (Homd_index_cat I))
+     (@Homd_coeff_conjoint A I (@Const_func I A u))
+     (@Const_func A (Homd_index_cat I)
+       (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) Terminal_cat))));
+
+assertnot [I : Cat] (F : τ (Functor I Terminal_cat)) ⊢
+ @Homd_coeff_conjoint Terminal_cat I F
+ ≡ @Obj_func (Homd_index_cat I)
+     (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) Terminal_cat));
+
+assert [B C : Cat] (F : τ (Functor B C)) (G : τ (Functor Terminal_cat B)) ⊢
+ @eq_refl (Functor Terminal_cat C) (@comp_cat_fapp0 Terminal_cat B C F G)
+ : τ (@= (Functor Terminal_cat C) (@comp_cat_fapp0 Terminal_cat B C F G)
+     (@Obj_func C (@fapp0 B C F (@fapp0 Terminal_cat B G Terminal_obj))));
+
+assertnot [B C : Cat] (F : τ (Functor B C)) (G : τ (Functor Terminal_cat B))
+ (c : τ (Obj C)) ⊢
+ @eq_refl (Functor Terminal_cat C) (@comp_cat_fapp0 Terminal_cat B C F G)
+ : τ (@= (Functor Terminal_cat C) (@comp_cat_fapp0 Terminal_cat B C F G) (@Obj_func C c));
+
+assertnot [A B C : Cat] (F : τ (Functor B C)) (G : τ (Functor A B))
+ (a : τ (Obj A)) ⊢
+ @eq_refl (Functor A C) (@comp_cat_fapp0 A B C F G)
+ : τ (@= (Functor A C) (@comp_cat_fapp0 A B C F G)
+     (@Const_func A C (@fapp0 B C F (@fapp0 A B G a))));
+
+assertnot [B C : Cat] (F : τ (Functor B C)) (G : τ (Functor Terminal_cat B)) ⊢
+ @comp_cat_fapp0 Terminal_cat B C F G
+ ≡ @Obj_func C (@fapp0 B C F (@fapp0 Terminal_cat B G Terminal_obj));

@@ -2,7 +2,7 @@
 
 Date: 2026-10-20 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; inventory reviewed against `708bb2de` and its emitted source
+Status: active; inventory refreshed after `f8755cda` with whole terminal comparison evidence
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 
 This is the consolidated inventory of known remaining obligations, changed
@@ -30,9 +30,11 @@ argument is supplied by callers.
 
 All implementation remains in the non-library replay. The production kernel
 has not been promoted. The [public-ladder evidence][public] qualifies fourteen
-general/relative observations; the five terminal-source observations remain
-positive obligations in the full diagnostic. The qualified central subset
-contains 1327 positive and 205 negative assertions; the full source retains
+general/relative observations. The five terminal expressions now also have
+[qualified whole proof-time comparisons][terminal-views]; their stronger
+runtime assertions remain positive obligations in the full diagnostic.
+The qualified central subset contains 1336 positive and 210 negative
+assertions, including the separate comparison/guard reviewer; the full source retains
 2146 positives, 293 negatives and all 66 original diagnostic declarations.
 These counts describe different scopes and must not be interchanged.
 
@@ -40,9 +42,9 @@ These counts describe different scopes and must not be interchanged.
 
 | ID | Current boundary and evidence | Required disposition |
 | --- | --- | --- |
-| R01 | Original public assertions 8 and 9: whole terminal-source `homd_src_func` and its `Fibre_func` view do not reduce to the old `Obj_func` presentation. Their whole mate/covariance composite is retained. [Public controls][controls], [terminal review][terminal]. | Resolve at a native owner without replacing arbitrary unit variables by `Terminal_obj`. Check whole and projected routes, including neutral unit inputs and the actual Q units. Identity-core computation remains required. |
-| R02 | Original assertion 13: whole terminal identity y-component retains its conjoint. The unrestricted terminal-conjoint normalizer broke a Q unit; a constructor-restricted alternative passes that component and units but fails conjoint composition. [Alternative evidence][alternatives]. | Recover the whole component while preserving the represented inclusion, unit and composition cuts. A pointwise terminal Hom result does not close this row. |
-| R03 | Original assertions 14 and 15: a general section's terminal-source y-component retains composition with its actual fibre functor. Its whole composite and presheaf view already check. [Public evidence][public]. | Settle whether the old whole constant presentation follows from the retained component interface, and implement a justified owner comparison/computation or explicitly review the changed contract. Do not force the arbitrary section to be strictly natural. These two obligations are separate from the identity-core milestone; they cannot silently vanish from the full migration. |
+| R01 | Original public assertions 8 and 9: whole terminal-source `homd_src_func` and its `Fibre_func` view retain their mate/covariance composite. The whole comparison with the old `Obj_func` presentation now passes; its runtime reduction remains open. [Public controls][controls], [whole comparison evidence][terminal-views]. | Settle the runtime presentation and required higher projections without replacing arbitrary unit variables by `Terminal_obj`. The comparison does not silently replace the old runtime obligation. Identity-core computation remains required. |
+| R02 | Original assertion 13: whole terminal identity y-component retains its conjoint. Eager normalizers broke units or composition; the head-preserving whole comparison now passes with those cuts retained. [Alternative evidence][alternatives], [selected comparison evidence][terminal-views]. | Resolve the stronger runtime requirement explicitly, preserving the represented inclusion and composition cuts. The whole comparison is established; literal constant normal form is not. |
+| R03 | Original assertions 14 and 15: a general section's terminal-source y-component retains composition with its actual fibre functor. Its whole comparison with the constant presentation now passes, alongside its whole composite and presheaf view. [Whole comparison evidence][terminal-views]. | Settle runtime presentation/consumers separately from the established comparison. The proof-time law does not strictify the section's base naturality. These two runtime obligations are separate from the identity-core milestone and remain in the full migration. |
 | R04 | Three projected pre/right runtime nonconversions survive despite that leg being conventionally strict. Two older mixed stable-cut negatives also remain normalization boundaries. [Component review][components], [monad/action evidence][monads]. | Review the whole-versus-capped projection order and existing `precomposition_point_path` before another unifier. Distinguish intended proof-time views from missing required runtime action. Do not present these negatives as mathematical laxness. |
 | R05 | `sigma_const_target_func` computes objects, but its whole/Hom/capped agreement is partly proof-time. Early eager expansions broke generic composition cuts. [Ownership review][normalization], [comma-target review][comma-target]. | State and qualify the actual higher-action contract at the consuming owners. Preserve the original map and inverse data. A reflexivity proof alone is not evidence of a reducing higher projection. |
 | R06 | Raw composition, stable precomposition and stable postcomposition can leave different forms. `Psh_pullback_func` and some whole composition observations still rely on proof-time readings. [Normalization review][normalization], [mapping review][mapping], [transpose review][transpose]. | Consolidate a family of presentations when its next consumer requires a bridge. Retain inverse cancellation and all operands. Avoid both an indefinite list of pairwise unifiers and indiscriminate eager expansion. |
@@ -68,10 +70,10 @@ shared implementation.
 | Canonical terminal-map/covariance normalization | Failed subject reduction at the higher projection, which would equate unit variables with `Terminal_obj`. | Reject that combined normalizer. This does not rule out canonical strict terminal maps as a general construction. |
 | Normalize every terminal conjoint and terminal mate | Some whole ladder and core tests passed; the independent right-unit cut failed after the conjoint representation disappeared. Two relative assertions had also been replaced by their composites in that experiment. | Not adopted. Neither the passing tests nor the replacement assertions establish the five original obligations. |
 | Normalize only a conjoint whose underlying transport is explicitly constant | Passes original whole assertion 13, both native Q units and a typed nonterminal control. Fails the original conjoint-composition law; two added warning bodies identify the two composition orientations. [Exact evidence][alternatives]. | Reject this eager rule as a standalone repair. It preserves more than the unrestricted candidate, but still erases a representation used by composition. It does not solve R01 or R03. |
-| Preserve represented heads; simplify their existing ordinary projections | Existing architecture already separates conjoint/represented owners from their semantic bodies. No complete terminal solution qualified. | Preferred direction when an eager whole rewrite would lose unit or representation cuts. For a whole terminal equality, identify the existing comparison owner; do not substitute point checks for it. |
+| Preserve represented heads; simplify their existing ordinary projections | Two owner comparisons now qualify all five whole terminal expressions without changing the runtime cuts. [Evidence][terminal-views]. | Selected whole-comparison solution. Required runtime normal forms and further consumed projections remain separate; no pointwise substitution is made. |
 | Repair normalized units at the Q unit/composition owner | Not implemented as a complete alternative. | Legitimate only if the normalized unit is the selected normal form. Must also preserve represented-inclusion projections and both composition orders. Adding just a special right-unit clause would be insufficient evidence. |
 | Put terminal computation at the native identity-Homd owner | Not qualified. Current `homd_id_src_func`/`homd_id_tgt_func` are defined composites, so rules matching those transparent names would be inert/brittle. | Inspect their actual constituent owners first. Do not create a primitive merely to name a failing expression. A change of whole ownership needs a concrete consumer and complete projections. |
-| Keep a stable runtime form and provide a whole semantic comparison | Possible fallback, not a demonstrated solution of the old runtime assertions. | A proof-time view must be explicitly distinguished from runtime conversion, with the affected contract reviewed. It cannot be counted as the original reduction without justification. |
+| Keep a stable runtime form and provide a whole semantic comparison | Implemented at the ordinary terminal-composite and conjoint owners, with typed whole consumers and scope controls. | A proof-time view is explicitly distinguished from runtime conversion. It is not counted as the original reduction; its runtime contract still needs disposition. |
 | General terminal-source eta or global strengthening of FF | No such change selected. | Too broad for this repair. It would affect unrelated functors, neutral unit terms and retained lax comparisons. The current evidence does not justify it. |
 
 No operational proof argument, enlarged `(y,v,f)` base or general coend
@@ -151,6 +153,7 @@ that all possible alternatives or future regressions have been discovered.
 [controls]: ../emdash2/audits/strict-default-action-boundary/production_public_homd_controls.lpfragment
 [terminal]: ../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#public-homd-terminal-boundary-after-104c91a2
 [alternatives]: ../emdash2/audits/strict-default-action-boundary/production_terminal_alternatives_verification.json
+[terminal-views]: ../emdash2/audits/strict-default-action-boundary/production_terminal_homd_views_verification.json
 [components]: ../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#displayed-component-observations-after-4b3bce9e
 [monads]: ../emdash2/audits/strict-default-action-boundary/production_central_monads_actions_verification.json
 [normalization]: ../emdash2/audits/strict-default-action-boundary/production_normalization_review.md

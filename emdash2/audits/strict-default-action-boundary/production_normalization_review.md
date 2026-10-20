@@ -662,3 +662,58 @@ overlap found here. No impossibility claim, global terminal eta, stronger FF
 profile, operational proof payload or general profunctor theory follows.
 The five original terminal obligations remain required. Production and
 selected mathematical authoring sources are unchanged.
+
+## Whole terminal views retaining the runtime heads after `f8755cda`
+
+The next experiment keeps all runtime heads and cuts. It adds two whole
+proof-time comparisons at their existing semantic owners:
+
+```text
+F : B → C, G : 1 → B
+F ∘ G ≐ const₁(F[G[*]])
+
+F : I → 1
+Conjoint(1,I,F) ≐ const₁(terminal presheaf on I).
+```
+
+The first is the terminal-source composite law for the restored strict
+functors. The second uses terminal Hom, whose value is 1 regardless of its
+endpoints. These are structural proof-time laws, not newly supplied data or
+theorems claimed to follow by the previous beta rules alone. The actual
+functors survive in the first rule's selected point. Neither rule changes
+unit objects, arbitrary FF naturality, or the runtime conjoint/unit forms.
+
+Both sides use existing rigid heads. The first lives with ordinary constant
+functors and is exercised independently of Homd. The second lives beside the
+conjoint's existing whole body comparison. This avoids matching expanded
+mate/covariance expressions or adding a terminal-mate primitive. The inferred
+indices on the ordinary comparison are explicitly justified by its typed
+point action; the custom conjoint pattern is reviewed separately from the
+generic LHS audit.
+
+All five whole public terminal expressions now pass typed reflexivity
+observations. The independent Q-unit and conjoint-composition consumers still
+reduce; the rejected eager rules failed those consumers. Negative controls
+reject changing the point and applying the terminal-source law to an arbitrary
+source. Separate runtime negatives confirm that the new comparisons do not
+erase the stable heads. Baseline omission controls fail at the intended
+whole comparisons. Exact evidence is in the
+[tranche verification](production_terminal_homd_views_verification.json).
+
+The five old runtime assertions remain required, unchanged and unqualified.
+The new whole comparisons are kept in a separately named reviewer; they do
+not replace those assertions in the full diagnostic. Remaining work must
+settle the runtime presentation and required higher projections explicitly.
+This tranche does not claim full terminal normalization, global confluence,
+performance improvement or production promotion.
+
+Fresh installed-checker passes cover core/Homd 287/85, the qualified central
+subset 1336/210 and library closure 178/27. Warning-body multisets are unchanged
+at 1572, 1786 and 2412 respectively. The core diff adds only the two comparison
+rules and comments; no declaration or runtime cut changes. The source audit
+has no unreviewed slots, with manual review of both comparison patterns.
+The largest of these runs uses 4409.0MiB under the existing 6-GiB library
+profile; this remains a usability concern, not a measured improvement.
+Broader receipts are historical after the shared core change unless separately
+refreshed. The original full central source still retains its five runtime
+terminal obligations and all subsequent diagnostics.

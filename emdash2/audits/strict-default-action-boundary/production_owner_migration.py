@@ -335,6 +335,9 @@ with @hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $X $X $Y $f (@id _ $X) ↪ $f;''
     insert('// Terminal category and points-as-functors are needed to derive unary homs from',
            above + '\n' + at + '\n' + cart_dualities + '\n' + public_total,
            'Corrected whole dualities: Cartesian transpose and total reversal, plus the distinct public conventional-lax total reversal')
+    insert('// Point object as a functor from the terminal category.',
+           fragment('production_terminal_composite_view.lpfragment'),
+           'Whole terminal-source composite comparison retaining both functors and the stable runtime composition; no terminal-source eta rewrite')
 
     profile = fragment('cartesian_profile.lpfragment')
     early = profile[profile.index('injective symbol sf_cart_functor_cat'):profile.index('// Only the object classifier')]
@@ -5746,6 +5749,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         '// Unqualified required normalization obligations; not a passing target.\n'
         'require open emdash.emdash3_2;\n'
         + '\n\n'.join(terminal_obligations) + '\n')
+    (package / 'terminal_homd_comparison_controls.lp').write_text(
+        'require open emdash.emdash3_2;\n'
+        + fragment('production_terminal_homd_comparison_controls.lpfragment'))
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5768,7 +5774,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_pathout_motive_controls;\n'
         'require open emdash.central_homd_classifier_controls;\n'
         'require open emdash.central_displayed_transport_controls;\n'
-        'require open emdash.central_public_homd_general_controls;\n')
+        'require open emdash.central_public_homd_general_controls;\n'
+        'require open emdash.terminal_homd_comparison_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6285,6 +6292,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'central_public_homd_controls.lp',
                               package / 'central_public_homd_general_controls.lp',
                               package / 'central_public_homd_terminal_obligations.lp',
+                              package / 'terminal_homd_comparison_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',
