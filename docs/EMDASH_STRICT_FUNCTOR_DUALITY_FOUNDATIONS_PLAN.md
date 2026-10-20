@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Diagram-observation continuation after `73287219`: the
+[review](../emdash2/audits/strict-default-action-boundary/production_diagram_observation_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_diagram_observation_verification.json)
+qualify the original ordinary diagram-map inverse module/reviewer unchanged,
+then migrate its existing boundary consumer and prerequisite observations.
+Initial/cokernel data follow the upstream total duality. Oplax diagram maps
+are observed through the existing whole fixed-evaluation functors; the
+ordinary zero equations use the existing evaluation transformation and OneCat
+hypothesis. All actual adjunction/mate data are retained.
+
+At the selected x, the original boundary diagrams are decoded by the existing
+OddDual_func operation before using the unchanged ordinary diagram inverse.
+The point map/equivalence retain their ordinary target and actual diagrams;
+no mapping-category equality or new whole K-indexed comparison is claimed.
+All eight source/reviewer files retain their original declaration names and
+contain no rewrite or unification rules. No new operational proof or comparison
+argument is introduced.
+
+The final combined ten assertions pass in 42.721s/205952KiB through the
+isolated checker under 90s/2GiB/o=20 with SR and warnings. The 2254 warning bodies
+belong to unchanged dependencies. Re-emission and all prior selected receipt
+input sets match exactly. Coverage is now 188 registered core files and 74
+reviewers, retaining the five central terminal exclusions; 603 core files and
+522 reviewers remain unstaged. Next migrate `one_cat_zero_arrow_inputs` and
+qualify the original `kernel_cokernel_adjunction_observations` reviewer.
+The same whole-owner/projection-ladder SOP, data-retention boundaries and
+remaining production/runtime gates apply.
+
 Hom-factor compatibility continuation after `01624765`: the
 [consumer review](../emdash2/audits/strict-default-action-boundary/production_hom_factor_compatibility_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_hom_factor_compatibility_verification.json)

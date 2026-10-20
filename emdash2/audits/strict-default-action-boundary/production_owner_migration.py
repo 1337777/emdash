@@ -264,6 +264,9 @@ def main():
     body = original
     inputs = {}
     changes = []
+    from production_diagram_observation_migration import migrate_diagram_observation
+    diagram_migration_source = audit / 'production_diagram_observation_migration.py'
+    inputs[str(diagram_migration_source.relative_to(root))] = sha(diagram_migration_source.read_text())
 
     def fragment(name):
         path = audit / name
@@ -2056,6 +2059,12 @@ unif_rule @sigma_map_func $K _ _
             baseline_target = baseline_package / path
             baseline_target.parent.mkdir(parents=True, exist_ok=True)
             baseline_target.write_text(text)
+            diagram_observation = migrate_diagram_observation(path, text)
+            if diagram_observation is not None:
+                changes.append({'source': path, 'owner': 'existing zero-arrow and homology point observations',
+                                'reason': 'Use the established whole oplax evaluation owners, total-dual initial hypothesis and explicit ordinary point decoders; preserve original mates, selected inverse data and OneCat guards without new rules or proof inputs',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(diagram_observation)})
+                text = diagram_observation
             comma_profiles = {
                 'emdash3_2_zero_arrow_cones.lp': (2, 6, 1, 1),
                 'emdash3_2_zero_arrow_cone_maps.lp': (0, 10, 1, 3),
@@ -5701,6 +5710,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/zero_arrow_diagrams.lp')
     stage('examples/zero_arrow_cone_maps.lp')
     stage('examples/one_cat_zero_cone_fibre_inclusion.lp')
+    stage('examples/one_cat_diagram_map_equivalences.lp')
+    stage('examples/homology_family_point_diagrams.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
