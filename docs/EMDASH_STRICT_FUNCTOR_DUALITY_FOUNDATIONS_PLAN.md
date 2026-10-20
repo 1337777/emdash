@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original presheaf, locality and sheafification diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original commutative-algebra and affine diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,42 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Diagnostic continuation after `6fb8389d`, 2026-10-20 UTC: the
+[algebra verification](../emdash2/audits/strict-default-action-boundary/production_central_algebra_verification.json)
+qualifies all 213 positive and eighteen negative original observations from
+set-carrier rings through the complementary-idempotent affine atlas. The
+original slice was otherwise unchanged from the pre-goal source. Four
+comparison annotations now use the represented family's actual Cat_cart
+coefficient; two whole-Hom annotations name the declared ordinary Functor
+carrier with its Cartesian target. Every comparison expression, constructor,
+selected inverse, supplied hypothesis and assertion polarity is retained.
+
+The complete localized-ring, iterated-overlap, finite-cover/polynomial,
+invertibility-sieve, locality/glue and affine Spec/atlas diagnostics pass.
+No mathematical source, rule, unifier or profile changes. Among the 153
+original-name staged files, only the six diagnostic annotation lines differ.
+All original tails and 66 declarations remain, with full counts 2148/292.
+
+The installed-checker combined subset passes 1965 positive/257 negative
+assertions in 113.350s/5615.3MiB with SR, warnings and the reviewed
+300s/6GiB/o=20 profile. Its warning multiset remains exactly 1848 bodies.
+The complete focused algebra block passes in 81.344s/4691.9MiB. Core/Homd and
+library receipts carry after exact input rehashing.
+
+The larger resource profile follows a measured 4GiB allocation failure in
+affine-glue imports, before the assertions. The first 6GiB run completed the
+imports and exposed the diagnostic coefficient mismatch. Host available
+memory was about 12.6GiB before that increase and 13.0GiB before the combined
+run; serial execution, subject reduction, file limits and no-swap containment
+were retained. These results do not qualify performance or the full original
+central check. Defaults remain unchanged and R12 remains required.
+
+Next continue the original whole comma projection, target-internalized
+ordinary action and post/pre-compositor diagnostics, then the remaining
+profile/closure and structural-category blocks. The terminal runtime
+obligations, wrapper retirement, normalization/performance and
+production/final gates remain open. The separate application goal stays paused.
 
 Diagnostic continuation after `e445fce9`, 2026-10-20 UTC: the
 [presheaf verification](../emdash2/audits/strict-default-action-boundary/production_central_presheaf_verification.json)

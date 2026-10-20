@@ -5803,6 +5803,26 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                     'owner': 'remaining direct represented-family coefficient observations',
                     'reason': 'Correct only coefficient arguments immediately followed by a known hom_/hom_con/Rep_catd family producer; retain ordinary Cat composition and unrelated Cat-valued diagrams',
                     'oldBodySha256': sha(before_represented_tags), 'newBodySha256': sha(central)})
+    algebra_marker = '// catalog-area: Set-carrier commutative-ring objects'
+    comma_marker = '// catalog-area: Whole comma projection and displayed laxity'
+    assert central.count(algebra_marker) == central.count(comma_marker) == 1
+    algebra_start = central.index(algebra_marker)
+    algebra_end = central.index(comma_marker, algebra_start)
+    algebra = central[algebra_start:algebra_end]
+    old_algebra = algebra
+    for old, new in (
+        ('(Functor (Op_cat K) Cat_cat)', '(Functor (Op_cat K) Cat_cart)'),
+        ('(Functor K Cat_cat)', '(Functor K Cat_cart)'),
+        ('(Hom Cat_cat A (@Catd_cat (Op_cat B)))',
+         '(Functor A (Functor_cart_cat (Op_cat B) Cat_cart))'),
+    ):
+        assert algebra.count(old) == 2, old
+        algebra = algebra.replace(old, new)
+    central = central[:algebra_start] + algebra + central[algebra_end:]
+    changes.append({'source': 'emdash3_2_checks.lp',
+                    'owner': 'original commutative-algebra represented-family comparisons',
+                    'reason': 'Name the existing Cat_cart coefficient and the actual Cartesian target of the whole Hom owner; retain every algebra assertion, comparison body and negative runtime boundary',
+                    'oldBodySha256': sha(old_algebra), 'newBodySha256': sha(algebra)})
     (package / 'emdash3_2_checks.lp').write_text(central)
     groupoid_start = '// catalog-area: Internal groupoidality and structured J'
     groupoid_end = '// Phase 9 discrete-category core and homwise adequacy.'
@@ -5969,6 +5989,13 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     (package / 'central_presheaf_locality_controls.lp').write_text(
         'require open emdash.emdash3_2_direct_cover_sheafification;\n'
         + central[closed_sigma_end:presheaf_locality_end])
+    algebra_imports = list(dict.fromkeys(re.findall(
+        r'emdash\.emdash3_2_commutative_algebra\w*',
+        original_checks[:original_checks.index('// Elementary decoded')])))
+    assert len(algebra_imports) == 22
+    (package / 'central_algebra_controls.lp').write_text(
+        'require open ' + ' '.join(algebra_imports) + ';\n'
+        + central[central.index(algebra_marker):central.index(comma_marker)])
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5999,7 +6026,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_path_core_controls;\n'
         'require open emdash.central_walking_end_controls;\n'
         'require open emdash.central_closed_sigma_controls;\n'
-        'require open emdash.central_presheaf_locality_controls;\n')
+        'require open emdash.central_presheaf_locality_controls;\n'
+        'require open emdash.central_algebra_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6524,6 +6552,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'central_walking_end_controls.lp',
                               package / 'central_closed_sigma_controls.lp',
                               package / 'central_presheaf_locality_controls.lp',
+                              package / 'central_algebra_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',
