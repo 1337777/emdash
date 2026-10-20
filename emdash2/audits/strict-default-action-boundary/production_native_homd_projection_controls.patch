@@ -1,0 +1,69 @@
+--- a/controls.lpfragment
++++ b/controls.lpfragment
+@@ -481 +481 @@
+-      ((@Homd_coeff_conjoint (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u1))) ((@Homd_coeff_conjoint (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u0))))
++      (@homd_id_tgt_func K E x u1 y) (@homd_id_tgt_func K E x u0 y))
+@@ -497 +497 @@
+-      ((@Homd_coeff_conjoint (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u1))) ((@Homd_coeff_conjoint (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u0))))
++      (@homd_id_tgt_func K E x u1 y) (@homd_id_tgt_func K E x u0 y))
+@@ -502 +502 @@
+-      ((@Homd_coeff_conjoint (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u1))) ((@Homd_coeff_conjoint (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u0))) v)
++      (@homd_id_tgt_func K E x u1 y) (@homd_id_tgt_func K E x u0 y) v)
+@@ -535 +535,5 @@
+-  @homd_id_tgt_func K E x u y ≡ (@Homd_coeff_conjoint (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u));
++  @eq_refl (Functor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y)))
++    (@homd_id_tgt_func K E x u y)
++  : τ (@= (Functor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y)))
++    (@homd_id_tgt_func K E x u y)
++    (@Homd_coeff_conjoint (Fibre_cat E y) (Hom_cat K x y) (@fib_cov_tapp0_func K E x y u)));
+@@ -741,0 +746,47 @@
++// Diagnostic congruence, not a new kernel comparison or an operational proof input.
++symbol cq_native_left [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K)) (p : τ (Hom K x x')) : τ (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
++≔ (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x)) (Op_cat (@Homd_target_section_cat K E x')) (@Op_func (@Homd_target_section_cat K E x) (@Homd_target_section_cat K E x') (@hom_postcomp_func (Functor_cat K Homd_coeff_cat) (Functor_cat K Homd_coeff_cat) (@id_func (Functor_cat K Homd_coeff_cat)) (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x')) (@homd_id_src_sec K (@hom_ K K (@id_func K) x) x' p))) (@Op_func (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x) (@homd_id_src_func K E x)));
++
++symbol cq_native_bridge [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K)) (p : τ (Hom K x x')) : τ (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
++≔ (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x)) (Op_cat (@Homd_target_section_cat K E x')) (@Op_func (@Homd_target_section_cat K E x) (@Homd_target_section_cat K E x') (@hom_postcomp_func (Functor_cat K Homd_coeff_cat) (Functor_cat K Homd_coeff_cat) (@id_func (Functor_cat K Homd_coeff_cat)) (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x')) (@homd_id_src_sec_body K (@hom_ K K (@id_func K) x) x' p))) (@Op_func (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x) (@homd_id_src_func K E x)));
++
++symbol cq_native_body_left [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K)) (p : τ (Hom K x x')) : τ (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
++≔ (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x)) (Op_cat (@Homd_target_section_cat K E x')) (@Op_func (@Homd_target_section_cat K E x) (@Homd_target_section_cat K E x') (@hom_postcomp_func (Functor_cat K Homd_coeff_cat) (Functor_cat K Homd_coeff_cat) (@id_func (Functor_cat K Homd_coeff_cat)) (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x')) (@homd_id_src_sec_body K (@hom_ K K (@id_func K) x) x' p))) (@Op_func (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x) (@homd_id_src_func_body K E x)));
++
++symbol cq_native_body_right [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K)) (p : τ (Hom K x x')) : τ (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
++≔ (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E x') (Op_cat (@Homd_target_section_cat K E x')) (@Op_func (Op_cat (@fapp0 K Cat_cart E x')) (@Homd_target_section_cat K E x') (@homd_id_src_func_body K E x')) (@fapp1_fapp0 K Cat_cart E x x' p));
++
++symbol cq_native_right [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K)) (p : τ (Hom K x x')) : τ (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
++≔ (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E x') (Op_cat (@Homd_target_section_cat K E x')) (@Op_func (Op_cat (@fapp0 K Cat_cart E x')) (@Homd_target_section_cat K E x') (@homd_id_src_func K E x')) (@fapp1_fapp0 K Cat_cart E x x' p));
++
++symbol cq_native_left_to_bridge [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K)) (p : τ (Hom K x x'))
++ : τ (@= (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x'))) (@cq_native_left K E x x' p) (@cq_native_bridge K E x x' p))
++≔ @eq_ap (Obj (Hom_cat (Functor_cat K Homd_coeff_cat) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x')))) (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
++    (λ q:τ (Obj (Hom_cat (Functor_cat K Homd_coeff_cat) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x')))), (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x)) (Op_cat (@Homd_target_section_cat K E x')) (@Op_func (@Homd_target_section_cat K E x) (@Homd_target_section_cat K E x') (@hom_postcomp_func (Functor_cat K Homd_coeff_cat) (Functor_cat K Homd_coeff_cat) (@id_func (Functor_cat K Homd_coeff_cat)) (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x')) q)) (@Op_func (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x) (@homd_id_src_func K E x))))
++    (@homd_id_src_sec K (@hom_ K K (@id_func K) x) x' p) (@homd_id_src_sec_body K (@hom_ K K (@id_func K) x) x' p)
++    (@eq_refl (Obj (Hom_cat (Functor_cat K Homd_coeff_cat) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x')))) (@homd_id_src_sec K (@hom_ K K (@id_func K) x) x' p));
++
++symbol cq_native_bridge_to_body [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K)) (p : τ (Hom K x x'))
++ : τ (@= (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x'))) (@cq_native_bridge K E x x' p) (@cq_native_body_left K E x x' p))
++≔ @eq_ap (Functor (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x)) (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
++    (λ F:τ (Functor (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x)), (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x)) (Op_cat (@Homd_target_section_cat K E x')) (@Op_func (@Homd_target_section_cat K E x) (@Homd_target_section_cat K E x') (@hom_postcomp_func (Functor_cat K Homd_coeff_cat) (Functor_cat K Homd_coeff_cat) (@id_func (Functor_cat K Homd_coeff_cat)) (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x')) (@homd_id_src_sec_body K (@hom_ K K (@id_func K) x) x' p))) (@Op_func (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x) F)))
++    (@homd_id_src_func K E x) (@homd_id_src_func_body K E x)
++    (@eq_refl (Functor (Op_cat (@fapp0 K Cat_cart E x)) (@Homd_target_section_cat K E x)) (@homd_id_src_func K E x));
++
++symbol cq_native_right_to_body [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K)) (p : τ (Hom K x x'))
++ : τ (@= (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x'))) (@cq_native_right K E x x' p) (@cq_native_body_right K E x x' p))
++≔ @eq_ap (Functor (Op_cat (@fapp0 K Cat_cart E x')) (@Homd_target_section_cat K E x')) (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
++    (λ F:τ (Functor (Op_cat (@fapp0 K Cat_cart E x')) (@Homd_target_section_cat K E x')), (@comp_cat_fapp0 (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E x') (Op_cat (@Homd_target_section_cat K E x')) (@Op_func (Op_cat (@fapp0 K Cat_cart E x')) (@Homd_target_section_cat K E x') F) (@fapp1_fapp0 K Cat_cart E x x' p)))
++    (@homd_id_src_func K E x') (@homd_id_src_func_body K E x')
++    (@eq_refl (Functor (Op_cat (@fapp0 K Cat_cart E x')) (@Homd_target_section_cat K E x')) (@homd_id_src_func K E x'));
++
++symbol cq_check_native_whole_cov [K : Cat] (E : τ (Functor K Cat_cart)) (x x' : τ (Obj K)) (p : τ (Hom K x x'))
++ : τ (@= (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x'))) (@cq_native_left K E x x' p) (@cq_native_right K E x x' p))
++≔ @eq_trans (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x'))) (@cq_native_left K E x x' p) (@cq_native_bridge K E x x' p) (@cq_native_right K E x x' p)
++    (@cq_native_left_to_bridge K E x x' p)
++    (@eq_trans (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x'))) (@cq_native_bridge K E x x' p) (@cq_native_body_left K E x x' p) (@cq_native_right K E x x' p)
++      (@cq_native_bridge_to_body K E x x' p)
++      (@eq_trans (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x'))) (@cq_native_body_left K E x x' p) (@cq_native_body_right K E x x' p) (@cq_native_right K E x x' p)
++        (@cq_check_whole_cov_ap K E x x' p)
++        (@eq_sym (Functor (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x'))) (@cq_native_right K E x x' p) (@cq_native_body_right K E x x' p) (@cq_native_right_to_body K E x x' p))));
++
+@@ -745 +796 @@
+-  @cq_check_whole_cov_ap K E x x' p
++  @cq_check_native_whole_cov K E x x' p

@@ -1,0 +1,46 @@
+--- a/emdash3_2.lp
++++ b/emdash3_2.lp
+@@ -16674,0 +16675,43 @@
++// Native terminal-fibre Homd section; its base naturality remains lax.
++symbol homd_id_terminal_sec (K : Cat) (x : τ (Obj K))
++ : τ (Obj (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x));
++
++unif_rule @homd_id_terminal_sec $K $x
++  ≡ @Homd_coeff_mate $K0 $I (@Const_catd $K0 Terminal_cat)
++      (@fib_cov_transf $K0 (@Const_catd $K0 Terminal_cat) $x0 $u)
++  ↪ [ $K0 ≡ $K; $x0 ≡ $x; $I ≡ @hom_ $K $K (@id_func $K) $x ];
++
++rule @homd_id_src_sec $K (@Const_catd $K Terminal_cat) $x $u
++ ↪ @homd_id_terminal_sec $K $x;
++rule @homd_id_src_func $K (@Const_catd $K Terminal_cat) $x
++ ↪ @Obj_func (@Homd_target_section_cat $K (@Const_catd $K Terminal_cat) $x)
++     (@homd_id_terminal_sec $K $x);
++rule @homd_id_tgt_func $K (@Const_catd $K Terminal_cat) $x $u $y
++ ↪ @Obj_func (Homd_index_cat (Hom_cat $K $x $y))
++     (fapp0 (Homd_index_include_func (Hom_cat $K $x $y))
++       (@Terminal_catd (Op_cat (Hom_cat $K $x $y))));
++rule @tapp0_fapp0 _ _ _ _ $y (@homd_id_terminal_sec $K $x)
++ ↪ @homd_id_tgt_func $K (@Const_catd $K Terminal_cat) $x Terminal_obj $y;
++
++// The selected pre/right middle action is constant; the other comparison
++// leg is not declared an identity and remains part of the whole section.
++rule @tapp1_func _ _ _ _ $y $z (@homd_id_terminal_sec $K $x)
++ ↪ @Const_func (Hom_cat $K $y $z) (Hom_cat Homd_coeff_cat Terminal_cat (Hom_cat $K $x $z))
++     (@homd_id_tgt_func $K (@Const_catd $K Terminal_cat) $x Terminal_obj $z);
++rule @tapp1_fapp0 _ _ _ _ $y $z (@homd_id_terminal_sec $K $x) $p
++ ↪ @homd_id_tgt_func $K (@Const_catd $K Terminal_cat) $x Terminal_obj $z;
++
++// Terminal source-u action is the identity modification of that same section.
++rule @homd_id_src_hom_func $K (@Const_catd $K Terminal_cat) $x $u $v
++ ↪ @Const_func Terminal_cat
++     (Hom_cat (@Homd_target_section_cat $K (@Const_catd $K Terminal_cat) $x)
++       (@homd_id_terminal_sec $K $x) (@homd_id_terminal_sec $K $x))
++     (@id (@Homd_target_section_cat $K (@Const_catd $K Terminal_cat) $x)
++       (@homd_id_terminal_sec $K $x));
++rule @homd_id_src_hom_map $K (@Const_catd $K Terminal_cat) $x $u $v $h
++ ↪ @id (@Homd_target_section_cat $K (@Const_catd $K Terminal_cat) $x)
++     (@homd_id_terminal_sec $K $x);
++rule @homd_id_src_hom_at_y $K (@Const_catd $K Terminal_cat) $x $u $v $h $y
++ ↪ @id (Functor_cart_cat Terminal_cat (Homd_index_cat (Hom_cat $K $x $y)))
++     (@homd_id_tgt_func $K (@Const_catd $K Terminal_cat) $x Terminal_obj $y);
++

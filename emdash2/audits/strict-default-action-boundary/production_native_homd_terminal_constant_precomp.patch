@@ -1,0 +1,10 @@
+--- a/emdash3_2.lp
++++ b/emdash3_2.lp
+@@ -13515,0 +13516,7 @@
++// Cartesian precomposition along a constant map has a constant result.
++// This is the existing composite/constant beta at its stable precomposition owner.
++// lhs-audit: keep 1,2,3 -- identity-family Cartesian precomposition.
++rule @hom_precomp_along_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
++    $C $A $B (@Const_func _ _ $b) $P
++ ↪ @Const_func $A $C (@fapp0 $B $C $P $b);
++

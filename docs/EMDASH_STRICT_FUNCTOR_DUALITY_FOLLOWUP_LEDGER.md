@@ -84,7 +84,7 @@ shared implementation.
 | Normalize only the literal canonical-point conjoint, with composition cases retaining G[*] | Preserves the tested Q units/composition and neutral-u distinction. The constituent ordinary Hom contraction fails a component projection that passes unchanged. Broad terminal postcomposition then fails actual inverse cancellation. A raw terminal right-unit test fails in both snapshots and is not a new regression. [Matched review][terminal-canonical]. | Not adopted. Inspect the constant-section identity observation and original local Homd owner before further global constituent contractions. This is not an exhaustive failure of local terminal normalization. |
 | Preserve represented heads; simplify their existing ordinary projections | Two owner comparisons now qualify all five whole terminal expressions without changing the runtime cuts. [Evidence][terminal-views]. | Selected whole-comparison solution. Required runtime normal forms and further consumed projections remain separate; no pointwise substitution is made. |
 | Repair normalized units at the Q unit/composition owner | Not implemented as a complete alternative. | Legitimate only if the normalized unit is the selected normal form. Must also preserve represented-inclusion projections and both composition orders. Adding just a special right-unit clause would be insufficient evidence. |
-| Put terminal computation at the native identity-Homd owner | Not qualified. Current `homd_id_src_func`/`homd_id_tgt_func` are defined composites, so rules matching those transparent names would be inert/brittle. | Inspect their actual constituent owners first. Do not create a primitive merely to name a failing expression. A change of whole ownership needs a concrete consumer and complete projections. |
+| Restore native identity-Homd projection owners with whole body comparisons | Implemented in a non-library variant. Generic reference 287/85 passes after native u-Hom owners and explicit diagnostic congruence. The terminal extension passes original assertions 8, 9 and 13, but fails a higher y-functor projection that passes in the selected source. [Native-owner review][terminal-native]. | Not adopted. Stable names alone do not resolve terminal eta or qualify their new Hom-action interface. Preserve the higher-action regression and qualify actual consumers before any ownership change. |
 | Keep a stable runtime form and provide a whole semantic comparison | Implemented at the ordinary terminal-composite and conjoint owners, with typed whole consumers and scope controls. | A proof-time view is explicitly distinguished from runtime conversion. It is not counted as the original reduction; its runtime contract still needs disposition. |
 | General terminal-source eta or global strengthening of FF | No such change selected. | Too broad for this repair. It would affect unrelated functors, neutral unit terms and retained lax comparisons. The current evidence does not justify it. |
 
@@ -109,6 +109,15 @@ strict functors introduce it. It remains relevant to R02 because the eager
 terminal normalization exposes that reading. No new rule is adopted and the
 five terminal obligations remain open; a native-owner repair must preserve
 the actual projection orders rather than normalize arbitrary unit inputs.
+
+The [native-owner experiment][terminal-native] then tested that repair route.
+Its generic core pass excludes the five terminal obligations. The terminal
+variant's new higher-action failure is distinct from the inherited identity
+section boundary. The two general-FF whole views also expose a terminal-source
+eta choice for a general section component. A user clarification is pending;
+neither their expected polarity nor R03's requirement has been changed.
+The selected source and its four recent passing receipt input sets remain
+byte-identical. These experiments do not pause independent R08/R10 work.
 
 ## Deliberate interface changes to audit for compatibility
 
@@ -187,6 +196,7 @@ that all possible alternatives or future regressions have been discovered.
 [terminal-views]: ../emdash2/audits/strict-default-action-boundary/production_terminal_homd_views_verification.json
 [terminal-canonical]: ../emdash2/audits/strict-default-action-boundary/production_terminal_canonical_review.md
 [terminal-identity]: ../emdash2/audits/strict-default-action-boundary/production_terminal_identity_section_review.md
+[terminal-native]: ../emdash2/audits/strict-default-action-boundary/production_native_homd_projection_review.md
 [homcatd]: ../emdash2/audits/strict-default-action-boundary/production_central_homd_homcatd_verification.json
 [product-path]: ../emdash2/audits/strict-default-action-boundary/production_central_product_path_verification.json
 [walking]: ../emdash2/audits/strict-default-action-boundary/production_central_walking_verification.json

@@ -1,0 +1,163 @@
+--- a/emdash3_2.lp
++++ b/emdash3_2.lp
+@@ -16379,0 +16380,15 @@
++// Same represented right-composition law after its point projection.
++// lhs-audit: keep 1,2,3 -- identity-family Q action at the actual represented input.
++rule @hom_precomp_along_fapp0 Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
++    $C $A $B (@Homd_coeff_rep $A $B $F) $P
++  ↪ @hom_precomp_along_fapp0 Cat_cart Cat_cart (@id_func Cat_cart)
++      (Homd_index_cat $C) $A $B $F $P;
++
++// The represented constant input can already have projected to its ordinary view.
++// lhs-audit: keep 1,2,3 -- the same identity-family Q action on a represented constant.
++rule @hom_precomp_along_fapp0 Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
++    $C $A $B
++    (@Const_func _ _ (@Op_func _ _ (@hom_con $B $b $B (@id Cat_cat $B)))) $P
++  ↪ @hom_precomp_along_fapp0 Cat_cart Cat_cart (@id_func Cat_cart)
++      (Homd_index_cat $C) $A $B (@Const_func $A $B $b) $P;
++
+@@ -16514 +16529 @@
+-symbol homd_id_src_sec [K : Cat] (E : τ (Functor K Cat_cart))
++symbol homd_id_src_sec_body [K : Cat] (E : τ (Functor K Cat_cart))
+@@ -16518,0 +16534,5 @@
++// Stable native projection; its semantic body remains separately readable.
++symbol homd_id_src_sec [K : Cat] (E : τ (Functor K Cat_cart))
++  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
++  : τ (Obj (@Homd_target_section_cat K E x));
++
+@@ -16521 +16541 @@
+-symbol homd_id_src_func [K : Cat] (E : τ (Functor K Cat_cart))
++symbol homd_id_src_func_body [K : Cat] (E : τ (Functor K Cat_cart))
+@@ -16530,0 +16551,4 @@
++// Stable native projection; its semantic body remains separately readable.
++symbol homd_id_src_func [K : Cat] (E : τ (Functor K Cat_cart))
++  (x : τ (Obj K)) : τ (Functor (Op_cat (fapp0 E x)) (@Homd_target_section_cat K E x));
++
+@@ -16532 +16556 @@
+-symbol homd_id_tgt_func [K : Cat] (E : τ (Functor K Cat_cart))
++symbol homd_id_tgt_func_body [K : Cat] (E : τ (Functor K Cat_cart))
+@@ -16536 +16560,114 @@
+-    (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) y (@homd_id_src_sec K E x u);
++    (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) y (@homd_id_src_sec_body K E x u);
++
++// Stable native projection; its semantic body remains separately readable.
++symbol homd_id_tgt_func [K : Cat] (E : τ (Functor K Cat_cart))
++  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x))) (y : τ (Obj K))
++  : τ (Functor (fapp0 E y) (Homd_index_cat (Hom_cat K x y)));
++
++// Native projection ladder, with no whole-head expansion.
++rule fapp0 (@homd_id_src_func $K $E $x) $u
++  ↪ @homd_id_src_sec $K $E $x $u;
++rule @tapp0_fapp0 _ _ _ _ $y (@homd_id_src_sec $K $E $x $u)
++  ↪ @homd_id_tgt_func $K $E $x $u $y;
++rule fapp0 (@homd_id_tgt_func $K $E $x $u $y) $v
++  ↪ fapp0 (@homd_id_tgt_func_body $K $E $x $u $y) $v;
++
++// The represented x-package is strict; keep its projected unit and composite.
++rule @homd_id_src_sec $K (@hom_ $K $K (@id Cat_cat $K) $x) $x (@id $K $x)
++ ↪ @id (Functor_cat $K Homd_coeff_cat)
++     (@Homd_coeff_diagram $K (@hom_ $K $K (@id_func $K) $x));
++// lhs-audit: keep 1 -- composition of the canonical represented sections.
++rule @comp_fapp0 (Functor_cat $K Homd_coeff_cat) _ _ _
++    (@homd_id_src_sec $K (@hom_ $K $K (@id Cat_cat $K) $y) $z $q)
++    (@homd_id_src_sec $K (@hom_ $K $K (@id Cat_cat $K) $x) $y $p)
++ ↪ @homd_id_src_sec $K (@hom_ $K $K (@id_func $K) $x) $z
++     (@comp_fapp0 $K $x $y $z $q $p);
++
++// Native whole-section view of the existing covariance comparison.
++unif_rule @hom_postcomp_fapp0 (Functor_cat $K Homd_coeff_cat)
++    (Functor_cat $K Homd_coeff_cat) (@id Cat_cat (Functor_cat $K Homd_coeff_cat)) _ _ _
++    (@homd_id_src_sec $K (@hom_ $K $K (@id Cat_cat $K) $x) $z $p)
++    (@homd_id_src_sec $K $E $x $u)
++  ≡ @homd_id_src_sec $K $E $z $v
++  ↪ [ $v ≡ @fapp0 (Fibre_cat $E $x) (Fibre_cat $E $z)
++      (@fapp1_fapp0 $K Cat_cart $E $x $z $p) $u ];
++
++// Whole agreements retain actual endpoints and native covariance data.
++unif_rule @homd_id_src_sec $K $E $x $u
++  ≡ @Homd_coeff_mate $K0 $I $E0 $U
++  ↪ [ $K0 ≡ $K; $I ≡ @hom_ $K $K (@id_func $K) $x;
++      $E0 ≡ $E; $U ≡ @fib_cov_transf $K $E $x $u ];
++unif_rule @homd_id_src_func $K $E $x
++  ≡ @comp_fapp0 Cat_cat $A $B $C $F $G
++  ↪ [ $A ≡ Op_cat (@fapp0 $K Cat_cart $E $x);
++      $B ≡ Op_cat (Hom_cat (Functor_cart_cat $K Cat_cart)
++        (@hom_ $K $K (@id_func $K) $x) $E);
++      $C ≡ @Homd_target_section_cat $K $E $x;
++      $F ≡ @Homd_coeff_mate_func $K (@hom_ $K $K (@id_func $K) $x) $E;
++      $G ≡ @Op_func (@fapp0 $K Cat_cart $E $x)
++        (Hom_cat (Functor_cart_cat $K Cat_cart) (@hom_ $K $K (@id_func $K) $x) $E)
++        (@fib_cov_src_func $K $E $x) ];
++unif_rule @homd_id_tgt_func $K $E $x $u $y
++  ≡ @Homd_coeff_conjoint $A $B $F
++  ↪ [ $A ≡ @fapp0 $K Cat_cart $E $y; $B ≡ Hom_cat $K $x $y;
++      $F ≡ @fib_cov_tapp0_func $K $E $x $y $u ];
++
++// Native first Hom keeps its actual section endpoints in identity normal forms.
++symbol homd_id_src_hom_func [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
++ (u v : τ (Obj (Fibre_cat E x)))
++ : τ (Functor (Hom_cat (Op_cat (Fibre_cat E x)) u v)
++     (Hom_cat (@Homd_target_section_cat K E x)
++       (@homd_id_src_sec K E x u) (@homd_id_src_sec K E x v)));
++symbol homd_id_src_hom_map [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
++ (u v : τ (Obj (Fibre_cat E x)))
++ (h : τ (Hom (Op_cat (Fibre_cat E x)) u v))
++ : τ (Hom (@Homd_target_section_cat K E x)
++       (@homd_id_src_sec K E x u) (@homd_id_src_sec K E x v));
++rule @fapp1_func _ _ (@homd_id_src_func $K $E $x) $u $v
++ ↪ @homd_id_src_hom_func $K $E $x $u $v;
++rule fapp0 (@homd_id_src_hom_func $K $E $x $u $v) $h
++ ↪ @homd_id_src_hom_map $K $E $x $u $v $h;
++rule @fapp1_fapp0 _ _ (@homd_id_src_func $K $E $x) $u $v $h
++ ↪ @homd_id_src_hom_map $K $E $x $u $v $h;
++rule @homd_id_src_hom_map $K $E $x $u $u (@id _ $u)
++ ↪ @id (@Homd_target_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u);
++
++symbol homd_id_src_hom_at_y [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
++ (u v : τ (Obj (Fibre_cat E x)))
++ (h : τ (Hom (Op_cat (Fibre_cat E x)) u v)) (y : τ (Obj K))
++ : τ (Hom (Functor_cart_cat (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y)))
++     (@homd_id_tgt_func K E x u y) (@homd_id_tgt_func K E x v y));
++rule @tapp0_hom_fapp0 _ _ _ _ _ _ $y
++    (@homd_id_src_hom_map $K $E $x $u $v $h)
++ ↪ @homd_id_src_hom_at_y $K $E $x $u $v $h $y;
++rule @homd_id_src_hom_at_y $K $E $x $u $u (@id _ $u) $y
++ ↪ @id (Functor_cart_cat (Fibre_cat $E $y) (Homd_index_cat (Hom_cat $K $x $y)))
++     (@homd_id_tgt_func $K $E $x $u $y);
++
++// After y/v the native and semantic endpoints have the same leaf normal forms.
++rule @tapp0_fapp0 _ _ _ _ $w
++    (@strict_transfor _ _ _ _ (@homd_id_src_hom_at_y $K $E $x $u $v $h $y))
++ ↪ @tapp0_fapp0 (Fibre_cat $E $y) (Homd_index_cat (Hom_cat $K $x $y))
++     (@homd_id_tgt_func_body $K $E $x $u $y) (@homd_id_tgt_func_body $K $E $x $v $y) $w
++     (@strict_transfor _ _ _ _
++       (@tapp0_hom_fapp0 $K Homd_coeff_cat (@Homd_coeff_diagram $K $E)
++         (@Homd_coeff_diagram $K (@hom_ $K $K (@id_func $K) $x))
++         (@homd_id_src_sec_body $K $E $x $u) (@homd_id_src_sec_body $K $E $x $v) $y
++         (@fapp1_fapp0 (Op_cat (Fibre_cat $E $x)) (@Homd_target_section_cat $K $E $x)
++           (@homd_id_src_func_body $K $E $x) $u $v $h)));
++
++// Whole y-action and fixed-y v-action retain their existing semantic bodies.
++rule @tapp1_func _ _ _ _ $y $z (@homd_id_src_sec $K $E $x $u)
++  ↪ @tapp1_func $K Homd_coeff_cat (@Homd_coeff_diagram $K $E)
++      (@Homd_coeff_diagram $K (@hom_ $K $K (@id_func $K) $x)) $y $z
++      (@homd_id_src_sec_body $K $E $x $u);
++rule @tapp1_fapp0 _ _ _ _ $y $z (@homd_id_src_sec $K $E $x $u) $q
++  ↪ @tapp1_fapp0 $K Homd_coeff_cat (@Homd_coeff_diagram $K $E)
++      (@Homd_coeff_diagram $K (@hom_ $K $K (@id_func $K) $x)) $y $z
++      (@homd_id_src_sec_body $K $E $x $u) $q;
++rule @fapp1_func _ _ (@homd_id_tgt_func $K $E $x $u $y) $v $w
++  ↪ @fapp1_func (@fapp0 $K Cat_cart $E $y) (Homd_index_cat (Hom_cat $K $x $y))
++      (@homd_id_tgt_func_body $K $E $x $u $y) $v $w;
++rule @fapp1_fapp0 _ _ (@homd_id_tgt_func $K $E $x $u $y) $v $w $h
++  ↪ @fapp1_fapp0 (@fapp0 $K Cat_cart $E $y) (Homd_index_cat (Hom_cat $K $x $y))
++      (@homd_id_tgt_func_body $K $E $x $u $y) $v $w $h;
+@@ -16741,0 +16879,8 @@
++
++// The same relative-composition cut at the native identity-Homd section.
++// lhs-audit: keep 1,2,3 -- identity-family diagram precomposition of canonical Homd.
++rule @hom_precomp_along_fapp0 (Functor_cat $K Homd_coeff_cat) (Functor_cat $K Homd_coeff_cat)
++    (@id Cat_cat (Functor_cat $K Homd_coeff_cat)) _ $X _ $FF (@homd_id_src_sec $K $E $x $u)
++ ↪ @comp_fapp0 (Functor_cat $K Homd_coeff_cat) $X (@Homd_coeff_diagram $K $E)
++     (@Homd_coeff_diagram $K (@hom_ $K $K (@id_func $K) $x))
++     (@homd_id_src_sec $K $E $x $u) $FF;

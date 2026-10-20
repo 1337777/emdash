@@ -42,6 +42,33 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native-owner experiment after `92c7b89f`: the
+[review](../emdash2/audits/strict-default-action-boundary/production_native_homd_projection_review.md)
+and [exact patches/receipts](../emdash2/audits/strict-default-action-boundary/production_native_homd_projection_verification.json)
+test the stable identity-core alternative rather than merely proposing it.
+The generic native ladder and its source-u Hom owners pass the 287/85
+core/Homd reference with explicit canonical annotations and a derived
+diagnostic whole-u comparison. General lax FF remains admitted. The terminal
+extension passes original assertions 8, 9 and 13, but its first-Hom agreement
+with the retained y-functor body fails an independent test that passes in the
+unchanged selected source. It is not adopted. A separate closed-terminal
+represented-identity query fails in both sources and is not a new regression.
+
+The two remaining general-FF terminal assertions additionally demand a
+whole terminal-source eta convention for the section component F_s:1->E[y].
+The whole proof-time comparison and canonical-point computation do not imply
+that runtime normal form. The user has been asked which contract to retain;
+no answer is inferred, and all five original runtime obligations remain
+unchanged. Keep the selected implementation while that question is pending.
+Do not grow the native-owner refactor solely to make a few whole eta views
+pass without their higher projections. Independent retained-consumer work
+under R08/R10 can continue; the two Q precomposition projection instances
+found in the experiment are candidates, not automatically adopted theory.
+Next inspect the original all-import qualification path and the recorded
+checker resource diagnosis under R10/R12, keeping the mathematical snapshot
+fixed. Do not repeat an unchanged failed aggregate or add another terminal
+normalizer merely to obtain a passing whole-view count.
+
 Terminal identity-section review after `deedfa1f`: the
 [matched review](../emdash2/audits/strict-default-action-boundary/production_terminal_identity_section_review.md)
 and [receipts](../emdash2/audits/strict-default-action-boundary/production_terminal_identity_section_verification.json)

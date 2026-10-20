@@ -78,3 +78,9 @@ remain reusable at their exact unchanged inputs. Replay the fixture only
 when revisiting this terminal/constant-section boundary, using the retained
 guarded profiles and source pins; its expected result is rejection of the
 last conversion assertion, not a passing library target.
+
+The subsequent [native-owner experiment](production_native_homd_projection_review.md)
+implements the proposed alternative. Its generic reference suite passes,
+but its terminal extension introduces an independently confirmed higher-Hom
+projection regression. That result supplements this inherited-boundary
+review and leaves the selected implementation unchanged.
