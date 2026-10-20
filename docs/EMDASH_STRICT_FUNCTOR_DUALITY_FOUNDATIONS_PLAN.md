@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; strict-functor wrappers are transparent compatibility views and required Hom accumulation uses native default owners; final helper cleanup, five terminal runtime obligations and production qualification remain open
+Status: active implementation; strict-functor wrapper/name retirement complete in staged LP; five terminal runtime obligations, remaining normalization/resource work and production qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,47 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Final wrapper continuation after `566598db`, 2026-10-20 UTC: the
+[retirement review](../emdash2/audits/strict-default-action-boundary/production_strict_wrapper_finish_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_strict_wrapper_finish_verification.json)
+complete R11's wrapper/name disposition in the staged theory. Thirty-nine
+legacy declarations and their active references are removed from final emitted
+LP. The bounded replay records each replacement or renamed implementation,
+rejects unsupported call syntax and verifies the exact declaration inventory.
+Historical/intermediate authoring templates retain old spellings solely to
+replay the pre-goal source.
+
+All actual map consumers use Functor, Functor_cat and ordinary constructors.
+Strict-prefixed DefIso/isomorphism/Prof adapters use their existing ordinary
+owners with the same selected inverse data. Coevaluation and evaluation
+definitions now sit directly at their existing public function owners; the
+whole curry/uncurry inverse and beta/eta data are preserved. The equivalence-
+mapping implementation is named omega_equiv_along_fmap, distinct from the
+existing omega_equiv_along_fapp1 homwise-equivalence operation.
+
+IsStrictFunctor and its native compositor-evidence projections are deliberately
+retained as descriptive property/proof interfaces, with canonical proof
+functor_is_strict. No operational map constructor requires their admission
+evidence. StrictTransfor, StrictFunctord and the distinct LaxTransfor Homs of
+GrayHom_lax remain; sharing ordinary functor objects does not identify their
+higher profiles. No runtime or unification rule is added in this step, and the
+core/default-Hom-accumulation source is byte-identical to the preceding checkpoint.
+
+Fresh installed-checker runs pass combined 2177/289, affected consumers 91/15
+and library 178/27 with SR. The two temporary alias-only consumer checks are
+retired; all 2440 original central assertions and 66 declarations remain,
+with exactly the same five terminal exclusions. Core/Homd 287/85 and the six
+accumulation controls carry after exact-input rehashing. The combined run is
+126.279s/6638.9MiB under the existing 300s/7GiB/o=20 profile. Warning totals are
+unchanged; seven combined and nine library body spellings change because the
+printed intermediate rules no longer contain aliases. Their peaks and final
+reducts are identical. No confluence or performance improvement is inferred.
+
+Next revisit R01–R03's five terminal runtime obligations and the remaining
+normalization/overlap boundaries in the cleaned default theory, then finish
+registered-consumer/full-context and production/source-pin qualification.
+The separate application goal stays paused.
 
 Strict-wrapper continuation after `7efd7a49`, 2026-10-20 UTC: the
 [retirement verification](../emdash2/audits/strict-default-action-boundary/production_strict_wrapper_retirement_verification.json)

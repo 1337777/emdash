@@ -6716,7 +6716,7 @@ assert [A B : Cat] [F G : τ (Functor A B)]
                           'Five original whole terminal-source Homd reductions, preserving Q units and the actual relative maps',
                           'Profile-extension and original diagnostic/import-closure migration',
                           'Whole duality/adjunction and closure-consumer qualification',
-                          'Downstream qualification and retirement of redundant strict-functor wrappers',
+                          'Full downstream qualification of default-functor interfaces and retained transformation profiles',
                           'Public promotion with catalog, health, CI and source-pin review'],
         'excluded': ['Auxiliary Sigma fibre-composition audit owner',
                      'Unrestricted Cartesian evaluation on lax transformations',
@@ -6894,6 +6894,20 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         'defaultHomOwnerChanges': 'Five identity-only composition/reassociation clauses generalized and two mapped-arrow clauses restored; nested postcomposition cuts preserve actual inverse cancellation.',
         'preservedProfiles': ['StrictTransfor', 'StrictFunctord', 'GrayHom_lax higher Homs'],
     }
+    # Complete the compatibility phase only after its original consumers have
+    # been migrated. Keep the transformation profiles and native property API.
+    from production_strict_wrapper_finish import finish_strict_wrapper_retirement
+    finish_source = audit / 'production_strict_wrapper_finish.py'
+    inputs[str(finish_source.relative_to(root))] = sha(finish_source.read_text())
+    finished_wrappers = finish_strict_wrapper_retirement(root, package, manifest['outputs'])
+    for change in finished_wrappers['changes']:
+        target = package / change['file']
+        manifest['outputs'][str(target.relative_to(root))] = sha(target.read_text())
+        changes.append({'source': change['file'], 'owner': 'final strict-functor wrapper retirement',
+                        'reason': 'Use public Functor and existing ordinary action owners; remove unused admission wrappers and migrate actual consumers while retaining transformation profiles and native compositor evidence',
+                        'oldBodySha256': change['beforeSha256'], 'newBodySha256': change['afterSha256']})
+    manifest['strictWrapperRetirement']['status'] = 'legacy wrappers removed from final emitted LP; descriptive compositor property and genuine transformation profiles retained'
+    manifest['strictWrapperRetirement']['finalDisposition'] = finished_wrappers
     (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print('Emitted full pre-goal baseline and upstream owner migration; no original tail omitted.')
 
