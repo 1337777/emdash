@@ -26,6 +26,57 @@ def sha(text):
     return hashlib.sha256(text.encode()).hexdigest()
 
 
+def migrate_adjunction_family_view_reviewer(text):
+    """Keep the original mate observations at their corrected diagram profiles."""
+    marker = '// Existing associativity of whole transformations remains available.'
+    assert text.count(marker) == 1
+    prefix, tail = text.split(marker, 1)
+    replacements = (
+        (r'Functor_cat(?=\s+WalkingArrow_cat\s+C\b)', 'Functor_oplax_cat', 154),
+        (r'\(Op_cat C\)', '(TotalOp_cat C)', 9),
+        (r'@one_cat_functor_category(?=\s+WalkingArrow_cat\s+C\s+C1\b)',
+         '@one_cat_oplax_functor_category', 32),
+        (r'@diagram_evaluation_at_func\b', '@diagram_oplax_evaluation_at_func', 20),
+    )
+    for pattern, replacement, count in replacements:
+        prefix, actual = re.subn(pattern, replacement, prefix)
+        assert actual == count, (pattern, actual)
+    # The last shape-action comparisons start with an ordinary diagram
+    # family. Its shape transformations are oplax; fixed evaluation stays
+    # ordinary. Do not apply the zero-arrow replacements to these inputs.
+    assert tail.count('assert (B I C : Cat)') == 1
+    middle, shape = tail.split('assert (B I C : Cat)', 1)
+    assert shape.count('Functor_cat B C') == 6
+    assert shape.count('@Transf B C') == 2
+    shape = shape.replace('Functor_cat B C', 'Functor_oplax_cat B C')
+    shape = shape.replace('@Transf B C', '@Transf_oplax B C')
+    starts = list(re.finditer(r'@comp_fapp0\s+\(Functor_oplax_cat B C\)', shape))
+    assert len(starts) == 6
+    edits = []
+    for match in starts:
+        cursor = match.end()
+        for _ in range(3):
+            while shape[cursor].isspace():
+                cursor += 1
+            start = cursor
+            assert shape[start] == '('
+            depth = 1
+            cursor += 1
+            while depth:
+                depth += (shape[cursor] == '(') - (shape[cursor] == ')')
+                cursor += 1
+            atom = shape[start:cursor]
+            assert atom.startswith(('(@diagram_family_at_func', '(@comp_cat_fapp0'))
+            edits.append((start, cursor, '(@OddDual_func B C ' + atom + ')'))
+    assert len(edits) == 18
+    for start, end, replacement in reversed(edits):
+        shape = shape[:start] + replacement + shape[end:]
+    return (prefix + marker + middle
+            + '// Ordinary diagram families have oplax shape action.\n'
+            + '// Oplax mapping objects are the encoded OddDual_func views.\n\n'
+            + 'assert (B I C : Cat)' + shape)
+
+
 def ordinary_identity_observation_body(signature):
     """Derive the same whole identity claim from its actual native components."""
     def terms(expr):
@@ -2627,6 +2678,8 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 'emdash3_2_zero_arrow_diagrams.lp': (2, 10, 0),
                 'emdash3_2_kernel_cokernel_adjunctions.lp': (38, 5, 0),
                 'emdash3_2_kernel_cokernel_adjunction_mates.lp': (16, 2, 4),
+                'emdash3_2_cokernel_adjunction_families.lp': (16, 4, 0),
+                'emdash3_2_one_cat_image_coimage_factors.lp': (4, 2, 0),
                 'examples/kernel_cokernel_adjunctions.lp': (100, 9, 14),
             }
             if path in zero_profiles:
@@ -2651,6 +2704,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                         '/* Whole kernel/cokernel adjunction structures for the preadditive setting.\n'
                         '   The corrected whole zero-arrow embeddings land in oplax diagrams;\n'
                         '   the supplied adjunctions and their actual unit/counit data use that profile.')
+                elif path == 'emdash3_2_one_cat_image_coimage_factors.lp':
+                    assert text.count('@diagram_evaluation_at_func') == 4
+                    text = text.replace('@diagram_evaluation_at_func', '@diagram_oplax_evaluation_at_func')
                 if path == 'examples/kernel_cokernel_adjunctions.lp':
                     component = '@tapp0_fapp0 WalkingArrow_cat C _ _'
                     assert text.count(component) == 2
@@ -2659,6 +2715,12 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                     assert [len(re.findall(r'(?m)^' + k + r'\b', text)) for k in ('assert','assertnot')] == [16,2]
                 changes.append({'source': path, 'owner': 'whole terminal/initial embeddings and supplied kernel/cokernel adjunctions',
                                 'reason': 'Retain the existing general terminal transformation; use the corrected oplax arrow-diagram profile and total duality for the initial transformation, with its dual hypothesis explicit',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            if path == 'examples/one_cat_adjunction_family_views.lp':
+                old = text
+                text = migrate_adjunction_family_view_reviewer(text)
+                changes.append({'source': path, 'owner': 'existing whole kernel/cokernel mate observations',
+                                'reason': 'Retain all original statements, selected data and proof bodies with the actual oplax zero-arrow coefficient and total-dual terminal hypothesis; generic ordinary diagrams retain fixed evaluation and expose oplax shape composition at its encoded endpoints',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/zero_arrow_diagrams.lp':
                 old = text

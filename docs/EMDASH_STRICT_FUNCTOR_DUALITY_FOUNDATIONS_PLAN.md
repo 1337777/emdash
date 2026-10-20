@@ -42,6 +42,33 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Retained-reviewer continuation after `0d5207e5`: the
+[consumer review](../emdash2/audits/strict-default-action-boundary/production_retained_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_retained_reviewers_verification.json)
+qualify 43 additional staged reviewers / 654 assertions at the current core.
+The inventory exposed two missed original library consumers: cokernel-family
+mates and the whole image/coimage factors still used the old diagram/opposite
+profiles. Their original definitions now use the upstream oplax diagrams,
+total-dual terminal hypothesis and existing evaluations. The original reviewer
+retains its two proofs and 18/8 assertions; generic ordinary diagram families
+use the actual oplax shape-action type and encoded composition endpoints.
+No primitive, rewrite, unifier or additional premise is introduced.
+
+The combined run passes in 91.300s/1618924KiB through the isolated checker,
+with SR, warnings, source-only imports and the unchanged 600s/4GiB/o=20
+guard. The authoring recipe reproduces every checked relative input exactly.
+All five preceding selected receipts rehash: the core and full central context
+are unchanged. Current evidence covers all 60 staged registered reviewers
+and 152 staged registered core files; the central diagnostic retains the five
+explicit terminal exclusions.
+
+The registry is larger than the staged replay: 639 of its 792 core files and
+536 of its 596 reviewers are not yet staged. Keep their applicable compatibility
+inventory/migration open; do not turn this count into a blanket exclusion or
+claim repository-wide migration. Continue next through the existing Sigma
+fibre-inclusion/zero-cone consumer route, alongside R01--R03 and runtime/promotion
+qualification. The separate application-development goal remains paused.
+
 Original import-context continuation after `42465235`: the
 [checker-boundary review](../emdash2/audits/strict-default-action-boundary/production_checker_boundary_review.md)
 and [exact verification](../emdash2/audits/strict-default-action-boundary/production_checker_boundary_verification.json)
