@@ -2,7 +2,7 @@
 
 Date: 2026-10-20 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; inventory refreshed after `60ae687e` with original WalkingEnd/Code/decoder diagnostic evidence
+Status: active; inventory refreshed after `b699914f` with original profunctor closed/comparison and Pi/Sigma diagnostic evidence
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 
 This is the consolidated inventory of known remaining obligations, changed
@@ -33,9 +33,9 @@ has not been promoted. The [public-ladder evidence][public] qualifies fourteen
 general/relative observations. The five terminal expressions now also have
 [qualified whole proof-time comparisons][terminal-views]; their stronger
 runtime assertions remain positive obligations in the full diagnostic.
-The qualified central subset contains 1616 positive and 231 negative
+The qualified central subset contains 1693 positive and 233 negative
 assertions, including the separate comparison/guard reviewer; the full source retains
-2147 positives, 293 negatives and all 66 original diagnostic declarations.
+2148 positives, 292 negatives and all 66 original diagnostic declarations.
 These counts describe different scopes and must not be interchanged.
 
 ## Required completion and regression review
@@ -51,7 +51,7 @@ These counts describe different scopes and must not be interchanged.
 | R07 | Remaining identity/duality and Cartesian-inclusion projection overlaps, including six product-profile warning bodies and two Cat_cart counterparts of existing precomposition/evaluation peaks. [Product evidence][product], [PathOut evidence][pathout]. | Review the relevant symbolic branches and actual higher consumers. Record joins, intentional distinctions and unresolved effects; do not equate a stable warning count with confluence. No global confluence theorem is added as a prerequisite. |
 | R08 | Native two-map intrinsic action and expanded whole units check. The expanded triple/mapped-composite comparison and the further factorization of `Φ_GG[λ_FF]` into the two named extracted cells remain separately unqualified. [Intrinsic unit review][intrinsic], [scope correction][scope]. | Audit compatibility of installed computation with its actual identity/composition overlaps and consumers. Keep claims limited to checked forms. This does not require a general Q model, arbitrary balancing or a second general-FF reduction theory. |
 | R09 | Seven old same-base opposite clauses remain inactive in the staged square-total module. Four corrected whole reindexing/section/identity-graph counterparts are now present; the three old point-action clauses still need an explicit disposition. [Cubical review][cubical], current emitted `emdash3_2_cubical_square_total.lp`. | Map each old clause to its corrected generic/whole consumer or a documented invalid old contract. Do not count comments as migrated code or reinstate the wrong base. This is compatibility of existing foundations, not resumption of the paused nerve goal. |
-| R10 | Later original central diagnostics and complete registered consumer/import coverage remain unfinished. WalkingEnd, Code/spiral, decoder and Hom-Nat diagnostics now pass; the later profunctor closed/comparison and Pi/Sigma blocks are next. Several focused passes imported less than the original reviewer. [Final-import review][imports], [walking evidence][walking]. | Finish the original tails and required reviewers; retain declaration/assertion inventories and inspect polarity changes. Record failed and excluded targets separately from the qualified subset. |
+| R10 | Later original central diagnostics and complete registered consumer/import coverage remain unfinished. Profunctor closed/comparison and Pi/Sigma section/substitution diagnostics now pass; presheaf and library blocks are next. Several focused passes imported less than the original reviewer. [Final-import review][imports], [closed/Sigma evidence][closed-sigma]. | Finish the original tails and required reviewers; retain declaration/assertion inventories and inspect polarity changes. Record failed and excluded targets separately from the qualified subset. |
 | R11 | `StrictFunctor`, `strict_functor`, `make_strict_functor` and associated strictness properties/duplicate rules are not all retired. Genuine strict-transfor classifiers remain meaningful. [Wrapper contract][wrappers]. | Migrate actual consumers, then remove or alias redundant strict-functor views. Compare complete higher profiles before collapsing classifiers. Check overlapping cuts and performance after each bounded retirement. |
 | R12 | Matched runs show materially greater time, rewriting and memory than the pre-goal source. The full installed central check previously exceeded its 8-GiB limit. A batch-snapshot checker patch is only an isolated diagnostic. [Measurements][normalization], [checker evidence][checker]. | Qualify computational usability and the complete supported check path. Separate import cost, allocation/retention, conversion and formal-rule changes. Review any checker adoption independently; more memory/time is not qualification. Do not rerun an unchanged failed aggregate. |
 | R13 | Deliberate signature/variance changes below are checked in slices, not yet across the entire public codebase. Original operational data and noncollapse boundaries must survive. | Review each changed interface at its actual producers and consumers. Any required computation regression is a correction before promotion; optional presentation improvements can wait. |
@@ -158,6 +158,7 @@ that all possible alternatives or future regressions have been discovered.
 [homcatd]: ../emdash2/audits/strict-default-action-boundary/production_central_homd_homcatd_verification.json
 [product-path]: ../emdash2/audits/strict-default-action-boundary/production_central_product_path_verification.json
 [walking]: ../emdash2/audits/strict-default-action-boundary/production_central_walking_verification.json
+[closed-sigma]: ../emdash2/audits/strict-default-action-boundary/production_central_closed_sigma_verification.json
 [components]: ../emdash2/audits/strict-default-action-boundary/production_normalization_review.md#displayed-component-observations-after-4b3bce9e
 [monads]: ../emdash2/audits/strict-default-action-boundary/production_central_monads_actions_verification.json
 [normalization]: ../emdash2/audits/strict-default-action-boundary/production_normalization_review.md

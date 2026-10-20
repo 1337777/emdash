@@ -4477,6 +4477,89 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'owner': 'original opaque WalkingEnd, Code/power/spiral, decoder and Hom-Nat diagnostics',
                                 'reason': 'Use the existing strict fibre-comparison classifier and ordinary inclusion, actual Cat_cart Code action and Cartesian higher Hom; preserve the lax base map, opaque constructors, original inverse data and all negative observations',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// catalog-area: auto', start)
+                end = text.index('// catalog-area: Cat-valued presheaf facade and restriction', start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 76
+                assert len(re.findall(r'(?m)^assertnot\b', old)) == 3
+                split = old.index('assert [K : Cat] (A : Cat)')
+                prof_closed, section_part = old[:split], old[split:]
+                assert len(re.findall(r'(?m)^assert\b', prof_closed)) == 43
+                later_represented = r'Cat_cat(\s+)(\(@(?:hom_|hom_con|Rep_catd)\b)'
+                assert len(re.findall(later_represented, section_part)) == 2
+                section_part = section_part.replace('Cat_cat', 'Cat_cart')
+                hom_index = '(Hom_cat K x y)'
+                section_hom = '(@homd_ K E E (@id_funcd K E) x (@piapp0 K E s x) y (@piapp0 K E s y))'
+                section_dual_family = '(@TotalOp_catd (Op_cat ' + hom_index + ') ' + section_hom + ')'
+                section_base = '(TotalOp_cat ' + hom_index + ')'
+                unit_family = '(@Const_catd K Terminal_cat)'
+                relative_target = '(fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K ' + unit_family + '))'
+                relative_root = '(@comp_catd_fapp0 K ' + unit_family + ' E ' + relative_target + ' (@homd_int K ' + unit_family + ' E s) s)'
+                relative_point = '(@fapp0 Terminal_cat (Op_cat (@Homd_target_section_cat K ' + unit_family + ' x)) (@Fibre_func K ' + unit_family + ' ' + relative_target + ' ' + relative_root + ' x) Terminal_obj)'
+                observations = {}
+                for match in reversed(list(re.finditer(r'(?m)^assert(?:not)?\b.*?;', section_part, re.S))):
+                    block = match.group()
+                    context, rest = block.split('⊢', 1)
+                    if '@piapp1_fapp0\n    (Op_cat (Hom_cat K x y))' in block:
+                        context = context.replace('(Op_cat (Hom_cat K x y))', section_base)
+                        block = (context + '⊢\n  @piapp1_fapp0 ' + section_base + '\n    '
+                            + section_dual_family + '\n    (@piapp1_func K E s x y) f g alpha\n'
+                            + '  ≡ @fdapp1_int_hom_fapp0 ' + section_base + '\n'
+                            + '      (@Const_catd ' + section_base + ' Terminal_cat)\n      '
+                            + section_dual_family + '\n      (@piapp1_func K E s x y) f g alpha\n'
+                            + '      Terminal_obj Terminal_obj Terminal_obj;')
+                        observations['higherSection'] = observations.get('higherSection', 0) + 1
+                    elif 'Hom_cat (@Sigma_cat Z E)' in block:
+                        block = context + '''⊢
+  Hom_cat (@Sigma_cat Z E) (Struct_sigma x u) (Struct_sigma y v)
+  ≡ TotalOp_cat (@Sigma_cat (TotalOp_cat (Hom_cat Z x y))
+      (@TotalOp_catd (Op_cat (Hom_cat Z x y))
+        (@homd_ Z E E (@id_funcd Z E) x u y v)));'''
+                        observations['sigmaHom'] = observations.get('sigmaHom', 0) + 1
+                    elif '@fapp1_func\n    (@Sigma_cat K E)' in block and '≡ @Op_func' in block:
+                        value = rest.split('≡', 1)[0]
+                        block = context + '⊢' + value + '''≡ @fapp1_fapp0 (Homd_index_cat (Hom_cat K x y)) Cat_cat
+      (Homd_index_sigma_func (Hom_cat K x y))
+      (fapp0 (@homd_id_tgt_func K E x u y) v)
+      (fapp0 (@homd_ff_tgt_func K E D η x u y) v)
+      (@fdapp1_int_presheaf_arrow K E D η x u y v);'''
+                        observations['sigmaHigher'] = observations.get('sigmaHigher', 0) + 1
+                    elif '(@Op_funcd K (@Const_catd K Terminal_cat) E s)' in block:
+                        expected = rest.rstrip(';').split('≡', 1)[1]
+                        if '@Homd_target_section_catd' in block:
+                            value = '''@homd_index_presheaf (Hom_cat K x y)
+    (fapp0 (@tapp0_fapp0 K Homd_coeff_cat
+      (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+      ''' + relative_point + ') Terminal_obj)'
+                            observations['relativeLeaf'] = observations.get('relativeLeaf', 0) + 1
+                        else:
+                            value = relative_point
+                            observations['relativeSection'] = observations.get('relativeSection', 0) + 1
+                        block = context + '⊢\n  ' + value + '\n  ≡' + expected + ';'
+                    elif block.startswith('assertnot') and '@piapp1_fapp0 K (@Const_catd K A)' in block:
+                        block = block.replace('assertnot', 'assert', 1)
+                        observations['constantAction'] = observations.get('constantAction', 0) + 1
+                    section_part = section_part[:match.start()] + block + section_part[match.end():]
+                assert observations == {'higherSection': 1, 'sigmaHom': 1, 'sigmaHigher': 1,
+                                        'relativeLeaf': 1, 'relativeSection': 1, 'constantAction': 1}, observations
+                section_part = section_part.replace(
+                    '// First higher action of the section-action section.  Its runtime result\n'
+                    '// stays in the generic displayed internal-hom projection cascade.',
+                    '// First higher action uses the actual total-dual section family and index.\n'
+                    '// Its runtime result stays in the existing intrinsic projection cascade.')
+                # Preserve the two annotations owned by the later represented-Hom pass.
+                section_part, count = re.subn(later_represented.replace('Cat_cat', 'Cat_cart'),
+                    r'Cat_cat\1\2', section_part)
+                assert count == 2
+                section = prof_closed + section_part
+                assert len(re.findall(r'(?m)^assert\b', section)) == 77
+                assert len(re.findall(r'(?m)^assertnot\b', section)) == 2
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/prof-closed-pi-sigma-observations',
+                                'owner': 'original closed/comparison Prof, section action, Sigma Hom/map and contextual-substitution diagnostics',
+                                'reason': 'Retain the Prof comparison and inverse-data observations; use the native total-dual Pi/Sigma index and P(I) action, preserve general section/FF inputs, and replace obsolete Op_funcd(s) projections by the actual relative composite. Constant-section action already computes, so one former negative becomes positive',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5876,6 +5959,11 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     (package / 'central_walking_end_controls.lp').write_text(
         'require open emdash.emdash3_2_walking_end_hit;\n'
         + central[path_core_end:walking_end_end])
+    closed_sigma_end = central.index(
+        '// catalog-area: Cat-valued presheaf facade and restriction', walking_end_end)
+    (package / 'central_closed_sigma_controls.lp').write_text(
+        'require open emdash.emdash3_2_strict_functor_actions;\n'
+        + central[walking_end_end:closed_sigma_end])
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5904,7 +5992,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_homcatd_controls;\n'
         'require open emdash.central_product_prof_controls;\n'
         'require open emdash.central_path_core_controls;\n'
-        'require open emdash.central_walking_end_controls;\n')
+        'require open emdash.central_walking_end_controls;\n'
+        'require open emdash.central_closed_sigma_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6427,6 +6516,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'central_product_prof_controls.lp',
                               package / 'central_path_core_controls.lp',
                               package / 'central_walking_end_controls.lp',
+                              package / 'central_closed_sigma_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',

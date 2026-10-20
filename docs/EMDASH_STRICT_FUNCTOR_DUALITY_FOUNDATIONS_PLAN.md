@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original WalkingEnd/Code/decoder diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original profunctor closed/comparison and Pi/Sigma diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,47 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Diagnostic continuation after `b699914f`, 2026-10-20 UTC: the
+[closed/Sigma verification](../emdash2/audits/strict-default-action-boundary/production_central_closed_sigma_verification.json)
+qualifies the following original profunctor closed/comparison and Pi/Sigma
+section/substitution block. The mathematical sources remain byte-identical;
+no primitive, rewrite, unifier, profile or operational proof argument changes.
+
+All 43 initial Prof observations are unchanged, retaining shaped eval/lambda,
+actual comparison inverses, weighted inputs and adjoint-preservation data.
+Their existing caveat about missing general end/coend identifications remains:
+classifier/variance checks are not new cone/cocone or Kan-extension theorems.
+
+The section's higher action now names the actual total-dual Hom index and
+total-dual Homd family. Sigma's whole Hom uses the corrected outer total dual
+and negative total; Sigma-map Hom action uses the existing P(I) totalization
+functor on its actual intrinsic index arrow. Object/arrow, transport and
+contextual-substitution computations retain general eta/s and every original
+base map and filler. The final two relative observations read the actual
+homd_int(s) composed with s, the computed root target, the Q-valued y component
+and whole presheaf view; no Op_funcd of a raw section is used.
+
+The installed constant-index computation already makes the constant-section
+piapp1 action reduce to the ordinary functor's F[p]. Its old negative is
+changed to positive, consistently with the earlier fdapp1 constant-family
+diagnostic. The existing arbitrary-loop/noncollapse controls remain; no
+general displayed map is made strictly natural by this correction.
+
+The block passes 77 positive/two negative assertions and retains its two
+original test-local declarations. The final installed-checker subset passes
+1693/233 in 33.412s/2472.5MiB with SR, unchanged warning bodies (1828) and the
+existing 300s/4GiB/o=20 profile. Core/Homd and library receipts carry after
+exact input rehashing. The full central source retains every original tail
+and all 66 declarations, now 2148 positives/292 negatives after the explicit
+constant-section polarity correction. The five terminal whole-runtime
+obligations remain unchanged; these later section/total observations do not
+replace them.
+
+Next continue the original presheaf, sieve, topology, direct-cover and
+sheafification diagnostics, then the algebra consumers. Wrapper retirement,
+normalization/performance and production/final gates remain open. The separate
+application goal stays paused.
 
 Diagnostic continuation after `60ae687e`, 2026-10-20 UTC: the
 [walking verification](../emdash2/audits/strict-default-action-boundary/production_central_walking_verification.json)
