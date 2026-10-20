@@ -1,0 +1,20 @@
+// Strict default maps preserve represented postcomposition. Whole functors
+// accumulate; their point projection retains consecutive cuts so the existing
+// DefIso inverse rules can still see the selected arrows.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@hom_postcomp_func $A $B $F $W $Y $Z $q)
+    (@hom_postcomp_func $A $B $F $W $X $Y $p)
+  ↪ @hom_postcomp_func $A $B $F $W $X $Z
+      (@comp_fapp0 $B $X $Y $Z $q $p);
+
+rule @hom_postcomp_fapp0 $A $B $F $W $X $Z
+    (@comp_fapp0 $B $X $Y $Z $q $p) $g
+  ↪ @hom_postcomp_fapp0 $A $B $F $W $Y $Z $q
+      (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g);
+
+// The mapped outer arrow is the same represented cut after capping first.
+rule @comp_fapp0 $A _ _ _
+    (@fapp1_fapp0 $B $A $F $Y $Z $q)
+    (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g)
+  ↪ @hom_postcomp_fapp0 $A $B $F $W $Y $Z $q
+      (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g);

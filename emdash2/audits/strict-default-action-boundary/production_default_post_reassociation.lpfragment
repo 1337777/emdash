@@ -1,0 +1,6 @@
+// A base composite may already be expressed by its identity-family Hom
+// owner. Preserve the same nested cuts under an arbitrary strict default F.
+rule @hom_postcomp_fapp0 $A $B $F $W $X $Z
+    (@hom_postcomp_fapp0 $B $B (@id Cat_cat $B) $X $Y $Z $q $p) $g
+  ↪ @hom_postcomp_fapp0 $A $B $F $W $Y $Z $q
+      (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g);

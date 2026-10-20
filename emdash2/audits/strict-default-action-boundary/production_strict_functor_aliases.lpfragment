@@ -1,0 +1,80 @@
+// Transitional compatibility views: public functors are already strict.
+// These aliases carry no second object grammar or runtime discriminator.
+symbol StrictFunctor (A B : Cat) : Grpd ≔ Functor A B;
+
+symbol make_strict_functor [A B : Cat] (F : τ (Functor A B))
+  (p : τ (@IsStrictFunctor A B F)) : τ (@StrictFunctor A B) ≔ F;
+
+symbol strict_functor [A B : Cat] (S : τ (@StrictFunctor A B))
+  : τ (Functor A B) ≔ S;
+
+symbol strict_functor_underlying [A B : Cat] (S : τ (@StrictFunctor A B))
+  : τ (Functor A B) ≔ S;
+
+// The former carrier comparison is now ordinary definitional reflexivity.
+symbol make_strict_functor_carrier_path
+  [A B : Cat]
+  (F : τ (Functor A B))
+  (p : τ (@IsStrictFunctor A B F))
+  : τ (@=
+      (Functor A B)
+      (@strict_functor A B (@make_strict_functor A B F p))
+      F)
+≔ @eq_refl
+    (Functor A B)
+    (@strict_functor A B (@make_strict_functor A B F p));
+
+// Derived from the existing extracted compositor and strict default action.
+symbol strict_functor_is_strict
+  [A B : Cat]
+  (S : τ (@StrictFunctor A B))
+  : τ (@IsStrictFunctor A B (@strict_functor A B S))
+≔ λ X : τ (Obj A),
+  λ Y : τ (Obj A),
+  λ Z : τ (Obj A),
+  λ g : τ (Hom A Y Z),
+    Struct_sigma
+      (@eq_refl
+        (Functor
+          (Hom_cat A X Y)
+          (Hom_cat B
+            (@fapp0 A B (@strict_functor A B S) X)
+            (@fapp0 A B (@strict_functor A B S) Z)))
+        (@strict_functor_compositor_lhs_func
+          A B (@strict_functor A B S) X Y Z g))
+      (@eq_refl
+        (Hom
+          (@Functor_cat
+            (Hom_cat A X Y)
+            (Hom_cat B
+              (@fapp0 A B (@strict_functor A B S) X)
+              (@fapp0 A B (@strict_functor A B S) Z)))
+          (@strict_functor_compositor_lhs_func
+            A B (@strict_functor A B S) X Y Z g)
+          (@strict_functor_compositor_rhs_func
+            A B (@strict_functor A B S) X Y Z g))
+        (@strict_functor_compositor_transf
+          A B (@strict_functor A B S) X Y Z g));
+
+symbol identity_is_strict (A : Cat)
+  : τ (@IsStrictFunctor A A (@id_func A))
+≔ @strict_functor_is_strict A A (@id_func A);
+
+symbol strict_identity (A : Cat) : τ (@StrictFunctor A A) ≔ @id_func A;
+
+symbol strict_identity_carrier_path
+  (A : Cat)
+  : τ (@=
+      (Functor A A)
+      (@strict_functor A A (@strict_identity A))
+      (@id_func A))
+≔ @make_strict_functor_carrier_path
+    A A (@id_func A) (@identity_is_strict A);
+
+// The complete Hom profile agrees with the public ordinary mapping category.
+// GrayHom_lax below keeps its separate transformation profile.
+symbol StrictFunctor_cat (A B : Cat) : Cat ≔ Functor_cat A B;
+
+symbol strict_functor_include_func (A B : Cat)
+  : τ (Functor (@StrictFunctor_cat A B) (@Functor_cat A B))
+≔ @id_func (@Functor_cat A B);

@@ -1,0 +1,58 @@
+// The former mapped-arrow computations now apply to ordinary default maps.
+assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
+  [X Y Z : τ (Obj B)] (p : τ (Hom B X Y)) (q : τ (Hom B Y Z))
+  (g : τ (Hom A W (@fapp0 B A F X))) ⊢
+  @comp_fapp0 A W (@fapp0 B A F Y) (@fapp0 B A F Z)
+    (@fapp1_fapp0 B A F Y Z q)
+    (@hom_postcomp_fapp0 A B F W X Y p g)
+  ≡ @hom_postcomp_fapp0 A B F W X Z (@comp_fapp0 B X Y Z q p) g;
+
+assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
+  [V W X : τ (Obj A)] (q : τ (Hom A V W)) (p : τ (Hom A W X))
+  (g : τ (Hom B (@fapp0 A B F X) Z)) ⊢
+  @comp_fapp0 B (@fapp0 A B F V) (@fapp0 A B F W) Z
+    (@hom_precomp_along_fapp0 A B F Z W X p g)
+    (@fapp1_fapp0 A B F V W q)
+  ≡ @hom_precomp_along_fapp0 A B F Z V X (@comp_fapp0 A V W X p q) g;
+
+// Preserve actual composite inverse data before and after its projections.
+assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
+  [x y z : τ (Obj B)] (i : τ (@DefIso B x y)) (j : τ (@DefIso B y z))
+  (g : τ (Hom A W (@fapp0 B A F x))) ⊢
+  @hom_postcomp_fapp0 A B F W z x
+    (@defiso_from B x z (@defiso_comp B x y z j i))
+    (@hom_postcomp_fapp0 A B F W x z
+      (@defiso_to B x z (@defiso_comp B x y z j i)) g)
+  ≡ g;
+
+assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
+  [x y z : τ (Obj B)] (i : τ (@DefIso B x y)) (j : τ (@DefIso B y z))
+  (g : τ (Hom A W (@fapp0 B A F x))) ⊢
+  @hom_postcomp_fapp0 A B F W z x
+    (@hom_postcomp_fapp0 B B (@id_func B) z y x
+      (@defiso_from B x y i) (@defiso_from B y z j))
+    (@hom_postcomp_fapp0 A B F W x z
+      (@hom_postcomp_fapp0 B B (@id_func B) x y z
+        (@defiso_to B y z j) (@defiso_to B x y i)) g)
+  ≡ g;
+
+// Unit degeneration retains the established proof-time raw/stable readings.
+assert [A B : Cat] (F : τ (Functor B A)) [W : τ (Obj A)]
+  [X Y : τ (Obj B)] (q : τ (Hom B X Y))
+  (g : τ (Hom A W (@fapp0 B A F X))) ⊢
+  @eq_refl (Hom A W (@fapp0 B A F Y))
+    (@hom_postcomp_fapp0 A B F W X Y q g)
+  : τ (@= (Hom A W (@fapp0 B A F Y))
+      (@comp_fapp0 A W (@fapp0 B A F X) (@fapp0 B A F Y)
+        (@fapp1_fapp0 B A F X Y q) g)
+      (@hom_postcomp_fapp0 A B F W X Y q g));
+
+assert [A B : Cat] (F : τ (Functor A B)) [Z : τ (Obj B)]
+  [W X : τ (Obj A)] (q : τ (Hom A W X))
+  (g : τ (Hom B (@fapp0 A B F X) Z)) ⊢
+  @eq_refl (Hom B (@fapp0 A B F W) Z)
+    (@hom_precomp_along_fapp0 A B F Z W X q g)
+  : τ (@= (Hom B (@fapp0 A B F W) Z)
+      (@comp_fapp0 B (@fapp0 A B F W) (@fapp0 A B F X) Z
+        g (@fapp1_fapp0 A B F W X q))
+      (@hom_precomp_along_fapp0 A B F Z W X q g));

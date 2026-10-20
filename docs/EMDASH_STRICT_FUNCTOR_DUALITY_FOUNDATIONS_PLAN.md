@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original diagnostic tail qualified with exactly five terminal runtime assertions excluded; wrapper retirement, normalization/resource review and production qualification remain open
+Status: active implementation; strict-functor wrappers are transparent compatibility views and required Hom accumulation uses native default owners; final helper cleanup, five terminal runtime obligations and production qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,56 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Strict-wrapper continuation after `7efd7a49`, 2026-10-20 UTC: the
+[retirement verification](../emdash2/audits/strict-default-action-boundary/production_strict_wrapper_retirement_verification.json)
+qualifies a transparent-compatibility stage. StrictFunctor and its make/view/
+underlying operations now unfold to the ordinary Functor carrier and map.
+StrictFunctor_cat has the same complete Hom profile as Functor_cat and aliases
+it; its inclusion is the identity. GrayHom_lax keeps its distinct LaxTransfor
+Homs. StrictTransfor and StrictFunctord retain their meaningful refinements.
+Identity strictness is derived from the existing extracted compositor.
+
+The groupoidal transport API and reviewer accept ordinary Cat-valued functors
+directly, preserving their chosen mapped inverse data and without imposing
+Cat_cart-family admission. Ring-presheaf compatibility views now use the
+ordinary carrier/category; one-category admission returns the already-strict
+map. The named walking reviewer uses the public mapping category.
+
+The first alias-only combined check exposed required Hom computations that
+had existed only under the old wrapper. They were not discarded: five
+identity-only composition/reassociation clauses are generalized and two
+mapped-arrow clauses restored at the native Hom owners. Whole postcomposition
+accumulates, while its capped composite keeps nested represented cuts for
+actual inverse cancellation. Precomposition retains its composite-base form.
+Installing the opposite post point-fold would loop with the selected split,
+so that orientation is not restored. Six focused controls check mapped cuts,
+direct/expanded composite inverse data and the existing raw/stable unit views.
+
+Twenty-four wrapper-owned rule commands are removed. Across the core and two
+profile/action owners, the net change is nineteen fewer runtime rule commands
+and three fewer unifiers; no primitive or operational proof payload is added.
+No transparent functor alias remains in a mathematical rule pattern. Nine old
+central negatives become positives: three object/carrier views, four whole/
+capped accumulation cases and two mapped adjacent cuts. The latter two resolve
+the corresponding R04 stable-cut boundaries; its three different displayed-
+component boundaries remain. All 2440 source assertions and 66 declarations
+remain, now 2159 positive/281 negative, with the same five terminal exclusions.
+
+Fresh installed-checker runs pass core/Homd 287/85, accumulation 6/0,
+affected-consumer 93/15, library 178/27 and combined 2177/289, with SR. The
+combined run takes 160.119s/6639.7MiB under the existing 300s/7GiB/o=20 profile.
+The affected-consumer closure first allocation-failed at 4GiB and passes at
+6GiB; available host memory was about 16.3GiB before that reviewed retry.
+Combined warnings change from 2086 to 2036 (58 added, 108 removed); the native
+Hom generalizations and retained Gray-inclusion projection/identity families
+are separately inventoried. No global confluence or performance improvement
+is claimed, and all three final LHS audits have no unreviewed slots.
+
+This does not finish R11: legacy compatibility spellings and named strict_*
+helper interfaces still need their final consumer/disposition review. Continue
+that cleanup, then the explicit terminal/normalization and full production
+gates. The separate application goal stays paused.
 
 Diagnostic-tail continuation after `6accb8f4`, 2026-10-20 UTC: the
 [tail verification](../emdash2/audits/strict-default-action-boundary/production_central_tail_verification.json)

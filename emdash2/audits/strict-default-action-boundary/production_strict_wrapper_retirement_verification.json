@@ -1,0 +1,2854 @@
+{
+  "status": "Qualified transparent-compatibility phase of strict-functor wrapper retirement, with required default Hom computation restored at native owners. Final compatibility-name/helper retirement and production qualification remain open.",
+  "date": "2026-10-20",
+  "predecessor": "7efd7a49",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "production_owner_migration.py": "bf0bc3a4bea0d0a1fc0aed186827ccb12185104f8dd0cbee81e83d0152b3f380",
+    "production_strict_functor_aliases.lpfragment": "afc76f9d1da68ee48c9f7abcc4a3cd7e5823e95202888f47696dc1c84a950c00",
+    "production_default_post_accumulation.lpfragment": "7a5a0461685eb9bbf1320adc0aee1c5ed1c99c4242d18d630918f29f16bb90e0",
+    "production_default_post_reassociation.lpfragment": "f7de82fd9adb5a494d3d9088a8843f98653a64407b272e392fcc0527302a2550",
+    "production_default_pre_accumulation.lpfragment": "55ca9fdb54d3c9510be775eaa0e9bdaf7a2dd160f4efc5fb7fc5cd06315f3ccb",
+    "production_default_hom_accumulation_controls.lpfragment": "6ae8014a2231d66f3b38039296404c9721c464953d555b5536a3c2f8e97dd5ec"
+  },
+  "manifestSha256": "0d192653fe601fb13ed0d460ce56e636e6824deb8181ae2cd6ddf2a4ca53ee67",
+  "contracts": [
+    "StrictFunctor, make_strict_functor, strict_functor and strict_functor_underlying are transparent compatibility aliases of public Functor/maps. No separate opaque object grammar or mandatory runtime discriminator remains.",
+    "StrictFunctor_cat aliases Functor_cat because their complete Homs agree; the inclusion is its identity functor. GrayHom_lax keeps its distinct LaxTransfor Homs. StrictTransfor and StrictFunctord remain genuine separate profiles.",
+    "identity_is_strict is now derived through the existing compositor proof instead of supplied as a constant. The native IsStrictFunctor property/extraction machinery remains available.",
+    "Groupoidal fibre transport and its reviewer take ordinary Cat-valued Functor inputs directly, with the same mapped inverse data. No Cat_cart-family admission is imposed on that ordinary diagram API.",
+    "The ring-presheaf strict facade aliases the existing ordinary category/carrier, the one-category admission adapter returns F directly, and the named walking reviewer uses Functor_cat.",
+    "Twenty-four wrapper-profile rule commands are removed, but their necessary Hom computations are preserved at the default owners. Five existing identity-only composition/reassociation rules are generalized, and two mapped-arrow cases are restored.",
+    "Whole postcomposition accumulates; its capped composite expands to consecutive represented cuts. Base composites already expressed by identity-family postcomposition have the same nested form. This preserves actual DefIso cancellation and avoids installing the opposite nested-to-composite fold that would loop with the existing identity presentation.",
+    "Precomposition retains its composite-base normal form. Every functor, base-arrow and filler argument is retained. No new primitive, unifier, supplied comparison or operational equality-proof payload is introduced.",
+    "Six focused controls cover mapped-arrow computations, direct and expanded composite inverse cancellation, and the established proof-time raw/stable unit readings. General lax-transfor post/left noncollapse and distinct carrier controls remain.",
+    "Legacy compatibility names and named strict_* helper interfaces remain for subsequent consumer cleanup; this checkpoint is not completion of R11."
+  ],
+  "inventoryBefore": {
+    "symbols": [
+      "StrictFunctor",
+      "StrictFunctor_cat",
+      "make_strict_functor",
+      "strict_functor",
+      "strict_functor_underlying",
+      "strict_functor_include_func",
+      "strict_identity",
+      "identity_is_strict",
+      "strict_functor_is_strict",
+      "IsStrictFunctor"
+    ],
+    "consumers": {
+      "emdash3_2_checks.lp": {
+        "StrictFunctor": 25,
+        "StrictFunctor_cat": 5,
+        "make_strict_functor": 8,
+        "strict_functor": 101,
+        "strict_functor_underlying": 4,
+        "strict_functor_include_func": 1,
+        "strict_identity": 2,
+        "strict_functor_is_strict": 1,
+        "IsStrictFunctor": 9
+      },
+      "emdash3_2_commutative_algebra_presheaves.lp": {
+        "StrictFunctor": 1,
+        "StrictFunctor_cat": 1,
+        "strict_functor": 1
+      },
+      "emdash3_2_eq1_hom_action.lp": {
+        "StrictFunctor": 1,
+        "strict_functor": 3
+      },
+      "emdash3_2_gray_profiles.lp": {
+        "StrictFunctor": 8,
+        "StrictFunctor_cat": 6,
+        "make_strict_functor": 9,
+        "strict_functor": 65,
+        "strict_functor_underlying": 3,
+        "strict_functor_include_func": 4,
+        "strict_identity": 2,
+        "identity_is_strict": 3,
+        "strict_functor_is_strict": 1,
+        "IsStrictFunctor": 8
+      },
+      "emdash3_2_gray_right_closure.lp": {
+        "StrictFunctor": 4,
+        "make_strict_functor": 2,
+        "strict_functor": 2,
+        "strict_identity": 2,
+        "IsStrictFunctor": 2
+      },
+      "emdash3_2_gray_walking_square.lp": {
+        "StrictFunctor": 2,
+        "strict_functor": 2
+      },
+      "emdash3_2_one_cat_functor_profiles.lp": {
+        "StrictFunctor": 1,
+        "make_strict_functor": 1,
+        "strict_functor": 1,
+        "strict_functor_underlying": 1,
+        "IsStrictFunctor": 1
+      },
+      "emdash3_2_strict_functor_actions.lp": {
+        "StrictFunctor": 20,
+        "make_strict_functor": 7,
+        "strict_functor": 130,
+        "IsStrictFunctor": 5
+      },
+      "examples/action_profile_walking_named_overlap_controls.lp": {
+        "StrictFunctor_cat": 21
+      },
+      "examples/gray_profiles.lp": {
+        "StrictFunctor": 10,
+        "StrictFunctor_cat": 8,
+        "make_strict_functor": 16,
+        "strict_functor": 59,
+        "strict_functor_underlying": 2,
+        "strict_functor_include_func": 2,
+        "strict_identity": 2,
+        "strict_functor_is_strict": 2,
+        "IsStrictFunctor": 16
+      },
+      "examples/groupoidal_structured_j_eq1.lp": {
+        "StrictFunctor": 2,
+        "strict_functor": 7
+      }
+    },
+    "rulePatterns": [
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 412,
+        "matched": [
+          "make_strict_functor",
+          "strict_functor_underlying"
+        ],
+        "text": "rule @strict_functor_underlying _ _\n      (@make_strict_functor _ _ $F _)\n  ↪ $F;"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 418,
+        "matched": [
+          "strict_functor",
+          "strict_functor_underlying"
+        ],
+        "text": "unif_rule\n  @strict_functor_underlying $A $B $S\n  ≡ @strict_functor $A $B $S\n  ↪ [ tt ≡ tt ];"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 437,
+        "matched": [
+          "make_strict_functor",
+          "strict_functor"
+        ],
+        "text": "unif_rule\n  @strict_functor $A $B\n    (@make_strict_functor $A $B $F _)\n  ≡ $F\n  ↪ [ tt ≡ tt ];"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 447,
+        "matched": [
+          "make_strict_functor"
+        ],
+        "text": "unif_rule\n  @make_strict_functor $A $B $F _\n  ≡ @make_strict_functor $A $B $G _\n  ↪ [ $F ≡ $G ];"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 471,
+        "matched": [
+          "make_strict_functor",
+          "strict_functor"
+        ],
+        "text": "rule @fapp0 _ _\n      (@strict_functor $A $B (@make_strict_functor $A $B $F _)) $x\n  ↪ @fapp0 $A $B $F $x;"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 478,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @comp_fapp0\n      $B _ _ _\n      (@fapp1_fapp0\n        $A $B (@strict_functor $A $B $S) $Y $Z $g)\n      (@fapp1_fapp0\n        $A $B (@strict_functor $A $B $S) $X $Y $f)\n  ↪ @fapp1_fapp0\n      $A $B (@strict_functor $A $B $S) $X $Z\n      (@comp_fapp0 $A $X $Y $Z $g $f);"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 489,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @comp_fapp0\n      Cat_cat _ _ _\n      (@hom_postcomp_func\n        $B $A (@strict_functor $A $B $S) _ $Y $Z $g)\n      (@fapp1_func\n        $A $B (@strict_functor $A $B $S) $X $Y)\n  ↪ @comp_fapp0\n      Cat_cat _ _ _\n      (@fapp1_func\n        $A $B (@strict_functor $A $B $S) $X $Z)\n      (@hom_postcomp_func $A $A (@id_func $A) $X $Y $Z $g);"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 502,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @comp_fapp0\n      Cat_cat _ _ _\n      (@hom_precomp_along_func\n        $A $B (@strict_functor $A $B $S)\n        (@fapp0 $A $B (@strict_functor $A $B $S) $Y)\n        $W $X $h)\n      (@fapp1_func\n        $A $B (@strict_functor $A $B $S) $X $Y)\n  ↪ @comp_fapp0\n      Cat_cat _ _ _\n      (@fapp1_func\n        $A $B (@strict_functor $A $B $S) $W $Y)\n      (@hom_precomp_along_func $A $A (@id_func $A) $Y $W $X $h);"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 518,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @comp_fapp0\n      Cat_cat\n      _ _ _\n      (@hom_postcomp_func $A $B (@strict_functor $B $A $S) $W $Y $Z $q)\n      (@hom_postcomp_func $A $B (@strict_functor $B $A $S) $W $X $Y $p)\n  ↪ @hom_postcomp_func\n      $A $B (@strict_functor $B $A $S) $W $X $Z\n      (@comp_fapp0 $B $X $Y $Z $q $p);"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 527,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @hom_postcomp_fapp0\n      $A $B (@strict_functor $B $A $S) $W $Y $Z $q\n      (@hom_postcomp_fapp0 $A $B (@strict_functor $B $A $S) $W $X $Y $p $g)\n  ↪ @hom_postcomp_fapp0\n      $A $B (@strict_functor $B $A $S) $W $X $Z\n      (@comp_fapp0 $B $X $Y $Z $q $p)\n      $g;"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 535,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @comp_fapp0\n      $A\n      _\n      _\n      _\n      (@fapp1_fapp0 $B $A (@strict_functor $B $A $S) $Y $Z $q)\n      (@hom_postcomp_fapp0 $A $B (@strict_functor $B $A $S) $W $X $Y $p $g)\n  ↪ @hom_postcomp_fapp0\n      $A\n      $B\n      (@strict_functor $B $A $S)\n      $W\n      $X\n      $Z\n      (@comp_fapp0 $B $X $Y $Z $q $p)\n      $g;"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 554,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @comp_fapp0\n      Cat_cat\n      _ _ _\n      (@hom_precomp_along_func $A $B (@strict_functor $A $B $S) $Z $W $X $p)\n      (@hom_precomp_along_func $A $B (@strict_functor $A $B $S) $Z $X $Y $q)\n  ↪ @hom_precomp_along_func\n      $A $B (@strict_functor $A $B $S) $Z $W $Y\n      (@comp_fapp0 $A $W $X $Y $q $p);"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 564,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @hom_precomp_along_fapp0\n      $A $B (@strict_functor $A $B $S) $Z $W $X $p\n      (@hom_precomp_along_fapp0 $A $B (@strict_functor $A $B $S) $Z $X $Y $q $g)\n  ↪ @hom_precomp_along_fapp0\n      $A $B (@strict_functor $A $B $S) $Z $W $Y\n      (@comp_fapp0 $A $W $X $Y $q $p)\n      $g;"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 574,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @comp_fapp0\n      $B\n      _\n      _\n      _\n      (@hom_precomp_along_fapp0 $A $B (@strict_functor $A $B $S) $Z $W $X $p $g)\n      (@fapp1_fapp0 $A $B (@strict_functor $A $B $S) $V $W $q)\n  ↪ @hom_precomp_along_fapp0\n      $A\n      $B\n      (@strict_functor $A $B $S)\n      $Z\n      $V\n      $X\n      (@comp_fapp0 $A $V $W $X $p $q)\n      $g;"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 599,
+        "matched": [
+          "strict_functor"
+        ],
+        "text": "rule @fdapp1_comma_projection_transf\n      $A _ _\n      (@fapp1_at_transf\n        $A $B (@strict_functor $A $B $S) $X)\n      (@fdapp1_int_transfd\n        $A _ _\n        (@fapp1_at_transf\n          $A $B (@strict_functor $A $B $S) $X))\n      $Y $Z $g\n  ↪ @id\n      (@Functor_cat\n        (Hom_cat $A $X $Y)\n        (Hom_cat\n          $B\n          (@fapp0 $A $B (@strict_functor $A $B $S) $X)\n          (@fapp0 $A $B (@strict_functor $A $B $S) $Z)))\n      (@strict_functor_compositor_lhs_func\n        $A $B (@strict_functor $A $B $S) $X $Y $Z $g);"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 681,
+        "matched": [
+          "StrictFunctor_cat"
+        ],
+        "text": "rule Obj (@StrictFunctor_cat $A $B)\n  ↪ @StrictFunctor $A $B;"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 684,
+        "matched": [
+          "StrictFunctor_cat"
+        ],
+        "text": "rule Hom_cat (@StrictFunctor_cat $A $B) $X $Y\n  ↪ @Transf_cat\n      $A $B\n      (@strict_functor $A $B $X)\n      (@strict_functor $A $B $Y);"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 691,
+        "matched": [
+          "StrictFunctor_cat"
+        ],
+        "text": "rule @id (@StrictFunctor_cat $A $B) $X\n  ↪ @id\n      (@Functor_cat $A $B)\n      (@strict_functor $A $B $X);"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 698,
+        "matched": [
+          "StrictFunctor_cat"
+        ],
+        "text": "rule @comp_fapp0\n      (@StrictFunctor_cat $A $B) $X $Y $Z $g $f\n  ↪ @comp_fapp0\n      (@Functor_cat $A $B)\n      (@strict_functor $A $B $X)\n      (@strict_functor $A $B $Y)\n      (@strict_functor $A $B $Z)\n      $g $f;"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 714,
+        "matched": [
+          "strict_functor_include_func"
+        ],
+        "text": "rule @fapp0 _ _ (@strict_functor_include_func $A $B) $X\n  ↪ @strict_functor $A $B $X;"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 718,
+        "matched": [
+          "strict_functor_include_func"
+        ],
+        "text": "rule @fapp1_func _ _\n      (@strict_functor_include_func $A $B) $X $Y\n  ↪ @id_func\n      (@Transf_cat\n        $A $B\n        (@strict_functor $A $B $X)\n        (@strict_functor $A $B $Y));"
+      },
+      {
+        "file": "emdash3_2_gray_profiles.lp",
+        "line": 727,
+        "matched": [
+          "strict_functor_include_func"
+        ],
+        "text": "rule @fapp1_fapp0 _ _ (@strict_functor_include_func _ _) _ _ $epsilon\n  ↪ $epsilon;"
+      },
+      {
+        "file": "emdash3_2_strict_functor_actions.lp",
+        "line": 701,
+        "matched": [
+          "make_strict_functor",
+          "strict_functor"
+        ],
+        "text": "rule @strict_functor _ _\n      (@make_strict_functor _ _ (@Const_func $A $B $y) _)\n  ↪ @Const_func $A $B $y;"
+      },
+      {
+        "file": "emdash3_2_strict_functor_actions.lp",
+        "line": 716,
+        "matched": [
+          "make_strict_functor",
+          "strict_functor"
+        ],
+        "text": "rule @strict_functor _ _\n      (@make_strict_functor _ _ Path_cat_func _)\n  ↪ Path_cat_func;"
+      }
+    ]
+  },
+  "ruleInventory": {
+    "core": {
+      "runtimeBefore": 999,
+      "runtimeAfter": 1001,
+      "unifBefore": 146,
+      "unifAfter": 146
+    },
+    "grayProfiles": {
+      "runtimeBefore": 46,
+      "runtimeAfter": 27,
+      "unifBefore": 16,
+      "unifAfter": 13
+    },
+    "strictActions": {
+      "runtimeBefore": 8,
+      "runtimeAfter": 6,
+      "unifBefore": 7,
+      "unifAfter": 7
+    },
+    "netRuntimeCommandsRemoved": 19,
+    "netUnifCommandsRemoved": 3,
+    "noTransparentFunctorAliasInMathematicalRulePatterns": true,
+    "lhsAudits": {
+      "core": {
+        "candidate_clauses": 0,
+        "candidate_slots": 0,
+        "sha256": "a72b2b4bbfa651c0c7e1b9f633042e7dfcbf397fd7c64a2f51ef7be25cbccdae"
+      },
+      "gray": {
+        "candidate_clauses": 0,
+        "candidate_slots": 0,
+        "sha256": "ac6b68e2f12354832f0bab829e9d683426f50455b35d7115d95c9cb2fd3473d2"
+      },
+      "actions": {
+        "candidate_clauses": 0,
+        "candidate_slots": 0,
+        "sha256": "c7dd49a37380ff21e342737acfe822227158358e40c32860ca04025623327fd9"
+      }
+    },
+    "manualReview": "The generalized rules stay at the existing Hom owners. Cat_cat on whole composition is a semantic discriminator. Named-owner parameters are retained where the RHS needs them; no reducible wrapper is matched. Actual input maps and selected inverse data are preserved."
+  },
+  "assertionInventory": {
+    "fullCentral": {
+      "positive": 2159,
+      "negative": 281,
+      "declarations": 66
+    },
+    "centralNegativeToPositive": 9,
+    "centralPolarityReasons": {
+      "transparentObjectAndCarrierViews": 3,
+      "wholeAndCappedDefaultHomAccumulation": 4,
+      "mappedAdjacentCuts": 2
+    },
+    "grayExampleNegativeToPositive": 2
+  },
+  "freshCombined": {
+    "target": "central_migration_regression.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 160.11889433278702,
+    "childrenMaxRssKiB": 6799040,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 7168,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 300000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "central_algebra_controls.lp": "96c91164b1003bda7b2e301cd284b52485660d95e5e4d57dd97d261095a6b99e",
+      "central_closed_sigma_controls.lp": "a7d4af073061699b51318b514c6cbcfb61c1b38629ed7a6d531635d15482a4df",
+      "central_comma_action_controls.lp": "d18791121a991117cab075651962cdd2e42ae1f84093262616bc5812fd957f50",
+      "central_curry_controls.lp": "144f2e72bd196eff63cee1d2714e7e778f6e0881369b458bacaaf2eed0c5b410",
+      "central_curry_family_regression.lp": "b1021fbf084650795033704d705e196b3abda30d21ba38c5560699a25524259a",
+      "central_displayed_chain_controls.lp": "ac37e214f2bd3b0ff5aa99faee07ca0a68d5bcd70b1eb8c1e93cf29459391092",
+      "central_displayed_evaluation_controls.lp": "469074851e939b5a6934d1c6b432f2cdc3022055085db9bb58fdecaedc0d5f3b",
+      "central_displayed_products_controls.lp": "a6f93aa617a473717be7707a48dc20e1e7581db3cb2a42cb541312be5ec57cd6",
+      "central_displayed_regression.lp": "b6a7be4403e8bce0e2edbd56130202b5596dbded7697edcf88511e8b0bdfd47d",
+      "central_displayed_transport_controls.lp": "1287cb123f79650e2b6ff4a37d27eec28f08f81bfd84bb2f893afc58f0a76866",
+      "central_early_controls.lp": "05fcb82f450a333a1f5f2165c53992a608236d8d44ac5f3209cf1f852f29fa61",
+      "central_evaluation_adjunction_controls.lp": "af6ceea6b3b64883b657d69e3f692831ccaff0af24bf9a4e4d34fcd16a68fb95",
+      "central_family_controls.lp": "48ab1858f3a1c1498189e985300d02709f67acb9fc5a8b6ba1a65d54e9c965d4",
+      "central_hom_action_controls.lp": "752c4dd7a60fa16dbf87f11423bcc42df3b68dd8586622e33810a3881e7a8b97",
+      "central_homcatd_controls.lp": "39edf3dc9d4359691f9dab36a797d7eddee4e6072a8f3f9062f34694423762a5",
+      "central_homd_classifier_controls.lp": "7e31e2991ea8acc6036398a30bec71ed28ad5148b6cd6cb8fdeb4a186768ef03",
+      "central_homd_leaf_prof_controls.lp": "c475d5f6ede128eb8ec4cabc8f83e86e9f9436b6ee30bfb279df12e0e446abc8",
+      "central_internal_action_controls.lp": "f06f1c190ade0ce4898527c21fb28a27915f6d79baa6fb3f0217d11ccd18394f",
+      "central_intrinsic_projection_controls.lp": "4d844a3f692ad4496df73895455f53f0cf35c9e5eb375d8e2304fa37e545ef4f",
+      "central_migration_regression.lp": "31cbd148872e9a006c1be3d4082addd486208508d03a8ad6cd51c3aa2ba9fac4",
+      "central_mixed_action_controls.lp": "a061686c0a53a5e0b0bce8ffc35c9c9ea414d098e68ef71e8029183fd601ef3d",
+      "central_mixed_composition_controls.lp": "e051702cda2b1631d9d854ac53cb58c6e7f666a24ddd8521cb049d5bf7fbd44a",
+      "central_mixed_formation_controls.lp": "b1121ae915b747dad89678a1dbfb1b2f47e30b15594cfcddf9cb1de887f5aa6e",
+      "central_mixed_parameter_controls.lp": "f88d67198446745bfb4e2ab45876303a1de306e3b98bca2c1144b74608372381",
+      "central_mixed_regression.lp": "5e4e794fbaa8a42bd6ad6adcec597bfaabc6d402ba68b2a4321ccd2abae26f6d",
+      "central_monads_controls.lp": "9cf1eb40e4813b0524910414c245218d0813df075cd10dc6122653efcb38ee33",
+      "central_owner_regression.lp": "e8bb2fded42b8197a0f904f6cb88ee3481aba53dad4c9cae07e962eff97a69c9",
+      "central_pair_telescope_controls.lp": "a7a703207ee466eefea118d5d39e1a23fa5e08e6e862c719a815ce371b7edc51",
+      "central_path_core_controls.lp": "30e9d58b1212fddd8abdbc2e2a1f28374e15e0a21b697d6a1b9cebe86c833ac7",
+      "central_path_induction_controls.lp": "dfe5423cea3087389828e10cf3d8c73910a1b6347f1fbeb08553cba774f24330",
+      "central_pathout_motive_controls.lp": "11c85251379f3eea1918db3f95a7cb949e2bd22809ff8bfb57c5fb71fa898f50",
+      "central_presheaf_locality_controls.lp": "9a9ce46c817bd9f511ebff901535706a88c0577cd1bce7901b893fc423551945",
+      "central_product_prof_controls.lp": "f927321d9cf80803cde3edb6e7c548d390c7ad76acae1239ee41d0914d78adf6",
+      "central_profile_closure_controls.lp": "8cf2ddd1f30272cd34f9eea982ab8ad0aaa1f0e578b8c5011310e74754aec04c",
+      "central_projection_regression.lp": "fcef0ada4ca7acf12f83e7fd13f92b4045bbd6372e964403745c4ead56cfc486",
+      "central_public_homd_general_controls.lp": "ec31507d8906681c86b6da014d2eb23490da74b52fba6e4224dc4730afcf031c",
+      "central_reindex_controls.lp": "437b4a688386657d14a11379c580c26dacd8c1c388b57b219d1c4f16ae1e97d9",
+      "central_sections_controls.lp": "67b4e825e29a0a9b39e57c529e5da0a919eb9ffca03e9725458833cf845810e3",
+      "central_structural_controls.lp": "c2b538e2cf21771de64c8367f7079c5393b092c77ac1d676d8d2b84b72df722a",
+      "central_structural_tail_controls.lp": "875836a0492cc24e047039ee6b7cf2ef319d622bc4faa83d31301bece3347432",
+      "central_walking_end_controls.lp": "1eaa5dbabbfe64282c0b5fa1fff207f48a7213d269b2e0b549f6468d5a173bd7",
+      "emdash3_2.lp": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+      "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+      "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+      "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+      "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+      "emdash3_2_commutative_algebra_affine_atlas.lp": "67fd7f3c3158bbe8c6ba664b588614e46666bce68bf2ddef73434a6837611610",
+      "emdash3_2_commutative_algebra_affine_glue.lp": "0758ef9ac679c9709e90fc4721069a84f57c6a5b7e559cb2d08efd38ad57eb9f",
+      "emdash3_2_commutative_algebra_affine_spec.lp": "421951fa4746af34f0a02fed59a1112ec2de48b9ed1e83720f40c209f038fc98",
+      "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+      "emdash3_2_commutative_algebra_f2.lp": "8d9d8a7c72bb57c13f75262a70204d005c3cd547079054c81c07c3938a8f6d17",
+      "emdash3_2_commutative_algebra_finite.lp": "78916cb4d5c9989a927bb7808afcfc9973e5836a5cb6d09bc87b533f87781d31",
+      "emdash3_2_commutative_algebra_glue.lp": "039bf198f2882a533441a1eb1a5633c5511098c1a04d6163da136654eac4c1a4",
+      "emdash3_2_commutative_algebra_locality.lp": "421e007d4f9c18cb63ac5f98bb81a0a08c999fc9b7ab25b7486a6282953e3f16",
+      "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+      "emdash3_2_commutative_algebra_localization_comparison.lp": "90f4b9bd4e9677f30122216f743620b7c3640f53bb3074f08bbf00139f8b3f9d",
+      "emdash3_2_commutative_algebra_localization_idempotent.lp": "014685d5d0455028fefc37dd9f38bf693892ff2e382e9a4b389f5406ac2d0042",
+      "emdash3_2_commutative_algebra_localization_overlap.lp": "4b2bd200c7d4f9339dfcb55e3198b35f5e01a098f08df66e294f806a383c6f79",
+      "emdash3_2_commutative_algebra_localization_split.lp": "e6ca13911d5a7b5a691d6076ff1371f8a844e39d90d8aa9d20263ae91d0f125a",
+      "emdash3_2_commutative_algebra_localization_unit.lp": "a6bc8f0c689d1febdd46c3b0b5c3c1e931473c3d010b2382e9ffaf77eca8cceb",
+      "emdash3_2_commutative_algebra_localization_zero.lp": "0e1e6d70f0ef3a124a48c81ff719ff67d63b571f6c899ca3ab0f09ec0c21c7e5",
+      "emdash3_2_commutative_algebra_matching.lp": "472900e6ce024d135fedfd9de0adbea9bd430f951729f6020accc6b4fad2506d",
+      "emdash3_2_commutative_algebra_polynomial.lp": "cb435b4c4dd779139f3cc1cc4b009ae8b6030eee6456400e91345120dfe74881",
+      "emdash3_2_commutative_algebra_presheaves.lp": "f9d08d65da33ba9d87ad7a82d4b8041183e4d6fac1d6b4b35557614dcb2953f8",
+      "emdash3_2_commutative_algebra_product.lp": "be58bdc7c97a4a54a9678f56accc56afc37354c73e98e48a4d16852d8c0961d1",
+      "emdash3_2_commutative_algebra_zariski.lp": "5a0237e4e44b97daa29b814abecadaef703eb23f3d81cb3765d37c28495cf3c1",
+      "emdash3_2_commutative_algebra_zariski_topology.lp": "d7e92b61294d3a446eaaac4d8676adf4deadfc92ef8da48e3011b29ac29386ae",
+      "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+      "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+      "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+      "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+      "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+      "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+      "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+      "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+      "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+      "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+      "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+      "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+      "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+      "emdash3_2_eq1_hom_action.lp": "04095eaa46dced80f127f49d5f6fdf422a118a06bd9c99cb35d9bcbf6c61f58c",
+      "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+      "emdash3_2_finite_families.lp": "3caba54f7c8ff954abfce4c02c180769064b642d56d85c034c95f0ddfebd7bcb",
+      "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+      "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+      "emdash3_2_gray_profiles.lp": "78aa7609c4f37e91452bd4d5cba51527a29d98ca32b69bbb8f267c640cca5cfd",
+      "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+      "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+      "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+      "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+      "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+      "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+      "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+      "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+      "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+      "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+      "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+      "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+      "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+      "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+      "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+      "emdash3_2_one_cat_functor_profiles.lp": "a741efd9e92067f1babffdd5cbf44aac6e71c198fc6b8be832dda78d2e7c0e40",
+      "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+      "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+      "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+      "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+      "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+      "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+      "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+      "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+      "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+      "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+      "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+      "emdash3_2_strict_functor_actions.lp": "1d1cfc2f6dd2d7e535e7391e81bf6e25d1d6425adf0f12b0e97467f199135f9a",
+      "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+      "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+      "emdash3_2_terminal_category_profile.lp": "cd3b2c437c8b3ae45925d5e7dbb57e7e95210197f508818110de95ad6c9c7a4f",
+      "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+      "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+      "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+      "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+      "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+      "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+      "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+      "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+      "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+      "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+      "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+      "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "terminal_homd_comparison_controls.lp": "3c334cabcbc0350711e0ac4b9cc9aedfcfeef0410894214b283c4df6f947bf9a"
+    },
+    "logSha256": "2bbc8233a504365b7ffc3eed14c3adfd6dc8a46fe62edff3a4a4d0b583d6c4fe",
+    "receipt": "logs/check-runs/20261020T142344Z-66ba70286b504ffbb1264d071d9c09cc.json",
+    "receiptSha256": "e242ffb77c21e8ed9c3390b0f4394532764001060da6c8c9f75b428b1103a2c2",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 2177,
+      "negative": 289
+    }
+  },
+  "freshCoreHomd": {
+    "target": "join_recursion_controls.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 32.94775378401391,
+    "childrenMaxRssKiB": 1678996,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 4096,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "join_recursion_controls.lp": "e15d808e2fbc0aafd715aa3795a35ce5b6b531049ce3f9c04cb7fc572ccd8c20",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "logSha256": "bec12de56be751adb3b23fa5b68ce2ebc4c0c40920a996e14adbfc403ebce6aa",
+    "receipt": "logs/check-runs/20261020T141606Z-73eff6901717407aaaa8d625b29b3ac3.json",
+    "receiptSha256": "5dcc1d89be48564922a2610a4cc1556d91b175c61c24a5aa661da7a43c7727ca",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 287,
+      "negative": 85
+    }
+  },
+  "freshConsumers": {
+    "target": "strict_wrapper_consumers_controls.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 83.95742720505223,
+    "childrenMaxRssKiB": 4736356,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 6144,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "emdash3_2.lp": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+      "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+      "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+      "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+      "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+      "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+      "emdash3_2_commutative_algebra_presheaves.lp": "f9d08d65da33ba9d87ad7a82d4b8041183e4d6fac1d6b4b35557614dcb2953f8",
+      "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+      "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+      "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+      "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+      "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+      "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+      "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+      "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+      "emdash3_2_eq1_hom_action.lp": "04095eaa46dced80f127f49d5f6fdf422a118a06bd9c99cb35d9bcbf6c61f58c",
+      "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+      "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+      "emdash3_2_gray_profiles.lp": "78aa7609c4f37e91452bd4d5cba51527a29d98ca32b69bbb8f267c640cca5cfd",
+      "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+      "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+      "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+      "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+      "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+      "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+      "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+      "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+      "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+      "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+      "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+      "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+      "emdash3_2_one_cat_functor_profiles.lp": "a741efd9e92067f1babffdd5cbf44aac6e71c198fc6b8be832dda78d2e7c0e40",
+      "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+      "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+      "emdash3_2_one_cat_op.lp": "96e582872c5c00315d2d9668c32f75f483db852421efece79c188b08caec91de",
+      "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+      "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+      "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+      "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+      "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+      "emdash3_2_represented_comma_families.lp": "9c9b18ead5d894635b068e6ea397f7c305cf3e31d1804a8e181818ed189e5305",
+      "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+      "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+      "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+      "emdash3_2_strict_functor_actions.lp": "1d1cfc2f6dd2d7e535e7391e81bf6e25d1d6425adf0f12b0e97467f199135f9a",
+      "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+      "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+      "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+      "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+      "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+      "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+      "emdash3_2_zero_arrow_cones.lp": "80950d73775beba104c4d6dd40103b2b865e68edd3a3628c7895801d440d1233",
+      "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+      "examples/action_profile_walking_named_overlap_controls.lp": "b9a49431004dce259f1821d5a2186416f78634c423ab7f9081ce679eed5b8fae",
+      "examples/gray_profiles.lp": "3f6e112122f0132ac4b6248a6580bdf806e34d63b1a4f3e6d14060fc7749495d",
+      "examples/groupoidal_structured_j_eq1.lp": "a037ba67f0b8a0495043a3e6b98d7b87b535844b937a4b6fa11afb83f14648b6",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "strict_wrapper_consumers_controls.lp": "6e1b79b031cd482694d87cba99225e0f1c2acb5ae4d6547d1b548239713e190a"
+    },
+    "logSha256": "66ee803b78891e056b34e11eedabc3f3eab4d0c7447a56fd6d962c0fe54026d6",
+    "receipt": "logs/check-runs/20261020T141655Z-6bacde85ec6248b8a41ad2bc19e32f64.json",
+    "receiptSha256": "c9457cfc92c7e8c02338fb713af994563b4e43b08268bb7e0085c0f7b66db8e1",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 93,
+      "negative": 15
+    }
+  },
+  "freshLibrary": {
+    "target": "foundations_library_regression.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 121.46687165508047,
+    "childrenMaxRssKiB": 4469696,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 6144,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "direct_cover_sheafification_controls.lp": "4560b581f56e214000ad8f4e5a367807c806e64f9876e4288dd92c704805d1b4",
+      "emdash3_2.lp": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+      "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+      "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+      "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+      "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+      "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+      "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+      "emdash3_2_commutative_algebra_presheaves.lp": "f9d08d65da33ba9d87ad7a82d4b8041183e4d6fac1d6b4b35557614dcb2953f8",
+      "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+      "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+      "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+      "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+      "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+      "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+      "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+      "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+      "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+      "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+      "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+      "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+      "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+      "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+      "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+      "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+      "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+      "emdash3_2_eq1_hom_action.lp": "04095eaa46dced80f127f49d5f6fdf422a118a06bd9c99cb35d9bcbf6c61f58c",
+      "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+      "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+      "emdash3_2_gray_profiles.lp": "78aa7609c4f37e91452bd4d5cba51527a29d98ca32b69bbb8f267c640cca5cfd",
+      "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+      "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+      "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+      "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+      "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+      "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+      "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+      "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+      "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+      "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+      "emdash3_2_one_cat_arrow_diagrams.lp": "dec0ef9784afcafec39fcbd36b7381fd1f4ab590fd47976db2d8a687b604e7fc",
+      "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+      "emdash3_2_one_cat_functor_profiles.lp": "a741efd9e92067f1babffdd5cbf44aac6e71c198fc6b8be832dda78d2e7c0e40",
+      "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+      "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+      "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+      "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+      "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+      "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+      "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+      "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+      "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+      "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+      "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+      "emdash3_2_strict_functor_actions.lp": "1d1cfc2f6dd2d7e535e7391e81bf6e25d1d6425adf0f12b0e97467f199135f9a",
+      "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+      "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+      "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+      "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+      "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+      "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+      "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+      "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+      "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+      "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+      "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+      "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+      "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+      "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+      "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+      "examples/action_profile_eckmann_hilton_one_hom.lp": "ffa7f67d53252189a6952309b804e442424d9348190a56b354957539d6a2a315",
+      "examples/cartesian_categories.lp": "4a663023dce2cd2f0d4daf989feeaecb352ba10a6543f47c6601e14ebda92f4f",
+      "examples/generic_groupoidification.lp": "048edf9867fc7d7eb478545f0354d31077c8ee7e0b280d4e85b5d44592475f29",
+      "examples/generic_groupoidification_interval.lp": "bbb593930000f4792396e8565b196995c275718c52a16320ba58d1a83d394d43",
+      "examples/monads_comonads.lp": "47fc5c74f2896f0cb7c22b05b1793553cc514790145a69dc409d035f6851125a",
+      "examples/one_cat_arrow_diagrams.lp": "ece4846aa2151733339d86ecf49fc835f8013e4e6de70290f2f7a375d62a4fe8",
+      "examples/pullbacks.lp": "5f9bfb2e0a271ab2ac7ce2f24504864eb70456c9d028ce5baf794f9c5c4db314",
+      "examples/slice_dependent_products.lp": "3bb2825db500cf477f29421d1ed6e0d408ba8443529207576e38d9e00d693121",
+      "examples/triangular_binary_products.lp": "b7f6aa4ea1cd85139a988554575ab1b64768e09d4c63d6d448a431a9c8c515f8",
+      "examples/triangular_binary_products_finite_limits.lp": "9a4b41b7bf67b8f7a3a01f15940e4c81202933620a551c31d69afa19dc7cb504",
+      "examples/walking_circle_completion.lp": "7a22d6893998b2b849c893ec5ddb7787f3120ffd46bbaa5e0d31cc07ac60e472",
+      "examples/walking_circle_groupoidification_restriction.lp": "9540aa064e1039d8c1860e3cef4dfc856f20d3bde2f9088505d86a26ff70f2c9",
+      "examples/walking_interval_groupoidification.lp": "6cda56d060c23d579ed2485f1adce024aeb036930d64e8f467d0ad1c4168fa1e",
+      "foundations_library_regression.lp": "a408e9050caf1f6b0228b87824bc6d6b384af655faef76643485c092a578c554",
+      "groupoidification_migration_controls.lp": "a4db02a4355b2984ccfa32a304f8d5489087b77ec96723f62eb01ebee318b169",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "monads_migration_controls.lp": "c275aaca36c5f2fd3d3e8b2f82e3c934fc21ecfc1887e1653e5cbcdaf8c74eb7",
+      "product_pullback_migration_controls.lp": "cbbab46ef6e016e9fbced8e1df1c7b376e0daa4a064db1e977a1762b219e697a",
+      "profiled_interchange_migration_controls.lp": "57e319c28a76f293d36824ba73073e31f3d3357dc2ce37cc374fe80f62994f39",
+      "walking_circle_migration_controls.lp": "2dbc85785dc5ef4f0714b73bfc6144a8f3e51c2ad5daaa5e836353713cd1a58e"
+    },
+    "logSha256": "bb40e90faa79d96cb40ecde5705de8fcd1643799a5803f91529a1a262496f2cc",
+    "receipt": "logs/check-runs/20261020T142646Z-b9043edf69fe46d68e61e5ee344faab5.json",
+    "receiptSha256": "2534e53f952e2229fcc2574a347bbd3a4e3e0f45ebe31d5a24d20ed9f396df67",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 178,
+      "negative": 27
+    }
+  },
+  "qualifiedAccumulationControls": {
+    "target": "default_hom_accumulation_candidate.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 31.01494740997441,
+    "childrenMaxRssKiB": 1592656,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 4096,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "default_hom_accumulation_candidate.lp": "df40f0fb04e4369a48bb30039bab624fc944307693c4e9925fe844a93d72dab9",
+      "emdash3_2.lp": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "logSha256": "55702d0c5e4b60d7ecb706e791de5dfc0100f22d683180a2b245ba3d7f9065ee",
+    "receipt": "logs/check-runs/20261020T141314Z-208a2faf5a714969a737922cabd1b2ef.json",
+    "receiptSha256": "28af0755a853458aabf0bc763e3d3b534dc17b2072b4bf72b0260b2a9155aa82",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 6,
+      "negative": 0
+    }
+  },
+  "attempts": [
+    {
+      "reason": "The consumer closure allocation-failed at 4GiB during ring-library imports after its three examples completed; a reviewed 6GiB retry passed.",
+      "evidence": {
+        "target": "strict_wrapper_consumers_candidate.lp",
+        "outcome": "allocation-failed",
+        "wallSeconds": 62.849330947967246,
+        "childrenMaxRssKiB": 3915644,
+        "settings": {
+          "camlrunparam": "",
+          "fileMiB": 64,
+          "flags": [
+            "--record-time",
+            "--too-long=0.5",
+            "--no-colors"
+          ],
+          "memoryMiB": 4096,
+          "ocamlrunparam": "o=20,v=1024",
+          "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+          "profile": "default",
+          "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+          "resourceBackend": "auto",
+          "runtimeEnvironment": {
+            "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+            "LD_LIBRARY_PATH": "",
+            "LD_PRELOAD": ""
+          },
+          "timeoutMs": 180000
+        },
+        "checker": {
+          "path": "/home/user1/.opam/default/bin/lambdapi",
+          "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+          "version": "3.0.0-90-gdb4f780"
+        },
+        "inputs": {
+          "emdash3_2.lp": "c21197227a62609c643ef2382a7e3112e68f0aa6684e7f30137deb9121d4d5ea",
+          "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+          "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+          "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+          "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+          "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+          "emdash3_2_commutative_algebra_presheaves.lp": "f9d08d65da33ba9d87ad7a82d4b8041183e4d6fac1d6b4b35557614dcb2953f8",
+          "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+          "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+          "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+          "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+          "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+          "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+          "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+          "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+          "emdash3_2_eq1_hom_action.lp": "04095eaa46dced80f127f49d5f6fdf422a118a06bd9c99cb35d9bcbf6c61f58c",
+          "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+          "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+          "emdash3_2_gray_profiles.lp": "78aa7609c4f37e91452bd4d5cba51527a29d98ca32b69bbb8f267c640cca5cfd",
+          "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+          "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+          "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+          "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+          "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+          "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+          "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+          "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+          "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+          "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+          "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+          "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+          "emdash3_2_one_cat_functor_profiles.lp": "a741efd9e92067f1babffdd5cbf44aac6e71c198fc6b8be832dda78d2e7c0e40",
+          "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+          "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+          "emdash3_2_one_cat_op.lp": "96e582872c5c00315d2d9668c32f75f483db852421efece79c188b08caec91de",
+          "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+          "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+          "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+          "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+          "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+          "emdash3_2_represented_comma_families.lp": "9c9b18ead5d894635b068e6ea397f7c305cf3e31d1804a8e181818ed189e5305",
+          "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+          "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+          "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+          "emdash3_2_strict_functor_actions.lp": "1e76bbbc3d8432d2b75e9586269b0da8f9b83247cd07d4c83ecffd6019eaad23",
+          "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+          "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+          "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+          "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+          "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+          "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+          "emdash3_2_zero_arrow_cones.lp": "80950d73775beba104c4d6dd40103b2b865e68edd3a3628c7895801d440d1233",
+          "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+          "examples/action_profile_walking_named_overlap_controls.lp": "b9a49431004dce259f1821d5a2186416f78634c423ab7f9081ce679eed5b8fae",
+          "examples/gray_profiles.lp": "3f6e112122f0132ac4b6248a6580bdf806e34d63b1a4f3e6d14060fc7749495d",
+          "examples/groupoidal_structured_j_eq1.lp": "a037ba67f0b8a0495043a3e6b98d7b87b535844b937a4b6fa11afb83f14648b6",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+          "strict_wrapper_consumers_candidate.lp": "6e1b79b031cd482694d87cba99225e0f1c2acb5ae4d6547d1b548239713e190a"
+        },
+        "logSha256": "09d928d6b2a7b81d889611df002dc70508387b320ceb526af41a61e40a995805",
+        "receipt": "logs/check-runs/20261020T132529Z-9f42675398704842a65f1aaa6e8b7b74.json",
+        "receiptSha256": "d6e5604c2bd96f1a6c134d5b9c5bd7e3c89ef633aa6826257ef294bcf34cc84c",
+        "immutableInputsVerified": true,
+        "currentInputsVerified": false
+      }
+    },
+    {
+      "reason": "Removing the wrapper-only rules exposed required represented Hom accumulation that had not yet been restored for default functors. The old positive was preserved and the computations moved to the native owners.",
+      "evidence": {
+        "target": "central_migration_regression.lp",
+        "outcome": "failed",
+        "wallSeconds": 91.2309468688909,
+        "childrenMaxRssKiB": 2015764,
+        "settings": {
+          "camlrunparam": "",
+          "fileMiB": 64,
+          "flags": [
+            "--record-time",
+            "--too-long=0.5",
+            "--no-colors"
+          ],
+          "memoryMiB": 7168,
+          "ocamlrunparam": "o=20,v=1024",
+          "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+          "profile": "default",
+          "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+          "resourceBackend": "auto",
+          "runtimeEnvironment": {
+            "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+            "LD_LIBRARY_PATH": "",
+            "LD_PRELOAD": ""
+          },
+          "timeoutMs": 300000
+        },
+        "checker": {
+          "path": "/home/user1/.opam/default/bin/lambdapi",
+          "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+          "version": "3.0.0-90-gdb4f780"
+        },
+        "inputs": {
+          "central_algebra_controls.lp": "96c91164b1003bda7b2e301cd284b52485660d95e5e4d57dd97d261095a6b99e",
+          "central_closed_sigma_controls.lp": "a7d4af073061699b51318b514c6cbcfb61c1b38629ed7a6d531635d15482a4df",
+          "central_comma_action_controls.lp": "d18791121a991117cab075651962cdd2e42ae1f84093262616bc5812fd957f50",
+          "central_curry_controls.lp": "144f2e72bd196eff63cee1d2714e7e778f6e0881369b458bacaaf2eed0c5b410",
+          "central_curry_family_regression.lp": "b1021fbf084650795033704d705e196b3abda30d21ba38c5560699a25524259a",
+          "central_displayed_chain_controls.lp": "ac37e214f2bd3b0ff5aa99faee07ca0a68d5bcd70b1eb8c1e93cf29459391092",
+          "central_displayed_evaluation_controls.lp": "469074851e939b5a6934d1c6b432f2cdc3022055085db9bb58fdecaedc0d5f3b",
+          "central_displayed_products_controls.lp": "a6f93aa617a473717be7707a48dc20e1e7581db3cb2a42cb541312be5ec57cd6",
+          "central_displayed_regression.lp": "b6a7be4403e8bce0e2edbd56130202b5596dbded7697edcf88511e8b0bdfd47d",
+          "central_displayed_transport_controls.lp": "1287cb123f79650e2b6ff4a37d27eec28f08f81bfd84bb2f893afc58f0a76866",
+          "central_early_controls.lp": "05fcb82f450a333a1f5f2165c53992a608236d8d44ac5f3209cf1f852f29fa61",
+          "central_evaluation_adjunction_controls.lp": "af6ceea6b3b64883b657d69e3f692831ccaff0af24bf9a4e4d34fcd16a68fb95",
+          "central_family_controls.lp": "48ab1858f3a1c1498189e985300d02709f67acb9fc5a8b6ba1a65d54e9c965d4",
+          "central_hom_action_controls.lp": "58e623adfd7bd4cfcf9ae7d784be23802fe931694a01e90f1ff6a2132e4c1ddd",
+          "central_homcatd_controls.lp": "39edf3dc9d4359691f9dab36a797d7eddee4e6072a8f3f9062f34694423762a5",
+          "central_homd_classifier_controls.lp": "7e31e2991ea8acc6036398a30bec71ed28ad5148b6cd6cb8fdeb4a186768ef03",
+          "central_homd_leaf_prof_controls.lp": "c475d5f6ede128eb8ec4cabc8f83e86e9f9436b6ee30bfb279df12e0e446abc8",
+          "central_internal_action_controls.lp": "0f4287bd29edf654e325db252ac2f71ff421af39d5d2f64ee008b7cb0d9cd706",
+          "central_intrinsic_projection_controls.lp": "4d844a3f692ad4496df73895455f53f0cf35c9e5eb375d8e2304fa37e545ef4f",
+          "central_migration_regression.lp": "31cbd148872e9a006c1be3d4082addd486208508d03a8ad6cd51c3aa2ba9fac4",
+          "central_mixed_action_controls.lp": "a061686c0a53a5e0b0bce8ffc35c9c9ea414d098e68ef71e8029183fd601ef3d",
+          "central_mixed_composition_controls.lp": "e051702cda2b1631d9d854ac53cb58c6e7f666a24ddd8521cb049d5bf7fbd44a",
+          "central_mixed_formation_controls.lp": "b1121ae915b747dad89678a1dbfb1b2f47e30b15594cfcddf9cb1de887f5aa6e",
+          "central_mixed_parameter_controls.lp": "f88d67198446745bfb4e2ab45876303a1de306e3b98bca2c1144b74608372381",
+          "central_mixed_regression.lp": "5e4e794fbaa8a42bd6ad6adcec597bfaabc6d402ba68b2a4321ccd2abae26f6d",
+          "central_monads_controls.lp": "9cf1eb40e4813b0524910414c245218d0813df075cd10dc6122653efcb38ee33",
+          "central_owner_regression.lp": "e8bb2fded42b8197a0f904f6cb88ee3481aba53dad4c9cae07e962eff97a69c9",
+          "central_pair_telescope_controls.lp": "a7a703207ee466eefea118d5d39e1a23fa5e08e6e862c719a815ce371b7edc51",
+          "central_path_core_controls.lp": "30e9d58b1212fddd8abdbc2e2a1f28374e15e0a21b697d6a1b9cebe86c833ac7",
+          "central_path_induction_controls.lp": "dfe5423cea3087389828e10cf3d8c73910a1b6347f1fbeb08553cba774f24330",
+          "central_pathout_motive_controls.lp": "11c85251379f3eea1918db3f95a7cb949e2bd22809ff8bfb57c5fb71fa898f50",
+          "central_presheaf_locality_controls.lp": "9a9ce46c817bd9f511ebff901535706a88c0577cd1bce7901b893fc423551945",
+          "central_product_prof_controls.lp": "f927321d9cf80803cde3edb6e7c548d390c7ad76acae1239ee41d0914d78adf6",
+          "central_profile_closure_controls.lp": "8cf2ddd1f30272cd34f9eea982ab8ad0aaa1f0e578b8c5011310e74754aec04c",
+          "central_projection_regression.lp": "fcef0ada4ca7acf12f83e7fd13f92b4045bbd6372e964403745c4ead56cfc486",
+          "central_public_homd_general_controls.lp": "ec31507d8906681c86b6da014d2eb23490da74b52fba6e4224dc4730afcf031c",
+          "central_reindex_controls.lp": "437b4a688386657d14a11379c580c26dacd8c1c388b57b219d1c4f16ae1e97d9",
+          "central_sections_controls.lp": "67b4e825e29a0a9b39e57c529e5da0a919eb9ffca03e9725458833cf845810e3",
+          "central_structural_controls.lp": "c2b538e2cf21771de64c8367f7079c5393b092c77ac1d676d8d2b84b72df722a",
+          "central_structural_tail_controls.lp": "875836a0492cc24e047039ee6b7cf2ef319d622bc4faa83d31301bece3347432",
+          "central_walking_end_controls.lp": "1eaa5dbabbfe64282c0b5fa1fff207f48a7213d269b2e0b549f6468d5a173bd7",
+          "emdash3_2.lp": "c21197227a62609c643ef2382a7e3112e68f0aa6684e7f30137deb9121d4d5ea",
+          "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+          "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+          "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+          "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+          "emdash3_2_commutative_algebra_affine_atlas.lp": "67fd7f3c3158bbe8c6ba664b588614e46666bce68bf2ddef73434a6837611610",
+          "emdash3_2_commutative_algebra_affine_glue.lp": "0758ef9ac679c9709e90fc4721069a84f57c6a5b7e559cb2d08efd38ad57eb9f",
+          "emdash3_2_commutative_algebra_affine_spec.lp": "421951fa4746af34f0a02fed59a1112ec2de48b9ed1e83720f40c209f038fc98",
+          "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+          "emdash3_2_commutative_algebra_f2.lp": "8d9d8a7c72bb57c13f75262a70204d005c3cd547079054c81c07c3938a8f6d17",
+          "emdash3_2_commutative_algebra_finite.lp": "78916cb4d5c9989a927bb7808afcfc9973e5836a5cb6d09bc87b533f87781d31",
+          "emdash3_2_commutative_algebra_glue.lp": "039bf198f2882a533441a1eb1a5633c5511098c1a04d6163da136654eac4c1a4",
+          "emdash3_2_commutative_algebra_locality.lp": "421e007d4f9c18cb63ac5f98bb81a0a08c999fc9b7ab25b7486a6282953e3f16",
+          "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+          "emdash3_2_commutative_algebra_localization_comparison.lp": "90f4b9bd4e9677f30122216f743620b7c3640f53bb3074f08bbf00139f8b3f9d",
+          "emdash3_2_commutative_algebra_localization_idempotent.lp": "014685d5d0455028fefc37dd9f38bf693892ff2e382e9a4b389f5406ac2d0042",
+          "emdash3_2_commutative_algebra_localization_overlap.lp": "4b2bd200c7d4f9339dfcb55e3198b35f5e01a098f08df66e294f806a383c6f79",
+          "emdash3_2_commutative_algebra_localization_split.lp": "e6ca13911d5a7b5a691d6076ff1371f8a844e39d90d8aa9d20263ae91d0f125a",
+          "emdash3_2_commutative_algebra_localization_unit.lp": "a6bc8f0c689d1febdd46c3b0b5c3c1e931473c3d010b2382e9ffaf77eca8cceb",
+          "emdash3_2_commutative_algebra_localization_zero.lp": "0e1e6d70f0ef3a124a48c81ff719ff67d63b571f6c899ca3ab0f09ec0c21c7e5",
+          "emdash3_2_commutative_algebra_matching.lp": "472900e6ce024d135fedfd9de0adbea9bd430f951729f6020accc6b4fad2506d",
+          "emdash3_2_commutative_algebra_polynomial.lp": "cb435b4c4dd779139f3cc1cc4b009ae8b6030eee6456400e91345120dfe74881",
+          "emdash3_2_commutative_algebra_presheaves.lp": "f9d08d65da33ba9d87ad7a82d4b8041183e4d6fac1d6b4b35557614dcb2953f8",
+          "emdash3_2_commutative_algebra_product.lp": "be58bdc7c97a4a54a9678f56accc56afc37354c73e98e48a4d16852d8c0961d1",
+          "emdash3_2_commutative_algebra_zariski.lp": "5a0237e4e44b97daa29b814abecadaef703eb23f3d81cb3765d37c28495cf3c1",
+          "emdash3_2_commutative_algebra_zariski_topology.lp": "d7e92b61294d3a446eaaac4d8676adf4deadfc92ef8da48e3011b29ac29386ae",
+          "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+          "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+          "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+          "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+          "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+          "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+          "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+          "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+          "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+          "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+          "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+          "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+          "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+          "emdash3_2_eq1_hom_action.lp": "04095eaa46dced80f127f49d5f6fdf422a118a06bd9c99cb35d9bcbf6c61f58c",
+          "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+          "emdash3_2_finite_families.lp": "3caba54f7c8ff954abfce4c02c180769064b642d56d85c034c95f0ddfebd7bcb",
+          "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+          "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+          "emdash3_2_gray_profiles.lp": "78aa7609c4f37e91452bd4d5cba51527a29d98ca32b69bbb8f267c640cca5cfd",
+          "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+          "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+          "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+          "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+          "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+          "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+          "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+          "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+          "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+          "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+          "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+          "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+          "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+          "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+          "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+          "emdash3_2_one_cat_functor_profiles.lp": "a741efd9e92067f1babffdd5cbf44aac6e71c198fc6b8be832dda78d2e7c0e40",
+          "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+          "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+          "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+          "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+          "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+          "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+          "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+          "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+          "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+          "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+          "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+          "emdash3_2_strict_functor_actions.lp": "1e76bbbc3d8432d2b75e9586269b0da8f9b83247cd07d4c83ecffd6019eaad23",
+          "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+          "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+          "emdash3_2_terminal_category_profile.lp": "cd3b2c437c8b3ae45925d5e7dbb57e7e95210197f508818110de95ad6c9c7a4f",
+          "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+          "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+          "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+          "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+          "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+          "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+          "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+          "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+          "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+          "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+          "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+          "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+          "terminal_homd_comparison_controls.lp": "3c334cabcbc0350711e0ac4b9cc9aedfcfeef0410894214b283c4df6f947bf9a"
+        },
+        "logSha256": "1b3991b7a0ddc37b52f17ad0cd106778f3915fb99914d6294f7462f20e44b140",
+        "receipt": "logs/check-runs/20261020T134426Z-10d4e18382cd4f1b87ebc236403d3a86.json",
+        "receiptSha256": "bc6957f4e07dc2cbf5a558c917e630a55e3de86d4e39cebc5d0208e29e79525b",
+        "immutableInputsVerified": true,
+        "currentInputsVerified": false
+      }
+    },
+    {
+      "reason": "The restored mapped-arrow computations made two old stable-cut negatives compute. They became positives; the distinct displayed-component boundaries remain.",
+      "evidence": {
+        "target": "central_migration_regression.lp",
+        "outcome": "failed",
+        "wallSeconds": 46.11573664890602,
+        "childrenMaxRssKiB": 2225092,
+        "settings": {
+          "camlrunparam": "",
+          "fileMiB": 64,
+          "flags": [
+            "--record-time",
+            "--too-long=0.5",
+            "--no-colors"
+          ],
+          "memoryMiB": 7168,
+          "ocamlrunparam": "o=20,v=1024",
+          "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+          "profile": "default",
+          "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+          "resourceBackend": "auto",
+          "runtimeEnvironment": {
+            "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+            "LD_LIBRARY_PATH": "",
+            "LD_PRELOAD": ""
+          },
+          "timeoutMs": 300000
+        },
+        "checker": {
+          "path": "/home/user1/.opam/default/bin/lambdapi",
+          "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+          "version": "3.0.0-90-gdb4f780"
+        },
+        "inputs": {
+          "central_algebra_controls.lp": "96c91164b1003bda7b2e301cd284b52485660d95e5e4d57dd97d261095a6b99e",
+          "central_closed_sigma_controls.lp": "a7d4af073061699b51318b514c6cbcfb61c1b38629ed7a6d531635d15482a4df",
+          "central_comma_action_controls.lp": "d18791121a991117cab075651962cdd2e42ae1f84093262616bc5812fd957f50",
+          "central_curry_controls.lp": "144f2e72bd196eff63cee1d2714e7e778f6e0881369b458bacaaf2eed0c5b410",
+          "central_curry_family_regression.lp": "b1021fbf084650795033704d705e196b3abda30d21ba38c5560699a25524259a",
+          "central_displayed_chain_controls.lp": "ac37e214f2bd3b0ff5aa99faee07ca0a68d5bcd70b1eb8c1e93cf29459391092",
+          "central_displayed_evaluation_controls.lp": "469074851e939b5a6934d1c6b432f2cdc3022055085db9bb58fdecaedc0d5f3b",
+          "central_displayed_products_controls.lp": "a6f93aa617a473717be7707a48dc20e1e7581db3cb2a42cb541312be5ec57cd6",
+          "central_displayed_regression.lp": "b6a7be4403e8bce0e2edbd56130202b5596dbded7697edcf88511e8b0bdfd47d",
+          "central_displayed_transport_controls.lp": "1287cb123f79650e2b6ff4a37d27eec28f08f81bfd84bb2f893afc58f0a76866",
+          "central_early_controls.lp": "05fcb82f450a333a1f5f2165c53992a608236d8d44ac5f3209cf1f852f29fa61",
+          "central_evaluation_adjunction_controls.lp": "af6ceea6b3b64883b657d69e3f692831ccaff0af24bf9a4e4d34fcd16a68fb95",
+          "central_family_controls.lp": "48ab1858f3a1c1498189e985300d02709f67acb9fc5a8b6ba1a65d54e9c965d4",
+          "central_hom_action_controls.lp": "752c4dd7a60fa16dbf87f11423bcc42df3b68dd8586622e33810a3881e7a8b97",
+          "central_homcatd_controls.lp": "39edf3dc9d4359691f9dab36a797d7eddee4e6072a8f3f9062f34694423762a5",
+          "central_homd_classifier_controls.lp": "7e31e2991ea8acc6036398a30bec71ed28ad5148b6cd6cb8fdeb4a186768ef03",
+          "central_homd_leaf_prof_controls.lp": "c475d5f6ede128eb8ec4cabc8f83e86e9f9436b6ee30bfb279df12e0e446abc8",
+          "central_internal_action_controls.lp": "0f4287bd29edf654e325db252ac2f71ff421af39d5d2f64ee008b7cb0d9cd706",
+          "central_intrinsic_projection_controls.lp": "4d844a3f692ad4496df73895455f53f0cf35c9e5eb375d8e2304fa37e545ef4f",
+          "central_migration_regression.lp": "31cbd148872e9a006c1be3d4082addd486208508d03a8ad6cd51c3aa2ba9fac4",
+          "central_mixed_action_controls.lp": "a061686c0a53a5e0b0bce8ffc35c9c9ea414d098e68ef71e8029183fd601ef3d",
+          "central_mixed_composition_controls.lp": "e051702cda2b1631d9d854ac53cb58c6e7f666a24ddd8521cb049d5bf7fbd44a",
+          "central_mixed_formation_controls.lp": "b1121ae915b747dad89678a1dbfb1b2f47e30b15594cfcddf9cb1de887f5aa6e",
+          "central_mixed_parameter_controls.lp": "f88d67198446745bfb4e2ab45876303a1de306e3b98bca2c1144b74608372381",
+          "central_mixed_regression.lp": "5e4e794fbaa8a42bd6ad6adcec597bfaabc6d402ba68b2a4321ccd2abae26f6d",
+          "central_monads_controls.lp": "9cf1eb40e4813b0524910414c245218d0813df075cd10dc6122653efcb38ee33",
+          "central_owner_regression.lp": "e8bb2fded42b8197a0f904f6cb88ee3481aba53dad4c9cae07e962eff97a69c9",
+          "central_pair_telescope_controls.lp": "a7a703207ee466eefea118d5d39e1a23fa5e08e6e862c719a815ce371b7edc51",
+          "central_path_core_controls.lp": "30e9d58b1212fddd8abdbc2e2a1f28374e15e0a21b697d6a1b9cebe86c833ac7",
+          "central_path_induction_controls.lp": "dfe5423cea3087389828e10cf3d8c73910a1b6347f1fbeb08553cba774f24330",
+          "central_pathout_motive_controls.lp": "11c85251379f3eea1918db3f95a7cb949e2bd22809ff8bfb57c5fb71fa898f50",
+          "central_presheaf_locality_controls.lp": "9a9ce46c817bd9f511ebff901535706a88c0577cd1bce7901b893fc423551945",
+          "central_product_prof_controls.lp": "f927321d9cf80803cde3edb6e7c548d390c7ad76acae1239ee41d0914d78adf6",
+          "central_profile_closure_controls.lp": "8cf2ddd1f30272cd34f9eea982ab8ad0aaa1f0e578b8c5011310e74754aec04c",
+          "central_projection_regression.lp": "fcef0ada4ca7acf12f83e7fd13f92b4045bbd6372e964403745c4ead56cfc486",
+          "central_public_homd_general_controls.lp": "ec31507d8906681c86b6da014d2eb23490da74b52fba6e4224dc4730afcf031c",
+          "central_reindex_controls.lp": "437b4a688386657d14a11379c580c26dacd8c1c388b57b219d1c4f16ae1e97d9",
+          "central_sections_controls.lp": "67b4e825e29a0a9b39e57c529e5da0a919eb9ffca03e9725458833cf845810e3",
+          "central_structural_controls.lp": "c2b538e2cf21771de64c8367f7079c5393b092c77ac1d676d8d2b84b72df722a",
+          "central_structural_tail_controls.lp": "875836a0492cc24e047039ee6b7cf2ef319d622bc4faa83d31301bece3347432",
+          "central_walking_end_controls.lp": "1eaa5dbabbfe64282c0b5fa1fff207f48a7213d269b2e0b549f6468d5a173bd7",
+          "emdash3_2.lp": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+          "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+          "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+          "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+          "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+          "emdash3_2_commutative_algebra_affine_atlas.lp": "67fd7f3c3158bbe8c6ba664b588614e46666bce68bf2ddef73434a6837611610",
+          "emdash3_2_commutative_algebra_affine_glue.lp": "0758ef9ac679c9709e90fc4721069a84f57c6a5b7e559cb2d08efd38ad57eb9f",
+          "emdash3_2_commutative_algebra_affine_spec.lp": "421951fa4746af34f0a02fed59a1112ec2de48b9ed1e83720f40c209f038fc98",
+          "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+          "emdash3_2_commutative_algebra_f2.lp": "8d9d8a7c72bb57c13f75262a70204d005c3cd547079054c81c07c3938a8f6d17",
+          "emdash3_2_commutative_algebra_finite.lp": "78916cb4d5c9989a927bb7808afcfc9973e5836a5cb6d09bc87b533f87781d31",
+          "emdash3_2_commutative_algebra_glue.lp": "039bf198f2882a533441a1eb1a5633c5511098c1a04d6163da136654eac4c1a4",
+          "emdash3_2_commutative_algebra_locality.lp": "421e007d4f9c18cb63ac5f98bb81a0a08c999fc9b7ab25b7486a6282953e3f16",
+          "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+          "emdash3_2_commutative_algebra_localization_comparison.lp": "90f4b9bd4e9677f30122216f743620b7c3640f53bb3074f08bbf00139f8b3f9d",
+          "emdash3_2_commutative_algebra_localization_idempotent.lp": "014685d5d0455028fefc37dd9f38bf693892ff2e382e9a4b389f5406ac2d0042",
+          "emdash3_2_commutative_algebra_localization_overlap.lp": "4b2bd200c7d4f9339dfcb55e3198b35f5e01a098f08df66e294f806a383c6f79",
+          "emdash3_2_commutative_algebra_localization_split.lp": "e6ca13911d5a7b5a691d6076ff1371f8a844e39d90d8aa9d20263ae91d0f125a",
+          "emdash3_2_commutative_algebra_localization_unit.lp": "a6bc8f0c689d1febdd46c3b0b5c3c1e931473c3d010b2382e9ffaf77eca8cceb",
+          "emdash3_2_commutative_algebra_localization_zero.lp": "0e1e6d70f0ef3a124a48c81ff719ff67d63b571f6c899ca3ab0f09ec0c21c7e5",
+          "emdash3_2_commutative_algebra_matching.lp": "472900e6ce024d135fedfd9de0adbea9bd430f951729f6020accc6b4fad2506d",
+          "emdash3_2_commutative_algebra_polynomial.lp": "cb435b4c4dd779139f3cc1cc4b009ae8b6030eee6456400e91345120dfe74881",
+          "emdash3_2_commutative_algebra_presheaves.lp": "f9d08d65da33ba9d87ad7a82d4b8041183e4d6fac1d6b4b35557614dcb2953f8",
+          "emdash3_2_commutative_algebra_product.lp": "be58bdc7c97a4a54a9678f56accc56afc37354c73e98e48a4d16852d8c0961d1",
+          "emdash3_2_commutative_algebra_zariski.lp": "5a0237e4e44b97daa29b814abecadaef703eb23f3d81cb3765d37c28495cf3c1",
+          "emdash3_2_commutative_algebra_zariski_topology.lp": "d7e92b61294d3a446eaaac4d8676adf4deadfc92ef8da48e3011b29ac29386ae",
+          "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+          "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+          "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+          "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+          "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+          "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+          "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+          "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+          "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+          "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+          "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+          "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+          "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+          "emdash3_2_eq1_hom_action.lp": "04095eaa46dced80f127f49d5f6fdf422a118a06bd9c99cb35d9bcbf6c61f58c",
+          "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+          "emdash3_2_finite_families.lp": "3caba54f7c8ff954abfce4c02c180769064b642d56d85c034c95f0ddfebd7bcb",
+          "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+          "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+          "emdash3_2_gray_profiles.lp": "78aa7609c4f37e91452bd4d5cba51527a29d98ca32b69bbb8f267c640cca5cfd",
+          "emdash3_2_gray_right_closure.lp": "04d3aac1e2868d690caf30313d4b5396a8ffcac291fc0567c5731c19802982b3",
+          "emdash3_2_gray_walking_square.lp": "eb9273628944d494e24d544e6a6776432d947f93a4ac7e02d556f34be44d9336",
+          "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+          "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+          "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+          "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+          "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+          "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+          "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+          "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+          "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+          "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+          "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+          "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+          "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+          "emdash3_2_one_cat_functor_profiles.lp": "a741efd9e92067f1babffdd5cbf44aac6e71c198fc6b8be832dda78d2e7c0e40",
+          "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+          "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+          "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+          "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+          "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+          "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+          "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+          "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+          "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+          "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+          "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+          "emdash3_2_strict_functor_actions.lp": "1d1cfc2f6dd2d7e535e7391e81bf6e25d1d6425adf0f12b0e97467f199135f9a",
+          "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+          "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+          "emdash3_2_terminal_category_profile.lp": "cd3b2c437c8b3ae45925d5e7dbb57e7e95210197f508818110de95ad6c9c7a4f",
+          "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+          "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+          "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+          "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+          "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+          "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+          "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+          "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+          "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+          "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+          "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+          "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+          "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+          "terminal_homd_comparison_controls.lp": "3c334cabcbc0350711e0ac4b9cc9aedfcfeef0410894214b283c4df6f947bf9a"
+        },
+        "logSha256": "ebd5e426407f70df4da915cb9555a048f455167e400ac7af9a06b700d3a41995",
+        "receipt": "logs/check-runs/20261020T142025Z-77ba2c187977409aba75778bf3ce86b0.json",
+        "receiptSha256": "bf60baaed6fb6fd4d3ee1a544db0b0433639622582492eb0fffe8cde51d0686f",
+        "immutableInputsVerified": true,
+        "currentInputsVerified": false
+      }
+    }
+  ],
+  "sourceCoverage": {
+    "method": "Existing catalog parser, exact assertion multiset modulo whitespace in the direct diagnostic-driver closure; not original-full-context execution.",
+    "sourceSha256": "5b7f2b6f94035c7998032da0d51a3ca419339a4491517a12e61eb9207b032e9f",
+    "driverFiles": [
+      "central_algebra_controls.lp",
+      "central_closed_sigma_controls.lp",
+      "central_comma_action_controls.lp",
+      "central_curry_controls.lp",
+      "central_curry_family_regression.lp",
+      "central_displayed_chain_controls.lp",
+      "central_displayed_evaluation_controls.lp",
+      "central_displayed_products_controls.lp",
+      "central_displayed_regression.lp",
+      "central_displayed_transport_controls.lp",
+      "central_early_controls.lp",
+      "central_evaluation_adjunction_controls.lp",
+      "central_family_controls.lp",
+      "central_hom_action_controls.lp",
+      "central_homcatd_controls.lp",
+      "central_homd_classifier_controls.lp",
+      "central_homd_leaf_prof_controls.lp",
+      "central_internal_action_controls.lp",
+      "central_intrinsic_projection_controls.lp",
+      "central_migration_regression.lp",
+      "central_mixed_action_controls.lp",
+      "central_mixed_composition_controls.lp",
+      "central_mixed_formation_controls.lp",
+      "central_mixed_parameter_controls.lp",
+      "central_mixed_regression.lp",
+      "central_monads_controls.lp",
+      "central_owner_regression.lp",
+      "central_pair_telescope_controls.lp",
+      "central_path_core_controls.lp",
+      "central_path_induction_controls.lp",
+      "central_pathout_motive_controls.lp",
+      "central_presheaf_locality_controls.lp",
+      "central_product_prof_controls.lp",
+      "central_profile_closure_controls.lp",
+      "central_projection_regression.lp",
+      "central_public_homd_general_controls.lp",
+      "central_reindex_controls.lp",
+      "central_sections_controls.lp",
+      "central_structural_controls.lp",
+      "central_structural_tail_controls.lp",
+      "central_walking_end_controls.lp",
+      "terminal_homd_comparison_controls.lp"
+    ],
+    "sourcePositive": 2159,
+    "sourceNegative": 281,
+    "sourceAssertionCount": 2440,
+    "unmatchedCount": 5,
+    "unmatchedExactlyTerminalObligations": true,
+    "unmatched": [
+      {
+        "index": 1515,
+        "line": 17892,
+        "statement": "assert [K : Cat] (x : τ (Obj K)) ⊢ @homd_src_func K (@Const_catd K Terminal_cat) (@Const_catd K Terminal_cat) (@id_funcd K (@Const_catd K Terminal_cat)) x ≡ @Obj_func (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)) (@homd_src_sec K (@Const_catd K Terminal_cat) (@Const_catd K Terminal_cat) (@id_funcd K (@Const_catd K Terminal_cat)) x Terminal_obj);"
+      },
+      {
+        "index": 1516,
+        "line": 17907,
+        "statement": "assert [K : Cat] (x : τ (Obj K)) ⊢ @Fibre_func K (@Const_catd K Terminal_cat) (@Homd_target_catd K (@Const_catd K Terminal_cat)) (@homd_int K (@Const_catd K Terminal_cat) (@Const_catd K Terminal_cat) (@id_funcd K (@Const_catd K Terminal_cat))) x ≡ @Obj_func (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)) (@homd_src_sec K (@Const_catd K Terminal_cat) (@Const_catd K Terminal_cat) (@id_funcd K (@Const_catd K Terminal_cat)) x Terminal_obj);"
+      },
+      {
+        "index": 1520,
+        "line": 17951,
+        "statement": "assert [K : Cat] (x y : τ (Obj K)) ⊢ @homd_tgt_func K (@Const_catd K Terminal_cat) (@Const_catd K Terminal_cat) (@id_funcd K (@Const_catd K Terminal_cat)) x Terminal_obj y ≡ @Obj_func (Homd_index_cat (Hom_cat K x y)) (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))));"
+      },
+      {
+        "index": 1521,
+        "line": 17962,
+        "statement": "assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E))) (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢ @homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y ≡ @Obj_func (Homd_index_cat (Hom_cat K x y)) (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x u y (@piapp0 K E s y)));"
+      },
+      {
+        "index": 1522,
+        "line": 17977,
+        "statement": "assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E))) (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢ @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat)) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u) ≡ @Obj_func (Homd_index_cat (Hom_cat K x y)) (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x u y (@piapp0 K E s y)));"
+      }
+    ],
+    "originalDeclarationNames": [
+      "Const_funcd_check",
+      "Displayed_chain_A_after_B_check",
+      "Displayed_chain_A_check",
+      "Displayed_chain_A_var_check",
+      "Displayed_chain_B_check",
+      "Displayed_chain_B_var_check",
+      "Displayed_chain_D_check",
+      "Displayed_chain_FF_check",
+      "Displayed_chain_K_check",
+      "Displayed_chain_a0_check",
+      "Displayed_chain_a1_check",
+      "Displayed_chain_alpha_check",
+      "Displayed_chain_b0_check",
+      "Displayed_chain_generic_section_check",
+      "Displayed_chain_k0_check",
+      "Displayed_chain_k1_check",
+      "Displayed_chain_p_check",
+      "Displayed_chain_q_check",
+      "Displayed_eval_fixed_check",
+      "Displayed_eval_higher_check",
+      "Displayed_eval_source_check",
+      "Displayed_eval_subject_check",
+      "Displayed_eval_varying_check",
+      "Product_catd_transparent_check",
+      "Product_diag_funcd_check",
+      "Product_pair_funcd_higher_check",
+      "Product_projL_funcd_higher_check",
+      "Product_projR_funcd_higher_check",
+      "Product_swap_funcd_check",
+      "contextual_pair_pullback_total_check",
+      "direct_mixed_comp_higher_check",
+      "direct_mixed_comp_left_check",
+      "direct_mixed_comp_pair_funcd_check",
+      "direct_mixed_comp_right_check",
+      "direct_mixed_comp_source_check",
+      "direct_mixed_nested_funcd_check",
+      "direct_mixed_post_funcd_check",
+      "direct_mixed_pre2_funcd_check",
+      "direct_mixed_pre_funcd_check",
+      "direct_mixed_product_higher_check",
+      "direct_mixed_product_pair_funcd_check",
+      "direct_mixed_product_pair_left_check",
+      "direct_mixed_product_pair_right_check",
+      "eq_skeleton_comp_path_check",
+      "eq_skeleton_id_path_check",
+      "hom_postcomp_opfunc_general_double_op_check",
+      "hom_postcomp_opfunc_general_double_op_eq_refl_check",
+      "hom_postcomp_opfunc_general_eq_refl_check",
+      "hom_postcomp_opfunc_general_func_eq_refl_check",
+      "hom_postcomp_opfunc_general_func_visible_check",
+      "hom_postcomp_opfunc_general_tele_eq_refl_check",
+      "hom_postcomp_opfunc_general_tele_visible_check",
+      "hom_postcomp_opfunc_general_visible_check",
+      "hom_postcomp_opfunc_projected_fapp0_eq_refl_check",
+      "hom_postcomp_opfunc_projected_func_eq_refl_check",
+      "path_action_iter_exact_spiral_check",
+      "path_action_iter_left_function_check",
+      "path_action_iter_power_check",
+      "path_action_iter_power_func_check",
+      "path_action_iter_power_function_check",
+      "path_action_iter_right_function_check",
+      "path_action_iter_step_path_check",
+      "path_postcomp_comp_check",
+      "path_precomp_comp_check",
+      "sigma_terminal_total_func_check",
+      "unprofiled_catd_valued_functor"
+    ],
+    "declarationsMissingFromDrivers": []
+  },
+  "warningComparison": {
+    "combined": {
+      "previousReceipt": "logs/check-runs/20261020T123850Z-2cf32f82e365402c9cf10f33a6ff3ac8.json",
+      "before": 2086,
+      "after": 2036,
+      "addedBodies": 58,
+      "removedBodies": 108,
+      "addedOwners": {
+        "emdash3_2.lp": 50,
+        "emdash3_2_gray_profiles.lp": 7,
+        "emdash3_2_terminal_objects.lp": 1
+      },
+      "removedOwners": {
+        "emdash3_2.lp": 39,
+        "emdash3_2_gray_profiles.lp": 50,
+        "emdash3_2_strict_functor_actions.lp": 3,
+        "emdash3_2_monads.lp": 2,
+        "emdash3_2_triangular_binary_products.lp": 7,
+        "emdash3_2_terminal_objects.lp": 1,
+        "emdash3_2_pullbacks.lp": 2,
+        "emdash3_2_slice_dependent_products.lp": 2,
+        "emdash3_2_defiso_evaluation_points.lp": 2
+      },
+      "addedGroups": [
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "Op_funcd",
+            "comp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "Op_transf",
+            "comp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "comp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "fapp1_fapp0"
+          ],
+          "count": 5
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "hom_postcomp_fapp0"
+          ],
+          "count": 24
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "strict_transfor"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "hom_postcomp_fapp0",
+            "hom_postcomp_fapp0"
+          ],
+          "count": 10
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "hom_precomp_along_fapp0",
+            "hom_precomp_along_fapp0"
+          ],
+          "count": 3
+        },
+        {
+          "owner": "emdash3_2_gray_profiles.lp",
+          "ruleHeads": [
+            "fapp0",
+            "fapp1_func"
+          ],
+          "count": 1
+        },
+        {
+          "owner": "emdash3_2_gray_profiles.lp",
+          "ruleHeads": [
+            "fapp1_fapp0",
+            "fapp1_fapp0"
+          ],
+          "count": 6
+        },
+        {
+          "owner": "emdash3_2_terminal_objects.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "hom_postcomp_fapp0"
+          ],
+          "count": 1
+        }
+      ],
+      "addedBodyHashes": [
+        {
+          "sha256": "5daf15e79723960b938d2d99edc45f5be2dcc5e04caf0c01afd0cfda3d40e51d",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Op_cat $A) $F' $W' $X $Z (@comp_fapp0 (Op_cat $A) $X $Y $Z $g $f) $g'"
+        },
+        {
+          "sha256": "abfb31bdf7630066ee314a36ecdc7bddd7a734c707a58278e34a218e07c7905c",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (CoAbove2_cat $A) $F' $W' $x $z (@comp_fapp0 (CoAbove2_cat $A) $x $y $z $g $f) $g'"
+        },
+        {
+          "sha256": "9fea3ecccb9e45044da2831f557535216a086ae0289d1f908f0acef591a6f9fd",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (CoAt2_cat $A) $F' $W' $X $Z (@comp_fapp0 (CoAt2_cat $A) $X $Y $Z $g $f) $g'"
+        },
+        {
+          "sha256": "eec75bfe150116abe067fc5408744beeed2f7312a5faf88d199c470080b094bc",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat $A) $F' $W' $1 $3 (@comp_fapp0 (Path_cat $A) $1 $2 $3 (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $3 $3 $g) (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $3 $3 $f)) $g'"
+        },
+        {
+          "sha256": "05defc9f479ec4218eef19ed60ee7aa3481c097f59d8169d29cf7eedcf943866",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Cat_cart $F' $W' $A $C (@comp_fapp0 Cat_cart $A $B $C $G $F) $g'"
+        },
+        {
+          "sha256": "39cc36aead5c5ee794d358a9242a21d76ac220a7c730df6fc95b14221c34fbc3",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' $A $F' $W' $1 $3 (@comp_fapp0 $A $1 $3 $3 $g (id $A $3)) $g'"
+        },
+        {
+          "sha256": "f623c7f92f9a689856f76a91df74de8e58c6fe0c7855a9897abf25cfc65fc139",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat $A) $F' $W' $x $2 (@comp_fapp0 (Path_cat $A) $x $x $2 $p (@eq_refl $A $x)) $g'"
+        },
+        {
+          "sha256": "6cf5a79186e446fa5e2c597a871f602b488ad0ed4e718aa2b26f32540d22c798",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat $A) $F' $W' $1 $y (@comp_fapp0 (Path_cat $A) $1 $y $y (@eq_refl $A $y) $p) $g'"
+        },
+        {
+          "sha256": "70460e2996ce6ac30836ee46cac5ad9badbc1c0b98401dee70a4a436130e5c9a",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat (PathRecord_grpd $A)) $F' $W' $r $2 (@comp_fapp0 (Path_cat (PathRecord_grpd $A)) $r $r $2 $p (@PathRecordPathRefl $A $r)) $g'"
+        },
+        {
+          "sha256": "b97e02d7cd4312760e28f11abafa37a8523570e56f8a994b1dc864af22bb1d84",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat (PathRecord_grpd $A)) $F' $W' $1 $r (@comp_fapp0 (Path_cat (PathRecord_grpd $A)) $1 $r $r (@PathRecordPathRefl $A $r) $p) $g'"
+        },
+        {
+          "sha256": "6e941043a697948a5b8b50c52953b7a9cc1a7f0a552a38161e4b2cc7799a28c7",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Terminal_cat $F' $W' $0 $2 (@comp_fapp0 Terminal_cat $0 $1 $2 $3 $4) $g'"
+        },
+        {
+          "sha256": "f57aecbbb4361e3ad38c0816c4e28680ae0858b59001d326837a88af8ffc8f94",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Cat_cat $F' $W' $A $C (@comp_fapp0 Cat_cat $A $B $C $F (@Const_func $A $B $b)) $g'"
+        },
+        {
+          "sha256": "9868743e36fc97b6e2174188dcdc172bd6a1d4c9530da022d6cd88fce1d5d717",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Cat_cat $F' $W' $A $C (@comp_fapp0 Cat_cat $A $B $C (@Const_func $B $C $c) $G) $g'"
+        },
+        {
+          "sha256": "ba88e2c6b9583aefea0c675720e3f2c5d585d9a95965f45acf55f5c49a95e374",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@fapp1_fapp0 $B' Terminal_cat $F' $Y' $Z' $q') (@hom_postcomp_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g')"
+        },
+        {
+          "sha256": "8b2f0470916de8956e464b1a617b7d58dc484266891dc7d0a7dc0f812a3042d9",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat $A) $' $' $' (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' (@eq_refl $A $')) (@hom_postcomp_fapp0 (Path_cat $A) (Op_cat (Path_cat $A)) (Path_sym_func $A) $' $X' $' $p' $g')"
+        },
+        {
+          "sha256": "c5935f2756604e9bb63b51e7839927b39ed22ad1c07b5f9b977e4dc9290c7fc4",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' (@PathRecordPathRefl $A $')) (@hom_postcomp_fapp0 (Path_cat (PathRecord_grpd $A)) (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_sym_func (PathRecord_grpd $A)) $' $X' $' $p' $g')"
+        },
+        {
+          "sha256": "a61d00ea3e8c1b96681b80cd33c3ea226838c957e6a4284a56631cd31f2056b6",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $' $' (id Cat_cat $') $X $X $Z (@comp_fapp0 $' $X $Y $Z $q $p) (id $' $X)"
+        },
+        {
+          "sha256": "1e9390c26c13da90f08acb4d0670f82c8897ab837e928e93758f3ba454e53f5a",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 $A $V $x $x (@hom_postcomp_fapp0 $A $C (id Cat_cat $C) $x $x $x (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $x $x (@defiso_from $C $x $x $C) (@defiso_from $C $x $x (id Cat_cat $C))) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $x $x (@defiso_to $C $x $x (id Cat_cat $C)) (@defiso_to $C $x $x $C))) $h"
+        },
+        {
+          "sha256": "a1d940dbe5eacfecbfcf28b95078f486985083ab7b983fdf316f7e0b2492fc1a",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 $A $y $y $3 (@hom_postcomp_fapp0 $A $C (id Cat_cat $C) $y $y $y (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $y $y $y (@defiso_to $C $y $y $C) (@defiso_to $C $y $y (id Cat_cat $C))) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $y $y $y (@defiso_from $C $y $y (id Cat_cat $C)) (@defiso_from $C $y $y $C))) $h"
+        },
+        {
+          "sha256": "e43f2eb898f2d0b5bad2288bcd93566137bcfcda84015322a36b255effb69752",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_precomp_along_fapp0 $A $B $F $Z $W' $W $p' (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $p (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g))"
+        },
+        {
+          "sha256": "773c6f5aeb151867416c87ceac6ce2a6515df460bcea9244c3db50ddbd6455a3",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@hom_precomp_along_fapp0 $A' Terminal_cat $F' $Z' $W' $X' $p' $g') (@fapp1_fapp0 $A' Terminal_cat $F' $V' $W' $q')"
+        },
+        {
+          "sha256": "5cbb28e471bdb125bfdec1770dd8c3331cb081d630153aff479318263c49dea9",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat $A) $' $' $' (@hom_precomp_along_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' $X' $p' $g') (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' (@eq_refl $A $'))"
+        },
+        {
+          "sha256": "58307f7fe06cb7ab067d75a70cdbac7c3e3c35c730f1d924eb16a60389dbbaa4",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@hom_precomp_along_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' $X' $p' $g') (@fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' (@PathRecordPathRefl $A $'))"
+        },
+        {
+          "sha256": "ad06e65f957d8ab574923dab329b2905b82a9fb91f378c0465013f120f7f1102",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_precomp_along_fapp0 $A $B $F $Z $B $B $Z (@hom_precomp_along_fapp0 $A $B $F $Z $B $B $Z (id $B $Z))"
+        },
+        {
+          "sha256": "39b20e4a772ed2e4708ceb1a9766b90e2271e5306e4472efa795f99e0e08359a",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat $W Cat_cat $p (@hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat Cat_cat $X Cat_cat (id Cat_cat $6))"
+        },
+        {
+          "sha256": "c8238aa97ef257ef16ef81f4eade478bc688ed1859961f35204062d7784dea24",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W (Product_cat $A Cat_cat) (Product_cat $A Cat_cat) (@comp_fapp0 Cat_cat (Product_cat $A Cat_cat) (Product_cat Cat_cat $A) (Product_cat $A Cat_cat) (@Product_swap_func Cat_cat $A) (@Product_swap_func $A Cat_cat)) $g"
+        },
+        {
+          "sha256": "8ab392d9c22e98e6d2c93ec89e67ea46031148f4c6f158043d993b8d835df3b9",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W (Product_cat $A Cat_cat) $C (@comp_fapp0 Cat_cat (Product_cat $A Cat_cat) (Product_cat Cat_cat $A) $C (@comp_fapp0 Cat_cat (Product_cat Cat_cat $A) (Product_cat $A Cat_cat) $C $H (@Product_swap_func Cat_cat $A)) (@Product_swap_func $A Cat_cat)) $g"
+        },
+        {
+          "sha256": "99429f10fc47a6023c41e581bc7d8d93f5eff9054760ce8a9d317e3458b8253c",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @strict_transfor $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@fapp1_fapp0 $B (Functor_cart_cat $A' $B') $F $Y $Z $q) (@hom_postcomp_fapp0 (Functor_cart_cat $A' $B') $B $F $3 $X $Y $p $g))"
+        },
+        {
+          "sha256": "9eab36b7e95bfb52df12494ccf4e6996d7c71eb17464712cde2400b5f6460635",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @strict_transfor $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@hom_precomp_along_fapp0 $A (Functor_cart_cat $A' $B') $F $3 $W $X $p $g) (@fapp1_fapp0 $A (Functor_cart_cat $A' $B') $F $V $W $q))"
+        },
+        {
+          "sha256": "5b2198ccc5070c0358acfb8d84a5c99f53a99003624f8304cf0ede0ef01d8e54",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @Op_transf $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@fapp1_fapp0 $B (Functor_cart_cat $A' $B') $F $Y $Z $q) (@hom_postcomp_fapp0 (Functor_cart_cat $A' $B') $B $F $3 $X $Y $p $g))"
+        },
+        {
+          "sha256": "432916f8bc98ecb22cf867fd989fd725f67e44f7316aed5ae383e985e5de8917",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @Op_transf $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@hom_precomp_along_fapp0 $A (Functor_cart_cat $A' $B') $F $3 $W $X $p $g) (@fapp1_fapp0 $A (Functor_cart_cat $A' $B') $F $V $W $q))"
+        },
+        {
+          "sha256": "94d852f16e3f8cc23b89ef677768a7dc0e2ddbb42859f1bf8eae8b2a32edf931",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cart $F $W $A $C (@hom_postcomp_fapp0 Cat_cart Cat_cart (id Cat_cat Cat_cart) $A Cat_cart $C $G $A) $g"
+        },
+        {
+          "sha256": "344b3596dc132795c9a8446d765fcc0d422b478f62ca585e7edbffbf354fd2d7",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W (Functor_cart_cat $A Cat_cat) (Functor_cat (Product_cat $A $B) (Product_cat Cat_cat $B)) (@comp_fapp0 Cat_cat (Functor_cart_cat $A Cat_cat) (Functor_cart_cat (Product_cat $A $B) (Product_cat Cat_cat $B)) (Functor_cat (Product_cat $A $B) (Product_cat Cat_cat $B)) (Functor_cart_include (Product_cat $A $B) (Product_cat Cat_cat $B)) (@Product_mapL_cart_func_func $A Cat_cat $B)) $g"
+        },
+        {
+          "sha256": "61ab39791b44ea9621f1686a7875697a18c99bebf8fe84ba93984e88b6f3879e",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $A Cat_cart (@comp_fapp0 Cat_cat $A Cat_cat Cat_cart (Const_catd Cat_cat $C) $F) $g"
+        },
+        {
+          "sha256": "994ad63b2e91468fb2865c86488ff1404322e8b0bc08f518d0612b5ca372a407",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $K $B (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $K Cat_cat $B $F (@Const_func $K Cat_cat $K)) $g"
+        },
+        {
+          "sha256": "1f027f43d7ba3a3238f771b05b717dfc35dfcc1ec3a710590491644596ab2764",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @Op_funcd $K' $1 $3 (@comp_fapp0 (Functor_cart_cat $K' Cat_cart) $1 $2 $3 (@fapp1_fapp0 $B (Functor_cart_cat $K' Cat_cart) $F $Y $Z $q) (@hom_postcomp_fapp0 (Functor_cart_cat $K' Cat_cart) $B $F $3 $X $Y $p $g))"
+        },
+        {
+          "sha256": "173e35de47c415e3aaf9b4d8f24d52576decc0db428ccc5ff7f0b21c45ca113d",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @Op_funcd $K' $1 $3 (@comp_fapp0 (Functor_cart_cat $K' Cat_cart) $1 $2 $3 (@hom_precomp_along_fapp0 $A (Functor_cart_cat $K' Cat_cart) $F $3 $W $X $p $g) (@fapp1_fapp0 $A (Functor_cart_cat $K' Cat_cart) $F $V $W $q))"
+        },
+        {
+          "sha256": "be77cf64cff46f8c5d001fd59afcac374944680184050772098d7d2d6474f63e",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $A (Op_cat (Functor_cat $C (Op_cat Cat_cart))) (@comp_fapp0 Cat_cat $A Cat_cat (Op_cat (Functor_cat $C (Op_cat Cat_cart))) (@Homd_coeff_rep Cat_cat $C $G) $A) $g"
+        },
+        {
+          "sha256": "91dd41ab8c575ea3f050127737e496b9d8aab1b7c1daaea11ad302a112ba868e",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 Homd_coeff_include $A $B $1) (@hom_postcomp_fapp0 $1 $1 Homd_coeff_include $1 $X $A $p $g)"
+        },
+        {
+          "sha256": "edc0bc49c933032a4be6c4db6fdabf775acf0236ab95ff30dc16fdb07fc07822",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $F $W $A $C (@comp_fapp0 Homd_coeff_cat $A Homd_coeff_cat $C $P (@Homd_coeff_rep $A Homd_coeff_cat $A)) $g"
+        },
+        {
+          "sha256": "9416f02a8d55e36ea003062984cef5616233668919ebba517ae9dfd4b2c39cb4",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $A $W $A $A (@comp_fapp0 Homd_coeff_cat $A Homd_coeff_cat $A $P (@comp_fapp0 Cat_cat $A $A Homd_coeff_cat (@Homd_coeff_conjoint Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat)) $P)) $g"
+        },
+        {
+          "sha256": "f2ec09a4cbd8ff9fd57ed9e8b4c397518aacf47350c6fe0ff24607d26874f8c7",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $W $X $Z (@comp_fapp0 Homd_coeff_cat $X $Y $Z $q $p) (@Homd_coeff_rep $W $X $F')"
+        },
+        {
+          "sha256": "bbf0462c460cefdc7cceca30682f0b0160ce2ace65ccdee67a42b43bede2457f",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $W $X $Z (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $X $Y $Z $q $p) (@Homd_coeff_rep $W $X $F')"
+        },
+        {
+          "sha256": "ac871e78c3c76ea62522e05a37ac2691a70f93be887accd33a5964994025dca6",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $F $W $A $C (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $A Homd_coeff_cat $C $P (@Homd_coeff_rep $A Homd_coeff_cat $A)) $g"
+        },
+        {
+          "sha256": "0193f51814a448ccd13e7eb7fa71698ced47a9e087de073f0c57f530808a0bc8",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $' $' $Z (@comp_fapp0 Homd_coeff_cat $' $Y $Z $q $p) (@comp_fapp0 Cat_cat $' $' $' (@Homd_coeff_conjoint $' $' (id Cat_cat $')) $F')"
+        },
+        {
+          "sha256": "91646fa4066804acb8d16a7c812021e93d3b954331ded53307107ead02561d82",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $' $' $Z (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $' $Y $Z $q $p) (@comp_fapp0 Cat_cat $' $' $' (@Homd_coeff_conjoint $' $' (id Cat_cat $')) $F')"
+        },
+        {
+          "sha256": "c604c225dd9de470c7fca1cabb32d32c8be88b69cd5ba5d92617e3c278065669",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $A $W $A $A (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $A Homd_coeff_cat $A $P (@comp_fapp0 Cat_cat $A $A Homd_coeff_cat (@Homd_coeff_conjoint Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat)) $P)) $g"
+        },
+        {
+          "sha256": "8bbf63a97e2cd96201645ad6925158eea06c64fd69b6e2aaf8aeb09ddbd88046",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $X $X $Z (@comp_fapp0 Homd_coeff_cat $X $Y $Z $q $p) (@Homd_coeff_conjoint $X $X (id Cat_cat $X))"
+        },
+        {
+          "sha256": "0bad27b043f8d2e89060a8a16ebfff2ea2e11a8ee2ff8afeb984be83bacf43b4",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $F $W $C $A (@comp_fapp0 Homd_coeff_cat $C Homd_coeff_cat $A (@Homd_coeff_conjoint Homd_coeff_cat $A $F) (@Homd_coeff_conjoint $C Homd_coeff_cat $C)) $g"
+        },
+        {
+          "sha256": "3122bf80058b020a0a229bf5e99d68aa195141769ec3db725b0fc2b006ef780f",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $A Cat_cart (@comp_fapp0 Cat_cat $A Cat_cat Cat_cart (@Pullback_catd Cat_cat $C $E $A) Cat_cart) $g"
+        },
+        {
+          "sha256": "06cc4704082ec051e48a68973316f8759390acf4444edcd54d546b842ed50fa5",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp0 $0 $1 (@fapp1_func $0 $1 (grayhom_lax_include_func $0 $1) (grayhom_lax_include_func $0 $1) (grayhom_lax_include_func $0 $1)) $f"
+        },
+        {
+          "sha256": "ac71393cb3da27263eca4c4338c9b1657de62ad8e1f8f5d2135cab38581e167d",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 $A $B (grayhom_lax_include_func $A' $B') $X $X (id $A $X)"
+        },
+        {
+          "sha256": "b9526418c10c6a899b8e978d8efcfcd825dd8d92bb0a4dbfb1a8cb30e9d7c77a",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (Op_cat $K) $D (grayhom_lax_include_func $A' $B') $x $x (id $K $x)"
+        },
+        {
+          "sha256": "a1ed948e8cab4f7d1885de7418f42c6dbab5d9cbf36e143e1745398c4525612d",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (CoAbove2_cat $K) $D (grayhom_lax_include_func $A' $B') $x $x (id $K $x)"
+        },
+        {
+          "sha256": "159ca1d806d31a82d8654d77758aa68f3bf9553556441649e6fb5d31b09d7d12",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D (grayhom_lax_include_func $A' $B') $x $x (id $K $x)"
+        },
+        {
+          "sha256": "8b0dcc7d2add2e9a61066ab90cff9a0522e5da4699802ee107bc091564e74491",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (CoAt2_cat $K) $D (grayhom_lax_include_func $A' $B') $x $x (id $K $x)"
+        },
+        {
+          "sha256": "2e1e28b352414a2c5cd0233de96659c716d8bca97454dcfb14d985f73eb95813",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (Catd_cat $K) $B (grayhom_lax_include_func $A' $B') $E $E (id (Catd_cat $K) $E)"
+        },
+        {
+          "sha256": "2eeac8dc7e2a81efd2885c60e7be0f36c86c8324a8f8da2d13b2871c4d08a9ee",
+          "count": 1,
+          "owner": "emdash3_2_terminal_objects.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $3 $3 $F $W $3 $3 (@comp_fapp0 $3 $3 $B $3 (@terminal_arrow_fapp0 $3 $3 $3 $B) $B) $g"
+        }
+      ]
+    },
+    "core": {
+      "previousReceipt": "logs/check-runs/20261020T120211Z-cfc5cf4cf7ea417c9cdcd6e81b67dbdb.json",
+      "before": 1572,
+      "after": 1583,
+      "addedBodies": 50,
+      "removedBodies": 39,
+      "addedOwners": {
+        "join_recursion_controls.lp": 50
+      },
+      "removedOwners": {
+        "join_recursion_controls.lp": 39
+      },
+      "addedGroups": [
+        {
+          "owner": "join_recursion_controls.lp",
+          "ruleHeads": [
+            "Op_funcd",
+            "comp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "join_recursion_controls.lp",
+          "ruleHeads": [
+            "Op_transf",
+            "comp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "join_recursion_controls.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "comp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "join_recursion_controls.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "fapp1_fapp0"
+          ],
+          "count": 5
+        },
+        {
+          "owner": "join_recursion_controls.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "hom_postcomp_fapp0"
+          ],
+          "count": 24
+        },
+        {
+          "owner": "join_recursion_controls.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "strict_transfor"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "join_recursion_controls.lp",
+          "ruleHeads": [
+            "hom_postcomp_fapp0",
+            "hom_postcomp_fapp0"
+          ],
+          "count": 10
+        },
+        {
+          "owner": "join_recursion_controls.lp",
+          "ruleHeads": [
+            "hom_precomp_along_fapp0",
+            "hom_precomp_along_fapp0"
+          ],
+          "count": 3
+        }
+      ],
+      "addedBodyHashes": [
+        {
+          "sha256": "5daf15e79723960b938d2d99edc45f5be2dcc5e04caf0c01afd0cfda3d40e51d",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Op_cat $A) $F' $W' $X $Z (@comp_fapp0 (Op_cat $A) $X $Y $Z $g $f) $g'"
+        },
+        {
+          "sha256": "abfb31bdf7630066ee314a36ecdc7bddd7a734c707a58278e34a218e07c7905c",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (CoAbove2_cat $A) $F' $W' $x $z (@comp_fapp0 (CoAbove2_cat $A) $x $y $z $g $f) $g'"
+        },
+        {
+          "sha256": "9fea3ecccb9e45044da2831f557535216a086ae0289d1f908f0acef591a6f9fd",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (CoAt2_cat $A) $F' $W' $X $Z (@comp_fapp0 (CoAt2_cat $A) $X $Y $Z $g $f) $g'"
+        },
+        {
+          "sha256": "eec75bfe150116abe067fc5408744beeed2f7312a5faf88d199c470080b094bc",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat $A) $F' $W' $1 $3 (@comp_fapp0 (Path_cat $A) $1 $2 $3 (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $3 $3 $g) (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $3 $3 $f)) $g'"
+        },
+        {
+          "sha256": "05defc9f479ec4218eef19ed60ee7aa3481c097f59d8169d29cf7eedcf943866",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Cat_cart $F' $W' $A $C (@comp_fapp0 Cat_cart $A $B $C $G $F) $g'"
+        },
+        {
+          "sha256": "39cc36aead5c5ee794d358a9242a21d76ac220a7c730df6fc95b14221c34fbc3",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' $A $F' $W' $1 $3 (@comp_fapp0 $A $1 $3 $3 $g (id $A $3)) $g'"
+        },
+        {
+          "sha256": "f623c7f92f9a689856f76a91df74de8e58c6fe0c7855a9897abf25cfc65fc139",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat $A) $F' $W' $x $2 (@comp_fapp0 (Path_cat $A) $x $x $2 $p (@eq_refl $A $x)) $g'"
+        },
+        {
+          "sha256": "6cf5a79186e446fa5e2c597a871f602b488ad0ed4e718aa2b26f32540d22c798",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat $A) $F' $W' $1 $y (@comp_fapp0 (Path_cat $A) $1 $y $y (@eq_refl $A $y) $p) $g'"
+        },
+        {
+          "sha256": "70460e2996ce6ac30836ee46cac5ad9badbc1c0b98401dee70a4a436130e5c9a",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat (PathRecord_grpd $A)) $F' $W' $r $2 (@comp_fapp0 (Path_cat (PathRecord_grpd $A)) $r $r $2 $p (@PathRecordPathRefl $A $r)) $g'"
+        },
+        {
+          "sha256": "b97e02d7cd4312760e28f11abafa37a8523570e56f8a994b1dc864af22bb1d84",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat (PathRecord_grpd $A)) $F' $W' $1 $r (@comp_fapp0 (Path_cat (PathRecord_grpd $A)) $1 $r $r (@PathRecordPathRefl $A $r) $p) $g'"
+        },
+        {
+          "sha256": "6e941043a697948a5b8b50c52953b7a9cc1a7f0a552a38161e4b2cc7799a28c7",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Terminal_cat $F' $W' $0 $2 (@comp_fapp0 Terminal_cat $0 $1 $2 $3 $4) $g'"
+        },
+        {
+          "sha256": "f57aecbbb4361e3ad38c0816c4e28680ae0858b59001d326837a88af8ffc8f94",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Cat_cat $F' $W' $A $C (@comp_fapp0 Cat_cat $A $B $C $F (@Const_func $A $B $b)) $g'"
+        },
+        {
+          "sha256": "9868743e36fc97b6e2174188dcdc172bd6a1d4c9530da022d6cd88fce1d5d717",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Cat_cat $F' $W' $A $C (@comp_fapp0 Cat_cat $A $B $C (@Const_func $B $C $c) $G) $g'"
+        },
+        {
+          "sha256": "ba88e2c6b9583aefea0c675720e3f2c5d585d9a95965f45acf55f5c49a95e374",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@fapp1_fapp0 $B' Terminal_cat $F' $Y' $Z' $q') (@hom_postcomp_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g')"
+        },
+        {
+          "sha256": "8b2f0470916de8956e464b1a617b7d58dc484266891dc7d0a7dc0f812a3042d9",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat $A) $' $' $' (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' (@eq_refl $A $')) (@hom_postcomp_fapp0 (Path_cat $A) (Op_cat (Path_cat $A)) (Path_sym_func $A) $' $X' $' $p' $g')"
+        },
+        {
+          "sha256": "c5935f2756604e9bb63b51e7839927b39ed22ad1c07b5f9b977e4dc9290c7fc4",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' (@PathRecordPathRefl $A $')) (@hom_postcomp_fapp0 (Path_cat (PathRecord_grpd $A)) (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_sym_func (PathRecord_grpd $A)) $' $X' $' $p' $g')"
+        },
+        {
+          "sha256": "a61d00ea3e8c1b96681b80cd33c3ea226838c957e6a4284a56631cd31f2056b6",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $' $' (id Cat_cat $') $X $X $Z (@comp_fapp0 $' $X $Y $Z $q $p) (id $' $X)"
+        },
+        {
+          "sha256": "1e9390c26c13da90f08acb4d0670f82c8897ab837e928e93758f3ba454e53f5a",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @comp_fapp0 $A $V $x $x (@hom_postcomp_fapp0 $A $C (id Cat_cat $C) $x $x $x (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $x $x (@defiso_from $C $x $x $C) (@defiso_from $C $x $x (id Cat_cat $C))) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $x $x (@defiso_to $C $x $x (id Cat_cat $C)) (@defiso_to $C $x $x $C))) $h"
+        },
+        {
+          "sha256": "a1d940dbe5eacfecbfcf28b95078f486985083ab7b983fdf316f7e0b2492fc1a",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @comp_fapp0 $A $y $y $3 (@hom_postcomp_fapp0 $A $C (id Cat_cat $C) $y $y $y (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $y $y $y (@defiso_to $C $y $y $C) (@defiso_to $C $y $y (id Cat_cat $C))) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $y $y $y (@defiso_from $C $y $y (id Cat_cat $C)) (@defiso_from $C $y $y $C))) $h"
+        },
+        {
+          "sha256": "e43f2eb898f2d0b5bad2288bcd93566137bcfcda84015322a36b255effb69752",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_precomp_along_fapp0 $A $B $F $Z $W' $W $p' (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $p (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g))"
+        },
+        {
+          "sha256": "773c6f5aeb151867416c87ceac6ce2a6515df460bcea9244c3db50ddbd6455a3",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@hom_precomp_along_fapp0 $A' Terminal_cat $F' $Z' $W' $X' $p' $g') (@fapp1_fapp0 $A' Terminal_cat $F' $V' $W' $q')"
+        },
+        {
+          "sha256": "5cbb28e471bdb125bfdec1770dd8c3331cb081d630153aff479318263c49dea9",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat $A) $' $' $' (@hom_precomp_along_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' $X' $p' $g') (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' (@eq_refl $A $'))"
+        },
+        {
+          "sha256": "58307f7fe06cb7ab067d75a70cdbac7c3e3c35c730f1d924eb16a60389dbbaa4",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@hom_precomp_along_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' $X' $p' $g') (@fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' (@PathRecordPathRefl $A $'))"
+        },
+        {
+          "sha256": "ad06e65f957d8ab574923dab329b2905b82a9fb91f378c0465013f120f7f1102",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_precomp_along_fapp0 $A $B $F $Z $B $B $Z (@hom_precomp_along_fapp0 $A $B $F $Z $B $B $Z (id $B $Z))"
+        },
+        {
+          "sha256": "39b20e4a772ed2e4708ceb1a9766b90e2271e5306e4472efa795f99e0e08359a",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat $W Cat_cat $p (@hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat Cat_cat $X Cat_cat (id Cat_cat $6))"
+        },
+        {
+          "sha256": "c8238aa97ef257ef16ef81f4eade478bc688ed1859961f35204062d7784dea24",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W (Product_cat $A Cat_cat) (Product_cat $A Cat_cat) (@comp_fapp0 Cat_cat (Product_cat $A Cat_cat) (Product_cat Cat_cat $A) (Product_cat $A Cat_cat) (@Product_swap_func Cat_cat $A) (@Product_swap_func $A Cat_cat)) $g"
+        },
+        {
+          "sha256": "8ab392d9c22e98e6d2c93ec89e67ea46031148f4c6f158043d993b8d835df3b9",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W (Product_cat $A Cat_cat) $C (@comp_fapp0 Cat_cat (Product_cat $A Cat_cat) (Product_cat Cat_cat $A) $C (@comp_fapp0 Cat_cat (Product_cat Cat_cat $A) (Product_cat $A Cat_cat) $C $H (@Product_swap_func Cat_cat $A)) (@Product_swap_func $A Cat_cat)) $g"
+        },
+        {
+          "sha256": "99429f10fc47a6023c41e581bc7d8d93f5eff9054760ce8a9d317e3458b8253c",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @strict_transfor $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@fapp1_fapp0 $B (Functor_cart_cat $A' $B') $F $Y $Z $q) (@hom_postcomp_fapp0 (Functor_cart_cat $A' $B') $B $F $3 $X $Y $p $g))"
+        },
+        {
+          "sha256": "9eab36b7e95bfb52df12494ccf4e6996d7c71eb17464712cde2400b5f6460635",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @strict_transfor $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@hom_precomp_along_fapp0 $A (Functor_cart_cat $A' $B') $F $3 $W $X $p $g) (@fapp1_fapp0 $A (Functor_cart_cat $A' $B') $F $V $W $q))"
+        },
+        {
+          "sha256": "5b2198ccc5070c0358acfb8d84a5c99f53a99003624f8304cf0ede0ef01d8e54",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @Op_transf $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@fapp1_fapp0 $B (Functor_cart_cat $A' $B') $F $Y $Z $q) (@hom_postcomp_fapp0 (Functor_cart_cat $A' $B') $B $F $3 $X $Y $p $g))"
+        },
+        {
+          "sha256": "432916f8bc98ecb22cf867fd989fd725f67e44f7316aed5ae383e985e5de8917",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @Op_transf $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@hom_precomp_along_fapp0 $A (Functor_cart_cat $A' $B') $F $3 $W $X $p $g) (@fapp1_fapp0 $A (Functor_cart_cat $A' $B') $F $V $W $q))"
+        },
+        {
+          "sha256": "94d852f16e3f8cc23b89ef677768a7dc0e2ddbb42859f1bf8eae8b2a32edf931",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cart $F $W $A $C (@hom_postcomp_fapp0 Cat_cart Cat_cart (id Cat_cat Cat_cart) $A Cat_cart $C $G $A) $g"
+        },
+        {
+          "sha256": "344b3596dc132795c9a8446d765fcc0d422b478f62ca585e7edbffbf354fd2d7",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W (Functor_cart_cat $A Cat_cat) (Functor_cat (Product_cat $A $B) (Product_cat Cat_cat $B)) (@comp_fapp0 Cat_cat (Functor_cart_cat $A Cat_cat) (Functor_cart_cat (Product_cat $A $B) (Product_cat Cat_cat $B)) (Functor_cat (Product_cat $A $B) (Product_cat Cat_cat $B)) (Functor_cart_include (Product_cat $A $B) (Product_cat Cat_cat $B)) (@Product_mapL_cart_func_func $A Cat_cat $B)) $g"
+        },
+        {
+          "sha256": "61ab39791b44ea9621f1686a7875697a18c99bebf8fe84ba93984e88b6f3879e",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $A Cat_cart (@comp_fapp0 Cat_cat $A Cat_cat Cat_cart (Const_catd Cat_cat $C) $F) $g"
+        },
+        {
+          "sha256": "994ad63b2e91468fb2865c86488ff1404322e8b0bc08f518d0612b5ca372a407",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $K $B (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $K Cat_cat $B $F (@Const_func $K Cat_cat $K)) $g"
+        },
+        {
+          "sha256": "1f027f43d7ba3a3238f771b05b717dfc35dfcc1ec3a710590491644596ab2764",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @Op_funcd $K' $1 $3 (@comp_fapp0 (Functor_cart_cat $K' Cat_cart) $1 $2 $3 (@fapp1_fapp0 $B (Functor_cart_cat $K' Cat_cart) $F $Y $Z $q) (@hom_postcomp_fapp0 (Functor_cart_cat $K' Cat_cart) $B $F $3 $X $Y $p $g))"
+        },
+        {
+          "sha256": "173e35de47c415e3aaf9b4d8f24d52576decc0db428ccc5ff7f0b21c45ca113d",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @Op_funcd $K' $1 $3 (@comp_fapp0 (Functor_cart_cat $K' Cat_cart) $1 $2 $3 (@hom_precomp_along_fapp0 $A (Functor_cart_cat $K' Cat_cart) $F $3 $W $X $p $g) (@fapp1_fapp0 $A (Functor_cart_cat $K' Cat_cart) $F $V $W $q))"
+        },
+        {
+          "sha256": "be77cf64cff46f8c5d001fd59afcac374944680184050772098d7d2d6474f63e",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $A (Op_cat (Functor_cat $C (Op_cat Cat_cart))) (@comp_fapp0 Cat_cat $A Cat_cat (Op_cat (Functor_cat $C (Op_cat Cat_cart))) (@Homd_coeff_rep Cat_cat $C $G) $A) $g"
+        },
+        {
+          "sha256": "91dd41ab8c575ea3f050127737e496b9d8aab1b7c1daaea11ad302a112ba868e",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 Homd_coeff_include $A $B $1) (@hom_postcomp_fapp0 $1 $1 Homd_coeff_include $1 $X $A $p $g)"
+        },
+        {
+          "sha256": "edc0bc49c933032a4be6c4db6fdabf775acf0236ab95ff30dc16fdb07fc07822",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $F $W $A $C (@comp_fapp0 Homd_coeff_cat $A Homd_coeff_cat $C $P (@Homd_coeff_rep $A Homd_coeff_cat $A)) $g"
+        },
+        {
+          "sha256": "9416f02a8d55e36ea003062984cef5616233668919ebba517ae9dfd4b2c39cb4",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $A $W $A $A (@comp_fapp0 Homd_coeff_cat $A Homd_coeff_cat $A $P (@comp_fapp0 Cat_cat $A $A Homd_coeff_cat (@Homd_coeff_conjoint Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat)) $P)) $g"
+        },
+        {
+          "sha256": "f2ec09a4cbd8ff9fd57ed9e8b4c397518aacf47350c6fe0ff24607d26874f8c7",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $W $X $Z (@comp_fapp0 Homd_coeff_cat $X $Y $Z $q $p) (@Homd_coeff_rep $W $X $F')"
+        },
+        {
+          "sha256": "bbf0462c460cefdc7cceca30682f0b0160ce2ace65ccdee67a42b43bede2457f",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $W $X $Z (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $X $Y $Z $q $p) (@Homd_coeff_rep $W $X $F')"
+        },
+        {
+          "sha256": "ac871e78c3c76ea62522e05a37ac2691a70f93be887accd33a5964994025dca6",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $F $W $A $C (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $A Homd_coeff_cat $C $P (@Homd_coeff_rep $A Homd_coeff_cat $A)) $g"
+        },
+        {
+          "sha256": "0193f51814a448ccd13e7eb7fa71698ced47a9e087de073f0c57f530808a0bc8",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $' $' $Z (@comp_fapp0 Homd_coeff_cat $' $Y $Z $q $p) (@comp_fapp0 Cat_cat $' $' $' (@Homd_coeff_conjoint $' $' (id Cat_cat $')) $F')"
+        },
+        {
+          "sha256": "91646fa4066804acb8d16a7c812021e93d3b954331ded53307107ead02561d82",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $' $' $Z (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $' $Y $Z $q $p) (@comp_fapp0 Cat_cat $' $' $' (@Homd_coeff_conjoint $' $' (id Cat_cat $')) $F')"
+        },
+        {
+          "sha256": "c604c225dd9de470c7fca1cabb32d32c8be88b69cd5ba5d92617e3c278065669",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $A $W $A $A (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $A Homd_coeff_cat $A $P (@comp_fapp0 Cat_cat $A $A Homd_coeff_cat (@Homd_coeff_conjoint Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat)) $P)) $g"
+        },
+        {
+          "sha256": "8bbf63a97e2cd96201645ad6925158eea06c64fd69b6e2aaf8aeb09ddbd88046",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $X $X $Z (@comp_fapp0 Homd_coeff_cat $X $Y $Z $q $p) (@Homd_coeff_conjoint $X $X (id Cat_cat $X))"
+        },
+        {
+          "sha256": "0bad27b043f8d2e89060a8a16ebfff2ea2e11a8ee2ff8afeb984be83bacf43b4",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $F $W $C $A (@comp_fapp0 Homd_coeff_cat $C Homd_coeff_cat $A (@Homd_coeff_conjoint Homd_coeff_cat $A $F) (@Homd_coeff_conjoint $C Homd_coeff_cat $C)) $g"
+        },
+        {
+          "sha256": "3122bf80058b020a0a229bf5e99d68aa195141769ec3db725b0fc2b006ef780f",
+          "count": 1,
+          "owner": "join_recursion_controls.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $A Cat_cart (@comp_fapp0 Cat_cat $A Cat_cat Cat_cart (@Pullback_catd Cat_cat $C $E $A) Cat_cart) $g"
+        }
+      ]
+    },
+    "library": {
+      "previousReceipt": "logs/check-runs/20261020T120257Z-28a9e618ad4d4e599086d8d872ddb00c.json",
+      "before": 2412,
+      "after": 2358,
+      "addedBodies": 62,
+      "removedBodies": 116,
+      "addedOwners": {
+        "emdash3_2.lp": 50,
+        "emdash3_2_gray_profiles.lp": 7,
+        "emdash3_2_terminal_objects.lp": 1,
+        "emdash3_2_diagram_evaluation.lp": 4
+      },
+      "removedOwners": {
+        "emdash3_2.lp": 39,
+        "emdash3_2_gray_profiles.lp": 50,
+        "emdash3_2_strict_functor_actions.lp": 3,
+        "emdash3_2_monads.lp": 2,
+        "emdash3_2_triangular_binary_products.lp": 7,
+        "emdash3_2_terminal_objects.lp": 1,
+        "emdash3_2_pullbacks.lp": 2,
+        "emdash3_2_slice_dependent_products.lp": 2,
+        "emdash3_2_diagram_evaluation.lp": 10
+      },
+      "addedGroups": [
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "Op_funcd",
+            "comp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "Op_transf",
+            "comp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "comp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "fapp1_fapp0"
+          ],
+          "count": 5
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "hom_postcomp_fapp0"
+          ],
+          "count": 24
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "strict_transfor"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "hom_postcomp_fapp0",
+            "hom_postcomp_fapp0"
+          ],
+          "count": 10
+        },
+        {
+          "owner": "emdash3_2.lp",
+          "ruleHeads": [
+            "hom_precomp_along_fapp0",
+            "hom_precomp_along_fapp0"
+          ],
+          "count": 3
+        },
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "hom_postcomp_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "ruleHeads": [
+            "fapp1_fapp0",
+            "fapp1_fapp0"
+          ],
+          "count": 2
+        },
+        {
+          "owner": "emdash3_2_gray_profiles.lp",
+          "ruleHeads": [
+            "fapp0",
+            "fapp1_func"
+          ],
+          "count": 1
+        },
+        {
+          "owner": "emdash3_2_gray_profiles.lp",
+          "ruleHeads": [
+            "fapp1_fapp0",
+            "fapp1_fapp0"
+          ],
+          "count": 6
+        },
+        {
+          "owner": "emdash3_2_terminal_objects.lp",
+          "ruleHeads": [
+            "comp_fapp0",
+            "hom_postcomp_fapp0"
+          ],
+          "count": 1
+        }
+      ],
+      "addedBodyHashes": [
+        {
+          "sha256": "5daf15e79723960b938d2d99edc45f5be2dcc5e04caf0c01afd0cfda3d40e51d",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Op_cat $A) $F' $W' $X $Z (@comp_fapp0 (Op_cat $A) $X $Y $Z $g $f) $g'"
+        },
+        {
+          "sha256": "abfb31bdf7630066ee314a36ecdc7bddd7a734c707a58278e34a218e07c7905c",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (CoAbove2_cat $A) $F' $W' $x $z (@comp_fapp0 (CoAbove2_cat $A) $x $y $z $g $f) $g'"
+        },
+        {
+          "sha256": "9fea3ecccb9e45044da2831f557535216a086ae0289d1f908f0acef591a6f9fd",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (CoAt2_cat $A) $F' $W' $X $Z (@comp_fapp0 (CoAt2_cat $A) $X $Y $Z $g $f) $g'"
+        },
+        {
+          "sha256": "eec75bfe150116abe067fc5408744beeed2f7312a5faf88d199c470080b094bc",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat $A) $F' $W' $1 $3 (@comp_fapp0 (Path_cat $A) $1 $2 $3 (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $3 $3 $g) (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $3 $3 $f)) $g'"
+        },
+        {
+          "sha256": "05defc9f479ec4218eef19ed60ee7aa3481c097f59d8169d29cf7eedcf943866",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Cat_cart $F' $W' $A $C (@comp_fapp0 Cat_cart $A $B $C $G $F) $g'"
+        },
+        {
+          "sha256": "39cc36aead5c5ee794d358a9242a21d76ac220a7c730df6fc95b14221c34fbc3",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' $A $F' $W' $1 $3 (@comp_fapp0 $A $1 $3 $3 $g (id $A $3)) $g'"
+        },
+        {
+          "sha256": "f623c7f92f9a689856f76a91df74de8e58c6fe0c7855a9897abf25cfc65fc139",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat $A) $F' $W' $x $2 (@comp_fapp0 (Path_cat $A) $x $x $2 $p (@eq_refl $A $x)) $g'"
+        },
+        {
+          "sha256": "6cf5a79186e446fa5e2c597a871f602b488ad0ed4e718aa2b26f32540d22c798",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat $A) $F' $W' $1 $y (@comp_fapp0 (Path_cat $A) $1 $y $y (@eq_refl $A $y) $p) $g'"
+        },
+        {
+          "sha256": "70460e2996ce6ac30836ee46cac5ad9badbc1c0b98401dee70a4a436130e5c9a",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat (PathRecord_grpd $A)) $F' $W' $r $2 (@comp_fapp0 (Path_cat (PathRecord_grpd $A)) $r $r $2 $p (@PathRecordPathRefl $A $r)) $g'"
+        },
+        {
+          "sha256": "b97e02d7cd4312760e28f11abafa37a8523570e56f8a994b1dc864af22bb1d84",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' (Path_cat (PathRecord_grpd $A)) $F' $W' $1 $r (@comp_fapp0 (Path_cat (PathRecord_grpd $A)) $1 $r $r (@PathRecordPathRefl $A $r) $p) $g'"
+        },
+        {
+          "sha256": "6e941043a697948a5b8b50c52953b7a9cc1a7f0a552a38161e4b2cc7799a28c7",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Terminal_cat $F' $W' $0 $2 (@comp_fapp0 Terminal_cat $0 $1 $2 $3 $4) $g'"
+        },
+        {
+          "sha256": "f57aecbbb4361e3ad38c0816c4e28680ae0858b59001d326837a88af8ffc8f94",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Cat_cat $F' $W' $A $C (@comp_fapp0 Cat_cat $A $B $C $F (@Const_func $A $B $b)) $g'"
+        },
+        {
+          "sha256": "9868743e36fc97b6e2174188dcdc172bd6a1d4c9530da022d6cd88fce1d5d717",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A' Cat_cat $F' $W' $A $C (@comp_fapp0 Cat_cat $A $B $C (@Const_func $B $C $c) $G) $g'"
+        },
+        {
+          "sha256": "ba88e2c6b9583aefea0c675720e3f2c5d585d9a95965f45acf55f5c49a95e374",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@fapp1_fapp0 $B' Terminal_cat $F' $Y' $Z' $q') (@hom_postcomp_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g')"
+        },
+        {
+          "sha256": "8b2f0470916de8956e464b1a617b7d58dc484266891dc7d0a7dc0f812a3042d9",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat $A) $' $' $' (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' (@eq_refl $A $')) (@hom_postcomp_fapp0 (Path_cat $A) (Op_cat (Path_cat $A)) (Path_sym_func $A) $' $X' $' $p' $g')"
+        },
+        {
+          "sha256": "c5935f2756604e9bb63b51e7839927b39ed22ad1c07b5f9b977e4dc9290c7fc4",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' (@PathRecordPathRefl $A $')) (@hom_postcomp_fapp0 (Path_cat (PathRecord_grpd $A)) (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_sym_func (PathRecord_grpd $A)) $' $X' $' $p' $g')"
+        },
+        {
+          "sha256": "a61d00ea3e8c1b96681b80cd33c3ea226838c957e6a4284a56631cd31f2056b6",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $' $' (id Cat_cat $') $X $X $Z (@comp_fapp0 $' $X $Y $Z $q $p) (id $' $X)"
+        },
+        {
+          "sha256": "1e9390c26c13da90f08acb4d0670f82c8897ab837e928e93758f3ba454e53f5a",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 $A $V $x $x (@hom_postcomp_fapp0 $A $C (id Cat_cat $C) $x $x $x (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $x $x (@defiso_from $C $x $x $C) (@defiso_from $C $x $x (id Cat_cat $C))) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $x $x (@defiso_to $C $x $x (id Cat_cat $C)) (@defiso_to $C $x $x $C))) $h"
+        },
+        {
+          "sha256": "a1d940dbe5eacfecbfcf28b95078f486985083ab7b983fdf316f7e0b2492fc1a",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 $A $y $y $3 (@hom_postcomp_fapp0 $A $C (id Cat_cat $C) $y $y $y (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $y $y $y (@defiso_to $C $y $y $C) (@defiso_to $C $y $y (id Cat_cat $C))) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $y $y $y (@defiso_from $C $y $y (id Cat_cat $C)) (@defiso_from $C $y $y $C))) $h"
+        },
+        {
+          "sha256": "e43f2eb898f2d0b5bad2288bcd93566137bcfcda84015322a36b255effb69752",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_precomp_along_fapp0 $A $B $F $Z $W' $W $p' (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $p (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g))"
+        },
+        {
+          "sha256": "773c6f5aeb151867416c87ceac6ce2a6515df460bcea9244c3db50ddbd6455a3",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@hom_precomp_along_fapp0 $A' Terminal_cat $F' $Z' $W' $X' $p' $g') (@fapp1_fapp0 $A' Terminal_cat $F' $V' $W' $q')"
+        },
+        {
+          "sha256": "5cbb28e471bdb125bfdec1770dd8c3331cb081d630153aff479318263c49dea9",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat $A) $' $' $' (@hom_precomp_along_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' $X' $p' $g') (@fapp1_fapp0 (Op_cat (Path_cat $A)) (Path_cat $A) (Path_sym_func $A) $' $' (@eq_refl $A $'))"
+        },
+        {
+          "sha256": "58307f7fe06cb7ab067d75a70cdbac7c3e3c35c730f1d924eb16a60389dbbaa4",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 (Path_cat (PathRecord_grpd $A)) $' $' $' (@hom_precomp_along_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' $X' $p' $g') (@fapp1_fapp0 (Op_cat (Path_cat (PathRecord_grpd $A))) (Path_cat (PathRecord_grpd $A)) (Path_sym_func (PathRecord_grpd $A)) $' $' (@PathRecordPathRefl $A $'))"
+        },
+        {
+          "sha256": "ad06e65f957d8ab574923dab329b2905b82a9fb91f378c0465013f120f7f1102",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_precomp_along_fapp0 $A $B $F $Z $B $B $Z (@hom_precomp_along_fapp0 $A $B $F $Z $B $B $Z (id $B $Z))"
+        },
+        {
+          "sha256": "39b20e4a772ed2e4708ceb1a9766b90e2271e5306e4472efa795f99e0e08359a",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat $W Cat_cat $p (@hom_precomp_along_fapp0 $A Cat_cat Cat_cat Cat_cat Cat_cat $X Cat_cat (id Cat_cat $6))"
+        },
+        {
+          "sha256": "c8238aa97ef257ef16ef81f4eade478bc688ed1859961f35204062d7784dea24",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W (Product_cat $A Cat_cat) (Product_cat $A Cat_cat) (@comp_fapp0 Cat_cat (Product_cat $A Cat_cat) (Product_cat Cat_cat $A) (Product_cat $A Cat_cat) (@Product_swap_func Cat_cat $A) (@Product_swap_func $A Cat_cat)) $g"
+        },
+        {
+          "sha256": "8ab392d9c22e98e6d2c93ec89e67ea46031148f4c6f158043d993b8d835df3b9",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W (Product_cat $A Cat_cat) $C (@comp_fapp0 Cat_cat (Product_cat $A Cat_cat) (Product_cat Cat_cat $A) $C (@comp_fapp0 Cat_cat (Product_cat Cat_cat $A) (Product_cat $A Cat_cat) $C $H (@Product_swap_func Cat_cat $A)) (@Product_swap_func $A Cat_cat)) $g"
+        },
+        {
+          "sha256": "99429f10fc47a6023c41e581bc7d8d93f5eff9054760ce8a9d317e3458b8253c",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @strict_transfor $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@fapp1_fapp0 $B (Functor_cart_cat $A' $B') $F $Y $Z $q) (@hom_postcomp_fapp0 (Functor_cart_cat $A' $B') $B $F $3 $X $Y $p $g))"
+        },
+        {
+          "sha256": "9eab36b7e95bfb52df12494ccf4e6996d7c71eb17464712cde2400b5f6460635",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @strict_transfor $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@hom_precomp_along_fapp0 $A (Functor_cart_cat $A' $B') $F $3 $W $X $p $g) (@fapp1_fapp0 $A (Functor_cart_cat $A' $B') $F $V $W $q))"
+        },
+        {
+          "sha256": "5b2198ccc5070c0358acfb8d84a5c99f53a99003624f8304cf0ede0ef01d8e54",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @Op_transf $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@fapp1_fapp0 $B (Functor_cart_cat $A' $B') $F $Y $Z $q) (@hom_postcomp_fapp0 (Functor_cart_cat $A' $B') $B $F $3 $X $Y $p $g))"
+        },
+        {
+          "sha256": "432916f8bc98ecb22cf867fd989fd725f67e44f7316aed5ae383e985e5de8917",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @Op_transf $A' $B' $1 $3 (@comp_fapp0 (Functor_cart_cat $A' $B') $1 $2 $3 (@hom_precomp_along_fapp0 $A (Functor_cart_cat $A' $B') $F $3 $W $X $p $g) (@fapp1_fapp0 $A (Functor_cart_cat $A' $B') $F $V $W $q))"
+        },
+        {
+          "sha256": "94d852f16e3f8cc23b89ef677768a7dc0e2ddbb42859f1bf8eae8b2a32edf931",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cart $F $W $A $C (@hom_postcomp_fapp0 Cat_cart Cat_cart (id Cat_cat Cat_cart) $A Cat_cart $C $G $A) $g"
+        },
+        {
+          "sha256": "344b3596dc132795c9a8446d765fcc0d422b478f62ca585e7edbffbf354fd2d7",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W (Functor_cart_cat $A Cat_cat) (Functor_cat (Product_cat $A $B) (Product_cat Cat_cat $B)) (@comp_fapp0 Cat_cat (Functor_cart_cat $A Cat_cat) (Functor_cart_cat (Product_cat $A $B) (Product_cat Cat_cat $B)) (Functor_cat (Product_cat $A $B) (Product_cat Cat_cat $B)) (Functor_cart_include (Product_cat $A $B) (Product_cat Cat_cat $B)) (@Product_mapL_cart_func_func $A Cat_cat $B)) $g"
+        },
+        {
+          "sha256": "61ab39791b44ea9621f1686a7875697a18c99bebf8fe84ba93984e88b6f3879e",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $A Cat_cart (@comp_fapp0 Cat_cat $A Cat_cat Cat_cart (Const_catd Cat_cat $C) $F) $g"
+        },
+        {
+          "sha256": "994ad63b2e91468fb2865c86488ff1404322e8b0bc08f518d0612b5ca372a407",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $K $B (@hom_postcomp_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $K Cat_cat $B $F (@Const_func $K Cat_cat $K)) $g"
+        },
+        {
+          "sha256": "1f027f43d7ba3a3238f771b05b717dfc35dfcc1ec3a710590491644596ab2764",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @Op_funcd $K' $1 $3 (@comp_fapp0 (Functor_cart_cat $K' Cat_cart) $1 $2 $3 (@fapp1_fapp0 $B (Functor_cart_cat $K' Cat_cart) $F $Y $Z $q) (@hom_postcomp_fapp0 (Functor_cart_cat $K' Cat_cart) $B $F $3 $X $Y $p $g))"
+        },
+        {
+          "sha256": "173e35de47c415e3aaf9b4d8f24d52576decc0db428ccc5ff7f0b21c45ca113d",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @Op_funcd $K' $1 $3 (@comp_fapp0 (Functor_cart_cat $K' Cat_cart) $1 $2 $3 (@hom_precomp_along_fapp0 $A (Functor_cart_cat $K' Cat_cart) $F $3 $W $X $p $g) (@fapp1_fapp0 $A (Functor_cart_cat $K' Cat_cart) $F $V $W $q))"
+        },
+        {
+          "sha256": "be77cf64cff46f8c5d001fd59afcac374944680184050772098d7d2d6474f63e",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $A (Op_cat (Functor_cat $C (Op_cat Cat_cart))) (@comp_fapp0 Cat_cat $A Cat_cat (Op_cat (Functor_cat $C (Op_cat Cat_cart))) (@Homd_coeff_rep Cat_cat $C $G) $A) $g"
+        },
+        {
+          "sha256": "91dd41ab8c575ea3f050127737e496b9d8aab1b7c1daaea11ad302a112ba868e",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @comp_fapp0 $1 $1 $2 $3 (@fapp1_fapp0 $1 $1 Homd_coeff_include $A $B $1) (@hom_postcomp_fapp0 $1 $1 Homd_coeff_include $1 $X $A $p $g)"
+        },
+        {
+          "sha256": "edc0bc49c933032a4be6c4db6fdabf775acf0236ab95ff30dc16fdb07fc07822",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $F $W $A $C (@comp_fapp0 Homd_coeff_cat $A Homd_coeff_cat $C $P (@Homd_coeff_rep $A Homd_coeff_cat $A)) $g"
+        },
+        {
+          "sha256": "9416f02a8d55e36ea003062984cef5616233668919ebba517ae9dfd4b2c39cb4",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $A $W $A $A (@comp_fapp0 Homd_coeff_cat $A Homd_coeff_cat $A $P (@comp_fapp0 Cat_cat $A $A Homd_coeff_cat (@Homd_coeff_conjoint Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat)) $P)) $g"
+        },
+        {
+          "sha256": "f2ec09a4cbd8ff9fd57ed9e8b4c397518aacf47350c6fe0ff24607d26874f8c7",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $W $X $Z (@comp_fapp0 Homd_coeff_cat $X $Y $Z $q $p) (@Homd_coeff_rep $W $X $F')"
+        },
+        {
+          "sha256": "bbf0462c460cefdc7cceca30682f0b0160ce2ace65ccdee67a42b43bede2457f",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $W $X $Z (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $X $Y $Z $q $p) (@Homd_coeff_rep $W $X $F')"
+        },
+        {
+          "sha256": "ac871e78c3c76ea62522e05a37ac2691a70f93be887accd33a5964994025dca6",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $F $W $A $C (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $A Homd_coeff_cat $C $P (@Homd_coeff_rep $A Homd_coeff_cat $A)) $g"
+        },
+        {
+          "sha256": "0193f51814a448ccd13e7eb7fa71698ced47a9e087de073f0c57f530808a0bc8",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $' $' $Z (@comp_fapp0 Homd_coeff_cat $' $Y $Z $q $p) (@comp_fapp0 Cat_cat $' $' $' (@Homd_coeff_conjoint $' $' (id Cat_cat $')) $F')"
+        },
+        {
+          "sha256": "91646fa4066804acb8d16a7c812021e93d3b954331ded53307107ead02561d82",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $' $' $Z (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $' $Y $Z $q $p) (@comp_fapp0 Cat_cat $' $' $' (@Homd_coeff_conjoint $' $' (id Cat_cat $')) $F')"
+        },
+        {
+          "sha256": "c604c225dd9de470c7fca1cabb32d32c8be88b69cd5ba5d92617e3c278065669",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $A $W $A $A (@hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $A Homd_coeff_cat $A $P (@comp_fapp0 Cat_cat $A $A Homd_coeff_cat (@Homd_coeff_conjoint Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat)) $P)) $g"
+        },
+        {
+          "sha256": "8bbf63a97e2cd96201645ad6925158eea06c64fd69b6e2aaf8aeb09ddbd88046",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (id Cat_cat Homd_coeff_cat) $X $X $Z (@comp_fapp0 Homd_coeff_cat $X $Y $Z $q $p) (@Homd_coeff_conjoint $X $X (id Cat_cat $X))"
+        },
+        {
+          "sha256": "0bad27b043f8d2e89060a8a16ebfff2ea2e11a8ee2ff8afeb984be83bacf43b4",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Homd_coeff_cat $F $W $C $A (@comp_fapp0 Homd_coeff_cat $C Homd_coeff_cat $A (@Homd_coeff_conjoint Homd_coeff_cat $A $F) (@Homd_coeff_conjoint $C Homd_coeff_cat $C)) $g"
+        },
+        {
+          "sha256": "3122bf80058b020a0a229bf5e99d68aa195141769ec3db725b0fc2b006ef780f",
+          "count": 1,
+          "owner": "emdash3_2.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A Cat_cat $F $W $A Cat_cart (@comp_fapp0 Cat_cat $A Cat_cat Cat_cart (@Pullback_catd Cat_cat $C $E $A) Cat_cart) $g"
+        },
+        {
+          "sha256": "06cc4704082ec051e48a68973316f8759390acf4444edcd54d546b842ed50fa5",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp0 $0 $1 (@fapp1_func $0 $1 (grayhom_lax_include_func $0 $1) (grayhom_lax_include_func $0 $1) (grayhom_lax_include_func $0 $1)) $f"
+        },
+        {
+          "sha256": "ac71393cb3da27263eca4c4338c9b1657de62ad8e1f8f5d2135cab38581e167d",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 $A $B (grayhom_lax_include_func $A' $B') $X $X (id $A $X)"
+        },
+        {
+          "sha256": "b9526418c10c6a899b8e978d8efcfcd825dd8d92bb0a4dbfb1a8cb30e9d7c77a",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (Op_cat $K) $D (grayhom_lax_include_func $A' $B') $x $x (id $K $x)"
+        },
+        {
+          "sha256": "a1ed948e8cab4f7d1885de7418f42c6dbab5d9cbf36e143e1745398c4525612d",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (CoAbove2_cat $K) $D (grayhom_lax_include_func $A' $B') $x $x (id $K $x)"
+        },
+        {
+          "sha256": "159ca1d806d31a82d8654d77758aa68f3bf9553556441649e6fb5d31b09d7d12",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D (grayhom_lax_include_func $A' $B') $x $x (id $K $x)"
+        },
+        {
+          "sha256": "8b0dcc7d2add2e9a61066ab90cff9a0522e5da4699802ee107bc091564e74491",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (CoAt2_cat $K) $D (grayhom_lax_include_func $A' $B') $x $x (id $K $x)"
+        },
+        {
+          "sha256": "2e1e28b352414a2c5cd0233de96659c716d8bca97454dcfb14d985f73eb95813",
+          "count": 1,
+          "owner": "emdash3_2_gray_profiles.lp",
+          "peak": "t ≔ @fapp1_fapp0 (Catd_cat $K) $B (grayhom_lax_include_func $A' $B') $E $E (id (Catd_cat $K) $E)"
+        },
+        {
+          "sha256": "2eeac8dc7e2a81efd2885c60e7be0f36c86c8324a8f8da2d13b2871c4d08a9ee",
+          "count": 1,
+          "owner": "emdash3_2_terminal_objects.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $3 $3 $F $W $3 $3 (@comp_fapp0 $3 $3 $B $3 (@terminal_arrow_fapp0 $3 $3 $3 $B) $B) $g"
+        },
+        {
+          "sha256": "48dc718e95735ef62d37b9000489459d2cdfaac3c151cc70f67b34025776bfc9",
+          "count": 1,
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "peak": "t ≔ @fapp1_fapp0 (OddDual_cat $A') $1 (emdash.emdash3_2_gray_profiles.grayhom_lax_include_func $A $B) $T $T (id $A' $T)"
+        },
+        {
+          "sha256": "d62b71c89595378889dffe03ed39a349f598ea5d7a216cb00724a5ca8307a8b9",
+          "count": 1,
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "peak": "t ≔ @fapp1_fapp0 (EvenDual_cat $A') $1 (emdash.emdash3_2_gray_profiles.grayhom_lax_include_func $A $B) $T $T (id $A' $T)"
+        },
+        {
+          "sha256": "1fc2be3e1795326f90a0177e0ee7c343ea04bde8ca1dcb2cceec33a7f02a566d",
+          "count": 1,
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A (OddDual_cat $A) $F $W (OddDual_cat $A) $z (@comp_fapp0 (OddDual_cat $A) (OddDual_cat $A) $y $z (OddDual_cat $A) $z) $g"
+        },
+        {
+          "sha256": "8e2403fecfec4dd9d4bdf07c6f21467b206d015c20c4e0355428e3b4437246ef",
+          "count": 1,
+          "owner": "emdash3_2_diagram_evaluation.lp",
+          "peak": "t ≔ @hom_postcomp_fapp0 $A (EvenDual_cat $A) $F $W (EvenDual_cat $A) $z (@comp_fapp0 (EvenDual_cat $A) (EvenDual_cat $A) $y $z (EvenDual_cat $A) $z) $g"
+        }
+      ]
+    },
+    "classification": "Core additions concern generalized composition/reassociation against duality, identity/constant, mapped-action, strict-view and represented/conjoint-Q projections. Seven added profile bodies concern the retained Gray-Hom inclusion projections/identities; the terminal addition is a composite/terminal-arrow specialization. Typed core, consumer, inverse, library and combined checks pass, but general symbolic joins remain qualified under R07. Warning-count reduction is not a confluence theorem."
+  },
+  "resourceReview": {
+    "profiles": "Core/accumulation 180s/4GiB; consumer/library 180s/6GiB; combined 300s/7GiB; o=20,v=1024, installed checker, SR, warnings and serial/file/no-swap safeguards.",
+    "availableBeforeConsumer6GiBKiB": 17112180,
+    "availableBeforeCombinedKiB": 13911564,
+    "defaultsUnchanged": true,
+    "qualification": "The 4GiB consumer failure and successful higher-profile runs are recorded. Samples do not establish general performance qualification; R12 stays open."
+  },
+  "preservation": {
+    "originalNameFilesReviewed": 153,
+    "beforeInventorySha256": "6e2c8ff52a5aa34df84a224c0cd5a8e05ed8c927c2d7a5d02ba4dfaa0d151a34",
+    "changedOriginalNameFiles": [
+      "emdash3_2.lp",
+      "emdash3_2_checks.lp",
+      "emdash3_2_commutative_algebra_presheaves.lp",
+      "emdash3_2_eq1_hom_action.lp",
+      "emdash3_2_gray_profiles.lp",
+      "emdash3_2_one_cat_functor_profiles.lp",
+      "emdash3_2_strict_functor_actions.lp"
+    ],
+    "coreBeforeSha256": "c21197227a62609c643ef2382a7e3112e68f0aa6684e7f30137deb9121d4d5ea",
+    "coreAfterSha256": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+    "centralBeforeSha256": "071dae80f5e2139eacb501fff2aed859db73dadc73e673323fd747c5c24847c7",
+    "centralAfterSha256": "5b7f2b6f94035c7998032da0d51a3ca419339a4491517a12e61eb9207b032e9f",
+    "originalCentralAssertionTotal": 2440,
+    "originalCentralDeclarationTotal": 66,
+    "fiveTerminalRuntimeObligations": "retained outside the selected aggregate; no completion claimed",
+    "productionPromotion": false
+  },
+  "validationBoundary": [
+    "No opaque strict-functor wrapper is needed to use the public default; compatibility aliases are still retained and must receive final disposition.",
+    "The two former mapped stable-cut negatives in R04 now pass as positives. Its three different displayed-component pre/right boundaries are unchanged.",
+    "All assertion counts use the existing catalog parser, excluding comments; source coverage still accounts for every original migrated assertion except the five explicit terminal exclusions.",
+    "The original all-import context, remaining registered consumers, terminal runtime forms, normalization/resource review and production/source-pin gates remain required."
+  ],
+  "next": "Finish migrating remaining legacy helper/compatibility spellings and their consumers, then continue the explicit terminal/normalization and full production qualification gates; keep the separate application goal paused."
+}

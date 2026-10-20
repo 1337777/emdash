@@ -1804,6 +1804,21 @@ unif_rule @sigma_map_func $K _ _
     insert('// Cartesian whiskering uses the same Hom owners in the selected coefficient.',
            fragment('production_mapped_hom_square_views.lpfragment'),
            'Use the existing rigid two-endpoint Hom action as the common endpoint of canonical represented precomposition, including a mapped target arrow')
+    a = body.index('/* API-04P: the following generic-F folds')
+    b = body.index('// Proof-time associative reading after the composite has split', a)
+    replace_once(body[a:b], fragment('production_default_post_accumulation.lpfragment') + '\n',
+                 'Default represented postcomposition accumulation',
+                 'Migrate the required strict-view computation to all default functors, retaining nested point cuts for existing inverse cancellation rather than introducing a split/fold loop')
+    a = body.index('// Identity-family nested postcomposition reassociates under the stable owner.')
+    b = body.index('// Postcomposition commutes with precomposition', a)
+    replace_once(body[a:b], fragment('production_default_post_reassociation.lpfragment') + '\n',
+                 'Default represented base-composite reassociation',
+                 'Keep the same inverse-visible nested cuts when a composite base arrow has already projected to its identity-family postcomposition owner')
+    a = body.index('// Ordinary precomposition along the named identity functor stays strict.')
+    b = body.index('// Precomposing the identity at F[X]', a)
+    replace_once(body[a:b], fragment('production_default_pre_accumulation.lpfragment') + '\n',
+                 'Default represented precomposition accumulation',
+                 'Move the corresponding whole, capped and mapped-arrow strict-view computations to the existing contravariant owner for default functors')
     # Preserve the complete original tail. A separately emitted prefix
     # qualifies only its preceding source; full-core qualification requires
     # the complete target and its actual consumers.
@@ -6706,6 +6721,178 @@ assert [A B : Cat] [F G : τ (Functor A B)]
         'excluded': ['Auxiliary Sigma fibre-composition audit owner',
                      'Unrestricted Cartesian evaluation on lax transformations',
                      'Optional normalization redesign'],
+    }
+    # R11: retire the second functor object grammar after the original owner
+    # migration. Keep transformation/displayed-map profiles separate.
+    def wrapper_output(path, text, reason):
+        target = package / path
+        previous = target.read_text()
+        if previous == text:
+            return
+        target.write_text(text)
+        changes.append({'source': path, 'owner': 'strict-functor wrapper retirement',
+                        'reason': reason, 'oldBodySha256': sha(previous),
+                        'newBodySha256': sha(text)})
+        manifest['outputs'][str(target.relative_to(root))] = sha(text)
+
+    gray = (package / 'emdash3_2_gray_profiles.lp').read_text()
+    first = gray.index('// Opaque full-image classifier of ambient carriers admitting strictness.')
+    last = gray.index('// -----------------------------------------------------------------------------------------------\n// Whole strict-transfor property and stable ambient view', first)
+    retired_functor_rules = re.findall(r'(?m)^(?:rule|unif_rule)\b[\s\S]*?;', gray[first:last])
+    assert len(retired_functor_rules) == 22
+    gray = gray[:first] + fragment('production_strict_functor_aliases.lpfragment') + '\n' + gray[last:]
+    first = gray.index('/*')
+    last = gray.index('*/', first) + 2
+    gray = gray[:first] + '''/*
+  Emdash v3.2: strict default functors and explicit transformation profiles.
+
+  The former StrictFunctor object/view operations are transparent compatibility
+  aliases of the public default. Their redundant guarded rules are retired.
+  IsStrictFunctor still describes the existing extracted compositor, and the
+  canonical proof is derived for default maps. Consumers will migrate off the
+  legacy spellings before final retirement.
+
+  StrictFunctor_cat has the same full Hom profile as Functor_cat. GrayHom_lax
+  remains distinct: its Homs retain the existing LaxTransfor packages and their
+  ambient higher cells. StrictTransfor and StrictFunctord remain meaningful
+  refinements of the default conventional-lax transformations/displayed maps.
+*/''' + gray[last:]
+    wrapper_output('emdash3_2_gray_profiles.lp', gray,
+                   'Use transparent ordinary functor/category/view aliases, derive identity strictness, and remove 22 obsolete object-profile rules; preserve actual transfor profiles')
+    actions = (package / 'emdash3_2_strict_functor_actions.lp').read_text()
+    retired_constructor_views = []
+    def retire_constructor_view(match):
+        if re.match(r'^rule @strict_functor\b', match[0]):
+            retired_constructor_views.append(match[0])
+            return '// The public-default alias computes through the constructor definition.'
+        return match[0]
+    actions = re.sub(r'(?m)^(?:rule|unif_rule)\b[\s\S]*?;', retire_constructor_view, actions)
+    assert len(retired_constructor_views) == 2
+    actions = actions.replace('''  A classified strict functor maps equality-valued equivalences without a
+  detached composition-law record. The component comparison below is a
+  theorem of the stable `strict_functor` head. Both cancellation proofs and
+  selected inverses remain computational. This legacy classified API now
+  coexists with strict default functors; its wrappers await consumer migration
+  and retirement. No strictness of arbitrary transformations is added.''', '''  Default strict functors map equality-valued equivalences without a
+  detached composition-law record. The legacy strict_* operation names now
+  use transparent aliases of ordinary functor carriers. Both cancellation
+  proofs and selected inverses remain computational. Remaining compatibility
+  spellings await consumer cleanup; transformation profiles remain separate.''')
+    assert actions.count('Default strict functors map equality-valued equivalences without a') == 1
+    wrapper_output('emdash3_2_strict_functor_actions.lp', actions,
+                   'Retire the constant/Path decoder rules on the newly transparent strict_functor alias; their constructor definitions compute directly')
+
+    for path, type_count, view_count in (
+        ('emdash3_2_eq1_hom_action.lp', 1, 3),
+        ('examples/groupoidal_structured_j_eq1.lp', 2, 7),
+    ):
+        text = (package / path).read_text()
+        old = '(D : τ (@StrictFunctor C Cat_cat))'
+        view = '(@strict_functor C Cat_cat D)'
+        assert text.count(old) == type_count
+        assert text.count(view) == view_count
+        text = text.replace(old, '(D : τ (Functor C Cat_cat))').replace(view, 'D')
+        text = text.replace('The ordinary Cat-valued diagram retains its legacy `StrictFunctor` input.',
+                            'The ordinary Cat-valued diagram uses the default strict Functor input.')
+        wrapper_output(path, text,
+                       'Accept the public ordinary Cat-valued diagram directly and preserve its chosen mapped inverse data; do not impose Cat_cart-family admission')
+    text = (package / 'emdash3_2_commutative_algebra_presheaves.lp').read_text()
+    for old, new in (
+        ('≔ @StrictFunctor_cat (Op_cat K) CommRing_cat;', '≔ @CommRingPsh_cat K;'),
+        ('≔ @StrictFunctor (Op_cat K) CommRing_cat;', '≔ @CommRingPsh K;'),
+        ('≔ @strict_functor (Op_cat K) CommRing_cat O;', '≔ O;'),
+    ):
+        assert text.count(old) == 1, old
+        text = text.replace(old, new)
+    text = text.replace('// Classified conventional presheaves. The carrier remains an ordinary\n// CommRing-valued presheaf; strictness is internal package data.',
+        '// Compatibility spellings: ordinary CommRing-valued presheaves already\n// use strict default functors, so no additional object package is needed.')
+    wrapper_output('emdash3_2_commutative_algebra_presheaves.lp', text,
+                   'Make the strict-ring-presheaf facade an identity compatibility view of the existing ordinary presheaf carrier/category')
+    text = (package / 'emdash3_2_one_cat_functor_profiles.lp').read_text()
+    old = '''  : τ (@StrictFunctor A B)
+≔ @make_strict_functor A B F (@functor_into_one_cat_is_strict A B B1 F);'''
+    assert text.count(old) == 1
+    text = text.replace(old, '  : τ (Functor A B)\n≔ F;')
+    text = text.replace('  @strict_functor_underlying A B (@one_cat_strict_admission A B B1 F)',
+                        '  @one_cat_strict_admission A B B1 F')
+    text = text.replace('(@strict_functor A B (@one_cat_strict_admission A B B1 F))',
+                        '(@one_cat_strict_admission A B B1 F)')
+    text = text.replace('symbol one_cat_strict_admission [A B : Cat]',
+                        '// Compatibility adapter: the default functor is already strict.\nsymbol one_cat_strict_admission [A B : Cat]')
+    wrapper_output('emdash3_2_one_cat_functor_profiles.lp', text,
+                   'Keep the existing one-category adapter signature and observations while returning the already-strict public map directly')
+    text = (package / 'examples/action_profile_walking_named_overlap_controls.lp').read_text()
+    assert text.count('StrictFunctor_cat') == 21
+    wrapper_output('examples/action_profile_walking_named_overlap_controls.lp',
+                   text.replace('StrictFunctor_cat', 'Functor_cat'),
+                   'Observe the same whole named walking action at the public mapping category with its unchanged higher-transformation profile')
+
+    # Update only the emitted diagnostics in this manifest, never old probes.
+    wrapper_diagnostic_paths = [root / name for name in list(manifest['outputs'])
+        if (root / name).is_relative_to(package) and name.endswith('.lp')
+        and ((root / name).name.startswith('central_')
+             or (root / name).name == 'emdash3_2_checks.lp'
+             or name.endswith('/examples/gray_profiles.lp'))]
+    for target in wrapper_diagnostic_paths:
+        text = target.read_text()
+        text = text.replace('(D : τ (@StrictFunctor C Cat_cat))', '(D : τ (Functor C Cat_cat))')
+        text = text.replace('(@strict_functor C Cat_cat D)', 'D')
+        def wrapper_polarity(match):
+            block = match[0]
+            if ('@strict_functor A B (@make_strict_functor A B F p)' in block
+                    or 'F : τ (Obj (@GrayHom_lax A B))' in block):
+                return block.replace('assertnot', 'assert', 1)
+            accumulation_heads = (
+                '@hom_postcomp_func A B F W X Z (@comp_fapp0',
+                '@hom_postcomp_fapp0 A B F W X Z (@comp_fapp0',
+                '@hom_precomp_along_func A B F z w y (@comp_fapp0',
+                '@hom_precomp_along_fapp0 A B F z w y (@comp_fapp0',
+            )
+            if any(head in block for head in accumulation_heads):
+                return block.replace('assertnot', 'assert', 1)
+            mapped_accumulation = (
+                ('(@hom_postcomp_fapp0 A B F W X Y p g)',
+                 '(@fapp1_fapp0 B A F Y Z q)'),
+                ('(@hom_precomp_along_fapp0 A B F Z W X p g)',
+                 '(@fapp1_fapp0 A B F V W q)'),
+            )
+            if any(left in block and right in block for left, right in mapped_accumulation):
+                return block.replace('assertnot', 'assert', 1)
+            return block
+        text = re.sub(r'(?m)^assertnot\b[\s\S]*?;', wrapper_polarity, text)
+        text = text.replace('// Until wrapper retirement, the legacy admitted object sort is still distinct\n// syntactically from the now-strict public Functor carrier.',
+            '// The transparent object alias now admits every public default functor;\n// GrayHom_lax still has its distinct transformation profile.')
+        text = text.replace('// Generic accumulation stays distinct; the explicit strict view computes.',
+            '// Strict-default accumulation computes for both ordinary maps and compatibility views.')
+        text = text.replace('// Generic accumulation stays distinct; the actual strict view computes.',
+            '// Strict-default accumulation computes for both ordinary maps and compatibility views.')
+        text = text.replace('// Adjacent hom-action accumulation is selected by an explicit profile.\n// Preserve both the raw noncollapse and the classified computation checks.',
+            '// Adjacent hom-action accumulation belongs to the strict default.\n// Preserve both ordinary and compatibility-view observations.')
+        text = text.replace('// The legacy stable-cut normalization boundary remains pending wrapper retirement;\n// these runtime observations do not assert mathematical non-functoriality.',
+            '// The ordinary and compatibility-view computations now use the same native owner.')
+        wrapper_output(str(target.relative_to(package)), text,
+                       'Use public diagram carriers and the now-transparent strict object/view computation; retain distinct carriers and lax/strict-transfor noncollapse controls')
+    wrapper_controls = package / 'strict_wrapper_consumers_controls.lp'
+    wrapper_controls.write_text('''require open emdash.examples.gray_profiles;
+require open emdash.examples.groupoidal_structured_j_eq1;
+require open emdash.examples.action_profile_walking_named_overlap_controls;
+require open emdash.emdash3_2_commutative_algebra_presheaves;
+
+// Ordinary ring presheaves pass directly through the compatibility view.
+assert [K : Cat] (O : τ (@CommRingPsh K)) ⊢
+  @strict_comm_ring_psh K O ≡ O;
+assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
+''')
+    accumulation_controls = package / 'default_hom_accumulation_controls.lp'
+    accumulation_controls.write_text('require open emdash.emdash3_2;\n'
+        + fragment('production_default_hom_accumulation_controls.lpfragment'))
+    manifest['outputs'][str(accumulation_controls.relative_to(root))] = sha(accumulation_controls.read_text())
+    manifest['outputs'][str(wrapper_controls.relative_to(root))] = sha(wrapper_controls.read_text())
+    manifest['strictWrapperRetirement'] = {
+        'status': 'transparent compatibility phase; consumer spelling/helper retirement still open',
+        'retiredRuleCommands': 24,
+        'defaultHomOwnerChanges': 'Five identity-only composition/reassociation clauses generalized and two mapped-arrow clauses restored; nested postcomposition cuts preserve actual inverse cancellation.',
+        'preservedProfiles': ['StrictTransfor', 'StrictFunctord', 'GrayHom_lax higher Homs'],
     }
     (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print('Emitted full pre-goal baseline and upstream owner migration; no original tail omitted.')
