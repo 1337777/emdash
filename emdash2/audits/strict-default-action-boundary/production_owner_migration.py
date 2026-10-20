@@ -2090,6 +2090,54 @@ unif_rule @sigma_map_func $K _ _
                 changes.append({'source': path, 'owner': 'represented comma and zero-cone total/maps',
                                 'reason': 'Keep the canonical Cartesian Hom family consumed by the existing two-sided total, and use the actual oplax arrow coefficient of the terminal embedding; preserve the original nested-Sigma and map bodies',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            fibre_inclusion_profiles = {
+                'emdash3_2_one_cat_zero_cone_fibre_inclusion.lp': (17, 1, 1, 0),
+                'examples/one_cat_zero_cone_fibre_inclusion.lp': (6, 2, 2, 3),
+            }
+            if path in fibre_inclusion_profiles:
+                old = text
+                ordinary, objects, homs, transfors = fibre_inclusion_profiles[path]
+                for pattern, replacement, count in (
+                    (r'Functor_cat(?=\s+WalkingArrow_cat\s+C\b)', 'Functor_oplax_cat', ordinary),
+                    (r'\(Functor WalkingArrow_cat C\)', '(Obj (Functor_oplax_cat WalkingArrow_cat C))', objects),
+                    (r'@Transf_cat\s+WalkingArrow_cat\s+C\b', '@Hom_cat (Functor_oplax_cat WalkingArrow_cat C)', homs),
+                    (r'@Transf\s+WalkingArrow_cat\s+C\b', '@Hom (Functor_oplax_cat WalkingArrow_cat C)', transfors),
+                ):
+                    text, actual = re.subn(pattern, replacement, text)
+                    assert actual == count, (path, pattern, actual)
+                if not path.startswith('examples/'):
+                    text, actual = re.subn(r'Catd_cat (\(Functor_oplax_cat\s+WalkingArrow_cat\s+C\))',
+                        r'Functor_cart_cat \1 Cat_cart', text)
+                    assert actual == 3
+                    for before, after in (
+                        ('@Op_func', '@TotalOp_func'),
+                        ('@Sigma_cat (Op_cat C)', '@Sigma_cat (TotalOp_cat C)'),
+                        ('@sigma_fibre_inclusion_func (Op_cat C)', '@sigma_fibre_inclusion_func (TotalOp_cat C)'),
+                    ):
+                        assert text.count(before) == 1
+                        text = text.replace(before, after)
+                    text = text.replace(
+                        '// Whole fibre inclusion for the ordinary zero-cone consumer. Its original\n// homdc total is unchanged; no general higher duality extension is asserted.',
+                        '// Whole fibre inclusion through the existing two-sided total. The outer\n// inclusion uses total duality O; the represented inner family remains over T(C).')
+                else:
+                    header = 'require open emdash.emdash3_2_one_cat_zero_cone_fibre_inclusion;\n'
+                    assert text.startswith(header)
+                    text = header + fragment('production_zero_cone_fibre_reviewer_helpers.lpfragment') + '\n' + text[len(header):]
+                    args = 'C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) a d'
+                    for before, after in (
+                        ('sigma_Fst (sigma_Snd mapped)', '@probe_fibre_middle ' + args + ' h k alpha'),
+                        ('sigma_Snd (sigma_Snd mapped)', '@probe_fibre_cell ' + args + ' h k alpha'),
+                    ):
+                        assert text.count(before) == 1
+                        text = text.replace(before, after)
+                    marker = '// Both bases remain fixed and the existing fibre cell is retained.'
+                    assert text.count(marker) == 1
+                    text = text.replace(marker,
+                        '// The generic observations specialize to the actual whole public inclusion.\n'
+                        + 'assert ⊢ inclusion ≡ @probe_fibre_inclusion ' + args + ';\n\n' + marker, 1)
+                changes.append({'source': path, 'owner': 'existing Sigma fibre inclusion into the zero-cone total',
+                                'reason': 'Retain both original whole fibre inclusions with total duality on the outer base, the Cartesian represented inner family and the oplax diagram coefficient; elaborate reviewer projections generically and compare the actual whole inclusion before specialization',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'emdash3_2_adjunction_mates.lp':
                 old = text
                 dependency = 'require open emdash.emdash3_2_defiso_evaluation_points;'
@@ -5652,6 +5700,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/arrow_diagram_families.lp')
     stage('examples/zero_arrow_diagrams.lp')
     stage('examples/zero_arrow_cone_maps.lp')
+    stage('examples/one_cat_zero_cone_fibre_inclusion.lp')
     stage('examples/kernel_cokernel_adjunctions.lp')
     stage('examples/adjunction_mates.lp')
     stage('examples/one_cat_adjunction_families.lp')

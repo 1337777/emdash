@@ -1,0 +1,39 @@
+require open emdash.emdash3_2_sigma_fibre_inclusion;
+require open emdash.emdash3_2_zero_arrow_cones;
+
+// One inclusion, without the represented/duality specialization.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E x))) (alpha : τ (Hom (Fibre_cat E x) u v)) ⊢
+  sigma_Fst (@fapp1_fapp0 (Fibre_cat E x) (@Sigma_cat K E)
+    (@sigma_fibre_inclusion_func K E x) u v alpha) ≡ @id K x;
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u v : τ (Obj (Fibre_cat E x))) (alpha : τ (Hom (Fibre_cat E x) u v)) ⊢
+  sigma_Snd (@fapp1_fapp0 (Fibre_cat E x) (@Sigma_cat K E)
+    (@sigma_fibre_inclusion_func K E x) u v alpha) ≡ alpha;
+
+symbol A : Cat;
+symbol B : Cat;
+symbol F : τ (Functor A B);
+symbol a : τ (Obj A);
+symbol b : τ (Obj B);
+symbol E ≔ @represented_comma_prof A B F;
+symbol E_a ≔ @fapp0 (Op_cat A) (Functor_cart_cat B Cat_cart) E a;
+symbol D ≔ @homdc_op_edge_catd A B E;
+symbol h : τ (Hom B (@fapp0 A B F a) b);
+symbol k : τ (Hom B (@fapp0 A B F a) b);
+symbol alpha : τ (Hom (Hom_cat B (@fapp0 A B F a) b) h k);
+
+symbol inclusion : τ (Functor (Hom_cat B (@fapp0 A B F a) b)
+    (@RepresentedComma_cat A B F))
+≔ @comp_cat_fapp0 (Fibre_cat E_a b) (@Sigma_cat B E_a)
+    (@homdc_total_cat A B E)
+    (@TotalOp_func (Fibre_cat D a) (@Sigma_cat (TotalOp_cat A) D)
+      (@sigma_fibre_inclusion_func (TotalOp_cat A) D a))
+    (@sigma_fibre_inclusion_func B E_a b);
+symbol mapped ≔ @fapp1_fapp0 (Hom_cat B (@fapp0 A B F a) b)
+  (@RepresentedComma_cat A B F) inclusion h k alpha;
+
+type sigma_Snd mapped;
+assert ⊢ sigma_Fst mapped ≡ @id A a;
+assert ⊢ sigma_Fst (sigma_Snd mapped) ≡ @id B b;
+assert ⊢ sigma_Snd (sigma_Snd mapped) ≡ alpha;

@@ -1,0 +1,29 @@
+// Elaborate the original two-stage inclusion before specializing the
+// diagram coefficient. These are transparent reviewer definitions only.
+symbol probe_fibre_inclusion [A B : Cat] (F : τ (Functor A B))
+  (a : τ (Obj A)) (b : τ (Obj B))
+  : τ (Functor (Hom_cat B (@fapp0 A B F a) b) (@RepresentedComma_cat A B F))
+≔ let E : τ (Functor (Op_cat A) (Functor_cart_cat B Cat_cart)) ≔
+    @represented_comma_prof A B F in
+  let E_a : τ (Catd B) ≔ @fapp0 (Op_cat A) (Functor_cart_cat B Cat_cart) E a in
+  let D : τ (Catd (TotalOp_cat A)) ≔ @homdc_op_edge_catd A B E in
+  @comp_cat_fapp0 (Fibre_cat E_a b) (@Sigma_cat B E_a) (@homdc_total_cat A B E)
+    (@TotalOp_func (Fibre_cat D a) (@Sigma_cat (TotalOp_cat A) D)
+      (@sigma_fibre_inclusion_func (TotalOp_cat A) D a))
+    (@sigma_fibre_inclusion_func B E_a b);
+
+symbol probe_fibre_middle [A B : Cat] (F : τ (Functor A B))
+  (a : τ (Obj A)) (b : τ (Obj B))
+  [h k : τ (Hom B (@fapp0 A B F a) b)]
+  (alpha : τ (Hom (Hom_cat B (@fapp0 A B F a) b) h k))
+  : τ (Hom B b b)
+≔ sigma_Fst (sigma_Snd (@fapp1_fapp0 (Hom_cat B (@fapp0 A B F a) b)
+    (@RepresentedComma_cat A B F) (@probe_fibre_inclusion A B F a b) h k alpha));
+
+symbol probe_fibre_cell [A B : Cat] (F : τ (Functor A B))
+  (a : τ (Obj A)) (b : τ (Obj B))
+  [h k : τ (Hom B (@fapp0 A B F a) b)]
+  (alpha : τ (Hom (Hom_cat B (@fapp0 A B F a) b) h k))
+  : τ (Hom (Hom_cat B (@fapp0 A B F a) b) h k)
+≔ sigma_Snd (sigma_Snd (@fapp1_fapp0 (Hom_cat B (@fapp0 A B F a) b)
+    (@RepresentedComma_cat A B F) (@probe_fibre_inclusion A B F a b) h k alpha));

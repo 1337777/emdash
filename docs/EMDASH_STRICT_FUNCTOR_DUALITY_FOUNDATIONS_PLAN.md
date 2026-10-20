@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Sigma fibre-inclusion continuation after `83c5308b`: the
+[consumer review](../emdash2/audits/strict-default-action-boundary/production_sigma_fibre_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_sigma_fibre_verification.json)
+qualify the original generic Sigma inclusion unchanged, and migrate its
+zero-cone consumer through the corrected outer total duality and inner
+Cartesian/oplax diagram profiles. The original two-stage functor body and
+OneCat hypothesis remain; no library primitive, rule, unifier or operational
+proof argument is added.
+
+The generic construction computes both base identities and the actual fibre
+cell. At the specialized oplax diagram category, bare nested projection
+inference fails despite that normal form. The final reviewer elaborates the
+same projections generically and specializes them; a whole-functor runtime
+comparison ties the reference construction to the actual public inclusion.
+Its six assertions cover the five original observations plus that comparison.
+The original bare-query inference limitation is retained under R06; it is not
+silently called a solved runtime assertion or related to closing R01--R03.
+
+The final consumer passes in 32.756s/191980KiB through the isolated checker,
+under 90s/2GiB/o=20 with SR and warnings. The separate generic five-observation
+control passes; both warning-body multisets are identical (2053). Re-emission
+matches every checked relative input, and all six preceding selected receipts
+rehash without new aggregate runs. Current coverage is 154 registered core
+files and 61 reviewers, with the same five central terminal exclusions; 637
+core files and 535 reviewers remain unstaged. Continue next through the
+existing `hom_factor_cubical` constant-family/Homd consumer, not new nerve
+or equivalence development. The overall goal and production gates remain open.
+
 Retained-reviewer continuation after `0d5207e5`: the
 [consumer review](../emdash2/audits/strict-default-action-boundary/production_retained_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_retained_reviewers_verification.json)
