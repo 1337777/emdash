@@ -1795,6 +1795,15 @@ unif_rule @sigma_map_func $K _ _
     insert('// Generic object projection for Cat-valued postcomposition:',
            fragment('production_hom_image_reading.lpfragment'),
            'Proof-time whole reading of postcomposition through its actual mapped arrow, required by the inverse whole-endpoint proof')
+    insert('// Stable fibre component of an arbitrary total arrow.',
+           fragment('production_sigma_projection_frame_comparison.lpfragment'),
+           'Sufficient first-Hom projection congruence for the same endpoints and arrow; retain both complete families and type annotations when comparing reindexing presentations')
+    insert('// Internalized-x prerequisite: canonical total arrow over a base arrow.',
+           fragment('production_sigma_map_projection_hom.lpfragment'),
+           'Complete the capped observation order of the existing whole Sigma-map projection law, at the original constructor-visible total endpoints')
+    insert('// Whole family-natural base-change totalization.  Its component at D is the',
+           fragment('production_sigma_basechange_projection_hom.lpfragment'),
+           'Complete the capped observation of total base change, retaining the actual base functor and its canonical pullback source')
     insert('// Pointwise arrow form of the Core-inclusion/opposite square.',
            fragment('production_core_path_image_view.lpfragment'),
            'Native strict-cell certificates retain the same path across proof-time-equal endpoint presentations; constrain every endpoint and the path itself')
@@ -5197,16 +5206,17 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                 legacy = text[opposite:end]
                 assert len(re.findall(r'(?m)^rule ', legacy)) == 3
                 assert len(re.findall(r'(?m)^unif_rule ', legacy)) == 4
-                inactive = '''/*
-  Migration boundary: the following legacy same-base Op clauses are inactive.
-  Op_catd now changes the base, and Op_funcd accepts Cartesian maps. Their
-  corrected whole projection counterparts above use the actual TotalOp
-  profiles. The old point-action clauses remain inactive audit candidates;
-  none is silently asserted with the old types.
+                disposition = '''// The seven former same-base Op clauses are retired. The four whole
+// comparisons above use TotalOp over the R-shifted base. Their point
+// observations use the native Sigma projection, capped Sigma-map and
+// base-change owners. Cartesian composition and named-pullback source views
+// have a checked proof-time comparison, not a common runtime normal form.
+// The pinned original block and all seven dispositions are recorded in
+// audits/strict-default-action-boundary/production_cubical_projection_point_review.md.
 
-''' + legacy + '\n*/\n\n'
+'''
                 text = (text[:start] + fragment('production_cubical_sigma_projection.lpfragment')
-                        + '\n' + fragment('production_cubical_projection_views.lpfragment') + '\n' + inactive + text[end:])
+                        + '\n' + fragment('production_cubical_projection_views.lpfragment') + '\n' + disposition + text[end:])
                 text = text.replace('(Functor (Hom_cat K1 x1 y1) Cat_cat)',
                                     '(Functor (Hom_cat K1 x1 y1) Cat_cart)')
                 source = '''    (Catd_cat (Op_cat (Hom_cat K2 x2 y2)))
@@ -5232,10 +5242,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use canonical Cartesian projection/formation and inherited strict-map action; preserve the broader fixed-endpoint E input',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text),
                                 'redundantDirectIntrinsicRuleRemoved': 1,
-                                'pendingLegacyOppositeRules': 3,
+                                'pendingLegacyOppositeRules': 0,
                                 'pendingLegacyOppositeUnifiers': 0,
                                 'correctedWholeProjectionViews': 4,
-                                'pendingLegacyBlockSha256': sha(legacy)})
+                                'qualifiedPointProjectionCases': 3,
+                                'sourcePresentationAgreement': 'Proof-time congruence followed by actual Hom action; canonical pullback-source computation remains runtime',
+                                'retiredLegacyBlockSha256': sha(legacy)})
             if path == 'emdash3_2_cubical_internalization.lp':
                 old = text
                 text = fragment('production_cubical_total_duality.lpfragment')
@@ -5293,6 +5305,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/cubical_square_total.lp':
                 text += '\n' + fragment('production_cubical_sigma_projection_controls.lpfragment')
+                text += '\n' + fragment('production_cubical_projection_point_controls.lpfragment')
             if path == 'examples/cubical_internalization.lp':
                 old = text
                 text = text.replace('are derived from ordinary Sigma, pointwise opposite, and homd_int.',

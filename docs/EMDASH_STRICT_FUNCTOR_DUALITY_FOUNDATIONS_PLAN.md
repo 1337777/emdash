@@ -42,6 +42,53 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Status clarification, 2026-10-20: the broad kernel/library **source adaptation**
+is staged, but its full **computational qualification** is not complete.
+Migrating a diagnostic is mechanical when its contract is unchanged and
+the upstream projection laws are complete. Other failures must be classified
+as an invalid old variance/profile contract, a diagnostic formation problem,
+or an upstream computation gap. Do not weaken a required observation merely
+to make the migrated diagnostic pass. The current Sigma projection review
+is an example of the last case: existing whole laws need their capped
+observation order. Report that work as an upstream repair, not test-only
+maintenance. Production promotion remains a separate completion gate.
+
+Sigma projection continuation after `b42c2243`: the
+[point-projection review](../emdash2/audits/strict-default-action-boundary/production_cubical_projection_point_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_cubical_projection_point_verification.json)
+complete R09's seven legacy-clause dispositions. Four whole TotalOp/R-base
+comparisons remain; the three point observations use native Sigma action
+with two missing capped projection cuts. Base change retains its canonical
+pullback source at runtime. Its Cartesian-composite source view agrees by
+a typed source comparison followed by the actual Hom action, and remains
+an explicit negative runtime comparison. One sufficient congruence unifier
+retains both complete families and source/target annotations, the same
+endpoints and the same arrow; it introduces no operational proof argument.
+
+Fresh core 287/85, cubical 34/7, combined 2180/286 and library 178/27 checks
+pass with subject reduction. Core/combined/library warning body multisets
+are unchanged at 1600/2056/2383; the cubical closure equals the core. The
+central diagnostic source is byte-identical to the preceding checkpoint,
+retaining all 2440 statements and 66 declarations. The old invalid block
+is retired with its pin/hash and explicit dispositions; it is not qualified
+code. The library sample passes at 57.637s/4388.3MiB. Continue with the five
+terminal runtime obligations and remaining normalization/full-context,
+resource and production gates. No other goal is resumed.
+
+Current Sigma projection validation uses the retained 180s/4GiB profile for
+core and cubical reviewers. Both pass (109.394s/1674.2MiB and
+71.016s/1640.4MiB respectively). Compared with the earlier 27.069s core
+sample, allocated words rise by about 1% and peak memory is similar; host
+load was also high. This does not isolate the slowdown's cause. The combined
+validation selected an explicit 600s/7GiB limit to allow for that slowdown;
+it actually passed in 126.538s/6663.8MiB, below the earlier 300s deadline.
+With that current measurement, retain the library's existing 180s/6GiB
+profile rather than use the provisional longer library deadline.
+Retain serial execution, o=20, subject reduction, the file limit and no-swap
+containment. The normal defaults do not change. Actual receipts record the
+outcomes; neither direction of timing variation establishes an improvement
+or a unique cause. The original full-context resource boundary remains open.
+
 Displayed-component continuation after `880acb5b`, 2026-10-20 UTC: the
 [owner review](../emdash2/audits/strict-default-action-boundary/production_displayed_component_accumulation_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_displayed_component_accumulation_verification.json)

@@ -1,0 +1,8 @@
+// Capped Hom action of the same whole projection law above. The original
+// point contract keeps total endpoints constructor-visible; the arbitrary
+// arrow alpha and its native base-projection head remain intact.
+rule @fapp1_fapp0 _ _ (@Sigma_proj1_func $K $D) _ _
+    (@fapp1_fapp0 _ _ (@sigma_map_func $K $E $D $FF)
+      (Struct_sigma $x $u) (Struct_sigma $y $v) $alpha)
+  ↪ @fapp1_fapp0 (@Sigma_cat $K $E) $K (@Sigma_proj1_func $K $E)
+      (Struct_sigma $x $u) (Struct_sigma $y $v) $alpha;

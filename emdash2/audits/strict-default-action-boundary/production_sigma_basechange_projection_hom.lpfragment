@@ -1,0 +1,9 @@
+// Capped projection of the same whole base-change law. Both total
+// endpoints are visible, and the actual base functor F remains in the image.
+rule @fapp1_fapp0 _ _ (@Sigma_proj1_func $K $D) _ _
+    (@fapp1_fapp0 _ _ (@sigma_pullback_total_func $A $K $F $D)
+      (Struct_sigma $x $u) (Struct_sigma $y $v) $alpha)
+  ↪ @fapp1_fapp0 $A $K $F $x $y
+      (@fapp1_fapp0 (@Sigma_cat $A (@Pullback_catd $A $K $D $F)) $A
+        (@Sigma_proj1_func $A (@Pullback_catd $A $K $D $F))
+        (Struct_sigma $x $u) (Struct_sigma $y $v) $alpha);

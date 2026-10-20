@@ -6,6 +6,13 @@ Status: staged constructors and original fixed-square/total consumers check; lat
 Owner: [foundations plan](../../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Evidence: [verification](production_cubical_total_verification.json)
 
+Follow-up, 2026-10-20: the seven inactive opposite clauses discussed below
+now have explicit corrected dispositions in the [point-projection
+review](production_cubical_projection_point_review.md). Its runtime versus
+proof-time boundary supersedes this report's pending point-clause status.
+The evidence and other historical boundaries below retain their original
+snapshot scope.
+
 ## Precise whole coefficients
 
 Write T=Op_cat, R=CoAbove2_cat and O=TotalOp_cat=R(T(-)). The previous

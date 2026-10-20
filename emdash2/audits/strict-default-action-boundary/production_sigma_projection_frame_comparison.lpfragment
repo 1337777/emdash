@@ -1,0 +1,7 @@
+// Sufficient proof-time congruence for the same first-Hom observation.
+// Retain both whole families and both type annotations. This does not infer
+// family equality from equal projected values, or compare unrelated arrows.
+unif_rule
+  @fapp1_fapp0 $S $T (@Sigma_proj1_func $K $E) $q $r $alpha
+  ≡ @fapp1_fapp0 $S0 $T0 (@Sigma_proj1_func $K0 $E0) $q $r $alpha
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $S0 ≡ $S; $T0 ≡ $T ];
