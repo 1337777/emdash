@@ -1,0 +1,603 @@
+{
+  "status": "Rejected as a repair, not adopted. Canonical-point contraction preserves the tested Q units and composition cases but fails an ordinary Hom component projection that passes unchanged. The attempted broad terminal-postcomposition repair also regresses actual inverse cancellation. The raw terminal right-unit observation fails in both snapshots and is inherited, not a new regression.",
+  "date": "2026-10-20",
+  "predecessor": "7bdeb7f8213bd7361b882339f15c947230d582fd",
+  "adopted": false,
+  "selectedCoreSha256": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+  "candidateCoreSha256": "c3b1c7b5449a3830bf36182cd2f736e94106b7e44ecaa0b71e41b78a17642bf2",
+  "candidatePatch": "--- selected/emdash3_2.lp\n+++ candidate/emdash3_2.lp\n@@ -13545,6 +13545,34 @@\n rule @hom_con Terminal_cat _ $B _\n   ↪ @Const_catd (Op_cat $B) Terminal_cat;\n \n+// Whole terminal Hom ignores both endpoints after Hom formation.\n+rule @hom_con_int Terminal_cat $B $F\n+  ↪ @Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart)\n+      (@Const_func (Op_cat $B) Cat_cart Terminal_cat);\n+\n+// Terminal Hom contraction at the existing higher projection owners.\n+rule @hom_con_int_postcomp_tele_func Terminal_cat $I $F $u $v\n+  ↪ @Const_func Terminal_cat\n+      (Hom_cat (Functor_cart_cat (Op_cat $I) Cat_cart)\n+        (@Const_func (Op_cat $I) Cat_cart Terminal_cat)\n+        (@Const_func (Op_cat $I) Cat_cart Terminal_cat))\n+      (@id (Functor_cart_cat (Op_cat $I) Cat_cart)\n+        (@Const_func (Op_cat $I) Cat_cart Terminal_cat));\n+rule @hom_con_int_postcomp_func Terminal_cat $I $F $u $v $h\n+  ↪ @id (Functor_cart_cat (Op_cat $I) Cat_cart)\n+      (@Const_func (Op_cat $I) Cat_cart Terminal_cat);\n+\n+// Terminal Hom postcomposition is the identity on its terminal Hom fibre.\n+// The incoming neutral unit value is retained by these projections.\n+rule @hom_postcomp_func Terminal_cat $B $F $W $X $Y $p\n+  ↪ @id_func Terminal_cat;\n+rule @hom_postcomp_fapp0 Terminal_cat $B $F $W $X $Y $p $g\n+  ↪ $g;\n+rule @hom_postcomp_fapp1_func Terminal_cat $B $F $W $X $Y $p $g $h\n+  ↪ @id_func Terminal_cat;\n+rule @hom_postcomp_fapp1_fapp0 Terminal_cat $B $F $W $X $Y $p $g $h $alpha\n+  ↪ $alpha;\n+\n // Hom-action of a constant family is constantly the identity functor of A.\n rule @fapp1_func $K Cat_cart (@Const_catd $K $A) $x $y\n   ↪ @Const_func\n@@ -16232,6 +16260,11 @@\n rule @fapp1_fapp0 _ _ (@Homd_coeff_conjoint $A $B $F) $a $b $h\n   ↪ @fapp1_fapp0 $A (Homd_index_cat $B) (@Homd_coeff_conjoint_body $A $B $F) $a $b $h;\n \n+// Canonical-point terminal conjoint only; neutral unit inputs are retained.\n+rule @Homd_coeff_conjoint Terminal_cat $I (@Const_func _ _ Terminal_obj)\n+  ↪ @Const_func Terminal_cat (Homd_index_cat $I)\n+      (@Const_func $I (Op_cat Cat_cart) Terminal_cat);\n+\n // Proof-time whole agreement; runtime projections retain the stable view.\n unif_rule @Homd_coeff_conjoint $A $B $F\n   ≡ @comp_fapp0 Cat_cat _ _ _ $M (@hom_con_int $A0 $B0 $F0)\n@@ -16538,6 +16571,28 @@\n rule @comp_fapp0 Homd_coeff_cat $C $B $A\n       ((@Homd_coeff_conjoint $B $A $F)) ((@Homd_coeff_conjoint $C $B $G))\n   ↪ (@Homd_coeff_conjoint $C $A (@comp_cat_fapp0 $A $B $C $G $F));\n+\n+// Canonical terminal conjoint composition after its ordinary constant view.\n+// lhs-audit: keep 1,2 -- Q composition with canonical source 1.\n+rule @comp_fapp0 Homd_coeff_cat Terminal_cat $B $A\n+    (@Homd_coeff_conjoint $B $A $F)\n+    (@Const_func _ _ (@Const_func _ _ Terminal_cat))\n+  ↪ @Const_func Terminal_cat (Homd_index_cat $A)\n+      (@Const_func $A (Op_cat Cat_cart) Terminal_cat);\n+\n+// lhs-audit: keep 1,3 -- the middle coefficient category is exactly 1.\n+rule @comp_fapp0 Homd_coeff_cat $C Terminal_cat $A\n+    (@Const_func _ _ (@Const_func _ _ Terminal_cat))\n+    (@Homd_coeff_conjoint $C Terminal_cat $G)\n+  ↪ @Homd_coeff_conjoint $C $A\n+      (@Const_func $A $C (@fapp0 Terminal_cat $C $G Terminal_obj));\n+\n+// This is the canonical constant endomap of 1, not the retained Q unit.\n+// lhs-audit: keep 1,2,3 -- represented constant source reindexing at 1.\n+rule @comp_fapp0 Homd_coeff_cat Terminal_cat Terminal_cat $B $P\n+    (@Const_func _ _ (@Const_func _ _ Terminal_cat))\n+  ↪ @Const_func Terminal_cat (Homd_index_cat $B)\n+      (@fapp0 Terminal_cat (Homd_index_cat $B) $P Terminal_obj);\n \n // Canonical covariance under represented source reindexing. This is a\n // proof-time whole-section law, not an operational equality argument.\n",
+  "sourceControls": {
+    "terminal_revisit_canonical_controls.lp": "require open emdash.emdash3_2;\n\nassert [K : Cat] (x y : τ (Obj K)) ⊢\n  @homd_tgt_func K (@Const_catd K Terminal_cat) (@Const_catd K Terminal_cat)\n    (@id_funcd K (@Const_catd K Terminal_cat)) x Terminal_obj y\n  ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))\n      (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))));\n\nassert [B : Cat] (P : τ (Hom Homd_coeff_cat Terminal_cat B)) ⊢\n @comp_fapp0 Homd_coeff_cat Terminal_cat Terminal_cat B P\n  (@Homd_coeff_conjoint Terminal_cat Terminal_cat (@id_func Terminal_cat)) ≡ P;\nassert [A : Cat] (P : τ (Hom Homd_coeff_cat A Terminal_cat)) ⊢\n @comp_fapp0 Homd_coeff_cat A Terminal_cat Terminal_cat\n  (@Homd_coeff_conjoint Terminal_cat Terminal_cat (@id_func Terminal_cat)) P ≡ P;\n\nassert [A B : Cat] (F : τ (Functor A B)) ⊢\n @comp_fapp0 Homd_coeff_cat Terminal_cat B A\n  (@Homd_coeff_conjoint B A F)\n  (@Homd_coeff_conjoint Terminal_cat B (@Const_func B Terminal_cat Terminal_obj))\n ≡ @Homd_coeff_conjoint Terminal_cat A\n     (@comp_cat_fapp0 A B Terminal_cat (@Const_func B Terminal_cat Terminal_obj) F);\n\nassert [C I : Cat] (G : τ (Functor Terminal_cat C)) ⊢\n @comp_fapp0 Homd_coeff_cat C Terminal_cat I\n  (@Homd_coeff_conjoint Terminal_cat I (@Const_func I Terminal_cat Terminal_obj))\n  (@Homd_coeff_conjoint C Terminal_cat G)\n ≡ @Homd_coeff_conjoint C I\n     (@comp_cat_fapp0 I Terminal_cat C G (@Const_func I Terminal_cat Terminal_obj));\n\nassertnot [I : Cat] (u : τ (Obj Terminal_cat)) ⊢\n @Homd_coeff_conjoint Terminal_cat I (@Const_func I Terminal_cat u)\n ≡ @Const_func Terminal_cat (Homd_index_cat I) (@Const_func I (Op_cat Cat_cart) Terminal_cat);\n\nassert [I : Cat] (u v : τ (Obj Terminal_cat)) ⊢\n @fapp1_func Terminal_cat (Homd_index_cat I)\n  (@Homd_coeff_conjoint Terminal_cat I (@Const_func I Terminal_cat Terminal_obj)) u v\n ≡ @fapp1_func Terminal_cat (Homd_index_cat I)\n  (@Homd_coeff_conjoint_body Terminal_cat I (@Const_func I Terminal_cat Terminal_obj)) u v;\n",
+    "terminal_projection_isolation.lp": "require open emdash.emdash3_2;\n\nassert [I : Cat] (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) (h : τ (Hom Terminal_cat u v))\n (i : τ (Obj I)) ⊢\n(@hom_con_int_postcomp_func Terminal_cat I F u v h) : τ (@StrictTransfor (Op_cat I) Cat_cart\n    (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F));\n\nassert [I : Cat] (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) (h : τ (Hom Terminal_cat u v))\n (i : τ (Obj I)) ⊢\n(@strict_transfor (Op_cat I) Cat_cart\n    (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F)\n    (@hom_con_int_postcomp_func Terminal_cat I F u v h)) : τ (@Transf (Op_cat I) Cat_cart\n    (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F));\n\nassert [I : Cat] (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) (h : τ (Hom Terminal_cat u v))\n (i : τ (Obj I)) ⊢\n@tapp0_fapp0 (Op_cat I) Cat_cart\n  (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F) i\n  (@strict_transfor (Op_cat I) Cat_cart\n    (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F)\n    (@hom_con_int_postcomp_func Terminal_cat I F u v h)) : τ (Functor Terminal_cat Terminal_cat);\n\nassert [I : Cat] (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) (h : τ (Hom Terminal_cat u v))\n (i : τ (Obj I)) ⊢\n@hom_postcomp_func Terminal_cat Terminal_cat (@id_func Terminal_cat)\n  (@fapp0 I Terminal_cat F i) u v h : τ (Functor Terminal_cat Terminal_cat);\n\nassert [I : Cat] (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) (h : τ (Hom Terminal_cat u v))\n (i : τ (Obj I)) ⊢\n@tapp0_fapp0 (Op_cat I) Cat_cart\n  (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F) i\n  (@strict_transfor (Op_cat I) Cat_cart\n    (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F)\n    (@hom_con_int_postcomp_func Terminal_cat I F u v h)) ≡ @hom_postcomp_func Terminal_cat Terminal_cat (@id_func Terminal_cat)\n  (@fapp0 I Terminal_cat F i) u v h;\n",
+    "terminal_projection_normalforms.lp": "require open emdash.emdash3_2;\n\ncompute λ (I : Cat) (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) (h : τ (Hom Terminal_cat u v))\n (i : τ (Obj I)) ,\n@tapp0_fapp0 (Op_cat I) Cat_cart\n  (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F) i\n  (@strict_transfor (Op_cat I) Cat_cart\n    (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F)\n    (@hom_con_int_postcomp_func Terminal_cat I F u v h));\n\ncompute λ (I : Cat) (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) (h : τ (Hom Terminal_cat u v))\n (i : τ (Obj I)) ,\n@hom_postcomp_func Terminal_cat Terminal_cat (@id_func Terminal_cat)\n  (@fapp0 I Terminal_cat F i) u v h;\n",
+    "terminal_unit_regression.lp": "require open emdash.emdash3_2;\n\n// Existing represented right-unit computation, with a neutral terminal arrow.\nassert (h : τ (Hom Terminal_cat Terminal_obj Terminal_obj)) ⊢\n @hom_postcomp_fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat)\n   Terminal_obj Terminal_obj Terminal_obj h (@id Terminal_cat Terminal_obj)\n ≡ h;\n",
+    "terminal_inverse_regression.lp": "require open emdash.emdash3_2;\n\n// Preserve the existing cuts on actual inverse data in the terminal fibre.\nassert (i : τ (@DefIso Terminal_cat Terminal_obj Terminal_obj)) ⊢\n @hom_postcomp_fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat)\n   Terminal_obj Terminal_obj Terminal_obj\n   (@defiso_from Terminal_cat Terminal_obj Terminal_obj i)\n   (@defiso_to Terminal_cat Terminal_obj Terminal_obj i)\n ≡ @id Terminal_cat Terminal_obj;\n",
+    "terminal_revisit_projection_controls.lp": "require open emdash.emdash3_2;\n\nassert [K : Cat] (x y : τ (Obj K)) ⊢\n  @homd_tgt_func K (@Const_catd K Terminal_cat) (@Const_catd K Terminal_cat)\n    (@id_funcd K (@Const_catd K Terminal_cat)) x Terminal_obj y\n  ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))\n      (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))));\n\nassert [B : Cat] (P : τ (Hom Homd_coeff_cat Terminal_cat B)) ⊢\n @comp_fapp0 Homd_coeff_cat Terminal_cat Terminal_cat B P\n  (@Homd_coeff_conjoint Terminal_cat Terminal_cat (@id_func Terminal_cat)) ≡ P;\nassert [A : Cat] (P : τ (Hom Homd_coeff_cat A Terminal_cat)) ⊢\n @comp_fapp0 Homd_coeff_cat A Terminal_cat Terminal_cat\n  (@Homd_coeff_conjoint Terminal_cat Terminal_cat (@id_func Terminal_cat)) P ≡ P;\n\nassert [A B : Cat] (F : τ (Functor A B)) ⊢\n @comp_fapp0 Homd_coeff_cat Terminal_cat B A\n  (@Homd_coeff_conjoint B A F)\n  (@Homd_coeff_conjoint Terminal_cat B (@Const_func B Terminal_cat Terminal_obj))\n ≡ @Homd_coeff_conjoint Terminal_cat A\n     (@comp_cat_fapp0 A B Terminal_cat (@Const_func B Terminal_cat Terminal_obj) F);\n\nassert [C I : Cat] (G : τ (Functor Terminal_cat C)) ⊢\n @comp_fapp0 Homd_coeff_cat C Terminal_cat I\n  (@Homd_coeff_conjoint Terminal_cat I (@Const_func I Terminal_cat Terminal_obj))\n  (@Homd_coeff_conjoint C Terminal_cat G)\n ≡ @Homd_coeff_conjoint C I\n     (@comp_cat_fapp0 I Terminal_cat C G (@Const_func I Terminal_cat Terminal_obj));\n\nassertnot [I : Cat] (u : τ (Obj Terminal_cat)) ⊢\n @Homd_coeff_conjoint Terminal_cat I (@Const_func I Terminal_cat u)\n ≡ @Const_func Terminal_cat (Homd_index_cat I) (@Const_func I (Op_cat Cat_cart) Terminal_cat);\n\nassert [I : Cat] (u v : τ (Obj Terminal_cat)) ⊢\n @fapp1_func Terminal_cat (Homd_index_cat I)\n  (@Homd_coeff_conjoint Terminal_cat I (@Const_func I Terminal_cat Terminal_obj)) u v\n ≡ @fapp1_func Terminal_cat (Homd_index_cat I)\n  (@Homd_coeff_conjoint_body Terminal_cat I (@Const_func I Terminal_cat Terminal_obj)) u v;\n\n// Ordinary Hom's existing whole and capped projection contracts, at 1.\nassert [I : Cat] (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) ⊢\n @fapp1_func Terminal_cat (Functor_cart_cat (Op_cat I) Cat_cart)\n  (@hom_con_int Terminal_cat I F) u v\n ≡ @hom_con_int_postcomp_tele_func Terminal_cat I F u v;\n\nassert [I : Cat] (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) (h : τ (Hom Terminal_cat u v)) ⊢\n @fapp1_fapp0 Terminal_cat (Functor_cart_cat (Op_cat I) Cat_cart)\n  (@hom_con_int Terminal_cat I F) u v h\n ≡ @hom_con_int_postcomp_func Terminal_cat I F u v h;\n\nassert [I : Cat] (F : τ (Functor I Terminal_cat))\n (u v : τ (Obj Terminal_cat)) (h : τ (Hom Terminal_cat u v))\n (i : τ (Obj I)) ⊢\n @tapp0_fapp0 (Op_cat I) Cat_cart\n  (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F) i\n  (@strict_transfor (Op_cat I) Cat_cart\n    (@hom_con Terminal_cat u I F) (@hom_con Terminal_cat v I F)\n    (@hom_con_int_postcomp_func Terminal_cat I F u v h))\n ≡ @hom_postcomp_func Terminal_cat Terminal_cat (@id_func Terminal_cat)\n      (@fapp0 I Terminal_cat F i) u v h;\n"
+  },
+  "runs": {
+    "canonical_point_whole_and_Q_controls": {
+      "id": "20261020T154002Z-12ed2f0e66ea47bd8d120e6d50441eba",
+      "outcome": "passed-fresh",
+      "wallSeconds": 28.46458242693916,
+      "childrenMaxRssKiB": 1619688,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "0e213b1bfffd47d316f005f69849f970ec71bc832ee7f71e22b0e5918e89532a",
+      "inputs": {
+        "emdash3_2.lp": "54f6dcc3cbb8f3ba07ceb2db2ef6c2f47e9e8db77ce67011526f7026ad291a45",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_revisit_canonical_controls.lp": "e8dacb66abc407568364c3fb4f4917268a212bd43a4b7ba5add018c0c7d1fa54"
+      },
+      "logSha256": "b7fd4f0d66366aed05a30175a02ac75d21922cfd8a35201196406c9ff2b5e531",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "without_postcomposition_contraction": {
+      "id": "20261020T154715Z-d9cb117d8e3d4f7daa05a80fff14d63f",
+      "outcome": "failed",
+      "wallSeconds": 39.80484952102415,
+      "childrenMaxRssKiB": 1619588,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "1ba568f76ac35af084b4a39858d6ba7fbc6d96cf453ed021d03b53a9941ecbbf",
+      "inputs": {
+        "emdash3_2.lp": "696ffa80247c5cea4a3d9aedc4c2c5b97f5e25a0bdb1e4193d7312360a4095e5",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_revisit_projection_controls.lp": "0ff884b615ad8ffa59e56b1b22922447bc002bef227bd9b07327cd89e4d731aa"
+      },
+      "logSha256": "0744bca18030a3744482530c6e21a52cad894c3893330958db098aa9265ee72c",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "projection_baseline": {
+      "id": "20261020T160343Z-2470887aa0d943068f0490a6af410087",
+      "outcome": "passed-fresh",
+      "wallSeconds": 60.777056267950684,
+      "childrenMaxRssKiB": 1592044,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "8b16be52e5f083fd3bf8ae1a50ddad8717296b45d1a0109daa8e940a2f19b6e2",
+      "inputs": {
+        "emdash3_2.lp": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_projection_isolation.lp": "eb37b3ba672c565bb2d6dfaaa857b645973f3a1ac857ec1aa5badd78b5d52e64"
+      },
+      "logSha256": "68f8c657576208b7b41b46548fee2d3b3f9f92b3f29e487ba1c0280bee80f3b6",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "projection_candidate": {
+      "id": "20261020T160457Z-5b71a44344a34d95837b87f50585e95f",
+      "outcome": "failed",
+      "wallSeconds": 21.389908616198227,
+      "childrenMaxRssKiB": 1628032,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "b78f98fd83e1ebc1e27467f1b9c0925386f57ef77fb7f19c2e2a34d0f904c9e9",
+      "inputs": {
+        "emdash3_2.lp": "c3b1c7b5449a3830bf36182cd2f736e94106b7e44ecaa0b71e41b78a17642bf2",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_projection_isolation.lp": "eb37b3ba672c565bb2d6dfaaa857b645973f3a1ac857ec1aa5badd78b5d52e64"
+      },
+      "logSha256": "ad1c5a9390e0362ae5b812e7e084ef44d0c2f7b528db1dc9532dc19f73104dd1",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "candidate_normal_forms": {
+      "id": "20261020T160543Z-453a8d45abb44597b519183e96f7ac4e",
+      "outcome": "passed-fresh",
+      "wallSeconds": 24.766661218134686,
+      "childrenMaxRssKiB": 1628064,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "379f075141feb3f0023766dd7e9cbbbcdfb666be62c3c973ad62674377d853c1",
+      "inputs": {
+        "emdash3_2.lp": "c3b1c7b5449a3830bf36182cd2f736e94106b7e44ecaa0b71e41b78a17642bf2",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_projection_normalforms.lp": "f0d9e78b338c349ff369a0af572ccfa51da9557e1fec11b557a9265270501658"
+      },
+      "logSha256": "6a88760f38005c0badffffdc35f20258f2dcea6d08298a0172a5f86b2c321942",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "candidate_right_unit": {
+      "id": "20261020T160917Z-20f18526ef0148ac928a8cd96cd7db90",
+      "outcome": "failed",
+      "wallSeconds": 45.68611462996341,
+      "childrenMaxRssKiB": 1627652,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "eb814a984e8bd433b0475cd3561306f47903fe13b28be3683d9536e79497d5bf",
+      "inputs": {
+        "emdash3_2.lp": "c3b1c7b5449a3830bf36182cd2f736e94106b7e44ecaa0b71e41b78a17642bf2",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_unit_regression.lp": "01a7dce755308ea3d79803c31a91bba293b4d40b23e0d7752e25c2d0a65e8758"
+      },
+      "logSha256": "8749b8913c8ec35034957ea4512fa12b70395b87c147a1b704aeab78b7dc73a2",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "baseline_right_unit": {
+      "id": "20261020T161211Z-77b16ca903514055ac2fc23af7459a83",
+      "outcome": "failed",
+      "wallSeconds": 33.971397675108165,
+      "childrenMaxRssKiB": 1592272,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "61b600eec93affedd729c372e910b223bc81b1efed5c8a4e493b0535b5da345f",
+      "inputs": {
+        "emdash3_2.lp": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_unit_regression.lp": "01a7dce755308ea3d79803c31a91bba293b4d40b23e0d7752e25c2d0a65e8758"
+      },
+      "logSha256": "a44b7fb53528bbd4928a5cdfe0fd029e09855a045d30f35171cd47c0a5220bca",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "baseline_inverse": {
+      "id": "20261020T161354Z-c0de66348319406096492b64ae26217f",
+      "outcome": "passed-fresh",
+      "wallSeconds": 48.56830827402882,
+      "childrenMaxRssKiB": 1591940,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "0f0366e5a23348b7d3f37cb213745b9be7a1ca6bdfaf1c95e95c27ee36139c69",
+      "inputs": {
+        "emdash3_2.lp": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_inverse_regression.lp": "04ae509d3a16afd0da17cedb92934fa6eb898a75c45bade49ba16c43b247c4c6"
+      },
+      "logSha256": "e7ffba4051dc54ee8909835788d9a699f1098613b48037da3b261372ca3e3668",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "candidate_inverse": {
+      "id": "20261020T161453Z-4ad1e90d36cb436e867ff34518ae4fa5",
+      "outcome": "failed",
+      "wallSeconds": 97.46235624398105,
+      "childrenMaxRssKiB": 1626872,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "8378442c632879d31dc55a3f3c9e1d268f569ca35096809bde435b00a8890715",
+      "inputs": {
+        "emdash3_2.lp": "c3b1c7b5449a3830bf36182cd2f736e94106b7e44ecaa0b71e41b78a17642bf2",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_inverse_regression.lp": "04ae509d3a16afd0da17cedb92934fa6eb898a75c45bade49ba16c43b247c4c6"
+      },
+      "logSha256": "c163e8166d6bab1512a2de75250fa4c3866fbe7e9c1d368cdebc91a094d36b0c",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    }
+  },
+  "remaining": "R01-R03 remain required; no source exclusion is removed. The constant-family section/identity observation requires owner review before any further terminal Hom contraction. No impossibility theorem is inferred.",
+  "variants": {
+    "canonical_point_whole_and_Q_controls": {
+      "coreSha256": "54f6dcc3cbb8f3ba07ceb2db2ef6c2f47e9e8db77ce67011526f7026ad291a45",
+      "patch": "--- selected/emdash3_2.lp\n+++ canonical_point_whole_and_Q_controls/emdash3_2.lp\n@@ -8767,6 +8767,11 @@\n       $F0 ≡ (@Op_func $B $A $F)\n     ];\n \n+// Whole terminal Hom ignores both endpoints after Hom formation.\n+rule @hom_con_int Terminal_cat $B $F\n+  ↪ @Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart)\n+      (@Const_func (Op_cat $B) Cat_cart Terminal_cat);\n+\n // Full represented-target action of `hom_con_int`.\n symbol hom_con_int_postcomp_tele_func [A B : Cat]\n   (F : τ (Functor B A))\n@@ -16232,6 +16237,11 @@\n rule @fapp1_fapp0 _ _ (@Homd_coeff_conjoint $A $B $F) $a $b $h\n   ↪ @fapp1_fapp0 $A (Homd_index_cat $B) (@Homd_coeff_conjoint_body $A $B $F) $a $b $h;\n \n+// Canonical-point terminal conjoint only; neutral unit inputs are retained.\n+rule @Homd_coeff_conjoint Terminal_cat $I (@Const_func _ _ Terminal_obj)\n+  ↪ @Const_func Terminal_cat (Homd_index_cat $I)\n+      (@Const_func $I (Op_cat Cat_cart) Terminal_cat);\n+\n // Proof-time whole agreement; runtime projections retain the stable view.\n unif_rule @Homd_coeff_conjoint $A $B $F\n   ≡ @comp_fapp0 Cat_cat _ _ _ $M (@hom_con_int $A0 $B0 $F0)\n@@ -16538,6 +16548,28 @@\n rule @comp_fapp0 Homd_coeff_cat $C $B $A\n       ((@Homd_coeff_conjoint $B $A $F)) ((@Homd_coeff_conjoint $C $B $G))\n   ↪ (@Homd_coeff_conjoint $C $A (@comp_cat_fapp0 $A $B $C $G $F));\n+\n+// Canonical terminal conjoint composition after its ordinary constant view.\n+// lhs-audit: keep 1,2 -- Q composition with canonical source 1.\n+rule @comp_fapp0 Homd_coeff_cat Terminal_cat $B $A\n+    (@Homd_coeff_conjoint $B $A $F)\n+    (@Const_func _ _ (@Const_func _ _ Terminal_cat))\n+  ↪ @Const_func Terminal_cat (Homd_index_cat $A)\n+      (@Const_func $A (Op_cat Cat_cart) Terminal_cat);\n+\n+// lhs-audit: keep 1,3 -- the middle coefficient category is exactly 1.\n+rule @comp_fapp0 Homd_coeff_cat $C Terminal_cat $A\n+    (@Const_func _ _ (@Const_func _ _ Terminal_cat))\n+    (@Homd_coeff_conjoint $C Terminal_cat $G)\n+  ↪ @Homd_coeff_conjoint $C $A\n+      (@Const_func $A $C (@fapp0 Terminal_cat $C $G Terminal_obj));\n+\n+// This is the canonical constant endomap of 1, not the retained Q unit.\n+// lhs-audit: keep 1,2,3 -- represented constant source reindexing at 1.\n+rule @comp_fapp0 Homd_coeff_cat Terminal_cat Terminal_cat $B $P\n+    (@Const_func _ _ (@Const_func _ _ Terminal_cat))\n+  ↪ @Const_func Terminal_cat (Homd_index_cat $B)\n+      (@fapp0 Terminal_cat (Homd_index_cat $B) $P Terminal_obj);\n \n // Canonical covariance under represented source reindexing. This is a\n // proof-time whole-section law, not an operational equality argument.\n"
+    },
+    "without_postcomposition_contraction": {
+      "coreSha256": "696ffa80247c5cea4a3d9aedc4c2c5b97f5e25a0bdb1e4193d7312360a4095e5",
+      "patch": "--- selected/emdash3_2.lp\n+++ without_postcomposition_contraction/emdash3_2.lp\n@@ -13545,6 +13545,23 @@\n rule @hom_con Terminal_cat _ $B _\n   ↪ @Const_catd (Op_cat $B) Terminal_cat;\n \n+// Whole terminal Hom ignores both endpoints after Hom formation.\n+rule @hom_con_int Terminal_cat $B $F\n+  ↪ @Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart)\n+      (@Const_func (Op_cat $B) Cat_cart Terminal_cat);\n+\n+// Terminal Hom contraction at the existing higher projection owners.\n+rule @hom_con_int_postcomp_tele_func Terminal_cat $I $F $u $v\n+  ↪ @Const_func Terminal_cat\n+      (Hom_cat (Functor_cart_cat (Op_cat $I) Cat_cart)\n+        (@Const_func (Op_cat $I) Cat_cart Terminal_cat)\n+        (@Const_func (Op_cat $I) Cat_cart Terminal_cat))\n+      (@id (Functor_cart_cat (Op_cat $I) Cat_cart)\n+        (@Const_func (Op_cat $I) Cat_cart Terminal_cat));\n+rule @hom_con_int_postcomp_func Terminal_cat $I $F $u $v $h\n+  ↪ @id (Functor_cart_cat (Op_cat $I) Cat_cart)\n+      (@Const_func (Op_cat $I) Cat_cart Terminal_cat);\n+\n // Hom-action of a constant family is constantly the identity functor of A.\n rule @fapp1_func $K Cat_cart (@Const_catd $K $A) $x $y\n   ↪ @Const_func\n@@ -16232,6 +16249,11 @@\n rule @fapp1_fapp0 _ _ (@Homd_coeff_conjoint $A $B $F) $a $b $h\n   ↪ @fapp1_fapp0 $A (Homd_index_cat $B) (@Homd_coeff_conjoint_body $A $B $F) $a $b $h;\n \n+// Canonical-point terminal conjoint only; neutral unit inputs are retained.\n+rule @Homd_coeff_conjoint Terminal_cat $I (@Const_func _ _ Terminal_obj)\n+  ↪ @Const_func Terminal_cat (Homd_index_cat $I)\n+      (@Const_func $I (Op_cat Cat_cart) Terminal_cat);\n+\n // Proof-time whole agreement; runtime projections retain the stable view.\n unif_rule @Homd_coeff_conjoint $A $B $F\n   ≡ @comp_fapp0 Cat_cat _ _ _ $M (@hom_con_int $A0 $B0 $F0)\n@@ -16538,6 +16560,28 @@\n rule @comp_fapp0 Homd_coeff_cat $C $B $A\n       ((@Homd_coeff_conjoint $B $A $F)) ((@Homd_coeff_conjoint $C $B $G))\n   ↪ (@Homd_coeff_conjoint $C $A (@comp_cat_fapp0 $A $B $C $G $F));\n+\n+// Canonical terminal conjoint composition after its ordinary constant view.\n+// lhs-audit: keep 1,2 -- Q composition with canonical source 1.\n+rule @comp_fapp0 Homd_coeff_cat Terminal_cat $B $A\n+    (@Homd_coeff_conjoint $B $A $F)\n+    (@Const_func _ _ (@Const_func _ _ Terminal_cat))\n+  ↪ @Const_func Terminal_cat (Homd_index_cat $A)\n+      (@Const_func $A (Op_cat Cat_cart) Terminal_cat);\n+\n+// lhs-audit: keep 1,3 -- the middle coefficient category is exactly 1.\n+rule @comp_fapp0 Homd_coeff_cat $C Terminal_cat $A\n+    (@Const_func _ _ (@Const_func _ _ Terminal_cat))\n+    (@Homd_coeff_conjoint $C Terminal_cat $G)\n+  ↪ @Homd_coeff_conjoint $C $A\n+      (@Const_func $A $C (@fapp0 Terminal_cat $C $G Terminal_obj));\n+\n+// This is the canonical constant endomap of 1, not the retained Q unit.\n+// lhs-audit: keep 1,2,3 -- represented constant source reindexing at 1.\n+rule @comp_fapp0 Homd_coeff_cat Terminal_cat Terminal_cat $B $P\n+    (@Const_func _ _ (@Const_func _ _ Terminal_cat))\n+  ↪ @Const_func Terminal_cat (Homd_index_cat $B)\n+      (@fapp0 Terminal_cat (Homd_index_cat $B) $P Terminal_obj);\n \n // Canonical covariance under represented source reindexing. This is a\n // proof-time whole-section law, not an operational equality argument.\n"
+    }
+  },
+  "isolation": {
+    "baseline": "All five assertions pass: strict carrier, included ambient carrier, left type, right type, whole component conversion.",
+    "candidate": "The first four assertions pass; only the component conversion fails. The diagnostic is not malformed.",
+    "leftNormalForm": "Const_func Terminal_cat Terminal_cat (fapp0 (id (Functor_cat (Op_cat I) Cat_cart) (Const_catd (Op_cat I) Terminal_cat)) i)",
+    "rightNormalForm": "id_func Terminal_cat",
+    "qualification": "The left path uses the retained constant-family section view. A further simplification cannot be justified merely by semantic terminal uniqueness; inspect projection order and native inverse cuts."
+  },
+  "carriedSelectedReceipts": {
+    "combined": {
+      "id": "20261020T145826Z-be1b159cff49475e9e8e48a8ffaa1ad1",
+      "inputCount": 131,
+      "allInputHashesMatch": true
+    },
+    "consumers": {
+      "id": "20261020T145210Z-2130645b8cbc4d3087e47747540fcbdc",
+      "inputCount": 58,
+      "allInputHashesMatch": true
+    },
+    "library": {
+      "id": "20261020T150048Z-adf24a3c89ff4345aefcaef3dfec8825",
+      "inputCount": 90,
+      "allInputHashesMatch": true
+    }
+  },
+  "selectedSourceRestored": true,
+  "replay": "Run production_owner_migration.py successfully at the predecessor; verify selectedCoreSha256. In a disposable copy apply candidatePatch or a named variants patch at its recorded owner positions, write sourceControls, and invoke scripts/run_lambdapi.py with the recorded settings. These are deliberately rejected/non-library candidates, not active registered targets.",
+  "conclusions": [
+    "Matching only Const(I,1,Terminal_obj) avoids the earlier loss of the actual Q identity and retains the tested G[Terminal_obj] composition operand.",
+    "The baseline isolated diagnostic passes four typing assertions and the component conversion. The candidate passes the same typing assertions but fails the conversion; the test is valid.",
+    "The candidate normal forms locate the component mismatch at the constant-family section/identity view, not at a new family strictness requirement.",
+    "The existing DefIso inverse cancellation passes in selected source and fails after broad terminal postcomposition is made the identity on its neutral input. The ordinary projection owner cannot be collapsed this way.",
+    "The raw right-unit test fails unchanged too. No regression or new semantic inconsistency is inferred from that observation.",
+    "All five original R01-R03 runtime obligations remain in the full diagnostic. No active source rule, proof-time comparison, or exclusion is changed.",
+    "This rejects these concrete implementations, not all local terminal-owner alternatives or the whole corrected Homd design."
+  ],
+  "warnings": {
+    "baselineCount": 1583,
+    "candidateCount": 1599,
+    "addedCount": 16,
+    "removedCount": 0,
+    "addedBodies": [
+      {
+        "count": 1,
+        "sha256": "6a45fb6e9c9452f2b6c6950b38da5192cd871c4702a4e883b71f5a09637ef388",
+        "body": [
+          "t ≔ @fapp1_fapp0 $0 $1 (@hom_con_int Terminal_cat $B $F) $W $X $f",
+          "t ↪[] @hom_con_int_postcomp_func $0 $B $F $W $X $f ↪* @hom_con_int_postcomp_func $0 $B $F $W $X $f",
+          "  with @fapp1_fapp0 $0 $1 (@hom_con_int $A $B $F) $W $X $f ↪ @hom_con_int_postcomp_func $0 $B $F $W $X $f",
+          "t ↪[0; 0; 0; 1] @fapp1_fapp0 $0 $1 (@Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart) (@Const_func (Op_cat $B) Cat_cart Terminal_cat)) $W $X $f ↪* @fapp1_fapp0 $0 $1 (@Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart) (Const_catd (Op_cat $B) Terminal_cat)) $W $X $f",
+          "  with @hom_con_int Terminal_cat $B $F ↪ @Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart) (@Const_func (Op_cat $B) Cat_cart Terminal_cat)"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "b92f14aa5e94ca42a16589e4ce0302d5c7dbaf20465c61eccd032f4654bbca9b",
+        "body": [
+          "t ≔ @fapp1_func $0 $1 (@hom_con_int Terminal_cat $B $F) $W $X",
+          "t ↪[] @hom_con_int_postcomp_tele_func $0 $B $F $W $X ↪* @hom_con_int_postcomp_tele_func $0 $B $F $W $X",
+          "  with @fapp1_func $0 $1 (@hom_con_int $A $B $F) $W $X ↪ @hom_con_int_postcomp_tele_func $0 $B $F $W $X",
+          "t ↪[0; 0; 1] @fapp1_func $0 $1 (@Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart) (@Const_func (Op_cat $B) Cat_cart Terminal_cat)) $W $X ↪* @fapp1_func $0 $1 (@Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart) (Const_catd (Op_cat $B) Terminal_cat)) $W $X",
+          "  with @hom_con_int Terminal_cat $B $F ↪ @Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart) (@Const_func (Op_cat $B) Cat_cart Terminal_cat)"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "2e32b0884cd903862ec3242b1ca63a5aa1dd90e99042ee54a2ae10baac6de328",
+        "body": [
+          "t ≔ @fapp0 $0 $1 (@hom_con_int Terminal_cat $B $F) $W",
+          "t ↪[] @hom_con $0 $W $B $F ↪* @hom_con $0 $W $B $F",
+          "  with @fapp0 $0 $1 (@hom_con_int $A $B $F) $W ↪ @hom_con $0 $W $B $F",
+          "t ↪[0; 1] @fapp0 $0 $1 (@Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart) (@Const_func (Op_cat $B) Cat_cart Terminal_cat)) $W ↪* @fapp0 $0 $1 (@Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart) (Const_catd (Op_cat $B) Terminal_cat)) $W",
+          "  with @hom_con_int Terminal_cat $B $F ↪ @Const_func Terminal_cat (Functor_cart_cat (Op_cat $B) Cat_cart) (@Const_func (Op_cat $B) Cat_cart Terminal_cat)"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "6132591cd0e32305aaad342a3efa0936669929d9d21930f118b420910d038736",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $X $X $Y $f (id $4 $X)",
+          "t ↪[] id $4 $X ↪* id $4 $X",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g' ↪ $g'",
+          "t ↪[] $f ↪* $f",
+          "  with @hom_postcomp_fapp0 $A $A (id Cat_cat $A) $X $X $Y $f (id $4 $X) ↪ $f"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "295c2d416c7292124e80df8e35d8c844c7e6086182c6dc4e217bbc8a7639860d",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $x $y $x (@defiso_from Terminal_cat $x $y $i) (@defiso_to Terminal_cat $x $y $i)",
+          "t ↪[] @defiso_to Terminal_cat $x $y $i ↪* @defiso_to Terminal_cat $x $y $i",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g' ↪ $g'",
+          "t ↪[] id Terminal_cat $x ↪* Terminal_obj",
+          "  with @hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $y $x (@defiso_from $C $x $y $i) (@defiso_to $C $x $y $i) ↪ id $C $x"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "9f48cb136f328eacf0518be96375488a5daf4f22591c5a5f0f7e32cb62bf191a",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $y $x $y (@defiso_to Terminal_cat $x $y $i) (@defiso_from Terminal_cat $x $y $i)",
+          "t ↪[] @defiso_from Terminal_cat $x $y $i ↪* @defiso_from Terminal_cat $x $y $i",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g' ↪ $g'",
+          "t ↪[] id Terminal_cat $y ↪* Terminal_obj",
+          "  with @hom_postcomp_fapp0 $C $C (id Cat_cat $C) $y $x $y (@defiso_to $C $x $y $i) (@defiso_from $C $x $y $i) ↪ id $C $y"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "f6d8cfcd0bc1f03197f95fab5ec412a5d800b5839aeb2088dfaa3390d44e2e4f",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $x $z $x (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $z $y $x (@defiso_from Terminal_cat $x $y $i) (@defiso_from Terminal_cat $y $z $j)) (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $x $y $z (@defiso_to Terminal_cat $y $z $j) (@defiso_to Terminal_cat $x $y $i))",
+          "t ↪[] @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $x $y $z (@defiso_to Terminal_cat $y $z $j) (@defiso_to Terminal_cat $x $y $i) ↪* @defiso_to Terminal_cat $x $y $i",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g' ↪ $g'",
+          "t ↪[] id Terminal_cat $x ↪* Terminal_obj",
+          "  with @hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $z $x (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $z $y $x (@defiso_from $C $x $y $i) (@defiso_from $C $y $z $j)) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $y $z (@defiso_to $C $y $z $j) (@defiso_to $C $x $y $i)) ↪ id $C $x"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "d3f639e99872c66bef12e926b9b7a26fdef1ba3e51badb7fdd1d2dda71877579",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $z $x $z (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $x $y $z (@defiso_to Terminal_cat $y $z $j) (@defiso_to Terminal_cat $x $y $i)) (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $z $y $x (@defiso_from Terminal_cat $x $y $i) (@defiso_from Terminal_cat $y $z $j))",
+          "t ↪[] @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $z $y $x (@defiso_from Terminal_cat $x $y $i) (@defiso_from Terminal_cat $y $z $j) ↪* @defiso_from Terminal_cat $y $z $j",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g' ↪ $g'",
+          "t ↪[] id Terminal_cat $z ↪* Terminal_obj",
+          "  with @hom_postcomp_fapp0 $C $C (id Cat_cat $C) $z $x $z (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $y $z (@defiso_to $C $y $z $j) (@defiso_to $C $x $y $i)) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $z $y $x (@defiso_from $C $x $y $i) (@defiso_from $C $y $z $j)) ↪ id $C $z"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "82e6ee63543f78041e28ea12dd0572ed8b37027896fc38c00734efbbb687e26a",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat $A $F $3 $Y $Z $g (@fapp1_fapp0 $A Terminal_cat $F $X $Y $f)",
+          "t ↪[] @fapp1_fapp0 $A Terminal_cat $F $X $Y $f ↪* @fapp1_fapp0 $A Terminal_cat $F $X $Y $f",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g' ↪ $g'",
+          "t ↪[] @fapp1_fapp0 $A Terminal_cat $F $X $Z (@hom_postcomp_fapp0 $A $A (@id_func $A) $X $Y $Z $g $f) ↪* @fapp1_fapp0 $A Terminal_cat $F $X $Z (@hom_postcomp_fapp0 $A $A (id Cat_cat $A) $X $Y $Z $g $f)",
+          "  with @hom_postcomp_fapp0 $B $A $F $3 $Y $Z $g (@fapp1_fapp0 $A $B $F $X $Y $f) ↪ @fapp1_fapp0 $A $B $F $X $Z (@hom_postcomp_fapp0 $A $A (@id_func $A) $X $Y $Z $g $f)"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "4ecd2de2a73b99125143de5b54e42696e5e654dbacbbdb4af61fdf906190c03a",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) $x (id Cat_cat Terminal_cat) (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $x $y (id Cat_cat Terminal_cat) (@defiso_to Terminal_cat $y (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat)) (@defiso_to Terminal_cat $x $y (@defiso_to Terminal_cat $y (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat)))) (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) $y $x (@defiso_from Terminal_cat $x $y (@defiso_to Terminal_cat $y (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat))) (@defiso_from Terminal_cat $y (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat)))",
+          "t ↪[] id Terminal_cat (id Cat_cat Terminal_cat) ↪* Terminal_obj",
+          "  with @hom_postcomp_fapp0 $C $C (id Cat_cat $C) $z $x $z (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $y $z (@defiso_to $C $y $z $j) (@defiso_to $C $x $y $i)) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $z $y $x (@defiso_from $C $x $y $i) (@defiso_from $C $y $z $j)) ↪ id $C $z",
+          "t ↪[0; 1] @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) $x (id Cat_cat Terminal_cat) (@defiso_to Terminal_cat $x $y (@defiso_to Terminal_cat $y (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat))) (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) $y $x (@defiso_from Terminal_cat $x $y (@defiso_to Terminal_cat $y (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat))) (@defiso_from Terminal_cat $y (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat))) ↪* @defiso_from Terminal_cat $y (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat)",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B $F $W $X $Y $p $g ↪ $g"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "58a7173a01f57d632ffa91e4f47f25ade134051ffa54ec8fa72c8254980591b4",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) $z (id Cat_cat Terminal_cat) (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) $z $y (id Cat_cat Terminal_cat) (@defiso_from Terminal_cat (id Cat_cat Terminal_cat) $y (id Cat_cat Terminal_cat)) (@defiso_from Terminal_cat $y $z (@defiso_from Terminal_cat (id Cat_cat Terminal_cat) $y (id Cat_cat Terminal_cat)))) (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) $y $z (@defiso_to Terminal_cat $y $z (@defiso_from Terminal_cat (id Cat_cat Terminal_cat) $y (id Cat_cat Terminal_cat))) (@defiso_to Terminal_cat (id Cat_cat Terminal_cat) $y (id Cat_cat Terminal_cat)))",
+          "t ↪[] id Terminal_cat (id Cat_cat Terminal_cat) ↪* Terminal_obj",
+          "  with @hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $z $x (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $z $y $x (@defiso_from $C $x $y $i) (@defiso_from $C $y $z $j)) (@hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $y $z (@defiso_to $C $y $z $j) (@defiso_to $C $x $y $i)) ↪ id $C $x",
+          "t ↪[0; 1] @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) $z (id Cat_cat Terminal_cat) (@defiso_from Terminal_cat $y $z (@defiso_from Terminal_cat (id Cat_cat Terminal_cat) $y (id Cat_cat Terminal_cat))) (@hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) $y $z (@defiso_to Terminal_cat $y $z (@defiso_from Terminal_cat (id Cat_cat Terminal_cat) $y (id Cat_cat Terminal_cat))) (@defiso_to Terminal_cat (id Cat_cat Terminal_cat) $y (id Cat_cat Terminal_cat))) ↪* @defiso_to Terminal_cat (id Cat_cat Terminal_cat) $y (id Cat_cat Terminal_cat)",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B $F $W $X $Y $p $g ↪ $g"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "1458ea01449d02af12c7fe53c68086765b1e19181335bfaf71892faaa4393667",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (@defiso_to Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat)) (@defiso_from Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat))",
+          "t ↪[] id Terminal_cat (id Cat_cat Terminal_cat) ↪* Terminal_obj",
+          "  with @hom_postcomp_fapp0 $C $C (id Cat_cat $C) $y $x $y (@defiso_to $C $x $y $i) (@defiso_from $C $x $y $i) ↪ id $C $y",
+          "t ↪[] @defiso_from Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) ↪* @defiso_from Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat)",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B $F $W $X $Y $p $g ↪ $g"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "ed75e1249f640f7655447c361884755cb1b4d95a73a27b64483a523b04fc3efe",
+        "body": [
+          "t ≔ @hom_postcomp_fapp0 Terminal_cat Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (@defiso_from Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat)) (@defiso_to Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat))",
+          "t ↪[] id Terminal_cat (id Cat_cat Terminal_cat) ↪* Terminal_obj",
+          "  with @hom_postcomp_fapp0 $C $C (id Cat_cat $C) $x $y $x (@defiso_from $C $x $y $i) (@defiso_to $C $x $y $i) ↪ id $C $x",
+          "t ↪[] @defiso_to Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) ↪* @defiso_to Terminal_cat (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat) (id Cat_cat Terminal_cat)",
+          "  with @hom_postcomp_fapp0 Terminal_cat $B $F $W $X $Y $p $g ↪ $g"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "a7a07e3967484468849eb2dcc627f2c13c2c69994f6ebfd3ef737002b86001d7",
+        "body": [
+          "t ≔ @hom_postcomp_fapp1_fapp0 Terminal_cat $B $F $W $X $Y $f $g $g (id $8 $g)",
+          "t ↪[] id $8 $g ↪* id $8 $g",
+          "  with @hom_postcomp_fapp1_fapp0 Terminal_cat $B' $F' $W' $X' $Y' $p' $g' $h' $alpha' ↪ $alpha'",
+          "t ↪[] id (Hom_cat Terminal_cat $W (@fapp0 $B Terminal_cat $F $Y)) (@hom_postcomp_fapp0 Terminal_cat $B $F $W $X $Y $f $g) ↪* Terminal_obj",
+          "  with @hom_postcomp_fapp1_fapp0 $A $B $F $W $X $Y $f $g $g (id $8 $g) ↪ id (Hom_cat $A $W (@fapp0 $B $A $F $Y)) (@hom_postcomp_fapp0 $A $B $F $W $X $Y $f $g)"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "2e8ed9ae0233310614531fddc35f0237b49eb6b1d18072e65e9814a13ef123e7",
+        "body": [
+          "t ≔ @comp_fapp0 Homd_coeff_cat Terminal_cat $2 $A' (@Homd_coeff_conjoint $2 $A' $F') (@Homd_coeff_conjoint Terminal_cat $2 (@Const_func $1 $2 Terminal_obj))",
+          "t ↪[] @Homd_coeff_conjoint Terminal_cat $A' (@comp_cat_fapp0 $A' $2 Terminal_cat (@Const_func $1 $2 Terminal_obj) $F') ↪* @Homd_coeff_conjoint Terminal_cat $A' (@comp_fapp0 Cat_cat $A' $2 Terminal_cat (@Const_func $1 $2 Terminal_obj) $F')",
+          "  with @comp_fapp0 Homd_coeff_cat $C' $B' $A' (@Homd_coeff_conjoint $B' $A' $F') (@Homd_coeff_conjoint $C' $B' $G') ↪ @Homd_coeff_conjoint $C' $A' (@comp_cat_fapp0 $A' $B' $C' $G' $F')",
+          "t ↪[1] @comp_fapp0 Homd_coeff_cat Terminal_cat $2 $A' (@Homd_coeff_conjoint $2 $A' $F') (@Const_func Terminal_cat (Homd_index_cat $2) (@Const_func $2 (Op_cat Cat_cart) Terminal_cat)) ↪* @comp_fapp0 Homd_coeff_cat Terminal_cat $2 $A' (@Homd_coeff_conjoint $2 $A' $F') (@Const_func Terminal_cat (Op_cat (Functor_cat $2 (Op_cat Cat_cart))) (@Const_func $2 (Op_cat Cat_cart) Terminal_cat))",
+          "  with @Homd_coeff_conjoint Terminal_cat $I (@Const_func $1 $2 Terminal_obj) ↪ @Const_func Terminal_cat (Homd_index_cat $I) (@Const_func $I (Op_cat Cat_cart) Terminal_cat)"
+        ]
+      },
+      {
+        "count": 1,
+        "sha256": "062b9d15fed518e7e2be6bb4560a7c683c8f6cc0a13bc0fe6043dd5710ae9a6d",
+        "body": [
+          "t ≔ @comp_fapp0 Homd_coeff_cat $C' Terminal_cat $2 (@Homd_coeff_conjoint Terminal_cat $2 (@Const_func $1 $2 Terminal_obj)) (@Homd_coeff_conjoint $C' Terminal_cat $G')",
+          "t ↪[] @Homd_coeff_conjoint $C' $2 (@comp_cat_fapp0 $2 Terminal_cat $C' $G' (@Const_func $1 $2 Terminal_obj)) ↪* @Homd_coeff_conjoint $C' $2 (@comp_fapp0 Cat_cat $2 Terminal_cat $C' $G' (@Const_func $1 $2 Terminal_obj))",
+          "  with @comp_fapp0 Homd_coeff_cat $C' $B' $A' (@Homd_coeff_conjoint $B' $A' $F') (@Homd_coeff_conjoint $C' $B' $G') ↪ @Homd_coeff_conjoint $C' $A' (@comp_cat_fapp0 $A' $B' $C' $G' $F')",
+          "t ↪[0; 1] @comp_fapp0 Homd_coeff_cat $C' Terminal_cat $2 (@Const_func Terminal_cat (Homd_index_cat $2) (@Const_func $2 (Op_cat Cat_cart) Terminal_cat)) (@Homd_coeff_conjoint $C' Terminal_cat $G') ↪* @comp_fapp0 Homd_coeff_cat $C' Terminal_cat $2 (@Const_func Terminal_cat (Op_cat (Functor_cat $2 (Op_cat Cat_cart))) (@Const_func $2 (Op_cat Cat_cart) Terminal_cat)) (@Homd_coeff_conjoint $C' Terminal_cat $G')",
+          "  with @Homd_coeff_conjoint Terminal_cat $I (@Const_func $1 $2 Terminal_obj) ↪ @Const_func Terminal_cat (Homd_index_cat $I) (@Const_func $I (Op_cat Cat_cart) Terminal_cat)"
+        ]
+      }
+    ],
+    "assessment": "Candidate-only overlaps include terminal postcomposition versus unit, selected inverse and mapped-arrow cuts. The inverse case is a checked regression. This does not turn inherited symbolic warning counts into a global confluence claim."
+  },
+  "scopeAndHygiene": "No new primitive, proof payload, raw FF strictness requirement, or broad terminal eta selected. Candidate source is retained as a patch with explicit controls and exact receipts; it is outside the registered library. The selected replay was regenerated successfully and carried green receipt inputs rehashed. No repeated aggregate run was needed for unchanged selected source.",
+  "continuationAudit": "The preceding status-only turn made no authoritative change. This continuation added matched source evidence that locates the projection failure and rejects the attempted postcomposition repair; it is progress, not a wait or an external blocker."
+}

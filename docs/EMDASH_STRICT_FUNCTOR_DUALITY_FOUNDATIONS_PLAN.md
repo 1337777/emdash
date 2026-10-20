@@ -42,6 +42,29 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Terminal continuation after `7bdeb7f8`, 2026-10-20 UTC: the
+[canonical-point review](../emdash2/audits/strict-default-action-boundary/production_terminal_canonical_review.md)
+and [exact evidence](../emdash2/audits/strict-default-action-boundary/production_terminal_canonical_review_verification.json)
+test a narrower alternative to the rejected constant-transport normalizer.
+The literal terminal-point case preserves the tested Q units and both
+conjoint-composition orientations. It still fails an ordinary Hom component
+projection which passes in the unchanged checkpoint; all four isolated type
+checks pass in both sources. The normal forms locate the mismatch at the
+constant-family section/identity view. A further terminal-postcomposition
+contraction breaks actual inverse cancellation, also verified against the
+unchanged source. A raw terminal right-unit failure occurs in both snapshots
+and is explicitly not classified as a new regression.
+
+No candidate rule is adopted and none of the five terminal runtime obligations
+is removed. The selected emitter completed successfully; all prior combined,
+affected-consumer and library receipt inputs rehash exactly. Continue at the
+constant-section identity and native Homd projection owners before trying
+another constituent-wide terminal contraction. The pre-goal terminal rules
+were local to stable Homd projections; their Q/mate replacements expose more
+ordinary action, so a global constituent normalizer is not a mechanical copy
+of that old local rule. No new strictness restriction, primitive merely naming
+a failed comparison, or general Q theory is selected.
+
 Final wrapper continuation after `566598db`, 2026-10-20 UTC: the
 [retirement review](../emdash2/audits/strict-default-action-boundary/production_strict_wrapper_finish_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_strict_wrapper_finish_verification.json)
