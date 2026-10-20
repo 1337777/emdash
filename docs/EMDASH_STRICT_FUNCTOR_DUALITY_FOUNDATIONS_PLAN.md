@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original Homd leaf/intrinsic and displayed-Hom diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original product/Prof, Path/Core and Nat diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,46 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Diagnostic continuation after `1fe8ff8a`, 2026-10-20 UTC: the
+[product/Path verification](../emdash2/audits/strict-default-action-boundary/production_central_product_path_verification.json)
+qualifies the next original product-map, profunctor-operation, Path/Core,
+equality-skeleton and Nat prerequisite blocks. The selected mathematical
+sources are unchanged. The entire emitted original diagnostic diff is exactly
+eight family coefficient annotations changed to Cat_cart and two existing
+hom_int_view inclusions in the intrinsic Hom-action observation.
+
+Ordinary product/projection and composition forms remain untouched. Prof
+keeps its product-base convention, maps, represented data, opaque tensor,
+co-Yoneda, weighted-colimit inputs and join cross terms. This consumer pass
+does not derive a general profunctor/coend model or add Q theory. Path/Core,
+the explicit kappa and generic spiral, equality-skeleton, arithmetic and
+sethood observations pass unchanged, including their original nonconversion
+boundaries and nine local diagnostic declarations. The split Path driver
+retains its original Nat-arithmetic dependency.
+
+The product/Prof block contains 81 positives; Path/Core with its adjacent Nat
+prerequisites contains 57 positives/four negatives. The final installed-checker
+combined subset passes 1524/219 in 41.538s/2244.8MiB under the established
+300s/4GiB/o=20 profile, with SR and unchanged warning bodies (1786). All
+original-name mathematical files except the diagnostic are byte-identical;
+the core/Homd and library receipts carry after exact input rehashing. The
+full central source still has 2147 positives, 293 negatives and all 66
+original global declarations. No rule, primitive, profile or proof payload
+was added.
+
+Source-generation guards now distinguish the nine annotations in the pinned
+input from the eight new changes in the emitted diagnostic: the existing
+later represented-Hom pass already owns the ninth. A combined check launched
+after an unsuccessful emission used the previous package and is explicitly
+discarded as tranche validation. Final evidence uses successful regeneration,
+the verified ten-substitution diff and the fresh combined check.
+
+Next continue the original walking-endomorphism, Code/powers/spiral and
+directed-decoder diagnostics. The five terminal runtime obligations,
+remaining registered consumers, wrapper retirement, normalization/performance
+and production/final gates remain open. The separate application goal stays
+paused.
 
 Diagnostic continuation after `2d55c39a`, 2026-10-20 UTC: the
 [Homd/Hom_catd verification](../emdash2/audits/strict-default-action-boundary/production_central_homd_homcatd_verification.json)

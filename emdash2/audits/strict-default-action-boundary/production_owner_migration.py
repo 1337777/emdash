@@ -4414,6 +4414,30 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'owner': 'original generic displayed Hom action, classifier folds and inline Unit_prof comparison',
                                 'reason': 'Use total-dual negative sections over R(K), actual Cat_cart coefficients and the same Hom/profunctor values. Establish the generic inline comparison before specializing to the original strict section, without a new rule or operational proof argument',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// General two-sided product maps used by profunctor reindexing.', start)
+                end = text.index('// catalog-area: Internal Path action and explicit Core-inclusion kappa', start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 81
+                assert not re.findall(r'(?m)^assertnot\b', old)
+                split = old.index('// Stable profunctor reindexing and its representable fold.')
+                prof_observations = old[split:]
+                # Nine in the pinned input; the existing later Hom-annotation
+                # pass already retags one of them in the previous emitted file.
+                assert prof_observations.count('Cat_cat') == 9
+                assert prof_observations.count('(@hom_int ') == 2
+                later_hom_annotation = '≡ @tapp1_fapp0\n      A\n      Cat_cat\n      (@hom_'
+                assert prof_observations.count(later_hom_annotation) == 1
+                prof_observations = prof_observations.replace('Cat_cat', 'Cat_cart')
+                # Leave the one annotation owned by the existing later
+                # represented-Hom pass to that pass and its guarded count.
+                prof_observations = prof_observations.replace(
+                    later_hom_annotation.replace('Cat_cat', 'Cat_cart'), later_hom_annotation)
+                section = old[:split] + prof_observations.replace('(@hom_int ', '(@hom_int_view ')
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/product-profunctor-operations-observations',
+                                'owner': 'original product maps, Prof reindexing, tensor, co-Yoneda, weighted-colimit and join diagnostics',
+                                'reason': 'Preserve ordinary product-map composition and the existing Prof convention; retag family coefficient annotations and use the two existing ordinary Hom inclusions in the internal-action observation',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5799,6 +5823,16 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     (package / 'central_homcatd_controls.lp').write_text(
         'require open emdash.emdash3_2;\n'
         + central[homcatd_action_start:homcatd_action_end])
+    product_prof_end = central.index(
+        '// catalog-area: Internal Path action and explicit Core-inclusion kappa', homcatd_action_end)
+    path_core_end = central.index(
+        '// catalog-area: Opaque walking endomorphism HIT and contextual elimination', product_prof_end)
+    (package / 'central_product_prof_controls.lp').write_text(
+        'require open emdash.emdash3_2_strict_functor_actions;\n'
+        + central[homcatd_action_end:product_prof_end])
+    (package / 'central_path_core_controls.lp').write_text(
+        'require open emdash.emdash3_2_nat_arithmetic;\n'
+        + central[product_prof_end:path_core_end])
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5824,7 +5858,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_public_homd_general_controls;\n'
         'require open emdash.terminal_homd_comparison_controls;\n'
         'require open emdash.central_homd_leaf_prof_controls;\n'
-        'require open emdash.central_homcatd_controls;\n')
+        'require open emdash.central_homcatd_controls;\n'
+        'require open emdash.central_product_prof_controls;\n'
+        'require open emdash.central_path_core_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6344,6 +6380,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'terminal_homd_comparison_controls.lp',
                               package / 'central_homd_leaf_prof_controls.lp',
                               package / 'central_homcatd_controls.lp',
+                              package / 'central_product_prof_controls.lp',
+                              package / 'central_path_core_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',
