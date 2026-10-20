@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; whole comma/action diagnostics and pre/right capped identity qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original diagnostic tail qualified with exactly five terminal runtime assertions excluded; wrapper retirement, normalization/resource review and production qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,53 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Diagnostic-tail continuation after `6accb8f4`, 2026-10-20 UTC: the
+[tail verification](../emdash2/audits/strict-default-action-boundary/production_central_tail_verification.json)
+qualifies the remaining original profile/closure/groupoidification and
+product/pullback/dependent-product blocks. The first retains its test-local
+declaration and now has 95 positive/23 negative observations; two obsolete
+negatives become positive under the already-selected strict-functor and
+conventional pre/right defaults. The second retains all 73 positives and
+fifteen negatives. General post/left and structural noncollapse controls
+remain. Legacy strict wrappers are explicitly still pending retirement.
+
+The structural observations now use pairing's Cat_cart/Cartesian-Hom
+coefficient, the declared CoAt2 slice-Sigma/dependent-product bases and the
+ordinary inclusion of represented postcomposition. The final constant-map
+comparison imports its existing adjunction-family-view owner. No mathematical
+source, primitive, rule, unifier, supplied structure or operational proof
+argument changes in this tranche. Among all 153 original-name staged files,
+only the central diagnostic changes; its full inventory is now 2150 positive,
+290 negative and 66 declarations.
+
+The existing catalog parser compares the full migrated source with the direct
+diagnostic-driver closure. Exactly five of its 2440 assertions are absent:
+the unchanged positive terminal-runtime obligations R01–R03. Every other
+assertion is represented, including repetitions, and all 66 declaration names
+are present. All 42 driver files are actual inputs of the final combined
+receipt. This is source coverage and selected-context checking, not execution
+of the original all-import context or discharge of the five obligations.
+
+The installed-checker combined subset passes 2168 positive/298 negative
+assertions with SR in 204.992s/6694.5MiB under 300s/7GiB/o=20. A prior 6GiB
+run allocation-failed during triangular-product rule checking. Host available
+memory was about 13.3GiB before the bounded retry; defaults, serial/file limits
+and no-swap containment remain unchanged. The focused blocks pass at 4GiB
+(profile closure 98/23 including three inherited positives; structural 73/15).
+Exact-input rehashing carries the recent core/Homd and library receipts.
+
+The added import scope produces 238 further warning bodies (2086 total): 212
+already occur exactly in the focused or current library receipts; the other
+26 are BNat/sheaf specializations interacting with product, terminal,
+slice-unit/counit and inverse-evaluation rules. Their owners/rule-head groups
+are inventoried; general symbolic joins remain R07 work. Neither the larger
+resource ceiling nor the passing checks settle computational usability.
+
+Next inventory and retire redundant strict-functor wrappers at their actual
+consumers. Keep the five terminal runtime obligations, remaining registered
+consumer/full-context coverage, normalization/overlap review and production
+gates explicit. The separate application goal stays paused.
 
 Diagnostic/normalization continuation after `c5daf01f`, 2026-10-20 UTC: the
 [comma/action verification](../emdash2/audits/strict-default-action-boundary/production_central_comma_action_verification.json)

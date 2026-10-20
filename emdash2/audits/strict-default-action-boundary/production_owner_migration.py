@@ -5852,6 +5852,83 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                     'owner': 'original whole comma and ordinary internal action diagnostics',
                     'reason': 'Use total-dual identity graphs, the actual intrinsic-modification direction, native contravariant Hom views and Cat_cart displayed coefficients; restrict only the two direct-transpose comparisons to their declared StrictTransfor input',
                     'oldBodySha256': sha(old_comma), 'newBodySha256': sha(comma)})
+    structural_tail_marker = '// catalog-area: Enhanced triangular binary-product computation'
+    assert central.count(structural_tail_marker) == 1
+    profiles_start = central.index(profiles_marker)
+    structural_tail_start = central.index(structural_tail_marker, profiles_start)
+    profiles = central[profiles_start:structural_tail_start]
+    old_profiles = profiles
+    for old, new in (
+        ('// Opaque strict functor objects carry the stable action view. GrayHom_lax\n// selects classified lax arrows over those objects.',
+         '// Legacy strict-functor views remain until wrapper retirement. GrayHom_lax\n// still selects classified lax arrows over those admitted objects.'),
+        ('// A Catd-valued codomain is not evidence that an arbitrary ambient functor\n// preserves composition.\nassertnot [A K : Cat]',
+         '// Public functors preserve composition by default, also at a Catd-valued\n// codomain without an additional strict wrapper.\nassert [A K : Cat]'),
+        ('// Composition computation is guarded by the strict-functor view.',
+         '// The same default composition computation is observed through the legacy view.'),
+        ('// The exact existing whole pre/right cell is identity only at the profile.',
+         '// The classified lax view retains the default pre/right identity computation.'),
+        ('// Ambient functors are not silently promoted into the strict object sort.',
+         '// Until wrapper retirement, the legacy admitted object sort is still distinct\n// syntactically from the now-strict public Functor carrier.'),
+        ('''assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  [W X Y : τ (Obj A)]
+  (h : τ (Hom A W X)) ⊢
+  @strict_transfor_pre_naturality_lhs_func''',
+         '''// The conventional-lax default identifies this pre/right whole action.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  [W X Y : τ (Obj A)]
+  (h : τ (Hom A W X)) ⊢
+  @strict_transfor_pre_naturality_lhs_func'''),
+    ):
+        assert profiles.count(old) == 1, old
+        profiles = profiles.replace(old, new)
+    central = central[:profiles_start] + profiles + central[structural_tail_start:]
+    changes.append({'source': 'emdash3_2_checks.lp',
+                    'owner': 'original strict profiles, closure and groupoidification diagnostics',
+                    'reason': 'Retain all existing declarations, profile/closure data and noncollapse controls; change only the two obsolete lax-default negatives explained by strict public functors and conventional pre/right action',
+                    'oldBodySha256': sha(old_profiles), 'newBodySha256': sha(profiles)})
+    structural_tail_start = central.index(structural_tail_marker)
+    structural_tail = central[structural_tail_start:]
+    old_structural_tail = structural_tail
+    pairing_type = '''assert [C : Cat]
+  [P : τ (Functor (Product_cat C C) C)]
+  (BP : τ (@BinaryProducts C P))
+  (X Y A0 A1 : τ (Obj C)) ⊢
+  @tapp1_func'''
+    assert structural_tail.count(pairing_type) == 1
+    first = structural_tail.index(pairing_type)
+    last = structural_tail.index(';', first) + 1
+    pairing = structural_tail[first:last]
+    assert pairing.count('(Op_cat C) Cat_cat') == 3
+    assert pairing.count('(Functor_cat\n') == 1
+    pairing = pairing.replace('(Op_cat C) Cat_cat', '(Op_cat C) Cat_cart')
+    pairing = pairing.replace('(Functor_cat\n', '(Functor_cart_cat\n')
+    structural_tail = structural_tail[:first] + pairing + structural_tail[last:]
+    for old, new in (
+        ('@fapp0 C Cat_cat (@SliceSigma_catd C) X',
+         '@fapp0 (CoAt2_cat C) Cat_cart (@SliceSigma_catd C) X'),
+        ('@fapp0 (Op_cat C) Cat_cat (@SliceBaseChange_catd C PB) X',
+         '@fapp0 (Op_cat C) Cat_cart (@SliceBaseChange_catd C PB) X'),
+        ('    (Op_cat C) Cat_cat\n    (@SliceBaseChange_catd C PB)',
+         '    (Op_cat C) Cat_cart\n    (@SliceBaseChange_catd C PB)'),
+        ('@fapp0 C Cat_cat (@SliceDependentProduct_catd C PB DP) X',
+         '@fapp0 (CoAt2_cat C) Cat_cart (@SliceDependentProduct_catd C PB DP) X'),
+        ('@fapp1_fapp0 C Cat_cat\n    (@SliceDependentProduct_catd C PB DP)',
+         '@fapp1_fapp0 (CoAt2_cat C) Cat_cart\n    (@SliceDependentProduct_catd C PB DP)'),
+        ('(@hom_con_int_postcomp_func C C (@id Cat_cat C) X Y f)',
+         '''(@strict_transfor (Op_cat C) Cat_cart
+            (@hom_con C X C (@id Cat_cat C))
+            (@hom_con C Y C (@id Cat_cat C))
+            (@hom_con_int_postcomp_func C C (@id Cat_cat C) X Y f))'''),
+    ):
+        assert structural_tail.count(old) == 1, old
+        structural_tail = structural_tail.replace(old, new)
+    central = central[:structural_tail_start] + structural_tail
+    changes.append({'source': 'emdash3_2_checks.lp',
+                    'owner': 'original product, pullback and dependent-product diagnostics',
+                    'reason': 'Observe pairing in its actual Cartesian coefficient Hom, slice families on their declared bases, and the ordinary inclusion of represented postcomposition; retain all selected structures, whole inverse maps and assertions',
+                    'oldBodySha256': sha(old_structural_tail), 'newBodySha256': sha(structural_tail)})
     (package / 'emdash3_2_checks.lp').write_text(central)
     groupoid_start = '// catalog-area: Internal groupoidality and structured J'
     groupoid_end = '// Phase 9 discrete-category core and homwise adequacy.'
@@ -6029,6 +6106,20 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.emdash3_2_strict_functor_actions;\n'
         + central[central.index(comma_marker):central.index(profiles_marker)]
         + fragment('production_pre_laxity_projection_controls.lpfragment'))
+    (package / 'central_profile_closure_controls.lp').write_text(
+        'require open emdash.emdash3_2_gray_interchanger;\n'
+        'require open emdash.emdash3_2_walking_circle_restriction;\n'
+        'require open emdash.emdash3_2_groupoidification_interval_recovery;\n'
+        'require open emdash.emdash3_2_groupoidification_composition;\n'
+        'require open emdash.emdash3_2_strict_functor_actions;\n'
+        + central[central.index(profiles_marker):central.index(structural_tail_marker)])
+    (package / 'central_structural_tail_controls.lp').write_text(
+        'require open emdash.emdash3_2_cartesian_categories;\n'
+        'require open emdash.emdash3_2_triangular_binary_products_finite_limits;\n'
+        'require open emdash.emdash3_2_slice_dependent_products;\n'
+        'require open emdash.emdash3_2_terminal_category_profile;\n'
+        'require open emdash.emdash3_2_one_cat_adjunction_family_views;\n'
+        + central[central.index(structural_tail_marker):])
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -6061,7 +6152,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_closed_sigma_controls;\n'
         'require open emdash.central_presheaf_locality_controls;\n'
         'require open emdash.central_algebra_controls;\n'
-        'require open emdash.central_comma_action_controls;\n')
+        'require open emdash.central_comma_action_controls;\n'
+        'require open emdash.central_profile_closure_controls;\n'
+        'require open emdash.central_structural_tail_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6588,6 +6681,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'central_presheaf_locality_controls.lp',
                               package / 'central_algebra_controls.lp',
                               package / 'central_comma_action_controls.lp',
+                              package / 'central_profile_closure_controls.lp',
+                              package / 'central_structural_tail_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',
