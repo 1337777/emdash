@@ -4438,6 +4438,45 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'owner': 'original product maps, Prof reindexing, tensor, co-Yoneda, weighted-colimit and join diagnostics',
                                 'reason': 'Preserve ordinary product-map composition and the existing Prof convention; retag family coefficient annotations and use the two existing ordinary Hom inclusions in the internal-action observation',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
+                start = text.index('// catalog-area: Opaque walking endomorphism HIT and contextual elimination', start)
+                end = text.index('// catalog-area: auto', start)
+                old = text[start:end]
+                assert len(re.findall(r'(?m)^assert\b', old)) == 89
+                assert len(re.findall(r'(?m)^assertnot\b', old)) == 12
+                section = old.replace('Cat_cat', 'Cat_cart')
+                observations = {}
+                for match in reversed(list(re.finditer(r'(?m)^assert(?:not)?\b.*?;', section, re.S))):
+                    block = match.group()
+                    if '≡ @Transf\n' in block and '@walking_end_loop_coherence' in block:
+                        block = block.replace('≡ @Transf\n', '≡ @StrictTransfor\n')
+                        observations['coherence'] = observations.get('coherence', 0) + 1
+                    if 'r sigma;' in block:
+                        block = block.replace('r sigma;', 'r (@strict_transfor _ _ _ _ sigma);')
+                        observations['loopComponent'] = observations.get('loopComponent', 0) + 1
+                    if ('@tapp0_fapp0' in block or '@tapp1_func' in block):
+                        block, count = re.subn(r'\bwalking_power_spiral(?:_coreincl)?\b',
+                            lambda m: '(@strict_transfor _ _ _ _ ' + m.group() + ')', block)
+                        if count:
+                            observations['spiralViews'] = observations.get('spiralViews', 0) + count
+                    if 'WalkingEnd_cat Cat_cart walking_Code_catd' in block:
+                        block = block.replace('(Functor_cat\n        (Fibre_cat walking_Code_catd',
+                            '(Functor_cart_cat\n        (Fibre_cat walking_Code_catd')
+                        observations['codeHom'] = observations.get('codeHom', 0) + 1
+                    if 'p q alpha\n' in block and 'WalkingEnd_cat Cat_cart walking_based_rep_catd' in block:
+                        context, rest = block.split('⊢', 1)
+                        value, typ = rest.rstrip(';').rsplit('\n  : ', 1)
+                        value = value.replace('(Functor_cat\n      (Fibre_cat walking_based_rep_catd',
+                            '(Functor_cart_cat\n      (Fibre_cat walking_based_rep_catd')
+                        block = context + '⊢\n  @strict_transfor _ _ _ _\n    (' + value.strip() + ')\n  : ' + typ + ';'
+                        observations['repHigherView'] = observations.get('repHigherView', 0) + 1
+                    section = section[:match.start()] + block + section[match.end():]
+                assert observations == {'coherence': 1, 'loopComponent': 1, 'spiralViews': 4,
+                                        'codeHom': 1, 'repHigherView': 1}, observations
+                text = text[:start] + section + text[end:]
+                changes.append({'source': path + '/walking-end-code-decoder-observations',
+                                'owner': 'original opaque WalkingEnd, Code/power/spiral, decoder and Hom-Nat diagnostics',
+                                'reason': 'Use the existing strict fibre-comparison classifier and ordinary inclusion, actual Cat_cart Code action and Cartesian higher Hom; preserve the lax base map, opaque constructors, original inverse data and all negative observations',
+                                'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 marker = '// catalog-area: Constructed Cat-valued sheafification reflector'
                 end_marker = '/* End of the CS-12s constructed Cat-valued sheafification diagnostics. */'
                 assert text.count(marker) == text.count(end_marker) == 1
@@ -5833,6 +5872,10 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     (package / 'central_path_core_controls.lp').write_text(
         'require open emdash.emdash3_2_nat_arithmetic;\n'
         + central[product_prof_end:path_core_end])
+    walking_end_end = central.index('// catalog-area: auto', path_core_end)
+    (package / 'central_walking_end_controls.lp').write_text(
+        'require open emdash.emdash3_2_walking_end_hit;\n'
+        + central[path_core_end:walking_end_end])
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5860,7 +5903,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_homd_leaf_prof_controls;\n'
         'require open emdash.central_homcatd_controls;\n'
         'require open emdash.central_product_prof_controls;\n'
-        'require open emdash.central_path_core_controls;\n')
+        'require open emdash.central_path_core_controls;\n'
+        'require open emdash.central_walking_end_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6382,6 +6426,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'central_homcatd_controls.lp',
                               package / 'central_product_prof_controls.lp',
                               package / 'central_path_core_controls.lp',
+                              package / 'central_walking_end_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',

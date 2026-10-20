@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original product/Prof, Path/Core and Nat diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original WalkingEnd/Code/decoder diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,44 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Diagnostic continuation after `60ae687e`, 2026-10-20 UTC: the
+[walking verification](../emdash2/audits/strict-default-action-boundary/production_central_walking_verification.json)
+qualifies all four original WalkingEnd, Code/power/spiral, directed-decoder
+and Hom-Nat consequence blocks. No mathematical owner, rewrite, unifier,
+primitive or operational proof argument changes in this tranche.
+
+The observations now name the existing strict fibre-transformation classifier
+of walking_end_loop_coherence and use its ordinary inclusion for components.
+This does not make the resulting Functord strict across WalkingEnd. Code uses
+Cat_cart and its actual Cartesian Hom; the represented higher cell is read
+through the same existing inclusion. Four spiral observations likewise use
+the existing ordinary view. The actual two-factor spiral, explicit kappa,
+directed normalization cell, derived paths and selected inverse data remain.
+
+All 89 original positive and twelve negative observations pass. WalkingEnd
+retains its opaque object/Hom/identity/composition boundaries and remains
+distinct from the BNat model. The dimension datum is not upgraded to
+discreteness of WalkingEnd. The generator-prefix and spiral nonconversions,
+decoder round trips and noninvertible-loop consequences are unchanged.
+
+The final installed-checker combined subset passes 1616 positive/231 negative
+assertions in 49.488s/2467.7MiB with SR and the existing 300s/4GiB/o=20 profile.
+This includes three existing assertions from the newly imported one-category
+profile modules, in addition to the 89 original walking observations.
+The warning multiset grows from 1786 to 1828: 29 bodies are from the unchanged
+one_cat_transfor_profiles owner and thirteen from WalkingEnd. Every addition
+already occurs in the focused walking closure. The evidence classifies their
+identity/inclusion, inverse-comparison, constructor/constant and BNat-action
+families; general symbolic joins remain part of the pre-promotion review.
+
+Core/Homd and library receipts carry after exact input rehashing. The only
+changed original-name LP file is the diagnostic, retaining all 2147 positives,
+293 negatives and 66 global declarations. No observation changes polarity.
+Next continue the following profunctor closed/comparison and Pi/Sigma
+section/substitution diagnostics before the presheaf blocks. The five terminal
+runtime obligations, wrapper retirement, normalization/performance and
+production/final gates remain open. The separate application goal stays paused.
 
 Diagnostic continuation after `1fe8ff8a`, 2026-10-20 UTC: the
 [product/Path verification](../emdash2/audits/strict-default-action-boundary/production_central_product_path_verification.json)
