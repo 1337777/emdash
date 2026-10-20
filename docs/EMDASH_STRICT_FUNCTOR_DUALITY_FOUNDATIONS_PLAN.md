@@ -42,6 +42,37 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Hom-factor compatibility continuation after `01624765`: the
+[consumer review](../emdash2/audits/strict-default-action-boundary/production_hom_factor_compatibility_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_hom_factor_compatibility_verification.json)
+qualify 39 original files unchanged: 28 library modules and 11 reviewers.
+The source identifies `hom_factor_cubical` as a consumer of the corrected
+lax-arrow total. Its side/filler
+projections, whole comparisons and the chain-pair shared middle map retain
+their original computation and next Hom action. The adjacent factor operations
+and the existing chain-map composition/diagram observation also pass.
+
+All 54 positive and eight negative assertions retain their original source,
+along with the existing whole Hom type query. Three source-only checks pass
+under 90s/2GiB/o=20 with the isolated checker, SR and warnings. Their wall/peak
+measurements are 23.787s/161652KiB, 57.146s/283088KiB and 34.511s/191444KiB.
+The ten unchanged truncation-reflector rules are reviewed at their existing
+owners; the other newly staged files contain no rules. No primitive, rewrite,
+unifier, new hypothesis or operational proof payload is introduced.
+
+Re-emission preserves all checked input bytes and prior selected receipts.
+Coverage is now 182 registered core files and 72 reviewers, with the same five
+central terminal exclusions; 609 core files and 524 reviewers remain unstaged.
+Continue next with the existing `one_cat_diagram_map_equivalences` consumer,
+preserving its actual inverse data and OneCat guard. This adds no new
+application equivalence result and does not resume the paused nerve goal.
+
+Projection-ladder reminder, reaffirmed by the user: a needed upstream repair
+must use the whole semantic owner and suitable stable intermediate projections,
+with both observation orders and next-Hom action checked. Do not substitute a
+compound nested-projection rewrite or treat diagnostic helper definitions as
+a repaired library interface. The existing exceptional-bridge SOP still applies.
+
 Sigma fibre-inclusion continuation after `83c5308b`: the
 [consumer review](../emdash2/audits/strict-default-action-boundary/production_sigma_fibre_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_sigma_fibre_verification.json)

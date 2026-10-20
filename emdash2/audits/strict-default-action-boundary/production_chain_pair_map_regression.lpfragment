@@ -1,0 +1,2 @@
+require open emdash.examples.chain_pair_maps;
+require open emdash.examples.chain_pair_diagram_maps;

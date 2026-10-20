@@ -5701,6 +5701,16 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/zero_arrow_diagrams.lp')
     stage('examples/zero_arrow_cone_maps.lp')
     stage('examples/one_cat_zero_cone_fibre_inclusion.lp')
+    # Existing Hom-factor and chain-map consumers qualify unchanged at the
+    # corrected lax-arrow total and strict-default action owners.
+    for reviewer in (
+        'hom_factor_cubical', 'chain_pair_cubical_maps',
+        'hom_factor_spaces', 'hom_factor_source_isos', 'hom_factor_views',
+        'hom_factor_comparison_pasting', 'hom_factor_epic_descent',
+        'hom_factor_chain_zero', 'hom_factor_universality',
+        'chain_pair_maps', 'chain_pair_diagram_maps',
+    ):
+        stage('examples/' + reviewer + '.lp')
     stage('examples/kernel_cokernel_adjunctions.lp')
     stage('examples/adjunction_mates.lp')
     stage('examples/one_cat_adjunction_families.lp')
