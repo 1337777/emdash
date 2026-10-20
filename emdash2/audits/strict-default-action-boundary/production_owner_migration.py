@@ -1435,7 +1435,7 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
     replace_once(old_components, new_components, 'displayed component and transport profiles',
                  'Use actual Cartesian fibre Homs, retaining lax base action; replace the false left/middle comparison by the selected right/middle comparison')
     insert('/*\n  Runtime component projection for the existing functorial Sigma-section\n  owner:',
-           fragment('production_displayed_component_accumulation.lpfragment'),
+           fragment('production_displayed_component_accumulation.lpfragment') + '\n',
            'Recover the existing conventional pre/right accumulation after evaluation has projected to tdapp0_fapp0; retain the actual codomain and the non-strict post/left leg')
 
     a = body.index('// 16b. Identity-specialized displayed hom action and Sigma-map action')

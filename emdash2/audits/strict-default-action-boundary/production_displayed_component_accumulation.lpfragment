@@ -15,4 +15,3 @@ rule @comp_fapp0 $B _ _ _
     (@tdapp0_fapp0 _ _ _ $FF $GG $z $g)
   ↪ @tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z)
       $G $FF $GG $epsilon $g;
-
