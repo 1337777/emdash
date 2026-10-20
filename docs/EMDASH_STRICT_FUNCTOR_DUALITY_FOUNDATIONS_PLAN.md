@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original profunctor closed/comparison and Pi/Sigma diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; original presheaf, locality and sheafification diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,42 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Diagnostic continuation after `e445fce9`, 2026-10-20 UTC: the
+[presheaf verification](../emdash2/audits/strict-default-action-boundary/production_central_presheaf_verification.json)
+qualifies the complete original presheaf/sieve/topology and direct-cover
+locality, Hom-universality and sheafification diagnostic slice. Its 58 positive
+and six negative observations pass unchanged. All 153 original-name staged
+source files, including the complete central diagnostic, are byte-identical
+to the preceding checkpoint. Only the diagnostic driver and combined import
+are added; no mathematical owner, rule, unifier or profile changes.
+
+The selected inverse data, whole locality, completion and reflector interfaces
+are retained. Their supplied assembly and categorical-HIT/uniqueness
+hypotheses remain supplied; this result does not derive those principles.
+The presheaf facade/runtime distinction and the original negative controls
+remain intact.
+
+The installed-checker combined subset passes 1752 positive/239 negative
+assertions in 63.352s/3329.4MiB with SR and the existing 300s/4GiB/o=20 profile.
+The addition includes one inherited positive from the new import closure.
+The focused slice passes in 50.565s/2874.6MiB. Exact-input rehashing carries
+the recent core/Homd and library receipts without redundant checks. The full
+central source still contains 2148 positives, 292 negatives and all 66
+original diagnostic declarations.
+
+The warning multiset grows from 1828 to 1848 at the unchanged sheafification
+owner. Eighteen bodies already occur in the focused closure; two additional
+peaks combine sheaf composition with Kleisli/coKleisli extension composition.
+All twenty peak/rule signatures occur in the current larger library receipt.
+Their expanded branches are not byte-identical: the larger import context
+reduces an internal Sigma-map application further. These are recorded
+overlap families, not established joins; the R07 review remains open.
+
+Next continue the original commutative-algebra and subsequent diagnostics.
+The five terminal runtime obligations, wrapper retirement,
+normalization/performance and production/final gates remain open. The
+separate application goal stays paused.
 
 Diagnostic continuation after `b699914f`, 2026-10-20 UTC: the
 [closed/Sigma verification](../emdash2/audits/strict-default-action-boundary/production_central_closed_sigma_verification.json)

@@ -5964,6 +5964,11 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     (package / 'central_closed_sigma_controls.lp').write_text(
         'require open emdash.emdash3_2_strict_functor_actions;\n'
         + central[walking_end_end:closed_sigma_end])
+    presheaf_locality_end = central.index(
+        '// catalog-area: Set-carrier commutative-ring objects', closed_sigma_end)
+    (package / 'central_presheaf_locality_controls.lp').write_text(
+        'require open emdash.emdash3_2_direct_cover_sheafification;\n'
+        + central[closed_sigma_end:presheaf_locality_end])
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -5993,7 +5998,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_product_prof_controls;\n'
         'require open emdash.central_path_core_controls;\n'
         'require open emdash.central_walking_end_controls;\n'
-        'require open emdash.central_closed_sigma_controls;\n')
+        'require open emdash.central_closed_sigma_controls;\n'
+        'require open emdash.central_presheaf_locality_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6517,6 +6523,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'central_path_core_controls.lp',
                               package / 'central_walking_end_controls.lp',
                               package / 'central_closed_sigma_controls.lp',
+                              package / 'central_presheaf_locality_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',

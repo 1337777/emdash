@@ -1,0 +1,608 @@
+{
+  "status": "Original presheaf, sieve, topology, direct-cover and sheafification diagnostics qualified in staging; all source bodies unchanged in this tranche. Full migration remains active.",
+  "date": "2026-10-20",
+  "predecessor": "e445fce9",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "production_owner_migration.py": "b78de2176bf4a87fefdd55653dee65d7c9ad3d9b692239aa2fad52f31e5e9c86"
+  },
+  "manifestSha256": "c8dda3e11626d342a968a9fadbbc913aae1e9adae67eef59269c6cbd54077e8f",
+  "contracts": [
+    "The entire previously migrated original diagnostic slice, from the presheaf facade marker through the sheafification reflector, passes unchanged; only its emitted driver and combined import are added.",
+    "The existing presheaf facade/runtime distinction, Yoneda and slice variance, higher-sieve Cartesian classifier, and ordinary subterminal/topology controls are retained.",
+    "Strict pointwise inverse data, direct-cover restriction/locality, whole completion Hom universality and the selected sheafification reflector keep their original data and hypotheses.",
+    "Supplied pointwise-to-whole assembly and categorical-HIT/uniqueness assumptions remain supplied. This diagnostic qualification does not derive their general semantics.",
+    "No mathematical owner, diagnostic body, primitive, rewrite, unifier, profile, operational proof argument or original assertion polarity is changed."
+  ],
+  "assertionInventory": {
+    "newBlock": {
+      "positive": 58,
+      "negative": 6,
+      "declarations": 0
+    },
+    "inheritedAdditionalPositive": 1,
+    "fullCentral": {
+      "positive": 2148,
+      "negative": 292,
+      "declarations": 66
+    }
+  },
+  "freshInstalledCombined": {
+    "target": "central_migration_regression.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 63.352355908136815,
+    "childrenMaxRssKiB": 3409260,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 4096,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 300000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "central_closed_sigma_controls.lp": "a7d4af073061699b51318b514c6cbcfb61c1b38629ed7a6d531635d15482a4df",
+      "central_curry_controls.lp": "144f2e72bd196eff63cee1d2714e7e778f6e0881369b458bacaaf2eed0c5b410",
+      "central_curry_family_regression.lp": "b1021fbf084650795033704d705e196b3abda30d21ba38c5560699a25524259a",
+      "central_displayed_chain_controls.lp": "ac37e214f2bd3b0ff5aa99faee07ca0a68d5bcd70b1eb8c1e93cf29459391092",
+      "central_displayed_evaluation_controls.lp": "469074851e939b5a6934d1c6b432f2cdc3022055085db9bb58fdecaedc0d5f3b",
+      "central_displayed_products_controls.lp": "a6f93aa617a473717be7707a48dc20e1e7581db3cb2a42cb541312be5ec57cd6",
+      "central_displayed_regression.lp": "b6a7be4403e8bce0e2edbd56130202b5596dbded7697edcf88511e8b0bdfd47d",
+      "central_displayed_transport_controls.lp": "1287cb123f79650e2b6ff4a37d27eec28f08f81bfd84bb2f893afc58f0a76866",
+      "central_early_controls.lp": "7a60d226ef64151c7a5e6201145b159bcc078d48e2436eadebaee78deb3fcbaa",
+      "central_evaluation_adjunction_controls.lp": "af6ceea6b3b64883b657d69e3f692831ccaff0af24bf9a4e4d34fcd16a68fb95",
+      "central_family_controls.lp": "48ab1858f3a1c1498189e985300d02709f67acb9fc5a8b6ba1a65d54e9c965d4",
+      "central_hom_action_controls.lp": "58e623adfd7bd4cfcf9ae7d784be23802fe931694a01e90f1ff6a2132e4c1ddd",
+      "central_homcatd_controls.lp": "39edf3dc9d4359691f9dab36a797d7eddee4e6072a8f3f9062f34694423762a5",
+      "central_homd_classifier_controls.lp": "7e31e2991ea8acc6036398a30bec71ed28ad5148b6cd6cb8fdeb4a186768ef03",
+      "central_homd_leaf_prof_controls.lp": "c475d5f6ede128eb8ec4cabc8f83e86e9f9436b6ee30bfb279df12e0e446abc8",
+      "central_internal_action_controls.lp": "0f4287bd29edf654e325db252ac2f71ff421af39d5d2f64ee008b7cb0d9cd706",
+      "central_intrinsic_projection_controls.lp": "4d844a3f692ad4496df73895455f53f0cf35c9e5eb375d8e2304fa37e545ef4f",
+      "central_migration_regression.lp": "1ce1ff75b3dba624743461f1535c6d3f3d3e739e342e3f4f277502d7ec069b46",
+      "central_mixed_action_controls.lp": "a061686c0a53a5e0b0bce8ffc35c9c9ea414d098e68ef71e8029183fd601ef3d",
+      "central_mixed_composition_controls.lp": "e051702cda2b1631d9d854ac53cb58c6e7f666a24ddd8521cb049d5bf7fbd44a",
+      "central_mixed_formation_controls.lp": "b1121ae915b747dad89678a1dbfb1b2f47e30b15594cfcddf9cb1de887f5aa6e",
+      "central_mixed_parameter_controls.lp": "f88d67198446745bfb4e2ab45876303a1de306e3b98bca2c1144b74608372381",
+      "central_mixed_regression.lp": "5e4e794fbaa8a42bd6ad6adcec597bfaabc6d402ba68b2a4321ccd2abae26f6d",
+      "central_monads_controls.lp": "9cf1eb40e4813b0524910414c245218d0813df075cd10dc6122653efcb38ee33",
+      "central_owner_regression.lp": "e8bb2fded42b8197a0f904f6cb88ee3481aba53dad4c9cae07e962eff97a69c9",
+      "central_pair_telescope_controls.lp": "a7a703207ee466eefea118d5d39e1a23fa5e08e6e862c719a815ce371b7edc51",
+      "central_path_core_controls.lp": "30e9d58b1212fddd8abdbc2e2a1f28374e15e0a21b697d6a1b9cebe86c833ac7",
+      "central_path_induction_controls.lp": "dfe5423cea3087389828e10cf3d8c73910a1b6347f1fbeb08553cba774f24330",
+      "central_pathout_motive_controls.lp": "11c85251379f3eea1918db3f95a7cb949e2bd22809ff8bfb57c5fb71fa898f50",
+      "central_presheaf_locality_controls.lp": "9a9ce46c817bd9f511ebff901535706a88c0577cd1bce7901b893fc423551945",
+      "central_product_prof_controls.lp": "f927321d9cf80803cde3edb6e7c548d390c7ad76acae1239ee41d0914d78adf6",
+      "central_projection_regression.lp": "fcef0ada4ca7acf12f83e7fd13f92b4045bbd6372e964403745c4ead56cfc486",
+      "central_public_homd_general_controls.lp": "ec31507d8906681c86b6da014d2eb23490da74b52fba6e4224dc4730afcf031c",
+      "central_reindex_controls.lp": "437b4a688386657d14a11379c580c26dacd8c1c388b57b219d1c4f16ae1e97d9",
+      "central_sections_controls.lp": "67b4e825e29a0a9b39e57c529e5da0a919eb9ffca03e9725458833cf845810e3",
+      "central_structural_controls.lp": "c2b538e2cf21771de64c8367f7079c5393b092c77ac1d676d8d2b84b72df722a",
+      "central_walking_end_controls.lp": "1eaa5dbabbfe64282c0b5fa1fff207f48a7213d269b2e0b549f6468d5a173bd7",
+      "emdash3_2.lp": "65c988535e7d5ea8cc9bb65eb95a5a862bdd931ce4d459aed79236ba3cc53081",
+      "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+      "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+      "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+      "emdash3_2_commutative_algebra_presheaves.lp": "57fcff1a17cd6e9e8c7054d154c3f9d9f9dff05e159a037dbebfcdb4dbb52325",
+      "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+      "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+      "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+      "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+      "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+      "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+      "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+      "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+      "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+      "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+      "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+      "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+      "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+      "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+      "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+      "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+      "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+      "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+      "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+      "emdash3_2_one_cat_functor_profiles.lp": "50eefd24cb07d7c8badf4239ad2158b12b6c2eb615450136f577f6272348fc0c",
+      "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+      "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+      "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+      "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+      "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+      "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+      "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+      "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+      "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+      "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+      "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+      "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+      "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "terminal_homd_comparison_controls.lp": "3c334cabcbc0350711e0ac4b9cc9aedfcfeef0410894214b283c4df6f947bf9a"
+    },
+    "logSha256": "4d887f465d09e7f77ac004a499ad3dd3471ab0be4800098031b18e3f9bf5f77b",
+    "receipt": "logs/check-runs/20261020T113039Z-315584cabe7e45f7b8e1cf77d25b368b.json",
+    "receiptSha256": "1b5a12c0ce749df2db9f9a3f3b90c84eedcea930289edd576fed6db9093566f2",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 1752,
+      "negative": 239
+    }
+  },
+  "focusedInstalledCheck": {
+    "target": "central_presheaf_locality_candidate.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 50.56517522595823,
+    "childrenMaxRssKiB": 2943540,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 4096,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 300000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "central_presheaf_locality_candidate.lp": "9a9ce46c817bd9f511ebff901535706a88c0577cd1bce7901b893fc423551945",
+      "emdash3_2.lp": "65c988535e7d5ea8cc9bb65eb95a5a862bdd931ce4d459aed79236ba3cc53081",
+      "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+      "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+      "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+      "emdash3_2_commutative_algebra_presheaves.lp": "57fcff1a17cd6e9e8c7054d154c3f9d9f9dff05e159a037dbebfcdb4dbb52325",
+      "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+      "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+      "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+      "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+      "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+      "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+      "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+      "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+      "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+      "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+      "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+      "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+      "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+      "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+      "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+      "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+      "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+      "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+      "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+      "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+      "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+      "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+      "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+      "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "logSha256": "35059f290264543ed193679542ac18c79c595e6627e27530f9593266e4e5c5bc",
+    "receipt": "logs/check-runs/20261020T112354Z-2603d490225c4a96b553e2cc732d5073.json",
+    "receiptSha256": "6da817bb1631a943d70b30cb8414dc164fb9ff0af2d3f26537306dd5bde28548",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 59,
+      "negative": 6
+    }
+  },
+  "carriedAfterExactRehash": {
+    "coreHomd": {
+      "target": "join_recursion_controls.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 19.578401148086414,
+      "childrenMaxRssKiB": 1630132,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "join_recursion_controls.lp": "ed22f017ddc9b48d709fde6f50bdb60faf2ec13c0c8c5dd031bc33942ab05662",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "bdb627e26f13bb242e56530d85af760354b617d5d5361b4afa228eec6966e4a9",
+      "receipt": "logs/check-runs/20261020T095625Z-62b94e7b10344367a64b424d160c4f62.json",
+      "receiptSha256": "5f1bdea2b70f6049e8b88ecc5361ec769a65382f899ca3ebf5dc299ad63f35df",
+      "immutableInputsVerified": true,
+      "currentInputsVerified": true,
+      "assertionCounts": {
+        "positive": 287,
+        "negative": 85
+      }
+    },
+    "library": {
+      "target": "foundations_library_regression.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 62.38521677698009,
+      "childrenMaxRssKiB": 4514840,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "direct_cover_sheafification_controls.lp": "4560b581f56e214000ad8f4e5a367807c806e64f9876e4288dd92c704805d1b4",
+        "emdash3_2.lp": "65c988535e7d5ea8cc9bb65eb95a5a862bdd931ce4d459aed79236ba3cc53081",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+        "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+        "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+        "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+        "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+        "emdash3_2_commutative_algebra_presheaves.lp": "57fcff1a17cd6e9e8c7054d154c3f9d9f9dff05e159a037dbebfcdb4dbb52325",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+        "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+        "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+        "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+        "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+        "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+        "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+        "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+        "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "dec0ef9784afcafec39fcbd36b7381fd1f4ab590fd47976db2d8a687b604e7fc",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "50eefd24cb07d7c8badf4239ad2158b12b6c2eb615450136f577f6272348fc0c",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+        "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+        "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+        "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+        "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+        "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+        "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+        "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+        "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+        "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+        "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+        "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+        "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+        "examples/action_profile_eckmann_hilton_one_hom.lp": "ffa7f67d53252189a6952309b804e442424d9348190a56b354957539d6a2a315",
+        "examples/cartesian_categories.lp": "4a663023dce2cd2f0d4daf989feeaecb352ba10a6543f47c6601e14ebda92f4f",
+        "examples/generic_groupoidification.lp": "048edf9867fc7d7eb478545f0354d31077c8ee7e0b280d4e85b5d44592475f29",
+        "examples/generic_groupoidification_interval.lp": "bbb593930000f4792396e8565b196995c275718c52a16320ba58d1a83d394d43",
+        "examples/monads_comonads.lp": "47fc5c74f2896f0cb7c22b05b1793553cc514790145a69dc409d035f6851125a",
+        "examples/one_cat_arrow_diagrams.lp": "ece4846aa2151733339d86ecf49fc835f8013e4e6de70290f2f7a375d62a4fe8",
+        "examples/pullbacks.lp": "5f9bfb2e0a271ab2ac7ce2f24504864eb70456c9d028ce5baf794f9c5c4db314",
+        "examples/slice_dependent_products.lp": "3bb2825db500cf477f29421d1ed6e0d408ba8443529207576e38d9e00d693121",
+        "examples/triangular_binary_products.lp": "b7f6aa4ea1cd85139a988554575ab1b64768e09d4c63d6d448a431a9c8c515f8",
+        "examples/triangular_binary_products_finite_limits.lp": "9a4b41b7bf67b8f7a3a01f15940e4c81202933620a551c31d69afa19dc7cb504",
+        "examples/walking_circle_completion.lp": "7a22d6893998b2b849c893ec5ddb7787f3120ffd46bbaa5e0d31cc07ac60e472",
+        "examples/walking_circle_groupoidification_restriction.lp": "9540aa064e1039d8c1860e3cef4dfc856f20d3bde2f9088505d86a26ff70f2c9",
+        "examples/walking_interval_groupoidification.lp": "6cda56d060c23d579ed2485f1adce024aeb036930d64e8f467d0ad1c4168fa1e",
+        "foundations_library_regression.lp": "a408e9050caf1f6b0228b87824bc6d6b384af655faef76643485c092a578c554",
+        "groupoidification_migration_controls.lp": "a4db02a4355b2984ccfa32a304f8d5489087b77ec96723f62eb01ebee318b169",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "monads_migration_controls.lp": "c275aaca36c5f2fd3d3e8b2f82e3c934fc21ecfc1887e1653e5cbcdaf8c74eb7",
+        "product_pullback_migration_controls.lp": "cbbab46ef6e016e9fbced8e1df1c7b376e0daa4a064db1e977a1762b219e697a",
+        "profiled_interchange_migration_controls.lp": "57e319c28a76f293d36824ba73073e31f3d3357dc2ce37cc374fe80f62994f39",
+        "walking_circle_migration_controls.lp": "2dbc85785dc5ef4f0714b73bfc6144a8f3e51c2ad5daaa5e836353713cd1a58e"
+      },
+      "logSha256": "5d0bbe06e9d3396acacbac9badff5ed03f9d79e4920b6209589f852b6fc7668a",
+      "receipt": "logs/check-runs/20261020T095839Z-20c7ac3e84734bb694b90c535021e0a4.json",
+      "receiptSha256": "f90b7f565cced3ea8e539d8f1316bc4b81c0f1c3be52310c7c9a0ba32e8dfe92",
+      "immutableInputsVerified": true,
+      "currentInputsVerified": true,
+      "assertionCounts": {
+        "positive": 179,
+        "negative": 27
+      }
+    }
+  },
+  "warningComparison": {
+    "before": 1828,
+    "after": 1848,
+    "addedBodies": 20,
+    "removedBodies": 0,
+    "previousReceipt": "logs/check-runs/20261020T111257Z-1b855b8bd38d4cad98c1466e72dd91cc.json",
+    "addedOwnerCounts": {
+      "emdash3_2_direct_cover_sheafification.lp": 20
+    },
+    "eighteenBodiesAlreadyInFocusedClosure": true,
+    "twoCombinedOnlyFamilies": [
+      "Sheaf composition versus Kleisli extension composition",
+      "Sheaf composition versus coKleisli extension composition"
+    ],
+    "allTwentyPeakAndRuleSignaturesInCarriedLibrary": true,
+    "signatureDefinition": "Five-line warning body: peak line 0 and the two generating rule lines 2 and 4; this comparison does not equate expanded branch results.",
+    "expandedBodiesIdenticalToCarriedLibrary": false,
+    "expandedBodyQualification": "The carried larger library closure reduces internal Sigma-map application to sigma_map_obj where this earlier import context retains fapp0(sigma_map_func,...). These are the same peak/rule families, not identical warning bodies or a proven join.",
+    "classification": "Inherited identity/projection, composition/action and inverse overlaps at the unchanged sheafification owner, with two cross-import Kleisli/coKleisli instances. Symbolic/higher joins remain within R07; no confluence claim.",
+    "addedBodyInventory": [
+      {
+        "sha256": "26ff3ae8c8f86338a50a6f975540dccd1e786484c9d730116e1c4357a9c87538",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @fib_cov_tapp0_u_map $K $E $x $y $X $X (id (@Sheaf_cat $K $T Cat_cart) $X)",
+        "inFocusedClosure": true,
+        "signatureSha256": "c197059b3e4ca5672d89579cf78a50646feaa8a83ff2ad74aa47524e6706242f"
+      },
+      {
+        "sha256": "e755395a1e6ca5aed21b1f3eebde1bc9bdce975c28ec4874279f370edb26e9c7",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat $0 $1 Cat_cart_include (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 (Obj (@Transf_cat (Op_cat $K) Cat_cart (@cat_valued_sheaf_carrier $K $T Cat_cart_include) (@cat_valued_sheaf_carrier $K $T Cat_cart_include))) (@sigma_pullback_coeff_transf $A $K $F)) (id (@Sheaf_cat $K $T Cat_cart) Cat_cart_include))",
+        "inFocusedClosure": true,
+        "signatureSha256": "6400bf66becf9bac96a6ead6b468e82a07b4bed550939aa3aa4c321d78173c8f"
+      },
+      {
+        "sha256": "5d546ec86a0fcc873419caaf94cd17d4a3dac00e1eedb003e6df7a44c1f8ae4f",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat $0 $1 Cat_cart_include (@Struct_sigma $3 $4 $5 Cat_cart_include) (@Struct_sigma $6 $7 $8 Cat_cart_include) (@Struct_sigma $9 $10 (@strict_transfor $11 $12 $13 (Obj (@Transf_cat (Op_cat $K) Cat_cart (@cat_valued_sheaf_carrier $K $T Cat_cart_include) (@cat_valued_sheaf_carrier $K $T Cat_cart_include))) (@Sigma_parameter_funcd $14 $K $E $D $U)) (id (@Sheaf_cat $K $T Cat_cart) Cat_cart_include))",
+        "inFocusedClosure": true,
+        "signatureSha256": "be7747b594222e4ce6deaa394e505ad80842703cf36dbc3f60a6a991802112db"
+      },
+      {
+        "sha256": "4b2f0e285e96c85e5c7565b0050d5bf31938f77b39547fc7a7001e88e0108ac9",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (Functor_cat $A $C) (@comp_fapp0 Cat_cat $A $B $C $G $F) (@hom_precomp_along_fapp0 Cat_cat Cat_cat (id Cat_cat Cat_cat) $C $A $B $F $G) $6 (id (@Sheaf_cat $K $T Cat_cart) (@comp_fapp0 Cat_cat $A $B $C $G $F)) $eta",
+        "inFocusedClosure": true,
+        "signatureSha256": "19555043f4f6e67f86f5af3f0c7814973a28f8b849beb95f0b94d0e90a0feb37"
+      },
+      {
+        "sha256": "7713949fbf1729c1d7772071366fd80740099b63ab2e41752ee70b686179620f",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_prod_fapp1_fapp0 (Catd_cat $K) $x $x (id (Catd_cat $K) $x) (@Struct_sigma $3 $4 (id (Catd_cat $K) $x) $p) (@Struct_sigma $6 $7 (id (Catd_cat $K) $x) $q) (@Struct_sigma $9 $10 (id (@Sheaf_cat $K $T Cat_cart) (id (Catd_cat $K) $x)) $alpha)",
+        "inFocusedClosure": true,
+        "signatureSha256": "cd0e4514be77832d4d104c864a328c59570978e6f358054894430753b6d5b7ac"
+      },
+      {
+        "sha256": "a3dfbf35808cb05661d8842cb44f1e23c401a6bc2a5cf9129405a0335cee7ff0",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat $I $A $A (@Struct_sigma (id Cat_cat $A) $3 $F (id Cat_cat $A)) (@Struct_sigma $5 $6 $G (id Cat_cat $A)) (@Struct_sigma $8 ($9 $F) $epsilon (id (@Sheaf_cat $K $T Cat_cart) (id Cat_cat $A)))",
+        "inFocusedClosure": true,
+        "signatureSha256": "e99b7dada6118ca794acaaee6bbf8fe58a3dba6a8e4b8773347e6fd9a52fa634"
+      },
+      {
+        "sha256": "aa6bac70ff5ea521dd11b08516b946cd20b7632d226b8c2ff289b43012084a2b",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $3 $4 $5 $H) (@Struct_sigma $7 $8 $9 $H) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B (@Struct_sigma $13 $14 $F $X) (@Struct_sigma $17 $18 $F' $X) (@Struct_sigma $20 $21 $epsilon (id (@Sheaf_cat $K $T Cat_cart) $X))) (id (Obj (Hom_cat $24 $H $H)) $H))",
+        "inFocusedClosure": true,
+        "signatureSha256": "0c9f606b5dc17a2a68eeab2549de53d011ebaef78df1c22228278f61dae5d42b"
+      },
+      {
+        "sha256": "eccbb6fb0b2d6f00142a0110ac69d7ed52e5a07f16688a9479ea68ba543d69ce",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_prod_fapp1_fapp0 Cat_cat $I $B $C (@Struct_sigma $3 $4 $5 $X) (@Struct_sigma $7 $8 $9 $X) (@Struct_sigma $10 $11 (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B (@Struct_sigma $13 $14 $F $G) (@Struct_sigma $17 $18 $F' $G) (@Struct_sigma $20 $21 $epsilon (id (Obj (@Transf_cat (Op_cat $K) Cat_cart (@cat_valued_sheaf_carrier $K $T $X) (@cat_valued_sheaf_carrier $K $T $X))) $G))) (id (@Sheaf_cat $K $T Cat_cart) $X))",
+        "inFocusedClosure": true,
+        "signatureSha256": "3731205139ee4fc6d949c90908da34d676316ec791a93aad509c30ce9d2e2d20"
+      },
+      {
+        "sha256": "bfd93dbfc4c3e688f5116251314c1fcf9b95fec9fb79706010f620f539524a97",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Z (@Struct_sigma $4 $5 $X $f) (@Struct_sigma $8 $9 $X $f) (@Struct_sigma $10 $11 (id (@Sheaf_cat $K $T Cat_cart) $X) (id (Obj $13) $f))",
+        "inFocusedClosure": true,
+        "signatureSha256": "010af1ff479e4bb16e9209a494833e80bd48253830a2a1dceee8b60e0b90e775"
+      },
+      {
+        "sha256": "962c2cd3cda57afd7f34ce1c37e13f5bc24e6e440754852be6da83fb63cc9608",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Z (@Struct_sigma $4 $5 $g $X) (@Struct_sigma $8 $9 $g $X) (@Struct_sigma $10 $11 (id $12 $g) (id (@Sheaf_cat $K $T Cat_cart) $X))",
+        "inFocusedClosure": true,
+        "signatureSha256": "867e01d237239bceb5b3b8831f4ddc9f264565073371fe799d7bb7b7a6f38050"
+      },
+      {
+        "sha256": "1765cfdc8844b9474f14cd2908e76a27feecba4e882e3aad930ea62acba88cc1",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @hom_postcomp_fapp0 $A $A (id Cat_cat $A) $X $X $Y $f (id (@Sheaf_cat $K $X Cat_cart) $X)",
+        "inFocusedClosure": true,
+        "signatureSha256": "3655ba968fff782e3c0a504651b13b48fbefcfbe13045fc4160c6ca09addd6a6"
+      },
+      {
+        "sha256": "abd942faec0e6aaac056e00fb6e652539cd7f3f1bd2064677afc30d0861cc7ba",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $1 $2 $3 (@fapp1_fapp0 $4 $5 (Core_incl_func (@Sheaf_cat $K' $T' Cat_cart)) $Y $Z $g) (@fapp1_fapp0 $9 $10 (Core_incl_func (@Sheaf_cat $K' $T' Cat_cart)) $X $Y $f)",
+        "inFocusedClosure": true,
+        "signatureSha256": "143dbeeaf2f9226bffe3c50453f65d5db5a8c14326fd1526f2a849b78520dcca"
+      },
+      {
+        "sha256": "cfa51d71be2388782935a8b10806f287f8f1b749751701cb7e102ff4369ee6d6",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $V $W $3 (@hom_postcomp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $B $F $W $X $Y $f $g) $h",
+        "inFocusedClosure": true,
+        "signatureSha256": "a987a8cf508cafe36693a138e70c265589e0fb0339b76643a34ceed9887e744b"
+      },
+      {
+        "sha256": "60533e88f7875bd816321ea293d4800fea40c14b029a6e85bd901c58cd3a15b8",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $x $y $x (@defiso_from (@Sheaf_cat $K' $T' Cat_cart) $x $y $i) (@defiso_to (@Sheaf_cat $K' $T' Cat_cart) $x $y $i)",
+        "inFocusedClosure": true,
+        "signatureSha256": "78280db3f2479b5b2e5b1e40d3f2f05db735321e06a59cb5ab9ca28b5f62edd0"
+      },
+      {
+        "sha256": "c6e18aee1ffb67035f54f896f0111caa6d15832cb583767eae0891af57985969",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $y $x $y (@defiso_to (@Sheaf_cat $K' $T' Cat_cart) $x $y $i) (@defiso_from (@Sheaf_cat $K' $T' Cat_cart) $x $y $i)",
+        "inFocusedClosure": true,
+        "signatureSha256": "55fbf66a2417b5fe3cd44b695ed72105f8fd0ea65cabe752f5e7855ef7d102e1"
+      },
+      {
+        "sha256": "9021b90a10ba2c0fcf6081b61772d66248857a6fd70db59046b602a85a7d554f",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $1 $Z $U $k (@hom_precomp_along_fapp0 $A (@Sheaf_cat $K' $T' Cat_cart) $F $Z $W $X $p $g)",
+        "inFocusedClosure": true,
+        "signatureSha256": "41a80013f89cfa4effc606e0b165b00c7e5a7eda518aa300ed5dc0963914334d"
+      },
+      {
+        "sha256": "297330399a2093a17124dd3726caa2e847ff83b0c7071f76841c1e434050319e",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $1 $2 $3 (@defiso_fmap_from $C $D $F $x $y $i) (@defiso_fmap_to $C $D $F $x $y $i)",
+        "inFocusedClosure": true,
+        "signatureSha256": "0f11bb1de10a11986aa4e307eb1a326e59e346f24641e45f8778fb31f3c642f3"
+      },
+      {
+        "sha256": "08c74c0279b505af1d452bcf53e6d373618c4b1ef05c1e6084990037f47afaac",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $1 $2 $3 (@defiso_fmap_to $C $D $F $x $y $i) (@defiso_fmap_from $C $D $F $x $y $i)",
+        "inFocusedClosure": true,
+        "signatureSha256": "0489152ac432a59029d27229845ad092be965e8b60b4398319c5e0d42dfaefbc"
+      },
+      {
+        "sha256": "e2b81796a92e86f22c88554d7f142d1db8a512cf5c56575669847869e14cf469",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $1 $2 $3 (@emdash.emdash3_2_monads.kleisli_extend_fapp0 $11 $11 $M $Y $Z $g) (@emdash.emdash3_2_monads.kleisli_extend_fapp0 $10 $11 $M $X $Y $f)",
+        "inFocusedClosure": false,
+        "signatureSha256": "861f723407e708d3d9ff5c802e66da7078b73d64e731749ac473bae6c871c24b"
+      },
+      {
+        "sha256": "e62b1f9b3a4c9de4831c58599265a59102e2db4bf600eb9118bac79f6c8a1160",
+        "count": 1,
+        "owner": "emdash3_2_direct_cover_sheafification.lp",
+        "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $1 $2 $3 (@emdash.emdash3_2_monads.cokleisli_extend_fapp0 $11 $11 $C $Y $Z $f2) (@emdash.emdash3_2_monads.cokleisli_extend_fapp0 $10 $11 $C $X $Y $f1)",
+        "inFocusedClosure": false,
+        "signatureSha256": "8be0a12c81b29e0a4081269ec55d958e14a931b96f97127e4b0081e5fb51fb01"
+      }
+    ]
+  },
+  "preservation": {
+    "originalNameFilesReviewed": 153,
+    "beforeInventorySha256": "747d62be777678de0d02bae76a55fd24eaaba9c67574534bdb1494efc21af78a",
+    "changedOriginalNameFiles": [],
+    "coreSha256": "65c988535e7d5ea8cc9bb65eb95a5a862bdd931ce4d459aed79236ba3cc53081",
+    "centralBeforeSha256": "bb86eecc413101b9601206b3e3b29bb3d7fd68c1fbdee43659b8130c42b9adab",
+    "centralAfterSha256": "bb86eecc413101b9601206b3e3b29bb3d7fd68c1fbdee43659b8130c42b9adab",
+    "emittedBlockMatchesFocusedCandidate": true,
+    "emittedControlSha256": "9a9ce46c817bd9f511ebff901535706a88c0577cd1bce7901b893fc423551945",
+    "allOriginalTailsAndDeclarationsRetained": true,
+    "polarityChanges": 0,
+    "fiveTerminalRuntimeObligations": "unchanged and still required",
+    "productionPromotion": false
+  },
+  "validationBoundary": [
+    "Fresh combined check uses installed checker, subject reduction and warnings, within the existing serial 300s/4GiB/o=20 profile; no resource increase.",
+    "Focused closure has 59 positive/six negative assertions: 58/six from the original diagnostic plus one imported positive.",
+    "Combined scope is 1752 positive/239 negative; these are not the full original diagnostic counts.",
+    "Recent core/Homd and library receipts carry only after every input rehashes exactly. No new formal rules require a repeated LHS audit.",
+    "Additional warning families are recorded and remain qualified, not silently counted as joins. Complete production and performance qualification remain open."
+  ],
+  "next": "Continue the original commutative-algebra and subsequent diagnostics. Terminal runtime obligations, wrapper retirement, normalization/performance, warning review and production/final gates remain open; the separate application goal stays paused."
+}
