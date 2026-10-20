@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Displayed-component continuation after `880acb5b`, 2026-10-20 UTC: the
+[owner review](../emdash2/audits/strict-default-action-boundary/production_displayed_component_accumulation_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_displayed_component_accumulation_verification.json)
+resolve R04's three remaining component pre/right observations in staged LP.
+Two runtime instances of the existing conventional-lax accumulation law
+join the projection order in which evaluation first exposes tdapp0_fapp0.
+No primitive, unifier, operational proof input or new strictness assumption
+is added. Both post/left mirror controls remain negative; FF stays lax.
+The literal Cartesian-category guard was rejected because it lost the
+legitimate product-valued case after category reduction. The selected rules
+retain actual B as in the original generic law.
+
+The original displayed-transport block retains all 45 statements, with only
+the three intended polarities changed (40/5 instead of 37/8). Fresh core/Homd
+287/85, combined 2180/286 and library 178/27 checks pass with subject reduction.
+All 2440 original central statements and 66 declarations remain accounted
+for except the same five terminal runtime exclusions. Full-source polarity
+counts are now 2162/278. These inventories do not replace original all-import
+execution or the remaining registered-consumer gates.
+
+The source change adds 17 core, 20 combined and 25 library warning bodies;
+their exact projection/identity, category-view, intrinsic-composite,
+pointwise-inverse and duality families remain recorded under R07. The
+combined sample uses 196.263s/6648.6MiB under the unchanged 300s/7GiB/o=20
+profile; no speedup or final usability is inferred. Continue with the terminal
+native-owner question and the other remaining normalization, full-context,
+resource and promotion gates. The separate application goal stays paused.
+
 Terminal continuation after `7bdeb7f8`, 2026-10-20 UTC: the
 [canonical-point review](../emdash2/audits/strict-default-action-boundary/production_terminal_canonical_review.md)
 and [exact evidence](../emdash2/audits/strict-default-action-boundary/production_terminal_canonical_review_verification.json)

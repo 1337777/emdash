@@ -1434,6 +1434,9 @@ rule @tdapp0_fapp0 $K _ $E _ _ $y
 '''
     replace_once(old_components, new_components, 'displayed component and transport profiles',
                  'Use actual Cartesian fibre Homs, retaining lax base action; replace the false left/middle comparison by the selected right/middle comparison')
+    insert('/*\n  Runtime component projection for the existing functorial Sigma-section\n  owner:',
+           fragment('production_displayed_component_accumulation.lpfragment'),
+           'Recover the existing conventional pre/right accumulation after evaluation has projected to tdapp0_fapp0; retain the actual codomain and the non-strict post/left leg')
 
     a = body.index('// 16b. Identity-specialized displayed hom action and Sigma-map action')
     b = body.index('// 16c. Section action and displayed laxity cells', a)
@@ -4377,24 +4380,24 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                    '          ' + args[2] + '\n          ' + args[3] + ')')
                     section = section[:first] + replacement + section[last+1:]
                 assert fibre_homs == 2
-                section = section.replace('// Component evaluation does not silently impose pre/right naturality on an\n// arbitrary outer transfor.',
-                    '// Projected component heads still hide the generic pre/right cut.\n// This is a runtime normalization boundary, not a claim of semantic laxness\n// in the selected strict leg. Retain it for the normalization review.')
-                section = section.replace('// Product-valued target reduction does not restore that retired cut.',
-                    '// The same projected runtime boundary with a product-valued target.')
-                section = section.replace('// Normal-lax identity projection does not recreate pre/right strictness.',
-                    '// The identity specialization also retains that projected runtime boundary.')
+                section = section.replace('// Component evaluation does not silently impose pre/right naturality on an\n// arbitrary outer transfor.\nassertnot',
+                    '// Projecting the component before accumulating the strict pre/right leg computes.\nassert')
+                section = section.replace('// Product-valued target reduction does not restore that retired cut.\nassertnot',
+                    '// The same component projection order with a product-valued target.\nassert')
+                section = section.replace('// Normal-lax identity projection does not recreate pre/right strictness.\nassertnot',
+                    '// Identity specialization after the off-diagonal action has projected.\nassert')
                 section = section.replace('// The ambient left/source route remains the selected lax action.',
                     '// The ambient pre/right route is the selected conventional-lax action.')
                 section = section.replace('// The right/target route is available only through a strict displayed profile.',
                     '// The old strict displayed wrapper observes that same selected route.')
                 section = section.replace('// Evaluation at p retains the ambient left/source comparison.',
                     '// Evaluation at p retains the selected pre/right comparison.')
-                assert len(re.findall(r'(?m)^assert\b', section)) == 37
-                assert len(re.findall(r'(?m)^assertnot\b', section)) == 8
+                assert len(re.findall(r'(?m)^assert\b', section)) == 40
+                assert len(re.findall(r'(?m)^assertnot\b', section)) == 5
                 text = text[:start] + section + text[end:]
                 changes.append({'source': path + '/displayed-component-transport-observations',
                                 'owner': 'original whole/higher displayed components, transport and Sigma-composition diagnostics',
-                                'reason': 'Use actual Cartesian fibre-Homs and ordinary inclusion; observe the selected pre/right transport while retaining projected runtime boundaries, post/left laxness and general FF',
+                                'reason': 'Use actual Cartesian fibre-Homs and ordinary inclusion; the three projected pre/right cuts now compute at the native component owner while post/left laxness and general FF remain',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(section)})
                 start = text.index(end_marker, start)
                 end = text.index('// catalog-area: Categorical-universe direct equality-valued', start)

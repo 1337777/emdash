@@ -1,0 +1,18 @@
+// The conventional pre/right cut after component evaluation has projected.
+// This is the existing generic fapp1(tapp0_func) accumulation at its native
+// tdapp0_fapp0 normal form. All maps, modifications and the base point remain.
+rule @comp_fapp0 $B _ _ _
+    (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z)
+      $G $GG $HH $epsilon $f)
+    (@tdapp0_fapp0 _ _ _ $FF $GG $z $g)
+  ↪ @tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z)
+      $G $FF $HH $epsilon (@comp_fapp0 $A $FF $GG $HH $f $g);
+
+// The same cut when epsilon[id] has already become its component.
+rule @comp_fapp0 $B _ _ _
+    (@tapp0_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z)
+      $G $GG $epsilon)
+    (@tdapp0_fapp0 _ _ _ $FF $GG $z $g)
+  ↪ @tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z)
+      $G $FF $GG $epsilon $g;
+

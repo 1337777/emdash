@@ -1,0 +1,1226 @@
+{
+  "status": "Qualified in the staged replay. The three R04 component-projection boundaries now compute at the existing native owners. Core/Homd, combined and library checks pass with subject reduction; full-context and production gates remain open.",
+  "date": "2026-10-20",
+  "predecessor": "880acb5b356c6432511a3dfbf597f20637c21b6a",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "production_owner_migration.py": "686da726bbbc3122ef996d3fdf0931e6d0f8aab6e21003ab66ea8361abe5f464",
+    "production_displayed_component_accumulation.lpfragment": "435d53c3ff83586d31277b5a8f0883e52e44fc53f91cef9fb0c657765c4f29d5"
+  },
+  "selectedCoreSha256": "8f191e9e2f941ba8070d57bf47a1d8cb42b624d4f73db59c635cb22b0b00773b",
+  "baselineCoreSha256": "70f5a726de9126556f1026e0cb90b043b4fd66f2a526102730e7e413756ab25c",
+  "contracts": [
+    "For F = evaluation at z, epsilon(f) composed with F(g) equals epsilon(f composed with g) under the already selected strict pre/right leg. The native tdapp0_fapp0 projection must not hide that cut.",
+    "The epsilon[id] specialization also computes after off-diagonal action has projected to tapp0_fapp0.",
+    "The ordinary and product-valued cases compute, while both retained post/left mirror observations remain nonconversion controls. No strict base naturality is imposed on arbitrary FF or epsilon.",
+    "Both rules are located after the native displayed component projection. They preserve the actual codomain B, base point z, all maps and incoming modifications.",
+    "Only the three recorded R04 negatives change polarity. Statements and hypotheses are otherwise preserved; the five terminal positives remain excluded from the selected combined driver and required in full source."
+  ],
+  "focusedControls": "require open emdash.emdash3_2;\n\n// Projecting the component before accumulating the strict pre/right leg computes.\nassert [K : Cat] (E D : τ (Catd K))\n  (FF GG HH : τ (Functord E D))\n  (z : τ (Obj K))\n  (G : τ (Functor\n        (@Transf_cat K Cat_cart E D)\n        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))))\n  (epsilon : τ (@Transf\n        (@Transf_cat K Cat_cart E D)\n        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n        (@tapp0_func K Cat_cart E D z)\n        G))\n  (f : τ (Transfd GG HH))\n  (g : τ (Transfd FF GG)) ⊢\n  @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n    (fapp0 (@tapp0_func K Cat_cart E D z) FF)\n    (fapp0 (@tapp0_func K Cat_cart E D z) GG)\n    (fapp0 G HH)\n    (@tapp1_fapp0\n      (@Transf_cat K Cat_cart E D)\n      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n      (@tapp0_func K Cat_cart E D z)\n      G GG HH epsilon f)\n    (@tdapp0_fapp0 K E D FF GG z g)\n  ≡ @tapp1_fapp0\n      (@Transf_cat K Cat_cart E D)\n      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n      (@tapp0_func K Cat_cart E D z)\n      G FF HH epsilon\n      (@comp_fapp0\n        (@Transf_cat K Cat_cart E D)\n        FF GG HH f g);\n\n// The same component projection order with a product-valued target.\nassert [K A B C : Cat]\n  (FF GG HH : τ (Functord\n        (@Const_catd K C)\n        (@Const_catd K (Product_cat A B))))\n  (z : τ (Obj K))\n  (G : τ (Functor\n        (@Transf_cat K Cat_cart\n          (@Const_catd K C)\n          (@Const_catd K (Product_cat A B)))\n        (Functor_cart_cat C (Product_cat A B))))\n  (epsilon : τ (@Transf\n        (@Transf_cat K Cat_cart\n          (@Const_catd K C)\n          (@Const_catd K (Product_cat A B)))\n        (Functor_cart_cat C (Product_cat A B))\n        (@tapp0_func K Cat_cart\n          (@Const_catd K C)\n          (@Const_catd K (Product_cat A B)) z)\n        G))\n  (f : τ (@Transfd K\n        (@Const_catd K C)\n        (@Const_catd K (Product_cat A B)) GG HH))\n  (g : τ (@Transfd K\n        (@Const_catd K C)\n        (@Const_catd K (Product_cat A B)) FF GG)) ⊢\n  @comp_fapp0 (Functor_cart_cat C (Product_cat A B))\n    (fapp0 (@tapp0_func K Cat_cart\n          (@Const_catd K C)\n          (@Const_catd K (Product_cat A B)) z) FF)\n    (fapp0 (@tapp0_func K Cat_cart\n          (@Const_catd K C)\n          (@Const_catd K (Product_cat A B)) z) GG)\n    (fapp0 G HH)\n    (@tapp1_fapp0\n      (@Transf_cat K Cat_cart\n        (@Const_catd K C)\n        (@Const_catd K (Product_cat A B)))\n      (Functor_cart_cat C (Product_cat A B))\n      (@tapp0_func K Cat_cart\n        (@Const_catd K C)\n        (@Const_catd K (Product_cat A B)) z)\n      G GG HH epsilon f)\n    (@tdapp0_fapp0 K\n      (@Const_catd K C)\n      (@Const_catd K (Product_cat A B)) FF GG z g)\n  ≡ @tapp1_fapp0\n      (@Transf_cat K Cat_cart\n        (@Const_catd K C)\n        (@Const_catd K (Product_cat A B)))\n      (Functor_cart_cat C (Product_cat A B))\n      (@tapp0_func K Cat_cart\n        (@Const_catd K C)\n        (@Const_catd K (Product_cat A B)) z)\n      G FF HH epsilon\n      (@comp_fapp0\n        (@Transf_cat K Cat_cart\n          (@Const_catd K C)\n          (@Const_catd K (Product_cat A B)))\n        FF GG HH f g);\n\n// The mirror post/left route remains non-convertible as well.\nassertnot [K : Cat] (E D : τ (Catd K))\n  (FF GG HH : τ (Functord E D))\n  (z : τ (Obj K))\n  (F : τ (Functor\n        (@Transf_cat K Cat_cart E D)\n        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))))\n  (epsilon : τ (@Transf\n        (@Transf_cat K Cat_cart E D)\n        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n        F\n        (@tapp0_func K Cat_cart E D z)))\n  (g : τ (Transfd GG HH))\n  (f : τ (Transfd FF GG)) ⊢\n  @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n    (fapp0 F FF)\n    (fapp0 (@tapp0_func K Cat_cart E D z) GG)\n    (fapp0 (@tapp0_func K Cat_cart E D z) HH)\n    (@tdapp0_fapp0 K E D GG HH z g)\n    (@tapp1_fapp0\n      (@Transf_cat K Cat_cart E D)\n      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n      F (@tapp0_func K Cat_cart E D z)\n      FF GG epsilon f)\n  ≡ @tapp1_fapp0\n      (@Transf_cat K Cat_cart E D)\n      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n      F (@tapp0_func K Cat_cart E D z)\n      FF HH epsilon\n      (@comp_fapp0\n        (@Transf_cat K Cat_cart E D)\n        FF GG HH g f);\n\n// Identity specialization after the off-diagonal action has projected.\nassert [K : Cat] (E D : τ (Catd K))\n  (FF GG : τ (Functord E D))\n  (z : τ (Obj K))\n  (G : τ (Functor\n        (@Transf_cat K Cat_cart E D)\n        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))))\n  (epsilon : τ (@Transf\n        (@Transf_cat K Cat_cart E D)\n        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n        (@tapp0_func K Cat_cart E D z)\n        G))\n  (g : τ (Transfd FF GG)) ⊢\n  @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n    (fapp0 (@tapp0_func K Cat_cart E D z) FF)\n    (fapp0 (@tapp0_func K Cat_cart E D z) GG)\n    (fapp0 G GG)\n    (@tapp0_fapp0\n      (@Transf_cat K Cat_cart E D)\n      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n      (@tapp0_func K Cat_cart E D z)\n      G GG epsilon)\n    (@tdapp0_fapp0 K E D FF GG z g)\n  ≡ @tapp1_fapp0\n      (@Transf_cat K Cat_cart E D)\n      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n      (@tapp0_func K Cat_cart E D z)\n      G FF GG epsilon g;\n\n// Nor does it recreate the post/left mirror.\nassertnot [K : Cat] (E D : τ (Catd K))\n  (FF GG : τ (Functord E D))\n  (z : τ (Obj K))\n  (F : τ (Functor\n        (@Transf_cat K Cat_cart E D)\n        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))))\n  (epsilon : τ (@Transf\n        (@Transf_cat K Cat_cart E D)\n        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n        F\n        (@tapp0_func K Cat_cart E D z)))\n  (g : τ (Transfd FF GG)) ⊢\n  @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n    (fapp0 F FF)\n    (fapp0 (@tapp0_func K Cat_cart E D z) FF)\n    (fapp0 (@tapp0_func K Cat_cart E D z) GG)\n    (@tdapp0_fapp0 K E D FF GG z g)\n    (@tapp0_fapp0\n      (@Transf_cat K Cat_cart E D)\n      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n      F (@tapp0_func K Cat_cart E D z)\n      FF epsilon)\n  ≡ @tapp1_fapp0\n      (@Transf_cat K Cat_cart E D)\n      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))\n      F (@tapp0_func K Cat_cart E D z)\n      FF GG epsilon g;\n\n",
+  "runs": {
+    "unguarded_focused": {
+      "id": "20261020T162334Z-7951437c095e438aa2031fb71f75fd2a",
+      "outcome": "passed-fresh",
+      "wallSeconds": 41.578857131069526,
+      "childrenMaxRssKiB": 1616528,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputs": {
+        "displayed_component_accumulation_controls.lp": "d24db878f07539bf78012d56f90a5de5c3ee9f007264dcee9afa3f40af8399b8",
+        "emdash3_2.lp": "64e9b6db3296b0692c49fb1950cf8f82b343e396138b377041f59415e8af4b1f",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "inputSnapshot": "c4ee9f77c75577a7da26147ae681987898a49ac618f966f674cf64b804094861",
+      "logSha256": "fd598556b6861082983a25463754d18c14485799592e2acdfe0e8497e238d02b",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "rejected_cartesian_head_guard": {
+      "id": "20261020T162552Z-295adc00c19c4fe092d8055c07cc2f17",
+      "outcome": "failed",
+      "wallSeconds": 49.83866064297035,
+      "childrenMaxRssKiB": 1610340,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputs": {
+        "displayed_component_accumulation_controls.lp": "d24db878f07539bf78012d56f90a5de5c3ee9f007264dcee9afa3f40af8399b8",
+        "emdash3_2.lp": "ad5916eb53fc90dd59ad26aa3766d851826dc9b9ac79317c2c0fe5ffe3496d34",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "inputSnapshot": "166b66bf267d586bad4c962738a9eec39764693e9a4be532ebf4e1bda73bec32",
+      "logSha256": "2cd81a359b6f93ee6c4ab141076fbb74aa9f3f9907b790c115e8261c917d6738",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "selected_focused": {
+      "id": "20261020T162812Z-85178eb5425a40409e241bcc9f2bc425",
+      "outcome": "passed-fresh",
+      "wallSeconds": 24.043263816973194,
+      "childrenMaxRssKiB": 1614428,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputs": {
+        "displayed_component_accumulation_controls.lp": "d24db878f07539bf78012d56f90a5de5c3ee9f007264dcee9afa3f40af8399b8",
+        "emdash3_2.lp": "0c660682d4db9829443c03791f731f8fb931ab9ff42a2343b5bf877fc0b708e5",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "inputSnapshot": "027621370d91558d075fa8afde68ab38b1cce6a5d337315326c7903214bf9707",
+      "logSha256": "2a67471e6b5b190600ddc489fa9801e00bb36cc0a3392b4b6602d96185119afb",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      }
+    },
+    "core": {
+      "id": "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+      "outcome": "passed-fresh",
+      "wallSeconds": 27.0687905899249,
+      "childrenMaxRssKiB": 1696916,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputs": {
+        "join_recursion_controls.lp": "1f7283a671a454a48cb5e9a479f2258263790951b12905407e07786c24d7cf20",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "inputSnapshot": "e14549569ea368b1cec39998f1e1318f586d24ae43a8674ba1130aee32fb5f47",
+      "logSha256": "c3ab59d702fdf9d172b16b383212bb71b80a47410f8a35c940cf050784fc57e7",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "assertions": {
+        "assert": 287,
+        "assertnot": 85
+      }
+    },
+    "combined": {
+      "id": "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+      "outcome": "passed-fresh",
+      "wallSeconds": 196.26337720197625,
+      "childrenMaxRssKiB": 6808196,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 7168,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "inputs": {
+        "central_algebra_controls.lp": "96c91164b1003bda7b2e301cd284b52485660d95e5e4d57dd97d261095a6b99e",
+        "central_closed_sigma_controls.lp": "dc51fd3dd3712fd7a05c6c5aa4850abf875edb6a583c7eda8fc210b4732b62b5",
+        "central_comma_action_controls.lp": "d18791121a991117cab075651962cdd2e42ae1f84093262616bc5812fd957f50",
+        "central_curry_controls.lp": "144f2e72bd196eff63cee1d2714e7e778f6e0881369b458bacaaf2eed0c5b410",
+        "central_curry_family_regression.lp": "b1021fbf084650795033704d705e196b3abda30d21ba38c5560699a25524259a",
+        "central_displayed_chain_controls.lp": "ac37e214f2bd3b0ff5aa99faee07ca0a68d5bcd70b1eb8c1e93cf29459391092",
+        "central_displayed_evaluation_controls.lp": "469074851e939b5a6934d1c6b432f2cdc3022055085db9bb58fdecaedc0d5f3b",
+        "central_displayed_products_controls.lp": "a6f93aa617a473717be7707a48dc20e1e7581db3cb2a42cb541312be5ec57cd6",
+        "central_displayed_regression.lp": "b6a7be4403e8bce0e2edbd56130202b5596dbded7697edcf88511e8b0bdfd47d",
+        "central_displayed_transport_controls.lp": "edda163a2f920556deb3ac1a7e365c0b1a184b3a985019d7812351f7a75aaa7f",
+        "central_early_controls.lp": "a37ae51f79383eb8a848d8b7f474c24e8f28b2eb68b3f6e27e30c58874dd0bab",
+        "central_evaluation_adjunction_controls.lp": "af6ceea6b3b64883b657d69e3f692831ccaff0af24bf9a4e4d34fcd16a68fb95",
+        "central_family_controls.lp": "48ab1858f3a1c1498189e985300d02709f67acb9fc5a8b6ba1a65d54e9c965d4",
+        "central_hom_action_controls.lp": "036100991879262e6492a0b66be3d6110c5a8ddf7eb5fb246c794a8b97e60ed2",
+        "central_homcatd_controls.lp": "39edf3dc9d4359691f9dab36a797d7eddee4e6072a8f3f9062f34694423762a5",
+        "central_homd_classifier_controls.lp": "7e31e2991ea8acc6036398a30bec71ed28ad5148b6cd6cb8fdeb4a186768ef03",
+        "central_homd_leaf_prof_controls.lp": "c475d5f6ede128eb8ec4cabc8f83e86e9f9436b6ee30bfb279df12e0e446abc8",
+        "central_internal_action_controls.lp": "6e3698c95664aaf88113201cc7040efa2a35e2dd2514f1667e9f6ce9bb9d6aa6",
+        "central_intrinsic_projection_controls.lp": "4d844a3f692ad4496df73895455f53f0cf35c9e5eb375d8e2304fa37e545ef4f",
+        "central_migration_regression.lp": "31cbd148872e9a006c1be3d4082addd486208508d03a8ad6cd51c3aa2ba9fac4",
+        "central_mixed_action_controls.lp": "a061686c0a53a5e0b0bce8ffc35c9c9ea414d098e68ef71e8029183fd601ef3d",
+        "central_mixed_composition_controls.lp": "e051702cda2b1631d9d854ac53cb58c6e7f666a24ddd8521cb049d5bf7fbd44a",
+        "central_mixed_formation_controls.lp": "b1121ae915b747dad89678a1dbfb1b2f47e30b15594cfcddf9cb1de887f5aa6e",
+        "central_mixed_parameter_controls.lp": "f88d67198446745bfb4e2ab45876303a1de306e3b98bca2c1144b74608372381",
+        "central_mixed_regression.lp": "5e4e794fbaa8a42bd6ad6adcec597bfaabc6d402ba68b2a4321ccd2abae26f6d",
+        "central_monads_controls.lp": "9cf1eb40e4813b0524910414c245218d0813df075cd10dc6122653efcb38ee33",
+        "central_owner_regression.lp": "e8bb2fded42b8197a0f904f6cb88ee3481aba53dad4c9cae07e962eff97a69c9",
+        "central_pair_telescope_controls.lp": "a7a703207ee466eefea118d5d39e1a23fa5e08e6e862c719a815ce371b7edc51",
+        "central_path_core_controls.lp": "30e9d58b1212fddd8abdbc2e2a1f28374e15e0a21b697d6a1b9cebe86c833ac7",
+        "central_path_induction_controls.lp": "dfe5423cea3087389828e10cf3d8c73910a1b6347f1fbeb08553cba774f24330",
+        "central_pathout_motive_controls.lp": "11c85251379f3eea1918db3f95a7cb949e2bd22809ff8bfb57c5fb71fa898f50",
+        "central_presheaf_locality_controls.lp": "9a9ce46c817bd9f511ebff901535706a88c0577cd1bce7901b893fc423551945",
+        "central_product_prof_controls.lp": "f927321d9cf80803cde3edb6e7c548d390c7ad76acae1239ee41d0914d78adf6",
+        "central_profile_closure_controls.lp": "98b35336f1d4be98f561d7028b0552bde700cf6a712353476c710336670797f2",
+        "central_projection_regression.lp": "fcef0ada4ca7acf12f83e7fd13f92b4045bbd6372e964403745c4ead56cfc486",
+        "central_public_homd_general_controls.lp": "ec31507d8906681c86b6da014d2eb23490da74b52fba6e4224dc4730afcf031c",
+        "central_reindex_controls.lp": "437b4a688386657d14a11379c580c26dacd8c1c388b57b219d1c4f16ae1e97d9",
+        "central_sections_controls.lp": "67b4e825e29a0a9b39e57c529e5da0a919eb9ffca03e9725458833cf845810e3",
+        "central_structural_controls.lp": "c2b538e2cf21771de64c8367f7079c5393b092c77ac1d676d8d2b84b72df722a",
+        "central_structural_tail_controls.lp": "875836a0492cc24e047039ee6b7cf2ef319d622bc4faa83d31301bece3347432",
+        "central_walking_end_controls.lp": "1eaa5dbabbfe64282c0b5fa1fff207f48a7213d269b2e0b549f6468d5a173bd7",
+        "emdash3_2.lp": "8f191e9e2f941ba8070d57bf47a1d8cb42b624d4f73db59c635cb22b0b00773b",
+        "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+        "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+        "emdash3_2_circle_hit.lp": "4817e0194053d2d4d47238d5c2ea721421b5d147cbae043fe62ba866cae46530",
+        "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+        "emdash3_2_commutative_algebra_affine_atlas.lp": "67fd7f3c3158bbe8c6ba664b588614e46666bce68bf2ddef73434a6837611610",
+        "emdash3_2_commutative_algebra_affine_glue.lp": "0758ef9ac679c9709e90fc4721069a84f57c6a5b7e559cb2d08efd38ad57eb9f",
+        "emdash3_2_commutative_algebra_affine_spec.lp": "421951fa4746af34f0a02fed59a1112ec2de48b9ed1e83720f40c209f038fc98",
+        "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+        "emdash3_2_commutative_algebra_f2.lp": "8d9d8a7c72bb57c13f75262a70204d005c3cd547079054c81c07c3938a8f6d17",
+        "emdash3_2_commutative_algebra_finite.lp": "78916cb4d5c9989a927bb7808afcfc9973e5836a5cb6d09bc87b533f87781d31",
+        "emdash3_2_commutative_algebra_glue.lp": "039bf198f2882a533441a1eb1a5633c5511098c1a04d6163da136654eac4c1a4",
+        "emdash3_2_commutative_algebra_locality.lp": "421e007d4f9c18cb63ac5f98bb81a0a08c999fc9b7ab25b7486a6282953e3f16",
+        "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+        "emdash3_2_commutative_algebra_localization_comparison.lp": "90f4b9bd4e9677f30122216f743620b7c3640f53bb3074f08bbf00139f8b3f9d",
+        "emdash3_2_commutative_algebra_localization_idempotent.lp": "014685d5d0455028fefc37dd9f38bf693892ff2e382e9a4b389f5406ac2d0042",
+        "emdash3_2_commutative_algebra_localization_overlap.lp": "4b2bd200c7d4f9339dfcb55e3198b35f5e01a098f08df66e294f806a383c6f79",
+        "emdash3_2_commutative_algebra_localization_split.lp": "e6ca13911d5a7b5a691d6076ff1371f8a844e39d90d8aa9d20263ae91d0f125a",
+        "emdash3_2_commutative_algebra_localization_unit.lp": "a6bc8f0c689d1febdd46c3b0b5c3c1e931473c3d010b2382e9ffaf77eca8cceb",
+        "emdash3_2_commutative_algebra_localization_zero.lp": "0e1e6d70f0ef3a124a48c81ff719ff67d63b571f6c899ca3ab0f09ec0c21c7e5",
+        "emdash3_2_commutative_algebra_matching.lp": "472900e6ce024d135fedfd9de0adbea9bd430f951729f6020accc6b4fad2506d",
+        "emdash3_2_commutative_algebra_polynomial.lp": "cb435b4c4dd779139f3cc1cc4b009ae8b6030eee6456400e91345120dfe74881",
+        "emdash3_2_commutative_algebra_presheaves.lp": "3d84f509d152258df9e18975cac4b053cae33201e3b6375d82a5e01d232daafe",
+        "emdash3_2_commutative_algebra_product.lp": "be58bdc7c97a4a54a9678f56accc56afc37354c73e98e48a4d16852d8c0961d1",
+        "emdash3_2_commutative_algebra_zariski.lp": "5a0237e4e44b97daa29b814abecadaef703eb23f3d81cb3765d37c28495cf3c1",
+        "emdash3_2_commutative_algebra_zariski_topology.lp": "d7e92b61294d3a446eaaac4d8676adf4deadfc92ef8da48e3011b29ac29386ae",
+        "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+        "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+        "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+        "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_finite_families.lp": "3caba54f7c8ff954abfce4c02c180769064b642d56d85c034c95f0ddfebd7bcb",
+        "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+        "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+        "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+        "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+        "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+        "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+        "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+        "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+        "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+        "emdash3_2_one_cat_adjunction_family_views.lp": "298f87061e89739884c139024432e1ec16c9e9d4ad96d720916b1248d0b905cf",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "cd14584f137fdb2ee3e25c6016888d115ad07e07259e08ab48e626fa6811a4b2",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+        "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+        "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+        "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+        "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+        "emdash3_2_terminal_category_profile.lp": "cd3b2c437c8b3ae45925d5e7dbb57e7e95210197f508818110de95ad6c9c7a4f",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+        "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+        "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+        "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+        "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+        "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+        "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+        "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+        "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "terminal_homd_comparison_controls.lp": "3c334cabcbc0350711e0ac4b9cc9aedfcfeef0410894214b283c4df6f947bf9a"
+      },
+      "inputSnapshot": "f314ccf91356fd6f14faea50f8a3a4466f5923bcc72233915a51559d36892d59",
+      "logSha256": "ac2cba99d792f0d6f73afe8d7d06a0a55090e57fdf1ef415d671b32741dc8fca",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "assertions": {
+        "assert": 2180,
+        "assertnot": 286
+      }
+    },
+    "library": {
+      "id": "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c",
+      "outcome": "passed-fresh",
+      "wallSeconds": 84.40167172509246,
+      "childrenMaxRssKiB": 4480736,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputs": {
+        "direct_cover_sheafification_controls.lp": "4560b581f56e214000ad8f4e5a367807c806e64f9876e4288dd92c704805d1b4",
+        "emdash3_2.lp": "8f191e9e2f941ba8070d57bf47a1d8cb42b624d4f73db59c635cb22b0b00773b",
+        "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+        "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+        "emdash3_2_circle_hit.lp": "4817e0194053d2d4d47238d5c2ea721421b5d147cbae043fe62ba866cae46530",
+        "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+        "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+        "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+        "emdash3_2_commutative_algebra_presheaves.lp": "3d84f509d152258df9e18975cac4b053cae33201e3b6375d82a5e01d232daafe",
+        "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+        "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+        "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+        "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+        "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+        "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+        "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+        "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+        "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+        "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+        "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+        "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+        "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+        "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+        "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+        "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+        "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+        "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+        "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+        "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+        "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+        "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+        "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+        "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+        "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+        "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+        "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+        "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+        "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+        "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+        "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+        "emdash3_2_one_cat_arrow_diagrams.lp": "dec0ef9784afcafec39fcbd36b7381fd1f4ab590fd47976db2d8a687b604e7fc",
+        "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+        "emdash3_2_one_cat_functor_profiles.lp": "cd14584f137fdb2ee3e25c6016888d115ad07e07259e08ab48e626fa6811a4b2",
+        "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+        "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+        "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+        "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+        "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+        "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+        "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+        "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+        "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+        "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+        "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+        "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+        "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+        "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+        "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+        "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+        "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+        "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+        "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+        "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+        "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+        "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+        "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+        "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+        "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+        "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+        "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+        "examples/action_profile_eckmann_hilton_one_hom.lp": "ffa7f67d53252189a6952309b804e442424d9348190a56b354957539d6a2a315",
+        "examples/cartesian_categories.lp": "4a663023dce2cd2f0d4daf989feeaecb352ba10a6543f47c6601e14ebda92f4f",
+        "examples/generic_groupoidification.lp": "048edf9867fc7d7eb478545f0354d31077c8ee7e0b280d4e85b5d44592475f29",
+        "examples/generic_groupoidification_interval.lp": "bbb593930000f4792396e8565b196995c275718c52a16320ba58d1a83d394d43",
+        "examples/monads_comonads.lp": "47fc5c74f2896f0cb7c22b05b1793553cc514790145a69dc409d035f6851125a",
+        "examples/one_cat_arrow_diagrams.lp": "ece4846aa2151733339d86ecf49fc835f8013e4e6de70290f2f7a375d62a4fe8",
+        "examples/pullbacks.lp": "5f9bfb2e0a271ab2ac7ce2f24504864eb70456c9d028ce5baf794f9c5c4db314",
+        "examples/slice_dependent_products.lp": "3bb2825db500cf477f29421d1ed6e0d408ba8443529207576e38d9e00d693121",
+        "examples/triangular_binary_products.lp": "b7f6aa4ea1cd85139a988554575ab1b64768e09d4c63d6d448a431a9c8c515f8",
+        "examples/triangular_binary_products_finite_limits.lp": "9a4b41b7bf67b8f7a3a01f15940e4c81202933620a551c31d69afa19dc7cb504",
+        "examples/walking_circle_completion.lp": "7a22d6893998b2b849c893ec5ddb7787f3120ffd46bbaa5e0d31cc07ac60e472",
+        "examples/walking_circle_groupoidification_restriction.lp": "9540aa064e1039d8c1860e3cef4dfc856f20d3bde2f9088505d86a26ff70f2c9",
+        "examples/walking_interval_groupoidification.lp": "6cda56d060c23d579ed2485f1adce024aeb036930d64e8f467d0ad1c4168fa1e",
+        "foundations_library_regression.lp": "a408e9050caf1f6b0228b87824bc6d6b384af655faef76643485c092a578c554",
+        "groupoidification_migration_controls.lp": "a4db02a4355b2984ccfa32a304f8d5489087b77ec96723f62eb01ebee318b169",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+        "monads_migration_controls.lp": "c275aaca36c5f2fd3d3e8b2f82e3c934fc21ecfc1887e1653e5cbcdaf8c74eb7",
+        "product_pullback_migration_controls.lp": "cbbab46ef6e016e9fbced8e1df1c7b376e0daa4a064db1e977a1762b219e697a",
+        "profiled_interchange_migration_controls.lp": "57e319c28a76f293d36824ba73073e31f3d3357dc2ce37cc374fe80f62994f39",
+        "walking_circle_migration_controls.lp": "2dbc85785dc5ef4f0714b73bfc6144a8f3e51c2ad5daaa5e836353713cd1a58e"
+      },
+      "inputSnapshot": "b4180b3cea9e1116a89f1cc14691b964297537d999f9c7be193f3e60f2b5c563",
+      "logSha256": "8507d9539fc82f864a8d648b703ac94e53455d0bcaedc3d332fe57f36c6ff411",
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "assertions": {
+        "assert": 178,
+        "assertnot": 27
+      }
+    }
+  },
+  "variantReview": "The all-wildcard composition category passed the focused controls but obscured the intended category dependency. Repeating actual B follows the existing generic rule. A literal Functor_cart_cat head guard failed the product-valued positive case after category reduction and is rejected. Neither a product-specific duplicate rule nor a broader strictness requirement is added.",
+  "lhsReview": {
+    "toolCandidateClauses": 0,
+    "manual": "The actual codomain B is repeated as in the original conventional-lax owner. Endpoint/family slots recoverable from the native component use underscores. The fixed Cat_cart classifier selects the displayed component profile. No reducible aliases or compound inferred category expressions occur in the new patterns."
+  },
+  "baselineEvidence": "The predecessor combined receipt 20261020T145826Z-be1b159cff49475e9e8e48a8ffaa1ad1 includes all three statements as runtime negatives. Their exact predecessor input is retained under its immutable source hash.",
+  "remaining": "R01-R03 terminal runtime obligations, other recorded normalization/overlap questions, original full-context/registered-consumer qualification and production promotion remain open.",
+  "adopted": true,
+  "manifestSha256": "db7727bbae11e1c4bd031ab5e058510dac9f1e43e5486120ddc28b50eb10f893",
+  "polarityChanges": [
+    {
+      "index": 17,
+      "before": "assertnot",
+      "after": "assert",
+      "statement": "assert [K : Cat] (E D : τ (Catd K)) (FF GG HH : τ (Functord E D)) (z : τ (Obj K)) (G : τ (Functor (@Transf_cat K Cat_cart E D) (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)))) (epsilon : τ (@Transf (@Transf_cat K Cat_cart E D) (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (@tapp0_func K Cat_cart E D z) G)) (f : τ (Transfd GG HH)) (g : τ (Transfd FF GG)) ⊢ @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (fapp0 (@tapp0_func K Cat_cart E D z) FF) (fapp0 (@tapp0_func K Cat_cart E D z) GG) (fapp0 G HH) (@tapp1_fapp0 (@Transf_cat K Cat_cart E D) (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (@tapp0_func K Cat_cart E D z) G GG HH epsilon f) (@tdapp0_fapp0 K E D FF GG z g) ≡ @tapp1_fapp0 (@Transf_cat K Cat_cart E D) (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (@tapp0_func K Cat_cart E D z) G FF HH epsilon (@comp_fapp0 (@Transf_cat K Cat_cart E D) FF GG HH f g);"
+    },
+    {
+      "index": 18,
+      "before": "assertnot",
+      "after": "assert",
+      "statement": "assert [K A B C : Cat] (FF GG HH : τ (Functord (@Const_catd K C) (@Const_catd K (Product_cat A B)))) (z : τ (Obj K)) (G : τ (Functor (@Transf_cat K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B))) (Functor_cart_cat C (Product_cat A B)))) (epsilon : τ (@Transf (@Transf_cat K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B))) (Functor_cart_cat C (Product_cat A B)) (@tapp0_func K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B)) z) G)) (f : τ (@Transfd K (@Const_catd K C) (@Const_catd K (Product_cat A B)) GG HH)) (g : τ (@Transfd K (@Const_catd K C) (@Const_catd K (Product_cat A B)) FF GG)) ⊢ @comp_fapp0 (Functor_cart_cat C (Product_cat A B)) (fapp0 (@tapp0_func K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B)) z) FF) (fapp0 (@tapp0_func K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B)) z) GG) (fapp0 G HH) (@tapp1_fapp0 (@Transf_cat K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B))) (Functor_cart_cat C (Product_cat A B)) (@tapp0_func K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B)) z) G GG HH epsilon f) (@tdapp0_fapp0 K (@Const_catd K C) (@Const_catd K (Product_cat A B)) FF GG z g) ≡ @tapp1_fapp0 (@Transf_cat K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B))) (Functor_cart_cat C (Product_cat A B)) (@tapp0_func K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B)) z) G FF HH epsilon (@comp_fapp0 (@Transf_cat K Cat_cart (@Const_catd K C) (@Const_catd K (Product_cat A B))) FF GG HH f g);"
+    },
+    {
+      "index": 20,
+      "before": "assertnot",
+      "after": "assert",
+      "statement": "assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D)) (z : τ (Obj K)) (G : τ (Functor (@Transf_cat K Cat_cart E D) (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)))) (epsilon : τ (@Transf (@Transf_cat K Cat_cart E D) (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (@tapp0_func K Cat_cart E D z) G)) (g : τ (Transfd FF GG)) ⊢ @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (fapp0 (@tapp0_func K Cat_cart E D z) FF) (fapp0 (@tapp0_func K Cat_cart E D z) GG) (fapp0 G GG) (@tapp0_fapp0 (@Transf_cat K Cat_cart E D) (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (@tapp0_func K Cat_cart E D z) G GG epsilon) (@tdapp0_fapp0 K E D FF GG z g) ≡ @tapp1_fapp0 (@Transf_cat K Cat_cart E D) (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (@tapp0_func K Cat_cart E D z) G FF GG epsilon g;"
+    }
+  ],
+  "sourceCoverage": {
+    "method": "Existing catalog parser and direct driver multiset modulo whitespace; not original all-import execution.",
+    "sourceSha256": "f200871da5385aa10ab5af9b97e407f61a8c778a4efd6dd7aa182bfb4ac8a4ce",
+    "driverFiles": [
+      "central_algebra_controls.lp",
+      "central_closed_sigma_controls.lp",
+      "central_comma_action_controls.lp",
+      "central_curry_controls.lp",
+      "central_curry_family_regression.lp",
+      "central_displayed_chain_controls.lp",
+      "central_displayed_evaluation_controls.lp",
+      "central_displayed_products_controls.lp",
+      "central_displayed_regression.lp",
+      "central_displayed_transport_controls.lp",
+      "central_early_controls.lp",
+      "central_evaluation_adjunction_controls.lp",
+      "central_family_controls.lp",
+      "central_hom_action_controls.lp",
+      "central_homcatd_controls.lp",
+      "central_homd_classifier_controls.lp",
+      "central_homd_leaf_prof_controls.lp",
+      "central_internal_action_controls.lp",
+      "central_intrinsic_projection_controls.lp",
+      "central_migration_regression.lp",
+      "central_mixed_action_controls.lp",
+      "central_mixed_composition_controls.lp",
+      "central_mixed_formation_controls.lp",
+      "central_mixed_parameter_controls.lp",
+      "central_mixed_regression.lp",
+      "central_monads_controls.lp",
+      "central_owner_regression.lp",
+      "central_pair_telescope_controls.lp",
+      "central_path_core_controls.lp",
+      "central_path_induction_controls.lp",
+      "central_pathout_motive_controls.lp",
+      "central_presheaf_locality_controls.lp",
+      "central_product_prof_controls.lp",
+      "central_profile_closure_controls.lp",
+      "central_projection_regression.lp",
+      "central_public_homd_general_controls.lp",
+      "central_reindex_controls.lp",
+      "central_sections_controls.lp",
+      "central_structural_controls.lp",
+      "central_structural_tail_controls.lp",
+      "central_walking_end_controls.lp",
+      "terminal_homd_comparison_controls.lp"
+    ],
+    "sourceCounts": {
+      "assert": 2162,
+      "assertnot": 278
+    },
+    "sourceAssertionCount": 2440,
+    "unmatchedCount": 5,
+    "unmatchedExactlyTerminalObligations": true,
+    "declarationNames": [
+      "path_postcomp_comp_check",
+      "path_precomp_comp_check",
+      "hom_postcomp_opfunc_general_tele_visible_check",
+      "hom_postcomp_opfunc_general_tele_eq_refl_check",
+      "hom_postcomp_opfunc_general_func_visible_check",
+      "hom_postcomp_opfunc_general_func_eq_refl_check",
+      "hom_postcomp_opfunc_general_visible_check",
+      "hom_postcomp_opfunc_general_eq_refl_check",
+      "hom_postcomp_opfunc_general_double_op_check",
+      "hom_postcomp_opfunc_general_double_op_eq_refl_check",
+      "hom_postcomp_opfunc_projected_func_eq_refl_check",
+      "hom_postcomp_opfunc_projected_fapp0_eq_refl_check",
+      "Product_catd_transparent_check",
+      "Product_swap_funcd_check",
+      "Product_diag_funcd_check",
+      "Product_projL_funcd_higher_check",
+      "Product_projR_funcd_higher_check",
+      "Product_pair_funcd_higher_check",
+      "Displayed_eval_subject_check",
+      "Displayed_eval_source_check",
+      "Const_funcd_check",
+      "Displayed_eval_varying_check",
+      "Displayed_eval_fixed_check",
+      "Displayed_eval_higher_check",
+      "Displayed_chain_K_check",
+      "Displayed_chain_A_check",
+      "Displayed_chain_B_check",
+      "Displayed_chain_A_var_check",
+      "Displayed_chain_A_after_B_check",
+      "Displayed_chain_B_var_check",
+      "Displayed_chain_D_check",
+      "Displayed_chain_FF_check",
+      "Displayed_chain_k0_check",
+      "Displayed_chain_k1_check",
+      "Displayed_chain_a0_check",
+      "Displayed_chain_a1_check",
+      "Displayed_chain_p_check",
+      "Displayed_chain_alpha_check",
+      "Displayed_chain_q_check",
+      "Displayed_chain_b0_check",
+      "Displayed_chain_generic_section_check",
+      "direct_mixed_post_funcd_check",
+      "direct_mixed_nested_funcd_check",
+      "direct_mixed_pre_funcd_check",
+      "direct_mixed_pre2_funcd_check",
+      "direct_mixed_product_pair_funcd_check",
+      "direct_mixed_product_pair_left_check",
+      "direct_mixed_product_pair_right_check",
+      "direct_mixed_product_higher_check",
+      "direct_mixed_comp_source_check",
+      "direct_mixed_comp_pair_funcd_check",
+      "direct_mixed_comp_left_check",
+      "direct_mixed_comp_right_check",
+      "direct_mixed_comp_higher_check",
+      "path_action_iter_power_check",
+      "path_action_iter_power_function_check",
+      "path_action_iter_left_function_check",
+      "path_action_iter_right_function_check",
+      "path_action_iter_step_path_check",
+      "path_action_iter_power_func_check",
+      "path_action_iter_exact_spiral_check",
+      "eq_skeleton_id_path_check",
+      "eq_skeleton_comp_path_check",
+      "sigma_terminal_total_func_check",
+      "contextual_pair_pullback_total_check",
+      "unprofiled_catd_valued_functor"
+    ],
+    "declarationsMissingFromDrivers": []
+  },
+  "warningComparison": {
+    "core": {
+      "baseline": "20261020T141606Z-73eff6901717407aaaa8d625b29b3ac3",
+      "selected": "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+      "before": 1583,
+      "after": 1600,
+      "added": 17,
+      "removed": 0,
+      "addedBodies": [
+        {
+          "count": 1,
+          "sha256": "3162022ef622b57559fc3dc7949dac491d2a644cd07407b8a16b37ad7d151714"
+        },
+        {
+          "count": 1,
+          "sha256": "b3f34fc85a4ec7e8c8892cfcc18dea5d1983ba950f164408ef2839b551a3a026"
+        },
+        {
+          "count": 1,
+          "sha256": "1dca659bb7635bc24146ad46ef90f70da9a3bf350052c76744658a25aa92cbac"
+        },
+        {
+          "count": 1,
+          "sha256": "a6c98f1d2327929e7774c61ab6fae21a37bb579e2431ab603dee6680f6f68ed0"
+        },
+        {
+          "count": 1,
+          "sha256": "7ebe86f75d7fa7f83486a8dbedde265de43496b58dfa2753d12e141913b762e4"
+        },
+        {
+          "count": 1,
+          "sha256": "1a32afc1fdd837abbd3211ac8142bd8b95c17a85dab1dd81e857b662386eab3d"
+        },
+        {
+          "count": 1,
+          "sha256": "de05f698194f4d475c8fa4a86d554934b3589e5e21b9282045353d4640592bc5"
+        },
+        {
+          "count": 1,
+          "sha256": "f7f879c8818ad641c2d8532fa9a2725769325691906d52d4fb3bf524a78a576e"
+        },
+        {
+          "count": 1,
+          "sha256": "63a28ffe931a1b69265d9ac507989f8cdeef45e8b9e818a9094f79bdec53e9f9"
+        },
+        {
+          "count": 1,
+          "sha256": "571da9a10c8fae10d1e5f3104b15741d20ee1a45c199e052d080e747a4d79223"
+        },
+        {
+          "count": 1,
+          "sha256": "31dc9222aa218ef167652d721c2c1826c7fa95962a0df73fccc04a49a96b67f2"
+        },
+        {
+          "count": 1,
+          "sha256": "282388b0fa75588dd17c020ea7a563638d5949dbaeaf0faf3aafffcaf3aa4302"
+        },
+        {
+          "count": 1,
+          "sha256": "bbf3321337d02601ea8936b634c2d1fa7006d8d82385c77136dc43719b353672"
+        },
+        {
+          "count": 1,
+          "sha256": "913215a45cccd0b80620ae24b2b75763db3992acd6c2c5b06b5fc38a5d268457"
+        },
+        {
+          "count": 1,
+          "sha256": "724efd4f7d0bb2a4526782d7d05a14146ceb3f59120f9fea6044be1277ecf4f7"
+        },
+        {
+          "count": 1,
+          "sha256": "218ce3df22c3577fdf3e1f8b4d83dd22b21447fbcd2e77979e27f89d4f575fc1"
+        },
+        {
+          "count": 1,
+          "sha256": "0170fca8c96ee6f2bd4bd99eadd6aa2af049c1eb76a843c1e9edd8c94c1685da"
+        }
+      ]
+    },
+    "combined": {
+      "baseline": "20261020T145826Z-be1b159cff49475e9e8e48a8ffaa1ad1",
+      "selected": "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+      "before": 2036,
+      "after": 2056,
+      "added": 20,
+      "removed": 0,
+      "addedBodies": [
+        {
+          "count": 1,
+          "sha256": "3162022ef622b57559fc3dc7949dac491d2a644cd07407b8a16b37ad7d151714"
+        },
+        {
+          "count": 1,
+          "sha256": "b3f34fc85a4ec7e8c8892cfcc18dea5d1983ba950f164408ef2839b551a3a026"
+        },
+        {
+          "count": 1,
+          "sha256": "1dca659bb7635bc24146ad46ef90f70da9a3bf350052c76744658a25aa92cbac"
+        },
+        {
+          "count": 1,
+          "sha256": "a6c98f1d2327929e7774c61ab6fae21a37bb579e2431ab603dee6680f6f68ed0"
+        },
+        {
+          "count": 1,
+          "sha256": "7ebe86f75d7fa7f83486a8dbedde265de43496b58dfa2753d12e141913b762e4"
+        },
+        {
+          "count": 1,
+          "sha256": "1a32afc1fdd837abbd3211ac8142bd8b95c17a85dab1dd81e857b662386eab3d"
+        },
+        {
+          "count": 1,
+          "sha256": "de05f698194f4d475c8fa4a86d554934b3589e5e21b9282045353d4640592bc5"
+        },
+        {
+          "count": 1,
+          "sha256": "f7f879c8818ad641c2d8532fa9a2725769325691906d52d4fb3bf524a78a576e"
+        },
+        {
+          "count": 1,
+          "sha256": "63a28ffe931a1b69265d9ac507989f8cdeef45e8b9e818a9094f79bdec53e9f9"
+        },
+        {
+          "count": 1,
+          "sha256": "571da9a10c8fae10d1e5f3104b15741d20ee1a45c199e052d080e747a4d79223"
+        },
+        {
+          "count": 1,
+          "sha256": "31dc9222aa218ef167652d721c2c1826c7fa95962a0df73fccc04a49a96b67f2"
+        },
+        {
+          "count": 1,
+          "sha256": "282388b0fa75588dd17c020ea7a563638d5949dbaeaf0faf3aafffcaf3aa4302"
+        },
+        {
+          "count": 1,
+          "sha256": "bbf3321337d02601ea8936b634c2d1fa7006d8d82385c77136dc43719b353672"
+        },
+        {
+          "count": 1,
+          "sha256": "913215a45cccd0b80620ae24b2b75763db3992acd6c2c5b06b5fc38a5d268457"
+        },
+        {
+          "count": 1,
+          "sha256": "724efd4f7d0bb2a4526782d7d05a14146ceb3f59120f9fea6044be1277ecf4f7"
+        },
+        {
+          "count": 1,
+          "sha256": "218ce3df22c3577fdf3e1f8b4d83dd22b21447fbcd2e77979e27f89d4f575fc1"
+        },
+        {
+          "count": 1,
+          "sha256": "0170fca8c96ee6f2bd4bd99eadd6aa2af049c1eb76a843c1e9edd8c94c1685da"
+        },
+        {
+          "count": 1,
+          "sha256": "99866e7acc003bf583442626f9b84fe999f6cf1a16973d205be08f4cd84f12ba"
+        },
+        {
+          "count": 1,
+          "sha256": "4159841e4f67913a9142be8005a695cfb68593ee131f12fba35d1d23c851f4d4"
+        },
+        {
+          "count": 1,
+          "sha256": "7545ac34570f9895a69f447c1f0eec79744581ede751903dfbae5117cff03603"
+        }
+      ]
+    },
+    "library": {
+      "baseline": "20261020T150048Z-adf24a3c89ff4345aefcaef3dfec8825",
+      "selected": "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c",
+      "before": 2358,
+      "after": 2383,
+      "added": 25,
+      "removed": 0,
+      "addedBodies": [
+        {
+          "count": 1,
+          "sha256": "3162022ef622b57559fc3dc7949dac491d2a644cd07407b8a16b37ad7d151714"
+        },
+        {
+          "count": 1,
+          "sha256": "b3f34fc85a4ec7e8c8892cfcc18dea5d1983ba950f164408ef2839b551a3a026"
+        },
+        {
+          "count": 1,
+          "sha256": "1dca659bb7635bc24146ad46ef90f70da9a3bf350052c76744658a25aa92cbac"
+        },
+        {
+          "count": 1,
+          "sha256": "a6c98f1d2327929e7774c61ab6fae21a37bb579e2431ab603dee6680f6f68ed0"
+        },
+        {
+          "count": 1,
+          "sha256": "7ebe86f75d7fa7f83486a8dbedde265de43496b58dfa2753d12e141913b762e4"
+        },
+        {
+          "count": 1,
+          "sha256": "1a32afc1fdd837abbd3211ac8142bd8b95c17a85dab1dd81e857b662386eab3d"
+        },
+        {
+          "count": 1,
+          "sha256": "de05f698194f4d475c8fa4a86d554934b3589e5e21b9282045353d4640592bc5"
+        },
+        {
+          "count": 1,
+          "sha256": "f7f879c8818ad641c2d8532fa9a2725769325691906d52d4fb3bf524a78a576e"
+        },
+        {
+          "count": 1,
+          "sha256": "63a28ffe931a1b69265d9ac507989f8cdeef45e8b9e818a9094f79bdec53e9f9"
+        },
+        {
+          "count": 1,
+          "sha256": "571da9a10c8fae10d1e5f3104b15741d20ee1a45c199e052d080e747a4d79223"
+        },
+        {
+          "count": 1,
+          "sha256": "31dc9222aa218ef167652d721c2c1826c7fa95962a0df73fccc04a49a96b67f2"
+        },
+        {
+          "count": 1,
+          "sha256": "282388b0fa75588dd17c020ea7a563638d5949dbaeaf0faf3aafffcaf3aa4302"
+        },
+        {
+          "count": 1,
+          "sha256": "bbf3321337d02601ea8936b634c2d1fa7006d8d82385c77136dc43719b353672"
+        },
+        {
+          "count": 1,
+          "sha256": "913215a45cccd0b80620ae24b2b75763db3992acd6c2c5b06b5fc38a5d268457"
+        },
+        {
+          "count": 1,
+          "sha256": "724efd4f7d0bb2a4526782d7d05a14146ceb3f59120f9fea6044be1277ecf4f7"
+        },
+        {
+          "count": 1,
+          "sha256": "218ce3df22c3577fdf3e1f8b4d83dd22b21447fbcd2e77979e27f89d4f575fc1"
+        },
+        {
+          "count": 1,
+          "sha256": "0170fca8c96ee6f2bd4bd99eadd6aa2af049c1eb76a843c1e9edd8c94c1685da"
+        },
+        {
+          "count": 1,
+          "sha256": "99866e7acc003bf583442626f9b84fe999f6cf1a16973d205be08f4cd84f12ba"
+        },
+        {
+          "count": 1,
+          "sha256": "4159841e4f67913a9142be8005a695cfb68593ee131f12fba35d1d23c851f4d4"
+        },
+        {
+          "count": 1,
+          "sha256": "90f94484d574a2c261cff860df97bce362cfe5ea43aa98dafcad5141f4e72deb"
+        },
+        {
+          "count": 1,
+          "sha256": "e5471877df05c2fdfbe7be70ffa9b7f60e8f9f125a1ce6c3cd99dc7a0d99cdc8"
+        },
+        {
+          "count": 1,
+          "sha256": "48ebed095b42ae2a817181b979cad2185b84dc75133e49a1af1f551ff9c00c2f"
+        },
+        {
+          "count": 1,
+          "sha256": "03f23ae22f70da909ed0dbe71280edc6d6e1c762c565d5252310f8d97dc39242"
+        },
+        {
+          "count": 1,
+          "sha256": "33611611b8979e487a610b08f51ff40914bb42c0bbe0ee864b8bb670b41dbc20"
+        },
+        {
+          "count": 1,
+          "sha256": "be5643b3a01d60a0245c70870800a793a44da428b29e30db552d93885d4af386"
+        }
+      ]
+    }
+  },
+  "warningReview": [
+    "The new rules overlap symbolically with generic dual-category, terminal, Cat_cart and EqSkeleton composition views. The typed component codomain is derived from evaluation; no claim that every untyped symbolic peak joins is made.",
+    "Identity off-diagonal action and projected component identity/constant cases meet the new capped rules. The three original positive consumers include epsilon[id] specialization; the other raw/stable unit boundaries remain under R06/R07.",
+    "Intrinsic displayed-composite projections meet the first rule. Existing core/Homd and full selected combined intrinsic consumers pass; unqualified expanded intrinsic coherence remains under R08.",
+    "The combined closure adds two pointwise inverse-projection peaks and one Cat-valued sheaf composition peak beyond the core inventory. Actual existing inverse/locality and library consumers pass; symbolic higher projection joins remain explicitly within R07.",
+    "The library closure additionally exposes odd/even dual composition, identity-action and mapped-composite peaks. Its existing consumers pass; these symbolic bodies remain in the same explicit R07 inventory.",
+    "No warning body is silently removed or used as a consistency certificate. The literal Cartesian category-head guard reduced warning count but broke a legitimate product consumer and was rejected."
+  ],
+  "resourceReview": "Existing 180s/4GiB core, 300s/7GiB combined and 180s/6GiB library profiles with o=20 and serial execution were retained. All runs use the installed checker and subject reduction. No performance improvement is inferred from varying wall times; original full-context allocation remains unresolved.",
+  "validationBoundary": "This is a non-library replay checkpoint. Production source promotion, catalog/health/prose/source-pin refresh and the remaining required integration gates remain deferred to the recorded qualification boundary; no repository-wide aggregate is claimed.",
+  "continuationAudit": "The preceding terminal review made progress by rejecting concrete regressions and restoring selected source. This tranche additionally restores three required runtime observations; it is implementation progress, not a wait or blocker.",
+  "warningBodies": {
+    "3162022ef622b57559fc3dc7949dac491d2a644cd07407b8a16b37ad7d151714": {
+      "peak": "t ≔ @comp_fapp0 (Op_cat $A) $X $Y $Z (@tapp1_fapp0 $A' (Op_cat $A) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g')",
+      "generatingRules": [
+        "  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g') ↪ @tapp1_fapp0 (@Transf_cat $K' Cat_cart $E' $D') (Hom_cat Cat_cart (@fapp0 $K' Cat_cart $E' $z') (@fapp0 $K' Cat_cart $D' $z')) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $FF' $HH' $epsilon' (@comp_fapp0 (@Transf_cat $K' Cat_cart $E' $D') $FF' $GG' $HH' $f' $g')",
+        "  with @comp_fapp0 (Op_cat $A) $X $Y $Z $g $f ↪ @comp_fapp0 $A $Z $Y $X $f $g"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "b3f34fc85a4ec7e8c8892cfcc18dea5d1983ba950f164408ef2839b551a3a026": {
+      "peak": "t ≔ @comp_fapp0 (CoAbove2_cat $A) $x $y $z (@tapp1_fapp0 $A' (CoAbove2_cat $A) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g')",
+      "generatingRules": [
+        "  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g') ↪ @tapp1_fapp0 (@Transf_cat $K' Cat_cart $E' $D') (Hom_cat Cat_cart (@fapp0 $K' Cat_cart $E' $z') (@fapp0 $K' Cat_cart $D' $z')) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $FF' $HH' $epsilon' (@comp_fapp0 (@Transf_cat $K' Cat_cart $E' $D') $FF' $GG' $HH' $f' $g')",
+        "  with @comp_fapp0 (CoAbove2_cat $A) $x $y $z $g $f ↪ @comp_fapp0 $A $x $y $z $g $f"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "1dca659bb7635bc24146ad46ef90f70da9a3bf350052c76744658a25aa92cbac": {
+      "peak": "t ≔ @comp_fapp0 (CoAt2_cat $A) $X $Y $Z (@tapp1_fapp0 $A' (CoAt2_cat $A) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g')",
+      "generatingRules": [
+        "  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g') ↪ @tapp1_fapp0 (@Transf_cat $K' Cat_cart $E' $D') (Hom_cat Cat_cart (@fapp0 $K' Cat_cart $E' $z') (@fapp0 $K' Cat_cart $D' $z')) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $FF' $HH' $epsilon' (@comp_fapp0 (@Transf_cat $K' Cat_cart $E' $D') $FF' $GG' $HH' $f' $g')",
+        "  with @comp_fapp0 (CoAt2_cat $A) $X $Y $Z $g $f ↪ @comp_fapp0 $A $X $Y $Z $g $f"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "a6c98f1d2327929e7774c61ab6fae21a37bb579e2431ab603dee6680f6f68ed0": {
+      "peak": "t ≔ @comp_fapp0 Cat_cart $A $B $C (@tapp1_fapp0 $A' Cat_cart (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g')",
+      "generatingRules": [
+        "  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g') ↪ @tapp1_fapp0 (@Transf_cat $K' Cat_cart $E' $D') (Hom_cat Cat_cart (@fapp0 $K' Cat_cart $E' $z') (@fapp0 $K' Cat_cart $D' $z')) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $FF' $HH' $epsilon' (@comp_fapp0 (@Transf_cat $K' Cat_cart $E' $D') $FF' $GG' $HH' $f' $g')",
+        "  with @comp_fapp0 Cat_cart $A $B $C $G $F ↪ @comp_fapp0 Cat_cat $A $B $C $G $F"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "7ebe86f75d7fa7f83486a8dbedde265de43496b58dfa2753d12e141913b762e4": {
+      "peak": "t ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@tapp1_fapp0 $A' Terminal_cat (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g')",
+      "generatingRules": [
+        "  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g') ↪ @tapp1_fapp0 (@Transf_cat $K' Cat_cart $E' $D') (Hom_cat Cat_cart (@fapp0 $K' Cat_cart $E' $z') (@fapp0 $K' Cat_cart $D' $z')) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $FF' $HH' $epsilon' (@comp_fapp0 (@Transf_cat $K' Cat_cart $E' $D') $FF' $GG' $HH' $f' $g')",
+        "  with @comp_fapp0 Terminal_cat $0 $1 $2 $3 $4 ↪ Terminal_obj"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "1a32afc1fdd837abbd3211ac8142bd8b95c17a85dab1dd81e857b662386eab3d": {
+      "peak": "t ≔ @comp_fapp0 $B $' $' $' (@tapp1_fapp0 $A $B (@tapp0_func $K' Cat_cart $E' $D' $z') $G $X $X $ϵ (id $A $X)) (@tdapp0_fapp0 $' $' $' $FF' $X $z' $g')",
+      "generatingRules": [
+        "  with @comp_fapp0 $B' $' $' $' (@tapp1_fapp0 $A' $B' (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $HH' $epsilon' $f') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g') ↪ @tapp1_fapp0 (@Transf_cat $K' Cat_cart $E' $D') (Hom_cat Cat_cart (@fapp0 $K' Cat_cart $E' $z') (@fapp0 $K' Cat_cart $D' $z')) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $FF' $HH' $epsilon' (@comp_fapp0 (@Transf_cat $K' Cat_cart $E' $D') $FF' $GG' $HH' $f' $g')",
+        "  with @tapp1_fapp0 $A $B $F $G $X $X $ϵ (id $A $X) ↪ @tapp0_fapp0 $A $B $F $G $X $ϵ"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "de05f698194f4d475c8fa4a86d554934b3589e5e21b9282045353d4640592bc5": {
+      "peak": "t ≔ @comp_fapp0 Terminal_cat $0 $1 $2 (@tapp0_fapp0 $A' Terminal_cat (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $epsilon') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g')",
+      "generatingRules": [
+        "  with @comp_fapp0 $B' $' $' $' (@tapp0_fapp0 $A' $B' (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $GG' $epsilon') (@tdapp0_fapp0 $' $' $' $FF' $GG' $z' $g') ↪ @tapp1_fapp0 (@Transf_cat $K' Cat_cart $E' $D') (Hom_cat Cat_cart (@fapp0 $K' Cat_cart $E' $z') (@fapp0 $K' Cat_cart $D' $z')) (@tapp0_func $K' Cat_cart $E' $D' $z') $G' $FF' $GG' $epsilon' $g'",
+        "  with @comp_fapp0 Terminal_cat $0 $1 $2 $3 $4 ↪ Terminal_obj"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "f7f879c8818ad641c2d8532fa9a2725769325691906d52d4fb3bf524a78a576e": {
+      "peak": "t ≔ @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon $f) (@tdapp0_fapp0 $K $E $D $FF $FF $z (id (@Functord_cat $K $E $D) $FF))",
+      "generatingRules": [
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)",
+        "  with @tdapp0_fapp0 $K $E $D $FF $FF $z (id (@Functord_cat $K $E $D) $FF) ↪ id (Functor_cart_cat (@Fibre_cat $K $E $z) (@Fibre_cat $K $D $z)) (@Fibre_func $K $E $D $FF $z)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "63a28ffe931a1b69265d9ac507989f8cdeef45e8b9e818a9094f79bdec53e9f9": {
+      "peak": "t ≔ @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon $f) (@tdapp0_fapp0 $K $E $D $FF $FF $z (id (@Transf_cat $K Cat_cart $E $D) $FF))",
+      "generatingRules": [
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)",
+        "  with @tdapp0_fapp0 $K $E $D $FF $FF $z (id (@Transf_cat $K Cat_cart $E $D) $FF) ↪ id (Functor_cart_cat (@Fibre_cat $K $E $z) (@Fibre_cat $K $D $z)) (@Fibre_func $K $E $D $FF $z)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "571da9a10c8fae10d1e5f3104b15741d20ee1a45c199e052d080e747a4d79223": {
+      "peak": "t ≔ @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $4) $G (@Const_func $K $A $y) $HH $epsilon $f) (@tdapp0_fapp0 $K (Const_catd $K Terminal_cat) (Const_catd $K $A) (@Const_func $K $A $x) (@Const_func $K $A $y) $4 (@Const_transfd $K $A $x $y $p))",
+      "generatingRules": [
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)",
+        "  with @tdapp0_fapp0 $K (Const_catd $K Terminal_cat) (Const_catd $K $A) (@Const_func $K $A $x) (@Const_func $K $A $y) $4 (@Const_transfd $K $A $x $y $p) ↪ @Const_transf Terminal_cat $A $x $y $p"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "31dc9222aa218ef167652d721c2c1826c7fa95962a0df73fccc04a49a96b67f2": {
+      "peak": "t ≔ @fdapp1_int_section_arrow $K' $1 $3 (@comp_fapp0 (Catd_cat $K') $1 $2 $3 (@tapp1_fapp0 $A (Catd_cat $K') (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)) $x' $u'",
+      "generatingRules": [
+        "  with @fdapp1_int_section_arrow $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $u' ↪ @fdapp1_int_comp_section $K' $E' $D' $C' $FF' $GG' $x' $u'",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "282388b0fa75588dd17c020ea7a563638d5949dbaeaf0faf3aafffcaf3aa4302": {
+      "peak": "t ≔ @fdapp1_int_tgt_arrow $K' $1 $3 (@comp_fapp0 (Catd_cat $K') $1 $2 $3 (@tapp1_fapp0 $A (Catd_cat $K') (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)) $x' $u' $y'",
+      "generatingRules": [
+        "  with @fdapp1_int_tgt_arrow $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $u' $y' ↪ @tapp0_hom_fapp0 $K' Homd_coeff_cat (@Homd_coeff_diagram $K' $E') (@Homd_coeff_diagram $K' (@hom_ $K' $K' (@id_func $K') $x')) (@homd_id_src_sec $K' $E' $x' $u') (@homd_ff_src_sec $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $u') $y' (@fdapp1_int_comp_section $K' $E' $D' $C' $FF' $GG' $x' $u')",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "bbf3321337d02601ea8936b634c2d1fa7006d8d82385c77136dc43719b353672": {
+      "peak": "t ≔ @fdapp1_int_presheaf_arrow $K' $1 $3 (@comp_fapp0 (Catd_cat $K') $1 $2 $3 (@tapp1_fapp0 $A (Catd_cat $K') (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)) $x' $u' $y' $v'",
+      "generatingRules": [
+        "  with @fdapp1_int_presheaf_arrow $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $u' $y' $v' ↪ @fdapp1_int_comp_index $K' $E' $D' $C' $FF' $GG' $x' $u' $y' $v'",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "913215a45cccd0b80620ae24b2b75763db3992acd6c2c5b06b5fc38a5d268457": {
+      "peak": "t ≔ @fdapp1_int_hom_func $K' $1 $3 (@comp_fapp0 (Catd_cat $K') $1 $2 $3 (@tapp1_fapp0 $A (Catd_cat $K') (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)) $x' $y' $p' $u' $v'",
+      "generatingRules": [
+        "  with @fdapp1_int_hom_func $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $y' $p' $u' $v' ↪ @comp_cat_fapp0 (@fapp0 (Op_cat (Hom_cat $K' $x' $y')) Cat_cart (@homd_ $K' $E' $E' (@id_funcd $K' $E') $x' $u' $y' $v') $p') (@fapp0 (Op_cat (Hom_cat $K' $x' $y')) Cat_cart (@homd_ $K' $E' $D' $FF' $x' (@fapp0 (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $D' $x') (@Fibre_func $K' $E' $D' $FF' $x') $u') $y' $v') $p') (@fapp0 (Op_cat (Hom_cat $K' $x' $y')) Cat_cart (@homd_ $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' (@fapp0 (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $C' $x') (@Fibre_func $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x') $u') $y' $v') $p') (@fdapp1_int_hom_func $K' $D' $C' $GG' $x' $y' $p' (@fapp0 (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $D' $x') (@Fibre_func $K' $E' $D' $FF' $x') $u') (@fapp0 (@Fibre_cat $K' $E' $y') (@Fibre_cat $K' $D' $y') (@Fibre_func $K' $E' $D' $FF' $y') $v')) (@fdapp1_int_hom_func $K' $E' $D' $FF' $x' $y' $p' $u' $v')",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "724efd4f7d0bb2a4526782d7d05a14146ceb3f59120f9fea6044be1277ecf4f7": {
+      "peak": "t ≔ @fdapp1_int_hom_fapp0 $K' $1 $3 (@comp_fapp0 (Catd_cat $K') $1 $2 $3 (@tapp1_fapp0 $A (Catd_cat $K') (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)) $x' $y' $p' $u' $v' $alpha'",
+      "generatingRules": [
+        "  with @fdapp1_int_hom_fapp0 $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $y' $p' $u' $v' $alpha' ↪ @fapp0 (@fapp0 (Op_cat (Hom_cat $K' $x' $y')) Cat_cart (@homd_ $K' $D' $D' (@id_funcd $K' $D') $x' (@fapp0 (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $D' $x') (@Fibre_func $K' $E' $D' $FF' $x') $u') $y' (@fapp0 (@Fibre_cat $K' $E' $y') (@Fibre_cat $K' $D' $y') (@Fibre_func $K' $E' $D' $FF' $y') $v')) $p') (@fapp0 (Op_cat (Hom_cat $K' $x' $y')) Cat_cart (@homd_ $K' $D' $C' $GG' $x' (@fapp0 (@Fibre_cat $K' $D' $x') (@Fibre_cat $K' $C' $x') (@Fibre_func $K' $D' $C' $GG' $x') (@fapp0 (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $D' $x') (@Fibre_func $K' $E' $D' $FF' $x') $u')) $y' (@fapp0 (@Fibre_cat $K' $E' $y') (@Fibre_cat $K' $D' $y') (@Fibre_func $K' $E' $D' $FF' $y') $v')) $p') (@fdapp1_int_hom_func $K' $D' $C' $GG' $x' $y' $p' (@fapp0 (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $D' $x') (@Fibre_func $K' $E' $D' $FF' $x') $u') (@fapp0 (@Fibre_cat $K' $E' $y') (@Fibre_cat $K' $D' $y') (@Fibre_func $K' $E' $D' $FF' $y') $v')) (@fapp0 (@fapp0 (Op_cat (Hom_cat $K' $x' $y')) Cat_cart (@homd_ $K' $E' $E' (@id_funcd $K' $E') $x' $u' $y' $v') $p') (@fapp0 (Op_cat (Hom_cat $K' $x' $y')) Cat_cart (@homd_ $K' $E' $D' $FF' $x' (@fapp0 (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $D' $x') (@Fibre_func $K' $E' $D' $FF' $x') $u') $y' $v') $p') (@fdapp1_int_hom_func $K' $E' $D' $FF' $x' $y' $p' $u' $v') $alpha')",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "218ce3df22c3577fdf3e1f8b4d83dd22b21447fbcd2e77979e27f89d4f575fc1": {
+      "peak": "t ≔ @fdapp1_int_cell $K' $1 $3 (@comp_fapp0 (Catd_cat $K') $1 $2 $3 (@tapp1_fapp0 $A (Catd_cat $K') (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)) $x' $y' $p' $u'",
+      "generatingRules": [
+        "  with @fdapp1_int_cell $K' $E' $C' (@comp_fapp0 (Catd_cat $K') $E' $D' $C' $GG' $FF') $x' $y' $p' $u' ↪ @fdapp1_int_hom_fapp0 $K' $D' $C' $GG' $x' $y' $p' (@fapp0 (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $D' $x') (@Fibre_func $K' $E' $D' $FF' $x') $u') (@fapp0 (@Fibre_cat $K' $E' $y') (@Fibre_cat $K' $D' $y') (@Fibre_func $K' $E' $D' $FF' $y') (@fapp0 (@Fibre_cat $K' $E' $x') (@Fibre_cat $K' $E' $y') (@catd_transport_func $K' $E' $x' $y' $p') $u')) (@fdapp1_int_cell $K' $E' $D' $FF' $x' $y' $p' $u')",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "0170fca8c96ee6f2bd4bd99eadd6aa2af049c1eb76a843c1e9edd8c94c1685da": {
+      "peak": "t ≔ @comp_fapp0 (EqSkeleton_cat (cat_succ $') $A') $1 $2 $3 (@tapp1_fapp0 $A (EqSkeleton_cat (cat_succ $') $A') (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)",
+      "generatingRules": [
+        "  with @comp_fapp0 (EqSkeleton_cat (cat_succ $') $A') $w' $x' $y' $g' $f' ↪ @comp_fapp0 $A' $w' $x' $y' $g' $f'",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163057Z-844d0a2147df46f4b1a112537225e8d9",
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "99866e7acc003bf583442626f9b84fe999f6cf1a16973d205be08f4cd84f12ba": {
+      "peak": "t ≔ @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $4 $B (@tapp0_func $K Cat_cart $4 $4 $K) $4 $4 $HH $epsilon $f) (@tdapp0_fapp0 $0 $1 $2 $3 $4 $K (@strict_transfd_pointwise_left_inverse $4 $4 $K $4 $4 $eta $u))",
+      "generatingRules": [
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)",
+        "  with @tdapp0_fapp0 $0 $1 $2 $3 $4 $x (@strict_transfd_pointwise_left_inverse $K $E $D $FF $GG $eta $u) ↪ @omega_equiv_along_left_inv (Functor_cart_cat (@Fibre_cat $0 $1 $x) (@Fibre_cat $0 $2 $x)) (@Fibre_func $0 $1 $2 $4 $x) (@Fibre_func $0 $1 $2 $3 $x) (@tdapp0_fapp0 $0 $1 $2 $4 $3 $x $eta) ($u $x)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "4159841e4f67913a9142be8005a695cfb68593ee131f12fba35d1d23c851f4d4": {
+      "peak": "t ≔ @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $4 $B (@tapp0_func $K Cat_cart $4 $4 $K) $4 $4 $HH $epsilon $f) (@tdapp0_fapp0 $0 $1 $2 $3 $4 $K (@strict_transfd_pointwise_right_inverse $4 $4 $K $4 $4 $eta $u))",
+      "generatingRules": [
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)",
+        "  with @tdapp0_fapp0 $0 $1 $2 $3 $4 $x (@strict_transfd_pointwise_right_inverse $K $E $D $FF $GG $eta $u) ↪ @omega_equiv_along_right_inv (Functor_cart_cat (@Fibre_cat $0 $1 $x) (@Fibre_cat $0 $2 $x)) (@Fibre_func $0 $1 $2 $4 $x) (@Fibre_func $0 $1 $2 $3 $x) (@tdapp0_fapp0 $0 $1 $2 $4 $3 $x $eta) ($u $x)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299",
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "7545ac34570f9895a69f447c1f0eec79744581ede751903dfbae5117cff03603": {
+      "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $1 $2 $3 (@tapp1_fapp0 $A (@Sheaf_cat $K' $T' Cat_cart) (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)",
+      "generatingRules": [
+        "  with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f' ↪ @comp_fapp0 (Psh_cat $K') (@cat_valued_sheaf_carrier $K' $T' $X') (@cat_valued_sheaf_carrier $K' $T' $Y') (@cat_valued_sheaf_carrier $K' $T' $Z') $g' $f'",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T163142Z-c09f0a260c454fce88e5640be2e55299"
+      ]
+    },
+    "90f94484d574a2c261cff860df97bce362cfe5ea43aa98dafcad5141f4e72deb": {
+      "peak": "t ≔ @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $1 $2 $3 (@tapp1_fapp0 $A (@Sheaf_cat $K' $T' Cat_cart) (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)",
+      "generatingRules": [
+        "  with @comp_fapp0 (@Sheaf_cat $K' $T' Cat_cart) $X' $Y' $Z' $g' $f' ↪ @comp_fapp0 (Psh_cat $K') (@cat_valued_sheaf_carrier $K' $T' $X') (@cat_valued_sheaf_carrier $K' $T' $Y') (@cat_valued_sheaf_carrier $K' $T' $Z') $g' $f'",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "e5471877df05c2fdfbe7be70ffa9b7f60e8f9f125a1ce6c3cd99dc7a0d99cdc8": {
+      "peak": "t ≔ @comp_fapp0 $B $1 (@tapp0_func $K Cat_cart $E $D $z) $3 (@tapp1_fapp0 (OddDual_cat $B) $B (@tapp0_func $K Cat_cart $E $D $z) $G (OddDual_cat $B) (OddDual_cat $B) $eta (id $B (OddDual_cat $B))) (@tdapp0_fapp0 $14 $15 $16 $FF (OddDual_cat $B) $z $g)",
+      "generatingRules": [
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)",
+        "  with @tapp1_fapp0 (OddDual_cat $A) $B $F $G $x $x $eta (id $A $x) ↪ @tapp0_fapp0 (OddDual_cat $A) $B $F $G $x $eta"
+      ],
+      "rawLogReceipts": [
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "48ebed095b42ae2a817181b979cad2185b84dc75133e49a1af1f551ff9c00c2f": {
+      "peak": "t ≔ @comp_fapp0 (OddDual_cat $A') $1 $2 $3 (@tapp1_fapp0 $A (OddDual_cat $A') (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)",
+      "generatingRules": [
+        "  with @comp_fapp0 (OddDual_cat $A') $x' $y' $z' $g' $f' ↪ @comp_fapp0 $A' $z' $y' $x' $f' $g'",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "03f23ae22f70da909ed0dbe71280edc6d6e1c762c565d5252310f8d97dc39242": {
+      "peak": "t ≔ @comp_fapp0 (EvenDual_cat $A') $1 $2 $3 (@tapp1_fapp0 $A (EvenDual_cat $A') (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g)",
+      "generatingRules": [
+        "  with @comp_fapp0 (EvenDual_cat $A') $x' $y' $z' $g' $f' ↪ @comp_fapp0 $A' $x' $y' $z' $g' $f'",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "33611611b8979e487a610b08f51ff40914bb42c0bbe0ee864b8bb670b41dbc20": {
+      "peak": "t ≔ @OddDual_func $' $16 (@comp_fapp0 Cat_cat $1 $2 $3 (@tapp1_fapp0 $A Cat_cat (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g))",
+      "generatingRules": [
+        "  with @OddDual_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F') ↪ @comp_cat_fapp0 (OddDual_cat $0') (OddDual_cat $B') (OddDual_cat $1') (@OddDual_func $B' $1' $G') (@OddDual_func $0' $B' $F')",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    },
+    "be5643b3a01d60a0245c70870800a793a44da428b29e30db552d93885d4af386": {
+      "peak": "t ≔ @EvenDual_func $' $16 (@comp_fapp0 Cat_cat $1 $2 $3 (@tapp1_fapp0 $A Cat_cat (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g))",
+      "generatingRules": [
+        "  with @EvenDual_func $' $' (@comp_fapp0 Cat_cat $A' $B' $C' $G' $F') ↪ @comp_cat_fapp0 (EvenDual_cat $0') (EvenDual_cat $B') (EvenDual_cat $1') (@EvenDual_func $B' $1' $G') (@EvenDual_func $0' $B' $F')",
+        "  with @comp_fapp0 $B $1 $2 $3 (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z) $G $GG $HH $epsilon $f) (@tdapp0_fapp0 $14 $15 $16 $FF $GG $z $g) ↪ @tapp1_fapp0 (@Transf_cat $K Cat_cart $E $D) (Hom_cat Cat_cart (@fapp0 $K Cat_cart $E $z) (@fapp0 $K Cat_cart $D $z)) (@tapp0_func $K Cat_cart $E $D $z) $G $FF $HH $epsilon (@comp_fapp0 (@Transf_cat $K Cat_cart $E $D) $FF $GG $HH $f $g)"
+      ],
+      "rawLogReceipts": [
+        "20261020T173402Z-d4cb1624f57a451f90e54eaa5be77e8c"
+      ]
+    }
+  },
+  "replayReview": "production_owner_migration.py completed successfully after the bounded owner-position probe. The final generated core diff adds only the two reviewed clauses; the full diagnostic changes only the three recorded polarities and their comments. The installed checker, subject reduction and existing explicit resource profiles were retained. LHS automated audit reports zero candidate clauses; manual review covers the component-specific heads too.",
+  "warningRetention": "Full five-line critical-pair bodies remain in the exact raw logs pinned by each run logSha256. This compact artifact keeps the complete peak, generating clauses, full-body hash and receipt locations instead of duplicating expanded normal forms that can occupy hundreds of kilobytes."
+}
