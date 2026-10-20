@@ -1,0 +1,36 @@
+// Capping the conventional pre/right whole identity must agree with the
+// existing intrinsic-cell owner. Keep the actual transport composite as its
+// object; no arbitrary naturality comparison is made strict here.
+rule @fdapp1_int_cell _ _ _
+    (@tapp1_con_at_transf $A $B $F $G $epsilon $Y)
+    $X $W $h $q
+  ↪ @id (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $G $Y))
+      (@fapp0 (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $G $Y))
+        (@functord_transport_lhs_func (Op_cat $A)
+          (@hom_con $A $Y $A (@id_func $A))
+          (@hom_con $B (@fapp0 $A $B $G $Y) $A $F)
+          (@tapp1_con_at_transf $A $B $F $G $epsilon $Y) $X $W $h) $q);
+
+// Observing the identity transfor first selects the existing fapp1 mirror.
+// Its whole and capped projections retain the same identity computation.
+rule @fdapp1_comma_projection_transf _ _ _
+    (@fapp1_con_at_transf $A $B $F $Y)
+    (@fdapp1_int_transfd _ _ _ (@fapp1_con_at_transf $A $B $F $Y))
+    $X $W $h
+  ↪ @id (Functor_cat (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $Y)))
+      (@functord_transport_lhs_func (Op_cat $A)
+        (@hom_con $A $Y $A (@id_func $A))
+        (@hom_con $B (@fapp0 $A $B $F $Y) $A $F)
+        (@fapp1_con_at_transf $A $B $F $Y) $X $W $h);
+
+rule @fdapp1_int_cell _ _ _
+    (@fapp1_con_at_transf $A $B $F $Y) $X $W $h $q
+  ↪ @id (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $Y))
+      (@fapp0 (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $Y))
+        (@functord_transport_lhs_func (Op_cat $A)
+          (@hom_con $A $Y $A (@id_func $A))
+          (@hom_con $B (@fapp0 $A $B $F $Y) $A $F)
+          (@fapp1_con_at_transf $A $B $F $Y) $X $W $h) $q);

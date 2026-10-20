@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; original commutative-algebra and affine diagnostics qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
+Status: active implementation; whole comma/action diagnostics and pre/right capped identity qualified; terminal runtime forms, later diagnostics, wrapper retirement and promotion remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -41,6 +41,45 @@ Its archive is in the prior main-worktree session. This new conversation is
 a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
+
+Diagnostic/normalization continuation after `c5daf01f`, 2026-10-20 UTC: the
+[comma/action verification](../emdash2/audits/strict-default-action-boundary/production_central_comma_action_verification.json)
+qualifies the 33 original positive/three negative whole-comma and ordinary
+internal-action observations, plus two identity-projection controls.
+
+The diagnostic uses the represented identity graph's actual total-dual base,
+the relative-root-to-identity-root modification direction and the declared
+native hom_con_int_view endpoints. General lax FF, arbitrary modifications
+and native lax epsilon remain. Only the two direct Op_transf comparisons use
+their already-declared StrictTransfor input and ordinary inclusions; their
+old general-transpose type is not retained or silently counted as proved.
+Four displayed coefficient tags also move to the actual Cat_cart. No
+assertion changes polarity; all original tails and declarations remain.
+
+The existing whole pre/right comparison already computes to an identity.
+The original positive capped observation exposed a missing join with the
+stable fdapp1_int_cell projection. Three constructor-specific runtime rules
+now make that cell and the whole/capped identity-specialized fapp1 mirror
+compute consistently. They preserve the actual transport composite and all
+functor, base-arrow and filler arguments. No primitive, unifier, supplied
+comparison, operational proof payload or general-FF restriction is added.
+The arbitrary post/left negative remains. This is distinct from the older
+projected-component normalization boundaries in R04.
+
+Fresh installed-checker runs pass focused 35/3, core/Homd 287/85, library
+178/27 and combined 2000/260 assertions, with SR. Their warning multisets
+are unchanged; the LHS audit reports no unreviewed slots. The combined run
+takes 164.578s/5617.6MiB under the existing 300s/6GiB/o=20 profile. Core and
+library allocation/peak-memory samples remain close to their predecessors,
+while wall times increased; no performance improvement is claimed. Earlier
+receipts with the prior core are historical until refreshed. An evidence
+counting correction excludes one prose line beginning with “assert products”
+from two earlier library inventories; the executable library count is 178/27.
+
+Next continue the original strict-functor/transfor profile, closure and
+structural-category diagnostics. The five terminal runtime obligations,
+wrapper retirement, other normalization/overlap reviews and production/final
+gates remain open. The separate application goal stays paused.
 
 Diagnostic continuation after `6fb8389d`, 2026-10-20 UTC: the
 [algebra verification](../emdash2/audits/strict-default-action-boundary/production_central_algebra_verification.json)

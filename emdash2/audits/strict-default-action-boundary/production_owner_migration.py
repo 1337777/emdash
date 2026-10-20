@@ -1751,6 +1751,21 @@ unif_rule @sigma_map_func $K _ _
            'Strict default: retain the existing extracted functor-compositor rule at its migrated comma owner')
     insert('// Whole post/left ordinary laxity.', fragment('conventional_lax_intrinsic.lpfragment'),
            'Retain the conventional pre/right extracted identity at the same migrated owner; post/left laxity remains directed')
+    insert('// Whole post/left ordinary laxity.', fragment('production_pre_laxity_projection.lpfragment') + '\n',
+           'Join the existing intrinsic-cell projection with the conventional pre/right whole identity, including observation after identity specialization')
+    replace_once('''  Its native signature deliberately retains the opposite hom_int owner.  The
+  active proof-time hom_int/hom_con_int comparison supplies the readable view
+
+    hom_con_int(id_A) => hom_con_int(F) o G.
+''', '''  Its native signature uses the ordinary inclusion hom_con_int_view:
+
+    hom_con_int_view(id_A) => hom_con_int_view(F) o G.
+
+  The native owners admit general conventional-lax epsilon. The direct
+  transpose comparison above applies to a strict-transfor input, using the
+  ordinary inclusion on both that input and its Op_transf image.
+''', 'Target-internalized action comment',
+                 'Document the actual native signature and the narrower direct-transpose comparison without changing either interface')
     insert('// Whole post/left ordinary laxity.', fragment('production_represented_laxity_view.lpfragment'),
            'Whole canonical extraction after represented strict precomposition, constrained to the actual intrinsic modifications and retained fixed-slot Hom action')
     old = 'rule @tapp0_fapp0 $A $B $F $H $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ)'
@@ -5823,6 +5838,20 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                     'owner': 'original commutative-algebra represented-family comparisons',
                     'reason': 'Name the existing Cat_cart coefficient and the actual Cartesian target of the whole Hom owner; retain every algebra assertion, comparison body and negative runtime boundary',
                     'oldBodySha256': sha(old_algebra), 'newBodySha256': sha(algebra)})
+    profiles_marker = '// catalog-area: Strict functor/transfor profiles and profiled Gray hom'
+    assert central.count(profiles_marker) == 1
+    comma_start = central.index(comma_marker)
+    comma_end = central.index(profiles_marker, comma_start)
+    old_comma = central[comma_start:comma_end]
+    comma = fragment('production_central_comma_action_controls.lpfragment') + '\n'
+    for block in (old_comma, comma):
+        assert len(re.findall(r'^\s*assert\s', block, re.M)) == 33
+        assert len(re.findall(r'^\s*assertnot\s', block, re.M)) == 3
+    central = central[:comma_start] + comma + central[comma_end:]
+    changes.append({'source': 'emdash3_2_checks.lp',
+                    'owner': 'original whole comma and ordinary internal action diagnostics',
+                    'reason': 'Use total-dual identity graphs, the actual intrinsic-modification direction, native contravariant Hom views and Cat_cart displayed coefficients; restrict only the two direct-transpose comparisons to their declared StrictTransfor input',
+                    'oldBodySha256': sha(old_comma), 'newBodySha256': sha(comma)})
     (package / 'emdash3_2_checks.lp').write_text(central)
     groupoid_start = '// catalog-area: Internal groupoidality and structured J'
     groupoid_end = '// Phase 9 discrete-category core and homwise adequacy.'
@@ -5996,6 +6025,10 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     (package / 'central_algebra_controls.lp').write_text(
         'require open ' + ' '.join(algebra_imports) + ';\n'
         + central[central.index(algebra_marker):central.index(comma_marker)])
+    (package / 'central_comma_action_controls.lp').write_text(
+        'require open emdash.emdash3_2_strict_functor_actions;\n'
+        + central[central.index(comma_marker):central.index(profiles_marker)]
+        + fragment('production_pre_laxity_projection_controls.lpfragment'))
     (package / 'central_curry_family_regression.lp').write_text(
         'require open emdash.central_curry_controls;\n'
         'require open emdash.central_family_controls;\n'
@@ -6027,7 +6060,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         'require open emdash.central_walking_end_controls;\n'
         'require open emdash.central_closed_sigma_controls;\n'
         'require open emdash.central_presheaf_locality_controls;\n'
-        'require open emdash.central_algebra_controls;\n')
+        'require open emdash.central_algebra_controls;\n'
+        'require open emdash.central_comma_action_controls;\n')
     for folder, source in ((package, central), (baseline_package, original_checks)):
         assert source.count(hom_action_end) == 1
         header = source[:source.index('require open')] + 'require open emdash.emdash3_2_eq1_evidence_property;\n'
@@ -6553,6 +6587,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                               package / 'central_closed_sigma_controls.lp',
                               package / 'central_presheaf_locality_controls.lp',
                               package / 'central_algebra_controls.lp',
+                              package / 'central_comma_action_controls.lp',
                               package / 'central_curry_family_regression.lp',
                               package / 'central_projection_regression.lp',
                               package / 'central_migration_regression.lp',

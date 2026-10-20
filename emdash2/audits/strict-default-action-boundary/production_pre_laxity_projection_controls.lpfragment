@@ -1,0 +1,23 @@
+// Both observation orders for the identity specialization of the
+// conventional pre/right comparison use the same whole and capped identity.
+assert [A B : Cat] (F : τ (Functor A B))
+  [W X Y : τ (Obj A)] (h : τ (Hom A W X)) ⊢
+  @functord_laxity_transf
+    (Op_cat A) (@hom_con A Y A (@id_func A))
+    (@hom_con B (@fapp0 A B F Y) A F)
+    (@fapp1_con_at_transf A B F Y) X W h
+  ≡ @id (Functor_cat (Hom_cat A X Y)
+      (Hom_cat B (@fapp0 A B F W) (@fapp0 A B F Y)))
+    (@functord_transport_lhs_func
+      (Op_cat A) (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B F Y) A F)
+      (@fapp1_con_at_transf A B F Y) X W h);
+
+assert [A B : Cat] (F : τ (Functor A B))
+  [W X Y : τ (Obj A)] (h : τ (Hom A W X))
+  (q : τ (Hom A X Y)) ⊢
+  @tapp1_pre_laxity_cell A B F F (@id (Functor_cat A B) F) W X Y h q
+  ≡ @fdapp1_int_cell
+      (Op_cat A) (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B F Y) A F)
+      (@fapp1_con_at_transf A B F Y) X W h q;

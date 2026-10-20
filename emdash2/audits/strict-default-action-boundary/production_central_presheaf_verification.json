@@ -396,7 +396,7 @@
       "immutableInputsVerified": true,
       "currentInputsVerified": true,
       "assertionCounts": {
-        "positive": 179,
+        "positive": 178,
         "negative": 27
       }
     }
@@ -604,5 +604,6 @@
     "Recent core/Homd and library receipts carry only after every input rehashes exactly. No new formal rules require a repeated LHS audit.",
     "Additional warning families are recorded and remain qualified, not silently counted as joins. Complete production and performance qualification remain open."
   ],
-  "next": "Continue the original commutative-algebra and subsequent diagnostics. Terminal runtime obligations, wrapper retirement, normalization/performance, warning review and production/final gates remain open; the separate application goal stays paused."
+  "next": "Continue the original commutative-algebra and subsequent diagnostics. Terminal runtime obligations, wrapper retirement, normalization/performance, warning review and production/final gates remain open; the separate application goal stays paused.",
+  "assertionCounting": "Executable assert/assertnot commands only; block and line comments are stripped. The triangular-product prose line beginning with \"assert products\" is not a diagnostic."
 }

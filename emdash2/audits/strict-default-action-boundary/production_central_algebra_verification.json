@@ -465,7 +465,7 @@
       "immutableInputsVerified": true,
       "currentInputsVerified": true,
       "assertionCounts": {
-        "positive": 179,
+        "positive": 178,
         "negative": 27
       }
     }
@@ -710,5 +710,6 @@
     "Kernel/library inputs are unchanged and every carried receipt input rehashes exactly. No new formal rules require a repeated LHS audit.",
     "Existing overlap qualifications, terminal runtime requirements, complete consumer coverage, wrapper retirement and production gates remain open."
   ],
-  "next": "Continue the original whole comma projection, target-internalized ordinary action and post/pre-compositor diagnostics, then the remaining profile/closure and structural-category blocks. The separate application goal stays paused."
+  "next": "Continue the original whole comma projection, target-internalized ordinary action and post/pre-compositor diagnostics, then the remaining profile/closure and structural-category blocks. The separate application goal stays paused.",
+  "assertionCounting": "Executable assert/assertnot commands only; block and line comments are stripped. The triangular-product prose line beginning with \"assert products\" is not a diagnostic."
 }

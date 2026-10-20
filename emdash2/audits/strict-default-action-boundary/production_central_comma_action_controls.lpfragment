@@ -1,0 +1,524 @@
+// catalog-area: Whole comma projection and displayed laxity
+// The self-comma identity section computes on both objects and retained base
+// arrows; its action is extracted from the existing displayed internal action.
+assert (K : Cat) (E : τ (Catd K))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @fdapp1_identity_section_alpha K E x y p u
+  ≡ @id
+      (Fibre_cat E y)
+      (fapp0 (@catd_transport_func K E x y p) u);
+
+assert (A B : Cat) (T : τ (Functor A B)) (u : τ (Obj A)) ⊢
+  @piapp0 A (@SelfComma_catd A B T)
+    (@hom_con_identity_graph_sec A B T) u
+  ≡ @hom_con_identity_graph_obj A B T u;
+
+assert (A B : Cat) (T : τ (Functor A B))
+  (u u' : τ (Obj A)) (h : τ (Hom A u u')) ⊢
+  @piapp1_fapp0 A (@SelfComma_catd A B T)
+    (@hom_con_identity_graph_sec A B T) u u' h
+  ≡ @hom_con_identity_graph_action A B T u u' h;
+
+// The ordinary represented mirror selects (y,id_y) in O(PathOut(A,y)) and
+// acts along g:x->y by the opposite canonical total arrow (g,id_g).
+assert (A : Cat) (y : τ (Obj A)) ⊢
+  @piapp0
+    (TotalOp_cat A)
+    (@hom_identity_graph_catd A)
+    (@hom_identity_graph_sec A)
+    y
+  ≡ @hom_identity_graph_obj A y;
+
+assert (A : Cat)
+  (y x : τ (Obj A))
+  (g : τ (Hom A x y)) ⊢
+  @piapp1_fapp0
+    (TotalOp_cat A)
+    (@hom_identity_graph_catd A)
+    (@hom_identity_graph_sec A)
+    y x g
+  ≡ @hom_identity_graph_action A y x g;
+
+assert (K : Cat) (E : τ (Catd K))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u u' : τ (Obj (Fibre_cat E x)))
+  (h : τ (Hom (Fibre_cat E x) u u')) ⊢
+  @fdapp1_identity_section_transport_alpha K E x y p u u' h
+  ≡ sigma_Snd
+      (@piapp1_src_obj
+        (Fibre_cat E x)
+        (@SelfComma_catd
+          (Fibre_cat E x)
+          (Fibre_cat E y)
+          (@catd_transport_func K E x y p))
+        (@hom_con_identity_graph_sec
+          (Fibre_cat E x)
+          (Fibre_cat E y)
+          (@catd_transport_func K E x y p))
+        u u' h);
+
+// The arbitrary whole projection specializes to the existing internal-action
+// component before the transported identity is selected.
+assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x)))
+  (v : τ (Obj (Fibre_cat E y)))
+  (alpha : τ (Hom
+    (Fibre_cat E y)
+    (fapp0 (@catd_transport_func K E x y p) u)
+    v)) ⊢
+  @fdapp1_project_comma_component
+    K E D FF (@fdapp1_int_transfd K E D FF)
+    x y p u v alpha
+  ≡ @fdapp1_int_hom_fapp0 K E D FF x y p u v alpha;
+
+assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @fdapp1_project_identity_section_component
+    K E D FF (@fdapp1_int_transfd K E D FF) x y p u
+  ≡ @fdapp1_int_cell K E D FF x y p u;
+
+// The public whole laxity transformation computes to the established capped
+// cell rather than postulating an independent naturality square.
+assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @tapp0_fapp0
+    (Fibre_cat E x) (Fibre_cat D y)
+    (@functord_transport_lhs_func K E D FF x y p)
+    (@functord_transport_rhs_func K E D FF x y p)
+    u (@functord_laxity_transf K E D FF x y p)
+  ≡ @fdapp1_int_cell K E D FF x y p u;
+
+// The retained source-fibre variable remains iterable at the whole hom owner
+// and at its direct capped application.
+assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
+  (eta : τ (Transfd
+    (@fdapp1_projection_target K E D FF)
+    (@fdapp1_projection_source K E)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u u' : τ (Obj (Fibre_cat E x))) ⊢
+  @tapp1_func
+    (Fibre_cat E x) (Fibre_cat D y)
+    (@functord_transport_lhs_func K E D FF x y p)
+    (@functord_transport_rhs_func K E D FF x y p)
+    u u' (@fdapp1_comma_projection_transf K E D FF eta x y p)
+  ≡ @fdapp1_comma_projection_tapp1_func
+      K E D FF eta x y p u u';
+
+assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
+  (eta : τ (Transfd
+    (@fdapp1_projection_target K E D FF)
+    (@fdapp1_projection_source K E)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u u' : τ (Obj (Fibre_cat E x)))
+  (h : τ (Hom (Fibre_cat E x) u u')) ⊢
+  @tapp1_fapp0
+    (Fibre_cat E x) (Fibre_cat D y)
+    (@functord_transport_lhs_func K E D FF x y p)
+    (@functord_transport_rhs_func K E D FF x y p)
+    u u' (@fdapp1_comma_projection_transf K E D FF eta x y p) h
+  ≡ @fdapp1_comma_projection_tapp1_fapp0
+      K E D FF eta x y p u u' h;
+
+// Identity action joins the already checked object component.
+assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
+  (eta : τ (Transfd
+    (@fdapp1_projection_target K E D FF)
+    (@fdapp1_projection_source K E)))
+  (x y : τ (Obj K)) (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) ⊢
+  @fdapp1_comma_projection_tapp1_fapp0
+    K E D FF eta x y p u u (@id (Fibre_cat E x) u)
+  ≡ @tapp0_fapp0
+      (Fibre_cat E x) (Fibre_cat D y)
+      (@functord_transport_lhs_func K E D FF x y p)
+      (@functord_transport_rhs_func K E D FF x y p)
+      u (@fdapp1_comma_projection_transf K E D FF eta x y p);
+
+// catalog-area: Target-internalized ordinary hom action
+// Identity-category normalization does not erase the contravariant cut.
+
+assert [A B C : Cat]
+  (H : τ (Functor A (Product_cat B C))) ⊢
+  @tapp1_con_int_fapp0_transf A (Product_cat B C) H H
+    (@id (Product_cat (Functor_cat A B) (Functor_cat A C)) H)
+  ≡ @fapp1_con_int_transf A (Product_cat B C) H;
+
+assert [A B C : Cat]
+  (H : τ (Functor A (Product_cat B C))) (Y : τ (Obj A)) ⊢
+  @tapp1_con_at_transf A (Product_cat B C) H H
+    (@id (Product_cat (Functor_cat A B) (Functor_cat A C)) H) Y
+  ≡ @fapp1_con_at_transf A (Product_cat B C) H Y;
+// The arbitrary fixed-target mirror projects from the native whole owner
+// to the same off-diagonal hom functor, retaining general lax epsilon.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  (Y : τ (Obj A)) ⊢
+  @eq_refl
+    (Obj (@Transf_cat
+      (Op_cat A)
+      Cat_cart
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)))
+    (@tapp1_con_at_transf A B F G epsilon Y)
+  : τ (@=
+      (Obj (@Transf_cat
+        (Op_cat A)
+        Cat_cart
+        (@hom_con A Y A (@id_func A))
+        (@hom_con B (@fapp0 A B G Y) A F)))
+      (@tapp0_fapp0
+        A
+        (@Catd_cat (Op_cat A))
+        (@hom_con_int_view A A (@id_func A))
+        (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
+          (@hom_con_int_view B A F) G)
+        Y
+        (@tapp1_con_int_fapp0_transf A B F G epsilon))
+      (@tapp1_con_at_transf A B F G epsilon Y));
+
+// The direct transpose presentation uses its actual strict-transfor input
+// and compares proof-time in both orientations; the native ladder above is lax.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G))
+  (Y : τ (Obj A)) ⊢
+  @eq_refl
+    (Obj (@Transf_cat
+      (Op_cat A)
+      Cat_cart
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)))
+    (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
+  : τ (@=
+      (Obj (@Transf_cat
+        (Op_cat A)
+        Cat_cart
+        (@hom_con A Y A (@id_func A))
+        (@hom_con B (@fapp0 A B G Y) A F)))
+      (@tapp1_at_transf
+        (Op_cat A)
+        (Op_cat B)
+        (@Op_func A B G)
+        (@Op_func A B F)
+        Y
+        (@strict_transfor (Op_cat A) (Op_cat B)
+          (@Op_func A B G) (@Op_func A B F)
+          (@Op_transf A B F G U)))
+      (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y));
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G))
+  (Y : τ (Obj A)) ⊢
+  @eq_refl
+    (Obj (@Transf_cat
+      (Op_cat A)
+      Cat_cart
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)))
+    (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
+  : τ (@=
+      (Obj (@Transf_cat
+        (Op_cat A)
+        Cat_cart
+        (@hom_con A Y A (@id_func A))
+        (@hom_con B (@fapp0 A B G Y) A F)))
+      (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
+      (@tapp1_at_transf
+        (Op_cat A)
+        (Op_cat B)
+        (@Op_func A B G)
+        (@Op_func A B F)
+        Y
+        (@strict_transfor (Op_cat A) (Op_cat B)
+          (@Op_func A B G) (@Op_func A B F)
+          (@Op_transf A B F G U))));
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  (X Y : τ (Obj A)) ⊢
+  @tapp0_fapp0
+    (Op_cat A)
+    Cat_cart
+    (@hom_con A Y A (@id_func A))
+    (@hom_con B (@fapp0 A B G Y) A F)
+    X
+    (@tapp1_con_at_transf A B F G epsilon Y)
+  ≡ @tapp1_func A B F G X Y epsilon;
+
+// The identity-specialized internal and fixed-target owners compute in the
+// same stable contravariant ladder.
+assert [A B : Cat] (F : τ (Functor A B)) ⊢
+  @tapp1_con_int_fapp0_transf
+    A B F F (@id (Functor_cat A B) F)
+  ≡ @fapp1_con_int_transf A B F;
+
+assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
+  @tapp0_fapp0
+    A
+    (@Catd_cat (Op_cat A))
+    (@hom_con_int_view A A (@id_func A))
+    (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
+      (@hom_con_int_view B A F) F)
+    Y
+    (@fapp1_con_int_transf A B F)
+  ≡ @fapp1_con_at_transf A B F Y;
+
+// The direct opposite identity-specialized action compares proof-time.
+assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
+  @eq_refl
+    (Obj (@Transf_cat
+      (Op_cat A)
+      Cat_cart
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B F Y) A F)))
+    (@fapp1_con_at_transf A B F Y)
+  : τ (@=
+      (Obj (@Transf_cat
+        (Op_cat A)
+        Cat_cart
+        (@hom_con A Y A (@id_func A))
+        (@hom_con B (@fapp0 A B F Y) A F)))
+      (@fapp1_at_transf
+        (Op_cat A)
+        (Op_cat B)
+        (@Op_func A B F)
+        Y)
+      (@fapp1_con_at_transf A B F Y));
+
+// Identity specialization reuses the target-internalized functor action.
+assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
+  @eq_refl
+    (Obj (@Transf_cat
+      (Op_cat A)
+      Cat_cart
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B F Y) A F)))
+    (@tapp1_con_at_transf
+      A B F F
+      (@id (Functor_cat A B) F)
+      Y)
+  : τ (@=
+      (Obj (@Transf_cat
+        (Op_cat A)
+        Cat_cart
+        (@hom_con A Y A (@id_func A))
+        (@hom_con B (@fapp0 A B F Y) A F)))
+      (@tapp1_con_at_transf
+        A B F F
+        (@id (Functor_cat A B) F)
+        Y)
+      (@fapp1_con_at_transf A B F Y));
+
+assert [A B : Cat] (F : τ (Functor A B)) (X Y : τ (Obj A)) ⊢
+  @tapp0_fapp0
+    (Op_cat A)
+    Cat_cart
+    (@hom_con A Y A (@id_func A))
+    (@hom_con B (@fapp0 A B F Y) A F)
+    X
+    (@fapp1_con_at_transf A B F Y)
+  ≡ @fapp1_func A B F X Y;
+
+// The whole displayed extraction consumes the fixed-target mirror and
+// computes to the established fdapp1_int_cell pre/right witness.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  [W X Y : τ (Obj A)]
+  (h : τ (Hom A W X))
+  (q : τ (Hom A X Y)) ⊢
+  @tapp0_fapp0
+    (Hom_cat A X Y)
+    (Hom_cat B (@fapp0 A B F W) (@fapp0 A B G Y))
+    (@functord_transport_lhs_func
+      (Op_cat A)
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)
+      (@tapp1_con_at_transf A B F G epsilon Y)
+      X W h)
+    (@functord_transport_rhs_func
+      (Op_cat A)
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)
+      (@tapp1_con_at_transf A B F G epsilon Y)
+      X W h)
+    q
+    (@functord_laxity_transf
+      (Op_cat A)
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)
+      (@tapp1_con_at_transf A B F G epsilon Y)
+      X W h)
+  ≡ @fdapp1_int_cell
+      (Op_cat A)
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)
+      (@tapp1_con_at_transf A B F G epsilon Y)
+      X W h q;
+
+// catalog-area: Ordinary post/pre laxity and functor compositor
+// Both named whole ordinary surfaces are transparent specializations of the
+// one displayed laxity owner.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  (X : τ (Obj A)) [Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) ⊢
+  @tapp1_post_laxity_transf A B F G epsilon X Y Z g
+  ≡ @functord_laxity_transf
+      A
+      (@hom_ A A (@id_func A) X)
+      (@hom_ B A G (@fapp0 A B F X))
+      (@tapp1_at_transf A B F G X epsilon)
+      Y Z g;
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  (Y : τ (Obj A)) [W X : τ (Obj A)]
+  (h : τ (Hom A W X)) ⊢
+  @tapp1_pre_laxity_transf A B F G epsilon Y W X h
+  ≡ @functord_laxity_transf
+      (Op_cat A)
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)
+      (@tapp1_con_at_transf A B F G epsilon Y)
+      X W h;
+
+// Capping each whole transformation returns the established internal-action
+// cell rather than a second ordinary naturality square.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @tapp1_post_laxity_cell A B F G epsilon X Y Z g f
+  ≡ @fdapp1_int_cell
+      A
+      (@hom_ A A (@id_func A) X)
+      (@hom_ B A G (@fapp0 A B F X))
+      (@tapp1_at_transf A B F G X epsilon)
+      Y Z g f;
+
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  [W X Y : τ (Obj A)]
+  (h : τ (Hom A W X)) (q : τ (Hom A X Y)) ⊢
+  @tapp1_pre_laxity_cell A B F G epsilon W X Y h q
+  ≡ @fdapp1_int_cell
+      (Op_cat A)
+      (@hom_con A Y A (@id_func A))
+      (@hom_con B (@fapp0 A B G Y) A F)
+      (@tapp1_con_at_transf A B F G epsilon Y)
+      X W h q;
+
+// The post/left stable-head reading is now guarded by StrictTransfor.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G))
+  [X Y : τ (Obj A)]
+  (g : τ (Hom A X Y)) ⊢
+  @eq_refl
+    (Hom B (@fapp0 A B F X) (@fapp0 A B G Y))
+    (@tapp1_fapp0
+      A B F G X Y (@strict_transfor A B F G U) g)
+  : τ (@=
+      (Hom B (@fapp0 A B F X) (@fapp0 A B G Y))
+      (@tapp1_fapp0
+        A B F G X Y (@strict_transfor A B F G U) g)
+      (@hom_postcomp_fapp0
+        B B (@id Cat_cat B)
+        (@fapp0 A B F X)
+        (@fapp0 A B G X)
+        (@fapp0 A B G Y)
+        (@fapp1_fapp0 A B G X Y g)
+        (@tapp0_fapp0
+          A B F G X (@strict_transfor A B F G U))));
+
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  [X Y : τ (Obj A)]
+  (g : τ (Hom A X Y)) ⊢
+  @tapp1_fapp0 A B F G X Y epsilon g
+  ≡ @hom_postcomp_fapp0
+      B B (@id Cat_cat B)
+      (@fapp0 A B F X)
+      (@fapp0 A B G X)
+      (@fapp0 A B G Y)
+      (@fapp1_fapp0 A B G X Y g)
+      (@tapp0_fapp0 A B F G X epsilon);
+
+// This stable-head comparison uses the full strict profile. The following
+// runtime nonconversion records a normalization boundary, not retained laxness
+// of the conventionally strict pre/right leg.
+assert [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G))
+  [X Y : τ (Obj A)]
+  (g : τ (Hom A X Y)) ⊢
+  @eq_refl
+    (Hom B (@fapp0 A B F X) (@fapp0 A B G Y))
+    (@tapp1_fapp0
+      A B F G X Y (@strict_transfor A B F G U) g)
+  : τ (@=
+      (Hom B (@fapp0 A B F X) (@fapp0 A B G Y))
+      (@tapp1_fapp0
+        A B F G X Y (@strict_transfor A B F G U) g)
+      (@hom_precomp_along_fapp0
+        B B (@id Cat_cat B)
+        (@fapp0 A B G Y)
+        (@fapp0 A B F X)
+        (@fapp0 A B F Y)
+        (@fapp1_fapp0 A B F X Y g)
+        (@tapp0_fapp0
+          A B F G Y (@strict_transfor A B F G U))));
+
+assertnot [A B : Cat] [F G : τ (Functor A B)]
+  (epsilon : τ (Transf F G))
+  [X Y : τ (Obj A)]
+  (g : τ (Hom A X Y)) ⊢
+  @tapp1_fapp0 A B F G X Y epsilon g
+  ≡ @hom_precomp_along_fapp0
+      B B (@id Cat_cat B)
+      (@fapp0 A B G Y)
+      (@fapp0 A B F X)
+      (@fapp0 A B F Y)
+      (@fapp1_fapp0 A B F X Y g)
+      (@tapp0_fapp0 A B F G Y epsilon);
+
+// Strict displayed-functor evidence is whole in the fibre object.
+assert [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (p : τ (@IsStrictFunctord K E D FF))
+  [x y : τ (Obj K)]
+  (f : τ (Hom K x y)) ⊢
+  p x y f
+  : τ (@IsStrictCell
+      (@Functor_cat (Fibre_cat E x) (Fibre_cat D y))
+      (@functord_transport_lhs_func K E D FF x y f)
+      (@functord_transport_rhs_func K E D FF x y f)
+      (@functord_laxity_transf K E D FF x y f));
+
+assert [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (p : τ (@IsStrictFunctord K E D FF))
+  (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cart E D x
+    (@strict_functord_underlying K E D
+      (@make_strict_functord K E D FF p))
+  ≡ @tapp0_fapp0 K Cat_cart E D x FF;
+
+assertnot [K : Cat] [E D : τ (Catd K)]
+  (FF : τ (Functord E D))
+  (p : τ (@IsStrictFunctord K E D FF))
+  (x : τ (Obj K)) ⊢
+  @tapp0_fapp0 K Cat_cart E D x
+    (@strict_functord K E D
+      (@make_strict_functord K E D FF p))
+  ≡ @tapp0_fapp0 K Cat_cart E D x FF;
+
+// The extracted functor compositor is the identity-transfor specialization;
+// under the strict default its cell is an identity.
+assert [A B : Cat] (F : τ (Functor A B))
+  [X Y Z : τ (Obj A)]
+  (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
+  @fapp1_compositor A B F X Y Z g f
+  ≡ @tapp1_post_laxity_cell
+      A B F F (@id (Functor_cat A B) F) X Y Z g f;

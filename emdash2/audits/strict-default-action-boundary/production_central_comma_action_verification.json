@@ -1,0 +1,568 @@
+{
+  "status": "Whole comma and ordinary internal-action diagnostics qualified; the pre/right whole-to-capped identity projection is repaired at its existing owner. All changes remain staged and production promotion is open.",
+  "date": "2026-10-20",
+  "predecessor": "c5daf01f",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "authoringInputs": {
+    "production_owner_migration.py": "81efcf5e2118e8c697caf730721502b9d4bb3615f20a62fe7742c012c8f369f2",
+    "production_pre_laxity_projection.lpfragment": "5ba8ac30b17690334417fcd8dd50fbfd99c7887a4c5d5d2f0e5145ef8c0c9993",
+    "production_pre_laxity_projection_controls.lpfragment": "7c96e884047de54d18063c5070e6977f833099c00749a42ffebc435f12285b2d",
+    "production_central_comma_action_controls.lpfragment": "6c087dcf83af016742d8f767d0af5d67922914e71b3db851beb592b8adfa7948"
+  },
+  "manifestSha256": "8b7e543550d320946a2149c2ed8b960b3783f852f52e7e18b00eddd581cba96a",
+  "contracts": [
+    "Keep every original assertion in the whole-comma, target-internalized action and post/pre/compositor sections: 33 positive and three negative assertions, with no polarity change.",
+    "The ordinary represented identity graph is a section over TotalOp_cat(A). Its two observations use that existing declared base.",
+    "The three arbitrary eta inputs use the actual relative-root-to-identity-root modification direction. General lax FF and arbitrary modifications are retained.",
+    "Generic and identity-specialized fixed-target observations use hom_con_int_view and the declared native root. The native arbitrary epsilon remains conventional-lax.",
+    "Only the two direct Op_transf comparisons restrict their input to the already-declared StrictTransfor classifier and use its ordinary inclusion on both sides. This explicitly corrects the old invalid general-transpose contract; it is not claimed as the original general comparison.",
+    "Strict displayed-view observations use the actual Cat_cart coefficient. The old pre/right stable-head runtime nonconversion remains a normalization boundary, not evidence of non-strict pre/right semantics.",
+    "The existing whole conventional pre/right comparison already reduces to an identity. Its capped fdapp1_int_cell previously retained a separate head, so the original positive projection assertion failed.",
+    "Three constructor-specific runtime rules join that intrinsic-cell projection and the whole/capped fapp1_con_at_transf identity specialization. They retain the actual transport composite, epsilon, functor parameters, base arrow and filler.",
+    "No primitive, unifier, new supplied comparison, operational equality-proof argument or new family/FF restriction is introduced. The general post/left negative and arbitrary-modification observations remain.",
+    "The core comment now documents the actual native hom_con_int_view signature and the restricted direct-transpose comparison."
+  ],
+  "assertionInventory": {
+    "originalBlock": {
+      "positive": 33,
+      "negative": 3,
+      "declarations": 0
+    },
+    "additionalIdentityProjectionControls": {
+      "positive": 2,
+      "negative": 0
+    },
+    "fullCentral": {
+      "positive": 2148,
+      "negative": 292,
+      "declarations": 66
+    }
+  },
+  "freshInstalledCombined": {
+    "target": "central_migration_regression.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 164.57781964493915,
+    "childrenMaxRssKiB": 5752444,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 6144,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 300000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "central_algebra_controls.lp": "96c91164b1003bda7b2e301cd284b52485660d95e5e4d57dd97d261095a6b99e",
+      "central_closed_sigma_controls.lp": "a7d4af073061699b51318b514c6cbcfb61c1b38629ed7a6d531635d15482a4df",
+      "central_comma_action_controls.lp": "d18791121a991117cab075651962cdd2e42ae1f84093262616bc5812fd957f50",
+      "central_curry_controls.lp": "144f2e72bd196eff63cee1d2714e7e778f6e0881369b458bacaaf2eed0c5b410",
+      "central_curry_family_regression.lp": "b1021fbf084650795033704d705e196b3abda30d21ba38c5560699a25524259a",
+      "central_displayed_chain_controls.lp": "ac37e214f2bd3b0ff5aa99faee07ca0a68d5bcd70b1eb8c1e93cf29459391092",
+      "central_displayed_evaluation_controls.lp": "469074851e939b5a6934d1c6b432f2cdc3022055085db9bb58fdecaedc0d5f3b",
+      "central_displayed_products_controls.lp": "a6f93aa617a473717be7707a48dc20e1e7581db3cb2a42cb541312be5ec57cd6",
+      "central_displayed_regression.lp": "b6a7be4403e8bce0e2edbd56130202b5596dbded7697edcf88511e8b0bdfd47d",
+      "central_displayed_transport_controls.lp": "1287cb123f79650e2b6ff4a37d27eec28f08f81bfd84bb2f893afc58f0a76866",
+      "central_early_controls.lp": "7a60d226ef64151c7a5e6201145b159bcc078d48e2436eadebaee78deb3fcbaa",
+      "central_evaluation_adjunction_controls.lp": "af6ceea6b3b64883b657d69e3f692831ccaff0af24bf9a4e4d34fcd16a68fb95",
+      "central_family_controls.lp": "48ab1858f3a1c1498189e985300d02709f67acb9fc5a8b6ba1a65d54e9c965d4",
+      "central_hom_action_controls.lp": "58e623adfd7bd4cfcf9ae7d784be23802fe931694a01e90f1ff6a2132e4c1ddd",
+      "central_homcatd_controls.lp": "39edf3dc9d4359691f9dab36a797d7eddee4e6072a8f3f9062f34694423762a5",
+      "central_homd_classifier_controls.lp": "7e31e2991ea8acc6036398a30bec71ed28ad5148b6cd6cb8fdeb4a186768ef03",
+      "central_homd_leaf_prof_controls.lp": "c475d5f6ede128eb8ec4cabc8f83e86e9f9436b6ee30bfb279df12e0e446abc8",
+      "central_internal_action_controls.lp": "0f4287bd29edf654e325db252ac2f71ff421af39d5d2f64ee008b7cb0d9cd706",
+      "central_intrinsic_projection_controls.lp": "4d844a3f692ad4496df73895455f53f0cf35c9e5eb375d8e2304fa37e545ef4f",
+      "central_migration_regression.lp": "2a4563bd34244fff6a6a5242cd3e696b19247ce842ec57a53e646210e735c48c",
+      "central_mixed_action_controls.lp": "a061686c0a53a5e0b0bce8ffc35c9c9ea414d098e68ef71e8029183fd601ef3d",
+      "central_mixed_composition_controls.lp": "e051702cda2b1631d9d854ac53cb58c6e7f666a24ddd8521cb049d5bf7fbd44a",
+      "central_mixed_formation_controls.lp": "b1121ae915b747dad89678a1dbfb1b2f47e30b15594cfcddf9cb1de887f5aa6e",
+      "central_mixed_parameter_controls.lp": "f88d67198446745bfb4e2ab45876303a1de306e3b98bca2c1144b74608372381",
+      "central_mixed_regression.lp": "5e4e794fbaa8a42bd6ad6adcec597bfaabc6d402ba68b2a4321ccd2abae26f6d",
+      "central_monads_controls.lp": "9cf1eb40e4813b0524910414c245218d0813df075cd10dc6122653efcb38ee33",
+      "central_owner_regression.lp": "e8bb2fded42b8197a0f904f6cb88ee3481aba53dad4c9cae07e962eff97a69c9",
+      "central_pair_telescope_controls.lp": "a7a703207ee466eefea118d5d39e1a23fa5e08e6e862c719a815ce371b7edc51",
+      "central_path_core_controls.lp": "30e9d58b1212fddd8abdbc2e2a1f28374e15e0a21b697d6a1b9cebe86c833ac7",
+      "central_path_induction_controls.lp": "dfe5423cea3087389828e10cf3d8c73910a1b6347f1fbeb08553cba774f24330",
+      "central_pathout_motive_controls.lp": "11c85251379f3eea1918db3f95a7cb949e2bd22809ff8bfb57c5fb71fa898f50",
+      "central_presheaf_locality_controls.lp": "9a9ce46c817bd9f511ebff901535706a88c0577cd1bce7901b893fc423551945",
+      "central_product_prof_controls.lp": "f927321d9cf80803cde3edb6e7c548d390c7ad76acae1239ee41d0914d78adf6",
+      "central_projection_regression.lp": "fcef0ada4ca7acf12f83e7fd13f92b4045bbd6372e964403745c4ead56cfc486",
+      "central_public_homd_general_controls.lp": "ec31507d8906681c86b6da014d2eb23490da74b52fba6e4224dc4730afcf031c",
+      "central_reindex_controls.lp": "437b4a688386657d14a11379c580c26dacd8c1c388b57b219d1c4f16ae1e97d9",
+      "central_sections_controls.lp": "67b4e825e29a0a9b39e57c529e5da0a919eb9ffca03e9725458833cf845810e3",
+      "central_structural_controls.lp": "c2b538e2cf21771de64c8367f7079c5393b092c77ac1d676d8d2b84b72df722a",
+      "central_walking_end_controls.lp": "1eaa5dbabbfe64282c0b5fa1fff207f48a7213d269b2e0b549f6468d5a173bd7",
+      "emdash3_2.lp": "c21197227a62609c643ef2382a7e3112e68f0aa6684e7f30137deb9121d4d5ea",
+      "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+      "emdash3_2_commutative_algebra_affine_atlas.lp": "67fd7f3c3158bbe8c6ba664b588614e46666bce68bf2ddef73434a6837611610",
+      "emdash3_2_commutative_algebra_affine_glue.lp": "0758ef9ac679c9709e90fc4721069a84f57c6a5b7e559cb2d08efd38ad57eb9f",
+      "emdash3_2_commutative_algebra_affine_spec.lp": "421951fa4746af34f0a02fed59a1112ec2de48b9ed1e83720f40c209f038fc98",
+      "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+      "emdash3_2_commutative_algebra_f2.lp": "8d9d8a7c72bb57c13f75262a70204d005c3cd547079054c81c07c3938a8f6d17",
+      "emdash3_2_commutative_algebra_finite.lp": "78916cb4d5c9989a927bb7808afcfc9973e5836a5cb6d09bc87b533f87781d31",
+      "emdash3_2_commutative_algebra_glue.lp": "039bf198f2882a533441a1eb1a5633c5511098c1a04d6163da136654eac4c1a4",
+      "emdash3_2_commutative_algebra_locality.lp": "421e007d4f9c18cb63ac5f98bb81a0a08c999fc9b7ab25b7486a6282953e3f16",
+      "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+      "emdash3_2_commutative_algebra_localization_comparison.lp": "90f4b9bd4e9677f30122216f743620b7c3640f53bb3074f08bbf00139f8b3f9d",
+      "emdash3_2_commutative_algebra_localization_idempotent.lp": "014685d5d0455028fefc37dd9f38bf693892ff2e382e9a4b389f5406ac2d0042",
+      "emdash3_2_commutative_algebra_localization_overlap.lp": "4b2bd200c7d4f9339dfcb55e3198b35f5e01a098f08df66e294f806a383c6f79",
+      "emdash3_2_commutative_algebra_localization_split.lp": "e6ca13911d5a7b5a691d6076ff1371f8a844e39d90d8aa9d20263ae91d0f125a",
+      "emdash3_2_commutative_algebra_localization_unit.lp": "a6bc8f0c689d1febdd46c3b0b5c3c1e931473c3d010b2382e9ffaf77eca8cceb",
+      "emdash3_2_commutative_algebra_localization_zero.lp": "0e1e6d70f0ef3a124a48c81ff719ff67d63b571f6c899ca3ab0f09ec0c21c7e5",
+      "emdash3_2_commutative_algebra_matching.lp": "472900e6ce024d135fedfd9de0adbea9bd430f951729f6020accc6b4fad2506d",
+      "emdash3_2_commutative_algebra_polynomial.lp": "cb435b4c4dd779139f3cc1cc4b009ae8b6030eee6456400e91345120dfe74881",
+      "emdash3_2_commutative_algebra_presheaves.lp": "57fcff1a17cd6e9e8c7054d154c3f9d9f9dff05e159a037dbebfcdb4dbb52325",
+      "emdash3_2_commutative_algebra_product.lp": "be58bdc7c97a4a54a9678f56accc56afc37354c73e98e48a4d16852d8c0961d1",
+      "emdash3_2_commutative_algebra_zariski.lp": "5a0237e4e44b97daa29b814abecadaef703eb23f3d81cb3765d37c28495cf3c1",
+      "emdash3_2_commutative_algebra_zariski_topology.lp": "d7e92b61294d3a446eaaac4d8676adf4deadfc92ef8da48e3011b29ac29386ae",
+      "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+      "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+      "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+      "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+      "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+      "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+      "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+      "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+      "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+      "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+      "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+      "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+      "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+      "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+      "emdash3_2_finite_families.lp": "3caba54f7c8ff954abfce4c02c180769064b642d56d85c034c95f0ddfebd7bcb",
+      "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+      "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+      "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+      "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+      "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+      "emdash3_2_one_cat_functor_profiles.lp": "50eefd24cb07d7c8badf4239ad2158b12b6c2eb615450136f577f6272348fc0c",
+      "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+      "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+      "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+      "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+      "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+      "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+      "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+      "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+      "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+      "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+      "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+      "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+      "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "terminal_homd_comparison_controls.lp": "3c334cabcbc0350711e0ac4b9cc9aedfcfeef0410894214b283c4df6f947bf9a"
+    },
+    "logSha256": "453a8a2fb28afb89512cb24e256efee5ef4fdb157f1a771ad7069cdf926ec60a",
+    "receipt": "logs/check-runs/20261020T120503Z-29bfad1da55549c7b7eaa2cda7520b74.json",
+    "receiptSha256": "b4e2e553b1d25ebac636abd4b99d304f0f69d97ca6bb057d9f65cc45ca4d6fb7",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 2000,
+      "negative": 260
+    },
+    "gcMeasurements": {
+      "allocated_words": 27834569988,
+      "top_heap_words": 730421454
+    }
+  },
+  "freshFocusedCheck": {
+    "target": "central_comma_action_controls.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 48.9754512491636,
+    "childrenMaxRssKiB": 2078716,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 4096,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "central_comma_action_controls.lp": "d18791121a991117cab075651962cdd2e42ae1f84093262616bc5812fd957f50",
+      "emdash3_2.lp": "c21197227a62609c643ef2382a7e3112e68f0aa6684e7f30137deb9121d4d5ea",
+      "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+      "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "logSha256": "0d6a0c3c34e8663b512a09b36561f23e5ec690bb80589b356ffcd505546b9bd2",
+    "receipt": "logs/check-runs/20261020T120102Z-67fa18c3b66c439daf37d8cc17a1d242.json",
+    "receiptSha256": "d1a2122d3d83acac6bec72365751c56bf0577475cb90dfbd63e8f6394de7e582",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 35,
+      "negative": 3
+    },
+    "gcMeasurements": {
+      "allocated_words": 9871191826,
+      "top_heap_words": 260184467
+    }
+  },
+  "freshCoreHomd": {
+    "target": "join_recursion_controls.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 31.467057927977294,
+    "childrenMaxRssKiB": 1629244,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 4096,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "join_recursion_controls.lp": "5deeea9229776207e3d117fb841b61b6e0f36ed49d6bc542ed6526383069f1d0",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+    },
+    "logSha256": "2956185ff74b1ca4fcbc58d727f5b1887bf721c36de925cbea0ecd5e0b13d2e7",
+    "receipt": "logs/check-runs/20261020T120211Z-cfc5cf4cf7ea417c9cdcd6e81b67dbdb.json",
+    "receiptSha256": "04ccaa3af7b10bbf19dc75b7f8f1b9f08d41a82b8e36f5369cb7f1d917f00fbe",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 287,
+      "negative": 85
+    },
+    "gcMeasurements": {
+      "allocated_words": 7780530406,
+      "top_heap_words": 202682906
+    }
+  },
+  "freshLibrary": {
+    "target": "foundations_library_regression.lp",
+    "outcome": "passed-fresh",
+    "wallSeconds": 116.76063133706339,
+    "childrenMaxRssKiB": 4514972,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 6144,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "checker": {
+      "path": "/home/user1/.opam/default/bin/lambdapi",
+      "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+      "version": "3.0.0-90-gdb4f780"
+    },
+    "inputs": {
+      "direct_cover_sheafification_controls.lp": "4560b581f56e214000ad8f4e5a367807c806e64f9876e4288dd92c704805d1b4",
+      "emdash3_2.lp": "c21197227a62609c643ef2382a7e3112e68f0aa6684e7f30137deb9121d4d5ea",
+      "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+      "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+      "emdash3_2_circle_hit.lp": "26d6bcded3ea05c63f549be59e84ace5b068d78557574245f0af2912d12b7133",
+      "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+      "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+      "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+      "emdash3_2_commutative_algebra_presheaves.lp": "57fcff1a17cd6e9e8c7054d154c3f9d9f9dff05e159a037dbebfcdb4dbb52325",
+      "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+      "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+      "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+      "emdash3_2_cubical_square_total.lp": "0a4b73096a787ac401ddcd33cdc79b355c0a45281e1f33f919c3e59c2ce7367f",
+      "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+      "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+      "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+      "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+      "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+      "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+      "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+      "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+      "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+      "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+      "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+      "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+      "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+      "emdash3_2_eq1_hom_action.lp": "f98a56d7036961749fd7f4e36c11b1511aafd2ff49cd583ec807661f33ab18a2",
+      "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+      "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+      "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+      "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+      "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+      "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+      "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+      "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+      "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+      "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+      "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+      "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+      "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+      "emdash3_2_one_cat_arrow_diagrams.lp": "dec0ef9784afcafec39fcbd36b7381fd1f4ab590fd47976db2d8a687b604e7fc",
+      "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+      "emdash3_2_one_cat_functor_profiles.lp": "50eefd24cb07d7c8badf4239ad2158b12b6c2eb615450136f577f6272348fc0c",
+      "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+      "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+      "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+      "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+      "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+      "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+      "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+      "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+      "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+      "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+      "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+      "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+      "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+      "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+      "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+      "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+      "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+      "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+      "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+      "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+      "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+      "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+      "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+      "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+      "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+      "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+      "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+      "examples/action_profile_eckmann_hilton_one_hom.lp": "ffa7f67d53252189a6952309b804e442424d9348190a56b354957539d6a2a315",
+      "examples/cartesian_categories.lp": "4a663023dce2cd2f0d4daf989feeaecb352ba10a6543f47c6601e14ebda92f4f",
+      "examples/generic_groupoidification.lp": "048edf9867fc7d7eb478545f0354d31077c8ee7e0b280d4e85b5d44592475f29",
+      "examples/generic_groupoidification_interval.lp": "bbb593930000f4792396e8565b196995c275718c52a16320ba58d1a83d394d43",
+      "examples/monads_comonads.lp": "47fc5c74f2896f0cb7c22b05b1793553cc514790145a69dc409d035f6851125a",
+      "examples/one_cat_arrow_diagrams.lp": "ece4846aa2151733339d86ecf49fc835f8013e4e6de70290f2f7a375d62a4fe8",
+      "examples/pullbacks.lp": "5f9bfb2e0a271ab2ac7ce2f24504864eb70456c9d028ce5baf794f9c5c4db314",
+      "examples/slice_dependent_products.lp": "3bb2825db500cf477f29421d1ed6e0d408ba8443529207576e38d9e00d693121",
+      "examples/triangular_binary_products.lp": "b7f6aa4ea1cd85139a988554575ab1b64768e09d4c63d6d448a431a9c8c515f8",
+      "examples/triangular_binary_products_finite_limits.lp": "9a4b41b7bf67b8f7a3a01f15940e4c81202933620a551c31d69afa19dc7cb504",
+      "examples/walking_circle_completion.lp": "7a22d6893998b2b849c893ec5ddb7787f3120ffd46bbaa5e0d31cc07ac60e472",
+      "examples/walking_circle_groupoidification_restriction.lp": "9540aa064e1039d8c1860e3cef4dfc856f20d3bde2f9088505d86a26ff70f2c9",
+      "examples/walking_interval_groupoidification.lp": "6cda56d060c23d579ed2485f1adce024aeb036930d64e8f467d0ad1c4168fa1e",
+      "foundations_library_regression.lp": "a408e9050caf1f6b0228b87824bc6d6b384af655faef76643485c092a578c554",
+      "groupoidification_migration_controls.lp": "a4db02a4355b2984ccfa32a304f8d5489087b77ec96723f62eb01ebee318b169",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "monads_migration_controls.lp": "c275aaca36c5f2fd3d3e8b2f82e3c934fc21ecfc1887e1653e5cbcdaf8c74eb7",
+      "product_pullback_migration_controls.lp": "cbbab46ef6e016e9fbced8e1df1c7b376e0daa4a064db1e977a1762b219e697a",
+      "profiled_interchange_migration_controls.lp": "57e319c28a76f293d36824ba73073e31f3d3357dc2ce37cc374fe80f62994f39",
+      "walking_circle_migration_controls.lp": "2dbc85785dc5ef4f0714b73bfc6144a8f3e51c2ad5daaa5e836353713cd1a58e"
+    },
+    "logSha256": "527522c416492692ae8dc828a12b45e463f957ba58c83a31eecefff50c5929f1",
+    "receipt": "logs/check-runs/20261020T120257Z-28a9e618ad4d4e599086d8d872ddb00c.json",
+    "receiptSha256": "921ff8a07bcc5c69f83a86b0a1fe64b923fdb5191e55c7a3dc61eaf18267163b",
+    "immutableInputsVerified": true,
+    "currentInputsVerified": true,
+    "assertionCounts": {
+      "positive": 178,
+      "negative": 27
+    },
+    "gcMeasurements": {
+      "allocated_words": 22048564948,
+      "top_heap_words": 572030702
+    }
+  },
+  "failureBeforeProjectionRepair": {
+    "reason": "After correcting the diagnostic types, the original positive whole-to-capped pre/right extraction assertion failed. No assertion was changed to negative; the existing owner received the missing projection computation.",
+    "evidence": {
+      "target": "central_comma_action_candidate.lp",
+      "outcome": "failed",
+      "wallSeconds": 32.66054822411388,
+      "childrenMaxRssKiB": 2077884,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/.opam/default/bin/lambdapi",
+        "sha256": "ab493adeb0d79e58fa16c0965e1cb0e5194e212093119dc58f8e401f326c2c0a",
+        "version": "3.0.0-90-gdb4f780"
+      },
+      "inputs": {
+        "central_comma_action_candidate.lp": "408e7b992ac29989455f39942aec6dc347f616a882a1050b2984915405ccfde1",
+        "emdash3_2.lp": "65c988535e7d5ea8cc9bb65eb95a5a862bdd931ce4d459aed79236ba3cc53081",
+        "emdash3_2_gray_profiles.lp": "f989132869ee2ddf7a37a1f328430806e37369ec3e461cb3fdc8850c6259bd99",
+        "emdash3_2_strict_functor_actions.lp": "cad0b6b847199bab3f0866ec7cdb1f518922335a8afacb8c9c37d7cde8f55381",
+        "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+      },
+      "logSha256": "f9cff009bff3b3e560fba29bb93a9ce175921d2056e14cde7620c817cb78edff",
+      "receipt": "logs/check-runs/20261020T115257Z-858457c2243e4a96acacb8620ca2d9ce.json",
+      "receiptSha256": "0ff5ffc0d394a154c4ab317146fe277ed5066dbd64e904fcd06c9249318fc4c2",
+      "immutableInputsVerified": true,
+      "currentInputsVerified": false,
+      "gcMeasurements": {
+        "allocated_words": 9864611819,
+        "top_heap_words": 260028027
+      }
+    }
+  },
+  "warningComparison": {
+    "combined": {
+      "before": 1848,
+      "after": 1848,
+      "addedBodies": 0,
+      "removedBodies": 0,
+      "previousReceipt": "logs/check-runs/20261020T114505Z-7ff801bcee904ce4935f7da92e79f831.json"
+    },
+    "core": {
+      "before": 1572,
+      "after": 1572,
+      "addedBodies": 0,
+      "removedBodies": 0,
+      "previousReceipt": "logs/check-runs/20261020T095625Z-62b94e7b10344367a64b424d160c4f62.json"
+    },
+    "library": {
+      "before": 2412,
+      "after": 2412,
+      "addedBodies": 0,
+      "removedBodies": 0,
+      "previousReceipt": "logs/check-runs/20261020T095839Z-20c7ac3e84734bb694b90c535021e0a4.json"
+    },
+    "focusedOwnerClosure": {
+      "before": 1719,
+      "after": 1719,
+      "addedBodies": 0,
+      "removedBodies": 0
+    },
+    "qualification": "No new warning bodies. The two identity-specialization observations check the competing projection order; other inherited overlap families and global confluence remain outside this claim."
+  },
+  "ruleReview": {
+    "newRuntimeRules": 3,
+    "newUnifiers": 0,
+    "newPrimitives": 0,
+    "lhsAudit": {
+      "candidate_clauses": 0,
+      "candidate_slots": 0,
+      "annotated_clauses": 52,
+      "annotated_slots": 78,
+      "evidenceSha256": "11b7320caed16c568c0373aa6941391765d047e3f2700793e701cdb9fa5ed5a8"
+    },
+    "manualOwnerReview": "fdapp1_int_cell and fdapp1_comma_projection_transf retain wildcard inferred K/E/D slots. Visible actual tapp1_con_at_transf/fapp1_con_at_transf constructors discriminate the conventional pre/right action. The whole identity-specialization rule requires the actual fdapp1_int_transfd, not an arbitrary supplied modification. No reducible alias is used in a pattern; all observed functor/base/filler arguments survive on the RHS."
+  },
+  "preservation": {
+    "originalNameFilesReviewed": 153,
+    "beforeInventorySha256": "9f728d134c0c14ed4d0e1b545314340b5842400d6d631b8b52836966ca1dafc4",
+    "changedOriginalNameFiles": [
+      "emdash3_2.lp",
+      "emdash3_2_checks.lp"
+    ],
+    "coreBeforeSha256": "65c988535e7d5ea8cc9bb65eb95a5a862bdd931ce4d459aed79236ba3cc53081",
+    "coreAfterSha256": "c21197227a62609c643ef2382a7e3112e68f0aa6684e7f30137deb9121d4d5ea",
+    "centralBeforeSha256": "960897f28f91f24a69bffbb7f64dfed26e422bfdaae93e89ba88b09f13d2dbb3",
+    "centralAfterSha256": "3e0d1fb128b287601c7f39c940cf150966e2a337869ea9bb9d1ba2883c2ffca5",
+    "allOriginalTailsAndDeclarationsRetained": true,
+    "polarityChanges": 0,
+    "fiveTerminalRuntimeObligations": "unchanged and still required",
+    "productionPromotion": false
+  },
+  "resourceReview": {
+    "profiles": "Focused/core 180s/4GiB; library 180s/6GiB; combined 300s/6GiB; o=20,v=1024; installed checker with SR, warnings, serial/file limits and no-swap containment. No resource ceiling increase.",
+    "availableBeforeLibraryKiB": 13766136,
+    "previousSamples": {
+      "core": {
+        "receipt": "logs/check-runs/20261020T095625Z-62b94e7b10344367a64b424d160c4f62.json",
+        "wallSeconds": 19.578401148086414,
+        "childrenMaxRssKiB": 1630132,
+        "gcMeasurements": {
+          "allocated_words": 7778538239,
+          "top_heap_words": 202675473
+        }
+      },
+      "library": {
+        "receipt": "logs/check-runs/20261020T095839Z-20c7ac3e84734bb694b90c535021e0a4.json",
+        "wallSeconds": 62.38521677698009,
+        "childrenMaxRssKiB": 4514840,
+        "gcMeasurements": {
+          "allocated_words": 22046473727,
+          "top_heap_words": 571984254
+        }
+      }
+    },
+    "qualification": "Current wall times are higher in single samples, while core/library allocation traffic and peak memory are close to the predecessors. No speedup or general performance conclusion is claimed. R12 remains open."
+  },
+  "validationBoundary": [
+    "Fresh focused 35/3, core/Homd 287/85, library 178/27 and combined 2000/260 pass with subject reduction. Earlier receipts depending on the prior core are historical until refreshed or requalified.",
+    "The correction joins one actual whole-to-capped intrinsic projection. It does not discharge the different tdapp0/component normalization boundaries in R04 or the five terminal runtime obligations.",
+    "The direct transpose comparison has a narrower correct type; the native general-lax ladder is separately preserved and exercised.",
+    "Complete original-tail coverage, wrapper retirement, broader warning/normalization review, production promotion and final integration remain open.",
+    "Final replay-fragment EOF whitespace cleanup preserves every checked LP input byte; the emitter and fragment hashes are refreshed after exact rehashing, without redundant checker runs."
+  ],
+  "next": "Continue original strict-functor/transfor profile, closure and structural-category diagnostics; then the recorded wrapper/normalization and production gates. The separate application goal stays paused.",
+  "assertionCounting": "Executable assert/assertnot commands only; block and line comments are stripped. The triangular-product prose line beginning with \"assert products\" is not a diagnostic."
+}
