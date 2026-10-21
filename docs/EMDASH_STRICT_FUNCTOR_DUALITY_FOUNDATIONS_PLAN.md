@@ -42,6 +42,32 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Diagram/mate reviewer continuation after `0d20474a`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_diagram_mate_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_diagram_mate_reviewers_verification.json)
+qualify three complete original reviewers at unchanged library owners.
+Ordinary diagram inputs and fixed evaluation remain ordinary; the differential
+uses its actual oplax type. The mixed-action runtime assertion uses the
+existing whole action, Even-duality decoder and typed object projection after
+bare capped result-type inference fails. It retains the original RHS and
+runtime assertion kind; no new rule or proof-time substitute is introduced.
+The point reviewer uses the existing decoded-object accessor only for its
+general transformed-arrow family. Whole mate input round trips remain whole.
+
+The combined scope passes 16 positives/two negatives including imports in
+47.331s/1,197,980KiB under 180s/2GiB/o=20 with SR and warnings. All original
+assertion kinds/polarities and three reviewer declarations remain. Its 2,152
+warning bodies are already present in the preceding qualified scope at
+unchanged owners. All fresh inputs match emission and all 442 previous
+qualified files rehash unchanged. Bare capped inference remains an R06
+limitation; this is an actual-consumer projection repair.
+
+Coverage is 322 library/core files and 123 complete reviewers, with 469/473
+unstaged. Next follow the original adjunction exchange, opposite-identity,
+constant-family and triangle reviewers. R01–R03, remaining migration,
+normalization/toolchain and production gates remain open. Implementation
+continues in non-library staging.
+
 Factor/whole-H reviewer continuation after `01ba9f3d`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_factor_h_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_factor_h_reviewers_verification.json)

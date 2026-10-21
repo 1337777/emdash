@@ -382,6 +382,11 @@ def main():
     from production_factor_h_reviewers_migration import finish_factor_h_reviewers
     path = audit / 'production_factor_h_reviewers_migration.py'
     inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_diagram_mate_reviewers_migration import finish_diagram_mate_reviewers, SOURCES as DIAGRAM_MATE_REVIEWERS
+    for name in ('production_diagram_mate_reviewers_migration.py',
+                 *(spec['fragment'] for spec in DIAGRAM_MATE_REVIEWERS.values())):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5918,6 +5923,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Retain original reconstruction/projection assertions at existing native diagram and Hom profiles',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(factor_h_reviewers)})
                 text = factor_h_reviewers
+            diagram_mate_reviewers = finish_diagram_mate_reviewers(path, text)
+            if diagram_mate_reviewers is not None:
+                changes.append({'source': path, 'owner': 'original diagram evaluation and whole-mate reviewers',
+                                'reason': 'Use actual ordinary/oplax profiles and existing projection ladders, retaining original assertion kinds, polarities and data',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(diagram_mate_reviewers)})
+                text = diagram_mate_reviewers
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -6000,6 +6011,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/zero_arrow_cone_adjunction_homology.lp')
     stage('examples/zero_composite_adjunction_homology.lp')
     stage('examples/one_cat_image_coimage_factors.lp')
+    stage('examples/walking_arrow_diagram_evaluation.lp')
+    stage('examples/arrow_diagram_point_usability.lp')
+    stage('examples/one_cat_adjunction_family_zero_inputs.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

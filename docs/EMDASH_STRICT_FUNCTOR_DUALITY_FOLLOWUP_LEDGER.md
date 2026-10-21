@@ -274,6 +274,18 @@ and is contained in the preceding qualified record scope. All 437 prior
 qualified files are unchanged. Coverage is 322 library/core files and 120
 reviewers, with 469/476 unstaged. The next diagram/mate reviewers are named
 in the living plan. R01–R03 and the remaining migration/production gates remain.
+The [diagram/mate reviewer continuation][diagram-mate-reviewers] qualifies
+three complete original reviewers with sixteen positive/two negative checks
+including imports. The walking differential uses its actual oplax profile;
+its mixed-action observation preserves runtime conversion through the existing
+whole action/decoder/projection after capped inferred types fail to unify.
+The point accessor and whole mate round trips preserve all original data,
+assertion kinds and polarities. No library source or formal rule changes.
+All 442 prior qualified files remain unchanged. Coverage reaches 322
+library/core files and 123 reviewers, with 469/473 unstaged. R06 retains the
+bare capped-inference limitation; this checked whole-projection route does
+not imply a general inference repair. Original adjunction exchange/identity,
+constant-family and triangle reviewers are next; completion gates remain open.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -494,5 +506,6 @@ that all possible alternatives or future regressions have been discovered.
 [column-homology-paths]: ../emdash2/audits/strict-default-action-boundary/production_column_homology_paths_review.md
 [homology-records]: ../emdash2/audits/strict-default-action-boundary/production_homology_records_review.md
 [factor-h-reviewers]: ../emdash2/audits/strict-default-action-boundary/production_factor_h_reviewers_review.md
+[diagram-mate-reviewers]: ../emdash2/audits/strict-default-action-boundary/production_diagram_mate_reviewers_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md
