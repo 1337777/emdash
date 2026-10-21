@@ -42,6 +42,36 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Adjunction reviewer continuation after `d4d9f816`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_adjunction_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_adjunction_reviewers_verification.json)
+qualify four original reviewers with unchanged library sources. The original
+unrestricted H families retain whole evaluation, product and identity/component
+observations through existing opposite-profile exchange. Additional blocks
+retain the direct Cartesian sym_func controls; that restricted contract does
+not replace the general inputs. Both triangles, mate push/pull cancellation
+and arbitrary-unit noncollapse remain. Total-dual spellings match Op_adjunction;
+the constant-view reviewer is unchanged.
+
+The final combined run passes 15 positives/five negatives and two whole Hom
+type queries in 51.250s/279,120KiB under 180s/2GiB/o=20 with SR and warnings.
+All fourteen original assertions retain their kinds, polarities and scope;
+six additional Cartesian controls cover the other owner. All 2,084 warning
+bodies already occur in the preceding qualified scope, and all 445 prior
+qualified LP files are unchanged. No library rule or primitive is added.
+
+The general identity trial exposed raw fapp0 versus named fixed-family endpoint
+normal forms: represented precomposition versus composition. The actual
+identity and named endpoint compute alike; the final assertion uses that
+existing projection and retains runtime conversion. The raw presentation
+remains an R06/R12 boundary, not an asserted new normalization law.
+
+Coverage is 322 library/core files and 127 complete reviewers, with 469/469
+unstaged. Next follow ordinary diagram reconstruction, native-square,
+slice-path and terminal-adjunction reviewers. R01–R03, remaining migration,
+normalization/toolchain and production gates remain open. Work remains in
+non-library staging.
+
 Diagram/mate reviewer continuation after `0d20474a`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_diagram_mate_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_diagram_mate_reviewers_verification.json)

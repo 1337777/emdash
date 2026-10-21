@@ -1,0 +1,4 @@
+require open emdash.examples.adjunction_exchange_computation;
+require open emdash.examples.adjunction_exchange_op_identity;
+require open emdash.examples.adjunction_family_constant_views;
+require open emdash.examples.adjunction_triangles;

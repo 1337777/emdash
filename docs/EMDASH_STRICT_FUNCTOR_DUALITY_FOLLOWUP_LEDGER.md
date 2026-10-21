@@ -286,6 +286,20 @@ library/core files and 123 reviewers, with 469/473 unstaged. R06 retains the
 bare capped-inference limitation; this checked whole-projection route does
 not imply a general inference repair. Original adjunction exchange/identity,
 constant-family and triangle reviewers are next; completion gates remain open.
+The [adjunction reviewer continuation][adjunction-reviewers] qualifies four
+original reviewers while preserving unrestricted H through existing
+opposite-profile exchange. Additional Cartesian controls cover sym_func's
+separate selected profile. Whole evaluation, identity/component observations,
+both triangles, mate cancellation and the original negative controls pass;
+the constant-view source is unchanged. The final scope passes fifteen
+positives/five negatives and two whole Hom type queries. No library source
+or formal rule changes, and all 445 previous qualified files remain unchanged.
+Coverage reaches 322 library/core files and 127 reviewers, with 469/469 unstaged.
+The named general identity endpoint computes, while raw fapp0 of the exchanged
+family retains a distinct precomposition normal form; that recorded R06/R12
+boundary is not silently promoted to runtime equality. The next ordinary
+diagram/square/slice/terminal reviewers are named in the plan; completion
+gates remain open.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -507,5 +521,6 @@ that all possible alternatives or future regressions have been discovered.
 [homology-records]: ../emdash2/audits/strict-default-action-boundary/production_homology_records_review.md
 [factor-h-reviewers]: ../emdash2/audits/strict-default-action-boundary/production_factor_h_reviewers_review.md
 [diagram-mate-reviewers]: ../emdash2/audits/strict-default-action-boundary/production_diagram_mate_reviewers_review.md
+[adjunction-reviewers]: ../emdash2/audits/strict-default-action-boundary/production_adjunction_reviewers_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md
