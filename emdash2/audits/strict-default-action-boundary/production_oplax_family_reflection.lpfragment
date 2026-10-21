@@ -1,0 +1,37 @@
+// Whole family reflection from the retained whole endpoint paths.
+// The fixed-diagram reflection and ordinary-target modification introduction
+// supply the actual whole cell; no pointwise replacement of the result.
+symbol one_cat_oplax_diagram_family_map_path [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [F G : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C))]
+  (h k : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C) F G))
+  (p : τ (@= (@Transf B C
+    (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) F)
+    (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) G))
+    (@diagram_oplax_family_map_at B WalkingArrow_cat C F G h walking_arrow_src)
+    (@diagram_oplax_family_map_at B WalkingArrow_cat C F G k walking_arrow_src)))
+  (q : τ (@= (@Transf B C
+    (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) F)
+    (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) G))
+    (@diagram_oplax_family_map_at B WalkingArrow_cat C F G h walking_arrow_tgt)
+    (@diagram_oplax_family_map_at B WalkingArrow_cat C F G k walking_arrow_tgt)))
+  : τ (@= (@Transf B (Functor_oplax_cat WalkingArrow_cat C) F G) h k)
+≔ let M : Cat ≔ Functor_oplax_cat WalkingArrow_cat C in
+  let M1 : τ (IsNCat (cat_succ cat_zero) M) ≔ @one_cat_oplax_functor_category WalkingArrow_cat C C1 in
+  @hom_to_path (@Transf_cat B M F G) ((@one_cat_functor_category B M M1) F G) h k
+    (@one_cat_modification B M M1 F G h k
+      (λ b : τ (Obj B),
+        @path_to_hom (Hom_cat M (@fapp0 B M F b) (@fapp0 B M G b))
+          (@tapp0_fapp0 B M F G b h) (@tapp0_fapp0 B M F G b k)
+          (@one_cat_oplax_diagram_map_path C C1 (@fapp0 B M F b) (@fapp0 B M G b)
+            (@tapp0_fapp0 B M F G b h) (@tapp0_fapp0 B M F G b k)
+            (@eq_ap _ _
+              (λ e : τ (@Transf B C
+                (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) F)
+                (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) G)),
+                @tapp0_fapp0 B C _ _ b e) _ _ p)
+            (@eq_ap _ _
+              (λ e : τ (@Transf B C
+                (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) F)
+                (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) G)),
+                @tapp0_fapp0 B C _ _ b e) _ _ q))));

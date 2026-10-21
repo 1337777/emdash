@@ -1,0 +1,6 @@
+// Original whole universality, inverse observations and incoming-action checks.
+require open emdash.examples.one_cat_terminal_family_universality;
+require open emdash.examples.zero_arrow_family_observations;
+require open emdash.emdash3_2_one_cat_diagram_family_paths;
+// Existing users of the shared reflection keep their original observations.
+require open emdash.examples.introduced_terminal_input_comparisons;

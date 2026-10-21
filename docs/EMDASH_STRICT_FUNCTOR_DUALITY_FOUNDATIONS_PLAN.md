@@ -42,6 +42,36 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Whole terminal-family continuation after `6a9f27b0`, 2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_terminal_family_continuation_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_terminal_family_continuation_verification.json)
+qualify four further original library modules and two original reviewers.
+Terminal/initial universality uses its existing oplax presentation, retaining
+the original whole maps, inverses and observations. A derived whole family
+reflection extends the existing shared owner through its fixed-diagram
+reflection and ordinary-target modification constructor. Incoming maps retain
+their general lax input. Endpoint annotations and one alternate composite
+spelling are aligned with the actual fixed-evaluation interface; no runtime
+rule, unifier, primitive or operational proof argument is added.
+
+The final combined emitted-source check passes 40 positive and one negative
+assertions, including the existing introduced-input consumer, in
+93.192s/1,052,848KiB under 180s/2GiB/o=20 with SR and warnings. The 2,284 warning
+bodies are an exact subset of the previous Freyd-entry warning multiset;
+the absent 16 belong to its additional Freyd operations import. Prior entry,
+central and integration evidence is carried with an explicit conservative
+append review: the only changed input is the shared reflection module, whose
+entire earlier prefix is byte-identical. Core and diagnostic hashes remain.
+
+Coverage reaches 242 library/core files and 86 reviewers; 549 library/core
+files and 510 reviewers remain unstaged. The full column check passed the
+former terminal-family stop but reached its 180s deadline inside existing
+row/naturality dependencies, without a reported typing failure. Next replay
+that consumer at 300s with the same 2GiB cap and command timing, then address
+its first actual failure. Full column/middle-column qualification, five
+terminal Homd runtime positives, computational usability, supported-checker
+qualification and production promotion remain open. Production is unchanged.
+
 Freyd native-entry continuation after `1492ee94`, 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_freyd_entry_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_freyd_entry_verification.json)

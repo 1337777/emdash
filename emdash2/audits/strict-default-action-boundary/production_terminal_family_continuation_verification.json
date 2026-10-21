@@ -1,0 +1,449 @@
+{
+  "schema": "emdash-terminal-family-migration-v1",
+  "status": "whole terminal family and incoming observations qualified in staged LP; production unpromoted",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "predecessor": "6a9f27b0aac0b2180fe3b556eaa78e529e5f5d53",
+  "authoringInputs": {
+    "production_owner_migration.py": "1cf8139bf6c1e17c3487633b0f4cba5d9c93de5c08a94a91985f976cae7eaefc",
+    "production_terminal_family_migration.py": "731db7e665680d2c4cfd97bdecabd2492bf8be06d39fe8b162a1246c9fc6e389",
+    "production_oplax_family_reflection.lpfragment": "e30d85b93d660b318259ef439893a37a552239bb7a3ed1e214bc17b2473a55e2",
+    "production_terminal_family_regression.lpfragment": "95f3d948634e9c2373acfdc4cdee0aac294bd49abcbc1dccf6594c3f7e815716"
+  },
+  "sources": {
+    "emdash3_2_one_cat_terminal_family_universality.lp": {
+      "originalSha256": "af605fb976b1c068a2ae5b38c095467a09e07ddb3960510cd7eac797818beb6d",
+      "currentSha256": "29a11e968741ea989f0cb1ba7f6f63149b798cda74c0898b2198e05a7831fb80",
+      "originalNamesRetained": true,
+      "assertions": {},
+      "rules": 0,
+      "unifiers": 0
+    },
+    "emdash3_2_one_cat_terminal_family_paths.lp": {
+      "originalSha256": "d79bd182a3c449d298a0c945a82e6dc5e76196b1cf134827343408b50f271594",
+      "currentSha256": "4fff01b40674ffd0f7b41903123ffa41cc56794454c5a46149d3d1f744480000",
+      "originalNamesRetained": true,
+      "assertions": {},
+      "rules": 0,
+      "unifiers": 0
+    },
+    "emdash3_2_zero_arrow_family_observations.lp": {
+      "originalSha256": "9c5b8a5695f756beae514dfc4085e0f018d8d5bebe70055855dbae80f634f295",
+      "currentSha256": "d059e76fd4907651ca6953ce3fa58861b5603b03615bd2d720cb071e0e65f40f",
+      "originalNamesRetained": true,
+      "assertions": {},
+      "rules": 0,
+      "unifiers": 0
+    },
+    "emdash3_2_one_cat_diagram_family_paths.lp": {
+      "originalSha256": "ae1f7ce3d1500299df5052ad7ac7b5c03af8bec77eecac36bd2144b8db2c6536",
+      "currentSha256": "0421139aded6db81082a18e0352b9451bb84921d0da73377e0c5314ab6171b3b",
+      "originalNamesRetained": true,
+      "assertions": {},
+      "rules": 0,
+      "unifiers": 0
+    },
+    "emdash3_2_one_cat_diagram_family_reflection.lp": {
+      "originalSha256": "4b62219d9498b7791f0560057a5b3d4e5655748439d9953635b4a76ee3a28c17",
+      "currentSha256": "8cca8d560a8f1ce1dc026e8812bf0a94fdeacefed942757fde02cb5a2810755f",
+      "originalNamesRetained": true,
+      "assertions": {},
+      "rules": 0,
+      "unifiers": 1
+    },
+    "examples/one_cat_terminal_family_universality.lp": {
+      "originalSha256": "b4b98855418f7a199963ff9900c8c9007c361e7122e3167defbb46a946b14d2c",
+      "currentSha256": "2ded58cb40909b5aeeb01167ede7ad95b15a45aab528d4b2e9749b89e4aaab8f",
+      "originalNamesRetained": true,
+      "assertions": {
+        "assert": 22
+      },
+      "rules": 0,
+      "unifiers": 0
+    },
+    "examples/zero_arrow_family_observations.lp": {
+      "originalSha256": "8317c4d3060ad4f2b5433d5a0819458e828b6dc8b7cc9eb529b5cee6068466d7",
+      "currentSha256": "2ead726f0ea34c1ff457f32c0e7dd508b7879044be26607f8ee78aa9e6ad23d0",
+      "originalNamesRetained": true,
+      "assertions": {
+        "assert": 5,
+        "assertnot": 1
+      },
+      "rules": 0,
+      "unifiers": 0
+    }
+  },
+  "final": {
+    "id": "20261021T032137Z-c24b073d903b404b87576fc3a647cef4",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "wallSeconds": 93.19196843286045,
+    "childrenMaxRssKiB": 1052848,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 180000
+    },
+    "inputSnapshot": "780480e5d48faa688a0ef2880eee28c3628d7623bc9d70bbf7ce28c004a80d17",
+    "logSha256": "9c044f4eda889af75bbbee3036801e40b4bec0ab812a54c98cbe3e35bea062d4"
+  },
+  "assertionsBySource": {
+    "emdash3_2_one_cat_functor_profiles.lp": {
+      "assert": 2
+    },
+    "emdash3_2_one_cat_transfor_profiles.lp": {
+      "assert": 1
+    },
+    "examples/introduced_terminal_input_comparisons.lp": {
+      "assert": 10
+    },
+    "examples/one_cat_terminal_family_universality.lp": {
+      "assert": 22
+    },
+    "examples/zero_arrow_family_observations.lp": {
+      "assert": 5,
+      "assertnot": 1
+    }
+  },
+  "assertionsTotal": {
+    "assert": 40,
+    "assertnot": 1
+  },
+  "warnings": {
+    "bodies": 2284,
+    "byOwner": {
+      "emdash3_2.lp": 1600,
+      "emdash3_2_walking_arrow_introduction.lp": 2,
+      "emdash3_2_diagram_evaluation.lp": 321,
+      "emdash3_2_gray_profiles.lp": 80,
+      "emdash3_2_strict_functor_actions.lp": 35,
+      "emdash3_2_terminal_objects.lp": 15,
+      "emdash3_2_defiso_evaluation_points.lp": 47,
+      "emdash3_2_adjunction_mates.lp": 1,
+      "emdash3_2_gray_transformation_graph.lp": 8,
+      "emdash3_2_one_cat_transfor_profiles.lp": 35,
+      "emdash3_2_one_cat_diagram_reconstruction.lp": 8,
+      "emdash3_2_triangular_binary_products.lp": 100,
+      "emdash3_2_truncation_reflector.lp": 32
+    },
+    "multisetSha256": "1f6754e03422f650c253f7224ee28513367e2ed7f93520f2f1ecdada479fb4ac",
+    "comparisons": {
+      "originalTerminalFailure": {
+        "receipt": "20261021T025608Z-bb61ef3cdd8b4c479cbeffc070badc53",
+        "bodies": 2152,
+        "added": 132,
+        "removed": 0,
+        "byOwner": {
+          "emdash3_2.lp": 1600,
+          "emdash3_2_walking_arrow_introduction.lp": 2,
+          "emdash3_2_diagram_evaluation.lp": 321,
+          "emdash3_2_gray_profiles.lp": 80,
+          "emdash3_2_strict_functor_actions.lp": 35,
+          "emdash3_2_terminal_objects.lp": 15,
+          "emdash3_2_defiso_evaluation_points.lp": 47,
+          "emdash3_2_adjunction_mates.lp": 1,
+          "emdash3_2_gray_transformation_graph.lp": 8,
+          "emdash3_2_one_cat_transfor_profiles.lp": 35,
+          "emdash3_2_one_cat_diagram_reconstruction.lp": 8
+        }
+      },
+      "prototypeTerminal": {
+        "receipt": "20261021T025759Z-74ebe61ec2b74ba4a8d414870ec6acbf",
+        "bodies": 2152,
+        "added": 132,
+        "removed": 0,
+        "byOwner": {
+          "emdash3_2.lp": 1600,
+          "emdash3_2_walking_arrow_introduction.lp": 2,
+          "emdash3_2_diagram_evaluation.lp": 321,
+          "emdash3_2_gray_profiles.lp": 80,
+          "emdash3_2_strict_functor_actions.lp": 35,
+          "emdash3_2_terminal_objects.lp": 15,
+          "emdash3_2_defiso_evaluation_points.lp": 47,
+          "emdash3_2_adjunction_mates.lp": 1,
+          "emdash3_2_gray_transformation_graph.lp": 8,
+          "emdash3_2_one_cat_transfor_profiles.lp": 35,
+          "emdash3_2_one_cat_diagram_reconstruction.lp": 8
+        }
+      },
+      "prototypeFamily": {
+        "receipt": "20261021T030808Z-b29970b3b31d4abbb77742274034073b",
+        "bodies": 2154,
+        "added": 152,
+        "removed": 22,
+        "byOwner": {
+          "emdash3_2.lp": 1600,
+          "emdash3_2_gray_profiles.lp": 70,
+          "emdash3_2_strict_functor_actions.lp": 31,
+          "emdash3_2_defiso_evaluation_points.lp": 43,
+          "emdash3_2_gray_transformation_graph.lp": 6,
+          "emdash3_2_diagram_evaluation.lp": 343,
+          "emdash3_2_one_cat_transfor_profiles.lp": 35,
+          "emdash3_2_walking_arrow_introduction.lp": 2,
+          "emdash3_2_one_cat_diagram_reconstruction.lp": 8,
+          "emdash3_2_adjunction_mates.lp": 1,
+          "emdash3_2_terminal_objects.lp": 15
+        }
+      },
+      "previousEntry": {
+        "receipt": "20261021T022804Z-967b75e32cef4c508075932eb50e2ed1",
+        "bodies": 2300,
+        "added": 0,
+        "removed": 16,
+        "byOwner": {
+          "emdash3_2.lp": 1600,
+          "emdash3_2_walking_arrow_introduction.lp": 2,
+          "emdash3_2_diagram_evaluation.lp": 321,
+          "emdash3_2_gray_profiles.lp": 80,
+          "emdash3_2_strict_functor_actions.lp": 35,
+          "emdash3_2_one_cat_transfor_profiles.lp": 35,
+          "emdash3_2_terminal_objects.lp": 15,
+          "emdash3_2_triangular_binary_products.lp": 100,
+          "emdash3_2_defiso_evaluation_points.lp": 47,
+          "emdash3_2_gray_transformation_graph.lp": 8,
+          "emdash3_2_one_cat_diagram_reconstruction.lp": 8,
+          "emdash3_2_adjunction_mates.lp": 1,
+          "emdash3_2_truncation_reflector.lp": 32,
+          "emdash3_2_commutative_algebra_freyd_operations.lp": 16
+        }
+      }
+    }
+  },
+  "priorCarry": [
+    {
+      "receipt": "20261021T000708Z-0e253f32641b4aaaa73501f6ec497bad",
+      "matchingInputs": 273,
+      "changedInput": "emdash3_2_one_cat_diagram_family_reflection.lp",
+      "oldPrefixByteIdentical": true,
+      "addedOnlyDerivedDefinitions": true,
+      "addedNames": [
+        "one_cat_oplax_family_cart_func",
+        "one_cat_oplax_family_roundtrip",
+        "one_cat_oplax_diagram_map_path",
+        "one_cat_diagram_oplax_include_func",
+        "one_cat_oplax_diagram_family_map_path"
+      ],
+      "automaticReceiptReuse": false
+    },
+    {
+      "receipt": "20261021T022804Z-967b75e32cef4c508075932eb50e2ed1",
+      "matchingInputs": 136,
+      "changedInput": "emdash3_2_one_cat_diagram_family_reflection.lp",
+      "oldPrefixByteIdentical": true,
+      "addedOnlyDerivedDefinitions": true,
+      "addedNames": [
+        "one_cat_oplax_diagram_family_map_path"
+      ],
+      "automaticReceiptReuse": false
+    },
+    {
+      "receipt": "20261021T023303Z-320d418e62a94637972fc3520eff4789",
+      "matchingInputs": 143,
+      "changedInput": "emdash3_2_one_cat_diagram_family_reflection.lp",
+      "oldPrefixByteIdentical": true,
+      "addedOnlyDerivedDefinitions": true,
+      "addedNames": [
+        "one_cat_oplax_diagram_family_map_path"
+      ],
+      "automaticReceiptReuse": false
+    }
+  ],
+  "coverage": {
+    "core": {
+      "registered": 792,
+      "staged": 243,
+      "coveredWithConservativeCarry": 242,
+      "stagedNotCovered": [
+        "emdash3_2_checks.lp"
+      ],
+      "notStaged": 549
+    },
+    "reviewers": {
+      "registered": 596,
+      "staged": 86,
+      "coveredWithConservativeCarry": 86,
+      "stagedNotCovered": [],
+      "notStaged": 510
+    }
+  },
+  "experiments": {
+    "terminalProfile": {
+      "id": "20261021T025759Z-74ebe61ec2b74ba4a8d414870ec6acbf",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 74.18262543319725,
+      "childrenMaxRssKiB": 968472,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "083a5bf135645786915ae5d2eae65dc7b29ff987a9f06d51718e180578254c61",
+      "logSha256": "f03feda7021e80de9d661417087a7128075ba064d3470e1f647c2c47900e1c46"
+    },
+    "wholeFamilyRawEndpoints": {
+      "id": "20261021T030808Z-b29970b3b31d4abbb77742274034073b",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 81.30683223111555,
+      "childrenMaxRssKiB": 981156,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "72b2b341990a0ce5f23388fc047ab3fecf0f774c9699865111d11237cc9adc6b",
+      "logSha256": "22897165766d67b010ee54e0f81e24ae44a34fed5695f4d0ae0dea99d85dbc31"
+    },
+    "incomingOldPostcompositionFailure": {
+      "id": "20261021T031734Z-9dfb7d93c4ba46bb9ba023d13259640a",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 72.35349542391486,
+      "childrenMaxRssKiB": 971404,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "dcb3e9a4c09f678b78a9d9b81fed721b4a3890ada2e0e3a916a5a81bd5d998c5",
+      "logSha256": "cfa81c5c6704926da95ddb937ea6484a6c1a303b65a80a898545413646af4a54"
+    },
+    "incomingDeclaredSource": {
+      "id": "20261021T031949Z-4a86c9c08a7946c89ab0b2dc3bd2959c",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 44.23872036812827,
+      "childrenMaxRssKiB": 187676,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "fe319ecf3ec82988c2bed1b43bc2abf1290bc02ce00d8e8b62dd2438e05ad253",
+      "logSha256": "6f99bd3598438c8dedcdf938cf160b8d6710a61721793f6a1b56d8c6af6fb666"
+    },
+    "column180s": {
+      "id": "20261021T031326Z-26012a2e27cf47aba5c44e11a9e8e698",
+      "outcome": "timeout",
+      "checkerExit": 137,
+      "wallSeconds": 180.02454505395144,
+      "childrenMaxRssKiB": 83280,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "inputSnapshot": "6c4bb0808842d0858929acea9c20f465fb91cdb3235b2fbd9a7dcf07d9b25a24",
+      "logSha256": "8d27a53ceda8e8273ab8ba7b3d1d7bf00c07e2467012a21d428a4c165f2dd578"
+    }
+  },
+  "boundaries": [
+    "No new rewrite or unification rule",
+    "Original whole maps, inverse data, arbitrary B/C incoming transformation and OneCat reflection premises retained",
+    "Five original terminal Homd runtime positives remain open",
+    "Full Freyd column/middle-column reviewer and remaining migration unqualified",
+    "Column timeout occurred during dependencies; no typing failure reported before timeout, and no memory improvement claim follows from killed-child RSS",
+    "Isolated checker support, normalization usability, production promotion and final gates remain open"
+  ],
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+    "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  }
+}

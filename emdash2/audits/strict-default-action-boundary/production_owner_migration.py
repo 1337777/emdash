@@ -282,6 +282,10 @@ def main():
                  'production_one_cat_family_naturality_paths.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_terminal_family_migration import finish_terminal_family
+    for name in ('production_terminal_family_migration.py', 'production_oplax_family_reflection.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5722,6 +5726,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Retain native input/map data through the actual coefficient inclusion and typed constructor; share existing derived reflection, preserve whole Hom factorization and use its actual normalization views without new runtime rules',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(freyd_entry)})
                 text = freyd_entry
+            terminal_family = finish_terminal_family(path, text)
+            if terminal_family is not None:
+                changes.append({'source': path, 'owner': 'whole terminal-family and native diagram reflection',
+                                'reason': 'Use the existing oplax family presentation and fixed evaluation, retaining whole maps, inverse data and original observations; derive whole reflection without additional formal rules',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(terminal_family)})
+                text = terminal_family
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5758,6 +5768,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_whiskering_paths.lp')
     stage('emdash3_2_commutative_algebra_freyd_adjunction_models.lp')
     stage('emdash3_2_one_cat_family_naturality_paths.lp')
+    stage('examples/one_cat_terminal_family_universality.lp')
+    stage('examples/zero_arrow_family_observations.lp')
+    stage('emdash3_2_one_cat_diagram_family_paths.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
