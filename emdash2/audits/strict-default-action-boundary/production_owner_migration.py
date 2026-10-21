@@ -351,6 +351,11 @@ def main():
                  'production_freyd_row_zeros.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_kernel_columns_migration import finish_kernel_columns, SOURCES as KERNEL_COLUMNS
+    for name in ('production_kernel_columns_migration.py',
+                 *(fragment for _, fragment in KERNEL_COLUMNS.values())):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5845,6 +5850,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use native diagram coefficients and the existing weakening/constant transformation inclusions without new rules',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(constant_chain)})
                 text = constant_chain
+            kernel_columns = finish_kernel_columns(path, text)
+            if kernel_columns is not None:
+                changes.append({'source': path, 'owner': 'original kernel pullback and zero-cone column construction',
+                                'reason': 'Retain selected comparisons/inverses and use existing whole projection/associativity owners at corrected profiles',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(kernel_columns)})
+                text = kernel_columns
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5902,6 +5913,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_constant_chain_zeros.lp')
     stage('emdash3_2_commutative_algebra_freyd_native_row_zeros.lp')
     stage('emdash3_2_commutative_algebra_freyd_native_row_short_exact.lp')
+    stage('examples/one_cat_kernel_pullback_universality.lp')
+    stage('examples/one_cat_zero_cone_column_inputs.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

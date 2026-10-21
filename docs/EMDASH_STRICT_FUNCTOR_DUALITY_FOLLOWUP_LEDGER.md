@@ -171,6 +171,21 @@ input rehashes unchanged. Coverage reaches 267 library/core files and 97
 reviewers; 524 core/library files and 499 reviewers remain unstaged. The full
 column now stops at `kernel_precomposition_inclusion_slice` in the original
 pullback comparison owner. R01–R03, R10, R12 and R14 remain open.
+The [kernel/generic-column continuation][kernel-columns] next qualifies nine
+library files / 38 original declarations and both complete original reviewers.
+The selected kernel comparison/inverse and whole round trips retain their
+derivations. Six existing associativity paths make four previously implicit
+proof joins explicit in the two column-zero arguments; no new formal rule is
+added. The generic column reviewer's assertion 15 changes to positive runtime
+conversion because its native accessor is now defined by that same map.
+All other assertions retain their polarity, including the distinct-data
+negatives. This is the scoped R06 disposition in the linked polarity record,
+not a general inference or terminal-normalization repair. Fresh combined
+validation passes 37 positives/seven negatives with unchanged warning bodies;
+all prior broad/native-zero inputs remain unchanged. Coverage is 276
+library/core files and 99 reviewers, leaving 515/497 unstaged. The full Freyd
+column now stops at `zero_arrow_family_point_incoming_path`; its original point
+observations, full columns and the standing completion gates remain required.
 The full column run advances to the original whole short-exact family
 cancellation owner and remains unqualified. Its first old-profile stop is
 `one_cat_row_kernel_reconstruction_path`. The five terminal runtime obligations
@@ -388,5 +403,6 @@ that all possible alternatives or future regressions have been discovered.
 [row-observations]: ../emdash2/audits/strict-default-action-boundary/production_row_observations_review.md
 [constant-rows]: ../emdash2/audits/strict-default-action-boundary/production_constant_rows_review.md
 [constant-chain]: ../emdash2/audits/strict-default-action-boundary/production_constant_chain_review.md
+[kernel-columns]: ../emdash2/audits/strict-default-action-boundary/production_kernel_columns_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md

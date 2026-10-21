@@ -42,6 +42,39 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Kernel-pullback/generic-column continuation after `8cbd9596`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_kernel_columns_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_columns_verification.json)
+qualify 38 original declarations across nine library files and both complete
+original reviewers. The kernel comparison, actual inverse and whole round
+trips pass with profile/accessor changes only. The inherited ordinary-slice
+structural profile keeps its original status. Four proof joins in the two
+column-zero derivations use six explicit applications of existing comp_assoc;
+the original square/cancellation arguments and selected data remain. No rule,
+primitive, caller field or stronger ordinary hypothesis is introduced.
+
+Original column-reviewer assertion 15 is deliberately positive now: the
+native incoming accessor is defined by the same fixed-evaluation map. Its old
+ordinary presentation was only proof-time-comparable. No assertion is removed;
+the other map/transformation noncollapse checks remain negative. The exact
+[polarity disposition](../emdash2/audits/strict-default-action-boundary/production_kernel_columns_polarity_changes.json)
+does not alter the unrelated terminal/runtime or inference obligations.
+
+The kernel scope passes 25 positive/four negative assertions including imports.
+The final combined scope passes 37/seven and all declaration bodies in
+112.514s/1,713,372KiB under 300s/2GiB/o=20 with SR and warnings. Its 2,162 warning
+bodies match all three failed development variants. All fresh inputs match
+emission; all 173/361/160 prior core/library/native-zero inputs rehash unchanged.
+Coverage reaches 276 library/core files and 99 complete reviewers; 515
+core/library files and 497 reviewers remain unstaged. The earlier partial
+column selector is superseded by this complete generic reviewer.
+
+The full Freyd column run advances to `zero_arrow_family_point_incoming_path`
+in `one_cat_kernel_family_point_paths`; continue its original point-observation
+migration. Full Freyd columns, the five terminal Homd runtime positives,
+remaining migration, normalization/toolchain and production gates remain
+required. All implementation remains non-library staging.
+
 Constant-chain/native-zero continuation after `a2f7131f`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_constant_chain_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_constant_chain_verification.json)

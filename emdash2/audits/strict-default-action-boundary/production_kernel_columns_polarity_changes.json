@@ -1,0 +1,17 @@
+[
+  {
+    "source": "examples/one_cat_zero_cone_column_inputs.lp",
+    "originalSourceSha256": "e44fe4ba54002c319cb0453f13bc00c902f7f0a9fbdd34aafd805ec42eaa15d1",
+    "index": 15,
+    "originalLine": 206,
+    "oldPolarity": "assertnot",
+    "newPolarity": "assert",
+    "reason": "zero_arrow_family_incoming_transf is now definitionally diagram_oplax_family_map_at at the source endpoint; the prior ordinary symmetric presentation was only proof-time-comparable.",
+    "runtimeOwner": "emdash3_2_zero_arrow_family_observations.lp",
+    "unchangedNoncollapseIndices": [
+      11,
+      12,
+      14
+    ]
+  }
+]
