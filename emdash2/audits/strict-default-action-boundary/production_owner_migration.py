@@ -318,6 +318,18 @@ def main():
                  'production_short_exact_families_reviewer.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_kernel_reconstruction_migration import finish_kernel_reconstruction
+    for name in ('production_kernel_reconstruction_migration.py',
+                 'production_kernel_projection_paths.lpfragment',
+                 'production_kernel_family_inputs.lpfragment',
+                 'production_kernel_family_lift.lpfragment',
+                 'production_kernel_precomposition.lpfragment',
+                 'production_kernel_reconstruction.lpfragment',
+                 'production_kernel_lift_reviewer.lpfragment',
+                 'production_kernel_precomposition_reviewer.lpfragment',
+                 'production_kernel_reconstruction_reviewer.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5788,6 +5800,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Retain the selected row maps and inverses at native diagram coefficients; compare complete Cat composites before inferred middle categories',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(native_row_laws)})
                 text = native_row_laws
+            kernel_reconstruction = finish_kernel_reconstruction(path, text)
+            if kernel_reconstruction is not None:
+                changes.append({'source': path, 'owner': 'original whole kernel input and reconstruction chain',
+                                'reason': 'Use native exchange and the selected inverse mate with literal Hom classifiers, preserving the whole lift, precomposition and reconstruction observations',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(kernel_reconstruction)})
+                text = kernel_reconstruction
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5835,6 +5853,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_cokernel_family_reconstruction.lp')
     stage('examples/one_cat_short_exact_families.lp')
     stage('emdash3_2_one_cat_kernel_family_restriction_paths.lp')
+    stage('examples/one_cat_kernel_family_lift.lp')
+    stage('examples/one_cat_kernel_precomposition.lp')
+    stage('examples/one_cat_kernel_family_reconstruction.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

@@ -42,6 +42,33 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Whole kernel-chain continuation after `52d76000`, 2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_kernel_reconstruction_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_reconstruction_verification.json)
+qualify the original input, lift, projection, precomposition and
+reconstruction owners and three original reviewers. All 23 public
+declarations, original reviewer polarities, chosen P/D data and inverse
+maps remain. Native exchange and the existing whole reconstruction endpoint
+laws prove source recovery. Literal inverse-mate Hom annotations retain
+the projection beta and higher-Hom computations. Inclusion reflection uses
+one derived mapped-comparison helper; no runtime rule, unifier, operational
+primitive or new caller evidence is added. The lift reviewer's two independent
+ordinary reconstruction observations stay on their original interface.
+
+The combined original-consumer check passes 32 positive and three negative
+assertions plus declaration bodies in 105.300s/1,545,860KiB under
+180s/2GiB/o=20 with SR and warnings. Its 2,154 warning bodies match the
+projection/lift scopes exactly. Emitted inputs match the receipt. Every
+input of the previous central and library receipts also rehashes exactly:
+these are separate new defined-symbol modules, with no change to old-symbol
+rules. Reviewed exact-input carry plus fresh consumers brings coverage to
+258 library/core files and 94 reviewers; 533 core/library files and 502
+reviewers remain unstaged. The full column run then reaches the original
+`one_cat_row_kernel_reconstruction_path` in
+`one_cat_short_exact_family_cancellation`, where its old profile stops.
+Continue there. Full columns, the five terminal Homd runtime positives,
+normalization/toolchain work and production gates remain open.
+
 Native row-law continuation after `4abc02e9`, 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_native_row_laws_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_native_row_laws_verification.json)

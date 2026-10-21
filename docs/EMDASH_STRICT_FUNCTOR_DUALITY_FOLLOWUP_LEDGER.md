@@ -123,6 +123,20 @@ warning multisets. Fresh coverage is 253 library/core files and 91 reviewers;
 runtime exclusions and the unfinished kernel-input/column and production
 gates remain. R12 retains the measured normalization/allocation cost, including
 the new library run's 2,147,808KiB RSS under its explicit 4GiB guard.
+The [kernel-chain continuation][kernel-reconstruction] then qualifies five
+original library modules and three original reviewers. All 23 public
+declarations and assertion polarities remain, including whole reconstruction,
+the selected lift/inverse and higher Hom observations. One protected mapped
+comparison is derived; no rule or operational primitive is added. The two
+ordinary reconstruction observations retain their original scope. The fresh
+combined check passes 32 positive and three negative assertions. All inputs
+of the previous central/library checks remain byte-identical, so their
+explicitly scoped carry is valid. Coverage reaches 258 library/core files and
+94 reviewers; 533 core/library files and 502 reviewers remain unstaged.
+The full column run advances to the original whole short-exact family
+cancellation owner and remains unqualified. Its first old-profile stop is
+`one_cat_row_kernel_reconstruction_path`. The five terminal runtime obligations
+and final production gates remain open.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -332,5 +346,6 @@ that all possible alternatives or future regressions have been discovered.
 [kernel-cokernel-paths]: ../emdash2/audits/strict-default-action-boundary/production_kernel_cokernel_path_review.md
 [cokernel-reconstruction]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_reconstruction_review.md
 [native-row-laws]: ../emdash2/audits/strict-default-action-boundary/production_native_row_laws_review.md
+[kernel-reconstruction]: ../emdash2/audits/strict-default-action-boundary/production_kernel_reconstruction_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md
