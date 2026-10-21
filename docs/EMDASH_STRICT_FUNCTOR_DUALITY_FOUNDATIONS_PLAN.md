@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Adjunction/H-map record continuation after `d9729564`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_homology_records_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_homology_records_verification.json)
+qualify 27 original declarations across eight library files and seven complete
+original reviewers. Native reflection/evaluation adapt the original record
+derivations. The zero-input adapters map their original reconstruction pair
+through the existing inclusion, and still compute their endpoint components
+to the supplied arrow. Seven chain-pair record expressions now use the same
+outgoing-diagram encoding as their existing upstream producer. Actual K/Q,
+mate centres, raw pair indices, boundary and H-map/next-Hom action remain.
+No rule, primitive, stronger premise or additional caller evidence is added.
+
+The combined reviewer passes 35 positives including imports and all declaration
+bodies in 109.275s/754,816KiB under 180s/2GiB/o=20 with SR and warnings.
+All original assertions retain their polarities. The sixteen newly reached
+Freyd action/identity warning bodies already occur verbatim in the preceding
+column scope at unchanged owners; the earlier 2,284 bodies are retained.
+All fresh inputs match emission and all 422 prior qualified files are
+byte-identical, preserving their scoped carry. No global confluence or matched
+overall performance improvement is claimed.
+
+Coverage reaches 322 library/core files and 115 complete reviewers, with
+469/481 unstaged. Continue the original
+`examples/one_cat_image_coimage_factor_reconstruction.lp` consumer of the
+semantic boundary-factor observations. The five terminal runtime obligations,
+remaining migration, normalization/toolchain and production gates remain
+required. Implementation is still non-library staging.
+
 Native column homology-path continuation after `7f89160c`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_column_homology_paths_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_column_homology_paths_verification.json)

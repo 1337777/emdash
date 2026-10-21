@@ -374,6 +374,11 @@ def main():
     from production_column_homology_paths_migration import finish_column_homology_paths
     path = audit / 'production_column_homology_paths_migration.py'
     inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_homology_records_migration import finish_homology_records
+    for name in ('production_homology_records_migration.py',
+                 'production_zero_diagram_record_inputs.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5898,6 +5903,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use existing native mapping profiles, fixed evaluation and reflection while retaining the original whole proofs and data',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(column_paths)})
                 text = column_paths
+            homology_records = finish_homology_records(path, text)
+            if homology_records is not None:
+                changes.append({'source': path, 'owner': 'original adjunction and H-map record observations',
+                                'reason': 'Retain selected mates and record data through native reflection, evaluation and actual reconstruction-map inclusion',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(homology_records)})
+                text = homology_records
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5968,6 +5979,13 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/product_family_action_views.lp')
     stage('examples/freyd_native_column_homology_paths.lp')
     stage('examples/freyd_native_middle_column_comparisons.lp')
+    stage('examples/one_cat_zero_diagram_inputs.lp')
+    stage('examples/one_cat_adjunction_records.lp')
+    stage('examples/one_cat_chain_pair_homology_records.lp')
+    stage('examples/freyd_adjunction_homology.lp')
+    stage('examples/one_cat_chain_pair_homology_maps.lp')
+    stage('examples/freyd_adjunction_homology_maps.lp')
+    stage('examples/freyd_adjunction_model_observations.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

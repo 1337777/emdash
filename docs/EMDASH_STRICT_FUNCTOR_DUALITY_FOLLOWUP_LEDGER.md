@@ -250,6 +250,19 @@ All 401 previously qualified files remain byte-identical; current coverage is
 314 library/core files and 108 reviewers, leaving 477/488 unstaged. R10 next
 follows the original chain-pair/Freyd H-map record reviewers and prerequisites.
 R01–R03 and normalization/toolchain/production qualification remain open.
+The [adjunction/H-map record continuation][homology-records] next qualifies
+27 original declarations across eight library files and seven original
+reviewers. Native reflection/evaluation and the existing inclusion of the
+original reconstruction pair retain the selected universal data. Zero-input
+endpoint computation, record mate centres, raw boundary reconstruction and
+whole H-map/next-Hom action pass without new formal rules or primitives.
+The combined scope passes 35 positives in 109.275s/754,816KiB under 180s/2GiB.
+Sixteen newly reached Freyd action/identity warnings are already present in
+the preceding column scope; existing warning bodies and source owners remain.
+All 422 prior qualified files are unchanged. Coverage reaches 322 library/core
+files and 115 reviewers, with 469/481 unstaged. The separate original
+image/coimage factor-reconstruction reviewer is next. R01–R03, R10, R12 and
+production qualification remain open.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -468,5 +481,6 @@ that all possible alternatives or future regressions have been discovered.
 [column-projection]: ../emdash2/audits/strict-default-action-boundary/production_column_projection_review.md
 [family-actions]: ../emdash2/audits/strict-default-action-boundary/production_family_actions_review.md
 [column-homology-paths]: ../emdash2/audits/strict-default-action-boundary/production_column_homology_paths_review.md
+[homology-records]: ../emdash2/audits/strict-default-action-boundary/production_homology_records_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md

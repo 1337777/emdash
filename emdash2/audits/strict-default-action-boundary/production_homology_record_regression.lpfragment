@@ -1,0 +1,7 @@
+require open emdash.examples.one_cat_zero_diagram_inputs;
+require open emdash.examples.one_cat_adjunction_records;
+require open emdash.examples.one_cat_chain_pair_homology_records;
+require open emdash.examples.freyd_adjunction_homology;
+require open emdash.examples.one_cat_chain_pair_homology_maps;
+require open emdash.examples.freyd_adjunction_homology_maps;
+require open emdash.examples.freyd_adjunction_model_observations;
