@@ -42,6 +42,35 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Introduced-input continuation after `679e5fa3`, 2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_introduced_input_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_introduced_input_verification.json)
+qualify the original introduced-terminal-input comparison and all ten of its
+original observations. The map and inverse are the actual images of the old
+ordinary diagram comparison under the existing OneCat mapping comparison and
+`Functor_cart_oplax_include`. Its equality reflection is derived through whole
+exchange and existing inverse comparisons, retaining the original
+shape-universality boundary and OneCat hypothesis. Five protected helpers
+inside the original consumer are definitions/proofs; no primitive, rewrite,
+unifier, new input premise or operational proof payload is added. The original
+point scope in x is retained.
+
+The path-based alternative typechecked at its map/equivalence declarations
+but failed the required component observations; it is not selected. The
+adopted original-map route preserves all five public names, actual diagrams,
+zero/incoming data and computed inverse information.
+
+The final emitted reviewer passes with SR and warnings in
+92.530s/523,256KiB under the reviewed 180s/2GiB/o=20 profile. Its 2,284 warning
+bodies match both the original failing-consumer baseline and the successful
+prototype exactly. All 274 inputs of the preceding staged integration remain
+byte-identical, so that aggregate is carried forward without another run.
+Combined coverage is now 194 registered library/core files and 79 reviewers;
+597 library/core files and 517 reviewers remain unstaged. The same five
+terminal Homd obligations, supported-checker work and production qualification
+remain open. Continue with the existing Freyd native column-input and
+middle-column comparison consumers, preserving supplied models and inverses.
+
 Zero-arrow input continuation after `3d43c5a7`, 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_zero_arrow_input_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_zero_arrow_input_verification.json)

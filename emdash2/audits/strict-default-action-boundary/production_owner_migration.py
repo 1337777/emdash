@@ -272,6 +272,10 @@ def main():
     inputs[str(zero_arrow_migration_source.relative_to(root))] = sha(zero_arrow_migration_source.read_text())
     zero_arrow_reviewer_source = audit / 'production_zero_arrow_frame_reviewer.lpfragment'
     inputs[str(zero_arrow_reviewer_source.relative_to(root))] = sha(zero_arrow_reviewer_source.read_text())
+    from production_introduced_input_migration import migrate_introduced_input
+    for name in ('production_introduced_input_migration.py', 'production_introduced_input_reflection.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -2076,6 +2080,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Use the existing Cartesian square action and its oplax inclusion, whole fixed evaluation, and the actual included Homdc family; retain the original arrows, filler, zero equations and OneCat guards',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(zero_arrow_input)})
                 text = zero_arrow_input
+            introduced_input = migrate_introduced_input(path, text)
+            if introduced_input is not None:
+                changes.append({'source': path, 'owner': 'original introduced-terminal-input comparison',
+                                'reason': 'Map the original ordinary diagram comparison and its actual inverse through the existing coefficient inclusion; derive oplax map reflection through whole exchange and retained inverse comparisons, without new rules or supplied data',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(introduced_input)})
+                text = introduced_input
             comma_profiles = {
                 'emdash3_2_zero_arrow_cones.lp': (2, 6, 1, 1),
                 'emdash3_2_zero_arrow_cone_maps.lp': (0, 10, 1, 3),
@@ -5728,6 +5738,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_zero_cone_maps.lp')
     stage('examples/one_cat_zero_arrow_inputs.lp')
     stage('examples/one_cat_zero_cone_map_equivalences.lp')
+    stage('examples/introduced_terminal_input_comparisons.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
