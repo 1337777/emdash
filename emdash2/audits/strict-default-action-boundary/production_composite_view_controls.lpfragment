@@ -1,0 +1,17 @@
+// Complete-composite comparisons retain the actual outer functor.
+assertnot [A B C D : Cat] (h : τ (Functor A B)) (p : τ (Functor B C))
+ (q r : τ (Functor C D)) ⊢
+ @eq_refl (Functor A D)
+  (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) D A B h (@comp_cat_fapp0 B C D q p))
+ : τ (@= (Functor A D)
+  (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) D A B h (@comp_cat_fapp0 B C D q p))
+  (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) A C D r
+   (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) C A B h p)));
+// Reassociation does not forget the original incoming functor either.
+assertnot [A B C D : Cat] (h k : τ (Functor A B)) (p : τ (Functor B C))
+ (q : τ (Functor C D)) ⊢
+ @eq_refl (Functor A D)
+  (@comp_cat_fapp0 A C D q (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) A B C p h))
+ : τ (@= (Functor A D)
+  (@comp_cat_fapp0 A C D q (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) A B C p h))
+  (@comp_cat_fapp0 A B D (@comp_cat_fapp0 B C D q p) k));

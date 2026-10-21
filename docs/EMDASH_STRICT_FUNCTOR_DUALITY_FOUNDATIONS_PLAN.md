@@ -42,6 +42,31 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native row-law continuation after `4abc02e9`, 2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_native_row_laws_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_row_laws_verification.json)
+qualify the original whole-zero, short-exact family and kernel restriction
+owners, retaining all 16 named declarations and the original reviewer's
+19 positive/three negative polarities. Native coefficients, evaluation and
+total-dual initial data replace the former annotations. Whole naturality
+reuses its existing owner; the original P/Q, boundary maps and selected
+inverses remain. One composite comparison is added and one existing
+associativity view is refined to compare complete composites before their
+intermediate categories. Every functor and exterior endpoint remains in
+the comparison. No runtime rule, operational primitive or supplied evidence
+is introduced.
+
+The focused combined scope passes 22 positive/five negative assertions and
+all declaration bodies in 87.314s/1,537,720KiB. Fresh central and full staged
+library runs pass 2,202/295 and 958/158 assertions under serial 600s/4GiB/o=20
+guards with SR and warnings. Their measurements are 295.382s/2,031,964KiB and
+303.191s/2,147,808KiB; warning multisets match their corresponding prior scopes
+exactly. All 344 registered inputs match current emission. Coverage reaches
+253 library/core files and 91 reviewers, leaving 538 core/library files and
+505 reviewers unstaged. The same five central runtime exclusions, kernel
+input/lift/projection/reconstruction continuation, full columns, normalization
+usability, supported-checker qualification and production gates remain open.
+
 Cokernel reconstruction continuation after `15f2e691`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_cokernel_reconstruction_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_cokernel_reconstruction_verification.json)

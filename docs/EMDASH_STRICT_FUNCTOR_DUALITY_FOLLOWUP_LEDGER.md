@@ -111,6 +111,18 @@ leaving 541 core/library files and 506 reviewers unstaged. The five central
 runtime exclusions and all production gates remain. The R06 annotation
 review now includes this literal-versus-raw mate-application boundary; it
 does not assert a general bare-projection inference repair.
+The [native row-law continuation][native-row-laws] then qualifies three
+original library owners and the short-exact family reviewer. All 16 original
+library declarations, supplied inverses and reviewer polarities remain.
+The complete-composite comparisons retain every functor and avoid forcing
+an intermediate category before comparing the whole composite. One view is
+added and one existing view refined; no runtime cut or operational primitive
+is added. Focused, central and full staged-library scopes pass with unchanged
+warning multisets. Fresh coverage is 253 library/core files and 91 reviewers;
+538 core/library files and 505 reviewers remain unstaged. The five terminal
+runtime exclusions and the unfinished kernel-input/column and production
+gates remain. R12 retains the measured normalization/allocation cost, including
+the new library run's 2,147,808KiB RSS under its explicit 4GiB guard.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -319,5 +331,6 @@ that all possible alternatives or future regressions have been discovered.
 [terminal-family-continuation]: ../emdash2/audits/strict-default-action-boundary/production_terminal_family_continuation_review.md
 [kernel-cokernel-paths]: ../emdash2/audits/strict-default-action-boundary/production_kernel_cokernel_path_review.md
 [cokernel-reconstruction]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_reconstruction_review.md
+[native-row-laws]: ../emdash2/audits/strict-default-action-boundary/production_native_row_laws_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md

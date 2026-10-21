@@ -1,0 +1,10 @@
+// The output composite of precomposition and a postcomposition view may
+// expose different intermediate categories. Compare their complete composites.
+// lhs-audit: keep 1,2,3,4,5,6 -- identity Cat action and complete endpoints are retained.
+unif_rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $Z $W $X $h (@comp_fapp0 Cat_cat $X $M $Z $q $p)
+  ≡ @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      $W1 $X1 $Z1 $q1 $h1
+  ↪ [ $W1 ≡ $W; $Z1 ≡ $Z;
+      (@comp_fapp0 Cat_cat $W $X $Z (@comp_fapp0 Cat_cat $X $M $Z $q $p) $h)
+        ≡ (@comp_fapp0 Cat_cat $W1 $X1 $Z1 $q1 $h1) ];

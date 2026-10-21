@@ -308,6 +308,16 @@ def main():
                  'production_cokernel_reconstruction_reviewer.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_native_row_laws_migration import finish_native_row_laws
+    for name in ('production_native_row_laws_migration.py',
+                 'production_prepost_composite_comparison.lpfragment',
+                 'production_complete_outer_post_comparison.lpfragment',
+                 'production_zero_family_paths.lpfragment',
+                 'production_short_exact_families.lpfragment',
+                 'production_kernel_family_restriction_paths.lpfragment',
+                 'production_short_exact_families_reviewer.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5772,6 +5782,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use the existing fixed-postcomposition Hom owner, retain literal mate classifiers at the whole comparison boundary, and preserve actual quotient and inverse data',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(cokernel_reconstruction)})
                 text = cokernel_reconstruction
+            native_row_laws = finish_native_row_laws(path, text)
+            if native_row_laws is not None:
+                changes.append({'source': path, 'owner': 'original whole zero and short-exact family laws',
+                                'reason': 'Retain the selected row maps and inverses at native diagram coefficients; compare complete Cat composites before inferred middle categories',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(native_row_laws)})
+                text = native_row_laws
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5817,6 +5833,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('emdash3_2_adjunction_untranspose_naturality.lp')
     stage('examples/one_cat_cokernel_family_descent.lp')
     stage('examples/one_cat_cokernel_family_reconstruction.lp')
+    stage('examples/one_cat_short_exact_families.lp')
+    stage('emdash3_2_one_cat_kernel_family_restriction_paths.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

@@ -1,0 +1,6 @@
+unif_rule @comp_fapp0 Cat_cat $B $L $R $G
+    (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $B $C $L $F $A)
+  ≡ @comp_fapp0 Cat_cat $B1 $L1 $R1 $H $X
+  ↪ [ $B1 ≡ $B; $R1 ≡ $R;
+      (@comp_fapp0 Cat_cat $B $C $R (@comp_fapp0 Cat_cat $C $L $R $G $F) $A)
+        ≡ (@comp_fapp0 Cat_cat $B1 $L1 $R1 $H $X) ];
