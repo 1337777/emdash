@@ -1,0 +1,15 @@
+// Type the existing represented-map introduction before specializing its coefficient.
+// This transparent reviewer definition retains the original Homdc-frame input.
+symbol reviewer_represented_homdc_map [A B : Cat] (F : τ (Functor A B))
+  [a0 a1 : τ (Obj A)] [b0 b1 : τ (Obj B)]
+  [h0 : τ (Hom B (@fapp0 A B F a0) b0)]
+  [h1 : τ (Hom B (@fapp0 A B F a1) b1)]
+  (p : τ (Hom A a0 a1)) (q : τ (Hom B b0 b1))
+  (theta : τ (Obj (@homdc_fibre A B
+    (@comp_cat_fapp0 (Op_cat A) (Functor_cart_cat B Cat_cart) (Catd_cat B)
+      (Functor_cart_include B Cat_cart) (@represented_comma_prof A B F))
+    a0 a1 b0 b1 h0 h1 p q)))
+  : τ (Hom (@RepresentedComma_cat A B F)
+      (@represented_comma_obj A B F a0 b0 h0)
+      (@represented_comma_obj A B F a1 b1 h1))
+≔ @represented_comma_map A B F a0 a1 b0 b1 h0 h1 p q theta;

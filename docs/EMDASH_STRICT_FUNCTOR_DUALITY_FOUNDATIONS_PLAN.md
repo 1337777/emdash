@@ -42,6 +42,40 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Zero-arrow input continuation after `3d43c5a7`, 2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_zero_arrow_input_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_zero_arrow_input_verification.json)
+qualify five additional original library modules and four original reviewers.
+The zero-composite inputs reuse the existing Cartesian square action and its
+oplax inclusion. Their original arrows, zero equations and OneCat hypotheses
+are retained. The Cartesian body is shared by a defined intermediate owner;
+expanding it recovers the old ordinary-arrow module exactly.
+
+Chain-map observations use whole evaluation and retain their Homdc-frame
+filler through a generically typed reviewer definition. The native inverse
+proof uses the same two Sigma eliminations, now typed at the generic
+represented-map owner, and the original typed constructor in its branch.
+Both supplied inverse data and both laws remain. No rewrite/unification rule,
+operational equality payload or new assumption is added. Bare specialized
+inference remains an R06 limitation; the helper does not claim to repair it.
+
+The final emitted-source integration passes 3,429 assertions (3,008 positive,
+421 negative) in 518.425s/1,743,264KiB under 600s/4GiB/o=20 through the isolated
+checker, with SR and warnings. It covers 193 registered library/core files and
+all 78 staged reviewers, excluding the same five terminal positives. The
+first integration log completed but lost its receipt writer across a tool/turn
+handoff; the independent bounded replay supplies the actual successful
+receipt. No installed binary or default resource profile changes.
+
+The 2,489 warning bodies include two newly co-loaded existing NType versus
+Kleisli/co-Kleisli composition families; retain these in R07. Changed owners
+add no warning bodies. The core and full central diagnostic hashes remain
+unchanged. Another 598 library/core files and 518 reviewers remain unstaged.
+Next migrate the original introduced-terminal-input comparison consumer,
+preserving its actual diagrams, map and inverse data. Required terminal
+computations, broader migration, supported checker qualification and production
+promotion remain open.
+
 Diagram-observation continuation after `73287219`: the
 [review](../emdash2/audits/strict-default-action-boundary/production_diagram_observation_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_diagram_observation_verification.json)

@@ -14,3 +14,27 @@ symbol represented_comma_map [A B : Cat] [F : τ (Functor A B)]
       (@represented_comma_obj A B F x0 y0 h0)
       (@represented_comma_obj A B F x1 y1 h1))
 ≔ Struct_sigma a (Struct_sigma b alpha);
+
+// Two nested Sigma eliminations at the existing represented-map owner.
+// The coefficient remains generic while the native Hom's binders are checked.
+symbol represented_comma_map_ind [A B : Cat] (F : τ (Functor A B))
+  [a0 a1 : τ (Obj A)] [b0 b1 : τ (Obj B)]
+  [h0 : τ (Hom B (@fapp0 A B F a0) b0)]
+  [h1 : τ (Hom B (@fapp0 A B F a1) b1)]
+  (M : τ (Hom (@RepresentedComma_cat A B F)
+      (@represented_comma_obj A B F a0 b0 h0)
+      (@represented_comma_obj A B F a1 b1 h1)) → Grpd)
+  (step : Π p : τ (Hom A a0 a1), Π q : τ (Hom B b0 b1),
+    Π alpha : τ (Hom (Hom_cat B (@fapp0 A B F a0) b1)
+      (@comp_fapp0 B (@fapp0 A B F a0) b0 b1 q h0)
+      (@comp_fapp0 B (@fapp0 A B F a0) (@fapp0 A B F a1) b1 h1
+        (@fapp1_fapp0 A B F a0 a1 p))),
+    τ (M (@represented_comma_map A B F a0 a1 b0 b1 h0 h1 p q alpha)))
+  (m : τ (Hom (@RepresentedComma_cat A B F)
+      (@represented_comma_obj A B F a0 b0 h0)
+      (@represented_comma_obj A B F a1 b1 h1)))
+  : τ (M m)
+≔ @sigma_ind _ _ M
+    (λ p : τ (Hom A a0 a1), λ rest : τ _,
+      @sigma_ind _ _ (λ r : τ _, M (Struct_sigma p r))
+        (λ q : τ (Hom B b0 b1), λ alpha : τ _, step p q alpha) rest) m;

@@ -1,0 +1,6 @@
+// Original input, mate, chain-map and inverse observations, with retained data.
+require open emdash.examples.one_cat_arrow_diagrams;
+require open emdash.examples.one_cat_zero_arrow_inputs;
+require open emdash.examples.kernel_cokernel_adjunction_observations;
+require open emdash.examples.one_cat_zero_cone_maps;
+require open emdash.examples.one_cat_zero_cone_map_equivalences;

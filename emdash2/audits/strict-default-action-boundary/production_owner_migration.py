@@ -267,6 +267,11 @@ def main():
     from production_diagram_observation_migration import migrate_diagram_observation
     diagram_migration_source = audit / 'production_diagram_observation_migration.py'
     inputs[str(diagram_migration_source.relative_to(root))] = sha(diagram_migration_source.read_text())
+    from production_zero_arrow_input_migration import migrate_zero_arrow_input, share_arrow_cart_owner
+    zero_arrow_migration_source = audit / 'production_zero_arrow_input_migration.py'
+    inputs[str(zero_arrow_migration_source.relative_to(root))] = sha(zero_arrow_migration_source.read_text())
+    zero_arrow_reviewer_source = audit / 'production_zero_arrow_frame_reviewer.lpfragment'
+    inputs[str(zero_arrow_reviewer_source.relative_to(root))] = sha(zero_arrow_reviewer_source.read_text())
 
     def fragment(name):
         path = audit / name
@@ -2065,6 +2070,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Use the established whole oplax evaluation owners, total-dual initial hypothesis and explicit ordinary point decoders; preserve original mates, selected inverse data and OneCat guards without new rules or proof inputs',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(diagram_observation)})
                 text = diagram_observation
+            zero_arrow_input = migrate_zero_arrow_input(path, text)
+            if zero_arrow_input is not None:
+                changes.append({'source': path, 'owner': 'existing zero-composite inputs and native chain-map observations',
+                                'reason': 'Use the existing Cartesian square action and its oplax inclusion, whole fixed evaluation, and the actual included Homdc family; retain the original arrows, filler, zero equations and OneCat guards',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(zero_arrow_input)})
+                text = zero_arrow_input
             comma_profiles = {
                 'emdash3_2_zero_arrow_cones.lp': (2, 6, 1, 1),
                 'emdash3_2_zero_arrow_cone_maps.lp': (0, 10, 1, 3),
@@ -2536,8 +2547,9 @@ symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
                 anchor = 'symbol one_cat_arrow_diagram_func\n'
                 assert text.count(anchor) == 1
                 text = text.replace(anchor, fragment('production_cartesian_arrow_point.lpfragment') + '\n' + anchor, 1)
+                text = share_arrow_cart_owner(text)
                 changes.append({'source': path, 'owner': 'ordinary-target arrow diagrams',
-                                'reason': 'Correct the total-dual identity guard and reuse existing OneCat strict-transfor admission with Cartesian exchange; preserve the public ordinary diagram target and original square data',
+                                'reason': 'Correct the total-dual identity guard and reuse existing OneCat strict-transfor admission with Cartesian exchange; share that defined Cartesian body with the zero-input oplax view, preserving the public ordinary target and original square data',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
             if path == 'examples/one_cat_arrow_diagrams.lp':
                 old = text
@@ -5712,6 +5724,10 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_zero_cone_fibre_inclusion.lp')
     stage('examples/one_cat_diagram_map_equivalences.lp')
     stage('examples/homology_family_point_diagrams.lp')
+    stage('examples/kernel_cokernel_adjunction_observations.lp')
+    stage('examples/one_cat_zero_cone_maps.lp')
+    stage('examples/one_cat_zero_arrow_inputs.lp')
+    stage('examples/one_cat_zero_cone_map_equivalences.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
