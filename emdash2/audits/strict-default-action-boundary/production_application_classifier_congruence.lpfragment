@@ -1,0 +1,5 @@
+// Same actual functor and argument; compare only their classifier presentations.
+// This is sufficient congruence, not injectivity of functor application.
+// lhs-audit: keep 1,2 -- both classifier presentations are explicit subcomparisons.
+unif_rule @fapp0 $A $B $F $x ≡ @fapp0 $A0 $B0 $F $x
+  ↪ [ $A ≡ $A0; $B ≡ $B0 ];

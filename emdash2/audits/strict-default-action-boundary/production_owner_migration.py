@@ -300,6 +300,14 @@ def main():
                  'production_kernel_cokernel_family_paths.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_cokernel_reconstruction_migration import finish_cokernel_reconstruction
+    for name in ('production_cokernel_reconstruction_migration.py',
+                 'production_application_classifier_congruence.lpfragment',
+                 'production_cokernel_projection_paths.lpfragment',
+                 'production_cokernel_reconstruction.lpfragment',
+                 'production_cokernel_reconstruction_reviewer.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5758,6 +5766,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Preserve the original whole statements and selected mates at the native coefficient; compare all parents and transfor data at a shared evaluation point without changing runtime action',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(kernel_cokernel_paths)})
                 text = kernel_cokernel_paths
+            cokernel_reconstruction = finish_cokernel_reconstruction(path, text)
+            if cokernel_reconstruction is not None:
+                changes.append({'source': path, 'owner': 'whole native cokernel projection and reconstruction',
+                                'reason': 'Use the existing fixed-postcomposition Hom owner, retain literal mate classifiers at the whole comparison boundary, and preserve actual quotient and inverse data',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(cokernel_reconstruction)})
+                text = cokernel_reconstruction
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5802,6 +5816,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/action_profile_profile_action_path_controls.lp')
     stage('emdash3_2_adjunction_untranspose_naturality.lp')
     stage('examples/one_cat_cokernel_family_descent.lp')
+    stage('examples/one_cat_cokernel_family_reconstruction.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

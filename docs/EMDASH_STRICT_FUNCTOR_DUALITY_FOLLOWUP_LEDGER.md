@@ -99,6 +99,18 @@ runtime exclusions. The library warning scope/order differences are recorded
 by existing owner families under R07. The full column consumers and production
 qualification remain open; 445–450 second central/library checks still leave
 normalization usability under R12 unresolved.
+The [cokernel reconstruction continuation][cokernel-reconstruction] next
+qualifies all seven original projection declarations, both whole
+reconstruction/cancellation laws and their unchanged-polarity reviewer. It
+uses the existing fixed-postcomposition Hom owner and a derived mapped mate
+comparison. One proof-time application congruence retains the same F and x
+and compares both classifiers; no runtime rule or operational evidence is
+added. Fresh central and complete staged-library checks pass with unchanged
+warning multisets. Coverage reaches 250 library/core files and 90 reviewers,
+leaving 541 core/library files and 506 reviewers unstaged. The five central
+runtime exclusions and all production gates remain. The R06 annotation
+review now includes this literal-versus-raw mate-application boundary; it
+does not assert a general bare-projection inference repair.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -306,5 +318,6 @@ that all possible alternatives or future regressions have been discovered.
 
 [terminal-family-continuation]: ../emdash2/audits/strict-default-action-boundary/production_terminal_family_continuation_review.md
 [kernel-cokernel-paths]: ../emdash2/audits/strict-default-action-boundary/production_kernel_cokernel_path_review.md
+[cokernel-reconstruction]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_reconstruction_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md

@@ -1,0 +1,5 @@
+// Preserve actual functor and object data in classifier comparison.
+assertnot [A B : Cat] (F G : τ (Functor A B)) (x : τ (Obj A)) ⊢
+ @eq_refl (Obj B) (@fapp0 A B F x) : τ (@= (Obj B) (@fapp0 A B F x) (@fapp0 A B G x));
+assertnot [A B : Cat] (F : τ (Functor A B)) (x y : τ (Obj A)) ⊢
+ @eq_refl (Obj B) (@fapp0 A B F x) : τ (@= (Obj B) (@fapp0 A B F x) (@fapp0 A B F y));

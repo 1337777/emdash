@@ -42,6 +42,33 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Cokernel reconstruction continuation after `15f2e691`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_cokernel_reconstruction_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_cokernel_reconstruction_verification.json)
+qualify the original whole projection, reconstruction and cancellation
+owners and their reviewer. All nine public declarations and original test
+polarities remain. The projection uses the existing fixed-postcomposition
+Hom owner; literal mate annotations are retained at the comparison boundary.
+One derived helper maps the mate comparison through whole fixed evaluation.
+No runtime rule, operational primitive, new caller evidence or stronger
+naturality premise is introduced. A sufficient proof-time congruence compares
+classifiers only when the actual F and x are shared. The original runtime
+observations and new functor/object noncollapse controls pass.
+
+The focused run passes 10 positive and four negative assertions in
+84.542s/1,019,824KiB. Fresh central and complete staged-library regressions
+then pass 2,183/290 and 939/155 positive/negative assertions respectively,
+under serial 600s/4GiB/o=20 guards with SR and warnings. Measurements are
+330.950s/1,786,696KiB and 350.484s/1,913,360KiB. Focused, central and library
+warning multisets match their corresponding preceding scopes exactly.
+All checked registered inputs match current emission. Coverage is now 250
+library/core files and 90 reviewers, with 541 core/library files and 506
+reviewers unstaged. The five original terminal runtime exclusions remain;
+the core and full central diagnostic bytes are unchanged. Continue the
+original kernel-side and row/column prerequisites. Full columns,
+normalization usability, supported-checker qualification and production
+promotion remain open; these passes do not close the goal.
+
 Kernel/cokernel-path continuation after `481f0fd0`, 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_kernel_cokernel_path_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_cokernel_path_verification.json)

@@ -1,0 +1,27 @@
+require open emdash.emdash3_2_one_cat_adjunction_family_views;
+require open emdash.emdash3_2_hom_action_factorization_views;
+require open emdash.central_full_context_except_terminal;
+require open emdash.examples.one_cat_whiskering_paths;
+require open emdash.examples.one_cat_cokernel_family_descent;
+require open emdash.examples.one_cat_cokernel_family_reconstruction;
+// The same typed component observation must retain its actual transfor.
+assertnot [A B : Cat] (F G : τ (Functor A B))
+ (eta theta : τ (@Transf A B F G)) (x : τ (Obj A)) ⊢
+ @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B G x)) (@tapp0_fapp0 A B F G x eta)
+ : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G x))
+     (@tapp0_fapp0 A B F G x eta) (@tapp0_fapp0 A B F G x theta));
+
+// Equal endpoint objects do not erase the base evaluation point.
+assertnot [A B : Cat] (u v : τ (Obj B))
+ (eta : τ (@Transf A B (@Const_func A B u) (@Const_func A B v)))
+ (x y : τ (Obj A)) ⊢
+ @eq_refl (Hom B u v) (@tapp0_fapp0 A B (@Const_func A B u) (@Const_func A B v) x eta)
+ : τ (@= (Hom B u v)
+     (@tapp0_fapp0 A B (@Const_func A B u) (@Const_func A B v) x eta)
+     (@tapp0_fapp0 A B (@Const_func A B u) (@Const_func A B v) y eta));
+
+// Preserve actual functor and object data in classifier comparison.
+assertnot [A B : Cat] (F G : τ (Functor A B)) (x : τ (Obj A)) ⊢
+ @eq_refl (Obj B) (@fapp0 A B F x) : τ (@= (Obj B) (@fapp0 A B F x) (@fapp0 A B G x));
+assertnot [A B : Cat] (F : τ (Functor A B)) (x y : τ (Obj A)) ⊢
+ @eq_refl (Obj B) (@fapp0 A B F x) : τ (@= (Obj B) (@fapp0 A B F x) (@fapp0 A B F y));
