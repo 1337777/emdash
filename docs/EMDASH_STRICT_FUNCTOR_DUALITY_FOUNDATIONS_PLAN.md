@@ -42,6 +42,40 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native column homology-path continuation after `7f89160c`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_column_homology_paths_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_column_homology_paths_verification.json)
+qualify 47 original declarations across nineteen library files and both
+complete original column homology-path/middle-column reviewers. Existing
+native reflection, mapping profiles and fixed evaluation adapt the original
+proofs. Six library files and the complete homology-path reviewer are unchanged;
+the middle reviewer changes only five coefficient annotations. No rule,
+primitive, stronger premise or caller evidence is added.
+
+The full homology-path target passes five positives including imports in
+399.112s/2,141,900KiB under 600s/3GiB. Its unchanged 300s predecessor timed out
+during existing Freyd algebra imports after completing the generic comparison
+owners. The middle-column target passes thirteen positives including imports
+in 254.708s/1,771,288KiB under 300s/3GiB. SR, warnings, o=20, file/serial/no-swap
+guards remain enabled. These costs remain R12 evidence; defaults and the
+installed checker are unchanged.
+
+The full target's 2,310 warning bodies match its timed-out predecessor.
+Its differences from the prior column scope concern existing NType and
+odd/even-duality overlaps at byte-identical runtime owners. The middle
+reviewer's 2,316-body multiset exactly matches the preceding column reviewer.
+No confluence claim follows. All fresh inputs match emission; all 401 previous
+qualified files rehash unchanged, preserving their scoped core/library carry.
+
+Coverage reaches 314 library/core files and 108 complete reviewers, with
+477/488 unstaged. The selected native column homology-path and middle-column
+consumers are now qualified. Next migrate the original chain-pair/Freyd H-map
+record consumers (`one_cat_chain_pair_homology_maps`,
+`freyd_adjunction_homology_maps`, `freyd_adjunction_model_observations`).
+The five terminal runtime observations, remaining migration, normalization,
+supported toolchain and production gates remain required. Everything remains
+non-library staging.
+
 Native family-action continuation after `20dee463`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_family_actions_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_family_actions_verification.json)

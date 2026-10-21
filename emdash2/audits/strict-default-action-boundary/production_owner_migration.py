@@ -371,6 +371,9 @@ def main():
                  *(fragment for _, fragment in FAMILY_ACTIONS.values())):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_column_homology_paths_migration import finish_column_homology_paths
+    path = audit / 'production_column_homology_paths_migration.py'
+    inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5889,6 +5892,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Reuse native whole exchange/evaluation and existing canonical/raw mate comparisons; keep product-path families in Cat_cart',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(family_actions)})
                 text = family_actions
+            column_paths = finish_column_homology_paths(path, text)
+            if column_paths is not None:
+                changes.append({'source': path, 'owner': 'original native column diagram and homology comparisons',
+                                'reason': 'Use existing native mapping profiles, fixed evaluation and reflection while retaining the original whole proofs and data',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(column_paths)})
+                text = column_paths
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5957,6 +5966,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/functor_category_unit_views.lp')
     stage('examples/product_family_views.lp')
     stage('examples/product_family_action_views.lp')
+    stage('examples/freyd_native_column_homology_paths.lp')
+    stage('examples/freyd_native_middle_column_comparisons.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

@@ -236,6 +236,20 @@ the exact-log/hash inventory and measured 332–345s broad-check costs under
 explicit 4GiB profiles. The full native column homology-path consumer remains
 next; this slice qualifies its shared family actions, not that entire reviewer.
 R01–R03, remaining migration and production qualification remain open.
+The [native column homology-path continuation][column-homology-paths] then
+qualifies 47 original declarations across nineteen library files and both
+complete original homology-path/middle-column reviewers. Native reflection
+and fixed evaluation adapt the original proofs without new rules, primitives
+or stronger assumptions. Six library files and the homology-path reviewer are
+unchanged. The middle reviewer retains all ten assertions with five native
+coefficient annotations. The full homology-path run passes in 399.112s under
+600s/3GiB after an identical-input 300s import timeout; the middle run passes
+in 254.708s under 300s/3GiB. Scope-dependent existing NType/duality warning
+families remain R07/R12 evidence, with no global convergence claim.
+All 401 previously qualified files remain byte-identical; current coverage is
+314 library/core files and 108 reviewers, leaving 477/488 unstaged. R10 next
+follows the original chain-pair/Freyd H-map record reviewers and prerequisites.
+R01–R03 and normalization/toolchain/production qualification remain open.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -453,5 +467,6 @@ that all possible alternatives or future regressions have been discovered.
 [native-column-entry]: ../emdash2/audits/strict-default-action-boundary/production_native_column_entry_review.md
 [column-projection]: ../emdash2/audits/strict-default-action-boundary/production_column_projection_review.md
 [family-actions]: ../emdash2/audits/strict-default-action-boundary/production_family_actions_review.md
+[column-homology-paths]: ../emdash2/audits/strict-default-action-boundary/production_column_homology_paths_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md
