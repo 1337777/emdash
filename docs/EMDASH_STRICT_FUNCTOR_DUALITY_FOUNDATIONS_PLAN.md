@@ -42,6 +42,44 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Freyd native-entry continuation after `1492ee94`, 2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_freyd_entry_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_freyd_entry_verification.json)
+qualify the native input/map and constant-row prerequisites for the column
+consumers. The closure adds 49 registered files; 38 are unchanged from the
+source pin. Original chain and raw-morphism data, whole action, supplied Z/P/Q
+model data and the ordinary chain-diagram API remain. Native views use the
+actual coefficient inclusion and typed zero-cone constructor. Existing
+derived reflection bodies are shared at their common OneCat owner; the
+introduced-input names delegate to them and are rechecked.
+
+The old next-Hom factorization views matched a projection that now reduces
+first. Two legacy unifiers are replaced by one general comparison of the
+complete stable factorizations, retaining every arrow and all four derived
+endpoints. Runtime is unchanged, and the original generic whiskering source
+and reviewer pass. No OneCat-only proof substitutes for that generic promise.
+The whole family-naturality proof instead uses existing OneCat modification
+operations without restricting its arbitrary source alpha to be strict.
+
+The entry/row/whiskering driver passes 37 positive and seven negative
+assertions, plus the original whole-Hom query and declaration bodies, in
+168.896s/1,157,444KiB under 300s/2GiB/o=20. The new comparison is also loaded
+before the central selection: all 2,435 selected central assertions and 66
+declarations, plus twelve original whiskering assertions, pass in
+443.827s/1,806,744KiB under 600s/4GiB/o=20. Both use the isolated checker with
+SR, warnings and source loading. Warning multisets match their respective
+baselines exactly; no runtime rule is added and the unifier count decreases
+by one at the changed owner. Large allocation/normalization cost remains R12.
+
+The prior integration's changed input is a conservative append of derived
+definitions to an otherwise byte-identical module. It is explicitly reviewed
+carry, not automatic reuse of a mismatched receipt. Coverage with that carry
+reaches 238 library/core files and 84 reviewers; 553 library/core files and
+512 reviewers remain unstaged. The five terminal Homd obligations and
+production qualification remain open. Full column/middle-column reviewers
+have not passed: continue at `one_cat_terminal_family_universality`'s old
+diagram profile, then through the native row/column consumer closure.
+
 Introduced-input continuation after `679e5fa3`, 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_introduced_input_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_introduced_input_verification.json)

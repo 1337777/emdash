@@ -276,6 +276,12 @@ def main():
     for name in ('production_introduced_input_migration.py', 'production_introduced_input_reflection.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_freyd_entry_migration import finish_freyd_entry
+    for name in ('production_freyd_entry_migration.py', 'production_one_cat_oplax_reflection.lpfragment',
+                 'production_native_chain_pair_maps.lpfragment', 'production_hom_action_factorization_views.lpfragment',
+                 'production_one_cat_family_naturality_paths.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5710,6 +5716,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                 changes.append({'source': path, 'owner': 'displayed-profile observations',
                                 'reason': 'Retain the original assertions with the actual family coefficient and whole Hom target; ordinary extracted-cell properties keep Functor_cat',
                                 'oldBodySha256': sha(old), 'newBodySha256': sha(text)})
+            freyd_entry = finish_freyd_entry(path, text)
+            if freyd_entry is not None:
+                changes.append({'source': path, 'owner': 'native Freyd entry and shared whole OneCat comparisons',
+                                'reason': 'Retain native input/map data through the actual coefficient inclusion and typed constructor; share existing derived reflection, preserve whole Hom factorization and use its actual normalization views without new runtime rules',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(freyd_entry)})
+                text = freyd_entry
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5739,6 +5751,13 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_zero_arrow_inputs.lp')
     stage('examples/one_cat_zero_cone_map_equivalences.lp')
     stage('examples/introduced_terminal_input_comparisons.lp')
+    stage('examples/one_cat_chain_pair_native_maps.lp')
+    stage('examples/freyd_native_inputs.lp')
+    stage('examples/freyd_native_maps.lp')
+    stage('examples/freyd_native_row_families.lp')
+    stage('examples/one_cat_whiskering_paths.lp')
+    stage('emdash3_2_commutative_algebra_freyd_adjunction_models.lp')
+    stage('emdash3_2_one_cat_family_naturality_paths.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
