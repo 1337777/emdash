@@ -1,0 +1,2409 @@
+{
+  "status": "Original square-family, kernel/cokernel and homology family actions and required product/reindexing support qualified in non-library staging. Full native column homology-path consumer and production qualification remain open.",
+  "predecessor": "20dee463",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "newQualifiedRegisteredFiles": [
+    "emdash3_2_functor_category_unit_views.lp",
+    "emdash3_2_groupoidal_closure.lp",
+    "emdash3_2_one_cat_adjunction_family_reindex.lp",
+    "emdash3_2_one_cat_adjunction_transpose_paths.lp",
+    "emdash3_2_one_cat_arrow_family_maps.lp",
+    "emdash3_2_one_cat_homology_family_maps.lp",
+    "emdash3_2_one_cat_kernel_cokernel_family_maps.lp",
+    "emdash3_2_product_family_action_views.lp",
+    "emdash3_2_product_family_views.lp",
+    "emdash3_2_reindex_composition_paths.lp",
+    "examples/functor_category_unit_views.lp",
+    "examples/one_cat_homology_family_maps.lp",
+    "examples/product_family_action_views.lp",
+    "examples/product_family_views.lp"
+  ],
+  "retainedDeclarations": {
+    "emdash3_2_functor_category_unit_views.lp": {
+      "names": [],
+      "unchangedSource": true,
+      "runtimeRules": 0,
+      "unificationRules": 2
+    },
+    "emdash3_2_groupoidal_closure.lp": {
+      "names": [
+        "PathProduct_cat",
+        "PathProductHom_grpd",
+        "PathProductComponentHom_grpd",
+        "path_product_compare_func",
+        "path_product_compare_hom",
+        "product_const_pathover_path_const",
+        "product_const_pathover_const_path",
+        "path_product_split",
+        "path_product_join",
+        "path_product_split_join",
+        "path_product_join_split",
+        "path_product_compare_hom_agrees",
+        "path_product_compare_hom_left",
+        "path_product_compare_hom_right",
+        "path_product_compare_hom_by_inverse",
+        "path_product_compare_hom_type_equiv",
+        "PathProductComparisonEvidence",
+        "path_product_comparison_evidence",
+        "path_product_comparison_object_path",
+        "path_product_comparison_hom_equiv",
+        "product_pair_path",
+        "path_product_split_refl",
+        "product_pair_path_refl",
+        "product_path_transport",
+        "product_path_transport_pair_refl",
+        "product_transport_direct",
+        "product_transport_base_then_fibre",
+        "product_transport_fibre_then_base",
+        "product_transport_base_then_fibre_refl",
+        "product_transport_fibre_then_base_refl",
+        "product_transport_direct_agrees_base_then_fibre",
+        "product_transport_direct_agrees_fibre_then_base",
+        "product_transport_coherence_diamond",
+        "ProductPathFamily_catd",
+        "product_path_structured_transport",
+        "product_path_structured_induction",
+        "product_path_structured_transport_agrees_primitive",
+        "product_path_structured_induction_agrees_primitive"
+      ],
+      "unchangedSource": false,
+      "runtimeRules": 0,
+      "unificationRules": 0
+    },
+    "emdash3_2_one_cat_adjunction_family_reindex.lp": {
+      "names": [
+        "one_cat_transpose_reindex_path",
+        "one_cat_untranspose_reindex_path"
+      ],
+      "unchangedSource": true,
+      "runtimeRules": 0,
+      "unificationRules": 2
+    },
+    "emdash3_2_one_cat_adjunction_transpose_paths.lp": {
+      "names": [
+        "one_cat_transpose_point_semantic_path",
+        "one_cat_transpose_postcomp_path",
+        "one_cat_transpose_precomp_path"
+      ],
+      "unchangedSource": true,
+      "runtimeRules": 0,
+      "unificationRules": 0
+    },
+    "emdash3_2_one_cat_arrow_family_maps.lp": {
+      "names": [
+        "one_cat_square_family_transf",
+        "one_cat_square_family_src_path",
+        "one_cat_square_family_tgt_path"
+      ],
+      "unchangedSource": false,
+      "runtimeRules": 0,
+      "unificationRules": 0
+    },
+    "emdash3_2_one_cat_homology_family_maps.lp": {
+      "names": [
+        "one_cat_homology_family_boundary_map_path",
+        "one_cat_homology_family_boundary_map",
+        "one_cat_homology_family_map_transf",
+        "one_cat_homology_family_map_projection_path"
+      ],
+      "unchangedSource": false,
+      "runtimeRules": 0,
+      "unificationRules": 0
+    },
+    "emdash3_2_one_cat_kernel_cokernel_family_maps.lp": {
+      "names": [
+        "kernel_adjunction_family_map_transf",
+        "cokernel_adjunction_family_map_transf",
+        "one_cat_kernel_family_map_inclusion_path",
+        "one_cat_cokernel_family_map_projection_path"
+      ],
+      "unchangedSource": false,
+      "runtimeRules": 0,
+      "unificationRules": 0
+    },
+    "emdash3_2_product_family_action_views.lp": {
+      "names": [
+        "diagonal_family_action_path",
+        "diagonal_family_native_proj1_path",
+        "diagonal_family_native_proj2_path"
+      ],
+      "unchangedSource": true,
+      "runtimeRules": 0,
+      "unificationRules": 5
+    },
+    "emdash3_2_product_family_views.lp": {
+      "names": [
+        "product_diagonal_func",
+        "product_transf_component_path"
+      ],
+      "unchangedSource": true,
+      "runtimeRules": 0,
+      "unificationRules": 9
+    },
+    "emdash3_2_reindex_composition_paths.lp": {
+      "names": [
+        "functor_hom_comp_path",
+        "prewhisker_native_assoc_hom_path",
+        "prewhisker_native_assoc_path",
+        "prewhisker_assoc_path",
+        "prewhisker_identity_path",
+        "prewhisker_comp_path"
+      ],
+      "unchangedSource": true,
+      "runtimeRules": 0,
+      "unificationRules": 0
+    }
+  },
+  "originalReviewerPolarities": {
+    "examples/functor_category_unit_views.lp": {
+      "assert": 2,
+      "assertnot": 6
+    },
+    "examples/one_cat_homology_family_maps.lp": {
+      "assert": 2
+    },
+    "examples/product_family_action_views.lp": {
+      "assert": 10,
+      "assertnot": 5
+    },
+    "examples/product_family_views.lp": {
+      "assert": 9,
+      "assertnot": 8
+    }
+  },
+  "newRuntimeRulesRelativeToOriginalSource": 0,
+  "newUnificationRulesRelativeToOriginalSource": 0,
+  "newOperationalPrimitivesRelativeToOriginalSource": 0,
+  "newlyLoadedInheritedUnifiers": {
+    "emdash3_2_functor_category_unit_views.lp": {
+      "unchangedFromSourcePin": true,
+      "unificationRules": 2,
+      "runtimeRules": 0
+    },
+    "emdash3_2_product_family_views.lp": {
+      "unchangedFromSourcePin": true,
+      "unificationRules": 9,
+      "runtimeRules": 0
+    },
+    "emdash3_2_product_family_action_views.lp": {
+      "unchangedFromSourcePin": true,
+      "unificationRules": 5,
+      "runtimeRules": 0
+    },
+    "emdash3_2_one_cat_adjunction_family_reindex.lp": {
+      "unchangedFromSourcePin": true,
+      "unificationRules": 2,
+      "runtimeRules": 0
+    }
+  },
+  "manualRuleReview": "Original unit views retain classifier, unit endpoints and actual arrow; product views retain observed coordinates, original factors, complete component data and parameter; same-mate views retain selected adjunction, forward/inverse choice and same input. No arbitrary naturality or pointwise extensionality is introduced. LHS script reports zero candidates but does not inventory these unification clauses; this manual review and actual typed/negative consumers supply the relevant check.",
+  "helperVisibilityChange": {
+    "name": "cokernel_family_mate_projection_view",
+    "typeAndBodyUnchanged": true,
+    "old": "protected symbol",
+    "new": "symbol",
+    "reason": "Reuse its existing canonical/raw mate comparison in the concrete family-map proof, without a duplicate helper."
+  },
+  "proofRepairs": "Whole square maps use existing native exchange and endpoint comparison paths. Kernel/cokernel proofs retain the original mate/naturality argument, selecting native evaluation-composition and composing the existing canonical/raw mate comparisons at two joins each. ProductPathFamily_catd uses Cat_cart in its path lift to match Catd.",
+  "receipts": {
+    "baseline": {
+      "id": "20261021T115236Z-c44b69740146436a9469bbee9ec4d659",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 55.42191088013351,
+      "childrenMaxRssKiB": 1264576,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "35aaca9b91e2717066c943af2016791e239c86e0384d615d08ec7a08ba6b75ec",
+      "logSha256": "6652e52acd749994265d4a992477097bb78c9124c0e0d285371b5b59cfdd4292",
+      "sourceAssertionCounts": {
+        "assert": 5
+      },
+      "warningBodies": 2154,
+      "log": "logs/check-runs/20261021T115236Z-c44b69740146436a9469bbee9ec4d659.log"
+    },
+    "square": {
+      "id": "20261021T115753Z-016183a9abcd4c349318c7d88212e111",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 52.50130004086532,
+      "childrenMaxRssKiB": 1268780,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "58a50dae61e5219114b5b7ec929f8d8e5f1a96466f871d70ecb0704a4af9afb1",
+      "logSha256": "0410d11d5b6a731ddbcfeedc32f395b793b2ae904d481cd95e9cebfe35efcdde",
+      "sourceAssertionCounts": {
+        "assert": 3
+      },
+      "warningBodies": 2154,
+      "log": "logs/check-runs/20261021T115753Z-016183a9abcd4c349318c7d88212e111.log"
+    },
+    "groupoidalFailure": {
+      "id": "20261021T120428Z-e077e14ba98e4a6cabc0def86a68fd04",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 80.32816976006143,
+      "childrenMaxRssKiB": 1498824,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "5d50c3f83d55cd81d86b0e4cf5a6971bd02c821c5acadcd8428523118d8cb9b8",
+      "logSha256": "ef0c627c67f6e7db9854a69741dedf8ac0bd91a4a03d6a6bd42e1b2a92595228",
+      "sourceAssertionCounts": {
+        "assert": 5
+      },
+      "warningBodies": 2154,
+      "log": "logs/check-runs/20261021T120428Z-e077e14ba98e4a6cabc0def86a68fd04.log"
+    },
+    "ordinaryEvaluationFailure": {
+      "id": "20261021T120926Z-096d01e3f1814066a890367377ef8d40",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 111.53795145195909,
+      "childrenMaxRssKiB": 1583028,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "a8b8333a30451d6be8fb0e12483222d59425e97604103b71b12f87061227a08d",
+      "logSha256": "9ee4d5a746bb703eb2e677a9e53a7327e7ead01bf054f33e69d2e4d04e1a927b",
+      "sourceAssertionCounts": {
+        "assert": 5
+      },
+      "warningBodies": 2154,
+      "log": "logs/check-runs/20261021T120926Z-096d01e3f1814066a890367377ef8d40.log"
+    },
+    "kernelMateFailure": {
+      "id": "20261021T121508Z-9c298b4bad004f3fa170a418eebcbefa",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 110.25743488012813,
+      "childrenMaxRssKiB": 1582288,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "70671f5ba066b9fb2f23dbc9f9ec3ab35de112837b29bc9ab893720247b3b6f4",
+      "logSha256": "2f953a11184e6cd00b170eee6af1802d9c6a35cf7189021c18cef1a8594da2ee",
+      "sourceAssertionCounts": {
+        "assert": 5
+      },
+      "warningBodies": 2154,
+      "log": "logs/check-runs/20261021T121508Z-9c298b4bad004f3fa170a418eebcbefa.log"
+    },
+    "cokernelMateFailure": {
+      "id": "20261021T122114Z-badca4e0d47446b2b45e29f6eb30d120",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 139.1616658391431,
+      "childrenMaxRssKiB": 1611296,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "93fbdd4b430de203f13030425e3f3a3bbbac27a86a0a0246ed97e6f5fba93a76",
+      "logSha256": "4d03c94263f0022f8804194946962116d47a894d1a1abeb8b98ec0c0e8461ff0",
+      "sourceAssertionCounts": {
+        "assert": 5
+      },
+      "warningBodies": 2154,
+      "log": "logs/check-runs/20261021T122114Z-badca4e0d47446b2b45e29f6eb30d120.log"
+    },
+    "familyMaps": {
+      "id": "20261021T122533Z-96390e7b30da4f5288f704c404cb56d0",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 143.6988076211419,
+      "childrenMaxRssKiB": 1640896,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "5a7283cad203e4025fa56c839923b02eb0573eeeffcfc0aa6305c7a229404abf",
+      "logSha256": "8f35b821da05e71aed18bfd585746db7e3b0941436924ce08ebd1ab60b681c7b",
+      "sourceAssertionCounts": {
+        "assert": 5
+      },
+      "warningBodies": 2162,
+      "log": "logs/check-runs/20261021T122533Z-96390e7b30da4f5288f704c404cb56d0.log"
+    },
+    "controlAnnotationFailure": {
+      "id": "20261021T122929Z-75d352896fa14c6d8e585183924255f5",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 162.76656740694307,
+      "childrenMaxRssKiB": 1646724,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "aa8dc9174d8b542cebae4faf40cfa8592b613d56b80f4cf81727ba768232762c",
+      "logSha256": "870c9f32a7c4f944796fe83eb70713d5c1b4b26be8b8420d1a00e15aa213b376",
+      "sourceAssertionCounts": {
+        "assert": 33,
+        "assertnot": 21
+      },
+      "warningBodies": 2162,
+      "log": "logs/check-runs/20261021T122929Z-75d352896fa14c6d8e585183924255f5.log"
+    },
+    "focused": {
+      "id": "20261021T123357Z-c57dcc642528464a91fba64c46f905fe",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 159.63942134799436,
+      "childrenMaxRssKiB": 1669928,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "39f4b8c6bb4522857c30690f1c3637784aa63c8ea5f9f6695d63e5f4fa8cadc6",
+      "logSha256": "505caabf64a16697cae38489322b76eb2dced207ba2a2d205bfb32e852d00c7e",
+      "sourceAssertionCounts": {
+        "assert": 33,
+        "assertnot": 21
+      },
+      "warningBodies": 2162,
+      "log": "logs/check-runs/20261021T123357Z-c57dcc642528464a91fba64c46f905fe.log"
+    },
+    "core": {
+      "id": "20261021T123750Z-a52fb116a6f249bdb7338b782c4fb473",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 332.14727266295813,
+      "childrenMaxRssKiB": 2115380,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "ca8416f2e72104376f1aafbbd518659751bffd9f6b90780252b02212db37f688",
+      "logSha256": "c5c7826e1a64a3f2185c913c1755179d3d7b457380ff35566f8ada952ed06a91",
+      "sourceAssertionCounts": {
+        "assert": 2227,
+        "assertnot": 317
+      },
+      "warningBodies": 2455,
+      "log": "logs/check-runs/20261021T123750Z-a52fb116a6f249bdb7338b782c4fb473.log"
+    },
+    "library": {
+      "id": "20261021T124323Z-7d5a8cb0917a4a0f92fe71db62cfd559",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 345.4191120530013,
+      "childrenMaxRssKiB": 2156452,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "f074b29bbbe28ff8243873ae404f603ba777a773cab2261be140af901de46881",
+      "logSha256": "2b669d4f285c84f015225627d5d3ab62b0513f9bf6605ac2b2129177eed95006",
+      "sourceAssertionCounts": {
+        "assert": 1082,
+        "assertnot": 193
+      },
+      "warningBodies": 2521,
+      "log": "logs/check-runs/20261021T124323Z-7d5a8cb0917a4a0f92fe71db62cfd559.log"
+    },
+    "previousCore": {
+      "id": "20261021T094003Z-32fe716c4ed845ba9851307f13cee2aa",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 294.30411143111996,
+      "childrenMaxRssKiB": 2126148,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "93a4581d183effdeecfe16cd3452f49b10ae72b43a2b1cab3190b65e074cda33",
+      "logSha256": "8052c79f85be668bc82463ea7daf26ec1899f76b680918b684803cbc52e5d4d6",
+      "sourceAssertionCounts": {
+        "assert": 2204,
+        "assertnot": 298
+      },
+      "warningBodies": 2449,
+      "log": "logs/check-runs/20261021T094003Z-32fe716c4ed845ba9851307f13cee2aa.log"
+    },
+    "previousLibrary": {
+      "id": "20261021T094458Z-583bca667d8c4dadbbfc5f0393504fb4",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 292.9820733300876,
+      "childrenMaxRssKiB": 2147852,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "1bc374ddde356584bb9c914613d84368c282476183525d70c063bb71e7701559",
+      "logSha256": "3b109514db3f00fe05fb226ecd4cdc96dc1f355785112e79d982a74b3db6f984",
+      "sourceAssertionCounts": {
+        "assert": 993,
+        "assertnot": 166
+      },
+      "warningBodies": 2509,
+      "log": "logs/check-runs/20261021T094458Z-583bca667d8c4dadbbfc5f0393504fb4.log"
+    }
+  },
+  "warningComparison": {
+    "controls": {
+      "new": "focused",
+      "old": "controlAnnotationFailure",
+      "equal": true,
+      "added": 0,
+      "absent": 0,
+      "addedOrigins": {},
+      "absentOrigins": {}
+    },
+    "core": {
+      "new": "core",
+      "old": "previousCore",
+      "equal": false,
+      "added": 24,
+      "absent": 18,
+      "addedOrigins": {
+        "[emdash3_2_diagram_evaluation.lp:24:0-25:44]": 2,
+        "[emdash3_2_diagram_evaluation.lp:27:0-28:45]": 2,
+        "[emdash3_2_diagram_evaluation.lp:36:0-37:32]": 4,
+        "[emdash3_2_diagram_evaluation.lp:38:0-39:32]": 4,
+        "[emdash3_2_diagram_evaluation.lp:64:0-66:54]": 6,
+        "[emdash3_2_diagram_evaluation.lp:67:0-69:56]": 6
+      },
+      "absentOrigins": {
+        "[emdash3_2_gray_profiles.lp:711:0-713:9]": 2,
+        "[emdash3_2_gray_profiles.lp:748:0-754:7]": 2,
+        "[emdash3_2_gray_profiles.lp:1336:0-1341:36]": 2,
+        "[emdash3_2_gray_profiles.lp:1344:0-1349:36]": 4,
+        "[emdash3_2_strict_functor_actions.lp:363:0-372:30]": 4,
+        "[emdash3_2_defiso_evaluation_points.lp:33:0-40:30]": 4
+      },
+      "changedBodies": {
+        "added": [
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:24:0-25:44]",
+            "bodySha256": "3cedd4360cddda482373082d69a7ec682fd15269eb6788debeb66144aac79719",
+            "bodyBytes": 593,
+            "initialTermAndRulePairSha256": "291496e7d254e67dcc5dc96d3dba7b01e65b0582982c474c2dccb3c9503421c3"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:24:0-25:44]",
+            "bodySha256": "8798f1c6426c32dde0be71f6a3b28884163a47567459239edb1242fa96d92cef",
+            "bodyBytes": 677,
+            "initialTermAndRulePairSha256": "5802d35a92f2bc3caa2a35532c89a817632e8c370d1dff1141d9da65607bd348"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:27:0-28:45]",
+            "bodySha256": "4ffb3d77d1e2a4b6549eb84dc4acfe1f39b7a114aed262b7f645e99a4c82552d",
+            "bodyBytes": 597,
+            "initialTermAndRulePairSha256": "1df4d1389d8bffd33076c9ab33b1161c14e8531304baad307990e8454cb675e9"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:27:0-28:45]",
+            "bodySha256": "a3a5c812c8f51419d0ab904d224cb73327fc31bef7994310aa0049d83b6262f5",
+            "bodyBytes": 681,
+            "initialTermAndRulePairSha256": "cf3332afa9eb6648913fa8888baf19dea80ac7821e8177e4134d8dba99004e9b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "5a63fbbaf7d3710cf0192c3f383e2859c4a6461d0611a7a868feb0665fa7777f",
+            "bodyBytes": 845,
+            "initialTermAndRulePairSha256": "0c32cca89ad36642783cd4da232d22ce79b63a18262c5613abf254c12faa708a"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "f6d547bf3d94095844e869846b9376311c6d8a4221336a9c30638c8cb91e8444",
+            "bodyBytes": 845,
+            "initialTermAndRulePairSha256": "e77af522906e8b66821a83ca3b23e7a8da99109259fac2f972a91f482bd03024"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "79172d309b6da75be9b1d354c52de3ae68646b9f4001ce9c4b300b58438f57cc",
+            "bodyBytes": 845,
+            "initialTermAndRulePairSha256": "312f788b35883a983705630d9f49a664e5854ee3d5df0dd37e22c98feeb84348"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "5de52df548d923bece10d6241de279f0543aa3dfcd1e0ad6cd2ec99b8e39d55c",
+            "bodyBytes": 845,
+            "initialTermAndRulePairSha256": "4444c85f0a5ce2b7fc73a6021417de144bf8e13e07154c509a801c2179572df3"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:38:0-39:32]",
+            "bodySha256": "811471554d8a35a87a0b15438c0004bc32495c5907f18afe3eec52367364dcad",
+            "bodyBytes": 850,
+            "initialTermAndRulePairSha256": "7c7c13b780d6d3b8e90511896f5d285b29b226db09abcc4a93acdc51ce577b07"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:38:0-39:32]",
+            "bodySha256": "43dd2f02413a0d80bf5f9f9297abf78866e223d66e0e7feaa0cafb2c6ad57bb4",
+            "bodyBytes": 850,
+            "initialTermAndRulePairSha256": "26bd9508edf377d4f76d90607f84c84d1ac3297857984f99c90304f3a86be672"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:38:0-39:32]",
+            "bodySha256": "0abf620f46791f6679b2da641a6dff23caaabcbd16a8b2158a4390f276f158cc",
+            "bodyBytes": 850,
+            "initialTermAndRulePairSha256": "ccf7e2645ea6a9653de17a6ed6847bb3b1c7b02e9fd3dab90c2a1f436bcc93d8"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:38:0-39:32]",
+            "bodySha256": "9ef1ef1164c185f17d3d54f77a82b89e43e8ae473b6c5848bab03f351c34c9ce",
+            "bodyBytes": 850,
+            "initialTermAndRulePairSha256": "b01503586b4fb332faefb115834354820f7b82c0f939c4fff8c485eb8be4bd8f"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "fad68c89a58ac9343098384895fcddc2bf4906e0ce1d8ec45657b46af98e493c",
+            "bodyBytes": 1307,
+            "initialTermAndRulePairSha256": "ce0c72c0e030199eec98e0130ccc9eb634e73be8f807d2576cc24d21511f1d22"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "01334cc510f08a66a971aee3625ee2538bc230e55cdc503c2143f05e26c6e725",
+            "bodyBytes": 1307,
+            "initialTermAndRulePairSha256": "36df4fecbaafa727957831838ad19df5594923804f2adc1b3d481be28d3994cd"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "027e3f6cf0bc3e0d036402d0442e04c177ed64db630376e4eeae877adb55c80b",
+            "bodyBytes": 1307,
+            "initialTermAndRulePairSha256": "8db440766be7724eaf1c317a758b6693c10d2b769bb3d281ff0f3c271d982967"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "f9be257acaebf47f04a1a6b42a0d6bc1872c4d7a5f6b55182e98455345b5dd06",
+            "bodyBytes": 1307,
+            "initialTermAndRulePairSha256": "73cfaf93e5c531436a560d1900501204db6106f280932a1c51895a9faa8657bd"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "cba735f0865f3ba8f5cd843674c1d4be874690961871021f96890e6ccdfc8d8b",
+            "bodyBytes": 2368,
+            "initialTermAndRulePairSha256": "704d7805e6da3d55648b141ba400d175347ab7c33dcf4095831944113b366124"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "5a6bb5e4a5970a9104ea860dea40319582868021ba3771d7608d21f23b508d40",
+            "bodyBytes": 2376,
+            "initialTermAndRulePairSha256": "0e6875735763c7217bf5bf4e0b0810489f159b01efe2c002641696ea1ff66b16"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "8dff608fa7ff40ce7bd23e475b982612294f8b580519b83a79c34da7e6a924d3",
+            "bodyBytes": 1326,
+            "initialTermAndRulePairSha256": "085c3e62e1030081ba84919c812b094cc92e3f9425ec5bad60c796904b5eeb67"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "fd950e269b4eb65d5dc8e81369e55076239bbdfac181021d54a355d9dbcd7ec5",
+            "bodyBytes": 1326,
+            "initialTermAndRulePairSha256": "8dd0626e3046f03f170e70443eecf8845283754998efd235d0dd38c220189f30"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "6467ec6f3cecc2c22c439cbf3dc9e50149dda33865e415446652209fd1c90e7f",
+            "bodyBytes": 1326,
+            "initialTermAndRulePairSha256": "9f2036819839e20308a372b8dc166d35ef7d75a7e38662999157852daaa762a0"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "3aaddc9acd6b18f077e6df01f2dbd8a338ea6cee59ffc9b95a9fab670a38820a",
+            "bodyBytes": 1326,
+            "initialTermAndRulePairSha256": "ed34c80e8ac7454573e599ebadf236f00a8a249805dd82bec5d65a7ea32a74f5"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "3720920b361b3c3be6c7e0dc3d6d7e88d3673460e8b9a31102ac70598ad29286",
+            "bodyBytes": 2387,
+            "initialTermAndRulePairSha256": "95262303693d414ce0d57c37131713c75ab3c0fc80ea1f22773538a9b0a392fb"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "00994d50336a5b713bba82776e7628ba7df3b73ea5c12afc0372ccc810f4e208",
+            "bodyBytes": 2395,
+            "initialTermAndRulePairSha256": "3b4a4c2debb1a4763a7fabf63d58f3294fdb26aed7358bd9166c4ef7b0571701"
+          }
+        ],
+        "absent": [
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:711:0-713:9]",
+            "bodySha256": "4644cc198834850b1ef58bf4e8f59091a80a0615723d66b2841967d0e55d1742",
+            "bodyBytes": 598,
+            "initialTermAndRulePairSha256": "5bc7c307bd4f4c2eda9a5b0e39778126bb9d7ed6c09fc1da7256071c5c863ade"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:711:0-713:9]",
+            "bodySha256": "6773a6d1bb0b58e23261156c502ee9ad0c1ef737904d4c1e98cb4eef3e3fe9de",
+            "bodyBytes": 602,
+            "initialTermAndRulePairSha256": "28f4fae6b50e4bd71374ea8a96b493a64553f0603b3eb03f16a25258f99e65e6"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:748:0-754:7]",
+            "bodySha256": "cb111cfe2280476b57d5cb23ac29fb4c4b3d656c9a9ebaa6032d75a6ee42dff8",
+            "bodyBytes": 636,
+            "initialTermAndRulePairSha256": "2465e981a0f2d13dca2c22b26301174eb0d5f92380855182709b519a66a6bb7c"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:748:0-754:7]",
+            "bodySha256": "4fa703666a78914ebc193c66ba1e4bb45b06f44220dda4e7e1a0b2d214301fed",
+            "bodyBytes": 640,
+            "initialTermAndRulePairSha256": "58cbecb9e4d98d8d9e8df50709cd68707c62fa1dac09a5c7245e7e7fbf881025"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:1336:0-1341:36]",
+            "bodySha256": "ee67033cf342de78f7ef20a2e29f460619a8cca3a5181f3853ad68175a2f9ee5",
+            "bodyBytes": 1691,
+            "initialTermAndRulePairSha256": "721ffe72778c4c6d0ffa989fc493f3abe3d2d8e733cbb7414ba3f967686c6d7d"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:1336:0-1341:36]",
+            "bodySha256": "3343239f618047d6a08bc7f5f0b35034a987a53b497379bf8ca00c83dd507177",
+            "bodyBytes": 1695,
+            "initialTermAndRulePairSha256": "df1a41fcbd0ac71c781d2f68f7293b40111217f590bb0ba6d66590a970e507d0"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:1344:0-1349:36]",
+            "bodySha256": "5fb0b9012f226b78ecdaafb7d4868a77656fb4bab5d5a061f7f2fc9bed9c33d9",
+            "bodyBytes": 1712,
+            "initialTermAndRulePairSha256": "566cb74a59d79a9c55333f20eaf823e7d41836cef81a968fad5b3735d285529d"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:1344:0-1349:36]",
+            "bodySha256": "18c06c2dadfb04c31d8c4c3fbcadb161ad36a8acef0b4b9373c49afadd1fd60a",
+            "bodyBytes": 1716,
+            "initialTermAndRulePairSha256": "d02bc1ea60efa7d1a18bc96bed14ac17fd05d056d15d3c1f9207ff1c8d1453a5"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:1344:0-1349:36]",
+            "bodySha256": "5feb144b8cf6dea25e1584cd371f2db05567122ce7cc45ec990aebe488bf0044",
+            "bodyBytes": 1711,
+            "initialTermAndRulePairSha256": "a04a09f542c20984ff75bf5759134706b20a5feedebd953e0d50bb985d407c7f"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_gray_profiles.lp:1344:0-1349:36]",
+            "bodySha256": "fb72d72c06f6f4b57824f4b975673e5a4fa79c2ab51b55fedea894fb50dbe095",
+            "bodyBytes": 1715,
+            "initialTermAndRulePairSha256": "f5e635f33024156a64f2fa89dab28ef04eb65dbe2fc6e4ad4fa5fd4a320a5316"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_strict_functor_actions.lp:363:0-372:30]",
+            "bodySha256": "9678f168d211bff4c8ef5d78202ecbacafb639f130dea4bcd9e32117507c67b5",
+            "bodyBytes": 815,
+            "initialTermAndRulePairSha256": "0dc46819bb8a6ff96bd75c892d2aaba3005efb8e84a77974af410d88fe765b2f"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_strict_functor_actions.lp:363:0-372:30]",
+            "bodySha256": "e76d8be54fef48cbaa7bf9d82321063249f63f61148fd6dff94b9daba58a2bef",
+            "bodyBytes": 820,
+            "initialTermAndRulePairSha256": "a6bdc43e1695bac52578744d1cd94c941653bf55c72e524a66d1db481708f135"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_strict_functor_actions.lp:363:0-372:30]",
+            "bodySha256": "28d8caa561b30993c82cb85ea2c091d3579ccaf552c796d7ad9ec91f87b2c23b",
+            "bodyBytes": 815,
+            "initialTermAndRulePairSha256": "b9f6737c75b12a9d63c538c12eefb4a23e9f9c37f713930ac164835e1a4c14f2"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_strict_functor_actions.lp:363:0-372:30]",
+            "bodySha256": "339a5625f13cf1bdfccfe6fe0d855872fdb7f9a2511d69789105ad7c7ed1ee7c",
+            "bodyBytes": 820,
+            "initialTermAndRulePairSha256": "beda6ac37753b08de1fa3d122513d8254ca79e63e693a1c45dc83ea3b175ab37"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_defiso_evaluation_points.lp:33:0-40:30]",
+            "bodySha256": "c5bcaa38114921ecb046e9196fea11b28fcdf5d910aad2b70500faacce4368dd",
+            "bodyBytes": 803,
+            "initialTermAndRulePairSha256": "f5ad724d3d5c71a91227bc17ad17b8b29c645431b972ab8d3ba9f15cfbfcc56f"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_defiso_evaluation_points.lp:33:0-40:30]",
+            "bodySha256": "31ed0db53131856e0357d78d5627c7ccb0179b3d2eec4b7eaf0fd4eb1445f52c",
+            "bodyBytes": 808,
+            "initialTermAndRulePairSha256": "87dfca03c208961bbbdd2478edd4de699f2492a241762edfcc0c1db3726107c4"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_defiso_evaluation_points.lp:33:0-40:30]",
+            "bodySha256": "e5a7236001e55f53899a717fddacaf15fe2739bf10aa831e28e3b85b4354163d",
+            "bodyBytes": 803,
+            "initialTermAndRulePairSha256": "d9347c92c202c5eaf5e6a5005a05c06b47b064a831cf1c59b01e8fa6d912b7f5"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_defiso_evaluation_points.lp:33:0-40:30]",
+            "bodySha256": "fe7c7d76362c5dc844998764dad8902e0cb94801c764c366296b032634a05df3",
+            "bodyBytes": 808,
+            "initialTermAndRulePairSha256": "5bd3f546c46f51e382cd53109c34e29b75c390319aa59f770b7b3ee5da5cb084"
+          }
+        ]
+      },
+      "reportedRuntimeOwnersUnchanged": true,
+      "classification": "Import/elaboration-context differences at unchanged runtime owners; exact changed bodies retained. No global confluence claim."
+    },
+    "library": {
+      "new": "library",
+      "old": "previousLibrary",
+      "equal": false,
+      "added": 65,
+      "absent": 53,
+      "addedOrigins": {
+        "[emdash3_2_diagram_evaluation.lp:24:0-25:44]": 2,
+        "[emdash3_2_diagram_evaluation.lp:27:0-28:45]": 2,
+        "[emdash3_2_diagram_evaluation.lp:33:0-34:49]": 1,
+        "[emdash3_2_diagram_evaluation.lp:36:0-37:32]": 8,
+        "[emdash3_2_diagram_evaluation.lp:38:0-39:32]": 4,
+        "[emdash3_2_diagram_evaluation.lp:64:0-66:54]": 8,
+        "[emdash3_2_diagram_evaluation.lp:67:0-69:56]": 8,
+        "[emdash3_2_diagram_evaluation.lp:164:0-166:82]": 1,
+        "[emdash3_2_diagram_evaluation.lp:250:0-251:84]": 1,
+        "[emdash3_2_diagram_evaluation.lp:316:0-317:87]": 1,
+        "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]": 11,
+        "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]": 16,
+        "[emdash3_2_monads.lp:309:0-322:10]": 1,
+        "[emdash3_2_monads.lp:651:0-664:52]": 1
+      },
+      "absentOrigins": {
+        "[emdash3_2_triangular_binary_products.lp:256:0-263:39]": 2,
+        "[emdash3_2_triangular_binary_products.lp:266:0-273:39]": 2,
+        "[emdash3_2_triangular_binary_products.lp:276:0-284:39]": 2,
+        "[emdash3_2_triangular_binary_products.lp:287:0-290:20]": 2,
+        "[emdash3_2_triangular_binary_products.lp:292:0-295:20]": 2,
+        "[emdash3_2_triangular_binary_products.lp:298:0-304:32]": 1,
+        "[emdash3_2_triangular_binary_products.lp:307:0-313:32]": 1,
+        "[emdash3_2_triangular_binary_products.lp:316:0-322:5]": 1,
+        "[emdash3_2_triangular_binary_products.lp:324:0-330:5]": 1,
+        "[emdash3_2_terminal_objects.lp:96:0-100:36]": 2,
+        "[emdash3_2_one_cat_transfor_profiles.lp:100:0-102:34]": 2,
+        "[emdash3_2_one_cat_transfor_profiles.lp:104:0-107:11]": 2,
+        "[emdash3_2_one_cat_transfor_profiles.lp:175:0-179:39]": 2,
+        "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]": 11,
+        "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]": 16,
+        "[emdash3_2_monads.lp:309:0-322:10]": 1,
+        "[emdash3_2_monads.lp:651:0-664:52]": 1,
+        "[emdash3_2_pullbacks.lp:277:0-280:45]": 1,
+        "[emdash3_2_pullbacks.lp:282:0-285:47]": 1
+      },
+      "changedBodies": {
+        "added": [
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:24:0-25:44]",
+            "bodySha256": "7f72d3630850b6f3ef06867e8e277e12b895778ea29131d0e8f7499d5c24e736",
+            "bodyBytes": 719,
+            "initialTermAndRulePairSha256": "109d9a3da0abf8b2e66f9aa04f705e06b5e4c0ce2ca0715db0735818e1592534"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:24:0-25:44]",
+            "bodySha256": "d44ea0ca1a8337b657e207e8e12c78013ebffaa3845dd4b5aaa21e68048185fe",
+            "bodyBytes": 874,
+            "initialTermAndRulePairSha256": "6d8da3cb719f60e7a0976c92a5b0c9717175060bf957ebaa41edc92fbe19243e"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:27:0-28:45]",
+            "bodySha256": "e8555ba7a61e96d1f6890fbe3ef4ebaa84d02e92826231b46d13527629f79684",
+            "bodyBytes": 723,
+            "initialTermAndRulePairSha256": "c951036a9c8afa92d3c9de1d0770276a295f5ca2d54238290fdbf5b6dbbd0d8b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:27:0-28:45]",
+            "bodySha256": "df1c649f4dc03d654fe7ecfbd5d9f172c9a2ecc96620305f638a6ac98ace52e0",
+            "bodyBytes": 881,
+            "initialTermAndRulePairSha256": "57ec69a30ffab1d2b057bf3f136e9598fe24fa8bc9192ce38d24660835da8af2"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:33:0-34:49]",
+            "bodySha256": "9be2fe7c1d23db1aaa58adc819ce6903cd9b9ac831662fa4a068ffb787a9495f",
+            "bodyBytes": 935,
+            "initialTermAndRulePairSha256": "a7662efb93c843b921d3f225318b71a082a5e2f09c677b1f7b1464a7f55ea845"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "c8eb51b5b424d6877862a2698cdcd5271486a398541164c6dce235249632338f",
+            "bodyBytes": 1132,
+            "initialTermAndRulePairSha256": "09b53c1f5ee5ff2241f9014f3b5980b80df7e5fa3f757fb0a942150bf00cfbe8"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "d4b1ad8b538afb3022ce67696acbe154970abe3c437440e5f2433e91fe24334c",
+            "bodyBytes": 1132,
+            "initialTermAndRulePairSha256": "ff15e7fd88da4d181e016c9b8498ac54f9fc30de4ef343a1ab00687c24785fbb"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "462d07caa6c8461053610cd8f7be6e70b33fbfc5e642c36356a58d4b9d84654f",
+            "bodyBytes": 1279,
+            "initialTermAndRulePairSha256": "741af9c9b6f55351def6c416448da248ce53049a1e36621baffd49730d29032c"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "75c8a6d02e8eacde7e121786b279650f812a5e0c09dbf5ad6a081bac4fe6b1a2",
+            "bodyBytes": 1134,
+            "initialTermAndRulePairSha256": "4e685b2219dd9d3a03c63ce689389c2277e3773ecbcb3d31e9ae13a1d0a638ec"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "77d13fe0afaf6911110a9e8ce0dc89509b34a9e263f1461523d278f087687b13",
+            "bodyBytes": 1134,
+            "initialTermAndRulePairSha256": "5848ec71f6155ab1360f3639bc5a583f2f005696caefbc18d1ecd95c17e79481"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "b44a6619ddb059df51ba857448ba54287096975cd3db13787ff384366674666d",
+            "bodyBytes": 1021,
+            "initialTermAndRulePairSha256": "e4512b5048c3de4ea6de6bc2a4c1fa4d8e5d81dde01d665761e2e21d8c896f01"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "3e2071cd1eebd4577ea8f17613866d3934eb86dec95b9fe3aa95601b7cf3c346",
+            "bodyBytes": 1021,
+            "initialTermAndRulePairSha256": "9afebc42574fc7b27a47ced8554d95d3e5bb2d7b60fc74416a6b1a1dd44ece06"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:36:0-37:32]",
+            "bodySha256": "08967fd8d97db1cfc3a12754026346196c828e8475c8ea71c864c853d8b1dcf4",
+            "bodyBytes": 823,
+            "initialTermAndRulePairSha256": "3cad2f02cc4f1b58c5e5dd2bfc4947b6db4bca95a4335d6e7678e14abd117522"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:38:0-39:32]",
+            "bodySha256": "63df93e112fcd53c3d5fbdd00a6c61a8fbfad8ac9d8b3269f047e9b6a7c520f3",
+            "bodyBytes": 1140,
+            "initialTermAndRulePairSha256": "57a00e2ea9e7b29d75237e1146db9ab02fc5da2b44124e1fa7e1e6450d0f00dc"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:38:0-39:32]",
+            "bodySha256": "1a05ab14e7b29af1ffae71062d6808e79a3c782efe0767daabd1f6fa56738cee",
+            "bodyBytes": 1140,
+            "initialTermAndRulePairSha256": "0ba592da612431dedd409f982108534a1ea9ed2a8ce6b08074bffef88b4c6013"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:38:0-39:32]",
+            "bodySha256": "ef34eb343f57f4ca0a53c23ceabce31a3dd46232f9c1a9b47a60db33b446a889",
+            "bodyBytes": 1288,
+            "initialTermAndRulePairSha256": "c7774cdd0ff29c2ad019541b4fde027ee090269a21dffcf2a12d02e2d788ba37"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:38:0-39:32]",
+            "bodySha256": "ea5abb3a3a1ed5c52bb9895d2b732f214f1f8fd2b1582e1c792a42d7d6f848cd",
+            "bodyBytes": 830,
+            "initialTermAndRulePairSha256": "c6917d7083a05f6f036b687a49630c28231d01284e2101b584f877fc17c60b26"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "df94119a89c587db9c5060ce8503706c1cc92e6e267a8e4801a004b45ce0fd20",
+            "bodyBytes": 1412,
+            "initialTermAndRulePairSha256": "59491135bc95bf452c18b83f6ab17782fc3a51986a86f85624867743023aa727"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "bf11c0ce45b68112fec7b32c656252392207afdb1bf47d63da259a8037763dec",
+            "bodyBytes": 1412,
+            "initialTermAndRulePairSha256": "c3b32ce2fd0c7a1070046d2453fb32dc1ef01133d61f4f0b9811aa519c1ec989"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "c8bdca8dde9e27057998acd05bfed2a4bb94569e5f792ce4f9d7dbe5202b84a2",
+            "bodyBytes": 1551,
+            "initialTermAndRulePairSha256": "9c666dfdb3647214367847baf6b2b817eb8d35fbc0b760e6a14373a434739391"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "445fb47b2256b585fce600ac87f721e7600f43e1979f952051422d35d70e06bb",
+            "bodyBytes": 1531,
+            "initialTermAndRulePairSha256": "79d437baf6fbcc88cbe8b28dc9b0da7740da835d6b1d91bf4f3104ca67cc9c4b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "5258aa4161d503223e73060f029219dfae9c579c74b569dc5df128f7dceee0c1",
+            "bodyBytes": 1531,
+            "initialTermAndRulePairSha256": "c976cab9102f3358d9b3391bb1bfa2c1ee2fb0015adc6f27f96def5728f60d93"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "b90070ca3a8cc47a0fa760f9639251798fac90defd11b40bff16747e83070eb0",
+            "bodyBytes": 1356,
+            "initialTermAndRulePairSha256": "af4bc7333eed1099b63b91f7b9c35f65a2592e1640fe76d4cfa392194d0ad189"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "49390fd1677104e42cadda09605d00c32b24c524642f40e2f59850236af5a601",
+            "bodyBytes": 1356,
+            "initialTermAndRulePairSha256": "81e70974947dd3fa9e0d98aa7b5fcc5d32e814d7ee5821c3e68bd189c0a3a989"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:64:0-66:54]",
+            "bodySha256": "9bbbc6d2007b4c39c72688d991da5a1cc4601882f2310d1b816bd1f88d49da00",
+            "bodyBytes": 1112,
+            "initialTermAndRulePairSha256": "f814e7921b9825c254fcdf994baff7169f98fc2dd21b1819cbca8727631b1256"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "1ec3bd1c4680106fd3c45994f6538829b847b3eb55d30da77692426ad12f2dbc",
+            "bodyBytes": 1431,
+            "initialTermAndRulePairSha256": "382d1ec04b9227911fc507b084d560f35d929b4de76aa36b756491320eb32149"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "fc2adef62e32528c9c54e0113cd1b1540ee3ede4d3675109f450d7c7f8418f56",
+            "bodyBytes": 1431,
+            "initialTermAndRulePairSha256": "ed62c94bc16b78f873d455f769de40486b239441262af376c120227b9fb1b1c8"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "60255bdab5ca6c55c60c119a32809013f667e16546ec3a629c91d4e8fb5a850a",
+            "bodyBytes": 1570,
+            "initialTermAndRulePairSha256": "87756d9cd2391509c46be0ab704498e6c64ae8203d7337d56348541594399130"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "2459c8a6ec011c0b9245c3a20e01857dbe5a789c7556b7919de3c1207ec37b18",
+            "bodyBytes": 1554,
+            "initialTermAndRulePairSha256": "25c0b3b2cea2faf65406c07789bd08e07458e2e569a5fb66430aabd99d0ba2b2"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "058d959bf3d76b50e9af662cb9ec74e094af4ce222009f8170304d493436eb15",
+            "bodyBytes": 1554,
+            "initialTermAndRulePairSha256": "eec2c521425e13541cf3df2e2754f682aef2ef9db0674832be8c65ac9194eedd"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "e28291bd43fe8ed53212dbaa3a7597031b43eb567e6d9b6b5e2c271fadb6c732",
+            "bodyBytes": 1375,
+            "initialTermAndRulePairSha256": "6dc2af96c3a955869f7e698fcc1cd53a9627a8154fe6828f3584c3f52193c585"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "0068cc580d1b6ecbcf9f93ed38e8b8db3294da34b3a1a719867aae5e7ca60dfb",
+            "bodyBytes": 1375,
+            "initialTermAndRulePairSha256": "eafecabfd6ae7a919c998b278e9b3135cb149b6b3f25ba4fbd770a8f07b3b139"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:67:0-69:56]",
+            "bodySha256": "973d9adcdd1df4530e8b0c4060d03c4017f7506cfa319ef0970cdebe473d9328",
+            "bodyBytes": 1131,
+            "initialTermAndRulePairSha256": "7662d5fb4fd3f6c36c53b2141592fc053c242cc3904a9bc7020c306f0791f17e"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:164:0-166:82]",
+            "bodySha256": "79e50dcaf7af7ac4dc2cb9773974002b47166350374e6a1773f903f451ff7567",
+            "bodyBytes": 923,
+            "initialTermAndRulePairSha256": "1d0aa1d5c27accb2d72c059c737ea7bd017bc229941bc5bb63da90a96ad622a8"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:250:0-251:84]",
+            "bodySha256": "a976028abd53645490e0ae72e7ca6f6c7a51ececce282d7acc068b70a9231e9c",
+            "bodyBytes": 688,
+            "initialTermAndRulePairSha256": "7adfd5408b08c856f65a17156bd38be973e9e049512e8d885b6fd8040ea49b84"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_diagram_evaluation.lp:316:0-317:87]",
+            "bodySha256": "99a5b9c27ed426d53a5125d815078701fd433555417869a030ec0d128901e672",
+            "bodyBytes": 701,
+            "initialTermAndRulePairSha256": "bab4f2ea3fb6f7abcd850f94067e3a3c7463aa3eeaaa0c276415fa1fc8e267d4"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "f1b4b69207afa7c68a889212de829e7b5e65587ecbd52b9a75beff7036655587",
+            "bodyBytes": 139314,
+            "initialTermAndRulePairSha256": "c197059b3e4ca5672d89579cf78a50646feaa8a83ff2ad74aa47524e6706242f"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "baba303a6a97352a9ae7756b36934af8ed05fc751927ba9b24deef0f04d95aa7",
+            "bodyBytes": 418803,
+            "initialTermAndRulePairSha256": "6400bf66becf9bac96a6ead6b468e82a07b4bed550939aa3aa4c321d78173c8f"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "f9bc668b8afa58eb3a868bc6ae6002a096605ec2a13003eb278180b51b091959",
+            "bodyBytes": 424249,
+            "initialTermAndRulePairSha256": "be7747b594222e4ce6deaa394e505ad80842703cf36dbc3f60a6a991802112db"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "a81f629f092863684efcb19676919dbc3b8ac3cbe5649aa80d73c151149e86a6",
+            "bodyBytes": 139110,
+            "initialTermAndRulePairSha256": "19555043f4f6e67f86f5af3f0c7814973a28f8b849beb95f0b94d0e90a0feb37"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "62a0ad8f501adddc8c6852f3e3c29aed267c3fb727c0caba343031c6995f6fda",
+            "bodyBytes": 139207,
+            "initialTermAndRulePairSha256": "cd0e4514be77832d4d104c864a328c59570978e6f358054894430753b6d5b7ac"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "b4d2903a0767c7602c460f6524d8fc1e8830688ab97343e2dac2f6d030e37eec",
+            "bodyBytes": 139115,
+            "initialTermAndRulePairSha256": "e99b7dada6118ca794acaaee6bbf8fe58a3dba6a8e4b8773347e6fd9a52fa634"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "a1e85212790f7cabc6fe0e44b263254252f86550ebd55450c2a567001f0c058c",
+            "bodyBytes": 143958,
+            "initialTermAndRulePairSha256": "0c9f606b5dc17a2a68eeab2549de53d011ebaef78df1c22228278f61dae5d42b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "d1084b2e39ecb3e02b2b1abd47cb85a808c8399e5fe88a4f80afbdf40d54c0f6",
+            "bodyBytes": 420352,
+            "initialTermAndRulePairSha256": "3731205139ee4fc6d949c90908da34d676316ec791a93aad509c30ce9d2e2d20"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "8ff9401a5758f7d93b59c233f66ef08457c87ea09ae885e3ad092a99c7f8c282",
+            "bodyBytes": 139166,
+            "initialTermAndRulePairSha256": "010af1ff479e4bb16e9209a494833e80bd48253830a2a1dceee8b60e0b90e775"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "601699c6dd39f46f0606559e778512368a0054b7f264eefced3c9c8d934bb71b",
+            "bodyBytes": 139145,
+            "initialTermAndRulePairSha256": "867e01d237239bceb5b3b8831f4ddc9f264565073371fe799d7bb7b7a6f38050"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "ba65fcbc44be3c4d8ecea16cce4ef898976a3633b223cf4c9a866a63659e57b6",
+            "bodyBytes": 138591,
+            "initialTermAndRulePairSha256": "3655ba968fff782e3c0a504651b13b48fbefcfbe13045fc4160c6ca09addd6a6"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "c9052a3391d085d5a03b2ef540feecb3cdbf519f6772c0e1ac0ee031f0725ca8",
+            "bodyBytes": 431453,
+            "initialTermAndRulePairSha256": "143dbeeaf2f9226bffe3c50453f65d5db5a8c14326fd1526f2a849b78520dcca"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "dff74ad7fe05f373f677517942079fabbf20b82e93eb2c7ff0fa7851207e2e6c",
+            "bodyBytes": 861330,
+            "initialTermAndRulePairSha256": "a987a8cf508cafe36693a138e70c265589e0fb0339b76643a34ceed9887e744b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "bed0a8d8394acb76efd0ae193937d38119f7ae54c76da76954dcaa5b5b0c305e",
+            "bodyBytes": 574365,
+            "initialTermAndRulePairSha256": "78280db3f2479b5b2e5b1e40d3f2f05db735321e06a59cb5ab9ca28b5f62edd0"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "31c9debefb26a92a122d0c50eef8e0524d53bc1332521e2b507d5cb8c18b3229",
+            "bodyBytes": 574365,
+            "initialTermAndRulePairSha256": "55fbf66a2417b5fe3cd44b695ed72105f8fd0ea65cabe752f5e7855ef7d102e1"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "617fdee853f816e7c747b072a108df27e46df8ac1348e81f51d3db7cf211c5f5",
+            "bodyBytes": 861365,
+            "initialTermAndRulePairSha256": "41a80013f89cfa4effc606e0b165b00c7e5a7eda518aa300ed5dc0963914334d"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "90f94484d574a2c261cff860df97bce362cfe5ea43aa98dafcad5141f4e72deb",
+            "bodyBytes": 431854,
+            "initialTermAndRulePairSha256": "9a7ce2850c0760119512e28f711c902a8bf497f91f4deb676203a73d85c52f6b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "c822f8a31e766fca3879f24eba3161c946f513a4d92e0fa28dc66705082f0c0e",
+            "bodyBytes": 144283,
+            "initialTermAndRulePairSha256": "0f11bb1de10a11986aa4e307eb1a326e59e346f24641e45f8778fb31f3c642f3"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "dc66c1a5192a2e2fa43b97a02d422f176af09fc64beeecdaa10549b6764b8d8a",
+            "bodyBytes": 144283,
+            "initialTermAndRulePairSha256": "0489152ac432a59029d27229845ad092be965e8b60b4398319c5e0d42dfaefbc"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "a2fd446681d7599766ca1d241ea54d206f441009a1bf60703b2628e38dd16d82",
+            "bodyBytes": 144523,
+            "initialTermAndRulePairSha256": "60342533dd4096356c8ea5334a5bc9453d9e719f8b59257ec5a3b1e041102452"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "e77b33132f34b5e5e9b845bd1a67070f0ec74c2dda1df36d37650126da3bb089",
+            "bodyBytes": 144523,
+            "initialTermAndRulePairSha256": "2626480da3907ca70af308fbb9a57e27cb6a4da41602df63c093fbfcb486eafe"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "9f7d32169656b6a1498c00e6332921b67449b23e21ca3e7755af02936f585964",
+            "bodyBytes": 861596,
+            "initialTermAndRulePairSha256": "3a41d567095d99b2bf0946e1f24c2fbed99b01282a2a6202127b647ab4f24e6e"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "f31c4892c9eea49d5583861ee0ccee4c7c9e6b0234f1f4f7c2d7cfebfc094140",
+            "bodyBytes": 861596,
+            "initialTermAndRulePairSha256": "147960bf7754bb41a216e1cc740bda08ecc3236e28c521df66ec005e87b46062"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "be4b88f847644e9b7d9194ee2cc36dea39db73d255874f1012494078c0be6c76",
+            "bodyBytes": 1291821,
+            "initialTermAndRulePairSha256": "fbc217d5115a9acb5a004cdcaa5b10a16250e562fd966185b4f91893fd42b819"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "ac37808298652820b0ed6cef5b17fdec65b498ae7495acf3c396877f80156d13",
+            "bodyBytes": 717998,
+            "initialTermAndRulePairSha256": "a98c70e3bc1f179d49ff1c266968ce8218e02a66f41181b9fd5f63fe0b8d4950"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "7593d9421b59ac5dc1c092eb11e6c4ecead1d44268966ebbc8cb72cfa7ac153c",
+            "bodyBytes": 717998,
+            "initialTermAndRulePairSha256": "5ffe7ec1e2525c82783ddb8c5ff6c0cb253e4f827902ed2458f638d6bdd000e7"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "8ae0deda042f6ab4767d1307c9175f4ee0460fe1eaf00af47f2d47a64c6e4d00",
+            "bodyBytes": 431209,
+            "initialTermAndRulePairSha256": "7002c143ad55715ab2544f24ecc89594d71277f34d7e444793b3ed278dac4eea"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_monads.lp:309:0-322:10]",
+            "bodySha256": "af31503151c33d36eeed2f06152f4b71cac3407b5084eeae758a6f53e11c83b7",
+            "bodyBytes": 417628,
+            "initialTermAndRulePairSha256": "4adc352965a79dbe74652b8db3aad1ea2d39760405b62beb4f1539a9c01cbb0d"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_monads.lp:651:0-664:52]",
+            "bodySha256": "f73bcddd2a412ec8f4e96b53c8059f437ff98e897eb046f08f029fb99c48ba78",
+            "bodyBytes": 417670,
+            "initialTermAndRulePairSha256": "2bbc790bca26092269af378ea41070a378a5a49009b6e4fc4fbe6896c445e0ce"
+          }
+        ],
+        "absent": [
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:256:0-263:39]",
+            "bodySha256": "6d2b8bff3b871a4eaa6552a56cb2c3b365d4a220b90ee47ea67768ccaa2a730b",
+            "bodyBytes": 1125,
+            "initialTermAndRulePairSha256": "fb4d467fbdfbd6e3049e69869c6efb0a53af2ac96c55fc425947dc77a0c73fde"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:256:0-263:39]",
+            "bodySha256": "f4bd9d0df6042014d951938f236c9ba7ba87bfe82a5f8780f3753e012a61ec1e",
+            "bodyBytes": 1133,
+            "initialTermAndRulePairSha256": "4e9da221ef2116962e80bd36836b479be63a76334331b47f727144a28d73701b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:266:0-273:39]",
+            "bodySha256": "f3f12f0dd1c8ae049f4704fe424035e9277ac2f47b9bccf4d152bbe02cb47e85",
+            "bodyBytes": 1125,
+            "initialTermAndRulePairSha256": "666c098c15b32fda47def542110fe6423e8e14950d124e811261741886383542"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:266:0-273:39]",
+            "bodySha256": "fdca5e9e0a9c6734dabc465040be4e3187fcc950c14ef6e391d374a350e6c10a",
+            "bodyBytes": 1133,
+            "initialTermAndRulePairSha256": "83cdf3a6f5722f4c5c4cd453ea98341d9e0a326319d312d7353c375c5a9aa013"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:276:0-284:39]",
+            "bodySha256": "543757acd2b974d0252be9488dea4436be96e2f62af9bceb97bd5b5850bbb7f0",
+            "bodyBytes": 1316,
+            "initialTermAndRulePairSha256": "8613416d83de06c91fc4c5d67b38d49455e96340796b6349b4c94377349be962"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:276:0-284:39]",
+            "bodySha256": "ab59858a1818df810c84ba9c5758000f28340f81ba09f88ccbba911188b990b4",
+            "bodyBytes": 1325,
+            "initialTermAndRulePairSha256": "389a7f29851a1a620dc4cb8c405f354c4bbd4d825e098f287b062f304c7d882d"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:287:0-290:20]",
+            "bodySha256": "3d25d5a59b45c11731ca44c6d1640b910929291f9579e1c9ac6fa2508a880df2",
+            "bodyBytes": 813,
+            "initialTermAndRulePairSha256": "4f12b0c8de5131bacfec2cfd77e30ae995869949abe540afec867c0cdd08d7e7"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:287:0-290:20]",
+            "bodySha256": "97738a2e22fb3f6f3f9501e16565644f502b242c9752180f68bd2c5b37fb8d9a",
+            "bodyBytes": 820,
+            "initialTermAndRulePairSha256": "b7b89af1e2b038b7d217d172a2e07450dda6f1cfeb7f3b52e9f6f704ec509996"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:292:0-295:20]",
+            "bodySha256": "ddb72ec26fd1f5acad9670da8a0a2d59c79762e63de237c1eca083722b6eb752",
+            "bodyBytes": 813,
+            "initialTermAndRulePairSha256": "b70b80fbd55a38a6153db49b8b3d4561dd0850384cbee6d4bb0b934c36e7ec42"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:292:0-295:20]",
+            "bodySha256": "02918d931d866a37462c936478df7bbabcd6dfbd63a3a87c4aa7a916235775ac",
+            "bodyBytes": 820,
+            "initialTermAndRulePairSha256": "7c5df4ceba38b6757566bf4533a08622c7e32c90ec40e8452dd299a3f4a410ea"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:298:0-304:32]",
+            "bodySha256": "7099183b95660e64f0c397daddbe2e8ec1e6f4651087fa20bafc8ad6b0954c6d",
+            "bodyBytes": 955,
+            "initialTermAndRulePairSha256": "b9c72b83bc8e9aa3939d9243a122313cbee1e621195befba47f2b141608f6934"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:307:0-313:32]",
+            "bodySha256": "af311d7f1d7f14e647b1d70c13aebec9c4ee56f3ced48e2d29e2b2f6a2e1f079",
+            "bodyBytes": 955,
+            "initialTermAndRulePairSha256": "aacab937e0379c997a37c64e03befb742d19b873f15dd90bb1cdb02d578b8d15"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:316:0-322:5]",
+            "bodySha256": "9298040bcd928c50c6bf153ada98d12fb80d2de5e156ed0ab814d7950560be0c",
+            "bodyBytes": 787,
+            "initialTermAndRulePairSha256": "4068a0843dd97c9644ff537e8c26bb79ce8e8cd79d9a8654eb9487b386821e03"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_triangular_binary_products.lp:324:0-330:5]",
+            "bodySha256": "737591df3385f52dd069888c035ebe8f6f5042f1edc3f87e427bdb5c3b42b256",
+            "bodyBytes": 787,
+            "initialTermAndRulePairSha256": "3d81d0afa799e51700c18493b727f90f221c150c43d4a941ecb32bcb758928ba"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_terminal_objects.lp:96:0-100:36]",
+            "bodySha256": "51c84e78595c59d43e87a8e5b887659ff54469dbc02e33eec491de466600b412",
+            "bodyBytes": 842,
+            "initialTermAndRulePairSha256": "cf695b73b5afa55c49b54ef4176eb15fbb368b50b4fbac6a882ce65ff2d662f8"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_terminal_objects.lp:96:0-100:36]",
+            "bodySha256": "0b55c6e5cf1385c30f011ffb4934815e2954b4272bea8cec34a384a55312e0b2",
+            "bodyBytes": 849,
+            "initialTermAndRulePairSha256": "843c785678799f43196b5ff2783dde647e9ad5b272417bca242e77fbc74d2f2d"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_one_cat_transfor_profiles.lp:100:0-102:34]",
+            "bodySha256": "77da9db3215d8ce7fe1e661371844195ad5fff725cd035b5c1c1541a4ed6fbd3",
+            "bodyBytes": 735,
+            "initialTermAndRulePairSha256": "086f612c3b23efac4e8c1e3e6f627a8b8f781c88736ac4e2a35bc5b27e952ecd"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_one_cat_transfor_profiles.lp:100:0-102:34]",
+            "bodySha256": "00d1db1089944f4bf62f2d691c8f78225127184f915f29e738557bfa0e480527",
+            "bodyBytes": 739,
+            "initialTermAndRulePairSha256": "f73b391ca830393d5e7f1739ded18af93809b7fdb18acda8d13023337d4fd307"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_one_cat_transfor_profiles.lp:104:0-107:11]",
+            "bodySha256": "744bf5767fc2a351c844bd9661b1b3f29bb932b9092882461a455310f95404ca",
+            "bodyBytes": 803,
+            "initialTermAndRulePairSha256": "7f60b5c3b10e3e90ef22d9ce12f9e63a732e13cd6befe819acdb4ade2cb8cbcc"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_one_cat_transfor_profiles.lp:104:0-107:11]",
+            "bodySha256": "72fe6a70ae5ee3a63add4dcb00868c9f137db0959026bb1a711b558ffbed3935",
+            "bodyBytes": 807,
+            "initialTermAndRulePairSha256": "3ac984b6b16d5f59ea3f33ec4ae5be2244cbf29a660970f27e3f424011c2caa3"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_one_cat_transfor_profiles.lp:175:0-179:39]",
+            "bodySha256": "eaacc6d92de5f18c088eeef4147a858f21e613119e1da46499cee734be55255d",
+            "bodyBytes": 993,
+            "initialTermAndRulePairSha256": "1b6fa1dc32999c133e024f6f2069a5d8c21f31537feb75a945bc27757e182579"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_one_cat_transfor_profiles.lp:175:0-179:39]",
+            "bodySha256": "651b6007fd3e0122500da277e0fbe94af6ec9b381cb7af71b6bf30d5e9ca7901",
+            "bodyBytes": 997,
+            "initialTermAndRulePairSha256": "27c9fdb9997d4af831cbeff839b9aa54372a293cebfb74a0e606556167ab3321"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "26ff3ae8c8f86338a50a6f975540dccd1e786484c9d730116e1c4357a9c87538",
+            "bodyBytes": 140356,
+            "initialTermAndRulePairSha256": "c197059b3e4ca5672d89579cf78a50646feaa8a83ff2ad74aa47524e6706242f"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "e755395a1e6ca5aed21b1f3eebde1bc9bdce975c28ec4874279f370edb26e9c7",
+            "bodyBytes": 421929,
+            "initialTermAndRulePairSha256": "6400bf66becf9bac96a6ead6b468e82a07b4bed550939aa3aa4c321d78173c8f"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "5d546ec86a0fcc873419caaf94cd17d4a3dac00e1eedb003e6df7a44c1f8ae4f",
+            "bodyBytes": 427375,
+            "initialTermAndRulePairSha256": "be7747b594222e4ce6deaa394e505ad80842703cf36dbc3f60a6a991802112db"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "4b2f0e285e96c85e5c7565b0050d5bf31938f77b39547fc7a7001e88e0108ac9",
+            "bodyBytes": 140152,
+            "initialTermAndRulePairSha256": "19555043f4f6e67f86f5af3f0c7814973a28f8b849beb95f0b94d0e90a0feb37"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "7713949fbf1729c1d7772071366fd80740099b63ab2e41752ee70b686179620f",
+            "bodyBytes": 140249,
+            "initialTermAndRulePairSha256": "cd0e4514be77832d4d104c864a328c59570978e6f358054894430753b6d5b7ac"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "a3dfbf35808cb05661d8842cb44f1e23c401a6bc2a5cf9129405a0335cee7ff0",
+            "bodyBytes": 140157,
+            "initialTermAndRulePairSha256": "e99b7dada6118ca794acaaee6bbf8fe58a3dba6a8e4b8773347e6fd9a52fa634"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "aa6bac70ff5ea521dd11b08516b946cd20b7632d226b8c2ff289b43012084a2b",
+            "bodyBytes": 145000,
+            "initialTermAndRulePairSha256": "0c9f606b5dc17a2a68eeab2549de53d011ebaef78df1c22228278f61dae5d42b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "eccbb6fb0b2d6f00142a0110ac69d7ed52e5a07f16688a9479ea68ba543d69ce",
+            "bodyBytes": 423478,
+            "initialTermAndRulePairSha256": "3731205139ee4fc6d949c90908da34d676316ec791a93aad509c30ce9d2e2d20"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "bfd93dbfc4c3e688f5116251314c1fcf9b95fec9fb79706010f620f539524a97",
+            "bodyBytes": 140208,
+            "initialTermAndRulePairSha256": "010af1ff479e4bb16e9209a494833e80bd48253830a2a1dceee8b60e0b90e775"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "962c2cd3cda57afd7f34ce1c37e13f5bc24e6e440754852be6da83fb63cc9608",
+            "bodyBytes": 140187,
+            "initialTermAndRulePairSha256": "867e01d237239bceb5b3b8831f4ddc9f264565073371fe799d7bb7b7a6f38050"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:64:0-67:41]",
+            "bodySha256": "1765cfdc8844b9474f14cd2908e76a27feecba4e882e3aad930ea62acba88cc1",
+            "bodyBytes": 139633,
+            "initialTermAndRulePairSha256": "3655ba968fff782e3c0a504651b13b48fbefcfbe13045fc4160c6ca09addd6a6"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "abd942faec0e6aaac056e00fb6e652539cd7f3f1bd2064677afc30d0861cc7ba",
+            "bodyBytes": 434759,
+            "initialTermAndRulePairSha256": "143dbeeaf2f9226bffe3c50453f65d5db5a8c14326fd1526f2a849b78520dcca"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "cfa51d71be2388782935a8b10806f287f8f1b749751701cb7e102ff4369ee6d6",
+            "bodyBytes": 867942,
+            "initialTermAndRulePairSha256": "a987a8cf508cafe36693a138e70c265589e0fb0339b76643a34ceed9887e744b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "60533e88f7875bd816321ea293d4800fea40c14b029a6e85bd901c58cd3a15b8",
+            "bodyBytes": 578773,
+            "initialTermAndRulePairSha256": "78280db3f2479b5b2e5b1e40d3f2f05db735321e06a59cb5ab9ca28b5f62edd0"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "c6e18aee1ffb67035f54f896f0111caa6d15832cb583767eae0891af57985969",
+            "bodyBytes": 578773,
+            "initialTermAndRulePairSha256": "55fbf66a2417b5fe3cd44b695ed72105f8fd0ea65cabe752f5e7855ef7d102e1"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "9021b90a10ba2c0fcf6081b61772d66248857a6fd70db59046b602a85a7d554f",
+            "bodyBytes": 867977,
+            "initialTermAndRulePairSha256": "41a80013f89cfa4effc606e0b165b00c7e5a7eda518aa300ed5dc0963914334d"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "7545ac34570f9895a69f447c1f0eec79744581ede751903dfbae5117cff03603",
+            "bodyBytes": 435160,
+            "initialTermAndRulePairSha256": "9a7ce2850c0760119512e28f711c902a8bf497f91f4deb676203a73d85c52f6b"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "297330399a2093a17124dd3726caa2e847ff83b0c7071f76841c1e434050319e",
+            "bodyBytes": 145385,
+            "initialTermAndRulePairSha256": "0f11bb1de10a11986aa4e307eb1a326e59e346f24641e45f8778fb31f3c642f3"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "08c74c0279b505af1d452bcf53e6d373618c4b1ef05c1e6084990037f47afaac",
+            "bodyBytes": 145385,
+            "initialTermAndRulePairSha256": "0489152ac432a59029d27229845ad092be965e8b60b4398319c5e0d42dfaefbc"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "63121741b82cdc1770d1c0e3165e4cb3211bd6534b67fab596ee3aabcb3b5840",
+            "bodyBytes": 145625,
+            "initialTermAndRulePairSha256": "60342533dd4096356c8ea5334a5bc9453d9e719f8b59257ec5a3b1e041102452"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "47771eabe2c6490d890910bc65741cc08156ac13b5f192a4687bde07d7bfd401",
+            "bodyBytes": 145625,
+            "initialTermAndRulePairSha256": "2626480da3907ca70af308fbb9a57e27cb6a4da41602df63c093fbfcb486eafe"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "1643a27a30b8640fd0628368c75d3cb428b21a1f8a1e083941c748f7c637dee5",
+            "bodyBytes": 868208,
+            "initialTermAndRulePairSha256": "3a41d567095d99b2bf0946e1f24c2fbed99b01282a2a6202127b647ab4f24e6e"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "8eb17b1ac347353aab9df63e13f4937a6b4d64a495809d6dc4db6f47881a4201",
+            "bodyBytes": 868208,
+            "initialTermAndRulePairSha256": "147960bf7754bb41a216e1cc740bda08ecc3236e28c521df66ec005e87b46062"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "d453b3f393cd59f11749df39e335b6632f46455d21e8b9de559820c9ccfc2832",
+            "bodyBytes": 1301739,
+            "initialTermAndRulePairSha256": "fbc217d5115a9acb5a004cdcaa5b10a16250e562fd966185b4f91893fd42b819"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "4e3f35660d873d2333b7b06658d2293a32b7549b82c3661f14b56c6ceab41729",
+            "bodyBytes": 723508,
+            "initialTermAndRulePairSha256": "a98c70e3bc1f179d49ff1c266968ce8218e02a66f41181b9fd5f63fe0b8d4950"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "7eb84527ab78fc0e20972fc494e4fefe32569acba93892ad76b404164287bf2f",
+            "bodyBytes": 723508,
+            "initialTermAndRulePairSha256": "5ffe7ec1e2525c82783ddb8c5ff6c0cb253e4f827902ed2458f638d6bdd000e7"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+            "bodySha256": "9463d0cbd680d9c07fcb93edf0be5a417eb160007191dc85eee3a6cf96a81426",
+            "bodyBytes": 434515,
+            "initialTermAndRulePairSha256": "7002c143ad55715ab2544f24ecc89594d71277f34d7e444793b3ed278dac4eea"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_monads.lp:309:0-322:10]",
+            "bodySha256": "941999095b70f17878258319cf57132e329dda8b5ff7621614578e69826c3ce5",
+            "bodyBytes": 420754,
+            "initialTermAndRulePairSha256": "4adc352965a79dbe74652b8db3aad1ea2d39760405b62beb4f1539a9c01cbb0d"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_monads.lp:651:0-664:52]",
+            "bodySha256": "3dda156e41de98de97c9d77b830c238ab0397a4fd3660feb886c4c89ada19791",
+            "bodyBytes": 420796,
+            "initialTermAndRulePairSha256": "2bbc790bca26092269af378ea41070a378a5a49009b6e4fc4fbe6896c445e0ce"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_pullbacks.lp:277:0-280:45]",
+            "bodySha256": "9fd1ff41b0e3cf0c8db330ca0d0928883d641d86bfbdf7f18c24414d9c6e3863",
+            "bodyBytes": 139966,
+            "initialTermAndRulePairSha256": "fca873874f92a02e0a653e61dc126a740aeb79333e5de9e7db462351dc80b441"
+          },
+          {
+            "count": 1,
+            "origin": "[emdash3_2_pullbacks.lp:282:0-285:47]",
+            "bodySha256": "872ada07ca3eb629433645c2d21e9cad4e830e27ea6d65a3d24b8e476dfae58c",
+            "bodyBytes": 139964,
+            "initialTermAndRulePairSha256": "a4526d2e175e1919d812e53cb4444783e9fbb63114a4882e3779644c7cd1af3e"
+          }
+        ]
+      },
+      "reportedRuntimeOwnersUnchanged": true,
+      "classification": "Import/elaboration-context differences at unchanged runtime owners; exact changed bodies retained. No global confluence claim.",
+      "direct_cover_sheafification": {
+        "sameInitialTermsAndRulePairs": true,
+        "changedNormalFormBodies": 27,
+        "observation": "Printed normal forms expose existing sigma_map_obj versus raw fapp0(sigma_map_func) presentations. Their arbitrary-object join is proof-time; no runtime equality or convergence is inferred."
+      },
+      "monads": {
+        "sameInitialTermsAndRulePairs": true,
+        "changedNormalFormBodies": 2,
+        "observation": "Printed normal forms expose existing sigma_map_obj versus raw fapp0(sigma_map_func) presentations. Their arbitrary-object join is proof-time; no runtime equality or convergence is inferred."
+      },
+      "absentPullbackSheafIdentityPeaks": {
+        "count": 2,
+        "status": "Not emitted in the new context; source owners unchanged. No convergence result claimed."
+      }
+    }
+  },
+  "freshRegressionInputs": {
+    "core": {
+      "allInputCount": 201,
+      "allInputsMatch": true
+    },
+    "library": {
+      "allInputCount": 403,
+      "allInputsMatch": true
+    }
+  },
+  "coverage": {
+    "registeredCore": 792,
+    "stagedCore": 296,
+    "qualifiedCoreExcludingFullDiagnostic": 295,
+    "registeredReviewers": 596,
+    "qualifiedReviewers": 106,
+    "unstagedCore": 496,
+    "unstagedReviewers": 490,
+    "centralRuntimeExclusions": 5
+  },
+  "currentQualifiedSourceSha256": {
+    "emdash3_2.lp": "7ed6b2d06bded69965fc771d447dfb8b9faa26d114aa060b1e5389243ffe7789",
+    "emdash3_2_abelian_categories.lp": "e935544c3c7e94f3d0fd25b955e7d318f8529a8d18a9f75a522b7fc0aa69fa6c",
+    "emdash3_2_abelian_fiber_pushout_stability.lp": "5981919cfeafe86c635755a8552df566a99cad6a6e20475249d078410ed70631",
+    "emdash3_2_additive_categories.lp": "dac5dac26c4bb56f3816be5210da8b6c49a8c4408c3f27d8e59ef6b4daa7dfd6",
+    "emdash3_2_adjunction_mates.lp": "5727953905e6c267ab8843a6995875384eb1b361c05b8ce961f9f0a36e442205",
+    "emdash3_2_adjunction_untranspose_naturality.lp": "dc2ceda7cad7a2619b49f31d5ebc675b79b87b06f13e387935832d05ca203497",
+    "emdash3_2_arrow_diagram_families.lp": "3f176a96d6d285f81ba0f768c76ba33d63e6d46c2525206221ed1832e540051c",
+    "emdash3_2_cartesian_categories.lp": "8db9caaca41871e4e4dd96cc5600e87955e15a7630b70ceedf6556fb461e5c41",
+    "emdash3_2_categorical_contractions.lp": "d8b2fd7375ab02e6aba31883345883a384585bb2a45cf18e92b793d1629e0aec",
+    "emdash3_2_chain_pair_cubical_maps.lp": "5e7961196d643cd07035a0a8213f61b8e8d18a659bb3792d0ea7b13b42e9be65",
+    "emdash3_2_chain_pair_data.lp": "7d8c09b967356ab4d2a52b062f7ab1e155ce4b005335b6737d5165c92478d853",
+    "emdash3_2_chain_pair_diagram_maps.lp": "e231d76b7a66f9a7611210a4febca22db7f4cf07266adc173e495da1a57ac661",
+    "emdash3_2_chain_pair_diagrams.lp": "e515bd5945cef3b238c1705b7d549dac1646c80be476c98e3c51d2dbcf456f26",
+    "emdash3_2_chain_pair_map_composition.lp": "6ca917c521fcc9f2360dbf9c55ea20be507e6fc3f6a224baa79904bb9ef95345",
+    "emdash3_2_chain_pair_maps.lp": "201c89a9a3f27533c880e4d4739ea9c82e224db484da29bd7cf1a7366389ea65",
+    "emdash3_2_circle_hit.lp": "4817e0194053d2d4d47238d5c2ea721421b5d147cbae043fe62ba866cae46530",
+    "emdash3_2_cokernel_adjunction_families.lp": "52351ada2f766cdb5049363f336c3bef9b7f60a9b0745e44fa360f5d7e891b4d",
+    "emdash3_2_commutative_algebra.lp": "e6689f87900158649bdbc30fe2ab6fd326af950b964eca30672b4019e015ccc8",
+    "emdash3_2_commutative_algebra_affine_atlas.lp": "67fd7f3c3158bbe8c6ba664b588614e46666bce68bf2ddef73434a6837611610",
+    "emdash3_2_commutative_algebra_affine_glue.lp": "0758ef9ac679c9709e90fc4721069a84f57c6a5b7e559cb2d08efd38ad57eb9f",
+    "emdash3_2_commutative_algebra_affine_spec.lp": "421951fa4746af34f0a02fed59a1112ec2de48b9ed1e83720f40c209f038fc98",
+    "emdash3_2_commutative_algebra_bounded_free_chain_maps.lp": "66784f92c29518452522807b9d7b2be7e10f1553f87c1370321481e68a1ae25f",
+    "emdash3_2_commutative_algebra_bounded_free_complexes.lp": "7d4b137314c4293642a764d02cacb14dd1ad7ed1e0052a7c9ca7977f85851c35",
+    "emdash3_2_commutative_algebra_category.lp": "45712bbb7fdb639d3cce29e7a6312096c757da6c62ce5d09eb485e04b4a71da6",
+    "emdash3_2_commutative_algebra_derived_laws.lp": "cc40b4b223bef7ccc8eef476e6ed4007af46fadee0aa5b98c81675c9ab6952ce",
+    "emdash3_2_commutative_algebra_f2.lp": "8d9d8a7c72bb57c13f75262a70204d005c3cd547079054c81c07c3938a8f6d17",
+    "emdash3_2_commutative_algebra_finite.lp": "78916cb4d5c9989a927bb7808afcfc9973e5836a5cb6d09bc87b533f87781d31",
+    "emdash3_2_commutative_algebra_finite_free_category.lp": "9f8269da199c409b7aa4e4a350f1cb958b1a5dc2de4ea85df31904f9a88d52b5",
+    "emdash3_2_commutative_algebra_finite_free_direct_sums.lp": "0f1b3e5da72ecaebbbd2f76f11e712ccc4d6682525be16ec1ec1746d00c89fc8",
+    "emdash3_2_commutative_algebra_finite_modules.lp": "b9efcb7a9c0131ad02506bbba2c3b95efa033f7bb043fb6bcf84a50d2fec1739",
+    "emdash3_2_commutative_algebra_freyd_additive.lp": "dff187651b36a518b83545c675948c9383ee0e1b16c8212a5ed61d6e8a805a39",
+    "emdash3_2_commutative_algebra_freyd_adjunction_models.lp": "520ec7307dfd3d989074ff1b1983f53a808ee2ba0f71cc8e38ca770d6eea4dc0",
+    "emdash3_2_commutative_algebra_freyd_binary_products.lp": "7dec58d1cdc54454f8ee10ef8d6ea1e8cf9a4df77e1d8ee0964a2ddf670bd7cc",
+    "emdash3_2_commutative_algebra_freyd_cartesian.lp": "b6e2c1a1c11aa713b591e0c43cccf5de2b67420741d6f040afe747f4c754d593",
+    "emdash3_2_commutative_algebra_freyd_chain_map_data.lp": "a178106967ae89ccf64ee2df95a0319c8ef3b49c56e21f441961e83658170601",
+    "emdash3_2_commutative_algebra_freyd_chain_pair_data.lp": "8d65a5e9e98e84f0a2a267b373dbb3343e27758a12e3dcd6376a899e644df2d6",
+    "emdash3_2_commutative_algebra_freyd_column_homology_projection_paths.lp": "522a460a1c25a4bde46d1618df832092059b8481e89cd1f222fd6122c608b1cc",
+    "emdash3_2_commutative_algebra_freyd_direct_sums.lp": "d8b2168994711a8ab3307af1816215590f54d4fe32132b949d4d03706f5c98d1",
+    "emdash3_2_commutative_algebra_freyd_native_column_homology_comparisons.lp": "df1ad8110619544f7f8b6b5cada772bc9e37ea838d7097a9abef72ae762dfef8",
+    "emdash3_2_commutative_algebra_freyd_native_column_input_comparisons.lp": "d52019841c2314b2f34f4e6b4af1365f2b502e2c2283c119975d8021a84862ed",
+    "emdash3_2_commutative_algebra_freyd_native_column_inputs.lp": "4f3bc7ccc5fe9c29f0fbc9f93744a5eb6cf78ff3ef43d934cee46e77864efe11",
+    "emdash3_2_commutative_algebra_freyd_native_inputs.lp": "f7e3a58aa7c07fa11d45ce7a826ace45be4ffa465f301ba657e4e5bbaae70bfe",
+    "emdash3_2_commutative_algebra_freyd_native_maps.lp": "8fcb3a1222a83c69a9755245625068fcb9e5114a78c4cd27506f198ad697ed12",
+    "emdash3_2_commutative_algebra_freyd_native_row_families.lp": "3cae8555e30795b97c8889db4269cf6ef26f40a2018821b4eb6f42fe92b90a03",
+    "emdash3_2_commutative_algebra_freyd_native_row_paths.lp": "30fdceeecda0206db8843b84bb81764a06a3aaed71b2adbc7e1c649622ebea42",
+    "emdash3_2_commutative_algebra_freyd_native_row_short_exact.lp": "45ec7598d62fcc39ea9e8600ca881dcf31dfa80e736a8991eb1bd3d7fb824640",
+    "emdash3_2_commutative_algebra_freyd_native_row_zeros.lp": "56d37343f4c4b6a3d654833bb71ce466d8ad5c69c23620458d2f30a3a219a211",
+    "emdash3_2_commutative_algebra_freyd_operations.lp": "3cc4bb7e04381c3c5646bb83e138c80913d02b21a5760435e94889e89f7f4bda",
+    "emdash3_2_commutative_algebra_freyd_preadditive.lp": "4b041fd76f2a01c48d812f1d104f771f4c38a1fa78b77539fe44c2aae5dc271f",
+    "emdash3_2_commutative_algebra_freyd_preadditive_class_laws.lp": "d9f84167a90e2aed84224be67fcac1f43b7a4b7b27c6bd7c87e0e4162b990b03",
+    "emdash3_2_commutative_algebra_freyd_preadditive_laws.lp": "79b91eec595b6a991ee6b5a2609e9a0382a74c6ab51b3b29a8c9f4fd888cf452",
+    "emdash3_2_commutative_algebra_freyd_presentations.lp": "f4c041e081419eab3287ea9e874e9872528a6974d74bd34158cdf2b95c1610b7",
+    "emdash3_2_commutative_algebra_freyd_terminal_zero.lp": "89b1d7031f72fd5b6f7292cc16e18738aa95633b318b1ebdca9826b622e43cee",
+    "emdash3_2_commutative_algebra_freyd_usability.lp": "74135850a722a93af24875fbe649c106d0989b45723c870530eecb25f145cb87",
+    "emdash3_2_commutative_algebra_freyd_zero_cones.lp": "126362287615a51cd3955b08c0edcc577535ad8deb0198ca724def7685251e33",
+    "emdash3_2_commutative_algebra_glue.lp": "039bf198f2882a533441a1eb1a5633c5511098c1a04d6163da136654eac4c1a4",
+    "emdash3_2_commutative_algebra_locality.lp": "421e007d4f9c18cb63ac5f98bb81a0a08c999fc9b7ab25b7486a6282953e3f16",
+    "emdash3_2_commutative_algebra_localization.lp": "0916411f24a911c2b2b9c21e923c178ccd670677f7e4a1d7afec6ac5d90f99bd",
+    "emdash3_2_commutative_algebra_localization_comparison.lp": "90f4b9bd4e9677f30122216f743620b7c3640f53bb3074f08bbf00139f8b3f9d",
+    "emdash3_2_commutative_algebra_localization_idempotent.lp": "014685d5d0455028fefc37dd9f38bf693892ff2e382e9a4b389f5406ac2d0042",
+    "emdash3_2_commutative_algebra_localization_overlap.lp": "4b2bd200c7d4f9339dfcb55e3198b35f5e01a098f08df66e294f806a383c6f79",
+    "emdash3_2_commutative_algebra_localization_split.lp": "e6ca13911d5a7b5a691d6076ff1371f8a844e39d90d8aa9d20263ae91d0f125a",
+    "emdash3_2_commutative_algebra_localization_unit.lp": "a6bc8f0c689d1febdd46c3b0b5c3c1e931473c3d010b2382e9ffaf77eca8cceb",
+    "emdash3_2_commutative_algebra_localization_zero.lp": "0e1e6d70f0ef3a124a48c81ff719ff67d63b571f6c899ca3ab0f09ec0c21c7e5",
+    "emdash3_2_commutative_algebra_matching.lp": "472900e6ce024d135fedfd9de0adbea9bd430f951729f6020accc6b4fad2506d",
+    "emdash3_2_commutative_algebra_matrix_additive_laws.lp": "5cb82d4fa01b03916cfb98212edf28aec07e2d179bc2cf023666b97645b70475",
+    "emdash3_2_commutative_algebra_matrix_block_laws.lp": "02c5e40ed9a8e4897dffa6a08b0b6fe7cfcdd2f5c7bf41f469927824c14fcd83",
+    "emdash3_2_commutative_algebra_matrix_blocks.lp": "30af7ddbfabd481820188ad289562d9228ebed7a7112cba662a37e83c6554139",
+    "emdash3_2_commutative_algebra_matrix_subtractive_laws.lp": "1032b261a92f8922247b6737c0e6467091ca5e350939e56b48f071ab867f5129",
+    "emdash3_2_commutative_algebra_matrix_zero_rows.lp": "75c38b6692191462b56a27af77457ad2ba4a1e35346a3fbd361ad8bb07fb8b49",
+    "emdash3_2_commutative_algebra_polynomial.lp": "cb435b4c4dd779139f3cc1cc4b009ae8b6030eee6456400e91345120dfe74881",
+    "emdash3_2_commutative_algebra_presentation_additive_operations.lp": "c90452236aab094b03235ca8c40c3674d75957200616c87b5a865ead2119ee17",
+    "emdash3_2_commutative_algebra_presentation_agreement_operations.lp": "44e453b8f27eaf7f8a8f2a59f63c31edcd380534d9fbac70da57118ff018165f",
+    "emdash3_2_commutative_algebra_presentation_chain_inputs.lp": "9999e872945535467dd103af031e095a2081d04b1f1b333d6ec023102a6b50da",
+    "emdash3_2_commutative_algebra_presentation_direct_sum_agreements.lp": "b8d647dd7f5a8b154b10d56b9de2953ae3e429bee504a46d1ddbc3eb0f114a28",
+    "emdash3_2_commutative_algebra_presentation_direct_sums.lp": "e8685286a1d679880722da00fde25ca50cc9d0685996a42ba028058659ea5030",
+    "emdash3_2_commutative_algebra_presentation_operations.lp": "a5e4c332c03cc75d444d01a7c8df88fcce0f6a4e39ee8fed73184210e3a2aacf",
+    "emdash3_2_commutative_algebra_presentation_subtractive_operations.lp": "ec0844d91a1094a217a6b7ca0f7d454af3212ad817945b5ffd3072fd0bdfd714",
+    "emdash3_2_commutative_algebra_presentations.lp": "392754287e6709de5fab78a9d5315ef2b2e5f86a1bf8161fe4bbc7a8879641de",
+    "emdash3_2_commutative_algebra_presheaves.lp": "3d84f509d152258df9e18975cac4b053cae33201e3b6375d82a5e01d232daafe",
+    "emdash3_2_commutative_algebra_product.lp": "be58bdc7c97a4a54a9678f56accc56afc37354c73e98e48a4d16852d8c0961d1",
+    "emdash3_2_commutative_algebra_zariski.lp": "5a0237e4e44b97daa29b814abecadaef703eb23f3d81cb3765d37c28495cf3c1",
+    "emdash3_2_commutative_algebra_zariski_topology.lp": "d7e92b61294d3a446eaaac4d8676adf4deadfc92ef8da48e3011b29ac29386ae",
+    "emdash3_2_computational_fiber_products.lp": "36c31e192d2436ae6655cce68e071c26398d727895937324f8ec38109cfe0980",
+    "emdash3_2_computational_pushouts.lp": "f497e422ae95713938a64b537ba07ada0725ba2c6f3b50f036ffa7f3bc5cd67f",
+    "emdash3_2_computational_weak_pullback_compatibility.lp": "c25faaa035832ee53328d08e664a8a7b8bd218ee0bf2c3c74182f08384669a47",
+    "emdash3_2_computational_weak_pullback_cones.lp": "b95e65f572b790b82b6ac423e755a5206ec3f738d1055dd0ae10eedf04c7b1ec",
+    "emdash3_2_computational_weak_pullbacks.lp": "eae9393317dfcf2958ce30bccdea801f597980bbdd2e33137c78dfd47571101f",
+    "emdash3_2_cubical_arrow.lp": "616ddf049b03d38469cb4fa2fad2afe4a1ee4cfb610ffa1d12f10091be6c8fda",
+    "emdash3_2_cubical_dependent_hom.lp": "ca6d940cbc2ae606459b706dbbd2373dac406092fcca406626b38957f36762b2",
+    "emdash3_2_cubical_internalization.lp": "69ec9722d37b2239051356fcd25343cd9b6f79d7e5d9e2463d7fd1a161b5378d",
+    "emdash3_2_cubical_square_total.lp": "1e6eff322f4fe135b8a18955b8abbdc424f4d18e8cfdd0ed7c97ef9543672d14",
+    "emdash3_2_defiso_evaluation_ordinary_paths.lp": "a5bff3389191012d1af4388d2aab01e5566c005cda6f0f5932bd552fb560f560",
+    "emdash3_2_defiso_evaluation_points.lp": "422997df24e74dceff52128ca6da6efc977c6201652d88c0235f424f576d3acc",
+    "emdash3_2_diagram_evaluation.lp": "404f3e92a2c0853b8f6f89b1d7f6bf842a51b106ffe7b1c3a799aba7d9ce9420",
+    "emdash3_2_diagram_reindex_views.lp": "f990d8cb38380c18a0425da69c13eb4f93889d050dffdd3b58b86fc38805c91b",
+    "emdash3_2_direct_cover_algebras.lp": "98621340ca58d44dca1a06331b4f01413f7e6eefb302694a89b7d614c5fb4b2d",
+    "emdash3_2_direct_cover_completion_eliminator.lp": "cb266c4cbb1321a7070553bf157a52a2128d65854422be76e1cf71c3aeb36f62",
+    "emdash3_2_direct_cover_completion_hit.lp": "5d82ea3a622688e2b6dd9cab50b7de30b9014a16e8bd2bd250f435614cf9fbdb",
+    "emdash3_2_direct_cover_completion_locality.lp": "fdcc32059e23a5b2a8c9f7ec92f6b1e72a0f8b4cdde417e6912d933f20811198",
+    "emdash3_2_direct_cover_completion_retained_sections.lp": "bd8fc7aa89fffdef446e22142a4b4f4f4d59b7373fc91b732036140cbf088960",
+    "emdash3_2_direct_cover_completion_universality.lp": "7cfe3e1a418ce0ebe143850edf31d9481e59009dbbe301b7cc45fd93642001e4",
+    "emdash3_2_direct_cover_internal_sheaves.lp": "b505739bb2104428ca156e45b0e195c4586809ba51dc6c30d8898e3d43f434d0",
+    "emdash3_2_direct_cover_question_families.lp": "0aff48e9eca69fb011d0d96ae9f4c4a9669da540d4eda1e406ea78c1897993ee",
+    "emdash3_2_direct_cover_questions.lp": "391c976aa576b29c0a3f35a5ec46bb59313d5fc29b7c200e06715c82bebe8914",
+    "emdash3_2_direct_cover_sheafification.lp": "ab46d8a9920a02bb7703d56c3fe0ca8c055d237904670e49cb7ff240e71f2b4b",
+    "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+    "emdash3_2_discrete_iso_maps.lp": "2d5afecd18046093cf2c6bc31f4d866e4935adaf71f43811e9b1739c54990c3a",
+    "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+    "emdash3_2_fibrewise_sigma.lp": "e2aef16ea393cebeb4c06255dc234b95c45290f487ba183a50b1b92176a61445",
+    "emdash3_2_finite_families.lp": "3caba54f7c8ff954abfce4c02c180769064b642d56d85c034c95f0ddfebd7bcb",
+    "emdash3_2_finite_family_sums.lp": "984ac38503cfa36cff8708186da344963e1cd390c3346f99496d882d42fa12fd",
+    "emdash3_2_finite_limits.lp": "d70572b862ae62935a8726d68d1c244b2bb9981ad3d031276c39a46256ced9f9",
+    "emdash3_2_functor_category_unit_views.lp": "f6befb37cff3ff4d108eb08928b5775edfd8eed8bd942298d5de814b6cb289a1",
+    "emdash3_2_functor_reconstruction_paths.lp": "a1df7f1b1486626892c55fa99819b8df43df5275d49a7329fcaacbac1d277430",
+    "emdash3_2_gray_interchanger.lp": "d9d0897eba24fd1c30e5afdc839981a14714a1b20a1b118f209ba88908c97d8a",
+    "emdash3_2_gray_interchanger_orientation.lp": "b7601959072630e9f955317f64bb4282e55ac62965f5b7e6eb9943c39931ba0b",
+    "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+    "emdash3_2_gray_right_closure.lp": "240f037f274a11baf0a30b3a2e1804a77e562da1b6caa509b3fb7df38a88315b",
+    "emdash3_2_gray_transformation_graph.lp": "2c34218d040dd3418b57d8d9ca751627cb6feeed315259bb70534a4469d704e3",
+    "emdash3_2_gray_walking_square.lp": "d5ad348d9d637960358a2d8fab9a79d97265d7cb709a449b0138727b0b94cdcb",
+    "emdash3_2_groupoidal_closure.lp": "014a79cf6c8f29f9a0b0dcd31dc4753e840be60aded204e449d04eb577026430",
+    "emdash3_2_groupoidal_interval_hit.lp": "6116b3510c73d2c2050e31d1e91eda53f93f22e34c3aabfb157b56936cb9e55a",
+    "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "emdash3_2_groupoidification_composition.lp": "ae7207a5a14ba524b4b1feb482b631f7a568afbbff9940430564c25a49410083",
+    "emdash3_2_groupoidification_hit.lp": "be994dfe1e1d71a78d49d990ae8ea179c64c9b1e2a6465b381462fd126218b01",
+    "emdash3_2_groupoidification_interval_recovery.lp": "efaa9b795ebc7f1ebe8eb13e78df758892ca618198e1134689b66b628d6a176e",
+    "emdash3_2_groupoidification_set_extensionality.lp": "ef3ec1c0381e645675d47793c79881819fd5d2f97f4f0e43df662e3f4a958876",
+    "emdash3_2_groupoidification_universality.lp": "5d4879c7111c8bfad8e7aa34b09c11d4701397c3077692051b754b99f2b6ce67",
+    "emdash3_2_hfiber_cancellation.lp": "9a0ccc61789055c9fe0fde1d1c4b6aef21e1e4279bd62c5d7726ddc3468ed61f",
+    "emdash3_2_hom_action_factorization_views.lp": "13a193f3eaca14dd2366678850817a3a5842d0cadcb879f3390531106229513b",
+    "emdash3_2_hom_factor_chain_zero.lp": "3d5f3ceeabeb11ca85ce3b8bdc20b9830002e2badfb6dd784dfce1f11f78ce17",
+    "emdash3_2_hom_factor_comparison_pasting.lp": "b952dfd25e45e9df4f6eb45f02f1e348e2aa7da92d80f66912a7257ba7805e65",
+    "emdash3_2_hom_factor_composition.lp": "0842da1928a1451aab96b67f113308211dc34bfde12ab6f5df523529afe2cffe",
+    "emdash3_2_hom_factor_cubical.lp": "f1a17db600213d92e234b5c2e70b9716ea587e26fd1aca56d5cbf99a67e9ca39",
+    "emdash3_2_hom_factor_epic_descent.lp": "07928ae737a905c85041f293547b74099899963a0e76aa3c0c766fc79750a812",
+    "emdash3_2_hom_factor_source_isos.lp": "dfd50d4a9e799e2a8b4e0ae46fe27ea08e55e6bf5eb93131b3437a926d186380",
+    "emdash3_2_hom_factor_spaces.lp": "51c627be81e7516948c79c622f59b2b86fcfc0c12f7d7ab846d49250cb8e4064",
+    "emdash3_2_hom_factor_universality.lp": "d550f7347315b0fe9fc6f05e5e7f7a02d60e0dab1a01acf746b7042f52c08b14",
+    "emdash3_2_hom_factor_views.lp": "df0c48d58326d0690a1834f20a96632520d9bc774d50d3811c510d621e5b620b",
+    "emdash3_2_homology_adjunction_families.lp": "d30fb1f1c146b638dfd8511efe4b1420931308b8fbf8400666f5aef813964177",
+    "emdash3_2_homology_adjunction_input_data.lp": "2021dbfe3012007a2be8acb9016b537495fa04090069153d2bbb7d29c7ad927b",
+    "emdash3_2_homology_family_point_comparisons.lp": "ec40030adfa620a7eadad1f1950de6ce63f84083ba4f693aabbce93bde207a1f",
+    "emdash3_2_homology_family_point_diagrams.lp": "4f13b75e4e4b0af8bb7b8d61ff059e8605690a9fdfffd06dcab46ca2dc89d3d7",
+    "emdash3_2_homology_family_point_paths.lp": "5c2e0f2e4039af7012b1a45e117643b7649ebf7f613cd6c5ca49657d171daddd",
+    "emdash3_2_identity_presented_iso_mapping.lp": "d01699975415409aa1411b3f18d20669d6b585b39bbe7be87a7ca868d07b6525",
+    "emdash3_2_image_coimage_adjunction_families.lp": "15f2740d121ea038b3bf136dcc99849bf4026579e8608439c64e779ee5725ab7",
+    "emdash3_2_integer_localization.lp": "22f6d18c428f24dcb5b8b90924ef67b504cf9fc99329f60e9a09a48c42ab63c8",
+    "emdash3_2_iso_evidence_constructors.lp": "e26058aa055715b99358969c7a46f5495c0f9cb481eb27713f0ff5378d0aba29",
+    "emdash3_2_kernel_cokernel_adjunction_mates.lp": "643dc77713491b8baf411711faf9617171495f8d89a5279cb82a81f8b463c046",
+    "emdash3_2_kernel_cokernel_adjunction_observations.lp": "8e0aab113770a26bb39cff48aff132353e3fdaa14af38cd96f910f2b3c74b333",
+    "emdash3_2_kernel_cokernel_adjunctions.lp": "220763af263da63d326d46f891a3f4eda5c8acaeec560cf4d0df930db6dca56f",
+    "emdash3_2_kernels_cokernels.lp": "6c6e2988fb4566f1e72e9a45d4817fd470be0777c3b95eaef35b2caf02eb299e",
+    "emdash3_2_monads.lp": "639c73dbba906e289db950c5f5a2af9a5d2df91f468d28a718ccf4a9c709a20f",
+    "emdash3_2_nat_arithmetic.lp": "5dca60b9137daf0772c8586e8c2214de4c6dbc6ef9488b6b19d9c0561fc5ae31",
+    "emdash3_2_omega_equiv_cancellation_paths.lp": "1369c5ac4412d37e10391b25a91b2f20c04685b2cfc5d577bdcefdfea89a8e63",
+    "emdash3_2_omega_equiv_composition.lp": "9783ba9a79ca04e88c1a6dd8eb510d976061e466fac2060b997b7b3f3abf8835",
+    "emdash3_2_omega_equiv_inverse_square.lp": "3f0e8ca36ac0174e9f093db17b17b02dc856f0b23f886e0b079980c4bbed408d",
+    "emdash3_2_omega_evaluation_points.lp": "ad1d3ae47ed220c9121de66f85d5a9cc170ea44fa823b1a8a899810959ab0524",
+    "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "emdash3_2_one_cat_adjunction_families.lp": "999737f820d904ca4a8f1e2aa2e443674999e7a49eac702338c0b5746e546d5c",
+    "emdash3_2_one_cat_adjunction_family_reindex.lp": "5462ec70f438dbe67eb29a5029ca8910796e75b643a0ad83eb6671a7470df7a9",
+    "emdash3_2_one_cat_adjunction_family_views.lp": "9036a99fbdd225f0be135b760da34245273647e6b0b64c4264897baa0b7219a8",
+    "emdash3_2_one_cat_adjunction_introduction.lp": "3d3188582cba58022d855c9f921279531a0b5b7667b5ea381b9e5ab7e8ef153d",
+    "emdash3_2_one_cat_adjunction_transpose_paths.lp": "d5c07860ad62919b6db737c83a9f15879313fd79ff9b2294f19db19c3a951217",
+    "emdash3_2_one_cat_adjunction_zero_column_observations.lp": "8f7cbcb4bf439ba9dc0d390266d41fa198fdeefae2ec617087f81c40b0098a20",
+    "emdash3_2_one_cat_adjunction_zero_column_views.lp": "8b180dbf254b2403a51eaf2301b8957d80eeb32b72b651dffad70dc1f4cba49c",
+    "emdash3_2_one_cat_adjunction_zero_columns.lp": "b01c824949a321dc211510a34f878ad4ee15e738faab7804578e09af2209527a",
+    "emdash3_2_one_cat_arrow_diagrams.lp": "7cf252e8694a4ffa1f54d66f61e0b6803cc25b2a68dc7e7cd9fde7d90790be35",
+    "emdash3_2_one_cat_arrow_family_isomorphisms.lp": "5b9adef4471b50386a2c413cd88ce750b5f3b6a118a2a187765cd163ec54aa62",
+    "emdash3_2_one_cat_arrow_family_maps.lp": "6d5a1537028bda3bb97e5db3295f2eea3ed2619a952628ab765c7781bf1fc95f",
+    "emdash3_2_one_cat_chain_pair_inputs.lp": "e269350cdcb05b8051b7093ac3348b8483fcde785782d17611a691cc6043b788",
+    "emdash3_2_one_cat_chain_pair_native_maps.lp": "81937ed67e93120367f6e524f7bb5a9dbeb7324fe39257839a49c16c883b63a8",
+    "emdash3_2_one_cat_cokernel_family_descent.lp": "6ef49dfa109da7368e781754646d1d08b3d6dc17992f3d59b0a42de0cc539d37",
+    "emdash3_2_one_cat_cokernel_family_inputs.lp": "cc0c298b504deefe2f011f13c81afddbebd7d8c881b2070d2f0e95f695072659",
+    "emdash3_2_one_cat_cokernel_family_projection_paths.lp": "33e1ab390a6446855ccd07706ccec83622c948ca62258baf63c5c12caef9e98e",
+    "emdash3_2_one_cat_cokernel_family_reconstruction.lp": "3484842b3f0665fe8bfe3b9a98e6a59073933cf680a68c30256893cbcb774c47",
+    "emdash3_2_one_cat_constant_chain_zeros.lp": "812af875b4fa0617cc5c19568cde6f64644a799b12bb1497e5fa8ae54d1bf676",
+    "emdash3_2_one_cat_constant_transformation_views.lp": "80d18ece132a64a531008163ab059153ea202bc5631097d7f9ce588d53a515ac",
+    "emdash3_2_one_cat_diagram_family_paths.lp": "0421139aded6db81082a18e0352b9451bb84921d0da73377e0c5314ab6171b3b",
+    "emdash3_2_one_cat_diagram_family_reconstruction.lp": "1d3e9fa5bcd572bf02dedb53fb8a38526efe0105218a9137e72ffc7035d9274f",
+    "emdash3_2_one_cat_diagram_family_reflection.lp": "8cca8d560a8f1ce1dc026e8812bf0a94fdeacefed942757fde02cb5a2810755f",
+    "emdash3_2_one_cat_diagram_map_equivalences.lp": "07a9742aa7e83e2bab7c7b4e86946baa9c651bd2d213e00ea5548fa56da4ecc4",
+    "emdash3_2_one_cat_diagram_map_paths.lp": "6d0545de5e04a1ecb477c863f77dce55660ccf4ccd27e79957fe908a3a685f98",
+    "emdash3_2_one_cat_diagram_reconstruction.lp": "c4ee8c91413c7b69f573215c6ee1cf4e8e396c350a8df173d7fe942760c43d6d",
+    "emdash3_2_one_cat_diagram_transpose.lp": "5b24001136d7a84ec92e70ddb83250f0af801bef3893c3c91a1dec76564d70d8",
+    "emdash3_2_one_cat_family_naturality_paths.lp": "3a8da10433e9e1c081b088fefdf96da18ddc7079c664f490afa2bfd70b3f897d",
+    "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "emdash3_2_one_cat_functor_postcomposition_paths.lp": "27704630a72971f5418e85c6a688c60fca9fa47bddf7d5bf8f1f0a1cbd09b5e6",
+    "emdash3_2_one_cat_functor_profiles.lp": "cd14584f137fdb2ee3e25c6016888d115ad07e07259e08ab48e626fa6811a4b2",
+    "emdash3_2_one_cat_hom_comparison_data.lp": "2f051e2f1c604523505298d667933c2690ebd4cd60ad4e2b04c7e5255d52f668",
+    "emdash3_2_one_cat_homology_cover_maps.lp": "243a8cc6f945d7c75dd532923c27919d9dd73d8950ab39ca079c44a6d4306372",
+    "emdash3_2_one_cat_homology_family_comparison.lp": "23952fa1d52fd64dc1eaf3cd88b9521467a008c266f5787499c569b3d3764778",
+    "emdash3_2_one_cat_homology_family_comparison_points.lp": "bf7788766e735b46940dccda5f6795c6945c75e0f57c18a86d702641349f0506",
+    "emdash3_2_one_cat_homology_family_maps.lp": "8b24e9f0e46d187207c0b3bcae55cbbc57c1ddaab3c723c6ea6f2bd7e3d1dfc3",
+    "emdash3_2_one_cat_image_coimage_factors.lp": "c58f67f7b3537a58cb3891853b5e8bd83505d709a9f7aae2e3e24fef85c835c4",
+    "emdash3_2_one_cat_introduced_terminal_input_comparisons.lp": "91be95df6f0ed4159d1a018de2b470864170d4640fdf55fcc15d32b642bb7897",
+    "emdash3_2_one_cat_iso_maps.lp": "0442df3acb2142e332e0ab5548d7d965c6b4cf33483866950fc619dbe383d127",
+    "emdash3_2_one_cat_kernel_cokernel_family_maps.lp": "7b547c119fb44f418d00bcad33b3179c9db42c7ab2e57c04c422fcec501073b6",
+    "emdash3_2_one_cat_kernel_cokernel_family_paths.lp": "0dbee39a31dbd23b0847591c0ec3ba8217c53837e3c89f256481b15e7ae8c1da",
+    "emdash3_2_one_cat_kernel_cokernel_transposes.lp": "5c05662018cbd232281ed24c5982461353925a5382dcd97955b3832383f654a6",
+    "emdash3_2_one_cat_kernel_family_inputs.lp": "b29b57f7ed39b28a0f0c91180212e0ab1aac57deb42a4b6aea916e29aef6750d",
+    "emdash3_2_one_cat_kernel_family_lift.lp": "202a90588c3694a9728567fd73fd7f7950409734ea00d54e041866112767c107",
+    "emdash3_2_one_cat_kernel_family_point_paths.lp": "01b26f4ef7aa036c92014409d9aee53f1e28f3d01add294cd34e52831f41967d",
+    "emdash3_2_one_cat_kernel_family_projection_paths.lp": "2dd280267cd7bc91a548ef7efa319aa7657b8e4c2e23c496c7eabe3536d33e61",
+    "emdash3_2_one_cat_kernel_family_reconstruction.lp": "4393090e6491b0f44a28e276b6c4a0d2e85ec5c10a03966fb72ce27bbf400fec",
+    "emdash3_2_one_cat_kernel_family_restriction_paths.lp": "24d498c4f60ddb5e06f641c3c2aab7bd2529df33a0bf72d16c63b9354088a773",
+    "emdash3_2_one_cat_kernel_input_observation_paths.lp": "52c2e1eb4a3a2f222462e6a1586e7873c33cfab12b9f21ec8ed456a1b9f71d17",
+    "emdash3_2_one_cat_kernel_precomposition.lp": "8e44d1d9d26a390067c7a9201ff8bb1304d00a9164dde60204f59a856fef6bd5",
+    "emdash3_2_one_cat_kernel_pullback_comparison.lp": "f64450a382a24c95d6696da7a6462a75b78d5412392ebc252e4da7caec0e6a89",
+    "emdash3_2_one_cat_kernel_pullback_lifts.lp": "a75bef6acea07f2194de5017862c2597eddf5039343936d4cbe6978d9aa4f658",
+    "emdash3_2_one_cat_kernel_pullback_universality.lp": "f2f5a35ce8c6d232866087e25c07e23a2e7165b36be9bb7236e5e793271bc8bb",
+    "emdash3_2_one_cat_modifications.lp": "980ffead150ec47cf977d71ec24f667a649a727a3007b99f0649362f9c52c1d3",
+    "emdash3_2_one_cat_native_square_paths.lp": "f95e4ec4b2a86378d93b787e01c6934c68854d5adf04f5ea24045926686b0030",
+    "emdash3_2_one_cat_omega_maps.lp": "20103063130e33bcc61419a69e6d69c4c7a25f26748af1eb7ad74a1cbb32cb52",
+    "emdash3_2_one_cat_op.lp": "96e582872c5c00315d2d9668c32f75f483db852421efece79c188b08caec91de",
+    "emdash3_2_one_cat_pointwise_equivalences.lp": "884ee933b0a5faa878e7931f50aa44df79ddc87eac704ba841ee10c2d3ea5e3b",
+    "emdash3_2_one_cat_short_exact_families.lp": "8e1a7d6101e91128a1d867d04ef25687f70c4be3fbec02c4dbe9b4597fad5ec9",
+    "emdash3_2_one_cat_short_exact_family_cancellation.lp": "c0b6ab9f1b37c42172bc13c7afa4c9aaa2c4be3c1865c2196da418a3d6e83fca",
+    "emdash3_2_one_cat_slice_paths.lp": "6a0c8aa0be4b92c9aa921fa8f034cd1f33d0e4cc41fa3a9031c0e8cf03ccf954",
+    "emdash3_2_one_cat_terminal_adjunction_families.lp": "5baa8f70db201addbe057316bdec6b1cdd6ac8ba9f8096a8461d70efd59150b2",
+    "emdash3_2_one_cat_terminal_adjunction_family_observations.lp": "b0c0d5a3aeeb0f3cd30c145bf1e794b3075a8fcf5e0c9f9f078d491f99665934",
+    "emdash3_2_one_cat_terminal_adjunctions.lp": "beb3db840898d483ce5064be364f9394eadc1a23237736aa2ee114d892880ab5",
+    "emdash3_2_one_cat_terminal_family_paths.lp": "4fff01b40674ffd0f7b41903123ffa41cc56794454c5a46149d3d1f744480000",
+    "emdash3_2_one_cat_terminal_family_universality.lp": "29a11e968741ea989f0cb1ba7f6f63149b798cda74c0898b2198e05a7831fb80",
+    "emdash3_2_one_cat_transfor_profiles.lp": "97001a20be33254b3729baf07e6e143fe1b547db2f9315745eeee9e80903b57d",
+    "emdash3_2_one_cat_whiskering_paths.lp": "8afaf52a7e50d01abcb2cfc935cdbd17a4eb6a6c0d114783413fa4c823c25aaf",
+    "emdash3_2_one_cat_zero_arrow_family_classification.lp": "887e7b72d37a60c2415086332c43d9bd7d0d9584b4cbd01dfaf0b59addf78a20",
+    "emdash3_2_one_cat_zero_arrow_inputs.lp": "7e5ce2fe5b9567152e566bc11805f6c85afa4497236edfe9a6931679f6ba4405",
+    "emdash3_2_one_cat_zero_cone_column_inputs.lp": "a401202533036143fcc657c6706dfb38b93994ff52e1a5095113e65d33b7ba74",
+    "emdash3_2_one_cat_zero_cone_fibre_inclusion.lp": "1100eb22b792eb2abe35091ee7d1f34d9d5a2b4633f1f2fed5affc179da68d38",
+    "emdash3_2_one_cat_zero_cone_map_equivalences.lp": "e560d7844fe57925719985cd5ad8b21eb05a5cf4d89ce7602d17b0b00f3ef5b1",
+    "emdash3_2_one_cat_zero_cone_map_paths.lp": "7f950276a9a1e72e08e3078fbc24d92feca92e327cdbfe5860c2a5cb44c82afb",
+    "emdash3_2_one_cat_zero_cone_row_families.lp": "425a48f99d830bd001c002e235868ec8199a109c2bb4589d3d156be9097019c9",
+    "emdash3_2_one_cat_zero_cones.lp": "4023e5b9c6768c0cc888dc180a6b08b9794f722ca2df89af1c7a4d6a385f05e4",
+    "emdash3_2_one_cat_zero_family_paths.lp": "be2f959408e4be7c888d6b2f040c40171b851f7c628377d05b18421b1743cccb",
+    "emdash3_2_one_cat_zero_family_postcomposition_paths.lp": "907832019f803983ed1af5b61861f60bde78bb669f13b6838b7cf1478333ed78",
+    "emdash3_2_path_pseudo_laxity.lp": "d9f17cfc08b4ff1668372f32671538d3bd612a280f8ef1cb5a83a8aa40b0174f",
+    "emdash3_2_pathout_transformation_reframing.lp": "e49914d81d9c1bca2408884a7c2a44e92efcc2d7d5888940eb6ecd5a1a9ce9d7",
+    "emdash3_2_preabelian_bimorphism_lemmas.lp": "d02bdec4c66768859d1b24ea1e13d8361ebe23717bfa34c91191f8549ea65f97",
+    "emdash3_2_preadditive_categories.lp": "500f87abf8853db222a73b10e77a8260aac34970057913028cc23e235ca573a0",
+    "emdash3_2_presheaves.lp": "80c15db61366657aa38fb01289b5478fda32f415b13d813cd2e74df09d335090",
+    "emdash3_2_product_family_action_views.lp": "ef7a0abacb18f70c1e7fd4b6f26f4592f5f82b02898346ff1ec565b2e8f02374",
+    "emdash3_2_product_family_views.lp": "5f9a86669fc7a444d06de9b71445e13c42ab601e10dde19b142f2d07ade38469",
+    "emdash3_2_prof_defiso_evaluation_paths.lp": "b50e3d336ba0284132ccf4a0f9d4c2c68b8f0f38b01adcb83548543569c39641",
+    "emdash3_2_profile_action_paths.lp": "1cade8b9a2a9d4e6c9a57de9403ecf8f44fb4af38d2ccbf788e0baffcaa302c1",
+    "emdash3_2_profiled_interchange.lp": "709dd25611c7c3a6c50a297f815117907fe5fbdc124133cf7061361627b3f4e3",
+    "emdash3_2_profiled_vertical_paths.lp": "5a1a7cc93e9c0e114de4714812edad84f5c5d60aefef6154d962bb92f203de16",
+    "emdash3_2_prop_fibre_constructor_paths.lp": "53da73d74f5f72281cd268e06df5da965cbf3dcd3b4689a5284f5eb28e1a7616",
+    "emdash3_2_pullbacks.lp": "6c5da1932d8be47d9c4ea860573c03796a46efa1a612cb8ef0a893fb1fdb93de",
+    "emdash3_2_reindex_composition_paths.lp": "69670ff4be129755b9bba016d91109618ba8cb9731834b91ff07462d34ecbd50",
+    "emdash3_2_represented_comma_families.lp": "9c9b18ead5d894635b068e6ea397f7c305cf3e31d1804a8e181818ed189e5305",
+    "emdash3_2_ringed_sites.lp": "5e91181c320215fd9c3b95b44fa17d2541b44497c0c9687938d4ee7ff576c7a6",
+    "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "emdash3_2_shaped_pathout.lp": "245f50bdd089c3522a99c023b46b19a90a788e037ad946b62d68e8a8f3a397b8",
+    "emdash3_2_sieve_extensions.lp": "accb62feccc384762017c8d4af42bbf242c06f542df6c399629869416cd548aa",
+    "emdash3_2_sieves.lp": "b143a328aae3a7f398833b9c9b27266810b8e2500fde7cce8c4ae85bfc4f4bba",
+    "emdash3_2_sigma_fibre_inclusion.lp": "6460e03874a236eafa1047aae18c72c6ebb3302bebb9a663b1e58dc75793ea34",
+    "emdash3_2_sites.lp": "659ae41d354b92b4502623886094ea18070a8ae176e41819409aed50b5e027f9",
+    "emdash3_2_slice_dependent_products.lp": "89f3860ed4451c7a4cdac33cad749376247a749c2a9295266ef9a3036b09895b",
+    "emdash3_2_slice_sigma_arrow_paths.lp": "7c0dc3984f76c41f79244634c32b90c690d3e07dd6fceb5acccd1e30e84c5d93",
+    "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+    "emdash3_2_strict_pointwise_equivalences.lp": "8f11120bb15fdb9a87d048af5bfce1e4c1c54b1a0cd7a7e48a5f5cab8451e483",
+    "emdash3_2_strict_transfor_component_paths.lp": "6882ac6a4b7406656a7985cc81fa90c43c8f27f935411e6bf971d6c198611558",
+    "emdash3_2_telescope_localization_hit.lp": "e6b52314670943f7cb5c673748e60311688393b74556539a5e410afee17722d3",
+    "emdash3_2_terminal_category_profile.lp": "cd3b2c437c8b3ae45925d5e7dbb57e7e95210197f508818110de95ad6c9c7a4f",
+    "emdash3_2_terminal_objects.lp": "84f0b9427bc125f08d99e9229c1a2e2745098d427e8d33ae2891b1d553e2f50f",
+    "emdash3_2_transfor_whiskering.lp": "34e700a53ca1c922b4fc92579ce3f0b80ab36de250d855e85b88928394f907fd",
+    "emdash3_2_triangular_binary_products.lp": "a3b38a504395baafc48abc87dfebf2a28b727d96a2cd662428242a58ffe715b5",
+    "emdash3_2_triangular_binary_products_finite_limits.lp": "208a9d081cc7e16767018dc7dc31a8eb8317572a52780f98d1b1cd44869ada7e",
+    "emdash3_2_truncation_reflector.lp": "768750396af7e0576c7227418720774ab8dd9bf937ad44d6763bc89bfc1734b2",
+    "emdash3_2_truncation_set_path_induction.lp": "c1b0c93ccb53a7df572bbe89b083f3c5e003f6aad077356f6f6109bded9d1748",
+    "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+    "emdash3_2_walking_arrow_native_observation.lp": "17557f65653465a4c3cead2d8e42a925ce35b158dc20ae8ddb662af30af190eb",
+    "emdash3_2_walking_circle_completion.lp": "dbcdbe4196b27ed538d8ce9b3a52cc4baf73efbd4b2b4038642447688708098f",
+    "emdash3_2_walking_circle_restriction.lp": "14309bf795da329a4f472fbbb89d550eb1b8b5ee4ee8edf3efaa42ed0b503418",
+    "emdash3_2_walking_end_hit.lp": "86f0193097564c28e484018300d25806afdfb80d6d0dd5e36fa73255df38b852",
+    "emdash3_2_walking_interval_comparison.lp": "d4597edf80744493d8e1e508018fe0488ab43ce5b91e1e1ba6b7655ed92db7a1",
+    "emdash3_2_walking_interval_extension.lp": "7c67b8bb45549f03b2aae29a8478d5773d3401e84f9c38861d9c5d3cb88541bd",
+    "emdash3_2_walking_interval_restriction.lp": "9b988f78e45e7567e8ff7dfbbc778e08107351368c9797357d29440a952fdb27",
+    "emdash3_2_walking_interval_universality.lp": "e7c56e8037cb5a011840ccd892f350cf07f508fdb33eed92e2ba5928a9c6086e",
+    "emdash3_2_weak_kernels.lp": "2b8c26a37cb7c3ac5667275e933396c9bda66ec02bf93a9ff3bb69899f8dd661",
+    "emdash3_2_yoneda_precomposition_value.lp": "c04e9a657cec0451729ff5a3fddb4a8746e56a6a4166b6fe285053fae16e484b",
+    "emdash3_2_zero_arrow_cone_adjunction_homology.lp": "9a0fb5b7b4d4da1e772ee85f0e54f1b625f8525ab880c510d9b4d0ca11808c62",
+    "emdash3_2_zero_arrow_cone_chain_pairs.lp": "8b33e4d40554c021906332b46431c9b9a006f618683a4b6ed47152c1f4a74588",
+    "emdash3_2_zero_arrow_cone_maps.lp": "70fc1acd89e05580563efe7d7224f522e6924736ca6765473304cd16d278457e",
+    "emdash3_2_zero_arrow_cones.lp": "cb62a4083708d9f008a5a0a72ba9e9086e672fce032c5edbdab7cd8289ac7c18",
+    "emdash3_2_zero_arrow_diagram_observations.lp": "bd7be6a6cfeee34d88b25103ad69f7d7efdeb52d54e131d18354b435bfe22621",
+    "emdash3_2_zero_arrow_diagrams.lp": "e1b30de376f283497333d56becaa93e809fff791c787a86597570e5dbcfeb8bc",
+    "emdash3_2_zero_arrow_family_action_paths.lp": "6278c04ba67a66f472ec67933e1a9cf4316824c5c7ad3243f62fa03e6848639d",
+    "emdash3_2_zero_arrow_family_observations.lp": "d059e76fd4907651ca6953ce3fa58861b5603b03615bd2d720cb071e0e65f40f",
+    "emdash3_2_zero_arrow_family_point_inputs.lp": "7ee58972cf58f9d3094ae29771ab52371d649f793a39229cdc297234f852ce2c",
+    "emdash3_2_zero_arrow_universal_tests.lp": "4b5e3a1e41175bec9776d8139f98dc16ff2a2f35d823f609f570b028d3266340",
+    "examples/action_profile_eckmann_hilton_one_hom.lp": "ffa7f67d53252189a6952309b804e442424d9348190a56b354957539d6a2a315",
+    "examples/action_profile_inherited_assembly_controls.lp": "26f986900ecf43f10964723172e6173e0c8b8bac4e9cb8735735eb74ac4b981f",
+    "examples/action_profile_prof_defiso_controls.lp": "86287058f73f8798a3e922b5f8874b91031bcf3077873c3f62254e656167bd95",
+    "examples/action_profile_profile_action_path_controls.lp": "e7e6a98e6c013994bf575fe8adfe951e3e47733c26f325a64fd8092fc9d8093f",
+    "examples/action_profile_walking_named_overlap_controls.lp": "b9a49431004dce259f1821d5a2186416f78634c423ab7f9081ce679eed5b8fae",
+    "examples/action_profile_walking_named_rec_controls.lp": "2c4246e4988812a6a6c7108d9a22853aaa8b3d0f63086c294895f90c5f43e638",
+    "examples/adjunction_mates.lp": "0e8c2185a06f29209c45ed3282f093a3f5cf59962c3f2a5be56a6bb7dbe8ec07",
+    "examples/arrow_diagram_families.lp": "e88668462aefbc180be5fa9458ec3a5e488e76f85115d111b69d1b930c393e0a",
+    "examples/cartesian_categories.lp": "4a663023dce2cd2f0d4daf989feeaecb352ba10a6543f47c6601e14ebda92f4f",
+    "examples/categorical_contractions.lp": "088b6f89aa6b55d0d9276fbc1f782180fd78750e4463e82f6cee9d9ff8bd9451",
+    "examples/chain_pair_cubical_maps.lp": "9e5c65cd525f036bc773ea269f7f597f85ae9f2b10c7cdc3fbd15eb687a5ee54",
+    "examples/chain_pair_diagram_maps.lp": "30c15ac38106dca04a46ba47594911f773aaad981ca962f4769be86e785893fa",
+    "examples/chain_pair_maps.lp": "026e318b0b10d3417d79c4ef3b178212d4e9dcfcb7295c7663eea8b98cf6519a",
+    "examples/commutative_ring_presheaf_invertibility.lp": "f2b09144c5944cf8e33b2052e85ab2caeaa84ee83fac96a09fa03bcb2728b209",
+    "examples/cubical_dependent_hom.lp": "ee6364884ff072b4d456558d4d5cf34e2671316b26edbb8ee6c655dfe3856be3",
+    "examples/cubical_internalization.lp": "23e5cdece8cca8d12dc50fdef2adc861a1da40585fee437f7d26f16c2a371372",
+    "examples/cubical_internalization_composition.lp": "30c3ef953f36bf762b2c97a9b04541d8cf56b85368418838ce59ab766431d2ae",
+    "examples/cubical_square_total.lp": "04b71739fc15e2312b5c8464f42ed105f49f3d18f84634a4d19b596104f3b17a",
+    "examples/diagram_evaluation.lp": "9c13891222804890ad439b2b1dcf4cf9fc9d0154aae13e50441069e3b2bacce4",
+    "examples/direct_cover_completion_eliminator.lp": "a530fba8f6a697a24c683ea4c1131abbf2af7ea2a73ef6f7489fa5c12dd9b7b2",
+    "examples/direct_cover_completion_hit.lp": "96503a14e79e804d3d0d54d762c65803d21e7585ca76e5911c2cae9525e6345a",
+    "examples/direct_cover_internal_sheaves.lp": "0f4373b0e45eb966bb8fa02a5c7b9e7b521ac036680713e53cafe6a0397358ac",
+    "examples/direct_cover_question_families.lp": "3945e59e7bad0fe633ffb8a4853637e88b9de8bf76e8eff1958f6a7242602f0e",
+    "examples/direct_cover_questions.lp": "f320607e63be01ec517c7d9539b72e66ecf6e389dd8ad115bffc726469c80dda",
+    "examples/fibrewise_sigma.lp": "e43d9d6db9a551f939c72c045b19fbcab5aa95944f033c66232e6abb5afb8a0e",
+    "examples/freyd_native_column_comparisons.lp": "6e868a66702d60762984252bcc01ab6613d785dd764f888e2887f6ec1d634a35",
+    "examples/freyd_native_inputs.lp": "6e6adb0b3c892b74deb46ae05d83c5e27f29eb93529a5847088d3891b7e42ae0",
+    "examples/freyd_native_maps.lp": "e83701c7981af3cd914a860a979f3f3aaa6c884c016b94b1040a08a69d213f0c",
+    "examples/freyd_native_row_families.lp": "abbd2ce6079db0c2c0b8029c520d40fa7c36dd7ecc6c9351201da57089433347",
+    "examples/functor_category_unit_views.lp": "f8f3daaf4be2e6a96476060cbfa8b9b7f4f294880d6814041ad4ae768eebdc5e",
+    "examples/generic_groupoidification.lp": "048edf9867fc7d7eb478545f0354d31077c8ee7e0b280d4e85b5d44592475f29",
+    "examples/generic_groupoidification_interval.lp": "bbb593930000f4792396e8565b196995c275718c52a16320ba58d1a83d394d43",
+    "examples/gray_interchanger.lp": "c185a305d5389f2d19755909aa6601880e9569f84dd0fdfcc8217097c05e4596",
+    "examples/gray_interchanger_orientation.lp": "91559ee93924d375c1a50b145593094001d2162968e23869093486fb112ed954",
+    "examples/gray_profiles.lp": "a4133907926635af9f2a0a48c1cd5c231f6bef9e891c88c547af242e9b1bdace",
+    "examples/groupoidal_structured_j_eq1.lp": "a037ba67f0b8a0495043a3e6b98d7b87b535844b937a4b6fa11afb83f14648b6",
+    "examples/hom_factor_chain_zero.lp": "19c562f01ba3665659ed9aaa579e813e7b77b4bbf2719e0468cad6f1aa722050",
+    "examples/hom_factor_comparison_pasting.lp": "ec943c6998802bec3c054bf6026b593cdc2548dbca7997cbf1b9104aa1a389b2",
+    "examples/hom_factor_cubical.lp": "9cbcaca3660dc879db2e923b2e8bc2a645ce01ce7544eb79c70daba7435c6b24",
+    "examples/hom_factor_epic_descent.lp": "4d1c04370e300540f9e6a93605f00ae81823c187dac83c39831cad56029913d1",
+    "examples/hom_factor_source_isos.lp": "01b91fdfa4ff05cf4a26ba79ada302f57d56c9e8f2800bde1b768ae8e57e8c13",
+    "examples/hom_factor_spaces.lp": "0acc8cfcd84a7c8870f58d0401b9782ffa6b26b6dbe59c6867a5ed548d61492d",
+    "examples/hom_factor_universality.lp": "79639493fcae96ab31bd3abc2284c984f7eb57c6f96dcdd34dafaeeeadaa24a4",
+    "examples/hom_factor_views.lp": "4e4017287317545d620dee4728514f605d7880174966ed2cb25402e6117b377f",
+    "examples/homology_adjunction_families.lp": "1b10cadbbb2d7044db2a3ca3d9e9b593f1c6b9d17ec449e39a44a682da8837c0",
+    "examples/homology_family_point_comparisons.lp": "0434e59c5885ac7e746416d9d807a8c2af0ea0287b2349755a70845ede31eed5",
+    "examples/homology_family_point_diagrams.lp": "fd838ddd76d0cea396deaf92350e6666e2d9a90db88f38e9d747b98b37eadab5",
+    "examples/image_coimage_adjunction_families.lp": "acf73fe1f701949a5a90df6cb96a0152fa1fae724310c1108991332ba126afdc",
+    "examples/introduced_terminal_input_comparisons.lp": "33ea20b75360823daa2a257d2cd310e9d177df2cb9604a73a8893c6d4641bb7b",
+    "examples/kernel_cokernel_adjunction_observations.lp": "7ff238d9049990a6873739db1df9dd6ea74b3f230829d56af62a6a1d10882591",
+    "examples/kernel_cokernel_adjunctions.lp": "ec30a5e70dd1d9d7531b56ec24b695ec8cf8307ca749ae88e32b37215d526c9a",
+    "examples/monads_comonads.lp": "47fc5c74f2896f0cb7c22b05b1793553cc514790145a69dc409d035f6851125a",
+    "examples/one_cat_adjunction_families.lp": "4fad703e2496b7bc18451d6d0df68a6d2ca8c5564e75cf2e867a097cb3f1e844",
+    "examples/one_cat_adjunction_family_views.lp": "889efec6e83e41ba40542f94aef628a9d447f82205d5574a5acd88d56d5fc232",
+    "examples/one_cat_adjunction_introduction.lp": "bfa12e2d3d9761de5a678ab517f07688af2d260c030e529ecc85b2512e6641ed",
+    "examples/one_cat_adjunction_zero_column_views.lp": "943a4843b970466844b9a12db1cdb7e92a41491f68c2f3e837ee2a0615068717",
+    "examples/one_cat_arrow_diagrams.lp": "ece4846aa2151733339d86ecf49fc835f8013e4e6de70290f2f7a375d62a4fe8",
+    "examples/one_cat_arrow_family_isomorphisms.lp": "f453151be8ebf2a600addbd32ebfa8b209d9d56cd547b92d3ff6a60abdc9a46b",
+    "examples/one_cat_chain_pair_native_maps.lp": "fa9240e067217cb676f69654ce7c4d1b13f4c07b3846f07934ee57d03d33bd6d",
+    "examples/one_cat_cokernel_family_descent.lp": "db32696586aa76efc0046ba19553f952918a6eef1a3b9a8cb8a09c2a5eb9cdf7",
+    "examples/one_cat_cokernel_family_inputs.lp": "19242e2e76afd6ebf7c9c7c0fe929e268f3855cd6fa55b6ed73c54de227abb20",
+    "examples/one_cat_cokernel_family_reconstruction.lp": "aa57f14a995a0bf6c00b2e4e8d910aa1389082a7c8c85bb2efac9da86e120195",
+    "examples/one_cat_constant_chain_zeros.lp": "202c7ab68fe0ea154fe86571a1aaa77b5a19fb0319bff73cda252243e1bb57b3",
+    "examples/one_cat_constant_transformation_views.lp": "2521ea179b3b5474b53df104e9c3e1165fbe558c7a6bb4d86a73c93a77a9d842",
+    "examples/one_cat_diagram_family_reconstruction.lp": "493f584994e021c53dd65f390706b67eacc832c154529f05259642143d158427",
+    "examples/one_cat_diagram_map_equivalences.lp": "697e67da85da1b6c18799b69e4e7a8f6824d07d0a3679fd8787fab1d94bbcc5f",
+    "examples/one_cat_diagram_transpose.lp": "fc5aaad07eb2c653b24502431f0e793dae918aed7c31c17d00b96ac5d3691fd4",
+    "examples/one_cat_hom_comparison_data.lp": "df0d95d5dfafe86c2d8b7347a0ebd26d9de2cf8f192ca3906d88f151d0592761",
+    "examples/one_cat_homology_cover_maps.lp": "f91340b74772c48ce218bf353f9f787caa20f3454332b7f1d68c7a9120234961",
+    "examples/one_cat_homology_family_comparison.lp": "b24ce08a2eac86986e87b2a608ce302ab7c995c6da95b06917f49212a035b3b0",
+    "examples/one_cat_homology_family_comparison_points.lp": "91a408131765ffdb78372e6a345ae8c24e667bba71c21b550bfccbbf79b6403c",
+    "examples/one_cat_homology_family_maps.lp": "6fbd3bf56d4d49b45b598754ec594d6909bde28d8d879d310cddf8be2abb0c8b",
+    "examples/one_cat_kernel_cokernel_transposes.lp": "c57aa87fb7af9d2442693675084a011af5076e1fbeccf5a4ff333b056d64bd23",
+    "examples/one_cat_kernel_family_lift.lp": "3b3e58670c698ee0c7a9b2ec942ced8a0ce3de2fd07c64fd90e77948f6868dff",
+    "examples/one_cat_kernel_family_reconstruction.lp": "faca9c54d2ce7165b07228819af804306c21a8ef72c69fe955049d1fde695872",
+    "examples/one_cat_kernel_precomposition.lp": "7393c3a782061cfaf20111c44493f20a77ecf4ed09ec3689c1316f1382ff16b3",
+    "examples/one_cat_kernel_pullback_universality.lp": "45d43893e12db2202ab27992c65e4dc699f7c4a208b0360bba6749721f286ff6",
+    "examples/one_cat_modifications.lp": "ee7d6e0db3b6c217ee845ca21c726891dac41d852e46ae81ca84176a27092771",
+    "examples/one_cat_short_exact_families.lp": "ba98eada003142af32d38b875949b3310173725f39c2679ddb3ff92df40fe7aa",
+    "examples/one_cat_short_exact_family_cancellation.lp": "8a0b3d9bf84b0298b9e027aca27d097dbdea4e2a67b3ac3d72972613f9f853b5",
+    "examples/one_cat_terminal_adjunction_families.lp": "e5f0a6a98273dad376bccc81e0a5fe652b68ca3d78eed7cfedbba1fc952d47f5",
+    "examples/one_cat_terminal_family_universality.lp": "2ded58cb40909b5aeeb01167ede7ad95b15a45aab528d4b2e9749b89e4aaab8f",
+    "examples/one_cat_whiskering_paths.lp": "3df41a5d71b6ce41c938c959ac4e225b2de789238200b7a697f6c40f4b6c549d",
+    "examples/one_cat_zero_arrow_family_classification.lp": "0c1bad3c9e945b6dcf45da5e1f47985be466373b20c96a8050b2a46856c66e61",
+    "examples/one_cat_zero_arrow_inputs.lp": "123ab9902e86648ebee5684c0ca3a15982974c81f8ce6b45982264774c52d086",
+    "examples/one_cat_zero_cone_column_inputs.lp": "19e908f23663c2d61953f14250f88693f75d9a4d2902268aa6bb72bce62d5c1c",
+    "examples/one_cat_zero_cone_fibre_inclusion.lp": "bbd902fcbc90a3454bb30ea1e7a9854ab8c58a5331794d16f99ec7bdeb3ac553",
+    "examples/one_cat_zero_cone_map_equivalences.lp": "609567a7aec788145a815b0f0505c32215b0683c36a9f3ff98c7b346b69368d7",
+    "examples/one_cat_zero_cone_maps.lp": "2ff2c785b40043635d240050a5625bad17272756e00c3ff68b33c8235f44345a",
+    "examples/product_family_action_views.lp": "21257446cf5a943bff2706a5874510193e89a09aa26995957bb9adaaafa4768f",
+    "examples/product_family_views.lp": "f0bad605a08c7bb4a49e8a538ec7b0ac4fa6263e4fba8bfb49e22272bbd3540a",
+    "examples/profunctor_weighted_limits.lp": "dad3ec5fcfb9236aaf8b9e66c14531649596fc1135b0f365a6640c7447372e2c",
+    "examples/pullbacks.lp": "5f9bfb2e0a271ab2ac7ce2f24504864eb70456c9d028ce5baf794f9c5c4db314",
+    "examples/represented_comma_families.lp": "73bb3ad15c21abe8ad104d28f7d0c0b24b47c0e5dad8ad4a9cb3a3df6c28403c",
+    "examples/sieve_extensions.lp": "37b0d7a863f2c59368488e0082746dd33d0348fc048b98bb12442dfa91b45b14",
+    "examples/slice_dependent_products.lp": "3bb2825db500cf477f29421d1ed6e0d408ba8443529207576e38d9e00d693121",
+    "examples/triangular_binary_products.lp": "b7f6aa4ea1cd85139a988554575ab1b64768e09d4c63d6d448a431a9c8c515f8",
+    "examples/triangular_binary_products_finite_limits.lp": "9a4b41b7bf67b8f7a3a01f15940e4c81202933620a551c31d69afa19dc7cb504",
+    "examples/walking_arrow_native_observation.lp": "07c36750eb62e7c4ead9eb5f23ba268c79505d23c9f8deab47e5bbeaede52699",
+    "examples/walking_circle_completion.lp": "7a22d6893998b2b849c893ec5ddb7787f3120ffd46bbaa5e0d31cc07ac60e472",
+    "examples/walking_circle_groupoidification_restriction.lp": "9540aa064e1039d8c1860e3cef4dfc856f20d3bde2f9088505d86a26ff70f2c9",
+    "examples/walking_endomorphism_hit.lp": "ff0659faa13a7e254c9bbd8784049cf9d628824fc6cb89babdb6c35928a55bce",
+    "examples/walking_interval_groupoidification.lp": "6cda56d060c23d579ed2485f1adce024aeb036930d64e8f467d0ad1c4168fa1e",
+    "examples/zero_arrow_cone_maps.lp": "47e22c05febdcd03bbcccdaf379aaef74d5a0d9c50d526bb8af24c09e966f20c",
+    "examples/zero_arrow_diagrams.lp": "260c2135f4be0088fa363036428d4f105806c8b76a497c448d6f836920f2f289",
+    "examples/zero_arrow_family_observations.lp": "2ead726f0ea34c1ff457f32c0e7dd508b7879044be26607f8ee78aa9e6ad23d0"
+  },
+  "authoringSha256": {
+    "production_owner_migration.py": "ab0f3c7e4ec8f4839ce36e66071e813c79333912b95ce7f17b6aec67e239c75e",
+    "production_family_actions_migration.py": "5e61d7849b8d3baa8dcb2d357ba8f19a9390002dd6dd586d00a34bd4a5047c31",
+    "production_arrow_family_maps.lpfragment": "6d5a1537028bda3bb97e5db3295f2eea3ed2619a952628ab765c7781bf1fc95f",
+    "production_groupoidal_closure.lpfragment": "014a79cf6c8f29f9a0b0dcd31dc4753e840be60aded204e449d04eb577026430",
+    "production_kernel_cokernel_family_maps.lpfragment": "7b547c119fb44f418d00bcad33b3179c9db42c7ab2e57c04c422fcec501073b6",
+    "production_homology_family_maps.lpfragment": "8b24e9f0e46d187207c0b3bcae55cbbc57c1ddaab3c723c6ea6f2bd7e3d1dfc3",
+    "production_homology_family_maps_reviewer.lpfragment": "6fbd3bf56d4d49b45b598754ec594d6909bde28d8d879d310cddf8be2abb0c8b",
+    "production_reviewer_functor_category_unit_views.lpfragment": "f8f3daaf4be2e6a96476060cbfa8b9b7f4f294880d6814041ad4ae768eebdc5e",
+    "production_cokernel_reconstruction.lpfragment": "3484842b3f0665fe8bfe3b9a98e6a59073933cf680a68c30256893cbcb774c47",
+    "production_family_actions_regression.lpfragment": "710ec4877cd2a286d2bcdca0b8fd0732ead6a5e7386fb2b3daec9a5873d7876d",
+    "production_family_actions_core_regression.lpfragment": "3a4ad5ffc9f9dd61863178957fba50e223aefb91b072d071499487bec135cc0f",
+    "production_family_actions_library_regression.lpfragment": "815842a7775ca552508283d184f0320b5e23f88fdfaf6bc73341446cddef88d3"
+  },
+  "remaining": [
+    "Five original terminal Homd runtime assertions",
+    "Full native middle-column/diagram/homology-path consumer and remaining registered migration",
+    "Normalization/usability and supported checker/resource profiles",
+    "Production promotion and final source-pin/catalog/health/prose/CI gates"
+  ],
+  "nextConsumer": "examples/freyd_native_column_homology_paths.lp",
+  "warningBodyRecovery": "Exact bodies remain in the immutable receipt logs, whose paths and SHA-256 are recorded. Changed-body hashes use the five lines following each Unjoinable critical pair marker joined by newline, without a trailing newline. Tracked evidence keeps hashes, origins and multiplicities instead of duplicating large expanded terms."
+}

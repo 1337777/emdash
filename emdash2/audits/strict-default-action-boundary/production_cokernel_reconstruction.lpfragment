@@ -40,7 +40,7 @@ symbol one_cat_cokernel_family_descent_ambient_reconstruction [B C : Cat] [S : �
 
 // The same selected mate with its literal or raw classifier presentation.
 // Map the comparison through whole fixed evaluation, before quotient reflection.
-protected symbol cokernel_family_mate_projection_view [B C : Cat] [S : τ (@PreadditiveCategory C)]
+symbol cokernel_family_mate_projection_view [B C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (Q : τ (@CokernelAdjunctionStructure C S t T0))

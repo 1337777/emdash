@@ -217,6 +217,25 @@ unchanged. Coverage reaches 285 library/core files and 102 reviewers, leaving
 506/494 unstaged. The original column comparison/projection reviewer is closed;
 the native middle-column, diagram and homology-path consumers remain separate
 R10 work. R01–R03 and final qualification gates remain open.
+The [native family-action continuation][family-actions] next qualifies 65
+original declarations across ten library files and four complete reviewers.
+Existing native exchange/evaluation and canonical/raw mate comparisons retain
+the original whole square, kernel/cokernel and homology constructions. One
+existing proof helper becomes public; its type/body are unchanged. No new
+formal rule or operational primitive is added relative to the original pin;
+eighteen inherited unifiers are loaded unchanged. Fresh focused, core and
+complete staged-library checks pass 33/21, 2,227/317 and 1,082/193 positive/
+negative assertions. All emitted inputs match the receipts. Coverage reaches
+295 library/core files and 106 reviewers, with 496/490 unstaged and the same
+five central runtime exclusions.
+Warning changes occur at unchanged runtime owners. Twenty-nine sheaf/monad
+pairs retain their initial terms/rule pairs but print different existing
+Sigma presentations, whose arbitrary-object join is proof-time; two old
+pullback/sheaf peaks are absent without a convergence result. R07/R12 retain
+the exact-log/hash inventory and measured 332–345s broad-check costs under
+explicit 4GiB profiles. The full native column homology-path consumer remains
+next; this slice qualifies its shared family actions, not that entire reviewer.
+R01–R03, remaining migration and production qualification remain open.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -433,5 +452,6 @@ that all possible alternatives or future regressions have been discovered.
 [kernel-columns]: ../emdash2/audits/strict-default-action-boundary/production_kernel_columns_review.md
 [native-column-entry]: ../emdash2/audits/strict-default-action-boundary/production_native_column_entry_review.md
 [column-projection]: ../emdash2/audits/strict-default-action-boundary/production_column_projection_review.md
+[family-actions]: ../emdash2/audits/strict-default-action-boundary/production_family_actions_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md

@@ -42,6 +42,40 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native family-action continuation after `20dee463`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_family_actions_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_family_actions_verification.json)
+qualify 65 original declarations across ten library files and four complete
+original reviewers. Whole square maps use the existing native exchange;
+kernel/cokernel and homology actions retain the original maps, inverse mates
+and proofs with native evaluation and existing canonical/raw mate comparisons.
+The cokernel comparison becomes public without a type/body change.
+Product-path families target the existing `Cat_cart` coefficient. No new
+runtime rule, comparison rule or operational primitive is introduced relative
+to the pinned original source; eighteen inherited unifiers are newly loaded
+unchanged. Original assertions retain their polarities.
+
+Because those inherited views expand the import context, fresh focused,
+core and full staged-library checks pass: 33/21, 2,227/317 and 1,082/193
+positive/negative assertions respectively. They take 159.639s/1,669,928KiB,
+332.147s/2,115,380KiB and 345.419s/2,156,452KiB under explicit 300s/3GiB,
+600s/4GiB and 600s/4GiB profiles with o=20, SR and warnings. All current inputs
+match emission. The same five terminal runtime exclusions remain.
+
+Focused warnings are unchanged. Core/library differences occur at unchanged
+runtime owners; 29 sheaf/monad pairs retain the same initial terms and rule
+pairs but expose different existing Sigma presentations. Their arbitrary-object
+join is proof-time. Two earlier pullback/sheaf peaks are no longer emitted;
+no convergence claim follows. Exact logs and bounded hash inventories retain
+this R07/R12 concern. Defaults and the installed checker remain unchanged.
+
+Coverage reaches 295 library/core files and 106 complete reviewers, with
+496 core/library files and 490 reviewers unstaged. Continue the distinct
+`examples/freyd_native_column_homology_paths.lp` consumer; this shared-family
+slice does not qualify that complete reviewer. The terminal runtime,
+remaining migration, normalization/toolchain and production gates remain
+required. All implementation remains non-library staging.
+
 Homology-cover/projection continuation after `80fc8490`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_column_projection_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_column_projection_verification.json)

@@ -366,6 +366,11 @@ def main():
                  *(fragment for _, fragment in COLUMN_PROJECTION.values())):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_family_actions_migration import finish_family_actions, SOURCES as FAMILY_ACTIONS
+    for name in ('production_family_actions_migration.py',
+                 *(fragment for _, fragment in FAMILY_ACTIONS.values())):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5878,6 +5883,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use native evaluation and the existing included boundary comparison in the original cokernel-naturality proof',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(column_projection)})
                 text = column_projection
+            family_actions = finish_family_actions(path, text)
+            if family_actions is not None:
+                changes.append({'source': path, 'owner': 'original square and kernel/cokernel/homology family actions',
+                                'reason': 'Reuse native whole exchange/evaluation and existing canonical/raw mate comparisons; keep product-path families in Cat_cart',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(family_actions)})
+                text = family_actions
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5942,6 +5953,10 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/homology_family_point_comparisons.lp')
     stage('examples/one_cat_homology_cover_maps.lp')
     stage('examples/freyd_native_column_comparisons.lp')
+    stage('examples/one_cat_homology_family_maps.lp')
+    stage('examples/functor_category_unit_views.lp')
+    stage('examples/product_family_views.lp')
+    stage('examples/product_family_action_views.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
