@@ -286,6 +286,14 @@ def main():
     for name in ('production_terminal_family_migration.py', 'production_oplax_family_reflection.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_cokernel_input_continuation import finish_cokernel_inputs
+    for name in ('production_cokernel_input_continuation.py',
+                 'production_native_reconstruction_map_views.lpfragment',
+                 'production_native_reconstruction_endpoint_paths.lpfragment',
+                 'production_cokernel_family_inputs.lpfragment',
+                 'production_cokernel_family_inputs_reviewer.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5732,6 +5740,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use the existing oplax family presentation and fixed evaluation, retaining whole maps, inverse data and original observations; derive whole reflection without additional formal rules',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(terminal_family)})
                 text = terminal_family
+            cokernel_inputs = finish_cokernel_inputs(path, text)
+            if cokernel_inputs is not None:
+                changes.append({'source': path, 'owner': 'original whole cokernel inputs and native reconstruction views',
+                                'reason': 'Use the actual native exchange and retained reconstruction maps; derive endpoint comparisons through existing ordinary-target modifications, and keep ordinary reconstruction tests on their original interface',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(cokernel_inputs)})
+                text = cokernel_inputs
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5771,6 +5785,10 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_terminal_family_universality.lp')
     stage('examples/zero_arrow_family_observations.lp')
     stage('emdash3_2_one_cat_diagram_family_paths.lp')
+    stage('examples/one_cat_cokernel_family_inputs.lp')
+    stage('emdash3_2_zero_arrow_family_action_paths.lp')
+    stage('examples/action_profile_profile_action_path_controls.lp')
+    stage('emdash3_2_adjunction_untranspose_naturality.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

@@ -42,6 +42,32 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Cokernel-input continuation after `b969516e`, 2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_verification.json)
+qualify the original whole cokernel input and adjacent row prerequisites.
+Native exchange uses the actual existing reconstruction maps; both maps
+compute to the projections of the retained evidence. Their endpoint identities
+have derived whole comparison proofs. The four independent ordinary
+reconstruction tests stay on their original interface and retain runtime
+identity/Hom action. Native runtime counterparts were not established and
+remain an explicit R06 presentation boundary, not silently passing controls.
+The native cokernel target law, off-diagonal action, annihilation input and
+unrelated-target negative are retained. No new formal rule or primitive is
+introduced. The old functor-composition property theorem now uses direct
+strict-default reflexivity; the raw-transfor naturality negative remains.
+
+The combined emitted-source check passes 20 positive and two negative
+assertions plus declaration bodies in 88.884s/1,041,732KiB under 180s/2GiB/o=20,
+with SR and warnings. All 2,154 warning bodies match the earlier same-owner
+and retained-data scopes. Prior evidence has explicit conservative-append
+carry; core and diagnostic hashes remain unchanged. Coverage reaches 246
+library/core files and 88 reviewers, with 545 library/core files and 508
+reviewers unstaged. Continue through `one_cat_kernel_cokernel_family_paths`
+and the remaining row/column closure. The full column/middle-column checks,
+five terminal Homd runtime positives, normalization/usability, supported
+checker and production promotion remain open.
+
 Whole terminal-family continuation after `6a9f27b0`, 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_terminal_family_continuation_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_terminal_family_continuation_verification.json)

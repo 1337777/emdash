@@ -1,0 +1,61 @@
+// Whole endpoint laws of the same native reconstruction maps.
+symbol one_cat_oplax_reconstruction_to_src_path [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C)) (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
+  : τ (@= (@Transf B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D))
+    (@diagram_oplax_family_map_at B WalkingArrow_cat C (@transf_arrow_diagram_func B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@diagram_oplax_family_transf B WalkingArrow_cat C D walking_arrow_src walking_arrow_tgt walking_arrow_generator)) D
+      (@one_cat_oplax_diagram_family_reconstruction_to B C C1 D) walking_arrow_src)
+    (@id (Functor_cat B C) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D)))
+≔ let X : τ (Functor B C) ≔ (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) in
+  let alpha : τ (@Transf B C X X) ≔ (@diagram_oplax_family_map_at B WalkingArrow_cat C (@transf_arrow_diagram_func B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@diagram_oplax_family_transf B WalkingArrow_cat C D walking_arrow_src walking_arrow_tgt walking_arrow_generator)) D
+      (@one_cat_oplax_diagram_family_reconstruction_to B C C1 D) walking_arrow_src) in
+  let beta : τ (@Transf B C X X) ≔ (@id (Functor_cat B C) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D)) in
+  @hom_to_path (@Transf_cat B C X X) ((@one_cat_functor_category B C C1) X X) alpha beta
+    (@one_cat_modification B C C1 X X alpha beta
+      (λ b : τ (Obj B), @path_to_hom (Hom_cat C (@fapp0 B C X b) (@fapp0 B C X b))
+        (@tapp0_fapp0 B C X X b alpha) (@tapp0_fapp0 B C X X b beta)
+        (@eq_refl (Hom C (@fapp0 B C X b) (@fapp0 B C X b)) (@tapp0_fapp0 B C X X b beta))));
+symbol one_cat_oplax_reconstruction_to_tgt_path [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C)) (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
+  : τ (@= (@Transf B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D))
+    (@diagram_oplax_family_map_at B WalkingArrow_cat C (@transf_arrow_diagram_func B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@diagram_oplax_family_transf B WalkingArrow_cat C D walking_arrow_src walking_arrow_tgt walking_arrow_generator)) D
+      (@one_cat_oplax_diagram_family_reconstruction_to B C C1 D) walking_arrow_tgt)
+    (@id (Functor_cat B C) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D)))
+≔ let X : τ (Functor B C) ≔ (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) in
+  let alpha : τ (@Transf B C X X) ≔ (@diagram_oplax_family_map_at B WalkingArrow_cat C (@transf_arrow_diagram_func B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@diagram_oplax_family_transf B WalkingArrow_cat C D walking_arrow_src walking_arrow_tgt walking_arrow_generator)) D
+      (@one_cat_oplax_diagram_family_reconstruction_to B C C1 D) walking_arrow_tgt) in
+  let beta : τ (@Transf B C X X) ≔ (@id (Functor_cat B C) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D)) in
+  @hom_to_path (@Transf_cat B C X X) ((@one_cat_functor_category B C C1) X X) alpha beta
+    (@one_cat_modification B C C1 X X alpha beta
+      (λ b : τ (Obj B), @path_to_hom (Hom_cat C (@fapp0 B C X b) (@fapp0 B C X b))
+        (@tapp0_fapp0 B C X X b alpha) (@tapp0_fapp0 B C X X b beta)
+        (@eq_refl (Hom C (@fapp0 B C X b) (@fapp0 B C X b)) (@tapp0_fapp0 B C X X b beta))));
+symbol one_cat_oplax_reconstruction_from_src_path [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C)) (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
+  : τ (@= (@Transf B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D))
+    (@diagram_oplax_family_map_at B WalkingArrow_cat C D (@transf_arrow_diagram_func B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@diagram_oplax_family_transf B WalkingArrow_cat C D walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+      (@one_cat_oplax_diagram_family_reconstruction_from B C C1 D) walking_arrow_src)
+    (@id (Functor_cat B C) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D)))
+≔ let X : τ (Functor B C) ≔ (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) in
+  let alpha : τ (@Transf B C X X) ≔ (@diagram_oplax_family_map_at B WalkingArrow_cat C D (@transf_arrow_diagram_func B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@diagram_oplax_family_transf B WalkingArrow_cat C D walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+      (@one_cat_oplax_diagram_family_reconstruction_from B C C1 D) walking_arrow_src) in
+  let beta : τ (@Transf B C X X) ≔ (@id (Functor_cat B C) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D)) in
+  @hom_to_path (@Transf_cat B C X X) ((@one_cat_functor_category B C C1) X X) alpha beta
+    (@one_cat_modification B C C1 X X alpha beta
+      (λ b : τ (Obj B), @path_to_hom (Hom_cat C (@fapp0 B C X b) (@fapp0 B C X b))
+        (@tapp0_fapp0 B C X X b alpha) (@tapp0_fapp0 B C X X b beta)
+        (@eq_refl (Hom C (@fapp0 B C X b) (@fapp0 B C X b)) (@tapp0_fapp0 B C X X b beta))));
+symbol one_cat_oplax_reconstruction_from_tgt_path [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C)) (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
+  : τ (@= (@Transf B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D))
+    (@diagram_oplax_family_map_at B WalkingArrow_cat C D (@transf_arrow_diagram_func B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@diagram_oplax_family_transf B WalkingArrow_cat C D walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+      (@one_cat_oplax_diagram_family_reconstruction_from B C C1 D) walking_arrow_tgt)
+    (@id (Functor_cat B C) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D)))
+≔ let X : τ (Functor B C) ≔ (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) in
+  let alpha : τ (@Transf B C X X) ≔ (@diagram_oplax_family_map_at B WalkingArrow_cat C D (@transf_arrow_diagram_func B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) D) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D) (@diagram_oplax_family_transf B WalkingArrow_cat C D walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+      (@one_cat_oplax_diagram_family_reconstruction_from B C C1 D) walking_arrow_tgt) in
+  let beta : τ (@Transf B C X X) ≔ (@id (Functor_cat B C) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) D)) in
+  @hom_to_path (@Transf_cat B C X X) ((@one_cat_functor_category B C C1) X X) alpha beta
+    (@one_cat_modification B C C1 X X alpha beta
+      (λ b : τ (Obj B), @path_to_hom (Hom_cat C (@fapp0 B C X b) (@fapp0 B C X b))
+        (@tapp0_fapp0 B C X X b alpha) (@tapp0_fapp0 B C X X b beta)
+        (@eq_refl (Hom C (@fapp0 B C X b) (@fapp0 B C X b)) (@tapp0_fapp0 B C X X b beta))));
