@@ -356,6 +356,11 @@ def main():
                  *(fragment for _, fragment in KERNEL_COLUMNS.values())):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_native_column_entry_migration import finish_native_column_entry, SOURCES as NATIVE_COLUMN_ENTRY
+    for name in ('production_native_column_entry_migration.py',
+                 *(fragment for _, fragment in NATIVE_COLUMN_ENTRY.values())):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5856,6 +5861,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Retain selected comparisons/inverses and use existing whole projection/associativity owners at corrected profiles',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(kernel_columns)})
                 text = kernel_columns
+            native_column_entry = finish_native_column_entry(path, text)
+            if native_column_entry is not None:
+                changes.append({'source': path, 'owner': 'kernel point recovery and original Freyd column inputs/comparisons',
+                                'reason': 'Use native fixed evaluation and the existing ordinary-to-native inclusion before the same cokernel functor, retaining actual comparison/inverse data',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(native_column_entry)})
+                text = native_column_entry
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5915,6 +5926,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('emdash3_2_commutative_algebra_freyd_native_row_short_exact.lp')
     stage('examples/one_cat_kernel_pullback_universality.lp')
     stage('examples/one_cat_zero_cone_column_inputs.lp')
+    stage('emdash3_2_commutative_algebra_freyd_native_column_input_comparisons.lp')
+    stage('emdash3_2_commutative_algebra_freyd_native_column_homology_comparisons.lp')
+    stage('examples/homology_family_point_comparisons.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

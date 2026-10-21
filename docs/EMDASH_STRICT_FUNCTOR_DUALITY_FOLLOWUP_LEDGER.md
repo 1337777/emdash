@@ -186,6 +186,21 @@ all prior broad/native-zero inputs remain unchanged. Coverage is 276
 library/core files and 99 reviewers, leaving 515/497 unstaged. The full Freyd
 column now stops at `zero_arrow_family_point_incoming_path`; its original point
 observations, full columns and the standing completion gates remain required.
+The [native column-entry continuation][native-column-entry] then qualifies
+eighteen original declarations across five library files and the complete
+seven-assertion homology point reviewer. The ordinary decoded boundary map
+and chosen inverse reach the native cokernel through the existing whole
+inclusion/composition. Original H objects and OneCat/model assumptions remain.
+No new rule, primitive, cast or caller field is introduced; the upstream
+point-diagram construction and concrete Freyd homology comparison declarations
+are unchanged. Fresh native validation passes ten positives including imports,
+both inverse computations/laws and the whole Hom action. Warning multisets and
+all preceding broad/native scopes are unchanged at their recorded boundaries.
+Coverage reaches 281 library/core files and 100 reviewers; 510/496 remain
+unstaged. The full projection consumer now stops at
+`homology_adjunction_family_projection_transf` in the homology-cover map owner.
+The terminal/runtime, remaining migration, usability/toolchain and production
+gates remain open.
 The full column run advances to the original whole short-exact family
 cancellation owner and remains unqualified. Its first old-profile stop is
 `one_cat_row_kernel_reconstruction_path`. The five terminal runtime obligations
@@ -404,5 +419,6 @@ that all possible alternatives or future regressions have been discovered.
 [constant-rows]: ../emdash2/audits/strict-default-action-boundary/production_constant_rows_review.md
 [constant-chain]: ../emdash2/audits/strict-default-action-boundary/production_constant_chain_review.md
 [kernel-columns]: ../emdash2/audits/strict-default-action-boundary/production_kernel_columns_review.md
+[native-column-entry]: ../emdash2/audits/strict-default-action-boundary/production_native_column_entry_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md

@@ -1,0 +1,2 @@
+require open emdash.emdash3_2_commutative_algebra_freyd_native_column_homology_comparisons;
+require open emdash.examples.homology_family_point_comparisons;

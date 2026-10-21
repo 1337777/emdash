@@ -42,6 +42,36 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Native column-input/homology continuation after `89605bf1`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_native_column_entry_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_column_entry_verification.json)
+qualify eighteen original declarations across five library files and the
+complete seven-assertion point-comparison reviewer. Point observations use
+native fixed evaluation; the whole column inputs/comparisons retain their
+maps, zero proofs and selected inverse data. The existing ordinary decoded
+boundary comparison reaches the same selected cokernel through the existing
+whole ordinary-to-native inclusion. The original OneCat guard and both actual
+H objects remain; no equality cast, rule, primitive or caller evidence is added.
+The upstream point-diagram construction is unchanged. The four Freyd homology
+comparison/equivalence declarations check unchanged from the source pin.
+
+The focused reviewer passes seven positives plus three imported positives,
+including both inverse computations/laws and whole Hom action, in
+39.737s/518,932KiB. The combined native scope passes those ten assertions and
+all declaration bodies in 138.182s/1,692,684KiB under 300s/2GiB/o=20 with SR and
+warnings. Focused/native warning multisets remain unchanged in their respective
+scopes. All fresh inputs match emission, and all 173/361/160/103 previous
+core/library/native-zero/kernel-column inputs rehash unchanged. Source-level
+authoring failures and their corrections are retained in the review.
+
+Coverage is 281 library/core files and 100 complete reviewers; 510 core/library
+files and 496 reviewers remain unstaged. The full column projection run now
+stops at `homology_adjunction_family_projection_transf` in the original
+homology-cover map owner. Continue there. Full column projections, the five
+terminal Homd runtime positives, remaining migration, normalization/toolchain
+work and production gates remain required. Implementation is still non-library
+staging.
+
 Kernel-pullback/generic-column continuation after `8cbd9596`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_kernel_columns_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_columns_verification.json)
