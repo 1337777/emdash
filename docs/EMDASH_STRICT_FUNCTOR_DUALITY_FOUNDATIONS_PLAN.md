@@ -42,6 +42,35 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Kernel/cokernel-path continuation after `481f0fd0`, 2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_kernel_cokernel_path_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_cokernel_path_verification.json)
+qualify all eight original whole path declarations and the original descent
+reviewer at the native oplax coefficient. The selected adjunctions, inverse
+mates, inputs and whole statements remain. A derived component observation
+supports the precomposition proof. One sufficient proof-time congruence at
+the existing views owner compares both parent functors and the actual
+transformation at a shared evaluation point. No runtime rewrite, operational
+primitive, caller equality premise or strictification of lax FF is added.
+Matched no-rule/with-rule runs differ only at that owner; the latter passes.
+Two negative controls retain arbitrary transformation data and evaluation
+points. The exact source and inferred-slot review are recorded.
+
+The fresh central regression passes 2,176 positive and 286 negative assertions
+in 445.136s/1,818,032KiB, retaining the five original terminal exclusions.
+Its 2,455 warning bodies are unchanged. Because this is a new generic
+unifier, earlier conservative-append carry does not suffice: a fresh combined
+library check loads it before all 248 staged library/core files and 89
+reviewers. That check passes 932 positive and 153 negative assertions in
+449.844s/1,910,884KiB under 600s/4GiB/o=20 with SR and warnings. Its larger,
+differently ordered warning inventory is classified in the review; the
+matched focused warning inventory is unchanged. Source hashes match current
+emission. There remain 543 core/library files and 507 reviewers unstaged.
+The same five terminal runtime positives, remaining column/reconstruction
+consumers, normalization usability, supported-checker qualification and
+production promotion remain open. Rewriting still dominates the measured
+checks; no performance improvement or completed migration is claimed.
+
 Cokernel-input continuation after `b969516e`, 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_verification.json)

@@ -1,0 +1,6 @@
+// Sufficient congruence for the same component observation. Parent
+// presentations and the actual transfor must compare; no injectivity is claimed.
+// lhs-audit: keep 1,2,5 -- the base, target and evaluation point are shared.
+unif_rule @tapp0_fapp0 $A $B $F $G $x $eta
+  ≡ @tapp0_fapp0 $A $B $F0 $G0 $x $eta0
+  ↪ [ $F ≡ $F0; $G ≡ $G0; $eta ≡ $eta0 ];

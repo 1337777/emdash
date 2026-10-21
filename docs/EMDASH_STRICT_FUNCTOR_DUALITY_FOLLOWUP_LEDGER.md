@@ -86,6 +86,19 @@ files and 88 reviewers; 545 library/core files and 508 reviewers are unstaged.
 Native endpoint identities have whole comparison proofs; stronger runtime
 identity in that view remains unqualified under R06. The independent ordinary
 runtime assertions are preserved on their original interface.
+The [kernel/cokernel-path continuation][kernel-cokernel-paths] then qualifies
+the original eight whole path declarations and descent reviewer. A single
+sufficient component-congruence rule compares both parent functors and the
+actual transfor at a shared evaluation point; it is not a runtime rewrite
+or injectivity claim. The fresh central check and complete current staged
+library check pass, including noncollapse controls. This refresh is required
+because a new generic unifier cannot use the earlier conservative-append
+carry. Coverage is now 248 library/core files and 89 reviewers, with 543
+core/library files and 507 reviewers unstaged and the same five central
+runtime exclusions. The library warning scope/order differences are recorded
+by existing owner families under R07. The full column consumers and production
+qualification remain open; 445–450 second central/library checks still leave
+normalization usability under R12 unresolved.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -292,5 +305,6 @@ that all possible alternatives or future regressions have been discovered.
 [freyd-entry]: ../emdash2/audits/strict-default-action-boundary/production_freyd_entry_review.md
 
 [terminal-family-continuation]: ../emdash2/audits/strict-default-action-boundary/production_terminal_family_continuation_review.md
+[kernel-cokernel-paths]: ../emdash2/audits/strict-default-action-boundary/production_kernel_cokernel_path_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md

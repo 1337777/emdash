@@ -294,6 +294,12 @@ def main():
                  'production_cokernel_family_inputs_reviewer.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_kernel_cokernel_path_migration import finish_kernel_cokernel_paths
+    for name in ('production_kernel_cokernel_path_migration.py',
+                 'production_component_view_congruence.lpfragment',
+                 'production_kernel_cokernel_family_paths.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5746,6 +5752,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use the actual native exchange and retained reconstruction maps; derive endpoint comparisons through existing ordinary-target modifications, and keep ordinary reconstruction tests on their original interface',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(cokernel_inputs)})
                 text = cokernel_inputs
+            kernel_cokernel_paths = finish_kernel_cokernel_paths(path, text)
+            if kernel_cokernel_paths is not None:
+                changes.append({'source': path, 'owner': 'native kernel/cokernel whole paths and component comparison',
+                                'reason': 'Preserve the original whole statements and selected mates at the native coefficient; compare all parents and transfor data at a shared evaluation point without changing runtime action',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(kernel_cokernel_paths)})
+                text = kernel_cokernel_paths
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5789,6 +5801,7 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('emdash3_2_zero_arrow_family_action_paths.lp')
     stage('examples/action_profile_profile_action_path_controls.lp')
     stage('emdash3_2_adjunction_untranspose_naturality.lp')
+    stage('examples/one_cat_cokernel_family_descent.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
