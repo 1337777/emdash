@@ -344,6 +344,13 @@ def main():
                  'production_freyd_row_paths.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_constant_chain_migration import finish_constant_chain
+    for name in ('production_constant_chain_migration.py',
+                 'production_constant_chain_zeros.lpfragment',
+                 'production_constant_chain_reviewer.lpfragment',
+                 'production_freyd_row_zeros.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5832,6 +5839,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use the existing strict-transformation inclusion in constant postcomposition and its original whole row consumers',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(constant_rows)})
                 text = constant_rows
+            constant_chain = finish_constant_chain(path, text)
+            if constant_chain is not None:
+                changes.append({'source': path, 'owner': 'original whole constant-chain and native row-zero proofs',
+                                'reason': 'Use native diagram coefficients and the existing weakening/constant transformation inclusions without new rules',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(constant_chain)})
+                text = constant_chain
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5886,6 +5899,9 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('emdash3_2_one_cat_zero_cone_row_families.lp')
     stage('examples/one_cat_constant_transformation_views.lp')
     stage('emdash3_2_commutative_algebra_freyd_native_row_paths.lp')
+    stage('examples/one_cat_constant_chain_zeros.lp')
+    stage('emdash3_2_commutative_algebra_freyd_native_row_zeros.lp')
+    stage('emdash3_2_commutative_algebra_freyd_native_row_short_exact.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

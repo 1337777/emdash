@@ -1,0 +1,5 @@
+// Preserve the full-column import order for the actual native row-zero consumer.
+require open emdash.emdash3_2_one_cat_omega_maps;
+require open emdash.emdash3_2_commutative_algebra_freyd_native_row_short_exact;
+require open emdash.emdash3_2_commutative_algebra_freyd_native_row_zeros;
+require open emdash.examples.one_cat_constant_chain_zeros;

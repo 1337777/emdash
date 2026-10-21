@@ -42,6 +42,36 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Constant-chain/native-zero continuation after `a2f7131f`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_constant_chain_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_constant_chain_verification.json)
+qualify the original three constant-zero laws and native Freyd row-zero
+consumer. Constants and whole weakening use their existing ambient inclusions;
+diagram actions use the native oplax coefficient. The native specialization
+needed one final local comparison between whole zero presentations. It is
+derived using the existing OneCat modification constructor and component
+computation, retaining the original hypothesis and whole conclusion. No rule,
+primitive or caller evidence is added. The original proof before that final
+constant-chain step is unchanged.
+
+The original reviewer passes two positives plus three imported positives in
+69.094s/1,378,996KiB; the combined native scope passes those checks and all
+declaration bodies in 135.151s/1,690,848KiB under 180s/2GiB/o=20 with SR and
+warnings. Failed/passing native variants differ only in the row-zero proof;
+their 2,306 warning bodies agree exactly. The unchanged Cartesian/additive
+instances and supplied Freyd short-exact classifier are also checked; model
+shortness is not reclassified as derived. All 173/361 prior broad-scope inputs
+rehash unchanged. New definitions have fresh consumers and add no old-owner
+rules, so no unchanged aggregate is repeated.
+
+Coverage is 267 library/core files and 97 complete reviewers; 524 core/library
+files and 499 reviewers remain unstaged. The full column run passes this
+chain and stops at `kernel_precomposition_inclusion_slice` in the original
+kernel pullback comparison owner. Continue through that comparison/lift chain.
+The five terminal Homd runtime positives, complete columns, remaining
+migration, normalization/toolchain work and production gates remain required.
+All implementation is still non-library staging.
+
 Constant-transformation/Freyd row continuation after `b82d5788`,
 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_constant_rows_review.md)

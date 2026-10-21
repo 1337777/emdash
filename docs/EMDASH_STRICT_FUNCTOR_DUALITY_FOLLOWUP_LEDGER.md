@@ -160,6 +160,17 @@ reviewers, leaving 529 core/library files and 500 reviewers unstaged. The full
 column now reaches `one_cat_constant_zero_factor_path`; its migration remains
 required. R12 also retains the direct row-import 180s timeout and the roughly
 294s broad regression cost. R01–R03 and production qualification remain open.
+The [constant-chain/native-zero continuation][constant-chain] then qualifies
+seven original declarations across five library files and the original
+two-assertion reviewer. Existing inclusions correct the constant/weakening
+profiles. A local OneCat modification comparison joins the two whole zero
+presentations at the final native proof step; it is not a new rule, axiom or
+caller field. The original model shortness remains supplied. The combined
+native check passes with unchanged warning bodies, and every preceding broad
+input rehashes unchanged. Coverage reaches 267 library/core files and 97
+reviewers; 524 core/library files and 499 reviewers remain unstaged. The full
+column now stops at `kernel_precomposition_inclusion_slice` in the original
+pullback comparison owner. R01–R03, R10, R12 and R14 remain open.
 The full column run advances to the original whole short-exact family
 cancellation owner and remains unqualified. Its first old-profile stop is
 `one_cat_row_kernel_reconstruction_path`. The five terminal runtime obligations
@@ -376,5 +387,6 @@ that all possible alternatives or future regressions have been discovered.
 [kernel-reconstruction]: ../emdash2/audits/strict-default-action-boundary/production_kernel_reconstruction_review.md
 [row-observations]: ../emdash2/audits/strict-default-action-boundary/production_row_observations_review.md
 [constant-rows]: ../emdash2/audits/strict-default-action-boundary/production_constant_rows_review.md
+[constant-chain]: ../emdash2/audits/strict-default-action-boundary/production_constant_chain_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md
