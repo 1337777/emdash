@@ -1,0 +1,18 @@
+{
+  "source": "examples/one_cat_zero_cone_column_inputs.lp",
+  "sourceSha256": "e44fe4ba54002c319cb0453f13bc00c902f7f0a9fbdd34aafd805ec42eaa15d1",
+  "indices": [
+    1,
+    2,
+    3,
+    4,
+    11
+  ],
+  "lines": [
+    4,
+    15,
+    27,
+    34,
+    162
+  ]
+}

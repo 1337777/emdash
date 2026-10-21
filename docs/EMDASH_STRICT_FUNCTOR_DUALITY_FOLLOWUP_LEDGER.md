@@ -133,6 +133,21 @@ combined check passes 32 positive and three negative assertions. All inputs
 of the previous central/library checks remain byte-identical, so their
 explicitly scoped carry is valid. Coverage reaches 258 library/core files and
 94 reviewers; 533 core/library files and 502 reviewers remain unstaged.
+The [row-observation continuation][row-observations] next qualifies the four
+original cancellation laws, thirteen row-family declarations and complete
+cancellation reviewer. It exposes the existing derived mate comparison
+without changing its body, and reuses existing action/whiskering owners.
+No formal rule or operational primitive is added. Fresh combined kernel and
+cancellation consumers pass 36 positives/five negatives. The original
+column reviewer's row-only assertions 1–4 and 11 pass separately; that
+partial selector is not counted as a complete reviewer. Both fresh scopes
+match emitted source, while every prior broad-scope input remains unchanged.
+Coverage reaches 260 library/core files and 95 complete reviewers; 531
+core/library files and 501 reviewers remain unstaged. The full column run
+now stops at `freyd_raw_native_row_first_whole_path`; its actual constant-map
+projection is the next migration consumer. R01–R03, R10, R12 and R14 remain
+open. Warning scope/order differences are recorded at their existing owners,
+not described as new rules or a confluence certificate.
 The full column run advances to the original whole short-exact family
 cancellation owner and remains unqualified. Its first old-profile stop is
 `one_cat_row_kernel_reconstruction_path`. The five terminal runtime obligations
@@ -347,5 +362,6 @@ that all possible alternatives or future regressions have been discovered.
 [cokernel-reconstruction]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_reconstruction_review.md
 [native-row-laws]: ../emdash2/audits/strict-default-action-boundary/production_native_row_laws_review.md
 [kernel-reconstruction]: ../emdash2/audits/strict-default-action-boundary/production_kernel_reconstruction_review.md
+[row-observations]: ../emdash2/audits/strict-default-action-boundary/production_row_observations_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md

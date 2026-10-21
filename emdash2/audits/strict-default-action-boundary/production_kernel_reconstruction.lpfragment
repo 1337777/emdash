@@ -41,7 +41,7 @@ symbol one_cat_kernel_family_lift_ambient_reconstruction [B C : Cat] [S : τ (@P
 
 // The same selected inverse mate with literal and raw Hom classifiers.
 // Apply its comparison through whole source evaluation before reflection.
-protected symbol kernel_family_mate_projection_view [B C : Cat] [S : τ (@PreadditiveCategory C)]
+symbol kernel_family_mate_projection_view [B C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
  (T : τ (@TerminalObject C t)) (P : τ (@KernelAdjunctionStructure C S t T))
  (X : τ (Functor B C)) (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))

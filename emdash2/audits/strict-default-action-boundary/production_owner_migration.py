@@ -330,6 +330,13 @@ def main():
                  'production_kernel_reconstruction_reviewer.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_row_observations_migration import finish_row_observations
+    for name in ('production_row_observations_migration.py',
+                 'production_row_cancellation.lpfragment',
+                 'production_zero_cone_rows.lpfragment',
+                 'production_row_cancellation_reviewer.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5806,6 +5813,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use native exchange and the selected inverse mate with literal Hom classifiers, preserving the whole lift, precomposition and reconstruction observations',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(kernel_reconstruction)})
                 text = kernel_reconstruction
+            row_observations = finish_row_observations(path, text)
+            if row_observations is not None:
+                changes.append({'source': path, 'owner': 'original row cancellation and zero-cone observations',
+                                'reason': 'Reuse whole mate/whiskering comparisons and the existing partial Hom-action owner while retaining actual row maps and inverse witnesses',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(row_observations)})
+                text = row_observations
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5856,6 +5869,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_kernel_family_lift.lp')
     stage('examples/one_cat_kernel_precomposition.lp')
     stage('examples/one_cat_kernel_family_reconstruction.lp')
+    stage('examples/one_cat_short_exact_family_cancellation.lp')
+    stage('emdash3_2_one_cat_zero_cone_row_families.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

@@ -42,6 +42,36 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Row cancellation and zero-cone observation continuation after `c98aac92`,
+2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_row_observations_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_row_observations_verification.json)
+qualify the four original cancellation laws, thirteen original row-family
+declarations and complete cancellation reviewer. The existing mapped mate
+comparison is made public without changing its type/body. The original row
+action and whiskering proofs reuse existing whole owners. No runtime rule,
+unifier, operational primitive, caller evidence or stronger profile is added.
+
+The combined prior-kernel/new-cancellation check passes 36 positive and five
+negative assertions in 84.786s/1,542,004KiB. Original row-only assertions
+1–4 and 11 from the column reviewer pass separately (seven positives and one
+negative including imports) in 92.540s/1,615,676KiB. Both use
+180s/2GiB/o=20, SR and warnings. The partial column selector is not a complete
+reviewer. Cancellation warning bodies match the predecessor kernel scope;
+all row-scope additions already occur in the preceding full library check.
+Fresh inputs match emission, and all 170/346 prior broad-scope inputs rehash
+unchanged. The changed helper is covered fresh by actual consumers.
+
+Coverage is 260 library/core files and 95 complete reviewers; 531 core/library
+files and 501 reviewers remain unstaged. The full column run now stops at
+`freyd_raw_native_row_first_whole_path` in the original native Freyd row-path
+owner, comparing a constant transformation with a composition-action
+projection. Review its existing constant-transformation views and action
+owners next. Full columns, the five terminal Homd runtime positives,
+normalization/toolchain qualification and production promotion remain open.
+All implementation is still non-library staging; file counts are coverage,
+not a remaining-effort estimate.
+
 Whole kernel-chain continuation after `52d76000`, 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_kernel_reconstruction_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_reconstruction_verification.json)
