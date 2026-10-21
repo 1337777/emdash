@@ -42,6 +42,41 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Homology-cover/projection continuation after `80fc8490`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_column_projection_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_column_projection_verification.json)
+qualify ten original declarations across four library files and both complete
+original reviewers. The original projection/naturality proofs use native
+evaluation and the already-qualified included boundary comparison. Selected
+kernel/cokernel and inverse data remain. No rule, primitive, operational cast
+or caller evidence is added; cover epicity retains its separate original
+short-exact/normality obligation.
+
+The concrete reviewer uses the existing whole diagram functor with explicit
+endpoints for the formerly bare nested-Sigma observation, then native fixed
+evaluation for its endpoints. Both whole-arrow observations and their endpoint
+identities remain, with no assertion or polarity removed. This follows the
+existing generic introduced-input reviewer; bare nested inference remains R06.
+
+The generic combined check passes nine positives/two negatives in
+115.312s/1,840,148KiB under 180s/3GiB/o=20. The complete original Freyd column
+comparison target passes eighteen positives plus three imported positives and
+its quotient-reconstruction bodies in 147.098s/1,786,068KiB under 300s/3GiB/o=20.
+SR, warnings, file/serial/no-swap guards remain enabled. The earlier 2GiB runs
+failed allocation; paired runs retain identical mathematics and checker with
+only the memory setting changed. The full 3GiB typing failure then identifies
+the separate reviewer-inference repair. Resource costs remain R12 evidence,
+not a new default. Final full warning bodies are unchanged at 2,316.
+
+All fresh and preceding carry-scope inputs match emission. Coverage reaches
+285 library/core files and 102 complete reviewers; 506 core/library files and
+494 reviewers remain unstaged. The original Freyd column comparison/projection
+reviewer is now qualified. Continue with the distinct native middle-column,
+diagram and homology-path consumers leading to
+`examples/freyd_native_column_homology_paths.lp`. The five terminal Homd runtime
+positives, remaining migration, normalization/toolchain and production gates
+remain required. Implementation is still non-library staging.
+
 Native column-input/homology continuation after `89605bf1`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_native_column_entry_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_native_column_entry_verification.json)

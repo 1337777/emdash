@@ -361,6 +361,11 @@ def main():
                  *(fragment for _, fragment in NATIVE_COLUMN_ENTRY.values())):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_column_projection_migration import finish_column_projection, SOURCES as COLUMN_PROJECTION
+    for name in ('production_column_projection_migration.py',
+                 *(fragment for _, fragment in COLUMN_PROJECTION.values())):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5867,6 +5872,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Use native fixed evaluation and the existing ordinary-to-native inclusion before the same cokernel functor, retaining actual comparison/inverse data',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(native_column_entry)})
                 text = native_column_entry
+            column_projection = finish_column_projection(path, text)
+            if column_projection is not None:
+                changes.append({'source': path, 'owner': 'original homology-cover and whole column projection paths',
+                                'reason': 'Use native evaluation and the existing included boundary comparison in the original cokernel-naturality proof',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(column_projection)})
+                text = column_projection
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5929,6 +5940,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('emdash3_2_commutative_algebra_freyd_native_column_input_comparisons.lp')
     stage('emdash3_2_commutative_algebra_freyd_native_column_homology_comparisons.lp')
     stage('examples/homology_family_point_comparisons.lp')
+    stage('examples/one_cat_homology_cover_maps.lp')
+    stage('examples/freyd_native_column_comparisons.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

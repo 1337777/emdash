@@ -133,6 +133,9 @@ combined check passes 32 positive and three negative assertions. All inputs
 of the previous central/library checks remain byte-identical, so their
 explicitly scoped carry is valid. Coverage reaches 258 library/core files and
 94 reviewers; 533 core/library files and 502 reviewers remain unstaged.
+At that kernel-chain checkpoint, the full column run still stopped at
+`one_cat_row_kernel_reconstruction_path` in the original cancellation owner.
+The subsequent qualifications are recorded below.
 The [row-observation continuation][row-observations] next qualifies the four
 original cancellation laws, thirteen row-family declarations and complete
 cancellation reviewer. It exposes the existing derived mate comparison
@@ -201,10 +204,19 @@ unstaged. The full projection consumer now stops at
 `homology_adjunction_family_projection_transf` in the homology-cover map owner.
 The terminal/runtime, remaining migration, usability/toolchain and production
 gates remain open.
-The full column run advances to the original whole short-exact family
-cancellation owner and remains unqualified. Its first old-profile stop is
-`one_cat_row_kernel_reconstruction_path`. The five terminal runtime obligations
-and final production gates remain open.
+The [cover/column-projection continuation][column-projection] then qualifies
+ten original declarations across four library files, the original cover
+reviewer and the complete original Freyd column comparison reviewer. The
+existing whole diagram functor supplies the typed native projection where
+bare nested Sigma inference fails; the whole-arrow and endpoint observations
+remain with their original polarities. No new rule or primitive is added.
+Generic and concrete checks pass under explicit 3GiB profiles after measured
+2GiB allocation failures. The matched resource controls and separate typing
+repair are retained under R06/R12; defaults and production qualification are
+unchanged. Coverage reaches 285 library/core files and 102 reviewers, leaving
+506/494 unstaged. The original column comparison/projection reviewer is closed;
+the native middle-column, diagram and homology-path consumers remain separate
+R10 work. R01–R03 and final qualification gates remain open.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -420,5 +432,6 @@ that all possible alternatives or future regressions have been discovered.
 [constant-chain]: ../emdash2/audits/strict-default-action-boundary/production_constant_chain_review.md
 [kernel-columns]: ../emdash2/audits/strict-default-action-boundary/production_kernel_columns_review.md
 [native-column-entry]: ../emdash2/audits/strict-default-action-boundary/production_native_column_entry_review.md
+[column-projection]: ../emdash2/audits/strict-default-action-boundary/production_column_projection_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md
