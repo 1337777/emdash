@@ -1,0 +1,14 @@
+// Whole constant-precomposition comparison retains the actual selected object.
+require open emdash.examples.one_cat_constant_transformation_views;
+assert [K A B : Cat] (F : τ (Functor A B)) (x : τ (Obj A)) ⊢
+ @eq_refl (Functor K B)
+  (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) B K A (@Const_func K A x) F)
+ : τ (@= (Functor K B)
+  (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) B K A (@Const_func K A x) F)
+  (@Const_func K B (@fapp0 A B F x)));
+assertnot [K A B : Cat] (F : τ (Functor A B)) (x y : τ (Obj A)) ⊢
+ @eq_refl (Functor K B)
+  (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) B K A (@Const_func K A x) F)
+ : τ (@= (Functor K B)
+  (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) B K A (@Const_func K A x) F)
+  (@Const_func K B (@fapp0 A B F y)));

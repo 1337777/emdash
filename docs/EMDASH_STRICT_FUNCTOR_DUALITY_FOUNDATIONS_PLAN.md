@@ -42,6 +42,39 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Constant-transformation/Freyd row continuation after `b82d5788`,
+2026-10-21 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_constant_rows_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_constant_rows_verification.json)
+qualify all three original whole Freyd row-projection paths and the original
+constant-comparison reviewer. `Const_transf` uses its existing inclusion into
+ambient transformations; the old postcomposition comparison is adapted to
+that constructor. The middle row projection additionally needs the direct
+proof-time constant-input precomposition view. It retains both exterior
+categories and actual F[x]. No runtime rule, primitive, extra hypothesis or
+caller evidence is added; the projection ladder and original proofs remain.
+
+The matched owner check fails with the old rule and passes with its inclusion
+adaptation, retaining both original negatives. The final focused check passes
+two positive/three negative assertions in 27.602s/185,804KiB. Fresh core and
+complete staged-library regressions pass 2,204/298 and 993/166 assertions in
+294.304s/2,126,148KiB and 292.982s/2,147,852KiB, respectively, under reviewed
+serial 600s/4GiB/o=20 guards with SR and warnings. All input hashes match.
+Focused warnings are unchanged; broad scope/order differences all involve
+existing alternating-duality rules and unchanged owners, with exact bodies
+and classification retained in the verification.
+
+Coverage is 262 library/core files and 96 complete reviewers; 529 core/library
+files and 500 reviewers remain unstaged. The full column run passes the three
+row proofs and now stops at `one_cat_constant_zero_factor_path` in
+`one_cat_constant_chain_zeros`. Its constant inclusion, diagram coefficient
+and weakening profiles are the next migration work. Candidate mechanical
+edits are prepared in the ignored continuation workspace, but are not yet
+tested or included in these counts. The direct row-file baseline timed out
+in imports at 180s; the established column order advances in about 112s.
+Five terminal runtime positives, full columns, normalization/toolchain work
+and production qualification remain required. Production is unpromoted.
+
 Row cancellation and zero-cone observation continuation after `c98aac92`,
 2026-10-21 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/production_row_observations_review.md)

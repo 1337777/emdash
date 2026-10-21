@@ -148,6 +148,18 @@ now stops at `freyd_raw_native_row_first_whole_path`; its actual constant-map
 projection is the next migration consumer. R01–R03, R10, R12 and R14 remain
 open. Warning scope/order differences are recorded at their existing owners,
 not described as new rules or a confluence certificate.
+The [constant/Freyd-row continuation][constant-rows] then qualifies all three
+original whole row projections and the original constant-comparison reviewer.
+It adapts the existing comparison to the strict constant's ambient inclusion
+and adds the required constant-input precomposition view at proof time. No
+runtime rule or operational evidence is added. Fresh core/library runs pass
+2,204/298 and 993/166 positive/negative assertions. Their exact emitted inputs
+match; warning differences involve unchanged alternating-duality owners under
+the new import order. Coverage reaches 262 library/core files and 96 complete
+reviewers, leaving 529 core/library files and 500 reviewers unstaged. The full
+column now reaches `one_cat_constant_zero_factor_path`; its migration remains
+required. R12 also retains the direct row-import 180s timeout and the roughly
+294s broad regression cost. R01–R03 and production qualification remain open.
 The full column run advances to the original whole short-exact family
 cancellation owner and remains unqualified. Its first old-profile stop is
 `one_cat_row_kernel_reconstruction_path`. The five terminal runtime obligations
@@ -363,5 +375,6 @@ that all possible alternatives or future regressions have been discovered.
 [native-row-laws]: ../emdash2/audits/strict-default-action-boundary/production_native_row_laws_review.md
 [kernel-reconstruction]: ../emdash2/audits/strict-default-action-boundary/production_kernel_reconstruction_review.md
 [row-observations]: ../emdash2/audits/strict-default-action-boundary/production_row_observations_review.md
+[constant-rows]: ../emdash2/audits/strict-default-action-boundary/production_constant_rows_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md
