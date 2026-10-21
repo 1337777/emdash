@@ -263,6 +263,17 @@ All 422 prior qualified files are unchanged. Coverage reaches 322 library/core
 files and 115 reviewers, with 469/481 unstaged. The separate original
 image/coimage factor-reconstruction reviewer is next. R01–R03, R10, R12 and
 production qualification remain open.
+The [factor/whole-H reviewer continuation][factor-h-reviewers] qualifies five
+complete original reviewers, including the separate image/coimage factor
+reconstruction consumer. All 25 original assertions and both proof helpers
+remain, now at their native coefficient/Hom profiles; the ordinary chain
+generator assertion stays ordinary. No library source or formal rule changes.
+The combined run passes 28 positives including imports in 63.316s/1,267,808KiB
+under 180s/2GiB. Its warning multiset matches the successful individual check
+and is contained in the preceding qualified record scope. All 437 prior
+qualified files are unchanged. Coverage is 322 library/core files and 120
+reviewers, with 469/476 unstaged. The next diagram/mate reviewers are named
+in the living plan. R01–R03 and the remaining migration/production gates remain.
 Broader registered-consumer and supported-toolchain qualification remain gates.
 
 Broad source adaptation is not completed computational qualification.
@@ -482,5 +493,6 @@ that all possible alternatives or future regressions have been discovered.
 [family-actions]: ../emdash2/audits/strict-default-action-boundary/production_family_actions_review.md
 [column-homology-paths]: ../emdash2/audits/strict-default-action-boundary/production_column_homology_paths_review.md
 [homology-records]: ../emdash2/audits/strict-default-action-boundary/production_homology_records_review.md
+[factor-h-reviewers]: ../emdash2/audits/strict-default-action-boundary/production_factor_h_reviewers_review.md
 
 [cokernel-input-continuation]: ../emdash2/audits/strict-default-action-boundary/production_cokernel_input_continuation_review.md

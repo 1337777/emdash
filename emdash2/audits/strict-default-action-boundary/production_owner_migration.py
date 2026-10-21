@@ -379,6 +379,9 @@ def main():
                  'production_zero_diagram_record_inputs.lpfragment'):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_factor_h_reviewers_migration import finish_factor_h_reviewers
+    path = audit / 'production_factor_h_reviewers_migration.py'
+    inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5909,6 +5912,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Retain selected mates and record data through native reflection, evaluation and actual reconstruction-map inclusion',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(homology_records)})
                 text = homology_records
+            factor_h_reviewers = finish_factor_h_reviewers(path, text)
+            if factor_h_reviewers is not None:
+                changes.append({'source': path, 'owner': 'original factor and whole H reviewers',
+                                'reason': 'Retain original reconstruction/projection assertions at existing native diagram and Hom profiles',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(factor_h_reviewers)})
+                text = factor_h_reviewers
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -5986,6 +5995,11 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_chain_pair_homology_maps.lp')
     stage('examples/freyd_adjunction_homology_maps.lp')
     stage('examples/freyd_adjunction_model_observations.lp')
+    stage('examples/one_cat_image_coimage_factor_reconstruction.lp')
+    stage('examples/one_cat_chain_pair_inputs.lp')
+    stage('examples/zero_arrow_cone_adjunction_homology.lp')
+    stage('examples/zero_composite_adjunction_homology.lp')
+    stage('examples/one_cat_image_coimage_factors.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

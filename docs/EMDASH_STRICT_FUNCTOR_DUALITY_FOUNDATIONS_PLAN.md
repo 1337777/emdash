@@ -42,6 +42,31 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Factor/whole-H reviewer continuation after `01ba9f3d`, 2026-10-21 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_factor_h_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_factor_h_reviewers_verification.json)
+qualify five complete original reviewers at unchanged library owners. Native
+coefficient/Hom annotations and fixed observations retain reconstruction,
+factor endpoint computations, whole next-Hom action, raw chain input and
+whole-H/mate computation. All 25 original assertions and both reviewer proof
+declarations remain. The ordinary chain generator observation stays ordinary;
+only its native consumer positions receive the existing encoding.
+
+The combined scope passes 28 positives including imports in
+63.316s/1,267,808KiB under 180s/2GiB/o=20 with SR and warnings. The individual
+reconstruction target also passes under 90s/2GiB. Its old baseline timed out
+during prerequisites, so it is not a completed failing reviewer. Successful
+warning multisets match at 2,284 bodies and are contained in the preceding
+qualified record scope. All fresh inputs match emission; all 437 prior
+qualified files remain byte-identical. No library source or formal rule changes.
+
+Coverage is 322 library/core files and 120 complete reviewers, with 469/476
+unstaged. Next follow the original diagram/mate reviewers
+`one_cat_adjunction_family_zero_inputs`, `arrow_diagram_point_usability` and
+`walking_arrow_diagram_evaluation`. R01–R03, remaining migration,
+normalization/toolchain and production gates remain open; this is still
+non-library staging.
+
 Adjunction/H-map record continuation after `d9729564`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_homology_records_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_homology_records_verification.json)
