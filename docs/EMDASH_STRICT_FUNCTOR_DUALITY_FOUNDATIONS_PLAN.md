@@ -42,6 +42,40 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Action-profile continuation after `cc1b10d6`, 2026-10-22 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_action_controls_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_action_controls_verification.json)
+qualify eight complete original reviewers with all fifty-nine assertions
+retained. Five sources remain byte-identical. Three obsolete lax-functor
+negatives, one vertical pre-leg comparison and three established unit-law
+negatives become positive; retained post/left, mixed and ambient-category
+noncollapse controls remain. Six legacy StrictFunctor binders and fifty-one
+strict_functor views use the strict default. Three reviewer proof bodies
+remain unchanged.
+
+The raw vertical fold is rejected: despite a passing core check it hid the
+literal displayed composite needed by intrinsic Homd. A single generic
+proof-time comparison preserves that constructor. Its linear pattern avoids
+an eager-matcher preference for the broad scalar reading while retaining
+all parameter/variance constraints. Focused scopes pass 38/eight and 18/one
+positive/negative assertions; removal fails at the intended comparison.
+No runtime rule or primitive is added.
+
+Fresh core/library regressions pass 2,294/331 and 1,346/222 assertions in
+364.620s/2,088,420KiB and 444.451s/2,471,600KiB under 600s/4GiB/o=20,
+with SR and the existing guards. Both warning multisets are unchanged.
+Every currently qualified source is covered at its exact hash; only the
+core changes among the 469 previously qualified files. A conversation
+interruption and a transient version-setup timeout yielded no qualification;
+the final receipts above are complete, using the unchanged isolated checker.
+These expanded scopes do not establish a normalization-speed improvement.
+
+Coverage is 322 core/library files and 155 complete reviewers, with 469/441
+unstaged. Next assess original minimal precomposition and telescope controls
+against the selected defaults. The five terminal Homd runtime exclusions,
+remaining migration, normalization/toolchain and production gates remain
+open. All work remains non-library staging.
+
 Unchanged Freyd/additive-reviewer continuation after `85f72e23`, 2026-10-22 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_freyd_additive_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_freyd_additive_reviewers_verification.json)

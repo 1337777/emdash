@@ -397,6 +397,11 @@ def main():
                  *(spec['fragment'] for spec in ORDINARY_REVIEWERS.values())):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_action_controls_migration import finish_action_controls, add_default_vertical_comparison, SOURCES as ACTION_CONTROLS
+    for name in ('production_action_controls_migration.py', 'production_default_vertical_clause.lpfragment',
+                 *(spec['fragment'] for spec in ACTION_CONTROLS.values())):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5951,6 +5956,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Retain the actual public mapped inverse in existing native records and preserve original ordinary observations',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(ordinary_reviewers)})
                 text = ordinary_reviewers
+            action_controls = finish_action_controls(path, text)
+            if action_controls is not None:
+                changes.append({'source': path, 'owner': 'legacy action controls under selected defaults',
+                                'reason': 'Retain old assertions with explicit strict-functor and conventional-pre dispositions; preserve post-leg and mixed noncollapse controls',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(action_controls)})
+                text = action_controls
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -6060,6 +6071,14 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/commutative_ring_freyd_terminal_zero.lp')
     stage('examples/commutative_ring_freyd_direct_sums.lp')
     stage('examples/commutative_ring_freyd_binary_products.lp')
+    stage('examples/action_profile_canonical_pre_product_orders.lp')
+    stage('examples/action_profile_canonical_pre_product_specializations.lp')
+    stage('examples/action_profile_postcomp_profile_controls.lp')
+    stage('examples/action_profile_vertical_profile_controls.lp')
+    stage('examples/action_profile_vertical_ambient_category_control.lp')
+    stage('examples/action_profile_vertical_identity_paths.lp')
+    stage('examples/action_profile_vertical_terminal_controls.lp')
+    stage('examples/action_profile_vertical_unit_controls.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
@@ -7404,6 +7423,14 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
                         'oldBodySha256': change['beforeSha256'], 'newBodySha256': change['afterSha256']})
     manifest['strictWrapperRetirement']['status'] = 'legacy wrappers removed from final emitted LP; descriptive compositor property and genuine transformation profiles retained'
     manifest['strictWrapperRetirement']['finalDisposition'] = finished_wrappers
+    vertical_target = package / 'emdash3_2.lp'
+    before_vertical = vertical_target.read_text()
+    after_vertical = add_default_vertical_comparison(before_vertical)
+    vertical_target.write_text(after_vertical)
+    manifest['outputs'][str(vertical_target.relative_to(root))] = sha(after_vertical)
+    changes.append({'source': 'emdash3_2.lp', 'owner': 'default conventional pre-leg vertical composition',
+                    'reason': 'Compare the conventional pre-leg vertical action while preserving literal displayed composites for intrinsic Homd; all raw vertical folds remain disabled',
+                    'oldBodySha256': sha(before_vertical), 'newBodySha256': sha(after_vertical)})
     (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print('Emitted full pre-goal baseline and upstream owner migration; no original tail omitted.')
 

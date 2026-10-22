@@ -1,0 +1,64 @@
+require open emdash.emdash3_2_functor_category_unit_views;
+require open emdash.emdash3_2_product_family_action_views;
+require open emdash.emdash3_2_one_cat_adjunction_family_reindex;
+require open emdash.emdash3_2_one_cat_constant_transformation_views;
+require open emdash.emdash3_2_one_cat_adjunction_family_views;
+require open emdash.emdash3_2_hom_action_factorization_views;
+require open emdash.central_full_context_except_terminal;
+require open emdash.examples.one_cat_whiskering_paths;
+require open emdash.examples.one_cat_cokernel_family_descent;
+require open emdash.examples.one_cat_cokernel_family_reconstruction;
+require open emdash.examples.one_cat_short_exact_families;
+require open emdash.emdash3_2_one_cat_kernel_family_restriction_paths;
+// The same typed component observation must retain its actual transfor.
+assertnot [A B : Cat] (F G : τ (Functor A B))
+ (eta theta : τ (@Transf A B F G)) (x : τ (Obj A)) ⊢
+ @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B G x)) (@tapp0_fapp0 A B F G x eta)
+ : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B G x))
+     (@tapp0_fapp0 A B F G x eta) (@tapp0_fapp0 A B F G x theta));
+
+// Equal endpoint objects do not erase the base evaluation point.
+assertnot [A B : Cat] (u v : τ (Obj B))
+ (eta : τ (@Transf A B (@Const_func A B u) (@Const_func A B v)))
+ (x y : τ (Obj A)) ⊢
+ @eq_refl (Hom B u v) (@tapp0_fapp0 A B (@Const_func A B u) (@Const_func A B v) x eta)
+ : τ (@= (Hom B u v)
+     (@tapp0_fapp0 A B (@Const_func A B u) (@Const_func A B v) x eta)
+     (@tapp0_fapp0 A B (@Const_func A B u) (@Const_func A B v) y eta));
+
+// Preserve actual functor and object data in classifier comparison.
+assertnot [A B : Cat] (F G : τ (Functor A B)) (x : τ (Obj A)) ⊢
+ @eq_refl (Obj B) (@fapp0 A B F x) : τ (@= (Obj B) (@fapp0 A B F x) (@fapp0 A B G x));
+assertnot [A B : Cat] (F : τ (Functor A B)) (x y : τ (Obj A)) ⊢
+ @eq_refl (Obj B) (@fapp0 A B F x) : τ (@= (Obj B) (@fapp0 A B F x) (@fapp0 A B F y));
+
+// Complete-composite comparisons retain the actual outer functor.
+assertnot [A B C D : Cat] (h : τ (Functor A B)) (p : τ (Functor B C))
+ (q r : τ (Functor C D)) ⊢
+ @eq_refl (Functor A D)
+  (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) D A B h (@comp_cat_fapp0 B C D q p))
+ : τ (@= (Functor A D)
+  (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) D A B h (@comp_cat_fapp0 B C D q p))
+  (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) A C D r
+   (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) C A B h p)));
+// Reassociation does not forget the original incoming functor either.
+assertnot [A B C D : Cat] (h k : τ (Functor A B)) (p : τ (Functor B C))
+ (q : τ (Functor C D)) ⊢
+ @eq_refl (Functor A D)
+  (@comp_cat_fapp0 A C D q (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) A B C p h))
+ : τ (@= (Functor A D)
+  (@comp_cat_fapp0 A C D q (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) A B C p h))
+  (@comp_cat_fapp0 A B D (@comp_cat_fapp0 B C D q p) k));
+
+require open emdash.constant_views_controls;
+
+require open emdash.homology_family_action_regression;
+require open emdash.examples.one_cat_diagram_reconstruction;
+require open emdash.examples.one_cat_native_square_paths;
+require open emdash.examples.one_cat_slice_paths;
+require open emdash.examples.one_cat_terminal_adjunctions;
+require open emdash.examples.action_profile_canonical_pre_product_orders;
+require open emdash.examples.action_profile_canonical_pre_product_specializations;
+require open emdash.examples.action_profile_postcomp_profile_controls;
+require open emdash.examples.action_profile_vertical_profile_controls;
+require open emdash.action_intrinsic_controls;

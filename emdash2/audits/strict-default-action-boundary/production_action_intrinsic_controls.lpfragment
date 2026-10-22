@@ -1,0 +1,27 @@
+// The newly exposed overlap is tested at the existing intrinsic whole owner.
+require open emdash.emdash3_2;
+symbol A : Cat;
+symbol K : Cat;
+symbol F : τ (Functor A (Catd_cat K));
+symbol G : τ (Functor A (Catd_cat K));
+symbol H : τ (Functor A (Catd_cat K));
+symbol epsilon : τ (@Transf A (Catd_cat K) F G);
+symbol eta : τ (@Transf A (Catd_cat K) G H);
+symbol X : τ (Obj A);
+symbol Y : τ (Obj A);
+symbol p : τ (Hom A X Y);
+symbol E ≔ @fapp0 A (Catd_cat K) F X;
+symbol D ≔ @fapp0 A (Catd_cat K) G Y;
+symbol C ≔ @fapp0 A (Catd_cat K) H Y;
+symbol FF ≔ @tapp1_fapp0 A (Catd_cat K) F G X Y epsilon p;
+symbol GG ≔ @tapp0_fapp0 A (Catd_cat K) G H Y eta;
+assert ⊢ @fdapp1_int_transfd K E C (@comp_fapp0 (Catd_cat K) E D C GG FF)
+  ≡ @fdapp1_int_comp_transfd K E D C FF GG;
+
+// The displayed identity may project before or after the vertical owner.
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
+  (x y : τ (Obj K)) (f : τ (Hom K x y)) ⊢
+  @comp_fapp0 Cat_cart (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart D y)
+    (@tapp0_fapp0 K Cat_cart D D y (@id (Catd_cat K) D))
+    (@tapp1_fapp0 K Cat_cart E D x y FF f)
+  ≡ @tapp1_fapp0 K Cat_cart E D x y FF f;

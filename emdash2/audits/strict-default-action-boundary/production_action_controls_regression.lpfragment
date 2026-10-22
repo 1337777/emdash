@@ -1,0 +1,5 @@
+require open emdash.examples.action_profile_canonical_pre_product_orders;
+require open emdash.examples.action_profile_canonical_pre_product_specializations;
+require open emdash.examples.action_profile_postcomp_profile_controls;
+require open emdash.examples.action_profile_vertical_profile_controls;
+require open emdash.action_intrinsic_controls;

@@ -1,0 +1,4 @@
+require open emdash.examples.action_profile_vertical_ambient_category_control;
+require open emdash.examples.action_profile_vertical_identity_paths;
+require open emdash.examples.action_profile_vertical_terminal_controls;
+require open emdash.examples.action_profile_vertical_unit_controls;
