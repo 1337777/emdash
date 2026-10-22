@@ -42,6 +42,40 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Remaining action-profile continuation after `ac4f08be`, 2026-10-22 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_action_remaining_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_action_remaining_verification.json)
+qualify eight original reviewers and the unchanged product-family reindex
+module. All thirty-one original assertions and the circle whole-Hom query
+remain. Three reviewer sources and the reindex module are byte-identical.
+Canonical Sigma base-change retains general FF; only the old strict-functor
+negative changes. Retired presheaf wrappers use the public strict default.
+
+The native observations use the actual general oplax evaluation through its
+encoded lax transformation on odd duals. No OneCat hypothesis is added.
+One scoped comparison recovers the admitted component, retaining runtime-view
+and wrong-arrow negatives. Removing it fails the intended comparison; no new
+runtime rule or primitive is added. The sheaf walking-end equation now
+computes, while the NType equation retains its path/runtime distinction.
+Both selected inverse choices and two added wrong-arrow controls remain.
+Pointwise equivalence assembly retains its explicit baseline-assumption status.
+
+Fresh core/library checks load reindex/native comparison owners before the
+central assertions and pass 2,351/350 and 1,403/241 assertions in
+549.892s/2,091,880KiB and 481.767s/2,429,372KiB under 600s/4GiB/o=20.
+Warning inventories are 2,497/2,515, with exact context-dependent origin/body
+deltas recorded in the review. Authored runtime clauses are unchanged; no
+convergence or matched performance improvement is inferred. All current
+qualified inputs match fresh receipts; only native-observation changes among
+the 485 prior qualified sources.
+
+Coverage is 323 core/library files and 171 complete reviewers, with 468/425
+unstaged. All registered action_profile_* reviewers are now staged and
+qualified. Next revisit the five terminal Homd runtime obligations at the
+current projection owners, while keeping remaining registered migration,
+normalization/toolchain and production gates in scope. Production remains
+unpromoted and the separate nerve goal stays paused.
+
 Precomposition/telescope continuation after `af7fb82b`, 2026-10-22 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_precomp_telescope_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_precomp_telescope_verification.json)

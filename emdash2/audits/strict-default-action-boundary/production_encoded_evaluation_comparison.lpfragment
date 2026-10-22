@@ -1,0 +1,16 @@
+// General evaluation has the opposite transformation profile. Its admitted
+// encoded lax view has the same component, without a general native-arrow
+// graph or an ordinary-target assumption. Keep both runtime presentations.
+unif_rule
+  @tapp0_fapp0 $A $B $F $G $d
+    (@lax_transfor $A $B $F $G
+      (@make_lax_transfor $A $B $F $G
+        (@diagram_evaluation_transf $I $C $i $j $u) _))
+  ≡ $observed
+  ↪ [ $A ≡ OddDual_cat (Functor_cat $I $C);
+      $B ≡ OddDual_cat $C;
+      $F ≡ @OddDual_func (Functor_cat $I $C) $C
+        (@diagram_evaluation_at_func $I $C $j);
+      $G ≡ @OddDual_func (Functor_cat $I $C) $C
+        (@diagram_evaluation_at_func $I $C $i);
+      @fapp1_fapp0 $I $C $d $i $j $u ≡ $observed ];

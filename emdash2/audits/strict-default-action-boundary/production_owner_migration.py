@@ -409,6 +409,12 @@ def main():
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
 
+    from production_action_remaining_migration import finish_remaining_action_reviewers, SOURCES as REMAINING_ACTION_REVIEWERS
+    for name in ('production_action_remaining_migration.py', 'production_encoded_evaluation_comparison.lpfragment',
+                 *(spec['fragment'] for spec in REMAINING_ACTION_REVIEWERS.values())):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
+
     def fragment(name):
         path = audit / name
         text = path.read_text()
@@ -5962,6 +5968,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Retain the actual public mapped inverse in existing native records and preserve original ordinary observations',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(ordinary_reviewers)})
                 text = ordinary_reviewers
+            remaining_action = finish_remaining_action_reviewers(path, text)
+            if remaining_action is not None:
+                changes.append({'source': path, 'owner': 'remaining action-profile observations',
+                                'reason': 'Retain general encoded oplax evaluation, selected inverses, strict-default laws and runtime distinctions',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(remaining_action)})
+                text = remaining_action
             telescope_reviewers = finish_precomp_telescope_reviewers(path, text)
             if telescope_reviewers is not None:
                 changes.append({'source': path, 'owner': 'precomposition and telescope observations',
@@ -6097,6 +6109,14 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/action_profile_telescope_profile_controls.lp')
     stage('examples/action_profile_telescope_projection_controls.lp')
     stage('examples/action_profile_telescope_unit_overlap_controls.lp')
+    stage('examples/action_profile_canonical_sigma_basechange_controls.lp')
+    stage('examples/action_profile_circle_retained_inverse_controls.lp')
+    stage('examples/action_profile_diagonal_pair_projection_view_controls.lp')
+    stage('examples/action_profile_native_component_agreement_review.lp')
+    stage('examples/action_profile_native_residual_view_controls.lp')
+    stage('examples/action_profile_pointwise_profile_controls.lp')
+    stage('examples/action_profile_sheaf_baseline_helper_controls.lp')
+    stage('examples/action_profile_walking_cross_category_controls.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
