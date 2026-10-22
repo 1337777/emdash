@@ -6051,6 +6051,15 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/abelian_fiber_pushout_stability.lp')
     stage('examples/computational_fiber_products_pushouts.lp')
     stage('examples/preabelian_bimorphism_lemmas.lp')
+    stage('examples/commutative_ring_freyd_additive.lp')
+    stage('examples/emdash3_2_commutative_algebra_freyd_preadditive_class_laws_example.lp')
+    stage('examples/emdash3_2_commutative_algebra_freyd_preadditive_example.lp')
+    stage('examples/emdash3_2_commutative_algebra_matrix_additive_laws_example.lp')
+    stage('examples/emdash3_2_commutative_algebra_presentation_additive_operations_example.lp')
+    stage('examples/commutative_ring_freyd_cartesian.lp')
+    stage('examples/commutative_ring_freyd_terminal_zero.lp')
+    stage('examples/commutative_ring_freyd_direct_sums.lp')
+    stage('examples/commutative_ring_freyd_binary_products.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

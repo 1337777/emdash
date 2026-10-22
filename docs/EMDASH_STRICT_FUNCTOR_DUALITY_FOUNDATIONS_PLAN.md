@@ -42,6 +42,29 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Unchanged Freyd/additive-reviewer continuation after `85f72e23`, 2026-10-22 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_freyd_additive_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_freyd_additive_reviewers_verification.json)
+qualify nine complete original reviewers byte-identically. They retain Freyd
+additive/preadditive structure, raw-class and matrix laws, presentation
+operations, Cartesian structure, terminal zero, direct sums and binary products.
+All original parameters, selected data, whole actions and noncollapse controls
+remain; no reviewer/library source or formal rule changes.
+
+The combined scope passes 32 positives/six negatives and seven original proof
+declarations in 53.912s/169,464KiB under 180s/2GiB/o=20 with SR and warnings.
+Its 1,737 warning bodies are already present in the qualified library scope.
+All fresh inputs match emission; all 460 prior qualified files are unchanged.
+Earlier receipts retain their exact scope and runtime profile.
+
+Coverage is 322 library/core files and 147 complete reviewers, with 469/449
+unstaged. Next assess the original canonical pre-product, postcomposition and
+vertical action-profile controls against the selected defaults, explicitly
+dispositioning retired wrapper uses and obsolete lax-functor expectations.
+The five terminal Homd runtime exclusions, remaining migration,
+normalization/toolchain and production gates remain open. Work is non-library
+staging.
+
 Unchanged algebra-reviewer continuation after `d7dcff7b`, 2026-10-22 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_algebra_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_algebra_reviewers_verification.json)
