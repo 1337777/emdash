@@ -42,6 +42,27 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Unchanged algebra-reviewer continuation after `d7dcff7b`, 2026-10-22 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_algebra_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_algebra_reviewers_verification.json)
+qualify seven complete original reviewers byte-identically: kernel/cokernel,
+weak-kernel, additive, abelian, fibre/pushout stability, computational binary
+constructions and pre-Abelian cancellation. Whole reindexing, actual factor
+data, reconstruction/uniqueness and the variance negative remain. No reviewer
+or library source, formal rule, primitive or hypothesis changes.
+
+The expanded scope passes 50 positives/one negative in 37.542s/256,820KiB
+under 90s/2GiB/o=20 with SR and warnings. Its 1,725 warning bodies match the
+five-reviewer baseline and are contained in the latest qualified library scope.
+All fresh inputs match emission; all 453 prior qualified files are unchanged.
+Earlier core/library receipts retain their original scope and resource profiles.
+
+Coverage is 322 library/core files and 138 complete reviewers, with 469/458
+unstaged. Next qualify the original Freyd/preadditive, matrix-additive and
+presentation additive-operation reviewers with staged dependencies. The five
+terminal Homd runtime exclusions, remaining migration, normalization/toolchain
+and production gates remain open. Work remains non-library staging.
+
 Ordinary-reviewer/inverse-record continuation after `76ec7924`, 2026-10-22 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_ordinary_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_ordinary_reviewers_verification.json)

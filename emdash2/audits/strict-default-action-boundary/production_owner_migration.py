@@ -6044,6 +6044,13 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/one_cat_native_square_paths.lp')
     stage('examples/one_cat_slice_paths.lp')
     stage('examples/one_cat_terminal_adjunctions.lp')
+    stage('examples/kernels_cokernels.lp')
+    stage('examples/weak_kernels.lp')
+    stage('examples/additive_categories.lp')
+    stage('examples/abelian_categories.lp')
+    stage('examples/abelian_fiber_pushout_stability.lp')
+    stage('examples/computational_fiber_products_pushouts.lp')
+    stage('examples/preabelian_bimorphism_lemmas.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
