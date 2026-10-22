@@ -1,0 +1,14 @@
+require open emdash.emdash3_2;
+// A genuine higher endomorphism is not the identity constructor.
+assertnot [A B : Cat] (F : τ (Functor A B)) (W : τ (Obj B))
+  [X Y : τ (Obj A)] (f : τ (Hom A X Y))
+  (alpha : τ (Hom (Hom_cat A X Y) f f)) ⊢
+  @hom_postcomp_tele_transf B A F W X Y f f alpha
+  ≡ @id (Functor_cat (Hom_cat B W (@fapp0 A B F X)) (Hom_cat B W (@fapp0 A B F Y)))
+      (@hom_postcomp_func B A F W X Y f);
+assertnot [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
+  [W X : τ (Obj A)] (f : τ (Hom A W X))
+  (alpha : τ (Hom (Hom_cat A W X) f f)) ⊢
+  @hom_precomp_along_tele_transf A B F Z W X f f alpha
+  ≡ @id (Functor_cat (Hom_cat B (@fapp0 A B F X) Z) (Hom_cat B (@fapp0 A B F W) Z))
+      (@hom_precomp_along_func A B F Z W X f);

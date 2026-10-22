@@ -1,0 +1,7 @@
+require open emdash.examples.action_profile_precomp_minimal_all_orders;
+require open emdash.examples.action_profile_precomp_minimal_mixed_controls;
+require open emdash.examples.action_profile_telescope_profile_paths;
+require open emdash.examples.action_profile_telescope_profile_controls;
+require open emdash.examples.action_profile_telescope_projection_controls;
+require open emdash.examples.action_profile_telescope_unit_overlap_controls;
+require open emdash.ordinary_telescope_identity_controls;

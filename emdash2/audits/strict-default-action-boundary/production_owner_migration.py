@@ -403,6 +403,12 @@ def main():
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
 
+    from production_precomp_telescope_migration import finish_precomp_telescope_reviewers, add_ordinary_telescope_identities, SOURCES as PRECOMP_TELESCOPE_REVIEWERS
+    for name in ('production_precomp_telescope_migration.py', 'production_precomp_telescope_identity.lpfragment',
+                 *(spec['fragment'] for spec in PRECOMP_TELESCOPE_REVIEWERS.values())):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
+
     def fragment(name):
         path = audit / name
         text = path.read_text()
@@ -5956,6 +5962,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Retain the actual public mapped inverse in existing native records and preserve original ordinary observations',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(ordinary_reviewers)})
                 text = ordinary_reviewers
+            telescope_reviewers = finish_precomp_telescope_reviewers(path, text)
+            if telescope_reviewers is not None:
+                changes.append({'source': path, 'owner': 'precomposition and telescope observations',
+                                'reason': 'Retain whole native Cartesian action and its ordinary included observations at the selected default',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(telescope_reviewers)})
+                text = telescope_reviewers
             action_controls = finish_action_controls(path, text)
             if action_controls is not None:
                 changes.append({'source': path, 'owner': 'legacy action controls under selected defaults',
@@ -6079,6 +6091,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/action_profile_vertical_identity_paths.lp')
     stage('examples/action_profile_vertical_terminal_controls.lp')
     stage('examples/action_profile_vertical_unit_controls.lp')
+    stage('examples/action_profile_precomp_minimal_all_orders.lp')
+    stage('examples/action_profile_precomp_minimal_mixed_controls.lp')
+    stage('examples/action_profile_telescope_profile_paths.lp')
+    stage('examples/action_profile_telescope_profile_controls.lp')
+    stage('examples/action_profile_telescope_projection_controls.lp')
+    stage('examples/action_profile_telescope_unit_overlap_controls.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
@@ -7431,6 +7449,13 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
     changes.append({'source': 'emdash3_2.lp', 'owner': 'default conventional pre-leg vertical composition',
                     'reason': 'Compare the conventional pre-leg vertical action while preserving literal displayed composites for intrinsic Homd; all raw vertical folds remain disabled',
                     'oldBodySha256': sha(before_vertical), 'newBodySha256': sha(after_vertical)})
+    before_telescope = vertical_target.read_text()
+    after_telescope = add_ordinary_telescope_identities(before_telescope)
+    vertical_target.write_text(after_telescope)
+    manifest['outputs'][str(vertical_target.relative_to(root))] = sha(after_telescope)
+    changes.append({'source': 'emdash3_2.lp', 'owner': 'ordinary telescope identity projections',
+                    'reason': 'Join native-identity-first and ordinary-inclusion-first observations without collapsing nonidentity higher cells',
+                    'oldBodySha256': sha(before_telescope), 'newBodySha256': sha(after_telescope)})
     (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print('Emitted full pre-goal baseline and upstream owner migration; no original tail omitted.')
 

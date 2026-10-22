@@ -42,6 +42,38 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Precomposition/telescope continuation after `af7fb82b`, 2026-10-22 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_precomp_telescope_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_precomp_telescope_verification.json)
+qualify eight original reviewers, retaining all thirty-nine assertions and ten
+declarations. Five precomposition negatives become positive under the strict
+default; four legacy StrictFunctor binders and twenty-five views are retired.
+Canonical telescope actions use their Cartesian classifier, while ordinary
+observations use the existing inclusion. Lax eta inputs remain unchanged.
+Two added whole-composition consumers obtain the telescope profile internally.
+
+An ordinary unit consumer exposed the native-identity/ordinary-inclusion
+projection-order gap. Two identity clauses at the existing transfor heads
+resolve it; no primitive or unifier is added. The focused scope passes
+34 reviewer positives/nine negatives, plus three imported assertions, in
+69.244s/478,616KiB under 90s/2GiB. Existing direct composition-comparison
+negatives remain valid normalization boundaries, with their whole paths
+retained. Arbitrary nonidentity higher endomorphisms remain distinct.
+
+Fresh core/library regressions pass 2,328/340 and 1,380/231 assertions in
+365.080s/2,099,936KiB and 474.410s/2,501,988KiB under 600s/4GiB/o=20,
+with SR and the existing guards. Both inventories add the same eight symbolic
+identity-erasure warning bodies reviewed in the focused source; R07 retains
+the Path/terminal/product/Q specialization boundary without a global
+confluence claim. Every currently qualified source has a fresh matching
+receipt; only the core changes among the 477 prior qualified files.
+
+Coverage reaches 322 core/library files and 163 complete reviewers, with
+469/433 unstaged. Next assess original pointwise, cross-category and native-
+action controls. The five terminal Homd runtime exclusions, remaining
+migration, normalization/toolchain and production gates remain required.
+All work remains non-library staging.
+
 Action-profile continuation after `cc1b10d6`, 2026-10-22 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_action_controls_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_action_controls_verification.json)

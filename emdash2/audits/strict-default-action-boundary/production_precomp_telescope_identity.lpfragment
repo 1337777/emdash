@@ -1,0 +1,14 @@
+// Identity of the ordinary telescope observation. These joins agree with
+// first reducing the native Cartesian identity and then including it.
+// Endpoints are inferred from the actual identity constructor; arbitrary
+// nonidentity higher cells remain at their existing transfor owner.
+rule @hom_postcomp_tele_transf $A $B $F $W $X $Y _ _ (@id _ $f)
+  ↪ @id (Functor_cat
+      (Hom_cat $A $W (@fapp0 $B $A $F $X))
+      (Hom_cat $A $W (@fapp0 $B $A $F $Y)))
+      (@hom_postcomp_func $A $B $F $W $X $Y $f);
+rule @hom_precomp_along_tele_transf $A $B $F $Z $W $X _ _ (@id _ $f)
+  ↪ @id (Functor_cat
+      (Hom_cat $B (@fapp0 $A $B $F $X) $Z)
+      (Hom_cat $B (@fapp0 $A $B $F $W) $Z))
+      (@hom_precomp_along_func $A $B $F $Z $W $X $f);
