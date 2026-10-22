@@ -392,6 +392,11 @@ def main():
                  *(spec['fragment'] for spec in ADJUNCTION_REVIEWERS.values())):
         path = audit / name
         inputs[str(path.relative_to(root))] = sha(path.read_text())
+    from production_ordinary_reviewers_migration import finish_ordinary_reviewers, SOURCES as ORDINARY_REVIEWERS
+    for name in ('production_ordinary_reviewers_migration.py',
+                 *(spec['fragment'] for spec in ORDINARY_REVIEWERS.values())):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
 
     def fragment(name):
         path = audit / name
@@ -5940,6 +5945,12 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
                                 'reason': 'Retain general opposite-profile exchange and Cartesian controls, total duality and the original whole adjunction computations',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(adjunction_reviewers)})
                 text = adjunction_reviewers
+            ordinary_reviewers = finish_ordinary_reviewers(path, text)
+            if ordinary_reviewers is not None:
+                changes.append({'source': path, 'owner': 'ordinary terminal equivalence records and reviewers',
+                                'reason': 'Retain the actual public mapped inverse in existing native records and preserve original ordinary observations',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(ordinary_reviewers)})
+                text = ordinary_reviewers
             target = package / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(text)
@@ -6029,6 +6040,10 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/adjunction_exchange_op_identity.lp')
     stage('examples/adjunction_family_constant_views.lp')
     stage('examples/adjunction_triangles.lp')
+    stage('examples/one_cat_diagram_reconstruction.lp')
+    stage('examples/one_cat_native_square_paths.lp')
+    stage('examples/one_cat_slice_paths.lp')
+    stage('examples/one_cat_terminal_adjunctions.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

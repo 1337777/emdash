@@ -1,0 +1,4 @@
+require open emdash.examples.one_cat_diagram_reconstruction;
+require open emdash.examples.one_cat_native_square_paths;
+require open emdash.examples.one_cat_slice_paths;
+require open emdash.examples.one_cat_terminal_adjunctions;

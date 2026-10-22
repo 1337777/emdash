@@ -42,6 +42,38 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Ordinary-reviewer/inverse-record continuation after `76ec7924`, 2026-10-22 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_ordinary_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_ordinary_reviewers_verification.json)
+qualify the original diagram reconstruction, native-square, slice and terminal
+reviewers. The first three sources are unchanged; the terminal reviewer uses
+the existing native family accessor and total-dual annotations. Its selected
+inverse observation exposed loss of the mapped computational owner through
+the ordinary-evidence forgetful route.
+
+Only the two terminal/initial Hom-equivalence record bodies change. Existing
+omega_equiv_along_intro stores their actual public DefIso forward/inverse maps;
+existing cancellation derives both law fields. Signatures, selected isomorphisms
+and all other owner bodies remain. No rule, primitive or caller evidence is added.
+The focused group passes 31 positives/six negatives, retaining inverse slots,
+whole cancellation, centres and the original noncollapse boundaries.
+
+Fresh core and complete staged-library regressions pass 2,255/323 and
+1,207/206 positive/negative assertions in 420.364s/2,069,672KiB and
+496.507s/2,495,100KiB under 600s/4GiB/o=20, with SR, warnings and existing guards.
+The core warning multiset is unchanged. The library's six added/six absent
+bodies are existing NType-composition overlap families reported from the other
+clause owner in the changed import context; runtime owners are unchanged.
+Current inputs match emission. These fresh checks replace carry at the changed
+terminal owner; the increased cost remains R12 evidence, not a usability pass.
+
+Coverage is 322 library/core files and 131 complete reviewers, with 469/465
+unstaged. Next follow the original kernel/cokernel, weak-kernel, additive,
+abelian and fibre-pushout reviewers. The five terminal Homd runtime exclusions
+are unchanged and are not discharged by this auxiliary terminal-Hom fix.
+Remaining migration, normalization/toolchain and production gates remain open;
+all implementation is still non-library staging.
+
 Adjunction reviewer continuation after `d4d9f816`, 2026-10-21 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_adjunction_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_adjunction_reviewers_verification.json)
