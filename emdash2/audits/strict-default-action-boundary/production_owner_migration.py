@@ -282,6 +282,14 @@ def main():
         SOURCES as KERNEL_BOUNDARY_PREREQUISITE_SOURCES,
         migrate_kernel_boundary_prerequisite,
     )
+    from production_kernel_additive_prerequisite_migration import (
+        SOURCES as KERNEL_ADDITIVE_PREREQUISITE_SOURCES,
+        migrate_kernel_additive_prerequisite,
+    )
+    for name in ('production_kernel_additive_prerequisite_migration.py',
+                 'production_kernel_additive_prerequisites_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_kernel_boundary_prerequisite_migration.py',
                  'production_kernel_boundary_prerequisites_review.lpfragment'):
         path = audit / name
@@ -2280,6 +2288,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain original whole constructions and hypotheses at oplax diagram profiles; use native shape action, direct terminal endpoints and existing whole mate/associativity paths',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(kernel_boundary)})
                 text = kernel_boundary
+            kernel_additive = migrate_kernel_additive_prerequisite(path, text)
+            if kernel_additive is not None:
+                changes.append({'source': path, 'owner': 'original product/coimage/additive-family prerequisites',
+                                'reason': 'Retain original maps, inverses and assertions at the corrected diagram profiles; use direct diagonal endpoints and native quotient/shape computation in existing proofs',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(kernel_additive)})
+                text = kernel_additive
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6346,6 +6360,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in KERNEL_BOUNDARY_PREREQUISITE_SOURCES:
         stage(path)
+    for path in KERNEL_ADDITIVE_PREREQUISITE_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7640,6 +7656,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('selected_presentation_reviewer_suffix.lp', 'production_selected_presentation_reviewer_suffix.lpfragment'),
         ('selected_record_views_review.lp', 'production_selected_record_views_review.lpfragment'),
         ('kernel_boundary_wave1.lp', 'production_kernel_boundary_prerequisites_review.lpfragment'),
+        ('kernel_boundary_wave2.lp', 'production_kernel_additive_prerequisites_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

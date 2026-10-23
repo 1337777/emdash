@@ -42,6 +42,35 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified product/coimage/additive-family continuation, 2026-10-23 UTC:
+11 original owners and seven complete reviewers pass. All 44 original
+declarations and 44 positive/ten negative assertions remain; two files are
+byte-identical to the original source. Fifty direct diagonal endpoint
+spellings and two native quotient/shape proof instances resolve the concrete
+migration failures. The original statements, selected products, maps,
+inverses and hypotheses remain. No new formal rule or primitive is invented;
+the two original biproduct-adjunction projection clauses retain their
+explicit structural-contract status and original consumers.
+
+The complete batch passes 47 positives/ten negatives in 212.709s at
+2,830,672KiB RSS under 600s/4GiB/o=20 with subject reduction:
+`20261023T170031Z-7de987093c3c4bb9ad79f8e161410c84`.
+All 146 fresh inputs, 639 predecessor source hashes and three parent
+complete-scope receipts match the emitted package. All 2,246 warning bodies
+are present in previously reviewed contexts. Qualification reaches **657 LP
+files: 430 core/library and 227 reviewers**. The
+[review](../emdash2/audits/strict-default-action-boundary/production_kernel_additive_prerequisites_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_additive_prerequisites_verification.json)
+record exact source, experiment, assertion, warning and resource boundaries.
+
+There remain 361 core/library files and 369 reviewers outside qualification,
+plus the same five terminal runtime obligations, normalization/toolchain work
+and production promotion. Next follow the original additive distribution,
+reindexing, shear/difference and connecting-kernel dependency layers, retained
+in `emdash2/tmp/probes/kernel_boundary_continuation/wave2_inventory.json`.
+No checker is running. The local checkpoint follows exact staged-diff review.
+The separate nerve goal remains paused. Older live claims below are history.
+
 Qualified connecting-kernel prerequisites, 2026-10-23 UTC: the next 15
 original owners and four complete reviewers pass. All 64 original declarations
 and 46 positive/seven negative assertions are retained; seven files remain
