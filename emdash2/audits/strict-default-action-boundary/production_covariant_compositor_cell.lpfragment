@@ -1,0 +1,12 @@
+// Capping the default-strict covariant Hom compositor must agree with its
+// whole extracted identity above. This is the fapp1 counterpart of the
+// existing fapp1_con_at_transf projection, not strictness of arbitrary FF.
+rule @fdapp1_int_cell _ _ _
+    (@fapp1_at_transf $A $B $F $X) $Y $Z $g $f
+  ↪ @id (Hom_cat $B (@fapp0 $A $B $F $X) (@fapp0 $A $B $F $Z))
+      (@fapp0 (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $X) (@fapp0 $A $B $F $Z))
+        (@functord_transport_lhs_func $A
+          (@hom_ $A $A (@id_func $A) $X)
+          (@hom_ $B $A $F (@fapp0 $A $B $F $X))
+          (@fapp1_at_transf $A $B $F $X) $Y $Z $g) $f);

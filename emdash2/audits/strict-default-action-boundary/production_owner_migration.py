@@ -267,6 +267,11 @@ def main():
     from production_diagram_observation_migration import migrate_diagram_observation
     diagram_migration_source = audit / 'production_diagram_observation_migration.py'
     inputs[str(diagram_migration_source.relative_to(root))] = sha(diagram_migration_source.read_text())
+    from production_simplex_dependency_migration import migrate_simplex_dependency
+    for name in ('production_simplex_dependency_migration.py',
+                 'production_triangle_family_action.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     from production_zero_arrow_input_migration import migrate_zero_arrow_input, share_arrow_cart_owner
     zero_arrow_migration_source = audit / 'production_zero_arrow_input_migration.py'
     inputs[str(zero_arrow_migration_source.relative_to(root))] = sha(zero_arrow_migration_source.read_text())
@@ -2206,6 +2211,12 @@ unif_rule @sigma_map_func $K _ _
             baseline_target = baseline_package / path
             baseline_target.parent.mkdir(parents=True, exist_ok=True)
             baseline_target.write_text(text)
+            simplex_dependency = migrate_simplex_dependency(path, text)
+            if simplex_dependency is not None:
+                changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
+                                'reason': 'Use the corrected total-dual Sigma/Hom presentation and actual whole index-to-family action; reuse represented transport and retire redundant strict join wrappers while preserving the original recursive higher observations',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(simplex_dependency)})
+                text = simplex_dependency
             diagram_observation = migrate_diagram_observation(path, text)
             if diagram_observation is not None:
                 changes.append({'source': path, 'owner': 'existing zero-arrow and homology point observations',
@@ -6147,6 +6158,14 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/homology_record_boundary_factors.lp')
     stage('examples/homology_records.lp')
     stage('examples/short_exact_sequences.lp')
+    stage('emdash3_2_chain_pair_cycle_factors.lp')
+    stage('emdash3_2_exactness_reindex.lp')
+    for reviewer in ('dependent_simplex_bridge', 'dependent_simplex_profiles',
+                     'dependent_simplex_native_dimensions', 'dependent_simplex_path_associator',
+                     'dependent_simplex_represented_source', 'simplex_shapes',
+                     'chain_pair_native_triangles', 'chain_pair_map_cycle_lifts',
+                     'computational_exactness_reindex'):
+        stage('examples/' + reviewer + '.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
@@ -7506,6 +7525,24 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
     changes.append({'source': 'emdash3_2.lp', 'owner': 'ordinary telescope identity projections',
                     'reason': 'Join native-identity-first and ordinary-inclusion-first observations without collapsing nonidentity higher cells',
                     'oldBodySha256': sha(before_telescope), 'newBodySha256': sha(after_telescope)})
+    # Apply this slice after the exactly pinned earlier owner replays, without
+    # changing their historical input hashes or qualifying an untested prefix.
+    before_simplex = vertical_target.read_text()
+    after_simplex = before_simplex
+    marker = '// The public whole laxity candidate is now an object projection, not an\n'
+    assert after_simplex.count(marker) == 1
+    after_simplex = after_simplex.replace(marker,
+        fragment('production_covariant_compositor_cell.lpfragment') + '\n' + marker, 1)
+    start = after_simplex.index('// The already-normalized identity-family presentation needs its own direct')
+    end = after_simplex.index('// Fold-direction codomain accumulation for precomposition.', start)
+    after_simplex = (after_simplex[:start]
+        + fragment('production_represented_point_comparison.lpfragment') + '\n'
+        + after_simplex[end:])
+    vertical_target.write_text(after_simplex)
+    manifest['outputs'][str(vertical_target.relative_to(root))] = sha(after_simplex)
+    changes.append({'source': 'emdash3_2.lp', 'owner': 'covariant compositor projection and represented point comparison',
+                    'reason': 'Join the capped default-strict compositor with its whole extracted identity; retain the original two-arrow pre/post comparison and add its three-arrow nested instance with all operands constrained, preserving runtime owners and arbitrary lax displayed action',
+                    'oldBodySha256': sha(before_simplex), 'newBodySha256': sha(after_simplex)})
     (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print('Emitted full pre-goal baseline and upstream owner migration; no original tail omitted.')
 

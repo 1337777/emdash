@@ -1,0 +1,16 @@
+// The existing index arrow induces the displayed map on the total-dual
+// index family. This is ordinary first-Hom action of the whole classifier;
+// no new comparison cell or strictness profile is supplied.
+symbol dependent_triangle_map_catd
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y)))
+  : τ (Functord
+      (@DependentTriangle_catd K E x u y v)
+      (@DependentTriangleImage_catd K E D FF x u y v))
+≔ @fapp1_fapp0 (CoAbove2_cat (Homd_index_cat (Hom_cat K x y)))
+    (Catd_cat (TotalOp_cat (Hom_cat K x y)))
+    (Homd_index_total_family_func (Hom_cat K x y))
+    (fapp0 (@homd_id_tgt_func K E x u y) v)
+    (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)
+    (@fdapp1_int_presheaf_arrow K E D FF x u y v);

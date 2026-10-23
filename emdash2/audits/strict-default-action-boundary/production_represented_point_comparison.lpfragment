@@ -1,0 +1,20 @@
+// The already-normalized identity-family presentation needs its own direct
+// rigid-head bridge because unification does not reliably reduce the generic
+// functor-action arguments while selecting the rule above.
+unif_rule @hom_precomp_along_fapp0
+      $A $A (@id Cat_cat $A) $Z $W $X $h $g
+  ≡ @hom_postcomp_fapp0
+      $A $A (@id Cat_cat $A) $W $X $Z $g $h
+  ↪ [ tt ≡ tt ];
+
+// Three-arrow instance at the two retained represented owners. Keep the
+// original two-arrow comparison above: broadening it changes rule selection
+// in existing affine consumers. This instance accounts for the nested
+// postcomposition normal form and constrains every arrow of the composite.
+unif_rule
+  @hom_postcomp_fapp0 _ _ (@id Cat_cat $A) $W $Y $Z $q
+    (@hom_postcomp_fapp0 _ _ (@id Cat_cat $A) $W $X $Y $p $f)
+  ≡ @hom_precomp_along_fapp0 _ _ (@id Cat_cat $B) $Z1 $W1 $X1 $f1
+      (@comp_fapp0 _ _ _ _ $q1 $p1)
+  ↪ [ $B ≡ $A; $W1 ≡ $W; $X1 ≡ $X; $Z1 ≡ $Z;
+      $f1 ≡ $f; $q1 ≡ $q; $p1 ≡ $p ];

@@ -52,6 +52,47 @@ The immediate full-library retry uses 900s/4GiB/o=20. This is diagnostic time
 headroom under the user's standing authorization, not a performance pass or
 a change to the formal goal's acceptance criteria.
 
+Dependent-simplex/chain-pair continuation after `85c8fa0e` and tooling
+checkpoint `cb287c01`, 2026-10-23 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/production_simplex_dependency_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_simplex_dependency_verification.json)
+qualify thirteen original library modules and nine complete reviewers.
+The triangle bridge uses the corrected total-dual Sigma/Hom presentation and
+actual whole index-to-family action. Represented transport uses its existing
+ordinary view; six redundant join wrappers/proofs are retired. The original
+recursive higher projections and all 66 assertions remain, with one polarity
+change required by strict default functors. No new primitive or comparison
+payload is added; the sole new interface is a defined family-action view.
+
+A missing capped covariant compositor projection is added at its existing
+owner. The original two-arrow pre/post comparison is preserved and a narrow
+three-arrow instance matches the actual literal composite. Broader variants
+regressed affine gluing or increased allocation and are not adopted. The
+final focused scope passes 61/9; fresh central and broad-library scopes pass
+2,351/350 and 1,403/241, with unchanged 2,497/2,515 warning inventories. The
+59-file residual group passes 83/10. Exact input hashes cover every previous
+qualified file and the new sources, giving **379 core/library files and 196
+complete reviewers (575 files)**, with 412/400 remaining unstaged.
+
+Central/library/residual runs take 507.813s/2,200,020KiB,
+660.163s/2,373,224KiB and 172.300s/505,644KiB respectively, under the recorded
+600s/4GiB, 900s/4GiB and 180s/2GiB profiles with o=20 and subject reduction.
+The time extension is execution headroom, not performance qualification.
+The focused warning scope adds seven original semisimplicial identity
+specializations, twelve existing product/terminal variants and two recorded
+NType variants; the residual variants exactly match the prior kernel-factor
+inventory. No global confluence claim follows.
+
+Next continue the selected kernel/cokernel presentation adapters and their
+chain-pair/homology-family consumers: their old ordinary-diagram types must
+match the already migrated oplax whole adjunctions. Preserve selected data,
+existing generality and original OneCat/strictness hypotheses. The remaining
+`tetrahedron_faces` join-wrapper calls are inventoried for their own migration.
+All five terminal runtime obligations, the pending normalization-contract
+choice, further registered migration, normalization/toolchain qualification
+and production gates remain. The separate nerve goal stays paused. Do not
+rerun these unchanged successful scopes for reassurance.
+
 Computational homology-map continuation after `2423921a`, 2026-10-23 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_homology_map_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_homology_map_reviewers_verification.json)
@@ -3421,7 +3462,7 @@ The finite two-category diagnostic refutes the old arbitrary-lax Theta
 contract with prescribed F/G projections: its retained x/y comparisons can be
 a→m←b with a,b incomparable, whereas the graph would require a→b.
 For an actual conventional-lax eta, the pre/right-normal canonical action
-Theta[x,y](f)=eta[y]∘F[f] has strict x comparison while retaining noninvertible
+`Theta[x,y](f)=eta[y]∘F[f]` has strict x comparison while retaining noninvertible
 y comparison. The finite positive control checks this distinction; the
 native whole admission remains to be implemented and checked.
 
@@ -4070,7 +4111,7 @@ old raw Op_funcd(FF) expression to the corrected whole intrinsic owners.
 The full source reaches Op_prof's old coefficient in section 18b. Before
 broadening that library pass, qualify the whole intrinsic filler action of
 GG o FF for two general lax displayed maps. Its cell projection should be
-GG[y][lambda_FF(p,u)] o lambda_GG(p,FF[x](u)), retaining both cells; a scalar
+`GG[y][lambda_FF(p,u)] o lambda_GG(p,FF[x](u))`, retaining both cells; a scalar
 observation alone is insufficient. General Q/mate coherence, later source
 and inverse/duality consumers, public/downstream and final gates remain.
 
@@ -8782,7 +8823,7 @@ unchanged native defined functor `eval_u o E_1(x,y)`, retaining E[alpha][u].
 The whole y-arrow action is defined through ordinary Hom postcomposition
 and fixed whiskering; full/capped tapp1 observations agree. Strict external
 FF composes with this canonical map at the whole-family level, giving the
-canonical map at FF[x](u). Identity and composed FF controls pass.
+canonical map at `FF[x](u)`. Identity and composed FF controls pass.
 
 Three measured observation failures required narrow proof-time readings:
 inclusion before/after whole composition, component before/after whole
@@ -8839,18 +8880,18 @@ The strict-map mate is a declared whole constructor with native component
 and whole pre/right action projections. Applying it to the checked
 canonical transport map defines the actual section
 `S_E(x)=Transf_{K,Q}(iota E,iota Hom_K(x,-))`. The direct y/v/f ladder is
-obtained by ordinary projections, with leaf Hom_E[y](E[f](u),v). No
+obtained by ordinary projections, with leaf `Hom_E[y](E[f](u),v)`. No
 combined context, curry substitute, primitive Pi, operational path or
 supplied comparison cell appears. Its whole y-arrow action computes at
-q:y->z, v:E[y], f:x->z to Hom_E[z](E[f](u),E[q](v)).
+`q:y->z, v:E[y], f:x->z` to `Hom_E[z](E[f](u),E[q](v))`.
 
 A structural fixed-x source functor T(E[x])->S_E(x) now projects to that
 derived section and exposes its first-Hom action through ordinary lax y/v
-transformations to precomposition by E[f](h). Source identity/composition
+transformations to precomposition by `E[f](h)`. Source identity/composition
 are checked before and after intermediate projections. The inner u/index
 boundary equality stays negative; no strict naturality was imposed on
 E[alpha]. The strict-FF relative section is actual composition with the
-Q diagram map and computes to Hom_E[y](E[f](u),FF[y](v)). Identity FF
+Q diagram map and computes to `Hom_E[y](E[f](u),FF[y](v))`. Identity FF
 recovers the identity section. These results do not migrate public Functord.
 
 Measured repairs were an explicit represented codomain guard, the stable
@@ -8913,13 +8954,13 @@ The target is the actual whole definition
 The structural root has ambient type `Transf_{K,Cat}(E,S'_E)`. Its x-
 component is E[x]->T(S_E(x)); transposing this individual strict functor
 recovers the checked T(E[x])->S_E(x) view. The full identity-root
-x/u/y/v/f projection computes to Hom_E[y](E[f](u),v). Objects of the
+x/u/y/v/f projection computes to `Hom_E[y](E[f](u),v)`. Objects of the
 transposed section category are used without identifying its arrows with
 those of the original section category. No primitive Pi, larger context,
 curry substitute, operational path or supplied laxity cell appears.
 
 The whole root pre/right action at p:x->x' sends u to the section at
-(x',E[p](u)). The actual target-family action has the same object value on
+`(x',E[p](u))`. The actual target-family action has the same object value on
 the canonical section. This does not assert equality of its whole lax
 boundaries. A nonidentity base two-cell alpha acts at u by the existing
 source-u map for E[alpha][u], and a variable endomorphism is not collapsed.
@@ -8939,7 +8980,7 @@ the raw-FF relative root. The experimental strict-FF names are wrappers
 using the native strict-map inclusion; there is no second primitive theory.
 After x/u, the raw root agrees proof-time with the actual section
 composition `h_E(x,u) o iota(FF)`. That section view computes the leaf
-Hom_E[y](E[f](u),FF[y](v)). The literal lower projection of the raw relative
+`Hom_E[y](E[f](u),FF[y](v))`. The literal lower projection of the raw relative
 root is not separately claimed to runtime-normalize to this leaf. Identity
 strict FF does recover the identity section after root x/u projection.
 

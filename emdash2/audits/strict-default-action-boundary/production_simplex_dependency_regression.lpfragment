@@ -1,0 +1,44 @@
+require open emdash.examples.dependent_simplex_bridge;
+require open emdash.examples.dependent_simplex_profiles;
+require open emdash.examples.dependent_simplex_native_dimensions;
+require open emdash.examples.dependent_simplex_path_associator;
+require open emdash.examples.dependent_simplex_represented_source;
+require open emdash.examples.simplex_shapes;
+require open emdash.examples.chain_pair_native_triangles;
+require open emdash.examples.chain_pair_map_cycle_lifts;
+require open emdash.emdash3_2_chain_pair_cycle_factors;
+require open emdash.emdash3_2_exactness_reindex;
+require open emdash.examples.computational_exactness_reindex;
+
+// The original pre/post view must compare whole composites before choosing
+// their middle object; every incoming and base arrow remains constrained.
+assert [A : Cat] [w x y z : τ (Obj A)]
+  (f : τ (Hom A w x)) (p : τ (Hom A x y)) (q : τ (Hom A y z)) ⊢
+  @eq_refl (Hom A w z)
+    (@hom_precomp_along_fapp0 A A (@id_func A) z w x f
+      (@comp_fapp0 A x y z q p))
+  : τ (@= (Hom A w z)
+      (@hom_precomp_along_fapp0 A A (@id_func A) z w x f
+        (@comp_fapp0 A x y z q p))
+      (@hom_postcomp_fapp0 A A (@id_func A) w y z q
+        (@hom_postcomp_fapp0 A A (@id_func A) w x y p f)));
+
+// Neither runtime normal form is replaced by this proof-time view.
+assertnot [A : Cat] [w x y z : τ (Obj A)]
+  (f : τ (Hom A w x)) (p : τ (Hom A x y)) (q : τ (Hom A y z)) ⊢
+  @hom_precomp_along_fapp0 A A (@id_func A) z w x f
+    (@comp_fapp0 A x y z q p)
+  ≡ @hom_postcomp_fapp0 A A (@id_func A) w y z q
+      (@hom_postcomp_fapp0 A A (@id_func A) w x y p f);
+
+// A different incoming arrow is not accepted by the comparison.
+assertnot [A : Cat] [w x y z : τ (Obj A)]
+  (f h : τ (Hom A w x)) (p : τ (Hom A x y)) (q : τ (Hom A y z)) ⊢
+  @eq_refl (Hom A w z)
+    (@hom_precomp_along_fapp0 A A (@id_func A) z w x f
+      (@comp_fapp0 A x y z q p))
+  : τ (@= (Hom A w z)
+      (@hom_precomp_along_fapp0 A A (@id_func A) z w x f
+        (@comp_fapp0 A x y z q p))
+      (@hom_postcomp_fapp0 A A (@id_func A) w y z q
+        (@hom_postcomp_fapp0 A A (@id_func A) w x y p h)));
