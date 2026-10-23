@@ -30,11 +30,11 @@ def file_digest(path: Path) -> str:
 
 
 def duration_ms(value: str) -> int:
-    if not re.fullmatch(r"[1-9][0-9]{0,2}s?", value):
-        raise ValueError("timeout must be 1..900 whole seconds")
+    if not re.fullmatch(r"[1-9][0-9]{0,3}s?", value):
+        raise ValueError("timeout must be 1..1800 whole seconds")
     result = int(value.removesuffix("s")) * 1000
-    if result > 900_000:
-        raise ValueError("timeout exceeds 900 seconds")
+    if result > 1_800_000:
+        raise ValueError("timeout exceeds 1800 seconds")
     return result
 
 
@@ -43,8 +43,8 @@ def execution_settings(target: Path, env: dict[str, str], timeout_ms: int | None
     if timeout_ms is None:
         override = next((env[key] for key in ("EMDASH_PROBE_TIMEOUT", "EMDASH_LP_TIMEOUT", "EMDASH_TYPECHECK_TIMEOUT") if env.get(key)), None)
         timeout_ms = duration_ms(override) if override else profile["timeoutSeconds"] * 1000
-    if not 1 <= timeout_ms <= 900_000:
-        raise ValueError("timeout must be 1..900000 milliseconds")
+    if not 1 <= timeout_ms <= 1_800_000:
+        raise ValueError("timeout must be 1..1800000 milliseconds")
     memory = int(env.get("EMDASH_LP_MEMORY_MIB", str(profile["memoryMiB"])))
     file_limit = int(env.get("EMDASH_LP_FILE_MIB", "64"))
     if not 32 <= memory <= 8192 or not 1 <= file_limit <= 64:

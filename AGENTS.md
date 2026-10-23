@@ -228,7 +228,7 @@ The repository-wide gate is `./scripts/pnpmw run check:all`. Keep every
 Lambdapi invocation bounded as required by the nested SOP: 90 seconds and
 2 GiB by default. Measured, target-specific resource adjustments do not need
 separate user approval (user direction, 2026-10-16). The guard supports explicit
-limits up to 900 seconds and 8 GiB; select only what the measured target needs,
+limits up to 1800 seconds and 8 GiB; select only what the measured target needs,
 record the reason and outcome, and keep defaults unchanged. Memory increases
 require available host headroom for the editor, Codex and other workloads;
 a time extension alone keeps the memory cap unchanged. Preserve serial
@@ -236,6 +236,12 @@ execution, file limits, subject reduction and no-swap containment. Trace slow
 core checks as potential implementation problems, rather than treating a
 larger deadline as an adequate performance result. The separate proportional-
 validation policy still forbids unnecessary aggregates.
+
+For a cumulative formal-library aggregate, the user explicitly reaffirmed on
+2026-10-23 that its total deadline can increase as needed. The 1800-second
+ceiling supplies bounded aggregate headroom; it does not change the 90-second
+default, any named profile, or a memory limit. Do not attribute a timeout to
+transient host load without evidence or change tooling to compensate for load.
 
 For the action-profile integration goal, the user explicitly authorized any
 needed measured memory/timeout increases on 2026-09-26, without further

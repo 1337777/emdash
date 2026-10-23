@@ -1,0 +1,175 @@
+{
+  "status": "Qualified bounded aggregate-duration ceiling; mathematical migration remains unqualified at the full-library gate.",
+  "predecessor": "aa8f8a35",
+  "authorization": "2026-10-23 user clarification: cumulative aggregate time may increase as needed; per-command performance and memory containment remain distinct. No change to compensate for transient host load.",
+  "explicitMaximumSeconds": 1800,
+  "normalDefaultSeconds": 90,
+  "normalDefaultMemoryMiB": 2048,
+  "maximumMemoryMiB": 8192,
+  "selectedConsumer": {
+    "target": "selected_presentation_library_regression.lp",
+    "timeoutSeconds": 1800,
+    "memoryMiB": 4096,
+    "ocamlrunparam": "o=20,v=1024",
+    "status": "pending"
+  },
+  "earlierLibraryTimeoutReceipts": [
+    "20261023T111515Z-786b71bded264781945eaa5920e51c7a",
+    "20261023T115219Z-019c084419a941ccb686ea48f40c9150"
+  ],
+  "tests": [
+    {
+      "command": "python3 scripts/test_lambdapi_resource_guard.py",
+      "count": 15,
+      "outcome": "passed",
+      "logSha256": "1e772f5410c7ba9f6ed42461f798304cc876c55e3b97087efcd4686c87a5e84b"
+    },
+    {
+      "command": "python3 -m unittest discover -s tests -p test_check_registry.py",
+      "count": 10,
+      "outcome": "passed"
+    },
+    {
+      "command": "python3 -m unittest discover -s scripts -p test_devops.py (repository root)",
+      "count": 13,
+      "outcome": "passed"
+    },
+    {
+      "command": "python3 scripts/check_registry.py",
+      "targetCount": 1388,
+      "sourceDependencyCount": 1388,
+      "outcome": "passed"
+    },
+    {
+      "command": "bash -n scripts/lambdapi_resource_guard.sh",
+      "outcome": "passed"
+    }
+  ],
+  "formalSmoke": [
+    {
+      "id": "20261023T122513Z-e3c244077a594087bb71346d28324a96",
+      "target": "examples/arrow_diagram_families.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 6.902910072822124,
+      "childrenMaxRssKiB": 123128,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "ab90b2411063ad3b30772ccda7ea366c722d29ee42db2adaae8373c3dbf93718",
+      "log": "logs/check-runs/20261023T122513Z-e3c244077a594087bb71346d28324a96.log",
+      "logSha256": "a4913f8c67ddb9fbc5eb8e768a1eaff0c0cfdb9feb479c19f4508e7d183df3ce",
+      "receiptSha256": "0c9b2f0d0814a65e0c430af30c61113b2f08e13c1c4598d7d855bfec84c1024c"
+    },
+    {
+      "id": "20261023T122538Z-4ded0dabc8af4cccaebf58af61b51b5e",
+      "target": "examples/prof_reindex_terminal_normalization.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 5.1265964400954545,
+      "childrenMaxRssKiB": 103464,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "5e597ac462caa21506a86301c71ef0a8503ad0c22f93ed1684a4d4d375263852",
+      "log": "logs/check-runs/20261023T122538Z-4ded0dabc8af4cccaebf58af61b51b5e.log",
+      "logSha256": "3cf84d2c6771d27a4d26abc420ed76f282e8c81e4c5857494371086def67367c",
+      "receiptSha256": "1e1cf6904daee95979a01d0f71fd73e61ccfaa3406721946632a79fe05647c3b"
+    },
+    {
+      "id": "20261023T122627Z-c5a8bd1795fc4132b05bc9afeca184cc",
+      "target": "examples/freyd_native_snake_pair_exactness.lp",
+      "outcome": "passed-fresh",
+      "wallSeconds": 156.53441697591916,
+      "childrenMaxRssKiB": 1799520,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 6144,
+        "ocamlrunparam": "o=20",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "native-snake-pair",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "0b11e4be312c86a2f09242c6e93ae9f70ba44c6c09398b2c71e0c26f9823e29a",
+      "log": "logs/check-runs/20261023T122627Z-c5a8bd1795fc4132b05bc9afeca184cc.log",
+      "logSha256": "780dfee945aadeaf9e4b9863aa9f644da29403b4eff4b4b7611b259251f84a59",
+      "receiptSha256": "a7857c3ac5f2f668f1f524cf282f971043a24a1a67ac7df29e7e322611f7ff02"
+    }
+  ],
+  "sourceSha256": {
+    "AGENTS.md": "35f38dc1cd325d238c94dc698e4793b302e40add7867f16eb5abe9801db45fee",
+    "emdash2/AGENTS.md": "4dd9edb4c77d03c51ca152e172e015f2f393f35b6a33b3b8fce35af23496e076",
+    "emdash2/scripts/lambdapi_resource_guard.sh": "c91809a924fea6a4d6f46e2e17d6af225fa3c67cd498d7d29124f694770ffce6",
+    "emdash2/scripts/run_lambdapi.py": "a7cfe5605826ab12a907a479413d65236a39ead54e59aaed566098442a471399",
+    "emdash2/scripts/check_registry.py": "d92788eb5a256fdba79c77503f92c6a136db6bfa6b2013228e6c8d63ae04f641",
+    "emdash2/scripts/test_lambdapi_resource_guard.py": "df0fad105ee85057193b6c0fdde8bcc573ef0d015ff7ef69e6c2ad86c88f9163"
+  },
+  "checksRegistrySha256": "d3dba408c270b300c9e4a6771f53b787c893313b03bb26d49ac46d74f7fc4454",
+  "checksRegistryUnchanged": true,
+  "unchangedSafeguards": [
+    "subject reduction",
+    "serial lock",
+    "no-swap cgroup",
+    "memory limits",
+    "64MiB file cap",
+    "zero core dumps",
+    "hard deadline"
+  ],
+  "remaining": "Full library gate, remaining migration, five terminal runtime obligations, normalization and production qualification."
+}

@@ -42,6 +42,18 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Aggregate-duration clarification, 2026-10-23 UTC: the user reaffirmed that
+900 seconds has no mathematical significance for a cumulative library replay.
+The [bounded aggregate-duration extension](../emdash2/audits/strict-default-action-boundary/production_aggregate_duration_review.md)
+qualifies an explicit 1800-second ceiling, preserving the normal 90s/2GiB
+defaults, every named profile and all memory/serial/file/no-swap/SR safeguards.
+Fifteen guard/runner, ten registry and thirteen DevOps tests, the full registry
+inventory and all three existing formal smoke targets pass. The selected
+full-library replay will use 1800s/4GiB/o=20 with its original scope unchanged.
+This is a separate tooling checkpoint; it does not qualify the mathematical
+tranche or change policy to compensate for transient host load. The detailed
+mathematical continuation below retains its own source and validation boundary.
+
 Reviewed resource continuation, 2026-10-23 UTC: the
 [time-ceiling review](../emdash2/audits/strict-default-action-boundary/production_resource_time_extension_review.md)
 records two 600-second full-library timeouts and the matched owner/matcher
