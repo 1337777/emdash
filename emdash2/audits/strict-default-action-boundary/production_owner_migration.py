@@ -286,6 +286,14 @@ def main():
         SOURCES as KERNEL_ADDITIVE_PREREQUISITE_SOURCES,
         migrate_kernel_additive_prerequisite,
     )
+    from production_connecting_kernel_chain_migration import (
+        SOURCES as CONNECTING_KERNEL_CHAIN_SOURCES,
+        migrate_connecting_kernel_chain,
+    )
+    for name in ('production_connecting_kernel_chain_migration.py',
+                 'production_connecting_kernel_chain_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_kernel_additive_prerequisite_migration.py',
                  'production_kernel_additive_prerequisites_review.lpfragment'):
         path = audit / name
@@ -2294,6 +2302,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain original maps, inverses and assertions at the corrected diagram profiles; use direct diagonal endpoints and native quotient/shape computation in existing proofs',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(kernel_additive)})
                 text = kernel_additive
+            connecting_chain = migrate_connecting_kernel_chain(path, text)
+            if connecting_chain is not None:
+                changes.append({'source': path, 'owner': 'original additive-to-connecting-kernel chain',
+                                'reason': 'Retain the original native maps, inverses and hypotheses at corrected diagram/duality types; stage the whole copair mate comparison before its original object application',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(connecting_chain)})
+                text = connecting_chain
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6362,6 +6376,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in KERNEL_ADDITIVE_PREREQUISITE_SOURCES:
         stage(path)
+    for path in CONNECTING_KERNEL_CHAIN_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7657,6 +7673,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('selected_record_views_review.lp', 'production_selected_record_views_review.lpfragment'),
         ('kernel_boundary_wave1.lp', 'production_kernel_boundary_prerequisites_review.lpfragment'),
         ('kernel_boundary_wave2.lp', 'production_kernel_additive_prerequisites_review.lpfragment'),
+        ('kernel_boundary_wave3.lp', 'production_connecting_kernel_chain_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original connecting-kernel chain, 2026-10-23 UTC: 20 original
+owners and nine complete reviewers pass through the original native
+connecting-kernel path owner. All 105 declarations and 63 positive/16
+negative assertions remain. The only proof adaptation beyond established
+profile/total-duality substitutions stages the whole copair mate comparison
+before its original object application, following the paired counterpart.
+No new symbol, rewrite/unification rule or caller assumption is added.
+
+The complete chain passes 66 positives/16 negatives in 235.182s at
+2,945,436KiB RSS under 600s/4GiB/o=20 with subject reduction:
+`20261023T171933Z-5b9380a0e2d14e4caad280724c622ac5`.
+All 183 fresh inputs, 657 predecessor source hashes and four parent
+integration input sets match the emitted package. All 2,283 warning bodies
+occur in previously reviewed contexts. Qualification reaches **686 LP files:
+450 core/library and 236 reviewers**. The
+[review](../emdash2/audits/strict-default-action-boundary/production_connecting_kernel_chain_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_connecting_kernel_chain_verification.json)
+record exact evidence, including the original final consumer.
+
+There remain 341 core/library files and 360 reviewers outside qualification,
+plus the same five terminal runtime obligations, normalization/toolchain work
+and production promotion. Next inspect the original direct consumers
+`emdash3_2_one_cat_native_cycles_connecting.lp` and
+`emdash3_2_one_cat_covered_middle_cycles.lp`, then their dependency-ready
+reviewers. No checker is running. The local checkpoint follows exact
+staged-diff review. The separate nerve goal remains paused; older live claims
+below are history.
+
 Qualified product/coimage/additive-family continuation, 2026-10-23 UTC:
 11 original owners and seven complete reviewers pass. All 44 original
 declarations and 44 positive/ten negative assertions remain; two files are
