@@ -42,6 +42,60 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original native-snake input/connecting continuation, 2026-10-23
+UTC: 12 original owners and six complete reviewers pass. All 154 declarations
+and 36 original positive assertions remain. The original arbitrary outer a,c,
+normality, K/Q and inverse data are retained. Whole reconstruction and
+annihilation views precede composition; original initiality aligns zero
+presentations and gives the same complete input in the kernel lift and
+reconstruction. No formal declaration, rule or caller assumption is added.
+
+The full group passes 39 positives, including three inherited checks, in
+288.126s at 2,936,636KiB under 600s/4GiB/o=20 with subject reduction:
+`20261023T213700Z-70e76c5fc6a5467fac10593542b14350`.
+All 185 fresh inputs, 763 predecessor source hashes and nine parent
+complete-scope input sets match the final emission. All 2,269 warnings occur
+in reviewed contexts. The
+[review](../emdash2/audits/strict-default-action-boundary/production_native_snake_input_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_snake_input_consumers_verification.json)
+record the retained maps, exact input proof view and unchanged original
+assertions. No runtime equality between old/new zero witnesses is claimed.
+
+Qualification reaches **781 LP files: 516 core/library and 265 reviewers**.
+There remain 275 core/library files and 331 reviewers outside qualification,
+the same five terminal runtime obligations, normalization/toolchain work and
+production promotion. Next follow the original first native-snake exactness
+chain (four owners/four reviewers inventoried). All checkers are terminal;
+the checkpoint follows exact staged-diff review. The separate nerve goal
+remains paused; older execution entries are history.
+
+Original native-snake input continuation from `39bcb8fb`, 2026-10-23 UTC:
+12 original owners and six complete reviewers are prepared, retaining all
+154 declarations and 36 positive assertions. All 89 old Op(C) occurrences
+are initial-object hypotheses; diagram/family/evaluation uses adopt the
+existing oplax profile. The original arbitrary outer a,c, supplied normality,
+actual K/Q and inverse data remain; no monic-a, epic-c or compatibility
+hypothesis is introduced. No new rule or formal declaration is proposed.
+The first complete group uses 600s/4GiB/o=20, retaining measured predecessor
+headroom (348.811s/2,849,296KiB). Qualification remains 763 until the full
+original consumer group and evidence review pass.
+The first complete group passes the native input, cover and six-term map
+owners, then stops at the image-zero proof's reconstruction/annihilation
+applications under composition: `20261023T212152Z-11a9dd387efb4d62904d9a07a409fd2f`
+(371.325s/2,919,652KiB). The next proof adapts the already qualified quotient-
+image pattern: explicit original gamma-reconstruction endpoints, a whole
+kernel-annihilation view, and initial-family uniqueness at the original T0.
+No map, inverse, declaration, rule or caller assumption is added.
+The image-zero proof and complete image owner pass. The kernel lift then
+requires the native target view of its original zero proof:
+`20261023T212932Z-f1b58e71c565467d9d0d49558cd366bd`
+(367.684s/2,894,200KiB). The already qualified initiality-based view is now
+applied identically in the lift and reconstruction, extracting the actual
+theorem result with guarded kernel/quotient endpoints. No operational map
+or inverse choice changes.
+
+
+
 Qualified original native homology-quotient continuation, 2026-10-23 UTC:
 seven original owners and two complete reviewers pass, retaining all 39
 declarations and nine positive/one negative assertions. Whole kernel-inclusion

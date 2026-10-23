@@ -20,6 +20,20 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [native-snake input continuation][native-snake-input-consumers] adds
+12 original owners and six complete reviewers, retaining all 154 declarations
+and 36 positive assertions. Whole reconstruction/annihilation views and
+original initiality align existing proof inputs without new declarations,
+rules or assumptions. Arbitrary outer a,c and actual K/Q/inverse data remain.
+The complete connecting and exact-input consumers pass 39 positives in
+288.126s at 2,936,636KiB. All 763 predecessor sources and nine parent
+complete-scope input sets match; all 2,269 warnings occur in reviewed contexts.
+Qualification reaches **781 files: 516 core/library and 265 reviewers**;
+275 core/library files and 331 reviewers remain. The shared native zero-proof
+input is an R06 disposition; old/new witness runtime identity is not claimed.
+Original assertions are unchanged. The five terminal runtime obligations,
+R07/R12 and production gates remain open.
+
 The [native quotient-equivalence continuation][native-quotient-consumers]
 adds seven original owners and two complete reviewers, retaining all 39
 declarations and nine positive/one negative assertions. Existing whole
@@ -782,3 +796,5 @@ that all possible alternatives or future regressions have been discovered.
 [target-exactness-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_target_exactness_consumers_review.md
 
 [native-quotient-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_quotient_consumers_review.md
+
+[native-snake-input-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_snake_input_consumers_review.md
