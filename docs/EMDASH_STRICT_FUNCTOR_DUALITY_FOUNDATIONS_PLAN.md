@@ -42,6 +42,37 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified connecting-kernel prerequisites, 2026-10-23 UTC: the next 15
+original owners and four complete reviewers pass. All 64 original declarations
+and 46 positive/seven negative assertions are retained; seven files remain
+byte-identical to the original source. Existing whole native action, a direct
+terminal-diagram endpoint presentation, the whole mate-projection comparison
+and an explicit associativity witness resolve the concrete proof failures.
+No new rewrite/unification rule is invented. The two original clauses on the
+newly imported product-adjunction constructor retain their structural-contract
+status and pass their original whole product-family consumer.
+
+The complete batch passes 49 positives/seven negatives in 202.225s at
+2,740,140KiB RSS under 600s/4GiB/o=20 with subject reduction:
+`20261023T162827Z-d0db21d04fbc4645aacaca3cbf3d968f`.
+All 139 fresh receipt inputs, all 620 predecessor source hashes and both
+parent complete/addition receipt inputs match the replay. Qualification
+reaches **639 LP files: 419 core/library and 220 reviewers**. See the
+[review](../emdash2/audits/strict-default-action-boundary/production_kernel_boundary_prerequisites_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_boundary_prerequisites_verification.json)
+for the exact source/experiment/warning disposition. The 36 additional
+warning bodies at unchanged diagram-evaluation owners remain recorded under
+R07/R12; passing consumers do not certify global confluence.
+
+There remain 372 core/library files and 376 reviewers outside qualification,
+plus the five terminal runtime obligations, normalization/toolchain work and
+production promotion. Next follow the remaining dependency layers of the
+original native connecting-kernel consumer; their inventory is retained in
+`emdash2/tmp/probes/kernel_boundary_continuation/wave1_inventory.json`.
+No checker is running. The local checkpoint follows exact staged-diff review.
+The separate nerve goal remains paused. Older live-process claims below are
+historical.
+
 Qualified selected-record continuation, 2026-10-23 UTC: the four original
 record/evaluation owners and three reviewers pass on the emitted source.
 All six original declarations and nine original assertions/polarities remain;
