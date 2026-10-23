@@ -20,6 +20,18 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [fourth native-snake exactness continuation][native-snake-fourth-consumers]
+adds three original owners and three complete reviewers, retaining all 33
+declarations and 12 assertions with two derived ordinary proof views. The
+actual lift/reconstruction and fourth exactness pass 15 positives in 294.782s
+at 2,971,436KiB. All 801 predecessor sources and thirteen parent complete-scope
+input sets match; all 2,269 warnings occur in reviewed contexts. Qualification
+reaches **807 files: 529 core/library and 278 reviewers**; 262 core/library
+files and 318 reviewers remain. No axiom, rule, new caller assumption or
+operational cast is added. The shared native zero input is recorded under
+R06 without claiming old/new witness runtime identity. The five terminal
+runtime obligations, R07/R12 and production gates remain open.
+
 The [third native-snake exactness continuation][native-snake-third-consumers]
 adds three original owners and three complete reviewers, retaining all 26
 declarations and 11 assertions with two derived ordinary proof views. The
@@ -844,3 +856,5 @@ that all possible alternatives or future regressions have been discovered.
 [native-snake-second-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_snake_second_consumers_review.md
 
 [native-snake-third-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_snake_third_consumers_review.md
+
+[native-snake-fourth-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_snake_fourth_consumers_review.md

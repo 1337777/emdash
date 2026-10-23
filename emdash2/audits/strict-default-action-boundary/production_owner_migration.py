@@ -322,6 +322,15 @@ def main():
         SOURCES as NATIVE_SNAKE_THIRD_CONSUMER_SOURCES,
         migrate_native_snake_third_consumer,
     )
+    from production_native_snake_fourth_consumer_migration import (
+        SOURCES as NATIVE_SNAKE_FOURTH_CONSUMER_SOURCES,
+        migrate_native_snake_fourth_consumer,
+    )
+    for name in ('production_native_snake_fourth_consumer_migration.py',
+                 'production_native_snake_fourth_zero_views.lpfragment',
+                 'production_native_snake_fourth_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_native_snake_third_consumer_migration.py',
                  'production_native_snake_third_zero_views.lpfragment',
                  'production_native_snake_third_consumers_review.lpfragment'):
@@ -2424,6 +2433,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain original whole maps, inverse data and hypotheses at corrected profiles; derive the variable-source zero-target view and share the original complete native zero input in lift/reconstruction',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(native_snake_third)})
                 text = native_snake_third
+            native_snake_fourth = migrate_native_snake_fourth_consumer(path, text)
+            if native_snake_fourth is not None:
+                changes.append({'source': path, 'owner': 'original fourth native-snake exactness',
+                                'reason': 'Retain original whole maps, inverse data and hypotheses at corrected profiles; derive the variable-source zero-target view and share the original complete native zero input in lift/reconstruction',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(native_snake_fourth)})
+                text = native_snake_fourth
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6510,6 +6525,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in NATIVE_SNAKE_THIRD_CONSUMER_SOURCES:
         stage(path)
+    for path in NATIVE_SNAKE_FOURTH_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7814,6 +7831,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('native_snake_first_exactness_review.lp', 'production_native_snake_first_consumers_review.lpfragment'),
         ('native_snake_second_exactness_review.lp', 'production_native_snake_second_consumers_review.lpfragment'),
         ('native_snake_third_exactness_review.lp', 'production_native_snake_third_consumers_review.lpfragment'),
+        ('native_snake_fourth_exactness_review.lp', 'production_native_snake_fourth_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),
