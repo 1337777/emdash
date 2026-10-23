@@ -42,6 +42,35 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified native connecting/projection-zero consumers, 2026-10-23 UTC:
+seven original owners and two complete reviewers pass. All 36 declarations
+and 14 positive/one negative assertions remain. Native oplax accessors and
+existing OneCat modification/reflection give the whole annihilation proof at
+its native endpoints. The same derived zero proof is used by descent,
+reconstruction and the reviewer's complete-input runtime assertion. This is
+an explicit internal proof-input adaptation, with original maps, inverses,
+hypotheses and the unrelated-input negative retained. No rule or primitive
+is added; the five terminal runtime obligations remain unchanged.
+
+The complete batch passes 17 positives/one negative in 272.451s at
+2,812,532KiB RSS under 600s/4GiB/o=20 with subject reduction:
+`20261023T175739Z-03e39b31cd73414aa7558630e9f190ec`.
+All 190 fresh inputs, 686 predecessor source hashes and five parent
+integration input sets match. All 2,267 warning bodies occur in previously
+reviewed contexts. Qualification reaches **695 LP files: 457 core/library
+and 238 reviewers**. The
+[review](../emdash2/audits/strict-default-action-boundary/production_native_connecting_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_connecting_consumers_verification.json)
+record the exact whole runtime assertion and its internal witness disposition.
+
+There remain 334 core/library files and 358 reviewers outside qualification,
+plus the five terminal runtime obligations, normalization/toolchain work and
+production promotion. Next follow the original
+`emdash3_2_one_cat_native_homology_window_exact_inputs.lp` consumer and its
+required dependencies/reviewers. No checker is running. The local checkpoint
+follows staged-diff review. The separate nerve goal remains paused; older
+live claims below are history.
+
 Qualified original connecting-kernel chain, 2026-10-23 UTC: 20 original
 owners and nine complete reviewers pass through the original native
 connecting-kernel path owner. All 105 declarations and 63 positive/16

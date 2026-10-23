@@ -290,6 +290,14 @@ def main():
         SOURCES as CONNECTING_KERNEL_CHAIN_SOURCES,
         migrate_connecting_kernel_chain,
     )
+    from production_native_connecting_consumer_migration import (
+        SOURCES as NATIVE_CONNECTING_CONSUMER_SOURCES,
+        migrate_native_connecting_consumer,
+    )
+    for name in ('production_native_connecting_consumer_migration.py',
+                 'production_native_connecting_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_connecting_kernel_chain_migration.py',
                  'production_connecting_kernel_chain_review.lpfragment'):
         path = audit / name
@@ -2308,6 +2316,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain the original native maps, inverses and hypotheses at corrected diagram/duality types; stage the whole copair mate comparison before its original object application',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(connecting_chain)})
                 text = connecting_chain
+            native_connecting = migrate_native_connecting_consumer(path, text)
+            if native_connecting is not None:
+                changes.append({'source': path, 'owner': 'original native connecting/projection-zero consumers',
+                                'reason': 'Retain original maps/inverses and hypotheses at corrected profiles; use existing ordinary modification reflection for the whole zero proof and retain its actual complete native input in reconstruction',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(native_connecting)})
+                text = native_connecting
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6378,6 +6392,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in CONNECTING_KERNEL_CHAIN_SOURCES:
         stage(path)
+    for path in NATIVE_CONNECTING_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7674,6 +7690,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('kernel_boundary_wave1.lp', 'production_kernel_boundary_prerequisites_review.lpfragment'),
         ('kernel_boundary_wave2.lp', 'production_kernel_additive_prerequisites_review.lpfragment'),
         ('kernel_boundary_wave3.lp', 'production_connecting_kernel_chain_review.lpfragment'),
+        ('kernel_boundary_wave4.lp', 'production_native_connecting_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),
