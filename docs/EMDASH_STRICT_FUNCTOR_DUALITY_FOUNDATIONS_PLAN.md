@@ -42,6 +42,28 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Computational homology-map continuation after `2423921a`, 2026-10-23 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_homology_map_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_homology_map_reviewers_verification.json)
+qualify twenty-six original library modules and ten reviewers byte-identically.
+All 187 definitions, selected H/K/Q data, factor and cover inputs, inverse
+choices, hypotheses and original computations remain. No mathematical source,
+rewrite, unifier, primitive or assertion changes.
+
+The complete group passes 55 positives/five negatives in 141.300s/487,456KiB
+under 180s/2GiB/o=20 with SR and existing safeguards. Its 1,733 warning bodies
+are already present in the preceding qualified library scope. Two earlier
+90-second scopes timed out while checking the derived kernel-cover chain;
+the final measured extension changes time only, not the memory cap or normal
+defaults. All checked inputs match emission and all 517 prior qualified
+sources retain their exact hashes and earlier receipt scopes/profiles.
+
+Coverage is 366 core/library files and 187 reviewers, with 425/409 unstaged.
+Next continue the existing chain-pair/exactness consumers of these owners.
+The terminal normalization-contract question remains pending; all five
+requirements and the selected core computation remain unchanged. Remaining
+migration, normalization/toolchain and production gates stay required.
+
 Kernel/factor continuation after `bd4ca6a1`, 2026-10-23 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_kernel_factor_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_factor_reviewers_verification.json)

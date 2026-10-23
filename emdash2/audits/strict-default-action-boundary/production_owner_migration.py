@@ -6132,6 +6132,21 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/normal_mono_epic_factors.lp')
     stage('examples/cokernel_monic_factor_descent.lp')
     stage('examples/omega_equiv_right_factor.lp')
+    stage('emdash3_2_computational_homology.lp')
+    stage('emdash3_2_homology_map_isos.lp')
+    stage('emdash3_2_homology_map_corrections.lp')
+    stage('emdash3_2_homology_map_kernel_covers.lp')
+    stage('emdash3_2_abelian_homology_cokernel_inclusion.lp')
+    stage('examples/homology_maps.lp')
+    stage('examples/homology_cokernel_inclusion.lp')
+    stage('examples/abelian_image_bimorphisms.lp')
+    stage('examples/abelian_images.lp')
+    stage('examples/cokernel_record_covers.lp')
+    stage('examples/computational_homology.lp')
+    stage('examples/homology_map_corrections.lp')
+    stage('examples/homology_record_boundary_factors.lp')
+    stage('examples/homology_records.lp')
+    stage('examples/short_exact_sequences.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (
