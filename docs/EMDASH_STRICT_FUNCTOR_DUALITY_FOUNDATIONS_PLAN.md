@@ -42,6 +42,32 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Terminal runtime-contract reassessment after `cfb68f91`, 2026-10-23 UTC:
+the [report](../emdash2/audits/strict-default-action-boundary/production_terminal_contract_reassessment.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_terminal_contract_reassessment_verification.json)
+leave all selected mathematical sources and all five required assertions
+unchanged. Fresh core-only probes confirm the five runtime nonconversions,
+the existing whole comparisons and the retained higher/inverse controls.
+
+The direct R02 witness evaluates the actual Homd y-functor and its requested
+constant replacement on a chosen terminal-fibre inverse pair. The current
+higher action reduces to id; the constant replacement returns the incoming
+forward map, and their conversion fails. R01's source-u action similarly
+retains the actual precomposition form where its constant replacement returns
+the incoming inverse map; direct cancellation of that precomposition form
+was not established and is not claimed. R03's generic-unit leaf retains
+F_s[v], while its canonical-point leaf computes piapp0(s,y).
+
+These are runtime-contract distinctions, not a semantic failure of
+terminality or a general impossibility theorem. The recommendation is to
+retain actual leaf/higher/inverse computation and treat the five constant
+forms as whole proof-time compatibility views. An explicit normalization-
+contract decision has been requested; no old requirement or assertion is
+removed or reclassified until that decision. All 494 qualified-file hashes
+remain exact, so their preceding validation carries without new aggregates.
+Independent registered-consumer migration remains available while the
+terminal choice is pending; the goal stays active.
+
 Remaining action-profile continuation after `ac4f08be`, 2026-10-22 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_action_remaining_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_action_remaining_verification.json)

@@ -1,0 +1,48 @@
+require open emdash.emdash3_2;
+protected symbol tc_index (K : Cat) (x y : τ (Obj K)) : Cat
+ ≔ Homd_index_cat (Hom_cat K x y);
+protected symbol tc_value (K : Cat) (x y : τ (Obj K)) : τ (Obj (tc_index K x y))
+ ≔ fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y)));
+protected symbol tc_current (K : Cat) (x y : τ (Obj K)) : τ (Functor Terminal_cat (tc_index K x y))
+ ≔ @homd_id_tgt_func K (@Const_catd K Terminal_cat) x Terminal_obj y;
+protected symbol tc_constant (K : Cat) (x y : τ (Obj K)) : τ (Functor Terminal_cat (tc_index K x y))
+ ≔ @Obj_func (tc_index K x y) (tc_value K x y);
+protected symbol tc_current_map (K : Cat) (x y : τ (Obj K))
+ (h : τ (Hom Terminal_cat Terminal_obj Terminal_obj)) (f : τ (Hom K x y))
+ : τ (Functor Terminal_cat Terminal_cat)
+ ≔ @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)
+     (@fapp0 Terminal_cat (tc_index K x y) (tc_current K x y) Terminal_obj)
+     (@fapp0 Terminal_cat (tc_index K x y) (tc_current K x y) Terminal_obj) f
+     (@fapp1_fapp0 Terminal_cat (tc_index K x y) (tc_current K x y)
+       Terminal_obj Terminal_obj h);
+protected symbol tc_constant_map (K : Cat) (x y : τ (Obj K))
+ (h : τ (Hom Terminal_cat Terminal_obj Terminal_obj)) (f : τ (Hom K x y))
+ : τ (Functor Terminal_cat Terminal_cat)
+ ≔ @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)
+     (@fapp0 Terminal_cat (tc_index K x y) (tc_constant K x y) Terminal_obj)
+     (@fapp0 Terminal_cat (tc_index K x y) (tc_constant K x y) Terminal_obj) f
+     (@fapp1_fapp0 Terminal_cat (tc_index K x y) (tc_constant K x y)
+       Terminal_obj Terminal_obj h);
+
+// The original higher Homd action retains the selected inverse cancellation.
+assert [K : Cat] (x y : τ (Obj K)) (f : τ (Hom K x y))
+ (i : τ (@DefIso Terminal_cat Terminal_obj Terminal_obj)) ⊢
+ @fapp0 Terminal_cat Terminal_cat
+   (tc_current_map K x y (@defiso_from Terminal_cat Terminal_obj Terminal_obj i) f)
+   (@defiso_to Terminal_cat Terminal_obj Terminal_obj i)
+ ≡ @id Terminal_cat Terminal_obj;
+
+// The proposed constant whole functor instead has identity higher action.
+assert [K : Cat] (x y : τ (Obj K)) (f : τ (Hom K x y))
+ (i : τ (@DefIso Terminal_cat Terminal_obj Terminal_obj)) ⊢
+ @fapp0 Terminal_cat Terminal_cat
+   (tc_constant_map K x y (@defiso_from Terminal_cat Terminal_obj Terminal_obj i) f)
+   (@defiso_to Terminal_cat Terminal_obj Terminal_obj i)
+ ≡ @defiso_to Terminal_cat Terminal_obj Terminal_obj i;
+
+assertnot [K : Cat] (x y : τ (Obj K)) (f : τ (Hom K x y))
+ (i : τ (@DefIso Terminal_cat Terminal_obj Terminal_obj)) ⊢
+ @fapp0 Terminal_cat Terminal_cat
+   (tc_constant_map K x y (@defiso_from Terminal_cat Terminal_obj Terminal_obj i) f)
+   (@defiso_to Terminal_cat Terminal_obj Terminal_obj i)
+ ≡ @id Terminal_cat Terminal_obj;

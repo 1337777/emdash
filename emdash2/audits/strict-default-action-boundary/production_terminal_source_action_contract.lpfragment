@@ -1,0 +1,74 @@
+require open emdash.emdash3_2;
+protected symbol ts_family (K : Cat) : τ (Catd K) ≔ @Const_catd K Terminal_cat;
+protected symbol ts_section_cat (K : Cat) (x : τ (Obj K)) : Cat
+ ≔ @Homd_target_section_cat K (ts_family K) x;
+protected symbol ts_section (K : Cat) (x : τ (Obj K)) : τ (Obj (ts_section_cat K x))
+ ≔ @homd_src_sec K (ts_family K) (ts_family K) (@id_funcd K (ts_family K)) x Terminal_obj;
+protected symbol ts_current (K : Cat) (x : τ (Obj K))
+ : τ (Functor Terminal_cat (Op_cat (ts_section_cat K x)))
+ ≔ @homd_src_func K (ts_family K) (ts_family K) (@id_funcd K (ts_family K)) x;
+protected symbol ts_constant (K : Cat) (x : τ (Obj K))
+ : τ (Functor Terminal_cat (Op_cat (ts_section_cat K x)))
+ ≔ @Obj_func (Op_cat (ts_section_cat K x)) (ts_section K x);
+protected symbol ts_tgt (K : Cat) (x y : τ (Obj K))
+ : τ (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+ ≔ @homd_tgt_func K (ts_family K) (ts_family K) (@id_funcd K (ts_family K)) x Terminal_obj y;
+protected symbol ts_value (K : Cat) (x y : τ (Obj K))
+ : τ (Obj (Homd_index_cat (Hom_cat K x y)))
+ ≔ @fapp0 Terminal_cat (Homd_index_cat (Hom_cat K x y)) (ts_tgt K x y) Terminal_obj;
+protected symbol ts_current_map (K : Cat) (x y : τ (Obj K))
+ (h : τ (Hom Terminal_cat Terminal_obj Terminal_obj)) (f : τ (Hom K x y))
+ : τ (Functor Terminal_cat Terminal_cat)
+ ≔ @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)
+     (ts_value K x y) (ts_value K x y) f
+     (@tapp0_fapp0 Terminal_cat (Homd_index_cat (Hom_cat K x y))
+       (ts_tgt K x y) (ts_tgt K x y) Terminal_obj
+       (@strict_transfor Terminal_cat (Homd_index_cat (Hom_cat K x y))
+         (ts_tgt K x y) (ts_tgt K x y)
+         (@tapp0_hom_fapp0 K Homd_coeff_cat
+           (@Homd_coeff_diagram K (ts_family K))
+           (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+           (ts_section K x) (ts_section K x) y
+           (@fapp1_fapp0 Terminal_cat (Op_cat (ts_section_cat K x))
+             (ts_current K x) Terminal_obj Terminal_obj h))));
+protected symbol ts_constant_map (K : Cat) (x y : τ (Obj K))
+ (h : τ (Hom Terminal_cat Terminal_obj Terminal_obj)) (f : τ (Hom K x y))
+ : τ (Functor Terminal_cat Terminal_cat)
+ ≔ @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)
+     (ts_value K x y) (ts_value K x y) f
+     (@tapp0_fapp0 Terminal_cat (Homd_index_cat (Hom_cat K x y))
+       (ts_tgt K x y) (ts_tgt K x y) Terminal_obj
+       (@strict_transfor Terminal_cat (Homd_index_cat (Hom_cat K x y))
+         (ts_tgt K x y) (ts_tgt K x y)
+         (@tapp0_hom_fapp0 K Homd_coeff_cat
+           (@Homd_coeff_diagram K (ts_family K))
+           (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+           (ts_section K x) (ts_section K x) y
+           (@fapp1_fapp0 Terminal_cat (Op_cat (ts_section_cat K x))
+             (ts_constant K x) Terminal_obj Terminal_obj h))));
+
+// Preserve the actual selected precomposition normal form (its inverse
+// cancellation is a separate existing pre/post normalization boundary).
+assert [K : Cat] (x y : τ (Obj K)) (f : τ (Hom K x y))
+ (i : τ (@DefIso Terminal_cat Terminal_obj Terminal_obj)) ⊢
+ @fapp0 Terminal_cat Terminal_cat
+   (ts_current_map K x y (@defiso_to Terminal_cat Terminal_obj Terminal_obj i) f)
+   (@defiso_from Terminal_cat Terminal_obj Terminal_obj i)
+ ≡ @hom_precomp_along_fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat)
+     Terminal_obj Terminal_obj Terminal_obj
+     (@defiso_to Terminal_cat Terminal_obj Terminal_obj i)
+     (@defiso_from Terminal_cat Terminal_obj Terminal_obj i);
+assert [K : Cat] (x y : τ (Obj K)) (f : τ (Hom K x y))
+ (i : τ (@DefIso Terminal_cat Terminal_obj Terminal_obj)) ⊢
+ @fapp0 Terminal_cat Terminal_cat
+   (ts_constant_map K x y (@defiso_to Terminal_cat Terminal_obj Terminal_obj i) f)
+   (@defiso_from Terminal_cat Terminal_obj Terminal_obj i)
+ ≡ @defiso_from Terminal_cat Terminal_obj Terminal_obj i;
+assertnot [K : Cat] (x y : τ (Obj K)) (f : τ (Hom K x y))
+ (i : τ (@DefIso Terminal_cat Terminal_obj Terminal_obj)) ⊢
+ @fapp0 Terminal_cat Terminal_cat
+   (ts_current_map K x y (@defiso_to Terminal_cat Terminal_obj Terminal_obj i) f)
+   (@defiso_from Terminal_cat Terminal_obj Terminal_obj i)
+ ≡ @fapp0 Terminal_cat Terminal_cat
+   (ts_constant_map K x y (@defiso_to Terminal_cat Terminal_obj Terminal_obj i) f)
+   (@defiso_from Terminal_cat Terminal_obj Terminal_obj i);

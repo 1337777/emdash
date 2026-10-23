@@ -1,0 +1,35 @@
+require open emdash.emdash3_2;
+
+// Actual general-section leaf, retaining the supplied unit input v.
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (v : τ (Obj Terminal_cat)) (f : τ (Hom K x y)) ⊢
+  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cart
+    (@homd_ K (@Const_catd K Terminal_cat) E s x u y v) f
+  ≡ Hom_cat (Fibre_cat E y)
+      (@fapp0 (Fibre_cat E x) (Fibre_cat E y)
+        (@fapp1_fapp0 K Cat_cart E x y f) u)
+      (@fapp0 Terminal_cat (Fibre_cat E y)
+        (@Fibre_func K (@Const_catd K Terminal_cat) E s y) v);
+
+// The selected terminal point recovers the existing section evaluation.
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (f : τ (Hom K x y)) ⊢
+  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cart
+    (@homd_ K (@Const_catd K Terminal_cat) E s x u y Terminal_obj) f
+  ≡ Hom_cat (Fibre_cat E y)
+      (@fapp0 (Fibre_cat E x) (Fibre_cat E y)
+        (@fapp1_fapp0 K Cat_cart E x y f) u)
+      (@piapp0 K E s y);
+
+// The existing computation does not erase an arbitrary unit input to *.
+assertnot [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (v : τ (Obj Terminal_cat)) (f : τ (Hom K x y)) ⊢
+  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cart
+    (@homd_ K (@Const_catd K Terminal_cat) E s x u y v) f
+  ≡ Hom_cat (Fibre_cat E y)
+      (@fapp0 (Fibre_cat E x) (Fibre_cat E y)
+        (@fapp1_fapp0 K Cat_cart E x y f) u)
+      (@piapp0 K E s y);

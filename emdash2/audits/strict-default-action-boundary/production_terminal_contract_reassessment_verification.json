@@ -1,0 +1,237 @@
+{
+  "status": "Contract analysis only; all selected mathematical sources and required terminal assertions remain unchanged.",
+  "predecessor": "cfb68f91",
+  "coreSha256": "dae9b8dfaf0d2546f7fc617b059f8b011b994eb8e551df4c7d8436f34cda98b3",
+  "receipts": {
+    "baseline": {
+      "id": "20261022T234231Z-9246dff6bdf245f7ac069b1e57ddac10",
+      "target": "terminal_baseline.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 21.907623874023557,
+      "childrenMaxRssKiB": 154016,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "87c58543f0a38392141634ad26238e4d5f2bf42e3fa33c5b0420a967f0c0ef71",
+      "log": "logs/check-runs/20261022T234231Z-9246dff6bdf245f7ac069b1e57ddac10.log",
+      "logSha256": "c9a1a80368ae21ec3e641f8e6512bc7339d1ed6ef9a7555efd15dba19640dbda",
+      "receiptSha256": "c08865d1857b65c7177daf0ba92fd2db28870347e969d47ef42b5bb0e243df49",
+      "assertionCounts": {
+        "assert": 16,
+        "assertnot": 10
+      }
+    },
+    "relativeLeaf": {
+      "id": "20261022T234340Z-b3fab56dc0fc4823a0b7f863d8e8b786",
+      "target": "relative_leaf_contract.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 22.27794278692454,
+      "childrenMaxRssKiB": 154360,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "ee6207326afdc6d2ea2191d32b9bd3639b4fdb638bd3559415b6b4d0ef5da750",
+      "log": "logs/check-runs/20261022T234340Z-b3fab56dc0fc4823a0b7f863d8e8b786.log",
+      "logSha256": "9407f32521bd84d5669e52a8921d5edbb337ba0430987a108ce80c7258f8e8b7",
+      "receiptSha256": "517fc9b02190284cf4d45a66102c5e2d12ce61748e9dc5b5d669c738f0f9ebf3",
+      "assertionCounts": {
+        "assert": 2,
+        "assertnot": 1
+      }
+    },
+    "targetAction": {
+      "id": "20261022T234826Z-58dd594390ba433a95e93ed20c9cdb59",
+      "target": "terminal_inverse_action_contract.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 20.372989997034892,
+      "childrenMaxRssKiB": 155628,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "fd3b9d8525a10638ca4cc25cefe6ba37249ec8da7b9c4002a615c5fde0c4acfc",
+      "log": "logs/check-runs/20261022T234826Z-58dd594390ba433a95e93ed20c9cdb59.log",
+      "logSha256": "0e4849ecbe23c31993549116085e0ed0e85bf0a8946e48c92b433b46aeb52978",
+      "receiptSha256": "6eeaf5fa104177acbaa917f37bd326287548a3222c58ff7b68bd240744874d62",
+      "assertionCounts": {
+        "assert": 2,
+        "assertnot": 1
+      }
+    },
+    "sourceInverseExploration": {
+      "id": "20261022T235456Z-0c2e86fc406342e4abbb5c2977b5826c",
+      "target": "terminal_source_inverse_contract.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 21.97786708106287,
+      "childrenMaxRssKiB": 155604,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "a6ff7bf7827486f84951423481dcdaf24db5956187f1609b2dacf88527c4e1cb",
+      "log": "logs/check-runs/20261022T235456Z-0c2e86fc406342e4abbb5c2977b5826c.log",
+      "logSha256": "e3c37f74aae35115c2f53e90050e3861f7785d5c36cd0bccccf3245fdd81cd7a",
+      "receiptSha256": "7554e8b55d47adee27e5be9d41bfdf60d9e317755c6c027ef5b0d148c55e3f83",
+      "assertionCounts": {
+        "assert": 2,
+        "assertnot": 1
+      }
+    },
+    "sourceAction": {
+      "id": "20261022T235842Z-8d4c6b045518470eb81732763db2b206",
+      "target": "terminal_source_action_contract.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 22.17492853407748,
+      "childrenMaxRssKiB": 154828,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "22f2f7e3e848dfc46b61178f4db678098058ad2fffb70f92486fdd62b65cfa24",
+      "log": "logs/check-runs/20261022T235842Z-8d4c6b045518470eb81732763db2b206.log",
+      "logSha256": "a98e7d25f51095b936833e0c8c5151e87e2cf98e6655094e4f8ec637850cec29",
+      "receiptSha256": "73d5ccb63c8b89750bf6c133dfac4a43a15b6a645152d3eb567ffbcc9bfaaae1",
+      "assertionCounts": {
+        "assert": 2,
+        "assertnot": 1
+      }
+    }
+  },
+  "sourceControls": {
+    "production_terminal_relative_leaf_contract.lpfragment": "require open emdash.emdash3_2;\n\n// Actual general-section leaf, retaining the supplied unit input v.\nassert [K : Cat] (E : \u03c4 (Catd K)) (s : \u03c4 (Obj (Pi_cat E)))\n  (x y : \u03c4 (Obj K)) (u : \u03c4 (Obj (Fibre_cat E x)))\n  (v : \u03c4 (Obj Terminal_cat)) (f : \u03c4 (Hom K x y)) \u22a2\n  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cart\n    (@homd_ K (@Const_catd K Terminal_cat) E s x u y v) f\n  \u2261 Hom_cat (Fibre_cat E y)\n      (@fapp0 (Fibre_cat E x) (Fibre_cat E y)\n        (@fapp1_fapp0 K Cat_cart E x y f) u)\n      (@fapp0 Terminal_cat (Fibre_cat E y)\n        (@Fibre_func K (@Const_catd K Terminal_cat) E s y) v);\n\n// The selected terminal point recovers the existing section evaluation.\nassert [K : Cat] (E : \u03c4 (Catd K)) (s : \u03c4 (Obj (Pi_cat E)))\n  (x y : \u03c4 (Obj K)) (u : \u03c4 (Obj (Fibre_cat E x)))\n  (f : \u03c4 (Hom K x y)) \u22a2\n  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cart\n    (@homd_ K (@Const_catd K Terminal_cat) E s x u y Terminal_obj) f\n  \u2261 Hom_cat (Fibre_cat E y)\n      (@fapp0 (Fibre_cat E x) (Fibre_cat E y)\n        (@fapp1_fapp0 K Cat_cart E x y f) u)\n      (@piapp0 K E s y);\n\n// The existing computation does not erase an arbitrary unit input to *.\nassertnot [K : Cat] (E : \u03c4 (Catd K)) (s : \u03c4 (Obj (Pi_cat E)))\n  (x y : \u03c4 (Obj K)) (u : \u03c4 (Obj (Fibre_cat E x)))\n  (v : \u03c4 (Obj Terminal_cat)) (f : \u03c4 (Hom K x y)) \u22a2\n  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cart\n    (@homd_ K (@Const_catd K Terminal_cat) E s x u y v) f\n  \u2261 Hom_cat (Fibre_cat E y)\n      (@fapp0 (Fibre_cat E x) (Fibre_cat E y)\n        (@fapp1_fapp0 K Cat_cart E x y f) u)\n      (@piapp0 K E s y);\n",
+    "production_terminal_target_action_contract.lpfragment": "require open emdash.emdash3_2;\nprotected symbol tc_index (K : Cat) (x y : \u03c4 (Obj K)) : Cat\n \u2254 Homd_index_cat (Hom_cat K x y);\nprotected symbol tc_value (K : Cat) (x y : \u03c4 (Obj K)) : \u03c4 (Obj (tc_index K x y))\n \u2254 fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y)));\nprotected symbol tc_current (K : Cat) (x y : \u03c4 (Obj K)) : \u03c4 (Functor Terminal_cat (tc_index K x y))\n \u2254 @homd_id_tgt_func K (@Const_catd K Terminal_cat) x Terminal_obj y;\nprotected symbol tc_constant (K : Cat) (x y : \u03c4 (Obj K)) : \u03c4 (Functor Terminal_cat (tc_index K x y))\n \u2254 @Obj_func (tc_index K x y) (tc_value K x y);\nprotected symbol tc_current_map (K : Cat) (x y : \u03c4 (Obj K))\n (h : \u03c4 (Hom Terminal_cat Terminal_obj Terminal_obj)) (f : \u03c4 (Hom K x y))\n : \u03c4 (Functor Terminal_cat Terminal_cat)\n \u2254 @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)\n     (@fapp0 Terminal_cat (tc_index K x y) (tc_current K x y) Terminal_obj)\n     (@fapp0 Terminal_cat (tc_index K x y) (tc_current K x y) Terminal_obj) f\n     (@fapp1_fapp0 Terminal_cat (tc_index K x y) (tc_current K x y)\n       Terminal_obj Terminal_obj h);\nprotected symbol tc_constant_map (K : Cat) (x y : \u03c4 (Obj K))\n (h : \u03c4 (Hom Terminal_cat Terminal_obj Terminal_obj)) (f : \u03c4 (Hom K x y))\n : \u03c4 (Functor Terminal_cat Terminal_cat)\n \u2254 @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)\n     (@fapp0 Terminal_cat (tc_index K x y) (tc_constant K x y) Terminal_obj)\n     (@fapp0 Terminal_cat (tc_index K x y) (tc_constant K x y) Terminal_obj) f\n     (@fapp1_fapp0 Terminal_cat (tc_index K x y) (tc_constant K x y)\n       Terminal_obj Terminal_obj h);\n\n// The original higher Homd action retains the selected inverse cancellation.\nassert [K : Cat] (x y : \u03c4 (Obj K)) (f : \u03c4 (Hom K x y))\n (i : \u03c4 (@DefIso Terminal_cat Terminal_obj Terminal_obj)) \u22a2\n @fapp0 Terminal_cat Terminal_cat\n   (tc_current_map K x y (@defiso_from Terminal_cat Terminal_obj Terminal_obj i) f)\n   (@defiso_to Terminal_cat Terminal_obj Terminal_obj i)\n \u2261 @id Terminal_cat Terminal_obj;\n\n// The proposed constant whole functor instead has identity higher action.\nassert [K : Cat] (x y : \u03c4 (Obj K)) (f : \u03c4 (Hom K x y))\n (i : \u03c4 (@DefIso Terminal_cat Terminal_obj Terminal_obj)) \u22a2\n @fapp0 Terminal_cat Terminal_cat\n   (tc_constant_map K x y (@defiso_from Terminal_cat Terminal_obj Terminal_obj i) f)\n   (@defiso_to Terminal_cat Terminal_obj Terminal_obj i)\n \u2261 @defiso_to Terminal_cat Terminal_obj Terminal_obj i;\n\nassertnot [K : Cat] (x y : \u03c4 (Obj K)) (f : \u03c4 (Hom K x y))\n (i : \u03c4 (@DefIso Terminal_cat Terminal_obj Terminal_obj)) \u22a2\n @fapp0 Terminal_cat Terminal_cat\n   (tc_constant_map K x y (@defiso_from Terminal_cat Terminal_obj Terminal_obj i) f)\n   (@defiso_to Terminal_cat Terminal_obj Terminal_obj i)\n \u2261 @id Terminal_cat Terminal_obj;\n",
+    "production_terminal_source_action_contract.lpfragment": "require open emdash.emdash3_2;\nprotected symbol ts_family (K : Cat) : \u03c4 (Catd K) \u2254 @Const_catd K Terminal_cat;\nprotected symbol ts_section_cat (K : Cat) (x : \u03c4 (Obj K)) : Cat\n \u2254 @Homd_target_section_cat K (ts_family K) x;\nprotected symbol ts_section (K : Cat) (x : \u03c4 (Obj K)) : \u03c4 (Obj (ts_section_cat K x))\n \u2254 @homd_src_sec K (ts_family K) (ts_family K) (@id_funcd K (ts_family K)) x Terminal_obj;\nprotected symbol ts_current (K : Cat) (x : \u03c4 (Obj K))\n : \u03c4 (Functor Terminal_cat (Op_cat (ts_section_cat K x)))\n \u2254 @homd_src_func K (ts_family K) (ts_family K) (@id_funcd K (ts_family K)) x;\nprotected symbol ts_constant (K : Cat) (x : \u03c4 (Obj K))\n : \u03c4 (Functor Terminal_cat (Op_cat (ts_section_cat K x)))\n \u2254 @Obj_func (Op_cat (ts_section_cat K x)) (ts_section K x);\nprotected symbol ts_tgt (K : Cat) (x y : \u03c4 (Obj K))\n : \u03c4 (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))\n \u2254 @homd_tgt_func K (ts_family K) (ts_family K) (@id_funcd K (ts_family K)) x Terminal_obj y;\nprotected symbol ts_value (K : Cat) (x y : \u03c4 (Obj K))\n : \u03c4 (Obj (Homd_index_cat (Hom_cat K x y)))\n \u2254 @fapp0 Terminal_cat (Homd_index_cat (Hom_cat K x y)) (ts_tgt K x y) Terminal_obj;\nprotected symbol ts_current_map (K : Cat) (x y : \u03c4 (Obj K))\n (h : \u03c4 (Hom Terminal_cat Terminal_obj Terminal_obj)) (f : \u03c4 (Hom K x y))\n : \u03c4 (Functor Terminal_cat Terminal_cat)\n \u2254 @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)\n     (ts_value K x y) (ts_value K x y) f\n     (@tapp0_fapp0 Terminal_cat (Homd_index_cat (Hom_cat K x y))\n       (ts_tgt K x y) (ts_tgt K x y) Terminal_obj\n       (@strict_transfor Terminal_cat (Homd_index_cat (Hom_cat K x y))\n         (ts_tgt K x y) (ts_tgt K x y)\n         (@tapp0_hom_fapp0 K Homd_coeff_cat\n           (@Homd_coeff_diagram K (ts_family K))\n           (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))\n           (ts_section K x) (ts_section K x) y\n           (@fapp1_fapp0 Terminal_cat (Op_cat (ts_section_cat K x))\n             (ts_current K x) Terminal_obj Terminal_obj h))));\nprotected symbol ts_constant_map (K : Cat) (x y : \u03c4 (Obj K))\n (h : \u03c4 (Hom Terminal_cat Terminal_obj Terminal_obj)) (f : \u03c4 (Hom K x y))\n : \u03c4 (Functor Terminal_cat Terminal_cat)\n \u2254 @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)\n     (ts_value K x y) (ts_value K x y) f\n     (@tapp0_fapp0 Terminal_cat (Homd_index_cat (Hom_cat K x y))\n       (ts_tgt K x y) (ts_tgt K x y) Terminal_obj\n       (@strict_transfor Terminal_cat (Homd_index_cat (Hom_cat K x y))\n         (ts_tgt K x y) (ts_tgt K x y)\n         (@tapp0_hom_fapp0 K Homd_coeff_cat\n           (@Homd_coeff_diagram K (ts_family K))\n           (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))\n           (ts_section K x) (ts_section K x) y\n           (@fapp1_fapp0 Terminal_cat (Op_cat (ts_section_cat K x))\n             (ts_constant K x) Terminal_obj Terminal_obj h))));\n\n// Preserve the actual selected precomposition normal form (its inverse\n// cancellation is a separate existing pre/post normalization boundary).\nassert [K : Cat] (x y : \u03c4 (Obj K)) (f : \u03c4 (Hom K x y))\n (i : \u03c4 (@DefIso Terminal_cat Terminal_obj Terminal_obj)) \u22a2\n @fapp0 Terminal_cat Terminal_cat\n   (ts_current_map K x y (@defiso_to Terminal_cat Terminal_obj Terminal_obj i) f)\n   (@defiso_from Terminal_cat Terminal_obj Terminal_obj i)\n \u2261 @hom_precomp_along_fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat)\n     Terminal_obj Terminal_obj Terminal_obj\n     (@defiso_to Terminal_cat Terminal_obj Terminal_obj i)\n     (@defiso_from Terminal_cat Terminal_obj Terminal_obj i);\nassert [K : Cat] (x y : \u03c4 (Obj K)) (f : \u03c4 (Hom K x y))\n (i : \u03c4 (@DefIso Terminal_cat Terminal_obj Terminal_obj)) \u22a2\n @fapp0 Terminal_cat Terminal_cat\n   (ts_constant_map K x y (@defiso_to Terminal_cat Terminal_obj Terminal_obj i) f)\n   (@defiso_from Terminal_cat Terminal_obj Terminal_obj i)\n \u2261 @defiso_from Terminal_cat Terminal_obj Terminal_obj i;\nassertnot [K : Cat] (x y : \u03c4 (Obj K)) (f : \u03c4 (Hom K x y))\n (i : \u03c4 (@DefIso Terminal_cat Terminal_obj Terminal_obj)) \u22a2\n @fapp0 Terminal_cat Terminal_cat\n   (ts_current_map K x y (@defiso_to Terminal_cat Terminal_obj Terminal_obj i) f)\n   (@defiso_from Terminal_cat Terminal_obj Terminal_obj i)\n \u2261 @fapp0 Terminal_cat Terminal_cat\n   (ts_constant_map K x y (@defiso_to Terminal_cat Terminal_obj Terminal_obj i) f)\n   (@defiso_from Terminal_cat Terminal_obj Terminal_obj i);\n"
+  },
+  "sourceSha256": {
+    "production_terminal_relative_leaf_contract.lpfragment": "e37232bc41c89dc8c762910a2831aa4de644c92a53645f410b36394bccd80b44",
+    "production_terminal_target_action_contract.lpfragment": "7d83fa35c26f50f3379fcf599521d1eb3c22c75b54d51d3665b50df41fc57786",
+    "production_terminal_source_action_contract.lpfragment": "4f837d8d65731ffb349bcfca83d4454124acf3a1103455beae84a1cd7086ebfa"
+  },
+  "unchangedQualifiedSourceCount": 494,
+  "all494PriorSourceHashesMatch": true,
+  "newRuntimeRules": 0,
+  "newUnificationRules": 0,
+  "newOperationalSymbols": 0,
+  "targetConclusion": "Current actual Homd action cancels the selected inverse pair. The requested constant functor returns the incoming forward map and fails that cancellation normal form.",
+  "sourceConclusion": "Current source-u action retains the precomposition owner with both maps; the proposed constant functor returns the incoming inverse map. Direct cancellation of the precomposition form was not established and is not claimed.",
+  "relativeConclusion": "The actual generic-unit leaf retains F_s[v]; the Terminal_obj leaf yields section evaluation; no neutral-unit eta conversion is present.",
+  "mathematicalQualification": "Terminal values agree semantically. The conflict concerns simultaneous runtime normalization/data-retention contracts, not categorical terminality or a general impossibility theorem.",
+  "decision": "Recommend keeping existing operational heads and making the five legacy constant forms whole proof-time compatibility views; pending explicit user decision, no requirement was changed."
+}
