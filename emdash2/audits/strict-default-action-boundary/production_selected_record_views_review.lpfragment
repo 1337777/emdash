@@ -1,0 +1,4 @@
+require open emdash.emdash3_2_one_cat_adjunction_selected_views;
+require open emdash.examples.one_cat_homology_adjunction_records;
+require open emdash.examples.one_cat_adjunction_evaluation_paths;
+require open emdash.examples.one_cat_cokernel_family_point_paths;

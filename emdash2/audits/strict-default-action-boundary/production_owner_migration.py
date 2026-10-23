@@ -275,6 +275,13 @@ def main():
         finish_selected_arrow_diagram,
         finish_selected_adjunction_reviewer,
     )
+    from production_selected_record_view_migration import (
+        SOURCES as SELECTED_RECORD_VIEW_SOURCES, migrate_selected_record_view,
+    )
+    for name in ('production_selected_record_view_migration.py',
+                 'production_selected_record_views_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_selected_presentation_migration.py',
                  'production_selected_kernel_metadata.lpfragment',
                  'production_selected_cokernel_metadata.lpfragment',
@@ -2253,6 +2260,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain selected data, original generality and whole computations at the corrected oplax evaluation, mapped inverse and typed native map owners',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(selected_presentation)})
                 text = selected_presentation
+            selected_record_view = migrate_selected_record_view(path, text)
+            if selected_record_view is not None:
+                changes.append({'source': path, 'owner': 'original selected record/evaluation views',
+                                'reason': 'Use existing oplax diagram/evaluation and total-dual initial views while preserving all original declarations, proof bodies, hypotheses and assertion polarities',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(selected_record_view)})
+                text = selected_record_view
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6315,6 +6328,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/direct_cover_completion_eliminator.lp')
     for path in SELECTED_PRESENTATION_SOURCES:
         stage(path)
+    for path in SELECTED_RECORD_VIEW_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7607,6 +7622,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('selected_identity_controls.lp', 'production_selected_identity_controls.lpfragment'),
         ('selected_presentation_complete_regression.lp', 'production_selected_presentation_complete_regression.lpfragment'),
         ('selected_presentation_reviewer_suffix.lp', 'production_selected_presentation_reviewer_suffix.lpfragment'),
+        ('selected_record_views_review.lp', 'production_selected_record_views_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

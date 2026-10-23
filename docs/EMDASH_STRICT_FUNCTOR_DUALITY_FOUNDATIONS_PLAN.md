@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified selected-record continuation, 2026-10-23 UTC: the four original
+record/evaluation owners and three reviewers pass on the emitted source.
+All six original declarations and nine original assertions/polarities remain;
+two files are byte-identical to the original source. The complete consumer
+scope passes 12 positives, including three inherited checks, in 220.470s at
+2,152,432KiB RSS under 300s/4GiB/o=20
+(`20261023T150113Z-e681bb8a30a44a2ba7891e8c3a9bb8b0`). The first 2GiB attempt
+hit an allocation failure in an inherited dependency; the unchanged retry
+used inspected 22,251MiB host headroom. No rule, primitive, hypothesis, normal
+default or script was added for these source adaptations.
+
+Every parent complete-integration input remains byte-identical, including its
+driver. The seven files are a conservative addition with unique defined
+heads and original reviewers. Qualification therefore reaches **620 LP
+files: 404 core/library and 216 reviewers**, carrying parent `2b914b29` under
+its recorded profile and checking the new slice fresh. The
+[review](../emdash2/audits/strict-default-action-boundary/production_selected_record_views_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_selected_record_views_verification.json)
+record exact source/assertion, warning and resource evidence. All 24 child
+warning bodies differing from the parent import context occur in already
+reviewed scopes at unchanged owners. No checker is currently running.
+
+There remain 387 core/library files and 380 reviewers outside qualification,
+plus the five terminal runtime obligations, normalization/toolchain work and
+production promotion. Continue the next dependency-ready original consumer;
+do not resume the separate nerve goal. The validated checkpoint follows the
+staged-diff review. Older live-process claims below are historical.
+
 Qualified selected-presentation continuation, 2026-10-23 UTC: complete
 integration passes 3,780 positive/571 negative assertions in 1191.163s at
 4,028,344KiB RSS under 1800s/6GiB/o=20
