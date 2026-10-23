@@ -20,6 +20,19 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [first native-snake exactness continuation][native-snake-first-consumers]
+adds four original owners and four complete reviewers, retaining all 32
+declarations and 19 positive assertions. Original initiality aligns the
+shared lift/reconstruction zero input; whole annihilation and zero views
+precede precomposition. No new declaration, rule or assumption is added.
+The complete inverse, cover and exactness consumers pass 22 positives in
+340.434s at 2,996,644KiB. All 781 predecessor sources and ten parent
+complete-scope input sets match; all 2,269 warnings occur in reviewed contexts.
+Qualification reaches **789 files: 520 core/library and 269 reviewers**;
+271 core/library files and 327 reviewers remain. The proof-view change is
+recorded under R06 without claiming old/new witness runtime identity. The
+five terminal runtime obligations, R07/R12 and production gates remain open.
+
 The [native-snake input continuation][native-snake-input-consumers] adds
 12 original owners and six complete reviewers, retaining all 154 declarations
 and 36 positive assertions. Whole reconstruction/annihilation views and
@@ -798,3 +811,5 @@ that all possible alternatives or future regressions have been discovered.
 [native-quotient-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_quotient_consumers_review.md
 
 [native-snake-input-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_snake_input_consumers_review.md
+
+[native-snake-first-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_snake_first_consumers_review.md

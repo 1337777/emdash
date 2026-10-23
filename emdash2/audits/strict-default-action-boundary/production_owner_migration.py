@@ -310,6 +310,14 @@ def main():
         SOURCES as NATIVE_SNAKE_INPUT_CONSUMER_SOURCES,
         migrate_native_snake_input_consumer,
     )
+    from production_native_snake_first_consumer_migration import (
+        SOURCES as NATIVE_SNAKE_FIRST_CONSUMER_SOURCES,
+        migrate_native_snake_first_consumer,
+    )
+    for name in ('production_native_snake_first_consumer_migration.py',
+                 'production_native_snake_first_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_native_snake_input_consumer_migration.py',
                  'production_native_snake_input_consumers_review.lpfragment'):
         path = audit / name
@@ -2380,6 +2388,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain arbitrary outer maps, K/Q and inverse data at corrected profiles; stage existing whole reconstruction/annihilation and original-initiality zero views before composition',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(native_snake_input)})
                 text = native_snake_input
+            native_snake_first = migrate_native_snake_first_consumer(path, text)
+            if native_snake_first is not None:
+                changes.append({'source': path, 'owner': 'original first native-snake exactness',
+                                'reason': 'Retain original whole maps, normality and inverse data at corrected profiles; share native zero-proof views and stage whole annihilation before precomposition',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(native_snake_first)})
+                text = native_snake_first
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6460,6 +6474,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in NATIVE_SNAKE_INPUT_CONSUMER_SOURCES:
         stage(path)
+    for path in NATIVE_SNAKE_FIRST_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7761,6 +7777,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('native_target_exactness_review.lp', 'production_native_target_exactness_consumers_review.lpfragment'),
         ('native_quotient_equivalence_review.lp', 'production_native_quotient_consumers_review.lpfragment'),
         ('native_snake_input_review.lp', 'production_native_snake_input_consumers_review.lpfragment'),
+        ('native_snake_first_exactness_review.lp', 'production_native_snake_first_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),
