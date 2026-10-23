@@ -1,0 +1,13 @@
+require open emdash.examples.adjunction_exchange_op_identity;
+require open emdash.examples.diagram_evaluation;
+// Whole fixed component of the shape functor uses its named fixed-family view.
+assert [A I C : Cat] (D : τ (Functor A (Functor_cat I C))) (i : τ (Obj I)) ⊢
+ @fapp0 I (Functor_oplax_cat A C) (@diagram_family_shape_func A I C D) i
+ ≡ @OddDual_func A C (@diagram_family_at_func A I C D i);
+// Taking the alternating dual twice preserves the same precomposition owner.
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) ⊢
+ @OddDual_func (OddDual_cat A) (OddDual_cat C)
+  (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat)
+   (OddDual_cat C) (OddDual_cat A) (OddDual_cat B)
+   (@OddDual_func A B F) (@OddDual_func B C G))
+ ≡ @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A B F G;

@@ -1,0 +1,13 @@
+// Whole oplax-diagram evaluation of a literal precomposition. Match the
+// actual evaluator head, rather than an arbitrary postcomposing functor.
+// J,D are the evaluator's encoded parameters; no reducible Odd-pattern is
+// used to recover an unencoded base. Both factors and the point are retained.
+unif_rule
+  @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $C $A $B (@comp_fapp0 Cat_cat $A $M $B $G $F)
+    (@OddDual_func _ _ (@fapp0_func $J $D $i))
+  ≡ $view
+  ↪ [ $B ≡ OddDual_cat (Functor_cat $J $D); $C ≡ OddDual_cat $D;
+      @comp_fapp0 Cat_cat $A $B $C
+        (@diagram_oplax_evaluation_at_func (OddDual_cat $J) (OddDual_cat $D) $i)
+        (@comp_fapp0 Cat_cat $A $M $B $G $F) ≡ $view ];

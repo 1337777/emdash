@@ -1,0 +1,3 @@
+require open emdash.emdash3_2_kernel_adjunction_mates;
+require open emdash.emdash3_2_cokernel_adjunction_mates;
+require open emdash.simplex_dependency_residual_regression;

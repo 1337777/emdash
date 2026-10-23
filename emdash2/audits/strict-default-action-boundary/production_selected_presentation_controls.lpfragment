@@ -1,0 +1,71 @@
+// Focused dual-cut and actual-adjunction noncollapse controls.
+require open emdash.emdash3_2_diagram_evaluation;
+
+
+// Original 1 with R odd-dual.
+assert [R0 L0 : Cat] [F : τ (Functor (OddDual_cat R0) L0)] [G : τ (Functor L0 (OddDual_cat R0))] (J : τ (@Adjunction (OddDual_cat R0) L0 F G)) (X X' : τ (Obj (OddDual_cat R0))) (Y : τ (Obj L0)) (g : τ (Hom (OddDual_cat R0) X X')) (f : τ (Hom L0 (@fapp0 (OddDual_cat R0) L0 F X') Y)) ⊢ @comp_fapp0 L0 _ _ _ (@tapp1_fapp0 L0 L0 (@comp_cat_fapp0 L0 (OddDual_cat R0) L0 F G) (@id_func L0) (@fapp0 (OddDual_cat R0) L0 F X') Y (@counit_adj_transf (OddDual_cat R0) L0 F G J) f) (@fapp1_fapp0 (OddDual_cat R0) L0 F X (@fapp0 L0 (OddDual_cat R0) G (@fapp0 (OddDual_cat R0) L0 F X')) (@tapp1_fapp0 (OddDual_cat R0) (OddDual_cat R0) (@id_func (OddDual_cat R0)) (@comp_cat_fapp0 (OddDual_cat R0) L0 (OddDual_cat R0) G F) X X' (@unit_adj_transf (OddDual_cat R0) L0 F G J) g)) ≡ @comp_fapp0 L0 _ _ _ f (@fapp1_fapp0 (OddDual_cat R0) L0 F X X' g);
+
+// Original 2 with R odd-dual.
+assert [R0 L0 : Cat] [F : τ (Functor (OddDual_cat R0) L0)] [G : τ (Functor L0 (OddDual_cat R0))] (J : τ (@Adjunction (OddDual_cat R0) L0 F G)) (X : τ (Obj (OddDual_cat R0))) (Y' Y : τ (Obj L0)) (f : τ (Hom (OddDual_cat R0) X (@fapp0 L0 (OddDual_cat R0) G Y'))) (g : τ (Hom L0 Y' Y)) ⊢ @comp_fapp0 (OddDual_cat R0) _ _ _ (@fapp1_fapp0 L0 (OddDual_cat R0) G (@fapp0 (OddDual_cat R0) L0 F (@fapp0 L0 (OddDual_cat R0) G Y')) Y (@tapp1_fapp0 L0 L0 (@comp_cat_fapp0 L0 (OddDual_cat R0) L0 F G) (@id_func L0) Y' Y (@counit_adj_transf (OddDual_cat R0) L0 F G J) g)) (@tapp1_fapp0 (OddDual_cat R0) (OddDual_cat R0) (@id_func (OddDual_cat R0)) (@comp_cat_fapp0 (OddDual_cat R0) L0 (OddDual_cat R0) G F) X (@fapp0 L0 (OddDual_cat R0) G Y') (@unit_adj_transf (OddDual_cat R0) L0 F G J) f) ≡ @comp_fapp0 (OddDual_cat R0) _ _ _ (@fapp1_fapp0 L0 (OddDual_cat R0) G Y' Y g) f;
+
+// Original 1 with L odd-dual.
+assert [R0 L0 : Cat] [F : τ (Functor R0 (OddDual_cat L0))] [G : τ (Functor (OddDual_cat L0) R0)] (J : τ (@Adjunction R0 (OddDual_cat L0) F G)) (X X' : τ (Obj R0)) (Y : τ (Obj (OddDual_cat L0))) (g : τ (Hom R0 X X')) (f : τ (Hom (OddDual_cat L0) (@fapp0 R0 (OddDual_cat L0) F X') Y)) ⊢ @comp_fapp0 (OddDual_cat L0) _ _ _ (@tapp1_fapp0 (OddDual_cat L0) (OddDual_cat L0) (@comp_cat_fapp0 (OddDual_cat L0) R0 (OddDual_cat L0) F G) (@id_func (OddDual_cat L0)) (@fapp0 R0 (OddDual_cat L0) F X') Y (@counit_adj_transf R0 (OddDual_cat L0) F G J) f) (@fapp1_fapp0 R0 (OddDual_cat L0) F X (@fapp0 (OddDual_cat L0) R0 G (@fapp0 R0 (OddDual_cat L0) F X')) (@tapp1_fapp0 R0 R0 (@id_func R0) (@comp_cat_fapp0 R0 (OddDual_cat L0) R0 G F) X X' (@unit_adj_transf R0 (OddDual_cat L0) F G J) g)) ≡ @comp_fapp0 (OddDual_cat L0) _ _ _ f (@fapp1_fapp0 R0 (OddDual_cat L0) F X X' g);
+
+// Original 2 with L odd-dual.
+assert [R0 L0 : Cat] [F : τ (Functor R0 (OddDual_cat L0))] [G : τ (Functor (OddDual_cat L0) R0)] (J : τ (@Adjunction R0 (OddDual_cat L0) F G)) (X : τ (Obj R0)) (Y' Y : τ (Obj (OddDual_cat L0))) (f : τ (Hom R0 X (@fapp0 (OddDual_cat L0) R0 G Y'))) (g : τ (Hom (OddDual_cat L0) Y' Y)) ⊢ @comp_fapp0 R0 _ _ _ (@fapp1_fapp0 (OddDual_cat L0) R0 G (@fapp0 R0 (OddDual_cat L0) F (@fapp0 (OddDual_cat L0) R0 G Y')) Y (@tapp1_fapp0 (OddDual_cat L0) (OddDual_cat L0) (@comp_cat_fapp0 (OddDual_cat L0) R0 (OddDual_cat L0) F G) (@id_func (OddDual_cat L0)) Y' Y (@counit_adj_transf R0 (OddDual_cat L0) F G J) g)) (@tapp1_fapp0 R0 R0 (@id_func R0) (@comp_cat_fapp0 R0 (OddDual_cat L0) R0 G F) X (@fapp0 (OddDual_cat L0) R0 G Y') (@unit_adj_transf R0 (OddDual_cat L0) F G J) f) ≡ @comp_fapp0 R0 _ _ _ (@fapp1_fapp0 (OddDual_cat L0) R0 G Y' Y g) f;
+
+// Original 1 with both odd-dual.
+assert [R0 L0 : Cat] [F : τ (Functor (OddDual_cat R0) (OddDual_cat L0))] [G : τ (Functor (OddDual_cat L0) (OddDual_cat R0))] (J : τ (@Adjunction (OddDual_cat R0) (OddDual_cat L0) F G)) (X X' : τ (Obj (OddDual_cat R0))) (Y : τ (Obj (OddDual_cat L0))) (g : τ (Hom (OddDual_cat R0) X X')) (f : τ (Hom (OddDual_cat L0) (@fapp0 (OddDual_cat R0) (OddDual_cat L0) F X') Y)) ⊢ @comp_fapp0 (OddDual_cat L0) _ _ _ (@tapp1_fapp0 (OddDual_cat L0) (OddDual_cat L0) (@comp_cat_fapp0 (OddDual_cat L0) (OddDual_cat R0) (OddDual_cat L0) F G) (@id_func (OddDual_cat L0)) (@fapp0 (OddDual_cat R0) (OddDual_cat L0) F X') Y (@counit_adj_transf (OddDual_cat R0) (OddDual_cat L0) F G J) f) (@fapp1_fapp0 (OddDual_cat R0) (OddDual_cat L0) F X (@fapp0 (OddDual_cat L0) (OddDual_cat R0) G (@fapp0 (OddDual_cat R0) (OddDual_cat L0) F X')) (@tapp1_fapp0 (OddDual_cat R0) (OddDual_cat R0) (@id_func (OddDual_cat R0)) (@comp_cat_fapp0 (OddDual_cat R0) (OddDual_cat L0) (OddDual_cat R0) G F) X X' (@unit_adj_transf (OddDual_cat R0) (OddDual_cat L0) F G J) g)) ≡ @comp_fapp0 (OddDual_cat L0) _ _ _ f (@fapp1_fapp0 (OddDual_cat R0) (OddDual_cat L0) F X X' g);
+
+// Original 2 with both odd-dual.
+assert [R0 L0 : Cat] [F : τ (Functor (OddDual_cat R0) (OddDual_cat L0))] [G : τ (Functor (OddDual_cat L0) (OddDual_cat R0))] (J : τ (@Adjunction (OddDual_cat R0) (OddDual_cat L0) F G)) (X : τ (Obj (OddDual_cat R0))) (Y' Y : τ (Obj (OddDual_cat L0))) (f : τ (Hom (OddDual_cat R0) X (@fapp0 (OddDual_cat L0) (OddDual_cat R0) G Y'))) (g : τ (Hom (OddDual_cat L0) Y' Y)) ⊢ @comp_fapp0 (OddDual_cat R0) _ _ _ (@fapp1_fapp0 (OddDual_cat L0) (OddDual_cat R0) G (@fapp0 (OddDual_cat R0) (OddDual_cat L0) F (@fapp0 (OddDual_cat L0) (OddDual_cat R0) G Y')) Y (@tapp1_fapp0 (OddDual_cat L0) (OddDual_cat L0) (@comp_cat_fapp0 (OddDual_cat L0) (OddDual_cat R0) (OddDual_cat L0) F G) (@id_func (OddDual_cat L0)) Y' Y (@counit_adj_transf (OddDual_cat R0) (OddDual_cat L0) F G J) g)) (@tapp1_fapp0 (OddDual_cat R0) (OddDual_cat R0) (@id_func (OddDual_cat R0)) (@comp_cat_fapp0 (OddDual_cat R0) (OddDual_cat L0) (OddDual_cat R0) G F) X (@fapp0 (OddDual_cat L0) (OddDual_cat R0) G Y') (@unit_adj_transf (OddDual_cat R0) (OddDual_cat L0) F G J) f) ≡ @comp_fapp0 (OddDual_cat R0) _ _ _ (@fapp1_fapp0 (OddDual_cat L0) (OddDual_cat R0) G Y' Y g) f;
+
+
+
+assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
+(G : τ (Functor (Functor_oplax_cat A C) B))
+(J : τ (@Adjunction B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) G)) (X X' : τ (Obj B)) (Y : τ (Obj (Functor_oplax_cat A C))) (g : τ (Hom B X X')) (f : τ (Hom (Functor_oplax_cat A C) (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X') Y)) ⊢ @comp_fapp0 (Functor_oplax_cat A C) _ _ _ (@tapp1_fapp0 (Functor_oplax_cat A C) (Functor_oplax_cat A C) (@comp_cat_fapp0 (Functor_oplax_cat A C) B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) G) (@id_func (Functor_oplax_cat A C)) (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X') Y (@counit_adj_transf B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) G J) f) (@fapp1_fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X (@fapp0 (Functor_oplax_cat A C) B G (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X')) (@tapp1_fapp0 B B (@id_func B) (@comp_cat_fapp0 B (Functor_oplax_cat A C) B G (@diagram_family_shape_func A B C H)) X X' (@unit_adj_transf B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) G J) g)) ≡ @comp_fapp0 (Functor_oplax_cat A C) _ _ _ f (@fapp1_fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X X' g);
+
+assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
+(F : τ (Functor (Functor_oplax_cat A C) B))
+(J : τ (@Adjunction (Functor_oplax_cat A C) B F (@diagram_family_shape_func A B C H))) (X : τ (Obj (Functor_oplax_cat A C))) (Y' Y : τ (Obj B)) (f : τ (Hom (Functor_oplax_cat A C) X (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) Y'))) (g : τ (Hom B Y' Y)) ⊢ @comp_fapp0 (Functor_oplax_cat A C) _ _ _ (@fapp1_fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) (@fapp0 (Functor_oplax_cat A C) B F (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) Y')) Y (@tapp1_fapp0 B B (@comp_cat_fapp0 B (Functor_oplax_cat A C) B F (@diagram_family_shape_func A B C H)) (@id_func B) Y' Y (@counit_adj_transf (Functor_oplax_cat A C) B F (@diagram_family_shape_func A B C H) J) g)) (@tapp1_fapp0 (Functor_oplax_cat A C) (Functor_oplax_cat A C) (@id_func (Functor_oplax_cat A C)) (@comp_cat_fapp0 (Functor_oplax_cat A C) B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) F) X (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) Y') (@unit_adj_transf (Functor_oplax_cat A C) B F (@diagram_family_shape_func A B C H) J) f) ≡ @comp_fapp0 (Functor_oplax_cat A C) _ _ _ (@fapp1_fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) Y' Y g) f;
+
+
+
+// Unit and counit must refer to the same supplied adjunction.
+assertnot [A B C : Cat] (H : τ (Functor A (Functor_cat B C))) (G : τ (Functor (Functor_oplax_cat A C) B)) (J : τ (@Adjunction B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) G)) (J2 : τ (@Adjunction B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) G)) (X X' : τ (Obj B)) (Y : τ (Obj (Functor_oplax_cat A C))) (g : τ (Hom B X X')) (f : τ (Hom (Functor_oplax_cat A C) (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X') Y)) ⊢ @comp_fapp0 (Functor_oplax_cat A C) _ _ _ (@tapp1_fapp0 (Functor_oplax_cat A C) (Functor_oplax_cat A C) (@comp_cat_fapp0 (Functor_oplax_cat A C) B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) G) (@id_func (Functor_oplax_cat A C)) (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X') Y (@counit_adj_transf B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) G J2) f) (@fapp1_fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X (@fapp0 (Functor_oplax_cat A C) B G (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X')) (@tapp1_fapp0 B B (@id_func B) (@comp_cat_fapp0 B (Functor_oplax_cat A C) B G (@diagram_family_shape_func A B C H)) X X' (@unit_adj_transf B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) G J) g)) ≡ @comp_fapp0 (Functor_oplax_cat A C) _ _ _ f (@fapp1_fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) X X' g);
+
+// Unit and counit must refer to the same supplied adjunction.
+assertnot [A B C : Cat] (H : τ (Functor A (Functor_cat B C))) (F : τ (Functor (Functor_oplax_cat A C) B)) (J : τ (@Adjunction (Functor_oplax_cat A C) B F (@diagram_family_shape_func A B C H))) (J2 : τ (@Adjunction (Functor_oplax_cat A C) B F (@diagram_family_shape_func A B C H))) (X : τ (Obj (Functor_oplax_cat A C))) (Y' Y : τ (Obj B)) (f : τ (Hom (Functor_oplax_cat A C) X (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) Y'))) (g : τ (Hom B Y' Y)) ⊢ @comp_fapp0 (Functor_oplax_cat A C) _ _ _ (@fapp1_fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) (@fapp0 (Functor_oplax_cat A C) B F (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) Y')) Y (@tapp1_fapp0 B B (@comp_cat_fapp0 B (Functor_oplax_cat A C) B F (@diagram_family_shape_func A B C H)) (@id_func B) Y' Y (@counit_adj_transf (Functor_oplax_cat A C) B F (@diagram_family_shape_func A B C H) J2) g)) (@tapp1_fapp0 (Functor_oplax_cat A C) (Functor_oplax_cat A C) (@id_func (Functor_oplax_cat A C)) (@comp_cat_fapp0 (Functor_oplax_cat A C) B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) F) X (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) Y') (@unit_adj_transf (Functor_oplax_cat A C) B F (@diagram_family_shape_func A B C H) J) f) ≡ @comp_fapp0 (Functor_oplax_cat A C) _ _ _ (@fapp1_fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) Y' Y g) f;
+
+// Identity of the whole varying-shape functor, through the retained action.
+assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C))) (b : τ (Obj B)) ⊢
+ @fapp1_fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) b b (@id B b)
+ ≡ @id (Functor_oplax_cat A C) (@fapp0 B (Functor_oplax_cat A C) (@diagram_family_shape_func A B C H) b);
+
+// Proof-time metadata congruence does not forget the actual transformation.
+assertnot [X A B : Cat] (D : τ (Functor X A)) (F G : τ (Functor A B))
+  (alpha beta : τ (@Transf A B F G)) ⊢
+  @eq_refl
+    (Obj (Hom_cat (Functor_cat X B)
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B X A D F)
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B X A D G)))
+    (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B X A D F G alpha)
+  : τ (@=
+    (Obj (Hom_cat (Functor_cat X B)
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B X A D F)
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B X A D G)))
+    (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B X A D F G alpha)
+    (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B X A D F G beta));
+
+// A literal-composite evaluation view does not forget the actual diagram family.
+assertnot [I A C : Cat] (i : τ (Obj I)) (F : τ (Functor A C))
+ (G : τ (Functor C (Functor_oplax_cat I C))) ⊢
+ @eq_refl (Functor A C)
+   (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A (Functor_oplax_cat I C)
+     (@comp_cat_fapp0 A C (Functor_oplax_cat I C) G F)
+     (@diagram_oplax_evaluation_at_func I C i))
+ : τ (@= (Functor A C)
+   (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A (Functor_oplax_cat I C)
+     (@comp_cat_fapp0 A C (Functor_oplax_cat I C) G F)
+     (@diagram_oplax_evaluation_at_func I C i)) F);

@@ -1,0 +1,11 @@
+// Strict composition at the retained fixed Cat-prewhiskering action.
+// The literal coefficient and identity-family profile are real discriminators:
+// an unrestricted higher-Hom instance overlaps the separate displayed fold.
+rule @comp_fapp0 _ _ _ _
+      (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $Z $W $X $h $k $l $beta)
+      (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $Z $W $X $h $g $k $alpha)
+  ↪ @hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      $Z $W $X $h $g $l
+      (@comp_fapp0 (Functor_cat $X $Z) $g $k $l $beta $alpha);

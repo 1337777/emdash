@@ -1,0 +1,6 @@
+// Sufficient congruence when the two actual arrows are identical.
+// Compare the category and every endpoint; no injectivity or reassociation
+// is inferred. The data match guards this metadata-only comparison.
+unif_rule @comp_fapp0 $C $X $Y $Z $g $f
+  ≡ @comp_fapp0 $D $X0 $Y0 $Z0 $g $f
+  ↪ [ $D ≡ $C; $X0 ≡ $X; $Y0 ≡ $Y; $Z0 ≡ $Z ];

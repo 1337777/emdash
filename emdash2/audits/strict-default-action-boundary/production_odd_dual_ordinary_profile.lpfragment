@@ -1,0 +1,13 @@
+// Structural discrete-category closure, parallel to discrete_total_op.
+// Even duality preserves object truncation and groupoidality. This is a
+// declared classifier closure, not a derivation of Core-inclusion inverse
+// data from the currently available dual-functor projection rules.
+symbol discrete_even_dual [C : Cat] (C0 : τ (IsDiscreteCat C))
+  : τ (IsDiscreteCat (EvenDual_cat C));
+
+// Hom(Odd(C),x,y)=Even(Hom(C,y,x)); the original OneCat hypothesis
+// therefore supplies the profile needed by encoded oplax-map observations.
+symbol one_cat_odd_dual [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  : τ (IsNCat (cat_succ cat_zero) (OddDual_cat C))
+≔ λ x : τ (Obj C), λ y : τ (Obj C),
+    @discrete_even_dual (Hom_cat C y x) (C1 y x);

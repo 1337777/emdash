@@ -1,0 +1,32 @@
+// Triangle cuts after odd-dual composition reverses its two arrows.
+// Explicit encoded action types are subject-reduction guards; the same
+// adjunction witness, its actual functors and both input arrows are retained.
+// lhs-audit: keep 1 -- erased odd-dual composition carrier.
+rule @comp_fapp0 $L _ _ _
+      (@fapp1_fapp0 $R (OddDual_cat $L) $F $X
+        (@fapp0 (OddDual_cat $L) $R $G (@fapp0 $R (OddDual_cat $L) $F $X'))
+        (@tapp1_fapp0 $R $R (@id Cat_cat $R)
+          (@comp_fapp0 Cat_cat $R (OddDual_cat $L) $R $G $F) $X $X'
+          (@unit_adj_transf $R (OddDual_cat $L) $F $G $J) $g))
+      (@tapp1_fapp0 (OddDual_cat $L) (OddDual_cat $L)
+        (@comp_fapp0 Cat_cat (OddDual_cat $L) $R (OddDual_cat $L) $F $G)
+        (@id Cat_cat (OddDual_cat $L))
+        (@fapp0 $R (OddDual_cat $L) $F $X') $Y
+        (@counit_adj_transf $R (OddDual_cat $L) $F $G $J) $f)
+  ↪ @comp_fapp0 $L $Y (@fapp0 $R (OddDual_cat $L) $F $X') (@fapp0 $R (OddDual_cat $L) $F $X)
+      (@fapp1_fapp0 $R (OddDual_cat $L) $F $X $X' $g) $f;
+
+// lhs-audit: keep 1 -- the dual source category has erased its outer tag.
+rule @comp_fapp0 $R _ _ _
+      (@tapp1_fapp0 (OddDual_cat $R) (OddDual_cat $R)
+        (@id Cat_cat (OddDual_cat $R))
+        (@comp_fapp0 Cat_cat (OddDual_cat $R) $L (OddDual_cat $R) $G $F)
+        $X (@fapp0 $L (OddDual_cat $R) $G $Y')
+        (@unit_adj_transf (OddDual_cat $R) $L $F $G $J) $f)
+      (@fapp1_fapp0 $L (OddDual_cat $R) $G
+        (@fapp0 (OddDual_cat $R) $L $F (@fapp0 $L (OddDual_cat $R) $G $Y')) $Y
+        (@tapp1_fapp0 $L $L
+          (@comp_fapp0 Cat_cat $L (OddDual_cat $R) $L $F $G) (@id Cat_cat $L) $Y' $Y
+          (@counit_adj_transf (OddDual_cat $R) $L $F $G $J) $g))
+  ↪ @comp_fapp0 $R (@fapp0 $L (OddDual_cat $R) $G $Y) (@fapp0 $L (OddDual_cat $R) $G $Y') $X
+      $f (@fapp1_fapp0 $L (OddDual_cat $R) $G $Y' $Y $g);

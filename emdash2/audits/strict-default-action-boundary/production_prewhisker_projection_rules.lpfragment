@@ -1,0 +1,90 @@
+// Cat-valued prewhiskering retains its existing whole action head.
+// The previous unconditional fold lost the stable precomposition endpoints
+// under identity action. Observe the same horizontal body only at the tapp
+// projection ladder; the whole proof-time comparison remains above.
+rule @tapp0_fapp0 _ _ _ _ $i
+      (@hom_precomp_along_fapp1_fapp0 $K Cat_cat $E $Z $X $Y $F $G $H $eta)
+  ↪ @tapp0_fapp0 _ _ _ _ $i
+      (@comp_prod_fapp1_fapp0
+      Cat_cat
+      (@fapp0 $K Cat_cat $E $X)
+      (@fapp0 $K Cat_cat $E $Y)
+      $Z
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $G)
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $H)
+      (@Product_pair
+        (Hom_cat
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        (Hom_cat (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z) $G $H)
+        (@id
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        $eta));
+
+rule @tapp1_func _ _ _ _ $i $j
+      (@hom_precomp_along_fapp1_fapp0 $K Cat_cat $E $Z $X $Y $F $G $H $eta)
+  ↪ @tapp1_func _ _ _ _ $i $j
+      (@comp_prod_fapp1_fapp0
+      Cat_cat
+      (@fapp0 $K Cat_cat $E $X)
+      (@fapp0 $K Cat_cat $E $Y)
+      $Z
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $G)
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $H)
+      (@Product_pair
+        (Hom_cat
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        (Hom_cat (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z) $G $H)
+        (@id
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        $eta));
+
+rule @tapp1_fapp0 _ _ _ _ $i $j
+      (@hom_precomp_along_fapp1_fapp0 $K Cat_cat $E $Z $X $Y $F $G $H $eta) $p
+  ↪ @tapp1_fapp0 _ _ _ _ $i $j
+      (@comp_prod_fapp1_fapp0
+      Cat_cat
+      (@fapp0 $K Cat_cat $E $X)
+      (@fapp0 $K Cat_cat $E $Y)
+      $Z
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $G)
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $H)
+      (@Product_pair
+        (Hom_cat
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        (Hom_cat (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z) $G $H)
+        (@id
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        $eta)) $p;

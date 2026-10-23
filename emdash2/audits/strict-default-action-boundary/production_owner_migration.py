@@ -267,6 +267,42 @@ def main():
     from production_diagram_observation_migration import migrate_diagram_observation
     diagram_migration_source = audit / 'production_diagram_observation_migration.py'
     inputs[str(diagram_migration_source.relative_to(root))] = sha(diagram_migration_source.read_text())
+    from production_selected_presentation_migration import (
+        SOURCE_SHA256 as SELECTED_PRESENTATION_SOURCES,
+        migrate_selected_presentation, finish_selected_core, finish_selected_diagram,
+        finish_selected_family_views, finish_selected_homology_comparison,
+        finish_selected_prewhisker_check,
+        finish_selected_arrow_diagram,
+        finish_selected_adjunction_reviewer,
+    )
+    for name in ('production_selected_presentation_migration.py',
+                 'production_selected_kernel_metadata.lpfragment',
+                 'production_selected_cokernel_metadata.lpfragment',
+                 'production_selected_projection_naturality.lpfragment',
+                 'production_odd_dual_ordinary_profile.lpfragment',
+                 'production_composition_metadata_congruence.lpfragment',
+                 'production_odd_dual_adjunction_cuts.lpfragment',
+                 'production_oplax_exchange_adjunction_cuts.lpfragment',
+                 'production_prewhisker_projection_rules.lpfragment',
+                 'production_prewhisker_action_composition.lpfragment',
+                 'production_prewhisker_metadata_congruence.lpfragment',
+                 'production_precomposition_composite_view.lpfragment',
+                 'production_stable_prewhisker_reindex.lpfragment',
+                 'production_odd_dual_precomposition.lpfragment',
+                 'production_walking_point_precomposition.lpfragment',
+                 'production_selected_identity_controls.lpfragment',
+                 'production_selected_presentation_complete_regression.lpfragment',
+                 'production_selected_presentation_reviewer_suffix.lpfragment',
+                 'production_selected_presentation_controls.lpfragment',
+                 'production_selected_presentation_regression.lpfragment',
+                 'production_selected_presentation_core_regression.lpfragment',
+                 'production_selected_presentation_library_regression.lpfragment',
+                 'production_selected_presentation_residual_regression.lpfragment',
+                 'production_action_remaining_core_regression.lpfragment',
+                 'production_action_remaining_library_regression.lpfragment',
+                 'production_simplex_dependency_residual_regression.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     from production_simplex_dependency_migration import migrate_simplex_dependency
     for name in ('production_simplex_dependency_migration.py',
                  'production_triangle_family_action.lpfragment'):
@@ -2211,6 +2247,12 @@ unif_rule @sigma_map_func $K _ _
             baseline_target = baseline_package / path
             baseline_target.parent.mkdir(parents=True, exist_ok=True)
             baseline_target.write_text(text)
+            selected_presentation = migrate_selected_presentation(path, text)
+            if selected_presentation is not None:
+                changes.append({'source': path, 'owner': 'selected kernel/cokernel presentation continuation',
+                                'reason': 'Retain selected data, original generality and whole computations at the corrected oplax evaluation, mapped inverse and typed native map owners',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(selected_presentation)})
+                text = selected_presentation
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6271,6 +6313,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/direct_cover_internal_sheaves.lp')
     stage('examples/direct_cover_completion_hit.lp')
     stage('examples/direct_cover_completion_eliminator.lp')
+    for path in SELECTED_PRESENTATION_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7543,6 +7587,49 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
     changes.append({'source': 'emdash3_2.lp', 'owner': 'covariant compositor projection and represented point comparison',
                     'reason': 'Join the capped default-strict compositor with its whole extracted identity; retain the original two-arrow pre/post comparison and add its three-arrow nested instance with all operands constrained, preserving runtime owners and arbitrary lax displayed action',
                     'oldBodySha256': sha(before_simplex), 'newBodySha256': sha(after_simplex)})
+    # The selected-presentation owner changes follow earlier exact-pin replays.
+    for name, finish in (('emdash3_2.lp', finish_selected_core),
+                         ('emdash3_2_diagram_evaluation.lp', finish_selected_diagram),
+                         ('emdash3_2_arrow_diagram_families.lp', finish_selected_arrow_diagram),
+                         ('examples/one_cat_adjunction_families.lp', finish_selected_adjunction_reviewer),
+                         ('emdash3_2_one_cat_adjunction_family_views.lp', finish_selected_family_views),
+                         ('emdash3_2_one_cat_homology_family_comparison.lp', finish_selected_homology_comparison)):
+        target = package / name
+        before = target.read_text()
+        after = finish(before)
+        target.write_text(after)
+        manifest['outputs'][str(target.relative_to(root))] = sha(after)
+        changes.append({'source': name, 'owner': 'selected presentation action normalization',
+                        'reason': 'Preserve canonical capped action endpoints, generic same-arrow metadata, actual dual triangles and stable Cat prewhiskering projections',
+                        'oldBodySha256': sha(before), 'newBodySha256': sha(after)})
+    for name, source in (
+        ('selected_presentation_controls.lp', 'production_selected_presentation_controls.lpfragment'),
+        ('selected_identity_controls.lp', 'production_selected_identity_controls.lpfragment'),
+        ('selected_presentation_complete_regression.lp', 'production_selected_presentation_complete_regression.lpfragment'),
+        ('selected_presentation_reviewer_suffix.lp', 'production_selected_presentation_reviewer_suffix.lpfragment'),
+        ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
+        ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
+        ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),
+        ('selected_presentation_residual_regression.lp', 'production_selected_presentation_residual_regression.lpfragment'),
+        ('action_remaining_core_regression.lp', 'production_action_remaining_core_regression.lpfragment'),
+        ('action_remaining_library_regression.lp', 'production_action_remaining_library_regression.lpfragment'),
+        ('simplex_dependency_residual_regression.lp', 'production_simplex_dependency_residual_regression.lpfragment'),
+    ):
+        target = package / name
+        target.write_text(fragment(source))
+        manifest['outputs'][str(target.relative_to(root))] = sha(target.read_text())
+    # Update the full original diagnostic and its actual selected projections.
+    # The five unrelated terminal runtime obligations retain their old status.
+    for name in ('emdash3_2_checks.lp', 'central_full_context_except_terminal.lp',
+                 'central_hom_action_controls.lp', 'central_action_controls.lp'):
+        target = package / name
+        before = target.read_text()
+        after = finish_selected_prewhisker_check(before)
+        target.write_text(after)
+        manifest['outputs'][str(target.relative_to(root))] = sha(after)
+        changes.append({'source': name, 'owner': 'stable whole prewhiskering diagnostic',
+                        'reason': 'Preserve the original whole comparison at proof time and add the runtime noncollapse boundary after retiring the eager fold that broke strict identity computation',
+                        'oldBodySha256': sha(before), 'newBodySha256': sha(after)})
     (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print('Emitted full pre-goal baseline and upstream owner migration; no original tail omitted.')
 

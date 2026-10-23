@@ -1,0 +1,8 @@
+// Duality acts on the retained precomposition presentation of a strict
+// composite. Preserve its owner rather than unfold it to raw composition.
+rule @OddDual_func _ _
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $C $A $B $F $G)
+  ↪ @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      (OddDual_cat $C) (OddDual_cat $A) (OddDual_cat $B)
+      (@OddDual_func $A $B $F) (@OddDual_func $B $C $G);

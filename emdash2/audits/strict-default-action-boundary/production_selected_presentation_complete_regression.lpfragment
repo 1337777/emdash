@@ -1,0 +1,7 @@
+// Complete existing integration scopes; no original driver or assertion omitted.
+// Common imports are checked once within the combined context.
+require open emdash.selected_presentation_core_regression;
+require open emdash.selected_presentation_library_regression;
+require open emdash.selected_presentation_residual_regression;
+require open emdash.simplex_dependency_review;
+require open emdash.selected_presentation_regression;

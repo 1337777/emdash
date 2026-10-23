@@ -42,6 +42,106 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified selected-presentation continuation, 2026-10-23 UTC: complete
+integration passes 3,780 positive/571 negative assertions in 1191.163s at
+4,028,344KiB RSS under 1800s/6GiB/o=20
+(`20261023T141551Z-7e47dea2a07b4db391493d9bdf15274f`). All five original
+regression drivers are retained, and every input hash matches the emitted
+source. Qualification now covers **613 LP files: 400 core/library and 213
+reviewers**. The [consolidated review](../emdash2/audits/strict-default-action-boundary/production_selected_presentation_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_selected_presentation_verification.json)
+own the final implementation, original-source/assertion dispositions,
+warning comparison and resource evidence. No checker is currently running.
+The validated local mathematical checkpoint follows the staged-diff review.
+Tooling remains checkpointed separately at `7eaaab3f`.
+
+The 38 added original files retain all 110 declarations and 86 assertions.
+Three original composition negatives become positives under strict default
+functors. The existing prewhiskering owner now retains its identity endpoints
+and exposes its horizontal body through the projection ladder; mapped inverse,
+odd-dual/exchange triangle and evaluator comparisons preserve actual data.
+Fixed and shape evaluation now use the same retained component presentation,
+so the original identity reviewer passes without weakened observations.
+
+Three explicit diagnostic-contract migrations are recorded: the central
+whole prewhiskering-to-horizontal reading and two whole unit/counit component
+readings use existing comparison theorems, preserving their original whole
+equations and nested runtime computations. Runtime-owner distinction controls
+are added. These do not alter the five terminal runtime obligations R01–R03.
+The remaining original reviewer sweep also passed 765 positives/143 negatives
+before the final complete run. No mathematical checkpoint is inferred from
+any earlier timeout, allocation failure or passing subset.
+
+The complete warning inventory is 2,480 bodies against the prior qualified
+scope union of 2,587 (90 added, 197 removed). All but one addition had already
+appeared in reviewed candidate scopes; the remaining symbolic semisimplicial
+identity/Sigma-prewhiskering overlap is recorded under R07/R12. All 22 new
+fragments pass the strict inferred-slot audit and retain manual nested-pattern
+review. No global confluence or performance fix is claimed. The final run
+allocated about 323.52 billion words; rewriting dominates its cost.
+
+Next: validate the already prepared four original record/evaluation owners
+and three reviewers in the separate next-record package, after refreshing its
+parent emission. It adds no rules or operational primitives. There remain
+391 registered core/library files and 383 reviewers outside the qualified
+snapshot, the five terminal runtime obligations, normalization/toolchain
+qualification and production promotion. The overall goal remains active.
+The older live-process descriptions below are historical, superseded here.
+
+Latest owner continuation, 2026-10-23 UTC: the regenerated emitted audit now
+includes the fixed/shape-family owner correction. The complete integration
+is running as `selected_presentation_complete_regression.lp`, unified session
+15420, under 1800s/6GiB/o=20. Its output is
+`emdash2/tmp/probes/selected_presentation_continuation/exchange_identity/complete_integration_6g.out`.
+The recovery JSON records its current handle and exact package. Poll this
+run rather than restarting it, and keep its emitted inputs fixed while live.
+
+The preceding complete run at 4GiB ended with a minor-GC allocation failure
+after 1196.539s at 3,915,528KiB, while checking
+`examples/freyd_native_row_families.lp`
+(`20261023T130528Z-37c7473dfc434bcb98f7fdff46698659`). Its central diagnostic,
+original identity reviewer and original diagram-evaluation reviewer had all
+completed; no new assertion failure preceded the resource stop. It remains
+an incomplete aggregate. Before the explicit memory-only retry, host memory
+showed 17,504MiB available of 31,760MiB. The selected 6GiB limit leaves host
+headroom and preserves serial execution, no-swap containment, file/core
+limits, subject reduction and the same 1800-second deadline. No script,
+normal default, registered profile or mathematical source changed for this
+retry. Measurements are in `exchange_identity/memory_extension.json`.
+
+The prior 1800-second library run reached the original runtime identity
+failure in `examples/adjunction_exchange_op_identity.lp:3–6` after 995.342s
+at 3,611,984KiB (`20261023T123035Z-fb3f8a4be43e441ebc4014ad16d52a57`). Normal
+forms showed identity at retained precomposition versus identity at raw
+composition. The correction changes the existing fixed-family accessor to
+retained precomposition and adds its OddDual projection-order join. The same
+walking-diagram point comparison is retargeted after that join erases its old
+duality wrapper; its theorem statement, body and actual-data constraints stay.
+No original assertion is weakened, excluded or relabelled as a proof-time
+observation for this correction.
+
+The complete selected-presentation scope and original identity/diagram-
+evaluation reviewers pass together: 97 positive/28 negative assertions in
+149.749s at 1,050,148KiB
+(`20261023T125803Z-626cf195dd8647ba8314c5e05e191a59`). Its warning multiset is
+exactly the earlier 2,251 bodies. The emitted owners match that passing
+candidate, with only a comment difference in the retargeted point comparison.
+Both new/retargeted rule fragments pass the inferred-slot audit; the whole
+fixed-component and double-dual controls cover the new projection order.
+
+The complete driver retains all five original core/library/residual/previous-
+simplex/selected-presentation drivers. Its import closure explicitly covers
+all 613 candidate registered LP files, including the preceding 22 simplex/
+chain-pair files that would be missed if the old focused driver were dropped.
+This avoids reloading common imports in five separate processes while keeping
+every original required scope. Full integration remains pending, so the last
+qualified mathematical checkpoint remains `aa8f8a35` / 575 files. Tooling is
+checkpointed separately at `7eaaab3f`; the seven next record-view drafts are
+still unqualified and outside this complete run.
+
+The dated resource and source descriptions below preserve their earlier
+snapshots. This latest owner boundary supersedes their live-process claims.
+
 Aggregate-duration clarification, 2026-10-23 UTC: the user reaffirmed that
 900 seconds has no mathematical significance for a cumulative library replay.
 The [bounded aggregate-duration extension](../emdash2/audits/strict-default-action-boundary/production_aggregate_duration_review.md)
@@ -49,10 +149,95 @@ qualifies an explicit 1800-second ceiling, preserving the normal 90s/2GiB
 defaults, every named profile and all memory/serial/file/no-swap/SR safeguards.
 Fifteen guard/runner, ten registry and thirteen DevOps tests, the full registry
 inventory and all three existing formal smoke targets pass. The selected
-full-library replay will use 1800s/4GiB/o=20 with its original scope unchanged.
-This is a separate tooling checkpoint; it does not qualify the mathematical
-tranche or change policy to compensate for transient host load. The detailed
-mathematical continuation below retains its own source and validation boundary.
+full-library replay is running with 1800s/4GiB/o=20 and its original scope
+unchanged. Tooling checkpoint: `7eaaab3f`; the mathematical checkpoint remains
+`aa8f8a35` / 575 files. Poll unified session 94082, or inspect its actual process
+and `tmp/probes/selected_presentation_continuation/final_library_1800.out` before
+starting another checker. The recovery JSON's `currentExperiment` is updated.
+This tooling checkpoint does not qualify the mathematical tranche or change
+policy to compensate for transient host load. The dated 900-second boundaries
+below are now historical outcomes, not the current run status.
+
+The next four original record/evaluation owners and three reviewers are
+mechanically prepared in the separate
+`emdash2/tmp/probes/selected_presentation_continuation/next_record_views/`
+package. Its input pins, preparation script and declaration/assertion
+inventory are retained there. No new rules, primitives, caller hypotheses or
+assertion polarity changes were introduced. It has not been typechecked or
+integrated, and contributes nothing to qualification counts. Do not modify the
+currently checked emitted package to include that next slice while it is live.
+
+Current continuation boundary, 2026-10-23 UTC: the selected-presentation
+replay is integrated into `production_owner_migration.py`, with its
+[in-progress review](../emdash2/audits/strict-default-action-boundary/production_selected_presentation_review.md).
+It adapts 38 original files (21 library modules and 17 reviewers), preserving
+all 110 original declarations and 86 original assertions. Three composition
+negatives become positive under strict default functors. The mapped inverse
+comparison, native zero-cone constructor, stable prewhiskering projection
+ladder and dual/exchange triangle cuts are implemented in the emitted audit.
+
+The final focused check passes 79 positive/23 negative assertions in
+175.603 seconds at 1,068,328 KiB RSS
+(`20261023T103250Z-63661798a8a1400bb8765e4b1abb8a7f`). The full core regression
+passes 2,350 executable positive/351 negative assertions in 801.054 seconds
+at 3,448,592 KiB RSS
+(`20261023T110127Z-6a89db121d8d436388521669ee625e4c`). Both receipts match the
+current emitted mathematical sources. The predecessor's reported 2,351 core
+positives included one block-comment sentence; stripping comments corrects
+the executable count to 2,350 without dropping an assertion. Its 350 negatives
+increase to 351 because the retained whole prewhiskering comparison now has
+an explicit runtime-noncollapse control. The five terminal runtime obligations
+are unchanged.
+
+The original-order full-library regression reached its 900-second deadline
+without a reported typing failure
+(`20261023T111515Z-786b71bded264781945eaa5920e51c7a`). A diagnostic with the
+same complete library scope and shared dependencies imported earlier also
+reached 900 seconds without a reported typing failure
+(`20261023T113347Z-d8256652253f4b1abec9e329346da641`). It is not adopted as a
+source or tooling change. The residual regression then reached its existing
+180-second limit during the homology-map kernel-cover owner, without a
+reported typing failure (`20261023T114904Z-cdcf228e2da54826aa571b888135aab8`).
+The original-order library retry with unchanged sources, 900s/4GiB/o=20 and
+normal scheduling also reaches its deadline near the Hom-comparison /
+`prof_defiso_evaluation_paths` imports, without a reported typing failure
+(`20261023T115219Z-019c084419a941ccb686ea48f40c9150`). Its cause remains
+unattributed. Do not repeat it immediately without new load or measurement
+evidence. The residual scope subsequently passes with a time-only 300s/2GiB/o=20
+extension: 85 positive/10 negative checks in 254.498 seconds at 554,460 KiB RSS
+(`20261023T121011Z-c7ab46ea7eee453f99896416004aa263`). All inputs match the
+emitted source, and all added residual warning bodies already occur in the
+current passing focused/core scopes. Two intervening serial-guard deferrals
+are recorded separately; no other worktree process was interrupted. No
+checker is currently running for this continuation. No script, tool, SOP or
+default policy changed for these retries. The full original-order library
+gate is the remaining aggregate boundary. Preserve its complete scope; use
+new load/measurement evidence before another identical retry, and the existing
+command timings for a bounded owner/context diagnosis if the slowdown persists.
+The [pending evidence inventory](../emdash2/audits/strict-default-action-boundary/production_selected_presentation_verification.json)
+retains every pass, timeout and current coverage boundary.
+
+The user reports transient heavy host load, which may or may not explain the
+recent timeout, and permits bounded retries. Do not make permanent changes
+to SOP, scripts, tools or resource defaults to accommodate that load. Keep
+mathematical failures separate from resource limits and do not attribute a
+timeout to either the host or the formal source without evidence. The current
+CPU-affinity diagnostic was launched before this steering and does not define
+a new validation policy. Never interfere with another worktree's processes.
+
+The authoritative candidate remains
+`emdash2/tmp/probes/production_owner_migration/package`. The remaining gates
+are full-library qualification, complete exact-input coverage and final warning
+review, followed by plan/ledger synchronization and a path-scoped checkpoint.
+Do not repeat the unchanged green focused/core scopes for reassurance. The
+last globally qualified checkpoint remains `aa8f8a35` / 575 LP files; do not
+add the new 38 files until their interaction gates pass. No production
+promotion, new commit, push or merge has occurred. Preserve unrelated dirt.
+
+The dated paragraphs below retain the earlier experiment sequence. Their
+intermediate hypotheses and failures are superseded by the current boundary
+above and the final source/receipt inventory; they are not instructions to
+restart retired probes.
 
 Reviewed resource continuation, 2026-10-23 UTC: the
 [time-ceiling review](../emdash2/audits/strict-default-action-boundary/production_resource_time_extension_review.md)
@@ -63,6 +248,93 @@ memory/file/serial/no-swap protections and subject reduction stay unchanged.
 The immediate full-library retry uses 900s/4GiB/o=20. This is diagnostic time
 headroom under the user's standing authorization, not a performance pass or
 a change to the formal goal's acceptance criteria.
+
+In-progress selected-presentation continuation after `aa8f8a35`, 2026-10-23
+UTC: the private source in
+`emdash2/tmp/probes/selected_presentation_continuation/` translates the
+original kernel/cokernel presentation adapters to the existing oplax diagram
+coefficient, whole evaluation and total-dual initial hypothesis. General C,
+selected W/P, actual adjunction data and original strictness/OneCat guards
+remain. Explicit `Obj(Hom_cat ...)` proof carriers resolve the encoded
+naturality observation. A declared discrete-even-dual classifier closure,
+parallel to the existing discrete-total-dual closure, supplies the derived
+OneCat(OddDual C) view from the same C1; no caller premise is added.
+
+Both complete presentation modules pass separately. The coupled context
+exposed allocation failures at 2 and 4 GiB. Removing their existing
+composition-metadata comparisons breaks the original kernel naturality
+proof. Retaining those statements with linear patterns and explicit
+category/endpoint/arrow side conditions makes the ordered pair pass in
+65.389s/631,608KiB under 180s/2GiB/o=20. The 38-source continuation and its
+original direct/metadata reviewers are now being checked; this private slice
+is not integrated or qualified yet. The qualified emission remains unchanged;
+these prototypes stay in the private package and retain the original runtime
+object-noncollapse controls.
+
+Further private consumer evidence: the selected mate proofs now apply the
+existing whole adjunction comparison to the actual arrow before using the
+original selected-lift observation. Explicit composition endpoints in the
+homology projection naturality statement resolve its specialization without
+a new rule; the experimental generic proof helper is removed. Raw chain-pair
+objects/maps use the already qualified native oplax inclusion. The expanded
+38-source, 128-file closure reaches allocation failure while importing the
+unchanged generic modification layer, under both 2 and 4 GiB. The smaller
+presentation-pair, mate, and factor scopes followed by that module pass.
+Explicitly completing the common diagram prerequisites at the driver level
+also passes (107.194s/788,980KiB), including every module completed in the
+failing context and the modification module itself. This supports an import-
+context/order effect without proving its precise retention mechanism. The
+full original group now follows that explicit prerequisite sequence, with
+unchanged sources, rules, assertions and hypotheses; it is still unqualified.
+No dependency-owner relocation or further memory increase is adopted.
+
+The later boundary checks qualify reflection alone and after either selected
+presentation separately; the pair reproduces the allocation failure. A
+source-category guard on the selected-object hints did not help and is
+rejected. The current private candidate instead generalizes the existing
+Functor-category-only composition congruence to arbitrary categories, while
+still matching the same actual arrows and comparing every category/endpoint.
+The two selected composition-metadata hints are disabled in that candidate.
+The ordered pair plus full reflection then passes within 2 GiB; the original
+direct, metadata, mate and record reviewers are being checked next. This is
+proof-time congruence only, with no runtime composition or object collapse.
+Its wider core/library interactions remain unqualified, so it is not yet in
+the emitter or the qualified 575-file snapshot.
+
+The original direct reviewer now exposes its first remaining runtime failure:
+the kernel presentation's zero-embedding triangle at lines 86–113. A fresh
+90s/2GiB replay reproduces it; it is not reclassified as a proof-time equation.
+Normal-form inspection shows odd-dual composition reversal followed by the
+existing horizontal shape-action projection. Private odd-dual triangle joins
+pass subject reduction with explicit action endpoints, but their actual
+consumer qualification remains open. Two under-annotated variants failed SR;
+a canonical `tapp1_fapp0` result-type experiment did not repair that failure
+and is reverted. Reducible identity/composition aliases in a candidate LHS
+were replaced by their actual stable heads; rule matching is still under
+inspection. No production rule or hypothesis is changed by these experiments.
+The continuation replay now regenerates all 38 private consumer sources
+exactly from the baseline. Their 86 original assertions are preserved; only
+the two old generic-functor composition negatives change under strict defaults.
+
+Later private qualification closes the presentation/metadata/mate/record
+reviewers and both generic exchange triangles. Canonical `Obj(Hom_cat ...)`
+at the capped transfor result preserves the independent triangle endpoints;
+the printed-rule audit catches the otherwise accepted endpoint substitution.
+Mapped coefficient-inverse comparisons replace the old bare inverse views,
+restoring the original lift/colift reflexivity bodies. No extra proof input is
+added. The existing typed zero-cone map constructor then closes all five
+original chain-pair reviewers without a raw nested Sigma inference shortcut.
+
+The full continuation next stops at the selected homology family's identity
+action. Its trace retains `id(raw composite)` where the object projection uses
+stable precomposition. A Cat-specific identity instance, before or after the
+unconditional horizontal fold, did not resolve it; both variants are rejected.
+The next owner-position candidate retains the existing prewhiskering action
+head and projects its unchanged horizontal body through the `tapp` ladder.
+This is a response to the concrete normalization failure, not a new public
+operation or optional broader redesign. The helper and owner inputs under
+`audits/strict-default-action-boundary/production_selected_*` remain uncommitted
+and are not qualification of the whole slice or promotion to production.
 
 Dependent-simplex/chain-pair continuation after `85c8fa0e` and tooling
 checkpoint `cb287c01`, 2026-10-23 UTC: the

@@ -1,0 +1,15 @@
+// The same shape-reindex comparison at the retained prewhiskering action head.
+// Fixed precomposition composes contravariantly. All functors, endpoint views
+// and the original transformation remain explicit constraints.
+unif_rule
+  @hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $C $A $B (@comp_fapp0 Cat_cat $A $M $B $G $F) $s $t $alpha
+  ≡ @hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $C1 $A1 $M1 $F1 $s1 $t1 $beta
+  ↪ [ $C1 ≡ $C; $A1 ≡ $A; $M1 ≡ $M; $F1 ≡ $F;
+      $s1 ≡ @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $C $M $B $G $s;
+      $t1 ≡ @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $C $M $B $G $t;
+      $beta ≡ @hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $C $M $B $G $s $t $alpha ];
