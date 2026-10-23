@@ -6117,6 +6117,21 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
     stage('examples/action_profile_pointwise_profile_controls.lp')
     stage('examples/action_profile_sheaf_baseline_helper_controls.lp')
     stage('examples/action_profile_walking_cross_category_controls.lp')
+    stage('emdash3_2_kernel_maps.lp')
+    stage('emdash3_2_cokernel_maps.lp')
+    stage('emdash3_2_hom_factor_zero_descent.lp')
+    stage('emdash3_2_normal_mono_epic_factors.lp')
+    stage('emdash3_2_cokernel_monic_factor_descent.lp')
+    stage('emdash3_2_cokernel_composite_comparison.lp')
+    stage('emdash3_2_equivalence_conjugation_paths.lp')
+    stage('emdash3_2_omega_equiv_right_factor.lp')
+    stage('emdash3_2_iso_comparison_reconstruction.lp')
+    stage('examples/kernel_maps.lp')
+    stage('examples/cokernel_maps.lp')
+    stage('examples/cokernel_composite_comparison.lp')
+    stage('examples/normal_mono_epic_factors.lp')
+    stage('examples/cokernel_monic_factor_descent.lp')
+    stage('examples/omega_equiv_right_factor.lp')
     # Existing Hom-factor and chain-map consumers qualify unchanged at the
     # corrected lax-arrow total and strict-default action owners.
     for reviewer in (

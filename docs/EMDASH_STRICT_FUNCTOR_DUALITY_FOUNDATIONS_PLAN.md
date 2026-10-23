@@ -42,6 +42,27 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Kernel/factor continuation after `bd4ca6a1`, 2026-10-23 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_kernel_factor_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_kernel_factor_reviewers_verification.json)
+qualify seventeen original library modules and six complete reviewers
+byte-identically. All forty-eight definitions, original hypotheses, selected
+kernel/cokernel and inverse data, reconstruction and noncollapse checks remain.
+No mathematical rule, primitive, assertion or source body changes.
+
+The combined group passes 27 positives/five negatives in 48.132s/276,952KiB
+under 90s/2GiB/o=20 with SR and existing safeguards. All checked inputs match
+emission; all 494 prior qualified sources remain unchanged. Earlier receipts
+retain their exact scopes/profiles. Four of the 1,838 warning bodies are
+recorded variants of existing NType composition-retag overlaps at pre-action
+and inverse-cancellation owners. No normalization improvement is claimed.
+
+Coverage reaches 340 core/library files and 177 complete reviewers, with
+451/419 unstaged. Next follow the existing computational homology-map
+consumers enabled by these map owners. The terminal normalization choice
+remains pending and its five requirements are unchanged. Remaining migration,
+normalization/toolchain and production gates remain required.
+
 Terminal runtime-contract reassessment after `cfb68f91`, 2026-10-23 UTC:
 the [report](../emdash2/audits/strict-default-action-boundary/production_terminal_contract_reassessment.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_terminal_contract_reassessment_verification.json)
