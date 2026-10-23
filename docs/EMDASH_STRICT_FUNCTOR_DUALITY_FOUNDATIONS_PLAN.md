@@ -42,6 +42,85 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original second native-snake exactness, 2026-10-23 UTC: three
+original owners and three complete reviewers pass. All 28 declarations and
+11 original positive assertions remain, with two derived ordinary proof views
+added at the existing owner. The variable-source zero comparison and original
+complete native zero input give the lift/reconstruction an identical proof.
+No new axiom, rule, caller assumption or operational map/inverse cast is added.
+
+The full group passes 14 positives in 276.302s at 2,995,548KiB under
+600s/4GiB/o=20 with subject reduction:
+`20261023T225003Z-50d6dcf12aea4b45b1223e9b8d4cf063`.
+All 193 fresh inputs, 789 predecessor source hashes and eleven parent
+complete-scope input sets match the final emission. All 2,269 warnings occur
+in reviewed contexts. The
+[review](../emdash2/audits/strict-default-action-boundary/production_native_snake_second_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_snake_second_consumers_verification.json)
+record the actual proof bodies, original assertions, rejected inline variants
+and the diagnostic annotation correction. The rejected inline lift took
+61.49s/65.13s; no final derived-view/lift/reconstruction command exceeds the
+0.5-second timing-report threshold. First import cost is 270.78s; global
+performance qualification remains separate.
+
+Qualification reaches **795 LP files: 523 core/library and 272 reviewers**.
+There remain 268 core/library files and 324 reviewers outside qualification,
+the same five terminal runtime obligations, normalization/toolchain work and
+production promotion. Next follow original third native-snake exactness
+(three owners/three reviewers inventoried). All checkers are terminal; the
+checkpoint follows exact staged-diff review. The separate nerve goal stays
+paused; older execution entries are history.
+
+Original second native-snake exactness continuation from `59b8a9e4`,
+2026-10-23 UTC: three original owners and three complete reviewers are
+prepared, retaining all 28 declarations and 11 positive assertions. All 39
+old Op(C) occurrences are initial-object hypotheses; other substitutions
+use the established oplax diagram/family/evaluation interfaces. Original
+outer maps, normality, actual K/Q and inverse data remain. No formal
+declaration, rule or caller assumption is added. The first complete group
+uses 600s/4GiB/o=20, with measured predecessor cost 340.434s/2,996,644KiB.
+Emission completed before checking; qualification remains 789 until the
+complete required scope and evidence review pass.
+The first run reaches the second-cover image lift and stops at its composite
+zero-proof target view: `20261023T221038Z-25a73ac32a994f7380464d6f8fa4c9e4`
+(288.267s/2,946,040KiB). Its existing associativity/theta-zero chain now has
+explicit whole endpoints, followed by original initial-family uniqueness at
+the native diagram target. Lift and reconstruction share that derived proof;
+no operational map, inverse, declaration, rule or assumption is added.
+That over-explicit associativity variant is rejected: forcing native diagram
+endpoints into the existing associativity proof creates 2,760 constraints
+(`20261023T221801Z-985d939aea794b89949aa753df1c3cec`,
+358.596s/3,109,704KiB; 61.49s at the failing owner). The revised candidate
+retains the original associativity/theta-zero proof verbatim and its named
+endpoints, adapting only the resulting zero target with original initiality.
+No resource default or normalization rule changes.
+The narrower inline view also leaves 2,760 constraints
+(`20261023T222605Z-8ce670b3a1434699a9df5b478fe33ea6`,
+348.379s/3,109,216KiB; 65.13s local). Before another consumer rewrite, an
+exact owner-prefix diagnostic isolates the whole target comparison, initial
+arrow comparison, generic-source zero view, actual-source specialization and
+original composite zero proof. This separates a failed whole equation from
+loss of that equation under the concrete source substitution. No rule is
+introduced or production claim made from the diagnostic alone.
+The first diagnostic failed because its two assertion annotations omitted
+τ around the equality carrier (`20261023T223607Z-5aa8cae0c8464d6f94c6a646b931824b`,
+288.364s/2,935,532KiB). It is rejected authoring evidence, not a mathematical
+failure of the target comparison. Both annotations are corrected to the
+repository's typed-reflexivity syntax before rerunning the same controls.
+The corrected diagnostic passes both whole comparisons, generic-source zero
+view, concrete specialization and original composite zero input:
+`20261023T224205Z-a63d3ddbbd9647d880b5ae9d82aa87f2`
+(279.218s/2,935,008KiB; five positive assertions including inherited checks).
+The candidate now places two derived ordinary proof views before the original
+lift and uses the complete native input identically in lift/reconstruction.
+They contain actual proof bodies, not new axioms or supplied equality fields.
+The full original owners and reviewers remain the qualification gate.
+
+
+
+
+
+
 Qualified original first native-snake exactness, 2026-10-23 UTC: four
 original owners and four complete reviewers pass. All 32 declarations and
 19 positive assertions remain. Original initiality gives the same native
