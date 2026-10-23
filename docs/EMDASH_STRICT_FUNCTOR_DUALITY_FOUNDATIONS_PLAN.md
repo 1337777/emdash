@@ -42,6 +42,97 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original native homology-quotient continuation, 2026-10-23 UTC:
+seven original owners and two complete reviewers pass, retaining all 39
+declarations and nine positive/one negative assertions. Whole kernel-inclusion
+restriction and prewhiskering composition align the image cover. Existing
+whole factor/annihilation comparisons and original initiality align the zero
+views before composition. Lift and reconstruction share their exact derived
+zero-proof input. No new formal declaration, rule, caller assumption or
+operational map/inverse cast is introduced.
+
+The complete group passes 12 positives/one negative in 348.811s at
+2,849,296KiB under 600s/4GiB/o=20 with subject reduction:
+`20261023T211118Z-a353b8a8efb54a3986f7ad34d9fbb0b3`.
+The original constructed inverse, both reconstruction laws and fixed-forward
+equivalence pass. All 195 fresh inputs, 754 predecessor source hashes and
+eight parent complete-scope input sets match the final emission. All 2,259
+warning bodies occur in reviewed contexts. The
+[review](../emdash2/audits/strict-default-action-boundary/production_native_quotient_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_quotient_consumers_verification.json)
+record the ordinary proof-view adaptations, the rejected authoring mistake,
+and the preserved original assertions. No runtime identity between the old
+zero witness and its native proof view is claimed.
+
+Qualification reaches **763 LP files: 504 core/library and 259 reviewers**.
+There remain 287 core/library files and 337 reviewers outside qualification,
+the same five terminal runtime obligations, normalization/toolchain work and
+production promotion. Next follow the original native-snake input dependency
+group (12 owners/six reviewers, 154 declarations/36 assertions inventoried).
+All checkers are terminal; the checkpoint follows exact staged-diff review.
+The separate nerve goal remains paused; older execution entries are history.
+
+Original native homology-quotient continuation from `3dc834d4`, 2026-10-23
+UTC: seven original owners and two complete reviewers are prepared, retaining
+all 39 declarations and nine positive/one negative assertions. All 48 old
+Op(C) occurrences are initial-object hypotheses and use TotalOp(C). Other
+changes use the existing oplax diagram/family/evaluation profiles. No rule,
+primitive, new declaration or caller hypothesis is introduced. The first
+complete nine-file group uses 600s/4GiB/o=20, with measured predecessor
+aggregate cost 378.834s/2,970,276KiB. Emission completed before checking;
+qualification stays 754 until this group and its evidence review pass.
+The initial group passes the quotient-comparison owner, then stops at the
+image-family inclusion proof using the ordinary-diagram reindex theorem:
+`20261023T203123Z-23b8ff2f6b6e4dc4a9132a45f710b50e`
+(243.896s/2,607,076KiB). Its one call now uses the already qualified
+`one_cat_oplax_family_transf_reindex_path` with the same arguments. The
+complete group, including both reviewers, is rerun; no new rule or proof
+premise is introduced.
+The corrected generic theorem reduces the failure to one composite endpoint
+constraint (`20261023T203629Z-1d94e35558fa4251bf3f03a20207c4bd`,
+259.740s/2,639,508KiB). The next proof follows existing specialized owners:
+restrict the original kernel inclusion, use whole prewhiskering composition,
+then restrict the same original inclusion at the quotient family. This
+avoids comparing a deeply expanded composite graph endpoint. No new rule,
+declaration, equality premise or inverse choice is introduced.
+That inclusion proof passes. The following factor proof stops on the image
+functor's named versus existing composite presentation under restriction:
+`20261023T204254Z-96deb3a532504284a79f490ccfd9a6b8`
+(269.789s/2,639,328KiB). The next local proof compares those whole
+transformations before applying restriction, then reuses the same original
+coimage-factor theorem. No new rule or formal declaration is proposed.
+The complete image-family cover owner now passes. The next original
+quotient-image zero proof leaves two comparisons under composition:
+`20261023T204843Z-eb3b55299c2549459376161e6f16d6db`
+(247.150s/2,635,648KiB). Its existing reconstruction equality now has explicit
+endpoints; its existing kernel-annihilation theorem is compared at the whole
+transformation before composing with the outgoing map. The statement,
+selected maps/inverses and original hypotheses are preserved.
+The remaining constraint is the raw target versus named quotient target in
+the canonical zero transformation (`20261023T205420Z-cff3525e4f4b45f7ae88736837eeee10`,
+244.754s/2,631,364KiB). The next proof uses the existing initial-family arrow
+uniqueness at the original T0 to compare those initial-arrow factors before
+composition. No new terminality/initiality assumption or global zero rule
+is added.
+That zero proof and subsequent image comparisons pass. The kernel lift then
+needs its original zero proof at the native diagram-target presentation:
+`20261023T210007Z-4d0e6764072d488bbea2d4bb13e9ad37`
+(255.633s/2,645,856KiB). The same initial-family uniqueness comparison now
+adapts that proof in both the lift and its reconstruction, sharing an exact
+proof expression and retaining all operational maps and original inputs.
+The first lift-view replay incorrectly extracted the input hypothesis z's
+equality instead of the zero theorem's result equality, producing unrelated
+endpoint constraints. Receipt `20261023T210558Z-2e98e25906394a1c9248a79e0a57b574`
+(262.125s/2,628,840KiB) is rejected authoring evidence. Extraction is corrected
+to the result type immediately before the definition; the mathematical
+candidate and original assumptions are unchanged.
+
+
+
+
+
+
+
 Qualified original target exactness/public pair continuation, 2026-10-23 UTC:
 17 original owners and eight complete reviewers pass. All 79 declarations
 and 36 positive/three negative assertions remain. Existing whole diagram

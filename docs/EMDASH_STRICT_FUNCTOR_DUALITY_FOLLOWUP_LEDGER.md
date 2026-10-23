@@ -20,6 +20,21 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [native quotient-equivalence continuation][native-quotient-consumers]
+adds seven original owners and two complete reviewers, retaining all 39
+declarations and nine positive/one negative assertions. Existing whole
+whiskering and original initiality align proof views without new rules,
+declarations or caller assumptions. Lift and reconstruction share the same
+native zero-proof input; the original inverse and its two laws pass. The full
+group passes 12 positives/one negative in 348.811s at 2,849,296KiB. All 754
+predecessor sources and eight parent complete-scope input sets match, and
+all 2,259 warnings occur in reviewed contexts. Qualification reaches
+**763 files: 504 core/library and 259 reviewers**; 287 core/library files and
+337 reviewers remain. The internal proof-view change is recorded under R06;
+old/new zero witnesses are not claimed runtime-identical. All original
+assertions remain. The five terminal runtime obligations, R07/R12 and
+production gates remain open.
+
 The [target exactness/public pair continuation][target-exactness-consumers]
 adds 17 original owners and eight complete reviewers, retaining all 79
 declarations and 36 positive/three negative assertions. Existing whole
@@ -765,3 +780,5 @@ that all possible alternatives or future regressions have been discovered.
 [native-exactness-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_exactness_consumers_review.md
 
 [target-exactness-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_target_exactness_consumers_review.md
+
+[native-quotient-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_quotient_consumers_review.md
