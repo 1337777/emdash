@@ -42,6 +42,125 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original native exactness consumers, 2026-10-23 UTC: 23 original
+owners and 11 complete reviewers pass through the homology-window exact
+inputs, source/middle exactness and native comparison kernels. All 165
+original declarations and 47 positive/eight negative assertions remain.
+Two derived ordinary zero-proof views align existing whole-diagram endpoints;
+the biproduct reindexing proof compares its whole mates before object
+application. No formal rule, operational primitive, map/inverse cast or new
+caller hypothesis is added.
+
+The complete group passes 50 positives/eight negatives in 321.720s at
+3,007,072KiB under 900s/4GiB/o=20 with subject reduction:
+`20261023T194037Z-012bbb02bea64e6b89c6a36d7fcc28a4`.
+All 222 checked inputs, 695 predecessor source hashes and six parent
+integration input sets match the final emission. All 2,269 warning bodies
+occur in previously reviewed contexts. The
+[review](../emdash2/audits/strict-default-action-boundary/production_native_exactness_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_exactness_consumers_verification.json)
+record the derived proof views and rejected endpoint alternatives.
+
+Qualification reaches **729 LP files: 480 core/library and 249 reviewers**.
+There remain 311 core/library files and 347 reviewers outside qualification,
+the same five terminal runtime obligations, normalization/toolchain work and
+production promotion. Next follow original target exactness and public
+exact-pair consumers (17 original owners/eight reviewers inventoried).
+All checkers are terminal; this checkpoint awaits exact staged-diff review.
+The separate nerve goal remains paused. Earlier execution entries below are
+historical and do not change this boundary.
+
+Original exact-input/exactness continuation, 2026-10-23 UTC: from `c4feb3fd`,
+a private replay follows the exact-input consumer through its connected
+source/target-representative, middle-exactness and native comparison-kernel
+consumers. The group contains 23 original owners and 11 complete reviewers,
+retaining all 165 declarations and 47 positive/eight negative assertions.
+There are no new rules or primitives. All 220 old Op(C) occurrences are
+initial-object hypotheses and use TotalOp(C); no other duality heads occur.
+The initial edits use the already qualified diagram/evaluation profiles.
+The initial group passes cospan-kernel covers and homology representatives,
+then stops at the boundary-representative cover's quotient-zero input:
+`20261023T180925Z-8143f5fcde88459c8355e73508a20a41`
+(247.328s/2,820,428KiB). Its native diagram endpoints differ in presentation
+from the fixed cospan endpoints. The candidate derives the required whole
+zero equality from the same original quotient theorem through existing
+OneCat modification/reflection, at both cover and cancellation consumers.
+No rule, new symbol or caller hypothesis is introduced. That reflection candidate does not settle the component endpoint comparisons:
+`20261023T181644Z-7805cbe642c24fadb3ccd20561aac8f7`
+(252.934s/2,792,380KiB), with seven remaining constraints. It is retained only
+as rejected experiment evidence. The next candidate restores the original
+quotient-zero proof and uses its native source/target family expressions at
+the two cospan calls. Public statements and supplied maps/hypotheses remain.
+The native-endpoint argument variant is also rejected: it increases the
+constraints to 90 at the same cover owner
+(`20261023T182411Z-1dcc5890ec6546d88916d46e88e12097`,
+287.521s/2,789,916KiB). The full candidate is restored to its initial
+profile-only adaptation. A minimal-import control now isolates four whole
+comparisons: boundary source, kernel-arrow target, coimage composition and
+the quotient diagram. The four minimal-import whole comparisons pass:
+`20261023T183305Z-66c3264c95944ee6b83c1e152a12e06b`
+(106.806s/214,924KiB under 180s/2GiB/o=20). The next diagnostic repeats them
+at the boundary owner's original prefix and adds a standalone specialization
+of the existing quotient-zero theorem at the fixed endpoints. The first owner-prefix diagnostic omitted the three preceding imports from
+the failing group. Its verified checker was stopped intentionally after that
+setup error was found; receipt `20261023T183730Z-6535d35b9f1944d6a10f1cd01b842fc2`
+is not qualification evidence. Its import timings remain separate performance
+evidence. The corrected diagnostic uses the exact three preceding imports,
+the four whole equations, a generic standalone quotient-zero view and its
+concrete original additive-terminal instance. The four whole controls pass in that matched owner context. The standalone
+generic zero-proof specialization fails with 21 constraints:
+`20261023T184450Z-748882a409194cafac53ec1f204480a8`
+(468.005s/2,747,804KiB; 461.44s in the first dependency import). The failure is
+in applying equal whole-diagram presentations inside the dependent zero-proof
+type. The next diagnostic uses a derived generic proof view at native graph
+endpoints, then existing equality elimination along the checked whole graph
+equality. This transports only the ordinary equality proof; no operational
+map/inverse cast or caller parameter is added. Generic and original concrete
+additive-terminal instances are checked before adoption. The diagnostic passes the four whole comparisons, generic proof view and
+concrete original instance:
+`20261023T185732Z-d2b13eea304b49fdb8d326ac904e0aca`
+(352.958s/2,798,144KiB, seven positives including inherited checks).
+The two derived proof views now sit at their original semantic owners, and
+the boundary cover/cancellation use the same derived zero proof. All 165
+original declarations remain, with two additional derived proof views; no
+rule, operational primitive or caller hypothesis is added. The first integrated run stops on Lambdapi symbol visibility:
+`20261023T190519Z-7b28b69012c24292946baf6c20698443`
+(408.478s/2,796,088KiB), with “Protected symbol not allowed here.” The generic
+view had been valid inside the probe module but cannot occur in another
+public definition's body while protected (local Lambdapi commands manual,
+exposition modifiers). It is now an ordinary derived symbol; no mathematical
+signature or rule changes.
+An owner check was mistakenly launched before source emission finished; its
+verified checker was stopped and that run is discarded. Emitter session 45809
+then completed with exit 0. The fresh actual-owner check passes:
+`20261023T191504Z-102104b75e0f42c0ab99762b8db03fc7`
+(519.753s/2,820,636KiB). This covers the full original boundary-representative
+owner and both derived proof views in their intended modules. Read-only
+command timing comparisons also show slower unchanged dependency commands;
+root/import context and host effects have not been separated, so no cause is
+asserted and no default/tooling is changed. The exact observations are in
+`wave5_import_timing_observation.json`.
+The complete 34-file exactness group is now checking as session 9522 under
+900s/4GiB/o=20; output:
+`emdash2/tmp/probes/kernel_boundary_continuation/wave5_integrated.out`.
+Exact discarded-run receipt and replay state remain in `wave5_state.json`.
+The complete group has now stopped at the later biproduct-injection reindex
+proof, after the boundary and homology-window owners passed. Receipt
+`20261023T192541Z-524a5ec54e9e4d999a348e858c0dce17` records one remaining
+mate comparison (2,950,176KiB RSS). The next local adaptation follows the
+already qualified copair counterpart: compare the whole native mate at its
+projected source with the local mate before applying the original input.
+No rule, new symbol or caller assumption is proposed. The complete biproduct
+owner is checking at 600s/4GiB/o=20 after source emission completed; the
+previous full-run wall time was 533.522s.
+The whole mate comparison repairs the actual biproduct reindexing owner:
+`20261023T193626Z-3f9ad514e3854b0ea2db6040dd13dbb3` passes in 215.268s at
+2,670,888KiB. This is an existing whole functor comparison followed by the
+original object input, with no new rule or declaration. The full group now
+runs as session 33770 under 900s/4GiB/o=20; source is frozen during the run.
+Qualification remains 695 files until the complete required consumer scope
+passes; older live claims below are history.
+
 Qualified native connecting/projection-zero consumers, 2026-10-23 UTC:
 seven original owners and two complete reviewers pass. All 36 declarations
 and 14 positive/one negative assertions remain. Native oplax accessors and

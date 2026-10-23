@@ -20,6 +20,18 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [native exactness continuation][native-exactness-consumers] adds 23 original
+owners and 11 complete reviewers, retaining all 165 declarations and 47
+positive/eight negative assertions. Two derived ordinary proof views align
+the original zero law at checked whole-diagram endpoints; the whole mate
+comparison is staged before object application in the biproduct reindexing
+proof. No new rule, operational primitive or caller assumption is added.
+The full group passes 50 positives/eight negatives in 321.720s at 3,007,072KiB.
+All 695 predecessor sources and six parent complete-scope input sets match;
+all 2,269 warnings occur in reviewed contexts. Qualification reaches
+**729 files: 480 core/library and 249 reviewers**; 311 core/library files and
+347 reviewers remain. R01–R03, R07/R12 and production gates remain open.
+
 The [native connecting consumers][native-connecting-consumers] add seven
 original owners and two complete reviewers, including the original connecting
 map and projection-zero proof. All 36 declarations and 14 positive/one
@@ -737,3 +749,5 @@ that all possible alternatives or future regressions have been discovered.
 [connecting-kernel-chain]: ../emdash2/audits/strict-default-action-boundary/production_connecting_kernel_chain_review.md
 
 [native-connecting-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_connecting_consumers_review.md
+
+[native-exactness-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_exactness_consumers_review.md
