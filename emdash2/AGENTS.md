@@ -270,7 +270,7 @@ counterexample. The active homology plan records the motivating global OOM
 events and requires serial, memory-bounded compiler experiments too.
 
 The guard accepts an explicit `EMDASH_LP_TIMEOUT`
-up to 600 seconds, while retaining the 90-second default and the existing
+up to 900 seconds, while retaining the 90-second default and the existing
 file/serial restrictions. Use an increased limit only for a measured
 target, recording the reason, exact limit and result in its living plan.
 The original native-universality use was complete bounded model adoption with

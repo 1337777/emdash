@@ -1,14 +1,19 @@
 """Focused safety checks; deliberately allocate only under small hard limits."""
 import os
 from pathlib import Path
+import json
 import signal
 import subprocess
+import sys
 import tempfile
 import time
 import unittest
 
 
 GUARD = Path(__file__).with_name("lambdapi_resource_guard.sh")
+sys.path.insert(0, str(GUARD.parent))
+from check_registry import load_registry
+from run_lambdapi import duration_ms, execution_settings
 
 
 class ResourceGuardTests(unittest.TestCase):
@@ -80,7 +85,7 @@ else:
 
     def test_ceiling_cannot_be_raised_by_environment(self):
         for env in ({"EMDASH_LP_MEMORY_MIB": "8193"},
-                    {"EMDASH_LP_TIMEOUT": "601s"},
+                    {"EMDASH_LP_TIMEOUT": "901s"},
                     {"EMDASH_LP_TIMEOUT": "180.5s"},
                     {"EMDASH_LP_TIMEOUT": "0"},
                     {"EMDASH_LP_FILE_MIB": "65"},
@@ -109,7 +114,7 @@ assert resource.getrlimit(resource.RLIMIT_AS) == (2048*1024**2,)*2
         self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_reviewed_time_extension_keeps_other_limits(self):
-        for duration in ("120", "180s", "240s", "300s", "450s", "600s"):
+        for duration in ("120", "180s", "240s", "300s", "450s", "600s", "900s"):
             with self.subTest(duration=duration):
                 result = self.run_guard("python3", "-c", """
 import resource
@@ -119,6 +124,33 @@ assert resource.getrlimit(resource.RLIMIT_CORE) == (0, 0)
 """, EMDASH_LP_TIMEOUT=duration)
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertIn("time=" + duration.removesuffix("s") + "s", result.stderr)
+
+    def test_runner_duration_bounds_and_defaults(self):
+        self.assertEqual(duration_ms("900s"), 900_000)
+        self.assertEqual(duration_ms("900"), 900_000)
+        for value in ("901s", "1000", "0", "900.5s"):
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                duration_ms(value)
+        target = Path("tmp/resource_guard_default_probe.lp")
+        defaults = execution_settings(target, {})
+        self.assertEqual((defaults["timeoutMs"], defaults["memoryMiB"]), (90_000, 2048))
+        extended = execution_settings(target, {}, timeout_ms=900_000)
+        self.assertEqual((extended["timeoutMs"], extended["memoryMiB"]), (900_000, 2048))
+        with self.assertRaises(ValueError):
+            execution_settings(target, {}, timeout_ms=900_001)
+
+    def test_registry_time_bound_matches_guard(self):
+        root = Path(self.temp.name)
+        data = {"version": 1, "core": [], "reviewers": [], "check": [],
+                "priority": [], "isolatedGroups": [], "profileTargets": {},
+                "profiles": {"default": {"memoryMiB": 2048, "timeoutSeconds": 900}}}
+        path = root / "checks.json"
+        path.write_text(json.dumps(data))
+        self.assertEqual(load_registry(root)["profiles"]["default"]["timeoutSeconds"], 900)
+        data["profiles"]["default"]["timeoutSeconds"] = 901
+        path.write_text(json.dumps(data))
+        with self.assertRaisesRegex(ValueError, "out-of-bounds profile"):
+            load_registry(root)
 
     def test_parallel_check_is_rejected(self):
         first = subprocess.Popen(

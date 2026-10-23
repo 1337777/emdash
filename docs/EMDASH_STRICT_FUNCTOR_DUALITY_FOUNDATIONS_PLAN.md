@@ -42,6 +42,16 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Reviewed resource continuation, 2026-10-23 UTC: the
+[time-ceiling review](../emdash2/audits/strict-default-action-boundary/production_resource_time_extension_review.md)
+records two 600-second full-library timeouts and the matched owner/matcher
+measurements. The guard, runner and registry admit reviewed explicit limits
+up to 900 seconds; normal 90s/2GiB defaults, all existing named profiles,
+memory/file/serial/no-swap protections and subject reduction stay unchanged.
+The immediate full-library retry uses 900s/4GiB/o=20. This is diagnostic time
+headroom under the user's standing authorization, not a performance pass or
+a change to the formal goal's acceptance criteria.
+
 Computational homology-map continuation after `2423921a`, 2026-10-23 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_homology_map_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_homology_map_reviewers_verification.json)

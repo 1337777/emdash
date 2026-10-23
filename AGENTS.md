@@ -228,7 +228,7 @@ The repository-wide gate is `./scripts/pnpmw run check:all`. Keep every
 Lambdapi invocation bounded as required by the nested SOP: 90 seconds and
 2 GiB by default. Measured, target-specific resource adjustments do not need
 separate user approval (user direction, 2026-10-16). The guard supports explicit
-limits up to 600 seconds and 8 GiB; select only what the measured target needs,
+limits up to 900 seconds and 8 GiB; select only what the measured target needs,
 record the reason and outcome, and keep defaults unchanged. Memory increases
 require available host headroom for the editor, Codex and other workloads;
 a time extension alone keeps the memory cap unchanged. Preserve serial
