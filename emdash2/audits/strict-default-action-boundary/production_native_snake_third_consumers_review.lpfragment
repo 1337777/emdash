@@ -1,0 +1,6 @@
+require open emdash.emdash3_2_one_cat_native_snake_third_covers;
+require open emdash.emdash3_2_one_cat_native_snake_third_representatives;
+require open emdash.emdash3_2_one_cat_native_snake_third_exactness;
+require open emdash.examples.one_cat_native_snake_third_covers;
+require open emdash.examples.one_cat_native_snake_third_representatives;
+require open emdash.examples.one_cat_native_snake_third_exactness;

@@ -42,6 +42,52 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original third native-snake exactness, 2026-10-23 UTC: three
+original owners and three complete reviewers pass. All 26 declarations and
+11 original assertions remain, with two derived ordinary proof views at the
+existing owner. A variable-source zero comparison and the original complete
+zero theorem give the lift/reconstruction their same native input. No new
+axiom, rule, caller assumption or operational map/inverse cast is added.
+
+The full group passes 14 positives in 292.631s at 2,971,836KiB under
+600s/4GiB/o=20 with subject reduction:
+`20261023T231141Z-42105f752a904346a11af9214e91c966`.
+All 190 fresh inputs, 795 predecessor source hashes and twelve parent
+complete-scope input sets match the final emission. All 2,269 warnings occur
+in reviewed contexts. The
+[review](../emdash2/audits/strict-default-action-boundary/production_native_snake_third_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_snake_third_consumers_verification.json)
+record the actual proof bodies, retained inverse data and original assertions.
+Old/new zero witnesses are not claimed runtime-identical.
+
+Qualification reaches **801 LP files: 526 core/library and 275 reviewers**.
+There remain 265 core/library files and 321 reviewers outside qualification,
+the same five terminal runtime obligations, normalization/toolchain work and
+production promotion. Next follow original fourth native-snake exactness
+(three owners/three reviewers inventoried). All checkers are terminal; the
+checkpoint follows exact staged-diff review. The separate nerve goal remains
+paused; older execution entries are history.
+
+Original third native-snake exactness continuation from `320f30bb`,
+2026-10-23 UTC: three original owners and three complete reviewers are
+prepared, retaining all 26 declarations and 11 positive assertions. All 37
+old Op(C) occurrences are initial-object hypotheses; other substitutions
+use the established oplax diagram/family/evaluation interfaces. Original
+outer maps, normality, actual K/Q and inverse data remain. No formal
+declaration, rule or caller assumption is added. The first complete group
+uses 600s/4GiB/o=20 with measured predecessor cost 276.302s/2,995,548KiB.
+Emission completed before checking; qualification remains 795 until the
+complete required scope and evidence review pass.
+The first run reaches the third-cover image lift and stops at the native
+target presentation of its zero witness:
+`20261023T230312Z-07558208c43c40db832f22728e7ba60b`
+(276.139s/2,929,580KiB). The qualified two-view pattern is used at the original
+owner: derive the zero-target comparison with variable source, then combine
+it with the existing complete zero theorem. Lift and reconstruction use the
+same native proof. Two derived proof declarations, no axiom/rule, no new
+caller hypothesis and no operational map/inverse cast are introduced.
+
+
 Qualified original second native-snake exactness, 2026-10-23 UTC: three
 original owners and three complete reviewers pass. All 28 declarations and
 11 original positive assertions remain, with two derived ordinary proof views
