@@ -298,6 +298,14 @@ def main():
         SOURCES as NATIVE_EXACTNESS_CONSUMER_SOURCES,
         migrate_native_exactness_consumer,
     )
+    from production_native_target_exactness_consumer_migration import (
+        SOURCES as NATIVE_TARGET_EXACTNESS_CONSUMER_SOURCES,
+        migrate_native_target_exactness_consumer,
+    )
+    for name in ('production_native_target_exactness_consumer_migration.py',
+                 'production_native_target_exactness_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_native_exactness_consumer_migration.py',
                  'production_quotient_zero_native_view.lpfragment',
                  'production_boundary_quotient_zero_native_view.lpfragment',
@@ -2338,6 +2346,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain original maps, inverses and hypotheses at corrected profiles; derive the ordinary zero-proof endpoint view and compare whole mates before their original input',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(native_exactness)})
                 text = native_exactness
+            native_target_exactness = migrate_native_target_exactness_consumer(path, text)
+            if native_target_exactness is not None:
+                changes.append({'source': path, 'owner': 'original target exactness and public pair consumers',
+                                'reason': 'Retain original maps/inverses through the existing whole diagram inclusion; make original equality endpoints explicit and apply the existing decoded point theorem through encoding',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(native_target_exactness)})
+                text = native_target_exactness
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6412,6 +6426,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in NATIVE_EXACTNESS_CONSUMER_SOURCES:
         stage(path)
+    for path in NATIVE_TARGET_EXACTNESS_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7710,6 +7726,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('kernel_boundary_wave3.lp', 'production_connecting_kernel_chain_review.lpfragment'),
         ('kernel_boundary_wave4.lp', 'production_native_connecting_consumers_review.lpfragment'),
         ('kernel_boundary_wave5.lp', 'production_native_exactness_consumers_review.lpfragment'),
+        ('native_target_exactness_review.lp', 'production_native_target_exactness_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

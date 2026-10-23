@@ -42,6 +42,84 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original target exactness/public pair continuation, 2026-10-23 UTC:
+17 original owners and eight complete reviewers pass. All 79 declarations
+and 36 positive/three negative assertions remain. Existing whole diagram
+inclusion carries the original native pair map/equivalence and point map/
+inverse; existing oplax reflection supplies their whole laws. The original
+kernel-input and image/kernel reconstruction proofs name their whole
+endpoints before observation, and the decoded point theorem is applied
+through its actual encoding. No formal declaration, rule, operational cast
+or caller hypothesis is added.
+
+The full group passes 39 positives/three negatives in 378.834s at
+2,970,276KiB under 900s/4GiB/o=20 with subject reduction:
+`20261023T202055Z-63ed9a4912974e0babdcd4b70704f833`.
+All 246 fresh inputs, 729 predecessor source hashes and seven parent
+integration input sets match the final emission. All 2,269 warnings occur
+in previously reviewed contexts. The
+[review](../emdash2/audits/strict-default-action-boundary/production_native_target_exactness_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_target_exactness_consumers_verification.json)
+record the retained actual maps, inverses and original runtime assertions.
+
+Qualification reaches **754 LP files: 497 core/library and 257 reviewers**.
+There remain 294 core/library files and 339 reviewers outside qualification,
+the same five terminal runtime obligations, normalization/toolchain work and
+production promotion. Next follow original native homology-quotient
+comparison, covers and equivalence (seven owners/two reviewers inventoried).
+All checkers are terminal; the checkpoint follows exact staged-diff review.
+The separate nerve goal stays paused. Older execution entries below are
+history, not the current live state.
+
+Original target-exactness continuation from `adbbada6`, 2026-10-23 UTC:
+17 original owners and eight complete reviewers are staged in a private
+replay, through target lifts/exactness and public exact-pair views. All
+79 original declarations and 36 positive/3 negative assertions
+remain. All 61 old Op(C) occurrences are initial-object hypotheses; the
+remaining profile changes use existing oplax whole evaluation, shape action
+and encoded walking-arrow constructors. No rules, primitives or caller
+hypotheses are added. The first full group uses 900s/4GiB/o=20, retaining
+the preceding measured aggregate profile (321.720s/3,007,072KiB). Emission
+completed before the checker started (session 3317); qualification stays
+729 files until this group passes. The initial group passes target lifts
+and target exactness, then fails at the first original native pair diagram
+map: it still supplies oplax-encoded objects to the ordinary reconstruction
+owner. Receipt `20261023T195021Z-75497fae33c34daa8be117212ad186d2` takes
+350.465s at 2,983,528KiB. The correction uses the already qualified whole
+ordinary-to-oplax inclusion for that original map and its equivalence, and
+for the matching point-diagram maps/inverse. Ordinary reflection calls use
+the existing oplax reflection. No rule or additional declaration is added.
+The focused diagram check passes the native pair-comparison module, then
+stops at a whole kernel-input observation proof before point-diagram maps:
+`20261023T195729Z-7cd52e3770c14d41bbe213607f99f806` takes 134.587s at
+2,105,172KiB. Its equality application left both whole transformation
+endpoints implicit; the next candidate names those existing endpoints before
+applying the original pair observation. No new equality is assumed.
+Explicit original endpoints repair the kernel-input observation. The next
+failure is the old incoming point-diagram proof using a theorem about the
+decoded functor directly in the encoded object carrier:
+`20261023T200116Z-1479b8dda50346619c4b731f68950428` (132.692s/2,174,284KiB).
+The candidate applies that existing theorem through OddDual encoding, then
+applies the same encoding to the original incoming-arrow equality.
+The focused complete native pair and point-diagram owners now pass, including
+all four original runtime endpoint assertions (seven positives including
+inherited checks): `20261023T200453Z-c00090ca4e9f4fff83d5bd17637358fa`
+(131.477s/2,104,776KiB under 600s/4GiB/o=20). Complete target
+exactness/public-pair integration is the next gate.
+The complete integration reaches the image/kernel point-comparison owner
+and stops at its component reading of the whole reconstruction law:
+`20261023T200723Z-28534a0aba4b4828bcc0d862818c5e55`
+(362.937s/2,981,892KiB). The next candidate uses that original whole theorem's
+actual two endpoints explicitly in its equality application, matching the
+earlier kernel-input observation repair. No new equality or rule is added.
+The full image/kernel point-comparison owner passes with explicit original
+reconstruction endpoints: `20261023T201457Z-a0cc2c4f57cf4d2383e161eed478f488`
+(329.501s/2,750,748KiB under 600s/4GiB/o=20). The complete group
+is rerun next; no additional focused tests are required for unchanged owners.
+An initial documentation-update command
+used the wrong working-directory prefix; it made no edit and is corrected
+here independently of the running checker.
+
 Qualified original native exactness consumers, 2026-10-23 UTC: 23 original
 owners and 11 complete reviewers pass through the homology-window exact
 inputs, source/middle exactness and native comparison kernels. All 165

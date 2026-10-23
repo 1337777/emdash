@@ -20,6 +20,18 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [target exactness/public pair continuation][target-exactness-consumers]
+adds 17 original owners and eight complete reviewers, retaining all 79
+declarations and 36 positive/three negative assertions. Existing whole
+diagram inclusion carries the original maps and inverses; explicit whole
+proof endpoints and actual point encoding repair their consumers without
+new declarations, rules or caller assumptions. The full group passes
+39 positives/three negatives in 378.834s at 2,970,276KiB. All 729 predecessor
+sources and seven parent complete-scope input sets match; all 2,269 warnings
+occur in reviewed contexts. Qualification reaches **754 files: 497 core/library
+and 257 reviewers**; 294 core/library files and 339 reviewers remain.
+The five terminal runtime obligations, R07/R12 and production gates remain.
+
 The [native exactness continuation][native-exactness-consumers] adds 23 original
 owners and 11 complete reviewers, retaining all 165 declarations and 47
 positive/eight negative assertions. Two derived ordinary proof views align
@@ -751,3 +763,5 @@ that all possible alternatives or future regressions have been discovered.
 [native-connecting-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_connecting_consumers_review.md
 
 [native-exactness-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_exactness_consumers_review.md
+
+[target-exactness-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_target_exactness_consumers_review.md
