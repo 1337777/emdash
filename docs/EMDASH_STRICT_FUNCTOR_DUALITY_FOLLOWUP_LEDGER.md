@@ -20,6 +20,21 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [connecting-record continuation](../emdash2/audits/strict-default-action-boundary/production_connecting_record_consumers_review.md)
+adds sixteen owners and five complete reviewers, preserving all 69 declarations
+and eleven positive/two negative assertions. Seventeen files are unchanged;
+four use existing initial duality, oplax diagram classifiers and two explicit
+ordinary-to-oplax reviewer inputs. No declaration or rule is added. Whole
+cover and connecting-map endpoints and the extensionality premise remain.
+The full group passes 14 positives/two negatives in 143.807s at 1,146,432KiB.
+All 1,009 predecessor sources and twenty-four parent complete-scope input
+sets match; all 2,269 warnings occur in reviewed contexts. Qualification
+reaches **1,030 files: 668 core/library and 362 reviewers**; 123 core/library
+files and 234 reviewers remain. R01–R03, R07/R12 and production gates remain
+open. Next follow the original homology-window family/projection owners and
+their downstream consumers. The separate nerve goal and large six-term audit
+remain paused.
+
 The [short-exact-row continuation](../emdash2/audits/strict-default-action-boundary/production_short_exact_row_consumers_review.md)
 adds twenty-one owners and eleven complete reviewers, preserving all 89
 declarations and 40 positive/ten negative assertions. Thirty files remain

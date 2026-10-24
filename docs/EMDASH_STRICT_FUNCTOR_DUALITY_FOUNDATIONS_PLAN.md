@@ -42,6 +42,57 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original connecting-record consumers, 2026-10-24 UTC:
+sixteen owners and five complete reviewers retain all 69 declarations and
+eleven positive/two negative assertions. Seventeen files are unchanged;
+four use established total-dual initiality, oplax diagram classifiers and
+the explicit ordinary-to-oplax diagram encoding at two reviewer inputs.
+No declaration, rule, caller assumption or inverse choice is added. Actual
+covers, descent/reconstruction proofs and whole-Hom endpoints remain.
+
+The complete group passes 14 positives/two negatives in 143.807s at
+1,146,432KiB under 600s/4GiB/o=20 with subject reduction and no compiled
+objects: `20261024T102846Z-96fcded03c0144baaa1d1545e111315b`.
+All 157 fresh inputs, 1,009 predecessor sources and twenty-four parent
+complete-scope input sets match final emission; all 2,269 warnings occur
+in reviewed contexts. The [review](../emdash2/audits/strict-default-action-boundary/production_connecting_record_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_connecting_record_consumers_verification.json)
+record the initial reviewer mismatch and its correction at the actual
+ordinary-to-oplax input boundary, preserving both whole endpoint assertions.
+
+Qualification reaches **1,030 LP files: 668 core/library and 362 reviewers**.
+A fresh original-source inventory leaves 123 core/library files and 234
+reviewers. The five terminal Homd runtime obligations, R07/R12 and production
+promotion remain open. Next follow original homology-window families and
+their existing constructor/projection owners, then downstream exactness and
+record consumers. The provisional remaining homology inventory has nineteen
+owners and fifteen reviewers; its original column rules need owner-position
+variance review and are not yet qualified. All checkers are terminal;
+checkpoint only the reviewed owned slice. The separate nerve goal and large
+six-term audit remain paused. Later entries retain completed experiment history.
+
+Original connecting-record continuation from `951e1faf`, 2026-10-24 UTC:
+actual imports select sixteen owners and five complete reviewers, retaining
+69 declarations and eleven positive/two negative assertions. Seventeen
+files remain byte-identical; five initial-object Op occurrences use TotalOp
+and two walking-arrow classifiers use the existing oplax category. Retain
+actual covers, quotient extensionality, selected factors and inverses, whole
+Hom endpoints, and the original descent/reconstruction proofs. No new
+declaration, rule, public hypothesis or operational cast is introduced.
+Check the complete group at 600s/4GiB/o=20 with subject reduction and warnings,
+following the measured generic groups (roughly 337–440s/below 3GiB).
+Qualification remains 1,009 until full consumers and evidence review pass;
+the separate nerve goal and large six-term audit remain paused.
+
+The first connecting-record run passes all sixteen owners, then fails the
+whole cover reviewer: `20261024T102511Z-a92096f9c1c74b30954eccfa9c306de6`
+(149.313s/1,086,236KiB). The reviewer feeds two ordinary outgoing chain-pair
+diagrams into the oplax kernel-presentation action. Use the existing
+`OddDual_func WalkingArrow_cat C` encoding at those two inputs, as in the
+qualified chain-pair zero-cone comparisons. Do not identify the ordinary
+and oplax classifiers or change the actual diagram's arrow. Replay the full
+group under the same profile, retaining both whole endpoint assertions.
+
 Qualified original short-exact-row consumers, 2026-10-24 UTC:
 twenty-one owners and eleven complete reviewers retain all 89 declarations
 and 40 positive/ten negative assertions. Thirty files are unchanged. The
