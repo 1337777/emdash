@@ -42,6 +42,41 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original witnessed Freyd homology/matrix consumers, 2026-10-24 UTC:
+nine owners and ten complete reviewers pass unchanged from the original pin,
+retaining all 208 declarations and 58 positive/four negative assertions with
+no formal rules. Original witnessed normality, selected homology, bounded
+complexes and matrix inputs retain actual raw witnesses and selected-kernel
+distinctions; no quotient-equality decoder or stronger model is supplied.
+
+The complete group passes 58 positives/four negatives in 39.066s at 192,088KiB
+under ordinary 90s/2GiB limits, o=20 and subject reduction:
+`20261024T004816Z-9650fc9cf33f4b1cb0b4f5ea4853ed5b`.
+All 89 fresh inputs, 857 predecessor sources and eighteen parent complete-scope
+input sets match final emission. All 1,750 warnings occur in reviewed contexts.
+The [review](../emdash2/audits/strict-default-action-boundary/production_freyd_witnessed_homology_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_freyd_witnessed_homology_consumers_verification.json)
+record original complete consumers, source identity and negative boundaries.
+
+Qualification reaches **876 LP files: 573 core/library and 303 reviewers**.
+A fresh original-source inventory confirms 218 core/library files and 293
+reviewers remain, including seventy Freyd paths. Next follow original native
+snake matching and its actual downstream raw-window/whole exactness imports.
+The same five terminal runtime obligations, normalization/toolchain work and
+production promotion remain open. All checkers are terminal; checkpoint only
+the reviewed owned slice. The separate nerve goal stays paused.
+
+Original witnessed Freyd homology/matrix continuation from `db1b4d10`,
+2026-10-24 UTC: nine original owners and ten complete reviewers are prepared
+unchanged, retaining 208 declarations, 58 positive/four negative assertions
+and no formal rules. The scope includes normal mono/epi constructions,
+witnessed Abelian structure, selected/functorial homology, bounded complexes,
+explicit spines and the original matrix triple-zero input. Preserve raw
+agreement/capability boundaries and actual retained witnesses. The measured
+predecessor passes at 38.522s/191,000KiB, so this first complete replay uses
+the ordinary 90s/2GiB limits with o=20, subject reduction and command timing.
+Qualification stays 857 until full consumers and evidence review pass.
+
 Qualified original witnessed Freyd kernels/cokernels, 2026-10-24 UTC:
 nine owners and eight complete reviewers pass with all seventeen sources
 unchanged from the original pin. All 121 declarations, 36 positive/two

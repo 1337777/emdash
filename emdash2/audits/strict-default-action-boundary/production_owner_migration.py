@@ -342,6 +342,14 @@ def main():
         SOURCES as FREYD_WITNESSED_KERNEL_CONSUMER_SOURCES,
         migrate_freyd_witnessed_kernel_consumer,
     )
+    from production_freyd_witnessed_homology_consumer_migration import (
+        SOURCES as FREYD_WITNESSED_HOMOLOGY_CONSUMER_SOURCES,
+        migrate_freyd_witnessed_homology_consumer,
+    )
+    for name in ('production_freyd_witnessed_homology_consumer_migration.py',
+                 'production_freyd_witnessed_homology_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_freyd_witnessed_kernel_consumer_migration.py',
                  'production_freyd_witnessed_kernel_consumers_review.lpfragment'):
         path = audit / name
@@ -2495,6 +2503,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain byte-identical raw agreements, actual selected weak-kernel data and all-test witnessed reconstruction/uniqueness without a quotient-equality decoder',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(freyd_witnessed_kernel)})
                 text = freyd_witnessed_kernel
+            freyd_witnessed_homology = migrate_freyd_witnessed_homology_consumer(path, text)
+            if freyd_witnessed_homology is not None:
+                changes.append({'source': path, 'owner': 'original witnessed Freyd homology and matrix consumers',
+                                'reason': 'Retain byte-identical witnessed normality, selected homology, bounded complexes and explicit matrix witnesses with original endpoint and selected-kernel distinctions',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(freyd_witnessed_homology)})
+                text = freyd_witnessed_homology
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6591,6 +6605,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in FREYD_WITNESSED_KERNEL_CONSUMER_SOURCES:
         stage(path)
+    for path in FREYD_WITNESSED_HOMOLOGY_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7900,6 +7916,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('native_freyd_pair_review.lp', 'production_native_freyd_pair_consumers_review.lpfragment'),
         ('finite_free_additive_review.lp', 'production_finite_free_additive_consumers_review.lpfragment'),
         ('freyd_witnessed_kernel_review.lp', 'production_freyd_witnessed_kernel_consumers_review.lpfragment'),
+        ('freyd_witnessed_homology_review.lp', 'production_freyd_witnessed_homology_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

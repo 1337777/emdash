@@ -20,6 +20,18 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [witnessed Freyd homology/matrix continuation](../emdash2/audits/strict-default-action-boundary/production_freyd_witnessed_homology_consumers_review.md)
+adds nine original owners and ten complete reviewers, all byte-identical.
+All 208 declarations and 58 positive/four negative assertions remain; no
+formal rule is added. The full group passes 58 positives/four negatives in
+39.066s at 192,088KiB under ordinary 90s/2GiB limits. All 857 predecessor
+sources and eighteen parent complete-scope input sets match; all 1,750
+warnings occur in reviewed contexts. Qualification reaches **876 files:
+573 core/library and 303 reviewers**. A fresh original-source inventory
+confirms 218 core/library files and 293 reviewers remain, including seventy
+Freyd paths. Next follow native snake matching and whole window observations.
+R01–R03, R07/R12 and production gates remain open.
+
 The [witnessed Freyd kernel/cokernel prerequisites](../emdash2/audits/strict-default-action-boundary/production_freyd_witnessed_kernel_consumers_review.md)
 add nine original owners and eight complete reviewers, all byte-identical.
 All 121 declarations, 36 positive/two negative assertions and actual raw
