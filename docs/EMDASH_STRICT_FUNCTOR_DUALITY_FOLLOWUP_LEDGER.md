@@ -20,6 +20,24 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [public Freyd exactness/LES continuation](../emdash2/audits/strict-default-action-boundary/production_freyd_public_exactness_consumers_review.md)
+adds eleven original owners and nine complete reviewers, retaining all 36
+original declarations and 18 positive/one negative assertions. Five defined
+ordinary-proof views stage existing comparisons/exactness before concrete
+coefficient specialization; no rule, axiom, public assumption, operational
+cast or inverse choice is added. The complete group passes 21 positives/one
+negative in 684.079s at 3,309,496KiB. All 896 predecessor sources and twenty
+parent complete-scope input sets match; all 2,285 warnings occur in reviewed
+contexts. Qualification reaches **916 files: 595 core/library and 321
+reviewers**; 196 core/library files and 275 reviewers remain.
+
+The same-context historical source passed in 116.346s/314,816KiB. Local
+concrete conversion failures are fixed (middle exactness 2.35s; source/target
+declarations 3.82s–9.96s in the full run), while full-context import/normalizing
+cost and cached-object loading remain R12 concerns. R01–R03, R07 and production
+gates also remain open. Next follow original Freyd point-exactness and whole
+window observations; no paused application goal is resumed.
+
 The [native Freyd matching/window continuation](../emdash2/audits/strict-default-action-boundary/production_freyd_native_window_consumers_review.md)
 adds eleven owners and nine complete reviewers, retaining 343 declarations
 and 48 positive/one negative assertions. Eighteen files are unchanged; two

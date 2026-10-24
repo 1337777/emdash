@@ -42,6 +42,267 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original public Freyd exactness/LES consumers, 2026-10-24 UTC:
+eleven owners and nine complete reviewers retain all 36 original declarations
+and 18 positive/one negative assertions. Twelve files remain byte-identical.
+Established TotalOp/oplax classifier adjustments and five defined ordinary-
+proof views preserve original public telescopes, model/normality assumptions,
+native inputs, maps and selected inverse data. The views state existing
+comparison/exactness proofs in whole generic presentations before coefficient
+specialization; no new rule, axiom, opacity or public premise is introduced.
+
+The complete source group passes 21 positives/one negative in 684.079s at
+3,309,496KiB under 1200s/6GiB/o=20 with subject reduction and no compiled
+objects: `20261024T083552Z-e9a7b283ef1640bca50ede58766ee0b4`.
+The corrected middle exactness checks in 2.35s. Source input/equivalence/
+exactness check in 9.96s/8.17s/7.59s; target declarations in 4.67s/3.82s/3.85s.
+All 369 fresh inputs, 896 predecessor sources and twenty parent complete-scope
+input sets match final emission; all 2,285 warnings occur in reviewed contexts.
+The [review](../emdash2/audits/strict-default-action-boundary/production_freyd_public_exactness_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_freyd_public_exactness_consumers_verification.json)
+record original complete consumers, retained data and the local conversion
+investigation. The matched historical context passed in 116.346s/314,816KiB:
+the exhibited local failures are corrected, but full-context normalization
+and loading remain R12 work. No checker or default profile is changed here.
+
+Qualification reaches **916 LP files: 595 core/library and 321 reviewers**.
+There remain 196 core/library files and 275 reviewers, the same five terminal
+Homd runtime obligations, normalization/toolchain work and production
+promotion. Next follow original Freyd point-exactness and remaining whole
+window-observation consumers. All checkers are terminal; checkpoint only the
+reviewed owned slice. The separate nerve goal stays paused. The subsequent
+entries record the completed experiment history, not additional open runs.
+
+Original public Freyd exactness/LES-view continuation from `0f9a8ab0`,
+2026-10-24 UTC: actual complete consumers select eleven owners and nine
+reviewers, retaining 36 declarations and 18 positive/one negative assertions.
+Include the original native exact-tail reviewer, whose negative preserves
+the actual retained head input. Ten initial-object Op occurrences adopt
+TotalOp; nineteen walking-arrow classifiers adopt the existing oplax view.
+No declaration, formal rule, caller assumption or selected inverse is added.
+Keep the original public middle/source/target exactness, supplied model and
+actual complete-arrow certificates. Start the full group at 900s/4GiB/o=20,
+following the measured whole-window run (591.179s/3,305,796KiB), with subject
+reduction, timings and all containment safeguards. Qualification stays 896
+until full consumers and evidence review pass.
+
+The first full public-group run exhausted 4GiB at the unchanged concrete
+`freyd_native_middle_public_exact` proof, after its input/equivalence checked
+in 1.58s/1.42s: `20261024T010729Z-bd4f15b9bacb472eabde5546d70dbc8f`
+(746.641s/3,916,060KiB, allocation-failed, no typing error reported).
+The generic migrated public-family owner passed. Inspection confirms the
+concrete owner retains its original fully applied generic exactness proof;
+no source mutation is warranted by allocation failure alone. The original
+middle owner has a 4GiB profile, while the required final LES certificate-view
+owner already has `action-profile-6g-90s`. With 21,227MiB host memory available
+and no running checker, replay the unchanged complete group at 1200s/6GiB,
+keeping o=20, subject reduction, serial/no-swap containment and command timings.
+This is measured cumulative resource headroom, not a normalization repair or
+an assertion that current and historical checker contexts have equal cost.
+
+The unchanged replay also allocation-fails at 6GiB on the same third
+declaration: `20261024T012103Z-3d63c3783b1f46b49b147ca805475b65`.
+The input/equivalence still check in 1.72s/1.42s. Do not raise the ceiling
+again as the immediate response. A complete original-source context is
+prepared from `f8af1fca` (367 pinned dependencies and the same twenty-file
+driver); compare it serially under the same isolated checker, flags,
+1200s/6GiB/o=20 profile and no compiled objects. This is historical performance
+evidence only, not current mathematical qualification. Then localize the
+unchanged exactness proof's expensive application against its original body
+and the migrated generic owner, preserving actual maps and inverse data.
+
+Matched historical context passes the complete original driver in
+116.346s/314,816KiB under the same checker and 1200s/6GiB/o=20 settings:
+`20261024T013855Z-aa33851687fb480183faa1dc62729880`.
+The migrated replay failed at 1049.789s/6,013,080KiB. This establishes a
+context-level migration cost regression; it does not identify its individual
+rule or term cause. Localize the unchanged 31-argument exactness application
+in an owner-position diagnostic copy: keep the first two public declarations,
+then check its first thirty arguments and its final exactness evidence
+separately. This intentionally incomplete owner cannot qualify any required
+full consumer. Compile this diagnostic package under the existing guarded
+runner at 900s/4GiB/o=20 to retain exact-source parent objects for subsequent
+local investigations; no production source, opacity or checker logic changes.
+
+The split owner passes with compilation in 661.546s/3,415,556KiB:
+`20261024T014231Z-a90b800972f14075b1997b1f7d4c7000`.
+The first thirty arguments check in 1.92s; standalone final evidence does not
+cross the 0.5s reporting threshold. The expensive step is their final expected
+type conversion, not construction of either term alone. The diagnostic
+produces 307 objects (1,364,508,010 bytes). A guarded print-only query times
+out while loading them at 90s/2GiB:
+`20261024T015523Z-77015be9927f465faab2c19f2c44048a`.
+Its reported child RSS does not capture the separately observed systemd
+checker RSS. Retry this unchanged diagnostic at 300s/4GiB (the source
+compilation used 3.26GiB), recording object/input pins and distinguishing
+load/serialization overhead from proof conversion. No full consumer is
+qualified by these diagnostic passes.
+
+The print query passes at 300s/4GiB in 54.109s/1,421,432KiB, with 53.96s
+spent loading exact-source objects:
+`20261024T015810Z-91f7ad3e7bd44561805584f23ec37f89`.
+It shows that the partial application's last argument is presented through
+`OneCatAdjunctionExactFamily`, whereas the standalone theorem exposes
+`OmegaEquivAlong` on the named row-triple comparison. Test a derived generic
+family view before concrete Freyd specialization: its telescope and proof
+body are the existing row-triple exactness theorem, with its result explicitly
+stated using the existing whole-family classifier. The complete original
+third application changes only that final theorem head to this defined view.
+No caller argument, rule, axiom, inverse or opaque proof is introduced. The
+180s/4GiB cached diagnostic remains provisional until the full original
+public group checks with the corresponding owner-position source.
+
+The first named-zero-input view passes generically (0.81s) but its concrete
+application still times out at 180s:
+`20261024T020127Z-ba293eff750d4f81bd7ca2dda1aef621`; it is not adopted.
+Exposing only the existing zero-input definition in the generic result type
+makes all thirteen expected classifier argument trees syntactically agree
+after specialization (a diagnostic comparison, not proof evidence). The
+actual checker then passes both the generic view (1.01s) and complete original
+third application (1.92s):
+`20261024T020455Z-570613a2bceb41fd9dad26cf9fd37ea3`,
+59.182s/1,421,228KiB including 56.08s compiled-parent loading.
+
+Place the derived `one_cat_row_triple_homology_exact_family_view` immediately
+before its concrete consumer in the unqualified middle-public owner. Its
+body is the original theorem; only the final evidence head of the original
+application changes. All original arguments, maps, inverses and assertions
+remain. No rewrite, unifier, axiom, opacity or caller proof payload is added.
+Replay the complete original twenty-file source group without compiled
+objects at 1200s/6GiB/o=20, following the existing final certificate-view
+profile. This full-consumer gate is still required; the local pass alone does
+not increase qualification beyond 896.
+
+The corrected middle owner and five following selected sources pass in the
+full source replay, but it then allocation-fails at the first source-public
+declaration: `20261024T020729Z-c2d7b13f71c64268b36eb16db28a3f9e`
+(636.141s/6,013,604KiB). The middle correction is therefore confirmed beyond
+the cached local test, while the twenty-file group remains unqualified.
+The next owner applies `native_family_public_pair_input` to 25 arguments;
+its final two comparison proofs use `eq_sym` with three inferred endpoint
+slots. Test the complete original input application with those existing
+symmetry endpoints explicit, retaining the same underlying proof terms.
+Reuse only compiled parents whose LP bytes match the current candidate;
+skip the diagnostic-only middle owner. This is a bounded local inference
+test (300s/4GiB/o=20), not a new comparison or shortened qualification gate.
+
+The first source-input diagnostic allocation-fails while importing
+`one_cat_native_middle_homology_exactness`, before reaching the candidate:
+`20261024T022206Z-2785ce79a6c84ee6afdb9ebeb2d2aa18`
+(169.494s/3,917,592KiB). It combines exact-source cached parents with additional
+window dependencies; cached load/retention differs from the prior source-only
+run. Do not classify the explicit-endpoint candidate as rejected from this
+import failure. Replay unchanged at 300s/6GiB/o=20 with the existing safeguards
+and current host headroom, matching the public group's selected memory bound.
+
+The unchanged explicit-endpoint candidate reaches the source input but also
+allocation-fails at 6GiB:
+`20261024T022552Z-d990627055b04937a69bbed634878ff8`; it is not adopted.
+Localize before choosing another correction: in the same diagnostic owner
+check the original first thirteen arguments, first twenty-three arguments,
+and each original comparison proof independently. Compile these diagnostic
+parents at 300s/6GiB/o=20 to retain the additional byte-matched window imports.
+No prefix or comparison-only success qualifies the original complete input.
+
+The source split passes with compilation in 206.520s/5,125,320KiB:
+`20261024T023139Z-6b221d3536264c5bba52a102a96f4475`.
+The first twenty-three arguments check in 1.46s; the earlier prefix and both
+standalone original comparison proofs stay below the 0.5s reporting threshold.
+Thus the source-input failure concerns expected-type conversion of a final
+comparison, rather than construction of the map data or proof alone. Inspect
+the printed expected/actual types and check first24 versus first25 applications
+in the same exact-source cached context (180s/6GiB/o=20). Keep this diagnostic
+separate from the complete twenty-file qualification requirement.
+
+The first24 application allocation-fails at 150.671s/6,013,564KiB:
+`20261024T023656Z-4c6d6d23e81e4ac3af7ec5d90953299d`; the second comparison is
+not reached. Printed types identify a presentation difference in the first
+comparison: the consumer puts the named whole-window homology projection
+under point action, whereas its existing proof uses that projection's
+row-triple defining body. Test exposing that exact existing body at the whole
+projection argument before point application, with first13/first24/full
+diagnostic consumers (180s/6GiB/o=20). This is one defining-body expansion,
+not a new equality, rewrite, inverse or proof argument. Preserve original
+data and require the complete public source group after any local success.
+
+Direct whole-projection body exposure also allocation-fails at
+135.722s/6,013,828KiB:
+`20261024T024152Z-e8ee374dd08e48fe84c36626cc5eb172`; it is not adopted.
+Keep the original projection and data instead. Test a derived ordinary-proof
+identity view at generic window parameters: it accepts the already existing
+row-triple comparison proof and states it with the named window projection
+in the result, before Freyd specialization. Its body is that same proof.
+No operational data, rule, axiom, inverse choice or public caller assumption
+changes. Check the original first24 and full25 applications through this
+view at 180s/6GiB/o=20; no diagnostic success alone qualifies the full group.
+
+The generic comparison-proof view passes, as do the original first24/full25
+source-input applications in 3.23s/4.68s:
+`20261024T024813Z-38d16f5bf60244d9bf03511f6d37e4a9`
+(72.271s/1,446,472KiB including 63.68s cached loading).
+Applying the same view to all three original source-public declarations
+checks the input/equivalence in 4.13s/4.22s, then allocation-fails at the final
+exactness evidence: `20261024T080418Z-4ade0ea43aa84032b27d9681acb50956`
+(138.793s/6,014,244KiB). No extra public premise or operational data changes.
+
+Test the same sufficient family presentation used for the middle proof:
+state the existing `one_cat_native_window_source_exact_omega` theorem as
+`OneCatAdjunctionExactFamily`, exposing its existing source-exact input in
+the generic result type. Then specialize that defined view using the same
+whole-window arguments as the original raw-model theorem. Check all three
+original source declarations together with both derived views at
+180s/6GiB/o=20. This is not a new exactness axiom or inverse choice, and the
+complete twenty-file consumer gate remains required after local success.
+
+All three original source-public declarations pass with the two derived
+views: input 4.66s, equivalence 4.49s, exactness 4.48s,
+`20261024T081226Z-59707595a00e4eec86b808a176594af7`
+(76.216s/1,446,452KiB including 61.40s cached loading).
+The candidate replay helper now introduces those two defined views at this
+unqualified owner, wraps only the three existing incoming comparison proofs,
+and presents the final existing exactness theorem through its generic family
+view. All public telescopes and operational data remain. Check the complete
+original target-public owner unchanged against the same exact-source cached
+parents (180s/6GiB/o=20) before another full public-group replay. Do not add a
+target-side adaptation merely by analogy if its original consumer already
+checks. Qualification remains 896 until the complete group passes.
+
+The unchanged target-public owner allocation-fails at its first input in
+142.616s/6,013,996KiB:
+`20261024T081746Z-1296bec2c7b446bd98523ee9acb19dd5`.
+Its outgoing comparison presents the existing inclusion through the
+row-triple incoming-homology owner, while the consumer uses the named whole
+window inclusion. Test the corresponding derived ordinary comparison-proof
+view at generic parameters and all three original target declarations
+together (180s/6GiB/o=20). This preserves projection/inclusion direction,
+actual maps and inverse data, and adds no rule, axiom or public caller input.
+Do not treat either a local proof view or the target input alone as complete
+public/LES consumer qualification.
+
+The target inclusion-comparison view passes generically (0.55s), and its
+original input/equivalence check in 4.06s/4.48s. Final exactness still
+allocation-fails: `20261024T082333Z-4d3d315bb77b48db9a5a5850f7d4be27`
+(149.882s/6,013,720KiB). Test the existing generic target exactness theorem
+through its whole-family predicate, with the existing native target input
+exposed in that result type before coefficient specialization. Check all
+three original target declarations together (180s/6GiB/o=20), retaining the
+same theorem body, data, inverse choices and public assumptions. The full
+twenty-file source/reviewer gate remains required.
+
+All three original target-public declarations pass with the two derived
+views: input 3.86s, equivalence 4.23s, exactness 4.20s,
+`20261024T082654Z-d2aba23a26f445ba82de43406cbf01e0`
+(75.999s/1,446,488KiB including 62.62s cached loading).
+The candidate replay now retains all 36 original declarations and original
+assertions, with exactly five defined ordinary-proof views across the middle,
+source and target owners. Twelve files remain byte-identical. No new rule,
+axiom, inverse choice, public premise or operational cast is introduced.
+An authoring-helper import-path error was corrected before emission; the
+completed replay and twenty source-pin controls pass. Start the complete
+twenty-file source/reviewer group without compiled objects at
+1200s/6GiB/o=20. Its pass, warning review and exact parent-input comparison
+remain necessary before qualification or checkpointing this correction.
+
 Qualified original native Freyd matching/window consumers, 2026-10-24 UTC:
 eleven owners and nine complete reviewers retain all 343 declarations and
 48 positive/one negative assertions. Eighteen sources remain byte-identical;
