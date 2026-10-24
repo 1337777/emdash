@@ -20,6 +20,17 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [finite-free additive prerequisites](../emdash2/audits/strict-default-action-boundary/production_finite_free_additive_consumers_review.md)
+add five original owners and two complete reviewers, all byte-identical to
+the original pin. All 24 declarations, twelve assertions and nine original
+runtime/proof-time rules remain. The rules retain fresh selected-constructor
+guards; no parent file mentions those constructors. The full group passes
+12 positives in 30.478s at 187,132KiB. All 833 predecessor sources and sixteen
+parent complete-scope input sets match; all 1,711 warnings occur in reviewed
+contexts. Qualification reaches **840 files: 555 core/library and 285
+reviewers**; 236 core/library files and 311 reviewers remain. The five
+terminal runtime obligations, R07/R12 and production gates remain open.
+
 The [native pair/Freyd continuation](../emdash2/audits/strict-default-action-boundary/production_native_freyd_pair_consumers_review.md)
 adds 18 original owners and three complete reviewers, retaining all 164
 declarations and 46 assertions; thirteen files remain byte-identical.

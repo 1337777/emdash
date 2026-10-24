@@ -1,0 +1,7 @@
+require open emdash.emdash3_2_commutative_algebra_finite_free_preadditive;
+require open emdash.emdash3_2_commutative_algebra_finite_free_binary_products;
+require open emdash.emdash3_2_commutative_algebra_finite_free_terminal_zero;
+require open emdash.emdash3_2_commutative_algebra_finite_free_cartesian;
+require open emdash.emdash3_2_commutative_algebra_finite_free_additive;
+require open emdash.examples.commutative_ring_finite_free_preadditive;
+require open emdash.examples.commutative_ring_finite_free_additive;

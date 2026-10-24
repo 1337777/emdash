@@ -42,6 +42,40 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original finite-free additive prerequisites, 2026-10-24 UTC:
+five owners and two complete reviewers pass with all seven sources unchanged
+from the original pin. All 24 declarations, twelve assertions, five runtime
+rules and four proof-time comparisons remain. The selected product/terminal
+rules retain their original constructor guards, and none of the 833 parent
+files mentions those constructors. No formal repair is needed in this group.
+
+The full group passes 12 positives in 30.478s at 187,132KiB under
+300s/4GiB/o=20 with subject reduction:
+`20261024T004045Z-7028c427f6c4411291b617400503548e`.
+All 34 fresh inputs, 833 predecessor sources and sixteen parent complete-scope
+input sets match final emission. All 1,711 warnings occur in reviewed contexts.
+The [review](../emdash2/audits/strict-default-action-boundary/production_finite_free_additive_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_finite_free_additive_consumers_verification.json)
+record unchanged formal source, actual consumers and guarded extension.
+
+Qualification reaches **840 LP files: 555 core/library and 285 reviewers**.
+There remain 236 core/library files and 311 reviewers, the same five terminal
+runtime obligations, normalization/toolchain work and production promotion.
+Next follow the original Freyd cokernel and selected-kernel dependencies.
+All checkers are terminal; checkpoint the reviewed owned slice. The separate
+nerve goal stays paused; earlier entries are history.
+
+Original finite-free additive prerequisites from `197b540f`, 2026-10-24 UTC:
+the next matrix consumer's dependency chain selects five original owners and
+two complete reviewers. All seven sources initially remain byte-identical to
+the original pin: 24 declarations, five runtime rules and four proof-time
+comparisons. The rules are existing guarded observations of the new selected
+finite-free product/terminal heads; they do not alter parent constructors.
+No new rule is proposed. Check the complete product, terminal and additive
+consumers at 300s/4GiB/o=20, a smaller dependency scope than the measured
+Freyd replay; keep subject reduction and command timing. Qualification stays
+833 until the actual consumers and evidence review pass.
+
 Qualified original native pair/Freyd consumers, 2026-10-24 UTC: 18 original
 owners and three complete reviewers pass, retaining all 164 declarations and
 46 original assertions. Thirteen files are byte-identical. Existing canonical
