@@ -362,6 +362,14 @@ def main():
         SOURCES as ABELIAN_EXACTNESS_CONSUMER_SOURCES,
         migrate_abelian_exactness_consumer,
     )
+    from production_short_exact_row_consumer_migration import (
+        SOURCES as SHORT_EXACT_ROW_CONSUMER_SOURCES,
+        migrate_short_exact_row_consumer,
+    )
+    for name in ('production_short_exact_row_consumer_migration.py',
+                 'production_short_exact_row_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_abelian_exactness_consumer_migration.py',
                  'production_abelian_exactness_consumers_review.lpfragment'):
         path = audit / name
@@ -2570,6 +2578,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain supplied whole universal data, normality and original derived exactness; apply existing total-dual initiality and oplax walking-arrow classifiers without new declarations or rules',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(abelian_exactness)})
                 text = abelian_exactness
+            short_exact_row = migrate_short_exact_row_consumer(path, text)
+            if short_exact_row is not None:
+                changes.append({'source': path, 'owner': 'original short-exact-row normalization and universal records',
+                                'reason': 'Preserve selected kernels/cokernels, actual comparison inverses and derived proofs; use existing total-dual initiality and whole oplax diagram projections without new rules or public assumptions',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(short_exact_row)})
+                text = short_exact_row
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6676,6 +6690,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in ABELIAN_EXACTNESS_CONSUMER_SOURCES:
         stage(path)
+    for path in SHORT_EXACT_ROW_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7990,6 +8006,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('freyd_public_exactness_review.lp', 'production_freyd_public_exactness_consumers_review.lpfragment'),
         ('freyd_remaining_review.lp', 'production_freyd_remaining_consumers_review.lpfragment'),
         ('abelian_exactness_review.lp', 'production_abelian_exactness_consumers_review.lpfragment'),
+        ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

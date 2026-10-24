@@ -20,6 +20,20 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [short-exact-row continuation](../emdash2/audits/strict-default-action-boundary/production_short_exact_row_consumers_review.md)
+adds twenty-one owners and eleven complete reviewers, preserving all 89
+declarations and 40 positive/ten negative assertions. Thirty files remain
+unchanged; two use existing total-dual initiality, oplax diagram classifiers
+and whole projections. The first row-colift failure was a missed projection
+profile adjustment; no new declaration or rule is needed. The complete
+group passes 43 positives/ten negatives in 439.555s at 2,951,408KiB.
+All 977 predecessor sources and twenty-three parent complete-scope input
+sets match; all 2,277 warnings occur in reviewed contexts. Qualification
+reaches **1,009 files: 652 core/library and 357 reviewers**; 139 core/library
+files and 239 reviewers remain. R01–R03, R07/R12 and production gates remain
+open. Next follow original connecting-map record consumers. The separate
+nerve goal and large six-term audit remain paused.
+
 The [generic Abelian/kernel/exactness continuation](../emdash2/audits/strict-default-action-boundary/production_abelian_exactness_consumers_review.md)
 adds twenty owners and eight complete reviewers, retaining all 94 declarations
 and 21 positive/three negative assertions. Twenty-five files are unchanged;

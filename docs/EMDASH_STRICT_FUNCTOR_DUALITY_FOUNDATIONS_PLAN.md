@@ -42,6 +42,58 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original short-exact-row consumers, 2026-10-24 UTC:
+twenty-one owners and eleven complete reviewers retain all 89 declarations
+and 40 positive/ten negative assertions. Thirty files are unchanged. The
+other two use established total-dual initiality, oplax diagram classifiers
+and their whole evaluation/family projections. No declaration, rule, caller
+assumption or inverse choice is added; original normalization proofs and
+selected kernel/cokernel/comparison data remain.
+
+The complete group passes 43 positives/ten negatives in 439.555s at
+2,951,408KiB under 900s/8GiB/o=20 with subject reduction and no compiled
+objects: `20261024T101347Z-d607c1b47fdd49f483db93b150a47531`.
+All 159 fresh inputs, 977 predecessor sources and twenty-three parent
+complete-scope input sets match final emission; all 2,277 warnings occur
+in reviewed contexts. The [review](../emdash2/audits/strict-default-action-boundary/production_short_exact_row_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_short_exact_row_consumers_verification.json)
+record the initial projection-profile omission, its correction through
+existing heads and the full original consumers.
+
+Qualification reaches **1,009 LP files: 652 core/library and 357 reviewers**.
+A fresh original-source inventory leaves 139 core/library files and 239
+reviewers. The five terminal Homd runtime obligations, R07/R12 and production
+promotion remain open. Next follow original connecting-map records, covers
+and descent/reconstruction consumers; the provisional dependency inventory
+has sixteen owners and five complete reviewers, not yet qualified. All
+checkers are terminal; checkpoint only the reviewed owned slice. The
+separate nerve goal and large six-term audit remain paused. The subsequent
+entries retain completed experiment history.
+
+Original short-exact-row continuation from `8ae5397b`, 2026-10-24 UTC:
+actual imports select twenty-one owners and eleven complete reviewers,
+retaining 89 declarations and 40 positive/ten negative assertions. Thirty
+files are unchanged; two use three total-dual initial-object hypotheses,
+33 existing oplax walking-arrow classifiers and 24 fixed-point evaluations
+through the existing whole evaluator. Ordinary outer functor/transfor slots,
+selected kernel/cokernel records and actual comparison inverses remain.
+No declaration, rule, proof premise or inverse choice is added. Check the
+complete group with subject reduction and warnings at 900s/8GiB/o=20:
+the original normalization-projections owner already has the measured
+`action-profile-8g-300s` registry profile, and 20,850MiB host memory is
+available. The deadline covers cumulative imports/consumers; no normal
+profile, checker or host setting changes. Qualification remains 977 until
+the full consumers and evidence review pass. Separate goals stay paused.
+
+The first run fails at the initial row-colift proof after 266.063s at
+2,420,092KiB: `20261024T100818Z-31318d936d6d4be3a076492eeafbc02a`.
+Its oplax diagram carrier still used ordinary family projections. Replace
+the thirty `diagram_family_at_func` and three `diagram_family_transf`
+occurrences with the existing oplax-family owners, matching the already
+qualified cokernel reconstruction input. The original proof construction
+and all ordinary outer transformations remain; no new comparison rule is
+needed. Replay the complete group under the same measured profile.
+
 Qualified original generic Abelian/kernel/exactness consumers, 2026-10-24 UTC:
 twenty owners and eight complete reviewers retain all 94 declarations and
 21 positive/three negative assertions. Twenty-five files are unchanged;
