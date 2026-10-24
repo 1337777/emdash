@@ -20,6 +20,19 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [remaining Freyd continuation](../emdash2/audits/strict-default-action-boundary/production_freyd_remaining_consumers_review.md)
+adds sixteen owners and seventeen complete reviewers, retaining all 191
+declarations and 91 positive/fifteen negative assertions. Twenty-nine files
+are unchanged; four use existing duality, oplax evaluation and whole Hom-family
+views. No new declaration, rule, assumption or inverse choice is introduced.
+The full group passes 94 positives/fifteen negatives in 581.000s at
+3,120,992KiB. All 916 predecessor sources and twenty-one parent complete-scope
+input sets match; all 2,285 warnings occur in reviewed contexts. Qualification
+reaches **949 files: 611 core/library and 338 reviewers**; 180 core/library
+files and 258 reviewers remain. No Freyd-named original root/example path is
+left outside the snapshot, without claiming broader proof–CAS integration or
+the deferred six-term audit. R01–R03, R07/R12 and production gates remain open.
+
 The [public Freyd exactness/LES continuation](../emdash2/audits/strict-default-action-boundary/production_freyd_public_exactness_consumers_review.md)
 adds eleven original owners and nine complete reviewers, retaining all 36
 original declarations and 18 positive/one negative assertions. Five defined

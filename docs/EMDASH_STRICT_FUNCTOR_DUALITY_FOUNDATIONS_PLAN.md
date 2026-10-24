@@ -42,6 +42,68 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified remaining original Freyd owners/reviewers, 2026-10-24 UTC:
+sixteen owners and seventeen complete reviewers retain all 191 declarations
+and 91 positive/fifteen negative assertions. Twenty-nine files are unchanged.
+Existing TotalOp, oplax diagram/evaluation and `hom_int_view` interfaces adapt
+four files without a new declaration, rule, assumption or inverse choice.
+Actual raw witnesses, selected kernels and model capabilities retain their
+roles; no closed quotient-level provider or deferred six-term audit is claimed.
+
+The complete source group passes 94 positives/fifteen negatives in 581.000s
+at 3,120,992KiB under 1200s/6GiB/o=20 with subject reduction and no compiled
+objects: `20261024T092805Z-e253af50d282437a830b3fa089e1d710`.
+All 391 fresh inputs, 916 predecessor sources and twenty-one parent complete-
+scope input sets match final emission; all 2,285 warnings occur in reviewed
+contexts. The [review](../emdash2/audits/strict-default-action-boundary/production_freyd_remaining_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_freyd_remaining_consumers_verification.json)
+record complete scope and the focused correction of the old square-fibre
+reviewer through an existing whole Hom-family inclusion.
+
+Qualification reaches **949 LP files: 611 core/library and 338 reviewers**.
+A fresh original-source inventory confirms 180 core/library files and 258
+reviewers remain, with no Freyd-named root/example path outside this snapshot.
+The five terminal Homd runtime obligations, normalization/toolchain work and
+production promotion remain open. Next follow dependency-ready original
+owners and their complete reviewers, beginning with the remaining generic
+Abelian/kernel/exactness consumers. All checkers are terminal; checkpoint
+the reviewed owned slice. The separate nerve goal and large six-term audit
+stay paused; subsequent entries retain experiment history.
+
+Remaining original Freyd continuation from `07ba3968`, 2026-10-24 UTC:
+actual imports select sixteen original owners and seventeen complete reviewers,
+retaining 191 declarations and 91 positive/fifteen negative assertions.
+Twenty-nine files are byte-identical. Four initial-object Op occurrences adopt
+TotalOp; three walking-arrow categories, one object carrier, one Hom carrier
+and two fixed evaluation readings use the established oplax interfaces.
+The four point/window-observation owners have no independent original reviewer
+in the registry; their complete bodies and downstream model specialization
+remain in this group. Do not resume the deferred six-term comparison audit.
+Retain actual kernel choices/ranks, raw agreements and all supplied capability
+boundaries; witnessed normal factors are not a closed quotient-level model.
+No declaration, rule, inverse choice or public premise is added. Check the
+complete source group at 1200s/6GiB/o=20 after the measured predecessor group
+(684.079s/3,309,496KiB), with subject reduction and all containment safeguards.
+Qualification remains 916 until complete consumers and evidence review pass.
+
+The first full run reaches the last reviewer, then fails its original square
+fibre assertion because raw `hom_int` has the stricter Cartesian family
+codomain: `20261024T091050Z-c2b889e146ed4d1ea2dd27ae65bc5fb3`
+(585.828s/3,068,680KiB). The preceding generic cell-to-equality failure is its
+intended negative control, not the failing positive. Use the already qualified
+`hom_int_view` whole inclusion at the one old `homdc_fibre` input, matching
+the existing migrated arrow-diagram reviewers. No classifier identification,
+new rule or declaration is added. Check the last complete reviewer at
+180s/4GiB/o=20 before replaying the complete source group.
+
+The complete last reviewer passes with the existing `hom_int_view`:
+`20261024T092406Z-842a44e81cb940bb8dd419827923882b`
+(106.204s/258,132KiB, 180s/4GiB/o=20). The original square-to-path assertion
+and arbitrary-category negative retain their original polarity and meaning.
+Replay the full thirty-three-file source/reviewer group at 1200s/6GiB/o=20;
+this one whole-family inclusion is the only additional correction, with no
+new declaration, rule, proof premise or change to the actual Hom value.
+
 Qualified original public Freyd exactness/LES consumers, 2026-10-24 UTC:
 eleven owners and nine complete reviewers retain all 36 original declarations
 and 18 positive/one negative assertions. Twelve files remain byte-identical.

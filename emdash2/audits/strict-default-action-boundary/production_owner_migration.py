@@ -354,6 +354,14 @@ def main():
         SOURCES as FREYD_PUBLIC_EXACTNESS_CONSUMER_SOURCES,
         migrate_freyd_public_exactness_consumer,
     )
+    from production_freyd_remaining_consumer_migration import (
+        SOURCES as FREYD_REMAINING_CONSUMER_SOURCES,
+        migrate_freyd_remaining_consumer,
+    )
+    for name in ('production_freyd_remaining_consumer_migration.py',
+                 'production_freyd_remaining_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_freyd_public_exactness_consumer_migration.py',
                  'production_freyd_middle_exact_family_view.lpfragment',
                  'production_freyd_source_projection_comparison_view.lpfragment',
@@ -2542,6 +2550,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Preserve actual native inputs, maps and inverse data at corrected profiles; stage existing comparison/exactness proofs in whole generic presentations before concrete coefficient specialization, without new rules or public assumptions',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(freyd_public_exactness)})
                 text = freyd_public_exactness
+            freyd_remaining = migrate_freyd_remaining_consumer(path, text)
+            if freyd_remaining is not None:
+                changes.append({'source': path, 'owner': 'remaining original Freyd owners and reviewers',
+                                'reason': 'Preserve raw witnesses, selected kernels, actual inverse data and supplied capabilities; adapt established initial duality, oplax evaluation and whole Hom-family inclusion without new rules or assumptions',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(freyd_remaining)})
+                text = freyd_remaining
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6644,6 +6658,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in FREYD_PUBLIC_EXACTNESS_CONSUMER_SOURCES:
         stage(path)
+    for path in FREYD_REMAINING_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7956,6 +7972,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('freyd_witnessed_homology_review.lp', 'production_freyd_witnessed_homology_consumers_review.lpfragment'),
         ('freyd_native_window_review.lp', 'production_freyd_native_window_consumers_review.lpfragment'),
         ('freyd_public_exactness_review.lp', 'production_freyd_public_exactness_consumers_review.lpfragment'),
+        ('freyd_remaining_review.lp', 'production_freyd_remaining_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),
