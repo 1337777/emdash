@@ -20,6 +20,19 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [generic Abelian/kernel/exactness continuation](../emdash2/audits/strict-default-action-boundary/production_abelian_exactness_consumers_review.md)
+adds twenty owners and eight complete reviewers, retaining all 94 declarations
+and 21 positive/three negative assertions. Twenty-five files are unchanged;
+the other three use established TotalOp and oplax diagram classifiers.
+No declaration, rule, assumption or inverse choice is added. The complete
+group passes 24 positives/three negatives in 336.635s at 2,388,580KiB.
+All 949 predecessor sources and twenty-two parent complete-scope input sets
+match final emission; all 2,269 warnings occur in reviewed contexts.
+Qualification reaches **977 files: 631 core/library and 346 reviewers**;
+160 core/library files and 250 reviewers remain. R01–R03, R07/R12 and production
+promotion remain open. Continue with original dependency-ready consumers;
+the separate nerve goal and large six-term audit stay paused.
+
 The [remaining Freyd continuation](../emdash2/audits/strict-default-action-boundary/production_freyd_remaining_consumers_review.md)
 adds sixteen owners and seventeen complete reviewers, retaining all 191
 declarations and 91 positive/fifteen negative assertions. Twenty-nine files

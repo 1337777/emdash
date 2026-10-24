@@ -42,6 +42,45 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original generic Abelian/kernel/exactness consumers, 2026-10-24 UTC:
+twenty owners and eight complete reviewers retain all 94 declarations and
+21 positive/three negative assertions. Twenty-five files are unchanged;
+twelve initial-object Op occurrences use TotalOp and five walking-arrow
+classifiers use the existing oplax category. No declaration, rule, caller
+assumption or inverse choice is added. Supplied whole P/Q and normality,
+derived exactness and independent negative-control data retain their roles.
+
+The complete source group passes 24 positives/three negatives in 336.635s
+at 2,388,580KiB under 600s/4GiB/o=20 with subject reduction and no compiled
+objects: `20261024T095622Z-f2959bd5c29a42da8e0a2b8dba119908`.
+All 191 fresh inputs, 949 predecessor sources and twenty-two parent complete-
+scope input sets match final emission; all 2,269 warnings occur in reviewed
+contexts. The [review](../emdash2/audits/strict-default-action-boundary/production_abelian_exactness_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_abelian_exactness_consumers_verification.json)
+record the complete source group, source-pin controls and conservative carry.
+
+Qualification reaches **977 LP files: 631 core/library and 346 reviewers**.
+A fresh original-source inventory leaves 160 core/library files and 250
+reviewers. The five terminal Homd runtime obligations, R07/R12 and production
+promotion remain open. Next follow remaining dependency-ready original
+owners and their complete reviewers. All checkers are terminal; checkpoint
+only the reviewed owned slice. The separate nerve goal and large six-term
+audit stay paused. The following entries retain completed experiment history.
+
+Original generic Abelian/kernel/exactness continuation from `12e7d25d`,
+2026-10-24 UTC: actual imports select twenty original owners and eight complete
+reviewers, retaining 94 declarations and 21 positive/three negative assertions.
+Twenty-five files remain byte-identical. Twelve initial-object Op occurrences
+use TotalOp; five walking-arrow classifiers use the existing oplax category.
+Other base-functor/transform slots and point action retain their original
+interfaces. No declaration, rule, caller assumption or inverse choice is added.
+Keep supplied whole P/Q and normality distinct from derived exactness, and
+retain the negative controls for independent kernel/comparison data. Check
+the complete source group at 600s/4GiB/o=20, following earlier generic native
+consumer groups (roughly 270–380s/3GiB), with subject reduction, warnings and
+all safeguards. Qualification remains 949 until full consumers and evidence
+review pass; paused application investigations remain paused.
+
 Qualified remaining original Freyd owners/reviewers, 2026-10-24 UTC:
 sixteen owners and seventeen complete reviewers retain all 191 declarations
 and 91 positive/fifteen negative assertions. Twenty-nine files are unchanged.

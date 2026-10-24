@@ -358,6 +358,14 @@ def main():
         SOURCES as FREYD_REMAINING_CONSUMER_SOURCES,
         migrate_freyd_remaining_consumer,
     )
+    from production_abelian_exactness_consumer_migration import (
+        SOURCES as ABELIAN_EXACTNESS_CONSUMER_SOURCES,
+        migrate_abelian_exactness_consumer,
+    )
+    for name in ('production_abelian_exactness_consumer_migration.py',
+                 'production_abelian_exactness_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_freyd_remaining_consumer_migration.py',
                  'production_freyd_remaining_consumers_review.lpfragment'):
         path = audit / name
@@ -2556,6 +2564,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Preserve raw witnesses, selected kernels, actual inverse data and supplied capabilities; adapt established initial duality, oplax evaluation and whole Hom-family inclusion without new rules or assumptions',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(freyd_remaining)})
                 text = freyd_remaining
+            abelian_exactness = migrate_abelian_exactness_consumer(path, text)
+            if abelian_exactness is not None:
+                changes.append({'source': path, 'owner': 'original generic Abelian, kernel and exactness consumers',
+                                'reason': 'Retain supplied whole universal data, normality and original derived exactness; apply existing total-dual initiality and oplax walking-arrow classifiers without new declarations or rules',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(abelian_exactness)})
+                text = abelian_exactness
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6660,6 +6674,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in FREYD_REMAINING_CONSUMER_SOURCES:
         stage(path)
+    for path in ABELIAN_EXACTNESS_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7973,6 +7989,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('freyd_native_window_review.lp', 'production_freyd_native_window_consumers_review.lpfragment'),
         ('freyd_public_exactness_review.lp', 'production_freyd_public_exactness_consumers_review.lpfragment'),
         ('freyd_remaining_review.lp', 'production_freyd_remaining_consumers_review.lpfragment'),
+        ('abelian_exactness_review.lp', 'production_abelian_exactness_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

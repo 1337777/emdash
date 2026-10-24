@@ -1,0 +1,102 @@
+"""Source-pinned original generic Abelian/kernel/exactness consumers.
+
+Keep actual whole universal data and original derived proof bodies.
+"""
+import hashlib
+import re
+
+SOURCES = {'emdash3_2_abelian_bimorphisms.lp': {'diagramCategory': 0,
+                                      'initialOp': 0,
+                                      'sha256': '62035a8c2a191bc9e6b56a1b69c474140b763d460bee9f10562d369bf62b5804'},
+ 'emdash3_2_abelian_canonical_kernel_exactness.lp': {'diagramCategory': 0,
+                                                     'initialOp': 0,
+                                                     'sha256': 'aacdfe9ffdef3dc8f43d0d1c6dc3e9bcd46c2db2e955c4cc0ac18d891828ad0e'},
+ 'emdash3_2_abelian_canonical_kernel_extensions.lp': {'diagramCategory': 0,
+                                                      'initialOp': 0,
+                                                      'sha256': '9788e6e6769d011c5928f32ef75a8921f892c738ce7e74a9e07e549e692ca5c3'},
+ 'emdash3_2_abelian_canonical_kernel_extensions_foundation.lp': {'diagramCategory': 0,
+                                                                 'initialOp': 0,
+                                                                 'sha256': '19de634edc884da336200d5623fd15bf56cf84b62ac94e254b5de50f14236fc5'},
+ 'emdash3_2_abelian_structure_elimination.lp': {'diagramCategory': 0,
+                                                'initialOp': 0,
+                                                'sha256': '6aadb525ac958a7a6b27e15a2513038d3aec1310f72bb419ecf6beb57aff6b89'},
+ 'emdash3_2_cokernel_codomain_comparison.lp': {'diagramCategory': 0,
+                                               'initialOp': 0,
+                                               'sha256': 'cd8d1c14c62794f660ac2a1c2d6845f0f8e5c89a02e5da646685f0779ca22cc0'},
+ 'emdash3_2_cokernel_codomain_comparison_projection.lp': {'diagramCategory': 0,
+                                                          'initialOp': 0,
+                                                          'sha256': '5f6bf4abae42a4fb98f9c2ae4dfa9f2a4b9287735bb95585e6e32ef20191260a'},
+ 'emdash3_2_exactness_extensions_foundation.lp': {'diagramCategory': 0,
+                                                  'initialOp': 0,
+                                                  'sha256': '13a287f67c72af5aef1d9796dc8691e627fd0b232ce254e8bb5757d9d46c89bb'},
+ 'emdash3_2_exactness_extensions_to_exact.lp': {'diagramCategory': 0,
+                                                'initialOp': 0,
+                                                'sha256': '40e70295c95160dd25b2aff1b92fb492d4d641b6ba66e1b9830e69cabdbff4c1'},
+ 'emdash3_2_exactness_extensions_to_exact_extension.lp': {'diagramCategory': 0,
+                                                          'initialOp': 0,
+                                                          'sha256': '69d06d2afd2b1ccee7e8836142fe9c849cfd0ed22ac98a0e4a3fdc43ce6e77a2'},
+ 'emdash3_2_exactness_extensions_to_exact_foundation.lp': {'diagramCategory': 0,
+                                                           'initialOp': 0,
+                                                           'sha256': 'ecc7edbeb8c7e49b3540e927cabe9c73c88a320fed24a0887baf257bc8958505'},
+ 'emdash3_2_exactness_extensions_to_exact_zero.lp': {'diagramCategory': 0,
+                                                     'initialOp': 0,
+                                                     'sha256': 'e53d3aea97fa1a38c632e6cdac9f9922181213bc115d4bcc7d8868a79b37803e'},
+ 'emdash3_2_homology_boundary_naturality.lp': {'diagramCategory': 3,
+                                               'initialOp': 1,
+                                               'sha256': 'd9c082eeec4cab8cea5058592013c6245c9d3df4db5bb7c8c8c657cf453ad25c'},
+ 'emdash3_2_homology_epic_covers.lp': {'diagramCategory': 0,
+                                       'initialOp': 0,
+                                       'sha256': 'cf2729815fab1d231c8f1aacbe99e2643e8541e0923aed0995d8b80003c4405e'},
+ 'emdash3_2_homology_record_cycle_lifts.lp': {'diagramCategory': 0,
+                                              'initialOp': 0,
+                                              'sha256': '77a035a49ccb2b6098e573eaf2a7869bc93c7f13c386693b34e19c7c031e41ed'},
+ 'emdash3_2_iso_evidence_monic.lp': {'diagramCategory': 0,
+                                     'initialOp': 0,
+                                     'sha256': '65e45418f10da958078bca460050f5b373f9e327513db3a2d2b463ffe92247c7'},
+ 'emdash3_2_kernel_domain_comparison.lp': {'diagramCategory': 0,
+                                           'initialOp': 0,
+                                           'sha256': 'b2dbba4ca0a7ad097a44db3f8b8eb95fa1d0e231f3e02077251308b61976da10'},
+ 'emdash3_2_kernel_domain_comparison_factors.lp': {'diagramCategory': 0,
+                                                   'initialOp': 0,
+                                                   'sha256': '18d5ba51bbb098c46cba2cc8bdde27eb07c190ab85a4b44c7fed2e9fb3e4c321'},
+ 'emdash3_2_monic_image_comparison.lp': {'diagramCategory': 0,
+                                         'initialOp': 0,
+                                         'sha256': 'b7327d5c90eaef44e70e6dd70cae4446647d6c3e3bf276c4eabfce38a90ef6b2'},
+ 'emdash3_2_one_cat_abelian_adjunctions.lp': {'diagramCategory': 0,
+                                              'initialOp': 5,
+                                              'sha256': '11d7108c4e98fb5f8ca3356fb0570efcc47ce41c5a4fc017de7db0d660212519'},
+ 'examples/abelian_bimorphisms.lp': {'diagramCategory': 0,
+                                     'initialOp': 0,
+                                     'sha256': 'f27b93347a76d9c78b525ebe812417c08044c5d13dd668fc2cc741f665d0ee12'},
+ 'examples/abelian_structure_elimination.lp': {'diagramCategory': 0,
+                                               'initialOp': 0,
+                                               'sha256': '3d44143c043870ff3e2fe9b5c417556a1191010ecc9f52a9e0c7e7db65fb43c7'},
+ 'examples/cokernel_codomain_comparison_projection.lp': {'diagramCategory': 0,
+                                                         'initialOp': 0,
+                                                         'sha256': '6684554cce6edd9e7a22d9065c4f47714419697e23c75b1d91fe132f33a56c37'},
+ 'examples/homology_epic_covers.lp': {'diagramCategory': 0,
+                                      'initialOp': 0,
+                                      'sha256': '7b7b8615f1e3489fb118db90cc442d922a655ab4ba07c73187811cd538e4066f'},
+ 'examples/iso_evidence_monic.lp': {'diagramCategory': 0,
+                                    'initialOp': 0,
+                                    'sha256': '7e2d1f106f75d80ff7c08086d62df5994fb0c7f6a3477700c360ea0f0a7a6cd3'},
+ 'examples/kernel_domain_comparison_factors.lp': {'diagramCategory': 0,
+                                                  'initialOp': 0,
+                                                  'sha256': 'cef2882b340416b03fe95117829750528685b7b41dc8a83b88671a5c31a7d40f'},
+ 'examples/monic_image_iso.lp': {'diagramCategory': 0,
+                                 'initialOp': 0,
+                                 'sha256': 'c858cab03ef12b1c80cb2ebac8a099f448c0dbb0011ea68162c50b4d0d98ee76'},
+ 'examples/one_cat_abelian_adjunctions.lp': {'diagramCategory': 2,
+                                             'initialOp': 6,
+                                             'sha256': '2c62a12401bc6f85844af8e821616c8fcc299c2d25a22cf9c85185abe346484d'}}
+
+def migrate_abelian_exactness_consumer(name, original):
+    if name not in SOURCES:
+        return None
+    spec = SOURCES[name]
+    assert hashlib.sha256(original.encode()).hexdigest() == spec['sha256'], name
+    text, count = re.subn(r'\bOp_cat(?=\s+C\b)', 'TotalOp_cat', original)
+    assert count == spec['initialOp'] and len(re.findall(r'\bOp_cat\b', original)) == count, name
+    text, count = re.subn(r'\bFunctor_cat(?=\s+WalkingArrow_cat\s+C\b)', 'Functor_oplax_cat', text)
+    assert count == spec['diagramCategory'], name
+    return text
