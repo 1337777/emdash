@@ -20,6 +20,19 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [native-snake result assembly][native-snake-result-consumers] adds three
+original owners and two complete reviewers, retaining all 32 declarations,
+15 positive/two negative assertions and four original finite-tail beta rules.
+Finite tails, append and their reviewer are byte-identical; the result keeps
+all four native inputs, reconstructions, exact comparisons and actual maps.
+The full group passes 18 positives/two negatives in 302.184s at 3,037,520KiB.
+All 807 predecessor sources and fourteen parent complete-scope input sets
+match; all 2,269 warnings occur in reviewed contexts. Qualification reaches
+**812 files: 532 core/library and 280 reviewers**; 259 core/library files and
+316 reviewers remain. The existing structural result-data role is retained;
+no new categorical theorem or rule is supplied. The five terminal runtime
+obligations, R07/R12 and production gates remain open.
+
 The [fourth native-snake exactness continuation][native-snake-fourth-consumers]
 adds three original owners and three complete reviewers, retaining all 33
 declarations and 12 assertions with two derived ordinary proof views. The
@@ -858,3 +871,5 @@ that all possible alternatives or future regressions have been discovered.
 [native-snake-third-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_snake_third_consumers_review.md
 
 [native-snake-fourth-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_snake_fourth_consumers_review.md
+
+[native-snake-result-consumers]: ../emdash2/audits/strict-default-action-boundary/production_native_snake_result_consumers_review.md

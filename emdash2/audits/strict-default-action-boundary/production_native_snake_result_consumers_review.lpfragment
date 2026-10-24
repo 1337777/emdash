@@ -1,0 +1,5 @@
+require open emdash.emdash3_2_finite_arrow_tails;
+require open emdash.emdash3_2_finite_arrow_tail_append;
+require open emdash.emdash3_2_one_cat_native_snake_six_term_result;
+require open emdash.examples.finite_arrow_tails;
+require open emdash.examples.one_cat_native_snake_six_term_result;

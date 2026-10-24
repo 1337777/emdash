@@ -42,6 +42,48 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original native-snake six-term result assembly, 2026-10-23 UTC:
+three original owners and two complete reviewers pass. The complete finite-tail
+reviewer requires the append owner, which is included. All 32 declarations,
+15 positive/two negative assertions and four original constructor/projection
+beta rules remain. Finite tails, append and their reviewer are byte-identical
+to baseline; they retain their structural result-data role. The original
+assembly keeps all four native inputs, reconstructions, exact comparisons,
+actual maps and inverse data. No new rule or assumption is invented.
+
+The full group passes 18 positives/two negatives in 302.184s at 3,037,520KiB
+under 600s/4GiB/o=20 with subject reduction:
+`20261023T234627Z-97275f60671b40f6a885061a5346a46b`.
+All 205 fresh inputs, 807 predecessor source hashes and fourteen parent
+complete-scope input sets match the final emission. All 2,269 warnings occur
+in reviewed contexts. The
+[review](../emdash2/audits/strict-default-action-boundary/production_native_snake_result_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_snake_result_consumers_verification.json)
+record the unchanged beta rules, actual boundary non-collapse and original
+complete result assembly. The paused large six-term comparison audit is not
+resumed by this migration of the original result owner.
+
+Qualification reaches **812 LP files: 532 core/library and 280 reviewers**.
+There remain 259 core/library files and 316 reviewers outside qualification,
+the same five terminal runtime obligations, normalization/toolchain work and
+production promotion. Next follow original native pair-observation paths and
+their Freyd consumers, including actual reviewer dependencies. All checkers
+are terminal; the checkpoint follows exact staged-diff review. The separate
+nerve goal remains paused; older execution entries are history.
+
+Original native-snake six-term result continuation from `8c91a313`,
+2026-10-23 UTC: the complete finite-tail reviewer also requires the original
+append owner, so this group has three owners and two complete reviewers.
+All 32 declarations, 15 positive/two negative assertions and four original
+constructor/projection beta rules are retained. Finite tails, append and
+their reviewer are unchanged; the result assembly uses existing corrected
+profiles and all 12 old Op(C) occurrences are initial-object hypotheses.
+The four beta rules are original structural result-data rules on fresh
+heads, not new derived categorical theorems. No new rule or assumption is
+invented. The first complete group uses 600s/4GiB/o=20 with measured
+predecessor cost 294.782s/2,971,436KiB. Emission completed before checking;
+qualification remains 807 until the complete scope and evidence review pass.
+
 Qualified original fourth native-snake exactness, 2026-10-23 UTC: three
 original owners and three complete reviewers pass. All 33 declarations and
 12 original assertions remain, with two derived ordinary proof views at the
