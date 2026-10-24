@@ -1,0 +1,16 @@
+require open emdash.examples.contravariant_action_owners;
+
+// The common postcomposer does not make distinct input functors equal.
+assertnot [A B C : Cat]
+  (M : τ (Functor B C)) (F G : τ (Functor A B)) ⊢
+  @eq_refl (Functor A C) (@comp_cat_fapp0 A B C M F)
+  : τ (@= (Functor A C)
+      (@comp_cat_fapp0 A B C M F) (@comp_cat_fapp0 A B C M G));
+
+// Existing constant computation still allows a nonfaithful postcomposer.
+assert [A B C : Cat]
+  (c : τ (Obj C)) (F G : τ (Functor A B)) ⊢
+  @eq_refl (Functor A C) (@comp_cat_fapp0 A B C (@Const_func B C c) F)
+  : τ (@= (Functor A C)
+      (@comp_cat_fapp0 A B C (@Const_func B C c) F)
+      (@comp_cat_fapp0 A B C (@Const_func B C c) G));

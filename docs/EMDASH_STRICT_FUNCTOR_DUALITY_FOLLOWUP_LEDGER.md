@@ -18,6 +18,37 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Foundational reviewer candidate — 2026-10-24, unadopted
+
+[Review](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_candidate_review.md)
+and [evidence](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_candidate_evidence.json)
+record a source-pinned replay of 74 pending complete reviewers. Seven have
+candidate interface corrections. No new complete-file qualification is claimed;
+the 1,361-input qualified package remains unchanged.
+
+The whole contravariant comparison needs congruence through its existing mapping
+inclusion. The candidate same-postcomposer comparison retains every actual
+argument; the complete native/strict-opposite consumer and noncancellation/
+constant controls pass cold. The existing core regression passes with compiled
+imports (314.382s, 4GiB profile), but cold affected-library qualification remains
+necessary before adopting this shared-core change. No new warning body occurs
+in the focused cold replay; this is not a global confluence result.
+
+Full displayed evaluation still has twelve raw same-base Op_funcd assertions
+to migrate to lawful shifted/Cartesian inputs. Its ordinary diagnostic slice
+also fails original assertion 18: the terminal identity cell retains the arrow
+action of `id (Catd_cat K) (Const_catd K Terminal_cat)` viewed as `K → 1`.
+The generic identity assertion passes. This is a required pending reviewer
+computation, not an optional new theorem or a discharged terminal obligation.
+Investigate its constructor action without broad terminal eta or whole-head
+erasure, and preserve all original projection-order/noncollapse intent.
+
+Keep this investigation separate from the unchanged qualified package and from
+R01–R03's five original runtime exclusions. All 89 complete reviewers, the
+remaining normalization/performance gates and production promotion still belong
+to the full goal. Separate application research remains paused.
+
+
 ## Complete algebra/geometry reviewers — 2026-10-24
 
 [Review](../emdash2/audits/strict-default-action-boundary/production_complete_algebra_reviewers_review.md)

@@ -1,0 +1,1840 @@
+{
+  "predecessor": "4cc4ad4c",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "files": {
+    "examples/boolean_observational_equality.lp": {
+      "sha256": "383b0cac6babb3d2c36d0cf2fbc692fbc45758400d0613a6a9698cd4cdfa0b9a",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 79
+    },
+    "examples/categorical_truncation_invariance.lp": {
+      "sha256": "7ad2c1c24a8dff1284bdb66ade8867cd478dc602bd655486dd6c49836590655b",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 91
+    },
+    "examples/computational_truncation_facade.lp": {
+      "sha256": "c1100fb1443b9886f77486ec6889e85cb0027606d30dc6149b0b61cb2593fe52",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_truncation_reflector.lp"
+      ],
+      "rules": 0,
+      "lines": 241
+    },
+    "examples/contravariant_action_owners.lp": {
+      "sha256": "66abefd54efc400ffb67bee734377ce72671722a6bf5731b8771ee244b120226",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 338
+    },
+    "examples/cubical_arrow.lp": {
+      "sha256": "ac19a3c744b7a635fb2511493dda0a4f30ad8cbfc923285a47cc9d2541f95a9a",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_cubical_arrow.lp"
+      ],
+      "rules": 0,
+      "lines": 56
+    },
+    "examples/dependent_hom_laxity.lp": {
+      "sha256": "059e67e9bc8635a2b9d688471bdfc697cfa9a235321ad9d2b54485f9e182472d",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 64
+    },
+    "examples/diagram_constant_evaluation.lp": {
+      "sha256": "312a838495f8cd3b4a5322934112fe1705bda8aa32cf86cf4ca2b5d34812d92a",
+      "declarations": [
+        "K",
+        "I",
+        "C",
+        "D",
+        "i",
+        "x",
+        "y",
+        "v",
+        "L",
+        "F",
+        "l"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_diagram_evaluation.lp"
+      ],
+      "rules": 0,
+      "lines": 30
+    },
+    "examples/diagram_evaluation_usability.lp": {
+      "sha256": "50b691cf9a0decbbfa9d291137b7b40e46bcd8fb836627145a33144afc442845",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_diagram_evaluation.lp"
+      ],
+      "rules": 0,
+      "lines": 98
+    },
+    "examples/diagram_exchange_computation.lp": {
+      "sha256": "a0030a998a64f073bd1999a5ad03cc22072b5856bd1602e74ea1801f2295d69a",
+      "declarations": [
+        "probe_op_capped"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 91
+    },
+    "examples/diagram_reindex_views.lp": {
+      "sha256": "9296b6edd2a858f70d53d59d15cc60f1cc4c8fd82c72fc4efd9261e5a619fcda",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_diagram_reindex_views.lp"
+      ],
+      "rules": 0,
+      "lines": 40
+    },
+    "examples/direct_cover_algebras.lp": {
+      "sha256": "c978144a847e1f5d4477a9dd0d48912c2102d4fc17df0937743fb38252b97a36",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_direct_cover_algebras.lp"
+      ],
+      "rules": 0,
+      "lines": 109
+    },
+    "examples/direct_univalence_eq1_boundary.lp": {
+      "sha256": "62d68d05744bb3560e434fcb2c1e016fd95ab9fa6e9d91b8163778db6b5f003a",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 160
+    },
+    "examples/directed_dimension.lp": {
+      "sha256": "af00fec26a385bc406214e4a5c121f16c12185169951d8bbd557a394d6b8bfda",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_eq1_hom_action.lp"
+      ],
+      "rules": 0,
+      "lines": 102
+    },
+    "examples/directed_join.lp": {
+      "sha256": "0365268f30e402967889892cb44b462b8fdd21495e223ee6eea5562a808ce3e8",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 87
+    },
+    "examples/discrete_category.lp": {
+      "sha256": "9403eca03d5a559b7f109f3a5a00215a7f890de20737d389c5a088013a0c3985",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_eq1_hom_action.lp"
+      ],
+      "rules": 0,
+      "lines": 88
+    },
+    "examples/discrete_functor_paths.lp": {
+      "sha256": "758c8d94fade5be446fbe6b73d403738a79d46409053789894bfca9035540848",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_discrete_functor_paths.lp"
+      ],
+      "rules": 0,
+      "lines": 26
+    },
+    "examples/displayed_evaluation.lp": {
+      "sha256": "5c5265c2c792ee23f09af9e38ca91276057928b1db70e9ba3c9a7508cc194d8e",
+      "declarations": [
+        "eval_order_domain",
+        "eval_order_transport",
+        "eval_order_leading",
+        "eval_order_cell_cat",
+        "eval_order_pair_whole_value"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp",
+        "emdash3_2_gray_profiles.lp"
+      ],
+      "rules": 0,
+      "lines": 368
+    },
+    "examples/displayed_identity_presentations.lp": {
+      "sha256": "2a51bf94bfdb9ba72c3e37d65d6e32929a8a9652a49090fbae29d165819d5368",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 37
+    },
+    "examples/equality_valued_omega_equivalence.lp": {
+      "sha256": "3b2715bf3040789555b64bec27b11cbbec5d636400583dd616f1f2bdf9adcec3",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 200
+    },
+    "examples/equality_valued_omega_equivalence_evidence_property.lp": {
+      "sha256": "760b87bb1eab6ae7b5bdcfb5dbc1ce6eba5c0ae990d70a1f3b4dd2bff7e24a60",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp",
+        "emdash3_2_eq1_evidence_property.lp"
+      ],
+      "rules": 0,
+      "lines": 83
+    },
+    "examples/equality_valued_omega_equivalence_hom_action.lp": {
+      "sha256": "54d7e06ab864f33a0e1c7dde9b77f65f9540751fa7981babfb5eefc3e1152b92",
+      "declarations": [
+        "consume_omega_equiv_along_fapp1"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp",
+        "emdash3_2_eq1_hom_action.lp"
+      ],
+      "rules": 0,
+      "lines": 59
+    },
+    "examples/finite_binary_products.lp": {
+      "sha256": "631f4b572b584a217cec7f2af0504ab81daeb6a76af0cfe6889f01472499767a",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_finite_limits.lp"
+      ],
+      "rules": 0,
+      "lines": 91
+    },
+    "examples/finite_family_sums.lp": {
+      "sha256": "449130b520ddd1d3a6099163667081be2bf78233064aea9bc608bc3f8f0c9197",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_finite_family_sums.lp"
+      ],
+      "rules": 0,
+      "lines": 46
+    },
+    "examples/gray_right_closure.lp": {
+      "sha256": "bc3ba6d0cb45c6e1a3d3f5343dc73859abb26a66a99938ef1962ad6a7a40d263",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_gray_right_closure.lp"
+      ],
+      "rules": 0,
+      "lines": 167
+    },
+    "examples/gray_transformation_graph.lp": {
+      "sha256": "e6eb855ddc1a705e6f0d0402f010f2da383c76f397590ac774093b6a2ef6aeaf",
+      "declarations": [
+        "graph_example_epsilon"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_gray_transformation_graph.lp"
+      ],
+      "rules": 0,
+      "lines": 132
+    },
+    "examples/gray_walking_square.lp": {
+      "sha256": "2c777c6993625b62cd3ff8a09f8bfa037044bad51cb3a4533a26093decc09f32",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_gray_walking_square.lp"
+      ],
+      "rules": 0,
+      "lines": 146
+    },
+    "examples/grothendieck_topology.lp": {
+      "sha256": "5b238a781693c37b37dabdf89b39bcaed9e2427a5afe05edae2ff9d56839b8e7",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_sites.lp"
+      ],
+      "rules": 0,
+      "lines": 81
+    },
+    "examples/groupoid_universe_identity_view.lp": {
+      "sha256": "282233596942208b94887b3ac5b7bc8415d6454dd53aa22ddd951698ef5c28da",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 136
+    },
+    "examples/groupoidal_interval_hit.lp": {
+      "sha256": "266a93dcc500a377fd062d3af37c10e26e94afa5b5c7137f7c194a3bce36593b",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_groupoidal_interval_hit.lp"
+      ],
+      "rules": 0,
+      "lines": 128
+    },
+    "examples/groupoidal_product_transport.lp": {
+      "sha256": "845b734cd5f3c5aec6d341c4e9e72d3b331c2e44f1d1de1cc8db2d3134727a7a",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_groupoidal_closure.lp"
+      ],
+      "rules": 0,
+      "lines": 189
+    },
+    "examples/groupoidification_set_extensionality.lp": {
+      "sha256": "9e7a915faaad6f4a59ab6c9f414b434beca9933534080dfb053bc72a90124ccf",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_groupoidification_set_extensionality.lp"
+      ],
+      "rules": 0,
+      "lines": 55
+    },
+    "examples/grpd_eq1_type_equiv_bridge.lp": {
+      "sha256": "c3e595b6907d0b278ee848a7ba33ceabf87edd54b639118bdd5a55c7054f4cb9",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 131
+    },
+    "examples/grpd_univalence_decoder.lp": {
+      "sha256": "e2e82d90e2babefc3175b95cf7133578a8f5553f376c1d8ad5f9746666727d9a",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 109
+    },
+    "examples/higher_sieve_classifier.lp": {
+      "sha256": "0d2dcd0152cf27a3b5343df55c5428a9ce406377d1c345fa989cdb91e20add5f",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_presheaves.lp"
+      ],
+      "rules": 0,
+      "lines": 83
+    },
+    "examples/join_cross_computation.lp": {
+      "sha256": "2e3755c5e1976b0e977ca149bf19a22feec16359b694ba13df9840c3a579b493",
+      "declarations": [
+        "probe_cross_func",
+        "probe_action_func",
+        "probe_arrow_cross"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 128
+    },
+    "examples/join_mapping_recursion.lp": {
+      "sha256": "67891f0ad43397c01aa9b4a19fe141e65fbc38018d04223d0c7185927170135f",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_join_mapping_recursion.lp"
+      ],
+      "rules": 0,
+      "lines": 157
+    },
+    "examples/nat_observational_equality.lp": {
+      "sha256": "3367e9dc60b8a5ead26aaa140e4947c765a3d46b7f938457c0b3c2363983a385",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 106
+    },
+    "examples/omega_equiv_composition.lp": {
+      "sha256": "004c18ffd87b457c39ee8ee37c48cf3612e79efae2e77ebaace88f11a997f794",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_omega_equiv_composition.lp"
+      ],
+      "rules": 0,
+      "lines": 21
+    },
+    "examples/ordinary_sieves.lp": {
+      "sha256": "217ad2dc1ec648a63b9b94d90d74d27b160544f4030a9f80495b02d6d570f986",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_sieves.lp"
+      ],
+      "rules": 0,
+      "lines": 50
+    },
+    "examples/path_category.lp": {
+      "sha256": "a8b08319cd8039e4f6c237766152addd7606307e34b0cc22f272815ee2c6a4b3",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 145
+    },
+    "examples/path_induction_transitivity.lp": {
+      "sha256": "ef193bc5f82c0f52402d05d2735374ed29760c1d1d7d601ae63decee8364ddb3",
+      "declarations": [
+        "path_induction_transitivity_comp_view"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 60
+    },
+    "examples/path_pseudo_laxity.lp": {
+      "sha256": "bb7a9bbd912d3402da4f423aa31d563bbd5abd3890b9a7feaf7a91cc7859f373",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_path_pseudo_laxity.lp"
+      ],
+      "rules": 0,
+      "lines": 180
+    },
+    "examples/pi_funext.lp": {
+      "sha256": "3af6ae8a5a79a5e0e48f136ae0ffff2455a2a1d68aed1938060866fee75646cb",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 107
+    },
+    "examples/presheaf_facade.lp": {
+      "sha256": "da819af74680100a298498b20a2eb94ba7c917d55085401c889d38dfc9618ac1",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_presheaves.lp"
+      ],
+      "rules": 0,
+      "lines": 151
+    },
+    "examples/product_identity_family_reindex.lp": {
+      "sha256": "263329066a67daff674ba1d227c1348293c12e71a6059319c0b5e63153735b1e",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_product_family_reindex.lp"
+      ],
+      "rules": 0,
+      "lines": 89
+    },
+    "examples/products_eval_curry.lp": {
+      "sha256": "4e007560b7c0bad245474c2fdbca8ea6dbd94416f5d85677d3164d1730b92bef",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 71
+    },
+    "examples/prof_curry_hom_views.lp": {
+      "sha256": "9d2b9c4fefa5b72bc4219a659d8cab22d93b14c0dc84b991118438e1f3d3af4f",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 33
+    },
+    "examples/prof_reindex_components.lp": {
+      "sha256": "d3bb82d521859347a5e6c05a7c39e0290b7937451d56f9c06b2d4a07e077c4cd",
+      "declarations": [
+        "review_unit_identity_image",
+        "review_counit_identity_image"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_adjunction_mates.lp"
+      ],
+      "rules": 0,
+      "lines": 116
+    },
+    "examples/section_postcomposition_views.lp": {
+      "sha256": "0a7cccfe194eeb7828ad68a4f8f83ce2f34ec1292f88eb15886c11d48e42c6cd",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 52
+    },
+    "examples/semisimplicial_face_codes.lp": {
+      "sha256": "070fee7f4e32b786bbcf9db9c54ea236056fd7503a67de8faaaee1ed7d004977",
+      "declarations": [
+        "face_vertex_zero",
+        "face_vertex_one",
+        "face_edge_zero_one"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_semisimplicial_face_codes.lp"
+      ],
+      "rules": 0,
+      "lines": 120
+    },
+    "examples/semisimplicial_index_category.lp": {
+      "sha256": "16639a49ff66df2dd6306cb1c01c03b6aa12cdcded35410fe27e4901266d5123",
+      "declarations": [
+        "semi_delta_vertex_zero",
+        "semi_delta_vertex_one",
+        "semi_delta_edge_zero_one",
+        "semi_delta_edge_zero_two",
+        "semi_delta_edge_one_two"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_semisimplicial_index.lp"
+      ],
+      "rules": 0,
+      "lines": 144
+    },
+    "examples/shaped_pathout.lp": {
+      "sha256": "65f7ea06ff1e30f7c6a3a1a36b9c6449c4eb8b1dc3682ad9d87a36a0d1017085",
+      "declarations": [],
+      "assertions": [],
+      "imports": [
+        "emdash3_2_shaped_pathout.lp"
+      ],
+      "rules": 0,
+      "lines": 19
+    },
+    "examples/sigma_recursive_hom_action.lp": {
+      "sha256": "b3793356a512a3f0ab27c23fdf1d9bdd15185b8943aad2207cabc81fc1e00583",
+      "declarations": [
+        "sigma_review_lift",
+        "sigma_review_base"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 46
+    },
+    "examples/sigma_section_projection_views.lp": {
+      "sha256": "298eac272076ae6d38fdbd50fb0948ea01818ea0972c8ac7d30d53fd578445df",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 62
+    },
+    "examples/sigma_total.lp": {
+      "sha256": "7862ee45c20794c546ad6030b1d0ea0b528417ead6bec398dd4821fd2e355177",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 263
+    },
+    "examples/structural_paths.lp": {
+      "sha256": "d707c768d56ccabe7723ca5c36dc41bb6b8d7c0a68cce507a991df59d5492330",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 87
+    },
+    "examples/telescope_localization_hit.lp": {
+      "sha256": "2fa362d5efc1ae6aab82ec023623fe2eb9c2479b7c4b6c1b0273da549b212fee",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_telescope_localization_hit.lp"
+      ],
+      "rules": 0,
+      "lines": 107
+    },
+    "examples/terminal_category_profile.lp": {
+      "sha256": "d8fb2ee41cfd0a1548215adcbcebc8007e69f180785f23dd34a1c3000bc1804a",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_terminal_category_profile.lp"
+      ],
+      "rules": 0,
+      "lines": 20
+    },
+    "examples/terminal_objects.lp": {
+      "sha256": "4dd2155c5c0fc197b357f2dd048d9846155e17dcfd9c74350dfe058dc33cffe0",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_terminal_objects.lp"
+      ],
+      "rules": 0,
+      "lines": 86
+    },
+    "examples/terminal_target_transformations.lp": {
+      "sha256": "a9bf79a4b80f841e3977066be177c3164dcb27501169cf15bb017c3218898de6",
+      "declarations": [
+        "review_terminal_family_iso",
+        "review_initial_family_iso"
+      ],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_one_cat_adjunction_families.lp"
+      ],
+      "rules": 0,
+      "lines": 94
+    },
+    "examples/transfor_whiskering.lp": {
+      "sha256": "d094bbfa6de345fed8a2a84c93d6adc4d1b4a0bf9277bfed602d0bf9aa8fa025",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert"
+      ],
+      "imports": [
+        "emdash3_2_transfor_whiskering.lp"
+      ],
+      "rules": 0,
+      "lines": 39
+    },
+    "examples/truncation_evidence_property.lp": {
+      "sha256": "17b9b6c7cd89ef6f98a60d12e9521315a570bd9cb6079513d7105657b6086d3e",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 61
+    },
+    "examples/truncation_invariance.lp": {
+      "sha256": "f32e8139e525e260c08cb8a0c48d630cb170b8c0c3ede1f2b4538f68ef18b5a4",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 76
+    },
+    "examples/truncation_monotonicity.lp": {
+      "sha256": "92700fc5c050caa49af066a3d7d4cdcd7a7dd73db8647d9268c0c62745857260",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 62
+    },
+    "examples/truncation_pi_closure.lp": {
+      "sha256": "c6b60b9dbd7e7d75da3b4e236c7202df63df3146e4250f0a962f129e420d0625",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 63
+    },
+    "examples/truncation_sigma_closure.lp": {
+      "sha256": "1ff81d8929b91be674b63427a74aea5506091afd28cadb62f73a9e1141594ca9",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 89
+    },
+    "examples/truncation_universe_level.lp": {
+      "sha256": "ab77444c4412a62890209b43c05f8846320c8e744fbb32aeed5ea9c8b4e94c72",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 90
+    },
+    "examples/truncation_universe_paths.lp": {
+      "sha256": "843b50117e7a5979f4cf0315e04bd20c557825ee5cdfbd26601f010a3f1faf29",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 105
+    },
+    "examples/truncation_universe_univalence.lp": {
+      "sha256": "33e13f9eb89b39e31fcfb73cda7495cb349caae1131ef5f9f2a4bd8838fd12cc",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 109
+    },
+    "examples/type_equiv_algebra.lp": {
+      "sha256": "f87547d01a4fd20908fda20ee8b8c827d4fe29d60c8d463e6b3516f8b701100f",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 86
+    },
+    "examples/unit_observational_equality.lp": {
+      "sha256": "86ee68de0beddd3f8b245767066162d61749b7f51defa8d8a3d50db23ea6cd37",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2.lp"
+      ],
+      "rules": 0,
+      "lines": 62
+    },
+    "examples/walking_arrow.lp": {
+      "sha256": "0c44228aed96b46796ccfe4dd5b016ba9f697485a7fc20957cd758fe2c7b036d",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_walking_arrow.lp"
+      ],
+      "rules": 0,
+      "lines": 89
+    },
+    "examples/walking_arrow_introduction.lp": {
+      "sha256": "0e034cccbcaf676f758d86da151211e812f11620fa0037e26ed16af2a50baf91",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_walking_arrow_introduction.lp",
+        "emdash3_2_diagram_evaluation.lp"
+      ],
+      "rules": 0,
+      "lines": 45
+    },
+    "examples/walking_endomorphism_nat_prerequisites.lp": {
+      "sha256": "e04185d5388d2a2f738cdd474312bb771e8bbf1a6c52a239c0c54a9c22eeff0f",
+      "declarations": [],
+      "assertions": [
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assert",
+        "assertnot"
+      ],
+      "imports": [
+        "emdash3_2_nat_arithmetic.lp"
+      ],
+      "rules": 0,
+      "lines": 50
+    }
+  },
+  "order": [
+    "examples/boolean_observational_equality.lp",
+    "examples/categorical_truncation_invariance.lp",
+    "examples/computational_truncation_facade.lp",
+    "examples/contravariant_action_owners.lp",
+    "examples/cubical_arrow.lp",
+    "examples/dependent_hom_laxity.lp",
+    "examples/diagram_constant_evaluation.lp",
+    "examples/diagram_evaluation_usability.lp",
+    "examples/diagram_exchange_computation.lp",
+    "examples/diagram_reindex_views.lp",
+    "examples/direct_cover_algebras.lp",
+    "examples/direct_univalence_eq1_boundary.lp",
+    "examples/directed_dimension.lp",
+    "examples/directed_join.lp",
+    "examples/discrete_category.lp",
+    "examples/discrete_functor_paths.lp",
+    "examples/displayed_evaluation.lp",
+    "examples/displayed_identity_presentations.lp",
+    "examples/equality_valued_omega_equivalence.lp",
+    "examples/equality_valued_omega_equivalence_evidence_property.lp",
+    "examples/equality_valued_omega_equivalence_hom_action.lp",
+    "examples/finite_binary_products.lp",
+    "examples/finite_family_sums.lp",
+    "examples/gray_right_closure.lp",
+    "examples/gray_transformation_graph.lp",
+    "examples/gray_walking_square.lp",
+    "examples/grothendieck_topology.lp",
+    "examples/groupoid_universe_identity_view.lp",
+    "examples/groupoidal_interval_hit.lp",
+    "examples/groupoidal_product_transport.lp",
+    "examples/groupoidification_set_extensionality.lp",
+    "examples/grpd_eq1_type_equiv_bridge.lp",
+    "examples/grpd_univalence_decoder.lp",
+    "examples/higher_sieve_classifier.lp",
+    "examples/join_cross_computation.lp",
+    "examples/join_mapping_recursion.lp",
+    "examples/nat_observational_equality.lp",
+    "examples/omega_equiv_composition.lp",
+    "examples/ordinary_sieves.lp",
+    "examples/path_category.lp",
+    "examples/path_induction_transitivity.lp",
+    "examples/path_pseudo_laxity.lp",
+    "examples/pi_funext.lp",
+    "examples/presheaf_facade.lp",
+    "examples/product_identity_family_reindex.lp",
+    "examples/products_eval_curry.lp",
+    "examples/prof_curry_hom_views.lp",
+    "examples/prof_reindex_components.lp",
+    "examples/section_postcomposition_views.lp",
+    "examples/semisimplicial_face_codes.lp",
+    "examples/semisimplicial_index_category.lp",
+    "examples/shaped_pathout.lp",
+    "examples/sigma_recursive_hom_action.lp",
+    "examples/sigma_section_projection_views.lp",
+    "examples/sigma_total.lp",
+    "examples/structural_paths.lp",
+    "examples/telescope_localization_hit.lp",
+    "examples/terminal_category_profile.lp",
+    "examples/terminal_objects.lp",
+    "examples/terminal_target_transformations.lp",
+    "examples/transfor_whiskering.lp",
+    "examples/truncation_evidence_property.lp",
+    "examples/truncation_invariance.lp",
+    "examples/truncation_monotonicity.lp",
+    "examples/truncation_pi_closure.lp",
+    "examples/truncation_sigma_closure.lp",
+    "examples/truncation_universe_level.lp",
+    "examples/truncation_universe_paths.lp",
+    "examples/truncation_universe_univalence.lp",
+    "examples/type_equiv_algebra.lp",
+    "examples/unit_observational_equality.lp",
+    "examples/walking_arrow.lp",
+    "examples/walking_arrow_introduction.lp",
+    "examples/walking_endomorphism_nat_prerequisites.lp"
+  ],
+  "seeds": [
+    "examples/boolean_observational_equality.lp",
+    "examples/categorical_truncation_invariance.lp",
+    "examples/computational_truncation_facade.lp",
+    "examples/contravariant_action_owners.lp",
+    "examples/cubical_arrow.lp",
+    "examples/dependent_hom_laxity.lp",
+    "examples/diagram_constant_evaluation.lp",
+    "examples/diagram_evaluation_usability.lp",
+    "examples/diagram_exchange_computation.lp",
+    "examples/diagram_reindex_views.lp",
+    "examples/direct_cover_algebras.lp",
+    "examples/direct_univalence_eq1_boundary.lp",
+    "examples/directed_dimension.lp",
+    "examples/directed_join.lp",
+    "examples/discrete_category.lp",
+    "examples/discrete_functor_paths.lp",
+    "examples/displayed_evaluation.lp",
+    "examples/displayed_identity_presentations.lp",
+    "examples/equality_valued_omega_equivalence.lp",
+    "examples/equality_valued_omega_equivalence_evidence_property.lp",
+    "examples/equality_valued_omega_equivalence_hom_action.lp",
+    "examples/finite_binary_products.lp",
+    "examples/finite_family_sums.lp",
+    "examples/gray_right_closure.lp",
+    "examples/gray_transformation_graph.lp",
+    "examples/gray_walking_square.lp",
+    "examples/grothendieck_topology.lp",
+    "examples/groupoid_universe_identity_view.lp",
+    "examples/groupoidal_interval_hit.lp",
+    "examples/groupoidal_product_transport.lp",
+    "examples/groupoidification_set_extensionality.lp",
+    "examples/grpd_eq1_type_equiv_bridge.lp",
+    "examples/grpd_univalence_decoder.lp",
+    "examples/higher_sieve_classifier.lp",
+    "examples/join_cross_computation.lp",
+    "examples/join_mapping_recursion.lp",
+    "examples/nat_observational_equality.lp",
+    "examples/omega_equiv_composition.lp",
+    "examples/ordinary_sieves.lp",
+    "examples/path_category.lp",
+    "examples/path_induction_transitivity.lp",
+    "examples/path_pseudo_laxity.lp",
+    "examples/pi_funext.lp",
+    "examples/presheaf_facade.lp",
+    "examples/product_identity_family_reindex.lp",
+    "examples/products_eval_curry.lp",
+    "examples/prof_curry_hom_views.lp",
+    "examples/prof_reindex_components.lp",
+    "examples/section_postcomposition_views.lp",
+    "examples/semisimplicial_face_codes.lp",
+    "examples/semisimplicial_index_category.lp",
+    "examples/shaped_pathout.lp",
+    "examples/sigma_recursive_hom_action.lp",
+    "examples/sigma_section_projection_views.lp",
+    "examples/sigma_total.lp",
+    "examples/structural_paths.lp",
+    "examples/telescope_localization_hit.lp",
+    "examples/terminal_category_profile.lp",
+    "examples/terminal_objects.lp",
+    "examples/terminal_target_transformations.lp",
+    "examples/transfor_whiskering.lp",
+    "examples/truncation_evidence_property.lp",
+    "examples/truncation_invariance.lp",
+    "examples/truncation_monotonicity.lp",
+    "examples/truncation_pi_closure.lp",
+    "examples/truncation_sigma_closure.lp",
+    "examples/truncation_universe_level.lp",
+    "examples/truncation_universe_paths.lp",
+    "examples/truncation_universe_univalence.lp",
+    "examples/type_equiv_algebra.lp",
+    "examples/unit_observational_equality.lp",
+    "examples/walking_arrow.lp",
+    "examples/walking_arrow_introduction.lp",
+    "examples/walking_endomorphism_nat_prerequisites.lp"
+  ],
+  "status": "unadopted candidate; complete reviewer group and shared-source regression not qualified",
+  "parentVerification": "audits/strict-default-action-boundary/production_complete_algebra_reviewers_verification.json",
+  "parentVerificationSha256": "09e2f651171b2e01b5b8d1af1d43c82256d737608fa38cd6c2cceb9afac1e060",
+  "coreSourceSha256": "00ac8298f0759469c3a27a96c68e0642ffed99963e40b8f1082da73b93b045a5"
+}

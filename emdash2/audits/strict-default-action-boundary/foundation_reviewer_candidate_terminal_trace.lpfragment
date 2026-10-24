@@ -1,0 +1,6 @@
+require open emdash.emdash3_2;
+flag "print_implicits" on;
+compute λ (K : Cat), @id_funcd K (@Const_catd K Terminal_cat);
+compute λ (K : Cat) (x y : τ (Obj K)) (p : τ (Hom K x y)),
+  @fdapp1_int_cell K (@Const_catd K Terminal_cat) (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat)) x y p Terminal_obj;

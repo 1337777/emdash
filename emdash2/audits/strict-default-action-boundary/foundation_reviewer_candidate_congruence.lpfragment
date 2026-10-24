@@ -1,0 +1,6 @@
+// Sufficient congruence under the same actual postcomposing functor.
+// This only reduces the comparison to equality of all remaining data;
+// it neither assumes cancellation nor adds a runtime composition fold.
+unif_rule @comp_fapp0 Cat_cat $X $Y $Z $H $F
+  ≡ @comp_fapp0 Cat_cat $X0 $Y0 $Z0 $H $G
+  ↪ [ $X ≡ $X0; $Y ≡ $Y0; $Z ≡ $Z0; $F ≡ $G ];

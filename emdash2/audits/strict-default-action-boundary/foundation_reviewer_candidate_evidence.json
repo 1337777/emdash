@@ -1,0 +1,751 @@
+{
+  "status": "unadopted candidate; partial diagnostics are not complete reviewer qualification",
+  "predecessor": "4cc4ad4c",
+  "parentVerification": "audits/strict-default-action-boundary/production_complete_algebra_reviewers_verification.json",
+  "parentVerificationSha256": "09e2f651171b2e01b5b8d1af1d43c82256d737608fa38cd6c2cceb9afac1e060",
+  "changedReviewers": {
+    "examples/contravariant_action_owners.lp": {
+      "originalSha256": "66abefd54efc400ffb67bee734377ce72671722a6bf5731b8771ee244b120226",
+      "candidateSha256": "4e1cfb85f3585d63e4b8b56d9e88c4cba0fba2a7fbf9d1b3c6d327c2a2f048a8"
+    },
+    "examples/dependent_hom_laxity.lp": {
+      "originalSha256": "059e67e9bc8635a2b9d688471bdfc697cfa9a235321ad9d2b54485f9e182472d",
+      "candidateSha256": "7773c1a96fb2a81afe088df5692b2a44a8b64cf3b218fc6089368ca378d8a2ff"
+    },
+    "examples/diagram_constant_evaluation.lp": {
+      "originalSha256": "312a838495f8cd3b4a5322934112fe1705bda8aa32cf86cf4ca2b5d34812d92a",
+      "candidateSha256": "c75ef206c9cda6fa4d68db67524724370beddc84bc71a0d611c0f899b1b5a565"
+    },
+    "examples/diagram_evaluation_usability.lp": {
+      "originalSha256": "50b691cf9a0decbbfa9d291137b7b40e46bcd8fb836627145a33144afc442845",
+      "candidateSha256": "960d7b40c8841b10b862c45d58727bcc884c099d7f224fe6d012a1fcf4e3670a"
+    },
+    "examples/diagram_exchange_computation.lp": {
+      "originalSha256": "a0030a998a64f073bd1999a5ad03cc22072b5856bd1602e74ea1801f2295d69a",
+      "candidateSha256": "6b09a42a6660e438a20f53582baa8cb13f694d917ce0cad97322a89da5bf6329"
+    },
+    "examples/displayed_evaluation.lp": {
+      "originalSha256": "5c5265c2c792ee23f09af9e38ca91276057928b1db70e9ba3c9a7508cc194d8e",
+      "candidateSha256": "3fb7f64a5bedc69dec944c02efbe2de343df75edc383d16fc5deb8e5ae47cfe5"
+    },
+    "examples/gray_right_closure.lp": {
+      "originalSha256": "bc3ba6d0cb45c6e1a3d3f5343dc73859abb26a66a99938ef1962ad6a7a40d263",
+      "candidateSha256": "18201f1991a6f94a2d760d3f34aed7eaed8c6b4384d5e2ac5ff28d1975103472"
+    }
+  },
+  "candidateCoreSha256": "ddfa7146be0c0e9eefab7ee043589b9c3e9cea54d7d68c34843cf25e6d3feb1d",
+  "scope": {
+    "completeReviewerFilesRequested": 74,
+    "originalDeclarations": 37,
+    "originalPositiveAssertions": 651,
+    "originalNegativeAssertions": 161
+  },
+  "receipts": [
+    {
+      "id": "20261024T201804Z-7b5bee8ba80e4119ac8d4d3378c5f143",
+      "target": "original_foundation_reviewers.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 38.84048275812529,
+      "childrenMaxRssKiB": 176852,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": false,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "6de006cd9e1b6d17cdc053ecb18b1df1723b9ad82666731f68142f7570fc0452",
+      "log": "logs/check-runs/20261024T201804Z-7b5bee8ba80e4119ac8d4d3378c5f143.log",
+      "logSha256": "86f54b297f3740da8ae58d1ed205116f12afd8f09660f4b092cedb0ed576070c"
+    },
+    {
+      "id": "20261024T202010Z-5573552f500d400b8ba3eba2e6526fba",
+      "target": "original_foundation_reviewers.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 35.38838699297048,
+      "childrenMaxRssKiB": 175536,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": false,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "815f626c71ad2b2c8d744a43b092d072a5d3c81606b0e05ba37c9f1eba558f9c",
+      "log": "logs/check-runs/20261024T202010Z-5573552f500d400b8ba3eba2e6526fba.log",
+      "logSha256": "c7501e0632a504c5fce6b7d6230f15bd22d946afa9017a7645a97e1c7583685c"
+    },
+    {
+      "id": "20261024T202330Z-df3da54795804569a59975260fac1aa2",
+      "target": "examples/contravariant_action_owners.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 36.74294946505688,
+      "childrenMaxRssKiB": 167304,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": false,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "93c46cec8717429bb8acb2746a764c036f1a7c59b8a41c1657f8186e771e89c2",
+      "log": "logs/check-runs/20261024T202330Z-df3da54795804569a59975260fac1aa2.log",
+      "logSha256": "66f0ea47891df4963dc90d374b36ecc01a8ed96c6707955c5ff5db0d545cd39d"
+    },
+    {
+      "id": "20261024T202550Z-b584c9d74abd41a1afd7433f2914082d",
+      "target": "original_foundation_reviewers.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 36.56380628794432,
+      "childrenMaxRssKiB": 166656,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": false,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "13f749df60a0f64ee8586a59b5b51283efd7a3615a1c21d7c5c58ef1bfd239fd",
+      "log": "logs/check-runs/20261024T202550Z-b584c9d74abd41a1afd7433f2914082d.log",
+      "logSha256": "1abd51970c7e1e9ed7a74f198e9c6b8d62686ee933b39e4a061cecb80c7d60ad"
+    },
+    {
+      "id": "20261024T202639Z-07bb96d3d9d8476fb8194b2df882e1e3",
+      "target": "original_foundation_reviewers.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 60.52353928703815,
+      "childrenMaxRssKiB": 199644,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": false,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "20d7574ab0763701a1783a5fa9c11292bac5b4bc178e93545ab47a608533d2d2",
+      "log": "logs/check-runs/20261024T202639Z-07bb96d3d9d8476fb8194b2df882e1e3.log",
+      "logSha256": "60db01b4a263fac89b7a398b993bdfaeacfb4a9c419828c566ab2ec40e690e59"
+    },
+    {
+      "id": "20261024T202953Z-7cbbd2ff541c425bb7fbc5cdbb711f0b",
+      "target": "original_foundation_reviewers.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 65.54433068819344,
+      "childrenMaxRssKiB": 288884,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": true,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "c12a072ddeb44d13099a432c2df3ca9a0f2ff49532e2e9c4ea2dde56a2519ecc",
+      "log": "logs/check-runs/20261024T202953Z-7cbbd2ff541c425bb7fbc5cdbb711f0b.log",
+      "logSha256": "0c70175ff1de6557f0f8d23e184c96a02cc67f3825ba90d5e58b073848bd00e3"
+    },
+    {
+      "id": "20261024T203232Z-5bd92230984641b6ac415dc3046e0034",
+      "target": "original_foundation_reviewers.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 9.071224004030228,
+      "childrenMaxRssKiB": 434712,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": true,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "2b18d7e97413ee2752bc363c4ddfcf84068a38f003aa608bb9d9e7dd4ec12e0f",
+      "log": "logs/check-runs/20261024T203232Z-5bd92230984641b6ac415dc3046e0034.log",
+      "logSha256": "a826da805f7d2c01c92f0062aa93ff483382685235f58472188ca00c8a63930a"
+    },
+    {
+      "id": "20261024T203556Z-b3ad3e8d032846bf9ffbd42fe2533647",
+      "target": "whole_contravariant_review.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 1.3854392929933965,
+      "childrenMaxRssKiB": 164872,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": true,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "2bf9b53263cdbfcff444d50c5dc2ea98a2bdafa1ed6b17eec6f1cc07c80a7fa6",
+      "log": "logs/check-runs/20261024T203556Z-b3ad3e8d032846bf9ffbd42fe2533647.log",
+      "logSha256": "cde5e2755e1dd64e6222fa7b31eabc1e895207d638696ca627c65836dc57fa36"
+    },
+    {
+      "id": "20261024T203714Z-1073ef82cf654a2fbac9113ddf05aa30",
+      "target": "selected_presentation_core_regression.lp",
+      "outcome": "timeout",
+      "checkerExit": 137,
+      "wallSeconds": 90.03663471783511,
+      "childrenMaxRssKiB": 83368,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": true,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "525ee9ec21a7d1491cefa8ad5f1db54529763fa4b0197c1528c8dcd8ad590760",
+      "log": "logs/check-runs/20261024T203714Z-1073ef82cf654a2fbac9113ddf05aa30.log",
+      "logSha256": "08e97bc77c1044fd10db6124703e787dd2168004cdfaeb0243fa7b8c74cffaff"
+    },
+    {
+      "id": "20261024T203908Z-9bc2a94134b3477686e1581612689338",
+      "target": "selected_presentation_core_regression.lp",
+      "outcome": "allocation-failed",
+      "checkerExit": 134,
+      "wallSeconds": 37.559487865073606,
+      "childrenMaxRssKiB": 1819932,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": true,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "f3008278786ea5b40129bf72042d4c1b01f3cd98fc54b7b8e94d193660239140",
+      "log": "logs/check-runs/20261024T203908Z-9bc2a94134b3477686e1581612689338.log",
+      "logSha256": "33b18dfbc47ab60419611cecb2129eaabbf7e01ba20c7139469e9f22cd117469"
+    },
+    {
+      "id": "20261024T204111Z-0df56f8c74204d44be432551a8e186ef",
+      "target": "selected_presentation_core_regression.lp",
+      "outcome": "timeout",
+      "checkerExit": 137,
+      "wallSeconds": 300.03533259104006,
+      "childrenMaxRssKiB": 83368,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": true,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 300000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "f3008278786ea5b40129bf72042d4c1b01f3cd98fc54b7b8e94d193660239140",
+      "log": "logs/check-runs/20261024T204111Z-0df56f8c74204d44be432551a8e186ef.log",
+      "logSha256": "b7b5a59e1073e34e1b2d189b4ca74ebcae8d37ed2ae883ecd0cf3f4f9c59590f"
+    },
+    {
+      "id": "20261024T204643Z-520f5df8d3964b45a910978e7a06de3e",
+      "target": "selected_presentation_core_regression.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 314.3818656390067,
+      "childrenMaxRssKiB": 2971152,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": true,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 4096,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 600000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "4943a674a135496e20264b561695014b0d267c8a70b01f02ec55d6dfc8a383af",
+      "log": "logs/check-runs/20261024T204643Z-520f5df8d3964b45a910978e7a06de3e.log",
+      "logSha256": "db1819b37eb72c69fba44a661355d8007a9681f5f4ac12b375178e1747917ff7"
+    },
+    {
+      "id": "20261024T205300Z-a219ac3928f24445abbeebb729514fb1",
+      "target": "ordinary_displayed_diagnostic.lp",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 3.6673448749352247,
+      "childrenMaxRssKiB": 178708,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": true,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "cf01e533beb784de57d297cd36021fde614aa4b12677f7aa4de05fe240400ab2",
+      "log": "logs/check-runs/20261024T205300Z-a219ac3928f24445abbeebb729514fb1.log",
+      "logSha256": "19a3d82b34d8208f75e2b44d4363b08aada235b597a07556b4887856ab96e6c3"
+    },
+    {
+      "id": "20261024T205347Z-5433a151e6174d72a21cb62de141d6a5",
+      "target": "whole_contravariant_review.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 35.37646315805614,
+      "childrenMaxRssKiB": 168728,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": false,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "be5edb7c6e4b2307fac0bf06c9ca96705f943ef700cf32dd483b11f9b48becc3",
+      "log": "logs/check-runs/20261024T205347Z-5433a151e6174d72a21cb62de141d6a5.log",
+      "logSha256": "b01dc895e3a3677c347925215c3f2f766841419544db9b6dffebf92e36b7dd80"
+    },
+    {
+      "id": "20261024T205708Z-ced9e71ff577484cb9a18cc577286506",
+      "target": "terminal_displayed_identity_compute.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 0.5326077090576291,
+      "childrenMaxRssKiB": 113836,
+      "memoryMeasurement": "maximum child-process RSS; not aggregate descendant memory",
+      "compileObject": false,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "--record-time",
+          "--too-long=0.5",
+          "--no-colors"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 90000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+        "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "1e1473aba0b81454c598c81737f47918259ca5c238bf413b23274475a79d3ea3",
+      "log": "logs/check-runs/20261024T205708Z-ced9e71ff577484cb9a18cc577286506.log",
+      "logSha256": "b4ad19e0109681bdce0ec238ab56cd85838a20fde57fa4e46440ff345410a4f8"
+    }
+  ],
+  "replayMatchesAllCandidateSources": true,
+  "qualifiedPackageUnchanged": true,
+  "remaining": [
+    "Migrate old raw same-base Op_funcd obligations at their lawful profile without weakening ordinary lax pairing/evaluation.",
+    "Complete all original reviewer files; no omitted assertion is discharged.",
+    "Complete shared-core regression, warning comparison and cold source/library qualification before adopting the congruence rule.",
+    "Resolve the terminal specialization identity-action projection without broad terminal eta or whole identity-head erasure."
+  ],
+  "productionPromoted": false,
+  "coldFocusedWarningComparison": {
+    "receipt": "20261024T205347Z-5433a151e6174d72a21cb62de141d6a5",
+    "warningOccurrences": 1612,
+    "outsideReviewedContexts": {},
+    "reviewedReferenceReceipts": [
+      "20261023T141551Z-7e47dea2a07b4db391493d9bdf15274f",
+      "20261023T150113Z-e681bb8a30a44a2ba7891e8c3a9bb8b0",
+      "20261023T125803Z-626cf195dd8647ba8314c5e05e191a59",
+      "20261023T135816Z-60528a05010b47bcaff3c7ed4d3243f8",
+      "20261023T121011Z-c7ab46ea7eee453f99896416004aa263",
+      "20261023T021012Z-7d247974d4f44953bbf0e8eca45ffffa",
+      "20261023T025955Z-8e438f0781474e55a0e427c43081843e",
+      "20261023T024853Z-a22dd35c113b41a4838c55d2063faccc",
+      "20261023T030824Z-7bdb9757bf39466fb5ae74fa9b08cb41",
+      "20261023T162827Z-d0db21d04fbc4645aacaca3cbf3d968f",
+      "20261023T170031Z-7de987093c3c4bb9ad79f8e161410c84",
+      "20261023T171933Z-5b9380a0e2d14e4caad280724c622ac5",
+      "20261023T175739Z-03e39b31cd73414aa7558630e9f190ec",
+      "20261023T194037Z-012bbb02bea64e6b89c6a36d7fcc28a4",
+      "20261023T202055Z-63ed9a4912974e0babdcd4b70704f833",
+      "20261023T211118Z-a353b8a8efb54a3986f7ad34d9fbb0b3",
+      "20261023T213700Z-70e76c5fc6a5467fac10593542b14350",
+      "20261023T215949Z-be06c805535b41c6b9732fb310f665b7",
+      "20261023T225003Z-50d6dcf12aea4b45b1223e9b8d4cf063",
+      "20261023T231141Z-42105f752a904346a11af9214e91c966",
+      "20261023T233110Z-bb2b8b289ccb4efcbcb1b984777f36be",
+      "20261023T234627Z-97275f60671b40f6a885061a5346a46b",
+      "20261024T002638Z-687e0311466941d8a1661435d737f43a",
+      "20261024T004045Z-7028c427f6c4411291b617400503548e",
+      "20261024T004448Z-afe223b68f734052ab431f353e73c877",
+      "20261024T004816Z-9650fc9cf33f4b1cb0b4f5ea4853ed5b",
+      "20261024T005349Z-425136846c67490da3a98aa8c80515d6",
+      "20261024T083552Z-e9a7b283ef1640bca50ede58766ee0b4",
+      "20261024T092805Z-e253af50d282437a830b3fa089e1d710",
+      "20261024T095622Z-f2959bd5c29a42da8e0a2b8dba119908",
+      "20261024T101347Z-d607c1b47fdd49f483db93b150a47531",
+      "20261024T102846Z-96fcded03c0144baaa1d1545e111315b",
+      "20261024T103649Z-0b2a616a5de54b678d59bfa316d70f0d",
+      "20261024T105731Z-3a799c81b5474385b156a697107758c6",
+      "20261024T122238Z-f234d973de16430c9aa9ddddab8f0c85",
+      "20261024T114527Z-94fac8cc2e0c4587a132c9700f847e8b",
+      "20261024T155138Z-b5565a185ef5436eb6526d04a1eb1ed3",
+      "20261024T155233Z-4c3063ed0f554e1394bc6eff5c2673c6",
+      "20261024T172911Z-3eead10a149b4dbcbbc2ef241117f4ab",
+      "20261024T163215Z-ea047ac332f74cd186a8fba32aec40d6",
+      "20261024T164859Z-9bde28f459e244ad91ef37525d7fd6a0",
+      "20261024T160107Z-191fefd60ba54cbf84551c0da63a6fa9",
+      "20261024T181618Z-2620d73b9240446789f56071167de4e5",
+      "20261024T182417Z-8ef781a919fd457a91660d1e80a438f5",
+      "20261024T185459Z-bc0117d1255c48a4bcfdf74627426789",
+      "20261024T190419Z-1a07689aa6d3404781fc65b18dbec413",
+      "20261024T191227Z-9956e7cda479455aaeb06f036c714952",
+      "20261024T191916Z-3289b9d05f934425b93917a30d1766e8",
+      "20261024T194040Z-fb32b76b92404b8195802d7e608ee466",
+      "20261024T200441Z-84146a2262bd4450ae5a34eeed336a16",
+      "20261024T201135Z-ea47ab070b8242c6b3fd7156d3f3bd58"
+    ],
+    "allCurrentReplayInputsMatch": true
+  },
+  "ordinaryDisplayedSlice": {
+    "status": "diagnostic only; not complete reviewer qualification",
+    "retainedAssertionOrdinals": [
+      1,
+      2,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      17,
+      18,
+      19,
+      20,
+      24,
+      25,
+      26,
+      28,
+      29,
+      31,
+      33,
+      35
+    ],
+    "pendingOpAssertionOrdinals": [
+      3,
+      4,
+      5,
+      15,
+      16,
+      21,
+      22,
+      23,
+      27,
+      30,
+      32,
+      34
+    ],
+    "intentionalPolarityChange": "Public ordinary functors are strict by default; original mapped-composition equation becomes positive.",
+    "outcome": "failed at original assertion 18: terminal specialization of the identity displayed cell",
+    "normalForm": "\u03bb K x y p, @fapp1_fapp0 K Terminal_cat (id (Catd_cat K) (Const_catd K Terminal_cat)) x y p"
+  },
+  "coreRegressionBoundary": "Existing core regression passes with compiled imports in 314.382 seconds at 4 GiB. Cold complete library/source qualification and remaining reviewers remain required before adoption.",
+  "authoringInputsSha256": {
+    "foundation_reviewer_candidate.py": "decac573d4826f27419dbd2535d04047c7ef6d2f9fbc103431f51c3e1078fc74",
+    "foundation_reviewer_candidate_inputs.json": "bd350a7866f7f2a927f9f942713251b336c55570023ac4d0243ae07a33c7d87e",
+    "foundation_reviewer_candidate_congruence.lpfragment": "61840cb6e424885171cd850f562df1a23edca00191cd678dadccb02d0e5984bc",
+    "foundation_reviewer_candidate_controls.lpfragment": "587c432f92ca5c5db16f7bcc13625d313f96be17e1cef4e9b33008a90cf7b8bf",
+    "foundation_reviewer_candidate_terminal_trace.lpfragment": "586b56c131e73491fde068518806956e0d57f26665899ec392a20e336c50d694"
+  }
+}

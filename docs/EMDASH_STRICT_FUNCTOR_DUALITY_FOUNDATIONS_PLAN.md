@@ -42,6 +42,45 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Unadopted foundational-reviewer candidate from `4cc4ad4c`, 2026-10-24 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_candidate_review.md),
+[replay](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_candidate.py)
+and [evidence](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_candidate_evidence.json)
+preserve a 74-reviewer group (37 declarations, 651 positives/161 negatives).
+The qualified production-emitter package and its 1,361 inputs remain unchanged;
+no additional complete-reviewer count is claimed.
+
+The native contravariant ladder retains general lax inputs; explicit ordinary
+transpose comparisons use the actual strict-transfor profile. A candidate
+same-postcomposer congruence at the existing composition owner propagates the
+already available whole Hom comparison through its mapping inclusion, retaining
+all endpoint/functor data. The complete contravariant reviewer and two controls
+pass cold in 35.376s, with no new warning body. The existing core regression
+passes with compiled imports in 314.382s at 600s/4GiB/o=20, after recorded
+90s/2GiB timeout, 2GiB allocation failure and 300s/4GiB timeout. This is bounded
+candidate evidence, not cold whole-library qualification or a performance fix.
+
+Seven reviewer files have candidate classifier/duality corrections. General
+fixed evaluation stays on the lax interface; Cartesian exchange uses its
+actual classifier. The Sigma-Hom assertion uses the existing total dual.
+Full displayed evaluation remains unfinished: twelve assertions use retired
+raw same-base Op_funcd contracts. An ordinary diagnostic slice additionally
+finds a terminal identity projection-order gap: the cell leaves
+`fapp1_fapp0 K Terminal_cat (id (Catd_cat K) (Const_catd K Terminal_cat)) x y p`.
+The generic identity case passes. Preserve both observations; do not erase the
+whole identity head, add terminal eta or omit the original requirement.
+
+The replay reproduces every candidate source and diagnostic byte-for-byte
+without compiled objects. All checkers are terminal. Checkpoint the investigation
+artifacts only, leaving the qualified package, original warning/evidence chain
+and unrelated work intact. Next inspect the canonical terminal identity's action
+at its real projection owner, migrate the twelve Op obligations at their lawful
+shifted/profiled construction, then finish all reviewers and shared-source
+qualification before adoption. The existing five Homd runtime obligations,
+R07/R12 and final production gates remain required; separate research stays
+paused. Current qualified coverage is still 1,298 original LP files, including
+507 complete reviewers; 89 complete reviewers remain unqualified.
+
 Qualified complete original algebra/geometry reviewers from `6a08c685`,
 2026-10-24 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_complete_algebra_reviewers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_complete_algebra_reviewers_verification.json)
