@@ -18,6 +18,26 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Original chart-overlap/Laurent continuation — 2026-10-24
+
+[Review](../emdash2/audits/strict-default-action-boundary/production_overlap_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_overlap_consumers_verification.json):
+seven owners and seven complete reviewers retain every original byte,
+88 declarations and 57 assertions. Their actual localization maps/inverses,
+supplied global objects and intersections, and conditional presentation status
+are unchanged. No new geometric theorem or computation rule is introduced.
+
+The cold group passes in 131.183s/643,580KiB at 180s/2GiB/o=20. Its complete
+64-input import map matches emission, enabling exact-input receipt reuse.
+Coverage reaches 1,184 original LP sources and 1,242 qualified inputs, with
+5,061 positives/711 negatives. All predecessor inputs remain unchanged;
+warning bodies stay within reviewed contexts.
+
+Remaining: 41 core/library files, 162 reviewers, the five terminal Homd runtime
+obligations, R07/R12 and production gates. Keep the full evidence chain and the
+separate paused-goal boundaries intact.
+
+
 ## Original site/local-ringed-space continuation — 2026-10-24
 
 [Review](../emdash2/audits/strict-default-action-boundary/production_site_consumers_review.md)

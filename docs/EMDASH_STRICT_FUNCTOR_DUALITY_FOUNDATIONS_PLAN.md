@@ -42,6 +42,32 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original chart-overlap/Laurent continuation from `8723fff6`,
+2026-10-24 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_overlap_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_overlap_consumers_verification.json)
+retain seven owners, seven complete reviewers, all original bytes, 88 declarations
+and 57 positive assertions. Supplied global objects/intersections and actual
+polynomial/localization maps/inverses remain supplied. No new projective-space,
+gluing, equivalence or non-affineness result is inferred.
+
+The complete cold group passes at 180s/2GiB/o=20:
+`20261024T191227Z-9956e7cda479455aaeb06f036c714952`, 131.183s/643,580KiB.
+The emitted 64-input import map matches that receipt exactly; reuse its recent
+source evidence without an unchanged rerun. All 1,673 warnings are within
+reviewed contexts. No primitive, rule, unifier, public assumption or operational
+proof payload is added. All predecessor inputs remain unchanged.
+
+Qualification reaches **1,184 original LP sources: 750 core/library and
+434 complete reviewers**, with 1,242 qualified inputs and 5,061 positives/
+711 negatives. Preserve the complete input map and parent evidence chain.
+All checkers are terminal; checkpoint only the owned slice and preserve the
+unrelated core/profile/report edits and earlier untracked work.
+
+Next continue the remaining original shape/geometry owners and complete
+reviewers: 41 core/library files and 162 reviewers remain, with five terminal
+Homd runtime obligations, R07/R12 and production gates. The separate nerve and
+large six-term investigations remain paused.
+
 Qualified original site/local-ringed-space continuation from `f5f2935d`,
 2026-10-24 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_site_consumers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_site_consumers_verification.json)
