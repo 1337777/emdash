@@ -395,6 +395,15 @@ def main():
     from production_overlap_consumer_migration import (
         SOURCES as OVERLAP_CONSUMER_SOURCES, migrate_overlap_consumer,
     )
+    from production_presheaf_shape_consumer_migration import (
+        SOURCES as PRESHEAF_SHAPE_CONSUMER_SOURCES, migrate_presheaf_shape_consumer,
+        refine_presheaf_shape_parent,
+    )
+    for name in ('production_presheaf_shape_consumer_migration.py',
+                 'production_presheaf_shape_consumers_review.lpfragment',
+                 'production_presheaf_shape_warning_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     from production_circle_consumer_migration import (
         SOURCES as CIRCLE_CONSUMER_SOURCES, migrate_circle_consumer,
     )
@@ -2718,6 +2727,18 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Register unchanged original definitions and complete reviewers; retain selected inverse, scoped HIT equality clauses and inherited whole-assembly assumptions without strengthening loop computation',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(circle_consumer)})
                 text = circle_consumer
+            presheaf_shape = migrate_presheaf_shape_consumer(path, text)
+            if presheaf_shape is not None:
+                changes.append({'source': path, 'owner': 'original presheaf and shape consumers',
+                                'reason': 'Use existing Cartesian coefficient/ambient inclusions and retire obsolete join wrappers; retain complete original computations and bounded claims',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(presheaf_shape)})
+                text = presheaf_shape
+            presheaf_parent = refine_presheaf_shape_parent(path, text)
+            if presheaf_parent is not None:
+                changes.append({'source': path, 'owner': 'whole semicubical presheaf coefficient',
+                                'reason': 'Align the existing whole nerve with its presheaf consumers; retain selected arrow comparison and use the established default functor composition path',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(presheaf_parent)})
+                text = presheaf_parent
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6844,6 +6865,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in CIRCLE_CONSUMER_SOURCES:
         stage(path)
+    for path in PRESHEAF_SHAPE_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -8170,6 +8193,8 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('connecting_records_review.lp', 'production_connecting_record_consumers_review.lpfragment'),
         ('homology_windows_review.lp', 'production_homology_window_consumers_review.lpfragment'),
+        ('original_presheaf_shape_review.lp', 'production_presheaf_shape_consumers_review.lpfragment'),
+        ('presheaf_shape_warning_review.lp', 'production_presheaf_shape_warning_review.lpfragment'),
         ('original_circle_consumers_review.lp', 'production_circle_consumers_review.lpfragment'),
         ('original_overlap_consumers_review.lp', 'production_overlap_consumers_review.lpfragment'),
         ('original_site_consumers_review.lp', 'production_site_consumers_review.lpfragment'),

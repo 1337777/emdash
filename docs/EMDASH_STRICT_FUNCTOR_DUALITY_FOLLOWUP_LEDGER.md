@@ -18,6 +18,32 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Original presheaf/shape continuation — 2026-10-24
+
+[Review](../emdash2/audits/strict-default-action-boundary/production_presheaf_shape_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_presheaf_shape_consumers_verification.json):
+17 owners and 17 complete reviewers retain 190 declarations and 142 positives/
+14 negatives. Existing coefficient/ambient inclusions restore realization,
+whole decoder and Yoneda consumers; obsolete tetrahedron wrappers retire.
+The selected nerve coefficient changes at its existing owner, with its entire
+previously qualified reverse import closure rechecked. No new primitive,
+rule, unifier or operational proof input is added.
+
+The emitted group passes cold in 55.755s/203,944KiB at 90s/2GiB/o=20.
+All 18 LHS audits have zero unreviewed candidates. Two inherited simplex-shift
+versus profile pre-accumulation warning bodies have checked typed comparison
+and negative expanded runtime observations. Retain that specific normalization
+boundary under R07 before promotion; do not mistake proof-time agreement for a
+runtime join. The other 1,716 warning occurrences remain previously reviewed.
+
+Coverage reaches 1,228 original files (771 owners and 457 reviewers), 1,289
+qualified inputs and 5,305 positives/738 negatives. Preserve the full parent
+chain: 1,251 inputs are unchanged; both changed parent files and their affected
+scope have fresh evidence. Remaining: 20 owners, 139 reviewers, five terminal
+Homd runtime obligations, R07/R12 and production gates. The separate nerve goal
+remains paused; no new equivalence, Kan or varying-HFiber theorem is claimed.
+
+
 ## Original Circle/WalkingEnd continuation — 2026-10-24
 
 [Review](../emdash2/audits/strict-default-action-boundary/production_circle_consumers_review.md)

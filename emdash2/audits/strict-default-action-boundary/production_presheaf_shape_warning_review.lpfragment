@@ -1,0 +1,37 @@
+/* Non-library observation of two inherited pre/right critical pairs.
+   No new rule or unifier is installed. Specialization of the existing generic
+   law supplies proof-time agreement after the selected face action expands. */
+require open emdash.emdash3_2_semisimplicial_decalage;
+require open emdash.emdash3_2_gray_profiles;
+
+symbol presheaf_shape_lax_transfor_pre_path
+  [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (@LaxTransfor A B F G))
+  [W X Y : τ (Obj A)] (f : τ (Hom A X Y)) (h : τ (Hom A W X))
+  : τ (@= (Hom B (@fapp0 A B F W) (@fapp0 A B G Y)) (@comp_fapp0 B (@fapp0 A B F W) (@fapp0 A B F X) (@fapp0 A B G Y) (@tapp1_fapp0 A B F G X Y (@lax_transfor A B F G U) f) (@fapp1_fapp0 A B F W X h)) (@tapp1_fapp0 A B F G W Y (@lax_transfor A B F G U) (@comp_fapp0 A W X Y f h)))
+≔ @eq_refl (Hom B (@fapp0 A B F W) (@fapp0 A B G Y)) (@tapp1_fapp0 A B F G W Y (@lax_transfor A B F G U) (@comp_fapp0 A W X Y f h));
+
+assert [G : τ (Functor SemiDeltaPlus_cat SemiDeltaPlus_cat)]
+  (U : τ (@LaxTransfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G))
+  (W X Y : τ Nat_grpd) (f : τ (@FaceCode X Y)) (h : τ (@FaceCode W X)) ⊢
+  @presheaf_shape_lax_transfor_pre_path SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U W X Y f h
+  : τ (@= (Hom SemiDeltaPlus_cat (succ W) (@fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat G Y)) (@comp_fapp0 SemiDeltaPlus_cat (succ W) (succ X) (@fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat G Y) (@tapp1_fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G X Y (@lax_transfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U) f) (@face_keep W X h)) (@tapp1_fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G W Y (@lax_transfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U) (@comp_fapp0 SemiDeltaPlus_cat W X Y f h)));
+assertnot [G : τ (Functor SemiDeltaPlus_cat SemiDeltaPlus_cat)]
+  (U : τ (@LaxTransfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G))
+  (W X Y : τ Nat_grpd) (f : τ (@FaceCode X Y)) (h : τ (@FaceCode W X)) ⊢ (@comp_fapp0 SemiDeltaPlus_cat (succ W) (succ X) (@fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat G Y) (@tapp1_fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G X Y (@lax_transfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U) f) (@face_keep W X h)) ≡ (@tapp1_fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G W Y (@lax_transfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U) (@comp_fapp0 SemiDeltaPlus_cat W X Y f h));
+
+symbol presheaf_shape_strict_transfor_pre_path
+  [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G))
+  [W X Y : τ (Obj A)] (f : τ (Hom A X Y)) (h : τ (Hom A W X))
+  : τ (@= (Hom B (@fapp0 A B F W) (@fapp0 A B G Y)) (@comp_fapp0 B (@fapp0 A B F W) (@fapp0 A B F X) (@fapp0 A B G Y) (@tapp1_fapp0 A B F G X Y (@strict_transfor A B F G U) f) (@fapp1_fapp0 A B F W X h)) (@tapp1_fapp0 A B F G W Y (@strict_transfor A B F G U) (@comp_fapp0 A W X Y f h)))
+≔ @eq_refl (Hom B (@fapp0 A B F W) (@fapp0 A B G Y)) (@tapp1_fapp0 A B F G W Y (@strict_transfor A B F G U) (@comp_fapp0 A W X Y f h));
+
+assert [G : τ (Functor SemiDeltaPlus_cat SemiDeltaPlus_cat)]
+  (U : τ (@StrictTransfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G))
+  (W X Y : τ Nat_grpd) (f : τ (@FaceCode X Y)) (h : τ (@FaceCode W X)) ⊢
+  @presheaf_shape_strict_transfor_pre_path SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U W X Y f h
+  : τ (@= (Hom SemiDeltaPlus_cat (succ W) (@fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat G Y)) (@comp_fapp0 SemiDeltaPlus_cat (succ W) (succ X) (@fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat G Y) (@tapp1_fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G X Y (@strict_transfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U) f) (@face_keep W X h)) (@tapp1_fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G W Y (@strict_transfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U) (@comp_fapp0 SemiDeltaPlus_cat W X Y f h)));
+assertnot [G : τ (Functor SemiDeltaPlus_cat SemiDeltaPlus_cat)]
+  (U : τ (@StrictTransfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G))
+  (W X Y : τ Nat_grpd) (f : τ (@FaceCode X Y)) (h : τ (@FaceCode W X)) ⊢ (@comp_fapp0 SemiDeltaPlus_cat (succ W) (succ X) (@fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat G Y) (@tapp1_fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G X Y (@strict_transfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U) f) (@face_keep W X h)) ≡ (@tapp1_fapp0 SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G W Y (@strict_transfor SemiDeltaPlus_cat SemiDeltaPlus_cat semi_delta_shift_func G U) (@comp_fapp0 SemiDeltaPlus_cat W X Y f h));
