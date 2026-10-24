@@ -18,6 +18,31 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Native-window exchange continuation — 2026-10-24
+
+[Review](../emdash2/audits/strict-default-action-boundary/production_native_window_snake_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_window_snake_consumers_verification.json):
+all eighteen owners and fourteen complete reviewers retain 156 declarations,
+original proof bodies, actual maps/inverses and assumptions. Whole ordinary
+exchange/evaluation beta restores the original endpoint assertions; three
+reducible inferred guards are corrected. The temporary proof helper is not
+retained. No primitive or new unifier is added; one redundant old unifier is
+removed. Only the planned strict-functor assertion changes polarity.
+
+Both cold remainders pass, and the resource-stopped aggregate's 815 completed
+sources are separately verified without changing its failed outcome. All
+1,096 original mathematical files have current evidence, with 1,149 qualified
+inputs and 4,726 positives/691 negatives. Four additional warning bodies are
+reproduced exactly with predecessor inputs; the 2,532-occurrence inventory is
+reviewed, while R07's general confluence boundary remains. A failed stronger
+projected-identity diagnostic is retained as an unqualified probe, not a theorem.
+No formal computation or resource default is changed to silence diagnostics.
+
+Remaining: 86 core/library files, 205 reviewers, R01–R03's five terminal runtime
+obligations, R07/R12 and production gates. The full qualified-input map and all
+cold/completed-scope evidence must be retained on further continuation.
+
+
 ## Current boundary
 
 The [whole column continuation](../emdash2/audits/strict-default-action-boundary/production_homology_column_consumers_review.md)

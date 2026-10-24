@@ -379,6 +379,18 @@ def main():
         migrate_homology_column_consumer,
         add_encoded_arrow_point_view,
     )
+    from production_native_window_snake_consumer_migration import (
+        SOURCES as NATIVE_WINDOW_SNAKE_CONSUMER_SOURCES,
+        migrate_native_window_snake_consumer,
+    )
+    for name in ('production_native_window_snake_consumer_migration.py',
+                 'production_native_window_snake_consumers_review.lpfragment',
+                 'production_native_window_exchange_controls.lpfragment',
+                 'production_native_window_complete_snapshot.lpfragment',
+                 'production_native_window_remaining_1.lpfragment',
+                 'production_native_window_remaining_2.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_homology_column_consumer_migration.py',
                  'production_homology_column_hom_views.lpfragment',
                  'production_encoded_arrow_point_view.lpfragment',
@@ -2633,6 +2645,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Adapt existing total-dual projection and intrinsic Hom-action comparisons to current stable heads; retain actual row/column data and every original higher/negative consumer',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(homology_column)})
                 text = homology_column
+            native_window_snake = migrate_native_window_snake_consumer(path, text)
+            if native_window_snake is not None:
+                changes.append({'source': path, 'owner': 'original native-window/snake comparison consumers',
+                                'reason': 'Retain original maps, inverse data, declarations and proof bodies at corrected total-dual/oplax profiles; preserve whole endpoint observations and retire the redundant diagonal unifier',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(native_window_snake)})
+                text = native_window_snake
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6747,6 +6765,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in HOMOLOGY_COLUMN_CONSUMER_SOURCES:
         stage(path)
+    for path in NATIVE_WINDOW_SNAKE_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -8073,6 +8093,11 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('connecting_records_review.lp', 'production_connecting_record_consumers_review.lpfragment'),
         ('homology_windows_review.lp', 'production_homology_window_consumers_review.lpfragment'),
+        ('native_window_snake_review.lp', 'production_native_window_snake_consumers_review.lpfragment'),
+        ('native_window_complete_snapshot.lp', 'production_native_window_complete_snapshot.lpfragment'),
+        ('native_window_remaining_1.lp', 'production_native_window_remaining_1.lpfragment'),
+        ('native_window_remaining_2.lp', 'production_native_window_remaining_2.lpfragment'),
+        ('native_window_exchange_controls.lp', 'production_native_window_exchange_controls.lpfragment'),
         ('homology_columns_review.lp', 'production_homology_column_consumers_review.lpfragment'),
         ('encoded_point_controls.lp', 'production_encoded_arrow_point_controls.lpfragment'),
         ('encoded_point_then_columns.lp', 'production_homology_column_complete_review.lpfragment'),

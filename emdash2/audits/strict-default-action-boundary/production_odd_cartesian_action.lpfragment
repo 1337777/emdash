@@ -42,6 +42,18 @@ symbol Functor_cart_oplax_include (A B : Cat)
       (Functor_cart_include (OddDual_cat A) (OddDual_cat B))
       (OddDual_cart_func_func A B));
 
+// Fixed evaluation after Cartesian exchange and its actual oplax inclusion.
+// The whole functor returns F[a], retaining the B-action. All derived dual
+// classifier slots stay inferred; OddDual_cart_func_func retains A and C.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@OddDual_func _ _ (@fapp0_func _ _ $a))
+        (@OddDual_func _ _ (Functor_cart_include _ _)))
+      (@OddDual_func _ _ (OddDual_cart_func_func $A $C)))
+    (@sym_func $A $B $C $F)
+  ↪ @fapp0 $A (Functor_cart_cat $B $C) $F $a;
+
 // The strict Cartesian exchange is the restriction of opposite-profile
 // evaluation along the actual inclusion, as whole functors. No arbitrary
 // lax transformation is admitted to a Cartesian mapping category.

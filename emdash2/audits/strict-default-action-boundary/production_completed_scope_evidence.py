@@ -1,7 +1,8 @@
-"""Verify completed source scopes inside a timed-out aggregate without relabeling it.
+"""Verify completed source scopes inside a resource-stopped aggregate without relabeling it.
 
 Version-specific audit evidence only. The aggregate receipt remains incomplete;
-only fully started/ended dependency closures are accepted. No runner changes.
+only fully started/ended dependency closures are accepted. Timeout or an
+explicitly evidenced log-file-limit signal is required. No runner changes.
 """
 from pathlib import Path
 import hashlib
@@ -26,14 +27,33 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def resource_termination(data, log_path):
+    """Recognize only recorded resource stops, never a typing/assertion failure."""
+    if data['outcome'] == 'timeout':
+        return 'timeout'
+    assert data['outcome'] == 'failed' and data['checkerExit'] == 153, 'not a supported resource stop'
+    # Linux SIGXFSZ is 25; the guard shell records 128+25 and its own message.
+    # Preserve the cap and the receipt's failed outcome, even when old scopes
+    # completed before a later negative assertion exhausted its diagnostic log.
+    assert data['settings']['platform'].startswith('Linux-')
+    limit = data['settings']['fileMiB'] * 1024 * 1024
+    assert limit > 0 and log_path.stat().st_size >= limit, 'no full log-file boundary'
+    with log_path.open('rb') as stream:
+        stream.seek(max(0, log_path.stat().st_size - 4096))
+        tail = stream.read().decode(errors='replace')
+    assert 'lambdapi_resource_guard.sh:' in tail and 'File size limit exceeded' in tail, 'missing guard file-limit signal'
+    return 'log-file-limit'
+
+
 def verify_completed_scopes(receipt_id, targets, package, *, log_lines=None):
     receipt_path = ROOT / 'logs/check-runs' / (receipt_id + '.json')
     data = json.loads(receipt_path.read_text())
-    assert data['outcome'] == 'timeout' and not data['compileObject']
+    assert not data['compileObject']
     assert data['checker']['sha256'] == CHECKER_SHA
     assert '--no-sr-check' not in data['settings']['flags']
     log_path = ROOT / data['log']
     assert sha(log_path) == data['logSha256']
+    termination = resource_termination(data, log_path)
     lines = log_path.read_text().splitlines() if log_lines is None else log_lines
     checker_source = ROOT / 'tmp/probes/checker_rollback_memory/source'
     code = {}
@@ -73,10 +93,11 @@ def verify_completed_scopes(receipt_id, targets, package, *, log_lines=None):
             'closureSha256': hashlib.sha256(json.dumps(inputs, sort_keys=True).encode()).hexdigest(),
         }
     return {
-        'status': ('completed-source-scope evidence; aggregate receipt remains timeout' if log_lines is None else 'diagnostic modified-log result only; not qualification evidence'),
+        'status': ('completed-source-scope evidence; aggregate receipt remains ' + data['outcome'] if log_lines is None else 'diagnostic modified-log result only; not qualification evidence'),
         'logSource': 'receipt log' if log_lines is None else 'modified diagnostic lines',
         'verifierSha256': sha(Path(__file__)),
         'aggregateReceipt': receipt_id, 'aggregateOutcome': data['outcome'],
+        'resourceTermination': termination,
         'aggregateReceiptSha256': sha(receipt_path), 'log': data['log'],
         'logSha256': data['logSha256'], 'checker': data['checker'],
         'checkerSourcePin': CHECKER_PIN, 'checkerCompletionCodeSha256': code,

@@ -26,3 +26,32 @@ symbol one_cat_family_oplax_exchange_map [A B C : Cat]
   : τ (@Transf B (Functor_oplax_cat A C)
       (@diagram_family_shape_func A B C F) (@diagram_family_shape_func A B C G))
 ≔ @fapp1_fapp0 _ _ (@one_cat_family_oplax_exchange_func A B C C1) F G eta;
+
+// Whole component after canonical ordinary-target admission and exchange.
+// U may be an already classified square or a newly admitted ordinary map.
+// Preserve its strict view until actual component projection; do not erase
+// an arbitrary strict view to its raw underlying transformation.
+// J,D are the evaluator's encoded parameters. Matching them directly also
+// covers A,C that are already dualized; no inverse dual-pattern matching.
+// lhs-audit: keep 1,5,6 -- ambient composition and paired fixed evaluators.
+// Nested SR guards: retain the Cartesian source/native oplax target of
+// postcomposition and the Cat_cat classifier of the actual DefIso admission.
+rule @comp_prod_fapp1_fapp0 Cat_cat $B _ $C
+    (Struct_sigma _ (@OddDual_func _ _ (@fapp0_func $J $D $a)))
+    (Struct_sigma _ (@OddDual_func _ _ (@fapp0_func $J $D $a)))
+    (Struct_sigma
+      (@strict_transfor _ _ _ _
+        (@hom_postcomp_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+          $B (Functor_cart_cat $A $C) (OddDual_cat (Functor_cat $J $D))
+          (@comp_fapp0 Cat_cat (Functor_cart_cat $A $C) _
+            (OddDual_cat (Functor_cat $J $D))
+            (@OddDual_func _ _ (Functor_cart_include $J $D))
+            (@OddDual_func _ _ (OddDual_cart_func_func $A $C))) _ _
+          (@sym_func_func_transf $A $B $C _ _
+            (@hom_postcomp_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+              $A (Functor_cat $B $C) (Functor_cart_cat $B $C)
+              (@defiso_to Cat_cat (Functor_cat $B $C) (Functor_cart_cat $B $C)
+                (@one_cat_mapping_comparison $B $C _)) $F $G $U))))
+      (@id _ (@OddDual_func _ _ (@fapp0_func $J $D $a))))
+  ↪ @tapp0_fapp0 $A (Functor_cat $B $C) $F $G $a
+      (@strict_transfor $A (Functor_cat $B $C) $F $G $U);

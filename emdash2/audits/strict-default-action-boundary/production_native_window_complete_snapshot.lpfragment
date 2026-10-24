@@ -1,0 +1,4 @@
+// New original consumers first, then every previously qualified complete scope.
+// No original diagnostic or driver is omitted. Shared imports check once.
+require open emdash.native_window_snake_review;
+require open emdash.homology_columns_complete_snapshot;

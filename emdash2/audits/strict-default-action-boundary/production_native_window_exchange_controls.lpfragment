@@ -1,0 +1,67 @@
+require open emdash.emdash3_2_one_cat_diagram_family_reflection;
+// Whole fixed evaluation after the actual Cartesian/opposite-profile exchange.
+assert [A B C : Cat] (F : τ (Functor A (Functor_cart_cat B C))) (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 B (Functor_oplax_cat A C) C
+    (@diagram_oplax_evaluation_at_func A C a)
+    (@comp_cat_fapp0 B (Functor_cart_cat A C) (Functor_oplax_cat A C)
+      (Functor_cart_oplax_include A C) (@sym_func A B C F))
+  ≡ @fapp0 A (Functor_cart_cat B C) F a;
+// Canonical ordinary admission returns the complete original component.
+assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor A (Functor_cat B C)))
+  (eta : τ (@Transf A (Functor_cat B C) F G)) (a : τ (Obj A)) ⊢
+  @diagram_oplax_family_map_at B A C
+    (@diagram_family_shape_func A B C F) (@diagram_family_shape_func A B C G)
+    (@one_cat_family_oplax_exchange_map A B C C1 F G eta) a
+  ≡ @tapp0_fapp0 A (Functor_cat B C) F G a eta;
+// Its off-diagonal first Hom is retained as a whole functor, not only points.
+assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor A (Functor_cat B C)))
+  (eta : τ (@Transf A (Functor_cat B C) F G)) (a : τ (Obj A))
+  (b b' : τ (Obj B)) ⊢
+  @tapp1_func B C (@fapp0 A (Functor_cat B C) F a) (@fapp0 A (Functor_cat B C) G a) b b'
+    (@diagram_oplax_family_map_at B A C
+      (@diagram_family_shape_func A B C F) (@diagram_family_shape_func A B C G)
+      (@one_cat_family_oplax_exchange_map A B C C1 F G eta) a)
+  ≡ @tapp1_func B C (@fapp0 A (Functor_cat B C) F a) (@fapp0 A (Functor_cat B C) G a) b b'
+    (@tapp0_fapp0 A (Functor_cat B C) F G a eta);
+// Full first-Hom application of exchange joins the capped action order.
+assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor A (Functor_cat B C)))
+  (eta : τ (@Transf A (Functor_cat B C) F G)) (a : τ (Obj A)) ⊢
+  @diagram_oplax_family_map_at B A C
+    (@diagram_family_shape_func A B C F) (@diagram_family_shape_func A B C G)
+    (fapp0 (@fapp1_func _ _ (@one_cat_family_oplax_exchange_func A B C C1) F G) eta) a
+  ≡ @tapp0_fapp0 A (Functor_cat B C) F G a eta;
+// Different input maps cannot disappear through this projection.
+assertnot [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor A (Functor_cat B C)))
+  (eta theta : τ (@Transf A (Functor_cat B C) F G)) (a : τ (Obj A)) ⊢
+  @diagram_oplax_family_map_at B A C
+    (@diagram_family_shape_func A B C F) (@diagram_family_shape_func A B C G)
+    (@one_cat_family_oplax_exchange_map A B C C1 F G eta) a
+  ≡ @tapp0_fapp0 A (Functor_cat B C) F G a theta;
+// The ordinary view of an arbitrary admitted strict transformation stays stable.
+assertnot [A B : Cat] (F G : τ (Functor A B)) (U : τ (@StrictTransfor A B F G)) ⊢
+  @strict_transfor A B F G U ≡ @strict_transfor_underlying A B F G U;
+
+// Nontrivial dual inputs normalize the encoded category parameters first.
+assert [A B C : Cat]
+  (F : τ (Functor (OddDual_cat A) (Functor_cart_cat B (OddDual_cat C))))
+  (a : τ (Obj A)) ⊢
+  @comp_cat_fapp0 B (Functor_oplax_cat (OddDual_cat A) (OddDual_cat C)) (OddDual_cat C)
+    (@diagram_oplax_evaluation_at_func (OddDual_cat A) (OddDual_cat C) a)
+    (@comp_cat_fapp0 B (Functor_cart_cat (OddDual_cat A) (OddDual_cat C))
+      (Functor_oplax_cat (OddDual_cat A) (OddDual_cat C))
+      (Functor_cart_oplax_include (OddDual_cat A) (OddDual_cat C))
+      (@sym_func (OddDual_cat A) B (OddDual_cat C) F))
+  ≡ @fapp0 (OddDual_cat A) (Functor_cart_cat B (OddDual_cat C)) F a;
+assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) (OddDual_cat C)))
+  (F G : τ (Functor (OddDual_cat A) (Functor_cat B (OddDual_cat C))))
+  (eta : τ (@Transf (OddDual_cat A) (Functor_cat B (OddDual_cat C)) F G))
+  (a : τ (Obj A)) ⊢
+  @diagram_oplax_family_map_at B (OddDual_cat A) (OddDual_cat C)
+    (@diagram_family_shape_func (OddDual_cat A) B (OddDual_cat C) F)
+    (@diagram_family_shape_func (OddDual_cat A) B (OddDual_cat C) G)
+    (@one_cat_family_oplax_exchange_map (OddDual_cat A) B (OddDual_cat C) C1 F G eta) a
+  ≡ @tapp0_fapp0 (OddDual_cat A) (Functor_cat B (OddDual_cat C)) F G a eta;

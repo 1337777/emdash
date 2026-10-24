@@ -1,0 +1,2 @@
+require open emdash.emdash3_2_commutative_algebra_freyd_operations;
+require open emdash.emdash3_2_diagram_evaluation;

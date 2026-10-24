@@ -54,7 +54,7 @@ rule @comp_fapp0 Cat_cat _ _ _
         (@OddDual_func _ _ (@fapp0_func _ _ $a))
         (@OddDual_func _ _
           (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
-            (OddDual_cat $C) _ _ (@OddDual_func $A _ $D))))
+            _ _ _ (@OddDual_func $A _ $D))))
       (@diagram_evaluation_func $B $C)
   ↪ @fapp0 $A (Functor_cat $B $C) $D $a;
 
@@ -66,7 +66,7 @@ rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $P _ $C
       (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $P _ _
         (@OddDual_func _ _
           (@hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
-            (OddDual_cat $C) _ _ (@OddDual_func $A _ $D)))
+            _ _ _ (@OddDual_func $A _ $D)))
         (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $P $B _
           (@diagram_evaluation_func $B $C) $X))
   ↪ @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $P $B $C

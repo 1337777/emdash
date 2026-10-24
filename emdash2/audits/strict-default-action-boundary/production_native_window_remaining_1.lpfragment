@@ -1,0 +1,12 @@
+// Remaining complete original scopes after the recorded aggregate log-file cap.
+// Preserve every assertion; reset only the process/log resource boundary.
+require open emdash.kernel_boundary_wave5;
+require open emdash.native_target_exactness_review;
+require open emdash.native_quotient_equivalence_review;
+require open emdash.native_snake_input_review;
+require open emdash.native_snake_first_exactness_review;
+require open emdash.native_snake_second_exactness_review;
+require open emdash.native_snake_third_exactness_review;
+require open emdash.native_snake_fourth_exactness_review;
+require open emdash.native_snake_result_review;
+require open emdash.native_freyd_pair_review;

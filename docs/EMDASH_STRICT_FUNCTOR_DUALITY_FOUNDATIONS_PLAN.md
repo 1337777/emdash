@@ -42,6 +42,48 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified native-window/snake continuation from `6bfa5abf`, 2026-10-24 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_native_window_snake_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_window_snake_consumers_verification.json)
+record eighteen owners and fourteen complete reviewers, retaining all 156
+original declarations and proof bodies. Their 91 positive/fifteen negative
+assertions change only the agreed strict-functor boundary. The provisional
+proof helper and its four rewritten proof bodies are not retained.
+
+Two whole exchange/evaluation beta rules restore the original endpoint runtime
+computations. Three redundant derived-dual guards in existing projections are
+removed; the remaining actual classifier guard uses encoded evaluator inputs.
+No primitive, public assumption, general-transfor strictness, operational proof
+argument or new unifier is introduced. One redundant original diagonal unifier
+is retired while retaining its derived path and complete reviewer.
+
+The compiled original-consumer pass and matched 349-body warning comparison
+are followed by cold revalidation of every old/new mathematical source. The
+aggregate `20261024T160107Z-191fefd60ba54cbf84551c0da63a6fa9` remains failed
+at its 64MiB log cap (exit 153), while the pinned audit verifies 815 completed
+source files before the interrupted assertnot diagnostic. Both cold remainders
+pass: `20261024T163215Z-ea047ac332f74cd186a8fba32aec40d6` at 988.496s /
+4,713,028KiB and `20261024T164859Z-9bde28f459e244ad91ef37525d7fd6a0` at
+1550.210s / 4,183,484KiB. Resource defaults and the 64MiB cap are unchanged.
+
+Qualification reaches **1,096 LP sources: 705 core/library and 391 reviewers**,
+with 1,149 qualified inputs and 4,726 positive/691 negative assertions. All
+2,532 warning occurrences are accounted for; four additional exact bodies are
+reproduced from predecessor sources in a different import context. No global
+confluence or new runtime join is inferred. Future carry must preserve the
+entire qualified-input map and both cold/completed-source evidence, not just
+one representative receipt. Both shared changed owners are fully revalidated.
+
+All checkers are terminal. Review and checkpoint only the owned tranche;
+preserve the unrelated core/profile/report edits and untracked earlier work.
+Next continue remaining dependency-ready original owners and their complete
+reviewers. The inventory leaves 86 core/library files and 205 reviewers, five
+terminal Homd runtime obligations, R07/R12 and production promotion. Existing
+shape/geometry consumers may be migrated; this does not resume the separate
+nerve goal or large six-term research audit.
+
+Predecessor qualification and retained history follow.
+
 Qualified whole homology-column continuation, 2026-10-24 UTC:
 all three original owners and two complete reviewers retain 22 declarations
 and 21 positive/four negative assertions. The seven runtime clauses and four
