@@ -42,6 +42,55 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original homology-window families/exactness, 2026-10-24 UTC:
+sixteen owners and thirteen complete reviewers retain all 328 declarations,
+71 positive/ten negative assertions and 26 byte-identical original constructor
+projection rules. Ten files are unchanged. Established total-dual initiality
+and oplax fixed-point evaluation adapt the rest without invented declarations,
+rules, assumptions or inverse choices. Constructor heads are absent from all
+1,030 qualified predecessor sources; actual rows/maps and exactness proofs remain.
+
+The complete group passes 74 positives/ten negatives on its first run in
+476.526s at 1,467,560KiB under 900s/6GiB/o=20 with subject reduction and no
+compiled objects: `20261024T103649Z-0b2a616a5de54b678d59bfa316d70f0d`.
+All 202 fresh inputs, 1,030 predecessor sources and twenty-five parent
+complete-scope input sets match final emission; all 2,255 warnings occur
+in reviewed contexts. The [review](../emdash2/audits/strict-default-action-boundary/production_homology_window_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_homology_window_consumers_verification.json)
+record retained rules, complete consumers and the 41.11s existing exact-tail
+conversion observation. R12 remains open; this pass is not a performance fix.
+
+Qualification reaches **1,059 LP files: 684 core/library and 375 reviewers**.
+A fresh inventory leaves 107 core/library files and 221 reviewers. The five
+terminal Homd runtime obligations, R07/R12 and production promotion remain.
+Next qualify the five original column/whole-transformation files: their former
+Sigma/Op patterns must follow current represented-comma/homdc_total projection
+owners and the existing strict view of TotalOp_funcd. Defined projection and
+TotalOp_func aliases are not stable LHS heads; inspect their actual normal
+forms and retain the column guards. No column candidate has yet been checked.
+All checkers are terminal; checkpoint only the reviewed owned slice. The
+separate nerve goal and large six-term audit remain paused. Later entries
+retain completed experiment history.
+
+Original homology-window family/exactness continuation from `fe4632ff`,
+2026-10-24 UTC: sixteen owners and thirteen complete reviewers retain 328
+declarations and 71 positive/ten negative assertions. Ten files are unchanged;
+52 initial-object hypotheses use TotalOp, and 469 walking-arrow classifiers
+and fixed-point values use the existing oplax evaluator. All 26 original
+constructor projection rules are byte-identical; none of their heads occurs
+in the 1,030 qualified parent sources. No new declaration, rule or assumption
+is invented. Preserve actual chosen rows, maps, inverses and exactness proofs.
+The five column/whole-transformation files retain a separate subsequent
+owner-position review because their original projection patterns differ.
+
+Run the complete family/exactness group at 900s/6GiB/o=20 with subject reduction
+and warnings. The original second/third exactness and bounded-generator owners
+already use measured 3GiB profiles; this group combines them and their full
+consumers. Host headroom is 20,300MiB. Keep normal defaults and all safeguards;
+record individual timings as well as cumulative cost. Qualification remains
+1,030 until complete consumers, original-rule interactions and evidence review
+pass. The separate nerve goal and large six-term audit remain paused.
+
 Qualified original connecting-record consumers, 2026-10-24 UTC:
 sixteen owners and five complete reviewers retain all 69 declarations and
 eleven positive/two negative assertions. Seventeen files are unchanged;

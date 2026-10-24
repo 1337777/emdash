@@ -370,6 +370,14 @@ def main():
         SOURCES as CONNECTING_RECORD_CONSUMER_SOURCES,
         migrate_connecting_record_consumer,
     )
+    from production_homology_window_consumer_migration import (
+        SOURCES as HOMOLOGY_WINDOW_CONSUMER_SOURCES,
+        migrate_homology_window_consumer,
+    )
+    for name in ('production_homology_window_consumer_migration.py',
+                 'production_homology_window_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_connecting_record_consumer_migration.py',
                  'production_connecting_record_consumers_review.lpfragment'):
         path = audit / name
@@ -2598,6 +2606,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain actual covers, quotient extensionality, chosen factors/inverses and whole Hom endpoints; adapt initial duality and explicit ordinary-to-oplax diagram inputs without new rules or public assumptions',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(connecting_record)})
                 text = connecting_record
+            homology_window = migrate_homology_window_consumer(path, text)
+            if homology_window is not None:
+                changes.append({'source': path, 'owner': 'original homology-window families and exactness consumers',
+                                'reason': 'Retain original constructor-projection rules, actual chosen rows/maps/inverses and exactness proofs; use established initial duality and oplax fixed-point evaluation without new rules or assumptions',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(homology_window)})
+                text = homology_window
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6708,6 +6722,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in CONNECTING_RECORD_CONSUMER_SOURCES:
         stage(path)
+    for path in HOMOLOGY_WINDOW_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -8024,6 +8040,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('abelian_exactness_review.lp', 'production_abelian_exactness_consumers_review.lpfragment'),
         ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('connecting_records_review.lp', 'production_connecting_record_consumers_review.lpfragment'),
+        ('homology_windows_review.lp', 'production_homology_window_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

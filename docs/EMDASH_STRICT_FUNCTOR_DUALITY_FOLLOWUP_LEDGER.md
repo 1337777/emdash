@@ -20,6 +20,23 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [homology-window family/exactness continuation](../emdash2/audits/strict-default-action-boundary/production_homology_window_consumers_review.md)
+adds sixteen owners and thirteen complete reviewers, preserving 328 declarations,
+71 positive/ten negative assertions and 26 unchanged original constructor rules.
+Their heads occur in no predecessor source. Ten files are unchanged; the rest
+use established initial duality and oplax evaluation. The complete group passes
+74 positives/ten negatives in 476.526s at 1,467,560KiB. All 1,030 predecessor
+sources and twenty-five parent input sets match; all 2,255 warnings occur in
+reviewed contexts. Qualification reaches **1,059 files: 684 core/library and
+375 reviewers**; 107 core/library files and 221 reviewers remain.
+
+The existing exact-tail conversion took 41.11s and remains a measured R12
+observation. R01–R03, R07/R12 and production gates stay open. Next are the five
+original column/whole-transformation files, whose old Sigma/Op patterns need
+adaptation to the current homdc_total projection owners and their actual
+stable heads. Their higher observations remain required. The separate nerve
+goal and large six-term audit stay paused.
+
 The [connecting-record continuation](../emdash2/audits/strict-default-action-boundary/production_connecting_record_consumers_review.md)
 adds sixteen owners and five complete reviewers, preserving all 69 declarations
 and eleven positive/two negative assertions. Seventeen files are unchanged;
