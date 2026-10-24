@@ -20,6 +20,16 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [witnessed Freyd kernel/cokernel prerequisites](../emdash2/audits/strict-default-action-boundary/production_freyd_witnessed_kernel_consumers_review.md)
+add nine original owners and eight complete reviewers, all byte-identical.
+All 121 declarations, 36 positive/two negative assertions and actual raw
+agreements/selected weak-kernel data remain; no formal rule is added. The full
+group passes 36 positives/two negatives in 38.522s at 191,000KiB. All 840
+predecessor sources and seventeen parent complete-scope input sets match;
+all 1,750 warnings occur in reviewed contexts. Qualification reaches
+**857 files: 564 core/library and 293 reviewers**; 227 core/library files
+and 303 reviewers remain. R01–R03, R07/R12 and production gates remain open.
+
 The [finite-free additive prerequisites](../emdash2/audits/strict-default-action-boundary/production_finite_free_additive_consumers_review.md)
 add five original owners and two complete reviewers, all byte-identical to
 the original pin. All 24 declarations, twelve assertions and nine original

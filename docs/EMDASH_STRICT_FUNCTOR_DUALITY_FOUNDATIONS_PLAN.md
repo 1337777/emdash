@@ -42,6 +42,41 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original witnessed Freyd kernels/cokernels, 2026-10-24 UTC:
+nine owners and eight complete reviewers pass with all seventeen sources
+unchanged from the original pin. All 121 declarations, 36 positive/two
+negative assertions remain, with no formal rules. Explicit raw agreements,
+selected weak-kernel capability, ranks and actual factors retain their roles;
+witnessed universality is not strengthened to quotient-equality decoding.
+
+The complete group passes 36 positives/two negatives in 38.522s at 191,000KiB
+under 600s/4GiB/o=20 with subject reduction:
+`20261024T004448Z-afe223b68f734052ab431f353e73c877`.
+All 75 fresh inputs, 840 predecessor sources and seventeen parent complete-scope
+input sets match final emission. All 1,750 warnings occur in reviewed contexts.
+The [review](../emdash2/audits/strict-default-action-boundary/production_freyd_witnessed_kernel_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_freyd_witnessed_kernel_consumers_verification.json)
+record complete scope, retained data and actual negative controls.
+
+Qualification reaches **857 LP files: 564 core/library and 293 reviewers**.
+There remain 227 core/library files and 303 reviewers, the same five terminal
+runtime obligations, normalization/toolchain work and production promotion.
+Next follow original Freyd normality, witnessed Abelian/homology and matrix
+consumers. All checkers are terminal; checkpoint the reviewed owned slice.
+The separate nerve goal stays paused; earlier entries are history.
+
+Original witnessed Freyd kernel/cokernel prerequisites from `de09a799`,
+2026-10-24 UTC: nine original owners and eight complete reviewers are prepared
+unchanged from the original pin, retaining 121 declarations and no formal
+rules. The complete computational weak-pullback reviewer is included alongside
+the kernel/cokernel, selected embedding/lifting/uniqueness and witnessed
+pre-Abelian reviewers. Retain explicit raw agreements and selected weak-kernel
+capability; do not strengthen witnessed universality to a quotient-equality
+decoder or a closed quotient-level model. Check the full group at
+600s/4GiB/o=20: it imports the measured Freyd dependency chain but not the
+large public-pair comparisons that required 8GiB. Qualification stays 840
+until the complete consumers and evidence review pass.
+
 Qualified original finite-free additive prerequisites, 2026-10-24 UTC:
 five owners and two complete reviewers pass with all seven sources unchanged
 from the original pin. All 24 declarations, twelve assertions, five runtime
