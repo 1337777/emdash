@@ -42,6 +42,32 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified complete original algebra/geometry reviewers from `6a08c685`,
+2026-10-24 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_complete_algebra_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_complete_algebra_reviewers_verification.json)
+retain all original bytes across 34 complete reviewers, 54 declarations,
+341 positives and 22 negatives. No mathematical source, rule, unifier, profile,
+assumption, operational proof argument or assertion polarity changes.
+
+The original 90-second cumulative baseline times out during affine-glue
+imports without a typing error. The unchanged group passes at 300s/2GiB/o=20:
+`20261024T201135Z-ea47ab070b8242c6b3fd7156d3f3bd58`,
+115.158s/703,076KiB. Its emitted 91-input import map matches exactly; reuse the
+cold source evidence without an unchanged rerun. All 1,673 warnings belong to
+reviewed contexts. The time-only extension changes no default or memory cap.
+
+Qualification reaches **1,298 original LP files: 791 core/library owners and
+507 complete reviewers**, with 1,361 qualified inputs and 5,767 positives/
+774 negatives. All 1,326 predecessor inputs rehash unchanged. Preserve the
+full input map and parent evidence chain, including earlier resource-stop
+outcomes. All checkers are terminal; checkpoint only this owned continuation.
+
+Next migrate/qualify the remaining 89 complete original reviewers. The five
+terminal Homd runtime obligations, R07/R12 and production gates remain required;
+the central diagnostic retains its explicit exclusions. Preserve supplied
+capabilities and actual operational data. Separate application research goals
+remain paused.
+
 Qualified remaining original-owner continuation from `98016d43`, 2026-10-24
 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_remaining_owners_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_remaining_owners_verification.json)

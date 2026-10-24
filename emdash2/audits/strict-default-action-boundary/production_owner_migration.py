@@ -395,6 +395,13 @@ def main():
     from production_overlap_consumer_migration import (
         SOURCES as OVERLAP_CONSUMER_SOURCES, migrate_overlap_consumer,
     )
+    from production_complete_algebra_reviewer_migration import (
+        SOURCES as ALGEBRA_REVIEWER_SOURCES, migrate_algebra_reviewer,
+    )
+    for name in ('production_complete_algebra_reviewer_migration.py',
+                 'production_complete_algebra_reviewers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     from production_remaining_owner_migration import (
         SOURCES as REMAINING_OWNER_SOURCES, migrate_remaining_owner,
     )
@@ -2752,6 +2759,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain original data and whole action at Cartesian coefficients; compare left transport with its own capped route without restoring the retired arbitrary left/middle equality',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(remaining_owner)})
                 text = remaining_owner
+            algebra_reviewer = migrate_algebra_reviewer(path, text)
+            if algebra_reviewer is not None:
+                changes.append({'source': path, 'owner': 'complete original algebra and geometry reviewers',
+                                'reason': 'Retain byte-identical original declarations and assertions against the qualified owners; preserve supplied capabilities and actual operational data',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(algebra_reviewer)})
+                text = algebra_reviewer
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6882,6 +6895,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in REMAINING_OWNER_SOURCES:
         stage(path)
+    for path in ALGEBRA_REVIEWER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -8208,6 +8223,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('connecting_records_review.lp', 'production_connecting_record_consumers_review.lpfragment'),
         ('homology_windows_review.lp', 'production_homology_window_consumers_review.lpfragment'),
+        ('original_algebra_reviewers.lp', 'production_complete_algebra_reviewers_review.lpfragment'),
         ('original_remaining_owners_review.lp', 'production_remaining_owners_review.lpfragment'),
         ('original_presheaf_shape_review.lp', 'production_presheaf_shape_consumers_review.lpfragment'),
         ('presheaf_shape_warning_review.lp', 'production_presheaf_shape_warning_review.lpfragment'),

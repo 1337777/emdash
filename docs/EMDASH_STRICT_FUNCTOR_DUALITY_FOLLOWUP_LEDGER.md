@@ -18,6 +18,26 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Complete algebra/geometry reviewers — 2026-10-24
+
+[Review](../emdash2/audits/strict-default-action-boundary/production_complete_algebra_reviewers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_complete_algebra_reviewers_verification.json):
+34 complete original reviewers retain every byte, 54 declarations and
+341 positives/22 negatives. Their qualified owners need no change. Supplied
+capabilities, conditional claims and actual selected maps/inverses remain.
+
+The original 90-second aggregate times out without a typing error. The
+unchanged group passes at 300s/2GiB/o=20 in 115.158s/703,076KiB. Its complete
+91-input map matches emission; the successful cold receipt is reused without
+another identical run. All 1,673 warnings are within reviewed contexts.
+
+Coverage reaches 1,298 original files (791 owners and 507 reviewers), 1,361
+qualified inputs and 5,767 positives/774 negatives. All 1,326 predecessor inputs
+are unchanged; preserve the full evidence chain. Remaining: 89 complete
+reviewers, five terminal Homd runtime obligations, R07/R12 and production gates.
+The separate application goals stay paused.
+
+
 ## Remaining original owners — 2026-10-24
 
 [Review](../emdash2/audits/strict-default-action-boundary/production_remaining_owners_review.md)
