@@ -18,6 +18,26 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Original site/local-ringed-space continuation — 2026-10-24
+
+[Review](../emdash2/audits/strict-default-action-boundary/production_site_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_site_consumers_verification.json):
+fifteen owners and fifteen complete reviewers retain all original bytes,
+171 declarations and 126 positive assertions. The strict-default foundation
+already accepts these rule-free definitions. Supplied capabilities, actual
+comparison maps/inverses and derived results retain their original status.
+
+The complete cold group passes in 95.079s/650,212KiB under 180s/2GiB/o=20 after
+a 90s cumulative timeout. The emitted import map exactly matches that receipt,
+so no repeated unchanged pass is needed. All 1,196 predecessor inputs rehash.
+Coverage reaches 1,170 original LP sources and 1,227 qualified inputs, with
+5,004 positives/711 negatives and no new warning outside reviewed contexts.
+
+Remaining: 48 core/library files, 169 reviewers, the five terminal Homd runtime
+obligations, R07/R12 and production gates. Keep the complete evidence chain and
+separate paused-goal boundaries intact.
+
+
 ## Original PathOut/simplex/join continuation — 2026-10-24
 
 [Review](../emdash2/audits/strict-default-action-boundary/production_pathout_simplex_consumers_review.md)

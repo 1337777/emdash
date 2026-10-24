@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original site/local-ringed-space continuation from `f5f2935d`,
+2026-10-24 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_site_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_site_consumers_verification.json)
+retain fifteen owners, fifteen complete reviewers, all 171 declarations and
+126 positive assertions. Every original byte is preserved. Supplied reflective,
+restriction, locality and equivalence capabilities remain supplied, with their
+actual maps/inverses; no new geometry theorem or assumption is introduced.
+
+The 90s baseline times out after progress without a typing error. The unchanged
+complete cold group passes at 180s/2GiB/o=20:
+`20261024T190419Z-1a07689aa6d3404781fc65b18dbec413`, 95.079s/650,212KiB.
+The entire emitted 63-input import map matches that successful receipt exactly,
+so its recent cold evidence is reused without an unnecessary repeated run.
+All 1,673 warnings are in reviewed contexts. No rule, primitive, unifier or
+operational proof payload is added, and no test is weakened.
+
+Qualification reaches **1,170 original LP sources: 743 core/library and
+427 complete reviewers**, with 1,227 qualified inputs and 5,004 positives/
+711 negatives. All predecessor inputs remain unchanged. Preserve the complete
+input map, parent verification and exact-input receipt provenance on continuation.
+All checkers are terminal. Checkpoint only the owned slice; unrelated core/
+profile/report edits and earlier untracked work remain excluded.
+
+Next continue the remaining original geometry/site/shape owners and complete
+reviewers: 48 core/library files and 169 reviewers remain, with five terminal
+Homd runtime obligations, R07/R12 and production gates. The separate nerve and
+large six-term investigations remain paused.
+
 Qualified original PathOut/simplex/join continuation from `bc97f7dd`,
 2026-10-24 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_pathout_simplex_consumers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_pathout_simplex_consumers_verification.json)
