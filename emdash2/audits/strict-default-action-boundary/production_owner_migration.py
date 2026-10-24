@@ -386,6 +386,13 @@ def main():
     from production_shape_consumer_migration import (
         SOURCES as SHAPE_CONSUMER_SOURCES, migrate_shape_consumer,
     )
+    from production_pathout_simplex_consumer_migration import (
+        SOURCES as PATHOUT_SIMPLEX_CONSUMER_SOURCES, migrate_pathout_simplex_consumer,
+    )
+    for name in ('production_pathout_simplex_consumer_migration.py',
+                 'production_pathout_simplex_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_shape_consumer_migration.py',
                  'production_shape_pseudo_source_path.lpfragment',
                  'production_shape_consumers_review.lpfragment',
@@ -2666,6 +2673,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Preserve supplied pseudo-inverse data and original object-decoder/action contracts; use existing strict-default endpoint paths, retire redundant functor views and the subsumed named composition rule',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(shape_consumer)})
                 text = shape_consumer
+            pathout_simplex = migrate_pathout_simplex_consumer(path, text)
+            if pathout_simplex is not None:
+                changes.append({'source': path, 'owner': 'original PathOut/simplex/join consumers',
+                                'reason': 'Expose the already-classified join-cross component through its existing ambient view and retire one obsolete strict-functor view; preserve whole lifts, supplied cross compatibility and residual-frame limits',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(pathout_simplex)})
+                text = pathout_simplex
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6784,6 +6797,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in SHAPE_CONSUMER_SOURCES:
         stage(path)
+    for path in PATHOUT_SIMPLEX_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -8110,6 +8125,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('connecting_records_review.lp', 'production_connecting_record_consumers_review.lpfragment'),
         ('homology_windows_review.lp', 'production_homology_window_consumers_review.lpfragment'),
+        ('original_pathout_simplex_review.lp', 'production_pathout_simplex_consumers_review.lpfragment'),
         ('original_shape_consumers_review.lp', 'production_shape_consumers_review.lpfragment'),
         ('shape_warning_sort_controls.lp', 'production_shape_warning_sort_controls.lpfragment'),
         ('native_window_snake_review.lp', 'production_native_window_snake_consumers_review.lpfragment'),

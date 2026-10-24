@@ -1,0 +1,15 @@
+require open emdash.emdash3_2_pathout_transformation_lift;
+require open emdash.emdash3_2_dependent_simplex_dimension4;
+require open emdash.emdash3_2_dependent_simplex_codes;
+require open emdash.emdash3_2_dependent_simplex_code_map;
+require open emdash.emdash3_2_dependent_simplex_faces;
+require open emdash.emdash3_2_join_cross_compatibility;
+require open emdash.emdash3_2_join_generator_compatibility;
+require open emdash.emdash3_2_ordinal_join_pathout_successor;
+require open emdash.examples.dependent_simplex_code_map;
+require open emdash.examples.dependent_simplex_codes;
+require open emdash.examples.dependent_simplex_dimension4;
+require open emdash.examples.dependent_simplex_faces;
+require open emdash.examples.join_cross_compatibility;
+require open emdash.examples.join_generator_compatibility;
+require open emdash.examples.pathout_transformation_lift;

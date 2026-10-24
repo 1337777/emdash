@@ -18,6 +18,27 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Original PathOut/simplex/join continuation — 2026-10-24
+
+[Review](../emdash2/audits/strict-default-action-boundary/production_pathout_simplex_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_pathout_simplex_consumers_verification.json):
+eight owners and seven complete reviewers retain 100 declarations and all
+37 positives/six negatives. One join-cross component takes the existing ambient
+view of its classified value; the ordinal terminal map retires its redundant
+functor view. No primitive, rule, unifier or caller proof argument is added.
+The supplied cross beta and residual fourth-level frame remain qualified at
+their original boundaries, not as new derived equivalences.
+
+The cold emitted group passes in 51.166s/187,608KiB under 90s/2GiB/o=20, with
+subject reduction and no new warning body outside reviewed contexts. All 1,180
+predecessor inputs rehash unchanged. Qualification reaches 1,140 original LP
+sources and 1,196 qualified inputs, with 4,878 positives/711 negatives.
+
+Remaining: 63 core/library files, 184 reviewers, the five terminal Homd runtime
+obligations, R07/R12 and production gates. Preserve the full parent evidence
+chain and keep the separate application goals paused.
+
+
 ## Original shape-consumer continuation — 2026-10-24
 
 [Review](../emdash2/audits/strict-default-action-boundary/production_shape_consumers_review.md)

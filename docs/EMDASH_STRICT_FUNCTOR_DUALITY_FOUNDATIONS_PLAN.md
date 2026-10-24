@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original PathOut/simplex/join continuation from `bc97f7dd`,
+2026-10-24 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_pathout_simplex_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_pathout_simplex_consumers_verification.json)
+retain eight owners, seven complete reviewers, 100 declarations and all
+37 positive/six negative assertions. The join-cross component uses the existing
+ambient view of its classified component; ordinal-join terminal action drops
+its retired strict-functor view. No primitive, rule, unifier, caller proof or
+new assumption is added. The supplied cross beta and fourth-level residual
+frame retain their original boundaries.
+
+The final emitted group passes cold:
+`20261024T185459Z-bc0117d1255c48a4bcfdf74627426789`, 51.166s/187,608KiB under
+90s/2GiB/o=20, with subject reduction. All eight owner LHS audits have zero
+unreviewed candidates; all 1,670 warnings belong to reviewed contexts. Every
+one of the predecessor's 1,180 qualified inputs rehashes unchanged.
+
+Qualification reaches **1,140 original LP sources: 728 core/library and
+412 complete reviewers**, with 1,196 qualified inputs and 4,878 positives/
+711 negatives. Keep the complete qualified-input map and parent evidence chain
+on continuation. All checkers are terminal. Checkpoint only the owned slice,
+leaving the unrelated core/profile/report edits and earlier untracked work.
+
+Next migrate remaining original geometry/site/shape consumers and their complete
+reviewers. There remain 63 core/library files and 184 reviewers, five terminal
+Homd runtime obligations, R07/R12 and production gates. The separate nerve and
+large six-term investigations remain paused; do not upgrade the old partial
+application contracts into completed equivalence claims.
+
 Qualified original shape-consumer continuation from `e70ff0a8`, 2026-10-24 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_shape_consumers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_shape_consumers_verification.json)
