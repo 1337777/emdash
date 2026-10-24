@@ -42,6 +42,191 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified whole homology-column continuation, 2026-10-24 UTC:
+all three original owners and two complete reviewers retain 22 declarations
+and 21 positive/four negative assertions. The seven runtime clauses and four
+proof-time comparisons follow the existing outline at corrected stable heads.
+An encoded counterpart of the existing arrow-diagram point comparison adds
+one proof-time instance and typed positive/unrelated-arrow controls at that
+owner. No primitive, supplied comparison payload, public assumption or
+runtime-rule count is added. The local complete candidate passes with all
+original higher-action observations.
+
+Regression coverage is explicitly source-scoped. The 1800s aggregate receipt
+`20261024T114527Z-94fac8cc2e0c4587a132c9700f847e8b` remains a timeout. The pinned
+checker completion code and exact logs verify 23 finished scopes/1,017 source
+files before that deadline. Negative verifier controls reject incomplete
+targets/dependencies. A fresh cold replay completes the four remaining scopes:
+`20261024T122238Z-f234d973de16430c9aa9ddddab8f0c85`, 147 positives/27 negatives,
+878.713s/3,289,492KiB under 900s/4GiB/o=20 with subject reduction. No runner,
+checker logic or default limit changes. The combined evidence covers every
+prior complete scope and all new consumers; the unfinished aggregate is not
+relabeled successful.
+
+The [review](../emdash2/audits/strict-default-action-boundary/production_homology_column_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_homology_column_consumers_verification.json)
+record exact inputs, rule/guard controls, 4,626 positive/672 negative assertions
+across qualified source files, and the source-scoped completion method. All
+2,544 warning occurrences use previously reviewed bodies. Future conservative carry
+must rehash `qualifiedInputSha256`, including completed-scope evidence; the
+fresh remainder receipt alone does not cover the entire snapshot.
+
+Qualification reaches **1,064 LP files: 687 core/library and 377 reviewers**.
+There remain 104 core/library files and 219 reviewers, the five terminal Homd
+runtime obligations, R07/R12 and production promotion. Next follow remaining
+original native-window/snake comparison consumers and other dependency-ready
+owners. All checkers are terminal; checkpoint the reviewed owned slice only.
+The separate nerve goal and large six-term audit remain paused. Following
+entries retain the completed experiment and resource history.
+
+Local complete column candidate passes, 2026-10-24 UTC:
+`20261024T113614Z-d1bdf005a23042ed93c0402533d78980` checks 25 positives/five
+negatives, including every original higher-action assertion and the encoded
+point controls, in 47.633s/638,388KiB with exact cached parents. The migrated
+intrinsic diagram comparisons retain the selected sigma projection, extracted
+fdapp1 arrow, fixed identity, both column endpoints and actual walking diagram.
+No primitive, runtime rule or supplied comparison payload is invented.
+
+Durable emission matches all passing candidate files byte-for-byte. Among
+the 1,059 predecessor files, only `emdash3_2_arrow_diagram_families.lp` changes:
+its encoded counterpart of the existing point comparison is inserted at its
+owner. There are 522 transitive predecessor consumers. Do not carry their
+former receipts as evidence at the changed dependency snapshot.
+
+Run one cold `homology_columns_complete_snapshot.lp` integration replay that
+imports all 26 prior complete scopes plus encoded-point/new-column consumers.
+Use the existing 1800s/6GiB/o=20 aggregate profile with subject reduction,
+warnings, individual timings, serial/no-swap/file safeguards and no compiled
+objects. The prior complete integration measured 1191.163s/4,028,344KiB under
+the same resource bounds; current host headroom is 22,415MiB. This is required
+regression validation for the upstream comparison, not a change to defaults
+or an answer to transient host load. Keep the package immutable while running.
+Qualification remains 1,059 at its earlier snapshot until this replay and
+warning/input review pass; no production promotion is claimed.
+
+The aggregate reaches its 1800s cumulative deadline during the short-exact
+normalization reviewer: `20261024T114527Z-94fac8cc2e0c4587a132c9700f847e8b`.
+No positive typing failure is reported. Twenty-three complete top-level scopes
+have `End checking` records; the first complete integration scope took 1145.36s
+(its matched earlier receipt took 1191.16s). Sampled checker RSS reached
+5,779,524KiB. The timeout receipt's 83,388KiB child statistic does not capture
+that sampled peak and must not be reported as the checker memory use.
+
+Retain the aggregate outcome as timeout. The pinned checker source shows
+`compile.ml` emits `End checking` only after `Debug.stream_iter` completes all
+`Command.handle` calls; the iterator does not catch failures, assertions raise
+fatal on failure, unfinished definitions fail, and SR is checked in rule
+handling. Record source-scoped completion evidence only for the 23 completed
+targets and their fully started/ended dependency closures, with exact retained
+input hashes and checker-source pins. Do not qualify the unfinished aggregate
+or partially processed reviewer from those markers.
+
+Freshly replay the four unfinished complete scopes (short-exact rows,
+connecting records, homology windows and encoded point/columns) in
+`homology_columns_remaining_snapshot.lp` at 900s/4GiB/o=20. They retain every
+original declaration/assertion and share unchanged source inputs; this smaller
+group follows their measured 144–477s individual runs below 3GiB. The package
+has no compiled objects. This is a bounded continuation with explicit completed-
+scope evidence, not a policy/tool change for transient host load. Qualification
+requires the union of verified completed scopes and this fresh successful replay.
+
+Original homology-column continuation from `099ee9b8`, 2026-10-24 UTC:
+three owners and two complete reviewers retain 22 declarations and 21 positive/
+four negative assertions. Begin at the column owner: retain its two object
+projection rules and adapt four whole projection rules to the current total
+duality (`CoAbove2_func`/`Op_func`) and the existing `strict_transfor` view of
+`TotalOp_funcd`. Try inferred endpoint slots first; do not retain the former
+ordinary Functor_cat discriminator by habit. Use the existing oplax fixed-point
+evaluator in types. Then inspect actual expanded Hom-action forms before
+migrating the four proof-time comparisons in the usability owner. Retain whole
+first/diagram observations, actual inverse/profile data and complete reviewers.
+
+The initial owner-position run uses 300s/4GiB/o=20 with subject reduction and
+warnings; complete consumers and warning/interaction review remain required.
+No new classifier, primitive, assumed equation or proof payload is proposed.
+Qualification remains 1,059. The other goals and large six-term audit stay paused.
+
+The first projection clauses check, but the second projection with all inferred
+endpoints fails subject reduction/metavariable resolution at its owner:
+`20261024T105311Z-b33b0c702701455784e1bc96138d692e`
+(138.001s/474,404KiB). Retain the original target-guard strategy using the
+corrected surviving `OddDual_cat(Functor_cat(OddDual_cat WalkingArrow_cat,
+OddDual_cat C))` shape, not the reducible Functor_oplax_cat alias. Replay the
+owner with the same profile before testing original Hom-action consumers.
+
+The immutable guarded-owner replay passes in 131.592s/487,856KiB:
+`20261024T105731Z-3a799c81b5474385b156a697107758c6`.
+Both target projection clauses pass subject reduction in 0.70s. The earlier
+premature replay `20261024T105650Z-56b5ed6d9f454f1da3a147d2f2c7615f`
+overlapped source preparation and was explicitly terminated/discarded; it is
+not mathematical or validation evidence. Preparation now completes before
+launching any replay.
+
+Next run the complete five-file consumers at 300s/4GiB/o=20 with the four old
+expanded-action unifiers omitted in the diagnostic copy. This no-rule control
+measures what the corrected runtime projection rules already provide. Preserve
+all declarations and original positive/negative assertions. Any necessary
+comparison replacement must follow the actual remaining rigid heads and retain
+the original column/endpoints; omission is not yet an accepted migration.
+
+The no-rule control passes the whole first-projection Hom comparison, then
+fails its expanded counterpart: `20261024T110023Z-5b9ce5ddd9ce4b439ae3fbaf74ff6213`
+(137.710s/480,576KiB). Adapt the two original first-projection comparisons:
+their surviving Sigma Hom action now has the stable CoAbove2/Op wrapper,
+and the Sigma base is TotalOp(C). Preserve the right/left column guard and
+all row/endpoints; express the left expected factor through the existing
+whole first projection instead of the former bare Sigma action. The two
+diagram comparisons remain omitted in this diagnostic until the next actual
+consumer reveals their required heads. Replay all five complete files under
+the same profile; no primitive or runtime rule is added by these comparisons.
+
+The right expanded first-Hom comparison passes in 2.39s with its migrated
+unifier; the left expanded comparison still fails:
+`20261024T110511Z-20528eff9a4b4636b2e296c74cbcd553`.
+Localize that exact declaration by preserving its binders, type and body as
+an explicit assertion in a separate prefix diagnostic. Compile its successful
+dependencies under the same guarded 300s/4GiB/o=20 profile for subsequent
+local checks, retaining exact-source hashes. The prefix diagnostic omits later
+declarations and cannot qualify the full requested five-file scope. A final
+complete source replay and comparison review remain required.
+
+The explicit diagnostic fails in 164.245s/554,220KiB and leaves 94 exact-source
+dependency objects (349,129,633 bytes):
+`20261024T110843Z-0d5aa232db714d34be2ae5a9504aff3b`.
+A cached unification trace exposes the unwanted opposite-Sigma and endpoint
+frame constraints introduced while reconstructing the left factor:
+`20261024T111337Z-d8fa0f1a97cf4d7c93049f40e7ee472b`.
+Compare the two surviving composites directly instead, retaining both Sigma
+families, the actual row functor and endpoints. This same original equality
+passes in 22.317s/659,264KiB (19.39s cache loading; 2.38s assertion):
+`20261024T111704Z-8a1c490f7ff34fc8b7038d86c7f30121`.
+No opposite-category identification or new runtime rule is introduced.
+
+Restore every original declaration and reviewer in the cached diagnostic
+package, with both first-projection comparisons and the two diagram comparisons
+still omitted. Verify all 94 cached dependency sources/objects before use;
+run the complete consumer driver at 90s/4GiB/o=20. This remains local diagnosis,
+not final cold-source qualification or evidence that the diagram comparisons
+are unnecessary.
+
+The restored complete consumer passes both first-projection comparisons, then
+fails the right expanded diagram comparison:
+`20261024T111839Z-dc00dddffbbe4668acf561eb3d9e0c53`
+(23.005s/659,192KiB with exact cached parents). Its explicit-argument diagnostic
+`20261024T112047Z-334718fb39544235b3272138565c52aa` isolates two encoded
+walking-arrow endpoint comparisons; the retained ordinary point theorem does
+not match their dual-encoded precomposition head.
+
+Test the encoded counterpart of that existing point comparison at its actual
+`arrow_diagram_families` owner, before its point theorem. Retain F,G,eta,x and
+the two terminal-domain guards; include a typed positive and an unrelated-arrow
+negative control. The private candidate excludes the changed owner and all 29
+transitive cached dependents, reusing only 65 hash-verified unchanged objects.
+Run controls followed by all five original column files at 300s/4GiB/o=20.
+This is an upstream comparison change: if adopted, it requires affected
+regression qualification, not a claim that all predecessor inputs are unchanged.
+The intrinsic diagram-Hom comparison remains separately required.
+
 Qualified original homology-window families/exactness, 2026-10-24 UTC:
 sixteen owners and thirteen complete reviewers retain all 328 declarations,
 71 positive/ten negative assertions and 26 byte-identical original constructor

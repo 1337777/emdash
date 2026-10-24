@@ -1,0 +1,13 @@
+// Encoded point counterpart of the ordinary walking-arrow comparison.
+// Both terminal domains and the fixed evaluator retain the actual F,G,eta,x.
+unif_rule
+  @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _
+    (@OddDual_func _ _ (@join_elim_func Terminal_cat Terminal_cat _
+      (@Const_func _ _ $F) (@Const_func _ _ $G) (@Const_func _ _ $eta)))
+    (@OddDual_func _ _ (@fapp0_func $K $C $x))
+  ≡ @OddDual_func $A0 $C0 (@join_elim_func $A $B $E
+      (@Const_func _ _ $Fx) (@Const_func _ _ $Gx) (@Const_func _ _ $etax))
+  ↪ [ $A0 ≡ WalkingArrow_cat; $C0 ≡ $C;
+      $A ≡ Terminal_cat; $B ≡ Terminal_cat; $E ≡ $C;
+      $Fx ≡ @fapp0 $K $C $F $x; $Gx ≡ @fapp0 $K $C $G $x;
+      $etax ≡ @tapp0_fapp0 $K $C $F $G $x $eta ];

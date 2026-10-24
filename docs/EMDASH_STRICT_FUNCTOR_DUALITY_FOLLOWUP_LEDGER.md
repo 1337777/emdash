@@ -20,6 +20,29 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [whole column continuation](../emdash2/audits/strict-default-action-boundary/production_homology_column_consumers_review.md)
+qualifies three owners and two complete reviewers, preserving all 22 original
+declarations and 21 positive/four negative assertions. It migrates the seven
+runtime clauses and four higher-action comparisons to current stable heads,
+and adds the encoded counterpart of the existing arrow-diagram point comparison
+with typed positive/unrelated-arrow controls. No primitive, supplied comparison
+cell or public assumption is added.
+
+The 1800s full aggregate remains recorded as a timeout. Verified completion
+markers, exact input closures and pinned checker semantics establish only its
+23 completed scopes/1,017 source files. A fresh cold replay passes all four
+remaining scopes: 147 positives/27 negatives in 878.713s/3,289,492KiB. Together
+they cover every prior complete scope and the new consumers. The evidence
+union has 4,626 positives/672 negatives; all 2,544 warning occurrences use
+previously reviewed bodies. Future carry must rehash `qualifiedInputSha256` and retain
+the completed-scope evidence, not label the timed-out aggregate passed.
+
+Qualification reaches **1,064 files: 687 core/library and 377 reviewers**;
+104 core/library files and 219 reviewers remain. The five terminal Homd runtime
+obligations, R07/R12 and production gates remain open. Continue the remaining
+original native-window/snake comparison consumers. No paused application goal
+or large six-term audit is resumed.
+
 The [homology-window family/exactness continuation](../emdash2/audits/strict-default-action-boundary/production_homology_window_consumers_review.md)
 adds sixteen owners and thirteen complete reviewers, preserving 328 declarations,
 71 positive/ten negative assertions and 26 unchanged original constructor rules.

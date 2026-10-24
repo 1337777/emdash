@@ -374,6 +374,21 @@ def main():
         SOURCES as HOMOLOGY_WINDOW_CONSUMER_SOURCES,
         migrate_homology_window_consumer,
     )
+    from production_homology_column_consumer_migration import (
+        SOURCES as HOMOLOGY_COLUMN_CONSUMER_SOURCES,
+        migrate_homology_column_consumer,
+        add_encoded_arrow_point_view,
+    )
+    for name in ('production_homology_column_consumer_migration.py',
+                 'production_homology_column_hom_views.lpfragment',
+                 'production_encoded_arrow_point_view.lpfragment',
+                 'production_encoded_arrow_point_controls.lpfragment',
+                 'production_homology_column_consumers_review.lpfragment',
+                 'production_homology_column_complete_review.lpfragment',
+                 'production_homology_column_complete_snapshot.lpfragment',
+                 'production_homology_column_remaining_snapshot.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_homology_window_consumer_migration.py',
                  'production_homology_window_consumers_review.lpfragment'):
         path = audit / name
@@ -2612,6 +2627,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain original constructor-projection rules, actual chosen rows/maps/inverses and exactness proofs; use established initial duality and oplax fixed-point evaluation without new rules or assumptions',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(homology_window)})
                 text = homology_window
+            homology_column = migrate_homology_column_consumer(path, text)
+            if homology_column is not None:
+                changes.append({'source': path, 'owner': 'original whole homology columns and higher-action observations',
+                                'reason': 'Adapt existing total-dual projection and intrinsic Hom-action comparisons to current stable heads; retain actual row/column data and every original higher/negative consumer',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(homology_column)})
+                text = homology_column
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6724,6 +6745,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in HOMOLOGY_WINDOW_CONSUMER_SOURCES:
         stage(path)
+    for path in HOMOLOGY_COLUMN_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -8011,6 +8034,15 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         changes.append({'source': name, 'owner': 'selected presentation action normalization',
                         'reason': 'Preserve canonical capped action endpoints, generic same-arrow metadata, actual dual triangles and stable Cat prewhiskering projections',
                         'oldBodySha256': sha(before), 'newBodySha256': sha(after)})
+    arrow_point_target = package / 'emdash3_2_arrow_diagram_families.lp'
+    before_arrow_point = arrow_point_target.read_text()
+    after_arrow_point = add_encoded_arrow_point_view(before_arrow_point)
+    arrow_point_target.write_text(after_arrow_point)
+    manifest['outputs'][str(arrow_point_target.relative_to(root))] = sha(after_arrow_point)
+    changes.append({'source': 'emdash3_2_arrow_diagram_families.lp',
+                    'owner': 'encoded walking-arrow point comparison',
+                    'reason': 'Retain the encoded counterpart of the existing fixed-evaluation comparison, with actual F/G/eta/x and both terminal-domain guards; no runtime category identification',
+                    'oldBodySha256': sha(before_arrow_point), 'newBodySha256': sha(after_arrow_point)})
     for name, source in (
         ('selected_presentation_controls.lp', 'production_selected_presentation_controls.lpfragment'),
         ('selected_identity_controls.lp', 'production_selected_identity_controls.lpfragment'),
@@ -8041,6 +8073,11 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('connecting_records_review.lp', 'production_connecting_record_consumers_review.lpfragment'),
         ('homology_windows_review.lp', 'production_homology_window_consumers_review.lpfragment'),
+        ('homology_columns_review.lp', 'production_homology_column_consumers_review.lpfragment'),
+        ('encoded_point_controls.lp', 'production_encoded_arrow_point_controls.lpfragment'),
+        ('encoded_point_then_columns.lp', 'production_homology_column_complete_review.lpfragment'),
+        ('homology_columns_complete_snapshot.lp', 'production_homology_column_complete_snapshot.lpfragment'),
+        ('homology_columns_remaining_snapshot.lp', 'production_homology_column_remaining_snapshot.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

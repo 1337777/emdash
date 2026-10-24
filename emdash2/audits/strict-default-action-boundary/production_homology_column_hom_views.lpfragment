@@ -1,0 +1,118 @@
+// Existing first-projection comparisons at the total-dual Hom-action heads.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@fapp1_func _ _ (@Sigma_proj1_func $K $E) _ _)))
+    (@fapp1_func _ _ (@homology_window_right_column_func $I $C $C1 $P $t $Ab $T _ $window) $x $y)
+  ≡ @comp_fapp0 Cat_cat _ _ _ $outer $inner
+  ↪ [ $K ≡ TotalOp_cat $C; $E ≡ (@homdc_op_edge_catd $C (Functor_oplax_cat WalkingArrow_cat $C) (@represented_comma_prof $C
+    (Functor_oplax_cat WalkingArrow_cat $C) (@terminal_arrow_diagram_func $C $t $T)));
+      $outer ≡ (@fapp1_func (@ZeroArrowCone_cat $C $t $T) $C (@zero_arrow_cone_vertex_func $C $t $T walking_arrow_tgt)
+        (@fapp0 $I (@ZeroArrowCone_cat $C $t $T) (@short_exact_row_family_func $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_rowm $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T $window)) $x) (@fapp0 $I (@ZeroArrowCone_cat $C $t $T)
+        (@short_exact_row_family_func $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T
+        (@homology_window_family_rowm $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T $window)) $y));
+      $inner ≡ (@fapp1_func $I (@ZeroArrowCone_cat $C $t $T) (@short_exact_row_family_func $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_rowm $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T $window)) $x $y) ];
+
+// Same first-Hom comparison on both surviving composite forms.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@fapp1_func _ _ (@Sigma_proj1_func $K $E) _ _)))
+    (@fapp1_func _ _ (@homology_window_left_column_func $I $C $C1 $P $t $Ab $T _ $window) $x $y)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@fapp1_func _ _ (@Sigma_proj1_func $K0 $E0) $a $b)))
+    (@fapp1_func $I0 $S0 $F0 $x0 $y0)
+  ↪ [ $K ≡ TotalOp_cat $C; $E ≡ (@homdc_op_edge_catd $C (Functor_oplax_cat WalkingArrow_cat $C) (@represented_comma_prof $C (Functor_oplax_cat WalkingArrow_cat $C) (@terminal_arrow_diagram_func $C $t $T)));
+      $K0 ≡ $K; $E0 ≡ $E;
+      $a ≡ @fapp0 $I (@ZeroArrowCone_cat $C $t $T) (@short_exact_row_family_func $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_row0 $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T $window)) $y;
+      $b ≡ @fapp0 $I (@ZeroArrowCone_cat $C $t $T) (@short_exact_row_family_func $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_row0 $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T $window)) $x;
+      $I0 ≡ $I; $S0 ≡ @ZeroArrowCone_cat $C $t $T;
+      $F0 ≡ (@short_exact_row_family_func $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_row0 $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T $window)); $x0 ≡ $x; $y0 ≡ $y ];
+
+// Intrinsic negative-index total action of the original right column.
+// Retain the canonical displayed projection, both endpoints and fixed identity.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@CoAbove2_func _ _ (@Op_func _ _ (@Product_projR_func _ _)))
+      (@sigma_map_func _ _ _
+        (@comp_prod_fapp1_fapp0 Cat_cat _ _ _ _ _
+          (@Struct_sigma _ _
+            (@TotalOp_transf _ _ _ _
+              (@fdapp1_int_presheaf_arrow _ _ _
+                (@strict_transfor _ _ _ _
+                  (@TotalOp_funcd _ _ _ (@sigma_proj1_family_funcd $K $D $G)))
+                $a $u $b $v))
+            (@id _ $fixed)))))
+    (@fapp1_func _ _ (@homology_window_right_column_func $I $C $C1 $P $t $Ab $T $KP $window) $x $y)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@EvenDual_func _ _
+      (@hom_precomp_along_fapp1_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $DC $DA $DB (@OddDual_func _ _ $H) $evalY $evalX))
+    (@diagram_evaluation_hom_func $I0 $C0 $x0 $y0)
+  ↪ [ $K ≡ Op_cat $C; $D ≡ (Functor_oplax_cat WalkingArrow_cat $C); $G ≡ (@represented_comma_prof $C (Functor_oplax_cat WalkingArrow_cat $C) (@terminal_arrow_diagram_func $C $t $T));
+      $fixed ≡ total_op_cart;
+      $a ≡ sigma_Fst (@homology_window_right_column_at $I $C $C1 $P $t $Ab $T $KP $window $y); $u ≡ sigma_Snd (@homology_window_right_column_at $I $C $C1 $P $t $Ab $T $KP $window $y);
+      $b ≡ sigma_Fst (@homology_window_right_column_at $I $C $C1 $P $t $Ab $T $KP $window $x); $v ≡ sigma_Snd (@homology_window_right_column_at $I $C $C1 $P $t $Ab $T $KP $window $x);
+      $DC ≡ OddDual_cat $C; $DA ≡ OddDual_cat WalkingArrow_cat;
+      $DB ≡ OddDual_cat (Functor_cat $I $C); $H ≡ (@walking_arrow_func (Functor_cat $I $C) (@comp_cat_fapp0 $I (@ZeroArrowCone_cat $C $t $T) $C
+        (@zero_arrow_cone_vertex_func $C $t $T walking_arrow_tgt) (@short_exact_row_family_func $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_row0 $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T $window))) (@comp_cat_fapp0 $I (@ZeroArrowCone_cat $C $t $T) $C
+        (@zero_arrow_cone_vertex_func $C $t $T walking_arrow_tgt) (@short_exact_row_family_func $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_row1 $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T $window))) (@fapp0 _ _ (@comp_cat_cov_fapp1_func $I
+        (@ZeroArrowCone_cat $C $t $T) $C (@zero_arrow_cone_vertex_func $C $t $T walking_arrow_tgt)
+        (@short_exact_row_family_func $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T
+        (@homology_window_family_row0 $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T $window))
+        (@short_exact_row_family_func $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T
+        (@homology_window_family_row1 $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T $window)))
+        (@homology_window_family_G $I $C $C1 $P $t (@computational_abelian_preabelian $C $P $t $Ab) $T $window)));
+      $evalY ≡ @fapp0 $I (Functor_oplax_cat (Functor_cat $I $C) $C) (@diagram_evaluation_func $I $C) $y;
+      $evalX ≡ @fapp0 $I (Functor_oplax_cat (Functor_cat $I $C) $C) (@diagram_evaluation_func $I $C) $x;
+      $I0 ≡ $I; $C0 ≡ $C; $x0 ≡ $x; $y0 ≡ $y ];
+
+// Intrinsic negative-index total action of the original left column.
+// Retain the canonical displayed projection, both endpoints and fixed identity.
+unif_rule
+  @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _
+      (@CoAbove2_func _ _ (@Op_func _ _ (@Product_projR_func _ _)))
+      (@sigma_map_func _ _ _
+        (@comp_prod_fapp1_fapp0 Cat_cat _ _ _ _ _
+          (@Struct_sigma _ _
+            (@TotalOp_transf _ _ _ _
+              (@fdapp1_int_presheaf_arrow _ _ _
+                (@strict_transfor _ _ _ _
+                  (@TotalOp_funcd _ _ _ (@sigma_proj1_family_funcd $K $D $G)))
+                $a $u $b $v))
+            (@id _ $fixed)))))
+    (@fapp1_func _ _ (@homology_window_left_column_func $I $C $C1 $P $t $Ab $T $KP $window) $x $y)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@EvenDual_func _ _
+      (@hom_precomp_along_fapp1_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $DC $DA $DB (@OddDual_func _ _ $H) $evalY $evalX))
+    (@diagram_evaluation_hom_func $I0 $C0 $x0 $y0)
+  ↪ [ $K ≡ Op_cat $C; $D ≡ (Functor_oplax_cat WalkingArrow_cat $C); $G ≡ (@represented_comma_prof $C (Functor_oplax_cat WalkingArrow_cat $C) (@terminal_arrow_diagram_func $C $t $T));
+      $fixed ≡ total_op_cart;
+      $a ≡ sigma_Fst (@homology_window_left_column_at $I $C $C1 $P $t $Ab $T $KP $window $y); $u ≡ sigma_Snd (@homology_window_left_column_at $I $C $C1 $P $t $Ab $T $KP $window $y);
+      $b ≡ sigma_Fst (@homology_window_left_column_at $I $C $C1 $P $t $Ab $T $KP $window $x); $v ≡ sigma_Snd (@homology_window_left_column_at $I $C $C1 $P $t $Ab $T $KP $window $x);
+      $DC ≡ OddDual_cat $C; $DA ≡ OddDual_cat WalkingArrow_cat;
+      $DB ≡ OddDual_cat (Functor_cat $I $C); $H ≡ (@walking_arrow_func (Functor_cat $I $C) (@comp_cat_fapp0 $I (@ZeroArrowCone_cat $C $t $T) $C
+        (@zero_arrow_cone_first_func $C $t $T) (@short_exact_row_family_func $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_row1 $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T $window))) (@comp_cat_fapp0 $I (@ZeroArrowCone_cat $C $t $T) $C
+        (@zero_arrow_cone_first_func $C $t $T) (@short_exact_row_family_func $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_row2 $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T $window))) (@fapp0 _ _ (@comp_cat_cov_fapp1_func $I
+        (@ZeroArrowCone_cat $C $t $T) $C (@zero_arrow_cone_first_func $C $t $T) (@short_exact_row_family_func $I $C $C1 $P
+        $t (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_row1 $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T $window)) (@short_exact_row_family_func $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T (@homology_window_family_row2 $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T $window))) (@homology_window_family_J $I $C $C1 $P $t
+        (@computational_abelian_preabelian $C $P $t $Ab) $T $window)));
+      $evalY ≡ @fapp0 $I (Functor_oplax_cat (Functor_cat $I $C) $C) (@diagram_evaluation_func $I $C) $y;
+      $evalX ≡ @fapp0 $I (Functor_oplax_cat (Functor_cat $I $C) $C) (@diagram_evaluation_func $I $C) $x;
+      $I0 ≡ $I; $C0 ≡ $C; $x0 ≡ $x; $y0 ≡ $y ];

@@ -1,0 +1,5 @@
+// Remaining complete scopes after the recorded aggregate deadline.
+require open emdash.short_exact_rows_review;
+require open emdash.connecting_records_review;
+require open emdash.homology_windows_review;
+require open emdash.encoded_point_then_columns;
