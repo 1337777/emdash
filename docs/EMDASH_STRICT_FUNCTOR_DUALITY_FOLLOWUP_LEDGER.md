@@ -18,6 +18,36 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Remaining original owners — 2026-10-24
+
+[Review](../emdash2/audits/strict-default-action-boundary/production_remaining_owners_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_remaining_owners_verification.json):
+the final 20 original owners and 16 attached complete reviewers pass, retaining
+509 declarations and 119 positives/14 negatives. Constant/terminal consumers
+use the existing mapping inclusions and Cartesian coefficient. The ordinal
+three-dimensional left telescope compares directly with its capped left route;
+no arbitrary left/middle equality or strict naturality is restored.
+
+The first terminal comparison component now infers its endpoints from its
+constructor. This removes the two observed Hom/identity guard overlaps while
+preserving its complete original reviewer and two new projection-order controls.
+No primitive, new rule, unifier or public assumption is added. Final cold
+validation passes in 131.328s/260,152KiB at 180s/2GiB/o=20. All 20 audits have
+zero unreviewed candidates and all 1,710 warnings are previously reviewed.
+
+Coverage reaches 1,264 original files: all 791 core/library owners and 473
+complete reviewers. There are 1,326 qualified inputs and 5,426 positives/
+752 negatives; all 1,289 predecessor inputs remain unchanged. Preserve their
+full evidence chain. The original central diagnostic is separately tracked
+with five explicit runtime exclusions, not counted as a fully passing file.
+
+Remaining: 123 complete reviewers, five terminal Homd runtime obligations,
+R07/R12 and production gates. The completed source migration does not resolve
+those requirements or promote source. Supplied terminal comparisons, bounded
+fillers and one-way/higher-readback boundaries remain explicit. Separate
+application research goals stay paused.
+
+
 ## Original presheaf/shape continuation — 2026-10-24
 
 [Review](../emdash2/audits/strict-default-action-boundary/production_presheaf_shape_consumers_review.md)

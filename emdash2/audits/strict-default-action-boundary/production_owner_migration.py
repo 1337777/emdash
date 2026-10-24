@@ -395,6 +395,13 @@ def main():
     from production_overlap_consumer_migration import (
         SOURCES as OVERLAP_CONSUMER_SOURCES, migrate_overlap_consumer,
     )
+    from production_remaining_owner_migration import (
+        SOURCES as REMAINING_OWNER_SOURCES, migrate_remaining_owner,
+    )
+    for name in ('production_remaining_owner_migration.py',
+                 'production_remaining_owners_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     from production_presheaf_shape_consumer_migration import (
         SOURCES as PRESHEAF_SHAPE_CONSUMER_SOURCES, migrate_presheaf_shape_consumer,
         refine_presheaf_shape_parent,
@@ -2739,6 +2746,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Align the existing whole nerve with its presheaf consumers; retain selected arrow comparison and use the established default functor composition path',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(presheaf_parent)})
                 text = presheaf_parent
+            remaining_owner = migrate_remaining_owner(path, text)
+            if remaining_owner is not None:
+                changes.append({'source': path, 'owner': 'remaining original ordinal, path-cubical and terminal-normalization consumers',
+                                'reason': 'Retain original data and whole action at Cartesian coefficients; compare left transport with its own capped route without restoring the retired arbitrary left/middle equality',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(remaining_owner)})
+                text = remaining_owner
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6867,6 +6880,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in PRESHEAF_SHAPE_CONSUMER_SOURCES:
         stage(path)
+    for path in REMAINING_OWNER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -8193,6 +8208,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('connecting_records_review.lp', 'production_connecting_record_consumers_review.lpfragment'),
         ('homology_windows_review.lp', 'production_homology_window_consumers_review.lpfragment'),
+        ('original_remaining_owners_review.lp', 'production_remaining_owners_review.lpfragment'),
         ('original_presheaf_shape_review.lp', 'production_presheaf_shape_consumers_review.lpfragment'),
         ('presheaf_shape_warning_review.lp', 'production_presheaf_shape_warning_review.lpfragment'),
         ('original_circle_consumers_review.lp', 'production_circle_consumers_review.lpfragment'),

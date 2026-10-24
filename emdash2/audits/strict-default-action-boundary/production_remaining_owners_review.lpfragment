@@ -1,0 +1,64 @@
+require open emdash.emdash3_2_dependent_simplex_ordinal_adequacy;
+require open emdash.emdash3_2_dependent_simplex_ordinal_filler;
+require open emdash.emdash3_2_dependent_simplex_ordinal_dimension3;
+require open emdash.emdash3_2_dependent_simplex_ordinal_dimension4;
+require open emdash.emdash3_2_dependent_simplex_ordinal_recursive;
+require open emdash.emdash3_2_path_cubical_open_square_frames;
+require open emdash.emdash3_2_path_cubical_open_square_fillers;
+require open emdash.emdash3_2_path_cubical_square_elim;
+require open emdash.emdash3_2_path_cubical_open_square_restrictions;
+require open emdash.emdash3_2_path_cubical_open_square_sections;
+require open emdash.emdash3_2_path_cubical_open_square_actions;
+require open emdash.emdash3_2_path_cubical_open_square_sieve_realization;
+require open emdash.emdash3_2_path_cubical_hcomp2;
+require open emdash.emdash3_2_path_cubical_open_box_addresses;
+require open emdash.emdash3_2_path_cubical_cube3_open_box;
+require open emdash.emdash3_2_path_cubical_face_naturality;
+require open emdash.emdash3_2_path_cubical_structured_recursion;
+require open emdash.emdash3_2_path_cubical_structured_native_low_dimensions;
+require open emdash.emdash3_2_path_cubical_structured_operators;
+require open emdash.emdash3_2_prof_reindex_terminal_normalization;
+require open emdash.examples.dependent_simplex_ordinal_adequacy;
+require open emdash.examples.dependent_simplex_ordinal_dimension3;
+require open emdash.examples.dependent_simplex_ordinal_dimension4;
+require open emdash.examples.dependent_simplex_ordinal_filler;
+require open emdash.examples.dependent_simplex_ordinal_recursive;
+require open emdash.examples.path_cubical_cube3_open_box;
+require open emdash.examples.path_cubical_face_naturality;
+require open emdash.examples.path_cubical_hcomp2;
+require open emdash.examples.path_cubical_open_box_addresses;
+require open emdash.examples.path_cubical_open_square_fillers;
+require open emdash.examples.path_cubical_open_square_sections;
+require open emdash.examples.path_cubical_open_square_sieves;
+require open emdash.examples.path_cubical_structured_native_low_dimensions;
+require open emdash.examples.path_cubical_structured_operators;
+require open emdash.examples.path_cubical_structured_recursion;
+require open emdash.examples.prof_reindex_terminal_normalization;
+
+// Endpoint-normalization controls for the original terminal comparison beta.
+// The rule must still compute after its inferred Hom/identity endpoint unfolds.
+
+assert [A : Cat] (F : τ (Functor A Terminal_cat))
+  (G : τ (Functor Terminal_cat Terminal_cat))
+  [W X : τ (Obj A)]
+  (g : τ (Hom Terminal_cat (@fapp0 A Terminal_cat F X) (@fapp0 Terminal_cat Terminal_cat G Terminal_obj)))
+  (normal : τ (@= (Hom Terminal_cat (@fapp0 Terminal_cat Terminal_cat G Terminal_obj) (@fapp0 Terminal_cat Terminal_cat G Terminal_obj))
+    (@prof_terminal_terminal_action Terminal_cat G) (@id Terminal_cat (@fapp0 Terminal_cat Terminal_cat G Terminal_obj))))
+  (p : τ (Hom A W X)) ⊢
+  @tapp0_fapp0 (Hom_cat A W X) Terminal_cat (@prof_terminal_expected_source_func A Terminal_cat F G W X g) (@prof_terminal_retained_source_func A Terminal_cat F G W X g) p
+    (@prof_terminal_expected_retained_source_transf A Terminal_cat F G W X g normal)
+  ≡ @path_to_hom (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat G Terminal_obj)) (@fapp0 (Hom_cat A W X) (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat G Terminal_obj)) (@prof_terminal_expected_source_func A Terminal_cat F G W X g) p) (@fapp0 (Hom_cat A W X) (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat G Terminal_obj)) (@prof_terminal_retained_source_func A Terminal_cat F G W X g) p)
+      (@eq_sym (Hom Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat G Terminal_obj)) (@fapp0 (Hom_cat A W X) (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat G Terminal_obj)) (@prof_terminal_retained_source_func A Terminal_cat F G W X g) p) (@fapp0 (Hom_cat A W X) (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat G Terminal_obj)) (@prof_terminal_expected_source_func A Terminal_cat F G W X g) p)
+        (@prof_terminal_retained_expected_source_fapp0_path A Terminal_cat F G W X g normal p));
+
+assert [A : Cat] (F : τ (Functor A Terminal_cat))
+  [W X : τ (Obj A)]
+  (g : τ (Hom Terminal_cat (@fapp0 A Terminal_cat F X) (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj)))
+  (normal : τ (@= (Hom Terminal_cat (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj) (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj))
+    (@prof_terminal_terminal_action Terminal_cat (@id_func Terminal_cat)) (@id Terminal_cat (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj))))
+  (p : τ (Hom A W X)) ⊢
+  @tapp0_fapp0 (Hom_cat A W X) Terminal_cat (@prof_terminal_expected_source_func A Terminal_cat F (@id_func Terminal_cat) W X g) (@prof_terminal_retained_source_func A Terminal_cat F (@id_func Terminal_cat) W X g) p
+    (@prof_terminal_expected_retained_source_transf A Terminal_cat F (@id_func Terminal_cat) W X g normal)
+  ≡ @path_to_hom (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj)) (@fapp0 (Hom_cat A W X) (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj)) (@prof_terminal_expected_source_func A Terminal_cat F (@id_func Terminal_cat) W X g) p) (@fapp0 (Hom_cat A W X) (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj)) (@prof_terminal_retained_source_func A Terminal_cat F (@id_func Terminal_cat) W X g) p)
+      (@eq_sym (Hom Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj)) (@fapp0 (Hom_cat A W X) (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj)) (@prof_terminal_retained_source_func A Terminal_cat F (@id_func Terminal_cat) W X g) p) (@fapp0 (Hom_cat A W X) (Hom_cat Terminal_cat (@fapp0 A Terminal_cat F W) (@fapp0 Terminal_cat Terminal_cat (@id_func Terminal_cat) Terminal_obj)) (@prof_terminal_expected_source_func A Terminal_cat F (@id_func Terminal_cat) W X g) p)
+        (@prof_terminal_retained_expected_source_fapp0_path A Terminal_cat F (@id_func Terminal_cat) W X g normal p));

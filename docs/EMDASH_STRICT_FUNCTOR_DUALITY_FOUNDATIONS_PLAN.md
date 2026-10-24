@@ -42,6 +42,40 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified remaining original-owner continuation from `98016d43`, 2026-10-24
+UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_remaining_owners_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_remaining_owners_verification.json)
+retain 20 owners, 16 complete reviewers, all 509 declarations and all
+119 positives/14 negatives. Existing mapping inclusions and coefficient
+annotations restore constant/terminal observers; strict-functor views retire.
+The dimension-three proof compares the actual left transport with its own
+capped route, without restoring the retired arbitrary left/middle equality.
+Its original top-endpoint noncollapse and higher action remain checked.
+
+One original component rule drops redundant inferred Hom/identity guards.
+The unchanged complete reviewer plus two focused endpoint controls pass, and
+both observed guard-overlap warnings disappear. No primitive, new rule,
+unifier, public assumption or operational proof argument is introduced.
+The cold final group passes as
+`20261024T200441Z-84146a2262bd4450ae5a34eeed336a16`,
+131.328s/260,152KiB at 180s/2GiB/o=20. The earlier 90-second aggregate timed
+out after progress; its outcome is retained. All 20 LHS audits have zero
+unreviewed candidates and all 1,710 warnings belong to reviewed contexts.
+
+Qualification reaches **1,264 original LP sources: all 791 core/library
+owners and 473 complete reviewers**, with 1,326 qualified inputs and
+5,426 positives/752 negatives. The pinned root inventory has 792 v3.2 LP
+files; only the original central diagnostic remains outside that complete-file
+map, with its retained staged checks and five explicit runtime exclusions.
+All 1,289 predecessor inputs rehash unchanged. Preserve the full parent chain.
+All checkers are terminal; checkpoint only this owned slice.
+
+Next migrate/qualify the remaining 123 complete original reviewers. The five
+terminal Homd runtime obligations, R07/R12, production promotion and final
+gates remain required. Retain supplied terminal normality and existing
+fixed-dimensional/one-way/missing-readback application boundaries. The separate
+nerve and large six-term research goals stay paused.
+
 Qualified original presheaf/shape continuation from `99035271`, 2026-10-24 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_presheaf_shape_consumers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_presheaf_shape_consumers_verification.json)
