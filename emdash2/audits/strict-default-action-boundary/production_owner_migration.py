@@ -395,6 +395,13 @@ def main():
     from production_overlap_consumer_migration import (
         SOURCES as OVERLAP_CONSUMER_SOURCES, migrate_overlap_consumer,
     )
+    from production_circle_consumer_migration import (
+        SOURCES as CIRCLE_CONSUMER_SOURCES, migrate_circle_consumer,
+    )
+    for name in ('production_circle_consumer_migration.py',
+                 'production_circle_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_overlap_consumer_migration.py',
                  'production_overlap_consumers_review.lpfragment'):
         path = audit / name
@@ -2705,6 +2712,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Register the unchanged original definitions and complete reviewers; preserve selected localization maps/inverses and supplied global projective-presentation boundaries',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(overlap_consumer)})
                 text = overlap_consumer
+            circle_consumer = migrate_circle_consumer(path, text)
+            if circle_consumer is not None:
+                changes.append({'source': path, 'owner': 'original Circle/WalkingEnd consumers',
+                                'reason': 'Register unchanged original definitions and complete reviewers; retain selected inverse, scoped HIT equality clauses and inherited whole-assembly assumptions without strengthening loop computation',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(circle_consumer)})
+                text = circle_consumer
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6829,6 +6842,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in OVERLAP_CONSUMER_SOURCES:
         stage(path)
+    for path in CIRCLE_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -8155,6 +8170,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('connecting_records_review.lp', 'production_connecting_record_consumers_review.lpfragment'),
         ('homology_windows_review.lp', 'production_homology_window_consumers_review.lpfragment'),
+        ('original_circle_consumers_review.lp', 'production_circle_consumers_review.lpfragment'),
         ('original_overlap_consumers_review.lp', 'production_overlap_consumers_review.lpfragment'),
         ('original_site_consumers_review.lp', 'production_site_consumers_review.lpfragment'),
         ('original_pathout_simplex_review.lp', 'production_pathout_simplex_consumers_review.lpfragment'),

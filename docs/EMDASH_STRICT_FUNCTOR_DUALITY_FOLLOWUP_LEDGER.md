@@ -18,6 +18,27 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Original Circle/WalkingEnd continuation — 2026-10-24
+
+[Review](../emdash2/audits/strict-default-action-boundary/production_circle_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_circle_consumers_verification.json):
+four owners and six complete reviewers retain every byte, 38 declarations and
+100 positives/eleven negatives. The selected whole inverse, HIT equality
+clauses and runtime/propositional boundaries remain unchanged. The historical
+strict_transf_pointwise_* interface still carries its inherited ordinary
+whole-assembly assumption; this continuation establishes no new interpretation
+of that principle and does not impose strict naturality on arbitrary transfors.
+
+The cold group passes in 59.588s/201,912KiB at 90s/2GiB/o=20. Exact emitted-input
+matching permits receipt reuse. Coverage reaches 1,194 original LP sources and
+1,253 qualified inputs, with 5,161 positives/722 negatives. All predecessor
+inputs and the reviewed warning boundary remain intact.
+
+Remaining: 37 core/library files, 156 reviewers, five terminal Homd runtime
+obligations, R07/R12 and production gates. Preserve the full evidence chain and
+separate paused-goal boundaries.
+
+
 ## Original chart-overlap/Laurent continuation — 2026-10-24
 
 [Review](../emdash2/audits/strict-default-action-boundary/production_overlap_consumers_review.md)

@@ -42,6 +42,33 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original Circle/WalkingEnd continuation from `be466724`,
+2026-10-24 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_circle_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_circle_consumers_verification.json)
+retain four owners, six complete reviewers, every original byte, 38 declarations
+and 100 positives/eleven negatives. Preserve the selected whole extension
+inverse, scoped categorical-HIT equality clauses and loop-computation policy.
+The inherited ordinary pointwise-to-whole assembly remains an explicitly
+recorded primitive assumption, not a new derivation from lax naturality.
+
+The complete cold group passes at 90s/2GiB/o=20:
+`20261024T191916Z-3289b9d05f934425b93917a30d1766e8`, 59.588s/201,912KiB.
+Its emitted 31-input import map matches exactly, so reuse the recent cold
+receipt without an unchanged rerun. The extension rule audit has no unreviewed
+candidate; all 1,738 warnings belong to reviewed contexts. No formal source,
+assumption, runtime rule or negative-control strength changes.
+
+Qualification reaches **1,194 original LP sources: 754 core/library and
+440 complete reviewers**, with 1,253 qualified inputs and 5,161 positives/
+722 negatives. All predecessor inputs remain unchanged. Preserve the complete
+input map and parent evidence chain. All checkers are terminal; checkpoint only
+the owned slice, leaving unrelated core/profile/report edits and earlier work.
+
+Next continue remaining original shape/groupoidal owners and complete reviewers:
+37 core/library files and 156 reviewers remain, with five terminal Homd runtime
+obligations, R07/R12 and production gates. Do not resume separate paused goals
+or upgrade retained conditional/supplied interfaces into stronger theorems.
+
 Qualified original chart-overlap/Laurent continuation from `8723fff6`,
 2026-10-24 UTC: the [review](../emdash2/audits/strict-default-action-boundary/production_overlap_consumers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_overlap_consumers_verification.json)
