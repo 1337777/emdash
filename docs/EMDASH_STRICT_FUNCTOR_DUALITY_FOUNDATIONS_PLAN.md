@@ -42,6 +42,38 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original shape-consumer continuation from `e70ff0a8`, 2026-10-24 UTC:
+the [review](../emdash2/audits/strict-default-action-boundary/production_shape_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_shape_consumers_verification.json)
+record fifteen owners and fourteen complete reviewers. Retire the two redundant
+graph strict-object/admission declarations, use the existing default graph,
+and remove the subsumed named composition rule. One existing pseudo-source
+endpoint proof composes existing paths; actual selected pseudo inverses and
+supplied-property declarations remain unchanged. No primitive, new comparison
+rule, public assumption or operational proof argument is added.
+
+All 29 original consumers pass cold at the emitted source:
+`20261024T181618Z-2620d73b9240446789f56071167de4e5`, 50.033s/197,704KiB under
+90s/2GiB/o=20. The original inventory retains 144 of 146 declarations and
+115 positives/eleven negatives; the only polarity change is the retired
+opaque-wrapper barrier. The object-only decoder and other supplied/derived
+boundaries remain explicit. This does not resume the separate nerve goal.
+
+All predecessor inputs remain byte-identical. Qualification now covers
+**1,125 original LP sources: 720 core/library and 405 reviewers**, with 1,180
+qualified inputs and 4,841 positive/705 negative assertions. Seven additional
+symbolic warning bodies have reviewed generic sort mismatches, confirmed by
+`20261024T182417Z-8ef781a919fd457a91660d1e80a438f5`; no rule silences them.
+R07 and R12 remain open. Retain the complete qualified-input map and the parent
+verification/evidence link on continuation. All checkers are terminal.
+
+Checkpoint only the owned tranche, preserving unrelated core/profile/report
+edits and earlier untracked work. Next continue the remaining original owners
+and complete reviewers: 71 core/library files and 191 reviewers remain,
+together with the five terminal Homd runtime obligations and production gates.
+Existing geometry/site/shape consumers may be migrated without developing new
+application theorems or resuming the separate paused goals.
+
 Qualified native-window/snake continuation from `6bfa5abf`, 2026-10-24 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/production_native_window_snake_consumers_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/production_native_window_snake_consumers_verification.json)

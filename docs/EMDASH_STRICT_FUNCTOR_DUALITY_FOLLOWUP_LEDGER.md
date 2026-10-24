@@ -18,6 +18,27 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Original shape-consumer continuation — 2026-10-24
+
+[Review](../emdash2/audits/strict-default-action-boundary/production_shape_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_shape_consumers_verification.json):
+fifteen owners and fourteen complete reviewers pass with the original action,
+selected pseudo-inverse data and object-decoder boundary. Two redundant strict
+object/admission declarations and one subsumed named composition rule are
+retired. The readable source endpoint proof uses existing paths. Only the old
+opaque-wrapper negative becomes positive; no other negative is weakened.
+
+Qualification reaches 1,125 original LP sources, with 1,180 qualified inputs
+and 4,841 positives/705 negatives. All 1,149 predecessor inputs rehash unchanged.
+Seven new printed overlaps at semicubical identity mix dimension and functor
+roles; dedicated generic sort negatives reject those substitutions. R07's
+broader confluence boundary remains, with no warning-silencing rule introduced.
+
+Remaining: 71 core/library files, 191 reviewers, the five terminal Homd runtime
+obligations, R07/R12 and production gates. Preserve the original object-level
+Gray observation status; the separate nerve-equivalence work remains paused.
+
+
 ## Native-window exchange continuation — 2026-10-24
 
 [Review](../emdash2/audits/strict-default-action-boundary/production_native_window_snake_consumers_review.md)

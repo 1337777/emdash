@@ -383,6 +383,15 @@ def main():
         SOURCES as NATIVE_WINDOW_SNAKE_CONSUMER_SOURCES,
         migrate_native_window_snake_consumer,
     )
+    from production_shape_consumer_migration import (
+        SOURCES as SHAPE_CONSUMER_SOURCES, migrate_shape_consumer,
+    )
+    for name in ('production_shape_consumer_migration.py',
+                 'production_shape_pseudo_source_path.lpfragment',
+                 'production_shape_consumers_review.lpfragment',
+                 'production_shape_warning_sort_controls.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_native_window_snake_consumer_migration.py',
                  'production_native_window_snake_consumers_review.lpfragment',
                  'production_native_window_exchange_controls.lpfragment',
@@ -2651,6 +2660,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain original maps, inverse data, declarations and proof bodies at corrected total-dual/oplax profiles; preserve whole endpoint observations and retire the redundant diagonal unifier',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(native_window_snake)})
                 text = native_window_snake
+            shape_consumer = migrate_shape_consumer(path, text)
+            if shape_consumer is not None:
+                changes.append({'source': path, 'owner': 'original cubical/Gray shape consumers',
+                                'reason': 'Preserve supplied pseudo-inverse data and original object-decoder/action contracts; use existing strict-default endpoint paths, retire redundant functor views and the subsumed named composition rule',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(shape_consumer)})
+                text = shape_consumer
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6767,6 +6782,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in NATIVE_WINDOW_SNAKE_CONSUMER_SOURCES:
         stage(path)
+    for path in SHAPE_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -8093,6 +8110,8 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('short_exact_rows_review.lp', 'production_short_exact_row_consumers_review.lpfragment'),
         ('connecting_records_review.lp', 'production_connecting_record_consumers_review.lpfragment'),
         ('homology_windows_review.lp', 'production_homology_window_consumers_review.lpfragment'),
+        ('original_shape_consumers_review.lp', 'production_shape_consumers_review.lpfragment'),
+        ('shape_warning_sort_controls.lp', 'production_shape_warning_sort_controls.lpfragment'),
         ('native_window_snake_review.lp', 'production_native_window_snake_consumers_review.lpfragment'),
         ('native_window_complete_snapshot.lp', 'production_native_window_complete_snapshot.lpfragment'),
         ('native_window_remaining_1.lp', 'production_native_window_remaining_1.lpfragment'),

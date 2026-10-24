@@ -1,0 +1,7 @@
+require open emdash.emdash3_2_semicubical_index;
+// The fixed inclusion functor is not a cube dimension.
+assertnot ⊢ Cat_cart_include : τ Nat_grpd;
+// A dimension variable is not a generic fixed-whiskering functor.
+assertnot [A B : Cat] (n : τ Nat_grpd) ⊢ n : τ (Functor A B);
+// A categorical identity functor is not a cube dimension either.
+assertnot [A : Cat] ⊢ @id Cat_cat A : τ Nat_grpd;
