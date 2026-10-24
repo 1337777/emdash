@@ -1,6 +1,6 @@
 # Strict-functor/duality migration: unresolved work and regression ledger
 
-Date: 2026-10-23 (UTC)
+Date: 2026-10-24 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: active; staged retained reviewers and original all-import scope pass with the isolated checker; terminal, further migration and production qualification remain open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
@@ -19,6 +19,22 @@ production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
+
+The [native pair/Freyd continuation](../emdash2/audits/strict-default-action-boundary/production_native_freyd_pair_consumers_review.md)
+adds 18 original owners and three complete reviewers, retaining all 164
+declarations and 46 assertions; thirteen files remain byte-identical.
+Canonical constant inclusions, total-dual initiality and existing oplax
+evaluation adapt the other sources without new formal declarations or rules.
+Supplied model/normality, raw agreements and actual inverse data retain their
+roles. The full group passes 49 positives in 648.515s at 4,854,836KiB under
+900s/8GiB/o=20 after the unchanged candidate exhausted 4GiB. The exact original
+owner already has an 8GiB override; default profiles remain unchanged.
+All 812 predecessor sources and fifteen parent complete-scope input sets
+match; all 2,277 warnings occur in reviewed contexts. Qualification reaches
+**833 files: 550 core/library and 283 reviewers**; 241 core/library files and
+313 reviewers remain. The five terminal runtime obligations, R07/R12 and
+production gates remain open. The next matrix consumer requires additional
+finite-free/selected-kernel dependencies; it is not yet qualified.
 
 The [native-snake result assembly][native-snake-result-consumers] adds three
 original owners and two complete reviewers, retaining all 32 declarations,

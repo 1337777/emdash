@@ -330,6 +330,14 @@ def main():
         SOURCES as NATIVE_SNAKE_RESULT_CONSUMER_SOURCES,
         migrate_native_snake_result_consumer,
     )
+    from production_native_freyd_pair_consumer_migration import (
+        SOURCES as NATIVE_FREYD_PAIR_CONSUMER_SOURCES,
+        migrate_native_freyd_pair_consumer,
+    )
+    for name in ('production_native_freyd_pair_consumer_migration.py',
+                 'production_native_freyd_pair_consumers_review.lpfragment'):
+        path = audit / name
+        inputs[str(path.relative_to(root))] = sha(path.read_text())
     for name in ('production_native_snake_result_consumer_migration.py',
                  'production_native_snake_result_consumers_review.lpfragment'):
         path = audit / name
@@ -2453,6 +2461,12 @@ unif_rule @sigma_map_func $K _ _
                                 'reason': 'Retain original finite-tail structural beta, append and boundary non-collapse; assemble the same actual maps, inputs and exactness annotations under corrected profiles',
                                 'oldBodySha256': sha(text), 'newBodySha256': sha(native_snake_result)})
                 text = native_snake_result
+            native_freyd_pair = migrate_native_freyd_pair_consumer(path, text)
+            if native_freyd_pair is not None:
+                changes.append({'source': path, 'owner': 'original native pair and Freyd exactness consumers',
+                                'reason': 'Retain supplied model/normality, raw agreement and actual inverse data; use existing constant-transformation ambient views, corrected diagram evaluation and total-dual initiality',
+                                'oldBodySha256': sha(text), 'newBodySha256': sha(native_freyd_pair)})
+                text = native_freyd_pair
             simplex_dependency = migrate_simplex_dependency(path, text)
             if simplex_dependency is not None:
                 changes.append({'source': path, 'owner': 'existing dependent-simplex and chain-pair consumers',
@@ -6543,6 +6557,8 @@ assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
         stage(path)
     for path in NATIVE_SNAKE_RESULT_CONSUMER_SOURCES:
         stage(path)
+    for path in NATIVE_FREYD_PAIR_CONSUMER_SOURCES:
+        stage(path)
     (package / 'direct_cover_question_regression.lp').write_text(
         (package / 'examples/direct_cover_questions.lp').read_text() + '\n'
         + (package / 'examples/direct_cover_question_families.lp').read_text())
@@ -7849,6 +7865,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         ('native_snake_third_exactness_review.lp', 'production_native_snake_third_consumers_review.lpfragment'),
         ('native_snake_fourth_exactness_review.lp', 'production_native_snake_fourth_consumers_review.lpfragment'),
         ('native_snake_result_review.lp', 'production_native_snake_result_consumers_review.lpfragment'),
+        ('native_freyd_pair_review.lp', 'production_native_freyd_pair_consumers_review.lpfragment'),
         ('selected_presentation_regression.lp', 'production_selected_presentation_regression.lpfragment'),
         ('selected_presentation_core_regression.lp', 'production_selected_presentation_core_regression.lpfragment'),
         ('selected_presentation_library_regression.lp', 'production_selected_presentation_library_regression.lpfragment'),

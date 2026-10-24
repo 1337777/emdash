@@ -42,6 +42,65 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original native pair/Freyd consumers, 2026-10-24 UTC: 18 original
+owners and three complete reviewers pass, retaining all 164 declarations and
+46 original assertions. Thirteen files are byte-identical. Existing canonical
+constant inclusions, total-dual initiality and whole oplax evaluation adapt
+the remaining files without new formal declarations or rules. Supplied model,
+normality, raw agreements, actual maps and inverse data remain unchanged in
+role; no chosen matrix witness is extracted from arbitrary quotient equality.
+
+After the recorded 4GiB allocation failure, the unchanged candidate passes
+49 positives in 648.515s at 4,854,836KiB under 900s/8GiB/o=20 with subject
+reduction: `20261024T002638Z-687e0311466941d8a1661435d737f43a`.
+The exact original owner already uses an 8GiB override. The first two public
+comparisons now pass in 16.61s/22.80s; normalization/usability remains R12 work.
+All fresh checked inputs, 812 predecessor source hashes and fifteen parent
+complete-scope input sets match the final emission. All 2,277 warning bodies
+occur in reviewed contexts. The
+[review](../emdash2/audits/strict-default-action-boundary/production_native_freyd_pair_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_native_freyd_pair_consumers_verification.json)
+record complete consumers, exact pins, resource outcomes and retained contracts.
+
+Qualification reaches **833 LP files: 550 core/library and 283 reviewers**.
+There remain 241 core/library files and 313 reviewers, the same five terminal
+runtime obligations, normalization/toolchain work and production promotion.
+Next follow the original matrix consumer's finite-free and selected-kernel
+dependencies. All checkers are terminal; checkpoint only the reviewed owned
+slice. The separate nerve goal stays paused; earlier entries are history.
+
+Original native pair/Freyd continuation from `202f3806`, 2026-10-24 UTC:
+actual consumer and reviewer imports select 18 original owners and three
+complete reviewers, retaining 164 declarations and 46 positive assertions.
+The scope includes native pair paths, supplied Freyd model normality,
+constant raw inputs, observations, pair/diagram exactness and point exactness.
+Nine initial-object Op occurrences adopt TotalOp; six concrete Freyd diagram
+classifiers and two component readings use existing oplax evaluation.
+Canonical constant transformations use their existing strict-to-ambient view
+(709 occurrences), and one constant-functor action uses the existing whole
+Cartesian inclusion, matching the qualified constant-chain owner. No new
+strictness assumption is imposed on arbitrary transformations. Supplied model,
+normality, raw agreements and actual inverse data retain their original roles;
+no chosen matrix witness is extracted from arbitrary quotient equality.
+No new formal declaration or rule is proposed. The first complete group uses
+600s/4GiB/o=20 with measured predecessor cost 302.184s/3,037,520KiB. Emission
+completed before checking; qualification remains 812 until full consumers and
+evidence review pass.
+
+The first run stopped with allocation failure, not a typing error, at the
+first public incoming comparison in the Freyd pair owner:
+`20261024T001118Z-7ac073edbc0e459580ea4b05b0dfcac2`
+(523.935s/3,915,776KiB, 600s/4GiB/o=20). The exact original owner already has
+the recorded `action-profile-8g-300s` override in `checks.json`. Its original
+13,785-byte comparison becomes 17,295 bytes through 18 existing canonical
+constant-transformation ambient views; no formal rule is added. With
+21,088MiB host memory available and no checker running, replay the unchanged
+complete candidate at 900s/8GiB/o=20: the memory ceiling matches that exact
+owner's established profile; the longer deadline covers cumulative imports
+and consumers. Keep command timings, subject reduction, serial execution,
+file limits and no-swap containment. This is resource qualification, not a
+claim that normalization cost has been repaired.
+
 Qualified original native-snake six-term result assembly, 2026-10-23 UTC:
 three original owners and two complete reviewers pass. The complete finite-tail
 reviewer requires the append owner, which is included. All 32 declarations,
