@@ -20,6 +20,19 @@ the explicitly optional rows. No row authorizes a new foundational redesign.
 
 ## Current boundary
 
+The [native Freyd matching/window continuation](../emdash2/audits/strict-default-action-boundary/production_freyd_native_window_consumers_review.md)
+adds eleven owners and nine complete reviewers, retaining 343 declarations
+and 48 positive/one negative assertions. Eighteen files are unchanged; two
+use existing constant inclusions and oplax walking-arrow classifiers. No
+formal declaration or rule is added. The full group passes 51 positives/one
+negative in 591.179s at 3,305,796KiB. All 876 predecessor sources and nineteen
+parent complete-scope input sets match; all 2,285 warnings occur in reviewed
+contexts. Qualification reaches **896 files: 584 core/library and 312
+reviewers**; 207 core/library files and 284 reviewers remain. Whole connecting
+and exactness consumers retain actual maps/inverses and supplied model roles.
+R01–R03, R07/R12 and production gates remain open. Next is the original
+public-pair/LES certificate-view group and its whole-family dependencies.
+
 The [witnessed Freyd homology/matrix continuation](../emdash2/audits/strict-default-action-boundary/production_freyd_witnessed_homology_consumers_review.md)
 adds nine original owners and ten complete reviewers, all byte-identical.
 All 208 declarations and 58 positive/four negative assertions remain; no

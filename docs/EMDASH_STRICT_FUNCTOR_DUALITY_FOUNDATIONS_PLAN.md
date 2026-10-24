@@ -42,6 +42,47 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Qualified original native Freyd matching/window consumers, 2026-10-24 UTC:
+eleven owners and nine complete reviewers retain all 343 declarations and
+48 positive/one negative assertions. Eighteen sources remain byte-identical;
+the other two use six existing canonical constant inclusions and six oplax
+walking-arrow classifiers. General base action, whole connecting/exactness,
+supplied model/normality and actual inverse data remain. No new formal
+declaration, rule, caller assumption or inverse choice is added.
+
+The complete group passes 51 positives/one negative in 591.179s at
+3,305,796KiB under 900s/4GiB/o=20 with subject reduction:
+`20261024T005349Z-425136846c67490da3a98aa8c80515d6`.
+The first import including dependencies takes 560.97s; two matching commands
+take 10.11s/3.90s. R12 remains open. All 340 fresh inputs, 876 predecessor
+sources and nineteen parent complete-scope input sets match final emission.
+All 2,285 warnings occur in reviewed contexts. The
+[review](../emdash2/audits/strict-default-action-boundary/production_freyd_native_window_consumers_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/production_freyd_native_window_consumers_verification.json)
+record complete whole consumers, original negative boundary and source pins.
+
+Qualification reaches **896 LP files: 584 core/library and 312 reviewers**.
+There remain 207 core/library files and 284 reviewers, the same five terminal
+runtime obligations, normalization/toolchain work and production promotion.
+Next follow the original public-pair/LES certificate-view consumers and their
+actual whole-family/diagram dependencies (nineteen files inventoried).
+All checkers are terminal; checkpoint the reviewed owned slice. The separate
+nerve goal stays paused; earlier entries are history.
+
+Original native Freyd matching/window continuation from `995ed7a5`,
+2026-10-24 UTC: actual complete consumers select eleven original owners and
+nine reviewers, retaining 343 declarations and 48 positive/one negative
+assertions. Eighteen sources remain byte-identical. Six canonical constant
+transformations use their existing strict-to-ambient view, and six explicit
+walking-arrow classifier occurrences in the model-window reviewer use the
+existing oplax classifier. General base K/B Functor/Transf and point action
+remain unchanged, following the already qualified whole connecting owner.
+No declaration, formal rule, caller assumption or inverse choice is added.
+The complete dependency closure has 339 sources and does not import the heavy
+Freyd pair owner. Use 900s/4GiB/o=20 for cumulative native-window/Freyd imports,
+retaining subject reduction, command timing, serial and no-swap containment.
+Qualification remains 876 until full consumers and evidence review pass.
+
 Qualified original witnessed Freyd homology/matrix consumers, 2026-10-24 UTC:
 nine owners and ten complete reviewers pass unchanged from the original pin,
 retaining all 208 declarations and 58 positive/four negative assertions with
