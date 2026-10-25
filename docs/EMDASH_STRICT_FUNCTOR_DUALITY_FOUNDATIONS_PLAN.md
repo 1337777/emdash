@@ -121,6 +121,15 @@ older running/failed states and do not override it.
 
 #### Migration evidence chronology (newest entries first)
 
+The [frontend structure/binder slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_structure_binder_review.md)
+passes20 consumer/demo tests,27 metadata tests and three native cases. Whole
+projection/pairing action has its actual Cartesian target. The binder uses
+the native coefficient-composition projection to recover ordinary component
+application, preserving lax FF and the proof-time-only classifier comparison.
+Next is the native strict fibre carrier of displayed transformations, then
+varying-base Pi/Homd and full integration. The production-health aggregate
+remains stopped at its recorded resource-review boundary.
+
 The [frontend displayed-product migration](../emdash2/audits/strict-default-action-boundary/foundation_frontend_product_review.md)
 passes at its focused/native boundary:12 declarations/35 runtime clauses,
 9 product/demo tests,33 boundary/program tests and two native consumers.

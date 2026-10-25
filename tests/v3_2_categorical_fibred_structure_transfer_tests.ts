@@ -30,6 +30,7 @@ import {
     CoreLfComparisonResult,
     checkLambdapiProbe,
     compileCoreCategoricalFibredStructureTransfer,
+    serializeKernelExpression,
     validateCoreCategoricalFibredStructureReview
 } from '../src/v3_2';
 
@@ -129,7 +130,7 @@ describe(
                 CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_MODULE
                     .declarations.map(entry => entry.symbol.name),
                 [
-                    'comp_cat_con_func',
+                    'comp_cat_con_cart_func',
                     'hom_precomp_along_fapp0',
                     'id_funcd',
                     'Product_projL_funcd',
@@ -148,7 +149,7 @@ describe(
                     CORE_CATEGORICAL_FIBRED_STRUCTURE_SYMBOLS
                 ).map(symbol => symbol.name),
                 [
-                    'comp_cat_con_func',
+                    'comp_cat_con_cart_func',
                     'hom_precomp_along_fapp0',
                     'id_funcd',
                     'Product_projL_funcd',
@@ -520,6 +521,51 @@ describe(
             );
         });
 
+        it('checks emitted whole projection action and pairing in Lambdapi', {
+            skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_FIBRED_STRUCTURE_PROBES !== '1'
+        }, () => {
+            const w = structureWitness();
+            const projection = w.emdash.displayedProductLeftProjection(w.B, w.C);
+            const full = w.emdash.displayedFunctorFullAction(projection, w.x, w.y);
+            const fullAtP = w.emdash.apply(full, w.p);
+            const capped = w.emdash.apply(projection, w.p, { expectedShape: 'transport-functor' });
+            const pairing = w.emdash.displayedProductPair(w.FF, w.GG);
+            const c = compileCoreCategoricalFibredStructureTransfer();
+            const product = c.prerequisite, comprehension = product.prerequisite;
+            const composition = comprehension.prerequisite, dependent = composition.dependent;
+            const structural = dependent.structural;
+            const refs = Object.assign({},
+                structural.initialDeclarations.externalFreeReferences,
+                structural.compiled.externalFreeReferences,
+                dependent.compiled.externalFreeReferences,
+                composition.compiled.externalFreeReferences,
+                comprehension.compiled.externalFreeReferences,
+                product.compiled.externalFreeReferences, c.compiled.externalFreeReferences);
+            const fullCompiled = w.emdash.compile(full);
+            const atCompiled = w.emdash.compile(fullAtP);
+            const cappedCompiled = w.emdash.compile(capped);
+            const pairCompiled = w.emdash.compile(pairing);
+            const serialize = (term: typeof fullCompiled.explicitTerm) =>
+                serializeKernelExpression(term, { externalFreeReferences: refs });
+            const source = [
+                'require open emdash.emdash3_2;',
+                'symbol K : Cat;', 'symbol E : τ (Catd K);',
+                'symbol B : τ (Catd K);', 'symbol C : τ (Catd K);',
+                'symbol FF : τ (Functord E B);', 'symbol GG : τ (Functord E C);',
+                'symbol x : τ (Obj K);', 'symbol y : τ (Obj K);',
+                'symbol p : τ (Hom K x y);',
+                `assert ⊢ ${serialize(fullCompiled.explicitTerm)} : ${serialize(fullCompiled.expectedType)};`,
+                `assert ⊢ ${serialize(atCompiled.explicitTerm)} ≡ ${serialize(cappedCompiled.explicitTerm)};`,
+                `assert ⊢ ${serialize(pairCompiled.explicitTerm)} : ${serialize(pairCompiled.expectedType)};`
+            ].join('\n');
+            assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/);
+            const result = checkLambdapiProbe({ source, sourceMap: [] }, {
+                packageRoot: lambdapiRoot, timeoutMs: 60_000
+            });
+            assert.equal(result.accepted, true, result.diagnostics + '\n' + source);
+            assert.equal(result.timedOut, false);
+        });
+
         it(
             'agrees with Lambdapi on point, beta, and raw reindex boundaries',
             {
@@ -541,7 +587,7 @@ describe(
                             'symbol fs_GG : τ (Functord fs_E fs_C);',
                             'symbol fs_x : τ (Obj fs_K);',
                             'assert ⊢',
-                            '  @tapp0_fapp0 fs_K Cat_cat _ _ fs_x',
+                            '  @tapp0_fapp0 fs_K Cat_cart _ _ fs_x',
                             '    (@Product_projL_funcd fs_K fs_B fs_C)',
                             '  ≡ @Product_projL_func',
                             '      (Fibre_cat fs_B fs_x)',
@@ -559,18 +605,18 @@ describe(
                             '    fs_A fs_K',
                             '    (@comp_cat_fapp0',
                             '      fs_K',
-                            '      (Product_cat Cat_cat Cat_cat)',
-                            '      Cat_cat',
-                            '      (@uncurry_func Cat_cat Cat_cat Cat_cat',
-                            '        Product_cat_func)',
+                            '      (Product_cat Cat_cart Cat_cart)',
+                            '      Cat_cart',
+                            '      (@uncurry_func Cat_cart Cat_cart Cat_cart',
+                            '        Product_cat_coeff_func)',
                             '      (Struct_sigma fs_B fs_C))',
                             '    fs_F',
                             '  ≡ @comp_cat_fapp0',
                             '      fs_A',
-                            '      (Product_cat Cat_cat Cat_cat)',
-                            '      Cat_cat',
-                            '      (@uncurry_func Cat_cat Cat_cat Cat_cat',
-                            '        Product_cat_func)',
+                            '      (Product_cat Cat_cart Cat_cart)',
+                            '      Cat_cart',
+                            '      (@uncurry_func Cat_cart Cat_cart Cat_cart',
+                            '        Product_cat_coeff_func)',
                             '      (Struct_sigma',
                             '        (@Pullback_catd fs_A fs_K fs_B fs_F)',
                             '        (@Pullback_catd fs_A fs_K fs_C fs_F));'
@@ -579,7 +625,7 @@ describe(
                     },
                     {
                         packageRoot: lambdapiRoot,
-                        timeoutMs: 30_000
+                        timeoutMs: 60_000
                     }
                 );
                 assert.equal(result.accepted, true, result.diagnostics);

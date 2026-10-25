@@ -99,6 +99,16 @@ The [product review](../emdash2/audits/strict-default-action-boundary/foundation
 records the changed trace and negative-control meaning. Next adapt displayed
 projections/pairing and their whole Cartesian action targets, then Pi/Homd.
 
+Displayed projections/pairing and the binder composition consumer are now
+qualified:6 structure declarations/15 clauses, plus the existing2 binder
+declarations/proof rule with3 runtime clauses. The added clause is the native
+coefficient-composition projection, not a new mathematical law. There are20
+consumer/demo passes,27 metadata passes and three passing native cases;
+typecheck/lint pass. See the [structure/binder review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_structure_binder_review.md).
+Next migrate displayed transformations: the native fibre component has
+`StrictTransfor`/Cartesian-Hom type, with the existing ordinary view when a
+consumer needs it. Preserve lax FF across K and the actual higher carrier.
+
 | Slice | Actual change to review and implement | Required evidence |
 | --- | --- | --- |
 | F01: shared categorical coefficients and directed telescope | Add the native `Cat_cart`/`Functor_cart_cat` dependencies through the existing generic transfer mechanisms. Migrate the Sigma telescope's coefficient and transport body. Retain public `Cat_cat` and ordinary `Functor_cat` as distinct owners. | Complete selected declaration/rule correspondence, generic compilation, actual telescope consumer, wrong-coefficient rejection, and native conformance. No new generic checker semantics. |

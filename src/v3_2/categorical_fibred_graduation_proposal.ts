@@ -202,7 +202,7 @@ const rawProposal = {
             {
                 id: 'fibred-binder',
                 declarationSlots: 2,
-                runtimeRuleSlots: 2,
+                runtimeRuleSlots: 3,
                 proofRuleSlots: 1,
                 newMathematicalOwners: 0,
                 newMathematicalRuntimeRules: 0,
@@ -239,7 +239,7 @@ const rawProposal = {
         cumulativeSliceCounts: {
             representativeSlices: 7,
             declarationSlots: 45,
-            runtimeRuleSlots: 88,
+            runtimeRuleSlots: 89,
             proofRuleSlots: 3,
             newMathematicalOwners: 4,
             newMathematicalRuntimeRules: 16
@@ -550,7 +550,7 @@ export function validateCoreCategoricalFibredGraduationProposal(
         proposal.transferEvidence.cumulativeSliceCounts
             .declarationSlots !== 45 ||
         proposal.transferEvidence.cumulativeSliceCounts
-            .runtimeRuleSlots !== 88 ||
+            .runtimeRuleSlots !== 89 ||
         proposal.transferEvidence.cumulativeSliceCounts
             .proofRuleSlots !== 3 ||
         proposal.transferEvidence.cumulativeSliceCounts

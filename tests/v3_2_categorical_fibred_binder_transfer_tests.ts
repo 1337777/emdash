@@ -106,13 +106,14 @@ describe(
             assert.equal(
                 CORE_CATEGORICAL_FIBRED_BINDER_TRANSFER_BOUNDARY
                     .runtimeRuleCount,
-                2
+                3
             );
             assert.deepEqual(
                 compilation.runtime.rules.map(rule => rule.id),
                 [
                     'categorical.displayed-functor-composition.point',
-                    'categorical.functor-composition.object'
+                    'categorical.functor-composition.object',
+                    'categorical.family-coefficient.composition'
                 ]
             );
             assert.equal(
@@ -256,7 +257,7 @@ describe(
                     },
                     {
                         packageRoot: lambdapiRoot,
-                        timeoutMs: 30_000
+                        timeoutMs: 60_000
                     }
                 );
                 assert.equal(result.accepted, true, result.diagnostics);

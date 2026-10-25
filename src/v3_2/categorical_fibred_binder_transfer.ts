@@ -86,6 +86,8 @@ const categoryOfCategories =
     coreDirectedContinuationTransferSymbol(
         'category-of-categories'
     );
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -240,7 +242,7 @@ const componentCompositionRule =
     const x = builder.capture('x');
     const FF = builder.capture('FF');
     const GG = builder.capture('GG');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const catd = displayedCategoryAt(builder, K);
     const Ex = fapp0At(builder, K, cat, E, x);
     const Dx = fapp0At(builder, K, cat, D, x);
@@ -314,7 +316,7 @@ const componentCompositionRule =
         provenance: {
             authorityPath: 'emdash2/emdash3_2.lp',
             sourceFragment:
-                'rule @tapp0_fapp0 $K Cat_cat $E $C $x ' +
+                'rule @tapp0_fapp0 $K Cat_cart $E $C $x ' +
                 '(@comp_fapp0 (@Catd_cat $K) $E $D $C $FF $GG)'
         }
     };
@@ -385,9 +387,34 @@ const functorCompositionObjectRule =
     };
 };
 
+const coefficientCompositionRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), B = b.capture('B'), C = b.capture('C');
+    const F = b.capture('F'), G = b.capture('G');
+    return {
+        order: 2,
+        id: 'categorical.family-coefficient.composition',
+        groupId: 'categorical.family-coefficient-composition',
+        clauseOrder: 0,
+        sourceOwner: genericComposition,
+        variables: [
+            ...['A', 'B', 'C'].map(name => ({ name, type: b.template(b.global(category)) })),
+            { name: 'F', type: b.template(functorType(b, B, C)) },
+            { name: 'G', type: b.template(functorType(b, A, B)) }
+        ],
+        left: b.pattern(composeAt(b, b.global(familyCoefficient), A, B, C, F, G)),
+        right: b.template(composeAt(b, b.global(categoryOfCategories), A, B, C, F, G)),
+        provenance: {
+            authorityPath: 'emdash2/emdash3_2.lp',
+            sourceFragment: 'rule @comp_fapp0 Cat_cart $A $B $C $G $F'
+        }
+    };
+};
+
 const binderRuntimeRules = Object.freeze([
     componentCompositionRule(),
-    functorCompositionObjectRule()
+    functorCompositionObjectRule(),
+    coefficientCompositionRule()
 ]);
 
 export const CORE_CATEGORICAL_FIBRED_BINDER_RUNTIME_MODULE:
@@ -406,6 +433,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         objectClassifier,
         functorClassifier,
         categoryOfCategories,
+        familyCoefficient,
         displayedCategoryCategory,
         displayedFunctorCategory,
         functorObject,
@@ -565,10 +593,11 @@ Object.freeze({
     ]),
     declarationCount: 2,
     proofRuleCount: 1,
-    runtimeRuleCount: 2,
+    runtimeRuleCount: 3,
     transferredRuntimeRuleIds: Object.freeze([
         'categorical.displayed-functor-composition.point',
-        'categorical.functor-composition.object'
+        'categorical.functor-composition.object',
+        'categorical.family-coefficient.composition'
     ]),
     newMathematicalOwnerCount: 0,
     newMathematicalRuntimeRuleCount: 0,

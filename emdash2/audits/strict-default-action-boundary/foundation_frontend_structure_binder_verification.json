@@ -1,0 +1,163 @@
+{
+  "status": "displayed structure/binder slice qualified at focused scope; general frontend integration remains",
+  "previousCheckpoint": "172ceb84",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "structureScope": {
+    "declarations": 6,
+    "runtimeRules": 15
+  },
+  "binderScope": {
+    "declarations": 2,
+    "runtimeRules": 3,
+    "proofRules": 1
+  },
+  "nativeInputHashes": {
+    "src/v3_2/categorical_fibred_binder_contract.ts": "9b6e526fce04e7a305a3564df32915da8570de8466965a597332d641dd37a4f0",
+    "src/v3_2/categorical_fibred_binder_transfer.ts": "6cfdcc577fc84df097618dd3bac1d19f6628f85e2bd5e2661ee14021e3e5b12e",
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "b95e96a1a4f6d4024fc946191edab0e29595037b7c70d59d091897e948e64964",
+    "src/v3_2/categorical_fibred_structure_transfer.ts": "de89eb1df81a75315c61f353cf5828f85532e9a2dd65c053857688107bf79ffd",
+    "src/v3_2/categorical_program.ts": "ece762570848768efcd4fed0af7b7769295f6743106755d91238bbfb1d11677e",
+    "tests/v3_2_categorical_fibred_binder_transfer_tests.ts": "7117918be3b54a0054eea475bb4867b95124cd44949a404ad446b3045511182b",
+    "tests/v3_2_categorical_fibred_graduation_proposal_tests.ts": "94ff66e5cfa153b653797f010feb43ecfca10eea95524cf29a86ed731861a512",
+    "tests/v3_2_categorical_fibred_structure_transfer_tests.ts": "ae49ce95923cafa108e57955ffdb827aaee25c66f6be37950f8e0bd56046a686"
+  },
+  "currentTypescriptInputs": {
+    "src/v3_2/categorical_fibred_binder_contract.ts": "9b6e526fce04e7a305a3564df32915da8570de8466965a597332d641dd37a4f0",
+    "src/v3_2/categorical_fibred_binder_transfer.ts": "6cfdcc577fc84df097618dd3bac1d19f6628f85e2bd5e2661ee14021e3e5b12e",
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "b95e96a1a4f6d4024fc946191edab0e29595037b7c70d59d091897e948e64964",
+    "src/v3_2/categorical_fibred_structure_transfer.ts": "4f3e90886b10ee18f64a37e76353e658ec51b3f2af6b6e4b56727a356fbb6271",
+    "src/v3_2/categorical_program.ts": "ece762570848768efcd4fed0af7b7769295f6743106755d91238bbfb1d11677e",
+    "tests/v3_2_categorical_fibred_binder_transfer_tests.ts": "7117918be3b54a0054eea475bb4867b95124cd44949a404ad446b3045511182b",
+    "tests/v3_2_categorical_fibred_graduation_proposal_tests.ts": "94ff66e5cfa153b653797f010feb43ecfca10eea95524cf29a86ed731861a512",
+    "tests/v3_2_categorical_fibred_structure_transfer_tests.ts": "1c4d76d63cc70b28617e3ac93687f3b7d6ee02ad3621fd4200a63f2e54f15f7b"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261025T181929Z-54cc9e31c0b04e7681cd3b6f3a9e10a3",
+      "target": "tmp/elab0-hOb6Ap/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 39.238302417099476,
+      "childrenMaxRssKiB": 168692,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "d7485fc7333f123acec8e5231383746f488cde6b8f8fb9346ad634a809f88e17",
+      "log": "logs/check-runs/20261025T181929Z-54cc9e31c0b04e7681cd3b6f3a9e10a3.log",
+      "logSha256": "ff41927e66c7f5320d2ef87480a280bbc9cd2a6d8cd59b5af32bcd7d6a7a5aac",
+      "receiptSha256": "8eaa4e057686ed3663c77f001dfe5c5777d35e354ca4ce67a4283cd8d0a097e5"
+    },
+    {
+      "id": "20261025T182008Z-29df5490f6084096a648e03caa308683",
+      "target": "tmp/elab0-CcRnmj/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 30.24854206596501,
+      "childrenMaxRssKiB": 168252,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "9a983206a6ba80f5b2cbc4204fe55e873f50233ce54f1f3bc216b004f9da2335",
+      "log": "logs/check-runs/20261025T182008Z-29df5490f6084096a648e03caa308683.log",
+      "logSha256": "0e1e4d1fafaec8adf452c6a34009defaf382f8b81be8d5b6d27e1cd0026fdb76",
+      "receiptSha256": "8c65febd9c2d03f244536775c5f65291d77101ee7d67af16bd51acb243754a32"
+    },
+    {
+      "id": "20261025T182039Z-f49a42164a064526af928adf715cdd33",
+      "target": "tmp/elab0-N0rWGO/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 37.0286592009943,
+      "childrenMaxRssKiB": 168312,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "8f1c574f52ff7f94ab3d6c099f443f736c21b2238271609b629e3c853ae35387",
+      "log": "logs/check-runs/20261025T182039Z-f49a42164a064526af928adf715cdd33.log",
+      "logSha256": "4c64d6420f71042a2d0d79a129be5993434001481149ed60483917427c9c34bb",
+      "receiptSha256": "fbd51a96057156672d20805490f84a40e9e58037cea2a7c6afab35faac885cba"
+    }
+  ],
+  "postNativeChanges": "structure source pin, explanatory comment and test title only; no types or rule terms changed",
+  "checks": {
+    "consumerAndDemo": "20 passed;3 native opt-ins separately pass",
+    "metadata": "27 passed",
+    "native": "3 passed",
+    "typecheck": "passed",
+    "changedFileLint": "passed"
+  },
+  "outputHashes": {
+    "wave143_structure_binder_native.out": "c16241d4dd91f67bfa25c97132c8070de0115955fb2677ee3409e0dbc140fc36",
+    "wave144_structure_binder_final.out": "10f45067ac7c14c7c04acb4a5cbc349dddba40b0dd27e1718fdab2f8f93829c2",
+    "wave145_structure_binder_types_lint.out": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39",
+    "wave146_structure_metadata.out": "a9b1caae77ef090b9d61d10644808c2bae4280c4cdbd6e07c36bbbc802c59a50"
+  },
+  "remaining": [
+    "displayed-transformation carrier/ordinary view migration",
+    "Pi/Homd and remaining frontend source qualification",
+    "production health resource review and full integration"
+  ]
+}

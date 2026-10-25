@@ -76,7 +76,8 @@ export const CORE_CATEGORICAL_FIBRED_BINDER_CONTRACT = deepFreeze({
         ],
         runtimeRules: [
             'displayed-functor-composition-point-projection',
-            'functor-composition-object-projection'
+            'functor-composition-object-projection',
+            'cartesian-coefficient-composition-projection'
         ],
         genericRepresentation:
             'SCALE-STRESS-2A source-ordered declaration/proof fragment'

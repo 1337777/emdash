@@ -3702,7 +3702,8 @@ export class CoreCategoricalProgram {
                 targetCategory: this.functorCategoryExpression(
                     sourceFibre,
                     targetFibre,
-                    nodeProvenance
+                    nodeProvenance,
+                    CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
                 )
             },
             nodeProvenance

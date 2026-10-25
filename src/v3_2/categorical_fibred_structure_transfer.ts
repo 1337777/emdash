@@ -3,7 +3,7 @@
  *
  * The product family itself remains the transparent composite
  *
- *   P(B,C) = uncurry(Product_cat_func) o Product_pair(B,C).
+ *   P(B,C) = uncurry(Product_cat_coeff_func) o Product_pair(B,C).
  *
  * D-DTTLF-USABILITY-006 adds exactly three injective mathematical owners
  * and eleven runtime rules: displayed left/right projections, displayed
@@ -82,7 +82,7 @@ export const CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_REVISION =
     'FIBRED-STRUCTURE-1A-FIXED-BASE-UNIVERSAL-PROPERTY-1' as const;
 
 export const CORE_CATEGORICAL_FIBRED_STRUCTURE_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -98,8 +98,8 @@ const homCategory =
     coreDirectedContinuationTransferSymbol('hom-category');
 const transforCategory =
     coreDirectedContinuationTransferSymbol('transfor-category');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -129,6 +129,7 @@ const {
 
 const {
     functorCategory,
+    cartesianFunctorCategory,
     identityFunctor,
     functorComposition,
     productCategory,
@@ -139,7 +140,7 @@ const {
 } = CORE_CATEGORICAL_STRUCTURAL_SYMBOLS;
 
 const {
-    internalProductFunctor
+    coefficientProductFunctor
 } = CORE_CATEGORICAL_FIBRED_PRODUCT_SYMBOLS;
 
 const {
@@ -150,7 +151,7 @@ const {
 export const CORE_CATEGORICAL_FIBRED_STRUCTURE_SYMBOLS =
 Object.freeze({
     precompositionFunctor:
-        coreLfQualifiedSymbol(MODULE_ID, 'comp_cat_con_func'),
+        coreLfQualifiedSymbol(MODULE_ID, 'comp_cat_con_cart_func'),
     precompositionAction:
         coreLfQualifiedSymbol(
             MODULE_ID,
@@ -269,6 +270,16 @@ const functorCategoryAt = (
     target: CoreLfTransferBuilderExpression
 ): CoreLfTransferBuilderExpression =>
     globalCall(builder, functorCategory, [
+        { plicity: 'explicit', value: source },
+        { plicity: 'explicit', value: target }
+    ]);
+
+const cartesianFunctorCategoryAt = (
+    builder: CoreLfTransferScopedBuilder,
+    source: CoreLfTransferBuilderExpression,
+    target: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression =>
+    globalCall(builder, cartesianFunctorCategory, [
         { plicity: 'explicit', value: source },
         { plicity: 'explicit', value: target }
     ]);
@@ -510,15 +521,15 @@ const transparentDisplayedProduct = (
     left: CoreLfTransferBuilderExpression,
     right: CoreLfTransferBuilderExpression
 ): CoreLfTransferBuilderExpression => {
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const catProduct = productCategoryAt(builder, cat, cat);
-    const catEndofunctors = functorCategoryAt(builder, cat, cat);
+    const catEndofunctors = cartesianFunctorCategoryAt(builder, cat, cat);
     const uncurriedProduct = fapp0(
         builder,
-        functorCategoryAt(builder, cat, catEndofunctors),
-        functorCategoryAt(builder, catProduct, cat),
+        cartesianFunctorCategoryAt(builder, cat, catEndofunctors),
+        cartesianFunctorCategoryAt(builder, catProduct, cat),
         uncurryPackageAt(builder, cat, cat, cat),
-        builder.global(internalProductFunctor)
+        builder.global(coefficientProductFunctor)
     );
     const familyCategory = functorCategoryAt(builder, base, cat);
     return composeFunctors(
@@ -540,7 +551,7 @@ const fibre = (
     fapp0(
         builder,
         base,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         family,
         point
     );
@@ -694,8 +705,8 @@ const precompositionFunctorType = (): CoreLfTransferExpression => {
                     functorType(builder, X, Y),
                     _F => functorType(
                         builder,
-                        functorCategoryAt(builder, Y, Z),
-                        functorCategoryAt(builder, X, Z)
+                        cartesianFunctorCategoryAt(builder, Y, Z),
+                        cartesianFunctorCategoryAt(builder, X, Z)
                     ),
                     explicitMode
                 ),
@@ -869,7 +880,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         body: coreLfTransferAbsentBody(),
         modifiers: publicModifiers('ordinary', 'transparent'),
         provenance: source(
-            'symbol comp_cat_con_func [X Y Z : Cat]'
+            'symbol comp_cat_con_cart_func [X Y Z : Cat]'
         )
     },
     {
@@ -938,18 +949,19 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         objectClassifier,
         functorClassifier,
         homClassifier,
-        categoryOfCategories,
+        familyCoefficient,
         displayedCategoryCategory,
         displayedFunctorCategory,
         functorObject,
         functorCategory,
+        cartesianFunctorCategory,
         functorComposition,
         productCategory,
         productPair,
         productLeftProjection,
         productRightProjection,
         uncurryPackage,
-        internalProductFunctor
+        coefficientProductFunctor
     ].map(symbol => ({
         symbol,
         availability: 'earlier-fragment' as const
@@ -1127,7 +1139,7 @@ const projectionPointRule = (
         left: builder.pattern(tapp0At(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             builder.wildcard(product),
             builder.wildcard(target),
             x,
@@ -1140,7 +1152,7 @@ const projectionPointRule = (
             fibre(builder, K, C, x)
         )),
         provenance: source(
-            `rule @tapp0_fapp0 $K Cat_cat _ _ $x ` +
+            `rule @tapp0_fapp0 $K Cat_cart _ _ $x ` +
             `(@Product_proj${side === 'left' ? 'L' : 'R'}_funcd ` +
             '$K $B $C)'
         )
@@ -1155,7 +1167,7 @@ const projectionFullRule = (
     const {
         K, B, C, x, y, variables
     } = projectionVariables(builder, false);
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const product = transparentDisplayedProduct(builder, K, B, C);
     const target = side === 'left' ? B : C;
     const sourceFibre = fibre(builder, K, product, x);
@@ -1182,12 +1194,12 @@ const projectionFullRule = (
         right: builder.template(composeFunctors(
             builder,
             homCategoryAt(builder, K, x, y),
-            functorCategoryAt(
+            cartesianFunctorCategoryAt(
                 builder,
                 targetSourceFibre,
                 targetTargetFibre
             ),
-            functorCategoryAt(
+            cartesianFunctorCategoryAt(
                 builder,
                 sourceFibre,
                 targetTargetFibre
@@ -1207,7 +1219,7 @@ const projectionFullRule = (
             fapp1FullAt(builder, K, cat, target, x, y)
         )),
         provenance: source(
-            `rule @tapp1_func $K Cat_cat _ _ $x $y ` +
+            `rule @tapp1_func $K Cat_cart _ _ $x $y ` +
             `(@Product_proj${side === 'left' ? 'L' : 'R'}_funcd ` +
             '$K $B $C)'
         )
@@ -1222,7 +1234,7 @@ const projectionCappedRule = (
     const {
         K, B, C, x, y, p, variables
     } = projectionVariables(builder, true);
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const product = transparentDisplayedProduct(builder, K, B, C);
     const target = side === 'left' ? B : C;
     return {
@@ -1261,7 +1273,7 @@ const projectionCappedRule = (
             fapp1At(builder, K, cat, target, x, y, p)
         )),
         provenance: source(
-            `rule @tapp1_fapp0 $K Cat_cat _ _ $x $y ` +
+            `rule @tapp1_fapp0 $K Cat_cart _ _ $x $y ` +
             `(@Product_proj${side === 'left' ? 'L' : 'R'}_funcd ` +
             '$K $B $C) $p'
         )
@@ -1350,7 +1362,7 @@ const pairingPointRule = (
         name: 'x',
         type: builder.template(objectType(builder, K))
     });
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const product = transparentDisplayedProduct(builder, K, B, C);
     const Ex = fibre(builder, K, E, x);
     return {
@@ -1377,7 +1389,7 @@ const pairingPointRule = (
             tapp0At(builder, K, cat, E, C, x, GG)
         )),
         provenance: source(
-            'rule @tapp0_fapp0 $K Cat_cat _ _ $x ' +
+            'rule @tapp0_fapp0 $K Cat_cart _ _ $x ' +
             '(@Product_pair_funcd $K $E $B $C $FF $GG)'
         )
     };
@@ -1390,7 +1402,7 @@ const pairingFullRule = (
     const {
         K, E, B, C, FF, GG, x, y, variables
     } = pairingVariables(builder, true, false);
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const product = transparentDisplayedProduct(builder, K, B, C);
     const baseHom = homCategoryAt(builder, K, x, y);
     const Ex = fibre(builder, K, E, x);
@@ -1416,7 +1428,7 @@ const pairingFullRule = (
             functorCategoryAt(
                 builder,
                 baseHom,
-                functorCategoryAt(
+                cartesianFunctorCategoryAt(
                     builder,
                     Ex,
                     fibre(builder, K, B, y)
@@ -1425,7 +1437,7 @@ const pairingFullRule = (
             functorCategoryAt(
                 builder,
                 baseHom,
-                functorCategoryAt(
+                cartesianFunctorCategoryAt(
                     builder,
                     Ex,
                     fibre(builder, K, C, y)
@@ -1435,7 +1447,7 @@ const pairingFullRule = (
             tapp1FullAt(builder, K, cat, E, C, x, y, GG)
         )),
         provenance: source(
-            'rule @tapp1_func $K Cat_cat _ _ $x $y ' +
+            'rule @tapp1_func $K Cat_cart _ _ $x $y ' +
             '(@Product_pair_funcd $K $E $B $C $FF $GG)'
         )
     };
@@ -1448,7 +1460,7 @@ const pairingCappedRule = (
     const {
         K, E, B, C, FF, GG, x, y, p, variables
     } = pairingVariables(builder, true, true);
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const product = transparentDisplayedProduct(builder, K, B, C);
     const Ex = fibre(builder, K, E, x);
     return {
@@ -1477,7 +1489,7 @@ const pairingCappedRule = (
             tapp1At(builder, K, cat, E, C, x, y, GG, p)
         )),
         provenance: source(
-            'rule @tapp1_fapp0 $K Cat_cat _ _ $x $y ' +
+            'rule @tapp1_fapp0 $K Cat_cart _ _ $x $y ' +
             '(@Product_pair_funcd $K $E $B $C $FF $GG) $p'
         )
     };
@@ -1529,7 +1541,7 @@ const displayedFibreFacadeRule = (
     const D = builder.capture('D');
     const FF = builder.capture('FF');
     const x = builder.capture('x');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     return {
         order,
         id: 'categorical.displayed-functor-fibre.delta',
@@ -1583,7 +1595,7 @@ const displayedFibreFacadeRule = (
         provenance: source(
             'symbol Fibre_func [K : Cat] [E D : τ (Catd K)] ' +
             '(FF : τ (Functord E D)) (z : τ (Obj K)) ' +
-            '≔ @tapp0_fapp0 K Cat_cat E D z FF'
+            '≔ @tapp0_fapp0 K Cat_cart E D z FF'
         )
     };
 };
@@ -1599,7 +1611,7 @@ const displayedTransportFacadeRule = (
     const x = builder.capture('x');
     const y = builder.capture('y');
     const p = builder.capture('p');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     return {
         order,
         id: 'categorical.displayed-functor-transport.delta',
@@ -1665,7 +1677,7 @@ const displayedTransportFacadeRule = (
         provenance: source(
             'symbol functord_transport_func [K : Cat] ' +
             '[E D : τ (Catd K)] (FF : τ (Functord E D)) ' +
-            '≔ @tapp1_fapp0 K Cat_cat E D x y FF p'
+            '≔ @tapp1_fapp0 K Cat_cart E D x y FF p'
         )
     };
 };
@@ -1681,7 +1693,7 @@ const fullTransforActionEvaluationRule = (
     const y = builder.capture('y');
     const eta = builder.capture('eta');
     const p = builder.capture('p');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     return {
         order,
         id: 'categorical.transfor-full-action.evaluate.cat-normalize',
@@ -1724,7 +1736,7 @@ const fullTransforActionEvaluationRule = (
         left: builder.pattern(fapp0(
             builder,
             homCategoryAt(builder, A, x, y),
-            functorCategoryAt(
+            cartesianFunctorCategoryAt(
                 builder,
                 fapp0(builder, A, cat, F, x),
                 fapp0(builder, A, cat, G, y)
@@ -1757,7 +1769,7 @@ const displayedIdentityPointRule = (
     const K = builder.capture('K');
     const E = builder.capture('E');
     const x = builder.capture('x');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     return {
         order,
         id: 'categorical.displayed-identity.point.delta',
@@ -1793,7 +1805,7 @@ const displayedIdentityPointRule = (
         )),
         provenance: source(
             'active id_funcd delta-specialization of: ' +
-            'rule @tapp0_fapp0 $K Cat_cat $E $E $Y ' +
+            'rule @tapp0_fapp0 $K Cat_cart $E $E $Y ' +
             '(@id (@Catd_cat $K) $E)'
         )
     };
@@ -1833,7 +1845,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         homClassifier,
         homCategory,
         transforCategory,
-        categoryOfCategories,
+        familyCoefficient,
         displayedCategoryCategory,
         displayedFunctorCategory,
         functorObject,
@@ -1844,6 +1856,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         transforHomCapped,
         genericComposition,
         functorCategory,
+        cartesianFunctorCategory,
         identityFunctor,
         functorComposition,
         productCategory,
@@ -1851,7 +1864,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         productLeftProjection,
         productRightProjection,
         uncurryPackage,
-        internalProductFunctor,
+        coefficientProductFunctor,
         fibreFunctor,
         displayedTransportFunctor,
         precompositionFunctor,
@@ -1941,7 +1954,7 @@ Object.freeze({
         'Product_pair_funcd'
     ]),
     prerequisiteDeclarationNames: Object.freeze([
-        'comp_cat_con_func',
+        'comp_cat_con_cart_func',
         'hom_precomp_along_fapp0',
         'id_funcd'
     ]),
