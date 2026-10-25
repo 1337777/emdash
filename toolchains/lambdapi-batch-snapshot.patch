@@ -1,0 +1,45 @@
+diff --git a/src/cli/lambdapi.ml b/src/cli/lambdapi.ml
+index dbd3f19a..991196e5 100644
+--- a/src/cli/lambdapi.ml
++++ b/src/cli/lambdapi.ml
+@@ -99,2 +99,5 @@ let check_cmd : Config.t -> int option -> string list -> unit =
+-    (* We save time to run each file in the same environment. *)
+-    let time = Time.save () in
++    (* One input cannot return to the pre-check environment. Keeping a
++       rollback root here would retain transient normalization references. *)
++    let time = match files with
++      | [_] -> Pure.release_initial_time (); Gc.full_major (); None
++      | _ -> Some (Time.save ()) in
+@@ -103 +106 @@ let check_cmd : Config.t -> int option -> string list -> unit =
+-      Time.restore time;
++      Option.iter Time.restore time;
+diff --git a/src/pure/pure.ml b/src/pure/pure.ml
+index 419e6aa2..1d3cda53 100644
+--- a/src/pure/pure.ml
++++ b/src/pure/pure.ml
+@@ -134 +134 @@ type tactic_result =
+-let t0 : Time.t Stdlib.ref = Stdlib.ref (Time.save ())
++let t0 : Time.t option Stdlib.ref = Stdlib.ref (Some (Time.save ()))
+@@ -137 +137,9 @@ let set_initial_time : unit -> unit = fun _ ->
+-  Stdlib.(t0 := Time.save ())
++  Stdlib.(t0 := Some (Time.save ()))
++
++let release_initial_time : unit -> unit = fun _ ->
++  Stdlib.(t0 := None)
++
++let initial_time : unit -> Time.t = fun _ ->
++  match Stdlib.(!t0) with
++  | Some t -> t
++  | None -> let t = Time.save () in Stdlib.(t0 := Some t); t
+@@ -141 +149 @@ let initial_state : string -> state = fun fname ->
+-  Time.restore Stdlib.(!t0);
++  Time.restore (initial_time ());
+diff --git a/src/pure/pure.mli b/src/pure/pure.mli
+index 0ae8a56e..8bc04aea 100644
+--- a/src/pure/pure.mli
++++ b/src/pure/pure.mli
+@@ -92,0 +93,4 @@ val set_initial_time : unit -> unit
++
++(** Discard the initial rollback point when a one-shot batch check cannot
++    return to it. The interactive interface keeps its normal snapshots. *)
++val release_initial_time : unit -> unit

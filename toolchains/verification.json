@@ -5,7 +5,22 @@
   "lambdapi": {
     "repository": "https://github.com/Deducteam/lambdapi.git",
     "commit": "db4f7809961b8c107247613067fb567491fb0b84",
-    "version": "3.0.0-90-gdb4f780"
+    "version": "3.0.0-90-gdb4f780",
+    "batchPatch": {
+      "path": "toolchains/lambdapi-batch-snapshot.patch",
+      "sha256": "fe854f84a61a02b31b5eaa85cd9375f370d7388ac71c9ccdeae88ff565b813d9",
+      "upstreamSources": {
+        "src/cli/lambdapi.ml": "c3bfe1f3a44ce7bd2dfde3cbb4299ea446f02089267566672340196bb05bbf7e",
+        "src/pure/pure.ml": "944fc299265a2d6c9925030c984009c15a729a0c16d169816e756db317605c7b",
+        "src/pure/pure.mli": "440aa2046a9df02970dea199fa63cf724498d56ea6c6c7530a836b4d08ab0120"
+      },
+      "patchedSources": {
+        "src/cli/lambdapi.ml": "21ef36525ea753c34a0905925fcb85b7dd4a5290d2f5687d7f1b0f98dc16c8a1",
+        "src/pure/pure.ml": "49e459eefa93e06d16af19d788b8dd8225f24f4192c3e4ccce69d500b58b37d0",
+        "src/pure/pure.mli": "488470736cd705281db8688522df1c99e455c7248b153952c84ef8d4cdbe1679"
+      },
+      "purpose": "Release unused rollback roots only for one-input CLI checking; multi-file and interactive rollback stay intact."
+    }
   },
   "opamPackages": {
     "angstrom": "0.16.1",

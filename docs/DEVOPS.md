@@ -206,6 +206,37 @@ review the source commit/repository pins separately. Source/version pins are
 not a claim of identical operating-system images or binary bytes; actual checker
 bytes are recorded with each execution.
 
+The foundations migration also has an explicit batch-checker profile, using
+the same pinned source/dependencies plus the reviewed
+[`batchPatch`](../toolchains/verification.json). It releases unused rollback
+roots for single-input CLI checking; multi-file and interactive rollback retain
+their usual behavior. This profile is separate from the opam-installed binary.
+Build and verify it without changing the active switch:
+
+```bash
+python3 scripts/verification-toolchain.py build-batch
+python3 scripts/verification-toolchain.py verify-batch
+PATH="$(python3 scripts/verification-toolchain.py batch-path):$PATH" ./scripts/emdash dev check --explain
+```
+
+`build-batch --source /path/to/local/lambdapi/git` can reuse a local mirror;
+it clones only committed source and checks out the exact pinned commit. The
+patch checksum and every changed source file are checked before and after
+application. Builds use the existing serial/no-swap resource guard at 300s/4GiB,
+with one Dune job. A busy guard leaves a verified preparation that the same
+command can resume. Foreign or modified partial caches are rejected.
+
+The ignored worktree cache is `emdash2/.cache/verification-toolchain/`, keyed
+by the complete manifest. `build.json` records source/patch identity, compiler,
+command, guard, log and executable hashes. `verify-batch` checks that identity,
+the selected dependencies and the actual executable. `batch-path` prints a
+PATH directory only after those checks. An explicit `--directory` selects a
+different isolated cache. This does not install globally, change opam pins,
+relax subject reduction or make unpatched receipts count as patched evidence.
+The build path's runtime qualification is tracked by the
+[foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md); preparation
+and installer unit tests alone do not qualify a new executable.
+
 ## Book and publication boundaries
 
 The emdash book already owns its architecture in `book.json` and

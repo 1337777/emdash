@@ -104,6 +104,20 @@ and complete-central qualification in staging. Production adoption remains R14.
 
 ### Current migration tranche
 
+The existing toolchain installer now has an explicit isolated batch-build
+candidate (`build-batch`, `verify-batch`, `batch-path`) with a tracked copy of
+the previously reviewed three-file patch. The manifest pins its checksum and
+before/after source hashes. Eleven focused installer tests pass, including
+wrong-commit/checksum rejection, unexpected tracked edits, source-path escape,
+binary/manifest mismatch, verified cache reuse and retry after a busy guard.
+The unchanged installed opam toolchain still verifies with zero mismatches.
+The exact source is prepared under the ignored worktree toolchain cache. The
+serial guard declined compilation while the 596-reviewer check is active;
+no new binary or global/switch installation is claimed. Run the actual bounded
+build and its existing behavior controls after that checker slot is free,
+then decide the supported runtime integration from its identity and results.
+
+
 Promotion preparation is read-only while the reviewer gate runs. Against the
 registered production tree, 648 files differ and 740 are unchanged. The two
 long-preserved StrictTransfor carrier/view edits match the goal's initial
