@@ -104,6 +104,61 @@ and complete-central qualification in staging. Production adoption remains R14.
 
 ### Current migration tranche
 
+This table is the current status. The chronological entries below preserve
+older running/failed states and do not override it.
+
+| Boundary | Current evidence | Remaining action |
+| --- | --- | --- |
+| Complete mathematical library | All 791 original owners pass in the warning-enabled staged gate. | Preserve the checked source and warning dispositions through promotion. |
+| Complete original reviewers | All 596 pass on the supported checker; 4,284 positive and 630 negative assertions. | Preserve their exact source and contracts through promotion. |
+| Supported-binary owner coverage | The reviewer run covers 776 owners; the remaining 15-owner gate is running. | Finish that gate and record its receipt. |
+| Central diagnostics | All 2,441 assertions pass in the identical central-copy gate, including all five approved terminal comparisons. | Check the actual central target on the supported checker. |
+| Production sources | The staged candidate differs in 648 registered files; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Promote qualified sources, reconcile comments/authorities, refresh generated evidence and complete owning gates. |
+| Frontend/source pins | Prospective review found actual coefficient-type changes, including the frozen dependent-target contract. | Review affected signatures and consumers; do not refresh hashes alone or claim an automatic TypeScript transfer. |
+| Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
+
+#### Migration evidence chronology (newest entries first)
+
+
+**All 596 original reviewers now pass on the supported checker.** Receipt
+`20261025T125439Z-7e8faf12f944433a8d1d626b4fa94346` records 1,374 exact inputs,
+2726.236s/5,511,628KiB at 3600s/6GiB with subject reduction and no compiled
+objects. The reviewers contain 4,284 positive/630 negative assertions. The
+[complete reviewer review](../emdash2/audits/strict-default-action-boundary/foundation_complete_reviewers_review.md)
+records the unchanged source, normal warning-suppressed output profile and
+separate warning-qualified791-owner scope. The failed output-cap attempt
+below is historical and remains failed; it is not the qualification receipt.
+
+The 15 residual library owners are now running on the supported checker at
+1800s/4GiB, with warnings and subject reduction, a 414-input scope and inspected
+host headroom. Their dependency closure is comparable to the earlier404-input
+797.794s/2.7GiB group. After this, check the actual `emdash3_2_checks.lp` target
+on the supported checker, then proceed through the guarded production,
+source-pin, prose and generated-evidence boundary. All previous successes
+remain tied to their exact source/runtime scope; no whole-goal completion is
+claimed by the staged reviewer pass.
+
+
+Remaining supported-binary coverage is explicit: the complete reviewer closure
+contains 776 of the 791 library owners. Fifteen owners remain outside it, with
+a 412-file dependency closure; check them after the reviewer gate and retain
+the actual central diagnostic as a separate required target. No production
+`.lpo`/`.lpi`/`.lpj` artifacts were found among the 1,388 registered files.
+A comment-only nucleus refresh is prepared for promotion: it corrects the
+obsolete `Catd` header equation and temporary candidate/non-library labels.
+Its code after comment removal is identical; the live checked package is
+untouched. Do not silently replace receipt hashes with those future bytes.
+
+The frontend source-pin review is not merely a hash update. For example,
+`src/v3_2/categorical_fibred_dependent_target_contract.ts` still declares
+`G : Functor(K,Op(Cat_cat))`, whereas the staged `Catd_cat_func` has source
+`Op(Cat_cart)`. Its corresponding transferred signatures and actual consumers
+need a type-contract review at promotion. No TypeScript source or frozen
+contract has been edited or requalified by this read-only finding. Preserve
+current pin failures until the affected profile/consumer review is complete;
+do not infer transfer of the new foundations from Lambdapi-only checks.
+
+
 The supported build now integrates with the ordinary verifier/DevOps doctor:
 only a fully verified cached binary is recognized; the base opam dependency
 and source-pin checks remain. Formal CI jobs explicitly build and select its

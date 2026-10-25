@@ -1,5 +1,5 @@
 {
-  "status": "full596 reviewer retry running on supported checker with normal -w; preceding warning-enabled aggregate hit64MiB file limit",
+  "status": "all596 original reviewers pass on supported checker; see foundation_complete_reviewers_verification.json",
   "reviewers": 596,
   "sourceInputsWithoutDriverAndPackage": 1372,
   "reviewersWithLocalRules": 0,
@@ -14,5 +14,6 @@
   "qualification": "Preparation only; execution receipt will determine source qualification.",
   "warnings": false,
   "previousFailedReceipt": "20261025T120519Z-e9e4b86335dc43f5af1b64f97d3321d4",
-  "supportedBinarySha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f"
+  "supportedBinarySha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+  "passedReceipt": "20261025T125439Z-7e8faf12f944433a8d1d626b4fa94346"
 }
