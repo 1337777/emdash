@@ -1,0 +1,259 @@
+{
+  "status": "static delta inventory, not independent qualification",
+  "baselineVerificationSha256": "09e2f651171b2e01b5b8d1af1d43c82256d737608fa38cd6c2cceb9afac1e060",
+  "files": {
+    "emdash3_2.lp": {
+      "beforeSha256": "00ac8298f0759469c3a27a96c68e0642ffed99963e40b8f1082da73b93b045a5",
+      "afterSha256": "dff41d5ae82117d36fbe196bc608b5273a020ff978ef94a6c7c5ddd369521fc2",
+      "added": [
+        {
+          "line": 5745,
+          "kind": "unif_rule",
+          "body": "unif_rule @comp_fapp0 Cat_cat $X $Y $Z $H $F ≡ @comp_fapp0 Cat_cat $X0 $Y0 $Z0 $H $G ↪ [ $X ≡ $X0; $Y ≡ $Y0; $Z ≡ $Z0; $F ≡ $G ];"
+        },
+        {
+          "line": 7274,
+          "kind": "rule",
+          "body": "rule @fapp1_fapp0 Terminal_cat $B $F $u $u Terminal_obj ↪ @id $B (@fapp0 Terminal_cat $B $F $u);"
+        },
+        {
+          "line": 7702,
+          "kind": "rule",
+          "body": "rule @comp_fapp0 _ _ _ _ (@hom_postcomp_tele_fapp1_fapp0 $A $B $F $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $B $F $W $X $Y $f $g $e_fg) ↪ @hom_postcomp_tele_fapp1_fapp0 $A $B $F $W $X $Y $f $h (@comp_fapp0 (Hom_cat $B $X $Y) $f $g $h $e_gh $e_fg);"
+        },
+        {
+          "line": 8515,
+          "kind": "rule",
+          "body": "rule @comp_fapp0 _ _ _ _ (@hom_precomp_along_tele_fapp1_fapp0 $A $B $F $Z $W $X $g $h $e_gh) (@hom_precomp_along_tele_fapp1_fapp0 $A $B $F $Z $W $X $f $g $e_fg) ↪ @hom_precomp_along_tele_fapp1_fapp0 $A $B $F $Z $W $X $f $h (@comp_fapp0 (Hom_cat $A $W $X) $f $g $h $e_gh $e_fg);"
+        },
+        {
+          "line": 9606,
+          "kind": "rule",
+          "body": "rule @comp_fapp0 (Functor_cat $A $B) _ _ _ (@strict_transfor $A $B $G $H $V) (@strict_transfor $A $B $F $G $U) ↪ @strict_transfor $A $B $F $H (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $V $U);"
+        },
+        {
+          "line": 9627,
+          "kind": "rule",
+          "body": "rule @comp_fapp0 _ _ _ _ (@hom_postcomp_tele_transf $A $B $F $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $e_fg) ↪ @hom_postcomp_tele_transf $A $B $F $W $X $Y $f $h (@comp_fapp0 (Hom_cat $B $X $Y) $f $g $h $e_gh $e_fg);"
+        },
+        {
+          "line": 9645,
+          "kind": "rule",
+          "body": "rule @comp_fapp0 _ _ _ _ (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $g $h $e_gh) (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $f $g $e_fg) ↪ @hom_precomp_along_tele_transf $A $B $F $Z $W $X $f $h (@comp_fapp0 (Hom_cat $A $W $X) $f $g $h $e_gh $e_fg);"
+        },
+        {
+          "line": 9969,
+          "kind": "rule",
+          "body": "rule @tapp0_fapp0 _ _ _ _ $x (@strict_transfor $A $B $F $H (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $V $U)) ↪ @comp_fapp0 $B (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $x) (@fapp0 $A $B $H $x) (@tapp0_fapp0 $A $B $G $H $x (@strict_transfor $A $B $G $H $V)) (@tapp0_fapp0 $A $B $F $G $x (@strict_transfor $A $B $F $G $U));"
+        },
+        {
+          "line": 11680,
+          "kind": "rule",
+          "body": "rule @comp_fapp0 Cat_cat _ _ _ (@tapp0_fapp0 $K Cat_cart $M $D $y (@strict_transfor $K Cat_cart $M $D $V)) (@tapp1_fapp0 $K Cat_cart $E $M $x $y (@strict_transfor $K Cat_cart $E $M $U) $p) ↪ @tapp1_fapp0 $K Cat_cart $E $D $x $y (@strict_transfor $K Cat_cart $E $D (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $M $D $V $U)) $p;"
+        },
+        {
+          "line": 11688,
+          "kind": "rule",
+          "body": "rule @comp_fapp0 Cat_cat _ _ _ (@tapp1_fapp0 $K Cat_cart $M $D $x $y (@strict_transfor $K Cat_cart $M $D $V) $p) (@tapp0_fapp0 $K Cat_cart $E $M $x (@strict_transfor $K Cat_cart $E $M $U)) ↪ @tapp1_fapp0 $K Cat_cart $E $D $x $y (@strict_transfor $K Cat_cart $E $D (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $M $D $V $U)) $p;"
+        },
+        {
+          "line": 11696,
+          "kind": "rule",
+          "body": "rule @fapp0 _ _ (@tapp0_fapp0 $K Cat_cart $M $D $y (@strict_transfor $K Cat_cart $M $D $V)) (@fapp0 _ _ (@tapp1_fapp0 $K Cat_cart $E $M $x $y (@strict_transfor $K Cat_cart $E $M $U) $p) $u) ↪ @fapp0 _ _ (@tapp1_fapp0 $K Cat_cart $E $D $x $y (@strict_transfor $K Cat_cart $E $D (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $M $D $V $U)) $p) $u;"
+        },
+        {
+          "line": 11705,
+          "kind": "rule",
+          "body": "rule @fapp0 _ _ (@tapp1_fapp0 $K Cat_cart $M $D $x $y (@strict_transfor $K Cat_cart $M $D $V) $p) (@fapp0 _ _ (@tapp0_fapp0 $K Cat_cart $E $M $x (@strict_transfor $K Cat_cart $E $M $U)) $u) ↪ @fapp0 _ _ (@tapp1_fapp0 $K Cat_cart $E $D $x $y (@strict_transfor $K Cat_cart $E $D (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $M $D $V $U)) $p) $u;"
+        },
+        {
+          "line": 13694,
+          "kind": "rule",
+          "body": "rule @tapp1_func $K Cat_cart (@Const_catd $K $C) $D $x $y $epsilon ↪ @Const_func (Hom_cat $K $x $y) (Functor_cart_cat $C (Fibre_cat $D $y)) (@tapp0_fapp0 $K Cat_cart (@Const_catd $K $C) $D $y $epsilon);"
+        },
+        {
+          "line": 13700,
+          "kind": "rule",
+          "body": "rule @tapp1_fapp0 $K Cat_cart (@Const_catd $K $C) $D _ $y $epsilon _ ↪ @tapp0_fapp0 $K Cat_cart (@Const_catd $K $C) $D $y $epsilon;"
+        },
+        {
+          "line": 13850,
+          "kind": "unif_rule",
+          "body": "unif_rule @Op_catd $A (@comp_fapp0 Cat_cat $A $B Cat_cart (@comp_fapp0 Cat_cat $B $C Cat_cart $E $F) $G) ≡ @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $C) $Eop (@comp_fapp0 Cat_cat (CoAt2_cat $A) (CoAt2_cat $B) (CoAt2_cat $C) (@CoAt2_func $B $C $F) (@CoAt2_func $A $B $G)) ↪ [ $Eop ≡ @Op_catd $C $E ];"
+        },
+        {
+          "line": 14006,
+          "kind": "declaration",
+          "body": "injective symbol Product_pair_cart_funcd [K : Cat] [R E D : τ (Catd K)] (U : τ (Hom (Functor_cart_cat K Cat_cart) R E)) (V : τ (Hom (Functor_cart_cat K Cat_cart) R D)) : τ (Hom (Functor_cart_cat K Cat_cart) R (@comp_cat_fapp0 K (Product_cat Cat_cart Cat_cart) Cat_cart (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func) (Struct_sigma E D)));"
+        },
+        {
+          "line": 14016,
+          "kind": "unif_rule",
+          "body": "unif_rule @strict_transfor _ _ _ _ (@Product_pair_cart_funcd $K $R $E $D $U $V) ≡ @Product_pair_funcd $K0 $R0 $E0 $D0 $FF $GG ↪ [ $K0 ≡ $K; $R0 ≡ $R; $E0 ≡ $E; $D0 ≡ $D; $FF ≡ @strict_transfor $K Cat_cart $R $E $U; $GG ≡ @strict_transfor $K Cat_cart $R $D $V ];"
+        },
+        {
+          "line": 14023,
+          "kind": "rule",
+          "body": "rule @tapp0_fapp0 _ Cat_cart _ _ $k (@strict_transfor _ _ _ _ (@Product_pair_cart_funcd $K $R $E $D $U $V)) ↪ @tapp0_fapp0 $K Cat_cart $R (@comp_cat_fapp0 $K (Product_cat Cat_cart Cat_cart) Cat_cart (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func) (Struct_sigma $E $D)) $k (@Product_pair_funcd $K $R $E $D (@strict_transfor $K Cat_cart $R $E $U) (@strict_transfor $K Cat_cart $R $D $V));"
+        },
+        {
+          "line": 14278,
+          "kind": "rule",
+          "body": "rule @fapp0 _ Terminal_cat (@id (Catd_cat $K) (@Const_catd $K Terminal_cat)) _ ↪ Terminal_obj;"
+        },
+        {
+          "line": 14284,
+          "kind": "rule",
+          "body": "rule @fapp1_func _ Terminal_cat (@id (Catd_cat $K) (@Const_catd $K Terminal_cat)) $x $y ↪ @Const_func (Hom_cat $K $x $y) Terminal_cat Terminal_obj;"
+        },
+        {
+          "line": 14290,
+          "kind": "rule",
+          "body": "rule @fapp1_fapp0 _ Terminal_cat (@id (Catd_cat $K) (@Const_catd $K Terminal_cat)) _ _ _ ↪ Terminal_obj;"
+        },
+        {
+          "line": 14297,
+          "kind": "rule",
+          "body": "rule @fapp0 $K $C (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart Terminal_cat $C $H)) _ ↪ @fapp0 Terminal_cat $C $H Terminal_obj;"
+        },
+        {
+          "line": 14301,
+          "kind": "rule",
+          "body": "rule @fapp1_func $K $C (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart Terminal_cat $C $H)) $x $y ↪ @Const_func (Hom_cat $K $x $y) (Hom_cat $C (@fapp0 Terminal_cat $C $H Terminal_obj) (@fapp0 Terminal_cat $C $H Terminal_obj)) (@id $C (@fapp0 Terminal_cat $C $H Terminal_obj));"
+        },
+        {
+          "line": 14307,
+          "kind": "rule",
+          "body": "rule @fapp1_fapp0 $K $C (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart Terminal_cat $C $H)) _ _ _ ↪ @id $C (@fapp0 Terminal_cat $C $H Terminal_obj);"
+        },
+        {
+          "line": 18962,
+          "kind": "declaration",
+          "body": "injective symbol Terminal_cart_funcd [K : Cat] (E : τ (Catd K)) : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K Terminal_cat));"
+        },
+        {
+          "line": 18967,
+          "kind": "rule",
+          "body": "rule @Terminal_cart_funcd $K (@Const_catd $K Terminal_cat) ↪ @id (Functor_cart_cat $K Cat_cart) (@Const_catd $K Terminal_cat);"
+        },
+        {
+          "line": 18971,
+          "kind": "unif_rule",
+          "body": "unif_rule @strict_transfor _ _ _ _ (@Terminal_cart_funcd $K $E) ≡ @Terminal_funcd $K0 $E0 ↪ [ $K0 ≡ $K; $E0 ≡ $E ];"
+        },
+        {
+          "line": 18975,
+          "kind": "rule",
+          "body": "rule @tapp0_fapp0 _ Cat_cart _ _ $k (@strict_transfor _ _ _ _ (@Terminal_cart_funcd $K $E)) ↪ @tapp0_fapp0 $K Cat_cart $E (@Const_catd $K Terminal_cat) $k (@Terminal_funcd $K $E);"
+        },
+        {
+          "line": 19955,
+          "kind": "rule",
+          "body": "rule @fdapp1_int_hom_func $K _ _ (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $x $y $p (Struct_sigma $U $i) (Struct_sigma $V $j) ↪ @Eval_fapp1_func $I (Fibre_cat $E $y) (@Hom_fapp0 Cat_cart $I $I (Fibre_cat $E $x) (Fibre_cat $E $y) (@id_func $I) (@catd_transport_func $K $E $x $y $p) $U) $V $i $j;"
+        },
+        {
+          "line": 19961,
+          "kind": "rule",
+          "body": "rule @fdapp1_int_hom_fapp0 $K _ _ (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $x $y $p (Struct_sigma $U $i) (Struct_sigma $V $j) (Struct_sigma $eta $q) ↪ @tapp1_fapp0 $I (Fibre_cat $E $y) (@Hom_fapp0 Cat_cart $I $I (Fibre_cat $E $x) (Fibre_cat $E $y) (@id_func $I) (@catd_transport_func $K $E $x $y $p) $U) $V $i $j (@strict_transfor $I (Fibre_cat $E $y) _ _ $eta) $q;"
+        },
+        {
+          "line": 20288,
+          "kind": "rule",
+          "body": "rule @fdapp1_int_hom_func _ _ _ (@strict_transfor _ _ _ _ (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $C $GG $FF)) $x $y $p $u $v ↪ comp_cat_fapp0 (@fdapp1_int_hom_func $K $D $C (@strict_transfor $K Cat_cart $D $C $GG) $x $y $p (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x) $u) (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $y) $v)) (@fdapp1_int_hom_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x $y $p $u $v);"
+        },
+        {
+          "line": 20292,
+          "kind": "rule",
+          "body": "rule @fdapp1_int_hom_fapp0 _ _ _ (@strict_transfor _ _ _ _ (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $C $GG $FF)) $x $y $p $u $v $alpha ↪ fapp0 (@fdapp1_int_hom_func $K $D $C (@strict_transfor $K Cat_cart $D $C $GG) $x $y $p (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x) $u) (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $y) $v)) (fapp0 (@fdapp1_int_hom_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x $y $p $u $v) $alpha);"
+        },
+        {
+          "line": 20296,
+          "kind": "rule",
+          "body": "rule @fdapp1_int_cell _ _ _ (@strict_transfor _ _ _ _ (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $C $GG $FF)) $x $y $p $u ↪ @fdapp1_int_hom_fapp0 $K $D $C (@strict_transfor $K Cat_cart $D $C $GG) $x $y $p (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x) $u) (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $y) (fapp0 (@catd_transport_func $K $E $x $y $p) $u)) (@fdapp1_int_cell $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x $y $p $u);"
+        },
+        {
+          "line": 21024,
+          "kind": "unif_rule",
+          "body": "unif_rule @comp_fapp0 Cat_cat _ _ _ (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R) (@Product_pair_tele_func $Source $B) ≡ @hom_int $X $B $G ↪ [ $Source ≡ Op_cat $X; $R ≡ @Prof_reindex $X $X $X $B (@Unit_prof $X) (@id Cat_cat $X) $G ];"
+        },
+        {
+          "line": 21031,
+          "kind": "unif_rule",
+          "body": "unif_rule @comp_fapp0 Cat_cat _ _ _ (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R) (@Product_pair_tele_func $Source $B) ≡ @comp_fapp0 Cat_cat _ _ _ (@hom_int $X $B $G) (@Op_func $A $X $F) ↪ [ $Source ≡ Op_cat $A; $R ≡ @Prof_reindex $X $A $X $B (@Unit_prof $X) $F $G ];"
+        }
+      ],
+      "removed": [
+        {
+          "line": 7711,
+          "kind": "rule",
+          "body": "rule @comp_fapp0 _ _ _ _ (@hom_postcomp_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $W $X $Y $g $h $e_gh) (@hom_postcomp_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $W $X $Y $f $g $e_fg) ↪ @hom_postcomp_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $W $X $Y $f $h (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg);"
+        },
+        {
+          "line": 8546,
+          "kind": "rule",
+          "body": "rule @comp_fapp0 _ _ _ _ (@hom_precomp_along_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $Z $W $X $g $h $e_gh) (@hom_precomp_along_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $Z $W $X $f $g $e_fg) ↪ @hom_precomp_along_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $Z $W $X $f $h (@comp_fapp0 (Hom_cat $A $W $X) $f $g $h $e_gh $e_fg);"
+        },
+        {
+          "line": 9632,
+          "kind": "rule",
+          "body": "rule @strict_transfor $A $B $F $H (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $eta $epsilon) ↪ @comp_fapp0 (Functor_cat $A $B) $F $G $H (@strict_transfor $A $B $G $H $eta) (@strict_transfor $A $B $F $G $epsilon);"
+        },
+        {
+          "line": 13777,
+          "kind": "unif_rule",
+          "body": "unif_rule @Op_catd $A (@comp_fapp0 Cat_cat $A $B Cat_cart (@comp_fapp0 Cat_cat $B $C Cat_cart $E $F) $G) ≡ @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $C) $Eop (@CoAt2_func $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G)) ↪ [ $Eop ≡ @Op_catd $C $E ];"
+        },
+        {
+          "line": 19790,
+          "kind": "rule",
+          "body": "rule @fdapp1_int_hom_func $K _ _ (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $x $y $p (Struct_sigma $U $i) (Struct_sigma $V $j) ↪ @Eval_fapp1_func $I (Fibre_cat $E $y) (@comp_cat_fapp0 $I (Fibre_cat $E $x) (Fibre_cat $E $y) (@catd_transport_func $K $E $x $y $p) $U) $V $i $j;"
+        },
+        {
+          "line": 19796,
+          "kind": "rule",
+          "body": "rule @fdapp1_int_hom_fapp0 $K _ _ (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $x $y $p (Struct_sigma $U $i) (Struct_sigma $V $j) (Struct_sigma $eta $q) ↪ @tapp1_fapp0 $I (Fibre_cat $E $y) (@comp_cat_fapp0 $I (Fibre_cat $E $x) (Fibre_cat $E $y) (@catd_transport_func $K $E $x $y $p) $U) $V $i $j (@strict_transfor $I (Fibre_cat $E $y) _ _ $eta) $q;"
+        },
+        {
+          "line": 20840,
+          "kind": "unif_rule",
+          "body": "unif_rule @hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cart) _ _ _ (@Product_pair_tele_func (Op_cat $A) $B) (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R) ≡ @hom_int $X $B $G ↪ [ $A ≡ $X; $R ≡ @Prof_reindex $X $X $X $B (@Unit_prof $X) (@id Cat_cat $X) $G ];"
+        },
+        {
+          "line": 20848,
+          "kind": "unif_rule",
+          "body": "unif_rule @hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cart) _ _ _ (@Product_pair_tele_func (Op_cat $A) $B) (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R) ≡ @comp_fapp0 Cat_cat _ _ _ (@hom_int $X $B $G) (@Op_func $A $X $F) ↪ [ $R ≡ @Prof_reindex $X $A $X $B (@Unit_prof $X) $F $G ];"
+        }
+      ]
+    },
+    "emdash3_2_diagram_evaluation.lp": {
+      "beforeSha256": "724e1a31466786996aa4c2684117c02b83ef482c5632ee63ad6d56a299ffab7e",
+      "afterSha256": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+      "added": [
+        {
+          "line": 762,
+          "kind": "unif_rule",
+          "body": "unif_rule @comp_fapp0 Cat_cat $A $B $C (@OddDual_func _ _ (@fapp0_func $J $D $i)) (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $N $B $q (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $M $N $p $g)) ≡ $view ↪ [ $B ≡ OddDual_cat (Functor_cat $J $D); $C ≡ OddDual_cat $D; @comp_fapp0 Cat_cat $A $B $C (@OddDual_func _ _ (@fapp0_func $J $D $i)) (@comp_fapp0 Cat_cat $A $M $B (@comp_fapp0 Cat_cat $M $N $B $q $p) $g) ≡ $view ];"
+        }
+      ],
+      "removed": []
+    },
+    "emdash3_2_zero_arrow_family_action_paths.lp": {
+      "beforeSha256": "6278c04ba67a66f472ec67933e1a9cf4316824c5c7ad3243f62fa03e6848639d",
+      "afterSha256": "466ec05f9dfacc37f1404edba0cb3a849622029452f1ffdfa0ba8259c79c262b",
+      "added": [
+        {
+          "line": 11,
+          "kind": "unif_rule",
+          "body": "unif_rule @comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg1 $alpha ≡ @comp_prod_fapp1_fapp0 $A0 $W0 $X0 $Z0 $qg $qg1 $beta ↪ [ $A ≡ $A0; $W ≡ $W0; $X ≡ $X0; $Z ≡ $Z0; $pg ≡ $qg; $pg1 ≡ $qg1; $alpha ≡ $beta ];"
+        }
+      ],
+      "removed": [
+        {
+          "line": 10,
+          "kind": "unif_rule",
+          "body": "unif_rule @sym_transf_tapp0_transf $B $I $C $F $G $h $i ≡ @sym_transf_tapp0_transf $B0 $I0 $C0 $F0 $G0 $h0 $i0 ↪ [ $B ≡ $B0; $I ≡ $I0; $C ≡ $C0; $F ≡ $F0; $G ≡ $G0; $h ≡ $h0; $i ≡ $i0 ];"
+        }
+      ]
+    }
+  }
+}

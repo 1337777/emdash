@@ -121,6 +121,14 @@ shared changes after the final reviewer run. It has not run yet; the
 unchanged dependent source bytes do not by themselves carry the prior result
 across a changed kernel. Existing central/runtime exclusions remain explicit.
 
+A [shared-delta review](../emdash2/audits/strict-default-action-boundary/foundation_shared_delta_review.md)
+now inventories the exact changes since the qualified baseline and checks
+stable heads, projection ladders, orientation changes and retained unifier
+arguments. It finds no immediate whole-body unfolding of a new classifier or
+direct opposing rule pair in this delta. That static finding is not global
+normalization qualification; the current three-file source still needs the
+prepared complete-owner and affected-consumer gates.
+
 After the original-reviewer migration, revisit the five terminal Homd runtime
 requirements using the retained R01–R03 witnesses before proposing another rule.
 They test three different operations: source-u action, the identity y-component,
