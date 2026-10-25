@@ -1,0 +1,102 @@
+{
+  "status": "weakening/reindexing slice qualified at focused/native scope; higher frontend migration remains",
+  "previousCheckpoint": "2f61a6e6",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "scope": {
+    "declarations": 6,
+    "runtimeRules": 7,
+    "proofRules": 0
+  },
+  "nativeInputHashes": {
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "0ed1efd6fe3407cb93e32529527168c7cc78d0aeb40e2e439280efc3b311600d",
+    "src/v3_2/categorical_fibred_weaken_reindex_contract.ts": "8fcbc0c890bf64719fe275b78c28fe0e3a23c04395733acf524e1a54465362d0",
+    "src/v3_2/categorical_fibred_weaken_reindex_demo.ts": "b0e914f99c9d8114225948a21ea0692827aa81cfe1c6de4a76a5c68711f4b48f",
+    "src/v3_2/categorical_fibred_weaken_reindex_transfer.ts": "c46217709489a89caafe96b871dbb55a5ebca50658661e4d34cde28d4713f2a3",
+    "src/v3_2/categorical_program.ts": "2414dd3a77cd597b240c1930180a75f11f8ba02df073c996b1d9cb50cf4e8df3",
+    "src/v3_2/categorical_surface.ts": "54575b604f7fe82b818064b45faaa8f59eebb49a530f0642e8f7c7606a2c2827",
+    "tests/v3_2_categorical_fibred_graduation_proposal_tests.ts": "2d176a198dd29d906ee45c98e5382bd21d304ff90bcfe05532ef67175c2f7c27",
+    "tests/v3_2_categorical_fibred_weaken_reindex_demo_tests.ts": "57dced11394949d20bddbee06b231c8c6c543b238de72fcc2e713734fa853a6d",
+    "tests/v3_2_categorical_fibred_weaken_reindex_tests.ts": "a89a3c8aab16ffde8485ae02b0d04fa2a245ff8800b6f1b4ef387511b9631ee9",
+    "tests/v3_2_categorical_fibred_weaken_reindex_transfer_tests.ts": "1d84a3b7e12b4e81d3734199b67652c97c7912d246485da814dcf84de6f893fc"
+  },
+  "currentTypescriptInputs": {
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "0ed1efd6fe3407cb93e32529527168c7cc78d0aeb40e2e439280efc3b311600d",
+    "src/v3_2/categorical_fibred_weaken_reindex_contract.ts": "8fcbc0c890bf64719fe275b78c28fe0e3a23c04395733acf524e1a54465362d0",
+    "src/v3_2/categorical_fibred_weaken_reindex_demo.ts": "b0e914f99c9d8114225948a21ea0692827aa81cfe1c6de4a76a5c68711f4b48f",
+    "src/v3_2/categorical_fibred_weaken_reindex_transfer.ts": "96f59ddd715025b1cbaf4c98d5053caaf5b3edb1c6c1b4951c38d67867b830bb",
+    "src/v3_2/categorical_program.ts": "2414dd3a77cd597b240c1930180a75f11f8ba02df073c996b1d9cb50cf4e8df3",
+    "src/v3_2/categorical_surface.ts": "54575b604f7fe82b818064b45faaa8f59eebb49a530f0642e8f7c7606a2c2827",
+    "tests/v3_2_categorical_fibred_graduation_proposal_tests.ts": "2d176a198dd29d906ee45c98e5382bd21d304ff90bcfe05532ef67175c2f7c27",
+    "tests/v3_2_categorical_fibred_weaken_reindex_demo_tests.ts": "57dced11394949d20bddbee06b231c8c6c543b238de72fcc2e713734fa853a6d",
+    "tests/v3_2_categorical_fibred_weaken_reindex_tests.ts": "a89a3c8aab16ffde8485ae02b0d04fa2a245ff8800b6f1b4ef387511b9631ee9",
+    "tests/v3_2_categorical_fibred_weaken_reindex_transfer_tests.ts": "1d84a3b7e12b4e81d3734199b67652c97c7912d246485da814dcf84de6f893fc"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261025T190253Z-3081e82c9dbe4e769eb29e51ce4ca15d",
+      "target": "tmp/elab0-sxs7JK/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 51.1434597580228,
+      "childrenMaxRssKiB": 168660,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "f6319ed4b06b785fa4f4c34a9c46c1c626a29173bbe8f305d1e3619ec4b72096",
+      "log": "logs/check-runs/20261025T190253Z-3081e82c9dbe4e769eb29e51ce4ca15d.log",
+      "logSha256": "b6bc11f31f67cba79d70c763ebd5f3d0448e7ebf68ee686e75c8c1358c0b6682",
+      "receiptFile": "emdash2/logs/check-runs/20261025T190253Z-3081e82c9dbe4e769eb29e51ce4ca15d.json",
+      "receiptSha256": "9690b986c78c0e5fc5582a16651b4901578a4b0cb1bb2d6d13a4bd02d21ec428"
+    }
+  ],
+  "changes": [
+    "family coefficient Cat_cart",
+    "retired sigma-projection pullback runtime fold removed",
+    "weakening lowers directly to native section_weaken_funcd",
+    "native Const_func carrier and object projection transferred at first consumer"
+  ],
+  "checks": {
+    "focused": "9 passed",
+    "native": "1 passed, including actual emitted whole/point terms and retired-fold nonconversion",
+    "typecheckAndLint": "passed",
+    "metadata": "21 passed"
+  },
+  "earlierFailures": [
+    "wave159: old Cat_cat constant-family projection fails subject typing",
+    "wave160: coefficient-only local tests pass, but source review shows retired runtime fold; candidate not retained",
+    "wave161/wave162: stale exact graduation accounting fixed before qualification"
+  ],
+  "postNativeChanges": "source pin and inherited provenance only",
+  "remaining": [
+    "varying-base Pi classifier/inclusion migration",
+    "corrected Homd frontend and remaining profiles",
+    "production health and final integration"
+  ],
+  "outputHashes": {
+    "wave163_weaken_native_owner.out": "842f348b0dad545fddbbb0d2dfb7f0f646699be60e2eb925e053f8c1a67d8af3",
+    "wave164_weaken_native.out": "45d245c9242679f14e45a1040385902ff39cc04a6f01390470f4d2f84695c4f1",
+    "wave165_weaken_types_lint.out": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39",
+    "wave166_weaken_metadata.out": "a5881c8c4becbd1ecec8eb04706158426f4b36f9d81e13be4f414ea4341410bf"
+  }
+}

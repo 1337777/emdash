@@ -3,13 +3,17 @@
  */
 
 import assert from 'node:assert/strict';
+import { resolve } from 'node:path';
 import {
     describe,
     it
 } from 'node:test';
 import {
     CoreCategoricalProgram,
-    CoreCategoricalProgramError
+    CoreCategoricalProgramError,
+    compileCoreCategoricalFibredWeakenReindexTransfer,
+    checkLambdapiProbe,
+    serializeKernelExpression
 } from '../src/v3_2';
 
 const fixture = () => {
@@ -38,6 +42,53 @@ const fixture = () => {
 };
 
 describe('FIBRED-WEAKEN-REINDEX-1 surface', () => {
+    it('checks emitted weakening and reindexing against native owners', {
+        skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_WEAKEN_PROBES !== '1'
+    }, () => {
+        const { emdash, K, L, E, D, sigma, FF, s } = fixture();
+        const weakened = emdash.displayedFunctorLambda('a', E, D,
+            a => emdash.apply(s, emdash.indexOf(a)));
+        const k = emdash.object('k', K);
+        const a = emdash.object('a0', emdash.fibre(E, k));
+        const point = emdash.apply(emdash.apply(weakened, k), a);
+        const pulled = emdash.pullbackDisplayedFunctor(FF, sigma);
+        const x = emdash.object('x', L);
+        const pulledComponent = emdash.apply(pulled, x);
+        const terms = [weakened, point, pulled, pulledComponent].map(term => emdash.compile(term));
+        const c = compileCoreCategoricalFibredWeakenReindexTransfer();
+        const transfd = c.prerequisite, binder = transfd.prerequisite;
+        const structure = binder.prerequisite, product = structure.prerequisite;
+        const comprehension = product.prerequisite, composition = comprehension.prerequisite;
+        const dependent = composition.dependent, structural = dependent.structural;
+        const modules = [structural.initialDeclarations, structural.compiled,
+            dependent.compiled, composition.compiled, comprehension.compiled,
+            product.compiled, structure.compiled, binder.compiled, transfd.compiled, c.compiled];
+        const references = Object.assign({}, ...modules.flatMap(module => [
+            module.externalFreeReferences, module.externalTransparentDefinitions
+        ]));
+        const serialize = (term: Parameters<typeof serializeKernelExpression>[0]) =>
+            serializeKernelExpression(term, { externalFreeReferences: references });
+        const source = [
+            'require open emdash.emdash3_2;',
+            'symbol K : Cat;', 'symbol L : Cat;',
+            'symbol E : τ (Catd K);', 'symbol D : τ (Catd K);',
+            'symbol sigma : τ (Functor L K);', 'symbol FF : τ (Functord E D);',
+            'symbol s : τ (Obj (Pi_cat D));', 'symbol k : τ (Obj K);',
+            'symbol a0 : τ (Obj (Fibre_cat E k));', 'symbol x : τ (Obj L);',
+            ...terms.map(term => `assert ⊢ ${serialize(term.explicitTerm)} : ${serialize(term.expectedType)};`),
+            `assert ⊢ ${serialize(terms[0].explicitTerm)} ≡ @section_weaken_funcd K E D s;`,
+            `assert ⊢ ${serialize(terms[1].explicitTerm)} ≡ @piapp0 K D s k;`,
+            `assert ⊢ ${serialize(terms[3].explicitTerm)} ≡ @Fibre_func K E D FF (@fapp0 L K sigma x);`,
+            'assertnot ⊢ @Pullback_catd (@Sigma_cat K E) K D (@Sigma_proj1_func K E) ≡ @Sigma_proj1_pullback_catd K E D;'
+        ].join('\n');
+        assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/);
+        const result = checkLambdapiProbe({ source, sourceMap: [] }, {
+            packageRoot: resolve(__dirname, '../emdash2'), timeoutMs: 60_000
+        });
+        assert.equal(result.accepted, true, result.diagnostics + '\n' + source);
+        assert.equal(result.timedOut, false);
+    });
+
     it('lowers λ a :^fd E. s[indexOf(a)] and computes its point', () => {
         const {
             emdash,
@@ -60,12 +111,9 @@ describe('FIBRED-WEAKEN-REINDEX-1 surface', () => {
         );
         assert.match(
             compiled.explicitCore,
-            /emdash\.categorical\.section-pullback/u
+            /emdash\.categorical\.section-weakening/u
         );
-        assert.match(
-            compiled.explicitCore,
-            /emdash\.categorical\.sigma-first-projection/u
-        );
+        assert.doesNotMatch(compiled.explicitCore, /sigma-first-projection|section-pullback/u);
         const compatibility =
             emdash.displayedFunctorClassifierCompatibility(E, D);
         assert.equal(compatibility.runtime.status, 'not-equal');

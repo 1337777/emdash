@@ -23,7 +23,7 @@ describe('TypeScript v3.2 fibred weakening/reindexing demo', () => {
         assert.equal(result.weakening.pointStatus, 'equal');
         assert.equal(
             result.weakening.termTypeChecking,
-            'runtime-object-classifier-join'
+            'direct-displayed-owner'
         );
         assert.deepEqual(result.weakening.classifierBridge, {
             runtime: 'not-equal',

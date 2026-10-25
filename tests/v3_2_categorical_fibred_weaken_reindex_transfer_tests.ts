@@ -39,7 +39,7 @@ describe('FIBRED-WEAKEN-REINDEX-1 existing-authority transfer', () => {
         );
     });
 
-    it('transfers four signatures and the exact six-clause closure', () => {
+    it('transfers six signatures and the native seven-clause closure', () => {
         assert.deepEqual(
             CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_MODULE
                 .declarations.map(entry => entry.symbol.name),
@@ -47,7 +47,9 @@ describe('FIBRED-WEAKEN-REINDEX-1 existing-authority transfer', () => {
                 'Pullback_catd_func',
                 'Obj_func',
                 'section_pullback_func',
-                'section_pullback_sec'
+                'section_pullback_sec',
+                'section_weaken_funcd',
+                'Const_func'
             ]
         );
         assert.deepEqual(
@@ -57,11 +59,12 @@ describe('FIBRED-WEAKEN-REINDEX-1 existing-authority transfer', () => {
                 'categorical.weaken-reindex.' +
                     'constant-family-object-prerequisite',
                 'categorical.weaken-reindex.' +
-                    'sigma-projection-pullback-fold-prerequisite',
+                    'section-weakening-component',
                 'categorical.weaken-reindex.pullback-functor-object',
                 'categorical.weaken-reindex.pullback-hom-component',
                 'categorical.weaken-reindex.section-pullback-object',
-                'categorical.weaken-reindex.section-pullback-component'
+                'categorical.weaken-reindex.section-pullback-component',
+                'categorical.weaken-reindex.constant-functor-object'
             ]
         );
         assert.equal(
@@ -82,20 +85,21 @@ describe('FIBRED-WEAKEN-REINDEX-1 existing-authority transfer', () => {
         assert.equal(
             CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_BOUNDARY
                 .consumerRuntimeRuleCount,
-            4
+            5
         );
     });
 
     it('checks every runtime subject with the generic engines', () => {
         const compilation =
             compileCoreCategoricalFibredWeakenReindexTransfer();
-        assert.equal(compilation.compiled.declarations.length, 4);
-        assert.equal(compilation.runtime.rules.length, 6);
+        assert.equal(compilation.compiled.declarations.length, 6);
+        assert.equal(compilation.runtime.rules.length, 7);
         assert.deepEqual(
             compilation.runtime.rules.map(rule =>
                 rule.subjectValidation.kind
             ),
             [
+                'typescript-checked',
                 'typescript-checked',
                 'typescript-checked',
                 'typescript-checked',

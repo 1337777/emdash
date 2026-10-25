@@ -1,8 +1,8 @@
 /**
  * FIBRED-WEAKEN-REINDEX-1 existing-authority transfer closure.
  *
- * The four declarations and six runtime clauses below are literal active
- * v3.2 ingredients: two source-prior prerequisites and four consumer
+ * The six declarations and seven runtime clauses below are active
+ * v3.2 ingredients: two source-prior prerequisites and five consumer
  * clauses. They compile on top of FIBRED-TRANSFD-1 through the generic
  * declaration/runtime engines and install no new kernel mathematics.
  */
@@ -89,9 +89,9 @@ CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_REVISION =
 
 const MODULE_ID = 'emdash.emdash3_2';
 
-// Retained until this downstream profile receives its own migration review.
+// Qualified against the migrated native weakening and reindexing owners.
 const CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -101,8 +101,8 @@ const objectClassifier =
     coreDirectedContinuationTransferSymbol('object-classifier');
 const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const sigmaCategory =
     coreDirectedContinuationTransferSymbol('sigma-category');
 const displayedCategoryCategory =
@@ -147,13 +147,17 @@ const pointFunctor =
     coreLfQualifiedSymbol(MODULE_ID, 'Obj_func');
 const sectionPullbackSection =
     coreLfQualifiedSymbol(MODULE_ID, 'section_pullback_sec');
+const sectionWeakening = coreLfQualifiedSymbol(MODULE_ID, 'section_weaken_funcd');
+const constantFunctor = coreLfQualifiedSymbol(MODULE_ID, 'Const_func');
 
 export const CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_SYMBOLS =
 Object.freeze({
     pullbackDisplayedFamilyFunctor,
     pointFunctor,
     sectionPullback,
-    sectionPullbackSection
+    sectionPullbackSection,
+    sectionWeakening,
+    constantFunctor
 });
 
 const implicitMode = binderMode('implicit', 'functorial');
@@ -295,7 +299,7 @@ const fibre = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'explicit', value: family },
         { plicity: 'explicit', value: point }
@@ -345,7 +349,7 @@ const component = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'implicit', value: sourceFamily },
         { plicity: 'implicit', value: targetFamily },
@@ -428,7 +432,10 @@ const selectedDeclaration = (
     }
     return Object.freeze({
         ...declaration,
-        order
+        order,
+        provenance: source(
+            `${name === 'Pullback_catd_func' ? 'injective ' : ''}symbol ${name} [A B : Cat]`
+        )
     });
 };
 
@@ -512,6 +519,41 @@ const sectionPullbackSectionType =
     ));
 };
 
+const sectionWeakeningType = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder();
+    return b.term(b.pi('K', b.global(category), K =>
+        b.pi('R', displayedFamilyType(b, K), R =>
+            b.pi('E', displayedFamilyType(b, K), E =>
+                b.pi('s', objectType(b, displayedFunctorCategoryAt(b, K,
+                    constantFamily(b, K, b.global(terminalCategory)), E)),
+                    _s => displayedFunctorType(b, K, R, E), explicitMode),
+                explicitMode), explicitMode), implicitMode));
+};
+
+const constantFunctorType = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder();
+    return b.term(b.pi('A', b.global(category), A =>
+        b.pi('B', b.global(category), B =>
+            b.pi('b', objectType(b, B), _value => functorType(b, A, B), explicitMode),
+            implicitMode), implicitMode));
+};
+
+const weakenAt = (b: CoreLfTransferScopedBuilder,
+    K: CoreLfTransferBuilderExpression, R: CoreLfTransferBuilderExpression,
+    E: CoreLfTransferBuilderExpression, section: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(b, sectionWeakening, [
+    { plicity: 'implicit', value: K }, { plicity: 'explicit', value: R },
+    { plicity: 'explicit', value: E }, { plicity: 'explicit', value: section }
+]);
+
+const constantAt = (b: CoreLfTransferScopedBuilder,
+    A: CoreLfTransferBuilderExpression, B: CoreLfTransferBuilderExpression,
+    value: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(b, constantFunctor, [
+    { plicity: 'implicit', value: A }, { plicity: 'implicit', value: B },
+    { plicity: 'explicit', value }
+]);
+
 const declarations = Object.freeze([
     selectedDeclaration(
         CORE_LF_SCALE_STRESS_2B1_MODULE,
@@ -544,6 +586,16 @@ const declarations = Object.freeze([
             'symbol section_pullback_sec [A B : Cat] ' +
             '(F : τ (Functor A B)) (E : τ (Catd B))'
         )
+    },
+    {
+        order: 4, symbol: sectionWeakening, type: sectionWeakeningType(),
+        body: coreLfTransferAbsentBody(), modifiers: publicModifiers('injective', 'opaque'),
+        provenance: source('injective symbol section_weaken_funcd [K : Cat]')
+    },
+    {
+        order: 5, symbol: constantFunctor, type: constantFunctorType(),
+        body: coreLfTransferAbsentBody(), modifiers: publicModifiers('injective', 'opaque'),
+        provenance: source('injective symbol Const_func [A B : Cat]')
     }
 ] as const);
 
@@ -600,13 +652,13 @@ const constantFamilyObjectRule =
         left: builder.pattern(fapp0(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             constantFamily(builder, K, A),
             k
         )),
         right: builder.template(A),
         provenance: source(
-            'rule @fapp0 $K Cat_cat (@Const_catd $K $A) $_ ↪ $A'
+            'rule @fapp0 $K Cat_cart (@Const_catd $K $A) $_ ↪ $A'
         )
     };
 };
@@ -688,7 +740,7 @@ const pullbackHomComponentRule =
             eta
         )),
         provenance: source(
-            'rule @tapp0_fapp0 $A Cat_cat _ _ $a ' +
+            'rule @tapp0_fapp0 $A Cat_cart _ _ $a ' +
             '(@fapp1_fapp0 (@Catd_cat $B) (@Catd_cat $A) ' +
             '(@Pullback_catd_func $A $B $F) $E $D $eta)'
         )
@@ -864,7 +916,7 @@ const sectionPullbackComponentRule =
             }
         ])),
         provenance: source(
-            'rule @tapp0_fapp0 $A Cat_cat _ _ $a ' +
+            'rule @tapp0_fapp0 $A Cat_cart _ _ $a ' +
             '(@section_pullback_sec $A $B $F $E $s) ' +
             '↪ @Obj_func (Fibre_cat ' +
             '(@Pullback_catd $A $B $E $F) $a) ' +
@@ -873,75 +925,56 @@ const sectionPullbackComponentRule =
     };
 };
 
-const sigmaProjectionPullbackFoldRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const K = builder.capture('K');
-    const R = builder.capture('R');
-    const D = builder.capture('D');
-    const total = globalCall(builder, sigmaCategory, [
-        { plicity: 'implicit', value: K },
-        { plicity: 'explicit', value: R }
-    ]);
-    const projection = globalCall(builder, sigmaProjection, [
-        { plicity: 'implicit', value: K },
-        { plicity: 'explicit', value: R }
-    ]);
+// The native generic projection pullback now has a proof-time comparison,
+// not a runtime fold. Weakening uses its existing whole semantic owner.
+const sectionWeakeningComponentRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const K = b.capture('K'), R = b.capture('R'), E = b.capture('E');
+    const section = b.capture('s'), k = b.capture('k');
     return {
-        order: 1,
-        id:
-            'categorical.weaken-reindex.' +
-            'sigma-projection-pullback-fold-prerequisite',
-        groupId:
-            'categorical.weaken-reindex.' +
-            'sigma-projection-pullback-fold-prerequisite',
-        clauseOrder: 0,
-        sourceOwner: pullbackDisplayedFamily,
+        order: 1, id: 'categorical.weaken-reindex.section-weakening-component',
+        groupId: 'categorical.weaken-reindex.section-weakening-component', clauseOrder: 0,
+        sourceOwner: transforComponentCapped,
         variables: [
-            {
-                name: 'K',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'R',
-                type: builder.template(displayedFamilyType(builder, K))
-            },
-            {
-                name: 'D',
-                type: builder.template(displayedFamilyType(builder, K))
-            }
+            { name: 'K', type: b.template(b.global(category)) },
+            ...['R', 'E'].map(name => ({ name, type: b.template(displayedFamilyType(b, K)) })),
+            { name: 's', type: b.template(objectType(b, displayedFunctorCategoryAt(b, K,
+                constantFamily(b, K, b.global(terminalCategory)), E))) },
+            { name: 'k', type: b.template(objectType(b, K)) }
         ],
-        left: builder.pattern(pullbackFamily(
-            builder,
-            total,
-            K,
-            D,
-            projection
-        )),
-        right: builder.template(globalCall(
-            builder,
-            sigmaProjectionPullback,
-            [
-                { plicity: 'implicit', value: K },
-                { plicity: 'explicit', value: R },
-                { plicity: 'explicit', value: D }
-            ]
-        )),
-        provenance: source(
-            'rule @Pullback_catd _ $K $D ' +
-                '(@Sigma_proj1_func $K $R) ' +
-                '↪ @Sigma_proj1_pullback_catd $K $R $D'
-        )
+        left: b.pattern(component(b, K, R, E, k, weakenAt(b, K, R, E, section))),
+        right: b.template(constantAt(b, fibre(b, K, R, k), fibre(b, K, E, k),
+            sectionAt(b, K, E, section, k))),
+        provenance: source('rule @tapp0_fapp0 $K Cat_cart $R $E $k (@section_weaken_funcd $K $R $E $s)')
+    };
+};
+
+const constantFunctorObjectRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), B = b.capture('B'), value = b.capture('b'), a = b.capture('a');
+    return {
+        order: 6, id: 'categorical.weaken-reindex.constant-functor-object',
+        groupId: 'categorical.weaken-reindex.constant-functor-object', clauseOrder: 0,
+        sourceOwner: functorObject,
+        variables: [
+            ...['A', 'B'].map(name => ({ name, type: b.template(b.global(category)) })),
+            { name: 'b', type: b.template(objectType(b, B)) },
+            { name: 'a', type: b.template(objectType(b, A)) }
+        ],
+        left: b.pattern(fapp0(b, A, B, constantAt(b, A, B, value), a)),
+        right: b.template(value),
+        provenance: source('rule @fapp0 $A $B (@Const_func $A $B $b) $_ ↪ $b')
     };
 };
 
 const runtimeRules = Object.freeze([
     constantFamilyObjectRule(),
-    sigmaProjectionPullbackFoldRule(),
+    sectionWeakeningComponentRule(),
     reusedPullbackObjectRule(),
     pullbackHomComponentRule(),
     sectionPullbackObjectRule(),
-    sectionPullbackComponentRule()
+    sectionPullbackComponentRule(),
+    constantFunctorObjectRule()
 ]);
 
 const externalSymbols = Object.freeze([
@@ -949,7 +982,7 @@ const externalSymbols = Object.freeze([
     decodeOwner,
     objectClassifier,
     functorClassifier,
-    categoryOfCategories,
+    familyCoefficient,
     sigmaCategory,
     displayedCategoryCategory,
     constantDisplayedFamily,
@@ -1155,7 +1188,9 @@ Object.freeze({
     pointFunctor: localCoreName(pointFunctor),
     sectionPullback: localCoreName(sectionPullback),
     sectionPullbackSection:
-        localCoreName(sectionPullbackSection)
+        localCoreName(sectionPullbackSection),
+    sectionWeakening: localCoreName(sectionWeakening),
+    constantFunctor: localCoreName(constantFunctor)
 });
 
 export type CoreCategoricalFibredWeakenReindexCoreId =
@@ -1180,7 +1215,7 @@ Object.freeze({
     declarationCount: declarations.length,
     runtimeRuleCount: runtimeRules.length,
     prerequisiteRuntimeRuleCount: 2,
-    consumerRuntimeRuleCount: 4,
+    consumerRuntimeRuleCount: 5,
     proofRuleCount: 0,
     newMathematicalOwnerCount: 0,
     newMathematicalRuntimeRuleCount: 0,

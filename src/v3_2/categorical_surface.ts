@@ -947,6 +947,7 @@ export type CoreCategoricalDependentApplicationPrerequisiteId =
     | 'displayed-transfor-horizontal-action'
     | 'sigma-first-projection'
     | 'section-pullback-functor'
+    | 'section-weakening'
     | 'constant-displayed-family-object'
     | 'internal-product-functor'
     | 'displayed-product-left-projection'
@@ -10988,85 +10989,15 @@ export class CoreCategoricalScopedBuilder {
         targetFamily: KernelExpression,
         nodeProvenance: Provenance
     ): KernelExpression {
-        const totalCategory = kernelCall(
-            kernelFree(
-                CORE_DIRECTED_1A_PRIMITIVE_NAMES['sigma-category'],
-                nodeProvenance
-            ),
-            [
-                { plicity: 'implicit', value: baseCategory },
-                { plicity: 'explicit', value: sourceFamily }
-            ],
+        return kernelCall(kernelFree(
+            coreCategoricalFibredWeakenReindexCoreName('sectionWeakening'),
             nodeProvenance
-        );
-        const projection = kernelCall(
-            kernelFree(
-                CORE_DIRECTED_1B_PRIMITIVE_NAMES[
-                    'sigma-first-projection'
-                ],
-                nodeProvenance
-            ),
-            [
-                { plicity: 'implicit', value: baseCategory },
-                { plicity: 'explicit', value: sourceFamily }
-            ],
-            nodeProvenance
-        );
-        const pulledTarget = kernelApplication(
-            'displayed-pullback',
-            [
-                { value: totalCategory },
-                { value: baseCategory },
-                { value: targetFamily },
-                { value: projection }
-            ],
-            nodeProvenance
-        );
-        const pullbackFunctor = kernelCall(
-            kernelFree(
-                coreCategoricalFibredWeakenReindexCoreName(
-                    'sectionPullback'
-                ),
-                nodeProvenance
-            ),
-            [
-                { plicity: 'implicit', value: totalCategory },
-                { plicity: 'implicit', value: baseCategory },
-                { plicity: 'explicit', value: projection },
-                { plicity: 'explicit', value: targetFamily }
-            ],
-            nodeProvenance
-        );
-        const sourceSectionCategory = this.displayedFunctorCategory(
-            baseCategory,
-            this.constantDisplayedFamily(
-                baseCategory,
-                this.terminalCategory(nodeProvenance),
-                nodeProvenance
-            ),
-            targetFamily,
-            nodeProvenance
-        );
-        const targetSectionCategory = this.displayedFunctorCategory(
-            totalCategory,
-            this.constantDisplayedFamily(
-                totalCategory,
-                this.terminalCategory(nodeProvenance),
-                nodeProvenance
-            ),
-            pulledTarget,
-            nodeProvenance
-        );
-        return kernelApplication(
-            'functor-object',
-            [
-                { value: sourceSectionCategory },
-                { value: targetSectionCategory },
-                { value: pullbackFunctor },
-                { value: sectionTerm }
-            ],
-            nodeProvenance
-        );
+        ), [
+            { plicity: 'implicit', value: baseCategory },
+            { plicity: 'explicit', value: sourceFamily },
+            { plicity: 'explicit', value: targetFamily },
+            { plicity: 'explicit', value: sectionTerm }
+        ], nodeProvenance);
     }
 
     /**
@@ -14884,14 +14815,7 @@ export class CoreCategoricalScopedBuilder {
                 ]);
         if (weakeningSection !== undefined) {
             rule = 'categorical.displayed-functor-weakening';
-            dependentPrerequisites = mergeDependentPrerequisites(
-                dependentPrerequisites,
-                [
-                    'sigma-first-projection',
-                    'section-pullback-functor',
-                    'constant-displayed-family-object'
-                ]
-            );
+            dependentPrerequisites = Object.freeze(['section-weakening']);
             resultExpression = this.lowerDisplayedSectionWeakening(
                 weakeningSection,
                 baseCategory,

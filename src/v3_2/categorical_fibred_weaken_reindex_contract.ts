@@ -34,19 +34,22 @@ deepFreeze({
             'Pullback_catd_func',
             'Obj_func',
             'section_pullback_func',
-            'section_pullback_sec'
+            'section_pullback_sec',
+            'section_weaken_funcd',
+            'Const_func'
         ],
         prerequisiteRuntimeRules: [
             'constant-displayed-family-object',
-            'sigma-projection-pullback-fold'
+            'constant-functor-object'
         ],
         consumerRuntimeRules: [
             'pullback-functor-object',
             'pullback-functor-hom-component',
             'section-pullback-object',
-            'section-pullback-component'
+            'section-pullback-component',
+            'section-weakening-component'
         ],
-        runtimeRuleCount: 6,
+        runtimeRuleCount: 7,
         proofRules: Object.freeze([]),
         genericEnginesOnly: true
     },
@@ -65,7 +68,7 @@ deepFreeze({
         directSurface:
             'λ a :^fd E. s[indexOf(a)]',
         lowering:
-            'section_pullback_func(Sigma_proj1_func(E),D)[s]',
+            'section_weaken_funcd(E,D,s)',
         fibreUses: 0,
         hiddenBaseUses: 1,
         closedSectionRequired: true,
@@ -124,12 +127,12 @@ validateCoreCategoricalFibredWeakenReindexContract(): void {
         contract.qualificationCases.join(',') !== '2,3' ||
         contract.transfer.declarations.join(',') !==
             'Pullback_catd_func,Obj_func,section_pullback_func,' +
-            'section_pullback_sec' ||
+            'section_pullback_sec,section_weaken_funcd,Const_func' ||
         contract.transfer.prerequisiteRuntimeRules.join(',') !==
             'constant-displayed-family-object,' +
-            'sigma-projection-pullback-fold' ||
-        contract.transfer.consumerRuntimeRules.length !== 4 ||
-        contract.transfer.runtimeRuleCount !== 6 ||
+            'constant-functor-object' ||
+        contract.transfer.consumerRuntimeRules.length !== 5 ||
+        contract.transfer.runtimeRuleCount !== 7 ||
         contract.transfer.proofRules.length !== 0 ||
         !contract.transfer.genericEnginesOnly ||
         contract.weakening.fibreUses !== 0 ||

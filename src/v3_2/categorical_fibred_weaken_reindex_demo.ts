@@ -49,7 +49,7 @@ export interface CoreCategoricalFibredWeakenReindexDemoResult {
         readonly pointInput: typeof WEAKENING_POINT_INPUT;
         readonly pointOutput: 'demo_s[demo_k]';
         readonly pointStatus: 'equal';
-        readonly termTypeChecking: 'runtime-object-classifier-join';
+        readonly termTypeChecking: 'direct-displayed-owner';
         readonly classifierBridge: {
             readonly runtime: 'not-equal';
             readonly proofTime: 'solved';
@@ -218,7 +218,7 @@ CoreCategoricalFibredWeakenReindexDemoResult {
             pointOutput: 'demo_s[demo_k]',
             pointStatus: 'equal' as const,
             termTypeChecking:
-                'runtime-object-classifier-join' as const,
+                'direct-displayed-owner' as const,
             classifierBridge: Object.freeze({
                 runtime: 'not-equal' as const,
                 proofTime: 'solved' as const,

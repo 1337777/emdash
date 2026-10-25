@@ -909,7 +909,9 @@ for (const [
     [
         'sectionPullbackSection',
         'emdash.categorical.section-pullback-section'
-    ]
+    ],
+    ['sectionWeakening', 'emdash.categorical.section-weakening'],
+    ['constantFunctor', 'emdash.categorical.constant-functor']
 ] as const) {
     categoricalLabels[
         coreCategoricalFibredWeakenReindexCoreName(id)

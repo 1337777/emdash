@@ -219,8 +219,8 @@ const rawProposal = {
             },
             {
                 id: 'weakening-reindexing',
-                declarationSlots: 4,
-                runtimeRuleSlots: 6,
+                declarationSlots: 6,
+                runtimeRuleSlots: 7,
                 proofRuleSlots: 0,
                 newMathematicalOwners: 0,
                 newMathematicalRuntimeRules: 0,
@@ -238,8 +238,8 @@ const rawProposal = {
         ],
         cumulativeSliceCounts: {
             representativeSlices: 7,
-            declarationSlots: 45,
-            runtimeRuleSlots: 93,
+            declarationSlots: 47,
+            runtimeRuleSlots: 94,
             proofRuleSlots: 3,
             newMathematicalOwners: 4,
             newMathematicalRuntimeRules: 16
@@ -548,9 +548,9 @@ export function validateCoreCategoricalFibredGraduationProposal(
         proposal.transferEvidence.cumulativeSliceCounts
             .representativeSlices !== 7 ||
         proposal.transferEvidence.cumulativeSliceCounts
-            .declarationSlots !== 45 ||
+            .declarationSlots !== 47 ||
         proposal.transferEvidence.cumulativeSliceCounts
-            .runtimeRuleSlots !== 93 ||
+            .runtimeRuleSlots !== 94 ||
         proposal.transferEvidence.cumulativeSliceCounts
             .proofRuleSlots !== 3 ||
         proposal.transferEvidence.cumulativeSliceCounts

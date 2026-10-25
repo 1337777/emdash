@@ -61,6 +61,15 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [weakening/reindexing frontend slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_weaken_review.md)
+is qualified:9 consumer/demo cases,21 metadata/transfer cases and one native
+consumer pass, plus typecheck/lint. It removes the retired generic Sigma
+projection-pullback runtime fold and lowers weakening through the existing
+`section_weaken_funcd` owner. The native check retains the raw-family
+non-conversion boundary. No native rule or checker branch is added.
+Next migrate varying-base Pi with its actual Cartesian diagram source and
+inclusion, then corrected Homd and the remaining frontend profiles.
+
 The [frontend displayed-transformation slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transfd_review.md)
 passes32 focused/contract/review tests and two native consumers, plus
 typecheck/lint. Its raw component retains the native strict fibre carrier;
