@@ -23,7 +23,7 @@ CORE_CATEGORICAL_DISPLAYED_EVALUATION_DEMO_REVISION =
     'DISPLAYED-EVAL-1A-DEMO-1' as const;
 
 const stableFibreSynopsis =
-    'Functor_catd(Const_(Op K)(A),B)[k] = Functor_cat(A,B[k])' as const;
+    'Functor_catd(Const_(Op K)(A),B)[k] = Functor_cart_cat(A,B[k])' as const;
 
 const rejectedInputSynopsis =
     'displayedContextLambda([{F:S}], B, ([F]) => apply(F,c:C))' as const;
@@ -54,7 +54,7 @@ export interface CoreCategoricalDisplayedEvaluationDemoResult {
         readonly CoreCategoricalDisplayedEvaluationDemoExample[];
     readonly computation: {
         readonly stableFibre:
-            'Functor_catd(Const_(Op K)(A),B)[k] = Functor_cat(A,B[k])';
+            'Functor_catd(Const_(Op K)(A),B)[k] = Functor_cart_cat(A,B[k])';
         readonly stableFibreStatus: 'equal';
         readonly pointOutputKind: 'functor';
         readonly arrowStatus: 'equal';
@@ -155,7 +155,7 @@ CoreCategoricalDisplayedEvaluationDemoResult {
     const p = emdash.hom('demo_p', K, k, l, { line: 34 });
     const stableFibre = emdash.compareCategories(
         emdash.fibre(stable, k),
-        emdash.functorCategory(A, emdash.fibre(B, k)),
+        emdash.cartesianFunctorCategory(A, emdash.fibre(B, k)),
         4_000
     );
     const point = emdash.compile(

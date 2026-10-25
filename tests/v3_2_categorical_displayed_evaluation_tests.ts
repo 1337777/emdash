@@ -319,10 +319,14 @@ describe('DISPLAYED-EVAL-1A recursive displayed evaluation', () => {
 
         const stableFibre = emdash.compareCategories(
             emdash.fibre(stable, k),
-            emdash.functorCategory(A, emdash.fibre(B, k)),
+            emdash.cartesianFunctorCategory(A, emdash.fibre(B, k)),
             4_000
         );
         assert.equal(stableFibre.status, 'equal');
+        assert.equal(emdash.compareCategories(
+            emdash.fibre(stable, k),
+            emdash.functorCategory(A, emdash.fibre(B, k)), 4_000
+        ).status, 'not-equal');
         assert.equal(
             runtimeRuleIds(stableFibre).includes(
                 'categorical.displayed-evaluation.' +

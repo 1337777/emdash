@@ -3085,7 +3085,7 @@ export class CoreCategoricalScopedBuilder {
         targetFamily: KernelExpression,
         nodeProvenance: Provenance
     ): KernelExpression {
-        return kernelCall(
+        const strictEvaluation = kernelCall(
             kernelFree(
                 coreCategoricalDisplayedEvaluationCoreName(
                     'displayedEvaluation'
@@ -3108,6 +3108,23 @@ export class CoreCategoricalScopedBuilder {
             ],
             nodeProvenance
         );
+        const source = this.displayedProductFamily(
+            baseCategory,
+            this.mixedFunctorFamily(baseCategory,
+                this.constantDisplayedFamily(this.oppositeCategory(baseCategory, nodeProvenance), domainCategory, nodeProvenance),
+                targetFamily, nodeProvenance),
+            this.constantDisplayedFamily(baseCategory, domainCategory, nodeProvenance),
+            nodeProvenance
+        );
+        return kernelCall(kernelFree(
+            coreCategoricalFibredProductCoreName('strict-transfor-view'), nodeProvenance
+        ), [
+            { plicity: 'implicit', value: baseCategory },
+            { plicity: 'implicit', value: coreCategoricalFamilyCoefficient(nodeProvenance) },
+            { plicity: 'implicit', value: source },
+            { plicity: 'implicit', value: targetFamily },
+            { plicity: 'explicit', value: strictEvaluation }
+        ], nodeProvenance);
     }
 
     private displayedTerminalTerm(

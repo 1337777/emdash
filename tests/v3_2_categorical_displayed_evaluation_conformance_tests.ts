@@ -11,7 +11,10 @@ import {
     it
 } from 'node:test';
 import {
-    checkLambdapiProbe
+    checkLambdapiProbe,
+    CoreCategoricalProgram,
+    compileCoreCategoricalDisplayedEvaluationTransfer,
+    serializeKernelExpression
 } from '../src/v3_2';
 
 const source = `
@@ -23,13 +26,13 @@ symbol ce_subject [K A : Cat] (B : τ (Catd K)) : τ (Catd K)
 symbol ce_source [K A : Cat] (B : τ (Catd K)) : τ (Catd K)
 ≔ @comp_cat_fapp0
     K
-    (Product_cat Cat_cat Cat_cat)
-    Cat_cat
-    (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+    (Product_cat Cat_cart Cat_cart)
+    Cat_cart
+    (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
     (Struct_sigma (@ce_subject K A B) (@Const_catd K A));
 
 assert [K A : Cat] (B : τ (Catd K)) (k : τ (Obj K)) ⊢
-  @tapp0_fapp0 K Cat_cat (@ce_source K A B) B k (@Eval_funcd K A B)
+  @tapp0_fapp0 K Cat_cart (@ce_source K A B) B k (@strict_transfor K Cat_cart (@ce_source K A B) B (@Eval_funcd K A B))
     ≡ @Eval_func A (Fibre_cat B k);
 
 assert [K A : Cat]
@@ -38,16 +41,16 @@ assert [K A : Cat]
   (F : τ (Functor A (Fibre_cat B k)))
   (a : τ (Obj A)) ⊢
   @fapp0
-      (Product_cat (Functor_cat A (Fibre_cat B k)) A)
+      (Product_cat (Functor_cart_cat A (Fibre_cat B k)) A)
       (Fibre_cat B k)
       (@tapp0_fapp0
-        K Cat_cat (@ce_source K A B) B k (@Eval_funcd K A B))
+        K Cat_cart (@ce_source K A B) B k (@strict_transfor K Cat_cart (@ce_source K A B) B (@Eval_funcd K A B)))
       (Struct_sigma F a)
     ≡ @fapp0 A (Fibre_cat B k) F a;
 
 assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) ⊢
   @tapp0_fapp0
-      K Cat_cat E (@Const_catd K Terminal_cat) k
+      K Cat_cart E (@Const_catd K Terminal_cat) k
       (@Terminal_funcd K E)
     ≡ @Terminal_func (Fibre_cat E k);
 
@@ -73,7 +76,7 @@ symbol ce_varying [K A : Cat]
     E
     (@ce_source K A B)
     B
-    (@Eval_funcd K A B)
+    (@strict_transfor K Cat_cart (@ce_source K A B) B (@Eval_funcd K A B))
     (@Product_pair_funcd
       K E (@ce_subject K A B) (@Const_catd K A) FF xx);
 
@@ -86,20 +89,20 @@ assert [K A : Cat]
   @fapp0
       (Fibre_cat E k)
       (Fibre_cat B k)
-      (@tapp0_fapp0 K Cat_cat E B k (@ce_varying K A E B FF xx))
+      (@tapp0_fapp0 K Cat_cart E B k (@ce_varying K A E B FF xx))
       e
     ≡ @fapp0
         A
         (Fibre_cat B k)
         (@fapp0
           (Fibre_cat E k)
-          (Functor_cat A (Fibre_cat B k))
-          (@tapp0_fapp0 K Cat_cat E (@ce_subject K A B) k FF)
+          (Functor_cart_cat A (Fibre_cat B k))
+          (@tapp0_fapp0 K Cat_cart E (@ce_subject K A B) k FF)
           e)
         (@fapp0
           (Fibre_cat E k)
           A
-          (@tapp0_fapp0 K Cat_cat E (@Const_catd K A) k xx)
+          (@tapp0_fapp0 K Cat_cart E (@Const_catd K A) k xx)
           e);
 
 symbol ce_fixed [K A : Cat]
@@ -111,7 +114,7 @@ symbol ce_fixed [K A : Cat]
     (@ce_subject K A B)
     (@ce_source K A B)
     B
-    (@Eval_funcd K A B)
+    (@strict_transfor K Cat_cart (@ce_source K A B) B (@Eval_funcd K A B))
     (@Product_pair_funcd
       K
       (@ce_subject K A B)
@@ -126,10 +129,10 @@ assert [K A : Cat]
   (k : τ (Obj K))
   (F : τ (Functor A (Fibre_cat B k))) ⊢
   @fapp0
-      (Functor_cat A (Fibre_cat B k))
+      (Functor_cart_cat A (Fibre_cat B k))
       (Fibre_cat B k)
       (@tapp0_fapp0
-        K Cat_cat (@ce_subject K A B) B k (@ce_fixed K A B a))
+        K Cat_cart (@ce_subject K A B) B k (@ce_fixed K A B a))
       F
     ≡ @fapp0 A (Fibre_cat B k) F a;
 
@@ -137,10 +140,10 @@ assert [K A : Cat]
   (B : τ (Catd K))
   (x y : τ (Obj K)) ⊢
   @tapp1_func
-      K Cat_cat (@ce_source K A B) B x y (@Eval_funcd K A B)
+      K Cat_cart (@ce_source K A B) B x y (@strict_transfor K Cat_cart (@ce_source K A B) B (@Eval_funcd K A B))
     : τ (Functor
         (Hom_cat K x y)
-        (Functor_cat
+        (Functor_cart_cat
           (Fibre_cat (@ce_source K A B) x)
           (Fibre_cat B y)));
 
@@ -149,19 +152,46 @@ symbol ce_higher [K A : Cat]
   [x y : τ (Obj K)]
   [p q : τ (Hom K x y)]
   (alpha : τ (Hom (Hom_cat K x y) p q))
-  : τ (Transf
+  : τ (Hom
+      (Functor_cart_cat (Fibre_cat (@ce_source K A B) x) (Fibre_cat B y))
       (@tapp1_fapp0
-        K Cat_cat (@ce_source K A B) B x y (@Eval_funcd K A B) p)
+        K Cat_cart (@ce_source K A B) B x y (@strict_transfor K Cat_cart (@ce_source K A B) B (@Eval_funcd K A B)) p)
       (@tapp1_fapp0
-        K Cat_cat (@ce_source K A B) B x y (@Eval_funcd K A B) q))
+        K Cat_cart (@ce_source K A B) B x y (@strict_transfor K Cat_cart (@ce_source K A B) B (@Eval_funcd K A B)) q))
 ≔ @fapp1_fapp0
     (Hom_cat K x y)
-    (Functor_cat (Fibre_cat (@ce_source K A B) x) (Fibre_cat B y))
-    (@tapp1_func K Cat_cat (@ce_source K A B) B x y (@Eval_funcd K A B))
+    (Functor_cart_cat (Fibre_cat (@ce_source K A B) x) (Fibre_cat B y))
+    (@tapp1_func K Cat_cart (@ce_source K A B) B x y (@strict_transfor K Cat_cart (@ce_source K A B) B (@Eval_funcd K A B)))
     p q alpha;
 
 assertnot [K : Cat] ⊢ Op_cat K ≡ K;
 `;
+
+const emittedConsumer = (): string => {
+    const e = new CoreCategoricalProgram({ sourceFile: 'native-evaluation.ts', profile: 'fibred-displayed-evaluation-1' });
+    const K = e.category('K'), A = e.category('A'), B = e.displayedFamily('B', K);
+    const stable = e.displayedFunctorFamily(A, B), constant = e.constantDisplayedFamily(K, A);
+    const evaluated = e.displayedContextLambda([{ name: 'F', family: stable }, { name: 'a', family: constant }],
+        B, ([F, a]) => e.apply(F, a));
+    const compiled = e.compile(evaluated);
+    const c = compileCoreCategoricalDisplayedEvaluationTransfer();
+    const pi = c.prerequisite, weaken = pi.prerequisite, transfd = weaken.prerequisite;
+    const binder = transfd.prerequisite, structure = binder.prerequisite, product = structure.prerequisite;
+    const comprehension = product.prerequisite, composition = comprehension.prerequisite;
+    const dependent = composition.dependent, structural = dependent.structural;
+    const modules = [structural.initialDeclarations, structural.compiled, dependent.compiled,
+        composition.compiled, comprehension.compiled, product.compiled, structure.compiled,
+        binder.compiled, transfd.compiled, weaken.compiled, pi.compiled, c.prerequisiteCompiled, c.compiled];
+    const references = Object.assign({}, ...modules.flatMap(module => [
+        module.externalFreeReferences, module.externalTransparentDefinitions
+    ]));
+    const serialize = (term: Parameters<typeof serializeKernelExpression>[0]) =>
+        serializeKernelExpression(term, { externalFreeReferences: references });
+    const emitted = `symbol K : Cat;\nsymbol A : Cat;\nsymbol B : τ (Catd K);\n` +
+        `assert ⊢ ${serialize(compiled.explicitTerm)} : ${serialize(compiled.expectedType)};`;
+    assert.doesNotMatch(emitted, /dttlf_|emdash_v3_2_/);
+    return emitted;
+};
 
 describe('DISPLAYED-EVAL-1A Lambdapi conformance', () => {
     it(
@@ -175,7 +205,7 @@ describe('DISPLAYED-EVAL-1A Lambdapi conformance', () => {
         () => {
             const result = checkLambdapiProbe(
                 {
-                    source,
+                    source: source + '\n' + emittedConsumer(),
                     sourceMap: []
                 },
                 {

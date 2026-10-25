@@ -116,10 +116,21 @@ older running/failed states and do not override it.
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes. Health's central check passed; the aggregate was stopped after45 observed90s timeouts, preserving receipts. | Measure representative import/consumer cost before restarting with justified profiles. A generated not-run report is not execution evidence. |
-| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations, weakening/reindexing and varying-base Pi now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with displayed evaluation, Homd/mixed profiles and final integration. |
+| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations, weakening/reindexing, varying-base Pi and displayed evaluation now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with displayed-chain and Homd/mixed profiles and final integration. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)
+
+The [displayed-evaluation frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_display_eval_review.md)
+now has11 passing focused tests and native conformance, plus typecheck/lint.
+`Functor_catd` exposes its Cartesian fibre. `Eval_funcd` retains its native
+strict carrier with an automatic ordinary view at the frontend composition
+site; terminal maps and general FF keep their ordinary interfaces. Native
+inferred-slot wildcards avoid matching the expanded product expression.
+The conformance check includes an actual emitted contextual evaluation term,
+both object consumers and higher action. Next are displayed-chain owner reuse,
+coefficient migration and the remaining mixed/Homd frontend; the full
+TypeScript and production-health integration gates remain open.
 
 The [varying-base Pi frontend slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_pi_review.md)
 is qualified at focused/native scope:6 consumer/demo tests,16 generic runtime

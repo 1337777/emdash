@@ -82,7 +82,7 @@ CORE_CATEGORICAL_DISPLAYED_EVALUATION_TRANSFER_REVISION =
 
 export const
 CORE_CATEGORICAL_DISPLAYED_EVALUATION_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -92,8 +92,8 @@ const objectClassifier =
     coreDirectedContinuationTransferSymbol('object-classifier');
 const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -118,6 +118,7 @@ const {
 
 const {
     functorCategory,
+    cartesianFunctorCategory,
     functorComposition,
     productCategory,
     productPair,
@@ -126,7 +127,9 @@ const {
 } = CORE_CATEGORICAL_STRUCTURAL_SYMBOLS;
 
 const {
-    internalProductFunctor
+    coefficientProductFunctor,
+    strictTransfor,
+    strictTransforView
 } = CORE_CATEGORICAL_FIBRED_PRODUCT_SYMBOLS;
 
 const {
@@ -269,6 +272,16 @@ const functorCategoryAt = (
         { plicity: 'explicit', value: target }
     ]);
 
+const cartesianFunctorCategoryAt = (
+    builder: CoreLfTransferScopedBuilder,
+    source: CoreLfTransferBuilderExpression,
+    target: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression =>
+    globalCall(builder, cartesianFunctorCategory, [
+        { plicity: 'explicit', value: source },
+        { plicity: 'explicit', value: target }
+    ]);
+
 const sectionCategoryAt = (
     builder: CoreLfTransferScopedBuilder,
     base: CoreLfTransferBuilderExpression,
@@ -370,15 +383,15 @@ const transparentDisplayedProduct = (
     left: CoreLfTransferBuilderExpression,
     right: CoreLfTransferBuilderExpression
 ): CoreLfTransferBuilderExpression => {
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const catProduct = productCategoryAt(builder, cat, cat);
-    const catEndofunctors = functorCategoryAt(builder, cat, cat);
+    const catEndofunctors = cartesianFunctorCategoryAt(builder, cat, cat);
     const uncurriedProduct = fapp0(
         builder,
-        functorCategoryAt(builder, cat, catEndofunctors),
-        functorCategoryAt(builder, catProduct, cat),
+        cartesianFunctorCategoryAt(builder, cat, catEndofunctors),
+        cartesianFunctorCategoryAt(builder, catProduct, cat),
         uncurryPackageAt(builder, cat, cat, cat),
-        builder.global(internalProductFunctor)
+        builder.global(coefficientProductFunctor)
     );
     const familyCategory = functorCategoryAt(builder, base, cat);
     return composeFunctors(
@@ -536,12 +549,12 @@ const displayedEvaluationType = (): CoreLfTransferExpression => {
             A => builder.pi(
                 'B',
                 displayedFamilyType(builder, K),
-                B => displayedFunctorType(
-                    builder,
-                    K,
-                    evaluationSource(builder, K, A, B),
-                    B
-                ),
+                B => decode(builder, globalCall(builder, strictTransfor, [
+                    { plicity: 'implicit', value: K },
+                    { plicity: 'implicit', value: builder.global(familyCoefficient) },
+                    { plicity: 'explicit', value: evaluationSource(builder, K, A, B) },
+                    { plicity: 'explicit', value: B }
+                ])),
                 explicitMode
             ),
             implicitMode
@@ -642,7 +655,8 @@ const prerequisiteExternalSymbols = Object.freeze([
     decodeOwner,
     objectClassifier,
     functorClassifier,
-    categoryOfCategories,
+    familyCoefficient,
+    cartesianFunctorCategory,
     displayedCategoryCategory,
     constantDisplayedFamily,
     sectionCategory,
@@ -779,7 +793,7 @@ const stableFunctorFamilyFibreRule =
     const A = builder.capture('A');
     const B = builder.capture('B');
     const k = builder.capture('k');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     return {
         order: 0,
         id:
@@ -820,13 +834,13 @@ const stableFunctorFamilyFibreRule =
             ]),
             k
         )),
-        right: builder.template(functorCategoryAt(
+        right: builder.template(cartesianFunctorCategoryAt(
             builder,
             fapp0(builder, opposite(builder, K), cat, A, k),
             fapp0(builder, K, cat, B, k)
         )),
         provenance: source(
-            'rule @fapp0 $K Cat_cat (@Functor_catd $K $A $B) $k'
+            'rule @fapp0 $K Cat_cart (@Functor_catd $K $A $B) $k'
         )
     };
 };
@@ -888,10 +902,13 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
 
 const evaluationExternalSymbols = Object.freeze([
     category,
+    strictTransfor,
+    strictTransforView,
     decodeOwner,
     objectClassifier,
     functorClassifier,
-    categoryOfCategories,
+    familyCoefficient,
+    cartesianFunctorCategory,
     displayedCategoryCategory,
     constantDisplayedFamily,
     functorObject,
@@ -904,7 +921,7 @@ const evaluationExternalSymbols = Object.freeze([
     productPair,
     evaluationFunctor,
     uncurryPackage,
-    internalProductFunctor,
+    coefficientProductFunctor,
     terminalCategory,
     stableFunctorFamily,
     terminalFunctor
@@ -1029,11 +1046,17 @@ const evaluationComponentRule =
         left: builder.pattern(tapp0At(
             builder,
             K,
-            builder.global(categoryOfCategories),
-            evaluationSource(builder, K, A, B),
-            B,
+            builder.global(familyCoefficient),
+            builder.wildcard(evaluationSource(builder, K, A, B)),
+            builder.wildcard(B),
             k,
-            displayedEvaluationAt(builder, K, A, B)
+            globalCall(builder, strictTransforView, [
+                { plicity: 'implicit', value: builder.wildcard(K) },
+                { plicity: 'implicit', value: builder.wildcard(builder.global(familyCoefficient)) },
+                { plicity: 'implicit', value: builder.wildcard(evaluationSource(builder, K, A, B)) },
+                { plicity: 'implicit', value: builder.wildcard(B) },
+                { plicity: 'explicit', value: displayedEvaluationAt(builder, K, A, B) }
+            ])
         )),
         right: builder.template(evaluationAt(
             builder,
@@ -1041,14 +1064,14 @@ const evaluationComponentRule =
             fapp0(
                 builder,
                 K,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 B,
                 k
             )
         )),
         provenance: source(
-            'rule @tapp0_fapp0 _ Cat_cat _ _ $k ' +
-                '(@Eval_funcd _ $A $B)'
+            'rule @tapp0_fapp0 _ Cat_cart _ _ $k ' +
+                '(@strict_transfor _ _ _ _ (@Eval_funcd _ $A $B))'
         )
     };
 };
@@ -1062,7 +1085,7 @@ const terminalComponentRule =
     const fibre = fapp0(
         builder,
         K,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         E,
         k
     );
@@ -1089,7 +1112,7 @@ const terminalComponentRule =
         left: builder.pattern(tapp0At(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             E,
             constantFamily(
                 builder,
@@ -1105,7 +1128,7 @@ const terminalComponentRule =
             [{ plicity: 'explicit', value: fibre }]
         )),
         provenance: source(
-            'rule @tapp0_fapp0 _ Cat_cat _ _ $k ' +
+            'rule @tapp0_fapp0 _ Cat_cart _ _ $k ' +
                 '(@Terminal_funcd _ $E)'
         )
     };

@@ -169,6 +169,17 @@ The complete TypeScript gate stops while loading the still-unmigrated
 its Cartesian Functor_catd fibre/evaluation/product signatures, then the
 remaining displayed and Homd/mixed profiles. This is not a full-suite pass.
 
+The [displayed-evaluation frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_display_eval_review.md)
+now has11 passing focused tests and native conformance, plus typecheck/lint.
+`Functor_catd` exposes its Cartesian fibre. `Eval_funcd` retains its native
+strict carrier with an automatic ordinary view at the frontend composition
+site; terminal maps and general FF keep their ordinary interfaces. Native
+inferred-slot wildcards avoid matching the expanded product expression.
+The conformance check includes an actual emitted contextual evaluation term,
+both object consumers and higher action. Next are displayed-chain owner reuse,
+coefficient migration and the remaining mixed/Homd frontend; the full
+TypeScript and production-health integration gates remain open.
+
 ## Varying-base Pi: selected subject-checking extension
 
 The native Pi component is the whole composite `Pi_func(K) ∘

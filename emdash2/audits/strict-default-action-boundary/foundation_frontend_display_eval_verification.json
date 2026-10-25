@@ -1,0 +1,85 @@
+{
+  "status": "displayed evaluation qualified at focused/native scope; remaining frontend integration open",
+  "previousCheckpoint": "a8b56376",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "scope": {
+    "prerequisiteDeclarations": 3,
+    "ownerDeclarations": 2,
+    "runtimeRules": 3
+  },
+  "nativeInputHashes": {
+    "src/v3_2/categorical_displayed_evaluation_transfer.ts": "38a2df8f67850f6c75c266cad45db4237b1d67f49fd64d94f3ac831d9f0e7a9c",
+    "src/v3_2/categorical_surface.ts": "c28c6dec9e79b22a79481713badcfa6ef774bfbfc725463f0d87f60303741908",
+    "tests/v3_2_categorical_displayed_evaluation_conformance_tests.ts": "5a79d7001d0d099413ce72c245cbec8074a3557c7e72999b47be8fad23a03504"
+  },
+  "currentTypescriptInputs": {
+    "src/v3_2/categorical_displayed_evaluation_demo.ts": "ec573318ff639f5779273ea849f9d44b479313ac82e6e0b22756780a8134d7f4",
+    "src/v3_2/categorical_displayed_evaluation_transfer.ts": "8e8b6d87113a857248d192ce3e917a3da467e67c21ab82f84bca6292ded85032",
+    "src/v3_2/categorical_surface.ts": "c28c6dec9e79b22a79481713badcfa6ef774bfbfc725463f0d87f60303741908",
+    "tests/v3_2_categorical_displayed_evaluation_conformance_tests.ts": "5a79d7001d0d099413ce72c245cbec8074a3557c7e72999b47be8fad23a03504",
+    "tests/v3_2_categorical_displayed_evaluation_tests.ts": "1bfc822cd385dd7493ae79f6facc39523f281cf1d93f05d9c6544ac50cb11e23"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261025T192535Z-e9f4e45c7afc4c4da755750b4a75c547",
+      "target": "tmp/elab0-c16lQC/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 36.32641175808385,
+      "childrenMaxRssKiB": 168556,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "97f2d597fd91d706a76695cce25a723a5c490123d428e77196e19b4082306260",
+      "log": "logs/check-runs/20261025T192535Z-e9f4e45c7afc4c4da755750b4a75c547.log",
+      "logSha256": "b983bc90fa0e424647ec5c489f74aa45597f9d15cd64096d63a27bcf3052897b",
+      "receiptFile": "emdash2/logs/check-runs/20261025T192535Z-e9f4e45c7afc4c4da755750b4a75c547.json",
+      "receiptSha256": "43be95c30c5df2d3992f549c41105a74679c5ea01d928754e26217e605d1dd58"
+    }
+  ],
+  "changes": [
+    "Functor_catd fibre is Cartesian mapping category",
+    "family/product formation uses Cat_cart and Product_cat_coeff_func",
+    "Eval_funcd retains native strict transformation type; frontend inserts its ordinary view automatically",
+    "higher native action check uses the actual Cartesian Hom carrier"
+  ],
+  "checks": {
+    "native": "passed including actual emitted frontend consumer, higher action and variance",
+    "focused": "11 passed, including native-pattern wildcard cleanup",
+    "typecheckAndLint": "passed; later edit only native inferred-slot wildcard patterns, recompiled by focused tests"
+  },
+  "earlierFailure": "wave180: 7 focused passes; old ordinary-fibre assertions/demo and source pin fail. Actual native conformance then passes; expectations/pin reviewed and updated.",
+  "postNativeChanges": "reviewed source pin, demo wording, correct Cartesian fibre expectation/non-collapse and native inferred-slot wildcard pattern cleanup; actual projection terms and emitted native consumer unchanged",
+  "remaining": [
+    "displayed-chain owner reuse and coefficient migration",
+    "mixed/Homd frontend migration",
+    "complete TypeScript/production health/integration gates"
+  ],
+  "outputHashes": {
+    "wave181_display_eval_native.out": "1fbbab657ba44c353eb9539c9d58c44112ff4ffdba64c1cce66891a8f927f635",
+    "wave182_display_eval_final.out": "dba3dc45dea7d00c1e7fd34bbdd18b3b38f9077a61faff4141b9e5ed97bc7916",
+    "wave183_display_eval_types_lint.out": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39",
+    "wave184_display_eval_pattern.out": "7bd4c5788ef2626c3d964deca19497902c9953d12318bc3bd3e398d31a694a11"
+  }
+}
