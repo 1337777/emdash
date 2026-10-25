@@ -1,0 +1,28 @@
+{
+  "status": "all74 complete foundational reviewers pass; broader shared-source qualification pending",
+  "parentCheckpoint": "4f6d8469",
+  "files": {
+    "path_induction_transitivity": {
+      "sourceSha256": "ef193bc5f82c0f52402d05d2735374ed29760c1d1d7d601ae63decee8364ddb3",
+      "candidateSha256": "b2fe484f13d937ee43ffca52280d26608471349b18e2775fc11e90a26776d76c",
+      "occurrences": 2
+    },
+    "prof_reindex_components": {
+      "sourceSha256": "d3bb82d521859347a5e6c05a7c39e0290b7937451d56f9c06b2d4a07e077c4cd",
+      "candidateSha256": "32a6dcf77e15a93d1a7453648a47a8caaff1336792e0547ac4bbd6c8857b0f23",
+      "occurrences": 13
+    },
+    "sigma_recursive_hom_action": {
+      "sourceSha256": "b3793356a512a3f0ab27c23fdf1d9bdd15185b8943aad2207cabc81fc1e00583",
+      "candidateSha256": "8a987b7f11008aaf6af3f446f3d14418d0b97a317763eda89fc16ebed52ecf9b",
+      "before": " \u2261 @Op_func\n   (@Sigma_cat (Op_cat (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x u y v))\n   (Op_cat (Hom_cat K x y))\n   (@Sigma_proj1_func (Op_cat (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x u y v));",
+      "after": " \u2261 @TotalOp_func\n   (@Sigma_cat (TotalOp_cat (Hom_cat K x y))\n     (@TotalOp_catd (Op_cat (Hom_cat K x y))\n       (@homd_ K E E (@id_funcd K E) x u y v)))\n   (TotalOp_cat (Hom_cat K x y))\n   (@Sigma_proj1_func (TotalOp_cat (Hom_cat K x y))\n     (@TotalOp_catd (Op_cat (Hom_cat K x y))\n       (@homd_ K E E (@id_funcd K E) x u y v)));"
+    },
+    "walking_arrow_introduction": {
+      "sourceSha256": "0e034cccbcaf676f758d86da151211e812f11620fa0037e26ed16af2a50baf91",
+      "candidateSha256": "9ebb4daf4f42855038d10cee2e7241a6c27c33a768ca884fd669b0dbeb538456",
+      "before": "  \u22a2 @tapp0_fapp0 (Functor_cat WalkingArrow_cat C) C\n      (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src)\n      (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt)",
+      "after": "  \u22a2 @tapp0_fapp0 (OddDual_cat (Functor_cat WalkingArrow_cat C)) (OddDual_cat C)\n      (@OddDual_func (Functor_cat WalkingArrow_cat C) C\n        (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt))\n      (@OddDual_func (Functor_cat WalkingArrow_cat C) C\n        (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src))"
+    }
+  }
+}

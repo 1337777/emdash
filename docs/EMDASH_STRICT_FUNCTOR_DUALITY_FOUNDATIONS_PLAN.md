@@ -75,6 +75,25 @@ rewriting and automatic branch merging remain unauthorized.
 
 ### Current migration tranche
 
+The complete **74 original foundational reviewers now pass**, preserving every
+original assertion. The [review](../emdash2/audits/strict-default-action-boundary/foundation_reviewers_complete_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/foundation_reviewers_complete_verification.json)
+record 653 positives/160 negatives and all 143 checked inputs. The final delta
+corrects family coefficients, the recursive Sigma negative's total-dual type,
+and the walking-arrow oplax evaluation annotations. It changes no semantic
+owner or assertion polarity. The cold source run passes in 139.029s/595,052KiB
+under 300s/2GiB/o=20, with subject reduction and unchanged warning bodies.
+
+The final 15 original reviewer sources are unchanged and prepared with their
+404-input import closure. Their aggregate is running under explicit 900s/4GiB:
+the existing 245-input core regression measured 771.773s/2,631,900KiB, and these
+native reviewers include previously selected 3GiB targets. Available memory
+before launch was 19,482MiB. This is measured aggregate headroom, not a change
+to defaults or a completed result. Verify the live run/receipt before resuming;
+the ignored `tmp/probes/kernel_boundary_continuation/current_run.json` locates
+it. Shared-source qualification and final adoption remain required before
+increasing the consolidated production-emitter counts.
+
 Checkpoint `bc13656f` records the four-reviewer follow-up and passing cold core
 regression below. The next
 [family-reviewer continuation](../emdash2/audits/strict-default-action-boundary/foundation_family_reviewer_review.md)
