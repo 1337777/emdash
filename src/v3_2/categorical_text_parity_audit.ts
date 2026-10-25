@@ -148,6 +148,7 @@ const capabilities = [
             'displayedFunctorCategory',
             'displayedTransforCategory',
             'functorCategory',
+            'cartesianFunctorCategory',
             'homCategory',
             'productCategory',
             'pullbackFamily',
@@ -757,7 +758,7 @@ const rawAudit = {
     },
     capabilities,
     measuredCoverage: {
-        publicProgramMethods: 86,
+        publicProgramMethods: 87,
         capabilityRows: 15,
         classificationRows: {
             alreadyTextComplete: 1,

@@ -53,7 +53,7 @@ export const CORE_CATEGORICAL_DEPENDENT_TRANSFER_REVISION =
     'USABILITY-2A0-CLOSED-DISPLAYED-APPLICATION-1' as const;
 
 export const CORE_CATEGORICAL_DEPENDENT_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -65,8 +65,8 @@ const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
 const homClassifier =
     coreDirectedContinuationTransferSymbol('hom-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -216,7 +216,7 @@ const fibreCategory = (
 ): CoreLfTransferBuilderExpression =>
     globalCall(builder, functorObject, [
         { plicity: 'implicit', value: base },
-        { plicity: 'implicit', value: builder.global(categoryOfCategories) },
+        { plicity: 'implicit', value: builder.global(familyCoefficient) },
         { plicity: 'explicit', value: family },
         { plicity: 'explicit', value: point }
     ]);
@@ -363,7 +363,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         objectClassifier,
         functorClassifier,
         homClassifier,
-        categoryOfCategories,
+        familyCoefficient,
         displayedCategoryCategory,
         displayedFunctorCategory,
         functorObject

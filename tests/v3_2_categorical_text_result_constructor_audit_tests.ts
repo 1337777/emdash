@@ -67,6 +67,7 @@ describe('SYNTAX-PARITY-1C3 result-constructor audit', () => {
                 'totalCategory',
                 'displayedTransforCategory',
                 'functorCategory',
+                'cartesianFunctorCategory',
                 'productCategory',
                 'pullbackFamily',
                 'substituteFamily'
@@ -108,11 +109,11 @@ describe('SYNTAX-PARITY-1C3 result-constructor audit', () => {
             CORE_CATEGORICAL_TEXT_RESULT_CONSTRUCTOR_AUDIT;
         assert.equal(
             audit.measuredBoundary.directMethodCount,
-            13
+            14
         );
         assert.equal(
             audit.measuredBoundary.canonicalTextHeadCount,
-            12
+            13
         );
         assert.deepEqual(
             audit.measuredBoundary.normalizedAlias,

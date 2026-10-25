@@ -121,6 +121,17 @@ older running/failed states and do not override it.
 
 #### Migration evidence chronology (newest entries first)
 
+The [frontend Cartesian structural slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_structural_review.md)
+qualifies the existing structural maps at their native mapping categories.
+Joint evaluation requires Cart, while fixed-argument evaluation retains the
+ordinary lax mapping category through the existing native `fapp0_func`.
+The two closed-fibre declarations also use the selected family coefficient.
+Focused tests are28 passed; three native tests execute five guarded checks,
+including actual emitted terms and negative controls. Typecheck/lint pass.
+The broader constructor/review scope records31 passes and two failures at
+unmigrated displayed-family views and Sigma-arrow data. F03 owns these
+concrete remaining consumers; the full TypeScript gate remains incomplete.
+
 The [frontend coefficient/telescope slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_coefficient_review.md)
 now passes its focused and native checks. The new `Cat_cart` declaration is
 part of continuation data; public `Cat_cat`, generic checking machinery and

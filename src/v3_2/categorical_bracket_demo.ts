@@ -59,8 +59,8 @@ CoreCategoricalBracketDemoResult {
     const A = emdash.category('demo_A', { line: 59 });
     const B = emdash.category('demo_B', { line: 60 });
     const C = emdash.category('demo_C', { line: 61 });
-    const functorsBC = emdash.functorCategory(B, C, { line: 62 });
-    const functorsAC = emdash.functorCategory(A, C, { line: 63 });
+    const functorsBC = emdash.cartesianFunctorCategory(B, C, { line: 62 });
+    const functorsAC = emdash.cartesianFunctorCategory(A, C, { line: 63 });
     const H = emdash.functor(
         'demo_H',
         A,

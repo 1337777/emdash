@@ -5,10 +5,10 @@
  * transfer compiler. It does not extend the frozen intrinsic owner catalog
  * and it does not install TypeScript-only computation. Transparent candidate
  * Lambdapi definitions are imported opaquely for this first bracket slice;
- * the exact supporting `Functor` classifier equation and one product-functor
- * normalization are installed through the generic engines because typed
- * pairing requires them. Remaining bodies and rules stay conformance
- * authority.
+ * the supporting `Functor` classifier and ordinary/Cartesian object and
+ * product projections are installed through the generic engines. Remaining
+ * bodies and rules stay conformance authority. Fixed evaluation preserves
+ * the ordinary lax mapping-category consumer during the migration.
  */
 
 import {
@@ -62,7 +62,7 @@ export const CORE_CATEGORICAL_STRUCTURAL_TRANSFER_REVISION =
     'USABILITY-1C-CATEGORICAL-STRUCTURAL-SIGNATURES-1' as const;
 
 export const CORE_CATEGORICAL_STRUCTURAL_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -78,6 +78,8 @@ const functorClassifier =
 export const CORE_CATEGORICAL_STRUCTURAL_SYMBOLS = Object.freeze({
     functorCategory:
         coreLfQualifiedSymbol(MODULE_ID, 'Functor_cat'),
+    cartesianFunctorCategory:
+        coreLfQualifiedSymbol(MODULE_ID, 'Functor_cart_cat'),
     identityFunctor:
         coreLfQualifiedSymbol(MODULE_ID, 'id_func'),
     functorComposition:
@@ -94,6 +96,8 @@ export const CORE_CATEGORICAL_STRUCTURAL_SYMBOLS = Object.freeze({
         coreLfQualifiedSymbol(MODULE_ID, 'Product_map_func'),
     evaluationFunctor:
         coreLfQualifiedSymbol(MODULE_ID, 'Eval_func'),
+    fixedEvaluationFunctor:
+        coreLfQualifiedSymbol(MODULE_ID, 'fapp0_func'),
     curryPackage:
         coreLfQualifiedSymbol(MODULE_ID, 'curry_func_func'),
     uncurryPackage:
@@ -108,6 +112,7 @@ export const CORE_CATEGORICAL_STRUCTURAL_SYMBOLS = Object.freeze({
 
 const {
     functorCategory,
+    cartesianFunctorCategory,
     identityFunctor,
     functorComposition,
     productCategory,
@@ -116,6 +121,7 @@ const {
     productRightProjection,
     productMap,
     evaluationFunctor,
+    fixedEvaluationFunctor,
     curryPackage,
     uncurryPackage,
     constantFunctorAbstraction,
@@ -134,6 +140,7 @@ export type CoreCategoricalStructuralPrerequisiteId =
     | 'product-pair'
     | 'product-map'
     | 'evaluation-functor'
+    | 'fixed-evaluation-functor'
     | 'functor-composition'
     | 'curry-package'
     | 'uncurry-package';
@@ -147,11 +154,17 @@ export interface CoreCategoricalStructuralTransferPrerequisite {
 }
 
 /**
- * The thirteen prerequisites frozen by USABILITY-1A. `Functor_cat` is a
- * separate classifier dependency needed to state their exact signatures.
+ * The original thirteen structural prerequisites plus native fixed
+ * evaluation. Mapping-category classifiers are separate dependencies of
+ * their exact signatures.
  */
 const structuralPrerequisites:
 readonly CoreCategoricalStructuralTransferPrerequisite[] = [
+    {
+        id: 'fixed-evaluation-functor',
+        symbol: fixedEvaluationFunctor,
+        activeAuthority: 'active-primitive'
+    },
     {
         id: 'identity-functor',
         symbol: identityFunctor,
@@ -286,6 +299,16 @@ const functorCategoryAt = (
     target: CoreLfTransferBuilderExpression
 ): CoreLfTransferBuilderExpression =>
     globalCall(builder, functorCategory, [
+        { plicity: 'explicit', value: source },
+        { plicity: 'explicit', value: target }
+    ]);
+
+const cartesianFunctorCategoryAt = (
+    builder: CoreLfTransferScopedBuilder,
+    source: CoreLfTransferBuilderExpression,
+    target: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression =>
+    globalCall(builder, cartesianFunctorCategory, [
         { plicity: 'explicit', value: source },
         { plicity: 'explicit', value: target }
     ]);
@@ -507,7 +530,7 @@ const evaluationFunctorType = (): CoreLfTransferExpression => {
                 builder,
                 productCategoryAt(
                     builder,
-                    functorCategoryAt(builder, A, B),
+                    cartesianFunctorCategoryAt(builder, A, B),
                     A
                 ),
                 B
@@ -516,6 +539,17 @@ const evaluationFunctorType = (): CoreLfTransferExpression => {
         ),
         implicitMode
     ));
+};
+
+const fixedEvaluationFunctorType = (): CoreLfTransferExpression => {
+    const builder = new CoreLfTransferScopedBuilder();
+    return builder.term(builder.pi('A', builder.global(category), A =>
+        builder.pi('B', builder.global(category), B =>
+            builder.pi('x', objectType(builder, A), _x =>
+                functorType(builder, functorCategoryAt(builder, A, B), B),
+            explicitMode),
+        implicitMode),
+    implicitMode));
 };
 
 const curryPackageType = (
@@ -532,15 +566,15 @@ const curryPackageType = (
                 'C',
                 builder.global(category),
                 C => {
-                    const uncurried = functorCategoryAt(
+                    const uncurried = cartesianFunctorCategoryAt(
                         builder,
                         productCategoryAt(builder, A, B),
                         C
                     );
-                    const curried = functorCategoryAt(
+                    const curried = cartesianFunctorCategoryAt(
                         builder,
                         A,
-                        functorCategoryAt(builder, B, C)
+                        cartesianFunctorCategoryAt(builder, B, C)
                     );
                     return direction === 'curry'
                         ? functorType(builder, uncurried, curried)
@@ -566,7 +600,7 @@ const constantFunctorAbstractionType =
             B => functorType(
                 builder,
                 B,
-                functorCategoryAt(builder, A, B)
+                cartesianFunctorCategoryAt(builder, A, B)
             ),
             implicitMode
         ),
@@ -588,15 +622,15 @@ const exchangeFunctorAbstractionType =
                 builder.global(category),
                 C => functorType(
                     builder,
-                    functorCategoryAt(
+                    cartesianFunctorCategoryAt(
                         builder,
                         A,
-                        functorCategoryAt(builder, B, C)
+                        cartesianFunctorCategoryAt(builder, B, C)
                     ),
-                    functorCategoryAt(
+                    cartesianFunctorCategoryAt(
                         builder,
                         B,
-                        functorCategoryAt(builder, A, C)
+                        cartesianFunctorCategoryAt(builder, A, C)
                     )
                 ),
                 implicitMode
@@ -618,12 +652,12 @@ const diagonalFunctorAbstractionType =
             builder.global(category),
             C => functorType(
                 builder,
-                functorCategoryAt(
+                cartesianFunctorCategoryAt(
                     builder,
                     A,
-                    functorCategoryAt(builder, A, C)
+                    cartesianFunctorCategoryAt(builder, A, C)
                 ),
-                functorCategoryAt(builder, A, C)
+                cartesianFunctorCategoryAt(builder, A, C)
             ),
             implicitMode
         ),
@@ -670,6 +704,16 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
     },
     {
         order: 2,
+        symbol: cartesianFunctorCategory,
+        type: functorCategoryType(),
+        body: coreLfTransferAbsentBody(),
+        modifiers: publicModifiers('injective', 'opaque'),
+        provenance: source(
+            'injective symbol Functor_cart_cat (A B : Cat) : Cat;'
+        )
+    },
+    {
+        order: 3,
         symbol: identityFunctor,
         type: identityFunctorType(),
         body: coreLfTransferAbsentBody(),
@@ -679,7 +723,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 3,
+        order: 4,
         symbol: functorComposition,
         type: functorCompositionType(),
         body: coreLfTransferAbsentBody(),
@@ -689,7 +733,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 4,
+        order: 5,
         symbol: productCategory,
         type: productCategoryType(),
         body: coreLfTransferAbsentBody(),
@@ -699,7 +743,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 5,
+        order: 6,
         symbol: productPair,
         type: productPairType(),
         body: coreLfTransferAbsentBody(),
@@ -709,7 +753,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 6,
+        order: 7,
         symbol: productLeftProjection,
         type: productProjectionType('left'),
         body: coreLfTransferAbsentBody(),
@@ -719,7 +763,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 7,
+        order: 8,
         symbol: productRightProjection,
         type: productProjectionType('right'),
         body: coreLfTransferAbsentBody(),
@@ -729,7 +773,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 8,
+        order: 9,
         symbol: productMap,
         type: productMapType(),
         body: coreLfTransferAbsentBody(),
@@ -739,7 +783,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 9,
+        order: 10,
         symbol: evaluationFunctor,
         type: evaluationFunctorType(),
         body: coreLfTransferAbsentBody(),
@@ -749,7 +793,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 10,
+        order: 11,
         symbol: curryPackage,
         type: curryPackageType('curry'),
         body: coreLfTransferAbsentBody(),
@@ -759,7 +803,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 11,
+        order: 12,
         symbol: uncurryPackage,
         type: curryPackageType('uncurry'),
         body: coreLfTransferAbsentBody(),
@@ -769,7 +813,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 12,
+        order: 13,
         symbol: constantFunctorAbstraction,
         type: constantFunctorAbstractionType(),
         body: coreLfTransferAbsentBody(),
@@ -779,7 +823,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 13,
+        order: 14,
         symbol: exchangeFunctorAbstraction,
         type: exchangeFunctorAbstractionType(),
         body: coreLfTransferAbsentBody(),
@@ -789,7 +833,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         )
     },
     {
-        order: 14,
+        order: 15,
         symbol: diagonalFunctorAbstraction,
         type: diagonalFunctorAbstractionType(),
         body: coreLfTransferAbsentBody(),
@@ -797,6 +841,14 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         provenance: source(
             'symbol diag_func_func [A C : Cat]'
         )
+    },
+    {
+        order: 16,
+        symbol: fixedEvaluationFunctor,
+        type: fixedEvaluationFunctorType(),
+        body: coreLfTransferAbsentBody(),
+        modifiers: publicModifiers('ordinary', 'opaque'),
+        provenance: source('symbol fapp0_func : Π [A B : Cat],')
     }
 ];
 
@@ -824,7 +876,8 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
 });
 
 const productFunctorNormalizationRule =
-(): CoreLfTransferRuntimeRule => {
+(mappingCategory: CoreLfQualifiedSymbol = functorCategory,
+    order = 0): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
     const X = builder.capture('X');
     const A = builder.capture('A');
@@ -835,15 +888,19 @@ const productFunctorNormalizationRule =
         capture
     })).map(({ name, type }) => ({ name, type }));
     return {
-        order: 0,
-        id: 'categorical.product-functor.normalize',
-        groupId: 'categorical.product-functor',
+        order,
+        id: mappingCategory === functorCategory
+            ? 'categorical.product-functor.normalize'
+            : 'categorical.product-cartesian-functor.normalize',
+        groupId: mappingCategory === functorCategory
+            ? 'categorical.product-functor'
+            : 'categorical.product-cartesian-functor',
         clauseOrder: 0,
-        sourceOwner: functorCategory,
+        sourceOwner: mappingCategory,
         variables,
         left: builder.pattern(globalCall(
             builder,
-            functorCategory,
+            mappingCategory,
             [
                 { plicity: 'explicit', value: X },
                 {
@@ -867,7 +924,7 @@ const productFunctorNormalizationRule =
                     plicity: 'explicit',
                     value: globalCall(
                         builder,
-                        functorCategory,
+                        mappingCategory,
                         [
                             { plicity: 'explicit', value: X },
                             { plicity: 'explicit', value: A }
@@ -878,7 +935,7 @@ const productFunctorNormalizationRule =
                     plicity: 'explicit',
                     value: globalCall(
                         builder,
-                        functorCategory,
+                        mappingCategory,
                         [
                             { plicity: 'explicit', value: X },
                             { plicity: 'explicit', value: B }
@@ -888,13 +945,39 @@ const productFunctorNormalizationRule =
             ]
         )),
         provenance: source(
-            'rule Functor_cat $X (Product_cat $A $B)'
+            `rule ${mappingCategory.name} $X (Product_cat $A $B)`
         )
     };
 };
 
+const cartesianFunctorObjectsRule = (): CoreLfTransferRuntimeRule => {
+    const builder = new CoreLfTransferScopedBuilder();
+    const A = builder.capture('A');
+    const B = builder.capture('B');
+    return {
+        order: 1,
+        id: 'categorical.cartesian-functor.objects',
+        groupId: 'categorical.cartesian-functor-objects',
+        clauseOrder: 0,
+        sourceOwner: objectClassifier,
+        variables: ['A', 'B'].map(name => ({
+            name, type: builder.template(builder.global(category))
+        })),
+        left: builder.pattern(globalCall(builder, objectClassifier, [{
+            plicity: 'explicit', value: cartesianFunctorCategoryAt(builder, A, B)
+        }])),
+        right: builder.template(globalCall(builder, functorClassifier, [
+            { plicity: 'explicit', value: A },
+            { plicity: 'explicit', value: B }
+        ])),
+        provenance: source('rule Obj (Functor_cart_cat $A $B) ↪ Functor $A $B;')
+    };
+};
+
 const structuralRuntimeRules = Object.freeze([
-    productFunctorNormalizationRule()
+    productFunctorNormalizationRule(),
+    cartesianFunctorObjectsRule(),
+    productFunctorNormalizationRule(cartesianFunctorCategory, 2)
 ]);
 
 export const CORE_CATEGORICAL_STRUCTURAL_RUNTIME_MODULE:
@@ -909,6 +992,9 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     externalSymbols: [
         category,
         functorCategory,
+        cartesianFunctorCategory,
+        functorClassifier,
+        objectClassifier,
         productCategory
     ].map(symbol => ({
         symbol,
@@ -936,8 +1022,8 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
             },
             policy: 'runtime-rewrite' as const,
             evidence:
-                'Exact active v3.2 product-valued functor normalization ' +
-                'required by typed Product_pair bracket lowering'
+                'Exact native mapping-category object/product projection ' +
+                'required by the Cartesian structural consumer'
         }))
     }
 );
@@ -1039,9 +1125,10 @@ Object.freeze({
     status: 'root-only-signature-transfer',
     prerequisiteCount:
         CORE_CATEGORICAL_STRUCTURAL_PREREQUISITES.length,
-    supportDeclarationCount: 2,
+    supportDeclarationCount: 3,
     supportDeclarations: Object.freeze([
         functorCategory,
+        cartesianFunctorCategory,
         functorClassifier
     ]),
     allCandidateDeclarationsUseGenericCompiler: true,

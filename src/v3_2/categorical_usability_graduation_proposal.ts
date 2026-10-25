@@ -22,6 +22,10 @@ import {
 } from './categorical_surface_spec';
 
 export interface CoreCategoricalUsabilityGraduationProposalInput {
+    readonly foundationMigration: {
+        readonly plan: 'docs/EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md';
+        readonly change: 'Cartesian structure with retained ordinary fixed evaluation';
+    };
     readonly revision: 'USABILITY-GRADUATE-1';
     readonly status:
         'proposal-awaiting-h-dttlf-usability-graduate';
@@ -139,7 +143,7 @@ export interface CoreCategoricalUsabilityGraduationProposalInput {
             'natural-displayed-section-eta',
             'eta-evidence-and-prerequisite-retention'
         ];
-        readonly structuralPrerequisiteCount: 13;
+        readonly structuralPrerequisiteCount: 14;
         readonly transferredDisplayedPrerequisiteCount: 2;
         readonly checkerOrEvaluatorOwnerSpecialCases: 0;
     };
@@ -279,6 +283,10 @@ const sameData = (left: unknown, right: unknown): boolean =>
     JSON.stringify(left) === JSON.stringify(right);
 
 const rawProposal: CoreCategoricalUsabilityGraduationProposalInput = {
+    foundationMigration: {
+        plan: 'docs/EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md',
+        change: 'Cartesian structure with retained ordinary fixed evaluation'
+    },
     revision: 'USABILITY-GRADUATE-1',
     status: 'proposal-awaiting-h-dttlf-usability-graduate',
     reviewGate: 'H-DTTLF-USABILITY-GRADUATE',
@@ -395,7 +403,7 @@ const rawProposal: CoreCategoricalUsabilityGraduationProposalInput = {
             'natural-displayed-section-eta',
             'eta-evidence-and-prerequisite-retention'
         ],
-        structuralPrerequisiteCount: 13,
+        structuralPrerequisiteCount: 14,
         transferredDisplayedPrerequisiteCount: 2,
         checkerOrEvaluatorOwnerSpecialCases: 0
     },

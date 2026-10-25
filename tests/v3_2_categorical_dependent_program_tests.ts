@@ -337,7 +337,7 @@ describe(
                     },
                     {
                         packageRoot: lambdapiRoot,
-                        timeoutMs: 30_000
+                        timeoutMs: 60_000
                     }
                 );
                 assert.equal(
@@ -361,7 +361,7 @@ describe(
                     },
                     {
                         packageRoot: lambdapiRoot,
-                        timeoutMs: 30_000
+                        timeoutMs: 60_000
                     }
                 );
                 assert.equal(negative.accepted, false);

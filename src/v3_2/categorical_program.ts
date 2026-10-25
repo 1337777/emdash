@@ -713,6 +713,11 @@ categoricalLabels[
         CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory
     )
 ] = 'emdash.categorical.functor-category';
+categoricalLabels[
+    coreCategoricalStructuralSymbolCoreName(
+        CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
+    )
+] = 'emdash.categorical.cartesian-functor-category';
 for (const prerequisite of CORE_CATEGORICAL_DEPENDENT_PREREQUISITES) {
     categoricalLabels[
         coreCategoricalDependentCoreName(prerequisite.id)
@@ -1759,13 +1764,13 @@ export class CoreCategoricalProgram {
     private functorCategoryExpression(
         sourceCategory: KernelExpression,
         targetCategory: KernelExpression,
-        nodeProvenance: Provenance
+        nodeProvenance: Provenance,
+        mappingCategory = CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory
     ): KernelExpression {
         return kernelCall(
             kernelFree(
                 coreCategoricalStructuralSymbolCoreName(
-                    CORE_CATEGORICAL_STRUCTURAL_SYMBOLS
-                        .functorCategory
+                    mappingCategory
                 ),
                 nodeProvenance
             ),
@@ -6082,6 +6087,25 @@ export class CoreCategoricalProgram {
                     }
                 ],
                 nodeProvenance
+            )
+        );
+    }
+
+    /** Mapping category with strict transformations, for Cartesian structural maps. */
+    cartesianFunctorCategory(
+        sourceValue: CoreCategoricalCategory,
+        targetValue: CoreCategoricalCategory,
+        source?: CoreCategoricalSourceSite
+    ): CoreCategoricalCategory {
+        const nodeProvenance = this.at('Cartesian functor category', source);
+        const sourceCategory = this.requireCategory(sourceValue, nodeProvenance);
+        const targetCategory = this.requireCategory(targetValue, nodeProvenance);
+        return this.makeCategory(
+            `Cart(${sourceCategory.label}, ${targetCategory.label})`,
+            this.functorCategoryExpression(
+                sourceCategory.expression, targetCategory.expression,
+                nodeProvenance,
+                CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
             )
         );
     }

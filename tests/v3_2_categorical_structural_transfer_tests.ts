@@ -62,6 +62,7 @@ describe(
                     entry => entry.id
                 ),
                 [
+                    'fixed-evaluation-functor',
                     'identity-functor',
                     'constant-functor-abstraction',
                     'exchange-functor-abstraction',
@@ -84,6 +85,7 @@ describe(
                 [
                     'Functor_cat',
                     'Functor',
+                    'Functor_cart_cat',
                     'id_func',
                     'comp_cat_fapp0',
                     'Product_cat',
@@ -96,7 +98,8 @@ describe(
                     'uncurry_func_func',
                     'Const_func_func',
                     'sym_func_func',
-                    'diag_func_func'
+                    'diag_func_func',
+                    'fapp0_func'
                 ]
             );
             assert.equal(
@@ -114,12 +117,12 @@ describe(
             );
             assert.equal(
                 CORE_CATEGORICAL_STRUCTURAL_TRANSFER_LINKAGE.entries.length,
-                19
+                21
             );
             assert.equal(
                 CORE_CATEGORICAL_STRUCTURAL_TRANSFER_BOUNDARY
                     .supportDeclarationCount,
-                2
+                3
             );
             assertDeepFrozen(
                 CORE_CATEGORICAL_STRUCTURAL_PREREQUISITES
@@ -143,19 +146,19 @@ describe(
                 compileCoreCategoricalStructuralTransfer();
             assert.equal(
                 compilation.compiled.initialDeclarationCount,
-                9
+                10
             );
             assert.equal(
                 compilation.initialDeclarations.declarations.length,
-                29
+                30
             );
             assert.equal(
                 compilation.compiled.declarations.length,
-                15
+                17
             );
             assert.equal(
                 compilation.compiled.environment.declarations.length,
-                23
+                26
             );
             assert.equal(
                 compilation.compiled.declarations[1].status,
@@ -207,21 +210,29 @@ describe(
             assert.deepEqual(
                 CORE_CATEGORICAL_STRUCTURAL_RUNTIME_MODULE.runtimeRules
                     .map(rule => rule.id),
-                ['categorical.product-functor.normalize']
+                [
+                    'categorical.product-functor.normalize',
+                    'categorical.cartesian-functor.objects',
+                    'categorical.product-cartesian-functor.normalize'
+                ]
             );
             assert.deepEqual(
                 CORE_CATEGORICAL_STRUCTURAL_RUNTIME_POLICY.entries.map(
                     entry => entry.policy
                 ),
-                ['runtime-rewrite']
+                ['runtime-rewrite', 'runtime-rewrite', 'runtime-rewrite']
             );
             assert.deepEqual(
                 compilation.runtime.ruleIds,
-                ['categorical.product-functor.normalize']
+                [
+                    'categorical.product-functor.normalize',
+                    'categorical.cartesian-functor.objects',
+                    'categorical.product-cartesian-functor.normalize'
+                ]
             );
             assert.equal(
                 compilation.composedRuntime.ruleIds.slice(-1)[0],
-                'categorical.product-functor.normalize'
+                'categorical.product-cartesian-functor.normalize'
             );
 
             const source = provenance(
@@ -349,7 +360,7 @@ describe(
             assert.equal(
                 CORE_CATEGORICAL_STRUCTURAL_RUNTIME_MODULE.runtimeRules
                     .length,
-                1
+                3
             );
             assert.deepEqual(
                 CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE.proofRules,

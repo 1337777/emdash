@@ -3210,12 +3210,13 @@ export class CoreCategoricalScopedBuilder {
     private functorCategory(
         sourceCategory: KernelExpression,
         targetCategory: KernelExpression,
-        nodeProvenance: Provenance
+        nodeProvenance: Provenance,
+        mappingCategory = CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory
     ): KernelExpression {
         return kernelCall(
             kernelFree(
                 coreCategoricalStructuralSymbolCoreName(
-                    CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory
+                    mappingCategory
                 ),
                 nodeProvenance
             ),
@@ -3231,6 +3232,15 @@ export class CoreCategoricalScopedBuilder {
             ],
             nodeProvenance
         );
+    }
+
+    private cartesianFunctorCategory(
+        sourceCategory: KernelExpression,
+        targetCategory: KernelExpression,
+        nodeProvenance: Provenance
+    ): KernelExpression {
+        return this.functorCategory(sourceCategory, targetCategory, nodeProvenance,
+            CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory);
     }
 
     private transforCategory(
@@ -3385,7 +3395,7 @@ export class CoreCategoricalScopedBuilder {
             return undefined;
         }
         if (type.tag === 'functor') {
-            return this.functorCategory(
+            return this.cartesianFunctorCategory(
                 type.sourceCategory,
                 type.targetCategory,
                 nodeProvenance
@@ -3413,10 +3423,12 @@ export class CoreCategoricalScopedBuilder {
         if (
             category.tag === 'call' &&
             category.callee.tag === 'reference' &&
-            category.callee.name ===
-                coreCategoricalStructuralSymbolCoreName(
-                    CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory
-                ) &&
+            [
+                CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory,
+                CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
+            ].map(mappingCategory =>
+                coreCategoricalStructuralSymbolCoreName(mappingCategory)
+            ).includes(category.callee.name) &&
             category.arguments.length === 2
         ) {
             return {
@@ -7188,7 +7200,7 @@ export class CoreCategoricalScopedBuilder {
         object: KernelExpression,
         nodeProvenance: Provenance
     ): CoreCategoricalContextualCompilation {
-        const functorCategory = this.functorCategory(
+        const functorCategory = this.cartesianFunctorCategory(
             baseCategory,
             targetCategory,
             nodeProvenance
@@ -7300,7 +7312,28 @@ export class CoreCategoricalScopedBuilder {
             wiring,
             nodeProvenance
         );
-        const expectedSubjectTarget = this.functorCategory(
+        const ordinarySubjectTarget = this.functorCategory(
+            sourceCategory, targetCategory, nodeProvenance
+        );
+        if (argument.closed !== undefined &&
+            !usageIntersects(argument.usage, activeOrdinals) &&
+            kernelExpressionEquals(subjectCompilation.targetCategory, ordinarySubjectTarget)) {
+            const evaluation = this.structuralCall('fixed-evaluation-functor', [
+                { plicity: 'implicit', value: sourceCategory },
+                { plicity: 'implicit', value: targetCategory },
+                { plicity: 'explicit', value: argument.closed.term }
+            ], nodeProvenance);
+            return {
+                term: this.composeFunctors(baseCategory, ordinarySubjectTarget,
+                    targetCategory, evaluation, subjectCompilation.term, nodeProvenance),
+                targetCategory,
+                structuralPrerequisites: mergePrerequisites(
+                    subjectCompilation.structuralPrerequisites,
+                    ['fixed-evaluation-functor', 'functor-composition']
+                )
+            };
+        }
+        const expectedSubjectTarget = this.cartesianFunctorCategory(
             sourceCategory,
             targetCategory,
             nodeProvenance
@@ -7422,7 +7455,7 @@ export class CoreCategoricalScopedBuilder {
         const firstArgument = firstApplication.node.argument as
             InternalCoreCategoricalTerm;
         const original = firstApplication.node.subject;
-        const expectedOriginalTarget = this.functorCategory(
+        const expectedOriginalTarget = this.cartesianFunctorCategory(
             sourceCategory,
             targetCategory,
             nodeProvenance
@@ -7444,7 +7477,7 @@ export class CoreCategoricalScopedBuilder {
             return undefined;
         }
 
-        const diagonalSource = this.functorCategory(
+        const diagonalSource = this.cartesianFunctorCategory(
             sourceCategory,
             expectedOriginalTarget,
             nodeProvenance
@@ -7521,7 +7554,7 @@ export class CoreCategoricalScopedBuilder {
             return undefined;
         }
 
-        const innerFunctorCategory = this.functorCategory(
+        const innerFunctorCategory = this.cartesianFunctorCategory(
             baseCategory,
             term.node.targetCategory,
             nodeProvenance
@@ -7539,14 +7572,14 @@ export class CoreCategoricalScopedBuilder {
             return undefined;
         }
 
-        const exchangeSource = this.functorCategory(
+        const exchangeSource = this.cartesianFunctorCategory(
             term.node.sourceCategory,
             innerFunctorCategory,
             nodeProvenance
         );
-        const exchangeTarget = this.functorCategory(
+        const exchangeTarget = this.cartesianFunctorCategory(
             baseCategory,
-            this.functorCategory(
+            this.cartesianFunctorCategory(
                 term.node.sourceCategory,
                 term.node.targetCategory,
                 nodeProvenance
@@ -7579,7 +7612,7 @@ export class CoreCategoricalScopedBuilder {
                 original.closed.term,
                 nodeProvenance
             ),
-            targetCategory: this.functorCategory(
+            targetCategory: this.cartesianFunctorCategory(
                 term.node.sourceCategory,
                 term.node.targetCategory,
                 nodeProvenance
@@ -7694,14 +7727,14 @@ export class CoreCategoricalScopedBuilder {
             );
         }
 
-        const uncurriedCategory = this.functorCategory(
+        const uncurriedCategory = this.cartesianFunctorCategory(
             extendedBase,
             term.node.targetCategory,
             nodeProvenance
         );
-        const curriedCategory = this.functorCategory(
+        const curriedCategory = this.cartesianFunctorCategory(
             baseCategory,
-            this.functorCategory(
+            this.cartesianFunctorCategory(
                 term.node.sourceCategory,
                 term.node.targetCategory,
                 nodeProvenance
@@ -7734,7 +7767,7 @@ export class CoreCategoricalScopedBuilder {
                 body.term,
                 nodeProvenance
             ),
-            targetCategory: this.functorCategory(
+            targetCategory: this.cartesianFunctorCategory(
                 term.node.sourceCategory,
                 term.node.targetCategory,
                 nodeProvenance

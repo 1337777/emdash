@@ -148,6 +148,7 @@ const rawAudit = {
                 'totalCategory',
                 'displayedTransforCategory',
                 'functorCategory',
+                'cartesianFunctorCategory',
                 'productCategory',
                 'pullbackFamily',
                 'substituteFamily'
@@ -366,7 +367,7 @@ export const validateCoreCategoricalTextConstructorAudit = (
         ) ||
         audit.residualInventory[0]?.methods.length !== 6 ||
         audit.residualInventory[1]?.methods.length !== 14 ||
-        audit.residualInventory[2]?.methods.length !== 13
+        audit.residualInventory[2]?.methods.length !== 14
     ) {
         throw new CoreCategoricalTextConstructorAuditError(
             'TEXT_CONSTRUCTOR_INVENTORY_DRIFT',

@@ -93,6 +93,13 @@ const resultOperations = [
         resultKind: 'category'
     },
     {
+        sourceName: 'cart',
+        arity: 2,
+        argumentKinds: ['category', 'category'],
+        directMethod: 'cartesianFunctorCategory',
+        resultKind: 'category'
+    },
+    {
         sourceName: 'product',
         arity: 2,
         argumentKinds: ['category', 'category'],
@@ -117,8 +124,8 @@ export const CORE_CATEGORICAL_TEXT_RESULT_CONSTRUCTOR_AUDIT = deepFreeze({
             'afb1277a1517412e4cfcfc99d63a5259390b8ab9'
     },
     measuredBoundary: {
-        directMethodCount: 13,
-        canonicalTextHeadCount: 12,
+        directMethodCount: 14,
+        canonicalTextHeadCount: 13,
         normalizedAlias: {
             method: 'substituteFamily',
             canonicalDirectMethod: 'pullbackFamily',
@@ -191,7 +198,7 @@ export const CORE_CATEGORICAL_TEXT_RESULT_CONSTRUCTOR_AUDIT = deepFreeze({
         nonEffects: [
             'no new located node, parser grammar, parser dependency, or AST',
             'no second checker, resolver architecture, or action table',
-            'no new mathematical owner or categorical program method',
+            'no new mathematical owner; Cartesian constructor facade follows the native migration',
             'no new Core node, checker, evaluator, runtime, or proof rule',
             'no external naturality or coherence evidence',
             'no compound binder-annotation grammar or arbitrary family inference',
@@ -243,7 +250,7 @@ export function validateCoreCategoricalTextResultConstructorAudit(
     if (!sameJson(audit.proposal.operations, resultOperations)) {
         throw new CoreCategoricalTextResultConstructorAuditError(
             'OPERATION_DRIFT',
-            'The twelve canonical result operations changed'
+            'The selected canonical result operations changed'
         );
     }
     if (!sameJson(

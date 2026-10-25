@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { resolve } from 'node:path';
 import {
     describe,
     it
@@ -11,7 +12,11 @@ import * as browserApi from '../src/v3_2/browser';
 import {
     CoreCategoricalProgram,
     CoreCategoricalProgramError,
-    coreCategoricalDiagnosticFromError
+    coreCategoricalDiagnosticFromError,
+    elaborateCoreCategoricalText,
+    checkLambdapiProbe,
+    compileCoreCategoricalStructuralTransfer,
+    serializeKernelExpression
 } from '../src/v3_2';
 
 const program = (
@@ -55,12 +60,80 @@ describe('TypeScript v3.2 USABILITY-1D categorical program', () => {
         assert.equal(result.productionLambdapiDependency, false);
     });
 
+    it('retains distinct lax and Cartesian mapping categories, including text', () => {
+        const emdash = program();
+        const A = emdash.category('cart_A');
+        const B = emdash.category('cart_B');
+        const cart = emdash.cartesianFunctorCategory(A, B);
+        const ordinary = emdash.functorCategory(A, B);
+        assert.notEqual(emdash.compareCategories(cart, ordinary).status, 'equal');
+        const parsed = elaborateCoreCategoricalText(emdash, {
+            source: 'cart A B',
+            environment: [
+                { name: 'A', kind: 'category', value: A },
+                { name: 'B', kind: 'category', value: B }
+            ],
+            expected: { kind: 'category' }
+        });
+        assert.equal(emdash.compareCategories(parsed, cart).status, 'equal');
+    });
+
+    it('rejects Cartesian joint evaluation over the ordinary lax mapping category', () => {
+        const emdash = program();
+        const A = emdash.category('lax_A');
+        const B = emdash.category('lax_B');
+        const C = emdash.category('lax_C');
+        const H = emdash.functor('lax_H', A, emdash.functorCategory(B, C));
+        const K = emdash.functor('lax_K', A, B);
+        assert.throws(() => emdash.compile(emdash.lambda('x', A, C,
+            x => emdash.apply(emdash.apply(H, x), emdash.apply(K, x))
+        )), /wrong functor category/);
+    });
+
+    it('checks the generated joint and fixed evaluation maps in Lambdapi', {
+        skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_BRACKET_PROBES !== '1'
+    }, () => {
+        const emdash = program();
+        const A = emdash.category('native_cart_A');
+        const B = emdash.category('native_cart_B');
+        const C = emdash.category('native_cart_C');
+        const H = emdash.functor('native_cart_H', A, emdash.cartesianFunctorCategory(B, C));
+        const F = emdash.functor('native_cart_F', A, emdash.functorCategory(B, C));
+        const K = emdash.functor('native_cart_K', A, B);
+        const y = emdash.object('native_cart_y', B);
+        const joint = emdash.compile(emdash.lambda('x', A, C,
+            x => emdash.apply(emdash.apply(H, x), emdash.apply(K, x))));
+        const fixed = emdash.compile(emdash.lambda('x', A, C,
+            x => emdash.apply(emdash.apply(F, x), y)));
+        const references = compileCoreCategoricalStructuralTransfer()
+            .compiled.externalFreeReferences;
+        const serialize = (term: typeof joint.explicitTerm) =>
+            serializeKernelExpression(term, { externalFreeReferences: references });
+        const source = [
+            'require open emdash.emdash3_2;',
+            'symbol native_cart_A : Cat;', 'symbol native_cart_B : Cat;',
+            'symbol native_cart_C : Cat;',
+            'symbol native_cart_H : τ (Functor native_cart_A (Functor_cart_cat native_cart_B native_cart_C));',
+            'symbol native_cart_F : τ (Functor native_cart_A (Functor_cat native_cart_B native_cart_C));',
+            'symbol native_cart_K : τ (Functor native_cart_A native_cart_B);',
+            'symbol native_cart_y : τ (Obj native_cart_B);',
+            `assert ⊢ ${serialize(joint.explicitTerm)} : ${serialize(joint.expectedType)};`,
+            `assert ⊢ ${serialize(fixed.explicitTerm)} : ${serialize(fixed.expectedType)};`,
+            'assertnot ⊢ @Eval_func native_cart_B native_cart_C : τ (Functor (Product_cat (Functor_cat native_cart_B native_cart_C) native_cart_B) native_cart_C);'
+        ].join('\n');
+        const result = checkLambdapiProbe({ source, sourceMap: [] }, {
+            packageRoot: resolve(__dirname, '../emdash2'), timeoutMs: 60_000
+        });
+        assert.equal(result.accepted, true, result.diagnostics + '\n' + source);
+        assert.equal(result.timedOut, false);
+    });
+
     it('checks pointwise application through pairing and evaluation', () => {
         const emdash = program();
         const A = emdash.category('A', { line: 1 });
         const B = emdash.category('B', { line: 2 });
         const C = emdash.category('C', { line: 3 });
-        const functorsBC = emdash.functorCategory(B, C, { line: 4 });
+        const functorsBC = emdash.cartesianFunctorCategory(B, C, { line: 4 });
         const H = emdash.functor('H', A, functorsBC, { line: 5 });
         const K = emdash.functor('K', A, B, { line: 6 });
         const pointwise = emdash.lambda(
@@ -137,7 +210,7 @@ describe('TypeScript v3.2 USABILITY-1D categorical program', () => {
 
         assert.equal(
             result.explicitCore.includes(
-                '"emdash.categorical.evaluation-functor"'
+                '"emdash.categorical.fixed-evaluation-functor"'
             ),
             true
         );
@@ -145,23 +218,20 @@ describe('TypeScript v3.2 USABILITY-1D categorical program', () => {
             result.explicitCore.includes(
                 '"emdash.categorical.product-pair"'
             ),
-            true
+            false
         );
         assert.equal(
             result.explicitCore.includes(
                 '"emdash.categorical.constant-functor-abstraction"'
             ),
-            true
+            false
         );
         assert.deepEqual(
             result.structuralPrerequisites,
             [
                 'identity-functor',
                 'functor-composition',
-                'constant-functor-abstraction',
-                'product-category',
-                'product-pair',
-                'evaluation-functor'
+                'fixed-evaluation-functor'
             ]
         );
         assert.equal(

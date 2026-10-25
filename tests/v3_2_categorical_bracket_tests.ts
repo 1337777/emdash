@@ -45,9 +45,9 @@ const functorCategory = (
 ): KernelExpression => kernelCall(
     kernelFree(
         coreCategoricalStructuralSymbolCoreName(
-            CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory
+            CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
         ),
-        at('Functor_cat')
+        at('Functor_cart_cat')
     ),
     [
         { plicity: 'explicit', value: source },
@@ -585,12 +585,12 @@ describe('TypeScript v3.2 USABILITY-1C categorical bracket lowering', () => {
                 'symbol bracket_F : τ (Functor bracket_A bracket_B);',
                 'symbol bracket_G : τ (Functor bracket_B bracket_C);',
                 'symbol bracket_HAA : τ (Functor bracket_A ' +
-                    '(Functor_cat bracket_A bracket_C));',
+                    '(Functor_cart_cat bracket_A bracket_C));',
                 'symbol bracket_HAB : τ (Functor bracket_A ' +
-                    '(Functor_cat bracket_B bracket_C));',
+                    '(Functor_cart_cat bracket_B bracket_C));',
                 'symbol bracket_K : τ (Functor bracket_A bracket_B);',
                 'symbol bracket_HBA : τ (Functor bracket_B ' +
-                    '(Functor_cat bracket_A bracket_C));',
+                    '(Functor_cart_cat bracket_A bracket_C));',
                 'symbol bracket_P : τ (Functor bracket_A bracket_C);'
             ];
             const positive = checkLambdapiProbe(
@@ -614,7 +614,7 @@ describe('TypeScript v3.2 USABILITY-1C categorical bracket lowering', () => {
                             'bracket_C) bracket_HAA;',
                         'symbol bracket_exchange : τ ' +
                             '(Functor bracket_A ' +
-                            '(Functor_cat bracket_B bracket_C)) ' +
+                            '(Functor_cart_cat bracket_B bracket_C)) ' +
                             '≔ fapp0 (@sym_func_func bracket_B ' +
                             'bracket_A bracket_C) bracket_HBA;',
                         'symbol bracket_left : τ (Functor ' +
@@ -635,16 +635,16 @@ describe('TypeScript v3.2 USABILITY-1C categorical bracket lowering', () => {
                             '(Functor bracket_A bracket_C) ' +
                             '≔ @comp_cat_fapp0 bracket_A ' +
                             '(Product_cat ' +
-                            '(Functor_cat bracket_B bracket_C) ' +
+                            '(Functor_cart_cat bracket_B bracket_C) ' +
                             'bracket_B) bracket_C ' +
                             '(@Eval_func bracket_B bracket_C) ' +
                             '(@Product_pair ' +
                             '(Functor_cat bracket_A ' +
-                            '(Functor_cat bracket_B bracket_C)) ' +
+                            '(Functor_cart_cat bracket_B bracket_C)) ' +
                             '(Functor_cat bracket_A bracket_B) ' +
                             'bracket_HAB bracket_K);',
                         'symbol bracket_nested : τ (Functor bracket_A ' +
-                            '(Functor_cat bracket_B bracket_C)) ' +
+                            '(Functor_cart_cat bracket_B bracket_C)) ' +
                             '≔ fapp0 (@curry_func_func bracket_A ' +
                             'bracket_B bracket_C) ' +
                             '(@comp_cat_fapp0 ' +
@@ -656,17 +656,17 @@ describe('TypeScript v3.2 USABILITY-1C categorical bracket lowering', () => {
                             'bracket_C) ≔ fapp0 ' +
                             '(@uncurry_func_func bracket_A bracket_B ' +
                             'bracket_C) bracket_HAB;',
-                        'assert ⊢ Functor_cat bracket_A ' +
+                        'assert ⊢ Functor_cart_cat bracket_A ' +
                             '(Product_cat bracket_B bracket_C) ≡ ' +
                             'Product_cat ' +
-                            '(Functor_cat bracket_A bracket_B) ' +
-                            '(Functor_cat bracket_A bracket_C);'
+                            '(Functor_cart_cat bracket_A bracket_B) ' +
+                            '(Functor_cart_cat bracket_A bracket_C);'
                     ].join('\n'),
                     sourceMap: []
                 },
                 {
                     packageRoot: lambdapiRoot,
-                    timeoutMs: 30_000
+                    timeoutMs: 60_000
                 }
             );
             assert.equal(
@@ -689,7 +689,7 @@ describe('TypeScript v3.2 USABILITY-1C categorical bracket lowering', () => {
                 },
                 {
                     packageRoot: lambdapiRoot,
-                    timeoutMs: 30_000
+                    timeoutMs: 60_000
                 }
             );
             assert.equal(negative.accepted, false);

@@ -57,6 +57,25 @@ Do not rerun the whole test gate after every subsequent unchanged-profile
 failure; use the concrete failing owner and its next consumer until the
 affected frontend tranche is ready for integration.
 
+The F02 structural/closed-fibre slice is now qualified at its focused/native
+boundary. It retains both ordinary and Cartesian mapping categories, moves
+joint structural maps to their native Cartesian types, and uses native
+`fapp0_func` for fixed-argument evaluation through an ordinary lax mapping
+category. The public Cartesian constructor and its text spelling are explicit;
+the ordinary constructor retains its meaning. There are 17 structural
+declarations and three native runtime projections. Focused scope: 28 passed;
+three native tests/five guarded checks pass, including the actual emitted
+joint/fixed evaluation terms and negative controls. Typecheck/lint pass.
+The [structural review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_structural_review.md)
+records the exact boundary and the two remaining displayed-consumer failures.
+
+Next F03 owner sequence: correct the rich `Catd_cat` object view and actual
+family-fibre/transport coefficient references in the surface/program layers;
+then the Sigma-arrow transfer. Preserve the public universe and avoid a new
+intrinsic owner/checker branch. Reuse the earlier transferred `fapp0_func`
+when migrating the later dependent-target module. Its old declaration cannot
+silently shadow the same qualified native owner.
+
 | Slice | Actual change to review and implement | Required evidence |
 | --- | --- | --- |
 | F01: shared categorical coefficients and directed telescope | Add the native `Cat_cart`/`Functor_cart_cat` dependencies through the existing generic transfer mechanisms. Migrate the Sigma telescope's coefficient and transport body. Retain public `Cat_cat` and ordinary `Functor_cat` as distinct owners. | Complete selected declaration/rule correspondence, generic compilation, actual telescope consumer, wrong-coefficient rejection, and native conformance. No new generic checker semantics. |

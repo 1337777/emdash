@@ -84,6 +84,12 @@ qualification; Cartesian structural, displayed/Pi/Homd and remaining source
 acquisitions are the next R14 work. Only the qualified continuation's pins
 have changed. See its [implementation review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_coefficient_review.md).
 
+The Cartesian structural and closed-fibre continuation now passes its focused
+and native checks, retaining ordinary fixed evaluation and rejecting ordinary
+joint evaluation. F03 next repairs the rich Catd object view, family action
+coefficients and Sigma-arrow transfer. The two broader displayed-consumer
+failures remain recorded; see the [structural review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_structural_review.md).
+
 ## Foundation-reviewer follow-up history — 2026-10-25
 
 **The full 596-reviewer retry passes** on the supported binary:4,284 positive/

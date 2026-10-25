@@ -1766,6 +1766,20 @@ class CoreCategoricalTextResolver {
             );
         }
 
+        const cartesian = this.fixedApplicationSpine(expression, 'cart', 2);
+        if (cartesian !== undefined) {
+            return invokeProgram(
+                this.sourceFile,
+                expression.range,
+                'Cartesian functor category was rejected',
+                () => this.program.cartesianFunctorCategory(
+                    resolveCategory(cartesian[0]),
+                    resolveCategory(cartesian[1]),
+                    source('parsed Cartesian functor category')
+                )
+            );
+        }
+
         const product = this.fixedApplicationSpine(
             expression,
             'product',

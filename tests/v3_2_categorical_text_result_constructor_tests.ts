@@ -97,6 +97,7 @@ const routeResults = Object.freeze({
     totalCategory: routedCategory('sigma-result'),
     displayedTransforCategory: routedCategory('transfd-result'),
     functorCategory: routedCategory('functor-result'),
+    cartesianFunctorCategory: routedCategory('cartesian-functor-result'),
     productCategory: routedCategory('product-result'),
     pullbackFamily: routedFamily('pullback-result'),
     identityFunctor: routedTerm('identity-result')
@@ -150,6 +151,8 @@ const routingProgram = {
         recordRoute('displayedTransforCategory', arguments_),
     functorCategory: (...arguments_: readonly unknown[]) =>
         recordRoute('functorCategory', arguments_),
+    cartesianFunctorCategory: (...arguments_: readonly unknown[]) =>
+        recordRoute('cartesianFunctorCategory', arguments_),
     productCategory: (...arguments_: readonly unknown[]) =>
         recordRoute('productCategory', arguments_),
     pullbackFamily: (...arguments_: readonly unknown[]) =>
@@ -204,7 +207,7 @@ const assertTextError = (
 };
 
 describe('SYNTAX-PARITY-1C3 result constructors', () => {
-    it('routes all twelve exact heads to existing typed methods', () => {
+    it('routes all thirteen exact heads to existing typed methods', () => {
         const cases = [
             {
                 source: 'constantd K A',
@@ -255,6 +258,11 @@ describe('SYNTAX-PARITY-1C3 result constructors', () => {
                 source: 'functor A C',
                 expected: 'category',
                 method: 'functorCategory'
+            },
+            {
+                source: 'cart A C',
+                expected: 'category',
+                method: 'cartesianFunctorCategory'
             },
             {
                 source: 'product A C',
