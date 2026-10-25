@@ -1,0 +1,28 @@
+require open emdash.emdash3_2;
+
+assert [K : Cat] (x : τ (Obj K)) ⊢
+  @fapp0 K Terminal_cat (@id_funcd K (@Const_catd K Terminal_cat)) x ≡ Terminal_obj;
+assert [K : Cat] (x y : τ (Obj K)) ⊢
+  @fapp1_func K Terminal_cat (@id_funcd K (@Const_catd K Terminal_cat)) x y
+  ≡ @Const_func (Hom_cat K x y) Terminal_cat Terminal_obj;
+assert [K : Cat] (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 K Terminal_cat (@id_funcd K (@Const_catd K Terminal_cat)) x y p ≡ Terminal_obj;
+assert [K : Cat] (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
+  @fapp0 (Hom_cat K x y) Terminal_cat
+    (@fapp1_func K Terminal_cat (@id_funcd K (@Const_catd K Terminal_cat)) x y) p
+  ≡ @fapp1_fapp0 K Terminal_cat (@id_funcd K (@Const_catd K Terminal_cat)) x y p;
+
+// Original failing terminal specialization of the generic displayed identity.
+assert [K : Cat] [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @fdapp1_int_cell K (@Const_catd K Terminal_cat) (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat)) x y p Terminal_obj ≡ Terminal_obj;
+
+// Preserve the whole identity owner and arbitrary functor observations.
+assertnot [K : Cat] ⊢ @id_funcd K (@Const_catd K Terminal_cat)
+  ≡ @Const_func K Terminal_cat Terminal_obj;
+assertnot [K : Cat] (F : τ (Functor K Terminal_cat)) (x : τ (Obj K)) ⊢
+  @fapp0 K Terminal_cat F x ≡ Terminal_obj;
+assertnot [K : Cat] (F : τ (Functor K Terminal_cat)) (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
+  @fapp1_fapp0 K Terminal_cat F x y p ≡ Terminal_obj;
+
+require open emdash.ordinary_displayed_diagnostic;

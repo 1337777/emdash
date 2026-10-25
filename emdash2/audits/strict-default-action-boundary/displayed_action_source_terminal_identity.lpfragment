@@ -1,0 +1,6 @@
+// Strict identity action after id_1(u) has projected to Terminal_obj.
+// Keep the actual source point u: matching endpoints identify this erased
+// identity without unit-object eta or a rule for an arbitrary neutral arrow.
+// lhs-audit: keep 1 -- terminal source; the repeated endpoints retain the identity's point.
+rule @fapp1_fapp0 Terminal_cat $B $F $u $u Terminal_obj
+  ↪ @id $B (@fapp0 Terminal_cat $B $F $u);

@@ -1,0 +1,19 @@
+// The identity of the constant terminal family also classifies a functor K→1.
+// Compute that canonical functor's observations, retaining the whole id_funcd
+// head for displayed identity/composition cuts. No arbitrary F:K→1 is erased.
+// lhs-audit: keep 2 -- Terminal_cat selects this constant-family identity view.
+rule @fapp0 _ Terminal_cat
+    (@id (Catd_cat $K) (@Const_catd $K Terminal_cat)) _
+  ↪ Terminal_obj;
+
+// Whole Hom action precedes its capped observation, preserving further action.
+// lhs-audit: keep 2 -- same canonical terminal-valued identity view.
+rule @fapp1_func _ Terminal_cat
+    (@id (Catd_cat $K) (@Const_catd $K Terminal_cat)) $x $y
+  ↪ @Const_func (Hom_cat $K $x $y) Terminal_cat Terminal_obj;
+
+// Capping first must give the same normal form as the whole-Hom projection.
+// lhs-audit: keep 2 -- same canonical terminal-valued identity view.
+rule @fapp1_fapp0 _ Terminal_cat
+    (@id (Catd_cat $K) (@Const_catd $K Terminal_cat)) _ _ _
+  ↪ Terminal_obj;

@@ -1,0 +1,9 @@
+// Inclusion preserves composition in the same fold direction as functor action.
+// Retain the classified composite so its downstream strict observations remain
+// available; this does not classify a composite with an arbitrary lax factor.
+// lhs-audit: keep 1 -- actual ordinary mapping category of these two included maps.
+rule @comp_fapp0 (Functor_cat $A $B) _ _ _
+    (@strict_transfor $A $B $G $H $V)
+    (@strict_transfor $A $B $F $G $U)
+  ↪ @strict_transfor $A $B $F $H
+      (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $V $U);

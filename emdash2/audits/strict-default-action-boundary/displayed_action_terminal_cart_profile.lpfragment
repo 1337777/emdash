@@ -1,0 +1,13 @@
+// The chosen terminal displayed map has canonical strict base naturality.
+// Keep its actual ordinary implementation through this Cartesian profile view.
+injective symbol Terminal_cart_funcd [K : Cat] (E : τ (Catd K))
+  : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K Terminal_cat));
+
+unif_rule @strict_transfor _ _ _ _ (@Terminal_cart_funcd $K $E)
+  ≡ @Terminal_funcd $K0 $E0
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E ];
+
+rule @tapp0_fapp0 _ Cat_cart _ _ $k
+    (@strict_transfor _ _ _ _ (@Terminal_cart_funcd $K $E))
+  ↪ @tapp0_fapp0 $K Cat_cart $E (@Const_catd $K Terminal_cat) $k
+      (@Terminal_funcd $K $E);

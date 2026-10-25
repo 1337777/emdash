@@ -1,0 +1,24 @@
+require open emdash.examples.displayed_evaluation;
+
+// Typed representative of terminal identity action versus the stable Hom
+// projection. This uses the existing generic functor-identity theorem; the
+// theorem is an observation and is not an operational argument to Homd.
+symbol terminal_hom_identity_path [A : Cat]
+  (F : τ (Functor Terminal_cat A)) (W : τ (Obj A))
+  (u : τ (Obj Terminal_cat))
+  : τ (@= (Functor (Hom_cat A W (@fapp0 Terminal_cat A F u))
+                    (Hom_cat A W (@fapp0 Terminal_cat A F u)))
+      (@hom_postcomp_func A Terminal_cat F W u u Terminal_obj)
+      (@id_func (Hom_cat A W (@fapp0 Terminal_cat A F u))))
+≔ @fapp1_id_path Terminal_cat Cat_cart (@hom_ A Terminal_cat F W) u;
+
+// Retain the actual chosen source point; no terminal-object eta is introduced.
+assertnot [A : Cat] (F : τ (Functor Terminal_cat A))
+  (u : τ (Obj Terminal_cat)) ⊢
+  @fapp0 Terminal_cat A F u ≡ @fapp0 Terminal_cat A F Terminal_obj;
+
+// Record the remaining runtime boundary instead of claiming confluence.
+assertnot [A : Cat] (F : τ (Functor Terminal_cat A)) (W : τ (Obj A))
+  (u : τ (Obj Terminal_cat)) ⊢
+  @hom_postcomp_func A Terminal_cat F W u u Terminal_obj
+  ≡ @id_func (Hom_cat A W (@fapp0 Terminal_cat A F u));

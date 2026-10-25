@@ -1,0 +1,6 @@
+{
+  "owner": "existing displayed Eval Hom/capped rules",
+  "old": "(@comp_cat_fapp0 $I (Fibre_cat $E $x) (Fibre_cat $E $y)\n        (@catd_transport_func $K $E $x $y $p) $U)",
+  "new": "(@Hom_fapp0 Cat_cart $I $I (Fibre_cat $E $x) (Fibre_cat $E $y)\n        (@id_func $I) (@catd_transport_func $K $E $x $y $p) $U)",
+  "reason": "Use the canonical Cartesian Hom transport in both generic and named projection orders; no new head, comparison or assumption."
+}

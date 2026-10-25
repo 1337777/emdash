@@ -1,0 +1,16 @@
+// A canonical constant Cat-valued transformation is also a constant section.
+// Its ordinary K→C observations evaluate the actual chosen 1→C component;
+// retain the whole transfor view, and do not impose terminal-source eta on it.
+rule @fapp0 $K $C
+    (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart Terminal_cat $C $H)) _
+  ↪ @fapp0 Terminal_cat $C $H Terminal_obj;
+
+rule @fapp1_func $K $C
+    (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart Terminal_cat $C $H)) $x $y
+  ↪ @Const_func (Hom_cat $K $x $y)
+      (Hom_cat $C (@fapp0 Terminal_cat $C $H Terminal_obj) (@fapp0 Terminal_cat $C $H Terminal_obj))
+      (@id $C (@fapp0 Terminal_cat $C $H Terminal_obj));
+
+rule @fapp1_fapp0 $K $C
+    (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart Terminal_cat $C $H)) _ _ _
+  ↪ @id $C (@fapp0 Terminal_cat $C $H Terminal_obj);

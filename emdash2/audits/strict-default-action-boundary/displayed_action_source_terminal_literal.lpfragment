@@ -1,0 +1,6 @@
+// Strict identity action after the terminal identity has projected away.
+// All source endpoints are the literal canonical point; neutral unit objects
+// and arbitrary neutral arrows are deliberately not identified here.
+// lhs-audit: keep 1,4,5 -- terminal source and canonical endpoints identify this erased identity.
+rule @fapp1_fapp0 Terminal_cat $B $F Terminal_obj Terminal_obj Terminal_obj
+  ↪ @id $B (@fapp0 Terminal_cat $B $F Terminal_obj);

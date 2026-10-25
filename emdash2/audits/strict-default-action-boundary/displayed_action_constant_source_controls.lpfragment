@@ -1,0 +1,33 @@
+require open emdash.structural_op_more_review;
+
+// The conventional pre/right leg is strict even when epsilon itself is lax.
+// Both projection orders retain its actual component at y.
+assert [K C : Cat] (D : τ (Catd K))
+  (epsilon : τ (Functord (@Const_catd K C) D))
+  [x y : τ (Obj K)] ⊢
+  @tapp1_func K Cat_cart (@Const_catd K C) D x y epsilon
+  ≡ @Const_func (Hom_cat K x y) (Functor_cart_cat C (Fibre_cat D y))
+      (@Fibre_func K (@Const_catd K C) D epsilon y);
+
+assert [K C : Cat] (D : τ (Catd K))
+  (epsilon : τ (Functord (@Const_catd K C) D))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
+  @fapp0 (Hom_cat K x y) (Functor_cart_cat C (Fibre_cat D y))
+    (@tapp1_func K Cat_cart (@Const_catd K C) D x y epsilon) p
+  ≡ @Fibre_func K (@Const_catd K C) D epsilon y;
+
+// A general constant-family section still has its directed base action.
+assertnot [K C : Cat] (s : τ (Functor K C))
+  (x : τ (Obj K)) (p : τ (Hom K x x)) ⊢
+  @fdapp1_int_cell K (@Const_catd K Terminal_cat) (@Const_catd K C)
+    s x x p Terminal_obj
+  ≡ @id C (@fapp0 K C s x);
+
+// With a varying source family the mixed action is not a constant Hom functor.
+assertnot [K : Cat] (E D : τ (Catd K))
+  (epsilon : τ (Functord E D))
+  (x : τ (Obj K)) ⊢
+  @tapp1_func K Cat_cart E D x x epsilon
+  ≡ @Const_func (Hom_cat K x x)
+      (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D x))
+      (@Fibre_func K E D epsilon x);

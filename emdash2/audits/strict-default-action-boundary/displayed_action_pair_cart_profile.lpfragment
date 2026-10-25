@@ -1,0 +1,28 @@
+// Canonical Cartesian refinement of the existing displayed pairing.
+// Its inputs already carry strict base naturality; ordinary pairing stays lax.
+injective symbol Product_pair_cart_funcd [K : Cat]
+  [R E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) R E))
+  (V : τ (Hom (Functor_cart_cat K Cat_cart) R D))
+  : τ (Hom (Functor_cart_cat K Cat_cart) R
+      (@comp_cat_fapp0 K (Product_cat Cat_cart Cat_cart) Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
+        (Struct_sigma E D)));
+
+// Preserve the actual ordinary pair; this is a profile view, not a new map.
+unif_rule @strict_transfor _ _ _ _ (@Product_pair_cart_funcd $K $R $E $D $U $V)
+  ≡ @Product_pair_funcd $K0 $R0 $E0 $D0 $FF $GG
+  ↪ [ $K0 ≡ $K; $R0 ≡ $R; $E0 ≡ $E; $D0 ≡ $D;
+      $FF ≡ @strict_transfor $K Cat_cart $R $E $U;
+      $GG ≡ @strict_transfor $K Cat_cart $R $D $V ];
+
+// Component observation delegates to the original whole pairing owner.
+rule @tapp0_fapp0 _ Cat_cart _ _ $k
+    (@strict_transfor _ _ _ _ (@Product_pair_cart_funcd $K $R $E $D $U $V))
+  ↪ @tapp0_fapp0 $K Cat_cart $R
+      (@comp_cat_fapp0 $K (Product_cat Cat_cart Cat_cart) Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
+        (Struct_sigma $E $D)) $k
+      (@Product_pair_funcd $K $R $E $D
+        (@strict_transfor $K Cat_cart $R $E $U)
+        (@strict_transfor $K Cat_cart $R $D $V));

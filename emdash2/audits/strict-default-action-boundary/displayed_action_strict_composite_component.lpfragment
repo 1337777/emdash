@@ -1,0 +1,7 @@
+// Component projection of that classified vertical composite.
+rule @tapp0_fapp0 _ _ _ _ $x
+    (@strict_transfor $A $B $F $H
+      (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $V $U))
+  ↪ @comp_fapp0 $B (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $x) (@fapp0 $A $B $H $x)
+      (@tapp0_fapp0 $A $B $G $H $x (@strict_transfor $A $B $G $H $V))
+      (@tapp0_fapp0 $A $B $F $G $x (@strict_transfor $A $B $F $G $U));

@@ -1,0 +1,13 @@
+// Constant-family specialization of the conventional pre/right action:
+// epsilon[p] = epsilon[y] o const(C)[p] = epsilon[y]. This does not
+// strictify the post/left naturality cell of an arbitrary epsilon.
+// The whole Hom action is retained before its capped observation.
+// lhs-audit: keep 2,3 -- the coefficient and constant source select the erased identity transport.
+rule @tapp1_func $K Cat_cart (@Const_catd $K $C) $D $x $y $epsilon
+  ↪ @Const_func (Hom_cat $K $x $y)
+      (Functor_cart_cat $C (Fibre_cat $D $y))
+      (@tapp0_fapp0 $K Cat_cart (@Const_catd $K $C) $D $y $epsilon);
+
+// lhs-audit: keep 2,3 -- same constant-source transport; p is discarded only in this strict leg.
+rule @tapp1_fapp0 $K Cat_cart (@Const_catd $K $C) $D _ $y $epsilon _
+  ↪ @tapp0_fapp0 $K Cat_cart (@Const_catd $K $C) $D $y $epsilon;

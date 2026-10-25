@@ -1,0 +1,15 @@
+// A witness at an unrelated target object cannot replace the actual normality datum.
+assertnot ⊢ @prof_terminal_native_expected_path
+  prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_G
+  prof_terminal_test_W prof_terminal_test_X prof_terminal_test_g prof_terminal_test_h
+  (@eq_refl
+    (Hom prof_terminal_test_B
+      (@fapp0 prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_W)
+      (@fapp0 prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_W))
+    (@id prof_terminal_test_B
+      (@fapp0 prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_W)))
+  : τ (@= (Obj (@Catd_cat (Op_cat (Hom_cat prof_terminal_test_A prof_terminal_test_W prof_terminal_test_X))))
+      (@prof_terminal_native_action_catd prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_G
+        prof_terminal_test_W prof_terminal_test_X prof_terminal_test_g prof_terminal_test_h)
+      (@prof_terminal_expected_action_catd prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_G
+        prof_terminal_test_W prof_terminal_test_X prof_terminal_test_g prof_terminal_test_h));

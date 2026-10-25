@@ -1,0 +1,57 @@
+require open emdash.ordinary_displayed_diagnostic;
+
+// Existing Cartesian evaluation, transposed over its actual shifted base.
+symbol corrected_op_eval [K I : Cat] (E : τ (Catd K))
+  : τ (@Functord (CoAt2_cat K)
+      (@Op_catd K (@eval_order_domain K I E)) (@Op_catd K E))
+≔ @strict_transfor _ _ _ _
+    (@Op_funcd K (@eval_order_domain K I E) E (@Eval_funcd K I E));
+
+assert [K I : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (p : τ (Hom K x y)) (U : τ (Functor I (Fibre_cat E x))) (i : τ (Obj I)) ⊢
+  @fdapp1_int_cell (CoAt2_cat K) _ _ (@corrected_op_eval K I E)
+    x y p (Struct_sigma U i)
+  ≡ @id (Op_cat (Fibre_cat E y))
+      (@fapp0 (Fibre_cat E x) (Fibre_cat E y)
+        (@catd_transport_func K E x y p) (@fapp0 I (Fibre_cat E x) U i));
+
+// Whole-first and transported-identity-first use the same existing Op evaluator.
+assert [K I : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
+  (p : τ (Hom K x y)) (U : τ (Functor I (Fibre_cat E x))) (i : τ (Obj I)) ⊢
+  @fapp1_fapp0
+    (Op_cat (Product_cat (Functor_cart_cat I (Fibre_cat E y)) I)) (Op_cat (Fibre_cat E y))
+    (@Op_func (Product_cat (Functor_cart_cat I (Fibre_cat E y)) I)
+      (Fibre_cat E y) (@Eval_func I (Fibre_cat E y)))
+    (@eval_order_transport (CoAt2_cat K) (@Op_catd K (@eval_order_domain K I E)) x y p (Struct_sigma U i))
+    (@eval_order_transport (CoAt2_cat K) (@Op_catd K (@eval_order_domain K I E)) x y p (Struct_sigma U i))
+    (@id (Op_cat (Product_cat (Functor_cart_cat I (Fibre_cat E y)) I))
+      (@eval_order_transport (CoAt2_cat K) (@Op_catd K (@eval_order_domain K I E)) x y p (Struct_sigma U i)))
+  ≡ @fdapp1_int_cell (CoAt2_cat K) _ _ (@corrected_op_eval K I E)
+      x y p (Struct_sigma U i);
+
+assert [K I : Cat] (E : τ (Catd K)) [x y : τ (Obj K)] (p : τ (Hom K x y))
+  (U : τ (Functor I (Fibre_cat E x))) (V : τ (Functor I (Fibre_cat E y)))
+  (i j : τ (Obj I)) ⊢
+  @fdapp1_int_hom_func (CoAt2_cat K)
+      (@Op_catd K (@eval_order_domain K I E)) (@Op_catd K E)
+      (@corrected_op_eval K I E)
+    x y p (Struct_sigma U i) (Struct_sigma V j)
+  ≡ @fapp1_func
+      (Op_cat (Fibre_cat (@eval_order_domain K I E) y))
+      (Op_cat (Fibre_cat E y))
+      (@Op_func (Fibre_cat (@eval_order_domain K I E) y) (Fibre_cat E y)
+        (@Eval_func I (Fibre_cat E y)))
+      (@eval_order_transport (CoAt2_cat K) (@Op_catd K (@eval_order_domain K I E))
+        x y p (Struct_sigma U i))
+      (Struct_sigma V j);
+
+// Whole constant-map duality stays on its classified transformation carrier.
+assert [K I : Cat] (i : τ (Obj I)) ⊢
+  @Op_funcd K (@Const_catd K Terminal_cat) (@Const_catd K I)
+    (@Const_transf K Cat_cart Terminal_cat I (@Obj_func I i))
+  ≡ @Const_transf (CoAt2_cat K) Cat_cart Terminal_cat (Op_cat I) (@Obj_func (Op_cat I) i);
+
+// Ordinary opposite does not admit arbitrary lax displayed maps silently.
+assertnot [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) ⊢
+  @Op_funcd K E D FF
+  : τ (Hom (Functor_cart_cat (CoAt2_cat K) Cat_cart) (@Op_catd K E) (@Op_catd K D));

@@ -42,6 +42,41 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Displayed-action candidate, 2026-10-25 UTC: the
+[review](../emdash2/audits/strict-default-action-boundary/displayed_action_projection_review.md),
+[replay](../emdash2/audits/strict-default-action-boundary/displayed_action_projection_candidate.py)
+and [evidence](../emdash2/audits/strict-default-action-boundary/displayed_action_projection_evidence.json)
+now retain all 35 original displayed-evaluation assertions with the twelve
+shifted/Cartesian Op corrections. The complete reviewer, intrinsic overlap and
+higher-action controls, terminal normality and whole contravariant observations
+pass in a standard cold 22-input check: 41.614s/188,792KiB at 90s/2GiB/o=20,
+receipt `20261025T012745Z-aa336b0e1b7144359c74fde62f1c6153`, subject reduction on.
+
+The candidate preserves classified composites and instantiates the existing
+whole/capped/cell intrinsic composition ladder there. Existing coefficient
+vertical-action laws join its generic strict-transfor observation. A larger
+245-input regression exposed the retired telescope composition laws; restoring
+those native strict-default laws and their ordinary projections fixes the exact
+original consumer without changing its proof or adding a new unifier. The broad
+regression itself remains to be rerun. Warning inventories and a zero-unreviewed
+LHS audit are retained; passing typed controls are not global confluence.
+
+The qualified production-emitter package is unchanged: 1,298 original LP files,
+791 core/library owners and 507 complete reviewers; 89 complete reviewers remain
+unqualified. The current complete-reviewer candidate is not counted until its
+shared-core and affected-source gates pass. The five terminal Homd runtime
+obligations, R07/R12 and production promotion remain required. Next qualify the
+remaining warning/interaction boundary and rerun the affected core regression,
+then continue complete reviewers and adoption.
+
+The disk-full interruption and RAM-only experiments have explicit evidence;
+a compact verified archive preserves the recovered sources/logs. The user
+subsequently authorized cleanup of old logs in other worktrees, and normal
+repository receipts now work again. No files were pruned from this foundations
+worktree. Future disposable diagnostics should copy their actual import closure
+and use quiet runner output to avoid duplicate full-package/log copies. This
+changes no formal contract, resource default or validation requirement.
+
 Unadopted foundational-reviewer candidate from `4cc4ad4c`, 2026-10-24 UTC:
 the [review](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_candidate_review.md),
 [replay](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_candidate.py)

@@ -1,0 +1,4 @@
+// The canonical Cartesian terminal map of the terminal family is its identity.
+// This is a constructor law, not eta for arbitrary sections or unit objects.
+rule @Terminal_cart_funcd $K (@Const_catd $K Terminal_cat)
+  ↪ @id (Functor_cart_cat $K Cat_cart) (@Const_catd $K Terminal_cat);

@@ -1,0 +1,11 @@
+require open emdash.minimal_displayed_actions_review;
+assert [B : Cat] (F : τ (Functor Terminal_cat B)) ⊢
+  @fapp1_fapp0 Terminal_cat B F Terminal_obj Terminal_obj Terminal_obj
+  ≡ @id B (@fapp0 Terminal_cat B F Terminal_obj);
+assertnot [B : Cat] (F : τ (Functor Terminal_cat B)) (u : τ (Obj Terminal_cat))
+  (alpha : τ (Hom Terminal_cat u u)) ⊢
+  @fapp1_fapp0 Terminal_cat B F u u alpha ≡ @id B (@fapp0 Terminal_cat B F u);
+assert [B : Cat] (F : τ (Functor Terminal_cat B)) (u : τ (Obj Terminal_cat)) ⊢
+  @fapp1_fapp0 Terminal_cat B F u u Terminal_obj ≡ @id B (@fapp0 Terminal_cat B F u);
+assertnot [B : Cat] (F : τ (Functor Terminal_cat B)) (u : τ (Obj Terminal_cat)) ⊢
+  @fapp0 Terminal_cat B F u ≡ @fapp0 Terminal_cat B F Terminal_obj;

@@ -18,6 +18,31 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Displayed-action candidate — 2026-10-25, unadopted
+
+The [review](../emdash2/audits/strict-default-action-boundary/displayed_action_projection_review.md)
+and [evidence](../emdash2/audits/strict-default-action-boundary/displayed_action_projection_evidence.json)
+now include all 35 original displayed-evaluation assertions. The twelve former
+raw/same-base Op assertions use the actual Cartesian input over `CoAt2(K)`;
+ordinary observations retain general lax FF. Intrinsic classified composition
+uses the existing whole/capped/cell ladder, without a new primitive or supplied
+comparison. Its generic strict-action overlap and next Hom controls pass.
+
+A larger core regression exposed a telescope composition proof failure. The
+restored strict-default native telescope laws and ordinary-view projections fix
+that unchanged consumer in the focused scope. The broad regression is not yet
+requalified. A terminal-Hom identity has a typed path but retains an explicit
+whole runtime distinction; it remains under R07 rather than being claimed as a
+runtime normalization. Added symbolic bodies are inventoried and not all resolved.
+
+The standard cold 22-input check passes at 90s/2GiB/o=20 in 41.614s/188,792KiB.
+The archive preserves all RAM-only evidence and failed alternatives, including
+the broad regression failure and a resource-stopped wider review. Disk cleanup
+was confined to old logs in other user-authorized worktrees; foundations files
+were not pruned. No qualified production-emitter input changes and no complete-
+file count increases are claimed. R01–R03's five terminal Homd runtime obligations,
+89 complete reviewers, R07/R12 and final production gates remain required.
+
 ## Foundational reviewer candidate — 2026-10-24, unadopted
 
 [Review](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_candidate_review.md)

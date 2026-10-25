@@ -1,0 +1,37 @@
+// Ordinary projections of the same strict telescope composition.
+// Actual higher cells and functor arguments are retained.
+rule @comp_fapp0
+      _
+      _
+      _
+      _
+      (@hom_postcomp_tele_transf $A $B $F $W $X $Y $g $h $e_gh)
+      (@hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $e_fg)
+  ↪ @hom_postcomp_tele_transf
+      $A
+      $B
+      $F
+      $W
+      $X
+      $Y
+      $f
+      $h
+      (@comp_fapp0 (Hom_cat $B $X $Y) $f $g $h $e_gh $e_fg);
+
+rule @comp_fapp0
+      _
+      _
+      _
+      _
+      (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $g $h $e_gh)
+      (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $f $g $e_fg)
+  ↪ @hom_precomp_along_tele_transf
+      $A
+      $B
+      $F
+      $Z
+      $W
+      $X
+      $f
+      $h
+      (@comp_fapp0 (Hom_cat $A $W $X) $f $g $h $e_gh $e_fg);

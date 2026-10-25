@@ -1,0 +1,31 @@
+require open emdash.emdash3_2;
+
+assert [K : Cat] (R E D : τ (Catd K))
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) R E))
+  (V : τ (Hom (Functor_cart_cat K Cat_cart) R D)) ⊢
+  @eq_refl (Functord R _)
+    (@Product_pair_funcd K R E D (@strict_transfor K Cat_cart R E U) (@strict_transfor K Cat_cart R D V))
+  : τ (@= (Functord R _)
+      (@strict_transfor _ _ _ _ (@Product_pair_cart_funcd K R E D U V))
+      (@Product_pair_funcd K R E D (@strict_transfor K Cat_cart R E U) (@strict_transfor K Cat_cart R D V)));
+
+assert [K : Cat] (E : τ (Catd K)) ⊢
+  @eq_refl (Functord E (@Const_catd K Terminal_cat)) (@Terminal_funcd K E)
+  : τ (@= (Functord E (@Const_catd K Terminal_cat))
+      (@strict_transfor _ _ _ _ (@Terminal_cart_funcd K E)) (@Terminal_funcd K E));
+
+assert [K : Cat] (R E D : τ (Catd K))
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) R E))
+  (V : τ (Hom (Functor_cart_cat K Cat_cart) R D)) (k : τ (Obj K)) ⊢
+  @Fibre_func K R _ (@strict_transfor _ _ _ _ (@Product_pair_cart_funcd K R E D U V)) k
+  ≡ @Fibre_func K R _
+      (@Product_pair_funcd K R E D (@strict_transfor K Cat_cart R E U) (@strict_transfor K Cat_cart R D V)) k;
+
+assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) ⊢
+  @Fibre_func K E _ (@strict_transfor _ _ _ _ (@Terminal_cart_funcd K E)) k
+  ≡ @Terminal_func (Fibre_cat E k);
+
+// These constructors do not classify an arbitrary lax pair.
+assertnot [K : Cat] (R E D : τ (Catd K))
+  (U : τ (Functord R E)) (V : τ (Functord R D)) ⊢
+  @Product_pair_cart_funcd K R E D U V : τ (Hom (Functor_cart_cat K Cat_cart) R _);
