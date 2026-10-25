@@ -121,6 +121,15 @@ older running/failed states and do not override it.
 
 #### Migration evidence chronology (newest entries first)
 
+The [frontend displayed-product migration](../emdash2/audits/strict-default-action-boundary/foundation_frontend_product_review.md)
+passes at its focused/native boundary:12 declarations/35 runtime clauses,
+9 product/demo tests,33 boundary/program tests and two native consumers.
+The actual emitted transport, general uncurry cut and p/q non-collapse are
+checked. Fibre and transport traces shorten12→8 and26→17 without new native
+rules or equality-proof arguments. Public products remain distinct; the family
+uses the existing coefficient product and strict-transfor observation. Next
+are its displayed projections/pairing, then Pi/Homd and final integration.
+
 The [frontend admitted-family/Sigma slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_family_review.md)
 qualifies the rich Catd view, normal coefficient reference and Sigma
 base-change transfer:55 focused/boundary passes, two native passes, typecheck

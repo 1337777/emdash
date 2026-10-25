@@ -1903,7 +1903,8 @@ export class CoreCategoricalProgram {
         const catEndofunctors = this.functorCategoryExpression(
             cat,
             cat,
-            nodeProvenance
+            nodeProvenance,
+            CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
         );
         const uncurryPackage = kernelCall(
             kernelFree(
@@ -1926,21 +1927,23 @@ export class CoreCategoricalProgram {
                     value: this.functorCategoryExpression(
                         cat,
                         catEndofunctors,
-                        nodeProvenance
+                        nodeProvenance,
+                        CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
                     )
                 },
                 {
                     value: this.functorCategoryExpression(
                         catProduct,
                         cat,
-                        nodeProvenance
+                        nodeProvenance,
+                        CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
                     )
                 },
                 { value: uncurryPackage },
                 {
                     value: kernelFree(
                         coreCategoricalFibredProductCoreName(
-                            'internal-product-functor'
+                            'coefficient-product-functor'
                         ),
                         nodeProvenance
                     )

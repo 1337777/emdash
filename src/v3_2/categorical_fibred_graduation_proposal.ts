@@ -65,6 +65,7 @@ const rawProposal = {
     status:
         'proposal-awaiting-h-dttlf-usability-fibred-graduate',
     reviewGate: 'H-DTTLF-USABILITY-FIBRED-GRADUATE',
+    foundationMigration: 'docs/EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md',
     decisionId: 'D-DTTLF-USABILITY-008',
     recommendation: {
         verdict:
@@ -173,8 +174,8 @@ const rawProposal = {
         rows: [
             {
                 id: 'fibred-product',
-                declarationSlots: 8,
-                runtimeRuleSlots: 30,
+                declarationSlots: 12,
+                runtimeRuleSlots: 35,
                 proofRuleSlots: 0,
                 newMathematicalOwners: 0,
                 newMathematicalRuntimeRules: 2,
@@ -237,8 +238,8 @@ const rawProposal = {
         ],
         cumulativeSliceCounts: {
             representativeSlices: 7,
-            declarationSlots: 41,
-            runtimeRuleSlots: 83,
+            declarationSlots: 45,
+            runtimeRuleSlots: 88,
             proofRuleSlots: 3,
             newMathematicalOwners: 4,
             newMathematicalRuntimeRules: 16
@@ -547,9 +548,9 @@ export function validateCoreCategoricalFibredGraduationProposal(
         proposal.transferEvidence.cumulativeSliceCounts
             .representativeSlices !== 7 ||
         proposal.transferEvidence.cumulativeSliceCounts
-            .declarationSlots !== 41 ||
+            .declarationSlots !== 45 ||
         proposal.transferEvidence.cumulativeSliceCounts
-            .runtimeRuleSlots !== 83 ||
+            .runtimeRuleSlots !== 88 ||
         proposal.transferEvidence.cumulativeSliceCounts
             .proofRuleSlots !== 3 ||
         proposal.transferEvidence.cumulativeSliceCounts

@@ -1,0 +1,130 @@
+{
+  "status": "displayed-product coefficient computation qualified at focused scope; full frontend migration remains",
+  "previousCheckpoint": "995db0ed",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "declarations": 12,
+  "runtimeRules": 35,
+  "allLocalSubjectsChecked": true,
+  "nativeInputHashes": {
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "6b506cc1501124964653042e7f3ebdaf5801e0640897d7b147efdb121c98a48e",
+    "src/v3_2/categorical_fibred_product_demo.ts": "1e9661fe1bd26f928eb04269bd368354a47c733d2bb91e3425a8846f512db9c0",
+    "src/v3_2/categorical_fibred_product_transfer.ts": "9a9a96ca17d7a300538350c627d1e65c6146f4ad97b9e3a5b1b88e392e2357c5",
+    "src/v3_2/categorical_program.ts": "3ef54ff5e08d73cde2a01b021fc0b96a1e8a0cb665b407bb89a8a3ebc816c5b3",
+    "src/v3_2/categorical_surface.ts": "6aa1b52f57b77bd2f569b4fec1db10e845eaa6579164243d7a3b76986f907a2f",
+    "tests/v3_2_categorical_fibred_product_demo_tests.ts": "a8199522bc304b1889bf1474fc735522be1a5a6b119243370b58cb0a2da606f8",
+    "tests/v3_2_categorical_fibred_product_transfer_tests.ts": "81509bdd55803f5894638e025f1ac8cb864efa4cceef6e448cdb037b76519c66"
+  },
+  "currentTypescriptInputs": {
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "6b506cc1501124964653042e7f3ebdaf5801e0640897d7b147efdb121c98a48e",
+    "src/v3_2/categorical_fibred_product_demo.ts": "1e9661fe1bd26f928eb04269bd368354a47c733d2bb91e3425a8846f512db9c0",
+    "src/v3_2/categorical_fibred_product_transfer.ts": "e326ce3b973a2b2c092c2f65fea2185b456753d05428de50c605f84578eec392",
+    "src/v3_2/categorical_program.ts": "3ef54ff5e08d73cde2a01b021fc0b96a1e8a0cb665b407bb89a8a3ebc816c5b3",
+    "src/v3_2/categorical_surface.ts": "6aa1b52f57b77bd2f569b4fec1db10e845eaa6579164243d7a3b76986f907a2f",
+    "tests/v3_2_categorical_fibred_graduation_proposal_tests.ts": "e89f210e6c1a6be4d82d45b91fd16b0a3825f3a12c8052e954833479dae96a46",
+    "tests/v3_2_categorical_fibred_product_demo_tests.ts": "a8199522bc304b1889bf1474fc735522be1a5a6b119243370b58cb0a2da606f8",
+    "tests/v3_2_categorical_fibred_product_transfer_tests.ts": "81509bdd55803f5894638e025f1ac8cb864efa4cceef6e448cdb037b76519c66"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261025T175442Z-d735cfa660d2408c990194d80b1a8fcf",
+      "target": "tmp/elab0-JdGPpj/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 42.32611469598487,
+      "childrenMaxRssKiB": 168724,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "4b83e3300821812f2b38b26bc763567aaf03aaba6999d3ccf97a021a3c1ce240",
+      "log": "logs/check-runs/20261025T175442Z-d735cfa660d2408c990194d80b1a8fcf.log",
+      "logSha256": "66dab767aa1b9bcb54bbabd45b0f12ce788f60b69f14e95c99586cc71f43e422",
+      "receiptSha256": "7dafe414746baeb1715e8701cc4aa3a69ca2e11f7bd9afbdbe61bffde3e58485"
+    },
+    {
+      "id": "20261025T175525Z-53ded4de279242c499514fc68b6f16ed",
+      "target": "tmp/elab0-I75vdq/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 34.25235158903524,
+      "childrenMaxRssKiB": 168788,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "3d73835a0e7f550312a90f67734be235f2f78d2680aeb144750f35d05fb23a15",
+      "log": "logs/check-runs/20261025T175525Z-53ded4de279242c499514fc68b6f16ed.log",
+      "logSha256": "81ffadbe3716c1675003743547b3889a6b2d0f8c950021fd87477deec7ba0410",
+      "receiptSha256": "7817ca5c18e9ffc27d2f8ff1b43373a91746dc871cc9a591b4f84e6ca7b8d8fa"
+    }
+  ],
+  "postNativeChanges": "product source pin, explanatory comments/provenance text and metadata-test counts only; no rule terms or declaration types changed",
+  "checks": {
+    "productAndDemo": "9 passed;2 native cases separately pass",
+    "boundariesAndProgram": "33 passed;1 unchanged native opt-in skipped",
+    "native": "2 tests pass:emitted transport/type,uncurry,fibre,canonical transport,p/q noncollapse",
+    "typecheck": "passed",
+    "changedFileLint": "passed"
+  },
+  "outputHashes": {
+    "wave130_product_native.out": "66eadf1bc53bbd7c3c0f95dbc341d5fe0af25d386f921e496b3139b168a4099f",
+    "wave132_product_final.out": "9589212a86a702dab41d9962c97e72b1c8f9d184dae8dfe0cabb4286793084ed",
+    "wave133_product_boundaries.out": "c893b165ce4deebbdd8cb0048578e9f0fecba11b887ad46a69be3d717c8ced2e",
+    "wave134_product_types_lint.out": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39"
+  },
+  "traceDelta": {
+    "fibre": [
+      12,
+      8
+    ],
+    "transport": [
+      26,
+      17
+    ]
+  },
+  "remaining": [
+    "displayed product projections and pairing",
+    "varying-base Pi and Homd transfer",
+    "production health profile review and full integration"
+  ]
+}

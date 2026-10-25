@@ -3313,18 +3313,18 @@ export class CoreCategoricalScopedBuilder {
             cat,
             nodeProvenance
         );
-        const catEndofunctors = this.functorCategory(
+        const catEndofunctors = this.cartesianFunctorCategory(
             cat,
             cat,
             nodeProvenance
         );
         const uncurriedProduct = this.functorObject(
-            this.functorCategory(
+            this.cartesianFunctorCategory(
                 cat,
                 catEndofunctors,
                 nodeProvenance
             ),
-            this.functorCategory(
+            this.cartesianFunctorCategory(
                 catProduct,
                 cat,
                 nodeProvenance
@@ -3340,7 +3340,7 @@ export class CoreCategoricalScopedBuilder {
             ),
             kernelFree(
                 coreCategoricalFibredProductCoreName(
-                    'internal-product-functor'
+                    'coefficient-product-functor'
                 ),
                 nodeProvenance
             ),

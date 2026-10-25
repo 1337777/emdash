@@ -88,6 +88,17 @@ product constructor and actual Cartesian transfor view; copying the old
 public-Cat product action type would be incorrect. Products/Pi/Homd and the
 full frontend gate remain open.
 
+The displayed-product transfer now uses the native coefficient constructor
+and automatic strict-transfor observation, retaining the separate public
+product owners. Its transparent family computes at fibres and shared-base
+arrows; the p/q non-collapse remains. There are12 declarations/35 local runtime
+clauses, all subject-checked by the existing engine. Product/demo scope:9
+passes; boundary/program scope:33 passes; two native tests pass, including
+the actual emitted transport and general uncurry cut. Typecheck/lint pass.
+The [product review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_product_review.md)
+records the changed trace and negative-control meaning. Next adapt displayed
+projections/pairing and their whole Cartesian action targets, then Pi/Homd.
+
 | Slice | Actual change to review and implement | Required evidence |
 | --- | --- | --- |
 | F01: shared categorical coefficients and directed telescope | Add the native `Cat_cart`/`Functor_cart_cat` dependencies through the existing generic transfer mechanisms. Migrate the Sigma telescope's coefficient and transport body. Retain public `Cat_cat` and ordinary `Functor_cat` as distinct owners. | Complete selected declaration/rule correspondence, generic compilation, actual telescope consumer, wrong-coefficient rejection, and native conformance. No new generic checker semantics. |

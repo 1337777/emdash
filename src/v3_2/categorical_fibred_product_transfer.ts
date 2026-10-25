@@ -5,7 +5,7 @@
  * The active kernel already represents the product of two Cat-valued
  * families by the transparent composite
  *
- *   uncurry(Product_cat_func) o Product_pair(B,C).
+ *   uncurry(Product_cat_coeff_func) o Product_pair(B,C).
  *
  * No `Product_catd` declaration is introduced. This fragment imports the
  * existing stable owners needed to expose that composite, transfers the
@@ -14,6 +14,10 @@
  * D-DTTLF-USABILITY-004. D-DTTLF-USABILITY-059 places the existing generic
  * product object/Hom foundation here at its earliest exact consumer; that
  * dependency correction changes no active kernel declaration or rule.
+ *
+ * The public product owners are retained. Admitted families use the native
+ * Cartesian coefficient product and its strict-transfor observation; those
+ * declarations add no caller-supplied strictness or equality evidence.
  *
  * Some prerequisite rules below are explicit delta-specializations of
  * transparent source definitions (`comp_cat_fapp0`, `Product_pair`, and
@@ -82,9 +86,9 @@ const MODULE_ID = 'emdash.emdash3_2';
 export const CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_REVISION =
     'FIBRED-PRODUCT-1A-TRANSPARENT-PRODUCT-D061-1' as const;
 
-/* Updated mechanically after the active kernel tranche is frozen. */
+/* Refreshed after reviewing the coefficient profile and native consumers. */
 export const CORE_CATEGORICAL_FIBRED_PRODUCT_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -108,6 +112,8 @@ const transforCategory =
     coreDirectedContinuationTransferSymbol('transfor-category');
 const categoryOfCategories =
     coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const functorObject =
     coreDirectedContinuationTransferSymbol('functor-object');
 const functorHomCapped =
@@ -117,6 +123,7 @@ const transforHomCapped =
 
 const {
     functorCategory,
+    cartesianFunctorCategory,
     identityFunctor,
     functorComposition,
     productCategory,
@@ -140,6 +147,14 @@ Object.freeze({
         coreLfQualifiedSymbol(MODULE_ID, 'Product_cat_func'),
     partialProductFunctor:
         coreLfQualifiedSymbol(MODULE_ID, 'Product_cat_fapp0_func'),
+    coefficientProductFunctor:
+        coreLfQualifiedSymbol(MODULE_ID, 'Product_cat_coeff_func'),
+    coefficientPartialProductFunctor:
+        coreLfQualifiedSymbol(MODULE_ID, 'Product_cat_coeff_fapp0_func'),
+    strictTransfor:
+        coreLfQualifiedSymbol(MODULE_ID, 'StrictTransfor'),
+    strictTransforView:
+        coreLfQualifiedSymbol(MODULE_ID, 'strict_transfor'),
     productLeftAction:
         coreLfQualifiedSymbol(
             MODULE_ID,
@@ -159,6 +174,10 @@ const {
     postcompositionAction,
     internalProductFunctor,
     partialProductFunctor,
+    coefficientProductFunctor,
+    coefficientPartialProductFunctor,
+    strictTransfor,
+    strictTransforView,
     productLeftAction,
     fixedRightProductMap
 } = CORE_CATEGORICAL_FIBRED_PRODUCT_SYMBOLS;
@@ -460,6 +479,40 @@ const productCategoryAt = (
         { plicity: 'explicit', value: right }
     ]);
 
+const cartesianFunctorCategoryAt = (
+    builder: CoreLfTransferScopedBuilder,
+    A: CoreLfTransferBuilderExpression,
+    B: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(builder, cartesianFunctorCategory, [
+    { plicity: 'explicit', value: A }, { plicity: 'explicit', value: B }
+]);
+
+const strictTransforAt = (
+    builder: CoreLfTransferScopedBuilder,
+    A: CoreLfTransferBuilderExpression, B: CoreLfTransferBuilderExpression,
+    F: CoreLfTransferBuilderExpression, G: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(builder, strictTransfor, [
+    { plicity: 'implicit', value: A }, { plicity: 'implicit', value: B },
+    { plicity: 'explicit', value: F }, { plicity: 'explicit', value: G }
+]);
+
+const strictView = (
+    builder: CoreLfTransferScopedBuilder,
+    A: CoreLfTransferBuilderExpression, B: CoreLfTransferBuilderExpression,
+    F: CoreLfTransferBuilderExpression, G: CoreLfTransferBuilderExpression,
+    eta: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(builder, strictTransforView, [
+    { plicity: 'implicit', value: A }, { plicity: 'implicit', value: B },
+    { plicity: 'implicit', value: F }, { plicity: 'implicit', value: G },
+    { plicity: 'explicit', value: eta }
+]);
+
+const coefficientPartialAt = (
+    builder: CoreLfTransferScopedBuilder, A: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(builder, coefficientPartialProductFunctor, [
+    { plicity: 'explicit', value: A }
+]);
+
 const productObjectComponents = (
     builder: CoreLfTransferScopedBuilder,
     leftCategory: CoreLfTransferBuilderExpression,
@@ -685,7 +738,7 @@ const source = (sourceFragment: string) => ({
 });
 
 const publicModifiers = (
-    rigidity: 'ordinary' | 'injective',
+    rigidity: 'ordinary' | 'injective' | 'constant',
     sourceOpacity: 'transparent' | 'opaque'
 ) => ({
     visibility: 'public' as const,
@@ -896,13 +949,36 @@ const productGroupoidType = (): CoreLfTransferExpression => {
     ));
 };
 
+const strictTransforType = (view: boolean): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder();
+    return b.term(b.pi('A', b.global(category), A =>
+        b.pi('B', b.global(category), B =>
+            b.pi('F', functorType(b, A, B), F =>
+                b.pi('G', functorType(b, A, B), G => view
+                    ? b.pi('U', decode(b, strictTransforAt(b, A, B, F, G)), _U =>
+                        decode(b, transforClassifierAt(b, A, B, F, G)), explicitMode)
+                    : b.global(groupoid),
+                view ? implicitMode : explicitMode),
+            view ? implicitMode : explicitMode),
+        implicitMode),
+    implicitMode));
+};
+
+const coefficientProductType = (partial: boolean): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder();
+    const cat = b.global(familyCoefficient);
+    return b.term(partial
+        ? b.pi('A', b.global(category), _A => functorType(b, cat, cat), explicitMode)
+        : functorType(b, cat, cartesianFunctorCategoryAt(b, cat, cat)));
+};
+
 const declarations: readonly CoreLfTransferDeclaration[] = [
     {
         order: 0,
         symbol: internalProductFunctor,
         type: internalProductFunctorType(),
         body: coreLfTransferAbsentBody(),
-        modifiers: publicModifiers('ordinary', 'opaque'),
+        modifiers: publicModifiers('constant', 'opaque'),
         provenance: source(
             'constant symbol Product_cat_func : τ (Functor Cat_cat ' +
             '(Functor_cat Cat_cat Cat_cat))'
@@ -971,6 +1047,26 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
         body: coreLfTransferAbsentBody(),
         modifiers: publicModifiers('injective', 'opaque'),
         provenance: source('injective symbol Product_grpd')
+    },
+    {
+        order: 8, symbol: strictTransfor, type: strictTransforType(false),
+        body: coreLfTransferAbsentBody(), modifiers: publicModifiers('injective', 'opaque'),
+        provenance: source('injective symbol StrictTransfor')
+    },
+    {
+        order: 9, symbol: strictTransforView, type: strictTransforType(true),
+        body: coreLfTransferAbsentBody(), modifiers: publicModifiers('injective', 'opaque'),
+        provenance: source('injective symbol strict_transfor')
+    },
+    {
+        order: 10, symbol: coefficientProductFunctor, type: coefficientProductType(false),
+        body: coreLfTransferAbsentBody(), modifiers: publicModifiers('constant', 'opaque'),
+        provenance: source('constant symbol Product_cat_coeff_func')
+    },
+    {
+        order: 11, symbol: coefficientPartialProductFunctor, type: coefficientProductType(true),
+        body: coreLfTransferAbsentBody(), modifiers: publicModifiers('injective', 'opaque'),
+        provenance: source('injective symbol Product_cat_coeff_fapp0_func')
     }
 ];
 
@@ -991,9 +1087,12 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         functorClassifier,
         homClassifier,
         categoryOfCategories,
+        familyCoefficient,
         functorObject,
         functorCategory,
-        productCategory
+        productCategory,
+        cartesianFunctorCategory,
+        transforClassifier
     ].map(symbol => ({
         symbol,
         availability: 'earlier-fragment' as const
@@ -1908,7 +2007,7 @@ const evaluationObjectRule = (): CoreLfTransferRuntimeRule => {
     const B = builder.capture('B');
     const F = builder.capture('F');
     const x = builder.capture('x');
-    const functors = functorCategoryAt(builder, A, B);
+    const functors = cartesianFunctorCategoryAt(builder, A, B);
     return {
         order: 14,
         id: 'categorical.evaluation.object',
@@ -1942,9 +2041,81 @@ const evaluationObjectRule = (): CoreLfTransferRuntimeRule => {
         )),
         right: builder.template(fapp0(builder, A, B, F, x)),
         provenance: source(
-            'rule fapp0 (@Eval_func $A $B) ' +
-            '(Struct_sigma $F $x)'
+            'derived pair-projection instance of: rule fapp0 (@Eval_func $A $B) $z'
         )
+    };
+};
+
+const cartesianHomObjectsRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), B = b.capture('B'), F = b.capture('F'), G = b.capture('G');
+    return {
+        order: 0, id: 'categorical.cartesian-hom.objects',
+        groupId: 'categorical.cartesian-hom-objects', clauseOrder: 0,
+        sourceOwner: objectClassifier,
+        variables: [
+            ...['A', 'B'].map(name => ({ name, type: b.template(b.global(category)) })),
+            ...['F', 'G'].map(name => ({ name, type: b.template(functorType(b, A, B)) }))
+        ],
+        left: b.pattern(objectClassifierAt(b, homCategoryAt(b,
+            cartesianFunctorCategoryAt(b, A, B), F, G))),
+        right: b.template(strictTransforAt(b, A, B, F, G)),
+        provenance: source('rule Obj (Hom_cat (Functor_cart_cat $A $B) $F $G)')
+    };
+};
+
+const coefficientHomRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), B = b.capture('B');
+    return {
+        order: 0, id: 'categorical.family-coefficient.hom',
+        groupId: 'categorical.family-coefficient-hom', clauseOrder: 0,
+        sourceOwner: homCategory,
+        variables: ['A', 'B'].map(name => ({ name, type: b.template(b.global(category)) })),
+        left: b.pattern(homCategoryAt(b, b.global(familyCoefficient), A, B)),
+        right: b.template(cartesianFunctorCategoryAt(b, A, B)),
+        provenance: source('rule Hom_cat Cat_cart $A $B ↪ Functor_cart_cat $A $B;')
+    };
+};
+
+const coefficientProductObjectRule = (partial: boolean): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), B = b.capture('B'), cat = b.global(familyCoefficient);
+    return {
+        order: 0,
+        id: partial ? 'categorical.coefficient-product.second-object' : 'categorical.coefficient-product.first-object',
+        groupId: 'categorical.coefficient-product-objects', clauseOrder: partial ? 1 : 0,
+        sourceOwner: functorObject,
+        variables: (partial ? ['A', 'B'] : ['A']).map(name => ({ name, type: b.template(b.global(category)) })),
+        left: b.pattern(partial
+            ? fapp0(b, cat, cat, coefficientPartialAt(b, A), B)
+            : fapp0(b, cat, cartesianFunctorCategoryAt(b, cat, cat), b.global(coefficientProductFunctor), A)),
+        right: b.template(partial ? productCategoryAt(b, A, B) : coefficientPartialAt(b, A)),
+        provenance: source(partial
+            ? 'rule fapp0 (Product_cat_coeff_fapp0_func $A) $B ↪ Product_cat $A $B;'
+            : 'rule fapp0 Product_cat_coeff_func $A ↪ Product_cat_coeff_fapp0_func $A;')
+    };
+};
+
+const coefficientProductActionRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), Ap = b.capture('Aprime'), B = b.capture('B'), Bp = b.capture('Bprime');
+    const F = b.capture('F'), G = b.capture('G'), cat = b.global(familyCoefficient);
+    const firstAction = fapp1(b, cat, cartesianFunctorCategoryAt(b, cat, cat),
+        b.global(coefficientProductFunctor), A, Ap, F);
+    return {
+        order: 0, id: 'categorical.coefficient-product.shared-arrow',
+        groupId: 'categorical.coefficient-product-action', clauseOrder: 0,
+        sourceOwner: transforHomCapped,
+        variables: [
+            ...['A', 'Aprime', 'B', 'Bprime'].map(name => ({ name, type: b.template(b.global(category)) })),
+            { name: 'F', type: b.template(functorType(b, A, Ap)) },
+            { name: 'G', type: b.template(functorType(b, B, Bp)) }
+        ],
+        left: b.pattern(tapp1(b, cat, cat, coefficientPartialAt(b, A), coefficientPartialAt(b, Ap),
+            B, Bp, strictView(b, cat, cat, coefficientPartialAt(b, A), coefficientPartialAt(b, Ap), firstAction), G)),
+        right: b.template(productMapAt(b, A, Ap, B, Bp, F, G)),
+        provenance: source('rule @tapp1_fapp0 Cat_cart Cat_cart _ _ $B $B\'')
     };
 };
 
@@ -1958,7 +2129,7 @@ const evaluationArrowRule = (): CoreLfTransferRuntimeRule => {
     const y = builder.capture('y');
     const eta = builder.capture('eta');
     const p = builder.capture('p');
-    const functors = functorCategoryAt(builder, A, B);
+    const functors = cartesianFunctorCategoryAt(builder, A, B);
     return {
         order: 15,
         id: 'categorical.evaluation.arrow',
@@ -2027,7 +2198,7 @@ const evaluationArrowRule = (): CoreLfTransferRuntimeRule => {
             G,
             x,
             y,
-            eta,
+            strictView(builder, A, B, F, G, eta),
             p
         )),
         provenance: source(
@@ -2054,8 +2225,8 @@ const evaluationCatArrowNormalizationRule =
     const y = builder.capture('y');
     const eta = builder.capture('eta');
     const p = builder.capture('p');
-    const cat = builder.global(categoryOfCategories);
-    const functors = functorCategoryAt(builder, cat, cat);
+    const cat = builder.global(familyCoefficient);
+    const functors = cartesianFunctorCategoryAt(builder, cat, cat);
     return {
         order: 16,
         id: 'categorical.evaluation.arrow.cat-normalize',
@@ -2102,8 +2273,8 @@ const evaluationCatArrowNormalizationRule =
             pair(builder, functors, cat, G, y),
             pair(
                 builder,
-                transforCategoryAt(builder, cat, cat, F, G),
-                functorCategoryAt(builder, x, y),
+                homCategoryAt(builder, functors, F, G),
+                cartesianFunctorCategoryAt(builder, x, y),
                 eta,
                 p
             )
@@ -2116,7 +2287,7 @@ const evaluationCatArrowNormalizationRule =
             G,
             x,
             y,
-            eta,
+            strictView(builder, cat, cat, F, G, eta),
             p
         )),
         provenance: source(
@@ -2299,14 +2470,13 @@ const uncurryObjectNormalizationRule =
     const B = builder.capture('B');
     const C = builder.capture('C');
     const G = builder.capture('G');
-    const cat = builder.global(categoryOfCategories);
-    const functorsBC = functorCategoryAt(builder, B, C);
-    const curried = functorCategoryAt(
+    const functorsBC = cartesianFunctorCategoryAt(builder, B, C);
+    const curried = cartesianFunctorCategoryAt(
         builder,
         A,
         functorsBC
     );
-    const uncurried = functorCategoryAt(
+    const uncurried = cartesianFunctorCategoryAt(
         builder,
         productCategoryAt(builder, A, B),
         C
@@ -2351,22 +2521,10 @@ const uncurryObjectNormalizationRule =
             uncurryPackageAt(builder, A, B, C),
             G
         )),
-        right: builder.template(postcompose(
-            builder,
-            cat,
-            cat,
-            identityFunctorAt(builder, cat),
-            productCategoryAt(builder, A, B),
-            evaluationSource,
-            C,
+        right: builder.template(composeFunctors(
+            builder, productCategoryAt(builder, A, B), evaluationSource, C,
             evaluationAt(builder, B, C),
-            fixedRightProductMapAt(
-                builder,
-                A,
-                functorsBC,
-                B,
-                G
-            )
+            fixedRightProductMapAt(builder, A, functorsBC, B, G)
         )),
         provenance: source(
             'active delta/runtime normal form of: ' +
@@ -2953,6 +3111,11 @@ const runtimeRules = Object.freeze([
     categoryUniverseHomRule(),
     functorHomCategoryRule(),
     transforClassifierDeltaRule(),
+    cartesianHomObjectsRule(),
+    coefficientHomRule(),
+    coefficientProductObjectRule(false),
+    coefficientProductObjectRule(true),
+    coefficientProductActionRule(),
     evaluationObjectRule(),
     evaluationArrowRule(),
     evaluationCatArrowNormalizationRule(),
@@ -2969,7 +3132,7 @@ const runtimeRules = Object.freeze([
     genericProductHomRule(),
     productPairProjectionBetaRule('left', 28),
     productPairProjectionBetaRule('right', 29)
-]);
+].map((rule, order) => Object.freeze({ ...rule, order })));
 
 export const CORE_CATEGORICAL_FIBRED_PRODUCT_RUNTIME_MODULE:
 CoreLfModuleSpec = createCoreLfModuleSpec({
@@ -2991,6 +3154,12 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         transforClassifier,
         transforCategory,
         categoryOfCategories,
+        familyCoefficient,
+        cartesianFunctorCategory,
+        strictTransfor,
+        strictTransforView,
+        coefficientProductFunctor,
+        coefficientPartialProductFunctor,
         functorObject,
         functorHomCapped,
         transforHomCapped,
@@ -3237,7 +3406,9 @@ export type CoreCategoricalFibredProductSymbolId =
     | 'internal-product-functor'
     | 'partial-product-functor'
     | 'product-left-action'
-    | 'fixed-right-product-map';
+    | 'fixed-right-product-map'
+    | 'coefficient-product-functor'
+    | 'coefficient-partial-product-functor';
 
 const symbolById:
 Readonly<Record<
@@ -3251,7 +3422,9 @@ Readonly<Record<
     'internal-product-functor': internalProductFunctor,
     'partial-product-functor': partialProductFunctor,
     'product-left-action': productLeftAction,
-    'fixed-right-product-map': fixedRightProductMap
+    'fixed-right-product-map': fixedRightProductMap,
+    'coefficient-product-functor': coefficientProductFunctor,
+    'coefficient-partial-product-functor': coefficientPartialProductFunctor
 });
 
 export function coreCategoricalFibredProductCoreName(

@@ -29,7 +29,8 @@ import {
     CoreCategoricalProgramError,
     CoreLfComparisonResult,
     checkLambdapiProbe,
-    compileCoreCategoricalFibredProductTransfer
+    compileCoreCategoricalFibredProductTransfer,
+    serializeKernelExpression
 } from '../src/v3_2';
 
 const lambdapiRoot = resolve(__dirname, '..', 'emdash2');
@@ -125,7 +126,11 @@ describe(
                     'hom_postcomp_fapp0',
                     'sigma_Fst',
                     'sigma_Snd',
-                    'Product_grpd'
+                    'Product_grpd',
+                    'StrictTransfor',
+                    'strict_transfor',
+                    'Product_cat_coeff_func',
+                    'Product_cat_coeff_fapp0_func'
                 ]
             );
             assert.deepEqual(
@@ -139,6 +144,10 @@ describe(
                     'hom_postcomp_fapp0',
                     'Product_cat_func',
                     'Product_cat_fapp0_func',
+                    'Product_cat_coeff_func',
+                    'Product_cat_coeff_fapp0_func',
+                    'StrictTransfor',
+                    'strict_transfor',
                     'Product_cat_fapp1_fapp0_functord',
                     'Product_cat_fapp1_tapp0_func'
                 ]
@@ -179,7 +188,7 @@ describe(
             assert.equal(
                 CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_BOUNDARY
                     .prerequisiteRuntimeRuleCount,
-                28
+                33
             );
             assert.equal(
                 CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_BOUNDARY
@@ -189,7 +198,7 @@ describe(
             assert.equal(
                 CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_BOUNDARY
                     .runtimeRuleCount,
-                30
+                35
             );
             assert.deepEqual(
                 CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_BOUNDARY
@@ -235,14 +244,14 @@ describe(
 
             const compiled =
                 compileCoreCategoricalFibredProductTransfer();
-            assert.equal(compiled.compiled.declarations.length, 8);
-            assert.equal(compiled.runtime.rules.length, 30);
+            assert.equal(compiled.compiled.declarations.length, 12);
+            assert.equal(compiled.runtime.rules.length, 35);
             assert.deepEqual(
                 compiled.runtime.rules.map(rule =>
                     rule.subjectValidation.kind
                 ),
                 Array.from(
-                    { length: 30 },
+                    { length: 35 },
                     () => 'typescript-checked'
                 )
             );
@@ -287,25 +296,17 @@ describe(
                 2_000
             );
             assert.equal(result.status, 'equal');
-            assert.equal(result.steps, 12);
-            assert.deepEqual(
-                runtimeRuleIds(result),
-                [
-                    'categorical.composition.object.delta',
-                    'categorical.uncurry.object.delta-normalize',
-                    'categorical.postcomposition.object.' +
-                        'identity-target-normalize',
-                    'categorical.identity-functor.object.delta',
-                    'categorical.identity-functor.object.delta',
-                    'categorical.identity-functor.arrow.delta',
-                    'categorical.identity-functor.object.delta',
-                    'categorical.product-pair.object.delta',
-                    'categorical.fixed-right-product.object',
-                    'categorical.evaluation.object',
-                    'categorical.internal-product.first-object',
-                    'categorical.internal-product.second-object'
-                ]
-            );
+            assert.equal(result.steps, 8);
+            assert.deepEqual(runtimeRuleIds(result), [
+                'categorical.composition.object.delta',
+                'categorical.uncurry.object.delta-normalize',
+                'categorical.composition.object.delta',
+                'categorical.product-pair.object.delta',
+                'categorical.fixed-right-product.object',
+                'categorical.evaluation.object',
+                'categorical.coefficient-product.first-object',
+                'categorical.coefficient-product.second-object'
+            ]);
             assert.equal(
                 CORE_CATEGORICAL_FIBRED_PRODUCT_RUNTIME_MODULE
                     .runtimeRules.some(rule =>
@@ -338,10 +339,10 @@ describe(
                 2_000
             );
             assert.equal(result.status, 'equal');
-            assert.equal(result.steps, 26);
+            assert.equal(result.steps, 17);
             assert.equal(
                 runtimeRuleIds(result).at(-1),
-                'categorical.fibred-product.shared-base-arrow'
+                'categorical.coefficient-product.shared-arrow'
             );
             assert.equal(
                 runtimeRuleIds(result).some(ruleId =>
@@ -356,7 +357,7 @@ describe(
                     'categorical.postcomposition.arrow.' +
                         'identity-target-normalize'
                 ),
-                true
+                false
             );
         });
 
@@ -372,7 +373,7 @@ describe(
                 entry =>
                     entry.reduction.kind === 'runtime' &&
                     entry.reduction.ruleId ===
-                        'categorical.fibred-product.shared-base-arrow'
+                        'categorical.coefficient-product.shared-arrow'
             );
             assert.equal(
                 sharedBaseSteps.length > 0,
@@ -411,6 +412,46 @@ describe(
             );
         });
 
+        it('checks emitted product transport and the selected uncurry cut in Lambdapi', {
+            skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_FIBRED_PRODUCT_PROBES !== '1'
+        }, () => {
+            const w = siblingWitness();
+            const c = compileCoreCategoricalFibredProductTransfer();
+            const composition = c.prerequisite.prerequisite;
+            const dependent = composition.dependent;
+            const structural = dependent.structural;
+            const references = Object.assign({},
+                structural.initialDeclarations.externalFreeReferences,
+                structural.compiled.externalFreeReferences,
+                dependent.compiled.externalFreeReferences,
+                composition.compiled.externalFreeReferences,
+                c.prerequisite.compiled.externalFreeReferences,
+                c.compiled.externalFreeReferences);
+            const transport = w.emdash.compile(w.transport);
+            const expected = w.emdash.compile(w.componentwise);
+            const split = w.emdash.compile(w.splitBase);
+            const serialize = (term: typeof transport.explicitTerm) =>
+                serializeKernelExpression(term, { externalFreeReferences: references });
+            const source = [
+                'require open emdash.emdash3_2;',
+                'symbol K : Cat;', 'symbol B : τ (Catd K);', 'symbol C : τ (Catd K);',
+                'symbol x : τ (Obj K);', 'symbol y : τ (Obj K);',
+                'symbol p : τ (Hom K x y);', 'symbol q : τ (Hom K x y);',
+                `assert ⊢ ${serialize(transport.explicitTerm)} : ${serialize(transport.expectedType)};`,
+                `assert ⊢ ${serialize(transport.explicitTerm)} ≡ ${serialize(expected.explicitTerm)};`,
+                `assertnot ⊢ ${serialize(transport.explicitTerm)} ≡ ${serialize(split.explicitTerm)};`,
+                'symbol uc_A : Cat;', 'symbol uc_B : Cat;', 'symbol uc_C : Cat;',
+                'symbol uc_G : τ (Functor uc_A (Functor_cart_cat uc_B uc_C));',
+                'assert ⊢ fapp0 (@uncurry_func_func uc_A uc_B uc_C) uc_G ≡ @comp_cat_fapp0 (Product_cat uc_A uc_B) (Product_cat (Functor_cart_cat uc_B uc_C) uc_B) uc_C (@Eval_func uc_B uc_C) (@Product_cat_fapp1_tapp0_func uc_A (Functor_cart_cat uc_B uc_C) uc_B uc_G);'
+            ].join('\n');
+            assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/);
+            const result = checkLambdapiProbe({ source, sourceMap: [] }, {
+                packageRoot: lambdapiRoot, timeoutMs: 60_000
+            });
+            assert.equal(result.accepted, true, result.diagnostics + '\n' + source);
+            assert.equal(result.timedOut, false);
+        });
+
         it(
             'agrees with Lambdapi on fibre, transport, and split-arrow non-collapse',
             {
@@ -436,11 +477,11 @@ describe(
                             'symbol fp_product : τ (Catd fp_K) ≔',
                             '  @comp_cat_fapp0',
                             '    fp_K',
-                            '    (Product_cat Cat_cat Cat_cat)',
-                            '    Cat_cat',
+                            '    (Product_cat Cat_cart Cat_cart)',
+                            '    Cat_cart',
                             '    (@uncurry_func',
-                            '      Cat_cat Cat_cat Cat_cat',
-                            '      Product_cat_func)',
+                            '      Cat_cart Cat_cart Cat_cart',
+                            '      Product_cat_coeff_func)',
                             '    (Struct_sigma fp_B fp_C);',
                             'assert ⊢ Fibre_cat fp_product fp_x',
                             '  ≡ Product_cat',
@@ -454,13 +495,7 @@ describe(
                             '      (Fibre_cat fp_C fp_y)',
                             '      (catd_transport_func fp_B fp_p)',
                             '      (catd_transport_func fp_C fp_p);',
-                            'assertnot ⊢',
-                            '  @tapp1_fapp0',
-                            '    Cat_cat Cat_cat _ _ _ _',
-                            '    (@Product_cat_fapp1_fapp0_functord',
-                            '      _ _',
-                            '      (catd_transport_func fp_B fp_p))',
-                            '    (catd_transport_func fp_C fp_q)',
+                            'assertnot ⊢ catd_transport_func fp_product fp_p',
                             '  ≡ @Product_map_func',
                             '      (Fibre_cat fp_B fp_x)',
                             '      (Fibre_cat fp_B fp_y)',
@@ -473,7 +508,7 @@ describe(
                     },
                     {
                         packageRoot: lambdapiRoot,
-                        timeoutMs: 30_000
+                        timeoutMs: 60_000
                     }
                 );
                 assert.equal(result.accepted, true, result.diagnostics);

@@ -100,6 +100,12 @@ and two native checks. Their [family review](../emdash2/audits/strict-default-ac
 supersedes those two specific displayed-view/Sigma-arrow failures. Displayed
 products, varying-base Pi, Homd and whole frontend integration remain open.
 
+The displayed-product computation is now also qualified in the frontend:
+9 product/demo and33 boundary/program passes, plus two native checks of the
+emitted transport/uncurry computation and negative control. Its projections
+and pairing are next; Pi/Homd and complete integration remain open. See the
+[product review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_product_review.md).
+
 ## Foundation-reviewer follow-up history — 2026-10-25
 
 **The full 596-reviewer retry passes** on the supported binary:4,284 positive/

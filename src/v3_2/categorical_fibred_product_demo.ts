@@ -44,7 +44,7 @@ export interface CoreCategoricalFibredProductDemo {
     readonly construction: 'direct-typescript-categorical-program';
     readonly assumptions: readonly string[];
     readonly familyPresentation:
-        'uncurry(Product_cat_func) o Product_pair(B,C)';
+        'uncurry(Product_cat_coeff_func) o Product_pair(B,C)';
     readonly examples:
         readonly CoreCategoricalFibredProductDemoExample[];
     readonly comparisons:
@@ -160,7 +160,7 @@ CoreCategoricalFibredProductDemo {
             'demo_p : Hom demo_K demo_x demo_y'
         ]),
         familyPresentation:
-            'uncurry(Product_cat_func) o Product_pair(B,C)',
+            'uncurry(Product_cat_coeff_func) o Product_pair(B,C)',
         examples: Object.freeze([
             example(
                 'transparent-product-transport',

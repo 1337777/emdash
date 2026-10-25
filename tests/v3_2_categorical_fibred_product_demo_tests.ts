@@ -23,7 +23,7 @@ describe(
             );
             assert.equal(
                 result.familyPresentation,
-                'uncurry(Product_cat_func) o Product_pair(B,C)'
+                'uncurry(Product_cat_coeff_func) o Product_pair(B,C)'
             );
             assert.deepEqual(
                 result.examples.map(example => example.id),
@@ -39,13 +39,13 @@ describe(
                     comparison.steps
                 ]),
                 [
-                    ['pointwise-fibre', 'equal', 12],
-                    ['shared-base-transport', 'equal', 26]
+                    ['pointwise-fibre', 'equal', 8],
+                    ['shared-base-transport', 'equal', 17]
                 ]
             );
             assert.equal(
                 result.comparisons[1].ruleIds.at(-1),
-                'categorical.fibred-product.shared-base-arrow'
+                'categorical.coefficient-product.shared-arrow'
             );
             assert.deepEqual(result.outputSummary, {
                 fibre: '(B x C)[x] computes to B[x] x C[x]',
