@@ -134,9 +134,15 @@ Production health is **no longer running**. After45 observed90-second
 timeouts, the owned dispatcher was stopped after its current guarded child
 finished; no checker was killed. Exact success-cache entries and all child
 receipts remain. The previous observations of continued progress do not
-describe its current state. A representative61-input timeout target is being
-measured at180s with the same2GiB cap before selecting any integration-profile
-change. Do not resume the unchanged aggregate or attribute all45 cases to
+describe its current state. The representative61-input
+`emdash3_2_one_cat_adjunction_zero_columns.lp` passes unchanged in170.343s/
+1,696,952KiB under180s/2GiB, receipt
+`20261025T174041Z-bbf3066eb90b415194d659a745ef6925`. Its90s limit was
+insufficient; the run reports94% rewriting and about39.5 billion allocated
+words, not a typing error. [Measurement and retained boundary](../emdash2/audits/strict-default-action-boundary/foundation_health_reassessment_verification.json)
+records the exact inputs. No profile changed yet: review comparable import
+closures and the existing staged recipes before restarting. Do not resume
+the unchanged aggregate or attribute all45 cases to
 transient host load solely from the affine-glue retry. This stops only the
 validation job; the overall goal remains active.
 

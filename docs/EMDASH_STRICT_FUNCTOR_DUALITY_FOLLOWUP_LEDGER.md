@@ -71,8 +71,10 @@ included without exclusions.
 
 Production health was stopped after45 observed90-second timeouts, after
 allowing its current guarded child to finish. Its success cache and immutable
-receipts are preserved; a representative target is under measured review
-before restarting validation. The central diagnostic passed. Affine
+receipts are preserved. The representative61-input zero-column target passes
+unchanged in170.343s/1,696,952KiB under180s/2GiB; its90s limit was insufficient.
+Review comparable import closures/staged recipes before restarting; no profile
+change has been made. The central diagnostic passed. Affine
 glue's registered 90-second attempt timed out, then the unchanged target
 passed in82.590s under a180-second ceiling with the same memory cap. Retain
 the original affine profile pending that integration review.
