@@ -1,0 +1,17 @@
+// Proof-time comparison of actual Cartesian curry composition with native Hom.
+// The previous precomposition point head now reduces to this whole composite.
+// Retain the supplied profunctor and both actual endpoint functors; no
+// cancellation or representation inference for an arbitrary R is introduced.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R)
+    (@Product_pair_tele_func $Source $B)
+  ≡ @hom_int $X $B $G
+  ↪ [ $Source ≡ Op_cat $X;
+      $R ≡ @Prof_reindex $X $X $X $B (@Unit_prof $X) (@id Cat_cat $X) $G ];
+
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R)
+    (@Product_pair_tele_func $Source $B)
+  ≡ @comp_fapp0 Cat_cat _ _ _ (@hom_int $X $B $G) (@Op_func $A $X $F)
+  ↪ [ $Source ≡ Op_cat $A;
+      $R ≡ @Prof_reindex $X $A $X $B (@Unit_prof $X) $F $G ];

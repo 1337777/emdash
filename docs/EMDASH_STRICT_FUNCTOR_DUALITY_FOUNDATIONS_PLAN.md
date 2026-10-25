@@ -42,6 +42,34 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Foundation-reviewer follow-up from `7c39e44f`: the
+[review](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_followup_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_followup_verification.json)
+record four complete reviewer corrections (22 positives/five negatives) and
+migration of the two existing Hom-curry unifier patterns to actual ordinary
+composition. The supplied profunctor and endpoint functors remain; no rewrite,
+primitive or operational proof argument is added. Four telescope negatives
+become positives under strict defaults; both wrong-profile negatives remain.
+The focused cold check passes in 55.243s/185,728KiB at 90s/2GiB/o=20, with an
+unchanged matched warning set and exact six-output replay.
+
+The 245-input core regression now passes cold after that correction:
+`20261025T020300Z-8656e38ab9074ede9a8b454c689921a2`, 771.773s/2,631,900KiB at
+900s/4GiB/o=20, subject reduction enabled. The earlier stale-negative failure is
+retained. This does not qualify all remaining original reviewers or production
+promotion, and does not claim a performance improvement from a partial run.
+
+The next original-reviewer traversal reaches the higher-sieve classifier.
+A separate continuation corrects its Cartesian classifier/ordinary inclusion,
+join ordinary Hom views, shifted-base opposite reindexing, and Sigma family
+annotations. Those four additional candidates pass the focused check in
+53.789s/168,960KiB
+(`20261025T025126Z-f4828c099ad849cb86949ddeb145f6d5`), including the normalized
+existing Op-reindexing comparison. Their durable replay and broader qualification
+are the next tranche; do not include them in the preceding four-reviewer result.
+The qualified production-emitter
+package and its 1,361-input evidence chain remain unchanged.
+
 Displayed-action candidate, 2026-10-25 UTC: the
 [review](../emdash2/audits/strict-default-action-boundary/displayed_action_projection_review.md),
 [replay](../emdash2/audits/strict-default-action-boundary/displayed_action_projection_candidate.py)
@@ -57,17 +85,17 @@ whole/capped/cell intrinsic composition ladder there. Existing coefficient
 vertical-action laws join its generic strict-transfor observation. A larger
 245-input regression exposed the retired telescope composition laws; restoring
 those native strict-default laws and their ordinary projections fixes the exact
-original consumer without changing its proof or adding a new unifier. The broad
-regression itself remains to be rerun. Warning inventories and a zero-unreviewed
-LHS audit are retained; passing typed controls are not global confluence.
+original consumer without changing its proof or adding a new unifier. The
+subsequent core regression passes as recorded above. Warning inventories and a
+zero-unreviewed LHS audit are retained; passing typed controls are not global confluence.
 
 The qualified production-emitter package is unchanged: 1,298 original LP files,
 791 core/library owners and 507 complete reviewers; 89 complete reviewers remain
 unqualified. The current complete-reviewer candidate is not counted until its
 shared-core and affected-source gates pass. The five terminal Homd runtime
-obligations, R07/R12 and production promotion remain required. Next qualify the
-remaining warning/interaction boundary and rerun the affected core regression,
-then continue complete reviewers and adoption.
+obligations, R07/R12 and production promotion remain required. Next retain the
+passing family-reviewer continuation, then continue complete
+reviewers, shared-source qualification and adoption.
 
 The disk-full interruption and RAM-only experiments have explicit evidence;
 a compact verified archive preserves the recovered sources/logs. The user

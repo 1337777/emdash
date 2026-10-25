@@ -1,6 +1,6 @@
 # Strict-functor/duality migration: unresolved work and regression ledger
 
-Date: 2026-10-24 (UTC)
+Date: 2026-10-25 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: active; staged retained reviewers and original all-import scope pass with the isolated checker; terminal, further migration and production qualification remain open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
@@ -18,6 +18,24 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Foundation-reviewer follow-up — 2026-10-25, unadopted
+
+The [review](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_followup_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_followup_verification.json)
+retain four complete reviewers: 22 positives/five negatives. The four former
+negative telescope composition observations are positive under strict defaults;
+wrong-profile, wrong-profunctor and runtime-boundary negatives remain. Two
+existing curry/Hom comparison patterns follow their actual composition normal
+form, with all operational arguments retained. No runtime rule or primitive is
+added by this follow-up.
+
+The focused 13-input check passes cold in 55.243s/185,728KiB with identical
+matched warning sets. The 245-input core regression then passes cold in
+771.773s/2,631,900KiB under its 900s/4GiB profile. The earlier failed negative
+assertion remains evidence of the necessary contract correction. Broader
+original-reviewer/library qualification and R07/R12 remain required; production
+counts and the five terminal Homd obligations are unchanged.
+
 ## Displayed-action candidate — 2026-10-25, unadopted
 
 The [review](../emdash2/audits/strict-default-action-boundary/displayed_action_projection_review.md)
@@ -30,8 +48,9 @@ comparison. Its generic strict-action overlap and next Hom controls pass.
 
 A larger core regression exposed a telescope composition proof failure. The
 restored strict-default native telescope laws and ordinary-view projections fix
-that unchanged consumer in the focused scope. The broad regression is not yet
-requalified. A terminal-Hom identity has a typed path but retains an explicit
+that unchanged consumer in the focused scope. The subsequent 245-input cold core
+regression passes as recorded above. A terminal-Hom identity has a typed path but
+retains an explicit
 whole runtime distinction; it remains under R07 rather than being claimed as a
 runtime normalization. Added symbolic bodies are inventoried and not all resolved.
 

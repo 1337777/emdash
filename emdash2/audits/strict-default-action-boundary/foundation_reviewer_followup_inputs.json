@@ -1,0 +1,39 @@
+{
+  "status": "candidate; focused and 245-input core checks pass; broader qualification pending",
+  "parentCheckpoint": "7c39e44f",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "parentCoreSha256": "16fa84e7e49f78b39776b6914ca061b726f100037116ae5a1d40ca9a7e01a53a",
+  "files": {
+    "displayed_identity_presentations": {
+      "sourceSha256": "2a51bf94bfdb9ba72c3e37d65d6e32929a8a9652a49090fbae29d165819d5368",
+      "candidateSha256": "71dba49906dffe7e8cad90ed37503222cd3f58e289e82516fc77a6c8b2be67d3",
+      "status": "checked by focused continuation; exact replay verified; production adoption pending"
+    },
+    "products_eval_curry": {
+      "sourceSha256": "4e007560b7c0bad245474c2fdbca8ea6dbd94416f5d85677d3164d1730b92bef",
+      "candidateSha256": "b896ede8f17b989b6a42cab8327beed8375abb5181c674ef526a25972bc1d63c",
+      "status": "checked by focused continuation; exact replay verified; production adoption pending"
+    },
+    "prof_curry_hom_views": {
+      "sourceSha256": "9d2b9c4fefa5b72bc4219a659d8cab22d93b14c0dc84b991118438e1f3d3af4f",
+      "candidateSha256": "8c386b06d9ff2a1e1b4b0107b9ce1e34313eba197a33fb5c2e96ac4d69cdec53",
+      "status": "checked by focused continuation; exact replay verified; production adoption pending"
+    },
+    "action_profile_telescope_profile_controls": {
+      "sourceSha256": "94ca5febb2957ca226e7222039524fb533aca67cd79f8f0f2f87e416156e6974",
+      "candidateSha256": "98c8eb06c59732955ff9f843299ccd7323935d719adfc661f4a9becd2b450914",
+      "changedAssertionPolarity": [
+        2,
+        3,
+        8,
+        9
+      ],
+      "retainedNegativeAssertions": [
+        4,
+        10
+      ],
+      "status": "checked by focused continuation; exact replay verified; production adoption pending"
+    }
+  },
+  "oldCurryBlockSha256": "35c7423ccd3151155c9fd69b3cc6ecb83e9e6215e4f3269686bbe751e25b9f9c"
+}
