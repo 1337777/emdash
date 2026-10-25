@@ -1,0 +1,1091 @@
+{
+  "status": "native source command inventory only; parser reused as lexer; not a fresh canonical export or semantic qualification",
+  "baseline": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "sourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "entries": [
+    {
+      "name": "Cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Cat_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Catd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_2A_MODULE"
+      ]
+    },
+    {
+      "name": "Catd_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Catd_cat_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B1_MODULE"
+      ]
+    },
+    {
+      "name": "Const_catd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Const_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_MODULE"
+      ]
+    },
+    {
+      "name": "Const_func_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "DefIso",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A1_MODULE"
+      ]
+    },
+    {
+      "name": "Edge_catd_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Eval_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Eval_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_EVALUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Fibre_cat",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_2B2_MODULE"
+      ]
+    },
+    {
+      "name": "Fibre_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DEPENDENT_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B3_MODULE"
+      ]
+    },
+    {
+      "name": "Functor",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE",
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_cat_fapp0_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_cat_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_catd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_EVALUATION_PREREQUISITE_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_catd_const_funcd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_catd_fapp0_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_catd_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_catd_product_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DIRECT_MIXED_PRODUCT_DISTRIBUTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_comp_pair_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functor_comp_pair_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Functord",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B1_MODULE"
+      ]
+    },
+    {
+      "name": "Functord_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Grpd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Hom",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_3A2A_MODULE",
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "HomPresheaf_catd_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Hom_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Hom_catd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_MODE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Hom_catd_fapp1_fapp0",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_HOM_CATD_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Hom_catd_fapp1_fapp0_point",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_HOM_CATD_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Hom_catd_fapp1_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_HOM_CATD_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Homd_target_catd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Homd_target_section_catd",
+      "state": "removed symbol",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Obj",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Obj_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Obj_func__displayed_chain_mirror",
+      "state": "no symbol command in either native source: inductive, constructor or local mirror",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_MODULE"
+      ]
+    },
+    {
+      "name": "Op_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B1_MODULE"
+      ]
+    },
+    {
+      "name": "Op_catd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Op_catd_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Op_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Op_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Pi_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Pi_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B1_MODULE"
+      ]
+    },
+    {
+      "name": "Pi_int_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B1_MODULE"
+      ]
+    },
+    {
+      "name": "Pi_pullback_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B1_MODULE"
+      ]
+    },
+    {
+      "name": "Presheaf_catd_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_3A2B_MODULE"
+      ]
+    },
+    {
+      "name": "Product_cat_fapp0_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_cat_fapp1_fapp0_functord",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_cat_fapp1_tapp0_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_cat_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_grpd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_3A2B_MODULE"
+      ]
+    },
+    {
+      "name": "Product_map_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_pair",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_pair_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_projL_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_projL_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_projR_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Product_projR_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Prof",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A1_MODULE"
+      ]
+    },
+    {
+      "name": "ProfComparison",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A1_MODULE"
+      ]
+    },
+    {
+      "name": "ProfMap",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A2A_MODULE"
+      ]
+    },
+    {
+      "name": "Prof_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A1_MODULE"
+      ]
+    },
+    {
+      "name": "Prof_tensor",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A1_MODULE"
+      ]
+    },
+    {
+      "name": "Prof_tensor_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A2B_MODULE"
+      ]
+    },
+    {
+      "name": "Prof_tensor_map",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A2B_MODULE"
+      ]
+    },
+    {
+      "name": "Pullback_catd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_COMPREHENSION_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B1_MODULE"
+      ]
+    },
+    {
+      "name": "Pullback_catd_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B1_MODULE"
+      ]
+    },
+    {
+      "name": "Sigma_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Sigma_catd_functord_catd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Sigma_catd_transport_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Sigma_proj1_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Sigma_proj1_pullback_catd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_2A_MODULE"
+      ]
+    },
+    {
+      "name": "Sigma_transfd_funcd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_2B3_MODULE"
+      ]
+    },
+    {
+      "name": "Struct_sigma",
+      "state": "no symbol command in either native source: inductive, constructor or local mirror",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Terminal_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DEPENDENT_COMPOSITION_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B2_MODULE"
+      ]
+    },
+    {
+      "name": "Terminal_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_EVALUATION_PREREQUISITE_MODULE"
+      ]
+    },
+    {
+      "name": "Terminal_funcd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_EVALUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Terminal_obj",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_MODULE"
+      ]
+    },
+    {
+      "name": "Transf",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Transf_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Transf_catd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_MODE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "Transfd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B3_MODULE"
+      ]
+    },
+    {
+      "name": "Transfd_cat",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B3_MODULE"
+      ]
+    },
+    {
+      "name": "comp_cat_con_fapp1_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "comp_cat_con_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "comp_cat_cov_fapp1_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_COMPOSITIONAL_NATURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "comp_cat_fapp0",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "comp_catd_fapp0",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "comp_fapp0",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DEPENDENT_COMPOSITION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "comp_prod_fapp1_fapp0",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "comp_prod_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "const_section_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_EVALUATION_PREREQUISITE_MODULE"
+      ]
+    },
+    {
+      "name": "curry_func_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "defiso_from",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A2A_MODULE"
+      ]
+    },
+    {
+      "name": "defiso_to",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A2A_MODULE"
+      ]
+    },
+    {
+      "name": "diag_func_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "fapp0",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "fapp0_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "fapp1_fapp0",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "fapp1_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "fdapp1_int_cell",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_MODULE",
+        "CORE_LF_SCALE_STRESS_2B2_MODULE"
+      ]
+    },
+    {
+      "name": "fdapp1_int_hom_fapp0",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_MODULE"
+      ]
+    },
+    {
+      "name": "fib_cov_tapp0_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "functord_transport_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DEPENDENT_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "functord_transport_lhs_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B2_MODULE"
+      ]
+    },
+    {
+      "name": "functord_transport_rhs_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B2_MODULE"
+      ]
+    },
+    {
+      "name": "hom_",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "hom_con",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "hom_int",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "hom_postcomp_fapp0",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_3A2A_MODULE"
+      ]
+    },
+    {
+      "name": "hom_postcomp_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "hom_precomp_along_fapp0",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "homd_",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "homd_int",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "homd_src_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "homd_src_sec",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "homd_tgt_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "id",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_3A2A_MODULE"
+      ]
+    },
+    {
+      "name": "id_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_3A2A_MODULE"
+      ]
+    },
+    {
+      "name": "id_funcd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "piapp0",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "prof_comparison_pull",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A2A_MODULE"
+      ]
+    },
+    {
+      "name": "prof_comparison_push",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_LF_SCALE_STRESS_3A2A_MODULE"
+      ]
+    },
+    {
+      "name": "section_pullback_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B2_MODULE"
+      ]
+    },
+    {
+      "name": "section_pullback_sec",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "sigma_Fst",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_3A2B_MODULE"
+      ]
+    },
+    {
+      "name": "sigma_Snd",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_3A2B_MODULE"
+      ]
+    },
+    {
+      "name": "sigma_arrow",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_COMPREHENSION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "sigma_functord_sec",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_CHAIN_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "sigma_map_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_MODULE"
+      ]
+    },
+    {
+      "name": "sigma_pullback_total_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_COMPREHENSION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "sigma_transport_arrow",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "sym_func_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "tapp0_fapp0",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "tapp0_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "tapp1_fapp0",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "tapp1_func",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "tdapp0_fapp0",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_MODULE",
+        "CORE_LF_SCALE_STRESS_2B3_MODULE"
+      ]
+    },
+    {
+      "name": "tdapp1_int_cell",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "tdapp1_int_fapp0_transfd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_TARGET_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "tdapp1_int_fapp1_func_transfd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_TARGET_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "tdapp1_int_func_transfd",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_TARGET_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "uncurry_func_func",
+      "state": "changed full symbol command; requires semantic review",
+      "modules": [
+        "CORE_CATEGORICAL_STRUCTURAL_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "τ",
+      "state": "unchanged full symbol command modulo whitespace",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    },
+    {
+      "name": "τΣ_",
+      "state": "no symbol command in either native source: inductive, constructor or local mirror",
+      "modules": [
+        "CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE"
+      ]
+    }
+  ],
+  "counts": {
+    "changed full symbol command; requires semantic review": 54,
+    "no symbol command in either native source: inductive, constructor or local mirror": 3,
+    "removed symbol": 1,
+    "unchanged full symbol command modulo whitespace": 92
+  },
+  "scope": "complete declarations for names selected by 59 exported transfer modules; declarations only; missing symbol commands are not counted as changed declarations"
+}

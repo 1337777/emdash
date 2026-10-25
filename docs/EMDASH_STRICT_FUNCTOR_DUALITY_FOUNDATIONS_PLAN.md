@@ -114,12 +114,31 @@ older running/failed states and do not override it.
 | Complete original reviewers | All 596 pass on the supported checker; 4,284 positive and 630 negative assertions. | Preserve their exact source and contracts through promotion. |
 | Supported-binary owner coverage | All 791 owners are covered by the passing reviewer and residual-owner gates. | Preserve the exact source/runtime evidence through promotion. |
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
-| Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates; checkpoint the reviewed source promotion. |
+| Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes after its comment-only refresh. | Production health is running with exact per-target resource profiles. A generated not-run report is not substituted for execution evidence. |
-| Frontend/source pins | Prospective review found actual coefficient-type changes, including the frozen dependent-target contract. | Review affected signatures and consumers; do not refresh hashes alone or claim an automatic TypeScript transfer. |
+| Frontend/source pins | The focused baseline is 14 passed/1 live-source-pin failure. Complete-command review finds 54 changed symbols and one removed owner among the selected names; canonical export is freshly acquired. | Follow the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md); review signatures and consumers before pins. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)
+
+Source promotion is checkpointed as `57e627b9`. Production health passes its
+central target in 510.824s and continues. The first observed resource failure
+is `emdash3_2_commutative_algebra_affine_glue.lp` at its registered 90s/3GiB
+profile, receipt `20261025T151741Z-9735e7cb44444088976e6cd0ab912c3c`.
+It reports a timeout without a typing error; its source was already covered
+by the complete library gate. Review its isolated import/consumer cost and
+select measured target-specific headroom before changing that profile. Do
+not alter the live run's source or registry inputs.
+
+The frontend review now has a fresh guarded canonical export. The health
+dispatcher was held only to let its current child finish and acquire the
+export serially, then resumed in the same session; no source/runner/profile
+changed. One enclosing health duration includes this scheduling interval;
+its child receipt retains actual checker timing. The native export parses
+as 2,111 commands. The [subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md)
+records the exact source/export identities and the dependency-ordered
+migration of existing TypeScript consumers. No frontend pin or semantic
+implementation has yet been changed.
 
 The actual central target passes on the supported binary, receipt
 `20261025T140330Z-b1d00426c42742c2806f4696f1f51bc2`: 140 inputs,

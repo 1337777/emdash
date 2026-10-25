@@ -1,0 +1,90 @@
+{
+  "purpose": "serial canonical export between health targets; no source/profile change",
+  "dispatcherPid": 2485965,
+  "dispatcherCommand": "python3 scripts/check_metrics.py --resume --update-log --write-report --brief ",
+  "startedAt": 1792942050.11681,
+  "childrenAtHold": [
+    2542031
+  ],
+  "currentChildCompletedAt": 1792942054.1179318,
+  "command": [
+    "./scripts/lambdapi_resource_guard.sh",
+    "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "export",
+    "-o",
+    "lp",
+    "emdash3_2.lp"
+  ],
+  "exportExit": 0,
+  "exportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "sourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "exporterSha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+  "resumedAt": 1792942055.338997,
+  "holdWallSeconds": 5.222186547005549,
+  "healthTimingQualification": "one enclosing health target duration includes dispatcher hold; the child execution receipt retains its actual timing",
+  "status": "fresh canonical export acquired; frontend semantics and pins not yet migrated",
+  "commandCount": 2111,
+  "commandCounts": {
+    "require": 0,
+    "flag": 5,
+    "symbol": 899,
+    "inductive": 11,
+    "rule": 1033,
+    "unif_rule": 153,
+    "builtin": 6,
+    "notation": 3,
+    "opaque": 1
+  },
+  "imports": [],
+  "productionCheckpoint": "57e627b9",
+  "exactAcquisitionDirectory": "emdash2/tmp/probes/kernel_boundary_continuation/fresh_canonical",
+  "canonicalSelectedDeclarations": [
+    {
+      "ordinal": 404,
+      "name": "Functor_cart_cat",
+      "text": "injective symbol Functor_cart_cat (A B : Cat) : Cat;"
+    },
+    {
+      "ordinal": 406,
+      "name": "Cat_cart",
+      "text": "constant symbol Cat_cart : Cat;"
+    },
+    {
+      "ordinal": 735,
+      "name": "hom_int",
+      "text": "injective symbol hom_int [A B : Cat] (F : τ (Functor B A))\n  : τ (Functor (Op_cat A) (Functor_cart_cat B Cat_cart));"
+    },
+    {
+      "ordinal": 754,
+      "name": "Catd_cat_func",
+      "text": "symbol Catd_cat_func : τ (Functor (Op_cat Cat_cart) Cat_cart)\n  ≔ @hom_con Cat_cart Cat_cart Cat_cart (@id_func Cat_cart);"
+    },
+    {
+      "ordinal": 857,
+      "name": "hom_int_view",
+      "text": "symbol hom_int_view [A B : Cat] (F : τ (Functor B A))\n  : τ (Functor (Op_cat A) (Catd_cat B))\n  ≔ @comp_cat_fapp0 (Op_cat A) (Functor_cart_cat B Cat_cart) (Catd_cat B)\n    (Functor_cart_include B Cat_cart) (@hom_int A B F);"
+    },
+    {
+      "ordinal": 1376,
+      "name": "Sigma_catd_functord_catd",
+      "text": "symbol Sigma_catd_functord_catd [K : Cat] [R : τ (Catd K)]\n  (FF : τ (Functord R (@Const_catd K Cat_cart))) : τ (Catd (@Sigma_cat K R));"
+    },
+    {
+      "ordinal": 1378,
+      "name": "Sigma_catd_transport_func",
+      "text": "symbol Sigma_catd_transport_func [K : Cat] [R : τ (Catd K)]\n  (FF : τ (Functord R (@Const_catd K Cat_cart))) [x y : τ (Obj K)]\n  (p : τ (Hom K x y)) (r : τ (Obj (Fibre_cat R x)))\n  : τ\n    (Functor\n     (Fibre_cat (@Sigma_catd_functord_catd K R FF) (Struct_sigma x r))\n     (Fibre_cat (@Sigma_catd_functord_catd K R FF)\n      (Struct_sigma y\n       (@fapp0 (Fibre_cat R x) (Fibre_cat R y)\n        (@catd_transport_func K R x y p) r))))\n  ≔ @fapp1_fapp0 (@Sigma_cat K R) Cat_cart (@Sigma_catd_functord_catd K R FF)\n    (Struct_sigma x r)\n    (Struct_sigma y\n     (@fapp0 (Fibre_cat R x) (Fibre_cat R y) (@catd_transport_func K R x y p)\n      r))\n    (@sigma_transport_arrow K R x y p r);"
+    },
+    {
+      "ordinal": 1546,
+      "name": "homd_int",
+      "text": "symbol homd_int [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))\n  : τ\n    (Functord E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)))\n  ≔ @strict_transfor K Cat_cart E\n    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D))\n    (@homd_rel_cart_int K D E FF);"
+    }
+  ],
+  "baselineTests": {
+    "command": "timeout --signal=KILL 180s env NODE_OPTIONS=--max-old-space-size=1536 node --require ts-node/register --test --test-concurrency=1 tests/v3_2_lf_transfer_compiler_tests.ts tests/v3_2_categorical_fibred_dependent_target_transfer_tests.ts",
+    "passed": 14,
+    "failed": 1,
+    "failure": "live source digest differs from old reviewed transfer snapshot",
+    "outputSha256": "6617e9d08590567792264a0c4b663aaa3573575f0ae79c4ad69fdc7d1338fb84"
+  }
+}

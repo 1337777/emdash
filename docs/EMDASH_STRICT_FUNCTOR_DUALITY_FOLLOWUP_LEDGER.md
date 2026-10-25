@@ -69,9 +69,12 @@ preserves the exact evidence and nonsemantic adjustments. The active core
 also passes after promotion. The five approved terminal comparisons are
 included without exclusions.
 
-Production health is running. Final CI, affected TypeScript contracts/source
-pins, and authoritative integration remain open; the source promotion has
-not yet been checkpointed. C01–C03 remain later required stages. The dated
+Production health is running, with its central diagnostic passed and a
+registered 90-second affine-glue timeout awaiting a measured profile review.
+Final CI, affected TypeScript contracts/source pins, and authoritative
+integration remain open. Source promotion is checkpoint `57e627b9`; the
+[frontend subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) owns the
+actual changed-type review. C01–C03 remain later required stages. The dated
 running/unadopted states below are historical, not the current status.
 
 ## Foundation-reviewer follow-up history — 2026-10-25
