@@ -1,0 +1,152 @@
+{
+  "status": "admitted-family view and Sigma base-change transfer qualified at focused scope; full frontend/integration remains open",
+  "previousCheckpoint": "a693784c",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "currentTypescriptInputs": {
+    "src/v3_2/categorical_comprehension_transfer.ts": "a4cebe9b961a78b05c47c5f251f4e4673f586ed6d5eb70ab978f2979f9130d70",
+    "src/v3_2/categorical_program.ts": "ac7fec2a30fa8f647235b3edd215b81d1498224b2151b483995f09a32daeb3bf",
+    "src/v3_2/categorical_surface.ts": "d059af9421751589d77d38fbb181c37e1076d4f044c475dcedddf2b81a2e3b99",
+    "src/v3_2/dependent.ts": "bdecf35372666146587c9f7f96f8e21774331ffe0360c64ac2d291900a4624c0",
+    "src/v3_2/directed_1a.ts": "5ba0dd5939de753b2668566ee0eb8ad30f7bf4da544a3b2d7583bef04bd33889",
+    "src/v3_2/surface.ts": "6f1204ffc0a23e9e8e93fa7d0d9c072118c91d5334af6d6d059c0a681d527713",
+    "tests/v3_2_categorical_comprehension_transfer_tests.ts": "6b2075d8a83e994940b3276d47c4b3941428e816fb7ec18cde3b665f15fcd33f",
+    "tests/v3_2_categorical_dependent_program_tests.ts": "81e271707226ff55066a4d91f1dc87ddede2792682b811e059ed7a14ceda9b42",
+    "src/v3_2/categorical_family_coefficient.ts": "3ed664f0fb03f3ceddb2e9c6a43a36103b87900d2e096f01858924320e6d59bc"
+  },
+  "nativeConformance": {
+    "command": [
+      "timeout",
+      "--signal=KILL",
+      "240s",
+      "node",
+      "--require",
+      "ts-node/register",
+      "--test",
+      "--test-name-pattern=checks emitted family|agrees with Lambdapi on object",
+      "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/kernel_boundary_continuation/f03_native_window/runner.cjs"
+    ],
+    "exit": 0,
+    "wallSeconds": 96.00978144886903,
+    "outputSha256": "1dce15dc89c4e66738795e869f824496c1d4c8879f67612e8da27d5ac533981b"
+  },
+  "nativeInputHashes": {
+    "src/v3_2/categorical_comprehension_transfer.ts": "14297952311e0003c2ea81c5e372d3ad4f39e89c672babc27784f188e5881dd5",
+    "src/v3_2/categorical_program.ts": "ac7fec2a30fa8f647235b3edd215b81d1498224b2151b483995f09a32daeb3bf",
+    "src/v3_2/categorical_surface.ts": "d059af9421751589d77d38fbb181c37e1076d4f044c475dcedddf2b81a2e3b99",
+    "src/v3_2/dependent.ts": "bdecf35372666146587c9f7f96f8e21774331ffe0360c64ac2d291900a4624c0",
+    "src/v3_2/directed_1a.ts": "5ba0dd5939de753b2668566ee0eb8ad30f7bf4da544a3b2d7583bef04bd33889",
+    "src/v3_2/surface.ts": "6f1204ffc0a23e9e8e93fa7d0d9c072118c91d5334af6d6d059c0a681d527713",
+    "tests/v3_2_categorical_comprehension_transfer_tests.ts": "6b2075d8a83e994940b3276d47c4b3941428e816fb7ec18cde3b665f15fcd33f",
+    "tests/v3_2_categorical_dependent_program_tests.ts": "81e271707226ff55066a4d91f1dc87ddede2792682b811e059ed7a14ceda9b42",
+    "src/v3_2/categorical_family_coefficient.ts": "3ed664f0fb03f3ceddb2e9c6a43a36103b87900d2e096f01858924320e6d59bc"
+  },
+  "nativeInputsStable": true,
+  "nativeReceipts": [
+    {
+      "id": "20261025T173620Z-0fcd6677dd0c46968d8c89722d617f06",
+      "target": "tmp/elab0-P2czzA/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 32.71262844209559,
+      "childrenMaxRssKiB": 168648,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "ff7d1c88734c848221ed87ea40d6934cd9f30590401b80997f4a617245d043c6",
+      "receiptSha256": "319092df87a301f52a2bde7b5d107693523b06c224a8b321145d6ded48df82f3"
+    },
+    {
+      "id": "20261025T173653Z-73e8da3a2af146c483e4cac1457d1fdb",
+      "target": "tmp/elab0-7UcwD8/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 32.78622002294287,
+      "childrenMaxRssKiB": 167988,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "1e31ef2512bce5642f972810443e84cadb942cd0e1716e6d9f6326f870ff9e20",
+      "receiptSha256": "1780a204becac7ef71effc5b0fe6c57f88d908eda6d7a9122a9f993542d387bd"
+    }
+  ],
+  "postNativeChanges": [
+    {
+      "path": "src/v3_2/categorical_comprehension_transfer.ts",
+      "change": "reviewed source pin only"
+    }
+  ],
+  "initialNativeFailure": {
+    "emittedTerm": "test serializer missed inherited references; corrected by composing the existing chain",
+    "comprehension": "60s core-import timeout, receipt20261025T173120Z-923db8910ffe4f668e959e3711932762",
+    "retry": "unchanged60s/2GiB native limits;both cases pass"
+  },
+  "validation": {
+    "focused": "55 passed,6 opt-in skips;two changed native consumers separately pass",
+    "typecheck": "passed",
+    "changedFileLint": "passed",
+    "genericCheckerOrIntrinsicOwnerSchemaChanged": false,
+    "releasePolicy": "passed",
+    "wholeTypescriptGate": "pending product/Pi/Homd migration"
+  },
+  "outputHashes": {
+    "wave120_frontend_f03_final.out": "a99f7d2ce2bb1bc8a254707ae5580d8ee4f1ee8b08902d26ffe6831b73fd2101",
+    "wave121_frontend_f03_types_lint.out": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39",
+    "f03_native_retry/conformance.out": "1dce15dc89c4e66738795e869f824496c1d4c8879f67612e8da27d5ac533981b"
+  },
+  "health": {
+    "state": "owned dispatcher stopped after current guarded child completed;45 observed90s timeouts retained for review",
+    "stopEvidence": {
+      "reason": "45 recorded90s timeouts; stop unchanged aggregate and review isolated import/profile cost",
+      "dispatcherPid": 2485965,
+      "startedAt": 1792950006.923639,
+      "currentChildren": [
+        "/usr/bin/python3 ./scripts/run_lambdapi.py --quiet emdash3_2_one_cat_negative_identity.lp "
+      ],
+      "stoppedAt": 1792950028.932389,
+      "state": "dispatcher stopped after guarded child completed; no checker killed",
+      "lastChildResult": "read its immutable receipt; may be absent from parent resume cache"
+    }
+  }
+}

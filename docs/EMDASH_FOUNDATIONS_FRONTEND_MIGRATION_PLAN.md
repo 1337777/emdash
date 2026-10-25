@@ -76,6 +76,18 @@ intrinsic owner/checker branch. Reuse the earlier transferred `fapp0_func`
 when migrating the later dependent-target module. Its old declaration cannot
 silently shadow the same qualified native owner.
 
+The initial F03 family/Sigma slice is now qualified: the rich family view,
+normal LF coefficient reference, fibre/transport construction and Sigma
+base-change transfer agree with `Cat_cart`. There are55 focused/boundary
+passes and two passing native checks at unchanged60s/2GiB, including actual
+emitted section/fibre/transport terms. Typecheck/lint pass. The
+[family review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_family_review.md)
+retains the initial serializer-binding failure, import timeout and successful
+retry separately. The next product consumer needs the native coefficient
+product constructor and actual Cartesian transfor view; copying the old
+public-Cat product action type would be incorrect. Products/Pi/Homd and the
+full frontend gate remain open.
+
 | Slice | Actual change to review and implement | Required evidence |
 | --- | --- | --- |
 | F01: shared categorical coefficients and directed telescope | Add the native `Cat_cart`/`Functor_cart_cat` dependencies through the existing generic transfer mechanisms. Migrate the Sigma telescope's coefficient and transport body. Retain public `Cat_cat` and ordinary `Functor_cat` as distinct owners. | Complete selected declaration/rule correspondence, generic compilation, actual telescope consumer, wrong-coefficient rejection, and native conformance. No new generic checker semantics. |

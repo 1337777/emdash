@@ -20,6 +20,10 @@ import {
     provenance
 } from './kernel';
 import { SurfaceOperationId } from './schema';
+import {
+    CORE_CATEGORICAL_FAMILY_COEFFICIENT_CORE_NAME,
+    coreCategoricalFamilyCoefficient
+} from './categorical_family_coefficient';
 
 export type SurfaceCategoryInput =
     | string
@@ -323,6 +327,10 @@ export function coreTypeForCategoryObject(
     span: SourceSpan,
     detail: string
 ): CoreType {
+    if (category.tag === 'reference' && category.namespace === 'free' &&
+        category.name === CORE_CATEGORICAL_FAMILY_COEFFICIENT_CORE_NAME) {
+        return { tag: 'category' };
+    }
     if (category.tag !== 'application') {
         return { tag: 'object', category };
     }
@@ -349,11 +357,7 @@ export function coreTypeForCategoryObject(
             return {
                 tag: 'functor',
                 sourceCategory: category.arguments[0].value,
-                targetCategory: kernelApplication(
-                    'category-of-categories',
-                    [],
-                    derived(detail, span)
-                )
+                targetCategory: coreCategoricalFamilyCoefficient(derived(detail, span))
             };
         default:
             return { tag: 'object', category };

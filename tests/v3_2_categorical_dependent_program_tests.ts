@@ -17,8 +17,10 @@ import {
     CoreCategoricalProgramError,
     CoreCategoricalSurfaceError,
     checkLambdapiProbe,
+    compileCoreCategoricalDependentTransfer,
     coreCategoricalDiagnosticFromError,
-    selectCoreCategoricalApplication
+    selectCoreCategoricalApplication,
+    serializeKernelExpression
 } from '../src/v3_2';
 
 const program = (
@@ -30,6 +32,51 @@ const lambdapiRoot = resolve(__dirname, '..', 'emdash2');
 describe(
     'TypeScript v3.2 USABILITY-2A0 categorical dependent program',
     () => {
+        it('checks emitted family, section and transport terms in Lambdapi', {
+            skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_DEPENDENT_PROBES !== '1'
+        }, () => {
+            const emdash = program();
+            const K = emdash.category('family_K');
+            const E = emdash.displayedFamily('family_E', K);
+            const D = emdash.displayedFamily('family_D', K);
+            const x = emdash.object('family_x', K);
+            const y = emdash.object('family_y', K);
+            const p = emdash.hom('family_p', K, x, y);
+            const s = emdash.section('family_s', E);
+            const FF = emdash.displayedFunctor('family_FF', E, D);
+            const terms = [
+                emdash.apply(s, x, { expectedShape: 'dependent-object' }),
+                emdash.apply(FF, x, { expectedShape: 'fibre-functor' }),
+                emdash.apply(FF, p, { expectedShape: 'transport-functor' })
+            ].map(term => emdash.compile(term));
+            const compilation = compileCoreCategoricalDependentTransfer();
+            const references = {
+                ...compilation.structural.initialDeclarations.externalFreeReferences,
+                ...compilation.structural.compiled.externalFreeReferences,
+                ...compilation.compiled.externalFreeReferences
+            };
+            const serialize = (term: typeof terms[number]['explicitTerm']) =>
+                serializeKernelExpression(term, { externalFreeReferences: references });
+            const source = [
+                'require open emdash.emdash3_2;',
+                'symbol family_K : Cat;',
+                'symbol family_E : τ (Catd family_K);',
+                'symbol family_D : τ (Catd family_K);',
+                'symbol family_x : τ (Obj family_K);',
+                'symbol family_y : τ (Obj family_K);',
+                'symbol family_p : τ (Hom family_K family_x family_y);',
+                'symbol family_s : τ (Obj (Pi_cat family_E));',
+                'symbol family_FF : τ (Functord family_E family_D);',
+                ...terms.map(term => `assert ⊢ ${serialize(term.explicitTerm)} : ${serialize(term.expectedType)};`)
+            ].join('\n');
+            assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/);
+            const result = checkLambdapiProbe({ source, sourceMap: [] }, {
+                packageRoot: lambdapiRoot, timeoutMs: 60_000
+            });
+            assert.equal(result.accepted, true, result.diagnostics + '\n' + source);
+            assert.equal(result.timedOut, false);
+        });
+
         it('checks a dependent section at a closed base object', () => {
             const emdash = program();
             const K = emdash.category('K', { line: 1 });

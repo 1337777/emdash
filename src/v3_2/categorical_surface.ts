@@ -24,6 +24,8 @@
  * remain fail-closed.
  */
 
+import { coreCategoricalFamilyCoefficient } from './categorical_family_coefficient';
+
 import {
     CORE_CATEGORICAL_DEPENDENT_PREREQUISITES,
     CoreCategoricalDependentPrerequisiteId,
@@ -2943,7 +2945,7 @@ export class CoreCategoricalScopedBuilder {
             category.arguments[3].plicity !== 'explicit' ||
             !kernelExpressionEquals(
                 category.arguments[1].value,
-                this.categoryOfCategories(nodeProvenance)
+                this.familyCoefficient(nodeProvenance)
             )
         ) {
             return undefined;
@@ -3197,14 +3199,10 @@ export class CoreCategoricalScopedBuilder {
         );
     }
 
-    private categoryOfCategories(
+    private familyCoefficient(
         nodeProvenance: Provenance
     ): KernelExpression {
-        return kernelApplication(
-            'category-of-categories',
-            [],
-            nodeProvenance
-        );
+        return coreCategoricalFamilyCoefficient(nodeProvenance);
     }
 
     private functorCategory(
@@ -3309,7 +3307,7 @@ export class CoreCategoricalScopedBuilder {
         right: KernelExpression,
         nodeProvenance: Provenance
     ): KernelExpression {
-        const cat = this.categoryOfCategories(nodeProvenance);
+        const cat = this.familyCoefficient(nodeProvenance);
         const catProduct = this.productCategory(
             cat,
             cat,
@@ -4383,7 +4381,7 @@ export class CoreCategoricalScopedBuilder {
                 const probeIndex = kernelBound(0, nodeProvenance);
                 const fibreCategory = this.functorObject(
                     subject.type.baseCategory,
-                    this.categoryOfCategories(nodeProvenance),
+                    this.familyCoefficient(nodeProvenance),
                     subject.type.family,
                     probeIndex,
                     nodeProvenance
@@ -4455,7 +4453,7 @@ export class CoreCategoricalScopedBuilder {
         const point = argument.closed.term;
         const fibre = this.functorObject(
             subject.type.baseCategory,
-            this.categoryOfCategories(nodeProvenance),
+            this.familyCoefficient(nodeProvenance),
             subject.type.family,
             point,
             nodeProvenance
@@ -4752,14 +4750,14 @@ export class CoreCategoricalScopedBuilder {
             }
             const sourceFibre = this.functorObject(
                 base,
-                this.categoryOfCategories(nodeProvenance),
+                this.familyCoefficient(nodeProvenance),
                 sourceFamily,
                 argument.type.sourceObject,
                 nodeProvenance
             );
             const targetFibre = this.functorObject(
                 base,
-                this.categoryOfCategories(nodeProvenance),
+                this.familyCoefficient(nodeProvenance),
                 targetFamily,
                 argument.type.targetObject,
                 nodeProvenance
@@ -4835,14 +4833,14 @@ export class CoreCategoricalScopedBuilder {
                 tag: 'functor',
                 sourceCategory: this.functorObject(
                     base,
-                    this.categoryOfCategories(nodeProvenance),
+                    this.familyCoefficient(nodeProvenance),
                     sourceFamily,
                     point,
                     nodeProvenance
                 ),
                 targetCategory: this.functorObject(
                     base,
-                    this.categoryOfCategories(nodeProvenance),
+                    this.familyCoefficient(nodeProvenance),
                     targetFamily,
                     point,
                     nodeProvenance
@@ -5014,14 +5012,14 @@ export class CoreCategoricalScopedBuilder {
         const displayedType = subject.type;
         const sourceFibre = this.functorObject(
             displayedType.baseCategory,
-            this.categoryOfCategories(nodeProvenance),
+            this.familyCoefficient(nodeProvenance),
             displayedType.sourceFamily,
             point,
             nodeProvenance
         );
         const targetFibre = this.functorObject(
             displayedType.baseCategory,
-            this.categoryOfCategories(nodeProvenance),
+            this.familyCoefficient(nodeProvenance),
             displayedType.targetFamily,
             point,
             nodeProvenance
@@ -15238,7 +15236,7 @@ export class CoreCategoricalScopedBuilder {
             ) ||
             !kernelExpressionEquals(
                 context.targetCategory,
-                this.categoryOfCategories(nodeProvenance)
+                this.familyCoefficient(nodeProvenance)
             ) ||
             !kernelExpressionEquals(
                 context.sourceFunctor,
@@ -18337,7 +18335,7 @@ export class CoreCategoricalScopedBuilder {
             }
             const ambientCategory = this.transforCategory(
                 baseCategory,
-                this.categoryOfCategories(nodeProvenance),
+                this.familyCoefficient(nodeProvenance),
                 sourceFamily,
                 targetFamily,
                 nodeProvenance

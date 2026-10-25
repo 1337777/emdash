@@ -103,10 +103,12 @@ export type CoreBridgeAuthorityClass =
 
 export interface CoreDependentBridgeSchema {
     /**
-     * Owner paths are outermost-to-innermost semantic Core owner sequences.
+     * Paths describe semantic owners and selected declaration roles. The
+     * Cartesian coefficient is a normal LF declaration, not an intrinsic.
      */
     readonly displayedOwnerPath: readonly CoreOwnerId[];
-    readonly ordinaryOwnerPath: readonly CoreOwnerId[] | null;
+    readonly ordinaryOwnerPath:
+        readonly (CoreOwnerId | 'cartesian-category-coefficient')[] | null;
     readonly authority: CoreBridgeAuthorityClass;
     readonly requiredNonCollapse: string | null;
 }
@@ -128,7 +130,7 @@ export const CORE_DEPENDENT_BRIDGE_SCHEMAS = {
         ordinaryOwnerPath: [
             'decode',
             'functor-classifier',
-            'category-of-categories'
+            'cartesian-category-coefficient'
         ],
         authority: 'runtime-reduction',
         requiredNonCollapse:

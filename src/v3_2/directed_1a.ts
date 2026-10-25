@@ -7,6 +7,9 @@
  */
 
 import {
+    CORE_CATEGORICAL_FAMILY_COEFFICIENT_CORE_NAME
+} from './categorical_family_coefficient';
+import {
     CORE_DIRECTED_1A_REVIEW,
     CORE_LF_CONTINUATION_PROFILE_REVIEW,
     validateCoreDirected1aReview,
@@ -50,7 +53,7 @@ import {
 } from './schema';
 
 export const CORE_DIRECTED_1A_PRIMITIVE_NAMES = Object.freeze({
-    'cartesian-category-coefficient': 'dttlf_Cat_cart',
+    'cartesian-category-coefficient': CORE_CATEGORICAL_FAMILY_COEFFICIENT_CORE_NAME,
     'displayed-functor-category': 'dttlf_Functord_cat',
     'sigma-category': 'dttlf_Sigma_cat',
     'sigma-telescope-family': 'dttlf_Sigma_catd_functord_catd'

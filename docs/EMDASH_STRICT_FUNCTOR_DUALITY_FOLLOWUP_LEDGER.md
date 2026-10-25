@@ -69,10 +69,13 @@ preserves the exact evidence and nonsemantic adjustments. The active core
 also passes after promotion. The five approved terminal comparisons are
 included without exclusions.
 
-Production health is running, with its central diagnostic passed. Affine
+Production health was stopped after45 observed90-second timeouts, after
+allowing its current guarded child to finish. Its success cache and immutable
+receipts are preserved; a representative target is under measured review
+before restarting validation. The central diagnostic passed. Affine
 glue's registered 90-second attempt timed out, then the unchanged target
 passed in82.590s under a180-second ceiling with the same memory cap. Retain
-the original profile and retry the failed target after this run.
+the original affine profile pending that integration review.
 Final CI, affected TypeScript contracts/source pins, and authoritative
 integration remain open. Source promotion is checkpoint `57e627b9`; the
 [frontend subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) owns the
@@ -89,6 +92,11 @@ and native checks, retaining ordinary fixed evaluation and rejecting ordinary
 joint evaluation. F03 next repairs the rich Catd object view, family action
 coefficients and Sigma-arrow transfer. The two broader displayed-consumer
 failures remain recorded; see the [structural review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_structural_review.md).
+
+The rich family view and Sigma base-change transfer now pass55 focused tests
+and two native checks. Their [family review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_family_review.md)
+supersedes those two specific displayed-view/Sigma-arrow failures. Displayed
+products, varying-base Pi, Homd and whole frontend integration remain open.
 
 ## Foundation-reviewer follow-up history — 2026-10-25
 

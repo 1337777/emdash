@@ -72,7 +72,7 @@ export const CORE_CATEGORICAL_COMPREHENSION_TRANSFER_REVISION =
     'FIBRED-COMPREHENSION-1A-BASE-CHANGE-TOTALIZATION-1' as const;
 
 export const CORE_CATEGORICAL_COMPREHENSION_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -84,8 +84,8 @@ const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
 const homClassifier =
     coreDirectedContinuationTransferSymbol('hom-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -259,7 +259,7 @@ const fibre = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'explicit', value: family },
         { plicity: 'explicit', value: point }
@@ -420,7 +420,7 @@ const sigmaArrowType = (): CoreLfTransferExpression => {
                                         builder,
                                         K,
                                         builder.global(
-                                            categoryOfCategories
+                                            familyCoefficient
                                         ),
                                         E,
                                         x,
@@ -609,7 +609,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         objectClassifier,
         functorClassifier,
         homClassifier,
-        categoryOfCategories,
+        familyCoefficient,
         displayedCategoryCategory,
         functorObject,
         functorHomCapped,
@@ -786,7 +786,7 @@ const pullbackFibreRule = (): CoreLfTransferRuntimeRule => {
             )
         ),
         provenance: source(
-            'rule @fapp0 _ Cat_cat ' +
+            'rule @fapp0 _ Cat_cart ' +
             '(@Pullback_catd $A $B $E $F) $a'
         )
     };
@@ -845,7 +845,7 @@ const pullbackArrowRule = (): CoreLfTransferRuntimeRule => {
             functorArrowAt(
                 builder,
                 A,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 pullback(builder, A, K, D, F),
                 a,
                 b,
@@ -856,7 +856,7 @@ const pullbackArrowRule = (): CoreLfTransferRuntimeRule => {
             functorArrowAt(
                 builder,
                 K,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 D,
                 Fa,
                 Fb,
@@ -864,7 +864,7 @@ const pullbackArrowRule = (): CoreLfTransferRuntimeRule => {
             )
         ),
         provenance: source(
-            'rule @fapp1_fapp0 _ Cat_cat ' +
+            'rule @fapp1_fapp0 _ Cat_cart ' +
             '(@Pullback_catd $A $B $E $F) $a $a_prime $p'
         )
     };
@@ -963,7 +963,7 @@ const pullbackTotalArrowRule = (): CoreLfTransferRuntimeRule => {
     const sourceTransport = functorArrowAt(
         builder,
         A,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         reindexed,
         a,
         b,
@@ -1107,7 +1107,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         objectClassifier,
         functorClassifier,
         homClassifier,
-        categoryOfCategories,
+        familyCoefficient,
         displayedCategoryCategory,
         functorObject,
         functorHomCapped,

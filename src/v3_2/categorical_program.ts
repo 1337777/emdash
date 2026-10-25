@@ -8,6 +8,8 @@
  * as executable semantic state.
  */
 
+import { coreCategoricalFamilyCoefficient } from './categorical_family_coefficient';
+
 import {
     CoreCheckerError,
     CoreCheckerErrorCode
@@ -1892,11 +1894,7 @@ export class CoreCategoricalProgram {
         right: KernelExpression,
         nodeProvenance: Provenance
     ): KernelExpression {
-        const cat = kernelApplication(
-            'category-of-categories',
-            [],
-            nodeProvenance
-        );
+        const cat = coreCategoricalFamilyCoefficient(nodeProvenance);
         const catProduct = this.productCategoryExpression(
             cat,
             cat,
@@ -2089,11 +2087,7 @@ export class CoreCategoricalProgram {
             [
                 { value: baseCategory },
                 {
-                    value: kernelApplication(
-                        'category-of-categories',
-                        [],
-                        nodeProvenance
-                    )
+                    value: coreCategoricalFamilyCoefficient(nodeProvenance)
                 },
                 { value: family },
                 { value: point }
@@ -2248,14 +2242,10 @@ export class CoreCategoricalProgram {
         );
     }
 
-    private categoryOfCategoriesExpression(
+    private familyCoefficientExpression(
         nodeProvenance: Provenance
     ): KernelExpression {
-        return kernelApplication(
-            'category-of-categories',
-            [],
-            nodeProvenance
-        );
+        return coreCategoricalFamilyCoefficient(nodeProvenance);
     }
 
     private dependentSectionMotiveExpression(
@@ -2264,7 +2254,7 @@ export class CoreCategoricalProgram {
         nodeProvenance: Provenance
     ): KernelExpression {
         const categoryOfCategories =
-            this.categoryOfCategoriesExpression(nodeProvenance);
+            this.familyCoefficientExpression(nodeProvenance);
         return this.displayedPullbackExpression(
             baseCategory,
             this.oppositeCategoryExpression(
@@ -2457,7 +2447,7 @@ export class CoreCategoricalProgram {
             detail
         );
         const expectedTarget = this.oppositeCategoryExpression(
-            this.categoryOfCategoriesExpression(nodeProvenance),
+            this.familyCoefficientExpression(nodeProvenance),
             nodeProvenance
         );
         if (!kernelExpressionEquals(
@@ -3071,7 +3061,7 @@ export class CoreCategoricalProgram {
             nodeProvenance
         );
         const target = this.oppositeCategoryExpression(
-            this.categoryOfCategoriesExpression(nodeProvenance),
+            this.familyCoefficientExpression(nodeProvenance),
             nodeProvenance
         );
         return this.assume(name, {
@@ -3693,11 +3683,7 @@ export class CoreCategoricalProgram {
                 [
                     { value: displayedFunctor.baseCategory },
                     {
-                        value: kernelApplication(
-                            'category-of-categories',
-                            [],
-                            nodeProvenance
-                        )
+                        value: coreCategoricalFamilyCoefficient(nodeProvenance)
                     },
                     { value: displayedFunctor.sourceFamily },
                     { value: displayedFunctor.targetFamily },
@@ -4776,11 +4762,7 @@ export class CoreCategoricalProgram {
                 [
                     { value: family.baseCategory.expression },
                     {
-                        value: kernelApplication(
-                            'category-of-categories',
-                            [],
-                            nodeProvenance
-                        )
+                        value: coreCategoricalFamilyCoefficient(nodeProvenance)
                     },
                     { value: family.expression },
                     { value: baseArrow.sourceObject },
@@ -4867,11 +4849,7 @@ export class CoreCategoricalProgram {
             [
                 { value: family.baseCategory.expression },
                 {
-                    value: kernelApplication(
-                        'category-of-categories',
-                        [],
-                        nodeProvenance
-                    )
+                    value: coreCategoricalFamilyCoefficient(nodeProvenance)
                 },
                 { value: family.expression },
                 { value: baseArrow.sourceObject },
@@ -6967,7 +6945,7 @@ export class CoreCategoricalProgram {
             return this.builder.transforLambda(
                 name,
                 sourceFamily.baseCategory.expression,
-                this.categoryOfCategoriesExpression(nodeProvenance),
+                this.familyCoefficientExpression(nodeProvenance),
                 sourceFamily.expression,
                 targetFamily.expression,
                 body,

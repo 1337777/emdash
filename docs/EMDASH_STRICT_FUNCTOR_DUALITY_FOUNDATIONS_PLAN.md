@@ -115,11 +115,30 @@ older running/failed states and do not override it.
 | Supported-binary owner coverage | All 791 owners are covered by the passing reviewer and residual-owner gates. | Preserve the exact source/runtime evidence through promotion. |
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
-| Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes after its comment-only refresh. | Production health is running with exact per-target resource profiles. A generated not-run report is not substituted for execution evidence. |
-| Frontend/source pins | The shared Cartesian coefficient/Sigma telescope continuation is migrated: 30 declarations, 12 rules, four native conformance cases, focused compiler/runtime and metadata checks. Only that reviewed continuation's pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with Cartesian structural consumers, then displayed/Pi/Homd profiles and final integration. |
+| Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes. Health's central check passed; the aggregate was stopped after45 observed90s timeouts, preserving receipts. | Measure representative import/consumer cost before restarting with justified profiles. A generated not-run report is not execution evidence. |
+| Frontend/source pins | Shared coefficient/telescope, Cartesian structural/fixed evaluation, rich family views and Sigma base-change slices have focused/native qualification. Only their reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with displayed products, varying-base Pi/Homd and final integration. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)
+
+The [frontend admitted-family/Sigma slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_family_review.md)
+qualifies the rich Catd view, normal coefficient reference and Sigma
+base-change transfer:55 focused/boundary passes, two native passes, typecheck
+and lint. The generated-term serializer test now includes inherited
+references; its earlier failure and a separate60s core-import timeout remain
+recorded. The retry succeeds at the same limits. Displayed products next use
+the actual `Product_cat_coeff_func` profile and strict-transfor observation;
+varying-base Pi/Homd and full frontend integration remain required.
+
+Production health is **no longer running**. After45 observed90-second
+timeouts, the owned dispatcher was stopped after its current guarded child
+finished; no checker was killed. Exact success-cache entries and all child
+receipts remain. The previous observations of continued progress do not
+describe its current state. A representative61-input timeout target is being
+measured at180s with the same2GiB cap before selecting any integration-profile
+change. Do not resume the unchanged aggregate or attribute all45 cases to
+transient host load solely from the affine-glue retry. This stops only the
+validation job; the overall goal remains active.
 
 The [frontend Cartesian structural slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_structural_review.md)
 qualifies the existing structural maps at their native mapping categories.
