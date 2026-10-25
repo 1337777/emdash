@@ -1,0 +1,28 @@
+{
+  "status": "higher/ND prerequisite identity repaired; mathematical Homd transfer unqualified",
+  "previousCheckpoint": "15a8fb2c",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "changes": [
+    "resolve fapp0_func through current structural linkage",
+    "freeze historical audit counts at 8 declarations/17 rules instead of reading a later runtime dynamically",
+    "retain historical canonical hashes, approval and declaration records"
+  ],
+  "checks": {
+    "historicalAuditAndReview": "11 passed;1 old live-acquisition opt-in skipped",
+    "activeFoundationBaseline": "wave213 now fails at old Homd_target_catd body; lookup repair does not qualify it",
+    "typecheckAndLint": "passed"
+  },
+  "outputHashes": {
+    "wave209_nd_baseline.out": "2b9bc9a104c301a00f1df3e9e25e3c7a320b6f7294d79e00036245dae6e5671a",
+    "wave210_nd_after_lookup.out": "2481664a4c95729625f942aae1068acb67a3c630fb73ba2c62f03d754fefb286",
+    "wave211_nd_after_audit.out": "92158c0d8f46e052cb7153e3944ee8f3def7154c99a53bb3d2ae1a8d5644b73e",
+    "wave212_nd_audit_metadata.out": "fc778e0dc930b7ae7a976ab6b592110b40a8708caf185323835702c3f2c7b9a5",
+    "wave213_nd_after_link.out": "e458dcfcd6c5671e72a4e4d4a108a05d939f5dce19c369f5d88f73866712565c",
+    "wave214_nd_lookup_types_lint.out": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39"
+  },
+  "next": "F04 execution boundary in docs/EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md; transcribe actual native Q-valued target and relative root closure before refreshing mathematical source pins",
+  "typescriptInputs": {
+    "src/v3_2/categorical_displayed_nd_higher_audit.ts": "b48d27ec894fce40120eb12db9f59f7995dc6f5bb7e5a9ebc8754637faa3c5fe",
+    "src/v3_2/categorical_displayed_nd_higher_foundation_transfer.ts": "caa7d6d72f60cff7a72b8dd3bb95cbf635f9d9ebfeaf2e138949f1d48c358dc0"
+  }
+}

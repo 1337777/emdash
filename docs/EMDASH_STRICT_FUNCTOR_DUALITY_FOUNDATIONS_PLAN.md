@@ -121,6 +121,16 @@ older running/failed states and do not override it.
 
 #### Migration evidence chronology (newest entries first)
 
+The higher/ND audit now resolves its removed fixed-evaluation duplicate to the
+already-qualified structural owner. Historical audit counts, canonical hashes
+and approval records stay at their original boundary. Eleven metadata/review
+tests pass. The active foundation compilation now reaches the actual old
+`Homd_target_catd` body failure. F04's next-step types and dependency rules are
+recorded in the [frontend plan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md#f04-execution-boundary-actual-native-homd-closure).
+They require the current Q-valued target and defined relative root, not a
+coefficient-only edit of the former Pi body. This preparation does not qualify
+the higher/Homd transfer or change its mathematical pins.
+
 The [three-level context frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_chain2_review.md)
 passes13 focused tests and native emitted-map/cell conformance, plus
 typecheck/lint. Its product internal-cell rule now uses the selected coefficient

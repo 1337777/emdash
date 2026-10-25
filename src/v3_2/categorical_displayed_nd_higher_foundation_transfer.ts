@@ -34,6 +34,9 @@ import {
     coreDirectedContinuationTransferSymbol
 } from './directed_continuation_transfer';
 import {
+    CORE_CATEGORICAL_STRUCTURAL_TRANSFER_LINKAGE
+} from './categorical_structural_transfer';
+import {
     CoreLfModuleSpec,
     CoreLfQualifiedSymbol,
     CoreLfTransferBuilderExpression,
@@ -1302,6 +1305,12 @@ const externalLink = (
     target: CoreLfQualifiedSymbol,
     order: number
 ): CoreLfTransferDeclarationLink => {
+    if (target.name === 'fapp0_func') {
+        const inherited = CORE_CATEGORICAL_STRUCTURAL_TRANSFER_LINKAGE.entries.find(
+            entry => entry.symbol.moduleId === target.moduleId && entry.symbol.name === target.name);
+        if (inherited === undefined) throw new Error('Missing structural fixed-evaluation owner');
+        return Object.freeze({ ...inherited, order });
+    }
     if (
         target.moduleId === identityArrow.moduleId &&
         target.name === identityArrow.name

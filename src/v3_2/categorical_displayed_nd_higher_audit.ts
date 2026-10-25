@@ -4,6 +4,9 @@
  * This artifact freezes the measured source-command closure and one concrete
  * next-hom consumer. It deliberately installs no transfer declaration,
  * runtime rule, surface method, Core owner, or checker branch.
+ * The command closure and approval fields retain their historical source
+ * boundary. Resolving a reused prerequisite Core name in the foundations
+ * migration does not qualify the changed native Op/Homd interfaces.
  */
 
 import {
@@ -17,8 +20,9 @@ import {
     compileCoreCategoricalDisplayedChain2aClosureTransfer
 } from './categorical_displayed_chain_2a_closure_transfer';
 import {
-    CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
-} from './categorical_fibred_transfd_transfer';
+    CORE_CATEGORICAL_STRUCTURAL_SYMBOLS,
+    coreCategoricalStructuralSymbolCoreName
+} from './categorical_structural_transfer';
 import {
     CoreLfCanonicalSelectionContract,
     createCoreLfCanonicalSelectionContract
@@ -399,12 +403,10 @@ const rawAudit = {
             CORE_CATEGORICAL_DISPLAYED_ND_REVIEW.revision,
         displayedNd1aImplementationCheckpoint:
             'd8b450222273167ab326701c76fff03f0f539b18',
-        currentTransfdDeclarationCount:
-            CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
-                .declarationCount,
-        currentTransfdRuntimeRuleCount:
-            CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
-                .runtimeRuleCount,
+        // Counts at this historical audit's source boundary. Later
+        // foundations qualification is owned by its active migration plan.
+        currentTransfdDeclarationCount: 8,
+        currentTransfdRuntimeRuleCount: 17,
         semanticImplementationAuthorized: false
     },
     measuredClosure: {
@@ -649,10 +651,17 @@ const validateReviewedPrerequisite = (): void => {
         }
     });
     prerequisiteFreeDeclarationLinks.forEach(link => {
-        if (environment.lookup(link.coreName) === undefined) {
+        // Preserve the historical audit record. The foundations migration
+        // reuses the already-qualified structural fixed-evaluation owner
+        // instead of declaring its dependent-target duplicate.
+        const currentName = link.symbol === 'fapp0_func'
+            ? coreCategoricalStructuralSymbolCoreName(
+                CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.fixedEvaluationFunctor)
+            : link.coreName;
+        if (environment.lookup(currentName) === undefined) {
             throw new Error(
                 'The completed chain-2A environment lacks ' +
-                    `'${link.coreName}' for '${link.symbol}'`
+                    `'${currentName}' for '${link.symbol}'`
             );
         }
     });

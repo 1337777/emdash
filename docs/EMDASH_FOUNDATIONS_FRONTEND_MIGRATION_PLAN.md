@@ -245,6 +245,49 @@ This continuation is qualified by the chain/native and generic tests above.
 The complete TypeScript attempt reaches the next unmigrated chain-2A owner;
 its failure does not qualify that remaining profile.
 
+## F04 execution boundary: actual native Homd closure
+
+The higher/ND prerequisite metadata now resolves fixed evaluation to the
+already-qualified structural `fapp0_func`. Its old 8-declaration/17-rule audit
+counts are frozen at their historical source boundary; the old canonical
+acquisition and approval records are not updated into current mathematical
+qualification. The live baseline then reaches the substantive failure in the
+old transparent `Homd_target_catd` body (wave213). Do not fix that failure by
+only replacing `Cat_cat` with `Cat_cart`.
+
+The next implementation follows the current native owners, with
+`C = Cat_cart`, `P(I) = Op_cat(Functor_cat I (Op_cat C))`, and
+`Q = Homd_coeff_cat`, where `Hom_Q(A,B) = Functor_cart_cat(A,P(B))`:
+
+- `Homd_coeff_diagram(E) : Functor K Q` is the actual coefficient diagram.
+- `Homd_target_section_cat(E,x)` is the actual iterated Hom between the
+  coefficient diagram of E and that of `hom_(id_K,x)` in `Functor_cat K Q`.
+- `Homd_target_catd(E) : Functor K C` is the native defined target family.
+  Its body uses the actual represented package and `CoAt2_func`; the former
+  Pi/edge/presheaf composition is not its implementation.
+- `homd_id_int(E)` is the native strict root E → H_E. For the public relative
+  root, retain the actual annotation
+  `R_D = fapp0(Homd_target_index_func K, Homd_coeff_diagram D)`.
+  `homd_int(FF : Functord D E) : Functord E R_D` is the ordinary view of
+  `homd_rel_cart_int(FF)`, itself the native target-map/identity-root composite.
+  Its source is E, not the old `Op_catd(E)`. Do not retain it as an injective
+  opaque primitive or replace its composite body by supplied evidence.
+
+Review the native dependency closure before changing transfer declarations.
+Reuse prior owners (`hom_con`, `fapp0_func`, identities and Cartesian views)
+instead of redeclaring them. Add only source-prior native signatures/bodies
+needed by the whole target/root and the actual higher-ND consumers. Old
+Edge/Presheaf utilities have independently changed duality profiles; do not
+force the new Homd to use the old dependency chain. Preserve the public names,
+direct whole-section/y/v/f projections, actual index classifier and default
+lax FF. The three higher-ND action owners must receive their current target
+types, which use the identity strict root and relative composite.
+
+Qualification still requires the actual emitted whole/next-Hom consumer,
+projection and leaf computation where consumed, negative variance/profile
+controls, and current source/canonical evidence. Historical audit metadata
+passing after a prerequisite-name repair is not that qualification.
+
 ## Constraints
 
 - Follow the native source and its existing migration outline. Do not add
