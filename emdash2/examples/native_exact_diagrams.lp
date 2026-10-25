@@ -3,7 +3,7 @@ require open emdash.emdash3_2_one_cat_native_exact_diagrams;
 // Structural assembly preserves the original head certificate.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q)) [n : τ Nat_grpd]
  [X0 : τ (Obj (@ZeroArrowCone_cat C t T))] [inputs : τ (@FiniteFamily (Obj (@ZeroArrowCone_cat C t T)) n)]
@@ -15,7 +15,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
 // The actual tail is retained without reconstructing any witness.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q)) [n : τ Nat_grpd]
  [X0 : τ (Obj (@ZeroArrowCone_cat C t T))] [inputs : τ (@FiniteFamily (Obj (@ZeroArrowCone_cat C t T)) n)]
@@ -27,7 +27,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
 // One retained native input is required for each adjacent arrow pair.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q)) [n : τ Nat_grpd]
  [X0 : τ (Obj (@ZeroArrowCone_cat C t T))] [inputs : τ (@FiniteFamily (Obj (@ZeroArrowCone_cat C t T)) n)]
@@ -41,7 +41,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
 // A different head input is not certified by this constructor.
 assertnot [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q)) [n : τ Nat_grpd]
  [X0 : τ (Obj (@ZeroArrowCone_cat C t T))] [inputs : τ (@FiniteFamily (Obj (@ZeroArrowCone_cat C t T)) n)]

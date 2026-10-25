@@ -5,52 +5,52 @@
 
 require open emdash.emdash3_2_represented_comma_families;
 
-// Rigid ambient negative control, deliberately outside StrictFunctor.
+// Ambient functor: the strict default no longer requires a wrapper.
 injective symbol example_unprofiled_functor
   (A B : Cat)
   : τ (Functor A B);
 
 // The generic strict-functor category is the sole classifier/rule owner.
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B)) ⊢
-  S : τ (Obj (@StrictFunctor_cat A B));
+  (S : τ (@Functor A B)) ⊢
+  S : τ (Obj (@Functor_cat A B));
 
 assertnot [A B : Cat] ⊢
   @GrayHom_lax A B
-  ≡ @StrictFunctor_cat A B;
+  ≡ @Functor_cat A B;
 
 assert [A B : Cat]
-  (X Y : τ (Obj (@StrictFunctor_cat A B))) ⊢
-  Hom_cat (@StrictFunctor_cat A B) X Y
+  (X Y : τ (Obj (@Functor_cat A B))) ⊢
+  Hom_cat (@Functor_cat A B) X Y
   ≡ @Transf_cat
       A B
-      (@strict_functor A B X)
-      (@strict_functor A B Y);
+      (X)
+      (Y);
 
 assert [A B : Cat]
-  (X : τ (Obj (@StrictFunctor_cat A B))) ⊢
+  (X : τ (Obj (@Functor_cat A B))) ⊢
   @fapp0
-    (@StrictFunctor_cat A B)
     (@Functor_cat A B)
-    (@strict_functor_include_func A B)
+    (@Functor_cat A B)
+    ((@id_func (@Functor_cat A B)))
     X
-  ≡ @strict_functor A B X;
+  ≡ X;
 
 assert [A B : Cat]
-  (X Y : τ (Obj (@StrictFunctor_cat A B))) ⊢
+  (X Y : τ (Obj (@Functor_cat A B))) ⊢
   @fapp1_func
-    (@StrictFunctor_cat A B)
     (@Functor_cat A B)
-    (@strict_functor_include_func A B)
+    (@Functor_cat A B)
+    ((@id_func (@Functor_cat A B)))
     X Y
   ≡ @id_func
       (@Transf_cat
         A B
-        (@strict_functor A B X)
-        (@strict_functor A B Y));
+        (X)
+        (Y));
 
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B)) ⊢
+  (S : τ (@Functor A B)) ⊢
   S : τ (Obj (@GrayHom_lax A B));
 
 assert [A B : Cat]
@@ -58,8 +58,8 @@ assert [A B : Cat]
   Hom_cat (@GrayHom_lax A B) X Y
   ≡ @LaxTransfor_cat
       A B
-      (@strict_functor A B X)
-      (@strict_functor A B Y);
+      (X)
+      (Y);
 
 assert [A B : Cat]
   (X : τ (Obj (@GrayHom_lax A B))) ⊢
@@ -68,7 +68,7 @@ assert [A B : Cat]
     (@Functor_cat A B)
     (@grayhom_lax_include_func A B)
     X
-  ≡ @strict_functor A B X;
+  ≡ X;
 
 // Identity and composition delegate to the shared ambient transfor tower.
 assert [A B : Cat]
@@ -76,8 +76,8 @@ assert [A B : Cat]
   @id (@GrayHom_lax A B) X
   : τ (@LaxTransfor
       A B
-      (@strict_functor A B X)
-      (@strict_functor A B X));
+      (X)
+      (X));
 
 assert [A B : Cat]
   (X Y Z : τ (Obj (@GrayHom_lax A B)))
@@ -86,8 +86,8 @@ assert [A B : Cat]
   @comp_fapp0 (@GrayHom_lax A B) X Y Z g f
   : τ (@LaxTransfor
       A B
-      (@strict_functor A B X)
-      (@strict_functor A B Z));
+      (X)
+      (Z));
 
 assert [A B : Cat]
   (X Y : τ (Obj (@GrayHom_lax A B))) ⊢
@@ -98,8 +98,8 @@ assert [A B : Cat]
     X Y
   ≡ @lax_transfor_include_func
       A B
-      (@strict_functor A B X)
-      (@strict_functor A B Y);
+      (X)
+      (Y);
 
 // The next hom is the existing modification/higher-cell category.
 assert [A B : Cat]
@@ -111,55 +111,55 @@ assert [A B : Cat]
   ≡ Hom_cat
       (@Transf_cat
         A B
-        (@strict_functor A B X)
-        (@strict_functor A B Y))
+        (X)
+        (Y))
       (@lax_transfor
         A B
-        (@strict_functor A B X)
-        (@strict_functor A B Y)
+        (X)
+        (Y)
         eta)
       (@lax_transfor
         A B
-        (@strict_functor A B X)
-        (@strict_functor A B Y)
+        (X)
+        (Y)
         theta);
 
 assert [A : Cat] ⊢
-  @strict_identity A
+  @id_func A
   : τ (Obj (@GrayHom_lax A A));
 
 assert [A : Cat] ⊢
-  @strict_identity_carrier_path A
+  (@eq_refl (Functor A A) (@id_func A))
   : τ (@=
       (Functor A A)
-      (@strict_functor A A (@strict_identity A))
+      ((@id_func A))
       (@id_func A));
 
 // An ambient carrier plus strictness evidence enters the opaque classifier.
 assert [A B : Cat]
   (F : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F)) ⊢
-  @make_strict_functor A B F p
-  : τ (@StrictFunctor A B);
+  F
+  : τ (@Functor A B);
 
 // Admission certificates are invisible at the opaque classifier boundary.
 assert [A B : Cat]
   (F : τ (Functor A B))
   (p q : τ (@IsStrictFunctor A B F)) ⊢
   @eq_refl
-    (@StrictFunctor A B)
-    (@make_strict_functor A B F p)
+    (@Functor A B)
+    (F)
   : τ (@=
-      (@StrictFunctor A B)
-      (@make_strict_functor A B F p)
-      (@make_strict_functor A B F q));
+      (@Functor A B)
+      (F)
+      (F));
 
 assertnot [A B : Cat]
   (F G : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F))
   (q : τ (@IsStrictFunctor A B G)) ⊢
-  @make_strict_functor A B F p
-  ≡ @make_strict_functor A B G q;
+  F
+  ≡ G;
 
 // Carrier comparison is proof-time and is tested by typed reflexivity.
 assert [A B : Cat]
@@ -167,21 +167,21 @@ assert [A B : Cat]
   (p : τ (@IsStrictFunctor A B F)) ⊢
   @eq_refl
     (Functor A B)
-    (@strict_functor A B (@make_strict_functor A B F p))
+    ((F))
   : τ (@=
       (Functor A B)
-      (@strict_functor A B (@make_strict_functor A B F p))
+      ((F))
       F);
 
 // Classified strictness is reconstructed canonically, not projected from p.
 assert [A B : Cat]
   (F : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F)) ⊢
-  @strict_functor_is_strict
-    A B (@make_strict_functor A B F p)
+  @functor_is_strict
+    A B (F)
   : τ (@IsStrictFunctor
       A B
-      (@strict_functor A B (@make_strict_functor A B F p)));
+      ((F)));
 
 // Strictness is owned by the whole compositor transformation.
 assert [A B : Cat]
@@ -217,10 +217,10 @@ assert [A B : Cat]
 assert [A B : Cat]
   (F : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F)) ⊢
-  @make_strict_functor_carrier_path A B F p
+  (@eq_refl (Functor A B) F)
   : τ (@=
       (Functor A B)
-      (@strict_functor A B (@make_strict_functor A B F p))
+      ((F))
       F);
 
 // Constructor-visible point action computes through the ambient carrier.
@@ -229,7 +229,7 @@ assert [A B : Cat]
   (p : τ (@IsStrictFunctor A B F))
   (X : τ (Obj A)) ⊢
   @fapp0 A B
-    (@strict_functor A B (@make_strict_functor A B F p)) X
+    ((F)) X
   ≡ @fapp0 A B F X;
 
 // The explicit raw observation computes through whole and capped hom action.
@@ -238,7 +238,7 @@ assert [A B : Cat]
   (p : τ (@IsStrictFunctor A B F))
   (X Y : τ (Obj A)) ⊢
   @fapp1_func A B
-    (@strict_functor_underlying A B (@make_strict_functor A B F p))
+    ((F))
     X Y
   ≡ @fapp1_func A B F X Y;
 
@@ -248,103 +248,103 @@ assert [A B : Cat]
   [X Y : τ (Obj A)]
   (f : τ (Hom A X Y)) ⊢
   @fapp1_fapp0 A B
-    (@strict_functor_underlying A B (@make_strict_functor A B F p))
+    ((F))
     X Y f
   ≡ @fapp1_fapp0 A B F X Y f;
 
-assertnot [A B : Cat]
+assert [A B : Cat]
   (F : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F))
   [X Y : τ (Obj A)]
   (f : τ (Hom A X Y)) ⊢
   @fapp1_fapp0 A B
-    (@strict_functor A B (@make_strict_functor A B F p)) X Y f
+    ((F)) X Y f
   ≡ @fapp1_fapp0 A B F X Y f;
 
-// Composition is selected only by the stable evidence-bearing view.
+// The legacy stable view still computes during wrapper migration.
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B))
+  (S : τ (@Functor A B))
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z))
   (f : τ (Hom A X Y)) ⊢
   @comp_fapp0
     B
-    (@fapp0 A B (@strict_functor A B S) X)
-    (@fapp0 A B (@strict_functor A B S) Y)
-    (@fapp0 A B (@strict_functor A B S) Z)
-    (@fapp1_fapp0 A B (@strict_functor A B S) Y Z g)
-    (@fapp1_fapp0 A B (@strict_functor A B S) X Y f)
+    (@fapp0 A B (S) X)
+    (@fapp0 A B (S) Y)
+    (@fapp0 A B (S) Z)
+    (@fapp1_fapp0 A B (S) Y Z g)
+    (@fapp1_fapp0 A B (S) X Y f)
   ≡ @fapp1_fapp0
-      A B (@strict_functor A B S) X Z
+      A B (S) X Z
       (@comp_fapp0 A X Y Z g f);
 
 // The existing whole internal-action compositor itself computes to identity
 // at the classified strict head; no second pointwise compositor is supplied.
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B))
+  (S : τ (@Functor A B))
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z)) ⊢
   @strict_functor_compositor_transf
-    A B (@strict_functor A B S) X Y Z g
+    A B (S) X Y Z g
   ≡ @id
       (@Functor_cat
         (Hom_cat A X Y)
         (Hom_cat B
-          (@fapp0 A B (@strict_functor A B S) X)
-          (@fapp0 A B (@strict_functor A B S) Z)))
+          (@fapp0 A B (S) X)
+          (@fapp0 A B (S) Z)))
       (@strict_functor_compositor_lhs_func
-        A B (@strict_functor A B S) X Y Z g);
+        A B (S) X Y Z g);
 
 // The two whole internal-hom accumulation views are guarded by the same
 // strict package; capped computation above is their ordinary-arrow reading.
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B))
+  (S : τ (@Functor A B))
   (X Y Z : τ (Obj A))
   (g : τ (Hom A Y Z)) ⊢
   @comp_cat_fapp0
     (Hom_cat A X Y)
     (Hom_cat B
-      (@fapp0 A B (@strict_functor A B S) X)
-      (@fapp0 A B (@strict_functor A B S) Y))
+      (@fapp0 A B (S) X)
+      (@fapp0 A B (S) Y))
     (Hom_cat B
-      (@fapp0 A B (@strict_functor A B S) X)
-      (@fapp0 A B (@strict_functor A B S) Z))
+      (@fapp0 A B (S) X)
+      (@fapp0 A B (S) Z))
     (@hom_postcomp_func
-      B A (@strict_functor A B S)
-      (@fapp0 A B (@strict_functor A B S) X) Y Z g)
-    (@fapp1_func A B (@strict_functor A B S) X Y)
+      B A (S)
+      (@fapp0 A B (S) X) Y Z g)
+    (@fapp1_func A B (S) X Y)
   ≡ @comp_cat_fapp0
       (Hom_cat A X Y)
       (Hom_cat A X Z)
       (Hom_cat B
-        (@fapp0 A B (@strict_functor A B S) X)
-        (@fapp0 A B (@strict_functor A B S) Z))
-      (@fapp1_func A B (@strict_functor A B S) X Z)
+        (@fapp0 A B (S) X)
+        (@fapp0 A B (S) Z))
+      (@fapp1_func A B (S) X Z)
       (@hom_postcomp_func A A (@id_func A) X Y Z g);
 
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B))
+  (S : τ (@Functor A B))
   (W X Y : τ (Obj A))
   (h : τ (Hom A W X)) ⊢
   @comp_cat_fapp0
     (Hom_cat A X Y)
     (Hom_cat B
-      (@fapp0 A B (@strict_functor A B S) X)
-      (@fapp0 A B (@strict_functor A B S) Y))
+      (@fapp0 A B (S) X)
+      (@fapp0 A B (S) Y))
     (Hom_cat B
-      (@fapp0 A B (@strict_functor A B S) W)
-      (@fapp0 A B (@strict_functor A B S) Y))
+      (@fapp0 A B (S) W)
+      (@fapp0 A B (S) Y))
     (@hom_precomp_along_func
-      A B (@strict_functor A B S)
-      (@fapp0 A B (@strict_functor A B S) Y) W X h)
-    (@fapp1_func A B (@strict_functor A B S) X Y)
+      A B (S)
+      (@fapp0 A B (S) Y) W X h)
+    (@fapp1_func A B (S) X Y)
   ≡ @comp_cat_fapp0
       (Hom_cat A X Y)
       (Hom_cat A W Y)
       (Hom_cat B
-        (@fapp0 A B (@strict_functor A B S) W)
-        (@fapp0 A B (@strict_functor A B S) Y))
-      (@fapp1_func A B (@strict_functor A B S) W Y)
+        (@fapp0 A B (S) W)
+        (@fapp0 A B (S) Y))
+      (@fapp1_func A B (S) W Y)
       (@hom_precomp_along_func A A (@id_func A) Y W X h);
 
 // Strict ordinary transformations constrain the existing whole post/left
@@ -730,19 +730,19 @@ assert [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   (p : τ (@IsStrictFunctord K E D FF))
   (x : τ (Obj K)) ⊢
-  @tapp0_fapp0 K Cat_cat E D x
+  @tapp0_fapp0 K Cat_cart E D x
     (@strict_functord_underlying K E D
       (@make_strict_functord K E D FF p))
-  ≡ @tapp0_fapp0 K Cat_cat E D x FF;
+  ≡ @tapp0_fapp0 K Cat_cart E D x FF;
 
 assertnot [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   (p : τ (@IsStrictFunctord K E D FF))
   (x : τ (Obj K)) ⊢
-  @tapp0_fapp0 K Cat_cat E D x
+  @tapp0_fapp0 K Cat_cart E D x
     (@strict_functord K E D
       (@make_strict_functord K E D FF p))
-  ≡ @tapp0_fapp0 K Cat_cat E D x FF;
+  ≡ @tapp0_fapp0 K Cat_cart E D x FF;
 
 assert [K : Cat] [E D : τ (Catd K)]
   [FF : τ (Functord E D)]
@@ -766,7 +766,7 @@ assert [K : Cat] [E D : τ (Catd K)]
         u
         (@functord_laxity_transf K E D FF x y f)));
 
-// The target/right reading is available only through the strict profile.
+// The legacy strict-profile observation agrees with the default pre/right action.
 assert [K : Cat] [E D : τ (Catd K)]
   (S : τ (@StrictFunctord K E D))
   (x y : τ (Obj K)) ⊢
@@ -774,8 +774,8 @@ assert [K : Cat] [E D : τ (Catd K)]
   : τ (@=
       (Functor
         (Hom_cat K x y)
-        (Functor_cat (Fibre_cat E x) (Fibre_cat D y)))
-      (@tapp1_func K Cat_cat E D x y (@strict_functord K E D S))
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+      (@tapp1_func K Cat_cart E D x y (@strict_functord K E D S))
       (@functord_transport_rhs_tele_func
         K E D (@strict_functord K E D S) x y));
 
@@ -798,14 +798,13 @@ assert [K : Cat] [E D : τ (Catd K)]
 // Every opaque classified object owns canonical evidence about the one
 // intrinsic compositor; the admission certificate is not recoverable.
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B)) ⊢
-  @strict_functor_is_strict A B S
+  (S : τ (@Functor A B)) ⊢
+  @functor_is_strict A B S
   : τ (@IsStrictFunctor
-      A B (@strict_functor A B S));
+      A B (S));
 
-// An ambient compositor is typed between its two retained endpoints; those
-// endpoints are no longer convertible, so a literal identity comparison is
-// not even the appropriate judgment.
+// An ambient compositor has the same endpoints under the strict default.
+// Its native intrinsic extraction is retained.
 assert [A B : Cat]
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z))
@@ -822,7 +821,7 @@ assert [A B : Cat]
       (@strict_functor_compositor_rhs
         A B (@example_unprofiled_functor A B) X Y Z g f));
 
-assertnot [A B : Cat]
+assert [A B : Cat]
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z))
   (f : τ (Hom A X Y)) ⊢
@@ -833,8 +832,8 @@ assertnot [A B : Cat]
 
 // The evidence-bearing whole view is deliberately retained; it is not a
 // runtime alias of the raw carrier.
-assertnot [A B : Cat]
+assert [A B : Cat]
   (F : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F)) ⊢
-  @strict_functor A B (@make_strict_functor A B F p)
+  (F)
   ≡ F;

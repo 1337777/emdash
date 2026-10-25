@@ -39,7 +39,9 @@ symbol ordinal_simplex0_observe_func
 symbol ordinal_simplex0_encode_func
   (C : Cat)
   : τ (Functor C (Functor_cat Terminal_cat C))
-≔ @Const_func_func Terminal_cat C;
+≔ @comp_cat_fapp0 C
+    (Functor_cart_cat Terminal_cat C) (Functor_cat Terminal_cat C)
+    (Functor_cart_include Terminal_cat C) (@Const_func_func Terminal_cat C);
 
 // Read a map of the walking arrow at its two endpoints and generator.
 symbol ordinal_simplex1_source

@@ -3,7 +3,7 @@ require open emdash.emdash3_2_one_cat_homology_family_maps;
 
 // The existing whole row map supplies the incoming column square.
 symbol one_cat_row_triple_incoming_diagram_map [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ
-  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat
+  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1
   R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ
   (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
@@ -16,7 +16,7 @@ symbol one_cat_row_triple_incoming_diagram_map [B C : Cat] [Add : τ (@Preadditi
   (@zero_cone_row_family_vertex_func B C t T R2 walking_arrow_src)))) (E0 : τ (@OneCatZeroConeShortExactFamily B C
   Add C1 t T T0 P Q R0)) (E1 : τ (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q R1)) (E2 : τ
   (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q R2))
- : τ (@Transf B (Functor_cat WalkingArrow_cat C) (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1)
+ : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C) (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1)
   (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1))
 ≔ @one_cat_square_family_transf B C C1 (@zero_cone_row_family_source_func B C t T R1)
   (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_src) (@zero_cone_row_family_source_func B C t T R2)
@@ -27,7 +27,7 @@ symbol one_cat_row_triple_incoming_diagram_map [B C : Cat] [Add : τ (@Preadditi
 
 // The existing whole row map supplies the outgoing column square.
 symbol one_cat_row_triple_outgoing_diagram_map [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ
-  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat
+  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1
   R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ
   (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
@@ -40,7 +40,7 @@ symbol one_cat_row_triple_outgoing_diagram_map [B C : Cat] [Add : τ (@Preadditi
   (@zero_cone_row_family_vertex_func B C t T R2 walking_arrow_src)))) (E0 : τ (@OneCatZeroConeShortExactFamily B C
   Add C1 t T T0 P Q R0)) (E1 : τ (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q R1)) (E2 : τ
   (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q R2))
- : τ (@Transf B (Functor_cat WalkingArrow_cat C) (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1)
+ : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C) (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1)
   (@zero_cone_right_column_outgoing_func B C t T R1 R2 m1))
 ≔ @one_cat_square_family_transf B C C1 (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_src)
   (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_tgt) (@zero_cone_row_family_vertex_func B C t T R2
@@ -51,7 +51,7 @@ symbol one_cat_row_triple_outgoing_diagram_map [B C : Cat] [Add : τ (@Preadditi
 
 // Input recovery and original row naturality provide whole incoming compatibility.
 symbol one_cat_row_triple_incoming_map_path [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -67,7 +67,7 @@ symbol one_cat_row_triple_incoming_map_path [B C : Cat] [Add : τ (@PreadditiveC
  : τ (@= (@Transf B C (@zero_cone_row_family_source_func B C t T R0) (@zero_cone_row_family_vertex_func B C t T R1
   walking_arrow_src)) (@comp_fapp0 (Functor_cat B C) (@zero_cone_row_family_source_func B C t T R0)
   (@zero_cone_row_family_source_func B C t T R1) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_src)
-  (@sym_transf_tapp0_transf B WalkingArrow_cat C (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1)
+  (@diagram_oplax_family_map_at B WalkingArrow_cat C (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1)
   (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1) (@one_cat_row_triple_incoming_diagram_map
   B C Add C1 t T T0 P Q R0 R1 R2 m0 m1 lower_zero E0 E1 E2) walking_arrow_src) (@zero_arrow_family_incoming_transf
   B C t T (@zero_cone_row_family_source_func B C t T R0) (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1)
@@ -85,7 +85,7 @@ symbol one_cat_row_triple_incoming_map_path [B C : Cat] [Add : τ (@PreadditiveC
   (@zero_cone_row_family_source_func B C t T R1) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_src)
   v (@zero_arrow_family_incoming_transf B C t T (@zero_cone_row_family_source_func B C t T R0)
   (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1) (@one_cat_zero_cone_left_column_input B C Add C1 t T T0
-  P Q R0 R1 R2 m0 m1 lower_zero E2)))) (@sym_transf_tapp0_transf B WalkingArrow_cat C
+  P Q R0 R1 R2 m0 m1 lower_zero E2)))) (@diagram_oplax_family_map_at B WalkingArrow_cat C
   (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1) (@zero_cone_middle_column_outgoing_func B C t T R1
   R2 m1) (@one_cat_row_triple_incoming_diagram_map B C Add C1 t T T0 P Q R0 R1 R2 m0 m1 lower_zero E0 E1 E2)
   walking_arrow_src) (@one_cat_zero_cone_row_family_incoming B C C1 t T R1) (@one_cat_square_family_src_path
@@ -124,7 +124,7 @@ symbol one_cat_row_triple_incoming_map_path [B C : Cat] [Add : τ (@PreadditiveC
 
 // Input recovery and original row naturality provide whole outgoing compatibility.
 symbol one_cat_row_triple_outgoing_map_path [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -140,7 +140,7 @@ symbol one_cat_row_triple_outgoing_map_path [B C : Cat] [Add : τ (@PreadditiveC
  : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T R0 walking_arrow_src)
   (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_tgt)) (@comp_fapp0 (Functor_cat B C)
   (@zero_cone_row_family_vertex_func B C t T R0 walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R1
-  walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_tgt) (@sym_transf_tapp0_transf B
+  walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_tgt) (@diagram_oplax_family_map_at B
   WalkingArrow_cat C (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1)
   (@zero_cone_right_column_outgoing_func B C t T R1 R2 m1) (@one_cat_row_triple_outgoing_diagram_map B C Add
   C1 t T T0 P Q R0 R1 R2 m0 m1 lower_zero E0 E1 E2) walking_arrow_src) (@zero_arrow_family_incoming_transf B C t T
@@ -161,7 +161,7 @@ symbol one_cat_row_triple_outgoing_map_path [B C : Cat] [Add : τ (@PreadditiveC
   walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_tgt) v
   (@zero_arrow_family_incoming_transf B C t T (@zero_cone_row_family_vertex_func B C t T R0 walking_arrow_src)
   (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1) (@one_cat_zero_cone_middle_column_input B
-  C C1 t T T0 R0 R1 R2 m0 m1 lower_zero)))) (@sym_transf_tapp0_transf B WalkingArrow_cat C
+  C C1 t T T0 R0 R1 R2 m0 m1 lower_zero)))) (@diagram_oplax_family_map_at B WalkingArrow_cat C
   (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1) (@zero_cone_right_column_outgoing_func B C t T
   R1 R2 m1) (@one_cat_row_triple_outgoing_diagram_map B C Add C1 t T T0 P Q R0 R1 R2 m0 m1 lower_zero E0 E1
   E2) walking_arrow_src) (@zero_cone_row_family_outgoing B C t T R1) (@one_cat_square_family_src_path B C C1
@@ -202,7 +202,7 @@ symbol one_cat_row_triple_outgoing_map_path [B C : Cat] [Add : τ (@PreadditiveC
 
 // Original K/Q actions induce the whole homology map of the incoming row maps.
 symbol one_cat_row_triple_incoming_homology_map [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ
-  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat
+  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1
   R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ
   (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
@@ -230,7 +230,7 @@ symbol one_cat_row_triple_incoming_homology_map [B C : Cat] [Add : τ (@Preaddit
 
 // Original K/Q actions induce the whole homology map of the outgoing row maps.
 symbol one_cat_row_triple_outgoing_homology_map [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ
-  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat
+  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1
   R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ
   (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
@@ -261,7 +261,7 @@ symbol one_cat_row_triple_outgoing_homology_map [B C : Cat] [Add : τ (@Preaddit
 // The original cycle-map inclusion is the original whole row map after its kernel inclusion.
 symbol one_cat_row_triple_incoming_cycle_projection_path [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1
   : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1
   : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
   (@zero_cone_row_family_vertex_func B C t T R0 walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R2
@@ -298,7 +298,7 @@ symbol one_cat_row_triple_incoming_cycle_projection_path [B C : Cat] [Add : τ (
   (@kernel_adjunction_family_func B C Add t T P (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1))
   (@zero_cone_row_family_source_func B C t T R1) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_src)
   v (@kernel_adjunction_family_inclusion_transf B C Add t T P (@zero_cone_left_column_outgoing_func B C t T R1 R2
-  m1)))) (@sym_transf_tapp0_transf B WalkingArrow_cat C (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1)
+  m1)))) (@diagram_oplax_family_map_at B WalkingArrow_cat C (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1)
   (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1) (@one_cat_row_triple_incoming_diagram_map
   B C Add C1 t T T0 P Q R0 R1 R2 m0 m1 lower_zero E0 E1 E2) walking_arrow_src)
   (@one_cat_zero_cone_row_family_incoming B C C1 t T R1) (@one_cat_square_family_src_path B C C1
@@ -312,7 +312,7 @@ symbol one_cat_row_triple_incoming_cycle_projection_path [B C : Cat] [Add : τ (
 // The original cycle-map inclusion is the original whole row map after its kernel inclusion.
 symbol one_cat_row_triple_outgoing_cycle_projection_path [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1
   : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1
   : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
   (@zero_cone_row_family_vertex_func B C t T R0 walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R2
@@ -348,7 +348,7 @@ symbol one_cat_row_triple_outgoing_cycle_projection_path [B C : Cat] [Add : τ (
   B C) (@kernel_adjunction_family_func B C Add t T P (@zero_cone_middle_column_outgoing_func B C t T R1 R2
   m1)) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T
   R1 walking_arrow_tgt) v (@kernel_adjunction_family_inclusion_transf B C Add t T P
-  (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1)))) (@sym_transf_tapp0_transf B WalkingArrow_cat
+  (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1)))) (@diagram_oplax_family_map_at B WalkingArrow_cat
   C (@zero_cone_middle_column_outgoing_func B C t T R1 R2 m1) (@zero_cone_right_column_outgoing_func B C t T
   R1 R2 m1) (@one_cat_row_triple_outgoing_diagram_map B C Add C1 t T T0 P Q R0 R1 R2 m0 m1 lower_zero E0 E1
   E2) walking_arrow_src) (@zero_cone_row_family_outgoing B C t T R1) (@one_cat_square_family_src_path B C C1
@@ -362,7 +362,7 @@ symbol one_cat_row_triple_outgoing_cycle_projection_path [B C : Cat] [Add : τ (
 // The original incoming homology map reconstructs the induced cycle map after q_A.
 symbol one_cat_row_triple_incoming_homology_projection_path [B C : Cat] [Add : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1
   : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
   (@zero_cone_row_family_vertex_func B C t T R0 walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R2
@@ -410,7 +410,7 @@ symbol one_cat_row_triple_incoming_homology_projection_path [B C : Cat] [Add : �
 // The original outgoing homology map reconstructs the induced cycle map after q_M.
 symbol one_cat_row_triple_outgoing_homology_projection_path [B C : Cat] [Add : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1
   : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
   (@zero_cone_row_family_vertex_func B C t T R0 walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R2

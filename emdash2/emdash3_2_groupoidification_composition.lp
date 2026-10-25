@@ -1,12 +1,11 @@
 /*
   Explicit composition action of the generic groupoidification unit.
 
-  For arbitrary composable arrows f and g in C, the whole unit carries the
-  ordinary normal-lax compositor extracted by the existing internal-action
-  calculus.  Its codomain is Path_cat(Groupoidify(C)), so this cell is
-  groupoidal.  The historical strict endpoint cuts may make its displayed
-  endpoints convertible, but they do not reduce this explicit cell to an
-  identity.
+  For arbitrary composable arrows f and g in C, the unit uses the public
+  strict-functor default. Its compositor is still extracted by the existing
+  internal-action calculus; its endpoints agree and the extracted cell
+  computes to identity. This does not impose strict naturality on arbitrary
+  transformations.
 
   The whole transformation and one next hom action are retained here.  No
   constructor-specific composition rule or duplicate coherence hierarchy is

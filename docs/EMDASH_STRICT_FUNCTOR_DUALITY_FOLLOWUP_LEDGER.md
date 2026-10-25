@@ -2,7 +2,7 @@
 
 Date: 2026-10-25 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active; terminal whole-comparison contract approved; complete shared-source diagnostics, reviewer integration and production qualification remain open
+Status: active integration; complete source/reviewer/central scopes qualified and promoted; production health, frontend/source pins and final integration remain open
 Owner: [living foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 
 This is the consolidated inventory of known remaining obligations, changed
@@ -59,7 +59,22 @@ diagnostic also passes all 2,441 assertions, with no terminal exclusions, in
 [decision inputs](../emdash2/audits/strict-default-action-boundary/foundation_terminal_contract_inputs.json)
 retain the old runtime expressions as history, not unresolved requirements.
 
-## Foundation-reviewer follow-up — 2026-10-25, unadopted
+## Current production boundary — 2026-10-25
+
+All 791 library owners, 596 reviewers and the actual 2,441-assertion central
+target have passed on the supported checker. The source maps jointly cover
+all 1,388 original registered files. The 648 changed files are now installed
+in the active worktree; 740 files are unchanged. [Promotion verification](../emdash2/audits/strict-default-action-boundary/foundation_production_promotion_verification.json)
+preserves the exact evidence and nonsemantic adjustments. The active core
+also passes after promotion. The five approved terminal comparisons are
+included without exclusions.
+
+Production health is running. Final CI, affected TypeScript contracts/source
+pins, and authoritative integration remain open; the source promotion has
+not yet been checkpointed. C01–C03 remain later required stages. The dated
+running/unadopted states below are historical, not the current status.
+
+## Foundation-reviewer follow-up history — 2026-10-25
 
 **The full 596-reviewer retry passes** on the supported binary:4,284 positive/
 630 negative assertions, 1,374 exact inputs,2726.236s/5,511,628KiB under
@@ -1221,7 +1236,7 @@ diagnostic integration remains a qualification gate.
 | R11 | **Complete in staged LP.** Thirty-nine earlier wrapper/adapter/admission declarations and six redundant join wrappers/proofs are removed from staged LP. The tetrahedron_faces owner and its complete reviewer are included in the later qualified baseline recorded by R10; their earlier unstaged status is superseded. [Join continuation][simplex-dependencies]. Ordinary carriers and action owners are used directly. Renamed equivalence mapping preserves its selected inverses and remains distinct from homwise equivalence. IsStrictFunctor/native evidence remains descriptive, with canonical functor_is_strict; no map admission consumes it. StrictTransfor, StrictFunctord and distinct GrayHom_lax Homs remain. [Wrapper contract][wrappers], [transition][wrappers-v1], [final review][wrappers-review], [qualification][wrappers-final]. | Preserve these dispositions through production promotion and source-pin review under R14. Do not reintroduce a second map grammar or collapse genuinely different transformation profiles. |
 | R12 | Complete integration passes in 1191.163s at 4,028,344KiB under 1800s/6GiB/o=20, after an explicit 4GiB allocation failure and inspected host headroom. It allocates about 323.52 billion words; rewriting dominates. Matched isolated owner allocation rises from 12.34 to 18.08 billion words; removing the new metadata rule barely changes it and is rejected. The cumulative deadline extension is user-authorized and separately validated; normal defaults and safeguards remain. [Current review][selected-presentations]. The isolated batch-snapshot checker patch remains distinct from installed-toolchain promotion. [Checker boundary][checker-boundary], [matched evidence][checker], [normalization][normalization]. | Qualify supported runtime pins and computational usability. Keep retention, allocation, source normalization and host load distinct. A successful long aggregate is not a performance fix. Do not repeat unchanged successful scopes for reassurance. |
 | R13 | Preserve the three explicitly documented whole-runtime/proof-time diagnostic distinctions in the selected-presentation review; no pointwise substitute or new caller hypothesis was introduced. Deliberate signature/variance changes below are checked in slices, not yet across the entire public codebase. Original operational data and noncollapse boundaries must survive. | Review each changed interface at its actual producers and consumers. Any required computation regression is a correction before promotion; optional presentation improvements can wait. |
-| R14 | Production promotion, source-pin review, catalogue/health, relevant authoritative prose and required integration gates remain open. | Promote only the qualified source with unrelated work excluded. Refresh generated evidence through its owners, review changed pins rather than blindly blessing them, and run the proportional final gates. No passing audit subset completes the goal. |
+| R14 | Qualified source promotion is applied locally for all 1,388 registered files; catalogue and source audits pass. Production health, frontend/source pins and final integration remain open. | Preserve exact source/receipt identity, finish health and required gates, and review changed frontend signatures before updating pins. The source checkpoint is not final integration or overall goal completion. |
 
 ## Terminal alternatives: what was and was not investigated
 

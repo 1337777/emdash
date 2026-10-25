@@ -10,21 +10,21 @@ symbol zero_cone_row_family_source_func [B C : Cat] [t : τ (Obj C)] (T : τ (@T
   : τ (Functor B C) ≔ @comp_cat_fapp0 B (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) R;
 symbol zero_cone_row_family_diagram_func [B C : Cat] [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (R : τ
   (Functor B (@ZeroArrowCone_cat C t T)))
-  : τ (Functor B (Functor_cat WalkingArrow_cat C)) ≔ @comp_cat_fapp0 B (@ZeroArrowCone_cat C t T) (Functor_cat
+  : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)) ≔ @comp_cat_fapp0 B (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
     WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) R;
 symbol zero_cone_row_family_vertex_func [B C : Cat] [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (R : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (i : τ (Obj WalkingArrow_cat))
-  : τ (Functor B C) ≔ @diagram_family_at_func B WalkingArrow_cat C (@zero_cone_row_family_diagram_func B C t T
+  : τ (Functor B C) ≔ @diagram_oplax_family_at_func B WalkingArrow_cat C (@zero_cone_row_family_diagram_func B C t T
     R) i;
 
 // Restrict the existing whole universal zero-cone transformation.
 symbol one_cat_zero_cone_row_family_transf [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
   (T : τ (@TerminalObject C t)) (R : τ (Functor B (@ZeroArrowCone_cat C t T)))
-  : τ (@Transf B (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
+  : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
     (@terminal_arrow_diagram_func C t T) (@zero_cone_row_family_source_func B C t T R))
     (@zero_cone_row_family_diagram_func B C t T R))
-≔ @fapp0 _ _ (@comp_cat_con_fapp1_func B (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) R
-  (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T)
+≔ @fapp0 _ _ (@comp_cat_con_fapp1_func B (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) R
+  (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T)
   (@zero_arrow_cone_first_func C t T)) (@zero_arrow_cone_diagram_func C t T)) (@zero_arrow_cone_universal_transf C C1
   t T);
 
@@ -39,7 +39,7 @@ symbol zero_cone_row_family_outgoing [B C : Cat] [t : τ (Obj C)] (T : τ (@Term
   (@ZeroArrowCone_cat C t T)))
   : τ (@Transf B C (@zero_cone_row_family_vertex_func B C t T R walking_arrow_src)
     (@zero_cone_row_family_vertex_func B C t T R walking_arrow_tgt))
-≔ @diagram_family_transf B WalkingArrow_cat C (@zero_cone_row_family_diagram_func B C t T R) walking_arrow_src
+≔ @diagram_oplax_family_transf B WalkingArrow_cat C (@zero_cone_row_family_diagram_func B C t T R) walking_arrow_src
   walking_arrow_tgt walking_arrow_generator;
 
 // All vertex maps are native action of their original postcomposition functors.
@@ -52,8 +52,8 @@ symbol zero_cone_row_family_vertex_map [B C : Cat] [t : τ (Obj C)] (T : τ (@Te
   (Functor B (@ZeroArrowCone_cat C t T))) (m : τ (@Transf B (@ZeroArrowCone_cat C t T) R S)) (i : τ (Obj
   WalkingArrow_cat))
   : τ (@Transf B C (@zero_cone_row_family_vertex_func B C t T R i) (@zero_cone_row_family_vertex_func B C
-    t T S i)) ≔ (@fapp1_fapp0 (Functor_cat B (@ZeroArrowCone_cat C t T)) (Functor_cat B C) (@comp_cat_cov_func B
-    (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_vertex_func C t T i)) R S m);
+    t T S i)) ≔ @fapp0 _ _ (@comp_cat_cov_fapp1_func B (@ZeroArrowCone_cat C t T) C
+    (@zero_arrow_cone_vertex_func C t T i) R S) m;
 
 // E₀ of the restricted whole zero datum is the restricted original incoming map.
 symbol one_cat_zero_cone_row_incoming_whisker_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ
@@ -64,10 +64,12 @@ symbol one_cat_zero_cone_row_incoming_whisker_path [B C : Cat] (C1 : τ (IsNCat 
     (@zero_arrow_cone_vertex_func C t T walking_arrow_src)) (@zero_arrow_family_incoming_transf (@ZeroArrowCone_cat C
     t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
     (@zero_arrow_cone_universal_transf C C1 t T))))
-≔ @one_cat_diagram_family_whiskering_path (@ZeroArrowCone_cat C t T) B WalkingArrow_cat C C1
-    (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t
-      T) (@zero_arrow_cone_first_func C t T)) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf
-      C C1 t T) R walking_arrow_src;
+≔ @one_cat_whiskering_path (@ZeroArrowCone_cat C t T) B (Functor_oplax_cat WalkingArrow_cat C) C
+ (@one_cat_oplax_functor_category WalkingArrow_cat C C1) C1 R
+ (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src)
+ (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) C (Functor_oplax_cat WalkingArrow_cat C)
+  (@terminal_arrow_diagram_func C t T) (@zero_arrow_cone_first_func C t T))
+ (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T);
 
 // The outgoing observation likewise retains the original row functor.
 symbol one_cat_zero_cone_row_outgoing_whisker_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ
@@ -77,7 +79,7 @@ symbol one_cat_zero_cone_row_outgoing_whisker_path [B C : Cat] (C1 : τ (IsNCat 
     T R) (@fapp0 _ _ (@comp_cat_con_fapp1_func B (@ZeroArrowCone_cat C t T) C R (@zero_arrow_cone_vertex_func C t T
     walking_arrow_src) (@zero_arrow_cone_vertex_func C t T walking_arrow_tgt)) (@zero_arrow_cone_differential_transf C
     t T)))
-≔ @one_cat_diagram_family_transf_reindex_path B (@ZeroArrowCone_cat C t T) WalkingArrow_cat C C1
+≔ @one_cat_oplax_family_transf_reindex_path B (@ZeroArrowCone_cat C t T) WalkingArrow_cat C C1
   (@zero_arrow_cone_diagram_func C t T) R
     walking_arrow_src walking_arrow_tgt walking_arrow_generator;
 
@@ -243,7 +245,7 @@ symbol one_cat_zero_cone_row_outgoing_square_path [B C : Cat] (C1 : τ (IsNCat (
 // Whole short-exactness at the actual maps of the original row functor.
 symbol OneCatZeroConeShortExactFamily [B C : Cat] [Add : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t))
-  (T0 : τ (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C Add t T))
   (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R : τ (Functor B (@ZeroArrowCone_cat C t T))) : Grpd
 ≔ @OneCatShortExactFamily B C Add C1 t T T0 P Q (@zero_cone_row_family_source_func B C t T R)
   (@zero_cone_row_family_diagram_func B C t T R) (@one_cat_zero_cone_row_family_transf B C C1 t T R);

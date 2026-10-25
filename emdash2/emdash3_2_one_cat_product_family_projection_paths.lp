@@ -37,9 +37,7 @@ symbol one_cat_product_family_unpair1_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) F
   (@one_cat_product_family_proj1 B C C1 Prod BP F G) h))
 ≔ (@eq_trans (@Transf B C X F) (sigma_Fst (@one_cat_product_family_unpair B C C1 Prod BP X F G h)) (sigma_Fst
-  (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B
+  (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B
   (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ
   _ : τ (Functor B C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)
   (@one_cat_product_family_unpair B C C1 Prod BP (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
@@ -51,15 +49,10 @@ symbol one_cat_product_family_unpair1_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) h))) (@comp_fapp0
   (Functor_cat B C) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C
   C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) F
-  (@one_cat_product_family_proj1 B C C1 Prod BP F G) h) (@eq_ap (Hom (Functor_cat B (Product_cat C C)) (@fapp0
-  (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C)
-  (@product_diagonal_func C)) X) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) (@Transf B C
-  X F) (λ k : τ (Hom (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X) (@Struct_sigma (Functor B C) (λ _ : τ
+  (@one_cat_product_family_proj1 B C C1 Prod BP F G) h) (@eq_ap (Hom (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) (@Transf B C
+  X F) (λ k : τ (Hom (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@Struct_sigma (Functor B C) (λ _ : τ
   (Functor B C), Functor B C) F G)), sigma_Fst k) (@one_cat_product_family_unpair B C C1 Prod BP X F G h) (@comp_fapp0
-  (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B
-  C (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C))
+  (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C))
   (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B
   C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)
   (@one_cat_product_family_unpair B C C1 Prod BP (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
@@ -69,11 +62,8 @@ symbol one_cat_product_family_unpair1_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C)
   (@product_diagonal_func C)) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) h)) (@eq_sym (Hom
-  (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B
-  C (Product_cat C C) (@product_diagonal_func C)) X) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C)
-  F G)) (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B
+  (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C)
+  F G)) (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B
   (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ
   _ : τ (Functor B C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)
   (@one_cat_product_family_unpair B C C1 Prod BP (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
@@ -91,9 +81,7 @@ symbol one_cat_product_family_unpair1_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   _ : τ (Functor B C), Functor B C) F G)) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G) h
   (@id (Functor_cat B C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)))))) (@eq_trans
-  (@Transf B C X F) (sigma_Fst (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B
-  C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0
+  (@Transf B C X F) (sigma_Fst (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0
   (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma
   (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C),
   Functor B C) F G) (@one_cat_product_family_unpair B C C1 Prod BP (@fapp0 (Functor_cat B (Product_cat C C))
@@ -106,22 +94,16 @@ symbol one_cat_product_family_unpair1_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   (Functor_cat B C) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C
   C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) F
   (@one_cat_product_family_proj1 B C C1 Prod BP F G) (@sigma_Fst (Obj (Hom_cat (Functor_cat B C) (@sigma_Fst
-  (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C)
-  (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X))
-  (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B
-  C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0
+  (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X))
+  (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0
   (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma
   (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)))))) (λ _ : τ (Obj (Hom_cat (Functor_cat B C) (@sigma_Fst
-  (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C)
-  (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X))
-  (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B
-  C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0
+  (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X))
+  (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0
   (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma
   (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)))))), (Obj (Hom_cat (Functor_cat B C) (@sigma_Snd (Obj
-  (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X)) (@sigma_Snd (Obj
-  (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B
+  (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X)) (@sigma_Snd (Obj
+  (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B
   (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ
   _ : τ (Functor B C), Functor B C) F G))))))) (@fapp1_fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
   (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X (@fapp0 (Functor_cat B (Product_cat C C))
@@ -129,9 +111,7 @@ symbol one_cat_product_family_unpair1_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   C), Functor B C) F G)) h))) (@comp_fapp0 (Functor_cat B C) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat
   B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B
   C) F G)) F (@one_cat_product_family_proj1 B C C1 Prod BP F G) h) (@product_comp_first_path (Functor_cat
-  B C) (Functor_cat B C) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C))
+  B C) (Functor_cat B C) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C))
   (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B
   C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G) (@fapp1_fapp0
   (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C)
@@ -148,22 +128,18 @@ symbol one_cat_product_family_unpair1_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma
   (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) F (@one_cat_product_family_proj1 B C C1 Prod BP F G)
   k)) (@sigma_Fst (Obj (Hom_cat (Functor_cat B C) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
-  C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) X)) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
-  C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
+  C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X)) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
+  C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
   (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F
   G)))))) (λ _ : τ (Obj (Hom_cat (Functor_cat B C) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
-  C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) X)) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
-  C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
+  C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X)) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
+  C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
   (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F
   G)))))), (Obj (Hom_cat (Functor_cat B C) (@sigma_Snd (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj
-  (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat
-  C C) (@product_diagonal_func C)) X)) (@sigma_Snd (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj
-  (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat
-  C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
+  (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat
+  C C) (@product_diagonal_func C) X)) (@sigma_Snd (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj
+  (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat
+  C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G))))))) (@fapp1_fapp0
   (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C)
   (@product_diagonal_func C)) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
@@ -197,9 +173,7 @@ symbol one_cat_product_family_unpair2_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) G
   (@one_cat_product_family_proj2 B C C1 Prod BP F G) h))
 ≔ (@eq_trans (@Transf B C X G) (sigma_Snd (@one_cat_product_family_unpair B C C1 Prod BP X F G h)) (sigma_Snd
-  (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B
+  (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B
   (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ
   _ : τ (Functor B C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)
   (@one_cat_product_family_unpair B C C1 Prod BP (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
@@ -211,15 +185,10 @@ symbol one_cat_product_family_unpair2_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) h))) (@comp_fapp0
   (Functor_cat B C) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C
   C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) G
-  (@one_cat_product_family_proj2 B C C1 Prod BP F G) h) (@eq_ap (Hom (Functor_cat B (Product_cat C C)) (@fapp0
-  (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C)
-  (@product_diagonal_func C)) X) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) (@Transf B C
-  X G) (λ k : τ (Hom (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X) (@Struct_sigma (Functor B C) (λ _ : τ
+  (@one_cat_product_family_proj2 B C C1 Prod BP F G) h) (@eq_ap (Hom (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) (@Transf B C
+  X G) (λ k : τ (Hom (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@Struct_sigma (Functor B C) (λ _ : τ
   (Functor B C), Functor B C) F G)), sigma_Snd k) (@one_cat_product_family_unpair B C C1 Prod BP X F G h) (@comp_fapp0
-  (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B
-  C (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C))
+  (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C))
   (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B
   C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)
   (@one_cat_product_family_unpair B C C1 Prod BP (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
@@ -229,11 +198,8 @@ symbol one_cat_product_family_unpair2_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C)
   (@product_diagonal_func C)) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) h)) (@eq_sym (Hom
-  (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B
-  C (Product_cat C C) (@product_diagonal_func C)) X) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C)
-  F G)) (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B
+  (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C)
+  F G)) (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B
   (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ
   _ : τ (Functor B C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)
   (@one_cat_product_family_unpair B C C1 Prod BP (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
@@ -251,9 +217,7 @@ symbol one_cat_product_family_unpair2_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   _ : τ (Functor B C), Functor B C) F G)) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G) h
   (@id (Functor_cat B C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)))))) (@eq_trans
-  (@Transf B C X G) (sigma_Snd (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B
-  C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0
+  (@Transf B C X G) (sigma_Snd (@comp_fapp0 (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0
   (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma
   (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C),
   Functor B C) F G) (@one_cat_product_family_unpair B C C1 Prod BP (@fapp0 (Functor_cat B (Product_cat C C))
@@ -266,22 +230,16 @@ symbol one_cat_product_family_unpair2_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   (Functor_cat B C) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C
   C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) G
   (@one_cat_product_family_proj2 B C C1 Prod BP F G) (@sigma_Snd (Obj (Hom_cat (Functor_cat B C) (@sigma_Fst
-  (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C)
-  (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X))
-  (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B
-  C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0
+  (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X))
+  (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0
   (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma
   (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)))))) (λ _ : τ (Obj (Hom_cat (Functor_cat B C) (@sigma_Fst
-  (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C)
-  (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X))
-  (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B
-  C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0
+  (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X))
+  (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0
   (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma
   (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)))))), (Obj (Hom_cat (Functor_cat B C) (@sigma_Snd (Obj
-  (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X)) (@sigma_Snd (Obj
-  (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B
-  (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B
+  (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X)) (@sigma_Snd (Obj
+  (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B
   (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ
   _ : τ (Functor B C), Functor B C) F G))))))) (@fapp1_fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
   (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X (@fapp0 (Functor_cat B (Product_cat C C))
@@ -289,9 +247,7 @@ symbol one_cat_product_family_unpair2_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   C), Functor B C) F G)) h))) (@comp_fapp0 (Functor_cat B C) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat
   B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B
   C) F G)) G (@one_cat_product_family_proj2 B C C1 Prod BP F G) h) (@product_comp_second_path (Functor_cat
-  B C) (Functor_cat B C) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) X) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C))
-  (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C))
+  B C) (Functor_cat B C) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C))
   (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B
   C), Functor B C) F G))) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G) (@fapp1_fapp0
   (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C)
@@ -308,22 +264,18 @@ symbol one_cat_product_family_unpair2_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma
   (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G)) G (@one_cat_product_family_proj2 B C C1 Prod BP F G)
   k)) (@sigma_Snd (Obj (Hom_cat (Functor_cat B C) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
-  C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) X)) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
-  C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
+  C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X)) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
+  C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
   (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F
   G)))))) (λ _ : τ (Obj (Hom_cat (Functor_cat B C) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
-  C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) X)) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
-  C)), Obj (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C
-  (Product_cat C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
+  C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) X)) (@sigma_Fst (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B
+  C)), Obj (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
   (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F
   G)))))), (Obj (Hom_cat (Functor_cat B C) (@sigma_Snd (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj
-  (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat
-  C C) (@product_diagonal_func C)) X)) (@sigma_Snd (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj
-  (Functor_cat B C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat
-  C C) (@product_diagonal_func C)) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
+  (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat
+  C C) (@product_diagonal_func C) X)) (@sigma_Snd (Obj (Functor_cat B C)) (λ _ : τ (Obj (Functor_cat B C)), Obj
+  (Functor_cat B C)) (@comp_cat_fapp0 B C (Product_cat
+  C C) (@product_diagonal_func C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G))))))) (@fapp1_fapp0
   (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C)
   (@product_diagonal_func C)) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B

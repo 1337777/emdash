@@ -17,8 +17,8 @@ assert [K B C : Cat] (Prod : τ (Functor (Product_cat C C) C)) (Q : τ (Functor 
   : τ (@PathOver (Functor K C) (λ F : τ (Functor K C), Functor (Hom_cat K x y) (Hom_cat C (@fapp0 K C F x) (@fapp0 K C F y))) (@comp_fapp0 Cat_cat K B C (@comp_fapp0 Cat_cat B C C (@comp_fapp0 Cat_cat C (Product_cat C C) C Prod (@Struct_sigma (Functor C C) (λ _ : τ (Functor C C), Functor C C) (@id_func C) (@id_func C))) Q) H) (@comp_fapp0 Cat_cat K (Product_cat C C) C Prod (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K C (Product_cat C C) (@Struct_sigma (Functor C C) (λ _ : τ (Functor C C), Functor C C) (@id_func C) (@id_func C)) (@comp_fapp0 Cat_cat K B C Q H))) (@product_diagonal_composition_path K B C Prod Q H)
       (@fapp1_func K C (@comp_fapp0 Cat_cat K B C (@comp_fapp0 Cat_cat B C C (@comp_fapp0 Cat_cat C (Product_cat C C) C Prod (@Struct_sigma (Functor C C) (λ _ : τ (Functor C C), Functor C C) (@id_func C) (@id_func C))) Q) H) x y) (@fapp1_func K C (@comp_fapp0 Cat_cat K (Product_cat C C) C Prod (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) K C (Product_cat C C) (@Struct_sigma (Functor C C) (λ _ : τ (Functor C C), Functor C C) (@id_func C) (@id_func C)) (@comp_fapp0 Cat_cat K B C Q H))) x y));
 
-// Independent ambient strictness boundaries remain unchanged.
-assertnot [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
+// Public functors are now strict; the independent general-transfor boundary remains lax.
+assert [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
   (f : τ (Hom A x y)) (g : τ (Hom A y z)) ⊢
   @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
     (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f))

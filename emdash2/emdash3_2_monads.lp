@@ -13,11 +13,12 @@
   at the generic `comp_fapp0` head. `KleisliCut(g,f)=g* o f` is retained only
   as transparent derived notation; it is not a second rewrite owner.
 
-  A comonad on A is classified transparently as a monad on A^op. Stable
+  A comonad on A is classified transparently as a monad on its total opposite.
+  Total duality preserves the ambient lax transformation profile. Stable
   counit/comultiplication and point coextension heads are the narrow variance
   mirror required where opposite-category normalization erases an active
   runtime discriminator. Whole coextension transparently reuses primary
-  monadic whole extension. Canonical Op terms fold directly to the stable
+  monadic whole extension. Canonical total-duality terms fold directly to the stable
   heads; no whole coextension unifier or propositional equality bridge is used.
   For the adjunction-induced Monad, the canonical unit remains a runtime head
   and the adjunction unit is a proof-time usability endpoint. The standard
@@ -383,14 +384,15 @@ rule @tapp0_fapp0
 // Opposite-derived comonads
 // --------------------------------------------------------------------------
 
-// A comonad on A is transparently a monad on A^op.
+// A comonad on A is transparently a monad on TotalOp_cat(A).
+// The historical Op_monad/Op_comonad names remain readability views.
 symbol Comonad
   [A : Cat]
   (D : τ (@Functor A A))
   : Grpd
 ≔ @Monad
-    (Op_cat A)
-    (@Op_func A A D);
+    (TotalOp_cat A)
+    (@TotalOp_func A A D);
 
 // Readability views of the involutive evidence transport.
 symbol Op_monad
@@ -398,8 +400,8 @@ symbol Op_monad
   [T : τ (@Functor A A)]
   (M : τ (@Monad A T))
   : τ (@Comonad
-      (Op_cat A)
-      (@Op_func A A T))
+      (TotalOp_cat A)
+      (@TotalOp_func A A T))
 ≔ M;
 
 symbol Op_comonad
@@ -407,12 +409,12 @@ symbol Op_comonad
   [D : τ (@Functor A A)]
   (C : τ (@Comonad A D))
   : τ (@Monad
-      (Op_cat A)
-      (@Op_func A A D))
+      (TotalOp_cat A)
+      (@TotalOp_func A A D))
 ≔ C;
 
 // Stable standard counit observation. This is the canonical whole dual owner
-// after Op normalization has erased the original category discriminator.
+// after total-duality normalization has erased the original category discriminator.
 symbol counit_comonad_transf
   [A : Cat]
   [D : τ (@Functor A A)]
@@ -431,33 +433,33 @@ symbol comult_comonad_transf
 
 /*
   Whole observation duality is computational in both directions. The outer
-  Op_transf is the discriminator, so these generic rules do not rewrite an
+  TotalOp_transf is the discriminator, so these generic rules do not rewrite an
   unwrapped primary Monad operation. The reverse pair supplies double-opposite
   recovery for a stable comonad observation.
 */
-rule @Op_transf
+rule @TotalOp_transf
       _ _ _ _
       (@unit_monad_transf $A $T $M)
   ↪ @counit_comonad_transf
-      (Op_cat $A) (@Op_func $A $A $T) $M;
+      (TotalOp_cat $A) (@TotalOp_func $A $A $T) $M;
 
-rule @Op_transf
+rule @TotalOp_transf
       _ _ _ _
       (@mult_monad_transf $A $T $M)
   ↪ @comult_comonad_transf
-      (Op_cat $A) (@Op_func $A $A $T) $M;
+      (TotalOp_cat $A) (@TotalOp_func $A $A $T) $M;
 
-rule @Op_transf
+rule @TotalOp_transf
       _ _ _ _
       (@counit_comonad_transf $A $D $C)
   ↪ @unit_monad_transf
-      (Op_cat $A) (@Op_func $A $A $D) $C;
+      (TotalOp_cat $A) (@TotalOp_func $A $A $D) $C;
 
-rule @Op_transf
+rule @TotalOp_transf
       _ _ _ _
       (@comult_comonad_transf $A $D $C)
   ↪ @mult_monad_transf
-      (Op_cat $A) (@Op_func $A $A $D) $C;
+      (TotalOp_cat $A) (@TotalOp_func $A $A $D) $C;
 
 // Computational counit component, directly reusing the dual unit component.
 symbol counit_comonad_fapp0
@@ -467,14 +469,14 @@ symbol counit_comonad_fapp0
   (X : τ (@Obj A))
   : τ (@Hom A (@fapp0 A A D X) X)
 ≔ @tapp0_fapp0
-    (Op_cat A)
-    (Op_cat A)
-    (@id_func (Op_cat A))
-    (@Op_func A A D)
+    (TotalOp_cat A)
+    (TotalOp_cat A)
+    (@id_func (TotalOp_cat A))
+    (@TotalOp_func A A D)
     X
     (@unit_monad_transf
-      (Op_cat A)
-      (@Op_func A A D)
+      (TotalOp_cat A)
+      (@TotalOp_func A A D)
       C);
 
 // Computational comultiplication component from the dual multiplication.
@@ -487,28 +489,29 @@ symbol comult_comonad_fapp0
       (@fapp0 A A D X)
       (@fapp0 A A D (@fapp0 A A D X)))
 ≔ @tapp0_fapp0
-    (Op_cat A)
-    (Op_cat A)
+    (TotalOp_cat A)
+    (TotalOp_cat A)
     (@comp_cat_fapp0
-      (Op_cat A)
-      (Op_cat A)
-      (Op_cat A)
-      (@Op_func A A D)
-      (@Op_func A A D))
-    (@Op_func A A D)
+      (TotalOp_cat A)
+      (TotalOp_cat A)
+      (TotalOp_cat A)
+      (@TotalOp_func A A D)
+      (@TotalOp_func A A D))
+    (@TotalOp_func A A D)
     X
     (@mult_monad_transf
-      (Op_cat A)
-      (@Op_func A A D)
+      (TotalOp_cat A)
+      (@TotalOp_func A A D)
       C);
 
+// TotalOp_func is an alias; its runtime pattern uses the native R(T(-)) heads.
 // Direct opposite unit/multiplication components fold toward the stable
 // comonad components. This direction preserves the component-first triangular
-// discriminators and joins component projection after the whole Op fold.
+// discriminators and joins component projection after the whole total-duality fold.
 rule @tapp0_fapp0
       _ _ _ _
       $X
-      (@unit_monad_transf _ (@Op_func $A $A $D) $C)
+      (@unit_monad_transf _ (@CoAbove2_func _ _ (@Op_func $A $A $D)) $C)
   ↪ @tapp0_fapp0
       $A $A
       $D (@id_func $A)
@@ -518,7 +521,7 @@ rule @tapp0_fapp0
 rule @tapp0_fapp0
       _ _ _ _
       $X
-      (@mult_monad_transf _ (@Op_func $A $A $D) $C)
+      (@mult_monad_transf _ (@CoAbove2_func _ _ (@Op_func $A $A $D)) $C)
   ↪ @tapp0_fapp0
       $A $A
       $D (@comp_cat_fapp0 $A $A $A $D $D)
@@ -542,8 +545,9 @@ symbol counit_comonad_antecedent_func
     (@counit_comonad_transf A D C);
 
 /*
-  Whole coextension is transparently endpoint-swapped monadic extension in
-  A^op. No triangular rule discriminates on this whole head, so a second stable
+  Whole coextension applies total duality to endpoint-swapped monadic
+  extension in TotalOp_cat(A), restoring the original Hom categories.
+  No triangular rule discriminates on this whole head, so a second stable
   whole owner and proof-time comparison are unnecessary. The primary monadic
   whole owner retains higher action; its generic object projection reaches the
   stable point fold below.
@@ -556,11 +560,11 @@ symbol cokleisli_extend_func
   : τ (@Functor
       (@Hom_cat A (@fapp0 A A D X) Y)
       (@Hom_cat A (@fapp0 A A D X) (@fapp0 A A D Y)))
-≔ @kleisli_extend_func
-    (Op_cat A)
-    (@Op_func A A D)
-    C
-    Y X;
+≔ @TotalOp_func
+    (TotalOp_cat (@Hom_cat A (@fapp0 A A D X) Y))
+    (TotalOp_cat (@Hom_cat A (@fapp0 A A D X) (@fapp0 A A D Y)))
+    (@kleisli_extend_func
+      (TotalOp_cat A) (@TotalOp_func A A D) C Y X);
 
 // Stable point coextension is the runtime discriminator used by ambient
 // comonad beta, accumulation, counit identity, and comultiplication rules.
@@ -595,11 +599,12 @@ symbol cokleisli_extend_op_fapp0
 
 /*
   The point fold is runtime because ambient co-beta and accumulation need the
-  stable dual discriminator after Op_cat has normalized away. Matching only
-  Op_func(D) avoids repeated reducible category and endpoint guards.
+  stable dual discriminator after TotalOp_cat has normalized away. Matching only
+  the native CoAbove2_func(Op_func(D)) constructors avoids a reducible
+  TotalOp_func alias in the pattern and keeps category/endpoint guards inferred.
 */
 rule @kleisli_extend_fapp0
-      _ (@Op_func $A $A $D) $C $Y $X $f
+      _ (@CoAbove2_func _ _ (@Op_func $A $A $D)) $C $Y $X $f
   ↪ @cokleisli_extend_fapp0 $A $D $C $X $Y $f;
 
 // Terminal coextension uses the ambient terminal-arrow normal form.
@@ -957,7 +962,7 @@ symbol adjunction_monad_mult_component_path
 
     F eta G : F G => (F G)(F G).
 
-  Selecting the Op-derived term here makes the transparent construction and
+  Selecting the total-duality-derived term here makes the transparent construction and
   the stable witness share one runtime normal form.
 */
 symbol adjunction_comonad_comult_transf
@@ -972,16 +977,16 @@ symbol adjunction_comonad_comult_transf
         L L L
         (@comp_cat_fapp0 L R L F G)
         (@comp_cat_fapp0 L R L F G)))
-≔ @Op_transf
-    (Op_cat L) (Op_cat L)
+≔ @TotalOp_transf
+    (TotalOp_cat L) (TotalOp_cat L)
     (@comp_cat_fapp0
-      (Op_cat L) (Op_cat L) (Op_cat L)
-      (@Op_func L L (@comp_cat_fapp0 L R L F G))
-      (@Op_func L L (@comp_cat_fapp0 L R L F G)))
-    (@Op_func L L (@comp_cat_fapp0 L R L F G))
+      (TotalOp_cat L) (TotalOp_cat L) (TotalOp_cat L)
+      (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
+      (@TotalOp_func L L (@comp_cat_fapp0 L R L F G)))
+    (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
     (@adjunction_monad_mult_transf
-      (Op_cat L) (Op_cat R)
-      (@Op_func L R G) (@Op_func R L F)
+      (TotalOp_cat L) (TotalOp_cat R)
+      (@TotalOp_func L R G) (@TotalOp_func R L F)
       (@Op_adjunction R L F G J));
 
 // Selected comonad of an adjunction, on the target L of the left adjoint.
@@ -1006,7 +1011,7 @@ rule @adjunction_monad
 rule @unit_monad_transf
       _ _
       (@adjunction_comonad $R $L $F $G $J)
-  ↪ @Op_transf
+  ↪ @TotalOp_transf
       $L $L
       (@comp_cat_fapp0 $L $R $L $F $G)
       (@id_func $L)
@@ -1015,7 +1020,7 @@ rule @unit_monad_transf
 rule @mult_monad_transf
       _ _
       (@adjunction_comonad $R $L $F $G $J)
-  ↪ @Op_transf
+  ↪ @TotalOp_transf
       $L $L
       (@comp_cat_fapp0 $L $R $L $F $G)
       (@comp_cat_fapp0
@@ -1025,12 +1030,16 @@ rule @mult_monad_transf
       (@adjunction_comonad_comult_transf $R $L $F $G $J);
 
 // Stable standard observations compute directly for the concrete instance.
+// lhs-audit: keep 2 -- total duality normalizes the witness index;
+// retain its actual FG endofunctor for subject reduction.
 rule @counit_comonad_transf
-      _ _
+      _ (@comp_fapp0 Cat_cat $L $R $L $F $G)
       (@adjunction_comonad $R $L $F $G $J)
   ↪ @counit_adj_transf $R $L $F $G $J;
 
+// lhs-audit: keep 2 -- total duality normalizes the witness index;
+// retain its actual FG endofunctor for subject reduction.
 rule @comult_comonad_transf
-      _ _
+      _ (@comp_fapp0 Cat_cat $L $R $L $F $G)
       (@adjunction_comonad $R $L $F $G $J)
   ↪ @adjunction_comonad_comult_transf $R $L $F $G $J;

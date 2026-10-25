@@ -8,17 +8,17 @@ assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
  @one_cat_terminal_arrow_family_to_src_path C C C1 t T (@id_func C)
    (@one_cat_terminal_adjunction_unit C C1 t T)
  : τ (@= (@Transf C C (@id_func C) (@id_func C))
-     (@sym_transf_tapp0_transf C WalkingArrow_cat C _ _
+     (@diagram_oplax_family_map_at C WalkingArrow_cat C _ _
        (@iso_evidence_to _ _ _ (@one_cat_terminal_arrow_family_evidence C C C1 t T (@id_func C)
          (@one_cat_terminal_adjunction_unit C C1 t T))) walking_arrow_src)
      (@id (Functor_cat C C) (@id_func C)));
 
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject (Op_cat C) t)) ⊢
+ (T : τ (@TerminalObject (TotalOp_cat C) t)) ⊢
  @one_cat_initial_arrow_family_from_tgt_path C C C1 t T (@id_func C)
    (@one_cat_initial_adjunction_counit C C1 t T)
  : τ (@= (@Transf C C (@id_func C) (@id_func C))
-     (@sym_transf_tapp0_transf C WalkingArrow_cat C _ _
+     (@diagram_oplax_family_map_at C WalkingArrow_cat C _ _
        (@iso_evidence_from _ _ _ (@one_cat_initial_arrow_family_evidence C C C1 t T (@id_func C)
          (@one_cat_initial_adjunction_counit C C1 t T))) walking_arrow_tgt)
      (@id (Functor_cat C C) (@id_func C)));
@@ -62,38 +62,38 @@ assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
 
 // Both whole functor cuts compute, retaining this adjunction's mate data.
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C)) ⊢
+  [t : τ (Obj C)] (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C)) ⊢
   @comp_cat_fapp0 (Hom_cat C t x) Terminal_cat (Hom_cat C t x) (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x))
   ≡ @id_func (Hom_cat C t x);
 
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C)) ⊢
+  [t : τ (Obj C)] (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C)) ⊢
   @comp_cat_fapp0 Terminal_cat (Hom_cat C t x) Terminal_cat (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x))
   ≡ @id_func Terminal_cat;
 
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C)) (h : τ (Obj (Hom_cat C t x))) ⊢
+  [t : τ (Obj C)] (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C)) (h : τ (Obj (Hom_cat C t x))) ⊢
   @fapp0 Terminal_cat (Hom_cat C t x) (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) (@fapp0 (Hom_cat C t x) Terminal_cat (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) h)
   ≡ h;
 
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C)) ⊢
+  [t : τ (Obj C)] (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C)) ⊢
   @omega_equiv_along_left_inv Cat_cat (Hom_cat C t x) Terminal_cat (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) (@one_cat_initial_hom_equivalence C C1 t T x)
   ≡ (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x));
 
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C)) ⊢
+  [t : τ (Obj C)] (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C)) ⊢
   @omega_equiv_along_right_inv Cat_cat (Hom_cat C t x) Terminal_cat (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) (@one_cat_initial_hom_equivalence C C1 t T x)
   ≡ (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x));
 
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C)) ⊢
+  [t : τ (Obj C)] (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C)) ⊢
   @is_contr_center (Obj (Hom_cat C t x)) (@one_cat_initial_hom_contraction C C1 t T x)
   ≡ @fapp0 Terminal_cat (Hom_cat C t x) (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) Terminal_obj;
 
 // The Hom comparison retains an iterated Hom functor, not just a point map.
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C)) (h k : τ (Obj (Hom_cat C t x))) ⊢
+  [t : τ (Obj C)] (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C)) (h k : τ (Obj (Hom_cat C t x))) ⊢
   @fapp1_func (Hom_cat C t x) Terminal_cat (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) h k
   : τ (Functor (Hom_cat (Hom_cat C t x) h k) Terminal_cat);
 

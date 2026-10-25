@@ -7,7 +7,7 @@ require open emdash.emdash3_2_one_cat_chain_pair_homology_maps;
 
 // The existing whole H-map action after raw-agreement conversion.
 symbol freyd_raw_chain_adjunction_homology_map_func [R : τ CommRing]
-  [Z : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
+  [Z : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)))
   (Q : τ (@CokernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) Z))
   [S2 S1 S0 T2 T1 T0 : τ (@CommRingPresentation R)]
@@ -27,7 +27,7 @@ symbol freyd_raw_chain_adjunction_homology_map_func [R : τ CommRing]
 
 // Point view; no separate homology map or coherence law is supplied.
 symbol freyd_raw_chain_adjunction_homology_map [R : τ CommRing]
-  [Z : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
+  [Z : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)))
   (Q : τ (@CokernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) Z))
   [S2 S1 S0 T2 T1 T0 : τ (@CommRingPresentation R)]

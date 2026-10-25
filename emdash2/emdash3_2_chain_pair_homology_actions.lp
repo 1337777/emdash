@@ -35,7 +35,7 @@ symbol chain_pair_homology_cycle_action_func
 symbol chain_pair_homology_action_func
   [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   [W : τ (@HasComputationalKernels C S)] [V : τ (@HasComputationalCokernels C S)]
   (P : τ (@KernelPresentation C S t T W)) (Q : τ (@CokernelPresentation C S t T0 V))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]
@@ -77,7 +77,7 @@ symbol chain_pair_homology_cycle_action
 symbol chain_pair_homology_action
   [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   [W : τ (@HasComputationalKernels C S)] [V : τ (@HasComputationalCokernels C S)]
   (P : τ (@KernelPresentation C S t T W)) (Q : τ (@CokernelPresentation C S t T0 V))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]
@@ -96,7 +96,7 @@ symbol chain_pair_homology_action
 symbol chain_pair_homology_action_factor
   [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   [W : τ (@HasComputationalKernels C S)] [V : τ (@HasComputationalCokernels C S)]
   (P : τ (@KernelPresentation C S t T W)) (Q : τ (@CokernelPresentation C S t T0 V))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]
@@ -119,7 +119,7 @@ symbol chain_pair_homology_action_factor
 symbol chain_pair_homology_cycle_action_factor
   [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   [W : τ (@HasComputationalKernels C S)] [V : τ (@HasComputationalCokernels C S)]
   (P : τ (@KernelPresentation C S t T W)) (Q : τ (@CokernelPresentation C S t T0 V))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]
@@ -139,7 +139,7 @@ symbol chain_pair_homology_cycle_action_factor
 symbol chain_pair_homology_action_middle_zero
   [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   [W : τ (@HasComputationalKernels C S)] [V : τ (@HasComputationalCokernels C S)]
   (P : τ (@KernelPresentation C S t T W)) (Q : τ (@CokernelPresentation C S t T0 V))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]

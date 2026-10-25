@@ -4,7 +4,7 @@ require open emdash.emdash3_2_product_family_reindex;
 // The original identity-target restriction retains both native Hom actions.
 symbol one_cat_biproduct_inj1_reindex_hom_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y : τ (Functor B C))
+  (TotalOp_cat C) t)) (X Y : τ (Functor B C))
  : τ (@= (Functor (Hom_cat (Functor_cat (Product_cat C C) (Product_cat C C)) (@comp_cat_fapp0 (Product_cat C C) C
   (Product_cat C C) (@product_diagonal_func C) (@Product_projL_func C C)) (@id_func (Product_cat C C))) (Hom_cat
   (Functor_cat B (Product_cat C C)) (@comp_cat_fapp0 B (Product_cat C C) (Product_cat C C) (@comp_cat_fapp0
@@ -35,7 +35,7 @@ symbol one_cat_biproduct_inj1_reindex_hom_path [B C : Cat] (C1 : τ (IsNCat (cat
 
 // Restrict the original injection input using whole identity and zero preservation.
 symbol one_cat_biproduct_inj1_reindexed_input [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (X Y : τ (Functor B C))
  : τ (@= (@Transf B (Product_cat C C) (@comp_cat_fapp0 B (Product_cat C C) (Product_cat C C) (@comp_cat_fapp0
   (Product_cat C C) C (Product_cat C C) (@product_diagonal_func C) (@Product_projL_func C C)) (@Struct_sigma
@@ -171,7 +171,7 @@ symbol one_cat_biproduct_inj1_reindexed_input [B C : Cat] (C1 : τ (IsNCat (cat_
 
 // The original injection input retains its native Hom annotations.
 symbol one_cat_biproduct_inj1_original_input [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (X Y : τ (Functor B C))
  : τ (Obj (Hom_cat (Functor_cat (Product_cat C C) (Product_cat C C)) (@fapp0 (Functor_cat (Product_cat C C) C)
   (Functor_cat (Product_cat C C) (Product_cat C C)) (@comp_cat_cov_func (Product_cat C C) C (Product_cat C C)
@@ -183,7 +183,7 @@ symbol one_cat_biproduct_inj1_original_input [B C : Cat] (C1 : τ (IsNCat (cat_s
 // Compare the same two original input arrows before applying the native mate.
 symbol one_cat_biproduct_inj1_original_input_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y : τ (Functor B C))
+  (TotalOp_cat C) t)) (X Y : τ (Functor B C))
  : τ (@= (Obj (Hom_cat (Functor_cat (Product_cat C C) (Product_cat C C)) (@fapp0 (Functor_cat (Product_cat C C) C)
   (Functor_cat (Product_cat C C) (Product_cat C C)) (@comp_cat_cov_func (Product_cat C C) C (Product_cat C C)
   (@product_diagonal_func C)) (@Product_projL_func C C)) (@id_func (Product_cat C C))))
@@ -201,7 +201,7 @@ symbol one_cat_biproduct_inj1_original_input_path [B C : Cat] (C1 : τ (IsNCat (
 // The original whole injection is the same native mate at the explicit whole input.
 symbol one_cat_biproduct_inj1_original_formula [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y : τ (Functor B C))
+  (TotalOp_cat C) t)) (X Y : τ (Functor B C))
  : τ (@= (@Transf (Product_cat C C) C (@Product_projL_func C C) Prod) (@one_cat_biproduct_inj1 C C1 Prod t A T0)
   (@fapp0 (Hom_cat (Functor_cat (Product_cat C C) (Product_cat C C)) (@fapp0 (Functor_cat (Product_cat C C) C)
   (Functor_cat (Product_cat C C) (Product_cat C C)) (@comp_cat_cov_func (Product_cat C C) C (Product_cat C C)
@@ -240,7 +240,7 @@ symbol one_cat_biproduct_inj1_original_formula [B C : Cat] (C1 : τ (IsNCat (cat
 // Whole terminal/initial uniqueness compares the same local zero before the native mate.
 symbol one_cat_biproduct_inj1_local_input_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y : τ (Functor B C))
+  (TotalOp_cat C) t)) (X Y : τ (Functor B C))
  : τ (@= (Obj (Hom_cat (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C
   C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X) (@Struct_sigma (Functor B C) (λ _ :
   τ (Functor B C), Functor B C) X Y))) (@Struct_sigma (@Transf B C (@comp_cat_fapp0 B (Product_cat C C) C
@@ -268,37 +268,37 @@ symbol one_cat_biproduct_inj1_local_input_path [B C : Cat] (C1 : τ (IsNCat (cat
   (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projR_func C C) (@Struct_sigma (Functor B C) (λ _ : τ (Functor
   B C), Functor B C) X Y))) (@zero_arrow_family_zero_transf B C t (@additive_terminal_object C Prod t A) T0 X Y)
   (@eq_trans _ _ _ _ (@eq_ap (@Transf B C (@Const_func B C t) Y) (@Transf B C X Y) (λ h : τ (@Transf B C
-  (@Const_func B C t) Y), (@comp_fapp0 (Functor_cat B C) X (@Const_func B C t) Y h (@diagram_family_transf B
-  WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t
+  (@Const_func B C t) Y), (@comp_fapp0 (Functor_cat B C) X (@Const_func B C t) Y h (@diagram_oplax_family_transf B
+  WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t
   (@additive_terminal_object C Prod t A)) (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C)
   (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y))) walking_arrow_src walking_arrow_tgt
-  walking_arrow_generator))) (@diagram_family_transf B WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_cat
+  walking_arrow_generator))) (@diagram_oplax_family_transf B WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_oplax_cat
   WalkingArrow_cat C) (@initial_arrow_diagram_func C t T0) (@comp_cat_fapp0 B (Product_cat C C) C
   (@Product_projR_func C C) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)))
-  walking_arrow_src walking_arrow_tgt walking_arrow_generator) (@diagram_family_transf B WalkingArrow_cat C
-  (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T0) Y) walking_arrow_src
+  walking_arrow_src walking_arrow_tgt walking_arrow_generator) (@diagram_oplax_family_transf B WalkingArrow_cat C
+  (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T0) Y) walking_arrow_src
   walking_arrow_tgt walking_arrow_generator) (@one_cat_initial_family_arrow_path B C C1 t T0 Y
-  (@diagram_family_transf B WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
+  (@diagram_oplax_family_transf B WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
   (@initial_arrow_diagram_func C t T0) (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projR_func C C)
   (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y))) walking_arrow_src walking_arrow_tgt
   walking_arrow_generator))) (@eq_ap (@Transf B C X (@Const_func B C t)) (@Transf B C X Y) (λ h : τ (@Transf B C X
-  (@Const_func B C t)), (@comp_fapp0 (Functor_cat B C) X (@Const_func B C t) Y (@diagram_family_transf B
-  WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T0) Y)
-  walking_arrow_src walking_arrow_tgt walking_arrow_generator) h)) (@diagram_family_transf B WalkingArrow_cat C
-  (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t
+  (@Const_func B C t)), (@comp_fapp0 (Functor_cat B C) X (@Const_func B C t) Y (@diagram_oplax_family_transf B
+  WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T0) Y)
+  walking_arrow_src walking_arrow_tgt walking_arrow_generator) h)) (@diagram_oplax_family_transf B WalkingArrow_cat C
+  (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t
   (@additive_terminal_object C Prod t A)) (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C)
   (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y))) walking_arrow_src walking_arrow_tgt
-  walking_arrow_generator) (@diagram_family_transf B WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_cat
+  walking_arrow_generator) (@diagram_oplax_family_transf B WalkingArrow_cat C (@comp_cat_fapp0 B C (Functor_oplax_cat
   WalkingArrow_cat C) (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t A)) X)
   walking_arrow_src walking_arrow_tgt walking_arrow_generator) (@one_cat_terminal_family_arrow_path B C C1 t
-  (@additive_terminal_object C Prod t A) X (@diagram_family_transf B WalkingArrow_cat C (@comp_cat_fapp0 B C
-  (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t A))
+  (@additive_terminal_object C Prod t A) X (@diagram_oplax_family_transf B WalkingArrow_cat C (@comp_cat_fapp0 B C
+  (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t A))
   (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C) (@Struct_sigma (Functor B C) (λ _ : τ (Functor
   B C), Functor B C) X Y))) walking_arrow_src walking_arrow_tgt walking_arrow_generator)))));
 
 // The original whole injection restricts to the original native product pair.
 symbol one_cat_biproduct_inj1_reindex_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (X Y : τ (Functor B C))
  : τ (@= (@Transf B C X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y))) (@fapp0
@@ -383,16 +383,22 @@ symbol one_cat_biproduct_inj1_reindex_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   Prod t A) T0 (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C) (@Struct_sigma (Functor B C) (λ _
   : τ (Functor B C), Functor B C) X Y)) (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projR_func C C)
   (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)))) (@one_cat_biproduct_inj1_reindexed_input
-  B C C1 Prod t A T0 X Y)) (@eq_trans _ _ _ _ (@eq_refl (@Transf B C X (@fapp0 (Functor_cat B (Product_cat C C))
-  (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor
-  B C), Functor B C) X Y))) (@fapp0 (Hom_cat (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C)
+  B C C1 Prod t A T0 X Y)) (@eq_trans _ _ _ _ (@eq_ap (Functor (Hom_cat (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C)
   (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X)
   (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) (@Transf_cat B C X (@fapp0 (Functor_cat
   B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B
-  C) (λ _ : τ (Functor B C), Functor B C) X Y))) (@one_cat_adjunction_family_transpose_func B C (Product_cat C C)
-  C1 (@one_cat_product_category C C C1 C1) (@product_diagonal_func C) Prod (@one_cat_binary_product_adjunction C
-  C1 Prod (@additive_binary_products C Prod t A)) X (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B
-  C) X Y)) (@Struct_sigma (@Transf B C (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C)
+  C) (λ _ : τ (Functor B C), Functor B C) X Y)))) (Obj (@Transf_cat B C X (@fapp0 (Functor_cat
+  B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B
+  C) (λ _ : τ (Functor B C), Functor B C) X Y))))
+      (λ M : τ (Functor (Hom_cat (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C)
+  (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X)
+  (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) (@Transf_cat B C X (@fapp0 (Functor_cat
+  B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B
+  C) (λ _ : τ (Functor B C), Functor B C) X Y)))), @fapp0 (Hom_cat (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C)
+  (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X)
+  (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) (@Transf_cat B C X (@fapp0 (Functor_cat
+  B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B
+  C) (λ _ : τ (Functor B C), Functor B C) X Y))) M (@Struct_sigma (@Transf B C (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C)
   (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) (@comp_cat_fapp0 B (Product_cat C C) C
   (@Product_projL_func C C) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y))) (λ _ : τ
   (@Transf B C (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C) (@Struct_sigma (Functor B C) (λ _
@@ -405,7 +411,22 @@ symbol one_cat_biproduct_inj1_reindex_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
   (@zero_arrow_family_zero_transf B C t (@additive_terminal_object C Prod t A) T0 (@comp_cat_fapp0 B (Product_cat
   C C) C (@Product_projL_func C C) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y))
   (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projR_func C C) (@Struct_sigma (Functor B C) (λ _ : τ (Functor
-  B C), Functor B C) X Y)))))) (@eq_ap (Obj (Hom_cat (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C)
+  B C), Functor B C) X Y)))))
+      (@one_cat_adjunction_family_transpose_func B C (Product_cat C C) C1 (@one_cat_product_category C C C1 C1) (@product_diagonal_func C) Prod (@one_cat_binary_product_adjunction C
+  C1 Prod (@additive_binary_products C Prod t A)) (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B
+  C) X Y)) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B
+  C) X Y)) (@one_cat_adjunction_family_transpose_func B C (Product_cat C C)
+  C1 (@one_cat_product_category C C C1 C1) (@product_diagonal_func C) Prod (@one_cat_binary_product_adjunction C
+  C1 Prod (@additive_binary_products C Prod t A)) X (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B
+  C) X Y))
+      (@eq_refl (Functor (Hom_cat (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C)
+  (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X)
+  (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) (@Transf_cat B C X (@fapp0 (Functor_cat
+  B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B
+  C) (λ _ : τ (Functor B C), Functor B C) X Y)))) (@one_cat_adjunction_family_transpose_func B C (Product_cat C C) C1 (@one_cat_product_category C C C1 C1) (@product_diagonal_func C) Prod (@one_cat_binary_product_adjunction C
+  C1 Prod (@additive_binary_products C Prod t A)) (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B
+  C) X Y)) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B
+  C) X Y)))) (@eq_ap (Obj (Hom_cat (Functor_cat B (Product_cat C C)) (@fapp0 (Functor_cat B C)
   (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C) (@product_diagonal_func C)) X)
   (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y))) (@Transf B C X (@fapp0 (Functor_cat B
   (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B

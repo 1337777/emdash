@@ -1,7 +1,7 @@
 # EMDASH v3.2 Current Status And SOP
 
 Date: 2026-05-26
-Last consolidated: 2026-09-16
+Last consolidated: 2026-10-25
 Status: living current-state and kernel-development authority
 
 The active kernel and the nested [AGENTS.md](../AGENTS.md) own semantics and
@@ -9,6 +9,59 @@ editing policy. This report retains the source catalogue, architecture and
 SOP below. Dated implementation narratives and obsolete validation totals
 are preserved in the [consolidated history](REPORT_EMDASH_V3_2_CONSOLIDATED_HISTORY_2026-09-16.md),
 with their source links and decisions. Their “next” statements are historical.
+
+## Current foundations profile — 2026-10-25
+
+The strict-functor/corrected-duality migration is now installed in this
+worktree's active Lambdapi sources. The [living plan](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
+and [follow-up ledger](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOLLOWUP_LEDGER.md)
+record the exact qualification and remaining integration gates. All 791
+library owners, 596 original reviewers and 2,441 central assertions pass in
+the recorded staged scopes on the supported checker. Local source promotion
+preserves their mathematical commands; comment/whitespace-only adjustments
+are recorded separately. Final metadata, frontend/source-pin and full CI
+qualification remain open; this is not a completed release or a consistency
+certificate.
+
+The current contracts are:
+
+- Public `Functor` and `fapp*` use strict functoriality. `Transf` remains
+  conventional lax: the extracted pre/right leg is identity, while the
+  post/left naturality cell can remain nonidentity.
+- `Hom_cat Cat_cat A B` is `Functor_cat A B`. `Cat_cart` is the separate
+  coefficient with `Functor_cart_cat A B` Homs and strict transformations.
+  A family `E : Catd K` has carrier `Functor K Cat_cart`; `Functord` retains
+  lax transformation behavior across K. The ordinary Hom family uses this
+  same Cartesian coefficient.
+- `Op_cat` reverses dimension 1; `CoAbove2_cat` reverses dimensions 2 and
+  above; `TotalOp_cat = CoAbove2_cat ∘ Op_cat`; `CoAt2_cat` reverses exactly
+  dimension 2. Whole family operations retain their actual shifted bases.
+- The identity Homd root and direct x/u/y/v/f ladder use a whole Q-valued
+  transformation category. Here `P(I) = Op_cat(Functor_cat I (Op_cat Cat_cart))`
+  and `Hom_Q(A,B) = Functor_cart_cat A (P(B))`. A fixed object's presheaf view
+  has type `Functor (Op_cat I) Cat_cart`; no unrestricted whole equivalence
+  with the former Cartesian presheaf category is claimed.
+- `homd_id_int(E)` owns the identity construction. Public `homd_int(FF)` is
+  the defined relative composition, preserving general lax FF. Its fixed
+  endpoint leaf is `Hom_E[y](E[f](u),FF[y](v))`. Q's represented/unit cuts
+  are structural contracts exercised by the actual Homd consumers, not a
+  claimed derivation of unrestricted profunctor composition/coherence.
+- Sigma-Hom uses the existing Sigma owner with total duality of base and
+  fibre followed by an outer total dual. It preserves forward fibre arrows.
+  The five special terminal Homd constant presentations now have explicitly
+  accepted whole proof-time comparisons; they are not literal runtime
+  constant reductions. Runtime leaf, higher-action and inverse cuts remain.
+
+The redundant `StrictFunctor` carrier/admission/view grammar has been
+retired. `IsStrictFunctor` remains a descriptive compositor property with
+canonical `functor_is_strict`; `StrictTransfor`, `StrictFunctord` and the
+separate Gray mapping profile retain their actual distinctions. Older
+strict/lax and unshifted-Op accounts below describe their dated baseline
+where they conflict with this current profile. Comprehensive book/article
+revision follows the foundations integration; older TypeScript transfer
+contracts are not automatically qualified for these new owner signatures.
+
+## Earlier integration and publication context
 
 The current native homological interface is whole J⊣K and Q⊣I, whole H and
 direct δ, canonical categorical exactness, and the native snake with its
@@ -866,17 +919,15 @@ migration is implied by that review.
   retains a next-hom functor between paths-between-paths. The module adds no
   Path-specific runtime fold, proof-time rule, pseudofunctor classifier,
   inverse record, or complete coherence claim.
-- `emdash3_2_gray_profiles.lp`: whole `IsStrictFunctor` evidence and the opaque
-  `StrictFunctor` classifier, non-injective `make_strict_functor` admission,
-  stable classified action, explicit raw `strict_functor_underlying`, and
-  canonical `strict_functor_is_strict`. The existing deep compositor computes
-  to identity under the classified head; no admission certificate is projected
-  and no second action calculus is added. `StrictFunctor_cat` is the full
-  subcategory with whole inclusion. Opaque ordinary lax/strict transfors and
-  strict displayed functors have separate classified views and canonical
-  evidence. `GrayHom_lax` has strict functor objects and classified
-  `LaxTransfor_cat` homs; it is distinct from `StrictFunctor_cat`. Ambient
-  composition/naturality no longer obtains these profile equations globally.
+- `emdash3_2_gray_profiles.lp`: native compositor properties and transformation
+  profiles. Public `Functor` is the strict map carrier; `IsStrictFunctor`
+  describes its extracted compositor and `functor_is_strict` supplies the
+  canonical evidence. The second `StrictFunctor` grammar is retired.
+  `StrictTransfor` and `strict_transfor` remain declared in the nucleus;
+  their property/admission interfaces live in this extension. `StrictFunctord`
+  is a genuine refinement of the retained lax displayed maps. `GrayHom_lax`
+  uses ordinary strict functor objects and its classified `LaxTransfor_cat`
+  Homs. No blanket strict naturality is imposed on arbitrary transfors.
 - `emdash3_2_strict_functor_actions.lp`: post-profile inverse/equivalence
   operations retaining their actual mapped inverses. Ordinary-target paths
   and profiles live in `emdash3_2_one_cat_action_paths.lp`,
@@ -1492,21 +1543,15 @@ Active equality/equivalence staging includes:
   readable `eq_ap`/`eq_trans` endpoints without making them runtime-convertible.
   `path_map_compositor_higher_func` retains one off-diagonal next-hom action as
   a whole functor and therefore leaves generic higher iteration available;
-- a semantic strict-object/lax-arrow Gray profile and one right-closed
-  consumer: `IsStrictFunctor` constrains the existing whole compositor,
-  `StrictFunctor` admits carriers opaquely, and its stable `strict_functor`
-  view owns classified computation and canonical evidence. An explicit raw
-  observation recovers visible carriers. `StrictFunctor_cat` owns the full
-  category with ambient transfors; `GrayHom_lax` instead selects
-  `LaxTransfor_cat` homs between the stable strict views;
-  `GrayTensor_R` has whole curry/uncurry maps paired with supplied strictness
-  evidence and equality-valued beta/eta; `WalkingArrow_cat` is
-  transparently `Join_cat(1,1)`; and the four-object walking square and its
-  nonidentity directed interchanger derive from coevaluation and the existing
-  whole post/left laxity owner. `gray_interchanger_next_func` retains one next
-  action. The raw boundary composites are readable presentations, not a new
-  endpoint normal form. The action-profile integration retires the selected
-  generic strict cuts. Mirror closure and full monoidal coherence remain open;
+- a strict-functor/lax-transfor Gray profile and one right-closed consumer:
+  ordinary `Functor` supplies its map objects, and `GrayHom_lax` retains
+  `LaxTransfor_cat` Homs. `IsStrictFunctor` is descriptive, with canonical
+  evidence; it is not a second operational map grammar. `GrayTensor_R`
+  retains its whole curry/uncurry maps and equality-valued beta/eta;
+  `WalkingArrow_cat` is transparently `Join_cat(1,1)`. The walking square
+  and nonidentity interchanger derive from coevaluation and the retained
+  post/left laxity owner. Mirror closure and full monoidal coherence remain
+  separate ambitions, not prerequisites for the current migration;
 - `GrpdUnivalence` and decoder-based groupoid-univalence capabilities, with
   named decoder round trips, a canonical contractible-fibre capability
   selecting `grpd_equiv_path`, a propositional decoder transport square, and
@@ -2473,8 +2518,8 @@ Functord_cat K E D
 Transfd_cat K E D FF GG.
 ```
 
-They compare at proof time with `Functor_cat K Cat_cat`,
-`Transf_cat K Cat_cat E D`, and the corresponding ordinary iterated hom.
+They compare at proof time with `Functor_cat K Cat_cart`,
+`Transf_cat K Cat_cart E D`, and the corresponding ordinary iterated hom.
 Their `Obj` projections compute toward the ordinary presentations, while their
 `Hom_cat` projections expose the next displayed rung. Add direct comparisons
 at every represented rung; do not rely on unification-rule transitivity.

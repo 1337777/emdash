@@ -1,10 +1,11 @@
 /* Whole adjunction mates; all functors are transparent views of
    existing unit/counit or Adjunction_hom_prof_comparison operations. */
+require open emdash.emdash3_2_strict_functor_actions;
 require open emdash.emdash3_2_defiso_evaluation_points;
 
 // Direct shortcut for the existing Prof→Catd→Functor usability chain.
 // The base is reconstructed in a constraint, not a reducible Product LHS guard.
-unif_rule @Prof_cat $A $B ≡ @Functor_cat $Base Cat_cat
+unif_rule @Prof_cat $A $B ≡ @Functor_cat $Base Cat_cart
   ↪ [ $Base ≡ Product_cat (Op_cat $A) $B ];
 
 /* Literal whole mate functors built from product composition and unit/counit. */
@@ -52,11 +53,13 @@ symbol adjunction_hom_component_iso
   (J : τ (@Adjunction R L F G)) (X : τ (Obj R)) (Y : τ (Obj L))
   : τ (@DefIso Cat_cat (Hom_cat L (@fapp0 R L F X) Y)
       (Hom_cat R X (@fapp0 L R G Y)))
-≔ @defiso_at (Product_cat (Op_cat R) L) Cat_cat
-    (@Hom_prof_along R L L F (@id_func L))
-    (@Hom_prof_along R L R (@id_func R) G)
-    (@Adjunction_hom_prof_comparison R L F G J)
-    (@Product_pair (Op_cat R) L X Y);
+≔ @defiso_fmap Cat_cart Cat_cat Cat_cart_include
+    (Hom_cat L (@fapp0 R L F X) Y) (Hom_cat R X (@fapp0 L R G Y))
+    (@defiso_at (Product_cat (Op_cat R) L) Cat_cart
+      (@Hom_prof_along R L L F (@id_func L))
+      (@Hom_prof_along R L R (@id_func R) G)
+      (@Adjunction_hom_prof_comparison R L F G J)
+      (@Product_pair (Op_cat R) L X Y));
 
 symbol adjunction_transpose_func
   [R L : Cat] [F : τ (Functor R L)] [G : τ (Functor L R)]
@@ -165,6 +168,39 @@ unif_rule
   ≡ @comp_fapp0 $C $a $b $c $g $f
   ↪ [ (@comp_fapp0 $C $a $b $c $g $f)
         ≡ (@fapp0 _ _ (@adjunction_untranspose_semantic_func $R $L $F $G $J $X $Y) $k) ];
+
+// Keep the whole mapped inverse as runtime owner. Its actual coefficient is
+// Cat_cart, while the public component is observed in Cat_cat. These scoped
+// comparisons reuse the original unit/counit semantic bodies without relying
+// on transitivity through a bare evaluated-inverse view.
+unif_rule
+  @defiso_fmap_to _ _ Cat_cart_include _ _
+    (@defiso_at _ Cat_cart _ _
+      (@Adjunction_hom_prof_comparison $R $L $F $G $J) (Struct_sigma $X $Y))
+  ≡ @comp_fapp0 Cat_cat $Source $Mid $Target $first $second
+  ↪ [ (@comp_fapp0 Cat_cat $Source $Mid $Target $first $second)
+        ≡ @adjunction_transpose_semantic_func $R $L $F $G $J $X $Y ];
+unif_rule
+  @defiso_fmap_from _ _ Cat_cart_include _ _
+    (@defiso_at _ Cat_cart _ _
+      (@Adjunction_hom_prof_comparison $R $L $F $G $J) (Struct_sigma $X $Y))
+  ≡ @comp_fapp0 Cat_cat $Source $Mid $Target $first $second
+  ↪ [ (@comp_fapp0 Cat_cat $Source $Mid $Target $first $second)
+        ≡ @adjunction_untranspose_semantic_func $R $L $F $G $J $X $Y ];
+unif_rule
+  @fapp0 _ _ (@defiso_fmap_to _ _ Cat_cart_include _ _
+    (@defiso_at _ Cat_cart _ _
+      (@Adjunction_hom_prof_comparison $R $L $F $G $J) (Struct_sigma $X $Y))) $h
+  ≡ @comp_fapp0 $C $a $b $c $g $f
+  ↪ [ (@comp_fapp0 $C $a $b $c $g $f)
+        ≡ @fapp0 _ _ (@adjunction_transpose_semantic_func $R $L $F $G $J $X $Y) $h ];
+unif_rule
+  @fapp0 _ _ (@defiso_fmap_from _ _ Cat_cart_include _ _
+    (@defiso_at _ Cat_cart _ _
+      (@Adjunction_hom_prof_comparison $R $L $F $G $J) (Struct_sigma $X $Y))) $k
+  ≡ @comp_fapp0 $C $a $b $c $g $f
+  ↪ [ (@comp_fapp0 $C $a $b $c $g $f)
+        ≡ @fapp0 _ _ (@adjunction_untranspose_semantic_func $R $L $F $G $J $X $Y) $k ];
 
 symbol adjunction_transpose_semantic_path
   [R L : Cat] [F : τ (Functor R L)] [G : τ (Functor L R)]

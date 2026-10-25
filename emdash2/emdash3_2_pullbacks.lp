@@ -20,10 +20,15 @@
 require open emdash.emdash3_2_presheaves;
 
 // Always-existing covariant slice family: X ↦ C/X, f ↦ Σ_f.
+// Fibrewise dimension-one transpose reverses the base two-cell action.
+// This is the original restriction-opposite slice, not the opposite triangle
+// convention of the core CommaFib family.
 symbol SliceSigma_catd
   (C : Cat)
-  : τ (Catd C)
-≔ @CommaFib_catd C C (@id_func C);
+  : τ (Catd (CoAt2_cat C))
+≔ @comp_cat_fapp0
+    (CoAt2_cat C) (CoAt2_cat Cat_cart) Cat_cart op
+    (@CoAt2_func C Cat_cart (@arrow_into_catd C));
 
 // Whole postcomposition action on slices.
 symbol slice_sigma_func
@@ -32,7 +37,7 @@ symbol slice_sigma_func
   (f : τ (Hom C X Y))
   : τ (Functor (@Slice_cat C X) (@Slice_cat C Y))
 ≔ @fapp1_fapp0
-    C Cat_cat
+    (CoAt2_cat C) Cat_cart
     (@SliceSigma_catd C)
     X Y f;
 
@@ -53,7 +58,7 @@ injective symbol SliceBaseChange_catd
   : τ (Catd (Op_cat C));
 
 // Exact chosen fibre: SliceBaseChange(PB)[X] ↪ C/X.
-rule @fapp0 _ Cat_cat
+rule @fapp0 _ _
       (@SliceBaseChange_catd $C _)
       $X
   ↪ @Slice_cat $C $X;
@@ -69,7 +74,7 @@ injective symbol slice_base_change_func
 
 // lhs-audit: keep 1 -- `Op_cat(C)` is the variance guard on the whole family action.
 rule @fapp1_fapp0
-      (Op_cat $C) Cat_cat
+      (Op_cat $C) _
       (@SliceBaseChange_catd $C $PB)
       $Y $X $f
   ↪ @slice_base_change_func $C $PB $X $Y $f;
@@ -86,15 +91,15 @@ symbol slice_sigma_obj
 ≔ @sigma_map_obj
     (Op_cat C)
     (@fapp0
-      C (Catd_cat (Op_cat C))
+      C (Functor_cart_cat (Op_cat C) Cat_cart)
       (@hom_con_int C C (@id Cat_cat C))
       X)
     (@fapp0
-      C (Catd_cat (Op_cat C))
+      C (Functor_cart_cat (Op_cat C) Cat_cart)
       (@hom_con_int C C (@id Cat_cat C))
       Y)
-    (@hom_con_int_postcomp_func
-      C C (@id Cat_cat C) X Y f)
+    (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+      C C (@id Cat_cat C) X Y f))
     a;
 
 // Whole semantic Σ_f object action projects to the selected generic Sigma
@@ -102,8 +107,8 @@ symbol slice_sigma_obj
 // reducible family/category slots remain inferred.
 rule @fapp0 _ _
       (@sigma_map_func _ _ _
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $f))
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $f)))
       $a
   ↪ @slice_sigma_obj $C $X $Y $f $a;
 
@@ -226,31 +231,33 @@ symbol slice_base_change_counit
   post-`Op` rules are required because the conventional slice aliases and
   opposite composition have reduced before runtime matching.
 */
+// Canonical Hom types expose the opposite endpoints before inversion.
 injective symbol slice_base_change_gamma
   [C : Cat]
   (PB : τ (@PullbackStructure C))
   [X Y : τ (Obj C)]
-  (u : τ (Hom C X Y))
+  (u : τ (Obj (Hom_cat C X Y)))
   [a a' : τ (Obj (@Slice_cat C X))]
-  (k : τ (Hom (@Slice_cat C X) a a'))
-  : τ (Hom
+  (k : τ (Obj (Hom_cat (@Slice_cat C X) a a')))
+  : τ (Obj (Hom_cat
       (@Slice_cat C X)
       a
       (@slice_base_change_obj C PB X Y u
-        (@slice_sigma_obj C X Y u a')));
+        (@slice_sigma_obj C X Y u a'))));
 
+// Canonical Hom types expose the opposite endpoints before inversion.
 injective symbol slice_base_change_phi
   [C : Cat]
   (PB : τ (@PullbackStructure C))
   [X Y : τ (Obj C)]
-  (u : τ (Hom C X Y))
+  (u : τ (Obj (Hom_cat C X Y)))
   [b' b : τ (Obj (@Slice_cat C Y))]
-  (h : τ (Hom (@Slice_cat C Y) b' b))
-  : τ (Hom
+  (h : τ (Obj (Hom_cat (@Slice_cat C Y) b' b)))
+  : τ (Obj (Hom_cat
       (@Slice_cat C Y)
       (@slice_sigma_obj C X Y u
         (@slice_base_change_obj C PB X Y u b'))
-      b);
+      b));
 
 rule @tapp1_fapp0
       _ _ _ _
@@ -287,29 +294,29 @@ rule @comp_fapp0
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $u)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $u))
         $a)
       (@sigma_map_obj
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $u)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $u))
         (@slice_base_change_obj $C $PB $X $Y $u
           (@sigma_map_obj
             (Op_cat $C)
             (@hom_con $C $X $C (@id Cat_cat $C))
             (@hom_con $C $Y $C (@id Cat_cat $C))
-            (@hom_con_int_postcomp_func
-              $C $C (@id Cat_cat $C) $X $Y $u)
+            (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+              $C $C (@id Cat_cat $C) $X $Y $u))
             $a)))
       (@sigma_map_obj
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $u)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $u))
         $a)
       (@fapp1_fapp0
         (@Sigma_cat
@@ -322,15 +329,15 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $u))
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $u)))
         (@slice_base_change_obj $C $PB $X $Y $u
           (@sigma_map_obj
             (Op_cat $C)
             (@hom_con $C $X $C (@id Cat_cat $C))
             (@hom_con $C $Y $C (@id Cat_cat $C))
-            (@hom_con_int_postcomp_func
-              $C $C (@id Cat_cat $C) $X $Y $u)
+            (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+              $C $C (@id Cat_cat $C) $X $Y $u))
             $a))
         $a
         (@tapp0_fapp0
@@ -342,8 +349,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $u)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $u))
           $a)
         (@slice_base_change_counit_transf $C $PB $X $Y $u))
   ↪ @id
@@ -354,8 +361,8 @@ rule @comp_fapp0
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $u)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $u))
         $a);
 
 // Canonical post-`Op` right triangle after γᶜ(id) and φᵃ(id) expose components.
@@ -370,8 +377,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $u)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $u))
           (@slice_base_change_obj $C $PB $X $Y $u $b)))
       (@slice_base_change_obj $C $PB $X $Y $u $b)
       (@tapp0_fapp0
@@ -392,8 +399,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $u)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $u))
           (@slice_base_change_obj $C $PB $X $Y $u $b))
         $b
         (@tapp0_fapp0
@@ -416,22 +423,22 @@ rule @comp_fapp0
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $u)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $u))
         (@slice_base_change_obj $C $PB $X $Y $u
           (@sigma_map_obj
             (Op_cat $C)
             (@hom_con $C $X $C (@id Cat_cat $C))
             (@hom_con $C $Y $C (@id Cat_cat $C))
-            (@hom_con_int_postcomp_func
-              $C $C (@id Cat_cat $C) $X $Y $u)
+            (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+              $C $C (@id Cat_cat $C) $X $Y $u))
             $a')))
       (@sigma_map_obj
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $u)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $u))
         $a)
       (@fapp1_fapp0
         (@Sigma_cat
@@ -444,15 +451,15 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $u))
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $u)))
         (@slice_base_change_obj $C $PB $X $Y $u
           (@sigma_map_obj
             (Op_cat $C)
             (@hom_con $C $X $C (@id Cat_cat $C))
             (@hom_con $C $Y $C (@id Cat_cat $C))
-            (@hom_con_int_postcomp_func
-              $C $C (@id Cat_cat $C) $X $Y $u)
+            (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+              $C $C (@id Cat_cat $C) $X $Y $u))
             $a'))
         $a
         (@slice_base_change_gamma $C $PB $X $Y $u $a $a' $k))
@@ -461,8 +468,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $u)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $u))
           $a')
         $b $h)
   ↪ @comp_fapp0
@@ -474,15 +481,15 @@ rule @comp_fapp0
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $u)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $u))
         $a')
       (@sigma_map_obj
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $u)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $u))
         $a)
       (@fapp1_fapp0
         (@Sigma_cat
@@ -495,8 +502,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $u))
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $u)))
         $a' $a $k)
       $h;
 
@@ -512,8 +519,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $u)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $u))
           (@slice_base_change_obj $C $PB $X $Y $u $b')))
       $a
       (@slice_base_change_gamma $C $PB $X $Y $u
@@ -532,8 +539,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $u)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $u))
           (@slice_base_change_obj $C $PB $X $Y $u $b'))
         $b
         (@slice_base_change_phi $C $PB $X $Y $u $b' $b $h))
@@ -567,6 +574,7 @@ rule @comp_fapp0
   for the triangle cuts; proof-time usability relates their points to these
   semantic projections without a runtime fold.
 */
+// Keep both whole mate endpoints in their canonical total-Hom form.
 symbol slice_base_change_transpose_semantic_func
   [C : Cat]
   (PB : τ (@PullbackStructure C))
@@ -575,14 +583,12 @@ symbol slice_base_change_transpose_semantic_func
   (a : τ (Obj (@Slice_cat C X)))
   (b : τ (Obj (@Slice_cat C Y)))
   : τ (Functor
-      (Hom_cat
-        (@Slice_cat C Y)
-        (@slice_sigma_obj C X Y f a)
-        b)
-      (Hom_cat
-        (@Slice_cat C X)
-        a
-        (@slice_base_change_obj C PB X Y f b)))
+    (Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C Y C (@id Cat_cat C)))
+      b (@slice_sigma_obj C X Y f a))
+    (Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C X C (@id Cat_cat C)))
+      (@slice_base_change_obj C PB X Y f b) a))
 ≔ @comp_cat_fapp0
     (Hom_cat
       (@Slice_cat C Y)
@@ -613,6 +619,7 @@ symbol slice_base_change_transpose_semantic_func
       (@slice_sigma_obj C X Y f a)
       b);
 
+// Keep both whole mate endpoints in their canonical total-Hom form.
 symbol slice_base_change_untranspose_semantic_func
   [C : Cat]
   (PB : τ (@PullbackStructure C))
@@ -621,14 +628,12 @@ symbol slice_base_change_untranspose_semantic_func
   (a : τ (Obj (@Slice_cat C X)))
   (b : τ (Obj (@Slice_cat C Y)))
   : τ (Functor
-      (Hom_cat
-        (@Slice_cat C X)
-        a
-        (@slice_base_change_obj C PB X Y f b))
-      (Hom_cat
-        (@Slice_cat C Y)
-        (@slice_sigma_obj C X Y f a)
-        b))
+    (Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C X C (@id Cat_cat C)))
+      (@slice_base_change_obj C PB X Y f b) a)
+    (Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C Y C (@id Cat_cat C)))
+      b (@slice_sigma_obj C X Y f a)))
 ≔ @comp_cat_fapp0
     (Hom_cat
       (@Slice_cat C X)
@@ -709,6 +714,7 @@ symbol slice_base_change_untranspose_semantic
   presentations distinct. Both stable point cuts and both stable whole-functor
   composites compute.
 */
+// Keep both whole mate endpoints in their canonical total-Hom form.
 injective symbol slice_base_change_transpose_func
   [C : Cat]
   (PB : τ (@PullbackStructure C))
@@ -717,11 +723,14 @@ injective symbol slice_base_change_transpose_func
   (a : τ (Obj (@Slice_cat C X)))
   (b : τ (Obj (@Slice_cat C Y)))
   : τ (Functor
-      (Hom_cat (@Slice_cat C Y)
-        (@slice_sigma_obj C X Y f a) b)
-      (Hom_cat (@Slice_cat C X) a
-        (@slice_base_change_obj C PB X Y f b)));
+    (Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C Y C (@id Cat_cat C)))
+      b (@slice_sigma_obj C X Y f a))
+    (Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C X C (@id Cat_cat C)))
+      (@slice_base_change_obj C PB X Y f b) a));
 
+// Keep both whole mate endpoints in their canonical total-Hom form.
 injective symbol slice_base_change_untranspose_func
   [C : Cat]
   (PB : τ (@PullbackStructure C))
@@ -730,10 +739,12 @@ injective symbol slice_base_change_untranspose_func
   (a : τ (Obj (@Slice_cat C X)))
   (b : τ (Obj (@Slice_cat C Y)))
   : τ (Functor
-      (Hom_cat (@Slice_cat C X) a
-        (@slice_base_change_obj C PB X Y f b))
-      (Hom_cat (@Slice_cat C Y)
-        (@slice_sigma_obj C X Y f a) b));
+    (Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C X C (@id Cat_cat C)))
+      (@slice_base_change_obj C PB X Y f b) a)
+    (Hom_cat
+      (@Sigma_cat (Op_cat C) (@hom_con C Y C (@id Cat_cat C)))
+      b (@slice_sigma_obj C X Y f a)));
 
 injective symbol slice_base_change_transpose
   [C : Cat]
@@ -807,8 +818,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $f)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $f))
           $a))
       (Hom_cat
         (@Sigma_cat
@@ -825,8 +836,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $f)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $f))
           $a))
       (@slice_base_change_untranspose_func
         $C $PB $X $Y $f $a $b)
@@ -843,8 +854,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $f)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $f))
           $a));
 
 // Φstable ∘ Γstable → id.
@@ -866,8 +877,8 @@ rule @comp_fapp0
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $f)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $f))
           $a))
       (Hom_cat
         (@Sigma_cat
@@ -940,8 +951,8 @@ unif_rule
       (Op_cat $C)
       (@hom_con $C $X $C (@id_func $C))
       (@hom_con $C $Y $C (@id_func $C))
-      (@hom_con_int_postcomp_func
-        $C $C (@id_func $C) $X $Y $f));
+      (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+        $C $C (@id_func $C) $X $Y $f)));
     $Gb ≡ (@slice_base_change_obj $C $PB $X $Y $f $b)
   ];
 
@@ -967,8 +978,8 @@ unif_rule
           (Op_cat $C)
           (@hom_con $C $X $C (@id Cat_cat $C))
           (@hom_con $C $Y $C (@id Cat_cat $C))
-          (@hom_con_int_postcomp_func
-            $C $C (@id Cat_cat $C) $X $Y $f)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+            $C $C (@id Cat_cat $C) $X $Y $f))
           $a))
       (@tapp0_fapp0 _ _ _ _ $a
         (@slice_base_change_unit_transf $C $PB $X $Y $f)))
@@ -979,8 +990,8 @@ unif_rule
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $f)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $f))
         $a)
       $b)
   ↪ [ tt ≡ tt ];
@@ -996,15 +1007,15 @@ unif_rule
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $f)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $f))
         $a)
       (@sigma_map_obj
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $f)
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $f))
         (@slice_base_change_obj $C $PB $X $Y $f $b))
       $b
       (@tapp0_fapp0 _ _ _ _ $b
@@ -1015,8 +1026,8 @@ unif_rule
         (Op_cat $C)
         (@hom_con $C $X $C (@id Cat_cat $C))
         (@hom_con $C $Y $C (@id Cat_cat $C))
-        (@hom_con_int_postcomp_func
-          $C $C (@id Cat_cat $C) $X $Y $f))
+        (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func
+          $C $C (@id Cat_cat $C) $X $Y $f)))
       (@slice_base_change_obj $C $PB $X $Y $f $b)
       $a)
   ↪ [ tt ≡ tt ];

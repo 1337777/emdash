@@ -3,7 +3,7 @@ require open emdash.emdash3_2_one_cat_difference_cospans;
 // A factor through the first projection annihilates the original second leg.
 symbol one_cat_difference_cospan_second_from_factor_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (X Y Z V : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
+  (@TerminalObject (TotalOp_cat C) t)) (X Y Z V : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
   (h : τ (@Transf B C Z V)) (a : τ (@Transf B C X V)) (p : τ (@= (@Transf B C (@fapp0 (Functor_cat B (Product_cat
   C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ
   (Functor B C), Functor B C) X Y)) V) (@comp_fapp0 (Functor_cat B C) (@fapp0 (Functor_cat B (Product_cat C C))
@@ -61,7 +61,7 @@ symbol one_cat_difference_cospan_second_from_factor_path [B C : Cat] (C1 : τ (I
 // The original first projection detects zero by its original whole injection.
 symbol one_cat_product_first_zero_reflect_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y V : τ (Functor B C)) (a : τ (@Transf B C X V)) (z : τ (@= (@Transf B C (@fapp0 (Functor_cat
+  (TotalOp_cat C) t)) (X Y V : τ (Functor B C)) (a : τ (@Transf B C X V)) (z : τ (@= (@Transf B C (@fapp0 (Functor_cat
   B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B
   C) (λ _ : τ (Functor B C), Functor B C) X Y)) V) (@comp_fapp0 (Functor_cat B C) (@fapp0 (Functor_cat B
   (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B

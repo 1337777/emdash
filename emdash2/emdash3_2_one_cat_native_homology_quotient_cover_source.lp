@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_kernel_precomposition;
 // The original precomposition-kernel inclusion is also a g-cycle.
 symbol one_cat_native_homology_quotient_cover_source_zero [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B D : τ (Functor K C)] (f : τ (@Transf K C A B)) (g : τ (@Transf K C B D))
   (z : τ (@= (@Transf K C A D) (@comp_fapp0 (Functor_cat K C) A B D g f) (@zero_arrow_family_zero_transf K C t
@@ -58,7 +58,7 @@ symbol one_cat_native_homology_quotient_cover_source_zero [K C : Cat] [S : τ (@
 // The original K(g) mate receives the native precomposition cover source.
 symbol one_cat_native_homology_quotient_cover_source_lift [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B D : τ (Functor K C)] (f : τ (@Transf K C A B)) (g : τ (@Transf K C B D))
   (z : τ (@= (@Transf K C A D) (@comp_fapp0 (Functor_cat K C) A B D g f) (@zero_arrow_family_zero_transf K C t
@@ -82,7 +82,7 @@ symbol one_cat_native_homology_quotient_cover_source_lift [K C : Cat] [S : τ (@
 symbol one_cat_native_homology_quotient_cover_source_reconstruction [K C : Cat] [S : τ (@PreadditiveCategory
   C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B D : τ (Functor K C)] (f : τ (@Transf K C A B)) (g : τ (@Transf K C B D))
   (z : τ (@= (@Transf K C A D) (@comp_fapp0 (Functor_cat K C) A B D g f) (@zero_arrow_family_zero_transf K C t
@@ -117,7 +117,7 @@ symbol one_cat_native_homology_quotient_cover_source_reconstruction [K C : Cat] 
 symbol one_cat_native_homology_quotient_cover_projection_reconstruction [K C : Cat] [S : τ
   (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B D : τ (Functor K C)] (f : τ (@Transf K C A B)) (g : τ (@Transf K C B D))
   (z : τ (@= (@Transf K C A D) (@comp_fapp0 (Functor_cat K C) A B D g f) (@zero_arrow_family_zero_transf K C t

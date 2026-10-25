@@ -14,13 +14,14 @@
   Code. All other section and recursion observations are transparent theorems
   over those owners and the generic projection calculus. After those
   derivations, the public recursor head is protected and owns its point,
-  generator, and named strict-composition computations. This preserves the
+  generator computations; composition uses the generic strict-functor owner. This preserves the
   contextual construction while preventing premature unfolding from erasing
   the public recursor discriminator.
 */
 
 require open emdash.emdash3_2_nat_arithmetic;
 require open emdash.emdash3_2_eq1_hom_action;
+require open emdash.emdash3_2_one_cat_transfor_profiles;
 
 // Opaque HIT formation and introductions.
 constant symbol WalkingEnd_cat : Cat;
@@ -105,13 +106,15 @@ symbol walking_end_loop_rhs_func
       WalkingEnd_cat R walking_base walking_base walking_loop);
 
 // Contextual loop coherence D[loop] o u => u o R[loop].
+// Cat_cart-valued motives require strict naturality in the fibre
+// variable; the loop comparison itself remains directed/noninvertible.
 symbol walking_end_loop_coherence
   (R D : τ (Catd WalkingEnd_cat))
   (u : τ (Functor
       (Fibre_cat R walking_base)
       (Fibre_cat D walking_base)))
   : Grpd
-≔ @Transf
+≔ @StrictTransfor
     (Fibre_cat R walking_base)
     (Fibre_cat D walking_base)
     (@walking_end_loop_lhs_func R D u)
@@ -128,8 +131,8 @@ injective symbol walking_end_ind_funcd
 
 // Runtime base-constructor beta at the generic fibre-functor projection.
 rule @tapp0_fapp0
-      WalkingEnd_cat Cat_cat
-      $R $D walking_base
+      _ _
+      _ _ walking_base
       (@walking_end_ind_funcd $R $D $u _)
   ↪ $u;
 
@@ -160,7 +163,8 @@ rule @fdapp1_int_cell
       (Fibre_cat $D walking_base)
       (@walking_end_loop_lhs_func $R $D $u)
       (@walking_end_loop_rhs_func $R $D $u)
-      $r $sigma;
+      $r (@strict_transfor (Fibre_cat $R walking_base) (Fibre_cat $D walking_base)
+        (@walking_end_loop_lhs_func $R $D $u) (@walking_end_loop_rhs_func $R $D $u) $sigma);
 
 // Transparent typed views of the two generic runtime constructor betas.
 symbol walking_end_ind_funcd_beta_base
@@ -213,7 +217,8 @@ symbol walking_end_ind_funcd_beta_loop
         (Fibre_cat D walking_base)
         (@walking_end_loop_lhs_func R D u)
         (@walking_end_loop_rhs_func R D u)
-        r sigma))
+        r (@strict_transfor (Fibre_cat R walking_base) (Fibre_cat D walking_base)
+        (@walking_end_loop_lhs_func R D u) (@walking_end_loop_rhs_func R D u) sigma)))
 ≔ @eq_refl
     (Hom
       (Fibre_cat D walking_base)
@@ -232,7 +237,8 @@ symbol walking_end_ind_funcd_beta_loop
       (Fibre_cat D walking_base)
       (@walking_end_loop_lhs_func R D u)
       (@walking_end_loop_rhs_func R D u)
-      r sigma);
+      r (@strict_transfor (Fibre_cat R walking_base) (Fibre_cat D walking_base)
+        (@walking_end_loop_lhs_func R D u) (@walking_end_loop_rhs_func R D u) sigma));
 
 // Section-algebra classifier D[loop](u) -> u.
 symbol walking_end_loop_lift_grpd
@@ -498,8 +504,8 @@ symbol walking_end_rec_beta_loop_ordinary
 
   All contextual derivation theorems above were constructed through the
   transparent Pi-section body. From this point onward the public recursor head
-  is protected and owns exactly its point, generator, and strict-composition
-  observations.
+  is protected and owns its point and generator observations. Composition
+  uses the generic default-strict functor owner.
 */
 opaque walking_end_rec_func;
 
@@ -512,21 +518,10 @@ rule @fapp1_fapp0
       walking_base walking_base walking_loop
   ↪ $a;
 
-rule @comp_fapp0
-      $C _ _ _
-      (@fapp1_fapp0
-        WalkingEnd_cat $C (@walking_end_rec_func $C $x $a)
-        $Y $Z $g)
-      (@fapp1_fapp0
-        WalkingEnd_cat $C (@walking_end_rec_func $C $x $a)
-        $X $Y $f)
-  ↪ @fapp1_fapp0
-      WalkingEnd_cat $C (@walking_end_rec_func $C $x $a)
-      $X $Z
-      (@comp_fapp0 WalkingEnd_cat $X $Y $Z $g $f);
+// Composition is the existing generic default-strict functor cut.
+// The former named instance is redundant and is retired.
 
-// One named component of the recursor's guarded composition computation.
-// This is a theorem over explicit arrows, not an all-components capability.
+// Named theorem view of the default-strict functor composition law.
 symbol walking_end_rec_composition_path
   (C : Cat)
   (x : τ (Obj C))
@@ -672,35 +667,35 @@ symbol walking_bnat_model_beta_loop
 // Concrete Code, directed representable, powers, and the contextual spiral.
 // --------------------------------------------------------------------------
 
-// Code : WalkingEnd -> Cat, with base Path(Nat) and loop NatSucc.
+// Code : WalkingEnd -> Cat_cart, with base Path(Nat) and loop NatSucc.
 symbol walking_Code_catd
   : τ (Catd WalkingEnd_cat)
 ≔ @walking_end_rec_func
-    Cat_cat
+    Cat_cart
     (Path_cat Nat_grpd)
     NatSucc_func;
 
 // The narrow recursor projection join makes the Code base runtime-visible.
 symbol walking_Code_beta_base
   : τ (@=
-      (Obj Cat_cat)
+      (Obj Cat_cart)
       (Fibre_cat walking_Code_catd walking_base)
       (Path_cat Nat_grpd))
 ≔ @walking_end_rec_beta_base
-    Cat_cat
+    Cat_cart
     (Path_cat Nat_grpd)
     NatSucc_func;
 
 // Typed view of the runtime Code-loop beta.
 symbol walking_Code_beta_loop
   : τ (@=
-      (Hom Cat_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (Hom Cat_cart (Path_cat Nat_grpd) (Path_cat Nat_grpd))
       (@catd_transport_func
         WalkingEnd_cat walking_Code_catd
         walking_base walking_base walking_loop)
       NatSucc_func)
 ≔ @walking_end_rec_beta_loop_ordinary
-    Cat_cat
+    Cat_cart
     (Path_cat Nat_grpd)
     NatSucc_func;
 
@@ -858,7 +853,8 @@ symbol walking_power_func
   the minimal PathLift(step) o kappa_left composite.
 */
 symbol walking_power_spiral_coreincl
-  : τ (Transf
+  : τ (@StrictTransfor (Path_cat Nat_grpd)
+      (Hom_cat WalkingEnd_cat walking_base walking_base)
       (@comp_cat_fapp0
         (Path_cat Nat_grpd)
         (Hom_cat WalkingEnd_cat walking_base walking_base)
@@ -871,13 +867,17 @@ symbol walking_power_spiral_coreincl
         (Hom_cat WalkingEnd_cat walking_base walking_base)
         walking_power_func
         NatSucc_func))
-≔ @path_lift_non_strict_spiral
+≔ @one_cat_strict_transfor (Path_cat Nat_grpd)
+    (Hom_cat WalkingEnd_cat walking_base walking_base)
+    (@discrete_cat_is_one_cat (Hom_cat WalkingEnd_cat walking_base walking_base)
+      (walking_end_hom_discrete walking_base walking_base)) _ _
+    (@path_lift_non_strict_spiral
     Nat_grpd
     (Hom_cat WalkingEnd_cat walking_base walking_base)
     walking_loop_postcomp_func
     walking_power_function
     nat_succ_function
-    walking_power_step_path;
+    walking_power_step_path);
 
 // Selected contextual algebra: the explicit-kappa CoreInclTransf spiral.
 symbol walking_power_spiral
@@ -898,7 +898,10 @@ symbol walking_power_spiral_component
     (@walking_end_loop_rhs_func
       walking_Code_catd walking_based_rep_catd walking_power_func)
     n
-    walking_power_spiral;
+    (@strict_transfor (Path_cat Nat_grpd) (Hom_cat WalkingEnd_cat walking_base walking_base)
+      (@walking_end_loop_lhs_func walking_Code_catd walking_based_rep_catd walking_power_func)
+      (@walking_end_loop_rhs_func walking_Code_catd walking_based_rep_catd walking_power_func)
+      walking_power_spiral);
 
 // Proof-time stable-postcomposition comparison at the spiral source.
 symbol walking_power_spiral_source_path
@@ -933,7 +936,7 @@ symbol walking_Code_loop_point_path
         n)
       (succ n))
 ≔ @eq_ap
-    (Hom Cat_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+    (Hom Cat_cart (Path_cat Nat_grpd) (Path_cat Nat_grpd))
     Nat_grpd
     (λ F : τ (Functor (Path_cat Nat_grpd) (Path_cat Nat_grpd)),
       @fapp0 (Path_cat Nat_grpd) (Path_cat Nat_grpd) F n)
@@ -1153,7 +1156,7 @@ symbol walking_power_encode_roundtrip
 symbol walking_Code_loop_prefix_action_path
   (p : τ (Hom WalkingEnd_cat walking_base walking_base))
   : τ (@=
-      (Hom Cat_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (Hom Cat_cart (Path_cat Nat_grpd) (Path_cat Nat_grpd))
       (@catd_transport_func
         WalkingEnd_cat walking_Code_catd
         walking_base walking_base
@@ -1169,7 +1172,7 @@ symbol walking_Code_loop_prefix_action_path
           WalkingEnd_cat walking_Code_catd
           walking_base walking_base p)))
 ≔ @walking_end_rec_loop_prefix_eq
-    Cat_cat
+    Cat_cart
     (Path_cat Nat_grpd)
     NatSucc_func
     p;
@@ -1184,7 +1187,7 @@ symbol walking_encode_loop_prefix_path
           walking_loop p))
       (succ (@walking_encode walking_base p)))
 ≔ @eq_ap
-    (Hom Cat_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+    (Hom Cat_cart (Path_cat Nat_grpd) (Path_cat Nat_grpd))
     Nat_grpd
     (λ F : τ (Functor (Path_cat Nat_grpd) (Path_cat Nat_grpd)),
       @fapp0
@@ -1267,9 +1270,12 @@ symbol walking_encode_func
     (Functor_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
     (Path_cat Nat_grpd)
     (@fapp0_func (Path_cat Nat_grpd) (Path_cat Nat_grpd) zero)
-    (@fapp1_func
-      WalkingEnd_cat Cat_cat walking_Code_catd
-      walking_base walking_base);
+    (@comp_cat_fapp0 (Hom_cat WalkingEnd_cat walking_base walking_base)
+      (Functor_cart_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (Functor_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (Functor_cart_include (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (@fapp1_func WalkingEnd_cat Cat_cart walking_Code_catd
+        walking_base walking_base));
 
 // The two semantic round trips form an explicit quasi-inverse package.
 symbol walking_hom_nat_by_inverse

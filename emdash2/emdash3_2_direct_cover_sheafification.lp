@@ -1,7 +1,7 @@
 /*
   Constructed Cat-valued sheafification from direct cover completion.
 
-  At Cat_cat, the existing rigid Sheaf_cat facade is realized as topology-local
+  At Cat_cart, the existing rigid Sheaf_cat facade is realized as topology-local
   Cat-valued presheaves.  Its inclusion forgets locality, while the direct
   cover-completion reflector lands back in the same facade.  Whole Hom
   universality supplies the indexed adjunction; its unit computes to the HIT
@@ -10,7 +10,7 @@
   cancellations and hence the existing fixed-counit SheafificationCapability.
 
   Arbitrary value categories remain opaque.  The raw
-  Functor_cat(Op_cat(K),Cat_cat) index appears only at the generic supplied-
+  Functor_cat(Op_cat(K),Cat_cart) index appears only at the generic supplied-
   capability boundary; Psh_cat(K) remains the rigid computational owner.
 */
 
@@ -20,7 +20,7 @@ require open emdash.emdash3_2_ringed_sites;
 // Proof-time only: direct comparison required by the generic sheaf capability.
 unif_rule
   @Psh_cat $K
-  ≡ @Functor_cat $K0 Cat_cat
+  ≡ @Functor_cat $K0 Cat_cart
   ↪ [ (Op_cat $K) ≡ $K0 ];
 
 symbol CatValuedSheafData
@@ -52,23 +52,23 @@ symbol cat_valued_sheaf_local
 ≔ sigma_Snd X;
 
 // Cat-valued specialization of the existing sheaf facade.
-rule Obj (@Sheaf_cat $K $T Cat_cat)
+rule Obj (@Sheaf_cat $K $T Cat_cart)
   ↪ @CatValuedSheafData $K $T;
 
-rule Hom_cat (@Sheaf_cat $K $T Cat_cat) $X $Y
+rule Hom_cat (@Sheaf_cat $K $T Cat_cart) $X $Y
   ↪ Hom_cat
       (@Psh_cat $K)
       (@cat_valued_sheaf_carrier $K $T $X)
       (@cat_valued_sheaf_carrier $K $T $Y);
 
-rule @id (@Sheaf_cat $K $T Cat_cat) $X
+rule @id (@Sheaf_cat $K $T Cat_cart) $X
   ↪ @id
       (@Psh_cat $K)
       (@cat_valued_sheaf_carrier $K $T $X);
 
 // lhs-audit: keep 2,3,4 -- the carrier projections are required on the RHS.
 rule @comp_fapp0
-      (@Sheaf_cat $K $T Cat_cat) $X $Y $Z $g $f
+      (@Sheaf_cat $K $T Cat_cart) $X $Y $Z $g $f
   ↪ @comp_fapp0
       (@Psh_cat $K)
       (@cat_valued_sheaf_carrier $K $T $X)
@@ -80,7 +80,7 @@ rule @comp_fapp0
 injective symbol cat_valued_sheaf_include_psh_func
   [K : Cat]
   (T : τ (@GrothTopology K))
-  : τ (@Functor (@Sheaf_cat K T Cat_cat) (@Psh_cat K));
+  : τ (@Functor (@Sheaf_cat K T Cat_cart) (@Psh_cat K));
 
 rule @fapp0 _ _
       (@cat_valued_sheaf_include_psh_func $K $T) $X
@@ -89,16 +89,16 @@ rule @fapp0 _ _
 constant symbol cat_valued_sheaf_include_psh_hom_action
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (X Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (X Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@=
       (Obj (@Functor_cat
-        (Hom_cat (@Sheaf_cat K T Cat_cat) X Y)
+        (Hom_cat (@Sheaf_cat K T Cat_cart) X Y)
         (Hom_cat
           (@Psh_cat K)
           (@cat_valued_sheaf_carrier K T X)
           (@cat_valued_sheaf_carrier K T Y))))
       (@fapp1_func
-        (@Sheaf_cat K T Cat_cat)
+        (@Sheaf_cat K T Cat_cart)
         (@Psh_cat K)
         (@cat_valued_sheaf_include_psh_func K T)
         X Y)
@@ -112,7 +112,7 @@ constant symbol cat_valued_sheaf_include_psh_hom_action
 injective symbol direct_cover_sheafification_func
   [K : Cat]
   (T : τ (@GrothTopology K))
-  : τ (@Functor (@Psh_cat K) (@Sheaf_cat K T Cat_cat));
+  : τ (@Functor (@Psh_cat K) (@Sheaf_cat K T Cat_cart));
 
 rule @fapp0 _ _ (@direct_cover_sheafification_func $K $T) $P
   ↪ @cat_valued_sheaf_intro
@@ -175,7 +175,7 @@ constant symbol direct_cover_sheafification_hom_action
           (@DirectCoverCompletionPsh K T Q))))
       (@fapp1_func
         (@Psh_cat K)
-        (@Sheaf_cat K T Cat_cat)
+        (@Sheaf_cat K T Cat_cart)
         (@direct_cover_sheafification_func K T)
         P Q)
       (@direct_cover_sheafification_selected_hom_func K T P Q));
@@ -185,8 +185,8 @@ constant symbol direct_cover_sheafification_adjunction
   [K : Cat]
   (T : τ (@GrothTopology K))
   : τ (@Adjunction
-      (@Functor_cat (Op_cat K) Cat_cat)
-      (@Sheaf_cat K T Cat_cat)
+      (@Functor_cat (Op_cat K) Cat_cart)
+      (@Sheaf_cat K T Cat_cart)
       (@direct_cover_sheafification_func K T)
       (@cat_valued_sheaf_include_psh_func K T));
 
@@ -194,9 +194,9 @@ constant symbol direct_cover_sheafification_adjunction
 symbol direct_cover_sheafification_adjunction_data
   [K : Cat]
   (T : τ (@GrothTopology K))
-  : τ (@SheafAdjunctionData K T Cat_cat)
+  : τ (@SheafAdjunctionData K T Cat_cart)
 ≔ @sheaf_adjunction_intro
-    K T Cat_cat
+    K T Cat_cart
     (@cat_valued_sheaf_include_psh_func K T)
     (@direct_cover_sheafification_func K T)
     (@direct_cover_sheafification_adjunction K T);
@@ -204,8 +204,8 @@ symbol direct_cover_sheafification_adjunction_data
 // The adjunction unit component is the categorical-HIT return map.
 rule @tapp0_fapp0 _ _ _ _ $P
       (@unit_adj_transf
-        (@Functor_cat (Op_cat $K) Cat_cat)
-        (@Sheaf_cat $K $T Cat_cat)
+        (@Functor_cat (Op_cat $K) Cat_cart)
+        (@Sheaf_cat $K $T Cat_cart)
         (@direct_cover_sheafification_func $K $T)
         (@cat_valued_sheaf_include_psh_func $K $T)
         (@direct_cover_sheafification_adjunction $K $T))
@@ -214,8 +214,8 @@ rule @tapp0_fapp0 _ _ _ _ $P
 // At a local sheaf, the adjunction counit is recursion from the identity seed.
 rule @tapp0_fapp0 _ _ _ _ $Y
       (@counit_adj_transf
-        (@Functor_cat (Op_cat $K) Cat_cat)
-        (@Sheaf_cat $K $T Cat_cat)
+        (@Functor_cat (Op_cat $K) Cat_cart)
+        (@Sheaf_cat $K $T Cat_cart)
         (@direct_cover_sheafification_func $K $T)
         (@cat_valued_sheaf_include_psh_func $K $T)
         (@direct_cover_sheafification_adjunction $K $T))
@@ -233,29 +233,14 @@ rule @tapp0_fapp0 _ _ _ _ $Y
 symbol direct_cover_sheafification_counit_at
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (Hom
       (@Psh_cat K)
       (@DirectCoverCompletionPsh
         K T (@cat_valued_sheaf_carrier K T Y))
       (@cat_valued_sheaf_carrier K T Y))
-≔ @tapp0_fapp0
-    (@Sheaf_cat K T Cat_cat)
-    (@Sheaf_cat K T Cat_cat)
-    (@comp_cat_fapp0
-      (@Sheaf_cat K T Cat_cat)
-      (@Functor_cat (Op_cat K) Cat_cat)
-      (@Sheaf_cat K T Cat_cat)
-      (@direct_cover_sheafification_func K T)
-      (@cat_valued_sheaf_include_psh_func K T))
-    (@id_func (@Sheaf_cat K T Cat_cat))
-    Y
-    (@counit_adj_transf
-      (@Functor_cat (Op_cat K) Cat_cat)
-      (@Sheaf_cat K T Cat_cat)
-      (@direct_cover_sheafification_func K T)
-      (@cat_valued_sheaf_include_psh_func K T)
-      (@direct_cover_sheafification_adjunction K T));
+≔ @sheaf_adjunction_counit_at K T Cat_cart
+    (@direct_cover_sheafification_adjunction_data K T) Y;
 
 // Evaluate the whole categorical-HIT eta law at one completion map.
 symbol direct_cover_completion_rec_eta_local_at
@@ -336,7 +321,7 @@ symbol direct_cover_completion_rec_eta_local_at
 symbol direct_cover_sheafification_counit_right_law
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@=
       (Hom
         (@Psh_cat K)
@@ -370,7 +355,7 @@ symbol direct_cover_sheafification_counit_right_law
 symbol direct_cover_sheafification_counit_precomp_raw_path
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@=
       (Hom
         (@Psh_cat K)
@@ -449,7 +434,7 @@ symbol direct_cover_sheafification_counit_precomp_raw_path
 symbol direct_cover_sheafification_counit_precomp_assoc_path
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@=
       (Hom
         (@Psh_cat K)
@@ -517,7 +502,7 @@ symbol direct_cover_sheafification_counit_precomp_assoc_path
 symbol direct_cover_sheafification_counit_precomp_beta_path
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@=
       (Hom
         (@Psh_cat K)
@@ -574,7 +559,7 @@ symbol direct_cover_sheafification_counit_precomp_beta_path
 symbol direct_cover_sheafification_counit_precomp_path
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@=
       (Hom
         (@Psh_cat K)
@@ -614,7 +599,7 @@ symbol direct_cover_sheafification_counit_precomp_path
 symbol direct_cover_sheafification_counit_left_law
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@=
       (Hom
         (@Psh_cat K)
@@ -713,24 +698,26 @@ symbol direct_cover_sheafification_counit_left_law
 symbol direct_cover_sheafification_reflected_object
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
-  : τ (Obj (@Sheaf_cat K T Cat_cat))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
+  : τ (Obj (@Sheaf_cat K T Cat_cart))
 ≔ @fapp0
-    (@Psh_cat K)
-    (@Sheaf_cat K T Cat_cat)
-    (@direct_cover_sheafification_func K T)
+    (@Functor_cat (Op_cat K) Cat_cart)
+    (@Sheaf_cat K T Cat_cart)
+    (@sheaf_adjunction_sheafify K T Cat_cart
+      (@direct_cover_sheafification_adjunction_data K T))
     (@fapp0
-      (@Sheaf_cat K T Cat_cat)
-      (@Psh_cat K)
-      (@cat_valued_sheaf_include_psh_func K T)
+      (@Sheaf_cat K T Cat_cart)
+      (@Functor_cat (Op_cat K) Cat_cart)
+      (@sheaf_adjunction_include K T Cat_cart
+      (@direct_cover_sheafification_adjunction_data K T))
       Y);
 
 symbol direct_cover_sheafification_counit_inverse_at
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (Hom
-      (@Sheaf_cat K T Cat_cat)
+      (@Sheaf_cat K T Cat_cart)
       Y
       (@direct_cover_sheafification_reflected_object K T Y))
 ≔ @direct_cover_completion_unit
@@ -740,21 +727,21 @@ symbol direct_cover_sheafification_counit_inverse_at
 symbol direct_cover_sheafification_exact_left_law
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@=
       (Hom
-        (@Sheaf_cat K T Cat_cat)
+        (@Sheaf_cat K T Cat_cart)
         (@direct_cover_sheafification_reflected_object K T Y)
         (@direct_cover_sheafification_reflected_object K T Y))
       (@comp_fapp0
-        (@Sheaf_cat K T Cat_cat)
+        (@Sheaf_cat K T Cat_cart)
         (@direct_cover_sheafification_reflected_object K T Y)
         Y
         (@direct_cover_sheafification_reflected_object K T Y)
         (@direct_cover_sheafification_counit_inverse_at K T Y)
         (@direct_cover_sheafification_counit_at K T Y))
       (@id
-        (@Sheaf_cat K T Cat_cat)
+        (@Sheaf_cat K T Cat_cart)
         (@direct_cover_sheafification_reflected_object K T Y)))
 ≔ @direct_cover_sheafification_counit_left_law K T Y;
 
@@ -762,19 +749,19 @@ symbol direct_cover_sheafification_exact_left_law
 symbol direct_cover_sheafification_exact_right_law
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@=
       (Hom
-        (@Sheaf_cat K T Cat_cat)
+        (@Sheaf_cat K T Cat_cart)
         Y Y)
       (@comp_fapp0
-        (@Sheaf_cat K T Cat_cat)
+        (@Sheaf_cat K T Cat_cart)
         Y
         (@direct_cover_sheafification_reflected_object K T Y)
         Y
         (@direct_cover_sheafification_counit_at K T Y)
         (@direct_cover_sheafification_counit_inverse_at K T Y))
-      (@id (@Sheaf_cat K T Cat_cat) Y))
+      (@id (@Sheaf_cat K T Cat_cart) Y))
 ≔ @direct_cover_sheafification_counit_right_law K T Y;
 
 // The exact adjunction counit is an equivalence in the realized sheaf facade.
@@ -782,14 +769,14 @@ symbol direct_cover_sheafification_exact_right_law
 symbol direct_cover_sheafification_reflector_at
   [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat)))
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart)))
   : τ (@OmegaEquivAlong
-      (@Sheaf_cat K T Cat_cat)
+      (@Sheaf_cat K T Cat_cart)
       (@direct_cover_sheafification_reflected_object K T Y)
       Y
       (@direct_cover_sheafification_counit_at K T Y))
 ≔ @omega_equiv_along_intro
-    (@Sheaf_cat K T Cat_cat)
+    (@Sheaf_cat K T Cat_cart)
     (@direct_cover_sheafification_reflected_object K T Y)
     Y
     (@direct_cover_sheafification_counit_at K T Y)
@@ -801,25 +788,17 @@ symbol direct_cover_sheafification_reflector
   [K : Cat]
   (T : τ (@GrothTopology K))
   : τ (@IsSheafificationReflector
-      K T Cat_cat
-      (@sheaf_adjunction_intro
-        K T Cat_cat
-        (@cat_valued_sheaf_include_psh_func K T)
-        (@direct_cover_sheafification_func K T)
-        (@direct_cover_sheafification_adjunction K T)))
-≔ λ Y : τ (Obj (@Sheaf_cat K T Cat_cat)),
+      K T Cat_cart
+      (@direct_cover_sheafification_adjunction_data K T))
+≔ λ Y : τ (Obj (@Sheaf_cat K T Cat_cart)),
     @direct_cover_sheafification_reflector_at K T Y;
 
 // The constructed fixed-site Cat-valued reflector inhabits the existing API.
 symbol direct_cover_sheafification_capability
   [K : Cat]
   (T : τ (@GrothTopology K))
-  : τ (@SheafificationCapability K T Cat_cat)
+  : τ (@SheafificationCapability K T Cat_cart)
 ≔ @sheafification_capability_intro
-    K T Cat_cat
-    (@sheaf_adjunction_intro
-      K T Cat_cat
-      (@cat_valued_sheaf_include_psh_func K T)
-      (@direct_cover_sheafification_func K T)
-      (@direct_cover_sheafification_adjunction K T))
+    K T Cat_cart
+    (@direct_cover_sheafification_adjunction_data K T)
     (@direct_cover_sheafification_reflector K T);

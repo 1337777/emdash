@@ -3,7 +3,7 @@ require open emdash.emdash3_2_one_cat_biproduct_family_distribution;
 
 // The original coproduct unit is restricted through its whole native Hom action.
 symbol one_cat_copair_unit_reindex_hom_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (X Y : τ (Functor B C))
  : τ (@= (Functor (Hom_cat (Functor_cat (Product_cat C C) (Product_cat C C)) (@id_func (Product_cat C C))
   (@comp_cat_fapp0 (Product_cat C C) C (Product_cat C C) (@product_diagonal_func C) Prod)) (Hom_cat (Functor_cat B
@@ -33,7 +33,7 @@ symbol one_cat_copair_unit_reindex_hom_path [B C : Cat] (C1 : τ (IsNCat (cat_su
 
 // The first whole coordinate is the original restricted injection.
 symbol one_cat_copair_unit_first_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (X Y : τ (Functor B C))
  : τ (@= (@Transf B C (@comp_cat_fapp0 B (Product_cat C C) C (@Product_projL_func C C) (@Struct_sigma (Functor B
   C) (λ _ : τ (Functor B C), Functor B C) X Y)) (@comp_cat_fapp0 B (Product_cat C C) C Prod (@Struct_sigma
@@ -85,7 +85,7 @@ symbol one_cat_copair_unit_first_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat
 
 // The whole unit retains its complete pair of original restricted injections.
 symbol one_cat_copair_unit_reindex_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (X Y : τ (Functor B C))
  : τ (@= (Obj (Hom_cat (Functor_cat B (Product_cat C C)) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C),
   Functor B C) X Y) (@comp_cat_fapp0 B (Product_cat C C) (Product_cat C C) (@comp_cat_fapp0 (Product_cat C C) C
@@ -150,7 +150,7 @@ symbol one_cat_copair_unit_reindex_path [B C : Cat] (C1 : τ (IsNCat (cat_succ c
 
 // The first inverse-copair coordinate is composition with the original whole injection.
 symbol one_cat_uncopair_first_formula [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (X Y : τ (Functor B C)) (Z : τ (Functor B C)) (h : τ (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C))
   (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor
   B C), Functor B C) X Y)) Z))
@@ -329,7 +329,7 @@ symbol one_cat_uncopair_first_formula [B C : Cat] (C1 : τ (IsNCat (cat_succ cat
 
 // The original mate inverse cut gives whole coproduct beta at the original first injection.
 symbol one_cat_copair_first_injection_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (X Y : τ (Functor B C)) (Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
  : τ (@= (@Transf B C X Z) (@comp_fapp0 (Functor_cat B C) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat
   B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C),

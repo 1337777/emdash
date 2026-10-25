@@ -239,7 +239,7 @@ symbol binary_product_projection
         side))
     (@tapp0_fapp0
       (Product_cat (Op_cat Terminal_cat) Terminal_cat)
-      Cat_cat
+      Cat_cart
       (@Unit_prof Terminal_cat)
       (@Prof_reindex
         Terminal_cat

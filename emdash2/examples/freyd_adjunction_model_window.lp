@@ -202,7 +202,7 @@ assert ⊢ @one_cat_native_window_connecting_reconstruction B (@CommRingFreydPre
   (@freyd_adjunction_model_cokernels R M) Rm R0 R1 R2 mm m0 m1 upper_zero lower_zero Em E0 E1 E2));
 
 // Source exactness retains the actual comparison.
-assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_cat
+assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_oplax_cat
   WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@CommRingFreydPresentation_cat R)
   (@adjunction_image_func (@CommRingFreydPresentation_cat R) (@additive_preadditive
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R)
@@ -255,7 +255,7 @@ assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (
   (@freyd_adjunction_model_kernels R M) (@freyd_adjunction_model_cokernels R M) Rm R0 R1 R2 mm m0 m1
   upper_zero lower_zero Em E0 E1 E2) (@freyd_adjunction_model_connecting_transf B R M N Rm R0 R1 R2 mm m0 m1
   upper_zero lower_zero Em E0 E1 E2))) (@omega_equiv_along_iso_evidence (Functor_cat B
-  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_cat WalkingArrow_cat
+  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat
   (@CommRingFreydPresentation_cat R)) (@CommRingFreydPresentation_cat R) (@adjunction_image_func
   (@CommRingFreydPresentation_cat R) (@additive_preadditive (@CommRingFreydPresentation_cat R)
   (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R))
@@ -319,7 +319,7 @@ assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (
   upper_zero lower_zero Em E0 E1 E2);
 
 // Middle exactness retains the actual comparison.
-assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_cat
+assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_oplax_cat
   WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@CommRingFreydPresentation_cat R)
   (@adjunction_image_func (@CommRingFreydPresentation_cat R) (@additive_preadditive
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R)
@@ -436,7 +436,7 @@ assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@freyd_adjunction_model_initial R M)
   (@freyd_adjunction_model_kernels R M) (@freyd_adjunction_model_cokernels R M) Rm R0 R1 mm m0 upper_zero Em
   E0 E1))) (@omega_equiv_along_iso_evidence (Functor_cat B (@CommRingFreydPresentation_cat R))
-  (@comp_cat_fapp0 B (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+  (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
   (@CommRingFreydPresentation_cat R) (@adjunction_image_func (@CommRingFreydPresentation_cat R)
   (@additive_preadditive (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@comm_ring_zero_presentation R)
@@ -563,7 +563,7 @@ assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (
   (@freyd_adjunction_model_cokernels R M) N Rm R0 R1 R2 mm m0 m1 upper_zero lower_zero Em E0 E1 E2);
 
 // Target exactness retains the actual comparison.
-assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_cat
+assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_oplax_cat
   WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@CommRingFreydPresentation_cat R)
   (@adjunction_image_func (@CommRingFreydPresentation_cat R) (@additive_preadditive
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R)
@@ -619,7 +619,7 @@ assert ⊢ @iso_evidence_to (Functor_cat B (@CommRingFreydPresentation_cat R)) (
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R) (@freyd_adjunction_model_initial R M)
   (@freyd_adjunction_model_kernels R M) (@freyd_adjunction_model_cokernels R M) N Rm R0 R1 R2 mm m0 m1
   upper_zero lower_zero Em E0 E1 E2))) (@omega_equiv_along_iso_evidence (Functor_cat B
-  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_cat WalkingArrow_cat
+  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat
   (@CommRingFreydPresentation_cat R)) (@CommRingFreydPresentation_cat R) (@adjunction_image_func
   (@CommRingFreydPresentation_cat R) (@additive_preadditive (@CommRingFreydPresentation_cat R)
   (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R))

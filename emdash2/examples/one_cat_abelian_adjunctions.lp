@@ -4,7 +4,7 @@ require open emdash.emdash3_2_one_cat_abelian_adjunctions;
 // Constructor projection retains the original kernels.
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A)))
     (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)) (N : τ
     (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P
@@ -15,7 +15,7 @@ assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
 // Constructor projection retains the original cokernels.
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A)))
     (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)) (N : τ
     (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P
@@ -26,7 +26,7 @@ assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
 // Constructor projection retains the original normality.
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A)))
     (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)) (N : τ
     (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P
@@ -37,7 +37,7 @@ assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
 // The native H consumer still receives the same K/Q structures.
 assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A)))
     (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)) (N : τ
     (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P
@@ -54,7 +54,7 @@ assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
 // Independent selected kernels are not identified by the packaging.
 assertnot [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A)))
     (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)) (N : τ
     (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P
@@ -66,15 +66,15 @@ assertnot [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
 // A normality proof over a different whole comparison cannot be substituted.
 assertnot [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A)))
     (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)) (N : τ
     (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P
     Q))
-  (b : τ (@Transf (Functor_cat WalkingArrow_cat C) C
+  (b : τ (@Transf (Functor_oplax_cat WalkingArrow_cat C) C
     (@adjunction_coimage_func C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q)
     (@adjunction_image_func C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q)))
-  (Nb : τ (@OmegaEquivAlong (Functor_cat (Functor_cat WalkingArrow_cat C) C)
+  (Nb : τ (@OmegaEquivAlong (Functor_cat (Functor_oplax_cat WalkingArrow_cat C) C)
     (@adjunction_coimage_func C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q)
     (@adjunction_image_func C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q) b))
   ⊢ @one_cat_abelian_adjunction_intro C C1 Prod t A T0 P Q Nb

@@ -126,7 +126,7 @@ symbol pathout_lhs_tele
   (x y : τ (Obj A))
   : τ (Functor
       (Hom_cat (Op_cat A) y x)
-      (Functor_cat
+      (Functor_cart_cat
         (@Fibre_cat
           (Op_cat A)
           (@hom_con A y A (@id_func A))
@@ -153,7 +153,7 @@ symbol pathout_lhs_tele_at_p
       (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
 ≔ @fapp0
     (Hom_cat A x y)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat A y y)
       (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
     (@pathout_lhs_tele A B F G epsilon x y)
@@ -174,8 +174,8 @@ symbol pathout_lhs_tele_source
     (@pathout_lhs_tele_at_p A B F G epsilon x y p)
     (@id A y);
 
-// The cold whole Cat-precomposition comparison identifies the stable
-// precomposition component with the same telescope source.
+// Cartesian precomposition now computes the telescope source directly.
+// The fixed-target action uses the selected pre/right convention.
 symbol pathout_general_pre_lhs_tele_path
   [A B : Cat]
   [F G : τ (Functor A B)]
@@ -188,18 +188,9 @@ symbol pathout_general_pre_lhs_tele_path
         (@fapp0 A B G y)))
       (@pathout_general_pre_source A B F G epsilon x y p)
       (@pathout_lhs_tele_source A B F G epsilon x y p))
-≔ @eq_sym
+≔ @eq_refl
     (Obj (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
-    (@pathout_lhs_tele_source A B F G epsilon x y p)
-    (@pathout_general_pre_source A B F G epsilon x y p)
-    (@cat_precomp_composite_component_path
-      (Hom_cat A y y)
-      (Hom_cat B (@fapp0 A B F y) (@fapp0 A B G y))
-      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))
-      (@tapp1_func A B F G y y epsilon)
-      (@hom_precomp_along_func
-        A B F (@fapp0 A B G y) x y p)
-      (@id A y));
+    (@pathout_general_pre_source A B F G epsilon x y p);
 
 symbol pathout_transport_at_p
   [A B : Cat]
@@ -233,6 +224,8 @@ symbol pathout_top_lhs_func
     (@tapp1_con_at_transf A B F G epsilon y)
     y x p;
 
+// Fixed-target internalization has strict pre/right action for any epsilon.
+// Compare through the core right-leg path, not a general left-leg equality.
 symbol pathout_lhs_tele_transport_path
   [A B : Cat]
   [F G : τ (Functor A B)]
@@ -245,38 +238,25 @@ symbol pathout_lhs_tele_transport_path
         (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))))
       (@pathout_lhs_tele_at_p A B F G epsilon x y p)
       (@pathout_transport_at_p A B F G epsilon x y p))
-≔ @eq_ap
-    (Hom Cat_cat
-      (Hom_cat A x y)
-      (Functor_cat
-        (Hom_cat A y y)
-        (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))))
-    (Obj (Functor_cat
-      (Hom_cat A y y)
-      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))))
-    (λ H : τ (Functor
-        (Hom_cat A x y)
-        (Functor_cat
-          (Hom_cat A y y)
-          (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))),
-      @fapp0
-        (Hom_cat A x y)
-        (Functor_cat
-          (Hom_cat A y y)
-          (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
-        H p)
-    (@pathout_lhs_tele A B F G epsilon x y)
-    (@tapp1_func
-      (Op_cat A) Cat_cat
-      (@hom_con A y A (@id_func A))
-      (@hom_con B (@fapp0 A B G y) A F)
-      y x (@tapp1_con_at_transf A B F G epsilon y))
-    (@functord_transport_lhs_tele_agrees
-      (Op_cat A)
+≔ @eq_trans
+    (Functor (Hom_cat A y y)
+      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+    (@pathout_lhs_tele_at_p A B F G epsilon x y p)
+    (@functord_transport_rhs_func (Op_cat A)
       (@hom_con A y A (@id_func A))
       (@hom_con B (@fapp0 A B G y) A F)
       (@tapp1_con_at_transf A B F G epsilon y)
-      y x);
+      y x p)
+    (@pathout_transport_at_p A B F G epsilon x y p)
+    (@eq_refl
+      (Functor (Hom_cat A y y)
+        (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+      (@pathout_lhs_tele_at_p A B F G epsilon x y p))
+    (@functord_transport_rhs_agrees (Op_cat A)
+      (@hom_con A y A (@id_func A))
+      (@hom_con B (@fapp0 A B G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y)
+      y x p);
 
 symbol pathout_top_lhs_transport_path
   [A B : Cat]
@@ -290,12 +270,25 @@ symbol pathout_top_lhs_transport_path
         (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))))
       (@pathout_top_lhs_func A B F G epsilon x y p)
       (@pathout_transport_at_p A B F G epsilon x y p))
-≔ @functord_transport_lhs_agrees
-    (Op_cat A)
-    (@hom_con A y A (@id_func A))
-    (@hom_con B (@fapp0 A B G y) A F)
-    (@tapp1_con_at_transf A B F G epsilon y)
-    y x p;
+≔ @eq_trans
+    (Functor (Hom_cat A y y)
+      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+    (@pathout_top_lhs_func A B F G epsilon x y p)
+    (@functord_transport_rhs_func (Op_cat A)
+      (@hom_con A y A (@id_func A))
+      (@hom_con B (@fapp0 A B G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y)
+      y x p)
+    (@pathout_transport_at_p A B F G epsilon x y p)
+    (@eq_refl
+      (Functor (Hom_cat A y y)
+        (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+      (@pathout_top_lhs_func A B F G epsilon x y p))
+    (@functord_transport_rhs_agrees (Op_cat A)
+      (@hom_con A y A (@id_func A))
+      (@hom_con B (@fapp0 A B G y) A F)
+      (@tapp1_con_at_transf A B F G epsilon y)
+      y x p);
 
 symbol pathout_lhs_tele_top_path
   [A B : Cat]

@@ -4,7 +4,7 @@ require open emdash.emdash3_2_one_cat_biproduct_family_zeros;
 // The original whole inverse mate retains both zero-composite coordinates.
 symbol one_cat_uncopair_postcompose_zero_path [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (F G X Y : τ (Functor K C)) (f : τ (@Transf K C F X))
   (g : τ (@Transf K C G X)) (u : τ (@Transf K C X Y))
   (p : τ (@= (@Transf K C (@fapp0 (Functor_cat K (Product_cat C C)) (Functor_cat K C) (@comp_cat_cov_func K
@@ -31,7 +31,7 @@ symbol one_cat_uncopair_postcompose_zero_path [K C : Cat] (C1 : τ (IsNCat (cat_
 // If u∘[f,g]=0, the native inverse mate gives u∘g=0 at the original whole maps.
 symbol one_cat_copair_postcompose_second_zero_path [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (F G X Y : τ (Functor K C)) (f : τ (@Transf K C F X))
   (g : τ (@Transf K C G X)) (u : τ (@Transf K C X Y))
   (p : τ (@= (@Transf K C (@fapp0 (Functor_cat K (Product_cat C C)) (Functor_cat K C) (@comp_cat_cov_func K
@@ -51,7 +51,7 @@ symbol one_cat_copair_postcompose_second_zero_path [K C : Cat] (C1 : τ (IsNCat 
 // The same whole pair law yields the original first zero composite.
 symbol one_cat_copair_postcompose_first_zero_path [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (F G X Y : τ (Functor K C)) (f : τ (@Transf K C F X))
   (g : τ (@Transf K C G X)) (u : τ (@Transf K C X Y))
   (p : τ (@= (@Transf K C (@fapp0 (Functor_cat K (Product_cat C C)) (Functor_cat K C) (@comp_cat_cov_func K

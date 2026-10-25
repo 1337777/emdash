@@ -183,7 +183,7 @@ symbol one_cat_product_pair_precompose_path [B C : Cat] (C1 : τ (IsNCat (cat_su
 
 // The native coproduct input retains the original two whole arrows.
 symbol one_cat_copair_native_input_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (F G Z : τ (Functor B C))
   (f : τ (@Transf B C F Z)) (g : τ (@Transf B C G Z))
   : τ (@= (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat
@@ -233,7 +233,7 @@ symbol one_cat_copair_native_input_path [B C : Cat] (C1 : τ (IsNCat (cat_succ c
 
 // a∘[f,g] = [a∘f,a∘g] through the original whole inverse mate.
 symbol one_cat_copair_postcompose_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (F G Z0 Z1 : τ (Functor B C))
   (f : τ (@Transf B C F Z0)) (g : τ (@Transf B C G Z0)) (a : τ (@Transf B C Z0 Z1))
   : τ (@= (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat
@@ -504,7 +504,7 @@ symbol one_cat_product_pair_target_path [B C : Cat] (C1 : τ (IsNCat (cat_succ c
 
 // [f,g]∘P(a,b)=[f∘a,g∘b] through the original coproduct mate.
 symbol one_cat_copair_source_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (F0 G0 F1 G1 Z : τ (Functor B C))
   (a : τ (@Transf B C F0 F1)) (b : τ (@Transf B C G0 G1))
   (f : τ (@Transf B C F1 Z)) (g : τ (@Transf B C G1 Z))

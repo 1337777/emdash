@@ -17,18 +17,18 @@ assert (A B : Cat) (b : τ (Obj B))
 assert (A B : Cat) (b : τ (Obj B))
   (ab ab' : τ (Obj (Product_cat (Op_cat A) A)))
   (pq : τ (Hom (Product_cat (Op_cat A) A) ab ab'))
-  ⊢ @tapp1_fapp0 (Product_cat (Op_cat A) A) Cat_cat
+  ⊢ @tapp1_fapp0 (Product_cat (Op_cat A) A) Cat_cart
       (@Unit_prof A)
       (@Const_catd (Product_cat (Op_cat A) A) (Hom_cat B b b))
       ab ab' (@Prof_func_hom A B (@Const_func A B b)) pq
-    ≡ @tapp1_fapp0 A Cat_cat
+    ≡ @tapp1_fapp0 A Cat_cart
       (@hom_ A A (@id_func A) (sigma_Fst ab))
       (@hom_ B A (@Const_func A B b) b)
       (sigma_Snd ab) (sigma_Snd ab')
       (@tapp1_fapp0 (Op_cat A) (@Catd_cat A)
-        (@hom_int A A (@id_func A))
+        (@hom_int_view A A (@id_func A))
         (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (@Catd_cat A)
-          (@hom_int B A (@Const_func A B b))
+          (@hom_int_view B A (@Const_func A B b))
           (@Op_func A B (@Const_func A B b)))
         (sigma_Fst ab) (sigma_Fst ab')
         (@fapp1_int_transf A B (@Const_func A B b)) (sigma_Fst pq))
@@ -45,7 +45,7 @@ symbol probe_cross_func [A B : Cat]
       (Hom_cat (Join_cat A B)
         (@fapp0 A (Join_cat A B) (@join_fst_func A B) (sigma_Fst ab))
         (@fapp0 B (Join_cat A B) (@join_snd_func A B) (sigma_Snd ab))))
-≔ @tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat
+≔ @tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart
     (@Terminal_prof A B)
     (@Prof_reindex (Join_cat A B) A (Join_cat A B) B
       (@Unit_prof (Join_cat A B)) (@join_fst_func A B) (@join_snd_func A B))
@@ -118,7 +118,7 @@ assertnot (A B C : Cat) (R : τ (Prof B C))
   (F : τ (Functor A B)) (b : τ (Obj B)) (c : τ (Obj C))
   ⊢ @Prof_reindex B A C Terminal_cat R F (@Obj_func C c)
     ≡ @Const_catd (Product_cat (Op_cat A) Terminal_cat)
-      (@fapp0 (Product_cat (Op_cat B) C) Cat_cat R
+      (@fapp0 (Product_cat (Op_cat B) C) Cat_cart R
         (@Product_pair (Op_cat B) C b c));
 
 assertnot (C : Cat) (x y : τ (Obj C)) (f g : τ (Hom C x y))

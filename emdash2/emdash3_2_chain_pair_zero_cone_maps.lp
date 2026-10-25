@@ -1,3 +1,4 @@
+require open emdash.emdash3_2_one_cat_chain_pair_native_maps;
 /* Complete native map entry from the ORIGINAL chain-map factor data. */
 require open emdash.emdash3_2_kernel_presentation_boundary_naturality;
 require open emdash.emdash3_2_chain_pair_diagram_maps;
@@ -15,19 +16,19 @@ symbol chain_pair_zero_cone_map [C : Cat] [S : τ (@PreadditiveCategory C)]
       (@chain_pair_zero_cone C S t T W P A0 B0 D0 p0)
       (@chain_pair_zero_cone C S t T W P A1 B1 D1 p1))
 ≔ @zero_cone_map_from_lifts C S C1 t T W P A0 A1
-    (@chain_pair_outgoing_diagram C S A0 B0 D0 p0)
-    (@chain_pair_outgoing_diagram C S A1 B1 D1 p1)
+    (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A0 B0 D0 p0))
+    (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A1 B1 D1 p1))
     (@chain_pair_selected_boundary C S W A0 B0 D0 p0)
     (@chain_pair_selected_boundary C S W A1 B1 D1 p1)
     (@computational_chain_pair_map_next C S A0 B0 D0 A1 B1 D1 p0 p1 m)
-    (@chain_pair_outgoing_diagram_map C S C1 A0 B0 D0 A1 B1 D1 p0 p1 m)
+    (@chain_pair_native_diagram_map C S C1 A0 B0 D0 A1 B1 D1 p0 p1 m)
     (@kernel_presentation_boundary_path C S C1 t T W P A0 A1
-      (@chain_pair_outgoing_diagram C S A0 B0 D0 p0)
-      (@chain_pair_outgoing_diagram C S A1 B1 D1 p1)
+      (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A0 B0 D0 p0))
+      (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A1 B1 D1 p1))
       (@computational_chain_pair_cone C S A0 B0 D0 p0)
       (@computational_chain_pair_cone C S A1 B1 D1 p1)
       (@computational_chain_pair_map_next C S A0 B0 D0 A1 B1 D1 p0 p1 m)
-      (@chain_pair_outgoing_diagram_map C S C1 A0 B0 D0 A1 B1 D1 p0 p1 m)
+      (@chain_pair_native_diagram_map C S C1 A0 B0 D0 A1 B1 D1 p0 p1 m)
       (@eq_sym _ _ _ (@computational_chain_pair_map_upper_path C S A0 B0 D0 A1 B1 D1 p0 p1 m)));
 
 // The equality-valued raw-map parameter is internalized without a new owner.

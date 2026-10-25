@@ -4,7 +4,7 @@ require open emdash.emdash3_2_one_cat_native_snake_factors;
 
 assert [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Rm R0 R1 R2 : τ (Functor K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add))))
@@ -59,7 +59,7 @@ assert [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (@one_cat_native_window_snake_outgoing K C C1 Prod t Add T0 R1 R2 m1))));
 assert [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Rm R0 R1 R2 : τ (Functor K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add))))
@@ -125,7 +125,7 @@ assert [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (@one_cat_native_window_snake_outgoing K C C1 Prod t Add T0 R1 R2 m1))) x));
 assert [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
   (Rm R0 R1 R2 : τ (Functor K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add))))
   (mm : τ (@Transf K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add)) Rm R0))
@@ -186,7 +186,7 @@ assert [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (@additive_terminal_object C Prod t Add) R1 walking_arrow_tgt))));
 assert [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
   (Rm R0 R1 R2 : τ (Functor K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add))))
   (mm : τ (@Transf K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add)) Rm R0))

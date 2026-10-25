@@ -58,3 +58,39 @@ symbol functor_reconstruction_along_reflect_path
       (Hom A (@fapp0 B A G (@fapp0 A B F x)) (@fapp0 B A G (@fapp0 A B F y)))
       (λ v : τ (Hom B (@fapp0 A B F x) (@fapp0 A B F y)),
         @fapp1_fapp0 B A G (@fapp0 A B F x) (@fapp0 A B F y) v) _ _ e);
+
+// Proof-only faithfulness predicate for the actual first-Hom action.
+// No equality is inserted into an operational functor constructor.
+symbol functor_reflects_arrow_paths [A B : Cat] (F : τ (Functor A B)) : Grpd
+≔ @Pi_grpd (Obj A) (λ x : τ (Obj A),
+  @Pi_grpd (Obj A) (λ y : τ (Obj A),
+  @Pi_grpd (Hom A x y) (λ p : τ (Hom A x y),
+  @Pi_grpd (Hom A x y) (λ q : τ (Hom A x y),
+  @Pi_grpd (@= (Hom B (@fapp0 A B F x) (@fapp0 A B F y))
+    (@fapp1_fapp0 A B F x y p) (@fapp1_fapp0 A B F x y q))
+    (λ _ : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B F y))
+      (@fapp1_fapp0 A B F x y p) (@fapp1_fapp0 A B F x y q)),
+      @= (Hom A x y) p q)))));
+
+// A whole left-inverse path gives reflection in arbitrary categories.
+// Transport identity's property along that path, then apply the retained G.
+symbol functor_left_inverse_reflect_path [A B : Cat]
+  (F : τ (Functor A B)) (G : τ (Functor B A))
+  (law : τ (@= (Functor A A) (@comp_cat_fapp0 A B A G F) (@id_func A)))
+  [x y : τ (Obj A)] (p q : τ (Hom A x y))
+  (image : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B F y))
+    (@fapp1_fapp0 A B F x y p) (@fapp1_fapp0 A B F x y q)))
+  : τ (@= (Hom A x y) p q)
+≔ let GF : τ (Functor A A) ≔ @comp_cat_fapp0 A B A G F in
+  let reflection : τ (@functor_reflects_arrow_paths A A GF) ≔
+    @ind_eq (Functor A A) GF (@id_func A) law
+      (λ H : τ (Functor A A), @functor_reflects_arrow_paths A A H)
+      (λ a : τ (Obj A), λ b : τ (Obj A),
+        λ f : τ (Hom A a b), λ g : τ (Hom A a b),
+        λ e : τ (@= (Hom A a b) f g), e) in
+  reflection x y p q
+    (@eq_ap (Hom B (@fapp0 A B F x) (@fapp0 A B F y))
+      (Hom A (@fapp0 B A G (@fapp0 A B F x)) (@fapp0 B A G (@fapp0 A B F y)))
+      (λ h : τ (Hom B (@fapp0 A B F x) (@fapp0 A B F y)),
+        @fapp1_fapp0 B A G (@fapp0 A B F x) (@fapp0 A B F y) h)
+      (@fapp1_fapp0 A B F x y p) (@fapp1_fapp0 A B F x y q) image);

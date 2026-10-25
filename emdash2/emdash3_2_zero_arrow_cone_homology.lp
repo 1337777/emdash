@@ -6,7 +6,7 @@ require open emdash.emdash3_2_homology_family_selected_views;
 // Global H on the native cone category, via the already qualified family H.
 symbol zero_arrow_cone_homology_func [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   [W : τ (@HasComputationalKernels C S)] [V : τ (@HasComputationalCokernels C S)]
   (P : τ (@KernelPresentation C S t T W)) (Q : τ (@CokernelPresentation C S t T0 V))
   : τ (Functor (@ZeroArrowCone_cat C t T) C)
@@ -18,7 +18,7 @@ symbol zero_arrow_cone_homology_func [C : Cat] [S : τ (@PreadditiveCategory C)]
 
 symbol zero_arrow_cone_homology_object_path [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   [W : τ (@HasComputationalKernels C S)] [V : τ (@HasComputationalCokernels C S)]
   (P : τ (@KernelPresentation C S t T W)) (Q : τ (@CokernelPresentation C S t T0 V)) (z : τ (Obj (@ZeroArrowCone_cat C t T)))
   : τ (@= (Obj C) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_homology_func C S C1 t T T0 W V P Q) z)

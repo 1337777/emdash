@@ -109,7 +109,7 @@ assert [K : Cat] [R : τ CommRing] (M : τ (FreydAdjunctionModel R))
   (@terminal_arrow_test_outgoing (@CommRingFreydPresentation_cat R) (@fapp0 (@ZeroArrowCone_cat
   (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@additive_terminal_object
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
-  (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R))) (Functor_cat WalkingArrow_cat
+  (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R))) (Functor_oplax_cat WalkingArrow_cat
   (@CommRingFreydPresentation_cat R)) (@zero_arrow_cone_diagram_func (@CommRingFreydPresentation_cat R)
   (@comm_ring_zero_presentation R) (@additive_terminal_object (@CommRingFreydPresentation_cat R)
   (@comm_ring_freyd_direct_sum_func R)

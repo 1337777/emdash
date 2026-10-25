@@ -97,7 +97,8 @@ symbol join_map_extend_cross_component
         (@join_map_target_prof A B C d)
         (@join_map_extend_cross A B C d)
         (@Product_pair (Op_cat A) B a b)))
-≔ @tdapp0_fapp0
+≔ @strict_transfor _ _ _ _
+    (@tdapp0_fapp0
     (Product_cat (Op_cat A) B)
     (@Terminal_prof A B)
     (@join_map_target_prof A B C d)
@@ -106,7 +107,7 @@ symbol join_map_extend_cross_component
       (@join_map_extend_object A B C d))
     (@join_map_extend_cross A B C d)
     (@Product_pair (Op_cat A) B a b)
-    (@join_map_extend_cross_cell A B C d);
+    (@join_map_extend_cross_cell A B C d));
 
 // Arbitrary shaped equality obtained by applying the whole path.
 symbol join_map_extend_cross_shaped_beta

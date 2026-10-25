@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_difference_families;
 
 // precomposition preserves the original whole difference.
 symbol one_cat_difference_family_precompose_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (W X Y : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (h : τ (@Transf B C W X))
   : τ (@= (@Transf B C W Y) (@comp_fapp0 (Functor_cat B C) W X Y (@one_cat_difference_family B C C1 Prod t A T0 X Y f
   g) h) (@one_cat_difference_family B C C1 Prod t A T0 W Y (@comp_fapp0 (Functor_cat B C) W X Y f h) (@comp_fapp0
@@ -41,7 +41,7 @@ symbol one_cat_difference_family_precompose_path [B C : Cat] (C1 : τ (IsNCat (c
 
 // postcomposition preserves the original whole difference.
 symbol one_cat_difference_family_postcompose_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X Y Z : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (h : τ (@Transf B C Y Z))
   : τ (@= (@Transf B C X Z) (@comp_fapp0 (Functor_cat B C) X Y Z h (@one_cat_difference_family B C C1 Prod t A T0 X Y
   f g)) (@one_cat_difference_family B C C1 Prod t A T0 X Z (@comp_fapp0 (Functor_cat B C) X Y Z h f) (@comp_fapp0

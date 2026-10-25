@@ -7,7 +7,7 @@ require open emdash.emdash3_2_one_cat_native_snake_connecting;
 symbol one_cat_native_window_snake_connecting_cover_input_zero [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero)
   C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -311,7 +311,7 @@ symbol one_cat_native_window_snake_connecting_cover_input_zero [K C : Cat] (C1 :
 // The original whole kernel mate maps the LES cover into the original snake cover.
 symbol one_cat_native_window_snake_connecting_cover_map [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -414,7 +414,7 @@ symbol one_cat_native_window_snake_connecting_cover_map [K C : Cat] (C1 : τ (Is
 symbol one_cat_native_window_snake_connecting_cover_map_reconstruction [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -542,7 +542,7 @@ symbol one_cat_native_window_snake_connecting_cover_map_reconstruction [K C : Ca
 symbol one_cat_native_window_snake_connecting_cover_kernel_comparison [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -1866,7 +1866,7 @@ symbol one_cat_native_window_snake_connecting_cover_kernel_comparison [K C : Cat
 symbol one_cat_native_window_snake_connecting_cover_homology_comparison [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))

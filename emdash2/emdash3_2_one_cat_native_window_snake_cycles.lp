@@ -8,7 +8,7 @@ require open emdash.emdash3_2_one_cat_product_family_projection_paths;
 // The original row inclusion sends left cycles into K(c), by the derived whole row square.
 symbol one_cat_native_window_snake_cycles_forward_zero [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (R1 R2 : τ (Functor K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add))))
@@ -161,7 +161,7 @@ symbol one_cat_native_window_snake_cycles_forward_zero [K C : Cat] (C1 : τ (IsN
 // u:Z(A₁)⇒K(c) is the original whole kernel mate; no row exactness is needed.
 symbol one_cat_native_window_snake_cycles_forward [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (R1 R2 : τ (Functor K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add))))
@@ -201,7 +201,7 @@ symbol one_cat_native_window_snake_cycles_forward [K C : Cat] (C1 : τ (IsNCat (
 symbol one_cat_native_window_snake_cycles_forward_reconstruction [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (R1 R2 : τ (Functor K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add))))
@@ -260,7 +260,7 @@ symbol one_cat_native_window_snake_cycles_forward_reconstruction [K C : Cat] (C1
 symbol one_cat_native_window_snake_cycles_kernel_first_zero [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero)
   C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (R1 R2 : τ (Functor K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add))))
@@ -434,7 +434,7 @@ symbol one_cat_native_window_snake_cycles_kernel_first_zero [K C : Cat] (C1 : τ
 symbol one_cat_native_window_snake_cycles_kernel_second_zero [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero)
   C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (R1 R2 : τ (Functor K (@ZeroArrowCone_cat C t (@additive_terminal_object C Prod t Add))))
@@ -607,7 +607,7 @@ symbol one_cat_native_window_snake_cycles_kernel_second_zero [K C : Cat] (C1 : �
 // The original row lift sends K(c) into A₁; it retains the original row and its kernel inverse.
 symbol one_cat_native_window_snake_cycles_row_lift [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -649,7 +649,7 @@ symbol one_cat_native_window_snake_cycles_row_lift [K C : Cat] (C1 : τ (IsNCat 
 symbol one_cat_native_window_snake_cycles_row_reconstruction [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero)
   C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -708,7 +708,7 @@ symbol one_cat_native_window_snake_cycles_row_reconstruction [K C : Cat] (C1 : �
 // The next row inclusion reflects the derived zero, so the whole row lift lands in left cycles.
 symbol one_cat_native_window_snake_cycles_row_cycle_zero [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -878,7 +878,7 @@ symbol one_cat_native_window_snake_cycles_row_cycle_zero [K C : Cat] (C1 : τ (I
 // v:K(c)⇒Z(A₁) is the original whole kernel mate of that row lift.
 symbol one_cat_native_window_snake_cycles_backward [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -915,7 +915,7 @@ symbol one_cat_native_window_snake_cycles_backward [K C : Cat] (C1 : τ (IsNCat 
 symbol one_cat_native_window_snake_cycles_backward_reconstruction [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -963,7 +963,7 @@ symbol one_cat_native_window_snake_cycles_backward_reconstruction [K C : Cat] (C
 // Whole row and kernel cancellation prove v∘u=id at the original left cycles.
 symbol one_cat_native_window_snake_cycles_backward_forward [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -1133,7 +1133,7 @@ symbol one_cat_native_window_snake_cycles_backward_forward [K C : Cat] (C1 : τ 
 // Whole kernel cancellation proves u∘v=id at the original K(c).
 symbol one_cat_native_window_snake_cycles_forward_backward [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -1334,7 +1334,7 @@ symbol one_cat_native_window_snake_cycles_forward_backward [K C : Cat] (C1 : τ 
 // Fixed-forward ΩAlong(u), with the same derived v in both native inverse slots.
 symbol one_cat_native_window_snake_cycles_equiv [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))

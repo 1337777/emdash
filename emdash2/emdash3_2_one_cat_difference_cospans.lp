@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_zero_family_postcomposition_paths;
 // The original whole difference of the two projected cospan legs.
 symbol one_cat_difference_cospan_transf [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
+  (TotalOp_cat C) t)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
   : τ (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat
   C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) Z) ≔
   (@one_cat_difference_family B C C1 Prod t A T0 (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
@@ -20,7 +20,7 @@ symbol one_cat_difference_cospan_transf [B C : Cat] (C1 : τ (IsNCat (cat_succ c
 // The original whole pairing evaluates both cospan legs.
 symbol one_cat_difference_cospan_pair_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z)) (I : τ (Functor B
+  (TotalOp_cat C) t)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z)) (I : τ (Functor B
   C)) (a : τ (@Transf B C I X)) (b : τ (@Transf B C I Y))
   : τ (@= (@Transf B C I Z) (@comp_fapp0 (Functor_cat B C) I (@fapp0 (Functor_cat B (Product_cat C C))
   (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor
@@ -163,7 +163,7 @@ symbol one_cat_difference_cospan_pair_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
 // Whole postcomposition preserves that paired difference.
 symbol one_cat_difference_cospan_postcompose_pair_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z)) (I
+  (@TerminalObject (TotalOp_cat C) t)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z)) (I
   : τ (Functor B C)) (a : τ (@Transf B C I X)) (b : τ (@Transf B C I Y)) (V : τ (Functor B C)) (h : τ (@Transf B C
   Z V))
   : τ (@= (@Transf B C I V) (@comp_fapp0 (Functor_cat B C) I Z V h (@comp_fapp0 (Functor_cat B C) I (@fapp0
@@ -194,7 +194,7 @@ symbol one_cat_difference_cospan_postcompose_pair_path [B C : Cat] (C1 : τ (IsN
 // Annihilating the difference forces annihilation of its original second leg.
 symbol one_cat_difference_cospan_annihilator_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod
   : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z)) (V : τ (Functor B
+  (TotalOp_cat C) t)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z)) (V : τ (Functor B
   C)) (h : τ (@Transf B C Z V)) (z : τ (@= (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B
   C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor
   B C) X Y)) V) (@comp_fapp0 (Functor_cat B C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)

@@ -12,13 +12,13 @@ require open emdash.emdash3_2_pullbacks;
 // The two whole families have exact slice fibres and opposite variance.
 assert [C : Cat]
   (X : τ (Obj C)) ⊢
-  @fapp0 C Cat_cat (@SliceSigma_catd C) X
+  @fapp0 (CoAt2_cat C) Cat_cart (@SliceSigma_catd C) X
   ≡ @Slice_cat C X;
 
 assert [C : Cat]
   (PB : τ (@PullbackStructure C))
   (X : τ (Obj C)) ⊢
-  @fapp0 (Op_cat C) Cat_cat (@SliceBaseChange_catd C PB) X
+  @fapp0 (Op_cat C) Cat_cart (@SliceBaseChange_catd C PB) X
   ≡ @Slice_cat C X;
 
 assert [C : Cat]
@@ -93,12 +93,12 @@ assert [C : Cat]
   (PB : τ (@PullbackStructure C))
   (X Y : τ (Obj C)) ⊢
   @fapp1_func
-    (Op_cat C) Cat_cat
+    (Op_cat C) Cat_cart
     (@SliceBaseChange_catd C PB)
     Y X
   : τ (Functor
       (Hom_cat (Op_cat C) Y X)
-      (Functor_cat (@Slice_cat C Y) (@Slice_cat C X)));
+      (Functor_cart_cat (@Slice_cat C Y) (@Slice_cat C X)));
 
 // The selected per-arrow structure instantiates the existing adjunction.
 assert [C : Cat]
@@ -309,7 +309,7 @@ assert [C : Cat]
           (Op_cat C)
           (@hom_con C X C (@id Cat_cat C))
           (@hom_con C Y C (@id Cat_cat C))
-          (@hom_con_int_postcomp_func C C (@id Cat_cat C) X Y f)
+          (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func C C (@id Cat_cat C) X Y f))
           a));
 
 assert [C : Cat]
@@ -362,7 +362,7 @@ assert [C : Cat]
   (X Y : τ (Obj C))
   (f : τ (Hom C X Y)) ⊢
   @fapp1_fapp0
-    (Op_cat C) Cat_cat
+    (Op_cat C) Cat_cart
     (@SliceBaseChange_catd C PB)
     Y X f
   ≡ @slice_base_change_func C PB X Y f;

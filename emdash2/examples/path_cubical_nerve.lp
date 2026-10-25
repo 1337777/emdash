@@ -7,7 +7,7 @@ assert [A : Grpd]
   (n : τ (Obj SemiCubePlus_cat)) ⊢
   @fapp0
     (Op_cat SemiCubePlus_cat)
-    Cat_cat
+    Cat_cart
     (@path_semicubical_nerve_func A)
     n
   ≡ @PathCubicalLevel_cat A n;

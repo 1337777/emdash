@@ -629,11 +629,13 @@ symbol ordinal_simplex3_identity_general_post_path
       ordinal_simplex3_general_raw_post_path);
 
 // Whole left transport telescope and its projection to the capped owner.
+// The retained left/post route is compared with itself, not with the strict
+// pre/right middle action of an arbitrary displayed transformation.
 symbol ordinal_simplex3_lhs_tele_func
   : τ (Functor
       (Hom_cat ordinal_simplex3_source_pathout_cat
         ordinal_simplex3_stable_obj ordinal_simplex3_direct_obj)
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat ordinal_simplex3_source_pathout_cat
           ordinal_simplex3_raw_obj ordinal_simplex3_stable_obj)
         (Hom_cat ordinal_simplex3_target_pathout_cat
@@ -664,7 +666,7 @@ symbol ordinal_simplex3_lhs_tele_at_second
 ≔ @fapp0
     (Hom_cat ordinal_simplex3_source_pathout_cat
       ordinal_simplex3_stable_obj ordinal_simplex3_direct_obj)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat ordinal_simplex3_source_pathout_cat
         ordinal_simplex3_raw_obj ordinal_simplex3_stable_obj)
       (Hom_cat ordinal_simplex3_target_pathout_cat
@@ -687,97 +689,24 @@ symbol ordinal_simplex3_transport_at_second
         ordinal_simplex3_raw_obj ordinal_simplex3_stable_obj)
       (Hom_cat ordinal_simplex3_target_pathout_cat
         ordinal_simplex3_e01 ordinal_simplex3_e03))
-≔ @functord_transport_func
-    ordinal_simplex3_source_pathout_cat
-    (@hom_ ordinal_simplex3_source_pathout_cat
-      ordinal_simplex3_source_pathout_cat
-      (@id_func ordinal_simplex3_source_pathout_cat)
-      ordinal_simplex3_raw_obj)
-    (@hom_ ordinal_simplex3_target_pathout_cat
-      ordinal_simplex3_source_pathout_cat
-      ordinal_simplex3_primitive_pathout_func ordinal_simplex3_e01)
-    (@tapp1_at_transf
-      ordinal_simplex3_source_pathout_cat
-      ordinal_simplex3_target_pathout_cat
-      ordinal_simplex3_observed_pathout_func
-      ordinal_simplex3_primitive_pathout_func
-      ordinal_simplex3_raw_obj ordinal_simplex3_pathout_transf)
-    ordinal_simplex3_stable_obj ordinal_simplex3_direct_obj
-    ordinal_simplex3_stable_to_direct;
+≔ ordinal_simplex3_top_lhs_func;
 
 symbol ordinal_simplex3_lhs_tele_transport_path
   : τ (@=
-      (Obj (Functor_cat
+      (Obj (Functor_cart_cat
         (Hom_cat ordinal_simplex3_source_pathout_cat
           ordinal_simplex3_raw_obj ordinal_simplex3_stable_obj)
         (Hom_cat ordinal_simplex3_target_pathout_cat
           ordinal_simplex3_e01 ordinal_simplex3_e03)))
       ordinal_simplex3_lhs_tele_at_second
       ordinal_simplex3_transport_at_second)
-≔ @eq_ap
-    (Hom Cat_cat
-      (Hom_cat ordinal_simplex3_source_pathout_cat
-        ordinal_simplex3_stable_obj ordinal_simplex3_direct_obj)
-      (Functor_cat
-        (Hom_cat ordinal_simplex3_source_pathout_cat
-          ordinal_simplex3_raw_obj ordinal_simplex3_stable_obj)
-        (Hom_cat ordinal_simplex3_target_pathout_cat
-          ordinal_simplex3_e01 ordinal_simplex3_e03)))
-    (Obj (Functor_cat
+≔ @eq_refl
+    (Functor
       (Hom_cat ordinal_simplex3_source_pathout_cat
         ordinal_simplex3_raw_obj ordinal_simplex3_stable_obj)
       (Hom_cat ordinal_simplex3_target_pathout_cat
-        ordinal_simplex3_e01 ordinal_simplex3_e03)))
-    (λ H : τ (Hom Cat_cat
-        (Hom_cat ordinal_simplex3_source_pathout_cat
-          ordinal_simplex3_stable_obj ordinal_simplex3_direct_obj)
-        (Functor_cat
-          (Hom_cat ordinal_simplex3_source_pathout_cat
-            ordinal_simplex3_raw_obj ordinal_simplex3_stable_obj)
-          (Hom_cat ordinal_simplex3_target_pathout_cat
-            ordinal_simplex3_e01 ordinal_simplex3_e03))),
-      @fapp0
-        (Hom_cat ordinal_simplex3_source_pathout_cat
-          ordinal_simplex3_stable_obj ordinal_simplex3_direct_obj)
-        (Functor_cat
-          (Hom_cat ordinal_simplex3_source_pathout_cat
-            ordinal_simplex3_raw_obj ordinal_simplex3_stable_obj)
-          (Hom_cat ordinal_simplex3_target_pathout_cat
-            ordinal_simplex3_e01 ordinal_simplex3_e03))
-        H ordinal_simplex3_stable_to_direct)
-    ordinal_simplex3_lhs_tele_func
-    (@tapp1_func
-      ordinal_simplex3_source_pathout_cat Cat_cat
-      (@hom_ ordinal_simplex3_source_pathout_cat
-        ordinal_simplex3_source_pathout_cat
-        (@id_func ordinal_simplex3_source_pathout_cat)
-        ordinal_simplex3_raw_obj)
-      (@hom_ ordinal_simplex3_target_pathout_cat
-        ordinal_simplex3_source_pathout_cat
-        ordinal_simplex3_primitive_pathout_func ordinal_simplex3_e01)
-      ordinal_simplex3_stable_obj ordinal_simplex3_direct_obj
-      (@tapp1_at_transf
-        ordinal_simplex3_source_pathout_cat
-        ordinal_simplex3_target_pathout_cat
-        ordinal_simplex3_observed_pathout_func
-        ordinal_simplex3_primitive_pathout_func
-        ordinal_simplex3_raw_obj ordinal_simplex3_pathout_transf))
-    (@functord_transport_lhs_tele_agrees
-      ordinal_simplex3_source_pathout_cat
-      (@hom_ ordinal_simplex3_source_pathout_cat
-        ordinal_simplex3_source_pathout_cat
-        (@id_func ordinal_simplex3_source_pathout_cat)
-        ordinal_simplex3_raw_obj)
-      (@hom_ ordinal_simplex3_target_pathout_cat
-        ordinal_simplex3_source_pathout_cat
-        ordinal_simplex3_primitive_pathout_func ordinal_simplex3_e01)
-      (@tapp1_at_transf
-        ordinal_simplex3_source_pathout_cat
-        ordinal_simplex3_target_pathout_cat
-        ordinal_simplex3_observed_pathout_func
-        ordinal_simplex3_primitive_pathout_func
-        ordinal_simplex3_raw_obj ordinal_simplex3_pathout_transf)
-      ordinal_simplex3_stable_obj ordinal_simplex3_direct_obj);
+        ordinal_simplex3_e01 ordinal_simplex3_e03))
+    ordinal_simplex3_top_lhs_func;
 
 symbol ordinal_simplex3_lhs_transport_path
   : τ (@=
@@ -787,23 +716,13 @@ symbol ordinal_simplex3_lhs_transport_path
         (Hom_cat ordinal_simplex3_target_pathout_cat
           ordinal_simplex3_e01 ordinal_simplex3_e03)))
       ordinal_simplex3_top_lhs_func ordinal_simplex3_transport_at_second)
-≔ @functord_transport_lhs_agrees
-    ordinal_simplex3_source_pathout_cat
-    (@hom_ ordinal_simplex3_source_pathout_cat
-      ordinal_simplex3_source_pathout_cat
-      (@id_func ordinal_simplex3_source_pathout_cat)
-      ordinal_simplex3_raw_obj)
-    (@hom_ ordinal_simplex3_target_pathout_cat
-      ordinal_simplex3_source_pathout_cat
-      ordinal_simplex3_primitive_pathout_func ordinal_simplex3_e01)
-    (@tapp1_at_transf
-      ordinal_simplex3_source_pathout_cat
-      ordinal_simplex3_target_pathout_cat
-      ordinal_simplex3_observed_pathout_func
-      ordinal_simplex3_primitive_pathout_func
-      ordinal_simplex3_raw_obj ordinal_simplex3_pathout_transf)
-    ordinal_simplex3_stable_obj ordinal_simplex3_direct_obj
-    ordinal_simplex3_stable_to_direct;
+≔ @eq_refl
+    (Functor
+      (Hom_cat ordinal_simplex3_source_pathout_cat
+        ordinal_simplex3_raw_obj ordinal_simplex3_stable_obj)
+      (Hom_cat ordinal_simplex3_target_pathout_cat
+        ordinal_simplex3_e01 ordinal_simplex3_e03))
+    ordinal_simplex3_top_lhs_func;
 
 symbol ordinal_simplex3_lhs_tele_lhs_path
   : τ (@=

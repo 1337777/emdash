@@ -6,22 +6,22 @@ require open emdash.emdash3_2_one_cat_quotient_comparison_paths;
 
 symbol homology_family_native_map_comparison_path [B C : Cat] [S : τ (@PreadditiveCategory C)] (C1 : τ
   (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject
-  (Op_cat
+  (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0)) (X Y
   : τ
-  (Functor B C)) (D E : τ (Functor B (Functor_cat WalkingArrow_cat C))) (h : τ (@Transf B (Functor_cat
-  WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func
+  (Functor B C)) (D E : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C))) (h : τ (@Transf B (Functor_oplax_cat
+  WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func
   C t T)
-  X) D)) (k : τ (@Transf B (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_cat
+  X) D)) (k : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_oplax_cat
   WalkingArrow_cat C)
-  (@terminal_arrow_diagram_func C t T) Y) E)) (a : τ (@Transf B C X Y)) (m : τ (@Transf B (Functor_cat
-  WalkingArrow_cat C) D E)) (e : τ (@= (@Transf B C X (@diagram_family_at_func B WalkingArrow_cat C E
-  walking_arrow_src)) (@comp_fapp0 (Functor_cat B C) X (@diagram_family_at_func B WalkingArrow_cat C D
-  walking_arrow_src) (@diagram_family_at_func B WalkingArrow_cat C E walking_arrow_src)
-  (@sym_transf_tapp0_transf
+  (@terminal_arrow_diagram_func C t T) Y) E)) (a : τ (@Transf B C X Y)) (m : τ (@Transf B (Functor_oplax_cat
+  WalkingArrow_cat C) D E)) (e : τ (@= (@Transf B C X (@diagram_oplax_family_at_func B WalkingArrow_cat C E
+  walking_arrow_src)) (@comp_fapp0 (Functor_cat B C) X (@diagram_oplax_family_at_func B WalkingArrow_cat C D
+  walking_arrow_src) (@diagram_oplax_family_at_func B WalkingArrow_cat C E walking_arrow_src)
+  (@diagram_oplax_family_map_at
   B WalkingArrow_cat C D E m walking_arrow_src) (@zero_arrow_family_incoming_transf B C t T X D h))
   (@comp_fapp0
-  (Functor_cat B C) X Y (@diagram_family_at_func B WalkingArrow_cat C E walking_arrow_src)
+  (Functor_cat B C) X Y (@diagram_oplax_family_at_func B WalkingArrow_cat C E walking_arrow_src)
   (@zero_arrow_family_incoming_transf B C t T Y E k) a))) (x : τ (Obj B))
  (N0 N1 : τ (Obj (@ZeroArrowCone_cat C t T)))
  (n0 : τ (Hom (@ZeroArrowCone_cat C t T) (@zero_arrow_family_point_input B C t T X D h x) N0)) (n1 : τ

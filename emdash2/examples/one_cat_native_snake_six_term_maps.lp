@@ -3,7 +3,7 @@ require open emdash.emdash3_2_one_cat_native_snake_six_term_maps;
 
 assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -13,7 +13,7 @@ assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
 
 assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -30,7 +30,7 @@ assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
 
 assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -41,7 +41,7 @@ assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
 
 assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -61,7 +61,7 @@ assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
 
 assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -72,7 +72,7 @@ assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
 
 assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -92,7 +92,7 @@ assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
 
 assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -103,7 +103,7 @@ assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
 
 assert [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))

@@ -256,7 +256,7 @@ assert ⊢
   @tapp0_fapp0
     (Op_cat (Hom_cat prof_terminal_test_A
       prof_terminal_test_W prof_terminal_test_X))
-    Cat_cat
+    Cat_cart
     (@prof_terminal_native_action_catd
       prof_terminal_test_A prof_terminal_test_B
       prof_terminal_test_F prof_terminal_test_G
@@ -397,9 +397,10 @@ assertnot ⊢
       prof_terminal_test_g prof_terminal_test_normal)
   ≡ prof_terminal_test_unrelated_component;
 
-// A reflexive path at the unnormalized terminal action cannot inhabit the
-// normality slot of the explicit whole displayed normalizer.
-assertnot ⊢
+// Default strict functors compute the canonical terminal identity action.
+// Its reflexive witness therefore inhabits the existing normality slot.
+// The independently supplied whole comparison and chosen path data remain.
+assert ⊢
   @prof_terminal_explicit_normalization_funcd
     prof_terminal_test_A prof_terminal_test_B
     prof_terminal_test_F prof_terminal_test_G
@@ -418,7 +419,7 @@ assertnot ⊢
         prof_terminal_test_W prof_terminal_test_X
         prof_terminal_test_g prof_terminal_test_h));
 
-assertnot ⊢
+assert ⊢
   @prof_terminal_native_expected_path
     prof_terminal_test_A prof_terminal_test_B
     prof_terminal_test_F prof_terminal_test_G
@@ -511,7 +512,7 @@ assert ⊢
   @tapp0_fapp0
     (Op_cat (Hom_cat prof_terminal_test_A
       prof_terminal_test_W prof_terminal_test_X))
-    Cat_cat
+    Cat_cart
     (@prof_terminal_expected_action_catd
       prof_terminal_test_A prof_terminal_test_B
       prof_terminal_test_F prof_terminal_test_G
@@ -554,3 +555,19 @@ type @functord_laxity_transf
     prof_terminal_test_W prof_terminal_test_X
     prof_terminal_test_g prof_terminal_test_h)
   prof_terminal_test_p prof_terminal_test_q prof_terminal_test_rho;
+
+// A witness at an unrelated target object cannot replace the actual normality datum.
+assertnot ⊢ @prof_terminal_native_expected_path
+  prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_G
+  prof_terminal_test_W prof_terminal_test_X prof_terminal_test_g prof_terminal_test_h
+  (@eq_refl
+    (Hom prof_terminal_test_B
+      (@fapp0 prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_W)
+      (@fapp0 prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_W))
+    (@id prof_terminal_test_B
+      (@fapp0 prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_W)))
+  : τ (@= (Obj (@Catd_cat (Op_cat (Hom_cat prof_terminal_test_A prof_terminal_test_W prof_terminal_test_X))))
+      (@prof_terminal_native_action_catd prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_G
+        prof_terminal_test_W prof_terminal_test_X prof_terminal_test_g prof_terminal_test_h)
+      (@prof_terminal_expected_action_catd prof_terminal_test_A prof_terminal_test_B prof_terminal_test_F prof_terminal_test_G
+        prof_terminal_test_W prof_terminal_test_X prof_terminal_test_g prof_terminal_test_h));

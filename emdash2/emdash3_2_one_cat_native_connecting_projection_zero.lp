@@ -4,7 +4,7 @@ require open emdash.emdash3_2_one_cat_native_connecting;
 
 // The original middle kernel inclusion satisfies the zero needed by the existing L.
 symbol one_cat_native_middle_cycle_cover_zero [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -29,7 +29,7 @@ symbol one_cat_native_middle_cycle_cover_zero [B C : Cat] [Add : τ (@Preadditiv
   B C t T R0 R1 m0)) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_tgt)) (@comp_fapp0 (Functor_cat B
   C) (@kernel_adjunction_family_func B C Add t T P (@zero_cone_middle_column_outgoing_func B C t T R0 R1
   m0)) (@zero_cone_row_family_vertex_func B C t T R0 walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T
-  R1 walking_arrow_tgt) (@diagram_family_transf B WalkingArrow_cat C (@precomposed_diagram_family_func B C
+  R1 walking_arrow_tgt) (@diagram_oplax_family_transf B WalkingArrow_cat C (@precomposed_diagram_family_func B C
   (@zero_cone_row_family_vertex_func B C t T R0 walking_arrow_src) (@zero_cone_right_column_outgoing_func B C t T
   R0 R1 m0) (@zero_cone_row_family_outgoing B C t T R0)) walking_arrow_src walking_arrow_tgt
   walking_arrow_generator) (@kernel_adjunction_family_inclusion_transf B C Add t T P
@@ -82,7 +82,7 @@ symbol one_cat_native_middle_cycle_cover_zero [B C : Cat] [Add : τ (@Preadditiv
 
 // Lift the whole original middle cycle inclusion into the same original L.
 symbol one_cat_native_middle_cycle_cover_lift [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -116,7 +116,7 @@ symbol one_cat_native_middle_cycle_cover_lift [B C : Cat] [Add : τ (@Preadditiv
 
 // The first projection reconstructs the original middle kernel inclusion.
 symbol one_cat_native_middle_cycle_cover_reconstruction [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 :
-  τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat
+  τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1
   R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ
   (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
@@ -158,7 +158,7 @@ symbol one_cat_native_middle_cycle_cover_reconstruction [B C : Cat] [Add : τ (@
 
 // The original r reconstructs the original induced right cycle map.
 symbol one_cat_native_middle_cycle_cover_projection [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ
-  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat
+  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1
   R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ
   (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
@@ -280,7 +280,7 @@ symbol one_cat_native_middle_cycle_cover_projection [B C : Cat] [Add : τ (@Prea
 
 // The original θ kills this covered middle cycle.
 symbol one_cat_native_middle_cycle_theta_zero [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -345,7 +345,7 @@ symbol one_cat_native_middle_cycle_theta_zero [B C : Cat] [Add : τ (@Preadditiv
 // The first descent γ kills the actual induced right cycle map.
 symbol one_cat_native_cycles_connecting_projection_zero [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -539,7 +539,7 @@ symbol one_cat_native_cycles_connecting_projection_zero [B C : Cat] (C1 : τ (Is
 // Original whole quotient cancellation proves δ∘H(p)=0 at the retained homology objects.
 symbol one_cat_native_connecting_projection_zero [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t

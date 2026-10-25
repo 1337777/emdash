@@ -25,7 +25,7 @@ symbol one_cat_modification [B C : Cat]
 
 // Preserve the existing Cat-valued displayed specialization of the component.
 rule @tdapp0_fapp0 _ _ _ _ _ $x
-    (@one_cat_modification _ Cat_cat _ _ _ _ _ $m)
+    (@one_cat_modification _ Cat_cart _ _ _ _ _ $m)
   ↪ $m $x;
 
 // Couple the target to the constructor so the existing Cat specialization joins.

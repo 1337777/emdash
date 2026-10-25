@@ -19,7 +19,7 @@ assert [A B : Cat] [F G : τ (Functor A B)] (eta : τ (@Transf A B F G)) (u : τ
 assert [K : Cat] [E D : τ (Catd K)] [FF GG : τ (@Functord K E D)] (eta : τ (@Transfd K E D FF GG)) (u : τ (@StrictTransfdPointwiseOmegaAlong K E D FF GG eta)) (x : τ (Obj K)) ⊢
   @tdapp0_fapp0 K E D GG FF x (@strict_transfd_pointwise_left_inverse K E D FF GG eta u)
   ≡ @omega_equiv_along_left_inv
-      (Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D x))
+      (Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D x))
       (@Fibre_func K E D FF x) (@Fibre_func K E D GG x)
       (@tdapp0_fapp0 K E D FF GG x eta) (u x);
 
@@ -31,7 +31,7 @@ assert [K : Cat] [E D : τ (Catd K)] [FF GG : τ (@Functord K E D)] (eta : τ (@
 assert [K : Cat] [E D : τ (Catd K)] [FF GG : τ (@Functord K E D)] (eta : τ (@Transfd K E D FF GG)) (u : τ (@StrictTransfdPointwiseOmegaAlong K E D FF GG eta)) (x : τ (Obj K)) ⊢
   @tdapp0_fapp0 K E D GG FF x (@strict_transfd_pointwise_right_inverse K E D FF GG eta u)
   ≡ @omega_equiv_along_right_inv
-      (Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D x))
+      (Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D x))
       (@Fibre_func K E D FF x) (@Fibre_func K E D GG x)
       (@tdapp0_fapp0 K E D FF GG x eta) (u x);
 
@@ -43,8 +43,8 @@ assert [K : Cat] [E D : τ (Catd K)] [FF GG : τ (@Functord K E D)] (eta : τ (@
 assert [K : Cat] [E D : τ (Catd K)] [FF GG : τ (@Functord K E D)] (eta : τ (@Transfd K E D FF GG)) (u : τ (@StrictTransfdPointwiseOmegaAlong K E D FF GG eta)) ⊢ @strict_transfd_pointwise_omega_along K E D FF GG eta u
   : τ (@OmegaEquivAlong (@Functord_cat K E D) FF GG eta);
 
-// The inherited primitive does not install these generic reflexivity cuts.
-assertnot [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
+// Default functors now preserve composition; ordinary transfors remain lax.
+assert [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
   (f : τ (Hom A x y)) (g : τ (Hom A y z)) ⊢
   @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
     (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f))

@@ -2227,6 +2227,11 @@
       "memoryMiB": 3072,
       "timeoutSeconds": 300,
       "ocamlrunparam": "o=20,v=1024"
+    },
+    "foundations-central-4g-900s": {
+      "memoryMiB": 4096,
+      "timeoutSeconds": 900,
+      "ocamlrunparam": "o=20,v=1024"
     }
   },
   "profileTargets": {
@@ -2248,7 +2253,7 @@
     ]
   },
   "targetProfileOverrides": {
-    "emdash3_2_checks.lp": "action-profile-6g-180s",
+    "emdash3_2_checks.lp": "foundations-central-4g-900s",
     "emdash3_2_commutative_algebra_affine_glue.lp": "action-profile-3g-90s",
     "examples/commutative_ring_affine_glue.lp": "action-profile-3g-90s",
     "emdash3_2_commutative_algebra_freyd_adjunction_model_connecting.lp": "action-profile-3g-90s",

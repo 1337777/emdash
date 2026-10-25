@@ -30,14 +30,15 @@ injective symbol DependentProductStructure
   : Grpd;
 
 // Whole covariant slice family: X ↦ C/X and u ↦ Πᵤ.
+// Right-adjoint variance returns the same CoAt2(C) base as Sigma.
 injective symbol SliceDependentProduct_catd
   [C : Cat]
   [PB : τ (@PullbackStructure C)]
   (DP : τ (@DependentProductStructure C PB))
-  : τ (Catd C);
+  : τ (Catd (CoAt2_cat C));
 
 // Exact selected fibre.
-rule @fapp0 _ Cat_cat
+rule @fapp0 _ _
       (@SliceDependentProduct_catd $C _ _)
       $X
   ↪ @Slice_cat $C $X;
@@ -51,7 +52,7 @@ injective symbol slice_dependent_product_func
   (u : τ (Hom C X Y))
   : τ (Functor (@Slice_cat C X) (@Slice_cat C Y));
 
-rule @fapp1_fapp0 _ Cat_cat
+rule @fapp1_fapp0 _ _
       (@SliceDependentProduct_catd $C $PB $DP)
       $X $Y $u
   ↪ @slice_dependent_product_func $C $PB $DP $X $Y $u;

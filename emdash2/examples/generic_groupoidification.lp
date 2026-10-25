@@ -148,9 +148,8 @@ assert [C : Cat]
       f0 f1
       (@groupoidify_unit_compositor_transf C x y z g);
 
-// The explicit compositor has distinct endpoints, so comparison with an
-// identity is no longer a homogeneous judgment.
-assertnot [C : Cat]
+// The strict-functor default identifies the composition endpoints.
+assert [C : Cat]
   [x y z : τ (Obj C)]
   (g : τ (Hom C y z))
   (f : τ (Hom C x y)) ⊢
@@ -174,6 +173,16 @@ assertnot [C : Cat]
           (@groupoidify_unit_func C) z))
       (@groupoidify_unit_compositor_rhs_func C x y z g)
       f;
+
+// The native extracted compositor itself has the required identity value.
+assert [C : Cat] [x y z : τ (Obj C)]
+  (g : τ (Hom C y z)) (f : τ (Hom C x y)) ⊢
+  @groupoidify_unit_compositor C x y z g f
+  ≡ @id
+      (Hom_cat (Path_cat (Groupoidify C))
+        (@fapp0 C (Path_cat (Groupoidify C)) (@groupoidify_unit_func C) x)
+        (@fapp0 C (Path_cat (Groupoidify C)) (@groupoidify_unit_func C) z))
+      (@fapp0 _ _ (@groupoidify_unit_compositor_lhs_func C x y z g) f);
 
 // Source and target parameters are not erased by the generic facade.
 assertnot [C D : Cat] ⊢ Groupoidify C ≡ Groupoidify D;

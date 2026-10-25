@@ -1,4 +1,4 @@
-/* Named recursor computation remains separate from arbitrary functors. */
+/* Default-strict functors share the composition law; distinct chosen loop maps remain distinct. */
 require open emdash.emdash3_2_walking_end_hit;
 
 assert [C : Cat] (x : τ (Obj C)) (a : τ (Hom C x x)) [X Y Z : τ (Obj WalkingEnd_cat)] (f : τ (Hom WalkingEnd_cat X Y)) (g : τ (Hom WalkingEnd_cat Y Z)) ⊢
@@ -22,7 +22,7 @@ type λ C : Cat, λ x : τ (Obj C), λ a : τ (Hom C x x),
       (Hom_cat C (@fapp0 WalkingEnd_cat C (@walking_end_rec_func C x a) X) (@fapp0 WalkingEnd_cat C (@walking_end_rec_func C x a) Y))
       (@fapp1_func WalkingEnd_cat C (@walking_end_rec_func C x a) X Y) f g;
 
-assertnot [C : Cat] (F : τ (Functor WalkingEnd_cat C))
+assert [C : Cat] (F : τ (Functor WalkingEnd_cat C))
   [X Y Z : τ (Obj WalkingEnd_cat)] (f : τ (Hom WalkingEnd_cat X Y))
   (g : τ (Hom WalkingEnd_cat Y Z)) ⊢
   @eq_refl (Hom C (@fapp0 WalkingEnd_cat C F X) (@fapp0 WalkingEnd_cat C F Z))

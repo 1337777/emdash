@@ -18,9 +18,9 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   [p0 : τ (@ComputationalChainPair C S A0 B0 D0)]
   [p1 : τ (@ComputationalChainPair C S A1 B1 D1)]
   (m : τ (@ComputationalChainPairMap C S A0 B0 D0 A1 B1 D1 p0 p1)) ⊢
-  @fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  @fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@chain_pair_native_cone C S C1 t T A0 B0 D0 p0) (@chain_pair_native_cone C S C1 t T A1 B1 D1 p1) (@chain_pair_native_map C S C1 t T A0 B0 D0 A1 B1 D1 p0 p1 m)
-  ≡ @chain_pair_outgoing_diagram_map C S C1 A0 B0 D0 A1 B1 D1 p0 p1 m;
+  ≡ @chain_pair_native_diagram_map C S C1 A0 B0 D0 A1 B1 D1 p0 p1 m;
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
   [T : τ (@TerminalObject C t)]
@@ -28,8 +28,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   [p0 : τ (@ComputationalChainPair C S A0 B0 D0)]
   [p1 : τ (@ComputationalChainPair C S A1 B1 D1)]
   (m : τ (@ComputationalChainPairMap C S A0 B0 D0 A1 B1 D1 p0 p1)) ⊢
-  @tapp0_fapp0 WalkingArrow_cat C _ _ walking_arrow_src
-    (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  @fapp1_fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) _ _ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
       (@zero_arrow_cone_diagram_func C t T) (@chain_pair_native_cone C S C1 t T A0 B0 D0 p0) (@chain_pair_native_cone C S C1 t T A1 B1 D1 p1) (@chain_pair_native_map C S C1 t T A0 B0 D0 A1 B1 D1 p0 p1 m))
   ≡ @computational_chain_pair_map_middle C S A0 B0 D0 A1 B1 D1 p0 p1 m;
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
@@ -39,8 +38,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   [p0 : τ (@ComputationalChainPair C S A0 B0 D0)]
   [p1 : τ (@ComputationalChainPair C S A1 B1 D1)]
   (m : τ (@ComputationalChainPairMap C S A0 B0 D0 A1 B1 D1 p0 p1)) ⊢
-  @tapp0_fapp0 WalkingArrow_cat C _ _ walking_arrow_tgt
-    (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  @fapp1_fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) _ _ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
       (@zero_arrow_cone_diagram_func C t T) (@chain_pair_native_cone C S C1 t T A0 B0 D0 p0) (@chain_pair_native_cone C S C1 t T A1 B1 D1 p1) (@chain_pair_native_map C S C1 t T A0 B0 D0 A1 B1 D1 p0 p1 m))
   ≡ @computational_chain_pair_map_prev C S A0 B0 D0 A1 B1 D1 p0 p1 m;
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]

@@ -5,10 +5,10 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
   [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
   (P : τ (@KernelPresentation C S t T W))
-  [A0 A1 : τ (Obj C)] [d0 d1 : τ (Functor WalkingArrow_cat C)]
+  [A0 A1 : τ (Obj C)] [d0 d1 : τ (Obj (Functor_oplax_cat WalkingArrow_cat C))]
   (h0 : τ (Hom C A0 (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d0)))
   (h1 : τ (Hom C A1 (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d1)))
-  (a : τ (Hom C A0 A1)) (b : τ (@Transf WalkingArrow_cat C d0 d1))
+  (a : τ (Hom C A0 A1)) (b : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) d0 d1))
   (p : τ (@= (Hom C A0 (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d1))
     (@comp_fapp0 C _ _ _
       (@fapp1_fapp0 _ _ (@kernel_presentation_func C S t T W P) d0 d1 b) h0)
@@ -21,15 +21,15 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
   [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
   (P : τ (@KernelPresentation C S t T W))
-  [A0 A1 : τ (Obj C)] [d0 d1 : τ (Functor WalkingArrow_cat C)]
+  [A0 A1 : τ (Obj C)] [d0 d1 : τ (Obj (Functor_oplax_cat WalkingArrow_cat C))]
   (h0 : τ (Hom C A0 (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d0)))
   (h1 : τ (Hom C A1 (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d1)))
-  (a : τ (Hom C A0 A1)) (b : τ (@Transf WalkingArrow_cat C d0 d1))
+  (a : τ (Hom C A0 A1)) (b : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) d0 d1))
   (p : τ (@= (Hom C A0 (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d1))
     (@comp_fapp0 C _ _ _
       (@fapp1_fapp0 _ _ (@kernel_presentation_func C S t T W P) d0 d1 b) h0)
     (@comp_fapp0 C _ _ _ h1 a))) ⊢
-  @fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  @fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_obj C t T A0 d0
       (@fapp0 _ _ (@kernel_presentation_unlift_func C S t T W P A0 d0) h0)) (@zero_arrow_cone_obj C t T A1 d1
       (@fapp0 _ _ (@kernel_presentation_unlift_func C S t T W P A1 d1) h1)) (@zero_cone_map_from_lifts C S C1 t T W P A0 A1 d0 d1 h0 h1 a b p) ≡ b;
@@ -37,10 +37,10 @@ assertnot [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
   [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
   (P : τ (@KernelPresentation C S t T W))
-  [A0 A1 : τ (Obj C)] [d0 d1 : τ (Functor WalkingArrow_cat C)]
+  [A0 A1 : τ (Obj C)] [d0 d1 : τ (Obj (Functor_oplax_cat WalkingArrow_cat C))]
   (h0 : τ (Hom C A0 (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d0)))
   (h1 : τ (Hom C A1 (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d1)))
-  (a : τ (Hom C A0 A1)) (b : τ (@Transf WalkingArrow_cat C d0 d1))
+  (a : τ (Hom C A0 A1)) (b : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) d0 d1))
   (p : τ (@= (Hom C A0 (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d1))
     (@comp_fapp0 C _ _ _
       (@fapp1_fapp0 _ _ (@kernel_presentation_func C S t T W P) d0 d1 b) h0)

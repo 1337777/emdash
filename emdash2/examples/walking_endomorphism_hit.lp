@@ -75,7 +75,8 @@ assert
       (Fibre_cat D walking_base)
       (@walking_end_loop_lhs_func R D u)
       (@walking_end_loop_rhs_func R D u)
-      r sigma;
+      r (@strict_transfor (Fibre_cat R walking_base) (Fibre_cat D walking_base)
+        (@walking_end_loop_lhs_func R D u) (@walking_end_loop_rhs_func R D u) sigma);
 
 // Ordinary sections are the transparent terminal-source specialization.
 assert

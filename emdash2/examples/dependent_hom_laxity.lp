@@ -14,10 +14,11 @@ assert [Z : Cat] (E : τ (Catd Z))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y))) ⊢
   Hom_cat (@Sigma_cat Z E) (Struct_sigma x u) (Struct_sigma y v)
-    ≡ Op_cat
+    ≡ TotalOp_cat
         (@Sigma_cat
-          (Op_cat (Hom_cat Z x y))
-          (@homd_ Z E E (@id_funcd Z E) x u y v));
+          (TotalOp_cat (Hom_cat Z x y))
+          (@TotalOp_catd (Op_cat (Hom_cat Z x y))
+            (@homd_ Z E E (@id_funcd Z E) x u y v)));
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K))
@@ -55,7 +56,7 @@ assert [A B : Cat] [F G : τ (Functor A B)]
       X W h q;
 
 // Composition preservation is the identity-transfor specialization of the
-// same post/left cell, yielding the normal-lax compositor surface.
+// same post/left cell; the public functor now has the strict default.
 assert [A B : Cat] (F : τ (Functor A B))
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢

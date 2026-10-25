@@ -120,7 +120,7 @@ assert
   @fapp1_func
     (@Into_restr_cat
       SemiDeltaPlus_cat (succ (succ (succ zero))))
-    Cat_cat
+    Cat_cart
     (@simplex2_higher_sieve kind)
     q r
   : τ (Functor
@@ -128,7 +128,7 @@ assert
         (@Into_restr_cat
           SemiDeltaPlus_cat (succ (succ (succ zero))))
         q r)
-      (Functor_cat
+      (Functor_cart_cat
         (@Fibre_cat
           (@Into_restr_cat
             SemiDeltaPlus_cat (succ (succ (succ zero))))

@@ -1,7 +1,7 @@
 /*
   Focused reviewer for standard semisimplices and groupoid-valued diagrams.
 
-  Yoneda owns standard-simplex restriction. Path_cat_func owns realization of
+  Yoneda owns standard-simplex restriction. Path_cat_cart_func owns realization of
   levels, faces, diagram maps, and all higher action. The public Psh facade
   remains distinct from the raw whole-action category.
 */
@@ -18,7 +18,7 @@ assert ⊢
 
 assert ⊢
   SemiSimplicialCatRaw_cat
-  ≡ @Functor_cat (Op_cat SemiDeltaPlus_cat) Cat_cat;
+  ≡ @Functor_cat (Op_cat SemiDeltaPlus_cat) Cat_cart;
 
 // The rigid presheaf facade is not a runtime alias for the raw owner.
 assertnot ⊢

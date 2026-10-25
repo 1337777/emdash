@@ -1,12 +1,26 @@
 # emdash v3.2 Canonical Surface Syntax
 
 Date: 2026-06-05
-Last reviewed: 2026-08-30
+Last reviewed: 2026-10-25 (duality/profile boundary; full exposition review pending)
 
 Status: current notation authority for v3.2 comments, examples, and future
 surface-syntax/parser planning.
 
-Critical variance qualification (2026-09-08): the current whole internal
+Current foundation boundary (2026-10-25): in this worktree, public functors
+are strict and transformations remain conventional lax. `Op_cat` now names
+dimension-one reversal; `TotalOp_cat` names total reversal, with
+`CoAbove2_cat` and `CoAt2_cat` retaining their distinct roles. Families use
+`Cat_cart` coefficients. The direct Homd ladder uses the whole Q-valued
+transformation construction described in the
+[current profile](REPORT_EMDASH_V3_2_CURRENT_STATUS_AND_SOP_2026-05-26.md#current-foundations-profile--2026-10-25).
+Earlier unshifted opposite and displayed-family formulas below describe the
+old source wherever they conflict with that profile. Their surface/parser
+transfer is not automatically requalified by the Lambdapi migration; the
+[living plan](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
+records that remaining review. Keep the distinction between runtime cuts and
+the five accepted terminal Homd proof-time comparisons.
+
+Historical variance qualification (2026-09-08): the then-current whole internal
 `op : Cat → Cat` declaration is not a validated higher-categorical duality.
 It participates in the checked empty-type derivation documented in the
 [internal-op diagnostic](../../docs/TYPESCRIPT_EMDASH_INTERNAL_OP_VARIANCE_DIAGNOSTIC.md).

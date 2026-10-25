@@ -6,15 +6,15 @@ require open emdash.emdash3_2_one_cat_zero_family_paths;
 // Result annotation retaining the original whole native input, incoming-map link and its actual exactness.
 symbol OneCatNativeExactArrowPair [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
   [A B D : τ (Functor K C)] (f : τ (@Transf K C A B)) (g : τ (@Transf K C B D))
   : Grpd
-≔ (@Σ_ (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+≔ (@Σ_ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C t T) A) (@transf_arrow_diagram_func K C B D g)) (λ h : τ (@Transf K
-  (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C t T) A) (@transf_arrow_diagram_func K C B D g)), (@Product_grpd (@= (@Transf K
   C A B) (@zero_arrow_family_incoming_transf K C t T A (@transf_arrow_diagram_func K C B D g) h) f)
   (@OneCatAdjunctionExactFamily K C S C1 t T T0 P Q A (@transf_arrow_diagram_func K C B D g) h N))));
@@ -22,19 +22,19 @@ symbol OneCatNativeExactArrowPair [K C : Cat] [S : τ (@PreadditiveCategory C)]
 // Transparent construction from the retained native input and its existing whole witnesses.
 symbol one_cat_native_exact_arrow_pair_intro [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
   [A B D : τ (Functor K C)] (f : τ (@Transf K C A B)) (g : τ (@Transf K C B D))
-  (h : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C t T) A) (@transf_arrow_diagram_func K C B D g))) (p : τ (@= (@Transf K C A B)
   (@zero_arrow_family_incoming_transf K C t T A (@transf_arrow_diagram_func K C B D g) h) f)) (e : τ
   (@OneCatAdjunctionExactFamily K C S C1 t T T0 P Q A (@transf_arrow_diagram_func K C B D g) h N))
   : τ (@OneCatNativeExactArrowPair K C S C1 t T T0 P Q N A B D f g)
-≔ (@Struct_sigma (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat
+≔ (@Struct_sigma (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat
   C) (@terminal_arrow_diagram_func C t T) A) (@transf_arrow_diagram_func K C B D g)) (λ h : τ (@Transf K
-  (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C t T) A) (@transf_arrow_diagram_func K C B D g)), (@Product_grpd (@= (@Transf K
   C A B) (@zero_arrow_family_incoming_transf K C t T A (@transf_arrow_diagram_func K C B D g) h) f)
   (@OneCatAdjunctionExactFamily K C S C1 t T T0 P Q A (@transf_arrow_diagram_func K C B D g) h N))) h
@@ -45,20 +45,20 @@ symbol one_cat_native_exact_arrow_pair_intro [K C : Cat] [S : τ (@PreadditiveCa
 // Project the original whole input without rebuilding a diagram or choosing K/Q.
 symbol one_cat_native_exact_arrow_pair_input [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
   [A B D : τ (Functor K C)] (f : τ (@Transf K C A B)) (g : τ (@Transf K C B D))
   (R : τ (@OneCatNativeExactArrowPair K C S C1 t T T0 P Q N A B D f g))
-  : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C t T) A) (@transf_arrow_diagram_func K C B D g))
 ≔ sigma_Fst R;
 
 // The retained reconstruction links the input to this actual stored incoming map.
 symbol one_cat_native_exact_arrow_pair_incoming_path [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
@@ -71,13 +71,13 @@ symbol one_cat_native_exact_arrow_pair_incoming_path [K C : Cat] [S : τ (@Pread
 // The comparison is the original whole Im→Ker map on the retained input.
 symbol one_cat_native_exact_arrow_pair_comparison [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
   [A B D : τ (Functor K C)] (f : τ (@Transf K C A B)) (g : τ (@Transf K C B D))
   (R : τ (@OneCatNativeExactArrowPair K C S C1 t T T0 P Q N A B D f g))
-  : τ (@Transf K C (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q)
+  : τ (@Transf K C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q)
   (@zero_arrow_family_incoming_func K C t T A (@transf_arrow_diagram_func K C B D g)
   (@one_cat_native_exact_arrow_pair_input K C S C1 t T T0 P Q N A B D f g R))) (@kernel_adjunction_family_func K
   C S t T P (@transf_arrow_diagram_func K C B D g)))
@@ -87,7 +87,7 @@ symbol one_cat_native_exact_arrow_pair_comparison [K C : Cat] [S : τ (@Preaddit
 // Project the existing fixed-forward Ω witness on that same comparison.
 symbol one_cat_native_exact_arrow_pair_evidence [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
@@ -100,7 +100,7 @@ symbol one_cat_native_exact_arrow_pair_evidence [K C : Cat] [S : τ (@Preadditiv
 // Native input annihilation and reconstruction derive g∘f=0 for the actual stored pair.
 symbol one_cat_native_exact_arrow_pair_zero [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))

@@ -15,75 +15,69 @@ symbol RowFamilyMiddleChainZero [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero)
   (f : τ (@Transf I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Ra)
     (@short_exact_row_family_func I C C1 P t PA T Rb))) (g : τ (@Transf I (@ZeroArrowCone_cat C t T)
     (@short_exact_row_family_func I C C1 P t PA T Rb) (@short_exact_row_family_func I C C1 P t PA T Rc))) : Grpd
-≔ @Pi_grpd (Obj I) (λ x : τ (Obj I), (@= (Hom C (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+≔ @Pi_grpd (Obj I) (λ x : τ (Obj I), (@= (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-  (@short_exact_row_family_func I C C1 P t PA T Ra) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-  (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rc) x)) walking_arrow_src)) (@comp_fapp0 C
-  (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  (@short_exact_row_family_func I C C1 P t PA T Ra) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+  (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rc) x)))) (@comp_fapp0 C
+  (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-  Ra) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  Ra) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-  Rb) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  Rb) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-  Rc) x)) walking_arrow_src) (@computational_chain_pair_map_middle C (@computational_homology_preadditive C P t PA) (@fapp0
+  Rc) x))) (@computational_chain_pair_map_middle C (@computational_homology_preadditive C P t PA) (@fapp0
   (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-  (@short_exact_row_family_func I C C1 P t PA T Rb) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-  (@short_exact_row_family_func I C C1 P t PA T Rb) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-  (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) walking_arrow_tgt) (@fapp0
+  (@short_exact_row_family_func I C C1 P t PA T Rb) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+  (@short_exact_row_family_func I C C1 P t PA T Rb) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+  (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x))) (@fapp0
   (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-  (@short_exact_row_family_func I C C1 P t PA T Rc) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-  (@short_exact_row_family_func I C C1 P t PA T Rc) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-  (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rc) x)) walking_arrow_tgt)
+  (@short_exact_row_family_func I C C1 P t PA T Rc) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+  (@short_exact_row_family_func I C C1 P t PA T Rc) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+  (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rc) x)))
   (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
-  (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) (@fapp0 WalkingArrow_cat C
-  (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) walking_arrow_src) (@fapp0
-  WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
-  T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) walking_arrow_tgt)
+  (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
+  T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)))
   (@short_exact_row_family_at I C C1 P t PA T Rb x)) (@computational_short_exact_row_pair C P t PA (@fapp0
   (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-  (@short_exact_row_family_func I C C1 P t PA T Rc) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-  (@short_exact_row_family_func I C C1 P t PA T Rc) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-  (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rc) x)) walking_arrow_tgt)
+  (@short_exact_row_family_func I C C1 P t PA T Rc) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+  (@short_exact_row_family_func I C C1 P t PA T Rc) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+  (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rc) x)))
   (@short_exact_row_family_at I C C1 P t PA T Rc x)) (@short_exact_row_family_transf_at I C C1 P t PA T Rb Rc g x))
   (@computational_chain_pair_map_middle C (@computational_homology_preadditive C P t PA) (@fapp0 (@ZeroArrowCone_cat C t T)
   C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-  Ra) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  Ra) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-  Ra) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  Ra) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-  Ra) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-  (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) walking_arrow_src) (@fapp0
-  WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
-  T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) walking_arrow_tgt)
+  Ra) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+  (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
+  T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)))
   (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
-  (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Ra) x)) (@fapp0 WalkingArrow_cat C
-  (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Ra) x)) walking_arrow_src) (@fapp0
-  WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
-  T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Ra) x)) walking_arrow_tgt)
+  (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Ra) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Ra) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
+  T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Ra) x)))
   (@short_exact_row_family_at I C C1 P t PA T Ra x)) (@computational_short_exact_row_pair C P t PA (@fapp0
   (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-  (@short_exact_row_family_func I C C1 P t PA T Rb) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-  (@short_exact_row_family_func I C C1 P t PA T Rb) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-  (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)) walking_arrow_tgt)
+  (@short_exact_row_family_func I C C1 P t PA T Rb) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+  (@short_exact_row_family_func I C C1 P t PA T Rb) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+  (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rb) x)))
   (@short_exact_row_family_at I C C1 P t PA T Rb x)) (@short_exact_row_family_transf_at I C C1 P t PA T Ra Rb f x)))
-  (@preadditive_hom_zero C (@computational_homology_preadditive C P t PA) (@fapp0 WalkingArrow_cat C (@fapp0
-  (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
-  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Ra) x)) walking_arrow_src) (@fapp0
-  WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
-  T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rc) x)) walking_arrow_src))));
+  (@preadditive_hom_zero C (@computational_homology_preadditive C P t PA) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+  (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Ra) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
+  T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T Rc) x))))));
 
 constant symbol HomologyWindowRows [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [P : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
@@ -266,12 +260,12 @@ symbol homology_window_rowm_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) 
   (window : τ (@HomologyWindowFamily I C C1 P t PA T)) (x : τ (Obj I))
   : τ (@ComputationalShortExactRow C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0
     I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T
-    window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_rowm I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T
-    window)) x)) walking_arrow_tgt))
+    window)) x))))
 ≔ @short_exact_row_family_at I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window) x;
 
 symbol homology_window_row0_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
@@ -280,12 +274,12 @@ symbol homology_window_row0_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) 
   (window : τ (@HomologyWindowFamily I C C1 P t PA T)) (x : τ (Obj I))
   : τ (@ComputationalShortExactRow C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0
     I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T
-    window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T
-    window)) x)) walking_arrow_tgt))
+    window)) x))))
 ≔ @short_exact_row_family_at I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window) x;
 
 symbol homology_window_row1_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
@@ -294,12 +288,12 @@ symbol homology_window_row1_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) 
   (window : τ (@HomologyWindowFamily I C C1 P t PA T)) (x : τ (Obj I))
   : τ (@ComputationalShortExactRow C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0
     I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T
-    window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T
-    window)) x)) walking_arrow_tgt))
+    window)) x))))
 ≔ @short_exact_row_family_at I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window) x;
 
 symbol homology_window_row2_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
@@ -308,12 +302,12 @@ symbol homology_window_row2_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) 
   (window : τ (@HomologyWindowFamily I C C1 P t PA T)) (x : τ (Obj I))
   : τ (@ComputationalShortExactRow C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0
     I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T
-    window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row2 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row2 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T
-    window)) x)) walking_arrow_tgt))
+    window)) x))))
 ≔ @short_exact_row_family_at I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T window) x;
 
 symbol homology_window_F_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
@@ -322,35 +316,29 @@ symbol homology_window_F_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (window : τ (@HomologyWindowFamily I C C1 P t PA T)) (x : τ (Obj I))
   : τ (@ComputationalChainPairMap C (@computational_homology_preadditive C P t PA) (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_rowm I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_rowm I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_rowm I C C1 P t PA T window)) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C
+    (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@computational_short_exact_row_pair C P t
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@computational_short_exact_row_pair C P t
     PA (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x)) (@fapp0
-    WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
     t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I
-    C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+    C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
     WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))
-    walking_arrow_tgt) (@homology_window_rowm_at I C C1 P t PA T window x)) (@computational_short_exact_row_pair C P t PA
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@homology_window_rowm_at I C C1 P t PA T window x)) (@computational_short_exact_row_pair C P t PA
     (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0
-    WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
     t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I
-    C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+    C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
     WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_tgt) (@homology_window_row0_at I C C1 P t PA T window x)))
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@homology_window_row0_at I C C1 P t PA T window x)))
 ≔ @short_exact_row_family_transf_at I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)
   (@homology_window_family_row0 I C C1 P t PA T window) (@homology_window_family_F I C C1 P t PA T window) x;
 
@@ -360,35 +348,29 @@ symbol homology_window_G_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (window : τ (@HomologyWindowFamily I C C1 P t PA T)) (x : τ (Obj I))
   : τ (@ComputationalChainPairMap C (@computational_homology_preadditive C P t PA) (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@computational_short_exact_row_pair C P t
+    (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@computational_short_exact_row_pair C P t
     PA (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0
-    WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
     t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I
-    C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+    C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
     WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_tgt) (@homology_window_row0_at I C C1 P t PA T window x)) (@computational_short_exact_row_pair C P t PA
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@homology_window_row0_at I C C1 P t PA T window x)) (@computational_short_exact_row_pair C P t PA
     (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0
-    WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
     t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I
-    C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+    C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
     WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))
-    walking_arrow_tgt) (@homology_window_row1_at I C C1 P t PA T window x)))
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@homology_window_row1_at I C C1 P t PA T window x)))
 ≔ @short_exact_row_family_transf_at I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)
   (@homology_window_family_row1 I C C1 P t PA T window) (@homology_window_family_G I C C1 P t PA T window) x;
 
@@ -398,35 +380,29 @@ symbol homology_window_J_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (window : τ (@HomologyWindowFamily I C C1 P t PA T)) (x : τ (Obj I))
   : τ (@ComputationalChainPairMap C (@computational_homology_preadditive C P t PA) (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C
+    (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row2 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row2 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row2 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@computational_short_exact_row_pair C P t
+    (@homology_window_family_row2 I C C1 P t PA T window)) x))) (@computational_short_exact_row_pair C P t
     PA (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0
-    WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
     t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I
-    C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+    C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
     WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))
-    walking_arrow_tgt) (@homology_window_row1_at I C C1 P t PA T window x)) (@computational_short_exact_row_pair C P t PA
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@homology_window_row1_at I C C1 P t PA T window x)) (@computational_short_exact_row_pair C P t PA
     (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T window)) x)) (@fapp0
-    WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
     t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I
-    C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+    C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
     WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T window)) x))
-    walking_arrow_tgt) (@homology_window_row2_at I C C1 P t PA T window x)))
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T window)) x))) (@homology_window_row2_at I C C1 P t PA T window x)))
 ≔ @short_exact_row_family_transf_at I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)
   (@homology_window_family_row2 I C C1 P t PA T window) (@homology_window_family_J I C C1 P t PA T window) x;
 
@@ -434,174 +410,158 @@ symbol homology_window_upper_zero_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_
   [P : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
   (PA : τ (@PreAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (window : τ (@HomologyWindowFamily I C C1 P t PA T)) (x : τ (Obj I))
-  : τ (@= (Hom C (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  : τ (@= (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_rowm I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T
-    window)) x)) walking_arrow_src)) (@comp_fapp0 C (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)))) (@comp_fapp0 C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T
-    window)) x)) walking_arrow_src) (@computational_chain_pair_map_middle C (@computational_homology_preadditive C P t PA)
+    window)) x))) (@computational_chain_pair_map_middle C (@computational_homology_preadditive C P t PA)
     (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0
-    WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
     t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I
-    C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+    C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
     WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T
-    window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T
-    window)) x)) walking_arrow_tgt) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
+    window)) x))) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@homology_window_row0_at I C C1 P t PA T
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@homology_window_row0_at I C C1 P t PA T
     window x)) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@homology_window_row1_at I C C1 P t PA T
+    (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@homology_window_row1_at I C C1 P t PA T
     window x)) (@homology_window_G_at I C C1 P t PA T window x)) (@computational_chain_pair_map_middle C
     (@computational_homology_preadditive C P t PA) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
     (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1
-    P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_rowm I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T
-    window)) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+    window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T
-    window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T
-    window)) x)) walking_arrow_tgt) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
+    window)) x))) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_rowm I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_rowm I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_rowm I C C1 P t PA T window)) x)) walking_arrow_tgt) (@homology_window_rowm_at I C C1 P t PA T
+    (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@homology_window_rowm_at I C C1 P t PA T
     window x)) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@homology_window_row0_at I C C1 P t PA T
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@homology_window_row0_at I C C1 P t PA T
     window x)) (@homology_window_F_at I C C1 P t PA T window x))) (@preadditive_hom_zero C
-    (@computational_homology_preadditive C P t PA) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@computational_homology_preadditive C P t PA) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_rowm I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_src)))
+    (@homology_window_family_row1 I C C1 P t PA T window)) x)))))
 ≔ (@homology_window_family_upper_zero I C C1 P t PA T window) x;
 
 symbol homology_window_lower_zero_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [P : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
   (PA : τ (@PreAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (window : τ (@HomologyWindowFamily I C C1 P t PA T)) (x : τ (Obj I))
-  : τ (@= (Hom C (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  : τ (@= (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T
-    window)) x)) walking_arrow_src)) (@comp_fapp0 C (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)))) (@comp_fapp0 C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T
-    window)) x)) walking_arrow_src) (@computational_chain_pair_map_middle C (@computational_homology_preadditive C P t PA)
+    window)) x))) (@computational_chain_pair_map_middle C (@computational_homology_preadditive C P t PA)
     (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0
-    WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C
     t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I
-    C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+    C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
     WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))
-    walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T
-    window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row2 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row2 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T
-    window)) x)) walking_arrow_tgt) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
+    window)) x))) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@homology_window_row1_at I C C1 P t PA T
+    (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@homology_window_row1_at I C C1 P t PA T
     window x)) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row2 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row2 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row2 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row2 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@homology_window_row2_at I C C1 P t PA T
+    (@homology_window_family_row2 I C C1 P t PA T window)) x))) (@homology_window_row2_at I C C1 P t PA T
     window x)) (@homology_window_J_at I C C1 P t PA T window x)) (@computational_chain_pair_map_middle C
     (@computational_homology_preadditive C P t PA) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
     (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1
-    P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T
-    window)) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+    window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T
-    window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+    (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
     (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T
-    window)) x)) walking_arrow_tgt) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
+    window)) x))) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row0 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row0 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@homology_window_row0_at I C C1 P t PA T
+    (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@homology_window_row0_at I C C1 P t PA T
     window x)) (@computational_short_exact_row_pair C P t PA (@fapp0 (@ZeroArrowCone_cat C t T) C
     (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@homology_window_family_row1 I C C1 P t PA T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row1 I C C1 P t PA T window)) x)) walking_arrow_tgt) (@homology_window_row1_at I C C1 P t PA T
+    (@homology_window_family_row1 I C C1 P t PA T window)) x))) (@homology_window_row1_at I C C1 P t PA T
     window x)) (@homology_window_G_at I C C1 P t PA T window x))) (@preadditive_hom_zero C
-    (@computational_homology_preadditive C P t PA) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T)
-    (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))
-    walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+    (@computational_homology_preadditive C P t PA) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T)
+    (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+    (@short_exact_row_family_func I C C1 P t PA T (@homology_window_family_row0 I C C1 P t PA T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
     (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t PA T
-    (@homology_window_family_row2 I C C1 P t PA T window)) x)) walking_arrow_src)))
+    (@homology_window_family_row2 I C C1 P t PA T window)) x)))))
 ≔ (@homology_window_family_lower_zero I C C1 P t PA T window) x;

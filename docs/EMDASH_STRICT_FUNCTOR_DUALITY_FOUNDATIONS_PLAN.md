@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; terminal Homd whole-comparison contract approved; complete diagnostic integration, shared-source validation and production qualification remain open
+Status: active integration; complete migrated source and diagnostic scopes qualified; production sources promoted; production health, frontend/source pins and final integration remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -100,7 +100,8 @@ controls and warning inventory. The complete central gate also passes all
 `20261025T115803Z-cf6d9e83c6a74f709856d3e530dabba3`, 401.014s/2,537,028KiB
 at 900s/4GiB (140 inputs), subject reduction enabled. [Adoption review](../emdash2/audits/strict-default-action-boundary/foundation_terminal_adoption_review.md)
 records the exact change. R01–R03 now have both the explicit accepted contract
-and complete-central qualification in staging. Production adoption remains R14.
+and complete-central qualification. Their source adoption is included in the
+production promotion below; R14's remaining integration gates stay open.
 
 ### Current migration tranche
 
@@ -111,13 +112,45 @@ older running/failed states and do not override it.
 | --- | --- | --- |
 | Complete mathematical library | All 791 original owners pass in the warning-enabled staged gate. | Preserve the checked source and warning dispositions through promotion. |
 | Complete original reviewers | All 596 pass on the supported checker; 4,284 positive and 630 negative assertions. | Preserve their exact source and contracts through promotion. |
-| Supported-binary owner coverage | The reviewer run covers 776 owners; the remaining 15-owner gate is running. | Finish that gate and record its receipt. |
-| Central diagnostics | All 2,441 assertions pass in the identical central-copy gate, including all five approved terminal comparisons. | Check the actual central target on the supported checker. |
-| Production sources | The staged candidate differs in 648 registered files; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Promote qualified sources, reconcile comments/authorities, refresh generated evidence and complete owning gates. |
+| Supported-binary owner coverage | All 791 owners are covered by the passing reviewer and residual-owner gates. | Preserve the exact source/runtime evidence through promotion. |
+| Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
+| Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates; checkpoint the reviewed source promotion. |
+| Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes after its comment-only refresh. | Production health is running with exact per-target resource profiles. A generated not-run report is not substituted for execution evidence. |
 | Frontend/source pins | Prospective review found actual coefficient-type changes, including the frozen dependent-target contract. | Review affected signatures and consumers; do not refresh hashes alone or claim an automatic TypeScript transfer. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)
+
+The actual central target passes on the supported binary, receipt
+`20261025T140330Z-b1d00426c42742c2806f4696f1f51bc2`: 140 inputs,
+500.367s/2,553,648KiB at 900s/4GiB, with warnings and subject reduction.
+Together with the reviewer and residual-owner receipts, this covers all
+1,388 original registered LP files. The guarded source promotion copied the
+648 changed files into this worktree's active paths and verified the 740
+unchanged files. [Promotion verification](../emdash2/audits/strict-default-action-boundary/foundation_production_promotion_verification.json)
+records exact before/qualified/after hashes, preserved carrier relocation,
+and the comment-only/whitespace-only adjustments. This is local source
+promotion, not a merge, publication or completed integration gate.
+
+The active core then passes with subject reduction in 35.426s at 90s/2GiB,
+receipt `20261025T143049Z-533acc6281664a6c88bd79eb55372231`.
+Registry, strict catalog, core TOC, inferred-slot and report lifecycle checks
+pass. Production health is now running serially with the supported checker;
+the central diagnostic uses the measured 900s/4GiB named profile, while
+defaults and other registered profiles remain unchanged. Its running state
+must not be reported as a full health or CI pass. Frontend contract/source-pin
+review, final authority integration and the later book/article/nerve stages
+remain required. The promoted source tranche is not checkpointed yet.
+
+The15 residual owners pass with warnings and subject reduction:
+`20261025T134130Z-9493bf1c091242d5ad568b76b0cd20a7`,414 exact inputs,
+1001.482s/3,296,956KiB under1800s/4GiB. Together with the596-reviewer receipt,
+this covers every one of the791 original library owners on the same supported
+binary. [Coverage evidence](../emdash2/audits/strict-default-action-boundary/foundation_supported_source_coverage.json)
+retains the exact union, without counting an unexecuted input as passed.
+The actual `emdash3_2_checks.lp` is now running on that binary at900s/4GiB;
+its identical2441-assertion copy already passed at the earlier recorded build.
+
 
 
 **All 596 original reviewers now pass on the supported checker.** Receipt

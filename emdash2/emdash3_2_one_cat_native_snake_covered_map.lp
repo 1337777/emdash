@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_native_snake_cover;
 // c∘b kills the original inclusion E→B, by γ∘π_a=c∘b and kernel annihilation.
 symbol one_cat_native_snake_covered_zero [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -31,7 +31,7 @@ symbol one_cat_native_snake_covered_zero [K C : Cat] [S : τ (@PreadditiveCatego
 // ℓ:E⇒K(c) is the original whole kernel lift of b∘κ_E.
 symbol one_cat_native_snake_covered_lift [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -46,7 +46,7 @@ symbol one_cat_native_snake_covered_lift [K C : Cat] [S : τ (@PreadditiveCatego
 // Whole reconstruction: κ_c∘ℓ=b∘κ_E, at the original K(c).
 symbol one_cat_native_snake_covered_lift_reconstruction [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -59,17 +59,17 @@ symbol one_cat_native_snake_covered_lift_reconstruction [K C : Cat] [S : τ (@Pr
 // The original whole α as an input to Q.
 symbol one_cat_native_snake_alpha_diagram [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
-  (h : τ (@NativeSnakeInput K C t T A B X D b c)) : τ (Functor K (Functor_cat WalkingArrow_cat C))
+  (h : τ (@NativeSnakeInput K C t T A B X D b c)) : τ (Functor K (Functor_oplax_cat WalkingArrow_cat C))
 ≔ @transf_arrow_diagram_func K C A (@kernel_adjunction_family_func K C S t T P (@transf_arrow_diagram_func K C X D c))
     (@one_cat_native_snake_alpha K C S C1 t T T0 P A B X D b c h);
 
 // θ=π_α∘ℓ:E⇒Q(α), with the positive orientation fixed by the two original factors.
 symbol one_cat_native_snake_covered_transf [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))

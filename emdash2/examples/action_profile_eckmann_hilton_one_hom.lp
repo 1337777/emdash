@@ -10,7 +10,7 @@ symbol api_EH_comm_one_hom
 ≔ @EH_comm B x alpha beta
     (@one_cat_transfor_is_strict (Hom_cat B x x) (Hom_cat B x x) D1
       (@id_func (Hom_cat B x x)) (@id_func (Hom_cat B x x))
-      (@hom_postcomp_tele_fapp1_fapp0 B B (@id_func B) x x x
+      (@hom_postcomp_tele_transf B B (@id_func B) x x x
         (@id B x) (@id B x) beta));
 
 assert [B : Cat] (x : τ (Obj B))

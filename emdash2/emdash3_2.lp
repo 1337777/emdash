@@ -1,13 +1,15 @@
 /*
   m- / emdash3.2
-  Directed-family mixed-variance v3.2 migration draft.
+  Strict-functor and corrected-duality v3.2 development.
 
   This file began as a fork of the retired v3.1 baseline.  It is now the active
   v3.2 development; the v3.1 file and original HOM/FAM/PI/CONST plan are
   archived historical baselines rather than current design authorities.  This file uses
-  directed Cat-valued families directly:
+  strict functors, conventional lax transfors and Cartesian coefficient families:
 
-    Functor_cat K Cat_cat ↪ Catd_cat K.
+    Obj (Catd_cat K) ↪ Obj (Functor_cat K Cat_cart).
+
+  The public universe retains Hom_cat Cat_cat A B ↪ Functor_cat A B.
 
   Canonical surface syntax authority:
     reports/REPORT_EMDASH_V3_2_CANONICAL_SURFACE_SYNTAX_2026-06-05.md
@@ -3296,6 +3298,30 @@ rule @id (Op_cat $A) $X ↪ @id $A $X;
 // Opposite composition reverses the ordered pair of factors.
 rule @comp_fapp0 (Op_cat $A) $X $Y $Z $g $f ↪ @comp_fapp0 $A $Z $Y $X $f $g;
 
+// Reverse dimensions 2 and above. Dimension-one transpose remains Op_cat.
+injective symbol CoAbove2_cat (A : Cat) : Cat;
+// Total opposite is a named derived operation, not another primitive head.
+symbol TotalOp_cat (A : Cat) : Cat ≔ CoAbove2_cat (Op_cat A);
+
+rule CoAbove2_cat (CoAbove2_cat $A) ↪ $A;
+rule Op_cat (CoAbove2_cat $A) ↪ CoAbove2_cat (Op_cat $A);
+rule Obj (CoAbove2_cat $A) ↪ Obj $A;
+rule Hom_cat (CoAbove2_cat $A) $x $y ↪ TotalOp_cat (Hom_cat $A $x $y);
+rule @id (CoAbove2_cat $A) $x ↪ @id $A $x;
+rule @comp_fapp0 (CoAbove2_cat $A) $x $y $z $g $f
+  ↪ @comp_fapp0 $A $x $y $z $g $f;
+
+// Reverse dimension two only. The existing Op_cat is the dimension-one
+// transpose, as witnessed by its unchanged Hom projection.
+injective symbol CoAt2_cat (A : Cat) : Cat;
+rule CoAt2_cat (CoAt2_cat $A) ↪ $A;
+rule Op_cat (CoAt2_cat $A) ↪ CoAt2_cat (Op_cat $A);
+rule Obj (CoAt2_cat $A) ↪ Obj $A;
+rule Hom_cat (CoAt2_cat $A) $X $Y ↪ Op_cat (Hom_cat $A $X $Y);
+rule @id (CoAt2_cat $A) $X ↪ @id $A $X;
+rule @comp_fapp0 (CoAt2_cat $A) $X $Y $Z $g $f
+  ↪ @comp_fapp0 $A $X $Y $Z $g $f;
+
 // Path categories internalize HoTT equality as a groupoidal category.
 //
 // Surface/formula:
@@ -3375,10 +3401,13 @@ symbol fapp1_func : Π [A B : Cat], Π (F_AB : τ (Functor A B)),
   τ (Functor (Hom_cat A X_A Y_A) (Hom_cat B (fapp0 F_AB X_A) (fapp0 F_AB Y_A)));
 
 // Capped arrow action of a functor: F[f].
+// The result uses the whole action's canonical Hom category, so opposite
+// endpoints compute before Hom-alias inversion. Keep the input classifier
+// for domain inference when object-level duality erases carrier information.
 symbol fapp1_fapp0 : Π [A B : Cat], Π (F_AB : τ (Functor A B)),
   Π [X_A Y_A : τ (Obj A)],
   Π (f : τ (Hom A X_A Y_A)),
-  τ (Hom B (fapp0 F_AB X_A) (fapp0 F_AB Y_A));
+  τ (Obj (Hom_cat B (fapp0 F_AB X_A) (fapp0 F_AB Y_A)));
 
 // Projection beta: applying the full hom action yields capped arrow action.
 rule fapp0 (fapp1_func $F_AB) $f ↪ fapp1_fapp0 $F_AB $f;
@@ -3394,6 +3423,21 @@ rule @fapp1_fapp0 $A $B $F $X $X (@id $A $X)
 rule @fapp1_fapp0
       (Op_cat $K) $D $F $x $x (@id $K $x)
   ↪ @id $D (@fapp0 (Op_cat $K) $D $F $x);
+
+// Source identity projections for the two new duality normal forms.
+// These are strict-functor identity joins after the inner id has lost its tag.
+// lhs-audit: keep 1 -- the R source selects the erased-identity presentation.
+rule @fapp1_fapp0 (CoAbove2_cat $K) $D $F $x $x (@id $K $x)
+  ↪ @id $D (@fapp0 (CoAbove2_cat $K) $D $F $x);
+
+// lhs-audit: keep 1 -- the total source has lost both R and T identity tags.
+rule @fapp1_fapp0 (CoAbove2_cat (Op_cat $K)) $D $F $x $x (@id $K $x)
+  ↪ @id $D (@fapp0 (CoAbove2_cat (Op_cat $K)) $D $F $x);
+
+// The shifted family source likewise loses its dimension-two identity tag.
+// lhs-audit: keep 1 -- CoAt2 is the erased-identity source discriminator.
+rule @fapp1_fapp0 (CoAt2_cat $K) $D $F $x $x (@id $K $x)
+  ↪ @id $D (@fapp0 (CoAt2_cat $K) $D $F $x);
 
 /*
    Typed equality view of the generic strict identity cut.
@@ -3414,6 +3458,15 @@ symbol fapp1_id_path
  ≔ @eq_refl
      (Hom B (@fapp0 A B F X) (@fapp0 A B F X))
      (@id B (@fapp0 A B F X));
+
+// Strict functor computation at the original capped composition owner.
+// Strict functoriality: F[g] o F[f] reduces to F[g o f].
+rule @comp_fapp0
+      $B _ _ _
+      (@fapp1_fapp0 $A $B $F $Y $Z $g)
+      (@fapp1_fapp0 $A $B $F $X $Y $f)
+  ↪ @fapp1_fapp0 $A $B $F $X $Z
+      (@comp_fapp0 $A $X $Y $Z $g $f);
 
 /*
   The former capped composition cut and detached all-components law are
@@ -3573,6 +3626,13 @@ symbol path_to_hom
     C
     (Core_incl_func C)
     x y p;
+
+// Congruence of the existing Core inclusion at proof-time-equal endpoint
+// presentations. All endpoints and the actual path remain constrained; this
+// does not reflect arbitrary arrows or identify different native paths.
+unif_rule @fapp1_fapp0 _ _ (@Core_incl_func $C) $x $y $p
+  ≡ @fapp1_fapp0 _ _ (@Core_incl_func $C) $x1 $y1 $p1
+  ↪ [ $x ≡ $x1; $y ≡ $y1; $p ≡ $p1 ];
 
 // Pointwise arrow form of the Core-inclusion/opposite square. Functor-level
 // packaging is deliberately deferred; the computational owner remains the
@@ -5382,6 +5442,24 @@ rule τ (Obj Cat_cat)  ↪ Cat;
 // Directed-universe beta: a hom in `Cat_cat` is an ordinary functor category.
 rule Hom_cat Cat_cat $X $Y ↪ Functor_cat $X $Y;
 
+// Cartesian coefficient required by the selected Homd family type.
+injective symbol Functor_cart_cat (A B : Cat) : Cat;
+rule Obj (Functor_cart_cat $A $B) ↪ Functor $A $B;
+
+constant symbol Cat_cart : Cat;
+rule Obj Cat_cart ↪ Obj Cat_cat;
+rule Hom_cat Cat_cart $A $B ↪ Functor_cart_cat $A $B;
+
+
+// Whole inclusion of the selected coefficient; category/functor objects agree.
+injective symbol Cat_cart_include : τ (Functor Cat_cart Cat_cat);
+rule fapp0 Cat_cart_include $A ↪ $A;
+rule @fapp1_fapp0 _ _ Cat_cart_include _ _ $F ↪ $F;
+rule @id Cat_cart $A ↪ @id Cat_cat $A;
+// lhs-audit: keep 1 -- only composition inside the Cartesian coefficient.
+rule @comp_fapp0 Cat_cart $A $B $C $G $F
+  ↪ @comp_fapp0 Cat_cat $A $B $C $G $F;
+
 /*
   Internal path-category action.
 
@@ -5454,6 +5532,30 @@ rule @fapp1_fapp0
       $x $y $p
   ↪ @eq_ap $A $B $f $x $y $p;
 
+// Cartesian realization of groupoids. The ordinary Path_cat_func remains
+// available; this whole coefficient view has strict transformation action.
+injective symbol Path_cat_cart_func : τ (Functor Grpd_cat Cat_cart);
+
+rule @fapp0 _ _ Path_cat_cart_func $A ↪ Path_cat $A;
+
+// Equalities of functions act through their equality of actual Path-map
+// objects and the existing core inclusion into the Cartesian mapping category.
+rule @fapp1_func _ _ Path_cat_cart_func $A $B
+  ↪ @comp_fapp0 Cat_cat
+      (Path_cat (@Function_grpd $A $B))
+      (Core_cat (Functor_cart_cat (Path_cat $A) (Path_cat $B)))
+      (Functor_cart_cat (Path_cat $A) (Path_cat $B))
+      (Core_incl_func (Functor_cart_cat (Path_cat $A) (Path_cat $B)))
+      (@path_map_func
+        (@Function_grpd $A $B)
+        (Functor (Path_cat $A) (Path_cat $B))
+        (λ f : τ (@Function_grpd $A $B), @path_map_func $A $B f));
+
+// The generic capped projection can fire before the whole action above.
+// Both orders retain the same actual Path-map functor.
+rule @fapp1_fapp0 _ _ Path_cat_cart_func $A $B $f
+  ↪ @path_map_func $A $B $f;
+
 // Canonical off-diagonal equality action for h : f = g.
 symbol path_map_transf_cell
   [A B : Grpd]
@@ -5493,6 +5595,12 @@ symbol functor_object_function
 //   Catd_cat(K) = K ⊢ Cat
 //   Catd(K)     = Obj(Catd_cat(K))
 //   E[k]        = fapp0 E k, usually via Fibre_cat E k.
+// The existing path-reflexivity identity view at the admitted coefficient.
+unif_rule @fapp1_fapp0 (Path_cat $A) Cat_cart $D $x $x (@eq_refl $A $x)
+  ≡ @id Cat_cat (@fapp0 (Path_cat $A) Cat_cart $D $x)
+  ↪ [ tt ≡ tt ];
+
+
 injective symbol Catd_cat (K : Cat) : Cat;
 
 // Object/type classifier of directed Cat-valued families over K.
@@ -5502,11 +5610,11 @@ injective symbol Catd (K : Cat) : Grpd
 // Runtime object projection: a directed family is represented by an ordinary
 // Cat-valued functor while the `Catd_cat` category head remains visible.
 rule Obj (@Catd_cat $K)
-  ↪ Obj (Functor_cat $K Cat_cat);
+  ↪ Obj (Functor_cat $K Cat_cart);
 
 // Proof-time comparison only: the ordinary and displayed category
 // presentations recover the same base.
-unif_rule Functor_cat $K Cat_cat ≡ @Catd_cat $K'
+unif_rule Functor_cat $K Cat_cart ≡ @Catd_cat $K'
   ↪ [ $K ≡ $K' ];
 
 // Proof-time inversion for two rigid directed-family category heads.
@@ -5623,13 +5731,21 @@ symbol comp_cat_fapp0 [A B : Cat] [C : Cat]
 ≔ @comp_fapp0 Cat_cat A B C F G;
 
 // Sufficient congruence when the two actual arrows are identical.
-// Compare every endpoint; this is not injectivity of composition.
-unif_rule @comp_fapp0 (Functor_cat $B $C) $X $Y $Z $g $f
-  ≡ @comp_fapp0 (Functor_cat $B0 $C0) $X0 $Y0 $Z0 $g $f
-  ↪ [ $B ≡ $B0; $C ≡ $C0; $X ≡ $X0; $Y ≡ $Y0; $Z ≡ $Z0 ];
+// Compare the category and every endpoint; no injectivity or reassociation
+// is inferred. The data match guards this metadata-only comparison.
+unif_rule @comp_fapp0 $C $X $Y $Z $g $f
+  ≡ @comp_fapp0 $D $X0 $Y0 $Z0 $g $f
+  ↪ [ $D ≡ $C; $X0 ≡ $X; $Y0 ≡ $Y; $Z0 ≡ $Z ];
 // Sufficient congruence under the same actual precomposing functor; compare all other fields.
 unif_rule @comp_fapp0 Cat_cat $X $Y $Z $F $H
   ≡ @comp_fapp0 Cat_cat $X0 $Y0 $Z0 $G $H
+  ↪ [ $X ≡ $X0; $Y ≡ $Y0; $Z ≡ $Z0; $F ≡ $G ];
+
+// Sufficient congruence under the same actual postcomposing functor.
+// This only reduces the comparison to equality of all remaining data;
+// it neither assumes cancellation nor adds a runtime composition fold.
+unif_rule @comp_fapp0 Cat_cat $X $Y $Z $H $F
+  ≡ @comp_fapp0 Cat_cat $X0 $Y0 $Z0 $H $G
   ↪ [ $X ≡ $X0; $Y ≡ $Y0; $Z ≡ $Z0; $F ≡ $G ];
 
 // Cat_cat composition point/arrow actions of composed functors. Identity
@@ -5647,10 +5763,14 @@ rule @comp_fapp0
       $F;
 
 // Object beta for composed functors: `(F o G)[x] = F[G[x]]`.
-rule @fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $x ↪ @fapp0 $B $C $F (@fapp0 $A $B $G $x);
+// The typed composite supplies its own source and target; caller
+// annotations may be a proof-time category facade.
+rule @fapp0 _ _ (@comp_fapp0 Cat_cat $A $B $C $F $G) $x ↪ @fapp0 $B $C $F (@fapp0 $A $B $G $x);
 
 // Arrow beta for composed functors: `(F o G)[f] = F[G[f]]`.
-rule @fapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y $f
+// The typed composite supplies its own source and target; caller
+// annotations may be a proof-time category facade.
+rule @fapp1_fapp0 _ _ (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y $f
   ↪ @fapp1_fapp0
       $B
       $C
@@ -5658,6 +5778,32 @@ rule @fapp1_fapp0 $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y $f
       (@fapp0 $A $B $G $x)
       (@fapp0 $A $B $G $y)
       (@fapp1_fapp0 $A $B $G $x $y $f);
+
+// Owner relocation: these two unchanged rules come from section
+// 17d of the pinned nucleus. Whole composition is required by the derived
+// family action, before any displayed-specific computation is introduced.
+rule @fapp1_func $A $A (@id Cat_cat $A) $x $y ↪ @id Cat_cat (Hom_cat $A $x $y);
+
+// Hom-action of a composite: (F ∘ G)_1 ↪ F_1 ∘ G_1.
+// The typed composite supplies its own source and target; caller
+// annotations may be a proof-time category facade.
+rule @fapp1_func _ _ (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y
+  ↪ @comp_fapp0
+      Cat_cat
+      (Hom_cat $A $x $y)
+      (Hom_cat $B
+        (@fapp0 $A $B $G $x)
+        (@fapp0 $A $B $G $y))
+      (Hom_cat $C
+        (@fapp0 $B $C $F (@fapp0 $A $B $G $x))
+        (@fapp0 $B $C $F (@fapp0 $A $B $G $y)))
+      (@fapp1_func
+        $B
+        $C
+        $F
+        (@fapp0 $A $B $G $x)
+        (@fapp0 $A $B $G $y))
+      (@fapp1_func $A $B $G $x $y);
 
 // Ordinary category identity cuts: g ∘ id ↪ g and id ∘ f ↪ f. The repeated
 // middle object is the intentional composition-interface guard; the external
@@ -6991,6 +7137,113 @@ rule @Op_func _ _ (@id Cat_cat $A) ↪ @id Cat_cat (Op_cat $A);
 rule @Op_func _ _ (@comp_fapp0 Cat_cat $A $B $C $F $G)
   ↪ comp_cat_fapp0 (Op_func $F) (Op_func $G);
 
+// The same strict functor with dimensions 2 and above reversed.
+injective symbol CoAbove2_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (CoAbove2_cat A) (CoAbove2_cat B));
+symbol TotalOp_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (TotalOp_cat A) (TotalOp_cat B))
+≔ @CoAbove2_func (Op_cat A) (Op_cat B) (@Op_func A B F);
+
+rule @CoAbove2_func _ _ (@CoAbove2_func _ _ $F) ↪ $F;
+rule @Op_func _ _ (@CoAbove2_func $A $B $F)
+  ↪ @CoAbove2_func (Op_cat $A) (Op_cat $B) (@Op_func $A $B $F);
+rule @fapp0 _ _ (@CoAbove2_func $A $B $F) $x ↪ @fapp0 $A $B $F $x;
+rule @fapp1_func _ _ (@CoAbove2_func $A $B $F) $x $y
+  ↪ @TotalOp_func (Hom_cat $A $x $y)
+      (Hom_cat $B (fapp0 $F $x) (fapp0 $F $y))
+      (@fapp1_func $A $B $F $x $y);
+rule @fapp1_fapp0 _ _ (@CoAbove2_func $A $B $F) $x $y $p
+  ↪ @fapp1_fapp0 $A $B $F $x $y $p;
+rule @CoAbove2_func _ _ (@id Cat_cat $A)
+  ↪ @id Cat_cat (CoAbove2_cat $A);
+rule @CoAbove2_func _ _ (@comp_fapp0 Cat_cat $A $B $C $G $F)
+  ↪ @comp_cat_fapp0 (CoAbove2_cat $A) (CoAbove2_cat $B) (CoAbove2_cat $C)
+      (@CoAbove2_func $B $C $G) (@CoAbove2_func $A $B $F);
+
+
+// The same strict functor, with dimension two reversed in both endpoints.
+injective symbol CoAt2_func [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor (CoAt2_cat A) (CoAt2_cat B));
+rule @CoAt2_func _ _ (@CoAt2_func _ _ $F) ↪ $F;
+rule @fapp0 _ _ (@CoAt2_func $A $B $F) $x ↪ @fapp0 $A $B $F $x;
+rule @fapp1_func _ _ (@CoAt2_func $A $B $F) $x $y
+  ↪ @Op_func (Hom_cat $A $x $y)
+      (Hom_cat $B (fapp0 $F $x) (fapp0 $F $y))
+      (@fapp1_func $A $B $F $x $y);
+rule @fapp1_fapp0 _ _ (@CoAt2_func $A $B $F) $x $y $p
+  ↪ @fapp1_fapp0 $A $B $F $x $y $p;
+rule @CoAt2_func _ _ (@id Cat_cat $A)
+  ↪ @id Cat_cat (CoAt2_cat $A);
+rule @CoAt2_func _ _ (@comp_fapp0 Cat_cat $A $B $C $G $F)
+  ↪ @comp_cat_fapp0 (CoAt2_cat $A) (CoAt2_cat $B) (CoAt2_cat $C)
+      (@CoAt2_func $B $C $G) (@CoAt2_func $A $B $F);
+
+// Whole Cartesian mapping-category action of dimension-one transpose.
+// A transformation F=>G is sent to Op(G)=>Op(F); higher directions follow
+// the actual transpose of this mapping category, not its total reversal.
+injective symbol Op_func_func (A B : Cat)
+  : τ (Functor
+      (Op_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (Op_cat A) (Op_cat B)));
+rule @fapp0 _ _ (Op_func_func $A $B) $F ↪ @Op_func $A $B $F;
+
+// Dimension-two reversal on the Cartesian mapping category. This is the
+// whole structural action, not a supplied cell or equality certificate.
+injective symbol CoAt2_func_func (A B : Cat)
+  : τ (Functor
+      (CoAt2_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (CoAt2_cat A) (CoAt2_cat B)));
+rule @fapp0 _ _ (CoAt2_func_func $A $B) $F ↪ @CoAt2_func $A $B $F;
+
+// Whole action on Cartesian mapping categories. This reverses higher
+// transformation directions, not the functor objects or first direction.
+injective symbol CoAbove2_func_func (A B : Cat)
+  : τ (Functor (CoAbove2_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (CoAbove2_cat A) (CoAbove2_cat B)));
+rule fapp0 (CoAbove2_func_func $A $B) $F ↪ @CoAbove2_func $A $B $F;
+
+// Total mapping action is the actual composite of the two primitive actions.
+symbol TotalOp_cart_func_func (A B : Cat)
+  : τ (Functor (TotalOp_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (TotalOp_cat A) (TotalOp_cat B)))
+≔ @comp_cat_fapp0
+    (CoAbove2_cat (Op_cat (Functor_cart_cat A B)))
+    (CoAbove2_cat (Functor_cart_cat (Op_cat A) (Op_cat B)))
+    (Functor_cart_cat (TotalOp_cat A) (TotalOp_cat B))
+    (CoAbove2_func_func (Op_cat A) (Op_cat B))
+    (@CoAbove2_func (Op_cat (Functor_cart_cat A B))
+      (Functor_cart_cat (Op_cat A) (Op_cat B)) (Op_func_func A B));
+
+// Category-valued total opposite needs the shifted coefficient source R(Cat).
+constant symbol total_op_cart : τ (Functor (CoAbove2_cat Cat_cart) Cat_cart);
+rule @fapp0 _ _ total_op_cart $A ↪ TotalOp_cat $A;
+rule @fapp1_func _ _ total_op_cart $A $B ↪ TotalOp_cart_func_func $A $B;
+rule @fapp1_fapp0 _ _ total_op_cart $A $B $F ↪ @TotalOp_func $A $B $F;
+
+// Whole formation for variable strict families, with its Cartesian parameter
+// profile. Its composition body and object projection are declared below.
+injective symbol TotalOp_catd_func (K : Cat)
+  : τ (Functor (CoAbove2_cat (Functor_cart_cat K Cat_cart))
+      (Functor_cart_cat (CoAbove2_cat K) Cat_cart));
+
+// Structural total-duality map for conventional lax transfors.
+// This whole map is primitive; it is not composed from unsupported whole
+// dimension-one and above-two actions on arbitrary lax transformations.
+injective symbol TotalOp_func_func (A B : Cat)
+  : τ (Functor
+      (TotalOp_cat (Functor_cat A B))
+      (Functor_cat (TotalOp_cat A) (TotalOp_cat B)));
+
+rule @fapp0 _ _ (TotalOp_func_func $A $B) $F
+  ↪ @TotalOp_func $A $B $F;
+
+// The coefficient-level source reverses all dimensions from two upward.
+constant symbol total_op : τ (Functor (CoAbove2_cat Cat_cat) Cat_cat);
+rule @fapp0 _ _ total_op $A ↪ TotalOp_cat $A;
+rule @fapp1_func _ _ total_op $A $B ↪ TotalOp_func_func $A $B;
+rule @fapp1_fapp0 _ _ total_op $A $B $F ↪ @TotalOp_func $A $B $F;
+
+
 // Terminal category and points-as-functors are needed to derive unary homs from
 // binary homs.
 //
@@ -7002,6 +7255,7 @@ constant symbol Terminal_cat : Cat;
 
 // Terminal normal forms: Obj(1)=Unit, Hom_1(*,*)=1, id/comp are Terminal_obj.
 rule Op_cat Terminal_cat ↪ Terminal_cat;
+rule CoAbove2_cat Terminal_cat ↪ Terminal_cat;
 
 // Object classifier of the terminal category is the unit groupoid.
 rule Obj Terminal_cat ↪ Unit_grpd;
@@ -7014,6 +7268,13 @@ constant symbol Terminal_obj : τ (Obj Terminal_cat);
 
 // Terminal identity is the unique terminal object/arrow.
 rule @id Terminal_cat _ ↪ Terminal_obj;
+
+// Strict identity action after id_1(u) has projected to Terminal_obj.
+// Keep the actual source point u: matching endpoints identify this erased
+// identity without unit-object eta or a rule for an arbitrary neutral arrow.
+// lhs-audit: keep 1 -- terminal source; the repeated endpoints retain the identity's point.
+rule @fapp1_fapp0 Terminal_cat $B $F $u $u Terminal_obj
+  ↪ @id $B (@fapp0 Terminal_cat $B $F $u);
 
 // Terminal composition is the unique terminal object/arrow.
 rule @comp_fapp0 Terminal_cat _ _ _ _ _ ↪ Terminal_obj;
@@ -7062,6 +7323,15 @@ rule @comp_fapp0 Cat_cat $A $B $C $F (@Const_func $A $B $b)
 rule @comp_fapp0 Cat_cat $A $B $C (@Const_func $B $C $c) $G
   ↪ @Const_func $A $C $c;
 
+// A whole composite out of 1 agrees with the point it selects. Functors are
+// strict by default. This is a proof-time view, not a terminal-source runtime
+// eta rule: both supplied functors survive in the selected point.
+// lhs-audit: keep 1,2,3,4 -- ordinary terminal source; B,C type the retained point action.
+unif_rule @comp_fapp0 Cat_cat Terminal_cat $B $C $F $G
+  ≡ @Const_func $S $D $d
+  ↪ [ $S ≡ Terminal_cat; $D ≡ $C;
+      $d ≡ @fapp0 $B $C $F (@fapp0 Terminal_cat $B $G Terminal_obj) ];
+
 // Point object as a functor from the terminal category.
 //
 // Surface/formula:
@@ -7075,11 +7345,13 @@ injective symbol Obj_func [Y : Cat] (y : τ (Obj Y)) : τ (Functor Terminal_cat 
 //   op : Cat ⊢ Cat
 //   op[A] = A^op
 //   op[F] = F^op.
-constant symbol op : τ (Functor Cat_cat Cat_cat);
+constant symbol op : τ (Functor (CoAt2_cat Cat_cart) Cat_cart);
 // Internal opposite action on categories and functors.
-rule @fapp0 Cat_cat Cat_cat op $A ↪ Op_cat $A;
+rule @fapp0 (CoAt2_cat Cat_cart) Cat_cart op $A ↪ Op_cat $A;
 // Arrow action of the internal opposite functor is `Op_func`.
-rule @fapp1_fapp0 Cat_cat Cat_cat op $A $B $F ↪ @Op_func $A $B $F;
+rule @fapp1_func (CoAt2_cat Cat_cart) Cat_cart op $A $B
+  ↪ Op_func_func $A $B;
+rule @fapp1_fapp0 (CoAt2_cat Cat_cart) Cat_cart op $A $B $F ↪ @Op_func $A $B $F;
 
 // 3f. Internalized universe-level constructor packages
 //
@@ -7101,41 +7373,7 @@ rule @fapp0 _ _ Functor_cat_func $A
 rule @fapp0 Cat_cat Cat_cat (Functor_cat_fapp0_func $A) $B
   ↪ Functor_cat $A $B;
 
-// Internalized-x prerequisite: directed-family category formation as a
-// universe-level functor.
-//
-// Surface/formula:
-//   Catd_cat_func : Cat^op ⊢ Cat
-//   Catd_cat_func[K] = Catd(K) = (K ⊢ Cat)
-//   Catd_cat_func[F : A ⊢ B] = F^* : Catd(B) ⊢ Catd(A)
-//
-// This is the internal package that lets later constructions vary the base
-// category. It is obtained by evaluating the internalized ordinary
-// functor-category constructor at Cat_cat.
-symbol Catd_cat_func : τ (Functor (Op_cat Cat_cat) Cat_cat)
-≔ @comp_cat_fapp0
-     (Op_cat Cat_cat)
-     (Functor_cat Cat_cat Cat_cat)
-     Cat_cat
-     (@fapp0_func Cat_cat Cat_cat Cat_cat)
-     Functor_cat_func;
-
-// Derived classifier of displayed categories over the fibres of a displayed
-// category. This is intentionally a semantic alias, not a new primitive:
-//
-//   Catd_catd_con(K) : Catd(Op_cat L)
-//   Catd_catd_con(K)[l] = Catd_cat(K[l])
-//   Catd_catd_con(K)[p^op] = Pullback_catd_func(K[p])
-//
-// The definition routes through the already-internalized constructor
-// `Catd_cat_func : Cat^op ⊢ Cat` and the opposite of K.
-symbol Catd_catd_con [L : Cat] (K : τ (Catd L)) : τ (Catd (Op_cat L))
-≔ @comp_cat_fapp0
-     (Op_cat L)
-     (Op_cat Cat_cat)
-     Cat_cat
-     Catd_cat_func
-     (@Op_func L Cat_cat K);
+// Varying-base family formation is defined after its canonical Hom owner.
 
 // Internalized pointwise opposite on directed families. This is the packaged
 // functorial version of `Op_catd`; the object-level result remains the
@@ -7143,7 +7381,9 @@ symbol Catd_catd_con [L : Cat] (K : τ (Catd L)) : τ (Catd (Op_cat L))
 //
 // Surface/formula:
 //   Op_catd_func(Z)[E] = E^op.
-injective symbol Op_catd_func (Z : Cat) : τ (Functor (Catd_cat Z) (Catd_cat Z));
+injective symbol Op_catd_func (Z : Cat)
+  : τ (Functor (CoAt2_cat (Functor_cart_cat Z Cat_cart))
+      (Functor_cart_cat (CoAt2_cat Z) Cat_cart));
 
 // -------------------------------------------------------------------------------------------------
 // 4. Ordinary internal hom and hom actions
@@ -7186,14 +7426,14 @@ injective symbol Op_catd_func (Z : Cat) : τ (Functor (Catd_cat Z) (Catd_cat Z))
 */
 // Represented hom family with fixed source W: hom_(F,W)[y] = Hom_A(W,F[y]).
 injective symbol hom_ [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
-  : τ (Functor B Cat_cat);
+  : τ (Functor B Cat_cart);
 // Object projection of the represented hom family.
-rule @fapp0 $B Cat_cat (@hom_ $A $B $F $W) $y
+rule @fapp0 $B Cat_cart (@hom_ $A $B $F $W) $y
   ↪ Hom_cat $A $W (@fapp0 $B $A $F $y);
 
 // Ordinary hom-action computes by postcomposition:
 // ((Hom_A(W,F-))_1 f)_0 g ↪ (F f) ∘ g.
-rule fapp0 (@fapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $X $Y $f) $g
+rule fapp0 (@fapp1_fapp0 $B Cat_cart (@hom_ $A $B $F $W) $X $Y $f) $g
   ↪ comp_fapp0 (fapp1_fapp0 $F $f) $g;
 
 /*
@@ -7225,12 +7465,12 @@ symbol hom_postcomp_tele_func [A B : Cat]
   [X Y : τ (Obj B)]
   : τ (Functor
       (Hom_cat B X Y)
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat A W (@fapp0 B A F X))
         (Hom_cat A W (@fapp0 B A F Y))));
 
 // Arrow action of hom_(F,W) exposes the postcomposition telescope.
-rule @fapp1_func $B Cat_cat (@hom_ $A $B $F $W) $X $Y
+rule @fapp1_func $B Cat_cart (@hom_ $A $B $F $W) $X $Y
   ↪ @hom_postcomp_tele_func $A $B $F $W $X $Y;
 
 // Capped postcomposition functor: hom_postcomp_func(f)[g] = F[f] ∘ g.
@@ -7260,12 +7500,21 @@ rule fapp0 (@hom_postcomp_tele_func $A $B $F $W $X $Y) $f
   ↪ @hom_postcomp_func $A $B $F $W $X $Y $f;
 
 // Direct capped arrow action of hom_(F,W) joins the telescope projection.
-rule @fapp1_fapp0 $B Cat_cat (@hom_ $A $B $F $W) $X $Y $f
+rule @fapp1_fapp0 $B Cat_cart (@hom_ $A $B $F $W) $X $Y $f
   ↪ @hom_postcomp_func $A $B $F $W $X $Y $f;
 
 // Object action of postcomposition: keep the stable postcomposition head.
 rule fapp0 (@hom_postcomp_func $A $B $F $W $X $Y $f) $g
   ↪ @hom_postcomp_fapp0 $A $B $F $W $X $Y $f $g;
+
+// Ordinary postcomposition through the actual image F[g]. Keep both whole
+// semantic heads; the identity-headed side is the precise image presentation.
+unif_rule @hom_postcomp_func $B $A $F $W $Y $Z $g
+  ≡ @hom_postcomp_func $B0 $B0 (@id Cat_cat $B0) $W0 $FY $FZ $image
+  ↪ [ $B0 ≡ $B; $W0 ≡ $W;
+      $FY ≡ @fapp0 $A $B $F $Y;
+      $FZ ≡ @fapp0 $A $B $F $Z;
+      $image ≡ @fapp1_fapp0 $A $B $F $Y $Z $g ];
 
 // Generic object projection for Cat-valued postcomposition:
 // hom_postcomp_E(p,G)[w] ↪ E[p](G[w]).
@@ -7317,74 +7566,46 @@ rule @hom_postcomp_func $A $B $F $W $X $X (@id $B $X)
 rule @hom_postcomp_fapp0 $A $B $F $W $X $X (@id $B $X) $g
   ↪ $g;
 
-/* API-04P: the following generic-F folds recover raw composition through
-   staged represented-to-raw paths. Restore only with an actual strict view.
-// Functor-level accumulation: consecutive postcomposition actions combine.
-rule @comp_fapp0
-      Cat_cat
-      _ _ _
-      (@hom_postcomp_func $A $B $F $W $Y $Z $q)
-      (@hom_postcomp_func $A $B $F $W $X $Y $p)
-  ↪ @hom_postcomp_func
-      $A $B $F $W $X $Z
+// Strict default maps preserve represented postcomposition. Whole functors
+// accumulate; their point projection retains consecutive cuts so the existing
+// DefIso inverse rules can still see the selected arrows.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@hom_postcomp_func $A $B $F $W $Y $Z $q)
+    (@hom_postcomp_func $A $B $F $W $X $Y $p)
+  ↪ @hom_postcomp_func $A $B $F $W $X $Z
       (@comp_fapp0 $B $X $Y $Z $q $p);
 
-// Point-level accumulation of consecutive postcomposition actions.
-rule @hom_postcomp_fapp0
-      $A $B $F $W $Y $Z $q
-      (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g)
-  ↪ @hom_postcomp_fapp0
-      $A $B $F $W $X $Z
-      (@comp_fapp0 $B $X $Y $Z $q $p)
-      $g;
+rule @hom_postcomp_fapp0 $A $B $F $W $X $Z
+    (@comp_fapp0 $B $X $Y $Z $q $p) $g
+  ↪ @hom_postcomp_fapp0 $A $B $F $W $Y $Z $q
+      (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g);
 
-// Raw adjacent-codomain postcomposition fold:
-// F[q] o ((F[p])_*(g)) -> (F[q o p])_*(g).
-rule @comp_fapp0
-      $A
-      _
-      _
-      _
-      (@fapp1_fapp0 $B $A $F $Y $Z $q)
-      (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g)
-  ↪ @hom_postcomp_fapp0
-      $A
-      $B
-      $F
-      $W
-      $X
-      $Z
-      (@comp_fapp0 $B $X $Y $Z $q $p)
-      $g;
+// The mapped outer arrow is the same represented cut after capping first.
+rule @comp_fapp0 $A _ _ _
+    (@fapp1_fapp0 $B $A $F $Y $Z $q)
+    (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g)
+  ↪ @hom_postcomp_fapp0 $A $B $F $W $Y $Z $q
+      (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g);
 
-*/
+// Proof-time associative reading after the composite has split into two
+// represented cuts. Keep those runtime owners for inverse cancellation.
+// The named identity functors determine A; inferred classifier slots remain open.
+// Compare the whole raw composite before its inferred middle object: when A
+// is Cat_cat, a composite incoming g can reassociate to a different middle.
+unif_rule
+  @hom_postcomp_fapp0 _ _ (@id Cat_cat $A) $W $Y $Z $q
+    (@hom_postcomp_fapp0 _ _ (@id Cat_cat $A) $W $X $Y $p $g)
+  ≡ @comp_fapp0 $A1 $W1 $X1 $Z1 $q1 $g1
+  ↪ [ $A1 ≡ $A; $W1 ≡ $W; $Z1 ≡ $Z;
+      (@comp_fapp0 $A $W $X $Z (@comp_fapp0 $A $X $Y $Z $q $p) $g)
+        ≡ (@comp_fapp0 $A1 $W1 $X1 $Z1 $q1 $g1) ];
 
-// Named identity-family composition retains its ordinary Hom computation.
-rule @comp_fapp0
-      Cat_cat
-      _ _ _
-      (@hom_postcomp_func $A $A (@id Cat_cat $A) $W $Y $Z $q)
-      (@hom_postcomp_func $A $A (@id Cat_cat $A) $W $X $Y $p)
-  ↪ @hom_postcomp_func
-      $A $A (@id Cat_cat $A) $W $X $Z
-      (@comp_fapp0 $A $X $Y $Z $q $p);
-
-rule @hom_postcomp_fapp0
-      $A $A (@id Cat_cat $A) $W $Y $Z $q
-      (@hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $W $X $Y $p $g)
-  ↪ @hom_postcomp_fapp0
-      $A $A (@id Cat_cat $A) $W $X $Z
-      (@comp_fapp0 $A $X $Y $Z $q $p)
-      $g;
-
-// Identity-family nested postcomposition reassociates under the stable owner.
-rule @hom_postcomp_fapp0
-      $A $A (@id Cat_cat $A) $W $X $Z
-      (@hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $X $Y $Z $q $p)
-      $g
-  ↪ @hom_postcomp_fapp0
-      $A $A (@id Cat_cat $A) $W $Y $Z $q
-      (@hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $W $X $Y $p $g);
+// A base composite may already be expressed by its identity-family Hom
+// owner. Preserve the same nested cuts under an arbitrary strict default F.
+rule @hom_postcomp_fapp0 $A $B $F $W $X $Z
+    (@hom_postcomp_fapp0 $B $B (@id Cat_cat $B) $X $Y $Z $q $p) $g
+  ↪ @hom_postcomp_fapp0 $A $B $F $W $Y $Z $q
+      (@hom_postcomp_fapp0 $A $B $F $W $X $Y $p $g);
 
 // Postcomposition commutes with precomposition in the represented source
 // object. This generic join is the hom-action replacement for profunctor-
@@ -7410,7 +7631,8 @@ rule @comp_fapp0
 // composition normalization at the stable postcomposition head instead of
 // erasing to the shared `comp_fapp0` head.
 rule @hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $W $X $X (@id $A $X) $f ↪ $f
-with @hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $X $X $Y $f (@id $A $X) ↪ $f;
+// The identity's inferred category may reduce through a duality first.
+with @hom_postcomp_fapp0 $A $A (@id Cat_cat $A) $X $X $Y $f (@id _ $X) ↪ $f;
 
 // Hom-action of the telescope as f varies: alpha : f ->^(Hom_B(X,Y)) g.
 symbol hom_postcomp_tele_fapp1_func [A B : Cat]
@@ -7420,7 +7642,7 @@ symbol hom_postcomp_tele_fapp1_func [A B : Cat]
   : τ (Functor
       (Hom_cat (Hom_cat B X Y) f g)
       (Hom_cat
-        (Functor_cat
+        (Functor_cart_cat
           (Hom_cat A W (@fapp0 B A F X))
           (Hom_cat A W (@fapp0 B A F Y)))
         (@hom_postcomp_func A B F W X Y f)
@@ -7433,7 +7655,7 @@ symbol hom_postcomp_tele_fapp1_fapp0 [A B : Cat]
   [f g : τ (Hom B X Y)]
   (alpha : τ (Hom (Hom_cat B X Y) f g))
   : τ (Hom
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat A W (@fapp0 B A F X))
         (Hom_cat A W (@fapp0 B A F Y)))
       (@hom_postcomp_func A B F W X Y f)
@@ -7460,11 +7682,11 @@ rule @fapp1_func _ _ (@hom_postcomp_tele_func $A $B $F $W $X $Y) $f $g
 
 // Applying the full telescope hom action yields its transfor component.
 rule fapp0 (@hom_postcomp_tele_fapp1_func $A $B $F $W $X $Y $f $g) $alpha
-  ↪ @hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha;
+  ↪ @hom_postcomp_tele_fapp1_fapp0 $A $B $F $W $X $Y $f $g $alpha;
 
 // Direct capped telescope action joins the full-action projection.
 rule @fapp1_fapp0 _ _ (@hom_postcomp_tele_func $A $B $F $W $X $Y) $f $g $alpha
-  ↪ @hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha;
+  ↪ @hom_postcomp_tele_fapp1_fapp0 $A $B $F $W $X $Y $f $g $alpha;
 
 // Runtime functoriality of the tele-level postcomposition stable head.
 rule @hom_postcomp_tele_fapp1_fapp0
@@ -7472,15 +7694,13 @@ rule @hom_postcomp_tele_fapp1_fapp0
       $f $f
       (@id _ $f)
   ↪ @id
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat $A $W (@fapp0 $B $A $F $X))
         (Hom_cat $A $W (@fapp0 $B $A $F $Y)))
       (@hom_postcomp_func $A $B $F $W $X $Y $f);
 
-/* API-04T: this legacy accumulator bypassed the modern telescope's
-   profile boundary after Cat specialization. Retain the source for review;
-   general composition uses an explicit profile of the actual telescope.
-// Telescope 2-cell composition accumulates inside the stable action head.
+// Default strict functors restore composition for this actual telescope.
+// This general instance subsumes the former identity-functor-only clause.
 rule @comp_fapp0
       _
       _
@@ -7499,26 +7719,6 @@ rule @comp_fapp0
       $h
       (@comp_fapp0 (Hom_cat $B $X $Y) $f $g $h $e_gh $e_fg);
 
-*/
-
-// Named identity-family telescope composition remains intrinsic.
-rule @comp_fapp0
-      _
-      _
-      _
-      _
-      (@hom_postcomp_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $W $X $Y $g $h $e_gh)
-      (@hom_postcomp_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $W $X $Y $f $g $e_fg)
-  ↪ @hom_postcomp_tele_fapp1_fapp0
-      $A
-      $A
-      (@id Cat_cat $A)
-      $W
-      $X
-      $Y
-      $f
-      $h
-      (@comp_fapp0 (Hom_cat $A $X $Y) $f $g $h $e_gh $e_fg);
 
 // Hom-action of capped postcomposition on alpha : g ->^(Hom_A(W,F[X])) h.
 symbol hom_postcomp_fapp1_func [A B : Cat]
@@ -7802,11 +8002,11 @@ rule @defiso_iso_evidence $C $x $z (@defiso_comp $C $x $y $z $j $i)
 // Surface/formula:
 //   hom_con(W,F)[y] = Hom_A(F[y],W).
 injective symbol hom_con [A : Cat] (W : τ (Obj A)) [B : Cat] (F : τ (Functor B A))
-  : τ (Functor (Op_cat B) Cat_cat);
+  : τ (Functor (Op_cat B) Cat_cart);
 
 // Direct object projection preserves contravariant runtime ownership without
 // discriminating on an opposite-functor presentation.
-rule @fapp0 _ Cat_cat (@hom_con $A $W $B $F) $x
+rule @fapp0 _ Cat_cart (@hom_con $A $W $B $F) $x
   ↪ Hom_cat $A (@fapp0 $B $A $F $x) $W;
 
 /*
@@ -7853,7 +8053,7 @@ symbol hom_precomp_along_tele_func [A B : Cat]
   [W X : τ (Obj A)]
   : τ (Functor
       (Hom_cat A W X)
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat B (@fapp0 A B F X) Z)
         (Hom_cat B (@fapp0 A B F W) Z)));
 
@@ -7890,14 +8090,14 @@ symbol hom_con_precomp_tele_func [A B : Cat]
   [X Y : τ (Obj B)]
   : τ (Functor
       (Hom_cat (Op_cat B) X Y)
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat A (@fapp0 B A F X) W)
         (Hom_cat A (@fapp0 B A F Y) W)));
 
 // Arrow projections of hom_con route to the literal-opposite full owner and
 // the existing capped precomposition owner.
 rule @fapp1_func
-      _ Cat_cat
+      _ Cat_cart
       (@hom_con $A $W $B $F)
       $X $Y
   ↪ @hom_con_precomp_tele_func $A $B $F $W $X $Y;
@@ -7908,7 +8108,7 @@ rule fapp0 (@hom_con_precomp_tele_func $A $B $F $W $X $Y) $p
 
 // Direct contravariant capped action joins the telescope projection.
 rule @fapp1_fapp0
-      _ Cat_cat
+      _ Cat_cart
       (@hom_con $A $W $B $F)
       $X $Y $p
   ↪ @hom_precomp_along_func $B $A $F $W $Y $X $p;
@@ -7921,6 +8121,78 @@ rule fapp0 (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $h
 rule fapp0 (@hom_precomp_along_func $A $B $F $Z $W $X $h) $g
   ↪ @hom_precomp_along_fapp0 $A $B $F $Z $W $X $h $g;
 
+// Cat-valued precomposition, matching the existing postcomposition evaluator.
+// Preserve the whole represented owner; project its composed-functor action.
+//   (G composed with E[h])[w] = G[E[h][w]].
+rule @fapp0 _ _
+      (@hom_precomp_along_fapp0 $A Cat_cat $E $Z $W $X $h $G) $w
+  ↪ @fapp0 (@fapp0 $A Cat_cat $E $X) $Z $G
+      (@fapp0 (@fapp0 $A Cat_cat $E $W) (@fapp0 $A Cat_cat $E $X)
+        (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w);
+
+// The complete Hom action remains available before its object projection.
+rule @fapp1_func _ _
+      (@hom_precomp_along_fapp0 $A Cat_cat $E $Z $W $X $h $G) $w $v
+  ↪ @comp_cat_fapp0
+      (Hom_cat (@fapp0 $A Cat_cat $E $W) $w $v)
+      (Hom_cat (@fapp0 $A Cat_cat $E $X)
+        (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w)
+        (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $v))
+      (Hom_cat $Z
+        (fapp0 $G (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w))
+        (fapp0 $G (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $v)))
+      (@fapp1_func (@fapp0 $A Cat_cat $E $X) $Z $G
+        (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w)
+        (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $v))
+      (@fapp1_func (@fapp0 $A Cat_cat $E $W) (@fapp0 $A Cat_cat $E $X)
+        (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w $v);
+
+// Capped companion joins the two ordinary projection orders.
+rule @fapp1_fapp0 _ _
+      (@hom_precomp_along_fapp0 $A Cat_cat $E $Z $W $X $h $G) $w $v $q
+  ↪ @fapp1_fapp0 (@fapp0 $A Cat_cat $E $X) $Z $G
+      (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w)
+      (fapp0 (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $v)
+      (@fapp1_fapp0 (@fapp0 $A Cat_cat $E $W) (@fapp0 $A Cat_cat $E $X)
+        (@fapp1_fapp0 $A Cat_cat $E $W $X $h) $w $v $q);
+
+// The same projection ladder for the selected Cartesian coefficient.
+// Cat_cart and public Cat_cat share functor objects; their higher maps differ.
+// Cat-valued precomposition, matching the existing postcomposition evaluator.
+// Preserve the whole represented owner; project its composed-functor action.
+//   (G composed with E[h])[w] = G[E[h][w]].
+rule @fapp0 _ _
+      (@hom_precomp_along_fapp0 $A Cat_cart $E $Z $W $X $h $G) $w
+  ↪ @fapp0 (@fapp0 $A Cat_cart $E $X) $Z $G
+      (@fapp0 (@fapp0 $A Cat_cart $E $W) (@fapp0 $A Cat_cart $E $X)
+        (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $w);
+
+// The complete Hom action remains available before its object projection.
+rule @fapp1_func _ _
+      (@hom_precomp_along_fapp0 $A Cat_cart $E $Z $W $X $h $G) $w $v
+  ↪ @comp_cat_fapp0
+      (Hom_cat (@fapp0 $A Cat_cart $E $W) $w $v)
+      (Hom_cat (@fapp0 $A Cat_cart $E $X)
+        (fapp0 (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $w)
+        (fapp0 (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $v))
+      (Hom_cat $Z
+        (fapp0 $G (fapp0 (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $w))
+        (fapp0 $G (fapp0 (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $v)))
+      (@fapp1_func (@fapp0 $A Cat_cart $E $X) $Z $G
+        (fapp0 (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $w)
+        (fapp0 (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $v))
+      (@fapp1_func (@fapp0 $A Cat_cart $E $W) (@fapp0 $A Cat_cart $E $X)
+        (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $w $v);
+
+// Capped companion joins the two ordinary projection orders.
+rule @fapp1_fapp0 _ _
+      (@hom_precomp_along_fapp0 $A Cat_cart $E $Z $W $X $h $G) $w $v $q
+  ↪ @fapp1_fapp0 (@fapp0 $A Cat_cart $E $X) $Z $G
+      (fapp0 (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $w)
+      (fapp0 (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $v)
+      (@fapp1_fapp0 (@fapp0 $A Cat_cart $E $W) (@fapp0 $A Cat_cart $E $X)
+        (@fapp1_fapp0 $A Cat_cart $E $W $X $h) $w $v $q);
+
 // Hom-action functoriality for precomposition. The composition orientation is
 // contravariant in the acted-on base arrow: first precompose by q, then by p.
 
@@ -7932,35 +8204,32 @@ rule @hom_precomp_along_func $A $B $F $Z $X $X (@id $A $X)
 rule @hom_precomp_along_fapp0 $A $B $F $Z $X $X (@id $A $X) $g
   ↪ $g;
 
-// Ordinary precomposition along the named identity functor stays strict.
-// Generic F accumulation belongs to the explicit strict profile.
-// Functor-level contravariant accumulation of consecutive precomposition actions.
-rule @comp_fapp0
-      Cat_cat
-      _ _ _
-      (@hom_precomp_along_func $A $A (@id Cat_cat $A) $Z $W $X $p)
-      (@hom_precomp_along_func $A $A (@id Cat_cat $A) $Z $X $Y $q)
-  ↪ @hom_precomp_along_func
-      $A $A (@id Cat_cat $A) $Z $W $Y
+// Strict default maps preserve contravariant accumulation. Both whole and
+// capped precomposition keep the existing composite-base normal form.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@hom_precomp_along_func $A $B $F $Z $W $X $p)
+    (@hom_precomp_along_func $A $B $F $Z $X $Y $q)
+  ↪ @hom_precomp_along_func $A $B $F $Z $W $Y
       (@comp_fapp0 $A $W $X $Y $q $p);
 
-// Point-level contravariant accumulation of consecutive precomposition actions.
-rule @hom_precomp_along_fapp0
-      $A $A (@id Cat_cat $A) $Z $W $X $p
-      (@hom_precomp_along_fapp0 $A $A (@id Cat_cat $A) $Z $X $Y $q $g)
-  ↪ @hom_precomp_along_fapp0
-      $A $A (@id Cat_cat $A) $Z $W $Y
-      (@comp_fapp0 $A $W $X $Y $q $p)
-      $g;
+rule @hom_precomp_along_fapp0 $A $B $F $Z $W $X $p
+    (@hom_precomp_along_fapp0 $A $B $F $Z $X $Y $q $g)
+  ↪ @hom_precomp_along_fapp0 $A $B $F $Z $W $Y
+      (@comp_fapp0 $A $W $X $Y $q $p) $g;
 
-// Mixed mapped-arrow accumulation is owned by explicit strict profiles.
-// Ordinary identity-family associativity remains a proof-time comparison.
+// The original mapped-arrow cut, now at the default owner.
+rule @comp_fapp0 $B _ _ _
+    (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $p $g)
+    (@fapp1_fapp0 $A $B $F $V $W $q)
+  ↪ @hom_precomp_along_fapp0 $A $B $F $Z $V $X
+      (@comp_fapp0 $A $V $W $X $p $q) $g;
 
 // Precomposing the identity at F[X] by h returns the functorial action F[h].
 // The first rule covers unreduced generic identities; the `Cat_cat` and
 // `Catd_cat` rules cover the normal forms of category and displayed-category
 // identities.
 // Identity-family codomain accumulation remains under the precomposition owner.
+// The identity category can normalize through duality before this cut.
 rule @hom_precomp_along_fapp0
       $A
       $B
@@ -7969,7 +8238,7 @@ rule @hom_precomp_along_fapp0
       $W
       $X
       $h
-      (@id $B _)
+      (@id _ _)
   ↪ @fapp1_fapp0 $A $B $F $W $X $h;
 
 // Identity-family left identity cut for stable precomposition.
@@ -8017,6 +8286,29 @@ unif_rule @hom_precomp_along_fapp0 $A $A (@id Cat_cat $A) $Z $W $X $h $g
       $g
       $h
   ↪ [ tt ≡ tt ];
+// Whole Cat-composition reading for the measured composite-input case.
+// Keep the generic two-factor reading and the separate displayed owners.
+// Reassociation can change the intermediate category, so compare the
+// complete composite while retaining all three actual functors.
+unif_rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $Z $W $X (@comp_fapp0 Cat_cat $W $Y $X $p $q) $g
+  ≡ @comp_fapp0 Cat_cat $W1 $X1 $Z1 $g1 $h1
+  ↪ [ $W1 ≡ $W; $Z1 ≡ $Z;
+      (@comp_fapp0 Cat_cat $W $X $Z $g
+        (@comp_fapp0 Cat_cat $W $Y $X $p $q))
+        ≡ (@comp_fapp0 Cat_cat $W1 $X1 $Z1 $g1 $h1) ];
+
+// Direct stable-head comparison when neither side exposes raw composition.
+// This is the same complete-composite reading, with no forced middle object.
+unif_rule @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $Z $W $X (@comp_fapp0 Cat_cat $W $Y $X $p $q) $g
+  ≡ @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+    $Z1 $W1 $X1 $h1 $g1
+  ↪ [ $W1 ≡ $W; $Z1 ≡ $Z;
+      (@comp_fapp0 Cat_cat $W $X $Z $g
+        (@comp_fapp0 Cat_cat $W $Y $X $p $q))
+        ≡ (@comp_fapp0 Cat_cat $W1 $X1 $Z1 $g1 $h1) ];
+
 
 /*
   Propositional join for postcomposition outside stable precomposition:
@@ -8127,6 +8419,18 @@ unif_rule @hom_precomp_along_fapp0
       $A $A (@id Cat_cat $A) $W $X $Z $g $h
   ↪ [ tt ≡ tt ];
 
+// Three-arrow instance at the two retained represented owners. Keep the
+// original two-arrow comparison above: broadening it changes rule selection
+// in existing affine consumers. This instance accounts for the nested
+// postcomposition normal form and constrains every arrow of the composite.
+unif_rule
+  @hom_postcomp_fapp0 _ _ (@id Cat_cat $A) $W $Y $Z $q
+    (@hom_postcomp_fapp0 _ _ (@id Cat_cat $A) $W $X $Y $p $f)
+  ≡ @hom_precomp_along_fapp0 _ _ (@id Cat_cat $B) $Z1 $W1 $X1 $f1
+      (@comp_fapp0 _ _ _ _ $q1 $p1)
+  ↪ [ $B ≡ $A; $W1 ≡ $W; $X1 ≡ $X; $Z1 ≡ $Z;
+      $f1 ≡ $f; $q1 ≡ $q; $p1 ≡ $p ];
+
 // Fold-direction codomain accumulation for precomposition.
 rule @comp_fapp0
       $B
@@ -8153,7 +8457,7 @@ symbol hom_precomp_along_tele_fapp1_func [A B : Cat]
   : τ (Functor
       (Hom_cat (Hom_cat A W X) h k)
       (Hom_cat
-        (Functor_cat
+        (Functor_cart_cat
           (Hom_cat B (@fapp0 A B F X) Z)
           (Hom_cat B (@fapp0 A B F W) Z))
         (@hom_precomp_along_func A B F Z W X h)
@@ -8166,7 +8470,7 @@ symbol hom_precomp_along_tele_fapp1_fapp0 [A B : Cat]
   [h k : τ (Hom A W X)]
   (alpha : τ (Hom (Hom_cat A W X) h k))
   : τ (Hom
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat B (@fapp0 A B F X) Z)
         (Hom_cat B (@fapp0 A B F W) Z))
       (@hom_precomp_along_func A B F Z W X h)
@@ -8191,11 +8495,11 @@ rule @fapp1_func _ _ (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $h $k
 
 // Applying the full precomposition telescope hom action yields its transfor.
 rule fapp0 (@hom_precomp_along_tele_fapp1_func $A $B $F $Z $W $X $h $k) $alpha
-  ↪ @hom_precomp_along_tele_transf $A $B $F $Z $W $X $h $k $alpha;
+  ↪ @hom_precomp_along_tele_fapp1_fapp0 $A $B $F $Z $W $X $h $k $alpha;
 
 // Direct capped telescope action joins the full-action projection.
 rule @fapp1_fapp0 _ _ (@hom_precomp_along_tele_func $A $B $F $Z $W $X) $h $k $alpha
-  ↪ @hom_precomp_along_tele_transf $A $B $F $Z $W $X $h $k $alpha;
+  ↪ @hom_precomp_along_tele_fapp1_fapp0 $A $B $F $Z $W $X $h $k $alpha;
 
 // Runtime functoriality of the tele-level precomposition stable head.
 rule @hom_precomp_along_tele_fapp1_fapp0
@@ -8203,15 +8507,13 @@ rule @hom_precomp_along_tele_fapp1_fapp0
       $h $h
       (@id _ $h)
   ↪ @id
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat $B (@fapp0 $A $B $F $X) $Z)
         (Hom_cat $B (@fapp0 $A $B $F $W) $Z))
       (@hom_precomp_along_func $A $B $F $Z $W $X $h);
 
-/* API-04T: this legacy accumulator bypassed the modern telescope's
-   profile boundary after Cat specialization. Retain the source for review;
-   general composition uses an explicit profile of the actual telescope.
-// Precomposition-telescope 2-cell composition accumulates inside the stable head.
+// Default strict functors restore composition for this actual telescope.
+// This general instance subsumes the former identity-functor-only clause.
 rule @comp_fapp0
       _
       _
@@ -8230,26 +8532,6 @@ rule @comp_fapp0
       $h
       (@comp_fapp0 (Hom_cat $A $W $X) $f $g $h $e_gh $e_fg);
 
-*/
-
-// Named identity-family telescope composition remains intrinsic.
-rule @comp_fapp0
-      _
-      _
-      _
-      _
-      (@hom_precomp_along_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $Z $W $X $g $h $e_gh)
-      (@hom_precomp_along_tele_fapp1_fapp0 $A $A (@id Cat_cat $A) $Z $W $X $f $g $e_fg)
-  ↪ @hom_precomp_along_tele_fapp1_fapp0
-      $A
-      $A
-      (@id Cat_cat $A)
-      $Z
-      $W
-      $X
-      $f
-      $h
-      (@comp_fapp0 (Hom_cat $A $W $X) $f $g $h $e_gh $e_fg);
 
 // Hom-action of capped precomposition on alpha : g ->^(Hom_B(F[X],Z)) k.
 symbol hom_precomp_along_fapp1_func [A B : Cat]
@@ -8319,6 +8601,27 @@ rule @hom_precomp_along_fapp1_fapp0
       (Hom_cat $B (@fapp0 $A $B $F $W) $Z)
       (@hom_precomp_along_fapp0 $A $B $F $Z $W $X $h $g);
 
+// Strict composition at the retained fixed Cat-prewhiskering action.
+// The literal coefficient and identity-family profile are real discriminators:
+// an unrestricted higher-Hom instance overlaps the separate displayed fold.
+rule @comp_fapp0 _ _ _ _
+      (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $Z $W $X $h $k $l $beta)
+      (@hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $Z $W $X $h $g $k $alpha)
+  ↪ @hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      $Z $W $X $h $g $l
+      (@comp_fapp0 (Functor_cat $X $Z) $g $k $l $beta $alpha);
+
+// Sufficient congruence for one actual prewhiskering action. Category and
+// endpoint views may differ at proof time; retain F, h and alpha literally
+// and compare every remaining argument. This does not assert injectivity.
+unif_rule
+  @hom_precomp_along_fapp1_fapp0 $A $B $F $Z $W $X $h $g $k $alpha
+  ≡ @hom_precomp_along_fapp1_fapp0 $A0 $B0 $F $Z0 $W0 $X0 $h $g0 $k0 $alpha
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $Z0 ≡ $Z; $W0 ≡ $W; $X0 ≡ $X;
+      $g0 ≡ $g; $k0 ≡ $k ];
+
 // Proof-time duality between covariant postcomposition and contravariant
 // precomposition. Runtime preserves the two variance owners. Only the three
 // currently consumed projection rungs are bridged; unification is not assumed
@@ -8369,7 +8672,7 @@ unif_rule @hom_postcomp_fapp0
 //   hom_int(F) : A^op ⊢ (B ⊢ Cat)
 //   hom_int(F)[W][y] = Hom_A(W,F[y]).
 injective symbol hom_int [A B : Cat] (F : τ (Functor B A))
-  : τ (Functor (Op_cat A) (Catd_cat B));
+  : τ (Functor (Op_cat A) (Functor_cart_cat B Cat_cart));
 
 // Object projection: `hom_int(F)[W] = hom_(F,W)`.
 rule @fapp0 _ _ (@hom_int $A $B $F) $W
@@ -8386,7 +8689,7 @@ symbol hom_int_precomp_tele_func [A B : Cat]
   : τ (Functor
       (Hom_cat (Op_cat A) Y X)
       (Hom_cat
-        (@Catd_cat B)
+        (Functor_cart_cat B Cat_cart)
         (@hom_ A B F Y)
         (@hom_ A B F X)));
 
@@ -8395,7 +8698,7 @@ symbol hom_int_precomp_func [A B : Cat]
   (F : τ (Functor B A))
   [Y X : τ (Obj A)]
   (p : τ (Hom (Op_cat A) Y X))
-  : τ (Hom (@Catd_cat B) (@hom_ A B F Y) (@hom_ A B F X));
+  : τ (Hom (Functor_cart_cat B Cat_cart) (@hom_ A B F Y) (@hom_ A B F X));
 
 // Full represented-object hom action of `hom_int`.
 rule @fapp1_func _ _ (@hom_int $A $B $F) $Y $X
@@ -8404,6 +8707,11 @@ rule @fapp1_func _ _ (@hom_int $A $B $F) $Y $X
 // Direct capped represented-object action of `hom_int`.
 rule @fapp1_fapp0 _ _ (@hom_int $A $B $F) $Y $X $p
   ↪ @hom_int_precomp_func $A $B $F $Y $X $p;
+
+// Unit after the canonical Hom source action has projected to its
+// stable head. This is the identity law of the same strict Hom functor.
+rule @hom_int_precomp_func $A $B $F $X $X (@id _ $X)
+  ↪ @id (Functor_cart_cat $B Cat_cart) (@hom_ $A $B $F $X);
 
 // Applying the telescope at p yields the capped represented-object action.
 rule @fapp0 _ _ (@hom_int_precomp_tele_func $A $B $F $Y $X) $p
@@ -8423,16 +8731,26 @@ unif_rule
       (@hom_int_precomp_func $A $B $F $Y $X $p)
   ↪ [
       (Op_cat $A) ≡ $A0;
-      (@Catd_cat $B) ≡ $B0;
+      (Functor_cart_cat $B Cat_cart) ≡ $B0;
       (@hom_int $A $B $F) ≡ $H
     ];
+
+// The same strict represented-source action after fapp1 has projected to
+// its native Cartesian transformation head. Precomposition reverses order:
+// pre(p) o pre(q) = pre(q o p). No arbitrary transfor is made strict.
+// lhs-audit: keep 1 -- the Cartesian diagram category owns this projected Hom action.
+rule @comp_fapp0 (Functor_cart_cat $B Cat_cart) _ _ _
+      (@hom_int_precomp_func $A $B $F $Y $X $p)
+      (@hom_int_precomp_func $A $B $F $Z $Y $q)
+  ↪ @hom_int_precomp_func $A $B $F $Z $X
+      (@comp_fapp0 $A $X $Y $Z $q $p);
 
 // Target-internalized mirror of hom_int.
 //
 // Surface/formula:
 //   hom_con_int(F)[W][b] = Hom_A(F[b],W).
 injective symbol hom_con_int [A B : Cat] (F : τ (Functor B A))
-  : τ (Functor A (Catd_cat (Op_cat B)));
+  : τ (Functor A (Functor_cart_cat (Op_cat B) Cat_cart));
 
 // Object projection: `hom_con_int(F)[W] = hom_con(W,F)`.
 rule @fapp0 _ _ (@hom_con_int $A $B $F) $W
@@ -8462,7 +8780,7 @@ symbol hom_con_int_postcomp_tele_func [A B : Cat]
   : τ (Functor
       (Hom_cat A W X)
       (Hom_cat
-        (@Catd_cat (Op_cat B))
+        (Functor_cart_cat (Op_cat B) Cat_cart)
         (@hom_con A W B F)
         (@hom_con A X B F)));
 
@@ -8472,7 +8790,7 @@ symbol hom_con_int_postcomp_func [A B : Cat]
   [W X : τ (Obj A)]
   (f : τ (Hom A W X))
   : τ (Hom
-      (@Catd_cat (Op_cat B))
+      (Functor_cart_cat (Op_cat B) Cat_cart)
       (@hom_con A W B F)
       (@hom_con A X B F));
 
@@ -8517,6 +8835,20 @@ unif_rule
 */
 
 // -------------------------------------------------------------------------------------------------
+// Varying-base family parameters are the Cartesian Hom of the coefficient.
+// Their objects are the admitted families, but their arrows are strict
+// diagram maps. Fixed-base Catd_cat and Functord still retain lax maps.
+// This is a semantic definition, not an assumed lift of the raw classifier.
+symbol Catd_cat_func : τ (Functor (Op_cat Cat_cart) Cat_cart)
+≔ @hom_con Cat_cart Cat_cart Cat_cart (@id_func Cat_cart);
+
+// The original contravariant classifier family, now with its justified
+// coefficient. Its fibre is Cart(K[l],Cat_cart), not all lax diagram maps.
+symbol Catd_catd_con [L : Cat] (K : τ (Catd L))
+  : τ (Catd (Op_cat L))
+≔ @comp_cat_fapp0 (Op_cat L) (Op_cat Cat_cart) Cat_cart
+    Catd_cat_func (@Op_func L Cat_cart K);
+
 // 5. Ordinary binary products of categories
 // -------------------------------------------------------------------------------------------------
 
@@ -8572,6 +8904,8 @@ symbol product_omega_as_path
 // Opposite distributes over binary products: (A × B)^op = A^op × B^op.
 rule Op_cat (Product_cat $A $B)
   ↪ Product_cat (Op_cat $A) (Op_cat $B);
+rule CoAbove2_cat (Product_cat $A $B)
+  ↪ Product_cat (CoAbove2_cat $A) (CoAbove2_cat $B);
 
 // First object projection: Product_projL(x,u) = x.
 symbol Product_projL [A B : Cat] (xy : τ (Obj (Product_cat A B)))
@@ -8628,6 +8962,10 @@ rule @fapp0 $X (Product_cat $A $B) (Struct_sigma $F $G) $i
   ↪ Struct_sigma
       (@fapp0 $X $A $F $i)
       (@fapp0 $X $B $G $i);
+
+// Cartesian mapping categories preserve target products.
+rule Functor_cart_cat $X (Product_cat $A $B)
+  ↪ Product_cat (Functor_cart_cat $X $A) (Functor_cart_cat $X $B);
 
 // Product homs compute componentwise.
 rule Hom_cat (Product_cat $A $B) $p $q
@@ -8933,9 +9271,30 @@ symbol hom_precomp_along_fapp1_comp_prod_path
 // Transparent Cat specialization: compose a pair of ordinary functors.
 symbol Functor_comp_pair_func [A B C : Cat]
   : τ (Functor
-      (Product_cat (Functor_cat A B) (Functor_cat B C))
-      (Functor_cat A C))
-≔ @comp_prod_func Cat_cat A B C;
+      (Product_cat (Functor_cart_cat A B) (Functor_cart_cat B C))
+      (Functor_cart_cat A C))
+≔ @comp_prod_func Cat_cart A B C;
+
+// The actual identity pair after the product identity has projected.
+// This preserves identity for composition's existing strict first action;
+// arbitrary endomorphisms of either input are not matched.
+rule @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Z
+      (Struct_sigma $g $f) (Struct_sigma $g $f)
+      (Struct_sigma (@id _ $g) (@id _ $f))
+  ↪ @id (Hom_cat (Catd_cat $K) $W $Z) (@comp_fapp0 (Catd_cat $K) $W $X $Z $f $g);
+
+// Unit whiskering at the existing composition Hom-action owner. The
+// identity 1-cell and its identity 2-cell share the actual category B.
+rule @comp_prod_fapp1_fapp0 $B $W $X $X
+      (Struct_sigma $g (@id $B $X))
+      (Struct_sigma $g' (@id $B $X))
+      (Struct_sigma $alpha (@id (Hom_cat $B $X $X) (@id $B $X)))
+  ↪ $alpha;
+rule @comp_prod_fapp1_fapp0 $B $X $X $Z
+      (Struct_sigma (@id $B $X) $f)
+      (Struct_sigma (@id $B $X) $f')
+      (Struct_sigma (@id (Hom_cat $B $X $X) (@id $B $X)) $alpha)
+  ↪ $alpha;
 
 // 5d. Rigid two-endpoint Hom action
 /*
@@ -8953,7 +9312,7 @@ symbol Hom_tele_func [A : Cat]
   [x x' y y' : τ (Obj A)]
   : τ (Functor
       (Product_cat (Hom_cat A x' x) (Hom_cat A y y'))
-      (Functor_cat (Hom_cat A x y) (Hom_cat A x' y')));
+      (Functor_cart_cat (Hom_cat A x y) (Hom_cat A x' y')));
 
 // Capped two-endpoint hom action at the pair `(g,f)`.
 symbol Hom_func [A : Cat]
@@ -8989,6 +9348,21 @@ rule @fapp0 _ _
       (@fapp0
         $X $Y $h
         (@fapp0 $X' $X $g $x'));
+
+// The admitted Cartesian coefficient has the same strict functor objects.
+// Its rigid two-endpoint Hom action therefore has the same consumed-object
+// projection as the public universe. Keep the whole Hom_fapp0 head stable.
+rule @fapp0 _ _
+      (@Hom_fapp0 Cat_cart $X $X' $Y $Y' $g $f $h) $x'
+  ↪ @fapp0 $Y $Y' $f
+      (@fapp0 $X $Y $h (@fapp0 $X' $X $g $x'));
+
+// Source-identity degeneration after Cat_cart's identity has projected to
+// the shared ordinary id_func. This is the existing Hom/composition reading
+// at that actual normal form, not a runtime expansion of the rigid owner.
+unif_rule @Hom_fapp0 Cat_cart $X $X $Y $Z (@id Cat_cat $X) $F $G
+  ≡ @comp_fapp0 Cat_cat $X0 $Y0 $Z0 $F0 $G0
+  ↪ [ $X ≡ $X0; $Y ≡ $Y0; $Z ≡ $Z0; $F ≡ $F0; $G ≡ $G0 ];
 
 // The primitive Unit_prof projection keeps the Hom action rigid at runtime.
 // Its two factorizations through one-slot pre/postcomposition remain available
@@ -9156,7 +9530,7 @@ rule @idtoiso_cat
 // Surface/formula:
 //   Product_pair_tele_func(A,B)[x][y] = (x,y).
 symbol Product_pair_tele_func [A B : Cat]
-  : τ (Functor A (Functor_cat B (Product_cat A B)));
+  : τ (Functor A (Functor_cart_cat B (Product_cat A B)));
 
 // -------------------------------------------------------------------------------------------------
 // 6. Ordinary transformations and functor composition actions
@@ -9185,6 +9559,18 @@ rule @Transf_cat _ Terminal_cat _ _ ↪ Terminal_cat;
 injective symbol Transf [A B : Cat] (F G : τ (Functor A B)) : Grpd
 ≔ Obj (@Transf_cat A B F G);
 
+injective symbol StrictTransfor
+  [A B : Cat]
+  (F G : τ (Functor A B))
+  : Grpd;
+
+injective symbol strict_transfor
+  [A B : Cat]
+  [F G : τ (Functor A B)]
+  (U : τ (@StrictTransfor A B F G))
+  : τ (Transf F G);
+
+
 // Controlled Obj-inversion for transformation categories. This inherited
 // helper lets projection rules keep source/target functors
 // implicit, e.g. `@tapp0_fapp0 ... _ _ ...`, without forcing reducible
@@ -9198,33 +9584,139 @@ unif_rule Obj (@Transf_cat $A $B $F $G) ≡ Obj (@Transf_cat $A' $B' $F' $G')
 //   Hom_{A ⊢ B}(F,G) = F => G.
 rule Hom_cat (Functor_cat _ _) $F $G ↪ Transf_cat $F $G;
 
+// Only the object classifier of this Hom uses the existing strict-transfor
+// carrier. Its higher Hom is NOT identified with the ambient modification
+// category; it retains the Cartesian profile.
+rule Obj (Hom_cat (Functor_cart_cat $A $B) $F $G)
+  ↪ @StrictTransfor $A $B $F $G;
+
+// One whole inclusion shares all ordinary action operations. There is no
+// duplicate strict-functor action API or supplied naturality witness.
+injective symbol Functor_cart_include (A B : Cat)
+  : τ (Functor (Functor_cart_cat A B) (Functor_cat A B));
+rule @fapp0 _ _ (Functor_cart_include _ _) $F ↪ $F;
+rule @fapp1_fapp0 _ _ (Functor_cart_include $A $B) $F $G $epsilon
+  ↪ @strict_transfor $A $B $F $G $epsilon;
+
+// Projection-order clauses for Cartesian identity and composition.
+rule @strict_transfor $A $B $F $F (@id (Functor_cart_cat $A $B) $F)
+  ↪ @id (Functor_cat $A $B) $F;
+// Inclusion preserves composition in the same fold direction as functor action.
+// Retain the classified composite so its downstream strict observations remain
+// available; this does not classify a composite with an arbitrary lax factor.
+// lhs-audit: keep 1 -- actual ordinary mapping category of these two included maps.
+rule @comp_fapp0 (Functor_cat $A $B) _ _ _
+    (@strict_transfor $A $B $G $H $V)
+    (@strict_transfor $A $B $F $G $U)
+  ↪ @strict_transfor $A $B $F $H
+      (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $V $U);
+
+
+// The whole first Hom of coefficient inclusion retains the strict profile.
+rule @fapp1_func _ _ Cat_cart_include $A $B
+  ↪ Functor_cart_include $A $B;
+
+// Existing ordinary transfor observations of canonical Cartesian Hom action.
+rule @strict_transfor _ _ _ _
+      (@hom_postcomp_tele_fapp1_fapp0 $A $B $F $W $X $Y $f $g $alpha)
+  ↪ @hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha;
+rule @strict_transfor _ _ _ _
+      (@hom_precomp_along_tele_fapp1_fapp0 $A $B $F $Z $W $X $h $k $alpha)
+  ↪ @hom_precomp_along_tele_transf $A $B $F $Z $W $X $h $k $alpha;
+
+// Ordinary projections of the same strict telescope composition.
+// Actual higher cells and functor arguments are retained.
+rule @comp_fapp0
+      _
+      _
+      _
+      _
+      (@hom_postcomp_tele_transf $A $B $F $W $X $Y $g $h $e_gh)
+      (@hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $e_fg)
+  ↪ @hom_postcomp_tele_transf
+      $A
+      $B
+      $F
+      $W
+      $X
+      $Y
+      $f
+      $h
+      (@comp_fapp0 (Hom_cat $B $X $Y) $f $g $h $e_gh $e_fg);
+
+rule @comp_fapp0
+      _
+      _
+      _
+      _
+      (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $g $h $e_gh)
+      (@hom_precomp_along_tele_transf $A $B $F $Z $W $X $f $g $e_fg)
+  ↪ @hom_precomp_along_tele_transf
+      $A
+      $B
+      $F
+      $Z
+      $W
+      $X
+      $f
+      $h
+      (@comp_fapp0 (Hom_cat $A $W $X) $f $g $h $e_gh $e_fg);
+
+// Identity of the ordinary telescope observation. These joins agree with
+// first reducing the native Cartesian identity and then including it.
+// Endpoints are inferred from the actual identity constructor; arbitrary
+// nonidentity higher cells remain at their existing transfor owner.
+rule @hom_postcomp_tele_transf $A $B $F $W $X $Y _ _ (@id _ $f)
+  ↪ @id (Functor_cat
+      (Hom_cat $A $W (@fapp0 $B $A $F $X))
+      (Hom_cat $A $W (@fapp0 $B $A $F $Y)))
+      (@hom_postcomp_func $A $B $F $W $X $Y $f);
+rule @hom_precomp_along_tele_transf $A $B $F $Z $W $X _ _ (@id _ $f)
+  ↪ @id (Functor_cat
+      (Hom_cat $B (@fapp0 $A $B $F $X) $Z)
+      (Hom_cat $B (@fapp0 $A $B $F $W) $Z))
+      (@hom_precomp_along_func $A $B $F $Z $W $X $f);
+
+// Defined ordinary diagram views of the same canonical whole Hom packages.
+// These admit general lax internal-action components without changing Hom.
+symbol hom_int_view [A B : Cat] (F : τ (Functor B A))
+  : τ (Functor (Op_cat A) (Catd_cat B))
+≔ @comp_cat_fapp0 (Op_cat A) (Functor_cart_cat B Cat_cart)
+    (Catd_cat B) (Functor_cart_include B Cat_cart) (@hom_int A B F);
+symbol hom_con_int_view [A B : Cat] (F : τ (Functor B A))
+  : τ (Functor A (Catd_cat (Op_cat B)))
+≔ @comp_cat_fapp0 A (Functor_cart_cat (Op_cat B) Cat_cart)
+    (Catd_cat (Op_cat B)) (Functor_cart_include (Op_cat B) Cat_cart)
+    (@hom_con_int A B F);
+
+
 // Proof-time comparison only: ordinary Cat-valued transfors and displayed
 // functor families are two stable presentations of the same first hom.
 //
 // Surface/formula:
 //   E => D over K = k :^n K ; E[k] ⊢ D[k].
 unif_rule
-  @Transf_cat $K Cat_cat $E $D
+  @Transf_cat $K Cat_cart $E $D
   ≡ @Functord_cat $K' $E' $D'
   ↪ [ $K ≡ $K'; $E ≡ $E'; $D ≡ $D' ];
 
 // Runtime object projection from the displayed first-hom facade.
 rule Obj (@Functord_cat $K $E $D)
-  ↪ Obj (@Transf_cat $K Cat_cat $E $D);
+  ↪ Obj (@Transf_cat $K Cat_cart $E $D);
 
 // Runtime object projection from the displayed second-hom facade to the
 // corresponding ordinary iterated hom category.
 rule Obj (@Transfd_cat $K $E $D $FF $GG)
   ↪ Obj
       (Hom_cat
-        (@Transf_cat $K Cat_cat $E $D)
+        (@Transf_cat $K Cat_cart $E $D)
         $FF
         $GG);
 
 // Direct proof-time second-hom comparison. Do not rely on transitivity of the
 // lower Functor/Catd and Transf/Functord comparisons.
 unif_rule
-  Hom_cat (@Transf_cat $K Cat_cat $E $D) $FF $GG
+  Hom_cat (@Transf_cat $K Cat_cart $E $D) $FF $GG
   ≡ @Transfd_cat $K' $E' $D' $FF' $GG'
   ↪ [
       $K ≡ $K';
@@ -9242,6 +9734,21 @@ rule @Transf_cat $X (Product_cat $A $B) $F $G
   ↪ Product_cat
       (@Transf_cat $X $A (sigma_Fst $F) (sigma_Fst $G))
       (@Transf_cat $X $B (sigma_Snd $F) (sigma_Snd $G));
+
+// Production-migration fragment, inserted after the ordinary Transf product
+// owner. Both projection orders of the Cartesian Hom classifier must agree.
+rule @StrictTransfor $X (Product_cat $A $B) $F $G
+  ↪ @Product_grpd
+      (@StrictTransfor $X $A (sigma_Fst $F) (sigma_Fst $G))
+      (@StrictTransfor $X $B (sigma_Snd $F) (sigma_Snd $G));
+
+// Product components of the ordinary inclusion. The product target is the
+// discriminator; source/functor indices are inferred. Keep the whole strict
+// view visible for naturality instead of expanding a neutral U into a pair.
+rule sigma_Fst (@strict_transfor _ (Product_cat _ _) _ _ $U)
+  ↪ strict_transfor (sigma_Fst $U);
+rule sigma_Snd (@strict_transfor _ (Product_cat _ _) _ _ $U)
+  ↪ strict_transfor (sigma_Snd $U);
 
 // Readable second Path action: a function equality induces a path-valued
 // transfor through the next ordinary action of Path_cat_func.
@@ -9282,7 +9789,7 @@ symbol tapp0_func : Π [A B : Cat], Π [F G : τ (Functor A B)],
 symbol tapp0_fapp0 : Π [A B : Cat], Π [F G : τ (Functor A B)],
   Π (Y : τ (Obj A)),
   Π (ϵ : τ (Obj (Transf_cat F G))),
-  τ (Hom B (fapp0 F Y) (fapp0 G Y));
+  τ (Obj (Hom_cat B (fapp0 F Y) (fapp0 G Y)));
 
 // Component at `Y` of a higher arrow between ordinary transfors.
 //
@@ -9351,33 +9858,45 @@ rule @fapp1_fapp0
       $eta $eta' $Theta
   ↪ @tapp0_hom_fapp0 $A $B $F $G $eta $eta' $Y $Theta;
 
-// Component of a postcomposition-telescope action. Mathematically,
-//   ((hom_A(W,F[-]))[alpha])[u] = u^*(F[alpha]).
-// This deliberately computes the component through the stable precomposition
-// action. The choice is backtrackable if a later consumer needs this as a
-// proof-time bridge or a more direct component owner instead.
+// Component of a postcomposition-telescope action uses the original
+// horizontal composition owner with its first argument fixed. The alternative
+// stable precomposition reading below is proof-time, via its existing comparison.
 rule @tapp0_fapp0
-      _ _
-      _ _
+      _
+      _
+      _
+      _
       $u
-      (@hom_postcomp_tele_fapp1_fapp0 $A $B $F $W $X $Y $f $g $alpha)
-  ↪ @hom_precomp_along_fapp1_fapp0
+      (@hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha)
+  ↪ @comp_prod_fapp1_fapp0
       $A
-      $A
-      (@id Cat_cat $A)
-      (@fapp0 $B $A $F $Y)
       $W
       (@fapp0 $B $A $F $X)
-      $u
-      (@fapp1_fapp0 $B $A $F $X $Y $f)
-      (@fapp1_fapp0 $B $A $F $X $Y $g)
-      (@fapp1_fapp0
-        (Hom_cat $B $X $Y)
+      (@fapp0 $B $A $F $Y)
+      (@Product_pair
+        (Hom_cat $A $W (@fapp0 $B $A $F $X))
         (Hom_cat $A (@fapp0 $B $A $F $X) (@fapp0 $B $A $F $Y))
-        (@fapp1_func $B $A $F $X $Y)
-        $f
-        $g
-        $alpha);
+        $u
+        (@fapp1_fapp0 $B $A $F $X $Y $f))
+      (@Product_pair
+        (Hom_cat $A $W (@fapp0 $B $A $F $X))
+        (Hom_cat $A (@fapp0 $B $A $F $X) (@fapp0 $B $A $F $Y))
+        $u
+        (@fapp1_fapp0 $B $A $F $X $Y $g))
+      (@Product_pair
+        (Hom_cat (Hom_cat $A $W (@fapp0 $B $A $F $X)) $u $u)
+        (Hom_cat
+          (Hom_cat $A (@fapp0 $B $A $F $X) (@fapp0 $B $A $F $Y))
+          (@fapp1_fapp0 $B $A $F $X $Y $f)
+          (@fapp1_fapp0 $B $A $F $X $Y $g))
+        (@id (Hom_cat $A $W (@fapp0 $B $A $F $X)) $u)
+        (@fapp1_fapp0
+          (Hom_cat $B $X $Y)
+          (Hom_cat $A (@fapp0 $B $A $F $X) (@fapp0 $B $A $F $Y))
+          (@fapp1_func $B $A $F $X $Y)
+          $f
+          $g
+          $alpha));
 
 // Reflexive theorem exposing the selected component formula for the telescope action.
 symbol hom_postcomp_tele_tapp0_component_eq
@@ -9395,7 +9914,7 @@ symbol hom_postcomp_tele_tapp0_component_eq
         (@hom_postcomp_func A B F W X Y f)
         (@hom_postcomp_func A B F W X Y g)
         u
-        (@hom_postcomp_tele_fapp1_fapp0 A B F W X Y f g alpha)
+        (@hom_postcomp_tele_transf A B F W X Y f g alpha)
       =
       @hom_precomp_along_fapp1_fapp0
         A
@@ -9414,24 +9933,15 @@ symbol hom_postcomp_tele_tapp0_component_eq
           f
           g
           alpha))
-≔ eq_refl
-    (@hom_precomp_along_fapp1_fapp0
-      A
-      A
-      (@id_func A)
-      (@fapp0 B A F Y)
-      W
-      (@fapp0 B A F X)
-      u
+≔ eq_sym
+    (@hom_precomp_along_fapp1_comp_prod_path
+      A A (@id_func A) (@fapp0 B A F Y) W (@fapp0 B A F X) u
       (@fapp1_fapp0 B A F X Y f)
       (@fapp1_fapp0 B A F X Y g)
       (@fapp1_fapp0
         (Hom_cat B X Y)
         (Hom_cat A (@fapp0 B A F X) (@fapp0 B A F Y))
-        (@fapp1_func B A F X Y)
-        f
-        g
-        alpha));
+        (@fapp1_func B A F X Y) f g alpha));
 
 // Product-valued transfor components project componentwise.
 rule sigma_Fst (@tapp0_fapp0 $X (Product_cat $A $B) $F $G $i $eta)
@@ -9454,14 +9964,22 @@ rule @tapp0_fapp0 $A $B _ _ $Y (@id (Functor_cat $A $B) $F)
   ↪ @id $B (@fapp0 $A $B $F $Y);
 
 // Displayed identity components: infer both family presentations from the identity.
-rule @tapp0_fapp0 $K Cat_cat _ _ $Y (@id (@Catd_cat $K) $E)
-  ↪ @id Cat_cat (@fapp0 $K Cat_cat $E $Y);
+rule @tapp0_fapp0 $K Cat_cart _ _ $Y (@id (@Catd_cat $K) $E)
+  ↪ @id Cat_cart (@fapp0 $K Cat_cart $E $Y);
+
+// Component projection of that classified vertical composite.
+rule @tapp0_fapp0 _ _ _ _ $x
+    (@strict_transfor $A $B $F $H
+      (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $V $U))
+  ↪ @comp_fapp0 $B (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $x) (@fapp0 $A $B $H $x)
+      (@tapp0_fapp0 $A $B $G $H $x (@strict_transfor $A $B $G $H $V))
+      (@tapp0_fapp0 $A $B $F $G $x (@strict_transfor $A $B $F $G $U));
 
 // Vertical composite components compose pointwise.
 //
 // Surface/formula:
 //   (eta ∘ epsilon)[Y] = eta[Y] ∘ epsilon[Y].
-rule @tapp0_fapp0 $A $B $F $H $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ)
+rule @tapp0_fapp0 _ _ _ _ $Y (@comp_fapp0 (Functor_cat $A $B) $F $G $H $η $ϵ)
   ↪ comp_fapp0
       (@tapp0_fapp0 $A $B $G $H $Y $η)
       (@tapp0_fapp0 $A $B $F $G $Y $ϵ);
@@ -9738,12 +10256,15 @@ symbol one_cat_hom_discrete
   endpoints.
 */
 injective symbol Op_transf
-  [A B : Cat]
-  [F G : τ (Functor A B)]
-  (eta : τ (Transf F G))
-  : τ (Transf
-      (@Op_func A B G)
-      (@Op_func A B F));
+  [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (Hom (Functor_cart_cat A B) F G))
+  : τ (Hom (Functor_cart_cat (Op_cat A) (Op_cat B))
+      (@Op_func A B G) (@Op_func A B F));
+
+// First arrow projection of the whole Cartesian transpose.
+rule @fapp1_fapp0 _ _ (Op_func_func $A $B) $G $F $eta
+  ↪ @Op_transf $A $B $F $G $eta;
+
 
 // Opposite-transfor involution.
 rule @Op_transf
@@ -9755,9 +10276,9 @@ rule @Op_transf
 rule @Op_transf
       $A $B
       $F $F
-      (@id (Functor_cat $A $B) $F)
+      (@id (Functor_cart_cat $A $B) $F)
   ↪ @id
-      (Functor_cat (Op_cat $A) (Op_cat $B))
+      (Functor_cart_cat (Op_cat $A) (Op_cat $B))
       (@Op_func $A $B $F);
 
 // Opposite reverses the order of vertical transfor composition.
@@ -9765,11 +10286,11 @@ rule @Op_transf
       $A $B
       $F $H
       (@comp_fapp0
-        (Functor_cat $A $B)
+        (Functor_cart_cat $A $B)
         $F $G $H
         $eta $epsilon)
   ↪ @comp_fapp0
-      (Functor_cat (Op_cat $A) (Op_cat $B))
+      (Functor_cart_cat (Op_cat $A) (Op_cat $B))
       (@Op_func $A $B $H)
       (@Op_func $A $B $G)
       (@Op_func $A $B $F)
@@ -9781,8 +10302,8 @@ rule @tapp0_fapp0
       _ _
       _ _
       $x
-      (@Op_transf $A $B $F $G $eta)
-  ↪ @tapp0_fapp0 $A $B $F $G $x $eta;
+      (@strict_transfor _ _ _ _ (@Op_transf $A $B $F $G $eta))
+  ↪ @tapp0_fapp0 $A $B $F $G $x (@strict_transfor $A $B $F $G $eta);
 
 // 6b. Internalized hom endpoint actions and rigid two-sided projections
 
@@ -9791,11 +10312,11 @@ rule @tapp0_fapp0
 // precomposition by f.
 rule @tapp0_fapp0
       $B
-      Cat_cat
+      Cat_cart
       _
       _
       $b
-      (@hom_int_precomp_func $A $B $F $Y $X $f)
+      (@strict_transfor _ _ _ _ (@hom_int_precomp_func $A $B $F $Y $X $f))
   ↪ @hom_precomp_along_func
       $A
       $A
@@ -9808,12 +10329,13 @@ rule @tapp0_fapp0
 // Direct generic `fapp1_fapp0(hom_int)` component joins the named projection.
 rule @tapp0_fapp0
       $B
-      Cat_cat
+      Cat_cart
       _
       _
       $b
-      (@fapp1_fapp0 (Op_cat $A) (@Catd_cat $B)
-        (@hom_int $A $B $F) $Y $X $f)
+      (@strict_transfor _ _ _ _
+        (@fapp1_fapp0 (Op_cat $A) (Functor_cart_cat $B Cat_cart)
+          (@hom_int $A $B $F) $Y $X $f))
   ↪ @hom_precomp_along_func
       $A
       $A
@@ -9827,10 +10349,10 @@ rule @tapp0_fapp0
 
 // Component of the target-internalized mirror is postcomposition by f.
 rule @tapp0_fapp0
-      _ Cat_cat
+      _ Cat_cart
       _ _
       $b
-      (@hom_con_int_postcomp_func $A $B $F $W $X $f)
+      (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func $A $B $F $W $X $f))
   ↪ @hom_postcomp_func
       $A $A (@id_func $A)
       (@fapp0 $B $A $F $b)
@@ -9851,7 +10373,7 @@ symbol tapp1_fapp0 : Π [A B : Cat], Π [F G : τ (Functor A B)],
   Π [X Y : τ (Obj A)],
   Π (ϵ : τ (Obj (Transf_cat F G))),
   Π (f : τ (Hom A X Y)),
-  τ (Hom B (fapp0 F X) (fapp0 G Y));
+  τ (Obj (Hom_cat B (fapp0 F X) (fapp0 G Y)));
 
 // Functor-level off-diagonal ordinary transfor component.
 //
@@ -9871,6 +10393,82 @@ symbol tapp1_func : Π [A B : Cat], Π [F G : τ (Functor A B)],
 //   tapp1_func(epsilon,X,Y)[f] = tapp1_fapp0(epsilon,f).
 rule fapp0 (@tapp1_func $A $B $F $G $X $Y $ϵ) $f
   ↪ @tapp1_fapp0 $A $B $F $G $X $Y $ϵ $f;
+
+// Projections of the whole total-duality mapping operator.
+injective symbol TotalOp_transf
+  [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  : τ (@Transf (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B G) (@TotalOp_func A B F));
+
+// Reversed source endpoints expose the retained whole mapping action.
+rule @fapp1_fapp0 _ _ (TotalOp_func_func $A $B) $G $F $epsilon
+  ↪ @TotalOp_transf $A $B $F $G $epsilon;
+
+// The entire higher-hom map is an alias of the generic action, not new data.
+symbol TotalOp_transf_func [A B : Cat] (F G : τ (Functor A B))
+  : τ (Functor
+      (TotalOp_cat (@Transf_cat A B F G))
+      (@Transf_cat (TotalOp_cat A) (TotalOp_cat B)
+        (@TotalOp_func A B G) (@TotalOp_func A B F)))
+≔ @fapp1_func
+    (TotalOp_cat (Functor_cat A B))
+    (Functor_cat (TotalOp_cat A) (TotalOp_cat B))
+    (TotalOp_func_func A B) G F;
+
+rule @TotalOp_transf _ _ _ _ (@TotalOp_transf $A $B $F $G $epsilon)
+  ↪ $epsilon;
+
+rule @TotalOp_transf $A $B $F $F (@id (Functor_cat $A $B) $F)
+  ↪ @id (Functor_cat (TotalOp_cat $A) (TotalOp_cat $B))
+      (@TotalOp_func $A $B $F);
+
+rule @TotalOp_transf $A $B $F $H
+      (@comp_fapp0 (Functor_cat $A $B) $F $G $H $eta $epsilon)
+  ↪ @comp_fapp0 (Functor_cat (TotalOp_cat $A) (TotalOp_cat $B))
+      (@TotalOp_func $A $B $H) (@TotalOp_func $A $B $G) (@TotalOp_func $A $B $F)
+      (@TotalOp_transf $A $B $F $G $epsilon)
+      (@TotalOp_transf $A $B $G $H $eta);
+
+// Object components reuse the original arrow in its total-opposite Hom.
+rule @tapp0_fapp0 _ _ _ _ $x (@TotalOp_transf $A $B $F $G $epsilon)
+  ↪ @tapp0_fapp0 $A $B $F $G $x $epsilon;
+
+// Components of the whole next-hom action, with modification direction reversed.
+rule @tapp0_hom_fapp0 _ _ _ _ _ _ $x
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (TotalOp_func_func $A $B) $G $F)
+        $eta $epsilon $Theta)
+  ↪ @tapp0_hom_fapp0 $A $B $F $G $epsilon $eta $x $Theta;
+
+// Existing left/post boundary, internal in the base arrow. No laxity cell is
+// supplied: this is actual precomposition of the hom action of G by epsilon[x].
+symbol tapp1_post_endpoint_func
+  [A B : Cat] [F G : τ (Functor A B)] (epsilon : τ (Transf F G))
+  (x y : τ (Obj A))
+  : τ (Functor (Hom_cat A x y)
+      (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y)))
+≔ @comp_cat_fapp0 (Hom_cat A x y)
+    (Hom_cat B (@fapp0 A B G x) (@fapp0 A B G y))
+    (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))
+    (@hom_precomp_along_func B B (@id_func B)
+      (@fapp0 A B G y) (@fapp0 A B F x) (@fapp0 A B G x)
+      (@tapp0_fapp0 A B F G x epsilon))
+    (@fapp1_func A B G x y);
+
+// Total duality exchanges the two boundary expressions. The default target
+// pre/right expression is the total dual of the ORIGINAL LEFT boundary.
+rule @tapp1_func _ _ _ _ $y $x
+      (@TotalOp_transf $A $B $F $G $epsilon)
+  ↪ @TotalOp_func (Hom_cat $A $x $y)
+      (Hom_cat $B (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $y))
+      (@tapp1_post_endpoint_func $A $B $F $G $epsilon $x $y);
+
+// Capped observation joins evaluation of the whole functor above.
+rule @tapp1_fapp0 _ _ _ _ $y $x
+      (@TotalOp_transf $A $B $F $G $epsilon) $p
+  ↪ @fapp0 (Hom_cat $A $x $y)
+      (Hom_cat $B (@fapp0 $A $B $F $x) (@fapp0 $A $B $G $y))
+      (@tapp1_post_endpoint_func $A $B $F $G $epsilon $x $y) $p;
 
 // Point component of Path_cat_func's second action.
 rule @tapp0_fapp0
@@ -9920,11 +10518,11 @@ rule @tapp1_fapp0
 // action on the fixed represented arrow and the varying arrow of F.
 // lhs-audit: keep 3,4 -- required subject-reduction endpoints of the Catd-valued hom component.
 rule @tapp1_func
-      $B Cat_cat
+      $B Cat_cart
       (@hom_ $A $B $F $Y)
       (@hom_ $A $B $F $X)
       $b $c
-      (@hom_int_precomp_func $A $B $F $Y $X $p)
+      (@strict_transfor _ _ _ _ (@hom_int_precomp_func $A $B $F $Y $X $p))
   ↪ @comp_fapp0
       Cat_cat
       (Hom_cat $B $b $c)
@@ -9934,7 +10532,7 @@ rule @tapp1_func
           $A
           (@fapp0 $B $A $F $b)
           (@fapp0 $B $A $F $c)))
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat $A $Y (@fapp0 $B $A $F $b))
         (Hom_cat $A $X (@fapp0 $B $A $F $c)))
       (@Hom_tele_func
@@ -9953,11 +10551,11 @@ rule @tapp1_func
 // Projection-order join for the capped off-diagonal component.
 // lhs-audit: keep 3,4 -- required subject-reduction endpoints of the Catd-valued hom component.
 rule @tapp1_fapp0
-      $B Cat_cat
+      $B Cat_cart
       (@hom_ $A $B $F $Y)
       (@hom_ $A $B $F $X)
       $b $c
-      (@hom_int_precomp_func $A $B $F $Y $X $p)
+      (@strict_transfor _ _ _ _ (@hom_int_precomp_func $A $B $F $Y $X $p))
       $q
   ↪ @Hom_func
       $A
@@ -9971,10 +10569,10 @@ rule @tapp1_fapp0
 // Higher action of target-internalized postcomposition:
 // q |-> Hom_func(F[q],f).
 rule @tapp1_func
-      _ Cat_cat
+      _ Cat_cart
       _ _
       $b $c
-      (@hom_con_int_postcomp_func $A $B $F $W $X $f)
+      (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func $A $B $F $W $X $f))
   ↪ @comp_fapp0
       Cat_cat
       (Hom_cat (Op_cat $B) $b $c)
@@ -9984,7 +10582,7 @@ rule @tapp1_func
           (@fapp0 $B $A $F $c)
           (@fapp0 $B $A $F $b))
         (Hom_cat $A $W $X))
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat $A (@fapp0 $B $A $F $b) $W)
         (Hom_cat $A (@fapp0 $B $A $F $c) $X))
       (@Hom_tele_func
@@ -10002,10 +10600,10 @@ rule @tapp1_func
 
 // Capped higher action of target-internalized postcomposition is rigid `Hom_func`.
 rule @tapp1_fapp0
-      _ Cat_cat
+      _ Cat_cart
       _ _
       $b $c
-      (@hom_con_int_postcomp_func $A $B $F $W $X $f)
+      (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func $A $B $F $W $X $f))
       $q
   ↪ @Hom_func
       $A
@@ -10033,13 +10631,13 @@ rule @tapp1_func
       _ _
       _ _
       $x $y
-      (@Op_transf $A $B $F $G $eta)
-  ↪ @tapp1_func $A $B $F $G $y $x $eta;
+      (@strict_transfor _ _ _ _ (@Op_transf $A $B $F $G $eta))
+  ↪ @tapp1_func $A $B $F $G $y $x (@strict_transfor $A $B $F $G $eta);
 
 // Direct capped projection joins the existing whole opposite action.
 rule @tapp1_fapp0 _ _ _ _ $x $y
-      (@Op_transf $A $B $F $G $eta) $p
-  ↪ @tapp1_fapp0 $A $B $F $G $y $x $eta $p;
+      (@strict_transfor _ _ _ _ (@Op_transf $A $B $F $G $eta)) $p
+  ↪ @tapp1_fapp0 $A $B $F $G $y $x (@strict_transfor $A $B $F $G $eta) $p;
 
 // Cat instance of product-composition arrow action. This is the generic
 // horizontal action owner for ordinary transfors; the older covariant and
@@ -10140,6 +10738,207 @@ rule @comp_prod_fapp1_fapp0
       (Functor_cat $X $Z)
       (@comp_cat_fapp0 $X $Y $Z $G $F);
 
+// Part 1: fixed postwhiskering, after the ordinary horizontal owner.
+// Fixed postwhiskering composition; both outer transformation legs are identities.
+rule @comp_prod_fapp1_fapp0 Cat_cat $I $B $C
+      (Struct_sigma _ $H) (Struct_sigma _ $H)
+      (Struct_sigma
+        (@comp_prod_fapp1_fapp0 Cat_cat $I $A $B
+          (Struct_sigma $F $G) (Struct_sigma $F' $G)
+          (Struct_sigma $epsilon (@id _ $G)))
+        (@id _ $H))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $I $A $C
+      (Struct_sigma $F (@comp_cat_fapp0 $A $B $C $H $G))
+      (Struct_sigma $F' (@comp_cat_fapp0 $A $B $C $H $G))
+      (Struct_sigma $epsilon
+        (@id (Functor_cat $A $C) (@comp_cat_fapp0 $A $B $C $H $G)));
+rule @comp_prod_fapp1_fapp0 Cat_cat $I $A $A
+      (Struct_sigma $F (@id Cat_cat $A)) (Struct_sigma $G (@id Cat_cat $A))
+      (Struct_sigma $epsilon (@id _ (@id Cat_cat $A)))
+  ↪ $epsilon;
+
+
+// The actual fixed-postcomposition image of the public displayed identity.
+// Both transformation legs are identities; no raw lax map is identified.
+rule @comp_prod_fapp1_fapp0 Cat_cat $K Cat_cart $C
+      (Struct_sigma $E $H) (Struct_sigma $E $H)
+      (Struct_sigma (@id (Catd_cat $K) $E) (@id _ $H))
+  ↪ @id (Functor_cat $K $C) (@comp_cat_fapp0 $K Cat_cart $C $H $E);
+
+// Fixed postcomposition is an ordinary strict functor on lax transformation
+// categories. Both other legs are literal identities; this is not the
+// unrestricted interchange law for two varying lax transformations.
+// lhs-audit: keep 1 -- the ordinary mapping category owns the vertical composite.
+rule @comp_fapp0 (Functor_cat $I $C) _ _ _
+      (@comp_prod_fapp1_fapp0 Cat_cat $I $B $C
+        (Struct_sigma $G $H) (Struct_sigma $J $H)
+        (Struct_sigma $eta (@id _ $H)))
+      (@comp_prod_fapp1_fapp0 Cat_cat $I $B $C
+        (Struct_sigma $F $H) (Struct_sigma $G $H)
+        (Struct_sigma $epsilon (@id _ $H)))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $I $B $C
+      (Struct_sigma $F $H) (Struct_sigma $J $H)
+      (Struct_sigma
+        (@comp_fapp0 (Functor_cat $I $B) $F $G $J $eta $epsilon)
+        (@id (Functor_cat $B $C) $H));
+
+// After the generic action has capped, a public Catd composite can still
+// carry its facade tag. Normalize that input only inside this fixed
+// postcomposition owner; the public displayed-composition head is preserved.
+rule @comp_prod_fapp1_fapp0 Cat_cat $K Cat_cart $C
+      (Struct_sigma $E $H) (Struct_sigma $D $H)
+      (Struct_sigma (@comp_fapp0 (Catd_cat $K) $E $M $D $GG $FF) (@id _ $H))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $K Cat_cart $C
+      (Struct_sigma $E $H) (Struct_sigma $D $H)
+      (Struct_sigma (@comp_fapp0 (Functor_cat $K Cat_cart) $E $M $D $GG $FF)
+        (@id (Functor_cat Cat_cart $C) $H));
+
+// Fixed precomposition is a strict functor on the ordinary lax mapping
+// category. Its first transformation leg is the same literal identity in
+// both factors; this does not impose interchange with two varying legs.
+// lhs-audit: keep 1 -- the ordinary mapping category owns the vertical composite.
+rule @comp_fapp0 (Functor_cat $A $C) _ _ _
+      (@comp_prod_fapp1_fapp0 Cat_cat $A $B $C
+        (Struct_sigma $F $H) (Struct_sigma $F $J)
+        (Struct_sigma (@id _ $F) $eta))
+      (@comp_prod_fapp1_fapp0 Cat_cat $A $B $C
+        (Struct_sigma $F $G) (Struct_sigma $F $H)
+        (Struct_sigma (@id _ $F) $epsilon))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $A $B $C
+      (Struct_sigma $F $G) (Struct_sigma $F $J)
+      (Struct_sigma (@id (Functor_cat $A $B) $F)
+        (@comp_fapp0 (Functor_cat $B $C) $G $H $J $eta $epsilon));
+
+// The rigid two-sided Hom retains its object head. Its next Hom is the
+// actual sequential pre/post-whiskering action on higher cells.
+rule @fapp1_func _ _ (@Hom_func $A $x $x' $y $y' $g $f) $h $k
+  ↪ @comp_cat_fapp0
+      (Hom_cat (Hom_cat $A $x $y) $h $k)
+      (Hom_cat (Hom_cat $A $x' $y)
+        (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $h)
+        (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $k))
+      (Hom_cat (Hom_cat $A $x' $y')
+        (@Hom_fapp0 $A $x $x' $y $y' $g $f $h)
+        (@Hom_fapp0 $A $x $x' $y $y' $g $f $k))
+      (@hom_postcomp_fapp1_func $A $A (@id_func $A) $x' $y $y' $f
+        (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $h)
+        (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $k))
+      (@hom_precomp_along_fapp1_func $A $A (@id_func $A) $y $x' $x $g $h $k);
+rule @fapp1_fapp0 _ _ (@Hom_func $A $x $x' $y $y' $g $f) $h $k $theta
+  ↪ @hom_postcomp_fapp1_fapp0 $A $A (@id_func $A) $x' $y $y' $f
+      (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $h)
+      (@hom_precomp_along_fapp0 $A $A (@id_func $A) $y $x' $x $g $k)
+      (@hom_precomp_along_fapp1_fapp0 $A $A (@id_func $A) $y $x' $x $g $h $k $theta);
+
+// Fixed whiskering: only one argument of composition varies. No equality
+// between two nonidentity interchange routes is imposed.
+// lhs-audit: keep 1,2,3 -- identity-family displayed postcomposition action.
+rule @hom_postcomp_fapp1_fapp0 (Catd_cat $K) (Catd_cat $K) (@id Cat_cat (Catd_cat $K)) $W $X $Y $f $g $h $alpha
+  ↪ @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Y
+      (Struct_sigma $g $f) (Struct_sigma $h $f)
+      (Struct_sigma $alpha (@id (Hom_cat (Catd_cat $K) $X $Y) $f));
+// lhs-audit: keep 1,2,3 -- identity-family displayed precomposition action.
+rule @hom_precomp_along_fapp1_fapp0 (Catd_cat $K) (Catd_cat $K) (@id Cat_cat (Catd_cat $K)) $Z $W $X $g $h $k $alpha
+  ↪ @comp_prod_fapp1_fapp0 (Catd_cat $K) $W $X $Z
+      (Struct_sigma $g $h) (Struct_sigma $g $k)
+      (Struct_sigma (@id (Hom_cat (Catd_cat $K) $W $X) $g) $alpha);
+
+// The existing Cartesian mapping inclusion observes horizontal composition
+// through the ordinary composition owner, retaining both actual inputs.
+rule @strict_transfor _ _ _ _
+      (@comp_prod_fapp1_fapp0 Cat_cart $A $B $C
+        (Struct_sigma $F $G) (Struct_sigma $F' $G') (Struct_sigma $U $V))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $A $B $C
+      (Struct_sigma $F $G) (Struct_sigma $F' $G')
+      (Struct_sigma (@strict_transfor $A $B $F $F' $U)
+        (@strict_transfor $B $C $G $G' $V));
+
+// Object component of the same fixed prewhiskering, before the next Hom.
+rule @tapp0_fapp0 _ _ _ _ $y
+      (@hom_precomp_along_fapp0
+        (Functor_cat $K $B) (Functor_cat $K $B) (@id Cat_cat (Functor_cat $K $B))
+        $H $E $D $FF $eta)
+  ↪ @hom_precomp_along_fapp0 $B $B (@id_func $B)
+      (@fapp0 $K $B $H $y) (@fapp0 $K $B $E $y) (@fapp0 $K $B $D $y)
+      (@tapp0_fapp0 $K $B $E $D $y $FF) (@tapp0_fapp0 $K $B $D $H $y $eta);
+
+// Component of fixed prewhiskering of a modification. This is the generic
+// counterpart of the existing displayed horizontal-component projection.
+rule @tapp0_hom_fapp0 _ _ _ _ _ _ $y
+      (@hom_precomp_along_fapp1_fapp0
+        (Functor_cat $K $B) (Functor_cat $K $B) (@id Cat_cat (Functor_cat $K $B))
+        $H $E $D $FF $eta $theta $Phi)
+  ↪ @fapp1_fapp0
+      (Hom_cat $B (@fapp0 $K $B $D $y) (@fapp0 $K $B $H $y))
+      (Hom_cat $B (@fapp0 $K $B $E $y) (@fapp0 $K $B $H $y))
+      (@hom_precomp_along_func $B $B (@id_func $B)
+        (@fapp0 $K $B $H $y) (@fapp0 $K $B $E $y) (@fapp0 $K $B $D $y)
+        (@tapp0_fapp0 $K $B $E $D $y $FF))
+      (@tapp0_fapp0 $K $B $D $H $y $eta)
+      (@tapp0_fapp0 $K $B $D $H $y $theta)
+      (@tapp0_hom_fapp0 $K $B $D $H $eta $theta $y $Phi);
+
+// Proof-time unit comparisons allow compatible presentations of the middle
+// object. They preserve both the actual arrow and the literal identity.
+unif_rule @comp_fapp0 $A $x $y $z $g $f ≡ $g
+  ↪ [ $x ≡ $y; $f ≡ @id $A $y ];
+unif_rule @comp_fapp0 $A $x $y $z $g $f ≡ $f
+  ↪ [ $y ≡ $z; $g ≡ @id $A $y ];
+
+// Identity action after the product identity has projected. Product objects
+// are side conditions, so no pair-eta or equality of arbitrary maps follows.
+unif_rule @comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg'
+      (Struct_sigma (@id _ $g) (@id _ $f))
+  ≡ @id $C $h
+  ↪ [ $C ≡ Hom_cat $A $W $Z;
+      $pg ≡ @Product_pair (Hom_cat $A $W $X) (Hom_cat $A $X $Z) $g $f;
+      $pg' ≡ @Product_pair (Hom_cat $A $W $X) (Hom_cat $A $X $Z) $g $f;
+      $h ≡ @comp_fapp0 $A $W $X $Z $f $g ];
+
+// The displayed category and the ordinary diagram category have their
+// established whole-category comparison. Preserve both runtime composition
+// heads; this is sufficient congruence for the same actual two maps, not
+// injectivity of composition or a comparison of unrelated composites.
+unif_rule @comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF
+  ≡ @comp_fapp0 (Functor_cat $K0 Cat_cart) $E0 $D0 $C0 $GG $FF
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0; $C ≡ $C0 ];
+
+// The precomposition view compares both actual operands before relying on
+// the displayed/ordinary diagram presentation of their composite.
+unif_rule @hom_precomp_along_fapp0 (Catd_cat $K) (Catd_cat $K)
+      (@id Cat_cat (Catd_cat $K)) $H $E $D $FF $GG
+  ≡ @comp_fapp0 (Catd_cat $K0) $E0 $D0 $H0 $GG0 $FF0
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0; $H ≡ $H0; $FF ≡ $FF0; $GG ≡ $GG0 ];
+
+// A canonical right identity may already use the ordinary diagram facade.
+rule @comp_prod_fapp1_fapp0 (Catd_cat $K) $E $D $D
+      (Struct_sigma $p (@id (Functor_cat $K Cat_cart) $D))
+      (Struct_sigma $q (@id (Functor_cat $K Cat_cart) $D))
+      (Struct_sigma $alpha (@id _ (@id (Functor_cat $K Cat_cart) $D)))
+  ↪ $alpha;
+
+// Ordinary diagram composition and displayed composition can present
+// the two bracketings of the same three maps. Compare every actual map and
+// endpoint; this is associativity across the existing category facade.
+unif_rule @comp_fapp0 (Catd_cat $K) $E $D $H
+      (@comp_fapp0 (Functor_cat $K Cat_cart) $D $J $H $M $G) $F
+  ≡ @comp_fapp0 (Catd_cat $K0) $E0 $J0 $H0 $M0
+      (@comp_fapp0 (Catd_cat $K0) $E0 $D0 $J0 $G0 $F0)
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0; $J ≡ $J0; $H ≡ $H0;
+      $M ≡ $M0; $G ≡ $G0; $F ≡ $F0 ];
+
+// Unit whiskering after composition's first Hom has already projected.
+// The first coordinate is the identity of the identity arrow; an arbitrary
+// higher endomorphism of that arrow is deliberately not matched. The
+// repeated endpoint is the unit condition. The adjacent proof-time
+// precomposition reading retains its Product_pair classifiers explicitly
+// now that this previously rigid owner also has a runtime rule here.
+rule @comp_prod_fapp1_fapp0 (Catd_cat $K) $x $x $z
+      (Struct_sigma (@id (Catd_cat $K) $x) $p)
+      (Struct_sigma (@id (Catd_cat $K) $x) $q)
+      (Struct_sigma (@id _ (@id (Catd_cat $K) $x)) $alpha)
+  ↪ $alpha;
+
 // 6c. Constant/opposite transfors and Cat-valued composition projections
 
 /*
@@ -10161,27 +10960,27 @@ rule @comp_prod_fapp1_fapp0
 symbol Const_transf_func [K A : Cat] [x y : τ (Obj A)]
   : τ (Functor
       (Hom_cat A x y)
-      (@Transf_cat K A (@Const_func K A x) (@Const_func K A y)));
+      (Hom_cat (Functor_cart_cat K A) (@Const_func K A x) (@Const_func K A y)));
 
 // Constant transfor selected by the codomain arrow p.
 symbol Const_transf [K A : Cat] [x y : τ (Obj A)]
   (p : τ (Hom A x y))
-  : τ (Transf (@Const_func K A x) (@Const_func K A y));
+  : τ (@StrictTransfor K A (@Const_func K A x) (@Const_func K A y));
 
 // Applying the constructor functor selects `Const_transf(p)`.
 rule fapp0 (@Const_transf_func $K $A $x $y) $p
   ↪ @Const_transf $K $A $x $y $p;
 
 // Constant transfor components are the same codomain arrow at every object.
-rule @tapp0_fapp0 $K $A _ _ $k (@Const_transf $K $A $x $y $p)
+rule @tapp0_fapp0 $K $A _ _ $k (@strict_transfor _ _ _ _ (@Const_transf $K $A $x $y $p))
   ↪ $p;
 
 // Constant transfor off-diagonal action is constant on the base arrow.
-rule @tapp1_func $K $A _ _ $k $k' (@Const_transf $K $A $x $y $p)
+rule @tapp1_func $K $A _ _ $k $k' (@strict_transfor _ _ _ _ (@Const_transf $K $A $x $y $p))
   ↪ @Const_func (Hom_cat $K $k $k') (Hom_cat $A $x $y) $p;
 
 // Capped off-diagonal action of a constant transfor returns p.
-rule @tapp1_fapp0 $K $A _ _ $k $k' (@Const_transf $K $A $x $y $p) $_
+rule @tapp1_fapp0 $K $A _ _ $k $k' (@strict_transfor _ _ _ _ (@Const_transf $K $A $x $y $p)) $_
   ↪ $p;
 
 /*
@@ -10239,16 +11038,8 @@ symbol path_lift_func
 //   comp_cat_cov_func_func[X,Y,Z][G] = comp_cat_cov_func(G)
 //   : (Y ⊢ Z) ⊢ ((X ⊢ Y) ⊢ (X ⊢ Z)).
 symbol comp_cat_cov_func_func [X Y Z : Cat]
-  : τ (Functor
-      (Functor_cat Y Z)
-      (Functor_cat (Functor_cat X Y) (Functor_cat X Z)))
-≔ @hom_postcomp_tele_func
-    Cat_cat
-    Cat_cat
-    (@id Cat_cat Cat_cat)
-    X
-    Y
-    Z;
+  : τ (Functor (Functor_cart_cat Y Z) (Functor_cart_cat (Functor_cart_cat X Y) (Functor_cart_cat X Z)))
+≔ @hom_postcomp_tele_func Cat_cart Cat_cart (@id_func Cat_cart) X Y Z;
 
 // Precomposition by a fixed functor.
 //
@@ -10273,20 +11064,16 @@ symbol comp_cat_con_func [X Y Z : Cat]
 //   comp_cat_con_func_func[X,Y,Z][F] = comp_cat_con_func(F)
 //   : (X ⊢ Y) ⊢ ((Y ⊢ Z) ⊢ (X ⊢ Z)).
 symbol comp_cat_con_func_func [X Y Z : Cat]
-  : τ (Functor
-      (Functor_cat X Y)
-      (Functor_cat (Functor_cat Y Z) (Functor_cat X Z)))
-≔ @hom_precomp_along_tele_func
-    Cat_cat
-    Cat_cat
-    (@id Cat_cat Cat_cat)
-    Z
-    X
-    Y;
+  : τ (Functor (Functor_cart_cat X Y) (Functor_cart_cat (Functor_cart_cat Y Z) (Functor_cart_cat X Z)))
+≔ @hom_precomp_along_tele_func Cat_cart Cat_cart (@id_func Cat_cart) Z X Y;
 
 // Postcomposition by internal opposite is the pointwise opposite-family functor.
-rule @hom_postcomp_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) $Z Cat_cat Cat_cat op
-  ↪ @Op_catd_func $Z;
+// Formation of the shifted family uses the original postcomposition owner.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+        (CoAt2_cat $K) (CoAt2_cat Cat_cart) Cat_cart op)
+      (CoAt2_func_func $K Cat_cart)
+  ↪ Op_catd_func $K;
 
 /*
   Cat-specialized semantic heads package extra structure exposed only when the
@@ -10386,56 +11173,22 @@ rule @hom_postcomp_fapp1_fapp0 Cat_cat $K $E $W $X $Y $f $G $H $eta
   Its object component at F is precomposition of eta by F, implemented by the
   identity-first Cat instance of `comp_prod_fapp1_fapp0`.
 */
-symbol comp_cat_cov_func_func_fapp1_func [X Y Z : Cat]
-  [G H : τ (Functor Y Z)]
-  : τ (Functor
-      (@Transf_cat Y Z G H)
-      (@Transf_cat
-        (Functor_cat X Y)
-        (Functor_cat X Z)
-        (@comp_cat_cov_func X Y Z G)
-        (@comp_cat_cov_func X Y Z H)))
-≔ @hom_postcomp_tele_fapp1_func
-    Cat_cat
-    Cat_cat
-    (@id Cat_cat Cat_cat)
-    X
-    Y
-    Z
-    G
-    H;
+symbol comp_cat_cov_func_func_fapp1_func [X Y Z : Cat] [G H : τ (Functor Y Z)]
+  : τ (Functor (Hom_cat (Functor_cart_cat Y Z) G H)
+      (Hom_cat (Functor_cart_cat (Functor_cart_cat X Y) (Functor_cart_cat X Z)) (@hom_postcomp_func Cat_cart Cat_cart (@id_func Cat_cart) X Y Z G) (@hom_postcomp_func Cat_cart Cat_cart (@id_func Cat_cart) X Y Z H)))
+≔ @hom_postcomp_tele_fapp1_func Cat_cart Cat_cart (@id_func Cat_cart) X Y Z G H;
 
 // Cat-valued tele-postcomposition exposes ordinary transfor projections
 // through the unspecialized telescope-transfor owner.
-rule @hom_postcomp_tele_fapp1_fapp0
-      Cat_cat
-      $K
-      $E
-      $W
-      $X
-      $Y
-      $G
-      $H
-      $eta
-  ↪ @hom_postcomp_tele_transf Cat_cat $K $E $W $X $Y $G $H $eta;
+// The former raw-to-ordinary telescope fold is replaced by
+// the Cartesian inclusion projection at the classifier owner.
+
 
 // Transparent identity-family name for tele-postcomposition of a transfor.
-symbol comp_cat_cov_func_func_transf [X Y Z : Cat]
-  [G H : τ (Functor Y Z)]
-  (eta : τ (Transf G H))
-  : τ (Transf
-      (@comp_cat_cov_func X Y Z G)
-      (@comp_cat_cov_func X Y Z H))
-≔ @hom_postcomp_tele_transf
-    Cat_cat
-    Cat_cat
-    (@id Cat_cat Cat_cat)
-    X
-    Y
-    Z
-    G
-    H
-    eta;
+symbol comp_cat_cov_func_func_transf [X Y Z : Cat] [G H : τ (Functor Y Z)]
+  (eta : τ (Hom (Functor_cart_cat Y Z) G H))
+  : τ (Transf (@hom_postcomp_func Cat_cart Cat_cart (@id_func Cat_cart) X Y Z G) (@hom_postcomp_func Cat_cart Cat_cart (@id_func Cat_cart) X Y Z H))
+≔ @hom_postcomp_tele_transf Cat_cart Cat_cart (@id_func Cat_cart) X Y Z G H eta;
 
 /*
   Precomposition of transfors by a fixed functor.
@@ -10472,63 +11225,14 @@ symbol comp_cat_con_fapp1_func [X Y Z : Cat]
     G
     H;
 
-// Component of tele-postcomposition in an arbitrary ambient category.
-rule @tapp0_fapp0
-      _
-      _
-      _
-      _
-      $u
-      (@hom_postcomp_tele_transf $A $B $F $W $X $Y $f $g $alpha)
-  ↪ @comp_prod_fapp1_fapp0
-      $A
-      $W
-      (@fapp0 $B $A $F $X)
-      (@fapp0 $B $A $F $Y)
-      (@Product_pair
-        (Hom_cat $A $W (@fapp0 $B $A $F $X))
-        (Hom_cat $A (@fapp0 $B $A $F $X) (@fapp0 $B $A $F $Y))
-        $u
-        (@fapp1_fapp0 $B $A $F $X $Y $f))
-      (@Product_pair
-        (Hom_cat $A $W (@fapp0 $B $A $F $X))
-        (Hom_cat $A (@fapp0 $B $A $F $X) (@fapp0 $B $A $F $Y))
-        $u
-        (@fapp1_fapp0 $B $A $F $X $Y $g))
-      (@Product_pair
-        (Hom_cat (Hom_cat $A $W (@fapp0 $B $A $F $X)) $u $u)
-        (Hom_cat
-          (Hom_cat $A (@fapp0 $B $A $F $X) (@fapp0 $B $A $F $Y))
-          (@fapp1_fapp0 $B $A $F $X $Y $f)
-          (@fapp1_fapp0 $B $A $F $X $Y $g))
-        (@id (Hom_cat $A $W (@fapp0 $B $A $F $X)) $u)
-        (@fapp1_fapp0
-          (Hom_cat $B $X $Y)
-          (Hom_cat $A (@fapp0 $B $A $F $X) (@fapp0 $B $A $F $Y))
-          (@fapp1_func $B $A $F $X $Y)
-          $f
-          $g
-          $alpha));
+// The telescope component is computed once at its earlier projection owner.
+
 
 // Full hom action of precomposition as the precomposing functor varies.
-symbol comp_cat_con_func_func_fapp1_func [X Y Z : Cat]
-  [F K : τ (Functor X Y)]
-  : τ (Functor
-      (@Transf_cat X Y F K)
-      (@Transf_cat
-        (Functor_cat Y Z)
-        (Functor_cat X Z)
-        (@comp_cat_con_func X Y Z F)
-        (@comp_cat_con_func X Y Z K)))
-≔ @hom_precomp_along_tele_fapp1_func
-    Cat_cat
-    Cat_cat
-    (@id Cat_cat Cat_cat)
-    Z
-    X
-    Y
-    F
-    K;
+symbol comp_cat_con_func_func_fapp1_func [X Y Z : Cat] [F K : τ (Functor X Y)]
+  : τ (Functor (Hom_cat (Functor_cart_cat X Y) F K)
+      (Hom_cat (Functor_cart_cat (Functor_cart_cat Y Z) (Functor_cart_cat X Z)) (@hom_precomp_along_func Cat_cart Cat_cart (@id_func Cat_cart) Z X Y F) (@hom_precomp_along_func Cat_cart Cat_cart (@id_func Cat_cart) Z X Y K)))
+≔ @hom_precomp_along_tele_fapp1_func Cat_cart Cat_cart (@id_func Cat_cart) Z X Y F K;
 
 // Hom-action of precomposition as a functor in the precomposing functor.
 //
@@ -10537,35 +11241,15 @@ symbol comp_cat_con_func_func_fapp1_func [X Y Z : Cat]
 //   comp_cat_con_func_func_transf(alpha)[G] = G alpha.
 // Cat-valued tele-precomposition exposes ordinary transfor projections through
 // the unspecialized telescope-transfor owner.
-rule @hom_precomp_along_tele_fapp1_fapp0
-      $K
-      Cat_cat
-      $E
-      $Z
-      $X
-      $Y
-      $F
-      $H
-      $alpha
-  ↪ @hom_precomp_along_tele_transf $K Cat_cat $E $Z $X $Y $F $H $alpha;
+// The former raw-to-ordinary telescope fold is replaced by
+// the Cartesian inclusion projection at the classifier owner.
+
 
 // Transparent identity-family name for tele-precomposition of a transfor.
-symbol comp_cat_con_func_func_transf [X Y Z : Cat]
-  [F K : τ (Functor X Y)]
-  (alpha : τ (Transf F K))
-  : τ (Transf
-      (@comp_cat_con_func X Y Z F)
-      (@comp_cat_con_func X Y Z K))
-≔ @hom_precomp_along_tele_transf
-    Cat_cat
-    Cat_cat
-    (@id Cat_cat Cat_cat)
-    Z
-    X
-    Y
-    F
-    K
-    alpha;
+symbol comp_cat_con_func_func_transf [X Y Z : Cat] [F K : τ (Functor X Y)]
+  (eta : τ (Hom (Functor_cart_cat X Y) F K))
+  : τ (Transf (@hom_precomp_along_func Cat_cart Cat_cart (@id_func Cat_cart) Z X Y F) (@hom_precomp_along_func Cat_cart Cat_cart (@id_func Cat_cart) Z X Y K))
+≔ @hom_precomp_along_tele_transf Cat_cart Cat_cart (@id_func Cat_cart) Z X Y F K eta;
 
 // Component of tele-precomposition in an arbitrary ambient category.
 //
@@ -10869,19 +11553,14 @@ unif_rule @hom_precomp_along_func $A $B $F $Z $W $X $h
   removed.
 */
 
-// Cat-valued capped precomposition exposes ordinary transfor projections.
-rule @hom_precomp_along_fapp1_fapp0
-      $K
-      Cat_cat
-      $E
-      $Z
-      $X
-      $Y
-      $F
-      $G
-      $H
-      $eta
-  ↪ @comp_prod_fapp1_fapp0
+// Cat-valued prewhiskering retains its existing whole action head.
+// The previous unconditional fold lost the stable precomposition endpoints
+// under identity action. Observe the same horizontal body only at the tapp
+// projection ladder; the whole proof-time comparison remains above.
+rule @tapp0_fapp0 _ _ _ _ $i
+      (@hom_precomp_along_fapp1_fapp0 $K Cat_cat $E $Z $X $Y $F $G $H $eta)
+  ↪ @tapp0_fapp0 _ _ _ _ $i
+      (@comp_prod_fapp1_fapp0
       Cat_cat
       (@fapp0 $K Cat_cat $E $X)
       (@fapp0 $K Cat_cat $E $Y)
@@ -10905,7 +11584,77 @@ rule @hom_precomp_along_fapp1_fapp0
         (@id
           (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
           (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
-        $eta);
+        $eta));
+
+rule @tapp1_func _ _ _ _ $i $j
+      (@hom_precomp_along_fapp1_fapp0 $K Cat_cat $E $Z $X $Y $F $G $H $eta)
+  ↪ @tapp1_func _ _ _ _ $i $j
+      (@comp_prod_fapp1_fapp0
+      Cat_cat
+      (@fapp0 $K Cat_cat $E $X)
+      (@fapp0 $K Cat_cat $E $Y)
+      $Z
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $G)
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $H)
+      (@Product_pair
+        (Hom_cat
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        (Hom_cat (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z) $G $H)
+        (@id
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        $eta));
+
+rule @tapp1_fapp0 _ _ _ _ $i $j
+      (@hom_precomp_along_fapp1_fapp0 $K Cat_cat $E $Z $X $Y $F $G $H $eta) $p
+  ↪ @tapp1_fapp0 _ _ _ _ $i $j
+      (@comp_prod_fapp1_fapp0
+      Cat_cat
+      (@fapp0 $K Cat_cat $E $X)
+      (@fapp0 $K Cat_cat $E $Y)
+      $Z
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $G)
+      (@Product_pair
+        (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+        (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z)
+        (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+        $H)
+      (@Product_pair
+        (Hom_cat
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F)
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        (Hom_cat (Functor_cat (@fapp0 $K Cat_cat $E $Y) $Z) $G $H)
+        (@id
+          (Functor_cat (@fapp0 $K Cat_cat $E $X) (@fapp0 $K Cat_cat $E $Y))
+          (@fapp1_fapp0 $K Cat_cat $E $X $Y $F))
+        $eta)) $p;
+
+
+// The two existing presentations describe the same composed functor. The
+// diagram's mapped identity can expose the raw composite while its endpoint
+// retains the stable precomposition head. This is the corresponding typed
+// left-unit instance, retaining the actual F and G in both presentations.
+// lhs-audit: keep 1,3 -- ordinary transfor composition at this canonical precomposition endpoint.
+rule @comp_fapp0 (Functor_cat $A $C) _
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $C $A $B $F $G) _
+      (@id _ (@comp_fapp0 Cat_cat $A $B $C $G $F)) $eta
+  ↪ $eta;
 
 // The old `comp_cat_con_transf` compatibility name has been removed; the Cat
 // product-composition owner exposes its projections and identity collapse.
@@ -10925,6 +11674,44 @@ rule @tapp1_fapp0 $A $B _ _ $X $Y (@id (Functor_cat $A $B) $F) $p
 // Off-diagonal action at an identity base arrow is the ordinary component.
 rule @tapp1_fapp0 $A $B $F $G $X $X $ϵ (@id $A $X)
   ↪ @tapp0_fapp0 $A $B $F $G $X $ϵ;
+
+// Cartesian-coefficient instances of the existing strict vertical-action laws.
+// Coefficient composition has projected to ordinary functor composition.
+// Both supplied maps are genuinely Cartesian; no arbitrary lax map is admitted.
+// lhs-audit: keep 1 -- actual Cat_cart arrow composition has normalized to Cat_cat.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@tapp0_fapp0 $K Cat_cart $M $D $y (@strict_transfor $K Cat_cart $M $D $V))
+    (@tapp1_fapp0 $K Cat_cart $E $M $x $y (@strict_transfor $K Cat_cart $E $M $U) $p)
+  ↪ @tapp1_fapp0 $K Cat_cart $E $D $x $y
+      (@strict_transfor $K Cat_cart $E $D
+        (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $M $D $V $U)) $p;
+
+// lhs-audit: keep 1 -- same coefficient-composition discriminator.
+rule @comp_fapp0 Cat_cat _ _ _
+    (@tapp1_fapp0 $K Cat_cart $M $D $x $y (@strict_transfor $K Cat_cart $M $D $V) $p)
+    (@tapp0_fapp0 $K Cat_cart $E $M $x (@strict_transfor $K Cat_cart $E $M $U))
+  ↪ @tapp1_fapp0 $K Cat_cart $E $D $x $y
+      (@strict_transfor $K Cat_cart $E $D
+        (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $M $D $V $U)) $p;
+
+// The same two laws after ordinary composition's object beta has projected.
+rule @fapp0 _ _
+    (@tapp0_fapp0 $K Cat_cart $M $D $y (@strict_transfor $K Cat_cart $M $D $V))
+    (@fapp0 _ _
+      (@tapp1_fapp0 $K Cat_cart $E $M $x $y (@strict_transfor $K Cat_cart $E $M $U) $p) $u)
+  ↪ @fapp0 _ _
+      (@tapp1_fapp0 $K Cat_cart $E $D $x $y
+        (@strict_transfor $K Cat_cart $E $D
+          (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $M $D $V $U)) $p) $u;
+
+rule @fapp0 _ _
+    (@tapp1_fapp0 $K Cat_cart $M $D $x $y (@strict_transfor $K Cat_cart $M $D $V) $p)
+    (@fapp0 _ _
+      (@tapp0_fapp0 $K Cat_cart $E $M $x (@strict_transfor $K Cat_cart $E $M $U)) $u)
+  ↪ @fapp0 _ _
+      (@tapp1_fapp0 $K Cat_cart $E $D $x $y
+        (@strict_transfor $K Cat_cart $E $D
+          (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $M $D $V $U)) $p) $u;
 
 /* API-04V RULE-OFF CONTROL: these three raw folds can recover
    unrestricted composition after identity specialization. Restore only
@@ -11011,7 +11798,7 @@ symbol hom_postcomp_representable_interchange_eq
           (@hom_postcomp_func B B (@id_func B) M N L h)
           Y
           Z
-          (@hom_postcomp_tele_fapp1_fapp0 B B (@id_func B) M N L g h e_gh)
+          (@hom_postcomp_tele_transf B B (@id_func B) M N L g h e_gh)
           beta)
         (@tapp1_fapp0
           (Hom_cat B M N)
@@ -11020,7 +11807,7 @@ symbol hom_postcomp_representable_interchange_eq
           (@hom_postcomp_func B B (@id_func B) M N L g)
           X
           Y
-          (@hom_postcomp_tele_fapp1_fapp0 B B (@id_func B) M N L f g e_fg)
+          (@hom_postcomp_tele_transf B B (@id_func B) M N L f g e_fg)
           alpha)
       =
       @tapp1_fapp0
@@ -11030,7 +11817,7 @@ symbol hom_postcomp_representable_interchange_eq
         (@hom_postcomp_func B B (@id_func B) M N L h)
         X
         Z
-        (@hom_postcomp_tele_fapp1_fapp0
+        (@hom_postcomp_tele_transf
           B
           B
           (@id_func B)
@@ -11049,7 +11836,7 @@ symbol hom_postcomp_representable_interchange_eq
       (@hom_postcomp_func B B (@id_func B) M N L h)
       X
       Z
-      (@hom_postcomp_tele_fapp1_fapp0
+      (@hom_postcomp_tele_transf
         B
         B
         (@id_func B)
@@ -11072,6 +11859,248 @@ symbol hom_postcomp_representable_interchange_eq
 // The former whole pre/right strict-naturality cut for arbitrary ambient
 // transfors is also retired. Full StrictTransfor evidence contains a second
 // skew family over the existing pre/right cell and guards this computation.
+
+// Whole strict functoriality; arbitrary transfor naturality remains lax.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func $B $A $F _ $Y $Z $g)
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_func $A $B $F $X $Z)
+      (@hom_postcomp_func $A $A (@id_func $A) $X $Y $Z $g);
+
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func
+        $A $B $F (@fapp0 $A $B $F $Y) $W $X $h)
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ @comp_fapp0 Cat_cat _ _ _
+      (@fapp1_func $A $B $F $W $Y)
+      (@hom_precomp_along_func $A $A (@id_func $A) $Y $W $X $h);
+
+// Strict functoriality after the canonical post/left observation has capped.
+// This is the component of the whole law, at its stable semantic owner.
+rule @hom_postcomp_fapp0 $B $A $F _ $Y $Z $g
+      (@fapp1_fapp0 $A $B $F $X $Y $f)
+  ↪ @fapp1_fapp0 $A $B $F $X $Z
+      (@hom_postcomp_fapp0 $A $A (@id_func $A) $X $Y $Z $g $f);
+
+// The pre/right projection uses the same selected strict action.
+rule @hom_precomp_along_fapp0 $A $B $F _ $W $X $h
+      (@fapp1_fapp0 $A $B $F $X $Y $f)
+  ↪ @fapp1_fapp0 $A $B $F $W $Y
+      (@hom_precomp_along_fapp0 $A $A (@id_func $A) $Y $W $X $h $f);
+
+// Same reading in a dimension-one-opposite codomain, where comp has reduced.
+// This is not a same-profile transpose operation on transformations.
+unif_rule
+  @tapp1_fapp0 $A (Op_cat $B) $F $G $X $Y $epsilon $p
+  ≡ @comp_fapp0 $B $x $y $z $f $g
+  ↪ [
+      $x ≡ @fapp0 $A (Op_cat $B) $G $Y;
+      $y ≡ @fapp0 $A (Op_cat $B) $F $Y;
+      $z ≡ @fapp0 $A (Op_cat $B) $F $X;
+      $f ≡ @fapp1_fapp0 $A (Op_cat $B) $F $X $Y $p;
+      $g ≡ @tapp0_fapp0 $A (Op_cat $B) $F $G $Y $epsilon
+    ];
+
+// The conventional pre/right leg gives the first vertical law for all
+// default transformations. Keep literal composites visible to intrinsic
+// Homd action: this is a proof-time comparison, not a runtime fold.
+// Linear patterns avoid eager matcher preference for the less constrained
+// scalar reading. The constraints retain every map and the outer B variance.
+unif_rule
+  @tapp1_fapp0 $A1 $B1 $F1 $H1 $X1 $Y1
+    (@comp_fapp0 (Functor_cat $A2 $B2) $F2 $G2 $H2 $eta1 $epsilon1) $p1
+  ≡ @comp_fapp0 $B _ _ _
+      (@tapp0_fapp0 $A3 $B3 $G3 $H3 $Y3 $eta3)
+      (@tapp1_fapp0 $A4 $B4 $F4 $G4 $X4 $Y4 $epsilon4 $p4)
+  ↪ [ $A1 ≡ $A4; $B1 ≡ $B4; $F1 ≡ $F4; $H1 ≡ $H3;
+      $X1 ≡ $X4; $Y1 ≡ $Y4; $A2 ≡ $A4; $B2 ≡ $B4;
+      $F2 ≡ $F4; $G2 ≡ $G4; $H2 ≡ $H3;
+      $eta1 ≡ $eta3; $epsilon1 ≡ $epsilon4; $p1 ≡ $p4;
+      $B ≡ $B4; $A3 ≡ $A4; $B3 ≡ $B4;
+      $G3 ≡ $G4; $Y3 ≡ $Y4 ];
+
+// Proof-time pre/right readings after ordinary action has already projected.
+// Both sides keep rigid owners. Category equality in the repeated B slot is
+// a discriminator: the ordinary clause does not match reversed composition.
+unif_rule
+  @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p
+  ≡ @comp_fapp0 $B $x $y $z $g $f
+  ↪ [
+      $x ≡ @fapp0 $A $B $F $X;
+      $y ≡ @fapp0 $A $B $F $Y;
+      $z ≡ @fapp0 $A $B $G $Y;
+      $g ≡ @tapp0_fapp0 $A $B $F $G $Y $epsilon;
+      $f ≡ @fapp1_fapp0 $A $B $F $X $Y $p
+    ];
+
+// The selected pre/right action after ordinary precomposition has capped.
+// The original pathout_general_pre_raw_path consumer reaches this stable
+// head before raw composition folds to tapp1. Preserve both runtime heads.
+unif_rule
+  @hom_precomp_along_fapp0 $A $B $F _ $X $Y $p
+    (@tapp0_fapp0 $A $B $F $G $Y $epsilon)
+  ≡ @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p
+  ↪ [ tt ≡ tt ];
+
+// Pre/right accumulation after both Hom and transfor actions have capped.
+// This is the existing conventional leg with strict F, preserving the
+// nonidentity q and h. It imposes no post/left naturality on epsilon.
+unif_rule
+  @hom_precomp_along_fapp0 $A $B $F $Z $w $x $h
+    (@tapp1_fapp0 $A $B $F $G $x $y $epsilon $q)
+  ≡ @tapp1_fapp0 $A $B $F $G $w $y $epsilon
+      (@hom_precomp_along_fapp0 $A $A (@id Cat_cat $A) $y $w $x $h $q)
+  ↪ [ $Z ≡ @fapp0 $A $B $G $y ];
+
+// Transport through the canonical Hom first maps p by F, then precomposes
+// in B. Compare that actual image directly, without a transitive detour
+// through raw composition or an inverse inference of p from F[p].
+unif_rule
+  @hom_precomp_along_fapp0 _ _ (@id Cat_cat $B) $Z $u $v $q
+    (@tapp0_fapp0 $A $B $F $G $Y $epsilon)
+  ≡ @tapp1_fapp0 $A0 $B0 $F0 $G0 $X0 $Y0 $epsilon0 $p0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F; $G0 ≡ $G;
+      $Y0 ≡ $Y; $epsilon0 ≡ $epsilon;
+      $Z ≡ @fapp0 $A $B $G $Y;
+      $u ≡ @fapp0 $A $B $F $X0; $v ≡ @fapp0 $A $B $F $Y;
+      $q ≡ @fapp1_fapp0 $A $B $F $X0 $Y $p0 ];
+
+// Conventional lax is the default Transf profile.
+// Only the pre/right leg is strict. The post/left cell remains directed.
+
+// Whole pre/right accumulation; the off-diagonal owner stays iterable.
+rule @comp_fapp0
+      Cat_cat _ _ _
+      (@hom_precomp_along_func
+        $A $B $F (@fapp0 $A $B $G $Y) $W $X $h)
+      (@tapp1_func $A $B $F $G $X $Y $epsilon)
+  ↪ @comp_fapp0
+      Cat_cat _ _ _
+      (@tapp1_func $A $B $F $G $W $Y $epsilon)
+      (@hom_precomp_along_func $A $A (@id_func $A) $Y $W $X $h);
+
+// Capped pre/right accumulation.
+rule @comp_fapp0
+      $B _ _ _
+      (@tapp1_fapp0 $A $B $F $G $X $Y $epsilon $f)
+      (@fapp1_fapp0 $A $B $F $W $X $h)
+  ↪ @tapp1_fapp0 $A $B $F $G $W $Y $epsilon
+      (@comp_fapp0 $A $W $X $Y $f $h);
+
+// Identity specialization after epsilon[id] has projected to epsilon[Y].
+rule @comp_fapp0
+      $B _ _ _
+      (@tapp0_fapp0 $A $B $F $G $Y $epsilon)
+      (@fapp1_fapp0 $A $B $F $X $Y $p)
+  ↪ @tapp1_fapp0 $A $B $F $G $X $Y $epsilon $p;
+
+// The same pre/right observation when the codomain is Cat.
+rule @fapp0 _ _
+      (@tapp0_fapp0 $K Cat_cat $E $D $y $epsilon)
+      (@fapp0 _ _ (@fapp1_fapp0 $K Cat_cat $E $x $y $p) $u)
+  ↪ @fapp0 _ _ (@tapp1_fapp0 $K Cat_cat $E $D $x $y $epsilon $p) $u;
+
+// Whole pre/right reading of the selected conventional-lax action.
+// The component may already have projected; compare it as a side condition.
+// This is proof-time agreement, not a runtime expansion of tapp1_func.
+unif_rule @tapp1_func $A $B $F $G $X $Y $epsilon
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func $B $B $IdB $FX $FY $GY $component)
+      (@fapp1_func $A $B $F $X $Y)
+  ↪ [ $IdB ≡ @id Cat_cat $B;
+      $FX ≡ @fapp0 $A $B $F $X;
+      $FY ≡ @fapp0 $A $B $F $Y;
+      $GY ≡ @fapp0 $A $B $G $Y;
+      $component ≡ @tapp0_fapp0 $A $B $F $G $Y $epsilon ];
+
+// Whole post/left strict naturality guarded by the evidence-bearing view.
+// The represented source endpoint is inferred so the rule also matches after
+// the literal F[X] endpoint has reduced.
+rule @comp_fapp0
+      Cat_cat _ _ _
+      (@hom_postcomp_func $B $A $G _ $Y $Z $g)
+      (@tapp1_func
+        $A $B $F $G $X $Y
+        (@strict_transfor $A $B $F $G $U))
+  ↪ @comp_fapp0
+      Cat_cat _ _ _
+      (@tapp1_func
+        $A $B $F $G $X $Z
+        (@strict_transfor $A $B $F $G $U))
+      (@hom_postcomp_func $A $A (@id_func $A) $X $Y $Z $g);
+
+// Capped post/left naturality guarded by the same profile.
+rule @comp_fapp0
+      $B _ _ _
+      (@fapp1_fapp0 $A $B $G $Y $Z $g)
+      (@tapp1_fapp0
+        $A $B $F $G $X $Y
+        (@strict_transfor $A $B $F $G $U)
+        $f)
+  ↪ @tapp1_fapp0
+      $A $B $F $G $X $Z
+      (@strict_transfor $A $B $F $G $U)
+      (@comp_fapp0 $A $X $Y $Z $g $f);
+
+// Profile-guarded proof-time post/left reading of the off-diagonal action.
+unif_rule
+  @tapp1_fapp0
+    $A $B $F $G $X $Y
+    (@strict_transfor $A $B $F $G $U)
+    $g
+  ≡ @hom_postcomp_fapp0
+      $B $B $IdB $FX $GX $GY $Gg $epsilonX
+  ↪ [
+    $IdB ≡ (@id Cat_cat $B);
+    $FX ≡ (@fapp0 $A $B $F $X);
+    $GX ≡ (@fapp0 $A $B $G $X);
+    $GY ≡ (@fapp0 $A $B $G $Y);
+    $Gg ≡ (@fapp1_fapp0 $A $B $G $X $Y $g);
+    $epsilonX ≡ (@tapp0_fapp0
+      $A $B $F $G $X
+      (@strict_transfor $A $B $F $G $U))
+  ];
+
+// Cat-valued post/left projection guarded by the strict-transfor view.
+rule @fapp0 _ _
+      (@fapp1_fapp0 $K Cat_cat $D $x $y $p)
+      (@fapp0 _ _
+        (@tapp0_fapp0
+          $K Cat_cat $E $D $x
+          (@strict_transfor $K Cat_cat $E $D $U))
+        $u)
+  ↪ @fapp0 _ _
+      (@tapp1_fapp0
+        $K Cat_cat $E $D $x $y
+        (@strict_transfor $K Cat_cat $E $D $U)
+        $p)
+      $u;
+
+
+// Existing consumed-object naturality readings at the admitted coefficient.
+// The pre/right leg is the selected default convention for every FF.
+rule @fapp0 _ _
+      (@tapp0_fapp0 $K Cat_cart $E $D $y $epsilon)
+      (@fapp0 _ _ (@fapp1_fapp0 $K Cat_cart $E $x $y $p) $u)
+  ↪ @fapp0 _ _ (@tapp1_fapp0 $K Cat_cart $E $D $x $y $epsilon $p) $u;
+
+// The post/left leg joins only for an actual Cartesian transformation.
+// This is the Cat_cart instance of the pre-existing strict-view projection.
+rule @fapp0 _ _
+      (@fapp1_fapp0 $K Cat_cart $D $x $y $p)
+      (@fapp0 _ _
+        (@tapp0_fapp0 $K Cat_cart $E $D $x
+          (@strict_transfor $K Cat_cart $E $D $U)) $u)
+  ↪ @fapp0 _ _
+      (@tapp1_fapp0 $K Cat_cart $E $D $x $y
+        (@strict_transfor $K Cat_cart $E $D $U) $p) $u;
+
+// Identity specialization after the strict component has already projected.
+rule @comp_fapp0 $B _ _ _
+      (@fapp1_fapp0 $A $B $G $x $y $p)
+      (@tapp0_fapp0 $A $B $F $G $x (@strict_transfor $A $B $F $G $U))
+  ↪ @tapp1_fapp0 $A $B $F $G $x $y (@strict_transfor $A $B $F $G $U) $p;
 
 /*
   The former whole post/left and pre/right strict-functoriality accumulation
@@ -11133,6 +12162,15 @@ constant symbol Product_cat_func
 injective symbol Product_cat_fapp0_func (A : Cat)
   : τ (Functor Cat_cat Cat_cat);
 
+// Cartesian parameter view of the original product constructor.
+injective symbol Product_cat_cart_func
+  : τ (Functor Cat_cat (Functor_cart_cat Cat_cat Cat_cat));
+rule fapp0 Product_cat_cart_func $A ↪ Product_cat_fapp0_func $A;
+// lhs-audit: keep 1 -- ordinary composition with the Cartesian mapping inclusion.
+rule @comp_fapp0 Cat_cat _ _ _
+      (Functor_cart_include Cat_cat Cat_cat) Product_cat_cart_func
+  ↪ Product_cat_func;
+
 // Object projection ladder for the internalized product constructor.
 rule @fapp0 _ _ Product_cat_func $A
   ↪ @Product_cat_fapp0_func $A;
@@ -11148,7 +12186,7 @@ rule @fapp0 Cat_cat Cat_cat (@Product_cat_fapp0_func $A) $B
 symbol Product_cat_fapp1_func [A A' : Cat]
   : τ (Functor
       (Functor_cat A A')
-      (Functord_cat
+      (@Transf_cat Cat_cat Cat_cat
         (Product_cat_fapp0_func A)
         (Product_cat_fapp0_func A')));
 
@@ -11158,7 +12196,7 @@ symbol Product_cat_fapp1_func [A A' : Cat]
 //   Product_cat_fapp1_fapp0_functord(G) = Product_cat_func[G].
 symbol Product_cat_fapp1_fapp0_functord [A A' : Cat]
   (G : τ (Functor A A'))
-  : τ (Functord
+  : τ (@Transf Cat_cat Cat_cat
       (Product_cat_fapp0_func A)
       (Product_cat_fapp0_func A'));
 
@@ -11265,7 +12303,7 @@ symbol Product_mapL_func_func [A A' B : Cat]
       (Functor_cat (Product_cat A B) (Product_cat A' B)))
 ≔ @comp_cat_fapp0
     (Functor_cat A A')
-    (@Functord_cat Cat_cat
+    (@Transf_cat Cat_cat Cat_cat
       (@Product_cat_fapp0_func A)
       (@Product_cat_fapp0_func A'))
     (Functor_cat (Product_cat A B) (Product_cat A' B))
@@ -11391,17 +12429,17 @@ unif_rule @Hom_tele_func $A $x $x' $y $y'
       Cat_cat
       _ _ _
       (@comp_prod_func
-        Cat_cat
+        Cat_cart
         (Hom_cat $A $x $y)
         (Hom_cat $A $x' $y)
         (Hom_cat $A $x' $y'))
       (@Product_map_func
         (Hom_cat $A $x' $x)
-        (Functor_cat
+        (Functor_cart_cat
           (Hom_cat $A $x $y)
           (Hom_cat $A $x' $y))
         (Hom_cat $A $y $y')
-        (Functor_cat
+        (Functor_cart_cat
           (Hom_cat $A $x' $y)
           (Hom_cat $A $x' $y'))
         (@hom_precomp_along_tele_func
@@ -11434,6 +12472,70 @@ unif_rule @Hom_func $A $x $x' $y $y' $g $f
       (@hom_postcomp_func $A $A (@id Cat_cat $A) $x $y $y' $f)
   ↪ [ tt ≡ tt ];
 
+// The existing two Hom factorizations with a mapped target arrow H[p].
+// These direct proof-time views combine Hom_func's old factorizations with
+// the checked Hom-image view; unification need not chain those comparisons.
+unif_rule @Hom_func $B $Q $P $Y $Z $e $image
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func $B $K $H $P $x $y $p)
+      (@hom_precomp_along_func $B $B (@id Cat_cat $B) $Y $P $Q $e)
+  ↪ [ $Y ≡ @fapp0 $K $B $H $x;
+      $Z ≡ @fapp0 $K $B $H $y;
+      $image ≡ @fapp1_fapp0 $K $B $H $x $y $p ];
+
+// The same square after object projection has two distinct stable cut heads.
+// Compare them directly instead of asking unification to pass transitively
+// through Hom_fapp0; retain both arrows and the actual middle object.
+unif_rule @hom_precomp_along_fapp0 $B $B (@id Cat_cat $B) $Z $P $Q $e
+    (@hom_postcomp_fapp0 $B $K $H $Q $x $y $p $a)
+  ≡ @hom_postcomp_fapp0 $B $K $H $P $x $y $p
+      (@hom_precomp_along_fapp0 $B $B (@id Cat_cat $B) $Y $P $Q $e $a)
+  ↪ [ $Y ≡ @fapp0 $K $B $H $x;
+      $Z ≡ @fapp0 $K $B $H $y ];
+
+unif_rule @Hom_func $B $Q $P $Y $Z $e $image
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func $B $B (@id Cat_cat $B) $Z $P $Q $e)
+      (@hom_postcomp_func $B $K $H $Q $x $y $p)
+  ↪ [ $Y ≡ @fapp0 $K $B $H $x;
+      $Z ≡ @fapp0 $K $B $H $y;
+      $image ≡ @fapp1_fapp0 $K $B $H $x $y $p ];
+
+// Cartesian whiskering uses the same Hom owners in the selected coefficient.
+// These are defined mapping-profile views, not a second functor action API.
+// lhs-audit: keep 1,2,3 -- identity-family Cartesian coefficient composition.
+rule @hom_postcomp_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+      $A $B $C $G $F
+  ↪ @comp_cat_fapp0 $A $B $C $G $F;
+// lhs-audit: keep 1,2,3 -- the corresponding Cartesian precomposition object action.
+rule @hom_precomp_along_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+      $Z $A $B $F $G
+  ↪ @comp_cat_fapp0 $A $B $Z $G $F;
+
+symbol comp_cat_cov_cart_func [X Y Z : Cat] (G : τ (Functor Y Z))
+  : τ (Functor (Functor_cart_cat X Y) (Functor_cart_cat X Z))
+≔ @hom_postcomp_func Cat_cart Cat_cart (@id_func Cat_cart) X Y Z G;
+symbol comp_cat_con_cart_func [X Y Z : Cat] (F : τ (Functor X Y))
+  : τ (Functor (Functor_cart_cat Y Z) (Functor_cart_cat X Z))
+≔ @hom_precomp_along_func Cat_cart Cat_cart (@id_func Cat_cart) Z X Y F;
+// Strict parameter action of the existing fixed-right product constructor.
+// Its object map and ambient view are the original production operations.
+injective symbol Product_mapL_cart_func_func [A A' B : Cat]
+  : τ (Functor (Functor_cart_cat A A')
+      (Functor_cart_cat (Product_cat A B) (Product_cat A' B)));
+rule fapp0 (@Product_mapL_cart_func_func $A $A' $B) $F
+  ↪ @Product_cat_fapp1_tapp0_func $A $A' $B $F;
+// lhs-audit: keep 1,2,3,4 -- product-valued mapping categories normalize before SR can recover the composition endpoints.
+rule @comp_fapp0 Cat_cat
+      (Functor_cart_cat $A $A')
+      (Functor_cart_cat (Product_cat $A $B) (Product_cat $A' $B))
+      (Functor_cat (Product_cat $A $B) (Product_cat $A' $B))
+      (Functor_cart_include (Product_cat $A $B) (Product_cat $A' $B))
+      (@Product_mapL_cart_func_func $A $A' $B)
+  ↪ @comp_cat_fapp0 (Functor_cart_cat $A $A') (Functor_cat $A $A')
+      (Functor_cat (Product_cat $A $B) (Product_cat $A' $B))
+      (@Product_mapL_func_func $A $A' $B) (Functor_cart_include $A $A');
+
 // 7b. Evaluation and fixed-object evaluation
 /*
   Product evaluation: apply a functor to an object.
@@ -11455,11 +12557,13 @@ unif_rule @Hom_func $A $x $x' $y $y' $g $f
 // Surface/formula:
 //   Eval_func(A,B)[(F,x)] = F[x].
 symbol Eval_func [A B : Cat]
-  : τ (Functor (Product_cat (Functor_cat A B) A) B);
+  : τ (Functor (Product_cat (Functor_cart_cat A B) A) B);
 
 // Object action of product evaluation.
-rule fapp0 (@Eval_func $A $B) (Struct_sigma $F $x)
-  ↪ fapp0 $F $x;
+// Evaluate the actual pair projections even when the argument is neutral.
+// This is local to Eval, not a global product/Sigma eta rule.
+rule fapp0 (@Eval_func $A $B) $z
+  ↪ @fapp0 $A $B (sigma_Fst $z) (sigma_Snd $z);
 
 // Hom-action of product evaluation.
 //
@@ -11469,7 +12573,7 @@ symbol Eval_fapp1_func [A B : Cat]
   [F G : τ (Functor A B)]
   [x y : τ (Obj A)]
   : τ (Functor
-      (Product_cat (Transf_cat F G) (Hom_cat A x y))
+      (Product_cat (Hom_cat (Functor_cart_cat A B) F G) (Hom_cat A x y))
       (Hom_cat B (fapp0 F x) (fapp0 G y)));
 
 // Full hom-action of evaluation exposes the off-diagonal transfor component.
@@ -11478,14 +12582,14 @@ rule @fapp1_func _ _ (@Eval_func $A $B) (Struct_sigma $F $x) (Struct_sigma $G $y
 
 // Capped hom-action of evaluation.
 rule fapp0 (@Eval_fapp1_func $A $B $F $G $x $y) (Struct_sigma $eta $p)
-  ↪ tapp1_fapp0 $eta $p;
+  ↪ tapp1_fapp0 (@strict_transfor $A $B $F $G $eta) $p;
 
 // Direct capped evaluation: Eval[(eta,p)] ↪ eta[p].
 rule @fapp1_fapp0 _ _ (@Eval_func $A $B)
       (Struct_sigma $F $x)
       (Struct_sigma $G $y)
       (Struct_sigma $eta $p)
-  ↪ tapp1_fapp0 $eta $p;
+  ↪ tapp1_fapp0 (@strict_transfor $A $B $F $G $eta) $p;
 
 /*
   Fixed-point section for evaluation.
@@ -11504,12 +12608,12 @@ rule @fapp1_fapp0 _ _ (@Eval_func $A $B)
 //   Eval_at_func(x)[F] = (F,x).
 symbol Eval_at_func [A B : Cat] (x : τ (Obj A))
   : τ (Functor
-      (Functor_cat A B)
-      (Product_cat (Functor_cat A B) A));
+      (Functor_cart_cat A B)
+      (Product_cat (Functor_cart_cat A B) A));
 
 // Projections of the fixed-point evaluation section.
 rule sigma_Fst (@Eval_at_func $A $B $x)
-  ↪ @id_func (Functor_cat $A $B);
+  ↪ @id_func (Functor_cart_cat $A $B);
 
 // Fixed-object projection: π₂ ∘ Eval_at(x) ↪ const(x).
 rule sigma_Snd (@Eval_at_func $A $B $x)
@@ -11524,9 +12628,9 @@ rule @fapp0 _ _
 rule @fapp1_func _ _
       (@Eval_at_func $A $B $x) $F $G
   ↪ Struct_sigma
-      (@id_func (@Transf_cat $A $B $F $G))
+      (@id_func (Hom_cat (Functor_cart_cat $A $B) $F $G))
       (@Const_func
-        (@Transf_cat $A $B $F $G)
+        (Hom_cat (Functor_cart_cat $A $B) $F $G)
         (Hom_cat $A $x $x)
         (@id $A $x));
 
@@ -11546,7 +12650,9 @@ rule @comp_fapp0
       $B
       (@Eval_func $A $B)
       (@Eval_at_func $A $B $x)
-  ↪ fapp0_func $x;
+  ↪ @comp_cat_fapp0
+      (Functor_cart_cat $A $B) (Functor_cat $A $B) $B
+      (@fapp0_func $A $B $x) (Functor_cart_include $A $B);
 
 // 7c. Ordinary curry and uncurry
 /*
@@ -11574,16 +12680,16 @@ rule @comp_fapp0
 //   curry_func_func[F][x][y] = F[(x,y)].
 symbol curry_func_func [A B C : Cat]
   : τ (Functor
-      (Functor_cat (Product_cat A B) C)
-      (Functor_cat A (Functor_cat B C)))
+      (Functor_cart_cat (Product_cat A B) C)
+      (Functor_cart_cat A (Functor_cart_cat B C)))
 ≔ @comp_cat_fapp0
-    (Functor_cat (Product_cat A B) C)
-    (Functor_cat (Functor_cat B (Product_cat A B)) (Functor_cat B C))
-    (Functor_cat A (Functor_cat B C))
-    (@comp_cat_con_func
+    (Functor_cart_cat (Product_cat A B) C)
+    (Functor_cart_cat (Functor_cart_cat B (Product_cat A B)) (Functor_cart_cat B C))
+    (Functor_cart_cat A (Functor_cart_cat B C))
+    (@comp_cat_con_cart_func
       A
-      (Functor_cat B (Product_cat A B))
-      (Functor_cat B C)
+      (Functor_cart_cat B (Product_cat A B))
+      (Functor_cart_cat B C)
       (@Product_pair_tele_func A B))
     (@comp_cat_cov_func_func B (Product_cat A B) C);
 
@@ -11593,7 +12699,7 @@ symbol curry_func_func [A B C : Cat]
 //   curry_func(F) = curry(F).
 symbol curry_func [A B C : Cat]
   (F : τ (Functor (Product_cat A B) C))
-  : τ (Functor A (Functor_cat B C))
+  : τ (Functor A (Functor_cart_cat B C))
 ≔ fapp0 curry_func_func F;
 
 // Curry evaluated at x.
@@ -11606,33 +12712,94 @@ symbol curry_fapp0_func [A B C : Cat]
   : τ (Functor B C)
 ≔ fapp0 (curry_func F) x;
 
+// One-way product currying on the ambient lax mapping categories. Semantically
+// this is restriction along the tensor-to-product projection followed by
+// the appropriate closed-Hom adjunction. It does not assert a Cartesian
+// closed equivalence on lax transformations or introduce a lax uncurry.
+// Its objects retain the existing Cartesian curry and ordinary inclusion.
+symbol curry_lax_object [A B C : Cat]
+  (F : τ (Functor (Product_cat A B) C))
+  : τ (Functor A (Functor_cat B C))
+≔ @comp_cat_fapp0 A (Functor_cart_cat B C) (Functor_cat B C)
+    (Functor_cart_include B C) (@curry_func A B C F);
+
+injective symbol curry_lax_func_func [A B C : Cat]
+  : τ (Functor (Functor_cat (Product_cat A B) C)
+      (Functor_cat A (Functor_cat B C)));
+
+injective symbol curry_lax_hom_func [A B C : Cat]
+  (F G : τ (Functor (Product_cat A B) C))
+  : τ (Functor (@Transf_cat (Product_cat A B) C F G)
+      (@Transf_cat A (Functor_cat B C)
+        (@curry_lax_object A B C F) (@curry_lax_object A B C G)));
+
+injective symbol curry_lax_transf [A B C : Cat]
+  [F G : τ (Functor (Product_cat A B) C)]
+  (eta : τ (@Transf (Product_cat A B) C F G))
+  : τ (@Transf A (Functor_cat B C)
+      (@curry_lax_object A B C F) (@curry_lax_object A B C G));
+
+rule @fapp0 _ _ (@curry_lax_func_func $A $B $C) $F
+  ↪ @curry_lax_object $A $B $C $F;
+rule @fapp1_func _ _ (@curry_lax_func_func $A $B $C) $F $G
+  ↪ @curry_lax_hom_func $A $B $C $F $G;
+rule fapp0 (@curry_lax_hom_func $A $B $C $F $G) $eta
+  ↪ @curry_lax_transf $A $B $C $F $G $eta;
+rule @fapp1_fapp0 _ _ (@curry_lax_func_func $A $B $C) $F $G $eta
+  ↪ @curry_lax_transf $A $B $C $F $G $eta;
+
+// The whole component is the original transformation prewhiskered by (a,-).
+rule @tapp0_fapp0 _ _ _ _ $a (@curry_lax_transf $A $B $C $F $G $eta)
+  ↪ @fapp1_fapp0 (Functor_cat (Product_cat $A $B) $C) (Functor_cat $B $C)
+      (@comp_cat_con_func $B (Product_cat $A $B) $C
+        (@fapp0 $A (Functor_cart_cat $B (Product_cat $A $B))
+          (@Product_pair_tele_func $A $B) $a)) $F $G $eta;
+
+// Component evaluation of every higher input uses the same prewhiskering Hom.
+// lhs-audit: keep 1 -- composition of the actual component/action functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@tapp0_func _ _ _ _ $a) (@curry_lax_hom_func $A $B $C $F $G)
+  ↪ @comp_cat_con_fapp1_func $B (Product_cat $A $B) $C
+      (@fapp0 $A (Functor_cart_cat $B (Product_cat $A $B))
+        (@Product_pair_tele_func $A $B) $a) $F $G;
+
+// Join the whole strict functor's laws after its transformation has projected.
+rule @curry_lax_transf $A $B $C $F $F (@id _ $F)
+  ↪ @id (Functor_cat $A (Functor_cat $B $C)) (@curry_lax_object $A $B $C $F);
+// lhs-audit: keep 1 -- this is composition in the specified mapping category.
+rule @comp_fapp0 (Functor_cat $A (Functor_cat $B $C)) _ _ _
+      (@curry_lax_transf $A $B $C $G $H $theta)
+      (@curry_lax_transf _ _ _ $F $G $eta)
+  ↪ @curry_lax_transf $A $B $C $F $H
+      (@comp_fapp0 (Functor_cat (Product_cat $A $B) $C) $F $G $H $theta $eta);
+
 // Semantic uncurry package through fixed-right product action and evaluation.
 //
 // Surface/formula:
 //   uncurry_func_func[G][(x,y)] = G[x][y].
 symbol uncurry_func_func [A B C : Cat]
   : τ (Functor
-      (Functor_cat A (Functor_cat B C))
-      (Functor_cat (Product_cat A B) C))
+      (Functor_cart_cat A (Functor_cart_cat B C))
+      (Functor_cart_cat (Product_cat A B) C))
 ≔ @comp_cat_fapp0
-    (Functor_cat A (Functor_cat B C))
-    (Functor_cat
+    (Functor_cart_cat A (Functor_cart_cat B C))
+    (Functor_cart_cat
       (Product_cat A B)
-      (Product_cat (Functor_cat B C) B))
-    (Functor_cat (Product_cat A B) C)
-    (@comp_cat_cov_func
+      (Product_cat (Functor_cart_cat B C) B))
+    (Functor_cart_cat (Product_cat A B) C)
+    (@comp_cat_cov_cart_func
       (Product_cat A B)
-      (Product_cat (Functor_cat B C) B)
+      (Product_cat (Functor_cart_cat B C) B)
       C
       (@Eval_func B C))
-    (@Product_mapL_func_func A (Functor_cat B C) B);
+    (@Product_mapL_cart_func_func A (Functor_cart_cat B C) B);
 
 // Object action of semantic uncurry.
 //
 // Surface/formula:
 //   uncurry_func(G) = uncurry(G).
 symbol uncurry_func [A B C : Cat]
-  (G : τ (Functor A (Functor_cat B C)))
+  (G : τ (Functor A (Functor_cart_cat B C)))
   : τ (Functor (Product_cat A B) C)
 ≔ fapp0 uncurry_func_func G;
 
@@ -11765,11 +12932,11 @@ rule comp_fapp0
       $f;
 
 /*
-  Opposite adjunction.
+  Total-opposite adjunction (legacy public spelling Op_adjunction).
 
   An adjunction A <-> B dualizes to B^op <-> A^op. The old right adjoint
   becomes the new left adjoint, and the original counit/unit become the dual
-  unit/counit through `Op_transf`.
+  unit/counit through `TotalOp_transf`.
 */
 injective symbol Op_adjunction
   [A B : Cat]
@@ -11777,16 +12944,14 @@ injective symbol Op_adjunction
   [G : τ (Functor B A)]
   (adj : τ (@Adjunction A B F G))
   : τ (@Adjunction
-      (Op_cat B)
-      (Op_cat A)
-      (@Op_func B A G)
-      (@Op_func A B F));
+      (TotalOp_cat B)
+      (TotalOp_cat A)
+      (@TotalOp_func B A G)
+      (@TotalOp_func A B F));
 
 // Opposite is involutive on adjunction packages: (J^op)^op ↪ J.
 rule @Op_adjunction
-      (Op_cat $B) (Op_cat $A)
-      _
-      _
+      _ _ _ _
       (@Op_adjunction $A $B _ _ $adj)
   ↪ $adj;
 
@@ -11794,11 +12959,9 @@ rule @Op_adjunction
 
 // The unit of J^op is the opposite of the counit of J.
 rule @unit_adj_transf
-      (Op_cat $B) (Op_cat $A)
-      _
-      _
+      _ _ _ _
       (@Op_adjunction $A $B $F $G $adj)
-  ↪ @Op_transf
+  ↪ @TotalOp_transf
       $B $B
       (@comp_cat_fapp0 $B $A $B $F $G)
       (@id_func $B)
@@ -11806,11 +12969,9 @@ rule @unit_adj_transf
 
 // The counit of J^op is the opposite of the unit of J.
 rule @counit_adj_transf
-      (Op_cat $B) (Op_cat $A)
-      _
-      _
+      _ _ _ _
       (@Op_adjunction $A $B $F $G $adj)
-  ↪ @Op_transf
+  ↪ @TotalOp_transf
       $A $A
       (@id_func $A)
       (@comp_cat_fapp0 $A $B $A $G $F)
@@ -11842,9 +13003,9 @@ symbol tapp1_int_func_transf : Π [A B : Cat], Π [F G : τ (Functor A B)],
   τ (Functor
       (Transf_cat F G)
       (Transf_cat
-        (@hom_int A A (@id_func A))
+        (@hom_int_view A A (@id_func A))
         (comp_cat_fapp0
-          (@hom_int B A G)
+          (@hom_int_view B A G)
           (@Op_func A B F))));
 
 // Object action of `tapp1_int_func_transf`.
@@ -11855,9 +13016,9 @@ symbol tapp1_int_func_transf : Π [A B : Cat], Π [F G : τ (Functor A B)],
 symbol tapp1_int_fapp0_transf : Π [A B : Cat], Π [F G : τ (Functor A B)],
   Π (ϵ : τ (Transf F G)),
   τ (Transf
-      (@hom_int A A (@id_func A))
+      (@hom_int_view A A (@id_func A))
       (comp_cat_fapp0
-        (@hom_int B A G)
+        (@hom_int_view B A G)
         (@Op_func A B F)));
 
 // Object-action projection for internal ordinary hom-action.
@@ -11875,9 +13036,9 @@ symbol tapp1_int_fapp1_func_transf : Π [A B : Cat], Π [F G : τ (Functor A B)]
       (Hom_cat (Transf_cat F G) ϵ ϵ')
       (Hom_cat
         (Transf_cat
-          (@hom_int A A (@id_func A))
+          (@hom_int_view A A (@id_func A))
           (comp_cat_fapp0
-            (@hom_int B A G)
+            (@hom_int_view B A G)
             (@Op_func A B F)))
         (@tapp1_int_fapp0_transf A B F G ϵ)
         (@tapp1_int_fapp0_transf A B F G ϵ')));
@@ -11892,9 +13053,9 @@ rule @fapp1_func _ _ (@tapp1_int_func_transf $A $B $F $G) $ϵ $ϵ'
 //   fapp1_int_transf(F) = tapp1_int_func_transf(F,F)[id_F].
 symbol fapp1_int_transf : Π [A B : Cat], Π (F : τ (Functor A B)),
   τ (Transf
-      (@hom_int A A (@id_func A))
+      (@hom_int_view A A (@id_func A))
       (comp_cat_fapp0
-        (@hom_int B A F)
+        (@hom_int_view B A F)
         (@Op_func A B F)));
 
 // Identity transfor specializes the off-diagonal action to functor hom-action.
@@ -11951,13 +13112,30 @@ rule @tapp0_fapp0
 rule @tapp1_at_transf $A $B $F $F $X (id (Functor_cat $A $B) $F)
   ↪ @fapp1_at_transf $A $B $F $X;
 
+// Fixed-source whole internal action of a vertical composite. The earlier
+// transfor is genuinely strict; the later one retains its lax comparison.
+// This selects the whole computation corresponding to the existing guarded
+// vertical component action, not a new inverse-assembly assumption.
+// lhs-audit: keep 1 -- the ordinary and displayed composition categories are actual owner/profile discriminators.
+unif_rule @tapp1_at_transf $A $B $F $H $X
+    (@comp_fapp0 (Functor_cat $A $B) _ _ _ $xi
+      (@strict_transfor $A $B $F $G $eta))
+  ≡ @comp_fapp0 (Catd_cat $A) _ _ _
+      (@strict_transfor $A Cat_cart _ _
+        (@hom_int_precomp_func $B $A $H $GX $FX $component))
+      (@tapp1_at_transf $A $B $G $H $X $xi)
+  ↪ [ $GX ≡ @fapp0 $A $B $G $X;
+      $FX ≡ @fapp0 $A $B $F $X;
+      $component ≡ @tapp0_fapp0 $A $B $F $G $X
+        (@strict_transfor $A $B $F $G $eta) ];
+
 // Second projection of off-diagonal internal hom-action.
 //
 // Surface/formula:
 //   tapp1_at_transf(epsilon,X)[Y] = tapp1_func(epsilon,X,Y).
 rule @tapp0_fapp0
       $A
-      Cat_cat
+      Cat_cart
       _
       _
       $Y
@@ -11978,7 +13156,7 @@ rule @tapp0_fapp0
 rule @fapp0
       _ _
       (@tapp1_fapp0
-        $A Cat_cat _ _ $Y $Z
+        $A Cat_cart _ _ $Y $Z
         (@tapp1_at_transf $A $B $F $G $X $epsilon)
         $g)
       $f
@@ -11993,12 +13171,74 @@ rule @fapp0
 //   fapp1_at_transf(F,X)[Y] = fapp1_func(F,X,Y).
 rule @tapp0_fapp0
       $A
-      Cat_cat
+      Cat_cart
       _
       _
       $Y
       (@fapp1_at_transf $A $B $F $X)
   ↪ @fapp1_func $A $B $F $X $Y;
+
+// Canonical x-profile of the existing off-diagonal action. The selected
+// pre/right convention fixes eta[y] o F[f], strictly in the source x.
+// Inner y-naturality remains the original possibly noninvertible action.
+// This is a declared profile refinement with a whole ordinary view, not a
+// constructor for making an arbitrary transformation strict.
+symbol tapp1_int_cart_func [A B : Cat] [F G : τ (Functor A B)]
+  : τ (Functor (@Transf_cat A B F G)
+      (Hom_cat (Functor_cart_cat (Op_cat A) (Catd_cat A))
+        (@hom_int_view A A (@id_func A))
+        (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Catd_cat A)
+          (@hom_int_view B A G) (@Op_func A B F))));
+
+symbol tapp1_int_cart [A B : Cat] [F G : τ (Functor A B)]
+  (eta : τ (@Transf A B F G))
+  : τ (@StrictTransfor (Op_cat A) (Catd_cat A)
+      (@hom_int_view A A (@id_func A))
+      (@comp_cat_fapp0 (Op_cat A) (Op_cat B) (Catd_cat A)
+        (@hom_int_view B A G) (@Op_func A B F)));
+
+rule @fapp0 _ _ (@tapp1_int_cart_func $A $B $F $G) $eta
+  ↪ @tapp1_int_cart $A $B $F $G $eta;
+
+// Keep the strict-profile runtime owner; compare its ordinary view at proof time.
+unif_rule @strict_transfor _ _ _ _ (@tapp1_int_cart $A $B $F $G $eta)
+  ≡ @tapp1_int_fapp0_transf $A0 $B0 $F0 $G0 $eta0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F; $G0 ≡ $G; $eta0 ≡ $eta ];
+
+// The existing identity projection selects fapp1_int_transf before the
+// general ordinary-view comparison can match its original head.
+unif_rule @strict_transfor _ _ _ _
+    (@tapp1_int_cart $A $B $F $F (@id _ $F))
+  ≡ @fapp1_int_transf $A0 $B0 $F0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F ];
+
+// The entire included action is the original functor in eta.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@fapp1_func _ _ (Functor_cart_include (Op_cat $A) (Catd_cat $A)) _ _)
+    (@tapp1_int_cart_func $A $B $F $G)
+  ≡ @tapp1_int_func_transf $A0 $B0 $F0 $G0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F; $G0 ≡ $G ];
+
+// The generic first-Hom projection splits composition before the whole
+// comparison above is selected. Retain both endpoints and every higher input.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@fapp1_func _ _
+      (@fapp1_func _ _ (Functor_cart_include (Op_cat $A) (Catd_cat $A)) $H0 $H1)
+      $U $V)
+    (@fapp1_func _ _ (@tapp1_int_cart_func $A $B $F $G) $eta $theta)
+  ≡ @tapp1_int_fapp1_func_transf $A0 $B0 $F0 $G0 $eta0 $theta0
+  ↪ [ $A0 ≡ $A; $B0 ≡ $B; $F0 ≡ $F; $G0 ≡ $G;
+      $eta0 ≡ $eta; $theta0 ≡ $theta;
+      $H0 ≡ @hom_int_view $A $A (@id_func $A);
+      $H1 ≡ @comp_cat_fapp0 (Op_cat $A) (Op_cat $B) (Catd_cat $A)
+        (@hom_int_view $B $A $G) (@Op_func $A $B $F);
+      $U ≡ @tapp1_int_cart $A $B $F $G $eta;
+      $V ≡ @tapp1_int_cart $A $B $F $G $theta ];
+
+// A component is the original whole, generally lax, y-family action.
+rule @tapp0_fapp0 _ _ _ _ $x
+    (@strict_transfor _ _ _ _ (@tapp1_int_cart $A $B $F $G $eta))
+  ↪ @tapp1_at_transf $A $B $F $G $x $eta;
 
 // 7f. Target-internalized ordinary hom-action mirror
 /*
@@ -12009,10 +13249,13 @@ rule @tapp0_fapp0
     tapp1_con_int_fapp0_transf(epsilon)
       ≐ tapp1_int_fapp0_transf(Op_transf(epsilon)).
 
-  Its native signature deliberately retains the opposite hom_int owner.  The
-  active proof-time hom_int/hom_con_int comparison supplies the readable view
+  Its native signature uses the ordinary inclusion hom_con_int_view:
 
-    hom_con_int(id_A) => hom_con_int(F) o G.
+    hom_con_int_view(id_A) => hom_con_int_view(F) o G.
+
+  The native owners admit general conventional-lax epsilon. The direct
+  transpose comparison above applies to a strict-transfor input, using the
+  ordinary inclusion on both that input and its Op_transf image.
 
   A higher functor varying epsilon is not introduced without a consumer; the
   returned transfor already retains the whole source-variable action needed
@@ -12023,23 +13266,9 @@ injective symbol tapp1_con_int_fapp0_transf
   [F G : τ (Functor A B)]
   (epsilon : τ (Transf F G))
   : τ (Transf
-      (@hom_int
-        (Op_cat A)
-        (Op_cat A)
-        (@id_func (Op_cat A)))
-      (@comp_cat_fapp0
-        (Op_cat (Op_cat A))
-        (Op_cat (Op_cat B))
-        (@Catd_cat (Op_cat A))
-        (@hom_int
-          (Op_cat B)
-          (Op_cat A)
-          (@Op_func A B F))
-        (@Op_func
-          (Op_cat A)
-          (Op_cat B)
-          (@Op_func A B G))))
-;
+      (@hom_con_int_view A A (@id_func A))
+      (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
+        (@hom_con_int_view B A F) G));
 
 // Proof-time comparison with the ordinary internal action of Op(epsilon).
 unif_rule
@@ -12048,9 +13277,10 @@ unif_rule
       $epsilon1
   ≡ @tapp1_con_int_fapp0_transf
       $A $B $F $G
-      $epsilon2
+      (@strict_transfor $A $B $F $G $U)
   ↪ [
-    $epsilon1 ≡ (@Op_transf $A $B $F $G $epsilon2)
+    $epsilon1 ≡ (@strict_transfor (Op_cat $A) (Op_cat $B)
+      (@Op_func $A $B $G) (@Op_func $A $B $F) (@Op_transf $A $B $F $G $U))
   ];
 
 // Identity-specialized target-internalized action.
@@ -12058,23 +13288,9 @@ injective symbol fapp1_con_int_transf
   [A B : Cat]
   (F : τ (Functor A B))
   : τ (Transf
-      (@hom_int
-        (Op_cat A)
-        (Op_cat A)
-        (@id_func (Op_cat A)))
-      (@comp_cat_fapp0
-        (Op_cat (Op_cat A))
-        (Op_cat (Op_cat B))
-        (@Catd_cat (Op_cat A))
-        (@hom_int
-          (Op_cat B)
-          (Op_cat A)
-          (@Op_func A B F))
-        (@Op_func
-          (Op_cat A)
-          (Op_cat B)
-          (@Op_func A B F))))
-;
+      (@hom_con_int_view A A (@id_func A))
+      (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
+        (@hom_con_int_view B A F) F));
 
 // Identity-specialized internal mirror of the ordinary action of Op(F).
 unif_rule
@@ -12133,14 +13349,15 @@ unif_rule
       _ _ _ _
       $Y
       $epsilon1
-  ≡ @tapp1_con_at_transf $A $B $F $G $epsilon2 $Y
+  ≡ @tapp1_con_at_transf $A $B $F $G (@strict_transfor $A $B $F $G $U) $Y
   ↪ [
-    $epsilon1 ≡ (@Op_transf $A $B $F $G $epsilon2)
+    $epsilon1 ≡ (@strict_transfor (Op_cat $A) (Op_cat $B)
+      (@Op_func $A $B $G) (@Op_func $A $B $F) (@Op_transf $A $B $F $G $U))
   ];
 
 // Fixed-target object projection recovers the ordinary off-diagonal action.
 rule @tapp0_fapp0
-      _ Cat_cat _ _
+      _ Cat_cart _ _
       $X
       (@tapp1_con_at_transf $A $B $F $G $epsilon $Y)
   ↪ @tapp1_func $A $B $F $G $X $Y $epsilon;
@@ -12183,7 +13400,7 @@ rule @tapp1_con_at_transf
 
 // Fixed-target identity-specialized component recovers ordinary fapp1.
 rule @tapp0_fapp0
-      _ Cat_cat _ _
+      _ Cat_cart _ _
       $X
       (@fapp1_con_at_transf $A $B $F $Y)
   ↪ @fapp1_func $A $B $F $X $Y;
@@ -12221,7 +13438,7 @@ rule @tapp0_fapp0
 // Surface/formula:
 //   E[k] = Fibre_cat(E,k)
 symbol Fibre_cat [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) : Cat
-≔ @fapp0 K Cat_cat E k;
+≔ @fapp0 K Cat_cart E k;
 
 // Fixed-base reindexing of a displayed Cat-valued family along a functor.
 //
@@ -12236,6 +13453,20 @@ injective symbol Pullback_catd [A B : Cat]
   (E : τ (Catd B))
   (F : τ (Functor A B))
   : τ (Catd A);
+
+// A Cat_cart-valued represented precomposition is the same admitted family
+// pullback. This direct whole comparison joins the existing two stable
+// presentations at internal Pi; it does not turn arbitrary composition into
+// a new runtime family head or carry equality data into the consumer.
+// Keep the actual transpose head: the generic F_1 reading decomposed its
+// endpoint tags before recognizing the dual functor in the Pi consumer.
+unif_rule @hom_precomp_along_fapp0 _ Cat_cart
+      (@Op_func $K (Op_cat Cat_cart) $G) Cat_cart $y $x $p $E
+  ≡ @Pullback_catd $D $B $E0 $H
+  ↪ [ $D ≡ @fapp0 $K (Op_cat Cat_cart) $G $y;
+      $B ≡ @fapp0 $K (Op_cat Cat_cart) $G $x;
+      $E ≡ $E0;
+      $H ≡ @fapp1_fapp0 $K (Op_cat Cat_cart) $G $x $y $p ];
 
 /*
   Contravariant represented-family reindexing is runtime accumulation:
@@ -12265,8 +13496,8 @@ rule @Pullback_catd $A _ (@hom_ $C $B $R $W) $F
       $W;
 
 // Fibre projection of reindexing: (F^*E)[a] ↪ E[F[a]].
-rule @fapp0 _ Cat_cat (@Pullback_catd $A $B $E $F) $a
-  ↪ @fapp0 $B Cat_cat $E (@fapp0 $A $B $F $a);
+rule @fapp0 _ Cat_cart (@Pullback_catd $A $B $E $F) $a
+  ↪ @fapp0 $B Cat_cart $E (@fapp0 $A $B $F $a);
 
 // Internalized-x prerequisite: generic base-arrow transport for displayed
 // Cat-valued families.
@@ -12278,7 +13509,7 @@ symbol catd_transport_func [K : Cat] (E : τ (Catd K))
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   : τ (Functor (Fibre_cat E x) (Fibre_cat E y))
-≔ @fapp1_fapp0 K Cat_cat E x y p;
+≔ @fapp1_fapp0 K Cat_cart E x y p;
 
 
 // Strict object transport, oriented as cut elimination.
@@ -12289,6 +13520,20 @@ symbol catd_transport_func [K : Cat] (E : τ (Catd K))
 // Keep the outer `fapp0` source/target categories implicit. The explicit
 // arguments below are the stable functor-action heads themselves, not reducible
 // fibre-category expressions.
+rule fapp0
+      (@fapp1_fapp0 $K Cat_cart $E $y $z $q)
+      (fapp0 (@fapp1_fapp0 $K Cat_cart $E $x $y $p) $u)
+  ↪ fapp0
+      (@fapp1_fapp0
+        $K
+        Cat_cart
+        $E
+        $x
+        $z
+        (@comp_fapp0 $K $x $y $z $q $p))
+      $u;
+
+// The same valid strict-functor point action in the public universe.
 rule fapp0
       (@fapp1_fapp0 $K Cat_cat $E $y $z $q)
       (fapp0 (@fapp1_fapp0 $K Cat_cat $E $x $y $p) $u)
@@ -12329,7 +13574,8 @@ rule @fapp0 _ _
 // are the semantic discriminators.
 rule @comp_fapp0
       Cat_cat _ _ _
-      (@Pullback_catd_func $B $D $G)
+      (@hom_precomp_along_func Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+        Cat_cart $B $D $G)
       (@hom_int $C $D $H)
   ↪ @hom_int
       $C $B
@@ -12346,36 +13592,42 @@ rule @comp_fapp0
   specializations have been declared.
 */
 unif_rule
-  @comp_fapp0 Cat_cat $A $B Cat_cat $E $F
+  @comp_fapp0 Cat_cat $A $B Cat_cart $E $F
   ≡ @Pullback_catd $A $B $E $F
   ↪ [ tt ≡ tt ];
 
 unif_rule
-  @hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) Cat_cat $A $B $F
+  @hom_precomp_along_func Cat_cat Cat_cat (@id Cat_cat Cat_cat) Cat_cart $A $B $F
   ≡ @Pullback_catd_func $A $B $F
   ↪ [ tt ≡ tt ];
 
-// Arrow action of the internalized Catd constructor. `Catd_cat_func` is a
-// definition, so the rule matches the canonical unfolded composition head.
-rule @fapp1_fapp0
-      (Op_cat Cat_cat)
-      Cat_cat
-      (@comp_fapp0
-        Cat_cat
-        (Op_cat Cat_cat)
-        (Functor_cat Cat_cat Cat_cat)
-        Cat_cat
-        (@fapp0_func Cat_cat Cat_cat Cat_cat)
-        Functor_cat_func)
-      $B
-      $A
-      $F
-  ↪ @Pullback_catd_func $A $B $F;
+// Whole reindexing after two functors, with both existing presentations kept.
+// The separate composition/Pullback view and associativity comparison did
+// not chain inside the total-dual target-family classifier. Retain all bases
+// and actual functors as proof-time obligations; no runtime fold is added.
+unif_rule @comp_fapp0 Cat_cat $A $B Cat_cart
+    (@comp_fapp0 Cat_cat $B1 $C Cat_cart $E $F) $G
+  ≡ @Pullback_catd $A0 $C0 $E0
+    (@comp_fapp0 Cat_cat $A1 $B0 $C1 $F0 $G0)
+  ↪ [ $B1 ≡ $B; $A0 ≡ $A; $C0 ≡ $C;
+      $A1 ≡ $A; $B0 ≡ $B; $C1 ≡ $C;
+      $E0 ≡ $E; $F0 ≡ $F; $G0 ≡ $G ];
+
+// Direct proof-time reading of represented-family reindexing.
+// The semantic comp/Pullback comparison and Pullback(hom_) accumulation
+// already express this law; the checker does not chain those comparisons.
+unif_rule @comp_fapp0 Cat_cat $K $C Cat_cart
+      (@hom_ $C $C (@id Cat_cat $C) $w) $F
+  ≡ @hom_ $C0 $K0 $F0 $w0
+  ↪ [ $C ≡ $C0; $K ≡ $K0; $F ≡ $F0; $w ≡ $w0 ];
+
+// The Cartesian varying-base constructor computes through hom_con;
+// fixed lax-family pullback retains its separate existing owner.
 
 // Pointwise projection for the hom-action of family pullback.
 rule @tapp0_fapp0
       $A
-      Cat_cat
+      Cat_cart
       _
       _
       $a
@@ -12388,7 +13640,7 @@ rule @tapp0_fapp0
         $η)
   ↪ @tapp0_fapp0
       $B
-      Cat_cat
+      Cat_cart
       $E
       $D
       (@fapp0 $A $B $F $a)
@@ -12407,7 +13659,7 @@ injective symbol Const_catd (K : Cat) (A : Cat) : τ (Catd K);
 unif_rule
   Obj
     (@Transf_cat
-      $K Cat_cat
+      $K Cat_cart
       (@Const_catd $K Terminal_cat)
       (@Const_catd $K $A))
   ≡ Obj (Functor_cat $K' $A')
@@ -12425,16 +13677,55 @@ unif_rule
   ↪ [ $K ≡ $K'; $A ≡ $A' ];
 
 // Constant-family fibre: const_K(A)[k] ↪ A.
-rule @fapp0 $K Cat_cat (@Const_catd $K $A) $_ ↪ $A;
+rule @fapp0 $K Cat_cart (@Const_catd $K $A) $_ ↪ $A;
 // Reindexing a constant family by composition remains constant.
-rule @comp_fapp0 Cat_cat $A $B Cat_cat (@Const_catd $B $C) $F
+rule @comp_fapp0 Cat_cat $A $B Cat_cart (@Const_catd $B $C) $F
   ↪ @Const_catd $A $C;
 // Stable pullback of a constant family: F^*const_B(C) ↪ const_A(C).
 rule @Pullback_catd $A $B (@Const_catd $B $C) $F
   ↪ @Const_catd $A $C;
 // Pullback along a constant base map selects the corresponding constant fibre.
 rule @Pullback_catd $A $B $E (@Const_func $A $B $b)
-  ↪ @Const_catd $A (@fapp0 $B Cat_cat $E $b);
+  ↪ @Const_catd $A (@fapp0 $B Cat_cart $E $b);
+
+// Constant-family specialization of the conventional pre/right action:
+// epsilon[p] = epsilon[y] o const(C)[p] = epsilon[y]. This does not
+// strictify the post/left naturality cell of an arbitrary epsilon.
+// The whole Hom action is retained before its capped observation.
+// lhs-audit: keep 2,3 -- the coefficient and constant source select the erased identity transport.
+rule @tapp1_func $K Cat_cart (@Const_catd $K $C) $D $x $y $epsilon
+  ↪ @Const_func (Hom_cat $K $x $y)
+      (Functor_cart_cat $C (Fibre_cat $D $y))
+      (@tapp0_fapp0 $K Cat_cart (@Const_catd $K $C) $D $y $epsilon);
+
+// lhs-audit: keep 2,3 -- same constant-source transport; p is discarded only in this strict leg.
+rule @tapp1_fapp0 $K Cat_cart (@Const_catd $K $C) $D _ $y $epsilon _
+  ↪ @tapp0_fapp0 $K Cat_cart (@Const_catd $K $C) $D $y $epsilon;
+
+// Canonical coefficient-family view of an ordinary constant functor.
+rule @Const_func $K Cat_cart $C ↪ @Const_catd $K $C;
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $K $A $B $F
+      (@Const_func $K $A $a)
+  ↪ @Const_func $K $B (@fapp0 $A $B $F $a);
+
+// Whole dual and postcomposition views of a constant coefficient family.
+rule @Op_func _ _ (@Const_catd $K $C)
+  ↪ @Const_func (Op_cat $K) (Op_cat Cat_cart) $C;
+rule @CoAbove2_func _ _ (@Const_func $A $B $b)
+  ↪ @Const_func (CoAbove2_cat $A) (CoAbove2_cat $B) $b;
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ Cat_cart $B $F
+      (@Const_catd $K $C)
+  ↪ @Const_func $K $B (@fapp0 Cat_cart $B $F $C);
+
+// The selected constant-family head retains the existing Hom and R views.
+rule @CoAbove2_func _ _ (@Const_catd $K $C)
+  ↪ @Const_func (CoAbove2_cat $K) (CoAbove2_cat Cat_cart) $C;
+rule @hom_ Cat_cart $K (@Const_catd $K $A) $W
+  ↪ @Const_catd $K (Hom_cat Cat_cart $W $A);
+rule @hom_con Cat_cart $W $K (@Const_catd $K $A)
+  ↪ @Const_catd (Op_cat $K) (Hom_cat Cat_cart $A $W);
+
+
 // A represented family along a constant diagram is pointwise Hom(w,u).
 rule @hom_ $A $B (@Const_func $B $A $u) $w
   ↪ @Const_catd $B (Hom_cat $A $w $u);
@@ -12450,14 +13741,14 @@ rule @hom_con Terminal_cat _ $B _
   ↪ @Const_catd (Op_cat $B) Terminal_cat;
 
 // Hom-action of a constant family is constantly the identity functor of A.
-rule @fapp1_func $K Cat_cat (@Const_catd $K $A) $x $y
+rule @fapp1_func $K Cat_cart (@Const_catd $K $A) $x $y
   ↪ @Const_func
       (Hom_cat $K $x $y)
-      (Functor_cat $A $A)
+      (Functor_cart_cat $A $A)
       (@id_func $A);
 
 // Every base arrow acts as id_A in the constant family.
-rule @fapp1_fapp0 $K Cat_cat (@Const_catd $K $A) $x $y $_ ↪ @id_func $A;
+rule @fapp1_fapp0 $K Cat_cart (@Const_catd $K $A) $x $y $_ ↪ @id_func $A;
 
 // Fixed-base layer: terminal displayed family.
 //
@@ -12466,121 +13757,202 @@ rule @fapp1_fapp0 $K Cat_cat (@Const_catd $K $A) $x $y $_ ↪ @id_func $A;
 symbol Terminal_catd (K : Cat) : τ (Catd K)
 ≔ @Const_catd K Terminal_cat;
 
-// Fixed-base layer: pointwise opposite of a directed family.
-//
-// Surface/formula:
-//   Op_catd(E)[k] = E[k]^op.
-injective symbol Op_catd [K : Cat] (E : τ (Catd K)) : τ (Catd K);
+// Total fibre opposite: O(E) has base R(K), with O(C)=R(T(C)).
+injective symbol TotalOp_catd [K : Cat] (E : τ (Catd K))
+  : τ (Catd (CoAbove2_cat K));
+rule fapp0 (TotalOp_catd_func $K) $E ↪ @TotalOp_catd $K $E;
 
-// Object projection of pointwise opposite: Op_catd_func(K)[E] ↪ E^op.
-rule @fapp0 _ _ (@Op_catd_func $K) $E
+// Actual whole E-formation, using the existing Cartesian postcomposition.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+        (CoAbove2_cat $K) (CoAbove2_cat Cat_cart) Cat_cart total_op_cart)
+      (CoAbove2_func_func $K Cat_cart)
+  ↪ TotalOp_catd_func $K;
+
+rule @comp_fapp0 Cat_cat _ _ _ total_op_cart (@CoAbove2_func $K Cat_cart $E)
+  ↪ @TotalOp_catd $K $E;
+rule @hom_postcomp_fapp0 _ _ (@id Cat_cat Cat_cart) _ _ _ total_op_cart
+      (@CoAbove2_func $K Cat_cart $E)
+  ↪ @TotalOp_catd $K $E;
+
+rule @fapp0 _ Cat_cart (@TotalOp_catd $K $E) $x
+  ↪ TotalOp_cat (Fibre_cat $E $x);
+rule @fapp1_func _ Cat_cart (@TotalOp_catd $K $E) $x $y
+  ↪ @comp_cat_fapp0
+      (TotalOp_cat (Hom_cat $K $x $y))
+      (TotalOp_cat (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $E $y)))
+      (Functor_cart_cat (TotalOp_cat (Fibre_cat $E $x)) (TotalOp_cat (Fibre_cat $E $y)))
+      (TotalOp_cart_func_func (Fibre_cat $E $x) (Fibre_cat $E $y))
+      (@TotalOp_func (Hom_cat $K $x $y)
+        (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $E $y))
+        (@fapp1_func $K Cat_cart $E $x $y));
+rule @fapp1_fapp0 _ Cat_cart (@TotalOp_catd $K $E) $x $y $p
+  ↪ @TotalOp_func (Fibre_cat $E $x) (Fibre_cat $E $y)
+      (@fapp1_fapp0 $K Cat_cart $E $x $y $p);
+rule @TotalOp_catd _ (@TotalOp_catd $K $E) ↪ $E;
+rule @TotalOp_catd $K (@Const_catd $K $A)
+  ↪ @Const_catd (CoAbove2_cat $K) (TotalOp_cat $A);
+
+// Total fibre duality commutes with actual base reindexing, with R on the
+// base functor: F:A->R(B) becomes R(F):R(A)->B. The concrete consumer is
+// the recursive Hom of sigma_pullback_total_func. No equality is input.
+rule @Pullback_catd $A _ (@TotalOp_catd $B $E) $F
+  ↪ @TotalOp_catd (CoAbove2_cat $A)
+      (@Pullback_catd (CoAbove2_cat $A) $B $E
+        (@CoAbove2_func $A (CoAbove2_cat $B) $F));
+
+// The same total-fibre object formation through ordinary fixed
+// postcomposition. Its parameter profile remains distinct from Cart.
+// lhs-audit: keep 1,2,3 -- named coefficient duality at its ordinary Hom owner.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) _ _ _ total_op_cart
+      (@CoAbove2_func $K Cat_cart $E)
+  ↪ @TotalOp_catd $K $E;
+
+
+// Actual Cartesian coefficient duality inverse.
+rule @comp_fapp0 Cat_cat _ _ _ total_op_cart
+      (@CoAbove2_func _ _ total_op_cart)
+  ↪ @id_func Cat_cart;
+
+// Involution after the same composition has formed its family owner.
+rule @TotalOp_catd (CoAbove2_cat Cat_cart) total_op_cart
+  ↪ @id_func Cat_cart;
+// The dual of the identity coefficient family is the whole duality map.
+rule @TotalOp_catd Cat_cart (@id Cat_cat Cat_cart)
+  ↪ total_op_cart;
+
+// The total-dual counterpart of the existing Op_funcd, on strict maps.
+injective symbol TotalOp_funcd [K : Cat] [E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  : τ (Obj (Hom_cat (Functor_cart_cat (CoAbove2_cat K) Cat_cart)
+      (@TotalOp_catd K E) (@TotalOp_catd K D)));
+rule @fapp1_fapp0 _ _ (@TotalOp_catd_func $K) $E $D $U
+  ↪ @TotalOp_funcd $K $E $D $U;
+rule @tapp0_fapp0 _ Cat_cart _ _ $x
+      (@strict_transfor _ _ _ _ (@TotalOp_funcd $K $E $D $U))
+  ↪ @TotalOp_func (Fibre_cat $E $x) (Fibre_cat $D $x)
+      (@tapp0_fapp0 $K Cat_cart $E $D $x
+        (@strict_transfor $K Cat_cart $E $D $U));
+
+// Fibrewise dimension-one transpose changes the base by CoAt2.
+injective symbol Op_catd [K : Cat] (E : τ (Catd K))
+  : τ (Catd (CoAt2_cat K));
+rule @fapp0 _ _ (@Op_catd_func $K) $E ↪ @Op_catd $K $E;
+// Form the same shifted family by actual coefficient postcomposition.
+rule @comp_fapp0 Cat_cat _ _ _ op (@CoAt2_func $K Cat_cart $E)
+  ↪ @Op_catd $K $E;
+rule @Pullback_catd _ (CoAt2_cat Cat_cart) op (@CoAt2_func $K Cat_cart $E)
   ↪ @Op_catd $K $E;
 
-// Semantic composition with op folds to pointwise displayed opposite.
-rule @comp_fapp0 Cat_cat $K Cat_cat Cat_cat op $E
-  ↪ @Op_catd $K $E;
-// Stable pullback notation for the same pointwise opposite construction.
-rule @Pullback_catd $K Cat_cat op $E
-  ↪ @Op_catd $K $E;
-
-// Proof-time only: pointwise opposite commutes with Cat-valued family
-// reindexing. Both `Op_catd(E o F)` and `F^*(Op_catd(E))` remain distinct
-// runtime histories. The potentially compound opposite family is abstracted
-// to Eop and recovered in the side condition rather than embedded in the
-// Pullback_catd family slot.
-unif_rule
-  @Op_catd $A
-    (@comp_fapp0 Cat_cat _ _ Cat_cat $E $F)
-  ≡ @Pullback_catd $A $B $Eop $F
-  ↪ [ $Eop ≡ (@Op_catd $B $E) ];
-
-// Two-step instance of the existing opposite-family reindexing comparison.
-// Functor composition already normalizes left; preserve both runtime histories.
+// Reindexing comparisons retain their two original runtime presentations.
+unif_rule @Op_catd $A (@comp_fapp0 Cat_cat _ _ Cat_cart $E $F)
+  ≡ @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $B) $Eop (@CoAt2_func $A $B $F)
+  ↪ [ $Eop ≡ @Op_catd $B $E ];
+// The base dual of a composite has already normalized to this composite.
 unif_rule @Op_catd $A
-    (@comp_fapp0 Cat_cat $A $B Cat_cat
-      (@comp_fapp0 Cat_cat $B $C Cat_cat $E $F) $G)
-  ≡ @Pullback_catd $A $C $Eop
-      (@comp_fapp0 Cat_cat $A $B $C $F $G)
+    (@comp_fapp0 Cat_cat $A $B Cat_cart
+      (@comp_fapp0 Cat_cat $B $C Cat_cart $E $F) $G)
+  ≡ @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $C) $Eop
+      (@comp_fapp0 Cat_cat (CoAt2_cat $A) (CoAt2_cat $B) (CoAt2_cat $C)
+        (@CoAt2_func $B $C $F) (@CoAt2_func $A $B $G))
   ↪ [ $Eop ≡ @Op_catd $C $E ];
 
-// Fibre projection: E^op[k] ↪ E[k]^op.
-rule @fapp0 $K Cat_cat (@Op_catd $K $E) $k
-  ↪ Op_cat (@fapp0 $K Cat_cat $E $k);
-
-// Full base action maps the underlying family action through the internal
-// opposite functor, retaining action on higher base cells.
-rule @fapp1_func
-      $K Cat_cat (@Op_catd $K $E) $x $y
+rule @fapp0 _ Cat_cart (@Op_catd $K $E) $x
+  ↪ Op_cat (@fapp0 $K Cat_cart $E $x);
+rule @fapp1_func _ Cat_cart (@Op_catd $K $E) $x $y
   ↪ @comp_cat_fapp0
-      (Hom_cat $K $x $y)
-      (Functor_cat (Fibre_cat $E $x) (Fibre_cat $E $y))
-      (Functor_cat
-        (Op_cat (Fibre_cat $E $x))
-        (Op_cat (Fibre_cat $E $y)))
-      (@fapp1_func
-        Cat_cat Cat_cat op
-        (Fibre_cat $E $x)
-        (Fibre_cat $E $y))
-      (@fapp1_func $K Cat_cat $E $x $y);
+      (Op_cat (Hom_cat $K $x $y))
+      (Op_cat (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $E $y)))
+      (Functor_cart_cat (Op_cat (Fibre_cat $E $x)) (Op_cat (Fibre_cat $E $y)))
+      (Op_func_func (Fibre_cat $E $x) (Fibre_cat $E $y))
+      (@Op_func (Hom_cat $K $x $y)
+        (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $E $y))
+        (@fapp1_func $K Cat_cart $E $x $y));
+rule @fapp1_fapp0 _ Cat_cart (@Op_catd $K $E) $x $y $p
+  ↪ @Op_func (Fibre_cat $E $x) (Fibre_cat $E $y)
+      (@fapp1_fapp0 $K Cat_cart $E $x $y $p);
+rule @Op_catd _ (@Op_catd $K $E) ↪ $E;
+rule @Op_catd $K (@Const_catd $K $A)
+  ↪ @Const_catd (CoAt2_cat $K) (Op_cat $A);
 
-// Capped base-arrow action of pointwise opposite is the opposite of the
-// underlying displayed-family action.
-rule @fapp1_fapp0
-      $K Cat_cat (@Op_catd $K $E) $x $y $p
-  ↪ @Op_func
-      (Fibre_cat $E $x)
-      (Fibre_cat $E $y)
-      (@fapp1_fapp0 $K Cat_cat $E $x $y $p);
-
-// Pointwise opposite is involutive: (E^op)^op ↪ E.
-rule @Op_catd $K (@Op_catd $K $E) ↪ $E;
-// Opposite of a constant family is the constant family at A^op.
-rule @Op_catd $K (@Const_catd $K $A) ↪ @Const_catd $K (Op_cat $A);
-
-// Fixed-base layer: pointwise opposite of a displayed functor.
-//
-// Surface/formula:
-//   Op_funcd(FF)[k] = Op_func(FF[k]).
+// Parameter action is on Cartesian diagram maps. This is not an admission
+// of a general lax FF to the same-profile fibrewise transpose.
 injective symbol Op_funcd [K : Cat] [E D : τ (Catd K)]
-  (FF : τ (Functord E D))
-  : τ (Functord (Op_catd E) (Op_catd D));
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  : τ (Hom (Functor_cart_cat (CoAt2_cat K) Cat_cart)
+      (@Op_catd K E) (@Op_catd K D));
+rule @fapp1_fapp0 _ _ (@Op_catd_func $K) $E $D $U
+  ↪ @Op_funcd $K $E $D $U;
+rule @Op_funcd _ _ _ (@Op_funcd $K $E $D $U) ↪ $U;
+rule @Op_funcd $K $E $E (@id (Functor_cart_cat $K Cat_cart) $E)
+  ↪ @id (Functor_cart_cat (CoAt2_cat $K) Cat_cart) (@Op_catd $K $E);
+rule @Op_funcd $K $E $G
+      (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $G $V $U)
+  ↪ @comp_fapp0 (Functor_cart_cat (CoAt2_cat $K) Cat_cart)
+      (@Op_catd $K $E) (@Op_catd $K $D) (@Op_catd $K $G)
+      (@Op_funcd $K $D $G $V) (@Op_funcd $K $E $D $U);
 
-// Pointwise opposite is involutive on displayed functors.
-rule @Op_funcd $K (@Op_catd $K $E) (@Op_catd $K $D) (@Op_funcd $K $E $D $FF)
-  ↪ $FF;
+// A constant Cartesian diagram map dualizes as the same constant map of
+// dual fibres, over the required dimension-two-shifted base. This is the
+// correctly classified replacement for the former raw constant-section case.
+rule @Op_funcd $K _ _ (@Const_transf $K Cat_cart $A $B $F)
+  ↪ @Const_transf (CoAt2_cat $K) Cat_cart (Op_cat $A) (Op_cat $B)
+      (@Op_func $A $B $F);
 
-// Opposite preserves the displayed identity functor.
-rule @Op_funcd $K $E $E (@id (@Catd_cat $K) $E)
-  ↪ @id (@Catd_cat $K) (@Op_catd $K $E);
-
-// Pointwise projection of displayed opposite. The source/target family slots
-// are deliberately implicit; the explicit `Op_funcd` argument is the
-// discriminator.
-rule @tapp0_fapp0
-      $K
-      Cat_cat
-      _
-      _
-      $x
-      (@Op_funcd $K $E $D $FF)
-  ↪ @Op_func
-      (Fibre_cat $E $x)
-      (Fibre_cat $D $x)
-      (@tapp0_fapp0 $K Cat_cat $E $D $x $FF);
+// Ordinary observations use the same whole inclusion as other Cart maps.
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _ (@Op_funcd $K $E $D $U))
+  ↪ @Op_func (Fibre_cat $E $x) (Fibre_cat $D $x)
+      (@tapp0_fapp0 $K Cat_cart $E $D $x (@strict_transfor $K Cat_cart $E $D $U));
+rule @tapp1_func _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@Op_funcd $K $E $D $U))
+  ↪ @comp_cat_fapp0
+      (Op_cat (Hom_cat $K $x $y))
+      (Op_cat (Functor_cart_cat (Fibre_cat $E $x) (Fibre_cat $D $y)))
+      (Functor_cart_cat (Op_cat (Fibre_cat $E $x)) (Op_cat (Fibre_cat $D $y)))
+      (Op_func_func (Fibre_cat $E $x) (Fibre_cat $D $y))
+      (@Op_func _ _ (@tapp1_func $K Cat_cart $E $D $x $y
+        (@strict_transfor $K Cat_cart $E $D $U)));
+rule @tapp1_fapp0 _ _ _ _ $x $y
+      (@strict_transfor _ _ _ _ (@Op_funcd $K $E $D $U)) $p
+  ↪ @Op_func (Fibre_cat $E $x) (Fibre_cat $D $y)
+      (@tapp1_fapp0 $K Cat_cart $E $D $x $y (@strict_transfor $K Cat_cart $E $D $U) $p);
 
 // Pointwise projection of displayed composition. This belongs with the
 // displayed-functor calculus: at each base object x, the composite displayed
 // functor projects to the ordinary composite of fibre functors.
 rule @tapp0_fapp0
-      $K Cat_cat $E $C $x
+      _ _ _ _ $x
       (@comp_fapp0 (@Catd_cat $K) $E $D $C $FF $GG)
   ↪ @comp_fapp0
-      Cat_cat
+      Cat_cart
       (Fibre_cat $E $x)
       (Fibre_cat $D $x)
       (Fibre_cat $C $x)
-      (@tapp0_fapp0 $K Cat_cat $D $C $x $FF)
-      (@tapp0_fapp0 $K Cat_cat $E $D $x $GG);
+      (@tapp0_fapp0 $K Cat_cart $D $C $x $FF)
+      (@tapp0_fapp0 $K Cat_cart $E $D $x $GG);
+
+// Product formation in the admitted coefficient. This is the same curried
+// construction as the public product, with Cartesian parameter categories.
+constant symbol Product_cat_coeff_func
+  : τ (Functor Cat_cart (Functor_cart_cat Cat_cart Cat_cart));
+injective symbol Product_cat_coeff_fapp0_func (A : Cat)
+  : τ (Functor Cat_cart Cat_cart);
+rule fapp0 Product_cat_coeff_func $A ↪ Product_cat_coeff_fapp0_func $A;
+rule fapp0 (Product_cat_coeff_fapp0_func $A) $B ↪ Product_cat $A $B;
+
+// Coordinate actions reuse the original product functors, with no new
+// object/arrow representation. Whole higher action is retained by the root.
+rule @fapp1_fapp0 _ _ (Product_cat_coeff_fapp0_func $A) $B $B' $G
+  ↪ @Product_map_func $A $A $B $B' (@id_func $A) $G;
+rule @tapp0_fapp0 Cat_cart Cat_cart _ _ $B
+      (@strict_transfor _ _ _ _
+        (@fapp1_fapp0 _ _ Product_cat_coeff_func $A $A' $F))
+  ↪ @Product_cat_fapp1_tapp0_func $A $A' $B $F;
+rule @tapp1_fapp0 Cat_cart Cat_cart _ _ $B $B'
+      (@strict_transfor _ _ _ _
+        (@fapp1_fapp0 _ _ Product_cat_coeff_func $A $A' $F)) $G
+  ↪ @Product_map_func $A $A' $B $B' $F $G;
 
 // Fixed-base fibrewise-product structural owners.
 //
@@ -12598,9 +13970,9 @@ injective symbol Product_projL_funcd [K : Cat]
   : τ (Functord
       (@comp_cat_fapp0
         K
-        (Product_cat Cat_cat Cat_cat)
-        Cat_cat
-        (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+        (Product_cat Cat_cart Cat_cart)
+        Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
         (Struct_sigma B C))
       B);
 
@@ -12610,9 +13982,9 @@ injective symbol Product_projR_funcd [K : Cat]
   : τ (Functord
       (@comp_cat_fapp0
         K
-        (Product_cat Cat_cat Cat_cat)
-        Cat_cat
-        (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+        (Product_cat Cat_cart Cat_cart)
+        Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
         (Struct_sigma B C))
       C);
 
@@ -12626,15 +13998,46 @@ injective symbol Product_pair_funcd [K : Cat]
       E
       (@comp_cat_fapp0
         K
-        (Product_cat Cat_cat Cat_cat)
-        Cat_cat
-        (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+        (Product_cat Cat_cart Cat_cart)
+        Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
         (Struct_sigma B C)));
+
+// Canonical Cartesian refinement of the existing displayed pairing.
+// Its inputs already carry strict base naturality; ordinary pairing stays lax.
+injective symbol Product_pair_cart_funcd [K : Cat]
+  [R E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) R E))
+  (V : τ (Hom (Functor_cart_cat K Cat_cart) R D))
+  : τ (Hom (Functor_cart_cat K Cat_cart) R
+      (@comp_cat_fapp0 K (Product_cat Cat_cart Cat_cart) Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
+        (Struct_sigma E D)));
+
+// Preserve the actual ordinary pair; this is a profile view, not a new map.
+unif_rule @strict_transfor _ _ _ _ (@Product_pair_cart_funcd $K $R $E $D $U $V)
+  ≡ @Product_pair_funcd $K0 $R0 $E0 $D0 $FF $GG
+  ↪ [ $K0 ≡ $K; $R0 ≡ $R; $E0 ≡ $E; $D0 ≡ $D;
+      $FF ≡ @strict_transfor $K Cat_cart $R $E $U;
+      $GG ≡ @strict_transfor $K Cat_cart $R $D $V ];
+
+// Component observation delegates to the original whole pairing owner.
+rule @tapp0_fapp0 _ Cat_cart _ _ $k
+    (@strict_transfor _ _ _ _ (@Product_pair_cart_funcd $K $R $E $D $U $V))
+  ↪ @tapp0_fapp0 $K Cat_cart $R
+      (@comp_cat_fapp0 $K (Product_cat Cat_cart Cat_cart) Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
+        (Struct_sigma $E $D)) $k
+      (@Product_pair_funcd $K $R $E $D
+        (@strict_transfor $K Cat_cart $R $E $U)
+        (@strict_transfor $K Cat_cart $R $D $V));
+
+
 
 // Point projection: the displayed left projection is ordinary π₁ in each
 // fibre.
 rule @tapp0_fapp0
-      $K Cat_cat _ _ $x
+      $K Cat_cart _ _ $x
       (@Product_projL_funcd $K $B $C)
   ↪ @Product_projL_func
       (Fibre_cat $B $x)
@@ -12643,28 +14046,28 @@ rule @tapp0_fapp0
 // Full off-diagonal action of the left projection. The returned
 // precomposition functor remains iterable at the next cell.
 rule @tapp1_func
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Product_projL_funcd $K $B $C)
   ↪ @comp_cat_fapp0
       (Hom_cat $K $x $y)
-      (Functor_cat (Fibre_cat $B $x) (Fibre_cat $B $y))
-      (Functor_cat
+      (Functor_cart_cat (Fibre_cat $B $x) (Fibre_cat $B $y))
+      (Functor_cart_cat
         (Fibre_cat
           (@comp_cat_fapp0
             $K
-            (Product_cat Cat_cat Cat_cat)
-            Cat_cat
-            (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+            (Product_cat Cat_cart Cat_cart)
+            Cat_cart
+            (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
             (Struct_sigma $B $C))
           $x)
         (Fibre_cat $B $y))
-      (@comp_cat_con_func
+      (@comp_cat_con_cart_func
         (Fibre_cat
           (@comp_cat_fapp0
             $K
-            (Product_cat Cat_cat Cat_cat)
-            Cat_cat
-            (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+            (Product_cat Cat_cart Cat_cart)
+            Cat_cart
+            (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
             (Struct_sigma $B $C))
           $x)
         (Fibre_cat $B $x)
@@ -12672,36 +14075,36 @@ rule @tapp1_func
         (@Product_projL_func
           (Fibre_cat $B $x)
           (Fibre_cat $C $x)))
-      (@fapp1_func $K Cat_cat $B $x $y);
+      (@fapp1_func $K Cat_cart $B $x $y);
 
 // Capped base-arrow action of the left projection.
 rule @tapp1_fapp0
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Product_projL_funcd $K $B $C)
       $p
   ↪ @hom_precomp_along_fapp0
-      Cat_cat
-      Cat_cat
-      (@id Cat_cat Cat_cat)
+      Cat_cart
+      Cat_cart
+      (@id Cat_cart Cat_cart)
       (Fibre_cat $B $y)
       (Fibre_cat
         (@comp_cat_fapp0
           $K
-          (Product_cat Cat_cat Cat_cat)
-          Cat_cat
-          (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+          (Product_cat Cat_cart Cat_cart)
+          Cat_cart
+          (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
           (Struct_sigma $B $C))
         $x)
       (Fibre_cat $B $x)
       (@Product_projL_func
         (Fibre_cat $B $x)
         (Fibre_cat $C $x))
-      (@fapp1_fapp0 $K Cat_cat $B $x $y $p);
+      (@fapp1_fapp0 $K Cat_cart $B $x $y $p);
 
 // Point projection: the displayed right projection is ordinary π₂ in each
 // fibre.
 rule @tapp0_fapp0
-      $K Cat_cat _ _ $x
+      $K Cat_cart _ _ $x
       (@Product_projR_funcd $K $B $C)
   ↪ @Product_projR_func
       (Fibre_cat $B $x)
@@ -12709,28 +14112,28 @@ rule @tapp0_fapp0
 
 // Full off-diagonal action of the right projection.
 rule @tapp1_func
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Product_projR_funcd $K $B $C)
   ↪ @comp_cat_fapp0
       (Hom_cat $K $x $y)
-      (Functor_cat (Fibre_cat $C $x) (Fibre_cat $C $y))
-      (Functor_cat
+      (Functor_cart_cat (Fibre_cat $C $x) (Fibre_cat $C $y))
+      (Functor_cart_cat
         (Fibre_cat
           (@comp_cat_fapp0
             $K
-            (Product_cat Cat_cat Cat_cat)
-            Cat_cat
-            (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+            (Product_cat Cat_cart Cat_cart)
+            Cat_cart
+            (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
             (Struct_sigma $B $C))
           $x)
         (Fibre_cat $C $y))
-      (@comp_cat_con_func
+      (@comp_cat_con_cart_func
         (Fibre_cat
           (@comp_cat_fapp0
             $K
-            (Product_cat Cat_cat Cat_cat)
-            Cat_cat
-            (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+            (Product_cat Cat_cart Cat_cart)
+            Cat_cart
+            (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
             (Struct_sigma $B $C))
           $x)
         (Fibre_cat $C $x)
@@ -12738,56 +14141,56 @@ rule @tapp1_func
         (@Product_projR_func
           (Fibre_cat $B $x)
           (Fibre_cat $C $x)))
-      (@fapp1_func $K Cat_cat $C $x $y);
+      (@fapp1_func $K Cat_cart $C $x $y);
 
 // Capped base-arrow action of the right projection.
 rule @tapp1_fapp0
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Product_projR_funcd $K $B $C)
       $p
   ↪ @hom_precomp_along_fapp0
-      Cat_cat
-      Cat_cat
-      (@id Cat_cat Cat_cat)
+      Cat_cart
+      Cat_cart
+      (@id Cat_cart Cat_cart)
       (Fibre_cat $C $y)
       (Fibre_cat
         (@comp_cat_fapp0
           $K
-          (Product_cat Cat_cat Cat_cat)
-          Cat_cat
-          (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+          (Product_cat Cat_cart Cat_cart)
+          Cat_cart
+          (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
           (Struct_sigma $B $C))
         $x)
       (Fibre_cat $C $x)
       (@Product_projR_func
         (Fibre_cat $B $x)
         (Fibre_cat $C $x))
-      (@fapp1_fapp0 $K Cat_cat $C $x $y $p);
+      (@fapp1_fapp0 $K Cat_cart $C $x $y $p);
 
 // Pointwise displayed pairing.
 rule @tapp0_fapp0
-      $K Cat_cat _ _ $x
+      $K Cat_cart _ _ $x
       (@Product_pair_funcd $K $E $B $C $FF $GG)
   ↪ Struct_sigma
-      (@tapp0_fapp0 $K Cat_cat $E $B $x $FF)
-      (@tapp0_fapp0 $K Cat_cat $E $C $x $GG);
+      (@tapp0_fapp0 $K Cat_cart $E $B $x $FF)
+      (@tapp0_fapp0 $K Cat_cart $E $C $x $GG);
 
 // Full off-diagonal action of pairing remains a product-valued functor.
 rule @tapp1_func
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Product_pair_funcd $K $E $B $C $FF $GG)
   ↪ Struct_sigma
-      (@tapp1_func $K Cat_cat $E $B $x $y $FF)
-      (@tapp1_func $K Cat_cat $E $C $x $y $GG);
+      (@tapp1_func $K Cat_cart $E $B $x $y $FF)
+      (@tapp1_func $K Cat_cart $E $C $x $y $GG);
 
 // Capped base-arrow action of pairing is componentwise.
 rule @tapp1_fapp0
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Product_pair_funcd $K $E $B $C $FF $GG)
       $p
   ↪ Struct_sigma
-      (@tapp1_fapp0 $K Cat_cat $E $B $x $y $FF $p)
-      (@tapp1_fapp0 $K Cat_cat $E $C $x $y $GG $p);
+      (@tapp1_fapp0 $K Cat_cart $E $B $x $y $FF $p)
+      (@tapp1_fapp0 $K Cat_cart $E $C $x $y $GG $p);
 
 // Fixed-base product universal-property betas.
 // lhs-audit: keep 1 -- Catd_cat is the subject-reduction guard for the displayed left beta.
@@ -12831,7 +14234,7 @@ unif_rule
 // transfor category; do not rely on unification-rule transitivity.
 unif_rule
   @Pi_cat $K $E
-  ≡ @Transf_cat $K' Cat_cat (@Const_catd $K' Terminal_cat) $E'
+  ≡ @Transf_cat $K' Cat_cart (@Const_catd $K' Terminal_cat) $E'
   ↪ [ $K ≡ $K'; $E ≡ $E' ];
 
 // Runtime classifier projection for section objects.
@@ -12870,14 +14273,53 @@ unif_rule
       $G ≡ $G'
     ];
 
+// The identity of the constant terminal family also classifies a functor K→1.
+// Compute that canonical functor's observations, retaining the whole id_funcd
+// head for displayed identity/composition cuts. No arbitrary F:K→1 is erased.
+// lhs-audit: keep 2 -- Terminal_cat selects this constant-family identity view.
+rule @fapp0 _ Terminal_cat
+    (@id (Catd_cat $K) (@Const_catd $K Terminal_cat)) _
+  ↪ Terminal_obj;
+
+// Whole Hom action precedes its capped observation, preserving further action.
+// lhs-audit: keep 2 -- same canonical terminal-valued identity view.
+rule @fapp1_func _ Terminal_cat
+    (@id (Catd_cat $K) (@Const_catd $K Terminal_cat)) $x $y
+  ↪ @Const_func (Hom_cat $K $x $y) Terminal_cat Terminal_obj;
+
+// Capping first must give the same normal form as the whole-Hom projection.
+// lhs-audit: keep 2 -- same canonical terminal-valued identity view.
+rule @fapp1_fapp0 _ Terminal_cat
+    (@id (Catd_cat $K) (@Const_catd $K Terminal_cat)) _ _ _
+  ↪ Terminal_obj;
+
+// A canonical constant Cat-valued transformation is also a constant section.
+// Its ordinary K→C observations evaluate the actual chosen 1→C component;
+// retain the whole transfor view, and do not impose terminal-source eta on it.
+rule @fapp0 $K $C
+    (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart Terminal_cat $C $H)) _
+  ↪ @fapp0 Terminal_cat $C $H Terminal_obj;
+
+rule @fapp1_func $K $C
+    (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart Terminal_cat $C $H)) $x $y
+  ↪ @Const_func (Hom_cat $K $x $y)
+      (Hom_cat $C (@fapp0 Terminal_cat $C $H Terminal_obj) (@fapp0 Terminal_cat $C $H Terminal_obj))
+      (@id $C (@fapp0 Terminal_cat $C $H Terminal_obj));
+
+rule @fapp1_fapp0 $K $C
+    (@strict_transfor _ _ _ _ (@Const_transf $K Cat_cart Terminal_cat $C $H)) _ _ _
+  ↪ @id $C (@fapp0 Terminal_cat $C $H Terminal_obj);
+
 // Fixed-base layer: functorial section-category constructor at a fixed base.
 //
 // Surface/formula:
 //   Pi_func(K)[E] = Π k :^n K, E[k].
 //                 = k :^n K ; 1[k] ⊢ E[k].
-injective symbol Pi_func (K : Cat) : τ (Functor (Catd_cat K) Cat_cat);
+// The terminal-source Hom profile changes the formation target,
+// not the existing lax section or displayed-map classifiers.
+injective symbol Pi_func (K : Cat) : τ (Functor (Catd_cat K) Cat_cart);
 // Object projection of the section-category package: Pi_func(K)[E] ↪ Pi_cat(E).
-rule @fapp0 _ Cat_cat (@Pi_func $K) $E
+rule @fapp0 _ Cat_cart (@Pi_func $K) $E
   ↪ @Pi_cat $K $E;
 
 // Stable object action of Pi on a displayed functor.  A section s : 1 -> E
@@ -12897,7 +14339,7 @@ symbol section_postcomp_sec
 // computation at that stable head.
 rule @fapp1_fapp0
       _
-      Cat_cat
+      Cat_cart
       (@Pi_func $K)
       $E
       $E
@@ -12912,7 +14354,7 @@ rule @fapp0
       (@Pi_cat $K $E)
       (@Pi_cat $K $D)
       (@fapp1_fapp0
-        (@Catd_cat $K) Cat_cat (@Pi_func $K) $E $D $FF)
+        (@Catd_cat $K) Cat_cart (@Pi_func $K) $E $D $FF)
       $s
   ↪ @section_postcomp_sec $K $E $D $FF $s;
 
@@ -12939,32 +14381,33 @@ unif_rule @section_postcomp_sec $K $E $D $FF $s
 //
 // Surface/formula:
 //   Pi_int_funcd : K :^n Cat^op ; (K ⊢ Cat) ⊢ Cat
-//   Pi_int_funcd[K] = Pi_func(K)
+//   Pi_int_funcd[K] = Pi_func(K) after the Cartesian-diagram inclusion
 //
-// The base is Op(Cat) because section categories pull back contravariantly
-// along functors.
+// The base is T(Cat_cart). The parameter fibres use Cartesian diagram
+// maps; their inclusion retains the existing lax section operation.
 constant symbol Pi_int_funcd
   : τ (Functord
       Catd_cat_func
-      (@Const_catd (Op_cat Cat_cat) Cat_cat));
+      (@Const_catd (Op_cat Cat_cart) Cat_cart));
 
-// Base component of internal Pi: Pi_int_funcd[K] ↪ Pi_func(K).
+// Base component: restrict the existing Pi along its actual diagram inclusion.
 rule @tapp0_fapp0
-      (Op_cat Cat_cat)
-      Cat_cat
+      (Op_cat Cat_cart)
+      Cat_cart
       _
       _
       $K
       Pi_int_funcd
-  ↪ @Pi_func $K;
+  ↪ @comp_cat_fapp0 (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cart
+      (@Pi_func $K) (Functor_cart_include $K Cat_cart);
 
 // Internalized-x layer: stable normal form for pulling the internal Pi package
 // back along a Cat-valued contravariant base functor.
 //
 // Surface/formula:
-//   for G : K ⊢ Cat^op,
+//   for G : K ⊢ T(Cat_cart),
 //   Pi_pullback_funcd(G) : x :^n K ; (G[x] ⊢ Cat) ⊢ Cat
-//   Pi_pullback_funcd(G)[x] = Pi_func(G[x])
+//   Pi_pullback_funcd(G)[x] = Pi_func(G[x]) after Cartesian-diagram inclusion
 //   Sigma_catd_transport_func(Pi_pullback_funcd(G),p,E)
 //     = section_pullback_func(G[p],E)
 //
@@ -12972,30 +14415,34 @@ rule @tapp0_fapp0
 // expression into this head while keeping the reducible endpoint family slots
 // implicit on the LHS.
 injective symbol Pi_pullback_funcd [K : Cat]
-  (G : τ (Functor K (Op_cat Cat_cat)))
+  (G : τ (Functor K (Op_cat Cat_cart)))
   : τ (Functord
-      (@Pullback_catd K (Op_cat Cat_cat) Catd_cat_func G)
-      (@Const_catd K Cat_cat));
+      (@Pullback_catd K (Op_cat Cat_cart) Catd_cat_func G)
+      (@Const_catd K Cat_cart));
 
 // Pulling back internal Pi along G folds to the stable Pi_pullback_funcd(G).
 rule @fapp1_fapp0
-      (@Catd_cat (Op_cat Cat_cat))
+      (@Catd_cat (Op_cat Cat_cart))
       _
-      (@Pullback_catd_func $K (Op_cat Cat_cat) $G)
+      (@Pullback_catd_func $K (Op_cat Cat_cart) $G)
       _
       _
       Pi_int_funcd
   ↪ @Pi_pullback_funcd $K $G;
 
-// Pointwise projection: Pi_pullback_funcd(G)[x] ↪ Pi_func(G[x]).
+// Component after base pullback, retaining the same inclusion before Pi.
 rule @tapp0_fapp0
       $K
-      Cat_cat
+      Cat_cart
       _
       _
       $x
       (@Pi_pullback_funcd $K $G)
-  ↪ @Pi_func (@fapp0 $K (Op_cat Cat_cat) $G $x);
+  ↪ @comp_cat_fapp0
+      (Functor_cart_cat (@fapp0 $K (Op_cat Cat_cart) $G $x) Cat_cart)
+      (Catd_cat (@fapp0 $K (Op_cat Cat_cart) $G $x)) Cat_cart
+      (@Pi_func (@fapp0 $K (Op_cat Cat_cart) $G $x))
+      (Functor_cart_include (@fapp0 $K (Op_cat Cat_cart) $G $x) Cat_cart);
 
 // Fixed-base layer: functorial section evaluation at k.
 //
@@ -13003,9 +14450,14 @@ rule @tapp0_fapp0
 //   piapp0_func(E,k) : (Π i :^n K, E[i]) ⊢ E[k].
 symbol piapp0_func [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
   : τ (Functor (Pi_cat E) (Fibre_cat E k))
-≔ comp_cat_fapp0
-     (@fapp0_func Terminal_cat (Fibre_cat E k) Terminal_obj)
-     (@tapp0_func K Cat_cat (@Const_catd K Terminal_cat) E k);
+≔ @comp_cat_fapp0 (Pi_cat E)
+    (Functor_cart_cat Terminal_cat (Fibre_cat E k)) (Fibre_cat E k)
+    (@comp_cat_fapp0
+      (Functor_cart_cat Terminal_cat (Fibre_cat E k))
+      (Functor_cat Terminal_cat (Fibre_cat E k)) (Fibre_cat E k)
+      (@fapp0_func Terminal_cat (Fibre_cat E k) Terminal_obj)
+      (Functor_cart_include Terminal_cat (Fibre_cat E k)))
+    (@tapp0_func K Cat_cart (@Const_catd K Terminal_cat) E k);
 
 // Fixed-base layer: section object evaluation.
 //
@@ -13017,6 +14469,16 @@ symbol piapp0 : Π [K : Cat], Π [E : τ (Catd K)],
   τ (Obj (Fibre_cat E k))
 ≔ λ K E s k, @fapp0 (Pi_cat E) (Fibre_cat E k) (@piapp0_func K E k) s;
 
+// Constant-family section evaluation follows ordinary functor application.
+// lhs-audit: keep 3 -- terminal-source family is the semantic discriminator
+rule @tapp0_fapp0
+      $K
+      Cat_cart
+      (@Const_catd $K Terminal_cat)
+      (@Const_catd $K $A)
+      $k
+      $F
+  ↪ @Obj_func $A (@fapp0 $K $A $F $k);
 // 8d. Fibre covariance and dependent-hom endpoint notation
 //
 // Fixed-base covariant transport from a fibre object.
@@ -13028,9 +14490,14 @@ symbol fib_cov_tapp0_func [K : Cat] (E : τ (Catd K))
   [x y : τ (Obj K)]
   (u : τ (Obj (Fibre_cat E x)))
   : τ (Functor (Hom_cat K x y) (Fibre_cat E y))
-≔ comp_cat_fapp0
-     (@fapp0_func (Fibre_cat E x) (Fibre_cat E y) u)
-     (@fapp1_func K Cat_cat E x y);
+≔ @comp_cat_fapp0 (Hom_cat K x y)
+    (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y)) (Fibre_cat E y)
+    (@comp_cat_fapp0
+      (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y))
+      (Functor_cat (Fibre_cat E x) (Fibre_cat E y)) (Fibre_cat E y)
+      (@fapp0_func (Fibre_cat E x) (Fibre_cat E y) u)
+      (Functor_cart_include (Fibre_cat E x) (Fibre_cat E y)))
+    (@fapp1_func K Cat_cart E x y);
 
 // General endpoint notation for dependent homs along a displayed functor. The
 // old one-family endpoint is the identity-family specialization.
@@ -13048,11 +14515,11 @@ injective symbol homd_ [Z : Cat] [D E : τ (Catd Z)]
   (u : τ (Obj (Fibre_cat E x)))
   (y : τ (Obj Z))
   (v : τ (Obj (Fibre_cat D y)))
-  : τ (Functor (Op_cat (Hom_cat Z x y)) Cat_cat)
+  : τ (Functor (Op_cat (Hom_cat Z x y)) Cat_cart)
 ≔ @hom_con
      (Fibre_cat E y)
      (fapp0
-       (@tapp0_fapp0 Z Cat_cat D E y FF)
+       (@tapp0_fapp0 Z Cat_cart D E y FF)
        v)
      (Hom_cat Z x y)
      (@fib_cov_tapp0_func Z E x y u);
@@ -13116,6 +14583,12 @@ rule @fapp0 _ Cat_cat (@Sigma_func $K) $E
 rule τ (Obj (@Sigma_cat $K $E))
   ↪ `τΣ_ k : τ (Obj $K), Obj (Fibre_cat $E k);
 
+// Sufficient object-carrier congruence for the same Sigma constructor.
+// Obj is not injective: this only compares the actual bases and whole families
+// to propagate an already justified proof-time endpoint comparison.
+unif_rule Obj (@Sigma_cat $K $E) ≡ Obj (@Sigma_cat $K0 $E0)
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E ];
+
 // Generic projections of an arbitrary object of a Sigma total.
 symbol sigma_obj_base
   [K : Cat]
@@ -13151,12 +14624,14 @@ symbol sigma_obj_fibre
 //
 // Kernel normal form:
 //   Hom_{Σ E}((x,u),(y,v))
-//     ↪ Op_cat(Σ (p : Hom_K(x,y)^op), homd_(id_E,x,u,y,v)[p]).
+//     ↪ O(Σ (p : O(Hom_K(x,y))), O_fib(homd_(id_E,x,u,y,v))[p]).
+// Total fibre duality followed by the outer total dual restores fibre directions.
 rule Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)
-  ↪ Op_cat
+  ↪ TotalOp_cat
       (@Sigma_cat
-        (Op_cat (Hom_cat $K $x $y))
-        (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v));
+        (TotalOp_cat (Hom_cat $K $x $y))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))
+          (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v)));
 
 // Constructor for arrows in a Sigma category, using the Sigma-hom
 // characterization above. The explicit fibre arrow is the second component of
@@ -13356,6 +14831,14 @@ rule @fapp1_fapp0
       (@sigma_arrow_intro _ _ _ _ $p _)
   ↪ $p;
 
+// Sufficient proof-time congruence for the same first-Hom observation.
+// Retain both whole families and both type annotations. This does not infer
+// family equality from equal projected values, or compare unrelated arrows.
+unif_rule
+  @fapp1_fapp0 $S $T (@Sigma_proj1_func $K $E) $q $r $alpha
+  ≡ @fapp1_fapp0 $S0 $T0 (@Sigma_proj1_func $K0 $E0) $q $r $alpha
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $S0 ≡ $S; $T0 ≡ $T ];
+
 // Stable fibre component of an arbitrary total arrow.
 injective symbol sigma_arrow_fibre
   [K : Cat]
@@ -13396,12 +14879,14 @@ rule @sigma_arrow_fibre
 rule @fapp1_func _ _ (@fapp1_func _ _ (@Sigma_proj1_func $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v))
       (Struct_sigma $p $a) (Struct_sigma $q $b)
   ↪ @fapp1_func (Hom_cat (@Sigma_cat $K $E) (Struct_sigma $x $u) (Struct_sigma $y $v)) (Hom_cat $K $x $y)
-      (@Op_func
-      (@Sigma_cat (Op_cat (Hom_cat $K $x $y))
-        (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v))
-      (Op_cat (Hom_cat $K $x $y))
-      (@Sigma_proj1_func (Op_cat (Hom_cat $K $x $y))
-        (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v))) (Struct_sigma $p $a) (Struct_sigma $q $b);
+      (@TotalOp_func
+      (@Sigma_cat (TotalOp_cat (Hom_cat $K $x $y))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))
+          (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v)))
+      (TotalOp_cat (Hom_cat $K $x $y))
+      (@Sigma_proj1_func (TotalOp_cat (Hom_cat $K $x $y))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))
+          (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v)))) (Struct_sigma $p $a) (Struct_sigma $q $b);
 
 // Capped next projection joins the whole route on a visible Sigma cell.
 rule @fapp1_fapp0 _ _
@@ -13461,29 +14946,7 @@ symbol sigma_proj1_hom_fapp1_fapp0
       (Struct_sigma p alpha)
       (Struct_sigma q beta)))
   : τ (Hom (Hom_cat K x y) p q)
-≔ @sigma_Fst
-    (Obj
-      (Op_cat
-        (Hom_cat
-          (Op_cat (Hom_cat K x y))
-          q p)))
-    (λ kappa : τ (Obj
-        (Op_cat
-          (Hom_cat
-            (Op_cat (Hom_cat K x y))
-            q p))),
-      Obj
-        (Fibre_cat
-          (@homd_
-            (Op_cat (Hom_cat K x y))
-            (@homd_ K E E (@id_funcd K E) x u y v)
-            (@homd_ K E E (@id_funcd K E) x u y v)
-            (@id_funcd
-              (Op_cat (Hom_cat K x y))
-              (@homd_ K E E (@id_funcd K E) x u y v))
-            q beta p alpha)
-          kappa))
-    theta;
+≔ sigma_Fst theta;
 
 // Stable head for the computationally important projection pullback. General
 // `Pullback_catd` stays a definition by composition, but this special case is
@@ -13503,7 +14966,7 @@ unif_rule
       Cat_cat
       _
       $K
-      Cat_cat
+      Cat_cart
       $D
       (@Sigma_proj1_func $K $R)
   ≡ @Sigma_proj1_pullback_catd $K0 $R0 $D0
@@ -13532,7 +14995,7 @@ unif_rule
 // Fibre over (k,r): Sigma_proj1_pullback_catd(R,D)[(k,r)] ↪ D[k].
 rule @fapp0
       _
-      Cat_cat
+      Cat_cart
       (@Sigma_proj1_pullback_catd $K $R $D)
       (Struct_sigma $k $r)
   ↪ @Fibre_cat $K $D $k;
@@ -13543,12 +15006,12 @@ rule @fapp0
 // pullback action.
 rule @fapp1_fapp0
       (@Sigma_cat $K $R)
-      Cat_cat
+      Cat_cart
       (@Sigma_proj1_pullback_catd $K $R $D)
       (Struct_sigma $x _)
       (Struct_sigma $y _)
       (Struct_sigma $p _)
-  ↪ @fapp1_fapp0 $K Cat_cat $D $x $y $p;
+  ↪ @fapp1_fapp0 $K Cat_cart $D $x $y $p;
 
 /*
   Proof-time comparisons retain `Sigma_proj1_pullback_catd` as the runtime
@@ -13622,7 +15085,7 @@ injective symbol sigma_functord_sec [K : Cat] [R D : τ (Catd K)]
 // subject-reduction guard.
 rule @tapp0_fapp0
       (@Sigma_cat $K $R)
-      Cat_cat
+      Cat_cart
       (@Const_catd (@Sigma_cat $K $R) Terminal_cat)
       (@Sigma_proj1_pullback_catd $K $R $D)
       (Struct_sigma $k $r)
@@ -13632,7 +15095,7 @@ rule @tapp0_fapp0
       (@fapp0
         (Fibre_cat $R $k)
         (Fibre_cat $D $k)
-        (@tapp0_fapp0 $K Cat_cat $R $D $k $FF)
+        (@tapp0_fapp0 $K Cat_cart $R $D $k $FF)
         $r);
 
 /*
@@ -13659,10 +15122,10 @@ rule @fapp0 _ _ (@sigma_functord_sec_func $K $R $D) $FF
 rule Obj
       (@Transf_cat
         (@Sigma_cat $K $R)
-        Cat_cat
+        Cat_cart
         (@Const_catd (@Sigma_cat $K $R) Terminal_cat)
         (@Sigma_proj1_pullback_catd $K $R $D))
-  ↪ Obj (@Transf_cat $K Cat_cat $R $D);
+  ↪ Obj (@Transf_cat $K Cat_cart $R $D);
 
 // Runtime next-hom projection: transformations between Sigma sections are
 // displayed transformations between the corresponding displayed functors.
@@ -13685,10 +15148,12 @@ injective symbol sigma_map_func [K : Cat] [E D : τ (Catd K)]
   : τ (Functor (Sigma_cat E) (Sigma_cat D));
 
 // Stable Sigma-map / represented-composition proof-time join.
+// Composite endpoint tags are inferred from the actual Sigma maps;
+// they can carry proof-time-equal total-dual family presentations.
 unif_rule @sigma_map_func $K _ _
     (@hom_postcomp_fapp0 (@Catd_cat $K) (@Catd_cat $K)
       (@id Cat_cat (@Catd_cat $K)) $E $M $D $GG $FF)
-  ≡ @comp_fapp0 Cat_cat (@Sigma_cat $K $E) (@Sigma_cat $K $M) (@Sigma_cat $K $D)
+  ≡ @comp_fapp0 Cat_cat _ _ _
       (@sigma_map_func $K $M $D $GG) (@sigma_map_func $K $E $M $FF)
   ↪ [ tt ≡ tt ];
 
@@ -13731,13 +15196,80 @@ rule @fapp1_fapp0
       $FF $GG $eta
   ↪ @sigma_map_transf $K $E $D $FF $GG $eta;
 
+// Canonical Cartesian restriction of the existing totalization operation.
+// It has the same objects and strict-map action; raw Sigma_func remains lax
+// in its higher parameter profile.
+injective symbol Sigma_coeff_func (K : Cat)
+  : τ (Functor (Functor_cart_cat K Cat_cart) Cat_cart);
+rule @fapp0 _ Cat_cart (@Sigma_coeff_func $K) $E
+  ↪ @Sigma_cat $K $E;
+rule @fapp1_fapp0 _ Cat_cart (@Sigma_coeff_func $K) $E $D $U
+  ↪ @sigma_map_func $K $E $D (@strict_transfor $K Cat_cart $E $D $U);
+
+// The ambient view is the existing totalization restricted by its source
+// inclusion. This is a structural whole view, not a supplied proof input.
+unif_rule @comp_fapp0 Cat_cat _ _ _ Cat_cart_include (@Sigma_coeff_func $K)
+  ≡ @comp_fapp0 Cat_cat $A $B $C (@Sigma_func $K0) (Functor_cart_include $K1 Cat_cart)
+  ↪ [ $K0 ≡ $K; $K1 ≡ $K; $A ≡ Functor_cart_cat $K Cat_cart;
+      $B ≡ Catd_cat $K; $C ≡ Cat_cat ];
+
+// Sigma of a strict map in an outer parameter. Its components are still
+// general displayed maps over K. This refines that existing Sigma image;
+// it does not make Sigma_func a Cat_cart-valued functor on all Catd(K).
+symbol Sigma_parameter_funcd [L K : Cat]
+  [E D : τ (Functor L (Functor_cart_cat K Cat_cart))]
+  (U : τ (Hom (Functor_cart_cat L (Catd_cat K))
+    (@comp_cat_fapp0 L (Functor_cart_cat K Cat_cart) (Catd_cat K)
+      (Functor_cart_include K Cat_cart) E)
+    (@comp_cat_fapp0 L (Functor_cart_cat K Cat_cart) (Catd_cat K)
+      (Functor_cart_include K Cat_cart) D)))
+  : τ (Hom (Functor_cart_cat L Cat_cart)
+      (@comp_cat_fapp0 L (Functor_cart_cat K Cat_cart) Cat_cart (@Sigma_coeff_func K) E)
+      (@comp_cat_fapp0 L (Functor_cart_cat K Cat_cart) Cat_cart (@Sigma_coeff_func K) D));
+
+// The actual component is the old total map, with U's lax displayed component.
+rule @tapp0_fapp0 _ Cat_cart _ _ $x
+    (@strict_transfor _ _ _ _ (@Sigma_parameter_funcd $L $K $E $D $U))
+  ↪ @sigma_map_func $K
+      (@fapp0 $L (Functor_cart_cat $K Cat_cart) $E $x)
+      (@fapp0 $L (Functor_cart_cat $K Cat_cart) $D $x)
+      (@tapp0_fapp0 $L (Catd_cat $K)
+        (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+          (Functor_cart_include $K Cat_cart) $E)
+        (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+          (Functor_cart_include $K Cat_cart) $D)
+        $x (@strict_transfor _ _ _ _ $U));
+
+// The explicit forgetting projection computes to the original whole Sigma
+// image. Its family endpoints are determined by the admitted constructor.
+// Keep the identity guard on the other leg; U and its actual families survive.
+rule @comp_prod_fapp1_fapp0 Cat_cat _ _ _
+    (Struct_sigma _ Cat_cart_include) (Struct_sigma _ Cat_cart_include)
+    (Struct_sigma
+      (@strict_transfor _ _ _ _ (@Sigma_parameter_funcd $L $K $E $D $U))
+      (@id _ Cat_cart_include))
+  ↪ @comp_prod_fapp1_fapp0 Cat_cat $L (Catd_cat $K) Cat_cat
+      (Struct_sigma
+        (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+          (Functor_cart_include $K Cat_cart) $E) (@Sigma_func $K))
+      (Struct_sigma
+        (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+          (Functor_cart_include $K Cat_cart) $D) (@Sigma_func $K))
+      (Struct_sigma
+        (@strict_transfor $L (Catd_cat $K)
+          (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+            (Functor_cart_include $K Cat_cart) $E)
+          (@comp_cat_fapp0 $L (Functor_cart_cat $K Cat_cart) (Catd_cat $K)
+            (Functor_cart_include $K Cat_cart) $D) $U)
+        (@id (Functor_cat (Catd_cat $K) Cat_cat) (@Sigma_func $K)));
+
 // Object action of a Sigma map: Sigma(η)[(k,u)] ↪ (k,η[k][u]).
 rule @fapp0 _ _
       (@sigma_map_func $K $E $D $η)
       (Struct_sigma $k $u)
   ↪ Struct_sigma
       $k
-      (fapp0 (@tapp0_fapp0 $K Cat_cat $E $D $k $η) $u);
+      (fapp0 (@tapp0_fapp0 $K Cat_cart $E $D $k $η) $u);
 
 rule @sigma_map_obj $K $E $D $η (Struct_sigma $k $u)
   ↪ @Struct_sigma
@@ -13747,7 +15279,7 @@ rule @sigma_map_obj $K $E $D $η (Struct_sigma $k $u)
       (@fapp0
         (@Fibre_cat $K $E $k)
         (@Fibre_cat $K $D $k)
-        (@tapp0_fapp0 $K Cat_cat $E $D $k $η)
+        (@tapp0_fapp0 $K Cat_cart $E $D $k $η)
         $u);
 
 rule @sigma_Fst _ _ (@sigma_map_obj $K $E _ _ $q)
@@ -13758,7 +15290,7 @@ rule @sigma_Snd _ _ (@sigma_map_obj $K $E $D $η $q)
       (@Fibre_cat $K $E (@sigma_obj_base $K $E $q))
       (@Fibre_cat $K $D (@sigma_obj_base $K $E $q))
       (@tapp0_fapp0
-        $K Cat_cat $E $D
+        $K Cat_cart $E $D
         (@sigma_obj_base $K $E $q)
         $η)
       (@sigma_obj_fibre $K $E $q);
@@ -13773,6 +15305,15 @@ rule @comp_fapp0 Cat_cat _ _ _
       (@Sigma_proj1_func $K $D)
       (@sigma_map_func $K $E $D $η)
   ↪ @Sigma_proj1_func $K $E;
+
+// Capped Hom action of the same whole projection law above. The original
+// point contract keeps total endpoints constructor-visible; the arbitrary
+// arrow alpha and its native base-projection head remain intact.
+rule @fapp1_fapp0 _ _ (@Sigma_proj1_func $K $D) _ _
+    (@fapp1_fapp0 _ _ (@sigma_map_func $K $E $D $FF)
+      (Struct_sigma $x $u) (Struct_sigma $y $v) $alpha)
+  ↪ @fapp1_fapp0 (@Sigma_cat $K $E) $K (@Sigma_proj1_func $K $E)
+      (Struct_sigma $x $u) (Struct_sigma $y $v) $alpha;
 
 // Internalized-x prerequisite: canonical total arrow over a base arrow.
 //
@@ -13836,13 +15377,13 @@ symbol sigma_map_transport_arrow [K : Cat] [E D : τ (Catd K)]
         (@fapp0
           (Fibre_cat E x)
           (Fibre_cat D x)
-          (@tapp0_fapp0 K Cat_cat E D x η)
+          (@tapp0_fapp0 K Cat_cart E D x η)
           u))
       (Struct_sigma y
         (@fapp0
           (Fibre_cat E y)
           (Fibre_cat D y)
-          (@tapp0_fapp0 K Cat_cat E D y η)
+          (@tapp0_fapp0 K Cat_cart E D y η)
           (@fapp0
             (Fibre_cat E x)
             (Fibre_cat E y)
@@ -13907,6 +15448,16 @@ rule @comp_fapp0
         $A
         (@Pullback_catd $A $K $D $F));
 
+// Capped projection of the same whole base-change law. Both total
+// endpoints are visible, and the actual base functor F remains in the image.
+rule @fapp1_fapp0 _ _ (@Sigma_proj1_func $K $D) _ _
+    (@fapp1_fapp0 _ _ (@sigma_pullback_total_func $A $K $F $D)
+      (Struct_sigma $x $u) (Struct_sigma $y $v) $alpha)
+  ↪ @fapp1_fapp0 $A $K $F $x $y
+      (@fapp1_fapp0 (@Sigma_cat $A (@Pullback_catd $A $K $D $F)) $A
+        (@Sigma_proj1_func $A (@Pullback_catd $A $K $D $F))
+        (Struct_sigma $x $u) (Struct_sigma $y $v) $alpha);
+
 // Whole family-natural base-change totalization.  Its component at D is the
 // existing map Sigma_A(F^*D) -> Sigma_K(D); generic tapp1 retains naturality
 // and every subsequent hom action in the varying family.
@@ -13928,6 +15479,144 @@ rule @tapp0_fapp0
       (@sigma_pullback_total_transf $A $K $F)
   ↪ @sigma_pullback_total_func $A $K $F $D;
 
+// Cartesian reindexing has the existing ordinary family-pullback view.
+// This is an inclusion comparison, not equality of the two mapping profiles.
+unif_rule @comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $A Cat_cart)
+    (@hom_precomp_along_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) Cat_cart $A $K $F)
+  ≡ @comp_fapp0 Cat_cat _ _ _ (@Pullback_catd_func $A0 $K0 $F0)
+    (Functor_cart_include $K1 Cat_cart)
+  ↪ [ $A0 ≡ $A; $K0 ≡ $K; $K1 ≡ $K; $F0 ≡ $F ];
+
+// Admitted source of total base change, sharing the original total categories.
+symbol Sigma_pullback_coeff_source [A K : Cat] (F : τ (Functor A K))
+  : τ (Functor (Functor_cart_cat K Cat_cart) Cat_cart)
+≔ @comp_cat_fapp0 (Functor_cart_cat K Cat_cart) (Functor_cart_cat A Cat_cart) Cat_cart
+    (@Sigma_coeff_func A) (@comp_cat_con_cart_func A K Cat_cart F);
+
+// Direct combined source view. The checker does not chain the separate
+// Sigma-inclusion and pullback-inclusion comparisons under composition.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ Cat_cart_include (@Sigma_coeff_func $A))
+    (@hom_precomp_along_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) Cat_cart $A $K $F)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (@Sigma_func $A0) (@Pullback_catd_func $A1 $K0 $F0))
+    (Functor_cart_include $K1 Cat_cart)
+  ↪ [ $A0 ≡ $A; $A1 ≡ $A; $K0 ≡ $K; $K1 ≡ $K; $F0 ≡ $F ];
+
+// Whole represented source reframe, using the existing Cartesian Hom
+// reindexing law without changing either composition's runtime form.
+unif_rule @comp_fapp0 Cat_cat _ _ _ (@Sigma_coeff_func $B) (@hom_int $C $B $R)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (@Sigma_coeff_func $B0)
+      (@hom_precomp_along_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) Cat_cart $B1 $D $G))
+    (@hom_int $C0 $D0 $H)
+  ↪ [ $B0 ≡ $B; $B1 ≡ $B; $C0 ≡ $C; $D0 ≡ $D;
+      $R ≡ @comp_cat_fapp0 $B $D $C $H $G ];
+
+// Canonical strict parameter refinement of the original base-change map.
+// Its components are the same sigma_pullback_total_func, with no new data.
+symbol sigma_pullback_coeff_transf [A K : Cat] (F : τ (Functor A K))
+  : τ (Hom (Functor_cart_cat (Functor_cart_cat K Cat_cart) Cat_cart)
+      (@Sigma_pullback_coeff_source A K F) (@Sigma_coeff_func K));
+
+rule @tapp0_fapp0 _ Cat_cart _ _ $E
+    (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf $A $K $F))
+  ↪ @sigma_pullback_total_func $A $K $F $E;
+
+// Forgetting computes to the original whole transformation restricted along
+// the actual Cartesian inclusion. The identity other leg is essential.
+rule @comp_prod_fapp1_fapp0 Cat_cat _ _ _
+    (Struct_sigma _ Cat_cart_include) (Struct_sigma _ Cat_cart_include)
+    (Struct_sigma
+      (@strict_transfor _ _ _ _ (@sigma_pullback_coeff_transf $A $K $F))
+      (@id _ Cat_cart_include))
+  ↪ @fapp0 _ _
+      (@comp_cat_con_fapp1_func (Functor_cart_cat $K Cat_cart) (Catd_cat $K) Cat_cat
+        (Functor_cart_include $K Cat_cart)
+        (@comp_cat_fapp0 (Catd_cat $K) (Catd_cat $A) Cat_cat
+          (@Sigma_func $A) (@Pullback_catd_func $A $K $F))
+        (@Sigma_func $K))
+      (@sigma_pullback_total_transf $A $K $F);
+
+// Stable whole second projection of the already existing Sigma map into a
+// constant family. This is a canonical projection owner, with its composition
+// view below; it does not add a separately supplied functor or comparison.
+symbol sigma_const_target_func [K : Cat] [E : τ (Catd K)] [C : Cat]
+  (FF : τ (@Functord K E (@Const_catd K C)))
+  : τ (Functor (@Sigma_cat K E) C);
+
+rule sigma_Snd (@sigma_map_func $K $E (@Const_catd $K $C) $FF)
+  ↪ @sigma_const_target_func $K $E $C $FF;
+
+// Its original whole composition is retained as a proof-time view.
+unif_rule @sigma_const_target_func $K $E $C $FF
+  ≡ @comp_fapp0 Cat_cat _ _ _ (@Product_projR_func $K0 $C0)
+      (@sigma_map_func $K0 $E0 (@Const_catd $K0 $C0) $FF0)
+  ↪ [ $K0 ≡ $K; $C0 ≡ $C; $E0 ≡ $E; $FF0 ≡ $FF ];
+
+// Both object-projection orders use the same established Sigma-map object.
+rule @fapp0 _ _ (@sigma_const_target_func $K $E $C $FF) $q
+  ↪ sigma_Snd (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $q);
+
+// Keep the generic first-Hom head stable: eager expansion bypassed its
+// whole-to-capped application cut. This is the same actual Hom composition,
+// recorded at proof time while capped action remains the projection below.
+unif_rule @fapp1_func _ _ (@sigma_const_target_func $K $E $C $FF) $q $r
+  ≡ @comp_fapp0 Cat_cat _ _ _ (@Product_projR_func $H0 $H1)
+    (@fapp1_func _ _ (@sigma_map_func $K0 $E0 (@Const_catd $K0 $C0) $FF0) $q0 $r0)
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $C0 ≡ $C; $FF0 ≡ $FF; $q0 ≡ $q; $r0 ≡ $r;
+      $H0 ≡ Hom_cat $K
+        (sigma_Fst (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $q))
+        (sigma_Fst (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $r));
+      $H1 ≡ Hom_cat $C
+        (sigma_Snd (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $q))
+        (sigma_Snd (@sigma_map_obj $K $E (@Const_catd $K $C) $FF $r)) ];
+
+// Preserve the generic capped head as well: projecting it eagerly erased the
+// literal functor-action pattern used by default composition/accumulation.
+// The actual Sigma arrow remains available through this proof-time reading.
+unif_rule @fapp1_fapp0 _ _ (@sigma_const_target_func $K $E $C $FF) $q $r $p
+  ≡ @sigma_Snd _ _ (@fapp1_fapp0 _ _
+      (@sigma_map_func $K0 $E0 (@Const_catd $K0 $C0) $FF0) $q0 $r0 $p0)
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $C0 ≡ $C; $FF0 ≡ $FF;
+      $q0 ≡ $q; $r0 ≡ $r; $p0 ≡ $p ];
+
+// Constructor-visible whole projection joins. These retain the original
+// whole component maps and inherit their higher action through composition.
+// The literal product target is needed by SR to recover the projected
+// functor's component type from the otherwise noninjective Obj classifier.
+rule sigma_Snd (@comp_fapp0 Cat_cat _ _ (Product_cat $K $C)
+    (@sigma_map_func $K $M (@Const_catd $K $C) $GG)
+    (@sigma_map_func $K $E $M $FF))
+  ↪ @comp_cat_fapp0 (@Sigma_cat $K $E) (@Sigma_cat $K $M) $C
+      (@sigma_const_target_func $K $M $C $GG) (@sigma_map_func $K $E $M $FF);
+
+rule sigma_Snd (@comp_fapp0 Cat_cat _ _ (Product_cat $K $C)
+    (@sigma_pullback_total_func $A $K $F (@Const_catd $K $C))
+    (@sigma_map_func $A $E (@Const_catd $A $C) $FF))
+  ↪ @comp_cat_fapp0 (@Sigma_cat $A $E) (Product_cat $A $C) $C
+      (sigma_Snd (@sigma_pullback_total_func $A $K $F (@Const_catd $K $C)))
+      (@sigma_map_func $A $E (@Const_catd $A $C) $FF);
+
+// The conventional pre/right action of the existing base-change transfor.
+// The whole tapp1 owner remains; only its constant-target second projection
+// is read through base change at the TARGET family after the pulled-back
+// Sigma map. This is the selected pre/right route, not a strictification of
+// the retained post/left naturality comparison.
+rule sigma_Snd (@tapp1_fapp0 _ Cat_cat _ _ $E (@Const_catd $K $C)
+    (@sigma_pullback_total_transf $A $K $F) $FF)
+  ↪ @comp_cat_fapp0 (@Sigma_cat $A (@Pullback_catd $A $K $E $F)) (Product_cat $A $C) $C
+      (sigma_Snd (@sigma_pullback_total_func $A $K $F (@Const_catd $K $C)))
+      (@sigma_map_func $A (@Pullback_catd $A $K $E $F) (@Const_catd $A $C)
+        (@fapp1_fapp0 (Catd_cat $K) (Catd_cat $A) (@Pullback_catd_func $A $K $F)
+          $E (@Const_catd $K $C) $FF));
+
+// Preserve the whole constant-base-change projection head: the old whole
+// comparison with Product_projR remains proof-time, not runtime equality.
+rule @fapp0 _ $C
+    (@sigma_Snd _ _ (@sigma_pullback_total_func $A $K $F (@Const_catd $K $C))) $q
+  ↪ @sigma_Snd (Obj $A) (λ _ : τ (Obj $A), Obj $C) $q;
+
 // Whole represented-Sigma base change accumulates before a retained outer
 // reindexing.  This is the total-category counterpart of the earlier
 // Pullback_catd_func/hom_int rule:
@@ -13935,18 +15624,20 @@ rule @tapp0_fapp0
 //   (Sigma_B o G^*) o hom_int(H) o F
 //     -> (Sigma_B o hom_int(H o G)) o F.
 //
+// hom_int_view is transparent. Match its normalized whole inclusion and
+// stable Hom owner, after the existing composition normalization.
 // Keeping F outside the fold preserves its whole higher action.  The rule is
 // placed only after Sigma_func and the family-natural base-change owner are
 // available, so both object and arrow observations have established owners.
 // lhs-audit: keep 1 -- the source A is needed by the reconstructed RHS.
 rule @comp_fapp0
       Cat_cat $A _ _
-      (@comp_fapp0
-        Cat_cat _ _ Cat_cat
-        (@comp_fapp0
-          Cat_cat _ _ Cat_cat
-          (@Sigma_func $B)
-          (@Pullback_catd_func $B $D $G))
+      (@comp_fapp0 Cat_cat _ _ _
+        (@comp_fapp0 Cat_cat _ _ _
+          (@comp_fapp0 Cat_cat _ _ _
+            (@Sigma_func $B)
+            (@Pullback_catd_func $B $D $G))
+          (Functor_cart_include $D Cat_cart))
         (@hom_int $C $D $H))
       $F
   ↪ @comp_fapp0
@@ -13954,7 +15645,7 @@ rule @comp_fapp0
       (@comp_fapp0
         Cat_cat (Op_cat $C) (@Catd_cat $B) Cat_cat
         (@Sigma_func $B)
-        (@hom_int
+        (@hom_int_view
           $C $B
           (@comp_fapp0 Cat_cat $B $D $C $H $G)))
       $F;
@@ -13969,19 +15660,19 @@ rule @comp_fapp0
 //   Sigma_catd_functord_catd(FF) : (Σ k :^n K, R[k]) ⊢ Cat
 //   Sigma_catd_functord_catd(FF)[(k,r)] = FF[k][r].
 symbol Sigma_catd_functord_catd [K : Cat] [R : τ (Catd K)]
-  (FF : τ (Functord R (@Const_catd K Cat_cat)))
+  (FF : τ (Functord R (@Const_catd K Cat_cart)))
   : τ (Catd (@Sigma_cat K R));
 
 // Fibre projection: Sigma_catd_functord_catd(FF)[(k,r)] ↪ FF[k][r].
 rule @fapp0
       _
-      Cat_cat
+      Cat_cart
       (@Sigma_catd_functord_catd $K $R $FF)
       (Struct_sigma $k $r)
   ↪ @fapp0
       (Fibre_cat $R $k)
-      Cat_cat
-      (@tapp0_fapp0 $K Cat_cat $R (@Const_catd $K Cat_cat) $k $FF)
+      Cat_cart
+      (@tapp0_fapp0 $K Cat_cart $R (@Const_catd $K Cat_cart) $k $FF)
       $r;
 
 // Internalized-x prerequisite: stable action of a Sigma-induced Cat-valued
@@ -13994,7 +15685,7 @@ rule @fapp0
 //     = Sigma_catd_transport_func(FF,p,r).
 //
 symbol Sigma_catd_transport_func [K : Cat] [R : τ (Catd K)]
-  (FF : τ (Functord R (@Const_catd K Cat_cat)))
+  (FF : τ (Functord R (@Const_catd K Cat_cart)))
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   (r : τ (Obj (Fibre_cat R x)))
@@ -14010,7 +15701,7 @@ symbol Sigma_catd_transport_func [K : Cat] [R : τ (Catd K)]
             r))))
 ≔ @fapp1_fapp0
     (@Sigma_cat K R)
-    Cat_cat
+    Cat_cart
     (@Sigma_catd_functord_catd K R FF)
     (Struct_sigma x r)
     (Struct_sigma y
@@ -14030,7 +15721,7 @@ symbol Sigma_catd_transport_func [K : Cat] [R : τ (Catd K)]
 // The object-component projection rule is installed later, after the generic
 // displayed-transfor component head `tdapp0_fapp0` is declared.
 constant symbol Sigma_transfd_funcd [K : Cat] [R : τ (Catd K)]
-  [S T : τ (Functord R (@Const_catd K Cat_cat))]
+  [S T : τ (Functord R (@Const_catd K Cat_cart))]
   (eta : τ (Transfd S T))
   : τ (Functord
       (@Sigma_catd_functord_catd K R S)
@@ -14059,43 +15750,43 @@ injective symbol Functor_catd [K : Cat]
   : τ (Catd K);
 
 // Fibre projection: Functor_catd(A,B)[k] ↪ (A[k] ⊢ B[k]).
-rule @fapp0 $K Cat_cat (@Functor_catd $K $A $B) $k
-  ↪ Functor_cat (Fibre_cat $A $k) (Fibre_cat $B $k);
+rule @fapp0 $K Cat_cart (@Functor_catd $K $A $B) $k
+  ↪ Functor_cart_cat (Fibre_cat $A $k) (Fibre_cat $B $k);
 
 // Full base action pairs the negative and positive endpoint actions and then
 // applies the ambient Hom telescope used by Unit_prof's full projection.
 rule @fapp1_func
-      $K Cat_cat (@Functor_catd $K $A $B) $x $y
+      $K Cat_cart (@Functor_catd $K $A $B) $x $y
   ↪ @comp_cat_fapp0
       (Hom_cat $K $x $y)
       (Product_cat
-        (Functor_cat (Fibre_cat $A $y) (Fibre_cat $A $x))
-        (Functor_cat (Fibre_cat $B $x) (Fibre_cat $B $y)))
-      (Functor_cat
-        (Functor_cat (Fibre_cat $A $x) (Fibre_cat $B $x))
-        (Functor_cat (Fibre_cat $A $y) (Fibre_cat $B $y)))
+        (Functor_cart_cat (Fibre_cat $A $y) (Fibre_cat $A $x))
+        (Functor_cart_cat (Fibre_cat $B $x) (Fibre_cat $B $y)))
+      (Functor_cart_cat
+        (Functor_cart_cat (Fibre_cat $A $x) (Fibre_cat $B $x))
+        (Functor_cart_cat (Fibre_cat $A $y) (Fibre_cat $B $y)))
       (@Hom_tele_func
-        Cat_cat
+        Cat_cart
         (Fibre_cat $A $x)
         (Fibre_cat $A $y)
         (Fibre_cat $B $x)
         (Fibre_cat $B $y))
       (Struct_sigma
-        (@fapp1_func (Op_cat $K) Cat_cat $A $y $x)
-        (@fapp1_func $K Cat_cat $B $x $y));
+        (@fapp1_func (Op_cat $K) Cat_cart $A $y $x)
+        (@fapp1_func $K Cat_cart $B $x $y));
 
 // Capped base action is exactly Unit_prof(Cat)'s existing Hom_func
 // projection at the paired negative/positive endpoint actions.
 rule @fapp1_fapp0
-      $K Cat_cat (@Functor_catd $K $A $B) $x $y $p
+      $K Cat_cart (@Functor_catd $K $A $B) $x $y $p
   ↪ @Hom_func
-      Cat_cat
+      Cat_cart
       (Fibre_cat $A $x)
       (Fibre_cat $A $y)
       (Fibre_cat $B $x)
       (Fibre_cat $B $y)
-      (@fapp1_fapp0 (Op_cat $K) Cat_cat $A $y $x $p)
-      (@fapp1_fapp0 $K Cat_cat $B $x $y $p);
+      (@fapp1_fapp0 (Op_cat $K) Cat_cart $A $y $x $p)
+      (@fapp1_fapp0 $K Cat_cart $B $x $y $p);
 
 // Coherent evaluation for a constant-domain displayed functor family.
 //
@@ -14108,25 +15799,27 @@ rule @fapp1_fapp0
 // carries the base-arrow action and higher naturality; no constructor-specific
 // identity, composition, or naturality rule is added here.
 injective symbol Eval_funcd [K A : Cat] (B : τ (Catd K))
-  : τ (Functord
+  : τ (Hom (Functor_cart_cat K Cat_cart)
       (@comp_cat_fapp0
         K
-        (Product_cat Cat_cat Cat_cat)
-        Cat_cat
-        (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+        (Product_cat Cat_cart Cat_cart)
+        Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
         (Struct_sigma
           (@Functor_catd K (@Const_catd (Op_cat K) A) B)
           (@Const_catd K A)))
       B);
 
 // Point component of coherent displayed evaluation.
-rule @tapp0_fapp0 _ Cat_cat _ _ $k (@Eval_funcd _ $A $B)
+rule @tapp0_fapp0 _ Cat_cart _ _ $k
+      (@strict_transfor _ _ _ _ (@Eval_funcd _ $A $B))
   ↪ @Eval_func $A (Fibre_cat $B $k);
 
-// Internalized constructor package for mixed-variance functor families.
+// Internalized mixed-family constructor. The negative parameter uses
+// Cartesian diagram maps; the positive parameter still admits lax FF.
 injective symbol Functor_catd_func (K : Cat)
   : τ (Functor
-      (Op_cat (Catd_cat (Op_cat K)))
+      (Op_cat (Functor_cart_cat (Op_cat K) Cat_cart))
       (Functor_cat (Catd_cat K) (Catd_cat K)));
 
 // Partial application of `Functor_catd_func`.
@@ -14149,7 +15842,7 @@ rule @fapp0 _ _ (@Functor_catd_fapp0_func $K $A) $B
 rule @fapp0
       _ _
       (@tapp0_fapp0
-        $K Cat_cat _ _ $k
+        $K Cat_cart _ _ $k
         (@fapp1_fapp0
           (Catd_cat $K)
           (Catd_cat $K)
@@ -14157,11 +15850,11 @@ rule @fapp0
           $B $D $G))
       $H
   ↪ @hom_postcomp_fapp0
-      Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      Cat_cart Cat_cart (@id Cat_cat Cat_cart)
       (Fibre_cat $A $k)
       (Fibre_cat $B $k)
       (Fibre_cat $D $k)
-      (@tapp0_fapp0 $K Cat_cat $B $D $k $G)
+      (@tapp0_fapp0 $K Cat_cart $B $D $k $G)
       $H;
 
 // Contravariant source-family action projected at k and consumed by H remains
@@ -14170,7 +15863,7 @@ rule @fapp0
 rule @fapp0
       _ _
       (@tapp0_fapp0
-        $K Cat_cat _ _ $k
+        $K Cat_cart _ _ $k
         (@tapp0_fapp0
           (Catd_cat $K)
           (Catd_cat $K)
@@ -14178,7 +15871,7 @@ rule @fapp0
           (@Functor_catd_fapp0_func $K $A')
           $B
           (@fapp1_fapp0
-            (Op_cat (Catd_cat (Op_cat $K)))
+            (Op_cat (Functor_cart_cat (Op_cat $K) Cat_cart))
             (Functor_cat (Catd_cat $K) (Catd_cat $K))
             (@Functor_catd_func $K)
             $A $A' $L)))
@@ -14188,7 +15881,8 @@ rule @fapp0
       (Fibre_cat $A $k)
       (Fibre_cat $B $k)
       $H
-      (@tapp0_fapp0 (Op_cat $K) Cat_cat $A' $A $k $L);
+      (@tapp0_fapp0 (Op_cat $K) Cat_cart $A' $A $k
+        (@strict_transfor (Op_cat $K) Cat_cart $A' $A $L));
 
 // Pointwise distribution of a pair of mixed functors into a product target.
 //
@@ -14206,9 +15900,9 @@ injective symbol Functor_catd_product_funcd [K : Cat]
   : τ (Functord
       (@comp_cat_fapp0
         K
-        (Product_cat Cat_cat Cat_cat)
-        Cat_cat
-        (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+        (Product_cat Cat_cart Cat_cart)
+        Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
         (Struct_sigma
           (@Functor_catd K A B)
           (@Functor_catd K A C)))
@@ -14217,33 +15911,33 @@ injective symbol Functor_catd_product_funcd [K : Cat]
         A
         (@comp_cat_fapp0
           K
-          (Product_cat Cat_cat Cat_cat)
-          Cat_cat
-          (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+          (Product_cat Cat_cart Cat_cart)
+          Cat_cart
+          (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
           (Struct_sigma B C))));
 
 // Point component: ordinary product-valued functor normalization makes the
 // source and target categories definitionally identical.
 rule @tapp0_fapp0
-      $K Cat_cat _ _ $k
+      $K Cat_cart _ _ $k
       (@Functor_catd_product_funcd $K $A $B $C)
   ↪ @id_func
       (Product_cat
-        (Functor_cat (Fibre_cat $A $k) (Fibre_cat $B $k))
-        (Functor_cat (Fibre_cat $A $k) (Fibre_cat $C $k)));
+        (Functor_cart_cat (Fibre_cat $A $k) (Fibre_cat $B $k))
+        (Functor_cart_cat (Fibre_cat $A $k) (Fibre_cat $C $k)));
 
 // Full base action remains the whole action of the product source family.
 rule @tapp1_func
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Functor_catd_product_funcd $K $A $B $C)
   ↪ @fapp1_func
       $K
-      Cat_cat
+      Cat_cart
       (@comp_cat_fapp0
         $K
-        (Product_cat Cat_cat Cat_cat)
-        Cat_cat
-        (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+        (Product_cat Cat_cart Cat_cart)
+        Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
         (Struct_sigma
           (@Functor_catd $K $A $B)
           (@Functor_catd $K $A $C)))
@@ -14252,17 +15946,17 @@ rule @tapp1_func
 
 // Capped base action selects the corresponding product-family transport.
 rule @tapp1_fapp0
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Functor_catd_product_funcd $K $A $B $C)
       $p
   ↪ @fapp1_fapp0
       $K
-      Cat_cat
+      Cat_cart
       (@comp_cat_fapp0
         $K
-        (Product_cat Cat_cat Cat_cat)
-        Cat_cat
-        (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+        (Product_cat Cat_cart Cat_cart)
+        Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
         (Struct_sigma
           (@Functor_catd $K $A $B)
           (@Functor_catd $K $A $C)))
@@ -14286,9 +15980,9 @@ injective symbol Functor_comp_pair_funcd [K X : Cat]
   : τ (Functord
       (@comp_cat_fapp0
         K
-        (Product_cat Cat_cat Cat_cat)
-        Cat_cat
-        (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+        (Product_cat Cat_cart Cat_cart)
+        Cat_cart
+        (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
         (Struct_sigma
           (@Functor_catd K A (@Const_catd K X))
           (@Functor_catd K (@Const_catd (Op_cat K) X) B)))
@@ -14296,7 +15990,7 @@ injective symbol Functor_comp_pair_funcd [K X : Cat]
 
 // Point component is ordinary composition of the pair of fibre functors.
 rule @tapp0_fapp0
-      $K Cat_cat _ _ $k
+      $K Cat_cart _ _ $k
       (@Functor_comp_pair_funcd $K $X $A $B)
   ↪ @Functor_comp_pair_func
       (Fibre_cat $A $k)
@@ -14306,32 +16000,32 @@ rule @tapp0_fapp0
 // Full base action keeps the target Functor_catd action whole, then
 // precomposes it with the ordinary fibrewise composition functor at x.
 rule @tapp1_func
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Functor_comp_pair_funcd $K $X $A $B)
   ↪ @comp_cat_fapp0
       (Hom_cat $K $x $y)
-      (Functor_cat
+      (Functor_cart_cat
         (Fibre_cat (@Functor_catd $K $A $B) $x)
         (Fibre_cat (@Functor_catd $K $A $B) $y))
-      (Functor_cat
+      (Functor_cart_cat
         (Fibre_cat
           (@comp_cat_fapp0
             $K
-            (Product_cat Cat_cat Cat_cat)
-            Cat_cat
-            (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+            (Product_cat Cat_cart Cat_cart)
+            Cat_cart
+            (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
             (Struct_sigma
               (@Functor_catd $K $A (@Const_catd $K $X))
               (@Functor_catd $K (@Const_catd (Op_cat $K) $X) $B)))
           $x)
         (Fibre_cat (@Functor_catd $K $A $B) $y))
-      (@comp_cat_con_func
+      (@comp_cat_con_cart_func
         (Fibre_cat
           (@comp_cat_fapp0
             $K
-            (Product_cat Cat_cat Cat_cat)
-            Cat_cat
-            (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+            (Product_cat Cat_cart Cat_cart)
+            Cat_cart
+            (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
             (Struct_sigma
               (@Functor_catd $K $A (@Const_catd $K $X))
               (@Functor_catd $K (@Const_catd (Op_cat $K) $X) $B)))
@@ -14343,20 +16037,20 @@ rule @tapp1_func
           $X
           (Fibre_cat $B $x)))
       (@fapp1_func
-        $K Cat_cat (@Functor_catd $K $A $B) $x $y);
+        $K Cat_cart (@Functor_catd $K $A $B) $x $y);
 
 // Capped base action is the corresponding target-action composite at p.
 rule @tapp1_fapp0
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Functor_comp_pair_funcd $K $X $A $B)
       $p
   ↪ @comp_cat_fapp0
       (Fibre_cat
         (@comp_cat_fapp0
           $K
-          (Product_cat Cat_cat Cat_cat)
-          Cat_cat
-          (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+          (Product_cat Cat_cart Cat_cart)
+          Cat_cart
+          (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
           (Struct_sigma
             (@Functor_catd $K $A (@Const_catd $K $X))
             (@Functor_catd $K (@Const_catd (Op_cat $K) $X) $B)))
@@ -14364,27 +16058,28 @@ rule @tapp1_fapp0
       (Fibre_cat (@Functor_catd $K $A $B) $x)
       (Fibre_cat (@Functor_catd $K $A $B) $y)
       (@fapp1_fapp0
-        $K Cat_cat (@Functor_catd $K $A $B) $x $y $p)
+        $K Cat_cart (@Functor_catd $K $A $B) $x $y $p)
       (@Functor_comp_pair_func
         (Fibre_cat $A $x)
         $X
         (Fibre_cat $B $x));
 
-// Mixed-variance hom family for two sections of a displayed family.
+// Mixed-variance hom family. The negative section is over R(K), in
+// the total fibre dual O(E); the positive section is over K in E.
 //
 // Surface/formula:
 //   Hom_catd(E,X,Y)[k] = X[k^-] ->_[k]^E Y[k].
 injective symbol Hom_catd [K : Cat]
   (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (Obj (Pi_cat E)))
   : τ (Catd K);
 
 // Fibre projection: Hom_catd(E,X,Y)[k] ↪ Hom_{E[k]}(X[k^-],Y[k]).
-rule @fapp0 $K Cat_cat (@Hom_catd $K $E $X $Y) $k
+rule @fapp0 $K Cat_cart (@Hom_catd $K $E $X $Y) $k
   ↪ Hom_cat
       (Fibre_cat $E $k)
-      (@piapp0 $K (@Op_catd $K $E) $X $k)
+      (@piapp0 (CoAbove2_cat $K) (@TotalOp_catd $K $E) $X $k)
       (@piapp0 $K $E $Y $k);
 
 // Mixed-variance transfor family for two displayed functors.
@@ -14399,19 +16094,20 @@ rule @fapp0 $K Cat_cat (@Hom_catd $K $E $X $Y) $k
 injective symbol Transf_catd [K : Cat]
   (A : τ (Catd (Op_cat K)))
   (B : τ (Catd K))
-  (FF : τ (Obj (Pi_cat (Op_catd (Functor_catd A B)))))
+  (FF : τ (Obj (Pi_cat (TotalOp_catd (Functor_catd A B)))))
   (GG : τ (Obj (Pi_cat (Functor_catd A B))))
   : τ (Catd K);
 
 // Fibre projection: Transf_catd(A,B,FF,GG)[k] ↪ Transf(FF[k^-],GG[k]).
-rule @fapp0 $K Cat_cat (@Transf_catd $K $A $B $FF $GG) $k
-  ↪ Transf_cat
-      (@piapp0 $K (@Op_catd $K (@Functor_catd $K $A $B)) $FF $k)
+rule @fapp0 $K Cat_cart (@Transf_catd $K $A $B $FF $GG) $k
+  ↪ Hom_cat
+      (Functor_cart_cat (Fibre_cat $A $k) (Fibre_cat $B $k))
+      (@piapp0 (CoAbove2_cat $K) (@TotalOp_catd $K (@Functor_catd $K $A $B)) $FF $k)
       (@piapp0 $K (@Functor_catd $K $A $B) $GG $k);
 
 // Constant-Cat hom families fold to mixed-variance functor families.
-rule @Hom_catd $K (@Const_catd $K Cat_cat) $X $Y
-  ↪ @Functor_catd $K (@Op_func $K (Op_cat Cat_cat) $X) $Y;
+rule @Hom_catd $K (@Const_catd $K Cat_cart) $X $Y
+  ↪ @Functor_catd $K (@TotalOp_func (CoAbove2_cat $K) (TotalOp_cat Cat_cart) $X) $Y;
 
 // Hom in a mixed-variance functor family folds to its transfor family.
 rule @Hom_catd $K (@Functor_catd $K $A $B) $FF $GG
@@ -14436,7 +16132,7 @@ rule @Hom_catd $K (@Functor_catd $K $A $B) $FF $GG
 
 symbol Rep_catd_func [Z : Cat]
   : τ (Functor (Op_cat Z) (Catd_cat Z))
-≔ @hom_int Z Z (@id Cat_cat Z);
+≔ @hom_int_view Z Z (@id Cat_cat Z);
 
 // Fixed-source representable family.
 //
@@ -14457,7 +16153,8 @@ symbol Rep_catd [Z : Cat] (x : τ (Obj Z))
 symbol Rep_transport_func [Z : Cat] [x y : τ (Obj Z)]
   (p : τ (Hom Z x y))
   : τ (Functord (@Rep_catd Z y) (@Rep_catd Z x))
-≔ @hom_int_precomp_func Z Z (@id Cat_cat Z) y x p;
+≔ @strict_transfor Z Cat_cart (@Rep_catd Z y) (@Rep_catd Z x)
+    (@hom_int_precomp_func Z Z (@id Cat_cat Z) y x p);
 
 // 11b. Opposite-edge and presheaf classifiers
 
@@ -14466,135 +16163,129 @@ symbol Rep_transport_func [Z : Cat] [x y : τ (Obj Z)]
 // Surface/formula:
 //   Edge_Z(x)[y] = Hom_Z(x,y)^op.
 symbol Edge_catd_func [Z : Cat]
-  : τ (Functor (Op_cat Z) (Catd_cat Z))
-≔ comp_cat_fapp0
-     (@Op_catd_func Z)
-     (@hom_int Z Z (@id Cat_cat Z));
+  : τ (Functor (CoAt2_cat (Op_cat Z))
+      (Functor_cart_cat (CoAt2_cat Z) Cat_cart))
+≔ @comp_cat_fapp0 (CoAt2_cat (Op_cat Z))
+    (CoAt2_cat (Functor_cart_cat Z Cat_cart))
+    (Functor_cart_cat (CoAt2_cat Z) Cat_cart)
+    (@Op_catd_func Z)
+    (@CoAt2_func (Op_cat Z) (Functor_cart_cat Z Cat_cart)
+      (@hom_int Z Z (@id_func Z)));
 
 // Internalized classifier: presheaf category over each fibre of a family.
 //
 // Surface/formula:
 //   Presheaf_catd(K)[A][k] = A[k] ⊢ Cat.
 symbol Presheaf_catd_func (K : Cat)
-  : τ (Functor
-      (Op_cat (Catd_cat (Op_cat K)))
-      (Catd_cat K))
+  : τ (Functor (Op_cat (Functor_cart_cat (Op_cat K) Cat_cart)) (Catd_cat K))
 ≔ comp_cat_fapp0
-     (@fapp0_func (Catd_cat K) (Catd_cat K) (@Const_catd K Cat_cat))
-     (@Functor_catd_func K);
+    (@fapp0_func (Catd_cat K) (Catd_cat K) (@Const_catd K Cat_cart))
+    (@Functor_catd_func K);
 
 // Internalized classifier: hom-presheaf family for a represented object.
 //
 // Surface/formula:
 //   HomPresheaf_Z(x)[y] = Hom_Z(x,y)^op ⊢ Cat.
 symbol HomPresheaf_catd_func [Z : Cat]
-  : τ (Functor Z (Catd_cat (Op_cat Z)))
+  : τ (Functor (CoAt2_cat Z) (Catd_cat (Op_cat (CoAt2_cat Z))))
 ≔ comp_cat_fapp0
-     (@Presheaf_catd_func (Op_cat Z))
-     (@Op_func (Op_cat Z) (Catd_cat Z) (@Edge_catd_func Z));
+    (@Presheaf_catd_func (Op_cat (CoAt2_cat Z)))
+    (@Op_func (CoAt2_cat (Op_cat Z)) (Functor_cart_cat (CoAt2_cat Z) Cat_cart)
+      (@Edge_catd_func Z));
 
 // -------------------------------------------------------------------------------------------------
 // 12. Directed homd target and internal homd functor
-// -------------------------------------------------------------------------------------------------
 
-/*
-  Homd target architecture note:
+// Selected negative index classifier, derived from the existing operations.
+// T(Functor(I,T(Cart))) is used literally; no general equivalence with an
+// omega-category of usual oplax transformations is asserted.
+symbol Homd_index_cat (I : Cat) : Cat
+≔ Op_cat (Functor_cat I (Op_cat Cat_cart));
 
-  Mathematical notation:
+// A Cartesian presheaf admits a whole view in this weaker index classifier.
+// The body uses Cartesian transpose, then the existing mapping inclusion.
+symbol Homd_index_include_func (I : Cat)
+  : τ (Functor (Functor_cart_cat (Op_cat I) Cat_cart) (Homd_index_cat I))
+≔ @comp_cat_fapp0 (Functor_cart_cat (Op_cat I) Cat_cart)
+    (Op_cat (Functor_cart_cat I (Op_cat Cat_cart))) (Homd_index_cat I)
+    (@Op_func (Functor_cart_cat I (Op_cat Cat_cart))
+      (Functor_cat I (Op_cat Cat_cart)) (Functor_cart_include I (Op_cat Cat_cart)))
+    (@Op_func (Op_cat (Functor_cart_cat (Op_cat I) Cat_cart))
+      (Functor_cart_cat I (Op_cat Cat_cart)) (Op_func_func (Op_cat I) Cat_cart));
 
-    Edge_Z(x)(y)              = Hom_Z(x,y)^op
-    HomPsh_Z(x)(y)            = Functor_cat(Hom_Z(x,y)^op, Cat)
-    HomdTargetSection_E(x)(y) = E[y^-] ⊢_[y] HomPsh_Z(x)[y]
-    HomdTarget_E[x]           = Π y :^n Z^op, HomdTargetSection_E(x)[y]
+// Fixed-object presheaf view. The varying object retains Homd_index_cat as
+// its classifier; this does not posit a functor into the old Cartesian Hom.
+symbol homd_index_presheaf [I : Cat] (H : τ (Obj (Homd_index_cat I)))
+  : τ (Functor (Op_cat I) Cat_cart)
+≔ @Op_func I (Op_cat Cat_cart) H;
 
-  `Homd_target_section_catd` and `Homd_target_catd` name these target-family
-  expressions for readability and assertions. They are not used as required
-  discriminants in the projection-rule LHSs below, because those positions are
-  inferred implicit arguments and may reduce to canonical compound terms before
-  matching.
-*/
+// Whole formation of the admitted positive family used by negative Sigma.
+// R(P_I)=O(Functor(I,T(Cart))); total duality has a qualified lax profile.
+symbol Homd_index_total_family_func (I : Cat)
+  : τ (Functor (CoAbove2_cat (Homd_index_cat I)) (Catd_cat (TotalOp_cat I)))
+≔ @comp_cat_fapp0 (CoAbove2_cat (Homd_index_cat I))
+    (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart))
+    (Catd_cat (TotalOp_cat I))
+    (@comp_cat_cov_func (TotalOp_cat I) (CoAbove2_cat Cat_cart) Cat_cart total_op_cart)
+    (TotalOp_func_func I (Op_cat Cat_cart));
 
-symbol Homd_target_section_catd [Z : Cat] (E : τ (Catd Z))
-  (x : τ (Obj Z))
-  : τ (Catd (Op_cat Z))
-≔ @Functor_catd
-     (Op_cat Z)
-     E
-     (@fapp0 Z (Catd_cat (Op_cat Z)) (@HomPresheaf_catd_func Z) x);
+// The whole negative total is an actual composition, not a second Sigma.
+// R acts on a strict functor here, never directly on an arbitrary lax map.
+symbol Homd_index_sigma_func (I : Cat)
+  : τ (Functor (Homd_index_cat I) Cat_cat)
+≔ @comp_cat_fapp0 (Homd_index_cat I) (CoAbove2_cat Cat_cat) Cat_cat total_op
+    (@CoAbove2_func (CoAbove2_cat (Homd_index_cat I)) Cat_cat
+      (@comp_cat_fapp0 (CoAbove2_cat (Homd_index_cat I))
+        (Catd_cat (TotalOp_cat I)) Cat_cat
+        (@Sigma_func (TotalOp_cat I)) (Homd_index_total_family_func I)));
 
-// Full target family of the internal displayed hom constructor.
-//
-// Surface/formula:
-//   HomdTarget_E[x] =
-//     Π y :^n Z^op, E[y^-] ⊢_[y] HomPsh_Z(x)[y].
-symbol Homd_target_catd [Z : Cat] (E : τ (Catd Z))
-  : τ (Catd Z)
-≔ comp_cat_fapp0
-     (comp_cat_fapp0
-       (@Pi_func (Op_cat Z))
-       (fapp0 (@Functor_catd_func (Op_cat Z)) E))
-     (@HomPresheaf_catd_func Z);
-
-// `homd_int` is a syntactic constructor package: its family arguments and
-// displayed functor are recoverable from the head. Terminal-source behavior is
-// still exposed through the stable projection rules below; avoid adding broad
-// whole-family `homd_int` rewrites unless a later design explicitly needs them.
-//
-// Design/SOP note:
-//   The displayed-functor argument is intentional. Prefer `homd_int(FF)` when
-//   the target endpoint varies through a displayed functor FF; do not first
-//   express the situation as `homd_int(id_D) ∘ Op_funcd(FF)` unless the point of
-//   the theorem is that comparison itself. The explicit argument keeps the
-//   dependent hom-action and its cut-elimination rules under one stable owner.
-//
-// Simplicial iteration note:
-//   `homd_int(FF)` is the dependent step of the same Sigma-of-hom pattern. Its
-//   projection ladder externalizes x and then u:
-//
-//     homd_int(FF)[x](u) = homd_src_sec(FF,x,u).
-//
-//   With x,u fixed, this section classifies fibre arrows over base arrows; its
-//   Sigma total supplies the next "cell over a cell" layer. This remains a
-//   conceptual reading of the existing `homd_int`/Sigma-hom architecture, not a
-//   reason to add broad whole-family rewrite rules.
-injective symbol homd_int : Π [Z : Cat], Π [D E : τ (Catd Z)],
-  Π (FF : τ (Functord D E)),
-  τ (Functord (Op_catd E) (@Homd_target_catd Z D));
+// Derived return map, consumed by the constant-index constructor below.
+// Its type alone does not assert a general inverse/coherence theorem.
+symbol Homd_index_from_total_family_func (I : Cat)
+  : τ (Functor (Catd_cat (TotalOp_cat I)) (CoAbove2_cat (Homd_index_cat I)))
+≔ @comp_cat_fapp0 (Catd_cat (TotalOp_cat I))
+    (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart))
+    (CoAbove2_cat (Homd_index_cat I))
+    (@TotalOp_func
+      (TotalOp_cat (Functor_cat (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
+      (Functor_cat I (Op_cat Cat_cart))
+      (TotalOp_func_func (TotalOp_cat I) (CoAbove2_cat Cat_cart)))
+    (@comp_cat_cov_func (TotalOp_cat I) Cat_cart (CoAbove2_cat Cat_cart)
+      (@CoAbove2_func (CoAbove2_cat Cat_cart) Cat_cart total_op_cart));
 
 
-// -------------------------------------------------------------------------------------------------
-// 13. Dependent-hom projections and covariant fibre transport
-// -------------------------------------------------------------------------------------------------
+// Whole constant-index constructor. It packages an actual ordinary functor
+// as an arrow between constant P-objects, using the derived return map.
+symbol Homd_index_const_func (I H : Cat)
+  : τ (Functor (Functor_cat I H)
+      (Hom_cat (Homd_index_cat I)
+        (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) Terminal_cat))
+        (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) H))))
+≔ @TotalOp_func
+    (TotalOp_cat (Functor_cat I H))
+    (TotalOp_cat (Hom_cat (Homd_index_cat I)
+      (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) Terminal_cat))
+      (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) H))))
+    (@comp_cat_fapp0 (TotalOp_cat (Functor_cat I H))
+      (Functor_cat (TotalOp_cat I) (TotalOp_cat H))
+      (TotalOp_cat (Hom_cat (Homd_index_cat I)
+        (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) Terminal_cat))
+        (@Op_func (Op_cat I) Cat_cart (@Const_catd (Op_cat I) H))))
+      (@fapp1_func (Catd_cat (TotalOp_cat I)) (CoAbove2_cat (Homd_index_cat I))
+        (Homd_index_from_total_family_func I)
+        (@Const_catd (TotalOp_cat I) Terminal_cat)
+        (@Const_catd (TotalOp_cat I) (TotalOp_cat H)))
+      (TotalOp_func_func I H));
 
-/*
-  Covariant fibre-transport architecture:
+// Staged native Cartesian-family Homd implementation. Q supplies only the
+// represented operations consumed here. Its structural laws are contracts,
+// not a derived general profunctor model. Ordinary Hom heads are reused.
 
-    FibCovTarget_E[x]            = Transf_cat(hom_Z(x,-), E)
-                                  ≡ Functord_cat(hom_Z(x,-), E)
-    fib_cov_int(E)               : E ⊢ FibCovTarget_E
-    fib_cov_src_func(E,x)        : E[x] ⊢ FibCovTarget_E[x]
-    fib_cov_transf(E,x,u)        : hom_Z(x,-) => E
-                                  ≡ Functord(hom_Z(x,-), E)
-    fib_cov_tapp0_func(E,x,u,y)  : Hom_Z(x,y) ⊢ E[y]
-    fib_cov_tapp0_func(E,x,u,y)(f) = E[f](u)
 
-  A Cat-valued transfor and the corresponding displayed functor category are
-  stable, proof-time-comparable presentations. The declarations below keep
-  the conceptual `FibCov_target_catd` family visible; assertions exercise the
-  displayed head and its ordinary comparison explicitly.
 
-  `fib_cov_tapp0_func` remains the functor-level normal form. The object-level
-  action is just `fapp0 (fib_cov_tapp0_func E x y u) f`, so it is not named by
-  a separate `fib_cov_tapp0_fapp0` alias in v3.2.
-*/
-
-// Internalized target family for covariant fibre transport.
-//
-// Surface/formula:
-//   FibCov_target(E)[x] = Functord_cat(Rep_K(x),E).
 symbol FibCov_target_catd [K : Cat] (E : τ (Catd K)) : τ (Catd K)
 ≔ @hom_con
-    (@Catd_cat K)
+    (Functor_cart_cat K Cat_cart)
     E
     (Op_cat K)
     (@hom_int K K (@id_func K));
@@ -14608,7 +16299,7 @@ symbol FibCov_source_catd
   : τ (Catd K)
 ≔ @fapp0
     (Op_cat K)
-    (@Catd_cat K)
+    (Functor_cart_cat K Cat_cart)
     (@hom_int K K (@id_func K))
     x;
 
@@ -14636,7 +16327,7 @@ injective symbol fib_cov_transf [K : Cat] (E : τ (Catd K))
 // First projection: fib_cov_int(E)[x] ↪ fib_cov_src_func(E,x).
 rule @tapp0_fapp0
       $K
-      Cat_cat
+      Cat_cart
       _
       _
       $x
@@ -14650,128 +16341,791 @@ rule fapp0 (@fib_cov_src_func $K $E $x) $u
 // Third projection: fib_cov_transf(E,x,u)[y] ↪ (f ↦ E[f](u)).
 rule @tapp0_fapp0
       $K
-      Cat_cat
+      Cat_cart
       _
       _
       $y
-      (@fib_cov_transf $K $E $x $u)
+      (@strict_transfor _ _ _ _ (@fib_cov_transf $K $E $x $u))
   ↪ @fib_cov_tapp0_func $K $E $x $y $u;
 
 
-/*
-  Internal dependent-hom projection cascade:
 
-    homd_int(FF) at x               ↪ homd_src_func(FF,x)
-    homd_src_func(FF,x) at u        ↪ homd_src_sec(FF,x,u)
-    homd_src_sec(FF,x,u) at y       ↪ homd_tgt_func(FF,x,u,y)
-    homd_tgt_func(FF,x,u,y) at v    ↪ homd_(FF,x,u,y,v)
 
-  The identity-specialized compatibility heads from v3.1/v3.2 migration have
-  been retired; identity cases are written with `FF := id_funcd E`.
-*/
+// Whole Cartesian component evaluation. This is a definition
+// through the actual mapping inclusion and the existing ordinary tapp0.
+symbol Functor_cart_component_func [A B : Cat] (F G : τ (Functor A B))
+  (a : τ (Obj A))
+  : τ (Functor (Hom_cat (Functor_cart_cat A B) F G)
+      (Hom_cat B (fapp0 F a) (fapp0 G a)))
+≔ @comp_cat_fapp0 (Hom_cat (Functor_cart_cat A B) F G)
+    (@Transf_cat A B F G) (Hom_cat B (fapp0 F a) (fapp0 G a))
+    (@tapp0_func A B F G a)
+    (@fapp1_func (Functor_cart_cat A B) (Functor_cat A B)
+      (Functor_cart_include A B) F G);
 
-// General first projection of `homd_int`: externalize x and the source fibre
-// object in E, while the probe family D remains internal.
-//
-// Surface/formula:
-//   homd_src_func(FF,x) : E[x]^op ⊢ Π y :^n Z^op, ...
-symbol homd_src_func [Z : Cat] [D E : τ (Catd Z)]
-  (FF : τ (Functord D E))
-  (x : τ (Obj Z))
-  : τ (Functor
-        (Fibre_cat (@Op_catd Z E) x)
-        (Pi_cat (@Homd_target_section_catd Z D x)));
+// Whole u-parameter of transport at a fixed y. Cartesian E_1 admits this
+// transpose of evaluation, including strict transformations in the index.
+injective symbol fib_cov_tapp0_u_func [K : Cat] (E : τ (Functor K Cat_cart))
+  (x y : τ (Obj K))
+  : τ (Functor (fapp0 E x) (Functor_cart_cat (Hom_cat K x y) (fapp0 E y)));
+rule fapp0 (@fib_cov_tapp0_u_func $K $E $x $y) $u
+  ↪ (@fib_cov_tapp0_func $K $E $x $y $u);
 
-// First projection fold. The source and target family arguments are
-// deliberately `_`: their canonical forms contain reducible expressions such
-// as `fapp0 (Op_catd_func Z) E` and `Homd_target_catd E`.  The Transf_cat
-// unification helper above supplies the needed endpoint information.
-rule @tapp0_fapp0
-      $Z
-      Cat_cat
-      _
-      _
-      $x
-      (@homd_int $Z $D $E $FF)
-  ↪ @homd_src_func $Z $D $E $FF $x;
+// Whole y-projection of covariance, at the actual expanded component-view
+// body. This is a canonical projection ladder under composition.
+// lhs-audit: keep 1 -- composition of ordinary strict functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@tapp0_func $K Cat_cart _ $E $y)
+        (@fapp1_func _ _ (Functor_cart_include $K Cat_cart) _ $E))
+      (@fib_cov_src_func $K $E $x)
+  ↪ @fib_cov_tapp0_u_func $K $E $x $y;
 
-// General source-fixed projection after evaluating the component functor at u.
-//
-// Surface/formula:
-//   homd_src_sec(FF,x,u)[y] = homd_tgt_func(FF,x,u,y).
-symbol homd_src_sec [Z : Cat] [D E : τ (Catd Z)]
-  (FF : τ (Functord D E))
-  (x : τ (Obj Z))
-  (u : τ (Obj (Fibre_cat E x)))
-  : τ (Obj (Pi_cat (@Homd_target_section_catd Z D x)));
+// Actual first-Hom point action in u, with its Cartesian transfor type.
+injective symbol fib_cov_tapp0_u_map [K : Cat] (E : τ (Functor K Cat_cart))
+  (x y : τ (Obj K)) [u v : τ (Obj (fapp0 E x))]
+  (h : τ (Hom (fapp0 E x) u v))
+  : τ (@StrictTransfor (Hom_cat K x y) (fapp0 E y)
+      ((@fib_cov_tapp0_func K E x y u)) ((@fib_cov_tapp0_func K E x y v)));
+rule @fapp1_fapp0 _ _ (@fib_cov_tapp0_u_func $K $E $x $y) $u $v $h
+  ↪ @fib_cov_tapp0_u_map $K $E $x $y $u $v $h;
+rule @tapp0_fapp0 _ _ _ _ $f
+      (@strict_transfor _ _ _ _ (@fib_cov_tapp0_u_map $K $E $x $y $u $v $h))
+  ↪ @fapp1_fapp0 (@fapp0 $K Cat_cart $E $x) (@fapp0 $K Cat_cart $E $y)
+      (@fapp1_fapp0 $K Cat_cart $E $x $y $f) $u $v $h;
 
-// Second projection fold: externalize x,u and keep the y,v endpoint internal.
-rule fapp0 (@homd_src_func $Z $D $E $FF $x) $u
-  ↪ @homd_src_sec $Z $D $E $FF $x $u;
+// The same y-projection after u-action has been capped. This is the
+// measured normal form of the defined Cartesian component evaluator;
+// the whole covariance constructor is the discriminator.
+rule @tapp0_hom_fapp0 $K Cat_cart _ $E _ _ $y
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (Functor_cart_include $K Cat_cart) _ $E)
+        _ _ (@fapp1_fapp0 _ _ (@fib_cov_src_func $K $E $x) $u $v $h))
+  ↪ @fib_cov_tapp0_u_map $K $E $x $y $u $v $h;
 
-// If the target family of FF is terminal, the first projection is a constant
-// functor out of the terminal source fibre. This generalizes the old
-// identity-specialized terminal-source normal form.
-rule @homd_src_func $Z $D (@Const_catd $Z Terminal_cat) $FF $x
-  ↪ @Obj_func
-      (Pi_cat (@Homd_target_section_catd $Z $D $x))
-      (@homd_src_sec $Z $D (@Const_catd $Z Terminal_cat) $FF $x Terminal_obj);
+// Whole Hom-level f-projection, so a fibre 2-cell follows E[f]'s next Hom.
+// lhs-audit: keep 1 -- composition of actual component/Hom-action functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _
+        (@tapp0_func _ _ _ _ $f)
+        (@fapp1_func _ _ (Functor_cart_include _ _) _ _))
+      (@fapp1_func _ _ (@fib_cov_tapp0_u_func $K $E $x $y) $u $v)
+  ↪ @fapp1_func (@fapp0 $K Cat_cart $E $x) (@fapp0 $K Cat_cart $E $y)
+      (@fapp1_fapp0 $K Cat_cart $E $x $y $f) $u $v;
 
-// General inner endpoint functor after projecting the source-fixed section at y.
-//
-// Surface/formula:
-//   homd_tgt_func(FF,x,u,y)[v] = homd_(FF,x,u,y,v).
-symbol homd_tgt_func [Z : Cat] [D E : τ (Catd Z)]
-  (FF : τ (Functord D E))
-  (x : τ (Obj Z))
-  (u : τ (Obj (Fibre_cat E x)))
-  (y : τ (Obj Z))
-  : τ (Functor
-        (Fibre_cat D y)
-        (Functor_cat (Op_cat (Hom_cat Z x y)) Cat_cat));
+// Capped-first counterpart of the whole Hom-level f-projection. The source
+// is the actual next Hom of transport_u, so higher fibre data is not
+// replaced by a separately supplied comparison.
+rule @tapp0_hom_fapp0 _ _ _ _ _ _ $f
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (Functor_cart_include _ _) _ _)
+        _ _ (@fapp1_fapp0 _ _
+          (@fapp1_func _ _ (@fib_cov_tapp0_u_func $K $E $x $y) $u $v) $h $k $theta))
+  ↪ @fapp1_fapp0 (Hom_cat (@fapp0 $K Cat_cart $E $x) $u $v)
+      (Hom_cat (@fapp0 $K Cat_cart $E $y)
+        (@fapp0 (@fapp0 $K Cat_cart $E $x) (@fapp0 $K Cat_cart $E $y)
+          (@fapp1_fapp0 $K Cat_cart $E $x $y $f) $u)
+        (@fapp0 (@fapp0 $K Cat_cart $E $x) (@fapp0 $K Cat_cart $E $y)
+          (@fapp1_fapp0 $K Cat_cart $E $x $y $f) $v))
+      (@fapp1_func (@fapp0 $K Cat_cart $E $x) (@fapp0 $K Cat_cart $E $y)
+        (@fapp1_fapp0 $K Cat_cart $E $x $y $f) $u $v) $h $k $theta;
 
-// Terminal-source normal form for the generalized inner endpoint. This exposes
-// the same homd-valued family used by piapp1_func without adding a broad
-// whole-family homd_int rewrite.
-rule @homd_tgt_func $Z (@Const_catd $Z Terminal_cat) $E $s $x $u $y
-  ↪ Obj_func
-      (homd_
-        (@id_funcd $Z $E)
-        $x $u
-        $y (@piapp0 $Z $E $s $y));
+// Projected identity, retaining the Cartesian carrier rather than confusing
+// its maps with arbitrary ambient transformations.
+rule @fib_cov_tapp0_u_map $K $E $x $y $u $u (@id _ $u)
+  ↪ @id (Functor_cart_cat (Hom_cat $K $x $y) (@fapp0 $K Cat_cart $E $y))
+      ((@fib_cov_tapp0_func $K $E $x $y $u));
 
-// Third projection fold. In v3.2 `piapp0` is a definition through ordinary
-// terminal-source component evaluation, so this rule lives one layer down at
-// the `tapp0_fapp0` component. The inferred source/target family arguments are
-// deliberately `_` for the same stable-head hygiene as the other homd folds.
-rule @tapp0_fapp0
-      _
-      Cat_cat
-      _
-      _
-      $y
-      (@homd_src_sec $Z $D $E $FF $x $u)
-  ↪ @Obj_func
-      (Fibre_cat (@Homd_target_section_catd $Z $D $x) $y)
-      (@homd_tgt_func $Z $D $E $FF $x $u $y);
+// Composition after the u-Hom projection retains the same first-Hom action.
+// lhs-audit: keep 1 -- composition in the Cartesian mapping profile.
+rule @comp_fapp0 (Functor_cart_cat _ _) _ _ _
+      (@fib_cov_tapp0_u_map $K $E $x $y $v $w $k)
+      (@fib_cov_tapp0_u_map $K $E $x $y $u $v $h)
+  ↪ @fib_cov_tapp0_u_map $K $E $x $y $u $w
+      (@comp_fapp0 (@fapp0 $K Cat_cart $E $x) $u $v $w $k $h);
 
-// Constant-family section evaluation follows ordinary functor application.
-// lhs-audit: keep 3 -- terminal-source family is the semantic discriminator
-rule @tapp0_fapp0
-      $K
-      Cat_cat
-      (@Const_catd $K Terminal_cat)
-      (@Const_catd $K $A)
-      $k
-      $F
-  ↪ @Obj_func $A (@fapp0 $K $A $F $k);
 
-// Final endpoint fold. At this point the stable head `homd_` carries the
-// endpoint family; pointwise object-action is handled by unfolding `homd_`.
-rule fapp0 (@homd_tgt_func $Z $D $E $FF $x $u $y) $v
-  ↪ @homd_ $Z $D $E $FF $x $u $y $v;
+// Whole base action: c(z) after postcomposition by q. The outer Hom has
+// Cartesian coefficients, while its point values remain ordinary functors.
+symbol fib_cov_tapp1_func [K : Cat] (E : τ (Functor K Cat_cart))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x))) (y z : τ (Obj K))
+  : τ (Functor (Hom_cat K y z) (Functor_cart_cat (Hom_cat K x y) (fapp0 E z)))
+≔ @comp_cat_fapp0 (Hom_cat K y z)
+    (Functor_cart_cat (Hom_cat K x y) (Hom_cat K x z))
+    (Functor_cart_cat (Hom_cat K x y) (fapp0 E z))
+    (@hom_postcomp_func Cat_cart Cat_cart (@id_func Cat_cart)
+      (Hom_cat K x y) (Hom_cat K x z) (fapp0 E z) ((@fib_cov_tapp0_func K E x z u)))
+    ((@hom_postcomp_tele_func K K (@id_func K) x y z));
+rule @tapp1_func _ _ _ _ $y $z
+      (@strict_transfor _ _ _ _ (@fib_cov_transf $K $E $x $u))
+  ↪ @fib_cov_tapp1_func $K $E $x $u $y $z;
+rule @tapp1_fapp0 _ _ _ _ $y $z
+      (@strict_transfor _ _ _ _ (@fib_cov_transf $K $E $x $u)) $q
+  ↪ fapp0 (@fib_cov_tapp1_func $K $E $x $u $y $z) $q;
 
-// -------------------------------------------------------------------------------------------------
+
+
+// Representable transport is ordinary precomposition, at the expanded
+// component-evaluation composite rather than on a reducible alias head.
+// lhs-audit: keep 1 -- composition of the actual strict evaluation functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ (@fapp0_func _ _ $p)
+        (Functor_cart_include _ _))
+      ((@hom_postcomp_tele_func $K $K (@id Cat_cat $K) $x $x' $y))
+  ↪ @hom_precomp_along_func $K $K (@id_func $K) $y $x $x' $p;
+
+// Yoneda units and composition live on their canonical covariance images.
+// They do not admit arbitrary transformations to the Cartesian classifier.
+rule @fib_cov_transf $K ((@hom_ $K $K (@id Cat_cat $K) $x)) $x (@id _ $x)
+  ↪ @id (Functor_cart_cat $K Cat_cart) ((@hom_ $K $K (@id_func $K) $x));
+// lhs-audit: keep 1 -- composition in the Cartesian diagram category.
+rule @comp_fapp0 (Functor_cart_cat _ Cat_cart) _ _ _
+      (@fib_cov_transf $K ((@hom_ $K $K (@id Cat_cat $K) $x)) $x' $p)
+      (@fib_cov_transf $K ((@hom_ $K $K (@id Cat_cat $K) $x')) $x'' $q)
+  ↪ @fib_cov_transf $K ((@hom_ $K $K (@id_func $K) $x)) $x''
+      (@comp_fapp0 $K $x $x' $x'' $q $p);
+
+// Cartesian coefficient identities project to ordinary id_func before
+// reaching these stable Hom owners. Retain their whole identity action.
+// lhs-audit: keep 1,2,3 -- identity-family Cartesian coefficient action.
+rule @hom_postcomp_func Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+      $A $B $B (@id Cat_cat $B)
+  ↪ @id_func (Functor_cart_cat $A $B);
+// lhs-audit: keep 1,2,3 -- identity-family Cartesian coefficient action.
+rule @hom_precomp_along_func Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+      $B $A $A (@id Cat_cat $A)
+  ↪ @id_func (Functor_cart_cat $A $B);
+
+
+
+// Cartesian fibre Hom with a directed inner index, retaining
+// the ambient conventional lax Transf for whole y-sections. In this prefix
+// Op_cat is T (dimension one), and the public Cat_cat has lax transfors.
+// Q's represented/unit computation below is a structural contract; its
+// unrestricted composition/coherence is not derived by this declaration.
+injective symbol Homd_coeff_cat : Cat;
+rule Obj Homd_coeff_cat ↪ Obj Cat_cat;
+rule Hom_cat Homd_coeff_cat $A $B
+  ↪ Functor_cart_cat $A (Homd_index_cat $B);
+
+// Actual composition body of the coefficient view of native curried Hom.
+// Its stable owner below keeps represented Q composition matchable.
+symbol Homd_coeff_conjoint_body [A B : Cat] (F : τ (Functor B A))
+  : τ (Functor A (Homd_index_cat B))
+≔ @comp_cat_fapp0 A (Functor_cart_cat (Op_cat B) Cat_cart) (Homd_index_cat B)
+    (Homd_index_include_func B) (@hom_con_int A B F);
+
+injective symbol Homd_coeff_conjoint [A B : Cat] (F : τ (Functor B A))
+  : τ (Hom Homd_coeff_cat A B);
+rule fapp0 (@Homd_coeff_conjoint $A $B $F) $a
+  ↪ @Op_func (Op_cat $B) Cat_cart (@hom_con $A $a $B $F);
+rule @fapp1_func _ _ (@Homd_coeff_conjoint $A $B $F) $a $b
+  ↪ @fapp1_func $A (Homd_index_cat $B) (@Homd_coeff_conjoint_body $A $B $F) $a $b;
+rule @fapp1_fapp0 _ _ (@Homd_coeff_conjoint $A $B $F) $a $b $h
+  ↪ @fapp1_fapp0 $A (Homd_index_cat $B) (@Homd_coeff_conjoint_body $A $B $F) $a $b $h;
+
+// Proof-time whole agreement; runtime projections retain the stable view.
+unif_rule @Homd_coeff_conjoint $A $B $F
+  ≡ @comp_fapp0 Cat_cat _ _ _ $M (@hom_con_int $A0 $B0 $F0)
+  ↪ [ $A ≡ $A0; $B ≡ $B0; $F ≡ $F0; $M ≡ Homd_index_include_func $B ];
+
+// Whole terminal-Hom comparison. Keep the runtime conjoint: its represented
+// identity/composition cuts consume that head. Hom_1(F[i],u)=1 for every
+// terminal-valued F; no unit-object eta or strictness of a raw FF is imposed.
+unif_rule @Homd_coeff_conjoint Terminal_cat $I $F
+  ≡ @Const_func $S $P $H
+  ↪ [ $S ≡ Terminal_cat; $P ≡ Homd_index_cat $I;
+      $H ≡ @Op_func (Op_cat $I) Cat_cart (@Const_catd (Op_cat $I) Terminal_cat) ];
+
+// The represented inclusion's whole Hom is actual Cartesian postcomposition.
+// iota(F)[a][b] = Hom_B(b,F[a]).
+symbol Homd_coeff_rep_func (A B : Cat)
+  : τ (Functor (Functor_cart_cat A B) (Hom_cat Homd_coeff_cat A B))
+≔ @hom_postcomp_func Cat_cart Cat_cart (@id_func Cat_cart)
+    A B (Homd_index_cat B)
+    ((@Homd_coeff_conjoint B B (@id_func B)));
+
+// Stable represented image of the same postcomposition functor. Keeping F
+// as an argument prevents an iterated composite from losing its represented
+// head when ordinary functor composition left-associates.
+injective symbol Homd_coeff_rep [A B : Cat] (F : τ (Functor A B))
+  : τ (Hom Homd_coeff_cat A B);
+
+// Actual ordinary-functor body used by every higher source action.
+symbol Homd_coeff_rep_body [A B : Cat] (F : τ (Functor A B))
+  : τ (Functor A (Homd_index_cat B))
+≔ @comp_cat_fapp0 A B (Homd_index_cat B)
+    (@Homd_coeff_conjoint B B (@id_func B)) F;
+
+// Object image of the existing whole represented-inclusion functor.
+// lhs-audit: keep 1,2,3,6 -- retain the index target; inferring it replaces B by P(B) in the emitted rule.
+rule @hom_postcomp_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+      $A $B (Op_cat (Functor_cat $B (Op_cat Cat_cart)))
+      (@Homd_coeff_conjoint $B $B (@id Cat_cat $B)) $F
+  ↪ @Homd_coeff_rep $A $B $F;
+rule fapp0 (@Homd_coeff_rep $A $B $F) $a
+  ↪ fapp0 (@Homd_coeff_conjoint $B $B (@id_func $B)) (@fapp0 $A $B $F $a);
+rule @fapp1_func _ _ (@Homd_coeff_rep $A $B $F) $a $a'
+  ↪ @fapp1_func $A (Homd_index_cat $B) (@Homd_coeff_rep_body $A $B $F) $a $a';
+rule @fapp1_fapp0 _ _ (@Homd_coeff_rep $A $B $F) $a $a' $p
+  ↪ @fapp1_fapp0 $A (Homd_index_cat $B) (@Homd_coeff_rep_body $A $B $F) $a $a' $p;
+rule @Homd_coeff_rep $A $A (@id Cat_cat $A)
+  ↪ @Homd_coeff_conjoint $A $A (@id_func $A);
+rule @Homd_coeff_rep $A $B (@Const_func $A $B $b)
+  ↪ @Const_func $A (Homd_index_cat $B)
+      (fapp0 (@Homd_coeff_conjoint $B $B (@id_func $B)) $b);
+
+// Ordinary source reindexing of a represented image is still represented.
+// lhs-audit: keep 1,4 -- retain P(C); otherwise the emitted rule recovers C as P(C).
+rule @comp_fapp0 Cat_cat $A $B (Op_cat (Functor_cat $C (Op_cat Cat_cart)))
+      (@Homd_coeff_rep $B $C $G) $F
+  ↪ @Homd_coeff_rep $A $C (@comp_cat_fapp0 $A $B $C $G $F);
+
+// Whole agreement with the actual body, without unfolding the stable image.
+unif_rule @Homd_coeff_rep $A $B $F
+  ≡ @comp_fapp0 Cat_cat $A0 $B0 $P
+      (@Homd_coeff_conjoint $B0 $B0 (@id Cat_cat $B0)) $F0
+  ↪ [ $A ≡ $A0; $B ≡ $B0; Homd_index_cat $B ≡ $P; $F ≡ $F0 ];
+
+injective symbol Homd_coeff_include : τ (Functor Cat_cart Homd_coeff_cat);
+rule fapp0 Homd_coeff_include $A ↪ $A;
+rule @fapp1_func _ _ Homd_coeff_include $A $B ↪ Homd_coeff_rep_func $A $B;
+rule @fapp1_fapp0 _ _ Homd_coeff_include $A $B $F ↪ @Homd_coeff_rep $A $B $F;
+
+symbol Homd_coeff_diagram [K : Cat] (E : τ (Functor K Cat_cart))
+  : τ (Functor K Homd_coeff_cat)
+≔ @comp_cat_fapp0 K Cat_cart Homd_coeff_cat Homd_coeff_include E;
+
+// Chosen represented/unit normal forms. Right represented composition is
+// source reindexing of the curried object; no general coend is replaced.
+rule @id Homd_coeff_cat $A ↪ (@Homd_coeff_conjoint $A $A (@id_func $A));
+// lhs-audit: keep 1 -- Q composition at the stable represented right input.
+rule @comp_fapp0 Homd_coeff_cat $A $B $C $P (@Homd_coeff_rep $A $B $F)
+  ↪ @comp_cat_fapp0 $A $B (Homd_index_cat $C) $P $F;
+// lhs-audit: keep 1 -- Q composition; the represented middle category is retained.
+rule @comp_fapp0 Homd_coeff_cat $A $B $C $P
+      (@comp_fapp0 Cat_cat _ _ _
+        ((@Homd_coeff_conjoint $B $B (@id Cat_cat $B))) $F)
+  ↪ @comp_cat_fapp0 $A $B (Homd_index_cat $C) $P $F;
+// Constant represented transport after its ordinary composite projected.
+// lhs-audit: keep 1 -- Q represented composition, retaining the typed constant body.
+rule @comp_fapp0 Homd_coeff_cat $A $B $C $P
+      (@Const_func _ _
+        (@Op_func _ _ (@hom_con $B $b $B (@id Cat_cat $B))))
+  ↪ @Const_func $A (Homd_index_cat $C)
+      (@fapp0 $B (Homd_index_cat $C) $P $b);
+// lhs-audit: keep 1 -- Q unit after its represented form has projected.
+rule @comp_fapp0 Homd_coeff_cat $A $A $B $P ((@Homd_coeff_conjoint $A $A (@id Cat_cat $A))) ↪ $P;
+// lhs-audit: keep 1 -- Q unit after its represented form has projected.
+rule @comp_fapp0 Homd_coeff_cat $A $B $B ((@Homd_coeff_conjoint $B $B (@id Cat_cat $B))) $P ↪ $P;
+
+// The same cut at the stable postcomposition owner used by section action.
+// lhs-audit: keep 1,2,3 -- identity-family Q postcomposition at the represented image.
+rule @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $A $B $C $P (@Homd_coeff_rep $A $B $F)
+  ↪ @comp_cat_fapp0 $A $B (Homd_index_cat $C) $P $F;
+// lhs-audit: keep 1,2,3 -- identity-family Q action on a represented input.
+rule @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat) $A $B $C $P
+      (@comp_fapp0 Cat_cat _ _ _
+        ((@Homd_coeff_conjoint $B $B (@id Cat_cat $B))) $F)
+  ↪ @comp_cat_fapp0 $A $B (Homd_index_cat $C) $P $F;
+// lhs-audit: keep 1,2,3 -- the same projected constant represented input.
+rule @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat) $A $B $C $P
+      (@Const_func _ _
+        (@Op_func _ _ (@hom_con $B $b $B (@id Cat_cat $B))))
+  ↪ @Const_func $A (Homd_index_cat $C)
+      (@fapp0 $B (Homd_index_cat $C) $P $b);
+// lhs-audit: keep 1,2,3 -- identity-family Q action after unit projection.
+rule @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat) $A $A $B $P
+      ((@Homd_coeff_conjoint $A $A (@id Cat_cat $A))) ↪ $P;
+// lhs-audit: keep 1,2,3 -- identity-family Q action after unit projection.
+rule @hom_postcomp_fapp0 Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat) $A $B $B
+      ((@Homd_coeff_conjoint $B $B (@id Cat_cat $B))) $P ↪ $P;
+
+// Whole right-represented Q composition is ordinary source reindexing.
+// P(C) retains its directed index maps; only the outer fibre variable is
+// Cartesian. This does not specify left-conjoint evaluation of arbitrary P.
+// lhs-audit: keep 1,2,3 -- identity-family Q precomposition at the stable represented input.
+rule @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $C $A $B (@Homd_coeff_rep $A $B $F)
+  ↪ @comp_cat_con_cart_func $A $B (Homd_index_cat $C) $F;
+
+// lhs-audit: keep 1,2,3 -- identity-family Q precomposition at a represented right input.
+rule @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $C $A $B
+      (@comp_fapp0 Cat_cat _ _ _
+        (@Homd_coeff_conjoint $B $B (@id Cat_cat $B)) $F)
+  ↪ @comp_cat_con_cart_func $A $B (Homd_index_cat $C) $F;
+
+// The existing represented unit/constant objects may already have projected.
+// lhs-audit: keep 1,2,3 -- Q represented unit after its canonical object fold.
+rule @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $C $A $A (@Homd_coeff_conjoint $A $A (@id Cat_cat $A))
+  ↪ @id_func (Functor_cart_cat $A (Homd_index_cat $C));
+// lhs-audit: keep 1,2,3 -- Q represented constant after its canonical object fold.
+rule @hom_precomp_along_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+      $C $A $B
+      (@Const_func _ _ (@Op_func _ _ (@hom_con $B $b $B (@id Cat_cat $B))))
+  ↪ @comp_cat_con_cart_func $A $B (Homd_index_cat $C) (@Const_func $A $B $b);
+
+// Proof-time whole comparison with F varying in Cart(A,B). Keep the
+// existing Q action as runtime owner: eagerly replacing this composite
+// before its inferred intermediate types normalize breaks its capped
+// Homd projection. The comparison checks the actual P and every endpoint;
+// it is not an operational equality argument or an arbitrary inclusion.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_postcomp_func Homd_coeff_cat Homd_coeff_cat (@id Cat_cat Homd_coeff_cat)
+        $A $B $C $P)
+      (@hom_postcomp_func Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+        $A $B _ (@Homd_coeff_conjoint $B $B (@id Cat_cat $B)))
+  ≡ @hom_postcomp_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) $A0 $B0 $C0 $P0
+  ↪ [ $A ≡ $A0; $B ≡ $B0; Homd_index_cat $C ≡ $C0; $P ≡ $P0 ];
+
+// A canonical represented mate of a Cartesian whole map has a lax y-square.
+// Its type retains default Transf. No independent comparison cell is input.
+symbol Homd_coeff_mate [K : Cat] [E D : τ (Functor K Cat_cart)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  : τ (@Transf K Homd_coeff_cat (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E));
+rule @tapp0_fapp0 _ _ _ _ $y (@Homd_coeff_mate $K $E $D $U)
+  ↪ (@Homd_coeff_conjoint (@fapp0 $K Cat_cart $D $y) (@fapp0 $K Cat_cart $E $y) (fapp0 (@Functor_cart_component_func $K Cat_cart $E $D $y) $U));
+
+// Full pre/right y-action, before choosing q, v or f.
+symbol Homd_coeff_mate_action [K : Cat] [E D : τ (Functor K Cat_cart)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D)) (y z : τ (Obj K))
+  : τ (Functor (Hom_cat K y z)
+      (Hom_cat Homd_coeff_cat (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart E z)))
+≔ @comp_cat_fapp0 (Hom_cat K y z)
+    (Hom_cat Homd_coeff_cat (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart D z))
+    (Hom_cat Homd_coeff_cat (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart E z))
+    (@hom_postcomp_func Homd_coeff_cat Homd_coeff_cat (@id_func Homd_coeff_cat)
+      (@fapp0 K Cat_cart D y) (@fapp0 K Cat_cart D z) (@fapp0 K Cat_cart E z)
+      ((@Homd_coeff_conjoint (@fapp0 K Cat_cart D z) (@fapp0 K Cat_cart E z) (fapp0 (@Functor_cart_component_func K Cat_cart E D z) U))))
+    (@fapp1_func K Homd_coeff_cat (@Homd_coeff_diagram K D) y z);
+rule @tapp1_func _ _ _ _ $y $z (@Homd_coeff_mate $K $E $D $U)
+  ↪ @Homd_coeff_mate_action $K $E $D $U $y $z;
+rule @tapp1_fapp0 _ _ _ _ $y $z (@Homd_coeff_mate $K $E $D $U) $q
+  ↪ fapp0 (@Homd_coeff_mate_action $K $E $D $U $y $z) $q;
+
+// Whole represented contravariance on Cartesian functors. Its object body
+// is the defined represented Hom; its arrow component is precomposition.
+injective symbol Homd_coeff_conjoint_func (A B : Cat)
+  : τ (Functor (Op_cat (Functor_cart_cat A B)) (Hom_cat Homd_coeff_cat B A));
+rule fapp0 (Homd_coeff_conjoint_func $A $B) $F ↪ (@Homd_coeff_conjoint $B $A $F);
+
+symbol Homd_coeff_conjoint_map [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (Hom (Functor_cart_cat A B) F G))
+  : τ (@StrictTransfor B (Homd_index_cat A)
+      ((@Homd_coeff_conjoint B A G)) ((@Homd_coeff_conjoint B A F)));
+rule @fapp1_fapp0 _ _ (Homd_coeff_conjoint_func $A $B) $G $F $U
+  ↪ @Homd_coeff_conjoint_map $A $B $F $G $U;
+
+symbol Homd_coeff_conjoint_map_at [A B : Cat] [F G : τ (Functor A B)]
+  (U : τ (Hom (Functor_cart_cat A B) F G)) (b : τ (Obj B))
+  : τ (Obj (Hom_cat (Homd_index_cat A)
+      (@Op_func (Op_cat A) Cat_cart (@hom_con B b A G))
+      (@Op_func (Op_cat A) Cat_cart (@hom_con B b A F))));
+rule @tapp0_fapp0 _ _ _ _ $b
+      (@strict_transfor _ _ _ _ (@Homd_coeff_conjoint_map $A $B $F $G $U))
+  ↪ @Homd_coeff_conjoint_map_at $A $B $F $G $U $b;
+rule @tapp0_fapp0 _ _ _ _ $a
+      (@Homd_coeff_conjoint_map_at $A $B $F $G $U $b)
+  ↪ @hom_precomp_along_func $B $B (@id_func $B) $b
+      (@fapp0 $A $B $F $a) (@fapp0 $A $B $G $a)
+      (fapp0 (@Functor_cart_component_func $A $B $F $G $a) $U);
+
+// Unit joins at the actual outer Cart and inner derived index categories.
+rule @Homd_coeff_conjoint_map $A $B $F $F (@id _ $F)
+  ↪ @id (Functor_cart_cat $B (Homd_index_cat $A))
+      (@Homd_coeff_conjoint $B $A $F);
+rule @Homd_coeff_conjoint_map_at $A $B $F $F (@id _ $F) $b
+  ↪ @id (Homd_index_cat $A) (@Op_func (Op_cat $A) Cat_cart (@hom_con $B $b $A $F));
+
+// Whole mate operation on the Cartesian diagram Hom. The codomain retains
+// lax y-transformations, rather than strengthening the default Transf.
+injective symbol Homd_coeff_mate_func [K : Cat] (E D : τ (Functor K Cat_cart))
+  : τ (Functor (Op_cat (Hom_cat (Functor_cart_cat K Cat_cart) E D))
+      (@Transf_cat K Homd_coeff_cat (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E)));
+rule fapp0 (@Homd_coeff_mate_func $K $E $D) $U ↪ @Homd_coeff_mate $K $E $D $U;
+
+// Whole component of the mate operation, not an object-only comparison.
+// lhs-audit: keep 1 -- ordinary composition of the actual component functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@tapp0_func _ Homd_coeff_cat _ _ $y) (@Homd_coeff_mate_func $K $E $D)
+  ↪ @comp_cat_fapp0 (Op_cat (Hom_cat (Functor_cart_cat $K Cat_cart) $E $D))
+      (Op_cat (Functor_cart_cat (@fapp0 $K Cat_cart $E $y) (@fapp0 $K Cat_cart $D $y)))
+      (Hom_cat Homd_coeff_cat (@fapp0 $K Cat_cart $D $y) (@fapp0 $K Cat_cart $E $y))
+      (Homd_coeff_conjoint_func (@fapp0 $K Cat_cart $E $y) (@fapp0 $K Cat_cart $D $y))
+      (@Op_func (Hom_cat (Functor_cart_cat $K Cat_cart) $E $D)
+        (Functor_cart_cat (@fapp0 $K Cat_cart $E $y) (@fapp0 $K Cat_cart $D $y))
+        (@Functor_cart_component_func $K Cat_cart $E $D $y));
+
+// Capped-first observation of the same component law. The input is the
+// actual Hom of the mate functor, not independently supplied modification.
+rule @tapp0_hom_fapp0 _ Homd_coeff_cat _ _ _ _ $y
+      (@fapp1_fapp0 _ _ (@Homd_coeff_mate_func $K $E $D) $V $U $theta)
+  ↪ @Homd_coeff_conjoint_map (@fapp0 $K Cat_cart $E $y) (@fapp0 $K Cat_cart $D $y)
+      (fapp0 (@Functor_cart_component_func $K Cat_cart $E $D $y) $U)
+      (fapp0 (@Functor_cart_component_func $K Cat_cart $E $D $y) $V)
+      (@fapp1_fapp0 (Hom_cat (Functor_cart_cat $K Cat_cart) $E $D)
+        (Functor_cart_cat (@fapp0 $K Cat_cart $E $y) (@fapp0 $K Cat_cart $D $y))
+        (@Functor_cart_component_func $K Cat_cart $E $D $y) $U $V $theta);
+
+// S_E(x) is an actual iterated Hom in the ambient lax universe.
+symbol Homd_target_section_cat [K : Cat] (E : τ (Functor K Cat_cart))
+  (x : τ (Obj K)) : Cat
+≔ Hom_cat (Hom_cat Cat_cat K Homd_coeff_cat) (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x)));
+
+symbol homd_id_src_sec [K : Cat] (E : τ (Functor K Cat_cart))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x)))
+  : τ (Obj (@Homd_target_section_cat K E x))
+≔ @Homd_coeff_mate K ((@hom_ K K (@id_func K) x)) E (@fib_cov_transf K E x u);
+
+// Whole source-u map is a defined composite of the mate and the already
+// checked covariance, with the transpose on its proper source category.
+symbol homd_id_src_func [K : Cat] (E : τ (Functor K Cat_cart))
+  (x : τ (Obj K)) : τ (Functor (Op_cat (fapp0 E x)) (@Homd_target_section_cat K E x))
+≔ @comp_cat_fapp0 (Op_cat (fapp0 E x))
+    (Op_cat (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x)) E))
+    (@Homd_target_section_cat K E x)
+    (@Homd_coeff_mate_func K ((@hom_ K K (@id_func K) x)) E)
+    (@Op_func (fapp0 E x)
+      (Hom_cat (Functor_cart_cat K Cat_cart) ((@hom_ K K (@id_func K) x)) E)
+      (@fib_cov_src_func K E x));
+
+// Direct whole-section -> y -> v -> f ladder; no enlarged context/curry.
+symbol homd_id_tgt_func [K : Cat] (E : τ (Functor K Cat_cart))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x))) (y : τ (Obj K))
+  : τ (Functor (fapp0 E y) (Homd_index_cat (Hom_cat K x y)))
+≔ @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K ((@hom_ K K (@id_func K) x))) y (@homd_id_src_sec K E x u);
+
+symbol homd_id_ [K : Cat] (E : τ (Functor K Cat_cart))
+  (x : τ (Obj K)) (u : τ (Obj (fapp0 E x))) (y : τ (Obj K))
+  (v : τ (Obj (fapp0 E y)))
+  : τ (Functor (Op_cat (Hom_cat K x y)) Cat_cart)
+≔ @homd_index_presheaf (Hom_cat K x y)
+    (fapp0 (@homd_id_tgt_func K E x u y) v);
+
+
+// Whole root action. Cartesian map composition is transported
+// contravariantly to the canonical lax mates, without strictifying all
+// transformations of diagrams.
+rule @Homd_coeff_mate $K $E $E (@id (Functor_cart_cat $K Cat_cart) $E)
+  ↪ @id (Functor_cat $K Homd_coeff_cat) (@Homd_coeff_diagram $K $E);
+// lhs-audit: keep 1 -- the actual lax diagram category, on canonical mates.
+rule @comp_fapp0 (Functor_cat $K Homd_coeff_cat) _ _ _
+      (@Homd_coeff_mate $K $E $D $U) (@Homd_coeff_mate $K $D $C $V)
+  ↪ @Homd_coeff_mate $K $E $C
+      (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $C $V $U);
+// lhs-audit: keep 1,2,3 -- identity-family action on the same canonical mates.
+rule @hom_postcomp_fapp0 (Functor_cat $K Homd_coeff_cat) (Functor_cat $K Homd_coeff_cat)
+      (@id Cat_cat (Functor_cat $K Homd_coeff_cat)) _ _ _
+      (@Homd_coeff_mate $K $E $D $U) (@Homd_coeff_mate $K $D $C $V)
+  ↪ @Homd_coeff_mate $K $E $C
+      (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $C $V $U);
+
+// Chosen conjoint composition at the existing native curried Hom heads.
+// lhs-audit: keep 1 -- Q composition on represented opposite-direction maps.
+rule @comp_fapp0 Homd_coeff_cat $C $B $A
+      ((@Homd_coeff_conjoint $B $A $F)) ((@Homd_coeff_conjoint $C $B $G))
+  ↪ (@Homd_coeff_conjoint $C $A (@comp_cat_fapp0 $A $B $C $G $F));
+
+// Canonical covariance under represented source reindexing. This is a
+// proof-time whole-section law, not an operational equality argument.
+unif_rule @comp_fapp0 (Functor_cart_cat $K Cat_cart) _ _ _
+      (@fib_cov_transf $K $E $x $u)
+      (@fib_cov_transf $K ((@hom_ $K $K (@id Cat_cat $K) $x)) $x' $p)
+  ≡ @fib_cov_transf $K $E $x' $u'
+  ↪ [ $u' ≡ @fapp0 (@fapp0 $K Cat_cart $E $x) (@fapp0 $K Cat_cart $E $x')
+        (@fapp1_fapp0 $K Cat_cart $E $x $x' $p) $u ];
+
+// The mate is an opaque structural head, not declared globally injective.
+// Repeat the canonical comparison at its consumed whole-section head;
+// unification is not assumed to descend/transit through arbitrary symbols.
+unif_rule @Homd_coeff_mate $K _ _
+      (@comp_fapp0 (Functor_cart_cat $K Cat_cart) _ _ _
+        (@fib_cov_transf $K $E $x $u)
+        (@fib_cov_transf $K ((@hom_ $K $K (@id Cat_cat $K) $x)) $x' $p))
+  ≡ @Homd_coeff_mate $K _ _ (@fib_cov_transf $K $E $x' $u')
+  ↪ [ $u' ≡ @fapp0 (@fapp0 $K Cat_cart $E $x) (@fapp0 $K Cat_cart $E $x')
+        (@fapp1_fapp0 $K Cat_cart $E $x $x' $p) $u ];
+
+// Whole-u counterpart of canonical covariance naturality. This compares
+// actual functors, so the later strict root is not justified only pointwise.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+      (@hom_precomp_along_func (Functor_cart_cat $K Cat_cart)
+        (Functor_cart_cat $K Cat_cart) (@id Cat_cat (Functor_cart_cat $K Cat_cart))
+        $E _ _ (@fib_cov_transf $K ((@hom_ $K $K (@id Cat_cat $K) $x)) $x' $p))
+      (@fib_cov_src_func $K $E $x)
+  ≡ @comp_fapp0 Cat_cat _ _ _ (@fib_cov_src_func $K $E $x')
+      (@fapp1_fapp0 $K Cat_cart $E $x $x' $p)
+  ↪ [ tt ≡ tt ];
+
+// Whole represented composition after transpose. This is the mate's
+// naturality in a fixed Cartesian map V:X=>E, before selecting a u value.
+// lhs-audit: keep 1 -- composition of ordinary strict parameter functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@Op_func _ _
+        (@hom_postcomp_func (Functor_cat $K Homd_coeff_cat) (Functor_cat $K Homd_coeff_cat)
+          (@id Cat_cat (Functor_cat $K Homd_coeff_cat)) _ _ _ (@Homd_coeff_mate $K $X $E $V)))
+      (@Op_func _ _ (@Homd_coeff_mate_func $K $E $D))
+  ↪ @comp_cat_fapp0 (Hom_cat (Functor_cart_cat $K Cat_cart) $E $D)
+      (Hom_cat (Functor_cart_cat $K Cat_cart) $X $D)
+      (Op_cat (@Transf_cat $K Homd_coeff_cat (@Homd_coeff_diagram $K $D) (@Homd_coeff_diagram $K $X)))
+      (@Op_func (Op_cat (Hom_cat (Functor_cart_cat $K Cat_cart) $X $D))
+        (@Transf_cat $K Homd_coeff_cat (@Homd_coeff_diagram $K $D) (@Homd_coeff_diagram $K $X))
+        (@Homd_coeff_mate_func $K $X $D))
+      (@hom_precomp_along_func (Functor_cart_cat $K Cat_cart)
+        (Functor_cart_cat $K Cat_cart) (@id_func (Functor_cart_cat $K Cat_cart))
+        $D $X $E $V);
+
+// Represented x-package. Its first Hom is the checked source-u map of I_x.
+// The dimension-two reversal records the contravariance of that Hom.
+injective symbol Homd_representable_func (K : Cat)
+  : τ (Functor (CoAt2_cat K) (Functor_cat K Homd_coeff_cat));
+rule fapp0 (Homd_representable_func $K) $x ↪ @Homd_coeff_diagram $K ((@hom_ $K $K (@id_func $K) $x));
+rule @fapp1_func _ _ (Homd_representable_func $K) $x $x'
+  ↪ @homd_id_src_func $K ((@hom_ $K $K (@id_func $K) $x)) $x';
+rule @fapp1_fapp0 _ _ (Homd_representable_func $K) $x $x' $p
+  ↪ @homd_id_src_sec $K ((@hom_ $K $K (@id_func $K) $x)) $x' $p;
+
+// H_E is a defined Cartesian family: ordinary Cartesian represented Hom
+// after dimension-two duality of the whole strict represented x-package.
+symbol Homd_target_catd [K : Cat] (E : τ (Functor K Cat_cart))
+  : τ (Functor K Cat_cart)
+≔ @comp_cat_fapp0 K (CoAt2_cat (Functor_cat K Homd_coeff_cat)) Cat_cart
+    ((@hom_ (CoAt2_cat (Functor_cat K Homd_coeff_cat)) (CoAt2_cat (Functor_cat K Homd_coeff_cat)) (@id_func (CoAt2_cat (Functor_cat K Homd_coeff_cat))) (@Homd_coeff_diagram K E)))
+    (@CoAt2_func (CoAt2_cat K) (Functor_cat K Homd_coeff_cat) (Homd_representable_func K));
+
+// Identity-family Hom action through CoAt2 is transpose on the Hom map.
+// lhs-audit: keep 1,2,3 -- category duality shifts exactly once to the Hom.
+rule @hom_postcomp_func (CoAt2_cat $C) (CoAt2_cat $C)
+      (@id Cat_cat (CoAt2_cat $C)) $A $B $D $g
+  ↪ @Op_func (Hom_cat $C $A $B) (Hom_cat $C $A $D)
+      (@hom_postcomp_func $C $C (@id_func $C) $A $B $D $g);
+
+// Cartesian postwhiskering: component observation commutes with its whole
+// first Hom. This is needed by the root's actual base-two-cell action.
+// lhs-audit: keep 1 -- composition of the component and Hom-action functors.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ (@tapp0_func $A $C _ _ $a)
+        (@fapp1_func _ _ (Functor_cart_include $A $C) _ _))
+      (@hom_postcomp_fapp1_func Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+        $A $B $C $H $F $G)
+  ↪ @comp_cat_fapp0 (Hom_cat (Functor_cart_cat $A $B) $F $G)
+      (Hom_cat $B (@fapp0 $A $B $F $a) (@fapp0 $A $B $G $a))
+      (Hom_cat $C (@fapp0 $B $C $H (@fapp0 $A $B $F $a))
+        (@fapp0 $B $C $H (@fapp0 $A $B $G $a)))
+      (@fapp1_func $B $C $H (@fapp0 $A $B $F $a) (@fapp0 $A $B $G $a))
+      (@Functor_cart_component_func $A $B $F $G $a);
+
+// Capped-first observation of the same Cartesian postwhiskering law.
+rule @tapp0_fapp0 _ _ _ _ $a
+      (@strict_transfor _ _ _ _
+        (@hom_postcomp_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+          $A $B $C $H $F $G $U))
+  ↪ @fapp1_fapp0 $B $C $H (@fapp0 $A $B $F $a) (@fapp0 $A $B $G $a)
+      (fapp0 (@Functor_cart_component_func $A $B $F $G $a) $U);
+
+// Canonical strict root, with no strictness proof input. Its
+// independent x-naturality consumers compare the actual component routes.
+symbol homd_id_int [K : Cat] (E : τ (Functor K Cat_cart))
+  : τ (Hom (Functor_cart_cat K Cat_cart) E (@Homd_target_catd K E));
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@strict_transfor _ _ _ _ (@homd_id_int $K $E))
+  ↪ @Op_func (Op_cat (@fapp0 $K Cat_cart $E $x)) (@Homd_target_section_cat $K $E $x)
+      (@homd_id_src_func $K $E $x);
+
+symbol homd_id_base_func [K : Cat] (E : τ (Functor K Cat_cart))
+  (x x' : τ (Obj K))
+  : τ (Functor (Hom_cat K x x')
+      (Functor_cart_cat (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x'))))
+≔ @comp_cat_fapp0 (Hom_cat K x x')
+    (Functor_cart_cat (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E x'))
+    (Functor_cart_cat (@fapp0 K Cat_cart E x) (Op_cat (@Homd_target_section_cat K E x')))
+    (@hom_postcomp_func Cat_cart Cat_cart (@id_func Cat_cart)
+      (@fapp0 K Cat_cart E x) (@fapp0 K Cat_cart E x') (Op_cat (@Homd_target_section_cat K E x'))
+      (@Op_func (Op_cat (@fapp0 K Cat_cart E x')) (@Homd_target_section_cat K E x')
+        (@homd_id_src_func K E x')))
+    (@fapp1_func K Cat_cart E x x');
+rule @tapp1_func _ _ _ _ $x $x'
+      (@strict_transfor _ _ _ _ (@homd_id_int $K $E))
+  ↪ @homd_id_base_func $K $E $x $x';
+rule @tapp1_fapp0 _ _ _ _ $x $x'
+      (@strict_transfor _ _ _ _ (@homd_id_int $K $E)) $p
+  ↪ fapp0 (@homd_id_base_func $K $E $x $x') $p;
+
+
+// Fixed strict postwhiskering preserves ordinary lax
+// transformations. This is the generic component projection used by iota FF.
+rule @tapp0_fapp0 _ _ _ _ $x
+      (@hom_postcomp_fapp1_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $K $A $B $H $F $G $epsilon)
+  ↪ @fapp1_fapp0 $A $B $H (@fapp0 $K $A $F $x) (@fapp0 $K $A $G $x)
+      (@tapp0_fapp0 $K $A $F $G $x $epsilon);
+// lhs-audit: keep 1 -- whole component of fixed strict postwhiskering.
+rule @comp_fapp0 Cat_cat _ _ _ (@tapp0_func $K $B _ _ $x)
+      (@hom_postcomp_fapp1_func Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+        $K $A $B $H $F $G)
+  ↪ @comp_cat_fapp0 (@Transf_cat $K $A $F $G)
+      (Hom_cat $A (@fapp0 $K $A $F $x) (@fapp0 $K $A $G $x))
+      (Hom_cat $B (@fapp0 $A $B $H (@fapp0 $K $A $F $x)) (@fapp0 $A $B $H (@fapp0 $K $A $G $x)))
+      (@fapp1_func $A $B $H (@fapp0 $K $A $F $x) (@fapp0 $K $A $G $x))
+      (@tapp0_func $K $A $F $G $x);
+
+// Cartesian prewhiskering, dual to the existing postwhiskering component
+// owner: the component at a is the original component at H[a].
+rule @tapp0_fapp0 _ _ _ _ $a
+      (@strict_transfor _ _ _ _
+        (@hom_precomp_along_fapp1_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+          $C $A $B $H $F $G $U))
+  ↪ fapp0 (@Functor_cart_component_func $B $C $F $G (@fapp0 $A $B $H $a)) $U;
+// lhs-audit: keep 1 -- whole component of Cartesian prewhiskering.
+rule @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ (@tapp0_func $A $C _ _ $a)
+        (@fapp1_func _ _ (Functor_cart_include $A $C) _ _))
+      (@hom_precomp_along_fapp1_func Cat_cart Cat_cart (@id Cat_cat Cat_cart)
+        $C $A $B $H $F $G)
+  ↪ @Functor_cart_component_func $B $C $F $G (@fapp0 $A $B $H $a);
+
+// Only ordinary strict-functor duality is used here. An arbitrary FF is
+// never passed to a fibrewise transpose of transformations.
+// lhs-audit: keep 1,2,3 -- identity-family dimension-two-dual Hom action.
+rule @hom_precomp_along_func (CoAt2_cat $C) (CoAt2_cat $C)
+      (@id Cat_cat (CoAt2_cat $C)) $Z $X $Y $p
+  ↪ @Op_func (Hom_cat $C $Y $Z) (Hom_cat $C $X $Z)
+      (@hom_precomp_along_func $C $C (@id_func $C) $Z $X $Y $p);
+
+// Relative composition at the stable Hom owner when its value is a
+// canonical mate. Generic pre/postcomposition owners remain distinct.
+// lhs-audit: keep 1,2,3 -- identity-family diagram precomposition of a mate.
+rule @hom_precomp_along_fapp0 (Functor_cat $K Homd_coeff_cat) (Functor_cat $K Homd_coeff_cat)
+      (@id Cat_cat (Functor_cat $K Homd_coeff_cat)) _ $X _ $FF (@Homd_coeff_mate $K $E $D $U)
+  ↪ @comp_fapp0 (Functor_cat $K Homd_coeff_cat) $X (@Homd_coeff_diagram $K $D) (@Homd_coeff_diagram $K $E)
+      (@Homd_coeff_mate $K $E $D $U) $FF;
+
+// Stable diagram image normal form after fixed postcomposition projected.
+// lhs-audit: keep 1,2,3 -- named Q inclusion, not arbitrary Cat composition.
+rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      $K Cat_cart Homd_coeff_cat Homd_coeff_include $E
+  ↪ @Homd_coeff_diagram $K $E;
+
+symbol Homd_coeff_diagram_transf [K : Cat] [D E : τ (Functor K Cat_cart)]
+  (FF : τ (@Transf K Cat_cart D E))
+  : τ (@Transf K Homd_coeff_cat (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E))
+≔ @fapp1_fapp0 (Functor_cat K Cat_cart) (Functor_cat K Homd_coeff_cat)
+    (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) K Cat_cart Homd_coeff_cat Homd_coeff_include)
+    D E FF;
+
+// Whole family of targets, with its parameter left internal. Fixed
+// reindexing of Cartesian represented Hom supplies the stronger output.
+symbol Homd_target_index_func (K : Cat)
+  : τ (Functor (Op_cat (CoAt2_cat (Functor_cat K Homd_coeff_cat))) (Functor_cart_cat K Cat_cart))
+≔ @comp_cat_fapp0 (Op_cat (CoAt2_cat (Functor_cat K Homd_coeff_cat)))
+    (Functor_cart_cat (CoAt2_cat (Functor_cat K Homd_coeff_cat)) Cat_cart)
+    (Functor_cart_cat K Cat_cart)
+    (@hom_precomp_along_func Cat_cart Cat_cart (@id_func Cat_cart)
+      Cat_cart K (CoAt2_cat (Functor_cat K Homd_coeff_cat))
+      (@CoAt2_func (CoAt2_cat K) (Functor_cat K Homd_coeff_cat) (Homd_representable_func K)))
+    ((@hom_int (CoAt2_cat (Functor_cat K Homd_coeff_cat)) (CoAt2_cat (Functor_cat K Homd_coeff_cat)) (@id_func (CoAt2_cat (Functor_cat K Homd_coeff_cat)))));
+
+// The FF parameter is internalized as an ordinary strict functor between
+// transformation categories. A modification FF=>GG acts GG-map=>FF-map.
+// This transposes a strict Hom-action functor, never a raw FF itself.
+symbol Homd_target_con_func [K : Cat] (D E : τ (Functor K Cat_cart))
+  : τ (Functor (Op_cat (@Transf_cat K Cat_cart D E))
+      (Hom_cat (Functor_cart_cat K Cat_cart) (@Homd_target_catd K E) (@Homd_target_catd K D)))
+≔ @comp_cat_fapp0 (Op_cat (@Transf_cat K Cat_cart D E))
+    (Op_cat (@Transf_cat K Homd_coeff_cat (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E)))
+    (Hom_cat (Functor_cart_cat K Cat_cart) (@Homd_target_catd K E) (@Homd_target_catd K D))
+    (@fapp1_func (Op_cat (CoAt2_cat (Functor_cat K Homd_coeff_cat))) (Functor_cart_cat K Cat_cart)
+      (Homd_target_index_func K) (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K D))
+    (@Op_func (@Transf_cat K Cat_cart D E)
+      (@Transf_cat K Homd_coeff_cat (@Homd_coeff_diagram K D) (@Homd_coeff_diagram K E))
+      (@fapp1_func (Functor_cat K Cat_cart) (Functor_cat K Homd_coeff_cat)
+        (@hom_postcomp_func Cat_cat Cat_cat (@id_func Cat_cat) K Cat_cart Homd_coeff_cat Homd_coeff_include) D E));
+
+symbol Homd_target_map [K : Cat] [D E : τ (Functor K Cat_cart)]
+  (FF : τ (@Transf K Cat_cart D E))
+  : τ (Hom (Functor_cart_cat K Cat_cart) (@Homd_target_catd K E) (@Homd_target_catd K D))
+≔ fapp0 (@Homd_target_con_func K D E) FF;
+
+// The blended relative root is an actual composite. FF remains a default
+// lax transformation across K, with Cartesian fibre comparisons.
+symbol homd_rel_cart_int [K : Cat] [D E : τ (Functor K Cat_cart)]
+  (FF : τ (@Transf K Cat_cart D E))
+  : τ (Hom (Functor_cart_cat K Cat_cart) E (@Homd_target_catd K D))
+// Keep the actual target-index normal forms on the composite's middle and
+// target annotations, so its generic identity cut remains visible.
+≔ @comp_fapp0 (Functor_cart_cat K Cat_cart) E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D))
+    (@Homd_target_map K D E FF) (@homd_id_int K E);
+
+symbol homd_src_sec [K : Cat] [D E : τ (Functor K Cat_cart)]
+  (FF : τ (@Transf K Cat_cart D E)) (x : τ (Obj K))
+  (u : τ (Obj (@fapp0 K Cat_cart E x)))
+  : τ (Obj (@Homd_target_section_cat K D x))
+≔ fapp0 (fapp0 (@Functor_cart_component_func K Cat_cart E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) x)
+    (@homd_rel_cart_int K D E FF)) u;
+
+
+// Public blended Homd is the ordinary displayed view of the defined
+// relative composite. FF remains a general lax transformation across K.
+symbol homd_int [K : Cat] [D E : τ (Catd K)] (FF : τ (Functord D E))
+  : τ (Functord E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)))
+≔ @strict_transfor K Cat_cart E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D))
+    (@homd_rel_cart_int K D E FF);
+
+// Existing public rungs now project the actual root and Q-valued section.
+symbol homd_src_func [K : Cat] [D E : τ (Catd K)]
+  (FF : τ (Functord D E)) (x : τ (Obj K))
+  : τ (Functor (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K D x)))
+≔ @tapp0_fapp0 K Cat_cart E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) x (@homd_int K D E FF);
+
+symbol homd_tgt_func [K : Cat] [D E : τ (Catd K)]
+  (FF : τ (Functord D E)) (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (Functor (Fibre_cat D y) (Homd_index_cat (Hom_cat K x y)))
+≔ @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K D)
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+    (@homd_src_sec K D E FF x u);
+
+
+// 13. Dependent-hom projections and covariant fibre transport
+// The original names above now project the identity core and the
+// defined general-FF composition; no second primitive Homd theory.
+
+// Whole endpoint views for the actual two-sided whiskering Hom functor.
+// The data are the actual target map, identity Homd and relative Homd.
+// These compare their canonical composition presentations at proof time;
+// no equality or separately supplied comparison enters the intrinsic map.
+unif_rule @Hom_fapp0 (Catd_cat $K) $D $E $HD $HE $FF $M
+      (@strict_transfor _ _ _ _ (@homd_id_int $K $D))
+  ≡ @comp_fapp0 (Catd_cat $K0) $E0 $D0 $HE0 $HF $FF
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0;
+      $HD ≡ @Homd_target_catd $K $D;
+      $HE ≡ @Homd_target_catd $K $E; $HE ≡ $HE0;
+      $M ≡ @strict_transfor $K Cat_cart $HD $HE (@Homd_target_map $K $E $D $FF);
+      $HF ≡ @homd_int $K $E $D $FF ];
+
+// The source uses contravariance of Homd_target_map and ordinary
+// associativity. Both original displayed maps are retained as operands.
+unif_rule @Hom_fapp0 (Catd_cat $K) $D $E $HD $HE $FF $M
+      (@comp_fapp0 (Catd_cat $K) $D $C $HD0 $HG $GG)
+  ≡ @comp_fapp0 (Catd_cat $K0) $E0 $C0 $HE0 $HGF
+      (@comp_fapp0 (Catd_cat $K0) $E0 $D0 $C0 $GG $FF)
+  ↪ [ $K ≡ $K0; $E ≡ $E0; $D ≡ $D0; $C ≡ $C0;
+      $HD ≡ @Homd_target_catd $K $D; $HD ≡ $HD0;
+      $HE ≡ @Homd_target_catd $K $E; $HE ≡ $HE0;
+      $M ≡ @strict_transfor $K Cat_cart $HD $HE (@Homd_target_map $K $E $D $FF);
+      $HG ≡ @homd_int $K $D $C $GG;
+      $HGF ≡ @homd_int $K $E $C (@comp_catd_fapp0 $K $E $D $C $GG $FF) ];
+
 // 14. Section action over dependent homs
 // -------------------------------------------------------------------------------------------------
 
@@ -14797,62 +17151,31 @@ symbol piapp1_src_obj [K : Cat] (E : τ (Catd K))
 // -------------------------------------------------------------------------------------------------
 
 /*
-  Mathematical notation:
-    tdapp1_int_func_transfd(FF,GG)
-      : Transfd(FF,GG) ⊢ Transfd(homd_int(id_E), homd_int(GG) ∘ FF^op)
+  The corrected root target is transposed. Accordingly the intrinsic arrow
+  runs from homd_int(GG) o FF to homd_int(id_E), without transposing raw FF.
+  Its source-u component reverses again in T(S_E(x)), exposing the forward
+  dependent-Hom action. The weaker inner P index retains its directed cells.
 
-    tdapp1_int_fapp0_transfd(ϵ)
-      = the internal displayed hom-action of ϵ
-
-    fdapp1_int_transfd(FF)
-      = tdapp1_int_fapp0_transfd(id_FF)
-
-  Current laxity architecture:
-
-    internal hom-action, then extracted laxity, then Sigma action consumes laxity.
-
-  The Sigma-total presentation is the externalization/test surface where a
-  laxity cell is visible as a fibre component of a total arrow. It is not the
-  primitive source of that same laxity; otherwise `Sigma(FF)` would be defined
-  using `laxity(FF,p)` and `laxity(FF,p)` would be extracted back from
-  `Sigma(FF)`, which is circular.
-
-  The intended non-circular source for displayed functor laxity is the
-  identity-specialized internal displayed hom-action:
-
-    fdapp1_int_transfd(FF)
-      : Transfd(homd_int(id_E), homd_int(FF) ∘ Op_funcd(FF)).
-
-  Applying this to a canonical/cartesian dependent-hom triangle should expose
-  the component
-
-    D[p](FF[x](u)) ->^(D[y]) FF[y](E[p](u)).
-
-  The component-level normal form is `fdapp1_int_cell(FF,p,u)`. The late
-  section 18zz internalizes `u` through a self-comma identity section and
-  exposes the resulting whole `functord_laxity_transf(FF,p)` without obscuring
-  this extraction path. Strict constructors still need explicit folds making
-  their selected laxity collapse to the identity/cartesian component.
+  Original ownership is preserved:
+    internal hom-action -> extracted laxity -> Sigma action consumes laxity.
+  No separate comparison argument is introduced, and Sigma is not used to
+  define the intrinsic action which its maps later consume.
 */
 symbol tdapp1_int_func_transfd : Π [K : Cat], Π [E D : τ (Catd K)],
   Π [FF GG : τ (Functord E D)],
   τ (Functor
       (Transfd_cat FF GG)
       (Transfd_cat
-        (homd_int (@id_funcd K E))
-        (comp_catd_fapp0
-          (homd_int GG)
-          (Op_funcd FF))));
+        (comp_catd_fapp0 (homd_int GG) FF)
+        (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E))));
 
 // Object action of `tdapp1_int_func_transfd`.
 symbol tdapp1_int_fapp0_transfd : Π [K : Cat], Π [E D : τ (Catd K)],
   Π [FF GG : τ (Functord E D)],
   Π (ϵ : τ (Transfd FF GG)),
   τ (Transfd
-      (homd_int (@id_funcd K E))
-      (comp_catd_fapp0
-        (homd_int GG)
-        (Op_funcd FF)));
+        (comp_catd_fapp0 (homd_int GG) FF)
+        (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E)));
 
 // Object projection: tdapp1_int_func_transfd(FF,GG)[epsilon].
 rule fapp0 (@tdapp1_int_func_transfd $K $E $D $FF $GG) $ϵ
@@ -14866,10 +17189,8 @@ symbol tdapp1_int_fapp1_func_transfd : Π [K : Cat], Π [E D : τ (Catd K)],
       (Hom_cat (Transfd_cat FF GG) ϵ ϵ')
       (Hom_cat
         (Transfd_cat
-          (homd_int (@id_funcd K E))
-          (comp_catd_fapp0
-            (homd_int GG)
-            (Op_funcd FF)))
+        (comp_catd_fapp0 (homd_int GG) FF)
+        (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E)))
         (tdapp1_int_fapp0_transfd ϵ)
         (tdapp1_int_fapp0_transfd ϵ')));
 
@@ -14881,21 +17202,44 @@ rule @fapp1_func _ _ (@tdapp1_int_func_transfd $K $E $D $FF $GG) $ϵ $ϵ'
 symbol fdapp1_int_transfd : Π [K : Cat], Π [E D : τ (Catd K)],
   Π (FF : τ (Functord E D)),
   τ (Transfd
-      (homd_int (@id_funcd K E))
-      (comp_catd_fapp0
-        (homd_int FF)
-        (Op_funcd FF)));
+        (comp_catd_fapp0 (homd_int FF) FF)
+        (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E)));
 
 // Identity-specialization fold for the internal displayed hom-action.
 rule @tdapp1_int_fapp0_transfd $K $E $D $FF $FF
       (@id (@Functord_cat $K $E $D) $FF)
   ↪ @fdapp1_int_transfd $K $E $D $FF
 with @tdapp1_int_fapp0_transfd $K $E $D $FF $FF
-      (@id (@Transf_cat $K Cat_cat $E $D) $FF)
+      (@id (@Transf_cat $K Cat_cart $E $D) $FF)
   ↪ @fdapp1_int_transfd $K $E $D $FF;
 
 
 // -------------------------------------------------------------------------------------------------
+// Normality of the existing intrinsic constructor at the actual displayed identity.
+rule @fdapp1_int_transfd $K $E $E (@id (Catd_cat $K) $E)
+  ↪ @id (@Functord_cat $K $E (fapp0 (Homd_target_index_func $K) (@Homd_coeff_diagram $K $E))) (@strict_transfor $K Cat_cart $E (fapp0 (Homd_target_index_func $K) (@Homd_coeff_diagram $K $E)) (@homd_id_int $K $E));
+
+
+// Defined body of intrinsic composition, built from the two existing maps.
+// This alias is shared by the root and its projection-order computations.
+symbol fdapp1_int_comp_transfd [K : Cat] [E D C : τ (Catd K)]
+  (FF : τ (Functord E D)) (GG : τ (Functord D C))
+  : τ (@Transfd K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@comp_catd_fapp0 K E C (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E C (@comp_catd_fapp0 K E D C GG FF)) (@comp_catd_fapp0 K E D C GG FF)) (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E)))
+≔ let W : τ (Functor (@Functord_cat K D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D))) (@Functord_cat K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))))
+    ≔ @Hom_func (Catd_cat K) D E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) FF (@strict_transfor K Cat_cart (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@Homd_target_map K E D FF)) in
+  @comp_fapp0 (@Functord_cat K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)))
+    (@comp_catd_fapp0 K E C (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E C (@comp_catd_fapp0 K E D C GG FF)) (@comp_catd_fapp0 K E D C GG FF))
+    (@comp_catd_fapp0 K E D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E D FF) FF)
+    (@strict_transfor K Cat_cart E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_id_int K E))
+    (@fdapp1_int_transfd K E D FF)
+    (@fapp1_fapp0 (@Functord_cat K D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D))) (@Functord_cat K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)))
+      W (@comp_catd_fapp0 K D C (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) (@homd_int K D C GG) GG) (@strict_transfor K Cat_cart D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K D)) (@homd_id_int K D)) (@fdapp1_int_transfd K D C GG));
+
+// The native constructor keeps one composition body at every observation.
+rule @fdapp1_int_transfd _ _ _
+      (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF)
+  ↪ @fdapp1_int_comp_transfd $K $E $D $C $FF $GG;
+
 // 16. Displayed components, displayed hom-action, and laxity extraction
 // -------------------------------------------------------------------------------------------------
 
@@ -14923,7 +17267,7 @@ symbol Fibre_func [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   (z : τ (Obj K))
   : τ (Functor (Fibre_cat E z) (Fibre_cat D z))
-≔ @tapp0_fapp0 K Cat_cat E D z FF;
+≔ @tapp0_fapp0 K Cat_cart E D z FF;
 
 // Component projection functor for displayed transfors at z.
 //
@@ -14934,7 +17278,7 @@ symbol tdapp0_func [K : Cat] [E D : τ (Catd K)]
   (z : τ (Obj K))
   : τ (Functor
       (Transfd_cat FF GG)
-      (Transf_cat (Fibre_func FF z) (Fibre_func GG z)));
+      (Hom_cat (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z)) (Fibre_func FF z) (Fibre_func GG z)));
 
 // Capped displayed-transfor component.
 //
@@ -14944,7 +17288,7 @@ symbol tdapp0_fapp0 [K : Cat] [E D : τ (Catd K)]
   [FF GG : τ (Functord E D)]
   (z : τ (Obj K))
   (ϵ : τ (Transfd FF GG))
-  : τ (Transf (Fibre_func FF z) (Fibre_func GG z));
+  : τ (@StrictTransfor (Fibre_cat E z) (Fibre_cat D z) (Fibre_func FF z) (Fibre_func GG z));
 
 // Cat-valued specialization of the generic higher component. The direction
 // selects the established displayed head as the sole runtime normal form, so
@@ -14952,7 +17296,7 @@ symbol tdapp0_fapp0 [K : Cat] [E D : τ (Catd K)]
 // The explicit slots bind the displayed data needed by the selected normal
 // form; no inferred slot contains a reconstructible compound.
 rule @tapp0_hom_fapp0
-      $K Cat_cat $E $D $FF $GG $z $ϵ
+      $K Cat_cart $E $D $FF $GG $z $ϵ
   ↪ @tdapp0_fapp0 $K $E $D $FF $GG $z $ϵ;
 
 // Projection from displayed-transfor component functor to capped component.
@@ -14966,13 +17310,32 @@ rule fapp0 (@tdapp0_func $K $E $D $FF $GG $z) $ϵ
 rule @fapp1_func
       _
       _
-      (@tapp0_func $K Cat_cat $E $D $z)
+      (@tapp0_func $K Cat_cart $E $D $z)
       $FF $GG
   ↪ @tdapp0_func $K $E $D $FF $GG $z;
 
 // Direct capped projection is owned by the generic
 // `fapp1_fapp0(tapp0_func)` rule and then specializes to `tdapp0_fapp0`.
 // The whole `fapp1_func` route above remains available as `tdapp0_func`.
+
+// The conventional pre/right cut after component evaluation has projected.
+// This is the existing generic fapp1(tapp0_func) accumulation at its native
+// tdapp0_fapp0 normal form. All maps, modifications and the base point remain.
+rule @comp_fapp0 $B _ _ _
+    (@tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z)
+      $G $GG $HH $epsilon $f)
+    (@tdapp0_fapp0 _ _ _ $FF $GG $z $g)
+  ↪ @tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z)
+      $G $FF $HH $epsilon (@comp_fapp0 $A $FF $GG $HH $f $g);
+
+// The same cut when epsilon[id] has already become its component.
+rule @comp_fapp0 $B _ _ _
+    (@tapp0_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z)
+      $G $GG $epsilon)
+    (@tdapp0_fapp0 _ _ _ $FF $GG $z $g)
+  ↪ @tapp1_fapp0 $A $B (@tapp0_func $K Cat_cart $E $D $z)
+      $G $FF $GG $epsilon $g;
+
 
 /*
   Runtime component projection for the existing functorial Sigma-section
@@ -15009,7 +17372,7 @@ rule @tdapp0_fapp0
         (@Fibre_func $K $R $D $FF $k)
         (@Fibre_func $K $R $D $GG $k)
         $r
-        (@tdapp0_fapp0 $K $R $D $FF $GG $k $eta));
+        (@strict_transfor _ _ _ _ (@tdapp0_fapp0 $K $R $D $FF $GG $k $eta)));
 
 // Displayed component of an identity transfor. The two clauses expose the
 // same generic identity through the stable displayed and ordinary category
@@ -15018,13 +17381,13 @@ rule @tdapp0_fapp0
       $K $E $D $FF $FF $z
       (@id (@Functord_cat $K $E $D) $FF)
   ↪ @id
-      (Functor_cat (Fibre_cat $E $z) (Fibre_cat $D $z))
+      (Functor_cart_cat (Fibre_cat $E $z) (Fibre_cat $D $z))
       (@Fibre_func $K $E $D $FF $z)
 with @tdapp0_fapp0
       $K $E $D $FF $FF $z
-      (@id (@Transf_cat $K Cat_cat $E $D) $FF)
+      (@id (@Transf_cat $K Cat_cart $E $D) $FF)
   ↪ @id
-      (Functor_cat (Fibre_cat $E $z) (Fibre_cat $D $z))
+      (Functor_cart_cat (Fibre_cat $E $z) (Fibre_cat $D $z))
       (@Fibre_func $K $E $D $FF $z);
 
 // Displayed vertical-composite components compose pointwise. The outer
@@ -15037,7 +17400,7 @@ rule @tdapp0_fapp0
         (@Functord_cat $K $E $D)
         $FF $GG $HH $eta $epsilon)
   ↪ @comp_fapp0
-      (Functor_cat (Fibre_cat $E $z) (Fibre_cat $D $z))
+      (Functor_cart_cat (Fibre_cat $E $z) (Fibre_cat $D $z))
       (@Fibre_func $K $E $D $FF $z)
       (@Fibre_func $K $E $D $GG $z)
       (@Fibre_func $K $E $D $HH $z)
@@ -15046,10 +17409,10 @@ rule @tdapp0_fapp0
 with @tdapp0_fapp0
       _ _ _ _ _ $z
       (@comp_fapp0
-        (@Transf_cat $K Cat_cat $E $D)
+        (@Transf_cat $K Cat_cart $E $D)
         $FF $GG $HH $eta $epsilon)
   ↪ @comp_fapp0
-      (Functor_cat (Fibre_cat $E $z) (Fibre_cat $D $z))
+      (Functor_cart_cat (Fibre_cat $E $z) (Fibre_cat $D $z))
       (@Fibre_func $K $E $D $FF $z)
       (@Fibre_func $K $E $D $GG $z)
       (@Fibre_func $K $E $D $HH $z)
@@ -15067,29 +17430,25 @@ rule @tdapp0_fapp0
       (@comp_prod_fapp1_fapp0
         (@Catd_cat $K) $W $X $Z $FG $FG' $theta)
   ↪ @comp_prod_fapp1_fapp0
-      Cat_cat
+      Cat_cart
       (Fibre_cat $W $k)
       (Fibre_cat $X $k)
       (Fibre_cat $Z $k)
       (@Product_pair
-        (Functor_cat (Fibre_cat $W $k) (Fibre_cat $X $k))
-        (Functor_cat (Fibre_cat $X $k) (Fibre_cat $Z $k))
+        (Functor_cart_cat (Fibre_cat $W $k) (Fibre_cat $X $k))
+        (Functor_cart_cat (Fibre_cat $X $k) (Fibre_cat $Z $k))
         (@Fibre_func $K $W $X (sigma_Fst $FG) $k)
         (@Fibre_func $K $X $Z (sigma_Snd $FG) $k))
       (@Product_pair
-        (Functor_cat (Fibre_cat $W $k) (Fibre_cat $X $k))
-        (Functor_cat (Fibre_cat $X $k) (Fibre_cat $Z $k))
+        (Functor_cart_cat (Fibre_cat $W $k) (Fibre_cat $X $k))
+        (Functor_cart_cat (Fibre_cat $X $k) (Fibre_cat $Z $k))
         (@Fibre_func $K $W $X (sigma_Fst $FG') $k)
         (@Fibre_func $K $X $Z (sigma_Snd $FG') $k))
       (@Product_pair
-        (@Transf_cat
-          (Fibre_cat $W $k)
-          (Fibre_cat $X $k)
+        (Hom_cat (Functor_cart_cat (Fibre_cat $W $k) (Fibre_cat $X $k))
           (@Fibre_func $K $W $X (sigma_Fst $FG) $k)
           (@Fibre_func $K $W $X (sigma_Fst $FG') $k))
-        (@Transf_cat
-          (Fibre_cat $X $k)
-          (Fibre_cat $Z $k)
+        (Hom_cat (Functor_cart_cat (Fibre_cat $X $k) (Fibre_cat $Z $k))
           (@Fibre_func $K $X $Z (sigma_Snd $FG) $k)
           (@Fibre_func $K $X $Z (sigma_Snd $FG') $k))
         (@tdapp0_fapp0
@@ -15113,25 +17472,25 @@ rule @tdapp0_fapp0
 // Object-component projection for generic Sigma-total uncurrying.
 rule @tapp0_fapp0
       _
-      Cat_cat
+      Cat_cart
       _
       _
       (Struct_sigma $k $r)
       (@Sigma_transfd_funcd $K $R $S $T $eta)
   ↪ @tapp0_fapp0
       (Fibre_cat $R $k)
-      Cat_cat
-      (@Fibre_func $K $R (@Const_catd $K Cat_cat) $S $k)
-      (@Fibre_func $K $R (@Const_catd $K Cat_cat) $T $k)
+      Cat_cart
+      (@Fibre_func $K $R (@Const_catd $K Cat_cart) $S $k)
+      (@Fibre_func $K $R (@Const_catd $K Cat_cart) $T $k)
       $r
-      (@tdapp0_fapp0
+      (@strict_transfor _ _ _ _ (@tdapp0_fapp0
         $K
         $R
-        (@Const_catd $K Cat_cat)
+        (@Const_catd $K Cat_cart)
         $S
         $T
         $k
-        $eta);
+        $eta));
 
 // Point component of the totalized displayed transfor at (k,u): the
 // fibrewise component lies over the identity base arrow.
@@ -15160,7 +17519,7 @@ rule @tapp0_fapp0
         (@Fibre_func $K $E $D $FF $k)
         (@Fibre_func $K $E $D $GG $k)
         $u
-        (@tdapp0_fapp0 $K $E $D $FF $GG $k $eta));
+        (@strict_transfor _ _ _ _ (@tdapp0_fapp0 $K $E $D $FF $GG $k $eta)));
 
 // Readable component alias.
 //
@@ -15171,7 +17530,7 @@ symbol Fibre_transf [K : Cat] [E D : τ (Catd K)]
   (ϵ : τ (Transfd FF GG))
   (z : τ (Obj K))
   : τ (Transf (Fibre_func FF z) (Fibre_func GG z))
-≔ @tdapp0_fapp0 K E D FF GG z ϵ;
+≔ @strict_transfor _ _ _ _ (@tdapp0_fapp0 K E D FF GG z ϵ);
 
 // Object action of a displayed-transfor component.
 //
@@ -15211,7 +17570,7 @@ symbol pi_hom_fapp0 [K : Cat] [E : τ (Catd K)]
   (eta : τ (Hom (Pi_cat E) s t))
   (k : τ (Obj K))
   : τ (Hom (Fibre_cat E k) (piapp0 s k) (piapp0 t k))
-≔ tapp0_fapp0 Terminal_obj (tdapp0_fapp0 k eta);
+≔ tapp0_fapp0 Terminal_obj (strict_transfor (tdapp0_fapp0 k eta));
 
 // Internalized-x prerequisite: heterogeneous action of a displayed functor over
 // a base arrow. This is the Cat-valued specialization of the ordinary transfor
@@ -15225,9 +17584,9 @@ symbol functord_transport_func [K : Cat] [E D : τ (Catd K)]
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   : τ (Functor (Fibre_cat E x) (Fibre_cat D y))
-≔ @tapp1_fapp0 K Cat_cat E D x y FF p;
+≔ @tapp1_fapp0 K Cat_cart E D x y FF p;
 
-// Full left strict-naturality route, with the base arrow kept internal.
+// Full left/post transport route, with the base arrow kept internal.
 //
 // Surface/formula:
 //   (p |-> D[p] o FF[x]) : Hom_K(x,y) ⊢ (E[x] ⊢ D[y]).
@@ -15236,19 +17595,19 @@ symbol functord_transport_lhs_tele_func [K : Cat] [E D : τ (Catd K)]
   (x y : τ (Obj K))
   : τ (@Functor
       (@Hom_cat K x y)
-      (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
+      (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
 ≔ @comp_cat_fapp0
     (@Hom_cat K x y)
-    (@Functor_cat (@Fibre_cat K D x) (@Fibre_cat K D y))
-    (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
-    (@comp_cat_con_func
+    (@Functor_cart_cat (@Fibre_cat K D x) (@Fibre_cat K D y))
+    (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
+    (@comp_cat_con_cart_func
       (@Fibre_cat K E x)
       (@Fibre_cat K D x)
       (@Fibre_cat K D y)
       (@Fibre_func K E D FF x))
-    (@fapp1_func K Cat_cat D x y);
+    (@fapp1_func K Cat_cart D x y);
 
-// Full right strict-naturality route, again internal in the base arrow.
+// Full selected pre/right transport route, again internal in the base arrow.
 //
 // Surface/formula:
 //   (p |-> FF[y] o E[p]) : Hom_K(x,y) ⊢ (E[x] ⊢ D[y]).
@@ -15257,55 +17616,45 @@ symbol functord_transport_rhs_tele_func [K : Cat] [E D : τ (Catd K)]
   (x y : τ (Obj K))
   : τ (@Functor
       (@Hom_cat K x y)
-      (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
+      (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
 ≔ @comp_cat_fapp0
     (@Hom_cat K x y)
-    (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K E y))
-    (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
-    (@comp_cat_cov_func
+    (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K E y))
+    (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
+    (@comp_cat_cov_cart_func
       (@Fibre_cat K E x)
       (@Fibre_cat K E y)
       (@Fibre_cat K D y)
       (@Fibre_func K E D FF y))
-    (@fapp1_func K Cat_cat E x y);
+    (@fapp1_func K Cat_cart E x y);
 
-/*
-  Ambient lax source-action reading:
-
-    (p |-> D[p] o FF[x]) = tapp1_func(FF,x,y)
-
-  The existing laxity cell starts at this route and points to
-  `(p |-> FF[y] o E[p])`. The target/right comparison is no longer generic;
-  `StrictFunctord` owns its guarded reading.
-*/
-unif_rule
-  @tapp1_func $K Cat_cat $E $D $x $y $FF
+// Conventional pre/right action: the selected middle is FF[y] o E[p].
+// The left/post route retains its directed comparison.
+unif_rule @tapp1_func $K Cat_cart $E $D $x $y $FF
   ≡ @comp_fapp0 Cat_cat _ _ _
-    (@hom_precomp_along_func
-      Cat_cat Cat_cat (@id Cat_cat Cat_cat)
-      _ _ _
-      (@tapp0_fapp0 $K Cat_cat $E $D $x $FF))
-    (@fapp1_func $K Cat_cat $D $x $y)
+      (@hom_postcomp_func Cat_cart Cat_cart (@id Cat_cat Cat_cart) _ _ _
+        (@tapp0_fapp0 $K Cat_cart $E $D $y $FF))
+      (@fapp1_func $K Cat_cart $E $x $y)
   ↪ [ tt ≡ tt ];
 
-// First-class whole path for the ambient left/source presentation.
-symbol functord_transport_lhs_tele_agrees
+// First-class whole path for the selected pre/right presentation.
+symbol functord_transport_rhs_tele_agrees
   [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   (x y : τ (Obj K))
   : τ (@=
       (Hom
-        Cat_cat
+        Cat_cart
         (@Hom_cat K x y)
-        (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
-      (@functord_transport_lhs_tele_func K E D FF x y)
-      (@tapp1_func K Cat_cat E D x y FF))
+        (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
+      (@functord_transport_rhs_tele_func K E D FF x y)
+      (@tapp1_func K Cat_cart E D x y FF))
 ≔ @eq_refl
     (Hom
-      Cat_cat
+      Cat_cart
       (@Hom_cat K x y)
-      (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
-    (@functord_transport_lhs_tele_func K E D FF x y);
+      (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
+    (@functord_transport_rhs_tele_func K E D FF x y);
 
 // Internalized-x coherence route: first apply FF at x, then transport in D.
 //
@@ -15339,37 +17688,46 @@ symbol functord_transport_rhs_func [K : Cat] [E D : τ (Catd K)]
     (@Fibre_func K E D FF y)
     (@catd_transport_func K E x y p);
 
-// Evaluate the whole ambient left/source path at p.
-symbol functord_transport_lhs_agrees
+// Evaluate the selected pre/right path at p.
+symbol functord_transport_rhs_agrees
   [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   : τ (@=
-      (Hom Cat_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
-      (@functord_transport_lhs_func K E D FF x y p)
+      (Hom Cat_cart (@Fibre_cat K E x) (@Fibre_cat K D y))
+      (@functord_transport_rhs_func K E D FF x y p)
       (@functord_transport_func K E D FF x y p))
 ≔ @eq_ap
     (Hom
-      Cat_cat
+      Cat_cart
       (@Hom_cat K x y)
-      (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
-    (Hom Cat_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
+      (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
+    (Hom Cat_cart (@Fibre_cat K E x) (@Fibre_cat K D y))
     (λ H : τ (Hom
-        Cat_cat
+        Cat_cart
         (@Hom_cat K x y)
-        (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y))),
+        (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y))),
       @fapp0
         (@Hom_cat K x y)
-        (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
+        (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
         H p)
-    (@functord_transport_lhs_tele_func K E D FF x y)
-    (@tapp1_func K Cat_cat E D x y FF)
-    (@functord_transport_lhs_tele_agrees K E D FF x y);
+    (@functord_transport_rhs_tele_func K E D FF x y)
+    (@tapp1_func K Cat_cart E D x y FF)
+    (@functord_transport_rhs_tele_agrees K E D FF x y);
 
-// The former generic target/right equality and derived strict-naturality path
-// are retired. Ambient code consumes `functord_laxity_transf`; strict code uses
-// the evidence-bearing paths in `emdash3_2_gray_profiles.lp`.
+// Only the pre/right route is the strict middle action. The post/left
+// route retains the comparison extracted by functord_laxity_transf; no
+// equality between the two routes is imposed for arbitrary FF.
+
+
+// The displayed specialization erases tapp0_hom_fapp0 before the existing
+// canonical covariance cut can fire. Keep the same projection normal form.
+rule @tdapp0_fapp0 $K _ $E _ _ $y
+      (@fapp1_fapp0 _ _
+        (@fapp1_func _ _ (Functor_cart_include $K Cat_cart) _ $E)
+        _ _ (@fapp1_fapp0 _ _ (@fib_cov_src_func $K $E $x) $u $v $h))
+  ↪ @fib_cov_tapp0_u_map $K $E $x $y $u $v $h;
 
 // 16b. Identity-specialized displayed hom action and Sigma-map action
 /*
@@ -15451,12 +17809,12 @@ rule @fapp1_fapp0
       (@fapp0
         (Fibre_cat $E $x)
         (Fibre_cat $D $x)
-        (@tapp0_fapp0 $K Cat_cat $E $D $x $η)
+        (@tapp0_fapp0 $K Cat_cart $E $D $x $η)
         $u)
       (@fapp0
         (Fibre_cat $E $y)
         (Fibre_cat $D $y)
-        (@tapp0_fapp0 $K Cat_cat $E $D $y $η)
+        (@tapp0_fapp0 $K Cat_cart $E $D $y $η)
         $v)
       $p
       (@fdapp1_int_hom_fapp0
@@ -15476,22 +17834,18 @@ rule @fapp1_fapp0
 // Mathematical notation:
 //   homd_id_src_sec(E,x,u)
 //     = homd_int(id_E)[x](u)
-//     : Π y :^n K^op, E[y^-] ⊢_[y] (Hom_K(x,y)^op ⊢ Cat).
+//     : Obj(S_E(x)), a whole Q-valued transformation.
 //
 // Canonical comment syntax:
 //   Homd_E(x,u,—,—).
-symbol homd_id_src_sec [K : Cat] (E : τ (Catd K))
-  (x : τ (Obj K))
-  (u : τ (Obj (Fibre_cat E x)))
-  : τ (Obj (Pi_cat (Homd_target_section_catd E x)))
-≔ homd_src_sec (@id_funcd K E) x u;
+// homd_id_src_sec is now owned by the native identity Homd core.
 
 // Target dependent-hom section obtained by applying FF to the source object.
 //
 // Mathematical notation:
 //   homd_ff_src_sec(FF,x,u)
 //     = homd_int(FF)[x](FF[x](u))
-//     : Π y :^n K^op, E[y^-] ⊢_[y] (Hom_K(x,y)^op ⊢ Cat).
+//     : Obj(S_E(x)), a whole Q-valued transformation.
 //
 // Canonical comment syntax:
 //   Homd_D(x,FF[x](u),—,FF[—](—)).
@@ -15499,7 +17853,7 @@ symbol homd_ff_src_sec [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   (x : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x)))
-  : τ (Obj (Pi_cat (Homd_target_section_catd E x)))
+  : τ (Obj (@Homd_target_section_cat K E x))
 ≔ homd_src_sec FF x (fapp0 (Fibre_func FF x) u);
 
 // First concrete stage of the non-circular laxity extraction path. This is the
@@ -15510,11 +17864,11 @@ symbol homd_ff_src_sec [K : Cat] [E D : τ (Catd K)]
 //
 // Mathematical notation:
 //   fdapp1_section(FF,x,u) :
-//     homd_int(id_E)[x](u) ->^(HomdTarget_E[x]) homd_int(FF)[x](FF[x](u)).
+//     homd_int(id_E)[x](u) ->^(S_E(x)) homd_int(FF)[x](FF[x](u)).
 //
 // Canonical comment syntax:
 //   fdapp1_int(FF)[x,u] :
-//     Homd_E(x,u,—,—) ->^(HomdTarget_E[x]) Homd_D(x,FF[x](u),—,FF[—](—)).
+//     Homd_E(x,u,—,—) ->^(S_E(x)) Homd_D(x,FF[x](u),—,FF[—](—)).
 //
 // Further projections at y, at the transported object E[p](u), and at the base
 // arrow p produce the component-level displayed laxity cell.
@@ -15522,29 +17876,18 @@ symbol fdapp1_int_section_arrow [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   (x : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x)))
-  : τ (Hom
-      (Fibre_cat (Homd_target_catd E) x)
+  : τ (Obj (Hom_cat
+      (@Homd_target_section_cat K E x)
       (homd_id_src_sec E x u)
-      (homd_ff_src_sec FF x u));
+      (homd_ff_src_sec FF x u)));
 
 // First projection fold for identity-specialized displayed hom-action.
 //
 // Surface/formula:
 //   fdapp1_int_transfd(FF)[x][u] = fdapp1_int_section_arrow(FF,x,u).
-rule @tapp0_fapp0
-      _
-      _
-      _
-      _
-      $u
-      (@tdapp0_fapp0
-        $K
-        _
-        _
-        _
-        _
-        $x
-        (@fdapp1_int_transfd $K $E $D $FF))
+rule @tapp0_fapp0 _ _ _ _ $u
+      (@strict_transfor _ _ _ _
+        (@tdapp0_fapp0 $K _ _ _ _ $x (@fdapp1_int_transfd $K $E $D $FF)))
   ↪ @fdapp1_int_section_arrow $K $E $D $FF $x $u;
 
 // Source y-component of the identity dependent-hom section.
@@ -15555,14 +17898,7 @@ rule @tapp0_fapp0
 //
 // Canonical comment syntax:
 //   Homd_E(x,u,y,—).
-symbol homd_id_tgt_func [K : Cat] (E : τ (Catd K))
-  (x : τ (Obj K))
-  (u : τ (Obj (Fibre_cat E x)))
-  (y : τ (Obj K))
-  : τ (Functor
-      (Fibre_cat E y)
-      (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat))
-≔ piapp0 (homd_id_src_sec E x u) y;
+// homd_id_tgt_func is now owned by the native identity Homd core.
 
 // Target y-component after applying FF to the source object.
 //
@@ -15573,14 +17909,12 @@ symbol homd_id_tgt_func [K : Cat] (E : τ (Catd K))
 // Canonical comment syntax:
 //   Homd_D(x,FF[x](u),y,FF[y](—)).
 symbol homd_ff_tgt_func [K : Cat] [E D : τ (Catd K)]
-  (FF : τ (Functord E D))
-  (x : τ (Obj K))
-  (u : τ (Obj (Fibre_cat E x)))
-  (y : τ (Obj K))
-  : τ (Functor
-      (Fibre_cat E y)
-      (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat))
-≔ piapp0 (homd_ff_src_sec FF x u) y;
+  (FF : τ (Functord E D)) (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (Functor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y)))
+≔ @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+    (@homd_ff_src_sec K E D FF x u);
 
 // Second projection stage of the same internal-hom extraction path.
 //
@@ -15593,37 +17927,20 @@ symbol homd_ff_tgt_func [K : Cat] [E D : τ (Catd K)]
 //   fdapp1_int(FF)[x,u][y] :
 //     Homd_E(x,u,y,—) => Homd_D(x,FF[x](u),y,FF[y](—)).
 //
-// The type is written in the reduced `Transf` form because the next projection
-// consumes it through `tapp0_fapp0`. This still keeps the codomain functor in
-// the canonical `Hom_K(x,y)^op ⊢ Cat` form, avoiding the reducible
-// `Fibre_cat(HomPresheaf_Z(x),y)` classifier pipeline.
+// This is the actual Cartesian fibre-variable Hom. Its next component is
+// an arrow in P(I), whose index comparison need not be strict.
 symbol fdapp1_int_tgt_arrow [K : Cat] [E D : τ (Catd K)]
-  (FF : τ (Functord E D))
-  (x : τ (Obj K))
-  (u : τ (Obj (Fibre_cat E x)))
-  (y : τ (Obj K))
-  : τ (Transf
-      (homd_id_tgt_func E x u y)
-      (homd_ff_tgt_func FF x u y));
+  (FF : τ (Functord E D)) (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (@StrictTransfor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (homd_id_tgt_func E x u y) (homd_ff_tgt_func FF x u y));
 
 // Second projection fold for identity-specialized displayed hom-action.
 //
 // Surface/formula:
 //   fdapp1_int_section_arrow(FF,x,u)[y] = fdapp1_int_tgt_arrow(FF,x,u,y).
-rule @tapp0_fapp0
-      _
-      _
-      _
-      _
-      Terminal_obj
-      (@tdapp0_fapp0
-        _
-        _
-        _
-        _
-        _
-        $y
-        (@fdapp1_int_section_arrow $K $E $D $FF $x $u))
+rule @tapp0_hom_fapp0 _ Homd_coeff_cat _ _ _ _ $y
+      (@fdapp1_int_section_arrow $K $E $D $FF $x $u)
   ↪ @fdapp1_int_tgt_arrow $K $E $D $FF $x $u $y;
 
 // Third projection stage: evaluate the y-component at a fibre object v.
@@ -15637,59 +17954,37 @@ rule @tapp0_fapp0
 //   fdapp1_int(FF)[x,u][y,v] :
 //     Hom_E(E[—](u),v) => Hom_D(D[—](FF[x](u)),FF[y](v)).
 //
-// The ambient category is written directly as `Hom_K(x,y)^op ⊢ Cat`, rather
-// than through `Fibre_cat(HomPresheaf_Z(x),y)`. This is the canonical endpoint
-// category of the HomPresheaf classifier and avoids making later projections
-// depend on unfolding the whole classifier pipeline.
+// The index arrow uses P(I), while each fixed object still has its ordinary
+// T(I)->Cat_cart presheaf view. No strict index naturality is imposed here.
 symbol fdapp1_int_presheaf_arrow [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   (x : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x)))
   (y : τ (Obj K))
   (v : τ (Obj (Fibre_cat E y)))
-  : τ (Hom
-      (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+  : τ (Obj (Hom_cat
+      (Homd_index_cat (Hom_cat K x y))
       (fapp0 (homd_id_tgt_func E x u y) v)
-      (fapp0 (homd_ff_tgt_func FF x u y) v));
+      (fapp0 (homd_ff_tgt_func FF x u y) v)));
 
 // Third projection fold for identity-specialized displayed hom-action.
 //
 // Surface/formula:
 //   fdapp1_int_tgt_arrow(FF,x,u,y)[v]
 //     = fdapp1_int_presheaf_arrow(FF,x,u,y,v).
-rule @tapp0_fapp0
-      _
-      _
-      _
-      _
-      $v
-      (@fdapp1_int_tgt_arrow $K $E $D $FF $x $u $y)
+rule @tapp0_fapp0 _ _ _ _ $v
+      (@strict_transfor _ _ _ _ (@fdapp1_int_tgt_arrow $K $E $D $FF $x $u $y))
   ↪ @fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v;
 
-// Full hom-action of a Sigma map between fixed endpoints.
-//
-// The hom category of a Sigma total is stored as the opposite of a dependent
-// Sigma over the opposite base hom. Therefore the functor-level action is the
-// opposite of the Sigma map induced by the internal displayed-hom projection:
-//   (p,alpha) |-> (p, fdapp1_int(FF)[x,u][y,v][p][alpha]).
-rule @fapp1_func
-      _
-      _
-      (@sigma_map_func $K $E $D $FF)
-      (Struct_sigma $x $u)
-      (Struct_sigma $y $v)
-  ↪ @Op_func
-      (@Sigma_cat
-        (Op_cat (Hom_cat $K $x $y))
-        (fapp0 (@homd_id_tgt_func $K $E $x $u $y) $v))
-      (@Sigma_cat
-        (Op_cat (Hom_cat $K $x $y))
-        (fapp0 (@homd_ff_tgt_func $K $E $D $FF $x $u $y) $v))
-      (@sigma_map_func
-        (Op_cat (Hom_cat $K $x $y))
-        (fapp0 (@homd_id_tgt_func $K $E $x $u $y) $v)
-        (fapp0 (@homd_ff_tgt_func $K $E $D $FF $x $u $y) $v)
-        (@fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v));
+// Full Sigma Hom action uses the existing Sigma through the derived
+// negative index total. Its source and target are the actual P-objects.
+rule @fapp1_func _ _ (@sigma_map_func $K $E $D $FF)
+      (Struct_sigma $x $u) (Struct_sigma $y $v)
+  ↪ @fapp1_fapp0 (Homd_index_cat (Hom_cat $K $x $y)) Cat_cat
+      (Homd_index_sigma_func (Hom_cat $K $x $y))
+      (fapp0 (@homd_id_tgt_func $K $E $x $u $y) $v)
+      (fapp0 (@homd_ff_tgt_func $K $E $D $FF $x $u $y) $v)
+      (@fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v);
 
 // Fourth projection stage, with endpoints written directly through `homd_`.
 //
@@ -15710,8 +18005,7 @@ symbol fdapp1_int_hom_func [K : Cat] [E D : τ (Catd K)]
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y)))
-  : τ (Hom
-      Cat_cat
+  : τ (Functor
       (fapp0
         (homd_
           (@id_funcd K E)
@@ -15736,7 +18030,7 @@ symbol fdapp1_int_hom_func [K : Cat] [E D : τ (Catd K)]
 //     = fdapp1_int_hom_func(FF,p,u,v).
 rule @fapp1_fapp0
       _
-      Cat_cat
+      (Op_cat Cat_cart)
       (@fapp0_func _ _ $p)
       _
       _
@@ -15746,7 +18040,7 @@ rule @fapp1_fapp0
 // Equivalent transfor-component projection at p of the same presheaf arrow.
 rule @tapp0_fapp0
       _
-      Cat_cat
+      (Op_cat Cat_cart)
       _
       _
       $p
@@ -15775,22 +18069,18 @@ rule fapp0
   internal hom action, projected to the presheaf arrow level.
 */
 symbol piapp1_func [K : Cat] (E : τ (Catd K))
-  (s : τ (Obj (Pi_cat E)))
-  (x y : τ (Obj K))
-  : τ (Obj (Pi_cat
-      (homd_
-        (@id_funcd K E)
-        x (@piapp0 K E s x)
-        y (@piapp0 K E s y))))
-≔ @fdapp1_int_presheaf_arrow
-    K
-    (@Const_catd K Terminal_cat)
-    E
-    s
-    x
-    Terminal_obj
-    y
-    Terminal_obj;
+  (s : τ (Obj (Pi_cat E))) (x y : τ (Obj K))
+  : τ (Obj (@Pi_cat (TotalOp_cat (Hom_cat K x y))
+      (@TotalOp_catd (Op_cat (Hom_cat K x y))
+        (@homd_ K E E (@id_funcd K E)
+          x (@piapp0 K E s x) y (@piapp0 K E s y)))))
+≔ @fapp1_fapp0 (CoAbove2_cat (Homd_index_cat (Hom_cat K x y)))
+    (Catd_cat (TotalOp_cat (Hom_cat K x y)))
+    (Homd_index_total_family_func (Hom_cat K x y))
+    (fapp0 (@homd_id_tgt_func K (@Const_catd K Terminal_cat) x Terminal_obj y) Terminal_obj)
+    (fapp0 (@homd_ff_tgt_func K (@Const_catd K Terminal_cat) E s x Terminal_obj y) Terminal_obj)
+    (@fdapp1_int_presheaf_arrow K (@Const_catd K Terminal_cat) E s
+      x Terminal_obj y Terminal_obj);
 
 // Capped section action over a base arrow.
 //
@@ -15842,6 +18132,38 @@ unif_rule @comp_fapp0 Cat_cat _ _ _
    (@Sigma_proj1_func $A (@Pullback_catd $A $K $E $F))) ↪ [ tt ≡ tt ];
 
 
+// Total-dual instances of the existing three Sigma projection views.
+// Pattern on the stable R(T(-)) functor heads, not the reducible TotalOp alias.
+// These are proof-time comparisons; section/map/base-change owners remain.
+// A composite with this projection may carry two proof-time-equal family
+// presentations. Compare the actual families and other maps separately;
+// composition is not made injective and no family or map is discarded.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $E))) $H
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K0 $E0))) $H0
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E; $H0 ≡ $H ];
+
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $E)))
+    (@CoAbove2_func _ _ (@Op_func _ _ (@section_total_func $K $E _)))
+  ≡ @id Cat_cat (CoAbove2_cat (Op_cat $K)) ↪ [ tt ≡ tt ];
+
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $D)))
+    (@CoAbove2_func _ _ (@Op_func _ _ (@sigma_map_func $K $E $D _)))
+  ≡ @CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $E))
+  ↪ [ tt ≡ tt ];
+
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ (@Sigma_proj1_func $K $E)))
+    (@CoAbove2_func _ _ (@Op_func _ _ (@sigma_pullback_total_func $A $K $F $E)))
+  ≡ @comp_fapp0 Cat_cat _ _ _
+    (@CoAbove2_func _ _ (@Op_func _ _ $F))
+    (@CoAbove2_func _ _ (@Op_func _ _
+      (@Sigma_proj1_func $A (@Pullback_catd $A $K $E $F))))
+  ↪ [ tt ≡ tt ];
+
 rule @fapp0 _ _ (@section_total_func $K $E $s) $k
   ↪ @Struct_sigma
       (Obj $K)
@@ -15859,16 +18181,18 @@ rule @fapp1_fapp0 _ _
       $p
       (@piapp1_fapp0 $K $E $s $x $y $p);
 
-// Totalizing the native Hom section retains the entire next action.
+// Totalizing the native Hom section retains its negative index presentation.
 rule @fapp1_func _ _ (@section_total_func $K $E $s) $x $y
-  ↪ @Op_func
-      (Op_cat (Hom_cat $K $x $y))
-      (@Sigma_cat (Op_cat (Hom_cat $K $x $y))
-        (@homd_ $K $E $E (@id_funcd $K $E)
-          $x (@piapp0 $K $E $s $x) $y (@piapp0 $K $E $s $y)))
-      (@section_total_func (Op_cat (Hom_cat $K $x $y))
-        (@homd_ $K $E $E (@id_funcd $K $E)
-          $x (@piapp0 $K $E $s $x) $y (@piapp0 $K $E $s $y))
+  ↪ @TotalOp_func
+      (TotalOp_cat (Hom_cat $K $x $y))
+      (@Sigma_cat (TotalOp_cat (Hom_cat $K $x $y))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))
+          (@homd_ $K $E $E (@id_funcd $K $E)
+            $x (@piapp0 $K $E $s $x) $y (@piapp0 $K $E $s $y))))
+      (@section_total_func (TotalOp_cat (Hom_cat $K $x $y))
+        (@TotalOp_catd (Op_cat (Hom_cat $K $x $y))
+          (@homd_ $K $E $E (@id_funcd $K $E)
+            $x (@piapp0 $K $E $s $x) $y (@piapp0 $K $E $s $y)))
         (@piapp1_func $K $E $s $x $y));
 
 // Raw canonical-triangle cell extracted from the internal displayed hom-action.
@@ -15887,10 +18211,36 @@ symbol fdapp1_int_cell [K : Cat] [E D : τ (Catd K)]
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x)))
-  : τ (Hom
+  : τ (Obj (Hom_cat
       (Fibre_cat D y)
       (fapp0 (functord_transport_lhs_func FF p) u)
-      (fapp0 (functord_transport_rhs_func FF p) u));
+      (fapp0 (functord_transport_rhs_func FF p) u)));
+
+// Constant-family compatibility is specified at the whole index level.
+// The input section is the existing ordinary strict functor F. Its index
+// arrow is constructed from F's actual Hom functor, with no supplied cell.
+rule @fdapp1_int_presheaf_arrow $K
+      (@Const_catd $K Terminal_cat) (@Const_catd $K $B)
+      $F $x _ $y _
+  ↪ fapp0 (Homd_index_const_func (Hom_cat $K $x $y)
+      (Hom_cat $B (@fapp0 $K $B $F $x) (@fapp0 $K $B $F $y)))
+      (@fapp1_func $K $B $F $x $y);
+
+// The existing lower owners keep the same constant specialization when
+// capping precedes the whole-index fold. These are projections of that case.
+rule @fdapp1_int_hom_func $K
+      (@Const_catd $K Terminal_cat) (@Const_catd $K $B)
+      $F $x $y $p _ _
+  ↪ @Obj_func (Hom_cat $B (@fapp0 $K $B $F $x) (@fapp0 $K $B $F $y))
+      (@fapp1_fapp0 $K $B $F $x $y $p);
+rule @fdapp1_int_hom_fapp0 $K
+      (@Const_catd $K Terminal_cat) (@Const_catd $K $B)
+      $F $x $y $p _ _ _
+  ↪ @fapp1_fapp0 $K $B $F $x $y $p;
+rule @fdapp1_int_cell $K
+      (@Const_catd $K Terminal_cat) (@Const_catd $K $B)
+      $F $x $y $p _
+  ↪ @fapp1_fapp0 $K $B $F $x $y $p;
 
 // Consumed object action of canonical total base change, preserving the whole tapp1 heads.
 rule @fapp0 _ _
@@ -15945,7 +18295,7 @@ rule @fapp0 _ $C
         (@Sigma_func $A) (@Pullback_catd_func $A $K $F))
       _ $E (@Const_catd $K $C) $FF
       (@sigma_pullback_total_func $A $K $F (@Const_catd $K $C))))
-    (@Struct_sigma (Obj $A) (λ b : τ (Obj $A), Obj (@fapp0 $K.[] Cat_cat $E.[] (@fapp0 $A.[] $K.[] $F.[] b))) $a $u)
+    (@Struct_sigma (Obj $A) (λ b : τ (Obj $A), Obj (@fapp0 $K.[] Cat_cart $E.[] (@fapp0 $A.[] $K.[] $F.[] b))) $a $u)
   ↪ @fapp0 (@Fibre_cat $K $E (@fapp0 $A $K $F $a)) $C
       (@Fibre_func $K $E (@Const_catd $K $C) $FF (@fapp0 $A $K $F $a)) $u;
 
@@ -15957,7 +18307,7 @@ rule @fapp0 _ $C
         (@Sigma_func $K) (@Pullback_catd_func $K $K (@id Cat_cat $K)))
       _ $E (@Const_catd $K $C) $FF
       (@sigma_pullback_total_func $K $K (@id Cat_cat $K) (@Const_catd $K $C))))
-    (@Struct_sigma (Obj $K) (λ b : τ (Obj $K), Obj (@fapp0 $K.[] Cat_cat $E.[] b)) $a $u)
+    (@Struct_sigma (Obj $K) (λ b : τ (Obj $K), Obj (@fapp0 $K.[] Cat_cart $E.[] b)) $a $u)
   ↪ @fapp0 (@Fibre_cat $K $E (@fapp0 $K $K (@id Cat_cat $K) $a)) $C
       (@Fibre_func $K $E (@Const_catd $K $C) $FF (@fapp0 $K $K (@id Cat_cat $K) $a)) $u;
 
@@ -15987,7 +18337,7 @@ rule @tapp0_fapp0 _ _ _ _ (Struct_sigma $a $u)
           (@Fibre_func $K $E $D $FF (@fapp0 $A $K $F $a)) $u));
 
 // Fibre projection of represented displayed composition; the whole owner stays stable.
-rule @tapp0_fapp0 _ Cat_cat _ _ $k
+rule @tapp0_fapp0 _ Cat_cart _ _ $k
     (@hom_postcomp_fapp0 (@Catd_cat $K) (@Catd_cat $K)
       (@id Cat_cat (@Catd_cat $K)) $E $M $D $GG $FF)
   ↪ @comp_cat_fapp0 (@Fibre_cat $K $E $k) (@Fibre_cat $K $M $k) (@Fibre_cat $K $D $k)
@@ -16031,7 +18381,7 @@ rule @fdapp1_int_hom_fapp0
 // lhs-audit: keep 1,2,3 -- the exact base, terminal source, and target family
 // guard this section-component projection.
 rule @tapp0_fapp0
-      $K Cat_cat
+      $K Cat_cart
       (@Const_catd $K Terminal_cat)
       $D
       $k
@@ -16224,7 +18574,7 @@ rule @fdapp1_int_cell
 
     tdapp1_int_section_arrow(epsilon,x,u)
       : homd_int(id_E)[x](u)
-          ->^(HomdTarget_E[x]) homd_int(GG)[x](FF[x](u))
+          ->^(S_E(x)) homd_int(GG)[x](FF[x](u))
 
     tdapp1_int_cell(epsilon,p,u)
       : D[p](FF[x](u)) ->^(D[y]) GG[y](E[p](u)).
@@ -16246,7 +18596,7 @@ symbol homd_tdapp1_src_sec [K : Cat] [E D : τ (Catd K)]
   [FF GG : τ (Functord E D)]
   (x : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x)))
-  : τ (Obj (Pi_cat (Homd_target_section_catd E x)))
+  : τ (Obj (@Homd_target_section_cat K E x))
 ≔ @homd_src_sec
     K
     E
@@ -16261,49 +18611,37 @@ symbol homd_tdapp1_src_sec [K : Cat] [E D : τ (Catd K)]
 //   homd_tdapp1_tgt_func(FF,GG,x,u,y)
 //     = homd_tdapp1_src_sec(FF,GG,x,u)[y].
 symbol homd_tdapp1_tgt_func [K : Cat] [E D : τ (Catd K)]
-  [FF GG : τ (Functord E D)]
-  (x : τ (Obj K))
-  (u : τ (Obj (Fibre_cat E x)))
-  (y : τ (Obj K))
-  : τ (Functor
-      (Fibre_cat E y)
-      (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat))
-≔ piapp0 (@homd_tdapp1_src_sec K E D FF GG x u) y;
+  [FF GG : τ (Functord E D)] (x : τ (Obj K))
+  (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (Functor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y)))
+≔ @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+    (@homd_tdapp1_src_sec K E D FF GG x u);
 
 // First projection of arbitrary displayed hom-action.
 //
 // Surface/formula:
 //   tdapp1_int_section_arrow(epsilon,x,u)
-//     : homd_int(id_E)[x](u) ->^(HomdTarget_E[x]) homd_int(GG)[x](FF[x](u)).
+//     : homd_int(id_E)[x](u) ->^(S_E(x)) homd_int(GG)[x](FF[x](u)).
 symbol tdapp1_int_section_arrow [K : Cat] [E D : τ (Catd K)]
   [FF GG : τ (Functord E D)]
   (ϵ : τ (Transfd FF GG))
   (x : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x)))
-  : τ (Hom
-      (Fibre_cat (Homd_target_catd E) x)
+  : τ (Obj (Hom_cat
+      (@Homd_target_section_cat K E x)
       (homd_id_src_sec E x u)
-      (@homd_tdapp1_src_sec K E D FF GG x u));
+      (@homd_tdapp1_src_sec K E D FF GG x u)));
 
 // First projection fold for arbitrary displayed hom-action.
 //
 // Surface/formula:
 //   tdapp1_int_fapp0_transfd(epsilon)[x][u]
 //     = tdapp1_int_section_arrow(epsilon,x,u).
-rule @tapp0_fapp0
-      _
-      _
-      _
-      _
-      $u
-      (@tdapp0_fapp0
-        $K
-        _
-        _
-        _
-        _
-        $x
-        (@tdapp1_int_fapp0_transfd $K $E $D $FF $GG $ϵ))
+rule @tapp0_fapp0 _ _ _ _ $u
+      (@strict_transfor _ _ _ _
+        (@tdapp0_fapp0 $K _ _ _ _ $x
+          (@tdapp1_int_fapp0_transfd $K $E $D $FF $GG $ϵ)))
   ↪ @tdapp1_int_section_arrow $K $E $D $FF $GG $ϵ $x $u;
 
 // Displayed identity folds arbitrary section-arrow action to fdapp1.
@@ -16311,7 +18649,7 @@ rule @tdapp1_int_section_arrow
       $K $E $D $FF $FF (@id (@Functord_cat $K $E $D) $FF) $x $u
   ↪ @fdapp1_int_section_arrow $K $E $D $FF $x $u
 with @tdapp1_int_section_arrow
-      $K $E $D $FF $FF (@id (@Transf_cat $K Cat_cat $E $D) $FF) $x $u
+      $K $E $D $FF $FF (@id (@Transf_cat $K Cat_cart $E $D) $FF) $x $u
   ↪ @fdapp1_int_section_arrow $K $E $D $FF $x $u;
 
 // Second projection of arbitrary displayed hom-action at y.
@@ -16320,34 +18658,18 @@ with @tdapp1_int_section_arrow
 //   tdapp1_int_tgt_arrow(epsilon,x,u,y)
 //     : homd_int(id_E)[x](u)[y] => homd_int(GG)[x](FF[x](u))[y].
 symbol tdapp1_int_tgt_arrow [K : Cat] [E D : τ (Catd K)]
-  [FF GG : τ (Functord E D)]
-  (ϵ : τ (Transfd FF GG))
-  (x : τ (Obj K))
-  (u : τ (Obj (Fibre_cat E x)))
-  (y : τ (Obj K))
-  : τ (Transf
-      (homd_id_tgt_func E x u y)
-      (@homd_tdapp1_tgt_func K E D FF GG x u y));
+  [FF GG : τ (Functord E D)] (ϵ : τ (Transfd FF GG))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (@StrictTransfor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (@homd_id_tgt_func K E x u y) (@homd_tdapp1_tgt_func K E D FF GG x u y));
 
 // Second projection fold for arbitrary displayed hom-action.
 //
 // Surface/formula:
 //   tdapp1_int_section_arrow(epsilon,x,u)[y]
 //     = tdapp1_int_tgt_arrow(epsilon,x,u,y).
-rule @tapp0_fapp0
-      _
-      _
-      _
-      _
-      Terminal_obj
-      (@tdapp0_fapp0
-        _
-        _
-        _
-        _
-        _
-        $y
-        (@tdapp1_int_section_arrow $K $E $D $FF $GG $ϵ $x $u))
+rule @tapp0_hom_fapp0 _ Homd_coeff_cat _ _ _ _ $y
+      (@tdapp1_int_section_arrow $K $E $D $FF $GG $ϵ $x $u)
   ↪ @tdapp1_int_tgt_arrow $K $E $D $FF $GG $ϵ $x $u $y;
 
 // Displayed identity folds arbitrary target-arrow action to fdapp1.
@@ -16355,7 +18677,7 @@ rule @tdapp1_int_tgt_arrow
       $K $E $D $FF $FF (@id (@Functord_cat $K $E $D) $FF) $x $u $y
   ↪ @fdapp1_int_tgt_arrow $K $E $D $FF $x $u $y
 with @tdapp1_int_tgt_arrow
-      $K $E $D $FF $FF (@id (@Transf_cat $K Cat_cat $E $D) $FF) $x $u $y
+      $K $E $D $FF $FF (@id (@Transf_cat $K Cat_cart $E $D) $FF) $x $u $y
   ↪ @fdapp1_int_tgt_arrow $K $E $D $FF $x $u $y;
 
 // Third projection of arbitrary displayed hom-action at fibre object v.
@@ -16370,23 +18692,18 @@ symbol tdapp1_int_presheaf_arrow [K : Cat] [E D : τ (Catd K)]
   (u : τ (Obj (Fibre_cat E x)))
   (y : τ (Obj K))
   (v : τ (Obj (Fibre_cat E y)))
-  : τ (Hom
-      (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+  : τ (Obj (Hom_cat
+      (Homd_index_cat (Hom_cat K x y))
       (fapp0 (homd_id_tgt_func E x u y) v)
-      (fapp0 (@homd_tdapp1_tgt_func K E D FF GG x u y) v));
+      (fapp0 (@homd_tdapp1_tgt_func K E D FF GG x u y) v)));
 
 // Third projection fold for arbitrary displayed hom-action.
 //
 // Surface/formula:
 //   tdapp1_int_tgt_arrow(epsilon,x,u,y)[v]
 //     = tdapp1_int_presheaf_arrow(epsilon,x,u,y,v).
-rule @tapp0_fapp0
-      _
-      _
-      _
-      _
-      $v
-      (@tdapp1_int_tgt_arrow $K $E $D $FF $GG $ϵ $x $u $y)
+rule @tapp0_fapp0 _ _ _ _ $v
+      (@strict_transfor _ _ _ _ (@tdapp1_int_tgt_arrow $K $E $D $FF $GG $ϵ $x $u $y))
   ↪ @tdapp1_int_presheaf_arrow $K $E $D $FF $GG $ϵ $x $u $y $v;
 
 // Displayed identity folds arbitrary presheaf-arrow action to fdapp1.
@@ -16397,7 +18714,7 @@ rule @tdapp1_int_presheaf_arrow
   ↪ @fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v
 with @tdapp1_int_presheaf_arrow
       $K $E $D $FF $FF
-      (@id (@Transf_cat $K Cat_cat $E $D) $FF)
+      (@id (@Transf_cat $K Cat_cart $E $D) $FF)
       $x $u $y $v
   ↪ @fdapp1_int_presheaf_arrow $K $E $D $FF $x $u $y $v;
 
@@ -16413,8 +18730,7 @@ symbol tdapp1_int_hom_func [K : Cat] [E D : τ (Catd K)]
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y)))
-  : τ (Hom
-      Cat_cat
+  : τ (Functor
       (fapp0
         (homd_
           (@id_funcd K E)
@@ -16435,7 +18751,7 @@ symbol tdapp1_int_hom_func [K : Cat] [E D : τ (Catd K)]
 // Fourth projection fold by evaluating the arbitrary presheaf arrow at p.
 rule @fapp1_fapp0
       _
-      Cat_cat
+      (Op_cat Cat_cart)
       (@fapp0_func _ _ $p)
       _
       _
@@ -16445,7 +18761,7 @@ rule @fapp1_fapp0
 // Equivalent transfor-component projection at p for arbitrary epsilon.
 rule @tapp0_fapp0
       _
-      Cat_cat
+      (Op_cat Cat_cart)
       _
       _
       $p
@@ -16460,7 +18776,7 @@ rule @tdapp1_int_hom_func
   ↪ @fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v
 with @tdapp1_int_hom_func
       $K $E $D $FF $FF
-      (@id (@Transf_cat $K Cat_cat $E $D) $FF)
+      (@id (@Transf_cat $K Cat_cart $E $D) $FF)
       $x $y $p $u $v
   ↪ @fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v;
 
@@ -16493,25 +18809,17 @@ rule @tdapp1_int_cell
       $K $E $D $FF $FF (@id (@Functord_cat $K $E $D) $FF) $x $y $p $u
   ↪ @fdapp1_int_cell $K $E $D $FF $x $y $p $u
 with @tdapp1_int_cell
-      $K $E $D $FF $FF (@id (@Transf_cat $K Cat_cat $E $D) $FF) $x $y $p $u
+      $K $E $D $FF $FF (@id (@Transf_cat $K Cat_cart $E $D) $FF) $x $y $p $u
   ↪ @fdapp1_int_cell $K $E $D $FF $x $y $p $u;
+
 
 // 16e. Strict/cartesian and terminal-source specializations
 
-// Proof-time comparison only: terminal-source displayed laxity agrees with
-// ordinary functor arrow action. Neither side is selected as a runtime fold.
-//
-// Surface/formula:
-//   fdapp1_int_cell(s,p,*) ≡ s[p].
-unif_rule
-  @fdapp1_int_cell
-    $K (@Const_catd $K Terminal_cat) (@Const_catd $K $A)
-    $s $x $y $p Terminal_obj
-  ≡ @fapp1_fapp0 $K $A $s $x $y $p
-  ↪ [ tt ≡ tt ];
+// Constant-family section action now computes through the whole index
+// constructor above. The former point-only proof-time rule is redundant.
 
-// Transparent theorem exposing the terminal-source proof-time comparison.
-// Its reflexive body exercises the unification rule; this is not runtime beta.
+// Retained theorem for the terminal-source comparison. Its reflexive
+// body now follows the whole constant-index computation.
 symbol terminal_fdapp1_int_cell_eq
   [K A : Cat]
   (s : τ (Functord
@@ -16535,9 +18843,9 @@ symbol terminal_fdapp1_int_cell_eq
       (@fapp0 K A s y))
     (@fapp1_fapp0 K A s x y p);
 
-// Constant-section arrow action agrees propositionally with ordinary functor
-// action. The section projection computes to `fdapp1_int_cell`; the preceding
-// proof-time comparison supplies the final ordinary view.
+// The existing theorem records the constant section arrow computation.
+// The whole index specialization and its lower projections now retain the
+// ordinary functor action directly.
 symbol piapp1_const_fapp0_eq
   [K A : Cat]
   (s : τ (Obj (Pi_cat (@Const_catd K A))))
@@ -16563,7 +18871,7 @@ unif_rule @comp_fapp0 Cat_cat _ _ _ (@Product_projR_func _ _)
 // implicit.
 rule @fdapp1_int_cell
       $Z _ _
-      (@hom_int_precomp_func $Z $Z (@id Cat_cat $Z) $y $x $p)
+      (@strict_transfor _ _ _ _ (@hom_int_precomp_func $Z $Z (@id Cat_cat $Z) $y $x $p))
       $y $z $q (@id $Z $y)
   ↪ @id
       (Hom_cat $Z $x $z)
@@ -16575,7 +18883,7 @@ rule @fdapp1_int_cell
 // fibre arrow gives the identity at the composite arrow.
 rule @fdapp1_int_hom_fapp0
       $Z _ _
-      (@hom_int_precomp_func $Z $Z (@id Cat_cat $Z) $y $x $p)
+      (@strict_transfor _ _ _ _ (@hom_int_precomp_func $Z $Z (@id Cat_cat $Z) $y $x $p))
       $y $z $q
       (@id $Z $y) $q (@id (Hom_cat $Z $y $z) $q)
   ↪ @id
@@ -16595,8 +18903,8 @@ rule @fdapp1_int_hom_fapp0
     sigma_intro_tapp0_func(E,k)       : E[k] ⊢ ΣE
     sigma_intro_tapp0_func(E,k)(u)    = (k,u)
 
-    pi_eval_transf(E)                 : const(ΠE) ⊢ E
-    pi_eval_transf(E)[k]              = piapp0_func(E,k) : ΠE ⊢ E[k]
+    pi_eval_transf(E)                 : ΠE ⊢ (const(1) ⊢ E)
+    pi_eval_transf(E)[s][k](*)        = s[k]
 
     const_section_func(K,A)           : A ⊢ Π (k :^n K), A
     const_section_func(K,A)(a)        = const(a)
@@ -16618,64 +18926,63 @@ rule @fdapp1_int_hom_fapp0
 
 // 17a. Generic Sigma/Pi introduction and evaluation
 
-// Generic Sigma helper: include a fibre object as a total object.
-//
-// Surface/formula:
-//   sigma_intro_transf(E)[k](u) = (k,u).
+// The total inclusion is lax across K and strictly natural in its fibre.
+// Its component at k takes u to (k,u).
 injective symbol sigma_intro_transf [K : Cat] (E : τ (Catd K))
   : τ (Functord E (@Const_catd K (@Sigma_cat K E)));
 
-// Component of `sigma_intro_transf` at k.
-//
-// Surface/formula:
-//   sigma_intro_tapp0_func(E,k)(u) = (k,u).
 symbol sigma_intro_tapp0_func [K : Cat] (E : τ (Catd K)) (k : τ (Obj K))
   : τ (Functor (Fibre_cat E k) (Sigma_cat E));
 
-// Component projection: sigma_intro_transf(E)[k] ↪ sigma_intro_tapp0_func(E,k).
 rule @tapp0_fapp0
-      $K Cat_cat $E _ $k (@sigma_intro_transf $K $E)
+      $K Cat_cart $E _ $k (@sigma_intro_transf $K $E)
   ↪ @sigma_intro_tapp0_func $K $E $k;
-
-// Object introduction into the total category: u ↦ (k,u).
 rule fapp0 (@sigma_intro_tapp0_func $K $E $k) $u
   ↪ Struct_sigma $k $u;
 
-// Generic Pi helper: evaluation transfor from a constant section to a family.
+// Whole evaluation in section-first order. Pi is already the category of
+// terminal-source displayed maps, including their lax higher action.
+// This is its actual identity view, not a new evaluation constructor.
 //
-// Surface/formula:
-//   pi_eval_transf(E)[k] = piapp0_func(E,k).
-injective symbol pi_eval_transf [K : Cat] (E : τ (Catd K))
-  : τ (Functord
-      (@Const_catd K (@Pi_cat K E))
-      E);
+// pi_eval_transf(E)[s] : const(1) => E
+// pi_eval_transf(E)[s][k](*) = s[k].
+//
+// The former k-first Functord(const(Pi(E)),E) is not retained: its
+// Cartesian fibre comparison would make arbitrary lax section squares
+// commute. Nor does merely changing its coefficient to ordinary Cat
+// supply the opposite comparison direction needed by that order.
+symbol pi_eval_transf [K : Cat] (E : τ (Catd K))
+  : τ (Functor (Pi_cat E) (Pi_cat E))
+≔ @id_func (Pi_cat E);
 
-// LHS indexing guard: this source family is reconstructible from
-// `pi_eval_transf`, but replacing it with `_` makes bounded kernel checking
-// exceed 30 seconds. Keep it explicit as a decision-tree discriminator.
-// lhs-audit: keep 3 -- measured decision-tree performance guard
-rule @tapp0_fapp0
-      $K Cat_cat
-      (@Const_catd $K (@Pi_cat $K $E))
-      $E $k
-      (@pi_eval_transf $K $E)
-  ↪ @piapp0_func $K $E $k;
-
-// Reusable displayed weakening to the constant terminal family.
-//
-// Surface/formula:
-//   Terminal_funcd(E) : E ⊢_K const_K(1)
-//   Terminal_funcd(E)[k] = Terminal_func(E[k]).
-//
-// Composing this owner with Const_func(a) derives a coherent constant map
-// from any displayed source.  In particular it supplies the fixed argument
-// of Eval_funcd without a specialized third evaluation owner.
+// Existing terminal weakening retains the admitted coefficient universe.
 injective symbol Terminal_funcd [K : Cat] (E : τ (Catd K))
   : τ (Functord E (@Const_catd K Terminal_cat));
 
-// Point component of displayed terminal weakening.
-rule @tapp0_fapp0 _ Cat_cat _ _ $k (@Terminal_funcd _ $E)
+// The chosen terminal displayed map has canonical strict base naturality.
+// Keep its actual ordinary implementation through this Cartesian profile view.
+injective symbol Terminal_cart_funcd [K : Cat] (E : τ (Catd K))
+  : τ (Hom (Functor_cart_cat K Cat_cart) E (@Const_catd K Terminal_cat));
+
+// The canonical Cartesian terminal map of the terminal family is its identity.
+// This is a constructor law, not eta for arbitrary sections or unit objects.
+rule @Terminal_cart_funcd $K (@Const_catd $K Terminal_cat)
+  ↪ @id (Functor_cart_cat $K Cat_cart) (@Const_catd $K Terminal_cat);
+
+
+unif_rule @strict_transfor _ _ _ _ (@Terminal_cart_funcd $K $E)
+  ≡ @Terminal_funcd $K0 $E0
+  ↪ [ $K0 ≡ $K; $E0 ≡ $E ];
+
+rule @tapp0_fapp0 _ Cat_cart _ _ $k
+    (@strict_transfor _ _ _ _ (@Terminal_cart_funcd $K $E))
+  ↪ @tapp0_fapp0 $K Cat_cart $E (@Const_catd $K Terminal_cat) $k
+      (@Terminal_funcd $K $E);
+
+
+rule @tapp0_fapp0 _ Cat_cart _ _ $k (@Terminal_funcd _ $E)
   ↪ Terminal_func (Fibre_cat $E $k);
+
 
 // 17b. Constant sections and delayed product-pair telescope rules
 //
@@ -16735,16 +19042,40 @@ rule @tdapp0_fapp0
       (@Const_transfd $K $A $x $y $p)
   ↪ @Const_transf Terminal_cat $A $x $y $p;
 
+// Stable weakening owner for ordinary functor categories. This does not fold
+// through the proof-time-only constant-section facade.
+//
+// Surface/formula:
+//   Const_func_func(A,B)[b] = const_A(b) : A ⊢ B.
+injective symbol Const_func_func [A B : Cat]
+  : τ (Functor B (Functor_cart_cat A B));
+
+// Object action of ordinary weakening.
+// lhs-audit: keep 2 -- measured ordinary-weakening codomain discriminator
+rule @fapp0 $B (Functor_cart_cat $A $B) (@Const_func_func $A $B) $b
+  ↪ @Const_func $A $B $b;
+
+// Full hom action of ordinary weakening.
+// lhs-audit: keep 2 -- measured ordinary-weakening codomain discriminator
+rule @fapp1_func $B (Functor_cart_cat $A $B) (@Const_func_func $A $B) $x $y
+  ↪ @Const_transf_func $A $B $x $y;
+
+// Capped arrow action of ordinary weakening.
+// lhs-audit: keep 2 -- measured ordinary-weakening codomain discriminator
+rule @fapp1_fapp0 $B (Functor_cart_cat $A $B) (@Const_func_func $A $B) $x $y $p
+  ↪ @Const_transf $A $B $x $y $p;
+
+
 // Pairing telescope for products.
 //
 // Surface/formula:
 //   Product_pair_tele_func(A,B) : A ⊢ (B ⊢ A × B)
 //   Product_pair_tele_func[x][y] = (x,y)
 //   Product_pair_tele_func[p][y] = (p,id_y).
-rule sigma_Fst (@Product_pair_tele_func $A $B) ↪ @const_section_func $B $A;
+rule sigma_Fst (@Product_pair_tele_func $A $B) ↪ @Const_func_func $B $A;
 
 // Second telescope projection is constantly id_B.
-rule sigma_Snd (@Product_pair_tele_func $A $B) ↪ @Const_func $A (Functor_cat $B $B) (@id_func $B);
+rule sigma_Snd (@Product_pair_tele_func $A $B) ↪ @Const_func $A (Functor_cart_cat $B $B) (@id_func $B);
 
 // Object projection: Product_pair_tele_func[x] ↪ (const_B(x),id_B).
 rule @fapp0 _ _
@@ -16758,20 +19089,22 @@ rule @fapp1_func _ _
       (@Const_transf_func $B $A $x $x')
       (@Const_func
         (Hom_cat $A $x $x')
-        (@Transf_cat $B $B (@id_func $B) (@id_func $B))
-        (@id (Functor_cat $B $B) (@id_func $B)));
+        (Hom_cat (Functor_cart_cat $B $B) (@id_func $B) (@id_func $B))
+        (@id (Functor_cart_cat $B $B) (@id_func $B)));
 
 // Capped arrow action: Product_pair_tele_func[p] ↪ (const(p),id_{id_B}).
 rule @fapp1_fapp0 _ _
       (@Product_pair_tele_func $A $B) $x $x' $p
   ↪ Struct_sigma
       (@Const_transf $B $A $x $x' $p)
-      (@id (Functor_cat $B $B) (@id_func $B));
+      (@id (Functor_cart_cat $B $B) (@id_func $B));
 
 // 17c. Ordinary functor structural logic
 
 /*
-  Usual structural operations for nested ordinary functor categories.
+  Cartesian structural operations with the original projection ladders.
+  Their interchange/double-exchange laws require Cartesian mapping
+  parameters; arbitrary default lax transformations are not strictified.
 
   Surface/formula:
     Const_func_func(A,B) : B ⊢ (A ⊢ B)
@@ -16784,28 +19117,8 @@ rule @fapp1_fapp0 _ _
   operations directly, rather than through product/curry encodings.
 */
 
-// Stable weakening owner for ordinary functor categories. This does not fold
-// through the proof-time-only constant-section facade.
-//
-// Surface/formula:
-//   Const_func_func(A,B)[b] = const_A(b) : A ⊢ B.
-injective symbol Const_func_func [A B : Cat]
-  : τ (Functor B (Functor_cat A B));
-
-// Object action of ordinary weakening.
-// lhs-audit: keep 2 -- measured ordinary-weakening codomain discriminator
-rule @fapp0 $B (Functor_cat $A $B) (@Const_func_func $A $B) $b
-  ↪ @Const_func $A $B $b;
-
-// Full hom action of ordinary weakening.
-// lhs-audit: keep 2 -- measured ordinary-weakening codomain discriminator
-rule @fapp1_func $B (Functor_cat $A $B) (@Const_func_func $A $B) $x $y
-  ↪ @Const_transf_func $A $B $x $y;
-
-// Capped arrow action of ordinary weakening.
-// lhs-audit: keep 2 -- measured ordinary-weakening codomain discriminator
-rule @fapp1_fapp0 $B (Functor_cat $A $B) (@Const_func_func $A $B) $x $y $p
-  ↪ @Const_transf $A $B $x $y $p;
+// The canonical Const_func_func owner is declared in 17b,
+// before its product-pair telescope consumer.
 
 // Direct displayed weakening for a mixed functor source slot.
 //
@@ -16822,7 +19135,7 @@ injective symbol Functor_catd_const_funcd [K : Cat]
 
 // Point component is ordinary functorial weakening in the fibre.
 rule @tapp0_fapp0
-      $K Cat_cat _ _ $k
+      $K Cat_cart _ _ $k
       (@Functor_catd_const_funcd $K $A $B)
   ↪ @Const_func_func
       (Fibre_cat $A $k)
@@ -16832,36 +19145,36 @@ rule @tapp0_fapp0
 // functor embedding at the target endpoint. The result remains a whole
 // functor over Hom_K(x,y), so higher base cells remain iterable.
 rule @tapp1_func
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Functor_catd_const_funcd $K $A $B)
   ↪ @comp_cat_fapp0
       (Hom_cat $K $x $y)
-      (Functor_cat (Fibre_cat $B $x) (Fibre_cat $B $y))
-      (Functor_cat
+      (Functor_cart_cat (Fibre_cat $B $x) (Fibre_cat $B $y))
+      (Functor_cart_cat
         (Fibre_cat $B $x)
-        (Functor_cat (Fibre_cat $A $y) (Fibre_cat $B $y)))
-      (@comp_cat_cov_func
+        (Functor_cart_cat (Fibre_cat $A $y) (Fibre_cat $B $y)))
+      (@comp_cat_cov_cart_func
         (Fibre_cat $B $x)
         (Fibre_cat $B $y)
-        (Functor_cat (Fibre_cat $A $y) (Fibre_cat $B $y))
+        (Functor_cart_cat (Fibre_cat $A $y) (Fibre_cat $B $y))
         (@Const_func_func
           (Fibre_cat $A $y)
           (Fibre_cat $B $y)))
-      (@fapp1_func $K Cat_cat $B $x $y);
+      (@fapp1_func $K Cat_cart $B $x $y);
 
 // Capped base action is the corresponding composite at p.
 rule @tapp1_fapp0
-      $K Cat_cat _ _ $x $y
+      $K Cat_cart _ _ $x $y
       (@Functor_catd_const_funcd $K $A $B)
       $p
   ↪ @comp_cat_fapp0
       (Fibre_cat $B $x)
       (Fibre_cat $B $y)
-      (Functor_cat (Fibre_cat $A $y) (Fibre_cat $B $y))
+      (Functor_cart_cat (Fibre_cat $A $y) (Fibre_cat $B $y))
       (@Const_func_func
         (Fibre_cat $A $y)
         (Fibre_cat $B $y))
-      (@fapp1_fapp0 $K Cat_cat $B $x $y $p);
+      (@fapp1_fapp0 $K Cat_cart $B $x $y $p);
 
 // Exchange of two ordinary functor arguments.
 //
@@ -16869,23 +19182,23 @@ rule @tapp1_fapp0
 //   sym_func_func(A,B,C)[H][b][a] = H[a][b].
 symbol sym_func_func [A B C : Cat]
   : τ (Functor
-      (Functor_cat A (Functor_cat B C))
-      (Functor_cat B (Functor_cat A C)));
+      (Functor_cart_cat A (Functor_cart_cat B C))
+      (Functor_cart_cat B (Functor_cart_cat A C)));
 
 // Object action of exchange.
 //
 // Surface/formula:
 //   sym_func(H) : B ⊢ (A ⊢ C).
 symbol sym_func [A B C : Cat]
-  (H : τ (Functor A (Functor_cat B C)))
-  : τ (Functor B (Functor_cat A C));
+  (H : τ (Functor A (Functor_cart_cat B C)))
+  : τ (Functor B (Functor_cart_cat A C));
 
 // Exchange evaluated at the B-object b.
 //
 // Surface/formula:
 //   sym_fapp0_func(H,b)[a] = H[a][b].
 symbol sym_fapp0_func [A B C : Cat]
-  (H : τ (Functor A (Functor_cat B C)))
+  (H : τ (Functor A (Functor_cart_cat B C)))
   (b : τ (Obj B))
   : τ (Functor A C);
 
@@ -16894,78 +19207,64 @@ symbol sym_fapp0_func [A B C : Cat]
 // Surface/formula:
 //   sym_fapp0_func(H,b)[p] = H[p][b].
 symbol sym_fapp0_fapp1_func [A B C : Cat]
-  (H : τ (Functor A (Functor_cat B C)))
+  (H : τ (Functor A (Functor_cart_cat B C)))
   (b : τ (Obj B))
   [a a' : τ (Obj A)]
   : τ (Functor
       (Hom_cat A a a')
       (Hom_cat C
-        (@fapp0 B C (@fapp0 A (Functor_cat B C) H a) b)
-        (@fapp0 B C (@fapp0 A (Functor_cat B C) H a') b)));
+        (@fapp0 B C (@fapp0 A (Functor_cart_cat B C) H a) b)
+        (@fapp0 B C (@fapp0 A (Functor_cart_cat B C) H a') b)));
 
 // B-arrow action of the exchanged functor.
 //
 // Surface/formula:
 //   sym_func(H)[q] : sym(H)[b] => sym(H)[b'].
 symbol sym_fapp1_func [A B C : Cat]
-  (H : τ (Functor A (Functor_cat B C)))
+  (H : τ (Functor A (Functor_cart_cat B C)))
   [b b' : τ (Obj B)]
   : τ (Functor
       (Hom_cat B b b')
-      (@Transf_cat
-        A
-        C
-        (@sym_fapp0_func A B C H b)
-        (@sym_fapp0_func A B C H b')));
+      (Hom_cat (Functor_cart_cat A C) (@sym_fapp0_func A B C H b) (@sym_fapp0_func A B C H b')));
 
 // Capped B-arrow action of exchange.
 //
 // Surface/formula:
 //   sym_tapp1_fapp0_transf(H,q)[a] = H[a][q].
 symbol sym_tapp1_fapp0_transf [A B C : Cat]
-  (H : τ (Functor A (Functor_cat B C)))
+  (H : τ (Functor A (Functor_cart_cat B C)))
   [b b' : τ (Obj B)]
   (q : τ (Hom B b b'))
-  : τ (Transf
-      (@sym_fapp0_func A B C H b)
-      (@sym_fapp0_func A B C H b'));
+  : τ (Hom (Functor_cart_cat A C) (@sym_fapp0_func A B C H b) (@sym_fapp0_func A B C H b'));
 
 // Hom-action of exchange on ordinary transfors.
 //
 // Surface/formula:
 //   sym_func_func[eta] : sym(H) => sym(K).
 symbol sym_func_func_fapp1_func [A B C : Cat]
-  [H K : τ (Functor A (Functor_cat B C))]
+  [H K : τ (Functor A (Functor_cart_cat B C))]
   : τ (Functor
-      (@Transf_cat A (Functor_cat B C) H K)
-      (@Transf_cat
-        B
-        (Functor_cat A C)
-        (@sym_func A B C H)
-        (@sym_func A B C K)));
+      (Hom_cat (Functor_cart_cat A (Functor_cart_cat B C)) H K)
+      (Hom_cat (Functor_cart_cat B (Functor_cart_cat A C)) (@sym_func A B C H) (@sym_func A B C K)));
 
 // Capped hom-action of exchange on an ordinary transfor.
 //
 // Surface/formula:
 //   sym_func_func_transf(eta)[b][a] = eta[a][b].
 symbol sym_func_func_transf [A B C : Cat]
-  [H K : τ (Functor A (Functor_cat B C))]
-  (eta : τ (Transf H K))
-  : τ (Transf
-      (@sym_func A B C H)
-      (@sym_func A B C K));
+  [H K : τ (Functor A (Functor_cart_cat B C))]
+  (eta : τ (Hom (Functor_cart_cat A (Functor_cart_cat B C)) H K))
+  : τ (Hom (Functor_cart_cat B (Functor_cart_cat A C)) (@sym_func A B C H) (@sym_func A B C K));
 
 // Component of exchanged transfor at b.
 //
 // Surface/formula:
 //   sym_transf_tapp0_transf(eta,b)[a] = eta[a][b].
 symbol sym_transf_tapp0_transf [A B C : Cat]
-  [H K : τ (Functor A (Functor_cat B C))]
-  (eta : τ (Transf H K))
+  [H K : τ (Functor A (Functor_cart_cat B C))]
+  (eta : τ (Hom (Functor_cart_cat A (Functor_cart_cat B C)) H K))
   (b : τ (Obj B))
-  : τ (Transf
-      (@sym_fapp0_func A B C H b)
-      (@sym_fapp0_func A B C K b));
+  : τ (Hom (Functor_cart_cat A C) (@sym_fapp0_func A B C H b) (@sym_fapp0_func A B C K b));
 
 // Projection ladder for exchange: object action and hom-action.
 rule @fapp0 _ _ (@sym_func_func $A $B $C) $H
@@ -16989,7 +19288,7 @@ rule @fapp0 _ _ (@sym_func $A $B $C $H) $b
 
 // Exchanged object action: sym(H)[b][a] ↪ H[a][b].
 rule @fapp0 $A $C (@sym_fapp0_func $A $B $C $H $b) $a
-  ↪ @fapp0 $B $C (@fapp0 $A (Functor_cat $B $C) $H $a) $b;
+  ↪ @fapp0 $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) $b;
 
 // A-arrow hom-action of sym(H)[b].
 rule @fapp1_func $A $C (@sym_fapp0_func $A $B $C $H $b) $a $a'
@@ -17000,20 +19299,20 @@ rule fapp0 (@sym_fapp0_fapp1_func $A $B $C $H $b $a $a') $p
   ↪ @tapp0_fapp0
       $B
       $C
-      (@fapp0 $A (Functor_cat $B $C) $H $a)
-      (@fapp0 $A (Functor_cat $B $C) $H $a')
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a')
       $b
-      (@fapp1_fapp0 $A (Functor_cat $B $C) $H $a $a' $p);
+      (@strict_transfor $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) (@fapp0 $A (Functor_cart_cat $B $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $B $C) $H $a $a' $p));
 
 // Direct capped projection of the same A-arrow action.
 rule @fapp1_fapp0 $A $C (@sym_fapp0_func $A $B $C $H $b) $a $a' $p
   ↪ @tapp0_fapp0
       $B
       $C
-      (@fapp0 $A (Functor_cat $B $C) $H $a)
-      (@fapp0 $A (Functor_cat $B $C) $H $a')
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a')
       $b
-      (@fapp1_fapp0 $A (Functor_cat $B $C) $H $a $a' $p);
+      (@strict_transfor $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) (@fapp0 $A (Functor_cart_cat $B $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $B $C) $H $a $a' $p));
 
 // B-arrow action after exchange and its mixed off-diagonal component.
 rule @fapp1_func _ _ (@sym_func $A $B $C $H) $b $b'
@@ -17030,21 +19329,43 @@ rule @fapp1_fapp0 _ _ (@sym_func $A $B $C $H) $b $b' $q
 // Generic identity/composition can be projected before the ordinary
 // fapp1 head is matched; join at the stable exchanged-action projection.
 rule @sym_tapp1_fapp0_transf $A $B $C $H $b $b (@id $B $b)
-  ↪ @id (Functor_cat $A $C) (@sym_fapp0_func $A $B $C $H $b);
+  ↪ @id (Functor_cart_cat $A $C) (@sym_fapp0_func $A $B $C $H $b);
 
 // An opposite identity may normalize to id(B,b) before this projection.
 // lhs-audit: keep 2 -- Op_cat(B) is the actual opposite-identity discriminator;
 // retaining the shared B excludes identities of an unrelated category.
 rule @sym_tapp1_fapp0_transf $A (Op_cat $B) $C $H $b $b (@id $B $b)
-  ↪ @id (Functor_cat $A $C) (@sym_fapp0_func $A (Op_cat $B) $C $H $b);
+  ↪ @id (Functor_cart_cat $A $C) (@sym_fapp0_func $A (Op_cat $B) $C $H $b);
+
+// Total-dual sources likewise normalize their identity before exchange.
+// lhs-audit: keep 2 -- the actual total-dual source must share B with the
+// normalized identity; this is not an identity of an unrelated category.
+rule @sym_tapp1_fapp0_transf $A (CoAbove2_cat (Op_cat $B)) $C $H $b $b (@id $B $b)
+  ↪ @id (Functor_cart_cat $A $C)
+      (@sym_fapp0_func $A (CoAbove2_cat (Op_cat $B)) $C $H $b);
 
 // lhs-audit: keep 1 -- subject reduction cannot reconstruct an arbitrary
 // ambient category from its Hom objects; this pins the transfor category.
-rule @comp_fapp0 (Functor_cat $A $C) _ _ _
+rule @comp_fapp0 (Functor_cart_cat $A $C) _ _ _
       (@sym_tapp1_fapp0_transf $A $B $C $H $b' $b'' $q)
       (@sym_tapp1_fapp0_transf _ _ _ $H $b $b' $p)
   ↪ @sym_tapp1_fapp0_transf $A $B $C $H $b $b''
       (@comp_fapp0 $B $b $b' $b'' $q $p);
+
+// The inclusion can project before the preceding Cartesian composition.
+// Retain the same H and intermediate b' in its ordinary observation.
+// lhs-audit: keep 1 -- the ordinary mapping category types this projection
+// of the existing Cartesian exchange composition, not arbitrary lax inputs.
+rule @comp_fapp0 (Functor_cat $A $C) _ _ _
+      (@strict_transfor _ _ _ _
+        (@sym_tapp1_fapp0_transf $A $B $C $H $b' $b'' $q))
+      (@strict_transfor _ _ _ _
+        (@sym_tapp1_fapp0_transf _ _ _ $H $b $b' $p))
+  ↪ @strict_transfor $A $C
+      (@sym_fapp0_func $A $B $C $H $b)
+      (@sym_fapp0_func $A $B $C $H $b'')
+      (@sym_tapp1_fapp0_transf $A $B $C $H $b $b''
+        (@comp_fapp0 $B $b $b' $b'' $q $p));
 
 // Component at a: sym(H)[q][a] ↪ H[a][q].
 rule @tapp0_fapp0
@@ -17053,11 +19374,11 @@ rule @tapp0_fapp0
       _
       _
       $a
-      (@sym_tapp1_fapp0_transf $A $B $C $H $b $b' $q)
+      (@strict_transfor $A $C _ _ (@sym_tapp1_fapp0_transf $A $B $C $H $b $b' $q))
   ↪ @fapp1_fapp0
       $B
       $C
-      (@fapp0 $A (Functor_cat $B $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
       $b
       $b'
       $q;
@@ -17070,16 +19391,16 @@ rule @tapp1_fapp0
       _
       $a
       $a'
-      (@sym_tapp1_fapp0_transf $A $B $C $H $b $b' $q)
+      (@strict_transfor $A $C _ _ (@sym_tapp1_fapp0_transf $A $B $C $H $b $b' $q))
       $p
   ↪ @tapp1_fapp0
       $B
       $C
-      (@fapp0 $A (Functor_cat $B $C) $H $a)
-      (@fapp0 $A (Functor_cat $B $C) $H $a')
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a')
       $b
       $b'
-      (@fapp1_fapp0 $A (Functor_cat $B $C) $H $a $a' $p)
+      (@strict_transfor $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) (@fapp0 $A (Functor_cart_cat $B $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $B $C) $H $a $a' $p))
       $q;
 
 // Component projection for exchanged transfors.
@@ -17090,7 +19411,7 @@ rule @tapp0_fapp0
       _
       _
       $b
-      (@sym_func_func_transf $A $B $C $H $K $eta)
+      (@strict_transfor _ _ _ _ (@sym_func_func_transf $A $B $C $H $K $eta))
   ↪ @sym_transf_tapp0_transf $A $B $C $H $K $eta $b;
 
 // Second component: sym(eta)[b][a] ↪ eta[a][b].
@@ -17100,29 +19421,29 @@ rule @tapp0_fapp0
       _
       _
       $a
-      (@sym_transf_tapp0_transf $A $B $C $H $K $eta $b)
+      (@strict_transfor $A $C _ _ (@sym_transf_tapp0_transf $A $B $C $H $K $eta $b))
   ↪ @tapp0_fapp0
       $B
       $C
-      (@fapp0 $A (Functor_cat $B $C) $H $a)
-      (@fapp0 $A (Functor_cat $B $C) $K $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $B $C) $K $a)
       $b
-      (@tapp0_fapp0 $A (Functor_cat $B $C) $H $K $a $eta);
+      (@strict_transfor $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) (@fapp0 $A (Functor_cart_cat $B $C) $K $a) (@tapp0_fapp0 $A (Functor_cart_cat $B $C) $H $K $a (@strict_transfor $A (Functor_cart_cat $B $C) $H $K $eta)));
 
 // Double exchange and its preprojected whole-action rungs.
 rule @sym_func _ _ _ (@sym_func _ _ _ $H) ↪ $H;
 
 rule @sym_fapp0_func _ _ _ (@sym_func $A $B $C $H) $a
-  ↪ @fapp0 $A (Functor_cat $B $C) $H $a;
+  ↪ @fapp0 $A (Functor_cart_cat $B $C) $H $a;
 
 rule @sym_fapp0_fapp1_func _ _ _ (@sym_func $A $B $C $H) $a $b $b'
-  ↪ @fapp1_func $B $C (@fapp0 $A (Functor_cat $B $C) $H $a) $b $b';
+  ↪ @fapp1_func $B $C (@fapp0 $A (Functor_cart_cat $B $C) $H $a) $b $b';
 
 rule @sym_fapp1_func _ _ _ (@sym_func $A $B $C $H) $a $a'
-  ↪ @fapp1_func $A (Functor_cat $B $C) $H $a $a';
+  ↪ @fapp1_func $A (Functor_cart_cat $B $C) $H $a $a';
 
 rule @sym_tapp1_fapp0_transf _ _ _ (@sym_func $A $B $C $H) $a $a' $p
-  ↪ @fapp1_fapp0 $A (Functor_cat $B $C) $H $a $a' $p;
+  ↪ @fapp1_fapp0 $A (Functor_cart_cat $B $C) $H $a $a' $p;
 
 // Two exchanges restore the whole transformation, including its action.
 rule @sym_func_func_transf _ _ _ _ _
@@ -17132,7 +19453,7 @@ rule @sym_func_func_transf _ _ _ _ _
 // The same cancellation after the outer component has already projected.
 rule @sym_transf_tapp0_transf _ _ _ _ _
       (@sym_func_func_transf $A $B $C $H $K $eta) $a
-  ↪ @tapp0_fapp0 $A (Functor_cat $B $C) $H $K $a $eta;
+  ↪ @tapp0_fapp0 $A (Functor_cart_cat $B $C) $H $K $a (@strict_transfor $A (Functor_cart_cat $B $C) $H $K $eta);
 
 // Contraction/diagonal for ordinary functor categories.
 //
@@ -17140,15 +19461,15 @@ rule @sym_transf_tapp0_transf _ _ _ _ _
 //   diag_func_func(A,C)[H][a] = H[a][a].
 symbol diag_func_func [A C : Cat]
   : τ (Functor
-      (Functor_cat A (Functor_cat A C))
-      (Functor_cat A C));
+      (Functor_cart_cat A (Functor_cart_cat A C))
+      (Functor_cart_cat A C));
 
 // Object action of contraction.
 //
 // Surface/formula:
 //   diag_func(H) : A ⊢ C.
 symbol diag_func [A C : Cat]
-  (H : τ (Functor A (Functor_cat A C)))
+  (H : τ (Functor A (Functor_cart_cat A C)))
   : τ (Functor A C);
 
 // Arrow action of contraction.
@@ -17156,38 +19477,32 @@ symbol diag_func [A C : Cat]
 // Surface/formula:
 //   diag_func(H)[p] = H[p][p].
 symbol diag_fapp1_func [A C : Cat]
-  (H : τ (Functor A (Functor_cat A C)))
+  (H : τ (Functor A (Functor_cart_cat A C)))
   [a a' : τ (Obj A)]
   : τ (Functor
       (Hom_cat A a a')
       (Hom_cat C
-        (@fapp0 A C (@fapp0 A (Functor_cat A C) H a) a)
-        (@fapp0 A C (@fapp0 A (Functor_cat A C) H a') a')));
+        (@fapp0 A C (@fapp0 A (Functor_cart_cat A C) H a) a)
+        (@fapp0 A C (@fapp0 A (Functor_cart_cat A C) H a') a')));
 
 // Hom-action of contraction on ordinary transfors.
 //
 // Surface/formula:
 //   diag_func_func[eta] : diag(H) => diag(K).
 symbol diag_func_func_fapp1_func [A C : Cat]
-  [H K : τ (Functor A (Functor_cat A C))]
+  [H K : τ (Functor A (Functor_cart_cat A C))]
   : τ (Functor
-      (@Transf_cat A (Functor_cat A C) H K)
-      (@Transf_cat
-        A
-        C
-        (@diag_func A C H)
-        (@diag_func A C K)));
+      (Hom_cat (Functor_cart_cat A (Functor_cart_cat A C)) H K)
+      (Hom_cat (Functor_cart_cat A C) (@diag_func A C H) (@diag_func A C K)));
 
 // Capped hom-action of contraction on an ordinary transfor.
 //
 // Surface/formula:
 //   diag_func_func_transf(eta)[a] = eta[a][a].
 symbol diag_func_func_transf [A C : Cat]
-  [H K : τ (Functor A (Functor_cat A C))]
-  (eta : τ (Transf H K))
-  : τ (Transf
-      (@diag_func A C H)
-      (@diag_func A C K));
+  [H K : τ (Functor A (Functor_cart_cat A C))]
+  (eta : τ (Hom (Functor_cart_cat A (Functor_cart_cat A C)) H K))
+  : τ (Hom (Functor_cart_cat A C) (@diag_func A C H) (@diag_func A C K));
 
 // Projection ladder for contraction: object action and hom-action.
 rule @fapp0 _ _ (@diag_func_func $A $C) $H
@@ -17207,7 +19522,7 @@ rule @fapp1_fapp0 _ _ (@diag_func_func $A $C) $H $K $eta
 
 // Object and arrow action of the diagonal functor.
 rule @fapp0 $A $C (@diag_func $A $C $H) $a
-  ↪ @fapp0 $A $C (@fapp0 $A (Functor_cat $A $C) $H $a) $a;
+  ↪ @fapp0 $A $C (@fapp0 $A (Functor_cart_cat $A $C) $H $a) $a;
 
 // Hom-functor projection for contraction at endpoints a,a'.
 rule @fapp1_func $A $C (@diag_func $A $C $H) $a $a'
@@ -17218,11 +19533,11 @@ rule fapp0 (@diag_fapp1_func $A $C $H $a $a') $p
   ↪ @tapp1_fapp0
       $A
       $C
-      (@fapp0 $A (Functor_cat $A $C) $H $a)
-      (@fapp0 $A (Functor_cat $A $C) $H $a')
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a')
       $a
       $a'
-      (@fapp1_fapp0 $A (Functor_cat $A $C) $H $a $a' $p)
+      (@strict_transfor $A $C (@fapp0 $A (Functor_cart_cat $A $C) $H $a) (@fapp0 $A (Functor_cart_cat $A $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $A $C) $H $a $a' $p))
       $p;
 
 // Direct capped projection of the same diagonal arrow action.
@@ -17230,11 +19545,11 @@ rule @fapp1_fapp0 $A $C (@diag_func $A $C $H) $a $a' $p
   ↪ @tapp1_fapp0
       $A
       $C
-      (@fapp0 $A (Functor_cat $A $C) $H $a)
-      (@fapp0 $A (Functor_cat $A $C) $H $a')
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a')
       $a
       $a'
-      (@fapp1_fapp0 $A (Functor_cat $A $C) $H $a $a' $p)
+      (@strict_transfor $A $C (@fapp0 $A (Functor_cart_cat $A $C) $H $a) (@fapp0 $A (Functor_cart_cat $A $C) $H $a') (@fapp1_fapp0 $A (Functor_cart_cat $A $C) $H $a $a' $p))
       $p;
 
 // Component projection for contracted transfors.
@@ -17244,47 +19559,31 @@ rule @tapp0_fapp0
       _
       _
       $a
-      (@diag_func_func_transf $A $C $H $K $eta)
+      (@strict_transfor $A $C _ _ (@diag_func_func_transf $A $C $H $K $eta))
   ↪ @tapp0_fapp0
       $A
       $C
-      (@fapp0 $A (Functor_cat $A $C) $H $a)
-      (@fapp0 $A (Functor_cat $A $C) $K $a)
+      (@fapp0 $A (Functor_cart_cat $A $C) $H $a)
+      (@fapp0 $A (Functor_cart_cat $A $C) $K $a)
       $a
-      (@tapp0_fapp0 $A (Functor_cat $A $C) $H $K $a $eta);
+      (@strict_transfor $A $C (@fapp0 $A (Functor_cart_cat $A $C) $H $a) (@fapp0 $A (Functor_cart_cat $A $C) $K $a) (@tapp0_fapp0 $A (Functor_cart_cat $A $C) $H $K $a (@strict_transfor $A (Functor_cart_cat $A $C) $H $K $eta)));
+
+
 
 // 17d. Generic ordinary functor hom-action
 //
 // Generic full hom-action for identity and composition of ordinary functors.
 // These rules let semantic aliases such as curry expose functor-level action
 // instead of falling back to capped `fapp1_fapp0` computation only.
-rule @fapp1_func $A $A (@id Cat_cat $A) $x $y ↪ @id Cat_cat (Hom_cat $A $x $y);
+// Generic whole identity/composition action moved to the earlier composition owner.
 
-// Hom-action of a composite: (F ∘ G)_1 ↪ F_1 ∘ G_1.
-rule @fapp1_func $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G) $x $y
-  ↪ @comp_fapp0
-      Cat_cat
-      (Hom_cat $A $x $y)
-      (Hom_cat $B
-        (@fapp0 $A $B $G $x)
-        (@fapp0 $A $B $G $y))
-      (Hom_cat $C
-        (@fapp0 $B $C $F (@fapp0 $A $B $G $x))
-        (@fapp0 $B $C $F (@fapp0 $A $B $G $y)))
-      (@fapp1_func
-        $B
-        $C
-        $F
-        (@fapp0 $A $B $G $x)
-        (@fapp0 $A $B $G $y))
-      (@fapp1_func $A $B $G $x $y);
 
 // Stable pullback cut elimination and arrow projections. These are placed
 // after the generic identity/composition action so competing paths can use
 // those global rules while Lambdapi checks local confluence.
 rule @Pullback_catd $A $A $E (@id Cat_cat $A) ↪ $E;
 // Pullback of the universe identity along F is the family F itself.
-rule @Pullback_catd $A Cat_cat (@id Cat_cat Cat_cat) $F ↪ $F;
+rule @Pullback_catd $A Cat_cart (@id Cat_cat Cat_cart) $F ↪ $F;
 
 // Pullback accumulation: H^*(F^*E) ↪ (F ∘ H)^*E.
 rule @Pullback_catd
@@ -17297,28 +19596,28 @@ rule @Pullback_catd
       (@comp_cat_fapp0 $A $B $C $F $H);
 
 // Hom-action of F^*E is E_1 after the hom-action of F.
-rule @fapp1_func _ Cat_cat (@Pullback_catd $A $B $E $F) $a $a'
+rule @fapp1_func _ Cat_cart (@Pullback_catd $A $B $E $F) $a $a'
   ↪ @comp_cat_fapp0
       (Hom_cat $A $a $a')
       (Hom_cat $B
         (@fapp0 $A $B $F $a)
         (@fapp0 $A $B $F $a'))
-      (Functor_cat
-        (@fapp0 $B Cat_cat $E (@fapp0 $A $B $F $a))
-        (@fapp0 $B Cat_cat $E (@fapp0 $A $B $F $a')))
+      (Functor_cart_cat
+        (@fapp0 $B Cat_cart $E (@fapp0 $A $B $F $a))
+        (@fapp0 $B Cat_cart $E (@fapp0 $A $B $F $a')))
       (@fapp1_func
         $B
-        Cat_cat
+        Cat_cart
         $E
         (@fapp0 $A $B $F $a)
         (@fapp0 $A $B $F $a'))
       (@fapp1_func $A $B $F $a $a');
 
 // Capped base-arrow transport: (F^*E)[p] ↪ E[F[p]].
-rule @fapp1_fapp0 _ Cat_cat (@Pullback_catd $A $B $E $F) $a $a' $p
+rule @fapp1_fapp0 _ Cat_cart (@Pullback_catd $A $B $E $F) $a $a' $p
   ↪ @fapp1_fapp0
       $B
-      Cat_cat
+      Cat_cart
       $E
       (@fapp0 $A $B $F $a)
       (@fapp0 $A $B $F $a')
@@ -17349,37 +19648,28 @@ rule @fapp1_fapp0
       $alpha;
 
 // Retain base change at its first Hom owner; refine recursive next action.
+// Its negative Hom total is O(Sigma(O(I),O_fib(H))). Base change uses
+// O(F_1) on that positive total, then the outer O. No first-Hom facade
+// is eagerly erased and no separate transported equality is supplied.
 rule @fapp1_func _ _ (@fapp1_func _ _ (@sigma_pullback_total_func $A $K $F $E) (Struct_sigma $x $u) (Struct_sigma $y $v))
       (Struct_sigma $p $a) (Struct_sigma $q $b)
   ↪ @fapp1_func (Hom_cat (@Sigma_cat $A (@Pullback_catd $A $K $E $F)) (Struct_sigma $x $u) (Struct_sigma $y $v)) (Hom_cat (@Sigma_cat $K $E) (Struct_sigma (@fapp0 $A $K $F $x) $u) (Struct_sigma (@fapp0 $A $K $F $y) $v))
-      (@Op_func
-        (@Sigma_cat (Op_cat (Hom_cat $A $x $y))
-          (@Pullback_catd (Op_cat (Hom_cat $A $x $y))
-            (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)))
-            (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)
-            (@Op_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))))
-        (@Sigma_cat (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)))
-          (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v))
-        (@sigma_pullback_total_func (Op_cat (Hom_cat $A $x $y))
-          (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)))
-          (@Op_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))
-          (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v))) (Struct_sigma $p $a) (Struct_sigma $q $b);
+      (@TotalOp_func
+        (@Sigma_cat (TotalOp_cat (Hom_cat $A $x $y)) (@Pullback_catd (TotalOp_cat (Hom_cat $A $x $y)) (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)) (@TotalOp_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))))
+        (@Sigma_cat (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)))
+        (@sigma_pullback_total_func (TotalOp_cat (Hom_cat $A $x $y))
+          (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))
+          (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)))) (Struct_sigma $p $a) (Struct_sigma $q $b);
 
 rule @fapp1_fapp0 _ _ (@fapp1_func _ _ (@sigma_pullback_total_func $A $K $F $E) (Struct_sigma $x $u) (Struct_sigma $y $v))
       (Struct_sigma $p $a) (Struct_sigma $q $b) (Struct_sigma $theta $beta)
   ↪ @fapp1_fapp0 (Hom_cat (@Sigma_cat $A (@Pullback_catd $A $K $E $F)) (Struct_sigma $x $u) (Struct_sigma $y $v)) (Hom_cat (@Sigma_cat $K $E) (Struct_sigma (@fapp0 $A $K $F $x) $u) (Struct_sigma (@fapp0 $A $K $F $y) $v))
-      (@Op_func
-        (@Sigma_cat (Op_cat (Hom_cat $A $x $y))
-          (@Pullback_catd (Op_cat (Hom_cat $A $x $y))
-            (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)))
-            (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)
-            (@Op_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))))
-        (@Sigma_cat (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)))
-          (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v))
-        (@sigma_pullback_total_func (Op_cat (Hom_cat $A $x $y))
-          (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)))
-          (@Op_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))
-          (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v))) (Struct_sigma $p $a) (Struct_sigma $q $b) (Struct_sigma $theta $beta);
+      (@TotalOp_func
+        (@Sigma_cat (TotalOp_cat (Hom_cat $A $x $y)) (@Pullback_catd (TotalOp_cat (Hom_cat $A $x $y)) (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)) (@TotalOp_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))))
+        (@Sigma_cat (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)))
+        (@sigma_pullback_total_func (TotalOp_cat (Hom_cat $A $x $y))
+          (TotalOp_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@TotalOp_func (Hom_cat $A $x $y) (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y)) (@fapp1_func $A $K $F $x $y))
+          (@TotalOp_catd (Op_cat (Hom_cat $K (@fapp0 $A $K $F $x) (@fapp0 $A $K $F $y))) (@homd_ $K $E $E (@id_funcd $K $E) (@fapp0 $A $K $F $x) $u (@fapp0 $A $K $F $y) $v)))) (Struct_sigma $p $a) (Struct_sigma $q $b) (Struct_sigma $theta $beta);
 
 // Semantic curry sanity checks. These live after `Product_pair_tele_func`
 // computation rules, because the primary curry package is a definition through
@@ -17390,37 +19680,39 @@ rule @fapp1_fapp0 _ _ (@fapp1_func _ _ (@sigma_pullback_total_func $A $K $F $E) 
 rule @comp_fapp0 Cat_cat _ _ _
       (@sym_fapp0_func _ $A $C (@id Cat_cat _) $a)
       (@sym_func $A $B $C $H)
-  ↪ @fapp0 $A (Functor_cat $B $C) $H $a;
+  ↪ @fapp0 $A (Functor_cart_cat $B $C) $H $a;
 
 // Došen rectangles after exchange has exposed its stable arrow projection.
 // These are instances of the generic adjunction cuts, not new adjunction laws.
 // lhs-audit: keep 1 -- ambient transfor category is the measured SR guard.
 // The nested counit source is the genuine left-adjoint image discriminator.
-rule @comp_fapp0 (Functor_cat $A $C) _ _ _
+rule @comp_fapp0 (Functor_cart_cat $A $C) _ _ _
       (@tapp1_fapp0 _ _ _ _
         (@sym_fapp0_func $A $B $C $H $X') $Y
         (@counit_adj_transf _ _ (@sym_func $A $B $C $H) $G $J) $f)
       (@sym_tapp1_fapp0_transf _ _ _ $H $X _
         (@tapp1_fapp0 _ _ _ _ $X $X'
           (@unit_adj_transf _ _ (@sym_func $A $B $C $H) $G $J) $g))
-  ↪ @comp_fapp0 (Functor_cat $A $C)
+  ↪ @comp_fapp0 (Functor_cart_cat $A $C)
       (@sym_fapp0_func $A $B $C $H $X)
       (@sym_fapp0_func $A $B $C $H $X') $Y
       $f (@sym_tapp1_fapp0_transf $A $B $C $H $X $X' $g);
 
 // lhs-audit: keep 1 -- same ambient transfor-category guard.
 // The nested unit target is the genuine right-adjoint image discriminator.
-rule @comp_fapp0 (Functor_cat $A $C) _ _ _
+rule @comp_fapp0 (Functor_cart_cat $A $C) _ _ _
       (@sym_tapp1_fapp0_transf _ _ _ $H _ $Y
         (@tapp1_fapp0 _ _ _ _ $Y' $Y
           (@counit_adj_transf _ _ $F (@sym_func $A $B $C $H) $J) $g))
       (@tapp1_fapp0 _ _ _ _ $X
         (@sym_fapp0_func $A $B $C $H $Y')
         (@unit_adj_transf _ _ $F (@sym_func $A $B $C $H) $J) $f)
-  ↪ @comp_fapp0 (Functor_cat $A $C) $X
+  ↪ @comp_fapp0 (Functor_cart_cat $A $C) $X
       (@sym_fapp0_func $A $B $C $H $Y')
       (@sym_fapp0_func $A $B $C $H $Y)
       (@sym_tapp1_fapp0_transf $A $B $C $H $Y' $Y $g) $f;
+
+
 
 // 17e. Section pullback and internal Pi action
 //
@@ -17450,7 +19742,7 @@ rule @fapp0 _ _ (@section_pullback_func $A $B $F $E) $s ↪ @section_pullback_se
 
 // Component formula: section_pullback_sec(F,E,s)[a] ↪ s[F[a]].
 rule @tapp0_fapp0
-      $A Cat_cat _ _ $a
+      $A Cat_cart _ _ $a
       (@section_pullback_sec $A $B $F $E $s)
   ↪ @Obj_func
       (Fibre_cat (@Pullback_catd $A $B $E $F) $a)
@@ -17525,7 +19817,7 @@ rule @section_weaken_funcd $K (@Const_catd $K Terminal_cat) (@Const_catd $K $I)
 
 // Fibre component: the weakened section is constant in the new source.
 rule @tapp0_fapp0
-      $K Cat_cat $R $E $k
+      $K Cat_cart $R $E $k
       (@section_weaken_funcd $K $R $E $s)
   ↪ @Const_func
       (Fibre_cat $R $k)
@@ -17555,35 +19847,25 @@ rule @fdapp1_int_cell
 // terminal-source weakening disappears. It never reverses a section arrow.
 // lhs-audit: keep 2,3 -- source and target identify the constant-section case,
 // not a general constant displayed operator with a nonterminal source.
-rule @Op_funcd $K (@Const_catd $K Terminal_cat) (@Const_catd $K $I)
-      (@Const_func $K $I $i)
-  ↪ @Const_func $K (Op_cat $I) $i;
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
 
 // Transported identity of a leading-Eval composite. These are the cell
 // projections of the existing whole/point composite instances, not an
 // independent orientation for composition of mapped arrows.
 // lhs-audit: keep 1 -- the nested Catd(K) composition category is an SR guard.
 rule @fdapp1_int_cell _ _ _
-      (@comp_fapp0 (Catd_cat $K) $R $P $E (@Eval_funcd $K $I $E) $FF)
+      (@comp_fapp0 (Catd_cat $K) $R $P $E (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $FF)
       $x $y $p $u
-  ↪ @fdapp1_int_hom_fapp0 $K $P $E (@Eval_funcd $K $I $E)
+  ↪ @fdapp1_int_hom_fapp0 $K $P $E (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E))
       $x $y $p (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x) (@Fibre_func $K $R $P $FF $x) $u)
       (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y) (@Fibre_func $K $R $P $FF $y)
         (@fapp0 (Fibre_cat $R $x) (Fibre_cat $R $y) (@catd_transport_func $K $R $x $y $p) $u))
       (@fdapp1_int_cell $K $R $P $FF $x $y $p $u);
 
 // lhs-audit: keep 1 -- same nested composition guard for the opposite instance.
-rule @fdapp1_int_cell _ _ _
-      (@Op_funcd _ _ _
-        (@comp_fapp0 (Catd_cat $K) $R $P $E (@Eval_funcd $K $I $E) $FF))
-      $x $y $p $u
-  ↪ @fdapp1_int_hom_fapp0 $K (@Op_catd $K $P) (@Op_catd $K $E)
-      (@Op_funcd $K $P $E (@Eval_funcd $K $I $E))
-      $x $y $p (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x) (@Fibre_func $K $R $P $FF $x) $u)
-      (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y) (@Fibre_func $K $R $P $FF $y)
-        (@fapp0 (Fibre_cat $R $x) (Fibre_cat $R $y) (@catd_transport_func $K $R $x $y $p) $u))
-      (@fdapp1_int_cell $K (@Op_catd $K $R) (@Op_catd $K $P)
-        (@Op_funcd $K $R $P $FF) $x $y $p $u);
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
 
 // The original constant-section cell is the generic weakening route's
 // normal form; only this explicitly constant section is strict here.
@@ -17609,7 +19891,7 @@ rule @fdapp1_int_hom_fapp0 $K (@Const_catd $K Terminal_cat) (@Const_catd $K $I)
 
 // Evaluation commutes with reindexing at a visible (diagram,index) pair.
 // This joins the canonical transported-identity projection of its Hom action.
-rule @fdapp1_int_cell $K _ _ (@Eval_funcd $K $I $E)
+rule @fdapp1_int_cell $K _ _ (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E))
       $x $y $p (Struct_sigma $U $i)
   ↪ @id (Fibre_cat $E $y)
       (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
@@ -17618,12 +19900,8 @@ rule @fdapp1_int_cell $K _ _ (@Eval_funcd $K $I $E)
 
 // The opposite presentation of this same evaluation identity is still an
 // identity, obtained at the existing transported-identity projection.
-rule @fdapp1_int_cell $K _ _ (@Op_funcd $K _ _ (@Eval_funcd $K $I $E))
-      $x $y $p (Struct_sigma $U $i)
-  ↪ @id (Op_cat (Fibre_cat $E $y))
-      (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
-        (@catd_transport_func $K $E $x $y $p)
-        (@fapp0 $I (Fibre_cat $E $x) $U $i));
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
 
 // Pairing retains both extracted cells; neither component is made invertible
 // or identified with an identity unless its own structural rule says so.
@@ -17631,6 +19909,221 @@ rule @fdapp1_int_cell $K _ _ (@Product_pair_funcd $K $R $E $D $FF $GG)
       $x $y $p $u
   ↪ Struct_sigma (@fdapp1_int_cell $K $R $E $FF $x $y $p $u)
       (@fdapp1_int_cell $K $R $D $GG $x $y $p $u);
+
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+/* Only a known leading evaluation operator opens a displayed composite.
+   Arbitrary composition and mapped-arrow accumulation remain untouched. */
+
+// lhs-audit: keep 1 -- nested comp_fapp0 category; wildcard and tied-base
+// variants fail subject reduction at this owner (guard probes in the pilot).
+rule @fdapp1_int_hom_func _ _ _ (@comp_fapp0 (Catd_cat $K) $R $P $E (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $FF)
+      $x $y $p $u $v
+  ↪ @comp_cat_fapp0 (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cart
+        (@homd_ $K $R $R (@id_funcd $K $R) $x $u $y $v) $p) (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cart
+        (@homd_ $K $R $P $FF $x (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x)
+        (@Fibre_func $K $R $P $FF $x) $u) $y $v) $p) (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cart
+        (@homd_ $K $P $E (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $x
+          (@fapp0 (Fibre_cat $P $x) (Fibre_cat $E $x)
+            (@Fibre_func $K $P $E (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $x) (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x)
+        (@Fibre_func $K $R $P $FF $x) $u)) $y (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y)
+        (@Fibre_func $K $R $P $FF $y) $v)) $p)
+      (@fdapp1_int_hom_func $K $P $E (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $x $y $p (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x)
+        (@Fibre_func $K $R $P $FF $x) $u) (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y)
+        (@Fibre_func $K $R $P $FF $y) $v))
+      (@fdapp1_int_hom_func $K $R $P $FF $x $y $p $u $v);
+
+// lhs-audit: keep 1 -- same nested composition-category SR guard.
+rule @fdapp1_int_hom_fapp0 _ _ _ (@comp_fapp0 (Catd_cat $K) $R $P $E (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $FF)
+      $x $y $p $u $v $alpha
+  ↪ @fdapp1_int_hom_fapp0 $K $P $E (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E)) $x $y $p (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x)
+        (@Fibre_func $K $R $P $FF $x) $u) (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y)
+        (@Fibre_func $K $R $P $FF $y) $v)
+      (@fdapp1_int_hom_fapp0 $K $R $P $FF $x $y $p $u $v $alpha);
+
+// lhs-audit: keep 1 -- same nested composition-category SR guard under Op.
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+// lhs-audit: keep 1 -- same nested composition-category SR guard under Op.
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+/* Evaluation's projected hom action, in both ordinary and pointwise-opposite
+   presentations. Constant-domain transport retains the actual Cartesian Hom
+   action at id_I, matching the generic strict-transfor projection order. */
+
+rule @fdapp1_int_hom_func $K _ _ (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E))
+      $x $y $p (Struct_sigma $U $i) (Struct_sigma $V $j)
+  ↪ @Eval_fapp1_func $I (Fibre_cat $E $y)
+      (@Hom_fapp0 Cat_cart $I $I (Fibre_cat $E $x) (Fibre_cat $E $y)
+        (@id_func $I) (@catd_transport_func $K $E $x $y $p) $U) $V $i $j;
+
+rule @fdapp1_int_hom_fapp0 $K _ _ (@strict_transfor _ _ _ _ (@Eval_funcd $K $I $E))
+      $x $y $p (Struct_sigma $U $i) (Struct_sigma $V $j)
+      (Struct_sigma $eta $q)
+  ↪ @tapp1_fapp0 $I (Fibre_cat $E $y)
+      (@Hom_fapp0 Cat_cart $I $I (Fibre_cat $E $x) (Fibre_cat $E $y)
+        (@id_func $I) (@catd_transport_func $K $E $x $y $p) $U) $V $i $j
+      (@strict_transfor $I (Fibre_cat $E $y) _ _ $eta) $q;
+
+/* Preserve the canonical opposite Hom endpoints while inferring the RHS.
+   Runtime then uses ordinary Op_func and Eval hom-action projection. */
+
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+/* Product pairing exposes its two displayed hom actions, preserving Op. */
+
+rule @fdapp1_int_hom_func $K _ _ (@Product_pair_funcd $K $E $B $C $FF $GG)
+      $x $y $p $u $v
+  ↪ Struct_sigma
+      (@fdapp1_int_hom_func $K $E $B $FF
+        $x $y $p $u $v)
+      (@fdapp1_int_hom_func $K $E $C $GG
+        $x $y $p $u $v);
+
+rule @fdapp1_int_hom_fapp0 $K _ _ (@Product_pair_funcd $K $E $B $C $FF $GG)
+      $x $y $p $u $v $alpha
+  ↪ Struct_sigma
+      (@fdapp1_int_hom_fapp0 $K $E $B $FF
+        $x $y $p $u $v $alpha)
+      (@fdapp1_int_hom_fapp0 $K $E $C $GG
+        $x $y $p $u $v $alpha);
+
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+/* Identity and the existing weakened constant section, at whole and point
+   displayed-hom projections. No arbitrary section or laxity is collapsed. */
+
+// This identity category is a measured component-projection guard: without
+// it, existing tapp0/tapp1 identity rules do not establish type preservation.
+// The cell comes first so subsequent point-overlap checks see its normal form.
+// lhs-audit: keep 1 -- nested id category is the component-projection SR guard.
+rule @fdapp1_int_cell $K $E $E (@id (Catd_cat $K) $E) $x $y $p $u
+  ↪ @id (Fibre_cat $E $y)
+      (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
+        (@catd_transport_func $K $E $x $y $p) $u);
+
+// lhs-audit: keep 1 -- same nested id-category SR guard.
+rule @fdapp1_int_hom_func $K $E $E (@id (Catd_cat $K) $E)
+      $x $y $p $u $v
+  ↪ @id Cat_cat
+      (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cart
+        (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v) $p);
+
+// lhs-audit: keep 1 -- same nested id-category SR guard.
+rule @fdapp1_int_hom_fapp0 $K _ _ (@id (Catd_cat $K) _)
+      _ _ _ _ _ $alpha
+  ↪ $alpha;
+
+// lhs-audit: keep 3 -- nested weakening's constant-family discriminator.
+rule @fdapp1_int_hom_func $K _ _ (@section_weaken_funcd $K $R (@Const_catd $K $I) (@Const_func $K $I $i))
+      $x $y $p $u $v
+  ↪ @Const_func
+      (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cart
+        (@homd_ $K $R $R (@id_funcd $K $R) $x $u $y $v) $p)
+      (Hom_cat $I $i $i) (@id $I $i);
+
+// lhs-audit: keep 3 -- same nested constant-family discriminator.
+rule @fdapp1_int_hom_fapp0 $K _ _ (@section_weaken_funcd $K _ (@Const_catd $K $I) (@Const_func $K $I $i))
+      _ _ _ _ _ _
+  ↪ @id $I $i;
+// lhs-audit: keep 3 -- same nested constant-family discriminator under Op.
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+// lhs-audit: keep 3 -- same nested constant-family discriminator under Op.
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+// lhs-audit: keep 3 -- same nested constant-family discriminator under Op.
+// Legacy raw/same-base Op mirror retained in the comparison block below.
+
+
+// Internalized-x prerequisite: naturality component of Pi along a base functor.
+//
+// Surface/formula:
+//   section_pullback_transf(F)[E] = section_pullback_func(F,E)
+//   : Π b :^n B, E[b] ⊢ Π a :^n A, E[F[a]].
+injective symbol section_pullback_transf [A B : Cat]
+  (F : τ (Functor A B))
+  : τ (Transf
+      (@Pi_func B)
+      (@comp_cat_fapp0
+        (@Catd_cat B)
+        (@Catd_cat A)
+        Cat_cart
+        (@Pi_func A)
+        (@Pullback_catd_func A B F)));
+
+// Family component: section_pullback_transf(F)[E] ↪ section_pullback_func(F,E).
+rule @tapp0_fapp0 _ Cat_cart _ _ $E (@section_pullback_transf $A $B $F)
+  ↪ @section_pullback_func $A $B $F $E;
+
+// Internal Pi action at F and E folds to ordinary section pullback.
+rule @fdapp1_int_cell _ _ _ Pi_int_funcd $B $A $F $E
+  ↪ @section_pullback_func $A $B $F $E;
+
+// Pointwise internal Pi action along G[p] folds to section pullback.
+rule @fdapp1_int_cell
+      $K
+      _
+      _
+      (@Pi_pullback_funcd $K $G)
+      $x
+      $y
+      $p
+      $E
+  ↪ @section_pullback_func
+      (@fapp0 $K (Op_cat Cat_cart) $G $y)
+      (@fapp0 $K (Op_cat Cat_cart) $G $x)
+      (@fapp1_fapp0 $K (Op_cat Cat_cart) $G $x $y $p)
+      $E;
+
+
+// -------------------------------------------------------------------------------------------------
+
+/*
+  Retired legacy mirror clauses (pre-goal section 17e).
+
+  These commands assume both a general-lax Op_funcd input and an unchanged
+  base. The corrected Op_funcd accepts Cartesian maps over the shifted
+  CoAt2 base. Its valid ordinary observations use strict_transfor and the
+  generic Cartesian intrinsic rules below. Do not re-enable these raw
+  patterns or use them to justify general-FF coherence. Later old whole
+  consumers must be migrated to the corrected intrinsic construction.
+
+rule @Op_funcd $K (@Const_catd $K Terminal_cat) (@Const_catd $K $I)
+      (@Const_func $K $I $i)
+  ↪ @Const_func $K (Op_cat $I) $i;
+
+rule @fdapp1_int_cell _ _ _
+      (@Op_funcd _ _ _
+        (@comp_fapp0 (Catd_cat $K) $R $P $E (@Eval_funcd $K $I $E) $FF))
+      $x $y $p $u
+  ↪ @fdapp1_int_hom_fapp0 $K (@Op_catd $K $P) (@Op_catd $K $E)
+      (@Op_funcd $K $P $E (@Eval_funcd $K $I $E))
+      $x $y $p (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x) (@Fibre_func $K $R $P $FF $x) $u)
+      (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y) (@Fibre_func $K $R $P $FF $y)
+        (@fapp0 (Fibre_cat $R $x) (Fibre_cat $R $y) (@catd_transport_func $K $R $x $y $p) $u))
+      (@fdapp1_int_cell $K (@Op_catd $K $R) (@Op_catd $K $P)
+        (@Op_funcd $K $R $P $FF) $x $y $p $u);
+
+rule @fdapp1_int_cell $K _ _ (@Op_funcd $K _ _ (@Eval_funcd $K $I $E))
+      $x $y $p (Struct_sigma $U $i)
+  ↪ @id (Op_cat (Fibre_cat $E $y))
+      (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
+        (@catd_transport_func $K $E $x $y $p)
+        (@fapp0 $I (Fibre_cat $E $x) $U $i));
 
 rule @fdapp1_int_cell $K _ _
       (@Op_funcd $K _ _ (@Product_pair_funcd $K $R $E $D $FF $GG))
@@ -17641,36 +20134,6 @@ rule @fdapp1_int_cell $K _ _
       (@fdapp1_int_cell $K (@Op_catd $K $R) (@Op_catd $K $D)
         (@Op_funcd $K $R $D $GG) $x $y $p $u);
 
-/* Only a known leading evaluation operator opens a displayed composite.
-   Arbitrary composition and mapped-arrow accumulation remain untouched. */
-
-// lhs-audit: keep 1 -- nested comp_fapp0 category; wildcard and tied-base
-// variants fail subject reduction at this owner (guard probes in the pilot).
-rule @fdapp1_int_hom_func _ _ _ (@comp_fapp0 (Catd_cat $K) $R $P $E (@Eval_funcd $K $I $E) $FF)
-      $x $y $p $u $v
-  ↪ @comp_cat_fapp0 (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cat
-        (@homd_ $K $R $R (@id_funcd $K $R) $x $u $y $v) $p) (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cat
-        (@homd_ $K $R $P $FF $x (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x)
-        (@Fibre_func $K $R $P $FF $x) $u) $y $v) $p) (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cat
-        (@homd_ $K $P $E (@Eval_funcd $K $I $E) $x
-          (@fapp0 (Fibre_cat $P $x) (Fibre_cat $E $x)
-            (@Fibre_func $K $P $E (@Eval_funcd $K $I $E) $x) (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x)
-        (@Fibre_func $K $R $P $FF $x) $u)) $y (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y)
-        (@Fibre_func $K $R $P $FF $y) $v)) $p)
-      (@fdapp1_int_hom_func $K $P $E (@Eval_funcd $K $I $E) $x $y $p (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x)
-        (@Fibre_func $K $R $P $FF $x) $u) (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y)
-        (@Fibre_func $K $R $P $FF $y) $v))
-      (@fdapp1_int_hom_func $K $R $P $FF $x $y $p $u $v);
-
-// lhs-audit: keep 1 -- same nested composition-category SR guard.
-rule @fdapp1_int_hom_fapp0 _ _ _ (@comp_fapp0 (Catd_cat $K) $R $P $E (@Eval_funcd $K $I $E) $FF)
-      $x $y $p $u $v $alpha
-  ↪ @fdapp1_int_hom_fapp0 $K $P $E (@Eval_funcd $K $I $E) $x $y $p (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x)
-        (@Fibre_func $K $R $P $FF $x) $u) (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y)
-        (@Fibre_func $K $R $P $FF $y) $v)
-      (@fdapp1_int_hom_fapp0 $K $R $P $FF $x $y $p $u $v $alpha);
-
-// lhs-audit: keep 1 -- same nested composition-category SR guard under Op.
 rule @fdapp1_int_hom_func _ _ _ (@Op_funcd _ _ _ (@comp_fapp0 (Catd_cat $K) $R $P $E (@Eval_funcd $K $I $E) $FF))
       $x $y $p $u $v
   ↪ @comp_cat_fapp0 (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cat
@@ -17687,32 +20150,12 @@ rule @fdapp1_int_hom_func _ _ _ (@Op_funcd _ _ _ (@comp_fapp0 (Catd_cat $K) $R $
         (@Fibre_func $K $R $P $FF $y) $v))
       (@fdapp1_int_hom_func $K (@Op_catd $K $R) (@Op_catd $K $P) (@Op_funcd $K $R $P $FF) $x $y $p $u $v);
 
-// lhs-audit: keep 1 -- same nested composition-category SR guard under Op.
 rule @fdapp1_int_hom_fapp0 _ _ _ (@Op_funcd _ _ _ (@comp_fapp0 (Catd_cat $K) $R $P $E (@Eval_funcd $K $I $E) $FF))
       $x $y $p $u $v $alpha
   ↪ @fdapp1_int_hom_fapp0 $K (@Op_catd $K $P) (@Op_catd $K $E) (@Op_funcd $K $P $E (@Eval_funcd $K $I $E)) $x $y $p (@fapp0 (Fibre_cat $R $x) (Fibre_cat $P $x)
         (@Fibre_func $K $R $P $FF $x) $u) (@fapp0 (Fibre_cat $R $y) (Fibre_cat $P $y)
         (@Fibre_func $K $R $P $FF $y) $v)
       (@fdapp1_int_hom_fapp0 $K (@Op_catd $K $R) (@Op_catd $K $P) (@Op_funcd $K $R $P $FF) $x $y $p $u $v $alpha);
-
-/* Evaluation's projected hom action, in both ordinary and pointwise-opposite
-   presentations. The whole result remains the existing mixed Eval action. */
-
-rule @fdapp1_int_hom_func $K _ _ (@Eval_funcd $K $I $E)
-      $x $y $p (Struct_sigma $U $i) (Struct_sigma $V $j)
-  ↪ @Eval_fapp1_func $I (Fibre_cat $E $y)
-      (@comp_cat_fapp0 $I (Fibre_cat $E $x) (Fibre_cat $E $y)
-        (@catd_transport_func $K $E $x $y $p) $U) $V $i $j;
-
-rule @fdapp1_int_hom_fapp0 $K _ _ (@Eval_funcd $K $I $E)
-      $x $y $p (Struct_sigma $U $i) (Struct_sigma $V $j)
-      (Struct_sigma $eta $q)
-  ↪ @tapp1_fapp0 $I (Fibre_cat $E $y)
-      (@comp_cat_fapp0 $I (Fibre_cat $E $x) (Fibre_cat $E $y)
-        (@catd_transport_func $K $E $x $y $p) $U) $V $i $j $eta $q;
-
-/* Preserve the canonical opposite Hom endpoints while inferring the RHS.
-   Runtime then uses ordinary Op_func and Eval hom-action projection. */
 
 rule @fdapp1_int_hom_func $K _ _
       (@Op_funcd $K _ _ (@Eval_funcd $K $I $E))
@@ -17734,24 +20177,6 @@ rule @fdapp1_int_hom_fapp0 $K _ _
         (@id Cat_cat $I) (@catd_transport_func $K $E $x $y $p) $U) $i)
       (@Product_pair (Op_cat (Functor_cat $I (Fibre_cat $E $y))) (Op_cat $I) $V $j) $alpha;
 
-/* Product pairing exposes its two displayed hom actions, preserving Op. */
-
-rule @fdapp1_int_hom_func $K _ _ (@Product_pair_funcd $K $E $B $C $FF $GG)
-      $x $y $p $u $v
-  ↪ Struct_sigma
-      (@fdapp1_int_hom_func $K $E $B $FF
-        $x $y $p $u $v)
-      (@fdapp1_int_hom_func $K $E $C $GG
-        $x $y $p $u $v);
-
-rule @fdapp1_int_hom_fapp0 $K _ _ (@Product_pair_funcd $K $E $B $C $FF $GG)
-      $x $y $p $u $v $alpha
-  ↪ Struct_sigma
-      (@fdapp1_int_hom_fapp0 $K $E $B $FF
-        $x $y $p $u $v $alpha)
-      (@fdapp1_int_hom_fapp0 $K $E $C $GG
-        $x $y $p $u $v $alpha);
-
 rule @fdapp1_int_hom_func $K _ _ (@Op_funcd $K _ _ (@Product_pair_funcd $K $E $B $C $FF $GG))
       $x $y $p $u $v
   ↪ Struct_sigma
@@ -17768,47 +20193,9 @@ rule @fdapp1_int_hom_fapp0 $K _ _ (@Op_funcd $K _ _ (@Product_pair_funcd $K $E $
       (@fdapp1_int_hom_fapp0 $K (@Op_catd $K $E) (@Op_catd $K $C) (@Op_funcd $K $E $C $GG)
         $x $y $p $u $v $alpha);
 
-/* Identity and the existing weakened constant section, at whole and point
-   displayed-hom projections. No arbitrary section or laxity is collapsed. */
-
-// This identity category is a measured component-projection guard: without
-// it, existing tapp0/tapp1 identity rules do not establish type preservation.
-// The cell comes first so subsequent point-overlap checks see its normal form.
-// lhs-audit: keep 1 -- nested id category is the component-projection SR guard.
-rule @fdapp1_int_cell $K $E $E (@id (Catd_cat $K) $E) $x $y $p $u
-  ↪ @id (Fibre_cat $E $y)
-      (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
-        (@catd_transport_func $K $E $x $y $p) $u);
-
-// lhs-audit: keep 1 -- same nested id-category SR guard.
-rule @fdapp1_int_hom_func $K $E $E (@id (Catd_cat $K) $E)
-      $x $y $p $u $v
-  ↪ @id Cat_cat
-      (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cat
-        (@homd_ $K $E $E (@id_funcd $K $E) $x $u $y $v) $p);
-
-// lhs-audit: keep 1 -- same nested id-category SR guard.
-rule @fdapp1_int_hom_fapp0 $K _ _ (@id (Catd_cat $K) _)
-      _ _ _ _ _ $alpha
-  ↪ $alpha;
-
-// lhs-audit: keep 3 -- nested weakening's constant-family discriminator.
-rule @fdapp1_int_hom_func $K _ _ (@section_weaken_funcd $K $R (@Const_catd $K $I) (@Const_func $K $I $i))
-      $x $y $p $u $v
-  ↪ @Const_func
-      (@fapp0 (Op_cat (Hom_cat $K $x $y)) Cat_cat
-        (@homd_ $K $R $R (@id_funcd $K $R) $x $u $y $v) $p)
-      (Hom_cat $I $i $i) (@id $I $i);
-
-// lhs-audit: keep 3 -- same nested constant-family discriminator.
-rule @fdapp1_int_hom_fapp0 $K _ _ (@section_weaken_funcd $K _ (@Const_catd $K $I) (@Const_func $K $I $i))
-      _ _ _ _ _ _
-  ↪ @id $I $i;
-// lhs-audit: keep 3 -- same nested constant-family discriminator under Op.
 rule @fdapp1_int_cell $K _ _ (@Op_funcd $K _ _ (@section_weaken_funcd $K _ (@Const_catd $K $I) (@Const_func $K $I $i))) _ _ _ _
   ↪ @id (Op_cat $I) $i;
 
-// lhs-audit: keep 3 -- same nested constant-family discriminator under Op.
 rule @fdapp1_int_hom_func $K _ _ (@Op_funcd $K _ _ (@section_weaken_funcd $K $R (@Const_catd $K $I) (@Const_func $K $I $i)))
       $x $y $p $u $v
   ↪ @Const_func
@@ -17816,53 +20203,114 @@ rule @fdapp1_int_hom_func $K _ _ (@Op_funcd $K _ _ (@section_weaken_funcd $K $R 
         (@homd_ $K (@Op_catd $K $R) (@Op_catd $K $R) (@id_funcd $K (@Op_catd $K $R)) $x $u $y $v) $p)
       (Hom_cat (Op_cat $I) $i $i) (@id (Op_cat $I) $i);
 
-// lhs-audit: keep 3 -- same nested constant-family discriminator under Op.
 rule @fdapp1_int_hom_fapp0 $K _ _ (@Op_funcd $K _ _ (@section_weaken_funcd $K _ (@Const_catd $K $I) (@Const_func $K $I $i)))
       _ _ _ _ _ _
   ↪ @id (Op_cat $I) $i;
-
-// Internalized-x prerequisite: naturality component of Pi along a base functor.
-//
-// Surface/formula:
-//   section_pullback_transf(F)[E] = section_pullback_func(F,E)
-//   : Π b :^n B, E[b] ⊢ Π a :^n A, E[F[a]].
-injective symbol section_pullback_transf [A B : Cat]
-  (F : τ (Functor A B))
-  : τ (Transf
-      (@Pi_func B)
-      (@comp_cat_fapp0
-        (@Catd_cat B)
-        (@Catd_cat A)
-        Cat_cat
-        (@Pi_func A)
-        (@Pullback_catd_func A B F)));
-
-// Family component: section_pullback_transf(F)[E] ↪ section_pullback_func(F,E).
-rule @tapp0_fapp0 _ Cat_cat _ _ $E (@section_pullback_transf $A $B $F)
-  ↪ @section_pullback_func $A $B $F $E;
-
-// Internal Pi action at F and E folds to ordinary section pullback.
-rule @fdapp1_int_cell _ _ _ Pi_int_funcd $B $A $F $E
-  ↪ @section_pullback_func $A $B $F $E;
-
-// Pointwise internal Pi action along G[p] folds to section pullback.
-rule @fdapp1_int_cell
-      $K
-      _
-      _
-      (@Pi_pullback_funcd $K $G)
-      $x
-      $y
-      $p
-      $E
-  ↪ @section_pullback_func
-      (@fapp0 $K (Op_cat Cat_cat) $G $y)
-      (@fapp0 $K (Op_cat Cat_cat) $G $x)
-      (@fapp1_fapp0 $K (Op_cat Cat_cat) $G $x $y $p)
-      $E;
+*/
 
 
-// -------------------------------------------------------------------------------------------------
+// Cartesian displayed maps have strictly natural base comparison. Their
+// intrinsic Hom action is the actual first Hom of the fibre component.
+// This includes the ordinary view of any valid shifted Op_funcd(U).
+// It does not admit raw lax FF to the Cartesian classifier.
+rule @fdapp1_int_hom_func _ _ _ (@strict_transfor $K Cat_cart $E $D $U)
+      $x $y $p $u $v
+  ↪ @fapp1_func (Fibre_cat $E $y) (Fibre_cat $D $y)
+      (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $U) $y)
+      (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
+        (@catd_transport_func $K $E $x $y $p) $u) $v;
+
+rule @fdapp1_int_hom_fapp0 _ _ _ (@strict_transfor $K Cat_cart $E $D $U)
+      $x $y $p $u $v $alpha
+  ↪ @fapp1_fapp0 (Fibre_cat $E $y) (Fibre_cat $D $y)
+      (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $U) $y)
+      (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
+        (@catd_transport_func $K $E $x $y $p) $u) $v $alpha;
+
+// The same actual action at the transported identity has identity laxity.
+rule @fdapp1_int_cell _ _ _ (@strict_transfor $K Cat_cart $E $D $U)
+      $x $y $p $u
+  ↪ @id (Fibre_cat $D $y)
+      (@fapp0 (Fibre_cat $E $y) (Fibre_cat $D $y)
+        (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $U) $y)
+        (@fapp0 (Fibre_cat $E $x) (Fibre_cat $E $y)
+          (@catd_transport_func $K $E $x $y $p) $u));
+
+
+// The explicit types retain the T(S) orientation during elaboration. These
+// are definitions through the actual whole composite, not extra primitives.
+symbol fdapp1_int_comp_section [K : Cat] [E D C : τ (Catd K)]
+  (FF : τ (Functord E D)) (GG : τ (Functord D C))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (Hom_cat (@Homd_target_section_cat K E x) (@homd_id_src_sec K E x u)
+      (@homd_ff_src_sec K E C (@comp_catd_fapp0 K E D C GG FF) x u)))
+≔ @tapp0_fapp0 (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K E x)) _ _ u
+    (@strict_transfor (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K E x)) _ _
+      (tdapp0_fapp0 x (@fdapp1_int_comp_transfd K E D C FF GG)));
+
+
+symbol fdapp1_int_comp_index [K : Cat] [E D C : τ (Catd K)]
+  (FF : τ (Functord E D)) (GG : τ (Functord D C))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y)))
+  : τ (Obj (Hom_cat (Homd_index_cat (Hom_cat K x y))
+      (fapp0 (@homd_id_tgt_func K E x u y) v)
+      (fapp0 (@homd_ff_tgt_func K E C (@comp_catd_fapp0 K E D C GG FF) x u y) v)))
+≔ tapp0_fapp0 v (strict_transfor
+    (@tapp0_hom_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+      (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E C (@comp_catd_fapp0 K E D C GG FF) x u) y
+      (@fdapp1_int_comp_section K E D C FF GG x u)));
+
+// Join the existing component-first heads to those same projections.
+rule @fdapp1_int_section_arrow $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $u
+  ↪ @fdapp1_int_comp_section $K $E $D $C $FF $GG $x $u;
+rule @fdapp1_int_tgt_arrow $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $u $y
+  ↪ @tapp0_hom_fapp0 $K Homd_coeff_cat (@Homd_coeff_diagram $K $E)
+      (@Homd_coeff_diagram $K (@hom_ $K $K (@id_func $K) $x))
+      (@homd_id_src_sec $K $E $x $u) (@homd_ff_src_sec $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $u) $y
+      (@fdapp1_int_comp_section $K $E $D $C $FF $GG $x $u);
+rule @fdapp1_int_presheaf_arrow $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $u $y $v
+  ↪ @fdapp1_int_comp_index $K $E $D $C $FF $GG $x $u $y $v;
+
+// The whole filler-functor equation was checked from that composed body.
+rule @fdapp1_int_hom_func $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $y $p $u $v
+  ↪ comp_cat_fapp0 (@fdapp1_int_hom_func $K $D $C $GG $x $y $p (fapp0 (@Fibre_func $K $E $D $FF $x) $u) (fapp0 (@Fibre_func $K $E $D $FF $y) $v)) (@fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v);
+rule @fdapp1_int_hom_fapp0 $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $y $p $u $v $alpha
+  ↪ fapp0 (@fdapp1_int_hom_func $K $D $C $GG $x $y $p (fapp0 (@Fibre_func $K $E $D $FF $x) $u) (fapp0 (@Fibre_func $K $E $D $FF $y) $v)) (fapp0 (@fdapp1_int_hom_func $K $E $D $FF $x $y $p $u $v) $alpha);
+
+rule @fdapp1_int_cell $K $E $C (@comp_fapp0 (Catd_cat $K) $E $D $C $GG $FF) $x $y $p $u
+  ↪ @fdapp1_int_hom_fapp0 $K $D $C $GG $x $y $p (fapp0 (@Fibre_func $K $E $D $FF $x) $u) (fapp0 (@Fibre_func $K $E $D $FF $y) (fapp0 (@catd_transport_func $K $E $x $y $p) $u))
+      (@fdapp1_int_cell $K $E $D $FF $x $y $p $u);
+
+// Intrinsic action of a classified vertical composite follows the existing
+// whole/capped/cell composition ladder. The ordinary inclusion keeps its
+// Cartesian composite visible; these are its constructor projection clauses.
+// Both input maps retain their actual classifier and ordinary view.
+rule @fdapp1_int_hom_func _ _ _ (@strict_transfor _ _ _ _
+      (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $C $GG $FF)) $x $y $p $u $v
+  ↪ comp_cat_fapp0 (@fdapp1_int_hom_func $K $D $C (@strict_transfor $K Cat_cart $D $C $GG) $x $y $p (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x) $u) (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $y) $v)) (@fdapp1_int_hom_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x $y $p $u $v);
+
+rule @fdapp1_int_hom_fapp0 _ _ _ (@strict_transfor _ _ _ _
+      (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $C $GG $FF)) $x $y $p $u $v $alpha
+  ↪ fapp0 (@fdapp1_int_hom_func $K $D $C (@strict_transfor $K Cat_cart $D $C $GG) $x $y $p (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x) $u) (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $y) $v)) (fapp0 (@fdapp1_int_hom_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x $y $p $u $v) $alpha);
+
+rule @fdapp1_int_cell _ _ _ (@strict_transfor _ _ _ _
+      (@comp_fapp0 (Functor_cart_cat $K Cat_cart) $E $D $C $GG $FF)) $x $y $p $u
+  ↪ @fdapp1_int_hom_fapp0 $K $D $C (@strict_transfor $K Cat_cart $D $C $GG) $x $y $p (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x) $u) (fapp0 (@Fibre_func $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $y) (fapp0 (@catd_transport_func $K $E $x $y $p) $u))
+      (@fdapp1_int_cell $K $E $D (@strict_transfor $K Cat_cart $E $D $FF) $x $y $p $u);
+
+// Unit at the existing projection heads, joining observation before/after
+// the native intrinsic identity contracts at the whole modification.
+rule @fdapp1_int_section_arrow $K $E $E (@id (Catd_cat $K) $E) $x $u
+  ↪ @id (@Homd_target_section_cat $K $E $x) (@homd_id_src_sec $K $E $x $u);
+rule @fdapp1_int_tgt_arrow $K $E $E (@id (Catd_cat $K) $E) $x $u $y
+  ↪ @id (Functor_cart_cat (Fibre_cat $E $y) (Homd_index_cat (Hom_cat $K $x $y)))
+      (@homd_id_tgt_func $K $E $x $u $y);
+rule @fdapp1_int_presheaf_arrow $K $E $E (@id (Catd_cat $K) $E) $x $u $y $v
+  ↪ @id (Homd_index_cat (Hom_cat $K $x $y))
+      (fapp0 (@homd_id_tgt_func $K $E $x $u $y) $v);
+
 // 18. Cat-valued profunctors
 // -------------------------------------------------------------------------------------------------
 
@@ -17969,10 +20417,10 @@ injective symbol Op_prof [A B : Cat]
   : τ (Prof (Op_cat B) (Op_cat A));
 
 // Fibre projection: duality evaluates R after swapping the product base.
-rule @fapp0 _ Cat_cat (@Op_prof $A $B $R) $ba
+rule @fapp0 _ Cat_cart (@Op_prof $A $B $R) $ba
   ↪ @fapp0
       (Product_cat (Op_cat $A) $B)
-      Cat_cat
+      Cat_cart
       $R
       (@fapp0
         (Product_cat $B (Op_cat $A))
@@ -17981,7 +20429,7 @@ rule @fapp0 _ Cat_cat (@Op_prof $A $B $R) $ba
         $ba);
 
 // Full base-arrow action: first apply product swap, then the original action.
-rule @fapp1_func _ Cat_cat (@Op_prof $A $B $R) $ba $ba'
+rule @fapp1_func _ Cat_cart (@Op_prof $A $B $R) $ba $ba'
   ↪ @comp_cat_fapp0
       (Hom_cat (Product_cat $B (Op_cat $A)) $ba $ba')
       (Hom_cat
@@ -17996,10 +20444,10 @@ rule @fapp1_func _ Cat_cat (@Op_prof $A $B $R) $ba $ba'
           (Product_cat (Op_cat $A) $B)
           (@Product_swap_func $B (Op_cat $A))
           $ba'))
-      (Functor_cat
+      (Functor_cart_cat
         (@fapp0
           (Product_cat (Op_cat $A) $B)
-          Cat_cat
+          Cat_cart
           $R
           (@fapp0
             (Product_cat $B (Op_cat $A))
@@ -18008,7 +20456,7 @@ rule @fapp1_func _ Cat_cat (@Op_prof $A $B $R) $ba $ba'
             $ba))
         (@fapp0
           (Product_cat (Op_cat $A) $B)
-          Cat_cat
+          Cat_cart
           $R
           (@fapp0
             (Product_cat $B (Op_cat $A))
@@ -18017,7 +20465,7 @@ rule @fapp1_func _ Cat_cat (@Op_prof $A $B $R) $ba $ba'
             $ba')))
       (@fapp1_func
         (Product_cat (Op_cat $A) $B)
-        Cat_cat
+        Cat_cart
         $R
         (@fapp0
           (Product_cat $B (Op_cat $A))
@@ -18037,10 +20485,10 @@ rule @fapp1_func _ Cat_cat (@Op_prof $A $B $R) $ba $ba'
         $ba');
 
 // Capped base-arrow action of profunctor duality.
-rule @fapp1_fapp0 _ Cat_cat (@Op_prof $A $B $R) $ba $ba' $h
+rule @fapp1_fapp0 _ Cat_cart (@Op_prof $A $B $R) $ba $ba' $h
   ↪ @fapp1_fapp0
       (Product_cat (Op_cat $A) $B)
-      Cat_cat
+      Cat_cart
       $R
       (@fapp0
         (Product_cat $B (Op_cat $A))
@@ -18071,8 +20519,8 @@ rule @Op_prof
   Fixed-endpoint opposite profunctor functor.
 
   This is the fixed vertical action of object-level profunctor duality.
-  Ambient normal-lax identity is inherited from the generic functor calculus;
-  composition is retained by the guarded named owner below.
+  Identity and composition are inherited from the default strict-functor
+  calculus.
 */
 injective symbol Op_prof_func [A B : Cat]
   : τ (Functor
@@ -18083,18 +20531,7 @@ injective symbol Op_prof_func [A B : Cat]
 rule @fapp0 _ _ (@Op_prof_func $A $B) $R
   ↪ @Op_prof $A $B $R;
 
-// Named direct strict composition owner for fixed-endpoint
-// profunctor duality. Op_prof_func is the complete semantic discriminator.
-rule @comp_fapp0
-      _ _ _ _
-      (@fapp1_fapp0 _ _ (@Op_prof_func $A $B) $Q $R $s)
-      (@fapp1_fapp0 _ _ (@Op_prof_func $A $B) $P $Q $r)
-  ↪ @fapp1_fapp0
-      (@Prof_cat $A $B)
-      (@Prof_cat (Op_cat $B) (Op_cat $A))
-      (@Op_prof_func $A $B)
-      $P $R
-      (@comp_fapp0 (@Prof_cat $A $B) $P $Q $R $s $r);
+// Composition is inherited from the default strict-functor rule.
 
 
 // Proof-time semantic view: object duality is pullback along product swap.
@@ -18177,12 +20614,12 @@ rule @Prof_reindex
 // Object/fibre projection of profunctor reindexing.
 rule @fapp0
       _
-      Cat_cat
+      Cat_cart
       (@Prof_reindex $A $A' $B $B' $R $F $G)
       $ab
   ↪ @fapp0
       (Product_cat (Op_cat $A) $B)
-      Cat_cat
+      Cat_cart
       $R
       (@fapp0
         (Product_cat (Op_cat $A') $B')
@@ -18205,22 +20642,22 @@ symbol Prof_reindex_fapp1_func [A A' B B' : Cat]
   [ab ab' : τ (Obj (Product_cat (Op_cat A') B'))]
   : τ (Functor
       (Hom_cat (Product_cat (Op_cat A') B') ab ab')
-      (Functor_cat
+      (Functor_cart_cat
         (@fapp0
           (Product_cat (Op_cat A') B')
-          Cat_cat
+          Cat_cart
           (@Prof_reindex A A' B B' R F G)
           ab)
         (@fapp0
           (Product_cat (Op_cat A') B')
-          Cat_cat
+          Cat_cart
           (@Prof_reindex A A' B B' R F G)
           ab')));
 
 // Hom-action projection of reindexing at product-base endpoints ab,ab'.
 rule @fapp1_func
       _
-      Cat_cat
+      Cat_cart
       (@Prof_reindex $A $A' $B $B' $R $F $G)
       $ab
       $ab'
@@ -18235,7 +20672,7 @@ rule fapp0
       $pq
   ↪ @fapp1_fapp0
       (Product_cat (Op_cat $A) $B)
-      Cat_cat
+      Cat_cart
       $R
       (@fapp0
         (Product_cat (Op_cat $A') $B')
@@ -18276,14 +20713,14 @@ rule fapp0
 // Direct capped action joins the full-action projection above.
 rule @fapp1_fapp0
       _
-      Cat_cat
+      Cat_cart
       (@Prof_reindex $A $A' $B $B' $R $F $G)
       $ab
       $ab'
       $pq
   ↪ @fapp1_fapp0
       (Product_cat (Op_cat $A) $B)
-      Cat_cat
+      Cat_cart
       $R
       (@fapp0
         (Product_cat (Op_cat $A') $B')
@@ -18330,7 +20767,7 @@ injective symbol Unit_prof (X : Cat)
 // Direct fibre computation, formulated for an arbitrary product object.
 rule @fapp0
       _
-      Cat_cat
+      Cat_cart
       (@Unit_prof $X)
       $xy
   ↪ Hom_cat
@@ -18344,7 +20781,7 @@ rule @fapp0
 // lhs-audit: keep 4 -- constructed pair endpoint is decomposed by the rule.
 rule @fapp1_func
       _
-      Cat_cat
+      Cat_cart
       (@Unit_prof $X)
       (Struct_sigma $x $y)
       (Struct_sigma $x' $y')
@@ -18353,7 +20790,7 @@ rule @fapp1_func
 // Capped base-arrow action, joined with the full-action projection above.
 rule @fapp1_fapp0
       _
-      Cat_cat
+      Cat_cart
       (@Unit_prof $X)
       $xy
       $xy'
@@ -18376,50 +20813,50 @@ rule @fapp1_fapp0
 */
 injective symbol Hom_catd_fapp1_func [K : Cat]
   [E : τ (Catd K)]
-  [X : τ (Obj (Pi_cat (Op_catd E)))]
+  [X : τ (Obj (Pi_cat (TotalOp_catd E)))]
   [Y : τ (Obj (Pi_cat E))]
   (x y : τ (Obj K))
   : τ (Functor
       (Hom_cat K x y)
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat
           (Fibre_cat E x)
-          (@piapp0 K (@Op_catd K E) X x)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
           (@piapp0 K E Y x))
         (Hom_cat
           (Fibre_cat E y)
-          (@piapp0 K (@Op_catd K E) X y)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
           (@piapp0 K E Y y))));
 
 injective symbol Hom_catd_fapp1_fapp0 [K : Cat]
   [E : τ (Catd K)]
-  [X : τ (Obj (Pi_cat (Op_catd E)))]
+  [X : τ (Obj (Pi_cat (TotalOp_catd E)))]
   [Y : τ (Obj (Pi_cat E))]
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   : τ (Functor
       (Hom_cat
         (Fibre_cat E x)
-        (@piapp0 K (@Op_catd K E) X x)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
         (@piapp0 K E Y x))
       (Hom_cat
         (Fibre_cat E y)
-        (@piapp0 K (@Op_catd K E) X y)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
         (@piapp0 K E Y y)));
 
 injective symbol Hom_catd_fapp1_fapp0_point [K : Cat]
   [E : τ (Catd K)]
-  [X : τ (Obj (Pi_cat (Op_catd E)))]
+  [X : τ (Obj (Pi_cat (TotalOp_catd E)))]
   [Y : τ (Obj (Pi_cat E))]
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   (h : τ (Hom
       (Fibre_cat E x)
-      (@piapp0 K (@Op_catd K E) X x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
       (@piapp0 K E Y x)))
   : τ (Hom
       (Fibre_cat E y)
-      (@piapp0 K (@Op_catd K E) X y)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
       (@piapp0 K E Y y));
 
 // Capped identity and composition preserve the global functor-action laws.
@@ -18428,7 +20865,7 @@ rule @Hom_catd_fapp1_fapp0
   ↪ @id_func
       (Hom_cat
         (Fibre_cat $E $x)
-        (@piapp0 $K (@Op_catd $K $E) $X $x)
+        (@piapp0 (CoAbove2_cat $K) (@TotalOp_catd $K $E) $X $x)
         (@piapp0 $K $E $Y $x));
 
 rule @comp_fapp0
@@ -18453,49 +20890,48 @@ rule @Hom_catd_fapp1_fapp0_point
 // owned by tapp0/tapp1/fdapp1, including the opposite-fibre variance.
 unif_rule @Hom_catd_fapp1_fapp0_point $K $E $X $Y $x $y $p $h
   ≡ @Hom_fapp0
-      (@fapp0 $K Cat_cat $E $y)
+      (@fapp0 $K Cat_cart $E $y)
       (@fapp0
-        (@fapp0 $K Cat_cat $E $x)
-        (@fapp0 $K Cat_cat $E $y)
-        (@fapp1_fapp0 $K Cat_cat $E $x $y $p)
+        (@fapp0 $K Cat_cart $E $x)
+        (@fapp0 $K Cat_cart $E $y)
+        (@fapp1_fapp0 $K Cat_cart $E $x $y $p)
         (@fapp0
           Terminal_cat
-          (Op_cat (@fapp0 $K Cat_cat $E $x))
+          (CoAbove2_cat (Op_cat (@fapp0 $K Cat_cart $E $x)))
           (@tapp0_fapp0
-            $K Cat_cat
-            (Const_catd $K Terminal_cat)
-            (@Op_catd $K $E)
+            (CoAbove2_cat $K) Cat_cart
+            (Const_catd (CoAbove2_cat $K) Terminal_cat)
+            (@TotalOp_catd $K $E)
             $x $X)
           Terminal_obj))
       (@fapp0
         Terminal_cat
-        (Op_cat (@fapp0 $K Cat_cat $E $y))
+        (CoAbove2_cat (Op_cat (@fapp0 $K Cat_cart $E $y)))
         (@tapp0_fapp0
-          $K Cat_cat
-          (Const_catd $K Terminal_cat)
-          (@Op_catd $K $E)
+          (CoAbove2_cat $K) Cat_cart
+          (Const_catd (CoAbove2_cat $K) Terminal_cat)
+          (@TotalOp_catd $K $E)
           $y $X)
         Terminal_obj)
       (@fapp0
-        Terminal_cat
-        (@fapp0 $K Cat_cat $E $y)
-        (@tapp1_fapp0
-          $K Cat_cat
-          (Const_catd $K Terminal_cat)
-          $E $x $y $Y $p)
-        Terminal_obj)
+        (@fapp0 $K Cat_cart $E $x)
+        (@fapp0 $K Cat_cart $E $y)
+        (@fapp1_fapp0 $K Cat_cart $E $x $y $p)
+        (@fapp0 Terminal_cat (@fapp0 $K Cat_cart $E $x)
+          (@tapp0_fapp0 $K Cat_cart
+            (Const_catd $K Terminal_cat) $E $x $Y) Terminal_obj))
       (@fapp0
         Terminal_cat
-        (@fapp0 $K Cat_cat $E $y)
+        (@fapp0 $K Cat_cart $E $y)
         (@tapp0_fapp0
-          $K Cat_cat
+          $K Cat_cart
           (Const_catd $K Terminal_cat)
           $E $y $Y)
         Terminal_obj)
       (@fdapp1_int_cell
-        $K
-        (Const_catd $K Terminal_cat)
-        (@Op_catd $K $E)
+        (CoAbove2_cat $K)
+        (Const_catd (CoAbove2_cat $K) Terminal_cat)
+        (@TotalOp_catd $K $E)
         $X $x $y $p Terminal_obj)
       (@fdapp1_int_cell
         $K
@@ -18503,23 +20939,23 @@ unif_rule @Hom_catd_fapp1_fapp0_point $K $E $X $Y $x $y $p $h
         $E
         $Y $x $y $p Terminal_obj)
       (@fapp1_fapp0
-        (@fapp0 $K Cat_cat $E $x)
-        (@fapp0 $K Cat_cat $E $y)
-        (@fapp1_fapp0 $K Cat_cat $E $x $y $p)
+        (@fapp0 $K Cat_cart $E $x)
+        (@fapp0 $K Cat_cart $E $y)
+        (@fapp1_fapp0 $K Cat_cart $E $x $y $p)
         (@fapp0
           Terminal_cat
-          (Op_cat (@fapp0 $K Cat_cat $E $x))
+          (CoAbove2_cat (Op_cat (@fapp0 $K Cat_cart $E $x)))
           (@tapp0_fapp0
-            $K Cat_cat
-            (Const_catd $K Terminal_cat)
-            (@Op_catd $K $E)
+            (CoAbove2_cat $K) Cat_cart
+            (Const_catd (CoAbove2_cat $K) Terminal_cat)
+            (@TotalOp_catd $K $E)
             $x $X)
           Terminal_obj)
         (@fapp0
           Terminal_cat
-          (@fapp0 $K Cat_cat $E $x)
+          (@fapp0 $K Cat_cart $E $x)
           (@tapp0_fapp0
-            $K Cat_cat
+            $K Cat_cart
             (Const_catd $K Terminal_cat)
             $E $x $Y)
           Terminal_obj)
@@ -18528,27 +20964,27 @@ unif_rule @Hom_catd_fapp1_fapp0_point $K $E $X $Y $x $y $p $h
 
 // Constant-Cat hom families retain Functor_catd's canonical action.
 rule @Hom_catd_fapp1_func
-      $K (@Const_catd $K Cat_cat) $X $Y $x $y
+      $K (@Const_catd $K Cat_cart) $X $Y $x $y
   ↪ @fapp1_func
-      $K Cat_cat
-      (@Functor_catd $K (@Op_func $K (Op_cat Cat_cat) $X) $Y)
+      $K Cat_cart
+      (@Functor_catd $K (@TotalOp_func (CoAbove2_cat $K) (TotalOp_cat Cat_cart) $X) $Y)
       $x $y;
 
 rule @Hom_catd_fapp1_fapp0
-      $K (@Const_catd $K Cat_cat) $X $Y $x $y $p
+      $K (@Const_catd $K Cat_cart) $X $Y $x $y $p
   ↪ @fapp1_fapp0
-      $K Cat_cat
-      (@Functor_catd $K (@Op_func $K (Op_cat Cat_cat) $X) $Y)
+      $K Cat_cart
+      (@Functor_catd $K (@TotalOp_func (CoAbove2_cat $K) (TotalOp_cat Cat_cart) $X) $Y)
       $x $y $p;
 
 // Transf_catd action is the Hom_catd action of the mixed functor family.
 rule @fapp1_func
-      $K Cat_cat (@Transf_catd $K $A $B $FF $GG) $x $y
+      $K Cat_cart (@Transf_catd $K $A $B $FF $GG) $x $y
   ↪ @Hom_catd_fapp1_func
       $K (@Functor_catd $K $A $B) $FF $GG $x $y;
 
 rule @fapp1_fapp0
-      $K Cat_cat (@Transf_catd $K $A $B $FF $GG) $x $y $p
+      $K Cat_cart (@Transf_catd $K $A $B $FF $GG) $x $y $p
   ↪ @Hom_catd_fapp1_fapp0
       $K (@Functor_catd $K $A $B) $FF $GG $x $y $p;
 
@@ -18556,11 +20992,11 @@ rule @fapp1_fapp0
 // head-specific joins so competing reduction orders share the same normal
 // forms.
 rule @fapp1_func
-      $K Cat_cat (@Hom_catd $K $E $X $Y) $x $y
+      $K Cat_cart (@Hom_catd $K $E $X $Y) $x $y
   ↪ @Hom_catd_fapp1_func $K $E $X $Y $x $y;
 
 rule @fapp1_fapp0
-      $K Cat_cat (@Hom_catd $K $E $X $Y) $x $y $p
+      $K Cat_cart (@Hom_catd $K $E $X $Y) $x $y $p
   ↪ @Hom_catd_fapp1_fapp0 $K $E $X $Y $x $y $p;
 
 rule fapp0
@@ -18583,21 +21019,23 @@ symbol Hom_prof_along [A B X : Cat]
   : τ (Prof A B)
 ≔ @Prof_reindex X A X B (@Unit_prof X) F G;
 
-// Proof-time comparison of curry's semantic telescope with the native Hom family.
-// Retain the whole supplied profunctor and check that it is the represented one.
-unif_rule @hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat)
-    _ _ _ (@Product_pair_tele_func (Op_cat $A) $B)
-    (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) $B _ Cat_cat $R)
+// Proof-time comparison of actual Cartesian curry composition with native Hom.
+// The previous precomposition point head now reduces to this whole composite.
+// Retain the supplied profunctor and both actual endpoint functors; no
+// cancellation or representation inference for an arbitrary R is introduced.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R)
+    (@Product_pair_tele_func $Source $B)
   ≡ @hom_int $X $B $G
-  ↪ [ $A ≡ $X;
+  ↪ [ $Source ≡ Op_cat $X;
       $R ≡ @Prof_reindex $X $X $X $B (@Unit_prof $X) (@id Cat_cat $X) $G ];
 
-// The same represented family with its actual left endpoint functor retained.
-unif_rule @hom_precomp_along_fapp0 _ _ (@id Cat_cat Cat_cat)
-    _ _ _ (@Product_pair_tele_func (Op_cat $A) $B)
-    (@hom_postcomp_func _ _ (@id Cat_cat Cat_cat) $B _ Cat_cat $R)
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R)
+    (@Product_pair_tele_func $Source $B)
   ≡ @comp_fapp0 Cat_cat _ _ _ (@hom_int $X $B $G) (@Op_func $A $X $F)
-  ↪ [ $R ≡ @Prof_reindex $X $A $X $B (@Unit_prof $X) $F $G ];
+  ↪ [ $Source ≡ Op_cat $A;
+      $R ≡ @Prof_reindex $X $A $X $B (@Unit_prof $X) $F $G ];
 
 // Right-representable hom profunctor, as the identity-left specialization.
 symbol Hom_prof [B X : Cat]
@@ -18882,9 +21320,9 @@ symbol Prof_reindex_transf [A A' B B' : Cat]
       (@Prof_reindex A A' B B' S F G));
 
 // Component of the existing whole reindexed map: retain the entire fibre functor.
-rule @tapp0_fapp0 _ Cat_cat _ _ $ab
+rule @tapp0_fapp0 _ Cat_cart _ _ $ab
     (@Prof_reindex_transf $A $A' $B $B' $R $S $r $F $G)
-  ↪ @tapp0_fapp0 (Product_cat (Op_cat $A) $B) Cat_cat $R $S
+  ↪ @tapp0_fapp0 (Product_cat (Op_cat $A) $B) Cat_cart $R $S
       (@fapp0 (Product_cat (Op_cat $A') $B') (Product_cat (Op_cat $A) $B)
         (@Prof_reindex_base_func $A $A' $B $B' $F $G) $ab) $r;
 
@@ -19022,7 +21460,7 @@ rule @Prof_func_hom $A $A (@id Cat_cat $A)
 // target must stay inferred: constant endpoint reindexing reduces it away.
 rule @tapp0_fapp0
       (Product_cat (Op_cat $A) $A)
-      Cat_cat
+      Cat_cart
       (@Unit_prof $A)
       _
       $ab
@@ -19040,7 +21478,7 @@ rule @tapp0_fapp0
 // but not the reducible target family. Prof_func_hom still owns the action.
 rule @tapp1_fapp0
       (Product_cat (Op_cat $A) $A)
-      Cat_cat
+      Cat_cart
       (@Unit_prof $A)
       _
       $ab
@@ -19049,7 +21487,7 @@ rule @tapp1_fapp0
       $pq
   ↪ @tapp1_fapp0
       $A
-      Cat_cat
+      Cat_cart
       (@hom_ $A $A (@id_func $A) (sigma_Fst $ab))
       (@hom_ $B $A $F (@fapp0 $A $B $F (sigma_Fst $ab')))
       (sigma_Snd $ab)
@@ -19057,12 +21495,12 @@ rule @tapp1_fapp0
       (@tapp1_fapp0
         (Op_cat $A)
         (@Catd_cat $A)
-        (@hom_int $A $A (@id_func $A))
+        (@hom_int_view $A $A (@id_func $A))
         (@comp_cat_fapp0
           (Op_cat $A)
           (Op_cat $B)
           (@Catd_cat $A)
-          (@hom_int $B $A $F)
+          (@hom_int_view $B $A $F)
           (@Op_func $A $B $F))
         (sigma_Fst $ab)
         (sigma_Fst $ab')
@@ -19407,9 +21845,8 @@ rule @Prof_reindex
       Prof(A,X) x Prof(B,X)^op -> Prof(A,B).
 
   Product identity projections compute for arbitrary product objects, so the
-  direct product-domain presentation inherits ambient normal-lax identity
-  without requiring a visible Struct_sigma constructor. Its named composition
-  owner below preserves the intended strict mixed action.
+  direct product-domain presentation inherits default strict identity and
+  composition without requiring a visible Struct_sigma constructor.
 */
 symbol Prof_imply_cov_func2 [A B X : Cat]
   : τ (Functor
@@ -19428,26 +21865,7 @@ rule @fapp0
       (sigma_Fst $oq)
       (sigma_Snd $oq);
 
-// Named direct strict composition owner for mixed-variance
-// profunctor implication.
-rule @comp_fapp0
-      _ _ _ _
-      (@fapp1_fapp0
-        _ _ (@Prof_imply_cov_func2 $A $B $X) $oq1 $oq2 $r12)
-      (@fapp1_fapp0
-        _ _ (@Prof_imply_cov_func2 $A $B $X) $oq0 $oq1 $r01)
-  ↪ @fapp1_fapp0
-      (Product_cat
-        (@Prof_cat $A $X)
-        (Op_cat (@Prof_cat $B $X)))
-      (@Prof_cat $A $B)
-      (@Prof_imply_cov_func2 $A $B $X)
-      $oq0 $oq2
-      (@comp_fapp0
-        (Product_cat
-          (@Prof_cat $A $X)
-          (Op_cat (@Prof_cat $B $X)))
-        $oq0 $oq1 $oq2 $r12 $r01);
+// Composition is inherited from the default strict-functor rule.
 
 
 // Insert a varying O beside the fixed contravariant weight Q.
@@ -19468,7 +21886,7 @@ symbol Prof_imply_cov_fixed_weight_func [A B X : Cat]
 /*
   Fixed-weight implication is the semantic specialization of the mixed
   functor along O |-> (O,Q). The semantic definition is kept opaque so its
-  normal-lax identity and guarded named composition owner remain visible before
+  generic strict identity and composition owners remain visible before
   the product pipeline unfolds.
 */
 symbol Prof_imply_cov_func [A B X : Cat]
@@ -19493,19 +21911,7 @@ rule fapp0
       $O
   ↪ @Prof_imply_cov $A $B $X $O $Q;
 
-// Named direct strict composition owner for the opaque
-// fixed-weight implication functor.
-rule @comp_fapp0
-      _ _ _ _
-      (@fapp1_fapp0
-        _ _ (@Prof_imply_cov_func $A $B $X $Q) $O1 $O2 $o12)
-      (@fapp1_fapp0
-        _ _ (@Prof_imply_cov_func $A $B $X $Q) $O0 $O1 $o01)
-  ↪ @fapp1_fapp0
-      (@Prof_cat $A $X) (@Prof_cat $A $B)
-      (@Prof_imply_cov_func $A $B $X $Q)
-      $O0 $O2
-      (@comp_fapp0 (@Prof_cat $A $X) $O0 $O1 $O2 $o12 $o01);
+// Composition is inherited from the default strict-functor rule.
 
 
 /*
@@ -19863,6 +22269,14 @@ symbol join_elim_func [A B E : Cat]
         second)))
   : τ (Functor (@Join_cat A B) E);
 
+// Sufficient proof-time congruence for two explicit join introductions.
+// Compare all constructor data; this declares neither join eta nor an
+// injectivity property of arbitrary functors out of the join.
+unif_rule @join_elim_func $A $B $C $F $G $theta
+  ≡ @join_elim_func $A1 $B1 $C1 $F1 $G1 $theta1
+  ↪ [ $A1 ≡ $A; $B1 ≡ $B; $C1 ≡ $C;
+      $F1 ≡ $F; $G1 ≡ $G; $theta1 ≡ $theta ];
+
 // Primitive join-recursion beta for the internally natural cross cell.
 symbol join_elim_cross_transf [A B E : Cat]
   (first : τ (Functor A E))
@@ -19925,7 +22339,7 @@ with @fapp0
 rule @comp_fapp0 Cat_cat _ _ _
       (@fapp1_func _ _ (@join_elim_func $A $B $C $F $G $cross) _ _)
       (@tapp0_fapp0 _ _ _ _ $ab (@join_cross_transf $A $B))
-  ↪ @tapp0_fapp0 (Product_cat (Op_cat $A) $B) Cat_cat
+  ↪ @tapp0_fapp0 (Product_cat (Op_cat $A) $B) Cat_cart
       (@Terminal_prof $A $B)
       (@Prof_reindex $C $A $C $B (@Unit_prof $C) $F $G)
       $ab $cross;
@@ -19935,9 +22349,9 @@ rule @fapp1_fapp0 _ _ (@join_elim_func $A $B $C $F $G $cross) _ _
       (@fapp0 _ _
         (@tapp0_fapp0 _ _ _ _ $ab (@join_cross_transf $A $B)) $t)
   ↪ @fapp0 Terminal_cat
-      (@fapp0 (Product_cat (Op_cat $A) $B) Cat_cat
+      (@fapp0 (Product_cat (Op_cat $A) $B) Cat_cart
         (@Prof_reindex $C $A $C $B (@Unit_prof $C) $F $G) $ab)
-      (@tapp0_fapp0 (Product_cat (Op_cat $A) $B) Cat_cat
+      (@tapp0_fapp0 (Product_cat (Op_cat $A) $B) Cat_cart
         (@Terminal_prof $A $B)
         (@Prof_reindex $C $A $C $B (@Unit_prof $C) $F $G)
         $ab $cross) $t;
@@ -19961,7 +22375,7 @@ rule @comp_fapp0
       Cat_cat
       $A
       $B
-      Cat_cat
+      Cat_cart
       (@Pullback_catd $B $C $E $F)
       $H
   ↪ @Pullback_catd
@@ -20058,19 +22472,22 @@ rule @Pullback_catd_func
   iterable transformation. The self-comma identity section supplies the
   transported identity; no independent naturality square is postulated.
 */
-// Conventional comma fibres (T downarrow b), assembled from the active
-// target-represented family and Sigma-total owners.
+// Comma fibres use the existing negative total:
+//   O(Sigma_{O(A)} O(Hom_B(T[-],b))).
+// The inner and outer total dualities restore the B parameter base.
 symbol CommaFib_catd [A B : Cat]
   (T : τ (Functor A B))
   : τ (Catd B)
-≔ @Op_catd
-    B
-    (@comp_cat_fapp0
-      B
-      (@Catd_cat (Op_cat A))
-      Cat_cat
-      (@Sigma_func (Op_cat A))
-      (@hom_con_int B A T));
+≔ @TotalOp_catd (CoAbove2_cat B)
+    (@comp_cat_fapp0 (CoAbove2_cat B)
+      (Functor_cart_cat (TotalOp_cat A) Cat_cart) Cat_cart
+      (@Sigma_coeff_func (TotalOp_cat A))
+      (@comp_cat_fapp0 (CoAbove2_cat B)
+        (CoAbove2_cat (Functor_cart_cat (Op_cat A) Cat_cart))
+        (Functor_cart_cat (TotalOp_cat A) Cat_cart)
+        (@TotalOp_catd_func (Op_cat A))
+        (@CoAbove2_func B (Functor_cart_cat (Op_cat A) Cat_cart)
+          (@hom_con_int B A T))));
 
 // Pulling the comma family back along T gives u |-> (T downarrow T[u]).
 symbol SelfComma_catd [A B : Cat]
@@ -20145,23 +22562,19 @@ rule @fdapp1_int_cell
 /*
   Covariant represented mirror of the self-comma identity section.
 
-  Over y : A^op, the fibre is Op(PathOut(A,y)); its selected object is
-  (y,id_y).  For g : x -> y, the base arrow y -> x in A^op transports that
+  Over y : O(A), the fibre is O(PathOut(A,y)); its selected object is
+  (y,id_y).  For g : x -> y, the base arrow y -> x in O(A) transports that
   object to (y,g), and the section action is the opposite of the canonical
   total arrow (g,id_g) : (x,id_x) -> (y,g).
 
   This is the ordinary hom_int mirror of hom_con_identity_graph_sec.  It is a
   reusable internal-action owner, not a transformation-graph constructor.
 */
-symbol hom_identity_graph_catd
-  (A : Cat)
-  : τ (Catd (Op_cat A))
-≔ @Op_catd
-    (Op_cat A)
-    (@comp_cat_fapp0
-      (Op_cat A) (@Catd_cat A) Cat_cat
-      (@Sigma_func A)
-      (@hom_int A A (@id_func A)));
+symbol hom_identity_graph_catd (A : Cat)
+  : τ (Catd (TotalOp_cat A))
+≔ @TotalOp_catd (Op_cat A)
+    (@comp_cat_fapp0 (Op_cat A) (Functor_cart_cat A Cat_cart) Cat_cart
+      (@Sigma_coeff_func A) (@hom_int A A (@id_func A)));
 
 symbol hom_identity_graph_obj
   [A : Cat]
@@ -20176,7 +22589,7 @@ symbol hom_identity_graph_obj
 injective symbol hom_identity_graph_sec
   (A : Cat)
   : τ (Obj (@Pi_cat
-      (Op_cat A)
+      (TotalOp_cat A)
       (@hom_identity_graph_catd A)));
 
 // Selected object projection of the ordinary represented identity section.
@@ -20195,7 +22608,7 @@ symbol hom_identity_graph_action_source
   (g : τ (Hom A x y))
   : τ (Obj (Fibre_cat (@hom_identity_graph_catd A) x))
 ≔ @piapp1_src_obj
-    (Op_cat A)
+    (TotalOp_cat A)
     (@hom_identity_graph_catd A)
     (@hom_identity_graph_sec A)
     y x g;
@@ -20237,146 +22650,82 @@ rule @fdapp1_int_cell
 // Arbitrary internal-action projection.  Every rung below is a definition
 // through an existing component owner; no component square is postulated.
 
+// Original projection endpoints, now on E with the corrected transposed target.
 symbol fdapp1_projection_source [K : Cat] (E : τ (Catd K))
-  : τ (Functord
-      (@Op_catd K E)
-      (@Homd_target_catd K E))
+  : τ (Functord E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)))
 ≔ @homd_int K E E (@id_funcd K E);
-
 symbol fdapp1_projection_target [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
-  : τ (Functord
-      (@Op_catd K E)
-      (@Homd_target_catd K E))
-≔ @comp_catd_fapp0
-    K
-    (@Op_catd K E)
-    (@Op_catd K D)
-    (@Homd_target_catd K E)
-    (@homd_int K E D FF)
-    (@Op_funcd K E D FF);
+  : τ (Functord E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)))
+≔ @comp_catd_fapp0 K E D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@homd_int K E D FF) FF;
 
-// First projection: retain the arbitrary displayed internal action, then fix
-// only x and u.
+// The whole modification points from the relative root to the identity root.
+// Its component in T(S_E(x)) has the original forward section direction.
 symbol fdapp1_project_section_arrow
-  [K : Cat] [E D : τ (Catd K)]
-  (FF : τ (Functord E D))
-  (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
-  (x : τ (Obj K))
-  (u : τ (Obj (Fibre_cat E x)))
-  : τ (Hom
-      (Fibre_cat (@Homd_target_catd K E) x)
-      (@homd_id_src_sec K E x u)
-      (@homd_ff_src_sec K E D FF x u))
-≔ @tapp0_fapp0
-    (Fibre_cat (@Op_catd K E) x)
-    (Fibre_cat (@Homd_target_catd K E) x)
-    (@Fibre_func
-      K
-      (@Op_catd K E)
-      (@Homd_target_catd K E)
-      (@fdapp1_projection_source K E)
-      x)
-    (@Fibre_func
-      K
-      (@Op_catd K E)
-      (@Homd_target_catd K E)
-      (@fdapp1_projection_target K E D FF)
-      x)
-    u
-    (@tdapp0_fapp0
-      K
-      (@Op_catd K E)
-      (@Homd_target_catd K E)
-      (@fdapp1_projection_source K E)
-      (@fdapp1_projection_target K E D FF)
-      x
-      eta);
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  : τ (Obj (Hom_cat (@Homd_target_section_cat K E x)
+      (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E D FF x u)))
+// Recover the component's two functor endpoints from the actual whole eta,
+// as in fdapp1_int_comp_section. Expanding the alternative target-family
+// presentation here obstructs the root-first composition projection.
+≔ @tapp0_fapp0 (Fibre_cat E x) (Op_cat (@Homd_target_section_cat K E x))
+    _ _ u (@strict_transfor _ _ _ _ (tdapp0_fapp0 x eta));
 
-// Second projection: keep the arbitrary action and evaluate the resulting
-// arrow between sections at y.
 symbol fdapp1_project_tgt_arrow
-  [K : Cat] [E D : τ (Catd K)]
-  (FF : τ (Functord E D))
-  (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
-  (x : τ (Obj K))
-  (u : τ (Obj (Fibre_cat E x)))
-  (y : τ (Obj K))
-  : τ (Transf
-      (@homd_id_tgt_func K E x u y)
-      (@homd_ff_tgt_func K E D FF x u y))
-≔ @pi_hom_fapp0
-    (Op_cat K)
-    (@Homd_target_section_catd K E x)
-    (@homd_id_src_sec K E x u)
-    (@homd_ff_src_sec K E D FF x u)
-    (@fdapp1_project_section_arrow K E D FF eta x u)
-    y;
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
+  : τ (@StrictTransfor (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (@homd_id_tgt_func K E x u y) (@homd_ff_tgt_func K E D FF x u y))
+≔ @tapp0_hom_fapp0 K Homd_coeff_cat
+    (@Homd_coeff_diagram K E) (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E D FF x u) y
+    (@fdapp1_project_section_arrow K E D FF eta x u);
 
-// Third projection: evaluate at an arbitrary comma target v.
 symbol fdapp1_project_presheaf_arrow
-  [K : Cat] [E D : τ (Catd K)]
-  (FF : τ (Functord E D))
-  (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
-  (x : τ (Obj K))
-  (u : τ (Obj (Fibre_cat E x)))
-  (y : τ (Obj K))
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) (y : τ (Obj K))
   (v : τ (Obj (Fibre_cat E y)))
-  : τ (Hom
-      (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+  : τ (Obj (Hom_cat (Homd_index_cat (Hom_cat K x y))
       (fapp0 (@homd_id_tgt_func K E x u y) v)
-      (fapp0 (@homd_ff_tgt_func K E D FF x u y) v))
-≔ @tapp0_fapp0
-    (Fibre_cat E y)
-    (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
-    (@homd_id_tgt_func K E x u y)
-    (@homd_ff_tgt_func K E D FF x u y)
-    v
-    (@fdapp1_project_tgt_arrow K E D FF eta x u y);
+      (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)))
+≔ @tapp0_fapp0 (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+    (@homd_id_tgt_func K E x u y) (@homd_ff_tgt_func K E D FF x u y) v
+    (@strict_transfor _ _ _ _ (@fdapp1_project_tgt_arrow K E D FF eta x u y));
 
-// Fourth projection: evaluate the comma-indexed presheaf arrow at p.
 symbol fdapp1_project_hom_func
-  [K : Cat] [E D : τ (Catd K)]
-  (FF : τ (Functord E D))
-  (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
-  [x y : τ (Obj K)]
-  (p : τ (Hom K x y))
-  (u : τ (Obj (Fibre_cat E x)))
-  (v : τ (Obj (Fibre_cat E y)))
-  : τ (Hom
-      Cat_cat
-      (fapp0
-        (@homd_ K E E (@id_funcd K E) x u y v)
-        p)
-      (fapp0
-        (@homd_ K E D FF x
-          (fapp0 (@Fibre_func K E D FF x) u) y v)
-        p))
-≔ @tapp0_fapp0
-    (Op_cat (Hom_cat K x y))
-    Cat_cat
-    (fapp0 (@homd_id_tgt_func K E x u y) v)
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
+  [x y : τ (Obj K)] (p : τ (Hom K x y))
+  (u : τ (Obj (Fibre_cat E x))) (v : τ (Obj (Fibre_cat E y)))
+  : τ (Functor
+      (fapp0 (@homd_ K E E (@id_funcd K E) x u y v) p)
+      (fapp0 (@homd_ K E D FF x (fapp0 (@Fibre_func K E D FF x) u) y v) p))
+≔ @tapp0_fapp0 (Hom_cat K x y) (Op_cat Cat_cart)
     (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)
-    p
-    (@fdapp1_project_presheaf_arrow
-      K E D FF eta x u y v);
+    (fapp0 (@homd_id_tgt_func K E x u y) v) p
+    (@fdapp1_project_presheaf_arrow K E D FF eta x u y v);
 
 // Arbitrary-comma component at alpha.  This is the direct nested projection
 // of eta and will be specialized to the transported identity below.
 symbol fdapp1_project_comma_component
   [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
-  (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x)))
@@ -20413,10 +22762,10 @@ injective symbol fdapp1_comma_projection_func
   : τ (Functor
       (@Transfd_cat
         K
-        (@Op_catd K E)
-        (@Homd_target_catd K E)
-        (@fdapp1_projection_source K E)
-        (@fdapp1_projection_target K E D FF))
+        E
+        (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+        (@fdapp1_projection_target K E D FF)
+        (@fdapp1_projection_source K E))
       (@Transf_cat
         (Fibre_cat E x)
         (Fibre_cat D y)
@@ -20427,9 +22776,9 @@ injective symbol fdapp1_comma_projection_func
 injective symbol fdapp1_comma_projection_transf
   [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
-  (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   : τ (Transf
@@ -20498,9 +22847,9 @@ symbol fdapp1_identity_section_alpha
 symbol fdapp1_project_identity_section_component
   [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
-  (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x)))
@@ -20513,7 +22862,35 @@ symbol fdapp1_project_identity_section_component
     (fapp0 (@catd_transport_func K E x y p) u)
     (@fdapp1_identity_section_alpha K E x y p u);
 
-// The public whole laxity candidate is now an object projection, not an
+
+// Conventional-lax computation at the intrinsic whole action owner. No new witness.
+rule @fdapp1_comma_projection_transf
+      $A _ _
+      (@fapp1_at_transf $A $B $F $X)
+      (@fdapp1_int_transfd $A _ _ (@fapp1_at_transf $A $B $F $X))
+      $Y $Z $g
+  ↪ @id
+      (Functor_cat (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $X) (@fapp0 $A $B $F $Z)))
+      (@functord_transport_lhs_func
+        $A (@hom_ $A $A (@id_func $A) $X)
+        (@hom_ $B $A $F (@fapp0 $A $B $F $X))
+        (@fapp1_at_transf $A $B $F $X) $Y $Z $g);
+
+// Capping the default-strict covariant Hom compositor must agree with its
+// whole extracted identity above. This is the fapp1 counterpart of the
+// existing fapp1_con_at_transf projection, not strictness of arbitrary FF.
+rule @fdapp1_int_cell _ _ _
+    (@fapp1_at_transf $A $B $F $X) $Y $Z $g $f
+  ↪ @id (Hom_cat $B (@fapp0 $A $B $F $X) (@fapp0 $A $B $F $Z))
+      (@fapp0 (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $X) (@fapp0 $A $B $F $Z))
+        (@functord_transport_lhs_func $A
+          (@hom_ $A $A (@id_func $A) $X)
+          (@hom_ $B $A $F (@fapp0 $A $B $F $X))
+          (@fapp1_at_transf $A $B $F $X) $Y $Z $g) $f);
+
+// The public whole laxity is an object projection, not an
 // independently postulated transformation.
 symbol functord_laxity_transf
   [K : Cat] [E D : τ (Catd K)]
@@ -20525,6 +22902,99 @@ symbol functord_laxity_transf
       (@functord_transport_rhs_func K E D FF x y p))
 ≔ @fdapp1_comma_projection_transf
     K E D FF (@fdapp1_int_transfd K E D FF) x y p;
+
+
+// Computation at the existing intrinsic owner. The default lax
+// convention makes the extracted pre/right whole cell an identity; there is
+// no independently declared comparison and no operational profile argument.
+rule @fdapp1_comma_projection_transf
+      $K _ _
+      (@tapp1_con_at_transf $A $B $F $G $epsilon $Y)
+      (@fdapp1_int_transfd $K _ _
+        (@tapp1_con_at_transf $A $B $F $G $epsilon $Y))
+      $X $W $h
+  ↪ @id
+      (Functor_cat
+        (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $G $Y)))
+      (@functord_transport_lhs_func
+        (Op_cat $A)
+        (@hom_con $A $Y $A (@id_func $A))
+        (@hom_con $B (@fapp0 $A $B $G $Y) $A $F)
+        (@tapp1_con_at_transf $A $B $F $G $epsilon $Y)
+        $X $W $h);
+
+// Capping the conventional pre/right whole identity must agree with the
+// existing intrinsic-cell owner. Keep the actual transport composite as its
+// object; no arbitrary naturality comparison is made strict here.
+rule @fdapp1_int_cell _ _ _
+    (@tapp1_con_at_transf $A $B $F $G $epsilon $Y)
+    $X $W $h $q
+  ↪ @id (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $G $Y))
+      (@fapp0 (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $G $Y))
+        (@functord_transport_lhs_func (Op_cat $A)
+          (@hom_con $A $Y $A (@id_func $A))
+          (@hom_con $B (@fapp0 $A $B $G $Y) $A $F)
+          (@tapp1_con_at_transf $A $B $F $G $epsilon $Y) $X $W $h) $q);
+
+// Observing the identity transfor first selects the existing fapp1 mirror.
+// Its whole and capped projections retain the same identity computation.
+rule @fdapp1_comma_projection_transf _ _ _
+    (@fapp1_con_at_transf $A $B $F $Y)
+    (@fdapp1_int_transfd _ _ _ (@fapp1_con_at_transf $A $B $F $Y))
+    $X $W $h
+  ↪ @id (Functor_cat (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $Y)))
+      (@functord_transport_lhs_func (Op_cat $A)
+        (@hom_con $A $Y $A (@id_func $A))
+        (@hom_con $B (@fapp0 $A $B $F $Y) $A $F)
+        (@fapp1_con_at_transf $A $B $F $Y) $X $W $h);
+
+rule @fdapp1_int_cell _ _ _
+    (@fapp1_con_at_transf $A $B $F $Y) $X $W $h $q
+  ↪ @id (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $Y))
+      (@fapp0 (Hom_cat $A $X $Y)
+        (Hom_cat $B (@fapp0 $A $B $F $W) (@fapp0 $A $B $F $Y))
+        (@functord_transport_lhs_func (Op_cat $A)
+          (@hom_con $A $Y $A (@id_func $A))
+          (@hom_con $B (@fapp0 $A $B $F $Y) $A $F)
+          (@fapp1_con_at_transf $A $B $F $Y) $X $W $h) $q);
+
+
+// Whole extraction after the canonical represented strict factor. This is
+// the whole computation of the existing intrinsic-composition body; its
+// components are already the corresponding mapped intrinsic cells.
+// Match the fixed-slot composition Hom action after ordinary whiskering has
+// projected. Both modification arguments must be the actual intrinsic ones.
+// This proof-time join does not compute an arbitrary supplied modification.
+// lhs-audit: keep 1 -- Catd_cat and Cat_cat distinguish the actual displayed composition and ordinary fixed-slot Hom action.
+unif_rule @fdapp1_comma_projection_transf $K $E $D
+    (@comp_fapp0 (Catd_cat $K) _ _ _
+      (@strict_transfor $K Cat_cart _ _
+        (@hom_int_precomp_func $B $K $H $Q $P $e)) $L)
+    $eta $x $y $p
+  ≡ @comp_prod_fapp1_fapp0 Cat_cat $S $My $Dy
+      (@Struct_sigma _ _ $s $hy)
+      (@Struct_sigma _ _ $t $hy1)
+      (@Struct_sigma _ _
+        (@fdapp1_comma_projection_transf $K $E $M $L $omega $x $y $p)
+        (@id (Functor_cat $My $Dy) $hy2))
+  ↪ [ $D ≡ @hom_ $B $K $H $P;
+      $M ≡ @hom_ $B $K $H $Q;
+      $S ≡ @Fibre_cat $K $E $x;
+      $My ≡ @Fibre_cat $K $M $y;
+      $Dy ≡ @Fibre_cat $K $D $y;
+      $s ≡ @functord_transport_lhs_func $K $E $M $L $x $y $p;
+      $t ≡ @functord_transport_rhs_func $K $E $M $L $x $y $p;
+      $hy ≡ @hom_precomp_along_func $B $B (@id Cat_cat $B)
+        (@fapp0 $K $B $H $y) $P $Q $e;
+      $hy1 ≡ $hy; $hy2 ≡ $hy;
+      $eta ≡ @fdapp1_int_transfd $K $E $D
+        (@comp_catd_fapp0 $K $E $M $D
+          (@strict_transfor $K Cat_cart $M $D
+            (@hom_int_precomp_func $B $K $H $Q $P $e)) $L);
+      $omega ≡ @fdapp1_int_transfd $K $E $M $L ];
 
 // Whole post/left ordinary laxity. Fixing the source of epsilon's internal
 // action turns g : Y -> Z into a transformation, still whole in f : X -> Y.
@@ -20688,8 +23158,8 @@ symbol tapp1_pre_laxity_cell
     q
     (@tapp1_pre_laxity_transf A B F G epsilon Y W X h);
 
-// Normal-lax functor compositor. This is the post/left cell of the identity
-// transfor and therefore remains a transparent view of the internal action.
+// Functor compositor, still extracted from the identity transfor.
+// The strict default computes this existing post/left cell to identity.
 //
 // Surface/formula:
 //   fapp1_compositor(F,g,f) : F[g] o F[f] ==> F[g o f].
@@ -20748,9 +23218,9 @@ symbol fdapp1_identity_section_transport_alpha
 symbol fdapp1_comma_projection_tapp1_fapp0
   [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
-  (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   [u u' : τ (Obj (Fibre_cat E x))]
@@ -20768,9 +23238,9 @@ symbol fdapp1_comma_projection_tapp1_fapp0
 injective symbol fdapp1_comma_projection_tapp1_func
   [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
-  (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
+  (eta : τ (@Transfd K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@fdapp1_projection_target K E D FF) (@fdapp1_projection_source K E)))
   [x y : τ (Obj K)]
   (p : τ (Hom K x y))
   (u u' : τ (Obj (Fibre_cat E x)))
@@ -20814,6 +23284,7 @@ rule @tapp1_fapp0
       $K $E $D $FF $eta $x $y $p $u $u' $h;
 
 // -------------------------------------------------------------------------------------------------
+
 // 19. Applications: PathOut, path induction, and transitivity
 // -------------------------------------------------------------------------------------------------
 
@@ -20830,17 +23301,13 @@ symbol PathOut_cat [Z : Cat] (x : τ (Obj Z)) : Cat
 // Internalized-x layer: PathOut as a contravariant functor of the source.
 //
 // Surface/formula:
-//   PathOut_cat_func(Z) : Z^op ⊢ Cat
+//   PathOut_cat_func(Z) : T(Z) ⊢ Cat_cart
 //   PathOut_cat_func(Z)[x] = PathOut_Z(x)
 //   PathOut_cat_func(Z)[p : x ->^Z y] : PathOut_Z(y) ⊢ PathOut_Z(x).
 symbol PathOut_cat_func [Z : Cat]
-  : τ (Functor (Op_cat Z) Cat_cat)
-≔ @comp_cat_fapp0
-     (Op_cat Z)
-     (@Catd_cat Z)
-     Cat_cat
-     (@Sigma_func Z)
-     (@Rep_catd_func Z);
+  : τ (Functor (Op_cat Z) Cat_cart)
+≔ @comp_cat_fapp0 (Op_cat Z) (Functor_cart_cat Z Cat_cart) Cat_cart
+    (@Sigma_coeff_func Z) (@hom_int Z Z (@id_func Z));
 
 // Internalized-x layer: readable name for PathOut's action on a base arrow.
 //
@@ -20853,53 +23320,63 @@ symbol PathOut_transport_func [Z : Cat] [x y : τ (Obj Z)]
   : τ (Functor (@PathOut_cat Z y) (@PathOut_cat Z x))
 ≔ @fapp1_fapp0
     (Op_cat Z)
-    Cat_cat
+    Cat_cart
     (@PathOut_cat_func Z)
     y
     x
     p;
+
+// Concrete moving-PathOut instance of represented family pullback.
+// The constructor shape avoids the earlier generic dual-action ambiguity.
+unif_rule @hom_precomp_along_fapp0 _ Cat_cart
+      (@comp_fapp0 Cat_cat _ _ _ (@Sigma_coeff_func $Z)
+        (@hom_int $Z $Z (@id Cat_cat $Z))) Cat_cart $y $x $p $E
+  ≡ @Pullback_catd $D $B $E0 $H
+  ↪ [ $D ≡ @PathOut_cat $Z $y; $B ≡ @PathOut_cat $Z $x;
+      $E ≡ $E0; $H ≡ @PathOut_transport_func $Z $x $y $p ];
 
 // 19b. PathOut motives and fixed-source path induction
 //
 // Internalized-x layer: family of motive categories over source objects.
 //
 // Surface/formula:
-//   PathOutMotives_Z[x] = Catd(PathOut_Z(x))
+//   PathOutMotives_Z[x] = Cart(PathOut_Z(x),Cat_cart)
 //   i.e. a fibre object E is a motive E : PathOut_Z(x) ⊢ Cat.
 symbol PathOutMotives_catd [Z : Cat]
   : τ (Catd Z)
 ≔ @Pullback_catd
      Z
-     (Op_cat Cat_cat)
+     (Op_cat Cat_cart)
      Catd_cat_func
-     (@Op_func (Op_cat Z) Cat_cat (@PathOut_cat_func Z));
+     (@Op_func (Op_cat Z) Cat_cart (@PathOut_cat_func Z));
 
 // Internalized-x target layer: Pi over the moving PathOut category.
 //
 // Surface/formula:
-//   PathOutPi_Z : x :^n Z ; Catd(PathOut_Z(x)) ⊢ Cat
+//   PathOutPi_Z : x :^n Z ; Cart(PathOut_Z(x),Cat_cart) ⊢ Cat_cart
 //   PathOutPi_Z[x][E] = Π q :^n PathOut_Z(x), E[q].
+//   Its motive-parameter component includes Cart into the ordinary diagram category.
 //
 // This is deliberately the semantic pullback of `Pi_int_funcd` along
 // `Op_func(PathOut_cat_func Z)`, then folded to `Pi_pullback_funcd`.
 symbol PathOutPi_funcd [Z : Cat]
-  : τ (Functord (@PathOutMotives_catd Z) (@Const_catd Z Cat_cat))
+  : τ (Functord (@PathOutMotives_catd Z) (@Const_catd Z Cat_cart))
 ≔ @fapp1_fapp0
-    (@Catd_cat (Op_cat Cat_cat))
+    (@Catd_cat (Op_cat Cat_cart))
     (@Catd_cat Z)
     (@Pullback_catd_func
       Z
-      (Op_cat Cat_cat)
-      (@Op_func (Op_cat Z) Cat_cat (@PathOut_cat_func Z)))
+      (Op_cat Cat_cart)
+      (@Op_func (Op_cat Z) Cat_cart (@PathOut_cat_func Z)))
     Catd_cat_func
-    (@Const_catd (Op_cat Cat_cat) Cat_cat)
+    (@Const_catd (Op_cat Cat_cart) Cat_cart)
     Pi_int_funcd;
 
 // Internalized-x target layer: total target family for path induction.
 //
 // Surface/formula:
 //   PathIndTgt_Z[(x,E)] = Π q :^n PathOut_Z(x), E[q]
-//   over Σ x :^n Z, Catd(PathOut_Z(x)).
+//   over Σ x :^n Z, Cart(PathOut_Z(x),Cat_cart).
 symbol PathIndTgt_catd [Z : Cat]
   : τ (Catd (@Sigma_cat Z (@PathOutMotives_catd Z)))
 ≔ @Sigma_catd_functord_catd
@@ -20932,30 +23409,34 @@ symbol pathout_refl_obj [Z : Cat] (x : τ (Obj Z))
 // The base-arrow helper below records the concrete map along p; the full
 // coherence package remains abstract.
 symbol pathout_refl_eval_func [Z : Cat] (x : τ (Obj Z))
-  : τ (Functor (@Catd_cat (@PathOut_cat Z x)) Cat_cat)
+  : τ (Functor (@Catd_cat (@PathOut_cat Z x)) Cat_cart)
 ≔ @fapp0_func
      (@PathOut_cat Z x)
-     Cat_cat
+     Cat_cart
      (@pathout_refl_obj Z x);
 
 // Internalized-x source layer: displayed package of fixed-source reflexive
 // evaluation.
 //
 // Surface/formula:
-//   PathOutReflEval_Z : x :^n Z ; Catd(PathOut_Z(x)) ⊢ Cat
+//   PathOutReflEval_Z : x :^n Z ; Cart(PathOut_Z(x),Cat_cart) ⊢ Cat_cart
 //   PathOutReflEval_Z[x][E] = E[(x,id_x)].
 constant symbol PathOutReflEval_funcd [Z : Cat]
-  : τ (Functord (@PathOutMotives_catd Z) (@Const_catd Z Cat_cat));
+  : τ (Functord (@PathOutMotives_catd Z) (@Const_catd Z Cat_cart));
 
 // Source component: PathOutReflEval_Z[x] ↪ evaluation at (x,id_x).
 rule @tapp0_fapp0
       _
-      Cat_cat
+      Cat_cart
       _
       _
       $x
       (@PathOutReflEval_funcd $Z)
-  ↪ @pathout_refl_eval_func $Z $x;
+  ↪ @comp_cat_fapp0
+      (Functor_cart_cat (@PathOut_cat $Z $x) Cat_cart)
+      (Catd_cat (@PathOut_cat $Z $x)) Cat_cart
+      (@pathout_refl_eval_func $Z $x)
+      (Functor_cart_include (@PathOut_cat $Z $x) Cat_cart);
 
 // Reflexive-to-path arrow in the outgoing-path category.
 //
@@ -20990,7 +23471,7 @@ symbol pathout_refl_eval_base_func [Z : Cat] [x y : τ (Obj Z)]
       (Fibre_cat E (@pathout_obj Z x y p)))
 ≔ @fapp1_fapp0
     (@PathOut_cat Z x)
-    Cat_cat
+    Cat_cart
     E
     (@pathout_refl_obj Z x)
     (@pathout_obj Z x y p)
@@ -21007,20 +23488,11 @@ symbol pathout_motive_transport_obj [Z : Cat] [x y : τ (Obj Z)]
   (p : τ (Hom Z x y))
   (E : τ (Catd (@PathOut_cat Z x)))
   : τ (Catd (@PathOut_cat Z y))
-≔ @fapp0
-    (@Catd_cat (@PathOut_cat Z x))
-    (@Catd_cat (@PathOut_cat Z y))
-    (@fapp1_fapp0
-      Z
-      Cat_cat
-      (@PathOutMotives_catd Z)
-      x
-      y
-      p)
-    E;
+≔ @Pullback_catd (@PathOut_cat Z y) (@PathOut_cat Z x) E
+    (@PathOut_transport_func Z x y p);
 
 // Internalized-x source/target base layer: canonical total arrow in
-// Σ x :^n Z, Catd(PathOut_Z(x)).
+// Σ x :^n Z, Cart(PathOut_Z(x),Cat_cart).
 //
 // Surface/formula:
 //   (x,E) ->^Σ (y,p_*E), lying over p : x ->^Z y.
@@ -21114,7 +23586,7 @@ constant symbol PathInd_func [Z : Cat] (x : τ (Obj Z))
 // Motive component: PathInd_func(Z,x)[E] ↪ path_ind_func_fapp0(Z,x,E).
 rule @tapp0_fapp0
       _
-      Cat_cat
+      Cat_cart
       _
       _
       $E
@@ -21127,7 +23599,8 @@ rule @tapp0_fapp0
 // Surface/formula:
 //   PathInd_transfd(Z) :
 //     x :^n Z ; PathOutReflEval_Z[x] => PathOutPi_Z[x]
-//   PathInd_transfd(Z)[x] = PathInd_func(Z,x).
+//   PathInd_transfd(Z)[x] has ordinary view PathInd_func(Z,x)
+//   restricted along Cart(PathOut_Z(x),Cat_cart) -> Catd(PathOut_Z(x)).
 //
 // Status/architecture note:
 //   This `Transfd` is the primary internalized-x theorem. Its type already
@@ -21149,7 +23622,7 @@ constant symbol PathInd_transfd [Z : Cat]
   : τ (@Transfd
       Z
       (@PathOutMotives_catd Z)
-      (@Const_catd Z Cat_cat)
+      (@Const_catd Z Cat_cart)
       (@PathOutReflEval_funcd Z)
       (@PathOutPi_funcd Z));
 
@@ -21159,7 +23632,7 @@ constant symbol PathInd_transfd [Z : Cat]
 //
 // Surface/formula:
 //   PathIndSrc_Z[(x,E)] = E[(x,id_x)]
-//   over Σ x :^n Z, Catd(PathOut_Z(x)).
+//   over Σ x :^n Z, Cart(PathOut_Z(x),Cat_cart).
 symbol PathIndSrc_catd [Z : Cat]
   : τ (Catd (@Sigma_cat Z (@PathOutMotives_catd Z)))
 ≔ @Sigma_catd_functord_catd
@@ -21188,7 +23661,7 @@ symbol PathIndSrc_transport_func [Z : Cat] [x y : τ (Obj Z)]
 //
 // Surface/formula:
 //   PathInd_funcd(Z) :
-//     x,E :^n Σ x :^n Z, Catd(PathOut_Z(x)) ;
+//     x,E :^n Σ x :^n Z, Cart(PathOut_Z(x),Cat_cart) ;
 //       E[(x,id_x)] ⊢ Π q :^n PathOut_Z(x), E[q]
 //   PathInd_funcd(Z)[(x,E)][u] = path_ind_sec(Z,x,E,u).
 //
@@ -21252,7 +23725,7 @@ symbol CompTarget_fapp1_func [Z : Cat] [x a b : τ (Obj Z)]
       (@Functord_cat Z (@Rep_catd Z b) (@Rep_catd Z x)))
 ≔ @fapp1_fapp0
     Z
-    Cat_cat
+    Cat_cart
     (@CompTarget_catd Z x)
     a
     b
@@ -21273,8 +23746,18 @@ symbol CompMotive_catd [Z : Cat] (x : τ (Obj Z))
      (@CompTarget_catd Z x);
 
 // Component projection for the primary synthetic/telescope path-induction theorem.
-rule @tdapp0_fapp0 $Z _ _ _ _ $x (@PathInd_transfd $Z)
-  ↪ @PathInd_func $Z $x;
+// The moving package restricts motive parameters to Cartesian maps.
+// Its ordinary component is the existing fixed-source theorem precomposed
+// with that inclusion; the fixed-source theorem still admits lax maps.
+rule @strict_transfor _ _ _ _
+      (@tdapp0_fapp0 $Z _ _ _ _ $x (@PathInd_transfd $Z))
+  ↪ fapp0
+      (@comp_cat_con_fapp1_func
+        (Functor_cart_cat (@PathOut_cat $Z $x) Cat_cart)
+        (Catd_cat (@PathOut_cat $Z $x)) Cat_cart
+        (Functor_cart_include (@PathOut_cat $Z $x) Cat_cart)
+        (@PathInd_src_catd $Z $x) (@PathInd_tgt_catd $Z $x))
+      (@PathInd_func $Z $x);
 
 // LHS indexing guard: unlike ordinary inferred source/family slots, both
 // compounds below are required here. Dropping the source makes rule checking
@@ -21284,7 +23767,7 @@ rule @tdapp0_fapp0 $Z _ _ _ _ $x (@PathInd_transfd $Z)
 // lhs-audit: keep 1,3 -- measured subject-reduction and performance guard
 rule @tapp0_fapp0
       (@Sigma_cat $Z (@hom_ $Z $Z (@id Cat_cat $Z) $x))
-      Cat_cat
+      Cat_cart
       (@Const_catd (@Sigma_cat $Z (@hom_ $Z $Z (@id Cat_cat $Z) $x)) Terminal_cat)
       $E
       (Struct_sigma $y $p)
@@ -21308,7 +23791,7 @@ rule @tapp0_fapp0
 rule @path_ind_sec $Z $x
       (@Sigma_proj1_pullback_catd $Z (@hom_ $Z $Z (@id Cat_cat $Z) $x) $D)
       $u
-  ↪ @fib_cov_transf $Z $D $x $u;
+  ↪ @strict_transfor _ _ _ _ (@fib_cov_transf $Z $D $x $u);
 
 /*
   Proof-time reflexive component join for structured path-category induction.
@@ -21322,14 +23805,14 @@ rule @path_ind_sec $Z $x
 unif_rule
   @tapp0_fapp0
       $K
-      Cat_cat
+      Cat_cart
       $F
       $G
       $k
-      (@fib_cov_transf (Path_cat $A) $D $x $u)
+      (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat $A) $D $x $u))
   ≡ @Const_func
       Terminal_cat
-      (@fapp0 (Path_cat $A) Cat_cat $D $x)
+      (@fapp0 (Path_cat $A) Cat_cart $D $x)
       $u
   ↪ [
       $K ≡ @PathOut_cat (Path_cat $A) $x;
@@ -21407,22 +23890,22 @@ symbol path_cat_structured_transport_agrees_ind_eqr
               (@path_cat_ind_eqr_transport A D z y v q)))
       (λ v : τ (Obj (Fibre_cat D y)),
         @eq_ap
-          (Hom Cat_cat (Fibre_cat D y) (Fibre_cat D y))
+          (Hom Cat_cart (Fibre_cat D y) (Fibre_cat D y))
           (Obj (Fibre_cat D y))
-          (λ H : τ (Hom Cat_cat (Fibre_cat D y) (Fibre_cat D y)),
+          (λ H : τ (Hom Cat_cart (Fibre_cat D y) (Fibre_cat D y)),
             @fapp0 (Fibre_cat D y) (Fibre_cat D y) H v)
           (@fapp1_fapp0
             (Path_cat A)
-            Cat_cat
+            Cat_cart
             D
             y y
             (@eq_refl A y))
-          (@id Cat_cat (Fibre_cat D y))
+          (@id Cat_cart (Fibre_cat D y))
           (@eq_refl
-            (Hom Cat_cat (Fibre_cat D y) (Fibre_cat D y))
+            (Hom Cat_cart (Fibre_cat D y) (Fibre_cat D y))
             (@fapp1_fapp0
               (Path_cat A)
-              Cat_cat
+              Cat_cart
               D
               y y
               (@eq_refl A y))))
@@ -21483,33 +23966,33 @@ symbol path_cat_path_ind_app_agrees_structured
           v
           (@path_cat_structured_transport A D y y v (@eq_refl A y))
           (@eq_ap
-            (Hom Cat_cat Terminal_cat (Fibre_cat D y))
+            (Hom Cat_cart Terminal_cat (Fibre_cat D y))
             (Obj (Fibre_cat D y))
-            (λ H : τ (Hom Cat_cat Terminal_cat (Fibre_cat D y)),
+            (λ H : τ (Hom Cat_cart Terminal_cat (Fibre_cat D y)),
               @fapp0 Terminal_cat (Fibre_cat D y) H Terminal_obj)
             (@tapp0_fapp0
               (@PathOut_cat (Path_cat A) y)
-              Cat_cat
+              Cat_cart
               (@Const_catd (@PathOut_cat (Path_cat A) y) Terminal_cat)
               (@Sigma_proj1_pullback_catd
                 (Path_cat A)
                 (@Rep_catd (Path_cat A) y)
                 D)
               (@pathout_obj (Path_cat A) y y (@eq_refl A y))
-              (@fib_cov_transf (Path_cat A) D y v))
+              (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D y v)))
             (@Obj_func (Fibre_cat D y) v)
             (@eq_refl
-              (Hom Cat_cat Terminal_cat (Fibre_cat D y))
+              (Hom Cat_cart Terminal_cat (Fibre_cat D y))
               (@tapp0_fapp0
                 (@PathOut_cat (Path_cat A) y)
-                Cat_cat
+                Cat_cart
                 (@Const_catd (@PathOut_cat (Path_cat A) y) Terminal_cat)
                 (@Sigma_proj1_pullback_catd
                   (Path_cat A)
                   (@Rep_catd (Path_cat A) y)
                   D)
                 (@pathout_obj (Path_cat A) y y (@eq_refl A y))
-                (@fib_cov_transf (Path_cat A) D y v))))
+                (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D y v)))))
           (@eq_sym
             (Obj (Fibre_cat D y))
             (@path_cat_structured_transport A D y y v (@eq_refl A y))
@@ -21553,11 +24036,9 @@ symbol path_cat_path_ind_app_agrees_ind_eqr
 // motive.
 symbol path_comp_sec [Z : Cat] (x : τ (Obj Z))
   : τ (Obj (@Functord_cat Z (@Rep_catd Z x) (@CompTarget_catd Z x)))
-≔ @fib_cov_transf
-    Z
-    (@CompTarget_catd Z x)
-    x
-    (@id_funcd Z (@Rep_catd Z x));
+≔ @strict_transfor _ _ _ _
+    (@fib_cov_transf Z (@CompTarget_catd Z x) x
+      (@id_funcd Z (@Rep_catd Z x)));
 
 // Transitivity benchmark layer: representable action of a path by
 // precomposition.
@@ -21650,7 +24131,7 @@ symbol PathIndTgt_transport_func [Z : Cat] [x y : τ (Obj Z)]
 //   k |-> (z :^n Z ; E[k^-;z] ⊢ D[k;z])
 //   = Hom_{Catd(Z)}(E[k^-],D[k]).
 symbol Nested_telescope_catd [K Z : Cat]
-  (E : τ (Obj (Pi_cat (@Op_catd K (@Const_catd K (@Catd_cat Z))))))
+  (E : τ (Obj (Pi_cat (@TotalOp_catd K (@Const_catd K (@Catd_cat Z))))))
   (D : τ (Obj (Pi_cat (@Const_catd K (@Catd_cat Z)))))
   : τ (Catd K)
 ≔ @Hom_catd
@@ -21663,7 +24144,7 @@ symbol Nested_telescope_catd [K Z : Cat]
 //   k :^n K ; C[k] ⊢ (z :^n Z ; E[k^-;z] ⊢ D[k;z]).
 symbol Nested_telescope_cat [K Z : Cat]
   (C : τ (Catd K))
-  (E : τ (Obj (Pi_cat (@Op_catd K (@Const_catd K (@Catd_cat Z))))))
+  (E : τ (Obj (Pi_cat (@TotalOp_catd K (@Const_catd K (@Catd_cat Z))))))
   (D : τ (Obj (Pi_cat (@Const_catd K (@Catd_cat Z)))))
   : Cat
 ≔ @Functord_cat K C (@Nested_telescope_catd K Z E D);
@@ -21675,7 +24156,7 @@ symbol Nested_telescope_cat [K Z : Cat]
 //   = Hom_{Functord(E,D)}(FF[k^-],GG[k]).
 symbol Nested_transfd_telescope_catd [K Z : Cat]
   (E D : τ (Catd Z))
-  (FF : τ (Obj (Pi_cat (@Op_catd K (@Const_catd K (@Functord_cat Z E D))))))
+  (FF : τ (Obj (Pi_cat (@TotalOp_catd K (@Const_catd K (@Functord_cat Z E D))))))
   (GG : τ (Obj (Pi_cat (@Const_catd K (@Functord_cat Z E D)))))
   : τ (Catd K)
 ≔ @Hom_catd
@@ -21689,7 +24170,7 @@ symbol Nested_transfd_telescope_catd [K Z : Cat]
 symbol Nested_transfd_telescope_cat [K Z : Cat]
   (C : τ (Catd K))
   (E D : τ (Catd Z))
-  (FF : τ (Obj (Pi_cat (@Op_catd K (@Const_catd K (@Functord_cat Z E D))))))
+  (FF : τ (Obj (Pi_cat (@TotalOp_catd K (@Const_catd K (@Functord_cat Z E D))))))
   (GG : τ (Obj (Pi_cat (@Const_catd K (@Functord_cat Z E D)))))
   : Cat
 ≔ @Functord_cat K C (@Nested_transfd_telescope_catd K Z E D FF GG);
@@ -21807,7 +24288,7 @@ symbol EH_hcomp
     (@hom_postcomp_func B B (@id_func B) x x x (@id B x))
     (@id B x)
     (@id B x)
-    (@hom_postcomp_tele_fapp1_fapp0
+    (@hom_postcomp_tele_transf
       B B (@id_func B) x x x (@id B x) (@id B x) beta)
     alpha;
 

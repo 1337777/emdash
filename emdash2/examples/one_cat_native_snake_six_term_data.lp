@@ -12,7 +12,7 @@ symbol C1 : τ (IsNCat (cat_succ cat_zero) C);
 symbol Prod : τ (Functor (Product_cat C C) C);
 symbol t : τ (Obj C);
 symbol Add : τ (@AdditiveCategory C Prod t);
-symbol T0 : τ (@TerminalObject (Op_cat C) t);
+symbol T0 : τ (@TerminalObject (TotalOp_cat C) t);
 symbol P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add));
 symbol Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0);

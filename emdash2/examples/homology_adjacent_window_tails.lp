@@ -11,7 +11,7 @@ symbol PA : τ (@PreAbelianCategory C P t) ≔ @computational_abelian_preabelian
 symbol S : τ (@PreadditiveCategory C) ≔ @computational_homology_preadditive C P t PA;
 constant symbol C1 : τ (IsNCat (cat_succ cat_zero) C);
 constant symbol T : τ (@TerminalObject C t);
-constant symbol T0 : τ (@TerminalObject (Op_cat C) t);
+constant symbol T0 : τ (@TerminalObject (TotalOp_cat C) t);
 constant symbol KP : τ (@KernelPresentation C S t T (@preabelian_kernels C P t PA));
 constant symbol QP : τ (@CokernelPresentation C S t T0 (@preabelian_cokernels C P t PA));
 symbol H : τ (Functor (@ZeroArrowCone_cat C t T) C)

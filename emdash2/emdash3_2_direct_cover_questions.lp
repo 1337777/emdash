@@ -107,7 +107,7 @@ injective symbol DirectCoverQuestionClassifier
   (T : τ (@GrothTopology K))
   : τ (Catd (Op_cat K));
 
-rule @fapp0 _ Cat_cat (@DirectCoverQuestionClassifier $K $T) $U
+rule @fapp0 _ Cat_cart (@DirectCoverQuestionClassifier $K $T) $U
   ↪ Path_cat (@DirectCoverQuestionData $K $T $U);
 
 // Pullback computes on the ordinary-sieve part of an eligible question.
@@ -118,7 +118,7 @@ rule @direct_cover_question_sieve
         _
         (@fapp1_fapp0
           (Op_cat $K)
-          Cat_cat
+          Cat_cart
           (@DirectCoverQuestionClassifier $K $T)
           $U $V $p)
         $q)

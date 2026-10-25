@@ -25,9 +25,11 @@ assert (C : Cat) (x y : τ (Obj C)) (f : τ (Hom C x y))
 
 // The universal differential from the preceding tranche evaluates to f.
 assert (C : Cat) (x y : τ (Obj C)) (f : τ (Hom C x y))
-  ⊢ @tapp0_fapp0 (Functor_cat WalkingArrow_cat C) C
-      (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src)
-      (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt)
+  ⊢ @tapp0_fapp0 (OddDual_cat (Functor_cat WalkingArrow_cat C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat WalkingArrow_cat C) C
+        (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt))
+      (@OddDual_func (Functor_cat WalkingArrow_cat C) C
+        (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src))
       (@walking_arrow_func C x y f)
       (@diagram_evaluation_transf WalkingArrow_cat C
         walking_arrow_src walking_arrow_tgt walking_arrow_generator)

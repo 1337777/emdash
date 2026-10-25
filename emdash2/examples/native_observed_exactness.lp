@@ -3,7 +3,7 @@ require open emdash.emdash3_2_one_cat_native_observed_exactness;
 // Complete observation transport keeps the fixed native input.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
  (X Y : τ (Obj (@ZeroArrowCone_cat C t T)))
@@ -15,7 +15,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
 // The original canonical witness is judgmentally unchanged, including both inverse slots.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
  (X Y : τ (Obj (@ZeroArrowCone_cat C t T)))
@@ -27,7 +27,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
 // Only the observation path is extended.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
  (X Y : τ (Obj (@ZeroArrowCone_cat C t T)))
@@ -39,7 +39,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
 // Observation agreement alone must not certify a different native input.
 assertnot [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
  (X Y : τ (Obj (@ZeroArrowCone_cat C t T)))

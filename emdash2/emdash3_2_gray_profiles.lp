@@ -1,25 +1,14 @@
 /*
-  Emdash v3.2: strict-functor classifier and one Gray-hom profile.
+  Emdash v3.2: native compositor properties and transformation profiles.
 
-  IsStrictFunctor constrains the existing extracted compositor by an endpoint
-  path and equality to the corresponding path_to_hom. StrictFunctor is the
-  opaque full-image classifier admitted from an ambient carrier and that
-  property. Its stable strict_functor view retains the profile discriminator:
-  point action exposes a visible admitted carrier, while hom action compares
-  propositionally.
+  Public Functor is the strict map carrier. IsStrictFunctor and its evidence
+  projections describe the existing extracted compositor; functor_is_strict
+  supplies its canonical proof for default maps. They are property/evidence
+  interfaces, not an additional map grammar or operational admission.
 
-  StrictFunctor_cat is the full subcategory on those opaque objects and
-  owns the whole inclusion into Functor_cat. GrayHom_lax has the same strict
-  objects but restricts its homs to exact LaxTransfor packages; their higher
-  homs reuse ambient modifications and every subsequent iterated cell. The same file
-  also classifies the two skew ordinary-transformation profiles by constraining
-  the existing post/left or pre/right whole cell. `IsStrictTransfor` carries
-  both evidence families; `IsLaxTransfor` selects the pre-strict leg while
-  retaining the post cell. Its stable `lax_transfor` view owns exactly that
-  one-sided computation. No parallel `tapp1` hierarchy is introduced. The
-  displayed `IsStrictFunctord` property likewise constrains the existing
-  whole-in-fibre-object laxity transformation and adds no `fdapp1s` hierarchy.
-  The I tensor I consumer confirms that selected lax direction.
+  GrayHom_lax uses ordinary functor objects and retains its LaxTransfor Homs.
+  StrictTransfor and StrictFunctord remain genuine refinements of the default
+  conventional-lax transformations and displayed maps.
 */
 
 require open emdash.emdash3_2;
@@ -376,254 +365,11 @@ symbol strict_functor_compositor_evidence
     (@strict_functor_compositor_component_agreement
       A B F strict X Y Z g f);
 
-// Opaque full-image classifier of ambient carriers admitting strictness.
-injective symbol StrictFunctor
-  (A B : Cat)
-  : Grpd;
-
-/*
-  Admission constructor. The supplied property is an admission certificate;
-  it is internalized and has no projection from the resulting opaque object.
-  This symbol is deliberately not injective: its custom proof-time comparison
-  below ignores certificate choice while retaining the carrier obligation.
-*/
-symbol make_strict_functor
+// Derived from the existing extracted compositor and strict default action.
+symbol functor_is_strict
   [A B : Cat]
-  (F : τ (Functor A B))
-  (p : τ (@IsStrictFunctor A B F))
-  : τ (@StrictFunctor A B);
-
-// Stable ambient view; strict computation matches this retained head.
-injective symbol strict_functor
-  [A B : Cat]
-  (S : τ (@StrictFunctor A B))
-  : τ (Functor A B);
-
-/*
-  Explicit raw-carrier observation. Unlike the stable strict_functor view,
-  this owner intentionally computes on a visible admission constructor and is
-  used only when a consumer asks to leave the strict profile.
-*/
-injective symbol strict_functor_underlying
-  [A B : Cat]
-  (S : τ (@StrictFunctor A B))
-  : τ (Functor A B);
-
-rule @strict_functor_underlying _ _
-      (@make_strict_functor _ _ $F _)
-  ↪ $F;
-
-// The raw and stable observations compare proof-time for an arbitrary opaque
-// strict object; runtime strict action continues to match strict_functor.
-unif_rule
-  @strict_functor_underlying $A $B $S
-  ≡ @strict_functor $A $B $S
-  ↪ [ tt ≡ tt ];
-
-/*
-  Proof-time visible-admission carrier comparison.
-
-  The strict realization remains a stable runtime head. During elaboration,
-  a visible admission compares with its raw carrier; the named path below makes
-  the same comparison explicit when a consumer needs a proof term.
-
-  This is intentionally a unification rule rather than
-
-    strict_functor(make_strict_functor(F,p)) --> F,
-
-  which would erase the discriminator needed by later profile-local strict
-  computation.
-*/
-unif_rule
-  @strict_functor $A $B
-    (@make_strict_functor $A $B $F _)
-  ≡ $F
-  ↪ [ tt ≡ tt ];
-
-/*
-  Full-image certificate insensitivity. Two admitted objects compare exactly
-  when their rigid ambient carriers compare; no witness projection survives.
-*/
-unif_rule
-  @make_strict_functor $A $B $F _
-  ≡ @make_strict_functor $A $B $G _
-  ↪ [ $F ≡ $G ];
-
-// Typed interface to the proof-time carrier comparison. Its transparent body
-// is literally reflexivity; computational consumers use the raw-carrier
-// observation above rather than trying to suspend this proof under J.
-symbol make_strict_functor_carrier_path
-  [A B : Cat]
-  (F : τ (Functor A B))
-  (p : τ (@IsStrictFunctor A B F))
-  : τ (@=
-      (Functor A B)
-      (@strict_functor A B (@make_strict_functor A B F p))
-      F)
-≔ @eq_refl
-    (Functor A B)
-    (@strict_functor A B (@make_strict_functor A B F p));
-
-// Constructor-visible point action exposes the admitted carrier while whole
-// hom action stays under the strict_functor head.
-// lhs-audit: keep 3 -- make_strict_functor is the semantic admission
-// discriminator and preserves the classified whole view otherwise.
-rule @fapp0 _ _
-      (@strict_functor $A $B (@make_strict_functor $A $B $F _)) $x
-  ↪ @fapp0 $A $B $F $x;
-
-// Profile-local capped strict composition. The classified functor head
-// remains visible; this rule intentionally overlaps the temporary ambient cut
-// with the identical RHS until that global rule is removed.
-rule @comp_fapp0
-      $B _ _ _
-      (@fapp1_fapp0
-        $A $B (@strict_functor $A $B $S) $Y $Z $g)
-      (@fapp1_fapp0
-        $A $B (@strict_functor $A $B $S) $X $Y $f)
-  ↪ @fapp1_fapp0
-      $A $B (@strict_functor $A $B $S) $X $Z
-      (@comp_fapp0 $A $X $Y $Z $g $f);
-
-// Whole post/left strict functoriality for the classified stable view.
-rule @comp_fapp0
-      Cat_cat _ _ _
-      (@hom_postcomp_func
-        $B $A (@strict_functor $A $B $S) _ $Y $Z $g)
-      (@fapp1_func
-        $A $B (@strict_functor $A $B $S) $X $Y)
-  ↪ @comp_fapp0
-      Cat_cat _ _ _
-      (@fapp1_func
-        $A $B (@strict_functor $A $B $S) $X $Z)
-      (@hom_postcomp_func $A $A (@id_func $A) $X $Y $Z $g);
-
-// Whole pre/right strict functoriality for the same profile.
-rule @comp_fapp0
-      Cat_cat _ _ _
-      (@hom_precomp_along_func
-        $A $B (@strict_functor $A $B $S)
-        (@fapp0 $A $B (@strict_functor $A $B $S) $Y)
-        $W $X $h)
-      (@fapp1_func
-        $A $B (@strict_functor $A $B $S) $X $Y)
-  ↪ @comp_fapp0
-      Cat_cat _ _ _
-      (@fapp1_func
-        $A $B (@strict_functor $A $B $S) $W $Y)
-      (@hom_precomp_along_func $A $A (@id_func $A) $Y $W $X $h);
-
-// Profile-owned represented postcomposition accumulation (API-04P).
-// The outer ambient category remains tied to the strict view.
-rule @comp_fapp0
-      Cat_cat
-      _ _ _
-      (@hom_postcomp_func $A $B (@strict_functor $B $A $S) $W $Y $Z $q)
-      (@hom_postcomp_func $A $B (@strict_functor $B $A $S) $W $X $Y $p)
-  ↪ @hom_postcomp_func
-      $A $B (@strict_functor $B $A $S) $W $X $Z
-      (@comp_fapp0 $B $X $Y $Z $q $p);
-
-rule @hom_postcomp_fapp0
-      $A $B (@strict_functor $B $A $S) $W $Y $Z $q
-      (@hom_postcomp_fapp0 $A $B (@strict_functor $B $A $S) $W $X $Y $p $g)
-  ↪ @hom_postcomp_fapp0
-      $A $B (@strict_functor $B $A $S) $W $X $Z
-      (@comp_fapp0 $B $X $Y $Z $q $p)
-      $g;
-
-rule @comp_fapp0
-      $A
-      _
-      _
-      _
-      (@fapp1_fapp0 $B $A (@strict_functor $B $A $S) $Y $Z $q)
-      (@hom_postcomp_fapp0 $A $B (@strict_functor $B $A $S) $W $X $Y $p $g)
-  ↪ @hom_postcomp_fapp0
-      $A
-      $B
-      (@strict_functor $B $A $S)
-      $W
-      $X
-      $Z
-      (@comp_fapp0 $B $X $Y $Z $q $p)
-      $g;
-
-// Profile-owned represented precomposition accumulation.
-// Functor-level contravariant accumulation of consecutive precomposition actions.
-rule @comp_fapp0
-      Cat_cat
-      _ _ _
-      (@hom_precomp_along_func $A $B (@strict_functor $A $B $S) $Z $W $X $p)
-      (@hom_precomp_along_func $A $B (@strict_functor $A $B $S) $Z $X $Y $q)
-  ↪ @hom_precomp_along_func
-      $A $B (@strict_functor $A $B $S) $Z $W $Y
-      (@comp_fapp0 $A $W $X $Y $q $p);
-
-// Point-level contravariant accumulation of consecutive precomposition actions.
-rule @hom_precomp_along_fapp0
-      $A $B (@strict_functor $A $B $S) $Z $W $X $p
-      (@hom_precomp_along_fapp0 $A $B (@strict_functor $A $B $S) $Z $X $Y $q $g)
-  ↪ @hom_precomp_along_fapp0
-      $A $B (@strict_functor $A $B $S) $Z $W $Y
-      (@comp_fapp0 $A $W $X $Y $q $p)
-      $g;
-
-// Raw adjacent-source precomposition fold:
-// ((F[p])^*(g)) o F[q] -> (F[p o q])^*(g).
-rule @comp_fapp0
-      $B
-      _
-      _
-      _
-      (@hom_precomp_along_fapp0 $A $B (@strict_functor $A $B $S) $Z $W $X $p $g)
-      (@fapp1_fapp0 $A $B (@strict_functor $A $B $S) $V $W $q)
-  ↪ @hom_precomp_along_fapp0
-      $A
-      $B
-      (@strict_functor $A $B $S)
-      $Z
-      $V
-      $X
-      (@comp_fapp0 $A $V $W $X $p $q)
-      $g;
-
-/*
-  Whole intrinsic compositor computation for a classified strict carrier.
-
-  This is the existing internal-action cell at its final stable projection
-  owner. The source/target family slots are inferred; the repeated
-  fapp1_at_transf/fdapp1_int_transfd action is the semantic discriminator.
-  No second compositor or pointwise strictness field is introduced.
-*/
-rule @fdapp1_comma_projection_transf
-      $A _ _
-      (@fapp1_at_transf
-        $A $B (@strict_functor $A $B $S) $X)
-      (@fdapp1_int_transfd
-        $A _ _
-        (@fapp1_at_transf
-          $A $B (@strict_functor $A $B $S) $X))
-      $Y $Z $g
-  ↪ @id
-      (@Functor_cat
-        (Hom_cat $A $X $Y)
-        (Hom_cat
-          $B
-          (@fapp0 $A $B (@strict_functor $A $B $S) $X)
-          (@fapp0 $A $B (@strict_functor $A $B $S) $Z)))
-      (@strict_functor_compositor_lhs_func
-        $A $B (@strict_functor $A $B $S) $X $Y $Z $g);
-
-/*
-  Canonical strictness of every classified object. Both fields compute by
-  reflexivity from the profile-local endpoint and whole-compositor rules; no
-  admission certificate is recovered or stored.
-*/
-symbol strict_functor_is_strict
-  [A B : Cat]
-  (S : τ (@StrictFunctor A B))
-  : τ (@IsStrictFunctor A B (@strict_functor A B S))
+  (S : τ (@Functor A B))
+  : τ (@IsStrictFunctor A B (S))
 ≔ λ X : τ (Obj A),
   λ Y : τ (Obj A),
   λ Z : τ (Obj A),
@@ -633,99 +379,23 @@ symbol strict_functor_is_strict
         (Functor
           (Hom_cat A X Y)
           (Hom_cat B
-            (@fapp0 A B (@strict_functor A B S) X)
-            (@fapp0 A B (@strict_functor A B S) Z)))
+            (@fapp0 A B (S) X)
+            (@fapp0 A B (S) Z)))
         (@strict_functor_compositor_lhs_func
-          A B (@strict_functor A B S) X Y Z g))
+          A B (S) X Y Z g))
       (@eq_refl
         (Hom
           (@Functor_cat
             (Hom_cat A X Y)
             (Hom_cat B
-              (@fapp0 A B (@strict_functor A B S) X)
-              (@fapp0 A B (@strict_functor A B S) Z)))
+              (@fapp0 A B (S) X)
+              (@fapp0 A B (S) Z)))
           (@strict_functor_compositor_lhs_func
-            A B (@strict_functor A B S) X Y Z g)
+            A B (S) X Y Z g)
           (@strict_functor_compositor_rhs_func
-            A B (@strict_functor A B S) X Y Z g))
+            A B (S) X Y Z g))
         (@strict_functor_compositor_transf
-          A B (@strict_functor A B S) X Y Z g));
-
-// Supplied identity strictness proof; its internal derivation remains later.
-constant symbol identity_is_strict
-  (A : Cat)
-  : τ (@IsStrictFunctor A A (@id_func A));
-
-symbol strict_identity
-  (A : Cat)
-  : τ (@StrictFunctor A A)
-≔ @make_strict_functor A A (@id_func A) (@identity_is_strict A);
-
-// Whole semantic observation of the classified identity view, derived
-// transparently from the generic visible-admission carrier comparison.
-symbol strict_identity_carrier_path
-  (A : Cat)
-  : τ (@=
-      (Functor A A)
-      (@strict_functor A A (@strict_identity A))
-      (@id_func A))
-≔ @make_strict_functor_carrier_path
-    A A (@id_func A) (@identity_is_strict A);
-
-// Sheaf-style full subcategory on strict-functor objects. Its arrows remain
-// the ambient lax/coherent transfors and every higher hom is reused.
-injective symbol StrictFunctor_cat
-  (A B : Cat)
-  : Cat;
-
-rule Obj (@StrictFunctor_cat $A $B)
-  ↪ @StrictFunctor $A $B;
-
-rule Hom_cat (@StrictFunctor_cat $A $B) $X $Y
-  ↪ @Transf_cat
-      $A $B
-      (@strict_functor $A $B $X)
-      (@strict_functor $A $B $Y);
-
-// Identity delegates to the ambient functor category.
-rule @id (@StrictFunctor_cat $A $B) $X
-  ↪ @id
-      (@Functor_cat $A $B)
-      (@strict_functor $A $B $X);
-
-// Composition delegates to the ambient functor category.
-// lhs-audit: keep 2,3,4 -- the carrier projections occur on the RHS.
-rule @comp_fapp0
-      (@StrictFunctor_cat $A $B) $X $Y $Z $g $f
-  ↪ @comp_fapp0
-      (@Functor_cat $A $B)
-      (@strict_functor $A $B $X)
-      (@strict_functor $A $B $Y)
-      (@strict_functor $A $B $Z)
-      $g $f;
-
-// Whole full-subcategory inclusion into the ambient functor category.
-injective symbol strict_functor_include_func
-  (A B : Cat)
-  : τ (Functor
-      (@StrictFunctor_cat A B)
-      (@Functor_cat A B));
-
-rule @fapp0 _ _ (@strict_functor_include_func $A $B) $X
-  ↪ @strict_functor $A $B $X;
-
-// The profile is full on the reused ambient transformation homs.
-rule @fapp1_func _ _
-      (@strict_functor_include_func $A $B) $X $Y
-  ↪ @id_func
-      (@Transf_cat
-        $A $B
-        (@strict_functor $A $B $X)
-        (@strict_functor $A $B $Y));
-
-// Integration's separately probed full-subcategory inclusion projection.
-rule @fapp1_fapp0 _ _ (@strict_functor_include_func _ _) _ _ $epsilon
-  ↪ $epsilon;
+          A B (S) X Y Z g));
 
 // -----------------------------------------------------------------------------------------------
 // Whole strict-transfor property and stable ambient view
@@ -1050,13 +720,13 @@ injective symbol GrayHom_lax
   : Cat;
 
 rule Obj (@GrayHom_lax $A $B)
-  ↪ @StrictFunctor $A $B;
+  ↪ @Functor $A $B;
 
 rule Hom_cat (@GrayHom_lax $A $B) $S $T
   ↪ @LaxTransfor_cat
       $A $B
-      (@strict_functor $A $B $S)
-      (@strict_functor $A $B $T);
+      ($S)
+      ($T);
 
 // Whole Gray-hom inclusion into the ambient functor category.
 injective symbol grayhom_lax_include_func
@@ -1066,21 +736,21 @@ injective symbol grayhom_lax_include_func
       (@Functor_cat A B));
 
 rule @fapp0 _ _ (@grayhom_lax_include_func $A $B) $S
-  ↪ @strict_functor $A $B $S;
+  ↪ $S;
 
 rule @fapp1_func _ _
       (@grayhom_lax_include_func $A $B) $S $T
   ↪ @lax_transfor_include_func
       $A $B
-      (@strict_functor $A $B $S)
-      (@strict_functor $A $B $T);
+      ($S)
+      ($T);
 
 rule @fapp1_fapp0 _ _
       (@grayhom_lax_include_func $A $B) $S $T $L
   ↪ @lax_transfor
       $A $B
-      (@strict_functor $A $B $S)
-      (@strict_functor $A $B $T)
+      ($S)
+      ($T)
       $L;
 
 // Whole pre/right naturality for the conventional lax profile. The
@@ -1393,10 +1063,7 @@ symbol strict_transfor_pre_naturality_evidence
     W X Y h q;
 
 // Opaque full-image classifier for full strict transfors.
-injective symbol StrictTransfor
-  [A B : Cat]
-  (F G : τ (Functor A B))
-  : Grpd;
+// Carrier/view relocated to the core owner.
 
 // Admission constructor; evidence choice is not observable.
 symbol make_strict_transfor
@@ -1407,11 +1074,7 @@ symbol make_strict_transfor
   : τ (@StrictTransfor A B F G);
 
 // Stable full-strict ambient view.
-injective symbol strict_transfor
-  [A B : Cat]
-  [F G : τ (Functor A B)]
-  (U : τ (@StrictTransfor A B F G))
-  : τ (Transf F G);
+// Carrier/view relocated to the core owner.
 
 // Explicit raw observation.
 injective symbol strict_transfor_underlying
@@ -1440,6 +1103,22 @@ unif_rule
   ≡ @make_strict_transfor $A $B $F $G $theta _
   ↪ [ $epsilon ≡ $theta ];
 
+// Admission respects the existing Cartesian identity and composition.
+// These are constructor comparisons for the full-image classifier, not an
+// identification with the ambient lax mapping category or new inverse laws.
+unif_rule @make_strict_transfor $A $B $F $F
+    (@id (Functor_cat $A $B) $F) _
+  ≡ @id (Functor_cart_cat $A $B) $F
+  ↪ [ tt ≡ tt ];
+
+// lhs-audit: keep 1 -- the ordinary/Cartesian mapping classifiers are actual profile discriminators.
+unif_rule @make_strict_transfor $A $B $F $H
+    (@comp_fapp0 (Functor_cat $A $B) _ $G _ $eta $epsilon) _
+  ≡ @comp_fapp0 (Functor_cart_cat $A $B) _ $G1 _ $V $U
+  ↪ [ $G ≡ $G1;
+      $eta ≡ @strict_transfor $A $B $G $H $V;
+      $epsilon ≡ @strict_transfor $A $B $F $G $U ];
+
 // Transparent typed carrier comparison.
 symbol make_strict_transfor_carrier_path
   [A B : Cat]
@@ -1456,68 +1135,7 @@ symbol make_strict_transfor_carrier_path
     (@strict_transfor A B F G
       (@make_strict_transfor A B F G epsilon p));
 
-// Whole post/left strict naturality guarded by the evidence-bearing view.
-// The represented source endpoint is inferred so the rule also matches after
-// the literal F[X] endpoint has reduced.
-rule @comp_fapp0
-      Cat_cat _ _ _
-      (@hom_postcomp_func $B $A $G _ $Y $Z $g)
-      (@tapp1_func
-        $A $B $F $G $X $Y
-        (@strict_transfor $A $B $F $G $U))
-  ↪ @comp_fapp0
-      Cat_cat _ _ _
-      (@tapp1_func
-        $A $B $F $G $X $Z
-        (@strict_transfor $A $B $F $G $U))
-      (@hom_postcomp_func $A $A (@id_func $A) $X $Y $Z $g);
-
-// Capped post/left naturality guarded by the same profile.
-rule @comp_fapp0
-      $B _ _ _
-      (@fapp1_fapp0 $A $B $G $Y $Z $g)
-      (@tapp1_fapp0
-        $A $B $F $G $X $Y
-        (@strict_transfor $A $B $F $G $U)
-        $f)
-  ↪ @tapp1_fapp0
-      $A $B $F $G $X $Z
-      (@strict_transfor $A $B $F $G $U)
-      (@comp_fapp0 $A $X $Y $Z $g $f);
-
-// Profile-guarded proof-time post/left reading of the off-diagonal action.
-unif_rule
-  @tapp1_fapp0
-    $A $B $F $G $X $Y
-    (@strict_transfor $A $B $F $G $U)
-    $g
-  ≡ @hom_postcomp_fapp0
-      $B $B $IdB $FX $GX $GY $Gg $epsilonX
-  ↪ [
-    $IdB ≡ (@id Cat_cat $B);
-    $FX ≡ (@fapp0 $A $B $F $X);
-    $GX ≡ (@fapp0 $A $B $G $X);
-    $GY ≡ (@fapp0 $A $B $G $Y);
-    $Gg ≡ (@fapp1_fapp0 $A $B $G $X $Y $g);
-    $epsilonX ≡ (@tapp0_fapp0
-      $A $B $F $G $X
-      (@strict_transfor $A $B $F $G $U))
-  ];
-
-// Cat-valued post/left projection guarded by the strict-transfor view.
-rule @fapp0 _ _
-      (@fapp1_fapp0 $K Cat_cat $D $x $y $p)
-      (@fapp0 _ _
-        (@tapp0_fapp0
-          $K Cat_cat $E $D $x
-          (@strict_transfor $K Cat_cat $E $D $U))
-        $u)
-  ↪ @fapp0 _ _
-      (@tapp1_fapp0
-        $K Cat_cat $E $D $x $y
-        (@strict_transfor $K Cat_cat $E $D $U)
-        $p)
-      $u;
+// Core-independent strict post action is owned by the nucleus.
 
 // Whole pre/right strict naturality guarded by the same full profile.
 rule @comp_fapp0
@@ -1854,35 +1472,9 @@ symbol strict_functord_laxity_evidence
     (strict x y p)
     u;
 
-// Profile-guarded whole target/right reading. The left/source reading remains
-// the ambient lax action because it is the source of functord_laxity_transf.
-unif_rule
-  @tapp1_func
-    $K Cat_cat $E $D $x $y
-    (@strict_functord $K $E $D $S)
-  ≡ @comp_fapp0 Cat_cat _ _ _
-    (@hom_postcomp_func
-      Cat_cat Cat_cat (@id Cat_cat Cat_cat)
-      _ _ _
-      (@tapp0_fapp0
-        $K Cat_cat $E $D $y
-        (@strict_functord $K $E $D $S)))
-    (@fapp1_func $K Cat_cat $E $x $y)
-  ↪ [ tt ≡ tt ];
-
-// Stable capped target/right reading for the same profile.
-unif_rule
-  @tapp1_fapp0
-    $K Cat_cat $E $D $x $y
-    (@strict_functord $K $E $D $S)
-    $p
-  ≡ @comp_fapp0 Cat_cat _ _ _
-      (@tapp0_fapp0
-        $K Cat_cat $E $D $y
-        (@strict_functord $K $E $D $S))
-      (@fapp1_fapp0 $K Cat_cat $E $x $y $p)
-  ↪ [ tt ≡ tt ];
-
+// Compatibility observations for the strict displayed profile. The selected
+// conventional-lax default already fixes the pre/right leg for every FF;
+// the former profile-only target/right unifiers are therefore redundant.
 symbol strict_functord_transport_rhs_tele_path
   [K : Cat]
   [E D : τ (Catd K)]
@@ -1891,16 +1483,16 @@ symbol strict_functord_transport_rhs_tele_path
   : τ (@=
       (Functor
         (Hom_cat K x y)
-        (Functor_cat (Fibre_cat E x) (Fibre_cat D y)))
-      (@tapp1_func K Cat_cat E D x y
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+      (@tapp1_func K Cat_cart E D x y
         (@strict_functord K E D S))
       (@functord_transport_rhs_tele_func
         K E D (@strict_functord K E D S) x y))
 ≔ @eq_refl
     (Functor
       (Hom_cat K x y)
-      (Functor_cat (Fibre_cat E x) (Fibre_cat D y)))
-    (@tapp1_func K Cat_cat E D x y
+      (Functor_cart_cat (Fibre_cat E x) (Fibre_cat D y)))
+    (@tapp1_func K Cat_cart E D x y
       (@strict_functord K E D S));
 
 symbol strict_functord_transport_rhs_path
@@ -1911,11 +1503,12 @@ symbol strict_functord_transport_rhs_path
   (p : τ (Hom K x y))
   : τ (@=
       (Functor (Fibre_cat E x) (Fibre_cat D y))
-      (@tapp1_fapp0 K Cat_cat E D x y
+      (@tapp1_fapp0 K Cat_cart E D x y
         (@strict_functord K E D S) p)
       (@functord_transport_rhs_func
         K E D (@strict_functord K E D S) x y p))
-≔ @eq_refl
+≔ @eq_sym
     (Functor (Fibre_cat E x) (Fibre_cat D y))
-    (@tapp1_fapp0 K Cat_cat E D x y
-      (@strict_functord K E D S) p);
+    (@functord_transport_rhs_func K E D (@strict_functord K E D S) x y p)
+    (@functord_transport_func K E D (@strict_functord K E D S) x y p)
+    (@functord_transport_rhs_agrees K E D (@strict_functord K E D S) x y p);

@@ -5,7 +5,7 @@ require open emdash.emdash3_2_zero_arrow_cone_adjunction_homology;
 
 // Ordinary structure and the selected zero object are already fixed by R.
 symbol FreydAdjunctionModel (R : τ CommRing) : Grpd
-≔ `Σ_ Z : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R))
+≔ `Σ_ Z : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R))
     (@comm_ring_zero_presentation R)),
     @Product_grpd
       (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R)
@@ -16,7 +16,7 @@ symbol FreydAdjunctionModel (R : τ CommRing) : Grpd
 
 // Retain the supplied whole structures without selecting any ordinary views.
 symbol freyd_adjunction_model_intro [R : τ CommRing]
-  (Z : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R))
+  (Z : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R))
     (@comm_ring_zero_presentation R)))
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R)
     (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R)
@@ -28,7 +28,7 @@ symbol freyd_adjunction_model_intro [R : τ CommRing]
 
 symbol freyd_adjunction_model_initial [R : τ CommRing]
   (M : τ (FreydAdjunctionModel R))
-  : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R))
+  : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R))
       (@comm_ring_zero_presentation R))
 ≔ sigma_Fst M;
 

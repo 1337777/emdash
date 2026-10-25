@@ -35,20 +35,20 @@ assert [C : Cat]
   (BP : τ (@BinaryProducts C P))
   (X Y A0 A1 : τ (Obj C)) ⊢
   @tapp1_func
-    (Op_cat C) Cat_cat
+    (Op_cat C) Cat_cart
     (@binary_products_pair_source_family C A0 A1)
     (@binary_products_pair_target_family C P A0 A1)
     X Y
     (@binary_products_pair_transf C P BP A0 A1)
   : τ (Functor
       (Hom_cat (Op_cat C) X Y)
-      (Functor_cat
+      (Functor_cart_cat
         (@fapp0
-          (Op_cat C) Cat_cat
+          (Op_cat C) Cat_cart
           (@binary_products_pair_source_family C A0 A1)
           X)
         (@fapp0
-          (Op_cat C) Cat_cat
+          (Op_cat C) Cat_cart
           (@binary_products_pair_target_family C P A0 A1)
           Y)));
 

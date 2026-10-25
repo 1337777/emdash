@@ -4,7 +4,7 @@ require open emdash.emdash3_2_one_cat_constant_chain_zeros;
 require open emdash.emdash3_2_commutative_algebra_freyd_additive;
 
 symbol freyd_raw_native_row_middle_zero [K : Cat] [R : τ CommRing]
-  (Z : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R)))
+  (Z : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R)))
   [S2 S1 S0 M2 M1 M0 T2 T1 T0 : τ (@CommRingPresentation R)]
   [se : τ (@CommRingPresentationMorphism R S2 S1)]
   [sd : τ (@CommRingPresentationMorphism R S1 S0)]
@@ -90,9 +90,9 @@ symbol freyd_raw_native_row_middle_zero [K : Cat] [R : τ CommRing]
   (@freyd_raw_native_row_family K R M2 M1 M0 me md mc) (@freyd_raw_native_row_map K R S2 S1 S0 M2 M1 M0 se sd me
   md a0 b0 c0 sc mc f) walking_arrow_src)) (@comp_fapp0 (Functor_cat K (@CommRingFreydPresentation_cat R))
   (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) M1)
-  (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@Const_transf K (@CommRingFreydPresentation_cat R) M1
-  T1 (@comm_ring_freyd_hom_class R M1 T1 b1)) (@Const_transf K (@CommRingFreydPresentation_cat R) S1 M1
-  (@comm_ring_freyd_hom_class R S1 M1 b0))) (@zero_arrow_family_zero_transf K (@CommRingFreydPresentation_cat R)
+  (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@Const_transf K (@CommRingFreydPresentation_cat R) M1
+  T1 (@comm_ring_freyd_hom_class R M1 T1 b1))) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_transf K (@CommRingFreydPresentation_cat R) S1 M1
+  (@comm_ring_freyd_hom_class R S1 M1 b0)))) (@zero_arrow_family_zero_transf K (@CommRingFreydPresentation_cat R)
   (@comm_ring_zero_presentation R) (@additive_terminal_object (@CommRingFreydPresentation_cat R)
   (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) Z
   (@zero_cone_row_family_vertex_func K (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
@@ -131,16 +131,16 @@ symbol freyd_raw_native_row_middle_zero [K : Cat] [R : τ CommRing]
   (@freyd_raw_native_row_map K R S2 S1 S0 M2 M1 M0 se sd me md a0 b0 c0 sc mc f) walking_arrow_src))
   (@comp_fapp0 (Functor_cat K (@CommRingFreydPresentation_cat R)) (@Const_func K (@CommRingFreydPresentation_cat
   R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R)
-  T1) (@Const_transf K (@CommRingFreydPresentation_cat R) M1 T1 (@comm_ring_freyd_hom_class R M1 T1 b1))
+  T1) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@Const_transf K (@CommRingFreydPresentation_cat R) M1 T1 (@comm_ring_freyd_hom_class R M1 T1 b1)))
   (@zero_cone_row_family_vertex_map K (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
   (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@freyd_raw_native_row_family K R S2 S1 S0 se
   sd sc) (@freyd_raw_native_row_family K R M2 M1 M0 me md mc) (@freyd_raw_native_row_map K R S2 S1 S0 M2 M1 M0
   se sd me md a0 b0 c0 sc mc f) walking_arrow_src)) (@comp_fapp0 (Functor_cat K (@CommRingFreydPresentation_cat
   R)) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R)
-  M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@Const_transf K (@CommRingFreydPresentation_cat R)
-  M1 T1 (@comm_ring_freyd_hom_class R M1 T1 b1)) (@Const_transf K (@CommRingFreydPresentation_cat R) S1 M1
-  (@comm_ring_freyd_hom_class R S1 M1 b0))) (@eq_ap (@Transf K (@CommRingFreydPresentation_cat R) (@Const_func K
+  M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@Const_transf K (@CommRingFreydPresentation_cat R)
+  M1 T1 (@comm_ring_freyd_hom_class R M1 T1 b1))) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_transf K (@CommRingFreydPresentation_cat R) S1 M1
+  (@comm_ring_freyd_hom_class R S1 M1 b0)))) (@eq_ap (@Transf K (@CommRingFreydPresentation_cat R) (@Const_func K
   (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1)) (@Transf K
   (@CommRingFreydPresentation_cat R) (@zero_cone_row_family_vertex_func K (@CommRingFreydPresentation_cat R)
   (@comm_ring_zero_presentation R) (@additive_terminal_object (@CommRingFreydPresentation_cat R)
@@ -162,8 +162,8 @@ symbol freyd_raw_native_row_middle_zero [K : Cat] [R : τ CommRing]
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R)
   (@comm_ring_freyd_additive R)) (@freyd_raw_native_row_family K R M2 M1 M0 me md mc)
   (@freyd_raw_native_row_family K R T2 T1 T0 te td tc) (@freyd_raw_native_row_map K R M2 M1 M0 T2 T1 T0 me md te
-  td a1 b1 c1 mc tc g) walking_arrow_src) (@Const_transf K (@CommRingFreydPresentation_cat R) M1 T1
-  (@comm_ring_freyd_hom_class R M1 T1 b1)) (@freyd_raw_native_row_middle_whole_path K R M2 M1 M0 T2 T1 T0 me md
+  td a1 b1 c1 mc tc g) walking_arrow_src) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@Const_transf K (@CommRingFreydPresentation_cat R) M1 T1
+  (@comm_ring_freyd_hom_class R M1 T1 b1))) (@freyd_raw_native_row_middle_whole_path K R M2 M1 M0 T2 T1 T0 me md
   te td a1 b1 c1 mc tc g)) (@eq_ap (@Transf K (@CommRingFreydPresentation_cat R) (@Const_func K
   (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) M1)) (@Transf K
   (@CommRingFreydPresentation_cat R) (@zero_cone_row_family_vertex_func K (@CommRingFreydPresentation_cat R)
@@ -176,18 +176,30 @@ symbol freyd_raw_native_row_middle_zero [K : Cat] [R : τ CommRing]
   τ (@Transf K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1)
   (@Const_func K (@CommRingFreydPresentation_cat R) M1)), (@comp_fapp0 (Functor_cat K
   (@CommRingFreydPresentation_cat R)) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K
-  (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@Const_transf K
-  (@CommRingFreydPresentation_cat R) M1 T1 (@comm_ring_freyd_hom_class R M1 T1 b1)) h))
+  (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@Const_transf K
+  (@CommRingFreydPresentation_cat R) M1 T1 (@comm_ring_freyd_hom_class R M1 T1 b1))) h))
   (@zero_cone_row_family_vertex_map K (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
   (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@freyd_raw_native_row_family K R S2 S1 S0 se
   sd sc) (@freyd_raw_native_row_family K R M2 M1 M0 me md mc) (@freyd_raw_native_row_map K R S2 S1 S0 M2 M1 M0
-  se sd me md a0 b0 c0 sc mc f) walking_arrow_src) (@Const_transf K (@CommRingFreydPresentation_cat R) S1 M1
-  (@comm_ring_freyd_hom_class R S1 M1 b0)) (@freyd_raw_native_row_middle_whole_path K R S2 S1 S0 M2 M1 M0 se sd
-  me md a0 b0 c0 sc mc f))) (@one_cat_constant_chain_zero_path K (@CommRingFreydPresentation_cat R)
+  se sd me md a0 b0 c0 sc mc f) walking_arrow_src) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_transf K (@CommRingFreydPresentation_cat R) S1 M1
+  (@comm_ring_freyd_hom_class R S1 M1 b0))) (@freyd_raw_native_row_middle_whole_path K R S2 S1 S0 M2 M1 M0 se sd
+  me md a0 b0 c0 sc mc f))) (let ZA : τ (@Transf K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1)) ≔ (@zero_arrow_family_zero_transf K (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) Z (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1)) in
+ let ZB : τ (@Transf K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1)) ≔ (@zero_arrow_family_zero_transf K (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) Z (@zero_cone_row_family_vertex_func K (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@freyd_raw_native_row_family K R S2 S1 S0 se sd sc) walking_arrow_src) (@zero_cone_row_family_vertex_func K (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@freyd_raw_native_row_family K R T2 T1 T0 te td tc) walking_arrow_src)) in
+ @eq_trans (@Transf K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1)) (@comp_fapp0 (Functor_cat K (@CommRingFreydPresentation_cat R)) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) (@Const_transf K (@CommRingFreydPresentation_cat R) M1 T1 (@comm_ring_freyd_hom_class R M1 T1 b1))) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) M1) (@Const_transf K (@CommRingFreydPresentation_cat R) S1 M1 (@comm_ring_freyd_hom_class R S1 M1 b0)))) ZA ZB
+  (@one_cat_constant_chain_zero_path K (@CommRingFreydPresentation_cat R)
   (@additive_preadditive (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@comm_ring_freyd_cat_is_one_cat R)
   (@comm_ring_zero_presentation R) (@additive_terminal_object (@CommRingFreydPresentation_cat R)
   (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) Z S1 M1
   T1 (@comm_ring_freyd_hom_class R S1 M1 b0) (@comm_ring_freyd_hom_class R M1 T1 b1) (@freyd_raw_chain_zero_path
-  R S1 M1 T1 b0 b1 vertical_zero));
+  R S1 M1 T1 b0 b1 vertical_zero))
+  (@hom_to_path (@Transf_cat K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1))
+    ((@one_cat_functor_category K (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_cat_is_one_cat R)) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1)) ZA ZB
+    (@one_cat_modification K (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_cat_is_one_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) ZA ZB
+      (λ k : τ (Obj K),
+       @path_to_hom (Hom_cat (@CommRingFreydPresentation_cat R) S1 T1)
+        (@tapp0_fapp0 K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) k ZA)
+        (@tapp0_fapp0 K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) k ZB)
+        (@eq_refl (Hom (@CommRingFreydPresentation_cat R) S1 T1)
+          (@tapp0_fapp0 K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) S1) (@Const_func K (@CommRingFreydPresentation_cat R) T1) k ZA))))));

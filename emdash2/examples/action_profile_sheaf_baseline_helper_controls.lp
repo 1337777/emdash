@@ -1,13 +1,13 @@
-/* Optional source refinement views and retained ordinary helper. */
+/* Default-strict presheaves and the retained ordinary inverse helpers. */
 require open emdash.emdash3_2_commutative_algebra_presheaves;
 require open emdash.emdash3_2_one_cat_pointwise_equivalences;
 
-assert [K : Cat] (S : τ (@StrictCommRingPsh K)) ⊢
-  @strict_comm_ring_psh K S : τ (@CommRingPsh K);
+assert [K : Cat] (S : τ (@CommRingPsh K)) ⊢
+  S : τ (@CommRingPsh K);
 
-assert [K : Cat] (S : τ (@StrictCommRingPsh K)) ⊢
-  @strict_functor_is_strict (Op_cat K) CommRing_cat S
-  : τ (@IsStrictFunctor (Op_cat K) CommRing_cat (@strict_comm_ring_psh K S));
+assert [K : Cat] (S : τ (@CommRingPsh K)) ⊢
+  @functor_is_strict (Op_cat K) CommRing_cat S
+  : τ (@IsStrictFunctor (Op_cat K) CommRing_cat (S));
 
 assert [A B : Cat] (B1 : τ (IsNCat (cat_succ cat_zero) B)) [F G : τ (Functor A B)] (eta : τ (@Transf A B F G)) (u : τ (@StrictTransfPointwiseOmegaAlong A B F G eta)) (x : τ (Obj A)) ⊢
   @tapp0_fapp0 A B G F x

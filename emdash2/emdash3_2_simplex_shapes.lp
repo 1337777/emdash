@@ -83,58 +83,7 @@ symbol join_map_func
     (@join_map_right_func A B A2 B2 G)
     (@join_map_cross_transf A B A2 B2 F G);
 
-// Supplied strictness of the existing left join inclusion.
-constant symbol join_fst_is_strict
-  (A B : Cat)
-  : τ (@IsStrictFunctor A (@Join_cat A B) (@join_fst_func A B));
-
-symbol strict_join_fst
-  (A B : Cat)
-  : τ (@StrictFunctor A (@Join_cat A B))
-≔ @make_strict_functor
-    A (@Join_cat A B)
-    (@join_fst_func A B)
-    (@join_fst_is_strict A B);
-
-// Supplied strictness of the existing right join inclusion.
-constant symbol join_snd_is_strict
-  (A B : Cat)
-  : τ (@IsStrictFunctor B (@Join_cat A B) (@join_snd_func A B));
-
-symbol strict_join_snd
-  (A B : Cat)
-  : τ (@StrictFunctor B (@Join_cat A B))
-≔ @make_strict_functor
-    B (@Join_cat A B)
-    (@join_snd_func A B)
-    (@join_snd_is_strict A B);
-
-// Supplied strictness closure of the existing join map.
-constant symbol join_map_is_strict
-  [A B A2 B2 : Cat]
-  (F : τ (@StrictFunctor A A2))
-  (G : τ (@StrictFunctor B B2))
-  : τ (@IsStrictFunctor
-      (@Join_cat A B)
-      (@Join_cat A2 B2)
-      (@join_map_func
-        A B A2 B2
-        (@strict_functor_underlying A A2 F)
-        (@strict_functor_underlying B B2 G)));
-
-symbol strict_join_map
-  [A B A2 B2 : Cat]
-  (F : τ (@StrictFunctor A A2))
-  (G : τ (@StrictFunctor B B2))
-  : τ (@StrictFunctor (@Join_cat A B) (@Join_cat A2 B2))
-≔ @make_strict_functor
-    (@Join_cat A B)
-    (@Join_cat A2 B2)
-    (@join_map_func
-      A B A2 B2
-      (@strict_functor_underlying A A2 F)
-      (@strict_functor_underlying B B2 G))
-    (@join_map_is_strict A B A2 B2 F G);
+// Join inclusions and maps use the public strict-functor default.
 
 // Ordinary n-simplex category: [0] = 1 and [n+1] = [n] star 1.
 symbol DirectedSimplex_cat
@@ -150,7 +99,7 @@ symbol DirectedSimplex_cat
 
 /*
   A selected nonempty face realization pairs its vertex-count code with one
-  strict-profile whole functor between the corresponding ordinary shapes.
+  default-strict whole functor between the corresponding ordinary shapes.
   This is a bounded executable dictionary, not yet a decoder for every code.
 */
 symbol SelectedFaceRealization
@@ -158,7 +107,7 @@ symbol SelectedFaceRealization
   : Grpd
 ≔ @Product_grpd
     (@FaceCode (succ p) (succ n))
-    (@StrictFunctor
+    (@Functor
       (@DirectedSimplex_cat p)
       (@DirectedSimplex_cat n));
 
@@ -171,7 +120,7 @@ symbol selected_face_code
 symbol selected_face_data
   [p n : τ Nat_grpd]
   (R : τ (@SelectedFaceRealization p n))
-  : τ (@StrictFunctor
+  : τ (@Functor
       (@DirectedSimplex_cat p)
       (@DirectedSimplex_cat n))
 ≔ sigma_Snd R;
@@ -182,32 +131,29 @@ symbol selected_face_func
   : τ (Functor
       (@DirectedSimplex_cat p)
       (@DirectedSimplex_cat n))
-≔ @strict_functor_underlying
-    (@DirectedSimplex_cat p)
-    (@DirectedSimplex_cat n)
-    (@selected_face_data p n R);
+≔ (@selected_face_data p n R);
 
 // Vertex 0 of Delta[1].
 symbol simplex_vertex_zero_realization
   : τ (@SelectedFaceRealization zero (succ zero))
 ≔ @Product_pair_grpd
     (@FaceCode (succ zero) (succ (succ zero)))
-    (@StrictFunctor Terminal_cat WalkingArrow_cat)
+    (@Functor Terminal_cat WalkingArrow_cat)
     (@face_skip
       (succ zero) (succ zero)
       (@face_identity (succ zero)))
-    (@strict_join_fst Terminal_cat Terminal_cat);
+    (@join_fst_func Terminal_cat Terminal_cat);
 
 // Vertex 1 of Delta[1].
 symbol simplex_vertex_one_realization
   : τ (@SelectedFaceRealization zero (succ zero))
 ≔ @Product_pair_grpd
     (@FaceCode (succ zero) (succ (succ zero)))
-    (@StrictFunctor Terminal_cat WalkingArrow_cat)
+    (@Functor Terminal_cat WalkingArrow_cat)
     (@face_keep
       zero (succ zero)
       (@face_skip zero zero face_nil))
-    (@strict_join_snd Terminal_cat Terminal_cat);
+    (@join_snd_func Terminal_cat Terminal_cat);
 
 // Edge 01 of Delta[2].
 symbol simplex_edge_zero_one_realization
@@ -216,14 +162,14 @@ symbol simplex_edge_zero_one_realization
     (@FaceCode
       (succ (succ zero))
       (succ (succ (succ zero))))
-    (@StrictFunctor
+    (@Functor
       WalkingArrow_cat
       (@Join_cat WalkingArrow_cat Terminal_cat))
     (@face_skip
       (succ (succ zero))
       (succ (succ zero))
       (@face_identity (succ (succ zero))))
-    (@strict_join_fst WalkingArrow_cat Terminal_cat);
+    (@join_fst_func WalkingArrow_cat Terminal_cat);
 
 // Edge 02 of Delta[2].
 symbol simplex_edge_zero_two_realization
@@ -232,7 +178,7 @@ symbol simplex_edge_zero_two_realization
     (@FaceCode
       (succ (succ zero))
       (succ (succ (succ zero))))
-    (@StrictFunctor
+    (@Functor
       WalkingArrow_cat
       (@Join_cat WalkingArrow_cat Terminal_cat))
     (@face_keep
@@ -241,12 +187,12 @@ symbol simplex_edge_zero_two_realization
       (@selected_face_code
         zero (succ zero)
         simplex_vertex_zero_realization))
-    (@strict_join_map
+    (@join_map_func
       Terminal_cat Terminal_cat WalkingArrow_cat Terminal_cat
       (@selected_face_data
         zero (succ zero)
         simplex_vertex_zero_realization)
-      (@strict_identity Terminal_cat));
+      (@id_func Terminal_cat));
 
 // Edge 12 of Delta[2].
 symbol simplex_edge_one_two_realization
@@ -255,7 +201,7 @@ symbol simplex_edge_one_two_realization
     (@FaceCode
       (succ (succ zero))
       (succ (succ (succ zero))))
-    (@StrictFunctor
+    (@Functor
       WalkingArrow_cat
       (@Join_cat WalkingArrow_cat Terminal_cat))
     (@face_keep
@@ -264,12 +210,12 @@ symbol simplex_edge_one_two_realization
       (@selected_face_code
         zero (succ zero)
         simplex_vertex_one_realization))
-    (@strict_join_map
+    (@join_map_func
       Terminal_cat Terminal_cat WalkingArrow_cat Terminal_cat
       (@selected_face_data
         zero (succ zero)
         simplex_vertex_one_realization)
-      (@strict_identity Terminal_cat));
+      (@id_func Terminal_cat));
 
 // Readable code and whole-functor projections for the five selected faces.
 symbol simplex_vertex_zero_code

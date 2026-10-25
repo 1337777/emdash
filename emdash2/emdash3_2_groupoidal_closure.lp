@@ -1022,7 +1022,7 @@ symbol ProductPathFamily_catd
   : τ (@Catd (Path_cat (Product_grpd A B)))
 ≔ @path_lift_fapp0
     (Product_grpd A B)
-    Cat_cat
+    Cat_cart
     (λ z : τ (Product_grpd A B), Path_cat (P z));
 
 // Existing displayed action along the product path.

@@ -8,7 +8,7 @@ require open emdash.emdash3_2_one_cat_difference_families;
 
 // Restrict the original universal law; no new negative identity is selected.
 symbol one_cat_negative_family_add_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (X : τ (Functor B C))
   : τ (@= (@Transf B C X X) (@one_cat_additive_family_add B C C1 Prod t A T0 X X (@id (Functor_cat B C) X)
   (@one_cat_negative_family_transf B C C1 Prod t A T0 X)) (@zero_arrow_family_zero_transf B C t
@@ -57,7 +57,7 @@ symbol one_cat_negative_family_add_path [B C : Cat] (C1 : τ (IsNCat (cat_succ c
 
 // f+(−f)=0 follows by whole bilinearity and the original zero factorization.
 symbol one_cat_additive_family_inverse_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X Y : τ (Functor B C)) (f : τ (@Transf B C X Y))
   : τ (@= (@Transf B C X Y) (@one_cat_additive_family_add B C C1 Prod t A T0 X Y f (@one_cat_negative_family B C C1
   Prod t A T0 X Y f)) (@zero_arrow_family_zero_transf B C t (@additive_terminal_object C Prod t A) T0 X Y))
@@ -89,7 +89,7 @@ symbol one_cat_additive_family_inverse_path [B C : Cat] (C1 : τ (IsNCat (cat_su
 
 // The existing whole difference operation has the same self-zero law.
 symbol one_cat_difference_family_self_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X Y : τ (Functor B C)) (f : τ (@Transf B C X Y))
   : τ (@= (@Transf B C X Y) (@one_cat_difference_family B C C1 Prod t A T0 X Y f f) (@zero_arrow_family_zero_transf B
   C t (@additive_terminal_object C Prod t A) T0 X Y))

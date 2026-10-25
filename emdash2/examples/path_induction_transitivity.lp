@@ -32,7 +32,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
   @fapp0
     (Fibre_cat (@Rep_catd Z y) z)
     (Fibre_cat (@Rep_catd Z x) z)
-    (@tapp0_fapp0 Z Cat_cat
+    (@tapp0_fapp0 Z Cat_cart
       (@Rep_catd Z y)
       (@Rep_catd Z x)
       z
@@ -49,7 +49,7 @@ symbol path_induction_transitivity_comp_view
       @fapp0
         (Fibre_cat (@Rep_catd Z y) z)
         (Fibre_cat (@Rep_catd Z x) z)
-        (@tapp0_fapp0 Z Cat_cat
+        (@tapp0_fapp0 Z Cat_cart
           (@Rep_catd Z y)
           (@Rep_catd Z x)
           z

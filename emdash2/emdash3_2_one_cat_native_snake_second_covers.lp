@@ -7,7 +7,7 @@ require open emdash.emdash3_2_one_cat_cospan_kernel_covers;
 symbol one_cat_native_snake_second_rho_cokernel_zero [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -93,7 +93,7 @@ symbol one_cat_native_snake_second_rho_cokernel_zero [K C : Cat]
 symbol one_cat_native_snake_second_cover_source [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -128,7 +128,7 @@ symbol one_cat_native_snake_second_cover_source [K C : Cat]
 symbol one_cat_native_snake_second_cover_projection [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -171,7 +171,7 @@ symbol one_cat_native_snake_second_cover_projection [K C : Cat]
 symbol one_cat_native_snake_second_cover_lift [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -208,7 +208,7 @@ symbol one_cat_native_snake_second_cover_lift [K C : Cat]
 symbol one_cat_native_snake_second_cover_compatibility [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -273,7 +273,7 @@ symbol one_cat_native_snake_second_cover_compatibility [K C : Cat]
 symbol one_cat_native_snake_second_cover_reflect_path [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -343,7 +343,7 @@ symbol one_cat_native_snake_second_cover_reflect_path [K C : Cat]
 symbol one_cat_native_snake_second_cover_theta_zero [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -494,11 +494,61 @@ symbol one_cat_native_snake_second_cover_theta_zero [K C : Cat]
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@one_cat_native_snake_second_cover_projection K
   C C1 Prod t Add T0 P Q N A B X D b c h)))))));
 
-// Lift ℓe through the original image kernel on the original Q-arrow of α.
-symbol one_cat_native_snake_second_cover_image_lift [K C : Cat]
+// Derived ordinary proof views; no new map, inverse, rule or caller hypothesis.
+symbol one_cat_native_snake_second_cover_zero_target_path  [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
+  (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
+    t Add)))
+  (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
+  (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
+    Prod t Add) T0 P Q))
+  [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
+  (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c)) (Z : τ (Functor K C))
+ : τ (@= (@Transf K C Z (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt)) (@zero_arrow_family_zero_transf K C t (@additive_terminal_object C Prod t
+  Add) T0 Z (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h))) (@zero_arrow_family_zero_transf K C t (@additive_terminal_object C Prod t
+  Add) T0 Z (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt)))
+ ≔ @eq_ap (@Transf K C (@Const_func K C t) (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt)) (@Transf K C Z (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt))
+ (λ u : τ (@Transf K C (@Const_func K C t) (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt)), @comp_fapp0 (Functor_cat K C) Z (@Const_func K C t) (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt) u (@diagram_oplax_family_transf K WalkingArrow_cat C (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t
+  Add)) Z) walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+ (@diagram_oplax_family_transf K WalkingArrow_cat C (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T0) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h))) walking_arrow_src walking_arrow_tgt walking_arrow_generator) (@diagram_oplax_family_transf K WalkingArrow_cat C (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T0) (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt)) walking_arrow_src walking_arrow_tgt walking_arrow_generator) (@one_cat_initial_family_arrow_path K C C1 t T0 (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt) (@diagram_oplax_family_transf K WalkingArrow_cat C (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T0) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h))) walking_arrow_src walking_arrow_tgt walking_arrow_generator));
+
+// The original complete zero input at the lift's native endpoint presentation.
+symbol one_cat_native_snake_second_cover_image_zero_native  [K C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -506,22 +556,48 @@ symbol one_cat_native_snake_second_cover_image_lift [K C : Cat]
     Prod t Add) T0 P Q))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
-  : τ (@Transf K C (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h)
-  (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod
-  t Add) t (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
-  (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)))
-≔ (@one_cat_kernel_family_lift K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t
-  Add) T0 P (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h)
-  (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C)
+ : τ (@= (@Transf K C (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
   (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
   (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
-  C Prod t Add) T0 P A B X D b c h)) (@comp_fapp0 (Functor_cat K C) (@one_cat_native_snake_second_cover_source K
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt)) (@comp_fapp0 (Functor_cat K C) (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
+  (@additive_terminal_object C Prod t Add) P (@transf_arrow_diagram_func K C X D c)) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) (@cokernel_adjunction_family_projection_transf K C (@additive_preadditive C
+  Prod t Add) t T0 Q (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
+  (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@comp_fapp0 (Functor_cat K C) (@one_cat_native_snake_second_cover_source K
   C C1 Prod t Add T0 P Q N A B X D b c h) (@one_cat_native_snake_cover_source K C (@additive_preadditive C Prod
   t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h) (@kernel_adjunction_family_func K C
   (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P (@transf_arrow_diagram_func
   K C X D c)) (@one_cat_native_snake_covered_lift K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h) (@one_cat_native_snake_second_cover_lift K C C1
-  Prod t Add T0 P Q N A B X D b c h)) (@eq_trans _ _ _ _ (@comp_assoc (Functor_cat K C)
+  Prod t Add T0 P Q N A B X D b c h))) (@zero_arrow_family_zero_transf K C t (@additive_terminal_object C Prod t
+  Add) T0 (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt)))
+ ≔ @eq_trans (@Transf K C (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt)) (@comp_fapp0 (Functor_cat K C) (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
+  (@additive_terminal_object C Prod t Add) P (@transf_arrow_diagram_func K C X D c)) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) (@cokernel_adjunction_family_projection_transf K C (@additive_preadditive C
+  Prod t Add) t T0 Q (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
+  (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@comp_fapp0 (Functor_cat K C) (@one_cat_native_snake_second_cover_source K
+  C C1 Prod t Add T0 P Q N A B X D b c h) (@one_cat_native_snake_cover_source K C (@additive_preadditive C Prod
+  t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h) (@kernel_adjunction_family_func K C
+  (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P (@transf_arrow_diagram_func
+  K C X D c)) (@one_cat_native_snake_covered_lift K C (@additive_preadditive C Prod t Add) C1 t
+  (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h) (@one_cat_native_snake_second_cover_lift K C C1
+  Prod t Add T0 P Q N A B X D b c h))) (@zero_arrow_family_zero_transf K C t (@additive_terminal_object C Prod t
+  Add) T0 (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h))) (@zero_arrow_family_zero_transf K C t (@additive_terminal_object C Prod t
+  Add) T0 (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) (@diagram_oplax_family_at_func K WalkingArrow_cat C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h)) walking_arrow_tgt))
+    (@eq_trans _ _ _ _ (@comp_assoc (Functor_cat K C)
   (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h)
   (@one_cat_native_snake_cover_source K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
   Prod t Add) T0 P Q A B X D b c h) (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
@@ -533,13 +609,52 @@ symbol one_cat_native_snake_second_cover_image_lift [K C : Cat]
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@one_cat_native_snake_covered_lift K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h)
   (@one_cat_native_snake_second_cover_lift K C C1 Prod t Add T0 P Q N A B X D b c h))
-  (@one_cat_native_snake_second_cover_theta_zero K C C1 Prod t Add T0 P Q N A B X D b c h)));
+  (@one_cat_native_snake_second_cover_theta_zero K C C1 Prod t Add T0 P Q N A B X D b c h)) (@one_cat_native_snake_second_cover_zero_target_path K C C1 Prod t Add T0 P Q N A B X D b c h (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h));
+
+// Lift ℓe through the original image kernel on the original Q-arrow of α.
+symbol one_cat_native_snake_second_cover_image_lift [K C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
+  (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
+    t Add)))
+  (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
+  (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
+    Prod t Add) T0 P Q))
+  [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
+  (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
+  : τ (@Transf K C (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h)
+  (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod
+  t Add) t (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
+  (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)))
+≔ (@one_cat_kernel_family_lift K
+    C
+    (@additive_preadditive C Prod t Add)
+    C1
+    t
+    (@additive_terminal_object C Prod t
+  Add)
+    T0
+    P
+    (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h)
+    (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
+  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
+  C Prod t Add) T0 P A B X D b c h))
+    (@comp_fapp0 (Functor_cat K C) (@one_cat_native_snake_second_cover_source K
+  C C1 Prod t Add T0 P Q N A B X D b c h) (@one_cat_native_snake_cover_source K C (@additive_preadditive C Prod
+  t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h) (@kernel_adjunction_family_func K C
+  (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P (@transf_arrow_diagram_func
+  K C X D c)) (@one_cat_native_snake_covered_lift K C (@additive_preadditive C Prod t Add) C1 t
+  (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h) (@one_cat_native_snake_second_cover_lift K C C1
+  Prod t Add T0 P Q N A B X D b c h))
+    (@one_cat_native_snake_second_cover_image_zero_native K C C1 Prod t Add T0 P Q N A B X D b c h));
 
 // The original image inclusion reconstructs ℓe.
 symbol one_cat_native_snake_second_cover_image_reconstruction [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -551,13 +666,13 @@ symbol one_cat_native_snake_second_cover_image_reconstruction [K C : Cat]
   (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t
   Add) P (@transf_arrow_diagram_func K C X D c))) (@comp_fapp0 (Functor_cat K C)
   (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t
   Add) P (@transf_arrow_diagram_func K C X D c)) (@kernel_adjunction_family_inclusion_transf K C
   (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
+  (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
   (@additive_preadditive C Prod t Add) t T0 Q) (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C
   Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)))
   (@one_cat_native_snake_second_cover_image_lift K C C1 Prod t Add T0 P Q N A B X D b c h)) (@comp_fapp0
@@ -568,36 +683,34 @@ symbol one_cat_native_snake_second_cover_image_reconstruction [K C : Cat]
   (@one_cat_native_snake_covered_lift K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
   Prod t Add) T0 P Q A B X D b c h) (@one_cat_native_snake_second_cover_lift K C C1 Prod t Add T0 P Q N A B X D
   b c h)))
-≔ (@one_cat_kernel_family_lift_ambient_reconstruction K C (@additive_preadditive C Prod t Add) C1 t
-  (@additive_terminal_object C Prod t Add) T0 P (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0
-  P Q N A B X D b c h) (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C)
+≔ (@one_cat_kernel_family_lift_ambient_reconstruction K
+    C
+    (@additive_preadditive C Prod t Add)
+    C1
+    t
+    (@additive_terminal_object C Prod t Add)
+    T0
+    P
+    (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0
+  P Q N A B X D b c h)
+    (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
   (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
   (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
-  C Prod t Add) T0 P A B X D b c h)) (@comp_fapp0 (Functor_cat K C) (@one_cat_native_snake_second_cover_source K
+  C Prod t Add) T0 P A B X D b c h))
+    (@comp_fapp0 (Functor_cat K C) (@one_cat_native_snake_second_cover_source K
   C C1 Prod t Add T0 P Q N A B X D b c h) (@one_cat_native_snake_cover_source K C (@additive_preadditive C Prod
   t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h) (@kernel_adjunction_family_func K C
   (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P (@transf_arrow_diagram_func
   K C X D c)) (@one_cat_native_snake_covered_lift K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h) (@one_cat_native_snake_second_cover_lift K C C1
-  Prod t Add T0 P Q N A B X D b c h)) (@eq_trans _ _ _ _ (@comp_assoc (Functor_cat K C)
-  (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h)
-  (@one_cat_native_snake_cover_source K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
-  Prod t Add) T0 P Q A B X D b c h) (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
-  (@additive_terminal_object C Prod t Add) P (@transf_arrow_diagram_func K C X D c))
-  (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
-  (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
-  C Prod t Add) T0 P A B X D b c h)) (@cokernel_adjunction_family_projection_transf K C (@additive_preadditive C
-  Prod t Add) t T0 Q (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
-  (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@one_cat_native_snake_covered_lift K C
-  (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h)
-  (@one_cat_native_snake_second_cover_lift K C C1 Prod t Add T0 P Q N A B X D b c h))
-  (@one_cat_native_snake_second_cover_theta_zero K C C1 Prod t Add T0 P Q N A B X D b c h)));
+  Prod t Add T0 P Q N A B X D b c h))
+    (@one_cat_native_snake_second_cover_image_zero_native K C C1 Prod t Add T0 P Q N A B X D b c h));
 
 // The original source-image cover of α has zero cokernel projection.
 symbol one_cat_native_snake_second_alpha_image_cokernel_zero [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -605,29 +718,29 @@ symbol one_cat_native_snake_second_alpha_image_cokernel_zero [K C : Cat]
     Prod t Add) T0 P Q))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
-  : τ (@= (@Transf K C (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C
+  : τ (@= (@Transf K C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C
   (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P Q)
   (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 P A B X D b c h)) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add)
-  t T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C
+  t T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C
   (@adjunction_image_func C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P
   Q) (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@one_cat_image_family_source_transf K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q
   (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 P A B X D b c h))))) (@cokernel_adjunction_family_projection_transf K C
-  (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K (Functor_cat
+  (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@one_cat_image_family_source_transf K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 P Q (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)))) (@zero_arrow_family_zero_transf K C t
-  (@additive_terminal_object C Prod t Add) T0 (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C
+  (@additive_terminal_object C Prod t Add) T0 (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C
   (@adjunction_image_func C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P
   Q) (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@cokernel_adjunction_family_func K C
-  (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K (Functor_cat
+  (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
@@ -638,24 +751,24 @@ symbol one_cat_native_snake_second_alpha_image_cokernel_zero [K C : Cat]
   (@additive_terminal_object C Prod t Add) T0 P Q N (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)
   (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func
-  K C A (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C
+  K C A (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C
   Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@one_cat_image_family_source_transf K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 P Q (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)))) (@cokernel_adjunction_family_projection_transf
   K C (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@one_cat_image_family_source_transf K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 P Q (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)))) (@zero_arrow_family_zero_transf K C t
-  (@additive_terminal_object C Prod t Add) T0 (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C
+  (@additive_terminal_object C Prod t Add) T0 (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C
   (@adjunction_image_func C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P
   Q) (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@cokernel_adjunction_family_func K C
-  (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K (Functor_cat
+  (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
@@ -664,18 +777,18 @@ symbol one_cat_native_snake_second_alpha_image_cokernel_zero [K C : Cat]
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))))) (@eq_trans _ _ _ _
   (@one_cat_cokernel_family_annihilation_path K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 Q (@transf_arrow_diagram_func K C A (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@one_cat_image_family_source_transf K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 P Q (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)))) (@eq_sym _ _ _
   (@one_cat_zero_family_precompose_path K C C1 t (@additive_terminal_object C Prod t Add) T0 A (@comp_cat_fapp0
-  K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
+  K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func
-  K C A (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C
+  K C A (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C
   Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@one_cat_image_family_source_transf K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
@@ -689,7 +802,7 @@ symbol one_cat_native_snake_second_alpha_image_cokernel_zero [K C : Cat]
 symbol one_cat_native_snake_second_alpha_cover_source [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -699,7 +812,7 @@ symbol one_cat_native_snake_second_alpha_cover_source [K C : Cat]
   (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
   : τ (Functor K C)
 ≔ (@one_cat_cospan_kernel_func K C C1 Prod t Add T0 P Q (@one_cat_native_snake_second_cover_source K C C1 Prod t
-  Add T0 P Q N A B X D b c h) A (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C
+  Add T0 P Q N A B X D b c h) A (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C
   (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P Q)
   (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 P A B X D b c h)) (@one_cat_native_snake_second_cover_image_lift K C C1 Prod t Add T0 P Q N A
@@ -711,7 +824,7 @@ symbol one_cat_native_snake_second_alpha_cover_source [K C : Cat]
 symbol one_cat_native_snake_second_alpha_cover_first [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -722,7 +835,7 @@ symbol one_cat_native_snake_second_alpha_cover_first [K C : Cat]
   : τ (@Transf K C (@one_cat_native_snake_second_alpha_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h)
   (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h))
 ≔ (@one_cat_cospan_kernel_first K C C1 Prod t Add T0 P Q (@one_cat_native_snake_second_cover_source K C C1 Prod
-  t Add T0 P Q N A B X D b c h) A (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func
+  t Add T0 P Q N A B X D b c h) A (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func
   C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P Q)
   (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 P A B X D b c h)) (@one_cat_native_snake_second_cover_image_lift K C C1 Prod t Add T0 P Q N A
@@ -734,7 +847,7 @@ symbol one_cat_native_snake_second_alpha_cover_first [K C : Cat]
 symbol one_cat_native_snake_second_alpha_cover_second [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -744,7 +857,7 @@ symbol one_cat_native_snake_second_alpha_cover_second [K C : Cat]
   (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
   : τ (@Transf K C (@one_cat_native_snake_second_alpha_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) A)
 ≔ (@one_cat_cospan_kernel_second K C C1 Prod t Add T0 P Q (@one_cat_native_snake_second_cover_source K C C1 Prod
-  t Add T0 P Q N A B X D b c h) A (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func
+  t Add T0 P Q N A B X D b c h) A (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func
   C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P Q)
   (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 P A B X D b c h)) (@one_cat_native_snake_second_cover_image_lift K C C1 Prod t Add T0 P Q N A
@@ -756,7 +869,7 @@ symbol one_cat_native_snake_second_alpha_cover_second [K C : Cat]
 symbol one_cat_native_snake_second_alpha_cover_compatibility [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -765,18 +878,18 @@ symbol one_cat_native_snake_second_alpha_cover_compatibility [K C : Cat]
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
   : τ (@= (@Transf K C (@one_cat_native_snake_second_alpha_cover_source K C C1 Prod t Add T0 P Q N A B X D b c
-  h) (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C
+  h) (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C
   Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)))
   (@comp_fapp0 (Functor_cat K C) (@one_cat_native_snake_second_alpha_cover_source K C C1 Prod t Add T0 P Q N A B
   X D b c h) (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h)
-  (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod
+  (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod
   t Add) t (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@one_cat_native_snake_second_cover_image_lift K C C1 Prod t Add T0 P Q N A B X D b c h)
   (@one_cat_native_snake_second_alpha_cover_first K C C1 Prod t Add T0 P Q N A B X D b c h)) (@comp_fapp0
   (Functor_cat K C) (@one_cat_native_snake_second_alpha_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) A
-  (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod
+  (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod
   t Add) t (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@one_cat_image_family_source_transf K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
@@ -784,7 +897,7 @@ symbol one_cat_native_snake_second_alpha_cover_compatibility [K C : Cat]
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@one_cat_native_snake_second_alpha_cover_second
   K C C1 Prod t Add T0 P Q N A B X D b c h)))
 ≔ (@one_cat_cospan_kernel_compatibility K C C1 Prod t Add T0 P Q (@one_cat_native_snake_second_cover_source K C
-  C1 Prod t Add T0 P Q N A B X D b c h) A (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C
+  C1 Prod t Add T0 P Q N A B X D b c h) A (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C
   (@adjunction_image_func C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P
   Q) (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P A B X D b c h)) (@one_cat_native_snake_second_cover_image_lift K
@@ -796,7 +909,7 @@ symbol one_cat_native_snake_second_alpha_cover_compatibility [K C : Cat]
 symbol one_cat_native_snake_second_alpha_cover_reflect_path [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -817,7 +930,7 @@ symbol one_cat_native_snake_second_alpha_cover_reflect_path [K C : Cat]
   w)
 ≔ (@one_cat_cospan_kernel_first_reflect_path K C C1 Prod t Add T0 P Q N
   (@one_cat_native_snake_second_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) A (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@one_cat_native_snake_alpha_diagram K C
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P A B X D b c h))
   (@one_cat_native_snake_second_cover_image_lift K C C1 Prod t Add T0 P Q N A B X D b c h)

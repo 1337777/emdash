@@ -4,7 +4,7 @@
   StandardSimplex(n) is the existing Yoneda representable of the internal
   augmented semi-simplex category. Groupoid-valued diagrams are ordinary
   functors from its opposite into Grpd_cat. Whole Cat realization is generic
-  postcomposition with Path_cat_func.
+  postcomposition with Path_cat_cart_func.
 
   The whole realization functor deliberately retains the raw
   Functor_cat(Delta_+^op,Cat) target. The public Psh_cat facade is a distinct
@@ -35,9 +35,9 @@ symbol SemiSimplicialCat_cat
 // Raw whole-action owner underlying the public Cat-valued facade.
 symbol SemiSimplicialCatRaw_cat
   : Cat
-≔ @Functor_cat (Op_cat SemiDeltaPlus_cat) Cat_cat;
+≔ @Functor_cat (Op_cat SemiDeltaPlus_cat) Cat_cart;
 
-// Whole generic realization by postcomposition with Path_cat_func.
+// Whole generic realization by postcomposition with Path_cat_cart_func.
 symbol semisimplicial_grpd_realize_raw_func
   : τ (Functor
       SemiSimplicialGrpd_cat
@@ -45,8 +45,8 @@ symbol semisimplicial_grpd_realize_raw_func
 ≔ @comp_cat_cov_func
     (Op_cat SemiDeltaPlus_cat)
     Grpd_cat
-    Cat_cat
-    Path_cat_func;
+    Cat_cart
+    Path_cat_cart_func;
 
 // Public realized presheaf object.
 symbol semisimplicial_grpd_realize
@@ -91,7 +91,7 @@ symbol semisimplicial_grpd_realized_face_func
       (Path_cat (@semisimplicial_grpd_level X p)))
 ≔ @fapp1_fapp0
     (Op_cat SemiDeltaPlus_cat)
-    Cat_cat
+    Cat_cart
     (@semisimplicial_grpd_realize X)
     n p f;
 

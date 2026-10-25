@@ -60,7 +60,7 @@ symbol one_cat_codiagonal_product_map_path [C : Cat] (C1 : τ (IsNCat (cat_succ 
 // The whole copair is the native counit/action formula at the same original Prod.
 symbol one_cat_copair_family_formula_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (X Y Z : τ (Functor B C))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (X Y Z : τ (Functor B C))
   (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
   : τ (@= (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat
     C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) Z)
@@ -81,7 +81,7 @@ symbol one_cat_copair_family_formula_path [B C : Cat] (C1 : τ (IsNCat (cat_succ
 // Original component copairing is recovered through the staged whole component laws.
 symbol one_cat_copair_family_component_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (X Y Z : τ (Functor B C))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (X Y Z : τ (Functor B C))
   (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z)) (b : τ (Obj B))
   : τ (@= (Hom C (@fapp0 (Product_cat C C) C Prod (@Product_pair C C (@fapp0 B C X b) (@fapp0 B C Y b))) (@fapp0 B C Z
     b)) (@tapp0_fapp0 B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B

@@ -7,31 +7,31 @@ assert [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (h : τ (@Transf B (Functor_cat I C) F G)) (i : τ (Obj I))
   ⊢ @eq_refl (Functor B (Functor_cat WalkingArrow_cat C)) (@one_cat_diagram_transpose_column_func B I C C1 F G h i)
     : τ (@= (Functor B (Functor_cat WalkingArrow_cat C)) (@one_cat_diagram_transpose_column_func B I C C1 F G h i)
-      (@transf_arrow_diagram_func B C
-        (@diagram_family_at_func B I C F i) (@diagram_family_at_func B I C G i)
-        (@sym_transf_tapp0_transf B I C F G h i)));
+      (@one_cat_transf_arrow_diagram_func B C C1
+        (@one_cat_family_exchange_at_func B I C C1 F i) (@one_cat_family_exchange_at_func B I C C1 G i)
+        (@one_cat_family_exchange_map_at B I C C1 F G h i)));
 
 // The src of the whole column is the original evaluated diagram family.
 assert [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [F G : τ (Functor B (Functor_cat I C))]
   (h : τ (@Transf B (Functor_cat I C) F G)) (i : τ (Obj I))
-  ⊢ @diagram_family_at_func B WalkingArrow_cat C (@one_cat_diagram_transpose_column_func B I C C1 F G h i) walking_arrow_src
-    ≡ @diagram_family_at_func B I C F i;
+  ⊢ @one_cat_family_exchange_at_func B WalkingArrow_cat C C1 (@one_cat_diagram_transpose_column_func B I C C1 F G h i) walking_arrow_src
+    ≡ @one_cat_family_exchange_at_func B I C C1 F i;
 
 // The tgt of the whole column is the original evaluated diagram family.
 assert [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [F G : τ (Functor B (Functor_cat I C))]
   (h : τ (@Transf B (Functor_cat I C) F G)) (i : τ (Obj I))
-  ⊢ @diagram_family_at_func B WalkingArrow_cat C (@one_cat_diagram_transpose_column_func B I C C1 F G h i) walking_arrow_tgt
-    ≡ @diagram_family_at_func B I C G i;
+  ⊢ @one_cat_family_exchange_at_func B WalkingArrow_cat C C1 (@one_cat_diagram_transpose_column_func B I C C1 F G h i) walking_arrow_tgt
+    ≡ @one_cat_family_exchange_at_func B I C C1 G i;
 
 // The whole column differential is the original evaluated transformation.
 assert [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [F G : τ (Functor B (Functor_cat I C))]
   (h : τ (@Transf B (Functor_cat I C) F G)) (i : τ (Obj I))
-  ⊢ @diagram_family_transf B WalkingArrow_cat C (@one_cat_diagram_transpose_column_func B I C C1 F G h i)
+  ⊢ @one_cat_diagram_family_transf B WalkingArrow_cat C C1 (@one_cat_diagram_transpose_column_func B I C C1 F G h i)
       walking_arrow_src walking_arrow_tgt walking_arrow_generator
-    ≡ @sym_transf_tapp0_transf B I C F G h i;
+    ≡ @one_cat_family_exchange_map_at B I C C1 F G h i;
 
 // A nonidentity shape arrow retains the F side at every parameter.
 assert [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
@@ -71,6 +71,6 @@ assertnot [B I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (h : τ (@Transf B (Functor_cat I C) F G)) (k : τ (@Transf B (Functor_cat I C) F G)) (i : τ (Obj I))
   ⊢ @eq_refl (Functor B (Functor_cat WalkingArrow_cat C)) (@one_cat_diagram_transpose_column_func B I C C1 F G h i)
     : τ (@= (Functor B (Functor_cat WalkingArrow_cat C)) (@one_cat_diagram_transpose_column_func B I C C1 F G h i)
-      (@transf_arrow_diagram_func B C
-        (@diagram_family_at_func B I C F i) (@diagram_family_at_func B I C G i)
-        (@sym_transf_tapp0_transf B I C F G k i)));
+      (@one_cat_transf_arrow_diagram_func B C C1
+        (@one_cat_family_exchange_at_func B I C C1 F i) (@one_cat_family_exchange_at_func B I C C1 G i)
+        (@one_cat_family_exchange_map_at B I C C1 F G k i)));

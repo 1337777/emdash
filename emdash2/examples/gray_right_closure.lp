@@ -20,58 +20,40 @@ assert [A B C : Cat] ⊢
 assert [A B C : Cat] ⊢
   @eq_refl
     (Functor (@GrayRightSource A B C) (@GrayRightTarget A B C))
-    (@strict_functor
-      (@GrayRightSource A B C)
-      (@GrayRightTarget A B C)
-      (@gray_curry_R_strict A B C))
+    ((@gray_curry_R_func A B C))
   : τ (@=
       (Functor (@GrayRightSource A B C) (@GrayRightTarget A B C))
-      (@strict_functor
-        (@GrayRightSource A B C)
-        (@GrayRightTarget A B C)
-        (@gray_curry_R_strict A B C))
+      ((@gray_curry_R_func A B C))
       (@gray_curry_R_func A B C));
 
 assert [A B C : Cat] ⊢
-  @strict_functor_is_strict
+  @functor_is_strict
     (@GrayRightSource A B C)
     (@GrayRightTarget A B C)
-    (@gray_curry_R_strict A B C)
+    (@gray_curry_R_func A B C)
   : τ (@IsStrictFunctor
       (@GrayRightSource A B C)
       (@GrayRightTarget A B C)
-      (@strict_functor
-        (@GrayRightSource A B C)
-        (@GrayRightTarget A B C)
-        (@gray_curry_R_strict A B C)));
+      ((@gray_curry_R_func A B C)));
 
 assert [A B C : Cat] ⊢
   @eq_refl
     (Functor (@GrayRightTarget A B C) (@GrayRightSource A B C))
-    (@strict_functor
-      (@GrayRightTarget A B C)
-      (@GrayRightSource A B C)
-      (@gray_uncurry_R_strict A B C))
+    ((@gray_uncurry_R_func A B C))
   : τ (@=
       (Functor (@GrayRightTarget A B C) (@GrayRightSource A B C))
-      (@strict_functor
-        (@GrayRightTarget A B C)
-        (@GrayRightSource A B C)
-        (@gray_uncurry_R_strict A B C))
+      ((@gray_uncurry_R_func A B C))
       (@gray_uncurry_R_func A B C));
 
 assert [A B C : Cat] ⊢
-  @strict_functor_is_strict
+  @functor_is_strict
     (@GrayRightTarget A B C)
     (@GrayRightSource A B C)
-    (@gray_uncurry_R_strict A B C)
+    (@gray_uncurry_R_func A B C)
   : τ (@IsStrictFunctor
       (@GrayRightTarget A B C)
       (@GrayRightSource A B C)
-      (@strict_functor
-        (@GrayRightTarget A B C)
-        (@GrayRightSource A B C)
-        (@gray_uncurry_R_strict A B C)));
+      ((@gray_uncurry_R_func A B C)));
 
 // The transpose retains the whole Hom action between transformation towers.
 assert [A B C : Cat]
@@ -126,30 +108,24 @@ assert [A B C : Cat]
 
 // Coevaluation and evaluation are derived at selected identity packages.
 assert [A B : Cat] ⊢
-  @gray_coevaluation_R_strict A B
+  @gray_coevaluation_R_func A B
   ≡ @gray_curry_R
       A B (@GrayTensor_R A B)
-      (@strict_identity (@GrayTensor_R A B));
+      (@id_func (@GrayTensor_R A B));
 
 assert [A B : Cat] ⊢
   @gray_coevaluation_R_func A B
-  ≡ @strict_functor
-      A
-      (@GrayHom_lax B (@GrayTensor_R A B))
-      (@gray_coevaluation_R_strict A B);
-
-assert [B C : Cat] ⊢
-  @gray_evaluation_R_strict B C
-  ≡ @gray_uncurry_R
-      (@GrayHom_lax B C) B C
-      (@strict_identity (@GrayHom_lax B C));
+  ≡ (@gray_coevaluation_R_func A B);
 
 assert [B C : Cat] ⊢
   @gray_evaluation_R_func B C
-  ≡ @strict_functor
-      (@GrayTensor_R (@GrayHom_lax B C) B)
-      C
-      (@gray_evaluation_R_strict B C);
+  ≡ @gray_uncurry_R
+      (@GrayHom_lax B C) B C
+      (@id_func (@GrayHom_lax B C));
+
+assert [B C : Cat] ⊢
+  @gray_evaluation_R_func B C
+  ≡ (@gray_evaluation_R_func B C);
 
 // The one-sided tensor/profile boundary is not the Cartesian scaffold.
 assertnot [A B : Cat] ⊢

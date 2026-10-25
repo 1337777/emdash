@@ -10,7 +10,7 @@
   KleisliCut is only transparent derived notation. Opposite-derived comonad
   observations and point coextension compute into a narrow stable variance
   mirror after Op normalization; whole coextension transparently reuses the
-  endpoint-swapped primary monadic whole owner. No propositional equality or
+  total dual of the endpoint-swapped primary monadic whole owner. No propositional equality or
   whole proof-time bridge is involved.
 */
 
@@ -138,13 +138,13 @@ assert [A : Cat]
     Z
     (@tapp1_fapp0
       A A D (@id_func A) Y Z
-      (@Op_transf
-        (Op_cat A) (Op_cat A)
-        (@id_func (Op_cat A)) (@Op_func A A D)
-        (@unit_monad_transf (Op_cat A) (@Op_func A A D) C))
+      (@TotalOp_transf
+        (TotalOp_cat A) (TotalOp_cat A)
+        (@id_func (TotalOp_cat A)) (@TotalOp_func A A D)
+        (@unit_monad_transf (TotalOp_cat A) (@TotalOp_func A A D) C))
       h)
     (@kleisli_extend_fapp0
-      (Op_cat A) (@Op_func A A D) C Y X f)
+      (TotalOp_cat A) (@TotalOp_func A A D) C Y X f)
   ≡ @comp_fapp0 A (@fapp0 A A D X) Y Z h f;
 
 // Exact dual accumulation in the comonad facade.
@@ -207,6 +207,15 @@ assert [A : Cat]
         (@cokleisli_extend_fapp0 A D C X Y f)
         (@cokleisli_extend_fapp0 A D C X Y g)));
 
+// Object carriers agree, but the untransposed whole dual extension has
+// total-opposite Hom categories. The outer TotalOp_func is required.
+assertnot [A : Cat] [D : τ (Functor A A)]
+  (C : τ (@Comonad A D)) (X Y : τ (Obj A)) ⊢
+  @kleisli_extend_func (TotalOp_cat A) (@TotalOp_func A A D) C Y X
+  : τ (Functor
+      (Hom_cat A (@fapp0 A A D X) Y)
+      (Hom_cat A (@fapp0 A A D X) (@fapp0 A A D Y)));
+
 // The existing adjunction constructs both exact structural instances. Its
 // named unit is a proof-time usability endpoint; whole multiplication remains
 // semantic and computes to the transparent G-epsilon-F construction.
@@ -244,14 +253,14 @@ assert [R L : Cat]
   [F : τ (Functor R L)]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
-  counit_comonad_transf (adjunction_comonad J)
+  @counit_comonad_transf L (@comp_cat_fapp0 L R L F G) (@adjunction_comonad R L F G J)
     ≡ counit_adj_transf J;
 
 assert [R L : Cat]
   [F : τ (Functor R L)]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
-  comult_comonad_transf (adjunction_comonad J)
+  @comult_comonad_transf L (@comp_cat_fapp0 L R L F G) (@adjunction_comonad R L F G J)
     ≡ adjunction_comonad_comult_transf J;
 
 // Unrelated same-typed operations remain untrusted.

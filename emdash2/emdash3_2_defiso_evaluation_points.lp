@@ -68,6 +68,16 @@ with @fapp0 _ _ (@defiso_at_to $K Cat_cat $F $G $I $x)
   (@fapp0 _ _ (@defiso_at_from $K Cat_cat $F $G $I $x) $a)
   ↪ $a;
 
+// The existing evaluated-inverse point cuts at the actual Cartesian
+// coefficient. Its objects are still categories and its 1-cells are the same
+// strict functor objects. Keep the original I, x and both selected maps.
+rule @fapp0 _ _ (@defiso_at_from $K Cat_cart $F $G $I $x)
+    (@fapp0 _ _ (@defiso_at_to $K Cat_cart $F $G $I $x) $a)
+  ↪ $a
+with @fapp0 _ _ (@defiso_at_to $K Cat_cart $F $G $I $x)
+    (@fapp0 _ _ (@defiso_at_from $K Cat_cart $F $G $I $x) $a)
+  ↪ $a;
+
 symbol defiso_at_to_path [K D : Cat] [F G : τ (Functor K D)]
   (I : τ (@DefIso (Functor_cat K D) F G)) (x : τ (Obj K))
   : τ (@= (Hom D (@fapp0 K D F x) (@fapp0 K D G x))

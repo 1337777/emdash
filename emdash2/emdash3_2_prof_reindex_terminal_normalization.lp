@@ -33,25 +33,11 @@ symbol prof_terminal_reversed_base_hom_func
         (Product_cat (Op_cat A) Terminal_cat)
         (@prof_terminal_base A X)
         (@prof_terminal_base A W)))
-≔ @comp_cat_fapp0
-    (Hom_cat A W X)
-    (Functor_cat
-      (Hom_cat Terminal_cat Terminal_obj Terminal_obj)
-      (Product_cat
-        (Hom_cat A W X)
-        (Hom_cat Terminal_cat Terminal_obj Terminal_obj)))
-    (Product_cat
-      (Hom_cat A W X)
-      (Hom_cat Terminal_cat Terminal_obj Terminal_obj))
-    (@fapp0_func
-      (Hom_cat Terminal_cat Terminal_obj Terminal_obj)
-      (Product_cat
-        (Hom_cat A W X)
-        (Hom_cat Terminal_cat Terminal_obj Terminal_obj))
-      Terminal_obj)
-    (@Product_pair_tele_func
-      (Hom_cat A W X)
-      (Hom_cat Terminal_cat Terminal_obj Terminal_obj));
+≔ @comp_cat_fapp0 (Hom_cat A W X) (Functor_cart_cat (Hom_cat Terminal_cat Terminal_obj Terminal_obj) (Product_cat (Hom_cat A W X) (Hom_cat Terminal_cat Terminal_obj Terminal_obj))) (Product_cat (Hom_cat A W X) (Hom_cat Terminal_cat Terminal_obj Terminal_obj))
+    (@comp_cat_fapp0 (Functor_cart_cat (Hom_cat Terminal_cat Terminal_obj Terminal_obj) (Product_cat (Hom_cat A W X) (Hom_cat Terminal_cat Terminal_obj Terminal_obj))) (Functor_cat (Hom_cat Terminal_cat Terminal_obj Terminal_obj) (Product_cat (Hom_cat A W X) (Hom_cat Terminal_cat Terminal_obj Terminal_obj))) (Product_cat (Hom_cat A W X) (Hom_cat Terminal_cat Terminal_obj Terminal_obj))
+      (@fapp0_func (Hom_cat Terminal_cat Terminal_obj Terminal_obj) (Product_cat (Hom_cat A W X) (Hom_cat Terminal_cat Terminal_obj Terminal_obj)) Terminal_obj)
+      (Functor_cart_include (Hom_cat Terminal_cat Terminal_obj Terminal_obj) (Product_cat (Hom_cat A W X) (Hom_cat Terminal_cat Terminal_obj Terminal_obj))))
+    (@Product_pair_tele_func (Hom_cat A W X) (Hom_cat Terminal_cat Terminal_obj Terminal_obj));
 
 symbol prof_terminal_prof
   [A B : Cat]
@@ -84,30 +70,12 @@ symbol prof_terminal_expected_source_func
       (Hom_cat B
         (@fapp0 A B F W)
         (@fapp0 Terminal_cat B G Terminal_obj)))
-≔ @comp_cat_fapp0
-    (Hom_cat A W X)
-    (Functor_cat
-      (Hom_cat B
-        (@fapp0 A B F X)
-        (@fapp0 Terminal_cat B G Terminal_obj))
-      (Hom_cat B
-        (@fapp0 A B F W)
-        (@fapp0 Terminal_cat B G Terminal_obj)))
-    (Hom_cat B
-      (@fapp0 A B F W)
-      (@fapp0 Terminal_cat B G Terminal_obj))
-    (@fapp0_func
-      (Hom_cat B
-        (@fapp0 A B F X)
-        (@fapp0 Terminal_cat B G Terminal_obj))
-      (Hom_cat B
-        (@fapp0 A B F W)
-        (@fapp0 Terminal_cat B G Terminal_obj))
-      g)
-    (@hom_precomp_along_tele_func
-      A B F
-      (@fapp0 Terminal_cat B G Terminal_obj)
-      W X);
+≔ @comp_cat_fapp0 (Hom_cat A W X) (Functor_cart_cat (Hom_cat B (@fapp0 A B F X) (@fapp0 Terminal_cat B G Terminal_obj)) (Hom_cat B (@fapp0 A B F W) (@fapp0 Terminal_cat B G Terminal_obj))) (Hom_cat B (@fapp0 A B F W) (@fapp0 Terminal_cat B G Terminal_obj))
+    (@comp_cat_fapp0 (Functor_cart_cat (Hom_cat B (@fapp0 A B F X) (@fapp0 Terminal_cat B G Terminal_obj)) (Hom_cat B (@fapp0 A B F W) (@fapp0 Terminal_cat B G Terminal_obj))) (Functor_cat (Hom_cat B (@fapp0 A B F X) (@fapp0 Terminal_cat B G Terminal_obj)) (Hom_cat B (@fapp0 A B F W) (@fapp0 Terminal_cat B G Terminal_obj))) (Hom_cat B (@fapp0 A B F W) (@fapp0 Terminal_cat B G Terminal_obj))
+      (@fapp0_func (Hom_cat B (@fapp0 A B F X) (@fapp0 Terminal_cat B G Terminal_obj)) (Hom_cat B (@fapp0 A B F W) (@fapp0 Terminal_cat B G Terminal_obj)) g)
+      (Functor_cart_include (Hom_cat B (@fapp0 A B F X) (@fapp0 Terminal_cat B G Terminal_obj)) (Hom_cat B (@fapp0 A B F W) (@fapp0 Terminal_cat B G Terminal_obj))))
+    (@hom_precomp_along_tele_func A B F
+      (@fapp0 Terminal_cat B G Terminal_obj) W X);
 
 // Native recursive family owned by homd_/Prof_reindex and restricted along
 // p |-> (p,id_*).
@@ -164,7 +132,7 @@ symbol prof_terminal_expected_action_catd
     (Op_cat (Hom_cat B
       (@fapp0 A B F W)
       (@fapp0 Terminal_cat B G Terminal_obj)))
-    Cat_cat
+    Cat_cart
     (@hom_con
       (Hom_cat B
         (@fapp0 A B F W)
@@ -258,7 +226,7 @@ symbol prof_terminal_section_normalization_func
       (Pi_cat (@prof_terminal_expected_action_catd A B F G W X g h)))
 ≔ @fapp1_fapp0
     (@Catd_cat (Op_cat (Hom_cat A W X)))
-    Cat_cat
+    Cat_cart
     (@Pi_func (Op_cat (Hom_cat A W X)))
     (@prof_terminal_native_action_catd A B F G W X g h)
     (@prof_terminal_expected_action_catd A B F G W X g h)
@@ -607,12 +575,10 @@ injective symbol prof_terminal_expected_retained_source_transf
       (@prof_terminal_expected_source_func A B F G W X g)
       (@prof_terminal_retained_source_func A B F G W X g));
 
-// lhs-audit: keep 1,2 -- exact hom source/codomain guard this component.
+// The constructor carries A,B,F,G,W,X; infer the component endpoints.
+// Compound endpoint guards lose this beta when Hom/identity projects first.
 rule @tapp0_fapp0
-      (Hom_cat $A $W $X)
-      (Hom_cat $B
-        (@fapp0 $A $B $F $W)
-        (@fapp0 Terminal_cat $B $G Terminal_obj))
+      _ _
       _ _ $p
       (@prof_terminal_expected_retained_source_transf
         $A $B $F $G $W $X $g $normal)
@@ -735,7 +701,7 @@ injective symbol prof_terminal_explicit_normalization_funcd
 // subject-reduction guards for this displayed component projection.
 rule @tapp0_fapp0
       (Op_cat (Hom_cat $A $W $X))
-      Cat_cat
+      Cat_cart
       _
       _
       $p
@@ -872,7 +838,7 @@ symbol prof_terminal_visible_action_catd
     (Op_cat (Hom_cat B
       (@fapp0 A B F W)
       (@fapp0 Terminal_cat B G Terminal_obj)))
-    Cat_cat
+    Cat_cart
     (@hom_con
       (Hom_cat B
         (@fapp0 A B F W)
@@ -977,7 +943,7 @@ injective symbol prof_terminal_expected_visible_funcd
 // subject-reduction guards for this displayed component projection.
 rule @tapp0_fapp0
       (Op_cat (Hom_cat $A $W $X))
-      Cat_cat
+      Cat_cart
       _ _
       $p
       (@prof_terminal_expected_visible_funcd

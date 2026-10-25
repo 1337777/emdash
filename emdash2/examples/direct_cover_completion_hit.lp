@@ -98,7 +98,7 @@ assert [K : Cat]
   (q : τ (@DirectCoverQuestionData K T U)) ⊢
   @tapp0_fapp0
     (@DirectCoverQuestion_cat K T)
-    Cat_cat
+    Cat_cart
     (@DirectCoverQuestionMatching_catd
       K T (@DirectCoverCompletionPsh K T P))
     (@DirectCoverQuestionSection_catd

@@ -1,26 +1,18 @@
 /*
-  Emdash v3.2: readable pseudofunctor property over ambient functor carriers.
+  Emdash v3.2: retained fixed-forward pseudofunctor data for default functors.
 
-  The active generic functor/transfor calculus exposes normal-lax compositor
-  cells at formal internal-action endpoints. Consumers such as intrinsic
-  cubical arrows require an invertible readable view of the existing
-  compositor; its selected omega-equivalence inverse supplies the opposite
-  boundary direction.
+  Public Functor is strict; its existing extracted compositor computes to the
+  strict default. The readable endpoint paths use the established stable
+  postcomposition views and default functor-composition path.
 
-  IsPseudoFunctor is the direct dependent property of an already-existing
-  Functor carrier. It does not supply another compositor: fixed-forward
-  `OmegaEquivAlong` gives native equality-valued inverse data for the existing
-  post cell extracted from internal action. Higher coherence remains the next
-  internal action. No property wrapper, rule, or proof-time unifier is added.
-
-  This capability is evidence over an already-existing ambient Functor; it is
-  not a separate lax-carrier classifier. The former whole ambient
-  functoriality cuts are retired: two direct endpoint paths now expose
-  `F[g] o F[f]` and `F[g o f]` without identifying them. The remaining capped
-  and naturality migrations are separate owner families.
+  IsPseudoFunctor remains the existing dependent property with actual selected
+  OmegaEquivAlong inverse data. This migration does not replace that inverse,
+  add a compositor, or introduce a lax-functor carrier. Existing supplied
+  identity/composition property constructors retain their original status.
 */
 
 require open emdash.emdash3_2_gray_profiles;
+require open emdash.emdash3_2_strict_functor_actions;
 require open emdash.emdash3_2_path_pseudo_laxity;
 
 symbol readable_pseudo_post_raw_source
@@ -58,14 +50,10 @@ symbol readable_pseudo_post_stable_action
     (@hom_postcomp_fapp0 A A (@id_func A) X Y Z g f);
 
 /*
-  Direct endpoint observations after whole ambient functoriality migration.
-
-  The intrinsic source is the general postcomposition owner
-  `postcomp_F(g)(F[f])`; the rigid proof-time bridge compares it directly with
-  the identity-family spelling of `F[g] o F[f]`. The intrinsic target is
-  `F[postcomp_id(g)(f)]`; equality action on the existing source-category
-  postcomposition path compares it with `F[g o f]`. Neither path identifies
-  those two endpoints with each other.
+  Readable endpoint views under the strict default. The stable postcomposition
+  owners need not share a runtime normal form. Their existing endpoint paths
+  and the generic functor-composition path compare the intrinsic action with
+  the readable mapped composite, without a new unification rule.
 */
 
 symbol readable_pseudo_post_stable_comp_path
@@ -97,9 +85,27 @@ symbol readable_pseudo_post_source_path
       (Hom B (@fapp0 A B F X) (@fapp0 A B F Z))
       (@strict_functor_compositor_lhs A B F X Y Z g f)
       (@readable_pseudo_post_raw_source A B F X Y Z g f))
-≔ @eq_refl
+≔ @eq_trans
     (Hom B (@fapp0 A B F X) (@fapp0 A B F Z))
-    (@strict_functor_compositor_lhs A B F X Y Z g f);
+    (@strict_functor_compositor_lhs A B F X Y Z g f)
+    (@readable_pseudo_post_raw_target A B F X Y Z g f)
+    (@readable_pseudo_post_raw_source A B F X Y Z g f)
+    (@readable_pseudo_post_stable_comp_path A B F X Y Z g f)
+    (@eq_trans
+      (Hom B (@fapp0 A B F X) (@fapp0 A B F Z))
+      (@readable_pseudo_post_raw_target A B F X Y Z g f)
+      (@comp_fapp0 B (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B F Z)
+        (@fapp1_fapp0 A B F Y Z g) (@fapp1_fapp0 A B F X Y f))
+      (@readable_pseudo_post_raw_source A B F X Y Z g f)
+      (@functor_composition_path A B F X Y Z g f)
+      (@eq_sym
+        (Hom B (@fapp0 A B F X) (@fapp0 A B F Z))
+        (@readable_pseudo_post_raw_source A B F X Y Z g f)
+        (@comp_fapp0 B (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B F Z)
+          (@fapp1_fapp0 A B F Y Z g) (@fapp1_fapp0 A B F X Y f))
+        (@path_pseudo_laxity_postcomp_comp_path B B (@id_func B)
+          (@fapp0 A B F X) (@fapp0 A B F Y) (@fapp0 A B F Z)
+          (@fapp1_fapp0 A B F Y Z g) (@fapp1_fapp0 A B F X Y f))));
 
 symbol readable_pseudo_post_target_path
   [A B : Cat]
@@ -224,7 +230,7 @@ protected symbol readable_pseudo_post_pre_reframe
 
 // Normal-pseudofunctor property: every existing readable compositor is a
 // fixed-forward native omega-equivalence. Identity preservation remains the
-// current ambient normal-lax convention.
+// default strict-functor convention.
 symbol IsPseudoFunctor
   [A B : Cat]
   (F : τ (Functor A B))

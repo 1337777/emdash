@@ -4,7 +4,7 @@ require open emdash.emdash3_2_one_cat_native_snake_first_kernel_comparison;
 // The original image-source cover cancels to show its own cokernel projection zero.
 symbol one_cat_native_snake_image_source_cokernel_zero [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
@@ -39,7 +39,7 @@ symbol one_cat_native_snake_image_source_cokernel_zero [K C : Cat] [S : τ (@Pre
 // The original pullback-cover source L=K(v∘s_a).
 symbol one_cat_native_snake_first_cover_source [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -52,7 +52,7 @@ symbol one_cat_native_snake_first_cover_source [K C : Cat] [S : τ (@Preadditive
 // The original first projection L⇒A.
 symbol one_cat_native_snake_first_cover_first [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -65,7 +65,7 @@ symbol one_cat_native_snake_first_cover_first [K C : Cat] [S : τ (@PreadditiveC
 // The original induced map L⇒K(v).
 symbol one_cat_native_snake_first_cover_transf [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -82,7 +82,7 @@ symbol one_cat_native_snake_first_cover_transf [K C : Cat] [S : τ (@Preadditive
 // Native kernel-precomposition reconstruction gives κ_v r_L=s_a j_L.
 symbol one_cat_native_snake_first_cover_square_path [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -108,7 +108,7 @@ symbol one_cat_native_snake_first_cover_square_path [K C : Cat] [S : τ (@Preadd
 // The original α kills j_L because v s_a=α.
 symbol one_cat_native_snake_first_cover_alpha_zero [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -137,7 +137,7 @@ symbol one_cat_native_snake_first_cover_alpha_zero [K C : Cat] [S : τ (@Preaddi
 // Native lifting gives the required map L⇒K(α).
 symbol one_cat_native_snake_first_cover_to_alpha_kernel [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -152,7 +152,7 @@ symbol one_cat_native_snake_first_cover_to_alpha_kernel [K C : Cat] [S : τ (@Pr
 // Its original inclusion recovers j_L.
 symbol one_cat_native_snake_first_cover_alpha_reconstruction [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -172,7 +172,7 @@ symbol one_cat_native_snake_first_cover_alpha_reconstruction [K C : Cat] [S : τ
 symbol one_cat_native_snake_first_cover_reflect_path [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))

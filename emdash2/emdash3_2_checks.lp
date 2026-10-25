@@ -2578,12 +2578,12 @@ assert [A : Grpd]
     (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) x)
     (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) y)
     (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) x)
-    (@strict_defiso_fmap_from
+    (@defiso_fmap_from
       (Op_cat (Path_cat A)) (Path_cat A)
-      (@strict_path_sym_func A) x y i)
-    (@strict_defiso_fmap_to
+      (@Path_sym_func A) x y i)
+    (@defiso_fmap_to
       (Op_cat (Path_cat A)) (Path_cat A)
-      (@strict_path_sym_func A) x y i)
+      (@Path_sym_func A) x y i)
   ≡ eq_refl x;
 
 assert [A : Grpd]
@@ -2592,12 +2592,12 @@ assert [A : Grpd]
   @hom_postcomp_fapp0
     (Path_cat A) (Path_cat A) (@id Cat_cat (Path_cat A))
     x y x
-    (@strict_defiso_fmap_from
+    (@defiso_fmap_from
       (Op_cat (Path_cat A)) (Path_cat A)
-      (@strict_path_sym_func A) x y i)
-    (@strict_defiso_fmap_to
+      (@Path_sym_func A) x y i)
+    (@defiso_fmap_to
       (Op_cat (Path_cat A)) (Path_cat A)
-      (@strict_path_sym_func A) x y i)
+      (@Path_sym_func A) x y i)
   ≡ eq_refl x;
 
 assert [A : Grpd]
@@ -2608,12 +2608,12 @@ assert [A : Grpd]
     (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) y)
     (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) x)
     (@fapp0 (Op_cat (Path_cat A)) (Path_cat A) (Path_sym_func A) y)
-    (@strict_defiso_fmap_to
+    (@defiso_fmap_to
       (Op_cat (Path_cat A)) (Path_cat A)
-      (@strict_path_sym_func A) x y i)
-    (@strict_defiso_fmap_from
+      (@Path_sym_func A) x y i)
+    (@defiso_fmap_from
       (Op_cat (Path_cat A)) (Path_cat A)
-      (@strict_path_sym_func A) x y i)
+      (@Path_sym_func A) x y i)
   ≡ eq_refl y;
 
 assert [A : Grpd]
@@ -2622,12 +2622,12 @@ assert [A : Grpd]
   @hom_postcomp_fapp0
     (Path_cat A) (Path_cat A) (@id Cat_cat (Path_cat A))
     y x y
-    (@strict_defiso_fmap_to
+    (@defiso_fmap_to
       (Op_cat (Path_cat A)) (Path_cat A)
-      (@strict_path_sym_func A) x y i)
-    (@strict_defiso_fmap_from
+      (@Path_sym_func A) x y i)
+    (@defiso_fmap_from
       (Op_cat (Path_cat A)) (Path_cat A)
-      (@strict_path_sym_func A) x y i)
+      (@Path_sym_func A) x y i)
   ≡ eq_refl y;
 
 // Product-projection overlaps are untyped: PathSym's rigid target is a path
@@ -2880,7 +2880,6 @@ assertnot [C : Cat] (x : τ (Obj C))
     (@omega_equiv_along_intro C x x (@id C x)
       (@id C x) (@id C x) alpha beta)
   ≡ @eq_refl (Hom C x x) (@id C x);
-
 
 // EVOGJ Phase-2 facade, comparison-view, and adapter diagnostics.
 assert [C : Cat] (x y : τ (Obj C)) (f : τ (Hom C x y))
@@ -3672,43 +3671,43 @@ assert [C : Cat]
 // Ordinary functor action preserves native fixed-arrow equality-valued evidence, with
 // computational inverse projections inherited from the explicit package.
 assert [A B : Cat]
-  (F : τ (@StrictFunctor A B))
+  (F : τ (@Functor A B))
   [x y : τ (Obj A)]
   [f : τ (Hom A x y)]
   (u : τ (@OmegaEquivAlong A x y f)) ⊢
-  @strict_omega_equiv_along_fapp1 A B F x y f u
+  @omega_equiv_along_fmap A B F x y f u
   : τ (@OmegaEquivAlong
       B
-      (@fapp0 A B (@strict_functor A B F) x)
-      (@fapp0 A B (@strict_functor A B F) y)
-      (@fapp1_fapp0 A B (@strict_functor A B F) x y f));
+      (@fapp0 A B (F) x)
+      (@fapp0 A B (F) y)
+      (@fapp1_fapp0 A B (F) x y f));
 
 assert [A B : Cat]
-  (F : τ (@StrictFunctor A B))
+  (F : τ (@Functor A B))
   [x y : τ (Obj A)]
   [f : τ (Hom A x y)]
   (u : τ (@OmegaEquivAlong A x y f)) ⊢
   @omega_equiv_along_left_inv
     B
-    (@fapp0 A B (@strict_functor A B F) x)
-    (@fapp0 A B (@strict_functor A B F) y)
-    (@fapp1_fapp0 A B (@strict_functor A B F) x y f)
-    (@strict_omega_equiv_along_fapp1 A B F x y f u)
-  ≡ @fapp1_fapp0 A B (@strict_functor A B F) y x
+    (@fapp0 A B (F) x)
+    (@fapp0 A B (F) y)
+    (@fapp1_fapp0 A B (F) x y f)
+    (@omega_equiv_along_fmap A B F x y f u)
+  ≡ @fapp1_fapp0 A B (F) y x
       (@omega_equiv_along_left_inv A x y f u);
 
 assert [A B : Cat]
-  (F : τ (@StrictFunctor A B))
+  (F : τ (@Functor A B))
   [x y : τ (Obj A)]
   [f : τ (Hom A x y)]
   (u : τ (@OmegaEquivAlong A x y f)) ⊢
   @omega_equiv_along_right_inv
     B
-    (@fapp0 A B (@strict_functor A B F) x)
-    (@fapp0 A B (@strict_functor A B F) y)
-    (@fapp1_fapp0 A B (@strict_functor A B F) x y f)
-    (@strict_omega_equiv_along_fapp1 A B F x y f u)
-  ≡ @fapp1_fapp0 A B (@strict_functor A B F) y x
+    (@fapp0 A B (F) x)
+    (@fapp0 A B (F) y)
+    (@fapp1_fapp0 A B (F) x y f)
+    (@omega_equiv_along_fmap A B F x y f u)
+  ≡ @fapp1_fapp0 A B (F) y x
       (@omega_equiv_along_right_inv A x y f u);
 
 // Internal groupoidality reconstructs explicit native equivalence evidence
@@ -3768,30 +3767,30 @@ assert [C : Cat]
 // equivalence of fibres, with its inverse given by action on the chosen arrow.
 assert [C : Cat]
   (g : τ (@IsGroupoidalCat C))
-  (D : τ (@StrictFunctor C Cat_cat))
+  (D : τ (Functor C Cat_cat))
   [x y : τ (Obj C)]
   (f : τ (Hom C x y)) ⊢
   @groupoidal_fibre_transport_equiv C g D x y f
   : τ (@OmegaEquivAlong
       Cat_cat
-      (Fibre_cat (@strict_functor C Cat_cat D) x)
-      (Fibre_cat (@strict_functor C Cat_cat D) y)
+      (@fapp0 C Cat_cat D x)
+      (@fapp0 C Cat_cat D y)
       (@fapp1_fapp0 C Cat_cat
-        (@strict_functor C Cat_cat D) x y f));
+        D x y f));
 
 assert [C : Cat]
   (g : τ (@IsGroupoidalCat C))
-  (D : τ (@StrictFunctor C Cat_cat))
+  (D : τ (Functor C Cat_cat))
   [x y : τ (Obj C)]
   (f : τ (Hom C x y)) ⊢
   @omega_equiv_along_left_inv
     Cat_cat
-    (Fibre_cat (@strict_functor C Cat_cat D) x)
-    (Fibre_cat (@strict_functor C Cat_cat D) y)
+    (@fapp0 C Cat_cat D x)
+    (@fapp0 C Cat_cat D y)
     (@fapp1_fapp0 C Cat_cat
-      (@strict_functor C Cat_cat D) x y f)
+      D x y f)
     (@groupoidal_fibre_transport_equiv C g D x y f)
-  ≡ @fapp1_fapp0 C Cat_cat (@strict_functor C Cat_cat D) y x
+  ≡ @fapp1_fapp0 C Cat_cat D y x
       (@groupoidal_arrow_inverse C g x y f);
 
 // Existing discrete evidence, and therefore every packaged zero-category,
@@ -3848,7 +3847,7 @@ assert [C : Cat]
     x
     (@Sigma_proj1_pullback_catd C (@Rep_catd C x) D)
     u
-  ≡ @fib_cov_transf C D x u;
+  ≡ @strict_transfor _ _ _ _ (@fib_cov_transf C D x u);
 
 // At a literal path source, the existing displayed action agrees with
 // primitive right-J transport through ordinary path induction.
@@ -3914,21 +3913,21 @@ assert [A : Grpd]
   (D : τ (Catd (Path_cat A)))
   (x : τ A) ⊢
   @eq_refl
-    (Hom Cat_cat (Fibre_cat D x) (Fibre_cat D x))
+    (Hom Cat_cart (Fibre_cat D x) (Fibre_cat D x))
     (@fapp1_fapp0
-      (Path_cat A) Cat_cat D x x (@eq_refl A x))
+      (Path_cat A) Cat_cart D x x (@eq_refl A x))
   : τ (@=
-      (Hom Cat_cat (Fibre_cat D x) (Fibre_cat D x))
+      (Hom Cat_cart (Fibre_cat D x) (Fibre_cat D x))
       (@fapp1_fapp0
-        (Path_cat A) Cat_cat D x x (@eq_refl A x))
-      (@id Cat_cat (Fibre_cat D x)));
+        (Path_cat A) Cat_cart D x x (@eq_refl A x))
+      (@id Cat_cart (Fibre_cat D x)));
 
 assertnot [A : Grpd]
   (D : τ (Catd (Path_cat A)))
   (x : τ A) ⊢
   @fapp1_fapp0
-    (Path_cat A) Cat_cat D x x (@eq_refl A x)
-  ≡ @id Cat_cat (Fibre_cat D x);
+    (Path_cat A) Cat_cart D x x (@eq_refl A x)
+  ≡ @id Cat_cart (Fibre_cat D x);
 
 // The reflexive uncurried component join is likewise proof-time only.
 assert [A : Grpd]
@@ -3936,29 +3935,29 @@ assert [A : Grpd]
   (x : τ A)
   (u : τ (Obj (Fibre_cat D x))) ⊢
   @eq_refl
-    (Hom Cat_cat Terminal_cat (Fibre_cat D x))
+    (Hom Cat_cart Terminal_cat (Fibre_cat D x))
     (@tapp0_fapp0
       (@PathOut_cat (Path_cat A) x)
-      Cat_cat
+      Cat_cart
       (@Const_catd (@PathOut_cat (Path_cat A) x) Terminal_cat)
       (@Sigma_proj1_pullback_catd
         (Path_cat A)
         (@Rep_catd (Path_cat A) x)
         D)
       (@pathout_obj (Path_cat A) x x (@eq_refl A x))
-      (@fib_cov_transf (Path_cat A) D x u))
+      (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D x u)))
   : τ (@=
-      (Hom Cat_cat Terminal_cat (Fibre_cat D x))
+      (Hom Cat_cart Terminal_cat (Fibre_cat D x))
       (@tapp0_fapp0
         (@PathOut_cat (Path_cat A) x)
-        Cat_cat
+        Cat_cart
         (@Const_catd (@PathOut_cat (Path_cat A) x) Terminal_cat)
         (@Sigma_proj1_pullback_catd
           (Path_cat A)
           (@Rep_catd (Path_cat A) x)
           D)
         (@pathout_obj (Path_cat A) x x (@eq_refl A x))
-        (@fib_cov_transf (Path_cat A) D x u))
+        (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D x u)))
       (@Obj_func (Fibre_cat D x) u));
 
 assertnot [A : Grpd]
@@ -3967,14 +3966,14 @@ assertnot [A : Grpd]
   (u : τ (Obj (Fibre_cat D x))) ⊢
   @tapp0_fapp0
       (@PathOut_cat (Path_cat A) x)
-      Cat_cat
+      Cat_cart
       (@Const_catd (@PathOut_cat (Path_cat A) x) Terminal_cat)
       (@Sigma_proj1_pullback_catd
         (Path_cat A)
         (@Rep_catd (Path_cat A) x)
         D)
       (@pathout_obj (Path_cat A) x x (@eq_refl A x))
-      (@fib_cov_transf (Path_cat A) D x u)
+      (@strict_transfor _ _ _ _ (@fib_cov_transf (Path_cat A) D x u))
   ≡ @Obj_func (Fibre_cat D x) u;
 
 // Phase 9 discrete-category core and homwise adequacy.
@@ -6571,26 +6570,26 @@ assert [C : Cat] [x y z : τ (Obj C)]
       (@iso_evidence_from C x y i)
       (@iso_evidence_from C y z j);
 
-assert [C D : Cat] (F : τ (@StrictFunctor C D))
+assert [C D : Cat] (F : τ (@Functor C D))
   [x y : τ (Obj C)]
   (i : τ (IsoEvidence C x y)) ⊢
   @iso_evidence_to
     D
-    (@fapp0 C D (@strict_functor C D F) x)
-    (@fapp0 C D (@strict_functor C D F) y)
-    (@strict_iso_evidence_fmap C D F x y i)
-  ≡ @fapp1_fapp0 C D (@strict_functor C D F) x y
+    (@fapp0 C D (F) x)
+    (@fapp0 C D (F) y)
+    (@iso_evidence_fmap C D F x y i)
+  ≡ @fapp1_fapp0 C D (F) x y
       (@iso_evidence_to C x y i);
 
-assert [C D : Cat] (F : τ (@StrictFunctor C D))
+assert [C D : Cat] (F : τ (@Functor C D))
   [x y : τ (Obj C)]
   (i : τ (IsoEvidence C x y)) ⊢
   @iso_evidence_from
     D
-    (@fapp0 C D (@strict_functor C D F) x)
-    (@fapp0 C D (@strict_functor C D F) y)
-    (@strict_iso_evidence_fmap C D F x y i)
-  ≡ @fapp1_fapp0 C D (@strict_functor C D F) y x
+    (@fapp0 C D (F) x)
+    (@fapp0 C D (F) y)
+    (@iso_evidence_fmap C D F x y i)
+  ≡ @fapp1_fapp0 C D (F) y x
       (@iso_evidence_from C x y i);
 
 assert ⊢ τ (Obj Grpd_cat) ≡ Grpd;
@@ -6601,40 +6600,40 @@ assert (A B : Cat) ⊢ Hom_cat Cat_cat A B ≡ Functor_cat A B;
 
 assert [K : Cat] ⊢
   @eq_refl Cat_grpd (Catd_cat K)
-  : τ (@= Cat_grpd (Catd_cat K) (Functor_cat K Cat_cat));
+  : τ (@= Cat_grpd (Catd_cat K) (Functor_cat K Cat_cart));
 
 assert [K : Cat] ⊢
-  Obj (Catd_cat K) ≡ Obj (Functor_cat K Cat_cat);
+  Obj (Catd_cat K) ≡ Obj (Functor_cat K Cat_cart);
 
 assert [K : Cat] (E D : τ (Catd K)) ⊢
   Hom_cat (Catd_cat K) E D ≡ Functord_cat E D;
 
 assert [K : Cat] (E D : τ (Catd K)) ⊢
   Obj (@Functord_cat K E D)
-    ≡ Obj (@Transf_cat K Cat_cat E D);
+    ≡ Obj (@Transf_cat K Cat_cart E D);
 
 assert [K : Cat] [E D : τ (Catd K)] (FF GG : τ (Functord E D)) ⊢
   Hom_cat (Functord_cat E D) FF GG ≡ Transfd_cat FF GG;
 
 assert [K : Cat] [E D : τ (Catd K)] (FF GG : τ (Functord E D)) ⊢
   Obj (@Transfd_cat K E D FF GG)
-    ≡ Obj (Hom_cat (@Transf_cat K Cat_cat E D) FF GG);
+    ≡ Obj (Hom_cat (@Transf_cat K Cat_cart E D) FF GG);
 
 assert [K : Cat] [E D : τ (Catd K)] (FF GG : τ (Functord E D)) ⊢
   @eq_refl Cat_grpd (@Transfd_cat K E D FF GG)
   : τ (@= Cat_grpd
       (@Transfd_cat K E D FF GG)
-      (Hom_cat (@Transf_cat K Cat_cat E D) FF GG));
+      (Hom_cat (@Transf_cat K Cat_cart E D) FF GG));
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) ⊢
   @id (@Functord_cat K E D) FF
     ≡ @id_transfd K E D FF;
 
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A)) (y : τ (Obj B)) ⊢
-  @fapp0 B Cat_cat (@hom_ A B F W) y ≡ Hom_cat A W (@fapp0 B A F y);
+  @fapp0 B Cat_cart (@hom_ A B F W) y ≡ Hom_cat A W (@fapp0 B A F y);
 
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A)) (x : τ (Obj (Op_cat B))) ⊢
-  @fapp0 (Op_cat B) Cat_cat (@hom_con A W B F) x ≡ Hom_cat A (@fapp0 B A F x) W;
+  @fapp0 (Op_cat B) Cat_cart (@hom_con A W B F) x ≡ Hom_cat A (@fapp0 B A F x) W;
 
 // Opposite covariant and contravariant represented families compare
 // proof-time in either equation presentation; neither is a runtime fold.
@@ -6642,10 +6641,10 @@ assert [A B : Cat]
   (F : τ (Functor B A))
   (W : τ (Obj A)) ⊢
   @eq_refl
-    (Obj (@Catd_cat (Op_cat B)))
+    (Obj (Functor_cart_cat (Op_cat B) Cat_cart))
     (@hom_ (Op_cat A) (Op_cat B) (@Op_func B A F) W)
   : τ (@=
-      (Obj (@Catd_cat (Op_cat B)))
+      (Obj (Functor_cart_cat (Op_cat B) Cat_cart))
       (@hom_ (Op_cat A) (Op_cat B) (@Op_func B A F) W)
       (@hom_con A W B F));
 
@@ -6653,10 +6652,10 @@ assert [A B : Cat]
   (F : τ (Functor B A))
   (W : τ (Obj A)) ⊢
   @eq_refl
-    (Obj (@Catd_cat (Op_cat B)))
+    (Obj (Functor_cart_cat (Op_cat B) Cat_cart))
     (@hom_con A W B F)
   : τ (@=
-      (Obj (@Catd_cat (Op_cat B)))
+      (Obj (Functor_cart_cat (Op_cat B) Cat_cart))
       (@hom_con A W B F)
       (@hom_ (Op_cat A) (Op_cat B) (@Op_func B A F) W));
 
@@ -6669,14 +6668,14 @@ assertnot [A B : Cat]
 // Primitive contravariant represented-family action.
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   (X Y : τ (Obj B)) ⊢
-  @fapp1_func _ Cat_cat (@hom_con A W B F) X Y
+  @fapp1_func _ Cat_cart (@hom_con A W B F) X Y
     ≡ @hom_con_precomp_tele_func A B F W X Y;
 
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   (X Y : τ (Obj B)) (p : τ (Hom (Op_cat B) X Y)) ⊢
   @fapp0
     (Hom_cat (Op_cat B) X Y)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat A (@fapp0 B A F X) W)
       (Hom_cat A (@fapp0 B A F Y) W))
     (@hom_con_precomp_tele_func A B F W X Y)
@@ -6685,7 +6684,7 @@ assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
 
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   (X Y : τ (Obj B)) (p : τ (Hom (Op_cat B) X Y)) ⊢
-  @fapp1_fapp0 _ Cat_cat (@hom_con A W B F) X Y p
+  @fapp1_fapp0 _ Cat_cart (@hom_con A W B F) X Y p
     ≡ @hom_precomp_along_func B A F W Y X p;
 
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
@@ -6694,7 +6693,7 @@ assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   @fapp0
     (Hom_cat A (@fapp0 B A F X) W)
     (Hom_cat A (@fapp0 B A F Y) W)
-    (@fapp1_fapp0 _ Cat_cat (@hom_con A W B F) X Y p)
+    (@fapp1_fapp0 _ Cat_cart (@hom_con A W B F) X Y p)
     g
   ≡ @hom_precomp_along_fapp0 B A F W Y X p g;
 
@@ -6708,49 +6707,49 @@ assert [A B : Cat] (u W : τ (Obj A)) ⊢
     ≡ @Const_catd (Op_cat B) (Hom_cat A u W);
 
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj (Op_cat A))) ⊢
-  @fapp0 (Op_cat A) (Catd_cat B) (@hom_int A B F) W
+  @fapp0 (Op_cat A) (Functor_cart_cat B Cat_cart) (@hom_int A B F) W
     ≡ @hom_ A B F W;
 
 assert [A B : Cat] (F : τ (Functor B A)) (X : τ (Obj (Op_cat A))) (Y : τ (Obj B)) ⊢
-  @fapp0 B Cat_cat (@fapp0 (Op_cat A) (Catd_cat B) (@hom_int A B F) X) Y
+  @fapp0 B Cat_cart (@fapp0 (Op_cat A) (Functor_cart_cat B Cat_cart) (@hom_int A B F) X) Y
     ≡ Hom_cat A X (fapp0 F Y);
 
 // Generic represented-object action of `hom_int`.
 assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A)) ⊢
-  @fapp1_func (Op_cat A) (@Catd_cat B) (@hom_int A B F) y x
+  @fapp1_func (Op_cat A) (Functor_cart_cat B Cat_cart) (@hom_int A B F) y x
     ≡ @hom_int_precomp_tele_func A B F y x;
 
 assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A))
   (p : τ (Hom (Op_cat A) y x)) ⊢
-  @fapp1_fapp0 (Op_cat A) (@Catd_cat B) (@hom_int A B F) y x p
+  @fapp1_fapp0 (Op_cat A) (Functor_cart_cat B Cat_cart) (@hom_int A B F) y x p
     ≡ @hom_int_precomp_func A B F y x p;
 
 assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A))
   (p : τ (Hom (Op_cat A) y x)) (b : τ (Obj B)) ⊢
   @tapp0_fapp0
     B
-    Cat_cat
+    Cat_cart
     (@hom_ A B F y)
     (@hom_ A B F x)
     b
-    (@hom_int_precomp_func A B F y x p)
+    (@strict_transfor _ _ _ _ (@hom_int_precomp_func A B F y x p))
     ≡ @hom_precomp_along_func A A (@id_func A) (@fapp0 B A F b) x y p;
 
 // Higher represented-object action: q |-> Hom_func(p,F[q]).
 assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A))
   (p : τ (Hom (Op_cat A) y x)) (b c : τ (Obj B)) ⊢
   @tapp1_func
-    B Cat_cat
+    B Cat_cart
     (@hom_ A B F y) (@hom_ A B F x)
     b c
-    (@hom_int_precomp_func A B F y x p)
+    (@strict_transfor _ _ _ _ (@hom_int_precomp_func A B F y x p))
   ≡ @comp_fapp0
       Cat_cat
       (Hom_cat B b c)
       (Product_cat
         (Hom_cat A x y)
         (Hom_cat A (@fapp0 B A F b) (@fapp0 B A F c)))
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat A y (@fapp0 B A F b))
         (Hom_cat A x (@fapp0 B A F c)))
       (@Hom_tele_func A y x (@fapp0 B A F b) (@fapp0 B A F c))
@@ -6762,10 +6761,10 @@ assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A))
   (p : τ (Hom (Op_cat A) y x)) (b c : τ (Obj B))
   (q : τ (Hom B b c)) ⊢
   @tapp1_fapp0
-    B Cat_cat
+    B Cat_cart
     (@hom_ A B F y) (@hom_ A B F x)
     b c
-    (@hom_int_precomp_func A B F y x p)
+    (@strict_transfor _ _ _ _ (@hom_int_precomp_func A B F y x p))
     q
   ≡ @Hom_func
       A y x
@@ -6779,7 +6778,7 @@ assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A))
   (q : τ (Hom B b c)) ⊢
   @fapp0
     (Hom_cat B b c)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat A y (@fapp0 B A F b))
       (Hom_cat A x (@fapp0 B A F c)))
     (@comp_fapp0
@@ -6788,7 +6787,7 @@ assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A))
       (Product_cat
         (Hom_cat A x y)
         (Hom_cat A (@fapp0 B A F b) (@fapp0 B A F c)))
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat A y (@fapp0 B A F b))
         (Hom_cat A x (@fapp0 B A F c)))
       (@Hom_tele_func A y x (@fapp0 B A F b) (@fapp0 B A F c))
@@ -6808,14 +6807,14 @@ assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A))
   (q : τ (Hom B b c)) ⊢
   @fapp0
     (Hom_cat B b c)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat A y (@fapp0 B A F b))
       (Hom_cat A x (@fapp0 B A F c)))
     (@tapp1_func
-      B Cat_cat
+      B Cat_cart
       (@hom_ A B F y) (@hom_ A B F x)
       b c
-      (@hom_int_precomp_func A B F y x p))
+      (@strict_transfor _ _ _ _ (@hom_int_precomp_func A B F y x p)))
     q
   ≡ @Hom_func
       A y x
@@ -6832,14 +6831,14 @@ assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A))
     (Hom_cat A x (@fapp0 B A F c))
     (@fapp0
       (Hom_cat B b c)
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat A y (@fapp0 B A F b))
         (Hom_cat A x (@fapp0 B A F c)))
       (@tapp1_func
-        B Cat_cat
+        B Cat_cart
         (@hom_ A B F y) (@hom_ A B F x)
         b c
-        (@hom_int_precomp_func A B F y x p))
+        (@strict_transfor _ _ _ _ (@hom_int_precomp_func A B F y x p)))
       q)
     h
   ≡ @Hom_fapp0
@@ -6851,16 +6850,16 @@ assert [A B : Cat] (F : τ (Functor B A)) (y x : τ (Obj A))
 
 // Target-internalized mirror: f varies covariantly and each fibre is hom_con.
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A)) ⊢
-  @fapp0 A (@Catd_cat (Op_cat B)) (@hom_con_int A B F) W
+  @fapp0 A (Functor_cart_cat (Op_cat B) Cat_cart) (@hom_con_int A B F) W
     ≡ @hom_con A W B F;
 
 assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A)) ⊢
-  @fapp1_func A (@Catd_cat (Op_cat B)) (@hom_con_int A B F) W X
+  @fapp1_func A (Functor_cart_cat (Op_cat B) Cat_cart) (@hom_con_int A B F) W X
     ≡ @hom_con_int_postcomp_tele_func A B F W X;
 
 assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
   (f : τ (Hom A W X)) ⊢
-  @fapp1_fapp0 A (@Catd_cat (Op_cat B)) (@hom_con_int A B F) W X f
+  @fapp1_fapp0 A (Functor_cart_cat (Op_cat B) Cat_cart) (@hom_con_int A B F) W X f
     ≡ @hom_con_int_postcomp_func A B F W X f;
 
 assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
@@ -6868,7 +6867,7 @@ assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
   @fapp0
     (Hom_cat A W X)
     (Hom_cat
-      (@Catd_cat (Op_cat B))
+      (Functor_cart_cat (Op_cat B) Cat_cart)
       (@hom_con A W B F)
       (@hom_con A X B F))
     (@hom_con_int_postcomp_tele_func A B F W X)
@@ -6878,10 +6877,10 @@ assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
 assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
   (f : τ (Hom A W X)) (b : τ (Obj B)) ⊢
   @tapp0_fapp0
-    (Op_cat B) Cat_cat
+    (Op_cat B) Cat_cart
     (@hom_con A W B F) (@hom_con A X B F)
     b
-    (@hom_con_int_postcomp_func A B F W X f)
+    (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func A B F W X f))
   ≡ @hom_postcomp_func
       A A (@id_func A)
       (@fapp0 B A F b)
@@ -6890,17 +6889,17 @@ assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
 assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
   (f : τ (Hom A W X)) (b c : τ (Obj B)) ⊢
   @tapp1_func
-    (Op_cat B) Cat_cat
+    (Op_cat B) Cat_cart
     (@hom_con A W B F) (@hom_con A X B F)
     b c
-    (@hom_con_int_postcomp_func A B F W X f)
+    (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func A B F W X f))
   ≡ @comp_fapp0
       Cat_cat
       (Hom_cat (Op_cat B) b c)
       (Product_cat
         (Hom_cat A (@fapp0 B A F c) (@fapp0 B A F b))
         (Hom_cat A W X))
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat A (@fapp0 B A F b) W)
         (Hom_cat A (@fapp0 B A F c) X))
       (@Hom_tele_func
@@ -6913,10 +6912,10 @@ assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
   (f : τ (Hom A W X)) (b c : τ (Obj B))
   (q : τ (Hom (Op_cat B) b c)) ⊢
   @tapp1_fapp0
-    (Op_cat B) Cat_cat
+    (Op_cat B) Cat_cart
     (@hom_con A W B F) (@hom_con A X B F)
     b c
-    (@hom_con_int_postcomp_func A B F W X f)
+    (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func A B F W X f))
     q
   ≡ @Hom_func
       A
@@ -6931,7 +6930,7 @@ assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
   (q : τ (Hom (Op_cat B) b c)) ⊢
   @fapp0
     (Hom_cat (Op_cat B) b c)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat A (@fapp0 B A F b) W)
       (Hom_cat A (@fapp0 B A F c) X))
     (@comp_fapp0
@@ -6940,7 +6939,7 @@ assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
       (Product_cat
         (Hom_cat A (@fapp0 B A F c) (@fapp0 B A F b))
         (Hom_cat A W X))
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat A (@fapp0 B A F b) W)
         (Hom_cat A (@fapp0 B A F c) X))
       (@Hom_tele_func
@@ -6962,14 +6961,14 @@ assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
   (q : τ (Hom (Op_cat B) b c)) ⊢
   @fapp0
     (Hom_cat (Op_cat B) b c)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat A (@fapp0 B A F b) W)
       (Hom_cat A (@fapp0 B A F c) X))
     (@tapp1_func
-      (Op_cat B) Cat_cat
+      (Op_cat B) Cat_cart
       (@hom_con A W B F) (@hom_con A X B F)
       b c
-      (@hom_con_int_postcomp_func A B F W X f))
+      (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func A B F W X f)))
     q
   ≡ @Hom_func
       A
@@ -6986,10 +6985,10 @@ assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
     (Hom_cat A (@fapp0 B A F b) W)
     (Hom_cat A (@fapp0 B A F c) X)
     (@tapp1_fapp0
-      (Op_cat B) Cat_cat
+      (Op_cat B) Cat_cart
       (@hom_con A W B F) (@hom_con A X B F)
       b c
-      (@hom_con_int_postcomp_func A B F W X f)
+      (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func A B F W X f))
       q)
     h
   ≡ @Hom_fapp0
@@ -7001,11 +7000,11 @@ assert [A B : Cat] (F : τ (Functor B A)) (W X : τ (Obj A))
 
 assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) ⊢
   @Rep_transport_func Z x y p
-    ≡ @hom_int_precomp_func Z Z (@id_func Z) y x p;
+    ≡ @strict_transfor _ _ _ _ (@hom_int_precomp_func Z Z (@id_func Z) y x p);
 
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   (X Y : τ (Obj B)) (f : τ (Hom B X Y)) (g : τ (Hom A W (fapp0 F X))) ⊢
-  fapp0 (@fapp1_fapp0 B Cat_cat (@hom_ A B F W) X Y f) g
+  fapp0 (@fapp1_fapp0 B Cat_cart (@hom_ A B F W) X Y f) g
     ≡ @hom_postcomp_fapp0 A B F W X Y f g;
 
 // Hom-action functoriality joins for postcomposition.
@@ -7019,8 +7018,8 @@ assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   @hom_postcomp_fapp0 A B F W X X (@id B X) g
     ≡ g;
 
-// Generic accumulation stays distinct; the explicit strict view computes.
-assertnot [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
+// Strict-default accumulation computes for both ordinary maps and compatibility views.
+assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   (X Y Z : τ (Obj B))
   (p : τ (Hom B X Y)) (q : τ (Hom B Y Z)) ⊢
   @hom_postcomp_func A B F W X Z (@comp_fapp0 B X Y Z q p)
@@ -7031,19 +7030,19 @@ assertnot [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
         (@hom_postcomp_func A B F W Y Z q)
         (@hom_postcomp_func A B F W X Y p);
 
-assert [A B : Cat] (S : τ (@StrictFunctor B A)) (W : τ (Obj A))
+assert [A B : Cat] (S : τ (@Functor B A)) (W : τ (Obj A))
   (X Y Z : τ (Obj B))
   (p : τ (Hom B X Y)) (q : τ (Hom B Y Z)) ⊢
-  @hom_postcomp_func A B (@strict_functor B A S) W X Z (@comp_fapp0 B X Y Z q p)
+  @hom_postcomp_func A B (S) W X Z (@comp_fapp0 B X Y Z q p)
     ≡ @comp_cat_fapp0
-        (Hom_cat A W (@fapp0 B A (@strict_functor B A S) X))
-        (Hom_cat A W (@fapp0 B A (@strict_functor B A S) Y))
-        (Hom_cat A W (@fapp0 B A (@strict_functor B A S) Z))
-        (@hom_postcomp_func A B (@strict_functor B A S) W Y Z q)
-        (@hom_postcomp_func A B (@strict_functor B A S) W X Y p);
+        (Hom_cat A W (@fapp0 B A (S) X))
+        (Hom_cat A W (@fapp0 B A (S) Y))
+        (Hom_cat A W (@fapp0 B A (S) Z))
+        (@hom_postcomp_func A B (S) W Y Z q)
+        (@hom_postcomp_func A B (S) W X Y p);
 
-// Generic accumulation stays distinct; the explicit strict view computes.
-assertnot [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
+// Strict-default accumulation computes for both ordinary maps and compatibility views.
+assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   (X Y Z : τ (Obj B))
   (p : τ (Hom B X Y)) (q : τ (Hom B Y Z))
   (g : τ (Hom A W (@fapp0 B A F X))) ⊢
@@ -7051,13 +7050,13 @@ assertnot [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
     ≡ @hom_postcomp_fapp0 A B F W Y Z q
         (@hom_postcomp_fapp0 A B F W X Y p g);
 
-assert [A B : Cat] (S : τ (@StrictFunctor B A)) (W : τ (Obj A))
+assert [A B : Cat] (S : τ (@Functor B A)) (W : τ (Obj A))
   (X Y Z : τ (Obj B))
   (p : τ (Hom B X Y)) (q : τ (Hom B Y Z))
-  (g : τ (Hom A W (@fapp0 B A (@strict_functor B A S) X))) ⊢
-  @hom_postcomp_fapp0 A B (@strict_functor B A S) W X Z (@comp_fapp0 B X Y Z q p) g
-    ≡ @hom_postcomp_fapp0 A B (@strict_functor B A S) W Y Z q
-        (@hom_postcomp_fapp0 A B (@strict_functor B A S) W X Y p g);
+  (g : τ (Hom A W (@fapp0 B A (S) X))) ⊢
+  @hom_postcomp_fapp0 A B (S) W X Z (@comp_fapp0 B X Y Z q p) g
+    ≡ @hom_postcomp_fapp0 A B (S) W Y Z q
+        (@hom_postcomp_fapp0 A B (S) W X Y p g);
 
 assert [A B : Cat] (F : τ (Functor B A))
   (V W : τ (Obj A)) (X Y : τ (Obj B))
@@ -7153,71 +7152,71 @@ assert [C : Cat] [x y z : τ (Obj C)]
     (@defiso_to C x z (@defiso_comp C x y z j i))
   ≡ @id C x;
 
-assert [C D : Cat] (F : τ (@StrictFunctor C D))
+assert [C D : Cat] (F : τ (@Functor C D))
   [x y : τ (Obj C)]
   (i : τ (@DefIso C x y)) ⊢
-  @strict_defiso_fmap_to_path C D F x y i
+  @defiso_fmap_to_path C D F x y i
   : τ (@=
       (Hom D
-        (@fapp0 C D (@strict_functor C D F) x)
-        (@fapp0 C D (@strict_functor C D F) y))
-      (@strict_defiso_fmap_to C D F x y i)
-      (@fapp1_fapp0 C D (@strict_functor C D F)
+        (@fapp0 C D (F) x)
+        (@fapp0 C D (F) y))
+      (@defiso_fmap_to C D F x y i)
+      (@fapp1_fapp0 C D (F)
         x y (@defiso_to C x y i)));
 
-assertnot [C D : Cat] (F : τ (@StrictFunctor C D))
+assertnot [C D : Cat] (F : τ (@Functor C D))
   [x y : τ (Obj C)]
   (i : τ (@DefIso C x y)) ⊢
   @defiso_to
     D
-    (@fapp0 C D (@strict_functor C D F) x)
-    (@fapp0 C D (@strict_functor C D F) y)
-    (@strict_defiso_fmap C D F x y i)
-  ≡ @fapp1_fapp0 C D (@strict_functor C D F)
+    (@fapp0 C D (F) x)
+    (@fapp0 C D (F) y)
+    (@defiso_fmap C D F x y i)
+  ≡ @fapp1_fapp0 C D (F)
       x y (@defiso_to C x y i);
 
-assert [C D : Cat] (F : τ (@StrictFunctor C D))
+assert [C D : Cat] (F : τ (@Functor C D))
   [x y : τ (Obj C)]
   (i : τ (@DefIso C x y)) ⊢
-  @strict_defiso_fmap_from_path C D F x y i
+  @defiso_fmap_from_path C D F x y i
   : τ (@=
       (Hom D
-        (@fapp0 C D (@strict_functor C D F) y)
-        (@fapp0 C D (@strict_functor C D F) x))
-      (@strict_defiso_fmap_from C D F x y i)
-      (@fapp1_fapp0 C D (@strict_functor C D F)
+        (@fapp0 C D (F) y)
+        (@fapp0 C D (F) x))
+      (@defiso_fmap_from C D F x y i)
+      (@fapp1_fapp0 C D (F)
         y x (@defiso_from C x y i)));
 
-assertnot [C D : Cat] (F : τ (@StrictFunctor C D))
+assertnot [C D : Cat] (F : τ (@Functor C D))
   [x y : τ (Obj C)]
   (i : τ (@DefIso C x y)) ⊢
   @defiso_from
     D
-    (@fapp0 C D (@strict_functor C D F) x)
-    (@fapp0 C D (@strict_functor C D F) y)
-    (@strict_defiso_fmap C D F x y i)
-  ≡ @fapp1_fapp0 C D (@strict_functor C D F)
+    (@fapp0 C D (F) x)
+    (@fapp0 C D (F) y)
+    (@defiso_fmap C D F x y i)
+  ≡ @fapp1_fapp0 C D (F)
       y x (@defiso_from C x y i);
 
-assert [C D : Cat] (F : τ (@StrictFunctor C D))
+assert [C D : Cat] (F : τ (@Functor C D))
   [x y : τ (Obj C)]
   (i : τ (@DefIso C x y)) ⊢
   @hom_postcomp_fapp0
     D D (@id_func D)
-    (@fapp0 C D (@strict_functor C D F) x)
-    (@fapp0 C D (@strict_functor C D F) y)
-    (@fapp0 C D (@strict_functor C D F) x)
+    (@fapp0 C D (F) x)
+    (@fapp0 C D (F) y)
+    (@fapp0 C D (F) x)
     (@defiso_from
       D
-      (@fapp0 C D (@strict_functor C D F) x)
-      (@fapp0 C D (@strict_functor C D F) y)
-      (@strict_defiso_fmap C D F x y i))
+      (@fapp0 C D (F) x)
+      (@fapp0 C D (F) y)
+      (@defiso_fmap C D F x y i))
     (@defiso_to
       D
-      (@fapp0 C D (@strict_functor C D F) x)
-      (@fapp0 C D (@strict_functor C D F) y)
-      (@strict_defiso_fmap C D F x y i))
-  ≡ @id D (@fapp0 C D (@strict_functor C D F) x);
+      (@fapp0 C D (F) x)
+      (@fapp0 C D (F) y)
+      (@defiso_fmap C D F x y i))
+  ≡ @id D (@fapp0 C D (F) x);
 
 assert [A : Cat] (x y z : τ (Obj A))
   (p : τ (Hom A x y)) (q : τ (Hom A y z)) ⊢
@@ -7342,7 +7341,7 @@ symbol hom_postcomp_opfunc_general_tele_visible_check
   (w x : τ (Obj A))
   : τ (Functor
       (Hom_cat A w x)
-      (Functor_cat
+      (Functor_cart_cat
         (Hom_cat B (@fapp0 A B F x) z)
         (Hom_cat B (@fapp0 A B F w) z)))
 ≔ @hom_postcomp_tele_func
@@ -7433,8 +7432,8 @@ symbol hom_postcomp_opfunc_general_double_op_eq_refl_check
       @hom_precomp_along_func (Op_cat A) (Op_cat B) F z w x h)
 ≔ eq_refl (@hom_precomp_along_func (Op_cat A) (Op_cat B) F z w x h);
 
-// Generic accumulation stays distinct; the actual strict view computes.
-assertnot [A B : Cat] (F : τ (Functor A B)) (z : τ (Obj B))
+// Strict-default accumulation computes for both ordinary maps and compatibility views.
+assert [A B : Cat] (F : τ (Functor A B)) (z : τ (Obj B))
   (w x y : τ (Obj A))
   (p : τ (Hom A w x)) (q : τ (Hom A x y)) ⊢
   @hom_precomp_along_func A B F z w y (@comp_fapp0 A w x y q p)
@@ -7445,19 +7444,19 @@ assertnot [A B : Cat] (F : τ (Functor A B)) (z : τ (Obj B))
         (@hom_precomp_along_func A B F z w x p)
         (@hom_precomp_along_func A B F z x y q);
 
-assert [A B : Cat] (S : τ (@StrictFunctor A B)) (z : τ (Obj B))
+assert [A B : Cat] (S : τ (@Functor A B)) (z : τ (Obj B))
   (w x y : τ (Obj A))
   (p : τ (Hom A w x)) (q : τ (Hom A x y)) ⊢
-  @hom_precomp_along_func A B (@strict_functor A B S) z w y (@comp_fapp0 A w x y q p)
+  @hom_precomp_along_func A B (S) z w y (@comp_fapp0 A w x y q p)
     ≡ @comp_cat_fapp0
-        (Hom_cat B (@fapp0 A B (@strict_functor A B S) y) z)
-        (Hom_cat B (@fapp0 A B (@strict_functor A B S) x) z)
-        (Hom_cat B (@fapp0 A B (@strict_functor A B S) w) z)
-        (@hom_precomp_along_func A B (@strict_functor A B S) z w x p)
-        (@hom_precomp_along_func A B (@strict_functor A B S) z x y q);
+        (Hom_cat B (@fapp0 A B (S) y) z)
+        (Hom_cat B (@fapp0 A B (S) x) z)
+        (Hom_cat B (@fapp0 A B (S) w) z)
+        (@hom_precomp_along_func A B (S) z w x p)
+        (@hom_precomp_along_func A B (S) z x y q);
 
-// Generic accumulation stays distinct; the actual strict view computes.
-assertnot [A B : Cat] (F : τ (Functor A B)) (z : τ (Obj B))
+// Strict-default accumulation computes for both ordinary maps and compatibility views.
+assert [A B : Cat] (F : τ (Functor A B)) (z : τ (Obj B))
   (w x y : τ (Obj A))
   (p : τ (Hom A w x)) (q : τ (Hom A x y))
   (g : τ (Hom B (@fapp0 A B F y) z)) ⊢
@@ -7465,13 +7464,13 @@ assertnot [A B : Cat] (F : τ (Functor A B)) (z : τ (Obj B))
     ≡ @hom_precomp_along_fapp0 A B F z w x p
         (@hom_precomp_along_fapp0 A B F z x y q g);
 
-assert [A B : Cat] (S : τ (@StrictFunctor A B)) (z : τ (Obj B))
+assert [A B : Cat] (S : τ (@Functor A B)) (z : τ (Obj B))
   (w x y : τ (Obj A))
   (p : τ (Hom A w x)) (q : τ (Hom A x y))
-  (g : τ (Hom B (@fapp0 A B (@strict_functor A B S) y) z)) ⊢
-  @hom_precomp_along_fapp0 A B (@strict_functor A B S) z w y (@comp_fapp0 A w x y q p) g
-    ≡ @hom_precomp_along_fapp0 A B (@strict_functor A B S) z w x p
-        (@hom_precomp_along_fapp0 A B (@strict_functor A B S) z x y q g);
+  (g : τ (Hom B (@fapp0 A B (S) y) z)) ⊢
+  @hom_precomp_along_fapp0 A B (S) z w y (@comp_fapp0 A w x y q p) g
+    ≡ @hom_precomp_along_fapp0 A B (S) z w x p
+        (@hom_precomp_along_fapp0 A B (S) z x y q g);
 
 // Generalized precomposition projection ladder.
 assert [A B : Cat] (F : τ (Functor A B)) (z : τ (Obj B))
@@ -7483,7 +7482,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (z : τ (Obj B))
   (w x : τ (Obj A)) (h : τ (Hom A w x)) ⊢
   @fapp1_fapp0
     (Op_cat A)
-    Cat_cat
+    Cat_cart
     (@hom_con B z A F)
     x
     w
@@ -7561,14 +7560,14 @@ symbol hom_postcomp_opfunc_projected_fapp0_eq_refl_check
 
 assert [X Y Z : Cat] (F : τ (Functor X Y)) ⊢
   fapp0 (@comp_cat_con_func_func X Y Z) F
-    ≡ @comp_cat_con_func X Y Z F;
+    ≡ @comp_cat_con_cart_func X Y Z F;
 
 assert [X Y Z : Cat] ⊢
   @comp_cat_con_func_func X Y Z
     ≡ @hom_precomp_along_tele_func
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cart Cat_cart)
         Z
         X
         Y;
@@ -7612,7 +7611,48 @@ assert (F : τ (Functor Cat_cat Cat_cat)) (Z W X : Cat)
     eta
   ≡ @hom_precomp_along_fapp1_fapp0 Cat_cat Cat_cat F Z W X H G K eta;
 
+// The retained action has the same whole horizontal interpretation.
+// Its runtime head remains stable until a tapp projection observes it.
 assert [K : Cat]
+  (E : τ (Functor K Cat_cat))
+  (Z : Cat)
+  [x y : τ (Obj K)]
+  (f : τ (Hom K x y))
+  [G H : τ (Functor (@fapp0 K Cat_cat E y) Z)]
+  (eta : τ (Transf G H)) ⊢
+  @hom_precomp_along_fapp1_comp_prod_path K Cat_cat E Z x y f G H eta
+  : τ (@= (Obj (Hom_cat (Functor_cat (@fapp0 K Cat_cat E x) Z)
+      (@hom_precomp_along_fapp0 K Cat_cat E Z x y f G)
+      (@hom_precomp_along_fapp0 K Cat_cat E Z x y f H)))
+    (@hom_precomp_along_fapp1_fapp0 K Cat_cat E Z x y f G H eta)
+    (@comp_prod_fapp1_fapp0
+      Cat_cat
+      (@fapp0 K Cat_cat E x)
+      (@fapp0 K Cat_cat E y)
+      Z
+      (@Product_pair
+        (Functor_cat (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y))
+        (Functor_cat (@fapp0 K Cat_cat E y) Z)
+        (@fapp1_fapp0 K Cat_cat E x y f)
+        G)
+      (@Product_pair
+        (Functor_cat (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y))
+        (Functor_cat (@fapp0 K Cat_cat E y) Z)
+        (@fapp1_fapp0 K Cat_cat E x y f)
+        H)
+      (@Product_pair
+        (Hom_cat
+          (Functor_cat (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y))
+          (@fapp1_fapp0 K Cat_cat E x y f)
+          (@fapp1_fapp0 K Cat_cat E x y f))
+        (Hom_cat (Functor_cat (@fapp0 K Cat_cat E y) Z) G H)
+        (@id
+          (Functor_cat (@fapp0 K Cat_cat E x) (@fapp0 K Cat_cat E y))
+          (@fapp1_fapp0 K Cat_cat E x y f))
+        eta)));
+
+// An unconditional runtime fold would lose identity endpoints.
+assertnot [K : Cat]
   (E : τ (Functor K Cat_cat))
   (Z : Cat)
   [x y : τ (Obj K)]
@@ -7685,9 +7725,9 @@ assert [X Y Z : Cat] (F : τ (Functor X Y)) (G H : τ (Functor Y Z))
 assert [X Y Z : Cat] ⊢
   @comp_cat_cov_func_func X Y Z
     ≡ @hom_postcomp_tele_func
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cart Cat_cart)
         X
         Y
         Z;
@@ -7802,7 +7842,7 @@ assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   (X Y : τ (Obj B)) (f g : τ (Hom B X Y)) ⊢
   @fapp1_func
     (Hom_cat B X Y)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat A W (@fapp0 B A F X))
       (Hom_cat A W (@fapp0 B A F Y)))
     (@hom_postcomp_tele_func A B F W X Y)
@@ -7813,15 +7853,15 @@ assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   (X Y : τ (Obj B)) (f g : τ (Hom B X Y))
   (alpha : τ (Hom (Hom_cat B X Y) f g)) ⊢
-  @fapp1_fapp0
+  @strict_transfor _ _ _ _ (@fapp1_fapp0
     (Hom_cat B X Y)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat A W (@fapp0 B A F X))
       (Hom_cat A W (@fapp0 B A F Y)))
     (@hom_postcomp_tele_func A B F W X Y)
     f
     g
-    alpha
+    alpha)
   ≡ @hom_postcomp_tele_transf A B F W X Y f g alpha;
 
 assert [K : Cat]
@@ -7830,43 +7870,43 @@ assert [K : Cat]
   [x y : τ (Obj K)]
   [f g : τ (Hom K x y)]
   (alpha : τ (Hom (Hom_cat K x y) f g)) ⊢
-  @hom_postcomp_tele_fapp1_fapp0 Cat_cat K E W x y f g alpha
+  @strict_transfor _ _ _ _ (@hom_postcomp_tele_fapp1_fapp0 Cat_cat K E W x y f g alpha)
   ≡ @hom_postcomp_tele_transf Cat_cat K E W x y f g alpha;
 
 assert (W X Y : Cat) (G H : τ (Functor X Y)) ⊢
   @fapp1_func
-    (Functor_cat X Y)
-    (Functor_cat (Functor_cat W X) (Functor_cat W Y))
+    (Functor_cart_cat X Y)
+    (Functor_cart_cat (Functor_cart_cat W X) (Functor_cart_cat W Y))
     (@comp_cat_cov_func_func W X Y)
     G
     H
   ≡ @hom_postcomp_tele_fapp1_func
-      Cat_cat
-      Cat_cat
-      (@id_func Cat_cat)
+      Cat_cart
+      Cat_cart
+      (@id_func Cat_cart)
       W
       X
       Y
       G
       H;
 
-assert (W X Y : Cat) (G H : τ (Functor X Y)) (eta : τ (Transf G H)) ⊢
-  @fapp1_fapp0
-    (Functor_cat X Y)
-    (Functor_cat (Functor_cat W X) (Functor_cat W Y))
+assert (W X Y : Cat) (G H : τ (Functor X Y)) (eta : τ (@StrictTransfor X Y G H)) ⊢
+  @strict_transfor _ _ _ _ (@fapp1_fapp0
+    (Functor_cart_cat X Y)
+    (Functor_cart_cat (Functor_cart_cat W X) (Functor_cart_cat W Y))
     (@comp_cat_cov_func_func W X Y)
     G
     H
-    eta
+    eta)
   ≡ @comp_cat_cov_func_func_transf W X Y G H eta;
 
 assert (W X Y : Cat) [G H : τ (Functor X Y)]
-  (eta : τ (Transf G H)) ⊢
+  (eta : τ (@StrictTransfor X Y G H)) ⊢
   @comp_cat_cov_func_func_transf W X Y G H eta
   ≡ @hom_postcomp_tele_transf
-      Cat_cat
-      Cat_cat
-      (@id Cat_cat Cat_cat)
+      Cat_cart
+      Cat_cart
+      (@id Cat_cart Cat_cart)
       W
       X
       Y
@@ -7874,9 +7914,9 @@ assert (W X Y : Cat) [G H : τ (Functor X Y)]
       H
       eta;
 
-assert (W X Y : Cat) (G H : τ (Functor X Y)) (eta : τ (Transf G H)) ⊢
-  fapp0 (@comp_cat_cov_func_func_fapp1_func W X Y G H) eta
-    ≡ @comp_cat_cov_func_func_transf W X Y G H eta;
+assert (W X Y : Cat) (G H : τ (Functor X Y)) (eta : τ (@StrictTransfor X Y G H)) ⊢
+  @strict_transfor _ _ _ _ (fapp0 (@comp_cat_cov_func_func_fapp1_func W X Y G H) eta)
+  ≡ @comp_cat_cov_func_func_transf W X Y G H eta;
 
 assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   [X Y : τ (Obj B)] [f g : τ (Hom B X Y)]
@@ -8033,7 +8073,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
   (W X : τ (Obj A)) (h k : τ (Hom A W X)) ⊢
   @fapp1_func
     (Hom_cat A W X)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat B (@fapp0 A B F X) Z)
       (Hom_cat B (@fapp0 A B F W) Z))
     (@hom_precomp_along_tele_func A B F Z W X)
@@ -8044,15 +8084,15 @@ assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
 assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
   (W X : τ (Obj A)) (h k : τ (Hom A W X))
   (alpha : τ (Hom (Hom_cat A W X) h k)) ⊢
-  @fapp1_fapp0
+  @strict_transfor _ _ _ _ (@fapp1_fapp0
     (Hom_cat A W X)
-    (Functor_cat
+    (Functor_cart_cat
       (Hom_cat B (@fapp0 A B F X) Z)
       (Hom_cat B (@fapp0 A B F W) Z))
     (@hom_precomp_along_tele_func A B F Z W X)
     h
     k
-    alpha
+    alpha)
   ≡ @hom_precomp_along_tele_transf A B F Z W X h k alpha;
 
 assert [K : Cat]
@@ -8061,20 +8101,20 @@ assert [K : Cat]
   [x y : τ (Obj K)]
   [f g : τ (Hom K x y)]
   (alpha : τ (Hom (Hom_cat K x y) f g)) ⊢
-  @hom_precomp_along_tele_fapp1_fapp0 K Cat_cat E Z x y f g alpha
+  @strict_transfor _ _ _ _ (@hom_precomp_along_tele_fapp1_fapp0 K Cat_cat E Z x y f g alpha)
   ≡ @hom_precomp_along_tele_transf K Cat_cat E Z x y f g alpha;
 
 assert [X Y Z : Cat] (F K : τ (Functor X Y)) ⊢
   @fapp1_func
-    (Functor_cat X Y)
-    (Functor_cat (Functor_cat Y Z) (Functor_cat X Z))
+    (Functor_cart_cat X Y)
+    (Functor_cart_cat (Functor_cart_cat Y Z) (Functor_cart_cat X Z))
     (@comp_cat_con_func_func X Y Z)
     F
     K
   ≡ @hom_precomp_along_tele_fapp1_func
-      Cat_cat
-      Cat_cat
-      (@id_func Cat_cat)
+      Cat_cart
+      Cat_cart
+      (@id_func Cat_cart)
       Z
       X
       Y
@@ -8082,23 +8122,23 @@ assert [X Y Z : Cat] (F K : τ (Functor X Y)) ⊢
       K;
 
 assert [X Y Z : Cat] (F K : τ (Functor X Y))
-  (alpha : τ (Transf F K)) ⊢
-  @fapp1_fapp0
-    (Functor_cat X Y)
-    (Functor_cat (Functor_cat Y Z) (Functor_cat X Z))
+  (alpha : τ (@StrictTransfor X Y F K)) ⊢
+  @strict_transfor _ _ _ _ (@fapp1_fapp0
+    (Functor_cart_cat X Y)
+    (Functor_cart_cat (Functor_cart_cat Y Z) (Functor_cart_cat X Z))
     (@comp_cat_con_func_func X Y Z)
     F
     K
-    alpha
+    alpha)
   ≡ @comp_cat_con_func_func_transf X Y Z F K alpha;
 
 assert [X Y Z : Cat] [F K : τ (Functor X Y)]
-  (alpha : τ (Transf F K)) ⊢
+  (alpha : τ (@StrictTransfor X Y F K)) ⊢
   @comp_cat_con_func_func_transf X Y Z F K alpha
   ≡ @hom_precomp_along_tele_transf
-      Cat_cat
-      Cat_cat
-      (@id Cat_cat Cat_cat)
+      Cat_cart
+      Cat_cart
+      (@id Cat_cart Cat_cart)
       Z
       X
       Y
@@ -8107,9 +8147,9 @@ assert [X Y Z : Cat] [F K : τ (Functor X Y)]
       alpha;
 
 assert [X Y Z : Cat] (F K : τ (Functor X Y))
-  (alpha : τ (Transf F K)) ⊢
-  fapp0 (@comp_cat_con_func_func_fapp1_func X Y Z F K) alpha
-    ≡ @comp_cat_con_func_func_transf X Y Z F K alpha;
+  (alpha : τ (@StrictTransfor X Y F K)) ⊢
+  @strict_transfor _ _ _ _ (fapp0 (@comp_cat_con_func_func_fapp1_func X Y Z F K) alpha)
+  ≡ @comp_cat_con_func_func_transf X Y Z F K alpha;
 
 assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
   [W X : τ (Obj A)] [h k : τ (Hom A W X)]
@@ -8696,19 +8736,19 @@ assert [A : Cat]
         Cat_cat
         (Product_cat (Hom_cat A x' x) (Hom_cat A y y'))
         (Product_cat
-          (Functor_cat (Hom_cat A x y) (Hom_cat A x' y))
-          (Functor_cat (Hom_cat A x' y) (Hom_cat A x' y')))
-        (Functor_cat (Hom_cat A x y) (Hom_cat A x' y'))
+          (Functor_cart_cat (Hom_cat A x y) (Hom_cat A x' y))
+          (Functor_cart_cat (Hom_cat A x' y) (Hom_cat A x' y')))
+        (Functor_cart_cat (Hom_cat A x y) (Hom_cat A x' y'))
         (@comp_prod_func
-          Cat_cat
+          Cat_cart
           (Hom_cat A x y)
           (Hom_cat A x' y)
           (Hom_cat A x' y'))
         (@Product_map_func
           (Hom_cat A x' x)
-          (Functor_cat (Hom_cat A x y) (Hom_cat A x' y))
+          (Functor_cart_cat (Hom_cat A x y) (Hom_cat A x' y))
           (Hom_cat A y y')
-          (Functor_cat (Hom_cat A x' y) (Hom_cat A x' y'))
+          (Functor_cart_cat (Hom_cat A x' y) (Hom_cat A x' y'))
           (@hom_precomp_along_tele_func A A (@id Cat_cat A) y x' x)
           (@hom_postcomp_tele_func A A (@id Cat_cat A) x' y y')));
 
@@ -8721,18 +8761,18 @@ assert [A : Cat]
       @comp_cat_fapp0
         (Product_cat (Hom_cat A x' x) (Hom_cat A y y'))
         (Product_cat
-          (Functor_cat (Hom_cat A x y) (Hom_cat A x' y))
-          (Functor_cat (Hom_cat A x' y) (Hom_cat A x' y')))
-        (Functor_cat (Hom_cat A x y) (Hom_cat A x' y'))
+          (Functor_cart_cat (Hom_cat A x y) (Hom_cat A x' y))
+          (Functor_cart_cat (Hom_cat A x' y) (Hom_cat A x' y')))
+        (Functor_cart_cat (Hom_cat A x y) (Hom_cat A x' y'))
         (@Functor_comp_pair_func
           (Hom_cat A x y)
           (Hom_cat A x' y)
           (Hom_cat A x' y'))
         (@Product_map_func
           (Hom_cat A x' x)
-          (Functor_cat (Hom_cat A x y) (Hom_cat A x' y))
+          (Functor_cart_cat (Hom_cat A x y) (Hom_cat A x' y))
           (Hom_cat A y y')
-          (Functor_cat (Hom_cat A x' y) (Hom_cat A x' y'))
+          (Functor_cart_cat (Hom_cat A x' y) (Hom_cat A x' y'))
           (@hom_precomp_along_tele_func A A (@id Cat_cat A) y x' x)
           (@hom_postcomp_tele_func A A (@id Cat_cat A) x' y y')));
 
@@ -8831,12 +8871,12 @@ assert [K : Cat] (E D : τ (Catd K)) ⊢
   @eq_refl Cat_grpd (Hom_cat (Catd_cat K) E D)
   : τ (@= Cat_grpd
       (Hom_cat (Catd_cat K) E D)
-      (@Transf_cat K Cat_cat E D));
+      (@Transf_cat K Cat_cart E D));
 
 assert [K : Cat] (E D : τ (Catd K)) ⊢
-  @eq_refl Cat_grpd (Hom_cat (Functor_cat K Cat_cat) E D)
+  @eq_refl Cat_grpd (Hom_cat (Functor_cat K Cat_cart) E D)
   : τ (@= Cat_grpd
-      (Hom_cat (Functor_cat K Cat_cat) E D)
+      (Hom_cat (Functor_cat K Cat_cart) E D)
       (@Functord_cat K E D));
 
 assert [X A B : Cat]
@@ -8850,11 +8890,12 @@ assert [A B : Cat] (F : τ (Functor B A))
   (x y : τ (Obj A)) (p : τ (Hom A x y)) (b : τ (Obj B)) ⊢
   @tapp0_fapp0
     B
-    Cat_cat
+    Cat_cart
     (@hom_ A B F y)
     (@hom_ A B F x)
     b
-    (@fapp1_fapp0 (Op_cat A) (@Catd_cat B) (@hom_int A B F) y x p)
+    (@strict_transfor _ _ _ _ (@fapp1_fapp0 (Op_cat A)
+      (Functor_cart_cat B Cat_cart) (@hom_int A B F) y x p))
     ≡ @hom_precomp_along_func A A (@id_func A) (@fapp0 B A F b) x y p;
 
 assert [X A B : Cat]
@@ -8871,7 +8912,7 @@ assert [K A : Cat] (x y : τ (Obj A)) (p : τ (Hom A x y))
       (@Const_func K A x)
       (@Const_func K A y)
       k
-      (@Const_transf K A x y p)
+      (@strict_transfor K A _ _ (@Const_transf K A x y p))
     ≡ p;
 
 assert [K A : Cat] (x y : τ (Obj A)) (p : τ (Hom A x y))
@@ -8881,7 +8922,7 @@ assert [K A : Cat] (x y : τ (Obj A)) (p : τ (Hom A x y))
       (@Const_func K A x)
       (@Const_func K A y)
       k k'
-      (@Const_transf K A x y p)
+      (@strict_transfor K A _ _ (@Const_transf K A x y p))
     ≡ @Const_func (Hom_cat K k k') (Hom_cat A x y) p;
 
 assert [K A : Cat] (x y : τ (Obj A)) (p : τ (Hom A x y))
@@ -8891,7 +8932,7 @@ assert [K A : Cat] (x y : τ (Obj A)) (p : τ (Hom A x y))
       (@Const_func K A x)
       (@Const_func K A y)
       k k'
-      (@Const_transf K A x y p)
+      (@strict_transfor K A _ _ (@Const_transf K A x y p))
       q
     ≡ p;
 
@@ -9179,9 +9220,9 @@ symbol Product_catd_transparent_check [K : Cat]
   : τ (Catd K)
 ≔ @comp_cat_fapp0
     K
-    (Product_cat Cat_cat Cat_cat)
-    Cat_cat
-    (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+    (Product_cat Cat_cart Cat_cart)
+    Cat_cart
+    (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
     (Struct_sigma B C);
 
 // The existing semantic composite computes its pointwise fibre.
@@ -9296,7 +9337,7 @@ assert [K : Cat]
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check K B C)
       B
       k
@@ -9310,7 +9351,7 @@ assert [K : Cat]
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check K B C)
       C
       k
@@ -9325,7 +9366,7 @@ assert [K : Cat]
   (x y : τ (Obj K)) ⊢
   @tapp1_func
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check K B C)
       B
       x
@@ -9333,25 +9374,25 @@ assert [K : Cat]
       (@Product_projL_funcd K B C)
     ≡ @comp_cat_fapp0
         (Hom_cat K x y)
-        (Functor_cat (Fibre_cat B x) (Fibre_cat B y))
-        (Functor_cat
+        (Functor_cart_cat (Fibre_cat B x) (Fibre_cat B y))
+        (Functor_cart_cat
           (Fibre_cat (@Product_catd_transparent_check K B C) x)
           (Fibre_cat B y))
-        (@comp_cat_con_func
+        (@comp_cat_con_cart_func
           (Fibre_cat (@Product_catd_transparent_check K B C) x)
           (Fibre_cat B x)
           (Fibre_cat B y)
           (@Product_projL_func
             (Fibre_cat B x)
             (Fibre_cat C x)))
-        (@fapp1_func K Cat_cat B x y);
+        (@fapp1_func K Cat_cart B x y);
 
 assert [K : Cat]
   (B C : τ (Catd K))
   (x y : τ (Obj K)) ⊢
   @tapp1_func
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check K B C)
       C
       x
@@ -9359,18 +9400,18 @@ assert [K : Cat]
       (@Product_projR_funcd K B C)
     ≡ @comp_cat_fapp0
         (Hom_cat K x y)
-        (Functor_cat (Fibre_cat C x) (Fibre_cat C y))
-        (Functor_cat
+        (Functor_cart_cat (Fibre_cat C x) (Fibre_cat C y))
+        (Functor_cart_cat
           (Fibre_cat (@Product_catd_transparent_check K B C) x)
           (Fibre_cat C y))
-        (@comp_cat_con_func
+        (@comp_cat_con_cart_func
           (Fibre_cat (@Product_catd_transparent_check K B C) x)
           (Fibre_cat C x)
           (Fibre_cat C y)
           (@Product_projR_func
             (Fibre_cat B x)
             (Fibre_cat C x)))
-        (@fapp1_func K Cat_cat C x y);
+        (@fapp1_func K Cat_cart C x y);
 
 // Capped projection actions retain stable precomposition owners.
 assert [K : Cat]
@@ -9379,7 +9420,7 @@ assert [K : Cat]
   (p : τ (Hom K x y)) ⊢
   @tapp1_fapp0
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check K B C)
       B
       x
@@ -9387,16 +9428,16 @@ assert [K : Cat]
       (@Product_projL_funcd K B C)
       p
     ≡ @hom_precomp_along_fapp0
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cart Cat_cart)
         (Fibre_cat B y)
         (Fibre_cat (@Product_catd_transparent_check K B C) x)
         (Fibre_cat B x)
         (@Product_projL_func
           (Fibre_cat B x)
           (Fibre_cat C x))
-        (@fapp1_fapp0 K Cat_cat B x y p);
+        (@fapp1_fapp0 K Cat_cart B x y p);
 
 assert [K : Cat]
   (B C : τ (Catd K))
@@ -9404,7 +9445,7 @@ assert [K : Cat]
   (p : τ (Hom K x y)) ⊢
   @tapp1_fapp0
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check K B C)
       C
       x
@@ -9412,16 +9453,16 @@ assert [K : Cat]
       (@Product_projR_funcd K B C)
       p
     ≡ @hom_precomp_along_fapp0
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cart Cat_cart)
         (Fibre_cat C y)
         (Fibre_cat (@Product_catd_transparent_check K B C) x)
         (Fibre_cat C x)
         (@Product_projR_func
           (Fibre_cat B x)
           (Fibre_cat C x))
-        (@fapp1_fapp0 K Cat_cat C x y p);
+        (@fapp1_fapp0 K Cat_cart C x y p);
 
 // Pairing computes pointwise and at both full and capped base action.
 assert [K : Cat]
@@ -9431,16 +9472,16 @@ assert [K : Cat]
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
       K
-      Cat_cat
+      Cat_cart
       E
       (@Product_catd_transparent_check K B C)
       k
       (@Product_pair_funcd K E B C FF GG)
     ≡ @Product_pair
-        (Functor_cat (Fibre_cat E k) (Fibre_cat B k))
-        (Functor_cat (Fibre_cat E k) (Fibre_cat C k))
-        (@tapp0_fapp0 K Cat_cat E B k FF)
-        (@tapp0_fapp0 K Cat_cat E C k GG);
+        (Functor_cart_cat (Fibre_cat E k) (Fibre_cat B k))
+        (Functor_cart_cat (Fibre_cat E k) (Fibre_cat C k))
+        (@tapp0_fapp0 K Cat_cart E B k FF)
+        (@tapp0_fapp0 K Cat_cart E C k GG);
 
 assert [K : Cat]
   (E B C : τ (Catd K))
@@ -9449,7 +9490,7 @@ assert [K : Cat]
   (x y : τ (Obj K)) ⊢
   @tapp1_func
       K
-      Cat_cat
+      Cat_cart
       E
       (@Product_catd_transparent_check K B C)
       x
@@ -9457,11 +9498,11 @@ assert [K : Cat]
       (@Product_pair_funcd K E B C FF GG)
     ≡ @Product_pair
         (Functor_cat (Hom_cat K x y)
-          (Functor_cat (Fibre_cat E x) (Fibre_cat B y)))
+          (Functor_cart_cat (Fibre_cat E x) (Fibre_cat B y)))
         (Functor_cat (Hom_cat K x y)
-          (Functor_cat (Fibre_cat E x) (Fibre_cat C y)))
-        (@tapp1_func K Cat_cat E B x y FF)
-        (@tapp1_func K Cat_cat E C x y GG);
+          (Functor_cart_cat (Fibre_cat E x) (Fibre_cat C y)))
+        (@tapp1_func K Cat_cart E B x y FF)
+        (@tapp1_func K Cat_cart E C x y GG);
 
 assert [K : Cat]
   (E B C : τ (Catd K))
@@ -9471,7 +9512,7 @@ assert [K : Cat]
   (p : τ (Hom K x y)) ⊢
   @tapp1_fapp0
       K
-      Cat_cat
+      Cat_cart
       E
       (@Product_catd_transparent_check K B C)
       x
@@ -9479,10 +9520,10 @@ assert [K : Cat]
       (@Product_pair_funcd K E B C FF GG)
       p
     ≡ @Product_pair
-        (Functor_cat (Fibre_cat E x) (Fibre_cat B y))
-        (Functor_cat (Fibre_cat E x) (Fibre_cat C y))
-        (@tapp1_fapp0 K Cat_cat E B x y FF p)
-        (@tapp1_fapp0 K Cat_cat E C x y GG p);
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat B y))
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat C y))
+        (@tapp1_fapp0 K Cat_cart E B x y FF p)
+        (@tapp1_fapp0 K Cat_cart E C x y GG p);
 
 // The canonical internalized cell of displayed pairing is componentwise.
 assert [K : Cat]
@@ -9608,16 +9649,16 @@ assert [K : Cat]
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check K B C)
       (@Product_catd_transparent_check K C B)
       k
       (@Product_swap_funcd_check K B C)
     ≡ @Product_pair
-        (Functor_cat
+        (Functor_cart_cat
           (Product_cat (Fibre_cat B k) (Fibre_cat C k))
           (Fibre_cat C k))
-        (Functor_cat
+        (Functor_cart_cat
           (Product_cat (Fibre_cat B k) (Fibre_cat C k))
           (Fibre_cat B k))
         (@Product_projR_func
@@ -9632,14 +9673,14 @@ assert [K : Cat]
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
       K
-      Cat_cat
+      Cat_cart
       B
       (@Product_catd_transparent_check K B B)
       k
       (@Product_diag_funcd_check K B)
     ≡ @Product_pair
-        (Functor_cat (Fibre_cat B k) (Fibre_cat B k))
-        (Functor_cat (Fibre_cat B k) (Fibre_cat B k))
+        (Functor_cart_cat (Fibre_cat B k) (Fibre_cat B k))
+        (Functor_cart_cat (Fibre_cat B k) (Fibre_cat B k))
         (@id_func (Fibre_cat B k))
         (@id_func (Fibre_cat B k));
 
@@ -9650,10 +9691,11 @@ symbol Product_projL_funcd_higher_check
   [x y : τ (Obj K)]
   [p q : τ (Hom K x y)]
   (alpha : τ (Hom (Hom_cat K x y) p q))
-  : τ (Transf
+  : τ (Obj (Hom_cat
+      (Functor_cart_cat (Fibre_cat (@Product_catd_transparent_check K B C) x) (Fibre_cat B y))
       (@tapp1_fapp0
         K
-        Cat_cat
+        Cat_cart
         (@Product_catd_transparent_check K B C)
         B
         x
@@ -9662,21 +9704,21 @@ symbol Product_projL_funcd_higher_check
         p)
       (@tapp1_fapp0
         K
-        Cat_cat
+        Cat_cart
         (@Product_catd_transparent_check K B C)
         B
         x
         y
         (@Product_projL_funcd K B C)
-        q))
+        q)))
 ≔ @fapp1_fapp0
     (Hom_cat K x y)
-    (Functor_cat
+    (Functor_cart_cat
       (Fibre_cat (@Product_catd_transparent_check K B C) x)
       (Fibre_cat B y))
     (@tapp1_func
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check K B C)
       B
       x
@@ -9692,10 +9734,11 @@ symbol Product_projR_funcd_higher_check
   [x y : τ (Obj K)]
   [p q : τ (Hom K x y)]
   (alpha : τ (Hom (Hom_cat K x y) p q))
-  : τ (Transf
+  : τ (Obj (Hom_cat
+      (Functor_cart_cat (Fibre_cat (@Product_catd_transparent_check K B C) x) (Fibre_cat C y))
       (@tapp1_fapp0
         K
-        Cat_cat
+        Cat_cart
         (@Product_catd_transparent_check K B C)
         C
         x
@@ -9704,21 +9747,21 @@ symbol Product_projR_funcd_higher_check
         p)
       (@tapp1_fapp0
         K
-        Cat_cat
+        Cat_cart
         (@Product_catd_transparent_check K B C)
         C
         x
         y
         (@Product_projR_funcd K B C)
-        q))
+        q)))
 ≔ @fapp1_fapp0
     (Hom_cat K x y)
-    (Functor_cat
+    (Functor_cart_cat
       (Fibre_cat (@Product_catd_transparent_check K B C) x)
       (Fibre_cat C y))
     (@tapp1_func
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check K B C)
       C
       x
@@ -9737,10 +9780,11 @@ symbol Product_pair_funcd_higher_check
   [x y : τ (Obj K)]
   [p q : τ (Hom K x y)]
   (alpha : τ (Hom (Hom_cat K x y) p q))
-  : τ (Transf
+  : τ (Obj (Hom_cat
+      (Functor_cart_cat (Fibre_cat E x) (Fibre_cat (@Product_catd_transparent_check K B C) y))
       (@tapp1_fapp0
         K
-        Cat_cat
+        Cat_cart
         E
         (@Product_catd_transparent_check K B C)
         x
@@ -9749,21 +9793,21 @@ symbol Product_pair_funcd_higher_check
         p)
       (@tapp1_fapp0
         K
-        Cat_cat
+        Cat_cart
         E
         (@Product_catd_transparent_check K B C)
         x
         y
         (@Product_pair_funcd K E B C FF GG)
-        q))
+        q)))
 ≔ @fapp1_fapp0
     (Hom_cat K x y)
-    (Functor_cat
+    (Functor_cart_cat
       (Fibre_cat E x)
       (Fibre_cat (@Product_catd_transparent_check K B C) y))
     (@tapp1_func
       K
-      Cat_cat
+      Cat_cart
       E
       (@Product_catd_transparent_check K B C)
       x
@@ -9785,8 +9829,8 @@ assert [K : Cat]
         K E B C FF GG x y p q alpha)
     ≡ @fapp1_fapp0
         (Hom_cat K x y)
-        (Functor_cat (Fibre_cat E x) (Fibre_cat B y))
-        (@tapp1_func K Cat_cat E B x y FF)
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat B y))
+        (@tapp1_func K Cat_cart E B x y FF)
         p
         q
         alpha;
@@ -9803,8 +9847,8 @@ assert [K : Cat]
         K E B C FF GG x y p q alpha)
     ≡ @fapp1_fapp0
         (Hom_cat K x y)
-        (Functor_cat (Fibre_cat E x) (Fibre_cat C y))
-        (@tapp1_func K Cat_cat E C x y GG)
+        (Functor_cart_cat (Fibre_cat E x) (Fibre_cat C y))
+        (@tapp1_func K Cat_cart E C x y GG)
         p
         q
         alpha;
@@ -9819,9 +9863,9 @@ symbol Displayed_eval_source_check [K A : Cat] (B : τ (Catd K))
   : τ (Catd K)
 ≔ @comp_cat_fapp0
     K
-    (Product_cat Cat_cat Cat_cat)
-    Cat_cat
-    (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+    (Product_cat Cat_cart Cat_cart)
+    Cat_cart
+    (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
     (Struct_sigma
       (@Displayed_eval_subject_check K A B)
       (@Const_catd K A));
@@ -9831,11 +9875,11 @@ assert [K A : Cat]
   (B : τ (Catd K))
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
-      K Cat_cat
+      K Cat_cart
       (@Displayed_eval_source_check K A B)
       B
       k
-      (@Eval_funcd K A B)
+      (@strict_transfor _ _ _ _ (@Eval_funcd K A B))
     ≡ @Eval_func A (Fibre_cat B k);
 
 // Object beta at a fibre computes to ordinary functor application.
@@ -9845,14 +9889,14 @@ assert [K A : Cat]
   (F : τ (Functor A (Fibre_cat B k)))
   (a : τ (Obj A)) ⊢
   @fapp0
-      (Product_cat (Functor_cat A (Fibre_cat B k)) A)
+      (Product_cat (Functor_cart_cat A (Fibre_cat B k)) A)
       (Fibre_cat B k)
       (@tapp0_fapp0
-        K Cat_cat
+        K Cat_cart
         (@Displayed_eval_source_check K A B)
         B
         k
-        (@Eval_funcd K A B))
+        (@strict_transfor _ _ _ _ (@Eval_funcd K A B)))
       (Struct_sigma F a)
     ≡ @fapp0 A (Fibre_cat B k) F a;
 
@@ -9861,7 +9905,7 @@ assert [K : Cat]
   (E : τ (Catd K))
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
-      K Cat_cat E (@Const_catd K Terminal_cat) k
+      K Cat_cart E (@Const_catd K Terminal_cat) k
       (@Terminal_funcd K E)
     ≡ @Terminal_func (Fibre_cat E k);
 
@@ -9890,7 +9934,7 @@ symbol Displayed_eval_varying_check [K A : Cat]
     E
     (@Displayed_eval_source_check K A B)
     B
-    (@Eval_funcd K A B)
+    (@strict_transfor _ _ _ _ (@Eval_funcd K A B))
     (@Product_pair_funcd
       K E
       (@Displayed_eval_subject_check K A B)
@@ -9907,7 +9951,7 @@ assert [K A : Cat]
       (Fibre_cat E k)
       (Fibre_cat B k)
       (@tapp0_fapp0
-        K Cat_cat E B k
+        K Cat_cart E B k
         (@Displayed_eval_varying_check K A E B FF xx))
       e
     ≡ @fapp0
@@ -9915,16 +9959,16 @@ assert [K A : Cat]
         (Fibre_cat B k)
         (@fapp0
           (Fibre_cat E k)
-          (Functor_cat A (Fibre_cat B k))
+          (Functor_cart_cat A (Fibre_cat B k))
           (@tapp0_fapp0
-            K Cat_cat E
+            K Cat_cart E
             (@Displayed_eval_subject_check K A B)
             k FF)
           e)
         (@fapp0
           (Fibre_cat E k)
           A
-          (@tapp0_fapp0 K Cat_cat E (@Const_catd K A) k xx)
+          (@tapp0_fapp0 K Cat_cart E (@Const_catd K A) k xx)
           e);
 
 // Fixed evaluation is derived through Terminal_funcd rather than a third
@@ -9938,7 +9982,7 @@ symbol Displayed_eval_fixed_check [K A : Cat]
     (@Displayed_eval_subject_check K A B)
     (@Displayed_eval_source_check K A B)
     B
-    (@Eval_funcd K A B)
+    (@strict_transfor _ _ _ _ (@Eval_funcd K A B))
     (@Product_pair_funcd
       K
       (@Displayed_eval_subject_check K A B)
@@ -9958,10 +10002,10 @@ assert [K A : Cat]
   (k : τ (Obj K))
   (F : τ (Functor A (Fibre_cat B k))) ⊢
   @fapp0
-      (Functor_cat A (Fibre_cat B k))
+      (Functor_cart_cat A (Fibre_cat B k))
       (Fibre_cat B k)
       (@tapp0_fapp0
-        K Cat_cat
+        K Cat_cart
         (@Displayed_eval_subject_check K A B)
         B k
         (@Displayed_eval_fixed_check K A B a))
@@ -9974,13 +10018,13 @@ assert [K A : Cat]
   (B : τ (Catd K))
   (x y : τ (Obj K)) ⊢
   @tapp1_func
-      K Cat_cat
+      K Cat_cart
       (@Displayed_eval_source_check K A B)
       B x y
-      (@Eval_funcd K A B)
+      (@strict_transfor _ _ _ _ (@Eval_funcd K A B))
     : τ (Functor
         (Hom_cat K x y)
-        (Functor_cat
+        (Functor_cart_cat
           (Fibre_cat (@Displayed_eval_source_check K A B) x)
           (Fibre_cat B y)));
 
@@ -9990,29 +10034,31 @@ symbol Displayed_eval_higher_check [K A : Cat]
   [x y : τ (Obj K)]
   [p q : τ (Hom K x y)]
   (alpha : τ (Hom (Hom_cat K x y) p q))
-  : τ (Transf
+  : τ (Obj (Hom_cat
+      (Functor_cart_cat (Fibre_cat (@Displayed_eval_source_check K A B) x)
+        (Fibre_cat B y))
       (@tapp1_fapp0
-        K Cat_cat
+        K Cat_cart
         (@Displayed_eval_source_check K A B)
         B x y
-        (@Eval_funcd K A B)
+        (@strict_transfor _ _ _ _ (@Eval_funcd K A B))
         p)
       (@tapp1_fapp0
-        K Cat_cat
+        K Cat_cart
         (@Displayed_eval_source_check K A B)
         B x y
-        (@Eval_funcd K A B)
-        q))
+        (@strict_transfor _ _ _ _ (@Eval_funcd K A B))
+        q)))
 ≔ @fapp1_fapp0
     (Hom_cat K x y)
-    (Functor_cat
+    (Functor_cart_cat
       (Fibre_cat (@Displayed_eval_source_check K A B) x)
       (Fibre_cat B y))
     (@tapp1_func
-      K Cat_cat
+      K Cat_cart
       (@Displayed_eval_source_check K A B)
       B x y
-      (@Eval_funcd K A B))
+      (@strict_transfor _ _ _ _ (@Eval_funcd K A B)))
     p q alpha;
 
 // The arbitrary mixed-domain/plain-argument route would require identifying
@@ -10231,7 +10277,7 @@ assert
       (Fibre_cat Displayed_chain_D_check k)
       (@tapp0_fapp0
         Displayed_chain_K_check
-        Cat_cat
+        Cat_cart
         Displayed_chain_A_check
         Displayed_chain_D_check
         k
@@ -10322,7 +10368,7 @@ assert ⊢
     (@Sigma_cat
       Displayed_chain_K_check
       Displayed_chain_A_check)
-    Cat_cat
+    Cat_cart
     (@Sigma_proj1_pullback_catd
       Displayed_chain_K_check
       Displayed_chain_A_check
@@ -10336,7 +10382,7 @@ assert ⊢
     Displayed_chain_q_check
   ≡ @fapp1_fapp0
       Displayed_chain_K_check
-      Cat_cat
+      Cat_cart
       Displayed_chain_D_check
       Displayed_chain_k0_check
       Displayed_chain_k1_check
@@ -10529,7 +10575,7 @@ assert [K : Cat]
     (Fibre_cat D k)
     _ _
     Terminal_obj
-    (@tdapp0_fapp0
+    (@strict_transfor _ _ _ _ (@tdapp0_fapp0
       (@Sigma_cat K R)
       (@Const_catd (@Sigma_cat K R) Terminal_cat)
       (@Sigma_proj1_pullback_catd K R D)
@@ -10542,14 +10588,14 @@ assert [K : Cat]
           (@Sigma_cat K R)
           (@Sigma_proj1_pullback_catd K R D))
         (@sigma_functord_sec_func K R D)
-        FF GG eta))
+        FF GG eta)))
   ≡ @tapp0_fapp0
       (Fibre_cat R k)
       (Fibre_cat D k)
       (@Fibre_func K R D FF k)
       (@Fibre_func K R D GG k)
       r
-      (@tdapp0_fapp0 K R D FF GG k eta);
+      (@strict_transfor _ _ _ _ (@tdapp0_fapp0 K R D FF GG k eta));
 
 // catalog-area: auto
 assert [A B : Cat] (F : τ (Functor A B)) (x : τ (Obj A)) ⊢
@@ -10560,7 +10606,7 @@ assert [A B : Cat]
   (F G : τ (Functor A B))
   (x y : τ (Obj A)) ⊢
   @fapp1_func
-    (Product_cat (Functor_cat A B) A)
+    (Product_cat (Functor_cart_cat A B) A)
     B
     (@Eval_func A B)
     (Struct_sigma F x)
@@ -10570,16 +10616,16 @@ assert [A B : Cat]
 assert [A B : Cat]
   (F G : τ (Functor A B))
   (x y : τ (Obj A))
-  (eta : τ (Transf F G))
+  (eta : τ (@StrictTransfor A B F G))
   (p : τ (Hom A x y)) ⊢
   @fapp1_fapp0
-    (Product_cat (Functor_cat A B) A)
+    (Product_cat (Functor_cart_cat A B) A)
     B
     (@Eval_func A B)
     (Struct_sigma F x)
     (Struct_sigma G y)
     (Struct_sigma eta p)
-  ≡ @tapp1_fapp0 A B F G x y eta p;
+  ≡ @tapp1_fapp0 A B F G x y (@strict_transfor A B F G eta) p;
 
 assert [A B : Cat] (x : τ (Obj A)) (F : τ (Functor A B)) ⊢
   fapp0 (fapp0_func x) F
@@ -10607,15 +10653,16 @@ assert [A B : Cat] (x : τ (Obj A)) (F G : τ (Functor A B))
 
 assert [A B : Cat] (x : τ (Obj A)) ⊢
   @comp_cat_fapp0
-    (Functor_cat A B)
-    (Product_cat (Functor_cat A B) A)
+    (Functor_cart_cat A B)
+    (Product_cat (Functor_cart_cat A B) A)
     B
     (@Eval_func A B)
     (@Eval_at_func A B x)
-  ≡ @fapp0_func A B x;
+  ≡ @comp_cat_fapp0 (Functor_cart_cat A B) (Functor_cat A B) B
+      (@fapp0_func A B x) (Functor_cart_include A B);
 
 assert [A B C : Cat]
-  (G : τ (Functor A (Functor_cat B C)))
+  (G : τ (Functor A (Functor_cart_cat B C)))
   (x : τ (Obj A))
   (y : τ (Obj B)) ⊢
   fapp0 (uncurry_func G) (Struct_sigma x y)
@@ -10623,18 +10670,18 @@ assert [A B C : Cat]
         (Product_cat A B)
         C
         (@hom_postcomp_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           (Product_cat A B)
-          (Product_cat (Functor_cat B C) B)
+          (Product_cat (Functor_cart_cat B C) B)
           C
           (@Eval_func B C)
-          (@Product_cat_fapp1_tapp0_func A (Functor_cat B C) B G))
+          (@Product_cat_fapp1_tapp0_func A (Functor_cart_cat B C) B G))
         (Struct_sigma x y);
 
 assert [A B C : Cat]
-  (G : τ (Functor A (Functor_cat B C)))
+  (G : τ (Functor A (Functor_cart_cat B C)))
   (x x' : τ (Obj A))
   (y y' : τ (Obj B))
   (p : τ (Hom A x x'))
@@ -10650,14 +10697,14 @@ assert [A B C : Cat]
       (Product_cat A B)
       C
       (@hom_postcomp_fapp0
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cat Cat_cart)
         (Product_cat A B)
-        (Product_cat (Functor_cat B C) B)
+        (Product_cat (Functor_cart_cat B C) B)
         C
         (@Eval_func B C)
-        (@Product_cat_fapp1_tapp0_func A (Functor_cat B C) B G))
+        (@Product_cat_fapp1_tapp0_func A (Functor_cart_cat B C) B G))
       (Struct_sigma x y)
       (Struct_sigma x' y')
       (Struct_sigma p q);
@@ -10668,7 +10715,7 @@ assert [A B C : Cat]
     ≡ curry_func F;
 
 assert [A B C : Cat]
-  (G : τ (Functor A (Functor_cat B C))) ⊢
+  (G : τ (Functor A (Functor_cart_cat B C))) ⊢
   fapp0 uncurry_func_func G
     ≡ uncurry_func G;
 
@@ -10846,20 +10893,21 @@ assertnot [R L : Cat]
 assert [A B : Cat]
   [F G : τ (Functor A B)]
   (eta : τ (Transf F G)) ⊢
-  @Op_transf A B F G eta
-  : τ (Transf (@Op_func A B G) (@Op_func A B F));
+  @TotalOp_transf A B F G eta
+  : τ (Transf (@TotalOp_func A B G) (@TotalOp_func A B F));
 
 assert [A B : Cat]
   [F G : τ (Functor A B)]
   (eta : τ (Transf F G)) ⊢
-  @Op_transf
-    (Op_cat A) (Op_cat B)
-    (@Op_func A B G)
-    (@Op_func A B F)
-    (@Op_transf A B F G eta)
+  @TotalOp_transf
+    (TotalOp_cat A) (TotalOp_cat B)
+    (@TotalOp_func A B G)
+    (@TotalOp_func A B F)
+    (@TotalOp_transf A B F G eta)
   ≡ eta;
 
-// Stable capped action projects the already-existing whole Op-transfor beta.
+// Total duality exchanges the naturality boundaries; its conventional
+// pre/right action reads the original post/left endpoint.
 assert [A B : Cat]
   [F G : τ (Functor A B)]
   (eta : τ (Transf F G))
@@ -10868,77 +10916,99 @@ assert [A B : Cat]
   @eq_refl
     (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
     (@tapp1_fapp0
-      (Op_cat A) (Op_cat B)
-      (@Op_func A B G) (@Op_func A B F)
-      y x (@Op_transf A B F G eta) p)
+      (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B G) (@TotalOp_func A B F)
+      y x (@TotalOp_transf A B F G eta) p)
   : τ (@=
       (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
       (@tapp1_fapp0
-        (Op_cat A) (Op_cat B)
-        (@Op_func A B G) (@Op_func A B F)
-        y x (@Op_transf A B F G eta) p)
+        (TotalOp_cat A) (TotalOp_cat B)
+        (@TotalOp_func A B G) (@TotalOp_func A B F)
+        y x (@TotalOp_transf A B F G eta) p)
+      (@fapp0 (Hom_cat A x y)
+        (Hom_cat B (@fapp0 A B F x) (@fapp0 A B G y))
+        (@tapp1_post_endpoint_func A B F G eta x y) p));
+
+// The old middle is not identified with that boundary for a general lax eta.
+assertnot [A B : Cat]
+  [F G : τ (Functor A B)]
+  (eta : τ (Transf F G))
+  [x y : τ (Obj A)]
+  (p : τ (Hom A x y)) ⊢
+  @eq_refl
+    (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+    (@tapp1_fapp0
+      (TotalOp_cat A) (TotalOp_cat B)
+      (@TotalOp_func A B G) (@TotalOp_func A B F)
+      y x (@TotalOp_transf A B F G eta) p)
+  : τ (@=
+      (Hom B (@fapp0 A B F x) (@fapp0 A B G y))
+      (@tapp1_fapp0
+        (TotalOp_cat A) (TotalOp_cat B)
+        (@TotalOp_func A B G) (@TotalOp_func A B F)
+        y x (@TotalOp_transf A B F G eta) p)
       (@tapp1_fapp0 A B F G x y eta p));
 
 // Involution still fires after the inner opposite-adjunction unit projection
-// has normalized the outer transformation indices away from literal Op_func
+// has normalized the outer transformation indices away from literal TotalOp_func
 // heads. This is the motivating consumer for the fully inferred LHS.
 assert [R L : Cat]
   [F : τ (Functor R L)]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
-  @Op_transf
-    (Op_cat L)
-    (Op_cat L)
-    (@id_func (Op_cat L))
-    (@Op_func L L (@comp_cat_fapp0 L R L F G))
+  @TotalOp_transf
+    (TotalOp_cat L)
+    (TotalOp_cat L)
+    (@id_func (TotalOp_cat L))
+    (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
     (@unit_adj_transf
-      (Op_cat L) (Op_cat R)
-      (@Op_func L R G)
-      (@Op_func R L F)
+      (TotalOp_cat L) (TotalOp_cat R)
+      (@TotalOp_func L R G)
+      (@TotalOp_func R L F)
       (@Op_adjunction R L F G J))
   ≡ @counit_adj_transf R L F G J;
 
 assert [A B : Cat]
   (F : τ (Functor A B)) ⊢
-  @Op_transf
+  @TotalOp_transf
     A B F F
     (@id (Functor_cat A B) F)
   ≡ @id
-      (Functor_cat (Op_cat A) (Op_cat B))
-      (@Op_func A B F);
+      (Functor_cat (TotalOp_cat A) (TotalOp_cat B))
+      (@TotalOp_func A B F);
 
 assert [A B : Cat]
   [F : τ (Functor A B)]
   [G : τ (Functor B A)]
   (adj : τ (@Adjunction A B F G)) ⊢
   @left_adj_func
-    (Op_cat B) (Op_cat A)
-    (@Op_func B A G)
-    (@Op_func A B F)
+    (TotalOp_cat B) (TotalOp_cat A)
+    (@TotalOp_func B A G)
+    (@TotalOp_func A B F)
     (@Op_adjunction A B F G adj)
-  ≡ @Op_func B A G;
+  ≡ @TotalOp_func B A G;
 
 assert [A B : Cat]
   [F : τ (Functor A B)]
   [G : τ (Functor B A)]
   (adj : τ (@Adjunction A B F G)) ⊢
   @right_adj_func
-    (Op_cat B) (Op_cat A)
-    (@Op_func B A G)
-    (@Op_func A B F)
+    (TotalOp_cat B) (TotalOp_cat A)
+    (@TotalOp_func B A G)
+    (@TotalOp_func A B F)
     (@Op_adjunction A B F G adj)
-  ≡ @Op_func A B F;
+  ≡ @TotalOp_func A B F;
 
 assert [A B : Cat]
   [F : τ (Functor A B)]
   [G : τ (Functor B A)]
   (adj : τ (@Adjunction A B F G)) ⊢
   @unit_adj_transf
-    (Op_cat B) (Op_cat A)
-    (@Op_func B A G)
-    (@Op_func A B F)
+    (TotalOp_cat B) (TotalOp_cat A)
+    (@TotalOp_func B A G)
+    (@TotalOp_func A B F)
     (@Op_adjunction A B F G adj)
-  ≡ @Op_transf
+  ≡ @TotalOp_transf
       B B
       (@comp_cat_fapp0
         B A B
@@ -10952,11 +11022,11 @@ assert [A B : Cat]
   [G : τ (Functor B A)]
   (adj : τ (@Adjunction A B F G)) ⊢
   @counit_adj_transf
-    (Op_cat B) (Op_cat A)
-    (@Op_func B A G)
-    (@Op_func A B F)
+    (TotalOp_cat B) (TotalOp_cat A)
+    (@TotalOp_func B A G)
+    (@TotalOp_func A B F)
     (@Op_adjunction A B F G adj)
-  ≡ @Op_transf
+  ≡ @TotalOp_transf
       A A
       (@id_func A)
       (@comp_cat_fapp0
@@ -10970,10 +11040,10 @@ assert [A B : Cat]
   [G : τ (Functor B A)]
   (adj : τ (@Adjunction A B F G)) ⊢
   @Op_adjunction
-    (Op_cat B)
-    (Op_cat A)
-    (@Op_func B A G)
-    (@Op_func A B F)
+    (TotalOp_cat B)
+    (TotalOp_cat A)
+    (@TotalOp_func B A G)
+    (@TotalOp_func A B F)
     (@Op_adjunction A B F G adj)
   ≡ adj;
 
@@ -11235,11 +11305,11 @@ assertnot [A : Cat]
   @mult_monad_transf A T M
   ≡ mu;
 
-// Monad evidence is definitionally Comonad evidence after one opposite.
+// Monad evidence is definitionally Comonad evidence after total reversal.
 assert [A : Cat]
   [T : τ (Functor A A)]
   (M : τ (@Monad A T)) ⊢
-  M : τ (@Comonad (Op_cat A) (@Op_func A A T));
+  M : τ (@Comonad (TotalOp_cat A) (@TotalOp_func A A T));
 
 assert [A : Cat]
   [D : τ (Functor A A)]
@@ -11258,22 +11328,22 @@ assert [A : Cat]
 assert [A : Cat]
   [D : τ (Functor A A)]
   (C : τ (@Comonad A D)) ⊢
-  @Op_transf
-    (Op_cat A) (Op_cat A)
-    (@id_func (Op_cat A)) (@Op_func A A D)
-    (@unit_monad_transf (Op_cat A) (@Op_func A A D) C)
+  @TotalOp_transf
+    (TotalOp_cat A) (TotalOp_cat A)
+    (@id_func (TotalOp_cat A)) (@TotalOp_func A A D)
+    (@unit_monad_transf (TotalOp_cat A) (@TotalOp_func A A D) C)
   ≡ @counit_comonad_transf A D C;
 
 assert [A : Cat]
   [D : τ (Functor A A)]
   (C : τ (@Comonad A D)) ⊢
-  @Op_transf
-    (Op_cat A) (Op_cat A)
+  @TotalOp_transf
+    (TotalOp_cat A) (TotalOp_cat A)
     (@comp_cat_fapp0
-      (Op_cat A) (Op_cat A) (Op_cat A)
-      (@Op_func A A D) (@Op_func A A D))
-    (@Op_func A A D)
-    (@mult_monad_transf (Op_cat A) (@Op_func A A D) C)
+      (TotalOp_cat A) (TotalOp_cat A) (TotalOp_cat A)
+      (@TotalOp_func A A D) (@TotalOp_func A A D))
+    (@TotalOp_func A A D)
+    (@mult_monad_transf (TotalOp_cat A) (@TotalOp_func A A D) C)
   ≡ @comult_comonad_transf A D C;
 
 // Applying Op to stable dual observations recovers the primary operations.
@@ -11285,12 +11355,12 @@ assert [A : Cat]
     (@unit_monad_transf A T M)
   : τ (@=
       (Transf (@id_func A) T)
-      (@Op_transf
-        (Op_cat A) (Op_cat A)
-        (@Op_func A A T)
-        (@id_func (Op_cat A))
+      (@TotalOp_transf
+        (TotalOp_cat A) (TotalOp_cat A)
+        (@TotalOp_func A A T)
+        (@id_func (TotalOp_cat A))
         (@counit_comonad_transf
-          (Op_cat A) (@Op_func A A T) M))
+          (TotalOp_cat A) (@TotalOp_func A A T) M))
       (@unit_monad_transf A T M));
 
 assert [A : Cat]
@@ -11301,14 +11371,14 @@ assert [A : Cat]
     (@mult_monad_transf A T M)
   : τ (@=
       (Transf (@comp_cat_fapp0 A A A T T) T)
-      (@Op_transf
-        (Op_cat A) (Op_cat A)
-        (@Op_func A A T)
+      (@TotalOp_transf
+        (TotalOp_cat A) (TotalOp_cat A)
+        (@TotalOp_func A A T)
         (@comp_cat_fapp0
-          (Op_cat A) (Op_cat A) (Op_cat A)
-          (@Op_func A A T) (@Op_func A A T))
+          (TotalOp_cat A) (TotalOp_cat A) (TotalOp_cat A)
+          (@TotalOp_func A A T) (@TotalOp_func A A T))
         (@comult_comonad_transf
-          (Op_cat A) (@Op_func A A T) M))
+          (TotalOp_cat A) (@TotalOp_func A A T) M))
       (@mult_monad_transf A T M));
 
 // The readable counit antecedental action is the standard whole action
@@ -11325,7 +11395,7 @@ assert [A : Cat]
       (@counit_comonad_transf A D C);
 
 // Transparent whole coextension projects through the primary monadic whole
-// owner and the surviving Op_func point fold to the stable point owner.
+// owner and the surviving TotalOp_func point fold to the stable point owner.
 assert [A : Cat]
   [D : τ (Functor A A)]
   (C : τ (@Comonad A D))
@@ -11353,11 +11423,14 @@ assert [A : Cat]
       (Functor
         (Hom_cat A (@fapp0 A A D X) Y)
         (Hom_cat A (@fapp0 A A D X) (@fapp0 A A D Y)))
-      (@kleisli_extend_func
-        (Op_cat A) (@Op_func A A D) C Y X)
+      (@TotalOp_func
+        (TotalOp_cat (Hom_cat A (@fapp0 A A D X) Y))
+        (TotalOp_cat (Hom_cat A (@fapp0 A A D X) (@fapp0 A A D Y)))
+        (@kleisli_extend_func
+          (TotalOp_cat A) (@TotalOp_func A A D) C Y X))
       (@cokleisli_extend_func A D C X Y));
 
-// The point comparison is a runtime fold at the surviving Op_func head.
+// The point comparison is a runtime fold at the surviving TotalOp_func head.
 assert [A : Cat]
   [D : τ (Functor A A)]
   (C : τ (@Comonad A D))
@@ -11369,7 +11442,7 @@ assert [A : Cat]
   : τ (@=
       (Hom A (@fapp0 A A D X) (@fapp0 A A D Y))
       (@kleisli_extend_fapp0
-        (Op_cat A) (@Op_func A A D) C Y X f)
+        (TotalOp_cat A) (@TotalOp_func A A D) C Y X f)
       (@cokleisli_extend_fapp0 A D C X Y f));
 
 // Canonical raw Op terms enter the stable ambient co-beta normalizer.
@@ -11387,13 +11460,13 @@ assert [A : Cat]
     (@tapp1_fapp0
       A A D (@id_func A)
       Y Z
-      (@Op_transf
-        (Op_cat A) (Op_cat A)
-        (@id_func (Op_cat A)) (@Op_func A A D)
-        (@unit_monad_transf (Op_cat A) (@Op_func A A D) C))
+      (@TotalOp_transf
+        (TotalOp_cat A) (TotalOp_cat A)
+        (@id_func (TotalOp_cat A)) (@TotalOp_func A A D)
+        (@unit_monad_transf (TotalOp_cat A) (@TotalOp_func A A D) C))
       h)
     (@kleisli_extend_fapp0
-      (Op_cat A) (@Op_func A A D) C Y X f)
+      (TotalOp_cat A) (@TotalOp_func A A D) C Y X f)
   ≡ @comp_fapp0 A (@fapp0 A A D X) Y Z h f;
 
 // Canonical raw opposite extensions enter stable dual accumulation.
@@ -11409,9 +11482,9 @@ assert [A : Cat]
     (@fapp0 A A D Y)
     (@fapp0 A A D Z)
     (@kleisli_extend_fapp0
-      (Op_cat A) (@Op_func A A D) C Z Y f2)
+      (TotalOp_cat A) (@TotalOp_func A A D) C Z Y f2)
     (@kleisli_extend_fapp0
-      (Op_cat A) (@Op_func A A D) C Y X f1)
+      (TotalOp_cat A) (@TotalOp_func A A D) C Y X f1)
   ≡ @cokleisli_extend_fapp0
       A D C X Z
       (@comp_fapp0
@@ -11529,7 +11602,7 @@ assert [D : τ (Functor Terminal_cat Terminal_cat)]
   @cokleisli_extend_fapp0 Terminal_cat D C X Y f
   ≡ Terminal_obj;
 
-// Op_func-first and Terminal-arrow-first point-bridge orders agree.
+// TotalOp_func-first and Terminal-arrow-first point-bridge orders agree.
 assert [D : τ (Functor Terminal_cat Terminal_cat)]
   (C : τ (@Comonad Terminal_cat D))
   (X Y : τ (Obj Terminal_cat))
@@ -11538,7 +11611,7 @@ assert [D : τ (Functor Terminal_cat Terminal_cat)]
     Y)) ⊢
   @kleisli_extend_fapp0
     Terminal_cat
-    (@Op_func Terminal_cat Terminal_cat D)
+    (@TotalOp_func Terminal_cat Terminal_cat D)
     C Y X f
   ≡ Terminal_obj;
 
@@ -11853,14 +11926,14 @@ assert [R L : Cat]
   [F : τ (Functor R L)]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
-  counit_comonad_transf (adjunction_comonad J)
+  @counit_comonad_transf L (@comp_cat_fapp0 L R L F G) (@adjunction_comonad R L F G J)
     ≡ counit_adj_transf J;
 
 assert [R L : Cat]
   [F : τ (Functor R L)]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
-  comult_comonad_transf (adjunction_comonad J)
+  @comult_comonad_transf L (@comp_cat_fapp0 L R L F G) (@adjunction_comonad R L F G J)
     ≡ adjunction_comonad_comult_transf J;
 
 assert [R L : Cat]
@@ -11868,10 +11941,10 @@ assert [R L : Cat]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
   @unit_monad_transf
-    (Op_cat L)
-    (@Op_func L L (@comp_cat_fapp0 L R L F G))
+    (TotalOp_cat L)
+    (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
     (@adjunction_comonad R L F G J)
-  ≡ @Op_transf
+  ≡ @TotalOp_transf
       L L
       (@comp_cat_fapp0 L R L F G)
       (@id_func L)
@@ -11882,10 +11955,10 @@ assert [R L : Cat]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
   @mult_monad_transf
-    (Op_cat L)
-    (@Op_func L L (@comp_cat_fapp0 L R L F G))
+    (TotalOp_cat L)
+    (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
     (@adjunction_comonad R L F G J)
-  ≡ @Op_transf
+  ≡ @TotalOp_transf
       L L
       (@comp_cat_fapp0 L R L F G)
       (@comp_cat_fapp0
@@ -11906,8 +11979,8 @@ assert [R L : Cat]
   : τ (@=
       (@Comonad L (@comp_cat_fapp0 L R L F G))
       (@adjunction_monad
-        (Op_cat L) (Op_cat R)
-        (@Op_func L R G) (@Op_func R L F)
+        (TotalOp_cat L) (TotalOp_cat R)
+        (@TotalOp_func L R G) (@TotalOp_func R L F)
         (@Op_adjunction R L F G J))
       (@adjunction_comonad R L F G J));
 
@@ -11918,16 +11991,16 @@ assert [R L : Cat]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
   @adjunction_comonad_comult_transf R L F G J
-  ≡ @Op_transf
-      (Op_cat L) (Op_cat L)
+  ≡ @TotalOp_transf
+      (TotalOp_cat L) (TotalOp_cat L)
       (@comp_cat_fapp0
-        (Op_cat L) (Op_cat L) (Op_cat L)
-        (@Op_func L L (@comp_cat_fapp0 L R L F G))
-        (@Op_func L L (@comp_cat_fapp0 L R L F G)))
-      (@Op_func L L (@comp_cat_fapp0 L R L F G))
+        (TotalOp_cat L) (TotalOp_cat L) (TotalOp_cat L)
+        (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
+        (@TotalOp_func L L (@comp_cat_fapp0 L R L F G)))
+      (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
       (@adjunction_monad_mult_transf
-        (Op_cat L) (Op_cat R)
-        (@Op_func L R G) (@Op_func R L F)
+        (TotalOp_cat L) (TotalOp_cat R)
+        (@TotalOp_func L R G) (@TotalOp_func R L F)
         (@Op_adjunction R L F G J));
 
 // Both bridge-first and concrete-operation-first routes join.
@@ -11935,13 +12008,13 @@ assert [R L : Cat]
   [F : τ (Functor R L)]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
-  @Op_transf
-    (Op_cat L) (Op_cat L)
-    (@id_func (Op_cat L))
-    (@Op_func L L (@comp_cat_fapp0 L R L F G))
+  @TotalOp_transf
+    (TotalOp_cat L) (TotalOp_cat L)
+    (@id_func (TotalOp_cat L))
+    (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
     (@unit_monad_transf
-      (Op_cat L)
-      (@Op_func L L (@comp_cat_fapp0 L R L F G))
+      (TotalOp_cat L)
+      (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
       (@adjunction_comonad R L F G J))
   ≡ @counit_adj_transf R L F G J;
 
@@ -11949,16 +12022,16 @@ assert [R L : Cat]
   [F : τ (Functor R L)]
   [G : τ (Functor L R)]
   (J : τ (@Adjunction R L F G)) ⊢
-  @Op_transf
-    (Op_cat L) (Op_cat L)
+  @TotalOp_transf
+    (TotalOp_cat L) (TotalOp_cat L)
     (@comp_cat_fapp0
-      (Op_cat L) (Op_cat L) (Op_cat L)
-      (@Op_func L L (@comp_cat_fapp0 L R L F G))
-      (@Op_func L L (@comp_cat_fapp0 L R L F G)))
-    (@Op_func L L (@comp_cat_fapp0 L R L F G))
+      (TotalOp_cat L) (TotalOp_cat L) (TotalOp_cat L)
+      (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
+      (@TotalOp_func L L (@comp_cat_fapp0 L R L F G)))
+    (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
     (@mult_monad_transf
-      (Op_cat L)
-      (@Op_func L L (@comp_cat_fapp0 L R L F G))
+      (TotalOp_cat L)
+      (@TotalOp_func L L (@comp_cat_fapp0 L R L F G))
       (@adjunction_comonad R L F G J))
   ≡ @adjunction_comonad_comult_transf R L F G J;
 
@@ -11999,12 +12072,12 @@ assert [A B : Cat]
   (b : τ (Obj B)) ⊢
   @fapp0
     (Product_cat B (Op_cat A))
-    Cat_cat
+    Cat_cart
     (@Op_prof A B R)
     (Struct_sigma b a)
   ≡ @fapp0
       (Product_cat (Op_cat A) B)
-      Cat_cat
+      Cat_cart
       R
       (Struct_sigma a b);
 
@@ -12015,7 +12088,7 @@ assert [A B X : Cat]
   (b : τ (Obj B)) ⊢
   @fapp0
     (Product_cat B (Op_cat A))
-    Cat_cat
+    Cat_cart
     (@Op_prof A B (@Hom_prof_along A B X F G))
     (Struct_sigma b a)
   ≡ @Hom_cat
@@ -12045,14 +12118,14 @@ assert [A B : Cat]
   (q : τ (Hom B b b')) ⊢
   @fapp1_fapp0
     (Product_cat B (Op_cat A))
-    Cat_cat
+    Cat_cart
     (@Op_prof A B R)
     (Struct_sigma b a)
     (Struct_sigma b' a')
     (Struct_sigma q p)
   ≡ @fapp1_fapp0
       (Product_cat (Op_cat A) B)
-      Cat_cat
+      Cat_cart
       R
       (Struct_sigma a b)
       (Struct_sigma a' b')
@@ -12110,12 +12183,12 @@ assert [A B : Cat] (F : τ (Functor A B)) (X : τ (Obj A)) ⊢
   @tapp0_fapp0
       (Op_cat A)
       (@Catd_cat A)
-      (@hom_int A A (@id_func A))
+      (@hom_int_view A A (@id_func A))
       (@comp_cat_fapp0
         (Op_cat A)
         (Op_cat B)
         (@Catd_cat A)
-        (@hom_int B A F)
+        (@hom_int_view B A F)
         (@Op_func A B F))
       X
       (@fapp1_int_transf A B F)
@@ -12128,7 +12201,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (X : τ (Obj A)) ⊢
 assert [A B : Cat] (F : τ (Functor A B)) (X Y : τ (Obj A)) ⊢
   @tapp0_fapp0
       A
-      Cat_cat
+      Cat_cart
       (@hom_ A A (@id_func A) X)
       (@hom_ B A F (@fapp0 A B F X))
       Y
@@ -12138,7 +12211,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (X Y : τ (Obj A)) ⊢
 assert [A B : Cat] (F : τ (Functor A B)) (X Y : τ (Obj A)) ⊢
   @tapp0_fapp0
       A
-      Cat_cat
+      Cat_cart
       _
       _
       Y
@@ -12161,12 +12234,12 @@ assert [A B : Cat] (F G : τ (Functor A B))
   @tapp0_fapp0
       (Op_cat A)
       (@Catd_cat A)
-      (@hom_int A A (@id_func A))
+      (@hom_int_view A A (@id_func A))
       (@comp_cat_fapp0
         (Op_cat A)
         (Op_cat B)
         (@Catd_cat A)
-        (@hom_int B A G)
+        (@hom_int_view B A G)
         (@Op_func A B F))
       X
       (@tapp1_int_fapp0_transf A B F G ϵ)
@@ -12176,7 +12249,7 @@ assert [A B : Cat] (F G : τ (Functor A B))
   (ϵ : τ (Transf F G)) (X Y : τ (Obj A)) ⊢
   @tapp0_fapp0
       A
-      Cat_cat
+      Cat_cart
       (@hom_ A A (@id_func A) X)
       (@hom_ B A G (@fapp0 A B F X))
       Y
@@ -12193,7 +12266,7 @@ assert [A B : Cat] (F G : τ (Functor A B))
   @fapp0
       _ _
       (@tapp1_fapp0
-        A Cat_cat
+        A Cat_cart
         (@hom_ A A (@id_func A) X)
         (@hom_ B A G (@fapp0 A B F X))
         Y Z
@@ -12209,7 +12282,7 @@ assert [A B : Cat] (F G : τ (Functor A B))
   (ϵ : τ (Transf F G)) (X Y : τ (Obj A)) ⊢
   @tapp0_fapp0
       A
-      Cat_cat
+      Cat_cart
       _
       _
       Y
@@ -12263,7 +12336,7 @@ assert [A B : Cat] [F G : τ (Functor A B)]
       A B F G X Z (@strict_transfor A B F G U)
       (@comp_fapp0 A X Y Z g f);
 
-assertnot [A B : Cat] (F G : τ (Functor A B))
+assert [A B : Cat] (F G : τ (Functor A B))
   (X0 X Y : τ (Obj A))
   (g : τ (Hom A X0 X))
   (f : τ (Hom A X Y))
@@ -12361,8 +12434,8 @@ assert [A B : Cat] [F G : τ (Functor A B)]
       A B F G X Z (@strict_transfor A B F G U)
       (@hom_postcomp_fapp0 A A (@id_func A) X Y Z g f);
 
-// Whole pre/right naturality is no longer strict for an ambient transfor.
-assertnot [A B : Cat] (F G : τ (Functor A B)) (W X Y : τ (Obj A))
+// The conventional-lax pre/right leg computes for every ambient transfor.
+assert [A B : Cat] (F G : τ (Functor A B)) (W X Y : τ (Obj A))
   (h : τ (Hom A W X)) (ϵ : τ (Transf F G)) ⊢
   @comp_cat_fapp0
     (Hom_cat A X Y)
@@ -12394,7 +12467,7 @@ assert [A B : Cat] [F G : τ (Functor A B)]
       (@tapp1_func A B F G W Y (@strict_transfor A B F G U))
       (@hom_precomp_along_func A A (@id_func A) Y W X h);
 
-assertnot [A B : Cat] (F G : τ (Functor A B)) (W X Y : τ (Obj A))
+assert [A B : Cat] (F G : τ (Functor A B)) (W X Y : τ (Obj A))
   (h : τ (Hom A W X)) (f : τ (Hom A X Y)) (ϵ : τ (Transf F G)) ⊢
   fapp0
     (@comp_cat_fapp0
@@ -12426,8 +12499,8 @@ assert [A B : Cat] [F G : τ (Functor A B)]
       A B F G W Y (@strict_transfor A B F G U)
       (@hom_precomp_along_fapp0 A A (@id_func A) Y W X h f);
 
-// Whole post/left accumulation no longer collapses for an ambient functor.
-assertnot [A B : Cat] (F : τ (Functor A B)) (X Y Z : τ (Obj A))
+// Whole post/left accumulation computes for the strict public functor default.
+assert [A B : Cat] (F : τ (Functor A B)) (X Y Z : τ (Obj A))
   (g : τ (Hom A Y Z)) ⊢
   @comp_cat_fapp0
     (Hom_cat A X Y)
@@ -12442,7 +12515,7 @@ assertnot [A B : Cat] (F : τ (Functor A B)) (X Y Z : τ (Obj A))
     (@fapp1_func A B F X Z)
     (@hom_postcomp_func A A (@id_func A) X Y Z g);
 
-assertnot [A B : Cat] (F : τ (Functor A B)) (X Y Z : τ (Obj A))
+assert [A B : Cat] (F : τ (Functor A B)) (X Y Z : τ (Obj A))
   (f : τ (Hom A X Y)) (g : τ (Hom A Y Z)) ⊢
   fapp0
     (@comp_cat_fapp0
@@ -12455,8 +12528,8 @@ assertnot [A B : Cat] (F : τ (Functor A B)) (X Y Z : τ (Obj A))
   ≡ @fapp1_fapp0 A B F X Z
       (@hom_postcomp_fapp0 A A (@id_func A) X Y Z g f);
 
-// Whole pre/right accumulation likewise retains the ambient lax endpoint.
-assertnot [A B : Cat] (F : τ (Functor A B)) (W X Y : τ (Obj A))
+// Whole pre/right accumulation also computes for the strict public functor default.
+assert [A B : Cat] (F : τ (Functor A B)) (W X Y : τ (Obj A))
   (h : τ (Hom A W X)) ⊢
   @comp_cat_fapp0
     (Hom_cat A X Y)
@@ -12471,7 +12544,7 @@ assertnot [A B : Cat] (F : τ (Functor A B)) (W X Y : τ (Obj A))
     (@fapp1_func A B F W Y)
     (@hom_precomp_along_func A A (@id_func A) Y W X h);
 
-assertnot [A B : Cat] (F : τ (Functor A B)) (W X Y : τ (Obj A))
+assert [A B : Cat] (F : τ (Functor A B)) (W X Y : τ (Obj A))
   (h : τ (Hom A W X)) (f : τ (Hom A X Y)) ⊢
   fapp0
     (@comp_cat_fapp0
@@ -12484,8 +12557,8 @@ assertnot [A B : Cat] (F : τ (Functor A B)) (W X Y : τ (Obj A))
   ≡ @fapp1_fapp0 A B F W Y
       (@hom_precomp_along_fapp0 A A (@id_func A) Y W X h f);
 
-// Capped composition is not silently strict for an ambient functor.
-assertnot [A B : Cat]
+// Capped composition is part of the strict public functor contract.
+assert [A B : Cat]
   (F : τ (Functor A B))
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z))
@@ -12500,10 +12573,10 @@ assertnot [A B : Cat]
   ≡ @fapp1_fapp0 A B F X Z
       (@comp_fapp0 A X Y Z g f);
 
-// Adjacent hom-action accumulation is selected by an explicit profile.
-// Preserve both the raw noncollapse and the classified computation checks.
-// Generic accumulation stays distinct; the actual strict view computes.
-assertnot [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
+// Adjacent hom-action accumulation belongs to the strict default.
+// Preserve both ordinary and compatibility-view observations.
+// The ordinary and compatibility-view computations now use the same native owner.
+assert [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
   [X Y Z : τ (Obj B)]
   (p : τ (Hom B X Y)) (q : τ (Hom B Y Z))
   (g : τ (Hom A W (@fapp0 B A F X))) ⊢
@@ -12519,24 +12592,24 @@ assertnot [A B : Cat] (F : τ (Functor B A)) (W : τ (Obj A))
       (@comp_fapp0 B X Y Z q p)
       g;
 
-assert [A B : Cat] (S : τ (@StrictFunctor B A)) (W : τ (Obj A))
+assert [A B : Cat] (S : τ (@Functor B A)) (W : τ (Obj A))
   [X Y Z : τ (Obj B)]
   (p : τ (Hom B X Y)) (q : τ (Hom B Y Z))
-  (g : τ (Hom A W (@fapp0 B A (@strict_functor B A S) X))) ⊢
+  (g : τ (Hom A W (@fapp0 B A (S) X))) ⊢
   @comp_fapp0
     A
     W
-    (@fapp0 B A (@strict_functor B A S) Y)
-    (@fapp0 B A (@strict_functor B A S) Z)
-    (@fapp1_fapp0 B A (@strict_functor B A S) Y Z q)
-    (@hom_postcomp_fapp0 A B (@strict_functor B A S) W X Y p g)
+    (@fapp0 B A (S) Y)
+    (@fapp0 B A (S) Z)
+    (@fapp1_fapp0 B A (S) Y Z q)
+    (@hom_postcomp_fapp0 A B (S) W X Y p g)
   ≡ @hom_postcomp_fapp0
-      A B (@strict_functor B A S) W X Z
+      A B (S) W X Z
       (@comp_fapp0 B X Y Z q p)
       g;
 
-// Generic accumulation stays distinct; the actual strict view computes.
-assertnot [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
+// The ordinary and compatibility-view computations now use the same native owner.
+assert [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
   [V W X : τ (Obj A)]
   (q : τ (Hom A V W)) (p : τ (Hom A W X))
   (g : τ (Hom B (@fapp0 A B F X) Z)) ⊢
@@ -12552,19 +12625,19 @@ assertnot [A B : Cat] (F : τ (Functor A B)) (Z : τ (Obj B))
       (@comp_fapp0 A V W X p q)
       g;
 
-assert [A B : Cat] (S : τ (@StrictFunctor A B)) (Z : τ (Obj B))
+assert [A B : Cat] (S : τ (@Functor A B)) (Z : τ (Obj B))
   [V W X : τ (Obj A)]
   (q : τ (Hom A V W)) (p : τ (Hom A W X))
-  (g : τ (Hom B (@fapp0 A B (@strict_functor A B S) X) Z)) ⊢
+  (g : τ (Hom B (@fapp0 A B (S) X) Z)) ⊢
   @comp_fapp0
     B
-    (@fapp0 A B (@strict_functor A B S) V)
-    (@fapp0 A B (@strict_functor A B S) W)
+    (@fapp0 A B (S) V)
+    (@fapp0 A B (S) W)
     Z
-    (@hom_precomp_along_fapp0 A B (@strict_functor A B S) Z W X p g)
-    (@fapp1_fapp0 A B (@strict_functor A B S) V W q)
+    (@hom_precomp_along_fapp0 A B (S) Z W X p g)
+    (@fapp1_fapp0 A B (S) V W q)
   ≡ @hom_precomp_along_fapp0
-      A B (@strict_functor A B S) Z V X
+      A B (S) Z V X
       (@comp_fapp0 A V W X p q)
       g;
 
@@ -12593,7 +12666,7 @@ assertnot [B : Cat] [M N L : τ (Obj B)]
       (@hom_postcomp_func B B (@id_func B) M N L h)
       Y
       Z
-      (@hom_postcomp_tele_fapp1_fapp0 B B (@id_func B) M N L g h e_gh)
+      (@hom_postcomp_tele_transf B B (@id_func B) M N L g h e_gh)
       beta)
     (@tapp1_fapp0
       (Hom_cat B M N)
@@ -12602,7 +12675,7 @@ assertnot [B : Cat] [M N L : τ (Obj B)]
       (@hom_postcomp_func B B (@id_func B) M N L g)
       X
       Y
-      (@hom_postcomp_tele_fapp1_fapp0 B B (@id_func B) M N L f g e_fg)
+      (@hom_postcomp_tele_transf B B (@id_func B) M N L f g e_fg)
       alpha)
   ≡ @tapp1_fapp0
       (Hom_cat B M N)
@@ -12611,7 +12684,7 @@ assertnot [B : Cat] [M N L : τ (Obj B)]
       (@hom_postcomp_func B B (@id_func B) M N L h)
       X
       Z
-      (@hom_postcomp_tele_fapp1_fapp0
+      (@hom_postcomp_tele_transf
         B B (@id_func B) M N L f h
         (@comp_fapp0 (Hom_cat B N L) f g h e_gh e_fg))
       (@comp_fapp0 (Hom_cat B M N) X Y Z beta alpha);
@@ -12622,8 +12695,8 @@ assert
   [f g h : τ (Hom B N L)]
   (e_fg : τ (Hom (Hom_cat B N L) f g))
   (e_gh : τ (Hom (Hom_cat B N L) g h))
-  (PE : τ (@IsStrictTransfor (Hom_cat B M N) (Hom_cat B M L) (@hom_postcomp_func B B (@id_func B) M N L f) (@hom_postcomp_func B B (@id_func B) M N L g) (@hom_postcomp_tele_fapp1_fapp0 B B (@id_func B) M N L f g e_fg)))
-  (PN : τ (@IsPreStrictTransfor (Hom_cat B M N) (Hom_cat B M L) (@hom_postcomp_func B B (@id_func B) M N L g) (@hom_postcomp_func B B (@id_func B) M N L h) (@hom_postcomp_tele_fapp1_fapp0 B B (@id_func B) M N L g h e_gh)))
+  (PE : τ (@IsStrictTransfor (Hom_cat B M N) (Hom_cat B M L) (@hom_postcomp_func B B (@id_func B) M N L f) (@hom_postcomp_func B B (@id_func B) M N L g) (@hom_postcomp_tele_transf B B (@id_func B) M N L f g e_fg)))
+  (PN : τ (@IsPreStrictTransfor (Hom_cat B M N) (Hom_cat B M L) (@hom_postcomp_func B B (@id_func B) M N L g) (@hom_postcomp_func B B (@id_func B) M N L h) (@hom_postcomp_tele_transf B B (@id_func B) M N L g h e_gh)))
   [X Y Z : τ (Hom B M N)]
   (alpha : τ (Hom (Hom_cat B M N) X Y))
   (beta : τ (Hom (Hom_cat B M N) Y Z)) ⊢
@@ -12641,7 +12714,7 @@ assert
           (@hom_postcomp_func B B (@id_func B) M N L h)
           Y
           Z
-          (@hom_postcomp_tele_fapp1_fapp0 B B (@id_func B) M N L g h e_gh)
+          (@hom_postcomp_tele_transf B B (@id_func B) M N L g h e_gh)
           beta)
         (@tapp1_fapp0
           (Hom_cat B M N)
@@ -12650,7 +12723,7 @@ assert
           (@hom_postcomp_func B B (@id_func B) M N L g)
           X
           Y
-          (@hom_postcomp_tele_fapp1_fapp0 B B (@id_func B) M N L f g e_fg)
+          (@hom_postcomp_tele_transf B B (@id_func B) M N L f g e_fg)
           alpha)
       =
       @tapp1_fapp0
@@ -12660,7 +12733,7 @@ assert
         (@hom_postcomp_func B B (@id_func B) M N L h)
         X
         Z
-        (@hom_postcomp_tele_fapp1_fapp0
+        (@hom_postcomp_tele_transf
           B
           B
           (@id_func B)
@@ -12683,7 +12756,7 @@ assert [A B : Cat] (F : τ (Functor A B)) ⊢
 assert [Z : Cat] (x y z : τ (Obj Z)) (p : τ (Hom Z x y)) ⊢
   @tapp0_fapp0
     Z
-    Cat_cat
+    Cat_cart
     (@Rep_catd Z y)
     (@Rep_catd Z x)
     z
@@ -12715,7 +12788,7 @@ assert [Z : Cat] (x : τ (Obj Z))
 assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
   @tapp0_fapp0
     (@Catd_cat (@PathOut_cat Z x))
-    Cat_cat
+    Cat_cart
     (@PathInd_src_catd Z x)
     (@PathInd_tgt_catd Z x)
     E
@@ -12723,8 +12796,8 @@ assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
     ≡ @path_ind_func_fapp0 Z x E;
 
 assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
-  @fapp0 Z Cat_cat (@Homd_target_catd Z E) x
-    ≡ Pi_cat (@Homd_target_section_catd Z E x);
+  @fapp0 Z Cat_cart (@Homd_target_catd Z E) x
+    ≡ Op_cat (@Homd_target_section_cat Z E x);
 
 assert [Z : Cat] (D : τ (Catd Z)) (x : τ (Obj Z))
   (u : τ (Obj (Fibre_cat D x))) ⊢
@@ -12733,7 +12806,7 @@ assert [Z : Cat] (D : τ (Catd Z)) (x : τ (Obj Z))
     x
     (@Sigma_proj1_pullback_catd Z (@Rep_catd Z x) D)
     u
-    ≡ @fib_cov_transf Z D x u;
+    ≡ @strict_transfor _ _ _ _ (@fib_cov_transf Z D x u);
 
 assert [Z : Cat] (x y : τ (Obj Z)) ⊢
   Fibre_cat (@CompTarget_catd Z x) y
@@ -12762,7 +12835,7 @@ assert [Z : Cat] (x y : τ (Obj Z))
   (p : τ (Hom Z x y)) ⊢
   @fapp1_fapp0
     Z
-    Cat_cat
+    Cat_cart
     (@CompTarget_catd Z x)
     x
     y
@@ -12785,7 +12858,7 @@ assert [Z : Cat] (x y : τ (Obj Z))
     (@Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x))
     (@tapp0_fapp0
       Z
-      Cat_cat
+      Cat_cart
       (@Rep_catd Z x)
       (@CompTarget_catd Z x)
       y
@@ -12801,7 +12874,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
     (Hom_cat Z x z)
     (@tapp0_fapp0
       Z
-      Cat_cat
+      Cat_cart
       (@Rep_catd Z y)
       (@Rep_catd Z x)
       z
@@ -12817,7 +12890,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
     (Hom_cat Z x z)
     (@tapp0_fapp0
       Z
-      Cat_cat
+      Cat_cart
       (@Rep_catd Z y)
       (@Rep_catd Z x)
       z
@@ -12826,7 +12899,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
         (@Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x))
         (@tapp0_fapp0
           Z
-          Cat_cat
+          Cat_cart
           (@Rep_catd Z x)
           (@CompTarget_catd Z x)
           y
@@ -12836,31 +12909,34 @@ assert [Z : Cat] (x y z : τ (Obj Z))
     ≡ @hom_precomp_along_fapp0 Z Z (@id_func Z) z x y p q;
 
 assert [Z : Cat] (x : τ (Obj Z)) ⊢
-  @tdapp0_fapp0
+  @strict_transfor _ _ _ _ (@tdapp0_fapp0
     Z
     (@PathOutMotives_catd Z)
-    (@Const_catd Z Cat_cat)
+    (@Const_catd Z Cat_cart)
     (@PathOutReflEval_funcd Z)
     (@PathOutPi_funcd Z)
     x
-    (@PathInd_transfd Z)
-    ≡ @PathInd_func Z x;
+    (@PathInd_transfd Z))
+  ≡ fapp0
+      (@comp_cat_con_fapp1_func
+        (Functor_cart_cat (@PathOut_cat Z x) Cat_cart)
+        (Catd_cat (@PathOut_cat Z x)) Cat_cart
+        (Functor_cart_include (@PathOut_cat Z x) Cat_cart)
+        (@PathInd_src_catd Z x) (@PathInd_tgt_catd Z x))
+      (@PathInd_func Z x);
 
 assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
   @tapp0_fapp0
-    (@Catd_cat (@PathOut_cat Z x))
-    Cat_cat
-    (@PathInd_src_catd Z x)
-    (@PathInd_tgt_catd Z x)
+    _ Cat_cart _ _
     E
-    (@tdapp0_fapp0
+    (@strict_transfor _ _ _ _ (@tdapp0_fapp0
       Z
       (@PathOutMotives_catd Z)
-      (@Const_catd Z Cat_cat)
+      (@Const_catd Z Cat_cart)
       (@PathOutReflEval_funcd Z)
       (@PathOutPi_funcd Z)
       x
-      (@PathInd_transfd Z))
+      (@PathInd_transfd Z)))
     ≡ @path_ind_func_fapp0 Z x E;
 
 assert [Z : Cat] (x : τ (Obj Z))
@@ -12870,19 +12946,16 @@ assert [Z : Cat] (x : τ (Obj Z))
     (Fibre_cat E (@pathout_refl_obj Z x))
     (Pi_cat E)
     (@tapp0_fapp0
-      (@Catd_cat (@PathOut_cat Z x))
-      Cat_cat
-      (@PathInd_src_catd Z x)
-      (@PathInd_tgt_catd Z x)
+      _ Cat_cart _ _
       E
-      (@tdapp0_fapp0
+      (@strict_transfor _ _ _ _ (@tdapp0_fapp0
         Z
         (@PathOutMotives_catd Z)
-        (@Const_catd Z Cat_cat)
+        (@Const_catd Z Cat_cart)
         (@PathOutReflEval_funcd Z)
         (@PathOutPi_funcd Z)
         x
-        (@PathInd_transfd Z)))
+        (@PathInd_transfd Z))))
     u
     ≡ @path_ind_sec Z x E u;
 
@@ -12891,19 +12964,16 @@ assert [Z : Cat] (x : τ (Obj Z)) ⊢
     (Fibre_cat (@CompMotive_catd Z x) (@pathout_refl_obj Z x))
     (@Pi_cat (@PathOut_cat Z x) (@CompMotive_catd Z x))
     (@tapp0_fapp0
-      (@Catd_cat (@PathOut_cat Z x))
-      Cat_cat
-      (@PathInd_src_catd Z x)
-      (@PathInd_tgt_catd Z x)
+      _ Cat_cart _ _
       (@CompMotive_catd Z x)
-      (@tdapp0_fapp0
+      (@strict_transfor _ _ _ _ (@tdapp0_fapp0
         Z
         (@PathOutMotives_catd Z)
-        (@Const_catd Z Cat_cat)
+        (@Const_catd Z Cat_cart)
         (@PathOutReflEval_funcd Z)
         (@PathOutPi_funcd Z)
         x
-        (@PathInd_transfd Z)))
+        (@PathInd_transfd Z))))
     (@id_funcd Z (@Rep_catd Z x))
     ≡ @path_comp_sec Z x;
 
@@ -12915,7 +12985,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
     (Hom_cat Z x z)
     (@tapp0_fapp0
       Z
-      Cat_cat
+      Cat_cart
       (@Rep_catd Z y)
       (@Rep_catd Z x)
       z
@@ -12924,7 +12994,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
         (@Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x))
         (@tapp0_fapp0
           Z
-          Cat_cat
+          Cat_cart
           (@Rep_catd Z x)
           (@CompTarget_catd Z x)
           y
@@ -12932,55 +13002,52 @@ assert [Z : Cat] (x y z : τ (Obj Z))
             (Fibre_cat (@CompMotive_catd Z x) (@pathout_refl_obj Z x))
             (@Pi_cat (@PathOut_cat Z x) (@CompMotive_catd Z x))
             (@tapp0_fapp0
-              (@Catd_cat (@PathOut_cat Z x))
-              Cat_cat
-              (@PathInd_src_catd Z x)
-              (@PathInd_tgt_catd Z x)
+              _ Cat_cart _ _
               (@CompMotive_catd Z x)
-              (@tdapp0_fapp0
+              (@strict_transfor _ _ _ _ (@tdapp0_fapp0
                 Z
                 (@PathOutMotives_catd Z)
-                (@Const_catd Z Cat_cat)
+                (@Const_catd Z Cat_cart)
                 (@PathOutReflEval_funcd Z)
                 (@PathOutPi_funcd Z)
                 x
-                (@PathInd_transfd Z)))
+                (@PathInd_transfd Z))))
             (@id_funcd Z (@Rep_catd Z x))))
         p))
     q
     ≡ @hom_precomp_along_fapp0 Z Z (@id_func Z) z x y p q;
 
 assert [K : Cat] (R : τ (Catd K))
-  (S T : τ (Functord R (@Const_catd K Cat_cat)))
+  (S T : τ (Functord R (@Const_catd K Cat_cart)))
   (eta : τ (Transfd S T))
   (k : τ (Obj K))
   (r : τ (Obj (Fibre_cat R k))) ⊢
   @tapp0_fapp0
     (@Sigma_cat K R)
-    Cat_cat
+    Cat_cart
     (@Sigma_catd_functord_catd K R S)
     (@Sigma_catd_functord_catd K R T)
     (Struct_sigma k r)
     (@Sigma_transfd_funcd K R S T eta)
     ≡ @tapp0_fapp0
         (Fibre_cat R k)
-        Cat_cat
-        (@Fibre_func K R (@Const_catd K Cat_cat) S k)
-        (@Fibre_func K R (@Const_catd K Cat_cat) T k)
+        Cat_cart
+        (@Fibre_func K R (@Const_catd K Cat_cart) S k)
+        (@Fibre_func K R (@Const_catd K Cat_cart) T k)
         r
-        (@tdapp0_fapp0
+        (@strict_transfor _ _ _ _ (@tdapp0_fapp0
           K
           R
-          (@Const_catd K Cat_cat)
+          (@Const_catd K Cat_cart)
           S
           T
           k
-          eta);
+          eta));
 
 assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
   @tapp0_fapp0
     (@Sigma_cat Z (@PathOutMotives_catd Z))
-    Cat_cat
+    Cat_cart
     (@PathIndSrc_catd Z)
     (@PathIndTgt_catd Z)
     (Struct_sigma x E)
@@ -12995,7 +13062,7 @@ assert [Z : Cat] (x : τ (Obj Z))
     (Pi_cat E)
     (@tapp0_fapp0
       (@Sigma_cat Z (@PathOutMotives_catd Z))
-      Cat_cat
+      Cat_cart
       (@PathIndSrc_catd Z)
       (@PathIndTgt_catd Z)
       (Struct_sigma x E)
@@ -13009,7 +13076,7 @@ assert [Z : Cat] (x : τ (Obj Z)) ⊢
     (@Pi_cat (@PathOut_cat Z x) (@CompMotive_catd Z x))
     (@tapp0_fapp0
       (@Sigma_cat Z (@PathOutMotives_catd Z))
-      Cat_cat
+      Cat_cart
       (@PathIndSrc_catd Z)
       (@PathIndTgt_catd Z)
       (Struct_sigma x (@CompMotive_catd Z x))
@@ -13025,7 +13092,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
     (Hom_cat Z x z)
     (@tapp0_fapp0
       Z
-      Cat_cat
+      Cat_cart
       (@Rep_catd Z y)
       (@Rep_catd Z x)
       z
@@ -13034,7 +13101,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
         (@Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x))
         (@tapp0_fapp0
           Z
-          Cat_cat
+          Cat_cart
           (@Rep_catd Z x)
           (@CompTarget_catd Z x)
           y
@@ -13043,7 +13110,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
             (@Pi_cat (@PathOut_cat Z x) (@CompMotive_catd Z x))
             (@tapp0_fapp0
               (@Sigma_cat Z (@PathOutMotives_catd Z))
-              Cat_cat
+              Cat_cart
               (@PathIndSrc_catd Z)
               (@PathIndTgt_catd Z)
               (Struct_sigma x (@CompMotive_catd Z x))
@@ -13057,42 +13124,38 @@ assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   (ϵ : τ (Transfd FF GG)) (x : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x))) ⊢
   @Fibre_transf_app
-    K
-    (@Op_catd K E)
-    (@Homd_target_catd K E)
-    (@homd_int K E E (@id_funcd K E))
-    (@comp_catd_fapp0
-      K
-      (@Op_catd K E)
-      (@Op_catd K D)
-      (@Homd_target_catd K E)
-      (@homd_int K E D GG)
-      (@Op_funcd K E D FF))
-    (@tdapp1_int_fapp0_transfd K E D FF GG ϵ)
-    x
-    u
-    ≡ @tdapp1_int_section_arrow K E D FF GG ϵ x u;
+    K E
+    (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@comp_catd_fapp0 K E D
+      (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+      (@homd_int K E D GG) FF)
+    (@strict_transfor K Cat_cart E
+      (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+      (@homd_id_int K E))
+    (@tdapp1_int_fapp0_transfd K E D FF GG ϵ) x u
+  ≡ @tdapp1_int_section_arrow K E D FF GG ϵ x u;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   (ϵ : τ (Transfd FF GG)) (x y : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x))) ⊢
-  tapp0_fapp0
-    Terminal_obj
-    (tdapp0_fapp0 y (@tdapp1_int_section_arrow K E D FF GG ϵ x u))
-    ≡ @tdapp1_int_tgt_arrow K E D FF GG ϵ x u y;
+  @tapp0_hom_fapp0 K Homd_coeff_cat
+    (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u)
+    (@homd_tdapp1_src_sec K E D FF GG x u) y
+    (@tdapp1_int_section_arrow K E D FF GG ϵ x u)
+  ≡ @tdapp1_int_tgt_arrow K E D FF GG ϵ x u y;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   (ϵ : τ (Transfd FF GG)) (x y : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y))) ⊢
   @tapp0_fapp0
-    (Fibre_cat E y)
-    (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
+    (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
     (@homd_id_tgt_func K E x u y)
-    (@homd_tdapp1_tgt_func K E D FF GG x u y)
-    v
-    (@tdapp1_int_tgt_arrow K E D FF GG ϵ x u y)
-    ≡ @tdapp1_int_presheaf_arrow K E D FF GG ϵ x u y v;
+    (@homd_tdapp1_tgt_func K E D FF GG x u y) v
+    (@strict_transfor _ _ _ _ (@tdapp1_int_tgt_arrow K E D FF GG ϵ x u y))
+  ≡ @tdapp1_int_presheaf_arrow K E D FF GG ϵ x u y v;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   (ϵ : τ (Transfd FF GG)) (x y : τ (Obj K))
@@ -13100,13 +13163,12 @@ assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y))) ⊢
   @fapp1_fapp0
-    (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
-    Cat_cat
-    (@fapp0_func (Op_cat (Hom_cat K x y)) Cat_cat p)
-    (fapp0 (@homd_id_tgt_func K E x u y) v)
+    (Functor_cat (Hom_cat K x y) (Op_cat Cat_cart)) (Op_cat Cat_cart)
+    (@fapp0_func (Hom_cat K x y) (Op_cat Cat_cart) p)
     (fapp0 (@homd_tdapp1_tgt_func K E D FF GG x u y) v)
+    (fapp0 (@homd_id_tgt_func K E x u y) v)
     (@tdapp1_int_presheaf_arrow K E D FF GG ϵ x u y v)
-    ≡ @tdapp1_int_hom_func K E D FF GG ϵ x y p u v;
+  ≡ @tdapp1_int_hom_func K E D FF GG ϵ x y p u v;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   (ϵ : τ (Transfd FF GG)) (x y : τ (Obj K))
@@ -13115,8 +13177,8 @@ assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   fapp0
     (@tdapp1_int_hom_func K E D FF GG ϵ x y p u _)
     (@id
-      (@fapp0 K Cat_cat E y)
-      (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u))
+      (@fapp0 K Cat_cart E y)
+      (fapp0 (@fapp1_fapp0 K Cat_cart E x y p) u))
     ≡ @tdapp1_int_cell K E D FF GG ϵ x y p u;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
@@ -13163,7 +13225,7 @@ assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x))) ⊢
   @tdapp1_int_cell
-      K E D FF FF (@id (@Transf_cat K Cat_cat E D) FF) x y p u
+      K E D FF FF (@id (@Transf_cat K Cat_cart E D) FF) x y p u
     ≡ @fdapp1_int_cell K E D FF x y p u;
 
 assert [K A : Cat] (x y : τ (Obj A)) (p : τ (Hom A x y)) ⊢
@@ -13193,7 +13255,7 @@ assert [A B : Cat] (x : τ (Obj A)) (y : τ (Obj B)) ⊢
       (Product_cat A B)
       (@fapp0
         A
-        (Functor_cat B (Product_cat A B))
+        (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B)
         x)
       y)
@@ -13206,7 +13268,7 @@ assert [A B : Cat] (x : τ (Obj A)) (y : τ (Obj B)) ⊢
       (Product_cat A B)
       (@fapp0
         A
-        (Functor_cat B (Product_cat A B))
+        (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B)
         x)
       y)
@@ -13218,13 +13280,16 @@ assert [A B : Cat] (x x' : τ (Obj A)) (p : τ (Hom A x x'))
     (@tapp0_fapp0
       B
       (Product_cat A B)
-      (@fapp0 A (Functor_cat B (Product_cat A B))
+      (@fapp0 A (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B) x)
-      (@fapp0 A (Functor_cat B (Product_cat A B))
+      (@fapp0 A (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B) x')
       y
-      (@fapp1_fapp0 A (Functor_cat B (Product_cat A B))
-        (@Product_pair_tele_func A B) x x' p))
+      (@strict_transfor B (Product_cat A B)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x')
+        (@fapp1_fapp0 A (Functor_cart_cat B (Product_cat A B))
+        (@Product_pair_tele_func A B) x x' p)))
     ≡ p;
 
 assert [A B : Cat] (x x' : τ (Obj A)) (p : τ (Hom A x x'))
@@ -13233,13 +13298,16 @@ assert [A B : Cat] (x x' : τ (Obj A)) (p : τ (Hom A x x'))
     (@tapp0_fapp0
       B
       (Product_cat A B)
-      (@fapp0 A (Functor_cat B (Product_cat A B))
+      (@fapp0 A (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B) x)
-      (@fapp0 A (Functor_cat B (Product_cat A B))
+      (@fapp0 A (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B) x')
       y
-      (@fapp1_fapp0 A (Functor_cat B (Product_cat A B))
-        (@Product_pair_tele_func A B) x x' p))
+      (@strict_transfor B (Product_cat A B)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x')
+        (@fapp1_fapp0 A (Functor_cart_cat B (Product_cat A B))
+        (@Product_pair_tele_func A B) x x' p)))
     ≡ @id B y;
 
 assert [A B : Cat] (x x' : τ (Obj A)) (p : τ (Hom A x x'))
@@ -13248,13 +13316,16 @@ assert [A B : Cat] (x x' : τ (Obj A)) (p : τ (Hom A x x'))
     (@tapp1_func
       B
       (Product_cat A B)
-      (@fapp0 A (Functor_cat B (Product_cat A B))
+      (@fapp0 A (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B) x)
-      (@fapp0 A (Functor_cat B (Product_cat A B))
+      (@fapp0 A (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B) x')
       y y'
-      (@fapp1_fapp0 A (Functor_cat B (Product_cat A B))
-        (@Product_pair_tele_func A B) x x' p))
+      (@strict_transfor B (Product_cat A B)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x')
+        (@fapp1_fapp0 A (Functor_cart_cat B (Product_cat A B))
+        (@Product_pair_tele_func A B) x x' p)))
     ≡ @Const_func (Hom_cat B y y') (Hom_cat A x x') p;
 
 assert [A B : Cat] (x x' : τ (Obj A)) (p : τ (Hom A x x'))
@@ -13263,13 +13334,16 @@ assert [A B : Cat] (x x' : τ (Obj A)) (p : τ (Hom A x x'))
     (@tapp1_func
       B
       (Product_cat A B)
-      (@fapp0 A (Functor_cat B (Product_cat A B))
+      (@fapp0 A (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B) x)
-      (@fapp0 A (Functor_cat B (Product_cat A B))
+      (@fapp0 A (Functor_cart_cat B (Product_cat A B))
         (@Product_pair_tele_func A B) x')
       y y'
-      (@fapp1_fapp0 A (Functor_cat B (Product_cat A B))
-        (@Product_pair_tele_func A B) x x' p))
+      (@strict_transfor B (Product_cat A B)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x)
+        (@fapp0 A (Functor_cart_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x')
+        (@fapp1_fapp0 A (Functor_cart_cat B (Product_cat A B))
+        (@Product_pair_tele_func A B) x x' p)))
     ≡ @fapp1_func B B (@id_func B) y y';
 
 assert [A : Cat] (x y : τ (Obj A)) ⊢
@@ -13328,96 +13402,88 @@ assert [A B C : Cat] (F : τ (Functor B C)) (G : τ (Functor A B))
 assert [A B C : Cat]
   (F G : τ (Functor (Product_cat A B) C)) ⊢
   @fapp1_func
-    (Functor_cat (Product_cat A B) C)
-    (Functor_cat A (Functor_cat B C))
+    (Functor_cart_cat (Product_cat A B) C)
+    (Functor_cart_cat A (Functor_cart_cat B C))
     (@curry_func_func A B C)
     F
     G
   ≡ @comp_fapp0
       Cat_cat
-      (@Transf_cat (Product_cat A B) C F G)
-      (@Transf_cat
-        (Product_cat (Functor_cat B A) (Functor_cat B B))
-        (Functor_cat B C)
-        (@hom_postcomp_func
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+      (@Hom_cat (Functor_cart_cat (Product_cat A B) C) F G)
+      (@Hom_cat (Functor_cart_cat (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B)) (Functor_cart_cat B C)) (@hom_postcomp_func
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           B
           (Product_cat A B)
           C
-          F)
-        (@hom_postcomp_func
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          F) (@hom_postcomp_func
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           B
           (Product_cat A B)
           C
           G))
-      (@Transf_cat
-        A
-        (Functor_cat B C)
-        (@hom_precomp_along_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
-          (Functor_cat B C)
+      (@Hom_cat (Functor_cart_cat A (Functor_cart_cat B C)) (@hom_precomp_along_fapp0
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
+          (Functor_cart_cat B C)
           A
-          (Product_cat (Functor_cat B A) (Functor_cat B B))
+          (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
           (@Product_pair_tele_func A B)
           (@hom_postcomp_func
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
             B
             (Product_cat A B)
             C
-            F))
-        (@hom_precomp_along_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
-          (Functor_cat B C)
+            F)) (@hom_precomp_along_fapp0
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
+          (Functor_cart_cat B C)
           A
-          (Product_cat (Functor_cat B A) (Functor_cat B B))
+          (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
           (@Product_pair_tele_func A B)
           (@hom_postcomp_func
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
             B
             (Product_cat A B)
             C
             G)))
       (@hom_precomp_along_fapp1_func
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
-        (Functor_cat B C)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cat Cat_cart)
+        (Functor_cart_cat B C)
         A
-        (Product_cat (Functor_cat B A) (Functor_cat B B))
+        (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
         (@Product_pair_tele_func A B)
         (@hom_postcomp_func
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           B
           (Product_cat A B)
           C
           F)
         (@hom_postcomp_func
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           B
           (Product_cat A B)
           C
           G))
       (@hom_postcomp_tele_fapp1_func
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cat Cat_cart)
         B
         (Product_cat A B)
         C
@@ -13426,42 +13492,42 @@ assert [A B C : Cat]
 
 assert [A B C : Cat]
   (F G : τ (Functor (Product_cat A B) C))
-  (eta : τ (Transf F G)) ⊢
+  (eta : τ (@StrictTransfor (Product_cat A B) C F G)) ⊢
   @fapp1_fapp0
-    (Functor_cat (Product_cat A B) C)
-    (Functor_cat A (Functor_cat B C))
+    (Functor_cart_cat (Product_cat A B) C)
+    (Functor_cart_cat A (Functor_cart_cat B C))
     (@curry_func_func A B C)
     F
     G
     eta
   ≡ @hom_precomp_along_fapp1_fapp0
-      Cat_cat
-      Cat_cat
-      (@id Cat_cat Cat_cat)
-      (Functor_cat B C)
+      Cat_cart
+      Cat_cart
+      (@id Cat_cat Cat_cart)
+      (Functor_cart_cat B C)
       A
-      (Product_cat (Functor_cat B A) (Functor_cat B B))
+      (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
       (@Product_pair_tele_func A B)
       (@hom_postcomp_func
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cat Cat_cart)
         B
         (Product_cat A B)
         C
         F)
       (@hom_postcomp_func
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cat Cat_cart)
         B
         (Product_cat A B)
         C
         G)
       (@hom_postcomp_tele_fapp1_fapp0
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cat Cat_cart)
         B
         (Product_cat A B)
         C
@@ -13471,134 +13537,134 @@ assert [A B C : Cat]
 
 assert [A B C : Cat]
   (F G : τ (Functor (Product_cat A B) C))
-  (eta : τ (Transf F G))
+  (eta : τ (@StrictTransfor (Product_cat A B) C F G))
   (x : τ (Obj A)) ⊢
   @tapp0_fapp0
     A
-    (Functor_cat B C)
+    (Functor_cart_cat B C)
     (@curry_func A B C F)
     (@curry_func A B C G)
     x
-    (@fapp1_fapp0
-      (Functor_cat (Product_cat A B) C)
-      (Functor_cat A (Functor_cat B C))
+    (@strict_transfor _ _ _ _ (@fapp1_fapp0
+      (Functor_cart_cat (Product_cat A B) C)
+      (Functor_cart_cat A (Functor_cart_cat B C))
       (@curry_func_func A B C)
       F
       G
-      eta)
+      eta))
   ≡ @tapp0_fapp0
       A
-      (Functor_cat B C)
+      (Functor_cart_cat B C)
       (@hom_precomp_along_fapp0
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
-        (Functor_cat B C)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cat Cat_cart)
+        (Functor_cart_cat B C)
         A
-        (Product_cat (Functor_cat B A) (Functor_cat B B))
+        (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
         (@Product_pair_tele_func A B)
         (@hom_postcomp_func
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           B
           (Product_cat A B)
           C
           F))
       (@hom_precomp_along_fapp0
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
-        (Functor_cat B C)
+        Cat_cart
+        Cat_cart
+        (@id Cat_cat Cat_cart)
+        (Functor_cart_cat B C)
         A
-        (Product_cat (Functor_cat B A) (Functor_cat B B))
+        (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
         (@Product_pair_tele_func A B)
         (@hom_postcomp_func
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           B
           (Product_cat A B)
           C
           G))
       x
-      (@hom_precomp_along_fapp1_fapp0
-        Cat_cat
-        Cat_cat
-        (@id Cat_cat Cat_cat)
-        (Functor_cat B C)
+      (@strict_transfor _ _ _ _ (@hom_precomp_along_fapp1_fapp0
+        Cat_cart
+        Cat_cart
+        (@id Cat_cat Cat_cart)
+        (Functor_cart_cat B C)
         A
-        (Product_cat (Functor_cat B A) (Functor_cat B B))
+        (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
         (@Product_pair_tele_func A B)
         (@hom_postcomp_func
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           B
           (Product_cat A B)
           C
           F)
         (@hom_postcomp_func
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           B
           (Product_cat A B)
           C
           G)
         (@hom_postcomp_tele_fapp1_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           B
           (Product_cat A B)
           C
           F
           G
-          eta));
+          eta)));
 
 assert [A B C : Cat]
   (F G : τ (Functor (Product_cat A B) C))
-  (eta : τ (Transf F G))
+  (eta : τ (@StrictTransfor (Product_cat A B) C F G))
   (x : τ (Obj A))
   (y : τ (Obj B)) ⊢
   @tapp0_fapp0
     B
     C
-    (@fapp0 A (Functor_cat B C) (@curry_func A B C F) x)
-    (@fapp0 A (Functor_cat B C) (@curry_func A B C G) x)
+    (@fapp0 A (Functor_cart_cat B C) (@curry_func A B C F) x)
+    (@fapp0 A (Functor_cart_cat B C) (@curry_func A B C G) x)
     y
-    (@tapp0_fapp0
+    (@strict_transfor _ _ _ _ (@tapp0_fapp0
       A
-      (Functor_cat B C)
+      (Functor_cart_cat B C)
       (@curry_func A B C F)
       (@curry_func A B C G)
       x
-      (@fapp1_fapp0
-        (Functor_cat (Product_cat A B) C)
-        (Functor_cat A (Functor_cat B C))
+      (@strict_transfor _ _ _ _ (@fapp1_fapp0
+        (Functor_cart_cat (Product_cat A B) C)
+        (Functor_cart_cat A (Functor_cart_cat B C))
         (@curry_func_func A B C)
         F
         G
-        eta))
+        eta))))
   ≡ @tapp0_fapp0
       B
       C
       (@fapp0
         A
-        (Functor_cat B C)
+        (Functor_cart_cat B C)
         (@hom_precomp_along_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
-          (Functor_cat B C)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
+          (Functor_cart_cat B C)
           A
-          (Product_cat (Functor_cat B A) (Functor_cat B B))
+          (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
           (@Product_pair_tele_func A B)
           (@hom_postcomp_func
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
             B
             (Product_cat A B)
             C
@@ -13606,119 +13672,119 @@ assert [A B C : Cat]
         x)
       (@fapp0
         A
-        (Functor_cat B C)
+        (Functor_cart_cat B C)
         (@hom_precomp_along_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
-          (Functor_cat B C)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
+          (Functor_cart_cat B C)
           A
-          (Product_cat (Functor_cat B A) (Functor_cat B B))
+          (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
           (@Product_pair_tele_func A B)
           (@hom_postcomp_func
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
             B
             (Product_cat A B)
             C
             G))
         x)
       y
-      (@tapp0_fapp0
+      (@strict_transfor _ _ _ _ (@tapp0_fapp0
         A
-        (Functor_cat B C)
+        (Functor_cart_cat B C)
         (@hom_precomp_along_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
-          (Functor_cat B C)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
+          (Functor_cart_cat B C)
           A
-          (Product_cat (Functor_cat B A) (Functor_cat B B))
+          (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
           (@Product_pair_tele_func A B)
           (@hom_postcomp_func
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
             B
             (Product_cat A B)
             C
             F))
         (@hom_precomp_along_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
-          (Functor_cat B C)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
+          (Functor_cart_cat B C)
           A
-          (Product_cat (Functor_cat B A) (Functor_cat B B))
+          (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
           (@Product_pair_tele_func A B)
           (@hom_postcomp_func
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
             B
             (Product_cat A B)
             C
             G))
         x
-        (@hom_precomp_along_fapp1_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
-          (Functor_cat B C)
+        (@strict_transfor _ _ _ _ (@hom_precomp_along_fapp1_fapp0
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
+          (Functor_cart_cat B C)
           A
-          (Product_cat (Functor_cat B A) (Functor_cat B B))
+          (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
           (@Product_pair_tele_func A B)
           (@hom_postcomp_func
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
             B
             (Product_cat A B)
             C
             F)
           (@hom_postcomp_func
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
             B
             (Product_cat A B)
             C
             G)
           (@hom_postcomp_tele_fapp1_fapp0
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
             B
             (Product_cat A B)
             C
             F
             G
-            eta)));
+            eta)))));
 
 assert [A B C : Cat]
   (F : τ (Functor (Product_cat A B) C))
   (x : τ (Obj A))
   (y : τ (Obj B)) ⊢
   @fapp0 B C
-    (@fapp0 A (Functor_cat B C) (@curry_func A B C F) x)
+    (@fapp0 A (Functor_cart_cat B C) (@curry_func A B C F) x)
     y
     ≡ @fapp0 B C
         (@fapp0
           A
-          (Functor_cat B C)
+          (Functor_cart_cat B C)
           (@hom_precomp_along_fapp0
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
-            (Functor_cat B C)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
+            (Functor_cart_cat B C)
             A
-            (Product_cat (Functor_cat B A) (Functor_cat B B))
+            (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
             (@Product_pair_tele_func A B)
             (@hom_postcomp_func
-              Cat_cat
-              Cat_cat
-              (@id Cat_cat Cat_cat)
+              Cat_cart
+              Cat_cart
+              (@id Cat_cat Cat_cart)
               B
               (Product_cat A B)
               C
@@ -13737,29 +13803,29 @@ assert [A B C : Cat]
         (Product_cat A B)
         C
         (@hom_postcomp_fapp0
-          Cat_cat
-          Cat_cat
-          (@id Cat_cat Cat_cat)
+          Cat_cart
+          Cat_cart
+          (@id Cat_cat Cat_cart)
           (Product_cat A B)
-          (Product_cat (Functor_cat B C) B)
+          (Product_cat (Functor_cart_cat B C) B)
           C
           (@Eval_func B C)
           (@Product_cat_fapp1_tapp0_func
             A
-            (Functor_cat B C)
+            (Functor_cart_cat B C)
             B
             (@hom_precomp_along_fapp0
-              Cat_cat
-              Cat_cat
-              (@id Cat_cat Cat_cat)
-              (Functor_cat B C)
+              Cat_cart
+              Cat_cart
+              (@id Cat_cat Cat_cart)
+              (Functor_cart_cat B C)
               A
-              (Product_cat (Functor_cat B A) (Functor_cat B B))
+              (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
               (@Product_pair_tele_func A B)
               (@hom_postcomp_func
-                Cat_cat
-                Cat_cat
-                (@id Cat_cat Cat_cat)
+                Cat_cart
+                Cat_cart
+                (@id Cat_cat Cat_cart)
                 B
                 (Product_cat A B)
                 C
@@ -13767,42 +13833,42 @@ assert [A B C : Cat]
         (Struct_sigma x y);
 
 assert [A B C : Cat]
-  (G : τ (Functor A (Functor_cat B C)))
+  (G : τ (Functor A (Functor_cart_cat B C)))
   (x : τ (Obj A))
   (y : τ (Obj B)) ⊢
   @fapp0 B C
-    (@fapp0 A (Functor_cat B C)
+    (@fapp0 A (Functor_cart_cat B C)
       (@curry_func A B C (@uncurry_func A B C G))
       x)
     y
     ≡ @fapp0 B C
         (@fapp0
           A
-          (Functor_cat B C)
+          (Functor_cart_cat B C)
           (@hom_precomp_along_fapp0
-            Cat_cat
-            Cat_cat
-            (@id Cat_cat Cat_cat)
-            (Functor_cat B C)
+            Cat_cart
+            Cat_cart
+            (@id Cat_cat Cat_cart)
+            (Functor_cart_cat B C)
             A
-            (Product_cat (Functor_cat B A) (Functor_cat B B))
+            (Product_cat (Functor_cart_cat B A) (Functor_cart_cat B B))
             (@Product_pair_tele_func A B)
             (@hom_postcomp_func
-              Cat_cat
-              Cat_cat
-              (@id Cat_cat Cat_cat)
+              Cat_cart
+              Cat_cart
+              (@id Cat_cat Cat_cart)
               B
               (Product_cat A B)
               C
               (@hom_postcomp_fapp0
-                Cat_cat
-                Cat_cat
-                (@id Cat_cat Cat_cat)
+                Cat_cart
+                Cat_cart
+                (@id Cat_cat Cat_cart)
                 (Product_cat A B)
-                (Product_cat (Functor_cat B C) B)
+                (Product_cat (Functor_cart_cat B C) B)
                 C
                 (@Eval_func B C)
-                (@Product_cat_fapp1_tapp0_func A (Functor_cat B C) B G))))
+                (@Product_cat_fapp1_tapp0_func A (Functor_cart_cat B C) B G))))
           x)
         y;
 
@@ -13825,7 +13891,7 @@ assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
   @fdapp1_int_cell
     Z
     (@PathOutMotives_catd Z)
-    (@Const_catd Z Cat_cat)
+    (@Const_catd Z Cat_cart)
     (@PathOutPi_funcd Z)
     x
     y
@@ -13896,7 +13962,7 @@ assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
         (@pathout_obj Z x y p);
 
 assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) ⊢
-  Fibre_cat E k ≡ @fapp0 K Cat_cat E k;
+  Fibre_cat E k ≡ @fapp0 K Cat_cart E k;
 
 assert [K : Cat] (A : Cat) (k : τ (Obj K)) ⊢
   Fibre_cat (Const_catd K A) k ≡ A;
@@ -13911,7 +13977,7 @@ assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) ⊢
   Fibre_cat (Op_catd E) k ≡ Op_cat (Fibre_cat E k);
 
 assert [K : Cat] (A : Cat) ⊢
-  Op_catd (Const_catd K A) ≡ Const_catd K (Op_cat A);
+  Op_catd (Const_catd K A) ≡ Const_catd (CoAt2_cat K) (Op_cat A);
 
 assert [A B : Cat] (E : τ (Catd B)) (F : τ (Functor A B)) (a : τ (Obj A)) ⊢
   Fibre_cat (Pullback_catd E F) a ≡ Fibre_cat E (fapp0 F a);
@@ -13919,17 +13985,17 @@ assert [A B : Cat] (E : τ (Catd B)) (F : τ (Functor A B)) (a : τ (Obj A)) ⊢
 assert [A B : Cat]
   (E : τ (Catd B))
   (F : τ (Functor A B)) ⊢
-  eq_refl (@comp_cat_fapp0 A B Cat_cat E F)
+  eq_refl (@comp_cat_fapp0 A B Cat_cart E F)
   : τ (
-      @comp_cat_fapp0 A B Cat_cat E F
+      @comp_cat_fapp0 A B Cat_cart E F
       =
       @Pullback_catd A B E F);
 
 assert [A B : Cat]
   (F : τ (Functor A B)) ⊢
-  eq_refl (@comp_cat_con_func A B Cat_cat F)
+  eq_refl (@comp_cat_con_func A B Cat_cart F)
   : τ (
-      @comp_cat_con_func A B Cat_cat F
+      @comp_cat_con_func A B Cat_cart F
       =
       @Pullback_catd_func A B F);
 
@@ -13939,12 +14005,12 @@ assert [A B C : Cat]
   (H : τ (Functor A B)) ⊢
   eq_refl
     (@comp_cat_fapp0
-      A B Cat_cat
+      A B Cat_cart
       (@Pullback_catd B C E F)
       H)
   : τ (
       @comp_cat_fapp0
-        A B Cat_cat
+        A B Cat_cart
         (@Pullback_catd B C E F)
         H
       =
@@ -13957,9 +14023,9 @@ assert [A B C : Cat]
   (F : τ (Functor B C))
   (H : τ (Functor A B))
   (a : τ (Obj A)) ⊢
-  @fapp0 A Cat_cat
+  @fapp0 A Cat_cart
     (@comp_cat_fapp0
-      A B Cat_cat
+      A B Cat_cart
       (@Pullback_catd B C E F)
       H)
     a
@@ -13977,10 +14043,10 @@ assert [A B : Cat]
   (F : τ (Functor A B))
   (a a' : τ (Obj A))
   (p : τ (Hom A a a')) ⊢
-  @fapp1_fapp0 A Cat_cat (@Pullback_catd A B E F) a a' p
+  @fapp1_fapp0 A Cat_cart (@Pullback_catd A B E F) a a' p
     ≡ @fapp1_fapp0
         B
-        Cat_cat
+        Cat_cart
         E
         (@fapp0 A B F a)
         (@fapp0 A B F a')
@@ -14003,25 +14069,25 @@ assert [A B : Cat] (F : τ (Functor A B)) (C : Cat) ⊢
     ≡ @Const_catd A C;
 
 assert [K : Cat] (E : τ (Catd K)) ⊢
-  @Pullback_catd K Cat_cat op E
+  @Pullback_catd (CoAt2_cat K) (CoAt2_cat Cat_cart) op (@CoAt2_func K Cat_cart E)
     ≡ @Op_catd K E;
 
 assert [K : Cat] ⊢
   @eq_refl Cat_grpd
-    (@fapp0 (Op_cat Cat_cat) Cat_cat Catd_cat_func K)
+    (@fapp0 (Op_cat Cat_cart) Cat_cart Catd_cat_func K)
   : τ (@= Cat_grpd
-      (@fapp0 (Op_cat Cat_cat) Cat_cat Catd_cat_func K)
-      (Catd_cat K));
+      (@fapp0 (Op_cat Cat_cart) Cat_cart Catd_cat_func K)
+      (Functor_cart_cat K Cat_cart));
 
 assert [A B : Cat] (F : τ (Functor A B)) ⊢
   @fapp1_fapp0
-    (Op_cat Cat_cat)
-    Cat_cat
+    (Op_cat Cat_cart)
+    Cat_cart
     Catd_cat_func
     B
     A
     F
-    ≡ @Pullback_catd_func A B F;
+    ≡ @comp_cat_con_cart_func A B Cat_cart F;
 
 assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B)) ⊢
   @fapp0 (@Catd_cat B) (@Catd_cat A) (@Pullback_catd_func A B F) E
@@ -14032,42 +14098,45 @@ assert [L : Cat] (K : τ (Catd L)) (l : τ (Obj L)) ⊢
   @eq_refl Cat_grpd (Fibre_cat (Catd_catd_con K) l)
   : τ (@= Cat_grpd
       (Fibre_cat (Catd_catd_con K) l)
-      (Catd_cat (Fibre_cat K l)));
+      (Functor_cart_cat (Fibre_cat K l) Cat_cart));
 
 assert [L : Cat] (K : τ (Catd L)) (x y : τ (Obj L))
   (p : τ (Hom L x y)) ⊢
   @fapp1_fapp0
     (Op_cat L)
-    Cat_cat
+    Cat_cart
     (@Catd_catd_con L K)
     y
     x
     p
-    ≡ @Pullback_catd_func
-        (Fibre_cat K x)
-        (Fibre_cat K y)
-        (@fapp1_fapp0 L Cat_cat K x y p);
+    ≡ @comp_cat_con_cart_func
+        (Fibre_cat K x) (Fibre_cat K y) Cat_cart
+        (@fapp1_fapp0 L Cat_cart K x y p);
 
-assert [K : Cat] (G : τ (Functor K (Op_cat Cat_cat))) ⊢
+assert [K : Cat] (G : τ (Functor K (Op_cat Cat_cart))) ⊢
   @fapp1_fapp0
-    (@Catd_cat (Op_cat Cat_cat))
+    (@Catd_cat (Op_cat Cat_cart))
     (@Catd_cat K)
-    (@Pullback_catd_func K (Op_cat Cat_cat) G)
+    (@Pullback_catd_func K (Op_cat Cat_cart) G)
     Catd_cat_func
-    (@Const_catd (Op_cat Cat_cat) Cat_cat)
+    (@Const_catd (Op_cat Cat_cart) Cat_cart)
     Pi_int_funcd
     ≡ @Pi_pullback_funcd K G;
 
-assert [K : Cat] (G : τ (Functor K (Op_cat Cat_cat)))
+assert [K : Cat] (G : τ (Functor K (Op_cat Cat_cart)))
   (x : τ (Obj K)) ⊢
   @tapp0_fapp0
     K
-    Cat_cat
-    (@Pullback_catd K (Op_cat Cat_cat) Catd_cat_func G)
-    (@Const_catd K Cat_cat)
+    Cat_cart
+    (@Pullback_catd K (Op_cat Cat_cart) Catd_cat_func G)
+    (@Const_catd K Cat_cart)
     x
     (@Pi_pullback_funcd K G)
-    ≡ @Pi_func (@fapp0 K (Op_cat Cat_cat) G x);
+    ≡ @comp_cat_fapp0
+        (Functor_cart_cat (@fapp0 K (Op_cat Cat_cart) G x) Cat_cart)
+        (Catd_cat (@fapp0 K (Op_cat Cat_cart) G x)) Cat_cart
+        (@Pi_func (@fapp0 K (Op_cat Cat_cart) G x))
+        (Functor_cart_include (@fapp0 K (Op_cat Cat_cart) G x) Cat_cart);
 
 assert [K : Cat] (E : τ (Catd K)) ⊢
   fapp1_fapp0 (Pi_func K) id_funcd ≡ id_func;
@@ -14079,7 +14148,7 @@ assert [K : Cat] [E D : τ (Catd K)]
     (Pi_cat E)
     (Pi_cat D)
     (@fapp1_fapp0
-      (@Catd_cat K) Cat_cat (@Pi_func K) E D FF)
+      (@Catd_cat K) Cat_cart (@Pi_func K) E D FF)
     s
     ≡ @section_postcomp_sec K E D FF s;
 
@@ -14263,9 +14332,9 @@ assert [K : Cat] [E D : τ (Catd K)]
         x y p));
 
 assert [K : Cat] (E : τ (Catd K)) ⊢
-  @eq_refl Cat_grpd (@Transf_cat K Cat_cat (@Terminal_catd K) E)
+  @eq_refl Cat_grpd (@Transf_cat K Cat_cart (@Terminal_catd K) E)
   : τ (@= Cat_grpd
-      (@Transf_cat K Cat_cat (@Terminal_catd K) E)
+      (@Transf_cat K Cat_cart (@Terminal_catd K) E)
       (Pi_cat E));
 
 assert [K : Cat] (E : τ (Catd K)) ⊢
@@ -14294,13 +14363,13 @@ assert [K : Cat] (A : Cat) ⊢
   @eq_refl Grpd_grpd
     (Obj
       (@Transf_cat
-        K Cat_cat
+        K Cat_cart
         (@Const_catd K Terminal_cat)
         (@Const_catd K A)))
   : τ (@= Grpd_grpd
       (Obj
         (@Transf_cat
-          K Cat_cat
+          K Cat_cart
           (@Const_catd K Terminal_cat)
           (@Const_catd K A)))
       (Obj (Functor_cat K A)));
@@ -14344,7 +14413,7 @@ assert [K : Cat] (E : τ (Catd K))
   @fapp0
     Terminal_cat
     (Fibre_cat E k)
-    (@tapp0_fapp0 K Cat_cat (@Const_catd K Terminal_cat) E k s)
+    (@tapp0_fapp0 K Cat_cart (@Const_catd K Terminal_cat) E k s)
     Terminal_obj
     ≡ @piapp0 K E s k;
 
@@ -14376,17 +14445,18 @@ assert [K : Cat] (E : τ (Catd K))
     ≡ @pi_hom_fapp0 K E s t eta k;
 
 assert [K : Cat] (E : τ (Catd K)) ⊢
-  @fapp0 (Catd_cat K) Cat_cat (Pi_func K) E ≡ Pi_cat E;
+  @fapp0 (Catd_cat K) Cat_cart (Pi_func K) E ≡ Pi_cat E;
 
 assert [K : Cat] ⊢
   @tapp0_fapp0
-    (Op_cat Cat_cat)
-    Cat_cat
+    (Op_cat Cat_cart)
+    Cat_cart
     Catd_cat_func
-    (@Const_catd (Op_cat Cat_cat) Cat_cat)
+    (@Const_catd (Op_cat Cat_cart) Cat_cart)
     K
     Pi_int_funcd
-    ≡ @Pi_func K;
+    ≡ @comp_cat_fapp0 (Functor_cart_cat K Cat_cart) (Catd_cat K) Cat_cart
+        (@Pi_func K) (Functor_cart_include K Cat_cart);
 
 assert [K : Cat] (E : τ (Catd K))
   (k : τ (Obj K))
@@ -14396,7 +14466,7 @@ assert [K : Cat] (E : τ (Catd K))
     (@Sigma_cat K E)
     (@tapp0_fapp0
       K
-      Cat_cat
+      Cat_cart
       E
       (@Const_catd K (@Sigma_cat K E))
       k
@@ -14408,21 +14478,14 @@ assert [K : Cat] (E : τ (Catd K))
         k
         u;
 
+// Evaluate the existing section-first whole map at the fixed k.
 assert [K : Cat] (E : τ (Catd K))
   (s : τ (Obj (Pi_cat E)))
   (k : τ (Obj K)) ⊢
-  @fapp0
-    (Pi_cat E)
-    (Fibre_cat E k)
-    (@tapp0_fapp0
-      K
-      Cat_cat
-      (@Const_catd K (@Pi_cat K E))
-      E
-      k
-      (@pi_eval_transf K E))
-    s
-    ≡ @piapp0 K E s k;
+  @fapp0 (Pi_cat E) (Fibre_cat E k)
+    (@comp_cat_fapp0 (Pi_cat E) (Pi_cat E) (Fibre_cat E k)
+      (@piapp0_func K E k) (@pi_eval_transf K E)) s
+  ≡ @piapp0 K E s k;
 
 assert [K : Cat] (A : Cat)
   (a : τ (Obj A)) ⊢
@@ -14457,13 +14520,13 @@ assert [K : Cat] (A : Cat)
     ≡ a;
 
 assert [A B : Cat] (b : τ (Obj B)) ⊢
-  @fapp0 B (Functor_cat A B) (@Const_func_func A B) b
+  @fapp0 B (Functor_cart_cat A B) (@Const_func_func A B) b
     ≡ @Const_func A B b;
 
 assert [A B : Cat] (x y : τ (Obj B)) (p : τ (Hom B x y)) ⊢
   @fapp1_fapp0
       B
-      (Functor_cat A B)
+      (Functor_cart_cat A B)
       (@Const_func_func A B)
       x y p
     ≡ @Const_transf A B x y p;
@@ -14476,11 +14539,11 @@ assert [A B : Cat] (x y : τ (Obj B)) (p : τ (Hom B x y))
       (@Const_func A B x)
       (@Const_func A B y)
       a
-      (@fapp1_fapp0
+      (@strict_transfor _ _ _ _ (@fapp1_fapp0
         B
-        (Functor_cat A B)
+        (Functor_cart_cat A B)
         (@Const_func_func A B)
-        x y p)
+        x y p))
     ≡ p;
 
 assert [A B : Cat] (x y : τ (Obj B)) (p : τ (Hom B x y))
@@ -14492,11 +14555,11 @@ assert [A B : Cat] (x y : τ (Obj B)) (p : τ (Hom B x y))
       (@Const_func A B y)
       a
       a'
-      (@fapp1_fapp0
+      (@strict_transfor _ _ _ _ (@fapp1_fapp0
         B
-        (Functor_cat A B)
+        (Functor_cart_cat A B)
         (@Const_func_func A B)
-        x y p)
+        x y p))
       q
     ≡ p;
 
@@ -14507,7 +14570,7 @@ assert [K : Cat]
   (B : τ (Catd K))
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
-      K Cat_cat B (@Functor_catd K A B) k
+      K Cat_cart B (@Functor_catd K A B) k
       (@Functor_catd_const_funcd K A B)
     ≡ @Const_func_func (Fibre_cat A k) (Fibre_cat B k);
 
@@ -14525,9 +14588,9 @@ assert [K : Cat]
       (Fibre_cat B k)
       (@fapp0
         (Fibre_cat B k)
-        (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
+        (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
         (@tapp0_fapp0
-          K Cat_cat B (@Functor_catd K A B) k
+          K Cat_cart B (@Functor_catd K A B) k
           (@Functor_catd_const_funcd K A B))
         b)
       a a' q
@@ -14547,16 +14610,16 @@ assert [K : Cat]
       (Fibre_cat B y)
       (@fapp0
         (Fibre_cat B x)
-        (Functor_cat (Fibre_cat A y) (Fibre_cat B y))
+        (Functor_cart_cat (Fibre_cat A y) (Fibre_cat B y))
         (@tapp1_fapp0
-          K Cat_cat B (@Functor_catd K A B) x y
+          K Cat_cart B (@Functor_catd K A B) x y
           (@Functor_catd_const_funcd K A B) p)
         b)
       a
     ≡ @fapp0
         (Fibre_cat B x)
         (Fibre_cat B y)
-        (@fapp1_fapp0 K Cat_cat B x y p)
+        (@fapp1_fapp0 K Cat_cart B x y p)
         b;
 
 // Full base action remains a functor over Hom_K(x,y), so a genuine next
@@ -14569,30 +14632,30 @@ assert [K : Cat]
   (theta : τ (Hom (Hom_cat K x y) p p')) ⊢
   @fapp1_fapp0
       (Hom_cat K x y)
-      (Functor_cat
+      (Functor_cart_cat
         (Fibre_cat B x)
-        (Functor_cat (Fibre_cat A y) (Fibre_cat B y)))
+        (Functor_cart_cat (Fibre_cat A y) (Fibre_cat B y)))
       (@tapp1_func
-        K Cat_cat B (@Functor_catd K A B) x y
+        K Cat_cart B (@Functor_catd K A B) x y
         (@Functor_catd_const_funcd K A B))
       p p' theta
     ≡ @fapp1_fapp0
         (Hom_cat K x y)
-        (Functor_cat
+        (Functor_cart_cat
           (Fibre_cat B x)
-          (Functor_cat (Fibre_cat A y) (Fibre_cat B y)))
+          (Functor_cart_cat (Fibre_cat A y) (Fibre_cat B y)))
         (@comp_cat_fapp0
           (Hom_cat K x y)
-          (Functor_cat (Fibre_cat B x) (Fibre_cat B y))
-          (Functor_cat
+          (Functor_cart_cat (Fibre_cat B x) (Fibre_cat B y))
+          (Functor_cart_cat
             (Fibre_cat B x)
-            (Functor_cat (Fibre_cat A y) (Fibre_cat B y)))
-          (@comp_cat_cov_func
+            (Functor_cart_cat (Fibre_cat A y) (Fibre_cat B y)))
+          (@comp_cat_cov_cart_func
             (Fibre_cat B x)
             (Fibre_cat B y)
-            (Functor_cat (Fibre_cat A y) (Fibre_cat B y))
+            (Functor_cart_cat (Fibre_cat A y) (Fibre_cat B y))
             (@Const_func_func (Fibre_cat A y) (Fibre_cat B y)))
-          (@fapp1_func K Cat_cat B x y))
+          (@fapp1_func K Cat_cart B x y))
         p p' theta;
 
 // The generic internal displayed-action consumer is well typed without a
@@ -14626,9 +14689,9 @@ assert [K : Cat]
       (Fibre_cat B k)
       (@fapp0
         (Fibre_cat C k)
-        (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
+        (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
         (@tapp0_fapp0
-          K Cat_cat C (@Functor_catd K A B) k
+          K Cat_cart C (@Functor_catd K A B) k
           (@comp_fapp0
             (@Catd_cat K)
             C B (@Functor_catd K A B)
@@ -14639,35 +14702,36 @@ assert [K : Cat]
     ≡ @fapp0
         (Fibre_cat C k)
         (Fibre_cat B k)
-        (@tapp0_fapp0 K Cat_cat C B k H)
+        (@tapp0_fapp0 K Cat_cart C B k H)
         c;
 
-assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C))) ⊢
+// Migrated Cartesian exchange and diagonal observations.
+assert [A B C : Cat] (H : τ (Functor A (Functor_cart_cat B C))) ⊢
   @fapp0
-      (Functor_cat A (Functor_cat B C))
-      (Functor_cat B (Functor_cat A C))
+      (Functor_cart_cat A (Functor_cart_cat B C))
+      (Functor_cart_cat B (Functor_cart_cat A C))
       (@sym_func_func A B C)
       H
     ≡ @sym_func A B C H;
 
-assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
+assert [A B C : Cat] (H : τ (Functor A (Functor_cart_cat B C)))
   (a : τ (Obj A)) (b : τ (Obj B)) ⊢
   @fapp0
       A
       C
       (@fapp0
         B
-        (Functor_cat A C)
+        (Functor_cart_cat A C)
         (@fapp0
-          (Functor_cat A (Functor_cat B C))
-          (Functor_cat B (Functor_cat A C))
+          (Functor_cart_cat A (Functor_cart_cat B C))
+          (Functor_cart_cat B (Functor_cart_cat A C))
           (@sym_func_func A B C)
           H)
         b)
       a
-    ≡ @fapp0 B C (@fapp0 A (Functor_cat B C) H a) b;
+    ≡ @fapp0 B C (@fapp0 A (Functor_cart_cat B C) H a) b;
 
-assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
+assert [A B C : Cat] (H : τ (Functor A (Functor_cart_cat B C)))
   (a a' : τ (Obj A)) (p : τ (Hom A a a')) (b : τ (Obj B)) ⊢
   @fapp1_fapp0
       A
@@ -14679,23 +14743,23 @@ assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
     ≡ @tapp0_fapp0
         B
         C
-        (@fapp0 A (Functor_cat B C) H a)
-        (@fapp0 A (Functor_cat B C) H a')
+        (@fapp0 A (Functor_cart_cat B C) H a)
+        (@fapp0 A (Functor_cart_cat B C) H a')
         b
-        (@fapp1_fapp0 A (Functor_cat B C) H a a' p);
+        (@strict_transfor _ _ _ _ (@fapp1_fapp0 A (Functor_cart_cat B C) H a a' p));
 
-assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
+assert [A B C : Cat] (H : τ (Functor A (Functor_cart_cat B C)))
   (b b' : τ (Obj B)) (q : τ (Hom B b b')) ⊢
   @fapp1_fapp0
       B
-      (Functor_cat A C)
+      (Functor_cart_cat A C)
       (@sym_func A B C H)
       b
       b'
       q
     ≡ @sym_tapp1_fapp0_transf A B C H b b' q;
 
-assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
+assert [A B C : Cat] (H : τ (Functor A (Functor_cart_cat B C)))
   (a : τ (Obj A)) (b b' : τ (Obj B)) (q : τ (Hom B b b')) ⊢
   @tapp0_fapp0
       A
@@ -14703,16 +14767,16 @@ assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
       (@sym_fapp0_func A B C H b)
       (@sym_fapp0_func A B C H b')
       a
-      (@sym_tapp1_fapp0_transf A B C H b b' q)
+      (@strict_transfor _ _ _ _ (@sym_tapp1_fapp0_transf A B C H b b' q))
     ≡ @fapp1_fapp0
         B
         C
-        (@fapp0 A (Functor_cat B C) H a)
+        (@fapp0 A (Functor_cart_cat B C) H a)
         b
         b'
         q;
 
-assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
+assert [A B C : Cat] (H : τ (Functor A (Functor_cart_cat B C)))
   (a a' : τ (Obj A)) (p : τ (Hom A a a'))
   (b b' : τ (Obj B)) (q : τ (Hom B b b')) ⊢
   @tapp1_fapp0
@@ -14722,40 +14786,40 @@ assert [A B C : Cat] (H : τ (Functor A (Functor_cat B C)))
       (@sym_fapp0_func A B C H b')
       a
       a'
-      (@sym_tapp1_fapp0_transf A B C H b b' q)
+      (@strict_transfor _ _ _ _ (@sym_tapp1_fapp0_transf A B C H b b' q))
       p
     ≡ @tapp1_fapp0
         B
         C
-        (@fapp0 A (Functor_cat B C) H a)
-        (@fapp0 A (Functor_cat B C) H a')
+        (@fapp0 A (Functor_cart_cat B C) H a)
+        (@fapp0 A (Functor_cart_cat B C) H a')
         b
         b'
-        (@fapp1_fapp0 A (Functor_cat B C) H a a' p)
+        (@strict_transfor _ _ _ _ (@fapp1_fapp0 A (Functor_cart_cat B C) H a a' p))
         q;
 
 assert [A B C : Cat]
-  (H K : τ (Functor A (Functor_cat B C)))
-  (eta : τ (Transf H K))
+  (H K : τ (Functor A (Functor_cart_cat B C)))
+  (eta : τ (@StrictTransfor A (Functor_cart_cat B C) H K))
   (b : τ (Obj B)) ⊢
   @tapp0_fapp0
       B
-      (Functor_cat A C)
+      (Functor_cart_cat A C)
       (@sym_func A B C H)
       (@sym_func A B C K)
       b
-      (@fapp1_fapp0
-        (Functor_cat A (Functor_cat B C))
-        (Functor_cat B (Functor_cat A C))
+      (@strict_transfor _ _ _ _ (@fapp1_fapp0
+        (Functor_cart_cat A (Functor_cart_cat B C))
+        (Functor_cart_cat B (Functor_cart_cat A C))
         (@sym_func_func A B C)
         H
         K
-        eta)
+        eta))
     ≡ @sym_transf_tapp0_transf A B C H K eta b;
 
 assert [A B C : Cat]
-  (H K : τ (Functor A (Functor_cat B C)))
-  (eta : τ (Transf H K))
+  (H K : τ (Functor A (Functor_cart_cat B C)))
+  (eta : τ (@StrictTransfor A (Functor_cart_cat B C) H K))
   (a : τ (Obj A)) (b : τ (Obj B)) ⊢
   @tapp0_fapp0
       A
@@ -14763,44 +14827,44 @@ assert [A B C : Cat]
       (@sym_fapp0_func A B C H b)
       (@sym_fapp0_func A B C K b)
       a
-      (@sym_transf_tapp0_transf A B C H K eta b)
+      (@strict_transfor _ _ _ _ (@sym_transf_tapp0_transf A B C H K eta b))
     ≡ @tapp0_fapp0
         B
         C
-        (@fapp0 A (Functor_cat B C) H a)
-        (@fapp0 A (Functor_cat B C) K a)
+        (@fapp0 A (Functor_cart_cat B C) H a)
+        (@fapp0 A (Functor_cart_cat B C) K a)
         b
-        (@tapp0_fapp0 A (Functor_cat B C) H K a eta);
+        (@strict_transfor _ _ _ _ (@tapp0_fapp0 A (Functor_cart_cat B C) H K a (@strict_transfor _ _ _ _ eta)));
 
-assert [A C : Cat] (H : τ (Functor A (Functor_cat A C))) ⊢
+assert [A C : Cat] (H : τ (Functor A (Functor_cart_cat A C))) ⊢
   @fapp0
-      (Functor_cat A (Functor_cat A C))
-      (Functor_cat A C)
+      (Functor_cart_cat A (Functor_cart_cat A C))
+      (Functor_cart_cat A C)
       (@diag_func_func A C)
       H
     ≡ @diag_func A C H;
 
-assert [A C : Cat] (H : τ (Functor A (Functor_cat A C)))
+assert [A C : Cat] (H : τ (Functor A (Functor_cart_cat A C)))
   (a : τ (Obj A)) ⊢
   @fapp0 A C (@diag_func A C H) a
-    ≡ @fapp0 A C (@fapp0 A (Functor_cat A C) H a) a;
+    ≡ @fapp0 A C (@fapp0 A (Functor_cart_cat A C) H a) a;
 
-assert [A C : Cat] (H : τ (Functor A (Functor_cat A C)))
+assert [A C : Cat] (H : τ (Functor A (Functor_cart_cat A C)))
   (a a' : τ (Obj A)) (p : τ (Hom A a a')) ⊢
   @fapp1_fapp0 A C (@diag_func A C H) a a' p
     ≡ @tapp1_fapp0
         A
         C
-        (@fapp0 A (Functor_cat A C) H a)
-        (@fapp0 A (Functor_cat A C) H a')
+        (@fapp0 A (Functor_cart_cat A C) H a)
+        (@fapp0 A (Functor_cart_cat A C) H a')
         a
         a'
-        (@fapp1_fapp0 A (Functor_cat A C) H a a' p)
+        (@strict_transfor _ _ _ _ (@fapp1_fapp0 A (Functor_cart_cat A C) H a a' p))
         p;
 
 assert [A C : Cat]
-  (H K : τ (Functor A (Functor_cat A C)))
-  (eta : τ (Transf H K))
+  (H K : τ (Functor A (Functor_cart_cat A C)))
+  (eta : τ (@StrictTransfor A (Functor_cart_cat A C) H K))
   (a : τ (Obj A)) ⊢
   @tapp0_fapp0
       A
@@ -14808,32 +14872,32 @@ assert [A C : Cat]
       (@diag_func A C H)
       (@diag_func A C K)
       a
-      (@fapp1_fapp0
-        (Functor_cat A (Functor_cat A C))
-        (Functor_cat A C)
+      (@strict_transfor _ _ _ _ (@fapp1_fapp0
+        (Functor_cart_cat A (Functor_cart_cat A C))
+        (Functor_cart_cat A C)
         (@diag_func_func A C)
         H
         K
-        eta)
+        eta))
     ≡ @tapp0_fapp0
         A
         C
-        (@fapp0 A (Functor_cat A C) H a)
-        (@fapp0 A (Functor_cat A C) K a)
+        (@fapp0 A (Functor_cart_cat A C) H a)
+        (@fapp0 A (Functor_cart_cat A C) K a)
         a
-        (@tapp0_fapp0 A (Functor_cat A C) H K a eta);
+        (@strict_transfor _ _ _ _ (@tapp0_fapp0 A (Functor_cart_cat A C) H K a (@strict_transfor _ _ _ _ eta)));
 
-assert [A C : Cat] (H : τ (Functor A (Functor_cat A C)))
+assert [A C : Cat] (H : τ (Functor A (Functor_cart_cat A C)))
   (a a' : τ (Obj A)) (p : τ (Hom A a a')) ⊢
   fapp0 (@fapp1_func A C (@diag_func A C H) a a') p
     ≡ @tapp1_fapp0
         A
         C
-        (@fapp0 A (Functor_cat A C) H a)
-        (@fapp0 A (Functor_cat A C) H a')
+        (@fapp0 A (Functor_cart_cat A C) H a)
+        (@fapp0 A (Functor_cart_cat A C) H a')
         a
         a'
-        (@fapp1_fapp0 A (Functor_cat A C) H a a' p)
+        (@strict_transfor _ _ _ _ (@fapp1_fapp0 A (Functor_cart_cat A C) H a a' p))
         p;
 
 assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B))
@@ -14869,7 +14933,7 @@ assert [K : Cat]
   @fapp0
     (Fibre_cat R k)
     (Fibre_cat E k)
-    (@tapp0_fapp0 K Cat_cat R E k
+    (@tapp0_fapp0 K Cat_cart R E k
       (@section_weaken_funcd K R E s))
     r
   ≡ @piapp0 K E s k;
@@ -14877,12 +14941,12 @@ assert [K : Cat]
 assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B)) ⊢
   @tapp0_fapp0
     (@Catd_cat B)
-    Cat_cat
+    Cat_cart
     (@Pi_func B)
     (@comp_cat_fapp0
       (@Catd_cat B)
       (@Catd_cat A)
-      Cat_cat
+      Cat_cart
       (@Pi_func A)
       (@Pullback_catd_func A B F))
     E
@@ -14891,9 +14955,9 @@ assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B)) ⊢
 
 assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B)) ⊢
   @fdapp1_int_cell
-    (Op_cat Cat_cat)
+    (Op_cat Cat_cart)
     Catd_cat_func
-    (@Const_catd (Op_cat Cat_cat) Cat_cat)
+    (@Const_catd (Op_cat Cat_cart) Cat_cart)
     Pi_int_funcd
     B
     A
@@ -14901,23 +14965,23 @@ assert [A B : Cat] (F : τ (Functor A B)) (E : τ (Catd B)) ⊢
     E
     ≡ @section_pullback_func A B F E;
 
-assert [K : Cat] (G : τ (Functor K (Op_cat Cat_cat)))
+assert [K : Cat] (G : τ (Functor K (Op_cat Cat_cart)))
   (x y : τ (Obj K))
   (p : τ (Hom K x y))
-  (E : τ (Catd (@fapp0 K (Op_cat Cat_cat) G x))) ⊢
+  (E : τ (Catd (@fapp0 K (Op_cat Cat_cart) G x))) ⊢
   @fdapp1_int_cell
     K
-    (@Pullback_catd K (Op_cat Cat_cat) Catd_cat_func G)
-    (@Const_catd K Cat_cat)
+    (@Pullback_catd K (Op_cat Cat_cart) Catd_cat_func G)
+    (@Const_catd K Cat_cart)
     (@Pi_pullback_funcd K G)
     x
     y
     p
     E
     ≡ @section_pullback_func
-        (@fapp0 K (Op_cat Cat_cat) G y)
-        (@fapp0 K (Op_cat Cat_cat) G x)
-        (@fapp1_fapp0 K (Op_cat Cat_cat) G x y p)
+        (@fapp0 K (Op_cat Cat_cart) G y)
+        (@fapp0 K (Op_cat Cat_cart) G x)
+        (@fapp1_fapp0 K (Op_cat Cat_cart) G x y p)
         E;
 
 assert [K : Cat] (E : τ (Catd K)) ⊢
@@ -14955,14 +15019,14 @@ assert [A B C D : Cat]
       (@Pullback_catd_func B D G))
     (@comp_cat_fapp0
       A (Op_cat C) (@Catd_cat D)
-      (@hom_int C D H)
+      (@hom_int_view C D H)
       F)
   ≡ @comp_cat_fapp0
       A (Op_cat C) Cat_cat
       (@comp_cat_fapp0
         (Op_cat C) (@Catd_cat B) Cat_cat
         (@Sigma_func B)
-        (@hom_int C B (@comp_cat_fapp0 B D C H G)))
+        (@hom_int_view C B (@comp_cat_fapp0 B D C H G)))
       F;
 
 // The generic second hom action of Sigma totalization reaches the stable
@@ -15017,7 +15081,7 @@ assert [K : Cat]
         (@Fibre_func K E D FF k)
         (@Fibre_func K E D GG k)
         u
-        (@tdapp0_fapp0 K E D FF GG k eta));
+        (@strict_transfor _ _ _ _ (@tdapp0_fapp0 K E D FF GG k eta)));
 
 assert [K : Cat] (E : τ (Catd K)) (k : τ (Obj K)) (u : τ (Obj (Fibre_cat E k))) ⊢
   fapp0 (Sigma_proj1_func E) (Struct_sigma k u) ≡ k;
@@ -15028,18 +15092,18 @@ assert [K : Cat] (R D : τ (Catd K)) ⊢
   @eq_refl
     (Obj (@Catd_cat (@Sigma_cat K R)))
     (@comp_cat_fapp0
-      (@Sigma_cat K R) K Cat_cat D
+      (@Sigma_cat K R) K Cat_cart D
       (@Sigma_proj1_func K R))
   : τ (@=
       (Obj (@Catd_cat (@Sigma_cat K R)))
       (@comp_cat_fapp0
-        (@Sigma_cat K R) K Cat_cat D
+        (@Sigma_cat K R) K Cat_cart D
         (@Sigma_proj1_func K R))
       (@Sigma_proj1_pullback_catd K R D));
 
 assertnot [K : Cat] (R D : τ (Catd K)) ⊢
   @comp_cat_fapp0
-    (@Sigma_cat K R) K Cat_cat D
+    (@Sigma_cat K R) K Cat_cart D
     (@Sigma_proj1_func K R)
   ≡ @Sigma_proj1_pullback_catd K R D;
 
@@ -15116,102 +15180,103 @@ assert [K A : Cat]
 // -------------------------------------------------------------------------------------------------
 
 assert [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
-  @fapp1_func K Cat_cat (@Op_catd K E) x y
+  @fapp1_func (CoAt2_cat K) Cat_cart (@Op_catd K E) x y
   ≡ @comp_cat_fapp0
-      (Hom_cat K x y)
-      (Functor_cat (Fibre_cat E x) (Fibre_cat E y))
-      (Functor_cat (Op_cat (Fibre_cat E x)) (Op_cat (Fibre_cat E y)))
-      (@fapp1_func Cat_cat Cat_cat op (Fibre_cat E x) (Fibre_cat E y))
-      (@fapp1_func K Cat_cat E x y);
+      (Op_cat (Hom_cat K x y))
+      (Op_cat (Functor_cart_cat (Fibre_cat E x) (Fibre_cat E y)))
+      (Functor_cart_cat (Op_cat (Fibre_cat E x)) (Op_cat (Fibre_cat E y)))
+      (@fapp1_func (CoAt2_cat Cat_cart) Cat_cart op (Fibre_cat E x) (Fibre_cat E y))
+      (@fapp1_func (CoAt2_cat K) (CoAt2_cat Cat_cart)
+        (@CoAt2_func K Cat_cart E) x y);
 
 assert [K : Cat] (E : τ (Catd K))
   (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
-  @fapp1_fapp0 K Cat_cat (@Op_catd K E) x y p
+  @fapp1_fapp0 (CoAt2_cat K) Cat_cart (@Op_catd K E) x y p
     ≡ @Op_func
         (Fibre_cat E x)
         (Fibre_cat E y)
-        (@fapp1_fapp0 K Cat_cat E x y p);
+        (@fapp1_fapp0 K Cat_cart E x y p);
 
 // Full-action projection and direct capped action join at p.
 assert [K : Cat] (E : τ (Catd K))
   (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
   @fapp0
-    (Hom_cat K x y)
-    (Functor_cat
+    (Op_cat (Hom_cat K x y))
+    (Functor_cart_cat
       (Fibre_cat (@Op_catd K E) x)
       (Fibre_cat (@Op_catd K E) y))
-    (@fapp1_func K Cat_cat (@Op_catd K E) x y)
+    (@fapp1_func (CoAt2_cat K) Cat_cart (@Op_catd K E) x y)
     p
   ≡ @Op_func
       (Fibre_cat E x)
       (Fibre_cat E y)
-      (@fapp1_fapp0 K Cat_cat E x y p);
+      (@fapp1_fapp0 K Cat_cart E x y p);
 
 assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K))
   (x y : τ (Obj K)) ⊢
-  @fapp1_func K Cat_cat (@Functor_catd K A B) x y
+  @fapp1_func K Cat_cart (@Functor_catd K A B) x y
   ≡ @comp_cat_fapp0
       (Hom_cat K x y)
       (Product_cat
-        (Functor_cat (Fibre_cat A y) (Fibre_cat A x))
-        (Functor_cat (Fibre_cat B x) (Fibre_cat B y)))
-      (Functor_cat
-        (Functor_cat (Fibre_cat A x) (Fibre_cat B x))
-        (Functor_cat (Fibre_cat A y) (Fibre_cat B y)))
+        (Functor_cart_cat (Fibre_cat A y) (Fibre_cat A x))
+        (Functor_cart_cat (Fibre_cat B x) (Fibre_cat B y)))
+      (Functor_cart_cat
+        (Functor_cart_cat (Fibre_cat A x) (Fibre_cat B x))
+        (Functor_cart_cat (Fibre_cat A y) (Fibre_cat B y)))
       (@Hom_tele_func
-        Cat_cat
+        Cat_cart
         (Fibre_cat A x)
         (Fibre_cat A y)
         (Fibre_cat B x)
         (Fibre_cat B y))
       (Struct_sigma
-        (@fapp1_func (Op_cat K) Cat_cat A y x)
-        (@fapp1_func K Cat_cat B x y));
+        (@fapp1_func (Op_cat K) Cat_cart A y x)
+        (@fapp1_func K Cat_cart B x y));
 
 assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K))
   (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
-  @fapp1_fapp0 K Cat_cat (@Functor_catd K A B) x y p
+  @fapp1_fapp0 K Cat_cart (@Functor_catd K A B) x y p
     ≡ @Hom_func
-        Cat_cat
+        Cat_cart
         (Fibre_cat A x)
         (Fibre_cat A y)
         (Fibre_cat B x)
         (Fibre_cat B y)
-        (@fapp1_fapp0 (Op_cat K) Cat_cat A y x p)
-        (@fapp1_fapp0 K Cat_cat B x y p);
+        (@fapp1_fapp0 (Op_cat K) Cat_cart A y x p)
+        (@fapp1_fapp0 K Cat_cart B x y p);
 
 // The capped mixed-family route is Unit_prof(Cat)'s existing projection.
 assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K))
   (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
-  @fapp1_fapp0 K Cat_cat (@Functor_catd K A B) x y p
+  @fapp1_fapp0 K Cat_cart (@Functor_catd K A B) x y p
   ≡ @fapp1_fapp0
-      (Product_cat (Op_cat Cat_cat) Cat_cat)
-      Cat_cat
-      (@Unit_prof Cat_cat)
+      (Product_cat (Op_cat Cat_cart) Cat_cart)
+      Cat_cart
+      (@Unit_prof Cat_cart)
       (Struct_sigma (Fibre_cat A x) (Fibre_cat B x))
       (Struct_sigma (Fibre_cat A y) (Fibre_cat B y))
       (Struct_sigma
-        (@fapp1_fapp0 (Op_cat K) Cat_cat A y x p)
-        (@fapp1_fapp0 K Cat_cat B x y p));
+        (@fapp1_fapp0 (Op_cat K) Cat_cart A y x p)
+        (@fapp1_fapp0 K Cat_cart B x y p));
 
 // Full-action projection and direct capped action join at p.
 assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K))
   (x y : τ (Obj K)) (p : τ (Hom K x y)) ⊢
   @fapp0
     (Hom_cat K x y)
-    (Functor_cat
+    (Functor_cart_cat
       (Fibre_cat (@Functor_catd K A B) x)
       (Fibre_cat (@Functor_catd K A B) y))
-    (@fapp1_func K Cat_cat (@Functor_catd K A B) x y)
+    (@fapp1_func K Cat_cart (@Functor_catd K A B) x y)
     p
   ≡ @Hom_func
-      Cat_cat
+      Cat_cart
       (Fibre_cat A x)
       (Fibre_cat A y)
       (Fibre_cat B x)
       (Fibre_cat B y)
-      (@fapp1_fapp0 (Op_cat K) Cat_cat A y x p)
-      (@fapp1_fapp0 K Cat_cat B x y p);
+      (@fapp1_fapp0 (Op_cat K) Cat_cart A y x p)
+      (@fapp1_fapp0 K Cat_cart B x y p);
 
 // Consuming the rigid Cat-valued Hom action computes f(h(g(x'))).
 assert [X X' Y Y' : Cat]
@@ -15232,6 +15297,13 @@ assert [K D : Cat]
 assertnot [K : Cat] ⊢ Op_cat K ≡ K;
 
 // -------------------------------------------------------------------------------------------------
+
+// Object and arrow carriers agree, but the whole Hom input is transposed.
+assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K)) ⊢
+  @fapp1_func (CoAt2_cat K) Cat_cart (@Op_catd K E) x y
+  : τ (Functor (Hom_cat K x y)
+      (Functor_cart_cat (Op_cat (Fibre_cat E x)) (Op_cat (Fibre_cat E y))));
+
 // Direct recursive mixed displayed introduction
 // catalog-area: Direct recursive mixed displayed introduction
 // -------------------------------------------------------------------------------------------------
@@ -15272,19 +15344,19 @@ assert [K : Cat] (A : τ (Catd (Op_cat K))) (B D : τ (Catd K))
   (G : τ (Functord B D)) (k : τ (Obj K))
   (H : τ (Functor (Fibre_cat A k) (Fibre_cat B k))) ⊢
   @fapp0
-    (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
-    (Functor_cat (Fibre_cat A k) (Fibre_cat D k))
+    (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+    (Functor_cart_cat (Fibre_cat A k) (Fibre_cat D k))
     (@tapp0_fapp0
-      K Cat_cat
+      K Cat_cart
       (@Functor_catd K A B)
       (@Functor_catd K A D)
       k
       (@direct_mixed_post_funcd_check K A B D G))
     H
   ≡ @hom_postcomp_fapp0
-      Cat_cat Cat_cat (@id Cat_cat Cat_cat)
+      Cat_cart Cat_cart (@id Cat_cat Cat_cart)
       (Fibre_cat A k) (Fibre_cat B k) (Fibre_cat D k)
-      (@tapp0_fapp0 K Cat_cat B D k G)
+      (@tapp0_fapp0 K Cat_cart B D k G)
       H;
 
 // Triple-point beta for the direct recursive binder branch.
@@ -15298,23 +15370,23 @@ assert [K : Cat] (A : τ (Catd (Op_cat K))) (B C D : τ (Catd K))
     (Fibre_cat D k)
     (@fapp0
       (Fibre_cat C k)
-      (Functor_cat (Fibre_cat A k) (Fibre_cat D k))
+      (Functor_cart_cat (Fibre_cat A k) (Fibre_cat D k))
       (@tapp0_fapp0
-        K Cat_cat C (@Functor_catd K A D) k
+        K Cat_cart C (@Functor_catd K A D) k
         (@direct_mixed_nested_funcd_check K A B C D F G))
       c)
     a
   ≡ @fapp0
       (Fibre_cat B k)
       (Fibre_cat D k)
-      (@tapp0_fapp0 K Cat_cat B D k G)
+      (@tapp0_fapp0 K Cat_cart B D k G)
       (@fapp0
         (Fibre_cat A k)
         (Fibre_cat B k)
         (@fapp0
           (Fibre_cat C k)
-          (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
-          (@tapp0_fapp0 K Cat_cat C (@Functor_catd K A B) k F)
+          (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+          (@tapp0_fapp0 K Cat_cart C (@Functor_catd K A B) k F)
           c)
         a);
 
@@ -15330,23 +15402,23 @@ assert [K : Cat] (A : τ (Catd (Op_cat K))) (B C D : τ (Catd K))
     (Fibre_cat D k)
     (@fapp0
       (Fibre_cat C k)
-      (Functor_cat (Fibre_cat A k) (Fibre_cat D k))
+      (Functor_cart_cat (Fibre_cat A k) (Fibre_cat D k))
       (@tapp0_fapp0
-        K Cat_cat C (@Functor_catd K A D) k
+        K Cat_cart C (@Functor_catd K A D) k
         (@direct_mixed_nested_funcd_check K A B C D F G))
       c)
     a a' alpha
   ≡ @fapp1_fapp0
       (Fibre_cat B k)
       (Fibre_cat D k)
-      (@tapp0_fapp0 K Cat_cat B D k G)
+      (@tapp0_fapp0 K Cat_cart B D k G)
       (@fapp0
         (Fibre_cat A k)
         (Fibre_cat B k)
         (@fapp0
           (Fibre_cat C k)
-          (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
-          (@tapp0_fapp0 K Cat_cat C (@Functor_catd K A B) k F)
+          (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+          (@tapp0_fapp0 K Cat_cart C (@Functor_catd K A B) k F)
           c)
         a)
       (@fapp0
@@ -15354,8 +15426,8 @@ assert [K : Cat] (A : τ (Catd (Op_cat K))) (B C D : τ (Catd K))
         (Fibre_cat B k)
         (@fapp0
           (Fibre_cat C k)
-          (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
-          (@tapp0_fapp0 K Cat_cat C (@Functor_catd K A B) k F)
+          (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+          (@tapp0_fapp0 K Cat_cart C (@Functor_catd K A B) k F)
           c)
         a')
       (@fapp1_fapp0
@@ -15363,8 +15435,8 @@ assert [K : Cat] (A : τ (Catd (Op_cat K))) (B C D : τ (Catd K))
         (Fibre_cat B k)
         (@fapp0
           (Fibre_cat C k)
-          (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
-          (@tapp0_fapp0 K Cat_cat C (@Functor_catd K A B) k F)
+          (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+          (@tapp0_fapp0 K Cat_cart C (@Functor_catd K A B) k F)
           c)
         a a' alpha);
 
@@ -15407,11 +15479,13 @@ assertnot [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K)) ⊢
 // -------------------------------------------------------------------------------------------------
 
 // Check-only source action assembled from the existing constructor action.
+// Its negative parameter uses the constructor's Cartesian source-map classifier;
+// positive target maps and public Functord remain lax.
 symbol direct_mixed_pre_funcd_check
   [K : Cat]
   [A' A : τ (Catd (Op_cat K))]
   [B : τ (Catd K)]
-  (L : τ (Functord A' A))
+  (L : τ (@StrictTransfor (Op_cat K) Cat_cart A' A))
   : τ (Functord
       (@Functor_catd K A B)
       (@Functor_catd K A' B))
@@ -15422,7 +15496,7 @@ symbol direct_mixed_pre_funcd_check
     (@Functor_catd_fapp0_func K A')
     B
     (@fapp1_fapp0
-      (Op_cat (Catd_cat (Op_cat K)))
+      (Op_cat (Functor_cart_cat (Op_cat K) Cat_cart))
       (Functor_cat (Catd_cat K) (Catd_cat K))
       (@Functor_catd_func K)
       A A' L);
@@ -15431,14 +15505,14 @@ symbol direct_mixed_pre_funcd_check
 assert [K : Cat]
   (A' A : τ (Catd (Op_cat K)))
   (B : τ (Catd K))
-  (L : τ (Functord A' A))
+  (L : τ (@StrictTransfor (Op_cat K) Cat_cart A' A))
   (k : τ (Obj K))
   (H : τ (Functor (Fibre_cat A k) (Fibre_cat B k))) ⊢
   @fapp0
-    (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
-    (Functor_cat (Fibre_cat A' k) (Fibre_cat B k))
+    (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+    (Functor_cart_cat (Fibre_cat A' k) (Fibre_cat B k))
     (@tapp0_fapp0
-      K Cat_cat
+      K Cat_cart
       (@Functor_catd K A B)
       (@Functor_catd K A' B)
       k
@@ -15449,13 +15523,13 @@ assert [K : Cat]
       (Fibre_cat A k)
       (Fibre_cat B k)
       H
-      (@tapp0_fapp0 (Op_cat K) Cat_cat A' A k L);
+      (@tapp0_fapp0 (Op_cat K) Cat_cart A' A k (@strict_transfor (Op_cat K) Cat_cart A' A L));
 
 // Its object action is ordinary composition H(L[k](a')).
 assert [K : Cat]
   (A' A : τ (Catd (Op_cat K)))
   (B : τ (Catd K))
-  (L : τ (Functord A' A))
+  (L : τ (@StrictTransfor (Op_cat K) Cat_cart A' A))
   (k : τ (Obj K))
   (H : τ (Functor (Fibre_cat A k) (Fibre_cat B k)))
   (a' : τ (Obj (Fibre_cat A' k))) ⊢
@@ -15463,10 +15537,10 @@ assert [K : Cat]
     (Fibre_cat A' k)
     (Fibre_cat B k)
     (@fapp0
-      (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
-      (Functor_cat (Fibre_cat A' k) (Fibre_cat B k))
+      (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+      (Functor_cart_cat (Fibre_cat A' k) (Fibre_cat B k))
       (@tapp0_fapp0
-        K Cat_cat
+        K Cat_cart
         (@Functor_catd K A B)
         (@Functor_catd K A' B)
         k
@@ -15480,14 +15554,14 @@ assert [K : Cat]
       (@fapp0
         (Fibre_cat A' k)
         (Fibre_cat A k)
-        (@tapp0_fapp0 (Op_cat K) Cat_cat A' A k L)
+        (@tapp0_fapp0 (Op_cat K) Cat_cart A' A k (@strict_transfor (Op_cat K) Cat_cart A' A L))
         a');
 
 // Generic ordinary hom action supplies the inner-arrow computation.
 assert [K : Cat]
   (A' A : τ (Catd (Op_cat K)))
   (B : τ (Catd K))
-  (L : τ (Functord A' A))
+  (L : τ (@StrictTransfor (Op_cat K) Cat_cart A' A))
   (k : τ (Obj K))
   (H : τ (Functor (Fibre_cat A k) (Fibre_cat B k)))
   (a' a'' : τ (Obj (Fibre_cat A' k)))
@@ -15496,10 +15570,10 @@ assert [K : Cat]
     (Fibre_cat A' k)
     (Fibre_cat B k)
     (@fapp0
-      (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
-      (Functor_cat (Fibre_cat A' k) (Fibre_cat B k))
+      (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+      (Functor_cart_cat (Fibre_cat A' k) (Fibre_cat B k))
       (@tapp0_fapp0
-        K Cat_cat
+        K Cat_cart
         (@Functor_catd K A B)
         (@Functor_catd K A' B)
         k
@@ -15513,17 +15587,17 @@ assert [K : Cat]
       (@fapp0
         (Fibre_cat A' k)
         (Fibre_cat A k)
-        (@tapp0_fapp0 (Op_cat K) Cat_cat A' A k L)
+        (@tapp0_fapp0 (Op_cat K) Cat_cart A' A k (@strict_transfor (Op_cat K) Cat_cart A' A L))
         a')
       (@fapp0
         (Fibre_cat A' k)
         (Fibre_cat A k)
-        (@tapp0_fapp0 (Op_cat K) Cat_cat A' A k L)
+        (@tapp0_fapp0 (Op_cat K) Cat_cart A' A k (@strict_transfor (Op_cat K) Cat_cart A' A L))
         a'')
       (@fapp1_fapp0
         (Fibre_cat A' k)
         (Fibre_cat A k)
-        (@tapp0_fapp0 (Op_cat K) Cat_cat A' A k L)
+        (@tapp0_fapp0 (Op_cat K) Cat_cart A' A k (@strict_transfor (Op_cat K) Cat_cart A' A L))
         a' a'' alpha);
 
 // Two source maps iterate through generic displayed composition.
@@ -15531,8 +15605,8 @@ symbol direct_mixed_pre2_funcd_check
   [K : Cat]
   [A0 A1 A2 : τ (Catd (Op_cat K))]
   [B : τ (Catd K)]
-  (L1 : τ (Functord A0 A1))
-  (L2 : τ (Functord A1 A2))
+  (L1 : τ (@StrictTransfor (Op_cat K) Cat_cart A0 A1))
+  (L2 : τ (@StrictTransfor (Op_cat K) Cat_cart A1 A2))
   : τ (Functord
       (@Functor_catd K A2 B)
       (@Functor_catd K A0 B))
@@ -15547,8 +15621,8 @@ symbol direct_mixed_pre2_funcd_check
 assert [K : Cat]
   (A0 A1 A2 : τ (Catd (Op_cat K)))
   (B : τ (Catd K))
-  (L1 : τ (Functord A0 A1))
-  (L2 : τ (Functord A1 A2))
+  (L1 : τ (@StrictTransfor (Op_cat K) Cat_cart A0 A1))
+  (L2 : τ (@StrictTransfor (Op_cat K) Cat_cart A1 A2))
   (k : τ (Obj K))
   (H : τ (Functor (Fibre_cat A2 k) (Fibre_cat B k)))
   (a0 : τ (Obj (Fibre_cat A0 k))) ⊢
@@ -15556,10 +15630,10 @@ assert [K : Cat]
     (Fibre_cat A0 k)
     (Fibre_cat B k)
     (@fapp0
-      (Functor_cat (Fibre_cat A2 k) (Fibre_cat B k))
-      (Functor_cat (Fibre_cat A0 k) (Fibre_cat B k))
+      (Functor_cart_cat (Fibre_cat A2 k) (Fibre_cat B k))
+      (Functor_cart_cat (Fibre_cat A0 k) (Fibre_cat B k))
       (@tapp0_fapp0
-        K Cat_cat
+        K Cat_cart
         (@Functor_catd K A2 B)
         (@Functor_catd K A0 B)
         k
@@ -15573,11 +15647,11 @@ assert [K : Cat]
       (@fapp0
         (Fibre_cat A1 k)
         (Fibre_cat A2 k)
-        (@tapp0_fapp0 (Op_cat K) Cat_cat A1 A2 k L2)
+        (@tapp0_fapp0 (Op_cat K) Cat_cart A1 A2 k (@strict_transfor (Op_cat K) Cat_cart A1 A2 L2))
         (@fapp0
           (Fibre_cat A0 k)
           (Fibre_cat A1 k)
-          (@tapp0_fapp0 (Op_cat K) Cat_cat A0 A1 k L1)
+          (@tapp0_fapp0 (Op_cat K) Cat_cart A0 A1 k (@strict_transfor (Op_cat K) Cat_cart A0 A1 L1))
           a0));
 
 // Source variance does not collapse the base category with its opposite.
@@ -15625,7 +15699,7 @@ assert [K : Cat]
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check
         K
         (@Functor_catd K A B)
@@ -15635,8 +15709,8 @@ assert [K : Cat]
       (@Functor_catd_product_funcd K A B C)
     ≡ @id_func
         (Product_cat
-          (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
-          (Functor_cat (Fibre_cat A k) (Fibre_cat C k)));
+          (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+          (Functor_cart_cat (Fibre_cat A k) (Fibre_cat C k)));
 
 // Full and capped base action remain the existing source-product action.
 assert [K : Cat]
@@ -15645,7 +15719,7 @@ assert [K : Cat]
   (x y : τ (Obj K)) ⊢
   @tapp1_func
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check
         K
         (@Functor_catd K A B)
@@ -15655,7 +15729,7 @@ assert [K : Cat]
       (@Functor_catd_product_funcd K A B C)
     ≡ @fapp1_func
         K
-        Cat_cat
+        Cat_cart
         (@Product_catd_transparent_check
           K
           (@Functor_catd K A B)
@@ -15669,7 +15743,7 @@ assert [K : Cat]
   (p : τ (Hom K x y)) ⊢
   @tapp1_fapp0
       K
-      Cat_cat
+      Cat_cart
       (@Product_catd_transparent_check
         K
         (@Functor_catd K A B)
@@ -15680,7 +15754,7 @@ assert [K : Cat]
       p
     ≡ @fapp1_fapp0
         K
-        Cat_cat
+        Cat_cart
         (@Product_catd_transparent_check
           K
           (@Functor_catd K A B)
@@ -15706,7 +15780,7 @@ assert [K : Cat]
           (@Functor_catd K A (@Product_catd_transparent_check K B C))
           k)
         (@tapp0_fapp0
-          K Cat_cat
+          K Cat_cart
           E
           (@Functor_catd K A (@Product_catd_transparent_check K B C))
           k
@@ -15722,7 +15796,7 @@ assert [K : Cat]
           (@fapp0
             (Fibre_cat E k)
             (Fibre_cat (@Functor_catd K A B) k)
-            (@tapp0_fapp0 K Cat_cat E (@Functor_catd K A B) k FF)
+            (@tapp0_fapp0 K Cat_cart E (@Functor_catd K A B) k FF)
             e)
           a)
         (@fapp0
@@ -15731,7 +15805,7 @@ assert [K : Cat]
           (@fapp0
             (Fibre_cat E k)
             (Fibre_cat (@Functor_catd K A C) k)
-            (@tapp0_fapp0 K Cat_cat E (@Functor_catd K A C) k GG)
+            (@tapp0_fapp0 K Cat_cart E (@Functor_catd K A C) k GG)
             e)
           a);
 
@@ -15747,7 +15821,7 @@ symbol direct_mixed_product_pair_left_check
 ≔ @fapp0
     (Fibre_cat E k)
     (Fibre_cat (@Functor_catd K A B) k)
-    (@tapp0_fapp0 K Cat_cat E (@Functor_catd K A B) k FF)
+    (@tapp0_fapp0 K Cat_cart E (@Functor_catd K A B) k FF)
     e;
 
 symbol direct_mixed_product_pair_right_check
@@ -15762,7 +15836,7 @@ symbol direct_mixed_product_pair_right_check
 ≔ @fapp0
     (Fibre_cat E k)
     (Fibre_cat (@Functor_catd K A C) k)
-    (@tapp0_fapp0 K Cat_cat E (@Functor_catd K A C) k GG)
+    (@tapp0_fapp0 K Cat_cart E (@Functor_catd K A C) k GG)
     e;
 
 // Direct inner-arrow evaluation is componentwise; no external naturality
@@ -15786,7 +15860,7 @@ assert [K : Cat]
           (@Functor_catd K A (@Product_catd_transparent_check K B C))
           k)
         (@tapp0_fapp0
-          K Cat_cat
+          K Cat_cart
           E
           (@Functor_catd K A (@Product_catd_transparent_check K B C))
           k
@@ -15880,9 +15954,11 @@ symbol direct_mixed_product_higher_check
   [x y : τ (Obj K)]
   [p q : τ (Hom K x y)]
   (alpha : τ (Hom (Hom_cat K x y) p q))
-  : τ (Transf
+  : τ (Obj (Hom_cat
+      (Functor_cart_cat (Fibre_cat (@Product_catd_transparent_check K (@Functor_catd K A B) (@Functor_catd K A C)) x)
+        (Fibre_cat (@Functor_catd K A (@Product_catd_transparent_check K B C)) y))
       (@tapp1_fapp0
-        K Cat_cat
+        K Cat_cart
         (@Product_catd_transparent_check
           K
           (@Functor_catd K A B)
@@ -15892,7 +15968,7 @@ symbol direct_mixed_product_higher_check
         (@Functor_catd_product_funcd K A B C)
         p)
       (@tapp1_fapp0
-        K Cat_cat
+        K Cat_cart
         (@Product_catd_transparent_check
           K
           (@Functor_catd K A B)
@@ -15900,10 +15976,10 @@ symbol direct_mixed_product_higher_check
         (@Functor_catd K A (@Product_catd_transparent_check K B C))
         x y
         (@Functor_catd_product_funcd K A B C)
-        q))
+        q)))
 ≔ @fapp1_fapp0
     (Hom_cat K x y)
-    (Functor_cat
+    (Functor_cart_cat
       (Fibre_cat
         (@Product_catd_transparent_check
           K
@@ -15914,7 +15990,7 @@ symbol direct_mixed_product_higher_check
         (@Functor_catd K A (@Product_catd_transparent_check K B C))
         y))
     (@tapp1_func
-      K Cat_cat
+      K Cat_cart
       (@Product_catd_transparent_check
         K
         (@Functor_catd K A B)
@@ -15983,7 +16059,7 @@ assert [K X : Cat]
   (B : τ (Catd K))
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
-    K Cat_cat
+    K Cat_cart
     (@direct_mixed_comp_source_check K X A B)
     (@Functor_catd K A B)
     k
@@ -16012,9 +16088,9 @@ symbol direct_mixed_comp_left_check
   : τ (Functor (Fibre_cat A k) X)
 ≔ @fapp0
     (Fibre_cat E k)
-    (Functor_cat (Fibre_cat A k) X)
+    (Functor_cart_cat (Fibre_cat A k) X)
     (@tapp0_fapp0
-      K Cat_cat E
+      K Cat_cart E
       (@Functor_catd K A (@Const_catd K X))
       k FF)
     e;
@@ -16031,9 +16107,9 @@ symbol direct_mixed_comp_right_check
   : τ (Functor X (Fibre_cat B k))
 ≔ @fapp0
     (Fibre_cat E k)
-    (Functor_cat X (Fibre_cat B k))
+    (Functor_cart_cat X (Fibre_cat B k))
     (@tapp0_fapp0
-      K Cat_cat E
+      K Cat_cart E
       (@Functor_catd K (@Const_catd (Op_cat K) X) B)
       k GG)
     e;
@@ -16057,9 +16133,9 @@ assert [K X : Cat]
     (Fibre_cat B k)
     (@fapp0
       (Fibre_cat E k)
-      (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
+      (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
       (@tapp0_fapp0
-        K Cat_cat E (@Functor_catd K A B) k
+        K Cat_cart E (@Functor_catd K A B) k
         (@direct_mixed_comp_pair_funcd_check K X E A B FF GG))
       e)
     a
@@ -16093,9 +16169,9 @@ assert [K X : Cat]
     (Fibre_cat B k)
     (@fapp0
       (Fibre_cat E k)
-      (Functor_cat (Fibre_cat A k) (Fibre_cat B k))
+      (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
       (@tapp0_fapp0
-        K Cat_cat E (@Functor_catd K A B) k
+        K Cat_cart E (@Functor_catd K A B) k
         (@direct_mixed_comp_pair_funcd_check K X E A B FF GG))
       e)
     a a' alpha
@@ -16126,7 +16202,7 @@ assert [K X : Cat]
   [x y : τ (Obj K)]
   (p : τ (Hom K x y)) ⊢
   @tapp1_fapp0
-    K Cat_cat
+    K Cat_cart
     (@direct_mixed_comp_source_check K X A B)
     (@Functor_catd K A B)
     x y
@@ -16181,24 +16257,26 @@ symbol direct_mixed_comp_higher_check
   [x y : τ (Obj K)]
   [p q : τ (Hom K x y)]
   (theta : τ (Hom (Hom_cat K x y) p q))
-  : τ (Transf
+  : τ (Obj (Hom_cat
+      (Functor_cart_cat (Fibre_cat (@direct_mixed_comp_source_check K X A B) x)
+        (Fibre_cat (@Functor_catd K A B) y))
       (@tapp1_fapp0
-        K Cat_cat
+        K Cat_cart
         (@direct_mixed_comp_source_check K X A B)
         (@Functor_catd K A B)
         x y (@Functor_comp_pair_funcd K X A B) p)
       (@tapp1_fapp0
-        K Cat_cat
+        K Cat_cart
         (@direct_mixed_comp_source_check K X A B)
         (@Functor_catd K A B)
-        x y (@Functor_comp_pair_funcd K X A B) q))
+        x y (@Functor_comp_pair_funcd K X A B) q)))
 ≔ @fapp1_fapp0
     (Hom_cat K x y)
-    (Functor_cat
+    (Functor_cart_cat
       (Fibre_cat (@direct_mixed_comp_source_check K X A B) x)
       (Fibre_cat (@Functor_catd K A B) y))
     (@tapp1_func
-      K Cat_cat
+      K Cat_cart
       (@direct_mixed_comp_source_check K X A B)
       (@Functor_catd K A B)
       x y (@Functor_comp_pair_funcd K X A B))
@@ -16216,12 +16294,12 @@ assertnot [K X : Cat]
 
 assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K)) (k : τ (Obj K)) ⊢
   Fibre_cat (Functor_catd A B) k
-    ≡ Functor_cat (Fibre_cat A k) (Fibre_cat B k);
+    ≡ Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k);
 
 assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K)) ⊢
   @fapp0 (Catd_cat K) (Catd_cat K)
     (@fapp0
-      (Op_cat (Catd_cat (Op_cat K)))
+      (Op_cat (Functor_cart_cat (Op_cat K) Cat_cart))
       (Functor_cat (Catd_cat K) (Catd_cat K))
       (@Functor_catd_func K)
       A)
@@ -16229,32 +16307,32 @@ assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K)) ⊢
     ≡ Functor_catd A B;
 
 assert [K : Cat] (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (Obj (Pi_cat E)))
   (k : τ (Obj K)) ⊢
   Fibre_cat (Hom_catd E X Y) k
     ≡ Hom_cat
         (Fibre_cat E k)
-        (@piapp0 K (@Op_catd K E) X k)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X k)
         (@piapp0 K E Y k);
 
 assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K))
-  (FF : τ (Obj (Pi_cat (Op_catd (Functor_catd A B)))))
+  (FF : τ (Obj (Pi_cat (TotalOp_catd (Functor_catd A B)))))
   (GG : τ (Obj (Pi_cat (Functor_catd A B))))
   (k : τ (Obj K)) ⊢
   Fibre_cat (Transf_catd A B FF GG) k
-    ≡ Transf_cat
-        (@piapp0 K (@Op_catd K (@Functor_catd K A B)) FF k)
+    ≡ Hom_cat (Functor_cart_cat (Fibre_cat A k) (Fibre_cat B k))
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K (@Functor_catd K A B)) FF k)
         (@piapp0 K (@Functor_catd K A B) GG k);
 
 assert [K : Cat]
-  (X : τ (Obj (Pi_cat (Op_catd (Const_catd K Cat_cat)))))
-  (Y : τ (Obj (Pi_cat (Const_catd K Cat_cat)))) ⊢
-  Hom_catd (Const_catd K Cat_cat) X Y
-    ≡ Functor_catd (@Op_func K (Op_cat Cat_cat) X) Y;
+  (X : τ (Obj (Pi_cat (TotalOp_catd (Const_catd K Cat_cart)))))
+  (Y : τ (Obj (Pi_cat (Const_catd K Cat_cart)))) ⊢
+  Hom_catd (Const_catd K Cat_cart) X Y
+    ≡ Functor_catd (@TotalOp_func (CoAbove2_cat K) (TotalOp_cat Cat_cart) X) Y;
 
 assert [K : Cat] (A : τ (Catd (Op_cat K))) (B : τ (Catd K))
-  (FF : τ (Obj (Pi_cat (Op_catd (Functor_catd A B)))))
+  (FF : τ (Obj (Pi_cat (TotalOp_catd (Functor_catd A B)))))
   (GG : τ (Obj (Pi_cat (Functor_catd A B)))) ⊢
   Hom_catd (Functor_catd A B) FF GG
     ≡ Transf_catd A B FF GG;
@@ -16268,19 +16346,19 @@ assert [Z : Cat] (x : τ (Obj Z)) ⊢
     ≡ @Sigma_cat Z (@Rep_catd Z x);
 
 assert [Z : Cat] (x : τ (Obj Z)) ⊢
-  @fapp0 (Op_cat Z) Cat_cat (@PathOut_cat_func Z) x
+  @fapp0 (Op_cat Z) Cat_cart (@PathOut_cat_func Z) x
     ≡ @PathOut_cat Z x;
 
 assert [Z : Cat] (x : τ (Obj Z)) ⊢
   @eq_refl Cat_grpd (Fibre_cat (@PathOutMotives_catd Z) x)
   : τ (@= Cat_grpd
       (Fibre_cat (@PathOutMotives_catd Z) x)
-      (@Catd_cat (@PathOut_cat Z x)));
+      (Functor_cart_cat (@PathOut_cat Z x) Cat_cart));
 
 assert [Z : Cat] (x : τ (Obj Z)) ⊢
   @fapp0
     (@Catd_cat (@PathOut_cat Z x))
-    Cat_cat
+    Cat_cart
     (@pathout_refl_eval_func Z x)
     (@Rep_catd (@PathOut_cat Z x) (@pathout_refl_obj Z x))
     ≡ @Fibre_cat
@@ -16291,22 +16369,26 @@ assert [Z : Cat] (x : τ (Obj Z)) ⊢
 assert [Z : Cat] (x : τ (Obj Z)) ⊢
   @tapp0_fapp0
     Z
-    Cat_cat
+    Cat_cart
     (@PathOutMotives_catd Z)
-    (@Const_catd Z Cat_cat)
+    (@Const_catd Z Cat_cart)
     x
     (@PathOutReflEval_funcd Z)
-    ≡ @pathout_refl_eval_func Z x;
+    ≡ @comp_cat_fapp0
+        (Functor_cart_cat (@PathOut_cat Z x) Cat_cart)
+        (Catd_cat (@PathOut_cat Z x)) Cat_cart
+        (@pathout_refl_eval_func Z x)
+        (Functor_cart_include (@PathOut_cat Z x) Cat_cart);
 
 assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
   (E : τ (Catd (@PathOut_cat Z x))) ⊢
   Fibre_cat
     (@fapp0
-      (@Catd_cat (@PathOut_cat Z x))
-      (@Catd_cat (@PathOut_cat Z y))
+      (Functor_cart_cat (@PathOut_cat Z x) Cat_cart)
+      (Functor_cart_cat (@PathOut_cat Z y) Cat_cart)
       (@fapp1_fapp0
         Z
-        Cat_cat
+        Cat_cart
         (@PathOutMotives_catd Z)
         x
         y
@@ -16315,26 +16397,31 @@ assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
     (@pathout_refl_obj Z y)
     ≡ Fibre_cat E (@pathout_obj Z x y p);
 
+// Whole Cartesian reindexing and the stable pullback are compared
+// at proof time; their object and Hom actions compute directly.
 assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
   (E : τ (Catd (@PathOut_cat Z x))) ⊢
-  @pathout_motive_transport_obj Z x y p E
-    ≡ @fapp0
-        (@Catd_cat (@PathOut_cat Z x))
-        (@Catd_cat (@PathOut_cat Z y))
+  @eq_refl (Catd (@PathOut_cat Z y))
+    (@pathout_motive_transport_obj Z x y p E)
+  : τ (@= (Catd (@PathOut_cat Z y))
+      (@pathout_motive_transport_obj Z x y p E)
+      (@fapp0
+        (Functor_cart_cat (@PathOut_cat Z x) Cat_cart)
+        (Functor_cart_cat (@PathOut_cat Z y) Cat_cart)
         (@fapp1_fapp0
           Z
-          Cat_cat
+          Cat_cart
           (@PathOutMotives_catd Z)
           x
           y
           p)
-        E;
+        E));
 
 assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) ⊢
   @PathOut_transport_func Z x y p
     ≡ @fapp1_fapp0
         (Op_cat Z)
-        Cat_cat
+        Cat_cart
         (@PathOut_cat_func Z)
         y
         x
@@ -16520,7 +16607,7 @@ assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
   @pathout_refl_eval_base_func Z x y p E
     ≡ @fapp1_fapp0
         (@PathOut_cat Z x)
-        Cat_cat
+        Cat_cart
         E
         (@pathout_refl_obj Z x)
         (@pathout_obj Z x y p)
@@ -16551,18 +16638,22 @@ assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
 assert [Z : Cat] (x : τ (Obj Z)) ⊢
   @tapp0_fapp0
     Z
-    Cat_cat
+    Cat_cart
     (@PathOutMotives_catd Z)
-    (@Const_catd Z Cat_cat)
+    (@Const_catd Z Cat_cart)
     x
     (@PathOutPi_funcd Z)
-    ≡ @Pi_func (@PathOut_cat Z x);
+    ≡ @comp_cat_fapp0
+        (Functor_cart_cat (@PathOut_cat Z x) Cat_cart)
+        (Catd_cat (@PathOut_cat Z x)) Cat_cart
+        (@Pi_func (@PathOut_cat Z x))
+        (Functor_cart_include (@PathOut_cat Z x) Cat_cart);
 
 assert [Z : Cat] ⊢
   @PathOutPi_funcd Z
     ≡ @Pi_pullback_funcd
         Z
-        (@Op_func (Op_cat Z) Cat_cat (@PathOut_cat_func Z));
+        (@Op_func (Op_cat Z) Cat_cart (@PathOut_cat_func Z));
 
 assert [Z : Cat] (x : τ (Obj Z)) (E : τ (Catd (@PathOut_cat Z x))) ⊢
   Fibre_cat (@PathIndTgt_catd Z) (Struct_sigma x E)
@@ -16663,14 +16754,14 @@ assert [Z : Cat] (x : τ (Obj Z))
   (η : τ (Functord E D)) ⊢
   @fapp1_fapp0
     (@Catd_cat (@PathOut_cat Z x))
-    Cat_cat
+    Cat_cart
     (@pathout_refl_eval_func Z x)
     E
     D
     η
     ≡ @tapp0_fapp0
         (@PathOut_cat Z x)
-        Cat_cat
+        Cat_cart
         E
         D
         (@pathout_refl_obj Z x)
@@ -16678,7 +16769,7 @@ assert [Z : Cat] (x : τ (Obj Z))
 
 assert [Z : Cat] (D : τ (Catd Z)) (x : τ (Obj Z)) ⊢
   Fibre_cat (@FibCov_target_catd Z D) x
-    ≡ @Functord_cat Z (@Rep_catd Z x) D;
+    ≡ Hom_cat (Functor_cart_cat Z Cat_cart) (@Rep_catd Z x) D;
 
 assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
   (E : τ (Catd (@PathOut_cat Z x)))
@@ -16701,50 +16792,80 @@ assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
           u)
         (@pathout_refl_arrow Z x y p);
 
-assert [Z : Cat] (x : τ (Obj (Op_cat Z))) (y : τ (Obj Z)) ⊢
-  @fapp0 Z Cat_cat
-    (@fapp0 (Op_cat Z) (Catd_cat Z) (@Edge_catd_func Z) x)
-    y
-    ≡ Op_cat (Hom_cat Z x y);
+// Moving-motive action agrees with its existing pullback at the whole Hom
+// and capped arrow levels, not only after evaluating a fibre object.
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
+  (E : τ (Catd (@PathOut_cat Z x)))
+  (a b : τ (Obj (@PathOut_cat Z y))) ⊢
+  @fapp1_func (@PathOut_cat Z y) Cat_cart
+    (fapp0 (@fapp1_fapp0 Z Cat_cart (@PathOutMotives_catd Z) x y p) E)
+    a b
+  ≡ @fapp1_func (@PathOut_cat Z y) Cat_cart
+      (@pathout_motive_transport_obj Z x y p E) a b;
 
-assert [Z : Cat] (x : τ (Obj Z)) (y : τ (Obj (Op_cat Z))) ⊢
-  Fibre_cat (@fapp0 Z (Catd_cat (Op_cat Z)) (@HomPresheaf_catd_func Z) x) y
-    ≡ Functor_cat (Op_cat (Hom_cat Z x y)) Cat_cat;
+assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
+  (E : τ (Catd (@PathOut_cat Z x)))
+  (a b : τ (Obj (@PathOut_cat Z y)))
+  (q : τ (Hom (@PathOut_cat Z y) a b)) ⊢
+  @fapp1_fapp0 (@PathOut_cat Z y) Cat_cart
+    (fapp0 (@fapp1_fapp0 Z Cat_cart (@PathOutMotives_catd Z) x y p) E)
+    a b q
+  ≡ @fapp1_fapp0 (@PathOut_cat Z y) Cat_cart
+      (@pathout_motive_transport_obj Z x y p E) a b q;
+
+// The whole stable heads are compared at proof time; evaluating them does
+// not install an eager fold from every represented composite to Pullback.
+assertnot [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y))
+  (E : τ (Catd (@PathOut_cat Z x))) ⊢
+  @pathout_motive_transport_obj Z x y p E
+  ≡ fapp0 (@fapp1_fapp0 Z Cat_cart (@PathOutMotives_catd Z) x y p) E;
+
+// The legacy edge/presheaf classifiers retain their corrected shifted bases.
+assert [Z : Cat] (x : τ (Obj (CoAt2_cat (Op_cat Z))))
+  (y : τ (Obj (CoAt2_cat Z))) ⊢
+  @fapp0 (CoAt2_cat Z) Cat_cart
+    (@fapp0 (CoAt2_cat (Op_cat Z))
+      (Functor_cart_cat (CoAt2_cat Z) Cat_cart) (@Edge_catd_func Z) x) y
+  ≡ Op_cat (Hom_cat Z x y);
+
+assert [Z : Cat] (x : τ (Obj (CoAt2_cat Z)))
+  (y : τ (Obj (Op_cat (CoAt2_cat Z)))) ⊢
+  Fibre_cat
+    (@fapp0 (CoAt2_cat Z) (Catd_cat (Op_cat (CoAt2_cat Z)))
+      (@HomPresheaf_catd_func Z) x) y
+  ≡ Functor_cart_cat (Op_cat (Hom_cat Z x y)) Cat_cart;
+
+// The corrected whole Homd target uses the actual Q-diagram transformation
+// category, replacing the former ordinary Pi/Functor_catd target.
+assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
+  @Homd_target_section_cat Z E x
+  ≡ @Transf_cat Z Homd_coeff_cat (@Homd_coeff_diagram Z E)
+      (@Homd_coeff_diagram Z (@hom_ Z Z (@id_func Z) x));
 
 assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
-  @Homd_target_section_catd Z E x
-    ≡ @Functor_catd
-        (Op_cat Z)
-        E
-        (@fapp0 Z (Catd_cat (Op_cat Z)) (@HomPresheaf_catd_func Z) x);
-
-assert [Z : Cat] (E : τ (Catd Z)) (x : τ (Obj Z)) ⊢
-  @fapp0 Z Cat_cat (@Homd_target_catd Z E) x
-    ≡ Pi_cat
-        (Functor_catd
-          E
-          (@fapp0 Z (Catd_cat (Op_cat Z)) (@HomPresheaf_catd_func Z) x));
+  @fapp0 Z Cat_cart (@Homd_target_catd Z E) x
+  ≡ Op_cat (@Homd_target_section_cat Z E x);
 
 assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
   Fibre_cat (@FibCov_target_catd K E) x
-    ≡ @Functord_cat K (@hom_ K K (@id_func K) x) E;
+    ≡ Hom_cat (Functor_cart_cat K Cat_cart) (@hom_ K K (@id_func K) x) E;
 
 assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
   Obj (Fibre_cat (@FibCov_target_catd K E) x)
-    ≡ @Functord K (@hom_ K K (@id_func K) x) E;
+    ≡ @StrictTransfor K Cat_cart (@hom_ K K (@id_func K) x) E;
 
 assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K)) ⊢
   @eq_refl Cat_grpd
-    (@Transf_cat K Cat_cat (@hom_ K K (@id_func K) x) E)
+    (@Transf_cat K Cat_cart (@hom_ K K (@id_func K) x) E)
   : τ (@= Cat_grpd
-      (@Transf_cat K Cat_cat (@hom_ K K (@id_func K) x) E)
+      (@Transf_cat K Cat_cart (@hom_ K K (@id_func K) x) E)
       (@Functord_cat K (@hom_ K K (@id_func K) x) E));
 
 assert [K : Cat] (E : τ (Catd K))
   (x : τ (Obj K)) ⊢
   @tapp0_fapp0
     K
-    Cat_cat
+    Cat_cart
     E
     (@FibCov_target_catd K E)
     x
@@ -16762,19 +16883,20 @@ assert [K : Cat] (E : τ (Catd K))
   (u : τ (Obj (Fibre_cat E x))) ⊢
   @tapp0_fapp0
     K
-    Cat_cat
+    Cat_cart
     (@hom_ K K (@id_func K) x)
     E
     y
-    (@fib_cov_transf K E x u)
+    (@strict_transfor K Cat_cart (@hom_ K K (@id_func K) x) E
+      (@fib_cov_transf K E x u))
     ≡ @fib_cov_tapp0_func K E x y u;
 
 assert [K : Cat] (E : τ (Catd K)) ⊢
-  @Op_funcd K E E (@id_funcd K E)
-    ≡ @id_funcd K (@Op_catd K E);
+  @Op_funcd K E E (@id (Functor_cart_cat K Cat_cart) E)
+    ≡ @id (Functor_cart_cat (CoAt2_cat K) Cat_cart) (@Op_catd K E);
 
-assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) ⊢
-  @Op_funcd K (@Op_catd K E) (@Op_catd K D) (@Op_funcd K E D FF)
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Hom (Functor_cart_cat K Cat_cart) E D)) ⊢
+  @Op_funcd (CoAt2_cat K) (@Op_catd K E) (@Op_catd K D) (@Op_funcd K E D FF)
     ≡ FF;
 
 assert [K : Cat] (E D C : τ (Catd K))
@@ -16810,27 +16932,27 @@ assert [K : Cat] (E D : τ (Catd K))
   @comp_catd_fapp0 K E D D (@id_funcd K D) GG
     ≡ GG;
 
-assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Hom (Functor_cart_cat K Cat_cart) E D))
   (x : τ (Obj K)) ⊢
   @tapp0_fapp0
-    K
-    Cat_cat
+    (CoAt2_cat K)
+    Cat_cart
     (@Op_catd K E)
     (@Op_catd K D)
     x
-    (@Op_funcd K E D FF)
+    (@strict_transfor _ _ _ _ (@Op_funcd K E D FF))
     ≡ @Op_func
         (Fibre_cat E x)
         (Fibre_cat D x)
-        (@tapp0_fapp0 K Cat_cat E D x FF);
+        (@tapp0_fapp0 K Cat_cart E D x (@strict_transfor K Cat_cart E D FF));
 
 assert [K : Cat] (E : τ (Catd K)) (y : τ (Obj K)) ⊢
-  @tapp0_fapp0 K Cat_cat E E y (@id_funcd K E)
+  @tapp0_fapp0 K Cat_cart E E y (@id_funcd K E)
     ≡ @id_func (Fibre_cat E y);
 
 assert [K : Cat] (E : τ (Catd K)) (y : τ (Obj K)) ⊢
-  @tapp0_fapp0 K Cat_cat E E y (@id (@Catd_cat K) E)
-    ≡ @id Cat_cat (@fapp0 K Cat_cat E y);
+  @tapp0_fapp0 K Cat_cart E E y (@id (@Catd_cat K) E)
+    ≡ @id Cat_cart (@fapp0 K Cat_cart E y);
 
 assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   (ϵ : τ (@Transfd K E D FF GG)) ⊢
@@ -16849,7 +16971,7 @@ assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) ⊢
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D)) ⊢
   @tdapp1_int_fapp0_transfd K E D FF FF
-    (@id (@Transf_cat K Cat_cat E D) FF)
+    (@id (@Transf_cat K Cat_cart E D) FF)
     ≡ @fdapp1_int_transfd K E D FF;
 
 assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E))) ⊢
@@ -16914,7 +17036,7 @@ assert [K : Cat] (E D : τ (Catd K))
   (FF GG : τ (Functord E D))
   (eta : τ (Transfd FF GG))
   (z : τ (Obj K)) ⊢
-  @tapp0_hom_fapp0 K Cat_cat E D FF GG z eta
+  @tapp0_hom_fapp0 K Cat_cart E D FF GG z eta
     ≡ @tdapp0_fapp0 K E D FF GG z eta;
 
 // Generic displayed horizontal action projects to the existing ordinary
@@ -16951,29 +17073,25 @@ assert [K : Cat]
         W X Z
         FG FG' theta)
   ≡ @comp_prod_fapp1_fapp0
-      Cat_cat
+      Cat_cart
       (Fibre_cat W k)
       (Fibre_cat X k)
       (Fibre_cat Z k)
       (@Product_pair
-        (Functor_cat (Fibre_cat W k) (Fibre_cat X k))
-        (Functor_cat (Fibre_cat X k) (Fibre_cat Z k))
+        (Functor_cart_cat (Fibre_cat W k) (Fibre_cat X k))
+        (Functor_cart_cat (Fibre_cat X k) (Fibre_cat Z k))
         (@Fibre_func K W X (sigma_Fst FG) k)
         (@Fibre_func K X Z (sigma_Snd FG) k))
       (@Product_pair
-        (Functor_cat (Fibre_cat W k) (Fibre_cat X k))
-        (Functor_cat (Fibre_cat X k) (Fibre_cat Z k))
+        (Functor_cart_cat (Fibre_cat W k) (Fibre_cat X k))
+        (Functor_cart_cat (Fibre_cat X k) (Fibre_cat Z k))
         (@Fibre_func K W X (sigma_Fst FG') k)
         (@Fibre_func K X Z (sigma_Snd FG') k))
       (@Product_pair
-        (@Transf_cat
-          (Fibre_cat W k)
-          (Fibre_cat X k)
+        (Hom_cat (Functor_cart_cat (Fibre_cat W k) (Fibre_cat X k))
           (@Fibre_func K W X (sigma_Fst FG) k)
           (@Fibre_func K W X (sigma_Fst FG') k))
-        (@Transf_cat
-          (Fibre_cat X k)
-          (Fibre_cat Z k)
+        (Hom_cat (Functor_cart_cat (Fibre_cat X k) (Fibre_cat Z k))
           (@Fibre_func K X Z (sigma_Snd FG) k)
           (@Fibre_func K X Z (sigma_Snd FG') k))
         (@tdapp0_fapp0
@@ -16996,15 +17114,15 @@ assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   @tdapp0_fapp0
       K E D FF FF z (@id (@Functord_cat K E D) FF)
     ≡ @id
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
         (@Fibre_func K E D FF z);
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (z : τ (Obj K)) ⊢
   @tdapp0_fapp0
-      K E D FF FF z (@id (@Transf_cat K Cat_cat E D) FF)
+      K E D FF FF z (@id (@Transf_cat K Cat_cart E D) FF)
     ≡ @id
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
         (@Fibre_func K E D FF z);
 
 // Displayed vertical composition projects pointwise at the stable displayed
@@ -17018,7 +17136,7 @@ assert [K : Cat] (E D : τ (Catd K))
       (@Functord_cat K E D)
       FF GG HH eta epsilon)
   ≡ @comp_fapp0
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
       (@Fibre_func K E D FF z)
       (@Fibre_func K E D GG z)
       (@Fibre_func K E D HH z)
@@ -17033,10 +17151,10 @@ assert [K : Cat] (E D : τ (Catd K))
   (z : τ (Obj K)) ⊢
   @tdapp0_fapp0 K E D FF HH z
     (@comp_fapp0
-      (@Transf_cat K Cat_cat E D)
+      (@Transf_cat K Cat_cart E D)
       FF GG HH eta epsilon)
   ≡ @comp_fapp0
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
       (@Fibre_func K E D FF z)
       (@Fibre_func K E D GG z)
       (@Fibre_func K E D HH z)
@@ -17050,15 +17168,15 @@ assert [K : Cat] (E D : τ (Catd K))
   (eta : τ (Transfd GG HH)) (epsilon : τ (Transfd FF GG))
   (z : τ (Obj K)) ⊢
   @fapp1_fapp0
-      (@Transf_cat K Cat_cat E D)
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-      (@tapp0_func K Cat_cat E D z)
+      (@Transf_cat K Cat_cart E D)
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+      (@tapp0_func K Cat_cart E D z)
       FF HH
       (@comp_fapp0
-        (@Transf_cat K Cat_cat E D)
+        (@Transf_cat K Cat_cart E D)
         FF GG HH eta epsilon)
   ≡ @comp_fapp0
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
       (@Fibre_func K E D FF z)
       (@Fibre_func K E D GG z)
       (@Fibre_func K E D HH z)
@@ -17072,23 +17190,23 @@ assert [K : Cat] (E D : τ (Catd K))
   (eta : τ (Transfd GG HH)) (epsilon : τ (Transfd FF GG))
   (z : τ (Obj K)) ⊢
   @comp_fapp0
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
       (@Fibre_func K E D FF z)
       (@Fibre_func K E D GG z)
       (@Fibre_func K E D HH z)
       (@fapp1_fapp0
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-        (@tapp0_func K Cat_cat E D z)
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+        (@tapp0_func K Cat_cart E D z)
         GG HH eta)
       (@fapp1_fapp0
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-        (@tapp0_func K Cat_cat E D z)
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+        (@tapp0_func K Cat_cart E D z)
         FF GG epsilon)
   ≡ @tdapp0_fapp0 K E D FF HH z
       (@comp_fapp0
-        (@Transf_cat K Cat_cat E D)
+        (@Transf_cat K Cat_cart E D)
         FF GG HH eta epsilon);
 
 // The projection beta is coherent with the existing generic right-identity
@@ -17111,8 +17229,8 @@ assert [K : Cat] (E D : τ (Catd K))
   (z : τ (Obj K)) ⊢
   @tdapp0_fapp0 K E D FF GG z
     (@comp_fapp0
-      (@Transf_cat K Cat_cat E D)
-      FF GG GG (@id (@Transf_cat K Cat_cat E D) GG) eta)
+      (@Transf_cat K Cat_cart E D)
+      FF GG GG (@id (@Transf_cat K Cat_cart E D) GG) eta)
   ≡ @tdapp0_fapp0 K E D FF GG z eta;
 
 // Product-valued target normalization must not prevent selection of the
@@ -17135,7 +17253,7 @@ assert [K A B C : Cat]
           (@Const_catd K (Product_cat A B)))
         FF GG HH eta epsilon)
   ≡ @comp_fapp0
-      (Functor_cat C (Product_cat A B))
+      (Functor_cart_cat C (Product_cat A B))
       (@Fibre_func K
         (@Const_catd K C)
         (@Const_catd K (Product_cat A B)) FF z)
@@ -17164,10 +17282,10 @@ assert [K : Cat] (E D : τ (Catd K))
       (@Fibre_func K E D FF z)
       (@Fibre_func K E D HH z)
       u
-      (@tdapp0_fapp0 K E D FF HH z
+      (@strict_transfor _ _ _ _ (@tdapp0_fapp0 K E D FF HH z
         (@comp_fapp0
           (@Functord_cat K E D)
-          FF GG HH eta epsilon))
+          FF GG HH eta epsilon)))
   ≡ @comp_fapp0
       (Fibre_cat D z)
       (@fapp0
@@ -17191,14 +17309,14 @@ assert [K : Cat] (E D : τ (Catd K))
         (@Fibre_func K E D GG z)
         (@Fibre_func K E D HH z)
         u
-        (@tdapp0_fapp0 K E D GG HH z eta))
+        (@strict_transfor _ _ _ _ (@tdapp0_fapp0 K E D GG HH z eta)))
       (@tapp0_fapp0
         (Fibre_cat E z)
         (Fibre_cat D z)
         (@Fibre_func K E D FF z)
         (@Fibre_func K E D GG z)
         u
-        (@tdapp0_fapp0 K E D FF GG z epsilon));
+        (@strict_transfor _ _ _ _ (@tdapp0_fapp0 K E D FF GG z epsilon)));
 
 // Cat-valued component evaluation retains its full hom functor through the
 // stable displayed component projection.
@@ -17206,61 +17324,63 @@ assert [K : Cat] (E D : τ (Catd K))
   (FF GG : τ (Functord E D))
   (z : τ (Obj K)) ⊢
   @fapp1_func
-    (@Transf_cat K Cat_cat E D)
-    (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-    (@tapp0_func K Cat_cat E D z)
+    (@Transf_cat K Cat_cart E D)
+    (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+    (@tapp0_func K Cat_cart E D z)
     FF
     GG
   ≡ @tdapp0_func K E D FF GG z;
 
-// Component evaluation does not silently impose pre/right naturality on an
-// arbitrary outer transfor.
-assertnot [K : Cat] (E D : τ (Catd K))
+// Projecting the component before accumulating the strict pre/right leg computes.
+assert [K : Cat] (E D : τ (Catd K))
   (FF GG HH : τ (Functord E D))
   (z : τ (Obj K))
   (G : τ (Functor
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))))
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))))
   (epsilon : τ (@Transf
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-        (@tapp0_func K Cat_cat E D z)
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+        (@tapp0_func K Cat_cart E D z)
         G))
   (f : τ (Transfd GG HH))
   (g : τ (Transfd FF GG)) ⊢
-  comp_fapp0
+  @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+    (fapp0 (@tapp0_func K Cat_cart E D z) FF)
+    (fapp0 (@tapp0_func K Cat_cart E D z) GG)
+    (fapp0 G HH)
     (@tapp1_fapp0
-      (@Transf_cat K Cat_cat E D)
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-      (@tapp0_func K Cat_cat E D z)
+      (@Transf_cat K Cat_cart E D)
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+      (@tapp0_func K Cat_cart E D z)
       G GG HH epsilon f)
     (@tdapp0_fapp0 K E D FF GG z g)
   ≡ @tapp1_fapp0
-      (@Transf_cat K Cat_cat E D)
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-      (@tapp0_func K Cat_cat E D z)
+      (@Transf_cat K Cat_cart E D)
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+      (@tapp0_func K Cat_cart E D z)
       G FF HH epsilon
       (@comp_fapp0
-        (@Transf_cat K Cat_cat E D)
+        (@Transf_cat K Cat_cart E D)
         FF GG HH f g);
 
-// Product-valued target reduction does not restore that retired cut.
-assertnot [K A B C : Cat]
+// The same component projection order with a product-valued target.
+assert [K A B C : Cat]
   (FF GG HH : τ (Functord
         (@Const_catd K C)
         (@Const_catd K (Product_cat A B))))
   (z : τ (Obj K))
   (G : τ (Functor
-        (@Transf_cat K Cat_cat
+        (@Transf_cat K Cat_cart
           (@Const_catd K C)
           (@Const_catd K (Product_cat A B)))
-        (Functor_cat C (Product_cat A B))))
+        (Functor_cart_cat C (Product_cat A B))))
   (epsilon : τ (@Transf
-        (@Transf_cat K Cat_cat
+        (@Transf_cat K Cat_cart
           (@Const_catd K C)
           (@Const_catd K (Product_cat A B)))
-        (Functor_cat C (Product_cat A B))
-        (@tapp0_func K Cat_cat
+        (Functor_cart_cat C (Product_cat A B))
+        (@tapp0_func K Cat_cart
           (@Const_catd K C)
           (@Const_catd K (Product_cat A B)) z)
         G))
@@ -17270,13 +17390,20 @@ assertnot [K A B C : Cat]
   (g : τ (@Transfd K
         (@Const_catd K C)
         (@Const_catd K (Product_cat A B)) FF GG)) ⊢
-  comp_fapp0
+  @comp_fapp0 (Functor_cart_cat C (Product_cat A B))
+    (fapp0 (@tapp0_func K Cat_cart
+          (@Const_catd K C)
+          (@Const_catd K (Product_cat A B)) z) FF)
+    (fapp0 (@tapp0_func K Cat_cart
+          (@Const_catd K C)
+          (@Const_catd K (Product_cat A B)) z) GG)
+    (fapp0 G HH)
     (@tapp1_fapp0
-      (@Transf_cat K Cat_cat
+      (@Transf_cat K Cat_cart
         (@Const_catd K C)
         (@Const_catd K (Product_cat A B)))
-      (Functor_cat C (Product_cat A B))
-      (@tapp0_func K Cat_cat
+      (Functor_cart_cat C (Product_cat A B))
+      (@tapp0_func K Cat_cart
         (@Const_catd K C)
         (@Const_catd K (Product_cat A B)) z)
       G GG HH epsilon f)
@@ -17284,16 +17411,16 @@ assertnot [K A B C : Cat]
       (@Const_catd K C)
       (@Const_catd K (Product_cat A B)) FF GG z g)
   ≡ @tapp1_fapp0
-      (@Transf_cat K Cat_cat
+      (@Transf_cat K Cat_cart
         (@Const_catd K C)
         (@Const_catd K (Product_cat A B)))
-      (Functor_cat C (Product_cat A B))
-      (@tapp0_func K Cat_cat
+      (Functor_cart_cat C (Product_cat A B))
+      (@tapp0_func K Cat_cart
         (@Const_catd K C)
         (@Const_catd K (Product_cat A B)) z)
       G FF HH epsilon
       (@comp_fapp0
-        (@Transf_cat K Cat_cat
+        (@Transf_cat K Cat_cart
           (@Const_catd K C)
           (@Const_catd K (Product_cat A B)))
         FF GG HH f g);
@@ -17303,55 +17430,61 @@ assertnot [K : Cat] (E D : τ (Catd K))
   (FF GG HH : τ (Functord E D))
   (z : τ (Obj K))
   (F : τ (Functor
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))))
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))))
   (epsilon : τ (@Transf
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
         F
-        (@tapp0_func K Cat_cat E D z)))
+        (@tapp0_func K Cat_cart E D z)))
   (g : τ (Transfd GG HH))
   (f : τ (Transfd FF GG)) ⊢
-  comp_fapp0
+  @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+    (fapp0 F FF)
+    (fapp0 (@tapp0_func K Cat_cart E D z) GG)
+    (fapp0 (@tapp0_func K Cat_cart E D z) HH)
     (@tdapp0_fapp0 K E D GG HH z g)
     (@tapp1_fapp0
-      (@Transf_cat K Cat_cat E D)
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-      F (@tapp0_func K Cat_cat E D z)
+      (@Transf_cat K Cat_cart E D)
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+      F (@tapp0_func K Cat_cart E D z)
       FF GG epsilon f)
   ≡ @tapp1_fapp0
-      (@Transf_cat K Cat_cat E D)
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-      F (@tapp0_func K Cat_cat E D z)
+      (@Transf_cat K Cat_cart E D)
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+      F (@tapp0_func K Cat_cart E D z)
       FF HH epsilon
       (@comp_fapp0
-        (@Transf_cat K Cat_cat E D)
+        (@Transf_cat K Cat_cart E D)
         FF GG HH g f);
 
-// Normal-lax identity projection does not recreate pre/right strictness.
-assertnot [K : Cat] (E D : τ (Catd K))
+// Identity specialization after the off-diagonal action has projected.
+assert [K : Cat] (E D : τ (Catd K))
   (FF GG : τ (Functord E D))
   (z : τ (Obj K))
   (G : τ (Functor
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))))
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))))
   (epsilon : τ (@Transf
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-        (@tapp0_func K Cat_cat E D z)
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+        (@tapp0_func K Cat_cart E D z)
         G))
   (g : τ (Transfd FF GG)) ⊢
-  comp_fapp0
+  @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+    (fapp0 (@tapp0_func K Cat_cart E D z) FF)
+    (fapp0 (@tapp0_func K Cat_cart E D z) GG)
+    (fapp0 G GG)
     (@tapp0_fapp0
-      (@Transf_cat K Cat_cat E D)
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-      (@tapp0_func K Cat_cat E D z)
+      (@Transf_cat K Cat_cart E D)
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+      (@tapp0_func K Cat_cart E D z)
       G GG epsilon)
     (@tdapp0_fapp0 K E D FF GG z g)
   ≡ @tapp1_fapp0
-      (@Transf_cat K Cat_cat E D)
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-      (@tapp0_func K Cat_cat E D z)
+      (@Transf_cat K Cat_cart E D)
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+      (@tapp0_func K Cat_cart E D z)
       G FF GG epsilon g;
 
 // Nor does it recreate the post/left mirror.
@@ -17359,67 +17492,70 @@ assertnot [K : Cat] (E D : τ (Catd K))
   (FF GG : τ (Functord E D))
   (z : τ (Obj K))
   (F : τ (Functor
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))))
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))))
   (epsilon : τ (@Transf
-        (@Transf_cat K Cat_cat E D)
-        (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
+        (@Transf_cat K Cat_cart E D)
+        (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
         F
-        (@tapp0_func K Cat_cat E D z)))
+        (@tapp0_func K Cat_cart E D z)))
   (g : τ (Transfd FF GG)) ⊢
-  comp_fapp0
+  @comp_fapp0 (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+    (fapp0 F FF)
+    (fapp0 (@tapp0_func K Cat_cart E D z) FF)
+    (fapp0 (@tapp0_func K Cat_cart E D z) GG)
     (@tdapp0_fapp0 K E D FF GG z g)
     (@tapp0_fapp0
-      (@Transf_cat K Cat_cat E D)
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-      F (@tapp0_func K Cat_cat E D z)
+      (@Transf_cat K Cat_cart E D)
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+      F (@tapp0_func K Cat_cart E D z)
       FF epsilon)
   ≡ @tapp1_fapp0
-      (@Transf_cat K Cat_cat E D)
-      (Functor_cat (Fibre_cat E z) (Fibre_cat D z))
-      F (@tapp0_func K Cat_cat E D z)
+      (@Transf_cat K Cat_cart E D)
+      (Functor_cart_cat (Fibre_cat E z) (Fibre_cat D z))
+      F (@tapp0_func K Cat_cart E D z)
       FF GG epsilon g;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (z : τ (Obj K)) ⊢
   @Fibre_func K E D FF z
-    ≡ @tapp0_fapp0 K Cat_cat E D z FF;
+    ≡ @tapp0_fapp0 K Cat_cart E D z FF;
 
 assert [K : Cat] (E : τ (Catd K)) (z : τ (Obj K)) ⊢
   @Fibre_func K E E (@id_funcd K E) z
     ≡ @id_func (Fibre_cat E z);
 
-assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Hom (Functor_cart_cat K Cat_cart) E D))
   (z : τ (Obj K)) ⊢
   @Fibre_func
-    K
+    (CoAt2_cat K)
     (@Op_catd K E)
     (@Op_catd K D)
-    (@Op_funcd K E D FF)
+    (@strict_transfor _ _ _ _ (@Op_funcd K E D FF))
     z
     ≡ @Op_func
         (Fibre_cat E z)
         (Fibre_cat D z)
-        (@Fibre_func K E D FF z);
+        (@Fibre_func K E D (@strict_transfor K Cat_cart E D FF) z);
 
-assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Hom (Functor_cart_cat K Cat_cart) E D))
   (z : τ (Obj K))
   (u : τ (Obj (Fibre_cat (@Op_catd K E) z))) ⊢
   @fapp0
     (Fibre_cat (@Op_catd K E) z)
     (Fibre_cat (@Op_catd K D) z)
-    (@Fibre_func K (@Op_catd K E) (@Op_catd K D) (@Op_funcd K E D FF) z)
+    (@Fibre_func (CoAt2_cat K) (@Op_catd K E) (@Op_catd K D) (@strict_transfor _ _ _ _ (@Op_funcd K E D FF)) z)
     u
     ≡ @fapp0
         (Fibre_cat E z)
         (Fibre_cat D z)
-        (@Fibre_func K E D FF z)
+        (@Fibre_func K E D (@strict_transfor K Cat_cart E D FF) z)
         u;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   (ϵ : τ (@Transfd K E D FF GG)) (z : τ (Obj K)) ⊢
   @Fibre_transf K E D FF GG ϵ z
-    ≡ @tdapp0_fapp0 K E D FF GG z ϵ;
+    ≡ @strict_transfor _ _ _ _ (@tdapp0_fapp0 K E D FF GG z ϵ);
 
 assert [K : Cat] (E D : τ (Catd K)) (FF GG : τ (Functord E D))
   (ϵ : τ (@Transfd K E D FF GG))
@@ -17438,7 +17574,7 @@ assert [K : Cat] (E : τ (Catd K))
   (x y : τ (Obj K))
   (p : τ (Hom K x y)) ⊢
   @catd_transport_func K E x y p
-    ≡ @fapp1_fapp0 K Cat_cat E x y p;
+    ≡ @fapp1_fapp0 K Cat_cart E x y p;
 
 assert [K : Cat] (E : τ (Catd K))
   (x y z : τ (Obj K))
@@ -17528,42 +17664,42 @@ assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K))
   (p : τ (Hom K x y)) ⊢
   @functord_transport_func K E D FF x y p
-    ≡ @tapp1_fapp0 K Cat_cat E D x y FF p;
+    ≡ @tapp1_fapp0 K Cat_cart E D x y FF p;
 
-// The ambient left/source route remains the selected lax action.
+// The ambient pre/right route is the selected conventional-lax action.
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K)) ⊢
-  @functord_transport_lhs_tele_agrees K E D FF x y
+  @functord_transport_rhs_tele_agrees K E D FF x y
   : τ (@=
       (Hom
-        Cat_cat
+        Cat_cart
         (@Hom_cat K x y)
-        (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
-      (@functord_transport_lhs_tele_func K E D FF x y)
-      (@tapp1_func K Cat_cat E D x y FF));
+        (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
+      (@functord_transport_rhs_tele_func K E D FF x y)
+      (@tapp1_func K Cat_cart E D x y FF));
 
-// The right/target route is available only through a strict displayed profile.
+// The old strict displayed wrapper observes that same selected route.
 assert [K : Cat] [E D : τ (Catd K)]
   (S : τ (@StrictFunctord K E D))
   (x y : τ (Obj K)) ⊢
   @strict_functord_transport_rhs_tele_path K E D S x y
   : τ (@=
       (Hom
-        Cat_cat
+        Cat_cart
         (@Hom_cat K x y)
-        (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
-      (@tapp1_func K Cat_cat E D x y (@strict_functord K E D S))
+        (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D y)))
+      (@tapp1_func K Cat_cart E D x y (@strict_functord K E D S))
       (@functord_transport_rhs_tele_func
         K E D (@strict_functord K E D S) x y));
 
-// Evaluation at p retains the ambient left/source comparison.
+// Evaluation at p retains the selected pre/right comparison.
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K))
   (p : τ (Hom K x y)) ⊢
-  @functord_transport_lhs_agrees K E D FF x y p
+  @functord_transport_rhs_agrees K E D FF x y p
   : τ (@=
-      (Hom Cat_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
-      (@functord_transport_lhs_func K E D FF x y p)
+      (Hom Cat_cart (@Fibre_cat K E x) (@Fibre_cat K D y))
+      (@functord_transport_rhs_func K E D FF x y p)
       (@functord_transport_func K E D FF x y p));
 
 assert [K : Cat] [E D : τ (Catd K)]
@@ -17572,7 +17708,7 @@ assert [K : Cat] [E D : τ (Catd K)]
   (p : τ (Hom K x y)) ⊢
   @strict_functord_transport_rhs_path K E D S x y p
   : τ (@=
-      (Hom Cat_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
+      (Hom Cat_cart (@Fibre_cat K E x) (@Fibre_cat K D y))
       (@functord_transport_func
         K E D (@strict_functord K E D S) x y p)
       (@functord_transport_rhs_func
@@ -17590,7 +17726,7 @@ assert [K : Cat] [E D : τ (Catd K)]
     (@functord_laxity_transf K E D FF x y p)
     (strict x y p)
   : τ (@=
-      (Hom Cat_cat (@Fibre_cat K E x) (@Fibre_cat K D y))
+      (Hom Cat_cart (@Fibre_cat K E x) (@Fibre_cat K D y))
       (@functord_transport_lhs_func K E D FF x y p)
       (@functord_transport_rhs_func K E D FF x y p));
 
@@ -17598,12 +17734,12 @@ assert [K : Cat] [E D : τ (Catd K)]
 assertnot [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K)) ⊢
   @functord_transport_lhs_tele_func K E D FF x y
-  ≡ @tapp1_func K Cat_cat E D x y FF;
+  ≡ @tapp1_func K Cat_cart E D x y FF;
 
 assertnot [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K)) ⊢
   @functord_transport_rhs_tele_func K E D FF x y
-  ≡ @tapp1_func K Cat_cat E D x y FF;
+  ≡ @tapp1_func K Cat_cart E D x y FF;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K))
@@ -17659,7 +17795,7 @@ assertnot [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
         u;
 
 assert [K : Cat] [E D : τ (Catd K)]
-  (U : τ (@StrictTransfor K Cat_cat E D))
+  (U : τ (@StrictTransfor K Cat_cart E D))
   (x y : τ (Obj K))
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x))) ⊢
@@ -17667,17 +17803,17 @@ assert [K : Cat] [E D : τ (Catd K)]
     (Fibre_cat E x)
     (Fibre_cat D y)
     (@functord_transport_rhs_func
-      K E D (@strict_transfor K Cat_cat E D U) x y p)
+      K E D (@strict_transfor K Cat_cart E D U) x y p)
     u
   ≡ @fapp0
       (Fibre_cat E x)
       (Fibre_cat D y)
       (@functord_transport_func
-        K E D (@strict_transfor K Cat_cat E D U) x y p)
+        K E D (@strict_transfor K Cat_cart E D U) x y p)
       u;
 
 assert [K : Cat] [E D : τ (Catd K)]
-  (U : τ (@StrictTransfor K Cat_cat E D))
+  (U : τ (@StrictTransfor K Cat_cart E D))
   (x y : τ (Obj K))
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x))) ⊢
@@ -17685,16 +17821,16 @@ assert [K : Cat] [E D : τ (Catd K)]
     (Fibre_cat E x)
     (Fibre_cat D y)
     (@functord_transport_lhs_func
-      K E D (@strict_transfor K Cat_cat E D U) x y p)
+      K E D (@strict_transfor K Cat_cart E D U) x y p)
     u
   ≡ @fapp0
       (Fibre_cat E x)
       (Fibre_cat D y)
       (@functord_transport_func
-        K E D (@strict_transfor K Cat_cat E D U) x y p)
+        K E D (@strict_transfor K Cat_cart E D U) x y p)
       u;
 
-assertnot [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
+assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K))
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x))) ⊢
@@ -17710,13 +17846,13 @@ assertnot [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
         u;
 
 assert [K : Cat] (R : τ (Catd K))
-  (FF : τ (Functord R (@Const_catd K Cat_cat)))
+  (FF : τ (Functord R (@Const_catd K Cat_cart)))
   (x y : τ (Obj K))
   (p : τ (Hom K x y))
   (r : τ (Obj (Fibre_cat R x))) ⊢
   @fapp1_fapp0
     (@Sigma_cat K R)
-    Cat_cat
+    Cat_cart
     (@Sigma_catd_functord_catd K R FF)
     (Struct_sigma x r)
     (Struct_sigma y
@@ -17728,12 +17864,16 @@ assert [K : Cat] (R : τ (Catd K))
     (@sigma_transport_arrow K R x y p r)
     ≡ @Sigma_catd_transport_func K R FF x y p r;
 
+// Original public Homd ladder, at the selected Q/index types.
+// User-approved contract (2026-10-25): the five terminal constant presentations
+// are whole proof-time comparisons. Runtime leaf/higher/inverse cuts remain.
+
 assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
   (x : τ (Obj Z)) ⊢
   @tapp0_fapp0
     Z
-    Cat_cat
-    (@Op_catd Z E)
+    Cat_cart
+    E
     (@Homd_target_catd Z D)
     x
     (@homd_int Z D E FF)
@@ -17743,7 +17883,7 @@ assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
   (x : τ (Obj Z)) ⊢
   @Fibre_func
     Z
-    (@Op_catd Z E)
+    E
     (@Homd_target_catd Z D)
     (@homd_int Z D E FF)
     x
@@ -17751,11 +17891,11 @@ assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
 
 assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
   (x : τ (Obj Z))
-  (u : τ (Obj (Fibre_cat (@Op_catd Z E) x))) ⊢
+  (u : τ (Obj (Fibre_cat E x))) ⊢
   @fapp0
-    (Fibre_cat (@Op_catd Z E) x)
+    (Fibre_cat E x)
     (Fibre_cat (@Homd_target_catd Z D) x)
-    (@Fibre_func Z (@Op_catd Z E) (@Homd_target_catd Z D) (@homd_int Z D E FF) x)
+    (@Fibre_func Z E (@Homd_target_catd Z D) (@homd_int Z D E FF) x)
     u
     ≡ @homd_src_sec Z D E FF x u;
 
@@ -17763,8 +17903,8 @@ assert [Z : Cat] (E : τ (Catd Z))
   (x : τ (Obj Z)) ⊢
   @tapp0_fapp0
     Z
-    Cat_cat
-    (@Op_catd Z E)
+    Cat_cart
+    E
     (@Homd_target_catd Z E)
     x
     (@homd_int Z E E (@id_funcd Z E))
@@ -17788,96 +17928,112 @@ assert [Z : Cat] (E : τ (Catd Z))
     ≡ @homd_src_sec Z E E (@id_funcd Z E) x u;
 
 assert [K : Cat] (x : τ (Obj K)) ⊢
-  @homd_src_func K
+ @eq_refl (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
+  (@homd_src_func K
     (@Const_catd K Terminal_cat)
     (@Const_catd K Terminal_cat)
     (@id_funcd K (@Const_catd K Terminal_cat))
-    x
-    ≡ @Obj_func
-        (Pi_cat (@Homd_target_section_catd K (@Const_catd K Terminal_cat) x))
+    x)
+ : τ (@= (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
+  (@homd_src_func K
+    (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat))
+    x)
+  (@Obj_func
+        (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
         (@homd_src_sec K
           (@Const_catd K Terminal_cat)
           (@Const_catd K Terminal_cat)
           (@id_funcd K (@Const_catd K Terminal_cat))
           x
-          Terminal_obj);
+          Terminal_obj)));
 
 assert [K : Cat] (x : τ (Obj K)) ⊢
-  @Fibre_func
+ @eq_refl (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
+  (@Fibre_func
     K
-    (@Op_catd K (@Const_catd K Terminal_cat))
+    (@Const_catd K Terminal_cat)
     (@Homd_target_catd K (@Const_catd K Terminal_cat))
     (@homd_int
       K
       (@Const_catd K Terminal_cat)
       (@Const_catd K Terminal_cat)
       (@id_funcd K (@Const_catd K Terminal_cat)))
-    x
-    ≡ @Obj_func
-        (Pi_cat (@Homd_target_section_catd K (@Const_catd K Terminal_cat) x))
+    x)
+ : τ (@= (Functor Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)))
+  (@Fibre_func
+    K
+    (@Const_catd K Terminal_cat)
+    (@Homd_target_catd K (@Const_catd K Terminal_cat))
+    (@homd_int
+      K
+      (@Const_catd K Terminal_cat)
+      (@Const_catd K Terminal_cat)
+      (@id_funcd K (@Const_catd K Terminal_cat)))
+    x)
+  (@Obj_func
+        (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))
         (@homd_src_sec K
           (@Const_catd K Terminal_cat)
           (@Const_catd K Terminal_cat)
           (@id_funcd K (@Const_catd K Terminal_cat))
           x
-          Terminal_obj);
+          Terminal_obj)));
 
 assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
   (x y : τ (Obj Z))
   (u : τ (Obj (Fibre_cat E x))) ⊢
-  @piapp0
-    (Op_cat Z)
-    (@Functor_catd
-      (Op_cat Z)
-      D
-      (@fapp0 Z (Catd_cat (Op_cat Z)) (@HomPresheaf_catd_func Z) x))
-    (@homd_src_sec Z D E FF x u)
-    y
+  @tapp0_fapp0 Z Homd_coeff_cat (@Homd_coeff_diagram Z D)
+      (@Homd_coeff_diagram Z (@hom_ Z Z (@id_func Z) x)) y
+      (@homd_src_sec Z D E FF x u)
     ≡ @homd_tgt_func Z D E FF x u y;
 
 assert [Z : Cat] (E : τ (Catd Z))
   (x y : τ (Obj Z))
   (u : τ (Obj (Fibre_cat E x))) ⊢
-  @piapp0
-    (Op_cat Z)
-    (@Functor_catd
-      (Op_cat Z)
-      E
-      (@fapp0 Z (Catd_cat (Op_cat Z)) (@HomPresheaf_catd_func Z) x))
-    (@homd_src_sec Z E E (@id_funcd Z E) x u)
-    y
+  @tapp0_fapp0 Z Homd_coeff_cat (@Homd_coeff_diagram Z E)
+      (@Homd_coeff_diagram Z (@hom_ Z Z (@id_func Z) x)) y
+      (@homd_src_sec Z E E (@id_funcd Z E) x u)
     ≡ @homd_tgt_func Z E E (@id_funcd Z E) x u y;
 
 assert [Z : Cat] (E : τ (Catd Z))
   (x y : τ (Obj Z))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y))) ⊢
-  fapp0 (@homd_tgt_func Z E E (@id_funcd Z E) x u y) v
-    ≡ @homd_ Z E E (@id_funcd Z E) x u y v;
+  @homd_index_presheaf (Hom_cat Z x y)
+    (fapp0 (@homd_tgt_func Z E E (@id_funcd Z E) x u y) v)
+  ≡ @homd_ Z E E (@id_funcd Z E) x u y v;
 
 assert [K : Cat] (x y : τ (Obj K)) ⊢
-  @homd_tgt_func K
+ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@homd_tgt_func K
     (@Const_catd K Terminal_cat)
     (@Const_catd K Terminal_cat)
     (@id_funcd K (@Const_catd K Terminal_cat))
     x
     Terminal_obj
-    y
-    ≡ @Obj_func
-        (Fibre_cat
-          (@fapp0 K (Catd_cat (Op_cat K)) (@HomPresheaf_catd_func K) x)
-          y)
-        (@Terminal_catd (Op_cat (Hom_cat K x y)));
+    y)
+ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@homd_tgt_func K
+    (@Const_catd K Terminal_cat)
+    (@Const_catd K Terminal_cat)
+    (@id_funcd K (@Const_catd K Terminal_cat))
+    x
+    Terminal_obj
+    y)
+  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))))));
 
 assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
   (x y : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x))) ⊢
-  @homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y
-    ≡ @Obj_func
-        (Fibre_cat
-          (@fapp0 K (Catd_cat (Op_cat K)) (@HomPresheaf_catd_func K) x)
-          y)
-        (@homd_
+ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y)
+ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y)
+  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
           K
           E
           E
@@ -17885,21 +18041,21 @@ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
           x
           u
           y
-          (@piapp0 K E s y));
+          (@piapp0 K E s y)))));
 
 assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
   (x y : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x))) ⊢
-  @piapp0
-    (Op_cat K)
-    (@Homd_target_section_catd K (@Const_catd K Terminal_cat) x)
-    (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u)
-    y
-    ≡ @Obj_func
-        (Fibre_cat
-          (@fapp0 K (Catd_cat (Op_cat K)) (@HomPresheaf_catd_func K) x)
-          y)
-        (@homd_
+ @eq_refl (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u))
+ : τ (@= (Functor Terminal_cat (Homd_index_cat (Hom_cat K x y)))
+  (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u))
+  (@Obj_func (Homd_index_cat (Hom_cat K x y))
+        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_
           K
           E
           E
@@ -17907,13 +18063,14 @@ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
           x
           u
           y
-          (@piapp0 K E s y));
+          (@piapp0 K E s y)))));
 
 assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
   (x y : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x))) ⊢
-  fapp0 (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y) Terminal_obj
-    ≡ @homd_
+  @homd_index_presheaf (Hom_cat K x y)
+    (fapp0 (@homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y) Terminal_obj)
+  ≡ @homd_
         K
         E
         E
@@ -17927,20 +18084,19 @@ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
 
 assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
   (x y : τ (Obj K)) ⊢
-  fapp0
-    (@piapp0
-      (Op_cat K)
-      (@Homd_target_section_catd K (@Const_catd K Terminal_cat) x)
+  @homd_index_presheaf (Hom_cat K x y)
+    (fapp0
+    (@tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
       (@homd_src_sec
         K
         (@Const_catd K Terminal_cat)
         E
         s
         x
-        (@piapp0 K E s x))
-      y)
-    Terminal_obj
-    ≡ @homd_
+        (@piapp0 K E s x)))
+    Terminal_obj)
+  ≡ @homd_
         K
         E
         E
@@ -17949,6 +18105,24 @@ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
         (@piapp0 K E s x)
         y
         (@piapp0 K E s y);
+
+// Actual whole relative component for a general lax section. This is
+// qualified independently of the stronger legacy terminal-source eta claim.
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y
+  ≡ @comp_cat_fapp0 Terminal_cat (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (@homd_id_tgt_func K E x u y)
+      (@Fibre_func K (@Const_catd K Terminal_cat) E s y);
+
+assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))
+  (x y : τ (Obj K)) (u : τ (Obj (Fibre_cat E x))) ⊢
+  @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+    (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u)
+  ≡ @comp_cat_fapp0 Terminal_cat (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+      (@homd_id_tgt_func K E x u y)
+      (@Fibre_func K (@Const_catd K Terminal_cat) E s y);
 
 // catalog-area: Categorical-universe direct equality-valued
 
@@ -18020,10 +18194,12 @@ assertnot [A : Cat] ⊢
     (@omega_equiv_refl Cat_cat A)
   ≡ tt;
 
-// catalog-area: auto
+// Original Homd leaf and intrinsic-action observations at the native P(I) types.
+// General FF remains lax; only its fibre Hom is viewed through Cat_cart.
 
 assert [K : Cat] (x y : τ (Obj K)) ⊢
-  fapp0
+  @homd_index_presheaf (Hom_cat K x y)
+    (fapp0
     (@homd_tgt_func K
       (@Const_catd K Terminal_cat)
       (@Const_catd K Terminal_cat)
@@ -18031,15 +18207,16 @@ assert [K : Cat] (x y : τ (Obj K)) ⊢
       x
       Terminal_obj
       y)
-    Terminal_obj
-    ≡ @Terminal_catd (Op_cat (Hom_cat K x y));
+    Terminal_obj)
+  ≡ @Terminal_catd (Op_cat (Hom_cat K x y));
 
 assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
   (x y : τ (Obj Z))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat D y))) ⊢
-  fapp0 (@homd_tgt_func Z D E FF x u y) v
-    ≡ @homd_ Z D E FF x u y v;
+  @homd_index_presheaf (Hom_cat Z x y)
+    (fapp0 (@homd_tgt_func Z D E FF x u y) v)
+  ≡ @homd_ Z D E FF x u y v;
 
 assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
   (x y : τ (Obj Z))
@@ -18051,7 +18228,7 @@ assert [Z : Cat] (D E : τ (Catd Z)) (FF : τ (Functord D E))
         (@fapp0
           (Fibre_cat D y)
           (Fibre_cat E y)
-          (@tapp0_fapp0 Z Cat_cat D E y FF)
+          (@tapp0_fapp0 Z Cat_cart D E y FF)
         v)
         (Hom_cat Z x y)
         (@fib_cov_tapp0_func Z E x y u);
@@ -18074,8 +18251,8 @@ assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   fapp0
     (@fdapp1_int_hom_func K E D FF x y p u _)
     (@id
-      (@fapp0 K Cat_cat E y)
-      (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u))
+      (@fapp0 K Cat_cart E y)
+      (fapp0 (@fapp1_fapp0 K Cat_cart E x y p) u))
     ≡ @fdapp1_int_cell K E D FF x y p u;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
@@ -18085,10 +18262,10 @@ assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   fapp0
     (@fdapp1_int_hom_func
       K E D FF x y p u
-      (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u))
+      (fapp0 (@fapp1_fapp0 K Cat_cart E x y p) u))
     (@id
-      (@fapp0 K Cat_cat E y)
-      (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u))
+      (@fapp0 K Cat_cart E y)
+      (fapp0 (@fapp1_fapp0 K Cat_cart E x y p) u))
     ≡ @fdapp1_int_cell K E D FF x y p u;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
@@ -18104,14 +18281,14 @@ assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
     y
     p
     u
-    (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u)
+    (fapp0 (@fapp1_fapp0 K Cat_cart E x y p) u)
     (@id
-      (@fapp0 K Cat_cat E y)
-      (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u))
+      (@fapp0 K Cat_cart E y)
+      (fapp0 (@fapp1_fapp0 K Cat_cart E x y p) u))
     ≡ @fdapp1_int_cell K E D FF x y p u;
 
-// Terminal-source displayed laxity now compares with ordinary action only at
-// proof time; the transparent theorem exercises the typed unification rule.
+// The existing constant-index computation recovers the ordinary strict
+// functor action. Its retained theorem observes the same equality.
 assert [K A : Cat]
   (s : τ (Functord
       (@Const_catd K Terminal_cat)
@@ -18130,8 +18307,8 @@ assert [K A : Cat]
         s x y p Terminal_obj)
       (@fapp1_fapp0 K A s x y p));
 
-// The comparison deliberately does not select a runtime normal form.
-assertnot [K A : Cat]
+// This selected constant-family case now computes to the actual arrow s[p].
+assert [K A : Cat]
   (s : τ (Functord
       (@Const_catd K Terminal_cat)
       (@Const_catd K A)))
@@ -18147,57 +18324,41 @@ assertnot [K A : Cat]
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x))) ⊢
-  @Fibre_transf_app
-    K
-    (@Op_catd K E)
-    (@Homd_target_catd K E)
+  @Fibre_transf_app K E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E))
+    (@comp_catd_fapp0 K E D (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K E)) (@homd_int K E D FF) FF)
     (@homd_int K E E (@id_funcd K E))
-    (@comp_catd_fapp0
-      K
-      (@Op_catd K E)
-      (@Op_catd K D)
-      (@Homd_target_catd K E)
-      (@homd_int K E D FF)
-      (@Op_funcd K E D FF))
-    (@fdapp1_int_transfd K E D FF)
-    x
-    u
-    ≡ @fdapp1_int_section_arrow K E D FF x u;
+    (@fdapp1_int_transfd K E D FF) x u
+  ≡ @fdapp1_int_section_arrow K E D FF x u;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x))) ⊢
-  tapp0_fapp0
-    Terminal_obj
-    (tdapp0_fapp0 y (@fdapp1_int_section_arrow K E D FF x u))
-    ≡ @fdapp1_int_tgt_arrow K E D FF x u y;
+  @tapp0_hom_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K E)
+    (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x))
+    (@homd_id_src_sec K E x u) (@homd_ff_src_sec K E D FF x u) y
+    (@fdapp1_int_section_arrow K E D FF x u)
+  ≡ @fdapp1_int_tgt_arrow K E D FF x u y;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y))) ⊢
-  @tapp0_fapp0
-    (Fibre_cat E y)
-    (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
-    (@homd_id_tgt_func K E x u y)
-    (@homd_ff_tgt_func K E D FF x u y)
-    v
-    (@fdapp1_int_tgt_arrow K E D FF x u y)
-    ≡ @fdapp1_int_presheaf_arrow K E D FF x u y v;
+  @tapp0_fapp0 (Fibre_cat E y) (Homd_index_cat (Hom_cat K x y))
+    (@homd_id_tgt_func K E x u y) (@homd_ff_tgt_func K E D FF x u y) v
+    (@strict_transfor _ _ _ _ (@fdapp1_int_tgt_arrow K E D FF x u y))
+  ≡ @fdapp1_int_presheaf_arrow K E D FF x u y v;
 
 assert [K : Cat] (E D : τ (Catd K)) (FF : τ (Functord E D))
   (x y : τ (Obj K))
   (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y))) ⊢
-  @fapp1_fapp0
-    (Functor_cat (Op_cat (Hom_cat K x y)) Cat_cat)
-    Cat_cat
-    (@fapp0_func (Op_cat (Hom_cat K x y)) Cat_cat p)
-    (fapp0 (@homd_id_tgt_func K E x u y) v)
+  @fapp1_fapp0 (Functor_cat (Hom_cat K x y) (Op_cat Cat_cart)) (Op_cat Cat_cart)
+    (@fapp0_func (Hom_cat K x y) (Op_cat Cat_cart) p)
     (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)
+    (fapp0 (@homd_id_tgt_func K E x u y) v)
     (@fdapp1_int_presheaf_arrow K E D FF x u y v)
-    ≡ @fdapp1_int_hom_func K E D FF x y p u v;
+  ≡ @fdapp1_int_hom_func K E D FF x y p u v;
 
 assert [K : Cat] (E : τ (Catd K))
   (s : τ (Obj (Pi_cat E)))
@@ -18220,6 +18381,13 @@ assert [K : Cat] (E : τ (Catd K))
         (@piapp0 K E s x)
         y
         (@piapp0 K E s y);
+
+// The constant-family specialization does not collapse a general base loop.
+assertnot [K A : Cat] (F : τ (Functor K A))
+  (x : τ (Obj K)) (p : τ (Hom K x x)) ⊢
+  @fdapp1_int_cell K (@Const_catd K Terminal_cat) (@Const_catd K A)
+    F x x p Terminal_obj
+  ≡ @id A (@fapp0 K A F x);
 
 // Cat-valued profunctor facade and representable hom action.
 assert [A B : Cat] ⊢
@@ -18265,7 +18433,7 @@ assert [A B X : Cat]
   (b b' : τ (Obj B)) ⊢
   @fapp1_func
     (Product_cat (Op_cat A) B)
-    Cat_cat
+    Cat_cart
     (@Hom_prof_along A B X F G)
     (Struct_sigma a b)
     (Struct_sigma a' b')
@@ -18283,7 +18451,7 @@ assert [A B X : Cat]
   (q : τ (Hom B b b')) ⊢
   @fapp1_fapp0
     (Product_cat (Op_cat A) B)
-    Cat_cat
+    Cat_cart
     (@Hom_prof_along A B X F G)
     (Struct_sigma a b)
     (Struct_sigma a' b')
@@ -18308,7 +18476,7 @@ assert [A B X : Cat]
   fapp0
     (@fapp1_fapp0
       (Product_cat (Op_cat A) B)
-      Cat_cat
+      Cat_cart
       (@Hom_prof_along A B X F G)
       (Struct_sigma a b)
       (Struct_sigma a' b')
@@ -18343,7 +18511,7 @@ assert [X : Cat]
   fapp0
     (@fapp1_func
       (Product_cat (Op_cat X) X)
-      Cat_cat
+      Cat_cart
       (@Unit_prof X)
       (Struct_sigma x y)
       (Struct_sigma x' y'))
@@ -18359,7 +18527,7 @@ assert [X : Cat]
     (fapp0
       (@fapp1_func
         (Product_cat (Op_cat X) X)
-        Cat_cat
+        Cat_cart
         (@Unit_prof X)
         (Struct_sigma x y)
         (Struct_sigma x' y'))
@@ -18373,7 +18541,7 @@ assert [X : Cat]
   (q : τ (Hom X y y')) ⊢
   @fapp1_fapp0
     (Product_cat (Op_cat X) X)
-    Cat_cat
+    Cat_cart
     (@Unit_prof X)
     (Struct_sigma x y)
     (Struct_sigma x' y')
@@ -18382,44 +18550,44 @@ assert [X : Cat]
 
 // Generic displayed Hom action: full/capped/point projection ladder.
 assert [K : Cat] (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (Obj (Pi_cat E)))
   (x y : τ (Obj K))
   (p : τ (Hom K x y)) ⊢
-  fapp0 (@fapp1_func K Cat_cat (@Hom_catd K E X Y) x y) p
-  ≡ @fapp1_fapp0 K Cat_cat (@Hom_catd K E X Y) x y p;
+  fapp0 (@fapp1_func K Cat_cart (@Hom_catd K E X Y) x y) p
+  ≡ @fapp1_fapp0 K Cat_cart (@Hom_catd K E X Y) x y p;
 
 assert [K : Cat] (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (Obj (Pi_cat E)))
   (x y : τ (Obj K))
   (p : τ (Hom K x y))
   (h : τ (Hom
       (Fibre_cat E x)
-      (@piapp0 K (@Op_catd K E) X x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
       (@piapp0 K E Y x))) ⊢
-  fapp0 (@fapp1_fapp0 K Cat_cat (@Hom_catd K E X Y) x y p) h
+  fapp0 (@fapp1_fapp0 K Cat_cart (@Hom_catd K E X Y) x y p) h
   ≡ @Hom_catd_fapp1_fapp0_point K E X Y x y p h;
 
 // Identity and composition agree before and after consuming the fibre arrow.
 assert [K : Cat] (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (Obj (Pi_cat E)))
   (x : τ (Obj K)) ⊢
   @Hom_catd_fapp1_fapp0 K E X Y x x (@id K x)
   ≡ @id_func
       (Hom_cat
         (Fibre_cat E x)
-        (@piapp0 K (@Op_catd K E) X x)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
         (@piapp0 K E Y x));
 
 assert [K : Cat] (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (Obj (Pi_cat E)))
   (x : τ (Obj K))
   (h : τ (Hom
       (Fibre_cat E x)
-      (@piapp0 K (@Op_catd K E) X x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
       (@piapp0 K E Y x))) ⊢
   fapp0
     (@Hom_catd_fapp1_fapp0 K E X Y x x (@id K x))
@@ -18427,7 +18595,7 @@ assert [K : Cat] (E : τ (Catd K))
   ≡ h;
 
 assert [K : Cat] (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (Obj (Pi_cat E)))
   (x y z : τ (Obj K))
   (p : τ (Hom K x y))
@@ -18440,14 +18608,14 @@ assert [K : Cat] (E : τ (Catd K))
       K E X Y x z (@comp_fapp0 K x y z q p);
 
 assert [K : Cat] (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (Obj (Pi_cat E)))
   (x y z : τ (Obj K))
   (p : τ (Hom K x y))
   (q : τ (Hom K y z))
   (h : τ (Hom
       (Fibre_cat E x)
-      (@piapp0 K (@Op_catd K E) X x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
       (@piapp0 K E Y x))) ⊢
   fapp0
     (@Hom_catd_fapp1_fapp0
@@ -18459,174 +18627,234 @@ assert [K : Cat] (E : τ (Catd K))
 
 // Existing classifier folds share the same full and capped action.
 assert [K : Cat]
-  (X : τ (Obj (Pi_cat (Op_catd (Const_catd K Cat_cat)))))
-  (Y : τ (Obj (Pi_cat (Const_catd K Cat_cat))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd (Const_catd K Cat_cart)))))
+  (Y : τ (Obj (Pi_cat (Const_catd K Cat_cart))))
   (x y : τ (Obj K)) ⊢
   @fapp1_func
-    K Cat_cat
-    (@Hom_catd K (@Const_catd K Cat_cat) X Y)
+    K Cat_cart
+    (@Hom_catd K (@Const_catd K Cat_cart) X Y)
     x y
   ≡ @fapp1_func
-      K Cat_cat
-      (@Functor_catd K (@Op_func K (Op_cat Cat_cat) X) Y)
+      K Cat_cart
+      (@Functor_catd K (@TotalOp_func (CoAbove2_cat K) (TotalOp_cat Cat_cart) X) Y)
       x y;
 
 assert [K : Cat]
-  (X : τ (Obj (Pi_cat (Op_catd (Const_catd K Cat_cat)))))
-  (Y : τ (Obj (Pi_cat (Const_catd K Cat_cat))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd (Const_catd K Cat_cart)))))
+  (Y : τ (Obj (Pi_cat (Const_catd K Cat_cart))))
   (x y : τ (Obj K))
   (p : τ (Hom K x y)) ⊢
   @fapp1_fapp0
-    K Cat_cat
-    (@Hom_catd K (@Const_catd K Cat_cat) X Y)
+    K Cat_cart
+    (@Hom_catd K (@Const_catd K Cat_cart) X Y)
     x y p
   ≡ @fapp1_fapp0
-      K Cat_cat
-      (@Functor_catd K (@Op_func K (Op_cat Cat_cat) X) Y)
+      K Cat_cart
+      (@Functor_catd K (@TotalOp_func (CoAbove2_cat K) (TotalOp_cat Cat_cart) X) Y)
       x y p;
 
 assert [K : Cat]
   (A : τ (Catd (Op_cat K)))
   (B : τ (Catd K))
-  (FF : τ (Obj (Pi_cat (Op_catd (Functor_catd A B)))))
+  (FF : τ (Obj (Pi_cat (TotalOp_catd (Functor_catd A B)))))
   (GG : τ (Obj (Pi_cat (Functor_catd A B))))
   (x y : τ (Obj K)) ⊢
   @fapp1_func
-    K Cat_cat (@Transf_catd K A B FF GG) x y
+    K Cat_cart (@Transf_catd K A B FF GG) x y
   ≡ @fapp1_func
-      K Cat_cat
+      K Cat_cart
       (@Hom_catd K (@Functor_catd K A B) FF GG)
       x y;
 
 assert [K : Cat]
   (A : τ (Catd (Op_cat K)))
   (B : τ (Catd K))
-  (FF : τ (Obj (Pi_cat (Op_catd (Functor_catd A B)))))
+  (FF : τ (Obj (Pi_cat (TotalOp_catd (Functor_catd A B)))))
   (GG : τ (Obj (Pi_cat (Functor_catd A B))))
   (x y : τ (Obj K))
   (p : τ (Hom K x y)) ⊢
   @fapp1_fapp0
-    K Cat_cat (@Transf_catd K A B FF GG) x y p
+    K Cat_cart (@Transf_catd K A B FF GG) x y p
   ≡ @fapp1_fapp0
-      K Cat_cat
+      K Cat_cart
       (@Hom_catd K (@Functor_catd K A B) FF GG)
       x y p;
 
-// The inline Unit_prof construction composes with the rigid point for an
-// explicitly strict section. It remains a proof-time semantic comparison,
-// not a judgmental runtime fold for every raw Pi section.
+// Establish the same inline Unit_prof comparison before specializing its
+// positive section to the original strict view. The local proof uses the
+// existing generic comparison; it adds no rule or operational proof input.
 assert [K : Cat] (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (@StrictTransfor
-      K Cat_cat (@Const_catd K Terminal_cat) E))
+      K Cat_cart (@Const_catd K Terminal_cat) E))
   (x y : τ (Obj K))
   (p : τ (Hom K x y))
   (h : τ (Hom
       (Fibre_cat E x)
-      (@piapp0 K (@Op_catd K E) X x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
       (@piapp0 K E
         (@strict_transfor
-          K Cat_cat (@Const_catd K Terminal_cat) E Y)
+          K Cat_cart (@Const_catd K Terminal_cat) E Y)
         x))) ⊢
-  comp_fapp0
-    (@id
-      (Hom_cat
+  let point_comparison : Π (V : τ (Obj (Pi_cat E))), Π (a : τ (Hom (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E V x))),
+      τ (@= (Obj (Hom_cat
         (Fibre_cat E y)
-        (@piapp0 K (@Op_catd K E) X y)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
         (@piapp0 K E
-          (@strict_transfor
-            K Cat_cat (@Const_catd K Terminal_cat) E Y)
-          y))
-      (@fapp0
+          V
+          y)))
+    (@Hom_catd_fapp1_fapp0_point K E X
+      V
+      x y p a)
+    (@fapp0
         (Hom_cat
           (Fibre_cat E y)
           (@fapp0
             (Fibre_cat E x)
             (Fibre_cat E y)
-            (@fapp1_fapp0 K Cat_cat E x y p)
-            (@piapp0 K (@Op_catd K E) X x))
+            (@fapp1_fapp0 K Cat_cart E x y p)
+            (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
           (@fapp0
             (Fibre_cat E x)
             (Fibre_cat E y)
-            (@fapp1_fapp0 K Cat_cat E x y p)
+            (@fapp1_fapp0 K Cat_cart E x y p)
             (@piapp0 K E
-              (@strict_transfor
-                K Cat_cat (@Const_catd K Terminal_cat) E Y)
+              V
               x)))
         (Hom_cat
           (Fibre_cat E y)
-          (@piapp0 K (@Op_catd K E) X y)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
           (@piapp0 K E
-            (@strict_transfor
-              K Cat_cat (@Const_catd K Terminal_cat) E Y)
+            V
             y))
         (@fapp1_fapp0
           (Product_cat (Op_cat (Fibre_cat E y)) (Fibre_cat E y))
-          Cat_cat
+          Cat_cart
           (@Unit_prof (Fibre_cat E y))
           (Struct_sigma
             (@fapp0
               (Fibre_cat E x)
               (Fibre_cat E y)
-              (@fapp1_fapp0 K Cat_cat E x y p)
-              (@piapp0 K (@Op_catd K E) X x))
+              (@fapp1_fapp0 K Cat_cart E x y p)
+              (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
             (@fapp0
               (Fibre_cat E x)
               (Fibre_cat E y)
-              (@fapp1_fapp0 K Cat_cat E x y p)
+              (@fapp1_fapp0 K Cat_cart E x y p)
               (@piapp0 K E
-                (@strict_transfor
-                  K Cat_cat (@Const_catd K Terminal_cat) E Y)
+                V
                 x)))
           (Struct_sigma
-            (@piapp0 K (@Op_catd K E) X y)
+            (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
             (@piapp0 K E
-              (@strict_transfor
-                K Cat_cat (@Const_catd K Terminal_cat) E Y)
+              V
               y))
           (Struct_sigma
-            (@piapp1_fapp0 K (@Op_catd K E) X x y p)
+            (@piapp1_fapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x y p)
             (@piapp1_fapp0 K E
-              (@strict_transfor
-                K Cat_cat (@Const_catd K Terminal_cat) E Y)
+              V
               x y p)))
         (@fapp1_fapp0
           (Fibre_cat E x)
           (Fibre_cat E y)
-          (@fapp1_fapp0 K Cat_cat E x y p)
-          (@piapp0 K (@Op_catd K E) X x)
+          (@fapp1_fapp0 K Cat_cart E x y p)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+          (@piapp0 K E
+            V
+            x)
+          a)))
+    ≔ λ (V : τ (Obj (Pi_cat E))) (a : τ (Hom (Fibre_cat E x)
+      (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+      (@piapp0 K E V x))),
+      @eq_refl (Obj (Hom_cat
+        (Fibre_cat E y)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+        (@piapp0 K E
+          V
+          y)))
+    (@Hom_catd_fapp1_fapp0_point K E X
+      V
+      x y p a)
+  in point_comparison (@strict_transfor K Cat_cart (@Const_catd K Terminal_cat) E Y) h
+  : τ (@= (Obj (Hom_cat
+        (Fibre_cat E y)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+        (@piapp0 K E
+          (@strict_transfor
+            K Cat_cart (@Const_catd K Terminal_cat) E Y)
+          y)))
+    (@Hom_catd_fapp1_fapp0_point K E X
+      (@strict_transfor K Cat_cart (@Const_catd K Terminal_cat) E Y)
+      x y p h)
+    (@fapp0
+        (Hom_cat
+          (Fibre_cat E y)
+          (@fapp0
+            (Fibre_cat E x)
+            (Fibre_cat E y)
+            (@fapp1_fapp0 K Cat_cart E x y p)
+            (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
+          (@fapp0
+            (Fibre_cat E x)
+            (Fibre_cat E y)
+            (@fapp1_fapp0 K Cat_cart E x y p)
+            (@piapp0 K E
+              (@strict_transfor
+                K Cat_cart (@Const_catd K Terminal_cat) E Y)
+              x)))
+        (Hom_cat
+          (Fibre_cat E y)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
           (@piapp0 K E
             (@strict_transfor
-              K Cat_cat (@Const_catd K Terminal_cat) E Y)
+              K Cat_cart (@Const_catd K Terminal_cat) E Y)
+            y))
+        (@fapp1_fapp0
+          (Product_cat (Op_cat (Fibre_cat E y)) (Fibre_cat E y))
+          Cat_cart
+          (@Unit_prof (Fibre_cat E y))
+          (Struct_sigma
+            (@fapp0
+              (Fibre_cat E x)
+              (Fibre_cat E y)
+              (@fapp1_fapp0 K Cat_cart E x y p)
+              (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x))
+            (@fapp0
+              (Fibre_cat E x)
+              (Fibre_cat E y)
+              (@fapp1_fapp0 K Cat_cart E x y p)
+              (@piapp0 K E
+                (@strict_transfor
+                  K Cat_cart (@Const_catd K Terminal_cat) E Y)
+                x)))
+          (Struct_sigma
+            (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X y)
+            (@piapp0 K E
+              (@strict_transfor
+                K Cat_cart (@Const_catd K Terminal_cat) E Y)
+              y))
+          (Struct_sigma
+            (@piapp1_fapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x y p)
+            (@piapp1_fapp0 K E
+              (@strict_transfor
+                K Cat_cart (@Const_catd K Terminal_cat) E Y)
+              x y p)))
+        (@fapp1_fapp0
+          (Fibre_cat E x)
+          (Fibre_cat E y)
+          (@fapp1_fapp0 K Cat_cart E x y p)
+          (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
+          (@piapp0 K E
+            (@strict_transfor
+              K Cat_cart (@Const_catd K Terminal_cat) E Y)
             x)
-          h)))
-    (@id
-      (Hom_cat
-        (Fibre_cat E y)
-        (@piapp0 K (@Op_catd K E) X y)
-        (@piapp0 K E
-          (@strict_transfor
-            K Cat_cat (@Const_catd K Terminal_cat) E Y)
-          y))
-      (@Hom_catd_fapp1_fapp0_point
-        K E X
-        (@strict_transfor
-          K Cat_cat (@Const_catd K Terminal_cat) E Y)
-        x y p h))
-  : τ (Hom
-      (Hom_cat
-        (Fibre_cat E y)
-        (@piapp0 K (@Op_catd K E) X y)
-        (@piapp0 K E
-          (@strict_transfor
-            K Cat_cat (@Const_catd K Terminal_cat) E Y)
-          y))
-      _
-      _);
+          h)));
 
 // An arbitrary base endomorphism does not collapse to identity.
 assertnot [K : Cat] (E : τ (Catd K))
-  (X : τ (Obj (Pi_cat (Op_catd E))))
+  (X : τ (Obj (Pi_cat (TotalOp_catd E))))
   (Y : τ (Obj (Pi_cat E)))
   (x : τ (Obj K))
   (p : τ (Hom K x x)) ⊢
@@ -18634,7 +18862,7 @@ assertnot [K : Cat] (E : τ (Catd K))
   ≡ @id_func
       (Hom_cat
         (Fibre_cat E x)
-        (@piapp0 K (@Op_catd K E) X x)
+        (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x)
         (@piapp0 K E Y x));
 
 assert [A B X : Cat]
@@ -18647,11 +18875,11 @@ assert [A B X : Cat]
       (Product_cat (Op_cat A) B)
       (@Const_catd (Product_cat (Op_cat A) B) X)
       (@comp_cat_fapp0
-        (Product_cat (Op_cat A) B)
-        (Op_cat A)
-        (Op_cat X)
-        (@Op_func A X F)
-        (@Product_projL_func (Op_cat A) B))
+        (Product_cat (TotalOp_cat A) (CoAbove2_cat B))
+        (TotalOp_cat A)
+        (TotalOp_cat X)
+        (@TotalOp_func A X F)
+        (@Product_projL_func (TotalOp_cat A) (CoAbove2_cat B)))
       (@comp_cat_fapp0
         (Product_cat (Op_cat A) B)
         B
@@ -18871,7 +19099,7 @@ assert [A A' B B' : Cat]
   (b b' : τ (Obj B')) ⊢
   @fapp1_func
     (Product_cat (Op_cat A') B')
-    Cat_cat
+    Cat_cart
     (@Prof_reindex A A' B B' R F G)
     (Struct_sigma a b)
     (Struct_sigma a' b')
@@ -18890,14 +19118,14 @@ assert [A A' B B' : Cat]
   (q : τ (Hom B' b b')) ⊢
   @fapp1_fapp0
     (Product_cat (Op_cat A') B')
-    Cat_cat
+    Cat_cart
     (@Prof_reindex A A' B B' R F G)
     (Struct_sigma a b)
     (Struct_sigma a' b')
     (Struct_sigma p q)
   ≡ @fapp1_fapp0
       (Product_cat (Op_cat A) B)
-      Cat_cat
+      Cat_cart
       R
       (Struct_sigma (fapp0 F a) (fapp0 G b))
       (Struct_sigma (fapp0 F a') (fapp0 G b'))
@@ -19458,10 +19686,10 @@ assert [A B : Cat]
 assert [A A' B B' : Cat] [R S : τ (Prof A B)]
   (r : τ (@ProfMap A B R S)) (F : τ (Functor A' A)) (G : τ (Functor B' B))
   (ab : τ (Obj (Product_cat (Op_cat A') B'))) ⊢
-  @tapp0_fapp0 (Product_cat (Op_cat A') B') Cat_cat
+  @tapp0_fapp0 (Product_cat (Op_cat A') B') Cat_cart
     (@Prof_reindex A A' B B' R F G) (@Prof_reindex A A' B B' S F G) ab
     (@Prof_reindex_transf A A' B B' R S r F G)
-  ≡ @tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat R S
+  ≡ @tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart R S
       (@fapp0 (Product_cat (Op_cat A') B') (Product_cat (Op_cat A) B)
         (@Prof_reindex_base_func A A' B B' F G) ab) r;
 
@@ -19510,7 +19738,7 @@ assert [A B : Cat]
   (b : τ (Obj B)) ⊢
   @fapp0
     (Product_cat (Op_cat A) B)
-    Cat_cat
+    Cat_cart
     (@Terminal_prof A B)
     (Struct_sigma a b)
   ≡ Terminal_cat;
@@ -19553,7 +19781,7 @@ assert [A B : Cat]
   (ab : τ (Obj (Product_cat (Op_cat A) A))) ⊢
   @tapp0_fapp0
       (Product_cat (Op_cat A) A)
-      Cat_cat
+      Cat_cart
       (@Unit_prof A)
       (@Hom_prof_along A A B F F)
       ab
@@ -19571,7 +19799,7 @@ assert [A B : Cat]
   (pq : τ (Hom (Product_cat (Op_cat A) A) ab ab')) ⊢
   @tapp1_fapp0
       (Product_cat (Op_cat A) A)
-      Cat_cat
+      Cat_cart
       (@Unit_prof A)
       (@Hom_prof_along A A B F F)
       ab
@@ -19580,7 +19808,7 @@ assert [A B : Cat]
       pq
   ≡ @tapp1_fapp0
       A
-      Cat_cat
+      Cat_cart
       (@hom_ A A (@id_func A) (sigma_Fst ab))
       (@hom_ B A F (@fapp0 A B F (sigma_Fst ab')))
       (sigma_Snd ab)
@@ -19588,12 +19816,12 @@ assert [A B : Cat]
       (@tapp1_fapp0
         (Op_cat A)
         (@Catd_cat A)
-        (@hom_int A A (@id_func A))
+        (@hom_int_view A A (@id_func A))
         (@comp_cat_fapp0
           (Op_cat A)
           (Op_cat B)
           (@Catd_cat A)
-          (@hom_int B A F)
+          (@hom_int_view B A F)
           (@Op_func A B F))
         (sigma_Fst ab)
         (sigma_Fst ab')
@@ -20582,7 +20810,7 @@ assert
       (Fibre_cat R walking_base)
       (Fibre_cat D walking_base))) ⊢
   @walking_end_loop_coherence R D u
-  ≡ @Transf
+  ≡ @StrictTransfor
       (Fibre_cat R walking_base)
       (Fibre_cat D walking_base)
       (@walking_end_loop_lhs_func R D u)
@@ -20627,7 +20855,7 @@ assert
       (Fibre_cat D walking_base)
       (@walking_end_loop_lhs_func R D u)
       (@walking_end_loop_rhs_func R D u)
-      r sigma;
+      r (@strict_transfor _ _ _ _ sigma);
 
 assert
   (R D : τ (Catd WalkingEnd_cat))
@@ -20870,13 +21098,13 @@ assert ⊢
 
 assert ⊢ walking_Code_beta_base
   : τ (@=
-      (Obj Cat_cat)
+      (Obj Cat_cart)
       (Fibre_cat walking_Code_catd walking_base)
       (Path_cat Nat_grpd));
 
 assert ⊢ walking_Code_beta_loop
   : τ (@=
-      (Hom Cat_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (Hom Cat_cart (Path_cat Nat_grpd) (Path_cat Nat_grpd))
       (@catd_transport_func
         WalkingEnd_cat walking_Code_catd
         walking_base walking_base walking_loop)
@@ -20982,7 +21210,7 @@ assert (n : τ Nat_grpd) ⊢
     (@walking_end_loop_rhs_func
       walking_Code_catd walking_based_rep_catd walking_power_func)
     n
-    walking_power_spiral_coreincl
+    (@strict_transfor _ _ _ _ walking_power_spiral_coreincl)
   ≡ @walking_power_spiral_component n;
 
 assert (n : τ Nat_grpd) ⊢
@@ -21056,7 +21284,7 @@ assertnot (n : τ Nat_grpd) ⊢
       walking_power_func
       NatSucc_func)
     n
-    walking_power_spiral
+    (@strict_transfor _ _ _ _ walking_power_spiral)
   ≡ @path_to_hom
       (Hom_cat WalkingEnd_cat walking_base walking_base)
       (@fapp0
@@ -21105,7 +21333,7 @@ assertnot (n : τ Nat_grpd) ⊢
       walking_power_func
       NatSucc_func)
     n
-    walking_power_spiral
+    (@strict_transfor _ _ _ _ walking_power_spiral)
   ≡ @id
       (Hom_cat WalkingEnd_cat walking_base walking_base)
       (@comp_fapp0
@@ -21124,10 +21352,10 @@ assertnot (n : τ Nat_grpd) ⊢
 assert
   (x y : τ (Obj WalkingEnd_cat)) ⊢
   @fapp1_func
-    WalkingEnd_cat Cat_cat walking_Code_catd x y
+    WalkingEnd_cat Cat_cart walking_Code_catd x y
   : τ (Functor
       (Hom_cat WalkingEnd_cat x y)
-      (Functor_cat
+      (Functor_cart_cat
         (Fibre_cat walking_Code_catd x)
         (Fibre_cat walking_Code_catd y)));
 
@@ -21136,15 +21364,16 @@ assert
   (alpha : τ (Hom
       (Hom_cat WalkingEnd_cat walking_base walking_base)
       p q)) ⊢
-  @fapp1_fapp0
+  @strict_transfor _ _ _ _
+    (@fapp1_fapp0
     (Hom_cat WalkingEnd_cat walking_base walking_base)
-    (Functor_cat
+    (Functor_cart_cat
       (Fibre_cat walking_based_rep_catd walking_base)
       (Fibre_cat walking_based_rep_catd walking_base))
     (@fapp1_func
-      WalkingEnd_cat Cat_cat walking_based_rep_catd
+      WalkingEnd_cat Cat_cart walking_based_rep_catd
       walking_base walking_base)
-    p q alpha
+    p q alpha)
   : τ (Transf
       (@catd_transport_func
         WalkingEnd_cat walking_based_rep_catd
@@ -21161,7 +21390,7 @@ assert (n m : τ Nat_grpd) ⊢
       walking_Code_catd walking_based_rep_catd walking_power_func)
     (@walking_end_loop_rhs_func
       walking_Code_catd walking_based_rep_catd walking_power_func)
-    n m walking_power_spiral
+    n m (@strict_transfor _ _ _ _ walking_power_spiral)
   : τ (Functor
       (Path_cat (@= Nat_grpd n m))
       (Hom_cat
@@ -21270,7 +21499,7 @@ assert
   (p : τ (Hom WalkingEnd_cat walking_base walking_base)) ⊢
   @walking_Code_loop_prefix_action_path p
   : τ (@=
-      (Hom Cat_cat (Path_cat Nat_grpd) (Path_cat Nat_grpd))
+      (Hom Cat_cart (Path_cat Nat_grpd) (Path_cat Nat_grpd))
       (@catd_transport_func
         WalkingEnd_cat walking_Code_catd
         walking_base walking_base
@@ -21927,10 +22156,10 @@ assert [B J J' : Cat]
   (W : τ (Prof J' J))
   [O O' : τ (Prof B J)]
   (i : τ (@IsoEvidence (@Prof_cat B J) O O')) ⊢
-  @strict_iso_evidence_fmap
+  @iso_evidence_fmap
     (@Prof_cat B J)
     (@Prof_cat B J')
-    (@strict_prof_imply_cov_func B J' J W)
+    (@Prof_imply_cov_func B J' J W)
     O O' i
   : τ (@IsoEvidence
       (@Prof_cat B J')
@@ -22169,7 +22398,7 @@ assert [K : Cat] (A : Cat)
   (f g : τ (Obj (Op_cat (Hom_cat K x y)))) ⊢
   @fapp1_func
     (Op_cat (Hom_cat K x y))
-    Cat_cat
+    Cat_cart
     (@homd_ K
       (Const_catd K A)
       (Const_catd K A)
@@ -22179,7 +22408,7 @@ assert [K : Cat] (A : Cat)
     g
     ≡ @fapp1_func
         (Op_cat (Hom_cat K x y))
-        Cat_cat
+        Cat_cart
         (@Const_catd (Op_cat (Hom_cat K x y)) (Hom_cat A u v))
         f
         g;
@@ -22192,7 +22421,7 @@ assert [K : Cat] (A : Cat)
   (alpha : τ (Hom (Op_cat (Hom_cat K x y)) f g)) ⊢
   @fapp1_fapp0
     (Op_cat (Hom_cat K x y))
-    Cat_cat
+    Cat_cart
     (@homd_ K
       (Const_catd K A)
       (Const_catd K A)
@@ -22203,7 +22432,7 @@ assert [K : Cat] (A : Cat)
     alpha
     ≡ @fapp1_fapp0
         (Op_cat (Hom_cat K x y))
-        Cat_cat
+        Cat_cart
         (@Const_catd (Op_cat (Hom_cat K x y)) (Hom_cat A u v))
         f
         g
@@ -22227,7 +22456,7 @@ assert [K : Cat]
   (f g : τ (Obj (Op_cat (Hom_cat K x y)))) ⊢
   @fapp1_func
     (Op_cat (Hom_cat K x y))
-    Cat_cat
+    Cat_cart
     (@homd_ K
       (Terminal_catd K)
       (Terminal_catd K)
@@ -22237,7 +22466,7 @@ assert [K : Cat]
     g
     ≡ @fapp1_func
         (Op_cat (Hom_cat K x y))
-        Cat_cat
+        Cat_cart
         (@Terminal_catd (Op_cat (Hom_cat K x y)))
         f
         g;
@@ -22250,7 +22479,7 @@ assert [K : Cat]
   (alpha : τ (Hom (Op_cat (Hom_cat K x y)) f g)) ⊢
   @fapp1_fapp0
     (Op_cat (Hom_cat K x y))
-    Cat_cat
+    Cat_cart
     (@homd_ K
       (Terminal_catd K)
       (Terminal_catd K)
@@ -22261,7 +22490,7 @@ assert [K : Cat]
     alpha
     ≡ @fapp1_fapp0
         (Op_cat (Hom_cat K x y))
-        Cat_cat
+        Cat_cart
         (@Terminal_catd (Op_cat (Hom_cat K x y)))
         f
         g
@@ -22285,7 +22514,7 @@ assert [K : Cat] (E : τ (Catd K))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y)))
   (f : τ (Obj (Op_cat (Hom_cat K x y)))) ⊢
-  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cart
     (@homd_ K E E (@id_funcd K E) x u y v)
     f
     ≡ Hom_cat (Fibre_cat E y)
@@ -22317,7 +22546,7 @@ assert [K : Cat] (E : τ (Catd K))
   (s : τ (Obj (Pi_cat E)))
   (x y : τ (Obj K))
   (f : τ (Hom K x y)) ⊢
-  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cat
+  @fapp0 (Op_cat (Hom_cat K x y)) Cat_cart
     (@homd_
       K
       (@Const_catd K Terminal_cat)
@@ -22346,13 +22575,13 @@ assert [K : Cat] (E : τ (Catd K))
   (f g : τ (Obj (Op_cat (Hom_cat K x y)))) ⊢
   @fapp1_func
     (Op_cat (Hom_cat K x y))
-    Cat_cat
+    Cat_cart
     (@homd_ K E E (@id_funcd K E) x u y v)
     f
     g
     ≡ @fapp1_func
         (Op_cat (Hom_cat K x y))
-        Cat_cat
+        Cat_cart
         (@hom_con
           (Fibre_cat E y)
           v
@@ -22369,14 +22598,14 @@ assert [K : Cat] (E : τ (Catd K))
   (alpha : τ (Hom (Op_cat (Hom_cat K x y)) f g)) ⊢
   @fapp1_fapp0
     (Op_cat (Hom_cat K x y))
-    Cat_cat
+    Cat_cart
     (@homd_ K E E (@id_funcd K E) x u y v)
     f
     g
     alpha
     ≡ @fapp1_fapp0
         (Op_cat (Hom_cat K x y))
-        Cat_cat
+        Cat_cart
         (@hom_con
           (Fibre_cat E y)
           v
@@ -22393,37 +22622,21 @@ assert [K : Cat] (E : τ (Catd K))
   @piapp1_fapp0 K E s x y f
     ≡ piapp0 (@piapp1_func K E s x y) f;
 
-// First higher action of the section-action section.  Its runtime result
-// stays in the generic displayed internal-hom projection cascade.
+// First higher action uses the actual total-dual section family and index.
+// Its runtime result stays in the existing intrinsic projection cascade.
 assert [K : Cat] (E : τ (Catd K))
   (s : τ (Obj (Pi_cat E)))
   (x y : τ (Obj K))
-  (f g : τ (Obj (Op_cat (Hom_cat K x y))))
-  (alpha : τ (Hom (Op_cat (Hom_cat K x y)) f g)) ⊢
-  @piapp1_fapp0
-    (Op_cat (Hom_cat K x y))
-    (@homd_
-      K E E (@id_funcd K E)
-      x (@piapp0 K E s x)
-      y (@piapp0 K E s y))
-    (@piapp1_func K E s x y)
-    f
-    g
-    alpha
-  ≡ @fdapp1_int_hom_fapp0
-      (Op_cat (Hom_cat K x y))
-      (@Const_catd (Op_cat (Hom_cat K x y)) Terminal_cat)
-      (@homd_
-        K E E (@id_funcd K E)
-        x (@piapp0 K E s x)
-        y (@piapp0 K E s y))
-      (@piapp1_func K E s x y)
-      f
-      g
-      alpha
-      Terminal_obj
-      Terminal_obj
-      Terminal_obj;
+  (f g : τ (Obj (TotalOp_cat (Hom_cat K x y))))
+  (alpha : τ (Hom (TotalOp_cat (Hom_cat K x y)) f g)) ⊢
+  @piapp1_fapp0 (TotalOp_cat (Hom_cat K x y))
+    (@TotalOp_catd (Op_cat (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x (@piapp0 K E s x) y (@piapp0 K E s y)))
+    (@piapp1_func K E s x y) f g alpha
+  ≡ @fdapp1_int_hom_fapp0 (TotalOp_cat (Hom_cat K x y))
+      (@Const_catd (TotalOp_cat (Hom_cat K x y)) Terminal_cat)
+      (@TotalOp_catd (Op_cat (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x (@piapp0 K E s x) y (@piapp0 K E s y)))
+      (@piapp1_func K E s x y) f g alpha
+      Terminal_obj Terminal_obj Terminal_obj;
 
 assert [K : Cat] (A : Cat)
   (s : τ (Obj (Pi_cat (Const_catd K A))))
@@ -22437,7 +22650,7 @@ assert [K : Cat] (A : Cat)
       (@piapp1_fapp0 K (@Const_catd K A) s x y f)
       (@fapp1_fapp0 K A s x y f));
 
-assertnot [K : Cat] (A : Cat)
+assert [K : Cat] (A : Cat)
   (s : τ (Obj (Pi_cat (Const_catd K A))))
   (x y : τ (Obj K))
   (f : τ (Hom K x y)) ⊢
@@ -22449,10 +22662,9 @@ assert [Z : Cat] (E : τ (Catd Z))
   (u : τ (Obj (Fibre_cat E x)))
   (v : τ (Obj (Fibre_cat E y))) ⊢
   Hom_cat (@Sigma_cat Z E) (Struct_sigma x u) (Struct_sigma y v)
-    ≡ Op_cat
-        (@Sigma_cat
-          (Op_cat (Hom_cat Z x y))
-          (@homd_ Z E E (@id_funcd Z E) x u y v));
+  ≡ TotalOp_cat (@Sigma_cat (TotalOp_cat (Hom_cat Z x y))
+      (@TotalOp_catd (Op_cat (Hom_cat Z x y))
+        (@homd_ Z E E (@id_funcd Z E) x u y v)));
 
 assert [K : Cat] (E D : τ (Catd K)) (η : τ (Functord E D))
   (k : τ (Obj K)) (u : τ (Obj (Fibre_cat E k))) ⊢
@@ -22464,7 +22676,7 @@ assert [K : Cat] (E D : τ (Catd K)) (η : τ (Functord E D))
         (λ kk : τ (Obj K), Obj (Fibre_cat D kk))
         k
         (@fapp0 (Fibre_cat E k) (Fibre_cat D k)
-          (@tapp0_fapp0 K Cat_cat E D k η)
+          (@tapp0_fapp0 K Cat_cart E D k η)
           u);
 
 assert [K : Cat] (E D : τ (Catd K)) (η : τ (Functord E D))
@@ -22477,18 +22689,11 @@ assert [K : Cat] (E D : τ (Catd K)) (η : τ (Functord E D))
     (@sigma_map_func K E D η)
     (Struct_sigma x u)
     (Struct_sigma y v)
-    ≡ @Op_func
-        (@Sigma_cat
-          (Op_cat (Hom_cat K x y))
-          (fapp0 (@homd_id_tgt_func K E x u y) v))
-        (@Sigma_cat
-          (Op_cat (Hom_cat K x y))
-          (fapp0 (@homd_ff_tgt_func K E D η x u y) v))
-        (@sigma_map_func
-          (Op_cat (Hom_cat K x y))
-          (fapp0 (@homd_id_tgt_func K E x u y) v)
-          (fapp0 (@homd_ff_tgt_func K E D η x u y) v)
-          (@fdapp1_int_presheaf_arrow K E D η x u y v));
+    ≡ @fapp1_fapp0 (Homd_index_cat (Hom_cat K x y)) Cat_cat
+      (Homd_index_sigma_func (Hom_cat K x y))
+      (fapp0 (@homd_id_tgt_func K E x u y) v)
+      (fapp0 (@homd_ff_tgt_func K E D η x u y) v)
+      (@fdapp1_int_presheaf_arrow K E D η x u y v);
 
 assert [K : Cat] (E D : τ (Catd K)) (η : τ (Functord E D))
   (x y : τ (Obj K))
@@ -22518,12 +22723,12 @@ assert [K : Cat] (E D : τ (Catd K)) (η : τ (Functord E D))
         (@fapp0
           (Fibre_cat E x)
           (Fibre_cat D x)
-          (@tapp0_fapp0 K Cat_cat E D x η)
+          (@tapp0_fapp0 K Cat_cart E D x η)
           u)
         (@fapp0
           (Fibre_cat E y)
           (Fibre_cat D y)
-          (@tapp0_fapp0 K Cat_cat E D y η)
+          (@tapp0_fapp0 K Cat_cart E D y η)
           v)
         p
         (@fdapp1_int_hom_fapp0
@@ -22551,13 +22756,13 @@ assert [K : Cat] (E D : τ (Catd K)) (η : τ (Functord E D))
         (@fapp0
           (Fibre_cat E x)
           (Fibre_cat D x)
-          (@tapp0_fapp0 K Cat_cat E D x η)
+          (@tapp0_fapp0 K Cat_cart E D x η)
           u)
         (@fapp0
           (Fibre_cat E y)
           (Fibre_cat D y)
-          (@tapp0_fapp0 K Cat_cat E D y η)
-          (fapp0 (@fapp1_fapp0 K Cat_cat E x y p) u))
+          (@tapp0_fapp0 K Cat_cart E D y η)
+          (fapp0 (@fapp1_fapp0 K Cat_cart E x y p) u))
         p
         (@fdapp1_int_cell K E D η x y p u);
 
@@ -22737,7 +22942,7 @@ assert [A K : Cat]
   (p : τ (Hom A a b)) ⊢
   @fapp1_fapp0
     A
-    Cat_cat
+    Cat_cart
     (@Pullback_catd
       A
       (@Sigma_cat K E)
@@ -22746,7 +22951,7 @@ assert [A K : Cat]
     a b p
   ≡ @fapp1_fapp0
       (@Sigma_cat K E)
-      Cat_cat
+      Cat_cart
       D
       (@Struct_sigma
         (Obj K)
@@ -22814,23 +23019,8 @@ assertnot [A K : Cat]
 assert [K : Cat] (E : τ (Catd K))
   (s : τ (Obj (Pi_cat E)))
   (x : τ (Obj K)) ⊢
-  @fapp0
-    (Fibre_cat (@Op_catd K (@Const_catd K Terminal_cat)) x)
-    (Fibre_cat (@Homd_target_catd K (@Const_catd K Terminal_cat)) x)
-    (@Fibre_func
-      K
-      (@Op_catd K (@Const_catd K Terminal_cat))
-      (@Homd_target_catd K (@Const_catd K Terminal_cat))
-      (@comp_catd_fapp0
-        K
-        (@Op_catd K (@Const_catd K Terminal_cat))
-        (@Op_catd K E)
-        (@Homd_target_catd K (@Const_catd K Terminal_cat))
-        (@homd_int K (@Const_catd K Terminal_cat) E s)
-        (@Op_funcd K (@Const_catd K Terminal_cat) E s))
-      x)
-    Terminal_obj
-    ≡ @homd_src_sec
+  (@fapp0 Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)) (@Fibre_func K (@Const_catd K Terminal_cat) (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))) (@comp_catd_fapp0 K (@Const_catd K Terminal_cat) E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))) (@homd_int K (@Const_catd K Terminal_cat) E s) s) x) Terminal_obj)
+  ≡ @homd_src_sec
         K
         (@Const_catd K Terminal_cat)
         E
@@ -22841,29 +23031,12 @@ assert [K : Cat] (E : τ (Catd K))
 assert [K : Cat] (E : τ (Catd K))
   (s : τ (Obj (Pi_cat E)))
   (x y : τ (Obj K)) ⊢
-  fapp0
-    (@piapp0
-      (Op_cat K)
-      (@Homd_target_section_catd K (@Const_catd K Terminal_cat) x)
-      (@fapp0
-        (Fibre_cat (@Op_catd K (@Const_catd K Terminal_cat)) x)
-        (Fibre_cat (@Homd_target_catd K (@Const_catd K Terminal_cat)) x)
-        (@Fibre_func
-          K
-          (@Op_catd K (@Const_catd K Terminal_cat))
-          (@Homd_target_catd K (@Const_catd K Terminal_cat))
-          (@comp_catd_fapp0
-            K
-            (@Op_catd K (@Const_catd K Terminal_cat))
-            (@Op_catd K E)
-            (@Homd_target_catd K (@Const_catd K Terminal_cat))
-            (@homd_int K (@Const_catd K Terminal_cat) E s)
-            (@Op_funcd K (@Const_catd K Terminal_cat) E s))
-          x)
-        Terminal_obj)
-      y)
-    Terminal_obj
-    ≡ @homd_
+  @homd_index_presheaf (Hom_cat K x y)
+    (fapp0 (@tapp0_fapp0 K Homd_coeff_cat
+      (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))
+      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y
+      (@fapp0 Terminal_cat (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x)) (@Fibre_func K (@Const_catd K Terminal_cat) (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))) (@comp_catd_fapp0 K (@Const_catd K Terminal_cat) E (fapp0 (Homd_target_index_func K) (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))) (@homd_int K (@Const_catd K Terminal_cat) E s) s) x) Terminal_obj)) Terminal_obj)
+  ≡ @homd_
         K
         E
         E
@@ -22973,7 +23146,7 @@ assert [K : Cat]
     (@Psh_cat K)
     (@yoneda_psh_func K)
     V U p
-  ≡ @hom_con_int_postcomp_func K K (@id_func K) V U p;
+  ≡ @strict_transfor _ _ _ _ (@hom_con_int_postcomp_func K K (@id_func K) V U p);
 
 // Pointwise, the facade-level Yoneda action is ordinary postcomposition.
 assert [K : Cat]
@@ -22981,7 +23154,7 @@ assert [K : Cat]
   (p : τ (Hom K V U)) ⊢
   @tapp0_fapp0
     (Op_cat K)
-    Cat_cat
+    Cat_cart
     (@yoneda_psh K V)
     (@yoneda_psh K U)
     W
@@ -23004,25 +23177,26 @@ assert [K : Cat]
   (p : τ (Hom K V U)) ⊢
   @fapp1_fapp0
     K
-    Cat_cat
+    Cat_cart
     (@arrow_into_catd K)
     V U p
   ≡ @sigma_map_func
       (Op_cat K)
       (@yoneda_psh K V)
       (@yoneda_psh K U)
-      (@hom_con_int_postcomp_func K K (@id_func K) V U p);
+      (@strict_transfor _ _ _ _ (@hom_con_int_postcomp_func K K (@id_func K) V U p));
 
 assert [K : Cat] (U : τ (Obj K)) ⊢
   @Slice_cat K U
   ≡ Op_cat (@Sigma_cat (Op_cat K) (@yoneda_psh K U));
 
-// Both higher-sieve presentations compare to this stable Catd intermediary.
+// The varying-base classifier has Cartesian diagram maps; the ordinary
+// presheaf facade retains its separate lax-map category.
 assert [K : Cat] (U : τ (Obj K)) ⊢
   @eq_refl Cat_grpd (@HigherSieve_cat K U)
   : τ (@= Cat_grpd
       (@HigherSieve_cat K U)
-      (@Catd_cat (@Into_restr_cat K U)));
+      (Functor_cart_cat (@Into_restr_cat K U) Cat_cart));
 
 assert [K : Cat] (U : τ (Obj K)) ⊢
   @eq_refl Cat_grpd (@Psh_cat (@Slice_cat K U))
@@ -23030,24 +23204,23 @@ assert [K : Cat] (U : τ (Obj K)) ⊢
       (@Psh_cat (@Slice_cat K U))
       (@Catd_cat (@Into_restr_cat K U)));
 
-// Experimental unifiers are not transitively chained at runtime.
+// These categories have different mapping profiles, while their objects agree.
 assertnot [K : Cat] (U : τ (Obj K)) ⊢
   @HigherSieve_cat K U
   ≡ @Psh_cat (@Slice_cat K U);
 
-// Restriction of higher sieves reuses Catd pullback along the arrow-total map.
+// Restriction of higher sieves is Cartesian precomposition along the arrow-total map.
 assert [K : Cat]
   (V U : τ (Obj K))
   (p : τ (Hom K V U)) ⊢
   @fapp1_fapp0
     (Op_cat K)
-    Cat_cat
+    Cat_cart
     (@HigherSieveClassifier K)
     U V p
-  ≡ @Pullback_catd_func
-      (@Into_restr_cat K V)
-      (@Into_restr_cat K U)
-      (@fapp1_fapp0 K Cat_cat (@arrow_into_catd K) V U p);
+  ≡ @comp_cat_con_cart_func
+      (@Into_restr_cat K V) (@Into_restr_cat K U) Cat_cart
+      (@fapp1_fapp0 K Cat_cart (@arrow_into_catd K) V U p);
 
 assert [K : Cat] (U : τ (Obj K)) ⊢
   @maximal_higher_sieve K U
@@ -23061,7 +23234,7 @@ assert [K : Cat]
     (@HigherSieve_cat K V)
     (@fapp1_fapp0
       (Op_cat K)
-      Cat_cat
+      Cat_cart
       (@HigherSieveClassifier K)
       U V p)
     (@maximal_higher_sieve K U)
@@ -23104,7 +23277,7 @@ assert [K : Cat]
   @HigherSieve_pullback_func K V U p
   ≡ @fapp1_fapp0
       (Op_cat K)
-      Cat_cat
+      Cat_cart
       (@HigherSieveClassifier K)
       U V p;
 
@@ -23232,7 +23405,7 @@ assert [K : Cat]
   @tdapp0_fapp0 K E D GG FF x
     (@strict_transfd_pointwise_left_inverse K E D FF GG eta u)
   ≡ @omega_equiv_along_left_inv
-      (@Functor_cat (@Fibre_cat K E x) (@Fibre_cat K D x))
+      (@Functor_cart_cat (@Fibre_cat K E x) (@Fibre_cat K D x))
       (@Fibre_func K E D FF x)
       (@Fibre_func K E D GG x)
       (@tdapp0_fapp0 K E D FF GG x eta)
@@ -23381,7 +23554,7 @@ assert [K : Cat]
 // The existing rigid facade selects topology-local Cat-valued presheaves.
 assert [K : Cat]
   (T : τ (@GrothTopology K)) ⊢
-  Obj (@Sheaf_cat K T Cat_cat)
+  Obj (@Sheaf_cat K T Cat_cart)
   ≡ @CatValuedSheafData K T;
 
 assert [K : Cat]
@@ -23390,7 +23563,7 @@ assert [K : Cat]
   (localP : τ (@IsTopologyLocalPsh K T P))
   (localQ : τ (@IsTopologyLocalPsh K T Q)) ⊢
   Hom_cat
-    (@Sheaf_cat K T Cat_cat)
+    (@Sheaf_cat K T Cat_cart)
     (@cat_valued_sheaf_intro K T P localP)
     (@cat_valued_sheaf_intro K T Q localQ)
   ≡ Hom_cat (@Psh_cat K) P Q;
@@ -23401,7 +23574,7 @@ assert [K : Cat]
   (P : τ (@Psh K))
   (local : τ (@IsTopologyLocalPsh K T P)) ⊢
   @fapp0
-    (@Sheaf_cat K T Cat_cat)
+    (@Sheaf_cat K T Cat_cart)
     (@Psh_cat K)
     (@cat_valued_sheaf_include_psh_func K T)
     (@cat_valued_sheaf_intro K T P local)
@@ -23412,7 +23585,7 @@ assert [K : Cat]
   (P : τ (@Psh K)) ⊢
   @fapp0
     (@Psh_cat K)
-    (@Sheaf_cat K T Cat_cat)
+    (@Sheaf_cat K T Cat_cart)
     (@direct_cover_sheafification_func K T)
     P
   ≡ @cat_valued_sheaf_intro
@@ -23426,17 +23599,17 @@ assert [K : Cat] ⊢
   : τ (@=
       (Obj Cat_cat)
       (@Psh_cat K)
-      (@Functor_cat (Op_cat K) Cat_cat));
+      (@Functor_cat (Op_cat K) Cat_cart));
 
 assertnot [K : Cat] ⊢
   @Psh_cat K
-  ≡ @Functor_cat (Op_cat K) Cat_cat;
+  ≡ @Functor_cat (Op_cat K) Cat_cart;
 
 // The selected counit computes to recursion from the identity; the final
 // capability assertion below checks its exact generic-package projection.
 assert [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat))) ⊢
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart))) ⊢
   @direct_cover_sheafification_counit_at K T Y
   ≡ @direct_cover_completion_rec
       K T
@@ -23451,10 +23624,10 @@ assert [K : Cat]
 // Both derived cancellation laws assemble the exact fixed-counit reflector.
 assert [K : Cat]
   (T : τ (@GrothTopology K))
-  (Y : τ (Obj (@Sheaf_cat K T Cat_cat))) ⊢
+  (Y : τ (Obj (@Sheaf_cat K T Cat_cart))) ⊢
   @direct_cover_sheafification_reflector_at K T Y
   : τ (@OmegaEquivAlong
-      (@Sheaf_cat K T Cat_cat)
+      (@Sheaf_cat K T Cat_cart)
       (@direct_cover_sheafification_reflected_object K T Y)
       Y
       (@direct_cover_sheafification_counit_at K T Y));
@@ -23462,7 +23635,7 @@ assert [K : Cat]
 assert [K : Cat]
   (T : τ (@GrothTopology K)) ⊢
   @direct_cover_sheafification_capability K T
-  : τ (@SheafificationCapability K T Cat_cat);
+  : τ (@SheafificationCapability K T Cat_cart);
 /* End of the CS-12s constructed Cat-valued sheafification diagnostics. */
 
 // catalog-area: Set-carrier commutative-ring objects
@@ -24841,11 +25014,11 @@ assert [R S : τ CommRing]
 assert [K : Cat]
   (U : τ (Obj K)) ⊢
   @eq_refl
-    (Functor (Op_cat K) Cat_cat)
+    (Functor (Op_cat K) Cat_cart)
     (@hom_ (Op_cat K) (Op_cat K)
       (@id Cat_cat (Op_cat K)) U)
   : τ (@=
-      (Functor (Op_cat K) Cat_cat)
+      (Functor (Op_cat K) Cat_cart)
       (@hom_ (Op_cat K) (Op_cat K)
         (@id Cat_cat (Op_cat K)) U)
       (@hom_con K U K (@id Cat_cat K)));
@@ -24861,10 +25034,10 @@ assertnot [K : Cat]
 assert [K : Cat]
   (U : τ (Obj K)) ⊢
   @eq_refl
-    (Functor K Cat_cat)
+    (Functor K Cat_cart)
     (@hom_ K K (@id Cat_cat K) U)
   : τ (@=
-      (Functor K Cat_cat)
+      (Functor K Cat_cart)
       (@hom_ K K (@id Cat_cat K) U)
       (@hom_con
         (Op_cat K)
@@ -24965,13 +25138,13 @@ assert [C B A D : Cat]
 assert [A B : Cat]
   (F : τ (Functor B A)) ⊢
   @eq_refl
-    (Hom Cat_cat A (@Catd_cat (Op_cat B)))
+    (Functor A (Functor_cart_cat (Op_cat B) Cat_cart))
     (@hom_int
       (Op_cat A)
       (Op_cat B)
       (@Op_func B A F))
   : τ (@=
-      (Hom Cat_cat A (@Catd_cat (Op_cat B)))
+      (Functor A (Functor_cart_cat (Op_cat B) Cat_cart))
       (@hom_int
         (Op_cat A)
         (Op_cat B)
@@ -26143,11 +26316,11 @@ assert (A B : Cat) (T : τ (Functor A B))
     (@hom_con_identity_graph_sec A B T) u u' h
   ≡ @hom_con_identity_graph_action A B T u u' h;
 
-// The ordinary represented mirror selects (y,id_y) in Op(PathOut(A,y)) and
+// The ordinary represented mirror selects (y,id_y) in O(PathOut(A,y)) and
 // acts along g:x->y by the opposite canonical total arrow (g,id_g).
 assert (A : Cat) (y : τ (Obj A)) ⊢
   @piapp0
-    (Op_cat A)
+    (TotalOp_cat A)
     (@hom_identity_graph_catd A)
     (@hom_identity_graph_sec A)
     y
@@ -26157,7 +26330,7 @@ assert (A : Cat)
   (y x : τ (Obj A))
   (g : τ (Hom A x y)) ⊢
   @piapp1_fapp0
-    (Op_cat A)
+    (TotalOp_cat A)
     (@hom_identity_graph_catd A)
     (@hom_identity_graph_sec A)
     y x g
@@ -26219,8 +26392,8 @@ assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
 // and at its direct capped application.
 assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
   (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
+    (@fdapp1_projection_target K E D FF)
+    (@fdapp1_projection_source K E)))
   (x y : τ (Obj K)) (p : τ (Hom K x y))
   (u u' : τ (Obj (Fibre_cat E x))) ⊢
   @tapp1_func
@@ -26233,8 +26406,8 @@ assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
 
 assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
   (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
+    (@fdapp1_projection_target K E D FF)
+    (@fdapp1_projection_source K E)))
   (x y : τ (Obj K)) (p : τ (Hom K x y))
   (u u' : τ (Obj (Fibre_cat E x)))
   (h : τ (Hom (Fibre_cat E x) u u')) ⊢
@@ -26249,8 +26422,8 @@ assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
 // Identity action joins the already checked object component.
 assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
   (eta : τ (Transfd
-    (@fdapp1_projection_source K E)
-    (@fdapp1_projection_target K E D FF)))
+    (@fdapp1_projection_target K E D FF)
+    (@fdapp1_projection_source K E)))
   (x y : τ (Obj K)) (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat E x))) ⊢
   @fdapp1_comma_projection_tapp1_fapp0
@@ -26275,62 +26448,50 @@ assert [A B C : Cat]
   @tapp1_con_at_transf A (Product_cat B C) H H
     (@id (Product_cat (Functor_cat A B) (Functor_cat A C)) H) Y
   ≡ @fapp1_con_at_transf A (Product_cat B C) H Y;
-// The arbitrary fixed-target mirror is the opposite specialization of the
-// existing internal action and projects to the same off-diagonal hom functor.
+// The arbitrary fixed-target mirror projects from the native whole owner
+// to the same off-diagonal hom functor, retaining general lax epsilon.
 assert [A B : Cat] [F G : τ (Functor A B)]
   (epsilon : τ (Transf F G))
   (Y : τ (Obj A)) ⊢
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B G Y) A F)))
     (@tapp1_con_at_transf A B F G epsilon Y)
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B G Y) A F)))
       (@tapp0_fapp0
-        (Op_cat (Op_cat A))
+        A
         (@Catd_cat (Op_cat A))
-        (@hom_int
-          (Op_cat A)
-          (Op_cat A)
-          (@id_func (Op_cat A)))
-        (@comp_cat_fapp0
-          (Op_cat (Op_cat A))
-          (Op_cat (Op_cat B))
-          (@Catd_cat (Op_cat A))
-          (@hom_int
-            (Op_cat B)
-            (Op_cat A)
-            (@Op_func A B F))
-          (@Op_func
-            (Op_cat A)
-            (Op_cat B)
-            (@Op_func A B G)))
+        (@hom_con_int_view A A (@id_func A))
+        (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
+          (@hom_con_int_view B A F) G)
         Y
         (@tapp1_con_int_fapp0_transf A B F G epsilon))
       (@tapp1_con_at_transf A B F G epsilon Y));
 
-// The direct opposite presentation compares proof-time in both orientations.
+// The direct transpose presentation uses its actual strict-transfor input
+// and compares proof-time in both orientations; the native ladder above is lax.
 assert [A B : Cat] [F G : τ (Functor A B)]
-  (epsilon : τ (Transf F G))
+  (U : τ (@StrictTransfor A B F G))
   (Y : τ (Obj A)) ⊢
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B G Y) A F)))
-    (@tapp1_con_at_transf A B F G epsilon Y)
+    (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B G Y) A F)))
       (@tapp1_at_transf
@@ -26339,40 +26500,44 @@ assert [A B : Cat] [F G : τ (Functor A B)]
         (@Op_func A B G)
         (@Op_func A B F)
         Y
-        (@Op_transf A B F G epsilon))
-      (@tapp1_con_at_transf A B F G epsilon Y));
+        (@strict_transfor (Op_cat A) (Op_cat B)
+          (@Op_func A B G) (@Op_func A B F)
+          (@Op_transf A B F G U)))
+      (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y));
 
 assert [A B : Cat] [F G : τ (Functor A B)]
-  (epsilon : τ (Transf F G))
+  (U : τ (@StrictTransfor A B F G))
   (Y : τ (Obj A)) ⊢
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B G Y) A F)))
-    (@tapp1_con_at_transf A B F G epsilon Y)
+    (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B G Y) A F)))
-      (@tapp1_con_at_transf A B F G epsilon Y)
+      (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
       (@tapp1_at_transf
         (Op_cat A)
         (Op_cat B)
         (@Op_func A B G)
         (@Op_func A B F)
         Y
-        (@Op_transf A B F G epsilon)));
+        (@strict_transfor (Op_cat A) (Op_cat B)
+          (@Op_func A B G) (@Op_func A B F)
+          (@Op_transf A B F G U))));
 
 assert [A B : Cat] [F G : τ (Functor A B)]
   (epsilon : τ (Transf F G))
   (X Y : τ (Obj A)) ⊢
   @tapp0_fapp0
     (Op_cat A)
-    Cat_cat
+    Cat_cart
     (@hom_con A Y A (@id_func A))
     (@hom_con B (@fapp0 A B G Y) A F)
     X
@@ -26388,24 +26553,11 @@ assert [A B : Cat] (F : τ (Functor A B)) ⊢
 
 assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
   @tapp0_fapp0
-    (Op_cat (Op_cat A))
+    A
     (@Catd_cat (Op_cat A))
-    (@hom_int
-      (Op_cat A)
-      (Op_cat A)
-      (@id_func (Op_cat A)))
-    (@comp_cat_fapp0
-      (Op_cat (Op_cat A))
-      (Op_cat (Op_cat B))
-      (@Catd_cat (Op_cat A))
-      (@hom_int
-        (Op_cat B)
-        (Op_cat A)
-        (@Op_func A B F))
-      (@Op_func
-        (Op_cat A)
-        (Op_cat B)
-        (@Op_func A B F)))
+    (@hom_con_int_view A A (@id_func A))
+    (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
+      (@hom_con_int_view B A F) F)
     Y
     (@fapp1_con_int_transf A B F)
   ≡ @fapp1_con_at_transf A B F Y;
@@ -26415,14 +26567,14 @@ assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B F Y) A F)))
     (@fapp1_con_at_transf A B F Y)
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B F Y) A F)))
       (@fapp1_at_transf
@@ -26437,7 +26589,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B F Y) A F)))
     (@tapp1_con_at_transf
@@ -26447,7 +26599,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B F Y) A F)))
       (@tapp1_con_at_transf
@@ -26459,7 +26611,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
 assert [A B : Cat] (F : τ (Functor A B)) (X Y : τ (Obj A)) ⊢
   @tapp0_fapp0
     (Op_cat A)
-    Cat_cat
+    Cat_cart
     (@hom_con A Y A (@id_func A))
     (@hom_con B (@fapp0 A B F Y) A F)
     X
@@ -26590,7 +26742,9 @@ assertnot [A B : Cat] [F G : τ (Functor A B)]
       (@fapp1_fapp0 A B G X Y g)
       (@tapp0_fapp0 A B F G X epsilon);
 
-// The pre/right stable-head reading is guarded by the full strict profile.
+// This stable-head comparison uses the full strict profile. The following
+// runtime nonconversion records a normalization boundary, not retained laxness
+// of the conventionally strict pre/right leg.
 assert [A B : Cat] [F G : τ (Functor A B)]
   (U : τ (@StrictTransfor A B F G))
   [X Y : τ (Obj A)]
@@ -26642,21 +26796,22 @@ assert [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   (p : τ (@IsStrictFunctord K E D FF))
   (x : τ (Obj K)) ⊢
-  @tapp0_fapp0 K Cat_cat E D x
+  @tapp0_fapp0 K Cat_cart E D x
     (@strict_functord_underlying K E D
       (@make_strict_functord K E D FF p))
-  ≡ @tapp0_fapp0 K Cat_cat E D x FF;
+  ≡ @tapp0_fapp0 K Cat_cart E D x FF;
 
 assertnot [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
   (p : τ (@IsStrictFunctord K E D FF))
   (x : τ (Obj K)) ⊢
-  @tapp0_fapp0 K Cat_cat E D x
+  @tapp0_fapp0 K Cat_cart E D x
     (@strict_functord K E D
       (@make_strict_functord K E D FF p))
-  ≡ @tapp0_fapp0 K Cat_cat E D x FF;
+  ≡ @tapp0_fapp0 K Cat_cart E D x FF;
 
-// The normal-lax functor compositor is the identity-transfor specialization.
+// The extracted functor compositor is the identity-transfor specialization;
+// under the strict default its cell is an identity.
 assert [A B : Cat] (F : τ (Functor A B))
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z)) (f : τ (Hom A X Y)) ⊢
@@ -26665,15 +26820,15 @@ assert [A B : Cat] (F : τ (Functor A B))
       A B F F (@id (Functor_cat A B) F) X Y Z g f;
 
 // catalog-area: Strict functor/transfor profiles and profiled Gray hom
-// Opaque strict functor objects carry the stable action view. GrayHom_lax
-// selects classified lax arrows over those objects.
+// Legacy strict-functor views remain until wrapper retirement. GrayHom_lax
+// still selects classified lax arrows over those admitted objects.
 injective symbol unprofiled_catd_valued_functor
   (A K : Cat)
   : τ (Functor A (@Catd_cat K));
 
-// A Catd-valued codomain is not evidence that an arbitrary ambient functor
-// preserves composition.
-assertnot [A K : Cat]
+// Public functors preserve composition by default, also at a Catd-valued
+// codomain without an additional strict wrapper.
+assert [A K : Cat]
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z))
   (f : τ (Hom A X Y)) ⊢
@@ -26692,23 +26847,23 @@ assertnot [A K : Cat]
 
 assertnot [A B : Cat] ⊢
   @GrayHom_lax A B
-  ≡ @StrictFunctor_cat A B;
+  ≡ @Functor_cat A B;
 
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B)) ⊢
-  S : τ (Obj (@StrictFunctor_cat A B));
+  (S : τ (@Functor A B)) ⊢
+  S : τ (Obj (@Functor_cat A B));
 
 assert [A B : Cat]
-  (X : τ (Obj (@StrictFunctor_cat A B))) ⊢
+  (X : τ (Obj (@Functor_cat A B))) ⊢
   @fapp0
-    (@StrictFunctor_cat A B)
     (@Functor_cat A B)
-    (@strict_functor_include_func A B)
+    (@Functor_cat A B)
+    ((@id_func (@Functor_cat A B)))
     X
-  ≡ @strict_functor A B X;
+  ≡ X;
 
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B)) ⊢
+  (S : τ (@Functor A B)) ⊢
   S : τ (Obj (@GrayHom_lax A B));
 
 assert [A B : Cat]
@@ -26716,16 +26871,16 @@ assert [A B : Cat]
   Hom_cat (@GrayHom_lax A B) X Y
   ≡ @LaxTransfor_cat
       A B
-      (@strict_functor A B X)
-      (@strict_functor A B Y);
+      (X)
+      (Y);
 
 assert [A B : Cat]
   (X : τ (Obj (@GrayHom_lax A B))) ⊢
   @id (@GrayHom_lax A B) X
   : τ (@LaxTransfor
       A B
-      (@strict_functor A B X)
-      (@strict_functor A B X));
+      (X)
+      (X));
 
 assert [A B : Cat]
   (X Y Z : τ (Obj (@GrayHom_lax A B)))
@@ -26734,8 +26889,8 @@ assert [A B : Cat]
   @comp_fapp0 (@GrayHom_lax A B) X Y Z g f
   : τ (@LaxTransfor
       A B
-      (@strict_functor A B X)
-      (@strict_functor A B Z));
+      (X)
+      (Z));
 
 assert [A B : Cat]
   (X Y : τ (Obj (@GrayHom_lax A B))) ⊢
@@ -26746,16 +26901,16 @@ assert [A B : Cat]
     X Y
   ≡ @lax_transfor_include_func
       A B
-      (@strict_functor A B X)
-      (@strict_functor A B Y);
+      (X)
+      (Y);
 
 // A classified strict object has canonical evidence about the existing
 // whole compositor, independently of the admission certificate.
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B)) ⊢
-  @strict_functor_is_strict A B S
+  (S : τ (@Functor A B)) ⊢
+  @functor_is_strict A B S
   : τ (@IsStrictFunctor
-      A B (@strict_functor A B S));
+      A B (S));
 
 // The property is whole in the final source Hom, with capped evidence
 // derived by evaluating the existing compositor transformation.
@@ -26783,31 +26938,31 @@ assert [A B : Cat] (F : τ (Functor A B))
 // Admission witnesses are not observable from the opaque classifier.
 assert [A B : Cat] (F : τ (Functor A B))
   (p q : τ (@IsStrictFunctor A B F)) ⊢
-  @eq_refl (@StrictFunctor A B) (@make_strict_functor A B F p)
-  : τ (@= (@StrictFunctor A B)
-      (@make_strict_functor A B F p) (@make_strict_functor A B F q));
+  @eq_refl (@Functor A B) (F)
+  : τ (@= (@Functor A B)
+      (F) (F));
 
-assert [A B : Cat] (S : τ (@StrictFunctor A B)) ⊢
-  S : τ (Obj (@StrictFunctor_cat A B));
+assert [A B : Cat] (S : τ (@Functor A B)) ⊢
+  S : τ (Obj (@Functor_cat A B));
 
-assertnot [A B : Cat] (F : τ (Functor A B))
+assert [A B : Cat] (F : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F)) ⊢
-  @strict_functor A B (@make_strict_functor A B F p) ≡ F;
+  (F) ≡ F;
 // The visible-package carrier path is literally reflexivity through the
 // proof-time unification rule and does not install a runtime whole fold.
 assert [A B : Cat]
   (F : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F)) ⊢
-  @make_strict_functor_carrier_path A B F p
+  (@eq_refl (Functor A B) F)
   ≡ @eq_refl
       (Functor A B)
-      (@strict_functor A B (@make_strict_functor A B F p));
+      ((F));
 
 // The explicit raw observation computes on a visible admission constructor.
 assert [A B : Cat]
   (F : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F)) ⊢
-  @strict_functor_underlying A B (@make_strict_functor A B F p)
+  (F)
   ≡ F;
 
 assert [A B : Cat]
@@ -26816,41 +26971,41 @@ assert [A B : Cat]
   [X Y : τ (Obj A)]
   (f : τ (Hom A X Y)) ⊢
   @fapp1_fapp0 A B
-    (@strict_functor_underlying A B (@make_strict_functor A B F p))
+    ((F))
     X Y f
   ≡ @fapp1_fapp0 A B F X Y f;
 
-assertnot [A B : Cat]
+assert [A B : Cat]
   (F : τ (Functor A B))
   (p : τ (@IsStrictFunctor A B F))
   [X Y : τ (Obj A)]
   (f : τ (Hom A X Y)) ⊢
   @fapp1_fapp0 A B
-    (@strict_functor A B (@make_strict_functor A B F p)) X Y f
+    ((F)) X Y f
   ≡ @fapp1_fapp0 A B F X Y f;
 
-// Composition computation is guarded by the strict-functor view.
+// The same default composition computation is observed through the legacy view.
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B))
+  (S : τ (@Functor A B))
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z))
   (f : τ (Hom A X Y)) ⊢
   @comp_fapp0
     B
-    (@fapp0 A B (@strict_functor A B S) X)
-    (@fapp0 A B (@strict_functor A B S) Y)
-    (@fapp0 A B (@strict_functor A B S) Z)
-    (@fapp1_fapp0 A B (@strict_functor A B S) Y Z g)
-    (@fapp1_fapp0 A B (@strict_functor A B S) X Y f)
+    (@fapp0 A B (S) X)
+    (@fapp0 A B (S) Y)
+    (@fapp0 A B (S) Z)
+    (@fapp1_fapp0 A B (S) Y Z g)
+    (@fapp1_fapp0 A B (S) X Y f)
   ≡ @fapp1_fapp0
-      A B (@strict_functor A B S) X Z
+      A B (S) X Z
       (@comp_fapp0 A X Y Z g f);
 
 // Named strict objects retain their selected public action while their raw
 // observation computes separately from the stable profile head.
 assert [A B : Cat]
   (y : τ (Obj B)) ⊢
-  @strict_functor_underlying A B (@strict_constant_func A B y)
+  (@Const_func A B y)
   ≡ @Const_func A B y;
 
 assert [A B : Cat]
@@ -26858,17 +27013,17 @@ assert [A B : Cat]
   [X Y : τ (Obj A)]
   (f : τ (Hom A X Y)) ⊢
   @fapp1_fapp0 A B
-    (@strict_functor A B (@strict_constant_func A B y)) X Y f
+    ((@Const_func A B y)) X Y f
   ≡ @id B y;
 
 assert ⊢
-  @strict_functor_underlying Grpd_cat Cat_cat strict_path_cat_func
+  Path_cat_func
   ≡ Path_cat_func;
 
 assert [A B : Grpd]
   (f : τ (Hom Grpd_cat A B)) ⊢
   @fapp1_fapp0 Grpd_cat Cat_cat
-    (@strict_functor Grpd_cat Cat_cat strict_path_cat_func) A B f
+    (Path_cat_func) A B f
   ≡ @path_map_func A B f;
 
 // Strict ordinary transfors constrain the existing whole laxity cell.
@@ -26950,7 +27105,7 @@ assert [A B : Cat] [F G : τ (Functor A B)]
   @lax_transfor_is_lax A B F G L
   : τ (@IsLaxTransfor A B F G (@lax_transfor A B F G L));
 
-// The exact existing whole pre/right cell is identity only at the profile.
+// The classified lax view retains the default pre/right identity computation.
 assert [A B : Cat] [F G : τ (Functor A B)]
   (L : τ (@LaxTransfor A B F G))
   [W X Y : τ (Obj A)]
@@ -26964,7 +27119,8 @@ assert [A B : Cat] [F G : τ (Functor A B)]
       (@strict_transfor_pre_naturality_lhs_func
         A B F G (@lax_transfor A B F G L) Y W X h);
 
-assertnot [A B : Cat] [F G : τ (Functor A B)]
+// The conventional-lax default identifies this pre/right whole action.
+assert [A B : Cat] [F G : τ (Functor A B)]
   (epsilon : τ (Transf F G))
   [W X Y : τ (Obj A)]
   (h : τ (Hom A W X)) ⊢
@@ -27082,8 +27238,9 @@ assertnot [A B : Cat] [F G : τ (Functor A B)]
       (@make_strict_transfor A B F G epsilon p))
   ≡ @tapp0_fapp0 A B F G X epsilon;
 
-// Ambient functors are not silently promoted into the strict object sort.
-assertnot [A B : Cat]
+// The transparent object alias now admits every public default functor;
+// GrayHom_lax still has its distinct transformation profile.
+assert [A B : Cat]
   (F : τ (Functor A B)) ⊢
   F : τ (Obj (@GrayHom_lax A B));
 
@@ -27175,31 +27332,19 @@ assert [A B C : Cat] ⊢
 assert [A B C : Cat] ⊢
   @eq_refl
     (Functor (@GrayRightSource A B C) (@GrayRightTarget A B C))
-    (@strict_functor
-      (@GrayRightSource A B C)
-      (@GrayRightTarget A B C)
-      (@gray_curry_R_strict A B C))
+    ((@gray_curry_R_func A B C))
   : τ (@=
       (Functor (@GrayRightSource A B C) (@GrayRightTarget A B C))
-      (@strict_functor
-        (@GrayRightSource A B C)
-        (@GrayRightTarget A B C)
-        (@gray_curry_R_strict A B C))
+      ((@gray_curry_R_func A B C))
       (@gray_curry_R_func A B C));
 
 assert [A B C : Cat] ⊢
   @eq_refl
     (Functor (@GrayRightTarget A B C) (@GrayRightSource A B C))
-    (@strict_functor
-      (@GrayRightTarget A B C)
-      (@GrayRightSource A B C)
-      (@gray_uncurry_R_strict A B C))
+    ((@gray_uncurry_R_func A B C))
   : τ (@=
       (Functor (@GrayRightTarget A B C) (@GrayRightSource A B C))
-      (@strict_functor
-        (@GrayRightTarget A B C)
-        (@GrayRightSource A B C)
-        (@gray_uncurry_R_strict A B C))
+      ((@gray_uncurry_R_func A B C))
       (@gray_uncurry_R_func A B C));
 
 // Curry exposes the generic whole Hom action, so no capped transpose is added.
@@ -27255,16 +27400,16 @@ assert [A B C : Cat]
 
 // Coevaluation and evaluation are the two selected identity transposes.
 assert [A B : Cat] ⊢
-  @gray_coevaluation_R_strict A B
+  @gray_coevaluation_R_func A B
   ≡ @gray_curry_R
       A B (@GrayTensor_R A B)
-      (@strict_identity (@GrayTensor_R A B));
+      (@id_func (@GrayTensor_R A B));
 
 assert [B C : Cat] ⊢
-  @gray_evaluation_R_strict B C
+  @gray_evaluation_R_func B C
   ≡ @gray_uncurry_R
       (@GrayHom_lax B C) B C
-      (@strict_identity (@GrayHom_lax B C));
+      (@id_func (@GrayHom_lax B C));
 
 // The selected boundary remains distinct from the Cartesian scaffold.
 assertnot [A B : Cat] ⊢
@@ -27752,20 +27897,20 @@ assert [C : Cat]
   (BP : τ (@BinaryProducts C P))
   (X Y A0 A1 : τ (Obj C)) ⊢
   @tapp1_func
-    (Op_cat C) Cat_cat
+    (Op_cat C) Cat_cart
     (@binary_products_pair_source_family C A0 A1)
     (@binary_products_pair_target_family C P A0 A1)
     X Y
     (@binary_products_pair_transf C P BP A0 A1)
   : τ (Functor
       (Hom_cat (Op_cat C) X Y)
-      (Functor_cat
+      (Functor_cart_cat
         (@fapp0
-          (Op_cat C) Cat_cat
+          (Op_cat C) Cat_cart
           (@binary_products_pair_source_family C A0 A1)
           X)
         (@fapp0
-          (Op_cat C) Cat_cat
+          (Op_cat C) Cat_cart
           (@binary_products_pair_target_family C P A0 A1)
           Y)));
 
@@ -28223,7 +28368,7 @@ assert [C : Cat]
 
 assert [C : Cat]
   (X : τ (Obj C)) ⊢
-  @fapp0 C Cat_cat (@SliceSigma_catd C) X
+  @fapp0 (CoAt2_cat C) Cat_cart (@SliceSigma_catd C) X
   ≡ @Slice_cat C X;
 
 assert [C : Cat]
@@ -28258,7 +28403,7 @@ assert [C : Cat]
 assert [C : Cat]
   (PB : τ (@PullbackStructure C))
   (X : τ (Obj C)) ⊢
-  @fapp0 (Op_cat C) Cat_cat (@SliceBaseChange_catd C PB) X
+  @fapp0 (Op_cat C) Cat_cart (@SliceBaseChange_catd C PB) X
   ≡ @Slice_cat C X;
 
 assert [C : Cat]
@@ -28266,7 +28411,7 @@ assert [C : Cat]
   (X Y : τ (Obj C))
   (f : τ (Hom C X Y)) ⊢
   @fapp1_fapp0
-    (Op_cat C) Cat_cat
+    (Op_cat C) Cat_cart
     (@SliceBaseChange_catd C PB)
     Y X f
   ≡ @slice_base_change_func C PB X Y f;
@@ -28580,7 +28725,10 @@ assert [C : Cat]
           (Op_cat C)
           (@hom_con C X C (@id Cat_cat C))
           (@hom_con C Y C (@id Cat_cat C))
-          (@hom_con_int_postcomp_func C C (@id Cat_cat C) X Y f)
+          (@strict_transfor (Op_cat C) Cat_cart
+            (@hom_con C X C (@id Cat_cat C))
+            (@hom_con C Y C (@id Cat_cat C))
+            (@hom_con_int_postcomp_func C C (@id Cat_cat C) X Y f))
           a));
 
 assert [C : Cat]
@@ -28611,7 +28759,7 @@ assert [C : Cat]
   (PB : τ (@PullbackStructure C))
   (DP : τ (@DependentProductStructure C PB))
   (X : τ (Obj C)) ⊢
-  @fapp0 C Cat_cat (@SliceDependentProduct_catd C PB DP) X
+  @fapp0 (CoAt2_cat C) Cat_cart (@SliceDependentProduct_catd C PB DP) X
   ≡ @Slice_cat C X;
 
 assert [C : Cat]
@@ -28619,7 +28767,7 @@ assert [C : Cat]
   (DP : τ (@DependentProductStructure C PB))
   (X Y : τ (Obj C))
   (u : τ (Hom C X Y)) ⊢
-  @fapp1_fapp0 C Cat_cat
+  @fapp1_fapp0 (CoAt2_cat C) Cat_cart
     (@SliceDependentProduct_catd C PB DP) X Y u
   ≡ @slice_dependent_product_func C PB DP X Y u;
 

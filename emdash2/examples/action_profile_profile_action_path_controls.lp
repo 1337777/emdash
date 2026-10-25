@@ -14,8 +14,9 @@ assert [A B : Cat] (F G : τ (Functor A B)) (eta : τ (@Transf A B F G))
    (@comp_fapp0 B _ _ _ (@fapp1_fapp0 A B G x y f) (@tapp0_fapp0 A B F G x eta))
    (@comp_fapp0 B _ _ _ (@tapp0_fapp0 A B F G y eta) (@fapp1_fapp0 A B F x y f)));
 
-// Profiles supply paths; they do not install cuts on a raw variable.
-assertnot [A B : Cat] (F : τ (Functor A B)) (PF : τ (@IsStrictFunctor A B F))
+// Functors now preserve composition by default; the transfor
+// property still supplies a path without a raw-variable runtime cut.
+assert [A B : Cat] (F : τ (Functor A B)) (PF : τ (@IsStrictFunctor A B F))
  [x y z : τ (Obj A)] (g : τ (Hom A y z)) (f : τ (Hom A x y)) ⊢
  @fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f)
  ≡ @comp_fapp0 B _ _ _ (@fapp1_fapp0 A B F y z g) (@fapp1_fapp0 A B F x y f);

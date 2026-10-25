@@ -17,7 +17,7 @@ assert [R : τ CommRing]
   (e : τ (@CommRingPresentationMorphism R A B))
   (d : τ (@CommRingPresentationMorphism R B D))
   (chain : τ (@CommRingFreydChainPair R A B D e d)) ⊢
-  @terminal_arrow_test_incoming (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R) A (@fapp0 (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@zero_arrow_cone_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R A B D e d chain)) (@tapp0_fapp0 (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) _ _ (@freyd_raw_chain_native_cone R A B D e d chain) (@freyd_zero_cone_universal_transf R))
+  @terminal_arrow_test_incoming (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R) A (@fapp0 (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@zero_arrow_cone_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R A B D e d chain)) (@tapp0_fapp0 (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) _ _ (@freyd_raw_chain_native_cone R A B D e d chain) (@freyd_zero_cone_universal_transf R))
   ≡ @comm_ring_freyd_hom_class R A B e;
 
 // The outgoing arrow is the class of the original raw morphism.
@@ -26,7 +26,7 @@ assert [R : τ CommRing]
   (e : τ (@CommRingPresentationMorphism R A B))
   (d : τ (@CommRingPresentationMorphism R B D))
   (chain : τ (@CommRingFreydChainPair R A B D e d)) ⊢
-  @fapp1_fapp0 WalkingArrow_cat (@CommRingFreydPresentation_cat R) (@fapp0 (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@zero_arrow_cone_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R A B D e d chain)) walking_arrow_src walking_arrow_tgt walking_arrow_generator
+  @terminal_arrow_test_outgoing (@CommRingFreydPresentation_cat R) (@fapp0 (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@zero_arrow_cone_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R A B D e d chain))
   ≡ @comm_ring_freyd_hom_class R B D d;
 
 // The generic pair retains the existing raw-agreement observation.

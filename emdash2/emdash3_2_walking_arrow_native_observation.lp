@@ -15,12 +15,30 @@ unif_rule
   @tapp0_fapp0 $A $C $F $G $d
     (@lax_transfor $A $C $F $G
       (@make_lax_transfor $A $C $F $G
-        (@sym_tapp1_fapp0_transf _ $I $C (@id Cat_cat _) $i $j $u) _))
+        (@fapp1_fapp0 _ _ (@one_cat_diagram_evaluation_func $I $C $C1) $i $j $u) _))
   ≡ $observed
   ↪ [ $A ≡ Functor_cat $I $C;
       @fapp1_fapp0 $I $C $d $i $j $u ≡ $observed ];
 
-// Whole classified evaluation; the ordinary hypothesis supplies its evidence.
+// General evaluation has the opposite transformation profile. Its admitted
+// encoded lax view has the same component, without a general native-arrow
+// graph or an ordinary-target assumption. Keep both runtime presentations.
+unif_rule
+  @tapp0_fapp0 $A $B $F $G $d
+    (@lax_transfor $A $B $F $G
+      (@make_lax_transfor $A $B $F $G
+        (@diagram_evaluation_transf $I $C $i $j $u) _))
+  ≡ $observed
+  ↪ [ $A ≡ OddDual_cat (Functor_cat $I $C);
+      $B ≡ OddDual_cat $C;
+      $F ≡ @OddDual_func (Functor_cat $I $C) $C
+        (@diagram_evaluation_at_func $I $C $j);
+      $G ≡ @OddDual_func (Functor_cat $I $C) $C
+        (@diagram_evaluation_at_func $I $C $i);
+      @fapp1_fapp0 $I $C $d $i $j $u ≡ $observed ];
+
+// The existing ordinary-target guard selects ordinary evaluation.
+// Its native lax admission and subsequent graph keep the original interface.
 symbol diagram_native_arrow_lax_transfor [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   : τ (@LaxTransfor (Functor_cat WalkingArrow_cat C) C
@@ -29,7 +47,7 @@ symbol diagram_native_arrow_lax_transfor [C : Cat]
 ≔ @one_cat_lax_transfor (Functor_cat WalkingArrow_cat C) C C1
     (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src)
     (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt)
-    (@diagram_evaluation_transf WalkingArrow_cat C walking_arrow_src walking_arrow_tgt walking_arrow_generator);
+    (@one_cat_diagram_evaluation_transf WalkingArrow_cat C C1 walking_arrow_src walking_arrow_tgt walking_arrow_generator);
 
 // The actual evaluation transformation, observed as a native arrow graph.
 symbol diagram_native_arrow_func [C : Cat]
@@ -75,8 +93,8 @@ symbol diagram_native_arrow_value_path [C : Cat]
     _ _ (@make_lax_transfor_carrier_path (Functor_cat WalkingArrow_cat C) C
       (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src)
       (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt)
-      (@diagram_evaluation_transf WalkingArrow_cat C walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+      (@one_cat_diagram_evaluation_transf WalkingArrow_cat C C1 walking_arrow_src walking_arrow_tgt walking_arrow_generator)
       (@one_cat_pre_strict (Functor_cat WalkingArrow_cat C) C C1
         (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src)
         (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt)
-        (@diagram_evaluation_transf WalkingArrow_cat C walking_arrow_src walking_arrow_tgt walking_arrow_generator)));
+        (@one_cat_diagram_evaluation_transf WalkingArrow_cat C C1 walking_arrow_src walking_arrow_tgt walking_arrow_generator)));

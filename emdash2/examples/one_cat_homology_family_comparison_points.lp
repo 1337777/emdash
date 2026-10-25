@@ -3,12 +3,12 @@ require open emdash.emdash3_2_one_cat_homology_family_comparison_points;
 
 assert [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
  (t : τ (Obj C)) (T : τ (@TerminalObject C t)) (A : τ (Functor B C))
- (D : τ (Functor B (Functor_cat WalkingArrow_cat C)))
- (h : τ (@Transf B (Functor_cat WalkingArrow_cat C)
-   (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
+ (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
+ (h : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C)
+   (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
      (@terminal_arrow_diagram_func C t T) A) D))
  (S : τ (@PreadditiveCategory C)) (P : τ (@KernelAdjunctionStructure C S t T))
- (T0 : τ (@TerminalObject (Op_cat C) t)) (Q : τ (@CokernelAdjunctionStructure C S t T0)) (b : τ (Obj B)) ⊢
+ (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (Q : τ (@CokernelAdjunctionStructure C S t T0)) (b : τ (Obj B)) ⊢
  @iso_evidence_to C (@fapp0 B C (@homology_adjunction_family_func B C S t T T0 P Q A D h) b) (@fapp0
   (@ZeroArrowCone_cat C t T) C (@homology_adjunction_family_func (@ZeroArrowCone_cat C t T) C S t T T0 P Q
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
@@ -26,12 +26,12 @@ assert [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
 
 assert [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
  (t : τ (Obj C)) (T : τ (@TerminalObject C t)) (A : τ (Functor B C))
- (D : τ (Functor B (Functor_cat WalkingArrow_cat C)))
- (h : τ (@Transf B (Functor_cat WalkingArrow_cat C)
-   (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
+ (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
+ (h : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C)
+   (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
      (@terminal_arrow_diagram_func C t T) A) D))
  (S : τ (@PreadditiveCategory C)) (P : τ (@KernelAdjunctionStructure C S t T))
- (T0 : τ (@TerminalObject (Op_cat C) t)) (Q : τ (@CokernelAdjunctionStructure C S t T0)) (b : τ (Obj B)) ⊢
+ (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (Q : τ (@CokernelAdjunctionStructure C S t T0)) (b : τ (Obj B)) ⊢
  @iso_evidence_from C (@fapp0 B C (@homology_adjunction_family_func B C S t T T0 P Q A D h) b) (@fapp0
   (@ZeroArrowCone_cat C t T) C (@homology_adjunction_family_func (@ZeroArrowCone_cat C t T) C S t T T0 P Q
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
@@ -63,9 +63,9 @@ assertnot [A B : Cat] (B1 : τ (IsNCat (cat_succ cat_zero) B)) (F G : τ (Functo
 
 assert [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
  (t : τ (Obj C)) (T : τ (@TerminalObject C t)) (A : τ (Functor B C))
- (D : τ (Functor B (Functor_cat WalkingArrow_cat C)))
- (h : τ (@Transf B (Functor_cat WalkingArrow_cat C)
-   (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
+ (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
+ (h : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C)
+   (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
      (@terminal_arrow_diagram_func C t T) A) D)) (b : τ (Obj B)) ⊢
  @fapp0 B (@ZeroArrowCone_cat C t T) (@one_cat_zero_arrow_family_func B C C1 t T A D h) b
  ≡ @zero_arrow_family_point_input B C t T A D h b;

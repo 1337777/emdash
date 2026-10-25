@@ -35,9 +35,27 @@ symbol freyd_raw_native_row_map_func [K : Cat] [R : τ CommRing]
     (@freyd_raw_chain_native_cone R T2 T1 T0 tdNext td chainT)) (@Transf_cat K (@ZeroArrowCone_cat
     (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R))
     (@freyd_raw_native_row_family K R S2 S1 S0 sdNext sd chainS) (@freyd_raw_native_row_family K R T2 T1 T0
-    tdNext td chainT)) (@Const_transf_func K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    tdNext td chainT)) (@comp_cat_fapp0 (Hom_cat (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
     (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R S2
     S1 S0 sdNext sd chainS) (@freyd_raw_chain_native_cone R T2 T1 T0 tdNext td chainT))
+      (Hom_cat (Functor_cart_cat K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R))) (@Const_func K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R S2
+    S1 S0 sdNext sd chainS)) (@Const_func K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R T2 T1 T0 tdNext td chainT))) (@Transf_cat K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@Const_func K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R S2
+    S1 S0 sdNext sd chainS)) (@Const_func K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R T2 T1 T0 tdNext td chainT)))
+      (@fapp1_func (Functor_cart_cat K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R))) (Functor_cat K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R))) (Functor_cart_include K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R))) (@Const_func K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R S2
+    S1 S0 sdNext sd chainS)) (@Const_func K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R T2 T1 T0 tdNext td chainT))) (@Const_transf_func K (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R)
+    (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R S2
+    S1 S0 sdNext sd chainS) (@freyd_raw_chain_native_cone R T2 T1 T0 tdNext td chainT)))
     (@freyd_raw_chain_native_map_func R S2 S1 S0 T2 T1 T0 sdNext sd tdNext td f2 f1 f0 chainS chainT);
 
 // Point view of that same whole action; components are the original native map.

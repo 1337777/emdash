@@ -200,11 +200,11 @@ assert (R : τ CommRing)
 assert [K : Cat]
   (U : τ (Obj K)) ⊢
   @eq_refl
-    (Functor (Op_cat K) Cat_cat)
+    (Functor (Op_cat K) Cat_cart)
     (@hom_ (Op_cat K) (Op_cat K)
       (@id Cat_cat (Op_cat K)) U)
   : τ (@=
-      (Functor (Op_cat K) Cat_cat)
+      (Functor (Op_cat K) Cat_cart)
       (@hom_ (Op_cat K) (Op_cat K)
         (@id Cat_cat (Op_cat K)) U)
       (@hom_con K U K (@id Cat_cat K)));

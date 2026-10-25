@@ -27,7 +27,8 @@
 
 require open emdash.emdash3_2_face_realization;
 
-// First dependent-hom simplex family for fixed total endpoints.
+// Negative total-index family from the existing dependent Hom.
+// Total fibre duality and the outer total dual restore the forward fillers.
 symbol DependentTriangle_catd
   [K : Cat]
   (E : τ (Catd K))
@@ -35,8 +36,9 @@ symbol DependentTriangle_catd
   (u : τ (Obj (Fibre_cat E x)))
   (y : τ (Obj K))
   (v : τ (Obj (Fibre_cat E y)))
-  : τ (Catd (Op_cat (Hom_cat K x y)))
-≔ @homd_ K E E (@id_funcd K E) x u y v;
+  : τ (Catd (TotalOp_cat (Hom_cat K x y)))
+≔ @TotalOp_catd (Op_cat (Hom_cat K x y))
+    (@homd_ K E E (@id_funcd K E) x u y v);
 
 // Total triangle classifier, in the orientation selected by Hom(Sigma(E)).
 symbol DependentTriangle_cat
@@ -47,9 +49,9 @@ symbol DependentTriangle_cat
   (y : τ (Obj K))
   (v : τ (Obj (Fibre_cat E y)))
   : Cat
-≔ @Op_cat
+≔ @TotalOp_cat
     (@Sigma_cat
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangle_catd K E x u y v));
 
 /*
@@ -75,13 +77,13 @@ symbol dependent_triangle_base_face_func
   : τ (Functor
       (@DependentTriangle_cat K E x u y v)
       (Hom_cat K x y))
-≔ @Op_func
+≔ @TotalOp_func
     (@Sigma_cat
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangle_catd K E x u y v))
-    (Op_cat (Hom_cat K x y))
+    (TotalOp_cat (Hom_cat K x y))
     (@Sigma_proj1_func
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangle_catd K E x u y v));
 
 // Target-fibre endpoint projection: (p,alpha) |-> E[p](u).
@@ -141,8 +143,8 @@ symbol dependent_triangle
     (@DependentTriangle_catd K E x u y v) p)))
   : τ (Obj (@DependentTriangle_cat K E x u y v))
 ≔ @Struct_sigma
-    (Obj (Op_cat (Hom_cat K x y)))
-    (λ r : τ (Obj (Op_cat (Hom_cat K x y))),
+    (Obj (TotalOp_cat (Hom_cat K x y)))
+    (λ r : τ (Obj (TotalOp_cat (Hom_cat K x y))),
       Obj (Fibre_cat (@DependentTriangle_catd K E x u y v) r))
     p alpha;
 
@@ -154,15 +156,33 @@ symbol DependentTriangleImage_catd
   (u : τ (Obj (Fibre_cat E x)))
   (y : τ (Obj K))
   (v : τ (Obj (Fibre_cat E y)))
-  : τ (Catd (Op_cat (Hom_cat K x y)))
-≔ @homd_
+  : τ (Catd (TotalOp_cat (Hom_cat K x y)))
+≔ @TotalOp_catd (Op_cat (Hom_cat K x y))
+    (@homd_
     K E D FF
     x
     (@fapp0
       (Fibre_cat E x)
       (Fibre_cat D x)
       (@Fibre_func K E D FF x) u)
-    y v;
+    y v);
+
+// The existing index arrow induces the displayed map on the total-dual
+// index family. This is ordinary first-Hom action of the whole classifier;
+// no new comparison cell or strictness profile is supplied.
+symbol dependent_triangle_map_catd
+  [K : Cat] [E D : τ (Catd K)] (FF : τ (Functord E D))
+  (x : τ (Obj K)) (u : τ (Obj (Fibre_cat E x)))
+  (y : τ (Obj K)) (v : τ (Obj (Fibre_cat E y)))
+  : τ (Functord
+      (@DependentTriangle_catd K E x u y v)
+      (@DependentTriangleImage_catd K E D FF x u y v))
+≔ @fapp1_fapp0 (CoAbove2_cat (Homd_index_cat (Hom_cat K x y)))
+    (Catd_cat (TotalOp_cat (Hom_cat K x y)))
+    (Homd_index_total_family_func (Hom_cat K x y))
+    (fapp0 (@homd_id_tgt_func K E x u y) v)
+    (fapp0 (@homd_ff_tgt_func K E D FF x u y) v)
+    (@fdapp1_int_presheaf_arrow K E D FF x u y v);
 
 symbol DependentTriangleImage_cat
   [K : Cat] [E D : τ (Catd K)]
@@ -172,13 +192,13 @@ symbol DependentTriangleImage_cat
   (y : τ (Obj K))
   (v : τ (Obj (Fibre_cat E y)))
   : Cat
-≔ @Op_cat
+≔ @TotalOp_cat
     (@Sigma_cat
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangleImage_catd K E D FF x u y v));
 
-// Whole first action. The displayed map is the active internal-action
-// projection, not a separately postulated transformation.
+// Whole first action at the existing Sigma-map Hom owner. Its projection
+// uses Homd_index_sigma_func and the actual internal-action presheaf arrow.
 symbol dependent_triangle_map
   [K : Cat] [E D : τ (Catd K)]
   (FF : τ (Functord E D))
@@ -189,18 +209,10 @@ symbol dependent_triangle_map
   : τ (Functor
       (@DependentTriangle_cat K E x u y v)
       (@DependentTriangleImage_cat K E D FF x u y v))
-≔ @Op_func
-    (@Sigma_cat
-      (Op_cat (Hom_cat K x y))
-      (@DependentTriangle_catd K E x u y v))
-    (@Sigma_cat
-      (Op_cat (Hom_cat K x y))
-      (@DependentTriangleImage_catd K E D FF x u y v))
-    (@sigma_map_func
-      (Op_cat (Hom_cat K x y))
-      (@DependentTriangle_catd K E x u y v)
-      (@DependentTriangleImage_catd K E D FF x u y v)
-      (@fdapp1_int_presheaf_arrow K E D FF x u y v));
+≔ @fapp1_func (@Sigma_cat K E) (@Sigma_cat K D)
+    (@sigma_map_func K E D FF)
+    (@Struct_sigma (Obj K) (λ k : τ (Obj K), Obj (Fibre_cat E k)) x u)
+    (@Struct_sigma (Obj K) (λ k : τ (Obj K), Obj (Fibre_cat E k)) y v);
 
 // Next action between two source triangles. This is the generic tetrahedron
 // map and remains iterable at another hom level.
@@ -253,14 +265,14 @@ symbol dependent_tetrahedron
     (@DependentTriangle_catd K E x u y v) p0)))
   (alpha1 : τ (Obj (Fibre_cat
     (@DependentTriangle_catd K E x u y v) p1)))
-  (kappa : τ (Hom (Op_cat (Hom_cat K x y)) p1 p0))
+  (kappa : τ (Hom (TotalOp_cat (Hom_cat K x y)) p1 p0))
   (lambda : τ (Obj (Fibre_cat
     (@homd_
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangle_catd K E x u y v)
       (@DependentTriangle_catd K E x u y v)
       (@id_funcd
-        (Op_cat (Hom_cat K x y))
+        (TotalOp_cat (Hom_cat K x y))
         (@DependentTriangle_catd K E x u y v))
       p1 alpha1 p0 alpha0)
     kappa)))
@@ -270,17 +282,17 @@ symbol dependent_tetrahedron
         (@dependent_triangle K E x u y v p0 alpha0)
         (@dependent_triangle K E x u y v p1 alpha1)))
 ≔ @Struct_sigma
-    (Obj (Op_cat
-      (Hom_cat (Op_cat (Hom_cat K x y)) p1 p0)))
-    (λ r : τ (Obj (Op_cat
-        (Hom_cat (Op_cat (Hom_cat K x y)) p1 p0))),
+    (Obj (TotalOp_cat
+      (Hom_cat (TotalOp_cat (Hom_cat K x y)) p1 p0)))
+    (λ r : τ (Obj (TotalOp_cat
+        (Hom_cat (TotalOp_cat (Hom_cat K x y)) p1 p0))),
       Obj (Fibre_cat
         (@homd_
-          (Op_cat (Hom_cat K x y))
+          (TotalOp_cat (Hom_cat K x y))
           (@DependentTriangle_catd K E x u y v)
           (@DependentTriangle_catd K E x u y v)
           (@id_funcd
-            (Op_cat (Hom_cat K x y))
+            (TotalOp_cat (Hom_cat K x y))
             (@DependentTriangle_catd K E x u y v))
           p1 alpha1 p0 alpha0)
         r))

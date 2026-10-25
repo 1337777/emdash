@@ -10,7 +10,7 @@ require open emdash.emdash3_2_one_cat_connecting_target_exactness;
 
 symbol review_middle_canonical_point_exact [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod
   t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
@@ -105,7 +105,7 @@ symbol review_middle_canonical_point_exact [B C : Cat] (C1 : τ (IsNCat (cat_suc
 
 symbol review_source_canonical_point_exact [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod
   t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
@@ -175,7 +175,7 @@ symbol review_source_canonical_point_exact [B C : Cat] (C1 : τ (IsNCat (cat_suc
 
 symbol review_target_canonical_point_exact [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod
   t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t

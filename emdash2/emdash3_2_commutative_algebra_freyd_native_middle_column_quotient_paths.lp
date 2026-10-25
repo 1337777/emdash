@@ -94,13 +94,13 @@ symbol freyd_raw_native_middle_column_quotient_path [K : Cat] [R : τ CommRing] 
   B2 D2 i2 p2 c2) (@freyd_raw_native_row_map K R A1 B1 D1 A2 B2 D2 i1 p1 i2 p2 a1 b1 d1 c1 c2 f1))
   (@freyd_raw_native_middle_column_input K R M A0 B0 D0 A1 B1 D1 A2 B2 D2 i0 p0 i1 p1 i2 p2 c0 c1 c2 a0 b0
   d0 a1 b1 d1 f0 f1 middle)
-  x)) (@fapp0 (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+  x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
   (@CommRingFreydPresentation_cat R) (@cokernel_adjunction_func (@CommRingFreydPresentation_cat R)
   (@additive_preadditive
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R)
   (@comm_ring_freyd_additive R)) (@comm_ring_zero_presentation R) (@freyd_adjunction_model_initial R M)
   (@freyd_adjunction_model_cokernels R M)) (@fapp0 K
-  (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+  (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
   (@kernel_adjunction_family_boundary_diagram_func K (@CommRingFreydPresentation_cat R)
   (@additive_preadditive
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R)
@@ -129,9 +129,9 @@ symbol freyd_raw_native_middle_column_quotient_path [K : Cat] [R : τ CommRing] 
   (@freyd_adjunction_model_kernels R M) (@freyd_adjunction_model_cokernels R M))
   (@freyd_raw_chain_native_cone R B0 B1 B2 b0 b1 middle)) (@freyd_raw_native_middle_column_homology_map K
   R M A0 B0 D0 A1 B1 D1 A2 B2 D2 i0 p0 i1 p1 i2 p2 c0 c1 c2 a0 b0 d0 a1 b1 d1 f0 f1 middle x)
-  (@tapp0_fapp0 K (@CommRingFreydPresentation_cat R) (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat
+  (@tapp0_fapp0 K (@CommRingFreydPresentation_cat R) (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat
   (@CommRingFreydPresentation_cat R)) (@CommRingFreydPresentation_cat R)
-  (@diagram_evaluation_at_func WalkingArrow_cat (@CommRingFreydPresentation_cat R) walking_arrow_tgt)
+  (@diagram_oplax_evaluation_at_func WalkingArrow_cat (@CommRingFreydPresentation_cat R) walking_arrow_tgt)
   (@kernel_adjunction_family_boundary_diagram_func K (@CommRingFreydPresentation_cat R)
   (@additive_preadditive
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R)
@@ -148,7 +148,7 @@ symbol freyd_raw_native_middle_column_quotient_path [K : Cat] [R : τ CommRing] 
   D1 i1 p1 c1) (@freyd_raw_native_row_family K R A2
   B2 D2 i2 p2 c2) (@freyd_raw_native_row_map K R A1 B1 D1 A2 B2 D2 i1 p1 i2 p2 a1 b1 d1 c1 c2 f1))
   (@freyd_raw_native_middle_column_input K R M A0 B0 D0 A1 B1 D1 A2 B2 D2 i0 p0 i1 p1 i2 p2 c0 c1 c2 a0 b0
-  d0 a1 b1 d1 f0 f1 middle))) (@comp_cat_fapp0 K (Functor_cat
+  d0 a1 b1 d1 f0 f1 middle))) (@comp_cat_fapp0 K (Functor_oplax_cat
   WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@CommRingFreydPresentation_cat R)
   (@cokernel_adjunction_func (@CommRingFreydPresentation_cat R) (@additive_preadditive
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R)

@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_native_window_snake_right_kernel_quotients
 symbol one_cat_native_window_snake_right_kernel_pair_diagram_forward [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -39,7 +39,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_diagram_forward [K C : Cat]
   (@additive_terminal_object C Prod t Add) T0 P Q Rm))
   (E0 : τ (@OneCatZeroConeShortExactFamily K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q R0))
-  : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
+  : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
   (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
   (@zero_cone_right_column_outgoing_func K C t (@additive_terminal_object C Prod t Add) Rm R0 mm)) (@fapp0
   (Functor_cat K (Product_cat C C)) (Functor_cat K C) (@comp_cat_cov_func K (Product_cat C C) C Prod)
@@ -85,7 +85,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_diagram_forward [K C : Cat]
 symbol one_cat_native_window_snake_right_kernel_pair_section_triangle [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -184,7 +184,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_section_triangle [K C : Cat
 symbol one_cat_native_window_snake_right_kernel_pair_diagram_backward [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -218,7 +218,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_diagram_backward [K C : Cat
   (@additive_terminal_object C Prod t Add) T0 P Q Rm))
   (E0 : τ (@OneCatZeroConeShortExactFamily K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q R0))
-  : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
+  : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
   (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
   (@zero_cone_right_column_outgoing_func K C t (@additive_terminal_object C Prod t Add) Rm R0 mm))
   (@zero_cone_row_family_vertex_func K C t (@additive_terminal_object C Prod t Add) R1 walking_arrow_tgt)
@@ -260,7 +260,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_diagram_backward [K C : Cat
 symbol one_cat_native_window_snake_right_kernel_pair_forward [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero)
   C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -330,7 +330,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_forward [K C : Cat] (C1 : �
 symbol one_cat_native_window_snake_right_kernel_pair_backward [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero)
   C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -401,7 +401,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_backward [K C : Cat] (C1 : 
 symbol one_cat_native_window_snake_right_kernel_pair_forward_reconstruction [K C : Cat] (C1 : τ (IsNCat
   (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -500,7 +500,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_forward_reconstruction [K C
 symbol one_cat_native_window_snake_right_kernel_pair_backward_reconstruction [K C : Cat] (C1 : τ (IsNCat
   (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -596,7 +596,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_backward_reconstruction [K 
 symbol one_cat_native_window_snake_right_kernel_pair_backward_forward [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -824,7 +824,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_backward_forward [K C : Cat
 symbol one_cat_native_window_snake_right_kernel_pair_forward_backward [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -1027,7 +1027,7 @@ symbol one_cat_native_window_snake_right_kernel_pair_forward_backward [K C : Cat
 // Fixed-forward ΩAlong retains the original paired and unpaired kernels.
 symbol one_cat_native_window_snake_right_kernel_pair_equiv [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))

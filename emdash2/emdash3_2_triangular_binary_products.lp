@@ -78,12 +78,12 @@ symbol binary_products_proj2_fapp0
 symbol binary_products_pair_source_family
   [C : Cat]
   (A0 A1 : τ (Obj C))
-  : τ (Functor (Op_cat C) Cat_cat)
+  : τ (Functor (Op_cat C) Cat_cart)
 ≔ @comp_cat_fapp0
     (Op_cat C)
-    (Product_cat Cat_cat Cat_cat)
-    Cat_cat
-    (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+    (Product_cat Cat_cart Cat_cart)
+    Cat_cart
+    (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
     (Struct_sigma
       (@hom_con C A0 C (@id_func C))
       (@hom_con C A1 C (@id_func C)));
@@ -93,7 +93,7 @@ symbol binary_products_pair_target_family
   [C : Cat]
   [P : τ (Functor (Product_cat C C) C)]
   (A0 A1 : τ (Obj C))
-  : τ (Functor (Op_cat C) Cat_cat)
+  : τ (Functor (Op_cat C) Cat_cart)
 ≔ @hom_con
     C
     (@fapp0
@@ -239,7 +239,7 @@ rule @tapp0_fapp0
 
 // Component projection of the whole pairing transfor.
 rule @tapp0_fapp0
-      _ Cat_cat _ _ $X
+      _ _ _ _ $X
       (@binary_products_pair_transf $C $P $BP $A0 $A1)
   ↪ @binary_products_pair_func
       $C $P $BP $X $A0 $A1;

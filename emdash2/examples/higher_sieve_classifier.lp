@@ -31,7 +31,7 @@ assert [K : Cat]
   (p : τ (Hom K V U)) ⊢
   @tapp0_fapp0
     (Op_cat K)
-    Cat_cat
+    Cat_cart
     (@yoneda_psh K V)
     (@yoneda_psh K U)
     W
@@ -49,12 +49,13 @@ assert [K : Cat] (U : τ (Obj K)) ⊢
   @Slice_cat K U
   ≡ Op_cat (@Sigma_cat (Op_cat K) (@yoneda_psh K U));
 
-// Both presentations compare to one stable Catd category.
+// The varying classifier has Cartesian diagram maps; ordinary presheaves
+// retain their ambient lax-map category and the actual whole inclusion.
 assert [K : Cat] (U : τ (Obj K)) ⊢
   @eq_refl Cat_grpd (@HigherSieve_cat K U)
   : τ (@= Cat_grpd
       (@HigherSieve_cat K U)
-      (@Catd_cat (@Into_restr_cat K U)));
+      (Functor_cart_cat (@Into_restr_cat K U) Cat_cart));
 
 assert [K : Cat] (U : τ (Obj K)) ⊢
   @eq_refl Cat_grpd (@Psh_cat (@Slice_cat K U))
@@ -62,7 +63,7 @@ assert [K : Cat] (U : τ (Obj K)) ⊢
       (@Psh_cat (@Slice_cat K U))
       (@Catd_cat (@Into_restr_cat K U)));
 
-// Lambdapi does not chain those two experimental unification steps.
+// These categories have different mapping profiles, despite sharing objects.
 assertnot [K : Cat] (U : τ (Obj K)) ⊢
   @HigherSieve_cat K U
   ≡ @Psh_cat (@Slice_cat K U);
@@ -76,8 +77,13 @@ assert [K : Cat]
     (@HigherSieve_cat K V)
     (@fapp1_fapp0
       (Op_cat K)
-      Cat_cat
+      Cat_cart
       (@HigherSieveClassifier K)
       U V p)
     (@maximal_higher_sieve K U)
   ≡ @maximal_higher_sieve K V;
+
+// The existing whole inclusion supplies the ordinary presheaf view.
+assert [K : Cat] (U : τ (Obj K)) ⊢
+  @higher_sieve_include_func K U
+  : τ (Functor (@HigherSieve_cat K U) (@Psh_cat (@Slice_cat K U)));

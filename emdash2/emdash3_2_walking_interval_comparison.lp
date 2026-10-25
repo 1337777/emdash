@@ -44,7 +44,7 @@ constant symbol walking_interval_seg_cross
 
 // The cross owner uniquely reconstructs its base, families, and component.
 rule @tapp0_fapp0
-      _ Cat_cat _ _ _
+      _ _ _ _ _
       walking_interval_seg_cross
   ↪ @Const_func
       Terminal_cat

@@ -110,7 +110,7 @@ symbol one_cat_product_pair_reindex_path [A B C : Cat] (C1 : τ (IsNCat (cat_suc
 
 // Restriction preserves whole copairing at the original selected product endpoint.
 symbol one_cat_copair_reindex_path [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (V : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (V : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (U : τ (Functor A B)) (F G Y : τ (Functor B C))
   (f : τ (@Transf B C F Y)) (g : τ (@Transf B C G Y))
   : τ (@= (@Transf A C (@fapp0 (Functor_cat A (Product_cat C C)) (Functor_cat A C) (@comp_cat_cov_func A (Product_cat
@@ -199,13 +199,20 @@ symbol one_cat_copair_reindex_path [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_
   B C Y U)) (@fapp0 (@Transf_cat B C F Y) (@Transf_cat A C (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C Y U))
   (@comp_cat_con_fapp1_func A B C U F Y) f) (@fapp0 (@Transf_cat B C G Y) (@Transf_cat A C (@comp_cat_fapp0 A B C G U)
   (@comp_cat_fapp0 A B C Y U)) (@comp_cat_con_fapp1_func A B C U G Y) g)) (@mate_input_target_reindex_path A B C
-  U F G Y f g)) (@eq_refl (@Transf A C (@fapp0 (Functor_cat A (Product_cat C C)) (Functor_cat A C) (@comp_cat_cov_func
-  A (Product_cat C C) C Prod) (@Struct_sigma (Functor A C) (λ _ : τ (Functor A C), Functor A C) (@comp_cat_fapp0 A B C
-  F U) (@comp_cat_fapp0 A B C G U))) (@comp_cat_fapp0 A B C Y U)) (@one_cat_copair_family A C C1 Prod t V T0
-  (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C G U) (@comp_cat_fapp0 A B C Y U) (@fapp0 (@Transf_cat B C F Y)
-  (@Transf_cat A C (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C Y U)) (@comp_cat_con_fapp1_func A B C U F Y) f)
-  (@fapp0 (@Transf_cat B C G Y) (@Transf_cat A C (@comp_cat_fapp0 A B C G U) (@comp_cat_fapp0 A B C Y U))
-  (@comp_cat_con_fapp1_func A B C U G Y) g)))));
+  U F G Y f g)) (@eq_ap (Functor (Product_cat (@Transf_cat A C (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C Y U)) (@Transf_cat A C (@comp_cat_fapp0 A B C G U) (@comp_cat_fapp0 A B C Y U))) (@Transf_cat A C (@fapp0 (Functor_cat A (Product_cat C C)) (Functor_cat A C) (@comp_cat_cov_func A (Product_cat C C) C Prod) (@Struct_sigma (Functor A C) (λ _ : τ (Functor A C), Functor A C) (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C G U))) (@comp_cat_fapp0 A B C Y U))) (Obj (@Transf_cat A C (@fapp0 (Functor_cat A (Product_cat C C)) (Functor_cat A C) (@comp_cat_cov_func A (Product_cat C C) C Prod) (@Struct_sigma (Functor A C) (λ _ : τ (Functor A C), Functor A C) (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C G U))) (@comp_cat_fapp0 A B C Y U)))
+          (λ M : τ (Functor (Product_cat (@Transf_cat A C (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C Y U)) (@Transf_cat A C (@comp_cat_fapp0 A B C G U) (@comp_cat_fapp0 A B C Y U))) (@Transf_cat A C (@fapp0 (Functor_cat A (Product_cat C C)) (Functor_cat A C) (@comp_cat_cov_func A (Product_cat C C) C Prod) (@Struct_sigma (Functor A C) (λ _ : τ (Functor A C), Functor A C) (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C G U))) (@comp_cat_fapp0 A B C Y U))), @fapp0 (Product_cat (@Transf_cat A C (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C Y U)) (@Transf_cat A C (@comp_cat_fapp0 A B C G U) (@comp_cat_fapp0 A B C Y U))) (@Transf_cat A C (@fapp0 (Functor_cat A (Product_cat C C)) (Functor_cat A C) (@comp_cat_cov_func A (Product_cat C C) C Prod) (@Struct_sigma (Functor A C) (λ _ : τ (Functor A C), Functor A C) (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C G U))) (@comp_cat_fapp0 A B C Y U)) M (@Struct_sigma (@Transf A C (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C Y U)) (λ _ : τ (@Transf A C (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C Y U)), @Transf A C (@comp_cat_fapp0 A B C G U) (@comp_cat_fapp0 A B C Y U)) (@fapp0 (@Transf_cat B C F Y)
+  (@Transf_cat A C (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C Y U)) (@comp_cat_con_fapp1_func A B C U F Y) f) (@fapp0 (@Transf_cat B C G Y) (@Transf_cat A C (@comp_cat_fapp0 A B C G U) (@comp_cat_fapp0 A B C Y U))
+  (@comp_cat_con_fapp1_func A B C U G Y) g)))
+          (@one_cat_adjunction_family_untranspose_func A (Product_cat C C) C
+          (@one_cat_product_category C C C1 C1) C1 Prod (@product_diagonal_func C)
+          (@one_cat_biproduct_adjunction C C1 Prod t V T0)
+          (@comp_cat_fapp0 A B (Product_cat C C)
+            (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G) U) (@comp_cat_fapp0 A B C Y U)) (@one_cat_copair_family_func A C C1 Prod t V T0 (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C G U) (@comp_cat_fapp0 A B C Y U))
+          (@eq_refl (Functor (Product_cat (@Transf_cat A C (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C Y U)) (@Transf_cat A C (@comp_cat_fapp0 A B C G U) (@comp_cat_fapp0 A B C Y U))) (@Transf_cat A C (@fapp0 (Functor_cat A (Product_cat C C)) (Functor_cat A C) (@comp_cat_cov_func A (Product_cat C C) C Prod) (@Struct_sigma (Functor A C) (λ _ : τ (Functor A C), Functor A C) (@comp_cat_fapp0 A B C F U) (@comp_cat_fapp0 A B C G U))) (@comp_cat_fapp0 A B C Y U))) (@one_cat_adjunction_family_untranspose_func A (Product_cat C C) C
+          (@one_cat_product_category C C C1 C1) C1 Prod (@product_diagonal_func C)
+          (@one_cat_biproduct_adjunction C C1 Prod t V T0)
+          (@comp_cat_fapp0 A B (Product_cat C C)
+            (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F G) U) (@comp_cat_fapp0 A B C Y U))))));
 
 /* Whole product diagonal and addition preserved under the original restrictions. */
 
@@ -265,7 +272,7 @@ symbol one_cat_product_diagonal_reindex_path [A B C : Cat] (C1 : τ (IsNCat (cat
 
 // Restriction preserves the actual whole addition operation, with original product choices.
 symbol one_cat_additive_family_reindex_path [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (V : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (V : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (U : τ (Functor A B)) (X Y : τ (Functor B C))
   (f g : τ (@Transf B C X Y))
   : τ (@= (@Transf A C (@comp_cat_fapp0 A B C X U) (@comp_cat_fapp0 A B C Y U)) (@fapp0 _ _ (@comp_cat_con_fapp1_func

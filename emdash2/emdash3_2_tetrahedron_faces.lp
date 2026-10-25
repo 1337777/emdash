@@ -23,14 +23,14 @@ symbol simplex_triangle_zero_one_two_realization
     (@FaceCode
       (succ (succ (succ zero)))
       (succ (succ (succ (succ zero)))))
-    (@StrictFunctor
+    (@Functor
       (@DirectedSimplex_cat (succ (succ zero)))
       (@DirectedSimplex_cat (succ (succ (succ zero)))))
     (@face_skip
       (succ (succ (succ zero)))
       (succ (succ (succ zero)))
       (@face_identity (succ (succ (succ zero)))))
-    (@strict_join_fst
+    (@join_fst_func
       (@DirectedSimplex_cat (succ (succ zero)))
       Terminal_cat);
 
@@ -43,20 +43,20 @@ symbol simplex_triangle_zero_one_three_realization
     (@FaceCode
       (succ (succ (succ zero)))
       (succ (succ (succ (succ zero)))))
-    (@StrictFunctor
+    (@Functor
       (@DirectedSimplex_cat (succ (succ zero)))
       (@DirectedSimplex_cat (succ (succ (succ zero)))))
     (@face_keep
       (succ (succ zero))
       (succ (succ (succ zero)))
       simplex_edge_zero_one_code)
-    (@strict_join_map
+    (@join_map_func
       WalkingArrow_cat Terminal_cat
       (@DirectedSimplex_cat (succ (succ zero))) Terminal_cat
       (@selected_face_data
         (succ zero) (succ (succ zero))
         simplex_edge_zero_one_realization)
-      (@strict_identity Terminal_cat));
+      (@id_func Terminal_cat));
 
 // Triangle 023: retain old edge 02 and the new final vertex.
 symbol simplex_triangle_zero_two_three_realization
@@ -67,20 +67,20 @@ symbol simplex_triangle_zero_two_three_realization
     (@FaceCode
       (succ (succ (succ zero)))
       (succ (succ (succ (succ zero)))))
-    (@StrictFunctor
+    (@Functor
       (@DirectedSimplex_cat (succ (succ zero)))
       (@DirectedSimplex_cat (succ (succ (succ zero)))))
     (@face_keep
       (succ (succ zero))
       (succ (succ (succ zero)))
       simplex_edge_zero_two_code)
-    (@strict_join_map
+    (@join_map_func
       WalkingArrow_cat Terminal_cat
       (@DirectedSimplex_cat (succ (succ zero))) Terminal_cat
       (@selected_face_data
         (succ zero) (succ (succ zero))
         simplex_edge_zero_two_realization)
-      (@strict_identity Terminal_cat));
+      (@id_func Terminal_cat));
 
 // Triangle 123: retain old edge 12 and the new final vertex.
 symbol simplex_triangle_one_two_three_realization
@@ -91,20 +91,20 @@ symbol simplex_triangle_one_two_three_realization
     (@FaceCode
       (succ (succ (succ zero)))
       (succ (succ (succ (succ zero)))))
-    (@StrictFunctor
+    (@Functor
       (@DirectedSimplex_cat (succ (succ zero)))
       (@DirectedSimplex_cat (succ (succ (succ zero)))))
     (@face_keep
       (succ (succ zero))
       (succ (succ (succ zero)))
       simplex_edge_one_two_code)
-    (@strict_join_map
+    (@join_map_func
       WalkingArrow_cat Terminal_cat
       (@DirectedSimplex_cat (succ (succ zero))) Terminal_cat
       (@selected_face_data
         (succ zero) (succ (succ zero))
         simplex_edge_one_two_realization)
-      (@strict_identity Terminal_cat));
+      (@id_func Terminal_cat));
 
 // Readable code projections.
 symbol simplex_triangle_zero_one_two_code

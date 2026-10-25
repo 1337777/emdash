@@ -5,13 +5,13 @@ require open emdash.emdash3_2_semicubical_nerve;
 // The whole nerve classifies native cubical levels at every dimension.
 assert [C : Cat] (n : τ Nat_grpd) ⊢
   @fapp0
-    (Op_cat SemiCubePlus_cat) Cat_cat
+    (Op_cat SemiCubePlus_cat) Cat_cart
     (@semicubical_nerve_func C) n
   ≡ @CubicalLevel_cat C n;
 
 assert [C : Cat] ⊢
   @fapp0
-    (Op_cat SemiCubePlus_cat) Cat_cat
+    (Op_cat SemiCubePlus_cat) Cat_cart
     (@semicubical_nerve_func C) (succ (succ zero))
   ≡ @CubicalSquare_cat C;
 
@@ -76,5 +76,5 @@ assert [C : Cat]
 // transformations supplied by the generic functor calculus.
 type @fapp1_func
   (Op_cat SemiCubePlus_cat)
-  Cat_cat
+  Cat_cart
   (@semicubical_nerve_func Cat_cat);

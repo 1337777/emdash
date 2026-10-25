@@ -4,7 +4,7 @@ require open emdash.emdash3_2_one_cat_copair_families;
 // The addition functor uses both adjunctions at the same original Prod.
 symbol one_cat_additive_family_add_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (X Y : τ (Functor B C))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (X Y : τ (Functor B C))
   : τ (Functor (Product_cat (@Transf_cat B C X Y) (@Transf_cat B C X Y)) (@Transf_cat B C X Y))
 ≔ @comp_cat_fapp0 (Hom_cat (Functor_cat B (Product_cat C C)) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C),
   Functor B C) X X) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C
@@ -20,7 +20,7 @@ symbol one_cat_additive_family_add_func [B C : Cat] (C1 : τ (IsNCat (cat_succ c
 // Add two whole transformations without supplying component naturality.
 symbol one_cat_additive_family_add [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (X Y : τ (Functor B C))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (X Y : τ (Functor B C))
   (f g : τ (@Transf B C X Y)) : τ (@Transf B C X Y)
 ≔ @fapp0 (Hom_cat (Functor_cat B (Product_cat C C)) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C)
   X X) (@fapp0 (Functor_cat B C) (Functor_cat B (Product_cat C C)) (@comp_cat_cov_func B C (Product_cat C C)

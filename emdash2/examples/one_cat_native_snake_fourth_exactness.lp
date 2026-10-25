@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_native_snake_fourth_exactness;
 assert [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -23,7 +23,7 @@ assert [K C : Cat]
   (@one_cat_native_snake_cokernel_second K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h)))) (@comp_fapp0 (Functor_cat K C)
   (@one_cat_native_snake_fourth_quotient_cover_source K C C1 Prod t Add T0 P Q N A B X D b c h) (@comp_cat_fapp0
-  K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
+  K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@zero_arrow_family_incoming_func K C t
   (@additive_terminal_object C Prod t Add) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t
   Add) t T0 Q (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
@@ -45,7 +45,7 @@ assert [K C : Cat]
   (Functor_cat K C) (@one_cat_native_snake_fourth_quotient_cover_source K C C1 Prod t Add T0 P Q N A B X D b c
   h) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
   (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
-  C Prod t Add) T0 P A B X D b c h)) (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C
+  C Prod t Add) T0 P A B X D b c h)) (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C
   (@adjunction_image_func C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P
   Q) (@zero_arrow_family_incoming_func K C t (@additive_terminal_object C Prod t Add)
   (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
@@ -95,7 +95,7 @@ assert [K C : Cat]
 assert [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -111,7 +111,7 @@ assert [K C : Cat]
   (@one_cat_native_snake_gamma_diagram K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object
   C Prod t Add) T0 Q A B X D b c h)) (@one_cat_native_snake_cokernel_second K C (@additive_preadditive C Prod t
   Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h))) (@cokernel_adjunction_family_func K
-  C (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C (@comp_cat_fapp0 K (Functor_cat
+  C (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C (@comp_cat_fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@zero_arrow_family_incoming_func K C t
   (@additive_terminal_object C Prod t Add) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t
@@ -132,7 +132,7 @@ assert [K C : Cat]
   (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h)))
   (@one_cat_native_snake_fourth_exact_comparison K C C1 Prod t Add T0 P Q N A B X D b c h))))
   (@cokernel_adjunction_family_projection_transf K C (@additive_preadditive C Prod t Add) t T0 Q
-  (@transf_arrow_diagram_func K C (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func
+  (@transf_arrow_diagram_func K C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func
   C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) T0 P Q)
   (@zero_arrow_family_incoming_func K C t (@additive_terminal_object C Prod t Add)
   (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
@@ -160,7 +160,7 @@ assert [K C : Cat]
   Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 Q A B X D b c h))
   (@one_cat_native_snake_cokernel_second K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q A B X D b c h))) (@cokernel_adjunction_family_func K C
-  (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C (@comp_cat_fapp0 K (Functor_cat
+  (@additive_preadditive C Prod t Add) t T0 Q (@transf_arrow_diagram_func K C (@comp_cat_fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q) (@zero_arrow_family_incoming_func K C t
   (@additive_terminal_object C Prod t Add) (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t
@@ -185,7 +185,7 @@ assert [K C : Cat]
 assert [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -200,7 +200,7 @@ assert [K C : Cat]
 assert [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))

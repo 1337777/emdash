@@ -91,7 +91,7 @@ symbol Psh_pullback_func
 symbol yoneda_psh_func
   (K : Cat)
   : τ (Functor K (@Psh_cat K))
-≔ @hom_con_int K K (@id_func K);
+≔ @hom_con_int_view K K (@id_func K);
 
 symbol yoneda_psh
   [K : Cat]
@@ -109,12 +109,8 @@ symbol yoneda_psh
   the two variances.
 */
 symbol arrow_into_catd (K : Cat) : τ (Catd K)
-≔ @comp_cat_fapp0
-    K
-    (@Catd_cat (Op_cat K))
-    Cat_cat
-    (@Sigma_func (Op_cat K))
-    (@yoneda_psh_func K);
+≔ @comp_cat_fapp0 K (Functor_cart_cat (Op_cat K) Cat_cart) Cat_cart
+    (@Sigma_coeff_func (Op_cat K)) (@hom_con_int K K (@id_func K));
 
 symbol Into_restr_cat
   [K : Cat]
@@ -240,9 +236,10 @@ symbol slice_arrow_intro
   `emdash3_2_sieves` module owns the ordinary `Sieve` specialization; `Omega`
   remains reserved pending setness and contravariant-family assembly.
 
-  The comparison with `Psh_cat(Slice_cat(U))` goes through the stable shared
-  presentation `Catd_cat(Into_restr_cat(U))`; no direct conversion rule is
-  installed merely to make unification transitive.
+  The varying-base classifier uses Cartesian diagram maps. Its objects
+  are the same Cat-valued families as Psh_cat(Slice_cat(U)), while their
+  mapping profiles differ. No category equality with the ordinary lax-map
+  presheaf category is asserted.
 */
 symbol HigherSieveClassifier (K : Cat) : τ (Psh K)
 ≔ @Catd_catd_con K (@arrow_into_catd K);
@@ -252,6 +249,12 @@ symbol HigherSieve_cat
   (U : τ (Obj K))
   : Cat
 ≔ Fibre_cat (@HigherSieveClassifier K) U;
+
+// Whole ordinary view through the existing fixed-base family facade.
+// The target annotation supplies the established one-step Psh comparison.
+symbol higher_sieve_include_func [K : Cat] (U : τ (Obj K))
+  : τ (Functor (@HigherSieve_cat K U) (@Catd_cat (@Into_restr_cat K U)))
+≔ Functor_cart_include (@Into_restr_cat K U) Cat_cart;
 
 symbol HigherSieve
   [K : Cat]
@@ -276,7 +279,7 @@ symbol HigherSieve_pullback_func
       (@HigherSieve_cat K V))
 ≔ @fapp1_fapp0
     (Op_cat K)
-    Cat_cat
+    Cat_cart
     (@HigherSieveClassifier K)
     U V p;
 
@@ -307,7 +310,7 @@ symbol into_restr_postcompose_func
   : τ (Functor
       (@Into_restr_cat K V)
       (@Into_restr_cat K U))
-≔ @fapp1_fapp0 K Cat_cat (@arrow_into_catd K) V U p;
+≔ @fapp1_fapp0 K Cat_cart (@arrow_into_catd K) V U p;
 
 symbol into_restr_postcompose
   [K : Cat]

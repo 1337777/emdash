@@ -3042,23 +3042,24 @@ symbol groupoidal_all_arrows_equiv
 /*
   Structured transport along a groupoidal arrow is an equivalence of fibres.
 
-  The displayed family is supplied as one classified `StrictFunctor`, so its
+  The ordinary Cat-valued diagram uses the default strict Functor input.
+  Use its actual object action, without imposing Cat_cart-family admission. Its
   action maps the arrow's equality-valued inverse evidence without a detached
   composition-law argument. This adds no decoder and no transport rule.
 */
 symbol groupoidal_fibre_transport_equiv
   [C : Cat]
   (g : τ (@IsGroupoidalCat C))
-  (D : τ (@StrictFunctor C Cat_cat))
+  (D : τ (Functor C Cat_cat))
   [x y : τ (Obj C)]
   (f : τ (Hom C x y))
   : τ (@OmegaEquivAlong
       Cat_cat
-      (Fibre_cat (@strict_functor C Cat_cat D) x)
-      (Fibre_cat (@strict_functor C Cat_cat D) y)
+      (@fapp0 C Cat_cat D x)
+      (@fapp0 C Cat_cat D y)
       (@fapp1_fapp0 C Cat_cat
-        (@strict_functor C Cat_cat D) x y f))
-≔ @strict_omega_equiv_along_fapp1
+        D x y f))
+≔ @omega_equiv_along_fmap
     C
     Cat_cat
     D

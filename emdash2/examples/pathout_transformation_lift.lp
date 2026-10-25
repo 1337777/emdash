@@ -5,7 +5,9 @@
   post/precomposition and whole-transport chain used by the ordinal
   tetrahedron. Its fibre arrow remains the extracted pre/right laxity cell,
   reframed only by equality-induced source and target action. The resulting
-  transformation retains its ordinary next hom action.
+  transformation retains its ordinary next hom action. The extracted
+  pre/right leg follows the conventional-lax default; the other
+  ordinary naturality leg is not strictified.
 */
 
 require open emdash.emdash3_2_pathout_transformation_lift;

@@ -38,26 +38,34 @@ symbol one_cat_terminal_adjunction_family_modification_evidence [B C : Cat] (C1 
 // Transparent presentation: retain e and F in the actual composed diagram.
 symbol terminal_adjunction_presented_family [B C : Cat] [t : τ (Obj C)]
   (e : τ (@Transf C C (@id_func C) (@Const_func C C t))) (F : τ (Functor B C))
+  : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C))
+≔ @comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
+    (@transf_arrow_diagram_func C C (@id_func C) (@Const_func C C t) e) F;
+
+// Ordinary realization under the existing target hypothesis, retaining e and F.
+symbol one_cat_terminal_adjunction_presented_family [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
+  (e : τ (@Transf C C (@id_func C) (@Const_func C C t))) (F : τ (Functor B C))
   : τ (Functor B (Functor_cat WalkingArrow_cat C))
 ≔ @comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
-    (@transf_arrow_diagram_func C C (@id_func C) (@Const_func C C t) e) F;
+    (@one_cat_transf_arrow_diagram_func C C C1 (@id_func C) (@Const_func C C t) e) F;
 
 // Reach the chosen original diagram through the categorical reconstruction.
 symbol one_cat_terminal_adjunction_family_presentation_evidence [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)] (J : τ (@Adjunction C Terminal_cat (Terminal_func C) (@Obj_func C t))) (F : τ (Functor B C))
   (e : τ (@Transf C C (@id_func C) (@Const_func C C t))) (h : τ (@Transf B C F (@Const_func B C t)))
-  : τ (IsoEvidence (Functor_cat B (Functor_cat WalkingArrow_cat C)) (@transf_arrow_diagram_func B C F (@Const_func B C t) h) (@terminal_adjunction_presented_family B C t e F))
+  : τ (IsoEvidence (Functor_cat B (Functor_cat WalkingArrow_cat C)) (@one_cat_transf_arrow_diagram_func B C C1 F (@Const_func B C t) h) (@one_cat_terminal_adjunction_presented_family B C C1 t e F))
 ≔ @iso_evidence_comp (Functor_cat B (Functor_cat WalkingArrow_cat C))
-    (@transf_arrow_diagram_func B C F (@Const_func B C t) h) (@transf_arrow_diagram_func B C F (@Const_func B C t) (@diagram_family_transf B WalkingArrow_cat C (@terminal_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)) (@terminal_adjunction_presented_family B C t e F)
-    (@one_cat_diagram_family_reconstruction_evidence B C C1 (@terminal_adjunction_presented_family B C t e F))
-    (@one_cat_arrow_family_comparison_evidence B C C1 F (@Const_func B C t) h (@diagram_family_transf B WalkingArrow_cat C (@terminal_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
-      (@one_cat_terminal_adjunction_family_modification_evidence B C C1 t J F h (@diagram_family_transf B WalkingArrow_cat C (@terminal_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)));
+    (@one_cat_transf_arrow_diagram_func B C C1 F (@Const_func B C t) h) (@one_cat_transf_arrow_diagram_func B C C1 F (@Const_func B C t) (@one_cat_diagram_family_transf B WalkingArrow_cat C C1 (@one_cat_terminal_adjunction_presented_family B C C1 t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)) (@one_cat_terminal_adjunction_presented_family B C C1 t e F)
+    (@one_cat_diagram_family_reconstruction_evidence B C C1 (@one_cat_terminal_adjunction_presented_family B C C1 t e F))
+    (@one_cat_arrow_family_comparison_evidence B C C1 F (@Const_func B C t) h (@one_cat_diagram_family_transf B WalkingArrow_cat C C1 (@one_cat_terminal_adjunction_presented_family B C C1 t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+      (@one_cat_terminal_adjunction_family_modification_evidence B C C1 t J F h (@one_cat_diagram_family_transf B WalkingArrow_cat C C1 (@one_cat_terminal_adjunction_presented_family B C C1 t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)));
 
 // Default presentation uses the same adjunction's whole unit.
 symbol one_cat_terminal_adjunction_family_normalization [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)] (J : τ (@Adjunction C Terminal_cat (Terminal_func C) (@Obj_func C t))) (F : τ (Functor B C))
   (h : τ (@Transf B C F (@Const_func B C t)))
-  : τ (IsoEvidence (Functor_cat B (Functor_cat WalkingArrow_cat C)) (@transf_arrow_diagram_func B C F (@Const_func B C t) h) (@terminal_adjunction_presented_family B C t (@unit_adj_transf C Terminal_cat (Terminal_func C) (@Obj_func C t) J) F))
+  : τ (IsoEvidence (Functor_cat B (Functor_cat WalkingArrow_cat C)) (@one_cat_transf_arrow_diagram_func B C C1 F (@Const_func B C t) h) (@one_cat_terminal_adjunction_presented_family B C C1 t (@unit_adj_transf C Terminal_cat (Terminal_func C) (@Obj_func C t) J) F))
 ≔ @one_cat_terminal_adjunction_family_presentation_evidence B C C1 t J F (@unit_adj_transf C Terminal_cat (Terminal_func C) (@Obj_func C t) J) h;
 
 // Whole Hom contraction through the original lifted adjunction and its inverse.
@@ -82,24 +90,56 @@ symbol one_cat_initial_adjunction_family_modification_evidence [B C : Cat] (C1 :
 // Transparent presentation: retain e and F in the actual composed diagram.
 symbol initial_adjunction_presented_family [B C : Cat] [t : τ (Obj C)]
   (e : τ (@Transf C C (@Const_func C C t) (@id_func C))) (F : τ (Functor B C))
+  : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C))
+≔ @comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
+    (@transf_arrow_diagram_func C C (@Const_func C C t) (@id_func C) e) F;
+
+// Ordinary realization under the existing target hypothesis, retaining e and F.
+symbol one_cat_initial_adjunction_presented_family [B C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
+  (e : τ (@Transf C C (@Const_func C C t) (@id_func C))) (F : τ (Functor B C))
   : τ (Functor B (Functor_cat WalkingArrow_cat C))
 ≔ @comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
-    (@transf_arrow_diagram_func C C (@Const_func C C t) (@id_func C) e) F;
+    (@one_cat_transf_arrow_diagram_func C C C1 (@Const_func C C t) (@id_func C) e) F;
 
 // Reach the chosen original diagram through the categorical reconstruction.
 symbol one_cat_initial_adjunction_family_presentation_evidence [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)] (J : τ (@Adjunction Terminal_cat C (@Obj_func C t) (Terminal_func C))) (F : τ (Functor B C))
   (e : τ (@Transf C C (@Const_func C C t) (@id_func C))) (h : τ (@Transf B C (@Const_func B C t) F))
-  : τ (IsoEvidence (Functor_cat B (Functor_cat WalkingArrow_cat C)) (@transf_arrow_diagram_func B C (@Const_func B C t) F h) (@initial_adjunction_presented_family B C t e F))
+  : τ (IsoEvidence (Functor_cat B (Functor_cat WalkingArrow_cat C)) (@one_cat_transf_arrow_diagram_func B C C1 (@Const_func B C t) F h) (@one_cat_initial_adjunction_presented_family B C C1 t e F))
 ≔ @iso_evidence_comp (Functor_cat B (Functor_cat WalkingArrow_cat C))
-    (@transf_arrow_diagram_func B C (@Const_func B C t) F h) (@transf_arrow_diagram_func B C (@Const_func B C t) F (@diagram_family_transf B WalkingArrow_cat C (@initial_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)) (@initial_adjunction_presented_family B C t e F)
-    (@one_cat_diagram_family_reconstruction_evidence B C C1 (@initial_adjunction_presented_family B C t e F))
-    (@one_cat_arrow_family_comparison_evidence B C C1 (@Const_func B C t) F h (@diagram_family_transf B WalkingArrow_cat C (@initial_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
-      (@one_cat_initial_adjunction_family_modification_evidence B C C1 t J F h (@diagram_family_transf B WalkingArrow_cat C (@initial_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)));
+    (@one_cat_transf_arrow_diagram_func B C C1 (@Const_func B C t) F h) (@one_cat_transf_arrow_diagram_func B C C1 (@Const_func B C t) F (@one_cat_diagram_family_transf B WalkingArrow_cat C C1 (@one_cat_initial_adjunction_presented_family B C C1 t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)) (@one_cat_initial_adjunction_presented_family B C C1 t e F)
+    (@one_cat_diagram_family_reconstruction_evidence B C C1 (@one_cat_initial_adjunction_presented_family B C C1 t e F))
+    (@one_cat_arrow_family_comparison_evidence B C C1 (@Const_func B C t) F h (@one_cat_diagram_family_transf B WalkingArrow_cat C C1 (@one_cat_initial_adjunction_presented_family B C C1 t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+      (@one_cat_initial_adjunction_family_modification_evidence B C C1 t J F h (@one_cat_diagram_family_transf B WalkingArrow_cat C C1 (@one_cat_initial_adjunction_presented_family B C C1 t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)));
 
 // Default presentation uses the same adjunction's whole counit.
 symbol one_cat_initial_adjunction_family_normalization [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)] (J : τ (@Adjunction Terminal_cat C (@Obj_func C t) (Terminal_func C))) (F : τ (Functor B C))
   (h : τ (@Transf B C (@Const_func B C t) F))
-  : τ (IsoEvidence (Functor_cat B (Functor_cat WalkingArrow_cat C)) (@transf_arrow_diagram_func B C (@Const_func B C t) F h) (@initial_adjunction_presented_family B C t (@counit_adj_transf Terminal_cat C (@Obj_func C t) (Terminal_func C) J) F))
+  : τ (IsoEvidence (Functor_cat B (Functor_cat WalkingArrow_cat C)) (@one_cat_transf_arrow_diagram_func B C C1 (@Const_func B C t) F h) (@one_cat_initial_adjunction_presented_family B C C1 t (@counit_adj_transf Terminal_cat C (@Obj_func C t) (Terminal_func C) J) F))
 ≔ @one_cat_initial_adjunction_family_presentation_evidence B C C1 t J F (@counit_adj_transf Terminal_cat C (@Obj_func C t) (Terminal_func C) J) h;
+
+
+// Native view of the same original universality, modification and inverse data.
+symbol one_cat_oplax_terminal_adjunction_family_presentation_evidence [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [t : τ (Obj C)] (J : τ (@Adjunction C Terminal_cat (Terminal_func C) (@Obj_func C t))) (F : τ (Functor B C))
+  (e : τ (@Transf C C (@id_func C) (@Const_func C C t))) (h : τ (@Transf B C F (@Const_func B C t)))
+  : τ (IsoEvidence (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C)) (@transf_arrow_diagram_func B C F (@Const_func B C t) h) (@terminal_adjunction_presented_family B C t e F))
+≔ @iso_evidence_comp (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
+    (@transf_arrow_diagram_func B C F (@Const_func B C t) h) (@transf_arrow_diagram_func B C F (@Const_func B C t) (@diagram_oplax_family_transf B WalkingArrow_cat C (@terminal_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)) (@terminal_adjunction_presented_family B C t e F)
+    (@one_cat_oplax_diagram_family_reconstruction_evidence B C C1 (@terminal_adjunction_presented_family B C t e F))
+    (@one_cat_oplax_arrow_family_comparison_evidence B C C1 F (@Const_func B C t) h (@diagram_oplax_family_transf B WalkingArrow_cat C (@terminal_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+      (@one_cat_terminal_adjunction_family_modification_evidence B C C1 t J F h (@diagram_oplax_family_transf B WalkingArrow_cat C (@terminal_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)));
+
+
+// Native view of the same original universality, modification and inverse data.
+symbol one_cat_oplax_initial_adjunction_family_presentation_evidence [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  [t : τ (Obj C)] (J : τ (@Adjunction Terminal_cat C (@Obj_func C t) (Terminal_func C))) (F : τ (Functor B C))
+  (e : τ (@Transf C C (@Const_func C C t) (@id_func C))) (h : τ (@Transf B C (@Const_func B C t) F))
+  : τ (IsoEvidence (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C)) (@transf_arrow_diagram_func B C (@Const_func B C t) F h) (@initial_adjunction_presented_family B C t e F))
+≔ @iso_evidence_comp (Functor_cat B (Functor_oplax_cat WalkingArrow_cat C))
+    (@transf_arrow_diagram_func B C (@Const_func B C t) F h) (@transf_arrow_diagram_func B C (@Const_func B C t) F (@diagram_oplax_family_transf B WalkingArrow_cat C (@initial_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)) (@initial_adjunction_presented_family B C t e F)
+    (@one_cat_oplax_diagram_family_reconstruction_evidence B C C1 (@initial_adjunction_presented_family B C t e F))
+    (@one_cat_oplax_arrow_family_comparison_evidence B C C1 (@Const_func B C t) F h (@diagram_oplax_family_transf B WalkingArrow_cat C (@initial_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+      (@one_cat_initial_adjunction_family_modification_evidence B C C1 t J F h (@diagram_oplax_family_transf B WalkingArrow_cat C (@initial_adjunction_presented_family B C t e F) walking_arrow_src walking_arrow_tgt walking_arrow_generator)));

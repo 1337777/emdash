@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_chain_pair_homology_records;
 // The map is exactly the existing H applied to the direct native map.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]
   (p0 : τ (@ComputationalChainPair C S A0 B0 D0))
@@ -18,7 +18,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
 // Both H endpoints are the original-pair record observations.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]
   (p0 : τ (@ComputationalChainPair C S A0 B0 D0))
@@ -30,7 +30,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
 // The whole map functor has those same record endpoints.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]
   (p0 : τ (@ComputationalChainPair C S A0 B0 D0))
@@ -41,7 +41,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
 // Another Hom action remains available, with no additional coherence input.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]
   (p0 : τ (@ComputationalChainPair C S A0 B0 D0))

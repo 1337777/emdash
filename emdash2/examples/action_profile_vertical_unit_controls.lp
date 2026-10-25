@@ -1,5 +1,6 @@
-/* Unit-overlap controls. Base identity orders join at runtime;
-   transformation identity orders have independent profile-cell paths. */
+/* Base and transformation identities compute through the existing default
+   pre/right and selected strict post/left owners. Independent profile-cell
+   paths remain as additional observations of the same laws. */
 require open emdash.examples.action_profile_vertical_identity_paths;
 
 assert [A B : Cat] [F G H : τ (Functor A B)] (epsilon : τ (@Transf A B F G)) (V : τ (@LaxTransfor A B G H)) (X : τ (Obj A)) ⊢ (@comp_fapp0 B (@fapp0 A B F X) (@fapp0 A B G X) (@fapp0 A B H X) (@tapp0_fapp0 A B G H X (@lax_transfor A B G H V)) (@tapp1_fapp0 A B F G X X epsilon (@id A X))) ≡ (@tapp1_fapp0 A B F H X X (@comp_fapp0 (Functor_cat A B) F G H (@lax_transfor A B G H V) epsilon) (@id A X));
@@ -34,13 +35,13 @@ assert [A B : Cat] [F G : τ (Functor A B)] (U : τ (@StrictTransfor A B F G)) [
     (@comp_fapp0 B _ _ _ (@fapp1_fapp0 A B G x y f) (@tapp0_fapp0 A B F G x (@strict_transfor A B F G U)))
     (@tapp1_fapp0 A B F G x y (@strict_transfor A B F G U) f));
 
-// Runtime distinction at the transformation-unit overlaps.
-assertnot [A B : Cat] [F G : τ (Functor A B)] (V : τ (@LaxTransfor A B F G)) [x y : τ (Obj A)] (f : τ (Hom A x y)) ⊢
+// Native component accumulation now joins these former runtime distinctions.
+assert [A B : Cat] [F G : τ (Functor A B)] (V : τ (@LaxTransfor A B F G)) [x y : τ (Obj A)] (f : τ (Hom A x y)) ⊢
   (@comp_fapp0 B _ _ _ (@tapp0_fapp0 A B F G y (@lax_transfor A B F G V)) (@fapp1_fapp0 A B F x y f))
   ≡ @tapp1_fapp0 A B F G x y (@lax_transfor A B F G V) f;
-assertnot [A B : Cat] [F G : τ (Functor A B)] (V : τ (@StrictTransfor A B F G)) [x y : τ (Obj A)] (f : τ (Hom A x y)) ⊢
+assert [A B : Cat] [F G : τ (Functor A B)] (V : τ (@StrictTransfor A B F G)) [x y : τ (Obj A)] (f : τ (Hom A x y)) ⊢
   (@comp_fapp0 B _ _ _ (@tapp0_fapp0 A B F G y (@strict_transfor A B F G V)) (@fapp1_fapp0 A B F x y f))
   ≡ @tapp1_fapp0 A B F G x y (@strict_transfor A B F G V) f;
-assertnot [A B : Cat] [F G : τ (Functor A B)] (U : τ (@StrictTransfor A B F G)) [x y : τ (Obj A)] (f : τ (Hom A x y)) ⊢
+assert [A B : Cat] [F G : τ (Functor A B)] (U : τ (@StrictTransfor A B F G)) [x y : τ (Obj A)] (f : τ (Hom A x y)) ⊢
   (@comp_fapp0 B _ _ _ (@fapp1_fapp0 A B G x y f) (@tapp0_fapp0 A B F G x (@strict_transfor A B F G U)))
   ≡ @tapp1_fapp0 A B F G x y (@strict_transfor A B F G U) f;

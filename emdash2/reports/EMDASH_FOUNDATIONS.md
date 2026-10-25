@@ -1,6 +1,35 @@
 # emdash Foundations
 
-Last reviewed: 2026-09-18
+Last reviewed: 2026-10-25 (foundations-profile update; full exposition refresh pending)
+
+Current foundations update (2026-10-25): the active Lambdapi source now uses
+strict functors and conventional lax transformations. The public universe
+still has ordinary `Functor_cat` Homs; category-valued families and the
+ordinary Hom family use the Cartesian coefficient `Cat_cart`. Thus the
+strict family/transport profile is internal to the selected family type,
+while displayed maps FF can remain lax across the base. The corrected
+`Op_cat` means dimension-one reversal; `TotalOp_cat` names total reversal,
+with `CoAbove2_cat` and `CoAt2_cat` retaining their separate roles.
+
+The identity dependent Hom has a direct whole-section → y → v → f ladder.
+Its whole section is a transformation valued in `Homd_coeff_cat`, whose
+curried Hom is `Functor_cart_cat A (Homd_index_cat B)`. The index category is
+`Op_cat(Functor_cat B (Op_cat Cat_cart))`; its fixed-object presheaf view
+has type `Functor (Op_cat B) Cat_cart`. The public FF-blended interface is a
+defined composition with the identity construction, with leaf
+`Hom_E[y](E[f](u),FF[y](v))`. Sigma-Hom uses the dualized Sigma presentation
+at the existing owner, preserving noninvertible fibre directions. The five
+special terminal constant presentations compare at proof time; runtime
+leaf/higher/inverse behavior is retained separately.
+
+The [current profile summary](REPORT_EMDASH_V3_2_CURRENT_STATUS_AND_SOP_2026-05-26.md#current-foundations-profile--2026-10-25)
+and [migration plan](../../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
+own the current qualification and remaining integration work. The dated
+variance notices and old displayed formulas below refer to the former source
+contracts wherever they conflict with this update. They remain diagnostic
+history, not claims that those old declarations are still installed. The
+comprehensive exposition/book/article revision is a required later stage;
+no blanket consistency or automatic TypeScript-transfer claim is made here.
 
 Product strategy update (2026-09-28): Emdash's long-term software aim is an
 open-source, AI-native, cloud-capable scientific computing system in TypeScript

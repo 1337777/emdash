@@ -24,7 +24,7 @@ assert [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor 
   X1 F G f g) h) (@one_cat_product_family_pair B C C1 Prod BP X0 F G (@comp_fapp0 (Functor_cat B C) X0 X1 F f h)
   (@comp_fapp0 (Functor_cat B C) X0 X1 G g h)));
 assert [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A
-  : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (F G Y Z : τ (Functor B C)) (f : τ
+  : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (F G Y Z : τ (Functor B C)) (f : τ
   (@Transf B C F Y)) (g : τ (@Transf B C G Y)) (h : τ (@Transf B C Y Z)) ⊢ @one_cat_copair_postcompose_path B C C1
   Prod t A T0 F G Y Z f g h : τ (@= (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
   (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) F
@@ -82,7 +82,7 @@ assert [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor 
 
 // The source law likewise retains two different component maps.
 assert [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A
-  : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (F0 G0 F1 G1 Z : τ (Functor B C))
+  : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (F0 G0 F1 G1 Z : τ (Functor B C))
   (a : τ (@Transf B C F0 F1)) (b : τ (@Transf B C G0 G1))
   (f : τ (@Transf B C F1 Z)) (g : τ (@Transf B C G1 Z))
   ⊢ @one_cat_copair_source_path B C C1 Prod t A T0 F0 G0 F1 G1 Z a b f g

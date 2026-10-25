@@ -12,7 +12,7 @@ symbol homology_window_source_homology_func [I C : Cat] (C1 : τ (IsNCat (cat_su
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T))
@@ -27,7 +27,7 @@ symbol homology_window_target_homology_func [I C : Cat] (C1 : τ (IsNCat (cat_su
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T))
@@ -46,7 +46,7 @@ symbol homology_window_connecting_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) (x : τ (Obj I))
@@ -54,41 +54,33 @@ symbol homology_window_connecting_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_
     (@homology_window_target_homology_func I C C1 P t Ab T KP T0 QP window) x))
 ≔ (@homology_record_connecting C P t Ab (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
   (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-  (@homology_window_family_rowm I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) (@fapp0
-  WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
+  (@homology_window_family_rowm I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
   T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t
-  Ab) T (@homology_window_family_rowm I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x))
-  walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  Ab) T (@homology_window_family_rowm I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
   (@computational_abelian_preabelian C P t Ab) T (@homology_window_family_rowm I C C1 P t (@computational_abelian_preabelian
-  C P t Ab) T window)) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
+  C P t Ab) T window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
   (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab)
-  T (@homology_window_family_row0 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) (@fapp0
-  WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
+  T (@homology_window_family_row0 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
   T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t
-  Ab) T (@homology_window_family_row0 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x))
-  walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  Ab) T (@homology_window_family_row0 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
   (@computational_abelian_preabelian C P t Ab) T (@homology_window_family_row0 I C C1 P t (@computational_abelian_preabelian
-  C P t Ab) T window)) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
+  C P t Ab) T window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
   (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab)
-  T (@homology_window_family_row1 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) (@fapp0
-  WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
+  T (@homology_window_family_row1 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
   T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t
-  Ab) T (@homology_window_family_row1 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x))
-  walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  Ab) T (@homology_window_family_row1 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
   (@computational_abelian_preabelian C P t Ab) T (@homology_window_family_row1 I C C1 P t (@computational_abelian_preabelian
-  C P t Ab) T window)) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
+  C P t Ab) T window)) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
   (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab)
-  T (@homology_window_family_row2 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) (@fapp0
-  WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
+  T (@homology_window_family_row2 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t
   T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t
-  Ab) T (@homology_window_family_row2 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x))
-  walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  Ab) T (@homology_window_family_row2 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
   (@computational_abelian_preabelian C P t Ab) T (@homology_window_family_row2 I C C1 P t (@computational_abelian_preabelian
-  C P t Ab) T window)) x)) walking_arrow_tgt) (@homology_window_rowm_at I C C1 P t (@computational_abelian_preabelian C P t
+  C P t Ab) T window)) x))) (@homology_window_rowm_at I C C1 P t (@computational_abelian_preabelian C P t
   Ab) T window x) (@homology_window_row0_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T window x)
   (@homology_window_row1_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T window x) (@homology_window_row2_at I
   C C1 P t (@computational_abelian_preabelian C P t Ab) T window x) (@homology_window_F_at I C C1 P t
@@ -99,16 +91,16 @@ symbol homology_window_connecting_at [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_
   (@computational_abelian_preabelian C P t Ab) T window x) (@chain_pair_homology_record C
   (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) C1 t T T0 (@preabelian_kernels C
   P t (@computational_abelian_preabelian C P t Ab)) (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t
-  Ab)) KP QP (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  Ab)) KP QP (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
   (@computational_abelian_preabelian C P t Ab) T (@homology_window_family_rowm I C C1 P t (@computational_abelian_preabelian
-  C P t Ab) T window)) x)) walking_arrow_tgt) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  C P t Ab) T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
   (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T (@homology_window_family_row0 I C
-  C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) walking_arrow_tgt) (@fapp0 WalkingArrow_cat C (@fapp0
-  (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+  C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+  (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
   (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-  (@homology_window_family_row1 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)) walking_arrow_tgt)
+  (@homology_window_family_row1 I C C1 P t (@computational_abelian_preabelian C P t Ab) T window)) x)))
   (@homology_window_right_pair_at I C C1 P t Ab T KP window x)) (@chain_pair_homology_record C
   (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) C1 t T T0 (@preabelian_kernels C
   P t (@computational_abelian_preabelian C P t Ab)) (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t
@@ -132,7 +124,7 @@ injective symbol homology_window_connecting_transf [I C : Cat] (C1 : τ (IsNCat 
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T))

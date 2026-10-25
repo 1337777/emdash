@@ -9,14 +9,14 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
  ⊢ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_obj C
-  t T A (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h)
+  t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h)
   (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u)
   zero) (@one_cat_introduced_terminal_input_comparison_map K C S C1 t T F G u x A b zero h incoming)) ≡
   (@id C A);
@@ -29,14 +29,14 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
- ⊢ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat
+ ⊢ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) (@zero_composite_native_cone C S C1 t T
   A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u) zero)
   (@one_cat_introduced_terminal_input_comparison_map K C S C1 t T F G u x A b zero h incoming)) ≡
@@ -50,15 +50,14 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
- ⊢ (@tapp0_fapp0 WalkingArrow_cat C (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func
-  K C F G u) x) (@walking_arrow_func C (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x u))
-  walking_arrow_src (@introduced_input_diagram_map K C S C1 t T F G u x A b zero h incoming)) ≡ (@id C
+ ⊢ (@fapp1_fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func
+  K C F G u) x) (@OddDual_func WalkingArrow_cat C (@walking_arrow_func C (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x u))) (@introduced_input_diagram_map K C S C1 t T F G u x A b zero h incoming)) ≡ (@id C
   (@fapp0 K C F x));
 
 assert [K C : Cat] (S : τ (@PreadditiveCategory C))
@@ -69,15 +68,14 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
- ⊢ (@tapp0_fapp0 WalkingArrow_cat C (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func
-  K C F G u) x) (@walking_arrow_func C (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x u))
-  walking_arrow_tgt (@introduced_input_diagram_map K C S C1 t T F G u x A b zero h incoming)) ≡ (@id C
+ ⊢ (@fapp1_fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func
+  K C F G u) x) (@OddDual_func WalkingArrow_cat C (@walking_arrow_func C (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x u))) (@introduced_input_diagram_map K C S C1 t T F G u x A b zero h incoming)) ≡ (@id C
   (@fapp0 K C G x));
 
 assert [K C : Cat] (S : τ (@PreadditiveCategory C))
@@ -88,17 +86,17 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
  ⊢ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
   (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u)
-  zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C)
+  zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@transf_arrow_diagram_func K C F G u) x) h) (@omega_equiv_along_left_inv (@ZeroArrowCone_cat C t T)
-  (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
+  (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
   F G u) x) h) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0
   K C F G x u) zero) (@one_cat_introduced_terminal_input_comparison_map K C S C1 t T F G u x A b zero h
   incoming) (@one_cat_introduced_terminal_input_comparison_equiv K C S C1 t T F G u x A b zero h
@@ -112,23 +110,23 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
- ⊢ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+ ⊢ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0
-  K C G x) b (@tapp0_fapp0 K C F G x u) zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat
+  K C G x) b (@tapp0_fapp0 K C F G x u) zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) (@omega_equiv_along_left_inv
-  (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C)
+  (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@transf_arrow_diagram_func K C F G u) x) h) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x)
   (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u) zero) (@one_cat_introduced_terminal_input_comparison_map K
   C S C1 t T F G u x A b zero h incoming) (@one_cat_introduced_terminal_input_comparison_equiv K C S C1 t
-  T F G u x A b zero h incoming))) ≡ (@omega_equiv_along_left_inv (Functor_cat WalkingArrow_cat C) (@fapp0
-  K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) (@walking_arrow_func C
-  (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x u)) (@introduced_input_diagram_map K C S C1 t
+  T F G u x A b zero h incoming))) ≡ (@omega_equiv_along_left_inv (Functor_oplax_cat WalkingArrow_cat C) (@fapp0
+  K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) (@OddDual_func WalkingArrow_cat C (@walking_arrow_func C
+  (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x u))) (@introduced_input_diagram_map K C S C1 t
   T F G u x A b zero h incoming) (@introduced_input_diagram_equiv K C S C1 t T F G u x A b zero h
   incoming));
 
@@ -140,17 +138,17 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
  ⊢ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T)
   (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u)
-  zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C)
+  zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@transf_arrow_diagram_func K C F G u) x) h) (@omega_equiv_along_right_inv (@ZeroArrowCone_cat C t T)
-  (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
+  (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
   F G u) x) h) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0
   K C F G x u) zero) (@one_cat_introduced_terminal_input_comparison_map K C S C1 t T F G u x A b zero h
   incoming) (@one_cat_introduced_terminal_input_comparison_equiv K C S C1 t T F G u x A b zero h
@@ -164,23 +162,23 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
- ⊢ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+ ⊢ (@fapp1_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_cone_diagram_func C t T) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0
-  K C G x) b (@tapp0_fapp0 K C F G x u) zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat
+  K C G x) b (@tapp0_fapp0 K C F G x u) zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) (@omega_equiv_along_right_inv
-  (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C)
+  (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@transf_arrow_diagram_func K C F G u) x) h) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x)
   (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u) zero) (@one_cat_introduced_terminal_input_comparison_map K
   C S C1 t T F G u x A b zero h incoming) (@one_cat_introduced_terminal_input_comparison_equiv K C S C1 t
-  T F G u x A b zero h incoming))) ≡ (@omega_equiv_along_left_inv (Functor_cat WalkingArrow_cat C) (@fapp0
-  K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) (@walking_arrow_func C
-  (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x u)) (@introduced_input_diagram_map K C S C1 t
+  T F G u x A b zero h incoming))) ≡ (@omega_equiv_along_left_inv (Functor_oplax_cat WalkingArrow_cat C) (@fapp0
+  K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) (@OddDual_func WalkingArrow_cat C (@walking_arrow_func C
+  (@fapp0 K C F x) (@fapp0 K C G x) (@tapp0_fapp0 K C F G x u))) (@introduced_input_diagram_map K C S C1 t
   T F G u x A b zero h incoming) (@introduced_input_diagram_equiv K C S C1 t T F G u x A b zero h
   incoming));
 
@@ -192,30 +190,30 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
  ⊢ (@omega_equiv_along_left_law (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K
-  (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h)
+  (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h)
   (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u)
   zero) (@one_cat_introduced_terminal_input_comparison_map K C S C1 t T F G u x A b zero h incoming)
   (@one_cat_introduced_terminal_input_comparison_equiv K C S C1 t T F G u x A b zero h incoming)) : τ (@=
-  (Hom (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@transf_arrow_diagram_func K C F G u) x) h) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat
+  (Hom (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@transf_arrow_diagram_func K C F G u) x) h) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h)) (@comp_fapp0 (@ZeroArrowCone_cat C t
-  T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func
+  T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func
   K C F G u) x) h) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b
-  (@tapp0_fapp0 K C F G x u) zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat
+  (@tapp0_fapp0 K C F G x u) zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat
   C) (@transf_arrow_diagram_func K C F G u) x) h) (@omega_equiv_along_left_inv (@ZeroArrowCone_cat C t T)
-  (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
+  (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
   F G u) x) h) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0
   K C F G x u) zero) (@one_cat_introduced_terminal_input_comparison_map K C S C1 t T F G u x A b zero h
   incoming) (@one_cat_introduced_terminal_input_comparison_equiv K C S C1 t T F G u x A b zero h
   incoming)) (@one_cat_introduced_terminal_input_comparison_map K C S C1 t T F G u x A b zero h incoming))
-  (@id (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C)
+  (@id (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@transf_arrow_diagram_func K C F G u) x) h)));
 
 assert [K C : Cat] (S : τ (@PreadditiveCategory C))
@@ -226,14 +224,14 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   (zero : τ (@= (Hom C A (@fapp0 K C G x)) (@comp_fapp0 C A (@fapp0 K C F x) (@fapp0 K C G x)
   (@tapp0_fapp0 K C
   F G x u) b) (@preadditive_hom_zero C S A (@fapp0 K C G x))))
-  (h : τ (@Transf WalkingArrow_cat C (@fapp0 C (Functor_cat WalkingArrow_cat C)
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C
-  t T) A) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
+  t T) A) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x)))
   (incoming : τ (@= (Hom C A (@fapp0 K C F x)) (@terminal_arrow_test_incoming C t T A (@fapp0 K
-  (Functor_cat
+  (Functor_oplax_cat
   WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h) b))
  ⊢ (@omega_equiv_along_right_law (@ZeroArrowCone_cat C t T) (@zero_arrow_cone_obj C t T A (@fapp0 K
-  (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h)
+  (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C F G u) x) h)
   (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u)
   zero) (@one_cat_introduced_terminal_input_comparison_map K C S C1 t T F G u x A b zero h incoming)
   (@one_cat_introduced_terminal_input_comparison_equiv K C S C1 t T F G u x A b zero h incoming)) : τ (@=
@@ -241,11 +239,11 @@ assert [K C : Cat] (S : τ (@PreadditiveCategory C))
   x) b (@tapp0_fapp0 K C F G x u) zero) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0
   K C G x) b (@tapp0_fapp0 K C F G x u) zero)) (@comp_fapp0 (@ZeroArrowCone_cat C t T)
   (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u)
-  zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C)
+  zero) (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@transf_arrow_diagram_func K C F G u) x) h) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x)
   (@fapp0 K C G x) b (@tapp0_fapp0 K C F G x u) zero) (@one_cat_introduced_terminal_input_comparison_map K
   C S C1 t T F G u x A b zero h incoming) (@omega_equiv_along_right_inv (@ZeroArrowCone_cat C t T)
-  (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
+  (@zero_arrow_cone_obj C t T A (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@transf_arrow_diagram_func K C
   F G u) x) h) (@zero_composite_native_cone C S C1 t T A (@fapp0 K C F x) (@fapp0 K C G x) b (@tapp0_fapp0
   K C F G x u) zero) (@one_cat_introduced_terminal_input_comparison_map K C S C1 t T F G u x A b zero h
   incoming) (@one_cat_introduced_terminal_input_comparison_equiv K C S C1 t T F G u x A b zero h

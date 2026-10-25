@@ -190,7 +190,7 @@ symbol ordinary_sieve_pullback_evidence
       (@fapp0
         (@Into_restr_cat K V)
         (@Into_restr_cat K U)
-        (@fapp1_fapp0 K Cat_cat (@arrow_into_catd K) V U p)
+        (@fapp1_fapp0 K Cat_cart (@arrow_into_catd K) V U p)
         f);
 
 symbol sieve_pullback

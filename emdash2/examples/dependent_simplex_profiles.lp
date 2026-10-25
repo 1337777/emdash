@@ -1,5 +1,5 @@
 /*
-  General lax, selected strict, and Path readings of the recursive dependent
+  Default strict-functor and Path readings of the recursive dependent
   simplex bridge. No profile-specific simplex classifier is introduced.
 */
 
@@ -11,9 +11,8 @@ injective symbol dependent_simplex_unprofiled_functor
   (A B : Cat)
   : τ (Functor A B);
 
-// General ambient functors retain distinct compositor endpoints, so the cell
-// is not even homogeneously comparable with an identity.
-assertnot [A B : Cat]
+// Default strict functors identify the existing compositor endpoints.
+assert [A B : Cat]
   [X Y Z : τ (Obj A)]
   (g : τ (Hom A Y Z))
   (f : τ (Hom A X Y)) ⊢
@@ -22,13 +21,13 @@ assertnot [A B : Cat]
   ≡ @strict_functor_compositor_rhs
       A B (@dependent_simplex_unprofiled_functor A B) X Y Z g f;
 
-// A classified strict object reconstructs canonical evidence about the
-// same whole intrinsic compositor without projecting an admission witness.
+// The public default reconstructs canonical evidence about the same
+// whole intrinsic compositor, with no strict-object wrapper.
 assert [A B : Cat]
-  (S : τ (@StrictFunctor A B)) ⊢
-  @strict_functor_is_strict A B S
+  (S : τ (@Functor A B)) ⊢
+  @functor_is_strict A B S
   : τ (@IsStrictFunctor
-      A B (@strict_functor A B S));
+      A B (S));
 
 // Path realization reads the same compositor as an equality with a symmetric
 // inverse and keeps the existing higher action.
@@ -64,14 +63,14 @@ type λ K : Cat, λ E : τ (Catd K), λ B : Grpd,
     (@DependentTriangle_catd K E x u y v) p0)),
   λ alpha1 : τ (Obj (Fibre_cat
     (@DependentTriangle_catd K E x u y v) p1)),
-  λ kappa : τ (Hom (Op_cat (Hom_cat K x y)) p1 p0),
+  λ kappa : τ (Hom (TotalOp_cat (Hom_cat K x y)) p1 p0),
   λ lambda : τ (Obj (Fibre_cat
     (@homd_
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangle_catd K E x u y v)
       (@DependentTriangle_catd K E x u y v)
       (@id_funcd
-        (Op_cat (Hom_cat K x y))
+        (TotalOp_cat (Hom_cat K x y))
         (@DependentTriangle_catd K E x u y v))
       p1 alpha1 p0 alpha0)
     kappa)),
@@ -92,14 +91,14 @@ type λ K : Cat, λ E : τ (Catd K), λ B : Grpd,
     (@DependentTriangle_catd K E x u y v) p0)),
   λ alpha1 : τ (Obj (Fibre_cat
     (@DependentTriangle_catd K E x u y v) p1)),
-  λ kappa : τ (Hom (Op_cat (Hom_cat K x y)) p1 p0),
+  λ kappa : τ (Hom (TotalOp_cat (Hom_cat K x y)) p1 p0),
   λ lambda : τ (Obj (Fibre_cat
     (@homd_
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangle_catd K E x u y v)
       (@DependentTriangle_catd K E x u y v)
       (@id_funcd
-        (Op_cat (Hom_cat K x y))
+        (TotalOp_cat (Hom_cat K x y))
         (@DependentTriangle_catd K E x u y v))
       p1 alpha1 p0 alpha0)
     kappa)),

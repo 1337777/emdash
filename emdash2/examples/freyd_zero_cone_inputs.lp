@@ -57,7 +57,7 @@ assertnot [R : τ CommRing]
 
 /* This is an actual whole H at the raw native input, not an equality witness. */
 type λ R : τ CommRing,
-  λ T0 : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R)),
+  λ T0 : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R)),
   λ W : τ (@HasComputationalKernels (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R)),
   λ V : τ (@HasComputationalCokernels (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R)),
   λ P : τ (@KernelPresentation (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R) W),

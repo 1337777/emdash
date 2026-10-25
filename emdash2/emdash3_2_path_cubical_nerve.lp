@@ -15,7 +15,7 @@ require open emdash.emdash3_2_path_cubical_square_readback;
 // Whole Cat-valued semicubical nerve of the path category.
 symbol path_semicubical_nerve_func
   (A : Grpd)
-  : τ (Functor (Op_cat SemiCubePlus_cat) Cat_cat)
+  : τ (Functor (Op_cat SemiCubePlus_cat) Cat_cart)
 ≔ @semicubical_nerve_func (Path_cat A);
 
 // Whole restriction selected by any public semicubical face code.

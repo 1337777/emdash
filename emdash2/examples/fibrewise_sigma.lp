@@ -30,7 +30,7 @@ assert [K : Cat]
   (D : τ (Catd (@Sigma_cat K E)))
   (k : τ (Obj K)) ⊢
   @tapp0_fapp0
-    K Cat_cat
+    K Cat_cart
     (@FibrewiseSigma_catd K E D)
     E k
     (@fibrewise_sigma_proj1_funcd K E D)
@@ -52,7 +52,7 @@ assert [K : Cat]
     (@fibrewise_sigma_value_cat K E D k)
     (@Fibre_cat K E k)
     (@tapp0_fapp0
-      K Cat_cat
+      K Cat_cart
       (@FibrewiseSigma_catd K E D)
       E k
       (@fibrewise_sigma_proj1_funcd K E D))

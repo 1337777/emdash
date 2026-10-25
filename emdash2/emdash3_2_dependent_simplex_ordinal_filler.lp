@@ -26,23 +26,17 @@ require open emdash.emdash3_2_dependent_simplex_ordinal_adequacy;
 // consumes the package projection used by `selected_face_func` instead.
 symbol profiled_vertex0
   : τ (Functor Terminal_cat WalkingArrow_cat)
-≔ @strict_functor_underlying
-    Terminal_cat WalkingArrow_cat
-    (@selected_face_data
+≔ (@selected_face_data
       zero (succ zero) simplex_vertex_zero_realization);
 
 symbol profiled_vertex1
   : τ (Functor Terminal_cat WalkingArrow_cat)
-≔ @strict_functor_underlying
-    Terminal_cat WalkingArrow_cat
-    (@selected_face_data
+≔ (@selected_face_data
       zero (succ zero) simplex_vertex_one_realization);
 
 symbol profiled_terminal
   : τ (Functor Terminal_cat Terminal_cat)
-≔ @strict_functor_underlying
-    Terminal_cat Terminal_cat
-    (@strict_identity Terminal_cat);
+≔ (@id_func Terminal_cat);
 
 // Reindex the target join's whole cross along id on the old edge and the same
 // strict terminal profile used by the selected new edges.

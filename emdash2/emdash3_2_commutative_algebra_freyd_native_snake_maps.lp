@@ -18,9 +18,7 @@ symbol freyd_raw_native_snake_kernel_first_transf [K : Cat] [R : τ CommRing] (M
   (@freyd_adjunction_model_initial R M) (@freyd_adjunction_model_kernels R M)
   (@freyd_adjunction_model_cokernels R M) (@Const_func K (@CommRingFreydPresentation_cat R) A) (@Const_func K
   (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K
-  (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) B X
-  (@comm_ring_freyd_hom_class R B X b)) (@Const_transf K (@CommRingFreydPresentation_cat R) X D
-  (@comm_ring_freyd_hom_class R X D c)) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
+  (@CommRingFreydPresentation_cat R) D) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_transf K (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
   M) A B X D a b c z));
 
 // The result remains a whole transformation over arbitrary K.
@@ -37,9 +35,7 @@ symbol freyd_raw_native_snake_kernel_second_transf [K : Cat] [R : τ CommRing] (
   (@freyd_adjunction_model_initial R M) (@freyd_adjunction_model_kernels R M)
   (@freyd_adjunction_model_cokernels R M) (@Const_func K (@CommRingFreydPresentation_cat R) A) (@Const_func K
   (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K
-  (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) B X
-  (@comm_ring_freyd_hom_class R B X b)) (@Const_transf K (@CommRingFreydPresentation_cat R) X D
-  (@comm_ring_freyd_hom_class R X D c)) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
+  (@CommRingFreydPresentation_cat R) D) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_transf K (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
   M) A B X D a b c z));
 
 // The result remains a whole transformation over arbitrary K.
@@ -57,9 +53,7 @@ symbol freyd_raw_native_snake_connecting_transf [K : Cat] [R : τ CommRing] (M :
   (@comm_ring_freyd_additive R) (@freyd_adjunction_model_initial R M) (@freyd_adjunction_model_kernels R M)
   (@freyd_adjunction_model_cokernels R M) N (@Const_func K (@CommRingFreydPresentation_cat R) A) (@Const_func
   K (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K
-  (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) B X
-  (@comm_ring_freyd_hom_class R B X b)) (@Const_transf K (@CommRingFreydPresentation_cat R) X D
-  (@comm_ring_freyd_hom_class R X D c)) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
+  (@CommRingFreydPresentation_cat R) D) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_transf K (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
   M) A B X D a b c z));
 
 // The result remains a whole transformation over arbitrary K.
@@ -77,9 +71,7 @@ symbol freyd_raw_native_snake_cokernel_first_transf [K : Cat] [R : τ CommRing] 
   (@freyd_adjunction_model_initial R M) (@freyd_adjunction_model_kernels R M)
   (@freyd_adjunction_model_cokernels R M) (@Const_func K (@CommRingFreydPresentation_cat R) A) (@Const_func K
   (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K
-  (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) B X
-  (@comm_ring_freyd_hom_class R B X b)) (@Const_transf K (@CommRingFreydPresentation_cat R) X D
-  (@comm_ring_freyd_hom_class R X D c)) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
+  (@CommRingFreydPresentation_cat R) D) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_transf K (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
   M) A B X D a b c z));
 
 // The result remains a whole transformation over arbitrary K.
@@ -97,7 +89,5 @@ symbol freyd_raw_native_snake_cokernel_second_transf [K : Cat] [R : τ CommRing]
   (@freyd_adjunction_model_initial R M) (@freyd_adjunction_model_kernels R M)
   (@freyd_adjunction_model_cokernels R M) (@Const_func K (@CommRingFreydPresentation_cat R) A) (@Const_func K
   (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K
-  (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) B X
-  (@comm_ring_freyd_hom_class R B X b)) (@Const_transf K (@CommRingFreydPresentation_cat R) X D
-  (@comm_ring_freyd_hom_class R X D c)) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
+  (@CommRingFreydPresentation_cat R) D) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) B) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_transf K (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))) (@strict_transfor K (@CommRingFreydPresentation_cat R) (@Const_func K (@CommRingFreydPresentation_cat R) X) (@Const_func K (@CommRingFreydPresentation_cat R) D) (@Const_transf K (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))) (@freyd_raw_native_snake_input K R (@freyd_adjunction_model_initial R
   M) A B X D a b c z));

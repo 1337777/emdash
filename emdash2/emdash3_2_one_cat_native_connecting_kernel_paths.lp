@@ -3,7 +3,7 @@ require open emdash.emdash3_2_one_cat_native_homology_window_covers;
 
 // The original kernel square makes the middle observation annihilate the original row map.
 symbol one_cat_native_r_zero_row_input [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -98,7 +98,7 @@ symbol one_cat_native_r_zero_row_input [B C : Cat] [Add : τ (@PreadditiveCatego
 
 // Use the original row E0 and its native kernel mate to lift the whole input.
 symbol one_cat_native_r_zero_row_lift [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -135,7 +135,7 @@ symbol one_cat_native_r_zero_row_lift [B C : Cat] [Add : τ (@PreadditiveCategor
 
 // The original incoming map reconstructs the middle observation.
 symbol one_cat_native_r_zero_row_reconstruction [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ
-  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat
+  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1
   R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ
   (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
@@ -180,7 +180,7 @@ symbol one_cat_native_r_zero_row_reconstruction [B C : Cat] [Add : τ (@Preaddit
 
 // Original row naturality and incoming cancellation identify the left lift with a boundary.
 symbol one_cat_native_r_zero_left_path [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -292,7 +292,7 @@ symbol one_cat_native_r_zero_left_path [B C : Cat] [Add : τ (@PreadditiveCatego
 
 // Original kernel cancellation identifies the entire left cycle with the original boundary.
 symbol one_cat_native_r_zero_cycles_path [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -387,7 +387,7 @@ symbol one_cat_native_r_zero_cycles_path [B C : Cat] [Add : τ (@PreadditiveCate
 
 // The original target homology quotient kills that boundary as a whole map.
 symbol one_cat_native_theta_zero_on_r [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T

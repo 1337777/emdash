@@ -11,19 +11,102 @@ require open emdash.emdash3_2_adjunction_mates;
 require open emdash.emdash3_2_eq1_hom_action;
 require open emdash.emdash3_2_one_cat_modifications;
 
+// The original arbitrary-source Hom-action interface, with its ordinary
+// views of the canonical Cartesian Hom families.
+protected symbol hom_comparison_pair_tele_func [A B : Cat]
+  : τ (Functor A (Functor_cat B (Product_cat A B)))
+≔ @comp_cat_fapp0 A (Functor_cart_cat B (Product_cat A B))
+    (Functor_cat B (Product_cat A B)) (Functor_cart_include B (Product_cat A B))
+    (@Product_pair_tele_func A B);
+
+protected symbol one_cat_hom_action_source (I : Cat)
+  : τ (Functor (Op_cat I) (Catd_cat I))
+≔ @hom_int_view I I (@id_func I);
+
+protected symbol one_cat_hom_action_target [I C : Cat]
+  (F G : τ (Functor I C))
+  : τ (Functor (Op_cat I) (Catd_cat I))
+≔ @comp_cat_fapp0 (Op_cat I) (Op_cat C) (Catd_cat I)
+    (@hom_int_view C I G) (@Op_func I C F);
+
+// Only the Hom categories ending in this represented family need discreteness.
+// The whole universe Catd(I) is not asserted to be an ordinary category.
+protected symbol one_cat_hom_action_local_discrete [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C)) (a b : τ (Obj I))
+  : τ (IsDiscreteCat (Hom_cat (Catd_cat I)
+      (fapp0 (one_cat_hom_action_source I) a)
+      (fapp0 (@one_cat_hom_action_target I C F G) b)))
+≔ @discrete_functord_category I
+    (fapp0 (one_cat_hom_action_source I) a)
+    (fapp0 (@one_cat_hom_action_target I C F G) b)
+    (λ y : τ (Obj I), C1 (fapp0 F b) (fapp0 G y));
+
+// Strictness evidence is extracted from alpha's existing two internal cells.
+// No replacement cell or additional caller premise is supplied.
+protected symbol one_cat_hom_action_is_strict [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C))
+  (alpha : τ (@Transf (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G)))
+  : τ (@IsStrictTransfor (Op_cat I) (Catd_cat I)
+      (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha)
+≔ @strict_transfor_strictness_intro (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha
+    (λ X : τ (Obj I), λ Y : τ (Obj I), λ Z : τ (Obj I),
+      λ g : τ (Hom (Op_cat I) Y Z),
+      @discrete_cell_is_strict
+        (Functor_cat (Hom_cat (Op_cat I) X Y)
+          (Hom_cat (Catd_cat I) (fapp0 (one_cat_hom_action_source I) X)
+            (fapp0 (@one_cat_hom_action_target I C F G) Z)))
+        (@discrete_functor_category (Hom_cat (Op_cat I) X Y) _
+          (@one_cat_hom_action_local_discrete I C C1 F G X Z))
+        (@strict_transfor_naturality_lhs_func (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha X Y Z g)
+        (@strict_transfor_naturality_rhs_func (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha X Y Z g)
+        (@strict_transfor_naturality_transf (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha X Y Z g))
+    (λ Y : τ (Obj I), λ W : τ (Obj I), λ X : τ (Obj I),
+      λ h : τ (Hom (Op_cat I) W X),
+      @discrete_cell_is_strict
+        (Functor_cat (Hom_cat (Op_cat I) X Y)
+          (Hom_cat (Catd_cat I) (fapp0 (one_cat_hom_action_source I) W)
+            (fapp0 (@one_cat_hom_action_target I C F G) Y)))
+        (@discrete_functor_category (Hom_cat (Op_cat I) X Y) _
+          (@one_cat_hom_action_local_discrete I C C1 F G W Y))
+        (@strict_transfor_pre_naturality_lhs_func (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha Y W X h)
+        (@strict_transfor_pre_naturality_rhs_func (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha Y W X h)
+        (@strict_transfor_pre_naturality_transf (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha Y W X h));
+
+// The actual supplied action is admitted, retaining its original raw view.
+symbol one_cat_hom_action_cart [I C : Cat]
+  (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C))
+  (alpha : τ (@Transf (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G)))
+  : τ (@StrictTransfor (Op_cat I) (Catd_cat I)
+      (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G))
+≔ @make_strict_transfor (Op_cat I) (Catd_cat I)
+    (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) alpha
+    (@one_cat_hom_action_is_strict I C C1 F G alpha);
+
 // Reconstruct F⇒G from its whole internal Hom action using the shared graph.
 symbol one_cat_transf_from_hom_action [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
  (F G : τ (Functor B C)) (alpha : τ (@Transf (Op_cat B) (@Catd_cat B)
-    (@hom_int B B (@id_func B))
+    (@hom_int_view B B (@id_func B))
     (@comp_cat_fapp0 (Op_cat B) (Op_cat C) (@Catd_cat B)
-      (@hom_int C B G) (@Op_func B C F))))
+      (@hom_int_view C B G) (@Op_func B C F))))
  : τ (@Transf B C F G)
-≔ @comp_fapp0 (Functor_cat B C) F (@represented_comma_hom_action_target_func B C C (@id_func C) F G alpha) G (@one_cat_represented_comma_hom_action_target_to B C C (@id_func C) F G alpha C1)
-    (@comp_fapp0 (Functor_cat B C) F (@represented_comma_hom_action_source_func B C C (@id_func C) F G alpha) (@represented_comma_hom_action_target_func B C C (@id_func C) F G alpha)
-      (@transf_prewhisker B (@LaxArrow_cat C) C (@represented_comma_hom_action_func B C C (@id_func C) F G alpha)
+≔ @comp_fapp0 (Functor_cat B C) F (@represented_comma_hom_action_target_func B C C (@id_func C) F G (@one_cat_hom_action_cart B C C1 F G alpha)) G (@one_cat_represented_comma_hom_action_target_to B C C (@id_func C) F G (@one_cat_hom_action_cart B C C1 F G alpha) C1)
+    (@comp_fapp0 (Functor_cat B C) F (@represented_comma_hom_action_source_func B C C (@id_func C) F G (@one_cat_hom_action_cart B C C1 F G alpha)) (@represented_comma_hom_action_target_func B C C (@id_func C) F G (@one_cat_hom_action_cart B C C1 F G alpha))
+      (@transf_prewhisker B (@LaxArrow_cat C) C (@represented_comma_hom_action_func B C C (@id_func C) F G (@one_cat_hom_action_cart B C C1 F G alpha))
         (@cubical_src_func C) (@cubical_tgt_func C)
         (@one_cat_arrow_universal_transf C C1))
-      (@iso_evidence_from (Functor_cat B C) (@represented_comma_hom_action_source_func B C C (@id_func C) F G alpha) F (@represented_comma_hom_action_source_evidence B C C (@id_func C) F G alpha)));
+      (@iso_evidence_from (Functor_cat B C) (@represented_comma_hom_action_source_func B C C (@id_func C) F G (@one_cat_hom_action_cart B C C1 F G alpha)) F (@represented_comma_hom_action_source_evidence B C C (@id_func C) F G (@one_cat_hom_action_cart B C C1 F G alpha))));
 
 // The original forward comparison, reindexed after the whole action of F.
 symbol hom_comparison_unit_profmap [A B : Cat]
@@ -59,15 +142,37 @@ symbol hom_comparison_counit_profmap [A B : Cat]
       (@defiso_from (Prof_cat A B) _ _ i) G (@id_func B))
     (@Prof_func_hom B A G);
 
+// The existing represented-curry comparison after its Cartesian result has
+// been included into ordinary families. Associativity exposes the composite
+// below before the original raw-curry comparison can match. Retain the actual
+// supplied profunctor and both endpoint functors as side conditions.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $B Cat_cart)
+      (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R))
+    (@Product_pair_tele_func (Op_cat $A) $B)
+  ≡ @comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $B Cat_cart)
+      (@hom_int $X $B $G)
+  ↪ [ $A ≡ $X;
+      $R ≡ @Prof_reindex $X $X $X $B (@Unit_prof $X) (@id Cat_cat $X) $G ];
+
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $B Cat_cart)
+      (@hom_postcomp_func _ _ (@id Cat_cat Cat_cart) $B _ Cat_cart $R))
+    (@Product_pair_tele_func (Op_cat $A) $B)
+  ≡ @comp_fapp0 Cat_cat _ _ _
+      (@comp_fapp0 Cat_cat _ _ _ (Functor_cart_include $B Cat_cart)
+        (@hom_int $X $B $G)) (@Op_func $A $X $F)
+  ↪ [ $R ≡ @Prof_reindex $X $A $X $B (@Unit_prof $X) $F $G ];
+
 // Curry the supplied whole represented map at its original hom_int owners.
 symbol profmap_internal_hom_action [I C : Cat] (F G : τ (Functor I C))
  (r : τ (@ProfMap I I (@Unit_prof I) (@Hom_prof_along I I C F G)))
- : τ (@Transf (Op_cat I) (@Catd_cat I) (@hom_int I I (@id_func I))
+ : τ (@Transf (Op_cat I) (@Catd_cat I) (@hom_int_view I I (@id_func I))
      (@comp_cat_fapp0 (Op_cat I) (Op_cat C) (@Catd_cat I)
-       (@hom_int C I G) (@Op_func I C F)))
-≔ @fapp1_fapp0 (Functor_cat (Product_cat (Op_cat I) I) Cat_cat)
-    (Functor_cat (Op_cat I) (Functor_cat I Cat_cat))
-    (@curry_func_func (Op_cat I) I Cat_cat) (@Unit_prof I) (@Hom_prof_along I I C F G) r;
+       (@hom_int_view C I G) (@Op_func I C F)))
+≔ @fapp1_fapp0 (Functor_cat (Product_cat (Op_cat I) I) Cat_cart)
+    (Functor_cat (Op_cat I) (Functor_cat I Cat_cart))
+    (@curry_lax_func_func (Op_cat I) I Cat_cart) (@Unit_prof I) (@Hom_prof_along I I C F G) r;
 
 // η:id_A⇒GF, constructed from the identity images of the original comparison.
 symbol one_cat_hom_comparison_unit [A B : Cat] (A1 : τ (IsNCat (cat_succ cat_zero) A))
@@ -84,13 +189,21 @@ symbol one_cat_hom_comparison_counit [A B : Cat] (A1 : τ (IsNCat (cat_succ cat_
 ≔ @one_cat_transf_from_hom_action B B B1 (@comp_cat_fapp0 B A B F G) (@id_func B) (@profmap_internal_hom_action B B (@comp_cat_fapp0 B A B F G) (@id_func B) (@hom_comparison_counit_profmap A B F G i));
 
 // Two evaluations preserve the product-pair telescope identity by existing functor laws.
-protected symbol hom_comparison_pair_tele_identity_path [A B : Cat] (x : τ (Obj A)) (y : τ (Obj B))
- : τ (@= (Hom (Product_cat A B) (@fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y) (@fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y)) (@tapp0_fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y (@tapp0_fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) (@Product_pair_tele_func A B) x (@id (Functor_cat A (Functor_cat B (Product_cat A B))) (@Product_pair_tele_func A B)))) (@id (Product_cat A B) (@fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y)))
-≔ @eq_trans (Hom (Product_cat A B) (@fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y) (@fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y)) (@tapp0_fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y (@tapp0_fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) (@Product_pair_tele_func A B) x (@id (Functor_cat A (Functor_cat B (Product_cat A B))) (@Product_pair_tele_func A B)))) (@tapp0_fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y (@id (Functor_cat B (Product_cat A B)) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x))) (@id (Product_cat A B) (@fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y))
-   (@eq_ap (Hom (Functor_cat B (Product_cat A B)) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x)) (Hom (Product_cat A B) (@fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y) (@fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y))
-     (λ e : τ (Hom (Functor_cat B (Product_cat A B)) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x)), @tapp0_fapp0 B (Product_cat A B) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x) y e)
-     (@tapp0_fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) (@Product_pair_tele_func A B) x (@id (Functor_cat A (Functor_cat B (Product_cat A B))) (@Product_pair_tele_func A B))) (@id (Functor_cat B (Product_cat A B)) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x)) (@fapp1_id_path (Functor_cat A (Functor_cat B (Product_cat A B))) (Functor_cat B (Product_cat A B)) (@fapp0_func A (Functor_cat B (Product_cat A B)) x) (@Product_pair_tele_func A B)))
-   (@fapp1_id_path (Functor_cat B (Product_cat A B)) (Product_cat A B) (@fapp0_func B (Product_cat A B) y) (@fapp0 A (Functor_cat B (Product_cat A B)) (@Product_pair_tele_func A B) x));
+// The one-way curry component prewhiskers directly by the pair fibre (x,-).
+// Stage evaluation of its identity before specializing the product target.
+protected symbol hom_comparison_pair_tele_identity_path [A B : Cat]
+  (x : τ (Obj A)) (y : τ (Obj B))
+  : τ (@= (Hom (Product_cat A B) (@Product_pair A B x y) (@Product_pair A B x y))
+      (@tapp0_fapp0 B (Product_cat A B)
+        (fapp0 (@hom_comparison_pair_tele_func A B) x)
+        (fapp0 (@hom_comparison_pair_tele_func A B) x) y
+        (@id (Functor_cat B (Product_cat A B))
+          (fapp0 (@hom_comparison_pair_tele_func A B) x)))
+      (@id (Product_cat A B) (@Product_pair A B x y)))
+≔ @fapp1_id_path (Functor_cat B (Product_cat A B)) (Product_cat A B)
+    (@fapp0_func B (Product_cat A B) y)
+    (fapp0 (@hom_comparison_pair_tele_func A B) x);
+
 
 // Stage transfor identity evaluation before specializing the source product.
 protected symbol hom_comparison_transf_identity_beta [A B : Cat]
@@ -100,45 +213,97 @@ protected symbol hom_comparison_transf_identity_beta [A B : Cat]
 ≔ @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B G x)) (@tapp0_fapp0 A B F G x r);
 
 // The curried native Hom action retains the original profunctor component.
+// The original point formula, with the single identity evaluation exposed
+// by one-way curry. The second step is the unchanged generic identity beta.
 protected symbol hom_comparison_prof_hom_action_component_path [I C : Cat]
- (I1 : τ (IsNCat (cat_succ cat_zero) I)) (C1 : τ (IsNCat (cat_succ cat_zero) C))
- (F G : τ (Functor I C)) (r : τ (@ProfMap I I (@Unit_prof I) (@Hom_prof_along I I C F G))) (x : τ (Obj I))
- : τ (@= (Functor (Hom_cat I x x) (Hom_cat C (@fapp0 I C F x) (@fapp0 I C G x))) (@tapp0_fapp0 I Cat_cat (@hom_ I I (@id_func I) x)
-   (@hom_ C I G (@fapp0 I C F x)) x
-   (@tapp0_fapp0 (Op_cat I) (@Catd_cat I) (@hom_int I I (@id_func I))
-     (@comp_cat_fapp0 (Op_cat I) (Op_cat C) (@Catd_cat I)
-       (@hom_int C I G) (@Op_func I C F)) x (@profmap_internal_hom_action I C F G r))) (@tapp0_fapp0 (Product_cat (Op_cat I) I) Cat_cat (@Unit_prof I) (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x) r))
-≔ @eq_trans (Functor (Hom_cat I x x) (Hom_cat C (@fapp0 I C F x) (@fapp0 I C G x))) (@tapp1_fapp0 (Product_cat (Op_cat I) I) Cat_cat (@Unit_prof I) (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x) (@Product_pair (Op_cat I) I x x) r (@tapp0_fapp0 I (Product_cat (Op_cat I) I) (@fapp0 (Op_cat I) (Functor_cat I (Product_cat (Op_cat I) I)) (@Product_pair_tele_func (Op_cat I) I) x) (@fapp0 (Op_cat I) (Functor_cat I (Product_cat (Op_cat I) I)) (@Product_pair_tele_func (Op_cat I) I) x) x (@tapp0_fapp0 (Op_cat I) (Functor_cat I (Product_cat (Op_cat I) I)) (@Product_pair_tele_func (Op_cat I) I) (@Product_pair_tele_func (Op_cat I) I) x (@id (Functor_cat (Op_cat I) (Functor_cat I (Product_cat (Op_cat I) I))) (@Product_pair_tele_func (Op_cat I) I))))) (@tapp1_fapp0 (Product_cat (Op_cat I) I) Cat_cat (@Unit_prof I) (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x) (@Product_pair (Op_cat I) I x x) r (@id (Product_cat (Op_cat I) I) (@Product_pair (Op_cat I) I x x))) (@tapp0_fapp0 (Product_cat (Op_cat I) I) Cat_cat (@Unit_prof I) (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x) r)
-   (@eq_ap (Hom (Product_cat (Op_cat I) I) (@Product_pair (Op_cat I) I x x) (@Product_pair (Op_cat I) I x x)) (Functor (Hom_cat I x x) (Hom_cat C (@fapp0 I C F x) (@fapp0 I C G x)))
-     (λ p : τ (Hom (Product_cat (Op_cat I) I) (@Product_pair (Op_cat I) I x x) (@Product_pair (Op_cat I) I x x)), @tapp1_fapp0 (Product_cat (Op_cat I) I) Cat_cat (@Unit_prof I) (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x) (@Product_pair (Op_cat I) I x x) r p)
-     (@tapp0_fapp0 I (Product_cat (Op_cat I) I) (@fapp0 (Op_cat I) (Functor_cat I (Product_cat (Op_cat I) I)) (@Product_pair_tele_func (Op_cat I) I) x) (@fapp0 (Op_cat I) (Functor_cat I (Product_cat (Op_cat I) I)) (@Product_pair_tele_func (Op_cat I) I) x) x (@tapp0_fapp0 (Op_cat I) (Functor_cat I (Product_cat (Op_cat I) I)) (@Product_pair_tele_func (Op_cat I) I) (@Product_pair_tele_func (Op_cat I) I) x (@id (Functor_cat (Op_cat I) (Functor_cat I (Product_cat (Op_cat I) I))) (@Product_pair_tele_func (Op_cat I) I)))) (@id (Product_cat (Op_cat I) I) (@Product_pair (Op_cat I) I x x)) (@hom_comparison_pair_tele_identity_path (Op_cat I) I x x))
-   (@hom_comparison_transf_identity_beta (Product_cat (Op_cat I) I) Cat_cat (@Unit_prof I) (@Hom_prof_along I I C F G) r (@Product_pair (Op_cat I) I x x));
+  (I1 : τ (IsNCat (cat_succ cat_zero) I)) (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C))
+  (r : τ (@ProfMap I I (@Unit_prof I) (@Hom_prof_along I I C F G))) (x : τ (Obj I))
+  : τ (@= (Functor (Hom_cat I x x) (Hom_cat C (fapp0 F x) (fapp0 G x)))
+      (@tapp0_fapp0 I Cat_cart (@hom_ I I (@id_func I) x)
+        (@hom_ C I G (fapp0 F x)) x
+        (@tapp0_fapp0 (Op_cat I) (Catd_cat I) (@hom_int_view I I (@id_func I))
+          (@comp_cat_fapp0 (Op_cat I) (Op_cat C) (Catd_cat I)
+            (@hom_int_view C I G) (@Op_func I C F)) x
+          (@profmap_internal_hom_action I C F G r)))
+      (@tapp0_fapp0 (Product_cat (Op_cat I) I) Cat_cart (@Unit_prof I)
+        (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x) r))
+≔ @eq_trans _ _ _ _
+    (@eq_ap
+      (Hom (Product_cat (Op_cat I) I) (@Product_pair (Op_cat I) I x x)
+        (@Product_pair (Op_cat I) I x x))
+      (Functor (Hom_cat I x x) (Hom_cat C (fapp0 F x) (fapp0 G x)))
+      (λ p : τ (Hom (Product_cat (Op_cat I) I) (@Product_pair (Op_cat I) I x x)
+          (@Product_pair (Op_cat I) I x x)),
+        @tapp1_fapp0 (Product_cat (Op_cat I) I) Cat_cart (@Unit_prof I)
+          (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x)
+          (@Product_pair (Op_cat I) I x x) r p)
+      _ _ (@hom_comparison_pair_tele_identity_path (Op_cat I) I x x))
+    (@hom_comparison_transf_identity_beta (Product_cat (Op_cat I) I) Cat_cart
+      (@Unit_prof I) (@Hom_prof_along I I C F G) r (@Product_pair (Op_cat I) I x x));
 
-// Ordinary law η_a=Φ_a,Fa(id_Fa); no operational term is path-transported.
+// Read back the actual classified action inside the component theorem.
+// This is a derived observation of the existing admission carrier path;
+// no equality is passed to the reconstruction or installed as a runtime cut.
+protected symbol hom_comparison_admitted_hom_action_component_path [I C : Cat]
+  (I1 : τ (IsNCat (cat_succ cat_zero) I)) (C1 : τ (IsNCat (cat_succ cat_zero) C))
+  (F G : τ (Functor I C))
+  (r : τ (@ProfMap I I (@Unit_prof I) (@Hom_prof_along I I C F G))) (x : τ (Obj I))
+  : τ (@= (Functor (Hom_cat I x x) (Hom_cat C (fapp0 F x) (fapp0 G x)))
+      (@tapp0_fapp0 I Cat_cart (@hom_ I I (@id_func I) x)
+        (@hom_ C I G (fapp0 F x)) x
+        (@tapp0_fapp0 (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) x
+          (@strict_transfor _ _ _ _ (@one_cat_hom_action_cart I C C1 F G
+            (@profmap_internal_hom_action I C F G r)))))
+      (@tapp0_fapp0 (Product_cat (Op_cat I) I) Cat_cart (@Unit_prof I)
+        (@Hom_prof_along I I C F G) (@Product_pair (Op_cat I) I x x) r))
+≔ @eq_trans _ _ _ _
+    (@eq_ap
+      (@Transf (Op_cat I) (Catd_cat I)
+        (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G))
+      (Functor (Hom_cat I x x) (Hom_cat C (fapp0 F x) (fapp0 G x)))
+      (λ h : τ (@Transf (Op_cat I) (Catd_cat I)
+          (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G)),
+        @tapp0_fapp0 I Cat_cart (@hom_ I I (@id_func I) x)
+          (@hom_ C I G (fapp0 F x)) x
+          (@tapp0_fapp0 (Op_cat I) (Catd_cat I)
+            (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G) x h))
+      _ _ (@make_strict_transfor_carrier_path (Op_cat I) (Catd_cat I)
+        (one_cat_hom_action_source I) (@one_cat_hom_action_target I C F G)
+        (@profmap_internal_hom_action I C F G r)
+        (@one_cat_hom_action_is_strict I C C1 F G
+          (@profmap_internal_hom_action I C F G r))))
+    (@hom_comparison_prof_hom_action_component_path I C I1 C1 F G r x);
+
 symbol one_cat_hom_comparison_unit_component_path [A B : Cat] (A1 : τ (IsNCat (cat_succ cat_zero) A))
  (B1 : τ (IsNCat (cat_succ cat_zero) B)) (F : τ (Functor A B)) (G : τ (Functor B A))
  (i : τ (@ProfComparison A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G))) (x : τ (Obj A))
- : τ (@= (Hom A (@fapp0 A A (@id_func A) x) (@fapp0 A A (@comp_cat_fapp0 A B A G F) x)) (@tapp0_fapp0 A A (@id_func A) (@comp_cat_fapp0 A B A G F) x (@one_cat_hom_comparison_unit A B A1 B1 F G i)) (@fapp0 _ _ (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B x (@fapp0 A B F x)) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id B (@fapp0 A B F x))))
+ : τ (@= (Hom A (@fapp0 A A (@id_func A) x) (@fapp0 A A (@comp_cat_fapp0 A B A G F) x)) (@tapp0_fapp0 A A (@id_func A) (@comp_cat_fapp0 A B A G F) x (@one_cat_hom_comparison_unit A B A1 B1 F G i)) (@fapp0 _ _ (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B x (@fapp0 A B F x)) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id B (@fapp0 A B F x))))
 ≔ @eq_ap (Functor (Hom_cat A x x) (Hom_cat A (@fapp0 A A (@id_func A) x) (@fapp0 A A (@comp_cat_fapp0 A B A G F) x))) (Hom A (@fapp0 A A (@id_func A) x) (@fapp0 A A (@comp_cat_fapp0 A B A G F) x))
    (λ q : τ (Functor (Hom_cat A x x) (Hom_cat A (@fapp0 A A (@id_func A) x) (@fapp0 A A (@comp_cat_fapp0 A B A G F) x))), @fapp0 (Hom_cat A x x) (Hom_cat A (@fapp0 A A (@id_func A) x) (@fapp0 A A (@comp_cat_fapp0 A B A G F) x)) q (@id A x))
-   (@tapp0_fapp0 A Cat_cat (@hom_ A A (@id_func A) x)
+   (@tapp0_fapp0 A Cat_cart (@hom_ A A (@id_func A) x)
    (@hom_ A A (@comp_cat_fapp0 A B A G F) (@fapp0 A A (@id_func A) x)) x
-   (@tapp0_fapp0 (Op_cat A) (@Catd_cat A) (@hom_int A A (@id_func A))
+   (@tapp0_fapp0 (Op_cat A) (@Catd_cat A) (@hom_int_view A A (@id_func A))
      (@comp_cat_fapp0 (Op_cat A) (Op_cat A) (@Catd_cat A)
-       (@hom_int A A (@comp_cat_fapp0 A B A G F)) (@Op_func A A (@id_func A))) x (@profmap_internal_hom_action A A (@id_func A) (@comp_cat_fapp0 A B A G F) (@hom_comparison_unit_profmap A B F G i)))) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A) (@Hom_prof_along A A A (@id_func A) (@comp_cat_fapp0 A B A G F)) (@Product_pair (Op_cat A) A x x) (@hom_comparison_unit_profmap A B F G i)) (@hom_comparison_prof_hom_action_component_path A A A1 A1 (@id_func A) (@comp_cat_fapp0 A B A G F) (@hom_comparison_unit_profmap A B F G i) x);
+       (@hom_int_view A A (@comp_cat_fapp0 A B A G F)) (@Op_func A A (@id_func A))) x (@strict_transfor (Op_cat A) (Catd_cat A)
+        (one_cat_hom_action_source A) (@one_cat_hom_action_target A A (@id_func A) (@comp_cat_fapp0 A B A G F))
+        (@one_cat_hom_action_cart A A A1 (@id_func A) (@comp_cat_fapp0 A B A G F) (@profmap_internal_hom_action A A (@id_func A) (@comp_cat_fapp0 A B A G F) (@hom_comparison_unit_profmap A B F G i)))))) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A) (@Hom_prof_along A A A (@id_func A) (@comp_cat_fapp0 A B A G F)) (@Product_pair (Op_cat A) A x x) (@hom_comparison_unit_profmap A B F G i)) (@hom_comparison_admitted_hom_action_component_path A A A1 A1 (@id_func A) (@comp_cat_fapp0 A B A G F) (@hom_comparison_unit_profmap A B F G i) x);
 
 // Ordinary law ε_b=Φ⁻¹_Gb,b(id_Gb), retaining the actual whole ε.
 symbol one_cat_hom_comparison_counit_component_path [A B : Cat] (A1 : τ (IsNCat (cat_succ cat_zero) A))
  (B1 : τ (IsNCat (cat_succ cat_zero) B)) (F : τ (Functor A B)) (G : τ (Functor B A))
  (i : τ (@ProfComparison A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G))) (x : τ (Obj B))
- : τ (@= (Hom B (@fapp0 B B (@comp_cat_fapp0 B A B F G) x) (@fapp0 B B (@id_func B) x)) (@tapp0_fapp0 B B (@comp_cat_fapp0 B A B F G) (@id_func B) x (@one_cat_hom_comparison_counit A B A1 B1 F G i)) (@fapp0 _ _ (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B (@fapp0 B A G x) x) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id A (@fapp0 B A G x))))
+ : τ (@= (Hom B (@fapp0 B B (@comp_cat_fapp0 B A B F G) x) (@fapp0 B B (@id_func B) x)) (@tapp0_fapp0 B B (@comp_cat_fapp0 B A B F G) (@id_func B) x (@one_cat_hom_comparison_counit A B A1 B1 F G i)) (@fapp0 _ _ (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B (@fapp0 B A G x) x) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id A (@fapp0 B A G x))))
 ≔ @eq_ap (Functor (Hom_cat B x x) (Hom_cat B (@fapp0 B B (@comp_cat_fapp0 B A B F G) x) (@fapp0 B B (@id_func B) x))) (Hom B (@fapp0 B B (@comp_cat_fapp0 B A B F G) x) (@fapp0 B B (@id_func B) x))
    (λ q : τ (Functor (Hom_cat B x x) (Hom_cat B (@fapp0 B B (@comp_cat_fapp0 B A B F G) x) (@fapp0 B B (@id_func B) x))), @fapp0 (Hom_cat B x x) (Hom_cat B (@fapp0 B B (@comp_cat_fapp0 B A B F G) x) (@fapp0 B B (@id_func B) x)) q (@id B x))
-   (@tapp0_fapp0 B Cat_cat (@hom_ B B (@id_func B) x)
+   (@tapp0_fapp0 B Cat_cart (@hom_ B B (@id_func B) x)
    (@hom_ B B (@id_func B) (@fapp0 B B (@comp_cat_fapp0 B A B F G) x)) x
-   (@tapp0_fapp0 (Op_cat B) (@Catd_cat B) (@hom_int B B (@id_func B))
+   (@tapp0_fapp0 (Op_cat B) (@Catd_cat B) (@hom_int_view B B (@id_func B))
      (@comp_cat_fapp0 (Op_cat B) (Op_cat B) (@Catd_cat B)
-       (@hom_int B B (@id_func B)) (@Op_func B B (@comp_cat_fapp0 B A B F G))) x (@profmap_internal_hom_action B B (@comp_cat_fapp0 B A B F G) (@id_func B) (@hom_comparison_counit_profmap A B F G i)))) (@tapp0_fapp0 (Product_cat (Op_cat B) B) Cat_cat (@Unit_prof B) (@Hom_prof_along B B B (@comp_cat_fapp0 B A B F G) (@id_func B)) (@Product_pair (Op_cat B) B x x) (@hom_comparison_counit_profmap A B F G i)) (@hom_comparison_prof_hom_action_component_path B B B1 B1 (@comp_cat_fapp0 B A B F G) (@id_func B) (@hom_comparison_counit_profmap A B F G i) x);
+       (@hom_int_view B B (@id_func B)) (@Op_func B B (@comp_cat_fapp0 B A B F G))) x (@strict_transfor (Op_cat B) (Catd_cat B)
+        (one_cat_hom_action_source B) (@one_cat_hom_action_target B B (@comp_cat_fapp0 B A B F G) (@id_func B))
+        (@one_cat_hom_action_cart B B B1 (@comp_cat_fapp0 B A B F G) (@id_func B) (@profmap_internal_hom_action B B (@comp_cat_fapp0 B A B F G) (@id_func B) (@hom_comparison_counit_profmap A B F G i)))))) (@tapp0_fapp0 (Product_cat (Op_cat B) B) Cat_cart (@Unit_prof B) (@Hom_prof_along B B B (@comp_cat_fapp0 B A B F G) (@id_func B)) (@Product_pair (Op_cat B) B x x) (@hom_comparison_counit_profmap A B F G i)) (@hom_comparison_admitted_hom_action_component_path B B B1 B1 (@comp_cat_fapp0 B A B F G) (@id_func B) (@hom_comparison_counit_profmap A B F G i) x);
 
 // Project the original displayed naturality cell over (id_x,f).
 protected symbol hom_comparison_prof_cov_cell [A C : Cat] (F G : τ (Functor A C))
@@ -148,10 +313,10 @@ protected symbol hom_comparison_prof_cov_cell [A C : Cat] (F G : τ (Functor A C
    (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y)
      (@fapp1_fapp0 A C G x y f)
      (@fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x))
-       (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A)
+       (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A)
          (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x)))
    (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y))
-     (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A)
+     (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A)
        (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) (@Hom_fapp0 A x x x y (@id A x) f (@id A x))))
 ≔ @fdapp1_int_cell (Product_cat (Op_cat A) A) (@Unit_prof A)
     (@Hom_prof_along A A C F G) r
@@ -180,23 +345,23 @@ protected symbol hom_comparison_prof_cov_path [A C : Cat] (C1 : τ (IsNCat (cat_
    (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y)
      (@fapp1_fapp0 A C G x y f)
      (@fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x))
-       (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A)
+       (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A)
          (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x)))
    (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y))
-     (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A)
+     (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A)
        (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) f))
 ≔ @eq_trans (Hom C (@fapp0 A C F x) (@fapp0 A C G y))
   (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y)
      (@fapp1_fapp0 A C G x y f)
      (@fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x))
-       (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A)
-         (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x))) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A)
-       (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) (@Hom_fapp0 A x x x y (@id A x) f (@id A x))) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A)
+       (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A)
+         (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x))) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A)
+       (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) (@Hom_fapp0 A x x x y (@id A x) f (@id A x))) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A)
        (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) f)
   (@hom_to_path (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y))
     (C1 (@fapp0 A C F x) (@fapp0 A C G y)) _ _ (@hom_comparison_prof_cov_cell A C F G r x y f))
   (@eq_ap (Hom A x y) (Hom C (@fapp0 A C F x) (@fapp0 A C G y))
-    (λ q : τ (Hom A x y), (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A)
+    (λ q : τ (Hom A x y), (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A)
        (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) q)) (@Hom_fapp0 A x x x y (@id A x) f (@id A x)) f (@hom_comparison_source_id_path A x y f));
 
 // Project the existing post-laxity cell into the ordinary Hom path.
@@ -233,27 +398,29 @@ protected symbol hom_comparison_transf_post_path [A C : Cat] (C1 : τ (IsNCat (c
 protected symbol hom_comparison_reconstruction_component_path [A C : Cat] (A1 : τ (IsNCat (cat_succ cat_zero) A))
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) (F G : τ (Functor A C))
  (r : τ (@ProfMap A A (@Unit_prof A) (@Hom_prof_along A A C F G))) (x : τ (Obj A))
- : τ (@= (Hom C (@fapp0 A C F x) (@fapp0 A C G x)) (@tapp0_fapp0 A C F G x (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r))) (@fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x)))
+ : τ (@= (Hom C (@fapp0 A C F x) (@fapp0 A C G x)) (@tapp0_fapp0 A C F G x (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r))) (@fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x)))
 ≔ @eq_ap (Functor (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x))) (Hom C (@fapp0 A C F x) (@fapp0 A C G x))
    (λ p : τ (Functor (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x))),
       @fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x)) p (@id A x))
-   (@tapp0_fapp0 A Cat_cat (@hom_ A A (@id_func A) x)
+   (@tapp0_fapp0 A Cat_cart (@hom_ A A (@id_func A) x)
    (@hom_ C A G (@fapp0 A C F x)) x
-   (@tapp0_fapp0 (Op_cat A) (@Catd_cat A) (@hom_int A A (@id_func A))
+   (@tapp0_fapp0 (Op_cat A) (@Catd_cat A) (@hom_int_view A A (@id_func A))
      (@comp_cat_fapp0 (Op_cat A) (Op_cat C) (@Catd_cat A)
-       (@hom_int C A G) (@Op_func A C F)) x (@profmap_internal_hom_action A C F G r))) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@hom_comparison_prof_hom_action_component_path A C A1 C1 F G r x);
+       (@hom_int_view C A G) (@Op_func A C F)) x (@strict_transfor (Op_cat A) (Catd_cat A)
+        (one_cat_hom_action_source A) (@one_cat_hom_action_target A C F G)
+        (@one_cat_hom_action_cart A C C1 F G (@profmap_internal_hom_action A C F G r))))) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@hom_comparison_admitted_hom_action_component_path A C A1 C1 F G r x);
 
 // The reconstructed whole α retains the original nonidentity action: α[f]=r_x,y(f).
 symbol one_cat_profmap_reconstruction_action_path [A C : Cat] (A1 : τ (IsNCat (cat_succ cat_zero) A))
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) (F G : τ (Functor A C))
  (r : τ (@ProfMap A A (@Unit_prof A) (@Hom_prof_along A A C F G)))
  (x y : τ (Obj A)) (f : τ (Hom A x y))
- : τ (@= (Hom C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp1_fapp0 A C F G x y (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)) f) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) f))
-≔ @eq_trans (Hom C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp1_fapp0 A C F G x y (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)) f) (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y) (@fapp1_fapp0 A C G x y f) (@tapp0_fapp0 A C F G x (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)))) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) f)
+ : τ (@= (Hom C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp1_fapp0 A C F G x y (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)) f) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) f))
+≔ @eq_trans (Hom C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp1_fapp0 A C F G x y (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)) f) (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y) (@fapp1_fapp0 A C G x y f) (@tapp0_fapp0 A C F G x (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)))) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) f)
    (@eq_sym (Hom C (@fapp0 A C F x) (@fapp0 A C G y)) (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y) (@fapp1_fapp0 A C G x y f) (@tapp0_fapp0 A C F G x (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)))) (@tapp1_fapp0 A C F G x y (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)) f) (@hom_comparison_transf_post_path A C C1 F G (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)) x y f))
-   (@eq_trans (Hom C (@fapp0 A C F x) (@fapp0 A C G y)) (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y) (@fapp1_fapp0 A C G x y f) (@tapp0_fapp0 A C F G x (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)))) (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y) (@fapp1_fapp0 A C G x y f) (@fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x))) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) f)
+   (@eq_trans (Hom C (@fapp0 A C F x) (@fapp0 A C G y)) (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y) (@fapp1_fapp0 A C G x y f) (@tapp0_fapp0 A C F G x (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r)))) (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y) (@fapp1_fapp0 A C G x y f) (@fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x))) (@fapp0 (Hom_cat A x y) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G y)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x y) r) f)
      (@eq_ap (Hom C (@fapp0 A C F x) (@fapp0 A C G x)) (Hom C (@fapp0 A C F x) (@fapp0 A C G y))
-       (λ h : τ (Hom C (@fapp0 A C F x) (@fapp0 A C G x)), (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y) (@fapp1_fapp0 A C G x y f) h)) (@tapp0_fapp0 A C F G x (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r))) (@fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cat (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x))
+       (λ h : τ (Hom C (@fapp0 A C F x) (@fapp0 A C G x)), (@comp_fapp0 C (@fapp0 A C F x) (@fapp0 A C G x) (@fapp0 A C G y) (@fapp1_fapp0 A C G x y f) h)) (@tapp0_fapp0 A C F G x (@one_cat_transf_from_hom_action A C C1 F G (@profmap_internal_hom_action A C F G r))) (@fapp0 (Hom_cat A x x) (Hom_cat C (@fapp0 A C F x) (@fapp0 A C G x)) (@tapp0_fapp0 (Product_cat (Op_cat A) A) Cat_cart (@Unit_prof A) (@Hom_prof_along A A C F G) (@Product_pair (Op_cat A) A x x) r) (@id A x))
        (@hom_comparison_reconstruction_component_path A C A1 C1 F G r x))
      (@hom_comparison_prof_cov_path A C C1 F G r x y f));
 
@@ -283,19 +450,19 @@ protected symbol hom_comparison_defiso_point_right [X Y : Cat] (i : τ (@DefIso 
 // Evaluate the supplied whole DefIso at the original pair (a,b).
 protected symbol hom_comparison_prof_component_defiso [A B : Cat] (P Q : τ (Prof A B))
  (i : τ (@ProfComparison A B P Q)) (a : τ (Obj A)) (b : τ (Obj B))
- : τ (@DefIso Cat_cat (@fapp0 (Product_cat (Op_cat A) B) Cat_cat P (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cat Q (@Product_pair (Op_cat A) B a b)))
-≔ @defiso_at (Product_cat (Op_cat A) B) Cat_cat P Q i (@Product_pair (Op_cat A) B a b);
+ : τ (@DefIso Cat_cart (@fapp0 (Product_cat (Op_cat A) B) Cat_cart P (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cart Q (@Product_pair (Op_cat A) B a b)))
+≔ @defiso_at (Product_cat (Op_cat A) B) Cat_cart P Q i (@Product_pair (Op_cat A) B a b);
 
 // Retain the supplied comparison in its left component inverse law.
 protected symbol hom_comparison_prof_component_left [A B : Cat] (P Q : τ (Prof A B))
- (i : τ (@ProfComparison A B P Q)) (a : τ (Obj A)) (b : τ (Obj B)) (x : τ (Obj (@fapp0 (Product_cat (Op_cat A) B) Cat_cat P (@Product_pair (Op_cat A) B a b))))
- : τ (@= (Obj (@fapp0 (Product_cat (Op_cat A) B) Cat_cat P (@Product_pair (Op_cat A) B a b))) (@fapp0 (@fapp0 (Product_cat (Op_cat A) B) Cat_cat Q (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cat P (@Product_pair (Op_cat A) B a b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat Q P (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) P Q i)) (@fapp0 (@fapp0 (Product_cat (Op_cat A) B) Cat_cat P (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cat Q (@Product_pair (Op_cat A) B a b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat P Q (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) P Q i)) x)) x)
+ (i : τ (@ProfComparison A B P Q)) (a : τ (Obj A)) (b : τ (Obj B)) (x : τ (Obj (@fapp0 (Product_cat (Op_cat A) B) Cat_cart P (@Product_pair (Op_cat A) B a b))))
+ : τ (@= (Obj (@fapp0 (Product_cat (Op_cat A) B) Cat_cart P (@Product_pair (Op_cat A) B a b))) (@fapp0 (@fapp0 (Product_cat (Op_cat A) B) Cat_cart Q (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cart P (@Product_pair (Op_cat A) B a b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart Q P (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) P Q i)) (@fapp0 (@fapp0 (Product_cat (Op_cat A) B) Cat_cart P (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cart Q (@Product_pair (Op_cat A) B a b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart P Q (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) P Q i)) x)) x)
 ≔ @prof_defiso_raw_left_path A B P Q i (@Product_pair (Op_cat A) B a b) x;
 
 // Retain the supplied comparison in its right component inverse law.
 protected symbol hom_comparison_prof_component_right [A B : Cat] (P Q : τ (Prof A B))
- (i : τ (@ProfComparison A B P Q)) (a : τ (Obj A)) (b : τ (Obj B)) (x : τ (Obj (@fapp0 (Product_cat (Op_cat A) B) Cat_cat Q (@Product_pair (Op_cat A) B a b))))
- : τ (@= (Obj (@fapp0 (Product_cat (Op_cat A) B) Cat_cat Q (@Product_pair (Op_cat A) B a b))) (@fapp0 (@fapp0 (Product_cat (Op_cat A) B) Cat_cat P (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cat Q (@Product_pair (Op_cat A) B a b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat P Q (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) P Q i)) (@fapp0 (@fapp0 (Product_cat (Op_cat A) B) Cat_cat Q (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cat P (@Product_pair (Op_cat A) B a b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat Q P (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) P Q i)) x)) x)
+ (i : τ (@ProfComparison A B P Q)) (a : τ (Obj A)) (b : τ (Obj B)) (x : τ (Obj (@fapp0 (Product_cat (Op_cat A) B) Cat_cart Q (@Product_pair (Op_cat A) B a b))))
+ : τ (@= (Obj (@fapp0 (Product_cat (Op_cat A) B) Cat_cart Q (@Product_pair (Op_cat A) B a b))) (@fapp0 (@fapp0 (Product_cat (Op_cat A) B) Cat_cart P (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cart Q (@Product_pair (Op_cat A) B a b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart P Q (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) P Q i)) (@fapp0 (@fapp0 (Product_cat (Op_cat A) B) Cat_cart Q (@Product_pair (Op_cat A) B a b)) (@fapp0 (Product_cat (Op_cat A) B) Cat_cart P (@Product_pair (Op_cat A) B a b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart Q P (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) P Q i)) x)) x)
 ≔ @prof_defiso_raw_right_path A B P Q i (@Product_pair (Op_cat A) B a b) x;
 
 // Stage the rigid Hom/precomposition comparison before identity specialization.
@@ -315,10 +482,10 @@ protected symbol hom_comparison_mate_to_formula [A B : Cat] (A1 : τ (IsNCat (ca
  (B1 : τ (IsNCat (cat_succ cat_zero) B)) (F : τ (Functor A B)) (G : τ (Functor B A))
  (i : τ (@ProfComparison A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G))) (a : τ (Obj A)) (b : τ (Obj B))
  (f : τ (Hom B (@fapp0 A B F a) b))
- : τ (@= (Hom A a (@fapp0 B A G b)) (@comp_fapp0 A a (@fapp0 B A G (@fapp0 A B F a)) (@fapp0 B A G b) (@fapp1_fapp0 B A G (@fapp0 A B F a) b f) (@fapp0 (Hom_cat B (@fapp0 A B F a) (@fapp0 A B F a)) (Hom_cat A a (@fapp0 B A G (@fapp0 A B F a))) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a (@fapp0 A B F a)) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id B (@fapp0 A B F a)))) (@fapp0 (Hom_cat B (@fapp0 A B F a) b) (Hom_cat A a (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) f))
-≔ @eq_trans (Hom A a (@fapp0 B A G b)) (@comp_fapp0 A a (@fapp0 B A G (@fapp0 A B F a)) (@fapp0 B A G b) (@fapp1_fapp0 B A G (@fapp0 A B F a) b f) (@fapp0 (Hom_cat B (@fapp0 A B F a) (@fapp0 A B F a)) (Hom_cat A a (@fapp0 B A G (@fapp0 A B F a))) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a (@fapp0 A B F a)) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id B (@fapp0 A B F a)))) (@fapp0 (Hom_cat B (@fapp0 A B F a) b) (Hom_cat A a (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@Hom_fapp0 B (@fapp0 A B F a) (@fapp0 A B F a) (@fapp0 A B F a) b (@id B (@fapp0 A B F a)) f (@id B (@fapp0 A B F a)))) (@fapp0 (Hom_cat B (@fapp0 A B F a) b) (Hom_cat A a (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) f)
+ : τ (@= (Hom A a (@fapp0 B A G b)) (@comp_fapp0 A a (@fapp0 B A G (@fapp0 A B F a)) (@fapp0 B A G b) (@fapp1_fapp0 B A G (@fapp0 A B F a) b f) (@fapp0 (Hom_cat B (@fapp0 A B F a) (@fapp0 A B F a)) (Hom_cat A a (@fapp0 B A G (@fapp0 A B F a))) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a (@fapp0 A B F a)) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id B (@fapp0 A B F a)))) (@fapp0 (Hom_cat B (@fapp0 A B F a) b) (Hom_cat A a (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) f))
+≔ @eq_trans (Hom A a (@fapp0 B A G b)) (@comp_fapp0 A a (@fapp0 B A G (@fapp0 A B F a)) (@fapp0 B A G b) (@fapp1_fapp0 B A G (@fapp0 A B F a) b f) (@fapp0 (Hom_cat B (@fapp0 A B F a) (@fapp0 A B F a)) (Hom_cat A a (@fapp0 B A G (@fapp0 A B F a))) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a (@fapp0 A B F a)) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id B (@fapp0 A B F a)))) (@fapp0 (Hom_cat B (@fapp0 A B F a) b) (Hom_cat A a (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@Hom_fapp0 B (@fapp0 A B F a) (@fapp0 A B F a) (@fapp0 A B F a) b (@id B (@fapp0 A B F a)) f (@id B (@fapp0 A B F a)))) (@fapp0 (Hom_cat B (@fapp0 A B F a) b) (Hom_cat A a (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) f)
    (@hom_to_path (Hom_cat A a (@fapp0 B A G b)) (A1 a (@fapp0 B A G b)) _ _ (@fdapp1_int_cell (Product_cat (Op_cat A) B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i) (@Product_pair (Op_cat A) B a (@fapp0 A B F a)) (@Product_pair (Op_cat A) B a b) (@Product_pair (Hom_cat (Op_cat A) a a) (Hom_cat B (@fapp0 A B F a) b) (@id A a) f) (@id B (@fapp0 A B F a))))
-   (@eq_ap (Hom B (@fapp0 A B F a) b) (Hom A a (@fapp0 B A G b)) (λ v : τ (Hom B (@fapp0 A B F a) b), (@fapp0 (Hom_cat B (@fapp0 A B F a) b) (Hom_cat A a (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) v))
+   (@eq_ap (Hom B (@fapp0 A B F a) b) (Hom A a (@fapp0 B A G b)) (λ v : τ (Hom B (@fapp0 A B F a) b), (@fapp0 (Hom_cat B (@fapp0 A B F a) b) (Hom_cat A a (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) v))
      (@Hom_fapp0 B (@fapp0 A B F a) (@fapp0 A B F a) (@fapp0 A B F a) b (@id B (@fapp0 A B F a)) f (@id B (@fapp0 A B F a))) f (@hom_comparison_source_id_path B (@fapp0 A B F a) b f));
 
 // Inverse mate formula from the same selected inverse’s native naturality.
@@ -326,30 +493,30 @@ protected symbol hom_comparison_mate_from_formula [A B : Cat] (A1 : τ (IsNCat (
  (B1 : τ (IsNCat (cat_succ cat_zero) B)) (F : τ (Functor A B)) (G : τ (Functor B A))
  (i : τ (@ProfComparison A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G))) (a : τ (Obj A)) (b : τ (Obj B))
  (g : τ (Hom A a (@fapp0 B A G b)))
- : τ (@= (Hom B (@fapp0 A B F a) b) (@comp_fapp0 B (@fapp0 A B F a) (@fapp0 A B F (@fapp0 B A G b)) b (@fapp0 (Hom_cat A (@fapp0 B A G b) (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F (@fapp0 B A G b)) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B (@fapp0 B A G b) b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id A (@fapp0 B A G b))) (@fapp1_fapp0 A B F a (@fapp0 B A G b) g)) (@fapp0 (Hom_cat A a (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F a) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) g))
-≔ @eq_trans (Hom B (@fapp0 A B F a) b) (@comp_fapp0 B (@fapp0 A B F a) (@fapp0 A B F (@fapp0 B A G b)) b (@fapp0 (Hom_cat A (@fapp0 B A G b) (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F (@fapp0 B A G b)) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B (@fapp0 B A G b) b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id A (@fapp0 B A G b))) (@fapp1_fapp0 A B F a (@fapp0 B A G b) g)) (@fapp0 (Hom_cat A a (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F a) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@Hom_fapp0 A (@fapp0 B A G b) a (@fapp0 B A G b) (@fapp0 B A G b) g (@id A (@fapp0 B A G b)) (@id A (@fapp0 B A G b)))) (@fapp0 (Hom_cat A a (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F a) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) g)
+ : τ (@= (Hom B (@fapp0 A B F a) b) (@comp_fapp0 B (@fapp0 A B F a) (@fapp0 A B F (@fapp0 B A G b)) b (@fapp0 (Hom_cat A (@fapp0 B A G b) (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F (@fapp0 B A G b)) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B (@fapp0 B A G b) b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id A (@fapp0 B A G b))) (@fapp1_fapp0 A B F a (@fapp0 B A G b) g)) (@fapp0 (Hom_cat A a (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F a) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) g))
+≔ @eq_trans (Hom B (@fapp0 A B F a) b) (@comp_fapp0 B (@fapp0 A B F a) (@fapp0 A B F (@fapp0 B A G b)) b (@fapp0 (Hom_cat A (@fapp0 B A G b) (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F (@fapp0 B A G b)) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B (@fapp0 B A G b) b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id A (@fapp0 B A G b))) (@fapp1_fapp0 A B F a (@fapp0 B A G b) g)) (@fapp0 (Hom_cat A a (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F a) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@Hom_fapp0 A (@fapp0 B A G b) a (@fapp0 B A G b) (@fapp0 B A G b) g (@id A (@fapp0 B A G b)) (@id A (@fapp0 B A G b)))) (@fapp0 (Hom_cat A a (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F a) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) g)
    (@hom_to_path (Hom_cat B (@fapp0 A B F a) b) (B1 (@fapp0 A B F a) b) _ _ (@fdapp1_int_cell (Product_cat (Op_cat A) B) (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i) (@Product_pair (Op_cat A) B (@fapp0 B A G b) b) (@Product_pair (Op_cat A) B a b) (@Product_pair (Hom_cat (Op_cat A) (@fapp0 B A G b) a) (Hom_cat B b b) g (@id B b)) (@id A (@fapp0 B A G b))))
-   (@eq_ap (Hom A a (@fapp0 B A G b)) (Hom B (@fapp0 A B F a) b) (λ v : τ (Hom A a (@fapp0 B A G b)), (@fapp0 (Hom_cat A a (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F a) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) v))
+   (@eq_ap (Hom A a (@fapp0 B A G b)) (Hom B (@fapp0 A B F a) b) (λ v : τ (Hom A a (@fapp0 B A G b)), (@fapp0 (Hom_cat A a (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F a) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) v))
      (@Hom_fapp0 A (@fapp0 B A G b) a (@fapp0 B A G b) (@fapp0 B A G b) g (@id A (@fapp0 B A G b)) (@id A (@fapp0 B A G b))) g (@hom_comparison_target_id_path A a (@fapp0 B A G b) g));
 
 // The original forward comparison applied to id_Fa.
 protected symbol hom_comparison_unit_value [A B : Cat] (A1 : τ (IsNCat (cat_succ cat_zero) A))
  (B1 : τ (IsNCat (cat_succ cat_zero) B)) (F : τ (Functor A B)) (G : τ (Functor B A))
  (i : τ (@ProfComparison A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G))) (a : τ (Obj A)) : τ (Hom A a (@fapp0 B A G (@fapp0 A B F a)))
-≔ @fapp0 (Hom_cat B (@fapp0 A B F a) (@fapp0 A B F a)) (Hom_cat A a (@fapp0 B A G (@fapp0 A B F a))) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a (@fapp0 A B F a)) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id B (@fapp0 A B F a));
+≔ @fapp0 (Hom_cat B (@fapp0 A B F a) (@fapp0 A B F a)) (Hom_cat A a (@fapp0 B A G (@fapp0 A B F a))) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B a (@fapp0 A B F a)) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id B (@fapp0 A B F a));
 
 // The original selected inverse applied to id_Gb.
 protected symbol hom_comparison_counit_value [A B : Cat] (A1 : τ (IsNCat (cat_succ cat_zero) A))
  (B1 : τ (IsNCat (cat_succ cat_zero) B)) (F : τ (Functor A B)) (G : τ (Functor B A))
  (i : τ (@ProfComparison A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G))) (b : τ (Obj B)) : τ (Hom B (@fapp0 A B F (@fapp0 B A G b)) b)
-≔ @fapp0 (Hom_cat A (@fapp0 B A G b) (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F (@fapp0 B A G b)) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B (@fapp0 B A G b) b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id A (@fapp0 B A G b));
+≔ @fapp0 (Hom_cat A (@fapp0 B A G b) (@fapp0 B A G b)) (Hom_cat B (@fapp0 A B F (@fapp0 B A G b)) b) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B (@fapp0 B A G b) b) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@id A (@fapp0 B A G b));
 
 // The left mate formula and original inverse cut yield the calculated triangle.
 protected symbol hom_comparison_calculated_triangle_left [A B : Cat] (A1 : τ (IsNCat (cat_succ cat_zero) A))
  (B1 : τ (IsNCat (cat_succ cat_zero) B)) (F : τ (Functor A B)) (G : τ (Functor B A))
  (i : τ (@ProfComparison A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G))) (a : τ (Obj A))
  : τ (@= (Hom B (@fapp0 A B F a) (@fapp0 A B F a)) (@comp_fapp0 B (@fapp0 A B F a) (@fapp0 A B F (@fapp0 B A G (@fapp0 A B F a))) (@fapp0 A B F a) (@hom_comparison_counit_value A B A1 B1 F G i (@fapp0 A B F a)) (@fapp1_fapp0 A B F a (@fapp0 B A G (@fapp0 A B F a)) (@hom_comparison_unit_value A B A1 B1 F G i a))) (@id B (@fapp0 A B F a)))
-≔ @eq_trans (Hom B (@fapp0 A B F a) (@fapp0 A B F a)) (@comp_fapp0 B (@fapp0 A B F a) (@fapp0 A B F (@fapp0 B A G (@fapp0 A B F a))) (@fapp0 A B F a) (@hom_comparison_counit_value A B A1 B1 F G i (@fapp0 A B F a)) (@fapp1_fapp0 A B F a (@fapp0 B A G (@fapp0 A B F a)) (@hom_comparison_unit_value A B A1 B1 F G i a))) (@fapp0 (Hom_cat A a (@fapp0 B A G (@fapp0 A B F a))) (Hom_cat B (@fapp0 A B F a) (@fapp0 A B F a)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a (@fapp0 A B F a)) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@hom_comparison_unit_value A B A1 B1 F G i a)) (@id B (@fapp0 A B F a))
+≔ @eq_trans (Hom B (@fapp0 A B F a) (@fapp0 A B F a)) (@comp_fapp0 B (@fapp0 A B F a) (@fapp0 A B F (@fapp0 B A G (@fapp0 A B F a))) (@fapp0 A B F a) (@hom_comparison_counit_value A B A1 B1 F G i (@fapp0 A B F a)) (@fapp1_fapp0 A B F a (@fapp0 B A G (@fapp0 A B F a)) (@hom_comparison_unit_value A B A1 B1 F G i a))) (@fapp0 (Hom_cat A a (@fapp0 B A G (@fapp0 A B F a))) (Hom_cat B (@fapp0 A B F a) (@fapp0 A B F a)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B A (@id_func A) G) (@Hom_prof_along A B B F (@id_func B)) (@Product_pair (Op_cat A) B a (@fapp0 A B F a)) (@defiso_from (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@hom_comparison_unit_value A B A1 B1 F G i a)) (@id B (@fapp0 A B F a))
    (@hom_comparison_mate_from_formula A B A1 B1 F G i a (@fapp0 A B F a) (@hom_comparison_unit_value A B A1 B1 F G i a))
    (@hom_comparison_prof_component_left A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i a (@fapp0 A B F a) (@id B (@fapp0 A B F a)));
 
@@ -358,7 +525,7 @@ protected symbol hom_comparison_calculated_triangle_right [A B : Cat] (A1 : τ (
  (B1 : τ (IsNCat (cat_succ cat_zero) B)) (F : τ (Functor A B)) (G : τ (Functor B A))
  (i : τ (@ProfComparison A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G))) (b : τ (Obj B))
  : τ (@= (Hom A (@fapp0 B A G b) (@fapp0 B A G b)) (@comp_fapp0 A (@fapp0 B A G b) (@fapp0 B A G (@fapp0 A B F (@fapp0 B A G b))) (@fapp0 B A G b) (@fapp1_fapp0 B A G (@fapp0 A B F (@fapp0 B A G b)) b (@hom_comparison_counit_value A B A1 B1 F G i b)) (@hom_comparison_unit_value A B A1 B1 F G i (@fapp0 B A G b))) (@id A (@fapp0 B A G b)))
-≔ @eq_trans (Hom A (@fapp0 B A G b) (@fapp0 B A G b)) (@comp_fapp0 A (@fapp0 B A G b) (@fapp0 B A G (@fapp0 A B F (@fapp0 B A G b))) (@fapp0 B A G b) (@fapp1_fapp0 B A G (@fapp0 A B F (@fapp0 B A G b)) b (@hom_comparison_counit_value A B A1 B1 F G i b)) (@hom_comparison_unit_value A B A1 B1 F G i (@fapp0 B A G b))) (@fapp0 (Hom_cat B (@fapp0 A B F (@fapp0 B A G b)) b) (Hom_cat A (@fapp0 B A G b) (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cat (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B (@fapp0 B A G b) b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@hom_comparison_counit_value A B A1 B1 F G i b)) (@id A (@fapp0 B A G b))
+≔ @eq_trans (Hom A (@fapp0 B A G b) (@fapp0 B A G b)) (@comp_fapp0 A (@fapp0 B A G b) (@fapp0 B A G (@fapp0 A B F (@fapp0 B A G b))) (@fapp0 B A G b) (@fapp1_fapp0 B A G (@fapp0 A B F (@fapp0 B A G b)) b (@hom_comparison_counit_value A B A1 B1 F G i b)) (@hom_comparison_unit_value A B A1 B1 F G i (@fapp0 B A G b))) (@fapp0 (Hom_cat B (@fapp0 A B F (@fapp0 B A G b)) b) (Hom_cat A (@fapp0 B A G b) (@fapp0 B A G b)) (@tapp0_fapp0 (Product_cat (Op_cat A) B) Cat_cart (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) (@Product_pair (Op_cat A) B (@fapp0 B A G b) b) (@defiso_to (Prof_cat A B) (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i)) (@hom_comparison_counit_value A B A1 B1 F G i b)) (@id A (@fapp0 B A G b))
    (@hom_comparison_mate_to_formula A B A1 B1 F G i (@fapp0 B A G b) b (@hom_comparison_counit_value A B A1 B1 F G i b))
    (@hom_comparison_prof_component_right A B (@Hom_prof_along A B B F (@id_func B)) (@Hom_prof_along A B A (@id_func A) G) i (@fapp0 B A G b) b (@id A (@fapp0 B A G b)));
 

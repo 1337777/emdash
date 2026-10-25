@@ -142,7 +142,7 @@ symbol direct_cover_sheaf_structure_glue_func
       (@DirectCoverSection_cat K U X))
 ≔ @tapp0_fapp0
     (@DirectCoverQuestion_cat K T)
-    Cat_cat
+    Cat_cart
     (@DirectCoverQuestionMatching_catd K T X)
     (@DirectCoverQuestionSection_catd K T X)
     (Struct_sigma U (Struct_sigma R covers))
@@ -185,7 +185,7 @@ symbol direct_cover_sheaf_structure_silent
         (@DirectCoverQuestionSection_catd K T X)),
       @tapp0_fapp0
         (@DirectCoverQuestion_cat K T)
-        Cat_cat
+        Cat_cart
         (@DirectCoverQuestionSection_catd K T X)
         (@DirectCoverQuestionSection_catd K T X)
         (Struct_sigma U (Struct_sigma R covers))

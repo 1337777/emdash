@@ -15,7 +15,7 @@ assert [C : Cat]
   (PB : τ (@PullbackStructure C))
   (DP : τ (@DependentProductStructure C PB))
   (X : τ (Obj C)) ⊢
-  @fapp0 C Cat_cat (@SliceDependentProduct_catd C PB DP) X
+  @fapp0 (CoAt2_cat C) Cat_cart (@SliceDependentProduct_catd C PB DP) X
   ≡ @Slice_cat C X;
 
 // Its internal action at u is the selected whole Πᵤ functor.
@@ -24,7 +24,7 @@ assert [C : Cat]
   (DP : τ (@DependentProductStructure C PB))
   (X Y : τ (Obj C))
   (u : τ (Hom C X Y)) ⊢
-  @fapp1_fapp0 C Cat_cat
+  @fapp1_fapp0 (CoAt2_cat C) Cat_cart
     (@SliceDependentProduct_catd C PB DP) X Y u
   ≡ @slice_dependent_product_func C PB DP X Y u;
 
@@ -45,10 +45,10 @@ assert [C : Cat]
   (PB : τ (@PullbackStructure C))
   (DP : τ (@DependentProductStructure C PB))
   (X Y : τ (Obj C)) ⊢
-  @fapp1_func C Cat_cat (@SliceDependentProduct_catd C PB DP) X Y
+  @fapp1_func (CoAt2_cat C) Cat_cart (@SliceDependentProduct_catd C PB DP) X Y
   : τ (Functor
-      (Hom_cat C X Y)
-      (Functor_cat (@Slice_cat C X) (@Slice_cat C Y)));
+      (Hom_cat (CoAt2_cat C) X Y)
+      (Functor_cart_cat (@Slice_cat C X) (@Slice_cat C Y)));
 
 // Exact second adjunction u* ⊣ Πᵤ.
 assert [C : Cat]

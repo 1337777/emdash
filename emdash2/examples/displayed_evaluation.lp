@@ -1,13 +1,15 @@
+/* Complete original displayed-evaluation assertions, with corrected Op inputs.
+   Candidate only: the leading-Eval comparison is retained last for diagnosis. */
 /* Structural displayed evaluation: whole action, point computation,
    transported-identity projection orders, and noncollapse controls.
-   The general op/Sigma variance repair is deliberately not claimed here. */
+   Ordinary action keeps general lax maps; fibrewise Op uses Cartesian maps. */
 require open emdash.emdash3_2;
 require open emdash.emdash3_2_gray_profiles;
 
 // The actual source family of Eval_funcd, named only for these reviewers.
 symbol eval_order_domain [K : Cat] (I : Cat) (E : τ (Catd K)) : τ (Catd K)
-≔ @comp_cat_fapp0 K (Product_cat Cat_cat Cat_cat) Cat_cat
-    (@uncurry_func Cat_cat Cat_cat Cat_cat Product_cat_func)
+≔ @comp_cat_fapp0 K (Product_cat Cat_cart Cat_cart) Cat_cart
+    (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func)
     (Struct_sigma (@Functor_catd K (@Const_catd (Op_cat K) I) E)
       (@Const_catd K I));
 
@@ -18,7 +20,7 @@ symbol eval_order_transport [K : Cat] (R : τ (Catd K))
 
 symbol eval_order_leading [K I : Cat] [R E : τ (Catd K)]
   (FF : τ (Functord R (@eval_order_domain K I E))) : τ (Functord R E)
-≔ @comp_catd_fapp0 K R (@eval_order_domain K I E) E (@Eval_funcd K I E) FF;
+≔ @comp_catd_fapp0 K R (@eval_order_domain K I E) E (@strict_transfor _ _ _ _ (@Eval_funcd K I E)) FF;
 
 // Canonical carrier of one extracted cell, retaining its actual endpoint owners.
 symbol eval_order_cell_cat [K : Cat] [R E : τ (Catd K)]
@@ -27,6 +29,28 @@ symbol eval_order_cell_cat [K : Cat] [R E : τ (Catd K)]
 ≔ Hom_cat (Fibre_cat E y)
     (@fapp0 _ _ (@functord_transport_lhs_func K R E FF x y p) u)
     (@fapp0 _ _ (@functord_transport_rhs_func K R E FF x y p) u);
+
+symbol cart_pair_target [K : Cat] (E D : τ (Catd K)) : τ (Catd K)
+≔ @comp_cat_fapp0 K (Product_cat Cat_cart Cat_cart) Cat_cart
+    (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func) (Struct_sigma E D);
+symbol cart_op_view [K : Cat] [E D : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) E D))
+  : τ (@Functord (CoAt2_cat K) (@Op_catd K E) (@Op_catd K D))
+≔ @strict_transfor _ _ _ _ (@Op_funcd K E D U);
+symbol constant_weak_cart [K I : Cat] (R : τ (Catd K)) (i : τ (Obj I))
+  : τ (Hom (Functor_cart_cat K Cat_cart) R (@Const_catd K I))
+≔ @comp_fapp0 (Functor_cart_cat K Cat_cart) R (@Const_catd K Terminal_cat) (@Const_catd K I)
+    (@Const_transf K Cat_cart Terminal_cat I (@Obj_func I i)) (@Terminal_cart_funcd K R);
+symbol eval_leading_cart [K I : Cat] [R E : τ (Catd K)]
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) R (@eval_order_domain K I E)))
+  : τ (Hom (Functor_cart_cat K Cat_cart) R E)
+≔ @comp_fapp0 (Functor_cart_cat K Cat_cart) R (@eval_order_domain K I E) E (@Eval_funcd K I E) U;
+symbol corrected_op_eval [K I : Cat] (E : τ (Catd K))
+  : τ (@Functord (CoAt2_cat K)
+      (@Op_catd K (@eval_order_domain K I E)) (@Op_catd K E))
+≔ @strict_transfor _ _ _ _
+    (@Op_funcd K (@eval_order_domain K I E) E (@Eval_funcd K I E));
+
 
 assert [K : Cat] (R E D : τ (Catd K))
   (FF : τ (Functord R E)) (GG : τ (Functord R D))
@@ -57,44 +81,37 @@ assert [K : Cat] (R E D : τ (Catd K))
     (@id (Fibre_cat R y) (@eval_order_transport K R x y p u))
   ≡ @fdapp1_int_cell K R _ (@Product_pair_funcd K R E D FF GG) x y p u;
 
+// Corrected original Op assertion 3.
 assert [K : Cat] (R E D : τ (Catd K))
-  (FF : τ (Functord R E)) (GG : τ (Functord R D))
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) R E))
+  (V : τ (Hom (Functor_cart_cat K Cat_cart) R D))
   [x y : τ (Obj K)] (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat R x))) ⊢
-  @fdapp1_int_cell K _ _ (@Op_funcd K _ _ (@Product_pair_funcd K R E D FF GG)) x y p u
+  @fdapp1_int_cell (CoAt2_cat K) (@Op_catd K R) (@Op_catd K (@cart_pair_target K E D))
+    (@cart_op_view K R (@cart_pair_target K E D) (@Product_pair_cart_funcd K R E D U V)) x y p u
   ≡ @Product_pair
-      (@eval_order_cell_cat K (@Op_catd K R) (@Op_catd K E) (@Op_funcd K R E FF) x y p u)
-      (@eval_order_cell_cat K (@Op_catd K R) (@Op_catd K D) (@Op_funcd K R D GG) x y p u)
-      (@fdapp1_int_cell K (@Op_catd K R) (@Op_catd K E) (@Op_funcd K R E FF) x y p u)
-      (@fdapp1_int_cell K (@Op_catd K R) (@Op_catd K D) (@Op_funcd K R D GG) x y p u);
+      (@eval_order_cell_cat (CoAt2_cat K) (@Op_catd K R) (@Op_catd K E) (@cart_op_view K R E U) x y p u)
+      (@eval_order_cell_cat (CoAt2_cat K) (@Op_catd K R) (@Op_catd K D) (@cart_op_view K R D V) x y p u)
+      (@fdapp1_int_cell (CoAt2_cat K) (@Op_catd K R) (@Op_catd K E) (@cart_op_view K R E U) x y p u)
+      (@fdapp1_int_cell (CoAt2_cat K) (@Op_catd K R) (@Op_catd K D) (@cart_op_view K R D V) x y p u);
 
+// Corrected original Op assertion 4.
 assert [K I : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
   (p : τ (Hom K x y)) (U : τ (Functor I (Fibre_cat E x))) (i : τ (Obj I)) ⊢
-  @fdapp1_int_cell K _ _ (@Op_funcd K _ _ (@Eval_funcd K I E))
+  @fdapp1_int_cell (CoAt2_cat K) _ _ (@corrected_op_eval K I E)
     x y p (Struct_sigma U i)
   ≡ @id (Op_cat (Fibre_cat E y))
       (@fapp0 (Fibre_cat E x) (Fibre_cat E y)
         (@catd_transport_func K E x y p) (@fapp0 I (Fibre_cat E x) U i));
 
-assert [K I : Cat] (R E : τ (Catd K))
-  (FF : τ (Functord R (@eval_order_domain K I E)))
-  [x y : τ (Obj K)] (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat R x))) ⊢
-  @fdapp1_int_cell K _ _ (@Op_funcd K R E (@eval_order_leading K I R E FF)) x y p u
-  ≡ @fdapp1_int_hom_fapp0 K (@Op_catd K (@eval_order_domain K I E)) (@Op_catd K E)
-      (@Op_funcd K (@eval_order_domain K I E) E (@Eval_funcd K I E)) x y p
-      (@fapp0 (Fibre_cat R x) (Fibre_cat (@eval_order_domain K I E) x)
-        (@Fibre_func K R (@eval_order_domain K I E) FF x) u)
-      (@fapp0 (Fibre_cat R y) (Fibre_cat (@eval_order_domain K I E) y)
-        (@Fibre_func K R (@eval_order_domain K I E) FF y)
-        (@eval_order_transport K R x y p u))
-      (@fdapp1_int_cell K (@Op_catd K R) (@Op_catd K (@eval_order_domain K I E))
-        (@Op_funcd K R (@eval_order_domain K I E) FF) x y p u);
+// Corrected original Op assertion 5.
+// Original assertion 5 remains at the end of this candidate.
 
 /* Explicit transported-identity route of structural evaluation. */
 
 assert [K I : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
   (p : τ (Hom K x y)) (U : τ (Functor I (Fibre_cat E x)))
   (i : τ (Obj I)) ⊢
-  @fdapp1_int_cell K _ E (@Eval_funcd K I E) x y p (Struct_sigma U i)
+  @fdapp1_int_cell K _ E (@strict_transfor _ _ _ _ (@Eval_funcd K I E)) x y p (Struct_sigma U i)
   ≡ @id (Fibre_cat E y)
       (@fapp0 (Fibre_cat E x) (Fibre_cat E y)
         (@catd_transport_func K E x y p) (@fapp0 I (Fibre_cat E x) U i));
@@ -103,7 +120,7 @@ assert [K I : Cat] (R E : τ (Catd K))
   (FF : τ (Functord R (@eval_order_domain K I E)))
   [x y : τ (Obj K)] (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat R x))) ⊢
   @fdapp1_int_cell K R E (@eval_order_leading K I R E FF) x y p u
-  ≡ @fdapp1_int_hom_fapp0 K (@eval_order_domain K I E) E (@Eval_funcd K I E)
+  ≡ @fdapp1_int_hom_fapp0 K (@eval_order_domain K I E) E (@strict_transfor _ _ _ _ (@Eval_funcd K I E))
       x y p
       (@fapp0 (Fibre_cat R x) (Fibre_cat (@eval_order_domain K I E) x)
         (@Fibre_func K R (@eval_order_domain K I E) FF x) u)
@@ -131,24 +148,24 @@ assertnot [K I : Cat] (s : τ (Functor K I)) (x : τ (Obj K)) (p : τ (Hom K x x
     s x x p Terminal_obj
   ≡ @id I (@fapp0 K I s x);
 
-// Ambient mapped-arrow composition is well typed and retains its lax comparison.
+// Default strict-functor composition is well typed and computes.
 assert [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
   (f : τ (Hom A x y)) (g : τ (Hom A y z)) ⊢
   @comp_fapp0 B _ _ _ (@fapp1_fapp0 A B F y z g) (@fapp1_fapp0 A B F x y f)
   : τ (Hom B (@fapp0 A B F x) (@fapp0 A B F z));
 
-assertnot [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
+assert [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
   (f : τ (Hom A x y)) (g : τ (Hom A y z)) ⊢
   @comp_fapp0 B _ _ _ (@fapp1_fapp0 A B F y z g) (@fapp1_fapp0 A B F x y f)
   ≡ @fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f);
 
-// The same computation is selected by the actual opaque strict profile.
-assert [A B : Cat] (S : τ (@StrictFunctor A B)) [x y z : τ (Obj A)]
+// The same computation uses the public default functor carrier.
+assert [A B : Cat] (S : τ (@Functor A B)) [x y z : τ (Obj A)]
   (f : τ (Hom A x y)) (g : τ (Hom A y z)) ⊢
   @comp_fapp0 B _ _ _
-    (@fapp1_fapp0 A B (@strict_functor A B S) y z g)
-    (@fapp1_fapp0 A B (@strict_functor A B S) x y f)
-  ≡ @fapp1_fapp0 A B (@strict_functor A B S) x z (@comp_fapp0 A x y z g f);
+    (@fapp1_fapp0 A B (S) y z g)
+    (@fapp1_fapp0 A B (S) x y f)
+  ≡ @fapp1_fapp0 A B (S) x z (@comp_fapp0 A x y z g f);
 
 // The concrete leading-Eval composite agrees with the two-stage total action.
 assert [K I : Cat] (R E : τ (Catd K))
@@ -158,7 +175,7 @@ assert [K I : Cat] (R E : τ (Catd K))
   (alpha : τ (Hom (Fibre_cat R y) (@eval_order_transport K R x y p u) v)) ⊢
   @fapp1_fapp0 (@Sigma_cat K R) (@Sigma_cat K E)
     (@comp_cat_fapp0 (@Sigma_cat K R) (@Sigma_cat K (@eval_order_domain K I E)) (@Sigma_cat K E)
-      (@sigma_map_func K (@eval_order_domain K I E) E (@Eval_funcd K I E))
+      (@sigma_map_func K (@eval_order_domain K I E) E (@strict_transfor _ _ _ _ (@Eval_funcd K I E)))
       (@sigma_map_func K R (@eval_order_domain K I E) FF))
     (Struct_sigma x u) (Struct_sigma y v) (@sigma_arrow K R x y u v p alpha)
   ≡ @fapp1_fapp0 (@Sigma_cat K R) (@Sigma_cat K E)
@@ -204,26 +221,29 @@ symbol eval_order_pair_whole_value
     (@id (Fibre_cat R y) (@eval_order_transport K R x y p u));
 
 // Op pairing: both explicitly selected projection orders coincide.
+// Corrected original Op assertion 15.
 assert [K : Cat] (R E D : τ (Catd K))
-  (FF : τ (Functord R E)) (GG : τ (Functord R D))
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) R E))
+  (V : τ (Hom (Functor_cart_cat K Cat_cart) R D))
   [x y : τ (Obj K)] (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat R x))) ⊢
-  @eval_order_pair_whole_value K (@Op_catd K R) (@Op_catd K E) (@Op_catd K D)
-    (@Op_funcd K R E FF) (@Op_funcd K R D GG) x y p u
-  ≡ @fdapp1_int_cell K _ _
-      (@Op_funcd K _ _ (@Product_pair_funcd K R E D FF GG)) x y p u;
+  @eval_order_pair_whole_value (CoAt2_cat K) (@Op_catd K R) (@Op_catd K E) (@Op_catd K D)
+    (@cart_op_view K R E U) (@cart_op_view K R D V) x y p u
+  ≡ @fdapp1_int_cell (CoAt2_cat K) (@Op_catd K R) (@Op_catd K (@cart_pair_target K E D))
+      (@cart_op_view K R (@cart_pair_target K E D) (@Product_pair_cart_funcd K R E D U V)) x y p u;
 
-// Same overlap after the source family is literally terminal. Arbitrary
-// section cells remain in the pair; they are not collapsed to identities.
+// Same overlap for Cartesian sections over the terminal source. General lax
+// sections remain covered by the ordinary noncollapse assertions.
+// Corrected original Op assertion 16.
 assert [K : Cat] (E D : τ (Catd K))
-  (s : τ (Obj (@Pi_cat K E))) (r : τ (Obj (@Pi_cat K D)))
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) (@Const_catd K Terminal_cat) E))
+  (V : τ (Hom (Functor_cart_cat K Cat_cart) (@Const_catd K Terminal_cat) D))
   [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
-  @eval_order_pair_whole_value K (@Const_catd K Terminal_cat)
-    (@Op_catd K E) (@Op_catd K D)
-    (@Op_funcd K (@Const_catd K Terminal_cat) E s)
-    (@Op_funcd K (@Const_catd K Terminal_cat) D r) x y p Terminal_obj
-  ≡ @fdapp1_int_cell K _ _
-      (@Op_funcd K _ _ (@Product_pair_funcd K (@Const_catd K Terminal_cat) E D s r))
-      x y p Terminal_obj;
+  @eval_order_pair_whole_value (CoAt2_cat K) (@Const_catd (CoAt2_cat K) Terminal_cat) (@Op_catd K E) (@Op_catd K D)
+    (@cart_op_view K (@Const_catd K Terminal_cat) E U)
+    (@cart_op_view K (@Const_catd K Terminal_cat) D V) x y p Terminal_obj
+  ≡ @fdapp1_int_cell (CoAt2_cat K) (@Op_catd K (@Const_catd K Terminal_cat)) (@Op_catd K (@cart_pair_target K E D))
+      (@cart_op_view K (@Const_catd K Terminal_cat) (@cart_pair_target K E D)
+        (@Product_pair_cart_funcd K (@Const_catd K Terminal_cat) E D U V)) x y p Terminal_obj;
 
 // Identity displayed operator, generic transported-identity and terminal cases.
 assert [K : Cat] (R : τ (Catd K)) [x y : τ (Obj K)]
@@ -250,32 +270,35 @@ assert [K I : Cat] (i : τ (Obj I))
       (@Const_catd K I) (@Const_func K I i)) x y p Terminal_obj
   ≡ @id I i;
 
+// Corrected original Op assertion 21.
 assert [K I : Cat] (R : τ (Catd K)) (i : τ (Obj I))
   [x y : τ (Obj K)] (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat R x))) ⊢
-  @fdapp1_int_cell K _ _ (@Op_funcd K R (@Const_catd K I)
-    (@section_weaken_funcd K R (@Const_catd K I) (@Const_func K I i))) x y p u
+  @fdapp1_int_cell (CoAt2_cat K) (@Op_catd K R) (@Op_catd K (@Const_catd K I))
+    (@cart_op_view K R (@Const_catd K I) (@constant_weak_cart K I R i)) x y p u
   ≡ @id (Op_cat I) i;
 
+// Corrected original Op assertion 22.
 assert [K I : Cat] (i : τ (Obj I))
   [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
-  @fdapp1_int_cell K _ _ (@Op_funcd K (@Const_catd K Terminal_cat) (@Const_catd K I)
-    (@section_weaken_funcd K (@Const_catd K Terminal_cat)
-      (@Const_catd K I) (@Const_func K I i))) x y p Terminal_obj
+  @fdapp1_int_cell (CoAt2_cat K) (@Op_catd K (@Const_catd K Terminal_cat)) (@Op_catd K (@Const_catd K I))
+    (@cart_op_view K (@Const_catd K Terminal_cat) (@Const_catd K I)
+      (@constant_weak_cart K I (@Const_catd K Terminal_cat) i)) x y p Terminal_obj
   ≡ @id (Op_cat I) i;
 
 // Expand the Op-Eval whole action at the actual transported pair. The raw
 // warning leaves its second pair unrelated to the first and its identity.
+// Corrected original Op assertion 23.
 assert [K I : Cat] (E : τ (Catd K)) [x y : τ (Obj K)]
   (p : τ (Hom K x y)) (U : τ (Functor I (Fibre_cat E x))) (i : τ (Obj I)) ⊢
   @fapp1_fapp0
-    (Op_cat (Product_cat (Functor_cat I (Fibre_cat E y)) I)) (Op_cat (Fibre_cat E y))
-    (@Op_func (Product_cat (Functor_cat I (Fibre_cat E y)) I)
+    (Op_cat (Product_cat (Functor_cart_cat I (Fibre_cat E y)) I)) (Op_cat (Fibre_cat E y))
+    (@Op_func (Product_cat (Functor_cart_cat I (Fibre_cat E y)) I)
       (Fibre_cat E y) (@Eval_func I (Fibre_cat E y)))
-    (@eval_order_transport K (@eval_order_domain K I E) x y p (Struct_sigma U i))
-    (@eval_order_transport K (@eval_order_domain K I E) x y p (Struct_sigma U i))
-    (@id (Op_cat (Product_cat (Functor_cat I (Fibre_cat E y)) I))
-      (@eval_order_transport K (@eval_order_domain K I E) x y p (Struct_sigma U i)))
-  ≡ @fdapp1_int_cell K _ _ (@Op_funcd K _ _ (@Eval_funcd K I E))
+    (@eval_order_transport (CoAt2_cat K) (@Op_catd K (@eval_order_domain K I E)) x y p (Struct_sigma U i))
+    (@eval_order_transport (CoAt2_cat K) (@Op_catd K (@eval_order_domain K I E)) x y p (Struct_sigma U i))
+    (@id (Op_cat (Product_cat (Functor_cart_cat I (Fibre_cat E y)) I))
+      (@eval_order_transport (CoAt2_cat K) (@Op_catd K (@eval_order_domain K I E)) x y p (Struct_sigma U i)))
+  ≡ @fdapp1_int_cell (CoAt2_cat K) _ _ (@corrected_op_eval K I E)
       x y p (Struct_sigma U i);
 
 // Both levels of identity action, on an arbitrary (not necessarily identity) alpha.
@@ -298,11 +321,12 @@ assert [K I : Cat] (R : τ (Catd K)) (i : τ (Obj I))
   ≡ @Const_func (Hom_cat (Fibre_cat R y) (@eval_order_transport K R x y p u) v)
       (Hom_cat I i i) (@id I i);
 
+// Corrected original Op assertion 27.
 assert [K I : Cat] (R : τ (Catd K)) (i : τ (Obj I))
   [x y : τ (Obj K)] (p : τ (Hom K x y))
   (u : τ (Obj (Fibre_cat R x))) (v : τ (Obj (Fibre_cat R y))) ⊢
-  @fdapp1_int_hom_func K _ _ (@Op_funcd K R (@Const_catd K I)
-    (@section_weaken_funcd K R (@Const_catd K I) (@Const_func K I i))) x y p u v
+  @fdapp1_int_hom_func (CoAt2_cat K) (@Op_catd K R) (@Op_catd K (@Const_catd K I))
+    (@cart_op_view K R (@Const_catd K I) (@constant_weak_cart K I R i)) x y p u v
   ≡ @Const_func (Hom_cat (Op_cat (Fibre_cat R y)) (@eval_order_transport K R x y p u) v)
       (Hom_cat (Op_cat I) i i) (@id (Op_cat I) i);
 
@@ -310,39 +334,50 @@ assert [K I : Cat] (R : τ (Catd K)) (i : τ (Obj I))
 assert [K I : Cat] (E : τ (Catd K)) [x y : τ (Obj K)] (p : τ (Hom K x y))
   (U : τ (Functor I (Fibre_cat E x))) (V : τ (Functor I (Fibre_cat E y)))
   (i j : τ (Obj I)) ⊢
-  @fdapp1_int_hom_func K _ E (@Eval_funcd K I E) x y p (Struct_sigma U i) (Struct_sigma V j)
+  @fdapp1_int_hom_func K _ E (@strict_transfor _ _ _ _ (@Eval_funcd K I E)) x y p (Struct_sigma U i) (Struct_sigma V j)
   ≡ @Eval_fapp1_func I (Fibre_cat E y)
-      (@comp_cat_fapp0 I (Fibre_cat E x) (Fibre_cat E y)
-        (@catd_transport_func K E x y p) U) V i j;
+      (@Hom_fapp0 Cat_cart I I (Fibre_cat E x) (Fibre_cat E y)
+        (@id_func I) (@catd_transport_func K E x y p) U) V i j;
 
 assert [K I : Cat] (E : τ (Catd K)) [x y : τ (Obj K)] (p : τ (Hom K x y))
   (U : τ (Functor I (Fibre_cat E x))) (V : τ (Functor I (Fibre_cat E y)))
   (i j : τ (Obj I))
-  (eta : τ (Transf (@comp_cat_fapp0 I (Fibre_cat E x) (Fibre_cat E y)
-      (@catd_transport_func K E x y p) U) V)) (q : τ (Hom I i j)) ⊢
-  @fdapp1_int_hom_fapp0 K _ E (@Eval_funcd K I E) x y p
+  (eta : τ (@StrictTransfor I (Fibre_cat E y)
+      (@Hom_fapp0 Cat_cart I I (Fibre_cat E x) (Fibre_cat E y)
+        (@id_func I) (@catd_transport_func K E x y p) U) V)) (q : τ (Hom I i j)) ⊢
+  @fdapp1_int_hom_fapp0 K _ E (@strict_transfor _ _ _ _ (@Eval_funcd K I E)) x y p
     (Struct_sigma U i) (Struct_sigma V j) (Struct_sigma eta q)
   ≡ @tapp1_fapp0 I (Fibre_cat E y)
-      (@comp_cat_fapp0 I (Fibre_cat E x) (Fibre_cat E y)
-        (@catd_transport_func K E x y p) U) V i j eta q;
+      (@Hom_fapp0 Cat_cart I I (Fibre_cat E x) (Fibre_cat E y)
+        (@id_func I) (@catd_transport_func K E x y p) U) V i j (@strict_transfor _ _ _ _ eta) q;
 
+// Corrected original Op assertion 30.
 assert [K I : Cat] (E : τ (Catd K)) [x y : τ (Obj K)] (p : τ (Hom K x y))
   (U : τ (Functor I (Fibre_cat E x))) (V : τ (Functor I (Fibre_cat E y)))
   (i j : τ (Obj I)) ⊢
-  @fdapp1_int_hom_func K _ _ (@Op_funcd K _ _ (@Eval_funcd K I E))
+  @fdapp1_int_hom_func (CoAt2_cat K)
+      (@Op_catd K (@eval_order_domain K I E)) (@Op_catd K E)
+      (@corrected_op_eval K I E)
     x y p (Struct_sigma U i) (Struct_sigma V j)
-  ≡ @Eval_fapp1_func I (Fibre_cat E y) V
-      (@Hom_fapp0 Cat_cat I I (Fibre_cat E x) (Fibre_cat E y)
-        (@id Cat_cat I) (@catd_transport_func K E x y p) U) j i;
+  ≡ @fapp1_func
+      (Op_cat (Fibre_cat (@eval_order_domain K I E) y))
+      (Op_cat (Fibre_cat E y))
+      (@Op_func (Fibre_cat (@eval_order_domain K I E) y) (Fibre_cat E y)
+        (@Eval_func I (Fibre_cat E y)))
+      (@eval_order_transport (CoAt2_cat K) (@Op_catd K (@eval_order_domain K I E))
+        x y p (Struct_sigma U i))
+      (Struct_sigma V j);
 
 // The two new structural whole joins are restricted to constant sections.
 assert [K I : Cat] (i : τ (Obj I)) ⊢
   @section_weaken_funcd K (@Const_catd K Terminal_cat) (@Const_catd K I) (@Const_func K I i)
   ≡ @Const_func K I i;
 
+// Corrected original Op assertion 32.
 assert [K I : Cat] (i : τ (Obj I)) ⊢
-  @Op_funcd K (@Const_catd K Terminal_cat) (@Const_catd K I) (@Const_func K I i)
-  ≡ @Const_func K (Op_cat I) i;
+  @Op_funcd K (@Const_catd K Terminal_cat) (@Const_catd K I)
+    (@Const_transf K Cat_cart Terminal_cat I (@Obj_func I i))
+  ≡ @Const_transf (CoAt2_cat K) Cat_cart Terminal_cat (Op_cat I) (@Obj_func (Op_cat I) i);
 
 // Whole-first versus terminal-source unit-first, not merely the point at tt.
 assert [K I : Cat] (i : τ (Obj I))
@@ -352,11 +387,14 @@ assert [K I : Cat] (i : τ (Obj I))
       (@Const_func K I i)) x y p Terminal_obj Terminal_obj
   ≡ @Const_func Terminal_cat (Hom_cat I i i) (@id I i);
 
+// Corrected original Op assertion 34.
 assert [K I : Cat] (i : τ (Obj I))
   [x y : τ (Obj K)] (p : τ (Hom K x y)) ⊢
-  @fdapp1_int_hom_func K _ _ (@Op_funcd K (@Const_catd K Terminal_cat) (@Const_catd K I)
-    (@section_weaken_funcd K (@Const_catd K Terminal_cat) (@Const_catd K I)
-      (@Const_func K I i))) x y p Terminal_obj Terminal_obj
+  @fdapp1_int_hom_func (CoAt2_cat K)
+    (@Op_catd K (@Const_catd K Terminal_cat)) (@Op_catd K (@Const_catd K I))
+    (@cart_op_view K (@Const_catd K Terminal_cat) (@Const_catd K I)
+      (@constant_weak_cart K I (@Const_catd K Terminal_cat) i))
+    x y p Terminal_obj Terminal_obj
   ≡ @Const_func Terminal_cat (Hom_cat (Op_cat I) i i) (@id (Op_cat I) i);
 
 // Neutral terminal-fibre objects/arrows also exercise the capped projection;
@@ -366,3 +404,19 @@ assert [K I : Cat] (i : τ (Obj I)) [x y : τ (Obj K)] (p : τ (Hom K x y))
   @fdapp1_int_hom_fapp0 K (@Const_catd K Terminal_cat) (@Const_catd K I)
     (@Const_func K I i) x y p u v alpha
   ≡ @id I i;
+
+// Original assertion 5: required leading-Eval composition comparison.
+assert [K I : Cat] (R E : τ (Catd K))
+  (U : τ (Hom (Functor_cart_cat K Cat_cart) R (@eval_order_domain K I E)))
+  [x y : τ (Obj K)] (p : τ (Hom K x y)) (u : τ (Obj (Fibre_cat R x))) ⊢
+  @fdapp1_int_cell (CoAt2_cat K) (@Op_catd K R) (@Op_catd K E)
+    (@cart_op_view K R E (@eval_leading_cart K I R E U)) x y p u
+  ≡ @fdapp1_int_hom_fapp0 (CoAt2_cat K) (@Op_catd K (@eval_order_domain K I E)) (@Op_catd K E)
+      (@corrected_op_eval K I E) x y p
+      (@fapp0 (Fibre_cat R x) (Fibre_cat (@eval_order_domain K I E) x)
+        (@Fibre_func K R (@eval_order_domain K I E) (@strict_transfor K Cat_cart R (@eval_order_domain K I E) U) x) u)
+      (@fapp0 (Fibre_cat R y) (Fibre_cat (@eval_order_domain K I E) y)
+        (@Fibre_func K R (@eval_order_domain K I E) (@strict_transfor K Cat_cart R (@eval_order_domain K I E) U) y)
+        (@eval_order_transport (CoAt2_cat K) (@Op_catd K R) x y p u))
+      (@fdapp1_int_cell (CoAt2_cat K) (@Op_catd K R) (@Op_catd K (@eval_order_domain K I E))
+        (@cart_op_view K R (@eval_order_domain K I E) U) x y p u);

@@ -7,7 +7,7 @@ require open emdash.emdash3_2_one_cat_coimage_cover_descent;
 symbol one_cat_native_homology_quotient_image_homology_zero [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero)
   C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
   (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
@@ -16,14 +16,14 @@ symbol one_cat_native_homology_quotient_image_homology_zero [K C : Cat] (C1 : τ
   (z : τ (@= (@Transf K C A D) (@comp_fapp0 (Functor_cat K C) A B D g f) (@zero_arrow_family_zero_transf K C t
   (@additive_terminal_object C Prod t Add) T0 A D)))
   : τ (@= (@Transf K C (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
-  (@additive_terminal_object C Prod t Add) P (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat
+  (@additive_terminal_object C Prod t Add) P (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat
   WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
   (@transf_arrow_diagram_func K C A B f))) (@homology_adjunction_family_func K C (@additive_preadditive C Prod
   t Add) t (@additive_terminal_object C Prod t Add) T0 P Q A (@transf_arrow_diagram_func K C B D g)
   (@one_cat_kernel_family_input K C C1 t (@additive_terminal_object C Prod t Add) T0 A
   (@transf_arrow_diagram_func K C B D g) f z))) (@comp_fapp0 (Functor_cat K C) (@kernel_adjunction_family_func
   K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
+  (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
   (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func K C A B f)))
   (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
   t Add) P (@transf_arrow_diagram_func K C B D g)) (@homology_adjunction_family_func K C
@@ -37,7 +37,7 @@ symbol one_cat_native_homology_quotient_image_homology_zero [K C : Cat] (C1 : τ
   K C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q A B D f g z))
   (@zero_arrow_family_zero_transf K C t (@additive_terminal_object C Prod t Add) T0
   (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
-  t Add) P (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C)
+  t Add) P (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
   (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func
   K C A B f))) (@homology_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q A (@transf_arrow_diagram_func K C B D g)
@@ -49,7 +49,7 @@ symbol one_cat_native_homology_quotient_image_homology_zero [K C : Cat] (C1 : τ
   Prod t Add) T0 P Q A (@transf_arrow_diagram_func K C B D g) (@one_cat_kernel_family_input K C C1 t
   (@additive_terminal_object C Prod t Add) T0 A (@transf_arrow_diagram_func K C B D g) f z)) (@comp_fapp0
   (Functor_cat K C) (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
-  (@additive_terminal_object C Prod t Add) P (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat
+  (@additive_terminal_object C Prod t Add) P (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat
   WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q)
   (@transf_arrow_diagram_func K C A B f))) (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t
   Add) t (@additive_terminal_object C Prod t Add) P (@transf_arrow_diagram_func K C B D g))
@@ -64,14 +64,14 @@ symbol one_cat_native_homology_quotient_image_homology_zero [K C : Cat] (C1 : τ
   (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C Prod t Add) T0 P Q A B D f g z))
   (@zero_arrow_family_zero_transf K C t (@additive_terminal_object C Prod t Add) T0
   (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
-  t Add) P (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C)
+  t Add) P (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
   (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func
   K C A B f))) (@homology_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q A (@transf_arrow_diagram_func K C B D g)
   (@one_cat_kernel_family_input K C C1 t (@additive_terminal_object C Prod t Add) T0 A
   (@transf_arrow_diagram_func K C B D g) f z))) (@eq_trans _ _ _ _ (@eq_sym _ _ _ (@comp_assoc (Functor_cat K
   C) A (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
-  Prod t Add) P (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C)
+  Prod t Add) P (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
   (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func
   K C A B f))) (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) P (@transf_arrow_diagram_func K C B D g))
@@ -111,7 +111,7 @@ symbol one_cat_native_homology_quotient_image_homology_zero [K C : Cat] (C1 : τ
   Prod t Add) T0 A (@transf_arrow_diagram_func K C B D g) f z))) (@eq_sym _ _ _
   (@one_cat_zero_family_precompose_path K C C1 t (@additive_terminal_object C Prod t Add) T0 A
   (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
-  t Add) P (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C)
+  t Add) P (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
   (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func
   K C A B f))) (@homology_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q A (@transf_arrow_diagram_func K C B D g)
@@ -124,7 +124,7 @@ symbol one_cat_native_homology_quotient_image_homology_zero [K C : Cat] (C1 : τ
 symbol one_cat_native_homology_quotient_projection_kernel_zero [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero)
   C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
   (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
@@ -250,7 +250,7 @@ symbol one_cat_native_homology_quotient_projection_kernel_zero [K C : Cat] (C1 :
   (@one_cat_native_homology_quotient_projection K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q A B D f g z))) (@kernel_adjunction_family_func K C
   (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
+  (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
   (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func K C A B f)))
   (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
   t Add) P (@transf_arrow_diagram_func K C B D g)) (@homology_adjunction_family_func K C
@@ -265,7 +265,7 @@ symbol one_cat_native_homology_quotient_projection_kernel_zero [K C : Cat] (C1 :
   (@one_cat_native_homology_quotient_kernel_image_lift K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q A B D f g z)) (@eq_trans _ _ _ _ (@eq_ap (@Transf K C
   (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
-  t Add) P (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C)
+  t Add) P (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
   (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func
   K C A B f))) (@homology_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q A (@transf_arrow_diagram_func K C B D g)
@@ -284,7 +284,7 @@ symbol one_cat_native_homology_quotient_projection_kernel_zero [K C : Cat] (C1 :
   (@transf_arrow_diagram_func K C B D g) (@one_cat_kernel_family_input K C C1 t (@additive_terminal_object C
   Prod t Add) T0 A (@transf_arrow_diagram_func K C B D g) f z))) (λ v : τ (@Transf K C
   (@kernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
-  t Add) P (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C)
+  t Add) P (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
   (@cokernel_adjunction_arrow_func C (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func
   K C A B f))) (@homology_adjunction_family_func K C (@additive_preadditive C Prod t Add) t
   (@additive_terminal_object C Prod t Add) T0 P Q A (@transf_arrow_diagram_func K C B D g)
@@ -300,7 +300,7 @@ symbol one_cat_native_homology_quotient_projection_kernel_zero [K C : Cat] (C1 :
   (@one_cat_native_homology_quotient_projection K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q A B D f g z))) (@kernel_adjunction_family_func K C
   (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
+  (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
   (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func K C A B f)))
   (@homology_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add) T0 P Q A (@transf_arrow_diagram_func K C B D g) (@one_cat_kernel_family_input K C C1 t
@@ -319,7 +319,7 @@ symbol one_cat_native_homology_quotient_projection_kernel_zero [K C : Cat] (C1 :
   (@one_cat_native_homology_quotient_projection K C (@additive_preadditive C Prod t Add) C1 t
   (@additive_terminal_object C Prod t Add) T0 P Q A B D f g z))) (@kernel_adjunction_family_func K C
   (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
+  (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C) (@cokernel_adjunction_arrow_func C
   (@additive_preadditive C Prod t Add) t T0 Q) (@transf_arrow_diagram_func K C A B f)))
   (@homology_adjunction_family_func K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add) T0 P Q A (@transf_arrow_diagram_func K C B D g) (@one_cat_kernel_family_input K C C1 t
@@ -330,7 +330,7 @@ symbol one_cat_native_homology_quotient_projection_kernel_zero [K C : Cat] (C1 :
 // The existing native cover descent constructs s:K(ḡ)⇒H from the original π_β.
 symbol one_cat_native_homology_quotient_comparison_inverse [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
   (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
@@ -371,7 +371,7 @@ symbol one_cat_native_homology_quotient_comparison_inverse [K C : Cat] (C1 : τ 
 symbol one_cat_native_homology_quotient_comparison_inverse_reconstruction [K C : Cat] (C1 : τ (IsNCat
   (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
   (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
@@ -425,7 +425,7 @@ symbol one_cat_native_homology_quotient_comparison_inverse_reconstruction [K C :
 symbol one_cat_native_homology_quotient_comparison_inverse_forward [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
   (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
@@ -535,7 +535,7 @@ symbol one_cat_native_homology_quotient_comparison_inverse_forward [K C : Cat] (
 symbol one_cat_native_homology_quotient_comparison_forward_inverse [K C : Cat] (C1 : τ (IsNCat (cat_succ
   cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
   (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C
@@ -649,7 +649,7 @@ symbol one_cat_native_homology_quotient_comparison_forward_inverse [K C : Cat] (
 // Fixed-forward ΩAlong(k) retains the original H and original quotient-differential kernel.
 symbol one_cat_native_homology_quotient_comparison_equiv [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C
   Prod t Add))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
   (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t Add) C1 t (@additive_terminal_object C

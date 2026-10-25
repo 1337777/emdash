@@ -31,7 +31,7 @@ assertnot [R L : Cat] (F : τ (Functor R L)) (G : τ (Functor L R)) (J J0 : τ (
   (@adjunction_untranspose_func R L F G J x y) h) (@fapp0 (Hom_cat R x (@fapp0 L R G y)) (Hom_cat L (@fapp0 R L F x)
   y) (@adjunction_untranspose_func R L F G J0 x y) h));
 assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (V : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (U : τ (Functor A B)) (X Y : τ (Functor
+  (V : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (U : τ (Functor A B)) (X Y : τ (Functor
   B C)) (f g : τ (@Transf B C X Y)) ⊢ @one_cat_additive_family_reindex_path A B C C1 Prod t V T0 U X Y f g : τ (@=
   (@Transf A C (@comp_cat_fapp0 A B C X U) (@comp_cat_fapp0 A B C Y U)) (@fapp0 _ _ (@comp_cat_con_fapp1_func A B C U
   X Y) (@one_cat_additive_family_add B C C1 Prod t V T0 X Y f g)) (@one_cat_additive_family_add A C C1 Prod t V T0
@@ -66,7 +66,7 @@ assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functo
 
 // The coproduct consumer retains both original whole inputs.
 assert [A B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (V : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (U : τ (Functor A B)) (F G Y : τ
+  (V : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (U : τ (Functor A B)) (F G Y : τ
   (Functor B C)) (f : τ (@Transf B C F Y)) (g : τ (@Transf B C G Y))
   ⊢ @one_cat_copair_reindex_path A B C C1 Prod t V T0 U F G Y f g
     : τ (@= (@Transf A C (@fapp0 (Functor_cat A (Product_cat C C)) (Functor_cat A C) (@comp_cat_cov_func A

@@ -16,15 +16,15 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)]
   [A B D : τ (Obj C)] (pair : τ (@ComputationalChainPair C S A B D)) ⊢
-  @fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@chain_pair_native_cone C S C1 t T A B D pair)
-  ≡ (@chain_pair_outgoing_diagram C S A B D pair);
+  @fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@chain_pair_native_cone C S C1 t T A B D pair)
+  ≡ (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A B D pair));
 
 // The whole universal observation returns the constructed transformation.
 assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)]
   [A B D : τ (Obj C)] (pair : τ (@ComputationalChainPair C S A B D)) ⊢
-  @tapp0_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) _ _
+  @tapp0_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) _ _
     (@chain_pair_native_cone C S C1 t T A B D pair) (@zero_arrow_cone_universal_transf C C1 t T)
   ≡ (@chain_pair_native_transf C S C1 t T A B D pair);
 
@@ -33,7 +33,7 @@ assert [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)]
   [A B D : τ (Obj C)] (pair : τ (@ComputationalChainPair C S A B D)) ⊢
-  @terminal_arrow_test_incoming C t T A (@chain_pair_outgoing_diagram C S A B D pair) (@chain_pair_native_transf C S C1 t T A B D pair)
+  @terminal_arrow_test_incoming C t T A (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A B D pair)) (@chain_pair_native_transf C S C1 t T A B D pair)
   ≡ @computational_chain_pair_dnext C S A B D pair;
 
 // The outgoing diagram generator is the original d.

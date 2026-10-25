@@ -27,7 +27,7 @@ assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [X0 X1 Y0 Y1 : τ (Obj C)]
   (u : τ (Hom C X0 Y0)) (v : τ (Hom C X1 Y1))
   (a : τ (Hom C X0 X1)) (b : τ (Hom C Y0 Y1))
-  (alpha : τ (Obj (@homdc_fibre C C (@hom_int C C (@id_func C))
+  (alpha : τ (Obj (@homdc_fibre C C (@hom_int_view C C (@id_func C))
     X0 X1 Y0 Y1 u v a b))) ⊢
   @tapp0_fapp0 WalkingArrow_cat C _ _ walking_arrow_src
     (@fapp1_fapp0 (@LaxArrow_cat C) (Functor_cat WalkingArrow_cat C)
@@ -39,7 +39,7 @@ assert [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [X0 X1 Y0 Y1 : τ (Obj C)]
   (u : τ (Hom C X0 Y0)) (v : τ (Hom C X1 Y1))
   (a : τ (Hom C X0 X1)) (b : τ (Hom C Y0 Y1))
-  (alpha : τ (Obj (@homdc_fibre C C (@hom_int C C (@id_func C))
+  (alpha : τ (Obj (@homdc_fibre C C (@hom_int_view C C (@id_func C))
     X0 X1 Y0 Y1 u v a b))) ⊢
   @tapp0_fapp0 WalkingArrow_cat C _ _ walking_arrow_tgt
     (@fapp1_fapp0 (@LaxArrow_cat C) (Functor_cat WalkingArrow_cat C)

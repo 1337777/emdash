@@ -60,24 +60,6 @@ symbol CommRingPsh_cat (K : Cat) : Cat
 symbol CommRingPsh (K : Cat) : Grpd
 ≔ Obj (@CommRingPsh_cat K);
 
-// Classified conventional presheaves. The carrier remains an ordinary
-// CommRing-valued presheaf; strictness is internal package data.
-symbol StrictCommRingPsh_cat
-  (K : Cat)
-  : Cat
-≔ @StrictFunctor_cat (Op_cat K) CommRing_cat;
-
-symbol StrictCommRingPsh
-  (K : Cat)
-  : Grpd
-≔ @StrictFunctor (Op_cat K) CommRing_cat;
-
-symbol strict_comm_ring_psh
-  [K : Cat]
-  (O : τ (@StrictCommRingPsh K))
-  : τ (@CommRingPsh K)
-≔ @strict_functor (Op_cat K) CommRing_cat O;
-
 // The affine CommRing-valued presheaf on CommRing_cat^op is identity.
 // This shared transparent owner is consumed by both support/glue and
 // functor-of-points modules; it adds no second functoriality calculus.
@@ -383,10 +365,13 @@ symbol comm_ring_psh_restriction_total_func
       (Op_cat K)
       (@yoneda_psh K U)
       (@comm_ring_psh_carrier_catd K O)
-      (@fib_cov_transf
-        (Op_cat K)
+      (@strict_transfor (Op_cat K) Cat_cart
+        (@FibCov_source_catd (Op_cat K) U)
         (@comm_ring_psh_carrier_catd K O)
-        U s));
+        (@fib_cov_transf
+          (Op_cat K)
+          (@comm_ring_psh_carrier_catd K O)
+          U s)));
 
 /*
   The whole higher invertibility sieve is the pullback of universal unit

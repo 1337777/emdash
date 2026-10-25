@@ -4,25 +4,25 @@ require open emdash.emdash3_2_adjunction_mates;
 require open emdash.emdash3_2_zero_arrow_universal_tests;
 
 symbol cokernel_presentation_colift_func [C : Cat] [S : τ (@PreadditiveCategory C)]
-  [t : τ (Obj C)] [T : τ (@TerminalObject (Op_cat C) t)] [W : τ (@HasComputationalCokernels C S)]
-  (P : τ (@CokernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C)) (X : τ (Obj C))
+  [t : τ (Obj C)] [T : τ (@TerminalObject (TotalOp_cat C) t)] [W : τ (@HasComputationalCokernels C S)]
+  (P : τ (@CokernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C))) (X : τ (Obj C))
   : τ (Functor
-      (Hom_cat (Functor_cat WalkingArrow_cat C) d
-        (@fapp0 C (Functor_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T) X))
+      (Hom_cat (Functor_oplax_cat WalkingArrow_cat C) d
+        (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T) X))
       (Hom_cat C (@fapp0 _ _ (@cokernel_presentation_func C S t T W P) d) X))
-≔ @adjunction_untranspose_func (Functor_cat WalkingArrow_cat C) C
+≔ @adjunction_untranspose_func (Functor_oplax_cat WalkingArrow_cat C) C
     (@cokernel_presentation_func C S t T W P) (@initial_arrow_diagram_func C t T)
     (@cokernel_presentation_adjunction C S t T W P) d X;
 
 symbol cokernel_presentation_colift_semantic [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject (Op_cat C) t)) (W : τ (@HasComputationalCokernels C S))
-  (d : τ (Functor WalkingArrow_cat C)) (X : τ (Obj C))
-  (h : τ (@Transf WalkingArrow_cat C d
-    (@fapp0 C (Functor_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T) X)))
+  [t : τ (Obj C)] (T : τ (@TerminalObject (TotalOp_cat C) t)) (W : τ (@HasComputationalCokernels C S))
+  (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C))) (X : τ (Obj C))
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) d
+    (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T) X)))
   : τ (Hom C (@cokernel_presentation_selected_object C S W d) X)
 ≔ @computational_cokernel_colift C S
-    (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+    (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
     (@terminal_arrow_test_outgoing C d) (@cokernel_presentation_selected C S W d) X
     (@initial_arrow_cokernel_test C S C1 t T X d h);
 
@@ -37,12 +37,14 @@ unif_rule
       $Test ≡ $X;
       $e ≡ (@initial_arrow_test_outgoing $C $t $T $X $d $h) ];
 
-// Same selected interpretation through the stable evaluated-inverse owner.
+// Same selected interpretation through the actual mapped coefficient inverse.
+// Retain selected data and the arrow; ignore only the annihilation proof payload.
 unif_rule
-  @fapp0 _ _ (@defiso_at_from _ _ _ _
+  @fapp0 _ _ (@defiso_fmap_from _ _ Cat_cart_include _ _
+    (@defiso_at _ Cat_cart _ _
     (@Adjunction_hom_prof_comparison _ _ _ _
       (@cokernel_presentation_adjunction $C $S $t $T $W _))
-    (Struct_sigma $d $X)) $h
+    (Struct_sigma $d $X))) $h
   ≡ @sigma_Fst _ _ (@sigma_Fst _ _
       (@sigma_Snd _ _ (@sigma_Snd _ _ (@sigma_Snd _ _ $chosen))
         $Test (Struct_sigma $e _)))
@@ -60,17 +62,17 @@ unif_rule
   ≡ @sigma_Fst _ _ (@sigma_Fst _ _
       (@sigma_Snd _ _ (@sigma_Snd _ _ (@sigma_Snd _ _ $chosen))
         $Test (Struct_sigma $e _)))
-  ↪ [ $IX ≡ (@fapp0 $C (Functor_cat WalkingArrow_cat $C) (@initial_arrow_diagram_func $C $t $T) $X);
+  ↪ [ $IX ≡ (@fapp0 $C (Functor_oplax_cat WalkingArrow_cat $C) (@initial_arrow_diagram_func $C $t $T) $X);
       $chosen ≡ (@cokernel_presentation_selected $C $S $W $d);
       $Test ≡ $X;
       $e ≡ (@initial_arrow_test_outgoing $C $t $T $X $d $h) ];
 
 symbol cokernel_presentation_colift_path [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject (Op_cat C) t)] [W : τ (@HasComputationalCokernels C S)]
-  (P : τ (@CokernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C)) (X : τ (Obj C))
-  (h : τ (@Transf WalkingArrow_cat C d
-    (@fapp0 C (Functor_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T) X)))
+  [t : τ (Obj C)] [T : τ (@TerminalObject (TotalOp_cat C) t)] [W : τ (@HasComputationalCokernels C S)]
+  (P : τ (@CokernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C))) (X : τ (Obj C))
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) d
+    (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T) X)))
   : τ (@= (Hom C (@cokernel_presentation_selected_object C S W d) X)
       (@fapp0 _ _ (@cokernel_presentation_colift_func C S t T W P d X) h)
       (@cokernel_presentation_colift_semantic C S C1 t T W d X h))
@@ -79,27 +81,27 @@ symbol cokernel_presentation_colift_path [C : Cat] [S : τ (@PreadditiveCategory
 
 symbol cokernel_presentation_colift_reconstruction [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject (Op_cat C) t)] [W : τ (@HasComputationalCokernels C S)]
-  (P : τ (@CokernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C)) (X : τ (Obj C))
-  (h : τ (@Transf WalkingArrow_cat C d
-    (@fapp0 C (Functor_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T) X)))
-  : τ (@= (Hom C (@fapp0 WalkingArrow_cat C d walking_arrow_tgt) X)
+  [t : τ (Obj C)] [T : τ (@TerminalObject (TotalOp_cat C) t)] [W : τ (@HasComputationalCokernels C S)]
+  (P : τ (@CokernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C))) (X : τ (Obj C))
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C) d
+    (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C) (@initial_arrow_diagram_func C t T) X)))
+  : τ (@= (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d) X)
       (@comp_fapp0 C _ (@cokernel_presentation_selected_object C S W d) X
         (@fapp0 _ _ (@cokernel_presentation_colift_func C S t T W P d X) h)
         (@computational_cokernel_morphism C S
-          (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+          (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
           (@terminal_arrow_test_outgoing C d) (@cokernel_presentation_selected C S W d)))
       (@initial_arrow_test_outgoing C t T X d h))
-≔ @eq_trans (Hom C (@fapp0 WalkingArrow_cat C d walking_arrow_tgt) X) _ _ _
+≔ @eq_trans (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d) X) _ _ _
     (@eq_ap (Hom C (@cokernel_presentation_selected_object C S W d) X)
-      (Hom C (@fapp0 WalkingArrow_cat C d walking_arrow_tgt) X)
+      (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d) X)
       (λ v : τ (Hom C (@cokernel_presentation_selected_object C S W d) X),
         @comp_fapp0 C _ (@cokernel_presentation_selected_object C S W d) X v
           (@computational_cokernel_morphism C S
-            (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+            (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
             (@terminal_arrow_test_outgoing C d) (@cokernel_presentation_selected C S W d)))
       _ _ (@cokernel_presentation_colift_path C S C1 t T W P d X h))
     (@computational_cokernel_colift_path C S
-      (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+      (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
       (@terminal_arrow_test_outgoing C d) (@cokernel_presentation_selected C S W d) X
       (@initial_arrow_cokernel_test C S C1 t T X d h));

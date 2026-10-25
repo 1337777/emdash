@@ -8,7 +8,7 @@ require open emdash.emdash3_2_cokernel_adjunction_families;
 // α:A⇒K(c) from the original whole kernel mate.
 symbol one_cat_native_snake_alpha [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -20,7 +20,7 @@ symbol one_cat_native_snake_alpha [K C : Cat] [S : τ (@PreadditiveCategory C)]
 // γ:Q(a)⇒D from the original whole cokernel mate, at Arr(a) itself.
 symbol one_cat_native_snake_gamma [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -32,7 +32,7 @@ symbol one_cat_native_snake_gamma [K C : Cat] [S : τ (@PreadditiveCategory C)]
 // Native reconstruction fixes the original b∘a and hence the factor's sign.
 symbol one_cat_native_snake_alpha_reconstruction [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
@@ -50,7 +50,7 @@ symbol one_cat_native_snake_alpha_reconstruction [K C : Cat] [S : τ (@Preadditi
 // The same original quotient reconstructs c∘b, without a second choice.
 symbol one_cat_native_snake_gamma_reconstruction [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))

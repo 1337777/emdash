@@ -1,35 +1,29 @@
 /*
-  Emdash v3.2: variance-correct cubical internal hom and derived lax-arrow
-  total.
+  Two-sided internal Hom and lax-arrow total with corrected duality.
 
-  For E : K1^op -> Catd(K2), first totalize the covariant K2 coordinate:
+  The admitted whole nested family is
+    E : T(K1) -> Cart(K2,Cat_cart).
+  The fixed-endpoint homdc_ construction separately retains its broader
+  E:T(K1)->Catd(K2) input. Here Cartesian parameter maps let the inner
+  total retain the coefficient required by the native Homd construction:
 
-    EdgeFamily_E[x1] = Sigma(x2 : K2), E[x1][x2].
+    Edge_E = Sigma_coeff_func(K2) o E : T(K1) -> Cat_cart,
+    D_E = TotalOp_catd(Edge_E) : O(K1) -> Cat_cart,
+    homdc_int(E) = homd_int(id_D_E),
+    homdc_total_cat(E) = O(Sigma_(O(K1)) D_E).
 
-  Pointwise opposite then lets the existing dependent internal hom run in the
-  mixed first-coordinate variance:
+  T=Op_cat reverses dimension one, R=CoAbove2_cat reverses dimensions at
+  least two, and O=TotalOp_cat=R(T(-)). The shifted base R(T(K1)) is O(K1).
+  The root is the existing identity Homd of D_E. Its target/source/index
+  leaf is read through O to recover
 
-    D_E          = Op_catd(EdgeFamily_E),
-    homdc_int(E) = homd_int(id_D_E).
+    Hom_(Edge_E[x1])((x2,u), Edge_E[a](y2,v)).
 
-  Its canonical projection order is target edge, source edge, then
-  a : x1 -> y1.  The endpoint is
-
-    Hom_{EdgeFamily_E[x1]}
-      ((x2,u), EdgeFamily_E[a^op](y2,v)),
-
-  whose ordinary Sigma-Hom decomposition exposes
-
-    b : x2 -> y2,
-    alpha : E[x1][b](u) -> E[a^op][y2](v).
-
-  The corresponding total is constructed only from existing Sigma and
-  opposite owners:
-
-    homdc_total_cat(E) = Op(Sigma_(x1 : K1^op) D_E[x1]).
-
-  No independent cubical category, square, two-sided Sigma, rewrite, or
-  unifier is postulated in this module.
+  Its corrected Sigma-Hom exposes the same object pair (b,alpha), where
+    alpha : E[x1][b](u) -> E[a][y2](v).
+  The local comparison is with this Hom, not the former same-base opposite
+  of an ordinary inner total. No independent two-sided Sigma, square,
+  category, rewrite or unification rule is introduced by this module.
 */
 
 require open emdash.emdash3_2_cubical_square_total;
@@ -37,41 +31,41 @@ require open emdash.emdash3_2_cubical_square_total;
 // Inner K2-total, varying contravariantly with x1.
 symbol homdc_edge_catd
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
   : τ (Catd (Op_cat K1))
 ≔ @comp_cat_fapp0
     (Op_cat K1)
-    (Catd_cat K2)
-    Cat_cat
-    (@Sigma_func K2)
+    (Functor_cart_cat K2 Cat_cart)
+    Cat_cart
+    (@Sigma_coeff_func K2)
     E;
 
-// Pointwise opposite of the inner edge family.  This is the variance bridge,
-// not a second total-category constructor.
+// Total fibre duality shifts T(K1) to O(K1); it retains the existing
+// inner total and supplies the admitted family of the native Homd root.
 symbol homdc_op_edge_catd
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
-  : τ (Catd (Op_cat K1))
-≔ @Op_catd
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
+  : τ (Catd (TotalOp_cat K1))
+≔ @TotalOp_catd
     (Op_cat K1)
     (@homdc_edge_catd K1 K2 E);
 
 // Whole two-sided internal hom, derived from the existing homd_int owner.
-// The domain reduces from Op_catd(homdc_op_edge_catd) to homdc_edge_catd.
+// The source is D_E, as required by the corrected identity Homd interface.
 symbol homdc_int
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
   : τ (Functord
-      (@homdc_edge_catd K1 K2 E)
+      (@homdc_op_edge_catd K1 K2 E)
       (@Homd_target_catd
-        (Op_cat K1)
+        (TotalOp_cat K1)
         (@homdc_op_edge_catd K1 K2 E)))
 ≔ @homd_int
-    (Op_cat K1)
+    (TotalOp_cat K1)
     (@homdc_op_edge_catd K1 K2 E)
     (@homdc_op_edge_catd K1 K2 E)
     (@id_funcd
-      (Op_cat K1)
+      (TotalOp_cat K1)
       (@homdc_op_edge_catd K1 K2 E));
 
 // Final target-edge/source-edge/a projection.  Its objects are the remaining
@@ -79,54 +73,54 @@ symbol homdc_int
 // the same normal form selected by homdc_int's existing projection ladder.
 symbol homdc_at
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
   (y1 : τ (Obj K1))
   (y2 : τ (Obj K2))
   (v : τ (Obj (Fibre_cat
-    (@fapp0 (Op_cat K1) (Catd_cat K2) E y1)
+    (@fapp0 (Op_cat K1) (Functor_cart_cat K2 Cat_cart) E y1)
     y2)))
   (x1 : τ (Obj K1))
   (x2 : τ (Obj K2))
   (u : τ (Obj (Fibre_cat
-    (@fapp0 (Op_cat K1) (Catd_cat K2) E x1)
+    (@fapp0 (Op_cat K1) (Functor_cart_cat K2 Cat_cart) E x1)
     x2)))
   (a : τ (Hom K1 x1 y1))
   : Cat
-≔ @fapp0
-    (Op_cat (Hom_cat (Op_cat K1) y1 x1))
-    Cat_cat
+≔ TotalOp_cat (@fapp0
+    (Op_cat (Hom_cat (TotalOp_cat K1) y1 x1))
+    Cat_cart
     (@homd_
-      (Op_cat K1)
+      (TotalOp_cat K1)
       (@homdc_op_edge_catd K1 K2 E)
       (@homdc_op_edge_catd K1 K2 E)
       (@id_funcd
-        (Op_cat K1)
+        (TotalOp_cat K1)
         (@homdc_op_edge_catd K1 K2 E))
       y1
       (Struct_sigma y2 v)
       x1
       (Struct_sigma x2 u))
-    a;
+    a);
 
 // Variance-correct two-sided Grothendieck total.  This is a transparent
 // nested Sigma/opposite expression, not a primitive TwoSidedSigma theory.
 symbol homdc_total_cat
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
   : Cat
-≔ Op_cat
+≔ TotalOp_cat
     (@Sigma_cat
-      (Op_cat K1)
+      (TotalOp_cat K1)
       (@homdc_op_edge_catd K1 K2 E));
 
 // Constructor-visible object (x1,(x2,u)) of the derived total.
 symbol homdc_total_obj
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
   (x1 : τ (Obj K1))
   (x2 : τ (Obj K2))
   (u : τ (Obj (Fibre_cat
-    (@fapp0 (Op_cat K1) (Catd_cat K2) E x1)
+    (@fapp0 (Op_cat K1) (Functor_cart_cat K2 Cat_cart) E x1)
     x2)))
   : τ (Obj (@homdc_total_cat K1 K2 E))
 ≔ Struct_sigma x1 (Struct_sigma x2 u);
@@ -134,25 +128,25 @@ symbol homdc_total_obj
 // First endpoint projection: opposite of the outer Sigma projection.
 symbol homdc_total_source_func
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
   : τ (Functor (@homdc_total_cat K1 K2 E) K1)
-≔ @Op_func
+≔ @TotalOp_func
     (@Sigma_cat
-      (Op_cat K1)
+      (TotalOp_cat K1)
       (@homdc_op_edge_catd K1 K2 E))
-    (Op_cat K1)
+    (TotalOp_cat K1)
     (@Sigma_proj1_func
-      (Op_cat K1)
+      (TotalOp_cat K1)
       (@homdc_op_edge_catd K1 K2 E));
 
-// Pointwise inner Sigma projection, reversed in both fibre and base variance.
+// Total-dual Cartesian inner projection over the shifted base O(K1).
 symbol homdc_total_target_funcd
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
-  : τ (Functord
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
+  : τ (Hom (Functor_cart_cat (TotalOp_cat K1) Cat_cart)
       (@homdc_op_edge_catd K1 K2 E)
-      (@Const_catd (Op_cat K1) (Op_cat K2)))
-≔ @Op_funcd
+      (@Const_catd (TotalOp_cat K1) (TotalOp_cat K2)))
+≔ @TotalOp_funcd
     (Op_cat K1)
     (@homdc_edge_catd K1 K2 E)
     (@Const_catd (Op_cat K1) K2)
@@ -161,37 +155,37 @@ symbol homdc_total_target_funcd
 // Totalize that displayed projection and retain only its K2 coordinate.
 symbol homdc_total_target_underlying_func
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
   : τ (Functor
       (@Sigma_cat
-        (Op_cat K1)
+        (TotalOp_cat K1)
         (@homdc_op_edge_catd K1 K2 E))
-      (Op_cat K2))
+      (TotalOp_cat K2))
 ≔ @comp_cat_fapp0
     (@Sigma_cat
-      (Op_cat K1)
+      (TotalOp_cat K1)
       (@homdc_op_edge_catd K1 K2 E))
-    (Product_cat (Op_cat K1) (Op_cat K2))
-    (Op_cat K2)
-    (@Product_projR_func (Op_cat K1) (Op_cat K2))
+    (Product_cat (TotalOp_cat K1) (TotalOp_cat K2))
+    (TotalOp_cat K2)
+    (@Product_projR_func (TotalOp_cat K1) (TotalOp_cat K2))
     (@sigma_map_func
-      (Op_cat K1)
+      (TotalOp_cat K1)
       (@homdc_op_edge_catd K1 K2 E)
-      (@Const_catd (Op_cat K1) (Op_cat K2))
-      (@homdc_total_target_funcd K1 K2 E));
+      (@Const_catd (TotalOp_cat K1) (TotalOp_cat K2))
+      (@strict_transfor _ _ _ _ (@homdc_total_target_funcd K1 K2 E)));
 
 // Second endpoint projection. Generic fapp1 retains its whole arrow action;
 // the varying-Sigma projection owner computes constructor-visible square
 // action to the second side arrow.
 symbol homdc_total_target_func
   [K1 K2 : Cat]
-  (E : τ (Functor (Op_cat K1) (Catd_cat K2)))
+  (E : τ (Functor (Op_cat K1) (Functor_cart_cat K2 Cat_cart)))
   : τ (Functor (@homdc_total_cat K1 K2 E) K2)
-≔ @Op_func
+≔ @TotalOp_func
     (@Sigma_cat
-      (Op_cat K1)
+      (TotalOp_cat K1)
       (@homdc_op_edge_catd K1 K2 E))
-    (Op_cat K2)
+    (TotalOp_cat K2)
     (@homdc_total_target_underlying_func K1 K2 E);
 
 // Selected ordinary lax-arrow specialization.
@@ -224,7 +218,7 @@ symbol lax_square
   (alpha : τ (Obj
     (@homdc_fibre
       C C
-      (@hom_int C C (@id_func C))
+      (@hom_int_view C C (@id_func C))
       x1 y1 x2 y2 u v a b)))
   : τ (Hom
       (@LaxArrow_cat C)

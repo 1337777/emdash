@@ -5,18 +5,18 @@ require open emdash.emdash3_2;
 // Reindexing compares the original family, not an arbitrary alternative.
 assert [A B C : Cat] (E : τ (Catd C))
  (F : τ (Functor B C)) (G : τ (Functor A B)) ⊢
- @eq_refl (Catd A) (@Op_catd A
-   (@comp_cat_fapp0 A B Cat_cat (@comp_cat_fapp0 B C Cat_cat E F) G))
- : τ (@= (Catd A)
-     (@Op_catd A (@comp_cat_fapp0 A B Cat_cat (@comp_cat_fapp0 B C Cat_cat E F) G))
-     (@Pullback_catd A C (@Op_catd C E) (@comp_cat_fapp0 A B C F G)));
+ @eq_refl (Catd (CoAt2_cat A)) (@Op_catd A
+   (@comp_cat_fapp0 A B Cat_cart (@comp_cat_fapp0 B C Cat_cart E F) G))
+ : τ (@= (Catd (CoAt2_cat A))
+     (@Op_catd A (@comp_cat_fapp0 A B Cat_cart (@comp_cat_fapp0 B C Cat_cart E F) G))
+     (@Pullback_catd (CoAt2_cat A) (CoAt2_cat C) (@Op_catd C E) (@CoAt2_func A C (@comp_cat_fapp0 A B C F G))));
 assertnot [A B C : Cat] (E D : τ (Catd C))
  (F : τ (Functor B C)) (G : τ (Functor A B)) ⊢
- @eq_refl (Catd A) (@Op_catd A
-   (@comp_cat_fapp0 A B Cat_cat (@comp_cat_fapp0 B C Cat_cat E F) G))
- : τ (@= (Catd A)
-     (@Op_catd A (@comp_cat_fapp0 A B Cat_cat (@comp_cat_fapp0 B C Cat_cat E F) G))
-     (@Pullback_catd A C (@Op_catd C D) (@comp_cat_fapp0 A B C F G)));
+ @eq_refl (Catd (CoAt2_cat A)) (@Op_catd A
+   (@comp_cat_fapp0 A B Cat_cart (@comp_cat_fapp0 B C Cat_cart E F) G))
+ : τ (@= (Catd (CoAt2_cat A))
+     (@Op_catd A (@comp_cat_fapp0 A B Cat_cart (@comp_cat_fapp0 B C Cat_cart E F) G))
+     (@Pullback_catd (CoAt2_cat A) (CoAt2_cat C) (@Op_catd C D) (@CoAt2_func A C (@comp_cat_fapp0 A B C F G))));
 
 // Sufficient section congruence does not identify arbitrary maps.
 assertnot [K : Cat] (E D : τ (Catd K))

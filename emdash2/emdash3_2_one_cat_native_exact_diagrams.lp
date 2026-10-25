@@ -4,7 +4,7 @@ require open emdash.emdash3_2_finite_families;
 
 symbol NativeObservedExactTail [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
  (n : τ Nat_grpd) (inputs : τ (@FiniteFamily (Obj (@ZeroArrowCone_cat C t T)) n))
@@ -27,7 +27,7 @@ symbol NativeObservedExactTail [C : Cat] [S : τ (@PreadditiveCategory C)]
 
 symbol native_observed_exact_tail_nil [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q)) (first : τ (Obj (@LaxArrow_cat C)))
  : τ (@NativeObservedExactTail C S C1 t T T0 P Q N zero (@finite_family_nil (Obj (@ZeroArrowCone_cat C t
@@ -36,7 +36,7 @@ symbol native_observed_exact_tail_nil [C : Cat] [S : τ (@PreadditiveCategory C)
 
 symbol native_observed_exact_tail_cons [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q)) [n : τ Nat_grpd]
  [X0 : τ (Obj (@ZeroArrowCone_cat C t T))] [inputs : τ (@FiniteFamily (Obj (@ZeroArrowCone_cat C t T)) n)]

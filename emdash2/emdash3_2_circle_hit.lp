@@ -2248,10 +2248,10 @@ symbol circle_hom_integer_cat_evidence
       (Hom_cat Circle_cat circle_base circle_base)
       (Path_cat Integer_grpd)
       circle_hom_integer_func)
-≔ @strict_omega_equiv_along_fapp1
+≔ @omega_equiv_along_fmap
     Grpd_cat
     Cat_cat
-    strict_path_cat_func
+    Path_cat_func
     (@= Circle_grpd circle_base circle_base)
     Integer_grpd
     circle_loop_encode_function

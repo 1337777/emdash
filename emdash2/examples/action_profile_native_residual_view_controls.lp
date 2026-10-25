@@ -1,7 +1,55 @@
+// The general evaluation has the opposite transformation profile.
+// Read its encoded lax component; I/C and the shape arrow remain arbitrary.
 /* The raw side has already reduced through a composed diagram. */
 require open emdash.emdash3_2_walking_arrow_native_observation;
-assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u))) ⊢ (@tapp0_fapp0 (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@comp_cat_fapp0 A B C G F) (@lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@make_lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u) P))) : τ (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j)));
-assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u))) ⊢ (@fapp1_fapp0 B C G (@fapp0 A B F i) (@fapp0 A B F j) (@fapp1_fapp0 A B F i j v)) : τ (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j)));
-assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u))) ⊢ @eq_refl (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j))) (@tapp0_fapp0 (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@comp_cat_fapp0 A B C G F) (@lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@make_lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u) P))) : τ (@= (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j))) (@tapp0_fapp0 (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@comp_cat_fapp0 A B C G F) (@lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@make_lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u) P))) (@fapp1_fapp0 B C G (@fapp0 A B F i) (@fapp0 A B F j) (@fapp1_fapp0 A B F i j u)));
-assertnot [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u))) ⊢ (@tapp0_fapp0 (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@comp_cat_fapp0 A B C G F) (@lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@make_lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u) P))) ≡ (@fapp1_fapp0 B C G (@fapp0 A B F i) (@fapp0 A B F j) (@fapp1_fapp0 A B F i j u));
-assertnot [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u))) ⊢ @eq_refl (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j))) (@tapp0_fapp0 (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@comp_cat_fapp0 A B C G F) (@lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@make_lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u) P))) : τ (@= (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j))) (@tapp0_fapp0 (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@comp_cat_fapp0 A B C G F) (@lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@make_lax_transfor (Functor_cat A C) C (@diagram_evaluation_at_func A C i) (@diagram_evaluation_at_func A C j) (@diagram_evaluation_transf A C i j u) P))) (@fapp1_fapp0 B C G (@fapp0 A B F i) (@fapp0 A B F j) (@fapp1_fapp0 A B F i j v)));
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u))) ⊢ (@tapp0_fapp0 (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@comp_cat_fapp0 A B C G F) (@lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@make_lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u) P))) : τ (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j)));
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u))) ⊢ (@fapp1_fapp0 B C G (@fapp0 A B F i) (@fapp0 A B F j) (@fapp1_fapp0 A B F i j v)) : τ (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j)));
+assert [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u))) ⊢ @eq_refl (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j))) (@tapp0_fapp0 (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@comp_cat_fapp0 A B C G F) (@lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@make_lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u) P))) : τ (@= (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j))) (@tapp0_fapp0 (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@comp_cat_fapp0 A B C G F) (@lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@make_lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u) P))) (@fapp1_fapp0 B C G (@fapp0 A B F i) (@fapp0 A B F j) (@fapp1_fapp0 A B F i j u)));
+assertnot [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u))) ⊢ (@tapp0_fapp0 (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@comp_cat_fapp0 A B C G F) (@lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@make_lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u) P))) ≡ (@fapp1_fapp0 B C G (@fapp0 A B F i) (@fapp0 A B F j) (@fapp1_fapp0 A B F i j u));
+assertnot [A B C : Cat] (F : τ (Functor A B)) (G : τ (Functor B C)) [i j : τ (Obj A)] (u v : τ (Hom A i j)) (P : τ (@IsLaxTransfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u))) ⊢ @eq_refl (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j))) (@tapp0_fapp0 (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@comp_cat_fapp0 A B C G F) (@lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@make_lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u) P))) : τ (@= (Hom C (@fapp0 B C G (@fapp0 A B F i)) (@fapp0 B C G (@fapp0 A B F j))) (@tapp0_fapp0 (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@comp_cat_fapp0 A B C G F) (@lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@make_lax_transfor (OddDual_cat (Functor_cat A C)) (OddDual_cat C)
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C j))
+      (@OddDual_func (Functor_cat A C) C (@diagram_evaluation_at_func A C i)) (@diagram_evaluation_transf A C i j u) P))) (@fapp1_fapp0 B C G (@fapp0 A B F i) (@fapp0 A B F j) (@fapp1_fapp0 A B F i j v)));

@@ -69,7 +69,7 @@ symbol shaped_fixed_source_pair_func
   : τ (Functor I (Product_cat (Op_cat I) I))
 ≔ @fapp0
     (Op_cat I)
-    (Functor_cat I (Product_cat (Op_cat I) I))
+    (Functor_cart_cat I (Product_cat (Op_cat I) I))
     (@Product_pair_tele_func (Op_cat I) I)
     x0;
 
@@ -194,7 +194,7 @@ symbol shaped_pathout_component
         (@fapp0 I A G x)))
 ≔ @tapp0_fapp0
     (Product_cat (Op_cat I) I)
-    Cat_cat
+    Cat_cart
     (@Unit_prof I)
     (@Prof_reindex A I A I (@Unit_prof A) F G)
     (Struct_sigma x0 x)

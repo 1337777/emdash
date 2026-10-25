@@ -8,7 +8,7 @@ require open emdash.emdash3_2_one_cat_biproduct_injections;
 injective symbol one_cat_biproduct_adjunction [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   : τ (@Adjunction (Product_cat C C) C Prod (@product_diagonal_func C));
 
 // Unit: the whole pair of injections already constructed by the product mate.

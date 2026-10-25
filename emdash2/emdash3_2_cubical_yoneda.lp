@@ -25,11 +25,10 @@ symbol cubical_yoneda_section
       (@Psh_cat SemiCubePlus_cat)
       (@StandardSemicube n)
       (@semicubical_nerve_func C))
-≔ @fib_cov_transf
-    (Op_cat SemiCubePlus_cat)
-    (@semicubical_nerve_func C)
-    n
-    X;
+≔ @strict_transfor _ _ _ _
+    (@fib_cov_transf
+      (Op_cat SemiCubePlus_cat)
+      (@semicubical_nerve_func C) n X);
 
 // Evaluate a representable map at its identity face.
 symbol cubical_yoneda_eval
@@ -76,6 +75,6 @@ symbol cubical_yoneda_beta
     (@id_func (@CubicalLevel_cat C n))
     (@fapp1_id_path
       (Op_cat SemiCubePlus_cat)
-      Cat_cat
+      Cat_cart
       (@semicubical_nerve_func C)
       n);

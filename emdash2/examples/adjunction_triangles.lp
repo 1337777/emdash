@@ -77,10 +77,10 @@ assert [A B : Cat]
   [G : τ (Functor B A)]
   (J : τ (@Adjunction A B F G)) ⊢
   @Op_adjunction
-    (Op_cat B)
-    (Op_cat A)
-    (@Op_func B A G)
-    (@Op_func A B F)
+    (TotalOp_cat B)
+    (TotalOp_cat A)
+    (@TotalOp_func B A G)
+    (@TotalOp_func A B F)
     (@Op_adjunction A B F G J)
   ≡ J;
 

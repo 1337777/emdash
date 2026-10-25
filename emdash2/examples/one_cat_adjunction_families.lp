@@ -99,8 +99,23 @@ assertnot (B R L : Cat)
       (@one_cat_adjunction_family_transpose_func B R L R1 L1 F G J A D) (@fapp0 _ _
       (@one_cat_adjunction_family_untranspose_func B R L R1 L1 F G J A D) h)) k);
 
-// A component is one whole prewhiskered original cell.
+// The existing theorem gives the whole prewhiskering presentation;
+// nested components below retain their runtime computations.
 assert (B R L : Cat)
+  (R1 : τ (IsNCat (cat_succ cat_zero) R))
+  (L1 : τ (IsNCat (cat_succ cat_zero) L))
+  (F : τ (Functor R L)) (G : τ (Functor L R))
+  (J : τ (@Adjunction R L F G))
+  (A : τ (Functor B R)) (D : τ (Functor B L))
+  ⊢
+  @hom_postcomp_tele_tapp0_component_eq Cat_cat Cat_cat (@id_func Cat_cat) B R R (@id_func R) (@comp_cat_fapp0 R L R G F) (@unit_adj_transf R L F G J) A
+  : τ (@= (Obj (Hom_cat (Functor_cat B R) (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B R R (@id_func R) A) (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B R R (@comp_cat_fapp0 R L R G F) A)))
+    (@tapp0_fapp0 _ _ _ _ A (@unit_adj_transf _ _ _ _ (@one_cat_postcomp_adjunction B R L R1 L1 F G J)))
+    (@fapp0 _ _ (@comp_cat_con_fapp1_func B R R A (@id_func R) (@comp_cat_fapp0 R L R G F))
+      (@unit_adj_transf R L F G J)));
+
+// The whole presentations remain distinct runtime owners.
+assertnot (B R L : Cat)
   (R1 : τ (IsNCat (cat_succ cat_zero) R))
   (L1 : τ (IsNCat (cat_succ cat_zero) L))
   (F : τ (Functor R L)) (G : τ (Functor L R))
@@ -120,8 +135,23 @@ assert (B R L : Cat)
       (@tapp0_fapp0 _ _ _ _ A (@unit_adj_transf _ _ _ _ (@one_cat_postcomp_adjunction B R L R1 L1 F G J)))
     ≡ @tapp0_fapp0 _ _ _ _ (@fapp0 _ _ A b) (@unit_adj_transf R L F G J);
 
-// A component is one whole prewhiskered original cell.
+// The existing theorem gives the whole prewhiskering presentation;
+// nested components below retain their runtime computations.
 assert (B R L : Cat)
+  (R1 : τ (IsNCat (cat_succ cat_zero) R))
+  (L1 : τ (IsNCat (cat_succ cat_zero) L))
+  (F : τ (Functor R L)) (G : τ (Functor L R))
+  (J : τ (@Adjunction R L F G))
+  (A : τ (Functor B R)) (D : τ (Functor B L))
+  ⊢
+  @hom_postcomp_tele_tapp0_component_eq Cat_cat Cat_cat (@id_func Cat_cat) B L L (@comp_cat_fapp0 L R L F G) (@id_func L) (@counit_adj_transf R L F G J) D
+  : τ (@= (Obj (Hom_cat (Functor_cat B L) (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B L L (@comp_cat_fapp0 L R L F G) D) (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) B L L (@id_func L) D)))
+    (@tapp0_fapp0 _ _ _ _ D (@counit_adj_transf _ _ _ _ (@one_cat_postcomp_adjunction B R L R1 L1 F G J)))
+    (@fapp0 _ _ (@comp_cat_con_fapp1_func B L L D (@comp_cat_fapp0 L R L F G) (@id_func L))
+      (@counit_adj_transf R L F G J)));
+
+// The whole presentations remain distinct runtime owners.
+assertnot (B R L : Cat)
   (R1 : τ (IsNCat (cat_succ cat_zero) R))
   (L1 : τ (IsNCat (cat_succ cat_zero) L))
   (F : τ (Functor R L)) (G : τ (Functor L R))
@@ -147,7 +177,7 @@ assert (B R L : Cat)
   (L1 : τ (IsNCat (cat_succ cat_zero) L))
   (F : τ (Functor R L)) (G : τ (Functor L R))
   (J : τ (@Adjunction R L F G)) ⊢ (@unit_adj_transf _ _ _ _ (@one_cat_postcomp_adjunction B R L R1 L1 F G J)) ≡
-    (@comp_cat_cov_func_func_transf B R R (@id_func R) (@comp_cat_fapp0 R L R G F) (@unit_adj_transf R L F G J));
+    (@hom_postcomp_tele_transf Cat_cat Cat_cat (@id_func Cat_cat) B R R (@id_func R) (@comp_cat_fapp0 R L R G F) (@unit_adj_transf R L F G J));
 assert (B R L : Cat)
   (R1 : τ (IsNCat (cat_succ cat_zero) R))
   (L1 : τ (IsNCat (cat_succ cat_zero) L))
@@ -155,7 +185,7 @@ assert (B R L : Cat)
   (J : τ (@Adjunction R L F G))
   (A D : τ (Functor B R)) (h : τ (@Transf B R A D))
   ⊢ @tapp1_fapp0 _ _ _ _ A D (@unit_adj_transf _ _ _ _ (@one_cat_postcomp_adjunction B R L R1 L1 F G J)) h
-    ≡ @tapp1_fapp0 _ _ _ _ A D (@comp_cat_cov_func_func_transf B R R (@id_func R) (@comp_cat_fapp0 R L R G F)
+    ≡ @tapp1_fapp0 _ _ _ _ A D (@hom_postcomp_tele_transf Cat_cat Cat_cat (@id_func Cat_cat) B R R (@id_func R) (@comp_cat_fapp0 R L R G F)
       (@unit_adj_transf R L F G J)) h;
 
 // The whole cell, including action on a nonidentity family transformation.
@@ -164,7 +194,7 @@ assert (B R L : Cat)
   (L1 : τ (IsNCat (cat_succ cat_zero) L))
   (F : τ (Functor R L)) (G : τ (Functor L R))
   (J : τ (@Adjunction R L F G)) ⊢ (@counit_adj_transf _ _ _ _ (@one_cat_postcomp_adjunction B R L R1 L1 F G J)) ≡
-    (@comp_cat_cov_func_func_transf B L L (@comp_cat_fapp0 L R L F G) (@id_func L) (@counit_adj_transf R L F G J));
+    (@hom_postcomp_tele_transf Cat_cat Cat_cat (@id_func Cat_cat) B L L (@comp_cat_fapp0 L R L F G) (@id_func L) (@counit_adj_transf R L F G J));
 assert (B R L : Cat)
   (R1 : τ (IsNCat (cat_succ cat_zero) R))
   (L1 : τ (IsNCat (cat_succ cat_zero) L))
@@ -172,7 +202,7 @@ assert (B R L : Cat)
   (J : τ (@Adjunction R L F G))
   (A D : τ (Functor B L)) (h : τ (@Transf B L A D))
   ⊢ @tapp1_fapp0 _ _ _ _ A D (@counit_adj_transf _ _ _ _ (@one_cat_postcomp_adjunction B R L R1 L1 F G J)) h
-    ≡ @tapp1_fapp0 _ _ _ _ A D (@comp_cat_cov_func_func_transf B L L (@comp_cat_fapp0 L R L F G) (@id_func L)
+    ≡ @tapp1_fapp0 _ _ _ _ A D (@hom_postcomp_tele_transf Cat_cat Cat_cat (@id_func Cat_cat) B L L (@comp_cat_fapp0 L R L F G) (@id_func L)
       (@counit_adj_transf R L F G J)) h;
 
 // The original whole semantic comparison remains usable at native endpoints.

@@ -421,6 +421,7 @@ AREAS: list[Area] = [
             "Obj Cat_cat",
             "Hom_cat Cat_cat",
             "Functor_cat K Cat_cat",
+            "Functor_cat K Cat_cart",
             "Hom_cat (Catd_cat K)",
             "Hom_cat (Functord_cat E D) FF GG ≡ Transfd_cat",
             "Hom_cat (Functor_cat K Cat_cat)",

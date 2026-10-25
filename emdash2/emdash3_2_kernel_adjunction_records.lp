@@ -12,27 +12,27 @@ symbol kernel_record_frame [C : Cat] (A : τ (Obj C)) : Grpd
 
 symbol kernel_record_frame_path [C : Cat] [S : τ (@PreadditiveCategory C)]
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
-  (P : τ (@KernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C))
-  : τ (@= (@kernel_record_frame C (@fapp0 WalkingArrow_cat C d walking_arrow_src))
-    (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 WalkingArrow_cat C d walking_arrow_src))
+  (P : τ (@KernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C)))
+  : τ (@= (@kernel_record_frame C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
+    (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
       (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
       (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)))
-    (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 WalkingArrow_cat C d walking_arrow_src))
+    (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
       (@kernel_presentation_selected_object C S W d)
       (@computational_kernel_morphism C S
-        (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+        (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
         (@terminal_arrow_test_outgoing C d) (@kernel_presentation_selected C S W d))))
-≔ @eq_refl (@kernel_record_frame C (@fapp0 WalkingArrow_cat C d walking_arrow_src))
-    (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 WalkingArrow_cat C d walking_arrow_src))
+≔ @eq_refl (@kernel_record_frame C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
+    (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
       (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
       (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)));
 
 symbol kernel_record_lift [C : Cat] [S : τ (@PreadditiveCategory C)]
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
-  (P : τ (@KernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C))
+  (P : τ (@KernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C)))
   (X : τ (Obj C))
   (e : τ (@WeakKernelAnnihilator C S
-    (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+    (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
     (@terminal_arrow_test_outgoing C d) X))
   : τ (Hom C X (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d))
 ≔ @fapp0 _ _ (@kernel_presentation_lift_func C S t T W P X d)
@@ -41,20 +41,20 @@ symbol kernel_record_lift [C : Cat] [S : τ (@PreadditiveCategory C)]
 
 symbol kernel_record_lift_reconstruction [C : Cat] [S : τ (@PreadditiveCategory C)]
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
-  (P : τ (@KernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C))
+  (P : τ (@KernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C)))
   (X : τ (Obj C))
   (e : τ (@WeakKernelAnnihilator C S
-    (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+    (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
     (@terminal_arrow_test_outgoing C d) X))
-  : τ (@= (Hom C X (@fapp0 WalkingArrow_cat C d walking_arrow_src))
+  : τ (@= (Hom C X (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
     (@comp_fapp0 C X (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
-      (@fapp0 WalkingArrow_cat C d walking_arrow_src)
+      (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d)
       (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P))
       (@kernel_record_lift C S t T W P d X e))
     (@weak_kernel_annihilator_arrow C S
-      (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+      (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
       (@terminal_arrow_test_outgoing C d) X e))
-≔ @eq_trans (Hom C X (@fapp0 WalkingArrow_cat C d walking_arrow_src)) _ _ _
+≔ @eq_trans (Hom C X (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d)) _ _ _
     (@eq_sym _ _ _ (@kernel_presentation_unlift_source_semantic_path C S t T W P X d
       (@kernel_record_lift C S t T W P d X e)))
     (@kernel_presentation_unlift_lift_source_path C S t T W P X d e);
@@ -63,91 +63,91 @@ symbol kernel_record_lift_reconstruction [C : Cat] [S : τ (@PreadditiveCategory
 
 symbol kernel_record_factor [C : Cat] [S : τ (@PreadditiveCategory C)]
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
-  (P : τ (@KernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C))
+  (P : τ (@KernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C)))
   (X : τ (Obj C))
   (e : τ (@WeakKernelAnnihilator C S
-    (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+    (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
     (@terminal_arrow_test_outgoing C d) X))
   : τ (@KernelFactorSpace C S
-    (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+    (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
     (@terminal_arrow_test_outgoing C d)
     (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
     (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)) X e)
 ≔ @Struct_sigma
     (Hom C X (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d))
     (λ u : τ (Hom C X (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)),
-      @= (Hom C X (@fapp0 WalkingArrow_cat C d walking_arrow_src))
+      @= (Hom C X (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
         (@comp_fapp0 C X (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
-          (@fapp0 WalkingArrow_cat C d walking_arrow_src)
+          (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d)
           (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)) u)
         (@weak_kernel_annihilator_arrow C S
-          (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+          (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
           (@terminal_arrow_test_outgoing C d) X e))
     (@kernel_record_lift C S t T W P d X e)
     (@kernel_record_lift_reconstruction C S t T W P d X e);
 
 symbol kernel_record_universal [C : Cat] [S : τ (@PreadditiveCategory C)]
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
-  (P : τ (@KernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C))
+  (P : τ (@KernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C)))
   (X : τ (Obj C))
   (e : τ (@WeakKernelAnnihilator C S
-    (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+    (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
     (@terminal_arrow_test_outgoing C d) X))
   : τ (IsContr (@KernelFactorSpace C S
-    (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+    (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
     (@terminal_arrow_test_outgoing C d)
     (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
     (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)) X e))
 ≔ @is_contr_recenter
     (@KernelFactorSpace C S
-      (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+      (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
       (@terminal_arrow_test_outgoing C d)
       (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
       (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)) X e)
-    (@ind_eq (@kernel_record_frame C (@fapp0 WalkingArrow_cat C d walking_arrow_src))
-      (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 WalkingArrow_cat C d walking_arrow_src))
+    (@ind_eq (@kernel_record_frame C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
+      (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
         (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
         (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)))
-      (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 WalkingArrow_cat C d walking_arrow_src))
+      (@Struct_sigma (Obj C) (λ K : τ (Obj C), Hom C K (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))
         (@kernel_presentation_selected_object C S W d)
         (@computational_kernel_morphism C S
-          (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+          (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
           (@terminal_arrow_test_outgoing C d) (@kernel_presentation_selected C S W d)))
       (@kernel_record_frame_path C S t T W P d)
-      (λ frame : τ (@kernel_record_frame C (@fapp0 WalkingArrow_cat C d walking_arrow_src)),
+      (λ frame : τ (@kernel_record_frame C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d)),
         IsContr (@KernelFactorSpace C S
-          (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+          (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
           (@terminal_arrow_test_outgoing C d) (sigma_Fst frame) (sigma_Snd frame) X e))
       (@computational_kernel_factor_contr C S
-        (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+        (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
         (@terminal_arrow_test_outgoing C d) (@kernel_presentation_selected C S W d) X e))
     (@kernel_record_factor C S t T W P d X e);
 
 symbol kernel_record_annihilation [C : Cat] [S : τ (@PreadditiveCategory C)]
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
-  (P : τ (@KernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C))
+  (P : τ (@KernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C)))
   : τ (@= (Hom C (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
-      (@fapp0 WalkingArrow_cat C d walking_arrow_tgt))
+      (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d))
     (@comp_fapp0 C _ _ _ (@terminal_arrow_test_outgoing C d)
       (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)))
     (@preadditive_hom_zero C S (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
-      (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)))
-≔ @ind_eq (@Σ_ (Obj C) (λ Y : τ (Obj C), Hom C Y (@fapp0 WalkingArrow_cat C d walking_arrow_src)))
-    (@Struct_sigma (Obj C) (λ Y : τ (Obj C), Hom C Y (@fapp0 WalkingArrow_cat C d walking_arrow_src)) (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d) (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)))
-    (@Struct_sigma (Obj C) (λ Y : τ (Obj C), Hom C Y (@fapp0 WalkingArrow_cat C d walking_arrow_src)) (@kernel_presentation_selected_object C S W d) (@computational_kernel_morphism C S (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt) (@terminal_arrow_test_outgoing C d) (@kernel_presentation_selected C S W d)))
+      (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)))
+≔ @ind_eq (@Σ_ (Obj C) (λ Y : τ (Obj C), Hom C Y (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d)))
+    (@Struct_sigma (Obj C) (λ Y : τ (Obj C), Hom C Y (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d)) (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d) (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P)))
+    (@Struct_sigma (Obj C) (λ Y : τ (Obj C), Hom C Y (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d)) (@kernel_presentation_selected_object C S W d) (@computational_kernel_morphism C S (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d) (@terminal_arrow_test_outgoing C d) (@kernel_presentation_selected C S W d)))
     (@kernel_record_frame_path C S t T W P d)
-    (λ frame : τ (@Σ_ (Obj C) (λ Y : τ (Obj C), Hom C Y (@fapp0 WalkingArrow_cat C d walking_arrow_src))), (@= (Hom C (sigma_Fst frame) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)) (@comp_fapp0 C (sigma_Fst frame) (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt) (@terminal_arrow_test_outgoing C d) (sigma_Snd frame)) (@preadditive_hom_zero C S (sigma_Fst frame) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt))))
-    (@computational_kernel_annihilation C S (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+    (λ frame : τ (@Σ_ (Obj C) (λ Y : τ (Obj C), Hom C Y (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d))), (@= (Hom C (sigma_Fst frame) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)) (@comp_fapp0 C (sigma_Fst frame) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d) (@terminal_arrow_test_outgoing C d) (sigma_Snd frame)) (@preadditive_hom_zero C S (sigma_Fst frame) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d))))
+    (@computational_kernel_annihilation C S (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
       (@terminal_arrow_test_outgoing C d) (@kernel_presentation_selected C S W d));
 
 symbol kernel_presentation_record [C : Cat] [S : τ (@PreadditiveCategory C)]
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
-  (P : τ (@KernelPresentation C S t T W)) (d : τ (Functor WalkingArrow_cat C))
+  (P : τ (@KernelPresentation C S t T W)) (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat C)))
   : τ (@ComputationalKernel C S
-      (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+      (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
       (@terminal_arrow_test_outgoing C d))
 ≔ @computational_kernel_intro C S
-    (@fapp0 WalkingArrow_cat C d walking_arrow_src) (@fapp0 WalkingArrow_cat C d walking_arrow_tgt)
+    (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) d) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) d)
     (@terminal_arrow_test_outgoing C d)
     (@fapp0 _ _ (@kernel_presentation_func C S t T W P) d)
     (@tapp0_fapp0 _ _ _ _ d (@kernel_presentation_inclusion C S t T W P))

@@ -41,52 +41,12 @@ injective symbol gray_curry_R_func
       (@GrayRightSource A B C)
       (@GrayRightTarget A B C));
 
-// Supplied semantic strictness of the existing whole curry operation.
-constant symbol gray_curry_R_is_strict
-  (A B C : Cat)
-  : τ (@IsStrictFunctor
-      (@GrayRightSource A B C)
-      (@GrayRightTarget A B C)
-      (@gray_curry_R_func A B C));
-
-symbol gray_curry_R_strict
-  (A B C : Cat)
-  : τ (@StrictFunctor
-      (@GrayRightSource A B C)
-      (@GrayRightTarget A B C)
-    )
-≔ @make_strict_functor
-    (@GrayRightSource A B C)
-    (@GrayRightTarget A B C)
-    (@gray_curry_R_func A B C)
-    (@gray_curry_R_is_strict A B C);
-
 // Whole uncurry operation.
 injective symbol gray_uncurry_R_func
   (A B C : Cat)
   : τ (@Functor
       (@GrayRightTarget A B C)
       (@GrayRightSource A B C));
-
-// Supplied semantic strictness of the existing whole uncurry operation.
-constant symbol gray_uncurry_R_is_strict
-  (A B C : Cat)
-  : τ (@IsStrictFunctor
-      (@GrayRightTarget A B C)
-      (@GrayRightSource A B C)
-      (@gray_uncurry_R_func A B C));
-
-symbol gray_uncurry_R_strict
-  (A B C : Cat)
-  : τ (@StrictFunctor
-      (@GrayRightTarget A B C)
-      (@GrayRightSource A B C)
-    )
-≔ @make_strict_functor
-    (@GrayRightTarget A B C)
-    (@GrayRightSource A B C)
-    (@gray_uncurry_R_func A B C)
-    (@gray_uncurry_R_is_strict A B C);
 
 // Object projection of whole curry.
 symbol gray_curry_R
@@ -204,40 +164,22 @@ symbol gray_curry_uncurry_R_at
     _ _
     (@gray_curry_uncurry_R_path A B C);
 
-// Coevaluation/introduction is curry applied to the tensor identity package.
-symbol gray_coevaluation_R_strict
-  (A B : Cat)
-  : τ (@StrictFunctor
-      A
-      (@GrayHom_lax B (@GrayTensor_R A B)))
-≔ @gray_curry_R
-    A B (@GrayTensor_R A B)
-    (@strict_identity (@GrayTensor_R A B));
+// Coevaluation/introduction is curry applied to the ordinary tensor identity.
 
 symbol gray_coevaluation_R_func
   (A B : Cat)
   : τ (@Functor A (@GrayHom_lax B (@GrayTensor_R A B)))
-≔ @strict_functor
-    A
-    (@GrayHom_lax B (@GrayTensor_R A B))
-    (@gray_coevaluation_R_strict A B);
+≔ @gray_curry_R
+    A B (@GrayTensor_R A B)
+    (@id_func (@GrayTensor_R A B));
 
-// Evaluation/elimination is uncurry applied to the internal-Hom identity package.
-symbol gray_evaluation_R_strict
-  (B C : Cat)
-  : τ (@StrictFunctor
-      (@GrayTensor_R (@GrayHom_lax B C) B)
-      C)
-≔ @gray_uncurry_R
-    (@GrayHom_lax B C) B C
-    (@strict_identity (@GrayHom_lax B C));
+// Evaluation/elimination is uncurry applied to the ordinary internal-Hom identity.
 
 symbol gray_evaluation_R_func
   (B C : Cat)
   : τ (@Functor
       (@GrayTensor_R (@GrayHom_lax B C) B)
       C)
-≔ @strict_functor
-    (@GrayTensor_R (@GrayHom_lax B C) B)
-    C
-    (@gray_evaluation_R_strict B C);
+≔ @gray_uncurry_R
+    (@GrayHom_lax B C) B C
+    (@id_func (@GrayHom_lax B C));

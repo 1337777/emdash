@@ -97,7 +97,7 @@ assert (J : τ (@Adjunction Terminal_cat Terminal_cat (@id_func Terminal_cat) (@
 assertnot (R L : Cat) (F : τ (Functor R L)) (G : τ (Functor L R))
   (J : τ (@Adjunction R L F G)) (X : τ (Obj R)) (Y : τ (Obj L)) (Z : Cat) ⊢
   @defiso_to _ _ _ (@Adjunction_hom_prof_comparison R L F G J)
-  : τ (@Transf (Product_cat (Op_cat R) L) Cat_cat
+  : τ (@Transf (Product_cat (Op_cat R) L) Cat_cart
       (@Const_catd (Product_cat (Op_cat R) L) Terminal_cat)
       (@Const_catd (Product_cat (Op_cat R) L) Z));
 

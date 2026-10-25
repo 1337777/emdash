@@ -1,6 +1,6 @@
 /* Ordinary contravariant owners selectively ported from 20c6dd2e.
-   Whole/component/identity computation, proof-time Op bridges, and retained
-   higher action; no opaque action-profile migration is imported. */
+   Whole/component/identity computation, correctly profiled proof-time Op
+   bridges, and retained general lax native action. */
 require open emdash.emdash3_2;
 
 // Inferred identity categories may normalize before the outer con cut.
@@ -25,54 +25,46 @@ assert [A B : Cat] [F G : τ (Functor A B)]
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B G Y) A F)))
     (@tapp1_con_at_transf A B F G epsilon Y)
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B G Y) A F)))
       (@tapp0_fapp0
         (Op_cat (Op_cat A))
         (@Catd_cat (Op_cat A))
-        (@hom_int
-          (Op_cat A)
-          (Op_cat A)
-          (@id_func (Op_cat A)))
+        (@hom_con_int_view A A (@id_func A))
         (@comp_cat_fapp0
           (Op_cat (Op_cat A))
           (Op_cat (Op_cat B))
           (@Catd_cat (Op_cat A))
-          (@hom_int
-            (Op_cat B)
-            (Op_cat A)
-            (@Op_func A B F))
-          (@Op_func
-            (Op_cat A)
-            (Op_cat B)
-            (@Op_func A B G)))
+          (@hom_con_int_view B A F)
+          G)
         Y
         (@tapp1_con_int_fapp0_transf A B F G epsilon))
       (@tapp1_con_at_transf A B F G epsilon Y));
 
-// The direct opposite presentation compares proof-time in both orientations.
+// Direct ordinary-opposite comparison requires the classified strict transfor.
+// The native con owners above and below still admit arbitrary lax epsilon.
 assert [A B : Cat] [F G : τ (Functor A B)]
-  (epsilon : τ (Transf F G))
+  (U : τ (@StrictTransfor A B F G))
   (Y : τ (Obj A)) ⊢
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B G Y) A F)))
-    (@tapp1_con_at_transf A B F G epsilon Y)
+    (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B G Y) A F)))
       (@tapp1_at_transf
@@ -81,40 +73,40 @@ assert [A B : Cat] [F G : τ (Functor A B)]
         (@Op_func A B G)
         (@Op_func A B F)
         Y
-        (@Op_transf A B F G epsilon))
-      (@tapp1_con_at_transf A B F G epsilon Y));
+        (@strict_transfor (Op_cat A) (Op_cat B) (@Op_func A B G) (@Op_func A B F) (@Op_transf A B F G U)))
+      (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y));
 
 assert [A B : Cat] [F G : τ (Functor A B)]
-  (epsilon : τ (Transf F G))
+  (U : τ (@StrictTransfor A B F G))
   (Y : τ (Obj A)) ⊢
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B G Y) A F)))
-    (@tapp1_con_at_transf A B F G epsilon Y)
+    (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B G Y) A F)))
-      (@tapp1_con_at_transf A B F G epsilon Y)
+      (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
       (@tapp1_at_transf
         (Op_cat A)
         (Op_cat B)
         (@Op_func A B G)
         (@Op_func A B F)
         Y
-        (@Op_transf A B F G epsilon)));
+        (@strict_transfor (Op_cat A) (Op_cat B) (@Op_func A B G) (@Op_func A B F) (@Op_transf A B F G U))));
 
 assert [A B : Cat] [F G : τ (Functor A B)]
   (epsilon : τ (Transf F G))
   (X Y : τ (Obj A)) ⊢
   @tapp0_fapp0
     (Op_cat A)
-    Cat_cat
+    Cat_cart
     (@hom_con A Y A (@id_func A))
     (@hom_con B (@fapp0 A B G Y) A F)
     X
@@ -132,22 +124,13 @@ assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
   @tapp0_fapp0
     (Op_cat (Op_cat A))
     (@Catd_cat (Op_cat A))
-    (@hom_int
-      (Op_cat A)
-      (Op_cat A)
-      (@id_func (Op_cat A)))
+    (@hom_con_int_view A A (@id_func A))
     (@comp_cat_fapp0
       (Op_cat (Op_cat A))
       (Op_cat (Op_cat B))
       (@Catd_cat (Op_cat A))
-      (@hom_int
-        (Op_cat B)
-        (Op_cat A)
-        (@Op_func A B F))
-      (@Op_func
-        (Op_cat A)
-        (Op_cat B)
-        (@Op_func A B F)))
+      (@hom_con_int_view B A F)
+      F)
     Y
     (@fapp1_con_int_transf A B F)
   ≡ @fapp1_con_at_transf A B F Y;
@@ -157,14 +140,14 @@ assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B F Y) A F)))
     (@fapp1_con_at_transf A B F Y)
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B F Y) A F)))
       (@fapp1_at_transf
@@ -179,7 +162,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
   @eq_refl
     (Obj (@Transf_cat
       (Op_cat A)
-      Cat_cat
+      Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B F Y) A F)))
     (@tapp1_con_at_transf
@@ -189,7 +172,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
   : τ (@=
       (Obj (@Transf_cat
         (Op_cat A)
-        Cat_cat
+        Cat_cart
         (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B F Y) A F)))
       (@tapp1_con_at_transf
@@ -201,7 +184,7 @@ assert [A B : Cat] (F : τ (Functor A B)) (Y : τ (Obj A)) ⊢
 assert [A B : Cat] (F : τ (Functor A B)) (X Y : τ (Obj A)) ⊢
   @tapp0_fapp0
     (Op_cat A)
-    Cat_cat
+    Cat_cart
     (@hom_con A Y A (@id_func A))
     (@hom_con B (@fapp0 A B F Y) A F)
     X
@@ -246,82 +229,82 @@ assert [A B : Cat] [F G : τ (Functor A B)]
 
 assert
   [A B : Cat] [F G : τ (Functor A B)]
-  (epsilon : τ (Transf F G)) ⊢
+  (U : τ (@StrictTransfor A B F G)) ⊢
   @eq_refl (Transf
-      (@hom_int (Op_cat A) (Op_cat A) (@id_func (Op_cat A)))
+      (@hom_con_int_view A A (@id_func A))
       (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
-        (@hom_int (Op_cat B) (Op_cat A) (@Op_func A B F)) G)) (@tapp1_con_int_fapp0_transf A B F G epsilon)
+        (@hom_con_int_view B A F) G)) (@tapp1_con_int_fapp0_transf A B F G (@strict_transfor A B F G U))
   : τ (@= (Transf
-      (@hom_int (Op_cat A) (Op_cat A) (@id_func (Op_cat A)))
+      (@hom_con_int_view A A (@id_func A))
       (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
-        (@hom_int (Op_cat B) (Op_cat A) (@Op_func A B F)) G))
+        (@hom_con_int_view B A F) G))
       (@tapp1_int_fapp0_transf (Op_cat A) (Op_cat B)
-        (@Op_func A B G) (@Op_func A B F) (@Op_transf A B F G epsilon))
-      (@tapp1_con_int_fapp0_transf A B F G epsilon));
+        (@Op_func A B G) (@Op_func A B F) (@strict_transfor (Op_cat A) (Op_cat B) (@Op_func A B G) (@Op_func A B F) (@Op_transf A B F G U)))
+      (@tapp1_con_int_fapp0_transf A B F G (@strict_transfor A B F G U)));
 
 assert
   [A B : Cat] [F G : τ (Functor A B)]
-  (epsilon : τ (Transf F G)) ⊢
+  (U : τ (@StrictTransfor A B F G)) ⊢
   @eq_refl (Transf
-      (@hom_int (Op_cat A) (Op_cat A) (@id_func (Op_cat A)))
+      (@hom_con_int_view A A (@id_func A))
       (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
-        (@hom_int (Op_cat B) (Op_cat A) (@Op_func A B F)) G)) (@tapp1_con_int_fapp0_transf A B F G epsilon)
+        (@hom_con_int_view B A F) G)) (@tapp1_con_int_fapp0_transf A B F G (@strict_transfor A B F G U))
   : τ (@= (Transf
-      (@hom_int (Op_cat A) (Op_cat A) (@id_func (Op_cat A)))
+      (@hom_con_int_view A A (@id_func A))
       (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
-        (@hom_int (Op_cat B) (Op_cat A) (@Op_func A B F)) G))
-      (@tapp1_con_int_fapp0_transf A B F G epsilon)
+        (@hom_con_int_view B A F) G))
+      (@tapp1_con_int_fapp0_transf A B F G (@strict_transfor A B F G U))
       (@tapp1_int_fapp0_transf (Op_cat A) (Op_cat B)
-        (@Op_func A B G) (@Op_func A B F) (@Op_transf A B F G epsilon)));
+        (@Op_func A B G) (@Op_func A B F) (@strict_transfor (Op_cat A) (Op_cat B) (@Op_func A B G) (@Op_func A B F) (@Op_transf A B F G U))));
 
 // The semantic bridge is proof-time, not a global runtime orientation.
 assertnot
   [A B : Cat] [F G : τ (Functor A B)]
-  (epsilon : τ (Transf F G)) ⊢
+  (U : τ (@StrictTransfor A B F G)) ⊢
   @tapp1_int_fapp0_transf (Op_cat A) (Op_cat B)
-        (@Op_func A B G) (@Op_func A B F) (@Op_transf A B F G epsilon)
-  ≡ @tapp1_con_int_fapp0_transf A B F G epsilon;
+        (@Op_func A B G) (@Op_func A B F) (@strict_transfor (Op_cat A) (Op_cat B) (@Op_func A B G) (@Op_func A B F) (@Op_transf A B F G U))
+  ≡ @tapp1_con_int_fapp0_transf A B F G (@strict_transfor A B F G U);
 
 assert
   [A B : Cat] (F : τ (Functor A B)) ⊢
   @eq_refl (Transf
-      (@hom_int (Op_cat A) (Op_cat A) (@id_func (Op_cat A)))
+      (@hom_con_int_view A A (@id_func A))
       (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
-        (@hom_int (Op_cat B) (Op_cat A) (@Op_func A B F)) F)) (@fapp1_con_int_transf A B F)
+        (@hom_con_int_view B A F) F)) (@fapp1_con_int_transf A B F)
   : τ (@= (Transf
-      (@hom_int (Op_cat A) (Op_cat A) (@id_func (Op_cat A)))
+      (@hom_con_int_view A A (@id_func A))
       (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
-        (@hom_int (Op_cat B) (Op_cat A) (@Op_func A B F)) F))
+        (@hom_con_int_view B A F) F))
       (@fapp1_int_transf (Op_cat A) (Op_cat B) (@Op_func A B F))
       (@fapp1_con_int_transf A B F));
 
 assert
   [A B : Cat] (F : τ (Functor A B)) ⊢
   @eq_refl (Transf
-      (@hom_int (Op_cat A) (Op_cat A) (@id_func (Op_cat A)))
+      (@hom_con_int_view A A (@id_func A))
       (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
-        (@hom_int (Op_cat B) (Op_cat A) (@Op_func A B F)) F)) (@fapp1_con_int_transf A B F)
+        (@hom_con_int_view B A F) F)) (@fapp1_con_int_transf A B F)
   : τ (@= (Transf
-      (@hom_int (Op_cat A) (Op_cat A) (@id_func (Op_cat A)))
+      (@hom_con_int_view A A (@id_func A))
       (@comp_cat_fapp0 A B (@Catd_cat (Op_cat A))
-        (@hom_int (Op_cat B) (Op_cat A) (@Op_func A B F)) F))
+        (@hom_con_int_view B A F) F))
       (@fapp1_con_int_transf A B F)
       (@fapp1_int_transf (Op_cat A) (Op_cat B) (@Op_func A B F)));
 
 // The comparison does not identify arbitrary distinct transfors.
 assertnot [A B : Cat] [F G : τ (Functor A B)]
-  (epsilon other : τ (Transf F G)) (Y : τ (Obj A)) ⊢
+  (U V : τ (@StrictTransfor A B F G)) (Y : τ (Obj A)) ⊢
   @eq_refl
     (Transf (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B G Y) A F))
-    (@tapp1_con_at_transf A B F G epsilon Y)
+    (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
   : τ (@=
       (Transf (@hom_con A Y A (@id_func A))
         (@hom_con B (@fapp0 A B G Y) A F))
-      (@tapp1_con_at_transf A B F G epsilon Y)
+      (@tapp1_con_at_transf A B F G (@strict_transfor A B F G U) Y)
       (@tapp1_at_transf (Op_cat A) (Op_cat B)
         (@Op_func A B G) (@Op_func A B F) Y
-        (@Op_transf A B F G other)));
+        (@strict_transfor (Op_cat A) (Op_cat B) (@Op_func A B G) (@Op_func A B F) (@Op_transf A B F G V))));
 
 // One further whole hom action remains after the fixed-target component.
 assert [A B : Cat] [F G : τ (Functor A B)]
@@ -329,7 +312,7 @@ assert [A B : Cat] [F G : τ (Functor A B)]
   (f g : τ (Hom A X Y)) ⊢
   @fapp1_func (Hom_cat A X Y)
     (Hom_cat B (@fapp0 A B F X) (@fapp0 A B G Y))
-    (@tapp0_fapp0 (Op_cat A) Cat_cat
+    (@tapp0_fapp0 (Op_cat A) Cat_cart
       (@hom_con A Y A (@id_func A))
       (@hom_con B (@fapp0 A B G Y) A F) X
       (@tapp1_con_at_transf A B F G epsilon Y)) f g

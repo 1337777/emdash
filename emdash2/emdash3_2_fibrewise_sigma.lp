@@ -1,7 +1,7 @@
 /*
   Fibrewise dependent sums of directed Cat-valued families.
 
-  Given E : K -> Cat and D : Sigma(E) -> Cat, the composite family is
+  Given E : K -> Cat_cart and D : Sigma(E) -> Cat_cart, the composite family is
 
     k |-> Sigma(e : E[k]), D[(k,e)].
 
@@ -50,7 +50,7 @@ symbol fibrewise_sigma_value_cat
     (@fibrewise_sigma_fibre_catd K E D k);
 
 // Fibre beta for the composite family.
-rule @fapp0 _ Cat_cat (@FibrewiseSigma_catd $K $E $D) $k
+rule @fapp0 _ Cat_cart (@FibrewiseSigma_catd $K $E $D) $k
   ↪ @fibrewise_sigma_value_cat $K $E $D $k;
 
 /*
@@ -66,7 +66,7 @@ rule @fapp0 _ Cat_cat (@FibrewiseSigma_catd $K $E $D) $k
 */
 rule fapp0
       (@fapp1_fapp0
-        _ Cat_cat
+        _ Cat_cart
         (@FibrewiseSigma_catd $K $E $D)
         $x $y $r)
       (Struct_sigma $e $d)
@@ -78,18 +78,18 @@ rule fapp0
           (@fibrewise_sigma_fibre_catd $K $E $D $y)
           e0))
       (fapp0
-        (@fapp1_fapp0 $K Cat_cat $E $x $y $r)
+        (@fapp1_fapp0 $K Cat_cart $E $x $y $r)
         $e)
       (fapp0
         (@fapp1_fapp0
           (@Sigma_cat $K $E)
-          Cat_cat
+          Cat_cart
           $D
           (Struct_sigma $x $e)
           (Struct_sigma
             $y
             (fapp0
-              (@fapp1_fapp0 $K Cat_cat $E $x $y $r)
+              (@fapp1_fapp0 $K Cat_cart $E $x $y $r)
               $e))
           (@sigma_transport_arrow $K $E $x $y $r $e))
         $d);
@@ -103,7 +103,7 @@ injective symbol fibrewise_sigma_proj1_funcd
 
 // Its component at k is the ordinary Sigma first projection.
 rule @tapp0_fapp0
-      _ Cat_cat _ _ $k
+      _ Cat_cart _ _ $k
       (@fibrewise_sigma_proj1_funcd $K $E $D)
   ↪ @Sigma_proj1_func
       (@Fibre_cat $K $E $k)

@@ -14,7 +14,7 @@ symbol homology_row_field_span_exact_length (n : τ Nat_grpd) : τ Nat_grpd
 symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [P : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t
     Ab)) t T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t
@@ -43,26 +43,26 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab) T R2) x)) (@short_exact_row_chain_source_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -72,37 +72,37 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab)) (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t
      Ab)) KP QP)
    (@chain_pair_zero_cone C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t T
-     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@short_exact_row_chain_middle_pair C P t
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@short_exact_row_chain_middle_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -115,91 +115,88 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
      (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (@ZeroArrowCone_cat C t T) C
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t
-     T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t
+     T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_src) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
+     R2) x))) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_middle_pair C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat
      C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_inclusion C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C
      t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -239,26 +236,26 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab) T R2) x)) (@short_exact_row_chain_source_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -268,37 +265,37 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab)) (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t
      Ab)) KP QP)
    (@chain_pair_zero_cone C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t T
-     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@short_exact_row_chain_middle_pair C P t
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@short_exact_row_chain_middle_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -311,91 +308,88 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
      (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (@ZeroArrowCone_cat C t T) C
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t
-     T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t
+     T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_src) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
+     R2) x))) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_middle_pair C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat
      C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_inclusion C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C
      t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -428,26 +422,26 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab) T R2) x)) (@short_exact_row_chain_source_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -457,37 +451,37 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab)) (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t
      Ab)) KP QP)
    (@chain_pair_zero_cone C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t T
-     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@short_exact_row_chain_middle_pair C P t
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@short_exact_row_chain_middle_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -500,91 +494,88 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
      (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (@ZeroArrowCone_cat C t T) C
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t
-     T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t
+     T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_src) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
+     R2) x))) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_middle_pair C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat
      C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_inclusion C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C
      t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -623,26 +614,26 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab) T R2) x)) (@short_exact_row_chain_source_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -652,37 +643,37 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab)) (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t
      Ab)) KP QP)
    (@chain_pair_zero_cone C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t T
-     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@short_exact_row_chain_middle_pair C P t
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@short_exact_row_chain_middle_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -695,91 +686,88 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
      (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (@ZeroArrowCone_cat C t T) C
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t
-     T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t
+     T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_src) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
+     R2) x))) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_middle_pair C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat
      C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_inclusion C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C
      t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -813,26 +801,26 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab) T R2) x)) (@short_exact_row_chain_source_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -842,37 +830,37 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@computational_abelian_preabelian C P t Ab)) (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t
      Ab)) KP QP)
    (@chain_pair_zero_cone C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t T
-     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab)) KP (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@short_exact_row_chain_middle_pair C P t
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@short_exact_row_chain_middle_pair C P t
      (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t
      T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian
-     C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
@@ -885,91 +873,88 @@ symbol homology_row_field_span_exact_tail [I C : Cat] (C1 : τ (IsNCat (cat_succ
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
      (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (@ZeroArrowCone_cat C t T) C
      (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t
-     T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src)
-     (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@computational_abelian_preabelian C P t Ab) T R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t
+     T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
+     (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_src) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
+     R2) x))) (@short_exact_row_chain_source_pair C P t (@computational_abelian_preabelian C P t Ab)
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R0) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_middle_pair C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat
      C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 R2 g x) (z0 x))
      (@short_exact_row_chain_inclusion C P t (@computational_abelian_preabelian C P t Ab) (@fapp0 (@ZeroArrowCone_cat C
      t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C
-     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R0) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+     R0) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
      WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)) walking_arrow_tgt)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0) x)))
      (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T)
-     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0
-     WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R1) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R1) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R1) x)) walking_arrow_tgt) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
+     R1) x))) (@fapp0 (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) (@fapp0 WalkingArrow_cat C (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+     R2) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
      (@zero_arrow_cone_diagram_func C t T) (@fapp0 I (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t
-     (@computational_abelian_preabelian C P t Ab) T R2) x)) walking_arrow_src) (@fapp0 WalkingArrow_cat C (@fapp0
-     (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
+     (@computational_abelian_preabelian C P t Ab) T R2) x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt) (@fapp0
+     (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T) (@fapp0 I
      (@ZeroArrowCone_cat C t T) (@short_exact_row_family_func I C C1 P t (@computational_abelian_preabelian C P t Ab) T
-     R2) x)) walking_arrow_tgt) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
+     R2) x))) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0
      x) (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R1 x)
      (@short_exact_row_family_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R2 x)
      (@short_exact_row_family_transf_at I C C1 P t (@computational_abelian_preabelian C P t Ab) T R0 R1 f x)

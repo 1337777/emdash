@@ -84,30 +84,30 @@ assert [C : Cat]
 // Existing displayed transport carries the corresponding fibre equivalence.
 assert [C : Cat]
   (g : τ (@IsGroupoidalCat C))
-  (D : τ (@StrictFunctor C Cat_cat))
+  (D : τ (Functor C Cat_cat))
   [x y : τ (Obj C)]
   (f : τ (Hom C x y)) ⊢
   @groupoidal_fibre_transport_equiv C g D x y f
   : τ (@OmegaEquivAlong
       Cat_cat
-      (Fibre_cat (@strict_functor C Cat_cat D) x)
-      (Fibre_cat (@strict_functor C Cat_cat D) y)
+      (@fapp0 C Cat_cat D x)
+      (@fapp0 C Cat_cat D y)
       (@fapp1_fapp0 C Cat_cat
-        (@strict_functor C Cat_cat D) x y f));
+        D x y f));
 
 assert [C : Cat]
   (g : τ (@IsGroupoidalCat C))
-  (D : τ (@StrictFunctor C Cat_cat))
+  (D : τ (Functor C Cat_cat))
   [x y : τ (Obj C)]
   (f : τ (Hom C x y)) ⊢
   @omega_equiv_along_left_inv
     Cat_cat
-    (Fibre_cat (@strict_functor C Cat_cat D) x)
-    (Fibre_cat (@strict_functor C Cat_cat D) y)
+    (@fapp0 C Cat_cat D x)
+    (@fapp0 C Cat_cat D y)
     (@fapp1_fapp0 C Cat_cat
-      (@strict_functor C Cat_cat D) x y f)
+      D x y f)
     (@groupoidal_fibre_transport_equiv C g D x y f)
-  ≡ @fapp1_fapp0 C Cat_cat (@strict_functor C Cat_cat D) y x
+  ≡ @fapp1_fapp0 C Cat_cat D y x
       (@groupoidal_arrow_inverse C g x y f);
 
 // The earlier discrete-category contract supplies a general nonliteral case.
@@ -170,7 +170,7 @@ assert [A : Grpd]
     (@path_equiv A x y p)
   ≡ p;
 
-// Structured groupoidal J is the existing directed-family action.
+// Structured groupoidal J observes the ambient view of canonical fibre covariance.
 assert [C : Cat]
   (g : τ (@IsGroupoidalCat C))
   (D : τ (Catd C))
@@ -181,7 +181,8 @@ assert [C : Cat]
     x
     (@Sigma_proj1_pullback_catd C (@Rep_catd C x) D)
     u
-  ≡ @fib_cov_transf C D x u;
+  ≡ @strict_transfor C Cat_cart (@FibCov_source_catd C x) D
+      (@fib_cov_transf C D x u);
 
 /*
   At the literal source `Path_cat(A)`, the directed-family action and the
@@ -236,11 +237,11 @@ assert [A : Grpd]
   (D : τ (Catd (Path_cat A)))
   (x : τ A) ⊢
   @eq_refl
-    (Hom Cat_cat (Fibre_cat D x) (Fibre_cat D x))
+    (Functor (Fibre_cat D x) (Fibre_cat D x))
     (@fapp1_fapp0
-      (Path_cat A) Cat_cat D x x (@eq_refl A x))
+      (Path_cat A) Cat_cart D x x (@eq_refl A x))
   : τ (@=
-      (Hom Cat_cat (Fibre_cat D x) (Fibre_cat D x))
+      (Functor (Fibre_cat D x) (Fibre_cat D x))
       (@fapp1_fapp0
-        (Path_cat A) Cat_cat D x x (@eq_refl A x))
+        (Path_cat A) Cat_cart D x x (@eq_refl A x))
       (@id Cat_cat (Fibre_cat D x)));

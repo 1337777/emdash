@@ -118,7 +118,7 @@ symbol direct_cover_completion_restriction_glue_retained_agrees
         (@Fibre_cat
           (Op_cat K) (@DirectCoverCompletionPsh K T P) V)
         (@tapp0_fapp0
-          (Op_cat K) Cat_cat
+          (Op_cat K) Cat_cart
           (@direct_cover_question_extension_psh K T U q)
           (@DirectCoverCompletionPsh K T P)
           V
@@ -133,7 +133,7 @@ symbol direct_cover_completion_restriction_glue_retained_agrees
         (@Fibre_cat
           (Op_cat K) (@DirectCoverCompletionPsh K T P) V)
         (@tapp0_fapp0
-          (Op_cat K) Cat_cat
+          (Op_cat K) Cat_cart
           (@direct_cover_question_extension_psh K T U q)
           (@DirectCoverCompletionPsh K T P)
           V m)
@@ -195,7 +195,7 @@ injective symbol direct_cover_completion_restriction_glue_fibre_transf
       (@Psh_cat K)
       (@direct_cover_question_extension_psh K T U q)
       (@DirectCoverCompletionPsh K T P)))
-  : τ (@Transf
+  : τ (@StrictTransfor
       (@Fibre_cat
         (Op_cat K)
         (@direct_cover_question_extension_psh K T U q)
@@ -223,8 +223,8 @@ rule @tdapp0_fapp0 _ _ _ _ _ $V
 // Final projection: the retained member computes to the arrow induced by the
 // derived literal component path.
 rule @tapp0_fapp0 _ _ _ _ (Struct_sigma $p $member)
-      (@direct_cover_completion_restriction_glue_fibre_transf
-        $K $T $P $V $U $q $m)
+      (@strict_transfor _ _ _ _ (@direct_cover_completion_restriction_glue_fibre_transf
+        $K $T $P $V $U $q $m))
   ↪ @path_to_hom
       (@Fibre_cat
         (Op_cat $K) (@DirectCoverCompletionPsh $K $T $P) $V)
@@ -236,7 +236,7 @@ rule @tapp0_fapp0 _ _ _ _ (Struct_sigma $p $member)
         (@Fibre_cat
           (Op_cat $K) (@DirectCoverCompletionPsh $K $T $P) $V)
         (@tapp0_fapp0
-          (Op_cat $K) Cat_cat
+          (Op_cat $K) Cat_cart
           (@direct_cover_question_extension_psh $K $T $U $q)
           (@DirectCoverCompletionPsh $K $T $P)
           $V
@@ -251,7 +251,7 @@ rule @tapp0_fapp0 _ _ _ _ (Struct_sigma $p $member)
         (@Fibre_cat
           (Op_cat $K) (@DirectCoverCompletionPsh $K $T $P) $V)
         (@tapp0_fapp0
-          (Op_cat $K) Cat_cat
+          (Op_cat $K) Cat_cart
           (@direct_cover_question_extension_psh $K $T $U $q)
           (@DirectCoverCompletionPsh $K $T $P)
           $V $m)
@@ -322,8 +322,8 @@ symbol direct_cover_completion_restriction_glue_member_omega
           (@DirectCoverCompletionPsh K T P)
           m V)
         (Struct_sigma p member)
-        (@direct_cover_completion_restriction_glue_fibre_transf
-          K T P V U q m)))
+        (@strict_transfor _ _ _ _ (@direct_cover_completion_restriction_glue_fibre_transf
+          K T P V U q m))))
 ≔ @object_path_equiv_along
     (@Fibre_cat
       (Op_cat K) (@DirectCoverCompletionPsh K T P) V)
@@ -386,8 +386,8 @@ injective symbol direct_cover_completion_restriction_glue_fibre_pointwise_omega
         (@direct_cover_question_extension_psh K T U q)
         (@DirectCoverCompletionPsh K T P)
         m V)
-      (@direct_cover_completion_restriction_glue_fibre_transf
-        K T P V U q m));
+      (@strict_transfor _ _ _ _ (@direct_cover_completion_restriction_glue_fibre_transf
+        K T P V U q m)));
 
 rule (@direct_cover_completion_restriction_glue_fibre_pointwise_omega
         $K $T $P $V $U $q $m)
@@ -407,7 +407,7 @@ symbol direct_cover_completion_restriction_glue_fibre_omega
       (@direct_cover_question_extension_psh K T U q)
       (@DirectCoverCompletionPsh K T P)))
   : τ (@OmegaEquivAlong
-      (@Functor_cat
+      (@Functor_cart_cat
         (@Fibre_cat
           (Op_cat K)
           (@direct_cover_question_extension_psh K T U q)
@@ -427,7 +427,7 @@ symbol direct_cover_completion_restriction_glue_fibre_omega
         m V)
       (@direct_cover_completion_restriction_glue_fibre_transf
         K T P V U q m))
-≔ @strict_transf_pointwise_omega_along
+≔ @pointwise_cart_omega_along
     (@Fibre_cat
       (Op_cat K)
       (@direct_cover_question_extension_psh K T U q)

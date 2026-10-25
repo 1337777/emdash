@@ -22,8 +22,8 @@ symbol freyd_native_snake_first_exact_comparison [R : τ CommRing] (M : τ (Frey
   (@freyd_adjunction_model_cokernels R M) N (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) A)
   (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat
   (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D)
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b)))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c)))
   (@freyd_raw_native_snake_input Terminal_cat R (@freyd_adjunction_model_initial R M) A B X D a b c z));
 
 symbol FreydNativeSnakeFirstExactness [R : τ CommRing] (M : τ (FreydAdjunctionModel R))
@@ -54,8 +54,8 @@ symbol freyd_native_snake_first_exact_evidence [R : τ CommRing] (M : τ (FreydA
   (@freyd_adjunction_model_cokernels R M) N (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) A)
   (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat
   (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D)
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b)))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c)))
   (@freyd_raw_native_snake_input Terminal_cat R (@freyd_adjunction_model_initial R M) A B X D a b c z));
 
 symbol freyd_native_snake_second_exact_comparison [R : τ CommRing] (M : τ (FreydAdjunctionModel R))
@@ -73,8 +73,8 @@ symbol freyd_native_snake_second_exact_comparison [R : τ CommRing] (M : τ (Fre
   (@freyd_adjunction_model_cokernels R M) N (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) A)
   (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat
   (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D)
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b)))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c)))
   (@freyd_raw_native_snake_input Terminal_cat R (@freyd_adjunction_model_initial R M) A B X D a b c z));
 
 symbol FreydNativeSnakeSecondExactness [R : τ CommRing] (M : τ (FreydAdjunctionModel R))
@@ -105,8 +105,8 @@ symbol freyd_native_snake_second_exact_evidence [R : τ CommRing] (M : τ (Freyd
   (@freyd_adjunction_model_cokernels R M) N (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) A)
   (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat
   (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D)
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b)))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c)))
   (@freyd_raw_native_snake_input Terminal_cat R (@freyd_adjunction_model_initial R M) A B X D a b c z));
 
 symbol freyd_native_snake_third_exact_comparison [R : τ CommRing] (M : τ (FreydAdjunctionModel R))
@@ -124,8 +124,8 @@ symbol freyd_native_snake_third_exact_comparison [R : τ CommRing] (M : τ (Frey
   (@freyd_adjunction_model_cokernels R M) N (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) A)
   (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat
   (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D)
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b)))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c)))
   (@freyd_raw_native_snake_input Terminal_cat R (@freyd_adjunction_model_initial R M) A B X D a b c z));
 
 symbol FreydNativeSnakeThirdExactness [R : τ CommRing] (M : τ (FreydAdjunctionModel R))
@@ -156,8 +156,8 @@ symbol freyd_native_snake_third_exact_evidence [R : τ CommRing] (M : τ (FreydA
   (@freyd_adjunction_model_cokernels R M) N (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) A)
   (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat
   (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D)
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b)))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c)))
   (@freyd_raw_native_snake_input Terminal_cat R (@freyd_adjunction_model_initial R M) A B X D a b c z));
 
 symbol freyd_native_snake_fourth_exact_comparison [R : τ CommRing] (M : τ (FreydAdjunctionModel R))
@@ -175,8 +175,8 @@ symbol freyd_native_snake_fourth_exact_comparison [R : τ CommRing] (M : τ (Fre
   (@freyd_adjunction_model_cokernels R M) N (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) A)
   (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat
   (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D)
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b)))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c)))
   (@freyd_raw_native_snake_input Terminal_cat R (@freyd_adjunction_model_initial R M) A B X D a b c z));
 
 symbol FreydNativeSnakeFourthExactness [R : τ CommRing] (M : τ (FreydAdjunctionModel R))
@@ -207,6 +207,6 @@ symbol freyd_native_snake_fourth_exact_evidence [R : τ CommRing] (M : τ (Freyd
   (@freyd_adjunction_model_cokernels R M) N (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) A)
   (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat
   (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D)
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b))
-  (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) B) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) B X (@comm_ring_freyd_hom_class R B X b)))
+  (@strict_transfor Terminal_cat (@CommRingFreydPresentation_cat R) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) X) (@Const_func Terminal_cat (@CommRingFreydPresentation_cat R) D) (@Const_transf Terminal_cat (@CommRingFreydPresentation_cat R) X D (@comm_ring_freyd_hom_class R X D c)))
   (@freyd_raw_native_snake_input Terminal_cat R (@freyd_adjunction_model_initial R M) A B X D a b c z));

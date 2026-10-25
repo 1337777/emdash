@@ -22,7 +22,7 @@ symbol freyd_raw_chain_zero_cone [R : τ CommRing]
 /* Whole model-facing H. The existing ordinary profile and canonical
    preadditive/terminal data are filled here; coherent P/Q stay explicit. */
 symbol freyd_zero_cone_homology_func [R : τ CommRing]
-  [T0 : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R))
+  [T0 : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R))
     (@comm_ring_zero_presentation R))]
   [W : τ (@HasComputationalKernels (@CommRingFreydPresentation_cat R)
     (@comm_ring_freyd_preadditive R))]

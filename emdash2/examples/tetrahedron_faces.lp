@@ -11,20 +11,14 @@ require open emdash.emdash3_2_tetrahedron_faces;
 
 // The four coface packages have the expected join carriers.
 assert ⊢
-  @strict_functor_underlying
-    (@DirectedSimplex_cat (succ (succ zero)))
-    (@DirectedSimplex_cat (succ (succ (succ zero))))
-    (@selected_face_data
+  (@selected_face_data
       (succ (succ zero)) (succ (succ (succ zero)))
       simplex_triangle_zero_one_two_realization)
 ≡ @join_fst_func
       (@DirectedSimplex_cat (succ (succ zero))) Terminal_cat;
 
 assert ⊢
-  @strict_functor_underlying
-    (@DirectedSimplex_cat (succ (succ zero)))
-    (@DirectedSimplex_cat (succ (succ (succ zero))))
-    (@selected_face_data
+  (@selected_face_data
       (succ (succ zero)) (succ (succ (succ zero)))
       simplex_triangle_zero_one_three_realization)
 ≡ @join_map_func
@@ -34,10 +28,7 @@ assert ⊢
       (@id_func Terminal_cat);
 
 assert ⊢
-  @strict_functor_underlying
-    (@DirectedSimplex_cat (succ (succ zero)))
-    (@DirectedSimplex_cat (succ (succ (succ zero))))
-    (@selected_face_data
+  (@selected_face_data
       (succ (succ zero)) (succ (succ (succ zero)))
       simplex_triangle_zero_two_three_realization)
 ≡ @join_map_func
@@ -47,10 +38,7 @@ assert ⊢
       (@id_func Terminal_cat);
 
 assert ⊢
-  @strict_functor_underlying
-    (@DirectedSimplex_cat (succ (succ zero)))
-    (@DirectedSimplex_cat (succ (succ (succ zero))))
-    (@selected_face_data
+  (@selected_face_data
       (succ (succ zero)) (succ (succ (succ zero)))
       simplex_triangle_one_two_three_realization)
 ≡ @join_map_func

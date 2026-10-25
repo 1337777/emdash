@@ -6,9 +6,9 @@ assert (R : τ CommRing) ⊢
   ≡ @CommRingFreydPresentation_cat R;
 
 assert [R : τ CommRing] (A : τ (@CommRingPresentation R))
-  (d : τ (Functor WalkingArrow_cat (@CommRingFreydPresentation_cat R)))
-  (h : τ (@Transf WalkingArrow_cat (@CommRingFreydPresentation_cat R)
-    (@fapp0 (@CommRingFreydPresentation_cat R) (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+  (d : τ (Obj (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))))
+  (h : τ (@Hom (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+    (@fapp0 (@CommRingFreydPresentation_cat R) (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
       (@terminal_arrow_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)) A) d)) ⊢
   @tapp0_fapp0 _ _ _ _
     (@zero_arrow_cone_obj (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R) A d h)
@@ -35,7 +35,7 @@ assert [R : τ CommRing]
   (b : τ (Hom (@CommRingFreydPresentation_cat R) B0 B1))
   (alpha : τ (Obj (@homdc_fibre
     (@CommRingFreydPresentation_cat R) (@CommRingFreydPresentation_cat R)
-    (@hom_int (@CommRingFreydPresentation_cat R) (@CommRingFreydPresentation_cat R)
+    (@hom_int_view (@CommRingFreydPresentation_cat R) (@CommRingFreydPresentation_cat R)
       (@id_func (@CommRingFreydPresentation_cat R)))
     A0 A1 B0 B1 u v a b)))
   ⊢ alpha : τ (@= (@CommRingFreydHomSet R A0 B1)
@@ -46,7 +46,7 @@ require open emdash.emdash3_2_zero_arrow_cone_homology;
 
 /* Identity at the concrete Freyd target; no profile argument supplied. */
 assert (R : τ CommRing) (S : τ (@PreadditiveCategory (@CommRingFreydPresentation_cat R)))
-  (T0 : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R)))
+  (T0 : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R)))
   (W : τ (@HasComputationalKernels (@CommRingFreydPresentation_cat R) S)) (V : τ (@HasComputationalCokernels (@CommRingFreydPresentation_cat R) S))
   (P : τ (@KernelPresentation (@CommRingFreydPresentation_cat R) S (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R) W))
   (Q : τ (@CokernelPresentation (@CommRingFreydPresentation_cat R) S (@comm_ring_zero_presentation R) T0 V))

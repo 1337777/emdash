@@ -8,6 +8,15 @@ constant symbol discrete_functor_category [A B : Cat]
   (B0 : τ (IsDiscreteCat B))
   : τ (IsDiscreteCat (Functor_cat A B));
 
+// Structural closure, parallel to discrete_functor_category above: maps
+// into a fibrewise discrete family have discrete modifications. All laxity
+// data then lies in proposition-valued cells. This is a model obligation,
+// not a theorem derived from component beta or an ambient strictness rule.
+constant symbol discrete_functord_category [K : Cat]
+  (E D : τ (Catd K))
+  (D0 : Π y : τ (Obj K), τ (IsDiscreteCat (Fibre_cat D y)))
+  : τ (IsDiscreteCat (@Functord_cat K E D));
+
 // Core reflection, set-valued pointwise assembly, then the original core law.
 symbol discrete_pointwise_transf [A B : Cat] (B0 : τ (IsDiscreteCat B)) (F G : τ (Functor A B))
   (p : Π x : τ (Obj A), τ (@= (Obj B) (@fapp0 A B F x) (@fapp0 A B G x)))

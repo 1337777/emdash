@@ -27,7 +27,7 @@ symbol one_cat_copair_diagonal_path [C : Cat]
 // Native evaluation of the composite functor retains both original whole operations.
 symbol one_cat_additive_family_add_formula_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (X Y : τ (Functor B C)) (f g : τ (@Transf B C X Y))
   : τ (@= (@Transf B C X Y) (@one_cat_additive_family_add B C C1 Prod t A T0 X Y f g) (@comp_fapp0 (Functor_cat
   B C) X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod)
@@ -42,7 +42,7 @@ symbol one_cat_additive_family_add_formula_path [B C : Cat] (C1 : τ (IsNCat (ca
 // Components recover the original Hom addition; no pointwise square is an argument.
 symbol one_cat_additive_family_add_component_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (X Y : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (b : τ (Obj B))
   : τ (@= (Hom C (@fapp0 B C X b) (@fapp0 B C Y b)) (@tapp0_fapp0 B C X Y b (@one_cat_additive_family_add B C C1
   Prod t A T0 X Y f g)) (@preadditive_hom_add C (@additive_preadditive C Prod t A) (@fapp0 B C X b) (@fapp0 B C Y b)

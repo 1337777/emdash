@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_kernel_family_restriction_paths;
 
 // The original difference kernel is the whole cospan parameter object.
 symbol one_cat_cospan_kernel_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod
   t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)) (X Y Z : τ (Functor B
   C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
@@ -17,7 +17,7 @@ symbol one_cat_cospan_kernel_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zer
 
 // The original difference kernel projects to the original first object.
 symbol one_cat_cospan_kernel_first [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod
   t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)) (X Y Z : τ (Functor B
   C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
@@ -39,7 +39,7 @@ symbol one_cat_cospan_kernel_first [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_ze
 
 // The same original difference kernel projects to the original second object.
 symbol one_cat_cospan_kernel_second [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C)
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C)
   t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod
   t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)) (X Y Z : τ (Functor B
   C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
@@ -62,7 +62,7 @@ symbol one_cat_cospan_kernel_second [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_z
 // The original two projections satisfy the whole cospan relation by zero-difference reflection.
 symbol one_cat_cospan_kernel_compatibility [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
  : τ (@= (@Transf B C (@kernel_adjunction_family_func B C (@additive_preadditive C Prod t A) t
@@ -154,7 +154,7 @@ symbol one_cat_cospan_kernel_compatibility [B C : Cat] (C1 : τ (IsNCat (cat_suc
 // The actual cokernel of the first projection annihilates the original difference kernel.
 symbol one_cat_cospan_first_cokernel_input_zero [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
  : τ (@= (@Transf B C (@kernel_adjunction_family_func B C (@additive_preadditive C Prod t A) t
@@ -237,7 +237,7 @@ symbol one_cat_cospan_first_cokernel_input_zero [B C : Cat] (C1 : τ (IsNCat (ca
 // Descend the original cokernel input through the derived difference cover.
 symbol one_cat_cospan_first_cokernel_descent [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ
@@ -283,7 +283,7 @@ symbol one_cat_cospan_first_cokernel_descent [B C : Cat] (C1 : τ (IsNCat (cat_s
 // The original auxiliary cover reconstructs that same whole input.
 symbol one_cat_cospan_first_cokernel_descent_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod
   : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ
@@ -354,7 +354,7 @@ symbol one_cat_cospan_first_cokernel_descent_path [B C : Cat] (C1 : τ (IsNCat (
 // The original second injection makes the descended map annihilate g.
 symbol one_cat_cospan_first_cokernel_descent_second_zero [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ
@@ -402,7 +402,7 @@ symbol one_cat_cospan_first_cokernel_descent_second_zero [B C : Cat] (C1 : τ (I
 // The derived original g cancellation forces the descended map to zero.
 symbol one_cat_cospan_first_cokernel_descent_zero [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod
   : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ
@@ -455,7 +455,7 @@ symbol one_cat_cospan_first_cokernel_descent_zero [B C : Cat] (C1 : τ (IsNCat (
 // The original first injection makes the actual first-projection cokernel zero.
 symbol one_cat_cospan_kernel_first_cokernel_zero [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ
@@ -544,7 +544,7 @@ symbol one_cat_cospan_kernel_first_cokernel_zero [B C : Cat] (C1 : τ (IsNCat (c
 // Original normality gives a categorical cover of the first projection, without a supplied cover.
 symbol one_cat_cospan_kernel_first_cover [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ
@@ -554,20 +554,20 @@ symbol one_cat_cospan_kernel_first_cover [B C : Cat] (C1 : τ (IsNCat (cat_succ 
   (@zero_arrow_family_zero_transf B C t (@additive_terminal_object C Prod t A) T0 Z
   (@cokernel_adjunction_family_func B C (@additive_preadditive C Prod t A) t T0 Q (@transf_arrow_diagram_func B C
   Y Z g)))))
- : τ (@OmegaEquivAlong (Functor_cat B C) (@comp_cat_fapp0 B (Functor_cat WalkingArrow_cat C) C
+ : τ (@OmegaEquivAlong (Functor_cat B C) (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C
   (@adjunction_coimage_func C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q)
   (@transf_arrow_diagram_func B C (@kernel_adjunction_family_func B C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A) P (@transf_arrow_diagram_func B C (@fapp0 (Functor_cat B (Product_cat C
   C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ
   (Functor B C), Functor B C) X Y)) Z (@one_cat_difference_cospan_transf B C C1 Prod t A T0 X Y Z f g))) X
   (@one_cat_cospan_kernel_first B C C1 Prod t A T0 P Q X Y Z f g))) X (@fapp0 _ _ (@comp_cat_con_fapp1_func
-  B (Functor_cat WalkingArrow_cat C) C (@transf_arrow_diagram_func B C (@kernel_adjunction_family_func B C
+  B (Functor_oplax_cat WalkingArrow_cat C) C (@transf_arrow_diagram_func B C (@kernel_adjunction_family_func B C
   (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) P (@transf_arrow_diagram_func B C
   (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod)
   (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) Z (@one_cat_difference_cospan_transf B C
   C1 Prod t A T0 X Y Z f g))) X (@one_cat_cospan_kernel_first B C C1 Prod t A T0 P Q X Y Z f g))
   (@adjunction_coimage_func C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q)
-  (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt)) (@one_cat_adjunction_coimage_to_target C
+  (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_tgt)) (@one_cat_adjunction_coimage_to_target C
   (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P Q)))
 ≔ @one_cat_zero_cokernel_cover_omega B C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod
   t A) T0 P Q N (@transf_arrow_diagram_func B C (@kernel_adjunction_family_func B C (@additive_preadditive C Prod
@@ -580,7 +580,7 @@ symbol one_cat_cospan_kernel_first_cover [B C : Cat] (C1 : τ (IsNCat (cat_succ 
 // The derived first cover cancels as a whole map, preserving its original projections.
 symbol one_cat_cospan_kernel_first_reflect_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (X Y Z : τ (Functor B C)) (f : τ (@Transf B C X Z)) (g : τ

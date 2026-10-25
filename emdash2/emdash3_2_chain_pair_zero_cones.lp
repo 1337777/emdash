@@ -9,8 +9,8 @@ require open emdash.emdash3_2_chain_pair_diagrams;
 symbol chain_pair_selected_boundary [C : Cat] [S : τ (@PreadditiveCategory C)]
   (W : τ (@HasComputationalKernels C S)) [A B D : τ (Obj C)]
   (pair : τ (@ComputationalChainPair C S A B D))
-  : τ (Hom C A (@kernel_presentation_selected_object C S W (@chain_pair_outgoing_diagram C S A B D pair)))
-≔ @kernel_presentation_test_lift C S W A (@chain_pair_outgoing_diagram C S A B D pair)
+  : τ (Hom C A (@kernel_presentation_selected_object C S W (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A B D pair))))
+≔ @kernel_presentation_test_lift C S W A (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A B D pair))
     (@computational_chain_pair_cone C S A B D pair);
 
 symbol chain_pair_zero_cone [C : Cat] [S : τ (@PreadditiveCategory C)] [t : τ (Obj C)]
@@ -18,4 +18,4 @@ symbol chain_pair_zero_cone [C : Cat] [S : τ (@PreadditiveCategory C)] [t : τ 
   (P : τ (@KernelPresentation C S t T W))
   [A B D : τ (Obj C)] (pair : τ (@ComputationalChainPair C S A B D))
   : τ (Obj (@ZeroArrowCone_cat C t T))
-≔ @zero_arrow_cone_obj C t T A (@chain_pair_outgoing_diagram C S A B D pair) (@fapp0 _ _ (@kernel_presentation_unlift_func C S t T W P A (@chain_pair_outgoing_diagram C S A B D pair)) (@chain_pair_selected_boundary C S W A B D pair));
+≔ @zero_arrow_cone_obj C t T A (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A B D pair)) (@fapp0 _ _ (@kernel_presentation_unlift_func C S t T W P A (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A B D pair))) (@chain_pair_selected_boundary C S W A B D pair));

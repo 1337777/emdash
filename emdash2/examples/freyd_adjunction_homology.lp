@@ -3,7 +3,7 @@ require open emdash.emdash3_2_commutative_algebra_freyd_adjunction_homology;
 
 // The record observes the actual whole H at the direct native input.
 assert [R : τ CommRing]
-  [T0 : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
+  [T0 : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)))
   (Q : τ (@CokernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) T0))
   [A B D : τ (@CommRingPresentation R)]
@@ -15,7 +15,7 @@ assert [R : τ CommRing]
 
 // Its actual boundary reconstructs the original raw incoming class.
 assert [R : τ CommRing]
-  [T0 : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
+  [T0 : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)))
   (Q : τ (@CokernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) T0))
   [A B D : τ (@CommRingPresentation R)]

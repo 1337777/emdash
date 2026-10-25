@@ -33,7 +33,7 @@ symbol standard_semicube_level
   : Cat
 ≔ @fapp0
     (Op_cat SemiCubePlus_cat)
-    Cat_cat
+    Cat_cart
     (@StandardSemicube n)
     p;
 
@@ -46,11 +46,14 @@ symbol standard_semicube_native_decode_func
       (Functor_cat
         (@CubicalLevel_cat C n)
         (@CubicalLevel_cat C p)))
-≔ @fapp1_func
-    (Op_cat SemiCubePlus_cat)
-    Cat_cat
-    (@semicubical_nerve_func C)
-    n p;
+≔ @comp_cat_fapp0
+    (@standard_semicube_level n p)
+    (Functor_cart_cat (@CubicalLevel_cat C n) (@CubicalLevel_cat C p))
+    (Functor_cat (@CubicalLevel_cat C n) (@CubicalLevel_cat C p))
+    (Functor_cart_include (@CubicalLevel_cat C n) (@CubicalLevel_cat C p))
+    (@fapp1_func
+      (Op_cat SemiCubePlus_cat) Cat_cart
+      (@semicubical_nerve_func C) n p);
 
 // Named selected comparison with the computing {L,R,*} interpreter.
 symbol standard_semicube_native_decode_path

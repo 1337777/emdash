@@ -105,7 +105,7 @@ constant symbol direct_cover_completion_glue_is_strict
 
 // Literal-question component: recover the deployed one-cover glue functor.
 rule @tapp0_fapp0
-      _ Cat_cat _ _
+      _ Cat_cart _ _
       (Struct_sigma $U $q)
       (@direct_cover_completion_glue_funcd $K $T $P)
   ↪ @direct_cover_completion_glue_func

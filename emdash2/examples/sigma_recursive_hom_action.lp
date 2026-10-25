@@ -40,7 +40,11 @@ assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (@Pi_cat K E)))
 assertnot [K : Cat] (E : τ (Catd K)) (x y : τ (Obj K))
  (u : τ (Obj (@Fibre_cat K E x))) (v : τ (Obj (@Fibre_cat K E y))) ⊢
  @fapp1_func (@Sigma_cat K E) K (@Sigma_proj1_func K E) (Struct_sigma x u) (Struct_sigma y v)
- ≡ @Op_func
-   (@Sigma_cat (Op_cat (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x u y v))
-   (Op_cat (Hom_cat K x y))
-   (@Sigma_proj1_func (Op_cat (Hom_cat K x y)) (@homd_ K E E (@id_funcd K E) x u y v));
+ ≡ @TotalOp_func
+   (@Sigma_cat (TotalOp_cat (Hom_cat K x y))
+     (@TotalOp_catd (Op_cat (Hom_cat K x y))
+       (@homd_ K E E (@id_funcd K E) x u y v)))
+   (TotalOp_cat (Hom_cat K x y))
+   (@Sigma_proj1_func (TotalOp_cat (Hom_cat K x y))
+     (@TotalOp_catd (Op_cat (Hom_cat K x y))
+       (@homd_ K E E (@id_funcd K E) x u y v)));

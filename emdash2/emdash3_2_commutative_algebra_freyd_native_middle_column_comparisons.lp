@@ -65,8 +65,8 @@ symbol freyd_raw_native_middle_column_input_map [K : Cat] [R : τ CommRing] (M :
   D1 i1 p1 c1) (@freyd_raw_native_row_family K R A2
   B2 D2 i2 p2 c2) (@freyd_raw_native_row_map K R A1 B1 D1 A2 B2 D2 i1 p1 i2 p2 a1 b1 d1 c1 c2 f1)
   walking_arrow_src) x B0 (@comm_ring_freyd_hom_class R B0 B1
-  b0) (@freyd_raw_chain_zero_path R B0 B1 B2 b0 b1 middle) (@tapp0_fapp0 K (Functor_cat WalkingArrow_cat
-  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K (@CommRingFreydPresentation_cat R) (Functor_cat
+  b0) (@freyd_raw_chain_zero_path R B0 B1 B2 b0 b1 middle) (@tapp0_fapp0 K (Functor_oplax_cat WalkingArrow_cat
+  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K (@CommRingFreydPresentation_cat R) (Functor_oplax_cat
   WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@terminal_arrow_diagram_func
   (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@additive_terminal_object
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
@@ -147,8 +147,8 @@ symbol freyd_raw_native_middle_column_input_equiv [K : Cat] [R : τ CommRing] (M
   D1 i1 p1 c1) (@freyd_raw_native_row_family K R A2
   B2 D2 i2 p2 c2) (@freyd_raw_native_row_map K R A1 B1 D1 A2 B2 D2 i1 p1 i2 p2 a1 b1 d1 c1 c2 f1)
   walking_arrow_src) x B0 (@comm_ring_freyd_hom_class R B0 B1
-  b0) (@freyd_raw_chain_zero_path R B0 B1 B2 b0 b1 middle) (@tapp0_fapp0 K (Functor_cat WalkingArrow_cat
-  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K (@CommRingFreydPresentation_cat R) (Functor_cat
+  b0) (@freyd_raw_chain_zero_path R B0 B1 B2 b0 b1 middle) (@tapp0_fapp0 K (Functor_oplax_cat WalkingArrow_cat
+  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K (@CommRingFreydPresentation_cat R) (Functor_oplax_cat
   WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@terminal_arrow_diagram_func
   (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@additive_terminal_object
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)

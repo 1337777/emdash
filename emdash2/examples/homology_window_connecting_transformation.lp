@@ -6,7 +6,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) (x : τ (Obj I)) ⊢
@@ -18,7 +18,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) [x y : τ (Obj I)] ⊢
@@ -32,7 +32,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) (x : τ (Obj I)) ⊢
@@ -44,7 +44,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) [x y : τ (Obj I)] ⊢
@@ -58,7 +58,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) ⊢
@@ -71,7 +71,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) (x : τ (Obj I)) ⊢
@@ -84,7 +84,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) [x y : τ (Obj I)] ⊢
@@ -99,7 +99,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) [x y : τ (Obj I)] (u : τ
@@ -117,7 +117,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (Ab : τ (@ComputationalAbelianCategory C P t)) (T : τ (@TerminalObject C t))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (QP : τ (@CokernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab))
     t T0 (@preabelian_cokernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) [x y : τ (Obj I)] (u v : τ
@@ -156,7 +156,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) ⊢ (@comp_cat_fapp0 I
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T)
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T)
     (@homology_window_right_column_func I C C1 P t Ab T KP window)) ≡ (@transf_arrow_diagram_func I C (@comp_cat_fapp0 I
     (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_vertex_func C t T walking_arrow_tgt) (@short_exact_row_family_func I C C1
     P t (@computational_abelian_preabelian C P t Ab) T (@homology_window_family_row0 I C C1 P t
@@ -188,7 +188,7 @@ assert [I C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   (KP : τ (@KernelPresentation C (@computational_homology_preadditive C P t (@computational_abelian_preabelian C P t Ab)) t
     T (@preabelian_kernels C P t (@computational_abelian_preabelian C P t Ab))))
   (window : τ (@HomologyWindowFamily I C C1 P t (@computational_abelian_preabelian C P t Ab) T)) ⊢ (@comp_cat_fapp0 I
-    (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T)
+    (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_cone_diagram_func C t T)
     (@homology_window_left_column_func I C C1 P t Ab T KP window)) ≡ (@transf_arrow_diagram_func I C (@comp_cat_fapp0 I
     (@ZeroArrowCone_cat C t T) C (@zero_arrow_cone_first_func C t T) (@short_exact_row_family_func I C C1 P t
     (@computational_abelian_preabelian C P t Ab) T (@homology_window_family_row1 I C C1 P t

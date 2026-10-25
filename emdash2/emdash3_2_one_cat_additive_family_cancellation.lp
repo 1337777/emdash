@@ -9,7 +9,7 @@ require open emdash.emdash3_2_one_cat_difference_family_bilinearity;
 
 // The whole shear acts on a pair by (f,g)↦(f,f+g).
 symbol one_cat_shear_pair_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (X Y : τ (Functor B C))
   (f g : τ (@Transf B C X Y))
   : τ (@= (@Transf B C X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
@@ -134,7 +134,7 @@ symbol one_cat_shear_pair_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) 
 
 // A common left summand cancels using the same whole shear equivalence.
 symbol one_cat_additive_family_left_cancel [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X Y : τ (Functor B C))
   (a b c : τ (@Transf B C X Y))
   (p : τ (@= (@Transf B C X Y) (@one_cat_additive_family_add B C C1 Prod t A T0 X Y a b) (@one_cat_additive_family_add
@@ -221,7 +221,7 @@ symbol preadditive_negative_identity_square_path [C : Cat] (S : τ (@Preadditive
 
 // Fix the actual component while retaining the original scalar inverse in both slots.
 symbol one_cat_negative_identity_component_omega [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (x : τ (Obj C))
   : τ (@OmegaEquivAlong C x x (@tapp0_fapp0 C C (@id_func C) (@id_func C) x (@one_cat_negative_identity_transf C C1
   Prod t A T0)))
@@ -247,7 +247,7 @@ symbol one_cat_negative_identity_component_omega [C : Cat] (C1 : τ (IsNCat (cat
 
 // Existing generic pointwise-to-whole inversion applies to the already formed universal N.
 symbol one_cat_negative_identity_omega [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   : τ (@OmegaEquivAlong (Functor_cat C C) (@id_func C) (@id_func C) (@one_cat_negative_identity_transf C C1 Prod t A
   T0))
 ≔ @one_cat_transf_pointwise_omega_along C C C1 (@id_func C) (@id_func C) (@one_cat_negative_identity_transf C C1 Prod t A
@@ -256,7 +256,7 @@ symbol one_cat_negative_identity_omega [C : Cat] (C1 : τ (IsNCat (cat_succ cat_
 
 // Restrict that same fixed-forward evidence along the original family.
 symbol one_cat_negative_family_omega [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (Y : τ (Functor B C))
   : τ (@OmegaEquivAlong (Functor_cat B C) Y Y (@one_cat_negative_family_transf B C C1 Prod t A T0 Y))
 ≔ @one_cat_omega_equiv_fmap (Functor_cat C C) (Functor_cat B C) (@one_cat_functor_category B C C1) (@comp_cat_con_func B C C Y)
@@ -265,7 +265,7 @@ symbol one_cat_negative_family_omega [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_
 
 // Negation reflects equality of whole transformations through that original equivalence.
 symbol one_cat_negative_family_reflect_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X Y : τ (Functor B C))
   (f g : τ (@Transf B C X Y)) (p : τ (@= (@Transf B C X Y) (@one_cat_negative_family B C C1 Prod t A T0 X Y f)
   (@one_cat_negative_family B C C1 Prod t A T0 X Y g)))
@@ -282,7 +282,7 @@ symbol one_cat_negative_family_reflect_path [B C : Cat] (C1 : τ (IsNCat (cat_su
 
 // A zero whole difference implies equality, without assuming a full additive capability.
 symbol one_cat_difference_family_zero_reflect [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X Y : τ (Functor B C))
   (f g : τ (@Transf B C X Y)) (p : τ (@= (@Transf B C X Y) (@one_cat_difference_family B C C1 Prod t A T0 X Y f g)
   (@zero_arrow_family_zero_transf B C t (@additive_terminal_object C Prod t A) T0 X Y)))
@@ -306,7 +306,7 @@ symbol one_cat_difference_family_zero_reflect [B C : Cat] (C1 : τ (IsNCat (cat_
 
 // The directly assembled shear negative and original restriction agree wholly.
 symbol one_cat_negative_family_shear_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (X : τ (Functor B C))
   : τ (@= (@Transf B C X X) (@one_cat_shear_negative_identity_family B C C1 Prod t A T0 X)
   (@one_cat_negative_family_transf B C C1 Prod t A T0 X))
@@ -324,7 +324,7 @@ symbol one_cat_negative_family_shear_path [B C : Cat] (C1 : τ (IsNCat (cat_succ
 // Equal whole composites make the corresponding composed difference zero.
 symbol one_cat_difference_family_precompose_zero_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod
   : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (W X Y : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (h : τ (@Transf B C W X))
+  (TotalOp_cat C) t)) (W X Y : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (h : τ (@Transf B C W X))
   (p : τ (@= (@Transf B C W Y) (@comp_fapp0 (Functor_cat B C) W X Y f h) (@comp_fapp0 (Functor_cat B C) W X Y g h))) :
   τ (@= (@Transf B C W Y) (@comp_fapp0 (Functor_cat B C) W X Y (@one_cat_difference_family B C C1 Prod t A T0 X Y f g)
   h) (@zero_arrow_family_zero_transf B C t (@additive_terminal_object C Prod t A) T0 W Y))
@@ -343,7 +343,7 @@ symbol one_cat_difference_family_precompose_zero_path [B C : Cat] (C1 : τ (IsNC
 // Equal whole composites make the corresponding composed difference zero.
 symbol one_cat_difference_family_postcompose_zero_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod
   : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y Z : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (h : τ (@Transf B C Y Z))
+  (TotalOp_cat C) t)) (X Y Z : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (h : τ (@Transf B C Y Z))
   (p : τ (@= (@Transf B C X Z) (@comp_fapp0 (Functor_cat B C) X Y Z h f) (@comp_fapp0 (Functor_cat B C) X Y Z h g))) :
   τ (@= (@Transf B C X Z) (@comp_fapp0 (Functor_cat B C) X Y Z h (@one_cat_difference_family B C C1 Prod t A T0 X Y f
   g)) (@zero_arrow_family_zero_transf B C t (@additive_terminal_object C Prod t A) T0 X Z))

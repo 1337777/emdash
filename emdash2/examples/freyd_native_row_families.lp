@@ -41,9 +41,9 @@ assert ⊢ @fapp1_fapp0 (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R) (
   (@freyd_raw_native_row_map K R S2 S1 S0 T2 T1 T0 sdNext sd tdNext td f2 f1 f0 chainS chainT m)) ≡
   @comm_ring_freyd_hom_class R S2 T2 f2;
 // Retain an original raw morphism class after row-map observation.
-assert ⊢ @tapp0_fapp0 WalkingArrow_cat (@CommRingFreydPresentation_cat R) _ _ walking_arrow_src (@fapp1_fapp0
+assert ⊢ @fapp1_fapp0 (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@CommRingFreydPresentation_cat R) (@diagram_oplax_evaluation_at_func WalkingArrow_cat (@CommRingFreydPresentation_cat R) walking_arrow_src) _ _ (@fapp1_fapp0
   (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
-  (@comm_ring_freyd_terminal_zero R)) (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+  (@comm_ring_freyd_terminal_zero R)) (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
   (@zero_arrow_cone_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
   (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R S2 S1 S0 sdNext sd chainS)
   (@freyd_raw_chain_native_cone R T2 T1 T0 tdNext td chainT) (@tapp0_fapp0 K (@ZeroArrowCone_cat
@@ -52,9 +52,9 @@ assert ⊢ @tapp0_fapp0 WalkingArrow_cat (@CommRingFreydPresentation_cat R) _ _ 
   tdNext td chainT) x (@freyd_raw_native_row_map K R S2 S1 S0 T2 T1 T0 sdNext sd tdNext td f2 f1 f0 chainS
   chainT m))) ≡ @comm_ring_freyd_hom_class R S1 T1 f1;
 // Retain an original raw morphism class after row-map observation.
-assert ⊢ @tapp0_fapp0 WalkingArrow_cat (@CommRingFreydPresentation_cat R) _ _ walking_arrow_tgt (@fapp1_fapp0
+assert ⊢ @fapp1_fapp0 (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@CommRingFreydPresentation_cat R) (@diagram_oplax_evaluation_at_func WalkingArrow_cat (@CommRingFreydPresentation_cat R) walking_arrow_tgt) _ _ (@fapp1_fapp0
   (@ZeroArrowCone_cat (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
-  (@comm_ring_freyd_terminal_zero R)) (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+  (@comm_ring_freyd_terminal_zero R)) (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
   (@zero_arrow_cone_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
   (@comm_ring_freyd_terminal_zero R)) (@freyd_raw_chain_native_cone R S2 S1 S0 sdNext sd chainS)
   (@freyd_raw_chain_native_cone R T2 T1 T0 tdNext td chainT) (@tapp0_fapp0 K (@ZeroArrowCone_cat

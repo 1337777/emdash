@@ -6,7 +6,7 @@ require open emdash.emdash3_2_additive_categories;
 // Use D=id_(C×C) as the actual mate endpoint; no paired-projection eta is needed.
 symbol one_cat_biproduct_inj1 [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   : τ (@Transf (Product_cat C C) C (@Product_projL_func C C) Prod)
 ≔ @fapp0
     (Hom_cat (Functor_cat (Product_cat C C) (Product_cat C C))
@@ -26,7 +26,7 @@ symbol one_cat_biproduct_inj1 [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
 // The second injection uses the same Prod and original zero structures.
 symbol one_cat_biproduct_inj2 [C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   : τ (@Transf (Product_cat C C) C (@Product_projR_func C C) Prod)
 ≔ @fapp0
     (Hom_cat (Functor_cat (Product_cat C C) (Product_cat C C))

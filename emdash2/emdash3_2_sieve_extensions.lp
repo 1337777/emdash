@@ -63,11 +63,14 @@ symbol ordinary_sieve_member_section
       (@Psh_cat K)
       (@yoneda_psh K V)
       (@ordinary_sieve_extension_psh K U R))
-≔ @fib_cov_transf
-    (Op_cat K)
+≔ @strict_transfor (Op_cat K) Cat_cart
+    (@FibCov_source_catd (Op_cat K) V)
     (@ordinary_sieve_extension_psh K U R)
-    V
-    (Struct_sigma p member);
+    (@fib_cov_transf
+      (Op_cat K)
+      (@ordinary_sieve_extension_psh K U R)
+      V
+      (Struct_sigma p member));
 
 /*
   Whole restriction of maps into X along the selected sieve inclusion.  Its

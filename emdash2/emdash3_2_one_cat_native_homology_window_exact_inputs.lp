@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_native_homology_window_connecting;
 // The original upper middle-column H uses the input formed before K/Q.
 symbol one_cat_native_window_middle_source_homology_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -49,7 +49,7 @@ symbol one_cat_native_window_middle_source_homology_func [B C : Cat] (C1 : τ (I
 // The original lower middle-column H uses the input formed before K/Q.
 symbol one_cat_native_window_middle_target_homology_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -93,7 +93,7 @@ symbol one_cat_native_window_middle_target_homology_func [B C : Cat] (C1 : τ (I
 // The original upper row projections induce H_B⇒H_C as a whole transformation.
 symbol one_cat_native_window_homology_projection [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -137,7 +137,7 @@ symbol one_cat_native_window_homology_projection [B C : Cat] (C1 : τ (IsNCat (c
 // The original lower row inclusions induce H_A⇒H_B as a whole transformation.
 symbol one_cat_native_window_homology_inclusion [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -181,7 +181,7 @@ symbol one_cat_native_window_homology_inclusion [B C : Cat] (C1 : τ (IsNCat (ca
 // The original native-window δ∘H(p) is zero.
 symbol one_cat_native_window_connecting_projection_zero [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -237,7 +237,7 @@ symbol one_cat_native_window_connecting_projection_zero [B C : Cat] (C1 : τ (Is
 // The original native-window H(i)∘δ is zero.
 symbol one_cat_native_window_incoming_connecting_zero [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -292,7 +292,7 @@ symbol one_cat_native_window_incoming_connecting_zero [B C : Cat] (C1 : τ (IsNC
 // The proved zero pair forms its native input without an output exactness premise.
 symbol one_cat_native_window_source_exact_input [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -326,7 +326,7 @@ symbol one_cat_native_window_source_exact_input [B C : Cat] (C1 : τ (IsNCat (ca
   (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P Q R1)) (E2 : τ
   (@OneCatZeroConeShortExactFamily B C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t
   A) T0 P Q R2))
- : τ (@Transf B (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
+ : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t A))
   (@one_cat_native_window_middle_source_homology_func B C C1 Prod t A T0 P Q N Rm R0 R1 R2 mm m0 m1
   upper_zero lower_zero Em E0 E1 E2)) (@transf_arrow_diagram_func B C (@one_cat_native_window_source_homology_func
@@ -349,7 +349,7 @@ symbol one_cat_native_window_source_exact_input [B C : Cat] (C1 : τ (IsNCat (ca
 // This is the existing actual Im⇒K comparison; its invertibility remains to be derived.
 symbol one_cat_native_window_source_exact_comparison [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -383,7 +383,7 @@ symbol one_cat_native_window_source_exact_comparison [B C : Cat] (C1 : τ (IsNCa
   (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P Q R1)) (E2 : τ
   (@OneCatZeroConeShortExactFamily B C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t
   A) T0 P Q R2))
- : τ (@Transf B C (@comp_cat_fapp0 B (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C
+ : τ (@Transf B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C
   (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q)
   (@zero_arrow_family_incoming_func B C t (@additive_terminal_object C Prod t A)
   (@one_cat_native_window_middle_source_homology_func B C C1 Prod t A T0 P Q N Rm R0 R1 R2 mm m0 m1
@@ -415,7 +415,7 @@ symbol one_cat_native_window_source_exact_comparison [B C : Cat] (C1 : τ (IsNCa
 // The proved zero pair forms its native input without an output exactness premise.
 symbol one_cat_native_window_target_exact_input [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -449,7 +449,7 @@ symbol one_cat_native_window_target_exact_input [B C : Cat] (C1 : τ (IsNCat (ca
   (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P Q R1)) (E2 : τ
   (@OneCatZeroConeShortExactFamily B C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t
   A) T0 P Q R2))
- : τ (@Transf B (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
+ : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
   (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t A))
   (@one_cat_native_window_source_homology_func B C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q Rm R0 R1 R2 mm m0 m1 upper_zero lower_zero Em E0 E1 E2))
@@ -473,7 +473,7 @@ symbol one_cat_native_window_target_exact_input [B C : Cat] (C1 : τ (IsNCat (ca
 // This is the existing actual Im⇒K comparison; its invertibility remains to be derived.
 symbol one_cat_native_window_target_exact_comparison [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -507,7 +507,7 @@ symbol one_cat_native_window_target_exact_comparison [B C : Cat] (C1 : τ (IsNCa
   (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P Q R1)) (E2 : τ
   (@OneCatZeroConeShortExactFamily B C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t
   A) T0 P Q R2))
- : τ (@Transf B C (@comp_cat_fapp0 B (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C
+ : τ (@Transf B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C
   (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q)
   (@zero_arrow_family_incoming_func B C t (@additive_terminal_object C Prod t A)
   (@one_cat_native_window_source_homology_func B C (@additive_preadditive C Prod t A) C1 t
@@ -537,7 +537,7 @@ symbol one_cat_native_window_target_exact_comparison [B C : Cat] (C1 : τ (IsNCa
 // The upper row triple supplies the actual middle Im(H(i))⇒K(H(p)) comparison.
 symbol one_cat_native_window_middle_exact_comparison [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ
-  (@TerminalObject (Op_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
+  (@TerminalObject (TotalOp_cat C) t)) (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
   (@additive_terminal_object C Prod t A))) (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t
   A) t T0)) (N : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
   (@additive_terminal_object C Prod t A) T0 P Q)) (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t
@@ -571,7 +571,7 @@ symbol one_cat_native_window_middle_exact_comparison [B C : Cat] (C1 : τ (IsNCa
   (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t A) T0 P Q R1)) (E2 : τ
   (@OneCatZeroConeShortExactFamily B C (@additive_preadditive C Prod t A) C1 t (@additive_terminal_object C Prod t
   A) T0 P Q R2))
- : τ (@Transf B C (@comp_cat_fapp0 B (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C
+ : τ (@Transf B C (@comp_cat_fapp0 B (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C
   (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q)
   (@zero_arrow_family_incoming_func B C t (@additive_terminal_object C Prod t A) (@homology_adjunction_family_func
   B C (@additive_preadditive C Prod t A) t (@additive_terminal_object C Prod t A) T0 P Q

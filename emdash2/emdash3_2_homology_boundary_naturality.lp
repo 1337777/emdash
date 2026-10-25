@@ -10,9 +10,9 @@ symbol homology_family_boundary_naturality
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [W : τ (@HasComputationalKernels C S)]
   (P : τ (@KernelPresentation C S t T W))
-  (A : τ (Functor B C)) (D : τ (Functor B (Functor_cat WalkingArrow_cat C)))
-  (h : τ (@Transf B (Functor_cat WalkingArrow_cat C)
-    (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D)) [x y : τ (Obj B)] (p : τ (Hom
+  (A : τ (Functor B C)) (D : τ (Functor B (Functor_oplax_cat WalkingArrow_cat C)))
+  (h : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C)
+    (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D)) [x y : τ (Obj B)] (p : τ (Hom
       B x y))
   : τ (@= (Hom C (@fapp0 B C A x) (@fapp0 B C (@kernel_family_func B C S t T W P D) y))
       (@comp_fapp0 C _ _ _ (@fapp1_fapp0 B C (@kernel_family_func B C S t T W P D) x y p) (@tapp0_fapp0 B C A (@kernel_family_func B
@@ -25,7 +25,7 @@ symbol homology_family_boundary_naturality
 symbol chain_pair_homology_boundary_action_path
   [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [t : τ (Obj C)] [T : τ (@TerminalObject C t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   [W : τ (@HasComputationalKernels C S)] [V : τ (@HasComputationalCokernels C S)]
   (P : τ (@KernelPresentation C S t T W)) (Q : τ (@CokernelPresentation C S t T0 V))
   [A0 B0 D0 A1 B1 D1 : τ (Obj C)]

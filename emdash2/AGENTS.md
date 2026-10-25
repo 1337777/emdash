@@ -17,17 +17,19 @@ equation is not by itself authority for a new rule. Preserve semantic owners,
 variance, retained higher action, subject reduction, and explicit noncollapse
 boundaries.
 
-Research qualification: the current whole-opposite, Sigma-Hom and connected
-family/section encodings have known variance/strictness defects. The
-[opposite](../docs/TYPESCRIPT_EMDASH_INTERNAL_OP_VARIANCE_DIAGNOSTIC.md),
+Research qualification: the pre-migration whole-opposite, Sigma-Hom and
+connected family/section encodings had recorded variance/strictness defects.
+The [opposite](../docs/TYPESCRIPT_EMDASH_INTERNAL_OP_VARIANCE_DIAGNOSTIC.md),
 [Sigma-Hom](../docs/TYPESCRIPT_EMDASH_SIGMA_HOM_VARIANCE_DIAGNOSTIC.md),
 [Homd target](../docs/TYPESCRIPT_EMDASH_HOMD_TARGET_POLARITY_DIAGNOSTIC.md)
 and [family/section profile](../docs/TYPESCRIPT_EMDASH_FAMILY_SECTION_PROFILE_DIAGNOSTIC.md)
-diagnostics record the evidence and qualifications. Their reproducer fixtures
-are non-library audits, not positive examples or a consistency certificate.
-Do not use invalid higher action to justify a result. Legitimate local Op
-computations with an independently qualified ordinary interpretation are
-not blanket-prohibited.
+diagnostics retain their exact historical source boundaries. The current
+worktree's strict-default/corrected-duality source promotion is recorded in
+[its living plan](../docs/EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md).
+Preserve its Cartesian coefficient admission, shifted duality bases, direct
+Homd projection ladder, general lax FF and actual inverse data. The historical
+reproducers are non-library audits, not current positive examples or a blanket
+consistency certificate. Do not use invalid higher action to justify a result.
 
 Action-profile integration is qualified on
 `goal/action-profile-integration-v3.2` under the completed
@@ -50,8 +52,12 @@ owners and native intrinsic laxity extraction. Restore functor laws only
 through the owner-position and validation workflow below; do not restore
 strict naturality of arbitrary transfors. The future weak-category/lax-map
 interface remains shared design. The separate application goal stays paused.
-The production source remains the pre-migration baseline until individually
-qualified changes are promoted; the new plan is not evidence of completion.
+The mathematical migration has now been promoted to the production source
+paths in this worktree after the recorded full source/reviewer qualification.
+The initial carrier relocation is preserved. Generated evidence, authoritative
+prose and frontend/source-pin integration remain explicit gates; source
+promotion is not overall goal completion. The current plan records later
+book/article and nerve continuations, which start only at their dependency gates.
 
 ## Authority And Document Roles
 

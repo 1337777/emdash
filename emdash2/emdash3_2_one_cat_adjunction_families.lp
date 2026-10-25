@@ -16,16 +16,18 @@ injective symbol one_cat_postcomp_adjunction [B R L : Cat]
   : τ (@Adjunction (Functor_cat B R) (Functor_cat B L)
       (@comp_cat_cov_func B R L F) (@comp_cat_cov_func B L R G));
 
-// Whole unit/counit observations through existing tele-postcomposition.
+// Whole unit/counit observations through existing ordinary tele-postcomposition.
+// The short comp_cat_cov_func_func_transf alias now selects Cartesian
+// mapping categories; these original endpoints are ordinary Functor_cat.
 // Their components and further Hom action use that same inherited owner.
 rule @unit_adj_transf _ _ _ _
       (@one_cat_postcomp_adjunction $B $R $L _ _ $F $G $J)
-  ↪ @comp_cat_cov_func_func_transf $B $R $R (@id_func $R)
+  ↪ @hom_postcomp_tele_transf Cat_cat Cat_cat (@id_func Cat_cat) $B $R $R (@id_func $R)
       (@comp_cat_fapp0 $R $L $R $G $F)
       (@unit_adj_transf $R $L $F $G $J);
 rule @counit_adj_transf _ _ _ _
       (@one_cat_postcomp_adjunction $B $R $L _ _ $F $G $J)
-  ↪ @comp_cat_cov_func_func_transf $B $L $L
+  ↪ @hom_postcomp_tele_transf Cat_cat Cat_cat (@id_func Cat_cat) $B $L $L
       (@comp_cat_fapp0 $L $R $L $F $G) (@id_func $L)
       (@counit_adj_transf $R $L $F $G $J);
 

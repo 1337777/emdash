@@ -74,33 +74,23 @@ assert ⊢
       (@face_skip zero zero face_nil);
 
 assert ⊢
-  @strict_functor_underlying
-    Terminal_cat WalkingArrow_cat
-    (@selected_face_data
+  (@selected_face_data
       zero (succ zero) simplex_vertex_zero_realization)
 ≡ @join_fst_func Terminal_cat Terminal_cat;
 
 assert ⊢
-  @strict_functor_underlying
-    Terminal_cat WalkingArrow_cat
-    (@selected_face_data
+  (@selected_face_data
       zero (succ zero) simplex_vertex_one_realization)
 ≡ @join_snd_func Terminal_cat Terminal_cat;
 
 assert ⊢
-  @strict_functor_underlying
-    WalkingArrow_cat
-    (@Join_cat WalkingArrow_cat Terminal_cat)
-    (@selected_face_data
+  (@selected_face_data
       (succ zero) (succ (succ zero))
       simplex_edge_zero_one_realization)
 ≡ @join_fst_func WalkingArrow_cat Terminal_cat;
 
 assert ⊢
-  @strict_functor_underlying
-    WalkingArrow_cat
-    (@Join_cat WalkingArrow_cat Terminal_cat)
-    (@selected_face_data
+  (@selected_face_data
       (succ zero) (succ (succ zero))
       simplex_edge_zero_two_realization)
 ≡ @join_map_func
@@ -109,10 +99,7 @@ assert ⊢
       (@id_func Terminal_cat);
 
 assert ⊢
-  @strict_functor_underlying
-    WalkingArrow_cat
-    (@Join_cat WalkingArrow_cat Terminal_cat)
-    (@selected_face_data
+  (@selected_face_data
       (succ zero) (succ (succ zero))
       simplex_edge_one_two_realization)
 ≡ @join_map_func
@@ -125,17 +112,14 @@ assert ⊢
 assert
   (p n : τ Nat_grpd)
   (R : τ (@SelectedFaceRealization p n)) ⊢
-  @strict_functor_is_strict
+  @functor_is_strict
     (@DirectedSimplex_cat p)
     (@DirectedSimplex_cat n)
     (@selected_face_data p n R)
   : τ (@IsStrictFunctor
       (@DirectedSimplex_cat p)
       (@DirectedSimplex_cat n)
-      (@strict_functor
-        (@DirectedSimplex_cat p)
-        (@DirectedSimplex_cat n)
-        (@selected_face_data p n R)));
+      ((@selected_face_data p n R)));
 
 // Code-level first coface equation in the augmented index category.
 assert ⊢

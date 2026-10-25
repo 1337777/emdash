@@ -16,9 +16,8 @@
 
   The derivation uses the generic internal-action beta, whole displayed
   paths, stable postcomposition reading, and the existing PathOut projection.
-  The `lax_transfor` head makes the selected pre/right target judgmental; no
-  evidence-derived endpoint adapter, inverse, or independent interchanger is
-  added.
+  The default conventional-lax action fixes the pre/right leg. No supplied
+  comparison, inverse, or independent interchanger is added.
 */
 
 require open emdash.emdash3_2_gray_interchanger;
@@ -83,31 +82,11 @@ protected symbol gray_interchanger_pre_raw_path
     walking_arrow_tgt
     walking_arrow_generator;
 
-// Common fixed-generator internal action selected by both whole strict paths.
+// Shared left-hand presentation of the source endpoint and its telescope.
+// It is not the pre/right middle action or a common value of both endpoints.
 protected symbol gray_interchanger_common_func
   : τ (Functor GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)
-≔ @functord_transport_func
-    WalkingArrow_cat
-    (@hom_
-      WalkingArrow_cat
-      WalkingArrow_cat
-      (@id_func WalkingArrow_cat)
-      walking_arrow_src)
-    (@hom_
-      GrayWalkingSquare_cat
-      WalkingArrow_cat
-      gray_square_inner_tgt_func
-      gray_square_obj00)
-    (@tapp1_at_transf
-      WalkingArrow_cat
-      GrayWalkingSquare_cat
-      gray_square_inner_src_func
-      gray_square_inner_tgt_func
-      walking_arrow_src
-      gray_square_outer_transf)
-    walking_arrow_src
-    walking_arrow_tgt
-    walking_arrow_generator;
+≔ gray_interchanger_lhs_func;
 
 protected symbol gray_interchanger_common_value
   : τ (Obj GrayInterchangerCodomain_cat)
@@ -117,36 +96,14 @@ protected symbol gray_interchanger_common_value
     gray_interchanger_common_func
     gray_interchanger_base_identity;
 
-// The two formal endpoints meet at the common internal action by the existing
-// whole displayed strict-naturality paths.
+// The source endpoint and this left-hand presentation are the same value.
+// The target retains its separate pre/right reading below.
 protected symbol gray_interchanger_source_common_path
   : τ (@=
       (Obj GrayInterchangerCodomain_cat)
       gray_interchanger_source
       gray_interchanger_common_value)
-≔ @eq_ap
-    (Obj (Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat))
-    (Obj GrayInterchangerCodomain_cat)
-    (λ H : τ (Obj (Functor_cat
-        GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)),
-      @fapp0
-        GrayInterchangerDomain_cat GrayInterchangerCodomain_cat
-        H gray_interchanger_base_identity)
-    gray_interchanger_lhs_func
-    gray_interchanger_common_func
-    (@functord_transport_lhs_agrees
-      WalkingArrow_cat
-      (@hom_
-        WalkingArrow_cat WalkingArrow_cat
-        (@id_func WalkingArrow_cat) walking_arrow_src)
-      (@hom_
-        GrayWalkingSquare_cat WalkingArrow_cat
-        gray_square_inner_tgt_func gray_square_obj00)
-      (@tapp1_at_transf
-        WalkingArrow_cat GrayWalkingSquare_cat
-        gray_square_inner_src_func gray_square_inner_tgt_func
-        walking_arrow_src gray_square_outer_transf)
-      walking_arrow_src walking_arrow_tgt walking_arrow_generator);
+≔ @eq_refl (Obj GrayInterchangerCodomain_cat) gray_interchanger_source;
 
 // Keep the post/left base arrow internal for one more projection so the stable
 // postcomposition owner remains visible before comparison with the common
@@ -154,7 +111,7 @@ protected symbol gray_interchanger_source_common_path
 protected symbol gray_interchanger_lhs_tele_func
   : τ (Functor
       (Hom_cat WalkingArrow_cat walking_arrow_src walking_arrow_tgt)
-      (Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat))
+      (Functor_cart_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat))
 ≔ @functord_transport_lhs_tele_func
     WalkingArrow_cat
     (@hom_
@@ -173,7 +130,7 @@ protected symbol gray_interchanger_lhs_tele_at_generator
   : τ (Functor GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)
 ≔ @fapp0
     (Hom_cat WalkingArrow_cat walking_arrow_src walking_arrow_tgt)
-    (Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)
+    (Functor_cart_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)
     gray_interchanger_lhs_tele_func walking_arrow_generator;
 
 protected symbol gray_interchanger_lhs_tele_value
@@ -188,45 +145,9 @@ protected symbol gray_interchanger_lhs_tele_common_func_path
       (Obj (Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat))
       gray_interchanger_lhs_tele_at_generator
       gray_interchanger_common_func)
-≔ @eq_ap
-    (Obj (Functor_cat
-      (Hom_cat WalkingArrow_cat walking_arrow_src walking_arrow_tgt)
-      (Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)))
-    (Obj (Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat))
-    (λ H : τ (Obj (Functor_cat
-        (Hom_cat WalkingArrow_cat walking_arrow_src walking_arrow_tgt)
-        (Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat))),
-      @fapp0
-        (Hom_cat WalkingArrow_cat walking_arrow_src walking_arrow_tgt)
-        (Functor_cat GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)
-        H walking_arrow_generator)
-    gray_interchanger_lhs_tele_func
-    (@tapp1_func
-      WalkingArrow_cat Cat_cat
-      (@hom_
-        WalkingArrow_cat WalkingArrow_cat
-        (@id_func WalkingArrow_cat) walking_arrow_src)
-      (@hom_
-        GrayWalkingSquare_cat WalkingArrow_cat
-        gray_square_inner_tgt_func gray_square_obj00)
-      walking_arrow_src walking_arrow_tgt
-      (@tapp1_at_transf
-        WalkingArrow_cat GrayWalkingSquare_cat
-        gray_square_inner_src_func gray_square_inner_tgt_func
-        walking_arrow_src gray_square_outer_transf))
-    (@functord_transport_lhs_tele_agrees
-      WalkingArrow_cat
-      (@hom_
-        WalkingArrow_cat WalkingArrow_cat
-        (@id_func WalkingArrow_cat) walking_arrow_src)
-      (@hom_
-        GrayWalkingSquare_cat WalkingArrow_cat
-        gray_square_inner_tgt_func gray_square_obj00)
-      (@tapp1_at_transf
-        WalkingArrow_cat GrayWalkingSquare_cat
-        gray_square_inner_src_func gray_square_inner_tgt_func
-        walking_arrow_src gray_square_outer_transf)
-      walking_arrow_src walking_arrow_tgt);
+≔ @eq_refl
+    (Functor GrayInterchangerDomain_cat GrayInterchangerCodomain_cat)
+    gray_interchanger_lhs_tele_at_generator;
 
 protected symbol gray_interchanger_lhs_tele_common_value_path
   : τ (@=
@@ -271,20 +192,9 @@ protected symbol gray_interchanger_lhs_tele_post_composite_path
       (Obj GrayInterchangerCodomain_cat)
       gray_interchanger_lhs_tele_value
       gray_interchanger_post_composite_value)
-≔ @cat_precomp_composite_component_path
-    GrayInterchangerDomain_cat
-    (Hom_cat
-      GrayWalkingSquare_cat gray_square_obj00 gray_square_obj10)
-    GrayInterchangerCodomain_cat
-    (@tapp1_func
-      WalkingArrow_cat GrayWalkingSquare_cat
-      gray_square_inner_src_func gray_square_inner_tgt_func
-      walking_arrow_src walking_arrow_src gray_square_outer_transf)
-    (@hom_postcomp_func
-      GrayWalkingSquare_cat WalkingArrow_cat
-      gray_square_inner_tgt_func gray_square_obj00
-      walking_arrow_src walking_arrow_tgt walking_arrow_generator)
-    gray_interchanger_base_identity;
+≔ @eq_refl
+    (Obj GrayInterchangerCodomain_cat)
+    gray_interchanger_lhs_tele_value;
 
 protected symbol gray_interchanger_post_composite_reading_path
   : τ (@=

@@ -32,7 +32,7 @@ assertnot [A : Cat] (F : τ (Functor A Cat_cat)) (Z : Cat)
   @hom_precomp_along_fapp0 A Cat_cat F Z W X h G
   ≡ @comp_cat_fapp0 (@fapp0 A Cat_cat F W) (@fapp0 A Cat_cat F X) Z G (@fapp1_fapp0 A Cat_cat F W X h);
 
-assertnot [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
+assert [A B : Cat] (F : τ (Functor A B)) [x y z : τ (Obj A)]
   (f : τ (Hom A x y)) (g : τ (Hom A y z)) ⊢
   @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
     (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f))

@@ -4,8 +4,10 @@
   At a fixed source x, the target functor sends (y,p) to (G[y],epsilon[p]).
   Its total component has base epsilon[y] and fibre the existing pre/right
   laxity cell.  The source and target are reframed only through typed
-  equality-induced hom action, so the construction preserves rather than
-  collapses laxity.  One constructor-visible component beta is owned here;
+  equality-induced hom action. The whole transformation and its higher
+  action are retained. Under the conventional-lax default, the extracted
+  pre/right comparison is strict; the post/left leg remains lax.
+  One constructor-visible component beta is owned here;
   generic tapp1 action remains available for the next dependent-simplex
   successor.  No endpoint rewrite or proof-time unifier is introduced.
 */

@@ -3,7 +3,7 @@ require open emdash.emdash3_2_one_cat_negative_families;
 
 // The signed input map and addition are both internal functors.
 symbol one_cat_difference_family_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (X Y : τ (Functor B C))
   : τ (Functor (Product_cat (@Transf_cat B C X Y) (@Transf_cat B C X Y)) (@Transf_cat B C X Y))
 ≔ @comp_cat_fapp0 (Product_cat (@Transf_cat B C X Y) (@Transf_cat B C X Y)) (Hom_cat (Functor_cat B (Product_cat C C))
@@ -15,7 +15,7 @@ symbol one_cat_difference_family_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat
 
 // Subtraction applies that whole functor to the original pair f/g.
 symbol one_cat_difference_family [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (X Y : τ (Functor B C)) (f g : τ (@Transf B C X Y))
   : τ (@Transf B C X Y)
 ≔ @fapp0 (Product_cat (@Transf_cat B C X Y) (@Transf_cat B C X Y)) (@Transf_cat B C X Y)
@@ -24,7 +24,7 @@ symbol one_cat_difference_family [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero
 
 // The native operation agrees with the already constructed addition/negation.
 symbol one_cat_difference_family_formula_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X Y : τ (Functor B C)) (f g : τ (@Transf B C X Y))
   : τ (@= (@Transf B C X Y) (@one_cat_difference_family B C C1 Prod t A T0 X Y f g)
   (@one_cat_additive_family_add B C C1 Prod t A T0 X Y f (@one_cat_negative_family B C C1 Prod t A T0 X Y g)))
@@ -33,7 +33,7 @@ symbol one_cat_difference_family_formula_path [B C : Cat] (C1 : τ (IsNCat (cat_
 
 // Original scalar subtraction is a derived component observation.
 symbol one_cat_difference_family_component_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X Y : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (b : τ (Obj B))
   : τ (@= (Hom C (@fapp0 B C X b) (@fapp0 B C Y b)) (@tapp0_fapp0 B C X Y b (@one_cat_difference_family B C C1
   Prod t A T0 X Y f g)) (@preadditive_hom_add C (@additive_preadditive C Prod t A) (@fapp0 B C X b) (@fapp0 B C Y b)

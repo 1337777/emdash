@@ -8,7 +8,7 @@ require open emdash.emdash3_2_one_cat_homology_covered_maps;
 // The original upper triple gives the right-column homology input.
 symbol one_cat_native_window_right_column_input [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
   (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (mm : τ (@Transf B (@ZeroArrowCone_cat C t T) Rm R0))
   (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2))
@@ -30,7 +30,7 @@ symbol one_cat_native_window_right_column_input [B C : Cat] [Add : τ (@Preaddit
   (Em : τ (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q Rm)) (E0 : τ
     (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q R0)) (E1 : τ (@OneCatZeroConeShortExactFamily B
     C Add C1 t T T0 P Q R1)) (E2 : τ (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q R2))
-  : τ (@Transf B (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
+  : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
     (@terminal_arrow_diagram_func C t T) (@zero_cone_row_family_vertex_func B C t T Rm walking_arrow_tgt))
     (@zero_cone_right_column_outgoing_func B C t T R0 R1 m0))
 ≔ @one_cat_zero_cone_right_column_input B C Add C1 t T T0 P Q Rm R0 R1 mm m0 upper_zero Em;
@@ -38,7 +38,7 @@ symbol one_cat_native_window_right_column_input [B C : Cat] [Add : τ (@Preaddit
 // The original lower triple gives the left-column homology input.
 symbol one_cat_native_window_left_column_input [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
   (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (mm : τ (@Transf B (@ZeroArrowCone_cat C t T) Rm R0))
   (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2))
@@ -60,7 +60,7 @@ symbol one_cat_native_window_left_column_input [B C : Cat] [Add : τ (@Preadditi
   (Em : τ (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q Rm)) (E0 : τ
     (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q R0)) (E1 : τ (@OneCatZeroConeShortExactFamily B
     C Add C1 t T T0 P Q R1)) (E2 : τ (@OneCatZeroConeShortExactFamily B C Add C1 t T T0 P Q R2))
-  : τ (@Transf B (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_cat WalkingArrow_cat C)
+  : τ (@Transf B (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 B C (Functor_oplax_cat WalkingArrow_cat C)
     (@terminal_arrow_diagram_func C t T) (@zero_cone_row_family_source_func B C t T R0))
     (@zero_cone_left_column_outgoing_func B C t T R1 R2 m1))
 ≔ @one_cat_zero_cone_left_column_input B C Add C1 t T T0 P Q R0 R1 R2 m0 m1 lower_zero E2;
@@ -68,7 +68,7 @@ symbol one_cat_native_window_left_column_input [B C : Cat] [Add : τ (@Preadditi
 // Source and target H are the original constructions at those actual inputs.
 symbol one_cat_native_window_source_homology_func [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
   (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (mm : τ (@Transf B (@ZeroArrowCone_cat C t T) Rm R0))
   (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2))
@@ -97,7 +97,7 @@ symbol one_cat_native_window_source_homology_func [B C : Cat] [Add : τ (@Preadd
   E0 E1 E2);
 symbol one_cat_native_window_target_homology_func [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
   (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (mm : τ (@Transf B (@ZeroArrowCone_cat C t T) Rm R0))
   (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2))
@@ -127,7 +127,7 @@ symbol one_cat_native_window_target_homology_func [B C : Cat] [Add : τ (@Preadd
 // The canonical map ρ retains the original right H and the literal kernel pullback.
 symbol one_cat_native_window_cover_transf [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
   (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (mm : τ (@Transf B (@ZeroArrowCone_cat C t T) Rm R0))
   (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2))
@@ -162,7 +162,7 @@ symbol one_cat_native_window_cover_transf [B C : Cat] [Add : τ (@PreadditiveCat
 // θ shares that exact source and lands in the original left H.
 symbol one_cat_native_window_covered_transf [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
   (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0))
   (Rm R0 R1 R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (mm : τ (@Transf B (@ZeroArrowCone_cat C t T) Rm R0))
   (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B (@ZeroArrowCone_cat C t T) R1 R2))

@@ -9,9 +9,9 @@ symbol chain_pair_native_transf [C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)] [T : τ (@TerminalObject C t)]
   [A B D : τ (Obj C)] (pair : τ (@ComputationalChainPair C S A B D))
-  : τ (@Transf WalkingArrow_cat C
-      (@fapp0 C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A)
-      (@chain_pair_outgoing_diagram C S A B D pair))
+  : τ (@Hom (Functor_oplax_cat WalkingArrow_cat C)
+      (@fapp0 C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A)
+      (@OddDual_func WalkingArrow_cat C (@chain_pair_outgoing_diagram C S A B D pair)))
 ≔ @terminal_zero_composite_transf C S C1 t T A B D
     (@computational_chain_pair_dnext C S A B D pair)
     (@computational_chain_pair_d C S A B D pair)

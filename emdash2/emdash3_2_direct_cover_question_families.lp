@@ -117,7 +117,7 @@ injective symbol direct_cover_question_extension_pullback_fibre_func
 
 // Fibre projection of the canonical whole pullback map.
 rule @tapp0_fapp0
-      _ Cat_cat _ _ $W
+      _ Cat_cart _ _ $W
       (@direct_cover_question_extension_pullback_func
         $K $T $V $U $p $q)
   ↪ @direct_cover_question_extension_pullback_fibre_func
@@ -193,7 +193,7 @@ symbol direct_cover_question_extension_pullback_fibre_agrees
           (@direct_cover_question_extension_psh K T U q)
           W))
       (@tapp0_fapp0
-        (Op_cat K) Cat_cat
+        (Op_cat K) Cat_cart
         (@direct_cover_question_extension_psh
           K T V (@direct_cover_question_internal_pullback K T V U p q))
         (@direct_cover_question_extension_psh K T U q)
@@ -224,7 +224,7 @@ symbol direct_cover_question_extension_pullback_fibre_agrees
           K T V (@direct_cover_question_internal_pullback K T V U p q))
         (@direct_cover_question_extension_psh K T U q)),
       @tapp0_fapp0
-        (Op_cat K) Cat_cat
+        (Op_cat K) Cat_cart
         (@direct_cover_question_extension_psh
           K T V (@direct_cover_question_internal_pullback K T V U p q))
         (@direct_cover_question_extension_psh K T U q)
@@ -261,7 +261,7 @@ symbol direct_cover_question_extension_pullback_pair_agrees
           (@direct_cover_question_extension_psh K T U q)
           W)
         (@tapp0_fapp0
-          (Op_cat K) Cat_cat
+          (Op_cat K) Cat_cart
           (@direct_cover_question_extension_psh
             K T V (@direct_cover_question_internal_pullback K T V U p q))
           (@direct_cover_question_extension_psh K T U q)
@@ -310,7 +310,7 @@ symbol direct_cover_question_extension_pullback_pair_agrees
         F
         (Struct_sigma h member))
     (@tapp0_fapp0
-      (Op_cat K) Cat_cat
+      (Op_cat K) Cat_cart
       (@direct_cover_question_extension_psh
         K T V (@direct_cover_question_internal_pullback K T V U p q))
       (@direct_cover_question_extension_psh K T U q)
@@ -360,11 +360,8 @@ constant symbol direct_cover_question_extension_pullback_retained_agrees
           K T V (@direct_cover_question_internal_pullback K T V U p q))
         (@FibCov_source_catd (Op_cat K) V)
         (@direct_cover_question_extension_psh K T U q)
-        (@fib_cov_transf
-          (Op_cat K)
-          (@direct_cover_question_extension_psh K T U q)
-          V
-          (Struct_sigma p member))
+        (@ordinary_sieve_member_section K V U p
+          (@direct_cover_question_sieve K T U q) member)
         (@direct_cover_question_extension_inclusion
           K T V (@direct_cover_question_internal_pullback K T V U p q)))
       (@direct_cover_question_extension_pullback_func K T V U p q));
@@ -425,7 +422,7 @@ injective symbol direct_cover_question_restriction_funcd
 
 // At a literal question, restriction is existing whole precomposition.
 rule @tapp0_fapp0
-      _ Cat_cat _ _
+      _ Cat_cart _ _
       (Struct_sigma $U $q)
       (@direct_cover_question_restriction_funcd $K $T $X)
   ↪ @ordinary_sieve_local_precomp

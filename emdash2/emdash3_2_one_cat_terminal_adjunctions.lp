@@ -30,7 +30,7 @@ injective symbol one_cat_terminal_adjunction [C : Cat]
 // Dual ordinary structural presentation; no unrestricted higher duality claim.
 injective symbol one_cat_initial_adjunction [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject (TotalOp_cat C) t))
   : τ (@Adjunction Terminal_cat C (@Obj_func C t) (Terminal_func C));
 
 // Whole unit; its endpoint action stays with the generic adjunction calculus.
@@ -44,7 +44,7 @@ symbol one_cat_terminal_adjunction_unit [C : Cat]
 // Whole counit of the ordinary initial-object presentation.
 symbol one_cat_initial_adjunction_counit [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject (TotalOp_cat C) t))
   : τ (@Transf C C (@Const_func C C t) (@id_func C))
 ≔ @counit_adj_transf Terminal_cat C (@Obj_func C t) (Terminal_func C)
     (@one_cat_initial_adjunction C C1 t T);
@@ -61,20 +61,25 @@ symbol one_cat_terminal_hom_iso [C : Cat]
 // Evaluation of the dual whole adjunction comparison at (*,x).
 symbol one_cat_initial_hom_iso [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C))
+  (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C))
   : τ (@DefIso Cat_cat (Hom_cat C t x) Terminal_cat)
 ≔ @adjunction_hom_component_iso Terminal_cat C (@Obj_func C t) (Terminal_func C)
     (@one_cat_initial_adjunction C C1 t T) Terminal_obj x;
 
-// Retain the actual selected Hom mate and both inverse slots.
+// Retain the public computational Hom mate in both inverse slots.
+// Its existing cancellation derives the laws without forgetting the mapped owner.
 symbol one_cat_terminal_hom_equivalence [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
   (T : τ (@TerminalObject C t)) (x : τ (Obj C))
   : τ (@OmegaEquivAlong Cat_cat (Hom_cat C x t) Terminal_cat
       (@defiso_to Cat_cat (Hom_cat C x t) Terminal_cat (@one_cat_terminal_hom_iso C C1 t T x)))
-≔ @iso_evidence_omega_along Cat_cat (Hom_cat C x t) Terminal_cat
-    (@defiso_iso_evidence Cat_cat (Hom_cat C x t) Terminal_cat
-      (@one_cat_terminal_hom_iso C C1 t T x));
+≔ @omega_equiv_along_intro Cat_cat (Hom_cat C x t) Terminal_cat (@defiso_to Cat_cat (Hom_cat C x t) Terminal_cat (@one_cat_terminal_hom_iso C C1 t T x))
+    (@defiso_from Cat_cat (Hom_cat C x t) Terminal_cat (@one_cat_terminal_hom_iso C C1 t T x))
+    (@defiso_from Cat_cat (Hom_cat C x t) Terminal_cat (@one_cat_terminal_hom_iso C C1 t T x))
+    (@eq_refl (Hom Cat_cat (Hom_cat C x t) (Hom_cat C x t))
+      (@comp_fapp0 Cat_cat (Hom_cat C x t) Terminal_cat (Hom_cat C x t) (@defiso_from Cat_cat (Hom_cat C x t) Terminal_cat (@one_cat_terminal_hom_iso C C1 t T x)) (@defiso_to Cat_cat (Hom_cat C x t) Terminal_cat (@one_cat_terminal_hom_iso C C1 t T x))))
+    (@eq_refl (Hom Cat_cat Terminal_cat Terminal_cat)
+      (@comp_fapp0 Cat_cat Terminal_cat (Hom_cat C x t) Terminal_cat (@defiso_to Cat_cat (Hom_cat C x t) Terminal_cat (@one_cat_terminal_hom_iso C C1 t T x)) (@defiso_from Cat_cat (Hom_cat C x t) Terminal_cat (@one_cat_terminal_hom_iso C C1 t T x))));
 
 // Object/core uniqueness is a derived observation of the categorical data.
 symbol one_cat_terminal_hom_contraction [C : Cat]
@@ -85,20 +90,25 @@ symbol one_cat_terminal_hom_contraction [C : Cat]
     (@defiso_to Cat_cat (Hom_cat C x t) Terminal_cat (@one_cat_terminal_hom_iso C C1 t T x))
     (@one_cat_terminal_hom_equivalence C C1 t T x);
 
-// Retain the actual selected Hom mate and both inverse slots.
+// Retain the public computational Hom mate in both inverse slots.
+// Its existing cancellation derives the laws without forgetting the mapped owner.
 symbol one_cat_initial_hom_equivalence [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C))
+  (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C))
   : τ (@OmegaEquivAlong Cat_cat (Hom_cat C t x) Terminal_cat
       (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)))
-≔ @iso_evidence_omega_along Cat_cat (Hom_cat C t x) Terminal_cat
-    (@defiso_iso_evidence Cat_cat (Hom_cat C t x) Terminal_cat
-      (@one_cat_initial_hom_iso C C1 t T x));
+≔ @omega_equiv_along_intro Cat_cat (Hom_cat C t x) Terminal_cat (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x))
+    (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x))
+    (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x))
+    (@eq_refl (Hom Cat_cat (Hom_cat C t x) (Hom_cat C t x))
+      (@comp_fapp0 Cat_cat (Hom_cat C t x) Terminal_cat (Hom_cat C t x) (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x))))
+    (@eq_refl (Hom Cat_cat Terminal_cat Terminal_cat)
+      (@comp_fapp0 Cat_cat Terminal_cat (Hom_cat C t x) Terminal_cat (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x)) (@defiso_from Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x))));
 
 // Object/core uniqueness is a derived observation of the categorical data.
 symbol one_cat_initial_hom_contraction [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject (Op_cat C) t)) (x : τ (Obj C))
+  (T : τ (@TerminalObject (TotalOp_cat C) t)) (x : τ (Obj C))
   : τ (IsContr (Obj (Hom_cat C t x)))
 ≔ @cat_contraction_objects_along (Hom_cat C t x)
     (@defiso_to Cat_cat (Hom_cat C t x) Terminal_cat (@one_cat_initial_hom_iso C C1 t T x))

@@ -13,53 +13,53 @@ require open emdash.emdash3_2_omega_equiv_cancellation_paths;
 // Whole projection naturality gives Coim(c)∘π₀ = π₁.
 symbol one_cat_coimage_point_projection_path [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
-  (A : τ (Functor K C)) (D : τ (Functor K (Functor_cat WalkingArrow_cat C)))
-  (h : τ (@Transf K (Functor_cat WalkingArrow_cat C)
-    (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D))
+  (A : τ (Functor K C)) (D : τ (Functor K (Functor_oplax_cat WalkingArrow_cat C)))
+  (h : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C)
+    (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D))
   (x : τ (Obj K))
 
- : τ (@= (Hom C (@fapp0 K C A x) (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0
-  P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+ : τ (@= (Hom C (@fapp0 K C A x) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0
+  P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x)))) (@comp_fapp0 C (@fapp0 K C A x) (@fapp0
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x))) (@coimage_family_global_point_map K C S C1 t T T0
-  P Q A D h x) (@tapp0_fapp0 (Functor_cat WalkingArrow_cat C) C (@diagram_evaluation_at_func WalkingArrow_cat C
-  walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
+  P Q A D h x) (@tapp0_fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C
+  walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func K C t T A D h) x) (@adjunction_coimage_projection C S t T T0 P Q)))
-  (@tapp0_fapp0 (Functor_cat WalkingArrow_cat C) C (@diagram_evaluation_at_func WalkingArrow_cat C
-  walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  (@tapp0_fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C
+  walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x)) (@adjunction_coimage_projection C S t T T0 P Q)))
-≔ @eq_trans _ _ _ _ (@one_cat_component_naturality_path (Functor_cat WalkingArrow_cat C) C C1
-  (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q)
-  (@adjunction_coimage_projection C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+≔ @eq_trans _ _ _ _ (@one_cat_component_naturality_path (Functor_oplax_cat WalkingArrow_cat C) C C1
+  (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q)
+  (@adjunction_coimage_projection C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x)) (@zero_arrow_family_point_diagram_map K C C1 t T A D h x))
- (@eq_ap (Hom C (@fapp0 K C A x) (@fapp0 K C A x)) (Hom C (@fapp0 K C A x) (@fapp0 (Functor_cat WalkingArrow_cat
-  C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+ (@eq_ap (Hom C (@fapp0 K C A x) (@fapp0 K C A x)) (Hom C (@fapp0 K C A x) (@fapp0 (Functor_oplax_cat WalkingArrow_cat
+  C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x))))
    (λ k : τ (Hom C (@fapp0 K C A x) (@fapp0 K C A x)), @comp_fapp0 C (@fapp0 K C A x) (@fapp0 K C A x) (@fapp0
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t
-  T) (Functor_cat
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t
+  T) (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
-  C1 t T)) (@zero_arrow_family_point_input K C t T A D h x))) (@tapp0_fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q)
-  (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  C1 t T)) (@zero_arrow_family_point_input K C t T A D h x))) (@tapp0_fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q)
+  (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x)) (@adjunction_coimage_projection C S t T T0 P Q)) k)
@@ -70,9 +70,9 @@ symbol one_cat_coimage_point_projection_path [K C : Cat] [S : τ (@PreadditiveCa
 symbol one_cat_kernel_boundary_global_point_path [K C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
  (T : τ (@TerminalObject C t)) (P : τ (@KernelAdjunctionStructure C S t T))
- (A : τ (Functor K C)) (D : τ (Functor K (Functor_cat WalkingArrow_cat C)))
- (h : τ (@Transf K (Functor_cat WalkingArrow_cat C)
-   (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D))
+ (A : τ (Functor K C)) (D : τ (Functor K (Functor_oplax_cat WalkingArrow_cat C)))
+ (h : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C)
+   (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D))
  (x : τ (Obj K))
  : τ (@= (Hom C (@fapp0 K C A x) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D) x)) (@tapp0_fapp0 K
   C A (@kernel_adjunction_family_func K C S t T P D) x (@kernel_adjunction_family_boundary_transf K C S t T P A
@@ -90,22 +90,22 @@ symbol one_cat_coimage_kernel_point_reconstruction [K C : Cat] [S : τ (@Preaddi
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)]
   (T : τ (@TerminalObject C t))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (A : τ (Functor K C))
-  (D : τ (Functor K (Functor_cat WalkingArrow_cat C)))
-  (h : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  (D : τ (Functor K (Functor_oplax_cat WalkingArrow_cat C)))
+  (h : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
     (@terminal_arrow_diagram_func C t T) A) D))
  (x : τ (Obj K))
  : τ (@= (Hom C (@fapp0 K C A x) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D) x)) (@comp_fapp0 C
-  (@fapp0 K C A x) (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0
-  K (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
-  (@kernel_adjunction_family_func K C S t T P D) x) (@tapp0_fapp0 K C (@comp_cat_fapp0 K (Functor_cat
+  (@fapp0 K C A x) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0
+  K (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
+  (@kernel_adjunction_family_func K C S t T P D) x) (@tapp0_fapp0 K C (@comp_cat_fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func K C t T A D
   h)) (@kernel_adjunction_family_func K C S t T P D) x (@one_cat_coimage_to_kernel_transf K C S C1 t T T0 P Q A
-  D h)) (@tapp0_fapp0 (Functor_cat WalkingArrow_cat C) C (@diagram_evaluation_at_func WalkingArrow_cat C
-  walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
+  D h)) (@tapp0_fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C
+  walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func K C t T A D h) x) (@adjunction_coimage_projection C S t T T0 P Q)))
   (@tapp0_fapp0 K C A (@kernel_adjunction_family_func K C S t T P D) x
   (@kernel_adjunction_family_boundary_transf K C S t T P A D h)))
@@ -116,22 +116,22 @@ symbol one_cat_coimage_kernel_point_reconstruction [K C : Cat] [S : τ (@Preaddi
 // Cancel the original quotient after reconstruction and its whole naturality.
 symbol one_cat_coimage_kernel_point_path [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
-  (A : τ (Functor K C)) (D : τ (Functor K (Functor_cat WalkingArrow_cat C)))
-  (h : τ (@Transf K (Functor_cat WalkingArrow_cat C)
-    (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D))
+  (A : τ (Functor K C)) (D : τ (Functor K (Functor_oplax_cat WalkingArrow_cat C)))
+  (h : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C)
+    (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D))
   (x : τ (Obj K))
- : τ (@= (Hom C (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
-  (@kernel_adjunction_family_func K C S t T P D) x)) (@comp_fapp0 C (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+ : τ (@= (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
+  (@kernel_adjunction_family_func K C S t T P D) x)) (@comp_fapp0 C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T))) (@kernel_adjunction_family_func (@ZeroArrowCone_cat C t T) C S
@@ -139,20 +139,20 @@ symbol one_cat_coimage_kernel_point_path [K C : Cat] [S : τ (@PreadditiveCatego
   (@one_cat_coimage_to_kernel_transf (@ZeroArrowCone_cat C t T) C S C1 t T T0 P Q (@zero_arrow_cone_first_func C
   t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T)))
   (@coimage_family_global_point_map K C S C1 t T T0 P Q A D h x)) (@tapp0_fapp0 K C (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   K C t T A D h)) (@kernel_adjunction_family_func K C S t T P D) x (@one_cat_coimage_to_kernel_transf K C S C1 t
   T T0 P Q A D h)))
 ≔ (@one_cat_cokernel_quotient_reflect_path C S C1 t T T0 Q (@fapp0 K C (@kernel_adjunction_family_func K C S t T
-  P D) x) (@fapp0 (Functor_cat WalkingArrow_cat C) (Functor_cat WalkingArrow_cat C)
-  (@kernel_adjunction_arrow_func C S t T P) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@comp_fapp0 C (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  P D) x) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) (Functor_oplax_cat WalkingArrow_cat C)
+  (@kernel_adjunction_arrow_func C S t T P) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@comp_fapp0 C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T))) (@kernel_adjunction_family_func (@ZeroArrowCone_cat C t T) C S
@@ -160,41 +160,41 @@ symbol one_cat_coimage_kernel_point_path [K C : Cat] [S : τ (@PreadditiveCatego
   (@one_cat_coimage_to_kernel_transf (@ZeroArrowCone_cat C t T) C S C1 t T T0 P Q (@zero_arrow_cone_first_func C
   t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T)))
   (@coimage_family_global_point_map K C S C1 t T T0 P Q A D h x)) (@tapp0_fapp0 K C (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   K C t T A D h)) (@kernel_adjunction_family_func K C S t T P D) x (@one_cat_coimage_to_kernel_transf K C S C1 t
-  T T0 P Q A D h)) (@eq_trans _ _ _ _ (@eq_sym _ _ _ (@comp_assoc C (@fapp0 K C A x) (@fapp0 (Functor_cat
-  WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  T T0 P Q A D h)) (@eq_trans _ _ _ _ (@eq_sym _ _ _ (@comp_assoc C (@fapp0 K C A x) (@fapp0 (Functor_oplax_cat
+  WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T))) (@kernel_adjunction_family_func (@ZeroArrowCone_cat C t T) C S
   t T P (@zero_arrow_cone_diagram_func C t T)) (@zero_arrow_family_point_input K C t T A D h x)
   (@one_cat_coimage_to_kernel_transf (@ZeroArrowCone_cat C t T) C S C1 t T T0 P Q (@zero_arrow_cone_first_func C
   t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T)))
-  (@coimage_family_global_point_map K C S C1 t T T0 P Q A D h x) (@tapp0_fapp0 (Functor_cat WalkingArrow_cat C)
-  C (@diagram_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q)
-  (@fapp0 K (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)
+  (@coimage_family_global_point_map K C S C1 t T T0 P Q A D h x) (@tapp0_fapp0 (Functor_oplax_cat WalkingArrow_cat C)
+  C (@diagram_oplax_evaluation_at_func WalkingArrow_cat C walking_arrow_src) (@adjunction_coimage_func C S t T T0 P Q)
+  (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)
   (@adjunction_coimage_projection C S t T T0 P Q)))) (@eq_trans _ _ _ _ (@eq_ap (Hom C (@fapp0 K C A x) (@fapp0
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t
-  T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t
+  T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x)))) (Hom C (@fapp0 K C A x) (@fapp0 K C
-  (@kernel_adjunction_family_func K C S t T P D) x)) (λ q : τ (Hom C (@fapp0 K C A x) (@fapp0 (Functor_cat
+  (@kernel_adjunction_family_func K C S t T P D) x)) (λ q : τ (Hom C (@fapp0 K C A x) (@fapp0 (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T)
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x)))), (@comp_fapp0 C (@fapp0 K C A x) (@fapp0
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t
-  T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t
+  T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S
   t T P D) x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T)
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T))) (@kernel_adjunction_family_func (@ZeroArrowCone_cat C t T) C S
   t T P (@zero_arrow_cone_diagram_func C t T)) (@zero_arrow_family_point_input K C t T A D h x)
@@ -212,61 +212,72 @@ symbol one_cat_image_kernel_point_reconstruction [K C : Cat] [S : τ (@Preadditi
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [t : τ (Obj C)]
   (T : τ (@TerminalObject C t))
-  (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T))
   (Q : τ (@CokernelAdjunctionStructure C S t T0))
   (A : τ (Functor K C))
-  (D : τ (Functor K (Functor_cat WalkingArrow_cat C)))
-  (h : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  (D : τ (Functor K (Functor_oplax_cat WalkingArrow_cat C)))
+  (h : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
     (@terminal_arrow_diagram_func C t T) A) D))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
  (x : τ (Obj K))
- : τ (@= (Hom C (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
-  (@kernel_adjunction_family_func K C S t T P D) x)) (@comp_fapp0 C (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
+ : τ (@= (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
+  (@kernel_adjunction_family_func K C S t T P D) x)) (@comp_fapp0 C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P
-  D) x) (@tapp0_fapp0 K C (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T
+  D) x) (@tapp0_fapp0 K C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T
   T0 P Q) (@zero_arrow_family_incoming_func K C t T A D h)) (@kernel_adjunction_family_func K C S t T P D) x
-  (@one_cat_image_to_kernel_transf K C S C1 t T T0 P Q A D h N)) (@tapp0_fapp0 (Functor_cat WalkingArrow_cat C)
-  C (@adjunction_coimage_func C S t T T0 P Q) (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_cat
+  (@one_cat_image_to_kernel_transf K C S C1 t T T0 P Q A D h N)) (@tapp0_fapp0 (Functor_oplax_cat WalkingArrow_cat C)
+  C (@adjunction_coimage_func C S t T T0 P Q) (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x) (@one_cat_coimage_image_comparison C S
-  C1 t T T0 P Q))) (@tapp0_fapp0 K C (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C
+  C1 t T T0 P Q))) (@tapp0_fapp0 K C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C
   (@adjunction_coimage_func C S t T T0 P Q) (@zero_arrow_family_incoming_func K C t T A D h))
   (@kernel_adjunction_family_func K C S t T P D) x (@one_cat_coimage_to_kernel_transf K C S C1 t T T0 P Q A D
   h)))
-≔ @eq_ap (@Transf K C (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0
-  P Q) (@zero_arrow_family_incoming_func K C t T A D h)) (@kernel_adjunction_family_func K C S t T P D)) (Hom C
-  (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat
+≔ @eq_ap (@Transf K C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0
+  P Q) (@zero_arrow_family_incoming_func K C t T A D h)) (@kernel_adjunction_family_func K C S t T P D))
+    (Hom C
+  (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
   (@kernel_adjunction_family_func K C S t T P D) x))
-   (λ v : τ (@Transf K C (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T
+    (λ v : τ (@Transf K C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T
   T0 P Q) (@zero_arrow_family_incoming_func K C t T A D h)) (@kernel_adjunction_family_func K C S t T P D)),
-  @tapp0_fapp0 K C (@comp_cat_fapp0 K (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P
-  Q) (@zero_arrow_family_incoming_func K C t T A D h)) (@kernel_adjunction_family_func K C S t T P D) x v) _ _
-   (@one_cat_image_kernel_reconstruction_path K C S C1 t T T0 P Q A D h N);
+  @tapp0_fapp0 K C (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P
+  Q) (@zero_arrow_family_incoming_func K C t T A D h)) (@kernel_adjunction_family_func K C S t T P D) x v)
+    (@comp_fapp0
+    (Functor_cat K C) (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q)
+    (@zero_arrow_family_incoming_func K C t T A D h)) (@comp_cat_fapp0 K (Functor_oplax_cat WalkingArrow_cat C) C
+    (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func K C t T A D h))
+    (@kernel_adjunction_family_func K C S t T P D) (@one_cat_image_to_kernel_transf K C S C1 t T T0 P Q A D h N)
+    (@fapp0 _ _ (@comp_cat_con_fapp1_func K (Functor_oplax_cat WalkingArrow_cat C) C (@zero_arrow_family_incoming_func K C t
+    T A D h) (@adjunction_coimage_func C S t T T0 P Q) (@adjunction_image_func C S t T T0 P Q))
+    (@one_cat_coimage_image_comparison C S C1 t T T0 P Q)))
+    (@one_cat_coimage_to_kernel_transf K C S C1 t T T0 P Q A D
+    h)
+    (@one_cat_image_kernel_reconstruction_path K C S C1 t T T0 P Q A D h N);
 
 // Coim⇒Im naturality and its existing fixed-forward equivalence give canonical compatibility.
 symbol one_cat_image_kernel_point_path [K C : Cat] [S : τ (@PreadditiveCategory C)]
   (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
-  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
-  (A : τ (Functor K C)) (D : τ (Functor K (Functor_cat WalkingArrow_cat C)))
-  (h : τ (@Transf K (Functor_cat WalkingArrow_cat C)
-    (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D))
+  (A : τ (Functor K C)) (D : τ (Functor K (Functor_oplax_cat WalkingArrow_cat C)))
+  (h : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C)
+    (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A) D))
   (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q)) (x : τ (Obj K))
- : τ (@= (Hom C (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@fapp0 K
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
-  (@kernel_adjunction_family_func K C S t T P D) x)) (@comp_fapp0 C (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+ : τ (@= (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@fapp0 K
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
+  (@kernel_adjunction_family_func K C S t T P D) x)) (@comp_fapp0 C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T))) (@kernel_adjunction_family_func (@ZeroArrowCone_cat C t T) C S
@@ -274,27 +285,27 @@ symbol one_cat_image_kernel_point_path [K C : Cat] [S : τ (@PreadditiveCategory
   (@one_cat_image_to_kernel_transf (@ZeroArrowCone_cat C t T) C S C1 t T T0 P Q (@zero_arrow_cone_first_func C t
   T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T) N))
   (@image_family_global_point_map K C S C1 t T T0 P Q A D h x)) (@tapp0_fapp0 K C (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func K
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func K
   C t T A D h)) (@kernel_adjunction_family_func K C S t T P D) x (@one_cat_image_to_kernel_transf K C S C1 t T
   T0 P Q A D h N)))
-≔ (@omega_equiv_precomp_reflect_path C (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S
-  t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x))
-  (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_cat
-  WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@tapp0_fapp0 (Functor_cat
+≔ (@omega_equiv_precomp_reflect_path C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S
+  t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x))
+  (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat
+  WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@tapp0_fapp0 (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@adjunction_image_func C S t T T0 P Q)
-  (@fapp0 K (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)
+  (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)
   (@one_cat_coimage_image_comparison C S C1 t T T0 P Q)) (@one_cat_omega_equiv_fmap (Functor_cat
-  (Functor_cat WalkingArrow_cat C) C) C C1 (@fapp0_func (Functor_cat WalkingArrow_cat C) C (@fapp0 K (Functor_cat
+  (Functor_oplax_cat WalkingArrow_cat C) C) C C1 (@fapp0_func (Functor_oplax_cat WalkingArrow_cat C) C (@fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@adjunction_coimage_func C S t T T0
   P Q) (@adjunction_image_func C S t T T0 P Q) (@one_cat_coimage_image_comparison C S C1 t T T0 P Q) N) (@fapp0
-  K C (@kernel_adjunction_family_func K C S t T P D) x) (@comp_fapp0 C (@fapp0 (Functor_cat WalkingArrow_cat C)
-  C (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  K C (@kernel_adjunction_family_func K C S t T P D) x) (@comp_fapp0 C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C)
+  C (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T))) (@kernel_adjunction_family_func (@ZeroArrowCone_cat C t T) C S
@@ -302,100 +313,100 @@ symbol one_cat_image_kernel_point_path [K C : Cat] [S : τ (@PreadditiveCategory
   (@one_cat_image_to_kernel_transf (@ZeroArrowCone_cat C t T) C S C1 t T T0 P Q (@zero_arrow_cone_first_func C t
   T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T) N))
   (@image_family_global_point_map K C S C1 t T T0 P Q A D h x)) (@tapp0_fapp0 K C (@comp_cat_fapp0 K
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func K
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func K
   C t T A D h)) (@kernel_adjunction_family_func K C S t T P D) x (@one_cat_image_to_kernel_transf K C S C1 t T
-  T0 P Q A D h N)) (@eq_trans _ _ _ _ (@eq_sym _ _ _ (@comp_assoc C (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  T0 P Q A D h N)) (@eq_trans _ _ _ _ (@eq_sym _ _ _ (@comp_assoc C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T))) (@kernel_adjunction_family_func (@ZeroArrowCone_cat C t T) C S
   t T P (@zero_arrow_cone_diagram_func C t T)) (@zero_arrow_family_point_input K C t T A D h x)
   (@one_cat_image_to_kernel_transf (@ZeroArrowCone_cat C t T) C S C1 t T T0 P Q (@zero_arrow_cone_first_func C t
   T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T) N))
-  (@image_family_global_point_map K C S C1 t T T0 P Q A D h x) (@tapp0_fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_cat
+  (@image_family_global_point_map K C S C1 t T T0 P Q A D h x) (@tapp0_fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@adjunction_image_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat
   WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x) (@one_cat_coimage_image_comparison C S
-  C1 t T T0 P Q)))) (@eq_trans _ _ _ _ (@eq_ap (Hom C (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  C1 t T T0 P Q)))) (@eq_trans _ _ _ _ (@eq_ap (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
-  (@zero_arrow_family_point_input K C t T A D h x)))) (Hom C (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
+  (@zero_arrow_family_point_input K C t T A D h x)))) (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P
-  D) x)) (λ v : τ (Hom C (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q)
-  (@fapp0 K (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T)
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
+  D) x)) (λ v : τ (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q)
+  (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T)
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
-  C1 t T)) (@zero_arrow_family_point_input K C t T A D h x)))), (@comp_fapp0 C (@fapp0 (Functor_cat
-  WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  C1 t T)) (@zero_arrow_family_point_input K C t T A D h x)))), (@comp_fapp0 C (@fapp0 (Functor_oplax_cat
+  WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T))) (@kernel_adjunction_family_func (@ZeroArrowCone_cat C t T) C S
   t T P (@zero_arrow_cone_diagram_func C t T)) (@zero_arrow_family_point_input K C t T A D h x)
   (@one_cat_image_to_kernel_transf (@ZeroArrowCone_cat C t T) C S C1 t T T0 P Q (@zero_arrow_cone_first_func C t
   T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T) N)) v)) _ _
-  (@one_cat_component_naturality_path (Functor_cat WalkingArrow_cat C) C C1 (@adjunction_coimage_func C S t T T0 P
+  (@one_cat_component_naturality_path (Functor_oplax_cat WalkingArrow_cat C) C C1 (@adjunction_coimage_func C S t T T0 P
   Q) (@adjunction_image_func C S t T T0 P Q) (@one_cat_coimage_image_comparison C S C1 t T T0 P Q) (@fapp0 K
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x) (@fapp0
-  (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x) (@fapp0
+  (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T)) (@zero_arrow_family_point_input K C t T A D h x))
-  (@zero_arrow_family_point_diagram_map K C C1 t T A D h x))) (@eq_trans _ _ _ _ (@comp_assoc C (@fapp0 (Functor_cat
-  WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_cat WalkingArrow_cat C)
-  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  (@zero_arrow_family_point_diagram_map K C C1 t T A D h x))) (@eq_trans _ _ _ _ (@comp_assoc C (@fapp0 (Functor_oplax_cat
+  WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C)
+  (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
-  (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_image_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat
+  x) (@tapp0_fapp0 (@ZeroArrowCone_cat C t T) C (@comp_cat_fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat
   WalkingArrow_cat C) C (@adjunction_image_func C S t T T0 P Q) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T))) (@kernel_adjunction_family_func (@ZeroArrowCone_cat C t T) C S
   t T P (@zero_arrow_cone_diagram_func C t T)) (@zero_arrow_family_point_input K C t T A D h x)
   (@one_cat_image_to_kernel_transf (@ZeroArrowCone_cat C t T) C S C1 t T T0 P Q (@zero_arrow_cone_first_func C t
   T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T) N)) (@tapp0_fapp0
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@adjunction_image_func C S t T
-  T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@adjunction_image_func C S t T
+  T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func
   (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T)
   (@zero_arrow_cone_universal_transf C C1 t T)) (@zero_arrow_family_point_input K C t T A D h x))
   (@one_cat_coimage_image_comparison C S C1 t T T0 P Q)) (@coimage_family_global_point_map K C S C1 t T T0 P Q A
-  D h x)) (@eq_trans _ _ _ _ (@eq_ap (Hom C (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func
-  C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  D h x)) (@eq_trans _ _ _ _ (@eq_ap (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func
+  C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x)) (Hom C (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K
-  (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
-  (@kernel_adjunction_family_func K C S t T P D) x)) (λ v : τ (Hom C (@fapp0 (Functor_cat WalkingArrow_cat C) C
-  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_cat WalkingArrow_cat C)
+  x)) (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 K
+  (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0 K C
+  (@kernel_adjunction_family_func K C S t T P D) x)) (λ v : τ (Hom C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C
+  (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t T) (Functor_oplax_cat WalkingArrow_cat C)
   (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T (@zero_arrow_cone_first_func C t T)
   (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C C1 t T))
   (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S t T P D)
-  x)), (@comp_fapp0 C (@fapp0 (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q)
-  (@fapp0 K (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0
-  (Functor_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t
-  T) (Functor_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
+  x)), (@comp_fapp0 C (@fapp0 (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q)
+  (@fapp0 K (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func K C t T A D h) x)) (@fapp0
+  (Functor_oplax_cat WalkingArrow_cat C) C (@adjunction_coimage_func C S t T T0 P Q) (@fapp0 (@ZeroArrowCone_cat C t
+  T) (Functor_oplax_cat WalkingArrow_cat C) (@zero_arrow_family_incoming_func (@ZeroArrowCone_cat C t T) C t T
   (@zero_arrow_cone_first_func C t T) (@zero_arrow_cone_diagram_func C t T) (@zero_arrow_cone_universal_transf C
   C1 t T)) (@zero_arrow_family_point_input K C t T A D h x))) (@fapp0 K C (@kernel_adjunction_family_func K C S
   t T P D) x) v (@coimage_family_global_point_map K C S C1 t T T0 P Q A D h x))) _ _

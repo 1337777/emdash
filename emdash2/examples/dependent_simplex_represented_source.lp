@@ -83,10 +83,10 @@ assert [K : Cat] [E D : τ (Catd K)]
       (@dependent_spine3_assoc_tetrahedron
         K E x0 x1 x2 x3 u0 u1 u2 u3 p01 a01 p12 a12 p23 a23))
   ≡ @fdapp1_int_hom_fapp0
-      (Op_cat (Hom_cat K x0 x3))
+      (TotalOp_cat (Hom_cat K x0 x3))
       (@DependentTriangle_catd K E x0 u0 x3 u3)
       (@DependentTriangleImage_catd K E D FF x0 u0 x3 u3)
-      (@fdapp1_int_presheaf_arrow K E D FF x0 u0 x3 u3)
+      (@dependent_triangle_map_catd K E D FF x0 u0 x3 u3)
       (sigma_Fst (@dependent_spine3_right_triangle
         K E x0 x1 x2 x3 u0 u1 u2 u3 p01 a01 p12 a12 p23 a23))
       (sigma_Fst (@dependent_spine3_left_triangle

@@ -59,7 +59,7 @@ symbol one_cat_double_family_proj2_component_path [B C : Cat] (C1 : τ (IsNCat (
 
 // S=(π₁,π₁+π₂) is an actual whole transformation on the original double product.
 symbol one_cat_shear_family [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor (Product_cat
-  C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (X : τ
+  C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (X : τ
   (Functor B C)) : τ (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X X)) (@fapp0
   (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma
@@ -74,7 +74,7 @@ symbol one_cat_shear_family [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
 
 // Scalar agreement is derived from the whole program's existing component observations.
 symbol one_cat_shear_family_component_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X : τ (Functor B C)) (b : τ (Obj B))
   : τ (@= (Hom C (@fapp0 (Product_cat C C) C Prod (@Product_pair C C (@fapp0 B C X b) (@fapp0 B C X b))) (@fapp0
   (Product_cat C C) C Prod (@Product_pair C C (@fapp0 B C X b) (@fapp0 B C X b)))) (@tapp0_fapp0 B C (@fapp0
@@ -149,7 +149,7 @@ symbol one_cat_shear_family_component_path [B C : Cat] (C1 : τ (IsNCat (cat_suc
 
 // Component equivalence retains the original scalar inverse while fixing actual S_b.
 symbol one_cat_shear_family_component_omega [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
-  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat
+  (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (X : τ (Functor B C)) (b : τ (Obj B))
   : τ (@OmegaEquivAlong C (@fapp0 (Product_cat C C) C Prod (@Product_pair C C (@fapp0 B C X b) (@fapp0 B C X b)))
   (@fapp0 (Product_cat C C) C Prod (@Product_pair C C (@fapp0 B C X b) (@fapp0 B C X b))) (@tapp0_fapp0 B C (@fapp0
@@ -219,7 +219,7 @@ symbol one_cat_shear_family_component_omega [B C : Cat] (C1 : τ (IsNCat (cat_su
 
 // Existing generic whole inverse assembly applies to the already constructed S.
 symbol one_cat_shear_family_omega [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (X : τ (Functor B C))
   : τ (@OmegaEquivAlong (Functor_cat B C) (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C)
   (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X
@@ -235,7 +235,7 @@ symbol one_cat_shear_family_omega [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zer
 
 // Select the whole inverse from that same fixed-forward evidence.
 symbol one_cat_shear_family_inverse [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ (Functor
-  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (X : τ (Functor B C))
   : τ (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C)
   C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X X)) (@fapp0 (Functor_cat B (Product_cat

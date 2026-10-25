@@ -64,7 +64,7 @@ assert [K : Cat]
   (q : τ (@DirectCoverQuestionData K T U)) ⊢
   @tapp0_fapp0
     (Op_cat K)
-    Cat_cat
+    Cat_cart
     (@direct_cover_question_extension_psh
       K T V (@direct_cover_question_internal_pullback K T V U p q))
     (@direct_cover_question_extension_psh K T U q)
@@ -145,7 +145,7 @@ assert [K : Cat]
           (@direct_cover_question_extension_psh K T U q)
           W)
         (@tapp0_fapp0
-          (Op_cat K) Cat_cat
+          (Op_cat K) Cat_cart
           (@direct_cover_question_extension_psh
             K T V (@direct_cover_question_internal_pullback K T V U p q))
           (@direct_cover_question_extension_psh K T U q)
@@ -213,7 +213,7 @@ assert [K : Cat]
   (q : τ (@DirectCoverQuestionData K T U)) ⊢
   @tapp0_fapp0
     (@DirectCoverQuestion_cat K T)
-    Cat_cat
+    Cat_cart
     (@DirectCoverQuestionSection_catd K T X)
     (@DirectCoverQuestionMatching_catd K T X)
     (Struct_sigma U q)

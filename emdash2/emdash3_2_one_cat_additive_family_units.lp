@@ -6,7 +6,7 @@ require open emdash.emdash3_2_one_cat_zero_family_postcomposition_paths;
 // The original pairing with zero factors through the original whole first injection.
 symbol one_cat_product_pair_zero_second_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y : τ (Functor B C)) (f : τ (@Transf B C X Y))
+  (TotalOp_cat C) t)) (X Y : τ (Functor B C)) (f : τ (@Transf B C X Y))
  : τ (@= (@Transf B C X (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
   (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) Y Y)))
   (@one_cat_product_family_pair B C C1 Prod (@additive_binary_products C Prod t A) X Y Y f
@@ -28,7 +28,7 @@ symbol one_cat_product_pair_zero_second_path [B C : Cat] (C1 : τ (IsNCat (cat_s
 // The whole coproduct injection law and native pairing give f+0=f.
 symbol one_cat_additive_family_right_zero_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y : τ (Functor B C)) (f : τ (@Transf B C X Y))
+  (TotalOp_cat C) t)) (X Y : τ (Functor B C)) (f : τ (@Transf B C X Y))
  : τ (@= (@Transf B C X Y) (@one_cat_additive_family_add B C C1 Prod t A T0 X Y f (@zero_arrow_family_zero_transf
   B C t (@additive_terminal_object C Prod t A) T0 X Y)) f)
 ≔ (@eq_trans _ _ _ _ (@one_cat_additive_family_add_formula_path B C C1 Prod t A T0 X Y f
@@ -105,7 +105,7 @@ symbol one_cat_additive_family_right_zero_path [B C : Cat] (C1 : τ (IsNCat (cat
 // Whole negation preserves zero through its original postcomposition formula.
 symbol one_cat_negative_family_zero_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y : τ (Functor B C))
+  (TotalOp_cat C) t)) (X Y : τ (Functor B C))
  : τ (@= (@Transf B C X Y) (@one_cat_negative_family B C C1 Prod t A T0 X Y (@zero_arrow_family_zero_transf B C t
   (@additive_terminal_object C Prod t A) T0 X Y)) (@zero_arrow_family_zero_transf B C t (@additive_terminal_object
   C Prod t A) T0 X Y))
@@ -116,7 +116,7 @@ symbol one_cat_negative_family_zero_path [B C : Cat] (C1 : τ (IsNCat (cat_succ 
 // The original whole difference now satisfies f−0=f.
 symbol one_cat_difference_family_right_zero_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod :
   τ (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y : τ (Functor B C)) (f : τ (@Transf B C X Y))
+  (TotalOp_cat C) t)) (X Y : τ (Functor B C)) (f : τ (@Transf B C X Y))
  : τ (@= (@Transf B C X Y) (@one_cat_difference_family B C C1 Prod t A T0 X Y f (@zero_arrow_family_zero_transf B
   C t (@additive_terminal_object C Prod t A) T0 X Y)) f)
 ≔ (@eq_trans _ _ _ _ (@one_cat_difference_family_formula_path B C C1 Prod t A T0 X Y f
@@ -130,7 +130,7 @@ symbol one_cat_difference_family_right_zero_path [B C : Cat] (C1 : τ (IsNCat (c
 // A whole map killing the correction preserves the original first map after subtraction.
 symbol one_cat_difference_killed_second_path [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)) [Prod : τ
   (Functor (Product_cat C C) C)] [t : τ (Obj C)] (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject
-  (Op_cat C) t)) (X Y : τ (Functor B C)) (Z : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (h : τ (@Transf B C Y
+  (TotalOp_cat C) t)) (X Y : τ (Functor B C)) (Z : τ (Functor B C)) (f g : τ (@Transf B C X Y)) (h : τ (@Transf B C Y
   Z)) (e : τ (@= (@Transf B C X Z) (@comp_fapp0 (Functor_cat B C) X Y Z h g) (@zero_arrow_family_zero_transf B C t
   (@additive_terminal_object C Prod t A) T0 X Z)))
  : τ (@= (@Transf B C X Z) (@comp_fapp0 (Functor_cat B C) X Y Z h (@one_cat_difference_family B C C1 Prod t A T0 X

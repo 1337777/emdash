@@ -50,7 +50,7 @@ assert [K : Cat]
   (R : τ (@Sieve K U)) ⊢
   @tapp0_fapp0
     (Op_cat K)
-    Cat_cat
+    Cat_cart
     (@ordinary_sieve_extension_psh K U R)
     (@yoneda_psh K U)
     V
@@ -84,7 +84,7 @@ assert [K : Cat]
     (@Fibre_cat (Op_cat K) (@yoneda_psh K U) V)
     (@tapp0_fapp0
       (Op_cat K)
-      Cat_cat
+      Cat_cart
       (@ordinary_sieve_extension_psh K U R)
       (@yoneda_psh K U)
       V

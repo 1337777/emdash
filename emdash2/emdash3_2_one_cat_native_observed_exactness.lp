@@ -13,7 +13,7 @@ symbol native_input_pair_observation [C : Cat]
 // The actual native input and canonical witness remain parameters, not existentially reselected data.
 symbol NativeObservedPairExactAt [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
  (X : τ (Obj (@ZeroArrowCone_cat C t T)))
@@ -24,7 +24,7 @@ symbol NativeObservedPairExactAt [C : Cat] [S : τ (@PreadditiveCategory C)]
 // Reuse the canonical witness; only its observation path is extended by the actual interpretation path.
 symbol native_observed_pair_exact_transport [C : Cat] [S : τ (@PreadditiveCategory C)]
  (C1 : τ (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)]
- (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+ (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
  (P : τ (@KernelAdjunctionStructure C S t T)) (Q : τ (@CokernelAdjunctionStructure C S t T0))
  (N : τ (@OneCatAdjunctionNormality C S C1 t T T0 P Q))
  (X : τ (Obj (@ZeroArrowCone_cat C t T)))

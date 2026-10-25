@@ -8,7 +8,7 @@ require open emdash.emdash3_2_one_cat_categorical_exactness;
 symbol one_cat_native_snake_first_exact_input [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -16,7 +16,7 @@ symbol one_cat_native_snake_first_exact_input [K C : Cat]
     Prod t Add) T0 P Q))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
-  : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
     (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t Add)) (@kernel_adjunction_family_func
     K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P
     (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
@@ -45,7 +45,7 @@ symbol one_cat_native_snake_first_exact_input [K C : Cat]
 symbol one_cat_native_snake_first_exact_comparison [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -69,7 +69,7 @@ symbol one_cat_native_snake_first_exact_comparison [K C : Cat]
 symbol OneCatNativeSnakeFirstExactness [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -94,7 +94,7 @@ symbol OneCatNativeSnakeFirstExactness [K C : Cat]
 symbol one_cat_native_snake_second_exact_input [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -102,7 +102,7 @@ symbol one_cat_native_snake_second_exact_input [K C : Cat]
     Prod t Add) T0 P Q))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
-  : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
     (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t Add)) (@kernel_adjunction_family_func
     K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P
     (@transf_arrow_diagram_func K C B X b))) (@transf_arrow_diagram_func K C (@kernel_adjunction_family_func K C
@@ -128,7 +128,7 @@ symbol one_cat_native_snake_second_exact_input [K C : Cat]
 symbol one_cat_native_snake_second_exact_comparison [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -151,7 +151,7 @@ symbol one_cat_native_snake_second_exact_comparison [K C : Cat]
 symbol OneCatNativeSnakeSecondExactness [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -175,7 +175,7 @@ symbol OneCatNativeSnakeSecondExactness [K C : Cat]
 symbol one_cat_native_snake_third_exact_input [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -183,7 +183,7 @@ symbol one_cat_native_snake_third_exact_input [K C : Cat]
     Prod t Add) T0 P Q))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
-  : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
     (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t Add)) (@kernel_adjunction_family_func
     K C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod t Add) P
     (@one_cat_native_snake_gamma_diagram K C (@additive_preadditive C Prod t Add) C1 t
@@ -210,7 +210,7 @@ symbol one_cat_native_snake_third_exact_input [K C : Cat]
 symbol one_cat_native_snake_third_exact_comparison [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -233,7 +233,7 @@ symbol one_cat_native_snake_third_exact_comparison [K C : Cat]
 symbol OneCatNativeSnakeThirdExactness [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -257,7 +257,7 @@ symbol OneCatNativeSnakeThirdExactness [K C : Cat]
 symbol one_cat_native_snake_fourth_exact_input [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -265,7 +265,7 @@ symbol one_cat_native_snake_fourth_exact_input [K C : Cat]
     Prod t Add) T0 P Q))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t (@additive_terminal_object C Prod t Add) A B X D b c))
-  : τ (@Transf K (Functor_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C)
+  : τ (@Transf K (Functor_oplax_cat WalkingArrow_cat C) (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C)
     (@terminal_arrow_diagram_func C t (@additive_terminal_object C Prod t Add))
     (@cokernel_adjunction_family_func K C (@additive_preadditive C Prod t Add) t T0 Q
     (@one_cat_native_snake_alpha_diagram K C (@additive_preadditive C Prod t Add) C1 t
@@ -292,7 +292,7 @@ symbol one_cat_native_snake_fourth_exact_input [K C : Cat]
 symbol one_cat_native_snake_fourth_exact_comparison [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))
@@ -315,7 +315,7 @@ symbol one_cat_native_snake_fourth_exact_comparison [K C : Cat]
 symbol OneCatNativeSnakeFourthExactness [K C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (Add : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t (@additive_terminal_object C Prod
     t Add)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t Add) t T0))

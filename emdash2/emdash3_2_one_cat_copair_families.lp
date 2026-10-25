@@ -5,7 +5,7 @@ require open emdash.emdash3_2_one_cat_biproduct_adjunction;
 // The native inverse mate is the whole copairing operation.
 symbol one_cat_copair_family_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (X Y Z : τ (Functor B C))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (X Y Z : τ (Functor B C))
   : τ (Functor (Product_cat (@Transf_cat B C X Z) (@Transf_cat B C Y Z)) (@Transf_cat B C (@fapp0 (Functor_cat B
     (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C) C Prod) (@Struct_sigma (Functor B C)
     (λ _ : τ (Functor B C), Functor B C) X Y)) Z))
@@ -16,7 +16,7 @@ symbol one_cat_copair_family_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zer
 // Its inverse returns the original pair of whole transformations.
 symbol one_cat_uncopair_family_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (X Y Z : τ (Functor B C))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (X Y Z : τ (Functor B C))
   : τ (Functor (@Transf_cat B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B
     (Product_cat C C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) Z) (Product_cat
     (@Transf_cat B C X Z) (@Transf_cat B C Y Z)))
@@ -27,7 +27,7 @@ symbol one_cat_uncopair_family_func [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_z
 // Whole copairing at its native input/output Hom annotations.
 symbol one_cat_copair_family [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (X Y Z : τ (Functor B C))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (X Y Z : τ (Functor B C))
   (f : τ (@Transf B C X Z)) (g : τ (@Transf B C Y Z))
   : τ (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C C)
     C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) Z)
@@ -41,7 +41,7 @@ symbol one_cat_copair_family [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C)
 // Native recovery retains the complete original pair and its higher action.
 symbol one_cat_uncopair_family [B C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (X Y Z : τ (Functor B C))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (X Y Z : τ (Functor B C))
   (h : τ (@Transf B C (@fapp0 (Functor_cat B (Product_cat C C)) (Functor_cat B C) (@comp_cat_cov_func B (Product_cat C
     C) C Prod) (@Struct_sigma (Functor B C) (λ _ : τ (Functor B C), Functor B C) X Y)) Z))
   : τ (Obj (Product_cat (@Transf_cat B C X Z) (@Transf_cat B C Y Z)))

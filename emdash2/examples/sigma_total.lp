@@ -190,7 +190,7 @@ assert [K : Cat] (E D : τ (Catd K)) (η : τ (Functord E D))
         (λ kk : τ (Obj K), Obj (Fibre_cat D kk))
         k
         (@fapp0 (Fibre_cat E k) (Fibre_cat D k)
-          (@tapp0_fapp0 K Cat_cat E D k η)
+          (@tapp0_fapp0 K Cat_cart E D k η)
           u);
 
 // The stable arbitrary-object action agrees with whole Sigma action only at
@@ -248,7 +248,7 @@ assert [K : Cat]
       (@Fibre_cat K E (@sigma_obj_base K E q))
       (@Fibre_cat K D (@sigma_obj_base K E q))
       (@tapp0_fapp0
-        K Cat_cat E D (@sigma_obj_base K E q) η)
+        K Cat_cart E D (@sigma_obj_base K E q) η)
       (@sigma_obj_fibre K E q);
 
 assert [K : Cat]

@@ -8,7 +8,7 @@ symbol C : Cat;
 symbol C1 : τ (IsNCat (cat_succ cat_zero) C);
 symbol t : τ (Obj C);
 symbol T : τ (@TerminalObject C t);
-symbol T0 : τ (@TerminalObject (Op_cat C) t);
+symbol T0 : τ (@TerminalObject (TotalOp_cat C) t);
 symbol A : τ (Functor K C);
 symbol B : τ (Functor K C);
 symbol X : τ (Functor K C);
@@ -19,8 +19,8 @@ symbol c : τ (@Transf K C X D);
 symbol h : τ (@NativeSnakeInput K C t T A B X D b c);
 
 assert ⊢ @NativeSnakeInput K C t T A B X D b c
-  ≡ @Transf K (Functor_cat WalkingArrow_cat C)
-      (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A)
+  ≡ @Transf K (Functor_oplax_cat WalkingArrow_cat C)
+      (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A)
       (@transf_arrow_diagram_func K C B D (@comp_fapp0 (Functor_cat K C) B X D c b));
 assert ⊢ @native_snake_incoming K C t T A B X D b c h : τ (@Transf K C A B);
 assert ⊢ @native_snake_incoming_diagram K C t T A B X D b c h

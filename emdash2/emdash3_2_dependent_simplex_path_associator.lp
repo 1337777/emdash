@@ -294,15 +294,15 @@ symbol represented_assoc_lhs_funcd_agrees_comp
         (@Rep_catd Z x2)
         (@Rep_catd Z x1)
         (@Rep_catd Z x0)
-        (@hom_int_precomp_func Z Z (@id_func Z) x1 x0 f)
-        (@hom_int_precomp_func Z Z (@id_func Z) x2 x1 g)))
+        (@Rep_transport_func Z x0 x1 f)
+        (@Rep_transport_func Z x1 x2 g)))
 ≔ @path_pseudo_laxity_postcomp_comp_path
     (@Catd_cat Z)
     (Op_cat Z)
     (@Rep_catd_func Z)
     (@Rep_catd Z x2)
     x1 x0 f
-    (@hom_int_precomp_func Z Z (@id_func Z) x2 x1 g);
+    (@Rep_transport_func Z x1 x2 g);
 
 // Component of that displayed composite is nested precomposition.
 protected symbol represented_assoc_comp_component_path
@@ -325,8 +325,8 @@ protected symbol represented_assoc_comp_component_path
             (@Rep_catd Z x2)
             (@Rep_catd Z x1)
             (@Rep_catd Z x0)
-            (@hom_int_precomp_func Z Z (@id_func Z) x1 x0 f)
-            (@hom_int_precomp_func Z Z (@id_func Z) x2 x1 g))
+            (@Rep_transport_func Z x0 x1 f)
+            (@Rep_transport_func Z x1 x2 g))
           x3)
         h)
       (@hom_precomp_along_fapp0
@@ -347,8 +347,8 @@ protected symbol represented_assoc_comp_component_path
           (@Rep_catd Z x2)
           (@Rep_catd Z x1)
           (@Rep_catd Z x0)
-          (@hom_int_precomp_func Z Z (@id_func Z) x1 x0 f)
-          (@hom_int_precomp_func Z Z (@id_func Z) x2 x1 g))
+          (@Rep_transport_func Z x0 x1 f)
+          (@Rep_transport_func Z x1 x2 g))
         x3)
       h);
 
@@ -381,8 +381,8 @@ symbol represented_assoc_lhs_agrees_raw
           (@Rep_catd Z x2)
           (@Rep_catd Z x1)
           (@Rep_catd Z x0)
-          (@hom_int_precomp_func Z Z (@id_func Z) x1 x0 f)
-          (@hom_int_precomp_func Z Z (@id_func Z) x2 x1 g))
+          (@Rep_transport_func Z x0 x1 f)
+          (@Rep_transport_func Z x1 x2 g))
         x3)
       h)
     (@comp_fapp0
@@ -414,8 +414,8 @@ symbol represented_assoc_lhs_agrees_raw
             (@Rep_catd Z x2)
             (@Rep_catd Z x1)
             (@Rep_catd Z x0)
-            (@hom_int_precomp_func Z Z (@id_func Z) x1 x0 f)
-            (@hom_int_precomp_func Z Z (@id_func Z) x2 x1 g))
+            (@Rep_transport_func Z x0 x1 f)
+            (@Rep_transport_func Z x1 x2 g))
           x3)
         h)
       (@hom_precomp_along_fapp0

@@ -1,11 +1,13 @@
 /* Reviewer for whole evaluation computation and proof-time views. */
 require open emdash.emdash3_2_diagram_evaluation;
 
-// Evaluation after precomposition retains the remaining whole functor.
+// Evaluation after precomposition retains the canonical whole precomposition
+// owner; the separate raw composition presentation is checked proof-time below.
 assert [B I C : Cat] [A : Cat] (D : τ (Functor B (Functor_cat I C)))
   (F : τ (Functor A B)) (i : τ (Obj I))
   ⊢ @diagram_family_at_func A I C (@comp_cat_fapp0 A B (Functor_cat I C) D F) i
-    ≡ @comp_cat_fapp0 A B C (@diagram_family_at_func B I C D i) F;
+    ≡ @hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A B F
+        (@diagram_family_at_func B I C D i);
 
 // Its whole Hom action agrees before selecting an arrow.
 assert [B I C : Cat] [A : Cat] (D : τ (Functor B (Functor_cat I C)))
@@ -13,7 +15,8 @@ assert [B I C : Cat] [A : Cat] (D : τ (Functor B (Functor_cat I C)))
   ⊢ @fapp1_func A C
       (@diagram_family_at_func A I C (@comp_cat_fapp0 A B (Functor_cat I C) D F) i) x y
     ≡ @fapp1_func A C
-      (@comp_cat_fapp0 A B C (@diagram_family_at_func B I C D i) F) x y;
+      (@hom_precomp_along_fapp0 Cat_cat Cat_cat (@id_func Cat_cat) C A B F
+        (@diagram_family_at_func B I C D i)) x y;
 
 // Typed proof-time reviewer: exact whole functor evaluation.
 assert [B I C : Cat] (F : τ (Functor B (Functor_cat I C))) (i : τ (Obj I))
@@ -27,18 +30,24 @@ assert [B I C : Cat] [F G : τ (Functor B (Functor_cat I C))]
   ⊢ @eq_refl (@Transf B C
       (@comp_cat_fapp0 B (Functor_cat I C) C (@diagram_evaluation_at_func I C i) F)
       (@comp_cat_fapp0 B (Functor_cat I C) C (@diagram_evaluation_at_func I C i) G))
-      (@sym_transf_tapp0_transf B I C F G h i)
+      (@fapp1_fapp0 (Functor_cat B (Functor_cat I C))
+        (Functor_cat B C)
+        (@diagram_family_evaluation_func B I C i) F G h)
     : τ (@= (@Transf B C
       (@comp_cat_fapp0 B (Functor_cat I C) C (@diagram_evaluation_at_func I C i) F)
       (@comp_cat_fapp0 B (Functor_cat I C) C (@diagram_evaluation_at_func I C i) G))
-      (@sym_transf_tapp0_transf B I C F G h i)
+      (@fapp1_fapp0 (Functor_cat B (Functor_cat I C))
+        (Functor_cat B C)
+        (@diagram_family_evaluation_func B I C i) F G h)
       (@fapp0 _ _ (@comp_cat_cov_fapp1_func B (Functor_cat I C) C
         (@diagram_evaluation_at_func I C i) F G) h));
 
 // The transformation view computes the original component at every parameter.
 assert [B I C : Cat] [F G : τ (Functor B (Functor_cat I C))]
   (h : τ (@Transf B (Functor_cat I C) F G)) (i : τ (Obj I)) (x : τ (Obj B))
-  ⊢ @tapp0_fapp0 B C _ _ x (@sym_transf_tapp0_transf B I C F G h i)
+  ⊢ @tapp0_fapp0 B C _ _ x (@fapp1_fapp0 (Functor_cat B (Functor_cat I C))
+        (Functor_cat B C)
+        (@diagram_family_evaluation_func B I C i) F G h)
     ≡ @tapp0_fapp0 I C _ _ i (@tapp0_fapp0 B (Functor_cat I C) F G x h);
 
 // The comparison does not identify evaluations at unrelated shape points.
@@ -51,9 +60,13 @@ assertnot [B I C : Cat] (F : τ (Functor B (Functor_cat I C))) (i j : τ (Obj I)
 assertnot [B I C : Cat] [F G : τ (Functor B (Functor_cat I C))]
   (h k : τ (@Transf B (Functor_cat I C) F G)) (i : τ (Obj I))
   ⊢ @eq_refl (@Transf B C (@diagram_family_at_func B I C F i) (@diagram_family_at_func B I C G i))
-      (@sym_transf_tapp0_transf B I C F G h i)
+      (@fapp1_fapp0 (Functor_cat B (Functor_cat I C))
+        (Functor_cat B C)
+        (@diagram_family_evaluation_func B I C i) F G h)
     : τ (@= (@Transf B C (@diagram_family_at_func B I C F i) (@diagram_family_at_func B I C G i))
-      (@sym_transf_tapp0_transf B I C F G h i)
+      (@fapp1_fapp0 (Functor_cat B (Functor_cat I C))
+        (Functor_cat B C)
+        (@diagram_family_evaluation_func B I C i) F G h)
       (@fapp0 _ _ (@comp_cat_cov_fapp1_func B (Functor_cat I C) C
         (@diagram_evaluation_at_func I C i) F G) k));
 
@@ -75,24 +88,24 @@ assertnot [A0 A1 A2 B0 B1 B2 I C : Cat]
     : τ (Functor (Product_cat A0 B0) C);
 
 // Compare evaluation before and after projecting its Hom owner.
-assert [A B I C : Cat] (D : τ (Functor B (Functor_cat I C)))
+assert [A B I C : Cat] (D : τ (Functor B (Functor_cart_cat I C)))
   (F : τ (Functor A B)) (i : τ (Obj I)) (x y : τ (Obj A))
-  ⊢ @sym_fapp0_fapp1_func A I C (@comp_cat_fapp0 A B (Functor_cat I C) D F) i x y
+  ⊢ @sym_fapp0_fapp1_func A I C (@comp_cat_fapp0 A B (Functor_cart_cat I C) D F) i x y
     ≡ @fapp1_func A C
       (@comp_cat_fapp0 A B C (@sym_fapp0_func B I C D i) F) x y;
 
 // Capped evaluation also joins the preprojected and whole routes.
-assert [A B I C : Cat] (D : τ (Functor B (Functor_cat I C)))
+assert [A B I C : Cat] (D : τ (Functor B (Functor_cart_cat I C)))
   (F : τ (Functor A B)) (i : τ (Obj I)) (x y : τ (Obj A)) (p : τ (Hom A x y))
   ⊢ @fapp0 _ _
-      (@sym_fapp0_fapp1_func A I C (@comp_cat_fapp0 A B (Functor_cat I C) D F) i x y) p
+      (@sym_fapp0_fapp1_func A I C (@comp_cat_fapp0 A B (Functor_cart_cat I C) D F) i x y) p
     ≡ @fapp1_fapp0 A C
       (@comp_cat_fapp0 A B C (@sym_fapp0_func B I C D i) F) x y p;
 
 // A further Hom of that same preprojected owner also joins.
-assert [A B I C : Cat] (D : τ (Functor B (Functor_cat I C)))
+assert [A B I C : Cat] (D : τ (Functor B (Functor_cart_cat I C)))
   (F : τ (Functor A B)) (i : τ (Obj I)) (x y : τ (Obj A)) (p q : τ (Hom A x y))
   ⊢ @fapp1_func _ _
-      (@sym_fapp0_fapp1_func A I C (@comp_cat_fapp0 A B (Functor_cat I C) D F) i x y) p q
+      (@sym_fapp0_fapp1_func A I C (@comp_cat_fapp0 A B (Functor_cart_cat I C) D F) i x y) p q
     ≡ @fapp1_func _ _
       (@fapp1_func A C (@comp_cat_fapp0 A B C (@sym_fapp0_func B I C D i) F) x y) p q;

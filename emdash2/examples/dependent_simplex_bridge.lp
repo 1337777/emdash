@@ -131,14 +131,14 @@ assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
     (@DependentTriangle_catd K E x u y v) p0)))
   (alpha1 : τ (Obj (Fibre_cat
     (@DependentTriangle_catd K E x u y v) p1)))
-  (kappa : τ (Hom (Op_cat (Hom_cat K x y)) p1 p0))
+  (kappa : τ (Hom (TotalOp_cat (Hom_cat K x y)) p1 p0))
   (lambda : τ (Obj (Fibre_cat
     (@homd_
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangle_catd K E x u y v)
       (@DependentTriangle_catd K E x u y v)
       (@id_funcd
-        (Op_cat (Hom_cat K x y))
+        (TotalOp_cat (Hom_cat K x y))
         (@DependentTriangle_catd K E x u y v))
       p1 alpha1 p0 alpha0)
     kappa))) ⊢
@@ -158,14 +158,14 @@ assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
     (@DependentTriangle_catd K E x u y v) p0)))
   (alpha1 : τ (Obj (Fibre_cat
     (@DependentTriangle_catd K E x u y v) p1)))
-  (kappa : τ (Hom (Op_cat (Hom_cat K x y)) p1 p0))
+  (kappa : τ (Hom (TotalOp_cat (Hom_cat K x y)) p1 p0))
   (lambda : τ (Obj (Fibre_cat
     (@homd_
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangle_catd K E x u y v)
       (@DependentTriangle_catd K E x u y v)
       (@id_funcd
-        (Op_cat (Hom_cat K x y))
+        (TotalOp_cat (Hom_cat K x y))
         (@DependentTriangle_catd K E x u y v))
       p1 alpha1 p0 alpha0)
     kappa))) ⊢
@@ -175,10 +175,10 @@ assert (K : Cat) (E D : τ (Catd K)) (FF : τ (Functord E D))
       (@dependent_tetrahedron
         K E x u y v p0 p1 alpha0 alpha1 kappa lambda))
   ≡ @fdapp1_int_hom_fapp0
-      (Op_cat (Hom_cat K x y))
+      (TotalOp_cat (Hom_cat K x y))
       (@DependentTriangle_catd K E x u y v)
       (@DependentTriangleImage_catd K E D FF x u y v)
-      (@fdapp1_int_presheaf_arrow K E D FF x u y v)
+      (@dependent_triangle_map_catd K E D FF x u y v)
       p1 p0 kappa alpha1 alpha0 lambda;
 
 // A further hom action remains available; the bridge has not capped the

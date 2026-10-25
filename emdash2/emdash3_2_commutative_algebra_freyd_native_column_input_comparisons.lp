@@ -62,8 +62,8 @@ symbol freyd_raw_native_right_column_input_map [K : Cat] [R : τ CommRing] (M : 
   (@comm_ring_zero_presentation R) (@additive_terminal_object (@CommRingFreydPresentation_cat R)
   (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R))
   (@freyd_raw_native_row_family K R A0 B0 D0 i0 p0 c0) walking_arrow_tgt) x) (@comm_ring_freyd_hom_class R D0 D1
-  d0) (@freyd_raw_chain_zero_path R D0 D1 D2 d0 d1 chain) (@tapp0_fapp0 K (Functor_cat WalkingArrow_cat
-  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K (@CommRingFreydPresentation_cat R) (Functor_cat
+  d0) (@freyd_raw_chain_zero_path R D0 D1 D2 d0 d1 chain) (@tapp0_fapp0 K (Functor_oplax_cat WalkingArrow_cat
+  (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K (@CommRingFreydPresentation_cat R) (Functor_oplax_cat
   WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@terminal_arrow_diagram_func
   (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R) (@additive_terminal_object
   (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R) (@comm_ring_zero_presentation R)
@@ -141,8 +141,8 @@ symbol freyd_raw_native_right_column_input_equiv [K : Cat] [R : τ CommRing] (M 
   (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@freyd_raw_native_row_family K R A0 B0 D0 i0
   p0 c0) walking_arrow_tgt) x) (@comm_ring_freyd_hom_class R D0 D1 d0) (@freyd_raw_chain_zero_path R D0 D1 D2 d0
-  d1 chain) (@tapp0_fapp0 K (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K
-  (@CommRingFreydPresentation_cat R) (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+  d1 chain) (@tapp0_fapp0 K (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K
+  (@CommRingFreydPresentation_cat R) (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
   (@terminal_arrow_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
   (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R))) (@zero_cone_row_family_vertex_func K
@@ -216,8 +216,8 @@ symbol freyd_raw_native_left_column_input_map [K : Cat] [R : τ CommRing] (M : �
   (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@freyd_raw_native_row_family K R A0 B0 D0 i0
   p0 c0)) x) (@comm_ring_freyd_hom_class R A0 A1 a0) (@freyd_raw_chain_zero_path R A0 A1 A2 a0 a1 chain)
-  (@tapp0_fapp0 K (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K
-  (@CommRingFreydPresentation_cat R) (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+  (@tapp0_fapp0 K (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K
+  (@CommRingFreydPresentation_cat R) (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
   (@terminal_arrow_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
   (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R))) (@zero_cone_row_family_source_func K
@@ -293,8 +293,8 @@ symbol freyd_raw_native_left_column_input_equiv [K : Cat] [R : τ CommRing] (M :
   (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R)) (@freyd_raw_native_row_family K R A0 B0 D0 i0
   p0 c0)) x) (@comm_ring_freyd_hom_class R A0 A1 a0) (@freyd_raw_chain_zero_path R A0 A1 A2 a0 a1 chain)
-  (@tapp0_fapp0 K (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K
-  (@CommRingFreydPresentation_cat R) (Functor_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
+  (@tapp0_fapp0 K (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R)) (@comp_cat_fapp0 K
+  (@CommRingFreydPresentation_cat R) (Functor_oplax_cat WalkingArrow_cat (@CommRingFreydPresentation_cat R))
   (@terminal_arrow_diagram_func (@CommRingFreydPresentation_cat R) (@comm_ring_zero_presentation R)
   (@additive_terminal_object (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_direct_sum_func R)
   (@comm_ring_zero_presentation R) (@comm_ring_freyd_additive R))) (@zero_cone_row_family_source_func K

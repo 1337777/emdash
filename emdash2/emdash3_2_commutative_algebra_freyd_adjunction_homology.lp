@@ -6,7 +6,7 @@ require open emdash.emdash3_2_one_cat_chain_pair_homology_records;
 
 // The whole functor uses explicit P/Q, with the local categorical data filled.
 symbol freyd_zero_cone_adjunction_homology_func [R : τ CommRing]
-  [T0 : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R))
+  [T0 : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R))
     (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R)
     (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R)
@@ -24,7 +24,7 @@ symbol freyd_zero_cone_adjunction_homology_func [R : τ CommRing]
 
 // The ordinary record observes the same original raw pair and whole H.
 symbol freyd_raw_chain_adjunction_homology_record [R : τ CommRing]
-  [T0 : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
+  [T0 : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R)
     (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)))
   (Q : τ (@CokernelAdjunctionStructure (@CommRingFreydPresentation_cat R)

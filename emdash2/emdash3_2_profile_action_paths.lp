@@ -2,23 +2,16 @@
 require open emdash.emdash3_2_gray_profiles;
 require open emdash.emdash3_2_one_cat_action_paths;
 
+// Composition now follows from default strict functor action.
+// PF remains a descriptive input for the existing public interface.
 symbol profile_composition_path [A B : Cat] (F : τ (Functor A B))
  (PF : τ (@IsStrictFunctor A B F)) [x y z : τ (Obj A)]
  (g : τ (Hom A y z)) (f : τ (Hom A x y))
  : τ (@= (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
    (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f))
    (@comp_fapp0 B _ _ _ (@fapp1_fapp0 A B F y z g) (@fapp1_fapp0 A B F x y f)))
-≔ @eq_trans _ _ _ _
-   (@eq_ap (Hom A x z) (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
-     (λ h : τ (Hom A x z), @fapp1_fapp0 A B F x z h)
-     (@comp_fapp0 A x y z g f) (@hom_postcomp_fapp0 A A (@id_func A) x y z g f)
-     (@comp_postcomp_path A x y z g f))
-   (@eq_sym _ _ _
-     (@strict_cell_path (Hom_cat B (@fapp0 A B F x) (@fapp0 A B F z))
-       (@strict_functor_compositor_lhs A B F x y z g f)
-       (@strict_functor_compositor_rhs A B F x y z g f)
-       (@fapp1_compositor A B F x y z g f)
-       (@strict_functor_compositor_evidence A B F PF x y z g f)));
+≔ @eq_refl (Hom B (@fapp0 A B F x) (@fapp0 A B F z))
+    (@fapp1_fapp0 A B F x z (@comp_fapp0 A x y z g f));
 
 symbol profile_component_naturality_path [A B : Cat]
  [F G : τ (Functor A B)] (eta : τ (@Transf A B F G))

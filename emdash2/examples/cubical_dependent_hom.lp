@@ -54,7 +54,7 @@ assert [K1 K2 : Cat]
   @homdc_ K1 K2 E x1 y1 x2 y2 u v
   : τ (Functor
       (Hom_cat K1 x1 y1)
-      (Catd_cat (Op_cat (Hom_cat K2 x2 y2))));
+      (Functor_cart_cat (Op_cat (Hom_cat K2 x2 y2)) Cat_cart));
 
 // Generic fibre computation in the common cross corner.
 assert [K1 K2 : Cat]
@@ -120,21 +120,21 @@ assert [C : Cat]
   (a a' : τ (Hom C x1 y1)) ⊢
   @fapp1_func
     (Hom_cat C x1 y1)
-    (Catd_cat (Op_cat (Hom_cat C x2 y2)))
+    (Functor_cart_cat (Op_cat (Hom_cat C x2 y2)) Cat_cart)
     (@homdc_square_func C x1 y1 x2 y2 u v)
     a a'
   : τ (Functor
       (Hom_cat (Hom_cat C x1 y1) a a')
       (Hom_cat
-        (Catd_cat (Op_cat (Hom_cat C x2 y2)))
+        (Functor_cart_cat (Op_cat (Hom_cat C x2 y2)) Cat_cart)
         (@fapp0
           (Hom_cat C x1 y1)
-          (Catd_cat (Op_cat (Hom_cat C x2 y2)))
+          (Functor_cart_cat (Op_cat (Hom_cat C x2 y2)) Cat_cart)
           (@homdc_square_func C x1 y1 x2 y2 u v)
           a)
         (@fapp0
           (Hom_cat C x1 y1)
-          (Catd_cat (Op_cat (Hom_cat C x2 y2)))
+          (Functor_cart_cat (Op_cat (Hom_cat C x2 y2)) Cat_cart)
           (@homdc_square_func C x1 y1 x2 y2 u v)
           a')));
 
@@ -146,17 +146,17 @@ assert [C : Cat]
   (b b' : τ (Hom C x2 y2)) ⊢
   @fapp1_func
     (Op_cat (Hom_cat C x2 y2))
-    Cat_cat
+    Cat_cart
     (@fapp0
       (Hom_cat C x1 y1)
-      (Catd_cat (Op_cat (Hom_cat C x2 y2)))
+      (Functor_cart_cat (Op_cat (Hom_cat C x2 y2)) Cat_cart)
       (@homdc_square_func C x1 y1 x2 y2 u v)
       a)
     b b'
   : τ (Functor
       (Hom_cat (Op_cat (Hom_cat C x2 y2)) b b')
       (Hom_cat
-        Cat_cat
+        Cat_cart
         (@homdc_square_fibre C x1 y1 x2 y2 u v a b)
         (@homdc_square_fibre C x1 y1 x2 y2 u v a b')));
 

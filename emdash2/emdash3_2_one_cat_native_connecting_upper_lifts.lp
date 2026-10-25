@@ -3,7 +3,7 @@ require open emdash.emdash3_2_one_cat_native_homology_window_covers;
 
 // The original upper middle-chain law feeds the original composite kernel.
 symbol one_cat_native_upper_lift_zero [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -27,7 +27,7 @@ symbol one_cat_native_upper_lift_zero [B C : Cat] [Add : τ (@PreadditiveCategor
  : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T Rm walking_arrow_src)
   (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_tgt)) (@comp_fapp0 (Functor_cat B C)
   (@zero_cone_row_family_vertex_func B C t T Rm walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R0
-  walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_tgt) (@diagram_family_transf B
+  walking_arrow_src) (@zero_cone_row_family_vertex_func B C t T R1 walking_arrow_tgt) (@diagram_oplax_family_transf B
   WalkingArrow_cat C (@precomposed_diagram_family_func B C (@zero_cone_row_family_vertex_func B C t T R0
   walking_arrow_src) (@zero_cone_right_column_outgoing_func B C t T R0 R1 m0) (@zero_cone_row_family_outgoing B C
   t T R0)) walking_arrow_src walking_arrow_tgt walking_arrow_generator) (@zero_cone_row_family_vertex_map B C t T
@@ -73,7 +73,7 @@ symbol one_cat_native_upper_lift_zero [B C : Cat] [Add : τ (@PreadditiveCategor
 
 // Lift the original upper middle differential into the existing L.
 symbol one_cat_native_upper_lift_transf [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -106,7 +106,7 @@ symbol one_cat_native_upper_lift_transf [B C : Cat] [Add : τ (@PreadditiveCateg
 
 // The original first projection reconstructs the entire upper middle differential.
 symbol one_cat_native_upper_lift_reconstruction [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ
-  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat
+  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1
   R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ
   (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
@@ -146,7 +146,7 @@ symbol one_cat_native_upper_lift_reconstruction [B C : Cat] [Add : τ (@Preaddit
 
 // The original r sends this lift to the original right boundary after the upper row map.
 symbol one_cat_native_upper_lift_boundary_path [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ
-  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat
+  (IsNCat (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat
   C) t)) (P : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1
   R2 : τ (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ
   (@Transf B (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C
@@ -291,7 +291,7 @@ symbol one_cat_native_upper_lift_boundary_path [B C : Cat] [Add : τ (@Preadditi
 
 // The original incoming-row cancellation makes the covered left lift zero.
 symbol one_cat_native_upper_lift_left_zero [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -392,7 +392,7 @@ symbol one_cat_native_upper_lift_left_zero [B C : Cat] [Add : τ (@PreadditiveCa
 
 // Original kernel cancellation makes the whole covered left cycle zero.
 symbol one_cat_native_upper_lift_cycles_zero [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T
@@ -469,7 +469,7 @@ symbol one_cat_native_upper_lift_cycles_zero [B C : Cat] [Add : τ (@Preadditive
 
 // The original whole θ kills this lifted upper differential.
 symbol one_cat_native_upper_lift_theta_zero [B C : Cat] [Add : τ (@PreadditiveCategory C)] (C1 : τ (IsNCat
-  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t)) (P
+  (cat_succ cat_zero) C)) [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) (P
   : τ (@KernelAdjunctionStructure C Add t T)) (Q : τ (@CokernelAdjunctionStructure C Add t T0)) (R0 R1 R2 : τ
   (Functor B (@ZeroArrowCone_cat C t T))) (m0 : τ (@Transf B (@ZeroArrowCone_cat C t T) R0 R1)) (m1 : τ (@Transf B
   (@ZeroArrowCone_cat C t T) R1 R2)) (lower_zero : τ (@= (@Transf B C (@zero_cone_row_family_vertex_func B C t T

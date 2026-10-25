@@ -5,8 +5,8 @@ require open emdash.emdash3_2_one_cat_zero_family_paths;
 
 symbol NativeSnakeInput [K C : Cat] [t : τ (Obj C)] (T : τ (@TerminalObject C t))
   (A B X D : τ (Functor K C)) (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D)) : Grpd
-≔ @Transf K (Functor_cat WalkingArrow_cat C)
-    (@comp_cat_fapp0 K C (Functor_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A)
+≔ @Transf K (Functor_oplax_cat WalkingArrow_cat C)
+    (@comp_cat_fapp0 K C (Functor_oplax_cat WalkingArrow_cat C) (@terminal_arrow_diagram_func C t T) A)
     (@transf_arrow_diagram_func K C B D (@comp_fapp0 (Functor_cat K C) B X D c b));
 
 symbol native_snake_incoming [K C : Cat] [t : τ (Obj C)] (T : τ (@TerminalObject C t))
@@ -17,13 +17,13 @@ symbol native_snake_incoming [K C : Cat] [t : τ (Obj C)] (T : τ (@TerminalObje
 
 symbol native_snake_incoming_diagram [K C : Cat] [t : τ (Obj C)] (T : τ (@TerminalObject C t))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
-  (h : τ (@NativeSnakeInput K C t T A B X D b c)) : τ (Functor K (Functor_cat WalkingArrow_cat C))
+  (h : τ (@NativeSnakeInput K C t T A B X D b c)) : τ (Functor K (Functor_oplax_cat WalkingArrow_cat C))
 ≔ @zero_arrow_family_incoming_func K C t T A
     (@transf_arrow_diagram_func K C B D (@comp_fapp0 (Functor_cat K C) B X D c b)) h;
 
 // A whole triple-zero path enters through the existing native input constructor.
 symbol one_cat_native_snake_input [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   [A B X D : τ (Functor K C)] (a : τ (@Transf K C A B))
   (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (z : τ (@= (@Transf K C A D)
@@ -36,7 +36,7 @@ symbol one_cat_native_snake_input [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zer
 
 // Native whole source recovery returns the original arbitrary a.
 symbol one_cat_native_snake_input_incoming_path [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   [A B X D : τ (Functor K C)] (a : τ (@Transf K C A B))
   (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (z : τ (@= (@Transf K C A D)
@@ -51,7 +51,7 @@ symbol one_cat_native_snake_input_incoming_path [K C : Cat] (C1 : τ (IsNCat (ca
 
 // Associativity re-expresses the whole zero input as c∘(b∘a)=0.
 symbol one_cat_native_snake_zero [K C : Cat] (C1 : τ (IsNCat (cat_succ cat_zero) C))
-  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  [t : τ (Obj C)] (T : τ (@TerminalObject C t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   [A B X D : τ (Functor K C)] (b : τ (@Transf K C B X)) (c : τ (@Transf K C X D))
   (h : τ (@NativeSnakeInput K C t T A B X D b c))
   : τ (@= (@Transf K C A D)

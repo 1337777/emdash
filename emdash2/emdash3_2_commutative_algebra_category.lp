@@ -595,5 +595,5 @@ rule @fapp1_func CommRing_cat Grpd_cat comm_ring_carrier_func $R $S
 symbol comm_ring_carrier_catd
   : τ (Catd CommRing_cat)
 ≔ @comp_cat_fapp0
-    CommRing_cat Grpd_cat Cat_cat
-    Path_cat_func comm_ring_carrier_func;
+    CommRing_cat Grpd_cat Cat_cart
+    Path_cat_cart_func comm_ring_carrier_func;

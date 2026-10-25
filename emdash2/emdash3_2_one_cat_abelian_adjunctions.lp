@@ -7,7 +7,7 @@ require open emdash.emdash3_2_additive_categories;
 symbol OneCatAbelianAdjunctionStructure [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t)) : Grpd
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t)) : Grpd
 ≔ `Σ_ P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
       (@additive_terminal_object C Prod t A)),
     `Σ_ Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0),
@@ -17,7 +17,7 @@ symbol OneCatAbelianAdjunctionStructure [C : Cat]
 symbol one_cat_abelian_adjunction_intro [C : Cat]
   (C1 : τ (IsNCat (cat_succ cat_zero) C))
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (Op_cat C) t))
+  (A : τ (@AdditiveCategory C Prod t)) (T0 : τ (@TerminalObject (TotalOp_cat C) t))
   (P : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
     (@additive_terminal_object C Prod t A)))
   (Q : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0))
@@ -30,7 +30,7 @@ symbol one_cat_abelian_adjunction_intro [C : Cat]
 symbol one_cat_abelian_adjunction_kernels [C : Cat]
   [C1 : τ (IsNCat (cat_succ cat_zero) C)]
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  [A : τ (@AdditiveCategory C Prod t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [A : τ (@AdditiveCategory C Prod t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   (V : τ (@OneCatAbelianAdjunctionStructure C C1 Prod t A T0))
   : τ (@KernelAdjunctionStructure C (@additive_preadditive C Prod t A) t
       (@additive_terminal_object C Prod t A))
@@ -40,7 +40,7 @@ symbol one_cat_abelian_adjunction_kernels [C : Cat]
 symbol one_cat_abelian_adjunction_cokernels [C : Cat]
   [C1 : τ (IsNCat (cat_succ cat_zero) C)]
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  [A : τ (@AdditiveCategory C Prod t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [A : τ (@AdditiveCategory C Prod t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   (V : τ (@OneCatAbelianAdjunctionStructure C C1 Prod t A T0))
   : τ (@CokernelAdjunctionStructure C (@additive_preadditive C Prod t A) t T0)
 ≔ sigma_Fst (sigma_Snd V);
@@ -49,7 +49,7 @@ symbol one_cat_abelian_adjunction_cokernels [C : Cat]
 symbol one_cat_abelian_adjunction_normality [C : Cat]
   [C1 : τ (IsNCat (cat_succ cat_zero) C)]
   [Prod : τ (Functor (Product_cat C C) C)] [t : τ (Obj C)]
-  [A : τ (@AdditiveCategory C Prod t)] [T0 : τ (@TerminalObject (Op_cat C) t)]
+  [A : τ (@AdditiveCategory C Prod t)] [T0 : τ (@TerminalObject (TotalOp_cat C) t)]
   (V : τ (@OneCatAbelianAdjunctionStructure C C1 Prod t A T0))
   : τ (@OneCatAdjunctionNormality C (@additive_preadditive C Prod t A) C1 t
       (@additive_terminal_object C Prod t A) T0

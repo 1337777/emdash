@@ -5,7 +5,7 @@ require open emdash.emdash3_2_commutative_algebra_freyd_adjunction_homology;
 
 // This is exactly the original whole H action at the direct native map.
 assert [R : τ CommRing]
-  [Z : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
+  [Z : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)))
   (Q : τ (@CokernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) Z))
   [S2 S1 S0 T2 T1 T0 : τ (@CommRingPresentation R)]
@@ -24,7 +24,7 @@ assert [R : τ CommRing]
 
 // The endpoints are the retained original-input records.
 assert [R : τ CommRing]
-  [Z : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
+  [Z : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)))
   (Q : τ (@CokernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) Z))
   [S2 S1 S0 T2 T1 T0 : τ (@CommRingPresentation R)]
@@ -43,7 +43,7 @@ assert [R : τ CommRing]
 
 // Whole action in the raw-agreement parameter has the same record endpoints.
 assert [R : τ CommRing]
-  [Z : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
+  [Z : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)))
   (Q : τ (@CokernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) Z))
   [S2 S1 S0 T2 T1 T0 : τ (@CommRingPresentation R)]
@@ -61,7 +61,7 @@ assert [R : τ CommRing]
 
 // A further whole Hom action remains available.
 assert [R : τ CommRing]
-  [Z : τ (@TerminalObject (Op_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
+  [Z : τ (@TerminalObject (TotalOp_cat (@CommRingFreydPresentation_cat R)) (@comm_ring_zero_presentation R))]
   (P : τ (@KernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) (@comm_ring_freyd_terminal_zero R)))
   (Q : τ (@CokernelAdjunctionStructure (@CommRingFreydPresentation_cat R) (@comm_ring_freyd_preadditive R) (@comm_ring_zero_presentation R) Z))
   [S2 S1 S0 T2 T1 T0 : τ (@CommRingPresentation R)]
