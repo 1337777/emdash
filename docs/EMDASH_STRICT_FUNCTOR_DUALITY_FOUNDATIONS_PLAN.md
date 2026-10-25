@@ -116,10 +116,23 @@ older running/failed states and do not override it.
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes. Health's central check passed; the aggregate was stopped after45 observed90s timeouts, preserving receipts. | Measure representative import/consumer cost before restarting with justified profiles. A generated not-run report is not execution evidence. |
-| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations, weakening/reindexing, varying-base Pi and displayed evaluation now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with displayed-chain and Homd/mixed profiles and final integration. |
+| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations, weakening/reindexing, varying-base Pi, displayed evaluation and the first recursive chain now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with chain-2A, higher/Homd/mixed profiles and final integration. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)
+
+The [recursive displayed-chain frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_chain_review.md)
+passes14 focused tests and native emitted-term conformance, with17 generic
+checker tests and50 metadata/review tests. Context construction names the native stable Sigma projection
+pullback; reindexing retains its generic presentation and uses the selected
+native proof comparison during fresh type checking. Runtime equality and
+operational terms are unchanged. The ordinary checker remains unchanged;
+the explicit proof-checking profile validates authority/runtime prefixes,
+rejects foreign contexts, and reports comparison-budget exhaustion.
+Workspace/registration/typecheck/lint pass. The full TypeScript gate now stops
+at the old coefficient in the chain-2A product internal-cell rule. Existing
+section-pullback dependency links are preserved for Pathind consumers.
+Next migrate chain-2A, then the higher/mixed/Homd profiles and final integration.
 
 The [displayed-evaluation frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_display_eval_review.md)
 now has11 passing focused tests and native conformance, plus typecheck/lint.

@@ -61,6 +61,19 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [recursive displayed-chain frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_chain_review.md)
+passes14 focused tests and native emitted-term conformance, with17 generic
+checker tests and50 metadata/review tests. Context construction names the native stable Sigma projection
+pullback; reindexing retains its generic presentation and uses the selected
+native proof comparison during fresh type checking. Runtime equality and
+operational terms are unchanged. The ordinary checker remains unchanged;
+the explicit proof-checking profile validates authority/runtime prefixes,
+rejects foreign contexts, and reports comparison-budget exhaustion.
+Workspace/registration/typecheck/lint pass. The full TypeScript gate now stops
+at the old coefficient in the chain-2A product internal-cell rule. Existing
+section-pullback dependency links are preserved for Pathind consumers.
+Next migrate chain-2A, then the higher/mixed/Homd profiles and final integration.
+
 The [displayed-evaluation frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_display_eval_review.md)
 now has11 passing focused tests and native conformance, plus typecheck/lint.
 `Functor_catd` exposes its Cartesian fibre. `Eval_funcd` retains its native

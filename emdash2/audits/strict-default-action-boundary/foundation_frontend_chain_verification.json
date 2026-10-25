@@ -1,0 +1,131 @@
+{
+  "status": "displayed-chain focused/native scope qualified; full TypeScript stops at unmigrated chain-2A product internal cell",
+  "previousCheckpoint": "7c3b9c28",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "scope": {
+    "localPrerequisiteDeclarations": 5,
+    "semanticDeclarations": 1,
+    "localPrerequisiteRuntimeRules": 5,
+    "localRuntimeRules": 7,
+    "nativeProofComparisons": 1
+  },
+  "nativeInputHashes": {
+    "src/v3_2/categorical_displayed_chain_demo.ts": "8748762ba98ae23b1cfd85630b62af8f8817f0399c453ef17975d085d6c7c2f8",
+    "src/v3_2/categorical_displayed_chain_transfer.ts": "99baa06122cc0de7a9b7fff2363b4e36dd8fab4df2d5548d79272e209eafa2e5",
+    "src/v3_2/categorical_displayed_graduation_proposal.ts": "374c8aed81054d68fb80646c86fbf28bdd6e4596dde174321dfcada6c1eeca20",
+    "src/v3_2/categorical_fibred_weaken_reindex_transfer.ts": "1cf4f0bd7362a35e0211a39b91290cee412beab844f9964b48e22842ad274a49",
+    "src/v3_2/categorical_program.ts": "61135a2c382f24c8abd1b3ed2b6f99d97044d872b7d34fd2eea6d14b56fc75f1",
+    "src/v3_2/categorical_surface.ts": "2474b5f4b3cb42288af312b78b319b2c7a9f5b31695ccb8a25aac19ba3f02ea3",
+    "src/v3_2/lf_transfer_proof.ts": "a96d964ccc99a7a15ece4d57e5705aaf166440badd52c75260b39d2a71c613f5",
+    "tests/v3_2_categorical_displayed_chain_demo_tests.ts": "b6d44c908d1999cdb8e429341db8201e6d30685cddceccd04ffbcc776c6bd835",
+    "tests/v3_2_categorical_displayed_chain_tests.ts": "c2edaf7a6286206931a7351f54a8d09a790336ec90245b02ce9e4b6e644803a0",
+    "tests/v3_2_categorical_displayed_chain_transfer_tests.ts": "864282d8e428fc6441cbe85024e100fe8622aec769d7b6646f45f63c709ecba8",
+    "tests/v3_2_categorical_displayed_graduation_proposal_tests.ts": "b702219d3caddb6415e6582dbc69197b146937b2e9758dc3df738aae7dfc6dac",
+    "tests/v3_2_lf_transfer_runtime_tests.ts": "8c1d9dd7e62379dc56f01fbc2cdd9714bbe6bb08b08657514c3037fe9f3d0c88"
+  },
+  "currentTypescriptInputs": {
+    "src/v3_2/categorical_displayed_chain_demo.ts": "8748762ba98ae23b1cfd85630b62af8f8817f0399c453ef17975d085d6c7c2f8",
+    "src/v3_2/categorical_displayed_chain_transfer.ts": "1079fd59545718f59cab7e3dbe77c40fb6c5b62e8421cf17a00f11dee67535f6",
+    "src/v3_2/categorical_displayed_graduation_proposal.ts": "374c8aed81054d68fb80646c86fbf28bdd6e4596dde174321dfcada6c1eeca20",
+    "src/v3_2/categorical_fibred_weaken_reindex_transfer.ts": "1cf4f0bd7362a35e0211a39b91290cee412beab844f9964b48e22842ad274a49",
+    "src/v3_2/categorical_program.ts": "61135a2c382f24c8abd1b3ed2b6f99d97044d872b7d34fd2eea6d14b56fc75f1",
+    "src/v3_2/categorical_surface.ts": "2474b5f4b3cb42288af312b78b319b2c7a9f5b31695ccb8a25aac19ba3f02ea3",
+    "src/v3_2/lf_transfer_proof.ts": "ed220baad8fb4938be967d2a803162f626df82987c0a0eb29b255449eee33c00",
+    "src/v3_2/lf_transfer_runtime.ts": "369cfca1000f56c8bd9c03c04d69fb72bba545d86b19a32f9206d3fb4a3b767a",
+    "tests/v3_2_categorical_displayed_chain_demo_tests.ts": "b6d44c908d1999cdb8e429341db8201e6d30685cddceccd04ffbcc776c6bd835",
+    "tests/v3_2_categorical_displayed_chain_tests.ts": "902e0329746d63d34505c85e31c341ba045a731f2c3140548a446860c963eff1",
+    "tests/v3_2_categorical_displayed_chain_transfer_tests.ts": "864282d8e428fc6441cbe85024e100fe8622aec769d7b6646f45f63c709ecba8",
+    "tests/v3_2_categorical_displayed_graduation_proposal_tests.ts": "a79627cf223e7efdc5ff96b2e821e86b64fd268ab9bdc17efbe4a3c5a497debc",
+    "tests/v3_2_lf_transfer_runtime_tests.ts": "80289e0a66e7a61c17649ff5e3ec2675d28f741f27291b37187bd23a13564f2a"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261025T195031Z-02838f47b19a4b4d8b0d1f91bd6d7bd6",
+      "target": "tmp/elab0-jZS4tP/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 28.49478659615852,
+      "childrenMaxRssKiB": 168384,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "26b8f2efb1a011f278d3b7e9fed14a3f98eba990ff5f036d98c3a91ef0afe9bb",
+      "log": "logs/check-runs/20261025T195031Z-02838f47b19a4b4d8b0d1f91bd6d7bd6.log",
+      "logSha256": "55f2e2118d3ac11a43d0fb0994e1da50ed6e736958671e8b2a4ccfad081164d4",
+      "receiptFile": "emdash2/logs/check-runs/20261025T195031Z-02838f47b19a4b4d8b0d1f91bd6d7bd6.json",
+      "receiptSha256": "e549df1fe95739cf7b3ab2250b6552fc16bfc1d3952f64ecac3aff2fd48e07c5"
+    }
+  ],
+  "checks": {
+    "focused": "14 passed;1 native opt-in separately passed",
+    "genericRuntimeAndProofChecking": "17 passed, including unchanged terms, no runtime equality, foreign-context rejection and budget exhaustion",
+    "native": "emitted recursive maps, point values, general-FF and identity internal cells, ignored-variable independence, raw/stable runtime non-conversion pass",
+    "workspace": "passed",
+    "registration": "passed;460 suites reachable",
+    "typecheck": "passed",
+    "lint": "passed",
+    "completeTypescript": "wave201 fails at categorical.displayed-chain-2a.displayed-product-pair-internal-cell; no complete test-suite pass",
+    "metadata": "50 passed; stale negative-count mutation corrected to remain negative"
+  },
+  "integrationRepairs": [
+    "selected native section_weaken_funcd replaces retired raw-pullback weakening",
+    "chain context formation explicitly selects Sigma_proj1_pullback_catd; raw Core pullbacks stay distinct",
+    "native same-index projection-pullback proof comparison is used by fresh checking only",
+    "pullback component rule uses native wildcard inferred family slots",
+    "Const_func declaration/object action reuse earlier owner",
+    "existing inherited section_pullback links retained for Pathind transfer inventories"
+  ],
+  "genericCheckingBoundary": {
+    "ordinaryCheckerChanged": false,
+    "selection": "explicit checked proof program with exact authority/runtime prefix and opaque user extension",
+    "closedTypesOnly": true,
+    "emittedTermsChangedByProofChecking": false,
+    "runtimeEqualityAdded": false,
+    "comparisonRuleIdsRecorded": true,
+    "exhaustionReportedAsTypeMismatch": false
+  },
+  "postNativeChanges": "reviewed source pin/comment/demo/count updates, restored inherited dependency links, and explicit proof-budget exhaustion diagnostics; successful operational computations unchanged",
+  "earlierEvidence": [
+    "wave188 metadata drift and retired-pullback assumptions exposed",
+    "wave190 stable inner owner exposes authoring-family mismatch",
+    "wave191 authoring choice fixes variables; fresh reindexing needs proof checking",
+    "wave192 heterogeneous proof formulation rejected; same-index native specialization used",
+    "wave194 all behavior passes; metadata remains",
+    "wave199 aggregate reveals removed inherited dependency link; restored before wave201"
+  ],
+  "outputHashes": {
+    "wave197_chain_native.out": "5d392c7df4d33305e16ea35690d6f0d55d2393ebc8cc98376f01e94aff93858f",
+    "wave198_chain_final.out": "1f7b3079fa8aaaa3eadcdde0a73e3c47ee84455b3e5d21e37479c08a44776d4e",
+    "wave200_proof_checking_runtime.out": "db67afd40db732e0590b55b8706a9bc298ea7467897ec512bd8ed53212c91833",
+    "wave201_ts_integration.out": "cd2fc8f2ec1a67411bce2d8acf9842345e9f5cf6c2d8d0817fdbf1b677cd7da5",
+    "wave202_chain_metadata.out": "20dc8692e0fead341274665e2702beae5d9e701744aba51b6a15126761872246",
+    "wave203_chain_metadata.out": "62c18c38a985058082d2887f3189c300f2246dcb839eb55ab660885bbc186dea"
+  },
+  "remaining": [
+    "chain-2A coefficient and action migration",
+    "higher/mixed/Homd frontend migration",
+    "complete TypeScript and production health integration",
+    "book/article and later legacy nerve stages"
+  ]
+}

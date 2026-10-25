@@ -60,7 +60,7 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
         );
         assert.deepEqual(
             boundary.ambientPrerequisiteDeclarationNames,
-            ['Terminal_obj', 'Const_func']
+            ['Terminal_obj']
         );
         assert.deepEqual(
             boundary.checkedTransparentMirrorDeclarationNames,
@@ -68,9 +68,9 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
         );
         assert.equal(
             boundary.approvedExistingDeclarationPrerequisiteCount,
-            5
+            4
         );
-        assert.equal(boundary.totalGenericTransferDeclarationCount, 6);
+        assert.equal(boundary.totalGenericTransferDeclarationCount, 5);
         assert.equal(
             boundary.checkedTransparentMirrorAddsBackendOwnerCount,
             0
@@ -80,7 +80,7 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
             ['sigma_functord_sec']
         );
         assert.equal(boundary.newMathematicalOwnerCount, 1);
-        assert.equal(boundary.newMathematicalRuntimeRuleCount, 6);
+        assert.equal(boundary.newMathematicalRuntimeRuleCount, 5);
         assert.equal(boundary.newMathematicalProofRuleCount, 0);
         assert.equal(boundary.newIntrinsicCoreOwnerCount, 0);
         assert.equal(boundary.genericFappTappCoherenceRuleCount, 0);
@@ -101,11 +101,6 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
             [
                 {
                     name: 'Terminal_obj',
-                    status: 'installed-opaque',
-                    hasBody: false
-                },
-                {
-                    name: 'Const_func',
                     status: 'installed-opaque',
                     hasBody: false
                 },
@@ -194,8 +189,6 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
                 'categorical.displayed-chain.' +
                     'sigma-projection-pullback-object-prerequisite',
                 'categorical.displayed-chain.' +
-                    'constant-functor-object-prerequisite',
-                'categorical.displayed-chain.' +
                     'constant-family-structured-arrow-prerequisite'
             ]
         );
@@ -218,9 +211,7 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
                 'categorical.displayed-chain.' +
                     'sigma-functord-section-structured-arrow',
                 'categorical.displayed-chain.' +
-                    'section-pullback-direct-object',
-                'categorical.displayed-chain.' +
-                    'section-pullback-direct-arrow'
+                    'section-weakening-arrow'
             ]
         );
         assert.deepEqual(
@@ -256,7 +247,7 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
             ),
             true
         );
-        assert.equal(compilation.composedRuntime.ruleIds.length, 114);
+        assert.equal(compilation.composedRuntime.ruleIds.length, 129);
         assert.equal(
             compilation.composedRuntime.ruleIds.some(ruleId =>
                 /diagnostic/u.test(ruleId)
@@ -312,7 +303,7 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
         assert.equal(
             CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_MODULE
                 .declarations.length,
-            6
+            5
         );
         assert.equal(
             CORE_CATEGORICAL_DISPLAYED_CHAIN_TRANSFER_MODULE
@@ -322,12 +313,12 @@ describe('DISPLAYED-CHAIN-1A generic transfer', () => {
         assert.equal(
             CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_RUNTIME_MODULE
                 .runtimeRules.length,
-            6
+            5
         );
         assert.equal(
             CORE_CATEGORICAL_DISPLAYED_CHAIN_RUNTIME_MODULE
                 .runtimeRules.length,
-            8
+            7
         );
         assertDeepFrozen(
             CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_MODULE

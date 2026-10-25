@@ -213,11 +213,11 @@ describe(
             });
             assert.deepEqual(evidence.displayedChain, {
                 status: 'displayed-chain-1a-generic-transfer',
-                genericTransferDeclarations: 6,
-                prerequisiteRuntimeRules: 6,
+                genericTransferDeclarations: 5,
+                prerequisiteRuntimeRules: 5,
                 newMathematicalOwners: 1,
-                newMathematicalRuntimeRules: 6,
-                objectLevelRules: 2,
+                newMathematicalRuntimeRules: 5,
+                objectLevelRules: 1,
                 structuredArrowOrBaseActionRules: 4,
                 newMathematicalProofRules: 0,
                 newIntrinsicCoreOwners: 0,
@@ -384,7 +384,7 @@ describe(
             assertProposalError(
                 proposal => {
                     proposal.latestTransferEvidence.displayedChain
-                        .newMathematicalRuntimeRules = 5;
+                        .newMathematicalRuntimeRules = 4;
                 },
                 'DISPLAYED_GRADUATION_EVIDENCE_DRIFT'
             );

@@ -61,7 +61,7 @@ export interface CoreCategoricalDisplayedChainDemoResult {
         'B : Catd K instead of B : Catd(Sigma(A))';
     readonly negativeDiagnostic: CoreCategoricalDiagnostic;
     readonly newLambdapiMathematicalOwnerCount: 1;
-    readonly newLambdapiRuntimeRuleCount: 6;
+    readonly newLambdapiRuntimeRuleCount: 5;
     readonly intrinsicCoreOwnerCount: 0;
     readonly stringParserDependency: false;
     readonly productionLambdapiDependency: false;
@@ -312,7 +312,7 @@ CoreCategoricalDisplayedChainDemoResult {
                 irSummary:
                     'slot a under one genuine dependency edge',
                 coreSummary:
-                    'section_pullback(' +
+                    'section_weaken_funcd(' +
                     'sigma_functord_sec(id_funcd A))',
                 compilation: emdash.compile(outer)
             }),
@@ -339,7 +339,7 @@ CoreCategoricalDisplayedChainDemoResult {
                     'closed displayed-functor application over slot a',
                 coreSummary:
                     'pullback(FF) ∘ ' +
-                    'section_pullback(sigma_functord_sec(id A))',
+                    'section_weaken_funcd(sigma_functord_sec(id A))',
                 compilation: emdash.compile(recursive)
             })
         ]),
@@ -367,7 +367,7 @@ CoreCategoricalDisplayedChainDemoResult {
                 .newMathematicalOwnerCount as 1,
         newLambdapiRuntimeRuleCount:
             CORE_CATEGORICAL_DISPLAYED_CHAIN_TRANSFER_BOUNDARY
-                .newMathematicalRuntimeRuleCount as 6,
+                .newMathematicalRuntimeRuleCount as 5,
         intrinsicCoreOwnerCount:
             CORE_CATEGORICAL_DISPLAYED_CHAIN_TRANSFER_BOUNDARY
                 .newIntrinsicCoreOwnerCount as 0,

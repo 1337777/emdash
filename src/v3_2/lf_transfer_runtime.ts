@@ -1761,6 +1761,10 @@ const compileRule = (
                             const comparison = proofProgram.compareUnderOpaqueDeclarationExtension(
                                 ruleEnvironment, checkingRuntime, left, right
                             );
+                            if (comparison.status === 'step-limit-exceeded') {
+                                return { status: 'step-limit-exceeded', path: ['proof-time'],
+                                    nextStep: 'selected argument comparison' };
+                            }
                             if (comparison.status !== 'solved') return ordinary;
                             argumentProofApplications.push(...comparison.ruleApplications);
                             return { status: 'equal' };

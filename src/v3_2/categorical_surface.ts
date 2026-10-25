@@ -48,6 +48,9 @@ import {
     coreCategoricalFibredStructureCoreName
 } from './categorical_fibred_structure_transfer';
 import {
+    CORE_CATEGORICAL_FIBRED_BINDER_CORE_NAMES
+} from './categorical_fibred_binder_transfer';
+import {
     coreCategoricalFibredTransfdCoreName
 } from './categorical_fibred_transfd_transfer';
 import {
@@ -11052,32 +11055,14 @@ export class CoreCategoricalScopedBuilder {
             ],
             nodeProvenance
         );
-        const projection = kernelCall(
-            kernelFree(
-                CORE_DIRECTED_1B_PRIMITIVE_NAMES[
-                    'sigma-first-projection'
-                ],
-                nodeProvenance
-            ),
-            [
-                { plicity: 'implicit', value: baseCategory },
-                {
-                    plicity: 'explicit',
-                    value: compiled.sourceFamily
-                }
-            ],
+        const liftedTargetFamily = kernelCall(kernelFree(
+            CORE_CATEGORICAL_FIBRED_BINDER_CORE_NAMES.sigmaProjectionPullback,
             nodeProvenance
-        );
-        const liftedTargetFamily = kernelApplication(
-            'displayed-pullback',
-            [
-                { value: totalBaseCategory },
-                { value: baseCategory },
-                { value: compiled.targetFamily },
-                { value: projection }
-            ],
-            nodeProvenance
-        );
+        ), [
+            { plicity: 'implicit', value: baseCategory },
+            { plicity: 'explicit', value: compiled.sourceFamily },
+            { plicity: 'explicit', value: compiled.targetFamily }
+        ], nodeProvenance);
         const sigmaSection = kernelCall(
             kernelFree(
                 coreCategoricalDisplayedChainCoreName(
@@ -13396,35 +13381,14 @@ export class CoreCategoricalScopedBuilder {
             ],
             nodeProvenance
         );
-        const prefixProjection = kernelCall(
-            kernelFree(
-                CORE_DIRECTED_1B_PRIMITIVE_NAMES[
-                    'sigma-first-projection'
-                ],
-                nodeProvenance
-            ),
-            [
-                {
-                    plicity: 'implicit',
-                    value: contextRootCategory
-                },
-                {
-                    plicity: 'explicit',
-                    value: prefixBinding.family
-                }
-            ],
+        const liftedPrefixFamily = kernelCall(kernelFree(
+            CORE_CATEGORICAL_FIBRED_BINDER_CORE_NAMES.sigmaProjectionPullback,
             nodeProvenance
-        );
-        const liftedPrefixFamily = kernelApplication(
-            'displayed-pullback',
-            [
-                { value: totalBaseCategory },
-                { value: contextRootCategory },
-                { value: prefixBinding.family },
-                { value: prefixProjection }
-            ],
-            nodeProvenance
-        );
+        ), [
+            { plicity: 'implicit', value: contextRootCategory },
+            { plicity: 'explicit', value: prefixBinding.family },
+            { plicity: 'explicit', value: prefixBinding.family }
+        ], nodeProvenance);
 
         const baseToken = this.slot(
             `${prefixBinding.name}${nextBinding.name}ContextBase`,

@@ -180,6 +180,20 @@ both object consumers and higher action. Next are displayed-chain owner reuse,
 coefficient migration and the remaining mixed/Homd frontend; the full
 TypeScript and production-health integration gates remain open.
 
+
+The [recursive displayed-chain frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_chain_review.md)
+passes14 focused tests and native emitted-term conformance, with17 generic
+checker tests and50 metadata/review tests. Context construction names the native stable Sigma projection
+pullback; reindexing retains its generic presentation and uses the selected
+native proof comparison during fresh type checking. Runtime equality and
+operational terms are unchanged. The ordinary checker remains unchanged;
+the explicit proof-checking profile validates authority/runtime prefixes,
+rejects foreign contexts, and reports comparison-budget exhaustion.
+Workspace/registration/typecheck/lint pass. The full TypeScript gate now stops
+at the old coefficient in the chain-2A product internal-cell rule. Existing
+section-pullback dependency links are preserved for Pathind consumers.
+Next migrate chain-2A, then the higher/mixed/Homd profiles and final integration.
+
 ## Varying-base Pi: selected subject-checking extension
 
 The native Pi component is the whole composite `Pi_func(K) ∘
@@ -205,6 +219,21 @@ compiler integration for the actual native consumer, not a new mathematical
 rule. Its generic runtime regression and native Pi conformance pass. The complete
 TypeScript integration attempt reaches the unmigrated displayed-evaluation
 profile after passing workspace/registration/typecheck/lint.
+
+## Recursive contexts: selected fresh-checking profile
+
+The native migration retired the generic projection-pullback runtime fold.
+The chain frontend now explicitly selects `Sigma_proj1_pullback_catd` for its
+context constructors and preserves generic reindexing terms. Their composition
+requires the native proof comparison inside argument types, beyond Pi's
+runtime-rule subject check. The generic proof-checking adapter is opt-in,
+validates an exact checked theory/runtime prefix and opaque user extension,
+records comparison rule IDs, and handles only closed type comparisons.
+The same-index native comparison is sufficient for this concrete consumer;
+no unchecked heterogeneous proof rule or operational equality payload is added.
+This continuation is qualified by the chain/native and generic tests above.
+The complete TypeScript attempt reaches the next unmigrated chain-2A owner;
+its failure does not qualify that remaining profile.
 
 ## Constraints
 

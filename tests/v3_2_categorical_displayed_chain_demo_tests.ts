@@ -52,15 +52,14 @@ describe('TypeScript v3.2 displayed dependent-chain demo', () => {
             );
             assert.equal(
                 result.computation.runtimeRuleIds.includes(
-                    'categorical.displayed-chain.' +
-                        'section-pullback-direct-object'
+                    'categorical.weaken-reindex.section-weakening-component'
                 ),
                 true
             );
             assert.equal(
                 result.computation.runtimeRuleIds.includes(
                     'categorical.displayed-chain.' +
-                        'section-pullback-direct-arrow'
+                        'section-weakening-arrow'
                 ),
                 true
             );
@@ -69,7 +68,7 @@ describe('TypeScript v3.2 displayed dependent-chain demo', () => {
                 'DISPLAYED_BASE_MISMATCH'
             );
             assert.equal(result.newLambdapiMathematicalOwnerCount, 1);
-            assert.equal(result.newLambdapiRuntimeRuleCount, 6);
+            assert.equal(result.newLambdapiRuntimeRuleCount, 5);
             assert.equal(result.intrinsicCoreOwnerCount, 0);
             assert.equal(result.stringParserDependency, false);
             assert.equal(result.productionLambdapiDependency, false);
@@ -98,7 +97,7 @@ describe('TypeScript v3.2 displayed dependent-chain demo', () => {
             );
             assert.match(
                 output,
-                /section_pullback\(sigma_functord_sec\(id A\)\)/u
+                /section_weaken_funcd\(sigma_functord_sec\(id A\)\)/u
             );
             assert.match(
                 output,
@@ -106,7 +105,7 @@ describe('TypeScript v3.2 displayed dependent-chain demo', () => {
             );
             assert.match(
                 output,
-                /New Lambdapi mathematical owners\/rules: 1\/6/u
+                /New Lambdapi mathematical owners\/rules: 1\/5/u
             );
             assert.match(
                 output,

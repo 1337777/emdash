@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { resolve } from 'node:path';
 import {
     describe,
     it
@@ -16,7 +17,10 @@ import {
     CoreCategoricalProgramError,
     CoreCategoricalSlotToken,
     CoreLfComparisonResult,
-    coreCategoricalDisplayedChainCoreName
+    coreCategoricalDisplayedChainCoreName,
+    compileCoreCategoricalDisplayedChainTransfer,
+    serializeKernelExpression,
+    checkLambdapiProbe
 } from '../src/v3_2';
 
 const runtimeRuleIds = (
@@ -110,6 +114,61 @@ const pointFixture = (
 };
 
 describe('DISPLAYED-CHAIN-1A recursive contextual consumer', () => {
+    it('checks emitted recursive maps, cells and proof-only pullbacks in Lambdapi', {
+        skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_CHAIN_PROBES !== '1'
+    }, () => {
+        const { emdash: e, K, A, B, FF, liftedA, liftedD, liftedFF } = fixture();
+        const outer = e.displayedDependentContextLambda([{ name: 'u', family: A }, { name: 'v', family: B }],
+            liftedA, ([u]) => u);
+        const mapped = e.displayedDependentContextLambda([{ name: 'u', family: A }, { name: 'v', family: B }],
+            liftedD, ([u]) => e.apply(liftedFF, u));
+        const k0 = e.object('k0', K), k1 = e.object('k1', K), p = e.hom('p', K, k0, k1);
+        const a0 = e.object('a0', e.fibre(A, k0)), a1 = e.object('a1', e.fibre(A, k1));
+        const alpha = e.hom('alpha', e.fibre(A, k1), e.apply(e.familyTransport(A, p), a0), a1);
+        const q = e.sigmaArrow(A, a0, a1, p, alpha), z0 = e.dependentPair(A, k0, a0);
+        const b0 = e.object('b0', e.fibre(B, z0)), c0 = e.object('c0', e.fibre(B, z0));
+        const actual = e.apply(e.apply(mapped, z0), b0);
+        const expected = e.apply(e.apply(FF, k0), a0);
+        const cell = e.displayedFunctorInternalCell(outer, q, b0);
+        const otherCell = e.displayedFunctorInternalCell(outer, q, c0);
+        const terms = [outer, mapped, actual, expected, cell, otherCell,
+            e.displayedFunctorInternalCell(mapped, q, b0)].map(term => e.compile(term));
+        assert.ok(terms[1].typeComparisonRuleIds?.includes('categorical.displayed-chain.projection-pullback-comparison'));
+        const c = compileCoreCategoricalDisplayedChainTransfer();
+        const evaluation = c.prerequisite, pi = evaluation.prerequisite, weaken = pi.prerequisite;
+        const transfd = weaken.prerequisite, binder = transfd.prerequisite, structure = binder.prerequisite;
+        const product = structure.prerequisite, comprehension = product.prerequisite;
+        const composition = comprehension.prerequisite, dependent = composition.dependent, structural = dependent.structural;
+        const modules = [structural.initialDeclarations, structural.compiled, dependent.compiled, composition.compiled,
+            comprehension.compiled, product.compiled, structure.compiled, binder.compiled, transfd.compiled,
+            weaken.compiled, pi.compiled, evaluation.prerequisiteCompiled, evaluation.compiled, c.prerequisiteCompiled, c.compiled];
+        const references = Object.assign({}, ...modules.flatMap(module => [
+            module.externalFreeReferences, module.externalTransparentDefinitions
+        ]));
+        const serialize = (term: Parameters<typeof serializeKernelExpression>[0]) =>
+            serializeKernelExpression(term, { externalFreeReferences: references });
+        const source = [
+            'require open emdash.emdash3_2;',
+            'symbol K : Cat;', 'symbol A : τ (Catd K);', 'symbol D : τ (Catd K);',
+            'symbol B : τ (Catd (@Sigma_cat K A));', 'symbol FF : τ (Functord A D);',
+            'symbol k0 : τ (Obj K);', 'symbol k1 : τ (Obj K);', 'symbol p : τ (Hom K k0 k1);',
+            'symbol a0 : τ (Obj (Fibre_cat A k0));', 'symbol a1 : τ (Obj (Fibre_cat A k1));',
+            'symbol alpha : τ (Hom (Fibre_cat A k1) (@fapp0 _ _ (@catd_transport_func K A k0 k1 p) a0) a1);',
+            'symbol b0 : τ (Obj (Fibre_cat B (Struct_sigma k0 a0)));',
+            'symbol c0 : τ (Obj (Fibre_cat B (Struct_sigma k0 a0)));',
+            ...terms.map(term => `assert ⊢ ${serialize(term.explicitTerm)} : ${serialize(term.expectedType)};`),
+            `assert ⊢ ${serialize(terms[2].explicitTerm)} ≡ ${serialize(terms[3].explicitTerm)};`,
+            `assert ⊢ ${serialize(terms[4].explicitTerm)} ≡ ${serialize(terms[5].explicitTerm)};`,
+            'assertnot ⊢ @Pullback_catd (@Sigma_cat K A) K D (@Sigma_proj1_func K A) ≡ @Sigma_proj1_pullback_catd K A D;'
+        ].join('\n');
+        assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/);
+        const result = checkLambdapiProbe({ source, sourceMap: [] }, {
+            packageRoot: resolve(__dirname, '../emdash2'), timeoutMs: 60_000
+        });
+        assert.equal(result.accepted, true, result.diagnostics + '\n' + source);
+        assert.equal(result.timedOut, false);
+    });
+
     it('compiles both variables once through one genuine edge', () => {
         const {
             emdash,
@@ -266,8 +325,7 @@ describe('DISPLAYED-CHAIN-1A recursive contextual consumer', () => {
         assert.equal(innerResult.status, 'equal');
         assert.equal(
             runtimeRuleIds(outerResult).includes(
-                'categorical.displayed-chain.' +
-                    'section-pullback-direct-object'
+                'categorical.weaken-reindex.section-weakening-component'
             ),
             true
         );
@@ -453,7 +511,7 @@ describe('DISPLAYED-CHAIN-1A recursive contextual consumer', () => {
         assert.equal(
             rules.includes(
                 'categorical.displayed-chain.' +
-                    'section-pullback-direct-arrow'
+                    'section-weakening-arrow'
             ),
             true
         );

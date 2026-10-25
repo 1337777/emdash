@@ -13,6 +13,7 @@ import {
     CORE_DIRECTED_CONTINUATION_RUNTIME_TRANSFER_POLICY,
     CORE_DIRECTED_GRADUATION_MANIFEST,
     CoreLfCompiledRuntimeProgram,
+    CoreLfCompiledProofProgram,
     CoreLfModuleSpec,
     CoreLfRuntimeCompilerError,
     CoreLfTransferPolicyOverlay,
@@ -21,6 +22,7 @@ import {
     compileCoreDirectedContinuationRuntimeTransfer,
     compileCoreLfDeclarations,
     compileCoreLfProofProgram,
+    createCoreLfProofCheckingChecker,
     compileCoreLfRuntimeProgram,
     coreLfDefinitionalCompare,
     coreLfQualifiedSymbol,
@@ -1028,6 +1030,39 @@ describe('SCALE-0D generic LF runtime compiler', () => {
         assert.equal(coreLfDefinitionalCompare(
             fixture.declarations.environment, left, right, 64, undefined, runtime
         ).status, 'not-equal');
+    });
+
+    it('fresh-checks a selected proof profile without changing terms or runtime equality', () => {
+        const fixture = proofSubjectRuntimeFixture(true);
+        const empty = createCoreLfModuleSpec({ ...fixture.module, runtimeRules: [] });
+        const runtime = compileCoreLfRuntimeProgram(empty,
+            runtimePolicy(empty, 'empty-proof-checking-runtime'), fixture.declarations);
+        const site = provenance('derived', 'closed argument checking');
+        const term = kernelCall(kernelFree('proof_subject_fixture_argument_observer', site), [
+            { plicity: 'explicit', value: kernelFree('proof_subject_fixture_right_value', site) }
+        ], site);
+        const ordinary = fixture.declarations.createChecker();
+        assert.throws(() => ordinary.infer(ordinary.rootContext, term));
+        const checker = createCoreLfProofCheckingChecker(fixture.declarations.environment, runtime, fixture.proofProgram);
+        const inferred = checker.infer(checker.rootContext, term);
+        assert.equal(kernelExpressionEquals(inferred.term, term), true);
+        assert.deepEqual(checker.proofComparisons.flatMap(result =>
+            result.ruleApplications.map(application => application.ruleId)), ['fixture.proof-subject.types']);
+        assert.equal(coreLfDefinitionalCompare(fixture.declarations.environment,
+            kernelFree('proof_subject_fixture_Left', site), kernelFree('proof_subject_fixture_Right', site),
+            64, undefined, runtime).status, 'not-equal');
+        const wrong = kernelCall(kernelFree('proof_subject_fixture_argument_observer', site), [
+            { plicity: 'explicit', value: kernelFree('proof_subject_fixture_argument_observer', site) }
+        ], site);
+        assert.throws(() => checker.infer(checker.rootContext, wrong));
+        const boundedProgram = new CoreLfCompiledProofProgram(fixture.proofProgram.module,
+            fixture.proofProgram.policy, fixture.proofProgram.declarations, fixture.proofProgram.rules, 0);
+        const bounded = createCoreLfProofCheckingChecker(fixture.declarations.environment, runtime, boundedProgram);
+        assert.throws(() => bounded.infer(bounded.rootContext, term),
+            (error: any) => error.code === 'CONVERSION_STEP_LIMIT');
+        const foreign = proofSubjectRuntimeFixture(true);
+        assert.throws(() => createCoreLfProofCheckingChecker(fixture.declarations.environment, runtime, foreign.proofProgram),
+            (error: any) => error.code === 'INVALID_PROOF_CONTEXT');
     });
 
     it('makes subject-proof expectations exact and self-invalidating', () => {

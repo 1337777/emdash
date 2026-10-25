@@ -2,10 +2,11 @@
  * DISPLAYED-CHAIN-1A generic declaration/runtime transfer.
  *
  * The prerequisite fragment transfers the D-012 through D-015 computation
- * closure: three chain-specific signatures, two ambient signatures, one
- * checked transparent `Obj_func` mirror, five exact existing equations, and
- * one typed `piapp0` normal-form specialization. The semantic delta remains
- * exactly `sigma_functord_sec` and the six runtime rules approved by D-012.
+ * closure with the migrated coefficient, one ambient signature, an inherited
+ * Const_func, one checked Obj_func mirror, and the existing native Sigma/section
+ * projections. Projection pullback agreement is proof-only; recursive
+ * weakening uses section_weaken_funcd. Historical D-012 through D-015 reviews
+ * are retained separately from the active foundations-migration authority.
  * Every entry goes through the owner-agnostic LF declaration and runtime
  * compilers; no intrinsic Core case is added.
  */
@@ -48,7 +49,8 @@ import {
     CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_LINKAGE
 } from './categorical_fibred_transfd_transfer';
 import {
-    CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_LINKAGE
+    CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_LINKAGE,
+    coreCategoricalFibredWeakenReindexCoreName
 } from './categorical_fibred_weaken_reindex_transfer';
 import {
     CORE_CATEGORICAL_STRUCTURAL_TRANSFER_LINKAGE
@@ -82,6 +84,7 @@ import {
 import {
     CoreLfMixedDeclarationContext
 } from './lf_transfer_mixed';
+import { CoreLfCompiledProofProgram, compileCoreLfProofProgram } from './lf_transfer_proof';
 import {
     CoreLfCompiledRuntimeFragment,
     CoreLfCompiledRuntimeProgram,
@@ -101,7 +104,7 @@ export const CORE_CATEGORICAL_DISPLAYED_CHAIN_TRANSFER_REVISION =
     'DISPLAYED-CHAIN-1A-GENERIC-TRANSFER-1' as const;
 
 export const CORE_CATEGORICAL_DISPLAYED_CHAIN_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -113,8 +116,8 @@ const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
 const homClassifier =
     coreDirectedContinuationTransferSymbol('hom-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -163,6 +166,9 @@ const sigmaArrow = symbol('sigma_arrow');
 const sigmaFirstProjection = symbol('Sigma_proj1_func');
 const sigmaProjectionPullback =
     symbol('Sigma_proj1_pullback_catd');
+const sectionWeakening = symbol('section_weaken_funcd');
+// Existing downstream transfer inventories consume these inherited links.
+// They remain the ordinary pullback owners, separate from direct weakening.
 const sectionPullbackFunctor = symbol('section_pullback_func');
 const sectionPullbackSection = symbol('section_pullback_sec');
 const sectionObject = symbol('piapp0');
@@ -372,7 +378,7 @@ const fibre = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'explicit', value: family },
         { plicity: 'explicit', value: point }
@@ -422,7 +428,7 @@ const componentAt = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'implicit', value: sourceFamily },
         { plicity: 'implicit', value: targetFamily },
@@ -570,7 +576,7 @@ const displayedTransportAt = (
     functorArrowAt(
         builder,
         base,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         family,
         sourcePoint,
         targetPoint,
@@ -700,21 +706,13 @@ const sigmaSectionAt = (
         { plicity: 'explicit', value: displayedFunctor_ }
     ]);
 
-const sectionPullbackSectionAt = (
-    builder: CoreLfTransferScopedBuilder,
-    sourceBase: CoreLfTransferBuilderExpression,
-    targetBase: CoreLfTransferBuilderExpression,
-    functor: CoreLfTransferBuilderExpression,
-    family: CoreLfTransferBuilderExpression,
-    section: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression =>
-    globalCall(builder, sectionPullbackSection, [
-        { plicity: 'implicit', value: sourceBase },
-        { plicity: 'implicit', value: targetBase },
-        { plicity: 'explicit', value: functor },
-        { plicity: 'explicit', value: family },
-        { plicity: 'explicit', value: section }
-    ]);
+const sectionWeakeningAt = (builder: CoreLfTransferScopedBuilder,
+    base: CoreLfTransferBuilderExpression, sourceFamily: CoreLfTransferBuilderExpression,
+    targetFamily: CoreLfTransferBuilderExpression, section: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(builder, sectionWeakening, [
+    { plicity: 'implicit', value: base }, { plicity: 'explicit', value: sourceFamily },
+    { plicity: 'explicit', value: targetFamily }, { plicity: 'explicit', value: section }
+]);
 
 const sectionAt = (
     builder: CoreLfTransferScopedBuilder,
@@ -1002,26 +1000,6 @@ const terminalObjectType = (): CoreLfTransferExpression => {
     );
 };
 
-const constantFunctorType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'A',
-        builder.global(category),
-        A => builder.pi(
-            'B',
-            builder.global(category),
-            B => builder.pi(
-                'b',
-                objectType(builder, B),
-                _b => functorType(builder, A, B),
-                explicitMode
-            ),
-            implicitMode
-        ),
-        implicitMode
-    ));
-};
-
 const pointFunctorType = (): CoreLfTransferExpression => {
     const builder = new CoreLfTransferScopedBuilder();
     return builder.term(builder.pi(
@@ -1109,17 +1087,6 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
         provenance: source(
             'constant symbol Terminal_obj : τ (Obj Terminal_cat);'
         )
-    }),
-    Object.freeze({
-        order: 1,
-        symbol: constantFunctor,
-        type: constantFunctorType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: modifiers('injective', 'opaque'),
-        provenance: source(
-            'injective symbol Const_func [A B : Cat] ' +
-                '(b : τ (Obj B)) : τ (Functor A B);'
-        )
     })
 ]);
 
@@ -1203,7 +1170,7 @@ const prerequisiteExternalSymbols = Object.freeze([
     objectClassifier,
     functorClassifier,
     homClassifier,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     displayedFunctorCategory,
     functorObject,
@@ -1213,7 +1180,8 @@ const prerequisiteExternalSymbols = Object.freeze([
     sigmaCategory,
     displayedFibreFunctor,
     displayedTransportLeft,
-    displayedTransportRight
+    displayedTransportRight,
+    constantFunctor
 ]);
 
 export const
@@ -1317,8 +1285,9 @@ const dependencyLink = (
 
 const prerequisiteCoreName = (
     target: CoreLfQualifiedSymbol
-): string =>
-    `emdash_v3_2_displayed_chain_1a_prerequisite_${target.name}`;
+): string => target.name === 'Const_func'
+    ? coreCategoricalFibredWeakenReindexCoreName('constantFunctor')
+    : `emdash_v3_2_displayed_chain_1a_prerequisite_${target.name}`;
 
 export const
 CORE_CATEGORICAL_DISPLAYED_CHAIN_PREREQUISITE_LINKAGE:
@@ -1616,63 +1585,15 @@ const prerequisiteRuntimeRules = Object.freeze([
             left: builder.pattern(functorObjectAt(
                 builder,
                 sigmaTotal(builder, K, R),
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 sigmaProjectionPullbackAt(builder, K, R, D),
                 sigmaPairPattern(builder, K, R, k, r)
             )),
             right: builder.template(fibre(builder, K, D, k)),
             provenance: source(
-                'rule @fapp0 _ Cat_cat ' +
+                'rule @fapp0 _ Cat_cart ' +
                     '(@Sigma_proj1_pullback_catd $K $R $D) ' +
                     '(Struct_sigma $k $r)'
-            )
-        };
-    })(),
-    (() => {
-        const builder = new CoreLfTransferScopedBuilder();
-        const A = builder.capture('A');
-        const B = builder.capture('B');
-        const b = builder.capture('b');
-        const a = builder.capture('a');
-        return {
-            order: 3,
-            id:
-                'categorical.displayed-chain.' +
-                'constant-functor-object-prerequisite',
-            groupId:
-                'categorical.displayed-chain.' +
-                'constant-functor-object-prerequisite',
-            clauseOrder: 0,
-            sourceOwner: functorObject,
-            variables: [
-                {
-                    name: 'A',
-                    type: builder.template(builder.global(category))
-                },
-                {
-                    name: 'B',
-                    type: builder.template(builder.global(category))
-                },
-                {
-                    name: 'b',
-                    type: builder.template(objectType(builder, B))
-                },
-                {
-                    name: 'a',
-                    type: builder.template(objectType(builder, A))
-                }
-            ],
-            left: builder.pattern(functorObjectAt(
-                builder,
-                A,
-                B,
-                constantFunctorAt(builder, A, B, b),
-                a
-            )),
-            right: builder.template(b),
-            provenance: source(
-                'rule @fapp0 $A $B ' +
-                    '(@Const_func $A $B $b) $_ ↪ $b'
             )
         };
     })(),
@@ -1718,7 +1639,7 @@ const prerequisiteRuntimeRules = Object.freeze([
             left: builder.pattern(functorArrowAt(
                 builder,
                 K,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 constantFamily(builder, K, A),
                 x,
                 y,
@@ -1730,7 +1651,7 @@ const prerequisiteRuntimeRules = Object.freeze([
                 [{ plicity: 'implicit', value: A }]
             )),
             provenance: source(
-                'rule @fapp1_fapp0 $K Cat_cat ' +
+                'rule @fapp1_fapp0 $K Cat_cart ' +
                     '(@Const_catd $K $A) $x $y $_ ↪ @id_func $A'
             )
         };
@@ -1805,7 +1726,7 @@ const prerequisiteRuntimeRules = Object.freeze([
             )
         };
     })()
-]);
+].map((rule, order) => Object.freeze({ ...rule, order })));
 
 const prerequisiteNormalFormSpecializationRuleIds = Object.freeze([
     'categorical.displayed-chain.section-object.delta-normalize'
@@ -1896,7 +1817,7 @@ const semanticExternalSymbols = Object.freeze([
     objectClassifier,
     functorClassifier,
     homClassifier,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     displayedFunctorCategory,
     functorObject,
@@ -1915,8 +1836,10 @@ const semanticExternalSymbols = Object.freeze([
     sigmaArrow,
     sigmaFirstProjection,
     sigmaProjectionPullback,
+    sectionWeakening,
     sectionPullbackFunctor,
     sectionPullbackSection,
+    constantFunctor,
     sectionObject,
     identityArrow,
     displayedTransformationInternalCell,
@@ -2167,7 +2090,7 @@ const projectionPullbackStructuredArrowRule =
         left: builder.pattern(functorArrowAt(
             builder,
             sigmaTotal(builder, K, R),
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             sigmaProjectionPullbackAt(builder, K, R, D),
             sigmaPairPattern(builder, K, R, x, u),
             sigmaPairPattern(builder, K, R, y, v),
@@ -2176,14 +2099,14 @@ const projectionPullbackStructuredArrowRule =
         right: builder.template(functorArrowAt(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             D,
             x,
             y,
             p
         )),
         provenance: source(
-            'rule @fapp1_fapp0 (@Sigma_cat $K $R) Cat_cat ' +
+            'rule @fapp1_fapp0 (@Sigma_cat $K $R) Cat_cart ' +
                 '(@Sigma_proj1_pullback_catd $K $R $D) ' +
                 '(Struct_sigma $x _) (Struct_sigma $y _) ' +
                 '(Struct_sigma $p _)'
@@ -2263,7 +2186,7 @@ const sigmaSectionObjectRule =
             )
         )),
         provenance: source(
-            'rule @tapp0_fapp0 (@Sigma_cat $K $R) Cat_cat ' +
+            'rule @tapp0_fapp0 (@Sigma_cat $K $R) Cat_cart ' +
                 '(@Const_catd (@Sigma_cat $K $R) Terminal_cat) ' +
                 '(@Sigma_proj1_pullback_catd $K $R $D) ' +
                 '(Struct_sigma $k $r) ' +
@@ -2394,80 +2317,7 @@ const sigmaSectionStructuredArrowRule =
     };
 };
 
-const sectionPullbackDirectObjectRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const B = builder.capture('B');
-    const R = builder.capture('R');
-    const E = builder.capture('E');
-    const s = builder.capture('s');
-    const z = builder.capture('z');
-    const total = sigmaTotal(builder, B, R);
-    const projection = sigmaProjectionAt(builder, B, R);
-    return {
-        order: 4,
-        id:
-            'categorical.displayed-chain.' +
-            'section-pullback-direct-object',
-        groupId:
-            'categorical.displayed-chain.section-pullback-direct',
-        clauseOrder: 0,
-        sourceOwner: transforComponentCapped,
-        variables: [
-            {
-                name: 'B',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'R',
-                type: builder.template(displayedFamilyType(builder, B))
-            },
-            {
-                name: 'E',
-                type: builder.template(displayedFamilyType(builder, B))
-            },
-            {
-                name: 's',
-                type: builder.template(objectType(
-                    builder,
-                    sectionCategoryAt(builder, B, E)
-                ))
-            },
-            {
-                name: 'z',
-                type: builder.template(objectType(builder, B))
-            }
-        ],
-        left: builder.pattern(componentAt(
-            builder,
-            B,
-            R,
-            E,
-            z,
-            sectionPullbackSectionAt(
-                builder,
-                total,
-                B,
-                projection,
-                E,
-                s
-            )
-        )),
-        right: builder.template(constantFunctorAt(
-            builder,
-            fibre(builder, B, R, z),
-            fibre(builder, B, E, z),
-            sectionAt(builder, B, E, s, z)
-        )),
-        provenance: source(
-            'rule @tapp0_fapp0 $B Cat_cat $R $E $z ' +
-                '(@section_pullback_sec (@Sigma_cat $B $R) $B ' +
-                '(@Sigma_proj1_func $B $R) $E $s)'
-        )
-    };
-};
-
-const sectionPullbackDirectArrowRule =
+const sectionWeakeningArrowRule =
 (): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
     const B = builder.capture('B');
@@ -2478,24 +2328,15 @@ const sectionPullbackDirectArrowRule =
     const zPrime = builder.capture('zPrime');
     const q = builder.capture('q');
     const r = builder.capture('r');
-    const total = sigmaTotal(builder, B, R);
-    const projection = sigmaProjectionAt(builder, B, R);
-    const weakened = sectionPullbackSectionAt(
-        builder,
-        total,
-        B,
-        projection,
-        E,
-        s
-    );
+    const weakened = sectionWeakeningAt(builder, B, R, E, s);
     return {
-        order: 5,
+        order: 4,
         id:
             'categorical.displayed-chain.' +
-            'section-pullback-direct-arrow',
+            'section-weakening-arrow',
         groupId:
-            'categorical.displayed-chain.section-pullback-direct',
-        clauseOrder: 1,
+            'categorical.displayed-chain.section-weakening',
+        clauseOrder: 0,
         sourceOwner: displayedInternalCell,
         variables: [
             {
@@ -2566,8 +2407,7 @@ const sectionPullbackDirectArrowRule =
         )),
         provenance: source(
             'rule @fdapp1_int_cell $B $R $E ' +
-                '(@section_pullback_sec (@Sigma_cat $B $R) $B ' +
-                '(@Sigma_proj1_func $B $R) $E $s) ' +
+                '(@section_weaken_funcd $B $R $E $s) ' +
                 '$z $zPrime $q _'
         )
     };
@@ -2590,7 +2430,7 @@ const displayedInternalCellIdentityRule = (
     const ordinary = transforCategoryAt(
         builder,
         K,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         E,
         D
     );
@@ -2677,18 +2517,65 @@ const displayedInternalCellIdentityRule = (
     };
 };
 
+// The native projection-pullback comparison remains proof-only. Context
+// construction names the stable owner; generic reindexing retains its body.
+const projectionPullbackProofRule = () => {
+    const b = new CoreLfTransferScopedBuilder();
+    const K = b.capture('K'), R = b.capture('R'), D = b.capture('D');
+    return {
+        order: 0, id: 'categorical.displayed-chain.projection-pullback-comparison',
+        sourceOwner: symbol('Pullback_catd'),
+        variables: [
+            { name: 'K', role: 'matched' as const, type: b.template(b.global(category)) },
+            ...['R', 'D'].map(name => ({ name, role: 'matched' as const, type: b.template(displayedFamilyType(b, K)) }))
+        ],
+        problem: {
+            left: b.pattern(globalCall(b, symbol('Pullback_catd'), [
+                { plicity: 'implicit', value: sigmaTotal(b, K, R) },
+                { plicity: 'implicit', value: K }, { plicity: 'explicit', value: D },
+                { plicity: 'explicit', value: sigmaProjectionAt(b, K, R) }
+            ])),
+            right: b.pattern(sigmaProjectionPullbackAt(b, K, R, D))
+        },
+        generatedConstraints: [{ left: b.template(K), right: b.template(K) }],
+        provenance: source('same-index specialization of unif_rule @Pullback_catd _ $K $D (@Sigma_proj1_func $K $R) ≡ @Sigma_proj1_pullback_catd $K0 $R0 $D0')
+    };
+};
+export const CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_MODULE = createCoreLfModuleSpec({
+    revision: 'DISPLAYED-CHAIN-PROJECTION-PULLBACK-PROOF-1', moduleId: MODULE_ID,
+    fragmentId: 'displayed-chain-projection-pullback-proof', authorityPath: 'emdash2/emdash3_2.lp',
+    sourceSha256: CORE_CATEGORICAL_DISPLAYED_CHAIN_SOURCE_SHA256, dependencies: [],
+    externalSymbols: [category, decodeOwner, objectClassifier, displayedCategoryCategory,
+        sigmaCategory, sigmaFirstProjection, sigmaProjectionPullback, symbol('Pullback_catd')]
+        .map(symbol => ({ symbol, availability: 'earlier-fragment' as const })),
+    declarations: [], inductives: [], runtimeRules: [], proofRules: [projectionPullbackProofRule()]
+});
+export const CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_POLICY = createCoreLfTransferPolicyOverlay(
+    CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_MODULE, {
+        revision: 'DISPLAYED-CHAIN-PROJECTION-PULLBACK-PROOF-POLICY-1',
+        moduleRevision: CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_MODULE.revision,
+        entries: [{ order: 0, target: { kind: 'proof-rule', id: 'categorical.displayed-chain.projection-pullback-comparison' },
+            policy: 'proof-unification', evidence: 'Existing native comparison, required inside typed reindexing composition' }]
+    });
+export function compileCoreCategoricalDisplayedChainProof(
+    declarations: CoreLfMixedDeclarationContext,
+    runtime: CoreLfComposedRuntimeProgram
+): CoreLfCompiledProofProgram {
+    return compileCoreLfProofProgram(CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_MODULE,
+        CORE_CATEGORICAL_DISPLAYED_CHAIN_PROOF_POLICY, declarations, { runtimeProgram: runtime });
+}
+
 const semanticRuntimeRules = Object.freeze([
     projectionStructuredArrowRule(),
     projectionPullbackStructuredArrowRule(),
     sigmaSectionObjectRule(),
     sigmaSectionStructuredArrowRule(),
-    sectionPullbackDirectObjectRule(),
-    sectionPullbackDirectArrowRule()
+    sectionWeakeningArrowRule()
 ]);
 
 const existingIdentityRuntimeRules = Object.freeze([
-    displayedInternalCellIdentityRule('direct', 6),
-    displayedInternalCellIdentityRule('ordinary', 7)
+    displayedInternalCellIdentityRule('direct', 5),
+    displayedInternalCellIdentityRule('ordinary', 6)
 ]);
 
 const localRuntimeRules = Object.freeze([
@@ -2839,7 +2726,7 @@ Object.freeze({
     newMathematicalProofRuleCount: 0,
     newIntrinsicCoreOwnerCount: 0,
     genericFappTappCoherenceRuleCount: 0,
-    objectLevelRuleCount: 2,
+    objectLevelRuleCount: 1,
     structuredArrowOrBaseActionRuleCount: 4,
     allEntriesUseGenericTransferEngines: true
 });

@@ -726,8 +726,8 @@ const pullbackHomComponentRule =
         left: builder.pattern(component(
             builder,
             A,
-            pulledE,
-            pulledD,
+            builder.wildcard(pulledE),
+            builder.wildcard(pulledD),
             a,
             pulledEta
         )),

@@ -9,13 +9,15 @@
  */
 
 import {
-    isCoreKind
+    isCoreKind,
+    CoreCheckerConversionResult
 } from './checker';
 import {
     CoreContext
 } from './context';
 import {
     CoreLfChecker,
+    CoreLfElaborationSession,
     CORE_LF_CANDIDATE_COMPARISON_STEP_LIMIT,
     createCoreLfChecker
 } from './lf_checker';
@@ -2764,4 +2766,41 @@ export function compileCoreLfProofProgram(
         comparisonStepLimit,
         options.runtimeProgram
     );
+}
+
+/** Fresh checking with a selected proof-only profile. Runtime conversion and
+ * the emitted term are unchanged. Only closed type comparisons may use the
+ * proof program; its authority prefix and opaque user extension are checked.
+ */
+export function createCoreLfProofCheckingChecker(
+    environment: CoreLfDeclarationEnvironment,
+    runtime: CoreLfCatalogRuntime,
+    program: CoreLfCompiledProofProgram | CoreLfComposedProofProgram
+): CoreLfChecker & { readonly proofComparisons: readonly CoreLfProofComparisonResult[] } {
+    if (!isExactOpaqueDeclarationExtension(environment, program.declarations.environment) ||
+        !coreLfRuntimeHasExactPrefix(runtime, program.runtimeProgram)) {
+        return fail('INVALID_PROOF_CONTEXT', 'checker',
+            'Proof checking requires the exact authority and runtime prefix with opaque user declarations');
+    }
+    const comparisons: CoreLfProofComparisonResult[] = [];
+    class ProofCheckingChecker extends CoreLfChecker {
+        get proofComparisons(): readonly CoreLfProofComparisonResult[] {
+            return Object.freeze([...comparisons]);
+        }
+        protected compareDefinitions(left: KernelExpression, right: KernelExpression,
+            stepLimit: number): CoreCheckerConversionResult {
+            const ordinary = super.compareDefinitions(left, right, stepLimit);
+            if (ordinary.status !== 'not-equal') return ordinary;
+            try { kernelAssertScoped(left); kernelAssertScoped(right); }
+            catch { return ordinary; }
+            const comparison = program.compareUnderOpaqueDeclarationExtension(environment, runtime, left, right);
+            comparisons.push(comparison);
+            if (comparison.status === 'step-limit-exceeded') {
+                return { status: 'step-limit-exceeded', path: ['proof-time'],
+                    nextStep: 'selected proof comparison' };
+            }
+            return comparison.status === 'solved' ? { status: 'equal' } : ordinary;
+        }
+    }
+    return new ProofCheckingChecker(new CoreLfElaborationSession(environment, program.comparisonStepLimit, runtime));
 }

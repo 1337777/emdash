@@ -86,6 +86,7 @@ import {
 } from './categorical_displayed_evaluation_transfer';
 import {
     CoreCategoricalDisplayedChainCompilation,
+    compileCoreCategoricalDisplayedChainProof,
     compileCoreCategoricalDisplayedChainTransfer,
     coreCategoricalDisplayedChainCoreName
 } from './categorical_displayed_chain_transfer';
@@ -190,7 +191,9 @@ import {
     coreLfDefinitionalCompare
 } from './lf_conversion';
 import {
-    CoreLfProofComparisonResult
+    CoreLfProofComparisonResult,
+    CoreLfCompiledProofProgram,
+    createCoreLfProofCheckingChecker
 } from './lf_transfer_proof';
 import {
     CoreType,
@@ -654,6 +657,7 @@ export interface CoreCategoricalDiagnostic {
 }
 
 export interface CoreCategoricalProgramCompilation {
+    readonly typeComparisonRuleIds?: readonly string[];
     readonly construction: 'direct-typescript-categorical-program';
     readonly explicitTerm: KernelExpression;
     readonly inferredType: KernelExpression;
@@ -1125,6 +1129,7 @@ export class CoreCategoricalProgram {
     private readonly displayedContextualEnabled: boolean;
     private readonly displayedEvaluationEnabled: boolean;
     private readonly displayedChainEnabled: boolean;
+    private readonly projectionPullbackProof?: CoreLfCompiledProofProgram;
     private readonly displayedChain2aEnabled: boolean;
     private readonly displayedNdHigherEnabled: boolean;
     private readonly mixedModeEnabled: boolean;
@@ -1288,6 +1293,11 @@ export class CoreCategoricalProgram {
             : profile === 'usability-dependent-1a'
                 ? compileCoreCategoricalDependentCompositionTransfer()
                 : compileCoreCategoricalDependentTransfer();
+        if (this.displayedChainEnabled && 'declarationContext' in this.dependent &&
+            'composedRuntime' in this.dependent) {
+            this.projectionPullbackProof = compileCoreCategoricalDisplayedChainProof(
+                this.dependent.declarationContext, this.dependent.composedRuntime);
+        }
         this.environment = this.dependent.compiled.environment;
         const classifierRuntime = 'composedRuntime' in this.dependent
             ? this.dependent.composedRuntime
@@ -2019,6 +2029,32 @@ export class CoreCategoricalProgram {
         substitution: KernelExpression,
         nodeProvenance: Provenance
     ): KernelExpression {
+        // A dependent context explicitly selects the native projection
+        // pullback owner. This is an authoring choice, not a Core rewrite
+        // identifying a generic pullback with that stable presentation.
+        if (this.displayedChainEnabled && substitution.tag === 'call' &&
+            substitution.callee.tag === 'reference' &&
+            substitution.callee.namespace === 'free' &&
+            substitution.callee.name === CORE_DIRECTED_1B_PRIMITIVE_NAMES['sigma-first-projection'] &&
+            substitution.arguments.length === 2 &&
+            substitution.arguments[0].plicity === 'implicit' &&
+            substitution.arguments[1].plicity === 'explicit' &&
+            kernelExpressionEquals(substitution.arguments[0].value, targetCategory) &&
+            kernelExpressionEquals(sourceCategory, kernelCall(kernelFree(
+                CORE_DIRECTED_1A_PRIMITIVE_NAMES['sigma-category'], nodeProvenance
+            ), [
+                { plicity: 'implicit', value: targetCategory },
+                { plicity: 'explicit', value: substitution.arguments[1].value }
+            ], nodeProvenance))) {
+            return kernelCall(kernelFree(
+                CORE_CATEGORICAL_FIBRED_BINDER_CORE_NAMES.sigmaProjectionPullback,
+                nodeProvenance
+            ), [
+                { plicity: 'implicit', value: targetCategory },
+                { plicity: 'explicit', value: substitution.arguments[1].value },
+                { plicity: 'explicit', value: family }
+            ], nodeProvenance);
+        }
         return kernelApplication(
             'displayed-pullback',
             [
@@ -9179,9 +9215,11 @@ export class CoreCategoricalProgram {
             lowered.sourceSpan,
             'categorical program expected result'
         );
-        const checker = this.dependent.compiled.createChecker(
-            this.environment
-        );
+        const runtime = 'composedRuntime' in this.dependent
+            ? this.dependent.composedRuntime : this.dependent.structural.composedRuntime;
+        const proofChecker = this.projectionPullbackProof === undefined ? undefined
+            : createCoreLfProofCheckingChecker(this.environment, runtime, this.projectionPullbackProof);
+        const checker = proofChecker ?? this.dependent.compiled.createChecker(this.environment);
         const inferred = checker.infer(
             checker.rootContext,
             lowered.term
@@ -9203,6 +9241,8 @@ export class CoreCategoricalProgram {
         );
         return Object.freeze({
             construction: 'direct-typescript-categorical-program',
+            typeComparisonRuleIds: Object.freeze([...new Set(proofChecker?.proofComparisons.flatMap(
+                result => result.ruleApplications.map(application => application.ruleId)) ?? [])]),
             explicitTerm: checked.term,
             inferredType: inferred.type,
             expectedType,
