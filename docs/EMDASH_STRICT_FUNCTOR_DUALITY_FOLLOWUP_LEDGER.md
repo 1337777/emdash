@@ -18,7 +18,39 @@ required computation. “Revisit after the basic migration” below means before
 production qualification for the required rows, and after this goal only for
 the explicitly optional rows. No row authorizes a new foundational redesign.
 
+## Authorized continuations after the foundations migration
+
+User direction, 2026-10-25: the consolidated goal now includes the book,
+shorter overview article, and subsequent completion of the partial legacy
+nerve work. The [plan's continuation contract](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md#consolidated-continuation-authorized-2026-10-25)
+owns the sequence. These are required future stages, not optional improvements
+or instructions to interrupt the current migration.
+
+| ID | Required outcome | Dependency/status |
+| --- | --- | --- |
+| C01 | Comprehensive book update for the settled new foundations and migration changes. | After SF-CLOSE settles, review the sources and claims and prepare its proposed subplan. No chapter or artifact edits yet. |
+| C02 | Corresponding shorter overview research article update. | Plan with C01 and preserve its distinct overview purpose; no publication authorized. |
+| C03 | Import, adapt, integrate and finish the partial simplicial/cubical nerve work from `/home/user1/emdash1-native-nerves-legacy-v1/`. | After foundations and C01/C02 settle, review donor state and prepare its proposed subplan. This replaces the formerly optional D07; it does not authorize an automatic Git merge. |
+
+R01–R03's five terminal Homd runtime obligations remain part of foundations
+qualification. Book review can inform their resolution, but neither a prose
+update nor a passing comparison discharges a required runtime computation.
+Possible later dedicated goals/worktrees must preserve these obligations and
+their handoff ownership. Other paused research, including the large six-term
+audit, is unaffected.
+
 ## Foundation-reviewer follow-up — 2026-10-25, unadopted
+
+The subsequent [family-reviewer continuation](../emdash2/audits/strict-default-action-boundary/foundation_family_reviewer_review.md)
+retains all four original higher-sieve/join/Sigma reviewers, adding one existing
+whole-inclusion type observation (32 positives/nine negatives). Its single
+existing Op-reindexing comparator is matched after duality normalization, with
+the actual family and both maps retained. The focused check passes cold in
+53.789s/168,960KiB, unchanged warning bodies and zero unreviewed rewrite slots.
+The next complete traversal reaches a stale `Cat_cat` annotation in path
+induction; no original assertion is dropped. Exact source/receipt/replay data
+is in its [verification](../emdash2/audits/strict-default-action-boundary/foundation_family_reviewer_verification.json).
+Broader qualification and the production counts remain unchanged.
 
 The [review](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_followup_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_followup_verification.json)
@@ -1190,7 +1222,6 @@ snapshot and consumers; R10/R14 still govern final integration.
 | D04 | Reorganize profiles, strict-transfor carriers, nucleus files or action calculus | Document opportunities; avoid mixing them into the mechanical migration without a demonstrated dependency. |
 | D05 | Change Prof endpoint conventions, replace the product theory wholesale with a curried theory, or rename duality primitives again | Current compatible views suffice. Reassess only after concrete consumers and the migration boundary are settled. |
 | D06 | Broader normalization strategy beyond the corrections required by R04–R07/R12 | The Freyd-entry review records inherited immediately unfolding representation heads in usability, binary-product and terminal-zero views; they are unchanged and have passing current consumers. A larger redesign can wait; known broken required projections and unacceptable operational cost cannot be labelled optional. |
-| D07 | Resume/rebase the separate simplicial/cubical nerve-equivalence work | That goal is paused. Prepare a foundations handoff after qualification; existing cubical consumer compatibility here does not resume it. |
 
 ## Maintenance rule
 

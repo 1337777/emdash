@@ -1,0 +1,31 @@
+{
+  "status": "unadopted, focused complete reviewers pass",
+  "parentCheckpoint": "bc13656f",
+  "parentCoreSha256": "76ce0e06965c2bbb502fa06c75be3c89ca7ccf3412ca56104dc04600e23ef73f",
+  "candidateCoreSha256": "dff41d5ae82117d36fbe196bc608b5273a020ff978ef94a6c7c5ddd369521fc2",
+  "files": {
+    "higher_sieve_classifier": {
+      "sourceSha256": "0d2dcd0152cf27a3b5343df55c5428a9ce406377d1c345fa989cdb91e20add5f",
+      "candidateSha256": "6549a4522528514a69c8c6f336aa699c61eb71e1389a68433575bf883b3df4e6",
+      "status": "focused complete reviewer passes; broader qualification pending",
+      "correction": "Cartesian classifier equality plus existing whole ordinary inclusion; preserve lax-map distinction"
+    },
+    "join_cross_computation": {
+      "sourceSha256": "2e3755c5e1976b0e977ca149bf19a22feec16359b694ba13df9840c3a579b493",
+      "candidateSha256": "87100998f0d6a21443e22a8389c70b78df538102a41b9adabf1bd8adcd7d24ac",
+      "status": "focused complete reviewer passes; broader qualification pending",
+      "ordinaryHomViewOccurrences": 2
+    },
+    "sigma_section_projection_views": {
+      "sourceSha256": "298eac272076ae6d38fdbd50fb0948ea01818ea0972c8ac7d30d53fd578445df",
+      "candidateSha256": "0c782c83d53fb0d4f2c5d7078b95144fdecbf7ea526fed6989a7811d103bf6ac",
+      "status": "focused complete reviewer passes; broader qualification pending"
+    },
+    "sigma_total": {
+      "sourceSha256": "7862ee45c20794c546ad6030b1d0ea0b528417ead6bec398dd4821fd2e355177",
+      "candidateSha256": "3193367d2fd75d38ab3fe13d37a961e5505d8942d390b52834c85210961679f2",
+      "status": "focused complete reviewer passes; broader qualification pending"
+    }
+  },
+  "oldComparison": "// Reindexing comparisons retain their two original runtime presentations.\nunif_rule @Op_catd $A (@comp_fapp0 Cat_cat _ _ Cat_cart $E $F)\n  \u2261 @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $B) $Eop (@CoAt2_func $A $B $F)\n  \u21aa [ $Eop \u2261 @Op_catd $B $E ];\nunif_rule @Op_catd $A\n    (@comp_fapp0 Cat_cat $A $B Cat_cart\n      (@comp_fapp0 Cat_cat $B $C Cat_cart $E $F) $G)\n  \u2261 @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $C) $Eop\n      (@CoAt2_func $A $C (@comp_fapp0 Cat_cat $A $B $C $F $G))\n  \u21aa [ $Eop \u2261 @Op_catd $C $E ];\n\n"
+}

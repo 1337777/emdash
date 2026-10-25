@@ -42,6 +42,57 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+### Consolidated continuation authorized 2026-10-25
+
+The user has expanded this living goal beyond the foundations first pass.
+The current migration remains the immediate task. Its completion is a stage
+boundary, not completion of the consolidated objective. This instruction
+supersedes the earlier exclusion of nerve development from the overall goal,
+while retaining that exclusion during the foundations implementation phase.
+Earlier dated entries saying the nerve goal is paused remain historical and
+continue to describe its status until the dependency gates below are met.
+
+| Stage | Required continuation | Start condition and planning boundary |
+| --- | --- | --- |
+| SF-CLOSE | Finish and qualify the foundations migration, including the five terminal Homd runtime obligations and the normalization/validation ledger. | Continue the current implementation; do not replace required runtime behavior with prose or only proof-time comparisons. |
+| SF-BOOK | Update the Emdash book comprehensively for the settled foundations and all migration changes. | After the migration settles, perform the careful source/claim review and write a dedicated proposed subplan before editing chapters. Follow source ownership and the book/print SOP; regenerate artifacts through their tools. |
+| SF-ARTICLE | Update the shorter overview research article consistently with the settled foundations and revised book. | Plan with the book review, preserve the article's shorter overview role, and validate its sources and generated artifacts. The existing publication/article plan is historical ownership guidance, not authorization to publish. |
+| SF-NERVES | Review, import, adapt, integrate and finish the partial simplicial/cubical nerve work from `/home/user1/emdash1-native-nerves-legacy-v1/` in the new foundations. | Begin after foundations and book/article updates settle. First review the donor's current code, plans, scope and evidence and write a dedicated proposed subplan. Adapt the actual mathematics and code; do not automatically merge the legacy branch or inherit its qualification. |
+
+The five terminal Homd cases remain SF-CLOSE requirements. Documentation review
+may help clarify their intended contract, but the final book/article must
+describe their resolved implementation accurately. Do not postpone them past
+foundations qualification merely to advance the documentation or nerve stage.
+
+Each larger continuation may have its own living proposed-plan file, and the
+user may later choose a separate goal or worktree. Keep the consolidated scope,
+dependencies and handoff evidence here until an explicit handoff records where
+each required outcome lives. No detailed book/article/nerve subplan is needed
+now; this amendment records the authorized scope and sequence only. The large
+six-term audit and unrelated research remain outside this continuation.
+Local checkpoint authorization continues; pushing, publishing, history
+rewriting and automatic branch merging remain unauthorized.
+
+### Current migration tranche
+
+Checkpoint `bc13656f` records the four-reviewer follow-up and passing cold core
+regression below. The next
+[family-reviewer continuation](../emdash2/audits/strict-default-action-boundary/foundation_family_reviewer_review.md)
+now has an exact guarded replay and
+[verification](../emdash2/audits/strict-default-action-boundary/foundation_family_reviewer_verification.json):
+all original assertions are retained, with one added whole-inclusion type check
+(32 positives/nine negatives). It replaces one existing opposite-reindexing
+unifier pattern with its actual normalized composite. The matched warning sets
+are unchanged (1,704 each); no primitive or runtime rule is added. The focused
+check passes in 53.789s/168,960KiB under 90s/2GiB, with subject reduction enabled.
+
+The next 74-reviewer traversal stops at old family-coefficient annotations in
+path induction, after passing the earlier repaired consumers. Its 53.474s run
+is a real type failure, not a timeout. The explicit 180s cumulative headroom
+was selected after an earlier 85.529s partial traversal, retaining the 2GiB cap.
+Continue the original assertions at that owner. The qualified package and
+counts remain unchanged until shared-source/complete-reviewer adoption.
+
 Foundation-reviewer follow-up from `7c39e44f`: the
 [review](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_followup_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/foundation_reviewer_followup_verification.json)
@@ -59,15 +110,8 @@ The 245-input core regression now passes cold after that correction:
 retained. This does not qualify all remaining original reviewers or production
 promotion, and does not claim a performance improvement from a partial run.
 
-The next original-reviewer traversal reaches the higher-sieve classifier.
-A separate continuation corrects its Cartesian classifier/ordinary inclusion,
-join ordinary Hom views, shifted-base opposite reindexing, and Sigma family
-annotations. Those four additional candidates pass the focused check in
-53.789s/168,960KiB
-(`20261025T025126Z-f4828c099ad849cb86949ddeb145f6d5`), including the normalized
-existing Op-reindexing comparison. Their durable replay and broader qualification
-are the next tranche; do not include them in the preceding four-reviewer result.
-The qualified production-emitter
+The subsequent higher-sieve/join/Sigma continuation is recorded above. It is
+separate from this four-reviewer result. The qualified production-emitter
 package and its 1,361-input evidence chain remain unchanged.
 
 Displayed-action candidate, 2026-10-25 UTC: the
@@ -8154,7 +8198,7 @@ normalization, profiling, resource and consumer fixes worth preserving.
 | SF-2 | Correct native dualities and their whole action, ordinary Hom, coefficient and represented-index owners. Preserve paired heads and arbitrary directed higher data. Qualify the core before a broad owner sweep. |
 | SF-3 | Implement the chosen profunctor-based blended Homd ladder, including the identity specialization, whole x/u and y/v/f projections, and compatible strict-family Sigma/Pi. Correct constant-family Sigma-Hom at whole and higher levels. |
 | SF-4 | Migrate the declared foundational ownership/dependency scope to the combined final signatures, including ordinary Hom/precomposition laws and retained explicit lax consumers. Do not perform a second full duality migration afterward. |
-| SF-CLOSE | Exact semantic/computational contract, preserved intrinsic laxity, targeted diagnostic repair, completed required validation, and a handoff for separate downstream migration. Weak-category implementation and application equivalence tasks remain outside this first pass. |
+| SF-CLOSE | Exact semantic/computational contract, preserved intrinsic laxity, targeted diagnostic repair, completed required validation, and a handoff to the authorized book/article and subsequent nerve stages above. Weak-category implementation and application equivalence tasks remain outside this first pass; the nerve continuation follows its later dependency gate. |
 
 Acceptance is foundational: strict identity/composition and higher action;
 retained nonidentity lax-transfor cells and recoverable native lax-functor
@@ -8165,7 +8209,8 @@ for the intended type/variance reason. No theorem about global consistency
 of Cat:Cat is claimed from these local repairs.
 
 Existing affected application checks may run as integration gates. This does
-not add application reconstruction or equivalence development to the goal.
+not start application reconstruction or equivalence development during this
+first pass. The 2026-10-25 continuation above authorizes that later nerve stage.
 Do not label the whole repository migrated while excluding broken dependents:
 SF-0 must state the foundational qualification boundary and any separately
 versioned or explicitly unmigrated interfaces.

@@ -1,0 +1,12 @@
+// Reindexing comparisons retain their two original runtime presentations.
+unif_rule @Op_catd $A (@comp_fapp0 Cat_cat _ _ Cat_cart $E $F)
+  ≡ @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $B) $Eop (@CoAt2_func $A $B $F)
+  ↪ [ $Eop ≡ @Op_catd $B $E ];
+// The base dual of a composite has already normalized to this composite.
+unif_rule @Op_catd $A
+    (@comp_fapp0 Cat_cat $A $B Cat_cart
+      (@comp_fapp0 Cat_cat $B $C Cat_cart $E $F) $G)
+  ≡ @Pullback_catd (CoAt2_cat $A) (CoAt2_cat $C) $Eop
+      (@comp_fapp0 Cat_cat (CoAt2_cat $A) (CoAt2_cat $B) (CoAt2_cat $C)
+        (@CoAt2_func $B $C $F) (@CoAt2_func $A $B $G))
+  ↪ [ $Eop ≡ @Op_catd $C $E ];
