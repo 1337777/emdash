@@ -1,0 +1,113 @@
+{
+  "status": "Pi focused/native and generic regression scope qualified; full TypeScript gate stops at unmigrated displayed evaluation",
+  "previousCheckpoint": "74adb415",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "scope": {
+    "declarations": 11,
+    "runtimeRules": 11,
+    "directSubjects": 9,
+    "proofSubjects": 2,
+    "proofRules": 1
+  },
+  "nativeInputHashes": {
+    "src/v3_2/categorical_fibred_dependent_target_contract.ts": "273c2c6a0efd9dffdb7a9ad04e4439846ca8d89b317bc0fe02320d367cd12cda",
+    "src/v3_2/categorical_fibred_dependent_target_demo.ts": "aad15df5ba11d728400faa19a20839fefa402ce38929d7865d4302f87fc8adc9",
+    "src/v3_2/categorical_fibred_dependent_target_transfer.ts": "6dc8ed27e3d111357dd57c720b06a51d969075cb2a8c74e90e714447bf6f63e9",
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "55503ec38145cb7d30c270071b50f4f554abc76d7d6f9b8d0a8e0ff907affaef",
+    "src/v3_2/categorical_program.ts": "2c7146d6737d410c19cfa4dd8f99538ef0fc29a066f19c53e6e152480710da7e",
+    "src/v3_2/lf_transfer_runtime.ts": "392041bba94adef6ed8fce37a6687b2a75397ff6928fbca3254eb545cf251381",
+    "tests/v3_2_categorical_fibred_dependent_target_tests.ts": "c51d59f7a31025aa3f7f09b2f8ced51239490fea3be7348144e34b82257e83e1",
+    "tests/v3_2_categorical_fibred_dependent_target_transfer_tests.ts": "b282f435f9052c13edc4ffda425dc6de8bf6902eb6ef3df6d740eeb36b9bc85f",
+    "tests/v3_2_categorical_fibred_graduation_proposal_tests.ts": "801b9d3ee8498dabe3916a5e5c8ab06fe40efab8c8b71b62037b7a304c5e394d",
+    "tests/v3_2_lf_transfer_runtime_tests.ts": "743098e2984032046ccebff989f0fdf3db4b5bba3853f16ffdeacbeb21111196"
+  },
+  "currentTypescriptInputs": {
+    "src/v3_2/categorical_fibred_dependent_target_contract.ts": "273c2c6a0efd9dffdb7a9ad04e4439846ca8d89b317bc0fe02320d367cd12cda",
+    "src/v3_2/categorical_fibred_dependent_target_demo.ts": "cb5dd0547bd47074751f79d9e2348b9226792cd2e61aaa86b5872e048bd11098",
+    "src/v3_2/categorical_fibred_dependent_target_transfer.ts": "722acf6b9a52acc774cb8a90652fbb620d21707b1ff13e151e6c2ea83eaf49bb",
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "55503ec38145cb7d30c270071b50f4f554abc76d7d6f9b8d0a8e0ff907affaef",
+    "src/v3_2/categorical_program.ts": "2c7146d6737d410c19cfa4dd8f99538ef0fc29a066f19c53e6e152480710da7e",
+    "src/v3_2/lf_transfer_runtime.ts": "392041bba94adef6ed8fce37a6687b2a75397ff6928fbca3254eb545cf251381",
+    "tests/v3_2_categorical_fibred_dependent_target_tests.ts": "c51d59f7a31025aa3f7f09b2f8ced51239490fea3be7348144e34b82257e83e1",
+    "tests/v3_2_categorical_fibred_dependent_target_transfer_tests.ts": "b282f435f9052c13edc4ffda425dc6de8bf6902eb6ef3df6d740eeb36b9bc85f",
+    "tests/v3_2_categorical_fibred_graduation_proposal_tests.ts": "801b9d3ee8498dabe3916a5e5c8ab06fe40efab8c8b71b62037b7a304c5e394d",
+    "tests/v3_2_lf_transfer_runtime_tests.ts": "743098e2984032046ccebff989f0fdf3db4b5bba3853f16ffdeacbeb21111196"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261025T191643Z-6d4a73ee604c4a40bf5ea6c2e020e412",
+      "target": "tmp/elab0-IAVk72/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 36.68373081390746,
+      "childrenMaxRssKiB": 168688,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "588f2dbf318be302f4b952cc320d228e6358b74a85eabe43c758e68fe8ded9b3",
+      "log": "logs/check-runs/20261025T191643Z-6d4a73ee604c4a40bf5ea6c2e020e412.log",
+      "logSha256": "d68cca8d99164dbfabf23c98e8475db413bfaee287188906469766b5fb311599",
+      "receiptFile": "emdash2/logs/check-runs/20261025T191643Z-6d4a73ee604c4a40bf5ea6c2e020e412.json",
+      "receiptSha256": "187a32f791c0cb520903c6c98bc751d99fcb739bd86b36b4548ff3bff0f50713"
+    }
+  ],
+  "checks": {
+    "consumerAndDemo": "6 passed",
+    "genericRuntimeCompiler": "16 passed",
+    "native": "1 passed",
+    "completeTypescript": "failed while loading tests: categorical.displayed-evaluation.stable-functor-family-fibre still uses Cat_cat; no full test-suite pass",
+    "workspace": "passed",
+    "testRegistration": "passed;460 suites reachable",
+    "typecheck": "passed",
+    "lint": "passed",
+    "genericProofMixedAndMetadata": "45 passed;1 native opt-in skipped"
+  },
+  "earlierBoundaries": [
+    "wave168: duplicate earlier fapp0_func declaration",
+    "wave170: RHS composite needs proof comparison in an argument; outer-type-only subject proof cannot infer it",
+    "wave173: inclusion object projection had incorrectly rigid inferred slots; corrected to native wildcards"
+  ],
+  "genericExtension": {
+    "scope": "closed RHS argument comparisons only for selected runtime subject-proof expectations",
+    "optIn": "allowArgumentConversion: true",
+    "proofIds": "exact union of used argument and final-subject proof rules",
+    "ordinaryCheckerChanged": false,
+    "runtimeEqualityAdded": false,
+    "openLocalBinderComparisonsAdmitted": false,
+    "operationalProofArguments": false
+  },
+  "postNativeChanges": "source pin, provenance and demo wording only",
+  "remaining": [
+    "remaining frontend Homd/mixed/displayed profiles",
+    "production health resource review",
+    "final integration, then book/article and legacy nerves"
+  ],
+  "outputHashes": {
+    "wave172_argument_proof_runtime.out": "a09a9d4e0accf6e6b7809bfae080cdbe1c843db161931dcaef6ebf46e907d9e0",
+    "wave175_pi_consumers.out": "e418e39ca0a0e735cf6d17649e37933cf34cf87017d776993fb168458fafb611",
+    "wave176_pi_native.out": "b1952ea658bbb88b59cec2c3ef31f79e4548ecfd0dd08a401891b9ee0df89c1b",
+    "wave177_ts_integration.out": "4696425cb92f9881f640a8429b7faeb4e7c4827602afdf797b20fa6d10e541a4",
+    "wave178_pi_generic_metadata.out": "118c68c6233bc8c4dea3c5b98f27d68dcc9341ab65ba1961104049ba1cb34afe"
+  }
+}

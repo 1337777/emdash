@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { resolve } from 'node:path';
 import {
     describe,
     it
@@ -10,10 +11,72 @@ import {
 import {
     CoreCategoricalFrontendError,
     CoreCategoricalProgram,
-    CoreCategoricalProgramError
+    CoreCategoricalProgramError,
+    compileCoreCategoricalFibredDependentTargetTransfer,
+    checkLambdapiProbe,
+    serializeKernelExpression,
+    kernelFree,
+    provenance
 } from '../src/v3_2';
 
 describe('FIBRED-DEPENDENT-TARGET-1 TypeScript profile', () => {
+    it('checks the whole Pi inclusion and emitted dependent target in Lambdapi', {
+        skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_PI_PROBES !== '1'
+    }, () => {
+        const e = new CoreCategoricalProgram({ sourceFile: 'native-pi.ts', profile: 'fibred-dependent-target-1' });
+        const K = e.category('K'), G = e.contravariantCategoryFamily('G', K);
+        const motive = e.dependentSectionMotive(G), target = e.dependentSectionTarget(G);
+        const k = e.object('k', K), M = e.object('M', e.fibre(motive, k));
+        const actual = e.fibre(target, e.dependentPair(motive, k, M));
+        const expected = e.dependentSectionCategoryAt(G, k, M);
+        const actualObject = e.compile(e.object('w', actual));
+        const expectedObject = e.compile(e.object('z', expected));
+        const section = e.compile(e.section('s', target));
+        const c = compileCoreCategoricalFibredDependentTargetTransfer();
+        const weaken = c.prerequisite, transfd = weaken.prerequisite, binder = transfd.prerequisite;
+        const structure = binder.prerequisite, product = structure.prerequisite;
+        const comprehension = product.prerequisite, composition = comprehension.prerequisite;
+        const dependent = composition.dependent, structural = dependent.structural;
+        const modules = [structural.initialDeclarations, structural.compiled, dependent.compiled,
+            composition.compiled, comprehension.compiled, product.compiled, structure.compiled,
+            binder.compiled, transfd.compiled, weaken.compiled, c.compiled];
+        const references = Object.assign({}, ...modules.flatMap(module => [
+            module.externalFreeReferences, module.externalTransparentDefinitions
+        ]));
+        const serialize = (term: Parameters<typeof serializeKernelExpression>[0]) =>
+            serializeKernelExpression(term, { externalFreeReferences: references });
+        const site = provenance('derived', 'native whole Pi component');
+        const componentAssertions = c.consumerRuntimeFragment.localProgram.rules
+            .filter(rule => rule.id.endsWith('component')).map(rule => {
+                const left = c.consumerRuntimeFragment.localProgram.instantiateRuleLeft(rule,
+                    rule.variables.map(v => kernelFree(v.name === 'x' ? 'k' : v.name, site)), site);
+                const result = c.consumerRuntimeFragment.localProgram.rewriteHead(left);
+                assert.equal(result.status, 'rewritten');
+                if (result.status !== 'rewritten') throw new Error('Missing Pi component projection');
+                assert.equal(result.ruleId, rule.id);
+                return `assert ⊢ ${serialize(left)} ≡ ${serialize(result.after)};`;
+            });
+        const source = [
+            'require open emdash.emdash3_2;',
+            'symbol K : Cat;', 'symbol G : τ (Functor K (Op_cat Cat_cart));',
+            'symbol k : τ (Obj K);',
+            'symbol M : τ (Functor (@fapp0 K (Op_cat Cat_cart) G k) Cat_cart);',
+            `symbol w : ${serialize(actualObject.expectedType)};`,
+            `assert ⊢ w : ${serialize(expectedObject.expectedType)};`,
+            `assert ⊢ ${serialize(actualObject.expectedType)} ≡ ${serialize(expectedObject.expectedType)};`,
+            `symbol s : ${serialize(section.expectedType)};`,
+            `assert ⊢ ${serialize(section.explicitTerm)} : ${serialize(section.expectedType)};`,
+            ...componentAssertions,
+            'assertnot ⊢ Functor_cart_cat K Cat_cart ≡ Catd_cat K;'
+        ].join('\n');
+        assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/);
+        const result = checkLambdapiProbe({ source, sourceMap: [] }, {
+            packageRoot: resolve(__dirname, '../emdash2'), timeoutMs: 60_000
+        });
+        assert.equal(result.accepted, true, result.diagnostics + '\n' + source);
+        assert.equal(result.timedOut, false);
+    });
+
     it(
         'computes B[k,M] to Pi(G[k],M) and checks total-context eta',
         () => {
@@ -138,7 +201,7 @@ describe('FIBRED-DEPENDENT-TARGET-1 TypeScript profile', () => {
                 error =>
                     error instanceof CoreCategoricalProgramError &&
                     error.code === 'EXPECTED_FUNCTOR' &&
-                    /Op\(Cat_cat\)/u.test(error.message)
+                    /Op\(Cat_cart\)/u.test(error.message)
             );
             assert.throws(
                 () => emdash.dependentSectionCategoryAt(

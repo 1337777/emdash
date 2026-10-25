@@ -61,6 +61,18 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [varying-base Pi frontend slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_pi_review.md)
+is qualified at focused/native scope:6 consumer/demo tests,16 generic runtime
+tests,45 generic proof/mixed/metadata tests and one native test pass. The native
+whole diagram inclusion remains explicit; its object action computes the
+required Pi fibre. The selected subject-proof path now permits closed RHS
+argument comparisons with exact proof-rule accounting; ordinary checking and
+runtime equality are unchanged. Workspace/registration/typecheck/lint pass.
+The complete TypeScript gate stops while loading the still-unmigrated
+`categorical.displayed-evaluation.stable-functor-family-fibre` rule. Next migrate
+its Cartesian Functor_catd fibre/evaluation/product signatures, then the
+remaining displayed and Homd/mixed profiles. This is not a full-suite pass.
+
 The [weakening/reindexing frontend slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_weaken_review.md)
 is qualified:9 consumer/demo cases,21 metadata/transfer cases and one native
 consumer pass, plus typecheck/lint. It removes the retired generic Sigma

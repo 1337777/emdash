@@ -65,7 +65,7 @@ const wildcardWitnesses = (
 describe(
     'FIBRED-DEPENDENT-TARGET-1 existing-authority transfer',
     () => {
-        it('freezes the exact ten/nine/one no-new-mathematics contract', () => {
+        it('freezes the exact eleven/eleven/one no-new-mathematics contract', () => {
             validateCoreCategoricalFibredDependentTargetContract();
             assertDeepFrozen(
                 CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_CONTRACT
@@ -79,12 +79,12 @@ describe(
             assert.equal(
                 CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_BOUNDARY
                     .declarationCount,
-                10
+                11
             );
             assert.equal(
                 CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_BOUNDARY
                     .runtimeRuleCount,
-                9
+                11
             );
             assert.deepEqual(
                 CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_BOUNDARY
@@ -124,7 +124,7 @@ describe(
             assertDeepFrozen(rule);
         });
 
-        it('checks seven local runtime subjects directly and two by proof', () => {
+        it('checks nine local runtime subjects directly and two by proof', () => {
             const compilation =
                 compileCoreCategoricalFibredDependentTargetTransfer();
             assert.deepEqual(
@@ -150,11 +150,6 @@ describe(
                         hasBody: true
                     },
                     {
-                        name: 'fapp0_func',
-                        status: 'installed-opaque',
-                        hasBody: false
-                    },
-                    {
                         name: 'Functor_cat_func',
                         status: 'installed-opaque',
                         hasBody: false
@@ -164,6 +159,8 @@ describe(
                         status: 'installed-opaque',
                         hasBody: false
                     },
+                    { name: 'hom_con', status: 'installed-opaque', hasBody: false },
+                    { name: 'Functor_cart_include', status: 'installed-opaque', hasBody: false },
                     {
                         name: 'Catd_cat_func',
                         status: 'installed-transparent',
@@ -192,7 +189,7 @@ describe(
                 compilation.consumerRuntimeFragment.localProgram.rules;
             assert.deepEqual(
                 prerequisite.map(rule => rule.subjectValidation.kind),
-                Array.from({ length: 6 }, () => 'typescript-checked')
+                Array.from({ length: 8 }, () => 'typescript-checked')
             );
             assert.deepEqual(
                 consumer.map(rule => rule.subjectValidation.kind),

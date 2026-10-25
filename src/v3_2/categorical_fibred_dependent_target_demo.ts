@@ -31,7 +31,7 @@ export interface CoreCategoricalFibredDependentTargetDemoResult {
         readonly family:
             'Sigma_catd_functord_catd(Pi_pullback_funcd(demo_G))';
         readonly context:
-            'Σ k :^n demo_K, M :^f Catd(demo_G[k])';
+            'Σ k :^n demo_K, M :^f Cart(demo_G[k],Cat_cart)';
     };
     readonly fibre: {
         readonly input: 'demo_B[(demo_k,demo_M)]';
@@ -49,7 +49,7 @@ export interface CoreCategoricalFibredDependentTargetDemoResult {
         readonly callbackCount: 1;
     };
     readonly subjectValidation: {
-        readonly directlyCheckedRuntimeRules: 8;
+        readonly directlyCheckedRuntimeRules: 10;
         readonly proofCheckedRuntimeRules: 2;
         readonly proofRule:
             'categorical.dependent-target.category-presentation';
@@ -171,9 +171,9 @@ CoreCategoricalFibredDependentTargetDemoResult {
         construction: 'direct-typescript-categorical-program',
         assumptions: Object.freeze([
             'demo_K : Cat',
-            'demo_G : demo_K ⊢ Op(Cat_cat)',
+            'demo_G : demo_K ⊢ Op(Cat_cart)',
             'demo_k : Obj demo_K',
-            'demo_M : Catd(demo_G[demo_k])',
+            'demo_M : Obj(Cart(demo_G[demo_k],Cat_cart))',
             'demo_target_section : Π z :^n Σ(k,M), demo_B[z]'
         ]),
         target: Object.freeze({
@@ -182,7 +182,7 @@ CoreCategoricalFibredDependentTargetDemoResult {
             family:
                 'Sigma_catd_functord_catd(Pi_pullback_funcd(demo_G))' as const,
             context:
-                'Σ k :^n demo_K, M :^f Catd(demo_G[k])' as const
+                'Σ k :^n demo_K, M :^f Cart(demo_G[k],Cat_cart)' as const
         }),
         fibre: Object.freeze({
             input: 'demo_B[(demo_k,demo_M)]' as const,
@@ -207,7 +207,7 @@ CoreCategoricalFibredDependentTargetDemoResult {
             callbackCount: 1 as const
         }),
         subjectValidation: Object.freeze({
-            directlyCheckedRuntimeRules: 8 as const,
+            directlyCheckedRuntimeRules: 10 as const,
             proofCheckedRuntimeRules: 2 as const,
             proofRule:
                 'categorical.dependent-target.category-presentation' as const,

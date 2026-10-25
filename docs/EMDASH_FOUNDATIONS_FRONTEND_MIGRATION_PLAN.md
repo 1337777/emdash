@@ -156,6 +156,45 @@ For the dependent-target consumer, the required input is now
 `Functor_cart_include`. Preserve this whole composition; pointwise agreement
 of family objects does not identify the diagram categories.
 
+
+The [varying-base Pi frontend slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_pi_review.md)
+is qualified at focused/native scope:6 consumer/demo tests,16 generic runtime
+tests,45 generic proof/mixed/metadata tests and one native test pass. The native
+whole diagram inclusion remains explicit; its object action computes the
+required Pi fibre. The selected subject-proof path now permits closed RHS
+argument comparisons with exact proof-rule accounting; ordinary checking and
+runtime equality are unchanged. Workspace/registration/typecheck/lint pass.
+The complete TypeScript gate stops while loading the still-unmigrated
+`categorical.displayed-evaluation.stable-functor-family-fibre` rule. Next migrate
+its Cartesian Functor_catd fibre/evaluation/product signatures, then the
+remaining displayed and Homd/mixed profiles. This is not a full-suite pass.
+
+## Varying-base Pi: selected subject-checking extension
+
+The native Pi component is the whole composite `Pi_func(K) ∘
+Functor_cart_include(K,Cat_cart)`. The inclusion targets
+`Functor_cat(K,Cat_cart)`, which compares at proof time with `Catd_cat(K)`.
+The previous generic runtime subject checker could use a reviewed proof
+program to compare the final inferred types, but its RHS inference required
+every argument type to agree by runtime conversion alone. The actual native
+composite therefore failed inside its inclusion argument (wave170), although
+its native declaration is qualified. Replacing that argument by an opaque
+new primitive or making the two categories runtime-equal would change the
+required construction and is not selected.
+
+The minimal generic extension is now qualified at the recorded focused scope: the existing
+per-rule subject-proof expectation may explicitly permit closed RHS argument
+comparisons using the same checked proof program and opaque declaration
+extension. Used proof-rule IDs are recorded together with the final subject
+comparison and must exactly match the declared expectation. Ordinary checking,
+LHS inference and runtime normalization are unchanged; open local-binder
+comparisons remain outside this opt-in. No category names or equality-proof
+terms are introduced into the engine or emitted terms. This is a necessary
+compiler integration for the actual native consumer, not a new mathematical
+rule. Its generic runtime regression and native Pi conformance pass. The complete
+TypeScript integration attempt reaches the unmigrated displayed-evaluation
+profile after passing workspace/registration/typecheck/lint.
+
 ## Constraints
 
 - Follow the native source and its existing migration outline. Do not add

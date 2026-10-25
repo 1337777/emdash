@@ -22,6 +22,7 @@ import {
     compileCoreLfDeclarations,
     compileCoreLfProofProgram,
     compileCoreLfRuntimeProgram,
+    coreLfDefinitionalCompare,
     coreLfQualifiedSymbol,
     coreLfTransferAbsentBody,
     createCoreLfModuleSpec,
@@ -309,7 +310,8 @@ const genericRuntimeFixture = (): GenericRuntimeFixture => {
     };
 };
 
-const proofSubjectRuntimeFixture = () => {
+const proofSubjectRuntimeFixture = (nested = false) => {
+    const argumentObserver = coreLfQualifiedSymbol(fixtureModuleId, 'argument_observer');
     const declarationModule = createCoreLfModuleSpec({
         revision: 'proof-subject-runtime-declarations-1',
         moduleId: fixtureModuleId,
@@ -355,7 +357,12 @@ const proofSubjectRuntimeFixture = () => {
                 provenance: fixtureSource(
                     'symbol right_value : Right;'
                 )
-            }
+            },
+            ...(nested ? [{
+                order: 4, symbol: argumentObserver, type: functionType(leftType, leftType),
+                body: coreLfTransferAbsentBody(), modifiers: declarationModifiers,
+                provenance: fixtureSource('symbol argument_observer (x : Left) : Left;')
+            }] : [])
         ],
         inductives: [],
         runtimeRules: [],
@@ -479,8 +486,11 @@ const proofSubjectRuntimeFixture = () => {
                 value: runtimeBuilder.capture('x')
             }]
         )),
-        right: runtimeBuilder.template(
-            runtimeBuilder.global(rightValue)
+        right: runtimeBuilder.template(nested
+            ? runtimeBuilder.call(runtimeBuilder.global(argumentObserver), [{
+                plicity: 'explicit', value: runtimeBuilder.global(rightValue)
+            }])
+            : runtimeBuilder.global(rightValue)
         ),
         provenance: fixtureSource(
             'rule left_head $x ↪ right_value;'
@@ -497,7 +507,8 @@ const proofSubjectRuntimeFixture = () => {
         externalSymbols: [
             leftType,
             leftHead,
-            rightValue
+            rightValue,
+            ...(nested ? [argumentObserver] : [])
         ].map(symbol => ({
             symbol,
             availability: 'earlier-fragment' as const
@@ -988,6 +999,35 @@ describe('SCALE-0D generic LF runtime compiler', () => {
             ['fixture.proof-subject.types']
         );
         assertDeepFrozen(runtime.rules[0].subjectValidation);
+    });
+
+    it('checks selected RHS argument comparisons without adding runtime equality', () => {
+        const fixture = proofSubjectRuntimeFixture(true);
+        const options = { subjectReductionProof: {
+            program: fixture.proofProgram, rules: [fixture.expectation]
+        } };
+        expectRuntimeError(() => compileCoreLfRuntimeProgram(
+            fixture.module, fixture.policy, fixture.declarations, options
+        ), 'INVALID_RUNTIME_RULE_TYPE');
+        const runtime = compileCoreLfRuntimeProgram(
+            fixture.module, fixture.policy, fixture.declarations, {
+                subjectReductionProof: {
+                    program: fixture.proofProgram,
+                    rules: [{ ...fixture.expectation, allowArgumentConversion: true }]
+                }
+            });
+        assert.equal(runtime.rules[0].subjectValidation.kind, 'typescript-proof-checked');
+        if (runtime.rules[0].subjectValidation.kind !== 'typescript-proof-checked') return;
+        assert.deepEqual(runtime.rules[0].subjectValidation.proofRuleIds, ['fixture.proof-subject.types']);
+        assert.deepEqual(runtime.ruleIds, ['fixture.proof-subject.evaluate']);
+        // The native comparison is proof-time: compiling the rule must not
+        // install a runtime equation between the two opaque classifiers.
+        const site = provenance('derived', 'argument proof non-conversion');
+        const left = kernelFree('proof_subject_fixture_Left', site);
+        const right = kernelFree('proof_subject_fixture_Right', site);
+        assert.equal(coreLfDefinitionalCompare(
+            fixture.declarations.environment, left, right, 64, undefined, runtime
+        ).status, 'not-equal');
     });
 
     it('makes subject-proof expectations exact and self-invalidating', () => {

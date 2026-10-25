@@ -7,10 +7,12 @@
  */
 
 import {
-    isCoreKind
+    isCoreKind,
+    CoreCheckerConversionResult
 } from './checker';
 import {
     CoreLfChecker,
+    CoreLfElaborationSession,
     CORE_LF_CANDIDATE_COMPARISON_STEP_LIMIT,
     createCoreLfChecker
 } from './lf_checker';
@@ -187,6 +189,8 @@ export interface CoreLfRuntimeSubjectProofProgram {
 export interface CoreLfRuntimeSubjectProofExpectation {
     readonly runtimeRuleId: string;
     readonly proofRuleIds: readonly string[];
+    /** Also check closed RHS argument types through this exact proof program. */
+    readonly allowArgumentConversion?: true;
 }
 
 export interface CoreLfRuntimeSubjectReductionProof {
@@ -1732,12 +1736,41 @@ const compileRule = (
             );
             if (proofExpectation !== undefined) {
                 let inferredRightType: KernelExpression;
+                const argumentProofApplications: { readonly ruleId: string }[] = [];
                 try {
-                    const rightChecker = createCoreLfChecker(
-                        ruleEnvironment,
-                        comparisonStepLimit,
-                        checkingRuntime
-                    );
+                    // This remains a rule-local subject check. No proof rule
+                    // enters runtime conversion or the ordinary Core checker.
+                    // Open local-binder comparisons are deliberately left to
+                    // ordinary checking; the proof program knows only the
+                    // validated opaque extension containing rule captures.
+                    const proofProgram = subjectReductionProof.program;
+                    class ArgumentProofChecker extends CoreLfChecker {
+                        protected compareDefinitions(
+                            left: KernelExpression,
+                            right: KernelExpression,
+                            stepLimit: number
+                        ): CoreCheckerConversionResult {
+                            const ordinary = super.compareDefinitions(left, right, stepLimit);
+                            if (ordinary.status !== 'not-equal') return ordinary;
+                            try {
+                                kernelAssertScoped(left);
+                                kernelAssertScoped(right);
+                            } catch {
+                                return ordinary;
+                            }
+                            const comparison = proofProgram.compareUnderOpaqueDeclarationExtension(
+                                ruleEnvironment, checkingRuntime, left, right
+                            );
+                            if (comparison.status !== 'solved') return ordinary;
+                            argumentProofApplications.push(...comparison.ruleApplications);
+                            return { status: 'equal' };
+                        }
+                    }
+                    const rightChecker = proofExpectation.allowArgumentConversion
+                        ? new ArgumentProofChecker(new CoreLfElaborationSession(
+                            ruleEnvironment, comparisonStepLimit, checkingRuntime
+                        ))
+                        : createCoreLfChecker(ruleEnvironment, comparisonStepLimit, checkingRuntime);
                     const inferred = rightChecker.infer(
                         rightChecker.rootContext,
                         rightTerm
@@ -1798,7 +1831,7 @@ const compileRule = (
                     );
                 }
                 const proofRuleIds: string[] = [];
-                comparison.ruleApplications.forEach(application => {
+                [...argumentProofApplications, ...comparison.ruleApplications].forEach(application => {
                     if (!proofRuleIds.includes(application.ruleId)) {
                         proofRuleIds.push(application.ruleId);
                     }
@@ -1881,6 +1914,12 @@ const validateSubjectReductionProof = (
     const seenRuntime = new Set<string>();
     let previousOrder = -1;
     proof.rules.forEach((expectation, index) => {
+        if (expectation.allowArgumentConversion !== undefined &&
+            expectation.allowArgumentConversion !== true) {
+            fail('INVALID_RUNTIME_SUBJECT_PROOF',
+                `options.subjectReductionProof.rules[${index}].allowArgumentConversion`,
+                'Argument conversion must be an explicit true opt-in or omitted');
+        }
         const order = knownRuntime.get(expectation.runtimeRuleId);
         if (
             order === undefined ||

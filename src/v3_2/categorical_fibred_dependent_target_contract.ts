@@ -42,9 +42,10 @@ deepFreeze({
             'Hom',
             'Op_cat',
             'Functord',
-            'fapp0_func',
             'Functor_cat_func',
             'Functor_cat_fapp0_func',
+            'hom_con',
+            'Functor_cart_include',
             'Catd_cat_func',
             'Pi_func',
             'Pi_int_funcd',
@@ -56,7 +57,9 @@ deepFreeze({
             'categorical.dependent-target.functor-category-first-object',
             'categorical.dependent-target.functor-category-second-object',
             'categorical.dependent-target.constant-pullback',
-            'categorical.dependent-target.section-functor-object'
+            'categorical.dependent-target.section-functor-object',
+            'categorical.dependent-target.hom-con-object',
+            'categorical.dependent-target.cartesian-inclusion-object'
         ],
         inheritedRuntimeRules: [
             'categorical.displayed-hom-category.reduce'
@@ -76,14 +79,16 @@ deepFreeze({
             'categorical.dependent-target.functor-category-second-object',
             'categorical.dependent-target.constant-pullback',
             'categorical.dependent-target.section-functor-object',
+            'categorical.dependent-target.hom-con-object',
+            'categorical.dependent-target.cartesian-inclusion-object',
             'categorical.dependent-target.pullback-fold'
         ],
         proofCheckedRuntimeRules: [
             'categorical.dependent-target.package-component',
             'categorical.dependent-target.pullback-component'
         ],
-        declarationCount: 10,
-        runtimeRuleCount: 9,
+        declarationCount: 11,
+        runtimeRuleCount: 11,
         inheritedRuntimeRuleCount: 1,
         proofRuleCount: 1,
         typedPatternWildcardRules: [
@@ -102,7 +107,7 @@ deepFreeze({
         primitiveCoreBinderModeAdded: false
     },
     consumer: {
-        inputFamily: 'G : Functor(K,Op(Cat_cat))',
+        inputFamily: 'G : Functor(K,Op(Cat_cart))',
         motive: 'Pullback_catd(Catd_cat_func,G)',
         displayedSectionPackage: 'Pi_pullback_funcd(G)',
         target:
@@ -129,7 +134,7 @@ deepFreeze({
     ],
     doesNotProvide: [
         'new kernel owner or rule',
-        'runtime Functor_cat(K,Cat_cat)-to-Catd_cat(K) collapse',
+        'runtime Functor_cat(K,Cat_cart)-to-Catd_cat(K) collapse',
         'external subject-reduction oracle',
         'arbitrary coherent-section synthesis',
         'general dependent displayed bracket',
@@ -154,7 +159,7 @@ validateCoreCategoricalFibredDependentTargetContract(): void {
         contract.row !== 'FIBRED-DEPENDENT-TARGET-1' ||
         contract.status !== 'frozen-existing-authority-contract' ||
         transfer.declarations.length !== transfer.declarationCount ||
-        transfer.prerequisiteRuntimeRules.length !== 6 ||
+        transfer.prerequisiteRuntimeRules.length !== 8 ||
         transfer.inheritedRuntimeRules.join(',') !==
             'categorical.displayed-hom-category.reduce' ||
         transfer.inheritedRuntimeRules.length !==
@@ -166,7 +171,7 @@ validateCoreCategoricalFibredDependentTargetContract(): void {
         transfer.proofRules.length !== transfer.proofRuleCount ||
         transfer.typedPatternWildcardRules.join(',') !==
             'categorical.dependent-target.section-functor-object' ||
-        transfer.directlyCheckedRuntimeRules.length !== 7 ||
+        transfer.directlyCheckedRuntimeRules.length !== 9 ||
         transfer.proofCheckedRuntimeRules.join(',') !==
             'categorical.dependent-target.package-component,' +
             'categorical.dependent-target.pullback-component' ||

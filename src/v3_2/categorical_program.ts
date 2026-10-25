@@ -2462,7 +2462,7 @@ export class CoreCategoricalProgram {
             throw new CoreCategoricalProgramError(
                 'EXPECTED_FUNCTOR',
                 nodeProvenance,
-                `${detail} must target Op(Cat_cat)`
+                `${detail} must target Op(Cat_cart)`
             );
         }
         return Object.freeze({
@@ -3049,7 +3049,7 @@ export class CoreCategoricalProgram {
 
     /**
      * Assume a category-valued contravariant family
-     * `G : Functor(K,Op(Cat_cat))`.
+     * `G : Functor(K,Op(Cat_cart))`.
      */
     contravariantCategoryFamily(
         name: string,
@@ -3078,9 +3078,9 @@ export class CoreCategoricalProgram {
 
     /**
      * Pull back the internal displayed-category family along
-     * `G : K -> Op(Cat_cat)`.
+     * `G : K -> Op(Cat_cart)`.
      *
-     * The fibre at `k` is the displayed-family category over `G[k]`.
+     * The fibre at `k` is the Cartesian diagram category over `G[k]`.
      */
     dependentSectionMotive(
         contravariantFamilyValue: CoreCategoricalTerm,

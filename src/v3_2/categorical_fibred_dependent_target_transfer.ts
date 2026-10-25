@@ -1,9 +1,9 @@
 /**
  * FIBRED-DEPENDENT-TARGET-1 existing-authority transfer closure.
  *
- * Ten exact active declarations, ten exact runtime clauses, and one exact
+ * Eleven active declarations, eleven runtime clauses, and one
  * proof-time category-presentation rule are compiled through the generic
- * transfer engines. Eight runtime subjects check directly. Exactly the
+ * transfer engines. Nine runtime subjects check directly. Exactly the
  * package-component and pullback-component subjects use the proof rule.
  * The proof rule is never installed as a runtime rewrite.
  */
@@ -74,9 +74,9 @@ CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_REVISION =
 
 const MODULE_ID = 'emdash.emdash3_2';
 
-// Retained until this downstream profile receives its own migration review.
+// Qualified against the migrated whole Pi components and diagram inclusion.
 const CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 const symbol = (name: string): CoreLfQualifiedSymbol =>
     coreLfQualifiedSymbol(MODULE_ID, name);
 
@@ -88,6 +88,16 @@ const homClassifier = symbol('Hom');
 const homCategory = symbol('Hom_cat');
 const functorClassifier = symbol('Functor');
 const categoryOfCategories = symbol('Cat_cat');
+const familyCoefficient = symbol('Cat_cart');
+const cartesianFunctorCategory = symbol('Functor_cart_cat');
+const cartesianInclusion = symbol('Functor_cart_include');
+const contravariantHom = symbol('hom_con');
+const identityFunctor = symbol('id_func');
+const constantFamily = symbol('Const_catd');
+const pullbackFamily = symbol('Pullback_catd');
+const transforComponent = symbol('tapp0_fapp0');
+const functorHomAction = symbol('fapp1_fapp0');
+const pullbackFamilyFunctor = symbol('Pullback_catd_func');
 const functorCategory = symbol('Functor_cat');
 const displayedCategoryCategory = symbol('Catd_cat');
 const displayedFunctorCategory = symbol('Functord_cat');
@@ -226,30 +236,6 @@ const fapp0 = (
         { plicity: 'explicit', value: object }
     ]);
 
-const fixedEvaluationType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'A',
-        builder.global(category),
-        A => builder.pi(
-            'B',
-            builder.global(category),
-            B => builder.pi(
-                'x',
-                objectType(builder, A),
-                _x => functorType(
-                    builder,
-                    functorCategoryAt(builder, A, B),
-                    B
-                ),
-                explicitMode
-            ),
-            implicitMode
-        ),
-        implicitMode
-    ));
-};
-
 const internalFunctorCategoryType = (): CoreLfTransferExpression => {
     const builder = new CoreLfTransferScopedBuilder();
     return builder.term(functorType(
@@ -277,26 +263,78 @@ const partialFunctorCategoryType = (): CoreLfTransferExpression => {
     ));
 };
 
-const displayedCategoryFunctorBody = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const cat = builder.global(categoryOfCategories);
-    const oppositeCat = opposite(builder, cat);
-    const functorCategories = functorCategoryAt(builder, cat, cat);
-    const evaluator = globalCall(builder, fixedEvaluation, [
-        { plicity: 'implicit', value: cat },
-        { plicity: 'implicit', value: cat },
-        { plicity: 'explicit', value: cat }
+const unary = (b: CoreLfTransferScopedBuilder, owner: CoreLfQualifiedSymbol,
+    value: CoreLfTransferBuilderExpression) => globalCall(b, owner, [{ plicity: 'explicit', value }]);
+const cartesianAt = (b: CoreLfTransferScopedBuilder, A: CoreLfTransferBuilderExpression,
+    B: CoreLfTransferBuilderExpression) => globalCall(b, cartesianFunctorCategory, [
+        { plicity: 'explicit', value: A }, { plicity: 'explicit', value: B }
     ]);
-    return builder.term(globalCall(builder, functorComposition, [
-        { plicity: 'implicit', value: oppositeCat },
-        { plicity: 'implicit', value: functorCategories },
-        { plicity: 'implicit', value: cat },
-        { plicity: 'explicit', value: evaluator },
-        {
-            plicity: 'explicit',
-            value: builder.global(internalFunctorCategory)
-        }
+const familyTypeAt = (b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression) =>
+    objectType(b, unary(b, displayedCategoryCategory, K));
+const constFamilyAt = (b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression,
+    C: CoreLfTransferBuilderExpression) => globalCall(b, constantFamily, [
+        { plicity: 'explicit', value: K }, { plicity: 'explicit', value: C }
+    ]);
+const displayedMapTypeAt = (b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression,
+    E: CoreLfTransferBuilderExpression, D: CoreLfTransferBuilderExpression) =>
+    decode(b, globalCall(b, displayedFunctorClassifier, [
+        { plicity: 'implicit', value: K }, { plicity: 'explicit', value: E },
+        { plicity: 'explicit', value: D }
     ]));
+const pulledFamilyAt = (b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression,
+    L: CoreLfTransferBuilderExpression, E: CoreLfTransferBuilderExpression,
+    G: CoreLfTransferBuilderExpression) => globalCall(b, pullbackFamily, [
+        { plicity: 'implicit', value: K }, { plicity: 'implicit', value: L },
+        { plicity: 'explicit', value: E }, { plicity: 'explicit', value: G }
+    ]);
+const homConAt = (b: CoreLfTransferScopedBuilder, A: CoreLfTransferBuilderExpression,
+    W: CoreLfTransferBuilderExpression, B: CoreLfTransferBuilderExpression,
+    F: CoreLfTransferBuilderExpression) => globalCall(b, contravariantHom, [
+        { plicity: 'implicit', value: A }, { plicity: 'explicit', value: W },
+        { plicity: 'implicit', value: B }, { plicity: 'explicit', value: F }
+    ]);
+const contravariantHomType = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder();
+    return b.term(b.pi('A', b.global(category), A =>
+        b.pi('W', objectType(b, A), _W =>
+            b.pi('B', b.global(category), B =>
+                b.pi('F', functorType(b, B, A), _F =>
+                    functorType(b, opposite(b, B), b.global(familyCoefficient)), explicitMode),
+                implicitMode), explicitMode), implicitMode));
+};
+const inclusionType = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder();
+    return b.term(b.pi('A', b.global(category), A =>
+        b.pi('B', b.global(category), B =>
+            functorType(b, cartesianAt(b, A, B), functorCategoryAt(b, A, B)),
+            explicitMode), explicitMode));
+};
+const displayedCategoryFunctorType = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder(), cart = b.global(familyCoefficient);
+    return b.term(functorType(b, opposite(b, cart), cart));
+};
+const displayedCategoryFunctorBody = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder(), cart = b.global(familyCoefficient);
+    return b.term(homConAt(b, cart, cart, cart,
+        globalCall(b, identityFunctor, [{ plicity: 'implicit', value: cart }])));
+};
+const sectionFunctorType = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder();
+    return b.term(b.pi('K', b.global(category), K =>
+        functorType(b, unary(b, displayedCategoryCategory, K), b.global(familyCoefficient)), explicitMode));
+};
+const internalPiType = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder(), cart = b.global(familyCoefficient);
+    return b.term(displayedMapTypeAt(b, opposite(b, cart), b.global(displayedCategoryFunctor),
+        constFamilyAt(b, opposite(b, cart), cart)));
+};
+const pullbackPiType = (): CoreLfTransferExpression => {
+    const b = new CoreLfTransferScopedBuilder(), cart = b.global(familyCoefficient);
+    return b.term(b.pi('K', b.global(category), K =>
+        b.pi('G', functorType(b, K, opposite(b, cart)), G =>
+            displayedMapTypeAt(b, K,
+                pulledFamilyAt(b, K, opposite(b, cart), b.global(displayedCategoryFunctor), G),
+                constFamilyAt(b, K, cart)), explicitMode), implicitMode));
 };
 
 const homClassifierType = (): CoreLfTransferExpression => {
@@ -369,7 +407,7 @@ const originalDeclaration = (
                 `'${name}'`
         );
     }
-    return declaration;
+    return { ...declaration, provenance: source(`native declaration ${name}`) };
 };
 
 const declarations: readonly CoreLfTransferDeclaration[] =
@@ -387,17 +425,6 @@ Object.freeze([
     },
     originalDeclaration('Op_cat'),
     originalDeclaration('Functord'),
-    {
-        order: 0,
-        symbol: fixedEvaluation,
-        type: fixedEvaluationType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: modifiers('ordinary', 'opaque'),
-        provenance: source(
-            'symbol fapp0_func : Π [A B : Cat] ' +
-                '(x : τ (Obj A)), τ (Functor (Functor_cat A B) B)'
-        )
-    },
     {
         order: 0,
         symbol: internalFunctorCategory,
@@ -421,14 +448,28 @@ Object.freeze([
         )
     },
     {
-        ...originalDeclaration('Catd_cat_func'),
-        body: coreLfTransferExplicitBody(
-            displayedCategoryFunctorBody()
-        )
+        order: 0, symbol: contravariantHom, type: contravariantHomType(),
+        body: coreLfTransferAbsentBody(), modifiers: modifiers('injective', 'opaque'),
+        provenance: source('injective symbol hom_con [A : Cat] (W : τ (Obj A)) [B : Cat]')
     },
-    originalDeclaration('Pi_func'),
-    originalDeclaration('Pi_int_funcd'),
-    originalDeclaration('Pi_pullback_funcd')
+    {
+        order: 0, symbol: cartesianInclusion, type: inclusionType(),
+        body: coreLfTransferAbsentBody(), modifiers: modifiers('injective', 'opaque'),
+        provenance: source('injective symbol Functor_cart_include (A B : Cat)')
+    },
+    {
+        ...originalDeclaration('Catd_cat_func'),
+        type: displayedCategoryFunctorType(),
+        body: coreLfTransferExplicitBody(displayedCategoryFunctorBody()),
+        provenance: source('symbol Catd_cat_func : τ (Functor (Op_cat Cat_cart) Cat_cart)')
+    },
+    { ...originalDeclaration('Pi_func'), type: sectionFunctorType(),
+        provenance: source('injective symbol Pi_func (K : Cat) : τ (Functor (Catd_cat K) Cat_cart)') },
+    { ...originalDeclaration('Pi_int_funcd'), type: internalPiType(),
+        provenance: source('constant symbol Pi_int_funcd') },
+    { ...originalDeclaration('Pi_pullback_funcd'), type: pullbackPiType(),
+        provenance: source('injective symbol Pi_pullback_funcd [K : Cat]') }
+
 ].map((declaration, order) => Object.freeze({
     ...declaration,
     order
@@ -447,15 +488,25 @@ Object.freeze([
     homCategory,
     functorCategory,
     functorComposition,
+    fixedEvaluation,
+    familyCoefficient,
+    cartesianFunctorCategory,
+    identityFunctor,
+    constantFamily,
+    transforComponent,
+    functorHomAction,
+    pullbackFamilyFunctor,
     ...CORE_LF_SCALE_STRESS_2B1_MODULE.declarations
         .filter(declaration =>
             reusedDeclarationNames.has(declaration.symbol.name)
         )
         .map(declaration => declaration.symbol)
-].filter(external => !declarations.some(declaration =>
-    declaration.symbol.moduleId === external.moduleId &&
-    declaration.symbol.name === external.name
-)));
+].filter((external, index, all) =>
+    all.findIndex(other => other.moduleId === external.moduleId && other.name === external.name) === index &&
+    !declarations.some(declaration =>
+        declaration.symbol.moduleId === external.moduleId && declaration.symbol.name === external.name
+    )
+));
 
 export const
 CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_MODULE:
@@ -785,7 +836,7 @@ const sectionFunctorObjectRule =
         left: builder.pattern(fapp0(
             builder,
             builder.wildcard(displayedCategory),
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             globalCall(builder, sectionCategoryFunctor, [{
                 plicity: 'explicit',
                 value: K
@@ -801,7 +852,7 @@ const sectionFunctorObjectRule =
             ]
         )),
         provenance: source(
-            'rule @fapp0 _ Cat_cat (@Pi_func $K) $E ' +
+            'rule @fapp0 _ Cat_cart (@Pi_func $K) $E ' +
                 '↪ @Pi_cat $K $E'
         )
     };
@@ -833,21 +884,148 @@ const originalRuntime = (
     });
 };
 
-const runtimeRules: readonly CoreLfTransferRuntimeRule[] =
-Object.freeze([
+const contravariantHomObjectRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), W = b.capture('W'), B = b.capture('B'), F = b.capture('F'), x = b.capture('x');
+    return {
+        order: 0, id: 'categorical.dependent-target.hom-con-object',
+        groupId: 'categorical.dependent-target.hom-con-object', clauseOrder: 0, sourceOwner: functorObject,
+        variables: [
+            { name: 'A', type: b.template(b.global(category)) },
+            { name: 'W', type: b.template(objectType(b, A)) },
+            { name: 'B', type: b.template(b.global(category)) },
+            { name: 'F', type: b.template(functorType(b, B, A)) },
+            { name: 'x', type: b.template(objectType(b, B)) }
+        ],
+        left: b.pattern(fapp0(b, b.wildcard(opposite(b, B)), b.global(familyCoefficient), homConAt(b, A, W, B, F), x)),
+        right: b.template(homCategoryAt(b, A, fapp0(b, B, A, F, x), W)),
+        provenance: source('rule @fapp0 _ Cat_cart (@hom_con $A $W $B $F) $x')
+    };
+};
+const inclusionAt = (b: CoreLfTransferScopedBuilder, A: CoreLfTransferBuilderExpression,
+    B: CoreLfTransferBuilderExpression) => globalCall(b, cartesianInclusion, [
+        { plicity: 'explicit', value: A }, { plicity: 'explicit', value: B }
+    ]);
+const inclusionObjectRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), B = b.capture('B'), F = b.capture('F');
+    return {
+        order: 0, id: 'categorical.dependent-target.cartesian-inclusion-object',
+        groupId: 'categorical.dependent-target.cartesian-inclusion-object', clauseOrder: 0, sourceOwner: functorObject,
+        variables: [
+            ...['A', 'B'].map(name => ({ name, type: b.template(b.global(category)) })),
+            { name: 'F', type: b.template(functorType(b, A, B)) }
+        ],
+        // Native inferred slots are wildcards. In particular the codomain
+        // may be the proof-equal Catd presentation after Pi composition.
+        left: b.pattern(fapp0(b, b.wildcard(cartesianAt(b, A, B)),
+            b.wildcard(functorCategoryAt(b, A, B)), inclusionAt(b, A, B), F)),
+        right: b.template(F), provenance: source('rule @fapp0 _ _ (Functor_cart_include _ _) $F ↪ $F')
+    };
+};
+const constantPullbackRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), B = b.capture('B'), C = b.capture('C'), F = b.capture('F');
+    return {
+        order: 0, id: 'categorical.dependent-target.constant-pullback',
+        groupId: 'categorical.dependent-target.constant-pullback', clauseOrder: 0, sourceOwner: pullbackFamily,
+        variables: [
+            ...['A', 'B', 'C'].map(name => ({ name, type: b.template(b.global(category)) })),
+            { name: 'F', type: b.template(functorType(b, A, B)) }
+        ],
+        left: b.pattern(pulledFamilyAt(b, A, B, constFamilyAt(b, B, C), F)),
+        right: b.template(constFamilyAt(b, A, C)),
+        provenance: source('rule @Pullback_catd $A $B (@Const_catd $B $C) $F')
+    };
+};
+const pullbackPiAt = (b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression,
+    G: CoreLfTransferBuilderExpression) => globalCall(b, pullbackPi, [
+        { plicity: 'implicit', value: K }, { plicity: 'explicit', value: G }
+    ]);
+const componentAt = (b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression,
+    E: CoreLfTransferBuilderExpression, D: CoreLfTransferBuilderExpression,
+    x: CoreLfTransferBuilderExpression, FF: CoreLfTransferBuilderExpression) =>
+    globalCall(b, transforComponent, [
+        { plicity: 'implicit', value: K }, { plicity: 'implicit', value: b.global(familyCoefficient) },
+        { plicity: 'implicit', value: E }, { plicity: 'implicit', value: D },
+        { plicity: 'explicit', value: x }, { plicity: 'explicit', value: FF }
+    ]);
+const includedPiAt = (b: CoreLfTransferScopedBuilder, K: CoreLfTransferBuilderExpression) => {
+    const cart = b.global(familyCoefficient);
+    return globalCall(b, functorComposition, [
+        { plicity: 'implicit', value: cartesianAt(b, K, cart) },
+        { plicity: 'implicit', value: unary(b, displayedCategoryCategory, K) },
+        { plicity: 'implicit', value: cart },
+        { plicity: 'explicit', value: unary(b, sectionCategoryFunctor, K) },
+        { plicity: 'explicit', value: inclusionAt(b, K, cart) }
+    ]);
+};
+const piComponentRule = (pulled: boolean): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder(), cart = b.global(familyCoefficient);
+    const K = b.capture('K'), G = b.capture('G'), x = b.capture('x');
+    const base = pulled ? K : opposite(b, cart);
+    const point = pulled ? x : K;
+    const family = pulled ? pulledFamilyAt(b, K, opposite(b, cart), b.global(displayedCategoryFunctor), G)
+        : b.global(displayedCategoryFunctor);
+    const at = pulled ? fapp0(b, K, opposite(b, cart), G, x) : K;
+    const id = 'categorical.dependent-target.' + (pulled ? 'pullback-component' : 'package-component');
+    return {
+        order: 0, id, groupId: id, clauseOrder: 0, sourceOwner: transforComponent,
+        variables: [
+            { name: 'K', type: b.template(b.global(category)) },
+            ...(pulled ? [
+                { name: 'G', type: b.template(functorType(b, K, opposite(b, cart))) },
+                { name: 'x', type: b.template(objectType(b, K)) }
+            ] : [])
+        ],
+        left: b.pattern(componentAt(b, base, family, constFamilyAt(b, base, cart), point,
+            pulled ? pullbackPiAt(b, K, G) : b.global(internalPi))),
+        right: b.template(includedPiAt(b, at)),
+        provenance: source(pulled
+            ? 'rule @tapp0_fapp0 $K Cat_cart _ _ $x (@Pi_pullback_funcd $K $G)'
+            : 'rule @tapp0_fapp0 (Op_cat Cat_cart) Cat_cart _ _ $K Pi_int_funcd')
+    };
+};
+const piPullbackFoldRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder(), cart = b.global(familyCoefficient);
+    const K = b.capture('K'), G = b.capture('G'), base = opposite(b, cart);
+    const sourceFamily = b.global(displayedCategoryFunctor), targetFamily = constFamilyAt(b, base, cart);
+    const pull = globalCall(b, pullbackFamilyFunctor, [
+        { plicity: 'implicit', value: K }, { plicity: 'implicit', value: base },
+        { plicity: 'explicit', value: G }
+    ]);
+    return {
+        order: 0, id: 'categorical.dependent-target.pullback-fold',
+        groupId: 'categorical.dependent-target.pullback-fold', clauseOrder: 0, sourceOwner: functorHomAction,
+        variables: [
+            { name: 'K', type: b.template(b.global(category)) },
+            { name: 'G', type: b.template(functorType(b, K, base)) }
+        ],
+        left: b.pattern(globalCall(b, functorHomAction, [
+            { plicity: 'implicit', value: unary(b, displayedCategoryCategory, base) },
+            { plicity: 'implicit', value: unary(b, displayedCategoryCategory, K) },
+            { plicity: 'explicit', value: pull },
+            { plicity: 'implicit', value: sourceFamily }, { plicity: 'implicit', value: targetFamily },
+            { plicity: 'explicit', value: b.global(internalPi) }
+        ])),
+        right: b.template(pullbackPiAt(b, K, G)),
+        provenance: source('rule @fapp1_fapp0 (@Catd_cat (Op_cat Cat_cart)) _ (@Pullback_catd_func $K (Op_cat Cat_cart) $G) _ _ Pi_int_funcd')
+    };
+};
+
+const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
     originalRuntime('stress.internal-pi.opposite-object'),
     fixedEvaluationObjectRule(),
     internalFunctorCategoryFirstRule(),
     internalFunctorCategorySecondRule(),
-    originalRuntime('stress.internal-pi.constant-pullback'),
+    constantPullbackRule(),
     sectionFunctorObjectRule(),
-    originalRuntime('stress.internal-pi.package-component'),
-    originalRuntime('stress.internal-pi.pullback-fold'),
-    originalRuntime('stress.internal-pi.pullback-component')
-].map((rule, order) => Object.freeze({
-    ...rule,
-    order
-})));
+    contravariantHomObjectRule(),
+    inclusionObjectRule(),
+    piComponentRule(false),
+    piPullbackFoldRule(),
+    piComponentRule(true)
+].map((rule, order) => Object.freeze({ ...rule, order })));
 
 const runtimeModuleFor = (
     suffix: string,
@@ -899,7 +1077,7 @@ export const
 CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PREREQUISITE_RUNTIME_MODULE =
     runtimeModuleFor(
         'PREREQUISITE-RUNTIME',
-        runtimeRules.slice(0, 6)
+        runtimeRules.slice(0, 8)
     );
 
 export const
@@ -912,7 +1090,7 @@ export const
 CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_CONSUMER_RUNTIME_MODULE =
     runtimeModuleFor(
         'CONSUMER-RUNTIME',
-        runtimeRules.slice(6)
+        runtimeRules.slice(8)
     );
 
 export const
@@ -945,7 +1123,7 @@ const categoryPresentationRule = () => {
             left: builder.pattern(functorCategoryAt(
                 builder,
                 K,
-                builder.global(categoryOfCategories)
+                builder.global(familyCoefficient)
             )),
             right: builder.pattern(globalCall(
                 builder,
@@ -958,7 +1136,7 @@ const categoryPresentationRule = () => {
             right: builder.template(K2)
         }],
         provenance: source(
-            'unif_rule Functor_cat $K Cat_cat ≡ @Catd_cat $K2 ' +
+            'unif_rule Functor_cat $K Cat_cart ≡ @Catd_cat $K2 ' +
                 '↪ [ $K ≡ $K2 ]'
         )
     };
@@ -977,7 +1155,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     dependencies: [],
     externalSymbols: [
         category,
-        categoryOfCategories,
+        familyCoefficient,
         functorCategory,
         displayedCategoryCategory
     ].map(external => ({
@@ -1030,13 +1208,13 @@ Object.freeze({
     proofRuleIds: Object.freeze([proofRule.id]),
     declarationCount: declarations.length,
     runtimeRuleCount: runtimeRules.length,
-    prerequisiteRuntimeRuleCount: 6,
+    prerequisiteRuntimeRuleCount: 8,
     consumerRuntimeRuleCount: 3,
     inheritedRuntimeRuleIds: Object.freeze([
         'categorical.displayed-hom-category.reduce'
     ]),
     inheritedRuntimeRuleCount: 1,
-    directlyCheckedRuntimeRuleCount: 7,
+    directlyCheckedRuntimeRuleCount: 9,
     proofCheckedRuntimeRuleCount: 2,
     proofCheckedRuntimeRuleIds: Object.freeze([
         'categorical.dependent-target.package-component',
@@ -1130,13 +1308,15 @@ CoreCategoricalFibredDependentTargetCompilation {
                         runtimeRuleId:
                             'categorical.dependent-target.' +
                             'package-component',
-                        proofRuleIds: [proofRule.id]
+                        proofRuleIds: [proofRule.id],
+                        allowArgumentConversion: true
                     },
                     {
                         runtimeRuleId:
                             'categorical.dependent-target.' +
                             'pullback-component',
-                        proofRuleIds: [proofRule.id]
+                        proofRuleIds: [proofRule.id],
+                        allowArgumentConversion: true
                     }
                 ]
             }
