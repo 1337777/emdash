@@ -84,15 +84,52 @@ and the walking-arrow oplax evaluation annotations. It changes no semantic
 owner or assertion polarity. The cold source run passes in 139.029s/595,052KiB
 under 300s/2GiB/o=20, with subject reduction and unchanged warning bodies.
 
-The final 15 original reviewer sources are unchanged and prepared with their
-404-input import closure. Their aggregate is running under explicit 900s/4GiB:
+The original-byte baseline for the final 15 reviewers stops at the first
+legacy homology signature (`20261025T030712Z-b1ea53267c534f59afa189913123a12a`,
+150.162s/241,356KiB): its arrow-diagram coefficient and initial-object duality
+still use the former contracts. A source-pinned candidate applies the existing
+oplax diagram, total-dual and fixed-evaluation interfaces, preserving every
+assertion, supplied map/inverse and OneCat guard. No semantic rule is added.
+Its first 404-input aggregate reaches the explicit 900s/4GiB deadline:
 the existing 245-input core regression measured 771.773s/2,631,900KiB, and these
 native reviewers include previously selected 3GiB targets. Available memory
-before launch was 19,482MiB. This is measured aggregate headroom, not a change
-to defaults or a completed result. Verify the live run/receipt before resuming;
+before launch was 19,482MiB. The adapted run is a timeout, not a typing failure:
+`20261025T031210Z-1f30dcc90c2548e1a75eb6cffd5fdcf9`, 900.031s, during the
+native-snake outer-zero imports. Earlier reviewers including bounded-generator,
+image/kernel, public-pair, component-exactness and connecting lifts completed.
+The last recorded live RSS sample was 2,403,840KiB at 869s; the killed run's
+reported child-rusage value is lower and is not used as its memory peak.
+The complete two-file tail and four typed intermediate controls now pass:
+`20261025T033915Z-ed5f9d522b034319835ef2fb22b026d5`, 71.921s/277,764KiB under
+90s/2GiB. One scoped evaluation comparison reconstructs the original complete
+composite from represented cuts; the old Cartesian-exchange congruence moves
+to the actual mixed-action head, retaining all arguments. No runtime rule,
+primitive or operational proof payload is added. Matched warnings are unchanged.
+The [review](../emdash2/audits/strict-default-action-boundary/foundation_final_reviewer_review.md)
+and [verification](../emdash2/audits/strict-default-action-boundary/foundation_final_reviewer_verification.json)
+retain the source pins, failures and exact replay. The whole group is now
+running at 1800s with the same 4GiB cap. This is measured aggregate headroom,
+not a change to defaults or a completed result. Verify the live run/receipt before resuming;
 the ignored `tmp/probes/kernel_boundary_continuation/current_run.json` locates
 it. Shared-source qualification and final adoption remain required before
 increasing the consolidated production-emitter counts.
+
+Before the tail repair, the candidate differed from the qualified 791-owner
+library baseline only in `emdash3_2.lp`; the two evaluation/action owners above
+now also differ. A complete owner-import driver is prepared to qualify those
+shared changes after the final reviewer run. It has not run yet; the
+unchanged dependent source bytes do not by themselves carry the prior result
+across a changed kernel. Existing central/runtime exclusions remain explicit.
+
+After the original-reviewer migration, revisit the five terminal Homd runtime
+requirements using the retained R01–R03 witnesses before proposing another rule.
+They test three different operations: source-u action, the identity y-component,
+and general relative y-components. The earlier contract/canonical-point reviews
+used older source snapshots; subsequent terminal identity and displayed-action
+repairs warrant an exact replay, not an assumption that their old failures
+still decide the new snapshot. Preserve the higher-action/inverse controls and
+neutral-unit distinctions. No existing requirement is discharged by this review
+schedule or by the already available whole proof-time comparisons.
 
 Checkpoint `bc13656f` records the four-reviewer follow-up and passing cold core
 regression below. The next

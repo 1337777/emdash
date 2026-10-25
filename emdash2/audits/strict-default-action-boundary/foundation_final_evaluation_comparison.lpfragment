@@ -1,0 +1,14 @@
+// The same evaluation comparison after represented postcomposition has split.
+// Retain the actual evaluator, all three maps and their complete composite.
+// This is proof-time only; the represented runtime cuts remain unchanged.
+unif_rule
+  @comp_fapp0 Cat_cat $A $B $C
+    (@OddDual_func _ _ (@fapp0_func $J $D $i))
+    (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $N $B $q
+      (@hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $A $M $N $p $g))
+  ≡ $view
+  ↪ [ $B ≡ OddDual_cat (Functor_cat $J $D); $C ≡ OddDual_cat $D;
+      @comp_fapp0 Cat_cat $A $B $C
+        (@OddDual_func _ _ (@fapp0_func $J $D $i))
+        (@comp_fapp0 Cat_cat $A $M $B
+          (@comp_fapp0 Cat_cat $M $N $B $q $p) $g) ≡ $view ];

@@ -1,0 +1,7 @@
+// Sufficient congruence of the complete mixed composition action used by
+// oplax family evaluation. The old Cartesian exchange head is no longer
+// this consumer's owner. Compare every classifier, endpoint pair and cell.
+unif_rule @comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg1 $alpha
+  ≡ @comp_prod_fapp1_fapp0 $A0 $W0 $X0 $Z0 $qg $qg1 $beta
+  ↪ [ $A ≡ $A0; $W ≡ $W0; $X ≡ $X0; $Z ≡ $Z0;
+      $pg ≡ $qg; $pg1 ≡ $qg1; $alpha ≡ $beta ];

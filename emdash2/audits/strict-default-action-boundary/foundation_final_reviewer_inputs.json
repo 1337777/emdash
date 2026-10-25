@@ -1,0 +1,276 @@
+{
+  "status": "final reviewer candidate; focused complete tail and whole-type trace pass; full aggregate qualification pending",
+  "parentCheckpoint": "0b0b8be5",
+  "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
+  "files": {
+    "examples/homology_adjunction_legacy_views.lp": {
+      "sourceSha256": "9f6d8f25d0477f09d280bd92ed24dcb1eed44f75edb80561b28463e9ebdb9f16",
+      "counts": [
+        6,
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "68b67be93c81bde5c13765a9fd1c288f93089a28b1f815734d0ee999e52fa880"
+    },
+    "examples/homology_bounded_generator_arrows.lp": {
+      "sourceSha256": "f148e691a2928370a46f2b400247ec98cbac4e25418309c701a26b8ffa6e4995",
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "f148e691a2928370a46f2b400247ec98cbac4e25418309c701a26b8ffa6e4995"
+    },
+    "examples/image_kernel_point_comparison.lp": {
+      "sourceSha256": "82e8370d57ed598a79d1ebca7d95743494933aeb3288174a5036cd7354dc26a1",
+      "counts": [
+        8,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "27378ab5012c7000fd85cc06d24fbe5172a58041a7e1b691ed45185657f3eb3b"
+    },
+    "examples/native_observed_exactness.lp": {
+      "sourceSha256": "eccfeef09d260fea94c3f396144a55878e9ae558a2ae5b2f3b23ca82f3a871b5",
+      "counts": [
+        0,
+        0,
+        0,
+        4,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "9215446c538c94389aed33dbb73fb9d7b6e1c7e3e38cf03498ed2ee20549ad01"
+    },
+    "examples/native_public_pair_observations.lp": {
+      "sourceSha256": "69d326a5f675401afc0673f3e867bd8e1da832194aef8d8ea0bf41c37d91b6b9",
+      "counts": [
+        17,
+        10,
+        10,
+        0,
+        0,
+        0
+      ],
+      "pointReadings": [
+        86,
+        4
+      ],
+      "walkingArrowViews": 7,
+      "candidateSha256": "deefd7d2d6ad7bba8da98f725b8ed89eec8fecae6c1e43354c4b7fe8d877be4b"
+    },
+    "examples/one_cat_native_component_exactness.lp": {
+      "sourceSha256": "96bd27356ff006797bde0f6b2717e38b73b1c7ae26a8755037e9c47fd02db572",
+      "counts": [
+        4,
+        1,
+        2,
+        1,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "e6997ab26b7317c023feb55c6d10d344a841338e412981bcb6c5af0ecc7c1b8d"
+    },
+    "examples/one_cat_native_connecting_lifts.lp": {
+      "sourceSha256": "80cf6af609dadefe5dbcb37835f7d6a1f4dfb10efcb646a73dc5a2f87c164afb",
+      "counts": [
+        0,
+        0,
+        0,
+        5,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "7c8380cee3a0472a4cafb59470bd450e055d7a2568553ec3b51d1157ba086660"
+    },
+    "examples/one_cat_native_homology_window_exactness.lp": {
+      "sourceSha256": "b0ddbd7944b10bb09b9aef2e200b1bdde9990ae8dc12550967686ce851a2d918",
+      "counts": [
+        6,
+        0,
+        0,
+        5,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "79b61d52967ed536cc15f72d55a98d36600fe6268f54d846b313f7f40a944801"
+    },
+    "examples/one_cat_native_snake_cover_cancellation.lp": {
+      "sourceSha256": "e690636160ed0ff1f9ad3cdf3e4be59f4fd72dc86cd7f6e627b55fd1885d405e",
+      "counts": [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "89dae33779535936ff065bd837030771fc2d096b2fbd81995d6ed0a7280d0d85"
+    },
+    "examples/one_cat_native_snake_six_term_inputs.lp": {
+      "sourceSha256": "4fe0d799c28ca36683bc4e09afa40196cec8680de03820fca2e52b354e2c9b26",
+      "counts": [
+        0,
+        0,
+        0,
+        8,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "db17703756b594c96a680aba2c25ef7e19f1760da86008b03ccdb6eb0da03d14"
+    },
+    "examples/one_cat_native_snake_six_term_zeros.lp": {
+      "sourceSha256": "96d7278011883cd41f2ed1335c750a6fdb6f71809cfcc5ab6f862c77702f61b9",
+      "counts": [
+        0,
+        0,
+        0,
+        6,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "f49d1a54a0847fae3f971abb05fc2b0c7f82d9024a4db210bec439aaa7917c9f"
+    },
+    "examples/one_cat_native_window_point_exactness.lp": {
+      "sourceSha256": "554e5b3c9a0943643eca76f64d4b7f650858c227cd8fc6d89da939e48c9fd357",
+      "counts": [
+        0,
+        0,
+        0,
+        3,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "997a0f41d331d9453ee74684113c456c0ba3cc93fcc4b68815a955f6156b910e"
+    },
+    "examples/one_cat_zero_cone_homology.lp": {
+      "sourceSha256": "19072e920ec92798c4ae2950684ba51374ca44e11a39df207456e600939db5d7",
+      "counts": [
+        6,
+        4,
+        4,
+        10,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "80111df328daace979a48f30eb6d9bf69d1e00b315128688b872ba63b28468f6"
+    },
+    "examples/zero_arrow_family_action_paths.lp": {
+      "sourceSha256": "947f6aac32ccdd48b587c230647b907cb176ea13a5423248c62ed70024ffe332",
+      "counts": [
+        13,
+        0,
+        0,
+        0,
+        2,
+        9
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "f6c6723b51d1ccb8a9a467bf9aa2122a3fd8809e45defa55a9bf7272dad6870e"
+    },
+    "examples/zero_arrow_family_point_inputs.lp": {
+      "sourceSha256": "a45c536eff4253a0e3da618aa38952d7e5f76eb2abcfeaebd3ae7cc4d239c6f8",
+      "counts": [
+        7,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "pointReadings": [
+        0,
+        0
+      ],
+      "walkingArrowViews": 0,
+      "candidateSha256": "7d20117abb51bd121f5add28323e3e97e71f99b2cf87bd6cad4165e7b79390a2"
+    }
+  },
+  "owners": {
+    "emdash3_2_diagram_evaluation.lp": {
+      "sourceSha256": "724e1a31466786996aa4c2684117c02b83ef482c5632ee63ad6d56a299ffab7e",
+      "candidateSha256": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+      "anchor": "symbol diagram_oplax_evaluation_transf [I C : Cat]",
+      "fragment": "foundation_final_evaluation_comparison.lpfragment"
+    },
+    "emdash3_2_zero_arrow_family_action_paths.lp": {
+      "sourceSha256": "6278c04ba67a66f472ec67933e1a9cf4316824c5c7ad3243f62fa03e6848639d",
+      "candidateSha256": "466ec05f9dfacc37f1404edba0cb3a849622029452f1ffdfa0ba8259c79c262b",
+      "before": "// Proof-time sufficient congruence of the same whole evaluation projection.\n// Compare every index, family and transformation; no data is erased.\nunif_rule @sym_transf_tapp0_transf $B $I $C $F $G $h $i\n  \u2261 @sym_transf_tapp0_transf $B0 $I0 $C0 $F0 $G0 $h0 $i0\n  \u21aa [ $B \u2261 $B0; $I \u2261 $I0; $C \u2261 $C0; $F \u2261 $F0;\n      $G \u2261 $G0; $h \u2261 $h0; $i \u2261 $i0 ];\n\n",
+      "fragment": "foundation_final_action_comparison.lpfragment"
+    }
+  }
+}
