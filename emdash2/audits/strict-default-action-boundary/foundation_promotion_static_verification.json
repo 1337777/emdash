@@ -1,0 +1,437 @@
+{
+  "status": "static promotion review; no semantic equivalence or confluence claim",
+  "mathematicalSnapshotReceipt": "20261025T052321Z-1b7c3fa9b43449028e422884a9d228b9",
+  "mathematicalSnapshotVerificationSha256": "bd9428e0e2de0328f40e649674d369dd82aec29aee1f435c9991689e2031fc79",
+  "genericLHSAudit": {
+    "status": "static generic-LHS audit only; owning-position qualification remains separate",
+    "files": 791,
+    "candidateTotals": {
+      "unreviewed": 0,
+      "annotated": 137
+    },
+    "productionTotals": {
+      "unreviewed": 0,
+      "annotated": 113
+    },
+    "entries": [],
+    "seconds": 8.838755308184773
+  },
+  "newStableHeadAudit": {
+    "addedInjectiveHeads": 51,
+    "candidates": [],
+    "scope": "new injective heads with unguarded direct head rewrite; static review heuristic, not proof of normalization"
+  },
+  "assertionInventory": {
+    "status": "assertion-count inventory; not semantic equivalence of tests",
+    "originalFiles": 1388,
+    "beforeTotals": {
+      "assert": 6371,
+      "assertnot": 949
+    },
+    "candidateTotals": {
+      "assert": 6457,
+      "assertnot": 909
+    },
+    "deltas": [
+      {
+        "file": "emdash3_2_checks.lp",
+        "before": {
+          "assert": 2133,
+          "assertnot": 299
+        },
+        "after": {
+          "assert": 2162,
+          "assertnot": 279
+        },
+        "totalDelta": 9
+      },
+      {
+        "file": "examples/action_profile_canonical_sigma_basechange_controls.lp",
+        "before": {
+          "assert": 3,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 4,
+          "assertnot": 1
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/action_profile_inherited_assembly_controls.lp",
+        "before": {
+          "assert": 8,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 9,
+          "assertnot": 1
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/action_profile_postcomp_profile_controls.lp",
+        "before": {
+          "assertnot": 3,
+          "assert": 10
+        },
+        "after": {
+          "assert": 13,
+          "assertnot": 2
+        },
+        "totalDelta": 2
+      },
+      {
+        "file": "examples/action_profile_precomp_minimal_all_orders.lp",
+        "before": {
+          "assertnot": 4,
+          "assert": 6
+        },
+        "after": {
+          "assert": 10
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/action_profile_precomp_minimal_mixed_controls.lp",
+        "before": {
+          "assertnot": 2,
+          "assert": 1
+        },
+        "after": {
+          "assert": 2,
+          "assertnot": 1
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/action_profile_profile_action_path_controls.lp",
+        "before": {
+          "assert": 2,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 3,
+          "assertnot": 1
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/action_profile_telescope_profile_controls.lp",
+        "before": {
+          "assert": 6,
+          "assertnot": 6
+        },
+        "after": {
+          "assert": 12,
+          "assertnot": 2
+        },
+        "totalDelta": 2
+      },
+      {
+        "file": "examples/action_profile_vertical_profile_controls.lp",
+        "before": {
+          "assertnot": 5,
+          "assert": 10
+        },
+        "after": {
+          "assert": 11,
+          "assertnot": 6
+        },
+        "totalDelta": 2
+      },
+      {
+        "file": "examples/action_profile_vertical_unit_controls.lp",
+        "before": {
+          "assert": 10,
+          "assertnot": 3
+        },
+        "after": {
+          "assert": 13
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/action_profile_walking_cross_category_controls.lp",
+        "before": {
+          "assert": 2,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 3,
+          "assertnot": 3
+        },
+        "totalDelta": 2
+      },
+      {
+        "file": "examples/action_profile_walking_named_rec_controls.lp",
+        "before": {
+          "assert": 3,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 4,
+          "assertnot": 1
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/adjunction_exchange_computation.lp",
+        "before": {
+          "assert": 2
+        },
+        "after": {
+          "assert": 4
+        },
+        "totalDelta": 2
+      },
+      {
+        "file": "examples/adjunction_exchange_op_identity.lp",
+        "before": {
+          "assert": 3,
+          "assertnot": 1
+        },
+        "after": {
+          "assert": 6,
+          "assertnot": 2
+        },
+        "totalDelta": 4
+      },
+      {
+        "file": "examples/cokernel_adjunction_presentations.lp",
+        "before": {
+          "assert": 7,
+          "assertnot": 4
+        },
+        "after": {
+          "assert": 8,
+          "assertnot": 3
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/cubical_internalization.lp",
+        "before": {
+          "assert": 7
+        },
+        "after": {
+          "assert": 7,
+          "assertnot": 2
+        },
+        "totalDelta": 2
+      },
+      {
+        "file": "examples/cubical_square_total.lp",
+        "before": {
+          "assert": 6
+        },
+        "after": {
+          "assert": 16,
+          "assertnot": 4
+        },
+        "totalDelta": 14
+      },
+      {
+        "file": "examples/dependent_simplex_profiles.lp",
+        "before": {
+          "assertnot": 1,
+          "assert": 3
+        },
+        "after": {
+          "assert": 4
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/displayed_evaluation.lp",
+        "before": {
+          "assert": 33,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 34,
+          "assertnot": 1
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/generic_groupoidification.lp",
+        "before": {
+          "assert": 12,
+          "assertnot": 5
+        },
+        "after": {
+          "assert": 14,
+          "assertnot": 4
+        },
+        "totalDelta": 1
+      },
+      {
+        "file": "examples/gray_profiles.lp",
+        "before": {
+          "assert": 58,
+          "assertnot": 14
+        },
+        "after": {
+          "assert": 61,
+          "assertnot": 11
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/gray_transformation_graph_profile.lp",
+        "before": {
+          "assert": 4,
+          "assertnot": 1
+        },
+        "after": {
+          "assert": 5
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/higher_sieve_classifier.lp",
+        "before": {
+          "assert": 7,
+          "assertnot": 1
+        },
+        "after": {
+          "assert": 8,
+          "assertnot": 1
+        },
+        "totalDelta": 1
+      },
+      {
+        "file": "examples/homology_adjunction_families.lp",
+        "before": {
+          "assert": 9,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 10,
+          "assertnot": 1
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/homology_families.lp",
+        "before": {
+          "assert": 9,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 10,
+          "assertnot": 1
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/kernel_adjunction_presentations.lp",
+        "before": {
+          "assert": 7,
+          "assertnot": 4
+        },
+        "after": {
+          "assert": 8,
+          "assertnot": 3
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/monads_comonads.lp",
+        "before": {
+          "assert": 14,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 14,
+          "assertnot": 3
+        },
+        "totalDelta": 1
+      },
+      {
+        "file": "examples/one_cat_adjunction_families.lp",
+        "before": {
+          "assert": 16,
+          "assertnot": 4
+        },
+        "after": {
+          "assert": 16,
+          "assertnot": 6
+        },
+        "totalDelta": 2
+      },
+      {
+        "file": "examples/one_cat_zero_cone_column_inputs.lp",
+        "before": {
+          "assert": 11,
+          "assertnot": 4
+        },
+        "after": {
+          "assert": 12,
+          "assertnot": 3
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/one_cat_zero_cone_fibre_inclusion.lp",
+        "before": {
+          "assert": 5
+        },
+        "after": {
+          "assert": 6
+        },
+        "totalDelta": 1
+      },
+      {
+        "file": "examples/one_cat_zero_cone_homology.lp",
+        "before": {
+          "assert": 7,
+          "assertnot": 2
+        },
+        "after": {
+          "assert": 8,
+          "assertnot": 1
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/product_diagonal_reindex_views.lp",
+        "before": {
+          "assert": 4,
+          "assertnot": 6
+        },
+        "after": {
+          "assert": 5,
+          "assertnot": 5
+        },
+        "totalDelta": 0
+      },
+      {
+        "file": "examples/prof_reindex_terminal_normalization.lp",
+        "before": {
+          "assert": 4,
+          "assertnot": 4
+        },
+        "after": {
+          "assert": 6,
+          "assertnot": 3
+        },
+        "totalDelta": 1
+      }
+    ],
+    "seconds": 8.572744343196973
+  },
+  "limits": [
+    "Generic LHS audit covers its listed heads only.",
+    "Stable-head scan detects unguarded direct-head expansion, not every nested cut or guarded overlap.",
+    "No file has fewer assertions; counts alone do not prove preserved test meaning.",
+    "Existing changed-contract and warning-owner reviews remain required evidence."
+  ],
+  "replay": {
+    "script": "audits/strict-default-action-boundary/foundation_promotion_static_review.py",
+    "scriptSha256": "c071a3570b430211ec5f4b57bd9f676cd4bf76d4df0f2245c746f1e4a47d6564",
+    "outputSha256": "e90b24cfb77b08521c55c4ee0b1728d9795095c5526d3da17dedf62230a71300",
+    "matchesInitialInventory": true
+  }
+}

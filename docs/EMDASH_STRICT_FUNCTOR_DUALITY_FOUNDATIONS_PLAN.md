@@ -104,6 +104,17 @@ and complete-central qualification in staging. Production adoption remains R14.
 
 ### Current migration tranche
 
+The [complete-source static review](../emdash2/audits/strict-default-action-boundary/foundation_promotion_static_review.md)
+passes its stated checks: zero unreviewed generic inferred slots across 791
+owners (137 annotated), and no unguarded whole-body rewrite on any of the 51
+new injective heads. The complete registered assertion inventory changes from
+6,371 positive/949 negative to 6,457 positive/909 negative across 1,388 files;
+33 files have changed counts, and none has fewer assertions in total. A
+retained replay reproduces the inventories exactly. This does not replace
+individual changed-contract reviews, prove semantic equivalence of tests or
+establish global confluence. No formal rule was changed by this review.
+
+
 The existing toolchain installer now has an explicit isolated batch-build
 candidate (`build-batch`, `verify-batch`, `batch-path`) with a tracked copy of
 the previously reviewed three-file patch. The manifest pins its checksum and
