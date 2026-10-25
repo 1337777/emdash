@@ -1,8 +1,8 @@
 /**
  * Direct mixed source action at its native Cartesian diagram profile.
  *
- * No declaration is introduced. One pre-existing generic rule reverses the
- * endpoints of `Hom(Op A,X,Y)`; the native rule then projects the
+ * No declaration is introduced. Opposite-Hom computation is inherited from
+ * the source-prior Homd duality fragment; this native rule projects the
  * contravariant source-family action of `Functor_catd_func` at a shared base
  * point and returns the whole ordinary composite `H o L[k]`.
  */
@@ -304,49 +304,6 @@ const source = (sourceFragment: string) => ({
 });
 
 /** Existing generic prerequisite: opposite reverses Hom endpoints. */
-const oppositeHomEndpointRule = (): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const A = builder.capture('A');
-    const X = builder.capture('X');
-    const Y = builder.capture('Y');
-    return {
-        order: 0,
-        id:
-            'categorical.direct-mixed-source-action.' +
-            'opposite-hom-endpoints',
-        groupId:
-            'categorical.direct-mixed-source-action.' +
-            'opposite-hom-endpoints',
-        clauseOrder: 0,
-        sourceOwner: homCategory,
-        variables: [
-            {
-                name: 'A',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'X',
-                type: builder.template(objectType(builder, A))
-            },
-            {
-                name: 'Y',
-                type: builder.template(objectType(builder, A))
-            }
-        ],
-        left: builder.pattern(homCategoryAt(
-            builder,
-            oppositeAt(builder, A),
-            X,
-            Y
-        )),
-        right: builder.template(homCategoryAt(builder, A, Y, X)),
-        provenance: source(
-            'rule Hom_cat (Op_cat $A) $X $Y ' +
-                '↪ Hom_cat $A $Y $X;'
-        )
-    };
-};
-
 const directMixedSourceCompositionProjectionRule =
 (): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
@@ -502,8 +459,7 @@ const directMixedSourceCompositionProjectionRule =
 };
 
 const runtimeRules = Object.freeze([
-    oppositeHomEndpointRule(),
-    directMixedSourceCompositionProjectionRule()
+    { ...directMixedSourceCompositionProjectionRule(), order: 0 }
 ]);
 
 export const CORE_CATEGORICAL_DIRECT_MIXED_SOURCE_ACTION_RUNTIME_MODULE:
@@ -576,7 +532,7 @@ Object.freeze({
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
     runtimeRuleCount: runtimeRules.length,
     existingPrerequisiteRuntimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
-    existingPrerequisiteRuntimeRuleCount: 2,
+    existingPrerequisiteRuntimeRuleCount: 1,
     newMathematicalRuntimeRuleIds: Object.freeze([]),
     newMathematicalRuntimeRuleCount: 0,
     activeLambdapiOwnerDelta: 0,

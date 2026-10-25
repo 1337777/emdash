@@ -2,8 +2,8 @@
  * The historical D-019/D-020 records remain separate. Source-prior duality,
  * native target definitions and precomposition projections precede the two
  * checked relative-root definitions. No native kernel rule is added.
- * Homd_target_con_func currently has a signature-only view; its internal
- * action and the remaining lower Homd ladder are not qualified by this slice.
+ * Homd_target_con_func now has its native composition body. The complete
+ * lower P-index endpoint computation still needs its represented-action closure.
  */
 
 import {
@@ -126,6 +126,9 @@ const homdDiagram = symbol('Homd_coeff_diagram');
 const homdRepresentable = symbol('Homd_representable_func');
 const precompAlong = symbol('hom_precomp_along_func');
 const precompPoint = symbol('hom_precomp_along_fapp0');
+const postcompFunctor = symbol('hom_postcomp_func');
+const postcompPoint = symbol('hom_postcomp_fapp0');
+const functorHomFull = coreDirectedContinuationTransferSymbol('functor-hom-full');
 const homdTargetIndex = symbol('Homd_target_index_func');
 const homdTargetCon = symbol('Homd_target_con_func');
 const homdTargetMap = symbol('Homd_target_map');
@@ -854,6 +857,12 @@ const nativeRootPrerequisites: readonly CoreLfTransferDeclaration[] = (()=>{
                 b.pi('h',objectTypeAt(b,homAt(b,A,W,X)),()=>functorType(b,
                     homAt(b,B,functorObjectAt(b,A,B,F,X),Z),homAt(b,B,functorObjectAt(b,A,B,F,W),Z)),explicitMode),
             implicitMode),implicitMode),explicitMode),explicitMode),implicitMode),implicitMode));
+    const postcompType=b.term(b.pi('A',b.global(category),A=>b.pi('B',b.global(category),B=>
+        b.pi('F',functorType(b,B,A),F=>b.pi('W',objectTypeAt(b,A),W=>
+            b.pi('X',objectTypeAt(b,B),X=>b.pi('Y',objectTypeAt(b,B),Y=>
+                b.pi('f',objectTypeAt(b,homAt(b,B,X,Y)),()=>functorType(b,
+                    homAt(b,A,W,functorObjectAt(b,B,A,F,X)),homAt(b,A,W,functorObjectAt(b,B,A,F,Y))),explicitMode),
+            implicitMode),implicitMode),explicitMode),explicitMode),implicitMode),implicitMode));
     const idxType=b.term(b.pi('K',b.global(category),K=>functorType(b,
         opposite(b,coAt2At(b,functorCategoryAt(b,K,Q))),cartAt(b,K,cart)),explicitMode));
     const idxBody=b.term(b.lam('K',b.global(category),K=>{
@@ -869,6 +878,28 @@ const nativeRootPrerequisites: readonly CoreLfTransferDeclaration[] = (()=>{
             opposite(b,globalCall(b,transforCategory,[{plicity:'implicit',value:K},{plicity:'implicit',value:cart},
                 {plicity:'explicit',value:D},{plicity:'explicit',value:E}])),
             homAt(b,cartAt(b,K,cart),targetAt(b,K,E),targetAt(b,K,D))),explicitMode),explicitMode),implicitMode));
+    const conBody=b.term(b.lam('K',b.global(category),K=>b.lam('D',displayedFamilyType(b,K),D=>
+        b.lam('E',displayedFamilyType(b,K),E=>{
+            const diagramD=diagramAt(b,K,D),diagramE=diagramAt(b,K,E);
+            const transfs=(coefficient:CoreLfTransferBuilderExpression,F:CoreLfTransferBuilderExpression,G:CoreLfTransferBuilderExpression)=>
+                globalCall(b,transforCategory,[{plicity:'implicit',value:K},{plicity:'implicit',value:coefficient},
+                    {plicity:'explicit',value:F},{plicity:'explicit',value:G}]);
+            const action=(A:CoreLfTransferBuilderExpression,B:CoreLfTransferBuilderExpression,F:CoreLfTransferBuilderExpression,
+                X:CoreLfTransferBuilderExpression,Y:CoreLfTransferBuilderExpression)=>globalCall(b,functorHomFull,[
+                    {plicity:'implicit',value:A},{plicity:'implicit',value:B},{plicity:'explicit',value:F},
+                    {plicity:'implicit',value:X},{plicity:'implicit',value:Y}]);
+            const source=transfs(cart,D,E), middle=transfs(Q,diagramD,diagramE);
+            const include=globalCall(b,postcompFunctor,[{plicity:'implicit',value:b.global(categoryOfCategories)},
+                {plicity:'implicit',value:b.global(categoryOfCategories)},
+                {plicity:'explicit',value:idFunctorAt(b,b.global(categoryOfCategories))},
+                {plicity:'explicit',value:K},{plicity:'implicit',value:cart},{plicity:'implicit',value:Q},
+                {plicity:'explicit',value:b.global(homdInclude)}]);
+            return functorComposeAt(b,opposite(b,source),opposite(b,middle),
+                homAt(b,cartAt(b,K,cart),targetAt(b,K,E),targetAt(b,K,D)),
+                action(opposite(b,coAt2At(b,functorCategoryAt(b,K,Q))),cartAt(b,K,cart),
+                    globalCall(b,homdTargetIndex,[{plicity:'explicit',value:K}]),diagramE,diagramD),
+                oppositeFunctorAt(b,source,middle,action(functorCategoryAt(b,K,cart),functorCategoryAt(b,K,Q),include,D,E)));
+        },explicitMode),explicitMode),implicitMode));
     const mapBody=familyMapTelescope(true,(b,K,D,E,FF)=>{
         const transfs=globalCall(b,transforCategory,[{plicity:'implicit',value:K},{plicity:'implicit',value:b.global(familyCoefficient)},
             {plicity:'explicit',value:D},{plicity:'explicit',value:E}]);
@@ -878,8 +909,8 @@ const nativeRootPrerequisites: readonly CoreLfTransferDeclaration[] = (()=>{
     const idType=b.term(b.pi('K',b.global(category),K=>b.pi('E',displayedFamilyType(b,K),E=>
         cartMapType(b,K,E,targetAt(b,K,E)),explicitMode),implicitMode));
     return [
-        make(precompAlong,precompType),make(homdTargetIndex,idxType,idxBody),
-        {...make(homdTargetCon,conType), modifiers:modifiers('ordinary','transparent')},
+        make(precompAlong,precompType),make(postcompFunctor,postcompType),make(homdTargetIndex,idxType,idxBody),
+        make(homdTargetCon,conType,conBody),
         make(homdTargetMap,familyMapTelescope(false,(b,K,D,E)=>cartMapType(b,K,targetAt(b,K,E),targetAt(b,K,D))),mapBody),
         make(homdIdentity,idType),
         make(homdRelative,familyMapTelescope(false,(b,K,D,E)=>cartMapType(b,K,E,targetAt(b,K,D))),
@@ -1092,10 +1123,12 @@ const foundationExternalSymbols = Object.freeze([
     symbol('Hom_cat'),
     identityFunctor,
     precompPoint,
+    postcompPoint,
     strictTransforView,
     transforCategory,
     displayedCategoryCategory,
     functorObject,
+    functorHomFull,
     constantDisplayedFamily,
     displayedFamilyClassifier,
     displayedFunctorClassifier,
@@ -1323,7 +1356,7 @@ const externalLink = (
         ...CORE_CATEGORICAL_STRUCTURAL_TRANSFER_LINKAGE.entries,
         ...CORE_DIRECTED_CONTINUATION_TRANSFER_LINKAGE.entries].find(entry =>
             entry.symbol.moduleId===target.moduleId && entry.symbol.name===target.name);
-    if (migrated && ['CoAt2_cat','CoAt2_func','Functor_cart_cat','Cat_cart','Hom_cat','id_func','strict_transfor','Transf_cat','hom_precomp_along_fapp0'].includes(target.name)) {
+    if (migrated && ['CoAt2_cat','CoAt2_func','Functor_cart_cat','Cat_cart','Hom_cat','id_func','strict_transfor','Transf_cat','hom_precomp_along_fapp0','hom_postcomp_fapp0','fapp1_func'].includes(target.name)) {
         return Object.freeze({...migrated,order});
     }
     if (target.name === 'fapp0_func') {
@@ -1513,7 +1546,7 @@ export interface CoreCategoricalDisplayedNdHigherFoundationCompilation {
     readonly composedRuntime: CoreLfComposedRuntimeProgram;
 }
 
-const rootNames = new Set(['homd_rel_cart_int','homd_int']);
+const rootNames = new Set(['Homd_target_con_func','Homd_target_map','homd_id_int','homd_rel_cart_int','homd_int']);
 const signatureDeclarations = declarations.filter(d=>!rootNames.has(d.symbol.name));
 const relativeDeclarations = declarations.filter(d=>rootNames.has(d.symbol.name));
 const declarationPhase = (id:string, entries:readonly CoreLfTransferDeclaration[], additional:readonly CoreLfQualifiedSymbol[]) => {
@@ -1584,7 +1617,37 @@ const cartPrecompRule = ():CoreLfTransferRuntimeRule=>{
         right:b.template(functorComposeAt(b,A,B,Z,G,F)),
         provenance:source('native Cartesian identity-family precomposition fold, with the transparent id_func spelling: rule @hom_precomp_along_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart) $Z $A $B $F $G ↪ @comp_cat_fapp0 $A $B $Z $G $F;')};
 };
-const rootRuntimeRules=[representedObjectRule(),precompObjectRule(),cartPrecompRule()];
+const postcompObjectRule = ():CoreLfTransferRuntimeRule=>{
+    const b=new CoreLfTransferScopedBuilder(),A=b.capture('A'),B=b.capture('B'),F=b.capture('F'),W=b.capture('W');
+    const X=b.capture('X'),Y=b.capture('Y'),f=b.capture('f'),g=b.capture('g');
+    const image=(x:CoreLfTransferBuilderExpression)=>functorObjectAt(b,B,A,F,x);
+    const from=homAt(b,A,W,image(X)),to=homAt(b,A,W,image(Y));
+    const args=[{plicity:'implicit' as const,value:A},{plicity:'implicit' as const,value:B},
+        {plicity:'explicit' as const,value:F},{plicity:'explicit' as const,value:W},
+        {plicity:'implicit' as const,value:X},{plicity:'implicit' as const,value:Y},{plicity:'explicit' as const,value:f}];
+    return {order:0,id:'categorical.homd-native.postcomp-object',groupId:'categorical.homd-native.postcomp-object',clauseOrder:0,
+        sourceOwner:functorObject,variables:[...['A','B'].map(name=>({name,type:b.template(b.global(category))})),
+            {name:'F',type:b.template(functorType(b,B,A))},{name:'W',type:b.template(objectTypeAt(b,A))},
+            ...['X','Y'].map(name=>({name,type:b.template(objectTypeAt(b,B))})),
+            {name:'f',type:b.template(objectTypeAt(b,homAt(b,B,X,Y)))},{name:'g',type:b.template(objectTypeAt(b,from))}],
+        left:b.pattern(functorObjectAt(b,b.wildcard(from),b.wildcard(to),globalCall(b,postcompFunctor,args),g)),
+        right:b.template(globalCall(b,postcompPoint,[...args,{plicity:'explicit',value:g}])),
+        provenance:source('rule fapp0 (@hom_postcomp_func $A $B $F $W $X $Y $f) $g ↪ @hom_postcomp_fapp0 $A $B $F $W $X $Y $f $g;')};
+};
+const diagramObjectRule = ():CoreLfTransferRuntimeRule=>{
+    const b=new CoreLfTransferScopedBuilder(),K=b.capture('K'),E=b.capture('E'),cat=b.global(categoryOfCategories);
+    return {order:0,id:'categorical.homd-native.diagram-object',groupId:'categorical.homd-native.diagram-object',clauseOrder:0,
+        sourceOwner:postcompPoint,variables:[{name:'K',type:b.template(b.global(category))},
+            {name:'E',type:b.template(functorType(b,K,b.global(familyCoefficient)))}],
+        left:b.pattern(globalCall(b,postcompPoint,[{plicity:'implicit',value:cat},{plicity:'implicit',value:cat},
+            {plicity:'explicit',value:idFunctorAt(b,cat)},{plicity:'explicit',value:K},
+            {plicity:'implicit',value:b.global(familyCoefficient)},{plicity:'implicit',value:b.global(homdCoefficient)},
+            {plicity:'explicit',value:b.global(homdInclude)},{plicity:'explicit',value:E}])),
+        right:b.template(diagramAt(b,K,E)),
+        provenance:source('rule @hom_postcomp_fapp0 Cat_cat Cat_cat (@id Cat_cat Cat_cat) $K Cat_cart Homd_coeff_cat Homd_coeff_include $E ↪ @Homd_coeff_diagram $K $E;')};
+};
+const rootRuntimeRules=[representedObjectRule(),precompObjectRule(),cartPrecompRule(),postcompObjectRule(),diagramObjectRule()]
+    .map((rule,order)=>({...rule,order}));
 export const CORE_HOMD_NATIVE_ROOT_RUNTIME_MODULE=createCoreLfModuleSpec({
     revision:'HOMD-NATIVE-ROOT-RUNTIME-1',moduleId:MODULE_ID,fragmentId:'homd-native-root-runtime',authorityPath:'emdash2/emdash3_2.lp',
     sourceSha256:CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_MODULE.sourceSha256,dependencies:[],

@@ -761,7 +761,7 @@ describe('CONTEXTUAL-ND-TEXT-PARITY-1AI compact contextual mode', () => {
             );
             const alpha = program.section(
                 `${name}_alpha`,
-                program.oppositeDisplayedFamily(functors)
+                program.totalOppositeDisplayedFamily(functors)
             );
             const beta = program.section(`${name}_beta`, functors);
             return program.mixedDisplayedTransforFamily(
@@ -778,7 +778,7 @@ describe('CONTEXTUAL-ND-TEXT-PARITY-1AI compact contextual mode', () => {
             carrier,
             program.section(
                 `${name}_source`,
-                program.oppositeDisplayedFamily(carrier)
+                program.totalOppositeDisplayedFamily(carrier)
             ),
             program.section(`${name}_target`, carrier)
         );

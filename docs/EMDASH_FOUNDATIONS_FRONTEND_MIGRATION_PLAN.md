@@ -307,8 +307,8 @@ native `Hom_catd(E,X,Y)` takes X in `Pi_cat(TotalOp_catd(E))` over
 same-base `Op_catd(E)` section. `Transf_catd` has the corresponding total-dual
 negative section. Review their actual runtime fibres before adapting rich
 frontend classifiers. The remaining mixed and lower-ladder work is not
-qualified by this interface tranche. In particular, `Homd_target_con_func` is still an explicit
-signature-only view, to be completed when its action is consumed.
+qualified by this interface tranche. The later target-map continuation below replaces the former signature-only
+`Homd_target_con_func` view with its checked native body.
 
 Qualification of the remaining scope still requires the actual emitted whole/next-Hom consumer,
 projection and leaf computation where consumed, negative variance/profile
@@ -352,6 +352,22 @@ native checks; workspace, registration, typecheck and lint pass. The complete
 TypeScript attempt now reaches an old opposite-section input in the generic
 telescope fixture. This continues F04 and does not settle the separate full
 P-index endpoint comparison.
+
+## F04 continuation: defined target map and shared action prerequisites
+
+The [defined Homd target-map and total-dual action continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_map_review.md)
+replaces the signature-only Homd_target_con_func view with its native checked
+body. Ordinary opposite-Hom and postcomposition are shared source-prior
+prerequisites, with later duplicates removed. Hom_catd's three-stage base
+action now uses total-dual negative sections and Cartesian fibre maps. The
+generic telescope/text fixtures follow those inputs and the native weakening
+owner. The full TypeScript P-index-to-endpoint comparison still requires the
+identity covariance/mate and represented coefficient projections; its exact
+remaining failure is recorded in the review. Focused scopes qualify 63 distinct
+cases, including the corrected native negative control; workspace, registration,
+typecheck and lint pass. The full TypeScript aggregate times out after reporting
+55 failure events across 16 files. The linked inventory retains those required
+consumer/audit repairs and the separate aggregate runtime investigation.
 
 ## Constraints
 

@@ -135,7 +135,7 @@ describe('DIRECT-MIXED-SOURCE-ACTION-1E2 runtime transfer', () => {
         assert.equal(result.timedOut,false);
     });
 
-    it('pins the two native source-action rules',
+    it('pins the native source-action rule and reuses opposite-Hom computation',
     () => {
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_SOURCE_ACTION_RUNTIME_MODULE
@@ -145,7 +145,7 @@ describe('DIRECT-MIXED-SOURCE-ACTION-1E2 runtime transfer', () => {
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_SOURCE_ACTION_RUNTIME_MODULE
                 .runtimeRules.length,
-            2
+            1
         );
         assert.deepEqual(
             [
@@ -162,7 +162,7 @@ describe('DIRECT-MIXED-SOURCE-ACTION-1E2 runtime transfer', () => {
         assert.deepEqual(
             CORE_CATEGORICAL_DIRECT_MIXED_SOURCE_ACTION_RUNTIME_POLICY
                 .entries.map(entry => entry.policy),
-            ['runtime-rewrite', 'runtime-rewrite']
+            ['runtime-rewrite']
         );
         assert.deepEqual(
             [
@@ -181,7 +181,7 @@ describe('DIRECT-MIXED-SOURCE-ACTION-1E2 runtime transfer', () => {
                 CORE_CATEGORICAL_DIRECT_MIXED_SOURCE_ACTION_BOUNDARY
                     .externalCoherenceEvidenceDelta
             ],
-            [2, 0, 0, 0, 0, 0, 0]
+            [1, 0, 0, 0, 0, 0, 0]
         );
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_SOURCE_ACTION_BOUNDARY
@@ -193,20 +193,18 @@ describe('DIRECT-MIXED-SOURCE-ACTION-1E2 runtime transfer', () => {
         );
     });
 
-    it('subject-checks both rules without an external oracle', () => {
+    it('subject-checks source action without an external oracle', () => {
         const compilation =
             compileCoreCategoricalDirectMixedSourceActionTransfer();
         assert.deepEqual(
             compilation.runtime.rules.map(rule =>
                 rule.subjectValidation.kind
             ),
-            ['typescript-checked', 'typescript-checked']
+            ['typescript-checked']
         );
         assert.deepEqual(
-            compilation.composedRuntime.ruleIds.slice(-2),
+            compilation.composedRuntime.ruleIds.slice(-1),
             [
-                'categorical.direct-mixed-source-action.' +
-                    'opposite-hom-endpoints',
                 'categorical.direct-mixed-source-action.' +
                     'source-composition-projection'
             ]
@@ -248,8 +246,7 @@ describe('DIRECT-MIXED-SOURCE-ACTION-1E2 runtime transfer', () => {
         }
         assert.equal(
             reduced.ruleId,
-            'categorical.direct-mixed-source-action.' +
-                'opposite-hom-endpoints'
+            'categorical.homd-duality.opposite-hom'
         );
         assert.equal(kernelExpressionEquals(reduced.after, expected), true);
         assert.equal(kernelExpressionEquals(opA, A), false);

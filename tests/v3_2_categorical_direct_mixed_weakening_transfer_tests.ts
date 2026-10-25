@@ -43,11 +43,11 @@ const assertDeepFrozen = (value: unknown): void => {
 };
 
 describe('DIRECT-MIXED-WEAKENING-1J transfer', () => {
-    it('pins two signatures and exactly three active projections', () => {
+    it('pins the weakening signature and reuses native postcomposition', () => {
         assert.deepEqual(
             CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_TRANSFER_MODULE
                 .declarations.map(entry => entry.symbol.name),
-            ['hom_postcomp_func', 'Functor_catd_const_funcd']
+            ['Functor_catd_const_funcd']
         );
         assert.deepEqual(
             CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_RUNTIME_MODULE
@@ -61,7 +61,7 @@ describe('DIRECT-MIXED-WEAKENING-1J transfer', () => {
         assert.deepEqual(
             CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_TRANSFER_POLICY
                 .entries.map(entry => entry.policy),
-            ['opaque-signature', 'opaque-signature']
+            ['opaque-signature']
         );
         assert.deepEqual(
             CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_RUNTIME_POLICY
@@ -115,10 +115,10 @@ describe('DIRECT-MIXED-WEAKENING-1J transfer', () => {
         );
     });
 
-    it('checks both declarations and all rules in TypeScript', () => {
+    it('checks the declaration and all rules in TypeScript', () => {
         const compilation =
             compileCoreCategoricalDirectMixedWeakeningTransfer();
-        assert.equal(compilation.compiled.declarations.length, 2);
+        assert.equal(compilation.compiled.declarations.length, 1);
         assert.equal(compilation.runtimeFragment.localProgram.rules.length, 3);
         assert.deepEqual(
             compilation.runtimeFragment.localProgram.rules.map(rule =>

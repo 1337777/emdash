@@ -22,6 +22,7 @@ import {
     CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_LINKAGE
 } from './categorical_displayed_nd_higher_foundation_transfer';
 import {
+    CORE_CATEGORICAL_MIXED_MODE_SOURCE_SHA256,
     CORE_CATEGORICAL_MIXED_MODE_SYMBOLS,
     CORE_CATEGORICAL_MIXED_MODE_TRANSFER_LINKAGE,
     CoreCategoricalMixedModeCompilation,
@@ -69,10 +70,10 @@ import {
 
 const MODULE_ID = 'emdash.emdash3_2';
 export const CORE_CATEGORICAL_HOM_CATD_ACTION_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    CORE_CATEGORICAL_MIXED_MODE_SOURCE_SHA256;
 
 export const CORE_CATEGORICAL_HOM_CATD_ACTION_TRANSFER_REVISION =
-    'HOM-CATD-ACTION-TRANSFER-1AF-GENERIC-TRANSFER-1' as const;
+    'HOM-CATD-ACTION-NATIVE-TOTAL-DUALITY-2' as const;
 
 const category = coreDirectedContinuationTransferSymbol('category-universe');
 const decodeOwner = coreDirectedContinuationTransferSymbol('decode');
@@ -84,6 +85,8 @@ const homClassifier =
     coreDirectedContinuationTransferSymbol('hom-classifier');
 const categoryOfCategories =
     coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol('displayed-category-category');
 const sectionCategory =
@@ -103,11 +106,12 @@ const symbol = (name: string): CoreLfQualifiedSymbol =>
 const oppositeCategory = symbol('Op_cat');
 const identityFunctor = symbol('id_func');
 const ordinaryComposition = symbol('comp_fapp0');
-const functorCategory = symbol('Functor_cat');
+const functorCategory = symbol('Functor_cart_cat');
+const totalOpposite = symbol('TotalOp_catd');
+const higherDual = symbol('CoAbove2_cat');
 
 const {
-    identityArrow,
-    displayedOpposite
+    identityArrow
 } = CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_SYMBOLS;
 const {
     stableFunctorFamily
@@ -223,12 +227,15 @@ const oppositeAt = (
         value: base
     }]);
 
-const displayedOppositeAt = (
+const higherDualAt = (builder: CoreLfTransferScopedBuilder, base: CoreLfTransferBuilderExpression) =>
+    globalCall(builder, higherDual, [{ plicity: 'explicit', value: base }]);
+
+const totalOppositeAt = (
     builder: CoreLfTransferScopedBuilder,
     base: CoreLfTransferBuilderExpression,
     family: CoreLfTransferBuilderExpression
 ): CoreLfTransferBuilderExpression =>
-    globalCall(builder, displayedOpposite, [
+    globalCall(builder, totalOpposite, [
         { plicity: 'implicit', value: base },
         { plicity: 'explicit', value: family }
     ]);
@@ -280,7 +287,7 @@ const fibreAt = (
 ): CoreLfTransferBuilderExpression =>
     globalCall(builder, functorObject, [
         { plicity: 'implicit', value: base },
-        { plicity: 'implicit', value: builder.global(categoryOfCategories) },
+        { plicity: 'implicit', value: builder.global(familyCoefficient) },
         { plicity: 'explicit', value: family },
         { plicity: 'explicit', value: point }
     ]);
@@ -437,7 +444,7 @@ const homAt = (
     homCategoryAt(
         builder,
         fibreAt(builder, K, E, k),
-        sectionAt(builder, K, displayedOppositeAt(builder, K, E), X, k),
+        sectionAt(builder, higherDualAt(builder, K), totalOppositeAt(builder, K, E), X, k),
         sectionAt(builder, K, E, Y, k)
     );
 
@@ -508,9 +515,9 @@ const actionType = (
     return builder.term(builder.pi(
         'K', builder.global(category), K => builder.pi(
             'E', displayedFamilyType(builder, K), E => {
-                const opE = displayedOppositeAt(builder, K, E);
+                const opE = totalOppositeAt(builder, K, E);
                 return builder.pi(
-                    'X', sectionType(builder, K, opE), X => builder.pi(
+                    'X', sectionType(builder, higherDualAt(builder, K), opE), X => builder.pi(
                         'Y', sectionType(builder, K, E), Y => builder.pi(
                             'x', objectType(builder, K), x => builder.pi(
                                 'y', objectType(builder, K), y => {
@@ -539,13 +546,13 @@ const actionType = (
                                                 homType(
                                                     builder,
                                                     fibreAt(builder, K, E, x),
-                                                    sectionAt(builder, K, opE, X, x),
+                                                    sectionAt(builder, higherDualAt(builder, K), opE, X, x),
                                                     sectionAt(builder, K, E, Y, x)
                                                 ),
                                                 () => homType(
                                                     builder,
                                                     fibreAt(builder, K, E, y),
-                                                    sectionAt(builder, K, opE, X, y),
+                                                    sectionAt(builder, higherDualAt(builder, K), opE, X, y),
                                                     sectionAt(builder, K, E, Y, y)
                                                 ),
                                                 explicitMode
@@ -620,6 +627,7 @@ const externalSymbols = Object.freeze([
     functorClassifier,
     homClassifier,
     categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     sectionCategory,
     functorObject,
@@ -631,7 +639,8 @@ const externalSymbols = Object.freeze([
     ordinaryComposition,
     functorCategory,
     identityArrow,
-    displayedOpposite,
+    totalOpposite,
+    higherDual,
     stableFunctorFamily,
     displayedHomFamily,
     displayedTransforFamily,
@@ -748,7 +757,7 @@ const common = (builder: CoreLfTransferScopedBuilder) => {
     const E = builder.capture('E');
     const X = builder.capture('X');
     const Y = builder.capture('Y');
-    const opE = displayedOppositeAt(builder, K, E);
+    const opE = totalOppositeAt(builder, K, E);
     return {
         K,
         E,
@@ -757,7 +766,7 @@ const common = (builder: CoreLfTransferScopedBuilder) => {
         variables: [
             { name: 'K', type: builder.template(builder.global(category)) },
             { name: 'E', type: builder.template(displayedFamilyType(builder, K)) },
-            { name: 'X', type: builder.template(sectionType(builder, K, opE)) },
+            { name: 'X', type: builder.template(sectionType(builder, higherDualAt(builder, K), opE)) },
             { name: 'Y', type: builder.template(sectionType(builder, K, E)) }
         ]
     };
@@ -858,7 +867,7 @@ const pointCompositionRule = (): CoreLfTransferRuntimeRule => {
                 type: builder.template(homType(
                     builder,
                     fibreAt(builder, context.K, context.E, x),
-                    sectionAt(builder, context.K, displayedOppositeAt(builder, context.K, context.E), context.X, x),
+                    sectionAt(builder, higherDualAt(builder, context.K), totalOppositeAt(builder, context.K, context.E), context.X, x),
                     sectionAt(builder, context.K, context.E, context.Y, x)
                 ))
             }
@@ -888,7 +897,7 @@ const transforContext = (builder: CoreLfTransferScopedBuilder) => {
             { name: 'K', type: builder.template(builder.global(category)) },
             { name: 'A', type: builder.template(displayedFamilyType(builder, oppositeAt(builder, K))) },
             { name: 'B', type: builder.template(displayedFamilyType(builder, K)) },
-            { name: 'FF', type: builder.template(sectionType(builder, K, displayedOppositeAt(builder, K, family))) },
+            { name: 'FF', type: builder.template(sectionType(builder, higherDualAt(builder, K), totalOppositeAt(builder, K, family))) },
             { name: 'GG', type: builder.template(sectionType(builder, K, family)) }
         ]
     };
@@ -922,8 +931,8 @@ const transforActionRule = (
             }] : [])
         ],
         left: builder.pattern(stage === 'full'
-            ? functorHomFullAt(builder, context.K, builder.global(categoryOfCategories), target, x, y)
-            : functorHomCappedAt(builder, context.K, builder.global(categoryOfCategories), target, x, y, p)),
+            ? functorHomFullAt(builder, context.K, builder.global(familyCoefficient), target, x, y)
+            : functorHomCappedAt(builder, context.K, builder.global(familyCoefficient), target, x, y, p)),
         right: builder.template(stage === 'full'
             ? fullActionAt(builder, context.K, context.family, context.FF, context.GG, x, y)
             : cappedActionAt(builder, context.K, context.family, context.FF, context.GG, x, y, p)),
@@ -959,8 +968,8 @@ const genericActionRule = (
             }] : [])
         ],
         left: builder.pattern(stage === 'full'
-            ? functorHomFullAt(builder, context.K, builder.global(categoryOfCategories), target, x, y)
-            : functorHomCappedAt(builder, context.K, builder.global(categoryOfCategories), target, x, y, p)),
+            ? functorHomFullAt(builder, context.K, builder.global(familyCoefficient), target, x, y)
+            : functorHomCappedAt(builder, context.K, builder.global(familyCoefficient), target, x, y, p)),
         right: builder.template(stage === 'full'
             ? fullActionAt(builder, context.K, context.E, context.X, context.Y, x, y)
             : cappedActionAt(builder, context.K, context.E, context.X, context.Y, x, y, p)),
@@ -996,7 +1005,7 @@ const projectionRule = (
                 type: builder.template(homType(
                     builder,
                     fibreAt(builder, context.K, context.E, x),
-                    sectionAt(builder, context.K, displayedOppositeAt(builder, context.K, context.E), context.X, x),
+                    sectionAt(builder, higherDualAt(builder, context.K), totalOppositeAt(builder, context.K, context.E), context.X, x),
                     sectionAt(builder, context.K, context.E, context.Y, x)
                 ))
             }] : [])

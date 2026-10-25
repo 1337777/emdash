@@ -3,6 +3,9 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
+import { serializeKernelExpression } from '../src/v3_2/lambdapi';
+import { checkLambdapiProbe } from '../src/v3_2/probe';
 import {
     createHash
 } from 'node:crypto';
@@ -65,6 +68,46 @@ interface CallArgument {
 }
 
 describe('HOM-CATD-ACTION-TRANSFER-1AF generic transfer', () => {
+    it('checks the total-dual section types and whole native action ladder', {
+        skip:process.env.EMDASH_RUN_LAMBDAPI_HOM_CATD_ACTION_PROBES!=='1'
+    },()=>{
+        const c=compileCoreCategoricalHomCatdActionTransfer();
+        const references=Object.assign({},c.compiled.externalFreeReferences,c.compiled.externalTransparentDefinitions,
+            Object.fromEntries(c.compiled.linkage.entries.flatMap(link=>link.kind==='free-declaration'
+                ? [[link.coreName,link.backendName]]:[])));
+        const serialize=(term:KernelExpression,names={})=>serializeKernelExpression(term,{externalFreeReferences:{...references,...names}});
+        const commands=c.compiled.declarations.map(d=>`assert ⊢ @${d.symbol.name} : ${serialize(d.type)};`);
+        const at=provenance('derived','total-dual Hom_catd action conformance');
+        const equations=c.runtime.rules.flatMap((rule,index)=>{
+            const types:Record<string,string>={K:'Cat',E:'τ (Catd K)',
+                X:'τ (Obj (Pi_cat (TotalOp_catd E)))',Y:'τ (Obj (Pi_cat E))',
+                A:'τ (Catd (Op_cat K))',B:'τ (Catd K)',
+                FF:'τ (Obj (Pi_cat (TotalOp_catd (Functor_catd A B))))',
+                GG:'τ (Obj (Pi_cat (Functor_catd A B)))',
+                x:'τ (Obj K)',y:'τ (Obj K)',z:'τ (Obj K)',p:'τ (Hom K x y)',q:'τ (Hom K y z)',
+                h:'τ (Hom (Fibre_cat E x) (@piapp0 (CoAbove2_cat K) (@TotalOp_catd K E) X x) (@piapp0 K E Y x))'};
+            const names=Object.fromEntries(rule.variables.map(v=>[v.name,`h${index}_${v.name}`]));
+            const rename=(type:string)=>type.replace(/\b[A-Za-z]+\b/gu,n=>names[n]??n);
+            const left=c.runtime.instantiateRuleLeft(rule,rule.variables.map(v=>kernelFree(v.name,at)),at);
+            const result=c.runtime.rewriteHead(left);
+            assert.equal(result.status,'rewritten');
+            if(result.status!=='rewritten')throw new Error('Missing Hom_catd action projection');
+            assert.equal(result.ruleId,rule.id);
+            return [...rule.variables.map(v=>`symbol ${names[v.name]} : ${rename(types[v.name])};`),
+                `assert ⊢ ${serialize(left,names)} ≡ ${serialize(result.after,names)};`];
+        });
+        const source=['require open emdash.emdash3_2;',...commands,...equations,
+            'symbol K : Cat;', 'symbol E : τ (Catd K);',
+            'symbol X : τ (Obj (Pi_cat (Op_catd E)));', 'symbol Y : τ (Obj (Pi_cat E));',
+            'symbol x : τ (Obj K);', 'symbol y : τ (Obj K);',
+            'assertnot ⊢ @Hom_catd_fapp1_func K E X Y x y : τ (Functor (Hom_cat K x y) (Functor_cart_cat (Hom_cat (Fibre_cat E x) (@piapp0 (CoAt2_cat K) (@Op_catd K E) X x) (@piapp0 K E Y x)) (Hom_cat (Fibre_cat E y) (@piapp0 (CoAt2_cat K) (@Op_catd K E) X y) (@piapp0 K E Y y))));'
+        ].join('\n');
+        assert.doesNotMatch(source,/dttlf_|emdash_v3_2_/u);
+        const result=checkLambdapiProbe({source,sourceMap:[]},{packageRoot:resolve(__dirname,'../emdash2'),timeoutMs:60_000});
+        assert.equal(result.accepted,true,result.diagnostics+'\n'+source);
+        assert.equal(result.timedOut,false);
+    });
+
     it('pins the approved three-signature and nine-rule boundary', () => {
         assert.deepEqual(
             CORE_CATEGORICAL_HOM_CATD_ACTION_TRANSFER_BOUNDARY
@@ -412,7 +455,7 @@ describe('HOM-CATD-ACTION-TRANSFER-1AF generic transfer', () => {
         );
         const functors = emdash.mixedDisplayedFunctorFamily(A, B);
         const negativeFunctors =
-            emdash.oppositeDisplayedFamily(functors);
+            emdash.totalOppositeDisplayedFamily(functors);
         const alpha = emdash.section(
             'hom_action_consumer_alpha',
             negativeFunctors
@@ -482,11 +525,7 @@ describe('HOM-CATD-ACTION-TRANSFER-1AF generic transfer', () => {
                 [
                     { value: kernelFree('hom_action_consumer_K', origin) },
                     {
-                        value: kernelApplication(
-                            'category-of-categories',
-                            [],
-                            origin
-                        )
+                        value: coreCategoricalFamilyCoefficient(origin)
                     },
                     { value: targetCore },
                     { value: emdash.compile(x).explicitTerm },

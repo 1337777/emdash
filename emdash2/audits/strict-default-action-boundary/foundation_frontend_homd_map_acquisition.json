@@ -1,0 +1,90 @@
+{
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "scope": "Native Homd target-map body and displayed-Hom base-action declarations; shared source-prior postcomposition",
+  "commands": [
+    {
+      "name": "hom_postcomp_func",
+      "ordinal": 624,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "231993eb6fd40e75b8cd5431784faaacda9d692ab97872fe6d72e76fcefd8c2f"
+    },
+    {
+      "name": "hom_postcomp_fapp0",
+      "ordinal": 625,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "335d0cd9720e84fda3bb58afb7d83239aac515a4802f159714b46c47ab898115"
+    },
+    {
+      "name": "Homd_coeff_diagram",
+      "ordinal": 1472,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "9fd87231841a9b651f4e22a12e99113f931a38de475ffe2b46c079683d186f34"
+    },
+    {
+      "name": "Homd_target_con_func",
+      "ordinal": 1542,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "762a529c8caefb35fe95f1e9cf2a04966b6d663cd8443dc90402e7f4e796ff32"
+    },
+    {
+      "name": "Homd_target_map",
+      "ordinal": 1543,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "2c80edf297d5ee28f74c093300754fcf703d34e261d498488b485073ee771bc1"
+    },
+    {
+      "name": "homd_id_int",
+      "ordinal": 1528,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "a286ad0b77fa178fb3d4762c84e9bf5e9498571e8be1b25aaac59512f9716438"
+    },
+    {
+      "name": "homd_rel_cart_int",
+      "ordinal": 1544,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "e30e52433c59d47434378eff69e1cafa62687d1e1c5e0b7c024ccf9112c54836"
+    },
+    {
+      "name": "homd_int",
+      "ordinal": 1546,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "e949a073e7fffdadb032128ab2fb221b91947873c3894e3ce6e85bbeb2086420"
+    },
+    {
+      "name": "Hom_catd_fapp1_func",
+      "ordinal": 1837,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "c70aa0b1cd724b614e5f2f8cf67fafa58cb7f07d22083bd98b31f95e82c205b8"
+    },
+    {
+      "name": "Hom_catd_fapp1_fapp0",
+      "ordinal": 1838,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "db6f30e849dd71d453d770462548448fe127617c461ecc312328bf73852fa7d9"
+    },
+    {
+      "name": "Hom_catd_fapp1_fapp0_point",
+      "ordinal": 1839,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "9c39a90e7f5d4aa655b9fa98889173a930227c0a9f49053fb53ee87f1d491c4e"
+    }
+  ]
+}

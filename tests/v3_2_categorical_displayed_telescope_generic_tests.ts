@@ -385,7 +385,7 @@ const shallowNestedTextFixture = () => {
     );
     const Ebar = emdash.section(
         'generic_text_shallow_Ebar',
-        emdash.oppositeDisplayedFamily(classifier)
+        emdash.totalOppositeDisplayedFamily(classifier)
     );
     const Dbar = emdash.section(
         'generic_text_shallow_Dbar',
@@ -552,7 +552,7 @@ describe('DISPLAYED-TELESCOPE-GENERIC-1 canonical layer fold', () => {
         assert.equal(Object.isFrozen(evidence.body), true);
         assert.match(
             loweredCore(emdash, early),
-            /section-pullback/u
+            /section-weakening/u
         );
         assert.match(
             pairCompilation.explicitCore,
@@ -612,7 +612,7 @@ describe('DISPLAYED-TELESCOPE-GENERIC-1 canonical layer fold', () => {
         );
         const Ebar = emdash.section(
             'generic_deep_Ebar',
-            emdash.oppositeDisplayedFamily(classifier)
+            emdash.totalOppositeDisplayedFamily(classifier)
         );
         const Dbar = emdash.section(
             'generic_deep_Dbar',
@@ -859,7 +859,7 @@ describe('DISPLAYED-TELESCOPE-GENERIC-1 canonical layer fold', () => {
             compilation.explicitCore,
             /displayed-transfor-horizontal-action/u
         );
-        assert.match(compilation.explicitCore, /section-pullback/u);
+        assert.match(compilation.explicitCore, /section-weakening/u);
         assert.match(compilation.explicitCore, /displayed-product-pair/u);
         assert.match(compilation.explicitCore, /sigma-category/u);
         assert.equal(
@@ -1709,7 +1709,7 @@ describe('DISPLAYED-TELESCOPE-GENERIC-1 canonical layer fold', () => {
         );
         const Ebar = data.emdash.section(
             'generic_text_Ebar',
-            data.emdash.oppositeDisplayedFamily(classifier)
+            data.emdash.totalOppositeDisplayedFamily(classifier)
         );
         const Dbar = data.emdash.section(
             'generic_text_Dbar',

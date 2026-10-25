@@ -166,7 +166,7 @@ describe('D-033 recursive-mixed text parity', () => {
             );
             const FFbar = program.section(
                 'text_recursive_mixed_FFbar',
-                program.oppositeDisplayedFamily(classifier)
+                program.totalOppositeDisplayedFamily(classifier)
             );
             const GGbar = program.section(
                 'text_recursive_mixed_GGbar',

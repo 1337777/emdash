@@ -31,11 +31,13 @@ describe('native Homd foundation migration',()=>{
     it('checks the defined target and relative root through native precomposition owners',()=>{
         const c=compileCoreCategoricalDisplayedNdHigherFoundationTransfer();
         assert.deepEqual(c.compiled.declarations.map(d=>[d.symbol.name,d.status]),[
-            ['homd_rel_cart_int','installed-transparent'],['homd_int','installed-transparent']]);
+            ['Homd_target_con_func','installed-transparent'],['Homd_target_map','installed-transparent'],
+            ['homd_id_int','installed-opaque'],['homd_rel_cart_int','installed-transparent'],['homd_int','installed-transparent']]);
         assert.equal(c.signatureCompiled.declarations.find(d=>d.symbol.name==='Homd_target_catd')?.status,'installed-transparent');
         assert.deepEqual(c.runtime.ruleIds,[
             'categorical.homd-native.hom-int-object','categorical.homd-native.precomp-object',
-            'categorical.homd-native.cart-precomp-composition']);
+            'categorical.homd-native.cart-precomp-composition',
+            'categorical.homd-native.postcomp-object','categorical.homd-native.diagram-object']);
         assert.ok(c.runtime.rules.every(r=>r.subjectValidation.kind==='typescript-checked'));
     });
     it('checks exact native types, defined bodies and the emitted whole higher action',{

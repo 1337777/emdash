@@ -91,7 +91,15 @@ const mapObjectRule = (): CoreLfTransferRuntimeRule => {
         left:b.pattern(app(b,b.wildcard(c2(b,A)),b.wildcard(c2(b,B)),map(b,A,B,F),x)),
         right:b.template(app(b,A,B,F,x)),provenance:source('rule @fapp0 _ _ (@CoAt2_func $A $B $F) $x ↪ @fapp0 $A $B $F $x;')};
 };
-const rules=[categoryRule('involution',0),categoryRule('objects',1),categoryRule('hom',2),categoryRule('commute',3),mapObjectRule()];
+const oppositeHomRule = (): CoreLfTransferRuntimeRule => {
+    const b=new Builder(),A=b.capture('A'),x=b.capture('x'),y=b.capture('y');
+    return {order:0,id:'categorical.homd-duality.opposite-hom',groupId:'categorical.homd-duality.opposite-hom',clauseOrder:0,
+        sourceOwner:Hom,variables:[{name:'A',type:b.template(b.global(Cat))},
+            ...['x','y'].map(name=>({name,type:b.template(obj(b,A))}))],
+        left:b.pattern(call(b,Hom,[op(b,A),x,y])),right:b.template(call(b,Hom,[A,y,x])),
+        provenance:source('rule Hom_cat (Op_cat $A) $x $y ↪ Hom_cat $A $y $x;')};
+};
+const rules=[oppositeHomRule(),categoryRule('involution',0),categoryRule('objects',1),categoryRule('hom',2),categoryRule('commute',3),mapObjectRule()].map((rule,order)=>({...rule,order}));
 export const CORE_HOMD_DUALITY_RUNTIME_MODULE = createCoreLfModuleSpec({
     revision:'HOMD-NATIVE-DUALITY-RUNTIME-1',moduleId,fragmentId:'homd-native-duality-runtime',
     authorityPath:'emdash2/emdash3_2.lp',sourceSha256,dependencies:[],

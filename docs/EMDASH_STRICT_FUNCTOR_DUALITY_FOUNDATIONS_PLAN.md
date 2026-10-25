@@ -121,6 +121,21 @@ older running/failed states and do not override it.
 
 #### Migration evidence chronology (newest entries first)
 
+The [defined Homd target-map and total-dual action continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_map_review.md)
+replaces the signature-only Homd_target_con_func view with its native checked
+body. Ordinary opposite-Hom and postcomposition are shared source-prior
+prerequisites, with later duplicates removed. Hom_catd's three-stage base
+action now uses total-dual negative sections and Cartesian fibre maps. The
+generic telescope/text fixtures follow those inputs and the native weakening
+owner. The full TypeScript P-index-to-endpoint comparison still requires the
+identity covariance/mate and represented coefficient projections; its exact
+remaining failure is recorded in the review. Focused scopes qualify 63 distinct
+cases, including the corrected native negative control; workspace, registration,
+typecheck and lint pass. The full TypeScript aggregate times out after reporting
+55 failure events across 16 files. The linked inventory retains those required
+consumer/audit repairs and the separate aggregate runtime investigation.
+
+
 The [direct mixed-family frontend continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_direct_mixed_review.md)
 now follows the native Cartesian source-map and lax target-map profiles,
 including product distribution, weakening and constant-middle composition.

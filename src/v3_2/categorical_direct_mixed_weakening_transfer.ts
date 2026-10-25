@@ -2,8 +2,8 @@
  * DIRECT-MIXED-WEAKENING-1J generic transfer.
  *
  * This fragment transfers the direct displayed weakening
- * `Functor_catd_const_funcd : Functord B (Functor_catd A B)` and the one
- * pre-existing generic `hom_postcomp_func` signature used by its transparent
+ * `Functor_catd_const_funcd : Functord B (Functor_catd A B)` and reuses the
+ * source-prior generic `hom_postcomp_func` signature used by its transparent
  * full-action normal form. The direct nested binder remains the introduction
  * mechanism; no contextual curry or total-context section is involved.
  */
@@ -27,6 +27,7 @@ import {
     CORE_DIRECTED_CONTINUATION_TRANSFER_LINKAGE,
     coreDirectedContinuationTransferSymbol
 } from './directed_continuation_transfer';
+import { CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_LINKAGE } from './categorical_displayed_nd_higher_foundation_transfer';
 import {
     CoreLfModuleSpec,
     CoreLfQualifiedSymbol,
@@ -445,72 +446,6 @@ const source = (sourceFragment: string) => ({
     sourceFragment
 });
 
-const homPostcompositionType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'A',
-        builder.global(category),
-        A => builder.pi(
-            'B',
-            builder.global(category),
-            B => builder.pi(
-                'F',
-                functorType(builder, B, A),
-                F => builder.pi(
-                    'W',
-                    objectType(builder, A),
-                    W => builder.pi(
-                        'X',
-                        objectType(builder, B),
-                        X => builder.pi(
-                            'Y',
-                            objectType(builder, B),
-                            Y => builder.pi(
-                                'f',
-                                homType(builder, B, X, Y),
-                                _f => functorType(
-                                    builder,
-                                    homCategoryAt(
-                                        builder,
-                                        A,
-                                        W,
-                                        functorObjectAt(
-                                            builder,
-                                            B,
-                                            A,
-                                            F,
-                                            X
-                                        )
-                                    ),
-                                    homCategoryAt(
-                                        builder,
-                                        A,
-                                        W,
-                                        functorObjectAt(
-                                            builder,
-                                            B,
-                                            A,
-                                            F,
-                                            Y
-                                        )
-                                    )
-                                ),
-                                explicitMode
-                            ),
-                            implicitMode
-                        ),
-                        implicitMode
-                    ),
-                    explicitMode
-                ),
-                explicitMode
-            ),
-            implicitMode
-        ),
-        implicitMode
-    ));
-};
-
 const weakeningType = (): CoreLfTransferExpression => {
     const builder = new CoreLfTransferScopedBuilder();
     return builder.term(builder.pi(
@@ -539,18 +474,6 @@ const weakeningType = (): CoreLfTransferExpression => {
 const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
     {
         order: 0,
-        symbol: homPostcomposition,
-        type: homPostcompositionType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: {
-            visibility: 'public',
-            rigidity: 'ordinary',
-            sourceOpacity: 'opaque'
-        },
-        provenance: source('symbol hom_postcomp_func [A B : Cat]')
-    },
-    {
-        order: 1,
         symbol: weakening,
         type: weakeningType(),
         body: coreLfTransferAbsentBody(),
@@ -586,7 +509,8 @@ const externalSymbols = Object.freeze([
     functorCategory,
     identityFunctor,
     functorComposition,
-    constantFunctorAbstraction
+    constantFunctorAbstraction,
+    homPostcomposition
 ]);
 
 export const CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_TRANSFER_MODULE:
@@ -629,6 +553,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
 );
 
 const dependencyLinks = Object.freeze([
+    ...CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_TRANSFER_LINKAGE.entries,
     ...CORE_CATEGORICAL_DIRECT_MIXED_PRODUCT_DISTRIBUTION_TRANSFER_LINKAGE
         .entries,
     ...CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_LINKAGE.entries,
@@ -668,15 +593,6 @@ CoreLfTransferDeclarationLinkage = createCoreLfTransferDeclarationLinkage(
             ...externalSymbols.map(dependencyLink),
             {
                 order: externalSymbols.length,
-                symbol: homPostcomposition,
-                kind: 'free-declaration' as const,
-                coreName:
-                    'emdash_v3_2_direct_mixed_weakening_1j_' +
-                    'hom_postcomp_func',
-                backendName: homPostcomposition.name
-            },
-            {
-                order: externalSymbols.length + 1,
                 symbol: weakening,
                 kind: 'free-declaration' as const,
                 coreName:
@@ -891,7 +807,6 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     dependencies: [],
     externalSymbols: [
         ...externalSymbols,
-        homPostcomposition,
         weakening
     ].map(symbol_ => ({
         symbol: symbol_,

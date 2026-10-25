@@ -13,7 +13,7 @@ describe('native Homd dimension-two duality transfer', () => {
     it('checks the native signatures and projections against the exact source', () => {
         const c=compileCoreHomdDualityTransfer();
         assert.equal(c.compiled.declarations.length,2);
-        assert.equal(c.runtime.rules.length,5);
+        assert.equal(c.runtime.rules.length,6);
         assert.ok(c.runtime.rules.every(r=>r.subjectValidation.kind==='typescript-checked'));
         assert.equal(CORE_HOMD_DUALITY_MODULE.sourceSha256,
             'sha256:'+createHash('sha256').update(readFileSync(resolve(__dirname,'../emdash2/emdash3_2.lp'))).digest('hex'));
