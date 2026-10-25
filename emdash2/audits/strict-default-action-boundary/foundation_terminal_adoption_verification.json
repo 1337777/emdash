@@ -1,0 +1,95 @@
+{
+  "status": "Approved whole contract and complete19-assertion public Homd consumer pass; complete central integration pending",
+  "originalFiles": 1388,
+  "onlyChangedOriginal": [
+    "emdash3_2_checks.lp"
+  ],
+  "changedDiagnostics": [
+    "emdash3_2_checks.lp",
+    "central_full_context_except_terminal.lp",
+    "central_public_homd_controls.lp",
+    "central_public_homd_terminal_obligations.lp",
+    "central_migration_regression.lp",
+    "terminal_homd_comparison_controls.lp"
+  ],
+  "newAuxiliary": [
+    "central_full_context.lp"
+  ],
+  "wholeComparisons": 5,
+  "excludedAssertions": 0,
+  "sourceSha256": {
+    "emdash3_2_checks.lp": "bfdfa401391e65b8af5e43e2e05bd3261c9476e2375532dd1e704dad252a9024",
+    "central_full_context_except_terminal.lp": "52e35a3bdab928461a36fc7b212a34a277abb91dc09012a85806773fe51e173b",
+    "central_public_homd_controls.lp": "686c4b15150080111c6d3b8917ac674cf899ea803bc876bbfb6f30b4aa93b5d1",
+    "central_public_homd_terminal_obligations.lp": "65f67eddc95397010a04b1e06a9b352e21191fc822d88e7cfd9dd04dfd2f1f6d",
+    "central_migration_regression.lp": "e355e8e20068c013461c9deb2ae5301d6e874a6b853b06cea1533cf0f53ae3ec",
+    "terminal_homd_comparison_controls.lp": "1d78e8a89e4b77d8c7a3c8cda2f75cc343c3152abe76865491b62515842babcf",
+    "central_full_context.lp": "bfdfa401391e65b8af5e43e2e05bd3261c9476e2375532dd1e704dad252a9024"
+  },
+  "authoringSha256": {
+    "audits/strict-default-action-boundary/foundation_terminal_contract.py": "ce6960df0efc48c4f5874b480b1f1fa44a0213491c2434ae83f9976e44acaf38",
+    "audits/strict-default-action-boundary/foundation_terminal_contract_inputs.json": "a1b1b47f134ee2b671d05d9a9de628930d80ec48bd9e8402fb548ad338a70676",
+    "audits/strict-default-action-boundary/production_public_homd_controls.lpfragment": "fb983739b6e588b456cbf8a7d55bbef9607376af9b25e03bf7be8629db33ea51",
+    "audits/strict-default-action-boundary/production_terminal_homd_comparison_controls.lpfragment": "cbb6973aaf599a7447a025fa69a0f378bb5e5f98614aee1afda5ace5c6e5c1a3",
+    "audits/strict-default-action-boundary/foundations_complete_candidate.py": "41b031c049eb165fbf8496d89d9530db9bbbfe98004e907069d61a591ca24843"
+  },
+  "focusedReceipt": {
+    "id": "20261025T115653Z-3b446413b25f4d869f80ae4c3ac25173",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "wallSeconds": 26.23104556207545,
+    "childrenMaxRssKiB": 168772,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "checker": {
+      "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+      "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+      "version": "dev-3.0.0-90-gdb4f7809-dirty"
+    },
+    "inputs": {
+      "central_public_homd_controls.lp": "686c4b15150080111c6d3b8917ac674cf899ea803bc876bbfb6f30b4aa93b5d1",
+      "emdash3_2.lp": "dff41d5ae82117d36fbe196bc608b5273a020ff978ef94a6c7c5ddd369521fc2",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "terminal_adopted_contract_review.lp": "ce340e0877b3549b55f0a890f78448363dd7e4f6d753d385dc1b1baaa0c6b5ec",
+      "terminal_homd_comparison_controls.lp": "1d78e8a89e4b77d8c7a3c8cda2f75cc343c3152abe76865491b62515842babcf",
+      "terminal_homd_higher_projection.lp": "bbe06eb881997149b00ad0a7265bddc169f1b533d158f1c74f073d0800c027b2",
+      "terminal_relative_leaf.lp": "e37232bc41c89dc8c762910a2831aa4de644c92a53645f410b36394bccd80b44",
+      "terminal_runtime_distinctions.lp": "d74beb296ddeb2270252bdff157c04d7537630fff87d206f54781ebfa2716b3b",
+      "terminal_source_action.lp": "4f837d8d65731ffb349bcfca83d4454124acf3a1103455beae84a1cd7086ebfa",
+      "terminal_target_action.lp": "7d83fa35c26f50f3379fcf599521d1eb3c22c75b54d51d3665b50df41fc57786"
+    },
+    "inputSnapshot": "02b6f3de48a06e54c295c5d52b60501ce01096467e02da262eabe30ab34dd4b4",
+    "log": "logs/check-runs/20261025T115653Z-3b446413b25f4d869f80ae4c3ac25173.log",
+    "logSha256": "2e6619dc637f3533441688b2a065d9dd3a0a9158fc9c080ba399a74d1f99284a",
+    "compileObject": false,
+    "receiptSha256": "849e5180e7af15c762c3e9fab86fd0fc77bc24cf5b8e0992615079d06acda880"
+  },
+  "warningCategories": {
+    "replaceable pattern variable": 176,
+    "unjoinable critical pair": 1704
+  },
+  "warningCategoryAndRuleFamilyInventoryUnchanged": true,
+  "focusedAssertions": {
+    "assert": 35,
+    "assertnot": 13
+  }
+}

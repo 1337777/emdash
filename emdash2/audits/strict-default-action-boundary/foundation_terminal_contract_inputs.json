@@ -1,0 +1,32 @@
+{
+  "decision": "User selected Adopt whole comparisons on 2026-10-25",
+  "sourceReceipt": "20261025T051637Z-2637327ca5bc45d8a6504a591f9c29b0",
+  "sourceCoreSha256": "dff41d5ae82117d36fbe196bc608b5273a020ff978ef94a6c7c5ddd369521fc2",
+  "cases": [
+    {
+      "originalPublicAssertion": 8,
+      "formerRuntimeAssertion": "assert [K : Cat] (x : τ (Obj K)) ⊢\n  @homd_src_func K\n    (@Const_catd K Terminal_cat)\n    (@Const_catd K Terminal_cat)\n    (@id_funcd K (@Const_catd K Terminal_cat))\n    x\n    ≡ @Obj_func\n        (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))\n        (@homd_src_sec K\n          (@Const_catd K Terminal_cat)\n          (@Const_catd K Terminal_cat)\n          (@id_funcd K (@Const_catd K Terminal_cat))\n          x\n          Terminal_obj);",
+      "wholeComparisonSha256": "f36027b196355d8d077bb16abef8fda81a83d6716b177e0be3a52abb6731e414"
+    },
+    {
+      "originalPublicAssertion": 9,
+      "formerRuntimeAssertion": "assert [K : Cat] (x : τ (Obj K)) ⊢\n  @Fibre_func\n    K\n    (@Const_catd K Terminal_cat)\n    (@Homd_target_catd K (@Const_catd K Terminal_cat))\n    (@homd_int\n      K\n      (@Const_catd K Terminal_cat)\n      (@Const_catd K Terminal_cat)\n      (@id_funcd K (@Const_catd K Terminal_cat)))\n    x\n    ≡ @Obj_func\n        (Op_cat (@Homd_target_section_cat K (@Const_catd K Terminal_cat) x))\n        (@homd_src_sec K\n          (@Const_catd K Terminal_cat)\n          (@Const_catd K Terminal_cat)\n          (@id_funcd K (@Const_catd K Terminal_cat))\n          x\n          Terminal_obj);",
+      "wholeComparisonSha256": "a78bbe27eba571420e87049aed98984575b9eb39b87140fa3eec37153af294a6"
+    },
+    {
+      "originalPublicAssertion": 13,
+      "formerRuntimeAssertion": "assert [K : Cat] (x y : τ (Obj K)) ⊢\n  @homd_tgt_func K\n    (@Const_catd K Terminal_cat)\n    (@Const_catd K Terminal_cat)\n    (@id_funcd K (@Const_catd K Terminal_cat))\n    x\n    Terminal_obj\n    y\n    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))\n        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@Terminal_catd (Op_cat (Hom_cat K x y))));",
+      "wholeComparisonSha256": "ec582bc1de604bd78d4c01c52538a0d16d60f0b66be454c54ac0e1162f3e57df"
+    },
+    {
+      "originalPublicAssertion": 14,
+      "formerRuntimeAssertion": "assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))\n  (x y : τ (Obj K))\n  (u : τ (Obj (Fibre_cat E x))) ⊢\n  @homd_tgt_func K (@Const_catd K Terminal_cat) E s x u y\n    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))\n        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_\n          K\n          E\n          E\n          (@id_funcd K E)\n          x\n          u\n          y\n          (@piapp0 K E s y)));",
+      "wholeComparisonSha256": "78f42b417b0b57f8b91f1be2e87bfc816e22c43fd1ccdddabc9c11e5be628c5b"
+    },
+    {
+      "originalPublicAssertion": 15,
+      "formerRuntimeAssertion": "assert [K : Cat] (E : τ (Catd K)) (s : τ (Obj (Pi_cat E)))\n  (x y : τ (Obj K))\n  (u : τ (Obj (Fibre_cat E x))) ⊢\n  @tapp0_fapp0 K Homd_coeff_cat (@Homd_coeff_diagram K (@Const_catd K Terminal_cat))\n      (@Homd_coeff_diagram K (@hom_ K K (@id_func K) x)) y\n      (@homd_src_sec K (@Const_catd K Terminal_cat) E s x u)\n    ≡ @Obj_func (Homd_index_cat (Hom_cat K x y))\n        (fapp0 (Homd_index_include_func (Hom_cat K x y)) (@homd_\n          K\n          E\n          E\n          (@id_funcd K E)\n          x\n          u\n          y\n          (@piapp0 K E s y)));",
+      "wholeComparisonSha256": "b96fa1507b8aa7fd723059e18027069169c560dd35455608c3491f7df6f4b3d1"
+    }
+  ]
+}

@@ -71,7 +71,7 @@ def load_registry(root: Path = ROOT) -> dict:
         raise ValueError("unknown target or profile in target profile overrides")
     for name, profile in data["profiles"].items():
         if (type(profile["memoryMiB"]) is not int or type(profile["timeoutSeconds"]) is not int
-                or not 32 <= profile["memoryMiB"] <= 8192 or not 1 <= profile["timeoutSeconds"] <= 1800):
+                or not 32 <= profile["memoryMiB"] <= 8192 or not 1 <= profile["timeoutSeconds"] <= 3600):
             raise ValueError(f"out-of-bounds profile: {name}")
     if "default" not in data["profiles"]:
         raise ValueError("missing default profile")

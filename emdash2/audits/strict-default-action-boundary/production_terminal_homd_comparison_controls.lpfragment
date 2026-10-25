@@ -1,6 +1,7 @@
 // Whole terminal Homd comparisons at the existing represented runtime heads.
-// These typed reflexivity observations do not replace the five original
-// runtime assertions in production_public_homd_controls.lpfragment.
+// User-approved acceptance contract (2026-10-25): these five whole typed
+// comparisons replace the former literal constant runtime assertions.
+// No operational symbol receives an equality-proof argument.
 // First two: terminal source-u map and its fibre view. Next three: terminal
 // identity y-component and both general-section y-component observations.
 

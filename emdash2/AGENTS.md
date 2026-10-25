@@ -270,7 +270,7 @@ counterexample. The active homology plan records the motivating global OOM
 events and requires serial, memory-bounded compiler experiments too.
 
 The guard accepts an explicit `EMDASH_LP_TIMEOUT`
-up to 1800 seconds, while retaining the 90-second default and the existing
+up to 3600 seconds, while retaining the 90-second default and the existing
 file/serial restrictions. Use an increased limit only for a measured
 target, recording the reason, exact limit and result in its living plan.
 The original native-universality use was complete bounded model adoption with
@@ -291,10 +291,15 @@ large heaps.
 
 For cumulative library validation, the user reaffirmed on 2026-10-23 that
 the total duration has no special mathematical significance and may increase
-as needed. The 1800-second ceiling is bounded headroom for that aggregate;
+as needed. The 3600-second ceiling is bounded headroom for that aggregate;
 individual-command timings and allocation remain separate usability evidence.
 Keep named profiles and memory limits unchanged unless separately justified.
 This is not a policy adjustment to transient host load.
+The 2026-10-25 foundations aggregate completed 518 library owners before its
+1800-second deadline, with continuing CPU-active progress and no typing failure.
+The measured whole-library scope justifies the tested 3600-second explicit
+ceiling. This changes neither the 90-second default nor any named profile,
+memory cap, file limit, subject-reduction requirement or no-swap/serial guard.
 
 The action-profile integration goal first received standing authorization for
 measured memory/timeout increases on 2026-09-26. The repository-wide procedure

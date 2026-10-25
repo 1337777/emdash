@@ -16,6 +16,7 @@ import difflib
 from pathlib import Path
 import re
 import subprocess
+import foundation_terminal_contract as terminal_contract
 
 
 PIN = 'f8af1fca472657ff1598c639eb29c0566e7b2ec0'
@@ -7291,14 +7292,15 @@ assert [A B : Cat] [F G : τ (Functor A B)]
     (package / 'central_public_homd_controls.lp').write_text(
         'require open emdash.emdash3_2;\n' + public_homd)
     public_homd_assertions = re.findall(r'(?m)^assert\b.*?;', public_homd, re.S)
-    terminal_obligations = [block for block in public_homd_assertions if '≡ @Obj_func' in block]
-    general_observations = [block for block in public_homd_assertions if '≡ @Obj_func' not in block]
+    terminal_obligations = terminal_contract.comparisons()
+    assert all(block in public_homd_assertions for block in terminal_obligations)
+    general_observations = [block for block in public_homd_assertions if block not in terminal_obligations]
     assert len(terminal_obligations) == 5 and len(general_observations) == 14
     (package / 'central_public_homd_general_controls.lp').write_text(
         'require open emdash.emdash3_2;\n'
         + '\n\n'.join(general_observations) + '\n')
     (package / 'central_public_homd_terminal_obligations.lp').write_text(
-        '// Unqualified required normalization obligations; not a passing target.\n'
+        '// Accepted whole proof-time contract; all five remain positive.\n'
         'require open emdash.emdash3_2;\n'
         + '\n\n'.join(terminal_obligations) + '\n')
     (package / 'terminal_homd_comparison_controls.lp').write_text(
@@ -7941,7 +7943,7 @@ assert [A B : Cat] [F G : τ (Functor A B)]
                               baseline_package / 'emdash3_2.lp', baseline_package / 'emdash3_2_gray_profiles.lp']
                     + [package / path for path in dependencies]},
         'stillRequired': ['Coefficient/mixed-parameter compatibility at installed-rule overlaps and actual consumers, without requiring a general Q model',
-                          'Five original whole terminal-source Homd reductions, preserving Q units and the actual relative maps',
+                          'Full-diagnostic integration of the five approved whole terminal Homd comparisons, preserving runtime leaf, higher and inverse cuts',
                           'Profile-extension and original diagnostic/import-closure migration',
                           'Whole duality/adjunction and closure-consumer qualification',
                           'Full downstream qualification of default-functor interfaces and retained transformation profiles',
@@ -8255,7 +8257,7 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         target.write_text(fragment(source))
         manifest['outputs'][str(target.relative_to(root))] = sha(target.read_text())
     # Update the full original diagnostic and its actual selected projections.
-    # The five unrelated terminal runtime obligations retain their old status.
+    # Adopt the approved terminal comparison contract after the other diagnostics.
     for name in ('emdash3_2_checks.lp', 'central_full_context_except_terminal.lp',
                  'central_hom_action_controls.lp', 'central_action_controls.lp'):
         target = package / name
@@ -8266,6 +8268,14 @@ assert [K : Cat] ⊢ @StrictCommRingPsh_cat K ≡ @CommRingPsh_cat K;
         changes.append({'source': name, 'owner': 'stable whole prewhiskering diagnostic',
                         'reason': 'Preserve the original whole comparison at proof time and add the runtime noncollapse boundary after retiring the eager fold that broke strict identity computation',
                         'oldBodySha256': sha(before), 'newBodySha256': sha(after)})
+    terminal_outputs = terminal_contract.apply(package)
+    manifest['outputs'].update({str((package / name).relative_to(root)): digest
+                               for name, digest in terminal_outputs.items()})
+    manifest['terminalHomdContract'] = {
+        'decision': terminal_contract.INPUTS['decision'],
+        'wholeComparisons': 5, 'excludedAssertions': 0,
+        'operationalProofArgumentsAdded': 0,
+    }
     (out / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     print('Emitted full pre-goal baseline and upstream owner migration; no original tail omitted.')
 

@@ -1,0 +1,83 @@
+{
+  "status": "Current-core replay passed; user approved whole comparisons; complete-diagnostic integration validation pending",
+  "receipt": {
+    "id": "20261025T051637Z-2637327ca5bc45d8a6504a591f9c29b0",
+    "outcome": "passed-fresh",
+    "checkerExit": 0,
+    "wallSeconds": 27.664985361974686,
+    "childrenMaxRssKiB": 168960,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 2048,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 90000
+    },
+    "checker": {
+      "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+      "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+      "version": "dev-3.0.0-90-gdb4f7809-dirty"
+    },
+    "inputs": {
+      "emdash3_2.lp": "dff41d5ae82117d36fbe196bc608b5273a020ff978ef94a6c7c5ddd369521fc2",
+      "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b",
+      "terminal_current_contract_review.lp": "72f4626bfd96a70cb520a072be2464315a67e3052a1a49f3bf6214999fe6f580",
+      "terminal_homd_comparison_controls.lp": "3c334cabcbc0350711e0ac4b9cc9aedfcfeef0410894214b283c4df6f947bf9a",
+      "terminal_homd_higher_projection.lp": "bbe06eb881997149b00ad0a7265bddc169f1b533d158f1c74f073d0800c027b2",
+      "terminal_relative_leaf.lp": "e37232bc41c89dc8c762910a2831aa4de644c92a53645f410b36394bccd80b44",
+      "terminal_runtime_distinctions.lp": "d74beb296ddeb2270252bdff157c04d7537630fff87d206f54781ebfa2716b3b",
+      "terminal_source_action.lp": "4f837d8d65731ffb349bcfca83d4454124acf3a1103455beae84a1cd7086ebfa",
+      "terminal_target_action.lp": "7d83fa35c26f50f3379fcf599521d1eb3c22c75b54d51d3665b50df41fc57786"
+    },
+    "inputSnapshot": "93861b815daf0c2219dc7664ec5b4f3442e3e0d73da3d628c60c2161646b15be",
+    "log": "logs/check-runs/20261025T051637Z-2637327ca5bc45d8a6504a591f9c29b0.log",
+    "logSha256": "659741b56b4d5c119a7ef880cf96f159851ff680d2c2f663fe2138cf9b71b2c2",
+    "compileObject": false,
+    "receiptSha256": "35771365288816829ec2dc7b5544a427a28cc4783899ab6d18ed02b716f57c8b"
+  },
+  "proposal": {
+    "status": "Historical prepared proposal, subsequently approved by user; exact integration tracked separately",
+    "sourceWitnessReceipt": "20261025T051637Z-2637327ca5bc45d8a6504a591f9c29b0",
+    "sources": {
+      "emdash2/emdash3_2_checks.lp": {
+        "beforeSha256": "f97011aae1b5ee46d321726c5a8fef8a08ffd1f8b1d9487cb24d6d8b8a0be2cf",
+        "proposedSha256": "6d9480f5da907df32c324973866165329d5b2ba72412820ae0548bf9056e0c41",
+        "replacedWholeComparisons": 5,
+        "assertionCountUnchanged": true
+      },
+      "emdash2/audits/strict-default-action-boundary/production_public_homd_controls.lpfragment": {
+        "beforeSha256": "c74817cd9e717e7e8e05fa200369468f63588933f57d5761db610a6549a85fbc",
+        "proposedSha256": "d83017d05cd8a1a577922b24846b99f75abf39e04e36279ddc64591f7b1cf43b",
+        "replacedWholeComparisons": 5,
+        "assertionCountUnchanged": true
+      }
+    },
+    "allFiveProposedComparisonsAlreadyChecked": true,
+    "newOperationalProofArguments": 0
+  },
+  "proposalSha256": "51154f7c68799dbc7457d00fd51d8e50fefccaf17392b02718d3e379ecf93145",
+  "diagnosticScope": "The five runtime-negative observations retain historical distinctions; the approved acceptance uses the five positive whole comparisons.",
+  "coreSha256": "dff41d5ae82117d36fbe196bc608b5273a020ff978ef94a6c7c5ddd369521fc2",
+  "proposedComparisonsAlreadyChecked": true,
+  "newOperationalProofArguments": 0,
+  "decision": {
+    "date": "2026-10-25",
+    "answer": "Adopt whole comparisons (Recommended)",
+    "operationalProofArgumentsAdded": 0,
+    "literalConstantRuntimeFormsRequired": false
+  }
+}

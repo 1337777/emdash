@@ -14,6 +14,7 @@ import foundation_reviewer_followup as annotations
 import foundation_family_reviewer_followup as families
 import foundation_reviewer_annotation_finish as final_annotations
 import foundation_final_reviewer_candidate as final_reviewers
+import foundation_terminal_contract as terminal_contract
 
 
 def library_driver():
@@ -46,6 +47,7 @@ def emit(out):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(body)
     final_reviewers.apply(out)
+    terminal_contract.apply(out)
     (out / 'all_original_library_owners.lp').write_text(library_driver())
     return {str(p.relative_to(out)): hashlib.sha256(p.read_bytes()).hexdigest()
         for p in sorted(out.rglob('*.lp'))}

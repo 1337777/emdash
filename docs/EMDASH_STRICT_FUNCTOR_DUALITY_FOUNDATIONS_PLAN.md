@@ -2,7 +2,7 @@
 
 Date: 2026-10-11
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
-Status: active implementation; strict-functor wrapper/name retirement complete in staged LP; five terminal runtime obligations, remaining normalization/resource work and production qualification remain open
+Status: active implementation; terminal Homd whole-comparison contract approved; complete diagnostic integration, shared-source validation and production qualification remain open
 
 Depends-On: active v3.2 owners and root/nested SOP; completed action-profile
 integration; pinned response-0099 coefficient/Homd design and its research
@@ -54,15 +54,15 @@ continue to describe its status until the dependency gates below are met.
 
 | Stage | Required continuation | Start condition and planning boundary |
 | --- | --- | --- |
-| SF-CLOSE | Finish and qualify the foundations migration, including the five terminal Homd runtime obligations and the normalization/validation ledger. | Continue the current implementation; do not replace required runtime behavior with prose or only proof-time comparisons. |
+| SF-CLOSE | Finish and qualify the foundations migration, including the five approved whole terminal Homd comparisons and the normalization/validation ledger. | Retain runtime leaf, higher-action and inverse computations; include all five whole comparisons in the complete diagnostics without exclusions. |
 | SF-BOOK | Update the Emdash book comprehensively for the settled foundations and all migration changes. | After the migration settles, perform the careful source/claim review and write a dedicated proposed subplan before editing chapters. Follow source ownership and the book/print SOP; regenerate artifacts through their tools. |
 | SF-ARTICLE | Update the shorter overview research article consistently with the settled foundations and revised book. | Plan with the book review, preserve the article's shorter overview role, and validate its sources and generated artifacts. The existing publication/article plan is historical ownership guidance, not authorization to publish. |
 | SF-NERVES | Review, import, adapt, integrate and finish the partial simplicial/cubical nerve work from `/home/user1/emdash1-native-nerves-legacy-v1/` in the new foundations. | Begin after foundations and book/article updates settle. First review the donor's current code, plans, scope and evidence and write a dedicated proposed subplan. Adapt the actual mathematics and code; do not automatically merge the legacy branch or inherit its qualification. |
 
-The five terminal Homd cases remain SF-CLOSE requirements. Documentation review
-may help clarify their intended contract, but the final book/article must
-describe their resolved implementation accurately. Do not postpone them past
-foundations qualification merely to advance the documentation or nerve stage.
+The five terminal Homd cases remain SF-CLOSE requirements under the explicitly
+approved whole-comparison contract below. The final book/article must distinguish
+those proof-time comparisons from the retained operational computations. Full
+diagnostic integration belongs before foundations qualification.
 
 Each larger continuation may have its own living proposed-plan file, and the
 user may later choose a separate goal or worktree. Keep the consolidated scope,
@@ -73,7 +73,55 @@ six-term audit and unrelated research remain outside this continuation.
 Local checkpoint authorization continues; pushing, publishing, history
 rewriting and automatic branch merging remain unauthorized.
 
+### Terminal Homd acceptance decision — 2026-10-25
+
+The user explicitly selected **“Adopt whole comparisons (Recommended)”**.
+For original public Homd assertions 8, 9, 13, 14 and 15 (local reviewer indices),
+the required acceptance contract is now the five existing whole typed
+proof-time comparisons. Literal constant runtime forms are no longer required.
+This supersedes earlier entries requiring those five runtime reductions; it
+changes neither operational proof arguments nor the strict/lax design.
+
+The exact current-core replay passes in 27.665s/168,960KiB at 90s/2GiB with
+subject reduction: `20261025T051637Z-2637327ca5bc45d8a6504a591f9c29b0`.
+It retains leaf computation, higher action, actual inverse cancellation and
+neutral-unit distinctions. [Decision and replay inputs](../emdash2/audits/strict-default-action-boundary/foundation_terminal_contract_inputs.json)
+identify each replaced assertion. The original runtime assertions remain
+historical evidence, not hidden acceptance exclusions.
+
+The authoring fragment and diagnostic replay now keep all 19 public Homd
+assertions, with five explicit whole comparisons. The complete central target
+is `central_full_context.lp`; the old except-terminal filename imports it
+without omissions. The complete public Homd consumer passes in
+26.231s/168,772KiB at 90s/2GiB, receipt
+`20261025T115653Z-3b446413b25f4d869f80ae4c3ac25173`, retaining the action/inverse
+controls and warning inventory. The 2,441-assertion complete central gate is
+now running at 900s/4GiB (140 inputs). [Adoption review](../emdash2/audits/strict-default-action-boundary/foundation_terminal_adoption_review.md)
+records the exact change. R01–R03 are resolved as a contract decision; full
+diagnostic qualification remains required under R10.
+
 ### Current migration tranche
+
+**The complete 791-owner library check passes** at the current mathematical
+source: `20261025T052321Z-1b7c3fa9b43449028e422884a9d228b9`, 793 exact inputs,
+2468.779s/5,209,732KiB at 3600s/6GiB, subject reduction enabled and no compiled
+objects. All inputs match the terminal-contract candidate. The
+[library review](../emdash2/audits/strict-default-action-boundary/foundation_complete_library_review.md)
+retains source, warning and performance evidence. This resolves the pending
+complete-library run below; affected reviewer and full central integration,
+supported-toolchain/usability and production gates remain open.
+
+
+The complete 791-owner gate reaches its 1800-second cumulative limit after
+518 completed owners, with no typing failure:
+`20261025T043855Z-77582cb6abfe41f88cecaa226b16757b`. It remains a timeout, not
+a complete-library qualification. The [time-headroom review](../emdash2/audits/strict-default-action-boundary/foundation_aggregate_time_review.md)
+records the continuing CPU-active progress and measured memory, along with
+the tested 3600-second explicit ceiling under the user's standing authorization.
+All 25 resource/profile tests and the registry inventory pass. Defaults and
+named profiles are unchanged; the whole-library rerun retains 6GiB and all
+other safeguards. The terminal witness replay completed before the current
+3600s/6GiB library run; its approved contract is recorded above.
 
 **All final 15 original reviewers now pass** in the 404-input aggregate:
 `20261025T042241Z-3170b69f31ba4b10b98677e1baf83ddd`, 797.794s/2,838,040KiB at
@@ -83,15 +131,15 @@ the corrected strict-composition reviewer assertion/comment. Every input
 matches the complete assembled candidate exactly.
 
 The prepared complete **791-owner library gate is now running** on that
-snapshot (793 inputs), at explicit 1800s/6GiB. Earlier complete integration
+snapshot (793 inputs), at explicit 3600s/6GiB after the measured timeout. Earlier complete integration
 required 6GiB after a measured 4GiB allocation failure and passed at
 1191.163s/4,028,344KiB; available memory before this launch was 21,000MiB.
 Normal resource defaults and all guards remain unchanged. This is the next
 required shared-source qualification, not an already completed result.
 The former 74-reviewer result precedes the last two owner corrections; carry
 only unchanged-scope evidence and requalify affected consumers before adoption.
-The official production-emitter counts and terminal runtime obligations remain
-unchanged until those gates complete.
+The official qualified production-emitter counts remain unchanged until those
+gates complete. The approved terminal contract is recorded above.
 
 The guarded 404-input run passes the image/coimage regression and the first
 twelve complete original reviewers, including native snake inputs/zeros. It
@@ -183,15 +231,10 @@ direct opposing rule pair in this delta. That static finding is not global
 normalization qualification; the current three-file source still needs the
 prepared complete-owner and affected-consumer gates.
 
-After the original-reviewer migration, revisit the five terminal Homd runtime
-requirements using the retained R01–R03 witnesses before proposing another rule.
-They test three different operations: source-u action, the identity y-component,
-and general relative y-components. The earlier contract/canonical-point reviews
-used older source snapshots; subsequent terminal identity and displayed-action
-repairs warrant an exact replay, not an assumption that their old failures
-still decide the new snapshot. Preserve the higher-action/inverse controls and
-neutral-unit distinctions. No existing requirement is discharged by this review
-schedule or by the already available whole proof-time comparisons.
+The requested current-core terminal replay and contract review are now complete;
+the user's whole-comparison decision above supersedes the former runtime-only
+requirement. Finish integrating all five accepted comparisons into the full
+central gate while preserving higher-action/inverse and neutral-unit controls.
 
 Checkpoint `bc13656f` records the four-reviewer follow-up and passing cold core
 regression below. The next
