@@ -32,7 +32,7 @@ const fixture = (suffix: string) => {
     );
     const FFbar = emdash.section(
         `recursive_${suffix}_FFbar`,
-        emdash.oppositeDisplayedFamily(classifier)
+        emdash.totalOppositeDisplayedFamily(classifier)
     );
     const GGbar = emdash.section(
         `recursive_${suffix}_GGbar`,
@@ -249,7 +249,7 @@ describe('D-029/D-030/D-031 recursive mixed classifier and Hom closure', () => {
             const classifier = emdash.constantDisplayedFamily(K, Q);
             const X = emdash.section(
                 'recursive_unknown_X',
-                emdash.oppositeDisplayedFamily(classifier)
+                emdash.totalOppositeDisplayedFamily(classifier)
             );
             const Y = emdash.section('recursive_unknown_Y', classifier);
             const H = emdash.mixedDisplayedHomFamily(classifier, X, Y);

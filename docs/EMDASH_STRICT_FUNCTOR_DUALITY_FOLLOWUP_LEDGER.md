@@ -61,6 +61,19 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [mixed total-duality and lower Homd frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_mixed_homd_review.md)
+now follows the native total-dual negative sections and actual Q-valued section
+category. All 28 focused tests, including native conformance, pass; workspace,
+registration, typecheck and lint pass. The lower rungs have checked native
+bodies rather than the removed
+Pi/edge presentation. Native conformance includes the complete presheaf/leaf
+comparison; the TypeScript root/section projections and independent leaf are
+qualified separately. The complete TypeScript P-index-to-endpoint comparison
+and the signature-only `Homd_target_con_func` action remain F04 requirements.
+Recursive mixed-family metadata preserves the actual shifted dual bases and
+uses only object-classifier agreement. The next aggregate failure is the old
+coefficient in direct mixed introduction's target-postcomposition rule.
+
 The [native Homd target/root frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_root_review.md)
 now passes16 focused tests and two native conformance tests, plus
 workspace/registration/typecheck/lint. The actual Q-valued target body and

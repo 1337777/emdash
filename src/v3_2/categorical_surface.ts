@@ -977,6 +977,8 @@ export interface CoreCategoricalScopedBuilderOptions {
      */
     readonly categoryObjectReifier?:
         CoreCategoricalCategoryObjectReifier;
+    /** Construction metadata only. Final LF checking still validates the unchanged term. */
+    readonly objectCategoryComparison?: (left: KernelExpression, right: KernelExpression) => boolean;
     /**
      * Enable only the approved D-003 section-composition continuation. The
      * default preserves the reviewed USABILITY-2A1 eta-only envelope.
@@ -2043,6 +2045,11 @@ export class CoreCategoricalScopedBuilder {
         options: CoreCategoricalScopedBuilderOptions = {}
     ) {
         this.options = Object.freeze({ ...options });
+    }
+
+    private objectCategoriesEqual(left: KernelExpression, right: KernelExpression): boolean {
+        return coreObjectCategoryEquals(left, right) ||
+            (this.options.objectCategoryComparison?.(left, right) ?? false);
     }
 
     private nodeProvenance(
@@ -4059,7 +4066,7 @@ export class CoreCategoricalScopedBuilder {
             );
             if (
                 endpointCategory === undefined ||
-                !coreObjectCategoryEquals(endpointCategory, category)
+                !this.objectCategoriesEqual(endpointCategory, category)
             ) {
                 this.fail(
                     'CLASSIFIER_ARGUMENT_MISMATCH',
@@ -4160,7 +4167,7 @@ export class CoreCategoricalScopedBuilder {
         );
         const matchesObject =
             objectCategory !== undefined &&
-            coreObjectCategoryEquals(
+            this.objectCategoriesEqual(
                 subject.type.sourceCategory,
                 objectCategory
             );
@@ -4346,7 +4353,7 @@ export class CoreCategoricalScopedBuilder {
         );
         if (
             argumentCategory === undefined ||
-            !coreObjectCategoryEquals(
+            !this.objectCategoriesEqual(
                 argumentCategory,
                 subject.type.baseCategory
             )
@@ -4672,7 +4679,7 @@ export class CoreCategoricalScopedBuilder {
             );
             if (
                 argumentCategory === undefined ||
-                !coreObjectCategoryEquals(argumentCategory, base)
+                !this.objectCategoriesEqual(argumentCategory, base)
             ) {
                 this.fail(
                     'CLASSIFIER_ARGUMENT_MISMATCH',
@@ -4840,7 +4847,7 @@ export class CoreCategoricalScopedBuilder {
             );
             if (
                 argumentCategory === undefined ||
-                !coreObjectCategoryEquals(argumentCategory, base)
+                !this.objectCategoriesEqual(argumentCategory, base)
             ) {
                 this.fail(
                     'CLASSIFIER_ARGUMENT_MISMATCH',
@@ -4961,7 +4968,7 @@ export class CoreCategoricalScopedBuilder {
         );
         if (
             argumentCategory === undefined ||
-            !coreObjectCategoryEquals(
+            !this.objectCategoriesEqual(
                 argumentCategory,
                 subject.type.baseCategory
             )
@@ -5282,7 +5289,7 @@ export class CoreCategoricalScopedBuilder {
         );
         if (
             argumentCategory === undefined ||
-            !coreObjectCategoryEquals(
+            !this.objectCategoriesEqual(
                 argumentCategory,
                 subject.type.sourceCategory
             )
@@ -6199,7 +6206,7 @@ export class CoreCategoricalScopedBuilder {
             if (
                 argument.closed === undefined ||
                 argumentCategory === undefined ||
-                !coreObjectCategoryEquals(
+                !this.objectCategoriesEqual(
                     argumentCategory,
                     shape.domainCategory
                 )
@@ -6573,7 +6580,7 @@ export class CoreCategoricalScopedBuilder {
             );
             if (
                 argumentCategory === undefined ||
-                !coreObjectCategoryEquals(
+                !this.objectCategoriesEqual(
                     argumentCategory,
                     subject.type.sourceCategory
                 )
@@ -11583,7 +11590,7 @@ export class CoreCategoricalScopedBuilder {
             if (
                 argument.closed === undefined ||
                 argumentCategory === undefined ||
-                !coreObjectCategoryEquals(
+                !this.objectCategoriesEqual(
                     argumentCategory,
                     shape.domainCategory
                 )

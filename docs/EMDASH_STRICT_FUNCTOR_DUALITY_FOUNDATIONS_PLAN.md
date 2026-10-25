@@ -116,10 +116,23 @@ older running/failed states and do not override it.
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes. Health's central check passed; the aggregate was stopped after45 observed90s timeouts, preserving receipts. | Measure representative import/consumer cost before restarting with justified profiles. A generated not-run report is not execution evidence. |
-| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations, weakening/reindexing, varying-base Pi, displayed evaluation and both recursive-chain stages and the native Homd root/higher-action interface now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with mixed Hom_catd and lower Homd profiles and final integration. |
+| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations, weakening/reindexing, varying-base Pi, displayed evaluation and both recursive-chain stages and the native Homd root/higher-action interface now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with direct mixed constructor/action profiles, full P-index endpoint computation and final integration. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)
+
+The [mixed total-duality and lower Homd frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_mixed_homd_review.md)
+now follows the native total-dual negative sections and actual Q-valued section
+category. All 28 focused tests, including native conformance, pass; workspace,
+registration, typecheck and lint pass. The lower rungs have checked native
+bodies rather than the removed
+Pi/edge presentation. Native conformance includes the complete presheaf/leaf
+comparison; the TypeScript root/section projections and independent leaf are
+qualified separately. The complete TypeScript P-index-to-endpoint comparison
+and the signature-only `Homd_target_con_func` action remain F04 requirements.
+Recursive mixed-family metadata preserves the actual shifted dual bases and
+uses only object-classifier agreement. The next aggregate failure is the old
+coefficient in direct mixed introduction's target-postcomposition rule.
 
 The [native Homd target/root frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_root_review.md)
 now passes16 focused tests and two native conformance tests, plus

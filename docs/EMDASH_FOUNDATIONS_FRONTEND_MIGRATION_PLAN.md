@@ -315,6 +315,30 @@ projection and leaf computation where consumed, negative variance/profile
 controls, and current source/canonical evidence. Historical audit metadata
 passing after a prerequisite-name repair is not that qualification.
 
+## F04 continuation: native mixed families and direct lower ladder
+
+The [mixed total-duality and lower Homd frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_mixed_homd_review.md)
+now follows the native total-dual negative sections and actual Q-valued section
+category. All 28 focused tests, including native conformance, pass; workspace,
+registration, typecheck and lint pass. The lower rungs have checked native
+bodies rather than the removed
+Pi/edge presentation. Native conformance includes the complete presheaf/leaf
+comparison; the TypeScript root/section projections and independent leaf are
+qualified separately. The complete TypeScript P-index-to-endpoint comparison
+and the signature-only `Homd_target_con_func` action remain F04 requirements.
+Recursive mixed-family metadata preserves the actual shifted dual bases and
+uses only object-classifier agreement. The next aggregate failure is the old
+coefficient in direct mixed introduction's target-postcomposition rule.
+
+The latest source/body acquisition and execution record live beside the review.
+Continue with the existing direct mixed constructor/action owners, reusing
+inherited declarations and the native Cartesian/ordinary views. Do not restore
+`Homd_target_section_catd`, use a same-base negative section, or introduce a
+runtime rule equating P(I) with the ordinary Cartesian presheaf category.
+The original literal final projection must be reviewed as the actual P-index
+presheaf observation; native conformance alone does not transfer its full
+computation into the TypeScript evaluator.
+
 ## Constraints
 
 - Follow the native source and its existing migration outline. Do not add

@@ -31,7 +31,7 @@ const canonicalFixture = (suffix: string) => {
     );
     const Ebar = emdash.section(
         `mixed_action_${suffix}_Ebar`,
-        emdash.oppositeDisplayedFamily(classifier)
+        emdash.totalOppositeDisplayedFamily(classifier)
     );
     const Dbar = emdash.section(
         `mixed_action_${suffix}_Dbar`,
@@ -223,7 +223,7 @@ describe('MIXED-NEST-ACTION-1B mixed inner action', () => {
         const classifier = emdash.constantDisplayedFamily(K, Q);
         const Ebar = emdash.section(
             'mixed_action_wrong_Ebar',
-            emdash.oppositeDisplayedFamily(classifier)
+            emdash.totalOppositeDisplayedFamily(classifier)
         );
         const Dbar = emdash.section(
             'mixed_action_wrong_Dbar',

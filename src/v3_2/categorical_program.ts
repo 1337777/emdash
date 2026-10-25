@@ -1307,6 +1307,10 @@ export class CoreCategoricalProgram {
                 environment: this.environment,
                 runtime: classifierRuntime,
                 formerNames: {
+                    objectPreservingDuals: [
+                        mixedModeModule().coreMixedNativeCoreName('CoAbove2_cat'),
+                        displayedNdHigherFoundationModule().coreNativeHomdCoreName('CoAt2_cat')
+                    ],
                     oppositeCategory:
                         CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_CORE_NAMES
                             .oppositeCategory,
@@ -1331,6 +1335,9 @@ export class CoreCategoricalProgram {
             this.at('categorical program'),
             {
                 categoryObjectReifier: classifierReifier,
+                objectCategoryComparison: this.mixedModeEnabled
+                    ? (left, right) => this.objectCategoriesEqual(left, right)
+                    : undefined,
                 dependentSectionComposition:
                     profile !== 'reviewed-usability-2a1',
                 ordinaryNaturalAbstraction:
@@ -2242,6 +2249,21 @@ export class CoreCategoricalProgram {
         );
     }
 
+    private totalOppositeDisplayedFamilyExpression(
+        family: InternalCoreCategoricalDisplayedFamily,
+        at: Provenance
+    ): KernelExpression {
+        return kernelCall(kernelFree(mixedModeModule().coreMixedNativeCoreName('TotalOp_catd'), at), [
+            { plicity: 'implicit', value: family.baseCategory.expression },
+            { plicity: 'explicit', value: family.expression }
+        ], at);
+    }
+
+    private higherDualCategoryExpression(category: KernelExpression, at: Provenance): KernelExpression {
+        return kernelCall(kernelFree(mixedModeModule().coreMixedNativeCoreName('CoAbove2_cat'), at),
+            [{ plicity: 'explicit', value: category }], at);
+    }
+
     private totalCategoryExpression(
         family: InternalCoreCategoricalDisplayedFamily,
         nodeProvenance: Provenance
@@ -2668,13 +2690,24 @@ export class CoreCategoricalProgram {
         };
     }
 
+    /** Only object classifiers compare here; the category and its Hom variance remain intact. */
+    private objectCategoriesEqual(left: KernelExpression, right: KernelExpression): boolean {
+        if (coreObjectCategoryEquals(left, right)) return true;
+        if (!this.mixedModeEnabled) return false;
+        const at = this.at('object classifier comparison');
+        return this.categoryExpressionsDefinitionallyEqual(
+            kernelApplication('object-classifier', [{ value: left }], at),
+            kernelApplication('object-classifier', [{ value: right }], at)
+        );
+    }
+
     private requireSameCategory(
         actual: KernelExpression,
         expected: KernelExpression,
         nodeProvenance: Provenance,
         detail: string
     ): void {
-        if (!coreObjectCategoryEquals(actual, expected)) {
+        if (!this.objectCategoriesEqual(actual, expected)) {
             throw new CoreCategoricalProgramError(
                 'EXPECTED_CATEGORY_OBJECT',
                 nodeProvenance,
@@ -2891,8 +2924,8 @@ export class CoreCategoricalProgram {
     /**
      * Construct the pointwise opposite family `Op_catd E`.
      *
-     * This reverses each fibre while retaining E's base. A family whose base
-     * itself varies negatively is instead declared over `Op_cat K`.
+     * Dimension-one fibre reversal shifts the base to CoAt2_cat(K).
+     * Negative Hom_catd sections instead use totalOppositeDisplayedFamily.
      */
     oppositeDisplayedFamily(
         familyValue: CoreCategoricalDisplayedFamily,
@@ -2909,12 +2942,28 @@ export class CoreCategoricalProgram {
         );
         return this.makeDisplayedFamily(
             `Opd(${family.label})`,
-            family.baseCategory,
+            this.requireCategory(this.makeCategory('CoAt2(base)', kernelCall(
+                kernelFree(displayedNdHigherFoundationModule().coreNativeHomdCoreName('CoAt2_cat'), nodeProvenance),
+                [{ plicity: 'explicit', value: family.baseCategory.expression }], nodeProvenance)), nodeProvenance),
             this.oppositeDisplayedFamilyExpression(
                 family,
                 nodeProvenance
             )
         );
+    }
+
+    /** Total fibre reversal, with its actual CoAbove2_cat(K) base. */
+    totalOppositeDisplayedFamily(
+        familyValue: CoreCategoricalDisplayedFamily,
+        source?: CoreCategoricalSourceSite
+    ): CoreCategoricalDisplayedFamily {
+        const at = this.at('total opposite displayed family', source);
+        this.requireMixedMode(at);
+        const family = this.requireDisplayedFamily(familyValue, at);
+        const base = this.requireCategory(this.makeCategory('CoAbove2(base)',
+            this.higherDualCategoryExpression(family.baseCategory.expression, at)), at);
+        return this.makeDisplayedFamily(`TotalOpd(${family.label})`, base,
+            this.totalOppositeDisplayedFamilyExpression(family, at));
     }
 
     /**
@@ -3945,7 +3994,7 @@ export class CoreCategoricalProgram {
         if (pointInspection.ir.tag === 'slot-reference') {
             if (
                 pointInspection.type.tag !== 'object' ||
-                !coreObjectCategoryEquals(
+                !this.objectCategoriesEqual(
                     pointInspection.type.category,
                     family.baseCategory.expression
                 )
@@ -3985,7 +4034,7 @@ export class CoreCategoricalProgram {
         );
         if (
             pointCategory === undefined ||
-            !coreObjectCategoryEquals(
+            !this.objectCategoriesEqual(
                 pointCategory,
                 family.baseCategory.expression
             )
@@ -5147,14 +5196,14 @@ export class CoreCategoricalProgram {
             'Mixed displayed hom target'
         );
         const expectedSourceFamily =
-            this.oppositeDisplayedFamilyExpression(
+            this.totalOppositeDisplayedFamilyExpression(
                 family,
                 nodeProvenance
             );
         if (
             !kernelExpressionEquals(
                 sourceSection.baseCategory,
-                family.baseCategory.expression
+                this.higherDualCategoryExpression(family.baseCategory.expression, nodeProvenance)
             ) ||
             !kernelExpressionEquals(
                 sourceSection.family,
@@ -5172,8 +5221,8 @@ export class CoreCategoricalProgram {
             throw new CoreCategoricalProgramError(
                 'DISPLAYED_SOURCE_MISMATCH',
                 nodeProvenance,
-                'Hom_catd source must be a section of Op_catd(E), and ' +
-                    'target must be a section of E over the same base'
+                'Hom_catd source must be a section of TotalOp_catd(E) over CoAbove2(K), and ' +
+                    'target must be a section of E over K'
             );
         }
         return this.makeDisplayedFamily(
@@ -5286,11 +5335,11 @@ export class CoreCategoricalProgram {
         if (
             !kernelExpressionEquals(
                 sourceSection.baseCategory,
-                targetFamily.baseCategory.expression
+                this.higherDualCategoryExpression(targetFamily.baseCategory.expression, nodeProvenance)
             ) ||
             !kernelExpressionEquals(
                 sourceSection.family,
-                this.oppositeDisplayedFamilyExpression(
+                this.totalOppositeDisplayedFamilyExpression(
                     stableFamily,
                     nodeProvenance
                 )
@@ -5450,7 +5499,7 @@ export class CoreCategoricalProgram {
 
     /**
      * Construct the active internal displayed-hom package
-     * `homd_int(FF) : Functord(Op_catd(E),Homd_target_catd(D))`.
+     * `homd_int(FF) : Functord(E,R_D)`, with the native target-index family R_D.
      *
      * Its object and base-arrow action remain owned by the transferred
      * `homd_int` projection ladder; this method supplies no pointwise
@@ -5471,28 +5520,9 @@ export class CoreCategoricalProgram {
             'Internal displayed-hom subject'
         );
         const base = displayedFunctor.baseCategory;
-        const oppositeTarget = this.displayedNdHigherFoundationCall(
-            'displayedOpposite',
-            [
-                { plicity: 'implicit', value: base },
-                {
-                    plicity: 'explicit',
-                    value: displayedFunctor.targetFamily
-                }
-            ],
-            nodeProvenance
-        );
-        const homTarget = this.displayedNdHigherFoundationCall(
-            'displayedHomTarget',
-            [
-                { plicity: 'implicit', value: base },
-                {
-                    plicity: 'explicit',
-                    value: displayedFunctor.sourceFamily
-                }
-            ],
-            nodeProvenance
-        );
+        const sourceFamily = displayedFunctor.targetFamily;
+        const homTarget = displayedNdHigherFoundationModule().coreNativeHomdTargetFamily(
+            base, displayedFunctor.sourceFamily, nodeProvenance);
         const expression = this.displayedNdHigherFoundationCall(
             'displayedInternalHom',
             [
@@ -5518,12 +5548,12 @@ export class CoreCategoricalProgram {
                 tag: 'displayed-functor',
                 category: this.displayedFunctorCategoryExpression(
                     base,
-                    oppositeTarget,
+                    sourceFamily,
                     homTarget,
                     nodeProvenance
                 ),
                 baseCategory: base,
-                sourceFamily: oppositeTarget,
+                sourceFamily: sourceFamily,
                 targetFamily: homTarget
             },
             nodeProvenance
@@ -6568,7 +6598,7 @@ export class CoreCategoricalProgram {
             );
             if (
                 endpointCategory === undefined ||
-                !coreObjectCategoryEquals(
+                !this.objectCategoriesEqual(
                     endpointCategory,
                     category.expression
                 )

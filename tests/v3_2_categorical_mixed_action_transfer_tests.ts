@@ -9,29 +9,18 @@ import {
     it
 } from 'node:test';
 import {
-    CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_CORE_NAMES,
     CORE_CATEGORICAL_MIXED_ACTION_RUNTIME_MODULE,
     CORE_CATEGORICAL_MIXED_ACTION_RUNTIME_POLICY,
     CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY,
     CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE,
     CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_POLICY,
-    CORE_CATEGORICAL_STRUCTURAL_SYMBOLS,
-    CoreCategoricalProgram,
-    CoreCategoricalProgramError,
-    compileCoreCategoricalMixedActionTransfer,
-    coreCategoricalDisplayedNdHigherFoundationCoreName,
-    coreCategoricalMixedActionCoreName,
-    coreCategoricalStructuralSymbolCoreName,
-    kernelApplication,
-    kernelCall,
-    kernelExpressionEquals,
-    kernelFree,
-    provenance
-} from '../src/v3_2';
-import type {
-    KernelExpression,
-    Plicity
-} from '../src/v3_2';
+    CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_LINKAGE,
+    compileCoreCategoricalMixedActionTransfer
+} from '../src/v3_2/categorical_mixed_action_transfer';
+import { CoreCategoricalProgram, CoreCategoricalProgramError } from '../src/v3_2/categorical_program';
+import { kernelApplication, kernelCall, kernelFree, provenance, KernelExpression } from '../src/v3_2/kernel';
+import { coreLfDefinitionalCompare } from '../src/v3_2/lf_conversion';
+import { serializeKernelExpression } from '../src/v3_2/lambdapi';
 
 const assertDeepFrozen = (value: unknown): void => {
     if (value === null || typeof value !== 'object') return;
@@ -48,22 +37,14 @@ describe('MIXED-NEST-ACTION-0B', () => {
         assert.deepEqual(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
                 .declarationNames,
-            [
-                'hom_con',
-                'hom_',
-                'fib_cov_tapp0_func',
-                'homd_',
-                'Functor_catd_fapp0_func',
-                'Homd_target_section_catd',
-                'homd_src_func',
-                'homd_src_sec',
-                'homd_tgt_func'
-            ]
+            ['Homd_index_cat', 'homd_index_presheaf', 'Functor_cart_component_func',
+                'fib_cov_tapp0_func', 'homd_', 'Functor_catd_fapp0_func',
+                'Homd_target_section_cat', 'homd_src_sec', 'homd_src_func', 'homd_tgt_func']
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
                 .declarationCount,
-            9
+            10
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_BOUNDARY
@@ -97,7 +78,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_MODULE
                 .declarations.length,
-            9
+            10
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_RUNTIME_MODULE
@@ -112,7 +93,8 @@ describe('MIXED-NEST-ACTION-0B', () => {
     it('subject-checks every declaration and rule generically', () => {
         const compilation =
             compileCoreCategoricalMixedActionTransfer();
-        assert.equal(compilation.compiled.declarations.length, 9);
+        assert.equal(compilation.initialCompiled.declarations.length, 7);
+        assert.equal(compilation.compiled.declarations.length, 3);
         assert.equal(compilation.runtime.rules.length, 12);
         assert.equal(
             compilation.runtime.rules.every(rule =>
@@ -129,17 +111,7 @@ describe('MIXED-NEST-ACTION-0B', () => {
             CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_POLICY.entries.map(
                 entry => entry.policy
             ),
-            [
-                'opaque-signature',
-                'opaque-signature',
-                'checked-transparent-definition',
-                'checked-transparent-definition',
-                'opaque-signature',
-                'checked-transparent-definition',
-                'opaque-signature',
-                'opaque-signature',
-                'opaque-signature'
-            ]
+            Array.from({length:10}, (_,i) => i === 5 ? 'opaque-signature' : 'checked-transparent-definition')
         );
         assert.equal(
             CORE_CATEGORICAL_MIXED_ACTION_RUNTIME_POLICY.entries.every(
@@ -149,167 +121,48 @@ describe('MIXED-NEST-ACTION-0B', () => {
         );
     });
 
-    it('computes the first and final homd_int projections', () => {
-        const compilation =
-            compileCoreCategoricalMixedActionTransfer();
-        const nodeProvenance = provenance(
-            'derived',
-            'MIXED-NEST-ACTION-0B runtime witness'
-        );
-        const K = kernelFree('mixed_action_K', nodeProvenance);
-        const D = kernelFree('mixed_action_D', nodeProvenance);
-        const E = kernelFree('mixed_action_E', nodeProvenance);
-        const FF = kernelFree('mixed_action_FF', nodeProvenance);
-        const x = kernelFree('mixed_action_x', nodeProvenance);
-        const u = kernelFree('mixed_action_u', nodeProvenance);
-        const y = kernelFree('mixed_action_y', nodeProvenance);
-        const v = kernelFree('mixed_action_v', nodeProvenance);
-        const cat = kernelApplication(
-            'category-of-categories',
-            [],
-            nodeProvenance
-        );
-        const call = (
-            name: string,
-            arguments_: readonly {
-                readonly plicity: Plicity;
-                readonly value: KernelExpression;
-            }[]
-        ): KernelExpression => kernelCall(
-            kernelFree(name, nodeProvenance),
-            arguments_,
-            nodeProvenance
-        );
-        const homdInt = call(
-            coreCategoricalDisplayedNdHigherFoundationCoreName(
-                'displayedInternalHom'
-            ),
-            [
-                { plicity: 'implicit', value: K },
-                { plicity: 'implicit', value: D },
-                { plicity: 'implicit', value: E },
-                { plicity: 'explicit', value: FF }
-            ]
-        );
-        const first = kernelApplication(
-            'transfor-component-capped',
-            [
-                { value: K },
-                { value: cat },
-                {
-                    value: kernelFree(
-                        'mixed_action_inferred_source',
-                        nodeProvenance
-                    )
-                },
-                {
-                    value: kernelFree(
-                        'mixed_action_inferred_target',
-                        nodeProvenance
-                    )
-                },
-                { value: x },
-                { value: homdInt }
-            ],
-            nodeProvenance
-        );
-        const firstRewrite =
-            compilation.runtime.rewriteHead(first);
-        assert.equal(firstRewrite.status, 'rewritten');
-        if (firstRewrite.status !== 'rewritten') {
-            assert.fail('The first homd_int projection did not reduce');
-        }
-        assert.equal(
-            firstRewrite.ruleId,
-            'categorical.mixed-action.homd-first-projection'
-        );
-
-        const homCategory = kernelApplication(
-            'hom-category',
-            [
-                { value: K },
-                { value: x },
-                { value: y }
-            ],
-            nodeProvenance
-        );
-        const oppositeHom = call(
-            CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_CORE_NAMES
-                .oppositeCategory,
-            [{ plicity: 'explicit', value: homCategory }]
-        );
-        const targetCategory = call(
-            coreCategoricalStructuralSymbolCoreName(
-                CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory
-            ),
-            [
-                { plicity: 'explicit', value: oppositeHom },
-                { plicity: 'explicit', value: cat }
-            ]
-        );
-        const sourceFibre = kernelApplication(
-            'functor-object',
-            [
-                { value: K },
-                { value: cat },
-                { value: D },
-                { value: y }
-            ],
-            nodeProvenance
-        );
-        const targetFunctor = call(
-            coreCategoricalMixedActionCoreName(
-                'displayedHomTargetFunctor'
-            ),
-            [
-                { plicity: 'implicit', value: K },
-                { plicity: 'implicit', value: D },
-                { plicity: 'implicit', value: E },
-                { plicity: 'explicit', value: FF },
-                { plicity: 'explicit', value: x },
-                { plicity: 'explicit', value: u },
-                { plicity: 'explicit', value: y }
-            ]
-        );
-        const final = kernelApplication(
-            'functor-object',
-            [
-                { value: sourceFibre },
-                { value: targetCategory },
-                { value: targetFunctor },
-                { value: v }
-            ],
-            nodeProvenance
-        );
-        const finalRewrite =
-            compilation.runtime.rewriteHead(final);
-        assert.equal(finalRewrite.status, 'rewritten');
-        if (finalRewrite.status !== 'rewritten') {
-            assert.fail('The final homd_int projection did not reduce');
-        }
-        assert.equal(
-            finalRewrite.ruleId,
-            'categorical.mixed-action.homd-final-projection'
-        );
-        const expected = call(
-            coreCategoricalMixedActionCoreName(
-                'displayedHomEndpoint'
-            ),
-            [
-                { plicity: 'implicit', value: K },
-                { plicity: 'implicit', value: D },
-                { plicity: 'implicit', value: E },
-                { plicity: 'explicit', value: FF },
-                { plicity: 'explicit', value: x },
-                { plicity: 'explicit', value: u },
-                { plicity: 'explicit', value: y },
-                { plicity: 'explicit', value: v }
-            ]
-        );
-        assert.equal(
-            kernelExpressionEquals(finalRewrite.after, expected),
-            true
-        );
+    it('computes native root/section projections and the independent endpoint leaf', () => {
+        const c=compileCoreCategoricalMixedActionTransfer();
+        const at=provenance('derived','native Homd ladder projections');
+        const names=['K','D','E','FF','x','u','y','v','f'] as const;
+        const [K,D,E,FF,x,u,y,v,f]=names.map(name=>kernelFree(name,at));
+        const call=(name:string,args:readonly KernelExpression[]=[],implicitCount=0):KernelExpression=>{
+            const link=CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_LINKAGE.entries.find(l=>l.symbol.name===name);
+            assert.ok(link,`Missing ${name}`);
+            return link.kind==='core-owner' ? kernelApplication(link.owner,args.map(value=>({value})),at)
+                : args.length === 0 ? kernelFree(link.coreName,at)
+                : kernelCall(kernelFree(link.coreName,at),args.map((value,index)=>({value,plicity:index<implicitCount?'implicit':'explicit'})),at);
+        };
+        const Cart=call('Cat_cart'),Q=call('Homd_coeff_cat');
+        const op=(A:KernelExpression)=>call('Op_cat',[A]);
+        const hom=(C:KernelExpression,a:KernelExpression,b:KernelExpression)=>call('Hom_cat',[C,a,b]);
+        const app=(A:KernelExpression,B:KernelExpression,F:KernelExpression,z:KernelExpression)=>call('fapp0',[A,B,F,z],2);
+        const fib=(A:KernelExpression,z:KernelExpression)=>app(K,Cart,A,z);
+        const diagram=(A:KernelExpression)=>call('Homd_coeff_diagram',[K,A],1);
+        const IX=call('hom_',[K,K,call('id_func',[K],1),x],2);
+        const diagramCategory=call('Functor_cat',[K,Q]);
+        const target=app(op(call('CoAt2_cat',[diagramCategory])),call('Functor_cart_cat',[K,Cart]),
+            call('Homd_target_index_func',[K]),diagram(D));
+        const root=call('homd_int',[K,D,E,FF],3);
+        const source=call('homd_src_func',[K,D,E,FF,x],3);
+        const section=call('homd_src_sec',[K,D,E,FF,x,u],3);
+        const tgt=call('homd_tgt_func',[K,D,E,FF,x,u,y],3);
+        const equal=(a:KernelExpression,b:KernelExpression)=>{
+            const result=coreLfDefinitionalCompare(c.compiled.environment,a,b,1024,undefined,c.composedRuntime);
+            const details = 'normalizedLeft' in result
+                ? serializeKernelExpression(result.normalizedLeft)+'\nvs\n'+serializeKernelExpression(result.normalizedRight)
+                : result.status;
+            assert.equal(result.status,'equal',details);
+        };
+        equal(source,call('tapp0_fapp0',[K,Cart,E,target,x,root],4));
+        equal(app(fib(E,x),op(call('Homd_target_section_cat',[K,D,x],1)),source,u),section);
+        equal(tgt,call('tapp0_fapp0',[K,Q,diagram(D),diagram(IX),y,section],4));
+        const endpoint=call('homd_',[K,D,E,FF,x,u,y,v],3);
+        const component=call('tapp0_fapp0',[K,Cart,D,E,y,FF],4);
+        const transport=kernelApplication('functor-hom-capped',[{value:K},{value:Cart},{value:E},
+            {value:x},{value:y},{value:f}],at);
+        equal(app(op(hom(K,x,y)),Cart,endpoint,f),hom(fib(E,y),app(fib(E,x),fib(E,y),transport,u),
+            app(fib(D,y),fib(E,y),component,v)));
     });
 
     it('exposes typed internal-hom and endpoint-family consumers', () => {

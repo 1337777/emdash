@@ -2,9 +2,10 @@
  * MIXED-NEST-0A existing-authority transfer closure.
  *
  * The active Lambdapi kernel already owns the mixed-variance `Hom_catd` and
- * `Transf_catd` families. This fragment imports exactly those two signatures,
- * the prerequisite pointwise-opposite fibre projection, their two fibre
- * projections, and the functor-Hom classifier fold. It adds no mathematical
+ * `Transf_catd` families. Their negative sections use the native total dual
+ * over CoAbove2_cat(K). This fragment imports that duality prerequisite,
+ * both family signatures, their fibre projections and the functor-Hom fold.
+ * It adds no mathematical
  * owner, rule, intrinsic Core form, or checker branch.
  */
 
@@ -44,6 +45,7 @@ import {
     CoreLfTransferScopedBuilder,
     coreLfQualifiedSymbol,
     coreLfTransferAbsentBody,
+    coreLfTransferExplicitBody,
     createCoreLfModuleSpec,
     createCoreLfTransferPolicyOverlay
 } from './lf_transfer';
@@ -78,10 +80,10 @@ export type {
 const MODULE_ID = 'emdash.emdash3_2';
 
 export const CORE_CATEGORICAL_MIXED_MODE_TRANSFER_REVISION =
-    'MIXED-NEST-0A-GENERIC-TRANSFER-1' as const;
+    'MIXED-NEST-0A-NATIVE-TOTAL-DUALITY-2' as const;
 
 export const CORE_CATEGORICAL_MIXED_MODE_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -89,8 +91,8 @@ const decodeOwner =
     coreDirectedContinuationTransferSymbol('decode');
 const objectClassifier =
     coreDirectedContinuationTransferSymbol('object-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -101,14 +103,17 @@ const functorObject =
     coreDirectedContinuationTransferSymbol('functor-object');
 const homCategory =
     coreDirectedContinuationTransferSymbol('hom-category');
-const transforCategory =
-    coreDirectedContinuationTransferSymbol('transfor-category');
 
 const symbol = (name: string): CoreLfQualifiedSymbol =>
     coreLfQualifiedSymbol(MODULE_ID, name);
 
 const oppositeCategory = symbol('Op_cat');
 const sectionObject = symbol('piapp0');
+const higherDual = symbol('CoAbove2_cat');
+const totalDual = symbol('TotalOp_cat');
+const totalFamily = symbol('TotalOp_catd');
+const coAt2 = symbol('CoAt2_cat');
+const cartesianFunctorCategory = symbol('Functor_cart_cat');
 
 const {
     stableFunctorFamily
@@ -202,6 +207,17 @@ const displayedOppositeAt = (
         { plicity: 'explicit', value: family }
     ]);
 
+const higherDualAt = (b:CoreLfTransferScopedBuilder,A:CoreLfTransferBuilderExpression)=>
+    globalCall(b,higherDual,[{plicity:'explicit',value:A}]);
+const totalDualAt = (b:CoreLfTransferScopedBuilder,A:CoreLfTransferBuilderExpression)=>
+    globalCall(b,totalDual,[{plicity:'explicit',value:A}]);
+const totalFamilyAt = (b:CoreLfTransferScopedBuilder,K:CoreLfTransferBuilderExpression,E:CoreLfTransferBuilderExpression)=>
+    globalCall(b,totalFamily,[{plicity:'implicit',value:K},{plicity:'explicit',value:E}]);
+const coAt2At = (b:CoreLfTransferScopedBuilder,K:CoreLfTransferBuilderExpression)=>
+    globalCall(b,coAt2,[{plicity:'explicit',value:K}]);
+const cartAt = (b:CoreLfTransferScopedBuilder,A:CoreLfTransferBuilderExpression,B:CoreLfTransferBuilderExpression)=>
+    globalCall(b,cartesianFunctorCategory,[{plicity:'explicit',value:A},{plicity:'explicit',value:B}]);
+
 const sectionCategoryAt = (
     builder: CoreLfTransferScopedBuilder,
     base: CoreLfTransferBuilderExpression,
@@ -284,7 +300,7 @@ const fibreAt = (
     functorObjectAt(
         builder,
         base,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         family,
         point
     );
@@ -315,20 +331,6 @@ const homCategoryAt = (
         { plicity: 'explicit', value: target }
     ]);
 
-const transforCategoryAt = (
-    builder: CoreLfTransferScopedBuilder,
-    sourceCategory: CoreLfTransferBuilderExpression,
-    targetCategory: CoreLfTransferBuilderExpression,
-    source: CoreLfTransferBuilderExpression,
-    target: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression =>
-    globalCall(builder, transforCategory, [
-        { plicity: 'implicit', value: sourceCategory },
-        { plicity: 'implicit', value: targetCategory },
-        { plicity: 'explicit', value: source },
-        { plicity: 'explicit', value: target }
-    ]);
-
 const source = (sourceFragment: string) => ({
     authorityPath: 'emdash2/emdash3_2.lp',
     sourceFragment
@@ -352,8 +354,8 @@ const displayedHomFamilyType = (): CoreLfTransferExpression => {
                 'X',
                 sectionType(
                     builder,
-                    K,
-                    displayedOppositeAt(builder, K, E)
+                    higherDualAt(builder,K),
+                    totalFamilyAt(builder, K, E)
                 ),
                 X => builder.pi(
                     'Y',
@@ -391,8 +393,8 @@ const displayedTransforFamilyType = (): CoreLfTransferExpression => {
                         'FF',
                         sectionType(
                             builder,
-                            K,
-                            displayedOppositeAt(builder, K, family)
+                            higherDualAt(builder,K),
+                            totalFamilyAt(builder, K, family)
                         ),
                         FF => builder.pi(
                             'GG',
@@ -411,8 +413,25 @@ const displayedTransforFamilyType = (): CoreLfTransferExpression => {
     ));
 };
 
+const totalDualityDeclarations:readonly CoreLfTransferDeclaration[]=(()=>{
+    const b=new CoreLfTransferScopedBuilder();
+    const catType=b.term(b.pi('A',b.global(category),()=>b.global(category),explicitMode));
+    return [
+        {order:0,symbol:higherDual,type:catType,body:coreLfTransferAbsentBody(),modifiers:opaqueInjectiveModifiers,
+            provenance:source('injective symbol CoAbove2_cat (A : Cat) : Cat;')},
+        {order:1,symbol:totalDual,type:catType,
+            body:coreLfTransferExplicitBody(b.term(b.lam('A',b.global(category),A=>higherDualAt(b,oppositeAt(b,A)),explicitMode))),
+            modifiers:{visibility:'public' as const,rigidity:'ordinary' as const,sourceOpacity:'transparent' as const},
+            provenance:source('symbol TotalOp_cat (A : Cat) : Cat ≔ CoAbove2_cat (Op_cat A);')},
+        {order:2,symbol:totalFamily,type:b.term(b.pi('K',b.global(category),K=>b.pi('E',displayedFamilyType(b,K),
+            ()=>displayedFamilyType(b,higherDualAt(b,K)),explicitMode),implicitMode)),body:coreLfTransferAbsentBody(),
+            modifiers:opaqueInjectiveModifiers,provenance:source('injective symbol TotalOp_catd [K : Cat] (E : τ (Catd K)) : τ (Catd (CoAbove2_cat K));')}
+    ];
+})();
+
 const declarations:
 readonly CoreLfTransferDeclaration[] = Object.freeze([
+    ...totalDualityDeclarations,
     Object.freeze({
         order: 0,
         symbol: displayedHomFamily,
@@ -421,7 +440,7 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: opaqueInjectiveModifiers,
         provenance: source(
             'injective symbol Hom_catd [K : Cat] ' +
-                '(E : τ (Catd K)) (X : τ (Obj (Pi_cat (Op_catd E)))) ' +
+                '(E : τ (Catd K)) (X : τ (Obj (Pi_cat (TotalOp_catd E)))) ' +
                 '(Y : τ (Obj (Pi_cat E))) : τ (Catd K)'
         )
     }),
@@ -436,22 +455,22 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
                 '(A : τ (Catd (Op_cat K))) (B : τ (Catd K))'
         )
     })
-]);
+].map((declaration,order)=>Object.freeze({...declaration,order})));
 
 const externalSymbols = Object.freeze([
     category,
     decodeOwner,
     objectClassifier,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     sectionCategory,
     functorObject,
     homCategory,
-    transforCategory,
     oppositeCategory,
     sectionObject,
     stableFunctorFamily,
-    displayedOpposite
+    displayedOpposite,
+    coAt2,cartesianFunctorCategory
 ]);
 
 export const CORE_CATEGORICAL_MIXED_MODE_TRANSFER_MODULE:
@@ -485,7 +504,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
                 kind: 'declaration' as const,
                 symbol: declaration.symbol
             },
-            policy: 'opaque-signature' as const,
+            policy: declaration.body.kind==='explicit-term' ? 'checked-transparent-definition' as const : 'opaque-signature' as const,
             evidence:
                 'Exact active v3.2 existing-authority mixed-family ' +
                 'signature selected by the approved mixed-mode plan'
@@ -531,6 +550,9 @@ const dependencyLink = (
 const mixedCoreName = (
     target: CoreLfQualifiedSymbol
 ): string => {
+    if (['CoAbove2_cat','TotalOp_cat','TotalOp_catd'].includes(target.name)) {
+        return `emdash_v3_2_mixed_native_${target.name}`;
+    }
     const entry = Object.entries(
         CORE_CATEGORICAL_MIXED_MODE_SYMBOLS
     ).find(([, symbol_]) =>
@@ -569,6 +591,10 @@ CoreLfTransferDeclarationLinkage =
         }
     );
 
+export function coreMixedNativeCoreName(name:'CoAbove2_cat'|'TotalOp_cat'|'TotalOp_catd'):string {
+    return mixedCoreName(symbol(name));
+}
+
 const displayedOppositeFibreRule =
 (): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
@@ -597,8 +623,8 @@ const displayedOppositeFibreRule =
         ],
         left: builder.pattern(functorObjectAt(
             builder,
-            K,
-            builder.global(categoryOfCategories),
+            builder.wildcard(coAt2At(builder,K)),
+            builder.global(familyCoefficient),
             displayedOppositeAt(builder, K, E),
             k
         )),
@@ -607,7 +633,7 @@ const displayedOppositeFibreRule =
             fibreAt(builder, K, E, k)
         )),
         provenance: source(
-            'rule @fapp0 $K Cat_cat (@Op_catd $K $E) $k'
+            'rule @fapp0 _ Cat_cart (@Op_catd $K $E) $k'
         )
     };
 };
@@ -619,7 +645,7 @@ const homFibreRule = (): CoreLfTransferRuntimeRule => {
     const X = builder.capture('X');
     const Y = builder.capture('Y');
     const k = builder.capture('k');
-    const oppositeE = displayedOppositeAt(builder, K, E);
+    const oppositeE = totalFamilyAt(builder, K, E);
     return {
         order: 1,
         id: 'categorical.mixed-mode.hom-family-fibre',
@@ -638,7 +664,7 @@ const homFibreRule = (): CoreLfTransferRuntimeRule => {
             {
                 name: 'X',
                 type: builder.template(
-                    sectionType(builder, K, oppositeE)
+                    sectionType(builder, higherDualAt(builder,K), oppositeE)
                 )
             },
             {
@@ -653,18 +679,18 @@ const homFibreRule = (): CoreLfTransferRuntimeRule => {
         left: builder.pattern(functorObjectAt(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             displayedHomFamilyAt(builder, K, E, X, Y),
             k
         )),
         right: builder.template(homCategoryAt(
             builder,
             fibreAt(builder, K, E, k),
-            sectionAt(builder, K, oppositeE, X, k),
+            sectionAt(builder, higherDualAt(builder,K), oppositeE, X, k),
             sectionAt(builder, K, E, Y, k)
         )),
         provenance: source(
-            'rule @fapp0 $K Cat_cat (@Hom_catd $K $E $X $Y) $k'
+            'rule @fapp0 $K Cat_cart (@Hom_catd $K $E $X $Y) $k'
         )
     };
 };
@@ -678,7 +704,7 @@ const transforFibreRule = (): CoreLfTransferRuntimeRule => {
     const GG = builder.capture('GG');
     const k = builder.capture('k');
     const family = stableFunctorFamilyAt(builder, K, A, B);
-    const oppositeFamily = displayedOppositeAt(builder, K, family);
+    const oppositeFamily = totalFamilyAt(builder, K, family);
     return {
         order: 2,
         id: 'categorical.mixed-mode.transfor-family-fibre',
@@ -703,7 +729,7 @@ const transforFibreRule = (): CoreLfTransferRuntimeRule => {
             {
                 name: 'FF',
                 type: builder.template(
-                    sectionType(builder, K, oppositeFamily)
+                    sectionType(builder, higherDualAt(builder,K), oppositeFamily)
                 )
             },
             {
@@ -718,19 +744,18 @@ const transforFibreRule = (): CoreLfTransferRuntimeRule => {
         left: builder.pattern(functorObjectAt(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             displayedTransforFamilyAt(builder, K, A, B, FF, GG),
             k
         )),
-        right: builder.template(transforCategoryAt(
+        right: builder.template(homCategoryAt(
             builder,
-            fibreAt(builder, oppositeAt(builder, K), A, k),
-            fibreAt(builder, K, B, k),
-            sectionAt(builder, K, oppositeFamily, FF, k),
+            cartAt(builder,fibreAt(builder, oppositeAt(builder, K), A, k),fibreAt(builder, K, B, k)),
+            sectionAt(builder, higherDualAt(builder,K), oppositeFamily, FF, k),
             sectionAt(builder, K, family, GG, k)
         )),
         provenance: source(
-            'rule @fapp0 $K Cat_cat ' +
+            'rule @fapp0 $K Cat_cart ' +
                 '(@Transf_catd $K $A $B $FF $GG) $k'
         )
     };
@@ -744,7 +769,7 @@ const functorHomFoldRule = (): CoreLfTransferRuntimeRule => {
     const FF = builder.capture('FF');
     const GG = builder.capture('GG');
     const family = stableFunctorFamilyAt(builder, K, A, B);
-    const oppositeFamily = displayedOppositeAt(builder, K, family);
+    const oppositeFamily = totalFamilyAt(builder, K, family);
     return {
         order: 3,
         id: 'categorical.mixed-mode.functor-hom-fold',
@@ -769,7 +794,7 @@ const functorHomFoldRule = (): CoreLfTransferRuntimeRule => {
             {
                 name: 'FF',
                 type: builder.template(
-                    sectionType(builder, K, oppositeFamily)
+                    sectionType(builder, higherDualAt(builder,K), oppositeFamily)
                 )
             },
             {
@@ -795,12 +820,35 @@ const functorHomFoldRule = (): CoreLfTransferRuntimeRule => {
     };
 };
 
+const higherDualRule = (kind:'objects'|'hom'|'involution'|'commute',order:number):CoreLfTransferRuntimeRule=>{
+    const b=new CoreLfTransferScopedBuilder(),A=b.capture('A'),x=b.capture('x'),y=b.capture('y');
+    const left=kind==='objects'?globalCall(b,objectClassifier,[{plicity:'explicit',value:higherDualAt(b,A)}]):
+        kind==='hom'?homCategoryAt(b,higherDualAt(b,A),x,y):kind==='involution'?higherDualAt(b,higherDualAt(b,A)):oppositeAt(b,higherDualAt(b,A));
+    const right=kind==='objects'?globalCall(b,objectClassifier,[{plicity:'explicit',value:A}]):
+        kind==='hom'?totalDualAt(b,homCategoryAt(b,A,x,y)):kind==='involution'?A:higherDualAt(b,oppositeAt(b,A));
+    return {order,id:`categorical.mixed-mode.higher-dual-${kind}`,groupId:`categorical.mixed-mode.higher-dual-${kind}`,clauseOrder:0,
+        sourceOwner:kind==='objects'?objectClassifier:kind==='hom'?homCategory:kind==='involution'?higherDual:oppositeCategory,
+        variables:[{name:'A',type:b.template(b.global(category))},...(kind==='hom'?['x','y'].map(name=>({name,type:b.template(objectType(b,A))})):[])],
+        left:b.pattern(left),right:b.template(right),provenance:source(`native CoAbove2_cat ${kind} projection`)};
+};
+const totalFamilyRule = (involution:boolean,order:number):CoreLfTransferRuntimeRule=>{
+    const b=new CoreLfTransferScopedBuilder(),K=b.capture('K'),E=b.capture('E'),k=b.capture('k');
+    return {order,id:`categorical.mixed-mode.total-family-${involution?'involution':'fibre'}`,
+        groupId:`categorical.mixed-mode.total-family-${involution?'involution':'fibre'}`,clauseOrder:0,
+        sourceOwner:involution?totalFamily:functorObject,
+        variables:[{name:'K',type:b.template(b.global(category))},{name:'E',type:b.template(displayedFamilyType(b,K))},
+            ...(involution?[]:[{name:'k',type:b.template(objectType(b,K))}])],
+        left:b.pattern(involution?totalFamilyAt(b,higherDualAt(b,K),totalFamilyAt(b,K,E)):
+            functorObjectAt(b,b.wildcard(higherDualAt(b,K)),b.global(familyCoefficient),totalFamilyAt(b,K,E),k)),
+        right:b.template(involution?E:totalDualAt(b,fibreAt(b,K,E,k))),
+        provenance:source(involution?'rule @TotalOp_catd _ (@TotalOp_catd $K $E) ↪ $E;':
+            'rule @fapp0 _ Cat_cart (@TotalOp_catd $K $E) $x ↪ TotalOp_cat (Fibre_cat $E $x);')};
+};
 const runtimeRules = Object.freeze([
-    displayedOppositeFibreRule(),
-    homFibreRule(),
-    transforFibreRule(),
-    functorHomFoldRule()
-]);
+    higherDualRule('objects',0),higherDualRule('hom',1),higherDualRule('involution',2),higherDualRule('commute',3),
+    totalFamilyRule(false,4),totalFamilyRule(true,5),
+    displayedOppositeFibreRule(),homFibreRule(),transforFibreRule(),functorHomFoldRule()
+].map((rule,order)=>Object.freeze({...rule,order})));
 
 export const CORE_CATEGORICAL_MIXED_MODE_RUNTIME_MODULE:
 CoreLfModuleSpec = createCoreLfModuleSpec({
@@ -847,8 +895,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
 export const CORE_CATEGORICAL_MIXED_MODE_TRANSFER_BOUNDARY =
 Object.freeze({
     revision: CORE_CATEGORICAL_MIXED_MODE_TRANSFER_REVISION,
-    decision:
-        'approved-mixed-mode-architecture-and-next-slice-2026-07-31',
+    decision: 'foundations-frontend-native-total-duality-2026-10-25',
     declarationNames: Object.freeze(
         declarations.map(declaration => declaration.symbol.name)
     ),

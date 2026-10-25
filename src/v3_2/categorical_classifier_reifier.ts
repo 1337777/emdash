@@ -33,6 +33,8 @@ export interface CoreCategoricalClassifierFormerNames {
     readonly functorCategory: string;
     readonly displayedFunctorCategory: string;
     readonly displayedTransforCategory: string;
+    /** Selected native duals with Obj(D(C)) = Obj(C); never category equalities. */
+    readonly objectPreservingDuals?: readonly string[];
 }
 
 export type CoreCategoricalClassifierCanonicalHead =
@@ -123,7 +125,9 @@ const reifyCanonicalCategory = (
             category,
             formerNames.oppositeCategory,
             1
-        );
+        ) ?? formerNames.objectPreservingDuals
+            ?.map(name => referenceCall(category, name, 1))
+            .find(arguments_ => arguments_ !== undefined);
     if (opposite !== undefined) {
         const underlying = reifyCanonicalCategory(
             opposite[0],
@@ -139,8 +143,8 @@ const reifyCanonicalCategory = (
                 canonicalHead: underlying.canonicalHead,
                 type: Object.freeze({
                     ...underlying.type,
-                    // Object classifiers of C and Op(C) agree. Retaining
-                    // the inferred opposite category here lets final LF
+                    // Object classifiers agree for these selected duals. Retaining
+                    // the actual dual category here lets final LF
                     // checking validate that exact active computation.
                     category
                 })

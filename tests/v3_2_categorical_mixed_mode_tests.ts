@@ -31,7 +31,7 @@ describe('MIXED-NEST-0A TypeScript profile', () => {
             { line: 5 }
         );
         const negativeClassifierFamily =
-            emdash.oppositeDisplayedFamily(
+            emdash.totalOppositeDisplayedFamily(
                 classifierFamily,
                 { line: 6 }
             );
@@ -94,7 +94,7 @@ describe('MIXED-NEST-0A TypeScript profile', () => {
         const B = emdash.displayedFamily('fold_B', K);
         const functors = emdash.mixedDisplayedFunctorFamily(A, B);
         const negativeFunctors =
-            emdash.oppositeDisplayedFamily(functors);
+            emdash.totalOppositeDisplayedFamily(functors);
         const FF = emdash.section('fold_FF', negativeFunctors);
         const GG = emdash.section('fold_GG', functors);
         const homFamily = emdash.mixedDisplayedHomFamily(
@@ -155,5 +155,21 @@ describe('MIXED-NEST-0A TypeScript profile', () => {
                 error instanceof CoreCategoricalProgramError &&
                 error.code === 'DISPLAYED_BASE_MISMATCH'
         );
+    });
+
+    it('uses total-dual negative sections while sharing only base objects', () => {
+        const e = new CoreCategoricalProgram({ profile: 'fibred-displayed-mixed-nest-1' });
+        const K = e.category('dual_K'), L = e.category('dual_L');
+        const E = e.displayedFamily('dual_E', K);
+        const total = e.totalOppositeDisplayedFamily(E), transpose = e.oppositeDisplayedFamily(E);
+        const X = e.section('dual_X', total), XT = e.section('dual_XT', transpose);
+        const Y = e.section('dual_Y', E), k = e.object('dual_k', K);
+        const whole = e.mixedDisplayedHomFamily(E, X, Y);
+        assert.doesNotThrow(() => e.compile(e.apply(X, k)));
+        assert.doesNotThrow(() => e.compile(e.section('dual_H', whole)));
+        assert.notEqual(e.compareDisplayedFamilies(total, transpose).status, 'equal');
+        assert.throws(() => e.mixedDisplayedHomFamily(E, XT, Y), error =>
+            error instanceof CoreCategoricalProgramError && error.code === 'DISPLAYED_SOURCE_MISMATCH');
+        assert.throws(() => e.apply(X, e.object('dual_wrong', L)));
     });
 });

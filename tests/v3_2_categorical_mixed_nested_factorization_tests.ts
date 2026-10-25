@@ -39,7 +39,7 @@ const canonicalFixture = (suffix: string) => {
     const classifier = emdash.constantDisplayedFamily(K, catdZ);
     const Ebar = emdash.section(
         `mixed_nested_${suffix}_Ebar`,
-        emdash.oppositeDisplayedFamily(classifier)
+        emdash.totalOppositeDisplayedFamily(classifier)
     );
     const Dbar = emdash.section(
         `mixed_nested_${suffix}_Dbar`,

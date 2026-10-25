@@ -135,6 +135,7 @@ const capabilities = [
             'displayedCategoryCategory',
             'constantDisplayedFamily',
             'oppositeDisplayedFamily',
+            'totalOppositeDisplayedFamily',
             'displayedFunctorFamily',
             'mixedDisplayedFunctorFamily',
             'mixedDisplayedHomFamily',
