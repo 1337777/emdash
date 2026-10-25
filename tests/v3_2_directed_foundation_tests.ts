@@ -40,6 +40,11 @@ const decodeObject = (
     owner('object-classifier', [category])
 ]);
 
+const cartesianCoefficient = kernelFree(
+    CORE_DIRECTED_1A_PRIMITIVE_NAMES['cartesian-category-coefficient'],
+    because('Cartesian coefficient')
+);
+
 const K = kernelFree('foundation_K', because('K'));
 const E = kernelFree('foundation_E', because('E'));
 const D = kernelFree('foundation_D', because('D'));
@@ -66,7 +71,7 @@ const displayedFunctorCategory = kernelCall(
 );
 
 describe('TypeScript v3.2 reviewed DIRECTED foundation runtime', () => {
-    it('compiles exactly the three approved rules in review order', () => {
+    it('compiles the five selected native rules in review order', () => {
         const runtime = CoreDirectedFoundationRuntimeProgram.create();
         assert.equal(
             runtime.revision,
@@ -74,6 +79,8 @@ describe('TypeScript v3.2 reviewed DIRECTED foundation runtime', () => {
         );
         assert.deepEqual(runtime.ruleIds, [
             'directed.category-object.decode',
+            'directed.cartesian-category-object.decode',
+            'directed.cartesian-category-hom.decode',
             'directed.displayed-family.decode',
             'directed.displayed-functor.decode'
         ]);
@@ -87,7 +94,7 @@ describe('TypeScript v3.2 reviewed DIRECTED foundation runtime', () => {
         assert.equal(Object.isFrozen(runtime.ruleIds), true);
     });
 
-    it('executes all three object-level facade reductions exactly', () => {
+    it('executes all five coefficient and object-level facade reductions exactly', () => {
         const runtime = CoreDirectedFoundationRuntimeProgram.create();
         const cases: readonly {
             readonly input: KernelExpression;
@@ -104,15 +111,31 @@ describe('TypeScript v3.2 reviewed DIRECTED foundation runtime', () => {
                 bindingCount: 0
             },
             {
+                input: decodeObject(cartesianCoefficient),
+                expected: decodeObject(categoryOfCategories),
+                ruleId: 'directed.cartesian-category-object.decode',
+                ruleIndex: 1,
+                bindingCount: 0
+            },
+            {
+                input: owner('decode', [owner('hom-classifier', [
+                    cartesianCoefficient, K, E
+                ])]),
+                expected: owner('decode', [owner('functor-classifier', [K, E])]),
+                ruleId: 'directed.cartesian-category-hom.decode',
+                ruleIndex: 2,
+                bindingCount: 2
+            },
+            {
                 input: decodeObject(displayedCategory),
                 expected: owner('decode', [
                     owner('functor-classifier', [
                         K,
-                        categoryOfCategories
+                        cartesianCoefficient
                     ])
                 ]),
                 ruleId: 'directed.displayed-family.decode',
-                ruleIndex: 1,
+                ruleIndex: 3,
                 bindingCount: 1
             },
             {
@@ -120,13 +143,13 @@ describe('TypeScript v3.2 reviewed DIRECTED foundation runtime', () => {
                 expected: owner('decode', [
                     owner('transfor-classifier', [
                         K,
-                        categoryOfCategories,
+                        cartesianCoefficient,
                         E,
                         D
                     ])
                 ]),
                 ruleId: 'directed.displayed-functor.decode',
-                ruleIndex: 2,
+                ruleIndex: 4,
                 bindingCount: 3
             }
         ];
@@ -158,7 +181,7 @@ describe('TypeScript v3.2 reviewed DIRECTED foundation runtime', () => {
         const right = owner('decode', [
             owner('functor-classifier', [
                 K,
-                categoryOfCategories
+                cartesianCoefficient
             ])
         ]);
 

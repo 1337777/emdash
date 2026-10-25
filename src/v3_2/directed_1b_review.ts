@@ -1,9 +1,13 @@
 /**
  * Separate immutable record for the DIRECTED-1B H-DTTLF-02 approval.
  *
- * The pre-review proposal remains unchanged. This artifact authorizes only
- * its exact five-owner, one-definition, three-runtime-rule candidate slice.
+ * The original approval is retained as provenance. foundationMigration
+ * records the later coefficient changes to the same five-owner slice.
  */
+
+import {
+    CORE_FOUNDATIONS_MIGRATION_AUTHORITY
+} from './foundations_migration_authority';
 
 import {
     CORE_DIRECTED_1A_REVIEW,
@@ -20,6 +24,7 @@ import {
 } from './directed_1b_proposal';
 
 export interface CoreDirected1bReviewInput {
+    readonly foundationMigration: typeof CORE_FOUNDATIONS_MIGRATION_AUTHORITY;
     readonly revision: 'DIRECTED-1B-REVIEWED';
     readonly gate: 'H-DTTLF-02/DIRECTED-1B';
     readonly decision: 'approved-as-proposed';
@@ -83,6 +88,7 @@ const sameData = (left: unknown, right: unknown): boolean =>
     JSON.stringify(left) === JSON.stringify(right);
 
 const rawReview: CoreDirected1bReviewInput = {
+    foundationMigration: CORE_FOUNDATIONS_MIGRATION_AUTHORITY,
     revision: 'DIRECTED-1B-REVIEWED',
     gate: 'H-DTTLF-02/DIRECTED-1B',
     decision: 'approved-as-proposed',

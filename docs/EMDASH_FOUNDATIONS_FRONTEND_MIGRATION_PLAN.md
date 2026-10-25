@@ -1,7 +1,7 @@
 # Frontend integration of the strict-functor and duality migration
 
 Date: 2026-10-25
-Status: active source review; implementation pending
+Status: active implementation; shared coefficient and directed telescope qualified; structural/displayed/Homd migration remains
 Owner: R14 of the [foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Scope: migrate existing TypeScript consumers to the qualified native source;
 no new mathematical profile, generic-checker redesign or resumed bulk transfer.
@@ -36,6 +36,26 @@ not 150 semantic qualifications. Prefix provenance can stay unchanged while
 the declaration's actual type changes; review complete declarations.
 
 ## Migration order and acceptance
+
+Current F01 evidence: the shared `Cat_cart` coefficient, Sigma telescope and
+transport, family decoding and combined section consumer are migrated. The
+continuation has 30 declarations and 12 runtime rules; public `Cat_cat` and
+the frozen MVP remain unchanged. Four native conformance cases pass, including
+the wrong-section rejection. Focused runtime/compiler consumers, metadata,
+typecheck and lint pass at the scopes in the
+[coefficient review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_coefficient_review.md).
+Only the two corresponding continuation pins are refreshed. `Functor_cart_cat`
+is the next dependency when migrating the Cartesian structural consumers in
+F02; it has not been flattened into the ordinary mapping category.
+
+The broader `check:ts` attempt passes workspace, registration, typecheck and
+lint, then stops while loading the old `Fibre_func` transfer. Migrate that
+shared fibre coefficient before the structural/displayed consumers. Its local
+two-owner transfer and dependent-composition successor now compile after the
+coefficient change; source-pin and end-user consumer qualification are pending.
+Do not rerun the whole test gate after every subsequent unchanged-profile
+failure; use the concrete failing owner and its next consumer until the
+affected frontend tranche is ready for integration.
 
 | Slice | Actual change to review and implement | Required evidence |
 | --- | --- | --- |

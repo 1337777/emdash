@@ -104,7 +104,7 @@ describe('TypeScript v3.2 reviewed directed continuation profile', () => {
         assert.equal(review.recommendation.authorityAuthorized, false);
     });
 
-    it('authorizes only the exact 29-signature and ten-rule opt-in profile', () => {
+    it('authorizes only the exact 30-signature and twelve-rule opt-in profile', () => {
         const authorization =
             CORE_DIRECTED_GRADUATION_REVIEW.authorization;
         assert.equal(
@@ -120,11 +120,11 @@ describe('TypeScript v3.2 reviewed directed continuation profile', () => {
             CORE_DIRECTED_GRADUATION_MANIFEST.contentHash
         );
         assert.equal(authorization.baseOwnerSignatureCount, 20);
-        assert.equal(authorization.candidateDeclarationCount, 9);
-        assert.equal(authorization.totalOwnerSignatureCount, 29);
-        assert.equal(authorization.directedRuntimeRuleCount, 7);
+        assert.equal(authorization.candidateDeclarationCount, 10);
+        assert.equal(authorization.totalOwnerSignatureCount, 30);
+        assert.equal(authorization.directedRuntimeRuleCount, 9);
         assert.equal(authorization.inheritedMvpRuntimeRuleCount, 3);
-        assert.equal(authorization.totalRuntimeRuleCount, 10);
+        assert.equal(authorization.totalRuntimeRuleCount, 12);
         assert.equal(authorization.proofTimeRuleCount, 0);
         assert.equal(
             authorization.factoryExport,
@@ -147,10 +147,10 @@ describe('TypeScript v3.2 reviewed directed continuation profile', () => {
         const profile = CORE_DIRECTED_CONTINUATION_PROFILE;
         const catalog = createCoreDirectedContinuationKernel();
         assert.equal(profile.status, 'authoritative-opt-in');
-        assert.equal(profile.signatureClosure.totalCount, 29);
-        assert.equal(profile.runtimeClosure.totalCount, 10);
-        assert.equal(catalog.environment.declarations.length, 9);
-        assert.equal(catalog.runtimeProgram.ruleIds.length, 7);
+        assert.equal(profile.signatureClosure.totalCount, 30);
+        assert.equal(profile.runtimeClosure.totalCount, 12);
+        assert.equal(catalog.environment.declarations.length, 10);
+        assert.equal(catalog.runtimeProgram.ruleIds.length, 9);
         assert.doesNotThrow(() =>
             catalog.createChecker().validateEnvironment()
         );

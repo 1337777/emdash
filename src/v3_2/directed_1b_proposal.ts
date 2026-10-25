@@ -278,7 +278,7 @@ const TYPE: CoreDirected1bExpression = { tag: 'type' };
 const groupoidUniverse = ownerApplication('groupoid-universe');
 const categoryUniverse = ownerApplication('category-universe');
 const categoryOfCategories =
-    ownerApplication('category-of-categories');
+    ownerApplication('cartesian-category-coefficient');
 
 const decode = (
     classifier: CoreDirected1bExpression
@@ -813,6 +813,7 @@ const rawProposal: CoreDirected1bProposalInput = {
         lfProfileReview: 'LF-PROFILE-1-REVIEWED',
         directed1aReview: 'DIRECTED-1A-REVIEWED',
         directed1aOwnerIds: [
+            'cartesian-category-coefficient',
             'displayed-functor-category',
             'sigma-category',
             'sigma-telescope-family'

@@ -1,10 +1,14 @@
 /**
  * Separate immutable record for the H-DTTLF-03/D-DTTLF-001 approval.
  *
- * The pre-review DIRECTED-GRADUATE-1 recommendation remains unchanged and
- * non-self-authorizing. This artifact grants authority only to its exact
+ * The historical DIRECTED-GRADUATE-1 approval is retained. The active
+ * coefficient migration has separate authority in foundationMigration. This artifact grants authority only to its exact
  * opt-in combined TypeScript continuation profile.
  */
+
+import {
+    CORE_FOUNDATIONS_MIGRATION_AUTHORITY
+} from './foundations_migration_authority';
 
 import {
     CORE_DIRECTED_GRADUATION_RECOMMENDATION,
@@ -13,6 +17,7 @@ import {
 } from './directed_graduation_proposal';
 
 export interface CoreDirectedGraduationReviewInput {
+    readonly foundationMigration: typeof CORE_FOUNDATIONS_MIGRATION_AUTHORITY;
     readonly revision: 'DIRECTED-GRADUATE-1-REVIEWED';
     readonly status: 'reviewed-approved';
     readonly approval: {
@@ -24,7 +29,7 @@ export interface CoreDirectedGraduationReviewInput {
             'Approve H-DTTLF-03/D-DTTLF-001 as proposed';
     };
     /**
-     * Immutable snapshot of the exact pre-review proposal. Its
+     * Active snapshot, with later changes identified by foundationMigration. Its
      * `authorityAuthorized: false` field remains historical evidence.
      */
     readonly recommendation: CoreDirectedGraduationRecommendationInput;
@@ -33,16 +38,16 @@ export interface CoreDirectedGraduationReviewInput {
             'authorized-exact-opt-in-combined-profile';
         readonly profileRevision: 'emdash-v3.2-dttlf-directed-1';
         readonly manifestContentHash:
-            'sha256:5fbf855e044e3d24e1078289eebad4a3391d67747efcee3c5463c2bfb110a8c7';
+            'sha256:0243a7dcadd89b22a313d28a15d6a9505e77ec4d2bb85554d7ef6b6dd4803dcc';
         readonly baseOwnerSignatureIds: readonly string[];
         readonly candidateDeclarationIds: readonly string[];
         readonly runtimeRuleIds: readonly string[];
         readonly baseOwnerSignatureCount: 20;
-        readonly candidateDeclarationCount: 9;
-        readonly totalOwnerSignatureCount: 29;
-        readonly directedRuntimeRuleCount: 7;
+        readonly candidateDeclarationCount: 10;
+        readonly totalOwnerSignatureCount: 30;
+        readonly directedRuntimeRuleCount: 9;
         readonly inheritedMvpRuntimeRuleCount: 3;
-        readonly totalRuntimeRuleCount: 10;
+        readonly totalRuntimeRuleCount: 12;
         readonly proofTimeRuleCount: 0;
         readonly outerLfTransitionOrder:
             readonly ['zonk', 'beta', 'delta', 'reviewed-runtime'];
@@ -107,9 +112,10 @@ const manifest =
     CORE_DIRECTED_GRADUATION_RECOMMENDATION.candidateManifest;
 
 const approvedManifestContentHash =
-    'sha256:5fbf855e044e3d24e1078289eebad4a3391d67747efcee3c5463c2bfb110a8c7' as const;
+    'sha256:0243a7dcadd89b22a313d28a15d6a9505e77ec4d2bb85554d7ef6b6dd4803dcc' as const;
 
 const rawReview: CoreDirectedGraduationReviewInput = {
+    foundationMigration: CORE_FOUNDATIONS_MIGRATION_AUTHORITY,
     revision: 'DIRECTED-GRADUATE-1-REVIEWED',
     status: 'reviewed-approved',
     approval: {

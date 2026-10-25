@@ -69,13 +69,20 @@ preserves the exact evidence and nonsemantic adjustments. The active core
 also passes after promotion. The five approved terminal comparisons are
 included without exclusions.
 
-Production health is running, with its central diagnostic passed and a
-registered 90-second affine-glue timeout awaiting a measured profile review.
+Production health is running, with its central diagnostic passed. Affine
+glue's registered 90-second attempt timed out, then the unchanged target
+passed in82.590s under a180-second ceiling with the same memory cap. Retain
+the original profile and retry the failed target after this run.
 Final CI, affected TypeScript contracts/source pins, and authoritative
 integration remain open. Source promotion is checkpoint `57e627b9`; the
 [frontend subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) owns the
 actual changed-type review. C01–C03 remain later required stages. The dated
 running/unadopted states below are historical, not the current status.
+
+The shared frontend coefficient/telescope slice now has focused and native
+qualification; Cartesian structural, displayed/Pi/Homd and remaining source
+acquisitions are the next R14 work. Only the qualified continuation's pins
+have changed. See its [implementation review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_coefficient_review.md).
 
 ## Foundation-reviewer follow-up history — 2026-10-25
 

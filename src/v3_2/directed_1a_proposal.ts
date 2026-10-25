@@ -17,6 +17,7 @@ import {
 } from './schema';
 
 export type CoreDirected1aCandidateOwnerId =
+    | 'cartesian-category-coefficient'
     | 'displayed-functor-category'
     | 'sigma-category'
     | 'sigma-telescope-family';
@@ -75,6 +76,7 @@ export interface CoreDirected1aLambdapiBinding {
     readonly owner: CoreDirected1aCandidateOwnerId;
     readonly module: 'emdash.emdash3_2';
     readonly serializedName:
+        | 'Cat_cart'
         | 'Functord_cat'
         | 'Sigma_cat'
         | 'Sigma_catd_functord_catd';
@@ -83,7 +85,7 @@ export interface CoreDirected1aLambdapiBinding {
         readonly authorityPath: 'emdash2/emdash3_2.lp';
         readonly section: string;
         readonly declaration: string;
-        readonly auditedOn: '2026-07-24';
+        readonly auditedOn: '2026-07-24' | '2026-10-25';
     };
 }
 
@@ -175,6 +177,14 @@ const rawProposal: CoreDirected1aProposalInput = {
     owners: [
         {
             order: 0,
+            owner: 'cartesian-category-coefficient',
+            authority: 'active-declaration-signature',
+            disposition: 'candidate-awaiting-h-dttlf-02',
+            slots: [],
+            result: categoryUniverse
+        },
+        {
+            order: 1,
             owner: 'displayed-functor-category',
             authority: 'active-declaration-signature',
             disposition: 'candidate-awaiting-h-dttlf-02',
@@ -201,7 +211,7 @@ const rawProposal: CoreDirected1aProposalInput = {
             result: categoryUniverse
         },
         {
-            order: 1,
+            order: 2,
             owner: 'sigma-category',
             authority: 'active-declaration-signature',
             disposition: 'candidate-awaiting-h-dttlf-02',
@@ -222,7 +232,7 @@ const rawProposal: CoreDirected1aProposalInput = {
             result: categoryUniverse
         },
         {
-            order: 2,
+            order: 3,
             owner: 'sigma-telescope-family',
             authority: 'active-declaration-signature',
             disposition: 'candidate-awaiting-h-dttlf-02',
@@ -249,7 +259,7 @@ const rawProposal: CoreDirected1aProposalInput = {
                         application(
                             'constant-displayed-family',
                             K,
-                            application('category-of-categories')
+                            application('cartesian-category-coefficient')
                         )
                     )
                 )
@@ -300,6 +310,19 @@ const rawProposal: CoreDirected1aProposalInput = {
 const rawBindings: readonly CoreDirected1aLambdapiBinding[] = [
     {
         order: 0,
+        owner: 'cartesian-category-coefficient',
+        module: 'emdash.emdash3_2',
+        serializedName: 'Cat_cart',
+        authority: 'declaration-signature',
+        provenance: {
+            authorityPath: 'emdash2/emdash3_2.lp',
+            section: '3c. Universe categories',
+            declaration: 'constant symbol Cat_cart : Cat;',
+            auditedOn: '2026-10-25'
+        }
+    },
+    {
+        order: 1,
         owner: 'displayed-functor-category',
         module: 'emdash.emdash3_2',
         serializedName: 'Functord_cat',
@@ -313,7 +336,7 @@ const rawBindings: readonly CoreDirected1aLambdapiBinding[] = [
         }
     },
     {
-        order: 1,
+        order: 2,
         owner: 'sigma-category',
         module: 'emdash.emdash3_2',
         serializedName: 'Sigma_cat',
@@ -327,7 +350,7 @@ const rawBindings: readonly CoreDirected1aLambdapiBinding[] = [
         }
     },
     {
-        order: 2,
+        order: 3,
         owner: 'sigma-telescope-family',
         module: 'emdash.emdash3_2',
         serializedName: 'Sigma_catd_functord_catd',
@@ -447,10 +470,10 @@ export function validateCoreDirected1aProposal(
         );
     }
 
-    if (proposal.owners.length !== 3) {
+    if (proposal.owners.length !== 4) {
         fail(
             'INVALID_OWNER_SET',
-            `DIRECTED-1A must propose exactly three owners, received ` +
+            `DIRECTED-1A must include its coefficient and three owners, received ` +
             proposal.owners.length
         );
     }
@@ -527,7 +550,7 @@ export function validateCoreDirected1aProposal(
             binding.authority !== 'declaration-signature' ||
             binding.provenance.authorityPath !==
                 'emdash2/emdash3_2.lp' ||
-            binding.provenance.auditedOn !== '2026-07-24'
+            !['2026-07-24', '2026-10-25'].includes(binding.provenance.auditedOn)
         )
     ) {
         fail(

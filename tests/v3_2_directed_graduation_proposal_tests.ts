@@ -33,6 +33,8 @@ const assertDeepFrozen = (value: unknown): void => {
 
 const runtimeIds = [
     'directed.category-object.decode',
+    'directed.cartesian-category-object.decode',
+    'directed.cartesian-category-hom.decode',
     'directed.displayed-family.decode',
     'directed.displayed-functor.decode',
     'directed.category-hom.decode',
@@ -45,7 +47,7 @@ const runtimeIds = [
 ] as const;
 
 describe('TypeScript v3.2 DIRECTED-GRADUATE-1 proposal', () => {
-    it('freezes the full 29-signature dependency closure', () => {
+    it('freezes the full 30-signature dependency closure', () => {
         const manifest = CORE_DIRECTED_GRADUATION_MANIFEST;
         assert.equal(
             manifest.revision,
@@ -56,10 +58,10 @@ describe('TypeScript v3.2 DIRECTED-GRADUATE-1 proposal', () => {
             'proposal-awaiting-h-dttlf-03'
         );
         assert.equal(manifest.baseOwnerSignatures.length, 20);
-        assert.equal(manifest.candidateDeclarations.length, 9);
+        assert.equal(manifest.candidateDeclarations.length, 10);
         assert.equal(
             manifest.composition.totalOwnerSignatureCount,
-            29
+            30
         );
         assert.deepEqual(
             manifest.baseOwnerSignatures
@@ -82,12 +84,13 @@ describe('TypeScript v3.2 DIRECTED-GRADUATE-1 proposal', () => {
         );
     });
 
-    it('pins the exact nine reviewed candidate declarations', () => {
+    it('pins the exact ten reviewed candidate declarations', () => {
         const declarations =
             CORE_DIRECTED_GRADUATION_MANIFEST.candidateDeclarations;
         assert.deepEqual(
             declarations.map(entry => entry.owner),
             [
+                'cartesian-category-coefficient',
                 'displayed-functor-category',
                 'sigma-category',
                 'sigma-telescope-family',
@@ -102,6 +105,7 @@ describe('TypeScript v3.2 DIRECTED-GRADUATE-1 proposal', () => {
         assert.deepEqual(
             declarations.map(entry => entry.candidateDisposition),
             [
+                'opaque-import',
                 'opaque-import',
                 'opaque-import',
                 'opaque-import',
@@ -126,7 +130,7 @@ describe('TypeScript v3.2 DIRECTED-GRADUATE-1 proposal', () => {
         );
     });
 
-    it('pins seven directed then three inherited MVP runtime rules', () => {
+    it('pins nine directed then three inherited MVP runtime rules', () => {
         const manifest = CORE_DIRECTED_GRADUATION_MANIFEST;
         assert.deepEqual(
             manifest.runtimeRules.map(entry => entry.id),
@@ -135,15 +139,15 @@ describe('TypeScript v3.2 DIRECTED-GRADUATE-1 proposal', () => {
         assert.deepEqual(
             manifest.runtimeRules.map(entry => entry.executionPhase),
             [
-                ...Array(7).fill('catalog-runtime'),
+                ...Array(9).fill('catalog-runtime'),
                 ...Array(3).fill('frozen-mvp-runtime')
             ]
         );
-        assert.equal(manifest.runtimeRules.length, 10);
+        assert.equal(manifest.runtimeRules.length, 12);
         assert.deepEqual(manifest.proofTimeRules, []);
         assert.equal(
             manifest.composition.runtimeOrder,
-            'catalog-seven-before-frozen-mvp-three'
+            'catalog-nine-before-frozen-mvp-three'
         );
         assert.equal(
             manifest.composition.oneSharedOuterLfBudget,
@@ -275,11 +279,11 @@ describe('TypeScript v3.2 DIRECTED-GRADUATE-1 proposal', () => {
         );
         assert.match(
             proposal.decisionQuestion,
-            /29 total/
+            /30 total/
         );
         assert.match(
             proposal.decisionQuestion,
-            /10 total/
+            /12 total/
         );
         assert.match(
             proposal.decisionQuestion,

@@ -58,7 +58,7 @@ const assertProposalError = (
 };
 
 describe('TypeScript v3.2 DIRECTED-1A H-DTTLF-02 proposal', () => {
-    it('freezes exactly three declaration signatures and zero rules', () => {
+    it('freezes the coefficient and three declaration signatures and zero rules', () => {
         assert.equal(CORE_DIRECTED_1A_PROPOSAL.revision, 'DIRECTED-1A');
         assert.equal(
             CORE_DIRECTED_1A_PROPOSAL.status,
@@ -71,6 +71,7 @@ describe('TypeScript v3.2 DIRECTED-1A H-DTTLF-02 proposal', () => {
         assert.deepEqual(
             CORE_DIRECTED_1A_PROPOSAL.owners.map(entry => entry.owner),
             [
+                'cartesian-category-coefficient',
                 'displayed-functor-category',
                 'sigma-category',
                 'sigma-telescope-family'
@@ -88,7 +89,7 @@ describe('TypeScript v3.2 DIRECTED-1A H-DTTLF-02 proposal', () => {
     });
 
     it('records the exact dependent plicities and owner dependencies', () => {
-        const [functord, sigma, telescope] =
+        const [coefficient, functord, sigma, telescope] =
             CORE_DIRECTED_1A_PROPOSAL.owners;
 
         assert.deepEqual(
@@ -124,6 +125,7 @@ describe('TypeScript v3.2 DIRECTED-1A H-DTTLF-02 proposal', () => {
             ]
         );
 
+        assert.deepEqual(coefficient.slots, []);
         const telescopeSignature = JSON.stringify(telescope);
         assert.match(
             telescopeSignature,
@@ -136,7 +138,7 @@ describe('TypeScript v3.2 DIRECTED-1A H-DTTLF-02 proposal', () => {
         );
         assert.match(
             telescopeSignature,
-            /"owner":"category-of-categories"/
+            /"owner":"cartesian-category-coefficient"/
         );
     });
 
@@ -152,6 +154,7 @@ describe('TypeScript v3.2 DIRECTED-1A H-DTTLF-02 proposal', () => {
                 binding.serializedName
             ]),
             [
+                ['cartesian-category-coefficient', 'Cat_cart'],
                 ['displayed-functor-category', 'Functord_cat'],
                 ['sigma-category', 'Sigma_cat'],
                 [
@@ -235,7 +238,7 @@ describe('TypeScript v3.2 DIRECTED-1A H-DTTLF-02 proposal', () => {
         );
         assertProposalError(
             proposal => {
-                proposal.owners[2].slots[2].type.arguments = [];
+                proposal.owners[3].slots[2].type.arguments = [];
             },
             'INVALID_SIGNATURE'
         );

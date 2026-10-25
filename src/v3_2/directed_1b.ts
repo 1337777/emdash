@@ -344,6 +344,9 @@ const candidateCall = (
         );
     }
     const nodeProvenance = derived(`${detail} owner ${owner}`, source);
+    if (arguments_.length === 0) {
+        return kernelFree(metadata.coreName, nodeProvenance);
+    }
     return kernelCall(
         kernelFree(metadata.coreName, nodeProvenance),
         arguments_.map((value, index) => ({
@@ -545,6 +548,9 @@ const matchCandidateOwner = (
     bindings: Map<string, KernelExpression>
 ): boolean => {
     const metadata = candidateOwnerMetadata(owner);
+    if (metadata.plicities.length === 0 && arguments_.length === 0) {
+        return expression.tag === 'reference' && expression.name === metadata.coreName;
+    }
     if (
         expression.tag !== 'call' ||
         expression.callee.tag !== 'reference' ||

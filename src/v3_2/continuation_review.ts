@@ -1,7 +1,12 @@
 /**
  * Separate immutable records for the user's H-DTTLF-01 and H-DTTLF-02
- * approvals. The pre-review proposals remain unchanged.
+ * approvals. The historical decisions are retained; foundationMigration records the later
+ * authorized coefficient changes to the active snapshots.
  */
+
+import {
+    CORE_FOUNDATIONS_MIGRATION_AUTHORITY
+} from './foundations_migration_authority';
 
 import {
     CORE_DIRECTED_1A_PROPOSAL,
@@ -34,6 +39,7 @@ export interface CoreLfContinuationProfileReviewInput {
 }
 
 export interface CoreDirected1aReviewInput {
+    readonly foundationMigration: typeof CORE_FOUNDATIONS_MIGRATION_AUTHORITY;
     readonly revision: 'DIRECTED-1A-REVIEWED';
     readonly gate: 'H-DTTLF-02';
     readonly decision: 'approved-as-proposed';
@@ -107,6 +113,7 @@ const rawLfReview: CoreLfContinuationProfileReviewInput = {
 };
 
 const rawDirectedReview: CoreDirected1aReviewInput = {
+    foundationMigration: CORE_FOUNDATIONS_MIGRATION_AUTHORITY,
     revision: 'DIRECTED-1A-REVIEWED',
     gate: 'H-DTTLF-02',
     decision: 'approved-as-proposed',
@@ -117,6 +124,7 @@ const rawDirectedReview: CoreDirected1aReviewInput = {
     authorization: {
         isolatedCandidateCatalogIntegration: true,
         ownerIds: [
+            'cartesian-category-coefficient',
             'displayed-functor-category',
             'sigma-category',
             'sigma-telescope-family'

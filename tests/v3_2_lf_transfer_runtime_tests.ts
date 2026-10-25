@@ -1,6 +1,6 @@
 /**
  * Focused SCALE-0D tests for generic runtime compilation and the exact
- * reviewed ten-rule migration witness.
+ * reviewed twelve-rule migration witness.
  */
 
 import assert from 'node:assert/strict';
@@ -1101,8 +1101,8 @@ describe('SCALE-0D generic LF runtime compiler', () => {
     });
 });
 
-describe('SCALE-0D reviewed ten-rule runtime migration', () => {
-    it('reaches one generic 29-declaration/ten-rule fixed point', () => {
+describe('SCALE-0D reviewed twelve-rule runtime migration', () => {
+    it('reaches one generic 30-declaration/twelve-rule fixed point', () => {
         const transfer = reviewedTransfer();
         const rebuilt =
             compileCoreDirectedContinuationRuntimeTransfer();
@@ -1113,7 +1113,7 @@ describe('SCALE-0D reviewed ten-rule runtime migration', () => {
         );
         assert.equal(
             transfer.declarations.environment.declarations.length,
-            9
+            10
         );
         assert.deepEqual(
             transfer.runtime.ruleIds,
@@ -1153,7 +1153,7 @@ describe('SCALE-0D reviewed ten-rule runtime migration', () => {
                         'typescript-checked'
                 )
                 .map(rule => rule.id),
-            transfer.runtime.ruleIds.slice(0, 6)
+            transfer.runtime.ruleIds.slice(0, 8)
         );
         assert.equal(
             CORE_DIRECTED_CONTINUATION_RUNTIME_SUBJECT_ORACLE
@@ -1163,7 +1163,7 @@ describe('SCALE-0D reviewed ten-rule runtime migration', () => {
         );
     });
 
-    it('matches all ten legacy rewrites and their exact near misses', () => {
+    it('matches all twelve legacy rewrites and their exact near misses', () => {
         assert.doesNotThrow(() =>
             validateCoreDirectedContinuationRuntimeTransferEquivalence(
                 reviewedTransfer()
@@ -1175,22 +1175,22 @@ describe('SCALE-0D reviewed ten-rule runtime migration', () => {
         assert.equal(
             CORE_DIRECTED_CONTINUATION_RUNTIME_TRANSFER_MODULE
                 .runtimeRules.length,
-            10
+            12
         );
         assert.equal(
             CORE_DIRECTED_CONTINUATION_RUNTIME_TRANSFER_POLICY.entries
                 .length,
-            10
+            12
         );
         assert.equal(
             CORE_DIRECTED_CONTINUATION_RUNTIME_TRANSFER_MODULE
                 .sourceSha256,
-            'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a'
+            'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e'
         );
         assert.equal(
             CORE_DIRECTED_CONTINUATION_RUNTIME_TRANSFER_MODULE
                 .canonicalExport?.sha256,
-            'sha256:7200f0614757bccf2e309703771003511ecd239a4e99433a2890d2049c40b89d'
+            'sha256:5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd'
         );
         assertDeepFrozen(
             CORE_DIRECTED_CONTINUATION_RUNTIME_TRANSFER_MODULE

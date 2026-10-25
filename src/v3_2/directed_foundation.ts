@@ -1,7 +1,7 @@
 /**
  * Reviewed DIRECTED-FOUNDATION-1 runtime integration.
  *
- * These three active object-level facade reductions are executable only
+ * These selected native coefficient and object-level reductions are executable only
  * through a directed catalog. They do not rewrite the stable category heads
  * themselves and are not imported by the default LF or browser paths.
  */
@@ -28,6 +28,7 @@ import {
     KernelExpression,
     Provenance,
     kernelApplication,
+    kernelFree,
     provenance
 } from './kernel';
 import {
@@ -161,6 +162,50 @@ const rewriteCategoryObject = (
     });
 };
 
+const cartesianCoefficient = (source: Provenance): KernelExpression =>
+    kernelFree(
+        CORE_DIRECTED_1A_PRIMITIVE_NAMES['cartesian-category-coefficient'],
+        source
+    );
+
+const isCartesianCoefficient = (value: KernelExpression): boolean =>
+    (value.tag === 'reference' && value.name ===
+        CORE_DIRECTED_1A_PRIMITIVE_NAMES['cartesian-category-coefficient']) ||
+    matchCandidateCall(value,
+        CORE_DIRECTED_1A_PRIMITIVE_NAMES['cartesian-category-coefficient'],
+        [])?.length === 0;
+
+// Retained catalog mirror of the two native coefficient projections. The
+// production transfer compiler still compiles their ordinary rule data.
+const rewriteCartesianCoefficient = (
+    expression: KernelExpression
+): CoreRuntimeHeadRewriteResult | undefined => {
+    const category = decodedObjectCategory(expression);
+    const decoded = matchOwnerApplication(expression, 'decode');
+    const hom = decoded === undefined ? undefined :
+        matchOwnerApplication(decoded[0], 'hom-classifier');
+    const isObject = category !== undefined && isCartesianCoefficient(category);
+    if (!isObject && (hom === undefined || !isCartesianCoefficient(hom[0]))) {
+        return undefined;
+    }
+    const ruleId = isObject
+        ? 'directed.cartesian-category-object.decode' as const
+        : 'directed.cartesian-category-hom.decode' as const;
+    const source = rewrittenProvenance(ruleId, expression);
+    const endpoints = isObject ? [] : [hom![1], hom![2]];
+    return Object.freeze({
+        status: 'rewritten', ruleId, ruleIndex: isObject ? 1 : 2,
+        before: expression,
+        after: owner('decode', [isObject
+            ? owner('object-classifier', [
+                owner('category-of-categories', [], source)
+            ], source)
+            : owner('functor-classifier', endpoints, source)
+        ], source),
+        match: matchResult(ruleId, endpoints)
+    });
+};
+
 const rewriteDisplayedFamily = (
     expression: KernelExpression
 ): CoreRuntimeHeadRewriteResult | undefined => {
@@ -174,15 +219,11 @@ const rewriteDisplayedFamily = (
 
     const ruleId = 'directed.displayed-family.decode' as const;
     const nodeProvenance = rewrittenProvenance(ruleId, expression);
-    const categoryOfCategories = owner(
-        'category-of-categories',
-        [],
-        nodeProvenance
-    );
+    const categoryOfCategories = cartesianCoefficient(nodeProvenance);
     return Object.freeze({
         status: 'rewritten',
         ruleId,
-        ruleIndex: 1,
+        ruleIndex: 3,
         before: expression,
         after: owner('decode', [
             owner('functor-classifier', [
@@ -211,15 +252,11 @@ const rewriteDisplayedFunctor = (
     const [base, sourceFamily, targetFamily] = displayedFunctor;
     const ruleId = 'directed.displayed-functor.decode' as const;
     const nodeProvenance = rewrittenProvenance(ruleId, expression);
-    const categoryOfCategories = owner(
-        'category-of-categories',
-        [],
-        nodeProvenance
-    );
+    const categoryOfCategories = cartesianCoefficient(nodeProvenance);
     return Object.freeze({
         status: 'rewritten',
         ruleId,
-        ruleIndex: 2,
+        ruleIndex: 4,
         before: expression,
         after: owner('decode', [
             owner('transfor-classifier', [
@@ -237,7 +274,7 @@ const rewriteDisplayedFunctor = (
 };
 
 /**
- * Closed exact runtime program for the three approved prerequisites.
+ * Closed exact runtime program for the selected native prerequisites.
  */
 export class CoreDirectedFoundationRuntimeProgram
 implements CoreLfCatalogRuntime {
@@ -262,6 +299,7 @@ implements CoreLfCatalogRuntime {
     ): CoreRuntimeHeadRewriteResult {
         const result =
             rewriteCategoryObject(expression) ??
+            rewriteCartesianCoefficient(expression) ??
             rewriteDisplayedFamily(expression) ??
             rewriteDisplayedFunctor(expression);
         return result ?? Object.freeze({

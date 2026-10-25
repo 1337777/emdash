@@ -1,5 +1,5 @@
 /**
- * SCALE-0C migration witness for the reviewed 29-signature continuation.
+ * SCALE-0C migration witness for the reviewed 30-signature continuation.
  *
  * The adapter below converts already reviewed typed snapshots into the shared
  * transfer IR. The generic compiler remains owner-agnostic; this module is
@@ -78,10 +78,10 @@ export const CORE_DIRECTED_CONTINUATION_TRANSFER_REVISION =
     'emdash-v3.2-dttlf-directed-1-transfer-1' as const;
 
 export const CORE_DIRECTED_CONTINUATION_TRANSFER_POLICY_REVISION =
-    'SCALE-0C-reviewed-29-policy-1' as const;
+    'SCALE-0C-reviewed-30-policy-1' as const;
 
 export const CORE_DIRECTED_CONTINUATION_TRANSFER_LINKAGE_REVISION =
-    'SCALE-0C-reviewed-29-linkage-1' as const;
+    'SCALE-0C-reviewed-30-linkage-1' as const;
 
 export type CoreDirectedContinuationTransferErrorCode =
     | 'REVIEWED_TRANSFER_DRIFT'
@@ -276,7 +276,7 @@ const reviewedBindings = (): readonly ReviewedBinding[] => {
     ) {
         return fail(
             'REVIEWED_TRANSFER_DRIFT',
-            'Reviewed owner bindings do not match the 29-signature closure'
+            'Reviewed owner bindings do not match the 30-signature closure'
         );
     }
     return Object.freeze(result.map(binding =>
@@ -682,11 +682,11 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     fragmentId: 'reviewed-directed-continuation-signatures',
     authorityPath: 'emdash2/emdash3_2.lp',
     sourceSha256:
-        'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a',
+        'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e',
     canonicalExport: {
-        exporterVersion: '3.0.0-90-gdb4f780',
+        exporterVersion: 'dev-3.0.0-90-gdb4f7809-dirty',
         sha256:
-            'sha256:7200f0614757bccf2e309703771003511ecd239a4e99433a2890d2049c40b89d'
+            'sha256:5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd'
     },
     dependencies: [],
     externalSymbols: [],
@@ -842,17 +842,17 @@ export function validateCoreDirectedContinuationTransferEquivalence(
     legacy.createChecker().validateEnvironment();
 
     if (
-        compiled.declarations.length !== 29 ||
+        compiled.declarations.length !== 30 ||
         compiled.declarations.filter(
             declaration =>
                 declaration.status === 'intrinsic-conformance'
         ).length !== 20 ||
-        compiled.environment.declarations.length !== 9 ||
-        legacy.environment.declarations.length !== 9
+        compiled.environment.declarations.length !== 10 ||
+        legacy.environment.declarations.length !== 10
     ) {
         return fail(
             'LEGACY_EQUIVALENCE_FAILURE',
-            'Generic transfer does not preserve the reviewed 20 + 9 split'
+            'Generic transfer does not preserve the reviewed 20 + 10 split'
         );
     }
 

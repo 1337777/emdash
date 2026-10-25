@@ -25,7 +25,7 @@ const clone = <T>(value: T): T =>
     JSON.parse(JSON.stringify(value)) as T;
 
 describe('TypeScript v3.2 DIRECTED foundation proposal', () => {
-    it('freezes exactly three prerequisite runtime rules and no declarations or proof rules', () => {
+    it('freezes five selected prerequisite runtime rules and no declarations or proof rules', () => {
         assert.doesNotThrow(() =>
             validateCoreDirectedFoundationProposal()
         );
@@ -35,6 +35,8 @@ describe('TypeScript v3.2 DIRECTED foundation proposal', () => {
             ),
             [
                 'directed.category-object.decode',
+            'directed.cartesian-category-object.decode',
+            'directed.cartesian-category-hom.decode',
                 'directed.displayed-family.decode',
                 'directed.displayed-functor.decode'
             ]

@@ -1,5 +1,5 @@
 /**
- * SCALE-0D typed migration of the reviewed ten-rule continuation runtime.
+ * SCALE-0D typed migration of the reviewed twelve-rule continuation runtime.
  *
  * This module is an exact data/acquisition adapter. Runtime compilation and
  * matching remain entirely generic in lf_transfer_runtime.ts.
@@ -79,7 +79,7 @@ export const CORE_DIRECTED_CONTINUATION_RUNTIME_TRANSFER_REVISION =
     'emdash-v3.2-dttlf-directed-1-runtime-transfer-1' as const;
 
 export const CORE_DIRECTED_CONTINUATION_RUNTIME_POLICY_REVISION =
-    'SCALE-0D-reviewed-10-policy-1' as const;
+    'SCALE-0D-reviewed-12-policy-1' as const;
 
 export const CORE_DIRECTED_CONTINUATION_RUNTIME_SUBJECT_ORACLE =
     Object.freeze({
@@ -688,11 +688,11 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     fragmentId: 'reviewed-directed-continuation-runtime',
     authorityPath: 'emdash2/emdash3_2.lp',
     sourceSha256:
-        'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a',
+        'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e',
     canonicalExport: {
-        exporterVersion: '3.0.0-90-gdb4f780',
+        exporterVersion: 'dev-3.0.0-90-gdb4f7809-dirty',
         sha256:
-            'sha256:7200f0614757bccf2e309703771003511ecd239a4e99433a2890d2049c40b89d'
+            'sha256:5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd'
     },
     dependencies: [],
     externalSymbols,

@@ -116,10 +116,32 @@ older running/failed states and do not override it.
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes after its comment-only refresh. | Production health is running with exact per-target resource profiles. A generated not-run report is not substituted for execution evidence. |
-| Frontend/source pins | The focused baseline is 14 passed/1 live-source-pin failure. Complete-command review finds 54 changed symbols and one removed owner among the selected names; canonical export is freshly acquired. | Follow the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md); review signatures and consumers before pins. |
+| Frontend/source pins | The shared Cartesian coefficient/Sigma telescope continuation is migrated: 30 declarations, 12 rules, four native conformance cases, focused compiler/runtime and metadata checks. Only that reviewed continuation's pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with Cartesian structural consumers, then displayed/Pi/Homd profiles and final integration. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)
+
+The [frontend coefficient/telescope slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_coefficient_review.md)
+now passes its focused and native checks. The new `Cat_cart` declaration is
+part of continuation data; public `Cat_cat`, generic checking machinery and
+the frozen MVP are unchanged. Its two runtime consequences use native
+projections. The migrated telescope and section consumers include genuine
+wrong-coefficient/wrong-section rejection. The remaining frontend profiles
+and complete TypeScript gate are still open.
+
+The full `check:ts` attempt passes workspace, registration, typecheck and
+lint, then fails during test-module loading at the old `Fibre_func` transfer.
+This is a concrete remaining coefficient migration, not a generic-checker
+failure. A local correction at that owner compiles its two declarations and
+the dependent-composition successor; its further consumer/pin review is the
+next work. Keep this unfinished edit outside the qualified F01 checkpoint.
+
+Affine glue's unchanged isolated retry passes in 82.590s/637,388KiB under
+180s/3GiB, receipt `20261025T155605Z-acbc4071910a4336a927da99ddd9aefc`.
+That is below the original90-second limit. Keep the registered90s/3GiB
+profile unchanged and retry its earlier failed health target when this run
+finishes; do not infer a permanent policy change or source defect from the
+earlier timeout. Health has resumed after the serial native-check window.
 
 Source promotion is checkpointed as `57e627b9`. Production health passes its
 central target in 510.824s and continues. The first observed resource failure

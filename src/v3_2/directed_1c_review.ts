@@ -6,6 +6,10 @@
  */
 
 import {
+    CORE_FOUNDATIONS_MIGRATION_AUTHORITY
+} from './foundations_migration_authority';
+
+import {
     CORE_DIRECTED_1C_PROPOSAL,
     CoreDirected1cCandidateOwnerId,
     CoreDirected1cProposalInput,
@@ -13,6 +17,7 @@ import {
 } from './directed_1c_proposal';
 
 export interface CoreDirected1cReviewInput {
+    readonly foundationMigration: typeof CORE_FOUNDATIONS_MIGRATION_AUTHORITY;
     readonly revision: 'DIRECTED-1C-REVIEWED';
     readonly gate: 'H-DTTLF-02/DIRECTED-1C';
     readonly decision: 'approved-as-proposed';
@@ -79,6 +84,7 @@ const sameData = (left: unknown, right: unknown): boolean =>
     JSON.stringify(left) === JSON.stringify(right);
 
 const rawReview: CoreDirected1cReviewInput = {
+    foundationMigration: CORE_FOUNDATIONS_MIGRATION_AUTHORITY,
     revision: 'DIRECTED-1C-REVIEWED',
     gate: 'H-DTTLF-02/DIRECTED-1C',
     decision: 'approved-as-proposed',

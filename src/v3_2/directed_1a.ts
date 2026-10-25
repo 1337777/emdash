@@ -1,7 +1,7 @@
 /**
  * Reviewed DIRECTED-1A integration.
  *
- * The three categorical owners are compiled into opaque declarations in an
+ * The Cartesian coefficient and three categorical owners are compiled into opaque declarations in an
  * isolated LF environment. Applications use generic Pi elimination, leaving
  * the frozen base owner catalog, browser API, and MVP manifest unchanged.
  */
@@ -50,6 +50,7 @@ import {
 } from './schema';
 
 export const CORE_DIRECTED_1A_PRIMITIVE_NAMES = Object.freeze({
+    'cartesian-category-coefficient': 'dttlf_Cat_cart',
     'displayed-functor-category': 'dttlf_Functord_cat',
     'sigma-category': 'dttlf_Sigma_cat',
     'sigma-telescope-family': 'dttlf_Sigma_catd_functord_catd'
@@ -169,6 +170,7 @@ const instantiateSignatureExpression = (
             arguments_.length
         );
     }
+    if (arguments_.length === 0) return kernelFree(coreName, nodeProvenance);
     return kernelCall(
         kernelFree(coreName, nodeProvenance),
         arguments_.map((value, index) => ({
@@ -373,6 +375,9 @@ export class CoreDirected1aCatalog {
                 `${proposal.slots.length} arguments, received ` +
                 arguments_.length
             );
+        }
+        if (arguments_.length === 0) {
+            return kernelFree(primitive.coreName, nodeProvenance);
         }
         return kernelCall(
             kernelFree(primitive.coreName, nodeProvenance),

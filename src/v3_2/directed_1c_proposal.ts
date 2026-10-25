@@ -53,6 +53,7 @@ export type CoreDirected1cCandidateOwnerId =
 
 export type CoreDirected1cExpressionOwnerId =
     | CoreOwnerId
+    | 'cartesian-category-coefficient'
     | CoreDirected1cCandidateOwnerId;
 
 export type CoreDirected1cExpression =
@@ -200,7 +201,7 @@ const typedSlot = (
 const categoryUniverse =
     ownerApplication('category-universe');
 const categoryOfCategories =
-    ownerApplication('category-of-categories');
+    ownerApplication('cartesian-category-coefficient');
 const K = variable('K');
 const E = variable('E');
 
@@ -563,6 +564,7 @@ export function validateCoreDirected1cProposal(
             schema.slots.length
         ])
     );
+    availableOwners.set('cartesian-category-coefficient', 0);
     const variables = validateTypedTelescope(
         proposal.owners[0].slots,
         availableOwners

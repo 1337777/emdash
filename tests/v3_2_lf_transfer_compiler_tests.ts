@@ -1,6 +1,6 @@
 /**
  * Focused SCALE-0C tests for generic declaration compilation and the exact
- * reviewed 29-signature migration witness.
+ * reviewed 30-signature migration witness.
  */
 
 import assert from 'node:assert/strict';
@@ -703,18 +703,18 @@ describe('SCALE-0C generic LF declaration compiler', () => {
 });
 
 describe('SCALE-0C reviewed continuation migration', () => {
-    it('pins all 29 signatures and keeps policy separate from linkage', () => {
+    it('pins all 30 signatures and keeps policy separate from linkage', () => {
         assert.equal(
             CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE.declarations.length,
-            29
+            30
         );
         assert.equal(
             CORE_DIRECTED_CONTINUATION_TRANSFER_POLICY.entries.length,
-            29
+            30
         );
         assert.equal(
             CORE_DIRECTED_CONTINUATION_TRANSFER_LINKAGE.entries.length,
-            29
+            30
         );
         assert.deepEqual(
             CORE_DIRECTED_CONTINUATION_TRANSFER_POLICY.entries.reduce(
@@ -726,7 +726,7 @@ describe('SCALE-0C reviewed continuation migration', () => {
             ),
             {
                 'conformance-only': 20,
-                'opaque-signature': 8,
+                'opaque-signature': 9,
                 'checked-transparent-definition': 1
             }
         );
@@ -814,7 +814,7 @@ describe('SCALE-0C reviewed continuation migration', () => {
         assert.equal(
             CORE_DIRECTED_CONTINUATION_TRANSFER_MODULE.canonicalExport
                 ?.sha256,
-            'sha256:7200f0614757bccf2e309703771003511ecd239a4e99433a2890d2049c40b89d'
+            'sha256:5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd'
         );
     });
 
@@ -851,7 +851,7 @@ describe('SCALE-0C reviewed continuation migration', () => {
         assert.equal(
             CORE_DIRECTED_GRADUATION_MANIFEST.composition
                 .totalOwnerSignatureCount,
-            29
+            30
         );
     });
 

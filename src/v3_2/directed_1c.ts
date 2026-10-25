@@ -9,6 +9,9 @@
  */
 
 import {
+    CORE_DIRECTED_1A_PRIMITIVE_NAMES
+} from './directed_1a';
+import {
     CoreDirected1bCatalog,
     CoreDirected1bRuntimeProgram
 } from './directed_1b';
@@ -142,6 +145,17 @@ const materializeExpression = (
             scope,
             source,
             detail
+        );
+    }
+    if (expression.owner === 'cartesian-category-coefficient') {
+        if (expression.arguments.length !== 0) {
+            throw new CoreDirected1cCatalogError(
+                'MISSING_CANDIDATE_DEPENDENCY',
+                'The Cartesian coefficient is a nullary earlier declaration'
+            );
+        }
+        return kernelFree(
+            CORE_DIRECTED_1A_PRIMITIVE_NAMES[expression.owner], source
         );
     }
     if (!isBaseOwner(expression.owner)) {

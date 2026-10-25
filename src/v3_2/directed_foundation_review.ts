@@ -2,9 +2,13 @@
  * Separate immutable record for the DIRECTED-FOUNDATION-1 H-DTTLF-02
  * approval.
  *
- * The pre-review proposal and the already-approved DIRECTED-1B artifacts
- * remain unchanged.
+ * The historical approval remains recorded; foundationMigration identifies
+ * the later authorized changes to the active coefficient snapshots.
  */
+
+import {
+    CORE_FOUNDATIONS_MIGRATION_AUTHORITY
+} from './foundations_migration_authority';
 
 import {
     CORE_DIRECTED_1B_REVIEW,
@@ -18,6 +22,7 @@ import {
 } from './directed_foundation_proposal';
 
 export interface CoreDirectedFoundationReviewInput {
+    readonly foundationMigration: typeof CORE_FOUNDATIONS_MIGRATION_AUTHORITY;
     readonly revision: 'DIRECTED-FOUNDATION-1-REVIEWED';
     readonly gate: 'H-DTTLF-02/DIRECTED-FOUNDATION-1';
     readonly decision: 'approved-as-proposed';
@@ -82,6 +87,7 @@ const sameData = (left: unknown, right: unknown): boolean =>
     JSON.stringify(left) === JSON.stringify(right);
 
 const rawReview: CoreDirectedFoundationReviewInput = {
+    foundationMigration: CORE_FOUNDATIONS_MIGRATION_AUTHORITY,
     revision: 'DIRECTED-FOUNDATION-1-REVIEWED',
     gate: 'H-DTTLF-02/DIRECTED-FOUNDATION-1',
     decision: 'approved-as-proposed',
@@ -93,6 +99,8 @@ const rawReview: CoreDirectedFoundationReviewInput = {
         isolatedCandidateIntegration: true,
         runtimeRuleIds: [
             'directed.category-object.decode',
+            'directed.cartesian-category-object.decode',
+            'directed.cartesian-category-hom.decode',
             'directed.displayed-family.decode',
             'directed.displayed-functor.decode'
         ],

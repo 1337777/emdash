@@ -1,0 +1,308 @@
+{
+  "status": "F01 coefficient/telescope implementation qualified at focused scope; remaining frontend migration and whole TypeScript gate open",
+  "nativeCheckpoint": "57e627b9",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "declarationCount": 30,
+  "runtimeRuleCount": 12,
+  "genericCheckerModified": false,
+  "frozenMvpModified": false,
+  "nativeConformance": {
+    "command": [
+      "timeout",
+      "--signal=KILL",
+      "420s",
+      "node",
+      "--require",
+      "ts-node/register",
+      "--test",
+      "--test-concurrency=1",
+      "--test-name-pattern=has (the generated|a mismatched)",
+      "tests/v3_2_directed_1a_tests.ts",
+      "tests/v3_2_directed_1b_tests.ts",
+      "tests/v3_2_directed_1c_tests.ts"
+    ],
+    "exit": 0,
+    "wallSeconds": 194.67133887810633,
+    "outputSha256": "2e8590ca7fd58080d79b520ad1a8125a439f10476f12f0543be7001c2043ae8f"
+  },
+  "nativeInputHashes": {
+    "src/v3_2/continuation_review.ts": "95cea7a7b4334f6a16cec83573b853fab3cf0088f071c5b5c0c27ec602fa5ee6",
+    "src/v3_2/directed_1a.ts": "32363f1d0a9565ab22755e3bf655e78dcc4463dcfd9f7eee6adf47dc41496eea",
+    "src/v3_2/directed_1a_proposal.ts": "1a48f295cac5b80f89ce31869b80ea7714bb5c82df15f60fe854040889367287",
+    "src/v3_2/directed_1b.ts": "7ee4de1da315502fdf62f123ace14c24fb80b00ede41cdeba4f2fe35b72939e5",
+    "src/v3_2/directed_1b_proposal.ts": "8c989056be3afd9d8e1d261209e548d6f5ef911bd83424f9a2d4a690a618c8df",
+    "src/v3_2/directed_1b_review.ts": "43a28ef45983bc9def003b8aceb2d116f5a5fe5b73164d9f06ffcdb5066a7fdf",
+    "src/v3_2/directed_1c.ts": "e834a699adb268613c6420e70726fe0da3da849987655c75dc21fac70b4f6390",
+    "src/v3_2/directed_1c_proposal.ts": "30897b4bd8e4ace65cacdd3654e305b6e26aa6618f339293107d9b20aa703bcf",
+    "src/v3_2/directed_1c_review.ts": "fdd42c05442bfa0922f69df05c9731e948a86e0732908d98c60efa8374b7bb2d",
+    "src/v3_2/directed_continuation_runtime_transfer.ts": "4f7794d89c9817935b486ebd76a5dfe199ee3c980910232f65cfbe9086d3d9de",
+    "src/v3_2/directed_continuation_transfer.ts": "ed7a5df45220e58ebaa946e5d74976c0580d9cac0e30623a43fca2e46ddd6308",
+    "src/v3_2/directed_foundation.ts": "ed294b7de5b89b4d3814b08cbd369b6abd57f99bd21dbc269a14a7666f3249b2",
+    "src/v3_2/directed_foundation_proposal.ts": "edc42b46130fa6df3e33d7ed4bfe8f0a1e15af15c4ee19b2e6bb6811bd2fdb84",
+    "src/v3_2/directed_foundation_review.ts": "3681c383efa7948af0bbabb7225fce003ae00a3f1053e7d98e7d439bd6ed3d3b",
+    "src/v3_2/directed_graduation.ts": "eda26dc295d80b8f30a3b992ec114cc52ac9609a352701fce79d2a55f38f3feb",
+    "src/v3_2/directed_graduation_proposal.ts": "ab84ae5448752669ad0da04ed65f05d774e2a8ac5d7c23e01df0aaaed87a68c2",
+    "src/v3_2/directed_graduation_review.ts": "75a359bb28eabd6ad4d86572e49cbbfddc9e541bf986cd61f810c8093168792a",
+    "tests/v3_2_directed_1a_tests.ts": "80392f6e4d0d0ea75b80a387bc5c256e6799c39f875d3a77deaca29e98ba65db",
+    "tests/v3_2_directed_1b_tests.ts": "69df0c409dfea49798c12ab6efff539e70c516e3e9bc1e0149253a51e33456dd",
+    "tests/v3_2_directed_1c_tests.ts": "05c41b2f2916fef9f67cd6667acf035766cde4eb4b53b6f01d3ef505d3a14d33",
+    "tests/v3_2_directed_foundation_tests.ts": "ee4deef20d63fd5247e22e37398dae582c196ca66b810ab04f43255fbf7bfb20",
+    "tests/v3_2_lf_transfer_runtime_tests.ts": "68da17c9b40007fe69ece7b985eb48f253c0a61b1d66568a80a780762a47941d",
+    "src/v3_2/foundations_migration_authority.ts": "07dcc3b7e746b7ea1faa60d6652f18c6540648a73033be3bcf5abb3273808c54"
+  },
+  "receipts": [
+    {
+      "id": "20261025T155306Z-670246be37374f1a92e0cdf1cd97b413",
+      "target": "tmp/elab0-mxcWAQ/probe.lp",
+      "expected": "accept",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 33.4090790709015,
+      "childrenMaxRssKiB": 168592,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "receiptSha256": "be0d5875fc0356fd7fdf307400988511d417adc66d20bce2511fb2808b4f1b0a",
+      "inputSnapshot": "32d9b51683a54d8a50d54ad4225a84ce72c4ae880e4da1af411bec83d150cdbc",
+      "sourceOnly": true
+    },
+    {
+      "id": "20261025T155354Z-c906bc8b30754e968c244177cb94a5fa",
+      "target": "tmp/elab0-4X5JGg/probe.lp",
+      "expected": "accept",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 36.507036393973976,
+      "childrenMaxRssKiB": 168684,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "receiptSha256": "1b86acdad97330c9f1462c5e41636b6781fb27f965c65c0e1be804d19a403d28",
+      "inputSnapshot": "35715391a0fd9a4bb451f6ad8b07b5d2747997d2b147534f31d972cd24d49079",
+      "sourceOnly": true
+    },
+    {
+      "id": "20261025T155444Z-5eac9160706a464c866f3b0764f707e9",
+      "target": "tmp/elab0-e761bD/probe.lp",
+      "expected": "accept",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 36.74145552702248,
+      "childrenMaxRssKiB": 168808,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "receiptSha256": "299a190f8f8bf7001dac1961e9da0c6b694cd5238ad97f31c571ae986c98cad2",
+      "inputSnapshot": "0922582a5276a19eb0e0e1d55a65300b543354f3b8324e65f249abe5682e60f0",
+      "sourceOnly": true
+    },
+    {
+      "id": "20261025T155521Z-5638d7fdc2c54feba83856712a29241c",
+      "target": "tmp/elab0-dRZ6XQ/probe.lp",
+      "expected": "reject mismatched section",
+      "outcome": "failed",
+      "checkerExit": 1,
+      "wallSeconds": 42.394004743080586,
+      "childrenMaxRssKiB": 169112,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "receiptSha256": "5a8a096fb378c9ade1b1d1fe11ba263fcb6ba7484e93a8889350c81a2f1ce5c3",
+      "inputSnapshot": "b647e92cac975486e8d0ec96217b4708b720ab8e494132b7cdd27293df98efeb",
+      "sourceOnly": true
+    },
+    {
+      "id": "20261025T155605Z-acbc4071910a4336a927da99ddd9aefc",
+      "target": "emdash3_2_commutative_algebra_affine_glue.lp",
+      "expected": "accept",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 82.58966088690795,
+      "childrenMaxRssKiB": 637388,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w",
+          "--record-time",
+          "--too-long=0.5"
+        ],
+        "memoryMiB": 3072,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "action-profile-3g-90s",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 180000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "receiptSha256": "9d00342ed8d9f53cf841f9a58b9c56ebc53b0986c651303036c7575744f896d1",
+      "inputSnapshot": "0061fd7b22cdc6931dcf79c07ff06de0512eb0779d4dd77b1d64bc31f2d77b6d",
+      "sourceOnly": true
+    }
+  ],
+  "currentTypescriptInputs": {
+    "src/v3_2/continuation_review.ts": "95cea7a7b4334f6a16cec83573b853fab3cf0088f071c5b5c0c27ec602fa5ee6",
+    "src/v3_2/directed_1a.ts": "32363f1d0a9565ab22755e3bf655e78dcc4463dcfd9f7eee6adf47dc41496eea",
+    "src/v3_2/directed_1a_proposal.ts": "1a48f295cac5b80f89ce31869b80ea7714bb5c82df15f60fe854040889367287",
+    "src/v3_2/directed_1b.ts": "7ee4de1da315502fdf62f123ace14c24fb80b00ede41cdeba4f2fe35b72939e5",
+    "src/v3_2/directed_1b_proposal.ts": "8c989056be3afd9d8e1d261209e548d6f5ef911bd83424f9a2d4a690a618c8df",
+    "src/v3_2/directed_1b_review.ts": "43a28ef45983bc9def003b8aceb2d116f5a5fe5b73164d9f06ffcdb5066a7fdf",
+    "src/v3_2/directed_1c.ts": "e834a699adb268613c6420e70726fe0da3da849987655c75dc21fac70b4f6390",
+    "src/v3_2/directed_1c_proposal.ts": "30897b4bd8e4ace65cacdd3654e305b6e26aa6618f339293107d9b20aa703bcf",
+    "src/v3_2/directed_1c_review.ts": "fdd42c05442bfa0922f69df05c9731e948a86e0732908d98c60efa8374b7bb2d",
+    "src/v3_2/directed_continuation_runtime_transfer.ts": "9671bb9dc6c18c031ce3197d46626256d7ca60cd80e6b66d02c3528326756b99",
+    "src/v3_2/directed_continuation_transfer.ts": "240c828168a8cd61a873b62ca611c7e84f197d927090c2c472449db633eff213",
+    "src/v3_2/directed_foundation.ts": "ed294b7de5b89b4d3814b08cbd369b6abd57f99bd21dbc269a14a7666f3249b2",
+    "src/v3_2/directed_foundation_proposal.ts": "edc42b46130fa6df3e33d7ed4bfe8f0a1e15af15c4ee19b2e6bb6811bd2fdb84",
+    "src/v3_2/directed_foundation_review.ts": "3681c383efa7948af0bbabb7225fce003ae00a3f1053e7d98e7d439bd6ed3d3b",
+    "src/v3_2/directed_graduation.ts": "eda26dc295d80b8f30a3b992ec114cc52ac9609a352701fce79d2a55f38f3feb",
+    "src/v3_2/directed_graduation_proposal.ts": "ab84ae5448752669ad0da04ed65f05d774e2a8ac5d7c23e01df0aaaed87a68c2",
+    "src/v3_2/directed_graduation_review.ts": "75a359bb28eabd6ad4d86572e49cbbfddc9e541bf986cd61f810c8093168792a",
+    "tests/v3_2_continuation_review_tests.ts": "59ad1ea13dc2ee06e0ad428f83e5152ee01112837db86eb81ea3e777b4797f47",
+    "tests/v3_2_directed_1a_proposal_tests.ts": "9ee16596bf8597124958bad8c1ff28a5988f4cef1c406394798d59f132df2db2",
+    "tests/v3_2_directed_1a_tests.ts": "80392f6e4d0d0ea75b80a387bc5c256e6799c39f875d3a77deaca29e98ba65db",
+    "tests/v3_2_directed_1b_proposal_tests.ts": "dd99bf2888dfb6e4d073ab06c0cc828d5c199097deb501a271581f4d94a01df9",
+    "tests/v3_2_directed_1b_tests.ts": "69df0c409dfea49798c12ab6efff539e70c516e3e9bc1e0149253a51e33456dd",
+    "tests/v3_2_directed_1c_tests.ts": "05c41b2f2916fef9f67cd6667acf035766cde4eb4b53b6f01d3ef505d3a14d33",
+    "tests/v3_2_directed_foundation_proposal_tests.ts": "8696e0f52220c9a3cb47797226885414eaf07e25bec9a8103c9752fbed992c3e",
+    "tests/v3_2_directed_foundation_review_tests.ts": "a9ad2f1b893b26af379f7b1feb8c8fee897ddc87d41bb7a5ceb379d55973e017",
+    "tests/v3_2_directed_foundation_tests.ts": "ee4deef20d63fd5247e22e37398dae582c196ca66b810ab04f43255fbf7bfb20",
+    "tests/v3_2_directed_graduation_proposal_tests.ts": "eac6fcde24d6757cd7d3dae4d73915910c8fa325a939a7ae59f5b42ec8f69900",
+    "tests/v3_2_directed_graduation_review_tests.ts": "53c4c7ca24b7f8e459ac994164771e29575d6e53c3e361f682dc089783435d2b",
+    "tests/v3_2_lf_transfer_compiler_tests.ts": "826a404f13046458c393a779aa353494e532f7186b0456f0e992410224096236",
+    "tests/v3_2_lf_transfer_runtime_tests.ts": "3e2d496609e7e4b119fe76284bd72058dc041e9c235fc6341c198a43a2442eda",
+    "src/v3_2/foundations_migration_authority.ts": "07dcc3b7e746b7ea1faa60d6652f18c6540648a73033be3bcf5abb3273808c54"
+  },
+  "postNativeSourceChanges": "Only the two continuation source/export/version metadata pins changed; reversing those three literal updates reproduces the native-run input hashes. Current generic compiler/source-pin tests are separate validation.",
+  "focusedChecks": {
+    "consumers": "49 passed, 4 native opt-ins skipped; all four separately pass",
+    "metadata": "85 passed",
+    "combined": "145 passed,4 skipped in combined scope; sole stale expected opaque count corrected8->9 and focused replay passed. The four native cases separately passed.",
+    "types": "passed",
+    "changedFileLint": "passed",
+    "finalCountReplayOutputSha256": "7eb909c470ce8c36827f38a787ccf9c68b43703ee20e9f8c9ea19ff585719528"
+  },
+  "health": {
+    "dispatcher": 2485965,
+    "session": 38993,
+    "state": "resumed",
+    "affineProfileChanged": false,
+    "reason": "90s attempt timed out; unchanged retry with180s ceiling completed82.59s. Keep registered90s/3GiB and retry original failed target after the run."
+  },
+  "fullTypescriptGate": {
+    "state": "failed during test-module loading",
+    "command": "./scripts/pnpmw run check:ts",
+    "exit": 1,
+    "timeoutSeconds": 1200,
+    "nodeHeapMiB": 2048,
+    "nativeOptIns": false,
+    "passedStages": [
+      "workspace",
+      "test-registration",
+      "typecheck",
+      "lint"
+    ],
+    "firstFailure": "Fibre_func in categorical_dependent_transfer.ts still uses the old public-Cat coefficient",
+    "outputSha256": "5d2c2dd76cd9c53bf094a3c80d2925a1bc6859b8a97a22109e8c636c37973370",
+    "inputScope": "after qualified F01 and before the separate Fibre_func edit"
+  },
+  "remainingConsumer": {
+    "file": "src/v3_2/categorical_dependent_transfer.ts",
+    "status": "local coefficient edit compiles two-owner transfer and dependent-composition successor; further consumer/pin qualification pending; excluded from F01 checkpoint"
+  }
+}

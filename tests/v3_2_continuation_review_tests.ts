@@ -31,7 +31,8 @@ const assertDeepFrozen = (value: unknown): void => {
 };
 
 describe('TypeScript v3.2 reviewed DTT/LF continuation gates', () => {
-    it('records both exact approvals without rewriting either proposal', () => {
+    it('retains historical approvals and identifies the later foundations migration', () => {
+        assert.equal(CORE_DIRECTED_1A_REVIEW.foundationMigration.nativeCheckpoint, '57e627b9');
         assert.equal(
             CORE_LF_CONTINUATION_PROFILE_REVIEW.decision,
             'approved-as-proposed'
@@ -72,13 +73,14 @@ describe('TypeScript v3.2 reviewed DTT/LF continuation gates', () => {
         );
     });
 
-    it('authorizes exactly three directed signatures and zero rules', () => {
+    it('authorizes the coefficient and three directed signatures and zero rules', () => {
         assert.deepEqual(
             CORE_DIRECTED_1A_REVIEW.authorization,
             {
                 isolatedCandidateCatalogIntegration: true,
                 ownerIds: [
-                    'displayed-functor-category',
+                    'cartesian-category-coefficient',
+                'displayed-functor-category',
                     'sigma-category',
                     'sigma-telescope-family'
                 ],

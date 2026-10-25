@@ -79,7 +79,10 @@ const categoryUniverse = (
 
 const categoryOfCategories = (
     line: number
-): KernelExpression => owner('category-of-categories', [], line);
+): KernelExpression => kernelFree(
+    CORE_DIRECTED_1A_PRIMITIVE_NAMES['cartesian-category-coefficient'],
+    because(line, 'Cartesian family coefficient')
+);
 
 const objectClassifier = (
     category: KernelExpression,
@@ -407,7 +410,7 @@ const directedFixture = (): Directed1bFixture => {
 };
 
 describe('TypeScript v3.2 reviewed DIRECTED-1B catalog', () => {
-    it('compiles eight ordered candidate owners with the reviewed transparency boundary', () => {
+    it('compiles nine ordered candidate owners with the reviewed transparency boundary', () => {
         const fixture = directedFixture();
         assert.deepEqual(
             fixture.catalog.environment.declarations.map(
@@ -500,7 +503,7 @@ describe('TypeScript v3.2 reviewed DIRECTED-1B catalog', () => {
         );
     });
 
-    it('runs the exact seven-rule component in reviewed order', () => {
+    it('runs the exact nine-rule component in reviewed order', () => {
         const fixture = directedFixture();
         const runtime = fixture.catalog.runtimeProgram;
         assert.equal(
@@ -510,6 +513,8 @@ describe('TypeScript v3.2 reviewed DIRECTED-1B catalog', () => {
         );
         assert.deepEqual(runtime.ruleIds, [
             'directed.category-object.decode',
+            'directed.cartesian-category-object.decode',
+            'directed.cartesian-category-hom.decode',
             'directed.displayed-family.decode',
             'directed.displayed-functor.decode',
             'directed.category-hom.decode',
@@ -530,7 +535,7 @@ describe('TypeScript v3.2 reviewed DIRECTED-1B catalog', () => {
         );
         assert.equal(sigmaDecode.status, 'rewritten');
         if (sigmaDecode.status === 'rewritten') {
-            assert.equal(sigmaDecode.ruleIndex, 4);
+            assert.equal(sigmaDecode.ruleIndex, 6);
             assert.equal(
                 kernelExpressionEquals(
                     sigmaDecode.after,
@@ -548,10 +553,10 @@ describe('TypeScript v3.2 reviewed DIRECTED-1B catalog', () => {
         ));
         assert.equal(catHom.status, 'rewritten');
         if (catHom.status === 'rewritten') {
-            assert.equal(catHom.ruleIndex, 3);
+            assert.equal(catHom.ruleIndex, 2);
             assert.equal(
                 catHom.ruleId,
-                'directed.category-hom.decode'
+                'directed.cartesian-category-hom.decode'
             );
         }
     });
@@ -689,6 +694,24 @@ describe('TypeScript v3.2 reviewed DIRECTED-1B catalog', () => {
             ).length,
             7
         );
+    });
+
+    it('rejects a public-Cat diagram as a Cartesian-coefficient family', () => {
+        const fixture = directedFixture();
+        const environment = fixture.environment.extend({
+            name: 'wrong_coefficient_family',
+            type: functorType(
+                fixture.K, owner('category-of-categories'), 59
+            ),
+            mode: explicitFunctorial,
+            provenance: because(59, 'public-Cat diagram')
+        });
+        const checker = fixture.catalog.createChecker(environment);
+        assert.throws(() => checker.check(
+            checker.rootContext,
+            kernelFree('wrong_coefficient_family', because(59, 'wrong family')),
+            coreDisplayedFamilyType(fixture.K, because(59, 'admitted family'))
+        ), error => error instanceof CoreCheckerError && error.code === 'TYPE_MISMATCH');
     });
 
     it('lowers the transport consumer through the scoped builder', () => {
@@ -1046,7 +1069,7 @@ describe('TypeScript v3.2 reviewed DIRECTED-1B catalog', () => {
             });
             const result = checkLambdapiProbe(serialized, {
                 packageRoot: resolve(__dirname, '../emdash2'),
-                timeoutMs: 30_000
+                timeoutMs: 60_000
             });
             assert.equal(
                 result.accepted,

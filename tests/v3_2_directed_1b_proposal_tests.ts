@@ -185,6 +185,7 @@ describe('TypeScript v3.2 DIRECTED-1B H-DTTLF-02 proposal', () => {
                     CORE_LF_CONTINUATION_PROFILE_REVIEW.revision,
                 directed1aReview: CORE_DIRECTED_1A_REVIEW.revision,
                 directed1aOwnerIds: [
+                    'cartesian-category-coefficient',
                     'displayed-functor-category',
                     'sigma-category',
                     'sigma-telescope-family'

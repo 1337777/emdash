@@ -164,16 +164,16 @@ export interface CoreDirectedGraduationManifestInput {
     readonly proofTimeRules: readonly [];
     readonly composition: {
         readonly baseOwnerSignatureCount: 20;
-        readonly candidateDeclarationCount: 9;
-        readonly totalOwnerSignatureCount: 29;
-        readonly opaqueCandidateDeclarationCount: 8;
+        readonly candidateDeclarationCount: 10;
+        readonly totalOwnerSignatureCount: 30;
+        readonly opaqueCandidateDeclarationCount: 9;
         readonly transparentCandidateDeclarationCount: 1;
-        readonly directedRuntimeRuleCount: 7;
+        readonly directedRuntimeRuleCount: 9;
         readonly inheritedMvpRuntimeRuleCount: 3;
-        readonly totalRuntimeRuleCount: 10;
+        readonly totalRuntimeRuleCount: 12;
         readonly proofTimeRuleCount: 0;
         readonly runtimeOrder:
-            'catalog-seven-before-frozen-mvp-three';
+            'catalog-nine-before-frozen-mvp-three';
         readonly oneSharedOuterLfBudget: true;
     };
     readonly preservedMvp: {
@@ -491,15 +491,15 @@ const rawManifestContent: Omit<
     proofTimeRules: [],
     composition: {
         baseOwnerSignatureCount: 20,
-        candidateDeclarationCount: 9,
-        totalOwnerSignatureCount: 29,
-        opaqueCandidateDeclarationCount: 8,
+        candidateDeclarationCount: 10,
+        totalOwnerSignatureCount: 30,
+        opaqueCandidateDeclarationCount: 9,
         transparentCandidateDeclarationCount: 1,
-        directedRuntimeRuleCount: 7,
+        directedRuntimeRuleCount: 9,
         inheritedMvpRuntimeRuleCount: 3,
-        totalRuntimeRuleCount: 10,
+        totalRuntimeRuleCount: 12,
         proofTimeRuleCount: 0,
-        runtimeOrder: 'catalog-seven-before-frozen-mvp-three',
+        runtimeOrder: 'catalog-nine-before-frozen-mvp-three',
         oneSharedOuterLfBudget: true
     },
     preservedMvp: {
@@ -513,7 +513,7 @@ const rawManifestContent: Omit<
 };
 
 const reviewedCandidateContentHash =
-    'sha256:5fbf855e044e3d24e1078289eebad4a3391d67747efcee3c5463c2bfb110a8c7';
+    'sha256:0243a7dcadd89b22a313d28a15d6a9505e77ec4d2bb85554d7ef6b6dd4803dcc';
 
 const rawManifest: CoreDirectedGraduationManifestInput = {
     ...rawManifestContent,
@@ -572,9 +572,9 @@ const nonEffects = [
 const decisionQuestion =
     'Approve H-DTTLF-03/D-DTTLF-001 as proposed: graduate exactly ' +
     'emdash-v3.2-dttlf-directed-1 as the authoritative opt-in TypeScript ' +
-    'continuation checker/evaluator, with 20 base signatures plus 9 reviewed ' +
-    'candidate declarations (29 total), 7 directed plus 3 inherited MVP ' +
-    'runtime rules (10 total), zero proof-time rules, one bounded outer-LF ' +
+    'continuation checker/evaluator, with 20 base signatures plus 10 reviewed ' +
+    'candidate declarations (30 total), 9 directed plus 3 inherited MVP ' +
+    'runtime rules (12 total), zero proof-time rules, one bounded outer-LF ' +
     'budget, no browser or deployed-MVP change, and no Lambdapi production ' +
     'dependency; retain Lambdapi as the active mathematical specification, ' +
     'required fixed positive/negative and subject-reduction oracle, and ' +

@@ -2,7 +2,7 @@
  * Machine-readable prerequisite proposal discovered while integrating
  * DIRECTED-1B.
  *
- * This artifact records three earlier active object-level facade reductions.
+ * This artifact records the native coefficient and earlier object-level facade reductions.
  * It does not execute them or change the approved DIRECTED-1B proposal.
  */
 
@@ -20,6 +20,8 @@ import {
 
 export type CoreDirectedFoundationRuleId =
     | 'directed.category-object.decode'
+    | 'directed.cartesian-category-object.decode'
+    | 'directed.cartesian-category-hom.decode'
     | 'directed.displayed-family.decode'
     | 'directed.displayed-functor.decode';
 
@@ -100,7 +102,7 @@ export interface CoreDirectedFoundationLambdapiRuleBinding {
         readonly authorityPath: 'emdash2/emdash3_2.lp';
         readonly section: string;
         readonly sourceFragment: string;
-        readonly auditedOn: '2026-07-24';
+        readonly auditedOn: '2026-07-24' | '2026-10-25';
     };
 }
 
@@ -143,6 +145,8 @@ const categoryUniverse =
     ownerApplication('category-universe');
 const categoryOfCategories =
     ownerApplication('category-of-categories');
+const cartesianCategoryCoefficient =
+    ownerApplication('cartesian-category-coefficient');
 const K = variable('K');
 const E = variable('E');
 const D = variable('D');
@@ -176,6 +180,33 @@ readonly CoreDirectedFoundationRuntimeRuleProposal[] = [
     },
     {
         order: 1,
+        id: 'directed.cartesian-category-object.decode',
+        authority: 'active-runtime-rule',
+        execution: 'directed-catalog-local-prerequisite',
+        variables: [],
+        left: decode(objectClassifier(cartesianCategoryCoefficient)),
+        right: decode(objectClassifier(categoryOfCategories))
+    },
+    {
+        order: 2,
+        id: 'directed.cartesian-category-hom.decode',
+        authority: 'active-runtime-rule',
+        execution: 'directed-catalog-local-prerequisite',
+        variables: ['A', 'B'].map(name => ({
+            name,
+            role: 'category-endpoint',
+            type: categoryUniverse
+        })),
+        left: decode(ownerApplication(
+            'hom-classifier', cartesianCategoryCoefficient,
+            variable('A'), variable('B')
+        )),
+        right: decode(ownerApplication(
+            'functor-classifier', variable('A'), variable('B')
+        ))
+    },
+    {
+        order: 3,
         id: 'directed.displayed-family.decode',
         authority: 'active-runtime-rule',
         execution: 'directed-catalog-local-prerequisite',
@@ -188,11 +219,11 @@ readonly CoreDirectedFoundationRuntimeRuleProposal[] = [
         right: decode(ownerApplication(
             'functor-classifier',
             K,
-            categoryOfCategories
+            cartesianCategoryCoefficient
         ))
     },
     {
-        order: 2,
+        order: 4,
         id: 'directed.displayed-functor.decode',
         authority: 'active-runtime-rule',
         execution: 'directed-catalog-local-prerequisite',
@@ -218,7 +249,7 @@ readonly CoreDirectedFoundationRuntimeRuleProposal[] = [
         right: decode(ownerApplication(
             'transfor-classifier',
             K,
-            categoryOfCategories,
+            cartesianCategoryCoefficient,
             E,
             D
         ))
@@ -305,6 +336,30 @@ readonly CoreDirectedFoundationLambdapiRuleBinding[] = [
     },
     {
         order: 1,
+        id: 'directed.cartesian-category-object.decode',
+        module: 'emdash.emdash3_2',
+        authority: 'runtime-rule',
+        provenance: {
+            authorityPath: 'emdash2/emdash3_2.lp',
+            section: '3c. Universe categories',
+            sourceFragment: 'rule Obj Cat_cart ↪ Obj Cat_cat;',
+            auditedOn: '2026-10-25'
+        }
+    },
+    {
+        order: 2,
+        id: 'directed.cartesian-category-hom.decode',
+        module: 'emdash.emdash3_2',
+        authority: 'runtime-rule',
+        provenance: {
+            authorityPath: 'emdash2/emdash3_2.lp',
+            section: '3c. Universe categories',
+            sourceFragment: 'rule Hom_cat Cat_cart $A $B ↪ Functor_cart_cat $A $B;',
+            auditedOn: '2026-10-25'
+        }
+    },
+    {
+        order: 3,
         id: 'directed.displayed-family.decode',
         module: 'emdash.emdash3_2',
         authority: 'runtime-rule',
@@ -317,7 +372,7 @@ readonly CoreDirectedFoundationLambdapiRuleBinding[] = [
         }
     },
     {
-        order: 2,
+        order: 4,
         id: 'directed.displayed-functor.decode',
         module: 'emdash.emdash3_2',
         authority: 'runtime-rule',
@@ -440,7 +495,7 @@ export function validateCoreDirectedFoundationProposal(
         );
     }
     if (
-        proposal.runtimeRules.length !== 3 ||
+        proposal.runtimeRules.length !== 5 ||
         proposal.proofTimeRules.length !== 0 ||
         proposal.ownerDeclarations.length !== 0 ||
         !sameData(
@@ -450,7 +505,7 @@ export function validateCoreDirectedFoundationProposal(
     ) {
         fail(
             'INVALID_RULE_SET',
-            'DIRECTED-FOUNDATION-1 must contain exactly its three ' +
+            'DIRECTED-FOUNDATION-1 must contain exactly its five ' +
             'ordered runtime rules and no owner or proof-time rule'
         );
     }

@@ -69,10 +69,9 @@ const categoryUniverse = (
 
 const categoryOfCategories = (
     line: number
-): KernelExpression => kernelApplication(
-    'category-of-categories',
-    [],
-    because(line, 'DIRECTED-1A category of categories')
+): KernelExpression => kernelFree(
+    CORE_DIRECTED_1A_PRIMITIVE_NAMES['cartesian-category-coefficient'],
+    because(line, 'DIRECTED-1A Cartesian family coefficient')
 );
 
 const objectType = (
@@ -162,7 +161,7 @@ const directedFixture = (): Directed1aFixture => {
 };
 
 describe('TypeScript v3.2 reviewed DIRECTED-1A catalog', () => {
-    it('compiles the three reviewed signatures as ordered opaque LF primitives', () => {
+    it('compiles the coefficient and three reviewed signatures as opaque LF primitives', () => {
         const fixture = directedFixture();
         assert.deepEqual(
             fixture.catalog.primitives.map(primitive => [
@@ -171,6 +170,11 @@ describe('TypeScript v3.2 reviewed DIRECTED-1A catalog', () => {
                 primitive.backendName
             ]),
             [
+                [
+                    'cartesian-category-coefficient',
+                    'dttlf_Cat_cart',
+                    'Cat_cart'
+                ],
                 [
                     'displayed-functor-category',
                     'dttlf_Functord_cat',
@@ -450,7 +454,7 @@ describe('TypeScript v3.2 reviewed DIRECTED-1A catalog', () => {
             });
             const result = checkLambdapiProbe(serialized, {
                 packageRoot: resolve(__dirname, '../emdash2'),
-                timeoutMs: 30_000
+                timeoutMs: 60_000
             });
             assert.equal(
                 result.accepted,

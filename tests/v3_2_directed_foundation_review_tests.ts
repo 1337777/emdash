@@ -39,11 +39,13 @@ describe('TypeScript v3.2 reviewed DIRECTED foundation gate', () => {
         );
     });
 
-    it('authorizes exactly the three prerequisite runtime rules', () => {
+    it('authorizes the five selected prerequisite runtime rules', () => {
         assert.deepEqual(
             CORE_DIRECTED_FOUNDATION_REVIEW.authorization.runtimeRuleIds,
             [
                 'directed.category-object.decode',
+            'directed.cartesian-category-object.decode',
+            'directed.cartesian-category-hom.decode',
                 'directed.displayed-family.decode',
                 'directed.displayed-functor.decode'
             ]

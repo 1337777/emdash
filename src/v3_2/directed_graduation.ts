@@ -27,19 +27,19 @@ export interface CoreDirectedContinuationProfileInput {
     readonly reviewRevision: 'DIRECTED-GRADUATE-1-REVIEWED';
     readonly decisionId: 'D-DTTLF-001';
     readonly manifestContentHash:
-        'sha256:5fbf855e044e3d24e1078289eebad4a3391d67747efcee3c5463c2bfb110a8c7';
+        'sha256:0243a7dcadd89b22a313d28a15d6a9505e77ec4d2bb85554d7ef6b6dd4803dcc';
     readonly entryPoint: 'src/v3_2/index.ts';
     readonly factoryExport: 'createCoreDirectedContinuationKernel';
     readonly signatureClosure: {
         readonly baseCount: 20;
-        readonly candidateCount: 9;
-        readonly totalCount: 29;
+        readonly candidateCount: 10;
+        readonly totalCount: 30;
         readonly ownerIds: readonly string[];
     };
     readonly runtimeClosure: {
-        readonly directedCount: 7;
+        readonly directedCount: 9;
         readonly inheritedMvpCount: 3;
-        readonly totalCount: 10;
+        readonly totalCount: 12;
         readonly ruleIds: readonly string[];
         readonly proofTimeRuleCount: 0;
     };

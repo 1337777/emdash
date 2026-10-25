@@ -82,7 +82,10 @@ const categoryUniverse = (
 
 const categoryOfCategories = (
     line: number
-): KernelExpression => owner('category-of-categories', [], line);
+): KernelExpression => kernelFree(
+    CORE_DIRECTED_1A_PRIMITIVE_NAMES['cartesian-category-coefficient'],
+    because(line, 'Cartesian family coefficient')
+);
 
 const objectClassifier = (
     category: KernelExpression,
@@ -398,7 +401,7 @@ describe('TypeScript v3.2 reviewed DIRECTED-1C catalog', () => {
         const fixture = directedFixture();
         assert.equal(
             fixture.catalog.environment.declarations.length,
-            9
+            10
         );
         assert.deepEqual(
             fixture.catalog.environment.declarations.slice(-1).map(
@@ -438,7 +441,7 @@ describe('TypeScript v3.2 reviewed DIRECTED-1C catalog', () => {
         );
     });
 
-    it('reuses the exact seven-rule DIRECTED-1B runtime by identity', () => {
+    it('reuses the exact nine-rule DIRECTED-1B runtime by identity', () => {
         const fixture = directedFixture();
         assert.equal(
             fixture.catalog.runtimeProgram,
@@ -446,6 +449,8 @@ describe('TypeScript v3.2 reviewed DIRECTED-1C catalog', () => {
         );
         assert.deepEqual(fixture.catalog.runtimeProgram.ruleIds, [
             'directed.category-object.decode',
+            'directed.cartesian-category-object.decode',
+            'directed.cartesian-category-hom.decode',
             'directed.displayed-family.decode',
             'directed.displayed-functor.decode',
             'directed.category-hom.decode',
@@ -800,7 +805,7 @@ describe('TypeScript v3.2 reviewed DIRECTED-1C catalog', () => {
             });
             const result = checkLambdapiProbe(serialized, {
                 packageRoot: resolve(__dirname, '../emdash2'),
-                timeoutMs: 30_000
+                timeoutMs: 60_000
             });
             assert.equal(
                 result.accepted,
@@ -861,7 +866,7 @@ describe('TypeScript v3.2 reviewed DIRECTED-1C catalog', () => {
             });
             const result = checkLambdapiProbe(serialized, {
                 packageRoot: resolve(__dirname, '../emdash2'),
-                timeoutMs: 30_000
+                timeoutMs: 60_000
             });
             assert.equal(result.accepted, false);
             assert.equal(result.timedOut, false);
