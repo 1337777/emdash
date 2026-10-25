@@ -245,6 +245,20 @@ This continuation is qualified by the chain/native and generic tests above.
 The complete TypeScript attempt reaches the next unmigrated chain-2A owner;
 its failure does not qualify that remaining profile.
 
+
+The [native Homd target/root frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_root_review.md)
+now passes16 focused tests and two native conformance tests, plus
+workspace/registration/typecheck/lint. The actual Q-valued target body and
+relative root are checked transparent definitions; the higher-action
+interfaces now have the native relative-to-identity endpoints. Existing
+Cartesian precomposition projections make the target-index annotations
+compute without a new comparison or checker extension. Current canonical
+acquisition is recorded separately from historical approvals.
+The full TypeScript gate reaches the old same-base opposite-section type in
+mixed-nest `Hom_catd`. The lower y/v/f Homd computations and the full action
+of the signature-only `Homd_target_con_func` view remain required; this is
+not a complete lower-ladder or whole frontend qualification.
+
 ## F04 execution boundary: actual native Homd closure
 
 The higher/ND prerequisite metadata now resolves fixed evaluation to the
@@ -283,7 +297,20 @@ direct whole-section/y/v/f projections, actual index classifier and default
 lax FF. The three higher-ND action owners must receive their current target
 types, which use the identity strict root and relative composite.
 
-Qualification still requires the actual emitted whole/next-Hom consumer,
+Current implementation qualification is recorded in the native Homd root
+review above: the target/root bodies and higher-action consumer pass native
+checks. The legacy Edge/Presheaf utility types now use their actual shifted
+bases and Cartesian negative parameter. The original acquisition records stay
+historical. The next concrete owner is `categorical_mixed_mode_transfer.ts`:
+native `Hom_catd(E,X,Y)` takes X in `Pi_cat(TotalOp_catd(E))` over
+`CoAbove2_cat(K)`, and Y in `Pi_cat(E)` over K. It does not use the old
+same-base `Op_catd(E)` section. `Transf_catd` has the corresponding total-dual
+negative section. Review their actual runtime fibres before adapting rich
+frontend classifiers. The remaining mixed and lower-ladder work is not
+qualified by this interface tranche. In particular, `Homd_target_con_func` is still an explicit
+signature-only view, to be completed when its action is consumed.
+
+Qualification of the remaining scope still requires the actual emitted whole/next-Hom consumer,
 projection and leaf computation where consumed, negative variance/profile
 controls, and current source/canonical evidence. Historical audit metadata
 passing after a prerequisite-name repair is not that qualification.

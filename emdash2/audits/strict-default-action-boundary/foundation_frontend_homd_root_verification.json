@@ -1,0 +1,151 @@
+{
+  "status": "native target/relative-root definitions and higher-action interface qualified; lower Homd/mixed migration remains",
+  "previousCheckpoint": "9880f3a9",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "scope": {
+    "dualityDeclarations": 2,
+    "dualityRuntimeRules": 5,
+    "foundationDeclarations": 23,
+    "foundationCheckedBodies": 10,
+    "foundationSignatureViews": 13,
+    "foundationLocalRuntimeRules": 4,
+    "higherActionDeclarations": 3,
+    "higherActionRuntimeRules": 2
+  },
+  "currentTypescriptInputs": {
+    "src/v3_2/categorical_displayed_nd_higher_foundation_transfer.ts": "dbeb9cbb0adc8218fe24e23a5cf1d4c17562fbb3369152535414f3cb70c6ad69",
+    "src/v3_2/categorical_displayed_nd_higher_target_transfer.ts": "9ab800d687e9476e6098599d95e7f89e95a1056001f6f77f46653337ea636d02",
+    "src/v3_2/categorical_program.ts": "5f40e25eade72dd2f1719f3398d0589c97b206f58734eb45c74105f615f5d14c",
+    "tests/main_tests.ts": "dc9c1cf0d181cbef103ea86713d610941529542b97a62b9c73a81b9f2106c72f",
+    "tests/v3_2_categorical_displayed_nd_higher_foundation_transfer_tests.ts": "81824d9219499afaae330ac2933f2dc3d9d9ad6f30afa9bc0bd987cb2822a708",
+    "tests/v3_2_categorical_displayed_nd_higher_target_tests.ts": "03236be69d869ce45a11424ce2b09a3a94274b1fcf3db00e0a8ee4f223b63eda",
+    "src/v3_2/categorical_homd_duality_transfer.ts": "b831296e2ce73f5d63a711c7f35bfc982efc345d611c884bdd6018e05d0543e6",
+    "tests/v3_2_categorical_homd_duality_tests.ts": "d06e1e6ca7c8387d135bbde0822a9442434f67a825d56aeeb95c295237dd48e4",
+    "tests/v3_2_categorical_homd_foundation_migration_tests.ts": "20046f458a5a734766e8006901031258b9af968171714a6f277ba2c347edbe1c"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261025T205248Z-80c55e5b261b4e57b29619ddab4350fc",
+      "target": "tmp/elab0-yUQc5R/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 29.970939699793234,
+      "childrenMaxRssKiB": 168564,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "cf4192ffcba5cb1abfadb25e67a54794f87315fef4c0475bb932acd6bc6af082",
+      "log": "logs/check-runs/20261025T205248Z-80c55e5b261b4e57b29619ddab4350fc.log",
+      "logSha256": "21706dc42a48553ffdd28108510181e6c31b5ad2ee1460e193ac1c34de9be4fb",
+      "receiptFile": "emdash2/logs/check-runs/20261025T205248Z-80c55e5b261b4e57b29619ddab4350fc.json",
+      "receiptSha256": "adc94abb43f46aa25a8cd0093563598033c3b2c5a5b9a00258f85684d4e81b5a"
+    },
+    {
+      "id": "20261025T211521Z-11e5f7370c5c4c6cad800e084d6be708",
+      "target": "tmp/elab0-bOSoXK/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 21.29844290483743,
+      "childrenMaxRssKiB": 169152,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "938338878766d7864d799093e621616c977c357fa140831ee1d5712e3808b379",
+      "log": "logs/check-runs/20261025T211521Z-11e5f7370c5c4c6cad800e084d6be708.log",
+      "logSha256": "f3244aa068d2536d7ceeae504fff2279d209d1144b65ed121b1678addcaeb85c",
+      "receiptFile": "emdash2/logs/check-runs/20261025T211521Z-11e5f7370c5c4c6cad800e084d6be708.json",
+      "receiptSha256": "34d324e7788fdc385932b088922e6649dcf4034614a516186cfce2b3fa98da02"
+    }
+  ],
+  "checks": {
+    "focused": "16 passed;2 native opt-ins separately passed",
+    "native": "duality whole map/variance and complete selected signature/body/emitted higher-action tests passed",
+    "workspace": "passed",
+    "registration": "passed;462 suites reachable",
+    "typecheck": "passed",
+    "lint": "passed",
+    "completeTypescript": "wave238 stops while loading mixed-nest Hom_catd at its old same-base opposite-section type; no complete suite pass"
+  },
+  "rootContract": {
+    "source": "E",
+    "target": "fapp0(Homd_target_index_func K,Homd_coeff_diagram D)",
+    "argument": "general lax FF : Functord D E",
+    "implementation": "ordinary view of actual homd_rel_cart_int target-map/identity-root composite",
+    "higherActionDirection": "relative composite to identity root"
+  },
+  "computation": "existing hom_int object, precomposition object, and Cartesian identity-family precomposition fold qualify the actual index annotations; no new comparison or checker path needed",
+  "signatureOnlyNativeDefinedOwner": "Homd_target_con_func; its full action/definition and lower Homd projection computation remain required where consumed",
+  "earlierFailures": [
+    "wave216 missing local helper name; corrected",
+    "wave220 foreign builder capture; corrected",
+    "wave228 duplicate precomp point owner; reused existing fibred-structure owner",
+    "wave232 serializer omitted earlier Catd backend link; complete authoritative linkage used in wave233",
+    "old target endpoints used Op_funcd(FF) and opposite direction; replaced by current native endpoints"
+  ],
+  "postNativeChanges": "source pins, canonical ordinals, explanatory metadata and reviewed test expectations only; successful term/type bodies unchanged",
+  "outputHashes": {
+    "wave225_homd_duality_native.out": "25d5d7007cd17fe8ae5d7b85279c22094e6136f0ffb1cdca3f47df4c457b49fb",
+    "wave233_homd_foundation_native.out": "87e72d2e0a44aa0c90079aadb14c0b3f0c7aa698962054f626bb0c00f111f0f4",
+    "wave237_homd_foundation_final.out": "7e7452be817a61152dcca21c753953e0eaa4fe2048c7482fcb0d3fb6ecacf672",
+    "wave238_ts_integration.out": "4c81617402985fd4cfe40140432671839461a01fd1d882f17f8b5e6a874ff36f"
+  },
+  "remaining": [
+    "mixed-nest Hom_catd shifted/profiled inputs",
+    "actual Q index/section and lower homd projection/leaf consumers",
+    "remaining frontend/source pins and complete TypeScript integration",
+    "production health and final integration",
+    "book/article and legacy nerve stages"
+  ],
+  "preConformanceTypescriptCandidateHashes": {
+    "src/v3_2/categorical_displayed_nd_higher_foundation_transfer.ts": "bf2a23b7cb6db7c70c1ce19a68a213577b8554255a7d69cc26489ece6009d9f6",
+    "src/v3_2/categorical_displayed_nd_higher_target_transfer.ts": "2c3b8e6df2af3a0f630e27ec8bb9674218b8f3fbb08f7ae3f6d5bc6cfd350cee",
+    "src/v3_2/categorical_program.ts": "5f40e25eade72dd2f1719f3398d0589c97b206f58734eb45c74105f615f5d14c",
+    "tests/main_tests.ts": "dc9c1cf0d181cbef103ea86713d610941529542b97a62b9c73a81b9f2106c72f",
+    "src/v3_2/categorical_homd_duality_transfer.ts": "b831296e2ce73f5d63a711c7f35bfc982efc345d611c884bdd6018e05d0543e6",
+    "tests/v3_2_categorical_homd_duality_tests.ts": "d06e1e6ca7c8387d135bbde0822a9442434f67a825d56aeeb95c295237dd48e4",
+    "tests/v3_2_categorical_homd_foundation_migration_tests.ts": "f6cd865fc0472f812a1f813245bb1750b2caed0e61bbc885f88a0fa1dc86f3f8"
+  },
+  "producerSnapshotNote": "Candidate hashes precede the serializer-link correction. Native receipts retain the exact successfully emitted LP inputs; current producer hashes and scoped TypeScript tests are recorded separately."
+}

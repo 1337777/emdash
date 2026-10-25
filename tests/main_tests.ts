@@ -202,6 +202,8 @@ import './v3_2_categorical_compositional_text_parity_tests';
 import './v3_2_categorical_displayed_nd_higher_audit_tests';
 import './v3_2_categorical_displayed_nd_higher_review_tests';
 import './v3_2_categorical_displayed_nd_higher_foundation_transfer_tests';
+import './v3_2_categorical_homd_duality_tests';
+import './v3_2_categorical_homd_foundation_migration_tests';
 import './v3_2_categorical_displayed_nd_higher_target_tests';
 import './v3_2_categorical_mixed_mode_transfer_tests';
 import './v3_2_categorical_hom_catd_action_transfer_tests';

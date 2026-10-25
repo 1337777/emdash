@@ -61,6 +61,19 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [native Homd target/root frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_root_review.md)
+now passes16 focused tests and two native conformance tests, plus
+workspace/registration/typecheck/lint. The actual Q-valued target body and
+relative root are checked transparent definitions; the higher-action
+interfaces now have the native relative-to-identity endpoints. Existing
+Cartesian precomposition projections make the target-index annotations
+compute without a new comparison or checker extension. Current canonical
+acquisition is recorded separately from historical approvals.
+The full TypeScript gate reaches the old same-base opposite-section type in
+mixed-nest `Hom_catd`. The lower y/v/f Homd computations and the full action
+of the signature-only `Homd_target_con_func` view remain required; this is
+not a complete lower-ladder or whole frontend qualification.
+
 The higher/ND audit now resolves its removed fixed-evaluation duplicate to the
 already-qualified structural owner. Historical audit counts, canonical hashes
 and approval records stay at their original boundary. Eleven metadata/review

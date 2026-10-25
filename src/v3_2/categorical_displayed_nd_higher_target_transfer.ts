@@ -2,7 +2,7 @@
  * DISPLAYED-ND-HIGHER-TARGET-1A generic transfer.
  *
  * This fragment installs the three active next-hom action interfaces and
- * their two projection rules over the dependency-closed D-020 foundation.
+ * their two projection rules over the current native Q-valued Homd foundation.
  * All five commands already belong to active emdash v3.2 authority.
  */
 
@@ -54,8 +54,7 @@ import {
 
 const MODULE_ID = 'emdash.emdash3_2';
 const SOURCE_SHA256 =
-    'sha256:' +
-    '6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 export const
 CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_TARGET_TRANSFER_REVISION =
@@ -82,6 +81,11 @@ const displayedFunctorClassifier = symbol('Functord');
 const displayedTransformationClassifier = symbol('Transfd');
 const displayedTransformationCategory = symbol('Transfd_cat');
 const displayedIdentity = symbol('id_funcd');
+const cart = symbol('Cat_cart'), Q = symbol('Homd_coeff_cat');
+const C2 = symbol('CoAt2_cat'), Op = symbol('Op_cat');
+const Fun = symbol('Functor_cat'), Cart = symbol('Functor_cart_cat');
+const index = symbol('Homd_target_index_func'), diagram = symbol('Homd_coeff_diagram');
+const identityRoot = symbol('homd_id_int'), strictView = symbol('strict_transfor');
 
 const {
     displayedComposition,
@@ -203,50 +207,6 @@ const displayedTransformationCategoryAt = (
         { plicity: 'explicit', value: targetFunctor }
     ]);
 
-const displayedIdentityAt = (
-    builder: CoreLfTransferScopedBuilder,
-    base: CoreLfTransferBuilderExpression,
-    family: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression =>
-    globalCall(builder, displayedIdentity, [
-        { plicity: 'implicit', value: base },
-        { plicity: 'implicit', value: family }
-    ]);
-
-const displayedOppositeAt = (
-    builder: CoreLfTransferScopedBuilder,
-    base: CoreLfTransferBuilderExpression,
-    family: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression =>
-    globalCall(builder, displayedOpposite, [
-        { plicity: 'implicit', value: base },
-        { plicity: 'explicit', value: family }
-    ]);
-
-const displayedOppositeActionAt = (
-    builder: CoreLfTransferScopedBuilder,
-    base: CoreLfTransferBuilderExpression,
-    sourceFamily: CoreLfTransferBuilderExpression,
-    targetFamily: CoreLfTransferBuilderExpression,
-    functor: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression =>
-    globalCall(builder, displayedOppositeAction, [
-        { plicity: 'implicit', value: base },
-        { plicity: 'implicit', value: sourceFamily },
-        { plicity: 'implicit', value: targetFamily },
-        { plicity: 'explicit', value: functor }
-    ]);
-
-const displayedHomTargetAt = (
-    builder: CoreLfTransferScopedBuilder,
-    base: CoreLfTransferBuilderExpression,
-    family: CoreLfTransferBuilderExpression
-): CoreLfTransferBuilderExpression =>
-    globalCall(builder, displayedHomTarget, [
-        { plicity: 'implicit', value: base },
-        { plicity: 'explicit', value: family }
-    ]);
-
 const displayedInternalHomAt = (
     builder: CoreLfTransferScopedBuilder,
     base: CoreLfTransferBuilderExpression,
@@ -346,40 +306,20 @@ const targetEndpoints = (
         FF,
         GG
     );
-    const oppositeE = displayedOppositeAt(builder, K, E);
-    const oppositeD = displayedOppositeAt(builder, K, D);
-    const homTargetE = displayedHomTargetAt(builder, K, E);
-    const sourceFunctor = displayedInternalHomAt(
-        builder,
-        K,
-        E,
-        E,
-        displayedIdentityAt(builder, K, E)
-    );
-    const targetFunctor = displayedComposeAt(
-        builder,
-        K,
-        oppositeE,
-        oppositeD,
-        homTargetE,
-        displayedInternalHomAt(builder, K, E, D, GG),
-        displayedOppositeActionAt(builder, K, E, D, FF)
-    );
+    const c=(owner:CoreLfQualifiedSymbol,args:CoreLfTransferBuilderExpression[],n=0)=>globalCall(builder,owner,
+        args.map((value,i)=>({value,plicity:i<n?'implicit':'explicit'})));
+    const homTargetE=functorObjectAt(builder,c(Op,[c(C2,[c(Fun,[K,builder.global(Q)])])]),
+        c(Cart,[K,builder.global(cart)]),c(index,[K]),c(diagram,[K,E],1));
+    const sourceFunctor=displayedComposeAt(builder,K,E,D,homTargetE,
+        displayedInternalHomAt(builder,K,E,D,GG),FF);
+    const targetFunctor=c(strictView,[K,builder.global(cart),E,homTargetE,c(identityRoot,[K,E],1)],4);
     return {
         sourceCategory,
-        targetCategory: displayedTransformationCategoryAt(
-            builder,
-            K,
-            oppositeE,
-            homTargetE,
-            sourceFunctor,
-            targetFunctor
-        ),
-        targetSourceFamily: oppositeE,
-        targetTargetFamily: homTargetE,
-        targetSourceFunctor: sourceFunctor,
-        targetTargetFunctor: targetFunctor
+        targetCategory:displayedTransformationCategoryAt(builder,K,E,homTargetE,sourceFunctor,targetFunctor),
+        targetSourceFamily:E,targetTargetFamily:homTargetE,
+        targetSourceFunctor:sourceFunctor,targetTargetFunctor:targetFunctor
     };
+
 };
 
 const actionFunctorAt = (
@@ -635,7 +575,7 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: opaqueModifiers,
         provenance: source(
             'symbol tdapp1_int_func_transfd : Π [K : Cat]',
-            1139
+            1552
         )
     }),
     Object.freeze({
@@ -646,7 +586,7 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: opaqueModifiers,
         provenance: source(
             'symbol tdapp1_int_fapp0_transfd : Π [K : Cat]',
-            1140
+            1553
         )
     }),
     Object.freeze({
@@ -657,7 +597,7 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: opaqueModifiers,
         provenance: source(
             'symbol tdapp1_int_fapp1_func_transfd : Π [K : Cat]',
-            1142
+            1555
         )
     })
 ]);
@@ -674,6 +614,7 @@ const targetExternalSymbols = Object.freeze([
     displayedTransformationClassifier,
     displayedTransformationCategory,
     displayedIdentity,
+    cart,Q,C2,Op,Fun,Cart,index,diagram,identityRoot,strictView,
     displayedComposition,
     displayedOpposite,
     displayedOppositeAction,
@@ -719,8 +660,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
             },
             policy: 'opaque-signature' as const,
             evidence:
-                'Exact active existing-authority interface approved by ' +
-                'D-DTTLF-USABILITY-021'
+                'Current foundations migration: exact native relative-to-identity action interface'
         }))
     }
 );
@@ -922,7 +862,7 @@ const objectProjectionRule = (): CoreLfTransferRuntimeRule => {
         )),
         provenance: source(
             'rule fapp0 (@tdapp1_int_func_transfd $K $E $D $FF $GG) $ϵ',
-            1141
+            1554
         )
     };
 };
@@ -964,7 +904,7 @@ const nextHomProjectionRule = (): CoreLfTransferRuntimeRule => {
         provenance: source(
             'rule @fapp1_func _ _ ' +
                 '(@tdapp1_int_func_transfd $K $E $D $FF $GG) $ϵ $ϵ\'',
-            1143
+            1556
         )
     };
 };

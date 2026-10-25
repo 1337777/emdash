@@ -5806,97 +5806,20 @@ export class CoreCategoricalProgram {
             GG,
             nodeProvenance
         );
-        const oppositeE = this.displayedNdHigherFoundationCall(
-            'displayedOpposite',
-            [
-                { plicity: 'implicit', value: K },
-                { plicity: 'explicit', value: E }
-            ],
-            nodeProvenance
-        );
-        const oppositeD = this.displayedNdHigherFoundationCall(
-            'displayedOpposite',
-            [
-                { plicity: 'implicit', value: K },
-                { plicity: 'explicit', value: D }
-            ],
-            nodeProvenance
-        );
-        const homTargetE = this.displayedNdHigherFoundationCall(
-            'displayedHomTarget',
-            [
-                { plicity: 'implicit', value: K },
-                { plicity: 'explicit', value: E }
-            ],
-            nodeProvenance
-        );
-        const displayedIdentity = kernelCall(
-            kernelFree(
-                coreCategoricalFibredStructureCoreName(
-                    'displayed-identity'
-                ),
-                nodeProvenance
-            ),
-            [
-                { plicity: 'implicit', value: K },
-                { plicity: 'implicit', value: E }
-            ],
-            nodeProvenance
-        );
-        const sourceInternalHom =
-            this.displayedNdHigherFoundationCall(
-                'displayedInternalHom',
-                [
-                    { plicity: 'implicit', value: K },
-                    { plicity: 'implicit', value: E },
-                    { plicity: 'implicit', value: E },
-                    { plicity: 'explicit', value: displayedIdentity }
-                ],
-                nodeProvenance
-            );
-        const targetInternalHom =
-            this.displayedNdHigherFoundationCall(
-                'displayedInternalHom',
-                [
-                    { plicity: 'implicit', value: K },
-                    { plicity: 'implicit', value: E },
-                    { plicity: 'implicit', value: D },
-                    { plicity: 'explicit', value: GG }
-                ],
-                nodeProvenance
-            );
-        const oppositeAction =
-            this.displayedNdHigherFoundationCall(
-                'displayedOppositeAction',
-                [
-                    { plicity: 'implicit', value: K },
-                    { plicity: 'implicit', value: E },
-                    { plicity: 'implicit', value: D },
-                    { plicity: 'explicit', value: FF }
-                ],
-                nodeProvenance
-            );
-        const targetComposite =
-            this.displayedNdHigherFoundationCall(
-                'displayedComposition',
-                [
-                    { plicity: 'implicit', value: K },
-                    { plicity: 'implicit', value: oppositeE },
-                    { plicity: 'implicit', value: oppositeD },
-                    { plicity: 'implicit', value: homTargetE },
-                    { plicity: 'explicit', value: targetInternalHom },
-                    { plicity: 'explicit', value: oppositeAction }
-                ],
-                nodeProvenance
-            );
-        const targetCategory = this.displayedTransforCategoryExpression(
-            K,
-            oppositeE,
-            homTargetE,
-            sourceInternalHom,
-            targetComposite,
-            nodeProvenance
-        );
+        const native = displayedNdHigherFoundationModule();
+        const homTargetE = native.coreNativeHomdTargetFamily(K,E,nodeProvenance);
+        const nativeCall=(name:string,args:KernelExpression[],implicitCount=0)=>kernelCall(
+            kernelFree(native.coreNativeHomdCoreName(name),nodeProvenance),
+            args.map((value,index)=>({value,plicity:index<implicitCount?'implicit':'explicit'})),nodeProvenance);
+        const relative=this.displayedNdHigherFoundationCall('displayedInternalHom',[
+            {plicity:'implicit',value:K},{plicity:'implicit',value:E},{plicity:'implicit',value:D},
+            {plicity:'explicit',value:GG}],nodeProvenance);
+        const sourceComposite=this.displayedNdHigherFoundationCall('displayedComposition',[
+            {plicity:'implicit',value:K},{plicity:'implicit',value:E},{plicity:'implicit',value:D},
+            {plicity:'implicit',value:homTargetE},{plicity:'explicit',value:relative},{plicity:'explicit',value:FF}],nodeProvenance);
+        const targetIdentity=nativeCall('strict_transfor',[K,coreCategoricalFamilyCoefficient(nodeProvenance),E,homTargetE,
+            nativeCall('homd_id_int',[K,E],1)],4);
+        const targetCategory=this.displayedTransforCategoryExpression(K,E,homTargetE,sourceComposite,targetIdentity,nodeProvenance);
         const action = this.displayedNdHigherTargetCall(
             'action-functor',
             [

@@ -156,13 +156,13 @@ describe('DISPLAYED-ND-HIGHER-TARGET-1A', () => {
                         id:
                             'categorical.displayed-nd-higher.' +
                             'object-projection',
-                        ordinal: 1141
+                        ordinal: 1554
                     },
                     {
                         id:
                             'categorical.displayed-nd-higher.' +
                             'next-hom-projection',
-                        ordinal: 1143
+                        ordinal: 1556
                     }
                 ]
             );
