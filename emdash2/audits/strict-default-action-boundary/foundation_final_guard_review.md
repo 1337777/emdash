@@ -1,7 +1,9 @@
 # Guard the evaluated-action comparison against unrelated factorizations
 
-Status: focused regression repair passes; the complete original-context
-aggregate is rerunning. Predecessors: `73888e52` and static review `b37e6ef6`.
+Status: focused and matched original-context regression repair pass. The
+aggregate subsequently stops at a stale strict-composition reviewer negative;
+see the [continuation](foundation_final_composition_review.md). Predecessors:
+`73888e52` and static review `b37e6ef6`.
 The earlier broad congruence is not selected for adoption.
 
 The 404-input run `20261025T034135Z-54072a183c3e4dbe95607839a2700f8c` fails
@@ -35,10 +37,11 @@ remain. No proof body was replaced to obtain this result.
 
 The [verification](foundation_final_guard_verification.json) retains the failed
 aggregate, passing focused run, source maps, updated authoring pins and exact
-21-output replay. The focused and aggregate import contexts differ; this
-result does not claim a whole-context regression pass or a performance gain.
-The complete 15-reviewer aggregate is therefore rerunning at the same
-1800s/4GiB profile. Check its actual receipt before adoption.
+21-output replay. The focused and aggregate import contexts differ; this focused
+result alone did not establish the whole-context repair. The subsequent matched
+full run now supplies that regression evidence, with the guarded clause as its
+only changed input. The separate full-group outcome remains pending; check its
+actual receipt before adoption.
 
 The earlier [static review](foundation_shared_delta_review.md) remains useful
 for data retention and orientation hygiene, but it did not certify inference

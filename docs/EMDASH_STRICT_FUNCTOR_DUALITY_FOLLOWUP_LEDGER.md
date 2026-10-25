@@ -41,6 +41,24 @@ audit, is unaffected.
 
 ## Foundation-reviewer follow-up — 2026-10-25, unadopted
 
+The complete final 15-reviewer aggregate now passes with all 60 original
+assertions (55 positive/five negative): 797.794s/2,838,040KiB at 1800s/4GiB,
+404 exact inputs and subject reduction enabled. The assembled candidate
+matches that receipt exactly. The complete 791-owner library check is now
+running under the measured 1800s/6GiB aggregate profile with inspected memory
+headroom. Affected earlier consumer scopes still need requalification across
+the last two owner corrections; this does not yet raise the official baseline
+counts or discharge R01–R03/R07/R12/R14.
+
+The matched full-context rerun now passes the guarded image/coimage proof
+and twelve original reviewers. It fails later only at the old zero-cone
+homology functor noncomposition assertion. The
+[corrected complete reviewer](../emdash2/audits/strict-default-action-boundary/foundation_final_composition_review.md)
+passes after making that same equation positive under strict defaults;
+the other assertions and wrong-arrow negative remain. No mathematical source
+changes. The 15-file aggregate is rerunning with 55 positives/five negatives;
+the official qualified baseline and R01–R03 remain unchanged.
+
 The broader aggregate exposes a real image/coimage proof regression in the
 generic mixed-action congruence. The [guarded repair](../emdash2/audits/strict-default-action-boundary/foundation_final_guard_review.md)
 limits inference to the same supplied cell components. Its focused 83-input

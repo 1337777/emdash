@@ -46,6 +46,15 @@ def migrate(name, text):
     assert len(edits) == spec['walkingArrowViews'], name
     for start, end, body in reversed(edits):
         text = text[:start] + body + text[end:]
+    if 'strictCompositionAssertion' in spec:
+        assertions = list(re.finditer(r'(?m)^assert(?:not)?\b.*?;', text, re.S))
+        assert len(assertions) == 9, name
+        target = assertions[spec['strictCompositionAssertion'] - 1]
+        assert target.group().startswith('assertnot')
+        assert '@comp_fapp0 C' in target.group()
+        text = text[:target.start()] + target.group().replace('assertnot', 'assert', 1) + text[target.end():]
+        text = text.replace('// Normal identity, qualified composition and further Hom action on the native source.',
+            '// Strict-default identity, composition and further Hom action on the native source.')
     if 'candidateSha256' in spec:
         assert sha(text) == spec['candidateSha256'], name
     return text

@@ -1,5 +1,5 @@
 {
-  "status": "same-cell guard passes focused tail and former image/coimage failure; full requalification pending",
+  "status": "guarded full run passed first12 original reviewers; original zero-cone composition negative migrating to strict-default positive",
   "parentCheckpoint": "0b0b8be5",
   "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
   "files": {
@@ -222,7 +222,9 @@
         0
       ],
       "walkingArrowViews": 0,
-      "candidateSha256": "80111df328daace979a48f30eb6d9bf69d1e00b315128688b872ba63b28468f6"
+      "strictCompositionAssertion": 2,
+      "previousCandidateSha256": "80111df328daace979a48f30eb6d9bf69d1e00b315128688b872ba63b28468f6",
+      "candidateSha256": "9444c96510948d8a429f62819c69a681b5e2f6afd40f57252c91534cc561b62f"
     },
     "examples/zero_arrow_family_action_paths.lp": {
       "sourceSha256": "947f6aac32ccdd48b587c230647b907cb176ea13a5423248c62ed70024ffe332",

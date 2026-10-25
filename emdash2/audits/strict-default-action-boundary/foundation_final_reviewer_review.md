@@ -3,18 +3,25 @@
 Current qualification: the broad mixed-action congruence recorded in the
 initial candidate below fails the later image/coimage proof. It is superseded
 by the [same-cell guard](foundation_final_guard_review.md), whose focused check
-passes and whose full-context aggregate is rerunning. The current recipe emits
-that guarded version. The earlier receipt/authoring versions remain historical
+passes. Its subsequent full-context run passes that proof and the first twelve
+original reviewers; it then exposes one stale strict-composition negative.
+The [composition correction](foundation_final_composition_review.md) retains
+that equation as a positive and passes the complete affected reviewer. The
+current recipe emits those corrections; the complete final 15-file group now
+passes at its 404-input snapshot. Broader shared-source qualification remains.
+The earlier receipt/authoring versions remain historical
 evidence at `73888e52`, not a current full-group qualification.
 
 Status: source-pinned candidate; the complete two-file tail and four typed
-controls pass. The full 15-reviewer aggregate is running with increased time
-headroom. No production adoption or increase in qualified counts is claimed.
+controls pass. The complete 15-reviewer aggregate also passes, as recorded in
+the continuation above. No production adoption or increase in consolidated
+qualified counts is claimed.
 Parent checkpoint: `0b0b8be5`.
 
-The 15 original files contain 15 declarations and 60 assertions (54 positive,
-six negative). Every assertion, its polarity, supplied operational map/inverse
-and OneCat guard is retained. The changes follow the already migrated owners:
+The 15 original files contain 15 declarations and 60 assertions. The final
+candidate has 55 positives/five negatives: the zero-cone functor composition
+assertion becomes positive under strict defaults. Every assertion, supplied
+operational map/inverse and OneCat guard is retained. The changes follow the already migrated owners:
 oplax arrow diagrams, total-dual initial objects, actual fixed evaluation and
 the odd-dual view of an introduced ordinary arrow. Ambient base transformations
 remain lax. The [recipe](foundation_final_reviewer_candidate.py) and

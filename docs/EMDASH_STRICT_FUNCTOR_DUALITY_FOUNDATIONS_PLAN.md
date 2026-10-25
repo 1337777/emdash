@@ -75,6 +75,48 @@ rewriting and automatic branch merging remain unauthorized.
 
 ### Current migration tranche
 
+**All final 15 original reviewers now pass** in the 404-input aggregate:
+`20261025T042241Z-3170b69f31ba4b10b98677e1baf83ddd`, 797.794s/2,838,040KiB at
+1800s/4GiB/o=20, subject reduction enabled. It retains 55 positive/five negative
+assertions and 15 original declarations. The matched prior run differs only in
+the corrected strict-composition reviewer assertion/comment. Every input
+matches the complete assembled candidate exactly.
+
+The prepared complete **791-owner library gate is now running** on that
+snapshot (793 inputs), at explicit 1800s/6GiB. Earlier complete integration
+required 6GiB after a measured 4GiB allocation failure and passed at
+1191.163s/4,028,344KiB; available memory before this launch was 21,000MiB.
+Normal resource defaults and all guards remain unchanged. This is the next
+required shared-source qualification, not an already completed result.
+The former 74-reviewer result precedes the last two owner corrections; carry
+only unchanged-scope evidence and requalify affected consumers before adoption.
+The official production-emitter counts and terminal runtime obligations remain
+unchanged until those gates complete.
+
+The guarded 404-input run passes the image/coimage regression and the first
+twelve complete original reviewers, including native snake inputs/zeros. It
+stops at the zero-cone homology reviewer's old composition noncomputation
+assertion (`20261025T040130Z-e0c62e41c7984c63bb701f17475b79d4`,
+800.198s/2,834,396KiB). A matched source/settings comparison confirms the guard
+was the only changed input relative to the image/coimage failure.
+
+The [strict-composition correction](../emdash2/audits/strict-default-action-boundary/foundation_final_composition_review.md)
+keeps the same equation as a positive under strict defaults, retaining its
+inputs, all other assertions and the wrong-arrow negative. The complete
+affected reviewer passes in 101.745s/333,252KiB at 300s/2GiB. No mathematical
+source changes. The full 15-reviewer group (55 positives/five negatives) is
+rerunning at 1800s/4GiB; no aggregate success or qualified-count increase is
+claimed yet. [Evidence](../emdash2/audits/strict-default-action-boundary/foundation_final_composition_verification.json)
+retains the matched regression repair and source-pinned assertion migration.
+
+The [complete-source assembler](../emdash2/audits/strict-default-action-boundary/foundations_complete_candidate.py)
+replays the retained recipes into one fresh snapshot. All 1,387 original
+library/reviewer files match the current staged candidates exactly, with no
+compiled objects. Its generated 791-owner import driver is ready for the next
+library gate. The central diagnostic and its five obligations remain separate;
+auxiliary audit files in the temporary package are not production sources or
+additional qualified files. The assembly adds no execution qualification.
+
 The broader final-reviewer run found an actual regression in the unchanged
 image/coimage proof (`20261025T034135Z-54072a183c3e4dbe95607839a2700f8c`,
 717.652s/2,558,740KiB). The generic mixed-action congruence is therefore not
