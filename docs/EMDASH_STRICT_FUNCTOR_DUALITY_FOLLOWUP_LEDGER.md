@@ -61,6 +61,15 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [three-level context frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_chain2_review.md)
+passes13 focused tests and native emitted-map/cell conformance, plus
+typecheck/lint. Its product internal-cell rule now uses the selected coefficient
+and Cartesian product construction, preserving the paired cell and ordinary
+reindexing. The four local clauses and five inherited rules are unchanged in
+scope. Next is the higher/ND audit's stale fixed-evaluation owner lookup and
+the actual shifted-duality/Homd interface review. Those remaining pins are
+not refreshed by this checkpoint; full TypeScript/production integration stays open.
+
 The [recursive displayed-chain frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_chain_review.md)
 passes14 focused tests and native emitted-term conformance, with17 generic
 checker tests and50 metadata/review tests. Context construction names the native stable Sigma projection

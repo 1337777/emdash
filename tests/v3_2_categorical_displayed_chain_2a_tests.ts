@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { resolve } from 'node:path';
 import {
     describe,
     it
@@ -14,7 +15,10 @@ import {
     CoreCategoricalSlotToken,
     CoreCategoricalTerm,
     CoreLfComparisonResult,
-    serializeCoreCategoricalExpression
+    serializeCoreCategoricalExpression,
+    serializeKernelExpression,
+    compileCoreCategoricalDisplayedChain2aClosureRuntime,
+    checkLambdapiProbe
 } from '../src/v3_2';
 
 const runtimeRuleIds = (
@@ -218,6 +222,61 @@ const applyAt = (
 );
 
 describe('DISPLAYED-CHAIN-2A mixed contextual consumer', () => {
+    it('checks emitted three-level maps and paired internal action in Lambdapi', {
+        skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_CHAIN2_PROBES !== '1'
+    }, () => {
+        const value = fixture(), e = value.emdash, maps = abstractions(value);
+        const p0 = makePoint(value, '0'), p1 = makePoint(value, '1');
+        const p = e.hom('p', value.K, p0.k, p1.k);
+        const alpha = e.hom('alpha', e.fibre(value.A, p1.k),
+            e.apply(e.familyTransport(value.A, p), p0.a), p1.a);
+        const qA = e.sigmaArrow(value.A, p0.a, p1.a, p, alpha);
+        const rho = e.hom('rho', e.fibre(value.P, p1.ka),
+            e.apply(e.familyTransport(value.P, qA), p0.product.groupedFibreObject), p1.product.groupedFibreObject);
+        const qP = e.sigmaArrow(value.P, p0.product.groupedFibreObject, p1.product.groupedFibreObject, qA, rho);
+        const e0 = e.object('e0', e.fibre(value.D, p0.product.groupedObject));
+        const terms = [maps.a, maps.pair, maps.d, applyAt(value, maps.pair, p0), p0.product.groupedFibreObject,
+            e.displayedFunctorInternalCell(maps.pair, qP, p0.d),
+            e.displayedFunctorInternalCell(maps.pair, qP, e0)].map(term => e.compile(term));
+        const c = compileCoreCategoricalDisplayedChain2aClosureRuntime(), chain = c.prerequisite;
+        const evaluation = chain.prerequisite, pi = evaluation.prerequisite, weaken = pi.prerequisite;
+        const transfd = weaken.prerequisite, binder = transfd.prerequisite, structure = binder.prerequisite;
+        const product = structure.prerequisite, comprehension = product.prerequisite;
+        const composition = comprehension.prerequisite, dependent = composition.dependent, structural = dependent.structural;
+        const modules = [structural.initialDeclarations, structural.compiled, dependent.compiled, composition.compiled,
+            comprehension.compiled, product.compiled, structure.compiled, binder.compiled, transfd.compiled,
+            weaken.compiled, pi.compiled, evaluation.prerequisiteCompiled, evaluation.compiled,
+            chain.prerequisiteCompiled, chain.compiled, c.compiled];
+        const references = Object.assign({}, ...modules.flatMap(module => [
+            module.externalFreeReferences, module.externalTransparentDefinitions
+        ]));
+        const serialize = (term: Parameters<typeof serializeKernelExpression>[0]) =>
+            serializeKernelExpression(term, { externalFreeReferences: references });
+        const assumptions = [p0.k,p1.k,p0.a,p1.a,p0.b,p1.b,p0.c,p1.c,p0.d,p1.d,p,alpha,rho,e0].map(term => {
+            const compiled = e.compile(term);
+            assert.equal(compiled.explicitTerm.tag, 'reference');
+            return `symbol ${serialize(compiled.explicitTerm)} : ${serialize(compiled.expectedType)};`;
+        });
+        const source = [
+            'require open emdash.emdash3_2;',
+            'symbol K : Cat;', 'symbol A : τ (Catd K);',
+            'symbol B : τ (Catd (@Sigma_cat K A));', 'symbol C : τ (Catd (@Sigma_cat K A));',
+            'symbol P : τ (Catd (@Sigma_cat K A)) ≔ @comp_cat_fapp0 (@Sigma_cat K A) (Product_cat Cat_cart Cat_cart) Cat_cart (@uncurry_func Cat_cart Cat_cart Cat_cart Product_cat_coeff_func) (Struct_sigma B C);',
+            'symbol D : τ (Catd (@Sigma_cat (@Sigma_cat K A) P));',
+            ...assumptions,
+            ...terms.map(term => `assert ⊢ ${serialize(term.explicitTerm)} : ${serialize(term.expectedType)};`),
+            `assert ⊢ ${serialize(terms[3].explicitTerm)} ≡ ${serialize(terms[4].explicitTerm)};`,
+            `assert ⊢ ${serialize(terms[5].explicitTerm)} ≡ ${serialize(terms[6].explicitTerm)};`,
+            `assertnot ⊢ ${serialize(terms[5].explicitTerm)} ≡ rho;`
+        ].join('\n');
+        assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/);
+        const result = checkLambdapiProbe({ source, sourceMap: [] }, {
+            packageRoot: resolve(__dirname, '../emdash2'), timeoutMs: 60_000
+        });
+        assert.equal(result.accepted, true, result.diagnostics + '\n' + source);
+        assert.equal(result.timedOut, false);
+    });
+
     it('compiles the exact mixed telescope once with frozen evidence', () => {
         const value = fixture();
         const compiledAbstractions = abstractions(value, true);

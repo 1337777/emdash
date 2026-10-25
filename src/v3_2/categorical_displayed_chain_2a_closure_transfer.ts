@@ -63,7 +63,7 @@ CORE_CATEGORICAL_DISPLAYED_CHAIN_2A_CLOSURE_TRANSFER_REVISION =
 
 export const
 CORE_CATEGORICAL_DISPLAYED_CHAIN_2A_CLOSURE_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -75,8 +75,8 @@ const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
 const homCategory =
     coreDirectedContinuationTransferSymbol('hom-category');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -96,6 +96,7 @@ const {
     productGroupoid
 } = CORE_CATEGORICAL_FIBRED_PRODUCT_SYMBOLS;
 const functorCategory = symbol('Functor_cat');
+const cartesianFunctorCategory = symbol('Functor_cart_cat');
 const functorComposition = symbol('comp_cat_fapp0');
 const productCategory = symbol('Product_cat');
 const productPair = symbol('Product_pair');
@@ -103,7 +104,7 @@ const productMap = symbol('Product_map_func');
 const productLeftProjection = symbol('Product_projL_func');
 const productRightProjection = symbol('Product_projR_func');
 const uncurryPackage = symbol('uncurry_func_func');
-const internalProductFunctor = symbol('Product_cat_func');
+const coefficientProductFunctor = symbol('Product_cat_coeff_func');
 const displayedProductPair = symbol('Product_pair_funcd');
 const displayedTransportLeft =
     symbol('functord_transport_lhs_func');
@@ -278,6 +279,16 @@ const functorCategoryAt = (
         { plicity: 'explicit', value: target }
     ]);
 
+const cartesianFunctorCategoryAt = (
+    builder: CoreLfTransferScopedBuilder,
+    source: CoreLfTransferBuilderExpression,
+    target: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression =>
+    globalCall(builder, cartesianFunctorCategory, [
+        { plicity: 'explicit', value: source },
+        { plicity: 'explicit', value: target }
+    ]);
+
 const functorObjectAt = (
     builder: CoreLfTransferScopedBuilder,
     source: CoreLfTransferBuilderExpression,
@@ -339,7 +350,7 @@ const fibre = (
     functorObjectAt(
         builder,
         base,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         family,
         point
     );
@@ -456,15 +467,15 @@ const transparentDisplayedProduct = (
     left: CoreLfTransferBuilderExpression,
     right: CoreLfTransferBuilderExpression
 ): CoreLfTransferBuilderExpression => {
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const catProduct = productCategoryAt(builder, cat, cat);
-    const catEndofunctors = functorCategoryAt(builder, cat, cat);
+    const catEndofunctors = cartesianFunctorCategoryAt(builder, cat, cat);
     const uncurriedProduct = functorObjectAt(
         builder,
-        functorCategoryAt(builder, cat, catEndofunctors),
-        functorCategoryAt(builder, catProduct, cat),
+        cartesianFunctorCategoryAt(builder, cat, catEndofunctors),
+        cartesianFunctorCategoryAt(builder, catProduct, cat),
         uncurryPackageAt(builder, cat, cat, cat),
-        builder.global(internalProductFunctor)
+        builder.global(coefficientProductFunctor)
     );
     const familyCategory = functorCategoryAt(builder, base, cat);
     return composeFunctors(
@@ -890,7 +901,7 @@ const displayedProductPairInternalCellRule =
         left: builder.pattern(displayedInternalCellAt(
             builder,
             K,
-            E,
+            builder.wildcard(E),
             builder.wildcard(product),
             displayedProductPairAt(
                 builder,
@@ -914,7 +925,7 @@ const displayedProductPairInternalCellRule =
             rightComponent.cell
         )),
         provenance: source(
-            'rule @fdapp1_int_cell $K $E _ ' +
+            'rule @fdapp1_int_cell $K _ _ ' +
                 '(@Product_pair_funcd $K $E $B $C $FF $GG) ' +
                 '$x $y $p $u'
         )
@@ -936,13 +947,14 @@ const runtimeExternalSymbols = Object.freeze([
     functorClassifier,
     coreDirectedContinuationTransferSymbol('hom-classifier'),
     homCategory,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     displayedFunctorCategory,
     functorObject,
     sigmaFirst,
     sigmaSecond,
     functorCategory,
+    cartesianFunctorCategory,
     functorComposition,
     productCategory,
     productPair,
@@ -950,7 +962,7 @@ const runtimeExternalSymbols = Object.freeze([
     productLeftProjection,
     productRightProjection,
     uncurryPackage,
-    internalProductFunctor,
+    coefficientProductFunctor,
     displayedProductPair,
     displayedTransportLeft,
     displayedTransportRight,

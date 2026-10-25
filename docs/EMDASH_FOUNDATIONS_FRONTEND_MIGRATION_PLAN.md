@@ -194,6 +194,16 @@ at the old coefficient in the chain-2A product internal-cell rule. Existing
 section-pullback dependency links are preserved for Pathind consumers.
 Next migrate chain-2A, then the higher/mixed/Homd profiles and final integration.
 
+
+The [three-level context frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_chain2_review.md)
+passes13 focused tests and native emitted-map/cell conformance, plus
+typecheck/lint. Its product internal-cell rule now uses the selected coefficient
+and Cartesian product construction, preserving the paired cell and ordinary
+reindexing. The four local clauses and five inherited rules are unchanged in
+scope. Next is the higher/ND audit's stale fixed-evaluation owner lookup and
+the actual shifted-duality/Homd interface review. Those remaining pins are
+not refreshed by this checkpoint; full TypeScript/production integration stays open.
+
 ## Varying-base Pi: selected subject-checking extension
 
 The native Pi component is the whole composite `Pi_func(K) ∘
