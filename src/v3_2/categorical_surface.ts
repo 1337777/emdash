@@ -5060,7 +5060,7 @@ export class CoreCategoricalScopedBuilder {
                 displayedType.targetFunctor
             )
         };
-        const result = this.fibredTransfdCall(
+        const strictComponent = this.fibredTransfdCall(
             'displayed-component',
             [
                 {
@@ -5091,6 +5091,18 @@ export class CoreCategoricalScopedBuilder {
             ],
             nodeProvenance
         );
+        // Native displayed components live in the Cartesian Hom. Expose
+        // their ordinary transfor observation without changing that carrier.
+        const result = kernelCall(kernelFree(
+            coreCategoricalFibredProductCoreName('strict-transfor-view'),
+            nodeProvenance
+        ), [
+            { plicity: 'implicit', value: sourceFibre },
+            { plicity: 'implicit', value: targetFibre },
+            { plicity: 'implicit', value: resultType.sourceFunctor },
+            { plicity: 'implicit', value: resultType.targetFunctor },
+            { plicity: 'explicit', value: strictComponent }
+        ], nodeProvenance);
         return this.closedDependentApplication(
             subject,
             argument,

@@ -18,9 +18,6 @@ import {
     compileCoreCategoricalFibredWeakenReindexTransfer
 } from './categorical_fibred_weaken_reindex_transfer';
 import {
-    CORE_CATEGORICAL_FIBRED_TRANSFD_SOURCE_SHA256
-} from './categorical_fibred_transfd_transfer';
-import {
     CORE_CATEGORICAL_STRUCTURAL_TRANSFER_LINKAGE
 } from './categorical_structural_transfer';
 import {
@@ -76,6 +73,10 @@ CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_TRANSFER_REVISION =
     'FIBRED-DEPENDENT-TARGET-1-EXISTING-AUTHORITY-TRANSFER-D060-1' as const;
 
 const MODULE_ID = 'emdash.emdash3_2';
+
+// Retained until this downstream profile receives its own migration review.
+const CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_SOURCE_SHA256 =
+    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
 const symbol = (name: string): CoreLfQualifiedSymbol =>
     coreLfQualifiedSymbol(MODULE_ID, name);
 
@@ -464,7 +465,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     moduleId: MODULE_ID,
     fragmentId: 'fibred-dependent-target-1-signatures',
     authorityPath: 'emdash2/emdash3_2.lp',
-    sourceSha256: CORE_CATEGORICAL_FIBRED_TRANSFD_SOURCE_SHA256,
+    sourceSha256: CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_SOURCE_SHA256,
     dependencies: [],
     externalSymbols: externalSymbols.map(external => ({
         symbol: external,
@@ -857,7 +858,7 @@ const runtimeModuleFor = (
     fragmentId:
         `fibred-dependent-target-1-${suffix.toLowerCase()}`,
     authorityPath: 'emdash2/emdash3_2.lp',
-    sourceSha256: CORE_CATEGORICAL_FIBRED_TRANSFD_SOURCE_SHA256,
+    sourceSha256: CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_SOURCE_SHA256,
     dependencies: [],
     externalSymbols: [
         ...externalSymbols,
@@ -972,7 +973,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     moduleId: MODULE_ID,
     fragmentId: 'fibred-dependent-target-1-proof',
     authorityPath: 'emdash2/emdash3_2.lp',
-    sourceSha256: CORE_CATEGORICAL_FIBRED_TRANSFD_SOURCE_SHA256,
+    sourceSha256: CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_SOURCE_SHA256,
     dependencies: [],
     externalSymbols: [
         category,

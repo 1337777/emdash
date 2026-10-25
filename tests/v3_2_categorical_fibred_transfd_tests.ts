@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { resolve } from 'node:path';
 import {
     describe,
     it
@@ -11,7 +12,12 @@ import {
     CoreCategoricalFrontendError,
     CoreCategoricalProgram,
     CoreCategoricalProgramError,
-    CoreCategoricalSlotToken
+    CoreCategoricalSlotToken,
+    checkLambdapiProbe,
+    compileCoreCategoricalFibredTransfdTransfer,
+    serializeKernelExpression,
+    kernelFree,
+    provenance
 } from '../src/v3_2';
 
 const fixture = () => {
@@ -54,7 +60,84 @@ const fixture = () => {
     };
 };
 
+const nativeTransfer = () => {
+    const c = compileCoreCategoricalFibredTransfdTransfer();
+    const binder = c.prerequisite, structure = binder.prerequisite;
+    const product = structure.prerequisite, comprehension = product.prerequisite;
+    const composition = comprehension.prerequisite, dependent = composition.dependent;
+    const structural = dependent.structural;
+    const modules = [structural.initialDeclarations, structural.compiled,
+        dependent.compiled, composition.compiled, comprehension.compiled,
+        product.compiled, structure.compiled, binder.compiled, c.compiled];
+    const references = Object.assign({}, ...modules.flatMap(module => [
+        module.externalFreeReferences, module.externalTransparentDefinitions
+    ]));
+    return { c, serialize: (term: Parameters<typeof serializeKernelExpression>[0]) =>
+        serializeKernelExpression(term, { externalFreeReferences: references }) };
+};
+
 describe('FIBRED-TRANSFD-1 end-user usability', () => {
+    it('checks emitted components, higher cells and vertical points in Lambdapi', {
+        skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_FIBRED_TRANSFD_PROBES !== '1'
+    }, () => {
+        const w = fixture();
+        const { serialize } = nativeTransfer();
+        const component = w.emdash.displayedTransforComponent(w.eta, w.x);
+        const point = w.emdash.displayedTransforPoint(w.eta, w.x, w.u);
+        const higher = w.emdash.displayedTransforNaturality(w.eta, w.p, w.u);
+        const composite = w.emdash.composeDisplayedTransfor(w.theta, w.eta);
+        const compositePoint = w.emdash.displayedTransforPoint(composite, w.x, w.u);
+        const terms = [component, point, higher, compositePoint].map(term => w.emdash.compile(term));
+        const source = [
+            'require open emdash.emdash3_2;',
+            'symbol K : Cat;', 'symbol E : τ (Catd K);', 'symbol D : τ (Catd K);',
+            'symbol FF : τ (Functord E D);', 'symbol GG : τ (Functord E D);',
+            'symbol HH : τ (Functord E D);',
+            'symbol eta : τ (Transfd FF GG);', 'symbol theta : τ (Transfd GG HH);',
+            'symbol x : τ (Obj K);', 'symbol y : τ (Obj K);',
+            'symbol p : τ (Hom K x y);', 'symbol u : τ (Obj (Fibre_cat E x));',
+            ...terms.map(term => `assert ⊢ ${serialize(term.explicitTerm)} : ${serialize(term.expectedType)};`),
+            `assert ⊢ ${serialize(terms[3].explicitTerm)} ≡ @comp_fapp0 (Fibre_cat D x) _ _ _ (@Fibre_transf_app K E D GG HH theta x u) (@Fibre_transf_app K E D FF GG eta x u);`
+        ].join('\n');
+        assert.doesNotMatch(source, /dttlf_|emdash_v3_2_/);
+        const result = checkLambdapiProbe({ source, sourceMap: [] }, {
+            packageRoot: resolve(__dirname, '../emdash2'), timeoutMs: 60_000
+        });
+        assert.equal(result.accepted, true, result.diagnostics + '\n' + source);
+        assert.equal(result.timedOut, false);
+    });
+
+    it('checks the Cartesian horizontal observation without admitting a lax carrier', {
+        skip: process.env.EMDASH_RUN_LAMBDAPI_CATEGORICAL_FIBRED_TRANSFD_PROBES !== '1'
+    }, () => {
+        const { c, serialize } = nativeTransfer();
+        const rule = c.runtime.rules.find(r => r.id === 'categorical.strict-transfor-view.horizontal');
+        assert.ok(rule);
+        const site = provenance('derived', 'native horizontal observation');
+        const left = c.runtime.instantiateRuleLeft(rule,
+            rule.variables.map(v => kernelFree(v.name, site)), site);
+        const result = c.runtime.rewriteHead(left);
+        assert.equal(result.status, 'rewritten');
+        if (result.status !== 'rewritten') return;
+        assert.equal(result.ruleId, rule.id);
+        const source = [
+            'require open emdash.emdash3_2;',
+            'symbol X : Cat;', 'symbol Y : Cat;', 'symbol Z : Cat;',
+            'symbol F : τ (Functor X Y);', 'symbol Fp : τ (Functor X Y);',
+            'symbol G : τ (Functor Y Z);', 'symbol Gp : τ (Functor Y Z);',
+            'symbol U : τ (@StrictTransfor X Y F Fp);',
+            'symbol V : τ (@StrictTransfor Y Z G Gp);',
+            `assert ⊢ ${serialize(left)} ≡ ${serialize(result.after)};`,
+            'symbol raw : τ (@Transf X Y F Fp);',
+            'assertnot ⊢ @strict_transfor X Y F Fp raw : τ (@Transf X Y F Fp);'
+        ].join('\n');
+        const checked = checkLambdapiProbe({ source, sourceMap: [] }, {
+            packageRoot: resolve(__dirname, '../emdash2'), timeoutMs: 60_000
+        });
+        assert.equal(checked.accepted, true, checked.diagnostics + '\n' + source);
+        assert.equal(checked.timedOut, false);
+    });
+
     it('eta-lowers λ k :^nd K. eta[k] after one callback', () => {
         const { emdash, FF, GG, eta } = fixture();
         let callbacks = 0;

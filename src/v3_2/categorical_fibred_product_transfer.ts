@@ -3408,7 +3408,8 @@ export type CoreCategoricalFibredProductSymbolId =
     | 'product-left-action'
     | 'fixed-right-product-map'
     | 'coefficient-product-functor'
-    | 'coefficient-partial-product-functor';
+    | 'coefficient-partial-product-functor'
+    | 'strict-transfor-view';
 
 const symbolById:
 Readonly<Record<
@@ -3424,7 +3425,8 @@ Readonly<Record<
     'product-left-action': productLeftAction,
     'fixed-right-product-map': fixedRightProductMap,
     'coefficient-product-functor': coefficientProductFunctor,
-    'coefficient-partial-product-functor': coefficientPartialProductFunctor
+    'coefficient-partial-product-functor': coefficientPartialProductFunctor,
+    'strict-transfor-view': strictTransforView
 });
 
 export function coreCategoricalFibredProductCoreName(

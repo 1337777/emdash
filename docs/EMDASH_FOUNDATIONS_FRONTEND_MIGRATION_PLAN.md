@@ -35,6 +35,16 @@ either source (inductive/constructor or local mirror). This is an inventory,
 not 150 semantic qualifications. Prefix provenance can stay unchanged while
 the declaration's actual type changes; review complete declarations.
 
+The displayed-transformation frontend now follows the native strict fibre
+carrier and ordinary `strict_transfor` observation. Eight declarations,
+twenty-one runtime clauses and one proof comparison pass the generic engine;
+32 focused/contract/review tests, two native consumer checks, typecheck and
+changed-file lint pass. Base-lax displayed FF is retained. Only the reviewed
+source pin is refreshed; downstream pins remain independent until reviewed.
+See the [displayed-transformation review](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transfd_review.md).
+Next are weakening/reindexing, the varying-base Pi package, and the corrected
+Homd frontend. The complete TypeScript gate remains required afterward.
+
 ## Migration order and acceptance
 
 Current F01 evidence: the shared `Cat_cart` coefficient, Sigma telescope and

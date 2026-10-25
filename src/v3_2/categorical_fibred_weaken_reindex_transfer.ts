@@ -18,7 +18,6 @@ import {
     CORE_CATEGORICAL_DEPENDENT_TRANSFER_LINKAGE
 } from './categorical_dependent_transfer';
 import {
-    CORE_CATEGORICAL_FIBRED_TRANSFD_SOURCE_SHA256,
     CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_LINKAGE,
     CoreCategoricalFibredTransfdCompilation,
     compileCoreCategoricalFibredTransfdTransfer
@@ -89,6 +88,10 @@ CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_TRANSFER_REVISION =
     'FIBRED-WEAKEN-REINDEX-1-EXISTING-AUTHORITY-TRANSFER-1' as const;
 
 const MODULE_ID = 'emdash.emdash3_2';
+
+// Retained until this downstream profile receives its own migration review.
+const CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_SOURCE_SHA256 =
+    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -970,7 +973,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     fragmentId: 'fibred-weaken-reindex-1-signatures',
     authorityPath: 'emdash2/emdash3_2.lp',
     sourceSha256:
-        CORE_CATEGORICAL_FIBRED_TRANSFD_SOURCE_SHA256,
+        CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_SOURCE_SHA256,
     dependencies: [],
     externalSymbols: externalSymbols.map(symbol => ({
         symbol,
@@ -1106,7 +1109,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
     fragmentId: 'fibred-weaken-reindex-1-runtime',
     authorityPath: 'emdash2/emdash3_2.lp',
     sourceSha256:
-        CORE_CATEGORICAL_FIBRED_TRANSFD_SOURCE_SHA256,
+        CORE_CATEGORICAL_FIBRED_WEAKEN_REINDEX_SOURCE_SHA256,
     dependencies: [],
     externalSymbols: [
         ...externalSymbols,

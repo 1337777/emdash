@@ -1,0 +1,126 @@
+{
+  "status": "displayed-transformation slice qualified at focused/native scope; higher frontend migration remains",
+  "previousCheckpoint": "69ddc79c966f5e54f62a45ec2971709b815f4dc3",
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "scope": {
+    "declarations": 8,
+    "runtimeRules": 21,
+    "proofRules": 1
+  },
+  "nativeInputHashes": {
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "1cf9721216b738926c79906a05c596be5b6190641338640e80450d1c07a8c863",
+    "src/v3_2/categorical_fibred_product_transfer.ts": "b11bcef72cb4b191cbd913d63b4edf5bbe78eace2d5422276aa80c9ebcad8ae5",
+    "src/v3_2/categorical_fibred_transfd_contract.ts": "486b060f1a85c24bba814bda67d218988b8d6eeaae0e8600497c3675f121385c",
+    "src/v3_2/categorical_fibred_transfd_transfer.ts": "4845bece8ea44ce43b84c80e126b3bfbe05e951ff6b2a2009c270722b9e04fbb",
+    "src/v3_2/categorical_surface.ts": "8d7eb1792b837f0221feaef0aa90b457519b1d799adc1ac3a1289749e5346afa",
+    "tests/v3_2_categorical_fibred_graduation_proposal_tests.ts": "b8abb2ce578c545e7f01e738a822049e8265426ba7e6d32457a9c42a005ec94d",
+    "tests/v3_2_categorical_fibred_transfd_tests.ts": "c05a17c0eb08a14323f66523a78c36a085ce2907244a70b80fc06f12a56a9e49",
+    "tests/v3_2_categorical_fibred_transfd_transfer_tests.ts": "0120fa98ac1abab9fd3737c1d3d22dd9573d1fc1d4c9ac9404ae2060f998c545"
+  },
+  "nativeReceipts": [
+    {
+      "id": "20261025T185327Z-cecaa87127eb4875a13db698c5e13b37",
+      "target": "tmp/elab0-P9eJ7i/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 47.68385994201526,
+      "childrenMaxRssKiB": 168776,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "0537a61380150abe6ce6ea38bac5c69562eb2d8c757fb4c9ebefeea695e818ff",
+      "log": "logs/check-runs/20261025T185327Z-cecaa87127eb4875a13db698c5e13b37.log",
+      "logSha256": "6644052522bdb6b40a028d1e09fee2e82e9130faaae11f2ad7835a2768bc7d6f",
+      "receiptFile": "emdash2/logs/check-runs/20261025T185327Z-cecaa87127eb4875a13db698c5e13b37.json",
+      "receiptSha256": "77e9ff3dabe2d14e4017353399c676a488084ab823b3006fd35797fa1f8fddba"
+    },
+    {
+      "id": "20261025T185421Z-fef00b30be3340f3b94087194b7746d9",
+      "target": "tmp/elab0-8BYHsl/probe.lp",
+      "outcome": "passed-fresh",
+      "checkerExit": 0,
+      "wallSeconds": 40.03019787208177,
+      "childrenMaxRssKiB": 168700,
+      "settings": {
+        "camlrunparam": "",
+        "fileMiB": 64,
+        "flags": [
+          "-w"
+        ],
+        "memoryMiB": 2048,
+        "ocamlrunparam": "o=20,v=1024",
+        "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+        "profile": "default",
+        "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+        "resourceBackend": "auto",
+        "runtimeEnvironment": {
+          "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+          "LD_LIBRARY_PATH": "",
+          "LD_PRELOAD": ""
+        },
+        "timeoutMs": 60000
+      },
+      "checker": {
+        "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      },
+      "inputSnapshot": "1bd2f9835285121002daaabaa9df2a4540298219f8341e02652e21f73604fea1",
+      "log": "logs/check-runs/20261025T185421Z-fef00b30be3340f3b94087194b7746d9.log",
+      "logSha256": "9266132e614e616360188dcac47c27476a7440df953b4cf04c2566af06d4bf17",
+      "receiptFile": "emdash2/logs/check-runs/20261025T185421Z-fef00b30be3340f3b94087194b7746d9.json",
+      "receiptSha256": "9e03dd2ea93150f724b33bbb041f06eec9010ea45d9653aeeee17b52f2f89019"
+    }
+  ],
+  "checks": {
+    "focusedConsumerAndDemo": "11 passed; 2 native opt-ins separately passed",
+    "native": "2 passed",
+    "metadata": "included in 32 passing focused/contract/proposal/review tests",
+    "typecheckAndLint": "passed"
+  },
+  "postNativeChanges": "source provenance/pin and contract descriptions only; downstream unrequalified pins retained separately",
+  "remaining": [
+    "weaken/reindex and varying-base Pi transfer",
+    "corrected Homd frontend ladder and remaining profiles",
+    "complete TypeScript and production integration gates"
+  ],
+  "metadataCorrection": "The first final validation caught a malformed sourceSha256 property while separating downstream pins. Restored the property; no types or runtime terms changed. Outputs wave155/wave156 retain the failure.",
+  "currentTypescriptInputs": {
+    "src/v3_2/categorical_fibred_dependent_target_transfer.ts": "cd46261d9f69886031ab9135e9718852229c264f2c9ab90eedf02eb5913304a2",
+    "src/v3_2/categorical_fibred_graduation_proposal.ts": "1cf9721216b738926c79906a05c596be5b6190641338640e80450d1c07a8c863",
+    "src/v3_2/categorical_fibred_product_transfer.ts": "b11bcef72cb4b191cbd913d63b4edf5bbe78eace2d5422276aa80c9ebcad8ae5",
+    "src/v3_2/categorical_fibred_transfd_contract.ts": "90e4c2d6ad97a27cd1c36bfd280b8942ac3d2ddaadb2ba878c8a04e03a7dba15",
+    "src/v3_2/categorical_fibred_transfd_transfer.ts": "0a89aaa8f5894d246530c8fc66f7db782ead9b92788f0d9efdd0e07b9616cf3a",
+    "src/v3_2/categorical_fibred_weaken_reindex_transfer.ts": "190abc19830da76c1f451ef09dc285c3cad43ff2683351402aa251924bbb13d3",
+    "src/v3_2/categorical_surface.ts": "8d7eb1792b837f0221feaef0aa90b457519b1d799adc1ac3a1289749e5346afa",
+    "tests/v3_2_categorical_fibred_graduation_proposal_tests.ts": "b8abb2ce578c545e7f01e738a822049e8265426ba7e6d32457a9c42a005ec94d",
+    "tests/v3_2_categorical_fibred_transfd_tests.ts": "c05a17c0eb08a14323f66523a78c36a085ce2907244a70b80fc06f12a56a9e49",
+    "tests/v3_2_categorical_fibred_transfd_transfer_tests.ts": "0120fa98ac1abab9fd3737c1d3d22dd9573d1fc1d4c9ac9404ae2060f998c545"
+  },
+  "outputHashes": {
+    "wave154_transfd_native.out": "ec2ce569c46ea4b4619f630e19839e77cef9aaae9f17c4323662bdf8b10b2817",
+    "wave157_transfd_final.out": "b8a46e1e12b2b3fabefcd72fbf59e9c504331e9275797ab89dd1ec6d15ead1d0",
+    "wave158_transfd_types_lint.out": "70685b4df7789c854b9e1ceab7d78a6d0f9a0831c11eb0010b7b5fdbe0e50c39"
+  }
+}

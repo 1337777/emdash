@@ -103,7 +103,7 @@ describe('TypeScript v3.2 FIBRED-GRADUATE-1 proposal', () => {
         assert.deepEqual(evidence.cumulativeSliceCounts, {
             representativeSlices: 7,
             declarationSlots: 45,
-            runtimeRuleSlots: 89,
+            runtimeRuleSlots: 93,
             proofRuleSlots: 3,
             newMathematicalOwners: 4,
             newMathematicalRuntimeRules: 16

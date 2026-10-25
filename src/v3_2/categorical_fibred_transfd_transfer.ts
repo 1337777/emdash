@@ -1,14 +1,15 @@
 /**
  * FIBRED-TRANSFD-1 transfer closure for direct displayed transformations.
  *
- * This module selects eight exact active v3.2 declarations, sixteen existing
- * runtime rules, one D-058 projection rule, and the direct second-hom proof
+ * This module selects eight active v3.2 declarations, twenty-one existing
+ * runtime rules, and the direct second-hom proof
  * rule. It introduces no new mathematical owner. The three declarations
  * already reviewed by SCALE-STRESS-2B3 retain their reviewed Core names; the
  * additional transport, higher-cell, and horizontal-action signatures are
  * checked through the same generic engines.
  */
 
+import { coreCategoricalFamilyCoefficient } from './categorical_family_coefficient';
 import {
     CORE_CATEGORICAL_FIBRED_TRANSFD_CONTRACT,
     validateCoreCategoricalFibredTransfdContract
@@ -30,7 +31,8 @@ import {
     CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_LINKAGE
 } from './categorical_fibred_structure_transfer';
 import {
-    CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_LINKAGE
+    CORE_CATEGORICAL_FIBRED_PRODUCT_TRANSFER_LINKAGE,
+    CORE_CATEGORICAL_FIBRED_PRODUCT_SYMBOLS
 } from './categorical_fibred_product_transfer';
 import {
     CORE_CATEGORICAL_STRUCTURAL_SYMBOLS,
@@ -112,7 +114,7 @@ export const CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_REVISION =
     'FIBRED-TRANSFD-1-DIRECT-NEXT-HOM-TRANSFER-D061-1' as const;
 
 export const CORE_CATEGORICAL_FIBRED_TRANSFD_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -134,6 +136,8 @@ const transforCategory =
     coreDirectedContinuationTransferSymbol('transfor-category');
 const categoryOfCategories =
     coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -166,6 +170,7 @@ const transforHomCapped =
     coreDirectedContinuationTransferSymbol('transfor-hom-capped');
 const {
     functorCategory,
+    cartesianFunctorCategory,
     productCategory,
     productPair
 } = CORE_CATEGORICAL_STRUCTURAL_SYMBOLS;
@@ -180,6 +185,7 @@ const {
 const {
     fibreFunctor
 } = CORE_CATEGORICAL_DEPENDENT_SYMBOLS;
+const { strictTransfor, strictTransforView } = CORE_CATEGORICAL_FIBRED_PRODUCT_SYMBOLS;
 
 const displayedFamilyClassifier =
     CORE_LF_SCALE_STRESS_2A_MODULE.declarations[0].symbol;
@@ -421,7 +427,7 @@ const fibreCategoryAt = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'explicit', value: family },
         { plicity: 'explicit', value: point }
@@ -497,7 +503,7 @@ const transportAt = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'explicit', value: family },
         { plicity: 'implicit', value: sourcePoint },
@@ -590,6 +596,33 @@ const productCategoryAt = (
         { plicity: 'explicit', value: left },
         { plicity: 'explicit', value: right }
     ]);
+
+const cartesianFunctorCategoryAt = (
+    b: CoreLfTransferScopedBuilder,
+    A: CoreLfTransferBuilderExpression, B: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(b, cartesianFunctorCategory, [
+    { plicity: 'explicit', value: A }, { plicity: 'explicit', value: B }
+]);
+
+const strictTransforType = (
+    b: CoreLfTransferScopedBuilder,
+    A: CoreLfTransferBuilderExpression, B: CoreLfTransferBuilderExpression,
+    F: CoreLfTransferBuilderExpression, G: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => decode(b, globalCall(b, strictTransfor, [
+    { plicity: 'implicit', value: A }, { plicity: 'implicit', value: B },
+    { plicity: 'explicit', value: F }, { plicity: 'explicit', value: G }
+]));
+
+const strictView = (
+    b: CoreLfTransferScopedBuilder,
+    A: CoreLfTransferBuilderExpression, B: CoreLfTransferBuilderExpression,
+    F: CoreLfTransferBuilderExpression, G: CoreLfTransferBuilderExpression,
+    U: CoreLfTransferBuilderExpression
+): CoreLfTransferBuilderExpression => globalCall(b, strictTransforView, [
+    { plicity: 'implicit', value: A }, { plicity: 'implicit', value: B },
+    { plicity: 'implicit', value: F }, { plicity: 'implicit', value: G },
+    { plicity: 'explicit', value: U }
+]);
 
 const pairAt = (
     builder: CoreLfTransferScopedBuilder,
@@ -905,7 +938,7 @@ const displayedComponentType =
                                     FF,
                                     GG
                                 ),
-                                _epsilon => transforType(
+                                _epsilon => strictTransforType(
                                     builder,
                                     fibreCategoryAt(builder, K, E, z),
                                     fibreCategoryAt(builder, K, D, z),
@@ -1391,7 +1424,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: publicModifiers('injective', 'opaque'),
         provenance: source(
             'injective symbol Transfd_cat [K : Cat]',
-            405
+            440
         )
     },
     {
@@ -1404,7 +1437,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: publicModifiers('injective', 'transparent'),
         provenance: source(
             'injective symbol Transfd [K : Cat]',
-            406
+            441
         )
     },
     {
@@ -1415,12 +1448,13 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: publicModifiers('ordinary', 'opaque'),
         provenance: source(
             'symbol tdapp0_fapp0 [K : Cat]',
-            1148
+            1564
         )
     },
     {
         ...priorIdentityDeclaration,
-        order: 3
+        order: 3,
+        provenance: source('symbol id [A : Cat]', 234)
     },
     {
         order: 4,
@@ -1431,7 +1465,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
         provenance: source(
             'symbol functord_transport_lhs_func [K : Cat] ' +
             '[E D : τ (Catd K)]',
-            1166
+            1584
         )
     },
     {
@@ -1443,7 +1477,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
         provenance: source(
             'symbol functord_transport_rhs_func [K : Cat] ' +
             '[E D : τ (Catd K)]',
-            1167
+            1585
         )
     },
     {
@@ -1454,7 +1488,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: publicModifiers('ordinary', 'opaque'),
         provenance: source(
             'symbol tdapp1_int_cell [K : Cat] [E D : τ (Catd K)]',
-            1234
+            1659
         )
     },
     {
@@ -1464,7 +1498,8 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
         body: coreLfTransferAbsentBody(),
         modifiers: publicModifiers('ordinary', 'opaque'),
         provenance: source(
-            'symbol comp_prod_fapp1_fapp0 [A : Cat]'
+            'symbol comp_prod_fapp1_fapp0 [A : Cat]',
+            801
         )
     }
 ]);
@@ -1479,6 +1514,10 @@ const declarationExternalSymbols = Object.freeze([
     homCategory,
     transforClassifier,
     categoryOfCategories,
+    familyCoefficient,
+    cartesianFunctorCategory,
+    strictTransfor,
+    strictTransforView,
     displayedCategoryCategory,
     displayedFunctorCategory,
     functorObject,
@@ -1739,7 +1778,7 @@ const transfdObjectBridgeRule =
     const ordinary = transforCategoryAt(
         builder,
         K,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         E,
         D
     );
@@ -1767,7 +1806,7 @@ const transfdObjectBridgeRule =
         )),
         provenance: source(
             'rule Obj (@Transfd_cat $K $E $D $FF $GG) ↪ ' +
-            'Obj (Hom_cat (@Transf_cat $K Cat_cat $E $D) $FF $GG)'
+            'Obj (Hom_cat (@Transf_cat $K Cat_cart $E $D) $FF $GG)'
         )
     };
 };
@@ -1873,7 +1912,7 @@ const sigmaPiObjectJoinRule =
             transforCategoryAt(
                 builder,
                 sigma,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 constantTerminal,
                 pullback
             )
@@ -1883,16 +1922,16 @@ const sigmaPiObjectJoinRule =
             transforCategoryAt(
                 builder,
                 K,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 R,
                 D
             )
         )),
         provenance: source(
-            'rule Obj (@Transf_cat (@Sigma_cat $K $R) Cat_cat ' +
+            'rule Obj (@Transf_cat (@Sigma_cat $K $R) Cat_cart ' +
             '(@Const_catd (@Sigma_cat $K $R) Terminal_cat) ' +
             '(@Sigma_proj1_pullback_catd $K $R $D)) ↪ ' +
-            'Obj (@Transf_cat $K Cat_cat $R $D)'
+            'Obj (@Transf_cat $K Cat_cart $R $D)'
         )
     };
 };
@@ -2001,7 +2040,7 @@ const displayedComponentCompositionRule = (
     const ordinary = transforCategoryAt(
         builder,
         K,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         E,
         D
     );
@@ -2011,7 +2050,7 @@ const displayedComponentCompositionRule = (
     const fibreD = fibreCategoryAt(builder, K, D, z);
     const fibreFunctorCategory = globalCall(
         builder,
-        functorCategory,
+        cartesianFunctorCategory,
         [
             { plicity: 'explicit', value: fibreE },
             { plicity: 'explicit', value: fibreD }
@@ -2214,13 +2253,13 @@ const displayedComponentIdentityRule = (
     const ordinary = transforCategoryAt(
         builder,
         K,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         E,
         D
     );
     const fibreE = fibreCategoryAt(builder, K, E, z);
     const fibreD = fibreCategoryAt(builder, K, D, z);
-    const fibreFunctors = globalCall(builder, functorCategory, [
+    const fibreFunctors = globalCall(builder, cartesianFunctorCategory, [
         { plicity: 'explicit', value: fibreE },
         { plicity: 'explicit', value: fibreD }
     ]);
@@ -2392,12 +2431,12 @@ const displayedHorizontalComponentRule =
     const fibreW = fibreCategoryAt(builder, K, W, k);
     const fibreX = fibreCategoryAt(builder, K, X, k);
     const fibreZ = fibreCategoryAt(builder, K, Z, k);
-    const leftFibreFunctors = functorCategoryAt(
+    const leftFibreFunctors = cartesianFunctorCategoryAt(
         builder,
         fibreW,
         fibreX
     );
-    const rightFibreFunctors = functorCategoryAt(
+    const rightFibreFunctors = cartesianFunctorCategoryAt(
         builder,
         fibreX,
         fibreZ
@@ -2434,17 +2473,15 @@ const displayedHorizontalComponentRule =
         context.targetComponents.second,
         k
     );
-    const leftFibreCells = transforCategoryAt(
+    const leftFibreCells = homCategoryAt(
         builder,
-        fibreW,
-        fibreX,
+        leftFibreFunctors,
         sourceLeft,
         targetLeft
     );
-    const rightFibreCells = transforCategoryAt(
+    const rightFibreCells = homCategoryAt(
         builder,
-        fibreX,
-        fibreZ,
+        rightFibreFunctors,
         sourceRight,
         targetRight
     );
@@ -2515,7 +2552,7 @@ const displayedHorizontalComponentRule =
         )),
         right: builder.template(horizontalCompositionActionAt(
             builder,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             fibreW,
             fibreX,
             fibreZ,
@@ -3110,6 +3147,89 @@ const genericIdentityBaseActionRule =
     };
 };
 
+const strictViewIdentityRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), B = b.capture('B'), F = b.capture('F');
+    return {
+        order: 17, id: 'categorical.strict-transfor-view.identity',
+        groupId: 'categorical.strict-transfor-view-identity', clauseOrder: 0,
+        sourceOwner: strictTransforView,
+        variables: [
+            ...['A', 'B'].map(name => ({ name, type: b.template(b.global(category)) })),
+            { name: 'F', type: b.template(functorType(b, A, B)) }
+        ],
+        left: b.pattern(strictView(b, A, B, F, F, identityAt(b, cartesianFunctorCategoryAt(b, A, B), F))),
+        right: b.template(identityAt(b, functorCategoryAt(b, A, B), F)),
+        provenance: source('rule @strict_transfor $A $B $F $F (@id (Functor_cart_cat $A $B) $F)')
+    };
+};
+
+const strictViewCompositionRule = (point: boolean): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A = b.capture('A'), B = b.capture('B');
+    const F = b.capture('F'), G = b.capture('G'), H = b.capture('H');
+    const U = b.capture('U'), V = b.capture('V'), x = b.capture('x');
+    const u = strictView(b, A, B, F, G, U), v = strictView(b, A, B, G, H, V);
+    const composite = strictView(b, A, B, F, H,
+        composeAt(b, cartesianFunctorCategoryAt(b, A, B), F, G, H, V, U));
+    return {
+        order: point ? 19 : 18,
+        id: point ? 'categorical.strict-transfor-view.composite-point' : 'categorical.strict-transfor-view.composition',
+        groupId: point ? 'categorical.strict-transfor-view-point' : 'categorical.strict-transfor-view-composition',
+        clauseOrder: 0,
+        sourceOwner: point ? transforComponentCapped : genericComposition,
+        variables: [
+            ...['A', 'B'].map(name => ({ name, type: b.template(b.global(category)) })),
+            ...['F', 'G', 'H'].map(name => ({ name, type: b.template(functorType(b, A, B)) })),
+            { name: 'U', type: b.template(strictTransforType(b, A, B, F, G)) },
+            { name: 'V', type: b.template(strictTransforType(b, A, B, G, H)) },
+            ...(point ? [{ name: 'x', type: b.template(objectType(b, A)) }] : [])
+        ],
+        left: b.pattern(point
+            ? transforComponentAt(b, A, B, F, H, x, composite)
+            : composeAt(b, functorCategoryAt(b, A, B), F, G, H, v, u)),
+        right: b.template(point
+            ? composeAt(b, B, fapp0At(b, A, B, F, x), fapp0At(b, A, B, G, x), fapp0At(b, A, B, H, x),
+                transforComponentAt(b, A, B, G, H, x, v), transforComponentAt(b, A, B, F, G, x, u))
+            : composite),
+        provenance: source(point
+            ? 'rule @tapp0_fapp0 _ _ _ _ $x (@strict_transfor $A $B $F $H (@comp_fapp0 (Functor_cart_cat $A $B) $F $G $H $V $U))'
+            : 'rule @comp_fapp0 (Functor_cat $A $B) _ _ _ (@strict_transfor $A $B $G $H $V) (@strict_transfor $A $B $F $G $U)')
+    };
+};
+
+const strictHorizontalViewRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const X = b.capture('X'), Y = b.capture('Y'), Z = b.capture('Z');
+    const F = b.capture('F'), Fp = b.capture('Fp'), G = b.capture('G'), Gp = b.capture('Gp');
+    const U = b.capture('U'), V = b.capture('V');
+    const cart = b.global(familyCoefficient), cat = b.global(categoryOfCategories);
+    const cartXY = cartesianFunctorCategoryAt(b, X, Y), cartYZ = cartesianFunctorCategoryAt(b, Y, Z);
+    const ordinaryXY = functorCategoryAt(b, X, Y), ordinaryYZ = functorCategoryAt(b, Y, Z);
+    return {
+        order: 20, id: 'categorical.strict-transfor-view.horizontal',
+        groupId: 'categorical.strict-transfor-view-horizontal', clauseOrder: 0,
+        sourceOwner: strictTransforView,
+        variables: [
+            ...['X', 'Y', 'Z'].map(name => ({ name, type: b.template(b.global(category)) })),
+            ...['F', 'Fp'].map(name => ({ name, type: b.template(functorType(b, X, Y)) })),
+            ...['G', 'Gp'].map(name => ({ name, type: b.template(functorType(b, Y, Z)) })),
+            { name: 'U', type: b.template(strictTransforType(b, X, Y, F, Fp)) },
+            { name: 'V', type: b.template(strictTransforType(b, Y, Z, G, Gp)) }
+        ],
+        left: b.pattern(strictView(b, X, Z,
+            composeAt(b, cart, X, Y, Z, G, F), composeAt(b, cart, X, Y, Z, Gp, Fp),
+            horizontalCompositionActionAt(b, cart, X, Y, Z,
+                pairAt(b, cartXY, cartYZ, F, G), pairAt(b, cartXY, cartYZ, Fp, Gp),
+                pairAt(b, homCategoryAt(b, cartXY, F, Fp), homCategoryAt(b, cartYZ, G, Gp), U, V)))),
+        right: b.template(horizontalCompositionActionAt(b, cat, X, Y, Z,
+            pairAt(b, ordinaryXY, ordinaryYZ, F, G), pairAt(b, ordinaryXY, ordinaryYZ, Fp, Gp),
+            pairAt(b, transforCategoryAt(b, X, Y, F, Fp), transforCategoryAt(b, Y, Z, G, Gp),
+                strictView(b, X, Y, F, Fp, U), strictView(b, Y, Z, G, Gp, V)))),
+        provenance: source('rule @strict_transfor _ _ _ _ (@comp_prod_fapp1_fapp0 Cat_cart $A $B $C')
+    };
+};
+
 const runtimeRules = Object.freeze([
     homDisplayedFunctorRule(),
     transfdObjectBridgeRule(),
@@ -3127,7 +3247,11 @@ const runtimeRules = Object.freeze([
     ordinaryHorizontalCappedRule(),
     genericFullIdentityActionRule(),
     genericCappedIdentityActionRule(),
-    genericIdentityBaseActionRule()
+    genericIdentityBaseActionRule(),
+    strictViewIdentityRule(),
+    strictViewCompositionRule(false),
+    strictViewCompositionRule(true),
+    strictHorizontalViewRule()
 ]);
 
 const runtimeExternalSymbols = Object.freeze([
@@ -3217,7 +3341,7 @@ const directSecondHomProofRule = () => {
     const ordinary = transforCategoryAt(
         builder,
         K,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         E,
         D
     );
@@ -3326,7 +3450,7 @@ const directSecondHomProofRule = () => {
             }
         ],
         provenance: source(
-            'unif_rule Hom_cat (@Transf_cat $K Cat_cat $E $D) ' +
+            'unif_rule Hom_cat (@Transf_cat $K Cat_cart $E $D) ' +
             '$FF $GG ≡ @Transfd_cat $K2 $E2 $D2 $FF2 $GG2'
         )
     };
@@ -3470,11 +3594,7 @@ export function coreCategoricalFibredTransfdClassifiers(
         [
             { value: base },
             {
-                value: kernelApplication(
-                    'category-of-categories',
-                    [],
-                    nodeProvenance
-                )
+                value: coreCategoricalFamilyCoefficient(nodeProvenance)
             },
             { value: sourceFamily },
             { value: targetFamily }

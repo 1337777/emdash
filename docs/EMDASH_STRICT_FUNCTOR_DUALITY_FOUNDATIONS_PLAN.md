@@ -116,10 +116,18 @@ older running/failed states and do not override it.
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes. Health's central check passed; the aggregate was stopped after45 observed90s timeouts, preserving receipts. | Measure representative import/consumer cost before restarting with justified profiles. A generated not-run report is not execution evidence. |
-| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with displayed transformations, varying-base Pi/Homd and final integration. |
+| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with weakening/reindexing, varying-base Pi/Homd and final integration. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)
+
+The [frontend displayed-transformation slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transfd_review.md)
+passes32 focused/contract/review tests and two native consumers, plus
+typecheck/lint. Its raw component retains the native strict fibre carrier;
+ordinary observations use the existing view, while FF remains lax over K.
+Four existing native view projections are transferred, without changing the
+generic checker or native source. Next are weakening/reindexing and varying-base
+Pi/Homd. Higher profiles retain their old pins until their own review.
 
 The [frontend structure/binder slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_structure_binder_review.md)
 passes20 consumer/demo tests,27 metadata tests and three native cases. Whole

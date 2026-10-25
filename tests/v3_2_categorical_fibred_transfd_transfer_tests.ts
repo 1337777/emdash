@@ -28,7 +28,7 @@ import type {
 } from '../src/v3_2';
 
 describe('FIBRED-TRANSFD-1 existing-authority transfer', () => {
-    it('checks eight declarations, seventeen runtime rules, and one proof rule', () => {
+    it('checks eight declarations, twenty-one runtime rules, and one proof rule', () => {
         const compilation =
             compileCoreCategoricalFibredTransfdTransfer();
         assert.deepEqual(
@@ -50,9 +50,9 @@ describe('FIBRED-TRANSFD-1 existing-authority transfer', () => {
                 .declarationCount,
             8
         );
-        assert.equal(compilation.runtime.rules.length, 17);
+        assert.equal(compilation.runtime.rules.length, 21);
         assert.deepEqual(
-            compilation.runtime.ruleIds.slice(-7),
+            compilation.runtime.ruleIds.slice(10, 17),
             [
                 'categorical.transfd.horizontal-component',
                 'categorical.transfd.horizontal-point',

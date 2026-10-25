@@ -61,6 +61,14 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [frontend displayed-transformation slice](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transfd_review.md)
+passes32 focused/contract/review tests and two native consumers, plus
+typecheck/lint. Its raw component retains the native strict fibre carrier;
+ordinary observations use the existing view, while FF remains lax over K.
+Four existing native view projections are transferred, without changing the
+generic checker or native source. Next are weakening/reindexing and varying-base
+Pi/Homd. Higher profiles retain their old pins until their own review.
+
 All 791 library owners, 596 reviewers and the actual 2,441-assertion central
 target have passed on the supported checker. The source maps jointly cover
 all 1,388 original registered files. The 648 changed files are now installed

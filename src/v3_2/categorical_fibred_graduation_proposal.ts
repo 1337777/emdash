@@ -211,7 +211,7 @@ const rawProposal = {
             {
                 id: 'displayed-transfor',
                 declarationSlots: 8,
-                runtimeRuleSlots: 17,
+                runtimeRuleSlots: 21,
                 proofRuleSlots: 1,
                 newMathematicalOwners: 0,
                 newMathematicalRuntimeRules: 1,
@@ -239,7 +239,7 @@ const rawProposal = {
         cumulativeSliceCounts: {
             representativeSlices: 7,
             declarationSlots: 45,
-            runtimeRuleSlots: 89,
+            runtimeRuleSlots: 93,
             proofRuleSlots: 3,
             newMathematicalOwners: 4,
             newMathematicalRuntimeRules: 16
@@ -550,7 +550,7 @@ export function validateCoreCategoricalFibredGraduationProposal(
         proposal.transferEvidence.cumulativeSliceCounts
             .declarationSlots !== 45 ||
         proposal.transferEvidence.cumulativeSliceCounts
-            .runtimeRuleSlots !== 89 ||
+            .runtimeRuleSlots !== 93 ||
         proposal.transferEvidence.cumulativeSliceCounts
             .proofRuleSlots !== 3 ||
         proposal.transferEvidence.cumulativeSliceCounts

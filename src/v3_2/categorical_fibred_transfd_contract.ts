@@ -46,12 +46,12 @@ export const CORE_CATEGORICAL_FIBRED_TRANSFD_CONTRACT = deepFreeze({
         {
             id: 'fibre-component',
             surface: 'eta[x]',
-            lowering: 'tdapp0_fapp0(x,eta)'
+            lowering: 'strict_transfor(tdapp0_fapp0(x,eta))'
         },
         {
             id: 'fibre-point',
             surface: 'eta[x][u]',
-            lowering: 'tapp0_fapp0(u,tdapp0_fapp0(x,eta))'
+            lowering: 'tapp0_fapp0(u,strict_transfor(tdapp0_fapp0(x,eta)))'
         },
         {
             id: 'higher-naturality-cell',
@@ -62,7 +62,7 @@ export const CORE_CATEGORICAL_FIBRED_TRANSFD_CONTRACT = deepFreeze({
     classifierPresentations: {
         direct: 'Transfd_cat(E,D,FF,GG)',
         ordinaryNextHom:
-            'Hom_cat(Transf_cat(K,Cat_cat,E,D),FF,GG)',
+            'Hom_cat(Transf_cat(K,Cat_cart,E,D),FF,GG)',
         sigmaPiNextHom:
             'Hom_cat(Pi_cat(Sigma_cat(E),' +
             'Sigma_proj1_pullback_catd(E,D)),FF,GG)',
@@ -88,7 +88,7 @@ export const CORE_CATEGORICAL_FIBRED_TRANSFD_CONTRACT = deepFreeze({
         runtimeRules: [
             'Hom_cat(Functord_cat(E,D),FF,GG) -> Transfd_cat(FF,GG)',
             'Obj(Transfd_cat(FF,GG)) -> ' +
-                'Obj(Hom_cat(Transf_cat(K,Cat_cat,E,D),FF,GG))',
+                'Obj(Hom_cat(Transf_cat(K,Cat_cart,E,D),FF,GG))',
             'Hom_cat(Pi_cat(E),s,t) -> ' +
                 'Transfd_cat(Const_catd(K,Terminal_cat),E,s,t)',
             'Sigma/Pi object-classifier uncurrying join',
@@ -97,7 +97,7 @@ export const CORE_CATEGORICAL_FIBRED_TRANSFD_CONTRACT = deepFreeze({
             'displayed component of vertical composition, ordinary facade'
         ],
         proofRules: [
-            'Hom_cat(Transf_cat(K,Cat_cat,E,D),FF,GG) ' +
+            'Hom_cat(Transf_cat(K,Cat_cart,E,D),FF,GG) ' +
                 '=proof-time Transfd_cat(E,D,FF,GG)'
         ],
         genericRepresentation:
