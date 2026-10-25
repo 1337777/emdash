@@ -1,6 +1,6 @@
 # Accepted terminal Homd whole-comparison contract
 
-Date: 2026-10-25. Status: complete public Homd consumer passes; full central integration pending.
+Date: 2026-10-25. Status: complete public Homd consumer and full central diagnostics pass in staging.
 
 The user explicitly selected “Adopt whole comparisons (Recommended)” for the
 five terminal-source Homd cases. This resolves the acceptance choice recorded
@@ -39,8 +39,10 @@ The complete public Homd consumer and retained action/inverse controls now
 pass in 26.231s/168,772KiB at 90s/2GiB, subject reduction enabled, receipt
 `20261025T115653Z-3b446413b25f4d869f80ae4c3ac25173`. The warning category and
 rule-family inventories match the preceding exact-core replay. Full central
-diagnostic integration is running separately with all 2,441 assertions and
-no terminal omissions. The complete 791-owner library check also passed;
+diagnostic integration also passes with all 2,441 assertions (2,162 positive,
+279 negative), including all five whole comparisons and no terminal omissions.
+Receipt `20261025T115803Z-cf6d9e83c6a74f709856d3e530dabba3` records 140 exact
+inputs, 401.014s/2,537,028KiB under 900s/4GiB, subject reduction enabled. The complete 791-owner library check also passed;
 its mathematical inputs match this accepted candidate exactly.
 Production promotion, supported-checker qualification, catalog/health updates
 and the consolidated book/article/nerve continuations remain separate stages.

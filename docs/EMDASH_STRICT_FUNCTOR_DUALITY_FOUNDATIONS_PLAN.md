@@ -95,12 +95,46 @@ is `central_full_context.lp`; the old except-terminal filename imports it
 without omissions. The complete public Homd consumer passes in
 26.231s/168,772KiB at 90s/2GiB, receipt
 `20261025T115653Z-3b446413b25f4d869f80ae4c3ac25173`, retaining the action/inverse
-controls and warning inventory. The 2,441-assertion complete central gate is
-now running at 900s/4GiB (140 inputs). [Adoption review](../emdash2/audits/strict-default-action-boundary/foundation_terminal_adoption_review.md)
-records the exact change. R01–R03 are resolved as a contract decision; full
-diagnostic qualification remains required under R10.
+controls and warning inventory. The complete central gate also passes all
+2,441 assertions (2,162 positive/279 negative), with no terminal exclusions:
+`20261025T115803Z-cf6d9e83c6a74f709856d3e530dabba3`, 401.014s/2,537,028KiB
+at 900s/4GiB (140 inputs), subject reduction enabled. [Adoption review](../emdash2/audits/strict-default-action-boundary/foundation_terminal_adoption_review.md)
+records the exact change. R01–R03 now have both the explicit accepted contract
+and complete-central qualification in staging. Production adoption remains R14.
 
 ### Current migration tranche
+
+Promotion preparation is read-only while the reviewer gate runs. Against the
+registered production tree, 648 files differ and 740 are unchanged. The two
+long-preserved StrictTransfor carrier/view edits match the goal's initial
+relocation record and are retained declaration-for-declaration in the candidate;
+reconcile the associated report at source promotion rather than discarding
+that work. Earlier unrelated/untracked audit material remains untouched.
+
+R12's supported-toolchain boundary is concrete: the existing
+`scripts/verification-toolchain.py` and `toolchains/verification.json` pin the
+unpatched checker, while the staged gates use the already-reviewed single-input
+rollback-root patch. Use those existing toolchain owners for any supported
+patch/install/verification path; do not promote a dependency on an ignored
+probe executable or silently change the default opam switch. The retained CLI
+multi-file isolation, ill-typed-rule rejection and Pure rollback/recreation
+harness already qualify the patch's behavior on the pinned commit; future
+installation must preserve that identity and record its actual executable.
+This is runtime qualification, not a change to mathematical computation.
+
+
+The complete original-reviewer gate is now running after the passing central
+check: all **596 reviewers**, 1,372 LP inputs before the driver/package,
+with no reviewer-local rewrite or unification rules. This requalifies the
+previously checked reviewer groups against the final shared mathematical
+source; it does not alter their hypotheses or assertion contracts. The
+library gate already checks all 791 owners. Use one 3600s/6GiB aggregate,
+subject to available host headroom, guided by the complete-library measurement
+of 2468.779s/5,209,732KiB; normal defaults remain unchanged. The complete
+central diagnostic passed before this launch. [Reviewer scope](../emdash2/audits/strict-default-action-boundary/foundation_complete_reviewer_scope.json)
+retains the source map. No reviewer aggregate success is claimed from
+preparation or the older per-group receipts.
+
 
 **The complete 791-owner library check passes** at the current mathematical
 source: `20261025T052321Z-1b7c3fa9b43449028e422884a9d228b9`, 793 exact inputs,

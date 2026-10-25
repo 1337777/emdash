@@ -28,6 +28,15 @@ def library_driver():
         + ''.join('require emdash.' + name[:-3] + ';\n' for name in names))
 
 
+def reviewer_driver():
+    registry = json.loads((displayed.ROOT / 'checks.json').read_text())
+    names = registry['reviewers']
+    assert len(names) == len(set(names)) == 596, 'Original reviewer registry drift'
+    return ('/* Complete original reviewer scope at the migrated source snapshot. */\n'
+        + ''.join('require emdash.' + name[:-3].replace('/', '.') + ';\n'
+                  for name in names))
+
+
 def emit(out):
     assert not out.exists(), out
     displayed.emit(out, 'telescope')
@@ -49,6 +58,7 @@ def emit(out):
     final_reviewers.apply(out)
     terminal_contract.apply(out)
     (out / 'all_original_library_owners.lp').write_text(library_driver())
+    (out / 'all_original_reviewers.lp').write_text(reviewer_driver())
     return {str(p.relative_to(out)): hashlib.sha256(p.read_bytes()).hexdigest()
         for p in sorted(out.rglob('*.lp'))}
 
