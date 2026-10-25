@@ -229,7 +229,7 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
         );
         const source = emdash.section(
             'direct_mixed_tower_mapped3_source',
-            emdash.oppositeDisplayedFamily(carrier)
+            emdash.totalOppositeDisplayedFamily(carrier)
         );
         const target = emdash.section(
             'direct_mixed_tower_mapped3_target',
@@ -299,7 +299,7 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
                 `direct_mixed_tower_${prefix}_root`,
                 opK
             );
-            const mapper = emdash.displayedFunctor(
+            const mapper = emdash.cartesianDisplayedFunctor(
                 `direct_mixed_tower_${prefix}_mapper`,
                 bound[mappedIndex],
                 roots[mappedIndex]
@@ -365,22 +365,22 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
             opK
         );
         const roots = innerFamilies('source_multi_root_', 3);
-        const first0 = emdash.displayedFunctor(
+        const first0 = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_source_multi_first0',
             bound[0],
             middle0
         );
-        const second0 = emdash.displayedFunctor(
+        const second0 = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_source_multi_second0',
             middle0,
             roots[0]
         );
-        const mapper1 = emdash.displayedFunctor(
+        const mapper1 = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_source_multi_mapper1',
             bound[1],
             roots[1]
         );
-        const mapper2 = emdash.displayedFunctor(
+        const mapper2 = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_source_multi_mapper2',
             bound[2],
             roots[2]
@@ -433,7 +433,7 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
             'direct_mixed_tower_source_identity_root',
             opK
         );
-        const mapper = emdash.displayedFunctor(
+        const mapper = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_source_identity_mapper',
             bound[1],
             roots[1]
@@ -476,7 +476,7 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
             'direct_mixed_tower_source_rich_root',
             opK
         );
-        const mapper = emdash.displayedFunctor(
+        const mapper = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_source_rich_mapper',
             bound[1],
             roots[1]
@@ -497,7 +497,7 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
         );
         const source = emdash.section(
             'direct_mixed_tower_source_rich_source',
-            emdash.oppositeDisplayedFamily(carrier)
+            emdash.totalOppositeDisplayedFamily(carrier)
         );
         const target = emdash.section(
             'direct_mixed_tower_source_rich_target',
@@ -551,7 +551,7 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
         const bound = innerFamilies('source_depth6_bound_', depth);
         const roots = innerFamilies('source_depth6_root_', depth);
         const mappers = bound.map((family, index) =>
-            emdash.displayedFunctor(
+            emdash.cartesianDisplayedFunctor(
                 `direct_mixed_tower_source_depth6_mapper${index}`,
                 family,
                 roots[index]
@@ -742,7 +742,7 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
             'direct_mixed_tower_negative_source_root',
             opK
         );
-        const sourceMap = emdash.displayedFunctor(
+        const sourceMap = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_negative_source_map',
             inners[0],
             sourceRoot
@@ -804,12 +804,12 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
             'direct_mixed_tower_negative_chain_other',
             opK
         );
-        const chainFirst = emdash.displayedFunctor(
+        const chainFirst = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_negative_chain_first',
             inners[0],
             chainMiddle
         );
-        const chainBroken = emdash.displayedFunctor(
+        const chainBroken = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_negative_chain_broken',
             chainOther,
             sourceRoot
@@ -846,7 +846,7 @@ describe('DIRECT-MIXED-TOWER-SOURCE-ACTION-1R direct binder', () => {
             'direct_mixed_tower_negative_shared_root',
             opK
         );
-        const sharedMapper = emdash.displayedFunctor(
+        const sharedMapper = emdash.cartesianDisplayedFunctor(
             'direct_mixed_tower_negative_shared_mapper',
             shared,
             sharedRoot

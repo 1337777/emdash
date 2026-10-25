@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import {
     describe,
     it
@@ -69,7 +70,7 @@ describe('DIRECT-MIXED-WEAKENING-1J transfer', () => {
         );
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_BOUNDARY.decision,
-            'D-DTTLF-USABILITY-050'
+            'foundations-frontend-direct-mixed-2026-10-25'
         );
         assert.deepEqual(
             [
@@ -84,7 +85,7 @@ describe('DIRECT-MIXED-WEAKENING-1J transfer', () => {
                 CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_BOUNDARY
                     .externalCoherenceEvidenceDelta
             ],
-            [1, 3, 1, 0, 0]
+            [0, 0, 1, 0, 0]
         );
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_BOUNDARY
@@ -171,7 +172,7 @@ describe('DIRECT-MIXED-WEAKENING-1J transfer', () => {
         const b = free('weakening_b');
         const bPrime = free('weakening_b_prime');
         const innerArrow = free('weakening_beta');
-        const cat = kernelApplication('category-of-categories', [], p);
+        const cat = coreCategoricalFamilyCoefficient(p);
         const opK = call(
             CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_CORE_NAMES
                 .oppositeCategory,
@@ -196,7 +197,7 @@ describe('DIRECT-MIXED-WEAKENING-1J transfer', () => {
             target: KernelExpression
         ): KernelExpression => call(
             coreCategoricalStructuralSymbolCoreName(
-                CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory
+                CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
             ),
             [
                 { plicity: 'explicit', value: source },

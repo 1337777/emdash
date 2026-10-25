@@ -3,6 +3,9 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
+import { serializeKernelExpression } from '../src/v3_2/lambdapi';
+import { checkLambdapiProbe } from '../src/v3_2/probe';
 import {
     createHash
 } from 'node:crypto';
@@ -54,6 +57,49 @@ const assertDeepFrozen = (value: unknown): void => {
 };
 
 describe('DIRECT-MIXED-CONSTANT-MIDDLE-1M transfer', () => {
+    it('checks native distributor, weakening and constant-middle whole actions', {
+        skip:process.env.EMDASH_RUN_LAMBDAPI_DIRECT_MIXED_STRUCTURES!=='1'
+    },()=>{
+        const c=compileCoreCategoricalDirectMixedConstantMiddleTransfer();
+        const w=c.prerequisite, d=w.prerequisite;
+        const selected=[d,w,c];
+        const references:Record<string,string>={};
+        for(const part of selected){
+            for(const module of [part.compiled.module,part.runtime.module]){
+                for(const entry of [...module.externalSymbols,...module.declarations]){
+                    const decl=c.declarationContext.declaration(entry.symbol);
+                    if(decl?.link.kind==='free-declaration')references[decl.link.coreName]=decl.link.backendName;
+                }
+            }
+        }
+        const serialize=(term:KernelExpression,names={})=>serializeKernelExpression(term,{externalFreeReferences:{...references,...names}});
+        const commands=selected.flatMap(part=>part.compiled.declarations.flatMap(decl=>[
+            `assert ⊢ @${decl.symbol.name} : ${serialize(decl.type)};`,
+            ...(decl.body?[`assert ⊢ @${decl.symbol.name} ≡ ${serialize(decl.body)};`]:[])
+        ]));
+        const at=provenance('derived','direct mixed native structures');
+        const equations=selected.flatMap((part,moduleIndex)=>part.runtime.rules.flatMap((rule,index)=>{
+            const names=Object.fromEntries(rule.variables.map(v=>[v.name,`s${moduleIndex}_${index}_${v.name}`]));
+            const types:Record<string,string>=rule.id.endsWith('ordinary-point')?{
+                W:'Cat',X:'Cat',Z:'Cat',pg:'τ (Obj (Product_cat (Functor_cart_cat W X) (Functor_cart_cat X Z)))'
+            }:{K:'Cat',X:'Cat',A:'τ (Catd (Op_cat K))',B:'τ (Catd K)',C:'τ (Catd K)',
+                k:'τ (Obj K)',x:'τ (Obj K)',y:'τ (Obj K)',p:'τ (Hom K x y)'};
+            const rename=(type:string)=>type.replace(/\b[A-Za-z]+\b/gu,n=>names[n]??n);
+            const left=part.runtime.instantiateRuleLeft(rule,rule.variables.map(v=>kernelFree(v.name,at)),at);
+            const result=part.runtime.rewriteHead(left);
+            assert.equal(result.status,'rewritten');
+            if(result.status!=='rewritten')throw new Error('Missing native structure projection');
+            assert.equal(result.ruleId,rule.id);
+            return [...rule.variables.map(v=>`symbol ${names[v.name]} : ${rename(types[v.name])};`),
+                `assert ⊢ ${serialize(left,names)} ≡ ${serialize(result.after,names)};`];
+        }));
+        const source=['require open emdash.emdash3_2;',...commands,...equations].join('\n');
+        assert.doesNotMatch(source,/dttlf_|emdash_v3_2_/u);
+        const result=checkLambdapiProbe({source,sourceMap:[]},{packageRoot:resolve(__dirname,'../emdash2'),timeoutMs:60_000});
+        assert.equal(result.accepted,true,result.diagnostics+'\n'+source);
+        assert.equal(result.timedOut,false);
+    });
+
     it('pins the exact three-declaration/four-rule generic boundary', () => {
         assert.deepEqual(
             CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_TRANSFER_MODULE
@@ -95,7 +141,7 @@ describe('DIRECT-MIXED-CONSTANT-MIDDLE-1M transfer', () => {
         );
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_BOUNDARY.decision,
-            'D-DTTLF-USABILITY-052'
+            'foundations-frontend-direct-mixed-2026-10-25'
         );
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_BOUNDARY
@@ -115,7 +161,7 @@ describe('DIRECT-MIXED-CONSTANT-MIDDLE-1M transfer', () => {
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_BOUNDARY
                 .ordinaryPointTransferScope,
-            'Cat_cat-specialization'
+            'Cat_cart-specialization'
         );
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_BOUNDARY
@@ -175,7 +221,7 @@ describe('DIRECT-MIXED-CONSTANT-MIDDLE-1M transfer', () => {
             arguments_,
             p
         );
-        const A = kernelApplication('category-of-categories', [], p);
+        const A = coreCategoricalFamilyCoefficient(p);
         const W = free('constant_middle_W');
         const X = free('constant_middle_X');
         const Z = free('constant_middle_Z');

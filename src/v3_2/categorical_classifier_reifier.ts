@@ -31,6 +31,8 @@ export const CORE_CATEGORICAL_CLASSIFIER_REIFIER_REVISION =
 export interface CoreCategoricalClassifierFormerNames {
     readonly oppositeCategory: string;
     readonly functorCategory: string;
+    /** Its objects use the same native Functor classifier; higher maps stay distinct. */
+    readonly cartesianFunctorCategory?: string;
     readonly displayedFunctorCategory: string;
     readonly displayedTransforCategory: string;
     /** Selected native duals with Obj(D(C)) = Obj(C); never category equalities. */
@@ -156,7 +158,8 @@ const reifyCanonicalCategory = (
         category,
         formerNames.functorCategory,
         2
-    );
+    ) ?? (formerNames.cartesianFunctorCategory === undefined ? undefined :
+        referenceCall(category, formerNames.cartesianFunctorCategory, 2));
     if (functor !== undefined) {
         return Object.freeze({
             canonicalHead: 'generic-rich' as const,
@@ -274,6 +277,9 @@ export function createCoreCategoricalCategoryObjectReifier(
                         formerNames.functorCategory,
                         2
                     ) !== undefined ||
+                    (formerNames.cartesianFunctorCategory !== undefined && referenceCall(
+                        expression, formerNames.cartesianFunctorCategory, 2
+                    ) !== undefined) ||
                     referenceCall(
                         expression,
                         formerNames.displayedFunctorCategory,

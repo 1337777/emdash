@@ -62,7 +62,7 @@ describe('DIRECT-MIXED-PRODUCT-DISTRIBUTION-1G transfer', () => {
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_PRODUCT_DISTRIBUTION_BOUNDARY
                 .decision,
-            'D-DTTLF-USABILITY-048'
+            'foundations-frontend-direct-mixed-2026-10-25'
         );
         assert.deepEqual(
             [
@@ -81,7 +81,7 @@ describe('DIRECT-MIXED-PRODUCT-DISTRIBUTION-1G transfer', () => {
                 CORE_CATEGORICAL_DIRECT_MIXED_PRODUCT_DISTRIBUTION_BOUNDARY
                     .contextualIrNodeDelta
             ],
-            [1, 3, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 0, 0]
         );
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_PRODUCT_DISTRIBUTION_BOUNDARY

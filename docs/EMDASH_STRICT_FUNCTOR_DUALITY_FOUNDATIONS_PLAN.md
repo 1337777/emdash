@@ -116,10 +116,23 @@ older running/failed states and do not override it.
 | Central diagnostics | The actual central target passes all 2,441 assertions on the supported checker, including all five approved terminal comparisons. | Preserve the accepted contracts through production integration. |
 | Production sources | All 1,388 original registered files have qualified source coverage. The 648 changed files have been promoted and checkpointed as `57e627b9`; 740 are unchanged. The initial StrictTransfor relocation is preserved. | Complete production health and owning integration gates. |
 | Production bookkeeping | Registry, strict catalog, core TOC, inferred-slot audit and report lifecycle checks pass; active core also passes. Health's central check passed; the aggregate was stopped after45 observed90s timeouts, preserving receipts. | Measure representative import/consumer cost before restarting with justified profiles. A generated not-run report is not execution evidence. |
-| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations, weakening/reindexing, varying-base Pi, displayed evaluation and both recursive-chain stages and the native Homd root/higher-action interface now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with direct mixed constructor/action profiles, full P-index endpoint computation and final integration. |
+| Frontend/source pins | Shared coefficient/telescope, Cartesian structure/fixed evaluation, family/Sigma views, displayed products and their projections/pairing/binder composition have focused/native qualification, through `612cebd7`; displayed transformations, weakening/reindexing, varying-base Pi, displayed evaluation and both recursive-chain stages and the native Homd root/higher-action interface now pass focused/native qualification too. Only reviewed pins are refreshed. | Continue the [frontend integration subplan](EMDASH_FOUNDATIONS_FRONTEND_MIGRATION_PLAN.md) with remaining generic telescope/text/profile consumers, full P-index endpoint computation and final integration. |
 | Book, article and nerves | Required continuations are recorded in SF-BOOK/SF-ARTICLE/SF-NERVES. | Begin their detailed reviews/subplans only after the preceding stages settle. |
 
 #### Migration evidence chronology (newest entries first)
+
+The [direct mixed-family frontend continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_direct_mixed_review.md)
+now follows the native Cartesian source-map and lax target-map profiles,
+including product distribution, weakening and constant-middle composition.
+The authoring layer exposes Cartesian displayed maps through the same ordinary
+actions; it rejects a lax map in the negative-family slot. Object reification
+preserves the distinction between Cartesian and ordinary higher mappings.
+All 44 distinct focused cases pass across the recorded runs, including two
+native checks; workspace, registration, typecheck and lint pass. The complete
+TypeScript attempt now reaches an old opposite-section input in the generic
+telescope fixture. This continues F04 and does not settle the separate full
+P-index endpoint comparison.
+
 
 The [mixed total-duality and lower Homd frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_mixed_homd_review.md)
 now follows the native total-dual negative sections and actual Q-valued section

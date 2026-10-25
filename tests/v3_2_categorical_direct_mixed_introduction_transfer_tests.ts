@@ -3,6 +3,7 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import {
     describe,
     it
@@ -40,7 +41,7 @@ const assertDeepFrozen = (value: unknown): void => {
 };
 
 describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
-    it('pins a zero-declaration, one-rule generic boundary', () => {
+    it('pins a zero-declaration, two-rule native boundary', () => {
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_INTRODUCTION_RUNTIME_MODULE
                 .declarations.length,
@@ -49,12 +50,12 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_INTRODUCTION_RUNTIME_MODULE
                 .runtimeRules.length,
-            1
+            2
         );
         assert.deepEqual(
             CORE_CATEGORICAL_DIRECT_MIXED_INTRODUCTION_RUNTIME_POLICY
                 .entries.map(entry => entry.policy),
-            ['runtime-rewrite']
+            ['runtime-rewrite', 'runtime-rewrite']
         );
         assert.deepEqual(
             [
@@ -73,7 +74,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
                 CORE_CATEGORICAL_DIRECT_MIXED_INTRODUCTION_BOUNDARY
                     .textOrBrowserDelta
             ],
-            [0, 1, 0, 0, 0, 1, 0]
+            [0, 0, 0, 0, 0, 0, 0]
         );
         assert.equal(
             CORE_CATEGORICAL_DIRECT_MIXED_INTRODUCTION_BOUNDARY
@@ -89,7 +90,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
     () => {
         const compilation =
             compileCoreCategoricalDirectMixedIntroductionTransfer();
-        assert.equal(compilation.runtime.rules.length, 1);
+        assert.equal(compilation.runtime.rules.length, 2);
         assert.equal(
             compilation.runtime.rules[0].subjectValidation.kind,
             'typescript-checked'
@@ -132,7 +133,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
         const w = free('direct_transfer_w');
         const wPrime = free('direct_transfer_w_prime');
         const h = free('direct_transfer_h');
-        const cat = kernelApplication('category-of-categories', [], p);
+        const cat = coreCategoricalFamilyCoefficient(p);
         const opK = call(
             CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_CORE_NAMES
                 .oppositeCategory,
@@ -164,7 +165,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
             target: KernelExpression
         ): KernelExpression => call(
             coreCategoricalStructuralSymbolCoreName(
-                CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.functorCategory
+                CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory
             ),
             [
                 { plicity: 'explicit', value: source },
@@ -237,25 +238,10 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
                 'target-postcomposition-projection'
         );
 
-        const identityCat = call(
-            coreCategoricalDisplayedNdHigherFoundationCoreName(
-                'identityArrow'
-            ),
-            [
-                { plicity: 'explicit', value: cat },
-                { plicity: 'explicit', value: cat }
-            ]
-        );
-        const normalizedTarget = kernelApplication(
-            'functor-object',
-            [
-                { value: cat },
-                { value: cat },
-                { value: identityCat },
-                { value: targetFibre }
-            ],
-            p
-        );
+        const composition = compilation.composedRuntime.rewriteHead(projected.after);
+        assert.equal(composition.status, 'rewritten');
+        if (composition.status !== 'rewritten') assert.fail('Missing Cartesian postcomposition');
+        const normalizedTarget = targetFibre;
 
         const objectAction = compilation.composedRuntime.rewriteHead(
             kernelApplication(
@@ -263,7 +249,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
                 [
                     { value: sourceFibre },
                     { value: normalizedTarget },
-                    { value: projected.after },
+                    { value: composition.after },
                     { value: w }
                 ],
                 p
@@ -275,7 +261,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D runtime transfer', () => {
                 [
                     { value: sourceFibre },
                     { value: normalizedTarget },
-                    { value: projected.after },
+                    { value: composition.after },
                     { value: w },
                     { value: wPrime },
                     { value: h }

@@ -92,8 +92,8 @@ const homClassifier =
     coreDirectedContinuationTransferSymbol('hom-classifier');
 const homCategory =
     coreDirectedContinuationTransferSymbol('hom-category');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol('displayed-category-category');
 const constantDisplayedFamily =
@@ -124,14 +124,15 @@ const sigmaSecond = symbol('sigma_Snd');
 const productGroupoid = symbol('Product_grpd');
 
 const {
-    functorCategory,
+    cartesianFunctorCategory: functorCategory,
+    functorCategory: ordinaryFunctorCategory,
     functorComposition,
     productCategory,
     productPair,
     uncurryPackage
 } = CORE_CATEGORICAL_STRUCTURAL_SYMBOLS;
 const {
-    internalProductFunctor
+    coefficientProductFunctor: internalProductFunctor
 } = CORE_CATEGORICAL_FIBRED_PRODUCT_SYMBOLS;
 const {
     precompositionFunctor
@@ -443,7 +444,7 @@ const fibreAt = (
     functorObjectAt(
         builder,
         base,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         family,
         point
     );
@@ -466,7 +467,7 @@ const transparentDisplayedProduct = (
     left: CoreLfTransferBuilderExpression,
     right: CoreLfTransferBuilderExpression
 ): CoreLfTransferBuilderExpression => {
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const catProduct = productCategoryAt(builder, cat, cat);
     const catEndofunctors = functorCategoryAt(builder, cat, cat);
     const uncurriedProduct = functorObjectAt(
@@ -480,7 +481,9 @@ const transparentDisplayedProduct = (
         ]),
         builder.global(internalProductFunctor)
     );
-    const familyCategory = functorCategoryAt(builder, base, cat);
+    const familyCategory = globalCall(builder, ordinaryFunctorCategory, [
+        { plicity: 'explicit', value: base }, { plicity: 'explicit', value: cat }
+    ]);
     return composeFunctorsAt(
         builder,
         base,
@@ -687,7 +690,7 @@ const functorCompositionPairBody = (): CoreLfTransferExpression => {
                 builder.global(category),
                 C => ordinaryCompositionPairAt(
                     builder,
-                    builder.global(categoryOfCategories),
+                    builder.global(familyCoefficient),
                     A,
                     B,
                     C
@@ -790,7 +793,7 @@ const externalSymbols = Object.freeze([
     functorClassifier,
     homClassifier,
     homCategory,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     constantDisplayedFamily,
     functorObject,
@@ -807,6 +810,7 @@ const externalSymbols = Object.freeze([
     sigmaSecond,
     productGroupoid,
     functorCategory,
+    ordinaryFunctorCategory,
     functorComposition,
     productCategory,
     productPair,
@@ -921,7 +925,7 @@ const ordinaryPointRule = (): CoreLfTransferRuntimeRule => {
     const X = builder.capture('X');
     const Z = builder.capture('Z');
     const pg = builder.capture('pg');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const leftHom = homCategoryAt(builder, cat, W, X);
     const rightHom = homCategoryAt(builder, cat, X, Z);
     const sourceCategory = productCategoryAt(builder, leftHom, rightHom);
@@ -955,7 +959,7 @@ const ordinaryPointRule = (): CoreLfTransferRuntimeRule => {
             pg
         )),
         // `comp_cat_fapp0` is the existing checked transparent facade for
-        // the source term `@comp_fapp0 Cat_cat`. Orienting to that
+        // the source term `@comp_fapp0 Cat_cart`. Orienting to that
         // definitionally equal presentation keeps its already-transferred
         // object/arrow rules iterable without adding a semantic rule here.
         right: builder.template(composeFunctorsAt(
@@ -967,7 +971,7 @@ const ordinaryPointRule = (): CoreLfTransferRuntimeRule => {
             components.first
         )),
         provenance: source(
-            'Cat_cat specialization of: rule fapp0 ' +
+            'Cat_cart specialization of: rule fapp0 ' +
                 '(@comp_prod_func $A $W $X $Z) $pg'
         )
     };
@@ -1006,7 +1010,7 @@ const displayedPointRule = (): CoreLfTransferRuntimeRule => {
         left: builder.pattern(transforComponentAt(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             builder.wildcard(families.source),
             builder.wildcard(families.target),
             k,
@@ -1019,7 +1023,7 @@ const displayedPointRule = (): CoreLfTransferRuntimeRule => {
             fibreAt(builder, K, B, k)
         )),
         provenance: source(
-            'rule @tapp0_fapp0 $K Cat_cat _ _ $k ' +
+            'rule @tapp0_fapp0 $K Cat_cart _ _ $k ' +
                 '(@Functor_comp_pair_funcd $K $X $A $B)'
         )
     };
@@ -1069,7 +1073,7 @@ const displayedFullRule = (): CoreLfTransferRuntimeRule => {
         left: builder.pattern(transforHomFullAt(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             builder.wildcard(families.source),
             builder.wildcard(families.target),
             x,
@@ -1091,14 +1095,14 @@ const displayedFullRule = (): CoreLfTransferRuntimeRule => {
             functorHomFullAt(
                 builder,
                 K,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 families.target,
                 x,
                 y
             )
         )),
         provenance: source(
-            'rule @tapp1_func $K Cat_cat _ _ $x $y ' +
+            'rule @tapp1_func $K Cat_cart _ _ $x $y ' +
                 '(@Functor_comp_pair_funcd $K $X $A $B)'
         )
     };
@@ -1144,7 +1148,7 @@ const displayedCappedRule = (): CoreLfTransferRuntimeRule => {
         left: builder.pattern(transforHomCappedAt(
             builder,
             K,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             builder.wildcard(families.source),
             builder.wildcard(families.target),
             x,
@@ -1160,7 +1164,7 @@ const displayedCappedRule = (): CoreLfTransferRuntimeRule => {
             functorHomCappedAt(
                 builder,
                 K,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 families.target,
                 x,
                 y,
@@ -1174,7 +1178,7 @@ const displayedCappedRule = (): CoreLfTransferRuntimeRule => {
             )
         )),
         provenance: source(
-            'rule @tapp1_fapp0 $K Cat_cat _ _ $x $y ' +
+            'rule @tapp1_fapp0 $K Cat_cart _ _ $x $y ' +
                 '(@Functor_comp_pair_funcd $K $X $A $B) $p'
         )
     };
@@ -1266,18 +1270,19 @@ export function coreCategoricalDirectMixedConstantMiddleCoreName(
 
 export const CORE_CATEGORICAL_DIRECT_MIXED_CONSTANT_MIDDLE_BOUNDARY =
 Object.freeze({
-    decision: 'D-DTTLF-USABILITY-052',
+    decision: 'foundations-frontend-direct-mixed-2026-10-25',
+    historicalDecision: 'D-DTTLF-USABILITY-052',
     declarationNames: Object.freeze(
         declarations.map(declaration => declaration.symbol.name)
     ),
     declarationCount: declarations.length,
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
     runtimeRuleCount: runtimeRules.length,
-    activeLambdapiOwnerDelta: 1,
-    activeLambdapiRuleDelta: 3,
+    activeLambdapiOwnerDelta: 0,
+    activeLambdapiRuleDelta: 0,
     preExistingOrdinaryDeclarationDelta: 2,
     preExistingOrdinaryRuleDelta: 1,
-    ordinaryPointTransferScope: 'Cat_cat-specialization' as const,
+    ordinaryPointTransferScope: 'Cat_cart-specialization' as const,
     ordinaryPointRightPresentation:
         'checked-transparent-comp_cat_fapp0' as const,
     excludedOrdinaryActionProjectionCount: 3,

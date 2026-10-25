@@ -300,7 +300,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D direct binder', () => {
         const nestedSource = emdash.mixedDisplayedFunctorFamily(P, Q);
         const nestedSourcePrime =
             emdash.mixedDisplayedFunctorFamily(PPrime, QPrime);
-        const L = emdash.displayedFunctor(
+        const L = emdash.cartesianDisplayedFunctor(
             'direct_mixed_nested_conversion_L',
             nestedSourcePrime,
             nestedSource
@@ -312,7 +312,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D direct binder', () => {
         );
         const x = emdash.section(
             'direct_mixed_nested_conversion_x',
-            emdash.oppositeDisplayedFamily(homCarrier)
+            emdash.totalOppositeDisplayedFamily(homCarrier)
         );
         const y = emdash.section(
             'direct_mixed_nested_conversion_y',
@@ -338,7 +338,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D direct binder', () => {
         );
         const alpha = emdash.section(
             'direct_mixed_nested_conversion_alpha',
-            emdash.oppositeDisplayedFamily(functorTarget)
+            emdash.totalOppositeDisplayedFamily(functorTarget)
         );
         const beta = emdash.section(
             'direct_mixed_nested_conversion_beta',
@@ -356,7 +356,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D direct binder', () => {
             emdash.mixedDisplayedFunctorFamily(P, Q);
         const mu = emdash.section(
             'direct_mixed_nested_conversion_mu',
-            emdash.oppositeDisplayedFamily(functorOverOp)
+            emdash.totalOppositeDisplayedFamily(functorOverOp)
         );
         const nu = emdash.section(
             'direct_mixed_nested_conversion_nu',
@@ -523,12 +523,12 @@ describe('DIRECT-MIXED-INTRODUCTION-1D direct binder', () => {
             'direct_mixed_source_mapped_A_double_prime',
             opK
         );
-        const L = emdash.displayedFunctor(
+        const L = emdash.cartesianDisplayedFunctor(
             'direct_mixed_source_mapped_L',
             APrime,
             A
         );
-        const M = emdash.displayedFunctor(
+        const M = emdash.cartesianDisplayedFunctor(
             'direct_mixed_source_mapped_M',
             ADoublePrime,
             APrime
@@ -721,7 +721,7 @@ describe('DIRECT-MIXED-INTRODUCTION-1D direct binder', () => {
             'direct_mixed_deep_product_A_prime',
             opK
         );
-        const L = emdash.displayedFunctor(
+        const L = emdash.cartesianDisplayedFunctor(
             'direct_mixed_deep_product_L',
             APrime,
             A

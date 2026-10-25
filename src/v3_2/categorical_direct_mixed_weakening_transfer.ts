@@ -77,8 +77,8 @@ const homClassifier =
     coreDirectedContinuationTransferSymbol('hom-classifier');
 const homCategory =
     coreDirectedContinuationTransferSymbol('hom-category');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol('displayed-category-category');
 const functorObject =
@@ -102,7 +102,7 @@ const oppositeCategory = symbol('Op_cat');
 const stableFunctorFamily = symbol('Functor_catd');
 
 const {
-    functorCategory,
+    cartesianFunctorCategory: functorCategory,
     identityFunctor,
     functorComposition,
     constantFunctorAbstraction
@@ -391,7 +391,7 @@ const fibreAt = (
     functorObjectAt(
         builder,
         base,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         family,
         point
     );
@@ -572,7 +572,7 @@ const externalSymbols = Object.freeze([
     functorClassifier,
     homClassifier,
     homCategory,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     functorObject,
     functorHomFull,
@@ -694,7 +694,7 @@ const pointRule = (): CoreLfTransferRuntimeRule => {
     const A = builder.capture('A');
     const B = builder.capture('B');
     const k = builder.capture('k');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const target = stableFunctorFamilyAt(builder, K, A, B);
     return {
         order: 0,
@@ -732,7 +732,7 @@ const pointRule = (): CoreLfTransferRuntimeRule => {
             fibreAt(builder, K, B, k)
         )),
         provenance: source(
-            'rule @tapp0_fapp0 $K Cat_cat _ _ $k ' +
+            'rule @tapp0_fapp0 $K Cat_cart _ _ $k ' +
                 '(@Functor_catd_const_funcd $K $A $B)'
         )
     };
@@ -745,7 +745,7 @@ const fullRule = (): CoreLfTransferRuntimeRule => {
     const B = builder.capture('B');
     const x = builder.capture('x');
     const y = builder.capture('y');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const target = stableFunctorFamilyAt(builder, K, A, B);
     const Bx = fibreAt(builder, K, B, x);
     const By = fibreAt(builder, K, B, y);
@@ -807,7 +807,7 @@ const fullRule = (): CoreLfTransferRuntimeRule => {
             functorHomFullAt(builder, K, cat, B, x, y)
         )),
         provenance: source(
-            'rule @tapp1_func $K Cat_cat _ _ $x $y ' +
+            'rule @tapp1_func $K Cat_cart _ _ $x $y ' +
                 '(@Functor_catd_const_funcd $K $A $B)'
         )
     };
@@ -821,7 +821,7 @@ const cappedRule = (): CoreLfTransferRuntimeRule => {
     const x = builder.capture('x');
     const y = builder.capture('y');
     const p = builder.capture('p');
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const target = stableFunctorFamilyAt(builder, K, A, B);
     const Bx = fibreAt(builder, K, B, x);
     const By = fibreAt(builder, K, B, y);
@@ -869,7 +869,7 @@ const cappedRule = (): CoreLfTransferRuntimeRule => {
             functorHomCappedAt(builder, K, cat, B, x, y, p)
         )),
         provenance: source(
-            'rule @tapp1_fapp0 $K Cat_cat _ _ $x $y ' +
+            'rule @tapp1_fapp0 $K Cat_cart _ _ $x $y ' +
                 '(@Functor_catd_const_funcd $K $A $B) $p'
         )
     };
@@ -954,15 +954,16 @@ export function coreCategoricalDirectMixedWeakeningCoreName(
 
 export const CORE_CATEGORICAL_DIRECT_MIXED_WEAKENING_BOUNDARY =
 Object.freeze({
-    decision: 'D-DTTLF-USABILITY-050',
+    decision: 'foundations-frontend-direct-mixed-2026-10-25',
+    historicalDecision: 'D-DTTLF-USABILITY-050',
     declarationNames: Object.freeze(
         declarations.map(declaration => declaration.symbol.name)
     ),
     declarationCount: declarations.length,
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
     runtimeRuleCount: runtimeRules.length,
-    activeLambdapiOwnerDelta: 1,
-    activeLambdapiRuleDelta: 3,
+    activeLambdapiOwnerDelta: 0,
+    activeLambdapiRuleDelta: 0,
     preExistingSignatureAcquisitionDelta: 1,
     intrinsicCoreOwnerDelta: 0,
     ownerSpecificCheckerOrEvaluatorDelta: 0,

@@ -79,8 +79,8 @@ const objectClassifier =
     coreDirectedContinuationTransferSymbol('object-classifier');
 const homClassifier =
     coreDirectedContinuationTransferSymbol('hom-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol('displayed-category-category');
 const functorObject =
@@ -105,7 +105,8 @@ const oppositeCategory = symbol('Op_cat');
 const stableFunctorFamily = symbol('Functor_catd');
 
 const {
-    functorCategory,
+    cartesianFunctorCategory: functorCategory,
+    functorCategory: ordinaryFunctorCategory,
     identityFunctor,
     functorComposition,
     productCategory,
@@ -113,7 +114,7 @@ const {
     uncurryPackage
 } = CORE_CATEGORICAL_STRUCTURAL_SYMBOLS;
 const {
-    internalProductFunctor
+    coefficientProductFunctor: internalProductFunctor
 } = CORE_CATEGORICAL_FIBRED_PRODUCT_SYMBOLS;
 
 export const
@@ -378,7 +379,7 @@ const transparentDisplayedProduct = (
     left: CoreLfTransferBuilderExpression,
     right: CoreLfTransferBuilderExpression
 ): CoreLfTransferBuilderExpression => {
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const catProduct = productCategoryAt(builder, cat, cat);
     const catEndofunctors = functorCategoryAt(builder, cat, cat);
     const uncurriedProduct = functorObjectAt(
@@ -392,7 +393,11 @@ const transparentDisplayedProduct = (
         ]),
         builder.global(internalProductFunctor)
     );
-    const familyCategory = functorCategoryAt(builder, base, cat);
+    // Pair ordinary functor objects at their existing action owner. The
+    // Cartesian classifier above belongs to uncurry's parameter category.
+    const familyCategory = globalCall(builder, ordinaryFunctorCategory, [
+        { plicity: 'explicit', value: base }, { plicity: 'explicit', value: cat }
+    ]);
     return composeFunctorsAt(
         builder,
         base,
@@ -412,7 +417,7 @@ const fibreAt = (
     functorObjectAt(
         builder,
         base,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         family,
         point
     );
@@ -539,7 +544,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         decodeOwner,
         objectClassifier,
         homClassifier,
-        categoryOfCategories,
+        familyCoefficient,
         displayedCategoryCategory,
         functorObject,
         functorHomFull,
@@ -552,6 +557,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         oppositeCategory,
         stableFunctorFamily,
         functorCategory,
+        ordinaryFunctorCategory,
         identityFunctor,
         functorComposition,
         productCategory,
@@ -659,7 +665,7 @@ const pointRule = (): CoreLfTransferRuntimeRule => {
     const C = builder.capture('C');
     const k = builder.capture('k');
     const families = distributorFamilies(builder, K, A, B, C);
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     const sourceFibre = fibreAt(builder, oppositeAt(builder, K), A, k);
     return {
         order: 0,
@@ -718,7 +724,7 @@ const pointRule = (): CoreLfTransferRuntimeRule => {
             )
         }])),
         provenance: source(
-            'rule @tapp0_fapp0 $K Cat_cat _ _ $k ' +
+            'rule @tapp0_fapp0 $K Cat_cart _ _ $k ' +
                 '(@Functor_catd_product_funcd $K $A $B $C)'
         )
     };
@@ -733,7 +739,7 @@ const fullRule = (): CoreLfTransferRuntimeRule => {
     const x = builder.capture('x');
     const y = builder.capture('y');
     const families = distributorFamilies(builder, K, A, B, C);
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     return {
         order: 1,
         id: 'categorical.direct-mixed-product-distribution.full-action',
@@ -788,7 +794,7 @@ const fullRule = (): CoreLfTransferRuntimeRule => {
             y
         )),
         provenance: source(
-            'rule @tapp1_func $K Cat_cat _ _ $x $y ' +
+            'rule @tapp1_func $K Cat_cart _ _ $x $y ' +
                 '(@Functor_catd_product_funcd $K $A $B $C)'
         )
     };
@@ -804,7 +810,7 @@ const cappedRule = (): CoreLfTransferRuntimeRule => {
     const y = builder.capture('y');
     const p = builder.capture('p');
     const families = distributorFamilies(builder, K, A, B, C);
-    const cat = builder.global(categoryOfCategories);
+    const cat = builder.global(familyCoefficient);
     return {
         order: 2,
         id: 'categorical.direct-mixed-product-distribution.capped-action',
@@ -865,7 +871,7 @@ const cappedRule = (): CoreLfTransferRuntimeRule => {
             p
         )),
         provenance: source(
-            'rule @tapp1_fapp0 $K Cat_cat _ _ $x $y ' +
+            'rule @tapp1_fapp0 $K Cat_cart _ _ $x $y ' +
                 '(@Functor_catd_product_funcd $K $A $B $C) $p'
         )
     };
@@ -954,15 +960,16 @@ export function coreCategoricalDirectMixedProductDistributionCoreName(
 
 export const CORE_CATEGORICAL_DIRECT_MIXED_PRODUCT_DISTRIBUTION_BOUNDARY =
 Object.freeze({
-    decision: 'D-DTTLF-USABILITY-048',
+    decision: 'foundations-frontend-direct-mixed-2026-10-25',
+    historicalDecision: 'D-DTTLF-USABILITY-048',
     declarationNames: Object.freeze(
         declarations.map(declaration => declaration.symbol.name)
     ),
     declarationCount: declarations.length,
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
     runtimeRuleCount: runtimeRules.length,
-    activeLambdapiOwnerDelta: 1,
-    activeLambdapiRuleDelta: 3,
+    activeLambdapiOwnerDelta: 0,
+    activeLambdapiRuleDelta: 0,
     intrinsicCoreOwnerDelta: 0,
     ownerSpecificCheckerOrEvaluatorDelta: 0,
     externalOracleDelta: 0,

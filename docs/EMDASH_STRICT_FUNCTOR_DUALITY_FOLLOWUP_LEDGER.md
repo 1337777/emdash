@@ -61,6 +61,19 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [direct mixed-family frontend continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_direct_mixed_review.md)
+now follows the native Cartesian source-map and lax target-map profiles,
+including product distribution, weakening and constant-middle composition.
+The authoring layer exposes Cartesian displayed maps through the same ordinary
+actions; it rejects a lax map in the negative-family slot. Object reification
+preserves the distinction between Cartesian and ordinary higher mappings.
+All 44 distinct focused cases pass across the recorded runs, including two
+native checks; workspace, registration, typecheck and lint pass. The complete
+TypeScript attempt now reaches an old opposite-section input in the generic
+telescope fixture. This continues F04 and does not settle the separate full
+P-index endpoint comparison.
+
+
 The [mixed total-duality and lower Homd frontend](../emdash2/audits/strict-default-action-boundary/foundation_frontend_mixed_homd_review.md)
 now follows the native total-dual negative sections and actual Q-valued section
 category. All 28 focused tests, including native conformance, pass; workspace,

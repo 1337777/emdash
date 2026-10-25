@@ -2777,8 +2777,9 @@ export class CoreCategoricalScopedBuilder {
             nodeProvenance
         );
         const oppositeDisplayedCategories = this.oppositeCategory(
-            this.displayedCategoryCategory(
+            this.cartesianFunctorCategory(
                 oppositeBase,
+                coreCategoricalFamilyCoefficient(nodeProvenance),
                 nodeProvenance
             ),
             nodeProvenance
@@ -2788,6 +2789,19 @@ export class CoreCategoricalScopedBuilder {
             displayedCategories,
             nodeProvenance
         );
+        const strictHead = coreCategoricalFibredProductCoreName('strict-transfor-view');
+        if (displayedFunctor.tag !== 'call' || displayedFunctor.callee.tag !== 'reference' ||
+            displayedFunctor.callee.namespace !== 'free' || displayedFunctor.callee.name !== strictHead ||
+            displayedFunctor.arguments.length !== 5 ||
+            displayedFunctor.arguments.some((arg,index) => arg.plicity !== (index < 4 ? 'implicit' : 'explicit')) ||
+            !kernelExpressionEquals(displayedFunctor.arguments[0].value, oppositeBase) ||
+            !kernelExpressionEquals(displayedFunctor.arguments[1].value, coreCategoricalFamilyCoefficient(nodeProvenance)) ||
+            !kernelExpressionEquals(displayedFunctor.arguments[2].value, sourceSourceFamily) ||
+            !kernelExpressionEquals(displayedFunctor.arguments[3].value, targetSourceFamily)) {
+            this.fail('CLASSIFIER_ARGUMENT_MISMATCH', nodeProvenance,
+                'Contravariant mixed-family action requires a Cartesian displayed map; a general lax displayed map has no such native action');
+        }
+        const strictMap = displayedFunctor.arguments[4].value;
         const constructorAction = kernelApplication(
             'functor-hom-capped',
             [
@@ -2808,7 +2822,7 @@ export class CoreCategoricalScopedBuilder {
                 },
                 { value: targetSourceFamily },
                 { value: sourceSourceFamily },
-                { value: displayedFunctor }
+                { value: strictMap }
             ],
             nodeProvenance
         );

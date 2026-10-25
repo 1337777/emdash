@@ -1,14 +1,11 @@
 /**
- * DIRECT-MIXED-INTRODUCTION-1D one-rule generic runtime continuation.
+ * Direct mixed target action and its native Cartesian composition cut.
  *
  * The active kernel adds no declaration here.  It only projects the existing
  * covariant action of `Functor_catd(A,-)` to the already transferred
  * Cat-valued postcomposition functor after a fibre functor `H` is consumed.
  */
 
-import {
-    CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_SYMBOLS
-} from './categorical_displayed_nd_higher_foundation_transfer';
 import {
     CORE_CATEGORICAL_FIBRED_PRODUCT_SYMBOLS
 } from './categorical_fibred_product_transfer';
@@ -50,15 +47,15 @@ import {
 const MODULE_ID = 'emdash.emdash3_2';
 
 export const CORE_CATEGORICAL_DIRECT_MIXED_INTRODUCTION_TRANSFER_REVISION =
-    'DIRECT-MIXED-INTRODUCTION-1D-RUNTIME-1' as const;
+    'DIRECT-MIXED-INTRODUCTION-NATIVE-CART-2' as const;
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
 const decodeOwner = coreDirectedContinuationTransferSymbol('decode');
 const objectClassifier =
     coreDirectedContinuationTransferSymbol('object-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -78,12 +75,11 @@ const symbol = (name: string): CoreLfQualifiedSymbol =>
 const displayedFamilyClassifier = symbol('Catd');
 const displayedFunctorClassifier = symbol('Functord');
 const oppositeCategory = symbol('Op_cat');
-const functorCategory = symbol('Functor_cat');
+const functorCategory = symbol('Functor_cart_cat');
 const stableFunctorFamily = symbol('Functor_catd');
 
-const {
-    identityArrow
-} = CORE_CATEGORICAL_DISPLAYED_ND_HIGHER_FOUNDATION_SYMBOLS;
+const identityFunctor = symbol('id_func');
+const functorComposition = symbol('comp_cat_fapp0');
 const {
     mixedFunctorFamilyPartial
 } = CORE_CATEGORICAL_MIXED_ACTION_SYMBOLS;
@@ -197,7 +193,7 @@ const fibreAt = (
     functorObjectAt(
         builder,
         base,
-        builder.global(categoryOfCategories),
+        builder.global(familyCoefficient),
         family,
         point
     );
@@ -254,7 +250,7 @@ const componentAt = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'implicit', value: sourceFamily },
         { plicity: 'implicit', value: targetFamily },
@@ -265,16 +261,9 @@ const componentAt = (
 const identityCategoryFunctor = (
     builder: CoreLfTransferScopedBuilder
 ): CoreLfTransferBuilderExpression =>
-    globalCall(builder, identityArrow, [
-        {
-            plicity: 'explicit',
-            value: builder.global(categoryOfCategories)
-        },
-        {
-            plicity: 'explicit',
-            value: builder.global(categoryOfCategories)
-        }
-    ]);
+    globalCall(builder, identityFunctor, [{
+        plicity: 'implicit', value: builder.global(familyCoefficient)
+    }]);
 
 const postcompositionAt = (
     builder: CoreLfTransferScopedBuilder,
@@ -287,11 +276,11 @@ const postcompositionAt = (
     globalCall(builder, postcompositionAction, [
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'explicit', value: identityCategoryFunctor(builder) },
         { plicity: 'explicit', value: source },
@@ -428,15 +417,34 @@ const directMixedPostcompositionProjectionRule =
             H
         )),
         provenance: source(
-            'rule @fapp0 _ _ (@tapp0_fapp0 $K Cat_cat _ _ $k ' +
+            'rule @fapp0 _ _ (@tapp0_fapp0 $K Cat_cart _ _ $k ' +
                 '(@fapp1_fapp0 (Catd_cat $K) (Catd_cat $K) ' +
                 '(@Functor_catd_fapp0_func $K $A) $B $D $G)) $H'
         )
     };
 };
 
+const cartesianPostcompositionRule = (): CoreLfTransferRuntimeRule => {
+    const b = new CoreLfTransferScopedBuilder();
+    const A=b.capture('A'),B=b.capture('B'),C=b.capture('C'),F=b.capture('F'),G=b.capture('G');
+    return {
+        order:0,id:'categorical.direct-mixed-introduction.cartesian-postcomposition',
+        groupId:'categorical.direct-mixed-introduction.cartesian-postcomposition',clauseOrder:0,
+        sourceOwner:postcompositionAction,
+        variables:[...['A','B','C'].map(name=>({name,type:b.template(b.global(category))})),
+            {name:'F',type:b.template(objectType(b,functorCategoryAt(b,A,B)))},
+            {name:'G',type:b.template(objectType(b,functorCategoryAt(b,B,C)))}],
+        left:b.pattern(postcompositionAt(b,A,B,C,G,F)),
+        right:b.template(globalCall(b,functorComposition,[
+            {plicity:'implicit',value:A},{plicity:'implicit',value:B},{plicity:'implicit',value:C},
+            {plicity:'explicit',value:G},{plicity:'explicit',value:F}])),
+        provenance:source('rule @hom_postcomp_fapp0 Cat_cart Cat_cart (@id Cat_cat Cat_cart) $A $B $C $G $F ↪ @comp_cat_fapp0 $A $B $C $G $F;')
+    };
+};
+
 const runtimeRules = Object.freeze([
-    directMixedPostcompositionProjectionRule()
+    cartesianPostcompositionRule(),
+    {...directMixedPostcompositionProjectionRule(), order:1}
 ]);
 
 export const CORE_CATEGORICAL_DIRECT_MIXED_INTRODUCTION_RUNTIME_MODULE:
@@ -451,7 +459,7 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         category,
         decodeOwner,
         objectClassifier,
-        categoryOfCategories,
+        familyCoefficient,
         displayedCategoryCategory,
         functorObject,
         functorHomCapped,
@@ -460,7 +468,8 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         displayedFunctorClassifier,
         oppositeCategory,
         functorCategory,
-        identityArrow,
+        identityFunctor,
+        functorComposition,
         stableFunctorFamily,
         mixedFunctorFamilyPartial,
         postcompositionAction
@@ -497,16 +506,17 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
 
 export const CORE_CATEGORICAL_DIRECT_MIXED_INTRODUCTION_BOUNDARY =
 Object.freeze({
-    decision: 'D-DTTLF-USABILITY-043',
+    decision: 'foundations-frontend-direct-mixed-2026-10-25',
+    historicalDecision: 'D-DTTLF-USABILITY-043',
     declarationCount: 0,
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
     runtimeRuleCount: runtimeRules.length,
     activeLambdapiOwnerDelta: 0,
-    activeLambdapiRuleDelta: 1,
+    activeLambdapiRuleDelta: 0,
     intrinsicCoreOwnerDelta: 0,
     ownerSpecificCheckerOrEvaluatorDelta: 0,
     externalCoherenceEvidenceDelta: 0,
-    contextualBinderDelta: 1,
+    contextualBinderDelta: 0,
     textOrBrowserDelta: 0,
     transfersContextualCurry: false,
     allEntriesUseGenericTransferEngines: true

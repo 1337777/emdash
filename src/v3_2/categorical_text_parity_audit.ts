@@ -84,6 +84,7 @@ const capabilities = [
             'contravariantCategoryFamily',
             'section',
             'displayedFunctor',
+            'cartesianDisplayedFunctor',
             'displayedTransfor',
             'object',
             'functor',

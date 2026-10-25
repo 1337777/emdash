@@ -1307,6 +1307,8 @@ export class CoreCategoricalProgram {
                 environment: this.environment,
                 runtime: classifierRuntime,
                 formerNames: {
+                    cartesianFunctorCategory: coreCategoricalStructuralSymbolCoreName(
+                        CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory),
                     objectPreservingDuals: [
                         mixedModeModule().coreMixedNativeCoreName('CoAbove2_cat'),
                         displayedNdHigherFoundationModule().coreNativeHomdCoreName('CoAt2_cat')
@@ -5440,6 +5442,26 @@ export class CoreCategoricalProgram {
         targetValue: CoreCategoricalDisplayedFamily,
         source?: CoreCategoricalSourceSite
     ): CoreCategoricalTerm {
+        return this.assumeDisplayedFunctor(name, sourceValue, targetValue, false, source);
+    }
+
+    /** A Cartesian diagram map, exposed through the existing ordinary displayed actions. */
+    cartesianDisplayedFunctor(
+        name: string,
+        sourceValue: CoreCategoricalDisplayedFamily,
+        targetValue: CoreCategoricalDisplayedFamily,
+        source?: CoreCategoricalSourceSite
+    ): CoreCategoricalTerm {
+        return this.assumeDisplayedFunctor(name, sourceValue, targetValue, true, source);
+    }
+
+    private assumeDisplayedFunctor(
+        name: string,
+        sourceValue: CoreCategoricalDisplayedFamily,
+        targetValue: CoreCategoricalDisplayedFamily,
+        cartesian: boolean,
+        source?: CoreCategoricalSourceSite
+    ): CoreCategoricalTerm {
         const nodeProvenance = this.at(
             `displayed functor assumption ${name}`,
             source
@@ -5488,13 +5510,30 @@ export class CoreCategoricalProgram {
             ],
             nodeProvenance
         );
-        return this.assume(name, {
+        const type: CoreType = {
             tag: 'displayed-functor',
             category,
             baseCategory: sourceFamily.baseCategory.expression,
             sourceFamily: sourceFamily.expression,
             targetFamily: targetFamily.expression
-        }, nodeProvenance);
+        };
+        if (!cartesian) return this.assume(name, type, nodeProvenance);
+        this.requireMixedMode(nodeProvenance);
+        const K = sourceFamily.baseCategory.expression;
+        const coefficient = this.familyCoefficientExpression(nodeProvenance);
+        const mappingCategory = kernelCall(kernelFree(coreCategoricalStructuralSymbolCoreName(
+            CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.cartesianFunctorCategory), nodeProvenance), [
+            { plicity: 'explicit', value: K }, { plicity: 'explicit', value: coefficient }
+        ], nodeProvenance);
+        const carrier = kernelApplication('hom-category', [
+            { value: mappingCategory }, { value: sourceFamily.expression }, { value: targetFamily.expression }
+        ], nodeProvenance);
+        this.assume(name, { tag: 'object', category: carrier }, nodeProvenance);
+        return this.makeTerm(kernelCall(kernelFree(coreCategoricalFibredProductCoreName('strict-transfor-view'), nodeProvenance), [
+            { plicity: 'implicit', value: K }, { plicity: 'implicit', value: coefficient },
+            { plicity: 'implicit', value: sourceFamily.expression }, { plicity: 'implicit', value: targetFamily.expression },
+            { plicity: 'explicit', value: kernelFree(name, nodeProvenance) }
+        ], nodeProvenance), type, nodeProvenance);
     }
 
     /**

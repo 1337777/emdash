@@ -1,0 +1,107 @@
+{
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "scope": "Native direct mixed constructors/actions; declaration bodies and projection instances checked by the recorded conformance tests",
+  "commands": [
+    {
+      "name": "Functor_cart_cat",
+      "ordinal": 404,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "b30c64ebed5fe959e688f1d17069d624515f95f50fd9d671908a7048ab2fba3e"
+    },
+    {
+      "name": "StrictTransfor",
+      "ordinal": 840,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "ee1050eeb17178c31b58cbda03bb0e3f6010a152c3412034955b62cfca0c7ce2"
+    },
+    {
+      "name": "strict_transfor",
+      "ordinal": 841,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "f395ff225d0076189feec62496715647d09e1f197b61ff6a45f452842d72e591"
+    },
+    {
+      "name": "Functor_catd_func",
+      "ordinal": 1386,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "fed9b37d77333bb826fea19fff9397105615a5d9640b4a4b07320ddc9f4cf901"
+    },
+    {
+      "name": "Functor_catd_fapp0_func",
+      "ordinal": 1387,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "2e2128d87e80a3b9596be1b08642538c03417b49a99c932b2f030f5942ba8f7e"
+    },
+    {
+      "name": "hom_postcomp_fapp0",
+      "ordinal": 625,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "335d0cd9720e84fda3bb58afb7d83239aac515a4802f159714b46c47ab898115"
+    },
+    {
+      "name": "Functor_catd_product_funcd",
+      "ordinal": 1392,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "ecb0878c51b95d0caec17ceca00a3b3481a933628142875e00878852044e28fa"
+    },
+    {
+      "name": "hom_postcomp_func",
+      "ordinal": 624,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "231993eb6fd40e75b8cd5431784faaacda9d692ab97872fe6d72e76fcefd8c2f"
+    },
+    {
+      "name": "Functor_catd_const_funcd",
+      "ordinal": 1694,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "b9a637c6d4d8de49b4210847dc5cf8d60278c13b097d8a1032a8e3d690e3d8cd"
+    },
+    {
+      "name": "comp_prod_func",
+      "ordinal": 798,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "d2dcc9f3ec622f13ab5c7f4ff4cee72931f2f5c6e45ae494676a597151d95667"
+    },
+    {
+      "name": "Functor_comp_pair_func",
+      "ordinal": 807,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "d3abe944b01a43d192bcc466da8e2fea8e410cca0393c7ce9b5ef62e2accdf58"
+    },
+    {
+      "name": "Functor_comp_pair_funcd",
+      "ordinal": 1396,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "c383cf907123d5027120a32b952fbb54571a976f9a6311e84748816b7b599f6f"
+    }
+  ]
+}
