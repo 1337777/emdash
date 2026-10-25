@@ -103,6 +103,17 @@ def verify_batch(manifest, directory):
             "binarySha256": record["binarySha256"], "version": version}
 
 
+def selected_batch_profile(manifest, binary):
+    """Recognize a selected cache by its verified build, never by version alone."""
+    binary = binary.resolve()
+    directory = binary.parent.parent
+    if not (directory / "build.json").is_file():
+        return None
+    if binary != directory / "bin/lambdapi":
+        raise ValueError("selected checker is not the recorded batch executable")
+    return verify_batch(manifest, directory)
+
+
 def build_batch(manifest, directory, source_repository=None):
     """Build into an isolated cache without changing any opam switch or pin."""
     profile, _ = batch_profile(manifest)
@@ -240,10 +251,14 @@ def main():
     compiler = subprocess.check_output(["ocamlc", "-version"], text=True, timeout=5).strip()
     pin_list = subprocess.check_output(["opam", "pin", "list"], text=True, timeout=10)
     pin_matches = manifest["lambdapi"]["commit"] in pin_list
+    batch = selected_batch_profile(manifest, Path(shutil.which("lambdapi")))
+    version_matches = version == (batch["version"] if batch else manifest["lambdapi"]["version"])
     result = {"packageMismatches": mismatches, "lambdapi": version, "ocaml": compiler,
               "sourcePinMatches": pin_matches}
+    if batch:
+        result["batchChecker"] = batch
     print(json.dumps(result, indent=2))
-    return int(bool(mismatches) or version != manifest["lambdapi"]["version"]
+    return int(bool(mismatches) or not version_matches
                or compiler != manifest["ocaml"] or not pin_matches)
 
 

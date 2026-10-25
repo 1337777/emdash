@@ -1,0 +1,107 @@
+{
+  "status": "reviewer aggregate failed at file-output cap during expected-negative diagnostics; no pass claimed",
+  "receipt": {
+    "id": "20261025T120519Z-e9e4b86335dc43f5af1b64f97d3321d4",
+    "outcome": "failed",
+    "checkerExit": 153,
+    "wallSeconds": 2484.496105903061,
+    "childrenMaxRssKiB": 5419924,
+    "settings": {
+      "camlrunparam": "",
+      "fileMiB": 64,
+      "flags": [
+        "--record-time",
+        "--too-long=0.5",
+        "--no-colors"
+      ],
+      "memoryMiB": 6144,
+      "ocamlrunparam": "o=20,v=1024",
+      "platform": "Linux-7.0.0-34-generic-x86_64-with-glibc2.39",
+      "profile": "default",
+      "pythonVersion": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+      "resourceBackend": "auto",
+      "runtimeEnvironment": {
+        "CAML_LD_LIBRARY_PATH": "/home/user1/.opam/default/lib/stublibs:/home/user1/.opam/default/lib/ocaml/stublibs:/home/user1/.opam/default/lib/ocaml",
+        "LD_LIBRARY_PATH": "",
+        "LD_PRELOAD": ""
+      },
+      "timeoutMs": 3600000
+    },
+    "checker": {
+      "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/tmp/probes/checker_rollback_memory/source/_build/default/src/cli/lambdapi.exe",
+      "sha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+      "version": "dev-3.0.0-90-gdb4f7809-dirty"
+    },
+    "inputSnapshot": "523efb21bed7643c51354cb2265244f73baa9ee22cc24e4399330a9fdd103227",
+    "log": "logs/check-runs/20261025T120519Z-e9e4b86335dc43f5af1b64f97d3321d4.log",
+    "logSha256": "254c30ebfadc597ecf263b46f0c161ba9856c19533239a877c832aa61bde843d"
+  },
+  "receiptSha256": "de9577b317006f7e982441f3961a6c5ab1c0ac9042d59cbad37221d2218cb8d8",
+  "sourceInputs": 1374,
+  "completedReviewersObserved": 459,
+  "lastAssertion": {
+    "index": 8,
+    "line": 611,
+    "firstLine": "assertnot [K C : Cat] (C1 : \u03c4 (IsNCat (cat_succ cat_zero) C))"
+  },
+  "largestDiagnosticLines": [
+    {
+      "line": 22907,
+      "bytes": 34152911,
+      "offset": 31871556,
+      "location": "[examples/one_cat_native_homology_window_connecting.lp:323:0-372:17]",
+      "prefix": "Cannot solve B: Cat, C: Cat, C1: \u03c4 (IsNCat (c"
+    },
+    {
+      "line": 22841,
+      "bytes": 1475280,
+      "offset": 27722559,
+      "location": "[examples/one_cat_middle_homology_exactness.lp:591:0-678:91]",
+      "prefix": "Cannot solve B: Cat, C: Cat, C1: \u03c4 (IsNCat (c"
+    },
+    {
+      "line": 19777,
+      "bytes": 1452735,
+      "offset": 17314321,
+      "location": "[examples/dependent_simplex_ordinal_dimension3.lp:54:0-79:12]",
+      "prefix": "Cannot solve C: Cat, H: \u03c4 (Functor ordinal_si"
+    },
+    {
+      "line": 22853,
+      "bytes": 1387492,
+      "offset": 29199598,
+      "location": "[examples/one_cat_native_connecting_lifts.lp:176:0-234:7]",
+      "prefix": "Cannot solve B: Cat, C: Cat, C1: \u03c4 (IsNCat (c"
+    },
+    {
+      "line": 22901,
+      "bytes": 1278356,
+      "offset": 30592683,
+      "location": "[examples/one_cat_native_homology_quotient_equivalence.lp:472:0-515:103]",
+      "prefix": "Cannot solve K: Cat, C: Cat, C1: \u03c4 (IsNCat (c"
+    },
+    {
+      "line": 22728,
+      "bytes": 981350,
+      "offset": 23666295,
+      "location": "[examples/one_cat_connecting_source_exactness.lp:581:0-650:19]",
+      "prefix": "Cannot solve B: Cat, C: Cat, C1: \u03c4 (IsNCat (c"
+    },
+    {
+      "line": 22732,
+      "bytes": 955266,
+      "offset": 24648060,
+      "location": "[examples/one_cat_connecting_target_exactness.lp:562:0-629:44]",
+      "prefix": "Cannot solve B: Cat, C: Cat, C1: \u03c4 (IsNCat (c"
+    },
+    {
+      "line": 18200,
+      "bytes": 867195,
+      "offset": 12442079,
+      "location": "[emdash3_2_direct_cover_sheafification.lp:70:0-77:10]",
+      "prefix": "t \u21aa[] @emdash.emdash3_2_triangular_binary_pro"
+    }
+  ],
+  "logBytes": 67109203,
+  "nextProfile": "Same full596 reviewer scope with normal -w printing suppression, unchanged64MiB file cap,3600s/6144MiB and subject reduction. Whole791-owner warning evidence remains separately retained. New supported binary qualified separately; this is not a one-variable timing comparison."
+}

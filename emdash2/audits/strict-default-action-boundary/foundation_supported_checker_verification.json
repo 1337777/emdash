@@ -1,0 +1,119 @@
+{
+  "status": "Fresh supported batch build verifies; CLI rollback/sensitivity/SR controls pass; full reviewer requalification running",
+  "build": {
+    "profileSha256": "a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b",
+    "sourceCommit": "db4f7809961b8c107247613067fb567491fb0b84",
+    "patchSha256": "fe854f84a61a02b31b5eaa85cd9375f370d7388ac71c9ccdeae88ff565b813d9",
+    "binarySha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty",
+    "ocaml": "5.4.0",
+    "buildCommand": [
+      "dune",
+      "build",
+      "--profile",
+      "release",
+      "-j",
+      "1",
+      "src/cli/lambdapi.exe"
+    ],
+    "guardSha256": "56f70405fc52e35d0cf59668f2a8a74bb0ec634ad2463825e6be6093099b0a66",
+    "timeoutSeconds": 300,
+    "memoryMiB": 4096,
+    "log": "build-2050655730574055949db542686fe9c2.log",
+    "logSha256": "400f95d8e9a45152d963118014b9fe0a064194ed95f48eb7b09dde4659bbf141"
+  },
+  "buildDirectory": "emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b",
+  "cases": {
+    "two_file_restore": {
+      "exit": 0,
+      "expectedFailure": false,
+      "seconds": 0.06726029305718839,
+      "log": "emdash2/tmp/probes/kernel_boundary_continuation/wave71_batch_two_file_restore.out",
+      "logSha256": "d167cc19271cb1c44856d7a4d34e80c0a53998b4f86863dcad5bb033214bfa4a",
+      "command": [
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "check",
+        "--no-colors",
+        "guard_first.lp",
+        "guard_second.lp"
+      ]
+    },
+    "single_file_sensitivity": {
+      "exit": 1,
+      "expectedFailure": true,
+      "seconds": 0.056412171106785536,
+      "log": "emdash2/tmp/probes/kernel_boundary_continuation/wave71_batch_single_file_sensitivity.out",
+      "logSha256": "7ad3ed2bcbd424ccfeeceda5301f9e0bcb81d2748002a6da9cf5d78dac9387b3",
+      "command": [
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "check",
+        "--no-colors",
+        "guard_joined.lp"
+      ]
+    },
+    "multiple_file_sr_rejection": {
+      "exit": 1,
+      "expectedFailure": true,
+      "seconds": 0.06083587114699185,
+      "log": "emdash2/tmp/probes/kernel_boundary_continuation/wave71_batch_multiple_file_sr_rejection.out",
+      "logSha256": "3738577c45e2b385be479d27145c3360ff40a348c2bd0146a8b69a02557d1623",
+      "command": [
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/scripts/lambdapi_resource_guard.sh",
+        "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "check",
+        "--no-colors",
+        "guard_bad_sr.lp",
+        "guard_second.lp"
+      ]
+    }
+  },
+  "oldBinarySha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+  "sameBinary": false,
+  "samePinnedSourceAndPatch": true,
+  "installedOpamSwitchChanged": false,
+  "binarySectionComparison": {
+    "oldBinarySha256": "5c82cca90847fb5cc7726f52b3c6b8f2df3a89685abecac48285ae676db6bb69",
+    "newBinarySha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "changedELFSections": [
+      ".debug_info",
+      ".debug_line",
+      ".debug_line_str",
+      ".note.gnu.build-id"
+    ],
+    "changedAllocatedSections": [
+      ".note.gnu.build-id"
+    ],
+    "textEqual": true,
+    "allocatedPayloadEqualExceptBuildID": true,
+    "boundary": "Binary identity remains different; section comparison does not replace execution receipts."
+  },
+  "patchSourceReview": "production_checker_boundary_review.md",
+  "integration": {
+    "installerUnitTests": 12,
+    "devopsUnitTests": 13,
+    "workflowYAMLParsed": true,
+    "changedWorkflowShellParsed": true,
+    "actualOpamEnvironmentVerificationPassed": true,
+    "hostedCIRunClaimed": false,
+    "filesSha256": {
+      "scripts/verification-toolchain.py": "c153eff921fa4fae9dd6dd9b96cabcde536f8eb8ead9e281c77a747415b90cef",
+      "scripts/test_verification_toolchain.py": "89f182716e7c501b1f109f4102d35c1bf16263149e235a4d2a869af305740b50",
+      ".github/workflows/validate.yml": "24db0fe3d0c99cb62488a1305562edf5cdbae3d1afa10fd1f092a45eb8f77eaf",
+      "toolchains/verification.json": "9cd5207db5995013a639de8ce986d6de04e1f79d2e82054312da7dab5e0f35cf"
+    },
+    "verificationResult": {
+      "packageMismatches": {},
+      "lambdapi": "dev-3.0.0-90-gdb4f7809-dirty",
+      "ocaml": "5.4.0",
+      "sourcePinMatches": true,
+      "batchChecker": {
+        "profileSha256": "a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b",
+        "binary": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+        "binarySha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+        "version": "dev-3.0.0-90-gdb4f7809-dirty"
+      }
+    }
+  }
+}

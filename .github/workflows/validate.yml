@@ -95,6 +95,9 @@ jobs:
       - name: Install and verify exact formal dependencies
         if: matrix.formal
         run: opam exec -- python3 scripts/verification-toolchain.py install
+      - name: Build and verify the reviewed batch checker
+        if: matrix.formal
+        run: opam exec -- python3 scripts/verification-toolchain.py build-batch
       - name: Install owned rendering tools
         if: matrix.print
         run: |
@@ -109,7 +112,12 @@ jobs:
         run: |
           set -euo pipefail
           if [ "$FORMAL" = true ]; then
-            opam exec -- python3 scripts/devops.py check --gate "$GATE" --base "$BASE" --head HEAD
+            opam exec -- bash -c '
+              set -euo pipefail
+              batch_bin=$(python3 scripts/verification-toolchain.py batch-path)
+              PATH="$batch_bin:$PATH" python3 scripts/verification-toolchain.py verify
+              PATH="$batch_bin:$PATH" python3 scripts/devops.py check --gate "$GATE" --base "$BASE" --head HEAD
+            '
           else
             python3 scripts/devops.py check --gate "$GATE" --base "$BASE" --head HEAD
           fi

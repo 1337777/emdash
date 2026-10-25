@@ -150,6 +150,7 @@ class BatchCheckerTests(unittest.TestCase):
         with patch.object(toolchain, "check_build_dependencies", return_value="5.4.0"), \
                 patch.object(toolchain.subprocess, "check_output", side_effect=output):
             self.assertEqual(toolchain.verify_batch(self.manifest, directory)["binarySha256"], toolchain.digest(binary))
+            self.assertEqual(toolchain.selected_batch_profile(self.manifest, binary)["binarySha256"], toolchain.digest(binary))
             # Existing verified builds are reused without cloning/building/installing.
             with patch.object(toolchain.subprocess, "run", wraps=subprocess.run) as run:
                 toolchain.build_batch(self.manifest, directory)
@@ -158,6 +159,8 @@ class BatchCheckerTests(unittest.TestCase):
             binary.write_text("changed executable")
             with self.assertRaisesRegex(ValueError, "binary checksum mismatch"):
                 toolchain.verify_batch(self.manifest, directory)
+            with self.assertRaisesRegex(ValueError, "binary checksum mismatch"):
+                toolchain.selected_batch_profile(self.manifest, binary)
             self.manifest["ocaml"] = "changed"
             with self.assertRaisesRegex(ValueError, "different verification manifest"):
                 toolchain.verify_batch(self.manifest, directory)
@@ -197,6 +200,13 @@ class BatchCheckerTests(unittest.TestCase):
             self.assertEqual(kwargs["env"]["EMDASH_LP_TIMEOUT"], "300s")
         self.assertFalse((directory / "build.json").exists())
         self.assertFalse((directory / "bin").exists())
+
+    def test_unrecorded_checker_is_not_assumed_to_be_the_batch_profile(self):
+        self.assertIsNone(toolchain.selected_batch_profile(self.manifest, self.root / "other/bin/lambdapi"))
+        directory = self.source.parent
+        (directory / "build.json").write_text("{}")
+        with self.assertRaisesRegex(ValueError, "not the recorded"):
+            toolchain.selected_batch_profile(self.manifest, directory / "other/lambdapi")
 
 
 if __name__ == "__main__":

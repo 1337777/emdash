@@ -61,6 +61,18 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Foundation-reviewer follow-up — 2026-10-25, unadopted
 
+The warning-enabled full596 reviewer aggregate ends at the 64MiB output cap
+while printing an expected-negative assertion, after459 observed completions
+(2484.496s/5,419,924KiB). It is not qualified. The
+[retained failure evidence](../emdash2/audits/strict-default-action-boundary/foundation_complete_reviewer_output_limit.json)
+explains the full-scope retry using normal warning-suppressed output; all
+assertions, subject reduction and existing caps remain. The791-owner warning
+gate stays separate. A fresh reproducible checker build passes verification
+and the three CLI boundary controls; [its review](../emdash2/audits/strict-default-action-boundary/foundation_supported_checker_review.md)
+records the differing binary hash and matching code/data sections. The retry
+runs on that supported build; production and remaining runtime gates stay open.
+
+
 The complete **791-owner library gate passes** with 793 exact inputs,
 2468.779s/5,209,732KiB at 3600s/6GiB, subject reduction enabled, receipt
 `20261025T052321Z-1b7c3fa9b43449028e422884a9d228b9`. Its input map matches the

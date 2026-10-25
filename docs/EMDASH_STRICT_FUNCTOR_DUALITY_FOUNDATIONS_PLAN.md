@@ -104,6 +104,40 @@ and complete-central qualification in staging. Production adoption remains R14.
 
 ### Current migration tranche
 
+The supported build now integrates with the ordinary verifier/DevOps doctor:
+only a fully verified cached binary is recognized; the base opam dependency
+and source-pin checks remain. Formal CI jobs explicitly build and select its
+PATH within `opam exec`. Local replay of that environment passes with zero
+package mismatches. Twelve installer tests and thirteen DevOps tests pass;
+workflow YAML and changed shell commands parse. Hosted CI is not claimed.
+The complete reviewer retry remains running on this supported binary with
+normal warning-suppressed output; its actual receipt decides qualification.
+
+
+The 596-reviewer aggregate stopped at the **64MiB output cap**, exit153,
+after 2484.496s/5,419,924KiB; receipt
+`20261025T120519Z-e9e4b86335dc43f5af1b64f97d3321d4` is failed, not reusable.
+459 reviewer completions were observed, but no complete aggregate pass is
+claimed. The interruption occurred while printing expected-negative assertion8
+in `one_cat_native_window_snake_cycles`; an earlier expected diagnostic was
+34MiB. [Output-limit review](../emdash2/audits/strict-default-action-boundary/foundation_complete_reviewer_output_limit.json)
+retains the boundary. The unchanged complete scope is retrying with the runner's
+normal `-w` printing suppression, unchanged3600s/6GiB/64MiB, and subject
+reduction. The pinned checker source confirms that this flag changes warning
+printing, not assertion truth or constraint solving. The complete791-owner
+warning log remains separately retained; no rule or hypothesis was removed.
+
+The [supported checker build](../emdash2/audits/strict-default-action-boundary/foundation_supported_checker_review.md)
+now succeeds and verifies. Three CLI boundary controls pass on the fresh binary:
+separate-file rollback, joined-import sensitivity and subject-reduction
+rejection. Its full hash differs from the prior probe, but ELF comparison finds
+only debug-section/build-ID differences; executable code and allocated data
+otherwise match. Keep the new binary identity distinct in receipts. The full
+reviewer retry uses that supported build. The installed opam switch and default
+checker remain unchanged; no global installation or automatic receipt reuse
+is claimed. Broader supported-runtime/production gates remain open.
+
+
 The [complete-source static review](../emdash2/audits/strict-default-action-boundary/foundation_promotion_static_review.md)
 passes its stated checks: zero unreviewed generic inferred slots across 791
 owners (137 annotated), and no unguarded whole-body rewrite on any of the 51

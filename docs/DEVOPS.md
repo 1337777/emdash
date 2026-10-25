@@ -236,6 +236,12 @@ relax subject reduction or make unpatched receipts count as patched evidence.
 The build path's runtime qualification is tracked by the
 [foundations plan](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md); preparation
 and installer unit tests alone do not qualify a new executable.
+The ordinary `verify`/DevOps-doctor route recognizes this selected executable
+only through the complete verified build record, source and binary checks.
+CI builds it after installing the pinned dependencies and prepends its verified
+directory inside the opam execution environment for formal gates. Local commands
+can use the same explicit PATH selection above; the global installation stays
+unchanged.
 
 ## Book and publication boundaries
 
