@@ -1,5 +1,12 @@
 # Final original reviewer migration and evaluated-action comparison
 
+Current qualification: the broad mixed-action congruence recorded in the
+initial candidate below fails the later image/coimage proof. It is superseded
+by the [same-cell guard](foundation_final_guard_review.md), whose focused check
+passes and whose full-context aggregate is rerunning. The current recipe emits
+that guarded version. The earlier receipt/authoring versions remain historical
+evidence at `73888e52`, not a current full-group qualification.
+
 Status: source-pinned candidate; the complete two-file tail and four typed
 controls pass. The full 15-reviewer aggregate is running with increased time
 headroom. No production adoption or increase in qualified counts is claimed.

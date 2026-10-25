@@ -1,5 +1,5 @@
 {
-  "status": "final reviewer candidate; focused complete tail and whole-type trace pass; full aggregate qualification pending",
+  "status": "same-cell guard passes focused tail and former image/coimage failure; full requalification pending",
   "parentCheckpoint": "0b0b8be5",
   "sourcePin": "f8af1fca472657ff1598c639eb29c0566e7b2ec0",
   "files": {
@@ -268,7 +268,7 @@
     },
     "emdash3_2_zero_arrow_family_action_paths.lp": {
       "sourceSha256": "6278c04ba67a66f472ec67933e1a9cf4316824c5c7ad3243f62fa03e6848639d",
-      "candidateSha256": "466ec05f9dfacc37f1404edba0cb3a849622029452f1ffdfa0ba8259c79c262b",
+      "candidateSha256": "2fa29ec629917be2f7f777366c424800240a6638b0a16244d26d91d3dd0e42a8",
       "before": "// Proof-time sufficient congruence of the same whole evaluation projection.\n// Compare every index, family and transformation; no data is erased.\nunif_rule @sym_transf_tapp0_transf $B $I $C $F $G $h $i\n  \u2261 @sym_transf_tapp0_transf $B0 $I0 $C0 $F0 $G0 $h0 $i0\n  \u21aa [ $B \u2261 $B0; $I \u2261 $I0; $C \u2261 $C0; $F \u2261 $F0;\n      $G \u2261 $G0; $h \u2261 $h0; $i \u2261 $i0 ];\n\n",
       "fragment": "foundation_final_action_comparison.lpfragment"
     }

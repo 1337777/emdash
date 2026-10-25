@@ -75,6 +75,18 @@ rewriting and automatic branch merging remain unauthorized.
 
 ### Current migration tranche
 
+The broader final-reviewer run found an actual regression in the unchanged
+image/coimage proof (`20261025T034135Z-54072a183c3e4dbe95607839a2700f8c`,
+717.652s/2,558,740KiB). The generic mixed-action congruence is therefore not
+selected. Its [guarded correction](../emdash2/audits/strict-default-action-boundary/foundation_final_guard_review.md)
+matches identical supplied cell components before comparing their annotations.
+The two complete tail reviewers, four whole/type controls and failed owner pass
+in an 83-input cold check: 160.985s/1,998,008KiB under 300s/4GiB, subject
+reduction enabled. The original proof is unchanged. The full 404-input context
+is rerunning at 1800s/4GiB; it is not yet qualified. The
+[exact evidence](../emdash2/audits/strict-default-action-boundary/foundation_final_guard_verification.json)
+distinguishes the narrower focused pass from the required original-context pass.
+
 The complete **74 original foundational reviewers now pass**, preserving every
 original assertion. The [review](../emdash2/audits/strict-default-action-boundary/foundation_reviewers_complete_review.md)
 and [verification](../emdash2/audits/strict-default-action-boundary/foundation_reviewers_complete_verification.json)

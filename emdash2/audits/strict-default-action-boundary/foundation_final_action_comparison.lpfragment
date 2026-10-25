@@ -1,7 +1,11 @@
-// Sufficient congruence of the complete mixed composition action used by
-// oplax family evaluation. The old Cartesian exchange head is no longer
-// this consumer's owner. Compare every classifier, endpoint pair and cell.
-unif_rule @comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg1 $alpha
-  ≡ @comp_prod_fapp1_fapp0 $A0 $W0 $X0 $Z0 $qg $qg1 $beta
+// Compare annotations of the same supplied mixed-action cell components.
+// Repeating both actual components avoids treating composition as injective
+// in unrelated factorizations. Retain every endpoint and classifier as well.
+unif_rule @comp_prod_fapp1_fapp0 $A $W $X $Z
+    (Struct_sigma $F $G) (Struct_sigma $F1 $G1)
+    (Struct_sigma $h $k)
+  ≡ @comp_prod_fapp1_fapp0 $A0 $W0 $X0 $Z0
+    (Struct_sigma $F0 $G0) (Struct_sigma $F10 $G10)
+    (Struct_sigma $h $k)
   ↪ [ $A ≡ $A0; $W ≡ $W0; $X ≡ $X0; $Z ≡ $Z0;
-      $pg ≡ $qg; $pg1 ≡ $qg1; $alpha ≡ $beta ];
+      $F ≡ $F0; $G ≡ $G0; $F1 ≡ $F10; $G1 ≡ $G10 ];

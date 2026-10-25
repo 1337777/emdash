@@ -41,6 +41,14 @@ audit, is unaffected.
 
 ## Foundation-reviewer follow-up — 2026-10-25, unadopted
 
+The broader aggregate exposes a real image/coimage proof regression in the
+generic mixed-action congruence. The [guarded repair](../emdash2/audits/strict-default-action-boundary/foundation_final_guard_review.md)
+limits inference to the same supplied cell components. Its focused 83-input
+check passes the complete tail and failing owner (160.985s/1,998,008KiB), with
+the original proof body and negatives retained. The full 404-input rerun is
+pending. Neither the earlier tail pass nor static argument-retention audit
+qualified the broad inference scope; that version is not selected for adoption.
+
 The [final15 reviewer candidate](../emdash2/audits/strict-default-action-boundary/foundation_final_reviewer_review.md)
 preserves all original declarations and 54 positive/six negative assertions,
 using the already selected oplax-diagram and total-dual contracts. Its first

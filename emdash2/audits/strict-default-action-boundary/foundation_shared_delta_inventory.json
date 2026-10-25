@@ -1,5 +1,5 @@
 {
-  "status": "static delta inventory, not independent qualification",
+  "status": "static delta inventory with same-cell-guard correction; not independent qualification",
   "baselineVerificationSha256": "09e2f651171b2e01b5b8d1af1d43c82256d737608fa38cd6c2cceb9afac1e060",
   "files": {
     "emdash3_2.lp": {
@@ -239,12 +239,12 @@
     },
     "emdash3_2_zero_arrow_family_action_paths.lp": {
       "beforeSha256": "6278c04ba67a66f472ec67933e1a9cf4316824c5c7ad3243f62fa03e6848639d",
-      "afterSha256": "466ec05f9dfacc37f1404edba0cb3a849622029452f1ffdfa0ba8259c79c262b",
+      "afterSha256": "2fa29ec629917be2f7f777366c424800240a6638b0a16244d26d91d3dd0e42a8",
       "added": [
         {
           "line": 11,
           "kind": "unif_rule",
-          "body": "unif_rule @comp_prod_fapp1_fapp0 $A $W $X $Z $pg $pg1 $alpha ≡ @comp_prod_fapp1_fapp0 $A0 $W0 $X0 $Z0 $qg $qg1 $beta ↪ [ $A ≡ $A0; $W ≡ $W0; $X ≡ $X0; $Z ≡ $Z0; $pg ≡ $qg; $pg1 ≡ $qg1; $alpha ≡ $beta ];"
+          "body": "unif_rule @comp_prod_fapp1_fapp0 $A $W $X $Z (Struct_sigma $F $G) (Struct_sigma $F1 $G1) (Struct_sigma $h $k) ≡ @comp_prod_fapp1_fapp0 $A0 $W0 $X0 $Z0 (Struct_sigma $F0 $G0) (Struct_sigma $F10 $G10) (Struct_sigma $h $k) ↪ [ $A ≡ $A0; $W ≡ $W0; $X ≡ $X0; $Z ≡ $Z0; $F ≡ $F0; $G ≡ $G0; $F1 ≡ $F10; $G1 ≡ $G10 ];"
         }
       ],
       "removed": [

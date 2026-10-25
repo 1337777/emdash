@@ -4,7 +4,7 @@ Status: static and existing-consumer review of the current three-file delta;
 not a global normalization/confluence result or production qualification.
 Baseline: the 791-owner/507-reviewer snapshot recorded by
 `production_complete_algebra_reviewers_verification.json`. Candidate authoring
-is checkpointed through `73888e52`; exact source hashes and every changed
+starts at `73888e52`, with the later same-cell guard recorded below; exact source hashes and every changed
 declaration/rule are in the [inventory](foundation_shared_delta_inventory.json).
 
 The inventory compares parsed command bodies after removing comments and
@@ -51,6 +51,14 @@ presentations; it is not evidence that every global overlap joins. Generic LHS
 audits reported no unreviewed slots in the changed owners, with intentional
 coefficient/profile guards retained. The unifier argument review is separate
 from those automated rewrite audits.
+
+The subsequent full aggregate exposed a limit of this static review: the
+generic mixed-action congruence interfered with an existing image/coimage
+proof despite retaining every input. The [guard review](foundation_final_guard_review.md)
+records the failure and narrows matching to identical supplied cell components.
+Its focused actual-consumer check passes; the full import context is rerunning.
+The inventory now contains the guarded clause. This is an inference-scope
+correction, not a new claim of global normalization or confluence.
 
 Existing evidence includes the full displayed-evaluation reviewer, strict
 composition/intrinsic-action controls, 245-input cold core regression,
