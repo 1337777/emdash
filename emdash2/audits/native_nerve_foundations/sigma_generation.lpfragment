@@ -1,0 +1,57 @@
+require open emdash.emdash3_2;
+
+// The usual Sigma reassembly map, formed from its projection and the
+// displayed identity section. This is independent of the nerve maps.
+symbol nerve_sigma_tautological_sec [K : Cat] (E : τ (Catd K))
+  : τ (Obj (@Pi_cat (@Sigma_cat K E) (@Sigma_proj1_pullback_catd K E E)))
+≔ @sigma_functord_sec K E E (@id_funcd K E);
+
+symbol nerve_sigma_pairing_func [K : Cat] (E : τ (Catd K))
+  : τ (Functor (@Sigma_cat K E) (@Sigma_cat K E))
+≔ @comp_cat_fapp0 (@Sigma_cat K E)
+    (@Sigma_cat (@Sigma_cat K E) (@Sigma_proj1_pullback_catd K E E))
+    (@Sigma_cat K E)
+    (@sigma_pullback_total_func (@Sigma_cat K E) K (@Sigma_proj1_func K E) E)
+    (@section_total_func (@Sigma_cat K E) (@Sigma_proj1_pullback_catd K E E)
+      (@nerve_sigma_tautological_sec K E));
+
+// Existing point computation, before any whole source-generation law.
+assert [K : Cat] (E : τ (Catd K)) (x : τ (Obj K))
+  (u : τ (Obj (@Fibre_cat K E x))) ⊢
+  @fapp0 (@Sigma_cat K E) (@Sigma_cat K E) (@nerve_sigma_pairing_func K E)
+    (@Struct_sigma (Obj K) (λ k : τ (Obj K), Obj (@Fibre_cat K E k)) x u)
+  ≡ @Struct_sigma (Obj K) (λ k : τ (Obj K), Obj (@Fibre_cat K E k)) x u;
+
+symbol nerve_sigma_pairing_path [K : Cat] (E : τ (Catd K))
+  : τ (@= (Functor (@Sigma_cat K E) (@Sigma_cat K E))
+      (@nerve_sigma_pairing_func K E) (@id_func (@Sigma_cat K E)))
+≔ @eq_refl (Functor (@Sigma_cat K E) (@Sigma_cat K E))
+    (@nerve_sigma_pairing_func K E);
+
+
+// Check constant-family normalization without assuming it follows by
+// transitive unification from the generic proof.
+symbol nerve_sigma_pairing_constant_path (K A : Cat)
+  : τ (@= (Functor (Product_cat K A) (Product_cat K A))
+      (@nerve_sigma_pairing_func K (@Const_catd K A)) (@id_func (Product_cat K A)))
+≔ @eq_refl (Functor (Product_cat K A) (Product_cat K A))
+    (@nerve_sigma_pairing_func K (@Const_catd K A));
+
+// An arbitrary section is not the tautological displayed identity.
+assertnot [K : Cat] (E : τ (Catd K))
+  (s : τ (Obj (@Pi_cat (@Sigma_cat K E) (@Sigma_proj1_pullback_catd K E E)))) ⊢
+  @eq_refl (Functor (@Sigma_cat K E) (@Sigma_cat K E))
+    (@comp_cat_fapp0 (@Sigma_cat K E)
+      (@Sigma_cat (@Sigma_cat K E) (@Sigma_proj1_pullback_catd K E E)) (@Sigma_cat K E)
+      (@sigma_pullback_total_func (@Sigma_cat K E) K (@Sigma_proj1_func K E) E)
+      (@section_total_func (@Sigma_cat K E) (@Sigma_proj1_pullback_catd K E E) s))
+  : τ (@= (Functor (@Sigma_cat K E) (@Sigma_cat K E))
+      (@comp_cat_fapp0 (@Sigma_cat K E)
+        (@Sigma_cat (@Sigma_cat K E) (@Sigma_proj1_pullback_catd K E E)) (@Sigma_cat K E)
+        (@sigma_pullback_total_func (@Sigma_cat K E) K (@Sigma_proj1_func K E) E)
+        (@section_total_func (@Sigma_cat K E) (@Sigma_proj1_pullback_catd K E E) s))
+      (@id_func (@Sigma_cat K E)));
+
+// The selected proof-time view is not a runtime eta reduction.
+assertnot [K : Cat] (E : τ (Catd K)) ⊢
+  @nerve_sigma_pairing_func K E ≡ @id_func (@Sigma_cat K E);

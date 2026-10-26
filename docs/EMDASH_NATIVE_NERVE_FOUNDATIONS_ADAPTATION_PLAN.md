@@ -152,6 +152,19 @@ required comparisons.
 
 ## First bounded implementation slice
 
+Canonical Sigma reassembly, 2026-10-26: the [independent core check](../emdash2/audits/native_nerve_foundations/README.md#canonical-sigma-reassembly)
+qualifies the whole canonical pairing identity from one structural
+source-generation law and its measured constant-family instance. Existing
+point computation is unchanged; arbitrary sections and runtime eta are
+rejected by controls. The pass takes 31.217s / 169,740 KiB with unchanged
+warning families and exactly mapped locations. Native totalization remains
+owner-local because the construction helpers are protected. Its remaining
+formation comparison is between raw and stable projection pullbacks after
+fibre duality normalizes. A bare generic view fails at the section/displayed-
+functor classifier boundary; existing section action by a displayed identity
+is now being checked before specialization. Do not
+infer Graph(U) reconstruction from the canonical Sigma identity alone.
+
 Whole Sigma implementation prefix, 2026-10-26: the [early-owner replay](../emdash2/audits/native_nerve_foundations/README.md#early-owner-prefix-whole-sigma-graph-implementation)
 now connects the public graph's whole Hom to the actual existing Sigma body.
 Direct implementation evaluation recovers both the original component and

@@ -369,3 +369,42 @@ remaining full-module/reviewer interaction is still required, and the
 300s/450s full-scope import timeouts remain failures. Next, compare the
 original Graph(U) section with the tautological Sigma section; neither the
 second inverse nor Sigma source generation is supplied by this checkpoint.
+
+## Canonical Sigma reassembly
+
+The [generic Sigma consumer](sigma_generation.lpfragment) defines the
+tautological section `sigma_functord_sec(id_E)` and reassembles it using the
+existing section total and projection base change. Its object computation
+already returns the original pair. The whole identity comparison requires
+the explicit structural source-generation laws in
+[`sigma_generation_owner.lpfragment`](sigma_generation_owner.lpfragment).
+
+One law handles an arbitrary family E. Its constant-family instance is
+needed after Sigma(Const) normalizes to Product: the generic-only experiment
+passes its whole proof but fails that specialized comparison. Both laws are
+proof-time views of the same canonical reassembly. They neither rewrite its
+runtime functor to identity nor identify an arbitrary section with the
+tautological one; the corresponding controls pass.
+
+The [verification](sigma_generation_verification.json) records the no-law
+failure, generic-only failure and final 31.217s / 169,740 KiB pass under
+180s / 2 GiB. Categories, participating rule families and term heads are
+unchanged; every warning location matches after the exact 17-line insertion.
+This check uses the unmodified production core plus these two source laws,
+independently of the other experimental nerve prerequisites. The retained
+replay reproduces the exact checked owner and consumer bytes.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_graph.py \
+  --record sigma_generation_verification.json --timeout-seconds 180
+```
+
+This supplies the canonical identity target for the native-section comparison.
+It does **not** identify the original Graph(U) section with that target. The
+native totalization experiment must stay at the represented-comma owner to
+use its protected helpers. Its first owner-local attempt exposes a raw versus
+stable pullback-family comparison after fibre duality expands; a generic
+bare section view also fails when the stable classifier exposes displayed
+functors. The current candidate therefore uses existing section action by a
+displayed identity, formed while the families remain generic. No new family
+normalization or native section-generation law has been added for that gap.

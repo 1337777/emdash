@@ -1,0 +1,136 @@
+{
+  "schema": "emdash-native-nerve-sigma-generation-v1",
+  "status": "generic and constant Sigma reassembly comparisons check from explicit structural source-generation laws; native graph section reconstruction remains open",
+  "receiverBaseline": "688f5703",
+  "receiverInputs": {
+    "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "artifactHashes": {
+    "sigma_generation.lpfragment": "cd0542f0a92de40d7bd132705b2281540cf7c182cca788dddb6f1e41eddfe20e",
+    "sigma_generation_owner.lpfragment": "fb433f9372ec58164ecfe96ee3c251524e69d02d65d3e246e0facea3f359e728",
+    "replay_graph.py": "a137a6938db4c3d2822693fab428278191cd6648ec7fb333cd8e369ae88056a9",
+    "replay_realization.py": "148caac26a2e542cac0a05768635a5ca64aaaf11ae9da3b69739f5ad661d40f7"
+  },
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "ownerPatches": [
+    {
+      "owner": "emdash3_2.lp",
+      "fragment": "sigma_generation_owner.lpfragment",
+      "anchor": "// Raw canonical-triangle cell extracted from the internal displayed hom-action.\n",
+      "resultSha256": "9779933421471ed0480434141280b7ce57f6938270a142092158c1903683214d"
+    }
+  ],
+  "programs": {
+    "native_nerve_sigma_generation_review.lp": {
+      "prefix": "",
+      "separator": "",
+      "fragments": [
+        "sigma_generation.lpfragment"
+      ],
+      "sha256": "cd0542f0a92de40d7bd132705b2281540cf7c182cca788dddb6f1e41eddfe20e"
+    }
+  },
+  "target": "native_nerve_sigma_generation_review.lp",
+  "scope": {
+    "newStructuralComparisons": 2,
+    "newRuntimeRules": 0,
+    "newPrimitiveSymbols": 0,
+    "meaning": "Sigma projection and its tautological displayed-identity section reassemble the original whole Sigma functor. A constant-family instance handles the normalized Product target.",
+    "notClaimed": "These laws are structural source generation, not derived solely from point beta, and do not identify the separate native graph section with the tautological one.",
+    "productionFilesChanged": false
+  },
+  "runs": [
+    {
+      "id": "20261026T194156Z-a0da571be95348d38f43aee65f9f608d",
+      "outcome": "failed",
+      "wallSeconds": 31.200624577933922,
+      "childrenMaxRssKiB": 168320,
+      "inputSnapshot": "57ccd96ec5f925dccfa8ff344a716c6075d2fac2ba6d5dea1cd035eaa367770c",
+      "logSha256": "adee44a5d53b9b5ab9c180fdb8ef52d11792370344060059fe3140723d9f5f88",
+      "target": "tmp/probes/native_nerve_foundations/sigma_pairing_no_generation.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T194422Z-e0f844f388ba4011b59298a0d8e5c84b",
+      "outcome": "failed",
+      "wallSeconds": 31.255126495845616,
+      "childrenMaxRssKiB": 169400,
+      "inputSnapshot": "78dcffaeaf5140b611a47206a59517de4d6c2ed4ff74276d15b6abe98bd626e3",
+      "logSha256": "909b6ed0ef2e6621cf5cc63017b64ff05b0575c3440e212bc45f5a9c85a3c17c",
+      "target": "native_nerve_sigma_generation_review.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T194614Z-4a21faba4efa47adbe71cce1c018354e",
+      "outcome": "passed-fresh",
+      "wallSeconds": 31.21732407901436,
+      "childrenMaxRssKiB": 169740,
+      "inputSnapshot": "9e51da84eb50d4a764a4f3d263e15e3a19766a72af14f408c74b14d806f53bdf",
+      "logSha256": "80e02ec57d53f73a3906109a1f45f481534f3369cf207bc1f333227a74998d99",
+      "target": "native_nerve_sigma_generation_review.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    }
+  ],
+  "warningComparison": {
+    "baseline": "20261026T194156Z-a0da571be95348d38f43aee65f9f608d",
+    "candidate": "20261026T194614Z-4a21faba4efa47adbe71cce1c018354e",
+    "equalFields": {
+      "categories": true,
+      "locations": false,
+      "term_heads": true,
+      "rule_families": true,
+      "parser_issues": true
+    },
+    "categories": {
+      "replaceable pattern variable": 176,
+      "unjoinable critical pair": 1704
+    },
+    "qualification": "Source insertion shifts later locations; compare categories, term heads and rule families separately. No confluence or full-library claim.",
+    "sourceLocationMapping": {
+      "insertionLine": 18198,
+      "addedLines": 17,
+      "unchangedAfterMapping": true
+    }
+  },
+  "failedHypotheses": [
+    {
+      "receipt": "20261026T194156Z-a0da571be95348d38f43aee65f9f608d",
+      "finding": "Existing point reassembly passes, but the whole identity comparison fails without source generation."
+    },
+    {
+      "receipt": "20261026T194422Z-e0f844f388ba4011b59298a0d8e5c84b",
+      "finding": "The generic source law passes its whole proof but does not join the constant-family case after the target normalizes to Product."
+    }
+  ],
+  "controls": [
+    "Existing runtime object reassembly still computes to the original pair.",
+    "Generic and constant-family whole comparisons are typed reflexivity proofs.",
+    "An arbitrary section is not equated with the tautological section.",
+    "The proof-time identity comparison is not a runtime eta reduction."
+  ],
+  "remaining": [
+    "Identify the actual native graph section with the tautological section, not only their object values.",
+    "Derive the second whole walking inverse and supply actual inverse data.",
+    "Owning integration and all remaining native nerve stages."
+  ]
+}

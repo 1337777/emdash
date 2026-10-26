@@ -42,6 +42,17 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+NF-1 canonical Sigma reassembly, 2026-10-26: [the generic core prerequisite](../emdash2/audits/native_nerve_foundations/README.md#canonical-sigma-reassembly)
+now checks its whole identity using two presentation instances of structural
+source generation. It preserves existing runtime pairing and rejects an
+arbitrary section. The independent core replay passes in 31.217s / 169,740 KiB
+with unchanged warning families. Native section totalization is being checked
+inside the protected represented-comma owner; raw/stable pullback presentation
+after duality normalization is the current formation gap. A bare section
+retyping failed; the candidate now uses the existing section action by a
+displayed identity, formed generically. No native section
+reconstruction or second inverse is supplied by this source-generation law.
+
 NF-1 Sigma implementation prefix, 2026-10-26: the [actual whole-Hom implementation](../emdash2/audits/native_nerve_foundations/README.md#early-owner-prefix-whole-sigma-graph-implementation)
 now passes through the existing represented-Sigma construction and canonical
 `tapp1_int_cart` input. Direct whole-Hom evaluation recovers the original

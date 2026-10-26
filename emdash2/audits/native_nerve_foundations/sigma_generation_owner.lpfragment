@@ -1,0 +1,16 @@
+// Structural Sigma source generation: reassemble the projection and its
+// tautological displayed identity. No arbitrary section is reconstructed.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@sigma_pullback_total_func _ _ (@Sigma_proj1_func $K $E) $E)
+    (@section_total_func _ _
+      (@sigma_functord_sec $K $E $E (@id (@Catd_cat $K) $E)))
+  ≡ @id Cat_cat (@Sigma_cat $K $E) ↪ [ tt ≡ tt ];
+
+// The same source law after Sigma of a constant family has become Product.
+unif_rule @comp_fapp0 Cat_cat _ _ _
+    (@sigma_pullback_total_func _ _
+      (@Sigma_proj1_func $K (@Const_catd $K $A)) (@Const_catd $K $A))
+    (@section_total_func _ _
+      (@sigma_functord_sec $K (@Const_catd $K $A) (@Const_catd $K $A)
+        (@id (@Catd_cat $K) (@Const_catd $K $A))))
+  ≡ @id Cat_cat (Product_cat $K $A) ↪ [ tt ≡ tt ];

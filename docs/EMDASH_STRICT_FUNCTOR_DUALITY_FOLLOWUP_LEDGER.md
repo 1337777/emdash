@@ -4,6 +4,14 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: local book/article continuation complete; native nerve adaptation active; production health/final integration remain deferred obligations
 
+SF-NERVES / canonical Sigma identity: [the generic source-generation check](../emdash2/audits/native_nerve_foundations/README.md#canonical-sigma-reassembly)
+passes for arbitrary and constant families, preserving runtime pairing and
+rejecting arbitrary sections. It is an explicit structural prerequisite,
+not the native graph inverse. Native whole-section totalization remains
+owner-local; a raw/stable pullback-family presentation after duality expansion
+is being resolved by testing generic section action of a displayed identity.
+Bare retyping of the section failed. No native section-generation axiom is added.
+
 SF-NERVES / Sigma implementation prefix: [the whole graph Hom](../emdash2/audits/native_nerve_foundations/README.md#early-owner-prefix-whole-sigma-graph-implementation)
 now delegates to its actual represented-Sigma construction. Direct evaluation
 recovers the original component and square, while a distinct input transfor
