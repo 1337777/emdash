@@ -1,0 +1,76 @@
+require open emdash.emdash3_2_arrow_diagram_families;
+
+symbol nerve_walking_source_generation_path
+  : τ (@= (Functor WalkingArrow_cat WalkingArrow_cat)
+      (@walking_arrow_func WalkingArrow_cat walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+      (@id_func WalkingArrow_cat))
+≔ @eq_refl (Functor WalkingArrow_cat WalkingArrow_cat)
+    (@walking_arrow_func WalkingArrow_cat walking_arrow_src walking_arrow_tgt walking_arrow_generator);
+
+// Existing strict postcomposition of the walking constructor supplies this.
+symbol nerve_walking_recursion_postcomp_path [A B : Cat]
+  (F : τ (Functor A B)) [x y : τ (Obj A)] (u : τ (Hom A x y))
+  : τ (@= (Functor WalkingArrow_cat B)
+      (@comp_cat_fapp0 WalkingArrow_cat A B F (@walking_arrow_func A x y u))
+      (@walking_arrow_func B (@fapp0 A B F x) (@fapp0 A B F y)
+        (@fapp1_fapp0 A B F x y u)))
+≔ @eq_refl (Functor WalkingArrow_cat B)
+    (@comp_cat_fapp0 WalkingArrow_cat A B F (@walking_arrow_func A x y u));
+
+// Reconstruct the whole functor by postcomposition with source generation.
+symbol nerve_walking_functor_reconstruction_path [C : Cat]
+  (F : τ (Functor WalkingArrow_cat C))
+  : τ (@= (Functor WalkingArrow_cat C)
+      (@walking_arrow_func C (@fapp0 WalkingArrow_cat C F walking_arrow_src)
+        (@fapp0 WalkingArrow_cat C F walking_arrow_tgt)
+        (@fapp1_fapp0 WalkingArrow_cat C F walking_arrow_src walking_arrow_tgt walking_arrow_generator)) F)
+≔ @eq_trans (Functor WalkingArrow_cat C)
+    (@walking_arrow_func C (@fapp0 WalkingArrow_cat C F walking_arrow_src)
+      (@fapp0 WalkingArrow_cat C F walking_arrow_tgt)
+      (@fapp1_fapp0 WalkingArrow_cat C F walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+    (@comp_cat_fapp0 WalkingArrow_cat WalkingArrow_cat C F
+      (@walking_arrow_func WalkingArrow_cat walking_arrow_src walking_arrow_tgt walking_arrow_generator)) F
+    (@eq_sym (Functor WalkingArrow_cat C)
+      (@comp_cat_fapp0 WalkingArrow_cat WalkingArrow_cat C F
+        (@walking_arrow_func WalkingArrow_cat walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+      (@walking_arrow_func C (@fapp0 WalkingArrow_cat C F walking_arrow_src)
+        (@fapp0 WalkingArrow_cat C F walking_arrow_tgt)
+        (@fapp1_fapp0 WalkingArrow_cat C F walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+      (@nerve_walking_recursion_postcomp_path WalkingArrow_cat C F
+        walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+    (@eq_ap (Functor WalkingArrow_cat WalkingArrow_cat) (Functor WalkingArrow_cat C)
+      (λ J : τ (Functor WalkingArrow_cat WalkingArrow_cat),
+        @comp_cat_fapp0 WalkingArrow_cat WalkingArrow_cat C F J)
+      (@walking_arrow_func WalkingArrow_cat walking_arrow_src walking_arrow_tgt walking_arrow_generator)
+      (@id_func WalkingArrow_cat) nerve_walking_source_generation_path);
+
+// Internalize the parameter before reconstruction. The mixed exchange maps
+// ordinary shape transformations to oplax diagram transformations.
+symbol nerve_walking_oplax_family_reconstruction_path [K C : Cat]
+  (D : τ (Functor K (Functor_oplax_cat WalkingArrow_cat C)))
+  : τ (@= (Functor K (Functor_oplax_cat WalkingArrow_cat C))
+      (@transf_arrow_diagram_func K C
+        (@diagram_oplax_family_at_func K WalkingArrow_cat C D walking_arrow_src)
+        (@diagram_oplax_family_at_func K WalkingArrow_cat C D walking_arrow_tgt)
+        (@diagram_oplax_family_transf K WalkingArrow_cat C D
+          walking_arrow_src walking_arrow_tgt walking_arrow_generator)) D)
+≔ @eq_ap (Functor WalkingArrow_cat (Functor_cat K C))
+    (Functor K (Functor_oplax_cat WalkingArrow_cat C))
+    (λ H : τ (Functor WalkingArrow_cat (Functor_cat K C)),
+      @diagram_family_shape_func WalkingArrow_cat K C H)
+    (@walking_arrow_func (Functor_cat K C)
+      (@diagram_oplax_family_at_func K WalkingArrow_cat C D walking_arrow_src)
+      (@diagram_oplax_family_at_func K WalkingArrow_cat C D walking_arrow_tgt)
+      (@diagram_oplax_family_transf K WalkingArrow_cat C D
+        walking_arrow_src walking_arrow_tgt walking_arrow_generator))
+    (@diagram_oplax_family_shape_func K WalkingArrow_cat C D)
+    (@nerve_walking_functor_reconstruction_path (Functor_cat K C)
+      (@diagram_oplax_family_shape_func K WalkingArrow_cat C D));
+
+// Source generation must not identify a different selected edge with identity.
+assertnot [u : τ (Hom WalkingArrow_cat walking_arrow_src walking_arrow_tgt)] ⊢
+  @eq_refl (Functor WalkingArrow_cat WalkingArrow_cat)
+    (@walking_arrow_func WalkingArrow_cat walking_arrow_src walking_arrow_tgt u)
+  : τ (@= (Functor WalkingArrow_cat WalkingArrow_cat)
+      (@walking_arrow_func WalkingArrow_cat walking_arrow_src walking_arrow_tgt u)
+      (@id_func WalkingArrow_cat));

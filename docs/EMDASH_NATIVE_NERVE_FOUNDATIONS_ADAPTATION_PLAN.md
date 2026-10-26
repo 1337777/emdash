@@ -2,7 +2,7 @@
 
 Date: 2026-10-26
 Plan-ID: NATIVE-NERVE-FOUNDATIONS-ADAPTATION-V3.2
-Status: NF-1 observer qualified and isolated realization candidate retained; normalization prerequisite and whole inverses open
+Status: NF-1 observer, isolated realization and whole oplax-family reconstruction retained; graph reconstruction and whole inverses open
 Parent: [consolidated foundations goal](EMDASH_STRICT_FUNCTOR_DUALITY_FOUNDATIONS_PLAN.md)
 Receiver: `goal/strict-functor-duality-v3.2`, checkpoint `1fe72617`
 Donor: `goal/native-nerve-legacy-completion-v3.2`, checkpoint `280e7a03`
@@ -151,6 +151,17 @@ remain outside this continuation. None is an automatic prerequisite for the
 required comparisons.
 
 ## First bounded implementation slice
+
+Whole family reconstruction, 2026-10-26: the [new derivation](../emdash2/audits/native_nerve_foundations/README.md#whole-reconstruction-of-oplax-walking-families)
+reconstructs arbitrary `D:K→Functor_oplax_cat(I,C)` by its two endpoint
+functors and whole generator transformation. One structural source-generation
+comparison is added at the walking-introduction owner; existing strict
+postcomposition and mixed double exchange derive the rest. The omission
+control fails at that precise law; the isolated candidate passes with no new
+warning families. This does not require the realization's core-unit patch.
+Next: qualify whole graph endpoint and universal-transformation projections,
+then use the family reconstruction in the actual inverse derivation. Do not
+replace that missing whole input with agreement of object components.
 
 Current slice, 2026-10-26: the [realization candidate](../emdash2/audits/native_nerve_foundations/README.md#native-realization-and-whole-generator-recovery)
 constructs the whole reverse map from a new native universal-transformation

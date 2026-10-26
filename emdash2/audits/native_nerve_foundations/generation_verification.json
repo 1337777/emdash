@@ -1,0 +1,109 @@
+{
+  "schema": "emdash-native-nerve-generation-v1",
+  "status": "whole oplax-family reconstruction derived using one structural walking source-generation comparison; no walking/native inverse claimed",
+  "receiverBaseline": "bbbf371d",
+  "receiverInputs": {
+    "emdash3_2.lp": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+    "emdash3_2_arrow_diagram_families.lp": "0e30cb7ad0c9ec3e255db6ef3220a488dbc321391f0a051d0c5340d32d82ca8d",
+    "emdash3_2_diagram_evaluation.lp": "3026b38b1d1f5bb58666561669fa47c58317b237a9f547bdd5de3df2e45d5933",
+    "emdash3_2_discrete_functor_paths.lp": "68e2fe9ce130013429607c9b90617e6b6ae07477e7bafcb4c93326395c3cf858",
+    "emdash3_2_eq1_evidence_property.lp": "7d93a91d0cfb38e80905fd6f5e29a061b2888b04815999ca9d4a309d8811619c",
+    "emdash3_2_eq1_hom_action.lp": "132c1deb741003b6ad4b20a9e937f833ed1cbd6c5f28117472bcc5bb501ab257",
+    "emdash3_2_gray_profiles.lp": "592277b7fe31d16450be1483dc1c19cfc6a51761563db2e4b35d16dead690309",
+    "emdash3_2_groupoidal_object_maps.lp": "0b9cd1b89c5414e2ba38004d4c53ec3199ca6a05e1118bca014c8824d030adb1",
+    "emdash3_2_one_cat_action_paths.lp": "3adb53f5bdee3e71dd6c9c6f2e0d23ba58e7ffb0e8c06b5c35946d23e7b8d163",
+    "emdash3_2_one_cat_functor_closure.lp": "02da4792c7ed4a9ceeac9acd3ae62c19f1b116929e489e2ceface15529dba6c5",
+    "emdash3_2_set_path_pointwise_transformation.lp": "ccf55bd7468aef368a197f06c7931cc62b83c64eb94dfb85da831f982af832db",
+    "emdash3_2_strict_functor_actions.lp": "3dbb86a33f2584ae7dffdf593913a6a4145fd96397dc3220152e9f4ce5dcbcbb",
+    "emdash3_2_walking_arrow.lp": "601555655224fbf1b4512a5158717a93d561e58836ccff498ccab27deb61eec7",
+    "emdash3_2_walking_arrow_introduction.lp": "ddabd2cfd843233790116a7880847fe9240aba183298e8b2b62279256adc6b1f",
+    "lambdapi.pkg": "34978130ba112855d3b88619c93af96f1117639c0908fed96e0392ef8b4e823b"
+  },
+  "artifactHashes": {
+    "walking_generation_self.lpfragment": "1aa65f234ee9d67b6dde8e945aac1975dece244d445da7e6cd46bc83093c0b06",
+    "walking_generation.lpfragment": "aef64671b7e7875be0b0755143b3c514e48e8e7ef8607c6982fe4480ac173323",
+    "replay_generation.py": "ed2d95ae5261828309facba2a2e6402852149215a9bd6b74b5edadaa2b5ccd03",
+    "replay_realization.py": "148caac26a2e542cac0a05768635a5ca64aaaf11ae9da3b69739f5ad661d40f7"
+  },
+  "checker": {
+    "path": "/home/user1/emdash1-strict-functor-duality-v1/emdash2/.cache/verification-toolchain/a95c399de8195a0e785d7bb9cab5399becdd5549432b2a00a869301d6a59bf0b/bin/lambdapi",
+    "sha256": "94dc55766ec793e137cba7936f40e56074f4d92a02259cae8de9474c65e4677f",
+    "version": "dev-3.0.0-90-gdb4f7809-dirty"
+  },
+  "isolatedOwnerSha256": "99bcbcb14bfab2fac17af1ab6459a33c735ae25d086e75f81e4aa7e33f40e31d",
+  "scope": {
+    "newStructuralComparison": "walking_arrow_func(I,0,1,generator) compares to id_I at proof time",
+    "newRuntimeRules": 0,
+    "newUnificationRules": 1,
+    "derived": [
+      "nerve_walking_recursion_postcomp_path",
+      "nerve_walking_functor_reconstruction_path",
+      "nerve_walking_oplax_family_reconstruction_path"
+    ],
+    "productionFilesChanged": false,
+    "requiredRealizationCoreUnitPatch": false,
+    "controls": "Four typed proof definitions, plus a negative control retaining a different opaque edge. No operational equality arguments."
+  },
+  "runs": [
+    {
+      "id": "20261026T181048Z-8a8918eddc9b4946b2ddab0be41355d8",
+      "outcome": "failed",
+      "wallSeconds": 81.03012130805291,
+      "childrenMaxRssKiB": 274584,
+      "inputSnapshot": "6d8613bcf577ff96d8bc8223027f88d1b2d365c23b3f75480bd23ca93f007cc6",
+      "logSha256": "0f622dce57966ea49a546ada8c1ffb25b3a802809041ed3600af73d19f17427b",
+      "target": "tmp/probes/native_nerve_foundations/walking_generation_no_rule.lp",
+      "timeoutMs": 90000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--no-colors"
+      ]
+    },
+    {
+      "id": "20261026T181229Z-634fe63e04d14f7489732d680bc7e181",
+      "outcome": "passed-fresh",
+      "wallSeconds": 126.6125011430122,
+      "childrenMaxRssKiB": 274716,
+      "inputSnapshot": "c1ec5ab2c65cc066e0dbc4df7c5d3d357174cd3e0ae70ec65eb57e514c5db508",
+      "logSha256": "9a10a52b43177e2ddc5945d8abe5bc7673bba37b2f2478f9495f41d5057e6c3f",
+      "target": "native_nerve_generation_review.lp",
+      "timeoutMs": 180000,
+      "memoryMiB": 2048,
+      "flags": [
+        "--too-long=0.5",
+        "--no-colors"
+      ]
+    }
+  ],
+  "warningComparison": {
+    "baseline": "20261026T181048Z-8a8918eddc9b4946b2ddab0be41355d8",
+    "candidate": "20261026T181229Z-634fe63e04d14f7489732d680bc7e181",
+    "equalFields": {
+      "categories": true,
+      "locations": false,
+      "term_heads": true,
+      "rule_families": true,
+      "parser_issues": true
+    },
+    "categories": {
+      "replaceable pattern variable": 181,
+      "unjoinable critical pair": 2115
+    },
+    "removedLocations": {
+      "emdash3_2_walking_arrow_introduction.lp:44": 2
+    },
+    "addedLocations": {
+      "emdash3_2_walking_arrow_introduction.lp:54": 2
+    },
+    "explanation": "Only two existing warnings shift from owner line 44 to line 54 after insertion; warning categories, rule families, term heads and parser issues are unchanged. Baseline imports complete before its expected source-generation proof failure."
+  },
+  "omissionControl": "Without the source-generation comparison, the initial typed reflexivity proof fails on identity versus walking recursion. The retained replay omission mode checks the same first definition and preserves its real failure status.",
+  "resourceReview": "180s/2GiB after the same imported scope previously needed a time-only extension. The 126.613s replay reports 125.66s in its require command. No candidate command reaches 0.5s. No defaults changed.",
+  "replayQualification": "Retained script assembly is byte-identical to the passed manual owner-position inputs; the separator was moved from the fragment to assembly. Source, runner helpers and checker are pinned.",
+  "remaining": [
+    "Whole source/target/generator graph projection contracts must be qualified against current Sigma owners.",
+    "Derive both actual whole composites Observe/Realize, preserving original fillers and higher action.",
+    "The structural source-generation law is an added contract; this is not a proof from beta-only Join.",
+    "Production promotion needs its owning reviewer/registration gates; all later NF obligations remain."
+  ]
+}

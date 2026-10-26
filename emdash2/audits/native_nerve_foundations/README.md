@@ -141,3 +141,48 @@ nonzero status. The replay enforces source/checker pins and uses the existing
 serial guard. No broad health or integration check is required to retain this
 non-library experiment. Next: whole graph reconstruction and the two actual
 inverse laws, with the prerequisite boundary kept visible.
+
+## Whole reconstruction of oplax walking families
+
+[`walking_generation.lpfragment`](walking_generation.lpfragment) derives,
+for arbitrary K, C and D:K→G(C),
+
+```text
+transf_arrow_diagram(eval₀∘D, eval₁∘D, generator(D)) ≐ D.
+```
+
+Here `generator(D)` is the entire ordinary-lax transformation obtained by
+mixed evaluation of the oplax diagram family. The proof first reconstructs
+the whole functor I→Functor_cat(K,C), then applies the existing opposite-profile
+exchange and its double-exchange computation. It retains all parameter action;
+it is not reconstruction from pointwise equality or a OneCat restriction.
+
+The proof uses one explicit structural source-generation comparison in
+[`walking_generation_self.lpfragment`](walking_generation_self.lpfragment):
+self-recursion of the walking shape's original edge is its identity functor.
+This comparison is inserted before the existing postcomposition cut in the
+walking introduction owner. It is not inferred from beta-only Join, and it
+is not an Observe/Realize inverse axiom. The current kernel already supplies
+the donor's other prerequisite, strict postcomposition of walking recursion,
+so no second postcomposition or exchange-congruence rule is copied.
+
+The [verification record](generation_verification.json) pins fifteen receiver
+inputs and the retained replay. The no-comparison control fails at exactly
+the source-generation proof. The owner-position candidate passes in 126.613s /
+274,716 KiB under 180s / 2 GiB, including a negative control for a different
+opaque edge. Its import command accounts for 125.66s; no subsequent command
+reaches the 0.5s timing threshold. Warning categories, head families, term
+heads and parser issues are unchanged; two existing warnings merely move
+from owner line 44 to line 54. This slice does not require the realization's
+unpromoted core-unit instances.
+
+```bash
+python3 emdash2/audits/native_nerve_foundations/replay_generation.py \
+  --timeout-seconds 180
+```
+
+`--without-generation` reproduces the omitted-law failure. Production sources
+are unchanged. The next missing input to the walking inverse derivation is
+the native graph's **whole** source, target and universal-transformation
+projections. Its currently checked point/square projections do not alone
+supply those comparisons; retain that distinction when adapting the donor.

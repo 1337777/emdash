@@ -42,6 +42,15 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+NF-1 whole family reconstruction, 2026-10-26: the [retained derivation](../emdash2/audits/native_nerve_foundations/README.md#whole-reconstruction-of-oplax-walking-families)
+now reconstructs arbitrary whole oplax walking families through ordinary-lax
+generator action and mixed exchange. It uses one explicit structural walking
+source-generation comparison; the old donor's other postcomposition premise
+is already supplied by the strict-default kernel. The isolated check passes
+in 126.613s / 274,716 KiB, with unchanged warning families and only two shifted
+locations. Whole graph projections and the actual native/walking inverse laws
+remain open; no OneCat restriction or pointwise substitute was introduced.
+
 NF-1 realization checkpoint, 2026-10-26: the [isolated candidate](../emdash2/audits/native_nerve_foundations/README.md#native-realization-and-whole-generator-recovery)
 constructs the native-to-walking map and derives its whole evaluation and
 generator comparisons. The universal transformation is a new structural

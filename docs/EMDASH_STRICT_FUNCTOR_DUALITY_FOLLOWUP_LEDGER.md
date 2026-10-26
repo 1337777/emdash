@@ -4,6 +4,14 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: local book/article continuation complete; native nerve adaptation active; production health/final integration remain deferred obligations
 
+SF-NERVES / NF-1 family reconstruction: the [whole oplax-family derivation](../emdash2/audits/native_nerve_foundations/README.md#whole-reconstruction-of-oplax-walking-families)
+passes for arbitrary parameter and target categories. It needs one structural
+source-generation comparison; current strict postcomposition and mixed
+exchange supply the remaining proof. The no-law control fails at the expected
+comparison, and no warning family is added. This is an input to the inverse
+proof, not that proof itself. The native graph still needs its whole endpoint
+and universal-transformation projection comparisons under current profiles.
+
 SF-NERVES / NF-1 realization: the [retained isolated construction](../emdash2/audits/native_nerve_foundations/README.md#native-realization-and-whole-generator-recovery)
 adds a native universal-transformation owner and derives Realize with whole
 walking evaluation/generator comparisons. Original filler/unit controls pass.
