@@ -1,0 +1,17 @@
+
+// Compare the whole Hom action of the actual Sigma implementation.
+symbol nerve_native_body_hom_identity [C : Cat]
+  (x y x1 y1 : τ (Obj C)) (u : τ (Hom C x y)) (v : τ (Hom C x1 y1))
+  : τ (@= (Functor (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v))
+      (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v)))
+      (@fapp1_func (@LaxArrow_cat C) (@LaxArrow_cat C)
+        (@nerve_raw_sigma_graph_func (@LaxArrow_cat C) C
+          (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+        (@lax_edge C x y u) (@lax_edge C x1 y1 v))
+      (@id_func (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v))))
+≔ @eq_refl (Functor (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v))
+    (Hom_cat (@LaxArrow_cat C) (@lax_edge C x y u) (@lax_edge C x1 y1 v)))
+    (@fapp1_func (@LaxArrow_cat C) (@LaxArrow_cat C)
+      (@nerve_raw_sigma_graph_func (@LaxArrow_cat C) C
+        (@cubical_src_func C) (@cubical_tgt_func C) (nerve_native_universal_transf C))
+      (@lax_edge C x y u) (@lax_edge C x1 y1 v));

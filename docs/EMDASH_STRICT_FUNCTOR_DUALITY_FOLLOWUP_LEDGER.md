@@ -4,6 +4,12 @@ Date: 2026-10-26 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: book/article complete; native Pi/Sigma correction installed; NF-1 reconstruction active; affected frontend candidate preserved separately; broad health/final integration remain deferred
 
+Chronology: frontend acceptance `f0e22340` preceded book/article completion
+`1fe72617`, which preceded native adaptation `e8ffc4d0`. The frontend candidate
+below addresses the subsequent nerve-driven correction `bc37e5fc`; it does
+not undo or relabel the original accepted migration. Final-integration gates
+are a separate, longstanding boundary.
+
 Priority correction, 2026-10-26: frontend adaptation is not required before
 native reconstruction. The user identified the scheduling drift. The
 [18-file candidate](../emdash2/audits/pi_sigma_section_profile/frontend_candidate.json)

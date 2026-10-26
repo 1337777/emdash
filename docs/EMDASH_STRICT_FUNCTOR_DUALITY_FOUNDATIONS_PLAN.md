@@ -42,6 +42,14 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Checkpoint chronology clarified, 2026-10-26: the original frontend migration
+was accepted at `f0e22340` under the explicit aggregate-repeat waiver; the
+book/article revision completed at `1fe72617`; native nerve adaptation began
+at `e8ffc4d0`. The later nerve-driven Pi/Sigma correction at `bc37e5fc`
+created a new frontend adaptation requirement. It is not unfinished work
+from the original accepted frontend tranche. Broad final-integration gates
+had remained separate throughout. Preserve this distinction in status reports.
+
 User correction, 2026-10-26: book/article updates were already complete and
 the nerve migration had already resumed. The Pi/Sigma correction arose from
 that native work and is now installed. Its TypeScript follow-up is not a

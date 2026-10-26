@@ -1,0 +1,41 @@
+{
+  "schema": "emdash-native-current-section-review-v1",
+  "status": "two bounded comparison attempts rejected on the corrected Pi/Sigma profile; no new rule or native inverse installed",
+  "receiverBaseline": "d0754db3",
+  "baseReplay": "../pi_sigma_section_profile/verification.json, native mode, explicit source revision 81157237",
+  "assembly": "Run the existing profile replay with --mode native --source-revision 81157237 --assemble-only, append exactly one recorded fragment to the end of its generated emdash3_2_represented_comma_families.lp, then check native_nerve_section_review.lp with the same guarded toolchain. Each attempt uses an independent package.",
+  "resourceProfile": {
+    "timeoutSeconds": 180,
+    "memoryMiB": 2048,
+    "ocamlrunparam": "o=20,v=1024",
+    "subjectReduction": true
+  },
+  "runs": [
+    {
+      "hypothesis": "whole section equality by typed reflexivity",
+      "fragment": "native_current_section_identity.lpfragment",
+      "fragmentSha256": "b4b0a88e8536fa751a9e95bd9631205ae84780f00f62713c1509ac45d3f8b752",
+      "id": "20261026T233436Z-fae25b2e9df64a67a8766a1fbe0fc97c",
+      "outcome": "failed",
+      "wallSeconds": 108.93858426017687,
+      "childrenMaxRssKiB": 555220,
+      "inputSnapshot": "d280fe9e38b2ce012f3f5879d63e5adedf2e7c878b52d703f0bbd85b1c3e3dbf",
+      "logSha256": "a994c1dbcc3f4f7cfb5c14ac6cd661ee64f225a0ecf349fcc9ff3ea5e4ff222c",
+      "failure": "The final typed-reflexivity declaration leaves an unsolved whole-term comparison. Earlier Cannot solve messages in negative controls are expected and are not additional failures."
+    },
+    {
+      "hypothesis": "whole Hom functor equality by typed reflexivity",
+      "fragment": "native_whole_hom_identity.lpfragment",
+      "fragmentSha256": "03c4bd30d8db515d52890ffd4473983a0e9c0bb10cead9041aab05b56bc5e3d5",
+      "id": "20261026T233934Z-1dcb1be709a445a1ab65afadf565fa2a",
+      "outcome": "failed",
+      "wallSeconds": 127.1548857241869,
+      "childrenMaxRssKiB": 550748,
+      "inputSnapshot": "e8d5acc3305bc8cd661cb892819d291c459bffa212d9041a2842ece7f9302d24",
+      "logSha256": "bd953252cebefe1255c22a23aff891b124611eff65d597bf8f44d3f5cf4ecb39",
+      "failure": "The final typed-reflexivity declaration leaves an unsolved whole-term comparison. Earlier Cannot solve messages in negative controls are expected and are not additional failures."
+    }
+  ],
+  "conclusion": "Removing the invalid classifier identification does not by itself join the graph section with the tautological section, nor its whole Hom map with identity. This is a computational observation, not a mathematical non-equivalence result.",
+  "next": "Review the whole extracted post-comparison of the native universal transformation against whiskering of the stored square filler; retain its noninvertible and next-Hom action. Do not add the desired native inverse as an axiom."
+}

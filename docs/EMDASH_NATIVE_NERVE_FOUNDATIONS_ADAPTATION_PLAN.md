@@ -15,6 +15,14 @@ Common baseline: `f8af1fca472657ff1598c639eb29c0566e7b2ec0`
 
 ## Authorization and current boundary
 
+Current native experiment, 2026-10-26: [the corrected-profile comparison review](../emdash2/audits/native_nerve_foundations/current_section_review.json)
+rechecks both whole section equality and the actual implementation's whole
+Hom identity without the retired Pi/Sigma folds. Both typed-reflexivity
+attempts leave unresolved whole comparisons. Inspect the universal
+transformation's full extracted post-action next; no inverse or stronger
+section-generation law has been added. The original first-inverse evidence
+and the second-composite totalization remain retained.
+
 Priority correction, 2026-10-26: the user correctly noted that book/article
 work was complete and native nerve adaptation had already begun. Resume that
 native work now. The TypeScript adaptation exposed by the Pi/Sigma correction

@@ -411,6 +411,18 @@ normalization or native section-generation law has been added for that gap.
 
 ## Common whole section totalization
 
+Current-profile continuation: [two fresh comparison attempts](current_section_review.json)
+use the installed Pi/Sigma correction, so the generic section view is a typed
+identity and the former extra section-identity unifier is absent. The direct
+whole section equality still fails at its final reflexivity proof. A separate
+attempt at the actual Sigma implementation's whole Hom functor likewise fails
+to compare with identity, even with visible edge endpoints. They finish in
+108.939s and 127.155s under 180s/2 GiB, with roughly 0.53 GiB peak child RSS.
+These failures do not show mathematical non-equivalence and add no law. The
+next review concerns the complete extracted post-comparison of the native
+universal transformation, rather than reintroducing the rejected classifier
+identification or inferring a whole inverse from point/square observations.
+
 [`native_section_totalization_owner.lpfragment`](native_section_totalization_owner.lpfragment)
 now places the original graph section s_U and the tautological section τ in
 the same existing projection-pullback section classifier. Writing Tot_C for
