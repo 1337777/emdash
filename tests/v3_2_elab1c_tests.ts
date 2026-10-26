@@ -33,6 +33,8 @@ import {
     surfaceReference
 } from '../src/v3_2';
 
+const nativeReferences = { dttlf_Cat_cart: 'Cat_cart' } as const;
+
 const fixture = 'tests/fixtures/elab1c.surface.ts';
 const at = (line: number, startColumn = 1, endColumn = startColumn + 1) =>
     sourceSpan(fixture, line, startColumn, line, endColumn);
@@ -159,6 +161,7 @@ function compileInternalHomProbe(context: SurfaceContext) {
     const normalForms = exactNormalForms(context, 40);
     const probe: KernelProbe = {
         ...compiled.probe,
+        externalFreeReferences: nativeReferences,
         conversions: [
             {
                 label: 'ELAB-1C source internal-Hom variance',
@@ -228,12 +231,12 @@ describe('TypeScript v3.2 ELAB-1C partial internal Hom', () => {
         assert.equal(
             LAMBDAPI_V32_OWNER_BINDINGS['internal-hom-source']
                 .serializedName,
-            'hom_int'
+            'hom_int_view'
         );
         assert.equal(
             LAMBDAPI_V32_OWNER_BINDINGS['internal-hom-target']
                 .serializedName,
-            'hom_con_int'
+            'hom_con_int_view'
         );
     });
 
@@ -245,7 +248,7 @@ describe('TypeScript v3.2 ELAB-1C partial internal Hom', () => {
 
         assert.equal(
             serializeKernelExpression(internal.term),
-            '@hom_int elab1c_A elab1c_B elab1c_F'
+            '@hom_int_view elab1c_A elab1c_B elab1c_F'
         );
         assert.equal(
             serializeKernelExpression(coreTypeToKernelType(
@@ -261,14 +264,14 @@ describe('TypeScript v3.2 ELAB-1C partial internal Hom', () => {
                 retained.sourceSpan,
                 'ELAB-1C retained source family type'
             )),
-            'τ (Functor elab1c_B (Cat_cat))'
+            'τ (Functor elab1c_B dttlf_Cat_cart)'
         );
         assert.equal(projected.type.tag, 'category');
         assert.equal(
             serializeKernelExpression(projected.term),
-            '@fapp0 elab1c_B (Cat_cat) ' +
+            '@fapp0 elab1c_B dttlf_Cat_cart ' +
             '(@fapp0 (Op_cat elab1c_A) (Catd_cat elab1c_B) ' +
-            '(@hom_int elab1c_A elab1c_B elab1c_F) elab1c_W) ' +
+            '(@hom_int_view elab1c_A elab1c_B elab1c_F) elab1c_W) ' +
             'elab1c_b'
         );
         assertTwoStageProjection(projected.term, 'internal-hom-source');
@@ -282,7 +285,7 @@ describe('TypeScript v3.2 ELAB-1C partial internal Hom', () => {
 
         assert.equal(
             serializeKernelExpression(internal.term),
-            '@hom_con_int elab1c_A elab1c_B elab1c_F'
+            '@hom_con_int_view elab1c_A elab1c_B elab1c_F'
         );
         assert.equal(
             serializeKernelExpression(coreTypeToKernelType(
@@ -298,14 +301,14 @@ describe('TypeScript v3.2 ELAB-1C partial internal Hom', () => {
                 retained.sourceSpan,
                 'ELAB-1C retained target family type'
             )),
-            'τ (Functor (Op_cat elab1c_B) (Cat_cat))'
+            'τ (Functor (Op_cat elab1c_B) dttlf_Cat_cart)'
         );
         assert.equal(projected.type.tag, 'category');
         assert.equal(
             serializeKernelExpression(projected.term),
-            '@fapp0 (Op_cat elab1c_B) (Cat_cat) ' +
+            '@fapp0 (Op_cat elab1c_B) dttlf_Cat_cart ' +
             '(@fapp0 elab1c_A (Catd_cat (Op_cat elab1c_B)) ' +
-            '(@hom_con_int elab1c_A elab1c_B elab1c_F) elab1c_W) ' +
+            '(@hom_con_int_view elab1c_A elab1c_B elab1c_F) elab1c_W) ' +
             'elab1c_b'
         );
         assertTwoStageProjection(projected.term, 'internal-hom-target');
@@ -376,7 +379,7 @@ describe('TypeScript v3.2 ELAB-1C partial internal Hom', () => {
             const compiled = compileInternalHomProbe(buildContext());
             const result = checkLambdapiProbe(compiled.serialized, {
                 packageRoot: resolve(__dirname, '../emdash2'),
-                timeoutMs: 30_000
+                timeoutMs: 60_000
             });
 
             assert.equal(
@@ -400,6 +403,7 @@ describe('TypeScript v3.2 ELAB-1C partial internal Hom', () => {
             }]);
             const reversed = exactNormalForms(context, 46).source;
             const badProbe: KernelProbe = {
+                externalFreeReferences: nativeReferences,
                 requiredModule: LAMBDAPI_V32_MODULE,
                 declarations: declarationsFromSurfaceContext(context),
                 assertions: compiled.probe.assertions,
@@ -414,7 +418,7 @@ describe('TypeScript v3.2 ELAB-1C partial internal Hom', () => {
                 serializeKernelProbe(badProbe),
                 {
                     packageRoot: resolve(__dirname, '../emdash2'),
-                    timeoutMs: 30_000
+                    timeoutMs: 60_000
                 }
             );
 

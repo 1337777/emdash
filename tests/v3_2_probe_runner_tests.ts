@@ -3,7 +3,19 @@ import { chmodSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join, resolve } from 'node:path';
 import { it } from 'node:test';
-import { checkLambdapiProbe } from '../src/v3_2/probe';
+import { checkLambdapiProbe, serializeKernelProbe } from '../src/v3_2/probe';
+import { kernelApplication, kernelFree, provenance, sourceSpan } from '../src/v3_2/kernel';
+import { LAMBDAPI_V32_MODULE } from '../src/v3_2/lambdapi';
+
+it('serializes explicit imported free bindings and rejects declaration shadowing', () => {
+    const span=sourceSpan('probe-bindings.ts',1,1,1,2), at=provenance('derived','probe imported binding',span);
+    const term=kernelFree('coefficient',at), type=kernelApplication('category-universe',[],at);
+    const probe={requiredModule:LAMBDAPI_V32_MODULE,externalFreeReferences:{coefficient:'Cat_cart'},
+        declarations:[],assertions:[{label:'imported coefficient',term,type,span}]};
+    const emitted=serializeKernelProbe(probe);
+    assert.match(emitted.source,/assert ⊢ Cat_cart : Cat;/u);
+    assert.throws(()=>serializeKernelProbe({...probe,declarations:[{name:'coefficient',type,span}]}),/shadows an imported free symbol/u);
+});
 
 it('repository probe bridge retains guarded evidence and classifies hard timeouts', {
     skip: process.platform !== 'linux'

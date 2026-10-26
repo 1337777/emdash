@@ -61,6 +61,17 @@ retain the old runtime expressions as history, not unresolved requirements.
 
 ## Current production boundary — 2026-10-25
 
+The [ambient Hom and exact PathOut foundation continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_surface_pathout_review.md)
+uses the existing native Hom views for the elementary surface and preserves the
+stronger free Hom owners. The dependent demo uses Cat_cart. PathOut now has
+its native Cartesian source actions, ordinary representable view and strong
+Sigma coefficient family. Its exact view body uses the already selected
+proof-only category comparison under LF parameters; no body rewrite, runtime
+equality or operational proof parameter is introduced. Generic and native
+validation are recorded beside the review. Downstream PathInd/transitivity
+contracts and the full Homd P-index endpoint computation remain open.
+
+
 The [defined Homd target-map and total-dual action continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_map_review.md)
 replaces the signature-only Homd_target_con_func view with its native checked
 body. Ordinary opposite-Hom and postcomposition are shared source-prior

@@ -369,6 +369,52 @@ typecheck and lint pass. The full TypeScript aggregate times out after reporting
 55 failure events across 16 files. The linked inventory retains those required
 consumer/audit repairs and the separate aggregate runtime investigation.
 
+## F05 prerequisite: exact native view bodies under LF parameters
+
+The elementary ambient Hom interface is exactly the native `hom_int_view` /
+`hom_con_int_view` interface. PathOut also consumes this view. Rewriting its
+composite's codomain from Catd_cat(B) to Functor_cat(B,Cat_cart) makes an ordinary
+runtime-only declaration check pass, and native type comparison accepts the
+type; however the whole-body comparison fails (waves316/318). Do not accept
+that body as the native definition or add a mathematical comparison to hide
+the difference. Preserve the literal native codomain.
+
+The selected next compiler slice reuses the existing proof-only category
+presentation rule for a specifically named definition body. It closes the
+explicit LF lambda telescope with fresh opaque parameters, validates binder
+annotations/modes, and checks the resulting closed body with the already
+qualified proof-aware checker. The stored operational body remains unchanged.
+The declaration compiler must require exact expected proof-rule usage and
+preserve ordinary type formation, runtime equality, source-prefix validation,
+opaque-extension checks and comparison limits. No categorical symbol names
+belong in this generic mechanism. Focused generic checks must reject a wrong
+parameter/domain, foreign proof context, unused/incorrect proof allowance and
+budget exhaustion, and verify capture avoidance and preservation of the body.
+The concrete acceptance consumer is the exact native Hom view body followed by
+the PathOut definitions and their existing projections, with native conformance.
+
+## F05 continuation: ambient Hom and exact PathOut
+
+The [ambient Hom and exact PathOut foundation continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_surface_pathout_review.md)
+uses the existing native Hom views for the elementary surface and preserves the
+stronger free Hom owners. The dependent demo uses Cat_cart. PathOut now has
+its native Cartesian source actions, ordinary representable view and strong
+Sigma coefficient family. Its exact view body uses the already selected
+proof-only category comparison under LF parameters; no body rewrite, runtime
+equality or operational proof parameter is introduced. Generic and native
+validation are recorded beside the review. Downstream PathInd/transitivity
+contracts and the full Homd P-index endpoint computation remain open.
+
+
+The checkpoint replay passes 25 focused cases (one native opt-in is covered by
+the separate native receipt). The full `check:ts` attempt completed workspace,
+registration, typecheck and lint, then stopped without a terminal test result.
+On continuation its process handle was missing and no worker remained; its
+last log heartbeat was at450.4s with no completed test events. The exit reason
+is unknown. This is an inconclusive integration attempt, not a passing gate or
+a recorded900-second timeout. The older aggregate failure inventory remains
+applicable except where the focused migration above supplies new evidence.
+
 ## Constraints
 
 - Follow the native source and its existing migration outline. Do not add

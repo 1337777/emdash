@@ -5,6 +5,7 @@
  * No string parser or Lambdapi process participates in checking/evaluation.
  */
 
+import { coreCategoricalFamilyCoefficient } from './categorical_family_coefficient';
 import {
     CoreCheckerError
 } from './checker';
@@ -65,9 +66,9 @@ const categoryUniverse = (
     line: number
 ): KernelExpression => owner('category-universe', [], line);
 
-const categoryOfCategories = (
+const familyCoefficient = (
     line: number
-): KernelExpression => owner('category-of-categories', [], line);
+): KernelExpression => coreCategoricalFamilyCoefficient(because(line, 'dependent demo family coefficient'));
 
 const objectClassifier = (
     category: KernelExpression,
@@ -101,7 +102,7 @@ const fibre = (
     line: number
 ): KernelExpression => owner(
     'functor-object',
-    [base, categoryOfCategories(line), family, point],
+    [base, familyCoefficient(line), family, point],
     line
 );
 
@@ -150,11 +151,11 @@ const telescopePointFunctor = (
     'transfor-component-capped',
     [
         base,
-        categoryOfCategories(line),
+        familyCoefficient(line),
         family,
         coreConstantDisplayedFamily(
             base,
-            categoryOfCategories(line),
+            familyCoefficient(line),
             because(line, 'dependent demo constant Cat family')
         ),
         point,
@@ -245,7 +246,7 @@ CoreDirectedDependentDemoResult {
     );
     const constantCategoryFamily = coreConstantDisplayedFamily(
         K,
-        categoryOfCategories(4),
+        familyCoefficient(4),
         because(4, 'dependent demo constant category family')
     );
     const telescopeCategory =
@@ -331,7 +332,7 @@ CoreDirectedDependentDemoResult {
         'functor-object',
         [
             fibre(K, R, k, 18),
-            categoryOfCategories(18),
+            familyCoefficient(18),
             telescopePointFunctor(K, R, FF, k, 18),
             r
         ],

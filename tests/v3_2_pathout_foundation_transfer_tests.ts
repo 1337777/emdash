@@ -3,6 +3,9 @@
  */
 
 import assert from 'node:assert/strict';
+import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
+import { coreCategoricalFibredProductCoreName } from '../src/v3_2/categorical_fibred_product_transfer';
+import { CORE_CATEGORICAL_STRUCTURAL_SYMBOLS, coreCategoricalStructuralSymbolCoreName } from '../src/v3_2/categorical_structural_transfer';
 import {
     readFileSync
 } from 'node:fs';
@@ -196,7 +199,7 @@ const representedSourceAction = (
         { plicity: 'implicit', value: Z },
         {
             plicity: 'explicit',
-            value: identity(categoryOfCategories(), Z)
+            value: call(coreCategoricalStructuralSymbolCoreName(CORE_CATEGORICAL_STRUCTURAL_SYMBOLS.identityFunctor), [{plicity:'implicit',value:Z}])
         },
         { plicity: 'implicit', value: y },
         { plicity: 'implicit', value: x },
@@ -442,7 +445,7 @@ const infer = (term: KernelExpression) => {
 };
 
 describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
-    it('seals the reviewed exact 5/13/2/9 root-only boundary', () => {
+    it('seals the migrated 5/15/2/9 root-only boundary', () => {
         assert.deepEqual(
             CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
                 .prerequisiteDeclarationNames,
@@ -450,8 +453,8 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
                 'hom_int_precomp_tele_func',
                 'hom_int_precomp_func',
                 'Sigma_func',
-                'hom_postcomp_func',
-                'hom_precomp_along_func'
+                'Sigma_coeff_func',
+                'hom_int_view'
             ]
         );
         assert.deepEqual(
@@ -473,7 +476,9 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
                 'pathout.foundation.hom-int-precomp-capped-action',
                 'pathout.foundation.hom-int-precomp-tele-application',
                 'pathout.foundation.sigma-func-object',
-                'pathout.foundation.sigma-func-capped-action'
+                'pathout.foundation.sigma-func-capped-action',
+                'pathout.foundation.sigma-coeff-object',
+                'pathout.foundation.sigma-coeff-capped-action'
             ]
         );
         assert.deepEqual(
@@ -512,7 +517,7 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
                 CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
                     .generatedProofConstraintCount
             ],
-            [5, 13, 2, 9, 4]
+            [5, 15, 2, 9, 4]
         );
         assert.equal(
             CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY
@@ -530,7 +535,7 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
         const compilation = compileCorePathoutFoundation1bTransfer();
         assert.equal(compilation.prerequisiteCompiled.declarations.length, 5);
         assert.equal(compilation.libraryCompiled.declarations.length, 9);
-        assert.equal(compilation.runtime.rules.length, 13);
+        assert.equal(compilation.runtime.rules.length, 15);
         assert.equal(
             compilation.runtime.rules.every(rule =>
                 rule.subjectValidation.kind === 'typescript-checked'
@@ -558,7 +563,7 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
                 'opaque-signature',
                 'opaque-signature',
                 'opaque-signature',
-                'opaque-signature'
+                'checked-transparent-definition'
             ]
         );
         assert.equal(
@@ -570,7 +575,7 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
         );
         assert.equal(
             CORE_PATHOUT_FOUNDATION_1B_RUNTIME_MODULE.runtimeRules.length,
-            13
+            15
         );
         assert.equal(
             CORE_PATHOUT_FOUNDATION_1B_PROOF_MODULE.proofRules.length,
@@ -583,7 +588,7 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
         assertDefinitionallyEqual(
             functorObject(
                 witness.Z,
-                categoryOfCategories(),
+                coreCategoricalFamilyCoefficient(nodeProvenance),
                 representable(witness.Z, witness.x),
                 witness.y
             ),
@@ -609,12 +614,13 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
                 witness.y,
                 witness.p
             ),
-            representedSourceAction(
-                witness.Z,
-                witness.x,
-                witness.y,
-                witness.p
-            ),
+            call(coreCategoricalFibredProductCoreName('strict-transfor-view'), [
+                {plicity:'implicit',value:witness.Z},
+                {plicity:'implicit',value:coreCategoricalFamilyCoefficient(nodeProvenance)},
+                {plicity:'implicit',value:representable(witness.Z,witness.y)},
+                {plicity:'implicit',value:representable(witness.Z,witness.x)},
+                {plicity:'explicit',value:representedSourceAction(witness.Z,witness.x,witness.y,witness.p)}
+            ]),
             witness
         );
     });
@@ -639,7 +645,7 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
         assertDefinitionallyEqual(
             functorObject(
                 opposite(witness.Z),
-                categoryOfCategories(),
+                coreCategoricalFamilyCoefficient(nodeProvenance),
                 pathoutCategoryFunctor(witness.Z),
                 witness.x
             ),
@@ -839,20 +845,31 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
     });
 
     it(
-        'matches all six bounded active-Lambdapi assertions',
+        'checks native signatures, definitions and PathOut consumers',
         {
             skip:
                 process.env.EMDASH_RUN_LAMBDAPI_PATHOUT_FOUNDATION_PROBES !==
                 '1'
         },
         () => {
+            const c=compileCorePathoutFoundation1bTransfer();
+            const modules=[c.prerequisiteCompiled,c.libraryCompiled];
+            const references=Object.assign({},...modules.flatMap(module=>[module.externalFreeReferences,
+                module.externalTransparentDefinitions,Object.fromEntries(module.linkage.entries.flatMap(link=>
+                    link.kind==='free-declaration'?[[link.coreName,link.backendName]]:[]))]));
+            const serialize=(term:KernelExpression)=>serializeKernelExpression(term,{externalFreeReferences:references});
+            const declarations=modules.flatMap(module=>module.declarations.flatMap(decl=>[
+                `assert ⊢ @${decl.symbol.name} : ${serialize(decl.type)};`,
+                ...(decl.body?[`assert ⊢ @${decl.symbol.name} ≡ ${serialize(decl.body)};`]:[])
+            ]));
             const source = [
                 'require open emdash.emdash3_2;',
+                ...declarations,
                 'assert [Z : Cat] (x y : τ (Obj Z))',
                 '  (p : τ (Hom Z x y)) ⊢',
                 '  @Rep_transport_func Z x y p',
-                '    ≡ @hom_int_precomp_func',
-                '        Z Z (@id Cat_cat Z) y x p;',
+                '    ≡ @strict_transfor Z Cat_cart (@Rep_catd Z y) (@Rep_catd Z x)',
+                '        (@hom_int_precomp_func Z Z (@id_func Z) y x p);',
                 'assert [K : Cat] (E : τ (Catd K)) ⊢',
                 '  @fapp0 (Catd_cat K) Cat_cat (Sigma_func K) E',
                 '    ≡ Sigma_cat E;',
@@ -862,7 +879,7 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
                 '    (@Sigma_func K) E D eta',
                 '    ≡ @sigma_map_func K E D eta;',
                 'assert [Z : Cat] (x : τ (Obj Z)) ⊢',
-                '  @fapp0 (Op_cat Z) Cat_cat',
+                '  @fapp0 (Op_cat Z) Cat_cart',
                 '    (@PathOut_cat_func Z) x',
                 '    ≡ @PathOut_cat Z x;',
                 'assert [Z : Cat] (x y : τ (Obj Z))',
@@ -879,14 +896,20 @@ describe('PATHOUT-LIBRARY-FOUNDATION-1B transfer', () => {
                 '    : τ (Hom',
                 '        (@PathOut_cat Z x)',
                 '        (@pathout_refl_obj Z x)',
-                '        (@pathout_obj Z x y p));'
+                '        (@pathout_obj Z x y p));',
+                'symbol Z : Cat;', 'symbol x : τ (Obj Z);', 'symbol y : τ (Obj Z);',
+                'symbol p : τ (Hom Z x y);', 'symbol D : τ (Catd Z);',
+                'symbol U : τ (Hom (Functor_cart_cat Z Cat_cart) (@Rep_catd Z x) D);',
+                'assert ⊢ @eq_refl (Hom (Functor_cart_cat Z Cat_cart) (@Rep_catd Z y) D) (@hom_precomp_along_fapp0 (Op_cat Z) (Functor_cart_cat Z Cat_cart) (@hom_int Z Z (@id_func Z)) D y x p U) : τ (@= (Hom (Functor_cart_cat Z Cat_cart) (@Rep_catd Z y) D) (@hom_precomp_along_fapp0 (Op_cat Z) (Functor_cart_cat Z Cat_cart) (@hom_int Z Z (@id_func Z)) D y x p U) (@comp_fapp0 (Functor_cart_cat Z Cat_cart) (@Rep_catd Z y) (@Rep_catd Z x) D U (@hom_int_precomp_func Z Z (@id_func Z) y x p)));'
+
             ].join('\n');
+            assert.doesNotMatch(source,/dttlf_|emdash_v3_2_/u);
             const result = checkLambdapiProbe(
                 { source: `${source}\n`, sourceMap: [] },
                 {
                     packageRoot: resolve(repositoryRoot, 'emdash2'),
-                    timeoutMs: 20_000,
-                    warningsEnabled: false
+                    timeoutMs: 60_000,
+                    warningsEnabled: true
                 }
             );
             assert.equal(

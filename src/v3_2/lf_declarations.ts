@@ -144,7 +144,7 @@ export class CoreLfDeclarationError extends Error {
     }
 }
 
-const collectFreeReferences = (
+export const collectFreeReferences = (
     expression: KernelExpression
 ): readonly KernelReference[] => {
     const references: KernelReference[] = [];

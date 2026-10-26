@@ -10,6 +10,7 @@
 
 import {
     isCoreKind,
+    CoreCheckerError,
     CoreCheckerConversionResult
 } from './checker';
 import {
@@ -30,7 +31,8 @@ import {
     coreLfDefinitionalCompare
 } from './lf_conversion';
 import {
-    CoreLfDeclarationEnvironment
+    CoreLfDeclarationEnvironment,
+    collectFreeReferences
 } from './lf_declarations';
 import {
     CoreLfModuleSpec,
@@ -64,6 +66,7 @@ import {
     kernelCall,
     kernelExpressionEquals,
     kernelFree,
+    kernelInstantiate,
     kernelLambda,
     kernelPi,
     kernelRemapAmbientIndices,
@@ -2803,4 +2806,63 @@ export function createCoreLfProofCheckingChecker(
         }
     }
     return new ProofCheckingChecker(new CoreLfElaborationSession(environment, program.comparisonStepLimit, runtime));
+}
+
+/** Check a closed, explicit definition telescope using a selected proof profile.
+ * Each lambda parameter is replaced by a fresh opaque assumption after checking
+ * its annotation and mode by the ordinary Pi-introduction rule. Proof comparison
+ * still sees only closed types. The original operational body is returned intact.
+ */
+export function checkCoreLfDefinitionWithProofs(
+    environment: CoreLfDeclarationEnvironment,
+    runtime: CoreLfCatalogRuntime,
+    program: CoreLfCompiledProofProgram | CoreLfComposedProofProgram,
+    body: KernelExpression,
+    type: KernelExpression
+): { readonly term: KernelExpression; readonly type: KernelExpression; readonly proofRuleIds: readonly string[] } {
+    kernelAssertScoped(body); kernelAssertScoped(type);
+    // Validate the authority before any successful runtime-only fast path.
+    createCoreLfProofCheckingChecker(environment, runtime, program);
+    const ordinary = createCoreLfChecker(environment, program.comparisonStepLimit, runtime);
+    try {
+        ordinary.check(ordinary.rootContext, body, type);
+        return Object.freeze({term: body, type, proofRuleIds: Object.freeze([])});
+    } catch (error) {
+        if (!(error instanceof CoreCheckerError) || error.code !== 'TYPE_MISMATCH') throw error;
+        // The selected checker below must independently establish the whole judgment.
+    }
+    const used = new Set<string>();
+    const occupied = new Set([...collectFreeReferences(body), ...collectFreeReferences(type)].map(ref => ref.name));
+    let currentEnvironment = environment, currentBody = body, currentType = type, index = 0;
+    const record = (checker: ReturnType<typeof createCoreLfProofCheckingChecker>) => {
+        for (const comparison of checker.proofComparisons) {
+            if (comparison.status === 'solved') {
+                comparison.ruleApplications.forEach(application => used.add(application.ruleId));
+            }
+        }
+    };
+    while (currentBody.tag === 'lambda' && currentType.tag === 'pi') {
+        const checker = createCoreLfProofCheckingChecker(currentEnvironment, runtime, program);
+        // This validates the annotation's sort, its equality to the expected
+        // domain, and both binder modes without trusting a source annotation.
+        checker.check(checker.rootContext,
+            kernelLambda(currentBody.binder, kernelBound(0, currentBody.provenance), currentBody.provenance),
+            kernelPi(currentType.binder, currentType.binder.type, currentType.provenance));
+        record(checker);
+        let name: string;
+        do { name = `lf_definition_parameter_${index++}`; }
+        while (occupied.has(name) || currentEnvironment.lookup(name) !== undefined);
+        occupied.add(name);
+        currentEnvironment = currentEnvironment.extend({
+            name, type: currentType.binder.type, mode: currentType.binder.mode,
+            provenance: currentBody.binder.provenance, transparency: 'opaque'
+        });
+        const parameter = kernelFree(name, currentBody.binder.provenance);
+        currentBody = kernelInstantiate(currentBody.body, parameter);
+        currentType = kernelInstantiate(currentType.body, parameter);
+    }
+    const checker = createCoreLfProofCheckingChecker(currentEnvironment, runtime, program);
+    checker.check(checker.rootContext, currentBody, currentType);
+    record(checker);
+    return Object.freeze({term: body, type, proofRuleIds: Object.freeze([...used].sort())});
 }

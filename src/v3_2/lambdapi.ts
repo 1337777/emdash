@@ -39,14 +39,15 @@ export interface LambdapiOwnerBinding {
         authorityPath: 'emdash2/emdash3_2.lp';
         section: string;
         declaration: string;
-        auditedOn: '2026-07-23';
+        auditedOn: '2026-07-23' | '2026-10-25';
     };
 }
 
 const binding = (
     serializedName: string,
     section: string,
-    declaration: string
+    declaration: string,
+    auditedOn: LambdapiOwnerBinding['provenance']['auditedOn'] = '2026-07-23'
 ): LambdapiOwnerBinding => ({
     module: LAMBDAPI_V32_MODULE,
     serializedName,
@@ -54,7 +55,7 @@ const binding = (
         authorityPath: 'emdash2/emdash3_2.lp',
         section,
         declaration,
-        auditedOn: '2026-07-23'
+        auditedOn
     }
 });
 
@@ -126,14 +127,16 @@ export const LAMBDAPI_V32_OWNER_BINDINGS = {
         'injective symbol Catd_cat'
     ),
     'internal-hom-source': binding(
-        'hom_int',
-        '4d. Internalized source/target endpoints and variance comparison',
-        'injective symbol hom_int'
+        'hom_int_view',
+        '6a. Ordinary views of Cartesian represented Hom',
+        'symbol hom_int_view',
+        '2026-10-25'
     ),
     'internal-hom-target': binding(
-        'hom_con_int',
-        '4d. Internalized source/target endpoints and variance comparison',
-        'injective symbol hom_con_int'
+        'hom_con_int_view',
+        '6a. Ordinary views of Cartesian represented Hom',
+        'symbol hom_con_int_view',
+        '2026-10-25'
     ),
     'displayed-pullback': binding(
         'Pullback_catd',

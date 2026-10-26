@@ -252,6 +252,7 @@ import './v3_2_release_completion_tests';
 import './v3_2_lf_transfer_tests';
 import './v3_2_lf_transfer_compiler_tests';
 import './v3_2_lf_transfer_runtime_tests';
+import './v3_2_lf_definition_proof_tests';
 import './v3_2_lf_transfer_visibility_tests';
 import './v3_2_lf_workspace_tests';
 import './v3_2_lf_development_diff_tests';

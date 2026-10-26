@@ -76,6 +76,8 @@ export interface KernelProbeNonConversionAssertion {
 }
 
 export interface KernelProbe {
+    /** Explicit imported free-symbol bindings; probe declarations cannot shadow them. */
+    externalFreeReferences?: Readonly<Record<string, string>>;
     requiredModule: typeof LAMBDAPI_V32_MODULE;
     declarations: readonly KernelProbeDeclaration[];
     assertions: readonly KernelProbeAssertion[];
@@ -147,13 +149,15 @@ export function declarationsFromSurfaceContext(
 
 export function compileSurfaceProbe(
     context: SurfaceContext,
-    cases: readonly SurfaceProbeCase[]
+    cases: readonly SurfaceProbeCase[],
+    externalFreeReferences?: Readonly<Record<string, string>>
 ): CompiledSurfaceProbe {
     const compiledCases = cases.map(testCase => ({
         ...testCase,
         elaborated: elaborateSurfaceTerm(context, testCase.term)
     }));
     const probe: KernelProbe = {
+        ...(externalFreeReferences === undefined ? {} : { externalFreeReferences }),
         requiredModule: LAMBDAPI_V32_MODULE,
         declarations: declarationsFromSurfaceContext(context),
         assertions: compiledCases.map(testCase => ({
@@ -175,6 +179,13 @@ export function compileSurfaceProbe(
 }
 
 export function serializeKernelProbe(probe: KernelProbe): SerializedProbe {
+    const externalFreeReferences = probe.externalFreeReferences ?? {};
+    for (const declaration of probe.declarations) {
+        if (Object.prototype.hasOwnProperty.call(externalFreeReferences, declaration.name)) {
+            throw new Error(`Probe declaration '${declaration.name}' shadows an imported free symbol`);
+        }
+    }
+    const serialize = (expression: KernelExpression) => serializeKernelExpression(expression, { externalFreeReferences });
     const lines: string[] = [];
     const sourceMap: ProbeSourceMapEntry[] = [];
     const negativeAssertions = probe.negativeAssertions ?? [];
@@ -195,7 +206,7 @@ export function serializeKernelProbe(probe: KernelProbe): SerializedProbe {
         push(`// source ${formatSourceSpan(declaration.span)}`);
         const generatedLine = push(
             `symbol ${declaration.name} : ` +
-            `${serializeKernelExpression(declaration.type)};`
+            `${serialize(declaration.type)};`
         );
         sourceMap.push({
             generatedLine,
@@ -224,8 +235,8 @@ export function serializeKernelProbe(probe: KernelProbe): SerializedProbe {
             formatSourceSpan(assertion.span)
         );
         const generatedLine = push(
-            `assert ⊢ ${serializeKernelExpression(assertion.term)} : ` +
-            `${serializeKernelExpression(assertion.type)};`
+            `assert ⊢ ${serialize(assertion.term)} : ` +
+            `${serialize(assertion.type)};`
         );
         sourceMap.push({
             generatedLine,
@@ -253,8 +264,8 @@ export function serializeKernelProbe(probe: KernelProbe): SerializedProbe {
             formatSourceSpan(assertion.span)
         );
         const generatedLine = push(
-            `assertnot ⊢ ${serializeKernelExpression(assertion.term)} : ` +
-            `${serializeKernelExpression(assertion.type)};`
+            `assertnot ⊢ ${serialize(assertion.term)} : ` +
+            `${serialize(assertion.type)};`
         );
         sourceMap.push({
             generatedLine,
@@ -281,8 +292,8 @@ export function serializeKernelProbe(probe: KernelProbe): SerializedProbe {
             formatSourceSpan(conversion.span)
         );
         const generatedLine = push(
-            `assert ⊢ ${serializeKernelExpression(conversion.left)} ≡ ` +
-            `${serializeKernelExpression(conversion.right)};`
+            `assert ⊢ ${serialize(conversion.left)} ≡ ` +
+            `${serialize(conversion.right)};`
         );
         sourceMap.push({
             generatedLine,
@@ -304,11 +315,11 @@ export function serializeKernelProbe(probe: KernelProbe): SerializedProbe {
             `// ${safeCommentText(comparison.label)}; source ` +
             formatSourceSpan(comparison.span)
         );
-        const classifier = serializeKernelExpression(
+        const classifier = serialize(
             comparison.classifier
         );
-        const left = serializeKernelExpression(comparison.left);
-        const right = serializeKernelExpression(comparison.right);
+        const left = serialize(comparison.left);
+        const right = serialize(comparison.right);
         const decode = LAMBDAPI_V32_OWNER_BINDINGS.decode.serializedName;
         const equality =
             LAMBDAPI_V32_PROOF_PROBE_BINDINGS.equality.serializedName;
@@ -341,8 +352,8 @@ export function serializeKernelProbe(probe: KernelProbe): SerializedProbe {
         );
         const generatedLine = push(
             `assertnot ⊢ ` +
-            `${serializeKernelExpression(nonConversion.left)} ≡ ` +
-            `${serializeKernelExpression(nonConversion.right)};`
+            `${serialize(nonConversion.left)} ≡ ` +
+            `${serialize(nonConversion.right)};`
         );
         sourceMap.push({
             generatedLine,

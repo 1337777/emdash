@@ -1,13 +1,14 @@
 /**
  * PATHOUT-LIBRARY-FOUNDATION-1B root-only existing-authority transfer.
  *
- * The trusted delta is deliberately small: five opaque declarations, thirteen
- * runtime rules, and two proof-time unification rules.  Nine ordinary
+ * The migrated closure has four opaque prerequisites, the checked native
+ * Hom view, fifteen runtime clauses and two proof comparisons. Nine ordinary
  * PathOut library names are then checked as transparent definitions.  This
  * file is intentionally absent from the public and browser barrels while the
  * profile is being qualified.
  */
 
+import { CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE, CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY } from './categorical_fibred_dependent_target_transfer';
 import {
     CORE_CATEGORICAL_DEPENDENT_COMPOSITION_SYMBOLS,
     CORE_CATEGORICAL_DEPENDENT_COMPOSITION_TRANSFER_LINKAGE
@@ -33,6 +34,7 @@ import {
     CORE_CATEGORICAL_MIXED_ACTION_TRANSFER_LINKAGE
 } from './categorical_mixed_action_transfer';
 import {
+    CORE_CATEGORICAL_DIRECT_MIXED_SOURCE_ACTION_TRANSFER_REVISION,
     CoreCategoricalDirectMixedSourceActionCompilation,
     compileCoreCategoricalDirectMixedSourceActionTransfer
 } from './categorical_direct_mixed_source_action_transfer';
@@ -90,10 +92,10 @@ import {
 const MODULE_ID = 'emdash.emdash3_2';
 
 export const CORE_PATHOUT_FOUNDATION_1B_REVISION =
-    'PATHOUT-LIBRARY-FOUNDATION-1B-TRANSFER-1' as const;
+    'PATHOUT-FOUNDATION-NATIVE-CART-2' as const;
 
 export const CORE_PATHOUT_FOUNDATION_SOURCE_SHA256 =
-    'sha256:6a980df34be718a23a6be121d170153650830a49f54b7e0eca415705ffb2068a';
+    'sha256:70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e';
 
 const category =
     coreDirectedContinuationTransferSymbol('category-universe');
@@ -107,6 +109,7 @@ const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
 const categoryOfCategories =
     coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient = coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol(
         'displayed-category-category'
@@ -134,6 +137,7 @@ const symbol = (name: string): CoreLfQualifiedSymbol =>
 const displayedFamilyClassifier = symbol('Catd');
 const displayedFunctorClassifier = symbol('Functord');
 const oppositeCategory = symbol('Op_cat');
+const ambientInternalHom = symbol('hom_int_view');
 
 const {
     identityArrow,
@@ -165,6 +169,7 @@ export const CORE_PATHOUT_FOUNDATION_1B_SYMBOLS = Object.freeze({
     representedSourceAction:
         symbol('hom_int_precomp_func'),
     sigmaTotalizationFunctor: symbol('Sigma_func'),
+    sigmaCoefficientFunctor: symbol('Sigma_coeff_func'),
     homPostcompositionFunctor: symbol('hom_postcomp_func'),
     homPrecompositionFunctor: symbol('hom_precomp_along_func'),
     representableFamilyFunctor: symbol('Rep_catd_func'),
@@ -182,6 +187,7 @@ const {
     representedSourceTelescope,
     representedSourceAction,
     sigmaTotalizationFunctor,
+    sigmaCoefficientFunctor,
     homPostcompositionFunctor,
     homPrecompositionFunctor,
     representableFamilyFunctor,
@@ -256,6 +262,16 @@ const functorType = (
         { plicity: 'explicit', value: source },
         { plicity: 'explicit', value: target }
     ]));
+
+const cartesianFunctorCategory = symbol('Functor_cart_cat');
+const cartesianInclusion = symbol('Functor_cart_include');
+const strictTransforView = symbol('strict_transfor');
+const cartesianFamiliesAt = (b: CoreLfTransferScopedBuilder,K: CoreLfTransferBuilderExpression) =>
+    globalCall(b,cartesianFunctorCategory,[{plicity:'explicit',value:K},{plicity:'explicit',value:b.global(familyCoefficient)}]);
+const strictViewAt = (b: CoreLfTransferScopedBuilder,K:CoreLfTransferBuilderExpression,
+    E:CoreLfTransferBuilderExpression,D:CoreLfTransferBuilderExpression,U:CoreLfTransferBuilderExpression)=>
+    globalCall(b,strictTransforView,[{plicity:'implicit',value:K},{plicity:'implicit',value:b.global(familyCoefficient)},
+        {plicity:'implicit',value:E},{plicity:'implicit',value:D},{plicity:'explicit',value:U}]);
 
 const displayedFamilyType = (
     builder: CoreLfTransferScopedBuilder,
@@ -681,7 +697,7 @@ const sigmaPairAt = (
             value: functorObjectAt(
                 builder,
                 base,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 family,
                 point
             )
@@ -744,7 +760,7 @@ const representedSourceTelescopeType =
                             ),
                             homCategoryAt(
                                 builder,
-                                displayedCategoryAt(builder, B),
+                                cartesianFamiliesAt(builder, B),
                                 representedHomAt(builder, A, B, F, Y),
                                 representedHomAt(builder, A, B, F, X)
                             )
@@ -788,7 +804,7 @@ const representedSourceActionType = (): CoreLfTransferExpression => {
                             ),
                             _p => homType(
                                 builder,
-                                displayedCategoryAt(builder, B),
+                                cartesianFamiliesAt(builder, B),
                                 representedHomAt(builder, A, B, F, Y),
                                 representedHomAt(builder, A, B, F, X)
                             ),
@@ -797,138 +813,6 @@ const representedSourceActionType = (): CoreLfTransferExpression => {
                         implicitMode
                     ),
                     implicitMode
-                ),
-                explicitMode
-            ),
-            implicitMode
-        ),
-        implicitMode
-    ));
-};
-
-const homPostcompositionFunctorType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'A',
-        builder.global(category),
-        A => builder.pi(
-            'B',
-            builder.global(category),
-            B => builder.pi(
-                'F',
-                functorType(builder, B, A),
-                F => builder.pi(
-                    'W',
-                    objectType(builder, A),
-                    W => builder.pi(
-                        'X',
-                        objectType(builder, B),
-                        X => builder.pi(
-                            'Y',
-                            objectType(builder, B),
-                            Y => builder.pi(
-                                'f',
-                                homType(builder, B, X, Y),
-                                _f => functorType(
-                                    builder,
-                                    homCategoryAt(
-                                        builder,
-                                        A,
-                                        W,
-                                        functorObjectAt(
-                                            builder,
-                                            B,
-                                            A,
-                                            F,
-                                            X
-                                        )
-                                    ),
-                                    homCategoryAt(
-                                        builder,
-                                        A,
-                                        W,
-                                        functorObjectAt(
-                                            builder,
-                                            B,
-                                            A,
-                                            F,
-                                            Y
-                                        )
-                                    )
-                                ),
-                                explicitMode
-                            ),
-                            implicitMode
-                        ),
-                        implicitMode
-                    ),
-                    explicitMode
-                ),
-                explicitMode
-            ),
-            implicitMode
-        ),
-        implicitMode
-    ));
-};
-
-const homPrecompositionFunctorType = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.pi(
-        'A',
-        builder.global(category),
-        A => builder.pi(
-            'B',
-            builder.global(category),
-            B => builder.pi(
-                'F',
-                functorType(builder, A, B),
-                F => builder.pi(
-                    'Z',
-                    objectType(builder, B),
-                    Z => builder.pi(
-                        'W',
-                        objectType(builder, A),
-                        W => builder.pi(
-                            'X',
-                            objectType(builder, A),
-                            X => builder.pi(
-                                'h',
-                                homType(builder, A, W, X),
-                                _h => functorType(
-                                    builder,
-                                    homCategoryAt(
-                                        builder,
-                                        B,
-                                        functorObjectAt(
-                                            builder,
-                                            A,
-                                            B,
-                                            F,
-                                            X
-                                        ),
-                                        Z
-                                    ),
-                                    homCategoryAt(
-                                        builder,
-                                        B,
-                                        functorObjectAt(
-                                            builder,
-                                            A,
-                                            B,
-                                            F,
-                                            W
-                                        ),
-                                        Z
-                                    )
-                                ),
-                                explicitMode
-                            ),
-                            implicitMode
-                        ),
-                        implicitMode
-                    ),
-                    explicitMode
                 ),
                 explicitMode
             ),
@@ -982,21 +866,27 @@ readonly CoreLfTransferDeclaration[] = Object.freeze([
         modifiers: modifiers('injective', 'opaque'),
         provenance: source('injective symbol Sigma_func (K : Cat)')
     }),
+
+
     Object.freeze({
-        order: 3,
-        symbol: homPostcompositionFunctor,
-        type: homPostcompositionFunctorType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: modifiers('ordinary', 'opaque'),
-        provenance: source('symbol hom_postcomp_func [A B : Cat]')
+        order:3,symbol:sigmaCoefficientFunctor,
+        type:(()=>{const b=new CoreLfTransferScopedBuilder();return b.term(b.pi('K',b.global(category),K=>
+            functorType(b,cartesianFamiliesAt(b,K),b.global(familyCoefficient)),explicitMode));})(),
+        body:coreLfTransferAbsentBody(),modifiers:modifiers('injective','opaque'),
+        provenance:source('injective symbol Sigma_coeff_func (K : Cat) : τ (Functor (Functor_cart_cat K Cat_cart) Cat_cart);')
     }),
     Object.freeze({
-        order: 4,
-        symbol: homPrecompositionFunctor,
-        type: homPrecompositionFunctorType(),
-        body: coreLfTransferAbsentBody(),
-        modifiers: modifiers('ordinary', 'opaque'),
-        provenance: source('symbol hom_precomp_along_func [A B : Cat]')
+        order:4,symbol:ambientInternalHom,
+        type:(()=>{const b=new CoreLfTransferScopedBuilder();return b.term(b.pi('A',b.global(category),A=>
+            b.pi('B',b.global(category),B=>b.pi('F',functorType(b,B,A),()=>
+                functorType(b,oppositeAt(b,A),displayedCategoryAt(b,B)),explicitMode),implicitMode),implicitMode));})(),
+        body:coreLfTransferExplicitBody((()=>{const b=new CoreLfTransferScopedBuilder();return b.term(b.lam('A',b.global(category),A=>
+            b.lam('B',b.global(category),B=>b.lam('F',functorType(b,B,A),F=>functorCompositionAt(b,
+                oppositeAt(b,A),cartesianFamiliesAt(b,B),displayedCategoryAt(b,B),
+                globalCall(b,cartesianInclusion,[{plicity:'explicit',value:B},{plicity:'explicit',value:b.global(familyCoefficient)}]),
+                internalHomAt(b,A,B,F)),explicitMode),implicitMode),implicitMode));})()),
+        modifiers:modifiers('ordinary','transparent'),
+        provenance:source('symbol hom_int_view [A B : Cat] (F : τ (Functor B A)) : τ (Functor (Op_cat A) (Catd_cat B));')
     })
 ]);
 
@@ -1007,13 +897,21 @@ const prerequisiteExternalSymbols = Object.freeze([
     homClassifier,
     functorClassifier,
     categoryOfCategories,
+    familyCoefficient,
+    cartesianFunctorCategory,
+    cartesianInclusion,
+    internalHom,
+    functorComposition,
+    strictTransforView,
     displayedCategoryCategory,
     homCategory,
     displayedFamilyClassifier,
     displayedFunctorClassifier,
     oppositeCategory,
     functorObject,
-    representedHomFamily
+    representedHomFamily,
+    homPostcompositionFunctor,
+    homPrecompositionFunctor
 ]);
 
 export const CORE_PATHOUT_FOUNDATION_1B_PREREQUISITE_MODULE:
@@ -1048,10 +946,9 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
                 kind: 'declaration' as const,
                 symbol: declaration.symbol
             },
-            policy: 'opaque-signature' as const,
+            policy: declaration.symbol.name===ambientInternalHom.name ? 'checked-transparent-definition' as const : 'opaque-signature' as const,
             evidence:
-                'Exact active v3.2 prerequisite selected by reviewed ' +
-                'PATHOUT-LIBRARY-FOUNDATION-1B0 proposal v9'
+                'Current foundations migration: existing native prerequisite; historical proposal retained separately'
         }))
     }
 );
@@ -1095,6 +992,12 @@ const dependencyLink = (
 };
 
 const prerequisiteCoreName = (target: CoreLfQualifiedSymbol): string => {
+    if(symbolEquals(target,ambientInternalHom))return 'emdash_v3_2_pathout_foundation_hom_int_view';
+    if (symbolEquals(target,homPostcompositionFunctor) || symbolEquals(target,homPrecompositionFunctor)) {
+        const link=dependencyLink(target,0);
+        if(link.kind!=='free-declaration')throw new Error('Expected shared Hom dependency');
+        return link.coreName;
+    }
     const entry = [
         {
             symbol: representedSourceTelescope,
@@ -1112,6 +1015,7 @@ const prerequisiteCoreName = (target: CoreLfQualifiedSymbol): string => {
             symbol: sigmaTotalizationFunctor,
             coreName: 'emdash_v3_2_pathout_foundation_Sigma_func'
         },
+        { symbol:sigmaCoefficientFunctor, coreName:'emdash_v3_2_pathout_foundation_Sigma_coeff_func' },
         {
             symbol: homPostcompositionFunctor,
             coreName:
@@ -1201,7 +1105,7 @@ const representedHomCappedActionRule =
         left: builder.pattern(functorHomCappedAt(
             builder,
             B,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             representedHomAt(builder, A, B, F, W),
             X,
             Y,
@@ -1377,7 +1281,7 @@ const representedHomObjectActionFusionRule =
             functorHomCappedAt(
                 builder,
                 B,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 representedHomAt(builder, A, B, F, W),
                 X,
                 Y,
@@ -1438,16 +1342,12 @@ const postcompositionIdentitySourceUnitRule =
             builder,
             A,
             A,
-            identityAt(
-                builder,
-                builder.global(categoryOfCategories),
-                A
-            ),
+            identityFunctorAt(builder, A),
             X,
             X,
             Y,
             f,
-            identityAt(builder, A, X)
+            identityAt(builder, builder.wildcard(A), X)
         )),
         right: builder.template(f),
         provenance: source(
@@ -1669,11 +1569,11 @@ const representedSourceComponentRule =
         left: builder.pattern(transforComponentAt(
             builder,
             B,
-            builder.global(categoryOfCategories),
+            builder.global(familyCoefficient),
             builder.wildcard(representedY),
             builder.wildcard(representedX),
             b,
-            representedSourceActionAt(builder, A, B, F, Y, X, f)
+            strictViewAt(builder, B, representedY, representedX, representedSourceActionAt(builder, A, B, F, Y, X, f))
         )),
         right: builder.template(homPrecompositionFunctorAt(
             builder,
@@ -1761,11 +1661,11 @@ const representedSourceComponentObjectFusionRule =
             transforComponentAt(
                 builder,
                 B,
-                builder.global(categoryOfCategories),
+                builder.global(familyCoefficient),
                 builder.wildcard(representedY),
                 builder.wildcard(representedX),
                 b,
-                representedSourceActionAt(builder, A, B, F, Y, X, f)
+                strictViewAt(builder, B, representedY, representedX, representedSourceActionAt(builder, A, B, F, Y, X, f))
             ),
             q
         )),
@@ -1826,7 +1726,7 @@ const representedSourceFullRule = (): CoreLfTransferRuntimeRule => {
         left: builder.pattern(functorHomFullAt(
             builder,
             oppositeAt(builder, A),
-            displayedCategoryAt(builder, B),
+            cartesianFamiliesAt(builder, B),
             internalHomAt(builder, A, B, F),
             Y,
             X
@@ -1893,7 +1793,7 @@ const representedSourceCappedRule = (): CoreLfTransferRuntimeRule => {
         left: builder.pattern(functorHomCappedAt(
             builder,
             oppositeAt(builder, A),
-            displayedCategoryAt(builder, B),
+            cartesianFamiliesAt(builder, B),
             internalHomAt(builder, A, B, F),
             Y,
             X,
@@ -1932,7 +1832,7 @@ const representedSourceTelescopeApplicationRule =
     );
     const targetHom = homCategoryAt(
         builder,
-        displayedCategoryAt(builder, B),
+        cartesianFamiliesAt(builder, B),
         representedHomAt(builder, A, B, F, Y),
         representedHomAt(builder, A, B, F, X)
     );
@@ -1996,15 +1896,15 @@ const representedSourceTelescopeApplicationRule =
     };
 };
 
-const sigmaFunctorObjectRule = (): CoreLfTransferRuntimeRule => {
+const sigmaFunctorObjectRule = (coefficient = false): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
     const K = builder.capture('K');
     const E = builder.capture('E');
     return {
-        order: 11,
-        id: 'pathout.foundation.sigma-func-object',
+        order: coefficient ? 13 : 11,
+        id: coefficient ? 'pathout.foundation.sigma-coeff-object' : 'pathout.foundation.sigma-func-object',
         groupId: 'pathout.foundation.sigma-totalization-action',
-        clauseOrder: 0,
+        clauseOrder: coefficient ? 2 : 0,
         sourceOwner: functorObject,
         variables: [
             {
@@ -2018,29 +1918,29 @@ const sigmaFunctorObjectRule = (): CoreLfTransferRuntimeRule => {
         ],
         left: builder.pattern(functorObjectAt(
             builder,
-            displayedCategoryAt(builder, K),
-            builder.global(categoryOfCategories),
-            sigmaFunctorAt(builder, K),
+            builder.wildcard(coefficient ? cartesianFamiliesAt(builder,K) : displayedCategoryAt(builder, K)),
+            builder.global(coefficient ? familyCoefficient : categoryOfCategories),
+            coefficient ? globalCall(builder,sigmaCoefficientFunctor,[{plicity:'explicit',value:K}]) : sigmaFunctorAt(builder, K),
             E
         )),
         right: builder.template(sigmaTotalAt(builder, K, E)),
         provenance: source(
-            'rule @fapp0 _ Cat_cat (@Sigma_func $K) $E'
+            coefficient ? 'rule @fapp0 _ Cat_cart (@Sigma_coeff_func $K) $E' : 'rule @fapp0 _ Cat_cat (@Sigma_func $K) $E'
         )
     };
 };
 
-const sigmaFunctorCappedRule = (): CoreLfTransferRuntimeRule => {
+const sigmaFunctorCappedRule = (coefficient = false): CoreLfTransferRuntimeRule => {
     const builder = new CoreLfTransferScopedBuilder();
     const K = builder.capture('K');
     const E = builder.capture('E');
     const D = builder.capture('D');
     const eta = builder.capture('eta');
     return {
-        order: 12,
-        id: 'pathout.foundation.sigma-func-capped-action',
+        order: coefficient ? 14 : 12,
+        id: coefficient ? 'pathout.foundation.sigma-coeff-capped-action' : 'pathout.foundation.sigma-func-capped-action',
         groupId: 'pathout.foundation.sigma-totalization-action',
-        clauseOrder: 1,
+        clauseOrder: coefficient ? 3 : 1,
         sourceOwner: functorHomCapped,
         variables: [
             {
@@ -2057,24 +1957,23 @@ const sigmaFunctorCappedRule = (): CoreLfTransferRuntimeRule => {
             },
             {
                 name: 'eta',
-                type: builder.template(
-                    displayedFunctorType(builder, K, E, D)
-                )
+                type: builder.template(coefficient
+                    ? objectType(builder,homCategoryAt(builder,cartesianFamiliesAt(builder,K),E,D))
+                    : displayedFunctorType(builder, K, E, D))
             }
         ],
         left: builder.pattern(functorHomCappedAt(
             builder,
-            displayedCategoryAt(builder, K),
-            builder.global(categoryOfCategories),
-            sigmaFunctorAt(builder, K),
+            builder.wildcard(coefficient ? cartesianFamiliesAt(builder,K) : displayedCategoryAt(builder, K)),
+            builder.global(coefficient ? familyCoefficient : categoryOfCategories),
+            coefficient ? globalCall(builder,sigmaCoefficientFunctor,[{plicity:'explicit',value:K}]) : sigmaFunctorAt(builder, K),
             E,
             D,
             eta
         )),
-        right: builder.template(sigmaMapAt(builder, K, E, D, eta)),
+        right: builder.template(sigmaMapAt(builder, K, E, D, coefficient ? strictViewAt(builder,K,E,D,eta) : eta)),
         provenance: source(
-            'rule @fapp1_fapp0 _ Cat_cat (@Sigma_func $K) ' +
-                '$E $D $eta'
+            coefficient ? 'rule @fapp1_fapp0 _ Cat_cart (@Sigma_coeff_func $K) $E $D $U' : 'rule @fapp1_fapp0 _ Cat_cat (@Sigma_func $K) $E $D $eta'
         )
     };
 };
@@ -2092,7 +1991,9 @@ const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
     representedSourceCappedRule(),
     representedSourceTelescopeApplicationRule(),
     sigmaFunctorObjectRule(),
-    sigmaFunctorCappedRule()
+    sigmaFunctorCappedRule(),
+    sigmaFunctorObjectRule(true),
+    sigmaFunctorCappedRule(true)
 ]);
 
 const runtimeExternalSymbols = Object.freeze([
@@ -2100,7 +2001,6 @@ const runtimeExternalSymbols = Object.freeze([
     functorHomFull,
     functorHomCapped,
     transforComponentCapped,
-    internalHom,
     identityArrow,
     identityFunctor,
     postcompositionAction,
@@ -2144,7 +2044,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
             policy: 'runtime-rewrite' as const,
             evidence:
                 'Exact active v3.2 computation selected by reviewed ' +
-                'PATHOUT-LIBRARY-FOUNDATION-1B0 proposal v9'
+                'the current foundations frontend migration plan'
         }))
     }
 );
@@ -2351,7 +2251,7 @@ const representedSourceProjectionOrderProofRule =
                 right: builder.template(A0)
             },
             {
-                left: builder.template(displayedCategoryAt(builder, B)),
+                left: builder.template(cartesianFamiliesAt(builder, B)),
                 right: builder.template(B0)
             },
             {
@@ -2391,6 +2291,8 @@ CoreLfModuleSpec = createCoreLfModuleSpec({
         homClassifier,
         functorClassifier,
         displayedCategoryCategory,
+        familyCoefficient,
+        cartesianFunctorCategory,
         functorObject,
         identityFunctor,
         oppositeCategory,
@@ -2425,7 +2327,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
             policy: 'proof-unification' as const,
             evidence:
                 'Exact active v3.2 PathOut foundation comparison ' +
-                'selected by reviewed proposal v9'
+                'selected by the current foundations frontend migration plan'
         }))
     }
 );
@@ -2445,18 +2347,10 @@ const representableFamilyFunctorType = (): CoreLfTransferExpression => {
 };
 
 const representableFamilyFunctorBody = (): CoreLfTransferExpression => {
-    const builder = new CoreLfTransferScopedBuilder();
-    return builder.term(builder.lam(
-        'Z',
-        builder.global(category),
-        Z => internalHomAt(
-            builder,
-            Z,
-            Z,
-            identityAt(builder, builder.global(categoryOfCategories), Z)
-        ),
-        implicitMode
-    ));
+    const b=new CoreLfTransferScopedBuilder();
+    return b.term(b.lam('Z',b.global(category),Z=>globalCall(b,ambientInternalHom,[
+        {plicity:'implicit',value:Z},{plicity:'implicit',value:Z},
+        {plicity:'explicit',value:identityFunctorAt(b,Z)}]),implicitMode));
 };
 
 const representableFamilyType = (): CoreLfTransferExpression => {
@@ -2539,19 +2433,9 @@ const representableTransportBody = (): CoreLfTransferExpression => {
                 y => builder.lam(
                     'p',
                     homType(builder, Z, x, y),
-                    p => representedSourceActionAt(
-                        builder,
-                        Z,
-                        Z,
-                        identityAt(
-                            builder,
-                            builder.global(categoryOfCategories),
-                            Z
-                        ),
-                        y,
-                        x,
-                        p
-                    ),
+                    p => strictViewAt(builder,Z,
+                        representableFamilyAt(builder,Z,y),representableFamilyAt(builder,Z,x),
+                        representedSourceActionAt(builder,Z,Z,identityFunctorAt(builder,Z),y,x,p)),
                     explicitMode
                 ),
                 implicitMode
@@ -2604,7 +2488,7 @@ const pathoutCategoryFunctorType = (): CoreLfTransferExpression => {
         Z => functorType(
             builder,
             oppositeAt(builder, Z),
-            builder.global(categoryOfCategories)
+            builder.global(familyCoefficient)
         ),
         implicitMode
     ));
@@ -2618,10 +2502,10 @@ const pathoutCategoryFunctorBody = (): CoreLfTransferExpression => {
         Z => functorCompositionAt(
             builder,
             oppositeAt(builder, Z),
-            displayedCategoryAt(builder, Z),
-            builder.global(categoryOfCategories),
-            sigmaFunctorAt(builder, Z),
-            representableFamilyFunctorAt(builder, Z)
+            cartesianFamiliesAt(builder, Z),
+            builder.global(familyCoefficient),
+            globalCall(builder,sigmaCoefficientFunctor,[{plicity:'explicit',value:Z}]),
+            internalHomAt(builder,Z,Z,identityFunctorAt(builder,Z))
         ),
         implicitMode
     ));
@@ -2673,7 +2557,7 @@ const pathoutTransportBody = (): CoreLfTransferExpression => {
                     p => functorHomCappedAt(
                         builder,
                         oppositeAt(builder, Z),
-                        builder.global(categoryOfCategories),
+                        builder.global(familyCoefficient),
                         pathoutCategoryFunctorAt(builder, Z),
                         y,
                         x,
@@ -2937,6 +2821,10 @@ const libraryExternalSymbols = Object.freeze([
     homClassifier,
     functorClassifier,
     categoryOfCategories,
+    familyCoefficient,
+    cartesianFunctorCategory,
+    strictTransforView,
+    identityFunctor,
     displayedCategoryCategory,
     functorObject,
     functorHomCapped,
@@ -2986,7 +2874,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
             policy: 'checked-transparent-definition' as const,
             evidence:
                 'Exact active v3.2 transparent PathOut definition selected ' +
-                'by reviewed PATHOUT-LIBRARY-FOUNDATION-1B0 proposal v9'
+                'by the current foundations frontend migration plan'
         }))
     }
 );
@@ -3089,9 +2977,9 @@ export const CORE_PATHOUT_FOUNDATION_1B_CORE_NAMES = Object.freeze(
         Object.entries(CORE_PATHOUT_FOUNDATION_1B_SYMBOLS).map(
             ([id, target]) => [
                 id,
-                prerequisiteDeclarations.some(declaration =>
+                (prerequisiteDeclarations.some(declaration =>
                     symbolEquals(declaration.symbol, target)
-                )
+                ) || symbolEquals(target,homPostcompositionFunctor) || symbolEquals(target,homPrecompositionFunctor))
                     ? prerequisiteCoreName(target)
                     : libraryCoreName(target)
             ]
@@ -3145,10 +3033,9 @@ export function assertCorePathoutOrdinaryLibraryCapability(
 export const CORE_PATHOUT_FOUNDATION_1B_TRANSFER_BOUNDARY =
 Object.freeze({
     revision: CORE_PATHOUT_FOUNDATION_1B_REVISION,
-    reviewedAuthorization:
-        'PATHOUT-LIBRARY-FOUNDATION-1B0-REVIEWED-8',
-    selectedPredecessor:
-        'DIRECT-MIXED-SOURCE-ACTION-1E2-RUNTIME-1',
+    reviewedAuthorization: 'STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2',
+    historicalReviewedAuthorization: 'PATHOUT-LIBRARY-FOUNDATION-1B0-REVIEWED-8',
+    selectedPredecessor: CORE_CATEGORICAL_DIRECT_MIXED_SOURCE_ACTION_TRANSFER_REVISION,
     prerequisiteDeclarationNames: Object.freeze(
         prerequisiteDeclarations.map(declaration =>
             declaration.symbol.name
@@ -3170,7 +3057,8 @@ Object.freeze({
         ),
     positiveConsumerCount: 7,
     negativeConsumerCount: 8,
-    boundedOracleAssertionCount: 6,
+    boundedOracleAssertionCount: 31,
+    definitionTypingProofRuleIds: Object.freeze(['categorical.dependent-target.category-presentation']),
     allEntriesUseGenericTransferEngines: true,
     ordinarySafeLibraryCanAddTransparentDefinitions: true,
     ordinarySafeLibraryCanAddOpaqueOwners: false,
@@ -3207,9 +3095,16 @@ let cachedCompilation: CorePathoutFoundation1bCompilation | undefined;
 export function compileCorePathoutFoundation1bTransfer():
 CorePathoutFoundation1bCompilation {
     if (cachedCompilation !== undefined) return cachedCompilation;
+    // Check the frozen historical review; current qualification is the migration ledger.
     validateCorePathoutFoundation1b0Review();
     const prerequisite =
         compileCoreCategoricalDirectMixedSourceActionTransfer();
+    const viewTypeProof = compileCoreLfProofProgram(
+        CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_MODULE,
+        CORE_CATEGORICAL_FIBRED_DEPENDENT_TARGET_PROOF_POLICY,
+        prerequisite.declarationContext,
+        {runtimeProgram:prerequisite.composedRuntime,comparisonStepLimit:512}
+    );
     const prerequisiteCompiled = compileCoreLfDeclarations(
         CORE_PATHOUT_FOUNDATION_1B_PREREQUISITE_MODULE,
         CORE_PATHOUT_FOUNDATION_1B_PREREQUISITE_POLICY,
@@ -3217,7 +3112,10 @@ CorePathoutFoundation1bCompilation {
         {
             initialEnvironment: prerequisite.compiled.environment,
             runtimeProgram: prerequisite.composedRuntime,
-            comparisonStepLimit: 512
+            comparisonStepLimit: 512,
+            definitionTypeProof: {program:viewTypeProof,declarations:[{
+                symbol:ambientInternalHom, proofRuleIds:['categorical.dependent-target.category-presentation']
+            }]}
         }
     );
     const prerequisiteContext = new CoreLfMixedDeclarationContext(

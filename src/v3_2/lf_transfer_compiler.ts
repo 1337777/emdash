@@ -15,6 +15,11 @@ import {
     CoreDeclarationEnvironment
 } from './context';
 import {
+    CoreLfCompiledProofProgram,
+    CoreLfComposedProofProgram,
+    checkCoreLfDefinitionWithProofs
+} from './lf_transfer_proof';
+import {
     CoreLfChecker,
     CORE_LF_CANDIDATE_COMPARISON_STEP_LIMIT,
     createCoreLfChecker
@@ -145,6 +150,8 @@ export interface CoreLfCompiledDeclaration {
     readonly type: KernelExpression;
     readonly body?: KernelExpression;
     readonly provenance: Provenance;
+    /** Exact proof-only rules needed to check this definition's unchanged body. */
+    readonly definitionProofRuleIds?: readonly string[];
 }
 
 export interface CoreLfDeclarationCompilerOptions {
@@ -163,6 +170,13 @@ export interface CoreLfDeclarationCompilerOptions {
      */
     readonly runtimeProgram?: CoreLfCatalogRuntime;
     readonly comparisonStepLimit?: number;
+    readonly definitionTypeProof?: {
+        readonly program: CoreLfCompiledProofProgram | CoreLfComposedProofProgram;
+        readonly declarations: readonly {
+            readonly symbol: CoreLfQualifiedSymbol;
+            readonly proofRuleIds: readonly string[];
+        }[];
+    };
 }
 
 const REVISION_ID = /^[A-Za-z0-9][A-Za-z0-9._+-]*$/u;
@@ -1209,6 +1223,27 @@ export function compileCoreLfDeclarations(
             options.runtimeProgram,
             comparisonStepLimit
         );
+    const proofRequests = new Map<string, readonly string[]>();
+    if (options.definitionTypeProof !== undefined) {
+        if (options.runtimeProgram === undefined || options.definitionTypeProof.declarations.length === 0) {
+            fail('INCOMPATIBLE_POLICY', 'options.definitionTypeProof',
+                'Definition proof checking requires an explicit runtime and named definition requests');
+        }
+        for (const request of options.definitionTypeProof.declarations) {
+            const key = symbolKey(request.symbol);
+            const definition = module.declarations.find(d => sameSymbol(d.symbol, request.symbol));
+            const ids = [...new Set(request.proofRuleIds)].sort();
+            if (proofRequests.has(key) || definition?.body.kind !== 'explicit-term' ||
+                policies.get(policyKey(request.symbol)) !== 'checked-transparent-definition' ||
+                links.get(key)?.kind !== 'free-declaration' || ids.length === 0 ||
+                ids.length !== request.proofRuleIds.length ||
+                ids.some(id => !options.definitionTypeProof!.program.ruleIds.includes(id))) {
+                fail('INCOMPATIBLE_POLICY', 'options.definitionTypeProof',
+                    `Invalid proof allowance for definition '${displaySymbol(request.symbol)}'`);
+            }
+            proofRequests.set(key, ids);
+        }
+    }
 
     const compiled: CoreLfCompiledDeclaration[] = [];
     const compiledBySymbol =
@@ -1272,6 +1307,7 @@ export function compileCoreLfDeclarations(
             declaration,
             'declaration'
         );
+        let definitionProofRuleIds: readonly string[] | undefined;
         if (
             (
                 status === 'intrinsic-conformance' ||
@@ -1324,6 +1360,34 @@ export function compileCoreLfDeclarations(
             link.kind === 'free-declaration'
         ) {
             try {
+                const requested = proofRequests.get(key);
+                const proofEnvironment = environment;
+                const selectedFactory: CoreLfDeclarationCheckerFactory = requested === undefined
+                    ? checkerFactory
+                    : (coreEnvironment, context) => {
+                        // The allowance must not persist into later environment extensions.
+                        if (context.phase !== 'definition-body' || context.lfEnvironment !== proofEnvironment) {
+                            return checkerFactory(coreEnvironment, context);
+                        }
+                        return new class extends CoreLfTransferDeclarationChecker {
+                            check(checkContext: Parameters<CoreChecker['check']>[0],
+                                term: KernelExpression, expected: KernelExpression) {
+                                if (checkContext !== this.rootContext || body === undefined ||
+                                    !kernelExpressionEquals(term, body) || !kernelExpressionEquals(expected, type)) {
+                                    return super.check(checkContext, term, expected);
+                                }
+                                const result = checkCoreLfDefinitionWithProofs(proofEnvironment,
+                                    options.runtimeProgram!, options.definitionTypeProof!.program, term, expected);
+                                definitionProofRuleIds = result.proofRuleIds;
+                                if (result.proofRuleIds.length !== requested.length ||
+                                    result.proofRuleIds.some((id, index) => id !== requested[index])) {
+                                    fail('INCOMPATIBLE_POLICY', `${path}.definitionTypeProof`,
+                                        'Definition proof use must exactly match its declared allowance');
+                                }
+                                return Object.freeze({term: result.term, type: result.type});
+                            }
+                        }(coreEnvironment, proofEnvironment, options.runtimeProgram, comparisonStepLimit);
+                    };
                 environment = environment.extend({
                     name: link.coreName,
                     type,
@@ -1337,7 +1401,7 @@ export function compileCoreLfDeclarations(
                         status === 'installed-transparent'
                             ? 'transparent'
                             : 'opaque'
-                }, checkerFactory);
+                }, selectedFactory);
             } catch (error: unknown) {
                 return fail(
                     'DECLARATION_CHECK_FAILED',
@@ -1365,7 +1429,8 @@ export function compileCoreLfDeclarations(
             status,
             type,
             body,
-            provenance: nodeProvenance
+            provenance: nodeProvenance,
+            ...(definitionProofRuleIds === undefined ? {} : {definitionProofRuleIds})
         });
         compiled.push(result);
         compiledBySymbol.set(key, result);

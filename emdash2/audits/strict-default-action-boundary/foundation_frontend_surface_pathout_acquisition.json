@@ -1,0 +1,116 @@
+{
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "scope": "Ambient Hom views and exact PathOut foundation definitions; stronger native Hom owners remain separate",
+  "commands": [
+    {
+      "name": "hom_int_view",
+      "ordinal": 857,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "fc318bb53f4c78d835e676f4d6988be95137a41dde311984613ae0e1f3e74f5a"
+    },
+    {
+      "name": "hom_con_int_view",
+      "ordinal": 858,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "422dd0302f5e778fcc2feb7a48e62add5b283788f3df1a2a881796a0a8ae49b4"
+    },
+    {
+      "name": "hom_int_precomp_tele_func",
+      "ordinal": 737,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "d6b9d00f86673017fc813347c9d715e5c2381f6ccddef15a7a7181a3609fb6ef"
+    },
+    {
+      "name": "hom_int_precomp_func",
+      "ordinal": 738,
+      "modifiers": [],
+      "hasBody": false,
+      "sha256": "304e8214dc24d7423934de2549a1fbb300c2a9722548e0e48a8dc5ce1ede2871"
+    },
+    {
+      "name": "Sigma_func",
+      "ordinal": 1291,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "aad82515cca821b564788249001e97f217b669bb7191b18b402e43f83796d356"
+    },
+    {
+      "name": "Sigma_coeff_func",
+      "ordinal": 1335,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "67dab75e7e67be7a4d0105b1b23fccf1eca3700499ede265544acd0ddfd2c401"
+    },
+    {
+      "name": "Rep_catd_func",
+      "ordinal": 1406,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "7bdc65e6fff9fe9fccafa4e677dcb3f8df38bfe97104d9749d330a1d901d2373"
+    },
+    {
+      "name": "Rep_catd",
+      "ordinal": 1407,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "aa4ff7a91e4d0150cf0fbceb67b7f63a2eaa94ff873b5ce9f527f12d1ced4920"
+    },
+    {
+      "name": "Rep_transport_func",
+      "ordinal": 1408,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "ee973bb4c2289727b50e1d4b6a2ffd5574ace1c6b01fd6ea2d48ee1ec9e20fc7"
+    },
+    {
+      "name": "PathOut_cat",
+      "ordinal": 2004,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "503a1d27a8ffdc354ffdb2eacd0c81fff0b477c78e861b2133a6e0989023fe2d"
+    },
+    {
+      "name": "PathOut_cat_func",
+      "ordinal": 2005,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "1824106a19eeb48842fb32b2fa2acbabfbb76c65363f22e670ddf5af7b68c737"
+    },
+    {
+      "name": "PathOut_transport_func",
+      "ordinal": 2006,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "073f0d23e44f43f4edcf97205b4a991e1fb6ce23f11e00bd8e550b8402bf64b2"
+    },
+    {
+      "name": "pathout_obj",
+      "ordinal": 2011,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "43891a9855f004c19d51788b9cb513c9c3eeb8f17d938b9745711620af0958a5"
+    },
+    {
+      "name": "pathout_refl_obj",
+      "ordinal": 2012,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "72e5a3fb08be09bf29afd59755119c34726ecfc1e064ef16ff3e3de4358aef55"
+    },
+    {
+      "name": "pathout_refl_arrow",
+      "ordinal": 2016,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "88176ca65e9b208adaa1643eba13d764f01a523b6cba5488224ebc51f230676a"
+    }
+  ]
+}
