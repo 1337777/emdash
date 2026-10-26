@@ -101,7 +101,6 @@ import {
 } from './scale_stress_2b3_representation';
 import {
     CORE_LF_SCALE_STRESS_3A2A_LINKAGE,
-    CORE_LF_SCALE_STRESS_3A2A_MODULE,
     CORE_LF_SCALE_STRESS_3A2A_SYMBOLS
 } from './scale_stress_3a2a_representation';
 import {
@@ -199,18 +198,6 @@ const {
 const {
     identityArrow
 } = CORE_LF_SCALE_STRESS_3A2A_SYMBOLS;
-
-const priorIdentityDeclaration =
-    CORE_LF_SCALE_STRESS_3A2A_MODULE.declarations.find(declaration =>
-        declaration.symbol.moduleId === identityArrow.moduleId &&
-        declaration.symbol.name === identityArrow.name
-    );
-
-if (priorIdentityDeclaration === undefined) {
-    throw new Error(
-        'SCALE-STRESS-3A2A no longer exposes the exact id declaration'
-    );
-}
 
 export const CORE_CATEGORICAL_FIBRED_TRANSFD_SYMBOLS =
 Object.freeze({
@@ -1452,11 +1439,6 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
         )
     },
     {
-        ...priorIdentityDeclaration,
-        order: 3,
-        provenance: source('symbol id [A : Cat]', 234)
-    },
-    {
         order: 4,
         symbol: transportLhs,
         type: transportType(transportLhs),
@@ -1502,9 +1484,10 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
             801
         )
     }
-]);
+].map((d,order)=>({...d,order})));
 
 const declarationExternalSymbols = Object.freeze([
+    genericIdentity,
     category,
     groupoid,
     decodeOwner,
@@ -3217,8 +3200,8 @@ const strictHorizontalViewRule = (): CoreLfTransferRuntimeRule => {
             { name: 'U', type: b.template(strictTransforType(b, X, Y, F, Fp)) },
             { name: 'V', type: b.template(strictTransforType(b, Y, Z, G, Gp)) }
         ],
-        left: b.pattern(strictView(b, X, Z,
-            composeAt(b, cart, X, Y, Z, G, F), composeAt(b, cart, X, Y, Z, Gp, Fp),
+        left: b.pattern(strictView(b, b.wildcard(X), b.wildcard(Z),
+            b.wildcard(composeAt(b, cart, X, Y, Z, G, F)), b.wildcard(composeAt(b, cart, X, Y, Z, Gp, Fp)),
             horizontalCompositionActionAt(b, cart, X, Y, Z,
                 pairAt(b, cartXY, cartYZ, F, G), pairAt(b, cartXY, cartYZ, Fp, Gp),
                 pairAt(b, homCategoryAt(b, cartXY, F, Fp), homCategoryAt(b, cartYZ, G, Gp), U, V)))),
@@ -3263,7 +3246,6 @@ const runtimeExternalSymbols = Object.freeze([
     sigmaCategory,
     functorCategory,
     productPair,
-    genericIdentity,
     transforComponentCapped,
     transforHomFull,
     transforHomCapped,
@@ -3684,6 +3666,7 @@ Object.freeze({
         'comp_prod_fapp1_fapp0'
     ]),
     declarationCount: declarations.length,
+    inheritedDeclarationNames: Object.freeze(['id']),
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
     runtimeRuleCount: runtimeRules.length,
     proofRuleIds: Object.freeze([proofRule.id]),

@@ -387,6 +387,11 @@
       "scope": "Typed general lax-FF Homd endpoint, current native counterpart and shared represented action",
       "review": "foundation_frontend_homd_relative_review.md",
       "doesNotQualify": "Complete higher-action transfer, transitivity, full aggregate or production health"
+    },
+    {
+      "scope": "Native transitivity definitions, shared displayed identity and displayed-whiskering point/higher action",
+      "review": "foundation_frontend_transitivity_review.md",
+      "doesNotQualify": "All source/text/higher-action consumers, full frontend aggregate or production health"
     }
   ],
   "latestAggregate": {

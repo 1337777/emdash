@@ -4,6 +4,8 @@
  */
 
 import assert from 'node:assert/strict';
+import { compileCoreCategoricalFibredStructureTransfer } from '../src/v3_2/categorical_fibred_structure_transfer';
+import { coreCategoricalFamilyCoefficient } from '../src/v3_2/categorical_family_coefficient';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { describe, it } from 'node:test';
@@ -199,7 +201,7 @@ const fibre = (
     point: KernelExpression
 ): KernelExpression => functorObject(
     base,
-    categoryOfCategories(),
+    coreCategoricalFamilyCoefficient(nodeProvenance),
     family,
     point
 );
@@ -223,7 +225,7 @@ const component = (
     'transfor-component-capped',
     [
         { value: base },
-        { value: categoryOfCategories() },
+        { value: coreCategoricalFamilyCoefficient(nodeProvenance) },
         { value: sourceFamily },
         { value: targetFamily },
         { value: point },
@@ -474,7 +476,7 @@ const assertDefinitionallyEqual = (
 };
 
 describe('PATHOUT-LIBRARY-TRANSITIVITY-1E transfer', () => {
-    it('seals the reviewed exact corrected 0/1/0/5 boundary', () => {
+    it('seals the migrated 0/0/0/5 boundary without a local computation rule', () => {
         const boundary = CORE_PATHOUT_TRANSITIVITY_1E_BOUNDARY;
         assert.equal(
             CORE_PATHOUT_TRANSITIVITY_1E_REVISION,
@@ -488,10 +490,10 @@ describe('PATHOUT-LIBRARY-TRANSITIVITY-1E transfer', () => {
                 boundary.exactBoundary
             ],
             [
-                'PATHOUT-LIBRARY-TRANSITIVITY-1E-REVIEWED-4',
+                'STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2',
                 '2498053',
                 'fc9a323',
-                '0/1/0/5'
+                '0/0/0/5'
             ]
         );
         assert.deepEqual(
@@ -509,13 +511,9 @@ describe('PATHOUT-LIBRARY-TRANSITIVITY-1E transfer', () => {
                 boundary.negativeConsumerCount,
                 boundary.boundedOracleAssertionCount
             ],
-            [0, 1, 0, 5, 1, 11, 2, 8, 7, 1, 8, 8]
+            [0, 0, 0, 5, 1, 12, 2, 8, 7, 1, 8, 8]
         );
-        assert.deepEqual(boundary.runtimeRuleIds, [
-            'pathout.transitivity.' +
-                'fixed-source-selected-component-' +
-                'consumer-parent-fusion'
-        ]);
+        assert.deepEqual(boundary.runtimeRuleIds, []);
         assert.deepEqual(boundary.inheritedProofProviderIds, [
             'stress.sigma-pi.uncurrying'
         ]);
@@ -541,16 +539,16 @@ describe('PATHOUT-LIBRARY-TRANSITIVITY-1E transfer', () => {
         );
         assert.equal(
             boundary.v4OriginalConsumerParentLocalSupportSelected,
-            true
+            false
         );
         assert.equal(
             boundary.localSupportRuleMatchesBeforeDescendantDelta,
-            true
+            false
         );
         assert.equal(boundary.browserOrPublicPackageExported, false);
     });
 
-    it('compiles five definitions then one subject-checked local support',
+    it('compiles five definitions using the inherited native computation',
         () => {
             const { compilation } = fixture();
             assert.equal(compilation.compiled.declarations.length, 5);
@@ -566,24 +564,16 @@ describe('PATHOUT-LIBRARY-TRANSITIVITY-1E transfer', () => {
             assert.equal(
                 CORE_PATHOUT_TRANSITIVITY_1E_RUNTIME_MODULE
                     .runtimeRules.length,
-                1
+                0
             );
             assert.equal(
                 CORE_PATHOUT_TRANSITIVITY_1E_RUNTIME_MODULE
                     .proofRules.length,
                 0
             );
-            assert.equal(compilation.runtime.rules.length, 1);
-            assert.equal(
-                compilation.runtime.rules[0]?.subjectValidation.kind,
-                'typescript-checked'
-            );
+            assert.equal(compilation.runtime.rules.length, 0);
             assert.equal(compilation.runtime.comparisonStepLimit, 512);
-            assert.equal(
-                CORE_PATHOUT_TRANSITIVITY_1E_RUNTIME_POLICY.entries[0]
-                    ?.policy,
-                'runtime-rewrite'
-            );
+            assert.equal(CORE_PATHOUT_TRANSITIVITY_1E_RUNTIME_POLICY.entries.length,0);
             assert.equal(
                 CORE_PATHOUT_TRANSITIVITY_1E_POLICY.entries.every(entry =>
                     entry.policy === 'checked-transparent-definition'
@@ -608,26 +598,6 @@ describe('PATHOUT-LIBRARY-TRANSITIVITY-1E transfer', () => {
                 'injective'
             );
         });
-
-    it('fires the exact complete-parent support at its staged redex', () => {
-        const w = fixture();
-        const id = CORE_PATHOUT_TRANSITIVITY_1E_BOUNDARY.runtimeRuleIds[0];
-        assert.ok(id);
-        const program = w.compilation.runtimeFragment.localProgram;
-        const rule = program.rule(id);
-        assert.ok(rule, `Missing local transitivity runtime rule ${id}`);
-        const redex = program.instantiateRuleLeft(
-            rule,
-            [w.Z, w.x, w.y, w.p],
-            nodeProvenance
-        );
-        const result = w.compilation.composedRuntime.rewriteHead(redex);
-        assert.equal(result.status, 'rewritten');
-        if (result.status !== 'rewritten') {
-            assert.fail(`Local transitivity runtime rule ${id} did not fire`);
-        }
-        assert.equal(result.ruleId, id);
-    });
 
     it('computes three observations and proves the Sigma/Pi observation',
         () => {
@@ -725,7 +695,7 @@ describe('PATHOUT-LIBRARY-TRANSITIVITY-1E transfer', () => {
             assertDefinitionallyEqual(
                 functorHomCapped(
                     w.Z,
-                    categoryOfCategories(),
+                    coreCategoricalFamilyCoefficient(nodeProvenance),
                     target,
                     w.x,
                     w.y,
@@ -883,7 +853,17 @@ describe('PATHOUT-LIBRARY-TRANSITIVITY-1E transfer', () => {
                 !== '1'
         },
         () => {
-            const source = String.raw`require open emdash.emdash3_2;
+            const c=compileCorePathoutTransitivity1eTransfer();
+            const structure=compileCoreCategoricalFibredStructureTransfer().compiled;
+            const modules=[structure,c.compiled];
+            const references=Object.assign({},...modules.flatMap(m=>[m.externalFreeReferences,m.externalTransparentDefinitions,
+                Object.fromEntries(m.linkage.entries.flatMap(l=>l.kind==='free-declaration'?[[l.coreName,l.backendName]]:[]))]));
+            const serialize=(term:KernelExpression)=>serializeKernelExpression(term,{externalFreeReferences:references});
+            const declarations=modules.flatMap(m=>m.declarations.filter(d=>m!==structure||['id','id_funcd'].includes(d.symbol.name))
+                .flatMap(d=>[`assert ⊢ @${d.symbol.name} : ${serialize(d.type)};`,
+                    ...(d.body?[`assert ⊢ @${d.symbol.name} ≡ ${serialize(d.body)};`]:[])]));
+            const source = 'require open emdash.emdash3_2;\n'+declarations.join('\n')+String.raw`
+
 
 assert [Z : Cat] (x y : τ (Obj Z)) ⊢
   Fibre_cat (@CompTarget_catd Z x) y
@@ -906,14 +886,14 @@ assert [Z : Cat] (x : τ (Obj Z)) ⊢
     ≡ @path_comp_sec Z x;
 
 assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) ⊢
-  @fapp1_fapp0 Z Cat_cat (@CompTarget_catd Z x) x y p
+  @fapp1_fapp0 Z Cat_cart (@CompTarget_catd Z x) x y p
     ≡ @CompTarget_fapp1_func Z x x y p;
 
 assert [Z : Cat] (x y : τ (Obj Z)) (p : τ (Hom Z x y)) ⊢
   @fapp0
     (Hom_cat Z x y)
     (@Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x))
-    (@tapp0_fapp0 Z Cat_cat (@Rep_catd Z x)
+    (@tapp0_fapp0 Z Cat_cart (@Rep_catd Z x)
       (@CompTarget_catd Z x) y (@path_comp_sec Z x))
     p
     ≡ @path_comp_func Z x y p;
@@ -923,7 +903,7 @@ assert [Z : Cat] (x y z : τ (Obj Z))
   @fapp0
     (Hom_cat Z y z)
     (Hom_cat Z x z)
-    (@tapp0_fapp0 Z Cat_cat (@Rep_catd Z y)
+    (@tapp0_fapp0 Z Cat_cart (@Rep_catd Z y)
       (@Rep_catd Z x) z (@path_comp_func Z x y p))
     q
     ≡ @hom_precomp_along_fapp0 Z Z (@id_func Z) z x y p q;
@@ -933,11 +913,11 @@ assert [Z : Cat] (x y z : τ (Obj Z))
   @fapp0
     (Hom_cat Z y z)
     (Hom_cat Z x z)
-    (@tapp0_fapp0 Z Cat_cat (@Rep_catd Z y) (@Rep_catd Z x) z
+    (@tapp0_fapp0 Z Cat_cart (@Rep_catd Z y) (@Rep_catd Z x) z
       (@fapp0
         (Hom_cat Z x y)
         (@Functord_cat Z (@Rep_catd Z y) (@Rep_catd Z x))
-        (@tapp0_fapp0 Z Cat_cat (@Rep_catd Z x)
+        (@tapp0_fapp0 Z Cat_cart (@Rep_catd Z x)
           (@CompTarget_catd Z x) y (@path_comp_sec Z x))
         p))
     q
@@ -947,8 +927,8 @@ assert [Z : Cat] (x y z : τ (Obj Z))
                 { source, sourceMap: [] },
                 {
                     packageRoot: resolve(repositoryRoot, 'emdash2'),
-                    timeoutMs: 20_000,
-                    warningsEnabled: false
+                    timeoutMs: 60_000,
+                    warningsEnabled: true
                 }
             );
             assert.equal(result.accepted, true, result.diagnostics);

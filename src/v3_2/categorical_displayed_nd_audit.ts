@@ -478,11 +478,12 @@ export function validateCoreCategoricalDisplayedNdAudit(
                 'displayed-chain-2a-closure-generic-transfer' ||
         CORE_CATEGORICAL_FIBRED_TRANSFD_CONTRACT.revision !==
             audit.prerequisite.fibredTransfdContractRevision ||
-        transfer.compiled.declarations.length !== 8 ||
+        // Generic id is source-prior to id_funcd and is inherited unchanged.
+        transfer.compiled.declarations.length !== 7 ||
+        CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY.inheritedDeclarationNames.join(',') !== 'id' ||
         CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
             .declarationNames.join(',') !==
                 'Transfd_cat,Transfd,tdapp0_fapp0,' +
-                'id,' +
                 'functord_transport_lhs_func,' +
                 'functord_transport_rhs_func,tdapp1_int_cell,' +
                 'comp_prod_fapp1_fapp0'

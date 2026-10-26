@@ -28,7 +28,7 @@ import type {
 } from '../src/v3_2';
 
 describe('FIBRED-TRANSFD-1 existing-authority transfer', () => {
-    it('checks eight declarations, twenty-one runtime rules, and one proof rule', () => {
+    it('checks seven local declarations, inherited id, twenty-one runtime rules, and one proof rule', () => {
         const compilation =
             compileCoreCategoricalFibredTransfdTransfer();
         assert.deepEqual(
@@ -38,7 +38,6 @@ describe('FIBRED-TRANSFD-1 existing-authority transfer', () => {
                 'Transfd_cat',
                 'Transfd',
                 'tdapp0_fapp0',
-                'id',
                 'functord_transport_lhs_func',
                 'functord_transport_rhs_func',
                 'tdapp1_int_cell',
@@ -48,7 +47,7 @@ describe('FIBRED-TRANSFD-1 existing-authority transfer', () => {
         assert.equal(
             CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
                 .declarationCount,
-            8
+            7
         );
         assert.equal(compilation.runtime.rules.length, 21);
         assert.deepEqual(

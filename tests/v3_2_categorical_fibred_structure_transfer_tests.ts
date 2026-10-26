@@ -132,6 +132,7 @@ describe(
                 [
                     'comp_cat_con_cart_func',
                     'hom_precomp_along_fapp0',
+                    'id',
                     'id_funcd',
                     'Product_projL_funcd',
                     'Product_projR_funcd',
@@ -140,7 +141,7 @@ describe(
             );
             assert.deepEqual(
                 CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_MODULE
-                    .declarations.slice(3)
+                    .declarations.slice(4)
                     .map(entry => entry.modifiers.rigidity),
                 ['injective', 'injective', 'injective']
             );
@@ -190,7 +191,8 @@ describe(
 
             const compiled =
                 compileCoreCategoricalFibredStructureTransfer();
-            assert.equal(compiled.compiled.declarations.length, 6);
+            assert.equal(compiled.compiled.declarations.length, 7);
+            assert.equal(compiled.compiled.declarations.find(d=>d.symbol.name==='id_funcd')?.status,'installed-transparent');
             assert.equal(compiled.runtime.rules.length, 15);
             assert.deepEqual(
                 compiled.runtime.rules.map(rule =>

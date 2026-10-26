@@ -1,0 +1,65 @@
+{
+  "nativeSourceSha256": "70b7a550b6d932dcfca561300b3ac0cf37f28dfca14afc2429249141eff5182e",
+  "canonicalExportSha256": "5fe27c717a83f950431cf61a806a493499f3b03635310c63dcf3c9b751c327cd",
+  "scope": "Checked displayed identity and five native transitivity definitions; inferred slots of Cartesian horizontal view",
+  "commands": [
+    {
+      "name": "id",
+      "ordinal": 234,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": false,
+      "sha256": "76b996552e41e51e42d5c48415a920c092b1f28eca2adad2410c37a68c8e0091"
+    },
+    {
+      "name": "id_funcd",
+      "ordinal": 437,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "776d3933b96eb2042a3f919370035dc3a21e1046ee0625069ca06737554f68e2"
+    },
+    {
+      "name": "CompTarget_catd",
+      "ordinal": 2032,
+      "modifiers": [
+        "injective"
+      ],
+      "hasBody": true,
+      "sha256": "c4b28dda7466d9924d8e0b752170679ae82377856abb50f488bd3ffade1f0450"
+    },
+    {
+      "name": "CompTarget_fapp1_func",
+      "ordinal": 2033,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "32752162ecd020449999007f442939860ca7d5605a37fc3f433c82e783384c3c"
+    },
+    {
+      "name": "CompMotive_catd",
+      "ordinal": 2034,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "8c729b09fb733b80e2d9d45cd00c6fc0facfb7c6f98f55e215f1c4f0348951ab"
+    },
+    {
+      "name": "path_comp_sec",
+      "ordinal": 2045,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "4369b0513a7dc2b0139e5ca3369996b6fe9c06d4964458f83efe48bd9727fd8d"
+    },
+    {
+      "name": "path_comp_func",
+      "ordinal": 2046,
+      "modifiers": [],
+      "hasBody": true,
+      "sha256": "de3b639cbec20eadcef11428582cf162b031a2ec9dc537381ec06cd0d95c35c2"
+    }
+  ],
+  "horizontal": {
+    "ordinal": 965,
+    "sha256": "1990c9489781c45c2e96b48ef74960b595de121737689fba42b2d59bec89c42c",
+    "canonicalCommand": "rule @strict_transfor _ _ _ _\n     (@comp_prod_fapp1_fapp0 Cat_cart $A $B $C (Struct_sigma $F $G)\n      (Struct_sigma $F' $G') (Struct_sigma $U $V)) ↪ @comp_prod_fapp1_fapp0\n                                                     Cat_cat $A $B $C\n                                                     (Struct_sigma $F $G)\n                                                     (Struct_sigma $F' $G')\n                                                     (Struct_sigma\n                                                      (@strict_transfor $A $B\n                                                       $F $F' $U)\n                                                      (@strict_transfor $B $C\n                                                       $G $G' $V));"
+  }
+}

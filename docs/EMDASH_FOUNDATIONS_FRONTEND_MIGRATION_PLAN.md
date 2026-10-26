@@ -489,6 +489,15 @@ The full Homd P-index endpoint and broader integration remain required.
 
 ## Constraints
 
+The [transitivity/whiskering continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transitivity_review.md)
+migrates the five native definitions and qualifies their actual composition
+observations. The checked native `id_funcd` body removes the need for the old
+compound local support rule. Identity is shared earlier with its old Core
+name. The displayed-whiskering point/higher consumer also passes after its
+horizontal-view pattern follows the native inferred slots. Historical scope
+records distinguish relocated prerequisites from local declarations. Remaining
+source/text reviews, higher-action consumers and final integration stay open.
+
 The [general-FF endpoint continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_relative_review.md)
 now computes the actual typed relative root through its whole section and
 y/v/f ladder to `Hom_E[y](E[f](u),FF[y](v))`. It imports the existing native

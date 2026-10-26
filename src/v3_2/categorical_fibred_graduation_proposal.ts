@@ -438,9 +438,11 @@ const actualTransferRows = () => [
     },
     {
         id: 'fibred-structure',
+        // Preserve the representative operation scope: generic id now precedes
+        // its first actual definition consumer but belongs to the shared prerequisite.
         declarationSlots:
-            CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_BOUNDARY
-                .declarationCount,
+            CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_BOUNDARY.declarationCount -
+            CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_BOUNDARY.relocatedPrerequisiteDeclarationNames.length,
         runtimeRuleSlots:
             CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_BOUNDARY
                 .runtimeRuleCount,
@@ -479,8 +481,8 @@ const actualTransferRows = () => [
     {
         id: 'displayed-transfor',
         declarationSlots:
-            CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
-                .declarationCount,
+            CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY.declarationCount +
+            CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY.inheritedDeclarationNames.length,
         runtimeRuleSlots:
             CORE_CATEGORICAL_FIBRED_TRANSFD_TRANSFER_BOUNDARY
                 .runtimeRuleCount,

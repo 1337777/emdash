@@ -42,6 +42,15 @@ a fork; discover its archive directory rather than reusing that session ID.
 
 ## Current execution contract
 
+Transitivity and displayed-whiskering frontend continuation, 2026-10-26: the
+[native consumer repair](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transitivity_review.md)
+checks the actual displayed identity definition, removes transitivity's old
+compound local rule, and repairs horizontal-view inferred-slot matching.
+The retained transitivity observations/negatives and displayed point/higher
+consumers pass at focused scope with native counterparts. Other frontend,
+source-review and production-health integration remains required; no new
+complete aggregate result or overall completion is claimed.
+
 General-FF frontend endpoint, 2026-10-26: the
 [relative Homd continuation](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_relative_review.md)
 computes the actual typed relative root through the whole section and y/v/f

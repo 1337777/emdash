@@ -12,7 +12,8 @@ import {
     CoreCategoricalProgram,
     CoreCategoricalProgramError,
     CoreCategoricalTerm,
-    CoreLfComparisonResult
+    CoreLfComparisonResult,
+    serializeKernelExpression
 } from '../src/v3_2';
 
 const runtimeRuleIds = (
@@ -310,7 +311,8 @@ describe('D-058/061 direct contextual displayed-natural whiskering', () => {
             expectedPostPoint,
             60_000
         );
-        assert.equal(postComparison.status, 'equal');
+        assert.equal(postComparison.status, 'equal',postComparison.status==='not-equal'
+            ?serializeKernelExpression(postComparison.normalizedLeft)+'\nvs\n'+serializeKernelExpression(postComparison.normalizedRight):postComparison.status);
         assert.equal(
             runtimeRuleIds(postComparison).includes(
                 'categorical.transfd.horizontal-component'

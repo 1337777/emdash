@@ -50,6 +50,7 @@ import {
     CoreLfTransferScopedBuilder,
     coreLfQualifiedSymbol,
     coreLfTransferAbsentBody,
+    coreLfTransferExplicitBody,
     createCoreLfModuleSpec,
     createCoreLfTransferPolicyOverlay
 } from './lf_transfer';
@@ -76,7 +77,12 @@ import {
     validateCoreLfScaleEngineReview
 } from './scale_engine_review';
 
+import { CORE_LF_SCALE_STRESS_3A2A_MODULE } from './scale_stress_3a2a_representation';
+
 const MODULE_ID = 'emdash.emdash3_2';
+const identityDeclaration = CORE_LF_SCALE_STRESS_3A2A_MODULE.declarations.find(d=>d.symbol.name==='id');
+if(identityDeclaration===undefined) throw new Error('SCALE-STRESS-3A2A no longer exposes the native id declaration');
+const nativeIdentity = identityDeclaration;
 
 export const CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_REVISION =
     'FIBRED-STRUCTURE-1A-FIXED-BASE-UNIVERSAL-PROPERTY-1' as const;
@@ -872,6 +878,13 @@ const displayedPairType = (): CoreLfTransferExpression => {
     ));
 };
 
+const displayedIdentityBody = (): CoreLfTransferExpression => {
+    const b=new CoreLfTransferScopedBuilder();
+    return b.term(b.lam('K',b.global(category),K=>b.lam('E',displayedFamilyType(b,K),E=>
+        globalCall(b,nativeIdentity.symbol,[{plicity:'explicit',value:displayedCategoryAt(b,K)},
+            {plicity:'explicit',value:E}]),implicitMode),implicitMode));
+};
+
 const declarations: readonly CoreLfTransferDeclaration[] = [
     {
         order: 0,
@@ -893,11 +906,12 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
             'symbol hom_precomp_along_fapp0 [A B : Cat]'
         )
     },
+    {...nativeIdentity,order:2},
     {
-        order: 2,
+        order: 3,
         symbol: displayedIdentity,
         type: displayedIdentityType(),
-        body: coreLfTransferAbsentBody(),
+        body: coreLfTransferExplicitBody(displayedIdentityBody()),
         modifiers: publicModifiers('ordinary', 'transparent'),
         provenance: source(
             'symbol id_funcd [K : Cat] [E : τ (Catd K)]'
@@ -933,7 +947,7 @@ const declarations: readonly CoreLfTransferDeclaration[] = [
             'injective symbol Product_pair_funcd [K : Cat]'
         )
     }
-];
+].map((d,order)=>({...d,order}));
 
 export const CORE_CATEGORICAL_FIBRED_STRUCTURE_TRANSFER_MODULE:
 CoreLfModuleSpec = createCoreLfModuleSpec({
@@ -991,7 +1005,7 @@ CoreLfTransferPolicyOverlay = createCoreLfTransferPolicyOverlay(
                 kind: 'declaration' as const,
                 symbol: declaration.symbol
             },
-            policy: 'opaque-signature' as const,
+            policy: declaration.symbol===displayedIdentity ? 'checked-transparent-definition' as const : 'opaque-signature' as const,
             evidence: newOwnerNames.has(declaration.symbol.name)
                 ? 'Exact injective mathematical owner approved by ' +
                     'D-DTTLF-USABILITY-006'
@@ -1050,9 +1064,8 @@ CoreLfTransferDeclarationLinkage =
                     order: externalSymbols.length + index,
                     symbol: declaration.symbol,
                     kind: 'free-declaration' as const,
-                    coreName:
-                        `emdash_v3_2_fibred_structure_1a_` +
-                        declaration.symbol.name,
+                    coreName: declaration.symbol.name==='id' ? 'emdash_v3_2_scale_stress_3a2a_id'
+                        : `emdash_v3_2_fibred_structure_1a_` + declaration.symbol.name,
                     backendName: declaration.symbol.name
                 }))
             ]
@@ -1946,8 +1959,9 @@ Object.freeze({
         'transparent-uncurry-product-pair-composite',
     newMathematicalOwnerCount: 3,
     newKernelDeclarationCount: 3,
-    existingPrerequisiteDeclarationCount: 3,
+    existingPrerequisiteDeclarationCount: 4,
     declarationCount: declarations.length,
+    relocatedPrerequisiteDeclarationNames: Object.freeze(['id']),
     newOwnerNames: Object.freeze([
         'Product_projL_funcd',
         'Product_projR_funcd',
@@ -1956,6 +1970,7 @@ Object.freeze({
     prerequisiteDeclarationNames: Object.freeze([
         'comp_cat_con_cart_func',
         'hom_precomp_along_fapp0',
+        'id',
         'id_funcd'
     ]),
     newRuntimeRuleCount: newRuleIds.length,

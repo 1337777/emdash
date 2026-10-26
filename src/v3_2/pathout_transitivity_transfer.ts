@@ -1,7 +1,7 @@
 /**
  * PATHOUT-LIBRARY-TRANSITIVITY-1E root-only derived-library transfer.
  *
- * Exact local boundary: no opaque declaration, one derived runtime support,
+ * Exact local boundary: no opaque declaration or local runtime support,
  * no local proof rule, and five checked transparent definitions over
  * already-qualified providers. One existing Sigma/Pi proof provider is
  * rechecked lazily against the final environment. The active source's
@@ -82,9 +82,6 @@ import {
     CORE_PATHOUT_FOUNDATION_SOURCE_SHA256
 } from './pathout_foundation_transfer';
 import {
-    CORE_PATHOUT_TRANSITIVITY_1E_CONSUMER_PARENT_SUPPORT_RULE_ID
-} from './pathout_transitivity_proposal_v4';
-import {
     validateCorePathoutTransitivity1eReviewV4
 } from './pathout_transitivity_review_v4';
 
@@ -102,8 +99,8 @@ const homClassifier =
     coreDirectedContinuationTransferSymbol('hom-classifier');
 const functorClassifier =
     coreDirectedContinuationTransferSymbol('functor-classifier');
-const categoryOfCategories =
-    coreDirectedContinuationTransferSymbol('category-of-categories');
+const familyCoefficient =
+    coreDirectedContinuationTransferSymbol('cartesian-category-coefficient');
 const displayedCategoryCategory =
     coreDirectedContinuationTransferSymbol('displayed-category-category');
 const displayedFunctorCategory =
@@ -124,6 +121,7 @@ const displayedFamilyClassifier = symbol('Catd');
 const displayedFunctorClassifier = symbol('Functord');
 const oppositeCategory = symbol('Op_cat');
 const sigmaProjectionPullback = symbol('Sigma_proj1_pullback_catd');
+const strictTransforView = symbol('strict_transfor');
 
 const {
     contravariantRepresentable
@@ -318,7 +316,7 @@ const componentAt = (
         { plicity: 'implicit', value: base },
         {
             plicity: 'implicit',
-            value: builder.global(categoryOfCategories)
+            value: builder.global(familyCoefficient)
         },
         { plicity: 'implicit', value: sourceFamily },
         { plicity: 'implicit', value: targetFamily },
@@ -552,7 +550,7 @@ const compositionTargetActionBody = (): CoreLfTransferExpression => {
                         p => functorHomCappedAt(
                             builder,
                             Z,
-                            builder.global(categoryOfCategories),
+                            builder.global(familyCoefficient),
                             compositionTargetFamilyAt(builder, Z, x),
                             a,
                             b,
@@ -639,7 +637,12 @@ const pathCompositionSectionBody = (): CoreLfTransferExpression => {
         Z => builder.lam(
             'x',
             objectType(builder, Z),
-            x => fibreCovariantTransformationAt(
+            x => globalCall(builder,strictTransforView,[
+                {plicity:'implicit',value:Z},
+                {plicity:'implicit',value:builder.global(familyCoefficient)},
+                {plicity:'implicit',value:representableFamilyAt(builder,Z,x)},
+                {plicity:'implicit',value:compositionTargetFamilyAt(builder,Z,x)},
+                {plicity:'explicit',value:fibreCovariantTransformationAt(
                 builder,
                 Z,
                 compositionTargetFamilyAt(builder, Z, x),
@@ -649,7 +652,8 @@ const pathCompositionSectionBody = (): CoreLfTransferExpression => {
                     Z,
                     representableFamilyAt(builder, Z, x)
                 )
-            ),
+            )}
+            ]),
             explicitMode
         ),
         implicitMode
@@ -719,72 +723,7 @@ const pathCompositionFunctorBody = (): CoreLfTransferExpression => {
     ));
 };
 
-const fixedSourceSelectedComponentConsumerParentFusionRule =
-(): CoreLfTransferRuntimeRule => {
-    const builder = new CoreLfTransferScopedBuilder();
-    const Z = builder.capture('Z');
-    const x = builder.capture('x');
-    const y = builder.capture('y');
-    const p = builder.capture('p');
-    const repX = representableFamilyAt(builder, Z, x);
-    const repY = representableFamilyAt(builder, Z, y);
-    return {
-        order: 0,
-        id: CORE_PATHOUT_TRANSITIVITY_1E_CONSUMER_PARENT_SUPPORT_RULE_ID,
-        groupId: 'pathout.transitivity.runtime-local-support',
-        clauseOrder: 0,
-        sourceOwner: functorObject,
-        variables: [
-            {
-                name: 'Z',
-                type: builder.template(builder.global(category))
-            },
-            {
-                name: 'x',
-                type: builder.template(objectType(builder, Z))
-            },
-            {
-                name: 'y',
-                type: builder.template(objectType(builder, Z))
-            },
-            {
-                name: 'p',
-                type: builder.template(homType(builder, Z, x, y))
-            }
-        ],
-        left: builder.pattern(functorObjectAt(
-            builder,
-            homCategoryAt(builder, Z, x, y),
-            displayedFunctorCategoryAt(builder, Z, repY, repX),
-            componentAt(
-                builder,
-                Z,
-                repX,
-                compositionTargetFamilyAt(builder, Z, x),
-                y,
-                pathCompositionSectionAt(builder, Z, x)
-            ),
-            p
-        )),
-        right: builder.template(pathCompositionFunctorAt(
-            builder,
-            Z,
-            x,
-            y,
-            p
-        )),
-        provenance: source(
-            'derived transitivity original selected-component ' +
-            'complete consumer-parent presentation fusion ' +
-            'from active lines 5484-5497, ' +
-            '7955-7972, 8445-8453, 19363-19413, and 19687-19710'
-        )
-    };
-};
-
-const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([
-    fixedSourceSelectedComponentConsumerParentFusionRule()
-]);
+const runtimeRules: readonly CoreLfTransferRuntimeRule[] = Object.freeze([]);
 
 const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
     Object.freeze({
@@ -832,12 +771,13 @@ const declarations: readonly CoreLfTransferDeclaration[] = Object.freeze([
 ]);
 
 const externalSymbols = Object.freeze([
+    strictTransforView,
     category,
     decodeOwner,
     objectClassifier,
     homClassifier,
     functorClassifier,
-    categoryOfCategories,
+    familyCoefficient,
     displayedCategoryCategory,
     displayedFunctorCategory,
     displayedFamilyClassifier,
@@ -1040,15 +980,15 @@ export function assertCorePathoutTransitivityOrdinaryLibraryCapability(
 
 export const CORE_PATHOUT_TRANSITIVITY_1E_BOUNDARY = Object.freeze({
     revision: CORE_PATHOUT_TRANSITIVITY_1E_REVISION,
-    reviewedAuthorization:
-        'PATHOUT-LIBRARY-TRANSITIVITY-1E-REVIEWED-4',
+    reviewedAuthorization: 'STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2',
+    historicalReviewedAuthorization: 'PATHOUT-LIBRARY-TRANSITIVITY-1E-REVIEWED-4',
     proposalCheckpoint: '2498053',
     proposalSha256:
         '820df96e9a0b889172c2e74fbcdc77cd16329dcaf36105d3c53076807e76394b',
     reviewCheckpoint: 'fc9a323',
     reviewSha256:
         '9d37f7fd66c2fb61ce9ebf1dc1c7f5b83ba7558e0457f78252eb8dacb14a48aa',
-    exactBoundary: '0/1/0/5',
+    exactBoundary: '0/0/0/5',
     trustedDeclarationNames: Object.freeze([] as string[]),
     runtimeRuleIds: Object.freeze(runtimeRules.map(rule => rule.id)),
     proofRuleIds: Object.freeze([] as string[]),
@@ -1076,9 +1016,9 @@ export const CORE_PATHOUT_TRANSITIVITY_1E_BOUNDARY = Object.freeze({
         'PathOut_cat',
         'Sigma_proj1_pullback_catd',
         'fib_cov_transf',
-        'id_funcd'
+        'id_funcd', 'strict_transfor'
     ]),
-    requiredExistingProviderCount: 11,
+    requiredExistingProviderCount: 12,
     typedLibraryConsumerCount: 2,
     selectedDefinitionalObservationCount: 8,
     selectedRuntimeDefinitionalObservationCount: 7,
@@ -1098,15 +1038,15 @@ export const CORE_PATHOUT_TRANSITIVITY_1E_BOUNDARY = Object.freeze({
     genericComparisonDelta: 0,
     activeLambdapiOwnerDelta: 0,
     activeLambdapiRuleDelta: 0,
-    localSupportRuleCompilesAfterFiveDefinitions: true,
-    localSupportRuleIsCompleteParent: true,
+    localSupportRuleCompilesAfterFiveDefinitions: false,
+    localSupportRuleIsCompleteParent: false,
     v2PreDeltaLocalSupportRetained: false,
     v3StablePostCompTargetDeltaLocalSupportRetained: false,
-    v4OriginalConsumerParentLocalSupportSelected: true,
-    localSupportRuleMatchesBeforeDescendantDelta: true,
-    localSupportRuleMustSubjectCheck: true,
+    v4OriginalConsumerParentLocalSupportSelected: false,
+    localSupportRuleMatchesBeforeDescendantDelta: false,
+    localSupportRuleMustSubjectCheck: false,
     broadHomConRuntimeImportIncluded: false,
-    wholeDisplayedIdentityDeltaIncluded: false,
+    wholeDisplayedIdentityDeltaIncluded: true,
     wholeRepresentableFamilyDeltaIncluded: false,
     runtimePiToFunctordCollapseIncluded: false,
     inheritedProofRecheckedAgainstFinalEnvironment: true,

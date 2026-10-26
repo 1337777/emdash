@@ -4,6 +4,14 @@ Date: 2026-10-25 (UTC)
 Plan-ID: STRICT-FUNCTOR-DUALITY-FOUNDATIONS-V3.2
 Status: active integration; complete source/reviewer/central scopes qualified and promoted; production health, frontend/source pins and final integration remain open
 
+Transitivity/whiskering continuation, 2026-10-26: the
+[focused migration](../emdash2/audits/strict-default-action-boundary/foundation_frontend_transitivity_review.md)
+closes the recorded transitivity computation and direct displayed-whiskering
+point/higher failures. `id_funcd` has its actual checked body; its shared
+identity prerequisite retains its Core name. The old local transitivity rule
+is removed. Native conformance and existing negative controls are retained.
+The full aggregate and remaining source/text/health boundaries remain open.
+
 General-FF endpoint continuation, 2026-10-26: the
 [actual typed relative Homd consumer](../emdash2/audits/strict-default-action-boundary/foundation_frontend_homd_relative_review.md)
 now joins the public presheaf and its fibre-Hom value. FF remains lax; a strict
